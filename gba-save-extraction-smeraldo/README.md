@@ -6,7 +6,9 @@ Riparare la tasca oggetti corrotta su una cartuccia originale di Pokemon Smerald
 
 Il documento di riferimento e' `handoff/HANDOFF_progetto_smeraldo.md`: contiene il problema di partenza, la strada dell'Action Replay e le ragioni per cui e' stata chiusa, la pipeline attiva basata su GBxCart RW e FlashGBX, le scelte di hardware e software con le loro motivazioni, la sequenza di setup su Windows, il dettaglio dello step corrente sui driver CH340 e l'elenco esplicito di cio' che non e' ancora stato fatto.
 
-In `tools/emerald_bag_decode.py` c'e' lo strumento di diagnosi, che si usa appena esiste un dump. Non scrive nulla sul salvataggio: valida firma e checksum di ogni sezione, sceglie lo slot piu' recente, ricompone il blocco di salvataggio, smaschera le quantita' dello zaino e riferisce le anomalie che sa riconoscere.
+In `tools/emerald_bag_decode.py` c'e' lo strumento di diagnosi, che si usa appena esiste un dump. Non scrive nulla sul salvataggio: valida firma e checksum di ogni sezione, sceglie lo slot piu' recente, ricompone il blocco di salvataggio, identifica il gioco confrontando le prove di tre candidati, smaschera le quantita' dello zaino e riferisce le anomalie che sa riconoscere.
+
+L'identificazione del gioco esiste per una ragione trovata in una discussione di Project Pokemon: un editor che identifica un salvataggio di Smeraldo come Rubino o Zaffiro fa finire gli oggetti negli slot sbagliati, perche' applica la maschera sbagliata. Lo strumento quindi non si fida del parametro `--game` e per default lo deduce, stampando le prove di tutti i candidati.
 
 ## Il fatto tecnico che cambia la diagnosi
 

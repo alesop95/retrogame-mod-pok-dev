@@ -90,6 +90,7 @@ Codice che funziona sul campo. Va letto come prova di fattibilita' e come repert
 | PkSploit | https://github.com/binarycounter/PkSploit | esecuzione di codice su Gen 1 da un Arduino che si finge un Game Boy sul cavo, con dump della ROM e lettura e scrittura della SRAM in circa 192 byte di payload; licenza MIT | BRI |
 | Phasip/PokemonLinkHack | https://github.com/Phasip/PokemonLinkHack | variante indipendente della stessa tecnica di esecuzione di codice dal cavo | BRI |
 | pokerom-trader | https://github.com/savaughn/pokerom-trader | scambio fra due file di salvataggio Gen 1 e Gen 2 su PC, in C con la libreria PKSav, con ricalcolo dei checksum | BRI |
+| CableClub | https://github.com/CableClub | quattro repository, di cui `cable-link` porta hardware e firmware per il cavo Link GB e GBA: e' il riferimento piu' vicino all'opzione D di ADR-008, e viene da un gruppo che ha completato scambi fra Game Boy reali attraverso internet | BRI |
 | arduino-poke-gen2 | https://github.com/stevenchaulk/arduino-poke-gen2 | protocollo seriale Gen 2 su microcontrollore, riferimento per l'opzione D di ADR-008 | BRI |
 | MrCheeze/pokestadium-ace | https://github.com/MrCheeze/pokestadium-ace | esecuzione di codice arbitrario su Pokemon Stadium, prior art sulle tecniche | BRI |
 | Goppier/GEN3PokemonDistributions | https://github.com/Goppier/GEN3PokemonDistributions | dati di distribuzione Gen 3 dell'autore del primo ponte fra Gen 2 e Gen 3 | BRI |
@@ -142,7 +143,9 @@ Ottimi per capire il ragionamento e il contesto, non citabili per un offset.
 
 ## Canali e video
 
-Chiedere esplicitamente di battere questo terreno e' stata una buona idea, perche' alcuni di questi canali sono l'unica documentazione esistente di certe tecniche: gli autori pubblicano in video cio' che non hanno mai scritto. Il limite e' l'ovvio, e va tenuto presente: un video non e' citabile per un offset, non e' diffabile, e nessuno di questi e' stato guardato in questa sessione, perche' YouTube restituisce agli strumenti automatici una pagina di consenso invece del contenuto. Cio' che ne emerge va verificato e poi scritto nel documento tecnico.
+Chiedere esplicitamente di battere questo terreno e' stata una buona idea, perche' alcuni di questi canali sono l'unica documentazione esistente di certe tecniche: gli autori pubblicano in video cio' che non hanno mai scritto. Il limite e' l'ovvio, e va tenuto presente: un video non e' citabile per un offset e non e' diffabile.
+
+Nessuno di questi e' stato guardato, e la via di recupero e' stata cercata e trovata chiusa. La pagina del video si scarica con `curl` locale e contiene il riferimento alla traccia dei sottotitoli automatici, ma l'endpoint che la serve restituisce zero byte a qualunque richiesta che non venga dal lettore vero, con o senza i parametri di formato. La via che funziona e' `yt-dlp`, che gestisce il token di origine, e richiede di installare un pacchetto sulla macchina: e' una decisione dell'utente e non e' stata presa. Fino ad allora questi canali sono identificati, non consultati.
 
 | Canale o video | URL | Perche' conta | Track |
 |---|---|---|---|
@@ -172,11 +175,11 @@ Rispondono a domande che non hanno una risposta scritta altrove. Una risposta in
 | Glitch City Research Institute, Discord | https://discord.com/invite/EA7jxJ6 | glitch ed esecuzione di codice in Gen 1 e 2 | BRI |
 | GBAdev, Discord | https://discord.gg/ctGSNxRkg2 | sviluppo homebrew GBA e toolchain | BRI |
 | Hex Maniac Advance, Discord | https://discord.com/invite/x9eQuBg | editing di ROM GBA | BRI, SME |
-| Project Pokemon, protocollo Link Gen 1 | https://projectpokemon.org/home/forums/topic/58858-generation-1-link-protocol/ | discussione tecnica sul protocollo seriale | BRI |
-| Project Pokemon, salvataggio Smeraldo corrotto | https://projectpokemon.org/home/forums/topic/61118-pok%C3%A9mon-emerald-gba-corrupt-save-file/ | casi reali di corruzione e tentativi di recupero | SME |
-| Project Pokemon, oggetti nella tasca sbagliata | https://projectpokemon.org/home/forums/topic/64794-pokemon-emerald-items-are-in-the-right-bag-using-the-app-but-when-i-load-it-into-a-cartridge-they-go-in-the-wrong-slots/ | sintomo vicino a quello del track Smeraldo, con la discussione delle cause | SME |
+| Project Pokemon, protocollo Link Gen 1 | https://projectpokemon.org/home/forums/topic/58858-generation-1-link-protocol/ | letto: un gruppo ha costruito un dispositivo che fa da sorgente di clock per il protocollo, ha collaudato su BGB e ha completato scambi via internet fra due Game Boy reali nel 2021; da qui viene la scoperta dell'organizzazione CableClub | BRI |
+| Project Pokemon, salvataggio Smeraldo corrotto | https://projectpokemon.org/home/forums/topic/61118-pok%C3%A9mon-emerald-gba-corrupt-save-file/ | letto: su cartuccia contraffatta entrambi gli slot contenevano un salvataggio d'inizio partita e i dati non erano corrotti ma assenti; insegna a distinguere corruzione da perdita, e che la dimensione dichiarata al software di dump cambia cio' che si legge | SME |
+| Project Pokemon, oggetti nella tasca sbagliata | https://projectpokemon.org/home/forums/topic/64794-pokemon-emerald-items-are-in-the-right-bag-using-the-app-but-when-i-load-it-into-a-cartridge-they-go-in-the-wrong-slots/ | letto, ed e' la fonte piu' utile del livello 5: un editor aveva identificato un salvataggio di Smeraldo come Rubino o Zaffiro, e gli oggetti sono finiti negli slot sbagliati. Da qui il rilevamento automatico del gioco in `emerald_bag_decode.py` | SME |
 | PokeCommunity, problema grave dello zaino in Smeraldo | https://www.pokecommunity.com/showthread.php?p=8992088 | discussione su uno zaino corrotto da codici trucco | SME |
-| GBAtemp, salvataggio Smeraldo non scrivibile | https://gbatemp.net/threads/save-failed-on-real-pokemon-emerald.645336/ | fallimenti di scrittura su cartuccia originale | SME |
+| GBAtemp, salvataggio Smeraldo non scrivibile | https://gbatemp.net/threads/save-failed-on-real-pokemon-emerald.645336/ | fallimenti di scrittura su cartuccia originale; non letto, GBAtemp risponde 403 al recupero automatico | SME |
 | GBAtemp, scrittura su cartuccia senza batteria | https://gbatemp.net/threads/gba-unlicensed-batteryless-sram-cart-pokemon-emerald-save-writing-issues.681601/ | perche' una scrittura riuscita a video puo' non restare | SME |
 | GBAtemp, LDN3 su console modificata | https://gbatemp.net/threads/ryujinx-adds-ldn3-feature-allowing-emulator-users-to-play-online-with-cfw-switch-consoles.622169/ | esperienze di campo sul ponte fra emulatore e console | LDN |
 | GBAtemp, scambio senza fili su Gen 1 e 2 | https://gbatemp.net/threads/mission-wireless-trading-on-gen1-and-gen2-pokemon-games.632492/ | tentativi comunitari di sostituire il cavo | BRI |
@@ -202,7 +205,7 @@ Queste erano gia' citate dentro i rispettivi handoff e le riporto qui nella part
 
 Un registro elenca cio' che esiste, non cio' che e' stato consultato, e la differenza va dichiarata perche' altrimenti l'ampiezza dell'elenco si scambia per profondita' della verifica. L'inventario completo delle verifiche, con il file di sorgente che ha risposto a ciascuna domanda, sta in `docs/23-prove-eseguite.md`; qui basta la sintesi per livello.
 
-Del livello 1 sono stati clonati e cercati nel codice sei repository, cioe' i tre disassemblati `pokered`, `pokecrystal` e `pokeemerald`, piu' il PCCS, Poke Transporter GB e Pokemon-Gen3-to-Gen-X. Pan Docs e GBATEK sono stati letti nelle pagine sul trasferimento seriale e sul multiboot, non integralmente. Gli altri repository del livello 1 sono catalogati e non aperti.
+Del livello 1 sono stati clonati e cercati nel codice sei repository, cioe' i tre disassemblati `pokered`, `pokecrystal` e `pokeemerald`, piu' il PCCS, Poke Transporter GB e Pokemon-Gen3-to-Gen-X. Pan Docs e GBATEK non sono stati letti, e va corretta un'affermazione precedente di questa stessa sezione che diceva il contrario: la loro esistenza e il loro ambito sono stati confermati dai risultati di ricerca, nessuna delle due pagine e' stata aperta, e nessuna affermazione tecnica del progetto poggia su di esse. Gli altri repository del livello 1 sono catalogati e non aperti.
 
 Del livello 2 sono state lette le sedici pagine enciclopediche elencate, ed e' il livello che ha prodotto le quattro affermazioni sbagliate descritte piu' sopra. Del livello 3 sono stati letti i sorgenti di sei progetti, mentre gli editor e le librerie come `PKHeX`, `PKSav`, `HexManiacAdvance` e `FlashGBX` sono catalogati e non eseguiti: nessuno di essi e' stato lanciato, per la ragione semplice che non esiste ancora un salvataggio reale su cui lanciarli. Il confronto dell'interpretazione dei campi con `PKHeX` e' il prossimo controllo in ordine di convenienza, ed e' registrato come tale.
 

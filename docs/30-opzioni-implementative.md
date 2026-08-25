@@ -36,6 +36,8 @@ L'opzione C e' riprodurre il ponte hardware da zero, con la propria implementazi
 
 L'opzione D e' un dispositivo intermedio su microcontrollore che parla il protocollo seriale del Game Boy da un lato e comunica con un computer dall'altro. Il precedente piu' vicino e' `PkSploit`, che con un Arduino ottiene lettura e scrittura della SRAM passando dal cavo, e questa opzione ha una proprieta' interessante: eliminerebbe la necessita' di un lettore di cartucce, perche' il canale di accesso diventa il connettore del cavo.
 
+A questa opzione si e' aggiunto un riferimento trovato leggendo una discussione che era rimasta fra le fonti non lette, ed e' un buon argomento contro il lasciarne indietro. L'organizzazione `CableClub` pubblica quattro repository, fra cui `cable-link`, che porta hardware e firmware per il cavo Link di Game Boy e Game Boy Advance: viene da un gruppo che ha costruito un dispositivo capace di fare da sorgente di clock per il protocollo, lo ha collaudato su BGB e ha completato scambi fra due Game Boy reali attraverso internet. E' il precedente piu' avanzato che il progetto conosca per l'opzione D, e va letto prima di scrivere una riga di firmware.
+
 ## Come le tre novita' di quest'anno spostano il calcolo
 
 La stratificazione descritta in [[20-architettura-codice]] mostra che gli strati dal primo al quarto sono identici in tutte e quattro le opzioni. Cambia solo il quinto, il trasporto. Questo e' il primo fatto che sposta il calcolo, e sposta anche l'ordine: non c'e' motivo di attendere la decisione per cominciare, perche' la maggior parte del lavoro non dipende da essa.
