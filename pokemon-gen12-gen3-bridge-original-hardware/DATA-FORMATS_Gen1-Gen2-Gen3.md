@@ -1,5 +1,5 @@
 ---
-generated-from-commit: e0ed286
+generated-from-commit: d08a011
 generated-from-branch: main
 generated-date: 2026-08-25
 covers-paths:

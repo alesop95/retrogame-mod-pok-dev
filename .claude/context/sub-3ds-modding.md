@@ -1,10 +1,10 @@
 ---
-generated-from-commit: d1e1a3a
+generated-from-commit: d08a011
 generated-from-branch: main
 generated-date: 2026-08-24
 covers-paths:
   - 3ds-related/
-last-verified-commit: effc2e0
+last-verified-commit: d08a011
 stato: attivo
 ---
 

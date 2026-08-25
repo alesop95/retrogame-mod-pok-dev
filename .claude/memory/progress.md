@@ -26,6 +26,14 @@ Seconda passata di bonifica, che ha trovato cio' che la prima aveva mancato: due
 
 Bonificati sei file tracciati dalla circostanza personale su Bank e Transporter, che non ha ragione di stare in un repository pubblico: il limite operativo resta dichiarato, la motivazione e' passata in `_notes/`, che il `.gitignore` esclude. Registrato ADR-014, con il caveat che il testo resta nella storia git gia' pubblicata e che rimuoverlo davvero richiede una riscrittura della storia.
 
+## 2026-08-25 Storia git collassata in un commit radice unico
+
+Eseguita la riscrittura decisa in ADR-014. La storia precedente, sette commit da `d1e1a3a` a `9296c2c`, e' stata collassata in un unico commit radice, `d08a011`, generato dall'albero gia' bonificato. Il metodo e' stato scelto per verificabilita': con un commit solo, la prova che nulla di sensibile sia rimasto e' una ricerca su `HEAD`, mentre una sostituzione di testo commit per commit avrebbe richiesto espressioni regolari capaci di funzionare anche sulle versioni precedenti alla normalizzazione Markdown, dove l'a capo dei paragrafi era diverso. Prima della riscrittura e' stato prodotto un bundle di tutta la storia fuori dal repository, come rete di sicurezza.
+
+Conseguenza da conoscere: gli hash citati nelle voci di diario e negli ADR precedenti a questa data non risolvono piu'. Sono stati lasciati come sono, perche' descrivono correttamente cio' che era vero quando sono stati scritti e questo file e' append-only; `memory/index.md` lo dichiara esplicitamente. Sono state invece ri-ancorate a `d08a011` tutte le schede di `context/`, la referenza del formato dati e la tabella di verifica dell'indice, perche' quelli sono puntatori e non narrazione.
+
+Il repository pubblico e' stato mantenuto invece di essere ricreato: dopo il push forzato i vecchi commit non sono raggiungibili da alcun ramo e restano accessibili solo a chi possieda gia' il loro hash completo, fino al passaggio del garbage collector di GitHub. E' una scelta consapevole, registrata qui perche' e' l'unico residuo noto della bonifica.
+
 ## 2026-08-24 Il quarto track prende forma: trading LDN
 
 Aggiunto `gba-switch-pokemon-trading/HANDOFF_frlg-ldn-trade.md`, quattrocentoquarantanove righe, che dota di un obiettivo il sottoprogetto fino a ieri dichiarato non iniziato: trading di Pokemon fra un PC Linux e una Nintendo Switch attraverso il protocollo wireless locale LDN, su FireRed e LeafGreen.

@@ -8,7 +8,7 @@ Questo progetto ha piu' sottoprogetti paralleli, quindi il punto di ripresa e' u
 
 ```
 Branch attivo:         main
-Commit di riferimento: effc2e0
+Commit di riferimento: d08a011
 Data snapshot:         2026-08-25
 ```
 
@@ -16,16 +16,16 @@ Data snapshot:         2026-08-25
 
 | Scheda | Sottoprogetto | last-verified | Stato |
 |---|---|---|---|
-| STACK.md | trasversale | effc2e0 | aggiornata |
-| design-and-security.md | trasversale | effc2e0 | aggiornata |
-| deployment.md | trasversale | effc2e0 | non applicabile |
-| dev-testing.md | trasversale | effc2e0 | aggiornata |
-| current-work.md | trasversale | effc2e0 | aggiornata |
-| roadmap.md | trasversale | effc2e0 | aggiornata |
-| sub-3ds-modding.md | 3ds-related | effc2e0 | aggiornata |
-| sub-smeraldo-save-fix.md | gba-save-extraction-smeraldo | effc2e0 | aggiornata |
-| sub-gen12-gen3-bridge.md | pokemon-gen12-gen3-bridge | effc2e0 | aggiornata |
-| sub-gba-switch-trading.md | gba-switch-pokemon-trading | effc2e0 | aggiornata |
+| STACK.md | trasversale | d08a011 | aggiornata |
+| design-and-security.md | trasversale | d08a011 | aggiornata |
+| deployment.md | trasversale | d08a011 | non applicabile |
+| dev-testing.md | trasversale | d08a011 | aggiornata |
+| current-work.md | trasversale | d08a011 | aggiornata |
+| roadmap.md | trasversale | d08a011 | aggiornata |
+| sub-3ds-modding.md | 3ds-related | d08a011 | aggiornata |
+| sub-smeraldo-save-fix.md | gba-save-extraction-smeraldo | d08a011 | aggiornata |
+| sub-gen12-gen3-bridge.md | pokemon-gen12-gen3-bridge | d08a011 | aggiornata |
+| sub-gba-switch-trading.md | gba-switch-pokemon-trading | d08a011 | aggiornata |
 
 ## Punto di ripresa
 
@@ -33,7 +33,7 @@ Data snapshot:         2026-08-25
 Fuoco corrente: gen12-gen3-bridge, formato dati verificato, si passa ai parser
 ```
 
-Adozione del sistema: conclusa. Tre commit sul remoto, schede ancorate e verificate a cdb09e2, sync report senza drift, convenzione Markdown conforme su tutto il repository. Non resta nulla da fare su questo fronte.
+Adozione del sistema: conclusa. La storia git e' stata collassata in un unico commit radice il 2026-08-25 per la bonifica di ADR-014, quindi tutte le schede sono ri-ancorate a `d08a011` e gli hash citati nelle voci di diario precedenti a quella data non risolvono piu'. Convenzione Markdown conforme su tutto il repository, nulla da fare su questo fronte.
 
 3ds-modding: dumpare le cinque cartucce DS rimanenti, Diamante, Perla, Platino, Nera 2 e SoulSilver, poi trasferire i file da `/gm9/out/` al PC. Nessun blocco.
 
