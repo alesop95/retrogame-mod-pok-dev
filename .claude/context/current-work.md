@@ -1,11 +1,11 @@
 ---
-generated-from-commit: d1e1a3a
+generated-from-commit: d08a011
 generated-from-branch: main
 generated-date: 2026-08-24
 covers-paths:
   - 3ds-related/
   - gba-save-extraction-smeraldo/
-last-verified-commit: effc2e0
+last-verified-commit: d08a011
 stato: adozione conclusa; in corso su 2 track di 4
 ---
 
@@ -33,7 +33,7 @@ Definition of done:
 - [x] bonifica pre-commit: quarantena, rinomine ASCII e ISO, deduplica, percorsi stale
 - [x] `git init`, identita' locale, remoto sull'alias SSH, `.gitignore` verificato con `check-ignore`
 - [x] anatomia canonica e schede verticali istanziate
-- [x] primo commit e primo push, manuali (d1e1a3a)
+- [x] primo commit e primo push, manuali (storia poi collassata, vedi ADR-014)
 - [x] ancoraggio con `sync-context`, secondo commit in consegna
 
 Domande aperte:
@@ -42,4 +42,4 @@ Il PDF che documenta il bug dell'inventario e' escluso dal version control per l
 
 ## Riconciliazione
 
-Ultima verifica: 2026-08-24 al commit d1e1a3a, sync report senza drift.
+Ultima verifica: 2026-08-25 al commit d08a011, dopo il collasso della storia.
