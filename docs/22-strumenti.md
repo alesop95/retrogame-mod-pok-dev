@@ -53,6 +53,14 @@ Ha due verifiche incrociate che valgono piu' del resto. La prima e' che il denar
 
 Sul lato Rosso Fuoco e Verde Foglia lo strumento e' onesto sui propri limiti: legge la chiave al suo offset e la riferisce, ma non pretende di elencare le tasche, perche' i loro offset non sono stati verificati sul disassemblato di quel gioco in questa revisione.
 
+## Il pacchetto pokebridge
+
+Non e' uno strumento ma la prima parte del software vero, e sta in `pokemon-gen12-gen3-bridge-original-hardware/pokebridge/`. Copre gli strati dal primo al terzo della stratificazione descritta in [[20-architettura-codice]], cioe' i dati generati, i modelli e i lettori e scrittori, per il solo lato Game Boy. Non ha dipendenze esterne.
+
+I primitivi stanno in `gb.py`, e sono il posto dove vive la conoscenza che non appartiene a una generazione sola: interi a 16 e 24 bit big-endian, scomposizione dei nibble dei DV con la derivazione del quinto, byte dei PP diviso sei piu' due bit, e il pattern di DV che in generazione 2 significa lucentezza. I lettori e scrittori stanno in `gen1.py` e `gen2.py`, uno per generazione perche' fra le due c'e' un riordino e non un'estensione. La transcodifica sta in `charmap.py`, che legge le tabelle generate e non contiene alcun valore scritto a mano.
+
+Le prove si lanciano con `python tests/run_tests.py` dalla cartella del sottoprogetto, usano solo `unittest` della libreria standard e oggi sono sessantatre. Vale la pena sapere che la prima esecuzione ne ha fatta fallire una, e che il difetto era nella prova e non nel codice: avevo scritto a mano il byte 0xA4 credendo fosse la lettera a, che invece e' 0xA0. La prova ora ricava i byte dalla tabella invece di dichiararli, ed e' la stessa lezione dello strumento qui sopra applicata ai test.
+
 ## Gli strumenti di infrastruttura
 
 Nella cartella `tools/` della radice ci sono i due strumenti che servono al repository e non ai giochi. Il primo, `md-unwrap.py`, attua la convenzione di formattazione Markdown del progetto, cioe' un paragrafo per riga sorgente, e ha una modalita' di sola verifica per il controllo prima di un commit.

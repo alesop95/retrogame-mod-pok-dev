@@ -88,13 +88,15 @@ Il salvataggio e' la SRAM[^2] della cartuccia, 32 KiB divisi in quattro banchi d
 |---|---|
 | 0x2598 | inizio dell'area coperta dal checksum principale |
 | 0x25A3 | nome del giocatore, 11 byte |
-| 0x2F2C | lista della squadra, 194 byte |
+| 0x2F2C | lista della squadra, 404 byte cioe' 0x194 |
 | 0x30C0 | box corrente, 1122 byte |
 | 0x3523 | checksum principale, 1 byte |
 | 0x4000 | box da 1 a 6, passo 0x462 |
 | 0x5A4C | checksum aggregato dei box del banco 2, seguito da 6 checksum singoli |
 | 0x6000 | box da 7 a 12, passo 0x462 |
 | 0x7A4C | checksum aggregato dei box del banco 3, seguito da 6 checksum singoli |
+
+Sulla dimensione della lista della squadra c'e' una trappola che vale segnalare, perche' l'ho trovata scrivendo il codice e non leggendo: la fonte secondaria riporta 194 byte, ma il conto dei campi da' 1 contatore piu' 7 di lista specie piu' sei strutture da 44 piu' due array di sei nomi da 11, cioe' 404 byte, che in esadecimale e' 0x194. La fonte ha letto la dimensione esadecimale come decimale. Il valore corretto e' 404, ed e' verificato da un'asserzione nei test.
 
 Il checksum principale e' il complemento a uno della somma dei byte da 0x2598 a 0x3522, equivalentemente si parte da 255 e si sottrae ogni byte. Se non torna, il gioco dichiara i dati distrutti e riparte da zero, quindi qualunque scrittura su un salvataggio Gen 1 deve ricalcolare il checksum, e questo vale sia per un tool che lavora su un dump sia per una routine che scrive in SRAM da dentro il gioco.
 
@@ -378,6 +380,7 @@ Nessuno dei punti aperti alla prima stesura resta aperto per pigrizia: sono stat
 | Offset del salvataggio Gen 2 per lingue diverse dall'inglese | aperto: i disassemblati pret coprono inglese e giapponese, per le altre lingue serve un dump reale |
 | Dimensione esatta del blocco di posta Gen 2 | aperto: dipende da `MAIL_LINE_LENGTH`, non calcolata perche' irrilevante finche' la posta resta esclusa dal trasferimento |
 | Tabella completa da indice interno Gen 1 a numero nazionale | aperto: da generare dal disassemblato, non trascrivere a mano |
+| Dimensione della lista della squadra Gen 1 | chiuso scrivendo il codice: 404 byte, cioe' 0x194, e non 194 come riporta una fonte secondaria |
 
 ## 12. Cosa implica tutto questo per la scelta fra le quattro opzioni
 
