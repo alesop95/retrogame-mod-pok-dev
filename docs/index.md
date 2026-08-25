@@ -47,6 +47,7 @@ Chi vuole soltanto gli offset non ha bisogno di questo percorso: gli serve [[DAT
 | [[20-architettura-codice]] | come si stratifica il codice perche' resti valido qualunque opzione si scelga |
 | [[21-collaudo]] | che cosa si collauda su dati sintetici, che cosa su emulatore e che cosa solo su ferro |
 | [[22-strumenti]] | gli strumenti che il progetto ha gia', cosa fanno e come si rilanciano |
+| [[23-prove-eseguite]] | l'inventario di cio' che e' stato verificato, con che cosa, e di cio' che non lo e' |
 
 ## Decisioni e riferimenti
 

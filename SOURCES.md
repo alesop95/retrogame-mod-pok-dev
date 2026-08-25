@@ -196,6 +196,18 @@ Queste erano gia' citate dentro i rispettivi handoff e le riporto qui nella part
 | Driver CH340 | https://www.wch-ic.com/downloads/CH341SER_EXE.html | driver seriale necessario al lettore su Windows | SME |
 | Chiusura di Pokemon Bank | https://www.nintendolife.com/news/2026/08/pokemon-bank-is-shutting-down-in-february-2027 | vincolo temporale esterno che tocca le decisioni di trasferimento | 3DS |
 
+## Che cosa e' stato usato davvero
+
+Un registro elenca cio' che esiste, non cio' che e' stato consultato, e la differenza va dichiarata perche' altrimenti l'ampiezza dell'elenco si scambia per profondita' della verifica. L'inventario completo delle verifiche, con il file di sorgente che ha risposto a ciascuna domanda, sta in `docs/23-prove-eseguite.md`; qui basta la sintesi per livello.
+
+Del livello 1 sono stati clonati e cercati nel codice sei repository, cioe' i tre disassemblati `pokered`, `pokecrystal` e `pokeemerald`, piu' il PCCS, Poke Transporter GB e Pokemon-Gen3-to-Gen-X. Pan Docs e GBATEK sono stati letti nelle pagine sul trasferimento seriale e sul multiboot, non integralmente. Gli altri repository del livello 1 sono catalogati e non aperti.
+
+Del livello 2 sono state lette le sedici pagine enciclopediche elencate, ed e' il livello che ha prodotto le quattro affermazioni sbagliate descritte piu' sopra. Del livello 3 sono stati letti i sorgenti di sei progetti, mentre gli editor e le librerie come `PKHeX`, `PKSav`, `HexManiacAdvance` e `FlashGBX` sono catalogati e non eseguiti: nessuno di essi e' stato lanciato, per la ragione semplice che non esiste ancora un salvataggio reale su cui lanciarli. Il confronto dell'interpretazione dei campi con `PKHeX` e' il prossimo controllo in ordine di convenienza, ed e' registrato come tale.
+
+Del livello 4 sono stati letti i quattro articoli tecnici che la tabella cita per contenuto specifico. Del livello 5 non e' stato letto nulla: i thread di forum sono indicazioni di dove cercare, Reddit non e' raggiungibile dagli strumenti di sessione, e nessuno dei video e' stato guardato perche' YouTube restituisce una pagina di consenso invece del contenuto.
+
+Nessuno strumento hardware e' stato usato, perche' nessuno e' disponibile: il lettore di cartucce del track Smeraldo non e' ancora arrivato, e nessun emulatore e' stato lanciato, nemmeno BGB, di cui e' documentata la possibilita' di collaudo su TCP.
+
 ## Cosa non entra in questo registro
 
 Non entrano le fonti che documentano come ottenere materiale coperto dal perimetro dichiarato in `.claude/rules/hardware-and-perimeter.md`, ne' i salvataggi di terze parti, e non entra nulla che contenga o distribuisca materiale di chiave console-unica. Non entrano le pagine effimere, cioe' thread di assistenza e discussioni che valgono per una singola sessione: quelle restano nell'handoff del track che le ha usate. Non entrano i mirror di ROM, che non servono a nessuno degli obiettivi di questo progetto, dato che si lavora su cartucce possedute. E non entrano le pagine di codici trucco, che sono la causa piu' probabile del problema che il track Smeraldo deve risolvere e non la sua soluzione.

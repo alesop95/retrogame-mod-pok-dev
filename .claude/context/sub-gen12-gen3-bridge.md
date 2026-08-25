@@ -28,6 +28,10 @@ Il lettore e scrittore della struttura di generazione 3, che e' l'unica delle tr
 
 Le quattro opzioni sono ancora tutte in piedi e nessuna e' stata scelta, ma il loro costo relativo e' cambiato ed e' analizzato in `docs/30-opzioni-implementative.md`. Il punto nuovo e' che l'opzione A non e' piu' a costo zero di sviluppo, perche' la conversione fedele delle statistiche non esiste in nessuna implementazione pubblica e va scritta comunque, e che gli strati di formato e conversione sono identici in tutte e quattro, quindi si possono costruire prima della decisione.
 
+## Limite noto delle prove attuali
+
+La prova di simmetria fra lettura e riscrittura e' forte ma invariante rispetto a una permutazione di etichette: se due campi della stessa larghezza fossero scambiati fra loro, per esempio tipo 1 con tipo 2 o due delle cinque Stat Experience, la simmetria continuerebbe a valere. Le difese attuali sono parziali, cioe' un caso costruito a mano che verifica alcuni offset e il fatto che gli offset vengano dal disassemblato. La difesa che chiude il cerchio e' il confronto con un dato reale, e il controllo che costa meno e' aprire un salvataggio con `PKHeX` e confrontare campo per campo con cio' che dichiara `pokebridge`. Il ragionamento completo, con l'inventario di cio' che non e' stato verificato, sta in `docs/23-prove-eseguite.md`.
+
 ## Avvertenze da non perdere
 
 Il backup dei salvataggi e' obbligatorio prima di qualsiasi tentativo. Il trasferimento e' a senso unico e distruttivo sulla sorgente, cioe' il Pokemon viene rimosso dal gioco di partenza, e modifica entrambi i salvataggi. Le cartucce bootleg causano la perdita dei Pokemon trasferiti, e la ragione tecnica e' che il payload contiene indirizzi assoluti tarati su una ROM precisa. La verifica finale del ponte richiede hardware reale, mentre il protocollo del cavo fra due Game Boy si collauda su emulatore.
