@@ -69,6 +69,10 @@ I quattro sottoprogetti hanno scopi diversi e quindi hanno bisogno di cose diver
 
 Il formato dei dati Gen 3 e' quindi la conoscenza piu' trasversale del progetto: serve al ponte per costruirlo, a Smeraldo per diagnosticarlo e allo scambio con la Switch per interpretarlo. E' la ragione per cui la referenza vive accanto al ponte ma e' citata dalle schede degli altri.
 
+## La mappa delle fonti
+
+Le fonti che portano peso tecnico hanno una nota propria sotto `docs/fonti/`, con abstract, motivo per cui sono in archivio, punto esatto del progetto che servono e relazioni verso le altre fonti. L'indice e' [[index-fonti]], e da la' il grafo di Obsidian mostra chi conferma chi, chi corregge chi e chi discende da chi. Il registro completo, comprese le voci minori e quelle non lette, resta [[SOURCES]].
+
 ## Ancoraggi fuori da questa cartella
 
 La referenza byte per byte e' [[DATA-FORMATS_Gen1-Gen2-Gen3]]. Il registro delle fonti, con la colonna che dice a quale sottoprogetto serve ciascuna voce, e' [[SOURCES]]. Lo stato dei quattro track e la riga del fuoco corrente stanno in `.claude/memory/index.md`, le decisioni in `.claude/memory/decisions.md`, e le regole normative sull'hardware in `.claude/rules/hardware-and-perimeter.md`, che va letta prima di qualsiasi operazione fisica.

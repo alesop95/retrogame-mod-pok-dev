@@ -2,6 +2,12 @@
 
 Questo file e' il registro unico delle fonti tecniche del progetto, condiviso da tutti i sottoprogetti. Nasce dal lavoro sul ponte fra generazioni, che e' il track che ha richiesto la ricerca piu' profonda, ma non gli appartiene: i disassemblati dei giochi, la documentazione dell'hardware, i formati di salvataggio e gli editor servono anche alla correzione dell'inventario di Smeraldo, al modding del 3DS e allo scambio con la Switch, e tenerli in un posto solo evita che ogni handoff riscopra le stesse cose.
 
+## Due file, due scopi
+
+Questo e' il registro: elenca, dice a cosa serve ciascuna voce e a quale sottoprogetto, e vale come inventario. Non dice perche' una fonte e' stata salvata ne' come si lega alle altre, perche' una tabella non produce un grafo.
+
+Quella parte sta in `docs/fonti/`, dove ogni fonte che porta peso tecnico ha una nota con il suo abstract, il motivo per cui e' in archivio, il punto esatto del progetto che serve e le relazioni verso le altre fonti. L'indice e' `docs/fonti/index-fonti.md`, e aprendo la radice del repository come vault Obsidian quelle relazioni diventano un grafo navigabile. Le note sono generate da `tools/build-source-map.py` a partire da una tabella unica: si modifica la tabella, non le note.
+
 ## Come si usa
 
 Ogni voce dichiara che cosa la fonte documenta in modo autorevole, non solo che esiste, perche' il valore di una fonte sta in cio' su cui la si puo' citare. La colonna dei track usa le sigle BRI per il ponte fra generazioni, SME per la correzione del salvataggio di Smeraldo, 3DS per il modding della console e il dump delle cartucce, LDN per lo scambio fra GBA e Switch, e TUTTI quando serve trasversalmente.
@@ -185,7 +191,7 @@ Nessuno di questi e' stato guardato, e la via di recupero e' stata cercata e tro
 | Retro Game Mechanics Explained | https://www.youtube.com/@RGMechEx | spiegazioni al livello del bit di meccaniche interne di console e giochi | BRI, TUTTI |
 | Displaced Gamers | https://www.youtube.com/channel/UCWoSKWs8h6lFdiEDAjuIfpA | la serie Behind the Code, analisi del codice originale dei giochi classici | BRI, TUTTI |
 | Poke Transporter GB, dimostrazione | https://www.youtube.com/watch?v=47A6p2hH2gU | il ponte di riferimento in funzione | BRI |
-| Poke Transporter GB, sviluppo | https://www.youtube.com/watch?v=9mSkGhEYBkg | racconto del processo di sviluppo da parte dell'autore | BRI |
+| Poke Transporter GB, sviluppo | https://www.youtube.com/watch?v=9mSkGhEYBkg | trascritto e letto il 2026-08-25: conferma dall'esterno il percorso del Dono Segreto scelto per non modificare direttamente il salvataggio, e aggiunge due dettagli, cioe' un calcolatore che determina automaticamente le liste di squadra e i nomi necessari a sovrascrivere lo stack, e uno script di verifica dell'exploit sulle altre lingue. Il testo pulito sta in `_notes/fonti/2026-08-25-youtube-9mSkGhEYBkg-ptgb-sviluppo.txt` | BRI |
 | Dissezione di un salvataggio di Rosso | https://www.youtube.com/watch?v=VVbRe7wr3G4 | lettura guidata di un salvataggio Gen 1 byte per byte | BRI |
 | Cavo Link negli emulatori | https://www.youtube.com/watch?v=jzLISDGrOWo | come si collega il cavo fra due istanze di emulatore, cioe' il banco di collaudo | BRI |
 | Scambio locale su Switch in FRLG | https://www.youtube.com/watch?v=epCf87MTLnk | la funzione di scambio locale nella versione Switch, dal lato utente | LDN |
