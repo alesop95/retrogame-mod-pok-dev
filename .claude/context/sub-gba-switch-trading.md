@@ -28,6 +28,14 @@ Clonare i due repository e leggere il codice di `frlgtrade.py` e del pacchetto `
 
 Serve una scheda Wi-Fi che supporti la modalita' monitor, e la scelta e' il fattore critico dichiarato: le schede USB esterne di fascia adatta risultano affidabili nei test degli autori, mentre alcune schede interne moderne sono fino alla meta' piu' lente e soggette a deadlock. Prima di allestire qualsiasi cosa va accertato quale scheda e' disponibile su questa macchina, perche' da quella risposta dipende se il track e' praticabile o no.
 
+## Materiale ora letto
+
+Le due fonti portanti del track sono state lette per la prima volta. La libreria di kinnay richiede Linux con Python 3.12 o successivo, il privilegio `CAP_NET_ADMIN`, l'arresto di NetworkManager e hardware wireless capace di ricevere e trasmettere action frame in modalita' monitor. La specifica del protocollo non sta nel suo README ma nel wiki di NintendoClients, che documenta l'action frame vendor-specific trasmesso ogni 100 millisecondi con OUI 00:22:AA, i canali 1, 6 e 11 in banda 2.4 GHz, la struttura dell'advertisement campo per campo, i tre livelli di cifratura e la derivazione delle chiavi dalle chiavi di console, la sequenza di connessione con i suoi timeout e l'assegnazione degli indirizzi nella forma 169.254.X.Y.
+
+Il proof of concept di tornadus richiede Python 3.12 o successivo, la libreria di kinnay, le chiavi della console e una scheda Wi-Fi compatibile, e opera facendosi passare per un giocatore che si collega come leader mentre la console avvia lo scambio dal Direct Corner. La logica sta in `frlgtrade.py` con la cartella `frlgsim/`, e i Pokemon si scambiano nei formati `.pk3` in chiaro e `.ek3` cifrato.
+
+Sulla domanda che blocca il track esiste ora una risposta parziale e importante: il progetto dichiara affidabili le schede ALFA AWUS036ACHM e Realtek RTL8821CE, e dichiara poco affidabile la AMD RZ616. Resta da accertare quale scheda abbia questa macchina, ma la lista dice in anticipo se la risposta sara' buona o cattiva.
+
 ## Da verificare prima di pianificare
 
 La data di disponibilita' di Rosso Fuoco e Verde Foglia su Switch e' incerta: la sezione 7 dell'handoff 3DS dice ottobre 2026, mentre fonti secondarie trovate il 2026-08-25 indicano il 27 febbraio 2026, con scambio locale che emula l'adattatore wireless del Game Boy Advance. Se la seconda e' corretta il presupposto del track esiste gia'. Va verificato su fonte primaria.

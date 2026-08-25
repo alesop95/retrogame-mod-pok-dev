@@ -16,4 +16,10 @@ Lo stato canonico del track vive in `.claude/context/sub-gba-switch-trading.md`,
 | il protocollo LDN, i due repository e gli strumenti | `SOURCES.md` alla radice, colonna LDN |
 | a che punto e' il track e qual e' il prossimo passo | `.claude/context/sub-gba-switch-trading.md` |
 
+## Che cosa serve, per come lo dichiarano le due fonti portanti
+
+Un sistema Linux con Python 3.12 o successivo, il privilegio `CAP_NET_ADMIN`, NetworkManager fermo, le chiavi della console, e soprattutto una scheda Wi-Fi capace di ricevere e trasmettere action frame in modalita' monitor. Su quest'ultimo punto il proof of concept dichiara affidabili la ALFA AWUS036ACHM e la Realtek RTL8821CE, e poco affidabile la AMD RZ616: e' la lista che decide se il track sia praticabile su questa macchina.
+
+La specifica del protocollo non sta nel README della libreria ma nel wiki di NintendoClients, che `SOURCES.md` indicizza: action frame vendor-specific ogni 100 millisecondi con OUI 00:22:AA, canali 1, 6 e 11 in banda 2.4 GHz, advertisement documentato campo per campo, tre livelli di cifratura con chiavi derivate da quelle di console, e indirizzi assegnati nella forma 169.254.X.Y con l'host sempre a 169.254.X.1.
+
 Due avvertenze prima di iniziare, entrambe motivate nell'handoff. Il fattore critico e' la scheda Wi-Fi, che deve supportare la modalita' monitor, e da quale scheda e' disponibile dipende se il track sia praticabile. Le `prod.keys` della console sono materiale di chiave proprietario e non redistribuibile: non entrano nel version control, e il `.gitignore` le esclude insieme ai file di dati `.pk3`.

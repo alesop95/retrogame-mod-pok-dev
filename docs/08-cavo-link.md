@@ -12,6 +12,16 @@ Il cavo Link e' un'interfaccia seriale sincrona a un byte per volta, e la sua ca
 
 Questa simmetria forzata spiega la forma di tutto il protocollo. Non ci sono richieste e risposte: ci sono sequenze concordate in cui entrambi i lati sanno cosa mandare a ogni passo, e chi non ha nulla da dire manda un byte convenzionale di riempimento.
 
+## L'hardware sotto il protocollo
+
+Prima delle convenzioni del gioco conviene sapere cosa fa il silicio, e la fonte e' Pan Docs alla pagina sul trasferimento seriale. Due registri governano tutto. Il primo, chiamato SB e mappato a 0xFF01, e' il registro a scorrimento: prima di un trasferimento contiene il byte che uscira', durante il trasferimento contiene un misto fra il byte in uscita e quello in entrata, perche' a ogni colpo di clock il bit piu' a sinistra esce sul filo e un bit entra da destra. Il secondo, SC a 0xFF02, ha il bit 7 che abilita il trasferimento, il bit 1 che sceglie la velocita' del clock solo su Game Boy Color, e il bit 0 che decide il ruolo, con 0 per clock esterno e 1 per clock interno. Il master carica il byte in SB e scrive 0x81 in SC; lo slave scrive 0x80.
+
+Sulle frequenze c'e' un fatto che vale piu' di tutti gli altri per questo progetto. Il clock interno del Game Boy monocromatico e' fisso a 8192 Hz, cioe' circa un kilobyte al secondo, mentre il Color offre quattro frequenze fino a 524288 Hz. Ma il clock esterno, cioe' quello che fornirebbe un dispositivo nostro, non ha un limite fissato dal gioco: Pan Docs dichiara che anche il Game Boy monocromatico riconosce clock esterni fino a 500 kHz, che non c'e' alcun limite inferiore, e che gli impulsi non devono nemmeno essere a intervalli regolari. La formulazione della fonte e' che anche fornendo un bit al mese il Game Boy attenderebbe pazientemente il bit successivo.
+
+Ne segue che il vincolo di tempo reale che si immagina guardando un protocollo sincrono, sul lato hardware, non esiste: chi fornisce il clock decide quando, e puo' fermarsi a pensare fra un bit e l'altro. E' la ragione per cui un microcontrollore da pochi euro riesce a parlare con un Game Boy senza acrobazie, come mostra [[09-esecuzione-codice]]. Il vincolo che resta e' software, cioe' i tempi che il gioco si aspetta fra un blocco e il successivo, e l'autore di Poke Transporter GB lo conferma per esperienza scrivendo che tenere il clock ne' troppo veloce ne' troppo lento e' cruciale e che quella e' stata la parte piu' frustrante dello sviluppo.
+
+Sull'elettricita', dalla parte 3 del dev log: il Game Boy lavora a 5 volt e il Game Boy Advance a 3.3, e i test di Goppier confermano che collegarli non danneggia nessuno dei due. E' un'affermazione di terzi su hardware proprio, quindi da trattare come tale, ma e' l'unica testimonianza diretta che il progetto ha su quel punto.
+
 ## Le costanti, che conviene leggere dalla fonte
 
 Il disassemblato dichiara le costanti del protocollo in un unico file, e leggerle da la' evita di ricavarle per osservazione. Il byte 0x01 e 0x02 sono i due esiti della negoziazione dei ruoli. Il byte 0xFD e' il preambolo che delimita l'inizio di ogni blocco. Il byte 0xFE significa assenza di dati, ed e' anche cio' che si legge su un cavo staccato, che e' la ragione della sua esistenza. Il byte 0xFF termina una parte della lista di correzione. Il preambolo e' lungo sei byte, quello della lista di numeri casuali sette, la lista di numeri casuali dieci, il riempimento finale tre.
@@ -52,6 +62,26 @@ La prima, quella nativa, aggiunge un identificatore del giocatore a 16 bit e usa
 Questo significa che la conversione fra il formato di generazione 1 e quello di generazione 2 esiste gia' dentro il gioco di generazione 2, scritta dagli autori originali per il Time Capsule, ed e' leggibile nel disassemblato. Per chi costruisce un ponte verso la generazione 3 e' il precedente piu' utile che ci sia: mostra quali campi gli autori hanno lasciato cadere, quali hanno inventato e come hanno gestito il byte che in generazione 1 e' il tasso di cattura e in generazione 2 l'oggetto tenuto. Non e' un'analogia, e' lo stesso problema risolto da chi aveva scritto entrambi i formati.
 
 Il lato generazione 2 trasmette inoltre un blocco separato per la posta, con un preambolo proprio e una propria lista di correzione, e questa e' la ragione strutturale per cui i progetti esistenti dichiarano di non poter trasferire un Pokemon che tiene una lettera.
+
+## Una conferma indipendente, che vale piu' di una rilettura
+
+Tutte le costanti di questa nota sono state ricavate dal disassemblato. Esiste una seconda fonte che le conferma senza averle prese da noi, ed e' un firmware che funziona: `cable-link` dell'organizzazione CableClub, sotto licenza Apache 2.0, un circuito stampato con il suo firmware per Raspberry Pi Pico. Il suo file `src/pokemon_gen1_link_protocol.h` dichiara le costanti del protocollo, e coincidono con le nostre una per una.
+
+```c
+#define PKMN_MASTER 0x01
+#define PKMN_SLAVE 0x02
+#define PKMN_CONNECTED 0x60
+#define PKMN_WAIT 0x7F
+#define PKMN_NO_DATA 0xFE
+#define ITEM_1_SELECTED 0xD4          /* Centro Scambi */
+#define ITEM_2_SELECTED 0xD5          /* Colosseo */
+#define ITEM_3_SELECTED 0xD6          /* interrompi */
+#define TRADE_CENTRE_WAIT 0xFD        /* il byte di preambolo */
+```
+
+La sua macchina a stati conferma anche la sequenza: gli stati vanno da `INIT` a dieci stati `SEND_RAND` numerati da zero a nove, poi `WAIT`, poi `SEND_DATA`, poi `SEND_PATCH`. Sono esattamente i dieci byte di numeri casuali, la struttura di scambio e la lista di correzione descritti sopra, ricavati da noi contando i campi nel disassemblato.
+
+Un dettaglio chiude il cerchio con la sezione sull'hardware: quel firmware apre la porta seriale con `spi_init(spi_default, 500 * 1000)`, cioe' esattamente il mezzo megahertz che Pan Docs dichiara come massimo riconosciuto dal Game Boy monocromatico. Due fonti indipendenti, una documentazione dell'hardware e un firmware che funziona sul campo, concordano sul numero.
 
 ## Perche' questa nota e' collaudabile senza hardware
 
