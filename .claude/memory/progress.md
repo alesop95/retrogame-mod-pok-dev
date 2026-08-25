@@ -26,6 +26,24 @@ Seconda passata di bonifica, che ha trovato cio' che la prima aveva mancato: due
 
 Bonificati sei file tracciati dalla circostanza personale su Bank e Transporter, che non ha ragione di stare in un repository pubblico: il limite operativo resta dichiarato, la motivazione e' passata in `_notes/`, che il `.gitignore` esclude. Registrato ADR-014, con il caveat che il testo resta nella storia git gia' pubblicata e che rimuoverlo davvero richiede una riscrittura della storia.
 
+## 2026-08-25 Lettura del debito arretrato, e cinque scoperte
+
+Letto tutto cio' che era raggiungibile e che era rimasto indietro, su richiesta esplicita. Undici pagine del dev log dell'autore di Poke Transporter GB, il repository `cable-link` di CableClub clonato e letto, Pan Docs sul trasferimento seriale, GBATEK sul multiboot, la descrizione architetturale di Copetti, RetroReversing per il Game Boy, Hackaday sul ponte di Goppier, il wiki di NintendoClients sul protocollo LDN, il proof of concept di tornadus, Data Crystal per la generazione 3 e la pagina di Glitch City sull'esecuzione remota. Cinque cose hanno cambiato il quadro.
+
+La prima e' la specifica esatta dell'exploit, che era ricostruita e ora e' dichiarata dall'autore: una squadra di 352 Pokemon con identificativo interno 0xE3 seguita da uno con identificativo 0xFC corrompe lo stack e dirotta l'esecuzione. L'articolo si intitola The Power of a REALLY Big Party, e la squadra grande e' l'exploit, non il contesto. Scritta in `docs/09-esecuzione-codice.md`, con la coincidenza fra 0xFC e l'indice TRAINER 4 marcata come mia congettura e non come fatto.
+
+La seconda e' architetturale e cambia l'immagine del lato generazione 3: il ponte non scrive la struttura del Pokemon nel salvataggio, inietta un evento Dono Segreto nella sezione degli script in RAM, due byte di checksum piu' due di riempimento piu' mille byte di script, e lo script chiama con `CallASM` le routine del gioco perche' siano loro a depositare il Pokemon e ad aggiornare il Pokedex. Spiega perche' il supporto e' per versione e per lingua, quarantotto combinazioni dichiarate dall'autore, e conferma dall'esterno i file `mystery_gift_builder` e `mystery_gift_injector` visti nel sorgente.
+
+La terza e' una conferma indipendente che vale piu' di una rilettura. Il firmware di `cable-link`, in `src/pokemon_gen1_link_protocol.h`, dichiara le costanti del protocollo Gen 1 e coincidono una per una con quelle che avevamo ricavato dal disassemblato: 0x01 e 0x02 per i ruoli, 0x60 connesso, 0xFE assenza di dati, 0xFD preambolo, 0xD4 Centro Scambi, e una macchina a stati con dieci stati per i numeri casuali piu' dati e lista di correzione. Due fonti indipendenti, un disassemblato e un firmware che ha funzionato sul campo, concordano su tutto.
+
+La quarta riguarda l'hardware e sposta il costo dell'opzione D. Pan Docs dichiara che il clock esterno non ha limiti dal lato del gioco, che anche il Game Boy monocromatico ne accetta fino a 500 kHz, che non esiste un limite inferiore e che gli impulsi non devono essere regolari. Il firmware di `cable-link` apre la porta a esattamente 500 kHz, e il repository contiene un PCB KiCad completo con i gerber, sotto licenza Apache 2.0. L'opzione D non parte da zero: parte da un circuito progettato e da un firmware che ha completato scambi fra Game Boy reali.
+
+La quinta serve al track LDN, che non aveva ancora nessuna lettura. La specifica del protocollo sta nel wiki di NintendoClients e non nel README della libreria, ed e' completa: action frame ogni 100 millisecondi, OUI 00:22:AA, canali 1, 6 e 11, advertisement campo per campo, tre livelli di cifratura con chiavi derivate da quelle di console, indirizzi 169.254.X.Y. E il proof of concept dichiara quali schede Wi-Fi funzionano, cioe' ALFA AWUS036ACHM e Realtek RTL8821CE affidabili e AMD RZ616 poco affidabile: e' una risposta anticipata alla domanda che blocca quel track.
+
+Due correzioni a ipotesi che un vecchio handoff aveva fatto sui titoli degli articoli e che si sono rivelate sbagliate: la parte intitolata Time for an Upgrade tratta la conversione dei dati e non l'esecuzione di codice, e quella intitolata A Day-Long Detour tratta sprite e palette e non l'orologio interno. E' un buon promemoria che dedurre l'argomento dal titolo produce tre errori su dieci.
+
+Registrato infine in `SOURCES.md` una distinzione che mancava: gli strumenti eseguibili come `PKHeX`, `FlashGBX` o `BGB` non sono fonti non lette ma strumenti da eseguire quando esiste un dato su cui puntarli, mentre i repository di codice non aperti sono debito vero, ed e' un elenco di undici voci piu' quattro disassemblati non ancora clonati.
+
 ## 2026-08-25 Fonti lasciate indietro, e cosa e' costato lasciarle
 
 Dalla domanda su quali fonti fossero rimaste non lette e' venuto piu' valore di quanto valesse la domanda. Prima di compilare l'elenco ho provato le vie che non avevo mai tentato, invece di dichiarare perdute fonti che non avevo verificato.

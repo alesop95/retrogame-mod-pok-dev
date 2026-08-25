@@ -37,6 +37,16 @@ I risultati di ricerca continuano a restituire URL di Reddit, e quelli sono util
 
 Le due vie che funzionano restano la seconda e la terza. Per la terza, l'API ufficiale di Reddit ha un flusso a sole credenziali applicative, senza account collegato, che basta per leggere contenuto pubblico: si registra una applicazione di tipo script, si ottengono identificativo e segreto, e si scambia il segreto per un token temporaneo. Lo strumento che implementa questo flusso e' `tools/fetch-reddit.py`, che legge le credenziali dall'ambiente o da `.env` e degrada in un messaggio con le istruzioni quando non le trova.
 
+## Come l'utente consegna il materiale, e in che formato
+
+Quando la via resta la quarta, cioe' l'utente procura il contenuto, il modo di consegnarlo non e' incollarlo in chat: e' salvarlo su disco in una cartella concordata, perche' cosi' resta disponibile anche nelle sessioni successive e non consuma contesto due volte. La cartella e' `_notes/fonti/`, locale e non versionata come tutto `_notes/`, e la convenzione di nome e' la data seguita da una parola che identifica la fonte, per esempio `2026-08-25-gbatemp-save-failed.md`.
+
+Sui formati, in ordine di preferenza. Il testo semplice o Markdown e' il migliore, perche' e' cercabile, diffabile e non porta rumore: per una discussione basta il corpo dei messaggi con l'autore e la data, senza la struttura di navigazione del sito. Il salvataggio della pagina come singolo file HTML va bene e si legge, ma va detto che contiene molto rumore. Il PDF e' accettabile e leggibile. Uno screenshot e' l'ultima scelta, perche' non e' cercabile ne' citabile parola per parola, e va riservato ai casi in cui il contenuto e' grafico.
+
+Per un video la forma utile non e' il video ma la sua trascrizione. YouTube la espone nell'interfaccia sotto il pulsante che mostra la trascrizione, e da la' si copia; in alternativa `yt-dlp` la scarica da riga di comando, al prezzo di installare un pacchetto. In entrambi i casi il file va nella stessa cartella, con la stessa convenzione di nome, e conviene conservare accanto l'identificativo del video, perche' la trascrizione da sola non dice da dove viene.
+
+Una richiesta di materiale va sempre accompagnata dalla domanda a cui serve rispondere. Chiedere una discussione intera senza dire cosa si cerca produce lavoro inutile per chi la procura e lettura inutile per chi la riceve.
+
 ## Come si annota una fonte non letta
 
 Nel registro delle fonti, la voce resta, perche' sapere che esiste ha valore. Cambia la descrizione, che deve dire che non e' stata letta e perche'. La formula da usare e' quella del registro attuale, cioe' indicare il dominio come luogo dove cercare e non come fonte verificata, e questa distinzione va ripetuta nella sezione che separa le fonti consultate da quelle catalogate.

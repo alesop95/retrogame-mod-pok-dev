@@ -49,6 +49,30 @@ Da qui seguono due conseguenze che il README elenca senza spiegarle, e che ora s
 
 Vale la pena fermarsi su cosa significhi: un microcontrollore da pochi euro, collegato solo al connettore del cavo, ottiene accesso completo alla cartuccia senza alcun lettore dedicato. Per l'opzione D di [[30-opzioni-implementative]] e' il riferimento piu' vicino all'obiettivo, e per il progetto in generale e' la dimostrazione che il cavo, da solo, e' un canale di accesso completo.
 
+## La specifica esatta, dalla bocca dell'autore
+
+Fin qui il meccanismo era ricostruito: la primitiva dal codice del gioco, la conseguenza dal codice del ponte. La specifica precisa dell'innesco l'ha pubblicata l'autore di Poke Transporter GB nell'articolo del suo dev log titolato The Power of a REALLY Big Party, e il titolo e' la risposta: la squadra grande non e' un contesto, e' l'exploit.
+
+Le sue parole descrivono l'innesco come una squadra di 352 Pokemon con identificativo interno 0xE3, seguita da un Pokemon con identificativo interno 0xFC, che corrompe lo stack e dirotta l'esecuzione. Vale la pena fermarsi su ciascuno dei tre numeri, perche' insieme spiegano tutto quanto detto sopra.
+
+Il conteggio 352 e' molto oltre i sei di una squadra legittima, ed e' cio' che fa scrivere la funzione di stampa dei nomi fino a superare il buffer video e raggiungere lo stack: e' la conseguenza diretta dell'assenza del terminatore descritta sopra, misurata in quanto lontano serve arrivare.
+
+L'identificativo 0xE3 e' il riempimento, cioe' la specie che occupa le 352 posizioni. Cade nell'intervallo che [[06-identita-pokemon]] descrive come invalido in generazione 1, e serve non per cio' che rappresenta ma per il byte che il gioco recupera cercandone il nome.
+
+L'identificativo 0xFC e' il vettore, cioe' il valore che, letto dalla tabella dei nomi, fornisce i byte che diventano l'indirizzo di ritorno sovrascritto. Vale la pena notare che lo stesso indice compare nella ricerca sui glitch come TRAINER 4, che e' una delle porte d'ingresso classiche all'esecuzione di codice in generazione 1: se sia la stessa strada percorsa in senso opposto oppure una coincidenza fra due usi dello stesso indice e' una mia congettura e non un fatto stabilito, e per deciderlo servirebbe leggere il payload generato.
+
+Con questi tre numeri l'affermazione che il ponte usa esecuzione di codice remota non e' piu' un'inferenza dal codice: e' una dichiarazione dell'autore, e il codice ne e' la conferma.
+
+## Il lato che scrive: il Dono Segreto, non la struttura
+
+C'e' una seconda scoperta nello stesso dev log, e cambia il modo di immaginare il lato generazione 3. Chi legge la referenza dei formati si aspetta che il ponte, dopo aver convertito, scriva la struttura da 80 o 100 byte nel posto giusto del salvataggio. Non fa questo.
+
+Nell'articolo titolato The Main Event l'autore descrive di iniettare un evento Dono Segreto nella sezione del salvataggio destinata agli script in RAM, dove lo spazio disponibile e' fatto di due byte di checksum, due di riempimento e mille byte per lo script, e lo script usa il comando `CallASM` per chiamare il codice assembly del gioco, facendo depositare il Pokemon nel deposito PC e aggiornare il Pokedex.
+
+La differenza e' architetturale e va capita perche' e' elegante. Scrivere la struttura significa assumersi la responsabilita' di ogni campo derivato, di ogni indice, di ogni coerenza interna; far eseguire al gioco la propria routine di deposito significa che il gioco fa cio' che farebbe normalmente, e la coerenza e' garantita da chi ha scritto il gioco. Il prezzo e' che serve conoscere l'indirizzo di quelle routine, e quell'indirizzo cambia con la versione e con la lingua: l'autore dichiara quarantotto combinazioni fra release e lingue, gestite con un compilatore assembly scritto per l'occasione.
+
+E' la seconda ragione, indipendente dal payload sul lato Game Boy, per cui il supporto di quel progetto e' per versione e per lingua, e per cui una cartuccia contraffatta rompe tutto.
+
 ## Le vie dal lato del giocatore, per completezza
 
 Esiste una letteratura ampia su come ottenere esecuzione di codice giocando, senza alcun hardware esterno, e non serve al ponte ma serve a orientarsi nel campo e a valutare alternative. In generazione 1 le vie piu' pratiche sono gli oggetti glitch il cui puntatore di effetto cade nei dati della squadra, chiamati 8F nelle versioni inglesi di Rosso e Blu e ws m in Giallo, che si usano come trampolino per saltare in una zona piu' comodamente scrivibile come lo zaino. In Oro e Argento la via nota e' il glitch del Salvadanaio, che finisce per eseguire dalla echo RAM. In Cristallo si passa da un nome non terminato ottenuto con il glitch dei cloni difettosi, con i nomi dei box usati come deposito del codice.
