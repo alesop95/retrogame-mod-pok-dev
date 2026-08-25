@@ -38,3 +38,21 @@ Il percorso Action Replay per correggere l'inventario di Smeraldo e' stato abban
 MSET9 e' stato preferito ad altri punti di ingresso per il custom firmware per ragioni documentate nella sezione 4.1 dell'handoff del sottoprogetto 3DS, legate al firmware di partenza della console.
 
 L'emulazione e' esclusa per costruzione dal sottoprogetto del ponte, perche' nessun emulatore replica fedelmente l'interazione elettrica fra Game Boy e Game Boy Advance, che e' proprio il meccanismo su cui il ponte si regge. Per il sottoprogetto 3DS l'emulatore Azahar non e' escluso ma solo rimandato: l'orientamento attuale e' portare i file fisicamente via SD.
+
+## Dipendenze di sviluppo aggiunte il 2026-08-25
+
+Il progetto non aveva dipendenze esterne e ne ha ora una, dichiarata qui perche' una dipendenza non scritta e' una dipendenza che si riscopre rompendosi.
+
+`yt-dlp`, installato con `python -m pip install --user yt-dlp`, versione 2026.08.19 alla prima installazione. Serve a scaricare i sottotitoli automatici dei video, che sono l'unica forma in cui una fonte video diventa citabile. La ragione per cui serve uno strumento dedicato invece di una richiesta HTTP e' documentata in `.claude/rules/web-sources-not-fetchable.md`: la pagina del video si scarica, ma l'endpoint che serve i sottotitoli restituisce zero byte a qualunque richiesta che non provenga dal lettore vero. Si aggiorna con lo stesso comando e non ha configurazione.
+
+Le due dipendenze implicite restano il Python di sistema, oggi 3.13, e `git`. Il pacchetto `pokebridge` e i suoi test non dipendono da nulla oltre alla libreria standard, ed e' una scelta da mantenere.
+
+## Macchina con GPU raggiungibile in rete locale
+
+Esiste un secondo computer con GPU che espone Ollama all'indirizzo `http://192.168.20.58:11500`, raggiungibile direttamente in HTTP dalla rete locale senza tunnel. I modelli presenti alla verifica del 2026-08-25 sono `qwen3:14b`, `llama3.1:8b-instruct-q4_K_M`, `llama3.2:latest` e `bge-m3:latest`.
+
+Va detto con precisione cosa quella macchina puo' e non puo' fare, perche' il malinteso e' facile. Non puo' trascrivere audio: nessuno dei modelli presenti e' un riconoscitore vocale, e Ollama serve modelli di linguaggio, non modelli acustici. La trascrizione dei video resta compito di `yt-dlp`, che scarica i sottotitoli che YouTube ha gia' generato, e servirebbe un modello di famiglia Whisper soltanto per un audio senza sottotitoli.
+
+Cio' che quella macchina puo' fare, ed e' allineato alla regola di token economy del progetto, e' condensare localmente fonti molto lunghe prima che entrino in conversazione: una trascrizione da un'ora di video o un thread di forum di duecento messaggi si riducono a una sintesi densa senza consumare contesto ne' pagare token. Il modello `bge-m3` e' un modello di embedding, quindi abilita anche la ricerca semantica locale su tutto il corpus di `_notes/fonti/`, che diventera' utile quando quella cartella sara' cresciuta.
+
+Nessuna di queste due cose e' ancora implementata: sono possibilita' registrate, e stanno fra le voci di `pending.md`.

@@ -20,8 +20,12 @@ Ne segue il punto che conta per una diagnosi: una quantita' assurda letta in chi
 dallo zaino non prova nulla, perche' e' l'aspetto normale di un dato mascherato. Solo
 dopo lo smascheramento si puo' dire che cosa e' davvero corrotto. Nel deposito PC,
 invece, le quantita' sono in chiaro e un valore assurdo la' e' un'anomalia vera.
-Rubino e Zaffiro non mascherano nulla, Rosso Fuoco e Verde Foglia tengono la chiave a
-un altro offset.
+
+I tre giochi non si somigliano e nulla si riusa fra loro. Rubino e Zaffiro non mascherano
+affatto. Rosso Fuoco e Verde Foglia mascherano, ma tengono la chiave a 0xF20 dentro
+SaveBlock2 e hanno tasche di capienza diversa: sono valori verificati su pret/pokefirered
+e pret/pokeruby il 2026-08-25, e per Rosso Fuoco correggono una fonte secondaria che
+indicava la chiave a 0x0AF8.
 
 Questo strumento non scrive nulla: legge, valida e riferisce. La scrittura su un
 salvataggio reale resta un'operazione separata e manuale, dopo il backup in doppia
@@ -75,18 +79,27 @@ EMERALD = {
     "items_count": 377,
 }
 
-# Rosso Fuoco e Verde Foglia: chiave a un altro offset e struttura dello zaino diversa.
-# Gli offset delle tasche non sono verificati su pokefirered in questa revisione, quindi
-# lo strumento smaschera e riferisce la chiave ma non pretende di elencare le tasche.
+# Rosso Fuoco e Verde Foglia: tutto diverso, e verificato su pret/pokefirered il
+# 2026-08-25. La chiave sta a 0xF20 dentro SaveBlock2, che misura 0xF24 byte: la fonte
+# secondaria che indicava 0x0AF8 e' sbagliata, ed e' il quinto errore di quel tipo che
+# questo progetto documenta. Le capienze delle tasche sono diverse da quelle di Smeraldo
+# e da quelle di Rubino e Zaffiro, quindi non si possono riusare.
 FRLG = {
     "nome": "Rosso Fuoco e Verde Foglia",
-    "chiave_offset": 0xAF8,
+    "chiave_offset": 0xF20,
     "maschera": True,
     "party_count": 0x34,
-    "money": None,
+    "money": 0x290,
     "coins": None,
-    "tasche": [],
-    "items_count": 377,
+    "tasche": [
+        ("Deposito PC", 0x298, 30, False, MAX_BAG_ITEM_CAPACITY),
+        ("Oggetti", 0x310, 42, True, MAX_BAG_ITEM_CAPACITY),
+        ("Oggetti chiave", 0x3B8, 30, True, MAX_BAG_ITEM_CAPACITY),
+        ("Poke Ball", 0x430, 13, True, MAX_BAG_ITEM_CAPACITY),
+        ("MT e MN", 0x464, 58, True, MAX_BAG_ITEM_CAPACITY),
+        ("Bacche", 0x54C, 43, True, MAX_BERRY_CAPACITY),
+    ],
+    "items_count": 375,
 }
 
 RUBY_SAPPHIRE = {
@@ -141,7 +154,10 @@ def score_candidate(game, sb2, sb1):
     if game["money"] is not None:
         raw = u32(sb1, game["money"])
         money = (raw ^ key) & 0xFFFFFFFF if game["maschera"] else raw
-        if money <= MAX_MONEY:
+        if money == 0:
+            # Zero non e' una prova: e' cio' che si legge da un'area non pertinente.
+            prove.append("denaro nullo, non discrimina")
+        elif money <= MAX_MONEY:
             punti += 3
             prove.append("denaro %d entro il tetto, coerente" % money)
         else:
@@ -157,8 +173,14 @@ def score_candidate(game, sb2, sb1):
             for i in range(count):
                 base = offset + i * ITEM_SLOT_SIZE
                 if u16(sb1, base) == 0 and u16(sb1, base + 2) == 0:
-                    punti += 3
-                    prove.append("slot vuoto in %s conferma la maschera" % nome)
+                    # Uno slot vuoto vale come prova solo se la chiave che ne deriva non
+                    # e' nulla: una chiave a zero e' il caso degenere di un'area di soli
+                    # zeri, che somiglia a qualunque cosa.
+                    if key & 0xFFFF:
+                        punti += 3
+                        prove.append("slot vuoto in %s conferma la maschera" % nome)
+                    else:
+                        prove.append("chiave nulla, lo slot vuoto non discrimina")
                     break
             break
 

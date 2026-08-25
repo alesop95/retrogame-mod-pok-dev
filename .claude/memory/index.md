@@ -27,6 +27,8 @@ Data snapshot:         2026-08-25
 | sub-gen12-gen3-bridge.md | pokemon-gen12-gen3-bridge | d08a011 | aggiornata |
 | sub-gba-switch-trading.md | gba-switch-pokemon-trading | d08a011 | aggiornata |
 
+Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
+
 ## Punto di ripresa
 
 ```
