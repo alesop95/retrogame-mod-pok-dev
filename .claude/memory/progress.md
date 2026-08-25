@@ -36,6 +36,18 @@ Scrivere il codice ha prodotto due correzioni. La prima e' nella referenza: la l
 
 Prossimo passo dichiarato: il lettore e scrittore di generazione 3, dove l'ordine di costruzione e' vincolato perche' il valore di personalita' e' anche chiave di cifratura e selettore della permutazione, e dove un checksum sbagliato non produce un Pokemon strano ma un Uovo Difettoso.
 
+## 2026-08-25 Inventario delle verifiche e chiarimento su dove girera' il codice
+
+Due domande hanno prodotto altrettanta documentazione, ed entrambe erano il tipo di domanda che scopre una imprecisione invece di un errore.
+
+La prima riguardava un'affermazione sbrigativa fatta scegliendo Python, cioe' che sarebbe un prototipo in attesa di riscrittura in C con devkitARM. E' vero solo per l'opzione C di ADR-008: nelle opzioni B e D il Python e' il linguaggio definitivo della logica, perche' nell'opzione D il microcontrollore fa solo il protocollo seriale e tutto il resto resta sul PC, che e' la forma di `PkSploit` e di `PokemonGB_Online_Trades`. La correzione e' in `docs/20-architettura-codice.md`, con la tabella delle quattro forme e l'osservazione che l'opzione D renderebbe superfluo anche il lettore di cartucce. Nella stessa sezione e' registrato il debito tecnico che ne discende: le prove sono metodi Python e non vettori su file, quindi oggi non sarebbero riusabili da un'implementazione in C, e conviene trasformarle in dati prima che la suite cresca.
+
+La seconda chiedeva conto delle prove eseguite e degli strumenti usati. Ne e' nata `docs/23-prove-eseguite.md`, che distingue i due soli tipi di verifica fatti, cioe' lettura del sorgente e prove di programma su dati costruiti a tavolino, e chiarisce che nulla e' stato simulato nel senso dell'emulazione: nessun emulatore lanciato, nessun gioco eseguito, nessun salvataggio reale letto, nessuna console toccata. La nota porta la tabella che associa ciascuna affermazione della referenza al file di sorgente che ha risposto, la ripartizione delle sessantatre prove con i tre livelli di copertura, e l'elenco di cio' che non e' stato verificato affatto.
+
+Il contributo piu' utile di quella nota e' un limite che nessun rapporto entusiasta scrive: la prova di simmetria e' invariante rispetto a una permutazione di etichette, quindi due campi della stessa larghezza scambiati fra loro la supererebbero. La difesa che chiude il cerchio e' il confronto con un dato reale, e il controllo piu' economico e' aprire un salvataggio con `PKHeX` e confrontare campo per campo. Registrato nella scheda del track come limite noto.
+
+Aggiunta a `SOURCES.md` la sezione che distingue le fonti effettivamente consultate da quelle catalogate, perche' l'ampiezza di un registro non e' la profondita' di una verifica: sei repository clonati e cercati nel codice, sedici pagine enciclopediche lette, quattro articoli, zero thread di forum, zero video, zero strumenti eseguiti e zero hardware.
+
 ## 2026-08-25 Storia git collassata in un commit radice unico
 
 Eseguita la riscrittura decisa in ADR-014. La storia precedente, sette commit da `d1e1a3a` a `9296c2c`, e' stata collassata in un unico commit radice, `d08a011`, generato dall'albero gia' bonificato. Il metodo e' stato scelto per verificabilita': con un commit solo, la prova che nulla di sensibile sia rimasto e' una ricerca su `HEAD`, mentre una sostituzione di testo commit per commit avrebbe richiesto espressioni regolari capaci di funzionare anche sulle versioni precedenti alla normalizzazione Markdown, dove l'a capo dei paragrafi era diverso. Prima della riscrittura e' stato prodotto un bundle di tutta la storia fuori dal repository, come rete di sicurezza.
