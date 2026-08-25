@@ -110,6 +110,74 @@ RUBY_SAPPHIRE = {
 GAMES = {"emerald": EMERALD, "frlg": FRLG, "rs": RUBY_SAPPHIRE}
 
 
+def score_candidate(game, sb2, sb1):
+    """Quanto un salvataggio somiglia a quello del gioco indicato, con le prove.
+
+    Serve a non fidarsi di un parametro. Un thread di Project Pokemon documenta un caso
+    reale in cui un editor ha identificato un salvataggio di Smeraldo come Rubino o
+    Zaffiro, e la conseguenza e' stata che gli oggetti sono finiti negli slot sbagliati:
+    e' esattamente l'errore che questa funzione esiste per intercettare, perche' Smeraldo
+    maschera le quantita' e Rubino e Zaffiro no.
+
+    Ritorna (punteggio, elenco di prove). Non decide: riferisce.
+    """
+    prove = []
+    punti = 0
+
+    key = u32(sb2, game["chiave_offset"]) if game["maschera"] else 0
+    if game["maschera"]:
+        prove.append("chiave a 0x%03X: 0x%08X" % (game["chiave_offset"], key))
+
+    party = sb1[game["party_count"]]
+    if 1 <= party <= 6:
+        punti += 2
+        prove.append("squadra di %d Pokemon a 0x%03X, plausibile" % (party, game["party_count"]))
+    elif party == 0:
+        prove.append("squadra vuota a 0x%03X, non discrimina" % game["party_count"])
+    else:
+        punti -= 2
+        prove.append("squadra di %d a 0x%03X, implausibile" % (party, game["party_count"]))
+
+    if game["money"] is not None:
+        raw = u32(sb1, game["money"])
+        money = (raw ^ key) & 0xFFFFFFFF if game["maschera"] else raw
+        if money <= MAX_MONEY:
+            punti += 3
+            prove.append("denaro %d entro il tetto, coerente" % money)
+        else:
+            punti -= 3
+            prove.append("denaro %d oltre il tetto, incoerente" % money)
+
+    # Uno slot vuoto in una tasca mascherata contiene la chiave: se la chiave dedotta
+    # coincide con quella letta, la maschera e' quella giusta e quindi il gioco lo e'.
+    if game["maschera"] and game["tasche"]:
+        for nome, offset, count, masked, _cap in game["tasche"]:
+            if not masked:
+                continue
+            for i in range(count):
+                base = offset + i * ITEM_SLOT_SIZE
+                if u16(sb1, base) == 0 and u16(sb1, base + 2) == 0:
+                    punti += 3
+                    prove.append("slot vuoto in %s conferma la maschera" % nome)
+                    break
+            break
+
+    return punti, prove
+
+
+def detect_game(sb2, sb1):
+    """Prova tutti i candidati e riferisce il confronto, invece di indovinare."""
+    esiti = []
+    for nome, game in GAMES.items():
+        try:
+            punti, prove = score_candidate(game, sb2, sb1)
+        except (IndexError, struct.error) as exc:
+            punti, prove = -99, ["struttura troppo corta per questo candidato: %s" % exc]
+        esiti.append((punti, nome, game, prove))
+    esiti.sort(key=lambda e: -e[0])
+    return esiti
+
+
 def u16(buf, off):
     return struct.unpack_from("<H", buf, off)[0]
 
@@ -245,16 +313,16 @@ def decode_pockets(sb1, key16, game):
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("save", help="file di salvataggio, tipicamente 128 KiB")
-    ap.add_argument("--game", choices=sorted(GAMES), default="emerald")
+    ap.add_argument("--game", choices=sorted(GAMES) + ["auto"], default="auto",
+                    help="auto rileva il gioco dal salvataggio e riferisce le prove")
     ap.add_argument("--json", help="scrive il rapporto completo in JSON su questo percorso")
     args = ap.parse_args()
 
-    game = GAMES[args.game]
     with open(args.save, "rb") as fh:
         blob = fh.read()
 
-    report = {"file": args.save, "dimensione": len(blob), "gioco": game["nome"], "slot": []}
-    print("File: %s (%d byte), gioco dichiarato: %s" % (args.save, len(blob), game["nome"]))
+    report = {"file": args.save, "dimensione": len(blob), "slot": []}
+    print("File: %s (%d byte)" % (args.save, len(blob)))
     if len(blob) < SECTORS_PER_SLOT * SECTOR_SIZE:
         print("ERRORE: il file e' piu' corto di un singolo slot di salvataggio", file=sys.stderr)
         return 2
@@ -303,6 +371,39 @@ def main():
         print("ERRORE: lo slot scelto non ha tutte le sezioni da 1 a 4, "
               "SaveBlock1 non ricostruibile", file=sys.stderr)
         return 4
+
+    # Identificazione del gioco. Non si fida del parametro: lo verifica, perche' un
+    # gioco identificato male applica la maschera sbagliata alle quantita' e fa
+    # sembrare corrotto uno zaino sano, o viceversa.
+    esiti = detect_game(sb2, sb1)
+    print("\nIdentificazione del gioco")
+    for punti, nome, _g, prove in esiti:
+        print("  %-8s punteggio %+d" % (nome, punti))
+        for pr in prove:
+            print("      %s" % pr)
+    report["identificazione"] = [{"gioco": n, "punteggio": p, "prove": pr}
+                                 for p, n, _g, pr in esiti]
+
+    if args.game == "auto":
+        punti, nome, game, _prove = esiti[0]
+        if punti <= 0:
+            print("\nERRORE: nessun candidato e' plausibile, il salvataggio non e' "
+                  "riconoscibile. Indica il gioco a mano con --game.", file=sys.stderr)
+            return 5
+        if len(esiti) > 1 and esiti[1][0] == punti:
+            print("\nERRORE: %s e %s pareggiano, l'identificazione e' ambigua. "
+                  "Indica il gioco a mano con --game." % (nome, esiti[1][1]), file=sys.stderr)
+            return 5
+        print("\nGioco rilevato: %s" % game["nome"])
+    else:
+        game = GAMES[args.game]
+        atteso = esiti[0][1]
+        print("\nGioco dichiarato: %s" % game["nome"])
+        if atteso != args.game:
+            print("  ATTENZIONE: le prove indicano %s, non %s. Un gioco identificato "
+                  "male applica la maschera sbagliata: verifica prima di fidarti."
+                  % (atteso, args.game))
+    report["gioco"] = game["nome"]
 
     key = 0
     if game["maschera"]:
