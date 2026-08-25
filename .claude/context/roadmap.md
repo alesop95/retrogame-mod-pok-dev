@@ -26,6 +26,8 @@ Lo scambio fra PC e Switch ha ora un obiettivo scritto, ed e' un track autonomo:
 
 ## Conseguenze sull'infrastruttura
 
+Sul ponte fra generazioni esiste ora un ordine di lavoro che non dipende dall'hardware, dettagliato in `docs/30-opzioni-implementative.md`: conformita' con `PKHeX` su salvataggi sintetici, tabella degli indici di specie generata dal disassemblato, strutture di generazione 3, tabelle di dati per la conversione, strato di conversione con il risolutore di vincoli, e vettori di prova esternalizzati. Il lettore di cartucce blocca la prova da un capo all'altro su dati reali, e blocca anche il collaudo del protocollo del cavo su emulatore, perche' quello richiede una ROM e la ROM richiede di dumpare una cartuccia propria.
+
 Due decisioni sono deliberatamente rimandate a quando il ponte produrra' codice. Il server MCP code-context oggi non ha nulla da estrarre da un corpus di documenti, e va riproposto al primo modulo scaffoldato. Un `CLAUDE.md` annidato nella cartella di quel sottoprogetto avra' senso quando ci saranno comandi di build, lint e test da dichiarare, e conterra' solo quelli: mai stato, che resta nella scheda.
 
 L'architettura a schede verticali regge comodamente fino a una dozzina di sottoprogetti. Oltre, la tabella di `memory/index.md` smette di leggersi a occhio e diventa sensata una skill di roll-up dello stato, che oggi sarebbe prematura.

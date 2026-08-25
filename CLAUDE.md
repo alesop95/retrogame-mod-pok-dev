@@ -56,7 +56,7 @@ pokemon-gen12-gen3-bridge-original-hardware/  referenza byte per byte, tabelle g
 gba-save-extraction-smeraldo/tools/           diagnostica dello zaino su un salvataggio Gen 3
 ```
 
-Le regole normative stanno sotto `.claude/rules/` e le skill del motore sotto `.claude/skills/`. Fra le regole, `hardware-and-perimeter.md` e' specifica di questo progetto e va letta prima di qualsiasi operazione su hardware.
+Le regole normative stanno sotto `.claude/rules/` e le skill del motore sotto `.claude/skills/`. Fra le regole, `hardware-and-perimeter.md` e' specifica di questo progetto e va letta prima di qualsiasi operazione su hardware, mentre `web-sources-not-fetchable.md` dice cosa fare quando una fonte esiste ma non si riesce a recuperarla, ed e' generale abbastanza da valere fuori da questo progetto.
 
 Gli handoff restano nelle cartelle dei rispettivi sottoprogetti, che e' voluto e motivato in ADR-003: `3ds-related/handoff/` e `gba-save-extraction-smeraldo/handoff/`. Il sottoprogetto del ponte non ha piu' un handoff, perche' la sua conoscenza e' stata verificata sul sorgente e assorbita nella referenza `pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md` e nel percorso di studio sotto `docs/`, come registrato in ADR-013.
 

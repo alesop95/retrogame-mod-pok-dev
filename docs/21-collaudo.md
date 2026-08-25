@@ -30,9 +30,11 @@ Per la conversione, il primo livello ha una forma diversa, perche' la conversion
 
 L'avvertenza ripetuta in tutta la documentazione della community e' che il ponte non si emula, ed e' vera. Ma copre uno scenario piu' stretto di quanto la formulazione suggerisca: cio' che non si emula e' l'interazione fra Game Boy e Game Boy Advance.
 
-Il collegamento fra due Game Boy invece si emula bene. BGB espone il cavo Link su una connessione TCP con un protocollo documentato a pacchetti di otto byte, e `PokemonGB_Online_Trades` implementa gli scambi di generazione 1, 2 e 3 esattamente su quella interfaccia. Ne segue che si puo' collaudare, contro un gioco vero e senza hardware, tutta la negoziazione dei ruoli, la selezione della modalita', la sequenza dei tre blocchi, il preambolo, la lista di correzione e la validazione dei dati ricevuti.
+Il collegamento fra due Game Boy invece si emula bene. BGB espone il cavo Link su una connessione TCP con un protocollo documentato a pacchetti di otto byte, e `PokemonGB_Online_Trades` implementa gli scambi di generazione 1, 2 e 3 esattamente su quella interfaccia. Ne segue che si puo' collaudare, contro un gioco vero e senza console, tutta la negoziazione dei ruoli, la selezione della modalita', la sequenza dei tre blocchi, il preambolo, la lista di correzione e la validazione dei dati ricevuti.
 
-E' un guadagno grosso, perche' quello e' anche lo strato dove il debug su hardware sarebbe piu' doloroso: su emulatore si possono registrare tutti i byte scambiati e confrontarli con quelli attesi, cosa che su due console vere richiede un analizzatore logico.
+Una dipendenza non ovvia va detta subito, perche' altrimenti questo livello sembra disponibile quando non lo e'. Contro un gioco vero significa che serve la ROM di quel gioco, e ottenerla dentro il perimetro dichiarato dal progetto significa dumpare una cartuccia di proprieta', che richiede il lettore. Finche' il lettore non c'e', il protocollo si puo' scrivere e provare soltanto per auto-consistenza, cioe' facendo parlare due istanze della nostra implementazione: verifica che il codice sia coerente con se' stesso, non che sia conforme al gioco, ed e' una prova debole che va chiamata con il suo nome.
+
+Quando la ROM ci sara', il guadagno sara' grosso, perche' quello e' anche lo strato dove il debug su hardware sarebbe piu' doloroso: su emulatore si possono registrare tutti i byte scambiati e confrontarli con quelli attesi, cosa che su due console vere richiede un analizzatore logico.
 
 ## Terzo livello: il ferro, e come ci si arriva
 
