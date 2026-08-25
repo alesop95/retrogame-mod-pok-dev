@@ -1,0 +1,15 @@
+Per ogni cartuccia 3DS (Diamante/Perla/Platino sono DS — vedi sotto; Nera 2 è DS; SoulSilver è DS; Y e Moon sono 3DS):
+Inserisci cartuccia → Boot GodMode9 (Start+Power)
+[C:] GAMECART → seleziona il .trim.3ds → NCSD image options → Decrypt file (0:/gm9/out)
+Se dà Decryption failed → quasi certamente serve seeddb.bin (Y e Moon sono entrambi post-2014, molto probabile): rigenera/aggiorna il seed lanciando il gioco online, poi System Save Dump del file seed, conversione con SEEDconv, in 0:/gm9/support/
+Copia il .3ds decrittato dal PC come backup sorgente
+Per ogni cartuccia DS (Diamante, Perla, Platino, Nera 2, SoulSilver):
+Stessa cartuccia nello slot (retrocompatibile)
+GodMode9 → [C:] → trova <TitleID>.nds → Copy to 0:/gm9/out
+Nessuna decrittazione necessaria (i giochi DS non sono cifrati)
+Copia anche questo .nds sul PC come backup
+Dopo il dump (entrambi i casi):
+5. Installa il .3ds/.nds come CIA da GodMode9 se vuoi giocarci sul sistema
+6. Sposta l'originale dumpato sul PC, poi puoi cancellarlo dalla SD
+7. Prima sessione di gioco → Checkpoint → Backup per fissare un primo salvataggio esportabile
+Procedi pure con la prossima cartuccia

@@ -1,0 +1,11 @@
+Quando installi una CIA da GodMode9, sulla SD si crea (o si aggiorna) una struttura nascosta tipo:
+/Nintendo 3DS/[ID0]/[ID1]/title/00040000/[titleID]/content/   ← il gioco installato
+/Nintendo 3DS/[ID0]/[ID1]/data/[SaveID]/                        ← i salvataggi legati al sistema
+ID0 e ID1 sono hash legati rispettivamente al tuo NAND e al tuo profilo console — è la stessa cartella ID1 che avevamo toccato con MSET9 allo Step 02, per intenderci.
+
+Il file .3ds originale (il tuo dump) è completamente indipendente da questa struttura. Una volta installato come CIA, il sistema non fa più riferimento al file .3ds di partenza — l'installazione ha creato una copia propria, cifrata e organizzata diversamente, dentro la cartella nascosta sopra.
+
+Sì, puoi cancellarlo senza rompere nulla del gioco installato. Unica raccomandazione tecnica: prima di cancellarlo dalla SD, spostane una copia sul PC (in quella cartella Documenti\3DS-Backups di cui parlavamo) — è il tuo unico backup "sorgente" della cartuccia. Se in futuro serve reinstallare (SD corrotta, aggiornamento del gioco che causa problemi, cambio SD), altrimenti dovresti ridumpare la cartuccia fisica da zero.
+
+I salvataggi
+Quelli non li tocchi cancellando il .3ds — vivono nella cartella data/ sopra, generata e gestita dal sistema al primo avvio del gioco installato, indipendente dal file di dump. Il backup che hai già fatto con Checkpoint (quello che mi hai mostrato, "20260821-backsic") è ulteriormente separato: è una copia esportata in formato leggibile, salvata tipicamente in /3ds/Checkpoint/saves/ sulla SD — quello sì che ti conviene tenere, è portabile anche fuori dalla console.

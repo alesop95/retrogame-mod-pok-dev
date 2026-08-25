@@ -1,0 +1,9 @@
+title ID		nome
+
+0004000000055E00	Pokèmon Y
+0004000000175E00	Pokèmon Moon
+…			Pokèmon Omega Ruby
+..
+..
+..
+..

@@ -1,0 +1,21 @@
+[21/08/2026 21:10] utente: INSTALLARE ROM DEL .3DS E GIOCARLE
+
+Quando installi un gioco direttamente tramite GodMode9 (usando l'opzione "install game image" su un file di gioco), il gioco viene scritto nella memoria interna della scheda SD della console, appare regolarmente nel Menu HOME del Nintendo 3DS e il file sorgente iniziale sulla SD può essere eliminato.
+
+Dove va a finire il gioco? I file di installazione del gioco vengono memorizzati direttamente nella scheda SD all'interno delle cartelle di sistema criptate gestite dalla NAND della console (il percorso logico sulla SD è in Nintendo 3DS/[ID]/[ID]/title/). 
+
+Una volta completata l'installazione da GodMode9, il file di origine che hai usato per lanciare l'installazione non serve più epatto puoi cancellarlo dalla scheda SD per liberare spazio.
+
+Dove vanno a finire i salvataggi? I dati di salvataggio vengono creati e salvati dinamicamente nello spazio riservato della scheda SD associato a quel titolo specifico (nella cartella data interna al percorso del gioco).I salvataggi restano lì anche se in seguito decidi di disinstallare il gioco, a meno che tu non formatti o cancelli manualmente i dati dalle impostazioni di gestione della console o tramite strumenti appositi.
+
+https://youtu.be/MWwTGl6IK_Q?is=Wz659sDKgT2g-Uei
+
+[21/08/2026 21:30] utente: Quando installi un gioco tramite GodMode9, il titolo viene scritto direttamente nella memoria di sistema o sulla scheda SD della console e compare come un'applicazione normale nel Menu HOME. I file di salvataggio creati durante le partite vengono memorizzati nella scheda SD all'interno dei settori riservati ai titoli digitali della console.
+
+Dove finisce il gioco e i salvataggi? Il gioco installato: Viene registrato come un titolo installato (equivalente a un acquisto digitale), quindi l'icona apparirà direttamente nel menu principale del tuo Nintendo 3DS. Una volta completata l'installazione, il file sorgente iniziale (come il file .cia o .3ds) presente sulla scheda SD non serve più e può essere eliminato.I salvataggi: Vengono salvati dinamicamente nello spazio della scheda SD assegnato a quel titolo specifico (nella cartella dei dati utente/titoli della NAND o della SD), esattamente come accade per i giochi scaricati legalmente dall'eShop.
+
+Come effettuare il backup dei salvataggi? Il metodo più sicuro, semplice e comune per gestire i salvataggi su un Nintendo 3DS modificato è usare l'applicazione homebrew Checkpoint. Avviare l'applicazione: Apri l'Homebrew Launcher o seleziona direttamente l'icona di Checkpoint dal Menu HOME.Selezionare il titolo: Attendi il caricamento della lista dei giochi, usa i tasti direzionali per evidenziare il gioco di cui vuoi salvare i progressi e premi A.Creare il backup: Premi il pulsante L (o seleziona "New" sullo schermo inferiore) per creare un nuovo slot di backup.Assegnare un nome: Inserisci un nome descrittivo tramite la tastiera a schermo e conferma premendo il tasto apposito. Il salvataggio è ora al sicuro nella cartella 3ds/Checkpoint/saves sulla tua scheda SD, da cui puoi anche copiarlo su un computer estraendo la SD.
+
+https://guides.socalconsolemodding.com/how-to-back-up-and-restore-game-saves-with-checkpoint/#:~:text=Open%20the%20Homebrew%20Menu,A%20to%20select%20it.
+[21/08/2026 21:34] utente: Per il software homebrew del modding è indifferente se fai il checkpoint di un salvataggio di un titolo che viene da una cartuccia fisica o no una volta che l'hai installato a sistema
+[21/08/2026 21:36] utente: Se metti la cartuccia semplicemente è un altro gioco aggiuntivo che viene automaticamente letto dal sistema

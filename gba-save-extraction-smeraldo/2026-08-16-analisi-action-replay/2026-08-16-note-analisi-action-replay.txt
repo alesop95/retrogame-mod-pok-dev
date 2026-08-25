@@ -1,0 +1,29 @@
+[16/08/2026 21:37] utente: Ha senso provarci secondo me, però a parte il codice corretto di cui vorrei verificare la fonte la ratio ci sta (a parte l'hallucination sul multi slot perchè non gli ho specificato contesto a Claude se fosse cartuccia fisica ecc...)
+
+Master code attualmente funzionante (FR):
+
+D8BAE4D9
+4864DCE5
+A7308156
+808311D9
+A57E2EDE
+A5AFF3E4
+1C7B3231
+B494738C
+
+Il tuo codice da 8 righe è in realtà due codici distinti uniti insieme, entrambi necessari sul GBA reale (non su emulatore):
+Le prime 4 righe = Master Code
+Le ultime 4 righe (A57E2EDE A5AFF3E4 1C7B3231 B494738C) = Anti-DMA, un secondo codice che su console vera serve quasi sempre insieme al master code perché molti codici (oggetti, soldi, encounter) altrimenti non si attivano correttamente.
+
+
+Sources:
+https://www.tecnocino.it/2017/10/articolo/trucchi-pokemon-smeraldo-per-game-boy-advance-e-android/52563/
+https://nanotec2009.it/2019/02/27/trucchi-pokemon-smeraldo-dove-trovarli-e-a-cosa-servono/
+https://www.poketown.net/public/poketown/phpbb3/viewtopic.php?f=2&t=2654
+https://www.poketown.net/public/poketown/phpbb3/viewtopic.php?f=2&t=2655
+https://forum.pokemoncentral.it/threads/201/
+https://regnodellepassioni.forumattivo.com/t13-pokemon-smeraldo-codici-action-replay
+[17/08/2026 09:23] utente: Fonte: https://www.pokemontrash.com/club/triche/pokemon-emeraude-entrer-un-code-sur-vba-(emulation)
+Per gli Strumenti Base specifici (Detector, Ami, Bici, ecc.) non ho trovato, in questa famiglia di codici compatibile col tuo Master+Anti-DMA, un elenco equivalente verificato. Onestamente andare oltre significherebbe ricominciare a indovinare indirizzi, che è proprio quello che ha causato il problema originale — quindi mi fermo qui su questa strada piuttosto che darti codici non testati.
+
+Ho anche trovato un'altra conferma utile: nella stessa community, qualcuno chiede come rimuovere gli oggetti rari finiti nel sacco per bug, e la risposta più sensata ricevuta è proprio: "apri il salvataggio, vai nell'inventario/sac e modifichi o elimini gli oggetti direttamente — non è più complicato di così" (fonte: https://www.pokemontrash.com/club/triche/comment-supprimer-des-objets-rares-dans-le-sac) — cioè un editor di salvataggio, non altri codici AR.
