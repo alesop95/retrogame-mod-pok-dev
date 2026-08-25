@@ -26,6 +26,16 @@ Seconda passata di bonifica, che ha trovato cio' che la prima aveva mancato: due
 
 Bonificati sei file tracciati dalla circostanza personale su Bank e Transporter, che non ha ragione di stare in un repository pubblico: il limite operativo resta dichiarato, la motivazione e' passata in `_notes/`, che il `.gitignore` esclude. Registrato ADR-014, con il caveat che il testo resta nella storia git gia' pubblicata e che rimuoverlo davvero richiede una riscrittura della storia.
 
+## 2026-08-25 Primo codice: il lato Game Boy, con la prova di simmetria
+
+Scritto il pacchetto `pokebridge` nel sottoprogetto del ponte, senza dipendenze esterne. Copre gli strati dei dati generati, dei modelli e dei lettori e scrittori per il solo lato Game Boy: primitivi in `gb.py`, generazione 1 in `gen1.py`, generazione 2 in `gen2.py`, transcodifica del testo in `charmap.py` sulle tabelle prodotte dal generatore. Scelto Python con sola libreria standard, per coerenza con gli strumenti gia' nel repository e perche' `docs/20-architettura-codice.md` prevede che i casi di prova siano dati e non codice, cosi' una riscrittura in C per devkitARM resta economica.
+
+Sessantatre prove passano, lanciabili con `python tests/run_tests.py`. La portante e' la simmetria: leggere una struttura e riscriverla deve restituire byte identici, verificata su cinquecento buffer casuali con seme fissato per ciascuna delle sei forme, cioe' box mon, party mon e lista di squadra per entrambe le generazioni. Accanto ci sono prove esaustive dove lo spazio lo permette: tutti i duecentocinquantasei byte di PP, tutte le sessantacinquemila combinazioni dei due byte di cattura, e il conteggio dei DV lucenti che torna a otto su sessantacinquemila, cioe' la probabilita' documentata di uno su ottomilacentonovantadue.
+
+Scrivere il codice ha prodotto due correzioni. La prima e' nella referenza: la lista della squadra di generazione 1 misura 404 byte e non 194, perche' la fonte secondaria aveva letto la dimensione esadecimale 0x194 come decimale, e il conto dei campi lo dimostra. Ora c'e' un'asserzione che lo verifica in entrambe le basi. La seconda e' in una mia prova, che dichiarava a mano il byte 0xA4 credendolo la lettera a, che invece e' 0xA0: la prova ora ricava i byte dalla tabella generata invece di scriverli, che e' la stessa lezione del generatore applicata ai test.
+
+Prossimo passo dichiarato: il lettore e scrittore di generazione 3, dove l'ordine di costruzione e' vincolato perche' il valore di personalita' e' anche chiave di cifratura e selettore della permutazione, e dove un checksum sbagliato non produce un Pokemon strano ma un Uovo Difettoso.
+
 ## 2026-08-25 Storia git collassata in un commit radice unico
 
 Eseguita la riscrittura decisa in ADR-014. La storia precedente, sette commit da `d1e1a3a` a `9296c2c`, e' stata collassata in un unico commit radice, `d08a011`, generato dall'albero gia' bonificato. Il metodo e' stato scelto per verificabilita': con un commit solo, la prova che nulla di sensibile sia rimasto e' una ricerca su `HEAD`, mentre una sostituzione di testo commit per commit avrebbe richiesto espressioni regolari capaci di funzionare anche sulle versioni precedenti alla normalizzazione Markdown, dove l'a capo dei paragrafi era diverso. Prima della riscrittura e' stato prodotto un bundle di tutta la storia fuori dal repository, come rete di sicurezza.

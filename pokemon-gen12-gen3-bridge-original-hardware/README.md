@@ -8,6 +8,10 @@ Il documento di riferimento e' `DATA-FORMATS_Gen1-Gen2-Gen3.md`, che descrive by
 
 In `data/` stanno le tabelle di codifica dei caratteri generate, e in `tools/extract_charmaps.py` il programma che le genera dai charmap dei disassemblati. Le tabelle non si modificano a mano: si rigenerano, e il generatore si rifiuta di scrivere se le sentinelle di controllo non tornano. Il motivo di questa scelta e' che le fonti secondarie sbagliavano quelle tabelle in due punti, con un errore che produce nomi plausibili e sbagliati.
 
+In `pokebridge/` c'e' il codice, senza dipendenze esterne. Oggi copre il lato Game Boy: i primitivi in `gb.py`, cioe' interi big-endian, nibble dei DV con la derivazione del quinto e byte dei PP; i lettori e scrittori di generazione 1 in `gen1.py` e di generazione 2 in `gen2.py`, per strutture di box, di squadra e liste di squadra; e la transcodifica del testo in `charmap.py`, che legge le tabelle da `data/`. In `tests/` ci sono le prove, che si lanciano con `python tests/run_tests.py` e non richiedono nulla di installato.
+
+La prova portante e' la simmetria: leggere una struttura e riscriverla deve restituire byte identici, verificata su cinquecento buffer casuali con seme fissato per ciascuna delle sei forme. Una sola proprieta' cattura un intero genere di errori, perche' un offset sbagliato, un ordine di byte invertito, un nibble letto dalla meta' sbagliata o un campo dimenticato la rompono tutti. Il ragionamento sta in `docs/21-collaudo.md`.
+
 Non esiste piu' un handoff di ricerca: la sua conoscenza e' stata verificata e assorbita fra questo documento e le note di studio, per ADR-013.
 
 ## Dove trovare il resto
