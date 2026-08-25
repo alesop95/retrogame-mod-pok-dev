@@ -1,0 +1,151 @@
+# --- Sistema di progetto portabile: livello privato e ignorato (sezione 6/10) ---
+# Da unire al .gitignore del progetto. Inserire PRIMA di creare _notes/, altrimenti
+# la cartella finisce indicizzata.
+
+# Livello privato e verboso
+_notes/
+
+# Override personali e permessi personali
+CLAUDE.local.md
+.claude/settings.local.json
+
+# Segreti e materiale di credenziale: mai committati. Il template pubblico delle variabili
+# e' .env.example, tracciato; la copia compilata .env resta locale (sezione 6).
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Estratti temporanei di documenti voluminosi (cartelle scratch e cache di doc-ingest)
+_notes/.tmp-doc-*/
+.tmp-doc-*/
+
+# Documenti Word grezzi (binari). Dichiarare qui le eventuali eccezioni curate, es:
+#   *.docx
+#   !docs/specifica-ufficiale.docx
+*.docx
+
+# I .pdf sorgente per doc-ingest restano di norma versionabili (spesso sono deliverable
+# legittimi): ignorarli con lo stesso pattern di *.docx solo se il progetto li tratta come
+# materiale grezzo da rigenerare, non come documento finale.
+#   *.pdf
+#   !docs/specifica-ufficiale.pdf
+
+# Ambiente materializzato (sezione 13): si versiona il manifesto, si ignora il derivato.
+# Python
+.venv/
+__pycache__/
+*.pyc
+# Node
+node_modules/
+# LaTeX: il .tex e' la fonte, il PDF e gli ausiliari sono derivati. Abilitare nei progetti LaTeX.
+# *.aux
+# *.log
+# *.out
+# *.toc
+# *.lof
+# *.lot
+# *.fls
+# *.fdb_latexmk
+# *.synctex.gz
+# *.bbl
+# *.blg
+# *.bcf
+# *.run.xml
+# *.nav
+# *.snm
+# *.vrb
+# *.pdf
+
+# --- Igiene di Windows ---
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# --- Politica sui media: foto, video e screenshot non si versionano ---
+# Decisione di progetto (ADR-005): il materiale fotografico e video e' evidenza personale,
+# non conoscenza tecnica. Vive sotto _notes/media/, che rispecchia la struttura del progetto,
+# quindi resta sul disco e fuori da git. Cio' che un media documenta si registra in prosa nella
+# scheda del sottoprogetto, dove diventa diffabile. Il materiale con dati personali passa da
+# _notes/media-riservati/ e ha vita breve: si elimina appena il fatto tecnico e' stato scritto.
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.mp4
+*.mov
+*.avi
+*.mkv
+# Il PDF di evidenza del bug e' un bundle di sette foto e segue la stessa politica.
+# Per tracciarlo servirebbero due mosse, non una: riportarlo dentro l'albero di progetto e poi
+# aggiungere qui l'eccezione col suo percorso. Finche' vive sotto _notes/media/ nessun ! puo'
+# recuperarlo, perche' .gitignore non re-include un file se una cartella genitore e' esclusa.
+*.pdf
+
+# --- Dominio retrogaming: dump di cartucce e backup di salvataggio ---
+# Sono copie di opere protette o dati di gioco personali: non si versionano mai,
+# indipendentemente dalla dimensione. Vivono sul disco locale e la loro collocazione si
+# annota nella scheda del sottoprogetto. Nessuno di questi file esiste oggi nel repository,
+# ma tutti e tre i runbook prevedono di produrne nei prossimi step, quindi il blocco va
+# scritto prima che esistano. Si escludono le estensioni e mai le cartelle contenitore,
+# perche' .gitignore non permette di re-includere un file con ! se un genitore e' escluso.
+*.3ds
+*.cci
+*.cxi
+*.cia
+*.nds
+*.srl
+*.gba
+*.gb
+*.gbc
+*.agb
+*.app
+*.romfs
+*.exefs
+# Backup di salvataggio nelle convenzioni di GodMode9, FlashGBX, Checkpoint, PKHeX e GBxCart RW.
+*.sav
+*.sa1
+*.sa2
+*.srm
+*.fla
+*.eep
+*.dsv
+*.duc
+# Cartelle di lavoro dei dump, mai versionate.
+/dumps/
+gm9out/
+
+# --- Materiale di chiave console-unica: segreti, non semplici binari ---
+# Sono le chiavi hardware della console e il seed di LocalFriendCodeSeed. Trapelati,
+# permettono di decrittare la NAND e i salvataggi di quella console specifica, e non sono
+# ruotabili: non esiste modo di rigenerarli. Stessa categoria di .env e *.pem.
+# movable.sed in particolare e' prodotto dalla procedura MSET9 gia' eseguita.
+# Nintendo 3DS
+movable.sed
+boot9.bin
+boot11.bin
+otp.bin
+sector0x96.bin
+nand*.bin
+essential.exefs
+LocalFriendCodeSeed_*
+*.firm
+
+# Nintendo Switch. Le prod.keys derivano dal firmware proprietario della console, si
+# estraggono solo da una console modificata e non sono legalmente redistribuibili: sono
+# la stessa categoria di movable.sed, e non sono ruotabili. Servono al track LDN.
+prod.keys
+title.keys
+console.keys
+dev.keys
+*.keys
+.switch/
+
+# Dati Pokemon esportati: sono contenuto di salvataggio, non conoscenza tecnica.
+# I .pk3 servono al trade LDN, gli altri formati coprono le generazioni successive.
+*.pk[0-9]
+*.pb[0-9]
+*.ek[0-9]
+*.pkm
