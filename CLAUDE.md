@@ -12,6 +12,8 @@ Tre dei quattro sono runbook operativi su hardware fisico, dove gli errori sono 
 
 Leggi `.claude/memory/index.md` per primo. La riga del fuoco corrente dice su quale sottoprogetto si sta lavorando adesso, e il blocco sotto dice a che punto e' ciascuno degli altri. E' la fonte di verita' unica: se una scheda o un handoff dicono altro, vale l'indice.
 
+Subito dopo leggi `.claude/memory/pending.md`, che e' il registro di tutto cio' che e' in sospeso: materiale atteso dall'utente, credenziali da configurare, fonti in sospeso da ricordare a ogni sessione, strumenti da richiamare quando si verifica una condizione, debito di lettura, punti tecnici aperti e blocchi materiali. L'utente non deve essere il sistema di memoria del progetto: le voci pertinenti al lavoro in corso si ricordano senza attendere che le chieda, e quelle marcate come da ricordare sempre si ripetono comunque.
+
 Poi leggi la scheda `.claude/context/sub-<slug>.md` del solo sottoprogetto pertinente, che sta sotto le trenta righe e contiene stato, prossimo passo e decisioni aperte. Apri l'handoff del sottoprogetto soltanto se ti serve la procedura, il troubleshooting o le fonti: l'handoff e' conoscenza e non stato, ed e' lungo.
 
 Se il lavoro tocca piu' track o l'infrastruttura, leggi `.claude/context/current-work.md`. La conoscenza tecnica invece non e' stato e non si rilegge a ogni sessione: le fonti stanno in `SOURCES.md` e il percorso di studio in `docs/index.md`, e si aprono quando servono al task. Prima di dare per buona una scheda, se ci sono stati commit dall'ultima verifica, invoca `sync-context`.
@@ -24,6 +26,7 @@ Memoria e stato:
 .claude/memory/index.md       snapshot, fuoco corrente e stato di verifica delle schede
 .claude/memory/progress.md    work log append-only, cronologico inverso
 .claude/memory/decisions.md   decisioni in forma ADR-lite, append-only
+.claude/memory/pending.md     tutto cio' che e' in sospeso, modificabile e non append-only
 ```
 
 Schede trasversali, cioe' cio' che vale per tutto il progetto:
