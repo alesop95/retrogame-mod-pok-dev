@@ -59,17 +59,35 @@ Cio' che e' raggiungibile e non ancora letto. Il debito si chiude leggendo, non 
 
 | Fonte | Stato |
 |---|---|
-| `ldn.readthedocs.io` | documentazione delle classi della libreria LDN, non letta |
-| `switch-lan-play` | scoperto leggendo `ldn_mitm`, non aperto |
-| `pepijndevos/arduino-boy` | scoperto leggendo `arduino-poke-gen2`, e' l'origine di quella macchina a stati, non aperto |
-| `vaguilar/pokemon-red-cable-club-hack` | scoperto leggendo `PkSploit`, e' la base del suo exploit, non aperto |
-| blog di Phasip su sn1.se | https://www.sn1.se/posts/pokemon/ , introduzione alla catena di exploit di `PokemonLinkHack`, non letto |
-| progetto REON | scoperto leggendo `gba-link-connection`, riguarda il Mobile Adapter GB, non aperto |
 | `pokeyellow` e `pokegold` | disassemblati non ancora clonati; servono per le differenze di offset di Giallo e di Oro e Argento |
 | Data Crystal, mappe RAM di Rosso e Blu e di Cristallo | non lette; la pagina di Gen 3 e' stata letta e ha reso poco |
 | Bulbapedia, pagina sull'esecuzione di codice arbitrario | non letta; l'argomento e' coperto dal mirror di Glitch City e dal dev log |
 | `3dbrew` | non letto; serve al track 3DS quando si toccheranno i salvataggi delle cartucce dumpate |
 | documentazione navigabile di pokeemerald | non letta; il sorgente clonato la rende poco necessaria |
+| `gameboy-spoof` | citato come antenato di `arduino-boy` ma non trovato: il proprietario indovinato da' 404, va cercato il repository giusto |
+| `REONTeam/trade-corner` e `REONTeam/libmobile` | l'organizzazione e' stata letta ma questi due repository no, e riguardano lo scambio e il protocollo dell'adattatore mobile |
+| riferimento delle classi di `ldn.readthedocs.io` | letta la pagina di ingresso, non il riferimento delle interfacce |
+
+Le sei voci che erano qui e non ci sono piu' sono state lette il 2026-08-25: il blog di Phasip, `pepijndevos/arduino-boy`, `vaguilar/pokemon-red-cable-club-hack`, il progetto REON a livello di organizzazione, `switch-lan-play` e la pagina di ingresso di `ldn.readthedocs.io`. Cio' che ne e' venuto sta nelle rispettive note sotto `docs/fonti/`.
+
+## Trascrizioni da produrre
+
+La pipeline funzionante e' quella descritta in `STACK.md`, cioe' scaricare i sottotitoli automatici con `yt-dlp` e ripulirli con `tools/vtt-to-text.py`, senza toccare l'audio. Il primo video e' stato fatto il 2026-08-25 e la sua trascrizione sta in `_notes/fonti/`. Restano gli altri, e sono lavoro mio: non serve nulla dall'utente.
+
+Una decisione dell'utente resta invece aperta su un punto: il download dell'audio risponde 403 perche' manca un runtime JavaScript, e servirebbe installare `deno`. Non e' necessario finche' i video hanno sottotitoli automatici, e lo diventa per quelli che non ne hanno.
+
+| Video | Link | Perche' serve |
+|---|---|---|
+| Poke Transporter GB, dimostrazione | https://www.youtube.com/watch?v=47A6p2hH2gU | il ponte in funzione, utile per la sequenza utente |
+| Goppier, aggiornamento di sviluppo | https://www.youtube.com/watch?v=Qcp4vxyaUJc | il suo ponte hardware, di cui non esiste documentazione scritta |
+| Goppier, lo scambio impossibile | https://www.youtube.com/watch?v=inMbtwmVlKQ | idem, ed e' il video che l'articolo di Hackaday cita |
+| Dissezione di un salvataggio di Rosso | https://www.youtube.com/watch?v=VVbRe7wr3G4 | conferma indipendente degli offset di generazione 1 |
+| Cavo Link negli emulatori | https://www.youtube.com/watch?v=jzLISDGrOWo | come si allestisce il collaudo su BGB |
+| Scambio locale su Switch in FRLG | https://www.youtube.com/watch?v=epCf87MTLnk | la funzione dal lato utente, per il track LDN |
+| Checkpoint su 3DS | https://www.youtube.com/watch?v=aZMVFBRp1xI | uso del gestore di backup installato su questa console |
+| Sostituzione della batteria di cartuccia | https://www.youtube.com/watch?v=vz05ZT63Jqc | procedura senza perdere il salvataggio, per il track Smeraldo |
+
+I canali senza un video specifico, cioe' Goppier, Lorenzooone, im a blisy, RETIRE, TheZZAZZGlitch, Retro Game Mechanics Explained e Displaced Gamers, restano da esplorare per scegliere quali video valga la pena trascrivere: e' una decisione da prendere, non una trascrizione da lanciare.
 
 ## Punti tecnici aperti
 
@@ -82,6 +100,8 @@ Cio' che e' raggiungibile e non ancora letto. Il debito si chiude leggendo, non 
 | conformita' di `pokebridge` verificata contro `PKHeX` | `docs/23-prove-eseguite.md`, e' il controllo che costa meno e falsifica piu' cose |
 | data di disponibilita' di Rosso Fuoco e Verde Foglia su Switch | schede `sub-3ds-modding.md` e `sub-gba-switch-trading.md`, fonti in conflitto |
 | quale scheda Wi-Fi ha questa macchina e se supporta la modalita' monitor | scheda `sub-gba-switch-trading.md`, e ora esiste la lista di compatibilita' |
+| se il canale del Mobile Adapter GB apra una strada alternativa al cavo per il lato Gen 2 | nota `docs/fonti/reon.md`, da valutare |
+| se l'affermazione di PkSploit regga alla prova, cioe' se un microcontrollore sostituisca il lettore per le cartucce Game Boy | nota `docs/fonti/pksploit.md`, richiede hardware |
 
 ## Decisioni aperte
 

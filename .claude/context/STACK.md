@@ -56,3 +56,26 @@ Va detto con precisione cosa quella macchina puo' e non puo' fare, perche' il ma
 Cio' che quella macchina puo' fare, ed e' allineato alla regola di token economy del progetto, e' condensare localmente fonti molto lunghe prima che entrino in conversazione: una trascrizione da un'ora di video o un thread di forum di duecento messaggi si riducono a una sintesi densa senza consumare contesto ne' pagare token. Il modello `bge-m3` e' un modello di embedding, quindi abilita anche la ricerca semantica locale su tutto il corpus di `_notes/fonti/`, che diventera' utile quando quella cartella sara' cresciuta.
 
 Nessuna di queste due cose e' ancora implementata: sono possibilita' registrate, e stanno fra le voci di `pending.md`.
+
+## Pipeline di trascrizione delle fonti video
+
+Esiste un progetto separato su questa macchina, `E:\local-audio-transcriptor`, che risolve il problema delle fonti video meglio di `yt-dlp` da solo e va usato al suo posto quando serve una trascrizione vera. E' uno strumento locale basato su WhisperX con backend faster-whisper, con `yt-dlp` e ffmpeg gia' integrati, rilevamento automatico di GPU o CPU, diarizzazione di chi parla, indicizzazione a testo pieno su SQLite, risposta a domande sul corpus con citazioni, e sintesi strutturata via un endpoint compatibile con Ollama.
+
+La forma d'uso prevista sarebbe una riga, `transcribe youtube "<url>" --summarize`, ma la prova del 2026-08-25 ha mostrato che il download dell'audio da YouTube risponde 403. La causa e' dichiarata da yt-dlp stesso: manca un runtime JavaScript, che le versioni recenti richiedono per ricavare i formati audio, e senza quello alcuni formati non sono raggiungibili. Si risolverebbe installando `deno`, che e' il runtime abilitato per default, ed e' una decisione dell'utente perche' aggiunge un componente alla macchina.
+
+La via che invece funziona, provata e adottata, non tocca l'audio affatto, perche' i sottotitoli automatici di YouTube sono gia' il risultato di un riconoscimento vocale fatto a monte. Sono due comandi.
+
+```
+python -m yt_dlp --skip-download --write-auto-subs --sub-langs "en.*" -o "%(id)s" URL
+python tools/vtt-to-text.py ID.en.vtt --wrap 6 --out _notes/fonti/data-fonte.txt
+```
+
+Il secondo comando serve perche' i sottotitoli automatici arrivano in forma scorrevole, dove ogni blocco ripete quasi interamente il precedente: convertiti ingenuamente producono un file tre o quattro volte piu' lungo del parlato. Lo strumento ricostruisce il testo una volta sola cercando la sovrapposizione fra blocchi consecutivi. Sul primo video provato, centosedici kilobyte di sottotitoli sono diventati dodici kilobyte di testo, cioe' 2294 parole per dodici minuti di parlato.
+
+Il progetto locale di trascrizione resta necessario per i video che non hanno sottotitoli automatici, e in quel caso fa il lavoro vero con il riconoscimento vocale sulla GPU.
+
+Per la sintesi si punta l'endpoint alla macchina con GPU descritta sopra, configurando `TRANSCRIBE_LLM_BASE_URL` a `http://192.168.20.58:11500/v1` e `TRANSCRIBE_LLM_MODEL` a uno dei modelli presenti, per esempio `qwen3:14b`. In questo modo la trascrizione e la sua sintesi avvengono interamente in rete locale, e in conversazione entra la sintesi invece della trascrizione grezza: e' l'applicazione diretta del principio di disclosure progressiva della regola di token economy.
+
+Resta vero quanto scritto sopra sui limiti di Ollama, e questa pipeline lo conferma dividendo i compiti: il riconoscimento vocale lo fa WhisperX o YouTube a monte, la sintesi la fa il modello di linguaggio, e sono due mestieri diversi.
+
+Sulla qualita' di quella sintesi serve una calibrazione, ricavata dalla prima prova reale. Il modello locale ha condensato duemilatrecento parole di trascrizione in venti punti tecnici in pochi secondi, ed e' stato utile per orientarsi, ma ha prodotto anche due affermazioni non sostenute dal testo, confondendo un numero di versioni e attribuendo al tool una portata che non ha. Ne segue una regola d'uso: l'uscita del modello locale vale come livello 4 nella gerarchia di `SOURCES.md`, cioe' orienta e non si cita, e quando un suo punto conta va verificato sul testo originale, che resta su disco proprio per questo.
