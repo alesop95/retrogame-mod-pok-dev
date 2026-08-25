@@ -49,7 +49,7 @@ Da qui vengono tutte le affermazioni di [[DATA-FORMATS_Gen1-Gen2-Gen3]]. La tabe
 
 Accanto ai cloni sono stati recuperati documenti dal web, e la loro affidabilita' e' stratificata nel registro [[SOURCES]]. Le pagine enciclopediche sono servite a orientarsi e in quattro casi si sono rivelate sbagliate; i blog tecnici sono serviti a capire il perche'; i risultati di ricerca sono serviti a scoprire l'esistenza di progetti come `PkSploit` e la possibilita' di collaudo su BGB.
 
-Due limiti dichiarati sul recupero web, gia' registrati in [[SOURCES]] ma che vale ripetere qui perche' riguardano l'onesta' delle fonti. Reddit non e' raggiungibile dagli strumenti di sessione, quindi i thread elencati non sono stati letti. YouTube restituisce una pagina di consenso invece del contenuto, quindi nessuno dei video e' stato guardato: i canali sono identificati, non consultati.
+Due limiti dichiarati sul recupero web, gia' registrati in [[SOURCES]] ma che vale ripetere qui perche' riguardano l'onesta' delle fonti. YouTube restituisce una pagina di consenso invece del contenuto, quindi nessuno dei video e' stato guardato: i canali sono identificati, non consultati. Reddit non e' stato letto, e la ragione e' stata indagata invece che assunta: cinque vie tentate e tutte fallite, per un blocco che sta a monte e non nel progetto, con le due vie praticabili e lo strumento che le implementa descritti in `.claude/rules/web-sources-not-fetchable.md`.
 
 ## Il secondo tipo: prove di programma
 
@@ -86,7 +86,11 @@ Non dice nulla sull'identita' dei campi. Se avessi scambiato fra loro due campi 
 
 Contro quel limite ci sono due difese, entrambe parziali. La prima e' il caso costruito a mano nelle prove di generazione 1, che assegna valori distinti e riconoscibili a offset specifici e verifica che escano dai campi giusti: copre gli offset che ho scritto a mano nella prova, non tutti. La seconda e' che gli offset provengono dal disassemblato e non da una fonte secondaria, quindi l'errore dovrebbe essere di trascrizione mia e non della fonte.
 
-La difesa che manca, e che va messa in cima alla lista del prossimo lavoro, e' il confronto con un dato reale. Basta un salvataggio vero, letto con il lettore quando arrivera' per il track di Smeraldo, oppure aperto con `PKHeX` per confrontare campo per campo cio' che dichiara lui e cio' che dichiara `pokebridge`. Un solo salvataggio reale falsifica in un colpo ogni permutazione di etichette, e nessuna quantita' di prove sintetiche ci arriva.
+La difesa che manca e' il confronto con un'implementazione indipendente, e qui va corretta una cosa che avevo detto in modo troppo pessimistico: non serve un salvataggio reale. Serve un salvataggio, e un salvataggio lo produce il nostro stesso scrittore. Si sintetizza un salvataggio con `pokebridge`, con campi scelti in modo che ciascuno abbia un valore distinto e riconoscibile, si apre con `PKHeX` e si confronta campo per campo cio' che dichiara lui con cio' che abbiamo scritto noi. Se due campi della stessa larghezza sono scambiati, `PKHeX` mostra i valori invertiti e la permutazione salta all'occhio.
+
+E' una prova di conformita' contro un'implementazione indipendente, costa un'ora e non richiede alcun hardware, quindi va prima e non dopo il resto. Resta un'incognita dichiarata: `PKHeX` valida il salvataggio prima di aprirlo, e un salvataggio sintetico potrebbe essere rifiutato per campi che non abbiamo popolato, per esempio l'identificazione del gioco. Se accadesse, la via di riserva e' popolare quei campi finche' il file passa la validazione, che e' comunque informazione utile su cosa il formato richiede davvero.
+
+Il confronto con un salvataggio reale resta l'ultima parola, perche' e' il solo che verifica anche le assunzioni che condividiamo con noi stessi, ma non e' un prerequisito.
 
 ## Che cosa non e' stato verificato per niente
 

@@ -55,7 +55,7 @@ Il lato generazione 2 trasmette inoltre un blocco separato per la posta, con un 
 
 ## Perche' questa nota e' collaudabile senza hardware
 
-Il fatto piu' utile in pratica: BGB espone il cavo Link su una connessione TCP con un protocollo documentato a pacchetti di otto byte, e `PokemonGB_Online_Trades` implementa gli scambi proprio su quell'interfaccia. Tutto quanto descritto in questa nota si puo' quindi implementare e verificare in emulazione, contro un gioco vero, senza toccare una cartuccia. Il dettaglio di come si organizza quel collaudo sta in [[21-collaudo]].
+Il fatto piu' utile in pratica: BGB espone il cavo Link su una connessione TCP con un protocollo documentato a pacchetti di otto byte, e `PokemonGB_Online_Trades` implementa gli scambi proprio su quell'interfaccia. Tutto quanto descritto in questa nota si puo' quindi implementare e verificare in emulazione, senza toccare una console, a una condizione che vale dichiarare: verificarlo contro un gioco vero richiede la ROM di quel gioco, e dentro il perimetro del progetto quella ROM viene dal dump di una cartuccia propria, quindi dal lettore. Il dettaglio di come si organizza quel collaudo, e cosa resta possibile prima che il lettore arrivi, sta in [[21-collaudo]].
 
 ## Cosa leggere dopo
 

@@ -42,7 +42,35 @@ La stratificazione descritta in [[20-architettura-codice]] mostra che gli strati
 
 Il secondo e' che la conversione fedele delle statistiche non esiste in nessuna implementazione pubblica, perche' il PCCS documenta quattro metodi e ne implementa uno. Se la fedelta' e' un obiettivo, quel pezzo va scritto in ogni caso, anche scegliendo l'opzione A, che quindi non e' piu' la strada a costo zero di sviluppo che sembrava.
 
-Il terzo e' che il protocollo del cavo si collauda su BGB via TCP, come spiegato in [[21-collaudo]]. Le opzioni C e D restano le sole che richiedono ferro per il passaggio finale, ma il loro strato di protocollo non e' piu' bloccato dalla disponibilita' di hardware.
+Il terzo e' che il protocollo del cavo si collauda su BGB via TCP, come spiegato in [[21-collaudo]], con la riserva descritta piu' sotto: l'emulatore serve il protocollo, ma per provarlo contro un gioco vero serve una ROM, e la ROM richiede di dumpare una cartuccia propria. Le opzioni C e D restano quindi le sole che richiedono ferro per il passaggio finale, e il loro strato di protocollo e' scrivibile subito ma verificabile fino a un certo punto.
+
+## Una inclinazione, dichiarata come tale
+
+La decisione non e' presa e non la prende questa nota, ma tenere per se' una preferenza motivata non aiuta nessuno. Fra le quattro, l'opzione D e' quella che convince di piu' chi ha scritto questa nota, per tre ragioni. La logica resta dove si collauda bene, cioe' su un PC, invece di finire dentro una console dove ogni prova costa un ciclo di compilazione e un cavo. L'hardware da costruire e' minimo, perche' il microcontrollore fa una cosa sola. E ha l'effetto collaterale di rendere superfluo il lettore di cartucce, perche' il canale di accesso alla memoria della cartuccia diventa il connettore del cavo, come dimostra `PkSploit`.
+
+Contro l'opzione D valgono due obiezioni oneste. Richiede saldature o almeno cablaggio, e richiede di scrivere firmware, che e' un mestiere diverso da scrivere Python. E si allontana dallo spirito del progetto di riferimento, che voleva un'esperienza tutta dentro le console: un dispositivo in mezzo funziona ma non e' la stessa cosa. Chi decide deve pesare anche questo, che non e' un requisito tecnico ma conta.
+
+## Che cosa si puo' fare senza hardware
+
+Domanda pratica e con una risposta lunga, perche' la parte fattibile senza toccare nulla e' piu' grande di quanto sembri. Questo e' l'ordine consigliato, dal piu' utile al meno urgente.
+
+Il primo posto va alla conformita' con un'implementazione indipendente, perche' e' l'unica cosa che puo' falsificare il lavoro gia' fatto e costa un'ora. Si sintetizza un salvataggio con il nostro scrittore, con valori distinti e riconoscibili in ogni campo, si apre con `PKHeX` e si confronta. Il ragionamento e il limite che chiude stanno in [[23-prove-eseguite]].
+
+Il secondo e' la tabella dagli indici interni di generazione 1 ai numeri del Pokedex nazionale, generata dal disassemblato con lo stesso metodo delle tabelle caratteri. E' l'ultimo dato costante che sarebbe tentante trascrivere a mano, ed e' il posto dove un errore silenzioso farebbe piu' danno, perche' scambierebbe una specie con un'altra.
+
+Il terzo e' la generazione 3, cioe' struttura cifrata, permutazione, checksum, e il contenitore del salvataggio con le sue sezioni. Una parte della logica del contenitore esiste gia' ed e' provata dentro `emerald_bag_decode.py`: va promossa nel pacchetto invece di essere riscritta.
+
+Il quarto sono le tabelle di dati che la conversione richiede e che oggi non esistono: soglie di sesso per specie, curve di esperienza per il calcolo del livello, mosse apprendibili per filtrare quelle che in generazione 3 non esistono, statistiche base per ricalcolare le statistiche derivate. Tutte estraibili dai disassemblati, tutte da generare e non da trascrivere.
+
+Il quinto e' lo strato di conversione con il suo risolutore di vincoli, che e' collaudabile in modo quasi esaustivo senza alcun dato esterno: per ogni combinazione di natura, sesso e abilita' richieste si verifica che un valore di personalita' esista e che le proprieta' derivate corrispondano a quelle chieste.
+
+Il sesto sono i vettori di prova esternalizzati su file, che e' il debito tecnico registrato in [[20-architettura-codice]] e che conviene pagare prima che la suite cresca.
+
+## Che cosa invece il lettore blocca, compresa una dipendenza non ovvia
+
+Ovviamente blocca la lettura e la scrittura di una cartuccia vera, e con essa qualunque prova da un capo all'altro su dati reali.
+
+Meno ovviamente blocca anche il collaudo del protocollo del cavo su emulatore, ed e' una precisazione che corregge quanto scritto in [[21-collaudo]] e in [[08-cavo-link]]. E' vero che BGB espone il cavo su TCP e che quindi il protocollo di generazione 1 e 2 si collauda in emulazione, ma per collaudarlo contro un gioco vero serve la ROM di quel gioco, e ottenerla legittimamente vuol dire dumpare una cartuccia propria, che richiede il lettore. Senza ROM si puo' scrivere il protocollo e provarlo soltanto per auto-consistenza, cioe' facendo parlare due istanze della nostra implementazione, il che verifica che il codice sia coerente con se' stesso e non che sia conforme al gioco. E' una prova debole e va chiamata con il suo nome.
 
 ## La sequenza che ne consegue
 
