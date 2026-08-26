@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Prove sui primitivi. Sono le piu' economiche e catturano gli errori piu' silenziosi."""
+"""Prove sui primitivi. Sono le più economiche e catturano gli errori più silenziosi."""
 
 import unittest
 
@@ -9,7 +9,7 @@ from pokebridge import gb
 class TestInteri(unittest.TestCase):
 
     def test_u16_e_big_endian(self):
-        # Il byte piu' significativo viene per primo: 0x01F4 vale 500, non 62465.
+        # Il byte più significativo viene per primo: 0x01F4 vale 500, non 62465.
         self.assertEqual(gb.u16(bytes([0x01, 0xF4]), 0), 500)
 
     def test_u24_e_big_endian(self):
@@ -39,7 +39,7 @@ class TestDV(unittest.TestCase):
 
     def test_ordine_dei_nibble(self):
         # Verificato su pokecrystal, CalcMonStatC: primo byte Attacco alto e Difesa basso,
-        # secondo byte Velocita' alta e Speciale basso.
+        # secondo byte Velocità alta e Speciale basso.
         dvs = gb.unpack_dvs(0xAB, 0xCD)
         self.assertEqual(dvs, {"atk": 0xA, "def": 0xB, "spd": 0xC, "spc": 0xD})
 
@@ -57,7 +57,7 @@ class TestDV(unittest.TestCase):
         self.assertEqual(gb.hp_dv({"atk": 0, "def": 1, "spd": 0, "spc": 0}), 4)
         self.assertEqual(gb.hp_dv({"atk": 0, "def": 0, "spd": 1, "spc": 0}), 2)
         self.assertEqual(gb.hp_dv({"atk": 0, "def": 0, "spd": 0, "spc": 1}), 1)
-        # Solo la parita' conta: 14 e 0 sono entrambi pari e danno lo stesso contributo.
+        # Solo la parità conta: 14 e 0 sono entrambi pari e danno lo stesso contributo.
         self.assertEqual(gb.hp_dv({"atk": 14, "def": 12, "spd": 8, "spc": 2}), 0)
 
     def test_dv_non_e_un_grado_di_liberta_indipendente(self):
@@ -71,7 +71,7 @@ class TestDV(unittest.TestCase):
             gb.pack_dvs({"atk": 16, "def": 0, "spd": 0, "spc": 0})
 
     def test_lucentezza_gen2(self):
-        # Difesa, Velocita' e Speciale a 10, Attacco in un insieme di otto valori.
+        # Difesa, Velocità e Speciale a 10, Attacco in un insieme di otto valori.
         self.assertTrue(gb.is_shiny_gen2({"atk": 10, "def": 10, "spd": 10, "spc": 10}))
         self.assertTrue(gb.is_shiny_gen2({"atk": 2, "def": 10, "spd": 10, "spc": 10}))
         self.assertFalse(gb.is_shiny_gen2({"atk": 4, "def": 10, "spd": 10, "spc": 10}))
@@ -79,7 +79,7 @@ class TestDV(unittest.TestCase):
 
     def test_conteggio_dei_dv_lucenti(self):
         # Otto valori di Attacco su una sola combinazione degli altri tre: 8 su 65536,
-        # cioe' la probabilita' documentata di uno su 8192.
+        # cioè la probabilità documentata di uno su 8192.
         lucenti = sum(1 for a in range(16) for d in range(16) for s in range(16)
                       for c in range(16)
                       if gb.is_shiny_gen2({"atk": a, "def": d, "spd": s, "spc": c}))

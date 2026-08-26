@@ -16,18 +16,18 @@ https://github.com/stevenchaulk/arduino-poke-gen2
 
 Adattamento a generazione 2 di una macchina a stati Arduino per lo scambio, provato su Cristallo, con schema di cablaggio incluso.
 
-## Perche' e' in archivio
+## Perché è in archivio
 
-Porta un fatto architetturale che semplifica il firmware: in generazione 2 non serve memorizzare nulla, perche' rimandando indietro i byte ricevuti si ottiene la copia della squadra.
+Porta un fatto architetturale che semplifica il firmware: in generazione 2 non serve memorizzare nulla, perché rimandando indietro i byte ricevuti si ottiene la copia della squadra.
 
 ## A quale punto del progetto serve
 
-- [[30-opzioni-implementative]], opzione D, il caso piu' semplice
+- [[30-opzioni-implementative]], opzione D, il caso più semplice
 
 ## Relazioni con altre fonti
 
-- e' derivato o discende da [[arduino-boy]]
+- è derivato o discende da [[arduino-boy]]
 
 ## Contesto
 
-Livello 3 di affidabilita' secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni e' [[index-fonti]].
+Livello 3 di affidabilità secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni è [[index-fonti]].

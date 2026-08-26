@@ -2,7 +2,7 @@
 % reports/preamble.tex - Preambolo condiviso dei report di milestone
 % =====================================================================
 % Contiene solo configurazione tipografica e pacchetti, nessun contenuto.
-% Engine fissato a pdflatex in reports/.latexmkrc, per portabilita': i report
+% Engine fissato a pdflatex in reports/.latexmkrc, per portabilità: i report
 % devono compilare su una TinyTeX minimale senza font di sistema.
 % Convenzioni ispirate a E:\harmony-book, adattate a un documento tecnico
 % invece che editoriale: nessun font commerciale, nessuna classe memoir.
@@ -23,7 +23,7 @@
 \usepackage[font=small,labelfont=bf]{caption}
 \usepackage{xcolor}
 
-% --- Matematica, per i conti su temporizzazione e capacita' di canale ---
+% --- Matematica, per i conti su temporizzazione e capacità di canale ---
 \usepackage{amsmath}
 
 % --- Codice sorgente ---
@@ -47,17 +47,17 @@
 \usepackage[hidelinks]{hyperref}
 
 % --- Intestazioni ---
-% Deliberatamente senza fancyhdr: non e' presente nella TinyTeX di questa macchina e
+% Deliberatamente senza fancyhdr: non è presente nella TinyTeX di questa macchina e
 % tlmgr rifiuta di installarlo senza aggiornare prima se stesso. Un report di milestone
-% non ha bisogno di intestazioni personalizzate, e una dipendenza in meno vale piu' di
+% non ha bisogno di intestazioni personalizzate, e una dipendenza in meno vale più di
 % una riga in testa alla pagina. Numerazione in basso, stile standard.
 \pagestyle{plain}
 
-% --- Unita' di misura ---
-% siunitx non e' garantito presente su una TinyTeX minimale, e per un report tecnico
-% servono solo grandezze semplici con lo spazio fine prima dell'unita'. Si definisce
-% quindi la macro solo se il pacchetto non l'ha gia' fornita, cosi' che il corpo del
-% documento resti valido anche dove siunitx c'e'.
+% --- Unità di misura ---
+% siunitx non è garantito presente su una TinyTeX minimale, e per un report tecnico
+% servono solo grandezze semplici con lo spazio fine prima dell'unità. Si definisce
+% quindi la macro solo se il pacchetto non l'ha già fornita, così che il corpo del
+% documento resti valido anche dove siunitx c'è.
 \providecommand{\SI}[2]{#1\,#2}
 
 % --- Macro del progetto ---

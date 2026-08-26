@@ -16,9 +16,9 @@ https://www.austinthomasweber.com/poke-transporter-gb
 
 Serie di undici articoli in cui l'autore del ponte di riferimento racconta il proprio processo, dall'architettura della console al formato di salvataggio, dal protocollo del cavo alla scoperta dell'exploit, fino all'iniezione dell'evento e alla gestione della grafica.
 
-## Perche' e' in archivio
+## Perché è in archivio
 
-E' la fonte piu' ricca sul nostro problema perche' il codice dice cosa fa e questi articoli dicono perche'. Da qui vengono la specifica esatta dell'exploit e la scoperta che il Pokemon entra in Gen 3 tramite un evento Dono Segreto.
+È la fonte più ricca sul nostro problema perché il codice dice cosa fa e questi articoli dicono perché. Da qui vengono la specifica esatta dell'exploit e la scoperta che il Pokemon entra in Gen 3 tramite un evento Dono Segreto.
 
 ## A quale punto del progetto serve
 
@@ -32,4 +32,4 @@ E' la fonte piu' ricca sul nostro problema perche' il codice dice cosa fa e ques
 
 ## Contesto
 
-Livello 4 di affidabilita' secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni e' [[index-fonti]].
+Livello 4 di affidabilità secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni è [[index-fonti]].

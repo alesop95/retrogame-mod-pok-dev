@@ -13,11 +13,11 @@ https://github.com/MrCheeze/pokestadium-ace
 
 ## Abstract
 
-Esecuzione di codice arbitrario su Pokemon Stadium per Nintendo 64, che passa dal sistema di scambio e presuppone di avere gia' il controllo su un gioco di generazione 1. Documenta gli indirizzi dove i box vengono convertiti dal formato Gen 1 al formato Stadium.
+Esecuzione di codice arbitrario su Pokemon Stadium per Nintendo 64, che passa dal sistema di scambio e presuppone di avere già il controllo su un gioco di generazione 1. Documenta gli indirizzi dove i box vengono convertiti dal formato Gen 1 al formato Stadium.
 
-## Perche' e' in archivio
+## Perché è in archivio
 
-E' il terzo esempio documentato di conversione fra formati Pokemon fatta da software ufficiale, dopo il Time Capsule e il Pal Park, e quindi materiale di studio su come gli autori originali risolvevano il problema.
+È il terzo esempio documentato di conversione fra formati Pokemon fatta da software ufficiale, dopo il Time Capsule e il Pal Park, e quindi materiale di studio su come gli autori originali risolvevano il problema.
 
 ## A quale punto del progetto serve
 
@@ -25,4 +25,4 @@ E' il terzo esempio documentato di conversione fra formati Pokemon fatta da soft
 
 ## Contesto
 
-Livello 3 di affidabilita' secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni e' [[index-fonti]].
+Livello 3 di affidabilità secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni è [[index-fonti]].

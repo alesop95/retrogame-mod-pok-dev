@@ -2,13 +2,13 @@
 """Transcodifica del testo, sulle tabelle generate dai disassemblati.
 
 Le tabelle non stanno qui: stanno in data/, prodotte da tools/extract_charmaps.py dai
-charmap di pret. La ragione e' in docs/05-testo-e-charmap.md, e in breve e' che le fonti
+charmap di pret. La ragione è in docs/05-testo-e-charmap.md, e in breve è che le fonti
 secondarie sbagliavano quelle tabelle in due punti, con un errore che produce nomi
 plausibili e sbagliati invece di un fallimento visibile. Una tabella scritta a mano si
-puo' sbagliare di nuovo a mano; una generata no.
+può sbagliare di nuovo a mano; una generata no.
 
 Questo modulo non decide che fare dei caratteri che in generazione 3 non esistono: li
-segnala. E' una decisione di prodotto, non un dettaglio di codifica, e va presa dal
+segnala. È una decisione di prodotto, non un dettaglio di codifica, e va presa dal
 chiamante in modo esplicito.
 """
 
@@ -76,7 +76,7 @@ class Charmap:
         return "".join(out)
 
     def encode(self, text, length=None):
-        """Da testo a byte, con riempimento al terminatore se length e' data."""
+        """Da testo a byte, con riempimento al terminatore se length è data."""
         out = bytearray()
         for char in text:
             if char not in self.char_to_byte:
@@ -94,7 +94,7 @@ class Charmap:
 class Gen12ToGen3:
     """La traduzione diretta fra i due spazi di codifica.
 
-    E' questa la tabella che un convertitore usa davvero: tradurre passando dal testo
+    È questa la tabella che un convertitore usa davvero: tradurre passando dal testo
     farebbe due conversioni invece di una e introdurrebbe un punto in cui perdere byte.
     """
 
@@ -108,8 +108,8 @@ class Gen12ToGen3:
 
         Il parametro on_missing rende esplicita la decisione sui caratteri privi di
         destinazione: "raise" si ferma, "skip" li salta, "replace" li sostituisce con
-        filler. Nessuno dei tre e' il comportamento corretto in assoluto, e per questo
-        non c'e' un valore di default silenzioso che non sia il fallimento.
+        filler. Nessuno dei tre è il comportamento corretto in assoluto, e per questo
+        non c'è un valore di default silenzioso che non sia il fallimento.
         """
         out = bytearray()
         for byte in raw:

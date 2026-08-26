@@ -1,4 +1,4 @@
-Per ogni cartuccia 3DS (Diamante/Perla/Platino sono DS — vedi sotto; Nera 2 è DS; SoulSilver è DS; Y e Moon sono 3DS):
+Per ogni cartuccia 3DS (Diamante/Perla/Platino sono DS - vedi sotto; Nera 2 è DS; SoulSilver è DS; Y e Moon sono 3DS):
 Inserisci cartuccia → Boot GodMode9 (Start+Power)
 [C:] GAMECART → seleziona il .trim.3ds → NCSD image options → Decrypt file (0:/gm9/out)
 Se dà Decryption failed → quasi certamente serve seeddb.bin (Y e Moon sono entrambi post-2014, molto probabile): rigenera/aggiorna il seed lanciando il gioco online, poi System Save Dump del file seed, conversione con SEEDconv, in 0:/gm9/support/

@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 """Lettore e scrittore delle strutture Pokemon di generazione 2.
 
-Struttura di box 32 byte, di squadra 48. Rispetto alla generazione 1 non e' un'estensione
+Struttura di box 32 byte, di squadra 48. Rispetto alla generazione 1 non è un'estensione
 ma un riordino, quindi non si riusa il parser con un offset diverso: gli offset stanno
 nella sezione 4 di DATA-FORMATS_Gen1-Gen2-Gen3.md.
 
 Tre campi sono nuovi rispetto alla generazione 1 e vanno capiti prima di scriverli.
-L'amicizia, che nella stessa posizione tiene i cicli di cova se il Pokemon e' un uovo.
+L'amicizia, che nella stessa posizione tiene i cicli di cova se il Pokemon è un uovo.
 Il Pokerus, due nibble. E i dati di cattura, due byte densi di campi di bit che solo
-Cristallo popola: e' il solo posto in tutte le generazioni 1 e 2 dove esista un dato di
-provenienza, ed e' per questo che una conversione verso la generazione 3 puo' conservare
+Cristallo popola: è il solo posto in tutte le generazioni 1 e 2 dove esista un dato di
+provenienza, ed è per questo che una conversione verso la generazione 3 può conservare
 il sesso dell'allenatore solo da Cristallo.
 """
 
@@ -70,7 +70,7 @@ class CaughtData:
 
     @property
     def is_empty(self):
-        """Vero sui giochi che non popolano questi byte, cioe' Oro e Argento."""
+        """Vero sui giochi che non popolano questi byte, cioè Oro e Argento."""
         return self.to_bytes() == (0, 0)
 
 
@@ -105,7 +105,7 @@ class Gen2Mon:
 
     @property
     def is_shiny(self):
-        """In generazione 2 la lucentezza e' un pattern di DV. Vedi gb.is_shiny_gen2."""
+        """In generazione 2 la lucentezza è un pattern di DV. Vedi gb.is_shiny_gen2."""
         return gb.is_shiny_gen2(self.dvs)
 
     @property
@@ -192,7 +192,7 @@ class Gen2PartyList:
 
     Stessa forma di quella di generazione 1, con strutture da 48 byte invece di 44. La
     dimensione dei nomi cambia nelle versioni giapponesi, dove sono 6 byte invece di 11,
-    e questo lettore non le copre: e' uno dei punti dichiarati aperti nella sezione 11
+    e questo lettore non le copre: è uno dei punti dichiarati aperti nella sezione 11
     della referenza.
     """
 

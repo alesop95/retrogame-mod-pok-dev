@@ -5,18 +5,17 @@
 % verificato-al-commit: 3f1c9b3
 % ---------------------------------------------------------------------
 
-Questo documento spiega come si trasporta un dato strutturato fra due sistemi digitali
-che non sono stati progettati per parlarsi, e usa come laboratorio cinque lavori reali
-su hardware di consumo degli anni Novanta e Duemila. Il carico utile sono le strutture
-dati dei giochi Pokemon; i nodi sono console che non hanno una rete, non hanno un sistema
-operativo e in alcuni casi non hanno nemmeno un modo previsto di comunicare fra loro.
+Questo lavoro nasce da una cartuccia rotta e da una curiosità che non passa.
 
-Non è un documento sui Pokemon. È un documento su rappresentazione, integrità,
-trasmissione e conversione dell'informazione, dove quei giochi hanno il pregio raro di
-essere sistemi reali, completamente documentati da decompilazioni fedeli, abbastanza
-piccoli da poter essere capiti fino in fondo e abbastanza vecchi da non avere alcuna
-protezione che offuschi i meccanismi. Sono, in altre parole, un laboratorio migliore di
-quasi qualunque sistema moderno.
+La cartuccia è una copia originale di Pokemon Smeraldo, giocata da bambino e conservata per vent'anni, la cui tasca degli strumenti a un certo punto ha smesso di avere senso: da uno slot in avanti gli oggetti ordinari sono diventati Poke Ball. Non è un problema che si risolve rigiocando, perché quel salvataggio contiene un pezzo di tempo che non si rifà. Da qui la prima domanda, che è concreta e non teorica: si può aprire un salvataggio di vent'anni fa, capire che cosa è andato storto e ripararlo senza distruggere tutto il resto.
+
+La curiosità è più vecchia della cartuccia rotta, ed è la seconda origine di questo documento. I giochi Pokemon delle prime tre generazioni hanno una proprietà che da ragazzo si intuisce e da ingegnere si riconosce: sono sistemi che comunicano fra loro attraverso un filo, e quel filo trasporta creature. Un Pokemon che passa da una console a un'altra è, sotto la superficie, una struttura di ottanta byte che attraversa un canale seriale sincrono, viene cifrata, verificata con un checksum e ricomposta all'altro capo. Da bambino si vede la creatura; dopo cinque anni di telecomunicazioni si vede il canale. Questo documento nasce dal desiderio di vedere entrambe le cose insieme, e di capire fino in fondo la macchina che c'è dietro un gesto che da piccolo sembrava magia.
+
+Da queste due origini sono nati cinque lavori paralleli, che sono i casi di studio di questo testo. Riparare l'inventario di quella cartuccia agendo sul salvataggio estratto fisicamente. Costruire un ponte che porti i Pokemon dalle prime due generazioni alla terza su hardware originale, cosa che Nintendo non ha mai reso possibile e che quindi va costruita. Modificare un Nintendo 3DS per estrarre i dati delle proprie cartucce. Far parlare un computer con una Nintendo Switch attraverso il suo protocollo wireless proprietario, per scambiare Pokemon con un gioco che gira sulla console. E studiare come si automatizza un gioco pilotando una console e leggendone lo schermo.
+
+Sono cinque obiettivi diversi, e nessuno di essi era all'inizio un esercizio accademico: ciascuno è nato da una cosa che volevo fare e che non si poteva fare senza capire come funzionava. È questo che tiene insieme il documento, e che spiega perché ogni capitolo teorico finisca in un vincolo pratico e ogni vincolo pratico risalga a un principio.
+
+Detto questo, il testo che segue non è un diario di quei cinque lavori: è la spiegazione, dal primo bit, di che cosa si è dovuto imparare per farli. L'oggetto della trattazione è come si rappresenta, si verifica, si trasmette e si converte un dato strutturato fra sistemi digitali che non sono stati progettati per parlarsi. I Pokemon sono il carico utile, le console sono i nodi, e la scelta di questo dominio non è nostalgia travestita: quei giochi sono sistemi reali, completamente documentati da decompilazioni fedeli, abbastanza piccoli da poter essere capiti fino in fondo e abbastanza vecchi da non avere alcuna protezione che offuschi i meccanismi. Sono, in altre parole, un laboratorio migliore di quasi qualunque sistema moderno, e il fatto che siano anche i giochi della mia infanzia è la ragione per cui ho avuto la pazienza di leggerne i disassemblati.
 
 \section*{Da quale zero si parte}
 

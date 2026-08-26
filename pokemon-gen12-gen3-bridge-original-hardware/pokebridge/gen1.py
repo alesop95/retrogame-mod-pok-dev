@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 """Lettore e scrittore delle strutture Pokemon di generazione 1.
 
-Struttura di box 33 byte, di squadra 44. La forma canonica e' la macro box_struct di
+Struttura di box 33 byte, di squadra 44. La forma canonica è la macro box_struct di
 pret/pokered in macros/ram.asm; gli offset assoluti stanno nella sezione 2 di
 DATA-FORMATS_Gen1-Gen2-Gen3.md.
 
 Due scelte di progettazione, motivate in docs/20-architettura-codice.md. I nomi restano
-byte grezzi e non diventano testo, cosi' che leggere e riscrivere renda byte identici.
-I campi derivati, cioe' le statistiche calcolate, sono letti e conservati ma non
-ricalcolati: ricalcolarli e' un'operazione esplicita, non un effetto collaterale della
-lettura, perche' sbagliarla di nascosto produce un Pokemon che cambia da solo.
+byte grezzi e non diventano testo, così che leggere e riscrivere renda byte identici.
+I campi derivati, cioè le statistiche calcolate, sono letti e conservati ma non
+ricalcolati: ricalcolarli è un'operazione esplicita, non un effetto collaterale della
+lettura, perché sbagliarla di nascosto produce un Pokemon che cambia da solo.
 """
 
 from dataclasses import dataclass, field
@@ -70,7 +70,7 @@ class Gen1Mon:
 
     @classmethod
     def from_bytes(cls, data, party=None):
-        """Legge una struttura. Con party=None la modalita' si deduce dalla lunghezza."""
+        """Legge una struttura. Con party=None la modalità si deduce dalla lunghezza."""
         if party is None:
             if len(data) == PARTY_STRUCT_LENGTH:
                 party = True
@@ -142,12 +142,12 @@ class Gen1PartyList:
     """La lista della squadra: quattro array paralleli, non un array di record.
 
     Forma: contatore, lista di specie terminata da 0xFF, strutture, nomi dell'allenatore
-    originale, soprannomi. Il terminatore della lista di specie non e' decorativo: e' la
-    condizione di uscita dei cicli del gioco, e la sua assenza e' la primitiva su cui si
+    originale, soprannomi. Il terminatore della lista di specie non è decorativo: è la
+    condizione di uscita dei cicli del gioco, e la sua assenza è la primitiva su cui si
     costruisce l'esecuzione di codice arbitrario descritta in docs/09-esecuzione-codice.md.
 
-    La dimensione totale e' 0x194, cioe' 404 byte, e vale la pena scriverlo in entrambe
-    le basi: una fonte secondaria riporta "194 byte", che e' la dimensione esadecimale
+    La dimensione totale è 0x194, cioè 404 byte, e vale la pena scriverlo in entrambe
+    le basi: una fonte secondaria riporta "194 byte", che è la dimensione esadecimale
     letta come decimale.
     """
 

@@ -16,9 +16,9 @@ https://github.com/tangrs/usb-gba-multiboot
 
 Firmware per microcontrollore Teensy e software su PC per caricare un programma nella console via USB, sfruttando il multiboot.
 
-## Perche' e' in archivio
+## Perché è in archivio
 
-E' la via al multiboot che non richiede ne' GameCube ne' flashcart, e motiva la scelta della modalita' seriale normale perche' e' a 32 bit e riceve mentre invia.
+È la via al multiboot che non richiede né GameCube né flashcart, e motiva la scelta della modalità seriale normale perché è a 32 bit e riceve mentre invia.
 
 ## A quale punto del progetto serve
 
@@ -26,8 +26,8 @@ E' la via al multiboot che non richiede ne' GameCube ne' flashcart, e motiva la 
 
 ## Relazioni con altre fonti
 
-- e' un'alternativa a [[rom-sender]]
+- è un'alternativa a [[rom-sender]]
 
 ## Contesto
 
-Livello 3 di affidabilita' secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni e' [[index-fonti]].
+Livello 3 di affidabilità secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni è [[index-fonti]].

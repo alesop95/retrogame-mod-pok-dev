@@ -2,27 +2,27 @@
 # -*- coding: utf-8 -*-
 """Converte un export di chat Discord o Telegram in Markdown leggibile e citabile.
 
-Perche' esiste
+Perché esiste
 --------------
 Le community su Discord sono, per alcune tecniche, la sola documentazione esistente, ma
-un canale non e' recuperabile ne' dal crawler del modello ne' da una richiesta HTTP: la
+un canale non è recuperabile né dal crawler del modello né da una richiesta HTTP: la
 regola `.claude/rules/web-sources-not-fetchable.md` lo registra fra le fonti che
 richiedono un passaggio manuale. Un export prodotto dall'utente colma quel buco, ma il
-JSON che ne esce e' verboso e pieno di campi che non servono: un canale di poche migliaia
-di messaggi diventa decine di megabyte, cioe' inutilizzabile in conversazione.
+JSON che ne esce è verboso e pieno di campi che non servono: un canale di poche migliaia
+di messaggi diventa decine di megabyte, cioè inutilizzabile in conversazione.
 
 Questo strumento riduce l'export a Markdown, tenendo solo autore, momento, testo,
 allegati e citazioni, e lo filtra per parola chiave o intervallo di date. L'esito va in
-`_notes/fonti/` come qualunque altra fonte procurata a mano, e da la' si legge o si
+`_notes/fonti/` come qualunque altra fonte procurata a mano, e da là si legge o si
 condensa con il modello locale descritto in `STACK.md`.
 
 Formati accettati
 -----------------
-Discord: il JSON di DiscordChatExporter, cioe' la struttura con le chiavi `guild`,
+Discord: il JSON di DiscordChatExporter, cioè la struttura con le chiavi `guild`,
 `channel` e `messages`, dove ogni messaggio ha `author`, `timestamp` e `content`.
 
 Telegram: il `result.json` dell'export ufficiale di Telegram Desktop, dove i messaggi
-stanno sotto `messages` e il testo puo' essere una stringa oppure una lista di frammenti
+stanno sotto `messages` e il testo può essere una stringa oppure una lista di frammenti
 con formattazione, che questo strumento ricompone.
 
 Il formato viene riconosciuto dalla forma del file, non dall'estensione.
@@ -35,12 +35,12 @@ Uso
 
 Nota sul token di Discord
 -------------------------
-DiscordChatExporter, per esportare un canale di un server di cui si e' membri senza
+DiscordChatExporter, per esportare un canale di un server di cui si è membri senza
 essere un bot, richiede il token utente. Le condizioni d'uso di Discord non lo
 consentono e l'uso automatizzato del proprio account espone al rischio di sospensione:
-e' una decisione dell'utente, va presa sapendolo, e il token non entra ne' in un file
-tracciato ne' in una conversazione. Questo strumento non tocca il token: lavora solo su
-un file gia' prodotto.
+è una decisione dell'utente, va presa sapendolo, e il token non entra né in un file
+tracciato né in una conversazione. Questo strumento non tocca il token: lavora solo su
+un file già prodotto.
 """
 
 import argparse
@@ -64,7 +64,7 @@ def riconosci(payload):
 
 
 def testo_telegram(valore):
-    """Il testo di Telegram e' una stringa oppure una lista di frammenti formattati."""
+    """Il testo di Telegram è una stringa oppure una lista di frammenti formattati."""
     if isinstance(valore, str):
         return valore
     if isinstance(valore, list):
@@ -171,13 +171,13 @@ def main():
     ap.add_argument("--since", help="tiene solo i messaggi dal giorno indicato, formato AAAA-MM-GG")
     ap.add_argument("--until", help="tiene solo i messaggi fino al giorno indicato")
     ap.add_argument("--min-length", type=int, default=0,
-                    help="scarta i messaggi piu' corti di tanti caratteri, utili contro il rumore")
+                    help="scarta i messaggi più corti di tanti caratteri, utili contro il rumore")
     args = ap.parse_args()
 
     for campo in ("since", "until"):
         v = getattr(args, campo)
         if v and not RE_DATA.match(v):
-            print("la data %r non e' nel formato AAAA-MM-GG" % v, file=sys.stderr)
+            print("la data %r non è nel formato AAAA-MM-GG" % v, file=sys.stderr)
             return 2
 
     with io.open(args.export, encoding="utf-8", errors="replace") as fh:
@@ -196,8 +196,8 @@ def main():
         guild = (payload.get("guild") or {}).get("name", "server ignoto")
         canale = (payload.get("channel") or {}).get("name", "canale ignoto")
         titolo = "Discord, %s, canale #%s" % (guild, canale)
-        nota = ("Export prodotto con DiscordChatExporter dall'utente, perche' un canale "
-                "Discord non e' recuperabile automaticamente.")
+        nota = ("Export prodotto con DiscordChatExporter dall'utente, perché un canale "
+                "Discord non è recuperabile automaticamente.")
     else:
         titolo = "Telegram, %s" % payload.get("name", "chat ignota")
         nota = "Export prodotto da Telegram Desktop dall'utente."

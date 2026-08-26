@@ -16,9 +16,9 @@ https://github.com/spacemeowx2/ldn_mitm
 
 Modulo di sistema per Switch che sostituisce il servizio di rete locale ed emula la scansione delle console vicine usando la rete locale via UDP.
 
-## Perche' e' in archivio
+## Perché è in archivio
 
-E' l'approccio opposto a quello del proof of concept: invece di parlare il protocollo radio, lo sostituisce con traffico di rete. Utile come piano alternativo se la scheda Wi-Fi non supportasse la modalita' monitor.
+È l'approccio opposto a quello del proof of concept: invece di parlare il protocollo radio, lo sostituisce con traffico di rete. Utile come piano alternativo se la scheda Wi-Fi non supportasse la modalità monitor.
 
 ## A quale punto del progetto serve
 
@@ -30,4 +30,4 @@ E' l'approccio opposto a quello del proof of concept: invece di parlare il proto
 
 ## Contesto
 
-Livello 3 di affidabilita' secondo la gerarchia di [[SOURCES]]. Track serviti: LDN. La mappa di tutte le fonti e delle loro relazioni e' [[index-fonti]].
+Livello 3 di affidabilità secondo la gerarchia di [[SOURCES]]. Track serviti: LDN. La mappa di tutte le fonti e delle loro relazioni è [[index-fonti]].

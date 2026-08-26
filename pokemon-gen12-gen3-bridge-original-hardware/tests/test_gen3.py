@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-"""Prove sulla struttura di generazione 3, cioe' cifratura, permutazione e checksum.
+"""Prove sulla struttura di generazione 3, cioè cifratura, permutazione e checksum.
 
 La prova portante resta la simmetria, ma qui va formulata in due versioni invece di una,
-e la ragione e' il checksum. Uno scrittore corretto ricalcola il checksum, quindi su un
+e la ragione è il checksum. Uno scrittore corretto ricalcola il checksum, quindi su un
 buffer casuale, il cui checksum non torna quasi mai, la riscrittura differisce
 dall'originale in due byte per un motivo giusto. Le due versioni separano le due cose che
 la simmetria deve dimostrare: che nessun bit va perso nella lettura, e che il checksum
-calcolato dallo scrittore e' lo stesso che il lettore considera valido.
+calcolato dallo scrittore è lo stesso che il lettore considera valido.
 """
 
 import itertools
@@ -26,7 +26,7 @@ def blob(rng, size):
 
 
 def normalizza(raw):
-    """Riscrive il checksum di un buffer perche' corrisponda ai suoi dati.
+    """Riscrive il checksum di un buffer perché corrisponda ai suoi dati.
 
     Serve a costruire buffer casuali ma validi: senza questo, la simmetria col percorso di
     default fallirebbe sul checksum e non su un errore vero.
@@ -38,7 +38,7 @@ def normalizza(raw):
 
 
 class TestSimmetria(unittest.TestCase):
-    """Nessun bit va perso, e il checksum dello scrittore e' quello del lettore."""
+    """Nessun bit va perso, e il checksum dello scrittore è quello del lettore."""
 
     def test_box_mon_conservando_il_checksum(self):
         rng = random.Random(20260826)
@@ -55,7 +55,7 @@ class TestSimmetria(unittest.TestCase):
             self.assertEqual(mon.to_bytes(preserve_checksum=True), raw)
 
     def test_box_mon_su_buffer_validi(self):
-        # Percorso di default, cioe' checksum ricalcolato: su un buffer il cui checksum e'
+        # Percorso di default, cioè checksum ricalcolato: su un buffer il cui checksum è
         # coerente la riscrittura deve essere identica byte per byte.
         rng = random.Random(12)
         for _ in range(500):
@@ -80,7 +80,7 @@ class TestSimmetria(unittest.TestCase):
         # Growth.filler e i quattro bit unusedRibbons sono i due posti dove un lettore
         # distratto perde informazione senza che nessun campo nominato se ne accorga.
         raw = bytearray(BOX_STRUCT_LENGTH)
-        put_u32(raw, 0x00, 0)          # personalita' 0, permutazione GAEM, chiave 0
+        put_u32(raw, 0x00, 0)          # personalità 0, permutazione GAEM, chiave 0
         put_u32(raw, 0x04, 0)
         put_u16(raw, 0x20 + 10, 0xBEEF)             # Growth.filler, slot 0
         put_u32(raw, 0x20 + 3 * SUBSTRUCT_LENGTH + 8, 0x78000000)  # unusedRibbons = 0xF
@@ -104,7 +104,7 @@ class TestCifratura(unittest.TestCase):
 
     def test_agisce_su_parole_da_32_bit_e_non_su_byte(self):
         # Con una chiave asimmetrica nei suoi quattro byte, uno XOR byte per byte darebbe
-        # un risultato diverso: e' l'errore che i test costruiti a mano non catturano.
+        # un risultato diverso: è l'errore che i test costruiti a mano non catturano.
         raw = bytes(SECURE_LENGTH)
         out = crypt_secure(raw, 0x000000FF, 0)
         self.assertEqual(out[0:4], b"\xFF\x00\x00\x00")
@@ -113,7 +113,7 @@ class TestCifratura(unittest.TestCase):
     def test_chiave_nulla_lascia_i_byte_intatti(self):
         rng = random.Random(16)
         raw = blob(rng, SECURE_LENGTH)
-        # personalita' e ID uguali danno chiave zero, che e' un caso reale e non teorico.
+        # personalità e ID uguali danno chiave zero, che è un caso reale e non teorico.
         self.assertEqual(crypt_secure(raw, 0x1234, 0x1234), raw)
 
     def test_rifiuta_un_blocco_di_lunghezza_sbagliata(self):
@@ -132,7 +132,7 @@ class TestPermutazione(unittest.TestCase):
     def test_coincide_con_la_tabella_della_referenza(self):
         # La sezione 5 di DATA-FORMATS elenca l'ordine per slot; il sorgente elenca la
         # posizione per tipo. Le due devono essere trasposte l'una dell'altra: se un giorno
-        # divergono, una delle due e' stata trascritta male.
+        # divergono, una delle due è stata trascritta male.
         attesi = ("GAEM", "GAME", "GEAM", "GEMA", "GMAE", "GMEA",
                   "AGEM", "AGME", "AEGM", "AEMG", "AMGE", "AMEG",
                   "EGAM", "EGMA", "EAGM", "EAMG", "EMGA", "EMAG",
@@ -141,10 +141,10 @@ class TestPermutazione(unittest.TestCase):
             self.assertEqual(substruct_order(pv), attesi[pv], "riga %d" % pv)
 
     def test_e_l_enumerazione_lessicografica(self):
-        # Proprieta' osservata e non dichiarata da alcuna fonte: le ventiquattro righe sono
+        # Proprietà osservata e non dichiarata da alcuna fonte: le ventiquattro righe sono
         # esattamente le permutazioni di GAEM in ordine lessicografico su quell'alfabeto.
-        # Non la si usa al posto della tabella, che resta il dato: la si verifica, perche'
-        # una regolarita' verificata rende evidente un eventuale errore di trascrizione.
+        # Non la si usa al posto della tabella, che resta il dato: la si verifica, perché
+        # una regolarità verificata rende evidente un eventuale errore di trascrizione.
         lessicografiche = ["".join(p) for p in itertools.permutations("GAEM")]
         self.assertEqual([substruct_order(pv) for pv in range(24)], lessicografiche)
 
@@ -152,14 +152,14 @@ class TestPermutazione(unittest.TestCase):
         self.assertEqual(substruct_order(7), substruct_order(7 + 24 * 1000))
 
     def test_la_permutazione_e_effettiva_nel_buffer(self):
-        # Due valori di personalita' con lo stesso resto darebbero lo stesso ordine; questi
+        # Due valori di personalità con lo stesso resto darebbero lo stesso ordine; questi
         # due hanno resti diversi, quindi la stessa specie deve finire in slot diversi.
         mon0 = Gen3Mon(personality=0, growth=Growth(species=0x0181))
         mon6 = Gen3Mon(personality=6, growth=Growth(species=0x0181))
         self.assertEqual(substruct_order(0), "GAEM")
         self.assertEqual(substruct_order(6), "AGEM")
-        # Il blocco va decifrato prima di guardarlo: con personalita' 6 e ID nullo la
-        # chiave e' 6, non zero, e leggere i byte cifrati darebbe 0x0187 al posto di 0x0181.
+        # Il blocco va decifrato prima di guardarlo: con personalità 6 e ID nullo la
+        # chiave è 6, non zero, e leggere i byte cifrati darebbe 0x0187 al posto di 0x0181.
         for mon, slot in ((mon0, 0), (mon6, 1)):
             raw = mon.to_bytes(party=False)
             plain = crypt_secure(raw[0x20:0x20 + SECURE_LENGTH], mon.personality, mon.ot_id)
@@ -180,12 +180,12 @@ class TestChecksum(unittest.TestCase):
         plain = bytearray(SECURE_LENGTH)
         for i in range(0, SECURE_LENGTH, 2):
             put_u16(plain, i, 0xFFFF)
-        # Ventiquattro volte 0xFFFF fa 0x17FFE8, che troncato a 16 bit e' 0xFFE8.
+        # Ventiquattro volte 0xFFFF fa 0x17FFE8, che troncato a 16 bit è 0xFFE8.
         self.assertEqual(24 * 0xFFFF & 0xFFFF, 0xFFE8)
         self.assertEqual(compute_checksum(bytes(plain)), 0xFFE8)
 
     def test_non_dipende_dall_ordine_delle_sottostrutture(self):
-        # Proprieta' dichiarata nel docstring di compute_checksum: la somma e' commutativa,
+        # Proprietà dichiarata nel docstring di compute_checksum: la somma è commutativa,
         # quindi il checksum si verifica senza sapere quale permutazione sia in uso.
         rng = random.Random(17)
         blocchi = [blob(rng, SUBSTRUCT_LENGTH) for _ in range(4)]
@@ -206,7 +206,7 @@ class TestChecksum(unittest.TestCase):
         raw[0x1C] ^= 0xFF
         guasto = Gen3Mon.from_bytes(bytes(raw))
         self.assertFalse(guasto.checksum_ok)
-        # E il dato resta leggibile, che e' il punto: e' cio' che permette di diagnosticare.
+        # E il dato resta leggibile, che è il punto: è ciò che permette di diagnosticare.
         self.assertEqual(guasto.growth.species, 1)
 
     def test_nessun_checksum_memorizzato_da_None(self):
@@ -251,8 +251,8 @@ class TestValoreDiPersonalita(unittest.TestCase):
         self.assertIsNone(mon.with_personality(5).checksum_stored)
 
     def test_natura_e_il_modulo_25(self):
-        # Non e' memorizzata da nessuna parte: e' il primo campo di Gen 3 che una
-        # conversione deve produrre scegliendo il valore di personalita'.
+        # Non è memorizzata da nessuna parte: è il primo campo di Gen 3 che una
+        # conversione deve produrre scegliendo il valore di personalità.
         self.assertEqual(Gen3Mon(personality=0).nature_index, 0)
         self.assertEqual(Gen3Mon(personality=26).nature_index, 1)
 
@@ -357,7 +357,7 @@ class TestDimensioniEFlag(unittest.TestCase):
         self.assertTrue(mon.has_species)
 
     def test_lucentezza_e_un_conto_sui_32_bit(self):
-        # Con ID e personalita' nulli lo XOR e' zero, quindi sotto la soglia di 8.
+        # Con ID e personalità nulli lo XOR è zero, quindi sotto la soglia di 8.
         self.assertTrue(Gen3Mon(personality=0, ot_id=0).is_shiny)
         self.assertFalse(Gen3Mon(personality=0, ot_id=0x00000100).is_shiny)
 
@@ -379,7 +379,7 @@ class TestDimensioniEFlag(unittest.TestCase):
 
     def test_i_nomi_restano_byte_e_non_diventano_testo(self):
         # Come in gen1 e gen2: la transcodifica sta in charmap.py, e tenerla fuori da qui
-        # e' cio' che rende possibile la simmetria byte-perfetta.
+        # è ciò che rende possibile la simmetria byte-perfetta.
         raw = bytearray(BOX_STRUCT_LENGTH)
         raw[0x08:0x12] = bytes(range(0xB0, 0xBA))
         mon = Gen3Mon.from_bytes(bytes(raw))

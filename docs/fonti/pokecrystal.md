@@ -16,9 +16,9 @@ https://github.com/pret/pokecrystal
 
 Disassemblaggio di Pokemon Cristallo. Oltre alle strutture di generazione 2 contiene la routine di calcolo delle statistiche, la tabella dei caratteri e le due strutture di invio sul cavo, quella nativa e quella del Time Capsule.
 
-## Perche' e' in archivio
+## Perché è in archivio
 
-Da qui vengono l'ordine dei nibble dei DV e la derivazione del quinto DV, scritti come commento nel sorgente, e la scoperta che la conversione fra formati Gen 1 e Gen 2 esiste gia' dentro il gioco.
+Da qui vengono l'ordine dei nibble dei DV e la derivazione del quinto DV, scritti come commento nel sorgente, e la scoperta che la conversione fra formati Gen 1 e Gen 2 esiste già dentro il gioco.
 
 ## A quale punto del progetto serve
 
@@ -32,4 +32,4 @@ Da qui vengono l'ordine dei nibble dei DV e la derivazione del quinto DV, scritt
 
 ## Contesto
 
-Livello 1 di affidabilita' secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni e' [[index-fonti]].
+Livello 1 di affidabilità secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni è [[index-fonti]].

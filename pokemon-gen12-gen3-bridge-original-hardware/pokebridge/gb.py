@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 """Primitivi di lettura e scrittura per le generazioni 1 e 2.
 
-Tutto cio' che sta qui vale per entrambe le generazioni Game Boy e per nessun'altra,
-perche' due scelte lo distinguono dalla generazione 3: l'ordine dei byte, che qui e'
-big-endian, e l'impaccamento in nibble, che qui e' usato per i valori individuali.
+Tutto ciò che sta qui vale per entrambe le generazioni Game Boy e per nessun'altra,
+perché due scelte lo distinguono dalla generazione 3: l'ordine dei byte, che qui è
+big-endian, e l'impaccamento in nibble, che qui è usato per i valori individuali.
 
-I riferimenti alle fonti sono nei docstring perche' un numero senza provenienza, in un
-progetto come questo, e' un numero di cui non si puo' rispondere. La referenza completa
-e' DATA-FORMATS_Gen1-Gen2-Gen3.md, sezioni 2 e 4.
+I riferimenti alle fonti sono nei docstring perché un numero senza provenienza, in un
+progetto come questo, è un numero di cui non si può rispondere. La referenza completa
+è DATA-FORMATS_Gen1-Gen2-Gen3.md, sezioni 2 e 4.
 """
 
 # Lunghezze dichiarate nei disassemblati. Gen 1: pokered, constants/pokemon_data_constants.asm
@@ -69,7 +69,7 @@ def unpack_dvs(hi_byte, lo_byte):
 
     Ordine verificato su pokecrystal, engine/pokemon/move_mon.asm, routine CalcMonStatC:
     il primo byte porta l'Attacco nel nibble alto e la Difesa nel basso, il secondo la
-    Velocita' nel nibble alto e lo Speciale nel basso.
+    Velocità nel nibble alto e lo Speciale nel basso.
     """
     return {"atk": (hi_byte >> 4) & 0x0F, "def": hi_byte & 0x0F,
             "spd": (lo_byte >> 4) & 0x0F, "spc": lo_byte & 0x0F}
@@ -84,22 +84,22 @@ def pack_dvs(dvs):
 
 
 def hp_dv(dvs):
-    """Il DV dei punti salute, che non e' memorizzato ma derivato.
+    """Il DV dei punti salute, che non è memorizzato ma derivato.
 
-    La formula e' scritta come commento nel disassemblato stesso, in CalcMonStatC:
+    La formula è scritta come commento nel disassemblato stesso, in CalcMonStatC:
         DV_HP = (DV_ATK & 1) << 3 | (DV_DEF & 1) << 2 | (DV_SPD & 1) << 1 | (DV_SPC & 1)
 
-    Non e' un grado di liberta' indipendente: chi modifica un DV per aggiustare una
-    statistica modifica anche i punti salute, e non puo' evitarlo.
+    Non è un grado di libertà indipendente: chi modifica un DV per aggiustare una
+    statistica modifica anche i punti salute, e non può evitarlo.
     """
     return (((dvs["atk"] & 1) << 3) | ((dvs["def"] & 1) << 2)
             | ((dvs["spd"] & 1) << 1) | (dvs["spc"] & 1))
 
 
 def is_shiny_gen2(dvs):
-    """Lucentezza in generazione 2, che e' un pattern di DV e non un flag.
+    """Lucentezza in generazione 2, che è un pattern di DV e non un flag.
 
-    Difesa, Velocita' e Speciale a 10, e Attacco in un insieme di otto valori.
+    Difesa, Velocità e Speciale a 10, e Attacco in un insieme di otto valori.
     """
     return (dvs["def"] == 10 and dvs["spd"] == 10 and dvs["spc"] == 10
             and dvs["atk"] in (2, 3, 6, 7, 10, 11, 14, 15))
@@ -125,9 +125,9 @@ def pack_pp(pp, pp_ups):
 def read_name_array(buf, off, count, length=NAME_LENGTH):
     """Legge un array di nomi come byte grezzi.
 
-    I nomi restano byte e non diventano testo: la transcodifica e' un'operazione a parte,
-    in charmap.py, e tenerla separata e' cio' che rende possibile la prova di simmetria,
-    perche' nessun byte viene perso per strada.
+    I nomi restano byte e non diventano testo: la transcodifica è un'operazione a parte,
+    in charmap.py, e tenerla separata è ciò che rende possibile la prova di simmetria,
+    perché nessun byte viene perso per strada.
     """
     return [bytes(buf[off + i * length: off + (i + 1) * length]) for i in range(count)]
 
