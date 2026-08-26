@@ -67,7 +67,7 @@ I quattro sottoprogetti hanno scopi diversi e quindi hanno bisogno di cose diver
 | `gba-save-extraction-smeraldo/` | runbook: riparare un inventario corrotto su cartuccia | [[01-fondamenta-salvataggio]], [[03-integrita-checksum]], [[04-cifratura-gen3]], [[22-strumenti]] |
 | `3ds-related/` | runbook: modding della console e dump delle cartucce | nessuna in modo diretto, perche' dumpa file senza interpretarli; [[01-fondamenta-salvataggio]] se un giorno servisse aprirli |
 | `gba-switch-pokemon-trading/` | reverse engineering di rete fra PC e Switch | [[06-identita-pokemon]] e [[04-cifratura-gen3]], perche' i dati scambiati sono strutture Gen 3 |
-| `poke-automation-study/` | studio dell'automazione su Switch, scopo da definire | nessuna per ora; la sovrapposizione con il ponte e' il microcontrollore, trattato in [[30-opzioni-implementative]] |
+| `poke-automation-study/` | studio dell'automazione su Switch, scopo da definire | la nota di studio vive nella cartella del sottoprogetto, cioe' `poke-automation-study/STUDIO-01-architettura-e-perimetro.md`, perche' studia un progetto esterno e non il nostro codice; la sovrapposizione con il ponte e' il microcontrollore, trattato in [[30-opzioni-implementative]] |
 
 Il formato dei dati Gen 3 e' quindi la conoscenza piu' trasversale del progetto: serve al ponte per costruirlo, a Smeraldo per diagnosticarlo e allo scambio con la Switch per interpretarlo. E' la ragione per cui la referenza vive accanto al ponte ma e' citata dalle schede degli altri.
 

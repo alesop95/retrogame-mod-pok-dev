@@ -13,14 +13,16 @@ Delle sei voci che stavano qui, cinque sono state consegnate il 2026-08-26 come 
 | Fonte | Link | Formato atteso | Domanda a cui serve |
 |---|---|---|---|
 | GBAtemp, tutorial sui problemi di salvataggio | https://gbatemp.net/threads/tutorial-fix-all-save-problems-for-pokemon-games-vc-gba.433266/ | screenshot o pagina salvata | e' la guida che il thread sul salvataggio fallito indica come riferimento quando compare il messaggio di corruzione; serve prima di toccare la cartuccia di Smeraldo |
+| Discord, canale di supporto di Pokemon Multiplayer Research | https://discord.gg/nBnTrv3UMn | messaggi copiati a mano in un file di testo sotto `_notes/fonti/` | la testimonianza sulle schede Wi-Fi per esteso, cioe' quale adattatore, quale sistema operativo, quale driver e quale versione di emulatore, perche' oggi il progetto ne ha solo il riassunto |
+| Discord, canali dei disassemblati su PRET | https://discordapp.com/invite/vdTW48Q | idem, dal canale del gioco pertinente | la formula di conversione da Stat Experience a Effort Value, che nessuna implementazione pubblica pubblica |
 
 ## In attesa dell'utente: credenziali e abilitazioni
 
 | Cosa | Stato | Che cosa sblocca |
 |---|---|---|
-| App Reddit di tipo script | il form si compila correttamente e il reCAPTCHA si spunta, ma alla pressione di create app la pagina si ricarica identica: e' un rifiuto lato server senza messaggio. Le due cause da verificare in quest'ordine sono l'indirizzo email non verificato sull'account e l'adempimento separato che il form chiama registrazione all'uso dell'API | rende Reddit una fonte di prima classe tramite `tools/fetch-reddit.py`, che oggi non e' mai stato eseguito contro il servizio |
-| Decisione sul token utente di Discord | l'export di un canale di cui si e' membri, senza essere un bot, richiede il token dell'account, e le condizioni d'uso di Discord non lo consentono: l'esposizione e' la sospensione dell'account | sblocca la lettura dei cinque server, per cui `tools/read-chat-export.py` e' pronto e collaudato |
-| Adattatore Wi-Fi USB per il track LDN | la macchina non ha Wi-Fi. Una testimonianza di campo indica che il TP-Link AC600 funziona; l'adattatore che l'utente ha in mente e' della stessa famiglia ma il supporto alla modalita' monitor su quel chip passa da un driver fuori albero | sblocca l'unica cosa che blocca il track dello scambio con la Switch |
+| App Reddit di tipo script | il form si compila e il reCAPTCHA si spunta, ma alla pressione di create app la pagina si ricarica identica, cioe' un rifiuto lato server senza messaggio. Verificata la documentazione ufficiale il 2026-08-26: per l'uso gratuito e non commerciale NON esiste alcun modulo di registrazione preventiva, quindi quella ipotesi cade e il modulo di contatto serve solo alle richieste commerciali, aziendali, accademiche o di superamento dei limiti. Resta la prima causa, cioe' l'ammissibilita' dell'account: l'email verificata, e su un account collegato a Google anche l'esistenza di una password propria, che il pannello di modifica dell'email richiede | l'utente deve verificare l'email dalle impostazioni, impostando prima una password se l'account non ne ha una, e poi ritentare la creazione |
+| Token utente di Discord | deciso il 2026-08-26 di NON usarlo: il rischio di essere riconosciuti come self-bot e vedersi chiudere l'account non e' accettabile. La via resta la copia manuale dei messaggi pertinenti in un file di testo sotto `_notes/fonti/`, che `tools/read-chat-export.py` digerisce comunque | nulla: e' una decisione chiusa, e cio' che resta e' materiale da procurare |
+| Adattatore Wi-Fi USB per il track LDN | deciso il 2026-08-26 di partire con l'Archer T2U Nano che l'utente ha gia', accettando la riserva sul chip RTL8811AU, dove la modalita' monitor passa da un driver fuori albero; se non regge si acquista l'AC600 che la testimonianza di campo dichiara funzionante. Non e' bloccante finche' il resto del track e' in lettura | serve la prova sul campo, cioe' verificare se l'adattatore entra in modalita' monitor e vede i frame di annuncio |
 
 ## Fonti in sospeso, da ricordare sempre
 
@@ -51,7 +53,7 @@ Questa e' la tabella che l'agente deve consultare da se': ogni riga dice quando 
 | prima di ogni commit | `python tools/md-unwrap.py --check .` e `python tools/lint-md-commands.py .` | conformita' alla convenzione Markdown e ai comandi su riga singola |
 | dopo commit che toccano i `covers-paths` delle schede | la skill `sync-context` | rilevamento del drift e bump del checkpoint |
 | si chiude una milestone | un report in LaTeX sotto `reports/`, con `latexmk -pdf` | documento datato che fotografa risultati, metodo e limiti, con taglio da telecomunicazioni |
-| serve una trascrizione di un video senza sottotitoli automatici | il progetto `E:\local-audio-transcriptor`, ora funzionante perche' `deno` e' installato | riconoscimento vocale locale con marcatura temporale |
+| serve una trascrizione di un video senza sottotitoli automatici | il progetto `E:\local-audio-transcriptor`, ora funzionante perche' `deno` e' installato | riconoscimento vocale locale con marcatura temporale; verificato il 2026-08-26 che i due video arretrati, cioe' il primo di Goppier e quello sullo scambio locale su Switch, non hanno sottotitoli di alcun tipo, quindi questa e' l'unica via |
 | l'utente produce un export di un canale Discord o di una chat Telegram | `tools/read-chat-export.py` | converte in Markdown filtrato per parola chiave, intervallo di date e lunghezza minima, e lo mette fra le fonti procurate a mano |
 
 ## Debito di lettura
@@ -73,17 +75,14 @@ Le sei voci che erano qui e non ci sono piu' sono state lette il 2026-08-25: il 
 
 ## Trascrizioni da produrre
 
-La pipeline funzionante e' quella descritta in `STACK.md`, cioe' scaricare i sottotitoli automatici con `yt-dlp` e ripulirli con `tools/vtt-to-text.py`, senza toccare l'audio. Il primo video e' stato fatto il 2026-08-25 e la sua trascrizione sta in `_notes/fonti/`. Restano gli altri, e sono lavoro mio: non serve nulla dall'utente.
+La pipeline funzionante e' quella descritta in `STACK.md`, cioe' scaricare i sottotitoli automatici con `yt-dlp` e ripulirli con `tools/vtt-to-text.py`, senza toccare l'audio. Il lavoro e' mio e non serve nulla dall'utente. Il `deno` che serviva al percorso alternativo e' installato, quindi anche il riconoscimento vocale locale e' disponibile.
 
-Una decisione dell'utente resta invece aperta su un punto: il download dell'audio risponde 403 perche' manca un runtime JavaScript, e servirebbe installare `deno`. Non e' necessario finche' i video hanno sottotitoli automatici, e lo diventa per quelli che non ne hanno.
+Il debito di lettura sulle trascrizioni e' chiuso: il 2026-08-26 tutte e sei quelle prodotte sono state lette per intero e cio' che documentano e' confluito in `SOURCES.md` con la profondita' necessaria a citarle, piu' tre punti nuovi nella sezione 11 della referenza dei formati, di cui due chiusi lo stesso giorno sul sorgente. Restano due video da trascrivere, e per entrambi e' stato verificato il 2026-08-26 che non esistono sottotitoli di alcun tipo, automatici o manuali: l'unica via e' il riconoscimento vocale locale.
 
 | Video | Link | Perche' serve |
 |---|---|---|
-| Goppier, lo scambio impossibile | https://www.youtube.com/watch?v=inMbtwmVlKQ | idem, ed e' il video che l'articolo di Hackaday cita |
-| Goppier, lo scambio impossibile | https://www.youtube.com/watch?v=inMbtwmVlKQ | senza sottotitoli automatici: serve il riconoscimento vocale, ora possibile |
-| Scambio locale su Switch in FRLG | https://www.youtube.com/watch?v=epCf87MTLnk | idem; serve al track LDN |
-
-Delle nove trascrizioni in elenco il 2026-08-25 ne sono state prodotte cinque dai sottotitoli automatici, una e' risultata senza parlato perche' e' una dimostrazione muta, e due restano da fare con il riconoscimento vocale. I testi prodotti stanno in `_notes/fonti/` e vanno ancora letti uno per uno: finora sono stati condensati e letti solo quello sul processo di sviluppo e quello di Goppier.
+| Goppier, lo scambio impossibile | https://www.youtube.com/watch?v=inMbtwmVlKQ | e' il piu' importante dei due, perche' il video successivo dello stesso autore vi rimanda per la struttura del circuito e per la questione se un GBA possa parlare direttamente il protocollo Gen 2, che e' un punto aperto capace di cambiare il confronto fra le quattro opzioni |
+| Scambio locale su Switch in FRLG | https://www.youtube.com/watch?v=epCf87MTLnk | serve al track LDN, ed e' il presupposto di quel track visto dal lato utente |
 
 I canali senza un video specifico, cioe' Goppier, Lorenzooone, im a blisy, RETIRE, TheZZAZZGlitch, Retro Game Mechanics Explained e Displaced Gamers, restano da esplorare per scegliere quali video valga la pena trascrivere: e' una decisione da prendere, non una trascrizione da lanciare.
 
@@ -97,7 +96,8 @@ I canali senza un video specifico, cioe' Goppier, Lorenzooone, im a blisy, RETIR
 | vettori di prova esternalizzati su file invece che dentro i metodi | `docs/20-architettura-codice.md`, dichiarato come debito tecnico |
 | conformita' di `pokebridge` verificata contro `PKHeX` | `docs/23-prove-eseguite.md`, e' il controllo che costa meno e falsifica piu' cose |
 | data di disponibilita' di Rosso Fuoco e Verde Foglia su Switch | schede `sub-3ds-modding.md` e `sub-gba-switch-trading.md`, fonti in conflitto |
-| quale scheda Wi-Fi ha questa macchina e se supporta la modalita' monitor | scheda `sub-gba-switch-trading.md`, e ora esiste la lista di compatibilita' |
+| se l'Archer T2U Nano, chip RTL8811AU, entri in modalita' monitor con il driver fuori albero | scheda `sub-gba-switch-trading.md`; la macchina non ha Wi-Fi integrato e la prova si fara' con l'adattatore che l'utente ha gia' |
+| se i programmi di Pokemon Automation per Rosso Fuoco e Verde Foglia su Switch tocchino lo scambio locale | `poke-automation-study/STUDIO-01-architettura-e-perimetro.md`, ed e' la domanda che collega il track dell'automazione a quello dello scambio |
 | se il canale del Mobile Adapter GB apra una strada alternativa al cavo per il lato Gen 2 | nota `docs/fonti/reon.md`, da valutare |
 | se l'affermazione di PkSploit regga alla prova, cioe' se un microcontrollore sostituisca il lettore per le cartucce Game Boy | nota `docs/fonti/pksploit.md`, richiede hardware |
 
@@ -107,8 +107,8 @@ I canali senza un video specifico, cioe' Goppier, Lorenzooone, im a blisy, RETIR
 |---|---|
 | ADR-008, quale delle quattro opzioni implementative per il ponte | aperta; il costo relativo e' cambiato e l'analisi aggiornata sta in `docs/30-opzioni-implementative.md` |
 | se cancellare e ricreare il repository su GitHub per certezza sulla bonifica | rimandata; oggi si accetta che i commit orfani restino raggiungibili per hash fino al garbage collector, come registrato in ADR-014 |
-| che cosa debba essere il track dell'automazione | aperta: studio puro, riuso della parte su microcontrollore in comune con l'opzione D, oppure automazione vera su Switch come obiettivo indipendente. Va deciso anche il perimetro rispetto ai termini di servizio dei servizi online |
-| se usare il token utente di Discord per gli export | aperta, ed e' una decisione di rischio e non tecnica: lo strumento di lettura e' pronto, la via di produzione dell'export non e' consentita dalle condizioni d'uso |
+| che cosa debba essere il track dell'automazione | parzialmente decisa il 2026-08-26: per ora studio, cominciato con la prima nota nella cartella del sottoprogetto. Resta aperto se diventera' riuso della parte su microcontrollore in comune con l'opzione D del ponte oppure automazione vera come obiettivo indipendente. Sul perimetro c'e' una buona notizia, cioe' che il progetto di riferimento dichiara console non modificate e nessun accesso alla memoria, quindi il suo perimetro e' compatibile con le nostre regole |
+| se usare il token utente di Discord per gli export | chiusa il 2026-08-26: no. Il rischio di sospensione dell'account non e' accettabile, e le community si leggono copiando a mano i messaggi pertinenti |
 
 ## Strumenti da costruire
 
