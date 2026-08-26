@@ -4,8 +4,8 @@ generated-from-branch: main
 generated-date: 2026-08-26
 covers-paths:
   - poke-automation-study/
-last-verified-commit: 8553f95
-stato: non iniziato
+last-verified-commit: 7696c46
+stato: studio cominciato, scopo del track da decidere
 ---
 
 # Sottoprogetto: studio dell'automazione dei giochi Pokemon

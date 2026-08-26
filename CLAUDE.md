@@ -4,9 +4,9 @@
 
 Un progetto unico che raccoglie piu' sottoprogetti paralleli di retrogaming e modding, quasi tutti legati ai Pokemon. Non sono fasi di una sequenza: sono obiettivi diversi che avanzano in parallelo, ciascuno con il proprio handoff, e il progetto e' pensato per accoglierne di nuovi nel tempo.
 
-Oggi i track sono cinque. Il modding di un Nintendo 3DS con dump delle cartucce possedute. La correzione di un inventario corrotto sulla cartuccia di Pokemon Smeraldo, agendo sul salvataggio estratto fisicamente. Un ponte software fra le generazioni 1 e 2 e la generazione 3 su hardware originale, che e' l'unico destinato a diventare vero codice. Uno scambio fra GBA e Switch, dichiarato ma non ancora iniziato. E lo studio dell'automazione dei giochi su Switch, aggiunto il 2026-08-26 e ancora da definire nel suo scopo.
+Oggi i track sono cinque. Il modding di un Nintendo 3DS con dump delle cartucce possedute. La correzione di un inventario corrotto sulla cartuccia di Pokemon Smeraldo, agendo sul salvataggio estratto fisicamente. Un ponte software fra le generazioni 1 e 2 e la generazione 3 su hardware originale, che e' il primo a essere diventato vero codice e oggi ha un pacchetto con la sua suite di prove. Uno scambio fra GBA e Switch, in ricerca e destinato anch'esso a produrre codice. E lo studio dell'automazione dei giochi su Switch, aggiunto il 2026-08-26 e ancora da definire nel suo scopo.
 
-Tre dei quattro sono runbook operativi su hardware fisico, dove gli errori sono irreversibili: e' la ragione per cui `rules/hardware-and-perimeter.md` esiste ed e' normativa.
+Tre dei cinque sono runbook operativi su hardware fisico, dove gli errori sono irreversibili: e' la ragione per cui `rules/hardware-and-perimeter.md` esiste ed e' normativa.
 
 ## Procedura di ripresa in una sessione nuova
 
@@ -69,6 +69,8 @@ Gli handoff restano nelle cartelle dei rispettivi sottoprogetti, che e' voluto e
 ## Come si aggiunge un sottoprogetto
 
 Si crea la cartella con un nome in ASCII puro, si istanzia una scheda da `.claude/templates/context/sub-subproject.md` con il `covers-paths` sulla nuova cartella, e si aggiunge una riga in tre posti: la tabella di verifica e il blocco del punto di ripresa in `memory/index.md`, e la tabella dei track in `current-work.md`.
+
+C'e' un quarto passo che non va dimenticato, e va detto perche' dimenticarlo non produce alcun errore visibile: il `covers-paths` delle schede trasversali che parlano del nuovo track va esteso alla sua cartella. Una scheda che descrive un'area senza dichiararla fra i percorsi coperti e' un punto cieco permanente, perche' `sync-context` non segnalera' mai un drift su un'area che nessuno dichiara di coprire, e la scheda resta indefinitamente verde mentre invecchia. E' esattamente cio' che era accaduto a `dev-testing.md`, che ha dichiarato per un giorno l'assenza di test automatici mentre 63 prove passavano.
 
 ## Apprendimenti recenti
 
