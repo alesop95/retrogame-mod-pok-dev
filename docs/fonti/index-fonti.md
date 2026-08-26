@@ -29,7 +29,12 @@ graph LR
   arduino-poke-gen2 -- deriva-da --> arduino-boy
   usb-gba-multiboot -- alternativa-a --> rom-sender
   frlg-ldn-trade -- usa --> kinnay-ldn
+  ldnd -- alternativa-a --> kinnay-ldn
+  pmr-discord -- conferma --> frlg-ldn-trade
+  pmr-discord -- documenta --> ldnd
   ldn-mitm -- usa --> switch-lan-play
+  gcri-discord -- conferma --> pokeemerald
+  gcri-discord -- documenta --> glitchcity
   gambatte-gamelink -- alternativa-a --> cableclubhack
   projectpokemon -- documenta --> cable-link
 ```
@@ -49,6 +54,7 @@ graph LR
 | [[gbatek]] | BRI | [[10-multiboot-hardware]] |
 | [[copetti]] | BRI | [[10-multiboot-hardware]] |
 | [[kinnay-ldn]] | LDN | [[04-cifratura-gen3]] |
+| [[ldnd]] | LDN | [[11-wireless-locale-e-ponte-switch]] |
 
 ### Livello 2
 
@@ -77,7 +83,7 @@ graph LR
 | [[stadium-ace]] | BRI | [[08-cavo-link]] |
 | [[usb-gba-multiboot]] | BRI | [[10-multiboot-hardware]] |
 | [[rom-sender]] | BRI | [[10-multiboot-hardware]] |
-| [[frlg-ldn-trade]] | LDN | [[06-identita-pokemon]] |
+| [[frlg-ldn-trade]] | LDN | [[06-identita-pokemon]], [[11-wireless-locale-e-ponte-switch]] |
 | [[ldn-mitm]] | LDN | [[06-identita-pokemon]] |
 | [[switch-lan-play]] | LDN | [[06-identita-pokemon]] |
 | [[pokemon-automation]] | AUT, LDN | [[30-opzioni-implementative]] |
@@ -88,6 +94,9 @@ graph LR
 |---|---|---|
 | [[devlog-ptgb]] | BRI | [[09-esecuzione-codice]], [[10-multiboot-hardware]], [[08-cavo-link]] |
 | [[blog-phasip]] | BRI | [[09-esecuzione-codice]] |
+| [[pmr-discord]] | LDN, BRI | [[11-wireless-locale-e-ponte-switch]], [[30-opzioni-implementative]] |
+| [[gcri-discord]] | BRI | [[09-esecuzione-codice]], [[05-testo-e-charmap]] |
+| [[gbatemp-vc-save]] | 3DS | [[01-fondamenta-salvataggio]] |
 
 ### Livello 5
 

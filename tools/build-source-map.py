@@ -222,11 +222,25 @@ FONTI = [
      [("[[04-cifratura-gen3]]", "i dati scambiati sono strutture Gen 3")],
      []),
 
-    ("frlg-ldn-trade", "tornadus/frlg-ldn-trade", "https://github.com/tornadus/frlg-ldn-trade", 3, True, ["LDN"],
-     "Proof of concept che fa scambiare Pokemon a un PC con Rosso Fuoco e Verde Foglia in esecuzione su Switch, simulando un giocatore che si collega come capo sessione.",
-     "E' il punto di partenza del track, e dichiara la lista di compatibilita' delle schede Wi-Fi, che e' la risposta anticipata alla domanda che quel track ha come blocco.",
-     [("[[06-identita-pokemon]]", "i formati .pk3 e .ek3 sono strutture Gen 3")],
+    ("frlg-ldn-trade", "frlg-ldn-trade", "https://github.com/unlimitedcoder2/frlg-ldn-trade", 3, True, ["LDN"],
+     "Proof of concept che fa scambiare Pokemon a un PC con Rosso Fuoco e Verde Foglia in esecuzione su Switch o Switch 2, simulando un giocatore che si collega come capo sessione. Richiede Linux, Python 3.12 o successivo, le chiavi della console, almeno due strutture .pk3 e un gioco portato avanti fino allo sbloccio della sala degli scambi. Licenza AGPLv3.",
+     "E' il punto di partenza del track, e la sua tabella di compatibilita' delle schede Wi-Fi e' cio' che decide se il track sia praticabile su una macchina data: affidabili la ALFA AWUS036ACHM con driver mt76x0u e la Realtek RTL8821CE con rtw88_8821ce, inaffidabile la AMD RZ616 con mt7921e, e dichiaratamente problematiche la Intel AX200 con iwlwifi e l Atheros AR9271 con ath9k_htc, entrambe incapaci di ricevere un indirizzo. Il repository dichiara anche che la decompilazione pret/pokefirered comprende il port per Switch, e che il progetto e nato per dimostrare la possibilita di uno scambio non ufficiale.",
+     [("[[06-identita-pokemon]]", "i formati .pk3 e .ek3 sono strutture Gen 3"),
+      ("[[11-wireless-locale-e-ponte-switch]]", "requisiti hardware e procedura di scambio")],
      [("usa", "kinnay-ldn")]),
+
+    ("ldnd", "unlimitedcoder2/ldnd", "https://github.com/unlimitedcoder2/ldnd", 1, True, ["LDN"],
+     "Demone in C, licenza GPL-2.0, che porta lo stack wireless di Linux su Windows: collega il kernel Linux come libreria statica tramite LKL dentro un eseguibile costruito con MinGW, riceve l adattatore USB attraverso WinUSB e gli fa caricare i driver e i file di linux-firmware. Espone il servizio su una pipe con nome, e la sua riga di comando passa parametri di modulo del kernel fra cui rtw88_usb.switch_usb_mode=0.",
+     "Ribalta il vincolo di piattaforma che il progetto dava per assodato, perche rende il track eseguibile su Windows e quindi compatibile con il track dello Smeraldo sulla stessa macchina. Ha anche una compatibilita hardware diversa dalla via Linux, verificata sul campo, perche scavalca il gestore di rete e il driver di sistema; in cambio funziona soltanto con adattatori USB e, dopo la riassegnazione a WinUSB, il dispositivo non funziona piu come scheda di rete ordinaria.",
+     [("[[11-wireless-locale-e-ponte-switch]]", "la via Windows, e il conflitto fra modalita USB 2 e USB 3")],
+     [("alternativa-a", "kinnay-ldn")]),
+
+    ("pmr-discord", "Pokemon Multiplayer Research, canali di supporto", "https://discord.gg/nBnTrv3UMn", 4, True, ["LDN", "BRI"],
+     "Server della community che sviluppa lo scambio via rete locale sui giochi di generazione 3 su Switch. I canali di supporto e generale contengono la casistica reale degli adattatori wireless, i sintomi dei guasti con le loro cause, e le dichiarazioni degli autori sui limiti del progetto.",
+     "E' la sola fonte che dice che cosa funziona davvero e perche, e ha corretto tre cose che il progetto dava per certe: che il chip degli adattatori della famiglia AC600 provati con successo e un RTL8821CU servito dal driver in albero e non un RTL8811AU, che il Wireless Adapter del Game Boy Advance non e 802.11 e va quindi emulato con un microcontrollore, e che l emulatore sulla console riproduce quel dispositivo ma non il cavo Link. Contiene inoltre il vincolo del Pokedex nazionale sul giocatore simulato, e la fotografia di una catena funzionante fra Game Boy Advance e Switch.",
+     [("[[11-wireless-locale-e-ponte-switch]]", "tutta la nota"),
+      ("[[30-opzioni-implementative]]", "conferma indipendente dell opzione D")],
+     [("conferma", "frlg-ldn-trade"), ("documenta", "ldnd")]),
 
     ("ldn-mitm", "ldn_mitm", "https://github.com/spacemeowx2/ldn_mitm", 3, True, ["LDN"],
      "Modulo di sistema per Switch che sostituisce il servizio di rete locale ed emula la scansione delle console vicine usando la rete locale via UDP.",
@@ -247,6 +261,13 @@ FONTI = [
       ("[[23-prove-eseguite]]", "il caso studio sull'affidabilita' delle fonti")],
      []),
 
+    ("gcri-discord", "Glitch City Research Institute, canali", "https://discord.com/invite/EA7jxJ6", 4, True, ["BRI"],
+     "Server della community che studia i difetti sfruttabili dei giochi Pokemon. I canali per generazione contengono il lavoro corrente, che il wiki recepisce con ritardo o non recepisce affatto.",
+     "Ha portato al progetto tutto cio che sa sull esecuzione di codice in generazione 3, che prima non copriva: il ruolo dei byte 0xFC e 0xFD come codice di controllo e sostituzione di variabile nel motore di stampa del testo, la differenza fra Rubino e Zaffiro, dove quei codici passano da una tabella di puntatori senza controllo dei limiti, e le altre tre versioni, dove passano da un costrutto di scelta multipla che rende inerte un indice fuori intervallo, e la catena completa che parte da una posta difettosa. Dal lato generazione 2 ha portato il vincolo per cui un identificativo dell allenatore contenente il byte 0xFF impedisce il traboccamento della squadra, perche introduce un terminatore dove non era previsto.",
+     [("[[09-esecuzione-codice]]", "il lato generazione 3, e il vincolo sul traboccamento"),
+      ("[[05-testo-e-charmap]]", "i byte di controllo non sono caratteri")],
+     [("conferma", "pokeemerald"), ("documenta", "glitchcity")]),
+
     ("glitchcity", "Glitch City Wiki", "https://glitchcity.wiki", 2, True, ["BRI"],
      "Catalogo della ricerca sui glitch dei giochi di generazione 1 e 2, compresi i metodi di esecuzione di codice raggiungibili giocando e quelli che passano dal cavo.",
      "Serve a orientarsi nel campo e a valutare alternative, ma sul vettore che ci interessa rimanda a fonti esterne. Respinge il recupero automatico e si legge dal mirror statico.",
@@ -264,6 +285,12 @@ FONTI = [
      "E' la seconda via di collaudo del protocollo oltre a BGB, e ha due vantaggi: non e' specifica dei Pokemon perche' emula un cavo seriale generico, ed esiste come nucleo libretro, quindi si presta a essere pilotata senza interfaccia grafica.",
      [("[[21-collaudo]]", "il secondo livello di collaudo")],
      [("alternativa-a", "cableclubhack")]),
+
+    ("gbatemp-vc-save", "GBAtemp, correzione dei salvataggi in Virtual Console", "https://gbatemp.net/threads/tutorial-fix-all-save-problems-for-pokemon-games-vc-gba.433266/", 4, True, ["3DS"],
+     "Tutorial del 2016 che corregge l impossibilita di salvare nei giochi Pokemon per Game Boy Advance iniettati come Virtual Console su Nintendo 3DS, tramite modifica esadecimale della ROM, e in una seconda parte rimuove il messaggio di salvataggio corrotto con offset specifici per versione e lingua.",
+     "Va registrata per quello che e e non per quello che si sperava: riguarda l emulazione su console e non le cartucce fisiche, quindi non serve al sottoprogetto dello Smeraldo per cui era stata cercata, e serve invece al track 3DS se un giorno si iniettassero ROM proprie. Il thread stesso ne mostra i limiti, perche la sequenza di byte dichiarata universale non esiste in Rubino e Zaffiro americani, e per Rosso Fuoco e Verde Foglia gli offset della seconda parte non sono mai stati trovati.",
+     [("[[01-fondamenta-salvataggio]]", "che cosa cambia quando il supporto e emulato")],
+     []),
 
     ("projectpokemon", "Project Pokemon, discussioni", "https://projectpokemon.org/home/forums/topic/64794-pokemon-emerald-items-are-in-the-right-bag-using-the-app-but-when-i-load-it-into-a-cartridge-they-go-in-the-wrong-slots/", 5, True, ["SME", "BRI"],
      "Tre discussioni lette: una su un dispositivo che fa da sorgente di clock per il protocollo e ha completato scambi via internet, una su un salvataggio assente invece che corrotto su cartuccia contraffatta, e una su un editor che ha identificato male il gioco facendo finire gli oggetti negli slot sbagliati.",

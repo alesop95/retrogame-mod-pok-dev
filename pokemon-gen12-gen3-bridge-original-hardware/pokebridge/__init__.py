@@ -7,6 +7,6 @@ arriveranno come strati separati. Nessuna dipendenza esterna, per scelta: gli st
 primo al quarto sono aritmetica su interi e manipolazione di byte, e restano portabili.
 """
 
-from . import gb, gen1, gen2, charmap
+from . import gb, gen1, gen2, gen3, charmap
 
-__all__ = ["gb", "gen1", "gen2", "charmap"]
+__all__ = ["gb", "gen1", "gen2", "gen3", "charmap"]
