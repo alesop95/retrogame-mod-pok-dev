@@ -2,28 +2,28 @@
 """Lettore e scrittore delle strutture Pokemon di generazione 3.
 
 Qui cambia la natura del problema rispetto alle due generazioni Game Boy. La struttura di
-box e' 80 byte e quella di squadra 100, ma i 48 byte centrali sono cifrati, permutati in
+box è 80 byte e quella di squadra 100, ma i 48 byte centrali sono cifrati, permutati in
 uno di ventiquattro ordini possibili, e protetti da un checksum che se non torna non
-produce un Pokemon strano: produce un Uovo Difettoso, cioe' distrugge il dato in modo
-visibile e definitivo. Ogni passo di quella catena e' verificato sul sorgente e non su una
-fonte secondaria, perche' su questo punto le fonti secondarie sbagliano in un modo che
+produce un Pokemon strano: produce un Uovo Difettoso, cioè distrugge il dato in modo
+visibile e definitivo. Ogni passo di quella catena è verificato sul sorgente e non su una
+fonte secondaria, perché su questo punto le fonti secondarie sbagliano in un modo che
 distrugge i dati: una pagina enciclopedica descrive il checksum come somma byte per byte,
 mentre il sorgente somma parole da 16 bit.
 
-Due scelte separano questo modulo da `gb.py`, ed e' la ragione per cui i primitivi non si
-riusano: qui l'ordine dei byte e' little-endian, e non esiste impaccamento in nibble ma
+Due scelte separano questo modulo da `gb.py`, ed è la ragione per cui i primitivi non si
+riusano: qui l'ordine dei byte è little-endian, e non esiste impaccamento in nibble ma
 campi di bit su parole da 16 e 32 bit. Resta condivisa la sola classe di errore,
-`gb.FormatError`, perche' un pacchetto con due gerarchie di eccezioni per la stessa
+`gb.FormatError`, perché un pacchetto con due gerarchie di eccezioni per la stessa
 categoria di problema costringe chi lo usa a intercettarne due.
 
 Riferimenti primari, letti su `pret/pokeemerald` il 2026-08-26:
     include/pokemon.h   struct BoxPokemon, struct Pokemon, le quattro PokemonSubstruct
     src/pokemon.c       EncryptBoxMon, DecryptBoxMon, CalculateBoxMonChecksum, GetSubstruct
-La sintesi in prosa e' nella sezione 5 di DATA-FORMATS_Gen1-Gen2-Gen3.md.
+La sintesi in prosa è nella sezione 5 di DATA-FORMATS_Gen1-Gen2-Gen3.md.
 
-Cio' che questo modulo non copre, e che e' lo strato successivo: la struttura del
-salvataggio da 128 KiB, cioe' le sezioni da 4096 byte con il loro piede, la scelta dello
-slot valido e il buffer contiguo del deposito. Quella e' la sezione 6 della referenza.
+Ciò che questo modulo non copre, e che è lo strato successivo: la struttura del
+salvataggio da 128 KiB, cioè le sezioni da 4096 byte con il loro piede, la scelta dello
+slot valido e il buffer contiguo del deposito. Quella è la sezione 6 della referenza.
 """
 
 from dataclasses import dataclass, field
@@ -37,7 +37,7 @@ SUBSTRUCT_LENGTH = 12
 SUBSTRUCT_COUNT = 4
 
 # POKEMON_NAME_LENGTH e PLAYER_NAME_LENGTH di pokeemerald. Non coincidono con
-# gb.NAME_LENGTH, che e' 11: i nomi si accorciano passando alla generazione 3, ed e' uno
+# gb.NAME_LENGTH, che è 11: i nomi si accorciano passando alla generazione 3, ed è uno
 # dei vincoli veri della conversione.
 NICKNAME_LENGTH = 10
 OT_NAME_LENGTH = 7
@@ -53,7 +53,7 @@ OFF_CHECKSUM = 0x1C
 OFF_UNKNOWN = 0x1E
 OFF_SECURE = 0x20
 
-# I venti byte in piu' della struttura di squadra, da struct Pokemon.
+# I venti byte in più della struttura di squadra, da struct Pokemon.
 OFF_STATUS = 0x50
 OFF_LEVEL = 0x54
 OFF_MAIL = 0x55
@@ -71,10 +71,10 @@ ORIGIN_GAMES = {0: "nessuno", 1: "Zaffiro", 2: "Rubino", 3: "Smeraldo",
                 4: "Rosso Fuoco", 5: "Verde Foglia", 15: "Colosseum o XD"}
 
 # Tabella di permutazione, verbatim dalla macro SUBSTRUCT_CASE di src/pokemon.c. Ogni riga
-# e' indicizzata da personality % 24 e dice in quale dei quattro slot da 12 byte si trova
+# è indicizzata da personality % 24 e dice in quale dei quattro slot da 12 byte si trova
 # la sottostruttura di ciascun tipo, nell'ordine Growth, Attacks, EV e condizione,
-# Miscellaneous. E' la forma nativa del sorgente, cioe' posizione-per-tipo; la tabella
-# della referenza e' la sua trasposta, cioe' tipo-per-posizione, e il test verifica che le
+# Miscellaneous. È la forma nativa del sorgente, cioè posizione-per-tipo; la tabella
+# della referenza è la sua trasposta, cioè tipo-per-posizione, e il test verifica che le
 # due coincidano invece di far scegliere a chi legge quale delle due sia giusta.
 SUBSTRUCT_POSITIONS = (
     (0, 1, 2, 3), (0, 1, 3, 2), (0, 2, 1, 3), (0, 3, 1, 2),
@@ -89,7 +89,7 @@ SUBSTRUCT_LETTERS = "GAEM"
 
 
 def u16(buf, off):
-    """Intero a 16 bit little-endian. L'opposto di gb.u16, e non e' un dettaglio."""
+    """Intero a 16 bit little-endian. L'opposto di gb.u16, e non è un dettaglio."""
     return buf[off] | (buf[off + 1] << 8)
 
 
@@ -117,7 +117,7 @@ def put_u32(buf, off, value):
 def substruct_order(personality):
     """L'ordine delle sottostrutture negli slot, per esempio "GAEM".
 
-    E' la forma leggibile della tabella, ricavata invertendo SUBSTRUCT_POSITIONS: se il
+    È la forma leggibile della tabella, ricavata invertendo SUBSTRUCT_POSITIONS: se il
     tipo 0 sta nello slot 2, allora lo slot 2 contiene una G.
     """
     positions = SUBSTRUCT_POSITIONS[personality % 24]
@@ -128,26 +128,26 @@ def substruct_order(personality):
 
 
 def crypt_key(personality, ot_id):
-    """La chiave di cifratura, che non e' un segreto ma un dato pubblico della struttura.
+    """La chiave di cifratura, che non è un segreto ma un dato pubblico della struttura.
 
-    EncryptBoxMon mette ogni parola in XOR prima con il valore di personalita' e poi con
+    EncryptBoxMon mette ogni parola in XOR prima con il valore di personalità e poi con
     l'ID dell'allenatore, e due XOR consecutivi equivalgono a un XOR con la combinazione
     dei due. DecryptBoxMon fa la stessa cosa nell'ordine inverso, che sulla stessa parola
-    e' la stessa operazione: la cifratura e' involutiva, quindi una sola funzione serve per
-    entrambi i versi e non c'e' modo di sbagliare la direzione.
+    è la stessa operazione: la cifratura è involutiva, quindi una sola funzione serve per
+    entrambi i versi e non c'è modo di sbagliare la direzione.
     """
     return (personality ^ ot_id) & 0xFFFFFFFF
 
 
 def crypt_secure(raw, personality, ot_id):
-    """Cifra o decifra i 48 byte, indifferentemente: l'operazione e' la propria inversa.
+    """Cifra o decifra i 48 byte, indifferentemente: l'operazione è la propria inversa.
 
     Lo XOR agisce su parole da 32 bit little-endian, non su byte, e la differenza si vede
-    solo quando la chiave non e' simmetrica nei suoi quattro byte: e' il genere di errore
+    solo quando la chiave non è simmetrica nei suoi quattro byte: è il genere di errore
     che passa i test costruiti a mano e rompe i dati reali.
     """
     if len(raw) != SECURE_LENGTH:
-        raise gb.FormatError("il blocco cifrato e' %d byte, attesi %d"
+        raise gb.FormatError("il blocco cifrato è %d byte, attesi %d"
                              % (len(raw), SECURE_LENGTH))
     key = crypt_key(personality, ot_id)
     out = bytearray(SECURE_LENGTH)
@@ -160,16 +160,16 @@ def compute_checksum(plain):
     """Il checksum dei 48 byte in chiaro: somma delle 24 parole da 16 bit, troncata.
 
     Il sorgente somma sei parole per ciascuna delle quattro sottostrutture, prese nel loro
-    ordine logico attraverso GetSubstruct. Poiche' l'addizione e' commutativa, la somma
+    ordine logico attraverso GetSubstruct. Poiché l'addizione è commutativa, la somma
     delle ventiquattro parole non dipende dall'ordine degli slot: ne segue che il checksum
-    si verifica senza sapere quale permutazione sia in uso, e questa proprieta' e' comoda
-    ma va detta, perche' chi la scopre da se' rischia di credere di aver trovato un errore.
+    si verifica senza sapere quale permutazione sia in uso, e questa proprietà è comoda
+    ma va detta, perché chi la scopre da sé rischia di credere di aver trovato un errore.
 
-    Il troncamento a 16 bit non e' una scelta nostra: l'accumulatore nel sorgente e' un u16
-    e l'aritmetica C tronca da se'.
+    Il troncamento a 16 bit non è una scelta nostra: l'accumulatore nel sorgente è un u16
+    e l'aritmetica C tronca da sé.
     """
     if len(plain) != SECURE_LENGTH:
-        raise gb.FormatError("il blocco in chiaro e' %d byte, attesi %d"
+        raise gb.FormatError("il blocco in chiaro è %d byte, attesi %d"
                              % (len(plain), SECURE_LENGTH))
     total = 0
     for i in range(0, SECURE_LENGTH, 2):
@@ -182,7 +182,7 @@ class Growth:
     """Sottostruttura 0: specie, oggetto, esperienza, bonus PP, amicizia.
 
     Il campo `filler` esiste nel sorgente con quel nome e va conservato invece che azzerato,
-    perche' su un salvataggio reale puo' non essere nullo e perderlo romperebbe la simmetria.
+    perché su un salvataggio reale può non essere nullo e perderlo romperebbe la simmetria.
     """
 
     species: int = 0
@@ -212,7 +212,7 @@ class Growth:
 
         In generazione 2 i PP correnti e i PP Up stanno impaccati nello stesso byte, che
         gb.unpack_pp scompone; qui le due informazioni finiscono in sottostrutture diverse,
-        i PP in Attacks e i PP Up qui, ed e' per questo che la conversione deve smontare
+        i PP in Attacks e i PP Up qui, ed è per questo che la conversione deve smontare
         quel byte e distribuirlo su due posti.
         """
         if not 0 <= index <= 3:
@@ -244,10 +244,10 @@ class Attacks:
 class EvsCondition:
     """Sottostruttura 2: sei EV, cinque statistiche da gara e la lucentezza estetica.
 
-    L'ordine degli EV e' quello interno della generazione 3, con la Velocita' al quarto
+    L'ordine degli EV è quello interno della generazione 3, con la Velocità al quarto
     posto e non all'ultimo, e non coincide con l'ordine di visualizzazione. Le cinque
     statistiche da gara e lo `sheen` non hanno alcun corrispondente nelle generazioni 1 e 2:
-    una conversione le lascia a zero e non ha alternative, perche' il dato non esiste a monte.
+    una conversione le lascia a zero e non ha alternative, perché il dato non esiste a monte.
     """
 
     evs: dict = field(default_factory=lambda: {n: 0 for n in EV_ORDER})
@@ -273,22 +273,22 @@ class EvsCondition:
     def ev_total(self):
         """La somma degli EV, che il gioco non lascia superare 510.
 
-        Non e' un vincolo imposto qui, perche' un lettore che rifiuta un dato reale e'
-        inutile: e' un criterio che lo strato di conversione deve rispettare quando li
-        assegna, ed e' esposto perche' quello strato lo consulti.
+        Non è un vincolo imposto qui, perché un lettore che rifiuta un dato reale è
+        inutile: è un criterio che lo strato di conversione deve rispettare quando li
+        assegna, ed è esposto perché quello strato lo consulti.
         """
         return sum(self.evs.values())
 
 
 @dataclass
 class Misc:
-    """Sottostruttura 3: Pokerus, provenienza, IV, uovo, abilita' e nastri.
+    """Sottostruttura 3: Pokerus, provenienza, IV, uovo, abilità e nastri.
 
-    E' quella densa di campi di bit, e la sola in cui la referenza in prosa non basta:
+    È quella densa di campi di bit, e la sola in cui la referenza in prosa non basta:
     tutti i confini fra campi qui sono presi dalle dichiarazioni di bitfield di
-    include/pokemon.h, comprese le quattro posizioni che la referenza non nominava, cioe'
+    include/pokemon.h, comprese le quattro posizioni che la referenza non nominava, cioè
     i bit 27-30, che nel sorgente sono `unusedRibbons` e vengono scartati dalla quarta
-    generazione. Restano conservati perche' un lettore che li perde rompe la simmetria su
+    generazione. Restano conservati perché un lettore che li perde rompe la simmetria su
     un salvataggio che li abbia non nulli.
     """
 
@@ -308,7 +308,7 @@ class Misc:
 
     # I dodici nastri di merito a un bit, nell'ordine di dichiarazione, a partire dal bit 15
     # della parola dei nastri. Sono tenuti come maschera intera e non come dodici booleani
-    # perche' nessuno strato di questo progetto li interpreta, e una maschera si conserva
+    # perché nessuno strato di questo progetto li interpreta, e una maschera si conserva
     # senza doverli nominare tutti.
     MERIT_RIBBON_NAMES = ("champion", "winning", "victory", "artist", "effort", "marine",
                           "land", "sky", "country", "national", "earth", "world")
@@ -390,18 +390,18 @@ SUBSTRUCT_TYPES = (Growth, Attacks, EvsCondition, Misc)
 
 @dataclass
 class Gen3Mon:
-    """Un Pokemon di generazione 3, con le quattro sottostrutture gia' decifrate.
+    """Un Pokemon di generazione 3, con le quattro sottostrutture già decifrate.
 
-    Il valore di personalita' e' immutabile dopo la costruzione, ed e' una scelta di
-    progettazione e non una limitazione: quel valore e' anche chiave di cifratura e
-    selettore della permutazione, quindi cambiarlo su una struttura gia' composta la
-    invaliderebbe silenziosamente, che e' il modo tipico di produrre Uova Difettose. Chi
-    deve cambiarlo, e in conversione serve davvero perche' il valore di personalita' decide
+    Il valore di personalità è immutabile dopo la costruzione, ed è una scelta di
+    progettazione e non una limitazione: quel valore è anche chiave di cifratura e
+    selettore della permutazione, quindi cambiarlo su una struttura già composta la
+    invaliderebbe silenziosamente, che è il modo tipico di produrre Uova Difettose. Chi
+    deve cambiarlo, e in conversione serve davvero perché il valore di personalità decide
     anche natura e sesso, usa `with_personality`, che ricompone tutto da capo.
 
     I campi di sola squadra sono None in una struttura di box, come in gen1 e gen2. Nomi e
-    soprannomi restano byte grezzi: la transcodifica e' un'operazione a parte, in charmap.py,
-    e tenerla fuori da qui e' cio' che rende possibile la prova di simmetria.
+    soprannomi restano byte grezzi: la transcodifica è un'operazione a parte, in charmap.py,
+    e tenerla fuori da qui è ciò che rende possibile la prova di simmetria.
     """
 
     personality: int = 0
@@ -430,17 +430,17 @@ class Gen3Mon:
     def __setattr__(self, name, value):
         if name == "personality" and getattr(self, "_frozen", False):
             raise gb.FormatError(
-                "il valore di personalita' non si modifica dopo la costruzione: e' chiave "
+                "il valore di personalità non si modifica dopo la costruzione: è chiave "
                 "di cifratura e selettore di permutazione, e cambiarlo qui invaliderebbe "
                 "la struttura senza dirlo. Usa with_personality per ottenere una copia.")
         object.__setattr__(self, name, value)
 
     def with_personality(self, personality):
-        """Una copia con un altro valore di personalita', ricomposta da zero.
+        """Una copia con un altro valore di personalità, ricomposta da zero.
 
         Serve allo strato di conversione, che cerca un valore capace di soddisfare insieme
         natura, sesso e lucentezza desiderate. Il checksum memorizzato non viene copiato,
-        perche' riferito a una cifratura diversa non significherebbe nulla: la copia si
+        perché riferito a una cifratura diversa non significherebbe nulla: la copia si
         riscrive ricalcolandolo.
         """
         import copy
@@ -478,13 +478,13 @@ class Gen3Mon:
 
     @property
     def is_shiny(self):
-        """In generazione 3 la lucentezza non e' un pattern di DV ma un conto sui 32 bit.
+        """In generazione 3 la lucentezza non è un pattern di DV ma un conto sui 32 bit.
 
-        Si mettono in XOR le due meta' dell'ID dell'allenatore e le due meta' del valore di
-        personalita', e il Pokemon e' cromatico se il risultato sta sotto la soglia. La
-        differenza con la generazione 2, dove la lucentezza e' un pattern di DV, e' la
+        Si mettono in XOR le due metà dell'ID dell'allenatore e le due metà del valore di
+        personalità, e il Pokemon è cromatico se il risultato sta sotto la soglia. La
+        differenza con la generazione 2, dove la lucentezza è un pattern di DV, è la
         ragione per cui un Pokemon cromatico non resta cromatico attraverso una conversione
-        se non si sceglie il valore di personalita' apposta.
+        se non si sceglie il valore di personalità apposta.
         """
         tid = self.ot_id & 0xFFFF
         sid = (self.ot_id >> 16) & 0xFFFF
@@ -494,11 +494,11 @@ class Gen3Mon:
 
     @property
     def nature_index(self):
-        """La natura e' il valore di personalita' modulo 25, e non e' memorizzata da nessuna parte.
+        """La natura è il valore di personalità modulo 25, e non è memorizzata da nessuna parte.
 
-        E' il primo campo della generazione 3 che non ha alcun corrispondente a monte: le
+        È il primo campo della generazione 3 che non ha alcun corrispondente a monte: le
         generazioni 1 e 2 non hanno nature, quindi una conversione la determina scegliendo
-        il valore di personalita', non copiando un dato.
+        il valore di personalità, non copiando un dato.
         """
         return self.personality % 25
 
@@ -518,9 +518,9 @@ class Gen3Mon:
     def checksum_ok(self):
         """Vero se il checksum letto dal buffer coincide con quello calcolato.
 
-        None quando non c'e' un checksum memorizzato, cioe' su una struttura costruita a
+        None quando non c'è un checksum memorizzato, cioè su una struttura costruita a
         mano e non letta da byte. Un lettore non deve rifiutare un buffer con checksum
-        sbagliato, perche' e' esattamente il caso che si vuole poter diagnosticare: il gioco
+        sbagliato, perché è esattamente il caso che si vuole poter diagnosticare: il gioco
         in quella situazione alza il flag di Uovo Difettoso e distrugge il Pokemon, e uno
         strumento che si limita a sollevare un'eccezione non dice quale dei due sia il dato
         buono.
@@ -577,12 +577,12 @@ class Gen3Mon:
         return mon
 
     def to_bytes(self, party=None, preserve_checksum=False):
-        """Ricompone i byte, cifrando e permutando secondo il valore di personalita'.
+        """Ricompone i byte, cifrando e permutando secondo il valore di personalità.
 
-        Il checksum viene ricalcolato, ed e' il comportamento di default perche' e' l'unico
-        sicuro: propagare un checksum letto e non piu' coerente con i dati e' precisamente
+        Il checksum viene ricalcolato, ed è il comportamento di default perché è l'unico
+        sicuro: propagare un checksum letto e non più coerente con i dati è precisamente
         il modo di produrre un Uovo Difettoso. `preserve_checksum` riscrive invece quello
-        memorizzato, e serve a due cose legittime, cioe' dimostrare che la lettura e la
+        memorizzato, e serve a due cose legittime, cioè dimostrare che la lettura e la
         riscrittura non perdono un solo bit anche su un buffer arbitrario, e conservare un
         dump corrotto tale e quale per poterlo studiare.
         """
@@ -620,7 +620,7 @@ class Gen3Mon:
         if preserve_checksum:
             if self.checksum_stored is None:
                 raise gb.FormatError("nessun checksum memorizzato da conservare: questa "
-                                     "struttura non e' stata letta da byte")
+                                     "struttura non è stata letta da byte")
             checksum = self.checksum_stored
         else:
             checksum = compute_checksum(bytes(plain))

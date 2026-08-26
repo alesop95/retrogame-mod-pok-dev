@@ -16,7 +16,7 @@ https://github.com/unlimitedcoder2/ldnd
 
 Demone in C, licenza GPL-2.0, che porta lo stack wireless di Linux su Windows: collega il kernel Linux come libreria statica tramite LKL dentro un eseguibile costruito con MinGW, riceve l adattatore USB attraverso WinUSB e gli fa caricare i driver e i file di linux-firmware. Espone il servizio su una pipe con nome, e la sua riga di comando passa parametri di modulo del kernel fra cui rtw88_usb.switch_usb_mode=0.
 
-## Perche' e' in archivio
+## Perché è in archivio
 
 Ribalta il vincolo di piattaforma che il progetto dava per assodato, perche rende il track eseguibile su Windows e quindi compatibile con il track dello Smeraldo sulla stessa macchina. Ha anche una compatibilita hardware diversa dalla via Linux, verificata sul campo, perche scavalca il gestore di rete e il driver di sistema; in cambio funziona soltanto con adattatori USB e, dopo la riassegnazione a WinUSB, il dispositivo non funziona piu come scheda di rete ordinaria.
 
@@ -26,8 +26,8 @@ Ribalta il vincolo di piattaforma che il progetto dava per assodato, perche rend
 
 ## Relazioni con altre fonti
 
-- e' un'alternativa a [[kinnay-ldn]]
+- è un'alternativa a [[kinnay-ldn]]
 
 ## Contesto
 
-Livello 1 di affidabilita' secondo la gerarchia di [[SOURCES]]. Track serviti: LDN. La mappa di tutte le fonti e delle loro relazioni e' [[index-fonti]].
+Livello 1 di affidabilità secondo la gerarchia di [[SOURCES]]. Track serviti: LDN. La mappa di tutte le fonti e delle loro relazioni è [[index-fonti]].

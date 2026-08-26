@@ -2,20 +2,20 @@
 # -*- coding: utf-8 -*-
 """Converte i sottotitoli VTT in testo leggibile, togliendo la duplicazione.
 
-Perche' esiste
+Perché esiste
 --------------
 I sottotitoli automatici di YouTube arrivano in forma scorrevole: ogni blocco ripete
-quasi interamente il precedente aggiungendo poche parole, cosi' che a video il testo
-sembri salire. Convertiti ingenuamente producono un file tre o quattro volte piu' lungo
+quasi interamente il precedente aggiungendo poche parole, così che a video il testo
+sembri salire. Convertiti ingenuamente producono un file tre o quattro volte più lungo
 del parlato, con ogni frase ripetuta. Questo strumento ricostruisce il testo una volta
 sola, e mantiene facoltativamente le marcature temporali.
 
-Il percorso completo per una fonte video, registrato in STACK.md, e' questo:
+Il percorso completo per una fonte video, registrato in STACK.md, è questo:
 
     python -m yt_dlp --skip-download --write-auto-subs --sub-langs "en.*" -o "%(id)s" URL
     python tools/vtt-to-text.py ID.en.vtt --out _notes/fonti/data-fonte.txt
 
-Il download dell'audio non serve: i sottotitoli automatici sono gia' il risultato del
+Il download dell'audio non serve: i sottotitoli automatici sono già il risultato del
 riconoscimento vocale fatto da YouTube. Serve solo quando i sottotitoli non esistono, e
 in quel caso si passa al progetto locale di trascrizione descritto in STACK.md.
 
@@ -59,7 +59,7 @@ def parse(path):
         blocchi.append((inizio, " ".join(buffer).strip()))
 
     # Deduplicazione: ogni blocco dei sottotitoli scorrevoli ripete la coda del
-    # precedente. Si tiene solo la parte nuova, cercando la sovrapposizione piu' lunga.
+    # precedente. Si tiene solo la parte nuova, cercando la sovrapposizione più lunga.
     uscita = []
     accumulato = ""
     for inizio, testo in blocchi:

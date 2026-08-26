@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Legge un salvataggio Gen 3 e diagnostica lo zaino, smascherando le quantita'.
+"""Legge un salvataggio Gen 3 e diagnostica lo zaino, smascherando le quantità.
 
-Perche' esiste
+Perché esiste
 --------------
-In Pokemon Smeraldo le quantita' degli oggetti nello zaino non stanno in chiaro nel
+In Pokemon Smeraldo le quantità degli oggetti nello zaino non stanno in chiaro nel
 salvataggio: sono in XOR con una chiave di sicurezza per Pokemon specifica di quel
-salvataggio. La verifica sul sorgente di pret/pokeemerald e' univoca:
+salvataggio. La verifica sul sorgente di pret/pokeemerald è univoca:
 
     struct SaveBlock2 { ... /*0xAC*/ u32 encryptionKey; ... };
 
@@ -16,10 +16,10 @@ salvataggio. La verifica sul sorgente di pret/pokeemerald e' univoca:
     static u16 GetPCItemQuantity(u16 *quantity)
     { return *quantity; }
 
-Ne segue il punto che conta per una diagnosi: una quantita' assurda letta in chiaro
-dallo zaino non prova nulla, perche' e' l'aspetto normale di un dato mascherato. Solo
-dopo lo smascheramento si puo' dire che cosa e' davvero corrotto. Nel deposito PC,
-invece, le quantita' sono in chiaro e un valore assurdo la' e' un'anomalia vera.
+Ne segue il punto che conta per una diagnosi: una quantità assurda letta in chiaro
+dallo zaino non prova nulla, perché è l'aspetto normale di un dato mascherato. Solo
+dopo lo smascheramento si può dire che cosa è davvero corrotto. Nel deposito PC,
+invece, le quantità sono in chiaro e un valore assurdo là è un'anomalia vera.
 
 I tre giochi non si somigliano e nulla si riusa fra loro. Rubino e Zaffiro non mascherano
 affatto. Rosso Fuoco e Verde Foglia mascherano, ma tengono la chiave a 0xF20 dentro
@@ -60,10 +60,10 @@ MAX_BERRY_CAPACITY = 999
 MAX_MONEY = 999999
 
 # Offset dentro SaveBlock1, da include/global.h di pokeemerald.
-# SaveBlock1 e' la concatenazione delle sezioni con id da 1 a 4.
+# SaveBlock1 è la concatenazione delle sezioni con id da 1 a 4.
 EMERALD = {
     "nome": "Smeraldo",
-    "chiave_offset": 0xAC,          # dentro SaveBlock2, cioe' la sezione con id 0
+    "chiave_offset": 0xAC,          # dentro SaveBlock2, cioè la sezione con id 0
     "maschera": True,
     "party_count": 0x234,
     "money": 0x490,
@@ -81,7 +81,7 @@ EMERALD = {
 
 # Rosso Fuoco e Verde Foglia: tutto diverso, e verificato su pret/pokefirered il
 # 2026-08-25. La chiave sta a 0xF20 dentro SaveBlock2, che misura 0xF24 byte: la fonte
-# secondaria che indicava 0x0AF8 e' sbagliata, ed e' il quinto errore di quel tipo che
+# secondaria che indicava 0x0AF8 è sbagliata, ed è il quinto errore di quel tipo che
 # questo progetto documenta. Le capienze delle tasche sono diverse da quelle di Smeraldo
 # e da quelle di Rubino e Zaffiro, quindi non si possono riusare.
 FRLG = {
@@ -128,9 +128,9 @@ def score_candidate(game, sb2, sb1):
 
     Serve a non fidarsi di un parametro. Un thread di Project Pokemon documenta un caso
     reale in cui un editor ha identificato un salvataggio di Smeraldo come Rubino o
-    Zaffiro, e la conseguenza e' stata che gli oggetti sono finiti negli slot sbagliati:
-    e' esattamente l'errore che questa funzione esiste per intercettare, perche' Smeraldo
-    maschera le quantita' e Rubino e Zaffiro no.
+    Zaffiro, e la conseguenza è stata che gli oggetti sono finiti negli slot sbagliati:
+    è esattamente l'errore che questa funzione esiste per intercettare, perché Smeraldo
+    maschera le quantità e Rubino e Zaffiro no.
 
     Ritorna (punteggio, elenco di prove). Non decide: riferisce.
     """
@@ -155,7 +155,7 @@ def score_candidate(game, sb2, sb1):
         raw = u32(sb1, game["money"])
         money = (raw ^ key) & 0xFFFFFFFF if game["maschera"] else raw
         if money == 0:
-            # Zero non e' una prova: e' cio' che si legge da un'area non pertinente.
+            # Zero non è una prova: è ciò che si legge da un'area non pertinente.
             prove.append("denaro nullo, non discrimina")
         elif money <= MAX_MONEY:
             punti += 3
@@ -165,7 +165,7 @@ def score_candidate(game, sb2, sb1):
             prove.append("denaro %d oltre il tetto, incoerente" % money)
 
     # Uno slot vuoto in una tasca mascherata contiene la chiave: se la chiave dedotta
-    # coincide con quella letta, la maschera e' quella giusta e quindi il gioco lo e'.
+    # coincide con quella letta, la maschera è quella giusta e quindi il gioco lo è.
     if game["maschera"] and game["tasche"]:
         for nome, offset, count, masked, _cap in game["tasche"]:
             if not masked:
@@ -174,7 +174,7 @@ def score_candidate(game, sb2, sb1):
                 base = offset + i * ITEM_SLOT_SIZE
                 if u16(sb1, base) == 0 and u16(sb1, base + 2) == 0:
                     # Uno slot vuoto vale come prova solo se la chiave che ne deriva non
-                    # e' nulla: una chiave a zero e' il caso degenere di un'area di soli
+                    # è nulla: una chiave a zero è il caso degenere di un'area di soli
                     # zeri, che somiglia a qualunque cosa.
                     if key & 0xFFFF:
                         punti += 3
@@ -222,12 +222,12 @@ def checksum_prefix(data, words):
 
 
 def validate_sector(sector):
-    """Ritorna (id, counter, lunghezza_verificata) oppure None se la sezione non e' valida.
+    """Ritorna (id, counter, lunghezza_verificata) oppure None se la sezione non è valida.
 
     La lunghezza su cui il gioco calcola il checksum dipende da sizeof delle strutture
-    di salvataggio, che non e' ricavabile da qui senza compilare. Invece di indovinarla
+    di salvataggio, che non è ricavabile da qui senza compilare. Invece di indovinarla
     si cerca quale prefisso di parole da 32 bit riproduce il checksum memorizzato,
-    partendo dalla sezione piena, che e' il caso normale.
+    partendo dalla sezione piena, che è il caso normale.
     """
     signature = u32(sector, OFF_SIGNATURE)
     if signature != SECTOR_SIGNATURE:
@@ -242,7 +242,7 @@ def validate_sector(sector):
         running = (running + u32(sector, i * 4)) & 0xFFFFFFFF
         folded = ((running >> 16) + running) & 0xFFFF
         if folded == stored:
-            match = (i + 1) * 4      # prefisso piu' corto che torna
+            match = (i + 1) * 4      # prefisso più corto che torna
             if match == SECTOR_DATA_SIZE:
                 break
     if match is None:
@@ -288,7 +288,7 @@ def assemble(slot):
 # contiguo e quindi si possono verificare per confronto numerico: le Poke Ball, che
 # stanno da ITEM_MASTER_BALL a ITEM_PREMIER_BALL, le bacche, da ITEM_CHERI_BERRY a
 # ITEM_ENIGMA_BERRY, e le macchine, da ITEM_TM01 a ITEM_HM08. Gli oggetti ordinari e
-# quelli chiave sono sparsi e non si possono verificare cosi': per loro il controllo
+# quelli chiave sono sparsi e non si possono verificare così: per loro il controllo
 # non si fa, invece di farlo male.
 CATEGORIE_CONTIGUE = (
     ("Poke Ball", 1, 12),
@@ -296,17 +296,17 @@ CATEGORIE_CONTIGUE = (
     ("MT e MN", 289, 346),
 )
 
-# La tasca in cui ciascuna categoria contigua deve trovarsi. Il nome e' quello usato
-# nelle tabelle dei giochi qui sopra, e il confronto e' per nome perche' gli offset
+# La tasca in cui ciascuna categoria contigua deve trovarsi. Il nome è quello usato
+# nelle tabelle dei giochi qui sopra, e il confronto è per nome perché gli offset
 # cambiano da gioco a gioco mentre il significato della tasca no.
 TASCA_ATTESA = {"Poke Ball": "Poke Ball", "Bacche": "Bacche", "MT e MN": "MT e MN"}
 
 
 def categoria_di(item_id):
-    """La categoria contigua di un identificativo, o None se non e' in nessuna.
+    """La categoria contigua di un identificativo, o None se non è in nessuna.
 
     None non significa che l'oggetto sia anomalo: significa che questo controllo non
-    ha nulla da dire su di esso, perche' la sua categoria non e' un intervallo.
+    ha nulla da dire su di esso, perché la sua categoria non è un intervallo.
     """
     for nome, primo, ultimo in CATEGORIE_CONTIGUE:
         if primo <= item_id <= ultimo:
@@ -315,20 +315,20 @@ def categoria_di(item_id):
 
 
 def anomalie_di_categoria(nome_tasca, slots):
-    """Segnala gli oggetti che stanno in una tasca che non e' la loro.
+    """Segnala gli oggetti che stanno in una tasca che non è la loro.
 
-    E' il controllo che manca a tutti gli altri, e nasce da un caso reale: in una tasca
+    È il controllo che manca a tutti gli altri, e nasce da un caso reale: in una tasca
     degli oggetti si trovano Poke Ball al posto degli oggetti ordinari, da un certo slot
     in poi. Il gioco disegna un oggetto in base al suo identificativo e non alla tasca
-    che lo contiene, quindi una Ball che compare fra gli oggetti non e' un difetto di
-    visualizzazione: e' un identificativo di Ball scritto nella regione di memoria della
+    che lo contiene, quindi una Ball che compare fra gli oggetti non è un difetto di
+    visualizzazione: è un identificativo di Ball scritto nella regione di memoria della
     tasca sbagliata, e questo distingue una corruzione dei dati da un fraintendimento.
 
-    Oltre a elencare i singoli casi, la funzione cerca il punto di rottura, cioe' il
-    primo slot a partire dal quale ogni oggetto e' estraneo alla tasca. Se esiste, la
-    corruzione ha una forma nota, cioe' una scrittura che ha invaso la tasca da un
-    offset in avanti, e questa e' un'informazione diversa e piu' utile del numero di
-    slot sbagliati, perche' suggerisce dove cercare la causa.
+    Oltre a elencare i singoli casi, la funzione cerca il punto di rottura, cioè il
+    primo slot a partire dal quale ogni oggetto è estraneo alla tasca. Se esiste, la
+    corruzione ha una forma nota, cioè una scrittura che ha invaso la tasca da un
+    offset in avanti, e questa è un'informazione diversa e più utile del numero di
+    slot sbagliati, perché suggerisce dove cercare la causa.
     """
     anomalie = []
     estranei = []
@@ -339,7 +339,7 @@ def anomalie_di_categoria(nome_tasca, slots):
         attesa = TASCA_ATTESA.get(cat)
         if attesa is not None and attesa != nome_tasca:
             estranei.append((voce["slot"], voce["id"], cat))
-            anomalie.append("slot %d: id %d e' della categoria %s ma si trova nella "
+            anomalie.append("slot %d: id %d è della categoria %s ma si trova nella "
                             "tasca %s" % (voce["slot"], voce["id"], cat, nome_tasca))
 
     if estranei and slots:
@@ -353,17 +353,17 @@ def anomalie_di_categoria(nome_tasca, slots):
                 coda = None
         if coda is not None and coda != slots[0]["slot"]:
             categorie = sorted(set(c for _, _, c in estranei))
-            anomalie.append("dallo slot %d in poi ogni oggetto e' estraneo alla tasca, "
+            anomalie.append("dallo slot %d in poi ogni oggetto è estraneo alla tasca, "
                             "categorie coinvolte: %s. La corruzione ha quindi un punto "
-                            "di inizio e non e' sparsa" % (coda, ", ".join(categorie)))
+                            "di inizio e non è sparsa" % (coda, ", ".join(categorie)))
     return anomalie
 
 
 def decode_pockets(sb1, key16, game):
-    """Decodifica le tasche. Solo la quantita' e' mascherata, l'id oggetto mai.
+    """Decodifica le tasche. Solo la quantità è mascherata, l'id oggetto mai.
 
-    Uno slot vuoto ha id oggetto zero e quantita' grezza zero, quindi in una tasca
-    mascherata la sua quantita' decodificata vale esattamente la chiave a 16 bit. E'
+    Uno slot vuoto ha id oggetto zero e quantità grezza zero, quindi in una tasca
+    mascherata la sua quantità decodificata vale esattamente la chiave a 16 bit. È
     un controllo incrociato gratuito: la chiave letta a 0xAC deve coincidere con
     quella che si ricava da qualunque slot vuoto.
     """
@@ -381,7 +381,7 @@ def decode_pockets(sb1, key16, game):
                 if masked and raw_qty == 0:
                     vuoti.append(qty)
                 elif raw_qty != 0:
-                    anomalies.append("slot %d: id oggetto nullo con quantita' grezza "
+                    anomalies.append("slot %d: id oggetto nullo con quantità grezza "
                                      "0x%04X invece di 0x0000" % (i, raw_qty))
                 continue
             if hole:
@@ -389,9 +389,9 @@ def decode_pockets(sb1, key16, game):
             if item_id >= game["items_count"]:
                 anomalies.append("slot %d: id oggetto %d fuori intervallo" % (i, item_id))
             if qty == 0:
-                anomalies.append("slot %d: id oggetto %d con quantita' zero" % (i, item_id))
+                anomalies.append("slot %d: id oggetto %d con quantità zero" % (i, item_id))
             if qty > cap:
-                anomalies.append("slot %d: id %d con quantita' %d oltre il tetto di %d"
+                anomalies.append("slot %d: id %d con quantità %d oltre il tetto di %d"
                                  % (i, item_id, qty, cap))
             if item_id in seen:
                 anomalies.append("slot %d: id oggetto %d duplicato dello slot %d"
@@ -423,7 +423,7 @@ def main():
     report = {"file": args.save, "dimensione": len(blob), "slot": []}
     print("File: %s (%d byte)" % (args.save, len(blob)))
     if len(blob) < SECTORS_PER_SLOT * SECTOR_SIZE:
-        print("ERRORE: il file e' piu' corto di un singolo slot di salvataggio", file=sys.stderr)
+        print("ERRORE: il file è più corto di un singolo slot di salvataggio", file=sys.stderr)
         return 2
 
     slots = []
@@ -439,14 +439,14 @@ def main():
             print("  sezione in posizione %d scartata: %s" % (n, motivo))
         if len(slot["contatori"]) > 1:
             print("  ATTENZIONE: contatori discordanti dentro lo stesso slot, "
-                  "salvataggio interrotto a meta' o slot misto")
+                  "salvataggio interrotto a metà o slot misto")
         report["slot"].append({"etichetta": etichetta,
                                "sezioni_valide": sorted(slot["sezioni"]),
                                "contatori": slot["contatori"],
                                "non_valide": [{"posizione": n, "motivo": m}
                                               for n, m in slot["non_valide"]]})
 
-    # Scelta dello slot: A vince solo se il suo contatore e' strettamente maggiore.
+    # Scelta dello slot: A vince solo se il suo contatore è strettamente maggiore.
     def counter_of(slot):
         return max(slot["contatori"]) if slot["contatori"] else -1
 
@@ -471,8 +471,8 @@ def main():
               "SaveBlock1 non ricostruibile", file=sys.stderr)
         return 4
 
-    # Identificazione del gioco. Non si fida del parametro: lo verifica, perche' un
-    # gioco identificato male applica la maschera sbagliata alle quantita' e fa
+    # Identificazione del gioco. Non si fida del parametro: lo verifica, perché un
+    # gioco identificato male applica la maschera sbagliata alle quantità e fa
     # sembrare corrotto uno zaino sano, o viceversa.
     esiti = detect_game(sb2, sb1)
     print("\nIdentificazione del gioco")
@@ -486,11 +486,11 @@ def main():
     if args.game == "auto":
         punti, nome, game, _prove = esiti[0]
         if punti <= 0:
-            print("\nERRORE: nessun candidato e' plausibile, il salvataggio non e' "
+            print("\nERRORE: nessun candidato è plausibile, il salvataggio non è "
                   "riconoscibile. Indica il gioco a mano con --game.", file=sys.stderr)
             return 5
         if len(esiti) > 1 and esiti[1][0] == punti:
-            print("\nERRORE: %s e %s pareggiano, l'identificazione e' ambigua. "
+            print("\nERRORE: %s e %s pareggiano, l'identificazione è ambigua. "
                   "Indica il gioco a mano con --game." % (nome, esiti[1][1]), file=sys.stderr)
             return 5
         print("\nGioco rilevato: %s" % game["nome"])
@@ -510,7 +510,7 @@ def main():
         print("Chiave di sicurezza a 0x%03X: 0x%08X (16 bit bassi: 0x%04X)"
               % (game["chiave_offset"], key, key & 0xFFFF))
     else:
-        print("Questo gioco non maschera le quantita': nessuna chiave da applicare")
+        print("Questo gioco non maschera le quantità: nessuna chiave da applicare")
     report["chiave"] = key
 
     # Autoverifica della chiave: il denaro smascherato deve stare nel suo intervallo.
@@ -518,7 +518,7 @@ def main():
         money_raw = u32(sb1, game["money"])
         money = (money_raw ^ key) & 0xFFFFFFFF if game["maschera"] else money_raw
         coerente = money <= MAX_MONEY
-        print("Denaro: %d %s" % (money, "(coerente, la chiave e' quella giusta)"
+        print("Denaro: %d %s" % (money, "(coerente, la chiave è quella giusta)"
                                  if coerente else "(FUORI INTERVALLO: chiave o offset sbagliati)"))
         report["denaro"] = {"valore": money, "coerente": coerente}
 
@@ -543,7 +543,7 @@ def main():
                       % (dedotta, stato, game["chiave_offset"]))
             for v in p["voci"][:100]:
                 nota = "  (grezzo 0x%04X)" % v["grezzo"] if v["mascherato"] else ""
-                print("  slot %2d  id %4d  quantita' %4d%s"
+                print("  slot %2d  id %4d  quantità %4d%s"
                       % (v["slot"], v["id"], v["quantita"], nota))
             for a in p["anomalie"]:
                 print("  ANOMALIA: " + a)

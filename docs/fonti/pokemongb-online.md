@@ -15,9 +15,9 @@ https://github.com/Lorenzooone/PokemonGB_Online_Trades
 
 Implementazione in Python del protocollo di scambio di Gen 1, 2 e 3, funzionante sia su un adattatore USB per il cavo sia sull'emulatore BGB, con multiboot per il lato Gen 3.
 
-## Perche' e' in archivio
+## Perché è in archivio
 
-E' la dimostrazione che il lato Game Boy si collauda su emulatore, e quindi che una parte del protocollo si sviluppa senza hardware.
+È la dimostrazione che il lato Game Boy si collauda su emulatore, e quindi che una parte del protocollo si sviluppa senza hardware.
 
 ## A quale punto del progetto serve
 
@@ -25,4 +25,4 @@ E' la dimostrazione che il lato Game Boy si collauda su emulatore, e quindi che 
 
 ## Contesto
 
-Livello 3 di affidabilita' secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni e' [[index-fonti]].
+Livello 3 di affidabilità secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni è [[index-fonti]].

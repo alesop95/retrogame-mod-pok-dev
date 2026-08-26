@@ -13,11 +13,11 @@ https://www.copetti.org/writings/consoles/game-boy-advance/
 
 ## Abstract
 
-Descrizione architetturale del Game Boy Advance: le due memorie di lavoro con le loro dimensioni e velocita', il bus della cartuccia, il buffer di prefetch e il meccanismo della retrocompatibilita' con il Game Boy.
+Descrizione architetturale del Game Boy Advance: le due memorie di lavoro con le loro dimensioni e velocità, il bus della cartuccia, il buffer di prefetch e il meccanismo della retrocompatibilità con il Game Boy.
 
-## Perche' e' in archivio
+## Perché è in archivio
 
-Spiega perche' un programma multiboot vive nella memoria esterna, che e' fino a sei volte piu' lenta, e quindi perche' i progetti di questo tipo curano la compressione dei dati.
+Spiega perché un programma multiboot vive nella memoria esterna, che è fino a sei volte più lenta, e quindi perché i progetti di questo tipo curano la compressione dei dati.
 
 ## A quale punto del progetto serve
 
@@ -25,4 +25,4 @@ Spiega perche' un programma multiboot vive nella memoria esterna, che e' fino a 
 
 ## Contesto
 
-Livello 1 di affidabilita' secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni e' [[index-fonti]].
+Livello 1 di affidabilità secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni è [[index-fonti]].

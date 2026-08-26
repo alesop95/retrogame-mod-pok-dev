@@ -34,7 +34,7 @@ class TestSimmetria(unittest.TestCase):
             self.assertEqual(Gen2PartyList.from_bytes(raw).to_bytes(), raw)
 
     def test_il_byte_inutilizzato_sopravvive(self):
-        # A 0x21 c'e' un byte che il gioco non usa. Se il lettore lo scartasse, la
+        # A 0x21 c'è un byte che il gioco non usa. Se il lettore lo scartasse, la
         # simmetria si romperebbe su un salvataggio reale che lo trova non nullo.
         raw = bytearray(PARTY_STRUCT_LENGTH)
         raw[0x21] = 0x7E
@@ -98,7 +98,7 @@ class TestCampiNuovi(unittest.TestCase):
         self.assertEqual(mon.pokerus_days, 3)
 
     def test_oggetto_tenuto_dove_gen1_ha_il_tasso_di_cattura(self):
-        # E' il riuso di posizione che rende il Time Capsule ufficiale generatore di
+        # È il riuso di posizione che rende il Time Capsule ufficiale generatore di
         # oggetti apparentemente casuali sui Pokemon che salgono da Gen 1.
         raw = bytearray(PARTY_STRUCT_LENGTH)
         raw[0x01] = 0x9E
@@ -118,7 +118,7 @@ class TestCampiNuovi(unittest.TestCase):
 
     def test_sei_statistiche_ma_quattro_dv(self):
         # Gen 2 separa Attacco e Difesa Speciale nelle statistiche calcolate, ma DV e
-        # Stat Experience restano cinque campi con un solo Speciale: e' l'asimmetria che
+        # Stat Experience restano cinque campi con un solo Speciale: è l'asimmetria che
         # rende non banale la conversione verso i sei IV di Gen 3.
         mon = Gen2Mon.from_bytes(bytes(PARTY_STRUCT_LENGTH))
         self.assertEqual(len(mon.stats), 6)

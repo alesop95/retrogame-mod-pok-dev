@@ -16,9 +16,9 @@ https://github.com/pret/pokered
 
 Disassemblaggio completo di Pokemon Rosso e Blu che ricompila in una ROM identica all'originale. Contiene le macro delle strutture dati, la mappa della memoria di lavoro, le costanti del protocollo seriale e il codice del Centro Scambi.
 
-## Perche' e' in archivio
+## Perché è in archivio
 
-E' la definizione autorevole del formato di generazione 1: dove una fonte secondaria e questo repository divergono, ha ragione questo.
+È la definizione autorevole del formato di generazione 1: dove una fonte secondaria e questo repository divergono, ha ragione questo.
 
 ## A quale punto del progetto serve
 
@@ -32,4 +32,4 @@ E' la definizione autorevole del formato di generazione 1: dove una fonte second
 
 ## Contesto
 
-Livello 1 di affidabilita' secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni e' [[index-fonti]].
+Livello 1 di affidabilità secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni è [[index-fonti]].

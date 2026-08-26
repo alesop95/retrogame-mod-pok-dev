@@ -13,11 +13,11 @@ https://github.com/afska/gba-link-connection
 
 ## Abstract
 
-Libreria C++ per il porto seriale del Game Boy Advance, con moduli separati per la modalita' multiplayer, l'invio di multiboot ad altre console, l'adattatore wireless, il protocollo Joybus verso Wii e GameCube, le carte e-Reader e il Mobile Adapter GB.
+Libreria C++ per il porto seriale del Game Boy Advance, con moduli separati per la modalità multiplayer, l'invio di multiboot ad altre console, l'adattatore wireless, il protocollo Joybus verso Wii e GameCube, le carte e-Reader e il Mobile Adapter GB.
 
-## Perche' e' in archivio
+## Perché è in archivio
 
-Il modulo che conta per noi collega la console a un PC o a un Raspberry Pi usando il cavo del Game Boy Color: e' l'infrastruttura pronta per l'opzione D dal lato Game Boy Advance.
+Il modulo che conta per noi collega la console a un PC o a un Raspberry Pi usando il cavo del Game Boy Color: è l'infrastruttura pronta per l'opzione D dal lato Game Boy Advance.
 
 ## A quale punto del progetto serve
 
@@ -26,4 +26,4 @@ Il modulo che conta per noi collega la console a un PC o a un Raspberry Pi usand
 
 ## Contesto
 
-Livello 3 di affidabilita' secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni e' [[index-fonti]].
+Livello 3 di affidabilità secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni è [[index-fonti]].

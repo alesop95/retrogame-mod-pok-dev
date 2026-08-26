@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """Prove sulle strutture di generazione 1.
 
-La prova portante e' la simmetria: leggere e riscrivere deve restituire i byte identici.
-Una sola proprieta' cattura un intero genere di errori, perche' un offset sbagliato, un
-ordine di byte invertito, un nibble letto dalla meta' sbagliata o un campo dimenticato la
+La prova portante è la simmetria: leggere e riscrivere deve restituire i byte identici.
+Una sola proprietà cattura un intero genere di errori, perché un offset sbagliato, un
+ordine di byte invertito, un nibble letto dalla metà sbagliata o un campo dimenticato la
 rompono tutti. Vedi docs/21-collaudo.md.
 """
 
@@ -19,7 +19,7 @@ def blob(rng, size):
 
 
 class TestSimmetria(unittest.TestCase):
-    """Il seme e' fissato: un fallimento e' riproducibile e non capriccioso."""
+    """Il seme è fissato: un fallimento è riproducibile e non capriccioso."""
 
     def test_party_mon(self):
         rng = random.Random(20260825)
@@ -49,7 +49,7 @@ class TestDimensioni(unittest.TestCase):
     def test_lista_squadra_e_404_byte(self):
         # 1 contatore + 7 specie + 6*44 strutture + 6*11 nomi OT + 6*11 soprannomi.
         # Vale 0x194: una fonte secondaria riporta "194 byte" leggendo l'esadecimale
-        # come decimale, ed e' il tipo di errore che questa asserzione impedisce.
+        # come decimale, ed è il tipo di errore che questa asserzione impedisce.
         self.assertEqual(Gen1PartyList.TOTAL_LENGTH, 404)
         self.assertEqual(hex(Gen1PartyList.TOTAL_LENGTH), "0x194")
 
@@ -68,7 +68,7 @@ class TestCampi(unittest.TestCase):
         raw[0x0E:0x11] = b"\x01\x86\xA0"  # esperienza 100000
         raw[0x11:0x13] = b"\xFF\xFF"  # Stat Experience dei punti salute al massimo
         raw[0x1B] = 0xAB            # DV: Attacco 10, Difesa 11
-        raw[0x1C] = 0xCD            # DV: Velocita' 12, Speciale 13
+        raw[0x1C] = 0xCD            # DV: Velocità 12, Speciale 13
         raw[0x1D] = 0xC1            # PP: 1 residuo, 3 PP Up
         raw[0x21] = 50              # livello di squadra
         raw[0x22:0x24] = b"\x00\x64"  # punti salute massimi 100

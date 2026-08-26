@@ -35,15 +35,15 @@ class TestTabelle(unittest.TestCase):
         self.assertEqual(self.g3.char_to_byte["9"], 0xAA)
 
     def test_le_due_tabelle_sono_incompatibili(self):
-        # Nessuna lettera cade sullo stesso byte: e' la ragione per cui la conversione di
-        # un nome e' una transcodifica e non una copia.
+        # Nessuna lettera cade sullo stesso byte: è la ragione per cui la conversione di
+        # un nome è una transcodifica e non una copia.
         collisioni = [c for c in "ABCXYZabcxyz09"
                       if self.g12.char_to_byte[c] == self.g3.char_to_byte[c]]
         self.assertEqual(collisioni, [])
 
     def test_le_cifre_non_stanno_a_0xF0(self):
-        # La fonte secondaria collocava le cifre di Gen 1 a 0xF0: qui e' scritto che non
-        # e' vero, cosi' se qualcuno rigenera la tabella da una fonte sbagliata il test
+        # La fonte secondaria collocava le cifre di Gen 1 a 0xF0: qui è scritto che non
+        # è vero, così se qualcuno rigenera la tabella da una fonte sbagliata il test
         # lo dice.
         self.assertNotEqual(self.g12.char_to_byte["0"], 0xF0)
 
@@ -59,7 +59,7 @@ class TestDecodifica(unittest.TestCase):
     def test_decodifica_si_ferma_al_terminatore(self):
         # P i k a t, poi terminatore e riempimento. I byte non sono scritti a mano ma
         # ricavati dalla tabella: la prima stesura di questa prova aveva 0xA4 al posto di
-        # 0xA0, cioe' "e" invece di "a", ed e' lo stesso errore silenzioso contro cui il
+        # 0xA0, cioè "e" invece di "a", ed è lo stesso errore silenzioso contro cui il
         # generatore delle tabelle esiste.
         raw = bytes([self.g12.char_to_byte[c] for c in "Pikat"]) + bytes([0x50, 0xFF, 0xFF])
         self.assertEqual(self.g12.decode(raw), "Pikat")
@@ -111,7 +111,7 @@ class TestTraduzione(unittest.TestCase):
 
     def test_caratteri_senza_destinazione(self):
         # Cinquantatre byte di Gen 1 e 2 non hanno un corrispondente in Gen 3, e la
-        # decisione su cosa farne e' del chiamante: non c'e' un default silenzioso.
+        # decisione su cosa farne è del chiamante: non c'è un default silenzioso.
         self.assertGreater(len(self.tr.orphans), 0)
         orfano = sorted(self.tr.orphans)[0]
         raw = bytes([0x80, orfano, 0x50])

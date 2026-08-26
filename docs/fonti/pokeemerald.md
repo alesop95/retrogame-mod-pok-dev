@@ -14,11 +14,11 @@ https://github.com/pret/pokeemerald
 
 ## Abstract
 
-Decompilazione di Pokemon Smeraldo in C e assembly ARM che ricompila in una ROM identica. Contiene la struttura cifrata del Pokemon, il calcolo del checksum, la mappa dei settori del salvataggio, la chiave di cifratura e la maschera sulle quantita' degli oggetti.
+Decompilazione di Pokemon Smeraldo in C e assembly ARM che ricompila in una ROM identica. Contiene la struttura cifrata del Pokemon, il calcolo del checksum, la mappa dei settori del salvataggio, la chiave di cifratura e la maschera sulle quantità degli oggetti.
 
-## Perche' e' in archivio
+## Perché è in archivio
 
-E' la fonte di tutto il lato generazione 3 e l'unica su cui il checksum e' verificabile: la sua formula per parole da 16 bit corregge una fonte secondaria che lo descriveva byte per byte, errore che distrugge un Pokemon.
+È la fonte di tutto il lato generazione 3 e l'unica su cui il checksum è verificabile: la sua formula per parole da 16 bit corregge una fonte secondaria che lo descriveva byte per byte, errore che distrugge un Pokemon.
 
 ## A quale punto del progetto serve
 
@@ -33,4 +33,4 @@ E' la fonte di tutto il lato generazione 3 e l'unica su cui il checksum e' verif
 
 ## Contesto
 
-Livello 1 di affidabilita' secondo la gerarchia di [[SOURCES]]. Track serviti: BRI, SME. La mappa di tutte le fonti e delle loro relazioni e' [[index-fonti]].
+Livello 1 di affidabilità secondo la gerarchia di [[SOURCES]]. Track serviti: BRI, SME. La mappa di tutte le fonti e delle loro relazioni è [[index-fonti]].
