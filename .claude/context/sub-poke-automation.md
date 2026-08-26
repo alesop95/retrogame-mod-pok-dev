@@ -16,6 +16,8 @@ Obiettivo dichiarato allo stato attuale: studiare il progetto Pokemon Automation
 
 ## Dove siamo
 
+Lo studio e' cominciato il 2026-08-26 su richiesta dell'utente, per curiosita' e senza impegno di costruzione, e la prima nota e' `poke-automation-study/STUDIO-01-architettura-e-perimetro.md`. Documenta i tre strati della macchina, cioe' attuazione, percezione e decisione, i costi e le difficolta' dichiarate di ogni combinazione di controller, il perimetro che il progetto si da', e le due sovrapposizioni reali con gli altri track. Ne e' uscita una correzione a questa scheda: la sovrapposizione con il track LDN non e' solo la piattaforma, perche' quel progetto automatizza anche Rosso Fuoco e Verde Foglia nella versione Switch, che e' esattamente il gioco al centro di quel track.
+
 La cartella `poke-automation-study/` contiene un collegamento a `https://pokemonautomation.github.io/`, letto il 2026-08-26. Il progetto copre Spada e Scudo, Diamante Lucente e Perla Splendente, Leggende Arceus, Scarlatto e Violetto, Leggende Z-A e Pokemon Casa, con oltre cento programmi di automazione. L'hardware richiesto e' un computer con scheda di acquisizione video piu' un controller costruito su microcontrollore, con ESP32, ESP32-S3 o Raspberry Pi Pico W, collegato via Bluetooth o USB. La documentazione ha sezioni su allestimento, programmi, controller, integrazione Discord e sviluppo, quest'ultima con guide su visione artificiale, riconoscimento dei colori e riconoscimento ottico dei caratteri.
 
 ## Prossimo passo concreto
@@ -24,7 +26,7 @@ Decidere che cosa questo track deve essere, perche' oggi e' un collegamento e no
 
 ## Che cosa si sa gia' delle sovrapposizioni
 
-Con il track dello scambio fra GBA e Switch la sovrapposizione e' la piattaforma e nient'altro: quel track parla il protocollo di rete locale dal PC, questo pilota il controller e guarda lo schermo. Sono due approcci opposti allo stesso oggetto, e conoscere entrambi aiuta a scegliere.
+Con il track dello scambio fra GBA e Switch la sovrapposizione e' piu' concreta di quanto questa scheda dicesse alla sua stesura, e la nota di studio la corregge: oltre alla piattaforma c'e' il titolo, perche' fra i giochi automatizzati compaiono Rosso Fuoco e Verde Foglia su Switch. Resta vero che i due approcci sono opposti, perche' quel track parla il protocollo di rete locale dal PC e questo pilota il controller e guarda lo schermo, e la domanda aperta e' se i loro programmi per quel titolo tocchino lo scambio locale.
 
 Con il ponte fra generazioni la sovrapposizione e' il microcontrollore, ma i compiti sono diversi: qui emula un controller su Bluetooth o USB, la' parla un protocollo seriale sincrono a livello di bit. Il codice non si riusa, l'esperienza di allestimento e di collaudo si'.
 

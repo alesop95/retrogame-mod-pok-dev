@@ -80,7 +80,7 @@ graph LR
 | [[frlg-ldn-trade]] | LDN | [[06-identita-pokemon]] |
 | [[ldn-mitm]] | LDN | [[06-identita-pokemon]] |
 | [[switch-lan-play]] | LDN | [[06-identita-pokemon]] |
-| [[pokemon-automation]] | AUT | [[30-opzioni-implementative]] |
+| [[pokemon-automation]] | AUT, LDN | [[30-opzioni-implementative]] |
 
 ### Livello 4
 

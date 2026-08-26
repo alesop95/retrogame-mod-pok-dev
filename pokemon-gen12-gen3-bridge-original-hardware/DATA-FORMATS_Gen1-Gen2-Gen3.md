@@ -363,7 +363,7 @@ Su questo punto c'e' una precisazione che cambia il piano di collaudo, e corregg
 
 ## 11. Stato delle verifiche
 
-Nessuno dei punti aperti alla prima stesura resta aperto per pigrizia: sono stati chiusi leggendo i sorgenti. Restano aperti tre punti che richiedono materiale che non e' pubblico o che non e' ancora in mano al progetto, e sono dichiarati come tali.
+Nessuno dei punti aperti alla prima stesura resta aperto per pigrizia: sono stati chiusi leggendo i sorgenti. Restano aperti sei punti, tre dei quali richiedono materiale che non e' pubblico o che non e' ancora in mano al progetto, e tre nati il 2026-08-25 dalla lettura delle trascrizioni dei video, che sono affermazioni di terzi credibili e non ancora confrontate con il sorgente. Sono dichiarati come tali, e la regola resta che non entrano in codice finche' non sono verificati.
 
 | Punto | Esito |
 |---|---|
@@ -381,6 +381,9 @@ Nessuno dei punti aperti alla prima stesura resta aperto per pigrizia: sono stat
 | Dimensione esatta del blocco di posta Gen 2 | aperto: dipende da `MAIL_LINE_LENGTH`, non calcolata perche' irrilevante finche' la posta resta esclusa dal trasferimento |
 | Tabella completa da indice interno Gen 1 a numero nazionale | aperto: da generare dal disassemblato, non trascrivere a mano |
 | Dimensione della lista della squadra Gen 1 | chiuso scrivendo il codice: 404 byte, cioe' 0x194, e non 194 come riporta una fonte secondaria |
+| Blocchi da 200 byte nell'invio della squadra Gen 3 | chiuso il 2026-08-26 su `pokefirered/src/trade.c`: la macchina a stati di `bufferPartyState` chiama `SendBlockRequest(BLOCK_REQ_SIZE_200)` tre volte, e ciascun passaggio copia `2 * sizeof(struct Pokemon)` verso `gEnemyParty[0]`, `[2]` e `[4]`, alternando l'invio dei propri due. Dopo i tre blocchi ne parte un quarto con la posta, dimensionato `PARTY_SIZE * sizeof(struct Mail) + 4`, con quei quattro byte in piu' che nemmeno il commento nel sorgente sa spiegare. L'affermazione di Goppier era esatta |
+| Sezione del salvataggio usata da Poke Transporter GB | chiuso il 2026-08-26 su `include/save.h` dei due disassemblati: il settore 30 esiste e non e' vuoto, e' `SECTOR_ID_TRAINER_TOWER_1` in Rosso Fuoco e Verde Foglia e `SECTOR_ID_TRAINER_HILL` in Smeraldo, cioe' i dati di una struttura secondaria. I settori da 0 a 13 sono i due blocchi di salvataggio e il deposito, 28 e 29 la sala d'onore, 31 la seconda parte della struttura secondaria oppure la battaglia registrata. Scrivere il payload la' e' quindi una scelta consapevole: sacrifica dati non essenziali e non tocca nulla di cio' che il nostro scrittore deve preservare |
+| Comunicazione diretta fra GBA e giochi Gen 2 sul cavo originale | aperto: Goppier mostra una ROM GBA che lo fa e lo dichiara possibile, ma non pubblica ne' codice ne' dettagli, e il video che dovrebbe contenerli e' fra le trascrizioni arretrate. Se confermato, cambia il confronto fra le quattro opzioni |
 
 ## 12. Cosa implica tutto questo per la scelta fra le quattro opzioni
 

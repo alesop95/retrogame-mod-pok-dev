@@ -62,6 +62,14 @@ Sul protocollo racconta due difficolta' che valgono come avvertimento per chi im
 
 Un dato numerico che la trascrizione riporta va segnato come da verificare e non come fatto: che la generazione 3 invii i dati in blocchi da duecento byte, tre volte per sei Pokemon. Il nostro conteggio sul disassemblato di generazione 1 da' quattrocentoventiquattro byte sul filo per il blocco di scambio e duecento per la lista di correzione, quindi quel duecento potrebbe essere la lista di correzione fraintesa, oppure una struttura di generazione 3 che non abbiamo ancora contato. Va risolto leggendo il disassemblato di Rosso Fuoco.
 
+## Una prova che sposta il confronto, e va verificata
+
+Nella chiusura dell'aggiornamento di sviluppo, letto il 2026-08-25, Goppier mostra una cosa che il progetto non aveva messo in conto: una ROM per Game Boy Advance, scritta da lui, che comunica direttamente con i giochi di generazione 2 usando il cavo originale, senza alcun hardware in mezzo. Lo dice come dimostrazione di fattibilita', cioe' che il protocollo dello scambio di generazione 2 si puo' rispettare da un Game Boy Advance, e rimanda i dettagli a un video successivo che al momento non esiste.
+
+Se e' vero, e va detto che e' una testimonianza di terzi non verificata su codice pubblico, il confronto fra le opzioni cambia, perche' l'ostacolo che teneva alta l'opzione con hardware dedicato era proprio la convinzione che i due lati non potessero parlarsi direttamente. Resterebbe il problema elettrico, cinque volt contro tre e tre, e resterebbe il vincolo di sincronizzazione descritto in [[08-cavo-link]], che non dipende da chi fa da intermediario ma dalla forma dei due protocolli. Quello che cadrebbe e' la necessita' del microcontrollore come traduttore, e con essa il costo di allestimento piu' alto delle quattro strade.
+
+La verifica non e' rimandabile a una decisione: il video precedente dello stesso autore, che dovrebbe contenere la parte sul circuito e sulla questione del protocollo, e' ancora da trascrivere perche' non ha sottotitoli di alcun tipo, ed e' registrato fra le pendenze come il piu' importante dei due arretrati.
+
 ## Una inclinazione, dichiarata come tale
 
 La decisione non e' presa e non la prende questa nota, ma tenere per se' una preferenza motivata non aiuta nessuno. Fra le quattro, l'opzione D e' quella che convince di piu' chi ha scritto questa nota, per tre ragioni. La logica resta dove si collauda bene, cioe' su un PC, invece di finire dentro una console dove ogni prova costa un ciclo di compilazione e un cavo. L'hardware da costruire e' minimo, perche' il microcontrollore fa una cosa sola. E ha l'effetto collaterale di rendere superfluo il lettore di cartucce, perche' il canale di accesso alla memoria della cartuccia diventa il connettore del cavo, come dimostra `PkSploit`.

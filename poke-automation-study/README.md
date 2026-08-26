@@ -14,6 +14,7 @@ Automatizza oltre cento operazioni sui giochi Pokemon per Nintendo Switch, dalle
 
 | Cosa cerchi | Dove sta |
 |---|---|
+| lo studio dell'architettura, degli strati e del perimetro | `STUDIO-01-architettura-e-perimetro.md`, in questa cartella |
 | la sintesi della fonte e perche' e' in archivio | `docs/fonti/pokemon-automation.md` |
 | a che punto e' il track e quali sono le tre letture possibili | `.claude/context/sub-poke-automation.md` |
 | le fonti, con il livello di affidabilita' di ciascuna | `SOURCES.md` alla radice, colonna AUT |

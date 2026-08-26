@@ -253,10 +253,10 @@ FONTI = [
      [("[[09-esecuzione-codice]]", "vie dal lato del giocatore")],
      []),
 
-    ("pokemon-automation", "Pokemon Automation", "https://pokemonautomation.github.io/", 3, True, ["AUT"],
-     "Progetto che automatizza le parti ripetitive dei giochi Pokemon su Nintendo Switch, con oltre cento programmi. Richiede un computer con scheda di acquisizione video e un controller costruito su microcontrollore, ESP32 o Raspberry Pi Pico W, e riconosce gli eventi per visione artificiale e in alcuni casi audio.",
-     "E' la fonte fondante del quinto sottoprogetto, che nasce come studio. Interessa per due ragioni indipendenti: la parte di controllo su microcontrollore ha una sovrapposizione di esperienza con l'opzione D del ponte, e la visione artificiale e' una capacita' che il progetto non ha in nessun altro track.",
-     [("[[30-opzioni-implementative]]", "sovrapposizione di esperienza sul microcontrollore")],
+    ("pokemon-automation", "Pokemon Automation", "https://pokemonautomation.github.io/", 3, True, ["AUT", "LDN"],
+     "Progetto che automatizza le parti ripetitive dei giochi Pokemon su Nintendo Switch con oltre cento programmi. E' un anello di controllo chiuso su un sistema che non espone stato: percepisce il fotogramma video e in alcuni titoli l'audio, attua tramite un controller emulato da un microcontrollore, e decide con un programma per compito. Il perimetro dichiarato e' console non modificate e nessun accesso alla memoria.",
+     "E' la fonte fondante del quinto sottoprogetto, che nasce come studio, e la lettura del 2026-08-26 ha prodotto due risultati oltre l'atteso: il perimetro del progetto e' compatibile con le regole di questo, e fra i titoli automatizzati compaiono Rosso Fuoco e Verde Foglia su Switch, che e' il gioco al centro del track dello scambio con la Switch. La visione artificiale resta una capacita' che il progetto non ha in nessun altro track.",
+     [("[[30-opzioni-implementative]]", "sovrapposizione di esperienza sul microcontrollore, che e' l'opzione D")],
      []),
 
     ("gambatte-gamelink", "Gambatte con GameLink su TCP", "https://gbatemp.net/threads/mission-wireless-trading-on-gen1-and-gen2-pokemon-games.632492/", 5, True, ["BRI"],
