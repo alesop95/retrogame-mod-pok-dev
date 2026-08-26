@@ -107,10 +107,11 @@ I canali senza un video specifico, cioe' Goppier, Lorenzooone, im a blisy, RETIR
 | se i programmi di Pokemon Automation per Rosso Fuoco e Verde Foglia su Switch tocchino lo scambio locale | `poke-automation-study/STUDIO-01-architettura-e-perimetro.md`, ed e' la domanda che collega il track dell'automazione a quello dello scambio |
 | se il canale del Mobile Adapter GB apra una strada alternativa al cavo per il lato Gen 2 | nota `docs/fonti/reon.md`, da valutare |
 | se l'affermazione di PkSploit regga alla prova, cioe' se un microcontrollore sostituisca il lettore per le cartucce Game Boy | nota `docs/fonti/pksploit.md`, richiede hardware |
-| se la derivazione da Stat Experience a Effort Value coincida con un'implementazione reale, e quale politica adottare quando la somma sfora il tetto di 510 | `docs/07-conversione-vincoli.md`, dichiarata come derivazione e non come citazione |
+| quale politica adottare quando la somma degli EV convertiti sfora il tetto di 510 | `docs/07-conversione-vincoli.md`. Non si tratta piu' di cercare una formula altrui: verificato il 2026-08-26 sul sorgente che la libreria della community azzera gli EV con una funzione che si chiama `convertEVs`, quindi la conversione va scritta e la politica va decisa, non trovata |
 | se la routine di radice quadrata del gioco vada replicata invece che approssimata, dato che la fonte riporta 63002 dove la radice matematica darebbe 63504 | idem, ed e' rilevante solo se si vuole fedelta' al margine |
 | quale chip monti l'Archer T2U Nano, dato che il nome commerciale AC600 copre chip diversi | `sub-gba-switch-trading.md`; si misura, non si cerca |
 | se anche Rubino e Zaffiro su Switch riceveranno il supporto al Wireless Adapter | affermazione di terzi ricavata dall'ispezione del binario dell'emulatore, non verificata |
+| se il trasferimento richieda il cavo Link del Game Boy Color e i cavi del Game Boy Advance non funzionino | affermazione trovata il 2026-08-26 in una sintesi di fonti secondarie, non ancora verificata sul sorgente ne' sul materiale del tool. Se confermata e' un requisito hardware che il progetto non aveva registrato, e va nella scheda del ponte prima di qualsiasi acquisto di cavi |
 
 ## Decisioni aperte
 
