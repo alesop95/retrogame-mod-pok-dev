@@ -50,6 +50,18 @@ Il secondo e' che la conversione fedele delle statistiche non esiste in nessuna 
 
 Il terzo e' che il protocollo del cavo si collauda su BGB via TCP, come spiegato in [[21-collaudo]], con la riserva descritta piu' sotto: l'emulatore serve il protocollo, ma per provarlo contro un gioco vero serve una ROM, e la ROM richiede di dumpare una cartuccia propria. Le opzioni C e D restano quindi le sole che richiedono ferro per il passaggio finale, e il loro strato di protocollo e' scrivibile subito ma verificabile fino a un certo punto.
 
+## Il ponte di Goppier, per come lo racconta lui
+
+Del primo ponte fra generazioni non esiste documentazione scritta: esiste un video, e la sua trascrizione e' ora in archivio. Va letta sapendo che e' una trascrizione automatica condensata da un modello locale, quindi vale come livello 4 e i suoi numeri vanno verificati, ma il quadro architetturale che ne emerge e' chiaro e in un punto sorprende.
+
+Il dispositivo e' un circuito su un proprio stampato, con un microcontrollore, un pulsante per l'ingresso dell'utente e un LED di stato. La conversione non e' a senso unico: funziona in entrambe le direzioni, e in direzione da generazione 3 verso generazione 2 offre due politiche alternative, una che preserva le statistiche e una che preserva caratteristiche come il sesso. E' una differenza sostanziale rispetto al ponte di riferimento, che trasferisce in un senso solo e distrugge la sorgente.
+
+Sulle scelte di conversione: il gioco di origine viene forzato a Rosso Fuoco, il valore di personalita' viene derivato dai DV, le mosse e gli oggetti che in destinazione non esistono vengono rimossi, e le specie introdotte in generazione 3 appaiono in generazione 2 come Ditto, che e' la soluzione elegante al problema di una specie che nella destinazione non esiste.
+
+Sul protocollo racconta due difficolta' che valgono come avvertimento per chi implementera'. La sincronizzazione fra i due lati richiede un ritardo, perche' i dati arrivano completi in tempi diversi, e per annullare uno scambio e ritentare serve inviare dati di riempimento. Dichiara inoltre di aver scritto una ROM per Game Boy Advance che parla direttamente con i giochi di generazione 2, il che significa che anche la sua soluzione ha un lato software su console e non solo il dispositivo intermedio.
+
+Un dato numerico che la trascrizione riporta va segnato come da verificare e non come fatto: che la generazione 3 invii i dati in blocchi da duecento byte, tre volte per sei Pokemon. Il nostro conteggio sul disassemblato di generazione 1 da' quattrocentoventiquattro byte sul filo per il blocco di scambio e duecento per la lista di correzione, quindi quel duecento potrebbe essere la lista di correzione fraintesa, oppure una struttura di generazione 3 che non abbiamo ancora contato. Va risolto leggendo il disassemblato di Rosso Fuoco.
+
 ## Una inclinazione, dichiarata come tale
 
 La decisione non e' presa e non la prende questa nota, ma tenere per se' una preferenza motivata non aiuta nessuno. Fra le quattro, l'opzione D e' quella che convince di piu' chi ha scritto questa nota, per tre ragioni. La logica resta dove si collauda bene, cioe' su un PC, invece di finire dentro una console dove ogni prova costa un ciclo di compilazione e un cavo. L'hardware da costruire e' minimo, perche' il microcontrollore fa una cosa sola. E ha l'effetto collaterale di rendere superfluo il lettore di cartucce, perche' il canale di accesso alla memoria della cartuccia diventa il connettore del cavo, come dimostra `PkSploit`.

@@ -52,6 +52,8 @@ Questa e' la tabella che l'agente deve consultare da se': ogni riga dice quando 
 | si aggiungono o si rigenerano tabelle di dati | `pokemon-gen12-gen3-bridge-original-hardware/tools/extract_charmaps.py` | tabelle caratteri rigenerate dai charmap, con verifica delle sentinelle |
 | prima di ogni commit | `python tools/md-unwrap.py --check .` e `python tools/lint-md-commands.py .` | conformita' alla convenzione Markdown e ai comandi su riga singola |
 | dopo commit che toccano i `covers-paths` delle schede | la skill `sync-context` | rilevamento del drift e bump del checkpoint |
+| si chiude una milestone | un report in LaTeX sotto `reports/`, con `latexmk -pdf` | documento datato che fotografa risultati, metodo e limiti, con taglio da telecomunicazioni |
+| serve una trascrizione di un video senza sottotitoli automatici | il progetto `E:\local-audio-transcriptor`, ora funzionante perche' `deno` e' installato | riconoscimento vocale locale con marcatura temporale |
 
 ## Debito di lettura
 
@@ -78,14 +80,11 @@ Una decisione dell'utente resta invece aperta su un punto: il download dell'audi
 
 | Video | Link | Perche' serve |
 |---|---|---|
-| Poke Transporter GB, dimostrazione | https://www.youtube.com/watch?v=47A6p2hH2gU | il ponte in funzione, utile per la sequenza utente |
-| Goppier, aggiornamento di sviluppo | https://www.youtube.com/watch?v=Qcp4vxyaUJc | il suo ponte hardware, di cui non esiste documentazione scritta |
 | Goppier, lo scambio impossibile | https://www.youtube.com/watch?v=inMbtwmVlKQ | idem, ed e' il video che l'articolo di Hackaday cita |
-| Dissezione di un salvataggio di Rosso | https://www.youtube.com/watch?v=VVbRe7wr3G4 | conferma indipendente degli offset di generazione 1 |
-| Cavo Link negli emulatori | https://www.youtube.com/watch?v=jzLISDGrOWo | come si allestisce il collaudo su BGB |
-| Scambio locale su Switch in FRLG | https://www.youtube.com/watch?v=epCf87MTLnk | la funzione dal lato utente, per il track LDN |
-| Checkpoint su 3DS | https://www.youtube.com/watch?v=aZMVFBRp1xI | uso del gestore di backup installato su questa console |
-| Sostituzione della batteria di cartuccia | https://www.youtube.com/watch?v=vz05ZT63Jqc | procedura senza perdere il salvataggio, per il track Smeraldo |
+| Goppier, lo scambio impossibile | https://www.youtube.com/watch?v=inMbtwmVlKQ | senza sottotitoli automatici: serve il riconoscimento vocale, ora possibile |
+| Scambio locale su Switch in FRLG | https://www.youtube.com/watch?v=epCf87MTLnk | idem; serve al track LDN |
+
+Delle nove trascrizioni in elenco il 2026-08-25 ne sono state prodotte cinque dai sottotitoli automatici, una e' risultata senza parlato perche' e' una dimostrazione muta, e due restano da fare con il riconoscimento vocale. I testi prodotti stanno in `_notes/fonti/` e vanno ancora letti uno per uno: finora sono stati condensati e letti solo quello sul processo di sviluppo e quello di Goppier.
 
 I canali senza un video specifico, cioe' Goppier, Lorenzooone, im a blisy, RETIRE, TheZZAZZGlitch, Retro Game Mechanics Explained e Displaced Gamers, restano da esplorare per scegliere quali video valga la pena trascrivere: e' una decisione da prendere, non una trascrizione da lanciare.
 

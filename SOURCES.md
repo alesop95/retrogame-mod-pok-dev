@@ -29,8 +29,8 @@ Sono la fonte autorevole su ogni offset, ogni campo di bit, ogni formula e ogni 
 | Fonte | URL | Autorevole su | Track |
 |---|---|---|---|
 | pret/pokered | https://github.com/pret/pokered | strutture, salvataggio, protocollo di scambio e costanti seriali di Rosso e Blu; `macros/ram.asm`, `ram/wram.asm`, `constants/serial_constants.asm`, `engine/link/cable_club.asm` | BRI |
-| pret/pokeyellow | https://github.com/pret/pokeyellow | le stesse cose per Giallo, incluse le differenze di offset | BRI |
-| pret/pokegold | https://github.com/pret/pokegold | strutture e salvataggio di Oro e Argento | BRI |
+| pret/pokeyellow | https://github.com/pret/pokeyellow | clonato e confrontato il 2026-08-25: la macro `box_struct` e le costanti di lunghezza sono identiche a quelle di Rosso e Blu, quindi il parser di generazione 1 copre Giallo senza modifiche. Risultato negativo e utile | BRI |
+| pret/pokegold | https://github.com/pret/pokegold | clonato e confrontato il 2026-08-25: la macro `party_struct` e' identica a quella di Cristallo, quindi il parser di generazione 2 copre Oro e Argento senza modifiche. Restano diversi gli offset del salvataggio, che erano gia' registrati | BRI |
 | pret/pokecrystal | https://github.com/pret/pokecrystal | ordine dei nibble dei DV in `engine/pokemon/move_mon.asm`, tabella caratteri in `constants/charmap.asm`, strutture di invio native e Time Capsule in `ram/wram.asm` | BRI |
 | pret/pokeruby | https://github.com/pret/pokeruby | clonato e letto: nessuna chiave di cifratura, quindi nessuna maschera sulle quantita'; conteggio squadra a 0x234, denaro a 0x490, tasche a 0x498, 0x560, 0x5B0, 0x600, 0x640 e 0x740 con capienze 50, 20, 20, 16, 64 e 46, e 349 oggetti. Tutti i valori che il nostro strumento gia' usava sono confermati | BRI, SME |
 | pret/pokeemerald | https://github.com/pret/pokeemerald | struttura cifrata Gen 3 e checksum in `src/pokemon.c`, chiave di cifratura e offset dello zaino in `include/global.h`, maschera delle quantita' in `src/item.c`, settori del salvataggio in `include/save.h` e `src/save.c` | BRI, SME |
@@ -119,7 +119,10 @@ Codice che funziona sul campo. Va letto come prova di fattibilita' e come repert
 | RNGReporter | https://github.com/Admiral-Fish/RNGReporter | analisi del generatore pseudocasuale | BRI |
 | Gen3-WCTool | https://github.com/projectpokemon/Gen3-WCTool | strumenti per le Wonder Card e gli eventi Gen 3 | BRI |
 | gba-link-connection | https://github.com/afska/gba-link-connection | letto ed e' molto piu' di quanto il nome suggerisca: libreria C++ con moduli separati per la modalita' multiplayer a 16 bit, l'invio di software multiboot ad altre console, l'adattatore wireless, il protocollo Joybus verso Wii e GameCube, le carte e-Reader, il Mobile Adapter GB, e soprattutto `LinkSPI.hpp`, che collega la GBA a un PC o a un Raspberry Pi con il cavo del Game Boy Color fino a 2 Mbit al secondo | BRI |
-| progetto REON | https://github.com/REONTeam | riportato in vita il Mobile Adapter GB; scoperto leggendo la libreria qui sopra, non aperto | BRI |
+| progetto REON | https://github.com/REONTeam | letto: ricostruisce l'infrastruttura di rete del Mobile Adapter GB, con libreria del protocollo, server, emulatore per BGB, adattatore su Arduino e una utilita' per lo scambio nel Trade Corner | BRI |
+| REONTeam/libmobile | https://github.com/REONTeam/libmobile | letto: implementazione in C del protocollo dell'adattatore, dichiarata la piu' completa esistente, basata sulla ricerca pubblicata su Dan Docs | BRI |
+| REONTeam/trade-corner | https://github.com/REONTeam/trade-corner | letto: script in C# che esegue scambi in Pokemon Cristallo attraverso il Trade Corner del PokeCom Center, da eseguire come lavoro pianificato non piu' di una volta l'ora perche' il gioco stesso non permette controlli piu' frequenti. Basato su una scoperta pubblicata sui forum di Glitch City. E' un canale di scambio alternativo al cavo per la generazione 2 | BRI |
+| Dan Docs | https://shonumi.github.io/dandocs.html | raccolta di documenti tecnici sui protocolli delle periferiche di Game Boy e Game Boy Advance, compresi il Mobile Adapter GB e l'adattatore a quattro giocatori DMG-07; e' la fonte su cui `libmobile` dichiara di basarsi | BRI |
 | gba-link-cable-rom-sender | https://github.com/FIX94/gba-link-cable-rom-sender | letto: homebrew per GameCube e Wii, vuole una cartella `gba` sulla scheda con i file multiboot da 256 KB o meno, e li trasferisce alla console collegata alla porta 2 | BRI |
 | usb-gba-multiboot | https://github.com/tangrs/usb-gba-multiboot | letto: firmware per Teensy piu' software su PC per caricare fino a 256 KB via USB, e spiega la scelta della modalita' seriale normale perche' e' a 32 bit, riceve mentre invia ed e' la piu' semplice da implementare, al prezzo di poter avviare una sola console per volta | BRI |
 | BGB | https://bgb.bircd.org/ | emulatore Game Boy con cavo Link esposto su TCP e protocollo documentato, cioe' il banco di collaudo del lato Game Boy | BRI |
@@ -183,20 +186,20 @@ Nessuno di questi e' stato guardato, e la via di recupero e' stata cercata e tro
 | Canale o video | URL | Perche' conta | Track |
 |---|---|---|---|
 | Goppier | https://www.youtube.com/@Goppier | primo a realizzare il ponte fra Gen 2 e Gen 3, con documentazione sulle due versioni del cavo Link | BRI |
-| Goppier, aggiornamento di sviluppo | https://www.youtube.com/watch?v=Qcp4vxyaUJc | stato di avanzamento del suo ponte hardware | BRI |
+| Goppier, aggiornamento di sviluppo | https://www.youtube.com/watch?v=Qcp4vxyaUJc | trascritto e condensato il 2026-08-25, ed e' la sola documentazione esistente del suo ponte: circuito con pulsante e LED di stato, conversione bidirezionale fra Gen 2 e Gen 3, gioco di origine forzato a Rosso Fuoco, valore di personalita' derivato dai DV, due politiche alternative in direzione Gen 3 verso Gen 2, mosse e oggetti non convertibili rimossi, specie di Gen 3 mostrate come Ditto in Gen 2, e una ROM GBA scritta per parlare direttamente con i giochi Gen 2. Testo in `_notes/fonti/` | BRI |
 | Lorenzooone | https://www.youtube.com/@Lorenzooone | autore di Pokemon-Gen3-to-Gen-X e di PokemonGB_Online_Trades | BRI |
 | im a blisy | https://www.youtube.com/c/imablisy | contributi comunitari citati dal progetto di riferimento | BRI |
 | RETIRE | https://www.youtube.com/@RETIREglitch | ricerca sui glitch di Gen 1 e 2 | BRI |
 | TheZZAZZGlitch | https://www.youtube.com/@TheZZAZZGlitch | primo a rendere affidabile l'esecuzione di codice arbitrario in Gen 1 e 2, dal 2013 | BRI |
 | Retro Game Mechanics Explained | https://www.youtube.com/@RGMechEx | spiegazioni al livello del bit di meccaniche interne di console e giochi | BRI, TUTTI |
 | Displaced Gamers | https://www.youtube.com/channel/UCWoSKWs8h6lFdiEDAjuIfpA | la serie Behind the Code, analisi del codice originale dei giochi classici | BRI, TUTTI |
-| Poke Transporter GB, dimostrazione | https://www.youtube.com/watch?v=47A6p2hH2gU | il ponte di riferimento in funzione | BRI |
+| Poke Transporter GB, dimostrazione | https://www.youtube.com/watch?v=47A6p2hH2gU | trascritto con riconoscimento vocale il 2026-08-25 e risultato senza parlato: e' una dimostrazione muta, quindi la fonte e' visiva e non testuale | BRI |
 | Poke Transporter GB, sviluppo | https://www.youtube.com/watch?v=9mSkGhEYBkg | trascritto e letto il 2026-08-25: conferma dall'esterno il percorso del Dono Segreto scelto per non modificare direttamente il salvataggio, e aggiunge due dettagli, cioe' un calcolatore che determina automaticamente le liste di squadra e i nomi necessari a sovrascrivere lo stack, e uno script di verifica dell'exploit sulle altre lingue. Il testo pulito sta in `_notes/fonti/2026-08-25-youtube-9mSkGhEYBkg-ptgb-sviluppo.txt` | BRI |
-| Dissezione di un salvataggio di Rosso | https://www.youtube.com/watch?v=VVbRe7wr3G4 | lettura guidata di un salvataggio Gen 1 byte per byte | BRI |
-| Cavo Link negli emulatori | https://www.youtube.com/watch?v=jzLISDGrOWo | come si collega il cavo fra due istanze di emulatore, cioe' il banco di collaudo | BRI |
+| Dissezione di un salvataggio di Rosso | https://www.youtube.com/watch?v=VVbRe7wr3G4 | trascritto il 2026-08-25, testo in `_notes/fonti/`; da leggere come conferma indipendente degli offset di generazione 1 | BRI |
+| Cavo Link negli emulatori | https://www.youtube.com/watch?v=jzLISDGrOWo | trascritto il 2026-08-25 ma reso poco, ottocento caratteri in tutto: il video mostra piu' che spiega | BRI |
 | Scambio locale su Switch in FRLG | https://www.youtube.com/watch?v=epCf87MTLnk | la funzione di scambio locale nella versione Switch, dal lato utente | LDN |
-| Sostituzione della batteria di cartuccia | https://www.youtube.com/watch?v=vz05ZT63Jqc | come si cambia la batteria tampone senza perdere il salvataggio | SME |
-| Checkpoint su 3DS | https://www.youtube.com/watch?v=aZMVFBRp1xI | uso del gestore di backup dei salvataggi installato su questa console | 3DS |
+| Sostituzione della batteria di cartuccia | https://www.youtube.com/watch?v=vz05ZT63Jqc | trascritto il 2026-08-25, testo in `_notes/fonti/`; da leggere prima di toccare una cartuccia con batteria esausta | SME |
+| Checkpoint su 3DS | https://www.youtube.com/watch?v=aZMVFBRp1xI | trascritto il 2026-08-25, testo in `_notes/fonti/`; da leggere quando si toccheranno i backup dei salvataggi | 3DS |
 
 ## Livello 5: forum e community
 
