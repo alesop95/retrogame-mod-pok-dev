@@ -70,7 +70,20 @@ La tabella dei quattro metodi e' quindi una specifica, non la descrizione di cod
 
 Questa sezione va letta con l'etichetta che porta: cio' che segue e' una derivazione fatta qui, fondata su un dato di fonte e su come sono scritte le due formule, e non e' la trascrizione di una formula che qualcuno abbia pubblicato. Resta da verificare contro un'implementazione, e finche' non lo e' non entra in codice.
 
-Il problema e' quello dichiarato aperto in `pending.md`: le generazioni 1 e 2 misurano l'allenamento con la Stat Experience, un valore a 16 bit per statistica, mentre la generazione 3 lo misura con gli Effort Value, un valore a 8 bit per statistica con un tetto individuale di 252 e un tetto complessivo di 510. Nessuna implementazione pubblica converte l'una negli altri, e la ricerca nel canale dei disassemblati fatta il 2026-08-26 non ha trovato la formula, perche' quel canale discute la modifica dei giochi e non la conversione fra generazioni.
+Il problema e' quello dichiarato aperto in `pending.md`: le generazioni 1 e 2 misurano l'allenamento con la Stat Experience, un valore a 16 bit per statistica, mentre la generazione 3 lo misura con gli Effort Value, un valore a 8 bit per statistica con un tetto individuale di 252 e un tetto complessivo di 510. Che nessuna implementazione pubblica converta l'una negli altri non e' piu' un'affermazione ricavata da una lettura d'insieme: il 2026-08-26 e' stata verificata puntualmente sul sorgente della libreria di conversione della community, al suo stato del 22 agosto 2026. La funzione esiste, si chiama `convertEVs`, e il suo corpo e' un ciclo che scrive zero in tutti e sei i campi.
+
+```cpp
+bool GBPokemon::convertEVs(Gen3Pokemon *newPkmn)
+{
+    for (int i = 0; i < 6; i++)
+    {
+        newPkmn->setEV((Stat)i, 0);
+    }
+    return true;
+};
+```
+
+Accanto a essa, `convertContestConditions` azzera le cinque statistiche da gara e la lucentezza estetica, che e' l'unica cosa sensata perche' quei dati non esistono a monte, mentre `convertPokerus` copia ceppo e giorni residui, quindi il Pokerus attraversa la conversione. La citazione di `convertEVs` chiude la questione meglio di qualunque ricerca: la conversione non e' implementata da nessuno, e chi la vuole la scrive. La ricerca nel canale dei disassemblati e quella su Reddit, entrambe del 2026-08-26, non hanno trovato la formula, e nel secondo caso si e' anche visto che la domanda era stata posta pubblicamente sotto l'annuncio del tool senza ricevere risposta.
 
 Ha trovato pero' il dato da cui la conversione si deduce, ed e' un'affermazione precisa di un partecipante che stava ottimizzando la funzione di radice quadrata di un disassemblato: per raggiungere il massimo di 63 punti di statistica al livello 100 non serve arrivare a 65535 di Stat Experience, perche' bastano 63 per 4 tutto al quadrato, cioe' 63504, e per come il calcolo e' realizzato ne bastano in pratica 63002.
 

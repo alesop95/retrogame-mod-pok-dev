@@ -283,6 +283,82 @@ def assemble(slot):
     return sb2, b"".join(parts)
 
 
+# Intervalli di identificativo per categoria, verificati su pret/pokeemerald,
+# include/constants/items.h, il 2026-08-26. Solo tre categorie occupano un intervallo
+# contiguo e quindi si possono verificare per confronto numerico: le Poke Ball, che
+# stanno da ITEM_MASTER_BALL a ITEM_PREMIER_BALL, le bacche, da ITEM_CHERI_BERRY a
+# ITEM_ENIGMA_BERRY, e le macchine, da ITEM_TM01 a ITEM_HM08. Gli oggetti ordinari e
+# quelli chiave sono sparsi e non si possono verificare cosi': per loro il controllo
+# non si fa, invece di farlo male.
+CATEGORIE_CONTIGUE = (
+    ("Poke Ball", 1, 12),
+    ("Bacche", 133, 175),
+    ("MT e MN", 289, 346),
+)
+
+# La tasca in cui ciascuna categoria contigua deve trovarsi. Il nome e' quello usato
+# nelle tabelle dei giochi qui sopra, e il confronto e' per nome perche' gli offset
+# cambiano da gioco a gioco mentre il significato della tasca no.
+TASCA_ATTESA = {"Poke Ball": "Poke Ball", "Bacche": "Bacche", "MT e MN": "MT e MN"}
+
+
+def categoria_di(item_id):
+    """La categoria contigua di un identificativo, o None se non e' in nessuna.
+
+    None non significa che l'oggetto sia anomalo: significa che questo controllo non
+    ha nulla da dire su di esso, perche' la sua categoria non e' un intervallo.
+    """
+    for nome, primo, ultimo in CATEGORIE_CONTIGUE:
+        if primo <= item_id <= ultimo:
+            return nome
+    return None
+
+
+def anomalie_di_categoria(nome_tasca, slots):
+    """Segnala gli oggetti che stanno in una tasca che non e' la loro.
+
+    E' il controllo che manca a tutti gli altri, e nasce da un caso reale: in una tasca
+    degli oggetti si trovano Poke Ball al posto degli oggetti ordinari, da un certo slot
+    in poi. Il gioco disegna un oggetto in base al suo identificativo e non alla tasca
+    che lo contiene, quindi una Ball che compare fra gli oggetti non e' un difetto di
+    visualizzazione: e' un identificativo di Ball scritto nella regione di memoria della
+    tasca sbagliata, e questo distingue una corruzione dei dati da un fraintendimento.
+
+    Oltre a elencare i singoli casi, la funzione cerca il punto di rottura, cioe' il
+    primo slot a partire dal quale ogni oggetto e' estraneo alla tasca. Se esiste, la
+    corruzione ha una forma nota, cioe' una scrittura che ha invaso la tasca da un
+    offset in avanti, e questa e' un'informazione diversa e piu' utile del numero di
+    slot sbagliati, perche' suggerisce dove cercare la causa.
+    """
+    anomalie = []
+    estranei = []
+    for voce in slots:
+        cat = categoria_di(voce["id"])
+        if cat is None:
+            continue
+        attesa = TASCA_ATTESA.get(cat)
+        if attesa is not None and attesa != nome_tasca:
+            estranei.append((voce["slot"], voce["id"], cat))
+            anomalie.append("slot %d: id %d e' della categoria %s ma si trova nella "
+                            "tasca %s" % (voce["slot"], voce["id"], cat, nome_tasca))
+
+    if estranei and slots:
+        indici_estranei = set(s for s, _, _ in estranei)
+        coda = None
+        for voce in slots:
+            if voce["slot"] in indici_estranei:
+                if coda is None:
+                    coda = voce["slot"]
+            else:
+                coda = None
+        if coda is not None and coda != slots[0]["slot"]:
+            categorie = sorted(set(c for _, _, c in estranei))
+            anomalie.append("dallo slot %d in poi ogni oggetto e' estraneo alla tasca, "
+                            "categorie coinvolte: %s. La corruzione ha quindi un punto "
+                            "di inizio e non e' sparsa" % (coda, ", ".join(categorie)))
+    return anomalie
+
+
 def decode_pockets(sb1, key16, game):
     """Decodifica le tasche. Solo la quantita' e' mascherata, l'id oggetto mai.
 
@@ -323,6 +399,7 @@ def decode_pockets(sb1, key16, game):
             seen[item_id] = i
             slots.append({"slot": i, "id": item_id, "quantita": qty,
                           "grezzo": raw_qty, "mascherato": masked})
+        anomalies.extend(anomalie_di_categoria(nome, slots))
         chiave_dedotta = vuoti[0] if vuoti else None
         if chiave_dedotta is not None and any(v != chiave_dedotta for v in vuoti):
             anomalies.append("gli slot vuoti non concordano sulla chiave dedotta")
