@@ -55,6 +55,8 @@ Fuori da `.claude/`, alla radice e nelle cartelle dei sottoprogetti, stanno la c
 <slug>/README.md                              punto di ingresso di ciascun sottoprogetto, con l'instradamento
 SOURCES.md                                    registro delle fonti, con il sottoprogetto servito da ciascuna
 docs/index.md                                 indice del percorso di studio tecnico, leggibile come vault Obsidian
+docs/fonti/index-fonti.md                     mappa relazionale delle fonti, con abstract e grafo
+reports/README.md                             report di milestone in LaTeX, uno per traguardo chiuso
 pokemon-gen12-gen3-bridge-original-hardware/  referenza byte per byte, tabelle generate e loro generatore
 gba-save-extraction-smeraldo/tools/           diagnostica dello zaino su un salvataggio Gen 3
 ```

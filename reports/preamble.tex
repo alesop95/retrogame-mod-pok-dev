@@ -1,0 +1,67 @@
+% =====================================================================
+% reports/preamble.tex - Preambolo condiviso dei report di milestone
+% =====================================================================
+% Contiene solo configurazione tipografica e pacchetti, nessun contenuto.
+% Engine fissato a pdflatex in reports/.latexmkrc, per portabilita': i report
+% devono compilare su una TinyTeX minimale senza font di sistema.
+% Convenzioni ispirate a E:\harmony-book, adattate a un documento tecnico
+% invece che editoriale: nessun font commerciale, nessuna classe memoir.
+% ---------------------------------------------------------------------
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[italian]{babel}
+\usepackage[a4paper,margin=2.6cm]{geometry}
+\usepackage{microtype}
+
+% --- Tabelle e figure ---
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{xcolor}
+
+% --- Matematica, per i conti su temporizzazione e capacita' di canale ---
+\usepackage{amsmath}
+
+% --- Codice sorgente ---
+\usepackage{listings}
+\definecolor{grigiochiaro}{gray}{0.96}
+\definecolor{commento}{rgb}{0.35,0.45,0.35}
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  backgroundcolor=\color{grigiochiaro},
+  commentstyle=\color{commento}\itshape,
+  keywordstyle=\bfseries,
+  breaklines=true,
+  showstringspaces=false,
+  frame=single,
+  framerule=0pt,
+  xleftmargin=0.5em,
+  captionpos=b,
+}
+
+% --- Riferimenti interni ---
+\usepackage[hidelinks]{hyperref}
+
+% --- Intestazioni ---
+% Deliberatamente senza fancyhdr: non e' presente nella TinyTeX di questa macchina e
+% tlmgr rifiuta di installarlo senza aggiornare prima se stesso. Un report di milestone
+% non ha bisogno di intestazioni personalizzate, e una dipendenza in meno vale piu' di
+% una riga in testa alla pagina. Numerazione in basso, stile standard.
+\pagestyle{plain}
+
+% --- Unita' di misura ---
+% siunitx non e' garantito presente su una TinyTeX minimale, e per un report tecnico
+% servono solo grandezze semplici con lo spazio fine prima dell'unita'. Si definisce
+% quindi la macro solo se il pacchetto non l'ha gia' fornita, cosi' che il corpo del
+% documento resti valido anche dove siunitx c'e'.
+\providecommand{\SI}[2]{#1\,#2}
+
+% --- Macro del progetto ---
+% Un byte in esadecimale, scritto sempre nello stesso modo.
+\newcommand{\hx}[1]{\texttt{0x#1}}
+% Una fonte di livello n della gerarchia dichiarata in SOURCES.md.
+\newcommand{\liv}[1]{\textsuperscript{L#1}}

@@ -149,3 +149,20 @@ dev.keys
 *.pb[0-9]
 *.ek[0-9]
 *.pkm
+
+# --- Ausiliari di LaTeX (report di milestone sotto reports/) --------------------
+# Il sorgente .tex e il preambolo sono tracciati; il PDF e' escluso dalla riga *.pdf
+# piu' sopra, per la politica sui binari di ADR-005, e si rigenera con latexmk.
+*.aux
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.out
+*.bcf
+*.run.xml
+*.blg
+*.bbl
+reports/*.log

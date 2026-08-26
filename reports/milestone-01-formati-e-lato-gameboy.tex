@@ -1,0 +1,185 @@
+\documentclass[11pt,a4paper]{article}
+\input{preamble}
+
+\title{\textbf{Ponte fra generazioni Pokemon su hardware originale}\\[0.3em]
+\large Milestone 1: caratterizzazione dei formati e implementazione del lato Game Boy}
+\author{Progetto \texttt{retrogame-mod-pok-dev}}
+\date{25 agosto 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent Questo report chiude la prima milestone del sottoprogetto che costruisce un trasferimento di dati Pokemon dalle generazioni 1 e 2 alla generazione 3, un ponte che il produttore non ha mai fornito. La milestone comprende la caratterizzazione completa dei formati dei dati sulle tre generazioni, verificata sul codice sorgente ricostruito dei giochi, e l'implementazione collaudata dello strato di lettura e scrittura per il lato Game Boy. Il documento adotta un inquadramento da ingegneria delle telecomunicazioni: il collegamento fra le due console viene trattato come un canale seriale sincrono, con i suoi problemi di sincronizzazione, delimitazione delle trame, trasparenza dei dati e rilevazione d'errore, e le scelte degli autori originali vengono confrontate con le soluzioni canoniche della disciplina. Il risultato numerico principale e' che cinque affermazioni su cui il progetto stava per costruire codice si sono rivelate errate, e sono state corrette risalendo alla fonte primaria; il risultato metodologico e' una gerarchia di affidabilita' delle fonti che ha reso quelle correzioni sistematiche invece che fortuite.
+\end{abstract}
+
+\tableofcontents
+
+\section{Inquadramento del problema}
+
+Ogni generazione della serie Pokemon ha storicamente offerto un meccanismo ufficiale per portare i dati dei personaggi nella generazione successiva. Fra la generazione 2, che gira su Game Boy, e la generazione 3, che gira su Game Boy Advance, quel meccanismo non e' mai esistito. Non si tratta di una omissione commerciale ma di una discontinuita' tecnica: il passaggio di piattaforma comporta un cambio di processore, di ordine dei byte, di formato dei dati e di modello concettuale dell'entita' rappresentata.
+
+Il problema si scompone in tre sottoproblemi indipendenti, e conviene enunciarli separatamente perche' hanno natura diversa.
+
+Il primo e' un problema di rappresentazione. Le strutture dati delle due generazioni non sono in relazione di estensione: sono riorganizzazioni, con campi che cambiano posizione, dimensione e semantica. Si risolve con una caratterizzazione byte per byte, ed e' meccanico.
+
+Il secondo e' un problema di ricostruzione dell'informazione. La generazione 3 richiede attributi che nella generazione 1 e 2 non esistono, e che non sono indipendenti fra loro perche' derivano tutti dallo stesso valore. Non ha soluzione unica: ha soluzioni ammissibili, e si formula come problema di soddisfacimento di vincoli.
+
+Il terzo e' un problema di comunicazione. I dati devono attraversare un canale seriale sincrono a un byte per volta fra due dispositivi che non condividono ne' l'alimentazione ne' un riferimento temporale comune, con un protocollo di livello applicativo progettato nel 1996 e non documentato dal produttore. E' su questo terzo aspetto che l'inquadramento da telecomunicazioni fornisce il maggiore vantaggio analitico, e la sezione~\ref{sec:canale} lo sviluppa.
+
+\section{Metodo: gerarchia di affidabilita' delle fonti}
+
+Il dominio e' documentato quasi esclusivamente da una comunita' di appassionati, e la qualita' delle fonti e' molto disomogenea. Il progetto ha adottato una gerarchia esplicita a cinque livelli, dichiarata nel registro delle fonti, dove il livello 1 e' il codice sorgente ricostruito del gioco, il livello 2 la documentazione enciclopedica, il livello 3 le implementazioni di terzi funzionanti, il livello 4 articoli e video, il livello 5 le discussioni di forum. La regola operativa e' che in caso di contraddizione vince il livello piu' basso.
+
+La gerarchia non e' un formalismo. La tabella~\ref{tab:correzioni} elenca le cinque affermazioni di livello 2 che si sono rivelate errate durante questa milestone, con la fonte primaria che le ha corrette. Ciascuna di esse era sul punto di entrare nel codice.
+
+\begin{table}[htbp]
+\centering
+\caption{Affermazioni di livello 2 corrette da fonti di livello 1}
+\label{tab:correzioni}
+\small
+\begin{tabularx}{\textwidth}{@{}lllX@{}}
+\toprule
+\textbf{Oggetto} & \textbf{Valore errato} & \textbf{Valore corretto} & \textbf{Fonte primaria e conseguenza dell'errore} \\
+\midrule
+Cifre, gen.\ 1 e 2 & \hx{F0} & \hx{F6} & \texttt{pokecrystal/constants/charmap.asm}; produce nomi plausibili e sbagliati \\
+Maiuscole, gen.\ 3 & \hx{C1} & \hx{BB} & \texttt{pokeemerald/charmap.txt}; idem \\
+Checksum Pokemon, gen.\ 3 & somma di byte & somma di parole a 16 bit & \texttt{CalculateBoxMonChecksum}; il dato diventa un Uovo Difettoso \\
+Blocco di scambio, gen.\ 1 & 415 byte & 418 utili, 424 sul filo & \texttt{engine/link/cable\_club.asm}; disallineamento di trama \\
+Chiave di cifratura, FRLG & \hx{0AF8} & \hx{0F20} & \texttt{pokefirered/include/global.h}; quantita' smascherate errate \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Una sesta correzione e' emersa non dalla lettura ma dalla scrittura del codice: la dimensione della lista della squadra di generazione 1, riportata come 194 byte, e' in realta' 404, perche' la fonte aveva letto come decimale la dimensione esadecimale \hx{194}. Il conteggio dei campi lo dimostra in una riga, e questo suggerisce una euristica generale: un valore documentato che coincide con la lettura decimale di un esadecimale plausibile va sempre ricontato.
+
+\section{Il livello dati}
+
+\subsection{Invarianti di piattaforma}
+
+Tre invarianti governano ogni lettura e vanno fissati prima di qualsiasi offset. L'ordine dei byte e' big-endian sulle generazioni 1 e 2, che girano su un processore Sharp LR35902, e little-endian sulla generazione 3, che gira su ARM7TDMI; l'unica eccezione documentata sono i checksum di generazione 2, memorizzati in little-endian dentro una generazione altrimenti big-endian. La struttura conservata nel deposito e' un prefisso proprio di quella in uso, e i campi in eccesso sono valori derivati che il gioco ricalcola: copiarli invece di ricalcolarli produce entita' internamente incoerenti. Infine, nelle generazioni 1 e 2 le stringhe non risiedono dentro il record ma in array paralleli indicizzati per posizione, mentre nella generazione 3 il record e' autocontenuto: e' una differenza di modello dati, non di offset, e cambia la forma del codice.
+
+\subsection{Impaccamento e densita' informativa}
+
+Le strutture di quell'epoca sono progettate sotto un vincolo di memoria severo, e l'impaccamento e' aggressivo. Un caso istruttivo e' il byte dei punti potenza di una mossa, che porta due informazioni distinte: i sei bit meno significativi contengono il valore corrente, i due piu' significativi il numero di potenziamenti applicati. Nella generazione 3 quelle due informazioni finiscono in sottostrutture diverse, quindi la conversione deve smontare un byte e distribuirlo.
+
+Il caso piu' interessante e' quello dei valori individuali. Nelle generazioni 1 e 2 sono quattro, di quattro bit ciascuno, impaccati in due byte, e il quinto valore non e' memorizzato ma derivato per composizione dei bit meno significativi degli altri quattro:
+\begin{equation}
+\mathrm{DV_{PS}} = (\mathrm{DV_{ATT}} \wedge 1)\cdot 8 + (\mathrm{DV_{DIF}} \wedge 1)\cdot 4 + (\mathrm{DV_{VEL}} \wedge 1)\cdot 2 + (\mathrm{DV_{SPE}} \wedge 1)
+\label{eq:dvhp}
+\end{equation}
+La formula~\eqref{eq:dvhp} e' riportata come commento nel codice sorgente ricostruito, quindi e' una fonte di livello 1. La sua conseguenza progettuale e' che il quinto valore non e' un grado di liberta' indipendente: qualunque manipolazione dei quattro memorizzati si propaga al quinto, e questo vincola la conversione.
+
+Dalla stessa routine emerge una seconda asimmetria: la generazione 2 separa attacco e difesa speciali nelle statistiche calcolate, ma conserva un solo valore individuale e un solo contatore di allenamento per entrambe. La separazione effettiva avviene solo nella generazione 3, dove i valori individuali diventano sei. Una conversione deve quindi mappare uno su due, e non esiste una risposta corretta: esiste una scelta da documentare.
+
+\subsection{Offuscamento nella generazione 3}
+
+I 48 byte centrali del record di generazione 3 sono cifrati e permutati. La chiave e' lo XOR fra il valore di personalita' e l'identificatore dell'allenatore, entrambi presenti in chiaro due campi piu' su: non e' quindi crittografia nel senso della riservatezza. La lettura ragionevole, che resta una ricostruzione e non una dichiarazione degli autori, e' che l'obiettivo sia rendere fragile la manomissione invece di impedirla. Un record cifrato e coperto da checksum non si modifica con un editor esadecimale: qualunque byte alterato senza ricalcolare tutto produce un fallimento immediato e visibile, invece di un'entita' leggermente alterata che circola indefinitamente.
+
+L'ordine delle quattro sottostrutture e' una delle 24 permutazioni possibili, selezionata dal valore di personalita' modulo 24. Ne segue un vincolo di ordine sulla scrittura: il valore di personalita' e' contemporaneamente identificatore, chiave di cifratura e selettore di permutazione, quindi va deciso prima di comporre il record. Un'implementazione che consenta di modificarlo dopo la composizione produrra' silenziosamente dati distrutti, e la difesa progettuale corretta e' renderlo immutabile.
+
+\section{Il canale seriale}
+\label{sec:canale}
+
+\subsection{Livello fisico e sincronizzazione}
+
+Il collegamento e' una interfaccia seriale sincrona a tre fili utili piu' massa, funzionalmente equivalente a un bus SPI: due linee dati unidirezionali, una linea di clock e il riferimento comune. Ogni trasferimento e' intrinsecamente bidirezionale, perche' il byte uscente e quello entrante attraversano lo stesso registro a scorrimento: non esiste trasmettere senza ricevere, e questa e' la prima differenza sostanziale rispetto a un canale asincrono.
+
+Il ruolo di sorgente di clock e' negoziato all'apertura e non e' simmetrico. Il dispositivo che fornisce il clock determina l'istante di ogni transizione, e la specifica dell'hardware\liv{1} documenta un fatto che ha conseguenze progettuali notevoli: il clock esterno non ha limite inferiore di frequenza, non richiede intervalli regolari, ed e' accettato fino a circa \SI{500}{kHz} anche dal modello monocromatico. La documentazione afferma che anche fornendo un bit al mese il ricevitore attenderebbe il successivo.
+
+Ne segue che il vincolo di tempo reale che si presume guardando un protocollo sincrono, al livello fisico, non esiste. Un dispositivo intermedio basato su microcontrollore puo' interrompere la trasmissione fra due bit qualsiasi per un tempo arbitrario. Il vincolo effettivo risiede al livello applicativo, nei tempi di attesa che il software del gioco si aspetta fra trame consecutive, e la testimonianza dell'autore di una implementazione funzionante lo conferma indicando la calibrazione del clock come la parte piu' problematica dello sviluppo.
+
+Sulle tensioni di alimentazione i due lati differiscono, \SI{5}{V} per il Game Boy e \SI{3.3}{V} per il Game Boy Advance. L'unica testimonianza disponibile\liv{4} riporta prove sperimentali secondo cui l'interconnessione diretta non danneggia nessuno dei due; il progetto la registra come tale e non come specifica.
+
+\subsection{Capacita' del canale e tempo di trasferimento}
+
+Con clock interno il modello monocromatico opera a \SI{8192}{Hz}, cioe' un byte ogni otto impulsi, per una portata utile di circa \SI{1}{kB/s} al netto dei ritardi applicativi. Il blocco che trasporta la squadra misura 424 byte sul filo, da cui un tempo di trasferimento del solo blocco dati
+\begin{equation}
+T_{\text{blocco}} \simeq \frac{424\ \text{B}}{1024\ \text{B/s}} \simeq \SI{0.41}{s}
+\end{equation}
+a cui si aggiungono il blocco dei numeri casuali, la lista di correzione da 200 byte e le attese di sincronizzazione. L'ordine di grandezza complessivo e' il secondo, coerente con l'esperienza di gioco. Il modello a colori offre frequenze fino a \SI{524288}{Hz}, cioe' \SI{64}{kB/s}, ma il protocollo di scambio resta tarato sulla frequenza inferiore per compatibilita'.
+
+\subsection{Delimitazione delle trame e trasparenza dei dati}
+
+Il protocollo applicativo riserva due valori: \hx{FD} come preambolo che delimita l'inizio di ogni blocco, e \hx{FE} come indicatore di assenza di dati, che e' anche il livello logico letto su un collegamento aperto. La scelta di \hx{FE} per il silenzio e' elegante, perche' rende indistinguibile il caso del partner assente da quello del partner che non ha nulla da dire, e semplifica il ricevitore.
+
+La riserva di due valori genera il classico problema di trasparenza dei dati: il carico utile contiene byte arbitrari e prima o poi conterra' un valore riservato. La disciplina delle telecomunicazioni conosce due famiglie di soluzioni. La prima e' l'inserimento di byte in banda, adottata per esempio da HDLC e da PPP, dove un byte di escape precede il byte riservato trasformato: costa un byte per ogni occorrenza, distribuito nel flusso, e non richiede memoria di stato.
+
+Gli autori del gioco hanno scelto la seconda famiglia, meno comune: la correzione fuori banda. I byte pari a \hx{FE} presenti nel carico vengono sostituiti da \hx{FF}, e le loro posizioni sono trasmesse in un blocco separato, la lista di correzione, che il ricevitore applica dopo aver ricevuto il carico intero. Il costo e' un blocco aggiuntivo di dimensione fissa, 200 byte, indipendente dal numero di occorrenze.
+
+Il confronto fra le due scelte e' istruttivo. L'inserimento in banda ha costo proporzionale alle occorrenze e latenza nulla, ma altera la lunghezza della trama, che diventa non deterministica: il ricevitore non puo' preallocare il buffer ne' verificare la lunghezza attesa. La correzione fuori banda mantiene la trama a lunghezza fissa, che su un sistema con 8 kB di memoria di lavoro e nessuna allocazione dinamica e' un vantaggio decisivo, al prezzo di un costo fisso e di non poter applicare la correzione prima di aver ricevuto tutto.
+
+C'e' un dettaglio ricorsivo che vale la pena isolare, perche' e' il genere di problema che si incontra progettando qualunque schema di escaping. Anche le posizioni trasmesse nella lista sono byte, e una posizione pari a \hx{FD} verrebbe interpretata come preambolo. La soluzione degli autori e' spezzare la lista in due parti: quando il contatore di posizione raggiunge il valore riservato, la prima parte viene chiusa con un terminatore e il conteggio riparte. La lista di correzione ha quindi bisogno, a sua volta, di un meccanismo di trasparenza, e la ricorsione si arresta perche' il secondo livello opera su un dominio piu' piccolo.
+
+\subsection{Rilevazione d'errore}
+
+Il protocollo di collegamento non prevede rilevazione d'errore sulla singola trama, e questa e' una scelta ragionevole date le circostanze: il canale e' un cavo di poche decine di centimetri, punto a punto, senza rumore significativo. La rilevazione esiste invece a livello di memorizzazione, con tre schemi diversi nelle tre generazioni.
+
+La generazione 1 usa un solo byte, complemento a uno della somma dei byte dell'area protetta. E' il piu' debole dei tre, con probabilita' di falso positivo pari a $2^{-8}$ per un errore casuale, e insensibile alle permutazioni, perche' la somma non e' pesata. La generazione 2 mantiene una somma, portata a 16 bit, ma aggiunge ridondanza strutturale conservando due copie dei dati con checksum indipendenti: se una sola supera la verifica, viene usata e ricopiata sull'altra. La generazione 3 abbandona il blocco monolitico e adotta un formato a sezioni indipendenti da 4096 byte, ciascuna con identificatore, checksum, firma costante e contatore di generazione, piu' due slot alternati a livello di file.
+
+Quest'ultima architettura merita attenzione perche' e' una risposta di ingegneria all'affidabilita' del supporto. La memoria flash si scrive a blocchi e la scrittura non e' atomica rispetto a una interruzione di alimentazione; il doppio slot con contatore realizza un commit atomico a livello logico, dove lo stato valido resta intatto finche' il nuovo non e' completo. E' lo stesso principio del doppio buffer e delle transazioni con giornale, applicato con i mezzi del 2002. La rotazione delle sezioni fra una scrittura e la successiva, documentata dall'autore di una implementazione\liv{4}, aggiunge distribuzione dell'usura.
+
+L'algoritmo di checksum di sezione accumula parole da 32 bit e ripiega il risultato sommando la meta' alta alla meta' bassa, ottenendo 16 bit. E' la stessa costruzione del checksum di Internet, con la differenza che non viene complementata: condivide con quello la debolezza sulle permutazioni di parole e sulle compensazioni fra errori di segno opposto, e la virtu' di essere calcolabile in poche istruzioni.
+
+Al livello del singolo record esiste un secondo checksum, sui 48 byte cifrati, e la sua semantica di fallimento e' diversa e piu' severa: il gioco non rifiuta il file, ma marca quel record come non valido in modo permanente e visibile. La distinzione operativa e' importante per chi scrive strumenti: sbagliare il checksum di sezione e' recuperabile, perche' il file viene rifiutato e resta modificabile, mentre sbagliare quello di record e' distruttivo, perche' il file viene accettato.
+
+\section{La conversione come problema di soddisfacimento di vincoli}
+
+La generazione 3 introduce un valore di personalita' a 32 bit da cui derivano, per funzioni fissate dal gioco, la natura come resto modulo 25, il sesso per confronto del byte meno significativo con una soglia dipendente dalla specie, la selezione dell'abilita' come bit meno significativo, la forma di alcune specie come composizione di bit sparsi modulo 28, e la condizione di rarita' estetica come predicato sullo XOR fra identificatori e le due meta' del valore.
+
+Poiche' alcuni di questi attributi devono corrispondere a proprieta' dell'entita' originale, il valore non e' libero: va cercato. Formalmente si tratta di trovare $p \in \{0,\dots,2^{32}-1\}$ tale che
+\begin{equation}
+f_{\text{natura}}(p) = n^{*} \ \wedge\ f_{\text{sesso}}(p, s) = g^{*} \ \wedge\ f_{\text{abilita}}(p) = a^{*} \ \wedge\ f_{\text{forma}}(p) = u^{*}
+\end{equation}
+dove gli asterischi indicano i valori richiesti. L'implementazione di riferimento risolve per campionamento con rifiuto, estraendo candidati da un generatore pseudocasuale e scartandoli finche' tutti i predicati non sono soddisfatti. La scelta e' inefficiente in senso asintotico e adeguata in pratica, perche' i vincoli sono pochi e quasi indipendenti, e ha il vantaggio non trascurabile di essere difficile da sbagliare: la costruzione per bit sarebbe piu' rapida e molto piu' fragile, dato che i predicati condividono gli stessi bit.
+
+Il predicato di rarita' estetica non compare nella congiunzione, e la ragione e' la parte piu' elegante del problema. L'identificatore dell'allenatore passa da 16 bit nelle generazioni precedenti a 32 bit nella generazione 3, e la meta' alta e' un valore che la conversione deve inventare in ogni caso. Poiche' il predicato dipende dallo XOR di quattro semiparole di cui tre sono ormai fissate, quella meta' alta e' esattamente il grado di liberta' che consente di soddisfarlo a valle: si calcola lo XOR parziale e si assegna. Un problema apparentemente sovradeterminato si scioglie individuando la variabile che nessuno aveva contato, e questa e' una lezione trasferibile.
+
+Resta una circostanza favorevole che rende trattabile il tutto. Nella generazione 3 i valori individuali sono memorizzati in un campo proprio e non derivano dal valore di personalita'; dalla generazione 4 il legame passa per il generatore pseudocasuale del metodo di incontro, e una coppia arbitraria diventa riconoscibile come non generabile. La conversione fedele e' quindi possibile verso la generazione 3 e non lo sarebbe con la stessa fedelta' verso una successiva.
+
+\section{Implementazione e verifica}
+
+\subsection{Stratificazione}
+
+Il codice e' organizzato in cinque strati, dei quali i primi quattro sono indipendenti dalla modalita' di trasporto e quindi comuni a tutte le architetture di sistema considerate. Lo strato dei dati costanti contiene tabelle generate da programma a partire dal codice sorgente ricostruito dei giochi, e non contiene valori trascritti a mano; lo strato dei modelli distingue i tre tipi di record senza campi opzionali; lo strato di lettura e scrittura e' l'unico che conosce offset, ordine dei byte, cifratura e checksum; lo strato di conversione e' l'unico che prende decisioni discutibili, e le espone come parametri espliciti; lo strato di trasporto dipende dalla scelta architetturale e non e' ancora implementato.
+
+La scelta di generare le tabelle invece di trascriverle nasce direttamente dalle prime due correzioni della tabella~\ref{tab:correzioni}: un valore trascritto a mano puo' essere sbagliato di nuovo a mano, mentre un generatore che verifica otto valori sentinella prima di scrivere fallisce in modo rumoroso se la fonte a monte cambia forma.
+
+\subsection{La simmetria come proprieta' di verifica}
+
+La proprieta' portante della verifica e' l'involutivita' della coppia lettura-scrittura: per ogni sequenza di byte $b$ valida,
+\begin{equation}
+\mathrm{scrivi}(\mathrm{leggi}(b)) = b
+\label{eq:simmetria}
+\end{equation}
+La proprieta'~\eqref{eq:simmetria} e' stata verificata su cinquecento sequenze pseudocasuali con seme fissato per ciascuna delle quattro forme di record e su cinquanta per ciascuna delle due forme di lista, oltre che su casi costruiti a mano. Una sola proprieta' copre un intero genere di difetti: un offset errato, un ordine dei byte invertito, un campo di bit letto dalla finestra sbagliata, un campo non dichiarato ignorato in lettura, un troncamento in scrittura.
+
+Va dichiarato con precisione cio' che la proprieta' non copre, perche' e' un limite strutturale e non una lacuna dell'esecuzione. La~\eqref{eq:simmetria} e' invariante rispetto a una permutazione delle etichette dei campi: se due campi della stessa larghezza fossero scambiati, la composizione resterebbe l'identita'. Le difese attuali sono parziali, cioe' casi costruiti a mano su offset specifici e la provenienza degli offset da fonte di livello 1. La difesa che chiude il cerchio e' il confronto con un'implementazione indipendente, e non richiede hardware: e' sufficiente sintetizzare un file con valori distinti in ogni campo e aprirlo con un editor di riferimento affermato.
+
+\subsection{Copertura}
+
+La suite conta 63 prove su quattro moduli. Dove lo spazio degli stati e' finito e piccolo la copertura e' esaustiva: tutti i 256 byte dei punti potenza, tutte le $2^{16}$ coppie del campo di cattura, tutte le $16^4$ combinazioni dei valori individuali. Quest'ultima non verifica il codice ma la comprensione della specifica: il conteggio delle combinazioni che soddisfano la condizione di rarita' estetica restituisce 8, e
+\begin{equation}
+\frac{16^4}{8} = 8192
+\end{equation}
+coincide con la probabilita' documentata. Una comprensione errata della regola produrrebbe un numero diverso. Dove lo spazio e' grande la copertura e' campionata con passo primo, per evitare di esplorare solo valori con la stessa struttura binaria.
+
+\subsection{Difetti rilevati dalla verifica}
+
+Due difetti reali sono emersi eseguendo le prove, e vale la pena riportarli perche' documentano il rendimento del metodo. Il primo, in uno strumento di diagnosi separato, consisteva nel considerare vuoto uno slot con quantita' nulla, mentre in una tasca con quantita' mascherate uno slot vuoto contiene la maschera: su dati reali si sarebbe manifestato come una tasca piena di voci inesistenti. Dalla correzione e' nata una verifica incrociata gratuita, perche' la maschera si ricava da qualunque slot vuoto e si confronta con quella letta al proprio offset. Il secondo difetto era in una prova e non nel codice: una sequenza di byte dichiarata a mano conteneva \hx{A4} al posto di \hx{A0}, cioe' una lettera diversa. La prova e' stata riscritta per derivare i byte dalla tabella generata, applicando ai test lo stesso principio applicato ai dati.
+
+\section{Risultati e stato}
+
+La caratterizzazione dei formati e' completa sulle tre generazioni per quanto riguarda record e contenitori, con undici punti precedentemente dubbi risolti su fonte primaria. Lo strato di lettura e scrittura del lato Game Boy e' implementato e collaudato, senza dipendenze esterne, e copre l'intera generazione 1 e 2: il confronto dei disassemblati ha stabilito che le strutture di Giallo coincidono con quelle di Rosso e Blu e quelle di Oro con quelle di Cristallo, quindi non servono varianti.
+
+Sul piano dell'architettura di sistema restano quattro opzioni aperte, e l'analisi di questa milestone ne ha modificato il costo relativo in due punti. La conversione fedele degli attributi statistici non esiste in nessuna implementazione pubblica, perche' la specifica comunitaria documenta quattro modalita' e il codice ne realizza una: quel componente va scritto in ogni caso, e non si eredita adottando una libreria. E l'architettura con dispositivo intermedio, prima considerata la piu' onerosa, dispone di un precedente completo con circuito stampato e firmware su microcontrollore diffuso, le cui costanti di protocollo coincidono con quelle ricavate indipendentemente dal disassemblato.
+
+\section{Limiti dichiarati e lavoro successivo}
+
+Nulla di quanto descritto e' stato verificato contro dati reali o hardware reale. Le verifiche sono di due tipi soltanto, lettura del codice sorgente ricostruito e prove di programma su dati sintetici, e la distinzione e' mantenuta esplicita nella documentazione del progetto. Non e' stato eseguito nessun emulatore, nessun gioco, nessuna lettura di supporto fisico.
+
+Il lavoro successivo ha un ordine determinato dal criterio di falsificabilita' piu' che da quello di completezza. Precede tutto il confronto con un'implementazione indipendente su file sintetico, perche' e' l'unica azione che puo' invalidare il lavoro gia' svolto e non richiede hardware. Segue la generazione della tabella di corrispondenza fra indici interni e numerazione nazionale, ultimo dato costante ancora assente e punto in cui un errore scambierebbe una specie con un'altra. Segue lo strato di lettura e scrittura della generazione 3, con cifratura, permutazione e checksum, dove l'ordine di costruzione e' vincolato dal formato. Seguono le tabelle ausiliarie necessarie alla conversione e lo strato di conversione con il suo risolutore. Chiude l'esternalizzazione dei casi di prova come dati, che oggi sono metodi e che in quella forma non sarebbero riusabili da una reimplementazione in altro linguaggio.
+
+Sul trasporto vale una precisazione che corregge un'assunzione diffusa nella documentazione comunitaria. L'affermazione che il ponte non sia emulabile e' vera per l'interazione fra le due console, non per il collegamento fra due console della stessa famiglia, che un emulatore diffuso espone su una connessione di rete con protocollo documentato. La verifica del protocollo contro un gioco reale richiede tuttavia una copia del gioco ottenuta dal supporto fisico posseduto, quindi dipende dalla disponibilita' del lettore di cartucce, e senza quella resta possibile soltanto una prova di coerenza interna fra due istanze della medesima implementazione, che va chiamata con il suo nome.
+
+\end{document}
