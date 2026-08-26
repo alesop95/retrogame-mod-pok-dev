@@ -4,8 +4,8 @@ generated-from-branch: main
 generated-date: 2026-08-24
 covers-paths:
   - pokemon-gen12-gen3-bridge-original-hardware/
-last-verified-commit: d08a011
-stato: decisione aperta, lavoro comune avviabile
+last-verified-commit: 7696c46
+stato: decisione aperta, lato Game Boy scritto e collaudato
 ---
 
 # Sottoprogetto: ponte Pokemon da Gen 1 e 2 verso Gen 3 su hardware originale

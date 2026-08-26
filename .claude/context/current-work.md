@@ -5,8 +5,11 @@ generated-date: 2026-08-24
 covers-paths:
   - 3ds-related/
   - gba-save-extraction-smeraldo/
-last-verified-commit: d08a011
-stato: adozione conclusa; in corso su 2 track di 4
+  - pokemon-gen12-gen3-bridge-original-hardware/
+  - gba-switch-pokemon-trading/
+  - poke-automation-study/
+last-verified-commit: 7696c46
+stato: adozione conclusa; in corso su 3 track di 5
 ---
 
 # Lavoro in corso
@@ -19,9 +22,9 @@ La fonte di verita' su cosa e' fatto resta `memory/index.md`, non le spunte di q
 |---|---|---|---|
 | 3ds-modding | attivo | dump delle cinque cartucce DS rimanenti: Diamante, Perla, Platino, Nera 2, SoulSilver | nulla |
 | smeraldo-save-fix | attivo | confermare l'installazione dei driver CH340 e annotare la porta COM | riscontro sulla macchina, e arrivo del lettore ordinato il 18/08 |
-| gen12-gen3-bridge | in attesa di decisione | discovery hardware, poi scelta fra le opzioni A, B, C e D | una decisione, registrata come ADR-008 |
-| gba-switch-trading | in ricerca | procurare un adattatore Wi-Fi USB e provare la modalita' monitor | nulla: la macchina non ha Wi-Fi, ma una testimonianza di campo indica un adattatore che funziona |
-| poke-automation | non iniziato | decidere che cosa il track debba essere, fra studio, riuso del microcontrollore e automazione | una decisione, e la definizione del perimetro |
+| gen12-gen3-bridge | attivo, e' il fuoco corrente | lettore e scrittore della struttura di generazione 3, cifrata, permutata e con checksum | nulla sul lavoro comune: ADR-008 e la discovery hardware pesano solo sull'ultimo tratto |
+| gba-switch-trading | in ricerca, fonti portanti lette | provare l'Archer T2U Nano che l'utente ha gia' in modalita' monitor, e leggere il codice di `frlgtrade.py` | nulla: la macchina non ha Wi-Fi integrato, e l'adattatore da provare e' deciso con la sua riserva sul driver fuori albero |
+| poke-automation | studio cominciato | studiare confronto di immagini e riconoscimento ottico dei caratteri, che e' la parte trasferibile | una decisione di scopo: il perimetro del progetto di riferimento risulta compatibile con le nostre regole |
 
 ## Feature: adozione del sistema di progetto portabile
 
@@ -43,4 +46,4 @@ Il PDF che documenta il bug dell'inventario e' escluso dal version control per l
 
 ## Riconciliazione
 
-Ultima verifica: 2026-08-25 al commit d08a011, dopo il collasso della storia.
+Ultima verifica: 2026-08-26 al commit 7696c46. La corsa di `sync-context` di quella data ha trovato un drift quasi tutto contabile, perche' le schede erano state aggiornate a mano nei commit successivi senza che nessuno bumpasse il loro `last-verified-commit`, e tre difetti sostanziali: `dev-testing.md` dichiarava che non esistono test automatici mentre 63 prove passano, l'apertura di `STACK.md` negava l'esistenza del codice che la sua stessa sezione delle dipendenze descriveva, e il conteggio dei track era fermo a quattro. Il difetto strutturale che li rendeva possibili era il `covers-paths` delle schede trasversali, che non seguiva l'aggiunta di un sottoprogetto: e' stato esteso, e la procedura di aggiunta ha ora un quarto passo che lo impone.

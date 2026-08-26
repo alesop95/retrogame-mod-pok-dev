@@ -55,6 +55,8 @@ Questa e' la tabella che l'agente deve consultare da se': ogni riga dice quando 
 | si chiude una milestone | un report in LaTeX sotto `reports/`, con `latexmk -pdf` | documento datato che fotografa risultati, metodo e limiti, con taglio da telecomunicazioni |
 | serve una trascrizione di un video senza sottotitoli automatici | il progetto `E:\local-audio-transcriptor`, ora funzionante perche' `deno` e' installato | riconoscimento vocale locale con marcatura temporale; verificato il 2026-08-26 che i due video arretrati, cioe' il primo di Goppier e quello sullo scambio locale su Switch, non hanno sottotitoli di alcun tipo, quindi questa e' l'unica via |
 | l'utente produce un export di un canale Discord o di una chat Telegram | `tools/read-chat-export.py` | converte in Markdown filtrato per parola chiave, intervallo di date e lunghezza minima, e lo mette fra le fonti procurate a mano |
+| il ponte ha prodotto il primo modulo di codice, condizione verificata il 2026-08-25 | il gate del server MCP code-context, rimandato per ADR-010 | estrazione di simboli e riferimenti da `pokebridge/` senza versare i file in contesto; la proposta va rifatta perche' la condizione che la rimandava non vale piu', e resta la facolta' di rimandarla ancora |
+| il ponte ha un comando di test, condizione verificata il 2026-08-25 | un `CLAUDE.md` annidato in `pokemon-gen12-gen3-bridge-original-hardware/` | dichiarazione dei soli comandi di build, lint e test di quella cartella, cioe' `python tests/run_tests.py`; mai stato, che resta nella scheda del sottoprogetto |
 
 ## Debito di lettura
 

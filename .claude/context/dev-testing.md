@@ -5,16 +5,27 @@ generated-date: 2026-08-24
 covers-paths:
   - 3ds-related/
   - gba-save-extraction-smeraldo/
-last-verified-commit: d08a011
+  - pokemon-gen12-gen3-bridge-original-hardware/
+last-verified-commit: 7696c46
 ---
 
 # Sviluppo e verifica
 
-Non esistono test automatici perche' non esiste codice. Quello che esiste, e che vale la pena scrivere una volta invece di riscoprirlo a ogni sessione, e' un protocollo di verifica su hardware reale, dove l'errore e' irreversibile e il feedback non e' istantaneo.
+Il protocollo di verifica di questo progetto ha due meta' che funzionano in modo opposto, e vale la pena dirle separate perche' confonderle porta a fidarsi della meta' sbagliata. La prima e' software e da' un riscontro immediato e ripetibile: il pacchetto `pokebridge` del sottoprogetto del ponte ha una suite di prove automatiche, quindi l'affermazione che questo progetto non abbia test, vera fino al 2026-08-25, non lo e' piu'. La seconda e' hardware, dove l'errore e' irreversibile, il feedback non e' istantaneo e nessun test automatico esiste ne' potra' esistere: quella meta' e' un protocollo scritto da rispettare a mano, ed e' la ragione per cui questa scheda esiste.
 
 ## Il principio
 
 Una operazione su hardware si considera riuscita solo quando e' stata riletta, non quando il software dice che e' andata bene. Questo vale a ogni livello: un dump si verifica confrontando la dimensione attesa e riaprendo il file, una scrittura su cartuccia si verifica rileggendola e confrontando i byte, una modifica al salvataggio si verifica accendendo la console e guardando lo stato del gioco. Le tre verifiche non sono ridondanti perche' falliscono in modi diversi.
+
+## Verifica automatica del codice del ponte
+
+Le prove del pacchetto `pokebridge` si lanciano con `python tests/run_tests.py` dalla cartella `pokemon-gen12-gen3-bridge-original-hardware/`, non richiedono nulla di installato oltre la libreria standard e girano in una frazione di secondo. Alla verifica del 2026-08-26 sono 63 e passano tutte. Il numero va riletto dall'esecuzione e non copiato da qui: una scheda che dichiara un conteggio piu' alto di quello reale nasconde esattamente cio' che dovrebbe segnalare.
+
+La prova portante e' la simmetria fra lettura e riscrittura, verificata su cinquecento buffer casuali con seme fissato per ciascuna delle sei forme di struttura, cioe' box, squadra e lista di squadra per entrambe le generazioni. E' una sola proprieta' e cattura un intero genere di errori, perche' un offset sbagliato, un ordine di byte invertito, un nibble letto dalla meta' sbagliata o un campo dimenticato la rompono tutti. Il ragionamento sta in `docs/21-collaudo.md`.
+
+Va dichiarato anche cio' che quella prova non copre, perche' e' il punto in cui la fiducia va calibrata. La simmetria e' invariante rispetto a una permutazione di etichette: se due campi della stessa larghezza fossero scambiati fra loro, per esempio i due tipi o due delle cinque Stat Experience, continuerebbe a valere identica. Le difese attuali sono parziali, cioe' un caso costruito a mano che verifica alcuni offset e il fatto che gli offset vengano dal disassemblato e non da una fonte secondaria. La difesa che chiude il cerchio e' il confronto con un dato reale, e il controllo che costa meno e' aprire un salvataggio con `PKHeX` e confrontare campo per campo con cio' che `pokebridge` dichiara. L'inventario di cio' che non e' stato verificato sta in `docs/23-prove-eseguite.md`.
+
+Il generatore delle tabelle di codifica dei caratteri porta la sua verifica dentro di se' e va citato qui perche' e' il modello da imitare: `tools/extract_charmaps.py` si rifiuta di scrivere se le sentinelle di controllo non tornano, quindi una tabella sbagliata non arriva mai su disco. Le tabelle in `data/` non si correggono a mano, si rigenerano.
 
 ## Protocollo per il sottoprogetto Smeraldo
 

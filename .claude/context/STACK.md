@@ -6,12 +6,14 @@ covers-paths:
   - 3ds-related/
   - gba-save-extraction-smeraldo/
   - pokemon-gen12-gen3-bridge-original-hardware/
-last-verified-commit: d08a011
+  - gba-switch-pokemon-trading/
+  - poke-automation-study/
+last-verified-commit: 7696c46
 ---
 
 # Stack
 
-Questo progetto non ha uno stack software nel senso consueto: non c'e' codice, non c'e' un manifesto di dipendenze e non c'e' una pipeline di build. Quello che ne fa le veci e' un inventario di hardware e di toolchain, perche' e' li' che stanno i vincoli reali e le scelte che sarebbe costoso rifare. La sola parte destinata a diventare software vero e' il ponte fra generazioni, e quando lo sara' questa scheda si sdoppiera' con un profilo di stack vero e proprio.
+Questo progetto non ha ancora uno stack software nel senso consueto, e la parte piu' importante di questa scheda resta un inventario di hardware e di toolchain, perche' e' li' che stanno i vincoli reali e le scelte che sarebbe costoso rifare. Il codice pero' non e' piu' un'ipotesi: dal 2026-08-25 esiste il pacchetto `pokebridge` del sottoprogetto del ponte, con i suoi moduli e la sua suite di prove, e la sezione delle dipendenze qui sotto lo tratta come esistente. Cio' che ancora manca e' quanto fa di un insieme di moduli uno stack dichiarato, cioe' un manifesto di dipendenze e una pipeline di build, e non manca per dimenticanza: il pacchetto sta deliberatamente sulla sola libreria standard. Quando il ponte scegliera' fra le quattro opzioni di ADR-008 questa scheda si sdoppiera' con un profilo di stack vero e proprio, perche' e' quella decisione a introdurre una toolchain.
 
 ## Hardware
 

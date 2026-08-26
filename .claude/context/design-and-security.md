@@ -6,7 +6,9 @@ covers-paths:
   - 3ds-related/
   - gba-save-extraction-smeraldo/
   - pokemon-gen12-gen3-bridge-original-hardware/
-last-verified-commit: d08a011
+  - gba-switch-pokemon-trading/
+  - poke-automation-study/
+last-verified-commit: 7696c46
 ---
 
 # Design e sicurezza
