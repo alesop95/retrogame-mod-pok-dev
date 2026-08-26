@@ -253,6 +253,18 @@ FONTI = [
      [("[[09-esecuzione-codice]]", "vie dal lato del giocatore")],
      []),
 
+    ("pokemon-automation", "Pokemon Automation", "https://pokemonautomation.github.io/", 3, True, ["AUT"],
+     "Progetto che automatizza le parti ripetitive dei giochi Pokemon su Nintendo Switch, con oltre cento programmi. Richiede un computer con scheda di acquisizione video e un controller costruito su microcontrollore, ESP32 o Raspberry Pi Pico W, e riconosce gli eventi per visione artificiale e in alcuni casi audio.",
+     "E' la fonte fondante del quinto sottoprogetto, che nasce come studio. Interessa per due ragioni indipendenti: la parte di controllo su microcontrollore ha una sovrapposizione di esperienza con l'opzione D del ponte, e la visione artificiale e' una capacita' che il progetto non ha in nessun altro track.",
+     [("[[30-opzioni-implementative]]", "sovrapposizione di esperienza sul microcontrollore")],
+     []),
+
+    ("gambatte-gamelink", "Gambatte con GameLink su TCP", "https://gbatemp.net/threads/mission-wireless-trading-on-gen1-and-gen2-pokemon-games.632492/", 5, True, ["BRI"],
+     "Discussione in cui un membro compila una versione di Gambatte con il collegamento seriale del Game Boy emulato su TCP, funzionante sia come client sia come server, e riferisce di aver scambiato e combattuto nei giochi di generazione 1 e 2 fra dispositivi diversi, Switch compreso.",
+     "E' la seconda via di collaudo del protocollo oltre a BGB, e ha due vantaggi: non e' specifica dei Pokemon perche' emula un cavo seriale generico, ed esiste come nucleo libretro, quindi si presta a essere pilotata senza interfaccia grafica.",
+     [("[[21-collaudo]]", "il secondo livello di collaudo")],
+     [("alternativa-a", "cableclubhack")]),
+
     ("projectpokemon", "Project Pokemon, discussioni", "https://projectpokemon.org/home/forums/topic/64794-pokemon-emerald-items-are-in-the-right-bag-using-the-app-but-when-i-load-it-into-a-cartridge-they-go-in-the-wrong-slots/", 5, True, ["SME", "BRI"],
      "Tre discussioni lette: una su un dispositivo che fa da sorgente di clock per il protocollo e ha completato scambi via internet, una su un salvataggio assente invece che corrotto su cartuccia contraffatta, e una su un editor che ha identificato male il gioco facendo finire gli oggetti negli slot sbagliati.",
      "La terza ha prodotto codice: il rilevamento automatico del gioco nel nostro strumento di diagnosi nasce da la'. La prima ha rivelato l'esistenza di CableClub.",

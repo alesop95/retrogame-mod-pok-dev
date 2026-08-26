@@ -30,6 +30,7 @@ graph LR
   usb-gba-multiboot -- alternativa-a --> rom-sender
   frlg-ldn-trade -- usa --> kinnay-ldn
   ldn-mitm -- usa --> switch-lan-play
+  gambatte-gamelink -- alternativa-a --> cableclubhack
   projectpokemon -- documenta --> cable-link
 ```
 
@@ -79,6 +80,7 @@ graph LR
 | [[frlg-ldn-trade]] | LDN | [[06-identita-pokemon]] |
 | [[ldn-mitm]] | LDN | [[06-identita-pokemon]] |
 | [[switch-lan-play]] | LDN | [[06-identita-pokemon]] |
+| [[pokemon-automation]] | AUT | [[30-opzioni-implementative]] |
 
 ### Livello 4
 
@@ -91,4 +93,5 @@ graph LR
 
 | Fonte | Track | Serve a |
 |---|---|---|
+| [[gambatte-gamelink]] | BRI | [[21-collaudo]] |
 | [[projectpokemon]] | SME, BRI | [[22-strumenti]] |

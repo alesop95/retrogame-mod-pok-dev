@@ -4,7 +4,7 @@
 
 Un progetto unico che raccoglie piu' sottoprogetti paralleli di retrogaming e modding, quasi tutti legati ai Pokemon. Non sono fasi di una sequenza: sono obiettivi diversi che avanzano in parallelo, ciascuno con il proprio handoff, e il progetto e' pensato per accoglierne di nuovi nel tempo.
 
-Oggi i track sono quattro. Il modding di un Nintendo 3DS con dump delle cartucce possedute. La correzione di un inventario corrotto sulla cartuccia di Pokemon Smeraldo, agendo sul salvataggio estratto fisicamente. Un ponte software fra le generazioni 1 e 2 e la generazione 3 su hardware originale, che e' l'unico destinato a diventare vero codice. E uno scambio fra GBA e Switch, dichiarato ma non ancora iniziato.
+Oggi i track sono cinque. Il modding di un Nintendo 3DS con dump delle cartucce possedute. La correzione di un inventario corrotto sulla cartuccia di Pokemon Smeraldo, agendo sul salvataggio estratto fisicamente. Un ponte software fra le generazioni 1 e 2 e la generazione 3 su hardware originale, che e' l'unico destinato a diventare vero codice. Uno scambio fra GBA e Switch, dichiarato ma non ancora iniziato. E lo studio dell'automazione dei giochi su Switch, aggiunto il 2026-08-26 e ancora da definire nel suo scopo.
 
 Tre dei quattro sono runbook operativi su hardware fisico, dove gli errori sono irreversibili: e' la ragione per cui `rules/hardware-and-perimeter.md` esiste ed e' normativa.
 
@@ -47,6 +47,7 @@ Schede verticali, una per sottoprogetto:
 .claude/context/sub-smeraldo-save-fix.md   correzione dell'inventario di Pokemon Smeraldo
 .claude/context/sub-gen12-gen3-bridge.md   ponte fra generazioni su hardware originale
 .claude/context/sub-gba-switch-trading.md  scambio fra GBA e Switch, non iniziato
+.claude/context/sub-poke-automation.md     studio dell'automazione su Switch, non iniziato
 ```
 
 Fuori da `.claude/`, alla radice e nelle cartelle dei sottoprogetti, stanno la conoscenza tecnica e gli strumenti. Sono materiale di riferimento e non di stato, quindi non entrano nel ciclo di verifica delle schede.

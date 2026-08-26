@@ -34,7 +34,9 @@ Le due fonti portanti del track sono state lette per la prima volta. La libreria
 
 Il proof of concept di tornadus richiede Python 3.12 o successivo, la libreria di kinnay, le chiavi della console e una scheda Wi-Fi compatibile, e opera facendosi passare per un giocatore che si collega come leader mentre la console avvia lo scambio dal Direct Corner. La logica sta in `frlgtrade.py` con la cartella `frlgsim/`, e i Pokemon si scambiano nei formati `.pk3` in chiaro e `.ek3` cifrato.
 
-Sulla domanda che blocca il track esiste ora una risposta parziale e importante: il progetto dichiara affidabili le schede ALFA AWUS036ACHM e Realtek RTL8821CE, e dichiara poco affidabile la AMD RZ616. Resta da accertare quale scheda abbia questa macchina, ma la lista dice in anticipo se la risposta sara' buona o cattiva.
+Sulla domanda che blocca il track la risposta e' arrivata, ed e' in due parti. La prima: questa macchina e' un computer fisso senza alcuna interfaccia Wi-Fi, quindi la scheda non c'e' e non va accertata, va procurata. La seconda: oltre alla lista del progetto, che dichiara affidabili ALFA AWUS036ACHM e Realtek RTL8821CE e poco affidabile AMD RZ616, esiste una testimonianza di campo nel canale di supporto del server Pokemon Multiplayer Research, dove un utente dichiara che il TP-Link AC600 funziona bene e che al contrario una Intel Pro Wireless 5100 AGN integrata non funziona.
+
+Ne segue una indicazione pratica con la sua riserva. L'adattatore che l'utente ha in mente, il TP-Link Archer T2U Nano, e' della stessa famiglia AC600 e monta un chip Realtek RTL8811AU; la testimonianza citata riguarda il modello Archer T2U Plus, dello stesso chipset. Il supporto alla modalita' monitor su quel chip non esiste nel kernel Linux e passa da un driver fuori albero mantenuto dalla community, quindi la prova e' sensata ma non e' garantita. Chi volesse la via sicura compra l'adattatore che il progetto stesso dichiara affidabile.
 
 ## Da verificare prima di pianificare
 

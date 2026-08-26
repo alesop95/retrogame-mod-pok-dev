@@ -26,6 +26,7 @@ Data snapshot:         2026-08-25
 | sub-smeraldo-save-fix.md | gba-save-extraction-smeraldo | d08a011 | aggiornata |
 | sub-gen12-gen3-bridge.md | pokemon-gen12-gen3-bridge | d08a011 | aggiornata |
 | sub-gba-switch-trading.md | gba-switch-pokemon-trading | d08a011 | aggiornata |
+| sub-poke-automation.md | poke-automation-study | 33dff40 | nuova, scritta il 2026-08-26 e non ancora riconciliata |
 
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
@@ -42,5 +43,7 @@ Adozione del sistema: conclusa. La storia git e' stata collassata in un unico co
 smeraldo-save-fix: confermare che i driver CH340 siano installati e annotare la porta COM assegnata. Bloccato sul riscontro alla macchina e sull'arrivo del lettore ordinato il 18 agosto 2026. Quando il dump arrivera' c'e' gia' lo strumento che lo legge, `tools/emerald_bag_decode.py`, e c'e' una scoperta che cambia l'ipotesi di partenza: le quantita' dello zaino sono mascherate in XOR e vanno smascherate prima di chiamarle corrotte.
 
 gen12-gen3-bridge: scrivere il lettore e scrittore della struttura di generazione 3, con cifratura, permutazione e checksum. Il lato Game Boy e' fatto e collaudato con sessantatre prove. Il formato dati e' documentato byte per byte e verificato sul disassemblato, con undici punti dubbi chiusi e due affermazioni dell'handoff corrette; l'handoff e' stato ritirato per ADR-013. Non bloccato: il lavoro comune non dipende da ADR-008, e la discovery hardware serve solo all'ultimo tratto.
+
+poke-automation: decidere che cosa questo track debba essere, perche' oggi e' un collegamento e non un obiettivo. Le tre letture possibili sono studio puro, riuso della parte su microcontrollore in comune con l'opzione D del ponte, oppure automazione vera su Switch come obiettivo indipendente. Prima di costruire va deciso il perimetro rispetto ai termini di servizio dei servizi online.
 
 gba-switch-trading: clonare `kinnay/LDN` e `tornadus/frlg-ldn-trade` e leggere il codice di `frlgtrade.py`, che nessuno ha ancora aperto. Prima di allestire qualsiasi cosa va accertato quale scheda Wi-Fi c'e' su questa macchina e se supporta la modalita' monitor: da quella risposta dipende se il track sia praticabile.
