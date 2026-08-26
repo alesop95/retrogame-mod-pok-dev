@@ -74,6 +74,26 @@ python tools/md-unwrap.py --check .
 
 Il secondo, `lint-md-commands.py`, verifica che i comandi di shell dentro i blocchi recintati non siano spezzati su piu' righe, perche' `md-unwrap` per contratto non tocca il contenuto dei blocchi recintati e quindi un comando spezzato la' dentro non lo corregge nessuno.
 
+## save-deploy.py, il cancello prima dell'hardware
+
+Tre dei cinque sottoprogetti convergono, presto o tardi, sulla stessa operazione: prendere un file di salvataggio e metterlo su un supporto fisico, cioe' una cartuccia tramite il lettore oppure la scheda SD della console modificata. E' l'unica operazione irreversibile del progetto, e per questo esiste uno strumento alla radice invece di tre procedure separate dentro i sottoprogetti.
+
+La cosa da capire di questo strumento e' che non scrive, e non scrivera' finche' l'hardware non e' presente e collaudato. Cio' che fa e' la parte che si puo' scrivere oggi e che evita i danni. Esamina il file: la dimensione confrontata con quelle che hanno un significato, l'impronta SHA-256 che identifica il contenuto, il numero di settori che portano la firma 0x08012025, il numero di settori il cui checksum torna, l'identificazione del gioco con il margine sul secondo candidato, e i due casi degenerati del file interamente a zero e del file interamente a 0xFF, che e' lo stato di una flash cancellata. Poi verifica le precondizioni della destinazione e produce il piano dei passi.
+
+La validazione non e' duplicata: lo strumento importa `emerald_bag_decode.py` dal track Smeraldo e usa le sue funzioni di validazione dei settori, di ricostruzione dello slot e di identificazione del gioco. Un secondo esemplare della stessa formula di checksum sarebbe un secondo posto dove sbagliarla.
+
+```
+python tools/save-deploy.py check "percorso/salvataggio.sav"
+python tools/save-deploy.py targets
+python tools/save-deploy.py plan "salvataggio.sav" --target gbxcart --backup "D:/bk1/pre.sav" --backup "E:/bk2/pre.sav"
+```
+
+La parte piu' importante e' il cancello dei backup, che mette in atto in codice il vincolo normativo di `.claude/rules/hardware-and-perimeter.md`. Lo strumento pretende due backup dichiarati, verifica che i percorsi siano distinti, che i file esistano e siano leggibili, che la dimensione coincida con quella dell'originale e che le due impronte coincidano fra loro, e rifiuta anche il caso in cui i due backup stiano sullo stesso volume, perche' un guasto del supporto li perderebbe insieme. Quando una di queste condizioni manca, il piano non viene stampato affatto: e' una scelta deliberata, perche' una lista di passi mostrata sotto un elenco di problemi invita a eseguirla comunque.
+
+Il piano, quando esce, ha cinque passi nell'ordine che la regola impone: dump del contenuto attuale del supporto, confronto con i backup dichiarati, scrittura, rilettura confrontata byte per byte, e infine avvio del gioco, che e' un controllo diverso dal precedente e non lo sostituisce. Poi lo strumento dichiara che la scrittura non viene tentata e dice cosa manca a quella destinazione: per la cartuccia mancano il lettore e un collaudo su un esemplare sacrificabile, per la scheda SD manca la decisione su quale percorso sia quello giusto per il titolo installato.
+
+Il collaudo e' avvenuto su un salvataggio Smeraldo sintetico generato per l'occasione, con quattordici settori firmati e coerenti, e ha verificato i tre casi che contano: il file valido identificato come Smeraldo con punteggio sei contro zero e meno tre, il rifiuto del file interamente a zero e della dimensione non riconosciuta, e il rifiuto del piano nei tre modi in cui i backup possono essere insufficienti, cioe' uno solo, inesistente, oppure due sullo stesso volume.
+
 ## Che cosa manca
 
 Il prossimo strumento naturale e' il generatore della tabella dagli indici interni di generazione 1 ai numeri nazionali, che oggi non esiste e che va costruito con lo stesso metodo, cioe' leggendolo dal disassemblato e verificandolo con sentinelle. La referenza tecnica lo elenca fra i punti aperti, ed e' l'ultimo dato costante del progetto che sarebbe tentante trascrivere a mano.

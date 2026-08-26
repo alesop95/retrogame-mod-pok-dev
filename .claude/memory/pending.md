@@ -8,21 +8,19 @@ A differenza di `progress.md` e `decisions.md`, che sono append-only, questo fil
 
 La consegna avviene salvando i file in `_notes/fonti/`, secondo la convenzione di `.claude/rules/web-sources-not-fetchable.md`. Ogni riga dice a quale domanda serve, perche' chiedere una fonte senza dire cosa si cerca produce lavoro inutile.
 
+Delle sei voci che stavano qui, cinque sono state consegnate il 2026-08-26 come screenshot e sono ora nel registro delle fonti con cio' che hanno dato; la sesta, la pagina di Ryujinx su LDN3, e' stata eliminata come fonte perche' il dominio non risolve nemmeno dall'utente. Resta questa.
+
 | Fonte | Link | Formato atteso | Domanda a cui serve |
 |---|---|---|---|
-| GBAtemp, salvataggio Smeraldo | https://gbatemp.net/threads/save-failed-on-real-pokemon-emerald.645336/ | testo o Markdown, corpo dei messaggi | perche' una scrittura su cartuccia originale puo' non restare |
-| GBAtemp, cartuccia senza batteria | https://gbatemp.net/threads/gba-unlicensed-batteryless-sram-cart-pokemon-emerald-save-writing-issues.681601/ | idem | come si riconosce dal dump un hardware di salvataggio non originale |
-| GBAtemp, scambio senza fili Gen 1 e 2 | https://gbatemp.net/threads/mission-wireless-trading-on-gen1-and-gen2-pokemon-games.632492/ | idem | quali tentativi di sostituire il cavo esistono e con che hardware |
-| GBAtemp, LDN3 su console modificata | https://gbatemp.net/threads/ryujinx-adds-ldn3-feature-allowing-emulator-users-to-play-online-with-cfw-switch-consoles.622169/ | idem | esperienze di campo su schede Wi-Fi in modalita' monitor |
-| PokeCommunity, zaino corrotto | https://www.pokecommunity.com/showthread.php?p=8992088 | idem | quali sintomi produce uno zaino corrotto da codici trucco |
-| Ryujinx, LDN3 | https://blog.ryujinx.org/introducing-ldn3/ | HTML o Markdown | come e' incapsulato il traffico fra emulatore e console; il dominio non risolve da qui |
+| GBAtemp, tutorial sui problemi di salvataggio | https://gbatemp.net/threads/tutorial-fix-all-save-problems-for-pokemon-games-vc-gba.433266/ | screenshot o pagina salvata | e' la guida che il thread sul salvataggio fallito indica come riferimento quando compare il messaggio di corruzione; serve prima di toccare la cartuccia di Smeraldo |
 
 ## In attesa dell'utente: credenziali e abilitazioni
 
 | Cosa | Stato | Che cosa sblocca |
 |---|---|---|
-| App Reddit di tipo script | il form e' compilato e manca solo la spunta del reCAPTCHA; poi identificativo e segreto vanno in `.env` insieme a `REDDIT_USER_AGENT` | rende Reddit una fonte di prima classe tramite `tools/fetch-reddit.py`, che oggi non e' mai stato eseguito contro il servizio |
-| Verifica dell'API dopo la creazione | da fare al primo uso: se arriva un 401 o un 403 con credenziali valide, serve anche la registrazione all'uso dell'API che il form menziona | chiude la nota di stato dentro lo strumento e le voci di Reddit nel registro delle fonti |
+| App Reddit di tipo script | il form si compila correttamente e il reCAPTCHA si spunta, ma alla pressione di create app la pagina si ricarica identica: e' un rifiuto lato server senza messaggio. Le due cause da verificare in quest'ordine sono l'indirizzo email non verificato sull'account e l'adempimento separato che il form chiama registrazione all'uso dell'API | rende Reddit una fonte di prima classe tramite `tools/fetch-reddit.py`, che oggi non e' mai stato eseguito contro il servizio |
+| Decisione sul token utente di Discord | l'export di un canale di cui si e' membri, senza essere un bot, richiede il token dell'account, e le condizioni d'uso di Discord non lo consentono: l'esposizione e' la sospensione dell'account | sblocca la lettura dei cinque server, per cui `tools/read-chat-export.py` e' pronto e collaudato |
+| Adattatore Wi-Fi USB per il track LDN | la macchina non ha Wi-Fi. Una testimonianza di campo indica che il TP-Link AC600 funziona; l'adattatore che l'utente ha in mente e' della stessa famiglia ma il supporto alla modalita' monitor su quel chip passa da un driver fuori albero | sblocca l'unica cosa che blocca il track dello scambio con la Switch |
 
 ## Fonti in sospeso, da ricordare sempre
 
@@ -54,6 +52,7 @@ Questa e' la tabella che l'agente deve consultare da se': ogni riga dice quando 
 | dopo commit che toccano i `covers-paths` delle schede | la skill `sync-context` | rilevamento del drift e bump del checkpoint |
 | si chiude una milestone | un report in LaTeX sotto `reports/`, con `latexmk -pdf` | documento datato che fotografa risultati, metodo e limiti, con taglio da telecomunicazioni |
 | serve una trascrizione di un video senza sottotitoli automatici | il progetto `E:\local-audio-transcriptor`, ora funzionante perche' `deno` e' installato | riconoscimento vocale locale con marcatura temporale |
+| l'utente produce un export di un canale Discord o di una chat Telegram | `tools/read-chat-export.py` | converte in Markdown filtrato per parola chiave, intervallo di date e lunghezza minima, e lo mette fra le fonti procurate a mano |
 
 ## Debito di lettura
 
@@ -108,6 +107,17 @@ I canali senza un video specifico, cioe' Goppier, Lorenzooone, im a blisy, RETIR
 |---|---|
 | ADR-008, quale delle quattro opzioni implementative per il ponte | aperta; il costo relativo e' cambiato e l'analisi aggiornata sta in `docs/30-opzioni-implementative.md` |
 | se cancellare e ricreare il repository su GitHub per certezza sulla bonifica | rimandata; oggi si accetta che i commit orfani restino raggiungibili per hash fino al garbage collector, come registrato in ADR-014 |
+| che cosa debba essere il track dell'automazione | aperta: studio puro, riuso della parte su microcontrollore in comune con l'opzione D, oppure automazione vera su Switch come obiettivo indipendente. Va deciso anche il perimetro rispetto ai termini di servizio dei servizi online |
+| se usare il token utente di Discord per gli export | aperta, ed e' una decisione di rischio e non tecnica: lo strumento di lettura e' pronto, la via di produzione dell'export non e' consentita dalle condizioni d'uso |
+
+## Strumenti da costruire
+
+| Strumento | Stato | Che cosa serve prima |
+|---|---|---|
+| caricatore di salvataggi verso hardware | scritto e collaudato nella sua parte non distruttiva, cioe' `tools/save-deploy.py`: esamina il file, identifica il gioco, pretende i due backup su volumi distinti e produce il piano dei cinque passi. La scrittura non e' implementata e lo dichiara | per la cartuccia, il lettore e un collaudo su un esemplare sacrificabile; per la scheda SD, la decisione su quale percorso sia quello giusto per il titolo installato |
+| generatore del salvataggio sintetico per il confronto con PKHeX | da scrivere, e non richiede nulla | e' il prossimo passo tecnico piu' utile del ponte |
+| generatore della tabella indici di specie | da scrivere, e non richiede nulla | ultimo dato costante ancora trascritto a mano |
+| esportazione degli strumenti verso il template | da fare con un handoff, come per la regola sulle fonti non recuperabili | riguarda `read-chat-export.py`, `fetch-reddit.py`, `vtt-to-text.py` e `build-source-map.py`, che non sono specifici di questo dominio |
 
 ## Blocchi materiali
 

@@ -20,7 +20,8 @@ La fonte di verita' su cosa e' fatto resta `memory/index.md`, non le spunte di q
 | 3ds-modding | attivo | dump delle cinque cartucce DS rimanenti: Diamante, Perla, Platino, Nera 2, SoulSilver | nulla |
 | smeraldo-save-fix | attivo | confermare l'installazione dei driver CH340 e annotare la porta COM | riscontro sulla macchina, e arrivo del lettore ordinato il 18/08 |
 | gen12-gen3-bridge | in attesa di decisione | discovery hardware, poi scelta fra le opzioni A, B, C e D | una decisione, registrata come ADR-008 |
-| gba-switch-trading | in ricerca | leggere il codice dei due repository di riferimento | verificare la scheda Wi-Fi disponibile |
+| gba-switch-trading | in ricerca | procurare un adattatore Wi-Fi USB e provare la modalita' monitor | nulla: la macchina non ha Wi-Fi, ma una testimonianza di campo indica un adattatore che funziona |
+| poke-automation | non iniziato | decidere che cosa il track debba essere, fra studio, riuso del microcontrollore e automazione | una decisione, e la definizione del perimetro |
 
 ## Feature: adozione del sistema di progetto portabile
 

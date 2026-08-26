@@ -37,6 +37,16 @@ I risultati di ricerca continuano a restituire URL di Reddit, e quelli sono util
 
 Le due vie che funzionano restano la seconda e la terza. Per la terza, l'API ufficiale di Reddit ha un flusso a sole credenziali applicative, senza account collegato, che basta per leggere contenuto pubblico: si registra una applicazione di tipo script, si ottengono identificativo e segreto, e si scambia il segreto per un token temporaneo. Lo strumento che implementa questo flusso e' `tools/fetch-reddit.py`, che legge le credenziali dall'ambiente o da `.env` e degrada in un messaggio con le istruzioni quando non le trova.
 
+### La registrazione dell'applicazione, e perche' puo' rifiutare senza dirlo
+
+La registrazione avviene su `https://old.reddit.com/prefs/apps`, dove si compila il form scegliendo il tipo script, un nome qualunque, e come URI di reindirizzamento un valore che non verra' mai usato, per esempio `http://localhost:8080`, perche' il flusso a sole credenziali applicative non fa alcun reindirizzamento. Il campo about url si lascia vuoto.
+
+Esiste un modo di fallire che va documentato perche' consuma tempo e non produce alcun messaggio: alla pressione del pulsante di creazione la pagina si ricarica identica, con il form ancora compilato e nessun errore visibile. Non e' un problema di reCAPTCHA, che nel caso osservato il 2026-08-26 era stato spuntato correttamente, e non e' un problema di blocco degli annunci, perche' il rifiuto persiste con le estensioni disattivate. E' un rifiuto lato server che la pagina non racconta.
+
+Le due cause da verificare, in questo ordine, sono entrambe requisiti di ammissibilita' dell'account e non del form. La prima e' l'indirizzo email: un account Reddit senza email verificata non puo' creare applicazioni, e la verifica si controlla nelle impostazioni dell'account, dove accanto all'indirizzo compare lo stato, e si rilancia da la' con l'invio di un nuovo messaggio di conferma. La seconda e' l'adempimento separato che il form stesso menziona nella sua riga di avviso, cioe' la registrazione dell'uso che si intende fare dell'API: da giugno 2023 Reddit richiede che chi usa l'API si dichiari, e per l'uso non commerciale la dichiarazione e' un modulo da compilare una volta, raggiungibile dal collegamento nella pagina delle condizioni per gli sviluppatori. Finche' quella dichiarazione non e' registrata, l'account puo' vedere il form e non poterlo concludere.
+
+Se dopo entrambe le verifiche il rifiuto persiste, la conclusione onesta e' che la terza via non e' disponibile su quell'account, e si resta sulla seconda e sulla quarta, che sono l'automazione del browser reale e la consegna manuale. Non vale la pena insistere: la fonte si legge comunque, solo per una via piu' costosa.
+
 ## Come l'utente consegna il materiale, e in che formato
 
 Quando la via resta la quarta, cioe' l'utente procura il contenuto, il modo di consegnarlo non e' incollarlo in chat: e' salvarlo su disco in una cartella concordata, perche' cosi' resta disponibile anche nelle sessioni successive e non consuma contesto due volte. La cartella e' `_notes/fonti/`, locale e non versionata come tutto `_notes/`, e la convenzione di nome e' la data seguita da una parola che identifica la fonte, per esempio `2026-08-25-gbatemp-save-failed.md`.
