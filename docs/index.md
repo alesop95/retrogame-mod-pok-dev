@@ -39,6 +39,7 @@ Chi vuole soltanto gli offset non ha bisogno di questo percorso: gli serve [[DAT
 | [[08-cavo-link]] | il protocollo seriale del Game Boy, blocco per blocco |
 | [[09-esecuzione-codice]] | come si arriva a far eseguire codice proprio a un gioco del 1996, e perche' il ponte lo fa |
 | [[10-multiboot-hardware]] | il lato Game Boy Advance, fra multiboot e scambio a caldo della cartuccia |
+| [[11-wireless-locale-e-ponte-switch]] | il protocollo di rete locale della Switch, la modalita' monitor, e il ponte verso una console moderna |
 
 ## Il software che scriveremo
 
@@ -59,14 +60,14 @@ Chi vuole soltanto gli offset non ha bisogno di questo percorso: gli serve [[DAT
 
 ## Da quale sottoprogetto arrivi
 
-I quattro sottoprogetti hanno scopi diversi e quindi hanno bisogno di cose diverse da questo percorso. Il punto di ingresso di ciascuno e' il `README.md` della sua cartella, che dice cos'e' il sottoprogetto e dove sta la sua conoscenza; questa tabella dice quali note servono a chi.
+I cinque sottoprogetti hanno scopi diversi e quindi hanno bisogno di cose diverse da questo percorso. Il punto di ingresso di ciascuno e' il `README.md` della sua cartella, che dice cos'e' il sottoprogetto e dove sta la sua conoscenza; questa tabella dice quali note servono a chi.
 
 | Sottoprogetto | Che cosa e' | Note che gli servono |
 |---|---|---|
 | `pokemon-gen12-gen3-bridge-original-hardware/` | l'unico che diventa software: il ponte fra generazioni | tutte, piu' [[DATA-FORMATS_Gen1-Gen2-Gen3]] come referenza |
 | `gba-save-extraction-smeraldo/` | runbook: riparare un inventario corrotto su cartuccia | [[01-fondamenta-salvataggio]], [[03-integrita-checksum]], [[04-cifratura-gen3]], [[22-strumenti]] |
 | `3ds-related/` | runbook: modding della console e dump delle cartucce | nessuna in modo diretto, perche' dumpa file senza interpretarli; [[01-fondamenta-salvataggio]] se un giorno servisse aprirli |
-| `gba-switch-pokemon-trading/` | reverse engineering di rete fra PC e Switch | [[06-identita-pokemon]] e [[04-cifratura-gen3]], perche' i dati scambiati sono strutture Gen 3 |
+| `gba-switch-pokemon-trading/` | reverse engineering di rete fra PC e Switch | [[11-wireless-locale-e-ponte-switch]] per prima, poi [[06-identita-pokemon]] e [[04-cifratura-gen3]], perche' i dati scambiati sono strutture Gen 3 |
 | `poke-automation-study/` | studio dell'automazione su Switch, scopo da definire | la nota di studio vive nella cartella del sottoprogetto, cioe' `poke-automation-study/STUDIO-01-architettura-e-perimetro.md`, perche' studia un progetto esterno e non il nostro codice; la sovrapposizione con il ponte e' il microcontrollore, trattato in [[30-opzioni-implementative]] |
 
 Il formato dei dati Gen 3 e' quindi la conoscenza piu' trasversale del progetto: serve al ponte per costruirlo, a Smeraldo per diagnosticarlo e allo scambio con la Switch per interpretarlo. E' la ragione per cui la referenza vive accanto al ponte ma e' citata dalle schede degli altri.

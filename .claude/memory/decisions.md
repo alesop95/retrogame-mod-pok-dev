@@ -151,3 +151,25 @@ La prima passata era incompleta, e vale la pena registrarlo perche' e' il tipo d
 Tutto questo e' stato rimosso o neutralizzato, e ne discende una regola operativa: uno scrub si verifica cercando i termini che identificano, non le frasi che si ricorda di aver scritto, e si verifica su tutto l'albero tracciato compresi i nomi dei file e delle cartelle, non solo sul contenuto.
 
 Il caveat va registrato perche' e' la parte che la bonifica non risolve: il testo originale resta nei commit da d1e1a3a in avanti, che sono gia' sul remoto pubblico. Rimuoverlo davvero richiede una riscrittura della storia con `git filter-repo` e un push forzato, e anche allora GitHub conserva i commit orfani raggiungibili per hash finche' non fa garbage collection, mentre eventuali fork o cache di terze parti non si riscrivono affatto. La decisione se procedere resta dell'utente e non e' presa qui.
+
+## ADR-015 La tensione fra Windows e Linux decade: il track LDN gira su Windows
+
+Data: 2026-08-26. Stato: accettata.
+
+Il progetto aveva registrato come decisione aperta il modo di far convivere due sistemi operativi obbligati da track diversi: Windows per il sottoprogetto dello Smeraldo, perche' PKHeX e' un'applicazione .NET Windows Forms il cui supporto a Mono e Wine e' stato abbandonato dal 2023, e Linux per il track dello scambio con la Switch, perche' la libreria del protocollo di rete locale richiede la modalita' monitor dello stack wireless del kernel. Le alternative in campo erano il dual boot e il supporto avviabile.
+
+La lettura del canale di Pokemon Multiplayer Research e del sorgente del demone `ldnd`, fatta il 2026-08-26, mostra che quella scelta non e' necessaria. Esiste una seconda implementazione che gira su Windows senza macchina virtuale: collega il kernel Linux come libreria statica tramite LKL dentro un eseguibile costruito con MinGW, riceve l'adattatore wireless USB attraverso WinUSB e gli fa caricare i driver e i file di `linux-firmware`. Lo stack wireless di Linux non viene riscritto ne' emulato: viene portato dentro il processo.
+
+La decisione e' quindi di considerare Windows la piattaforma di riferimento per entrambi i track e di chiudere la decisione aperta, con tre riserve dichiarate. La prima e' che la via Windows funziona soltanto con adattatori wireless USB, mai con schede interne, perche' WinUSB puo' prendere soltanto un dispositivo USB; su Linux va bene anche una scheda interna se il suo driver collabora. La seconda e' che, dopo la riassegnazione del dispositivo a WinUSB, quello non funziona piu' come scheda di rete ordinaria, quindi la macchina ha bisogno di un altro accesso a internet. La terza e' che le due implementazioni non hanno la stessa compatibilita' hardware, verificato sul campo, e in caso di guasto inspiegabile la via Linux resta un'alternativa da provare e non una strada abbandonata.
+
+Non si acquista nulla e non si installa nulla in conseguenza di questa decisione: il primo passo resta leggere l'identificatore USB dell'adattatore che l'utente ha gia'.
+
+## ADR-016 La fonte unica vale anche per il materiale procurato a mano
+
+Data: 2026-08-26. Stato: accettata.
+
+La cartella `_notes/fonti/` era stata istituita come luogo dove l'utente consegna il materiale che l'agente non riesce a recuperare da se'. La regola della fonte unica, scritta nel registro delle fonti, dice che quel materiale e' una cache di contenuto grezzo e non un archivio, e che cio' che documenta va trasferito in prosa nel registro con la profondita' necessaria a citarlo senza riaprirlo.
+
+Si decide di applicare quella regola fino in fondo e di svuotare la cartella una volta compiuto il trasferimento, invece di lasciarvi il materiale gia' assorbito. La ragione e' che due copie della stessa conoscenza, una citabile e una grezza, producono il dubbio su quale sia quella buona, e il dubbio costa piu' di quanto valga la copia. Il 2026-08-26 la cartella e' stata svuotata dall'utente dopo la conferma che tutto il materiale, comprese le sei trascrizioni video, era confluito nelle fonti e nelle note di studio.
+
+Ne segue un obbligo per l'agente, che e' la parte vincolante di questa decisione: il trasferimento va fatto con la profondita' che rende il file grezzo sacrificabile, e non con un riassunto che costringerebbe a riaprirlo. Quando cio' non e' possibile, per esempio perche' la fonte e' una tabella lunga da citare per intero, il materiale resta e la voce del registro lo dichiara.

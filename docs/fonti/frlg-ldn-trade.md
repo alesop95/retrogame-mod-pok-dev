@@ -3,26 +3,27 @@ tipo: fonte
 livello: 3
 letto: si
 track: [LDN]
-url: https://github.com/tornadus/frlg-ldn-trade
+url: https://github.com/unlimitedcoder2/frlg-ldn-trade
 tags: [fonte, livello-3]
 usa: "[[kinnay-ldn]]"
 ---
 
-# tornadus/frlg-ldn-trade
+# frlg-ldn-trade
 
-https://github.com/tornadus/frlg-ldn-trade
+https://github.com/unlimitedcoder2/frlg-ldn-trade
 
 ## Abstract
 
-Proof of concept che fa scambiare Pokemon a un PC con Rosso Fuoco e Verde Foglia in esecuzione su Switch, simulando un giocatore che si collega come capo sessione.
+Proof of concept che fa scambiare Pokemon a un PC con Rosso Fuoco e Verde Foglia in esecuzione su Switch o Switch 2, simulando un giocatore che si collega come capo sessione. Richiede Linux, Python 3.12 o successivo, le chiavi della console, almeno due strutture .pk3 e un gioco portato avanti fino allo sbloccio della sala degli scambi. Licenza AGPLv3.
 
 ## Perche' e' in archivio
 
-E' il punto di partenza del track, e dichiara la lista di compatibilita' delle schede Wi-Fi, che e' la risposta anticipata alla domanda che quel track ha come blocco.
+E' il punto di partenza del track, e la sua tabella di compatibilita' delle schede Wi-Fi e' cio' che decide se il track sia praticabile su una macchina data: affidabili la ALFA AWUS036ACHM con driver mt76x0u e la Realtek RTL8821CE con rtw88_8821ce, inaffidabile la AMD RZ616 con mt7921e, e dichiaratamente problematiche la Intel AX200 con iwlwifi e l Atheros AR9271 con ath9k_htc, entrambe incapaci di ricevere un indirizzo. Il repository dichiara anche che la decompilazione pret/pokefirered comprende il port per Switch, e che il progetto e nato per dimostrare la possibilita di uno scambio non ufficiale.
 
 ## A quale punto del progetto serve
 
 - [[06-identita-pokemon]], i formati .pk3 e .ek3 sono strutture Gen 3
+- [[11-wireless-locale-e-ponte-switch]], requisiti hardware e procedura di scambio
 
 ## Relazioni con altre fonti
 
