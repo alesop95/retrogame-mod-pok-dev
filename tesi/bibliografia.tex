@@ -1,0 +1,250 @@
+% =====================================================================
+% tesi/bibliografia.tex - GENERATO, non modificare a mano
+% =====================================================================
+% Prodotto da tools/build-bibliography.py dalla tabella FONTI di
+% tools/build-source-map.py, che è la stessa da cui nascono le note di
+% docs/fonti/. Modificare quella tabella e rigenerare: una correzione fatta
+% qui sparisce alla corsa successiva.
+%
+% La chiave di ogni voce è lo slug della fonte, quindi \cite{pokered} qui e
+% docs/fonti/pokered.md nel vault sono la stessa fonte vista da due parti.
+
+\begin{thebibliography}{gba-link-connection}
+\addcontentsline{toc}{chapter}{Bibliografia}
+\raggedright
+
+\bibitem{pokered}
+  \textbf{pret/pokered}.
+  \\ \url{https://github.com/pret/pokered}
+  \\ \emph{Livello 1, disassemblato o documentazione dell'hardware; letta. Track: BRI.}
+  \\ Disassemblaggio completo di Pokemon Rosso e Blu che ricompila in una ROM identica all'originale. Contiene le macro delle strutture dati, la mappa della memoria di lavoro, le costanti del protocollo seriale e il codice del Centro Scambi.
+
+\bibitem{pokecrystal}
+  \textbf{pret/pokecrystal}.
+  \\ \url{https://github.com/pret/pokecrystal}
+  \\ \emph{Livello 1, disassemblato o documentazione dell'hardware; letta. Track: BRI.}
+  \\ Disassemblaggio di Pokemon Cristallo. Oltre alle strutture di generazione 2 contiene la routine di calcolo delle statistiche, la tabella dei caratteri e le due strutture di invio sul cavo, quella nativa e quella del Time Capsule.
+
+\bibitem{pokeemerald}
+  \textbf{pret/pokeemerald}.
+  \\ \url{https://github.com/pret/pokeemerald}
+  \\ \emph{Livello 1, disassemblato o documentazione dell'hardware; letta. Track: BRI, SME.}
+  \\ Decompilazione di Pokemon Smeraldo in C e assembly ARM che ricompila in una ROM identica. Contiene la struttura cifrata del Pokemon, il calcolo del checksum, la mappa dei settori del salvataggio, la chiave di cifratura e la maschera sulle quantità degli oggetti.
+
+\bibitem{pokefirered}
+  \textbf{pret/pokefirered}.
+  \\ \url{https://github.com/pret/pokefirered}
+  \\ \emph{Livello 1, disassemblato o documentazione dell'hardware; letta. Track: BRI, LDN, SME.}
+  \\ Decompilazione di Rosso Fuoco e Verde Foglia. Struttura del salvataggio diversa da quella di Smeraldo in ogni offset che conta: chiave di cifratura, conteggio della squadra, denaro e tasche dello zaino.
+
+\bibitem{pokeruby}
+  \textbf{pret/pokeruby}.
+  \\ \url{https://github.com/pret/pokeruby}
+  \\ \emph{Livello 1, disassemblato o documentazione dell'hardware; letta. Track: BRI, SME.}
+  \\ Decompilazione di Rubino e Zaffiro. Non ha alcuna chiave di cifratura, quindi le quantità degli oggetti sono in chiaro, ed è l'unico dei tre giochi Gen 3 a comportarsi così.
+
+\bibitem{pandocs}
+  \textbf{Pan Docs, trasferimento seriale}.
+  \\ \url{https://gbdev.io/pandocs/Serial_Data_Transfer_(Link_Cable).html}
+  \\ \emph{Livello 1, disassemblato o documentazione dell'hardware; letta. Track: BRI.}
+  \\ Riferimento tecnico dell'hardware seriale del Game Boy: i registri SB e SC con i loro bit, le frequenze del clock interno, e il comportamento del clock esterno, che il gioco accetta a qualunque velocità fino a 500 kHz e anche a intervalli irregolari.
+
+\bibitem{gbatek}
+  \textbf{GBATEK, multiboot}.
+  \\ \url{https://problemkaputt.de/gbatek-bios-multi-boot-single-game-pak.htm}
+  \\ \emph{Livello 1, disassemblato o documentazione dell'hardware; letta. Track: BRI.}
+  \\ Specifica del multiboot del Game Boy Advance: la stretta di mano con 0x6200 e la risposta 0x0000, le dimensioni ammesse del programma, gli indirizzi di destinazione in memoria di lavoro, la cifratura del trasferimento e i vincoli di temporizzazione.
+
+\bibitem{copetti}
+  \textbf{Copetti, architettura del GBA}.
+  \\ \url{https://www.copetti.org/writings/consoles/game-boy-advance/}
+  \\ \emph{Livello 1, disassemblato o documentazione dell'hardware; letta. Track: BRI.}
+  \\ Descrizione architetturale del Game Boy Advance: le due memorie di lavoro con le loro dimensioni e velocità, il bus della cartuccia, il buffer di prefetch e il meccanismo della retrocompatibilità con il Game Boy.
+
+\bibitem{devlog-ptgb}
+  \textbf{Dev log di Poke Transporter GB}.
+  \\ \url{https://www.austinthomasweber.com/poke-transporter-gb}
+  \\ \emph{Livello 4, articolo, blog o ricerca applicata; letta. Track: BRI.}
+  \\ Serie di undici articoli in cui l'autore del ponte di riferimento racconta il proprio processo, dall'architettura della console al formato di salvataggio, dal protocollo del cavo alla scoperta dell'exploit, fino all'iniezione dell'evento e alla gestione della grafica.
+
+\bibitem{ptgb}
+  \textbf{Poke Transporter GB}.
+  \\ \url{https://github.com/Striaton-Lab-Team/Poke_Transporter_GB}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: BRI.}
+  \\ Il ponte di riferimento: homebrew per Game Boy Advance in multiboot che trasferisce Pokemon da Gen 1 e 2 a Gen 3 usando il cavo del Game Boy Color, sotto licenza MIT. Contiene un generatore di payload con assemblatore Z80 proprio e tabelle di valori di ROM per lingua.
+
+\bibitem{pccs}
+  \textbf{PCCS}.
+  \\ \url{https://github.com/Striaton-Lab-Team/Pokemon-Community-Conversion-Standard}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: BRI.}
+  \\ Libreria C++ che definisce come convertire un Pokemon da Gen 1 e 2 a Gen 3. Il README documenta quattro metodi campo per campo; il codice della release corrente implementa il comportamento di uno solo.
+
+\bibitem{gen3togenx}
+  \textbf{Pokemon-Gen3-to-Gen-X}.
+  \\ \url{https://github.com/Lorenzooone/Pokemon-Gen3-to-Gen-X}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: BRI.}
+  \\ Homebrew per Game Boy Advance che scambia Pokemon fra Gen 3 e Gen 1 e 2 usando il protocollo normale e non exploit, con in più la gestione dell'orologio interno di Rubino, Zaffiro e Smeraldo.
+
+\bibitem{pokemongb-online}
+  \textbf{PokemonGB\_Online\_Trades}.
+  \\ \url{https://github.com/Lorenzooone/PokemonGB_Online_Trades}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: BRI.}
+  \\ Implementazione in Python del protocollo di scambio di Gen 1, 2 e 3, funzionante sia su un adattatore USB per il cavo sia sull'emulatore BGB, con multiboot per il lato Gen 3.
+
+\bibitem{cable-link}
+  \textbf{CableClub/cable-link}.
+  \\ \url{https://github.com/CableClub/cable-link}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: BRI.}
+  \\ Circuito stampato in formato KiCad, con gerber pronti alla produzione, e firmware per Raspberry Pi Pico che parla il protocollo di scambio di generazione 1. Apache 2.0, del 2021.
+
+\bibitem{pksploit}
+  \textbf{PkSploit}.
+  \\ \url{https://github.com/binarycounter/PkSploit}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: BRI, SME.}
+  \\ Suite che dumpa ROM e salvataggio e riscrive il salvataggio di qualunque cartuccia Game Boy e Game Boy Color, usando come vettore una cartuccia di generazione 1, un cavo Link e un microcontrollore compatibile Arduino.
+
+\bibitem{cableclubhack}
+  \textbf{vaguilar/pokemon-red-cable-club-hack}.
+  \\ \url{https://github.com/vaguilar/pokemon-red-cable-club-hack}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: BRI.}
+  \\ Implementazione originale dell'exploit del Centro Scambi con Arduino e Python. Documenta il cablaggio dei pin, cioè uscita seriale sul pin 6, ingresso sul 3, clock sul 2 e massa, e contiene il payload in un array dentro un'intestazione Arduino.
+
+\bibitem{linkhack}
+  \textbf{Phasip/PokemonLinkHack}.
+  \\ \url{https://github.com/Phasip/PokemonLinkHack}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: BRI.}
+  \\ Catena di exploit che dal buffer overflow del cavo arriva a installare programmi persistenti dentro il deposito Pokemon: un selettore nel primo slot e i programmi nei successivi, sopravvivendo ai riavvii grazie al salvataggio della cartuccia.
+
+\bibitem{blog-phasip}
+  \textbf{Blog di Phasip}.
+  \\ \url{https://www.sn1.se/posts/pokemon/}
+  \\ \emph{Livello 4, articolo, blog o ricerca applicata; letta. Track: BRI.}
+  \\ Racconto della catena di exploit con i numeri: 198 byte di payload utile, i programmi che risiedono negli slot del deposito, e il limite dichiarato che fuori dal buffer si possono scrivere solo nomi di Pokemon predefiniti.
+
+\bibitem{arduino-poke-gen2}
+  \textbf{arduino-poke-gen2}.
+  \\ \url{https://github.com/stevenchaulk/arduino-poke-gen2}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: BRI.}
+  \\ Adattamento a generazione 2 di una macchina a stati Arduino per lo scambio, provato su Cristallo, con schema di cablaggio incluso.
+
+\bibitem{arduino-boy}
+  \textbf{pepijndevos/arduino-boy}.
+  \\ \url{https://github.com/pepijndevos/arduino-boy}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: BRI.}
+  \\ Deposito Pokemon su Arduino per i giochi di generazione 1: memorizza un Pokemon nella memoria non volatile della scheda e lo scambia con la console. Il codice del protocollo deriva a sua volta da un progetto precedente chiamato gameboy-spoof.
+
+\bibitem{gba-link-connection}
+  \textbf{gba-link-connection}.
+  \\ \url{https://github.com/afska/gba-link-connection}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: BRI.}
+  \\ Libreria C++ per il porto seriale del Game Boy Advance, con moduli separati per la modalità multiplayer, l'invio di multiboot ad altre console, l'adattatore wireless, il protocollo Joybus verso Wii e GameCube, le carte e-Reader e il Mobile Adapter GB.
+
+\bibitem{reon}
+  \textbf{Progetto REON}.
+  \\ \url{https://github.com/REONTeam}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: BRI.}
+  \\ Ricostruzione dell'infrastruttura di rete del Mobile Adapter GB, l'accessorio che dava funzioni online ai giochi Game Boy. Comprende una libreria del protocollo in C, un server, un emulatore per BGB, un adattatore su Arduino e una utilità dedicata allo scambio nel Trade Corner.
+
+\bibitem{gen3distributions}
+  \textbf{Goppier/GEN3PokemonDistributions}.
+  \\ \url{https://github.com/Goppier/GEN3PokemonDistributions}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: BRI.}
+  \\ Raccolta di cartucce di distribuzione per eventi di generazione 3, con la procedura operativa per usarle fra due console.
+
+\bibitem{stadium-ace}
+  \textbf{MrCheeze/pokestadium-ace}.
+  \\ \url{https://github.com/MrCheeze/pokestadium-ace}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: BRI.}
+  \\ Esecuzione di codice arbitrario su Pokemon Stadium per Nintendo 64, che passa dal sistema di scambio e presuppone di avere già il controllo su un gioco di generazione 1. Documenta gli indirizzi dove i box vengono convertiti dal formato Gen 1 al formato Stadium.
+
+\bibitem{usb-gba-multiboot}
+  \textbf{usb-gba-multiboot}.
+  \\ \url{https://github.com/tangrs/usb-gba-multiboot}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: BRI.}
+  \\ Firmware per microcontrollore Teensy e software su PC per caricare un programma nella console via USB, sfruttando il multiboot.
+
+\bibitem{rom-sender}
+  \textbf{gba-link-cable-rom-sender}.
+  \\ \url{https://github.com/FIX94/gba-link-cable-rom-sender}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: BRI.}
+  \\ Homebrew per GameCube e Wii che invia un programma multiboot alla console collegata, leggendo i file da una cartella sulla scheda di memoria.
+
+\bibitem{kinnay-ldn}
+  \textbf{kinnay, protocollo LDN}.
+  \\ \url{https://github.com/kinnay/NintendoClients/wiki/LDN-Protocol}
+  \\ \emph{Livello 1, disassemblato o documentazione dell'hardware; letta. Track: LDN.}
+  \\ Specifica del protocollo di rete locale della Nintendo Switch: action frame proprietario trasmesso ogni cento millisecondi, canali radio usati, struttura dell'annuncio campo per campo, tre livelli di cifratura con la derivazione delle chiavi, e sequenza di connessione con assegnazione degli indirizzi.
+
+\bibitem{frlg-ldn-trade}
+  \textbf{frlg-ldn-trade}.
+  \\ \url{https://github.com/unlimitedcoder2/frlg-ldn-trade}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: LDN.}
+  \\ Proof of concept che fa scambiare Pokemon a un PC con Rosso Fuoco e Verde Foglia in esecuzione su Switch o Switch 2, simulando un giocatore che si collega come capo sessione. Richiede Linux, Python 3.12 o successivo, le chiavi della console, almeno due strutture .pk3 e un gioco portato avanti fino allo sbloccio della sala degli scambi. Licenza AGPLv3.
+
+\bibitem{ldnd}
+  \textbf{unlimitedcoder2/ldnd}.
+  \\ \url{https://github.com/unlimitedcoder2/ldnd}
+  \\ \emph{Livello 1, disassemblato o documentazione dell'hardware; letta. Track: LDN.}
+  \\ Demone in C, licenza GPL-2.0, che porta lo stack wireless di Linux su Windows: collega il kernel Linux come libreria statica tramite LKL dentro un eseguibile costruito con MinGW, riceve l adattatore USB attraverso WinUSB e gli fa caricare i driver e i file di linux-firmware. Espone il servizio su una pipe con nome, e la sua riga di comando passa parametri di modulo del kernel fra cui rtw88\_usb.switch\_usb\_mode=0.
+
+\bibitem{pmr-discord}
+  \textbf{Pokemon Multiplayer Research, canali di supporto}.
+  \\ \url{https://discord.gg/nBnTrv3UMn}
+  \\ \emph{Livello 4, articolo, blog o ricerca applicata; letta. Track: LDN, BRI.}
+  \\ Server della community che sviluppa lo scambio via rete locale sui giochi di generazione 3 su Switch. I canali di supporto e generale contengono la casistica reale degli adattatori wireless, i sintomi dei guasti con le loro cause, e le dichiarazioni degli autori sui limiti del progetto.
+
+\bibitem{ldn-mitm}
+  \textbf{ldn\_mitm}.
+  \\ \url{https://github.com/spacemeowx2/ldn_mitm}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: LDN.}
+  \\ Modulo di sistema per Switch che sostituisce il servizio di rete locale ed emula la scansione delle console vicine usando la rete locale via UDP.
+
+\bibitem{switch-lan-play}
+  \textbf{switch-lan-play}.
+  \\ \url{https://github.com/spacemeowx2/switch-lan-play}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: LDN.}
+  \\ Client e server che intercettano il traffico di rete della console con libpcap e lo incapsulano in un protocollo minimale, per far credere alle console di essere sulla stessa rete locale.
+
+\bibitem{bulbapedia}
+  \textbf{Bulbapedia, pagine sui formati}.
+  \\ \url{https://bulbapedia.bulbagarden.net/wiki/Pok\%C3\%A9mon_data_structure_(Generation_III)}
+  \\ \emph{Livello 2, wiki o riferimento di dominio; letta. Track: BRI, SME, LDN.}
+  \\ Insieme di pagine enciclopediche sui formati dei dati e dei salvataggi delle tre generazioni, sui valori individuali, sul valore di personalità, sulla codifica dei caratteri e sugli indici di specie.
+
+\bibitem{gcri-discord}
+  \textbf{Glitch City Research Institute, canali}.
+  \\ \url{https://discord.com/invite/EA7jxJ6}
+  \\ \emph{Livello 4, articolo, blog o ricerca applicata; letta. Track: BRI.}
+  \\ Server della community che studia i difetti sfruttabili dei giochi Pokemon. I canali per generazione contengono il lavoro corrente, che il wiki recepisce con ritardo o non recepisce affatto.
+
+\bibitem{glitchcity}
+  \textbf{Glitch City Wiki}.
+  \\ \url{https://glitchcity.wiki}
+  \\ \emph{Livello 2, wiki o riferimento di dominio; letta. Track: BRI.}
+  \\ Catalogo della ricerca sui glitch dei giochi di generazione 1 e 2, compresi i metodi di esecuzione di codice raggiungibili giocando e quelli che passano dal cavo.
+
+\bibitem{pokemon-automation}
+  \textbf{Pokemon Automation}.
+  \\ \url{https://pokemonautomation.github.io/}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: AUT, LDN.}
+  \\ Progetto che automatizza le parti ripetitive dei giochi Pokemon su Nintendo Switch con oltre cento programmi. È un anello di controllo chiuso su un sistema che non espone stato: percepisce il fotogramma video e in alcuni titoli l'audio, attua tramite un controller emulato da un microcontrollore, e decide con un programma per compito. Il perimetro dichiarato è console non modificate e nessun accesso alla memoria.
+
+\bibitem{gambatte-gamelink}
+  \textbf{Gambatte con GameLink su TCP}.
+  \\ \url{https://gbatemp.net/threads/mission-wireless-trading-on-gen1-and-gen2-pokemon-games.632492/}
+  \\ \emph{Livello 5, forum o community; letta. Track: BRI.}
+  \\ Discussione in cui un membro compila una versione di Gambatte con il collegamento seriale del Game Boy emulato su TCP, funzionante sia come client sia come server, e riferisce di aver scambiato e combattuto nei giochi di generazione 1 e 2 fra dispositivi diversi, Switch compreso.
+
+\bibitem{gbatemp-vc-save}
+  \textbf{GBAtemp, correzione dei salvataggi in Virtual Console}.
+  \\ \url{https://gbatemp.net/threads/tutorial-fix-all-save-problems-for-pokemon-games-vc-gba.433266/}
+  \\ \emph{Livello 4, articolo, blog o ricerca applicata; letta. Track: 3DS.}
+  \\ Tutorial del 2016 che corregge l impossibilita di salvare nei giochi Pokemon per Game Boy Advance iniettati come Virtual Console su Nintendo 3DS, tramite modifica esadecimale della ROM, e in una seconda parte rimuove il messaggio di salvataggio corrotto con offset specifici per versione e lingua.
+
+\bibitem{projectpokemon}
+  \textbf{Project Pokemon, discussioni}.
+  \\ \url{https://projectpokemon.org/home/forums/topic/64794-pokemon-emerald-items-are-in-the-right-bag-using-the-app-but-when-i-load-it-into-a-cartridge-they-go-in-the-wrong-slots/}
+  \\ \emph{Livello 5, forum o community; letta. Track: SME, BRI.}
+  \\ Tre discussioni lette: una su un dispositivo che fa da sorgente di clock per il protocollo e ha completato scambi via internet, una su un salvataggio assente invece che corrotto su cartuccia contraffatta, e una su un editor che ha identificato male il gioco facendo finire gli oggetti negli slot sbagliati.
+
+\end{thebibliography}
