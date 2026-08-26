@@ -166,3 +166,9 @@ dev.keys
 *.blg
 *.bbl
 reports/*.log
+# La tesi segue la stessa politica dei report: il .tex e' la fonte, il PDF e gli
+# ausiliari sono derivati e si rigenerano con latexmk. La bibliografia e' generata da
+# tools/build-bibliography.py ma resta tracciata, per la stessa ragione per cui sono
+# tracciate le tabelle caratteri di data/: il derivato si versiona insieme al suo
+# generatore, cosi' che un clone compili senza dover prima rigenerare.
+tesi/*.log

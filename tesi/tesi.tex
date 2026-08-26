@@ -1,0 +1,52 @@
+% =====================================================================
+% tesi/tesi.tex - Documento maestro
+% =====================================================================
+% Questo file non contiene testo: contiene la struttura. Ogni capitolo vive in
+% tesi/capitoli/ e dichiara in testa quali documenti del progetto copre e a quale
+% commit è stato verificato contro di essi, così che
+% tools/check-thesis-coverage.py possa segnalare i capitoli che invecchiano.
+%
+% Si compila con:
+%     latexmk -pdf tesi.tex        (dalla cartella tesi/)
+% Prima di compilare, se le fonti sono cambiate:
+%     python tools/build-bibliography.py
+% ---------------------------------------------------------------------
+
+\documentclass[11pt,a4paper,oneside]{report}
+\input{preambolo}
+
+\title{%
+  Trasportare un dato fra sistemi che non erano fatti per parlarsi\\
+  \large Rappresentazione, integrità, trasmissione e conversione dell'informazione\\
+  su hardware di consumo, con cinque casi di studio}
+\author{Alessio Sopranzi}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\chapter*{Come si legge questo documento}
+\addcontentslineifsupported{toc}{chapter}{Come si legge questo documento}
+\input{capitoli/00-come-si-legge}
+
+\tableofcontents
+
+% --- Parte 0: i fondamenti assoluti ---------------------------------------------
+% Questa parte non dà per scontato nulla. Chi sa già che cos'è un byte può
+% saltarla, ma esiste perché il resto del documento vi si appoggia esplicitamente.
+\part{I fondamenti, senza dare nulla per scontato}
+% I capitoli 1 e 2 sono in scrittura: si aggiungono qui quando esistono, e il
+% controllo di copertura li pretenderà perché i documenti che coprono sono
+% già fra quelli da coprire.
+% \input{capitoli/01-bit-e-numeri}
+% \input{capitoli/02-memoria-e-indirizzi}
+\input{capitoli/03-integrita-e-checksum}
+
+% --- I capitoli seguenti sono in scrittura. L'indice completo, con il rapporto fra
+% ogni capitolo e i documenti del progetto che copre, sta in tesi/README.md.
+
+\bibliographystyle{plain}
+\input{bibliografia}
+
+\end{document}

@@ -1,0 +1,8 @@
+## Documenti che la tesi non copre di proposito.
+## Una riga per percorso, con il motivo dopo il cancelletto: un'esenzione senza
+## motivo viene rifiutata da tools/check-thesis-coverage.py, perché il senso di
+## questo file è costringere a dichiarare la ragione invece di dimenticare.
+
+docs/22-strumenti.md # documentazione operativa degli strumenti del progetto, non conoscenza tecnica trasferibile
+docs/23-prove-eseguite.md # inventario di stato delle verifiche, appartiene alla memoria e non alla trattazione
+docs/31-glossario.md # coperto dalla prefazione, che ne adotta le definizioni invece di ripeterle

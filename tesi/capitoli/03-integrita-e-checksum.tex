@@ -1,0 +1,233 @@
+% =====================================================================
+% Capitolo 3: integrità e checksum
+% =====================================================================
+% copre: docs/03-integrita-checksum.md
+% verificato-al-commit: 3f1c9b3
+% ---------------------------------------------------------------------
+
+\chapter{Come un sistema si accorge che un dato è rotto}
+\label{cap:checksum}
+
+\section{Il problema, prima della soluzione}
+
+Un calcolatore che salva dei dati su un supporto e poi li rilegge ha un problema che a
+prima vista non sembra esistere: non ha modo di sapere se ciò che rilegge sia ciò che
+aveva scritto. Il supporto può guastarsi, l'alimentazione può mancare a metà della
+scrittura, una batteria può esaurirsi, e in nessuno di questi casi i dati diventano
+visibilmente strani. Diventano soltanto diversi.
+
+Vale la pena fermarsi su questo punto, perché è l'origine di tutto il capitolo. Un
+numero sbagliato ha esattamente lo stesso aspetto di un numero giusto. Se un byte che
+valeva \hx{2A} adesso vale \hx{2B}, non c'è nulla in quel byte che lo denunci: sono
+otto bit, erano otto bit prima e sono otto bit adesso, e ogni combinazione di otto bit
+è un valore legittimo. Il dato non porta con sé l'informazione di essere corretto.
+
+La conseguenza pratica, su un gioco che salva su una cartuccia, è che un guasto
+silenzioso è peggio di un guasto rumoroso. Un salvataggio che non si carica affatto è
+un problema evidente; un salvataggio che si carica con un valore sbagliato in un punto
+qualunque è un problema che si scopre trenta ore dopo, quando le conseguenze si sono
+propagate. La difesa contro il secondo caso è l'argomento di questo capitolo.
+
+\section{L'idea: scrivere due volte la stessa cosa, in due modi diversi}
+
+Se il dato non può dire di sé stesso di essere corretto, gli si affianca un secondo
+dato che lo riassume. Al momento della scrittura si calcola quel riassunto e lo si
+memorizza accanto ai dati; al momento della lettura lo si ricalcola sui dati riletti e
+lo si confronta con quello memorizzato. Se i due coincidono, i dati sono probabilmente
+integri. Se differiscono, qualcosa è cambiato.
+
+Questo riassunto si chiama \term{checksum}, che alla lettera vuol dire somma di
+controllo, e nella forma più semplice è proprio una somma.
+
+Prima di guardare come i giochi lo fanno, conviene essere precisi su cosa un checksum
+può e non può fare, perché è la parte che si fraintende più spesso.
+
+Un checksum \emph{rileva} un errore, non lo \emph{corregge}. Sapere che la somma non
+torna dice che almeno un bit è cambiato, non quale: da un riassunto non si ricostruisce
+il testo. Correggere richiede una ridondanza molto maggiore, cioè i codici a correzione
+d'errore, che questi giochi non usano perché costerebbero spazio che non avevano.
+
+Un checksum, inoltre, \emph{può sbagliarsi}. Poiché comprime molti byte in pochi, esistono
+necessariamente configurazioni diverse dei dati che producono lo stesso riassunto: è
+una conseguenza del principio dei cassetti, non un difetto dell'algoritmo. Un checksum a
+16 bit ha 65\,536 valori possibili, quindi una corruzione casuale ha circa una
+possibilità su 65\,536 di produrre per caso il valore giusto e passare inosservata. Un
+checksum a 8 bit ne ha 256, e la probabilità sale a circa una su 256.
+
+Detto in termini che a chi viene dalle telecomunicazioni suonano familiari, un checksum
+è un codice di rilevazione d'errore con potere di rilevazione limitato e capacità di
+correzione nulla, e la lunghezza del checksum è il parametro che governa la
+probabilità di errore non rilevato.
+
+\section{La forma più semplice: la somma degli otto bit}
+
+La generazione 1, cioè Pokemon Rosso, Blu e Giallo, protegge l'area principale del suo
+salvataggio con un checksum a un solo byte, e la regola è la più semplice
+immaginabile: si sommano tutti i byte dell'area protetta e si prende il complemento a
+uno del risultato. Il valore è verificato sul disassemblato del gioco~\cite{pokered} e
+documentato nella referenza dei formati di questo progetto.
+
+Conviene srotolare la definizione, perché contiene due concetti che il capitolo
+precedente ha introdotto e che qui si usano insieme.
+
+Sommare byte in un accumulatore da un byte significa che la somma \emph{tronca}: appena
+supera 255 riparte da zero, perché non c'è spazio per il nono bit. In aritmetica
+questo si scrive come somma modulo 256, e non è un effetto collaterale da correggere,
+è il comportamento su cui l'algoritmo conta.
+
+Il \term{complemento a uno} di un byte è il byte con tutti i bit invertiti, e per un
+valore $x$ su otto bit equivale a $255 - x$. Applicarlo alla fine trasforma la somma in
+un valore che, sommato ai dati, dà un risultato noto: è una scelta che rende il
+controllo verificabile in due modi equivalenti, e la si ritrova in molti protocolli.
+
+Messo in formula, se $b_1 \dots b_n$ sono i byte dell'area protetta:
+
+\[
+  \mathrm{checksum} = 255 - \left( \sum_{i=1}^{n} b_i \bmod 256 \right)
+\]
+
+Sul gioco, l'area protetta va da \hx{2598} a \hx{3522} e il checksum si trova subito
+dopo, a \hx{3523}. La conseguenza di un checksum che non torna è brutale e vale
+citarla, perché spiega perché questo progetto tratti la scrittura su cartuccia come
+un'operazione irreversibile: il gioco dichiara i dati distrutti e riparte da zero.
+
+Ne segue una regola che vincola qualunque programma voglia modificare un salvataggio di
+generazione 1, e che il progetto applica nel proprio codice: dopo ogni modifica il
+checksum va ricalcolato, e questo vale sia per un programma che lavora su un file
+scaricato dalla cartuccia sia per una routine che scrive direttamente nella memoria
+della cartuccia dall'interno del gioco.
+
+\subsection{Quanto è forte, in pratica}
+
+Un checksum a 8 bit costruito come somma ha un difetto che vale conoscere, perché
+mostra il limite della categoria. La somma è \emph{commutativa}: non cambia se si
+scambiano di posto due byte. Se una corruzione scambia fra loro due byte dell'area
+protetta, la somma resta identica e il controllo non se ne accorge. Lo stesso vale per
+una corruzione che sottrae a un byte quello che aggiunge a un altro.
+
+È un caso raro fra i guasti fisici, che tendono a azzerare o a saturare interi
+settori, ma non è raro affatto fra le manipolazioni deliberate, ed è una delle
+ragioni per cui un checksum non è una firma: dice se un dato è probabilmente intatto,
+non se è autentico.
+
+\section{Il passo successivo: le parole a sedici bit}
+
+La generazione 3, cioè Rubino, Zaffiro, Smeraldo, Rosso Fuoco e Verde Foglia, usa due
+checksum a livelli diversi, e quello che protegge la struttura del singolo Pokemon
+merita attenzione per due ragioni: è costruito diversamente, e su di esso le fonti
+secondarie sbagliano.
+
+La struttura di un Pokemon in generazione 3 contiene 48 byte cifrati, e il loro
+checksum è a 16 bit. La differenza rispetto alla generazione 1 non è solo la
+lunghezza: cambia l'unità su cui si somma. Il sorgente del gioco~\cite{pokeemerald}
+espone quei 48 byte anche come un vettore di sei parole a 16 bit per ciascuna delle
+quattro sottostrutture, e la routine somma quelle parole, non i byte, in un
+accumulatore a 16 bit.
+
+\begin{lstlisting}[style=c,caption={La routine di checksum, da include/pokemon.h e src/pokemon.c di pokeemerald~\cite{pokeemerald}. Il tipo dell'accumulatore è la parte che conta.}]
+static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon)
+{
+    u16 checksum = 0;
+    /* quattro sottostrutture, sei parole da 16 bit ciascuna */
+    for (i = 0; i < (s32)ARRAY_COUNT(substruct0->raw); i++)
+        checksum += substruct0->raw[i];
+    /* idem per substruct1, substruct2, substruct3 */
+    return checksum;
+}
+\end{lstlisting}
+
+Qui c'è l'errore da segnalare, ed è del tipo che distrugge i dati. Una pagina
+enciclopedica molto usata~\cite{bulbapedia} descrive questo checksum come una somma
+byte per byte. Le due letture danno risultati diversi, e la differenza si vede con un
+esempio minimo: se i primi due byte del blocco valgono \hx{FF} e \hx{FF} e tutti gli
+altri sono nulli, la somma per parole dà \hx{FFFF}, cioè 65\,535, mentre la somma per
+byte dà 510. Chi implementa la seconda scrive un checksum sbagliato, e in generazione 3
+un checksum sbagliato non produce un Pokemon strano: lo trasforma in un Uovo Difettoso,
+cioè lo distrugge in modo visibile e definitivo.
+
+È il caso che meglio giustifica la gerarchia delle fonti adottata da questo progetto,
+per cui il disassemblato del gioco sta sopra qualunque wiki: non perché le wiki siano
+inaffidabili in generale, ma perché su un dettaglio come il tipo di un accumulatore la
+prosa è ambigua e il codice non lo è.
+
+\subsection{Una proprietà comoda, che sorprende chi la scopre}
+
+C'è un dettaglio di questa costruzione che vale scrivere perché chi lo incontra da
+solo rischia di credere di aver trovato un errore. La routine somma le quattro
+sottostrutture nel loro ordine logico, ma in memoria quelle quattro sottostrutture sono
+permutate in uno di ventiquattro ordini possibili, come il capitolo sulla cifratura
+descrive. Poiché l'addizione è commutativa, la somma delle ventiquattro parole non
+dipende dall'ordine in cui si prendono i blocchi: ne segue che il checksum si può
+verificare senza sapere quale permutazione sia in uso.
+
+È una comodità reale, sfruttata nel codice di questo progetto, ma va dichiarata:
+chi legge una verifica del checksum che ignora la permutazione potrebbe pensare che sia
+una dimenticanza, e non lo è.
+
+\section{Il terzo livello: proteggere i settori del salvataggio}
+
+Oltre al checksum della singola struttura, la generazione 3 protegge le sezioni del
+salvataggio, e l'algoritmo è un terzo tipo ancora. Il salvataggio è diviso in sezioni
+da 4096 byte, ciascuna con un piede che contiene un identificativo, un checksum, una
+firma costante di valore \hx{08012025} e un indice di salvataggio.
+
+Il checksum di sezione si calcola accumulando le parole da 32 bit della sezione in una
+variabile a 32 bit, e poi \emph{ripiegando} il risultato: si sommano i 16 bit alti ai 16
+bit bassi, e ciò che resta è il checksum a 16 bit. Il ripiegamento serve a far
+contribuire al risultato finale anche i bit alti, che altrimenti andrebbero perduti nel
+troncamento, e la stessa tecnica si ritrova nel checksum di Internet.
+
+La firma costante merita una nota, perché è una difesa di natura diversa dal checksum
+e i due si confondono facilmente. Il checksum verifica che i dati non siano cambiati; la
+firma verifica che quello che si sta leggendo sia effettivamente una sezione di
+salvataggio e non un'area di memoria qualunque. Una firma sbagliata invalida la sezione
+e con essa l'intero slot, e questo comportamento è documentato nella referenza dei
+formati del progetto e verificato sul sorgente~\cite{pokeemerald}.
+
+\subsection{Due copie, e come si decide quale vale}
+
+L'ultima difesa non è un checksum ma un'architettura, e la si capisce partendo dal
+guasto che vuole evitare. Se il gioco riscrivesse ogni volta la stessa area, una
+mancanza di alimentazione a metà della scrittura lascerebbe quell'area a metà fra il
+vecchio e il nuovo, cioè inutilizzabile. La soluzione è non riscrivere mai l'area che
+contiene l'ultimo salvataggio valido: si scrive nell'altra.
+
+Il salvataggio di generazione 3 ha quindi due slot da 57\,344 byte, e ciascuna sezione
+porta nel piede un indice progressivo. Al caricamento il gioco confronta gli indici e
+prende il più recente. Il progetto ha verificato un dettaglio di questo confronto che
+conta per chi scrive uno strumento di lettura: lo slot A vince solo se il suo indice è
+strettamente maggiore, quindi a parità di indice vince B.
+
+La proprietà che questa architettura garantisce è che in ogni istante esiste almeno
+uno slot integro, qualunque cosa accada durante una scrittura. È lo stesso principio
+delle scritture atomiche per scambio di puntatore che si usa nei filesystem, ottenuto
+qui con due aree fisse e un contatore.
+
+\section{Che cosa ne segue per il progetto}
+
+Da questo capitolo discendono tre vincoli che le altre parti del documento danno per
+acquisiti.
+
+Il primo è che qualunque modifica a un salvataggio richiede il ricalcolo di tutti i
+checksum che coprono l'area modificata, e che i livelli sono annidati: modificare un
+Pokemon in generazione 3 invalida il checksum della sua struttura e quello della sezione
+che la contiene.
+
+Il secondo è che un checksum sbagliato non è un avviso ma una distruzione, e cambia
+quindi la natura dell'operazione di scrittura. È la ragione tecnica per cui la regola
+sull'hardware di questo progetto impone il backup in doppia copia e la rilettura
+verificata prima e dopo ogni scrittura su cartuccia, e per cui quella regola non ammette
+eccezioni per fretta.
+
+Il terzo è un criterio di lettura delle fonti che il resto del documento applica senza
+più ripeterlo: dove una fonte secondaria e un disassemblato divergono su un dettaglio
+implementativo, ha ragione il disassemblato. Il caso del checksum a parole contro il
+checksum a byte è il primo esempio, e non sarà l'ultimo.
+
+\begin{daverificare}
+Il valore della costante di firma e la posizione dei campi del piede di sezione sono
+verificati sul sorgente, ma il comportamento del gioco davanti a una firma corretta e un
+checksum sbagliato, cioè se invalidi la singola sezione o l'intero slot, è riportato
+dalla referenza e non è stato riletto sul sorgente in questa forma. Va confermato prima
+di appoggiarvi un recupero.
+\end{daverificare}
