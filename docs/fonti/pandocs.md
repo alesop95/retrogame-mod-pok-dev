@@ -14,11 +14,11 @@ https://gbdev.io/pandocs/Serial_Data_Transfer_(Link_Cable).html
 
 ## Abstract
 
-Riferimento tecnico dell'hardware seriale del Game Boy: i registri SB e SC con i loro bit, le frequenze del clock interno, e il comportamento del clock esterno, che il gioco accetta a qualunque velocita' fino a 500 kHz e anche a intervalli irregolari.
+Riferimento tecnico dell'hardware seriale del Game Boy: i registri SB e SC con i loro bit, le frequenze del clock interno, e il comportamento del clock esterno, che il gioco accetta a qualunque velocità fino a 500 kHz e anche a intervalli irregolari.
 
-## Perche' e' in archivio
+## Perché è in archivio
 
-Da qui viene il fatto che sblocca l'opzione D: chi fornisce il clock decide quando, quindi un microcontrollore puo' fermarsi a pensare fra un bit e l'altro senza rompere nulla. Blocca il crawler e si scarica con curl locale.
+Da qui viene il fatto che sblocca l'opzione D: chi fornisce il clock decide quando, quindi un microcontrollore può fermarsi a pensare fra un bit e l'altro senza rompere nulla. Blocca il crawler e si scarica con curl locale.
 
 ## A quale punto del progetto serve
 
@@ -31,4 +31,4 @@ Da qui viene il fatto che sblocca l'opzione D: chi fornisce il clock decide quan
 
 ## Contesto
 
-Livello 1 di affidabilita' secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni e' [[index-fonti]].
+Livello 1 di affidabilità secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni è [[index-fonti]].

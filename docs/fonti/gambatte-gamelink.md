@@ -16,9 +16,9 @@ https://gbatemp.net/threads/mission-wireless-trading-on-gen1-and-gen2-pokemon-ga
 
 Discussione in cui un membro compila una versione di Gambatte con il collegamento seriale del Game Boy emulato su TCP, funzionante sia come client sia come server, e riferisce di aver scambiato e combattuto nei giochi di generazione 1 e 2 fra dispositivi diversi, Switch compreso.
 
-## Perche' e' in archivio
+## Perché è in archivio
 
-E' la seconda via di collaudo del protocollo oltre a BGB, e ha due vantaggi: non e' specifica dei Pokemon perche' emula un cavo seriale generico, ed esiste come nucleo libretro, quindi si presta a essere pilotata senza interfaccia grafica.
+È la seconda via di collaudo del protocollo oltre a BGB, e ha due vantaggi: non è specifica dei Pokemon perché emula un cavo seriale generico, ed esiste come nucleo libretro, quindi si presta a essere pilotata senza interfaccia grafica.
 
 ## A quale punto del progetto serve
 
@@ -26,8 +26,8 @@ E' la seconda via di collaudo del protocollo oltre a BGB, e ha due vantaggi: non
 
 ## Relazioni con altre fonti
 
-- e' un'alternativa a [[cableclubhack]]
+- è un'alternativa a [[cableclubhack]]
 
 ## Contesto
 
-Livello 5 di affidabilita' secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni e' [[index-fonti]].
+Livello 5 di affidabilità secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni è [[index-fonti]].

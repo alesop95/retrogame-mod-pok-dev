@@ -16,9 +16,9 @@ https://github.com/binarycounter/PkSploit
 
 Suite che dumpa ROM e salvataggio e riscrive il salvataggio di qualunque cartuccia Game Boy e Game Boy Color, usando come vettore una cartuccia di generazione 1, un cavo Link e un microcontrollore compatibile Arduino.
 
-## Perche' e' in archivio
+## Perché è in archivio
 
-Se l'affermazione regge alla prova, un microcontrollore sostituisce il lettore di cartucce per tutto cio' che e' Game Boy, e questo tocca sia il ponte sia il modo di procurarsi i dump. L'autore avverte che e' in sviluppo pesante.
+Se l'affermazione regge alla prova, un microcontrollore sostituisce il lettore di cartucce per tutto ciò che è Game Boy, e questo tocca sia il ponte sia il modo di procurarsi i dump. L'autore avverte che è in sviluppo pesante.
 
 ## A quale punto del progetto serve
 
@@ -27,8 +27,8 @@ Se l'affermazione regge alla prova, un microcontrollore sostituisce il lettore d
 
 ## Relazioni con altre fonti
 
-- e' derivato o discende da [[cableclubhack]]
+- è derivato o discende da [[cableclubhack]]
 
 ## Contesto
 
-Livello 3 di affidabilita' secondo la gerarchia di [[SOURCES]]. Track serviti: BRI, SME. La mappa di tutte le fonti e delle loro relazioni e' [[index-fonti]].
+Livello 3 di affidabilità secondo la gerarchia di [[SOURCES]]. Track serviti: BRI, SME. La mappa di tutte le fonti e delle loro relazioni è [[index-fonti]].

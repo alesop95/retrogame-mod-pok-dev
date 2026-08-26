@@ -1,4 +1,4 @@
-La causa quasi certa è nota e documentata: i driver inclusi nel software Datel sono non firmati (unsigned), e da Windows Vista in poi (7, 8, 8.1, 10, 11 a 64 bit) il sistema rifiuta di installarli — da cui l'errore "drivers were not installed successfully". Datel nei primi anni 2000-2010 includeva driver non firmati nel software, e da Windows Vista, 7, 8, 8.1, 10 in poi non è possibile installare driver non firmati [1].
+La causa quasi certa è nota e documentata: i driver inclusi nel software Datel sono non firmati (unsigned), e da Windows Vista in poi (7, 8, 8.1, 10, 11 a 64 bit) il sistema rifiuta di installarli - da cui l'errore "drivers were not installed successfully". Datel nei primi anni 2000-2010 includeva driver non firmati nel software, e da Windows Vista, 7, 8, 8.1, 10 in poi non è possibile installare driver non firmati [1].
 
 D: Che sistema operativo usi sul PC?
 R: Windows 10/11 (64-bit)
@@ -6,20 +6,20 @@ R: Windows 10/11 (64-bit)
 D: Cosa succede esattamente quando provi a connetterlo?
 R: PC non rileva nulla
 
-Punto 1 — Verifica che il dispositivo sia davvero in "USB mode"Questo è il punto più frainteso e probabilmente la causa nel tuo caso. La cartuccia AR Max Duo non si alimenta da sola via USB: deve essere inserita in una console GBA/SP/DS accesa, con una cartuccia GBA inserita, e solo allora entra in modalità USB. Dal manuale ufficiale Datel: assicurati che l'hardware DUO sia collegato al PC tramite il cavo USB in dotazione e che il DUO sia in USB mode. E sulla necessità della cartuccia GBA: per far avviare correttamente l'Action Replay DUO serve avere una cartuccia GBA inserita [2].
+Punto 1 - Verifica che il dispositivo sia davvero in "USB mode"Questo è il punto più frainteso e probabilmente la causa nel tuo caso. La cartuccia AR Max Duo non si alimenta da sola via USB: deve essere inserita in una console GBA/SP/DS accesa, con una cartuccia GBA inserita, e solo allora entra in modalità USB. Dal manuale ufficiale Datel: assicurati che l'hardware DUO sia collegato al PC tramite il cavo USB in dotazione e che il DUO sia in USB mode. E sulla necessità della cartuccia GBA: per far avviare correttamente l'Action Replay DUO serve avere una cartuccia GBA inserita [2].
 
-Procedura corretta (dal manuale): a console spenta, inserisci una cartuccia GBA nel DUO e collega l'hardware DUO alla console (GBA/SP/DS), poi colleghi l'USB al PC e accendi la console — il DUO deve mostrare a schermo che è entrato in "USB mode" [2], [3].
+Procedura corretta (dal manuale): a console spenta, inserisci una cartuccia GBA nel DUO e collega l'hardware DUO alla console (GBA/SP/DS), poi colleghi l'USB al PC e accendi la console - il DUO deve mostrare a schermo che è entrato in "USB mode" [2], [3].
 Se "non rileva nulla", verifica nell'ordine:
 
 C'è una cartuccia GBA inserita nel DUO?
 La console è accesa e il DUO mostra a schermo "USB mode"?
-Il cavo USB è dati e non solo-ricarica? [Inferenza, basato su pattern noti di problemi USB] Molti cavi mini/micro-USB economici sono solo-alimentazione e non trasportano dati — questo da solo causa "nulla rilevato" anche con tutto il resto corretto.
+Il cavo USB è dati e non solo-ricarica? [Inferenza, basato su pattern noti di problemi USB] Molti cavi mini/micro-USB economici sono solo-alimentazione e non trasportano dati - questo da solo causa "nulla rilevato" anche con tutto il resto corretto.
 
 Se il DUO non entra in USB mode sulla console → problema lato hardware/cavo/console, non lato PC.
 Se il DUO entra in USB mode ma Windows non mostra nessun nuovo dispositivo in Gestione Dispositivi → si passa al Punto 2.
 
 
-Punto 2 — Il muro dei driver su Windows 10/11 64-bit
+Punto 2 - Il muro dei driver su Windows 10/11 64-bit
 Anche risolto il Punto 1, su Windows 10/11 a 64 bit colpisci comunque un blocco strutturale: i driver Datel sono non firmati e Windows 64-bit moderno li rifiuta. Il motivo per cui i driver non si installano è che Datel includeva driver non firmati nel software, e da Windows Vista/7/8/8.1/10 in poi non è possibile installare driver non firmati.
 
 La scelta migliore per il tuo contesto: macchina virtuale Windows XP
@@ -28,12 +28,12 @@ Passi:
 
 Installa VirtualBox + VirtualBox Extension Pack (necessario per USB).
 Crea una VM con Windows XP (32-bit).
-Installa nella VM il software Datel (dal CD o dall'eseguibile Datel — es. GBA_DS_1_4.exe per la versione GBA/DS v1.05).
+Installa nella VM il software Datel (dal CD o dall'eseguibile Datel - es. GBA_DS_1_4.exe per la versione GBA/DS v1.05).
 Con il DUO in USB mode collegato all'host, in VirtualBox: Dispositivi → USB → Datel GBA Link per fare il passthrough alla VM.
 Dentro XP, il dispositivo appare in Gestione Dispositivi: sotto "USBIO controlled devices" come "MaxDrive"; tasto destro → Aggiorna driver → "No, non ora" → "Installa da un percorso specifico (Avanzata)" → "Non cercare, scelgo io il driver" → "Disco driver…" → Sfoglia fino a C:\Program Files\Datel\ActionReplayGBA\Drivers, seleziona gbalink.inf.
 
 Il software PC e il firmware del DUO devono essere della stessa versione o non comunicano: il software lato PC e il firmware sull'AR condividono lo stesso numero di versione, e devono coincidere per comunicare via USB. Se dopo il collegamento ricevi "Console not connected" o errori di comunicazione, è probabile un disallineamento di versione. GBAtemp
-⚠️ Avvertenza dal manuale sul flashing: non tentare mai di aggiornare il DUO con un file diverso da un update dalla sezione supporto di codejunkies.com destinato al tuo hardware — potresti danneggiarlo in modo permanente.
+⚠️ Avvertenza dal manuale sul flashing: non tentare mai di aggiornare il DUO con un file diverso da un update dalla sezione supporto di codejunkies.com destinato al tuo hardware - potresti danneggiarlo in modo permanente.
 
 
 [1] https://gbatemp.net/threads/action-replay-max-gba-max-drive-ds-duo-help.319947/

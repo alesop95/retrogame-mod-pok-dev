@@ -16,9 +16,9 @@ https://github.com/pret/pokefirered
 
 Decompilazione di Rosso Fuoco e Verde Foglia. Struttura del salvataggio diversa da quella di Smeraldo in ogni offset che conta: chiave di cifratura, conteggio della squadra, denaro e tasche dello zaino.
 
-## Perche' e' in archivio
+## Perché è in archivio
 
-Ha corretto un errore nel nostro strumento: la chiave sta a 0xF20 dentro un blocco che misura 0xF24, non a 0x0AF8 come riportava la fonte secondaria. Serve anche al track LDN, perche' quelli sono i giochi dello scambio con la Switch.
+Ha corretto un errore nel nostro strumento: la chiave sta a 0xF20 dentro un blocco che misura 0xF24, non a 0x0AF8 come riportava la fonte secondaria. Serve anche al track LDN, perché quelli sono i giochi dello scambio con la Switch.
 
 ## A quale punto del progetto serve
 
@@ -31,4 +31,4 @@ Ha corretto un errore nel nostro strumento: la chiave sta a 0xF20 dentro un bloc
 
 ## Contesto
 
-Livello 1 di affidabilita' secondo la gerarchia di [[SOURCES]]. Track serviti: BRI, LDN, SME. La mappa di tutte le fonti e delle loro relazioni e' [[index-fonti]].
+Livello 1 di affidabilità secondo la gerarchia di [[SOURCES]]. Track serviti: BRI, LDN, SME. La mappa di tutte le fonti e delle loro relazioni è [[index-fonti]].

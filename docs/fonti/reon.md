@@ -13,11 +13,11 @@ https://github.com/REONTeam
 
 ## Abstract
 
-Ricostruzione dell'infrastruttura di rete del Mobile Adapter GB, l'accessorio che dava funzioni online ai giochi Game Boy. Comprende una libreria del protocollo in C, un server, un emulatore per BGB, un adattatore su Arduino e una utilita' dedicata allo scambio nel Trade Corner.
+Ricostruzione dell'infrastruttura di rete del Mobile Adapter GB, l'accessorio che dava funzioni online ai giochi Game Boy. Comprende una libreria del protocollo in C, un server, un emulatore per BGB, un adattatore su Arduino e una utilità dedicata allo scambio nel Trade Corner.
 
-## Perche' e' in archivio
+## Perché è in archivio
 
-E' un secondo canale storico oltre al cavo, e la sua utilita' per il Trade Corner riguarda direttamente lo scambio di Pokemon. Da valutare se apra una strada alternativa al cavo per il lato generazione 2.
+È un secondo canale storico oltre al cavo, e la sua utilità per il Trade Corner riguarda direttamente lo scambio di Pokemon. Da valutare se apra una strada alternativa al cavo per il lato generazione 2.
 
 ## A quale punto del progetto serve
 
@@ -25,4 +25,4 @@ E' un secondo canale storico oltre al cavo, e la sua utilita' per il Trade Corne
 
 ## Contesto
 
-Livello 3 di affidabilita' secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni e' [[index-fonti]].
+Livello 3 di affidabilità secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni è [[index-fonti]].

@@ -16,9 +16,9 @@ https://github.com/CableClub/cable-link
 
 Circuito stampato in formato KiCad, con gerber pronti alla produzione, e firmware per Raspberry Pi Pico che parla il protocollo di scambio di generazione 1. Apache 2.0, del 2021.
 
-## Perche' e' in archivio
+## Perché è in archivio
 
-E' il precedente piu' avanzato per l'opzione D, e vale come conferma indipendente: le sue costanti del protocollo coincidono una per una con quelle che avevamo ricavato dal disassemblato, e apre la porta seriale esattamente al mezzo megahertz che Pan Docs dichiara come massimo.
+È il precedente più avanzato per l'opzione D, e vale come conferma indipendente: le sue costanti del protocollo coincidono una per una con quelle che avevamo ricavato dal disassemblato, e apre la porta seriale esattamente al mezzo megahertz che Pan Docs dichiara come massimo.
 
 ## A quale punto del progetto serve
 
@@ -31,4 +31,4 @@ E' il precedente piu' avanzato per l'opzione D, e vale come conferma indipendent
 
 ## Contesto
 
-Livello 3 di affidabilita' secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni e' [[index-fonti]].
+Livello 3 di affidabilità secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni è [[index-fonti]].

@@ -14,11 +14,11 @@ https://github.com/Lorenzooone/Pokemon-Gen3-to-Gen-X
 
 ## Abstract
 
-Homebrew per Game Boy Advance che scambia Pokemon fra Gen 3 e Gen 1 e 2 usando il protocollo normale e non exploit, con in piu' la gestione dell'orologio interno di Rubino, Zaffiro e Smeraldo.
+Homebrew per Game Boy Advance che scambia Pokemon fra Gen 3 e Gen 1 e 2 usando il protocollo normale e non exploit, con in più la gestione dell'orologio interno di Rubino, Zaffiro e Smeraldo.
 
-## Perche' e' in archivio
+## Perché è in archivio
 
-E' l'alternativa architetturale al ponte di riferimento: dimostra che si puo' fare senza esecuzione di codice, al prezzo di non replicare l'esperienza dello scambio.
+È l'alternativa architetturale al ponte di riferimento: dimostra che si può fare senza esecuzione di codice, al prezzo di non replicare l'esperienza dello scambio.
 
 ## A quale punto del progetto serve
 
@@ -27,8 +27,8 @@ E' l'alternativa architetturale al ponte di riferimento: dimostra che si puo' fa
 
 ## Relazioni con altre fonti
 
-- e' un'alternativa a [[ptgb]]
+- è un'alternativa a [[ptgb]]
 
 ## Contesto
 
-Livello 3 di affidabilita' secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni e' [[index-fonti]].
+Livello 3 di affidabilità secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni è [[index-fonti]].

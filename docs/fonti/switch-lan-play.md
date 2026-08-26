@@ -15,9 +15,9 @@ https://github.com/spacemeowx2/switch-lan-play
 
 Client e server che intercettano il traffico di rete della console con libpcap e lo incapsulano in un protocollo minimale, per far credere alle console di essere sulla stessa rete locale.
 
-## Perche' e' in archivio
+## Perché è in archivio
 
-E' la controparte del modulo di sistema, e insieme formano l'alternativa che non richiede hardware radio particolare. Licenza GPL 3.
+È la controparte del modulo di sistema, e insieme formano l'alternativa che non richiede hardware radio particolare. Licenza GPL 3.
 
 ## A quale punto del progetto serve
 
@@ -25,4 +25,4 @@ E' la controparte del modulo di sistema, e insieme formano l'alternativa che non
 
 ## Contesto
 
-Livello 3 di affidabilita' secondo la gerarchia di [[SOURCES]]. Track serviti: LDN. La mappa di tutte le fonti e delle loro relazioni e' [[index-fonti]].
+Livello 3 di affidabilità secondo la gerarchia di [[SOURCES]]. Track serviti: LDN. La mappa di tutte le fonti e delle loro relazioni è [[index-fonti]].

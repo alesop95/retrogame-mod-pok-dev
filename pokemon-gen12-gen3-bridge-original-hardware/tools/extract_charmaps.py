@@ -2,14 +2,14 @@
 # -*- coding: utf-8 -*-
 """Genera le tabelle di codifica dei caratteri dai disassemblati, invece di ricopiarle.
 
-Perche' esiste
+Perché esiste
 --------------
 Le pagine enciclopediche sbagliano la tabella caratteri in due punti verificati: per la
 generazione 1 collocano le cifre a 0xF0 mentre il sorgente le colloca a 0xF6, e per la
 generazione 3 collocano le maiuscole a 0xC1 mentre il sorgente le colloca a 0xBB. Un
 errore di questo tipo non fa fallire nulla: produce soprannomi con caratteri sbagliati
-ma stampabili, quindi passa i test a occhio. La sola difesa strutturale e' non trascrivere
-mai la tabella a mano e generarla dal charmap del gioco, che e' la definizione autorevole.
+ma stampabili, quindi passa i test a occhio. La sola difesa strutturale è non trascrivere
+mai la tabella a mano e generarla dal charmap del gioco, che è la definizione autorevole.
 
 Sorgenti
 --------
@@ -25,12 +25,12 @@ Uso
     python tools/extract_charmaps.py --pokecrystal PATH --pokeemerald PATH --out data
 
 Produce tre file in --out:
-    charmap-gen12.json          byte -> carattere per Gen 1 e 2, piu' i token di controllo
-    charmap-gen3.json           byte -> carattere per Gen 3, piu' i token di controllo
+    charmap-gen12.json          byte -> carattere per Gen 1 e 2, più i token di controllo
+    charmap-gen3.json           byte -> carattere per Gen 3, più i token di controllo
     charmap-gen12-to-gen3.json  traduzione diretta fra i due spazi di codifica
 
 Lo script si rifiuta di scrivere se i valori di controllo non corrispondono a quelli
-attesi: se il formato del sorgente a monte cambia, il fallimento e' rumoroso.
+attesi: se il formato del sorgente a monte cambia, il fallimento è rumoroso.
 """
 
 import argparse
@@ -41,7 +41,7 @@ import subprocess
 import sys
 
 # Valori di controllo. Non sono la tabella: sono le sentinelle che dimostrano che la
-# tabella e' stata letta correttamente. Verificati sul sorgente il 2026-08-25.
+# tabella è stata letta correttamente. Verificati sul sorgente il 2026-08-25.
 EXPECTED_GEN12 = {0x50: "@", 0x7F: " ", 0x80: "A", 0x99: "Z",
                   0xA0: "a", 0xB9: "z", 0xF6: "0", 0xFF: "9"}
 EXPECTED_GEN3 = {0x00: " ", 0xA1: "0", 0xAA: "9", 0xBB: "A",
@@ -53,7 +53,7 @@ RE_GEN3_NAMED = re.compile(r"^(?P<tok>[A-Z_][A-Z0-9_]*)\s*=\s*(?P<val>[0-9A-Fa-f
 
 
 def git_commit(repo_path):
-    """Hash del commit clonato, cosi' che la tabella sia riconducibile a una revisione."""
+    """Hash del commit clonato, così che la tabella sia riconducibile a una revisione."""
     try:
         out = subprocess.check_output(["git", "-C", repo_path, "rev-parse", "HEAD"],
                                       stderr=subprocess.DEVNULL)
@@ -71,8 +71,8 @@ def parse_gen12(repo_path):
             if not m:
                 continue
             tok, val = m.group("tok"), int(m.group("val"), 16)
-            # Il charmap assegna piu' token allo stesso byte (varianti giapponesi,
-            # alias di font). Il primo vince, che e' l'ordine di dichiarazione.
+            # Il charmap assegna più token allo stesso byte (varianti giapponesi,
+            # alias di font). Il primo vince, che è l'ordine di dichiarazione.
             target = control if tok.startswith("<") else printable
             target.setdefault(val, tok)
     return printable, control, path
@@ -149,9 +149,9 @@ def main():
         "controllo": {"0x%02X" % k: v for k, v in sorted(g3_ctrl.items())},
     })
 
-    # Traduzione diretta: e' questo il file che il convertitore usa davvero.
+    # Traduzione diretta: è questo il file che il convertitore usa davvero.
     # Un carattere presente in Gen 1 e 2 ma assente in Gen 3 non ha destinazione e
-    # viene elencato a parte, perche' e' una decisione di prodotto e non un dettaglio.
+    # viene elencato a parte, perché è una decisione di prodotto e non un dettaglio.
     gen3_by_char = {}
     for byte, ch in sorted(g3.items()):
         gen3_by_char.setdefault(ch, byte)
@@ -162,7 +162,7 @@ def main():
         else:
             orphans["0x%02X" % byte] = ch
     p3 = dump(args.out, "charmap-gen12-to-gen3.json", {
-        "descrizione": "byte Gen 1 e 2 -> byte Gen 3, per identita' del carattere reso",
+        "descrizione": "byte Gen 1 e 2 -> byte Gen 3, per identità del carattere reso",
         "fonti": [meta12, meta3],
         "terminatore": {"gen12": 0x50, "gen3": 0xFF},
         "traduzione": mapping,

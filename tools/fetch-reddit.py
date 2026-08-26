@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 """Legge un thread o un listato di Reddit tramite l'API ufficiale.
 
-Perche' esiste
+Perché esiste
 --------------
-Reddit non e' recuperabile con gli strumenti di sessione, e non per un difetto di
+Reddit non è recuperabile con gli strumenti di sessione, e non per un difetto di
 configurazione del progetto: il dominio blocca il crawler del modello, e l'accesso
-anonimo programmatico e' chiuso anche a curl, all'endpoint JSON di old.reddit.com, ai
+anonimo programmatico è chiuso anche a curl, all'endpoint JSON di old.reddit.com, ai
 frontend alternativi e ai proxy di lettura. La diagnosi completa, con l'esito di ogni via
 tentata, sta in .claude/rules/web-sources-not-fetchable.md.
 
@@ -16,7 +16,7 @@ richiede un account collegato e basta per leggere contenuto pubblico.
 Come si allestisce, una volta sola
 ----------------------------------
 1. Su https://www.reddit.com/prefs/apps si crea una applicazione di tipo "script".
-   Il campo redirect uri puo' essere http://localhost:8080, non viene usato.
+   Il campo redirect uri può essere http://localhost:8080, non viene usato.
 2. Si copiano l'identificativo, che sta sotto il nome dell'applicazione, e il segreto.
 3. Si scrivono in .env nella radice del progetto, che il .gitignore esclude:
 
@@ -35,9 +35,9 @@ Uso
 
 Stato di collaudo
 -----------------
-Il flusso e' scritto sulla documentazione dell'API e non e' stato eseguito contro il
-servizio, perche' in questa sessione non esistono credenziali. Il percorso senza
-credenziali e' invece provato e riferisce le istruzioni. Alla prima esecuzione riuscita
+Il flusso è scritto sulla documentazione dell'API e non è stato eseguito contro il
+servizio, perché in questa sessione non esistono credenziali. Il percorso senza
+credenziali è invece provato e riferisce le istruzioni. Alla prima esecuzione riuscita
 va aggiornata questa nota e va aggiornata la voce di Reddit nel registro delle fonti.
 """
 
@@ -114,7 +114,7 @@ def api_get(path, token, agent, params=None):
 
 
 def normalize(target):
-    """Da un URL o da una forma abbreviata al percorso API, piu' il tipo di richiesta."""
+    """Da un URL o da una forma abbreviata al percorso API, più il tipo di richiesta."""
     target = target.strip()
     if target.startswith("http"):
         path = urllib.parse.urlparse(target).path

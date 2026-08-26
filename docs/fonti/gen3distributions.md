@@ -15,9 +15,9 @@ https://github.com/Goppier/GEN3PokemonDistributions
 
 Raccolta di cartucce di distribuzione per eventi di generazione 3, con la procedura operativa per usarle fra due console.
 
-## Perche' e' in archivio
+## Perché è in archivio
 
-Da' il dettaglio che al progetto mancava sul multiboot dal lato dell'utente: la console ricevente si accende tenendo premuti start e select finche' il logo Nintendo scompare, con il lato master del cavo nella console che invia.
+Dà il dettaglio che al progetto mancava sul multiboot dal lato dell'utente: la console ricevente si accende tenendo premuti start e select finché il logo Nintendo scompare, con il lato master del cavo nella console che invia.
 
 ## A quale punto del progetto serve
 
@@ -25,4 +25,4 @@ Da' il dettaglio che al progetto mancava sul multiboot dal lato dell'utente: la 
 
 ## Contesto
 
-Livello 3 di affidabilita' secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni e' [[index-fonti]].
+Livello 3 di affidabilità secondo la gerarchia di [[SOURCES]]. Track serviti: BRI. La mappa di tutte le fonti e delle loro relazioni è [[index-fonti]].
