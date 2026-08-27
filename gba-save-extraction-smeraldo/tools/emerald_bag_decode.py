@@ -397,7 +397,7 @@ def decode_pockets(sb1, key16, game):
                 anomalies.append("slot %d: id oggetto %d duplicato dello slot %d"
                                  % (i, item_id, seen[item_id]))
             seen[item_id] = i
-            slots.append({"slot": i, "id": item_id, "quantita": qty,
+            slots.append({"slot": i, "id": item_id, "quantità": qty,
                           "grezzo": raw_qty, "mascherato": masked})
         anomalies.extend(anomalie_di_categoria(nome, slots))
         chiave_dedotta = vuoti[0] if vuoti else None
@@ -544,7 +544,7 @@ def main():
             for v in p["voci"][:100]:
                 nota = "  (grezzo 0x%04X)" % v["grezzo"] if v["mascherato"] else ""
                 print("  slot %2d  id %4d  quantità %4d%s"
-                      % (v["slot"], v["id"], v["quantita"], nota))
+                      % (v["slot"], v["id"], v["quantità"], nota))
             for a in p["anomalie"]:
                 print("  ANOMALIA: " + a)
             totale_anomalie += len(p["anomalie"])

@@ -18,7 +18,7 @@ Proof of concept che fa scambiare Pokemon a un PC con Rosso Fuoco e Verde Foglia
 
 ## Perché è in archivio
 
-È il punto di partenza del track, e la sua tabella di compatibilità delle schede Wi-Fi è ciò che decide se il track sia praticabile su una macchina data: affidabili la ALFA AWUS036ACHM con driver mt76x0u e la Realtek RTL8821CE con rtw88_8821ce, inaffidabile la AMD RZ616 con mt7921e, e dichiaratamente problematiche la Intel AX200 con iwlwifi e l Atheros AR9271 con ath9k_htc, entrambe incapaci di ricevere un indirizzo. Il repository dichiara anche che la decompilazione pret/pokefirered comprende il port per Switch, e che il progetto e nato per dimostrare la possibilita di uno scambio non ufficiale.
+È il punto di partenza del track, e la sua tabella di compatibilità delle schede Wi-Fi è ciò che decide se il track sia praticabile su una macchina data: affidabili la ALFA AWUS036ACHM con driver mt76x0u e la Realtek RTL8821CE con rtw88_8821ce, inaffidabile la AMD RZ616 con mt7921e, e dichiaratamente problematiche la Intel AX200 con iwlwifi e l Atheros AR9271 con ath9k_htc, entrambe incapaci di ricevere un indirizzo. Il repository dichiara anche che la decompilazione pret/pokefirered comprende il port per Switch, e che il progetto e nato per dimostrare la possibilità di uno scambio non ufficiale.
 
 ## A quale punto del progetto serve
 

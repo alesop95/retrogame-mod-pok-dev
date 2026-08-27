@@ -52,19 +52,19 @@
 \usepackage[hidelinks,breaklinks=true]{hyperref}
 
 % --- Indirizzi lunghi che non escono dal margine --------------------------------
-% Per difetto \url non spezza un indirizzo, perche' un indirizzo interrotto puo' non
-% essere piu' copiabile. In bibliografia questo produce righe che sbordano di centimetri,
+% Per difetto \url non spezza un indirizzo, perché' un indirizzo interrotto può' non
+% essere più' copiabile. In bibliografia questo produce righe che sbordano di centimetri,
 % ed e' esattamente cio' che accadeva alle voci con l'indirizzo di un thread di forum. La
 % soluzione non e' accorciare gli indirizzi, che devono restare verificabili, ma
 % dichiarare dove l'interruzione e' lecita: dopo una barra, un trattino, un punto e gli
 % altri separatori che in un indirizzo non sono mai ambigui. Si aggiunge anche un po' di
-% elasticita' allo spazio interno, cosi' che la riga preferisca allungarsi invece di
+% elasticita' allo spazio interno, così' che la riga preferisca allungarsi invece di
 % sbordare.
 \usepackage{url}
 \Urlmuskip=0mu plus 1mu\relax
 \def\UrlBreaks{\do\/\do\-\do\_\do\.\do\?\do\=\do\&\do\%\do\+\do\:\do\~}
 \def\UrlBigBreaks{\do\/\do\:}
-% L'ultima difesa, per le righe che nemmeno cosi' rientrano: si concede al compositore di
+% L'ultima difesa, per le righe che nemmeno così' rientrano: si concede al compositore di
 % allargare gli spazi oltre il consueto prima di dichiarare una riga troppo piena.
 \setlength{\emergencystretch}{3em}
 

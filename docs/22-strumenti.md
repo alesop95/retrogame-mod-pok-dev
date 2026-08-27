@@ -1,7 +1,7 @@
 ---
 tipo: nota di studio
 livello: codice
-tags: [strumenti, script, riproducibilita]
+tags: [strumenti, script, riproducibilità]
 up: "[[index]]"
 vedi_anche: ["[[05-testo-e-charmap]]", "[[04-cifratura-gen3]]", "[[21-collaudo]]", "[[SOURCES]]"]
 ---

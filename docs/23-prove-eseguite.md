@@ -1,7 +1,7 @@
 ---
 tipo: nota di studio
 livello: codice
-tags: [prove, verifica, onesta, falsificabilita]
+tags: [prove, verifica, onesta, falsificabilità]
 up: "[[index]]"
 vedi_anche: ["[[21-collaudo]]", "[[22-strumenti]]", "[[20-architettura-codice]]", "[[SOURCES]]"]
 ---
