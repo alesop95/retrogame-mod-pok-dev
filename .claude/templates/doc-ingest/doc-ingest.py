@@ -11,7 +11,7 @@ della sorgente. Un manifest a content-hash (sha256) evita di riconvertire i file
 invariati tra una corsa e l'altra. Al termine rigenera _INDEX.md: lo scheletro di
 Livello 1 della disclosure progressiva descritta in ../../rules/token-economy.md,
 con titolo, albero delle intestazioni, conteggi (parole, tabelle, immagini) e stato
-di ciascun documento, cosi che un agente possa decidere cosa leggere per intero senza
+di ciascun documento, così che un agente possa decidere cosa leggere per intero senza
 aprire l'intero corpus.
 
 Motore di default: markitdown (MIT). Con --engine docling si usa Docling sui soli
@@ -93,7 +93,7 @@ def convert_with_ocr(path):
     except ImportError:
         raise RuntimeError(
             "Il flag --ocr richiede 'pytesseract' e 'pdf2image' "
-            "(pip install pytesseract pdf2image) piu' il binario di sistema "
+            "(pip install pytesseract pdf2image) più' il binario di sistema "
             "tesseract-ocr, non trovati nell'ambiente corrente."
         )
     pages = convert_from_path(str(path))
@@ -208,7 +208,7 @@ def run(source_dir, cache_dir, engine, ocr, force):
         else:
             try:
                 text, note = convert_file(path, engine, ocr)
-            except Exception as exc:  # qualunque libreria di conversione puo' fallire
+            except Exception as exc:  # qualunque libreria di conversione può' fallire
                 print(f"[errore] {source_rel}: {exc}", file=sys.stderr)
                 counts["errore"] += 1
                 continue

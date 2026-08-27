@@ -19,7 +19,7 @@ Server della community che sviluppa lo scambio via rete locale sui giochi di gen
 
 ## Perché è in archivio
 
-È la sola fonte che dice che cosa funziona davvero e perche, e ha corretto tre cose che il progetto dava per certe: che il chip degli adattatori della famiglia AC600 provati con successo e un RTL8821CU servito dal driver in albero e non un RTL8811AU, che il Wireless Adapter del Game Boy Advance non e 802.11 e va quindi emulato con un microcontrollore, e che l emulatore sulla console riproduce quel dispositivo ma non il cavo Link. Contiene inoltre il vincolo del Pokedex nazionale sul giocatore simulato, e la fotografia di una catena funzionante fra Game Boy Advance e Switch.
+È la sola fonte che dice che cosa funziona davvero e perché, e ha corretto tre cose che il progetto dava per certe: che il chip degli adattatori della famiglia AC600 provati con successo e un RTL8821CU servito dal driver in albero e non un RTL8811AU, che il Wireless Adapter del Game Boy Advance non è 802.11 e va quindi emulato con un microcontrollore, e che l emulatore sulla console riproduce quel dispositivo ma non il cavo Link. Contiene inoltre il vincolo del Pokedex nazionale sul giocatore simulato, e la fotografia di una catena funzionante fra Game Boy Advance e Switch.
 
 ## A quale punto del progetto serve
 

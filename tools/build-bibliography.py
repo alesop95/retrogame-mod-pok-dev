@@ -118,7 +118,7 @@ def genera(fonti):
     righe.append(r"\addcontentsline{toc}{chapter}{Bibliografia}")
     # A bandiera e non giustificato: su una voce breve che contiene un
     # indirizzo lungo la giustificazione e' precisamente cio' che spinge la
-    # riga fuori dal margine, perche' il compositore non ha spazi elastici a
+    # riga fuori dal margine, perché' il compositore non ha spazi elastici a
     # sufficienza per rientrare.
     righe.append(r"\raggedright")
     righe.append("")
