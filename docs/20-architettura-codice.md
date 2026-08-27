@@ -30,7 +30,7 @@ Il quinto strato è il trasporto, e questo sì, dipende dalla scelta fra le quat
 
 ## Perché l'ordine di costruzione conta
 
-C'è un vincolo di ordine che nasce dal formato e va rispettato anche nel codice, ed è descritto in [[04-cifratura-gen3]]: il valore di personalità è anche chiave di cifratura e selettore di permutazione, quindi va deciso prima di comporre la struttura. Uno scrittore che permette di cambiarlo dopo, invalidando silenziosamente il blocco già composto, è uno scrittore che produrrà Uova Difettose.
+C'è un vincolo di ordine che nasce dal formato e va rispettato anche nel codice, ed è descritto in [[04-cifratura-gen3]]: il valore di personalità è anche chiave di cifratura e selettore di permutazione, quindi va deciso prima di comporre la struttura. Uno scrittore che permette di cambiarlo dopo, invalidando silenziosamente il blocco già composto, è uno scrittore che produrrà Uova Peste.
 
 La conseguenza pratica è che il modello di generazione 3 non dovrebbe permettere di modificare il valore di personalità dopo la costruzione. Renderlo immutabile è una scelta di progettazione che chiude a chiave un intero genere di bug.
 

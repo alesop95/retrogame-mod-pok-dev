@@ -35,6 +35,6 @@ Termini che ricorrono in tutto il progetto, con il rimando alla nota che li trat
 | SRAM | Static Random Access Memory, la memoria volatile della cartuccia tenuta viva da una batteria. Vedi [[01-fondamenta-salvataggio]] |
 | Stat Experience | l'antenato degli EV nelle generazioni 1 e 2: un valore per statistica fino a 65535, senza tetto complessivo. Vedi [[06-identita-pokemon]] |
 | Time Capsule | l'unico meccanismo ufficiale di trasferimento fra generazione 1 e 2, e per questo progetto il precedente più utile perché è una conversione di formato leggibile nel disassemblato. Vedi [[08-cavo-link]] |
-| Uovo Difettoso | ciò in cui la generazione 3 trasforma un Pokemon il cui checksum non torna. Vedi [[04-cifratura-gen3]] |
+| Uovo Peste | ciò in cui la generazione 3 trasforma un Pokemon il cui checksum non torna. Vedi [[04-cifratura-gen3]] |
 | valore di personalità | numero da 32 bit introdotto in generazione 3, da cui derivano natura, sesso, abilità, forma e lucentezza, e che serve anche da chiave di cifratura. Vedi [[06-identita-pokemon]] |
 | Unown | specie le cui ventotto forme condividono un solo indice, con la lettera determinata dal valore di personalità. Vedi [[06-identita-pokemon]] |

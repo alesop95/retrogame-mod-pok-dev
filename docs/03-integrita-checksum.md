@@ -52,7 +52,7 @@ C'è un dettaglio che complica la vita a chi scrive un tool: il parametro `size`
 
 ## Il secondo livello di integrità: il singolo Pokemon
 
-Le tre protezioni di cui sopra riguardano il salvataggio nel suo insieme. In generazione 3 esiste un secondo livello, più fine e più feroce: ogni singolo Pokemon ha un proprio checksum a 16 bit che protegge i suoi 48 byte cifrati. Se non torna, il gioco non dichiara il salvataggio corrotto, ma trasforma quel Pokemon in un Uovo Difettoso, cioè un oggetto inerte che non si può usare, spostare o eliminare facilmente.
+Le tre protezioni di cui sopra riguardano il salvataggio nel suo insieme. In generazione 3 esiste un secondo livello, più fine e più feroce: ogni singolo Pokemon ha un proprio checksum a 16 bit che protegge i suoi 48 byte cifrati. Se non torna, il gioco non dichiara il salvataggio corrotto, ma trasforma quel Pokemon in un Uovo Peste, cioè un oggetto inerte che non si può usare, spostare o eliminare facilmente.
 
 Questa è la differenza pratica fra sbagliare un checksum di sezione e sbagliare un checksum di Pokemon: nel primo caso il gioco rifiuta il salvataggio e si conserva l'occasione di correggere il file, nel secondo caso accetta il salvataggio e distrugge un Pokemon in modo visibile. La procedura di quel calcolo sta in [[04-cifratura-gen3]], perché è inseparabile dalla cifratura.
 

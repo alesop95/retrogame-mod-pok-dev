@@ -10,7 +10,7 @@ vedi_anche: ["[[03-integrita-checksum]]", "[[06-identita-pokemon]]", "[[07-conve
 
 I 48 byte centrali di un Pokemon di generazione 3 sono cifrati e permutati. È l'unico caso di offuscamento in tutto il materiale che questo progetto tocca, e la prima cosa da capire è che non è crittografia nel senso della sicurezza: la chiave è scritta in chiaro nella stessa struttura, due campi più su. Chi ha il dato ha la chiave, sempre.
 
-Allora perché esiste. La ragione plausibile, e va detto che è una ricostruzione ragionevole e non una dichiarazione degli autori, è rendere fragile la manomissione invece che impedirla. Un dato cifrato con una chiave derivata dall'identità del Pokemon, e coperto da un checksum, non si modifica con un editor esadecimale a caso: qualunque byte cambiato senza ricalcolare tutto produce un Uovo Difettoso, cioè un fallimento immediato e visibile invece di un Pokemon leggermente alterato che circola per anni. Il formato non nasconde i dati, li rende scomodi da falsificare a mano.
+Allora perché esiste. La ragione plausibile, e va detto che è una ricostruzione ragionevole e non una dichiarazione degli autori, è rendere fragile la manomissione invece che impedirla. Un dato cifrato con una chiave derivata dall'identità del Pokemon, e coperto da un checksum, non si modifica con un editor esadecimale a caso: qualunque byte cambiato senza ricalcolare tutto produce un Uovo Peste, cioè un fallimento immediato e visibile invece di un Pokemon leggermente alterato che circola per anni. Il formato non nasconde i dati, li rende scomodi da falsificare a mano.
 
 ## Le tre operazioni, nell'ordine giusto
 
@@ -36,7 +36,7 @@ Il secondo passo è la permutazione. Il blocco decifrato contiene quattro sottos
 
 Il terzo passo è il checksum, che si calcola sul blocco decifrato e si confronta con quello memorizzato in chiaro nell'intestazione. Su questo punto le fonti secondarie sbagliano, e l'errore è del tipo che distrugge un Pokemon: una pagina enciclopedica descrive la somma come byte per byte. Il sorgente dice altro. La sottostruttura è una unione che espone anche `u16 raw[6]`, cioè sei parole da 16 bit, e `CalculateBoxMonChecksum` somma quelle parole per tutte e quattro le sottostrutture in un accumulatore a 16 bit, lasciando che l'aritmetica tronchi.
 
-In scrittura l'ordine è quindi: comporre le quattro sottostrutture, calcolarne il checksum, scriverlo nell'intestazione, permutare secondo il valore di personalità, cifrare. Chi calcola il checksum dopo aver cifrato ottiene un numero che non c'entra nulla, e il gioco produce un Uovo Difettoso.
+In scrittura l'ordine è quindi: comporre le quattro sottostrutture, calcolarne il checksum, scriverlo nell'intestazione, permutare secondo il valore di personalità, cifrare. Chi calcola il checksum dopo aver cifrato ottiene un numero che non c'entra nulla, e il gioco produce un Uovo Peste.
 
 ## Il vincolo nascosto: il valore di personalità decide troppe cose
 
