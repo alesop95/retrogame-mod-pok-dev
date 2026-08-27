@@ -1,0 +1,139 @@
+% =====================================================================
+% tesi/capitoli/19-collaudo.tex
+% =====================================================================
+% copre: docs/21-collaudo.md
+% copre: pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md#11-stato-delle-verifiche
+% copre: docs/23-prove-eseguite.md
+% ---------------------------------------------------------------------
+
+\chapter{Il collaudo: che cosa si prova su dati, su emulatore e soltanto su hardware}
+\label{cap:collaudo}
+
+Il progetto possiede una scheda dedicata al protocollo di verifica su hardware reale e una norma che pretende backup e rilettura. Questo capitolo si colloca un passo prima: stabilisce quanto lavoro sia verificabile senza giungere all'hardware, perché ogni difetto individuato prima è un difetto che non si paga su una cartuccia.
+
+\section{Tre livelli, e il criterio per collocare una prova}
+
+Il criterio è unico e si enuncia in una riga: una prova va eseguita al livello più economico che la possa falsificare. Salire di livello senza necessità non aggiunge fiducia, aggiunge rischio e tempo.
+
+Il primo livello è il collaudo su dati sintetici, che non richiede nulla oltre un interprete. Copre l'intero strato di lettura e scrittura e l'intero strato di conversione, cioè la maggior parte del codice. Il secondo livello è il collaudo su emulatore, che copre il protocollo del cavo contro un gioco reale. Il terzo è il collaudo su hardware, che copre soltanto ciò che i due precedenti non possono raggiungere.
+
+\section{Primo livello: dati sintetici, e la prova che vale più di tutte}
+
+La prova più forte per uno strato di lettura e scrittura è la simmetria: si legge una struttura, si riscrive, e i byte devono coincidere esattamente con quelli di partenza. Questa singola proprietà cattura un intero genere di errori, perché un offset sbagliato, un ordine di byte invertito, un campo di bit letto dalla finestra sbagliata o un checksum calcolato nel momento sbagliato la violano tutti. La sua efficacia deriva da una caratteristica strutturale: non verifica un valore atteso, che occorrerebbe conoscere, ma una relazione fra due operazioni, che si può verificare su ingressi arbitrari.
+
+Su questa proprietà occorre una precisazione tecnica che il caso della generazione 3 rende necessaria. Poiché il checksum è un dato derivato che lo scrittore ricalcola per impostazione predefinita, la simmetria byte per byte esige la possibilità di conservare il checksum letto anziché ricalcolarlo, altrimenti una struttura di partenza con un checksum errato produrrebbe una riscrittura legittimamente diversa. L'implementazione espone dunque quella possibilità come opzione esplicita, impiegata dalle prove di simmetria e non dall'uso ordinario, dove il ricalcolo è il comportamento corretto.
+
+Il collaudo dello strumento di diagnosi dello zaino, descritto nel capitolo~\ref{cap:smeraldo}, è un esempio di quanto renda questo livello, e vale esporlo perché il difetto che ha rivelato non era individuabile per lettura del codice. Il salvataggio di prova è stato costruito a mano, con una chiave nota, un valore di denaro noto e cinque anomalie deliberate, e la prima esecuzione ha rivelato un difetto autentico: lo strumento considerava vuoto uno slot con quantità zero, mentre in una tasca mascherata uno slot vuoto non presenta quantità zero, presenta la chiave. Su un salvataggio reale il difetto si sarebbe manifestato come una tasca colma di voci inesistenti, cioè come un falso positivo su ogni dato sano.
+
+Dal medesimo difetto è derivata una diagnostica aggiuntiva, e il modo in cui è derivata merita attenzione perché è un caso di conoscenza prodotta dal collaudo e non dalla progettazione: se uno slot vuoto contiene la chiave, allora la chiave si può ricavare da qualunque slot vuoto e confrontare con quella letta al proprio offset. Due vie indipendenti per il medesimo valore costituiscono una verifica gratuita, ed è il genere di proprietà che si individua soltanto collaudando.
+
+Per la conversione il primo livello assume una forma diversa, perché la conversione comporta scelte discutibili e non esiste un risultato unico corretto. La prova utile è allora la coerenza interna: dopo la conversione, la natura del risultato deve corrispondere a quella richiesta, il sesso a quello dell'originale, la lucentezza a quella dell'originale, e la struttura deve superare la propria verifica di checksum. Sono le medesime condizioni che il campionamento con rifiuto descritto nel capitolo~\ref{cap:conversione} impone in scrittura, impiegate qui come asserzioni in lettura.
+
+\section{Secondo livello: l'emulatore, che copre più di quanto si creda}
+
+L'avvertenza ripetuta in tutta la documentazione della comunità è che il ponte non si emula, ed è vera. Copre però uno scenario più stretto di quanto la formulazione suggerisca: ciò che non si emula è l'interazione fra Game Boy e Game Boy Advance.
+
+Il collegamento fra due Game Boy si emula invece correttamente. L'emulatore BGB espone il cavo su una connessione TCP con un protocollo documentato a pacchetti di otto byte, e l'implementazione degli scambi in rete si appoggia esattamente a quella interfaccia \cite{gambatte-gamelink,pokemongb-online}. Ne segue che si può collaudare, contro un gioco reale e senza console, l'intera negoziazione dei ruoli, la selezione della modalità, la sequenza dei tre blocchi, il preambolo, la lista di correzione e la validazione dei dati ricevuti.
+
+Una dipendenza non ovvia va dichiarata subito, perché altrimenti questo livello appare disponibile quando non lo è. Il confronto contro un gioco reale richiede la ROM di quel gioco, e ottenerla dentro il perimetro dichiarato significa produrre il dump di una cartuccia di proprietà, che richiede il lettore. Finché il lettore non è disponibile, il protocollo si può scrivere e provare soltanto per auto-consistenza, cioè facendo dialogare due istanze della propria implementazione: questo verifica che il codice sia coerente con sé stesso, non che sia conforme al gioco, ed è una prova debole che va chiamata con il proprio nome anziché contata fra quelle forti.
+
+Quando la ROM sarà disponibile il guadagno sarà considerevole, perché quello è anche lo strato in cui la diagnosi su hardware sarebbe più onerosa: su emulatore si possono registrare tutti i byte scambiati e confrontarli con quelli attesi, operazione che su due console reali richiederebbe un analizzatore logico.
+
+\section{Terzo livello: l'hardware, e l'ordine in cui affrontarlo}
+
+Restano all'hardware le operazioni che nessuno dei due livelli precedenti raggiunge: il multiboot, lo scambio a caldo della cartuccia e la scrittura effettiva sul salvataggio di generazione 3. La disciplina è quella della norma, e vale ripeterne il senso anziché la lettera. Il backup in doppia copia esiste perché l'operazione possiede una finestra di rischio reale, non perché la prudenza sia una virtù in astratto. La rilettura verificata esiste perché una scrittura dichiarata riuscita dal software può non essere permanuta sul chip, e il confronto si conduce sui byte e non sulla schermata di gioco.
+
+Esiste un ordine sensato anche dentro questo livello, e conviene rispettarlo perché discende da un principio di isolamento delle variabili. Anzitutto si verifica di poter leggere, cioè si produce il dump del salvataggio e lo si confronta con una seconda lettura. Poi si verifica di poter scrivere qualcosa di innocuo e di poterlo rileggere. Soltanto dopo si prova il trasferimento. Chi cominci dal trasferimento sta collaudando tre cose insieme e non saprà quale abbia fallito.
+
+\section{Che cosa non collaudare}
+
+Un'ultima nota riguarda un errore di metodo facile da commettere e difficile da individuare, perché produce una suite di prove che passa. Non ha senso collaudare la logica di conversione contro il risultato di uno strumento esistente, per esempio confrontando i propri risultati con quelli dell'implementazione di riferimento. Un'implementazione di riferimento incorpora scelte arbitrarie, come il caso speciale su impronte hash descritto nel capitolo~\ref{cap:conversione}, e una prova che pretenda l'identità con essa non verifica la correttezza: verifica la conformità a scelte di qualcun altro. Il confronto è utile come indagine, non come asserzione.
+
+
+\section{L'inventario delle verifiche, e la sua parte più utile}
+
+Questa sezione esiste perché la domanda corretta, davanti a un lavoro che dichiara di avere verificato molte cose, è sempre la medesima: verificato in quale modo, e con che cosa. In assenza di una risposta scritta, il termine verificato si degrada rapidamente fino a significare letto da qualche parte.
+
+Una precisazione di vocabolario va formulata subito, perché previene un fraintendimento sostanziale. Nulla di quanto segue è una simulazione nel senso dell'emulazione: non è stato eseguito alcun emulatore, non è stato eseguito alcun gioco, non è stato letto alcun salvataggio reale e non è stata toccata alcuna console. Le verifiche sono di due tipi soltanto, cioè lettura del codice sorgente dei giochi e prove di programma su dati costruiti a tavolino.
+
+\subsection{Il primo tipo: la lettura del sorgente}
+
+Il metodo è consistito nel clonare in superficie i repository rilevanti e nel cercare nel codice, anziché leggere descrizioni. La ragione per cui il clone prevale sulla lettura attraverso il web è che consente di cercare, di seguire una costante fino alla propria definizione e di contare i campi di una struttura, tre operazioni che una descrizione non permette.
+
+Da questa lettura provengono tutte le affermazioni delle parti seconda e terza di questo lavoro, e il progetto mantiene la corrispondenza fra ciascuna domanda e il file che ha risposto, perché un'affermazione priva del proprio punto di origine non si può ricontrollare. La forma delle strutture della generazione 1 proviene dalle macro del disassemblato e le lunghezze dichiarate dai suoi file di costanti; l'ordine dei nibble dei valori individuali e la derivazione del quinto dalla routine di calcolo delle statistiche di Cristallo; le tabelle dei caratteri dai rispettivi file di definizione; le strutture di invio, native e del Time Capsule, dalla dichiarazione della memoria di lavoro; le costanti del protocollo seriale dal proprio file dedicato; la dimensione del blocco di scambio dalla somma di costanti nel codice che lo trasmette; il meccanismo della lista di correzione dal ramo che confronta i byte; la struttura della generazione 3 e le sue sottostrutture dall'intestazione che le dichiara; cifratura e checksum dalle due routine che li calcolano; i settori del salvataggio con firma e checksum dai file di salvataggio; la chiave di cifratura e gli offset dello zaino dalle rispettive dichiarazioni. Dalla libreria di conversione provengono la generazione del valore di personalità e l'impiego dell'identificativo segreto per la lucentezza, e la ricerca dei quattro nomi dei metodi su tutto il repository ha stabilito che compaiono soltanto nella documentazione. Dallo strumento di trasferimento proviene la funzione che rivela l'invio del payload al posto della squadra.
+
+\subsection{Il secondo tipo: le prove di programma}
+
+Sono tre esecuzioni distinte, e conviene distinguerle perché possiedono forza diversa.
+
+La prima è la generazione delle tabelle dei caratteri. Lo strumento ha letto i due file di definizione dai cloni e ha prodotto i tre file descritti nel capitolo~\ref{cap:strumenti}, verificando otto valori di controllo prima di scrivere. Questa non è una prova di logica: è una prova che i dati a monte sono stati letti correttamente, ed è forte precisamente perché quei dati sono la definizione autorevole.
+
+La seconda è la diagnostica dello zaino, eseguita sul salvataggio sintetico descritto in apertura di questo capitolo, ed è quella che ha rivelato il difetto sugli slot vuoti.
+
+La terza è la suite del pacchetto del ponte, che alla corsa corrente conta centoquattordici prove ripartite su cinque moduli: diciassette sui primitivi, cioè interi big-endian, nibble dei valori individuali con la derivazione del quinto, byte dei punti potenza e array di nomi; quindici sulla generazione 1 e sedici sulla generazione 2, per strutture di box e di squadra, liste, casi costruiti a mano e percorsi di errore, con in più per la seconda i dati di cattura, il Pokérus, l'oggetto tenuto e la lucentezza ricavata dai valori individuali; quindici sulla transcodifica del testo; e cinquantuno sulla generazione 3, che è il modulo con il numero maggiore perché deve coprire cifratura, permutazione, checksum e i campi di bit della quarta sottostruttura.
+
+Dentro quelle prove esistono tre livelli di copertura, e la distinzione conta perché stabilisce che cosa ciascuna prova può falsificare.
+
+Le prove esaustive percorrono l'intero spazio possibile, e sono impiegate dove quello spazio è finito e piccolo: i duecentocinquantasei valori del byte dei punti potenza, le sessantacinquemilacinquecentotrentasei coppie di byte dei dati di cattura, e le sessantacinquemilacinquecentotrentasei combinazioni dei quattro valori individuali impiegate per contare quante producano un esemplare lucente. Quest'ultima non verifica il codice ma la comprensione della regola: il conteggio restituisce otto, e il rapporto fra lo spazio totale e quel valore riproduce la probabilità documentata. Se la regola fosse stata fraintesa, quel numero non tornerebbe.
+
+Le prove campionate con passo primo intervengono dove lo spazio è troppo ampio, e il passo primo evita di provare soltanto valori che condividano la medesima struttura binaria, che è l'errore tipico del campionamento a passo pari.
+
+Le prove casuali con seme fissato realizzano la proprietà portante, con cinquecento buffer per ciascuna forma di struttura. Il seme è dichiarato nel codice, dunque un fallimento è riproducibile e non capriccioso, che è la differenza fra una prova casuale utile e una che nessuno sa reinterpretare.
+
+\subsection{Che cosa la simmetria dimostra, e che cosa non dimostra}
+
+Questa sottosezione è la parte più utile dell'intero inventario, perché è la sola che dichiari il limite della prova su cui il lavoro poggia.
+
+La prova di simmetria stabilisce che leggere e riscrivere restituisce byte identici. Ne segue che il lettore e lo scrittore sono l'uno l'inverso dell'altro, che nessun campo viene perso, che nessun bit viene troncato, che l'ordine dei byte è coerente fra le due direzioni e che i campi non dichiarati, come il byte inutilizzato che la generazione 2 lascia in una posizione precisa, sopravvivono al percorso.
+
+Non stabilisce però nulla sull'identità dei campi. Se due campi della medesima larghezza fossero stati scambiati fra loro, per esempio i due campi di tipo oppure due delle cinque Stat Experience, la simmetria continuerebbe a valere perfettamente: si legge il primo nella posizione del secondo, si riscrive nella medesima posizione, e i byte tornano identici. La prova è invariante rispetto a una permutazione di etichette, e questo è un limite strutturale e non una dimenticanza.
+
+Contro quel limite esistono due difese, entrambe parziali. La prima è il caso costruito a mano, che assegna valori distinti e riconoscibili a offset specifici e verifica che escano dai campi corretti: copre gli offset scritti nella prova, non tutti. La seconda è che gli offset provengono dal disassemblato e non da una fonte secondaria, dunque un eventuale errore sarebbe di trascrizione e non della fonte.
+
+La difesa mancante è il confronto con un'implementazione indipendente, e su questo punto va corretta una valutazione precedente formulata in modo troppo pessimistico: non serve un salvataggio reale. Serve un salvataggio, e un salvataggio lo produce lo scrittore stesso. Si sintetizza un salvataggio con campi scelti in modo che ciascuno porti un valore distinto e riconoscibile, si apre con l'editor di riferimento e si confronta campo per campo ciò che esso dichiara con ciò che è stato scritto. Se due campi della medesima larghezza sono scambiati, l'editor mostra i valori invertiti e la permutazione diviene visibile.
+
+È una prova di conformità contro un'implementazione indipendente, costa poco e non richiede alcun hardware, dunque precede il resto e non lo segue. Resta un'incognita dichiarata: l'editor valida il salvataggio prima di aprirlo, e un salvataggio sintetico potrebbe essere rifiutato per campi non popolati. Qualora accadesse, la via di riserva è popolare quei campi finché il file superi la validazione, che è comunque informazione utile su ciò che il formato richiede effettivamente.
+
+\subsection{Che cosa non è stato verificato affatto}
+
+Questo elenco è importante quanto il precedente, e va mantenuto aggiornato anziché dimenticato. Non è stata compiuta alcuna lettura di un salvataggio reale, di qualunque generazione, perché manca il lettore. Non è stato compiuto il confronto dell'interpretazione dei campi con un editor indipendente, ed è il prossimo controllo in ordine di convenienza. Il protocollo del cavo non è stato provato in esecuzione, perché il codice non esiste ancora, e con esso non è stato compiuto il collaudo su emulatore, che è possibile e documentato ma non è stato eseguito. Il payload di esecuzione di codice non è stato costruito né provato. Il multiboot e lo scambio a caldo non sono stati provati, perché richiedono hardware. Gli offset dello zaino per due dei titoli sono dichiarati non verificati dallo strumento stesso. E gli offset dei salvataggi della generazione 2 per lingue diverse dall'inglese restano fuori dalla portata dei disassemblati disponibili.
+
+\subsection{Il metodo, in una proposizione}
+
+Le prove di programma verificano la coerenza interna di ciò che è stato scritto; la lettura del sorgente verifica che ciò che è stato scritto corrisponda al gioco; e nessuna delle due sostituisce il confronto con un dato reale, che resta l'unica prova che chiude il cerchio. Mantenere separate le tre cose è ciò che consente di impiegare il termine verificato senza doverne attenuare il significato.
+
+\section{Lo stato delle verifiche}
+
+Il progetto mantiene una tabella dello stato delle verifiche, il cui contenuto è precisamente la dichiarazione di che cosa sia stato chiuso e su quale fonte, e di che cosa resti aperto e per quale ragione. Nessuno dei punti aperti alla prima stesura resta aperto per inerzia: sono stati chiusi leggendo i sorgenti. La tabella~\ref{tab:verifiche} riporta lo stato al 26 agosto 2026.
+
+\begin{longtable}{@{}p{5.2cm}p{9.2cm}@{}}
+\caption{Stato delle verifiche dei punti tecnici del progetto.}\label{tab:verifiche}\\
+\toprule
+Punto & Esito \\
+\midrule
+\endfirsthead
+\toprule
+Punto & Esito \\
+\midrule
+\endhead
+Ordine dei nibble dei valori individuali in generazione 1 e 2 & chiuso su \file{CalcMonStatC}: Attacco e Difesa nel primo byte, Velocità e Speciale nel secondo, con la derivazione del quinto scritta come commento nel sorgente \\
+Somma del checksum di generazione 3 & chiuso: la routine somma sei parole da sedici bit per sottostruttura in un accumulatore a sedici bit, non byte per byte come afferma l'enciclopedia \\
+Chiave di cifratura di generazione 3 & chiuso: ciascuna delle dodici parole è posta in XOR con il valore di personalità e con l'identificativo dell'allenatore \\
+Dimensione della struttura di scambio di generazione 1 & chiuso: quattrocentoventiquattro byte sul filo, quattrocentodiciotto di dati, dalla somma di costanti \\
+Struttura di scambio in generazione 2 & chiuso: quattrocentocinquanta byte nativi, più una struttura Time Capsule da quattrocentoventiquattro che riusa la macro della generazione 1, più un blocco separato per la posta \\
+Meccanismo della lista di correzione & chiuso: sostituzione del valore riservato e registrazione dell'indice, con divisione in due parti perché un indice collide con il preambolo \\
+Ruolo dell'identificativo segreto per la lucentezza & chiuso: è impiegato esattamente come variabile libera, come ipotizzato \\
+Metodi dichiarati dall'implementazione di riferimento & chiuso: i quattro nomi esistono soltanto nella documentazione, il codice implementa il comportamento di uno solo \\
+Preparazione dell'esecuzione di codice nello strumento di riferimento & chiuso: nessuna preparazione lato giocatore, il payload viaggia sul cavo al posto della squadra \\
+Chiave di sicurezza degli oggetti in Smeraldo & chiuso: chiave a \hx{AC} nella prima sezione, maschera applicata allo zaino e non al deposito \\
+Blocchi da duecento byte nell'invio della squadra di generazione 3 & chiuso sul sorgente: la macchina a stati chiama tre volte la richiesta di blocco, e ciascun passaggio copia due strutture verso posizioni alterne; segue un quarto blocco con la posta, dimensionato con quattro byte aggiuntivi che nemmeno il commento nel sorgente sa spiegare \\
+Sezione del salvataggio impiegata dallo strumento di riferimento & chiuso sui due disassemblati: il settore impiegato non è vuoto, contiene i dati di una struttura secondaria; scrivere il payload in quella posizione è dunque una scelta consapevole che sacrifica dati non essenziali \\
+Offset del salvataggio di generazione 2 per lingue diverse dall'inglese & aperto: i disassemblati coprono inglese e giapponese, per le altre lingue serve un dump reale \\
+Dimensione esatta del blocco di posta di generazione 2 & aperto: dipende da una costante non calcolata, irrilevante finché la posta resta esclusa dal trasferimento \\
+Tabella completa dagli indici interni di generazione 1 ai numeri nazionali & aperto: da generare dal disassemblato, non da trascrivere \\
+Dimensione della lista della squadra di generazione 1 & chiuso scrivendo il codice: quattrocentoquattro byte, e non il valore che una fonte secondaria riportava confondendo la base di numerazione \\
+Comunicazione diretta fra Game Boy Advance e giochi di generazione 2 sul cavo originale & aperto: una fonte mostra una realizzazione funzionante e la dichiara possibile, ma non pubblica codice né dettagli; se confermata, modifica il confronto fra le opzioni \\
+\bottomrule
+\end{longtable}
+
+Fra i punti aperti, tre richiedono materiale che non è pubblico o che non è ancora disponibile al progetto, e sono dichiarati come tali. La regola che li governa è che non entrano in codice finché non sono verificati, ed è la medesima regola che ha condotto a classificare come derivazione, e non come fatto, la conversione dei valori di allenamento esposta nel capitolo~\ref{cap:conversione}.

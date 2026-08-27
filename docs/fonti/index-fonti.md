@@ -55,6 +55,8 @@ graph LR
 | [[copetti]] | BRI | [[10-multiboot-hardware]] |
 | [[kinnay-ldn]] | LDN | [[04-cifratura-gen3]] |
 | [[ldnd]] | LDN | [[11-wireless-locale-e-ponte-switch]] |
+| [[pokeyellow]] | BRI | [[12-analisi-quantitativa]] |
+| [[pokegold]] | BRI | [[DATA-FORMATS_Gen1-Gen2-Gen3]] |
 
 ### Livello 2
 
@@ -87,6 +89,7 @@ graph LR
 | [[ldn-mitm]] | LDN | [[06-identita-pokemon]] |
 | [[switch-lan-play]] | LDN | [[06-identita-pokemon]] |
 | [[pokemon-automation]] | AUT, LDN | [[30-opzioni-implementative]] |
+| [[pokerom-trader]] | BRI | [[30-opzioni-implementative]] |
 
 ### Livello 4
 
@@ -97,6 +100,10 @@ graph LR
 | [[pmr-discord]] | LDN, BRI | [[11-wireless-locale-e-ponte-switch]], [[30-opzioni-implementative]] |
 | [[gcri-discord]] | BRI | [[09-esecuzione-codice]], [[05-testo-e-charmap]] |
 | [[gbatemp-vc-save]] | 3DS | [[01-fondamenta-salvataggio]] |
+| [[video-goppier]] | BRI | [[08-cavo-link]], [[30-opzioni-implementative]] |
+| [[video-trascritti]] | BRI, SME, 3DS, LDN | [[21-collaudo]], [[24-fonti-di-community]] |
+| [[retroreversing]] | BRI | [[08-cavo-link]] |
+| [[hackaday-ponte]] | BRI | [[30-opzioni-implementative]] |
 
 ### Livello 5
 
@@ -104,3 +111,4 @@ graph LR
 |---|---|---|
 | [[gambatte-gamelink]] | BRI | [[21-collaudo]] |
 | [[projectpokemon]] | SME, BRI | [[22-strumenti]] |
+| [[gbatemp-smeraldo]] | SME | [[01-fondamenta-salvataggio]], [[22-strumenti]] |

@@ -250,7 +250,7 @@ def test_cli():
         report(read(os.path.join(protetto, 'intoccabile.md')) == prima,
                'il marcatore vale anche sul file passato per nome', out)
 
-        # --only-tracked: fuori da un repository git nessun file e' tracciato,
+        # --only-tracked: fuori da un repository git nessun file è tracciato,
         # quindi nulla viene scritto e tutto viene dichiarato.
         shutil.copy(os.path.join(FIXTURES, 'citazione', 'input.md'),
                     os.path.join(tmp, 'senza-git.md'))

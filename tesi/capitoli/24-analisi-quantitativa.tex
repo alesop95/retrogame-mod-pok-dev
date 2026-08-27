@@ -1,0 +1,222 @@
+% =====================================================================
+% tesi/capitoli/24-analisi-quantitativa.tex
+% =====================================================================
+% copre: docs/12-analisi-quantitativa.md
+% ---------------------------------------------------------------------
+
+\chapter{Analisi quantitativa dei meccanismi}
+\label{cap:analisi}
+
+I capitoli precedenti descrivono i meccanismi e ne spiegano il funzionamento. Questo capitolo compie un'operazione diversa e complementare: li misura. Prende i medesimi meccanismi e ne calcola le grandezze che decidono se funzionano, quanto costano e che cosa perdono, con gli strumenti che si applicherebbero a qualunque sistema di trasmissione e di elaborazione dell'informazione.
+
+La ragione per cui l'operazione non è ornamentale sta nel tipo di conclusioni che produce. Una descrizione qualitativa afferma che un checksum a otto bit protegge meno di uno a sedici; la misura stabilisce quanto, e quel quanto cambia la decisione su che cosa fidarsi. Una descrizione afferma che la conversione dell'allenamento perde informazione; il calcolo stabilisce quanti bit, e soprattutto dimostra che la perdita è imposta dal formato di destinazione e non dalla formula scelta, il che sposta la questione dal terreno dell'implementazione a quello della specifica. In tre punti di questo capitolo un limite comunemente attribuito all'implementazione si rivela appartenere al formato, e un limite del formato non si risolve scrivendo codice migliore: si dichiara e si governa con una politica.
+
+Sulla natura di quanto segue va formulata un'avvertenza. I numeri sono calcolati e non stimati, e il programma che li produce risiede in \file{tools/analisi-quantitativa.py}, cosicché ciascuno sia riproducibile e correggibile anziché essere una cifra da credere. Dove un valore poggia su un'assunzione, l'assunzione è dichiarata nel punto in cui serve; dove il risultato è una derivazione condotta in questo lavoro e non una formula pubblicata, è marcato come tale con la disciplina stabilita nel capitolo~\ref{cap:conversione}.
+
+\section{Il checksum come codice rilevatore d'errore}
+
+Un checksum a $n$ bit è un codice rilevatore, e la grandezza che lo caratterizza è la probabilità che un'alterazione del messaggio passi inosservata. Sotto l'assunzione che un'alterazione produca un valore di checksum uniformemente distribuito sui $2^n$ possibili, quella probabilità è
+\[
+P_{\text{non rilevato}} = 2^{-n},
+\]
+ed è un limite che nessuna scelta di algoritmo additivo migliora.
+
+Sui tre casi di questo lavoro le cifre sono le seguenti. Il checksum a otto bit della generazione 1 lascia passare un'alterazione su $256$, cioè con probabilità $3{,}9 \cdot 10^{-3}$. I checksum a sedici bit della generazione 2 e delle strutture della generazione 3 lasciano passare un'alterazione su $65\,536$, cioè con probabilità $1{,}5 \cdot 10^{-5}$. Il rapporto fra i due non è di grado ma di ordine di grandezza: duecentocinquantasei volte.
+
+Esiste però una proprietà del checksum additivo che questo conto non cattura, e che è più significativa del conto stesso perché individua un intero genere di alterazioni contro cui la protezione è nulla anziché piccola. La somma è commutativa, dunque il checksum è invariante rispetto a qualunque permutazione degli addendi. Le sei parole da sedici bit di una sottostruttura della generazione 3 ammettono $6! = 720$ riordini, e tutti producono il medesimo checksum: un blocco le cui parole fossero permutate supererebbe la verifica con certezza, non con probabilità $2^{-16}$.
+
+Vale registrare che questa è esattamente la medesima cecità che il capitolo~\ref{cap:collaudo} attribuisce alla prova di simmetria fra lettura e scrittura, la quale è invariante rispetto a una permutazione di etichette. Le due invarianze hanno la medesima origine, cioè un'operazione che non distingue l'ordine dei propri operandi, e la conseguenza è che le due difese non si coprono a vicenda: né il checksum né la prova di simmetria rileverebbero uno scambio fra due campi della medesima larghezza. È la ragione per cui la terza difesa, cioè il confronto con un'implementazione indipendente, non è ridondante rispetto alle prime due.
+
+\subsection{Perché una somma e non un CRC}
+
+La domanda naturale, per chi ha presente la teoria dei codici, è per quale ragione quei giochi impieghino una somma anziché un CRC\footnote{\term{CRC}, Cyclic Redundancy Check: codice rilevatore d'errore fondato sulla divisione polinomiale in aritmetica binaria, che a differenza di una somma rileva con certezza tutti gli errori a raffica non più lunghi del proprio grado e non è invariante per permutazione.}. La risposta è il costo di calcolo su quell'hardware, e si può quantificare.
+
+Il checksum principale di Cristallo copre $2\,938$ byte, dai byte \hx{2009} a \hx{2B82}. Sul processore Sharp LR35902, che opera a $4{,}194$~MHz, un ciclo di somma con caricamento e incremento del puntatore costa dell'ordine di sedici cicli per byte, un CRC realizzato con tabella di duecentocinquantasei voci circa ventiquattro, e un CRC calcolato bit per bit dell'ordine di centotrenta. Ne seguono, per l'intero blocco, i tempi della tabella~\ref{tab:crc}.
+
+\begin{table}[htbp]
+\centering
+\caption{Costo di calcolo del checksum di Cristallo sui $2\,938$ byte coperti.}\label{tab:crc}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Algoritmo & Cicli per byte & Cicli totali & Tempo \\
+\midrule
+Somma a otto bit & 16 & 47\,008 & 11,2 ms \\
+CRC con tabella & 24 & 70\,512 & 16,8 ms \\
+CRC bit per bit & 130 & 381\,940 & 91,1 ms \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+I valori di cicli per byte sono stime d'ordine di grandezza e non conteggi su codice reale, e vanno letti come tali; il rapporto fra i tre, invece, è robusto rispetto all'errore sulla singola stima. La conclusione è che il CRC tabellare non era proibitivo in tempo, ma costava duecentocinquantasei byte di ROM e un algoritmo ulteriore da scrivere e collaudare, mentre quello bit per bit avrebbe introdotto un ritardo percepibile in un'operazione che il giocatore compie continuamente. La somma non è dunque una scelta ingenua: è il punto di un compromesso in cui il costo stava tutto da un lato e il beneficio era piccolo, perché il canale contro cui difendersi non era un canale rumoroso ma una batteria che si esaurisce.
+
+\section{La cifratura misurata contro il criterio di Shannon}
+
+Il capitolo~\ref{cap:cifratura} afferma che il meccanismo della generazione 3 non costituisce sicurezza. L'affermazione si può rendere precisa, e la forma precisa è più forte di quella qualitativa.
+
+Il cifrario è $c = m \oplus k$, cioè un cifrario di Vernam. Il criterio di sicurezza perfetta stabilisce che un cifrario di questa forma non rivela alcuna informazione sul messaggio se e soltanto se la chiave è uniformemente distribuita, indipendente dal messaggio, di lunghezza almeno pari a quella del messaggio e impiegata una sola volta. Qui il messaggio è di $384$ bit, cioè quarantotto byte, e la chiave è di $32$ bit: il tasso di chiave è
+\[
+\frac{32}{384} = \frac{1}{12},
+\]
+dunque la condizione sulla lunghezza è violata di un fattore dodici, perché la medesima chiave copre dodici parole consecutive.
+
+Da questa violazione segue un risultato standard e verificabile. Per due parole qualunque del blocco vale
+\[
+c_i \oplus c_j = (m_i \oplus k) \oplus (m_j \oplus k) = m_i \oplus m_j,
+\]
+perché la chiave si elide. Il testo cifrato rivela dunque lo XOR di ogni coppia di parole in chiaro, e le coppie confrontabili sono $\binom{12}{2} = 66$. Chi possiede il solo testo cifrato conosce già le differenze fra tutte le parole del blocco, senza conoscere la chiave.
+
+\begin{daverificare}
+Il passo successivo è una derivazione condotta in questo lavoro e non una tecnica riportata da una fonte. La sottostruttura della crescita termina con due byte di riempimento che valgono zero, e quei due byte occupano metà di una parola da trentadue bit. Su quella parola vale allora $c = m \oplus k$ con sedici bit di $m$ noti, dunque sedici bit della chiave si leggono direttamente dal testo cifrato. Poiché i due byte adiacenti, che portano amicizia e bonus ai punti potenza, hanno entropia molto bassa, la restante metà della chiave è ricavabile per enumerazione dei pochi valori plausibili. La conseguenza è che la chiave sarebbe recuperabile anche se non fosse scritta in chiaro nella struttura: il fatto che vi sia scritta non è la sola ragione per cui il meccanismo non protegge nulla.
+\end{daverificare}
+
+Sulla permutazione delle sottostrutture il conto è immediato e chiude la questione. Le ventiquattro permutazioni portano
+\[
+H(\Pi) = \log_2 24 = 4{,}585 \text{ bit}
+\]
+di informazione, ma la permutazione è una funzione del valore di personalità, cioè è interamente determinata da un campo che risiede in chiaro nella medesima struttura. L'informazione mutua fra la permutazione e il valore di personalità coincide dunque con l'entropia della permutazione, e l'incertezza residua di chi osserva, dato il valore di personalità, è esattamente nulla:
+\[
+H(\Pi \mid PV) = H(\Pi) - I(\Pi; PV) = 0.
+\]
+
+\subsection{La tabella di permutazione è il codice di Lehmer}
+
+Il capitolo~\ref{cap:cifratura} riporta la tabella delle ventiquattro permutazioni verbatim dal sorgente e osserva di passaggio che la sequenza corrisponde all'ordinamento lessicografico. L'osservazione si può dimostrare, e la dimostrazione ha valore pratico perché sostituisce una tabella da trascrivere con un algoritmo da verificare.
+
+Il \term{codice di Lehmer} di un indice $i$ compreso fra $0$ e $n! - 1$ si ottiene dalla scomposizione in base fattoriale
+\[
+i = \sum_{k=0}^{n-1} a_k \cdot (n-1-k)!, \qquad 0 \le a_k \le n-1-k,
+\]
+e la permutazione di indice $i$ nell'ordine lessicografico si costruisce prelevando ripetutamente dalla lista degli elementi rimanenti quello in posizione $a_k$.
+
+Applicato ai quattro elementi nell'ordine G, A, E, M, l'algoritmo riproduce la tabella del gioco su tutti e ventiquattro gli indici, e la verifica è stata condotta esaustivamente e non su un campione. Tre casi rendono visibile il meccanismo. Per $i = 5$ la scomposizione è $5 = 0 \cdot 6 + 2 \cdot 2 + 1 \cdot 1$, dunque si preleva l'elemento in posizione zero di $[G,A,E,M]$, che è G, poi quello in posizione due di $[A,E,M]$, che è M, poi quello in posizione uno di $[A,E]$, che è E, e resta A: si ottiene GMEA, che è quanto la tabella~\ref{tab:perm} riporta. Per $i = 12$ la scomposizione è $2 \cdot 6 + 0 \cdot 2 + 0 \cdot 1$ e si ottiene EGAM. Per $i = 23$, cioè l'ultimo indice, la scomposizione è $3 \cdot 6 + 2 \cdot 2 + 1 \cdot 1$ e si ottiene MEAG.
+
+La conseguenza operativa riguarda la scelta fra tabulare e calcolare, che il capitolo~\ref{cap:cifratura} attribuisce all'implementazione di riferimento. Le due vie sono equivalenti nel risultato, e la scelta fra esse non è di correttezza ma di verificabilità: una tabella si verifica per confronto diretto con la fonte, che è un controllo semplice da ripetere ventiquattro volte, mentre un algoritmo si verifica con una prova esaustiva sui ventiquattro indici, che si scrive una volta e si esegue in un istante. Questo lavoro ha adottato la tabella nella referenza, per fedeltà alla fonte, e la dimostrazione qui condotta come controllo indipendente.
+
+\section{Il campionamento con rifiuto: quante iterazioni servono}
+
+Il capitolo~\ref{cap:conversione} descrive la generazione del valore di personalità come un problema di soddisfacimento di vincoli risolto per campionamento con rifiuto, e osserva che il metodo è inefficiente in teoria e adeguato in pratica. Il conto rende quantitativa quella adeguatezza, e individua anche un caso in cui l'indipendenza dei vincoli, che si tende a dare per scontata, non vale.
+
+Il numero di iterazioni di un campionamento con rifiuto è una variabile aleatoria geometrica di parametro $p$, dove $p$ è la probabilità che un candidato soddisfi tutti i vincoli congiuntamente:
+\[
+E[N] = \frac{1}{p}, \qquad \sigma_N = \frac{\sqrt{1-p}}{p} \approx \frac{1}{p}.
+\]
+Il costo è dunque altamente variabile, con deviazione standard dell'ordine del valore atteso, e questo è un fatto da conoscere prima di misurare un tempo su una singola esecuzione.
+
+Il calcolo di $p$ richiede attenzione all'indipendenza. La natura è il valore di personalità modulo venticinque, lo slot di abilità è il bit meno significativo, cioè il valore modulo due, e il sesso confronta il byte meno significativo, cioè il valore modulo duecentocinquantasei, con la soglia della specie. Poiché $\gcd(25, 256) = 1$, il teorema cinese del resto garantisce che la natura sia indipendente dalla coppia formata da sesso e abilità. Fra sesso e abilità, invece, l'indipendenza non vale, perché entrambi sono funzioni del medesimo byte: il sesso ne è una soglia e l'abilità la parità, e le due vanno contate congiuntamente anziché moltiplicate.
+
+\begin{table}[htbp]
+\centering
+\caption{Iterazioni attese del campionamento con rifiuto, per rapporto di sesso della specie.}\label{tab:rifiuto}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Caso & $p$ tipico & $E[N]$ & $p$ peggiore & $E[N]$ peggiore \\
+\midrule
+Rapporto 1:1, soglia 127 & 0,01000 & 100 & 0,00984 & 102 \\
+Rapporto 7:1, soglia 31 & 0,01750 & 57 & 0,00234 & 427 \\
+Rapporto 1:7, soglia 225 & 0,00234 & 427 & 0,00234 & 427 \\
+Unown, con la lettera & \multicolumn{2}{r}{$3{,}57 \cdot 10^{-4}$} & \multicolumn{2}{r}{2\,800} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+La conclusione è che il caso peggiore fra quelli reali richiede alcune migliaia di iterazioni di aritmetica intera, cioè un tempo che resta sotto il millisecondo su qualunque processore coinvolto in questo lavoro, compreso quello del Game Boy Advance. Il metodo è dunque adeguato con un margine di tre ordini di grandezza, e la sua sostituzione con una costruzione bit per bit, che il capitolo~\ref{cap:conversione} giudica più fragile, non acquisterebbe nulla di misurabile. È il genere di conclusione che soltanto una misura consente: non che il metodo sia accettabile, ma che l'alternativa non abbia alcun vantaggio da opporre alla propria fragilità.
+
+\section{La lucentezza: probabilità e soddisfacibilità garantita}
+
+La condizione di lucentezza della generazione 3 richiede che lo XOR fra identificativo visibile, identificativo segreto e le due metà del valore di personalità sia minore di otto. Per valori uniformi il risultato dello XOR è uniforme sui $2^{16}$ valori a sedici bit, e i valori minori di otto sono otto:
+\[
+P(\text{lucente}) = \frac{8}{65\,536} = \frac{1}{8\,192},
+\]
+che coincide con il valore documentato per quella generazione e costituisce dunque una verifica indipendente della lettura della formula.
+
+Sul grado di libertà individuato nel capitolo~\ref{cap:conversione} il conto afferma qualcosa di più forte della semplice esistenza. Lo XOR è una biiezione in ciascuno dei propri argomenti, dunque fissati l'identificativo visibile e il valore di personalità esistono esattamente otto valori dell'identificativo segreto che soddisfano la condizione, e almeno uno esiste sempre. La soddisfacibilità del vincolo di lucentezza non è quindi probabile ma certa, e questa proprietà rende la scelta di quell'implementazione non un espediente fortunato ma una soluzione completa.
+
+\section{La conversione dell'allenamento come quantizzazione con saturazione}
+
+La conversione derivata nel capitolo~\ref{cap:conversione}, cioè
+\[
+EV = \min\left(252,\ \left\lfloor \sqrt{StatExp} \right\rfloor\right),
+\]
+è un quantizzatore, e conviene analizzarla come tale perché la sua caratteristica non uniforme spiega dove la perdita si concentra.
+
+I livelli in ingresso sono $65\,536$ e quelli in uscita $253$, dunque l'entropia dell'ingresso è al più sedici bit e quella dell'uscita al più $\log_2 253 = 7{,}98$ bit: la perdita nominale è di circa otto bit per statistica. Il quantizzatore inverso è $StatExp = EV^2$, e l'ampiezza del gradino fra due livelli consecutivi è
+\[
+\Delta_k = (k+1)^2 - k^2 = 2k + 1,
+\]
+che vale una unità in fondo alla scala e $503$ unità in cima. La risoluzione è dunque finissima in basso e grossolana in alto, che è la forma corretta per una grandezza il cui effetto passa attraverso una radice quadrata, e non costituisce un difetto della formula ma la sua proprietà desiderabile.
+
+La perdita nominale, però, non è la perdita rilevante, e la distinzione è il punto di questa sezione. Il contributo dell'allenamento alla statistica finale satura a sessantatré punti, cioè assume sessantaquattro valori distinti, che sono sei bit. Tutto ciò che si perde oltre quei sei bit è informazione che nessuna statistica osserva, dunque la conversione è esatta rispetto a ciò che il gioco calcola pur essendo con perdita rispetto al valore memorizzato. Ne segue anche la sorte dell'intervallo fra $63\,504$ e $65\,535$, che comprende $2\,032$ valori, cioè il $3{,}1$ per cento dello spazio di ingresso: quei valori sono tutti indistinguibili nel proprio effetto, e la loro perdita non è osservabile.
+
+\subsection{Il tetto complessivo, e la dimostrazione che la fedeltà è impossibile}
+
+Sul vincolo di somma il conto trasforma un'osservazione in un teorema, e vale condurlo perché sposta la responsabilità dal convertitore al formato.
+
+Lo spazio di partenza è il prodotto di cinque valori a sedici bit, cioè $65\,536^5 \approx 1{,}21 \cdot 10^{24}$ configurazioni, ottanta bit. Lo spazio di arrivo è l'insieme dei punti a coordinate intere del politopo
+\[
+\mathcal{P} = \left\{ (x_1, \dots, x_6) \in \mathbb{Z}^6 : 0 \le x_i \le 252,\ \sum_{i=1}^{6} x_i \le 510 \right\},
+\]
+la cui cardinalità, contata per inclusione ed esclusione, è
+\[
+|\mathcal{P}| = \sum_{j \ge 0} (-1)^j \binom{6}{j} \binom{510 - j \cdot 253 + 6}{6} \approx 2{,}29 \cdot 10^{13},
+\]
+cioè $44{,}4$ bit.
+
+Poiché lo spazio di arrivo è più piccolo di quello di partenza di un fattore $5{,}3 \cdot 10^{10}$, nessuna funzione dal primo al secondo può essere iniettiva: la perdita di circa $35{,}6$ bit non dipende dalla formula scelta ma è imposta dalla cardinalità della destinazione. Ne segue che la conversione fedele delle statistiche è impossibile in senso stretto, e che ogni implementazione deve scegliere quali configurazioni collassare. La cifra che rende concreto il vincolo è che cinque statistiche al massimo darebbero $5 \cdot 252 = 1\,260$ unità contro un tetto di $510$, cioè un eccesso del centoquarantasette per cento.
+
+La conclusione operativa è quella già enunciata nel capitolo~\ref{cap:conversione}, ma qui possiede un fondamento diverso: la politica per il caso di sforamento non è un dettaglio implementativo lasciato aperto per trascuratezza, è la scelta di una fra molte proiezioni possibili su un insieme che non può contenere il dominio. Chiamarla parametro dello strato di conversione, come fa il capitolo~\ref{cap:ponte}, è la conseguenza corretta di questo conto.
+
+\section{Il cavo Link come canale, e la lista di correzione come byte stuffing}
+
+Il protocollo del cavo si presta a un'analisi da canale di trasmissione, e da quell'analisi emerge la ragione ingegneristica di una scelta che il capitolo~\ref{cap:cavo} descrive come necessaria senza dimostrare perché lo sia.
+
+Sulla banda le cifre sono le seguenti. Il clock interno del Game Boy monocromatico è di $8\,192$~Hz, cioè $1\,024$ byte al secondo; quello del Color arriva a $524\,288$~Hz; il clock esterno massimo dichiarato per il monocromatico è di $500$~kHz, cioè $62\,500$ byte al secondo. Il rapporto fra il clock esterno massimo e quello interno è di sessantuno volte, e questa è la misura del guadagno che un dispositivo esterno ottiene per il solo fatto di fornire il clock, senza alcuna modifica al protocollo.
+
+Sul tempo di uno scambio, il blocco di scambio è di $424$ byte sul filo e la lista di correzione di $200$, per $624$ byte complessivi. A clock interno il solo blocco di scambio richiede $414$~ms e i due insieme $609$~ms, cioè oltre mezzo secondo; a $500$~kHz i due insieme richiedono $10$~ms. L'efficienza di trama, cioè il rapporto fra i $418$ byte di dati utili e i $624$ trasmessi, è del $67$ per cento.
+
+\subsection{Perché una lista a lunghezza fissa e non lo stuffing}
+
+Il meccanismo della lista di correzione risolve il problema classico di un canale che riserva alcuni simboli del proprio alfabeto al controllo, e la soluzione usuale a quel problema è il \term{byte stuffing}, cioè la sostituzione del simbolo riservato con una sequenza di fuga.
+
+Il confronto quantitativo fra le due soluzioni è netto e apparentemente sfavorevole a quella adottata. Con un solo valore riservato su duecentocinquantasei e $418$ byte di dati, il numero atteso di occorrenze è
+\[
+\lambda = \frac{418}{256} = 1{,}63,
+\]
+dunque uno stuffing classico costerebbe in media meno di due byte. La lista costa $200$ byte fissi, cioè centoventidue volte l'atteso. Il dimensionamento è inoltre largamente sovrabbondante rispetto al rischio: assumendo le occorrenze distribuite secondo una legge di Poisson di parametro $\lambda$, la probabilità che superino diciotto è già inferiore a $10^{-12}$, mentre la lista ne indicizza fino a duecento.
+
+La ragione per cui la scelta apparentemente peggiore è l'unica ammissibile risiede nella natura del canale, e conviene enunciarla come principio perché si applica a qualunque collegamento sincrono. In uno scambio in cui il byte che esce e quello che entra attraversano il medesimo registro, ogni trasferimento è simultaneo e la lunghezza del blocco deve essere concordata prima di cominciare: non esiste alcun canale su cui annunciare una lunghezza variabile, perché annunciarla richiederebbe a sua volta uno scambio di lunghezza concordata. Lo stuffing, che produce un blocco di lunghezza dipendente dal contenuto, è dunque strutturalmente inammissibile, e la lista a lunghezza fissa non è una soluzione costosa ma la sola soluzione. I duecento byte sono il prezzo della sincronia, non un'inefficienza.
+
+Il medesimo argomento spiega la divisione della lista in due parti, che il capitolo~\ref{cap:cavo} attribuisce alla collisione fra un indice e il byte di preambolo: gli indici indirizzabili per parte arrivano a $253$, mentre i byte da indicizzare sono $418$, dunque una parte sola non basterebbe a coprire il blocco nemmeno in assenza di quella collisione.
+
+\section{Il wireless locale: canali, cadenza, occupazione}
+
+Sul protocollo di rete locale della console moderna alcune scelte descritte nel capitolo~\ref{cap:ldn} possiedono una giustificazione numerica immediata, e riportarla chiude la domanda su perché siano quelle.
+
+I canali impiegati sono il primo, il sesto e l'undicesimo della banda a $2{,}4$~GHz. Poiché i canali sono spaziati di $5$~MHz e l'occupazione di banda di una portante è di $22$~MHz, due canali risultano non sovrapposti quando distano più di quattro posizioni: fra il primo e il sesto la distanza è di $25$~MHz, fra il sesto e l'undicesimo di $25$~MHz, fra il primo e l'undicesimo di $50$~MHz. La terna $\{1, 6, 11\}$ è dunque la più numerosa fra quelle mutuamente non sovrapposte in quella banda, e la sua scelta non è convenzionale ma forzata dalla geometria dello spettro.
+
+Sulla cadenza degli annunci, un action frame ogni $100$~ms corrisponde a dieci trasmissioni al secondo. Un frame dell'ordine di cento byte occupa $0{,}80$~ms alla velocità di $1$~Mbit/s e $0{,}073$~ms a $11$~Mbit/s, dunque il ciclo di lavoro dell'annuncio è compreso fra lo $0{,}8$ e lo $0{,}07$ per cento: la scoperta della rete consuma una frazione trascurabile della capacità, che è la proprietà desiderabile per un meccanismo che deve restare attivo mentre il traffico utile scorre.
+
+Sugli indirizzi, la forma \file{169.254.x.y} è il blocco link-local con prefisso di sedici bit, che offre $65\,534$ indirizzi utilizzabili. La scelta di quel blocco per una rete priva di infrastruttura è coerente con la sua definizione, e ha la conseguenza pratica che nessun servizio di assegnazione degli indirizzi è necessario: l'host occupa la prima posizione per convenzione e le altre stazioni ricavano la propria.
+
+\section{L'automazione: perché su orizzonti lunghi l'errore è certo}
+
+L'ultimo conto riguarda il caso di studio del capitolo~\ref{cap:automazione}, e produce la conseguenza progettuale più forte fra quelle di questo capitolo.
+
+Il riconoscimento di uno stato per visione artificiale possiede una probabilità di errore per fotogramma, che indichiamo con $p$. Su una sequenza di $k$ fotogrammi, sotto l'assunzione di indipendenza, la probabilità che almeno un fotogramma sia classificato in modo errato è
+\[
+P_{\text{errore}}(k) = 1 - (1-p)^k,
+\]
+che tende all'unità al crescere di $k$ qualunque sia $p$ positivo.
+
+Le cifre rendono il fatto concreto. Una corsa di otto ore a sessanta fotogrammi al secondo osserva $1\,728\,000$ fotogrammi. Con $p = 10^{-3}$, che per un riconoscitore fondato sul confronto di immagini è ottimistico, la probabilità di almeno un errore è indistinguibile da uno; con $p = 10^{-5}$ resta indistinguibile da uno; con $p = 10^{-7}$ scende a $0{,}16$. Per mantenere la probabilità di errore sull'intera corsa sotto l'uno per cento occorrerebbe
+\[
+p < 1 - 0{,}99^{1/k} = 5{,}8 \cdot 10^{-9},
+\]
+cioè un errore ogni centosettantadue milioni di fotogrammi, che nessun riconoscitore di questo tipo raggiunge.
+
+L'assunzione di indipendenza va dichiarata perché è la parte debole del conto: gli errori di un riconoscitore visivo sono in realtà correlati, poiché dipendono dalla scena, e la correlazione riduce il numero di prove indipendenti effettive. La conclusione non cambia di segno, però, perché la correlazione agisce sul numero effettivo di prove e non sull'andamento della curva.
+
+Ne segue la conseguenza progettuale, che è quella che il capitolo~\ref{cap:automazione} enuncia in forma qualitativa affermando che la verità di quella macchina è statistica: un sistema di questo tipo non può essere progettato per non sbagliare, deve essere progettato per accorgersi di avere sbagliato e per rimediare. La differenza fra le due impostazioni è la presenza o l'assenza di uno stato atteso contro cui confrontarsi periodicamente, ed è il criterio con cui valutare la qualità di un programma di automazione al di là del proprio tasso di riconoscimento nominale.
+
+\section{Che cosa questo capitolo aggiunge}
+
+I capitoli precedenti stabiliscono che i meccanismi funzionano; questo stabilisce entro quali margini, e in tre casi dimostra che un limite attribuito all'implementazione appartiene invece al formato: la perdita nella conversione dell'allenamento, l'inammissibilità dello stuffing su un canale sincrono, e l'inevitabilità dell'errore su un orizzonte lungo. Un limite del formato non si risolve scrivendo codice migliore, si dichiara e si governa con una politica, ed è la ragione per cui riconoscerlo modifica il progetto anziché soltanto la sua documentazione.

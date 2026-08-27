@@ -15,16 +15,9 @@
 \documentclass[11pt,a4paper,oneside]{report}
 \input{preambolo}
 
-\title{%
-  Trasportare un dato fra sistemi che non erano fatti per parlarsi\\
-  \large Rappresentazione, integrità, trasmissione e conversione dell'informazione,\\
-  imparate riparando e collegando le console della mia infanzia}
-\author{Alessio Sopranzi}
-\date{\today}
-
 \begin{document}
 
-\maketitle
+\input{frontespizio}
 
 \chapter*{Premessa}
 \addcontentslineifsupported{toc}{chapter}{Premessa}
@@ -35,12 +28,48 @@
 % --- Parte 0: i fondamenti assoluti ---------------------------------------------
 % Parte zero: bit, memoria, integrità. Il resto del documento vi si appoggia.
 \part{I fondamenti}
-% I capitoli 1 e 2 sono in scrittura: si aggiungono qui quando esistono, e il
-% controllo di copertura li pretenderà perché i documenti che coprono sono
-% già fra quelli da coprire.
-% \input{capitoli/01-bit-e-numeri}
-% \input{capitoli/02-memoria-e-indirizzi}
+\input{capitoli/01-bit-e-numeri}
+\input{capitoli/02-supporto-e-salvataggio}
 \input{capitoli/03-integrita-e-checksum}
+\input{capitoli/04-testo-e-charmap}
+\input{capitoli/05-identita-del-dato}
+
+% --- Parte II: le strutture dati delle tre generazioni --------------------------
+% Qui il documento passa dai principi ai byte. La parte è il nucleo documentale del
+% lavoro, ed è quella su cui poggia ogni riga di codice del ponte.
+\part{Le strutture dati}
+\input{capitoli/06-strutture-gen1}
+\input{capitoli/07-strutture-gen2}
+\input{capitoli/08-cifratura-gen3}
+\input{capitoli/09-conversione}
+
+% --- Parte III: la trasmissione ------------------------------------------------
+% Dal dato fermo al dato in transito: i canali fisici e i loro protocolli.
+\part{La trasmissione}
+\input{capitoli/10-cavo-link}
+\input{capitoli/11-esecuzione-di-codice}
+\input{capitoli/12-multiboot}
+\input{capitoli/13-wireless-ldn}
+
+% --- Parte IV: i cinque casi di studio -----------------------------------------
+% Ogni caso è un percorso operativo con il suo perimetro, le sue decisioni scartate
+% e il suo stato dichiarato. La parte è la sede naturale dei tre handoff.
+\part{I casi di studio}
+\input{capitoli/14-caso-smeraldo}
+\input{capitoli/15-caso-3ds}
+\input{capitoli/16-caso-ldn-trading}
+\input{capitoli/17-caso-automazione}
+\input{capitoli/18-caso-ponte}
+
+% --- Parte V: il metodo --------------------------------------------------------
+% Come si verifica, come si scelgono le strade, come si trattano le fonti.
+\part{Il metodo}
+\input{capitoli/19-collaudo}
+\input{capitoli/20-opzioni}
+\input{capitoli/21-fonti}
+\input{capitoli/22-strumenti}
+\input{capitoli/23-perimetro}
+\input{capitoli/24-analisi-quantitativa}
 
 % --- I capitoli seguenti sono in scrittura. L'indice completo, con il rapporto fra
 % ogni capitolo e i documenti del progetto che copre, sta in tesi/README.md.

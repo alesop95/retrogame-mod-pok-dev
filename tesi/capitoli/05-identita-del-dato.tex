@@ -1,0 +1,51 @@
+% =====================================================================
+% tesi/capitoli/05-identita-del-dato.tex
+% =====================================================================
+% copre: docs/06-identita-pokemon.md
+% ---------------------------------------------------------------------
+
+\chapter{L'identità di un dato, e la distinzione fra primario e derivato}
+\label{cap:identita}
+
+Un Pokémon dentro un salvataggio è un insieme di campi, ma i campi non possiedono tutti il medesimo ruolo epistemico. Alcuni sono dati primari, cioè scelti nel momento in cui l'esemplare è nato o è stato catturato e da allora mai più modificati. Altri sono derivati, cioè calcolati a partire dai primari e ricalcolabili in qualunque momento. Tracciare questa distinzione è l'operazione più utile che si possa compiere prima di scrivere un writer, per una ragione che ha la forma di un teorema: i dati derivati non vanno copiati, vanno ricalcolati, e copiarli equivale a copiare il risultato di una somma senza copiarne gli addendi, ottenendo una struttura internamente incoerente che nulla nel dato segnala.
+
+\section{Il primo asse: la specie}
+
+La specie è un numero, e i tre spazi di numerazione delle tre generazioni sono reciprocamente diversi. In generazione 1 l'indice interno non intrattiene alcuna relazione con il Pokédex: l'indice~1 corrisponde a Rhydon, che nel Pokédex occupa la posizione 112, e l'indice~99 corrisponde a Bulbasaur, che nel Pokédex è il primo \cite{pokered}. Nell'intervallo valido sono distribuite trentanove posizioni che non corrispondono ad alcuna specie definita, e sono precisamente quelle che il gioco interpreta come MissingNo. In generazione 2 la numerazione coincide con il Pokédex nazionale, ed è l'unica delle tre a comportarsi nel modo che un lettore si attenderebbe. In generazione 3 le prime duecentocinquantuno posizioni seguono il Pokédex nazionale, segue un intervallo non assegnato, e le specie di Hoenn cominciano dalla posizione 277 in un ordine proprio \cite{pokeemerald}.
+
+Per un ponte diretto dalle generazioni 1 e 2 verso la generazione 3 questa complicazione è fortunatamente benigna, e conviene dire perché lo è invece di limitarsi a constatarlo: tutte le specie di partenza risiedono nell'intervallo in cui la numerazione di generazione 2 e quella di generazione 3 concordano, dunque occorre una sola tabella di traduzione, quella dall'indice interno di generazione 1 al numero nazionale. Occorre però effettivamente, e va generata dal disassemblato anziché trascritta, per la ragione documentata nel capitolo~\ref{cap:testo}.
+
+\section{Il secondo asse: i valori individuali}
+
+Ogni esemplare possiede valori che determinano il proprio potenziale nelle statistiche, e questi costituiscono un dato primario puro: si fissano alla nascita e non subiscono variazione.
+
+In generazione 1 e 2 sono denominati DV, sono quattro, assumono valori da zero a quindici e occupano due byte nella forma di quattro nibble descritta nel capitolo~\ref{cap:bit}. Il quinto valore, quello relativo ai punti salute, non è memorizzato: si deriva dai bit meno significativi degli altri quattro, secondo una formula che il disassemblato riporta come commento e che vale la pena esaminare perché è la dimostrazione più compatta di quanto quell'epoca fosse parsimoniosa nell'uso della memoria.
+
+\begin{verbatim}
+; DV_HP = (DV_ATK & 1) << 3 | (DV_DEF & 1) << 2
+;       | (DV_SPD & 1) << 1 | (DV_SPC & 1)
+\end{verbatim}
+
+Questa derivazione comporta un'implicazione che va compresa a fondo, perché delimita ciò che è possibile fare e non soltanto ciò che è documentato: il valore individuale dei punti salute non costituisce un grado di libertà. Chi modifica un DV per correggere una statistica sta modificando simultaneamente i punti salute, e non ha alcun modo di evitarlo. Le quattro variabili indipendenti determinano cinque risultati, e il quinto non è negoziabile.
+
+In generazione 3 i medesimi valori diventano IV, sono sei, assumono valori da zero a trentuno e occupano un campo di bit all'interno di una parola da trentadue bit condivisa con il contrassegno di uovo e lo slot di abilità. Il passaggio da quattro a sei non costituisce un raddoppio di precisione ma un mutamento del modello: la statistica Speciale, che in generazione 1 era una sola e in generazione 2 si era suddivisa in due valori calcolati però da un unico DV, in generazione 3 dispone finalmente di due valori individuali indipendenti.
+
+Questa asimmetria è verificabile nel sorgente, e la verifica è stata condotta: nella routine \file{CalcMonStatC} di pokecrystal sia l'Attacco Speciale sia la Difesa Speciale si diramano al medesimo ramo che legge il DV Speciale \cite{pokecrystal}. Ne segue che un DV singolo deve produrre due IV, e che non esiste una risposta corretta al modo di compiere questa duplicazione, ma soltanto una scelta da documentare. La distinzione fra un problema privo di soluzione e un problema la cui soluzione è una convenzione dichiarata è ricorrente in questo lavoro, ed è trattata sistematicamente nel capitolo~\ref{cap:conversione}.
+
+\section{Il terzo asse: l'allenamento accumulato}
+
+Accanto al potenziale esiste il progresso accumulato combattendo, denominato Stat Experience nelle prime due generazioni ed EV nella terza. Anche in questo caso il mutamento non è cosmetico. La Stat Experience è un valore per statistica che cresce fino a sessantacinquemilacinquecentotrentacinque e non è soggetto ad alcun tetto complessivo; gli EV assumono valore massimo duecentocinquantacinque per statistica con un tetto di cinquecentodieci sulla somma.
+
+Una conversione fra i due modelli non è dunque una scala lineare: è una scala con saturazione seguita da una ridistribuzione entro un tetto globale, cioè da una decisione su quali statistiche sacrificare. Il capitolo~\ref{cap:conversione} mostra che l'implementazione di riferimento evita interamente il problema azzerando tutti i sei valori, e mostra anche che questa non è una lacuna dell'implementazione ma una scelta deliberata, verificabile nel sorgente e coerente con il modo in cui la serie ha gestito il passaggio.
+
+\section{Il quarto asse: il valore di personalità, che nelle prime due generazioni non esiste}
+
+La generazione 3 introduce un numero da trentadue bit privo di qualunque equivalente nelle generazioni precedenti, ed è l'elemento più denso di informazione dell'intero formato: da esso derivano la natura, il sesso, lo slot di abilità, la lettera di Unown, la lucentezza in combinazione con l'identificativo dell'allenatore, e ulteriori proprietà minori fra cui la configurazione delle macchie di Spinda. Serve inoltre da chiave di cifratura e da selettore della permutazione delle sottostrutture, come il capitolo~\ref{cap:cifratura} descrive nel dettaglio \cite{pokeemerald}.
+
+Si tratta dunque di un dato primario che si comporta come una radice: ogni altra proprietà pende da esso. E poiché nelle generazioni 1 e 2 non esiste, una conversione deve inventarlo, e non può inventarlo arbitrariamente perché i valori che ne derivano devono corrispondere a quelli dell'esemplare di partenza. Questo è il problema centrale del ponte fra generazioni, ed è il soggetto del capitolo~\ref{cap:conversione}.
+
+\section{La classificazione, in forma utilizzabile}
+
+La distinzione enunciata in apertura si traduce in tre insiemi, e la loro enumerazione esplicita è ciò che un writer deve avere sotto gli occhi mentre viene scritto.
+
+I dati primari, da copiare o convertire, sono la specie, i valori individuali, l'allenamento accumulato, l'esperienza, le mosse, i punti potenza con i relativi bonus, l'oggetto tenuto, l'identità dell'allenatore, il soprannome, l'amicizia e la provenienza. I dati derivati, da ricalcolare e mai da copiare, sono le statistiche, il livello quando la scrittura avviene nella struttura di squadra, e in generazione 3 il checksum, la cui centralità è tale da richiedere il capitolo~\ref{cap:integrita} per intero. I dati inventati, cioè quelli che nella struttura di partenza non esistono affatto, sono in generazione 3 il valore di personalità, l'identificativo segreto, la natura, l'abilità, la Poké Ball, il luogo di incontro e le statistiche da gara.

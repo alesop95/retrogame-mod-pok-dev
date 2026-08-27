@@ -1,0 +1,94 @@
+% =====================================================================
+% tesi/capitoli/14-caso-smeraldo.tex
+% =====================================================================
+% copre: gba-save-extraction-smeraldo/handoff/HANDOFF_progetto_smeraldo.md
+% copre: gba-save-extraction-smeraldo/README.md
+% ---------------------------------------------------------------------
+
+\chapter{Caso di studio: riparare un inventario corrotto}
+\label{cap:smeraldo}
+
+Questo è il caso di studio da cui l'intero lavoro è nato, e la sua esposizione segue l'ordine in cui i fatti si sono presentati anziché l'ordine in cui appaiono ovvi a posteriori, perché la sequenza delle decisioni scartate è parte del risultato.
+
+Il problema di partenza è un difetto nell'inventario di una copia originale di Pokémon Smeraldo: da un certo punto della tasca degli strumenti in avanti, gli oggetti ordinari risultano sostituiti da Poké Ball. Non è un difetto che si risolva ricominciando la partita, perché quel salvataggio contiene uno stato che non si riproduce; e non è un difetto attribuibile a un'operazione dell'utente, perché la sostituzione segue un andamento regolare a partire da una posizione precisa, che è il genere di regolarità prodotta da un errore di categorizzazione lato codice e non da una manipolazione.
+
+L'obiettivo è dunque correggere l'inventario del salvataggio senza compromettere il resto della partita né invalidare il salvataggio stesso. Due strade sono state esplorate, in ordine cronologico, e la prima è stata chiusa deliberatamente.
+
+\section{La prima strada: i codici di alterazione a runtime}
+
+La prima strada esplorata è stata quella dei codici Action Replay, cioè dell'alterazione dei valori in memoria mentre il gioco è in esecuzione.
+
+Il primo risultato utile è stato l'individuazione di un Master Code funzionante per la versione francese del gioco, verificato per convergenza fra sei fonti indipendenti fra cui una in lingua diversa dalle altre, il che costituisce una forma debole ma non nulla di conferma. L'analisi del codice a otto righe fornito inizialmente ha rivelato che si trattava in realtà di due codici distinti concatenati: le prime quattro righe sono il Master Code, le ultime quattro un codice complementare denominato Anti-DMA.
+
+La distinzione fra i due merita una spiegazione tecnica, perché chiarisce una differenza fra hardware reale ed emulazione che ricorre in tutto questo lavoro. Il Master Code serve a sbloccare l'accettazione di codici aggiuntivi da parte del gioco, aggirando il controllo di integrità che il gioco applica alla propria memoria. L'Anti-DMA gestisce invece i conflitti di accesso alla memoria durante i trasferimenti in accesso diretto, ed è quasi sempre necessario su hardware reale, dove la temporizzazione degli accessi è quella fisica, mentre su emulatore molti codici funzionano anche in sua assenza perché l'emulazione dell'accesso diretto è spesso semplificata o assente. Ne segue una conseguenza metodologica: una procedura verificata su emulatore non è una procedura verificata, e la differenza si manifesta precisamente nei punti in cui l'emulatore semplifica.
+
+La strada è stata abbandonata per una ragione che vale enunciare come principio. Per i codici specifici della tasca interessata non è stata individuata alcuna fonte verificata compatibile con quella combinazione di Master Code e Anti-DMA. Proseguire avrebbe significato indovinare indirizzi di memoria per costruire codici propri, cioè esattamente il tipo di operazione che con ogni probabilità ha causato il difetto originale. Si è dunque deciso di fermarsi consapevolmente anziché fornire codici non provati, e la decisione è registrata come tale: non è un'interruzione per stanchezza ma una conclusione sul rapporto fra rischio e informazione disponibile.
+
+Dalla medesima comunità è emerso il seme della strada successiva. In una discussione distinta, alla domanda su come rimuovere oggetti finiti per errore nel sacco, la risposta valutata più solida indicava di agire direttamente sul file di salvataggio con un editor anziché con ulteriori codici.
+
+\section{La seconda strada: estrazione fisica ed editing del salvataggio}
+
+La superiorità tecnica di questo approccio per il caso specifico si formula in termini di che cosa il sistema che opera conosce. Un codice di alterazione agisce a runtime iniettando valori in indirizzi di memoria: è preciso soltanto se si conosce l'indirizzo esatto della struttura interessata, e un errore corrompe altre aree. Un editor dedicato che lavora sul file di salvataggio conosce invece la struttura dati del gioco, cioè i formati degli esemplari, la struttura dell'inventario e i checksum, e valida le modifiche prima di scriverle. La differenza non è di prudenza dell'operatore ma di quantità di conoscenza incorporata nello strumento.
+
+La catena concordata è la seguente, e la sua caratteristica è di essere interamente reversibile fino all'ultimo passo.
+
+\begin{verbatim}
+Cartuccia Pokemon Smeraldo (fisica)
+  -> GBxCart RW 1.4 Pro                [lettore e scrittore]
+  -> connessione USB-C
+  -> FlashGBX                          [legge la cartuccia, esegue il backup]
+  -> file .sav (copia locale)
+  -> PKHeX                             [ispezione, verifica, editing mirato]
+  -> file .sav modificato
+  -> FlashGBX (scrittura)
+  -> GBxCart RW
+  -> cartuccia (salvataggio riscritto)
+\end{verbatim}
+
+Sono stati esclusi consapevolmente i codici di alterazione, le cartucce riscrivibili, la sostituzione della batteria e qualunque saldatura, perché l'operazione avviene interamente sul file di salvataggio e non sull'hardware della cartuccia, fatta salva la lettura e scrittura del chip di memoria, che non è invasiva. Su questo punto una discussione della comunità aggiunge un dato diagnostico che nessuna altra fonte riporta \cite{gbatemp-smeraldo}: su cartuccia genuina il messaggio di salvataggio fallito indica che la memoria di salvataggio sta cedendo, perché quella schermata compare quando vengono rilevati blocchi difettosi sul chip, e la risposta corretta è produrre il dump immediatamente finché il salvataggio si carica ancora. È la conferma esterna più forte alla norma sul backup, perché descrive il caso in cui l'occasione di salvare il dato è già in scadenza.
+
+Vale ricordare, come il capitolo~\ref{cap:supporto} stabilisce, che su questo titolo la batteria alimenta l'orologio interno e non il salvataggio: la sua sostituzione non avrebbe alcun effetto sul difetto osservato, ed è precisamente il tipo di intervento inutile che una diagnosi corretta evita.
+
+\subsection{La scelta del lettore}
+
+Fra le due alternative considerate, il GBxCart RW 1.4 Pro e il GB Operator, è stato scelto il primo. La motivazione dichiarata non è una presunta superiorità in termini di sicurezza, che sarebbe stata difficile da sostenere, ma il massimo controllo sull'operazione senza pagare funzionalità superflue: hardware ampiamente documentato, supporto esplicito a tutti i tipi di memoria di salvataggio del Game Boy Advance, e supporto documentato al backup e al ripristino dei salvataggi.
+
+Le specifiche rilevanti, verificate direttamente sulla pagina del produttore, sono che soltanto la versione con connettore USB-C è attualmente in produzione; che quella versione aggiunge il controllo dello stato di alimentazione via pulsante o software, il che evita di scollegare il cavo per cambiare cartuccia, e due indicatori luminosi di stato; e che il rilevamento automatico del tipo di memoria è supportato, circostanza rilevante perché Smeraldo impiega memoria flash. Il manuale ufficiale reperibile è fermo a una revisione precedente, e questa è registrata come possibile fonte di micro-differenze non documentate nell'interfaccia.
+
+\subsection{La scelta del software e del sistema operativo}
+
+Il software di lettura è FlashGBX, che comunica con il lettore attraverso una porta seriale virtuale ed esegue il backup e il ripristino del file di salvataggio oltre al dump della ROM. Su Windows dispone di un'interfaccia grafica ufficiale che dalla versione quattro incorpora il runtime Python, dunque non richiede installazioni separate; su Linux e macOS la versione ufficiale è a riga di comando.
+
+L'editor è PKHeX, che è un'applicazione .NET Windows Forms e dunque nativamente vincolata a Windows. La verifica condotta in sessione ha stabilito che dal 2023 il progetto ha abbandonato definitivamente qualunque supporto agli ambienti di compatibilità, e che i tentativi di esecuzione su Linux producono arresti documentati; le alternative fondate su strati di compatibilità sono soluzioni non ufficiali e non garantite stabili nel tempo. Nella versione corrente richiede il runtime .NET~9, in assenza del quale l'eseguibile non si avvia.
+
+La scelta del sistema operativo è stata un punto di decisione esplicito, e la sua analisi è istruttiva perché mostra come un vincolo di un singolo componente determini l'intera piattaforma. FlashGBX da solo non genera preferenza, funzionando ufficialmente su entrambi i sistemi. Il fattore decisivo è PKHeX: essendo nativo soltanto su Windows e avendo abbandonato ogni strato di compatibilità, su Linux la sua esecuzione è instabile e non supportata. La conclusione è dunque Windows per l'intera operazione, e qualora il sistema principale fosse stato Linux la raccomandazione sarebbe stata una macchina virtuale dedicata anziché la rincorsa di soluzioni fragili per un solo componente.
+
+Vale registrare che questo vincolo è in tensione con quello del caso di studio del capitolo~\ref{cap:ldn}, il quale richiedeva Linux per la modalità monitor, e che la tensione è stata risolta dalla scoperta della via Windows descritta in quel capitolo. È un esempio di come un vincolo dichiarato incompatibile si dissolva quando una delle due parti cambia implementazione.
+
+\section{Il collo di bottiglia iniziale: un ponte USB verso seriale}
+
+Il primo passo operativo della sequenza è l'installazione di un driver, e il fatto che sia il primo passo e non un dettaglio di contorno merita una spiegazione, perché la sua natura chiarisce l'architettura del collegamento.
+
+Il lettore non comunica con il calcolatore attraverso un canale USB nativo per il trasferimento dati: internamente impiega un collegamento seriale, e per convertirlo in un segnale USB standard utilizza un chip ponte della famiglia CH340/CH341. Windows non include quel driver, dunque al primo collegamento il dispositivo appare come sconosciuto oppure come dispositivo seriale generico con segnalazione di errore. Una volta installato il driver, il sistema espone il dispositivo come porta seriale virtuale, ed è quella porta che il software impiega per inviare i comandi. Qualora questo passo fallisca, nessun passo successivo può funzionare, perché il software non avrebbe alcun oggetto di sistema a cui collegarsi.
+
+La fonte per il download è stata scelta deliberatamente presso il produttore del chip anziché presso uno dei numerosi siti aggregatori, perché il pacchetto ufficiale è certificato dal programma di qualità hardware di Microsoft e firmato digitalmente. La procedura prescrive di installare il driver prima di collegare l'hardware, e non dopo, e il criterio di successo è la comparsa della voce corrispondente fra le porte seriali di sistema priva di segnalazione di errore, annotando il numero assegnato per il caso in cui il software non rilevi il dispositivo automaticamente.
+
+\section{Lo strumento di diagnosi, e il fatto tecnico che cambia la diagnosi}
+
+Il sottoprogetto dispone di uno strumento proprio, che si impiega appena esiste un dump e che non scrive nulla sul salvataggio: valida firma e checksum di ogni sezione, seleziona lo slot più recente, ricompone il blocco di salvataggio, identifica il gioco confrontando le prove di tre candidati, smaschera le quantità dello zaino e riferisce le anomalie che sa riconoscere.
+
+La sua esistenza è giustificata da un fatto tecnico che rovescia la diagnosi immediata, ed è la ragione per cui una lettura ingenua del dump condurrebbe a conclusioni sbagliate. In Smeraldo le quantità degli oggetti nello zaino e il denaro non risiedono in chiaro: sono in XOR con una chiave di sicurezza a trentadue bit collocata nella prima sezione del salvataggio all'offset \hx{00AC}. Le quantità del deposito su calcolatore sono invece in chiaro, e Rubino e Zaffiro non mascherano nulla. La verifica proviene dal sorgente, dove \file{GetBagItemQuantity} applica la maschera e \file{GetPCItemQuantity} no \cite{pokeemerald}.
+
+Ne segue la conseguenza da tenere presente prima di osservare il dump: una quantità priva di senso letta in chiaro dallo zaino non costituisce prova di corruzione, è l'aspetto normale di un dato mascherato. Soltanto dopo lo smascheramento si può affermare che cosa sia effettivamente corrotto. Uno strumento che ignorasse questa distinzione produrrebbe una segnalazione di anomalia su qualunque salvataggio sano, e chi la ricevesse concluderebbe di avere un problema che non ha.
+
+I tre gruppi di titoli non si somigliano e nulla si riusa fra loro. Rubino e Zaffiro non mascherano affatto. Rosso Fuoco e Verde Foglia mascherano, ma collocano la chiave a un offset diverso e adottano capienze delle tasche differenti: sono valori verificati sui rispettivi disassemblati il 25 agosto 2026 \cite{pokefirered,pokeruby}, e per Rosso Fuoco correggono una fonte secondaria che indicava la chiave in una posizione errata.
+
+L'identificazione automatica del gioco non è un ornamento e ha una causa documentata, individuata in una discussione della comunità \cite{projectpokemon}: un editor che identifichi un salvataggio di Smeraldo come Rubino o Zaffiro fa finire gli oggetti negli slot sbagliati, perché applica la maschera errata. Lo strumento dunque non si fida del parametro fornito dall'utente e per impostazione predefinita lo deduce, stampando le prove di tutti i candidati anziché la sola conclusione, cosicché chi legge possa valutare la deduzione invece di riceverla.
+
+\section{Che cosa resta da fare, dichiarato esplicitamente}
+
+L'elenco di ciò che non è ancora stato compiuto è mantenuto esplicito, e la sua esistenza risponde a un rischio concreto in una procedura irreversibile: la tentazione di considerare compiuto un passo che è stato soltanto pianificato. Restano da compiere la conferma dell'installazione del driver, l'installazione del software di lettura, il primo collegamento con verifica del riconoscimento, l'inserimento della cartuccia con lettura delle informazioni, il backup in doppia copia, l'installazione dell'editor, l'apertura del backup in sola lettura per documentare l'entità del difetto, la pianificazione dettagliata di quali slot correggere, la riscrittura e la verifica sul gioco.
+
+Restano inoltre aperti tre punti di rischio, dichiarati come tali. L'assenza di un manuale per la revisione corrente dell'hardware; la conferma, ottenibile soltanto con l'hardware in mano, che il rilevamento automatico riconosca correttamente il tipo di memoria di questo titolo; e la pianificazione, non ancora affrontata, di quali slot esatti andranno corretti, che dipende dall'ispezione in sola lettura e non può essere anticipata.
+
+L'avvertenza che chiude il sottoprogetto non è negoziabile e vale ripeterla nella sua forma normativa: nessuna scrittura sulla cartuccia avviene senza un backup del salvataggio originale in doppia copia su due percorsi distinti, verificato leggibile, e nessuna scrittura si considera riuscita senza avere riletto i byte e confrontati con quelli che si intendeva scrivere. È la norma stabilita nel capitolo~\ref{cap:perimetro}, ed è normativa perché un salvataggio di vent'anni non dispone di una seconda occasione.

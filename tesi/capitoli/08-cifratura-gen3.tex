@@ -1,0 +1,155 @@
+% =====================================================================
+% tesi/capitoli/08-cifratura-gen3.tex
+% =====================================================================
+% copre: pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md#5-generazione-3-la-struttura-cifrata
+% copre: docs/04-cifratura-gen3.md
+% ---------------------------------------------------------------------
+
+\chapter{La generazione 3: una struttura cifrata, permutata e verificata}
+\label{cap:cifratura}
+
+Con la generazione 3 la natura del problema cambia. La struttura di box occupa ottanta byte e quella di squadra cento, ma i quarantotto byte centrali sono cifrati e permutati, e la loro integrità è protetta da un checksum che, quando non corrisponde, trasforma l'esemplare in un Uovo Peste, cioè lo distrugge in modo visibile e definitivo. L'enunciato che ne segue governa tutto questo capitolo: un writer che sbagli un solo passo della catena non produce un esemplare anomalo, produce un Uovo Peste.
+
+Le fonti di questo capitolo sono la struttura \file{BoxPokemon} e le quattro \file{PokemonSubstruct} di \file{include/pokemon.h}, e le routine \file{EncryptBoxMon}, \file{DecryptBoxMon}, \file{CalculateBoxMonChecksum} e \file{GetSubstruct} di \file{src/pokemon.c} \cite{pokeemerald}; da quest'ultima provengono le ventiquattro righe della tabella di permutazione. Su questa materia la fonte enciclopedica contiene l'errore più costoso incontrato dal progetto, discusso nella sezione dedicata al checksum. L'algoritmo di permutazione calcolato per fattoriali, invece che tabulato, si trova nel sistema di conversione fra generazioni \cite{pccs}.
+
+\section{Perché esiste una cifratura che non è sicurezza}
+
+I quarantotto byte centrali sono cifrati e permutati, ed è l'unico caso di offuscamento in tutto il materiale che questo lavoro tocca. La prima proprietà da stabilire è che non si tratta di crittografia nel senso della sicurezza: la chiave è scritta in chiaro nella medesima struttura, due campi più in alto. Chi possiede il dato possiede la chiave, senza eccezioni e senza lavoro aggiuntivo. Qualunque valutazione di questo meccanismo come misura di protezione è dunque priva di fondamento, e va sostituita da una domanda diversa, cioè quale scopo persegua un offuscamento la cui chiave è pubblica.
+
+La risposta plausibile, che va dichiarata come ricostruzione ragionevole e non come dichiarazione degli autori, è che lo scopo sia rendere fragile la manomissione anziché impedirla. Un dato cifrato con una chiave derivata dall'identità dell'esemplare, e coperto da un checksum, non si modifica con un editor esadecimale impiegato senza comprensione del formato: qualunque byte alterato senza ricalcolare l'intera catena produce un Uovo Peste, cioè un fallimento immediato e visibile, anziché un esemplare lievemente alterato che circola per anni senza che nessuno se ne accorga. Il formato non nasconde i dati, li rende scomodi da falsificare a mano. In termini di ingegneria dei sistemi questa è una scelta di progetto sul modo di fallire, non sulla riservatezza: il meccanismo trasforma un errore silenzioso in un errore rumoroso, che è la medesima proprietà che il capitolo~\ref{cap:integrita} attribuisce ai checksum.
+
+\section{L'intestazione in chiaro}
+
+L'intestazione non cifrata assume la forma della tabella~\ref{tab:gen3hdr}, e proviene dalla struttura \file{BoxPokemon} \cite{pokeemerald}.
+
+\begin{longtable}{@{}llp{9cm}@{}}
+\caption{Intestazione in chiaro di un esemplare in generazione 3.}\label{tab:gen3hdr}\\
+\toprule
+Offset & Dim. & Campo \\
+\midrule
+\endfirsthead
+\toprule
+Offset & Dim. & Campo \\
+\midrule
+\endhead
+\hx{00} & 4 & Valore di personalità \\
+\hx{04} & 4 & ID dell'allenatore originale, trentadue bit: sedici visibili più sedici di ID segreto \\
+\hx{08} & 10 & Soprannome \\
+\hx{12} & 1 & Lingua \\
+\hx{13} & 1 & Contrassegni: uovo peste, presenza di specie, uovo, blocco box di Rubino e Zaffiro \\
+\hx{14} & 7 & Nome dell'allenatore originale \\
+\hx{1B} & 1 & Marcature \\
+\hx{1C} & 2 & Checksum dei quarantotto byte cifrati \\
+\hx{1E} & 2 & Non documentato, riempimento \\
+\hx{20} & 48 & Quattro sottostrutture da dodici byte, cifrate e permutate \\
+\bottomrule
+\end{longtable}
+
+\section{Le tre operazioni, e l'ordine che non si può invertire}
+
+La lettura di un esemplare di generazione 3 richiede tre passi, e la sua riscrittura richiede i medesimi tre nell'ordine inverso. L'errore più frequente in questa materia non consiste nello sbagliare un'operazione ma nel comporle nell'ordine sbagliato, e l'esito di quell'errore è indistinguibile dall'esito di un'operazione sbagliata: un Uovo Peste.
+
+\subsection{Primo passo: la decifratura}
+
+La chiave è il valore di personalità posto in XOR con l'identificativo dell'allenatore a trentadue bit, e si applica in XOR a ciascuna delle dodici parole da trentadue bit del blocco. Il codice del gioco compie l'operazione in due passaggi successivi, che è la medesima cosa per associatività dello XOR.
+
+\begin{verbatim}
+static void EncryptBoxMon(struct BoxPokemon *boxMon)
+{
+    u32 i;
+    for (i = 0; i < ARRAY_COUNT(boxMon->secure.raw); i++)
+    {
+        boxMon->secure.raw[i] ^= boxMon->personality;
+        boxMon->secure.raw[i] ^= boxMon->otId;
+    }
+}
+\end{verbatim}
+
+Poiché lo XOR è la propria funzione inversa, cifrare e decifrare sono la medesima funzione. La conseguenza pratica è duplice e utile: un programma necessita di una sola routine, e un errore di verso non è concepibile. È una proprietà che vale registrare perché è rara, e perché elimina per costruzione una classe di difetti che negli altri due passi esiste.
+
+\subsection{Secondo passo: la permutazione}
+
+Il blocco decifrato contiene quattro sottostrutture da dodici byte, ma il loro ordine non è fisso: è una delle ventiquattro permutazioni possibili, selezionata dal valore di personalità modulo ventiquattro. Non si tratta di offuscamento aggiuntivo in senso stretto, ma l'effetto è equivalente, perché senza conoscere il valore di personalità non si sa nemmeno quale campo si stia osservando.
+
+La tabella~\ref{tab:perm} riporta la corrispondenza, dove G indica la sottostruttura della crescita, A quella degli attacchi, E quella dei valori di allenamento e della condizione, M quella dei campi rimanenti. L'ordine è quello della tabella presente in \file{GetSubstruct} \cite{pokeemerald}, ed è riportato verbatim anziché ricalcolato, perché la trascrizione di una tabella si verifica per confronto diretto mentre un algoritmo equivalente introduce la possibilità di un errore proprio. Vale però registrare che la sequenza corrisponde all'ordinamento lessicografico delle ventiquattro permutazioni di quattro elementi, cioè al codice di Lehmer, ed è così che il sistema di conversione fra generazioni la calcola per fattoriali anziché tabularla \cite{pccs}.
+
+\begin{table}[htbp]
+\centering
+\caption{Le ventiquattro permutazioni delle sottostrutture, selezionate dal valore di personalità modulo ventiquattro.}\label{tab:perm}
+\begin{tabular}{@{}rlrlrlrl@{}}
+\toprule
+mod & Ordine & mod & Ordine & mod & Ordine & mod & Ordine \\
+\midrule
+0 & GAEM & 6 & AGEM & 12 & EGAM & 18 & MGAE \\
+1 & GAME & 7 & AGME & 13 & EGMA & 19 & MGEA \\
+2 & GEAM & 8 & AEGM & 14 & EAGM & 20 & MAGE \\
+3 & GEMA & 9 & AEMG & 15 & EAMG & 21 & MAEG \\
+4 & GMAE & 10 & AMGE & 16 & EMGA & 22 & MEGA \\
+5 & GMEA & 11 & AMEG & 17 & EMAG & 23 & MEAG \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Terzo passo: il checksum, e l'errore più costoso incontrato dal progetto}
+
+Il checksum si calcola sul blocco decifrato e si confronta con quello memorizzato in chiaro nell'intestazione. Su questo punto la fonte enciclopedica sbaglia, e l'errore appartiene alla categoria che distrugge un esemplare: la pagina descrive la somma come condotta byte per byte \cite{bulbapedia}.
+
+Il sorgente afferma altro. In \file{include/pokemon.h} la sottostruttura è una unione che espone anche il membro \file{u16 raw[NUM\_SUBSTRUCT\_BYTES / 2]}, cioè sei parole da sedici bit, e \file{CalculateBoxMonChecksum} somma quelle parole in un accumulatore dichiarato \file{u16}, per tutte e quattro le sottostrutture, lasciando che l'aritmetica tronchi naturalmente a sedici bit \cite{pokeemerald}.
+
+\begin{verbatim}
+static u16 CalculateBoxMonChecksum(struct BoxPokemon *boxMon)
+{
+    u16 checksum = 0;
+    /* quattro chiamate a GetSubstruct, una per sottostruttura */
+    for (i = 0; i < (s32)ARRAY_COUNT(substruct0->raw); i++)
+        checksum += substruct0->raw[i];
+    /* idem per substruct1, substruct2, substruct3 */
+    return checksum;
+}
+\end{verbatim}
+
+La differenza fra le due letture non è accademica e vale enunciarla per esteso, perché è la giustificazione più forte del metodo adottato in questo lavoro. Una somma condotta byte per byte e una condotta per parole da sedici bit coincidono soltanto quando ogni riporto si annulla, circostanza che non si verifica in generale: le due procedure producono valori diversi sul medesimo blocco. Un writer costruito sulla descrizione enciclopedica scrive dunque nell'intestazione un numero che non corrisponde al contenuto, e il gioco reagisce nel modo previsto dal formato, cioè dichiarando l'esemplare irrecuperabile. L'errore non è recuperabile a posteriori dall'utente, non produce alcun messaggio diagnostico, e la sua causa non è visibile nel dato.
+
+Ne segue l'ordine di scrittura, che è l'inverso esatto di quello di lettura: comporre le quattro sottostrutture, calcolarne il checksum, scriverlo nell'intestazione, permutare secondo il valore di personalità, cifrare. Chi calcola il checksum dopo aver cifrato ottiene un valore privo di relazione con il contenuto in chiaro, e il gioco produce un Uovo Peste.
+
+\section{Le quattro sottostrutture}
+
+Le quattro sottostrutture, dalle definizioni di \file{include/pokemon.h} \cite{pokeemerald}, hanno il contenuto seguente. La sottostruttura della crescita contiene la specie a sedici bit, l'oggetto tenuto a sedici bit, l'esperienza a trentadue bit, i bonus ai punti potenza a otto bit, l'amicizia a otto bit e due byte di riempimento. Quella degli attacchi contiene quattro indici di mossa a sedici bit e quattro byte di punti potenza. Quella dei valori di allenamento e della condizione contiene sei byte di EV, nell'ordine PS, Attacco, Difesa, Velocità, Attacco Speciale e Difesa Speciale, poi cinque byte di statistiche da gara e un byte di lucentezza estetica.
+
+La quarta sottostruttura è quella densa di campi di bit, e conviene riportarla bit per bit perché nessuna descrizione in prosa la rende con la medesima precisione.
+
+\begin{verbatim}
+byte 0        Pokerus: bit 0-3 giorni residui, bit 4-7 ceppo
+byte 1        Luogo di incontro, indice a 8 bit
+byte 2-3      Origini, parola a 16 bit:
+                bit 0-6    livello di incontro
+                bit 7-10   gioco di origine (1 Zaffiro, 2 Rubino, 3 Smeraldo,
+                           4 Rosso Fuoco, 5 Verde Foglia, 15 Colosseum e XD)
+                bit 11-14  Poke Ball di cattura
+                bit 15     sesso dell'allenatore
+byte 4-7      IV, uovo e abilità, parola a 32 bit:
+                bit 0-4    IV PS          bit 15-19  IV Velocità
+                bit 5-9    IV Attacco     bit 20-24  IV Att. Speciale
+                bit 10-14  IV Difesa      bit 25-29  IV Dif. Speciale
+                bit 30     flag uovo
+                bit 31     slot di abilità
+byte 8-11     Nastri e obbedienza, parola a 32 bit:
+                bit 0-14   cinque nastri da gara, 3 bit ciascuno
+                bit 15-26  nastri di merito, 1 bit ciascuno
+                bit 31     obbedienza, letto come incontro fatidico
+                           dalle generazioni successive
+\end{verbatim}
+
+I venti byte aggiuntivi della struttura di squadra sono, nell'ordine, la condizione di stato a trentadue bit, il livello a otto bit, l'identificatore di posta a otto bit con il valore \hx{FF} quando la posta è assente, e poi sette statistiche a sedici bit, cioè punti salute correnti, punti salute massimi, Attacco, Difesa, Velocità, Attacco Speciale e Difesa Speciale.
+
+\section{Il vincolo architetturale: il valore di personalità decide troppe cose}
+
+Esiste una conseguenza architetturale che va vista prima di scrivere una sola riga di writer, perché condiziona l'ordine in cui il writer va costruito. Il valore di personalità non è soltanto un identificativo: è anche la chiave di cifratura, in combinazione con l'identificativo dell'allenatore, ed è anche il selettore della permutazione. Modificarlo dopo aver composto la struttura implica ripermutare e ricifrare il blocco da capo, il che significa che non è un campo come gli altri ma un parametro dell'intera procedura.
+
+Ne segue che l'ordine corretto di costruzione di un esemplare di generazione 3 prevede la decisione del valore di personalità come primo atto, e soltanto dopo l'inizio della scrittura. E poiché quel valore, come mostra il capitolo~\ref{cap:identita}, determina anche natura, sesso, abilità, lucentezza e forma, la sua scelta è il primo passo dell'intera conversione e non l'ultimo. È la ragione per cui il capitolo~\ref{cap:conversione} tratta la generazione del valore di personalità come un problema autonomo, con una propria formulazione e un proprio spazio di soluzioni.
+
+\section{La medesima tecnica applicata al salvataggio}
+
+Vale registrare che la generazione 3 impiega la medesima tecnica anche al di fuori delle strutture degli esemplari, e che in Smeraldo la impiega sullo zaino. Le quantità degli oggetti nello zaino e il denaro sono posti in XOR con una chiave di sicurezza specifica di quel salvataggio, mentre le quantità del deposito su calcolatore restano in chiaro \cite{pokeemerald}. Anche in questo caso non si tratta di sicurezza ma di fragilità voluta: un codice di alterazione che scriva un numero in chiaro nella posizione corretta produce una quantità priva di senso anziché il valore desiderato.
+
+Questa asimmetria fra zaino e deposito è la ragione per cui il caso di studio del capitolo~\ref{cap:smeraldo} dispone di uno strumento dedicato, e la ragione ha una forma diagnostica precisa: una quantità assurda nello zaino letto in chiaro non dimostra nulla, perché il valore in chiaro non è il valore reale, mentre una quantità assurda nel deposito costituisce un'anomalia genuina. Uno strumento che ignori questa distinzione produce falsi positivi su ogni salvataggio sano.

@@ -1,0 +1,83 @@
+% =====================================================================
+% tesi/capitoli/15-caso-3ds.tex
+% =====================================================================
+% copre: 3ds-related/handoff/HANDOFF_progetto_3DS.md
+% copre: 3ds-related/README.md
+% ---------------------------------------------------------------------
+
+\chapter{Caso di studio: conservare le proprie cartucce}
+\label{cap:3ds}
+
+Questo caso di studio riguarda l'installazione di un firmware alternativo su un Nintendo 3DS di proprietà e la produzione di copie digitali delle cartucce possedute, allo scopo di conservarle e di poterle impiegare in emulazione locale. È un percorso operativo su hardware fisico e non un progetto di sviluppo software, e la sua inclusione in questo lavoro è giustificata da due ragioni: costituisce l'unico dei cinque casi in cui una catena di exploit viene percorsa integralmente su hardware proprio, e mostra un caso di cifratura dipendente da un segreto ottenibile soltanto per interazione con un servizio remoto, che è una classe di problemi assente dagli altri quattro.
+
+\section{Il perimetro, che qui è vincolante e non decorativo}
+
+Il perimetro è stato stabilito all'inizio del sottoprogetto ed è rispettato in ogni sessione successiva. Dentro il perimetro stanno la produzione di copie digitali di cartucce fisiche possedute, l'installazione del firmware alternativo sulla propria console, l'emulazione locale delle proprie copie e il backup dei propri salvataggi. Fuori dal perimetro stanno il software ottenuto da fonti terze non autorizzate, la condivisione di riferimenti a materiale non autorizzato e l'installazione di software protetto ottenuto senza licenza legittima.
+
+Esiste inoltre un limite dichiarato che discende dal perimetro e che il capitolo~\ref{cap:perimetro} registra come normativo: l'assistenza tecnica di questo progetto non copre Pokémon Bank e Pokémon Transporter su questa console, né alcun file di installazione di provenienza non chiarita. Il limite vale anche per le sessioni future e non si riapre implicitamente; la circostanza che lo ha originato è personale e risiede fuori dal controllo di versione, per la ragione che un repository pubblico non è la sede in cui registrarla.
+
+L'inventario dell'hardware è il seguente. La console è un Nintendo 3DS XL nella variante precedente alla revisione New, identificabile dalla presenza di due soli tasti dorsali e dall'assenza della leva analogica aggiuntiva e del lettore di prossimità integrato. Il prefisso del numero di serie appartiene alla famiglia europea di quel modello. Il firmware iniziale era la versione 11.17.0-50E. La scheda di memoria impiegata è da trentadue gigabyte, formattata in FAT32 con unità di allocazione da trentadue kilobyte.
+
+\section{La catena di exploit, e la ragione della sua scelta}
+
+Il metodo impiegato è MSET9, che alla data dell'operazione costituiva l'unico exploit software funzionante per quella famiglia di console sui firmware compresi fra 11.8.0 e 11.17.0, essendo il metodo precedente stato corretto in quella versione.
+
+Il suo funzionamento merita una descrizione perché appartiene alla medesima classe logica degli exploit descritti nel capitolo~\ref{cap:esecuzione}, pur operando su un'architettura interamente diversa. Sfrutta un difetto nel modo in cui l'applicazione delle impostazioni di sistema interpreta il nome di una cartella collocata sulla scheda di memoria, il cui identificativo è legato al profilo della console. Un nome di cartella appositamente malformato conduce il parser a uno stato non previsto nel momento in cui si accede alla gestione dei dati aggiuntivi, e da quello stato si ottiene l'esecuzione di codice al livello di privilegio del processore di sicurezza. Da quella posizione si installa il bootloader di basso livello, il quale a sua volta carica il firmware alternativo a ogni accensione successiva.
+
+La struttura logica è dunque identica a quella del terminatore mancante descritta nel capitolo~\ref{cap:esecuzione}: un dato che il programma legge senza validare, un parser che si fida della propria struttura, e un'esecuzione che raggiunge un contesto privilegiato. Ciò che cambia è soltanto la superficie di ingresso, che qui è un nome di cartella anziché una lista senza terminatore.
+
+\subsection{I prerequisiti, e un dettaglio non ovvio}
+
+L'interprete Python è stato installato dalla fonte ufficiale e non dal negozio applicazioni del sistema operativo, per una ragione tecnica precisa: la versione distribuita da quel canale è confinata in un ambiente isolato incompatibile con lo script impiegato. Vale registrare che la fonte ufficiale è nel frattempo passata a un gestore di installazione che sostituisce il vecchio installatore con la sua casella di scelta per l'aggiunta al percorso di ricerca, e che il nuovo gestore si registra automaticamente sia con il proprio nome sia come alias dell'interprete.
+
+La preparazione della scheda di memoria ha incontrato due circostanze degne di nota. La prima è un guasto del lettore del calcolatore, che inizialmente non rilevava la scheda e ha richiesto una diagnosi attraverso gli strumenti di gestione dei dispositivi e dei dischi del sistema. La seconda è la scelta della capacità, dettata dalla somma dei requisiti: il pacchetto dell'exploit con i suoi componenti, il backup della memoria interna a scopo di sicurezza, e un margine per i salvataggi e il software aggiuntivo. La formattazione è in FAT32 e non in exFAT, perché il primo è il formato nativamente supportato dal bootloader per schede di quella capacità.
+
+Il contenuto del pacchetto è stato copiato nella radice della scheda, perché i percorsi relativi impiegati dallo script partono da quella posizione e non da una sottocartella.
+
+\subsection{L'esecuzione, e l'imprevisto che chiarisce l'architettura}
+
+Il primo lancio dello script è fallito con l'indicazione che la cartella di sistema non era stata trovata, e la causa chiarisce un punto architetturale: una scheda formattata da zero sul calcolatore non contiene ancora quella cartella, che è creata dalla console alla prima lettura e contiene l'identificativo reale legato al profilo. La risoluzione è consistita nell'inserire la scheda nella console, accenderla e spegnerla una volta, e ripetere lo script. L'episodio mostra che l'exploit non manipola un dato arbitrario ma un dato che soltanto la console può generare, ed è la ragione per cui l'operazione non può essere preparata interamente sul calcolatore.
+
+La sequenza successiva è stata eseguita senza deviazioni, circostanza che va sottolineata perché in una procedura di questo tipo l'ordine delle operazioni è parte della specifica e una deviazione corrompe lo stato intermedio. La console è stata accesa con l'applicazione delle impostazioni selezionata, si è navigato fino alla gestione dei dati aggiuntivi, la scheda è stata estratta a console accesa senza toccare altro, il file di innesco è stato iniettato dal calcolatore, la scheda è stata reinserita senza ulteriori azioni. La console si è avviata nell'installatore, che ha riportato la verifica di tutti i file di ingresso, il superamento dei controlli crittografici e l'assenza di necessità del settore segreto; la combinazione di tasti di installazione ha prodotto l'esito positivo con il backup verificato. Al riavvio la schermata di configurazione del firmware alternativo è comparsa correttamente.
+
+La rimozione dell'exploit e il ripristino dell'identificativo originale chiudono la procedura, e la verifica definitiva di successo è l'indicazione, nella schermata di avvio, che il sistema è avviato dalla scheda attraverso il bootloader installato. Questa verifica è di natura diversa dalle precedenti: non attesta che un passo sia riuscito, ma che lo stato desiderato persiste attraverso i riavvii.
+
+\section{La produzione delle copie, e il gestore di file di basso livello}
+
+Lo strumento impiegato è GodMode9, un gestore di file di basso livello eseguito come payload caricato dal firmware alternativo prima del sistema operativo ordinario della console. Dispone di accesso diretto al controllore dello slot cartuccia, il che gli consente di leggere il contenuto grezzo di una cartuccia e di salvarlo come file, nel formato proprio delle cartucce 3DS oppure in quello non cifrato delle cartucce DS.
+
+La procedura per una cartuccia 3DS prevede l'accesso al dispositivo cartuccia, la selezione del file corrispondente e l'impiego dell'opzione di decrittazione verso la cartella di uscita. Vale precisare il rapporto fra le due versioni prodotte, perché la scelta non è indifferente: la versione cifrata è identica al contenuto reale della cartuccia, mentre la versione decrittata è quella necessaria sia per l'impiego con un emulatore sia come base per un'eventuale conversione in formato installabile. Per una cartuccia DS la procedura è più semplice e non richiede decrittazione, perché quei titoli non sono cifrati.
+
+\subsection{La cifratura dipendente da un segreto remoto}
+
+Il problema più istruttivo di questo caso di studio si è presentato come un semplice fallimento di decrittazione su un titolo del 2014, e la sua analisi conduce a una classe di problemi che gli altri casi di studio non contengono.
+
+La causa è che i titoli pubblicati da quella data in avanti, e dotati di funzionalità in rete, impiegano una cifratura basata su un seme specifico della cartuccia, e il gestore di file non dispone per impostazione predefinita del file che raccoglie quei semi. La proprietà rilevante è che quel seme non è derivabile dal contenuto della cartuccia: è ottenuto dalla console contattando i server del produttore.
+
+La procedura di risoluzione applicata segue da questa proprietà. Occorre attivare la connessione di rete, avviare il gioco fisico con la rete attiva e permanere sulla schermata iniziale il tempo necessario perché la console riceva e conservi il seme di quella cartuccia; poi produrre il dump del file di sistema che raccoglie i semi noti alla console; poi convertirlo sul calcolatore nel formato che il gestore di file si attende; poi collocarlo nella cartella di supporto sulla scheda; e infine ripetere la decrittazione, che a questo punto riesce. Il file così prodotto è cumulativo, e contiene i semi di tutti i titoli con funzionalità in rete avviati almeno una volta con la rete attiva: la medesima procedura, compiuta una volta, ha dunque risolto retroattivamente il caso di altri due titoli della stessa categoria.
+
+Durante questo passaggio si è manifestato un effetto collaterale che vale registrare perché è facile attribuirlo alla causa sbagliata: la comparsa dell'errore ufficiale relativo al mancato riconoscimento della scheda di memoria. L'errore è documentato anche su console non modificate per quella serie di titoli, che applicano un controllo particolarmente rigido sulla scheda, e non è dunque causato dal firmware alternativo. La risoluzione è consistita nello spegnimento completo, nella verifica dei contatti, nel reinserimento a console spenta e nella verifica preventiva che il sistema riconoscesse la scheda. La lezione generale è che in un ambiente modificato ogni malfunzionamento tende a essere attribuito alla modifica, e che questa attribuzione automatica conduce a diagnosi errate.
+
+\subsection{Dove risiede effettivamente un salvataggio}
+
+Un punto che si è rivelato fonte di confusione, e che vale chiarire perché condiziona ogni operazione di backup, riguarda la collocazione del salvataggio attivo. Quando si gioca dalla cartuccia fisica inserita, anche con il firmware alternativo attivo, il salvataggio risiede su un chip di memoria dentro la cartuccia e mai sulla scheda. Quando si gioca dalla versione installata sul sistema, il salvataggio risiede in una cartella sulla scheda, creata al primo avvio del titolo installato.
+
+Lo strumento di backup dei salvataggi costituisce un terzo livello, separato da entrambi: esporta una copia portabile in una propria cartella, che non è il salvataggio attivo letto e scritto dal gioco durante la partita, ma una copia indipendente da aggiornare manualmente per mantenerla allineata al progresso reale. Confondere i tre livelli conduce a credere di avere un backup aggiornato quando si possiede una copia vecchia, che è precisamente il tipo di errore che il capitolo~\ref{cap:supporto} identifica come non recuperabile.
+
+Sull'installazione dei titoli prodotti, il comportamento tecnico rilevante è che il sistema crea una copia indipendente e cifrata nella propria struttura, e che il file sorgente non è più referenziato: può dunque essere rimosso dalla scheda in sicurezza, a condizione di averne conservato una copia sul calcolatore, che costituisce l'unico modo di reinstallare in futuro senza ripetere la lettura fisica della cartuccia.
+
+\section{L'analisi di un percorso che risulta chiuso}
+
+Un obiettivo collaterale iniziale era la valutazione di un percorso per portare esemplari delle generazioni precedenti sui servizi in rete contemporanei, e l'analisi ha concluso che il percorso non è praticabile nella maggior parte dei casi. Vale riportarla perché la conclusione negativa è essa stessa un risultato, e perché la sua struttura è di natura infrastrutturale e non tecnica.
+
+Il prerequisito assoluto per i servizi di trasferimento della generazione precedente è un identificativo di rete creato prima della chiusura del negozio digitale, con quei titoli già presenti nella cronologia degli acquisti. In assenza di quel prerequisito non esiste alcuna cronologia da cui reinstallarli, dunque non sono ottenibili oggi per la prima volta in alcun modo legittimo, indipendentemente da qualunque modifica alla console: il blocco risiede sull'infrastruttura del produttore e non sul dispositivo.
+
+Ne segue che per i titoli fino alla settima generazione il ponte verso il servizio contemporaneo resta chiuso per questo progetto, e lo sarà definitivamente per chiunque dalla data di chiusura del servizio intermedio. I titoli dall'ottava generazione in avanti si collegano invece direttamente al servizio contemporaneo attraverso un account moderno, che è un sistema distinto dal precedente e creabile senza ostacoli.
+
+Va infine dichiarato che l'ottenimento di quei servizi attraverso canali alternativi equivarrebbe a distribuzione non autorizzata di software protetto, resta fuori dal perimetro stabilito e resta escluso indipendentemente da chi lo richieda.
+
+\section{Lo stato dei lavori e il materiale segreto}
+
+Delle cartucce possedute risultano completate le copie dei tre titoli 3DS, tutti appartenenti alla categoria che ha richiesto il file dei semi, mentre restano da produrre le copie di cinque titoli DS, per i quali non è prevista alcuna decrittazione. Il software installato sulla console comprende il firmware alternativo, il gestore di file di basso livello come payload, lo strumento di backup dei salvataggi, e l'installatore impiegato soltanto nella fase iniziale.
+
+Le avvertenze di perimetro che chiudono il sottoprogetto sono due. La prima è che la produzione di copie si applica soltanto a esemplari di proprietà, e che i salvataggi ottenuti da terzi non si importano su questa console, per la ragione discussa nel capitolo~\ref{cap:perimetro}. La seconda riguarda il materiale di chiave specifico della console, cioè i file di avvio di basso livello, i dump della memoria interna e i semi: sono segreti nel senso pieno del termine e non sono rigenerabili, non entrano nel controllo di versione, non si incollano in una conversazione e non si caricano su servizi di terze parti. Anche l'identificativo della scheda di memoria, che ne è derivato, va trattato con la medesima riservatezza.

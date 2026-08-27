@@ -215,12 +215,28 @@ def igiene_tex():
     LaTeX non delimita il monospazio ma apre una virgoletta: il documento compila senza
     lamentarsi e il difetto si vede soltanto rileggendo la pagina. E i caratteri di
     controllo, che entrano quando una sostituzione automatica interpreta come sequenza di
-    escape cio' che doveva essere un backslash seguito da una lettera: la macro perde il
+    escape ciò che doveva essere un backslash seguito da una lettera: la macro perde il
     backslash, il suo nome perde la prima lettera, e il testo esce in chiaro nel PDF.
     """
     BS = chr(92)
     NL = chr(10)
-    MACRO = ("file{", "term{", "hx{", "bin{", "cite{", "emph{", "texttt{", "SI{")
+    # Perché il controllo guarda il contesto e non la sottostringa. Il nome di una
+    # macro è spesso contenuto in quello di un'altra: SECTIONBS è dentro SUBSECTIONBS,
+    # REFBS è dentro PAGEREFBS. Cercare il nome come sottostringa segnalerebbe ogni
+    # titolo del documento. Una macro legittima è preceduta da un backslash, una
+    # mutilata da qualunque cosa che non sia una lettera: un solo lookbehind che escluda
+    # entrambi riconosce il secondo caso senza toccare il primo.
+    #
+    # L'elenco tiene insieme due categorie. I nomi interi valgono per il caso in cui il
+    # solo backslash sia caduto. I frammenti valgono per il caso in cui la sostituzione
+    # abbia mangiato backslash e lettera iniziale insieme, che è quanto è avvenuto con
+    # sed su LABELBS diventato ABELBS: la compilazione si arresta su una macro che non
+    # esiste, e il nome sopravvive privo della prima lettera.
+    NOMI = ("file", "term", "hx", "bin", "cite", "emph", "texttt", "SI",
+            "label", "ref", "chapter", "section", "subsection", "input",
+            "abel", "hapter", "ection", "nput", "ite", "ile", "erm", "ubsection")
+    SOSPETTE = re.compile(r"(?<![A-Za-z" + BS + BS + BS + BS + r"])(" +
+                          "|".join(NOMI) + r")" + BS + "{")
     problemi = []
     if not os.path.isdir(CAPITOLI):
         return problemi
@@ -242,10 +258,10 @@ def igiene_tex():
                             "di escape interpretata da una sostituzione" % (rel, ctrl))
 
         for numero, riga in enumerate(testo.split(NL), 1):
-            for macro in MACRO:
-                if macro in riga and (BS + macro) not in riga:
-                    problemi.append("%s riga %d: la macro %s compare senza backslash"
-                                    % (rel, numero, macro.rstrip("{")))
+            for m in SOSPETTE.finditer(riga):
+                problemi.append("%s riga %d: %s{ non ha il backslash, o è il residuo di "
+                                "una macro a cui è stata mangiata la lettera iniziale"
+                                % (rel, numero, m.group(1)))
     return problemi
 
 

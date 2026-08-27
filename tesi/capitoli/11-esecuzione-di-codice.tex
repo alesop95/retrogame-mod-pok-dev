@@ -1,0 +1,130 @@
+% =====================================================================
+% tesi/capitoli/11-esecuzione-di-codice.tex
+% =====================================================================
+% copre: docs/09-esecuzione-codice.md
+% copre: pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md#10-il-livello-di-trasporto-protocollo-del-cavo-link-ed-esecuzione-di-codice
+% ---------------------------------------------------------------------
+
+\chapter{L'esecuzione di codice come canale di trasporto}
+\label{cap:esecuzione}
+
+Questo capitolo espone il modo in cui si giunge a far eseguire a un gioco del 1996 un programma che i suoi autori non hanno scritto, perché è il meccanismo su cui poggia il ponte fra generazioni. Il contesto è interamente quello dichiarato nella premessa, cioè cartucce di proprietà e console propria, e la ragione per cui vale la pena comprenderlo anziché impiegarlo come componente opaco è che le sue proprietà spiegano ognuno dei limiti osservabili negli strumenti esistenti.
+
+Le fonti sono la primitiva del terminatore mancante e le sue conseguenze \cite{cableclubhack}, con le due derivazioni indipendenti \cite{pksploit,linkhack} e la documentazione che le inquadra \cite{blog-phasip}; la specifica del payload e l'impiego del Dono Segreto dal diario di sviluppo dello strumento di riferimento \cite{devlog-ptgb}; il livello fisico dalla documentazione dell'hardware \cite{pandocs,gbatek}; il lato generazione 3 dal canale di ricerca sui difetti dei giochi \cite{gcri-discord}.
+
+\section{Il concetto, e l'assenza di ogni protezione}
+
+Un processore non distingue fra dati e istruzioni: distingue soltanto fra l'indirizzo dal quale sta prelevando istruzioni e tutto il resto. Quando un difetto fa deviare il flusso di esecuzione verso una zona di memoria il cui contenuto è controllato da chi attacca, il processore eseguirà quel contenuto come programma. Questa è l'esecuzione di codice arbitrario, e su queste console è particolarmente efficace perché nessuna delle contromisure che un sistema contemporaneo adotta è presente: non esiste separazione fra memoria eseguibile e memoria dati, non esiste controllo sugli indirizzi, non esiste un sistema operativo sottostante che possa interporsi.
+
+Ne consegue che chi ottiene la deviazione ottiene la macchina: può leggere e scrivere qualunque indirizzo, compresa la SRAM della cartuccia, e può pilotare qualunque periferica, compresa la porta seriale. La proprietà rilevante per questo progetto è la seconda, perché trasforma il cavo da canale di dati in canale di controllo.
+
+\section{La primitiva: un terminatore che manca}
+
+Il vettore che interessa questo progetto passa dal cavo, e sfrutta una proprietà che il capitolo~\ref{cap:cavo} descrive come innocua. La lista degli indici di specie in una squadra è terminata da un byte \hx{FF}, e i cicli del gioco iterano fino a incontrarlo.
+
+Quando il gioco riceve una squadra dal cavo e ne stampa i nomi per mostrarli al giocatore, itera su quella lista. Una squadra costruita senza terminatore fa proseguire l'iterazione oltre la fine della lista, e la scrittura dei nomi continua oltre il buffer video, raggiungendo l'area dello stack e sovrascrivendo un indirizzo di ritorno. Da quel momento il flusso di esecuzione procede dove ha deciso chi ha costruito la squadra.
+
+I passi successivi costituiscono un esercizio di composizione: l'indirizzo raggiungibile conduce anzitutto al nome del giocatore avversario, che sono undici byte controllabili, sufficienti per un salto; il salto conduce alla lista di correzione, che offre quasi duecento byte utilizzabili come codice. Esiste in questa catena una simmetria che vale osservare, perché è il genere di conseguenza che il progetto di un protocollo non anticipa: il campo che esiste per aggirare un limite del protocollo è anche il più ampio buffer controllabile che il protocollo trasmette.
+
+\section{La specifica dell'innesco, nelle parole dell'autore}
+
+Fino a questo punto il meccanismo era ricostruito, cioè la primitiva dal codice del gioco e la conseguenza dal codice del ponte. La specifica precisa dell'innesco è stata pubblicata dall'autore dello strumento di riferimento nell'articolo del proprio diario intitolato \emph{The Power of a REALLY Big Party}, e il titolo contiene la risposta: la squadra grande non è il contesto dell'exploit, è l'exploit \cite{devlog-ptgb}.
+
+La descrizione dell'innesco è una squadra di trecentocinquantadue esemplari con identificativo interno \hx{E3}, seguita da un esemplare con identificativo interno \hx{FC}, che corrompe lo stack e dirotta l'esecuzione. Vale esaminare ciascuno dei tre numeri, perché insieme spiegano tutto quanto precede.
+
+Il conteggio trecentocinquantadue è largamente oltre i sei di una squadra legittima, ed è ciò che fa proseguire la funzione di stampa dei nomi fino a superare il buffer video e raggiungere lo stack: è la conseguenza diretta dell'assenza del terminatore, misurata in termini di quanto lontano occorra arrivare.
+
+L'identificativo \hx{E3} è il riempimento, cioè la specie che occupa le trecentocinquantadue posizioni. Cade nell'intervallo che il capitolo~\ref{cap:identita} descrive come non assegnato in generazione 1, e serve non per ciò che rappresenta ma per i byte che il gioco recupera nel cercarne il nome.
+
+L'identificativo \hx{FC} è il vettore, cioè il valore che, letto dalla tabella dei nomi, fornisce i byte che diventano l'indirizzo di ritorno sovrascritto. Vale osservare che il medesimo indice compare nella ricerca sui difetti dei giochi come TRAINER 4, che è una delle porte d'ingresso classiche all'esecuzione di codice in generazione 1.
+
+\begin{daverificare}
+Se si tratti della medesima strada percorsa in senso opposto oppure di una coincidenza fra due impieghi del medesimo indice è una congettura formulata in questo lavoro e non un fatto stabilito; per deciderlo occorrerebbe leggere il payload generato.
+\end{daverificare}
+
+Con questi tre numeri l'affermazione che il ponte impieghi esecuzione di codice remota cessa di essere un'inferenza dal codice: è una dichiarazione dell'autore, e il codice ne costituisce la conferma.
+
+\section{Che cosa fa il ponte, e le due conseguenze osservabili}
+
+Sul modo in cui il progetto di riferimento impieghi questa primitiva la sua documentazione non dice nulla, ma il codice lo dichiara con chiarezza, e la risposta è più pulita di quanto si potrebbe immaginare. Durante la fase di scambio delle squadre, la funzione che risponde al Game Boy non invia una squadra: invia byte per byte un buffer precalcolato \cite{ptgb}.
+
+\begin{verbatim}
+byte exchange_parties(byte curr_in, byte *curr_payload)
+{
+  int ret = curr_payload[data_counter];
+  data_counter += 1;
+  return ret;
+};
+\end{verbatim}
+
+Quel buffer è un programma Z80. Il repository contiene un generatore di payload con un assemblatore Z80 proprio, in \file{tools/payload-generator/src/payloads/z80\_asm.cpp}, un generatore di patch binarie e tabelle di valori di ROM per lingua, oggi inglese e francese, e il payload viene estratto da un file per lingua e variante di gioco.
+
+Il quadro completo è dunque il seguente: il giocatore non deve compiere alcuna preparazione dentro il gioco, non occorre alcun oggetto difettoso e alcuna procedura preliminare, e l'esecuzione di codice è ottenuta interamente dal lato ricevente, trasmettendo al Game Boy una squadra apparente che è in realtà codice. È esecuzione di codice remota attraverso il cavo.
+
+Da qui seguono due conseguenze che la documentazione dello strumento elenca senza spiegarle, e che a questo punto si comprendono. Il supporto è dichiarato per lingua e per variante di ROM, perché il payload contiene indirizzi assoluti che dipendono da quella specifica compilazione del gioco. E le cartucce contraffatte fanno sparire gli esemplari, perché contengono una ROM diversa da quella su cui il payload è tarato, dunque il salto finale termina in una posizione arbitraria. La seconda conseguenza è di interesse pratico immediato per chi opera su hardware acquistato sul mercato dell'usato.
+
+\section{Il precedente minimale, e la sua importanza per il progetto}
+
+Lo strumento \file{PkSploit} realizza la medesima operazione in forma ridotta all'essenziale: un Arduino si presenta come un Game Boy sul cavo, avvia uno scambio, trasmette una squadra malformata e ottiene esecuzione di codice \cite{pksploit}. Con i circa centonovantadue byte utilizzabili di payload apre un'interfaccia di lettura e scrittura sulla memoria, e da quella posizione produce il dump della ROM e legge e scrive la SRAM.
+
+Vale fermarsi sul significato di questo risultato, perché modifica il perimetro di ciò che il capitolo~\ref{cap:supporto} descriveva come necessario: un microcontrollore di costo trascurabile, collegato al solo connettore del cavo, ottiene accesso completo alla cartuccia senza alcun lettore dedicato. Per l'opzione architetturale discussa nel capitolo~\ref{cap:opzioni} è il riferimento più prossimo all'obiettivo, e per il progetto nel suo insieme è la dimostrazione che il cavo, da solo, costituisce un canale di accesso completo.
+
+\section{Il lato che scrive: il Dono Segreto, e non la struttura}
+
+Esiste una seconda scoperta nel medesimo diario, e modifica il modo di concepire il lato generazione 3. Chi ha letto la referenza dei formati si attende che il ponte, dopo aver convertito, scriva la struttura da ottanta o cento byte nella posizione corretta del salvataggio. Non è ciò che accade.
+
+Nell'articolo intitolato \emph{The Main Event} l'autore descrive l'iniezione di un evento Dono Segreto nella sezione del salvataggio destinata agli script in memoria, dove lo spazio disponibile è costituito da due byte di checksum, due di riempimento e mille byte per lo script, e lo script impiega il comando \file{CallASM} per chiamare il codice assembly del gioco, ottenendo il deposito dell'esemplare nel magazzino su calcolatore e l'aggiornamento del Pokédex \cite{devlog-ptgb}.
+
+La differenza è architetturale e merita di essere compresa perché costituisce una scelta di progetto trasferibile. Scrivere la struttura significa assumere la responsabilità di ogni campo derivato, di ogni indice e di ogni coerenza interna; far eseguire al gioco la propria routine di deposito significa che il gioco compie ciò che compirebbe normalmente, e la coerenza è garantita da chi ha scritto il gioco. Il prezzo è la necessità di conoscere l'indirizzo di quelle routine, e quell'indirizzo varia con la versione e con la lingua: l'autore dichiara quarantotto combinazioni fra versioni e lingue, gestite mediante un compilatore assembly scritto per l'occasione.
+
+È la seconda ragione, indipendente dal payload sul lato Game Boy, per cui il supporto di quel progetto è dichiarato per versione e per lingua, e per cui una cartuccia contraffatta compromette l'intera procedura.
+
+\section{Il lato generazione 3: un escape di testo, e una differenza fra versioni}
+
+Tutto quanto precede riguarda le generazioni 1 e 2. Sul lato generazione 3 il progetto non disponeva di alcun materiale, e la lettura del canale del Glitch City Research Institute condotta il 26 agosto 2026 ha prodotto un quadro sufficientemente preciso da risultare utile, con una distinzione fra versioni che vale più di tutto il resto \cite{gcri-discord}.
+
+Il punto di partenza è un dettaglio del formato del testo, che il capitolo~\ref{cap:testo} tratta come questione di codifica e che qui diventa una superficie di attacco. In generazione 3 due byte non sono caratteri ma comandi rivolti al motore che compone il testo: il byte \hx{FC} introduce un codice di controllo, cioè comunica al motore che quanto segue va interpretato come istruzione e non come lettera, e il byte \hx{FD} introduce la sostituzione di una variabile di stringa. Un nome, dunque, non è soltanto una sequenza di caratteri: è un programma per il motore di composizione, e chi controlla quei byte controlla in parte ciò che il motore compie.
+
+Qui interviene la differenza fra versioni, ed è netta. In Rosso Fuoco, Verde Foglia e Smeraldo le funzioni associate ai codici di controllo sono selezionate da un costrutto di scelta multipla, che per costruzione non compie alcuna azione quando l'indice cade fuori intervallo: un indice privo di senso produce dunque un nulla di fatto. In Rubino e Zaffiro le medesime funzioni sono prelevate da una tabella di puntatori priva di qualunque controllo dei limiti, e un indice fuori intervallo diventa una lettura oltre la tabella, cioè un indirizzo prelevato da memoria manipolabile, cioè esecuzione di codice arbitrario.
+
+Si tratta di un esempio da manuale di come la medesima funzionalità, scritta in due modi che un revisore superficiale giudicherebbe equivalenti, produca conseguenze di sicurezza opposte, e della ragione per cui il controllo dei limiti non è una formalità. Vale registrare che la differenza non è fra un'implementazione corretta e una difettosa nel senso funzionale: entrambe si comportano identicamente su ogni ingresso legittimo, e divergono soltanto sull'ingresso che nessuno aveva previsto.
+
+\subsection{La catena documentata su Smeraldo}
+
+La catena documentata su Smeraldo non passa dunque dai codici di controllo fuori intervallo ma da una posta difettosa, e vale seguirla nella sua interezza perché mostra quanto sia lunga una catena reale, e quanto ciascun anello dipenda da proprietà del formato documentate altrove in questo lavoro.
+
+Una posta rimossa fuori da un edificio lascia in memoria una stringa privo di terminatore. Il gioco, leggendo il nome dell'allenatore che l'avrebbe scritta, prosegue oltre la posta e oltre la cassetta, attraversa sessantaquattro byte di una struttura secondaria e giunge ai dati delle tendenze di una città. La prima di quelle tendenze contiene la sequenza \hx{FD} \hx{00}, che il gioco riconosce come sostituzione della variabile di stringa numero zero, una variabile che nessuno aveva previsto di impiegare e il cui puntatore cade in una posizione arbitraria della memoria interna di lavoro. Da quella posizione la lettura prosegue attraverso zeri fino a incontrare i dati della squadra del giocatore, e dentro la squadra incontra nell'ordine il valore di personalità e l'identificativo dell'allenatore, il soprannome, i byte di lingua e di contrassegno, il nome dell'allenatore, le marcature, il checksum e infine il blocco cifrato. Nel blocco cifrato incontra la sequenza \hx{FC} seguita dal valore che l'autore ha costruito scegliendo opportunamente i punti potenza delle mosse; quella sequenza viene interpretata come codice di controllo, e il gioco chiama come funzione un indirizzo che cade dentro il soprannome di un esemplare in deposito.
+
+Tre proprietà di questa catena meritano di essere estratte, perché valgono anche fuori dal caso specifico.
+
+La prima è che l'ordine in cui il motore di composizione incontra i campi della struttura è esattamente l'ordine dell'intestazione documentato nella tabella~\ref{tab:gen3hdr}, e costituisce dunque una conferma indipendente di quel layout, proveniente da una fonte che non stava documentando il formato ma sfruttandolo. Conferme di questo tipo sono fra le più affidabili che esistano, per una ragione che vale enunciare: chi le produce paga un prezzo immediato e verificabile se sbaglia, mentre chi compila una descrizione non paga alcun prezzo per un errore che nessuno prova.
+
+La seconda è che i byte cercati risiedono nel blocco cifrato, e che l'autore li ottiene scegliendo i punti potenza. Non si tratta di una contraddizione con quanto il capitolo~\ref{cap:cifratura} afferma: poiché la cifratura è uno XOR con una chiave derivata dal valore di personalità e dall'identificativo dell'allenatore, chi controlla il contenuto in chiaro e la chiave controlla anche il testo cifrato, e può cercare la combinazione che produce i byte desiderati dopo la cifratura. È anche la ragione per cui il soprannome deve essere una serie di lettere identiche e il nome dell'allenatore un'altra: quei campi non sono decorativi, costituiscono il riempimento che conduce la lettura fino al punto corretto.
+
+La terza è che il codice effettivo risiede nei soprannomi degli esemplari in deposito e nei nomi dei box, che risiedono in memoria immediatamente dopo di essi. Gli esemplari inesistenti dei box vuoti si comportano da istruzioni innocue, e la lettura procede fino a raggiungere il codice utile. È la medesima idea del deposito di codice nei nomi dei box impiegata dalle generazioni 1 e 2, applicata a un'architettura differente.
+
+Una via alternativa, più prossima al dominio di questo progetto, è indicata da un altro partecipante al medesimo canale: è possibile semplicemente scambiare un esemplare che contenga la sequenza di controllo, facendola giungere nel buffer di ricezione del blocco. È rilevante perché è esattamente il canale che il ponte impiega, e va registrata come rischio prima che come opportunità: una struttura costruita male, scambiata verso un gioco di generazione 3, non è soltanto un dato errato, è potenzialmente un dato che quel gioco esegue.
+
+Su tutto questo va dichiarato che il progetto non ha alcuna necessità di eseguire codice sul lato generazione 3, perché la via adottata dagli strumenti esistenti è quella del Dono Segreto descritta sopra. Lo si studia per due ragioni: perché chiarisce quali strutture un gioco di generazione 3 accetti e quali gli facciano compiere azioni non previste, e perché la differenza fra il costrutto di scelta multipla e la tabella priva di controllo dei limiti è una delle lezioni più trasferibili che questo dominio offra.
+
+\section{Un vincolo del traboccamento che si scopre soltanto provando}
+
+Esiste un'ultima aggiunta sul lato generazione 2, proveniente dal medesimo canale, con valore pratico immediato per chiunque costruisca strutture da trasmettere sul cavo. Nelle procedure che sfruttano il traboccamento della lista della squadra esiste una condizione necessaria non ovvia: nessuno degli esemplari impiegati può possedere un identificativo dell'allenatore che contenga un byte di valore \hx{FF}, né nel byte alto né nel basso, altrimenti la procedura non funziona \cite{gcri-discord}.
+
+La ragione è la medesima che rende possibile l'attacco: \hx{FF} è il terminatore della lista delle specie, e il gioco lo cerca scorrendo la memoria. Un identificativo dell'allenatore che contenga quel byte introduce un terminatore in una posizione in cui non era previsto, e la scansione si arresta prematuramente. È un esempio efficace di una proprietà che il capitolo~\ref{cap:bit} enuncia in astratto, cioè che su queste architetture un valore e un marcatore condividono lo spazio dei byte e nulla li distingue: qui la conseguenza è che un campo di dati può accidentalmente terminare una struttura.
+
+Nel medesimo contesto compaiono una seconda condizione, specifica di Cristallo, per cui nessuna statistica degli esemplari coinvolti può valere ventuno, punti salute correnti e massimi inclusi, e una terza per cui i cicli di cova residui di un uovo dipendono dai punti potenza della sua quarta mossa. Sono tutti casi del medesimo fenomeno, cioè campi che il gioco riusa per scopi diversi da quello dichiarato, e costituiscono la ragione per cui il capitolo~\ref{cap:ponte} insiste che il lettore conservi ogni byte anche quando non ne conosce il significato.
+
+\section{Le vie dal lato del giocatore, per completezza}
+
+Esiste una letteratura ampia sul modo di ottenere esecuzione di codice giocando, senza alcun hardware esterno. Non serve al ponte, ma serve a orientarsi nel campo e a valutare alternative, e la sua conoscenza evita di reinventare percorsi già catalogati.
+
+In generazione 1 le vie più praticabili sono gli oggetti difettosi il cui puntatore di effetto cade nei dati della squadra, denominati 8F nelle versioni inglesi di Rosso e Blu e ws m in Giallo, che si impiegano come trampolino per saltare in una zona più comodamente scrivibile come lo zaino. In Oro e Argento la via nota è il difetto del Salvadanaio, che conduce all'esecuzione dalla echo RAM. In Cristallo si passa da un nome privo di terminatore ottenuto mediante il difetto dei cloni difettosi, con i nomi dei box impiegati come deposito del codice.
+
+Il catalogo completo risiede sul Glitch City Wiki \cite{glitchcity}, che il capitolo~\ref{cap:fonti} elenca insieme al proprio mirror statico, perché il sito respinge le richieste automatiche.
+
+\section{Le due strategie per il ponte, e la scelta fra esse}
+
+Su questo protocollo esistono due strategie diverse per il ponte, e la scelta fra le due è architetturale e non implementativa. La prima consiste nel parlare il protocollo normale, cioè presentarsi come console partner legittima e condurre uno scambio autentico: è quanto fa l'implementazione che opera nel verso opposto, che lo dichiara esplicitamente \cite{gen3togenx}, ed è anche quanto fa il circuito stampato dell'autore dello strumento di riferimento, con un microcontrollore ARM interposto fra i due cavi. La seconda consiste nel far eseguire codice proprio al gioco di generazione 1 o 2, con i vantaggi e i costi descritti in questo capitolo.
+
+Il lato generazione 3 impone vincoli hardware precisi, che il capitolo~\ref{cap:multiboot} tratta nel dettaglio. Il cavo deve essere quello del Game Boy Color e non quello del Game Boy Advance, perché il gioco di generazione 1 o 2 dialoga con l'hardware seriale del Game Boy. Il programma ricevente giunge sulla console mediante multiboot, cioè eseguendo in memoria un programma ricevuto dal cavo, e la documentazione autorevole di quel meccanismo è GBATEK \cite{gbatek}. La cartuccia di generazione 3 va inserita al posto di quella di avvio mentre il programma è in esecuzione, con uno scambio a caldo che può reinizializzare la console.

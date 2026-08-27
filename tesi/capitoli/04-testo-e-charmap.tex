@@ -1,0 +1,38 @@
+% =====================================================================
+% tesi/capitoli/04-testo-e-charmap.tex
+% =====================================================================
+% copre: docs/05-testo-e-charmap.md
+% ---------------------------------------------------------------------
+
+\chapter{Il testo: la transcodifica di un nome fra due alfabeti privati}
+\label{cap:testo}
+
+Un soprannome contenuto in un salvataggio non è testo nel senso in cui un linguaggio di programmazione contemporaneo intende quel termine. È una sequenza di indici in una tabella di caratteri disegnata a mano dagli autori del gioco, ottimizzata per risiedere nella memoria video di quella console, e differente fra le generazioni. Trasferire un nome da una generazione all'altra è dunque una transcodifica fra due alfabeti privati e non una copia di byte, ed è il punto dell'intero progetto in cui un errore è al tempo stesso più facile da commettere e meno visibile una volta commesso.
+
+\section{Perché nessuna generazione impiega ASCII}
+
+La ragione è che su queste console un carattere non costituisce un'astrazione: è una piastrella grafica caricata nella memoria video, e il codice del carattere è l'indice di quella piastrella. Gli autori hanno quindi ordinato la tabella secondo la convenienza della grafica e del motore di composizione del testo, non secondo uno standard esterno, e hanno riservato interi intervalli a comandi di formattazione, a nomi variabili come quello del giocatore, e nelle edizioni giapponesi a insiemi di caratteri interamente diversi. La conseguenza è che la tabella non è una codifica nel senso moderno, cioè una mappa fra caratteri e numeri concordata fra sistemi indipendenti, ma una tabella di simboli interna a un solo programma, che nessuno ha mai avuto la necessità di rendere interoperabile.
+
+Nelle generazioni 1 e 2 le lettere maiuscole cominciano a \hx{80}, le minuscole a \hx{A0}, le cifre risiedono in coda a partire da \hx{F6}, lo spazio è \hx{7F} e il terminatore di stringa è \hx{50} \cite{pokered}. In generazione 3 la tabella è interamente riorganizzata: lo spazio è \hx{00}, le cifre stanno a \hx{A1}, le maiuscole a \hx{BB}, le minuscole a \hx{D5} e il terminatore è \hx{FF} \cite{pokeemerald}. Nessuna delle due tabelle contiene l'altra come sottoinsieme, e nessun valore notevole coincide fra le due.
+
+\section{L'errore silenzioso, misurato su un caso reale}
+
+Questo progetto possiede una dimostrazione diretta di quanto sia facile sbagliare in questo punto, e vale la pena esporla nel dettaglio perché costituisce la giustificazione empirica del metodo enunciato nel capitolo~\ref{cap:bit}, cioè della decisione di generare le costanti anziché trascriverle.
+
+Durante la stesura della referenza tecnica del progetto, le fonti enciclopediche consultate collocavano le cifre di generazione 1 a \hx{F0} anziché a \hx{F6}, e le maiuscole di generazione 3 a \hx{C1} anziché a \hx{BB}. In entrambi i casi lo scostamento è di sei posizioni. Un convertitore costruito su quei valori non fallisce in alcun modo osservabile: produce nomi in cui ogni lettera è sostituita da un'altra lettera esistente, quindi stampabile, quindi non sospetta a un controllo condotto per ispezione visiva. Appartiene alla categoria di difetti che si scoprono mesi dopo, osservando un esemplare e domandandosi perché porti un nome che nessuno gli ha dato.
+
+La verifica è stata condotta leggendo i file di definizione dei caratteri dei disassemblati \cite{pokered,pokeemerald}, che costituiscono la definizione autorevole per una ragione strutturale e non di reputazione: il gioco stesso viene compilato a partire da quei file, dunque essi non descrivono il formato ma lo determinano. In entrambi i casi le fonti secondarie riportavano un valore errato.
+
+\section{La soluzione: generare la tabella e rifiutarsi di emetterla se non torna}
+
+La risposta strutturale a quell'episodio non consiste nella correzione manuale della tabella, perché una tabella corretta a mano può essere sbagliata di nuovo a mano dalla revisione successiva. La risposta consiste nel non scrivere mai la tabella: generarla dai file di definizione del disassemblato, e fare in modo che il generatore rifiuti di emettere il proprio risultato quando alcuni valori di controllo non corrispondono a quelli attesi. La distinzione fra un generatore che verifica e uno che si limita a trasformare è sostanziale: il secondo propaga silenziosamente un cambiamento a monte, il primo si arresta e lo segnala.
+
+Lo strumento è \file{pokemon-gen12-gen3-bridge-original-hardware/tools/extract\_charmaps.py}, descritto nel capitolo~\ref{cap:strumenti}, e produce tre file. I primi due sono le due tabelle, un byte per carattere, con i token di controllo mantenuti separati dai caratteri stampabili e con l'indicazione del commit da cui provengono, cosicché ogni valore sia riconducibile a una revisione precisa della fonte. Il terzo è quello che il convertitore impiega effettivamente: la traduzione diretta dal byte di generazione 1 e 2 al byte di generazione 3 che rende il medesimo carattere.
+
+Quel terzo file porta alla luce una decisione che altrimenti rimarrebbe implicita, ed è questa la ragione principale della sua esistenza come artefatto separato. Su duecento caratteri stampabili di generazione 1 e 2, centoquarantasette possiedono una destinazione in generazione 3 e cinquantatré non la possiedono: sono caratteri che in generazione 3 semplicemente non esistono, fra cui i kana giapponesi e i caratteri di disegno delle cornici. Che cosa fare di un nome che li contiene non è un problema di codifica ma una decisione di prodotto, e il file la rende visibile in fase di progetto invece di lasciarla emergere come un'eccezione non gestita in fase di esecuzione.
+
+\section{Le altre due trappole della transcodifica}
+
+La lunghezza dei campi non coincide fra le generazioni. In generazione 1 e 2 un nome occupa undici byte, cioè dieci caratteri più il terminatore. In generazione 3 il soprannome dispone di dieci byte e il nome dell'allenatore di soli sette \cite{pokeemerald}. Un nome di allenatore lungo va dunque troncato, e il troncamento è a sua volta una decisione da assumere esplicitamente, perché la scelta di quali caratteri sacrificare non è indifferente all'utente che riconosce quel nome.
+
+I codici di controllo costituiscono la trappola più grave. In generazione 3 il byte \hx{FC} introduce sequenze di formattazione, \hx{FD} introduce variabili di testo come il nome del giocatore, e \hx{FE} rappresenta un'interruzione di riga. Un byte di questo insieme finito dentro un soprannome per effetto di un errore di transcodifica non è un carattere sbagliato: è un comando collocato dentro un nome, e il gioco lo esegue. La gravità di questa circostanza non si esaurisce in un difetto di visualizzazione, come il capitolo~\ref{cap:esecuzione} dimostra ricostruendo la catena che dallo stesso byte \hx{FC} conduce all'esecuzione di codice arbitrario. Da qui la regola che un writer deve validare l'uscita della transcodifica contro l'insieme dei byte ammessi in un nome, e non riporre fiducia nella tabella: la tabella descrive che cosa un byte significa, non se quel byte sia ammissibile in quella posizione.

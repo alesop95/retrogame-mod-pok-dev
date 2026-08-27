@@ -3,7 +3,7 @@
 """
 doc-ingest.py - Ingestione deterministica e incrementale di un corpus documentale
 (.pdf, .docx, .pptx, .xlsx, .html) in una cache Markdown locale, a zero consumo di
-token: l'estrazione e' interamente locale, nessuna chiamata LLM.
+token: l'estrazione è interamente locale, nessuna chiamata LLM.
 
 Cammina ricorsivamente una cartella sorgente, converte ogni documento supportato in
 Markdown e scrive il risultato in una cache che rispecchia la struttura di cartelle
@@ -16,7 +16,7 @@ aprire l'intero corpus.
 
 Motore di default: markitdown (MIT). Con --engine docling si usa Docling sui soli
 .pdf per i layout complessi (tabelle, multi-colonna) dove markitdown degrada; e una
-dipendenza opzionale, importata solo se il flag e' passato. Con --ocr si tenta il
+dipendenza opzionale, importata solo se il flag è passato. Con --ocr si tenta il
 fallback OCR via pytesseract sui PDF scansionati senza testo estraibile; richiede il
 binario di sistema tesseract-ocr, anch'esso opzionale.
 
@@ -41,7 +41,7 @@ from pathlib import Path
 SUPPORTED_EXTENSIONS = {".pdf", ".docx", ".pptx", ".xlsx", ".html", ".htm"}
 MANIFEST_NAME = ".manifest.json"
 INDEX_NAME = "_INDEX.md"
-OCR_MIN_CHARS = 200  # sotto questa soglia di testo estratto, un .pdf e' sospetto scan
+OCR_MIN_CHARS = 200  # sotto questa soglia di testo estratto, un .pdf è sospetto scan
 
 
 # --- hashing e manifest ------------------------------------------------------
@@ -101,7 +101,7 @@ def convert_with_ocr(path):
 
 
 def convert_file(path, engine, ocr):
-    """Ritorna (markdown, nota). nota e' None o un avviso non bloccante."""
+    """Ritorna (markdown, nota). nota è None o un avviso non bloccante."""
     ext = path.suffix.lower()
     if engine == "docling" and ext == ".pdf":
         text = convert_with_docling(path)

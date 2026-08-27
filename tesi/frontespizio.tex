@@ -1,0 +1,62 @@
+% =====================================================================
+% tesi/frontespizio.tex - Copertina
+% =====================================================================
+% Composta a mano invece di usare \maketitle, perché la classe standard non prevede una
+% figura fra il titolo e l'autore e non consente di governare la spaziatura verticale.
+%
+% Sullo sprite. È preparato da tools/prepare-cover-sprite.py, che gli rimuove lo sfondo
+% opaco e ne ritaglia i margini: senza quel passaggio la figura porterebbe con sé un
+% rettangolo grigio visibile sulla pagina bianca. La larghezza è dichiarata in millimetri e
+% non in frazione di riga, perché l'immagine è pixel art e la sua resa dipende dal rapporto
+% fra i pixel della sorgente e i punti tipografici della destinazione: a 700 pixel di
+% larghezza resi su 38 millimetri il rapporto è di circa 470 punti per pollice, abbastanza
+% perché i bordi restino netti su carta e a schermo.
+% ---------------------------------------------------------------------
+
+\begin{titlepage}
+\centering
+
+\vspace*{\stretch{1}}
+
+{\Large\scshape Alessio Sopranzi\par}
+
+\vspace{\stretch{1}}
+
+{\huge\bfseries Trasportare un dato fra sistemi\\[0.3em]
+che non erano fatti per parlarsi\par}
+
+\vspace{1.2em}
+
+{\large Rappresentazione, integrità, trasmissione e conversione\\
+dell'informazione, imparate riparando e collegando\\
+le console della mia infanzia\par}
+
+\vspace{\stretch{1.4}}
+
+\includegraphics[width=38mm]{figure/squirtle-sprite.png}
+
+\vspace{\stretch{1.4}}
+
+% Il blocco dei cinque casi si compone dentro una minipage di larghezza dichiarata, con
+% il centraggio attivo e senza interruzioni di riga manuali. Le quattro righe spezzate a
+% mano che stavano qui prima erano già centrate, come si verifica leggendo gli spostamenti
+% orizzontali nel PDF, ma avevano lunghezze molto disuguali e il blocco si leggeva come
+% irregolare. Lasciando la spezzatura al compositore, che la decide minimizzando la
+% penalità complessiva, le righe risultano di lunghezza comparabile e il centraggio
+% diventa visibile. È la stessa ragione per cui la prosa dei file sorgente non si spezza
+% a mano: l'avvolgimento è un compito del compositore, non dell'autore.
+\begin{minipage}{0.74\textwidth}
+\centering
+{\small Cinque casi di studio su hardware di consumo: la riparazione di un
+salvataggio, un ponte fra generazioni, il dump delle proprie cartucce, il
+protocollo wireless di una console, l'automazione di un gioco per visione
+artificiale\par}
+\end{minipage}
+
+\vspace{\stretch{1}}
+
+{\small \today\par}
+
+\vspace*{\stretch{0.5}}
+
+\end{titlepage}
