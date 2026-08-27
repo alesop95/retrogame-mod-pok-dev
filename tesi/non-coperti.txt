@@ -1,8 +1,7 @@
-## Documenti che la tesi non copre di proposito.
-## Una riga per percorso, con il motivo dopo il cancelletto: un'esenzione senza
-## motivo viene rifiutata da tools/check-thesis-coverage.py, perché il senso di
-## questo file è costringere a dichiarare la ragione invece di dimenticare.
+## Documenti e sezioni che la tesi non deve contenere.
+## Sintassi: percorso oppure percorso#slug-sezione, poi il cancelletto e il motivo.
+## Un'esenzione senza motivo viene rifiutata.
 
-docs/22-strumenti.md # documentazione operativa degli strumenti del progetto, non conoscenza tecnica trasferibile
-docs/23-prove-eseguite.md # inventario di stato delle verifiche, appartiene alla memoria e non alla trattazione
-docs/31-glossario.md # coperto dalla prefazione, che ne adotta le definizioni invece di ripeterle
+docs/22-strumenti.md # documentazione operativa degli strumenti del repository, non conoscenza tecnica trasferibile a un lettore esterno
+docs/23-prove-eseguite.md # inventario di stato delle verifiche: appartiene alla memoria del progetto e invecchia a ogni commit
+docs/31-glossario.md # confluisce nella prefazione, che ne adotta le definizioni invece di ripeterle
