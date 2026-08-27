@@ -2,6 +2,4 @@
 ## Sintassi: percorso oppure percorso#slug-sezione, poi il cancelletto e il motivo.
 ## Un'esenzione senza motivo viene rifiutata.
 
-docs/22-strumenti.md # documentazione operativa degli strumenti del repository, non conoscenza tecnica trasferibile a un lettore esterno
-docs/23-prove-eseguite.md # inventario di stato delle verifiche: appartiene alla memoria del progetto e invecchia a ogni commit
 docs/31-glossario.md # confluisce nella prefazione, che ne adotta le definizioni invece di ripeterle

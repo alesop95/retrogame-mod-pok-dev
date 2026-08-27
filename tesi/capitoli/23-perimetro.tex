@@ -1,0 +1,58 @@
+% =====================================================================
+% tesi/capitoli/23-perimetro.tex
+% =====================================================================
+% Il perimetro e la disciplina dell'hardware. Il contenuto viene dalle regole
+% normative del progetto sotto .claude/rules/, che non sono documenti di
+% conoscenza tecnica ma vincoli operativi, e che il controllo di copertura non
+% conta fra i documenti da coprire: entrano qui perché senza di esse i cinque
+% casi di studio non sarebbero riproducibili.
+% ---------------------------------------------------------------------
+
+\chapter{Il perimetro, e la disciplina delle operazioni irreversibili}
+\label{cap:perimetro}
+
+Questo capitolo raccoglie le norme che governano ogni operazione descritta in questo lavoro. Non sono raccomandazioni di prudenza e non sono formulate come tali: sono vincoli, e la ragione della loro forma normativa è che le operazioni che governano sono irreversibili su hardware fisico che non si può riacquistare identico.
+
+La loro collocazione al termine dell'esposizione anziché al principio è deliberata: soltanto dopo avere visto che cosa un checksum protegge, in quale modo una scrittura possa riuscire secondo il software e non permanere sul chip, e quanto lunga sia la catena che da un dato malformato conduce all'esecuzione di codice, queste norme cessano di apparire cautele generiche e mostrano ciascuna il proprio bersaglio.
+
+\section{Il backup prima di ogni scrittura}
+
+Nessuna scrittura su una cartuccia o su una console avviene senza che esista già un backup del salvataggio originale, in doppia copia, su due percorsi distinti, verificato leggibile. Questo vincolo non ammette eccezioni e non si negozia per ragioni di tempo.
+
+L'argomento che lo sostiene è esposto nel capitolo~\ref{cap:supporto} e si riassume in tre proprietà del supporto. Il contenuto precedente non viene spostato ma sovrascritto, e non esiste alcun meccanismo di ripristino fornito dal gioco, con la sola eccezione parziale discussa nel capitolo~\ref{cap:integrita}, che per come è congegnata non costituisce una rete di sicurezza utilizzabile. Il valore di ciò che si sovrascrive non è ricostruibile in linea di principio, perché un salvataggio di vent'anni contiene stati che nessuna procedura sa rigenerare. E la finestra di rischio è reale e quantificabile, come il capitolo~\ref{cap:multiboot} mostra discutendo lo scambio a caldo della cartuccia.
+
+Il vincolo vale per il percorso di lettura e scrittura del caso di studio del capitolo~\ref{cap:smeraldo}, per qualunque tentativo di ponte fra generazioni, e per i salvataggi sulla scheda di memoria della console. La sua attuazione in codice è il cancello descritto nel capitolo~\ref{cap:strumenti}, e la scelta di attuarlo in codice anziché lasciarlo alla disciplina dell'operatore discende da una constatazione semplice: una norma che dipende dalla memoria di chi opera viene violata precisamente nel momento in cui la fretta la rende più necessaria.
+
+\section{Nessuna scrittura senza rilettura verificata}
+
+Dopo avere scritto su una cartuccia si rilegge il contenuto e si confronta con quello che si intendeva scrivere. Una scrittura che il software dichiara riuscita ma che nessuno ha riletto non è una scrittura verificata. Il confronto si conduce sui byte, non sull'aspetto della schermata di gioco.
+
+La ragione tecnica è documentata nel capitolo~\ref{cap:supporto} e riguarda in particolare le cartucce dotate di hardware di salvataggio non originale, sulle quali una scrittura può risultare riuscita al software e non permanere sul chip. La ragione metodologica è più generale e vale al di là di questo dominio: la schermata di gioco è una funzione del contenuto che passa attraverso l'intera logica del programma, e quella logica è tollerante verso una classe di difformità che un confronto sui byte rileva. Un controllo condotto al livello sbagliato produce fiducia senza produrre verifica.
+
+\section{Soltanto hardware posseduto}
+
+La produzione di copie digitali di cartucce e la modifica delle console si applicano soltanto a esemplari di proprietà. Il perimetro è dichiarato nel capitolo~\ref{cap:3ds} ed è vincolante per tutte le sessioni di lavoro, non soltanto per quella in cui è stato scritto.
+
+Da quel medesimo perimetro discende un limite operativo che resta valido e non va riaperto implicitamente: l'assistenza tecnica non copre l'installazione e l'impiego dei servizi di trasferimento della generazione precedente su questa console. La motivazione è una circostanza personale e risiede fuori dal controllo di versione, perché un repository pubblico non è la sede in cui registrarla. Qualora una sessione futura si trovasse a toccare quell'area, il limite va ricordato e la nota locale consultata, anziché ricostruire da capo la ragione.
+
+\section{Salvataggi di terze parti}
+
+I salvataggi ottenuti da terzi non si importano su questa console. Sono la causa principale delle sospensioni quando vengono successivamente impiegati in rete o depositati su un servizio, e il rischio ricade sull'account e sulla console, non sul file. Qualora un giorno servisse davvero importarne uno, la decisione va assunta esplicitamente e registrata come tale, non fatta scivolare dentro un altro lavoro.
+
+Vale collegare questa norma a un argomento tecnico esposto nel capitolo~\ref{cap:automazione}, perché ne chiarisce la sostanza: un dato prodotto attraverso il percorso previsto è coerente per costruzione, mentre un dato costruito a posteriori è coerente soltanto rispetto ai controlli che il suo costruttore conosceva. Un verificatore più severo, introdotto in un momento successivo, distingue i due casi. La norma non riguarda dunque la qualità apparente del file ma la sua provenienza, che è l'unica proprietà che nessun controllo successivo può falsificare.
+
+\section{Il materiale di chiave specifico di una console}
+
+I file di avvio di basso livello, i dump della memoria interna e i semi di derivazione sono segreti nel senso pieno del termine e appartengono alla medesima categoria di un file di credenziali. Chi li ottiene può decifrare la memoria e i salvataggi di quella specifica console, e non sono rigenerabili: non esiste modo di produrne di nuovi. Sono esclusi dal controllo di versione dal blocco dedicato del file di esclusione, e non vanno incollati in una conversazione, allegati a un messaggio o caricati su un servizio di terze parti.
+
+Il vincolo si estende agli identificatori derivati. L'identificativo della scheda di memoria che compare in alcune note del caso di studio del capitolo~\ref{cap:3ds} è derivato da uno di quei file e identifica univocamente la console: non è una chiave, ma va trattato con la medesima riservatezza.
+
+Le chiavi della console moderna, che servono al caso di studio del capitolo~\ref{cap:ldn-trading}, appartengono alla medesima categoria e per le medesime ragioni: derivate dal firmware proprietario, estraibili soltanto da una console modificata, non redistribuibili e non rigenerabili.
+
+\section{Dump e salvataggi fuori dal repository}
+
+Nessun file di dump e nessun backup di salvataggio entra nel controllo di versione, indipendentemente dalla dimensione. Risiedono sul disco locale e sui supporti, e la loro collocazione si annota in prosa nella documentazione del sottoprogetto, cosicché una copia del repository sappia dove cercarli senza contenerli.
+
+La medesima disciplina si applica al materiale grezzo delle fonti, per la ragione esposta nel capitolo~\ref{cap:fonti}: ciò che entra nel controllo di versione è la sintesi con l'attribuzione, non la copia del contenuto di terzi.
+
+Un'eccezione dichiarata esiste, e vale registrarla perché una politica con eccezioni non dichiarate è una politica che nessuno rispetta: le figure impiegate nella composizione di questo documento sono immagini, dunque rientrerebbero nella categoria esclusa, ma non sono materiale di prova personale né contenuto di terzi. Sono risorse di compilazione, senza le quali il documento non si produce, e la loro inclusione è dichiarata esplicitamente nel file di esclusione anziché ottenuta per omissione.

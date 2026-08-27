@@ -1,0 +1,77 @@
+% =====================================================================
+% tesi/capitoli/16-caso-ldn-trading.tex
+% =====================================================================
+% copre: gba-switch-pokemon-trading/HANDOFF_frlg-ldn-trade.md
+% copre: gba-switch-pokemon-trading/README.md
+% ---------------------------------------------------------------------
+
+\chapter{Caso di studio: uno scambio fra un calcolatore e una console moderna}
+\label{cap:ldn-trading}
+
+Questo caso di studio documenta uno scambio di esemplari fra un calcolatore e una Nintendo Switch che esegue Rosso Fuoco o Verde Foglia, condotto attraverso il protocollo wireless locale proprietario descritto nel capitolo~\ref{cap:ldn}. Il calcolatore simula la seconda console. È un proof of concept dimostrativo e non uno strumento completo, e la sua inclusione qui è giustificata dal fatto che costituisce l'unico dei cinque casi in cui l'interlocutore è un sistema contemporaneo, con tutte le conseguenze che questo comporta sul piano dei livelli di protezione da attraversare.
+
+L'obiettivo dichiarato dagli autori del proof of concept è puramente dimostrativo: provare che l'interazione è tecnicamente possibile, nella prospettiva che la comunità costruisca strumenti più completi partendo da quella base \cite{frlg-ldn-trade}.
+
+\section{L'architettura, dal livello fisico alla logica di gioco}
+
+L'architettura si articola in quattro livelli, e la loro separazione è la ragione per cui il lavoro è stato praticabile: ciascun livello è stato risolto da un progetto distinto, e nessuno dei due autori ha dovuto affrontare l'intera catena.
+
+Al livello fisico e di collegamento dati, il protocollo non impiega i protocolli di rete ordinari: opera direttamente al livello dei frame 802.11. Per questa ragione la libreria che lo implementa richiede accesso di basso livello alla scheda, cioè il privilegio di amministrazione della rete, e non una semplice connettività \cite{kinnay-ldn}.
+
+Al livello immediatamente superiore si colloca il problema architetturale che il capitolo~\ref{cap:ldn} espone nel dettaglio, cioè la necessità di due modalità operative contemporanee sulla medesima radio, con la composizione fra un'interfaccia in modalità punto di accesso per i frame di gestione e una in modalità monitor per i frame di dati, e la loro riconciliazione su un'interfaccia virtuale che il sistema tratti come rete ordinaria.
+
+Il terzo livello è quello che la libreria fornisce, cioè le primitive per individuare le reti vicine, unirsi a esse oppure ospitarne una propria: costituisce l'infrastruttura di trasporto grezza, priva di qualunque nozione del gioco.
+
+Il quarto livello è la logica applicativa specifica del gioco, realizzata dallo script del proof of concept, che simula un secondo giocatore connesso alla console che ha aperto una sessione di scambio. Il calcolatore carica due file nel formato della generazione 3 come squadra fittizia del giocatore simulato, negozia la connessione, gestisce il protocollo di scambio lato gioco e scrive l'esemplare ricevuto come nuovo file. La gestione del protocollo di gioco ha richiesto reverse engineering del formato impiegato dalla versione in esecuzione sulla console, condotto impiegando come riferimento la decompilazione della comunità \cite{pokefirered}.
+
+Vale registrare una dichiarazione degli autori che ha rilevanza metodologica: la documentazione del proof of concept dichiara esplicitamente che strumenti di intelligenza artificiale sono stati impiegati intensamente nello sviluppo, descrivendo il processo come guidato passo per passo dall'autore umano, con l'assistenza impiegata soprattutto ad accelerare il lavoro di reverse engineering.
+
+\section{Che cosa serve, e perché la scheda decide la praticabilità}
+
+I requisiti software sono un sistema Linux, l'interprete Python in versione sufficientemente recente, un ambiente isolato con le dipendenze dichiarate, l'utilità standard di configurazione delle interfacce wireless, e le chiavi della console. Sulla versione dell'interprete le due fonti divergono, dichiarando l'una una versione minima e l'altra una più recente, e in caso di dubbio conviene allinearsi alla più stringente, che è quella richiesta dalla libreria di trasporto.
+
+I requisiti hardware sono dominati da un solo elemento, ed è quello che decide se il lavoro sia praticabile su una macchina data: una scheda wireless capace di ricevere e trasmettere action frame in modalità monitor. Il proof of concept dichiara affidabile un adattatore USB esterno con driver \file{mt76x0u} e poco affidabile una scheda interna con driver \file{mt7921e}, che risulta circa metà più lenta e soggetta a stalli che non terminano né in errore né con successo. Il materiale di descrizione cita inoltre una terza scheda interna, il che significa che fra i vari materiali sono state impiegate almeno tre schede diverse, circostanza che il capitolo~\ref{cap:ldn} inquadra nella sua conclusione generale: il criterio non è il nome commerciale ma il chip e il driver che lo reclama.
+
+Servono inoltre una console con il gioco portato avanti fino allo sbloccio della stanza degli scambi, che il materiale stima in venti o quaranta minuti di gioco, e almeno due file di esemplari nel formato della generazione 3 da impiegare come squadra simulata, producibili con la versione dell'editor eseguibile nel browser.
+
+\section{La procedura, e il passo che va compreso prima di eseguirlo}
+
+La procedura consolidata si articola in sei fasi. La prima è la preparazione del sistema operativo. La seconda è la preparazione dell'ambiente Python, con la clonazione del repository, la creazione dell'ambiente isolato e l'installazione delle dipendenze. La terza è la preparazione della scheda, con l'installazione dell'utilità di configurazione e l'arresto del gestore di rete di sistema, che da quel momento priva la macchina di connettività attraverso quella interfaccia. La quarta è la preparazione delle chiavi e dei file degli esemplari. La quinta è l'esecuzione. La sesta è il ripristino del gestore di rete.
+
+Il comando di esecuzione merita di essere annotato termine per termine, perché ciascun elemento risponde a un vincolo esposto altrove in questo capitolo.
+
+{\scriptsize
+\begin{verbatim}
+sudo -E ./venv/bin/python frlgtrade.py --live --verbose --keys .switch/prod.keys -o output.pk3 PARTY1.pk3 PARTY2.pk3
+\end{verbatim}
+}
+
+L'esecuzione con privilegi di amministratore è necessaria per ottenere la capacità di gestione della rete di basso livello. Il flag che preserva le variabili d'ambiente serve a non perdere il contesto dell'utente originale nel passaggio all'utente privilegiato, incluso il percorso dell'ambiente isolato. L'indicazione esplicita dell'interprete dentro l'ambiente isolato garantisce che le dipendenze installate siano disponibili anche sotto privilegi elevati, che è il punto in cui una configurazione altrimenti corretta fallisce più spesso. Il flag di modalità reale distingue dall'esecuzione simulata. Il flag di verbosità attiva la registrazione dettagliata. I due argomenti posizionali sono i file che compongono la squadra simulata, e l'opzione di uscita nomina il file in cui l'esemplare ricevuto verrà scritto.
+
+Gli autori documentano tre soli flag e avvertono che gli altri presenti nel codice sono incompleti, sperimentali oppure residui di esperimenti abbandonati, e che non vanno impiegati da chi non ne conosca esattamente l'effetto. L'avvertenza vale registrarla perché è una forma di onestà documentale non frequente.
+
+\subsection{La sequenza sulla console, e il passo controintuitivo}
+
+Sulla console si seleziona lo scambio nella stanza dedicata e si imposta la propria console come conduttrice della sessione. Si avvia lo script sul calcolatore, operazione che può richiedere più tentativi prima di stabilire la connessione. Si approva sulla console la richiesta di adesione proveniente dal dispositivo simulato, che compare con un nome convenzionale. Si raggiunge la postazione di scambio, con un movimento che può presentare un ritardo visibile dovuto alla natura simulata del secondo partecipante. Si seleziona l'esemplare che si intende cedere e si conferma la proposta, ricevendo il secondo membro della squadra simulata. Tornati al menu, si annulla lo scambio e si esce dalla stanza. A questo punto il secondo file fornito risulta presente nella squadra reale sulla console, mentre l'esemplare originariamente ceduto si trova sul calcolatore come file di uscita.
+
+Il passo che va compreso prima di eseguirlo è l'annullamento, perché è controintuitivo e perché la sua incomprensione produce l'aspettativa sbagliata su ciò che si perde e ciò che si ottiene. Lo scambio viene tecnicamente completato e successivamente annullato dal lato della console, e la procedura sfrutta un comportamento specifico del client di gioco per acquisire comunque l'esemplare in uscita sul lato del calcolatore. Chi esegua la procedura attendendosi la semantica ordinaria di uno scambio conclude che qualcosa sia andato storto proprio nel momento in cui tutto ha funzionato.
+
+\section{I rischi e i modi di fallire}
+
+I modi documentati di fallire sono nove, e la loro enumerazione ha valore operativo perché ciascuno presenta un sintomo distinto.
+
+L'affidabilità dipende dall'hardware, e la scheda è il fattore critico, con la possibilità di stalli totali sulle schede meno adatte. La connessione non è garantita al primo tentativo, e la documentazione stessa lo segnala. Il movimento nel gioco presenta ritardo visibile, che non è un difetto ma una conseguenza della simulazione. Il gestore di rete di sistema, se non arrestato, compete con lo script per il controllo della scheda e produce fallimenti silenziosi o comportamenti imprevedibili, che è la categoria peggiore perché non indirizza la diagnosi. La perdita di connettività è una conseguenza diretta e attesa dell'arresto di quel servizio. Dopo un arresto anomalo la scheda può restare in uno stato intermedio che impedisce un riavvio pulito, e il rimedio documentato consiste nella terminazione forzata di tutti i processi dell'interprete prima di ritentare. La complessità intrinseca del protocollo è dichiarata dagli autori della libreria stessa. I flag non documentati sono instabili. E infine l'intero funzionamento lato gioco si appoggia alla decompilazione della comunità, dunque un aggiornamento del gioco sulla console potrebbe interrompere la compatibilità qualora il formato interno cambiasse.
+
+\section{Le considerazioni di perimetro}
+
+Il materiale coinvolge tre elementi che vanno dichiarati, e la loro dichiarazione qui non esprime un giudizio ma completa il quadro di ciò che la procedura presuppone.
+
+Le chiavi della console sono estraibili soltanto da una console modificata e non sono redistribuibili, perché derivano dal firmware proprietario: rientrano nella categoria di materiale che il capitolo~\ref{cap:perimetro} tratta come segreto in senso pieno, non entrano nel controllo di versione e non si trasmettono per alcun canale. Il reverse engineering di un protocollo di rete proprietario e del formato interno di un gioco commerciale si colloca in una zona che i termini di servizio del produttore non contemplano, pur essendo motivato da finalità di interoperabilità. E il possesso della decompilazione della comunità è il presupposto tecnico dell'intero lavoro.
+
+Sulla specifica del protocollo vale una precisazione bibliografica: non risiede nella documentazione della libreria ma nel wiki del progetto di reverse engineering dei protocolli di rete della console, che il capitolo~\ref{cap:fonti} indicizza. Quella specifica documenta gli action frame specifici del produttore trasmessi a intervalli di cento millisecondi con un identificativo di organizzazione dedicato, i canali impiegati nella banda a 2,4 gigahertz, l'annuncio della rete campo per campo, tre livelli di cifratura con chiavi derivate da quelle della console, e gli indirizzi assegnati nella forma dell'autoconfigurazione locale con l'host sempre nella prima posizione.
+
+\section{Le lacune dichiarate}
+
+L'elenco delle lacune informative è mantenuto esplicito, e la sua funzione è impedire che una ricostruzione parziale venga presa per una descrizione completa.
+
+Non è stato recuperato il contenuto del video che documenta la dimostrazione, non essendo disponibile alcuna trascrizione attraverso i soli metadati. Non è stato letto riga per riga il codice sorgente dello script e della libreria, essendo il materiale di partenza costituito dai soli riferimenti. Resta da chiarire la discordanza sulla versione minima dell'interprete fra le due fonti, e quella sulla scheda effettivamente impiegata nella dimostrazione finale. Il processo di estrazione delle chiavi della console non è documentato nel materiale, essendo presupposto come già acquisito. Il rapporto fra il lettore di cartucce e il resto del flusso è elencato fra i requisiti senza che il materiale spieghi in quale fase intervenga, e il capitolo~\ref{cap:ldn} chiude questo punto stabilendo che la fase è la produzione delle strutture di partenza. Resta infine da verificare la natura precisa della versione del gioco in esecuzione sulla console, dettaglio che condiziona la spiegazione del meccanismo di scambio.

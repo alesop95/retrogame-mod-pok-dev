@@ -1,0 +1,55 @@
+% =====================================================================
+% tesi/capitoli/17-caso-automazione.tex
+% =====================================================================
+% copre: poke-automation-study/README.md
+% copre: poke-automation-study/STUDIO-01-architettura-e-perimetro.md
+% ---------------------------------------------------------------------
+
+\chapter{Caso di studio: l'automazione come anello di controllo}
+\label{cap:automazione}
+
+L'ultimo dei cinque casi di studio è oggi uno studio e non una costruzione, e la sua presenza in questo lavoro è giustificata da una ragione metodologica anziché operativa: è l'unico dei cinque che affronti un sistema a scatola chiusa, e il confronto fra il suo metodo e quello degli altri quattro è il contributo che offre.
+
+L'oggetto è il progetto Pokémon Automation, che automatizza le parti ripetitive dei giochi per Nintendo Switch pilotando la console con un microcontrollore e leggendo lo schermo per visione artificiale \cite{pokemon-automation}. Automatizza oltre cento operazioni sui titoli dall'ottava generazione in avanti, facendo eseguire un programma in continuità al posto del giocatore. Richiede un calcolatore dotato di scheda di acquisizione video, per osservare lo schermo, e un controller costruito su microcontrollore per agire sui comandi.
+
+\section{L'idea, riformulata nei termini della disciplina}
+
+La descrizione immediata è che un calcolatore osserva lo schermo della console attraverso una scheda di acquisizione e agisce sulla console attraverso un controller simulato costruito su microcontrollore, prendendo dunque il posto del giocatore senza che la console rilevi di dialogare con un programma.
+
+Vale però riformularla in termini che ne rendono la struttura, perché la riformulazione sposta la percezione di dove risieda la difficoltà. È un anello di controllo chiuso su un sistema che non espone alcuna interfaccia di stato. La grandezza osservata è il fotogramma video, e in alcuni titoli anche il canale audio; l'attuatore è un dispositivo che parla il protocollo di un controller legittimo; il controllore è un programma che decide la prossima azione in funzione di ciò che ha riconosciuto. Non esiste alcun canale di ritorno strutturato: lo stato del gioco non si legge, si stima da un'immagine. L'intera difficoltà del progetto risiede in questa stima, e non nella generazione dei comandi.
+
+\section{I tre strati, e il costo di ciascuno}
+
+Lo strato di attuazione è il più documentato e il meno interessante concettualmente, ma è quello che decide se l'impresa sia avviabile. Il dispositivo emula un controller della console, e le combinazioni supportate costituiscono una tabella con costo e difficoltà dichiarati per ciascuna. La via raccomandata attualmente è un Raspberry Pi Pico W in modalità USB, che emula un controller senza fili oppure un singolo controller laterale, con un costo di circa otto dollari e una difficoltà dichiarata di uno su dieci. Seguono l'ESP32, che compie la medesima operazione via Bluetooth, e l'ESP32-S3 nella variante cablata, indicata come la migliore per l'impiego continuativo.
+
+Le famiglie di microcontrollori impiegate in modalità seriale asincrona esistono e raggiungono difficoltà dieci, con una nota che vale registrare perché individua un problema di elettronica e non di software: sono vulnerabili al power glitching, cioè a disturbi sull'alimentazione. Le schede storiche sono tutte dichiarate dismesse.
+
+Su una console modificata l'attuatore cambia natura: al posto del microcontrollore si impiega un modulo di sistema che riceve i comandi dal calcolatore. È l'unico punto in cui il firmware alternativo compare, e il progetto lo tratta come una comodità e non come un requisito, distinzione che vale sottolineare perché mantiene l'intera impresa dentro un perimetro che non richiede modifiche alla console.
+
+Lo strato di percezione è quello in cui risiede il valore effettivo. Il riconoscimento avviene per confronto di immagini e per riconoscimento ottico dei caratteri, con documentazione dedicata a entrambi, e in alcuni titoli anche per riconoscimento audio. Gli esempi che il progetto porta sono istruttivi perché mostrano il livello di finezza raggiunto: il riconoscimento visivo dell'animazione che segnala un esemplare cromatico, e il riconoscimento acustico del medesimo evento in un titolo in cui il segnale visivo non è sufficiente. La scelta fra i due canali non è una preferenza implementativa ma la conseguenza di quale grandezza porti effettivamente l'informazione in quel titolo, che è esattamente il tipo di decisione che un progetto di misura richiede.
+
+Lo strato di decisione è un programma per compito, e i compiti sono oltre cento. Fra i titoli automatizzati compaiono Rosso Fuoco e Verde Foglia nella versione per console moderna, che è precisamente il gioco al centro del caso di studio del capitolo~\ref{cap:ldn-trading}.
+
+\section{Il perimetro, e la ragione per cui regge}
+
+Questa parte va esaminata con attenzione perché determina se il caso di studio possa esistere senza contraddire le norme stabilite nel capitolo~\ref{cap:perimetro}, e la conclusione è che il perimetro dichiarato dal progetto è compatibile con esse.
+
+Il progetto è concepito per console non modificate, e dichiara di non supportare l'accesso alla memoria di gioco o di sistema, né alcuna operazione non compiibile per via legittima. Sul rischio di sospensione dell'account afferma che alla data non risultano casi di sanzione per l'impiego di schede di acquisizione e controller di terze parti.
+
+Sulla legittimità degli esemplari ottenuti l'argomento è strutturale e regge, e vale esporlo perché costituisce una distinzione che il resto di questo lavoro rende comprensibile: poiché gli ingressi sono i medesimi di una partita condotta manualmente, il risultato è indistinguibile da una partita manuale. Il contrasto è con un esemplare costruito modificando il salvataggio, che può apparire legittimo e rivelarsi non tale in un momento successivo, quando un verificatore più severo ne esamini la coerenza interna. La differenza fra le due situazioni è la medesima che il capitolo~\ref{cap:conversione} espone discutendo il legame fra valore di personalità e valori individuali dalla quarta generazione: un dato prodotto attraverso il percorso previsto è coerente per costruzione, un dato costruito a posteriori è coerente soltanto rispetto ai controlli che il costruttore conosceva.
+
+Resta un limite pratico che riguarda la macchina impiegata in questo progetto e va registrato: la piattaforma preferita è Windows su architettura x64, il supporto per macOS su ARM è presente ma in ritardo, e Linux non è ufficialmente supportato, con un problema noto di sfarfallio nell'acquisizione. L'impiego di un calcolatore a scheda singola o di un tablet è esplicitamente escluso, perché l'inferenza sul video è computazionalmente costosa.
+
+\section{Che cosa questo caso condivide con gli altri, e che cosa no}
+
+La sovrapposizione con il ponte fra generazioni è il microcontrollore, e va misurata per non trarne una conclusione ottimistica. Qui il microcontrollore emula un controller e parla un protocollo documentato dalla comunità su un bus USB o Bluetooth, mentre nell'opzione con hardware intermedio del capitolo~\ref{cap:opzioni} dovrebbe generare il clock di un collegamento seriale e rispettare temporizzazioni al livello del bit. Il codice non si riusa e nemmeno la libreria; si riusa l'esperienza di allestimento, cioè la capacità di compilare e caricare un firmware, di diagnosticare un dispositivo non riconosciuto, e la consapevolezza che l'alimentazione è una variabile e non una costante, che la nota sul power glitching rende esplicita.
+
+La sovrapposizione con il caso di studio dello scambio wireless è più concreta di quanto una prima valutazione suggerisse, e questo capitolo la corregge. Non è soltanto la piattaforma: quel progetto automatizza anche il titolo che è al centro di quel caso di studio. Ne segue una domanda registrata fra i punti aperti: se i loro programmi per quel titolo tocchino lo scambio locale, e in tal caso in quale modo riconoscano lo stato della schermata di scambio, oppure se si limitino alle parti in giocatore singolo.
+
+Esiste infine una differenza di metodo che merita di essere enunciata, perché è la ragione per cui questo caso è interessante e non soltanto curioso. Tutto il resto di questo lavoro opera a scatola aperta: legge i disassemblati, calcola i checksum, decifra le strutture, e la sua verità è il sorgente. Questa macchina opera a scatola chiusa: non apre nulla, osserva l'uscita e agisce sull'ingresso, e la sua verità è statistica, cioè un riconoscimento che funziona nella grande maggioranza dei fotogrammi. Sono i due approcci classici all'analisi di un sistema di cui non si possiede la specifica, e osservarli accanto sul medesimo dominio è istruttivo: dove il sorgente esiste conviene la prima via, e dove non esiste, come sui titoli recenti, resta soltanto la seconda.
+
+\section{Che cosa studiare, e in quale ordine}
+
+L'ordine di studio proposto discende dal criterio di trasferibilità. Anzitutto la documentazione sul confronto di immagini e sul riconoscimento ottico dei caratteri, che è la parte trasferibile a qualunque altro dominio e l'unica capacità assente da ogni altro caso di studio di questo lavoro. Poi la documentazione sul power glitching, per stabilire se descriva un problema di alimentazione del microcontrollore oppure una tecnica deliberata, distinzione che non è chiara dalla sola menzione. Poi la lista dei programmi per il titolo condiviso con l'altro caso di studio, per rispondere alla domanda sullo scambio locale. Il codice del framework resta l'ultimo passo, e richiede una decisione di scopo prima dell'investimento: è un programma di dimensioni non trascurabili, e leggerlo per curiosità non equivale a leggerlo per contribuire.
+
+Una avvertenza precede il passaggio dallo studio alla pratica, e vale registrarla nella forma in cui il sottoprogetto la dichiara: l'automazione dei giochi in rete tocca i termini di servizio dei servizi in questione, e il perimetro di questo caso va deciso e registrato prima di costruire qualunque cosa, con la medesima esplicitezza impiegata per il modding della console.

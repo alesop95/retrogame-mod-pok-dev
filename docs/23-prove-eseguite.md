@@ -59,7 +59,7 @@ La prima è la generazione delle tabelle caratteri. Lo strumento ha letto i due 
 
 La seconda è la diagnostica dello zaino di Smeraldo, eseguita su un salvataggio sintetico costruito a tavolino: 128 KiB, uno slot valido con quattordici settori dai piedi corretti, una chiave di cifratura nota, un denaro noto e mascherato, e cinque anomalie deliberate. Ha trovato tutte e cinque le anomalie, ma il valore vero è stato un difetto trovato nel codice diagnostico stesso: considerava vuoto uno slot con quantità zero, mentre in una tasca mascherata uno slot vuoto non ha quantità zero, contiene la chiave. Da quel difetto è nata una verifica incrociata gratuita, perché la chiave si ricava da qualunque slot vuoto e si confronta con quella letta al suo offset.
 
-La terza è la suite del pacchetto `pokebridge`, sessantatre prove ripartite così.
+La terza è la suite del pacchetto `pokebridge`, centoquattordici prove ripartite così.
 
 | Modulo | Prove | Che cosa copre |
 |---|---|---|
@@ -67,6 +67,7 @@ La terza è la suite del pacchetto `pokebridge`, sessantatre prove ripartite cos
 | `test_gen1.py` | 15 | strutture di box e squadra, lista della squadra, caso costruito a mano, percorsi di errore |
 | `test_gen2.py` | 16 | le stesse cose, più dati di cattura, Pokerus, oggetto tenuto, lucentezza da DV |
 | `test_charmap.py` | 15 | sentinelle delle tabelle, decodifica, codifica, traduzione fra le due codifiche |
+| `test_gen3.py` | 51 | intestazione in chiaro, cifratura, permutazione delle quattro sottostrutture, checksum per parole da 16 bit, campi di bit della sottostruttura Miscellaneous, simmetria con checksum preservato |
 
 Dentro quelle prove ci sono tre livelli di copertura, e la distinzione conta.
 
@@ -104,7 +105,7 @@ L'elenco è importante quanto quello di sopra, e va tenuto aggiornato invece che
 | collaudo su BGB via TCP | mai fatto; è possibile e documentato, ma nessun emulatore è stato lanciato |
 | payload di esecuzione di codice | mai costruito né provato |
 | multiboot e scambio a caldo della cartuccia | mai provati, richiedono hardware |
-| strutture Gen 3 in lettura e scrittura | codice non ancora scritto |
+| strutture Gen 3 in lettura e scrittura | scritte e provate su dati sintetici: 51 prove, compresa la simmetria su cinquecento buffer con seme fissato. Resta non verificato il confronto con un salvataggio reale |
 | offset dello zaino per Rosso Fuoco e Verde Foglia | dichiarati non verificati nello strumento stesso |
 | offset dei salvataggi Gen 2 per lingue diverse dall'inglese | fuori dalla portata dei disassemblati pret |
 

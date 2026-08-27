@@ -73,6 +73,14 @@ desktop.ini
 *.jpeg
 *.png
 *.gif
+# Eccezione dichiarata: le figure della tesi. Non sono media nel senso della politica qui
+# sopra, cioè evidenza personale di una sessione di lavoro, ma asset di compilazione: senza
+# di esse il documento non si compone, e un clone del repository non potrebbe produrre il
+# PDF. Vale lo stesso criterio applicato alle tabelle dei caratteri sotto data/, dove il
+# derivato si versiona insieme al suo generatore perché un clone compili senza rigenerare.
+# La cartella resta piccola per costruzione: contiene sprite e diagrammi, non fotografie.
+!tesi/figure/
+!tesi/figure/*.png
 *.webp
 *.mp4
 *.mov

@@ -1,0 +1,103 @@
+% =====================================================================
+% tesi/capitoli/10-cavo-link.tex
+% =====================================================================
+% copre: docs/08-cavo-link.md
+% ---------------------------------------------------------------------
+
+\chapter{Il cavo Link: un canale sincrono, blocco per blocco}
+\label{cap:cavo}
+
+Il cavo Link è un'interfaccia seriale sincrona che trasferisce un byte per volta, e la sua proprietà fondante è che ogni trasferimento è uno scambio: il byte che esce e quello che entra attraversano il medesimo registro a scorrimento, dunque non esiste la possibilità di inviare senza ricevere. Un dispositivo fornisce il clock e assume il ruolo di master, l'altro lo segue come slave.
+
+Questa simmetria imposta dall'hardware spiega la forma di tutto il protocollo costruito sopra di esso, e vale enunciarla come principio perché rende prevedibile ogni dettaglio successivo. Non esistono richieste e risposte: esistono sequenze concordate in cui entrambi i lati sanno che cosa trasmettere a ogni passo, e il lato che non ha nulla da comunicare trasmette un byte convenzionale di riempimento. Un protocollo di questa natura non tollera che un partecipante improvvisi, perché non esiste un canale attraverso cui annunciare l'improvvisazione.
+
+\section{L'hardware sotto il protocollo}
+
+Prima delle convenzioni del gioco conviene stabilire il comportamento del silicio, e la fonte è la documentazione dell'hardware alla pagina sul trasferimento seriale \cite{pandocs}. Due registri governano l'intero meccanismo. Il primo, denominato SB e mappato a \hx{FF01}, è il registro a scorrimento: prima di un trasferimento contiene il byte che uscirà, durante il trasferimento contiene una combinazione fra il byte in uscita e quello in entrata, perché a ogni colpo di clock il bit più significativo esce sul filo e un bit entra dal lato opposto. Il secondo, SC a \hx{FF02}, possiede il bit 7 che abilita il trasferimento, il bit 1 che seleziona la velocità del clock soltanto su Game Boy Color, e il bit 0 che stabilisce il ruolo, con il valore zero per il clock esterno e uno per quello interno. Il master carica il byte in SB e scrive \hx{81} in SC; lo slave scrive \hx{80}.
+
+Sulle frequenze esiste un fatto che vale, ai fini di questo progetto, più di tutti gli altri, e la sua importanza deriva dal fatto che rimuove un vincolo che si presume esistere. Il clock interno del Game Boy monocromatico è fisso a 8192~Hz, cioè circa un kibibyte al secondo, mentre il Color offre quattro frequenze fino a 524288~Hz. Il clock esterno, cioè quello che fornirebbe un dispositivo costruito da noi, non è però soggetto ad alcun limite imposto dal gioco: la documentazione dichiara che anche il Game Boy monocromatico riconosce clock esterni fino a 500~kHz, che non esiste alcun limite inferiore, e che gli impulsi non devono nemmeno presentarsi a intervalli regolari. La formulazione della fonte merita di essere riportata nella sua sostanza: anche fornendo un bit al mese, il Game Boy attenderebbe pazientemente il bit successivo.
+
+Ne segue che il vincolo di tempo reale che si immagina osservando un protocollo sincrono, sul lato hardware, non esiste: chi fornisce il clock decide quando fornirlo, e può interrompersi per calcolare fra un bit e il successivo. È la ragione per cui un microcontrollore di costo trascurabile riesce a dialogare con un Game Boy senza acrobazie architetturali, come il capitolo~\ref{cap:esecuzione} mostra. Il vincolo che permane è di natura software, cioè risiede nei tempi che il gioco si attende fra un blocco e il successivo, e l'autore dello strumento di trasferimento di riferimento lo conferma per esperienza diretta, scrivendo che mantenere il clock né troppo veloce né troppo lento è cruciale e che quella è stata la parte più frustrante dello sviluppo \cite{devlog-ptgb}.
+
+Sull'aspetto elettrico, dalla terza parte del medesimo diario: il Game Boy opera a cinque volt e il Game Boy Advance a tre virgola tre, e le prove condotte dall'autore confermano che il loro collegamento non danneggia nessuno dei due. È un'affermazione di terzi su hardware proprio, e va trattata come tale, ma costituisce l'unica testimonianza diretta di cui questo progetto disponga su quel punto.
+
+\section{Le costanti del protocollo}
+
+Il disassemblato dichiara le costanti del protocollo in un unico file, e leggerle da quella sede evita di ricavarle per osservazione del traffico, procedimento che produce valori corretti e significati incerti \cite{pokered}. I byte \hx{01} e \hx{02} sono i due esiti della negoziazione dei ruoli. Il byte \hx{FD} è il preambolo che delimita l'inizio di ogni blocco. Il byte \hx{FE} significa assenza di dati, ed è anche ciò che si legge su un cavo scollegato, circostanza che ne giustifica l'esistenza. Il byte \hx{FF} termina una parte della lista di correzione. Il preambolo è lungo sei byte, quello della lista di numeri casuali sette, la lista di numeri casuali dieci, il riempimento finale tre.
+
+\section{La sequenza di uno scambio}
+
+La sequenza si apre con la negoziazione dei ruoli: il candidato slave risponde \hx{02} quando rileva un trasferimento in corso, altrimenti assume il ruolo di master e trasmette \hx{01}. Segue uno scambio di byte nulli e un byte di sincronizzazione \hx{60}. Segue la selezione della modalità, in cui il master trasmette valori della forma \hx{Dx}, con i due bit bassi a indicare la voce evidenziata nel menu e un bit a confermarla, dove \hx{D4} corrisponde al Centro Scambi.
+
+Nello scambio propriamente detto ciascuna console trasmette tre blocchi consecutivi, ognuno precedigo dal proprio preambolo di byte \hx{FD}. Il primo blocco è una lista di dieci numeri casuali, che serve a porre i due giochi d'accordo su una sorgente comune di casualità. Il secondo è la struttura di scambio, che trasporta i dati della squadra. Il terzo è la lista di correzione, il cui meccanismo è discusso più avanti in questo capitolo.
+
+Alla scelta dell'esemplare ciascuna console trasmette il valore \hx{60} sommato all'indice di squadra, e successivamente \hx{62} per accettare oppure \hx{61} per rifiutare.
+
+\section{La dimensione, e come si smette di litigare sulle cifre}
+
+Sulla dimensione della struttura di scambio le fonti secondarie riportano cifre in conflitto, tipicamente quattrocentoquindici e quattrocentoventiquattro. Il modo di chiudere la questione non consiste nello scegliere la fonte più autorevole, procedimento che non produce conoscenza ma una preferenza, bensì nel leggere il codice che effettua la trasmissione, dove il conteggio è scritto come somma di costanti \cite{pokered}.
+
+\begin{verbatim}
+ld bc, SERIAL_PREAMBLE_LENGTH + NAME_LENGTH + 1 + PARTY_LENGTH + 1
+        + (PARTYMON_STRUCT_LENGTH + NAME_LENGTH * 2) * PARTY_LENGTH + 3
+\end{verbatim}
+
+Sostituendo le costanti, cioè preambolo sei, nomi undici, squadra sei, struttura di squadra quarantaquattro e riempimento tre, si ottengono quattrocentoventiquattro byte sul filo e quattrocentodiciotto di dati utili al netto del preambolo. Entrambe le cifre riportate dalle fonti secondarie misuravano dunque qualcosa di reale, semplicemente non la medesima cosa. La lezione generale, che vale oltre questo caso, è che una dimensione va sempre accompagnata dall'indicazione del punto in cui si taglia, e che due cifre discordanti sono più spesso due misure diverse che una misura sbagliata.
+
+\section{La lista di correzione, e la ricorsività del problema che risolve}
+
+Il protocollo si riserva due valori, \hx{FD} per il preambolo e \hx{FE} per l'assenza di dati, e di conseguenza non è in grado di trasmetterli come dati. I dati della squadra contengono però byte arbitrari, e prima o poi uno di quelli assumerà il valore \hx{FE}. Si tratta della situazione classica di un canale che riserva alcuni simboli del proprio alfabeto per il controllo, e che deve dunque prevedere un meccanismo di neutralizzazione perché quei simboli possano attraversarlo come dati.
+
+La soluzione adottata dal gioco consiste nel sostituire ogni \hx{FE} con \hx{FF} e nel trasmettere separatamente l'elenco delle posizioni in cui la sostituzione è avvenuta, cosicché il ricevente possa ripristinarle. Quell'elenco è la lista di correzione, e costituisce uno scambio di esattamente duecento byte.
+
+Il dettaglio che rivela la ricorsività del problema è la ragione per cui la lista è divisa in due parti, e vale seguirla perché è il genere di conseguenza che un progettista scopre soltanto implementando. Anche gli indici sono byte trasmessi sul medesimo canale, e un indice di valore \hx{FD} verrebbe interpretato come preambolo: quando il contatore delle posizioni raggiunge quel valore, il gioco chiude la prima parte con \hx{FF} e riprende a contare per la seconda. Non si tratta dunque di una divisione arbitraria, ma dell'unica soluzione possibile dato che il protocollo si riserva due valori e deve poterli indicizzare.
+
+\section{Il lato generazione 2, e un precedente scritto dagli autori originali}
+
+Il disassemblato di Cristallo dichiara due strutture di invio distinte, e la seconda costituisce un'informazione di valore considerevole per questo progetto \cite{pokecrystal}.
+
+La prima, quella nativa, aggiunge un identificatore del giocatore a sedici bit e impiega la struttura di squadra da quarantotto byte, per un totale di quattrocentocinquanta byte sul filo. La seconda si denomina struttura del Time Capsule, non contiene l'identificatore, e impiega una macro denominata \file{red\_party\_struct}, cioè la struttura di generazione 1 da quarantaquattro byte: misura quattrocentoventiquattro byte, esattamente il blocco di generazione 1.
+
+Questo significa che la conversione fra il formato di generazione 1 e quello di generazione 2 esiste già dentro il gioco di generazione 2, scritta dagli autori originali per il Time Capsule, ed è leggibile nel disassemblato. Per chi costruisce un ponte verso la generazione 3 è il precedente più utile disponibile, e la ragione non è di ispirazione ma di metodo: mostra quali campi gli autori hanno lasciato cadere, quali hanno inventato e come hanno trattato il byte che in generazione 1 contiene il tasso di cattura e in generazione 2 l'oggetto tenuto. Non è un'analogia con il nostro problema, è il medesimo problema risolto da chi aveva scritto entrambi i formati.
+
+Il lato generazione 2 trasmette inoltre un blocco separato per la posta, con un preambolo proprio e una propria lista di correzione, e questa è la ragione strutturale per cui i progetti esistenti dichiarano di non poter trasferire un esemplare che tenga una lettera. La limitazione non deriva da una scelta dei loro autori ma dalla necessità di implementare un secondo canale completo per un dato marginale.
+
+\section{Una conferma indipendente}
+
+Tutte le costanti di questo capitolo sono state ricavate dal disassemblato. Esiste una seconda fonte che le conferma senza averle derivate dalla prima, ed è un firmware funzionante: il progetto \file{cable-link} dell'organizzazione CableClub, sotto licenza Apache 2.0, costituito da un circuito stampato con il proprio firmware per Raspberry Pi Pico \cite{cable-link}. Il suo file \file{src/pokemon\_gen1\_link\_protocol.h} dichiara le costanti del protocollo, e coincidono con le nostre una per una.
+
+\begin{verbatim}
+#define PKMN_MASTER 0x01
+#define PKMN_SLAVE 0x02
+#define PKMN_CONNECTED 0x60
+#define PKMN_WAIT 0x7F
+#define PKMN_NO_DATA 0xFE
+#define ITEM_1_SELECTED 0xD4          /* Centro Scambi */
+#define ITEM_2_SELECTED 0xD5          /* Colosseo */
+#define ITEM_3_SELECTED 0xD6          /* interrompi */
+#define TRADE_CENTRE_WAIT 0xFD        /* il byte di preambolo */
+\end{verbatim}
+
+La sua macchina a stati conferma anche la sequenza: gli stati procedono da \file{INIT} attraverso dieci stati \file{SEND\_RAND} numerati da zero a nove, poi \file{WAIT}, poi \file{SEND\_DATA}, poi \file{SEND\_PATCH}. Sono esattamente i dieci byte di numeri casuali, la struttura di scambio e la lista di correzione descritti sopra, che noi avevamo ricavato contando i campi nel disassemblato. Il valore epistemico di questa coincidenza va dichiarato: due derivazioni indipendenti dalla medesima realtà, condotte con metodi diversi e da autori che non si sono consultati, costituiscono una verifica reciproca che nessuna rilettura della singola fonte potrebbe fornire.
+
+Un ultimo dettaglio chiude il cerchio con la sezione sull'hardware: quel firmware apre la porta seriale con la chiamata \file{spi\_init(spi\_default, 500 * 1000)}, cioè esattamente il mezzo megahertz che la documentazione dell'hardware dichiara come massimo riconosciuto dal Game Boy monocromatico. Due fonti indipendenti, una documentazione dell'hardware e un firmware in funzione sul campo, concordano sul medesimo numero.
+
+\section{Il vincolo di sincronizzazione, che è il problema vero del ponte}
+
+Esiste un aspetto del protocollo che non riguarda i byte ma il tempo, ed è quello che decide se un ponte funzioni pienamente o soltanto a metà. La sua descrizione proviene dalla trascrizione dell'aggiornamento di sviluppo dell'autore dello strumento di riferimento, letta il 25 agosto 2026, ed è l'unica fonte che lo esponga \cite{devlog-ptgb}.
+
+Dal lato generazione 3 la squadra non viaggia in un blocco unico: viaggia a blocchi di duecento byte, due esemplari per volta, tre volte. L'affermazione proveniva da un video, dunque è stata verificata sul sorgente il 26 agosto 2026, ed è risultata esatta: in \file{src/trade.c} la macchina a stati che prepara la squadra chiama \file{SendBlockRequest(BLOCK\_REQ\_SIZE\_200)} in tre punti distinti, e a ogni passaggio copia \file{2 * sizeof(struct Pokemon)} nella squadra avversaria alle posizioni zero, due e quattro, alternando l'invio dei propri due \cite{pokefirered}. La cifra è coerente con la struttura descritta nel capitolo~\ref{cap:cifratura}, perché due record da cento byte producono esattamente duecento byte; coincide anche con la dimensione della lista di correzione di generazione 1, e quella è una coincidenza numerica priva di relazione causale, che vale segnalare perché invita a inferenze sbagliate. Dopo i tre blocchi ne parte un quarto con la posta, dimensionato come sei strutture di posta più quattro byte, accompagnato da un commento nel sorgente che ammette di non conoscere la ragione di quei quattro byte aggiuntivi.
+
+Il punto rilevante per il ponte non è però la dimensione, ma la reciprocità: la copia dei propri esemplari successivi avviene fra due ricezioni, dunque il gioco non consegna i due successivi finché non ha ricevuto i propri.
+
+Dal lato generazione 2 la struttura del trasferimento è differente, e la differenza è quella già stabilita nel capitolo~\ref{cap:gen1} come terza invariante, cioè che la struttura principale non contiene il soprannome né il nome dell'allenatore originale. Ne segue che il gioco trasmette in tre sezioni successive: prima i dati principali di tutti e sei gli esemplari, poi i nomi degli allenatori originali di tutti e sei, poi i soprannomi.
+
+Sovrapposte, le due proprietà producono uno stallo che non costituisce un difetto di implementazione ma una conseguenza dei due protocolli. Il dispositivo interposto può ricevere due esemplari da generazione 3 e trattenere i propri, e può parimenti trattenere generazione 2, ma non può costruire un solo esemplare completo di generazione 3 finché non ha ricevuto almeno due soprannomi, i quali giungono nell'ultima delle tre sezioni; e quando generazione 2 ha concluso l'invio cessa anche di ricevere, dunque la finestra per rispondere si è chiusa. Il ponte non dispone di informazione sufficiente nel momento in cui gli viene richiesta, e nessuna ottimizzazione dell'implementazione modifica questo fatto.
+
+La soluzione adottata dall'autore dello strumento di riferimento è istruttiva precisamente perché è imperfetta e viene dichiarata tale: il dispositivo trasmette dati di riempimento che costringono il giocatore ad annullare lo scambio e a ripeterlo, e al secondo passaggio conosce entrambe le squadre e converte correttamente. Si tratta della trasformazione del problema in un protocollo a due passaggi, in cui il primo serve unicamente a osservare, ed è una tecnica generale applicabile ogni volta che un partecipante deve conoscere il futuro del proprio interlocutore.
+
+Restano aperte tre alternative, e vanno tenute presenti prima di scrivere codice perché la scelta fra esse condiziona l'architettura e non soltanto l'implementazione. La prima è la bufferizzazione asimmetrica, praticabile quando una delle due direzioni tollera l'attesa. La seconda è la previsione del contenuto, praticabile quando esso è derivabile da ciò che si è già osservato. La terza è lo spostamento del problema sull'altro lato, eseguendo codice proprio sul Game Boy, che è la strada dello strumento di riferimento e che elimina la reciprocità perché non esiste più un interlocutore da soddisfare.
+
+\section{Perché questo capitolo è collaudabile senza hardware}
+
+Il fatto di maggiore utilità pratica riguarda la verificabilità. L'emulatore BGB espone il cavo Link su una connessione TCP con un protocollo documentato a pacchetti di otto byte, e l'implementazione degli scambi in rete si appoggia proprio a quella interfaccia \cite{pokemongb-online}. Tutto quanto descritto in questo capitolo si può dunque implementare e verificare in emulazione, senza intervenire su alcuna console, a una condizione che vale dichiarare: la verifica contro un gioco reale richiede la ROM di quel gioco, e dentro il perimetro di questo progetto quella ROM proviene dal dump di una cartuccia di proprietà, dunque dal lettore. L'organizzazione di quel collaudo, e ciò che resta possibile prima che il lettore sia disponibile, sono trattati nel capitolo~\ref{cap:collaudo}.

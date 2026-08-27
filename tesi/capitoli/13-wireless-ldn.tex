@@ -1,0 +1,90 @@
+% =====================================================================
+% tesi/capitoli/13-wireless-ldn.tex
+% =====================================================================
+% copre: docs/11-wireless-locale-e-ponte-switch.md
+% ---------------------------------------------------------------------
+
+\chapter{Il wireless locale, e il ponte verso una console moderna}
+\label{cap:ldn}
+
+Questo capitolo copre il lato wireless del progetto, cioè il tratto che congiunge un calcolatore a una Nintendo Switch che esegue Rosso Fuoco o Verde Foglia, e il tratto che congiunge un Game Boy Advance fisico a quel calcolatore. Il suo contenuto proviene dalla lettura del canale di supporto del server Pokémon Multiplayer Research condotta il 26 agosto 2026 \cite{pmr-discord}, insieme al codice e alla documentazione dei repository che quel canale discute \cite{kinnay-ldn,ldnd,frlg-ldn-trade}, e sostituisce quanto il progetto sapeva in precedenza, che era ricavato da documentazione di primo livello e da una singola testimonianza riassunta.
+
+Vale la lettura anche a chi si interessi soltanto del ponte fra generazioni su hardware originale, perché contiene la conferma esterna dell'opzione architetturale fondata su hardware intermedio, discussa nel capitolo~\ref{cap:opzioni}, e la ragione tecnica per cui quella è l'unica via praticabile quando all'altro capo si trova una console moderna.
+
+\section{Il problema, in una proposizione}
+
+Un calcolatore deve assumere il posto di una seconda console in uno scambio locale, e per farlo deve parlare un protocollo di rete che il produttore non ha documentato, impiegando hardware che non è stato progettato per parlarlo. Le due difficoltà sono indipendenti e si sommano: la prima si risolve con il lavoro di reverse engineering altrui, la seconda con una composizione di modalità operative che nessun sistema operativo offre come astrazione unitaria.
+
+\section{LDN, e perché non è né ad-hoc né infrastruttura}
+
+LDN\footnote{\term{LDN}, Local Discovery and Network: il protocollo proprietario con cui le console Nintendo Switch formano una rete locale senza punto di accesso; la sua specifica pubblica è il lavoro di reverse engineering documentato nel wiki di NintendoClients.} è il protocollo con cui due console vicine si individuano e comunicano senza transitare da un punto di accesso. La sua particolarità, dichiarata dall'autore della libreria che lo implementa, è di collocarsi a metà fra le due architetture classiche del wireless, e questo dettaglio in apparenza accademico determina l'intera implementazione \cite{kinnay-ldn}.
+
+In una rete di infrastruttura esiste un punto di accesso, e ogni stazione deve prima autenticarsi e poi associarsi a esso prima di poter trasmettere qualunque cosa. In una rete ad-hoc, che nella terminologia dello standard IEEE 802.11 si denomina IBSS\footnote{\term{IBSS}, Independent Basic Service Set: il nome che lo standard IEEE 802.11 attribuisce alla rete priva di punto di accesso, quella che nell'uso comune si denomina ad-hoc.}, non esiste alcun punto di accesso e le stazioni comunicano da pari a pari senza associazione. LDN prende da entrambe: quando una stazione entra nella rete deve autenticarsi e associarsi come se esistesse un punto di accesso, ma una volta entrata tutti i nodi comunicano direttamente fra loro come in una rete ad-hoc. Esiste inoltre un'asimmetria nei bit di direzione dei frame, perché quelli dell'host portano attivo il bit FromDS mentre quelli delle altre stazioni non portano né FromDS né ToDS.
+
+Entrare in una rete altrui non ha mai costituito il problema. Il problema è ospitarne una, ed è nell'ospitare che il protocollo diventa ostile all'implementazione.
+
+\section{Perché occorrono due modalità contemporaneamente}
+
+Il ragionamento che segue è il più istruttivo del capitolo, perché costituisce un caso limpido di specifica che non si proietta su alcuna astrazione offerta dal sistema operativo, e perché la sua soluzione è una composizione che soltanto la comprensione di entrambi i lati suggerisce.
+
+Il primo tentativo naturale consiste nel porre l'interfaccia in modalità punto di accesso, dato che i client devono associarsi. Non funziona, perché in quella modalità è impossibile ricevere i frame indirizzati all'indirizzo di broadcast, cioè \file{ff:ff:ff:ff:ff:ff}: vengono scartati dal kernel o dal driver prima di giungere all'applicazione, e LDN impiega quei frame. Il secondo tentativo consiste nella modalità ad-hoc, dato che dopo l'associazione i nodi comunicano da pari a pari. Non funziona nemmeno quello, perché in modalità IBSS tutte le richieste di associazione vengono scartate, e LDN quelle richieste le pretende.
+
+La soluzione adottata consiste nell'impiegare due interfacce sulla medesima radio contemporaneamente. Un'interfaccia in modalità punto di accesso gestisce i frame di gestione della rete, cioè le richieste di sonda e di associazione; un'interfaccia in modalità monitor riceve e trasmette i frame di dati, compresi quelli in broadcast che l'altra modalità scarterebbe. I frame di dati vengono successivamente analizzati, decifrati e scritti su un'interfaccia TAP, cosicché il kernel veda quel traffico come traffico di rete ordinario e lo stack IP funzioni sopra di esso.
+
+Da qui discende il requisito che decide se il progetto sia praticabile su una macchina data, e vale enunciarlo come criterio perché è verificabile prima di acquistare qualunque cosa: la radio deve saper ricevere e trasmettere action frame in modalità monitor, e deve poter essere sottratta al controllo del gestore di rete del sistema. Quest'ultimo punto è la ragione per cui la procedura prescrive l'arresto di NetworkManager, con il costo evidente che durante l'esecuzione del programma quella macchina è priva di connettività.
+
+\section{Il requisito reale non è il nome commerciale, è il driver}
+
+Il progetto dichiara una tabella di schede provate, e la lettura del canale la completa con i casi negativi, che costituiscono la parte più utile perché indicano che cosa non acquistare. Le schede dichiarate affidabili sono la ALFA AWUS036ACHM esterna con driver \file{mt76x0u} e la Realtek RTL8821CE interna con driver \file{rtw88\_8821ce}; la AMD RZ616 interna con driver \file{mt7921e} funziona a metà velocità e talvolta si arresta prima del completamento. Fra quelle problematiche, la Intel AX200 con \file{iwlwifi} non riesce a ottenere un indirizzo IP, e l'Atheros AR9271 con \file{ath9k\_htc} vi riesce raramente \cite{pmr-discord}.
+
+L'osservazione ricorrente nel canale, ripetuta da più partecipanti nell'arco di tre mesi, è che le schede Intel non supportano la modalità monitor e sono dunque inutilizzabili, e che il criterio operativo consiste nella possibilità di porre la scheda in stato non gestito. Su questo punto il progetto aveva registrato un'informazione che va corretta, ed è la correzione più utile emersa da questa lettura: ciò che determina il funzionamento non è il nome del prodotto ma il chip e dunque il driver, e due esemplari con il medesimo nome commerciale possono montare chip diversi a seconda della revisione di produzione. La testimonianza decisiva è quella di un utente che riporta il proprio dispositivo come servito dal driver \file{rtw\_8821cu}, dunque un chip RTL8821CU gestito dal driver in albero \file{rtw88}, e non l'RTL8811AU che il nome di quella famiglia di adattatori aveva fatto supporre. È anche la spiegazione del motivo per cui quell'utente non ha avuto necessità di alcun driver fuori albero.
+
+La conseguenza pratica, che vale come regola generale nell'acquisto di hardware per compiti di questo tipo, è che la domanda corretta davanti a un adattatore non è quale sia il suo nome, ma quale coppia di identificatori USB esso esponga e quale modulo del kernel lo reclami.
+
+\section{La via Windows, che ribalta un vincolo di piattaforma}
+
+Il progetto aveva sempre assunto che questo tratto richiedesse Linux, e da questa assunzione era nata la tensione con il caso di studio del capitolo~\ref{cap:smeraldo}, che richiede Windows perché lo strumento di riferimento per la generazione 3 è un'applicazione .NET Windows Forms. Quella tensione era registrata come decisione aperta fra avvio duale e supporto avviabile. Esiste una terza via, ed è istruttiva per ragioni che eccedono questo progetto.
+
+Il problema di portare il programma su Windows non è il programma, che è scritto in Python: è che dietro di esso si trova l'intero stack wireless del kernel Linux, cioè \file{mac80211}, i driver del chip e la nozione stessa di modalità monitor, che su Windows non esistono. Riscrivere quello stack sarebbe un lavoro fuori scala rispetto all'obiettivo. La soluzione adottata dal demone \file{ldnd} consiste nel non riscriverlo e nel portarselo appresso: impiega LKL\footnote{\term{LKL}, Linux Kernel Library: il kernel Linux compilato come libreria collegabile a un programma ordinario, cosicché i suoi sottosistemi, fra cui lo stack di rete e i driver, siano utilizzabili in spazio utente e su sistemi operativi diversi da Linux.}, cioè il kernel Linux compilato come libreria statica ordinaria, la collega dentro un eseguibile Windows costruito con MinGW, e le consegna l'adattatore attraverso WinUSB \cite{ldnd}. Il kernel Linux è dunque eseguito come libreria dentro un processo Windows, carica i propri driver e i propri file di firmware, e presenta al programma l'interfaccia che quest'ultimo si attende.
+
+Due dettagli confermano che il meccanismo è esattamente questo, e la loro citazione vale più di qualunque descrizione. Il primo è che la procedura richiede il download dell'archivio \file{linux-firmware} e la conservazione dei suoi file accanto all'eseguibile, perché il driver eseguito dentro l'eseguibile richiede il proprio firmware nel modo in cui lo richiederebbe su Linux. Il secondo è la riga di comando con cui il kernel incorporato viene avviato, che contiene \file{mem=128M mac80211\_hwsim.radios=0 rtw88\_usb.switch\_usb\_mode=0}, cioè parametri di modulo del kernel Linux passati a un programma Windows.
+
+Ne discende una proprietà non ovvia e verificata sul campo: le due implementazioni non possiedono la medesima compatibilità hardware. Un utente riporta che la versione Linux originale non funziona con il proprio adattatore mentre quella Windows sì, e la ragione è strutturale anziché accidentale. La versione Linux dipende dal comportamento congiunto del kernel del sistema, del gestore di rete e del driver installato su quella macchina; la versione Windows scavalca l'intera catena, prende il dispositivo USB grezzo e lo consegna a un kernel che si porta appresso. Il numero di componenti che possono interferire è minore, e con esso la probabilità che uno interferisca.
+
+Il prezzo va dichiarato perché è concreto e non teorico. Il dispositivo va preventivamente riassegnato al driver WinUSB mediante l'utilità Zadig, e da quel momento cessa di funzionare come normale scheda di rete, dunque occorre un'altra via di accesso a internet su quella macchina. E funziona soltanto con adattatori USB, mai con schede interne, perché WinUSB può prendere il controllo soltanto di un dispositivo USB: è il rovescio esatto del vincolo su Linux, dove anche una scheda interna è adeguata purché il suo driver collabori.
+
+\section{Un guasto che vale conoscere prima di incontrarlo}
+
+Il malfunzionamento più segnalato possiede una causa unica e un rimedio noto, e la conoscenza di entrambi risparmia una sessione di diagnosi. Alcuni chip Realtek USB, al momento dell'inizializzazione, negoziano il passaggio alla modalità USB 3, e per farlo si ripresentano sul bus come se fossero stati scollegati e ricollegati. Windows a quel punto ripristina il proprio driver e la riassegnazione compiuta con Zadig risulta annullata, con il sintomo che l'utilità mostra il dispositivo tornato al driver del produttore anziché a WinUSB. Il parametro \file{rtw88\_usb.switch\_usb\_mode=0} disabilita quella negoziazione, ed è la ragione per cui compare nella riga di comando del demone; il rimedio manuale consiste nel forzare il dispositivo su una porta USB 2, che diversi partecipanti riportano come risolutivo \cite{pmr-discord}.
+
+\section{Il lato Game Boy Advance, e la conferma dell'opzione con hardware intermedio}
+
+Qui si trova il fatto che collega questo capitolo al resto del lavoro, e va formulato con precisione perché è facile trarne la conclusione sbagliata.
+
+Il Wireless Adapter del Game Boy Advance non è un dispositivo 802.11. È un progetto interamente proprietario, con un protocollo radio che non ha nulla in comune con il Wi-Fi, e l'autore del progetto LDN lo afferma esplicitamente \cite{kinnay-ldn}. Ne segue che nessuna scheda Wi-Fi, per quanto capace di modalità monitor, potrà mai dialogare con un Game Boy Advance: la modalità monitor serve al tratto verso la console moderna, non al tratto verso il Game Boy Advance. Chi confonde i due tratti conclude che l'acquisto di una scheda adeguata risolva l'intero problema, e non è così.
+
+La via che quell'autore indica per il tratto mancante è un microcontrollore che si presenti come Wireless Adapter dal lato del Game Boy Advance. È parola per parola l'opzione architetturale fondata su hardware intermedio discussa nel capitolo~\ref{cap:opzioni}, formulata da chi ha scritto il codice dell'altro capo, e la sua conferma da una fonte indipendente sposta quell'opzione dal terreno delle ipotesi a quello delle cose realizzate. Nel canale compare infatti la fotografia di una catena funzionante, descritta dal suo autore come Game Boy Advance, adattatore wireless simulato costruito su misura, progetto LDN e Nintendo Switch, nell'ordine \cite{pmr-discord}.
+
+Esiste una riserva tecnica che il medesimo autore solleva, ed è del genere che si paga in fase di collaudo e non in fase di progetto: la catena è già instabile con un solo salto radio, e l'aggiunta della latenza e della perdita di pacchetti di un secondo adattatore potrebbe risultare eccessiva.
+
+\section{Che cosa emula effettivamente l'emulatore sulla console}
+
+Sul modo in cui i giochi di generazione 3 siano eseguiti sulla console moderna il progetto aveva un punto dichiarato aperto, e il canale lo chiude con due affermazioni che vanno assunte congiuntamente.
+
+La prima è che l'emulatore implementa il Wireless Adapter in emulazione di alto livello, cioè non simula il dispositivo ma riproduce il suo comportamento al livello delle funzioni, e in quella implementazione l'adattatore risulta sempre collegato. La seconda, e per questo progetto la più importante, è che l'emulatore emula il Wireless Adapter e non emula il cavo Link.
+
+La conseguenza per il ponte è netta e va registrata come vincolo di progetto: verso un gioco di generazione 3 eseguito su console moderna non esiste alcuna via che transiti dal cavo, e l'unico canale disponibile è quello wireless. Il protocollo del cavo studiato nel capitolo~\ref{cap:cavo} resta valido e necessario per il tratto fra Game Boy e Game Boy Advance su hardware originale, che è il caso d'uso principale di questo lavoro, ma non è trasferibile al caso della console moderna.
+
+Un terzo dettaglio, marginale per il ponte e rilevante per chi studi l'identità degli esemplari, è che la presenza del Wireless Adapter modifica la cadenza con cui avanza il generatore pseudocasuale, e dunque i metodi di ricerca degli esemplari cromatici fondati sul conteggio dei fotogrammi non si trasferiscono inalterati. Il legame con quanto il capitolo~\ref{cap:identita} espone sul valore di personalità è precisamente questo.
+
+\section{Un vincolo di gioco che nessuna documentazione dichiarava}
+
+Vale registrare un dettaglio che un solo partecipante ha scoperto per prova diretta, perché colpirebbe esattamente il caso d'uso di questo progetto. Il giocatore simulato dal calcolatore possiede un insieme di contrassegni di progressione, e nella configurazione predefinita non possiede il Pokédex nazionale. Finché non lo possiede, il gioco rifiuta lo scambio di molte specie, perché il controllo di ammissibilità dello scambio dipende da quel contrassegno. Chi ha risolto il problema ha modificato il codice del giocatore simulato imponendo il valore \hx{0F} a quei contrassegni \cite{pmr-discord}.
+
+Per un ponte che trasporta esemplari dalle generazioni 1 e 2 questo è centrale e non accessorio, per una ragione che vale esplicitare: sono precisamente le specie esterne alla prima regione a essere rifiutate, e un tentativo che fallisse per questa ragione somiglierebbe in modo assai convincente a un errore di formato senza esserlo. È il genere di falsa pista che consuma giorni di diagnosi nella direzione sbagliata.
+
+\section{Che cosa serve, in fila}
+
+Componendo le due implementazioni, i requisiti materiali sono i seguenti. Occorre un adattatore wireless il cui chip disponga di un driver Linux capace di modalità monitor, e occorre che sia USB qualora si percorra la via Windows. Occorre un gioco di generazione 3 sulla console moderna, portato avanti fino allo sbloccio della sala degli scambi, che il materiale stima in venti o quaranta minuti di gioco. Occorrono le chiavi della console, sul cui trattamento vale senza attenuazioni quanto il capitolo~\ref{cap:perimetro} stabilisce. Occorrono almeno due strutture di esemplari nel formato di generazione 3 da impiegare come controparte dello scambio, e il secondo membro della lista è quello che verrà consegnato alla console.
+
+Sul modo di ottenere quelle strutture si trova l'anello che chiude il cerchio con l'altro caso di studio, ed è la risposta a una domanda che il progetto teneva aperta da giorni. L'autore dichiara di non distribuire dati di esemplari ma soltanto strumenti, e indica che chi voglia partire dai propri salvataggi su cartuccia fisica impieghi un lettore, nominando il GBxCart RW e il GB Operator \cite{frlg-ldn-trade}. Il lettore acquistato per il caso di studio del capitolo~\ref{cap:smeraldo} è dunque il medesimo apparecchio che serve qui, e la fase in cui entra è la produzione delle strutture di partenza; chi lavori su copie proprie in emulazione non ha necessità di alcun hardware.
