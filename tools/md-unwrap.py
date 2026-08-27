@@ -233,7 +233,7 @@ def code_span_crosses_line(text: str) -> bool:
 
 class Scanner:
     """Percorre le righe una volta, emette i blocchi verbatim e unisce i soli
-    blocchi di testo. Ogni riga è una coppia (corpo, terminatore), cosi il
+    blocchi di testo. Ogni riga è una coppia (corpo, terminatore), così il
     terminatore originale di ogni riga sopravvissuta resta quello del file."""
 
     def __init__(self, lines, guard_spans=False):

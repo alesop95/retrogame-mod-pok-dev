@@ -18,11 +18,11 @@ Demone in C, licenza GPL-2.0, che porta lo stack wireless di Linux su Windows: c
 
 ## Perché è in archivio
 
-Ribalta il vincolo di piattaforma che il progetto dava per assodato, perche rende il track eseguibile su Windows e quindi compatibile con il track dello Smeraldo sulla stessa macchina. Ha anche una compatibilita hardware diversa dalla via Linux, verificata sul campo, perche scavalca il gestore di rete e il driver di sistema; in cambio funziona soltanto con adattatori USB e, dopo la riassegnazione a WinUSB, il dispositivo non funziona piu come scheda di rete ordinaria.
+Ribalta il vincolo di piattaforma che il progetto dava per assodato, perché rende il track eseguibile su Windows e quindi compatibile con il track dello Smeraldo sulla stessa macchina. Ha anche una compatibilità hardware diversa dalla via Linux, verificata sul campo, perché scavalca il gestore di rete e il driver di sistema; in cambio funziona soltanto con adattatori USB e, dopo la riassegnazione a WinUSB, il dispositivo non funziona più come scheda di rete ordinaria.
 
 ## A quale punto del progetto serve
 
-- [[11-wireless-locale-e-ponte-switch]], la via Windows, e il conflitto fra modalita USB 2 e USB 3
+- [[11-wireless-locale-e-ponte-switch]], la via Windows, e il conflitto fra modalità USB 2 e USB 3
 
 ## Relazioni con altre fonti
 

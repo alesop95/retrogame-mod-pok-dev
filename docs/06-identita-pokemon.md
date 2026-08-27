@@ -1,7 +1,7 @@
 ---
 tipo: nota di studio
 livello: intermedio
-tags: [identita, dv, iv, valore-di-personalita]
+tags: [identità, dv, iv, valore-di-personalita]
 up: "[[index]]"
 vedi_anche: ["[[02-numeri-e-bit]]", "[[04-cifratura-gen3]]", "[[07-conversione-vincoli]]", "[[DATA-FORMATS_Gen1-Gen2-Gen3]]"]
 ---

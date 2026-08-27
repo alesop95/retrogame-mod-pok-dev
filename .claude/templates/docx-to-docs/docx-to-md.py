@@ -5,19 +5,19 @@ docx-to-md.py - Convertitore deterministico da .docx a documentazione Markdown.
 
 Parsa integralmente un documento Word in ordine di corpo (prosa, liste numerate e
 puntate, tabelle, immagini) e lo spezza in file Markdown separati: un file per ogni
-sezione H5, con le sezioni piu' profonde (H6-H9) annidate come sotto-titoli. Gli H4
+sezione H5, con le sezioni più' profonde (H6-H9) annidate come sotto-titoli. Gli H4
 con figli H5 diventano cartelle con README.md; gli H4 senza figli H5 diventano un
 singolo file. Le macrocategorie (H3) diventano cartelle numerate.
 
 La conversione e' verbatim: nessun contenuto viene rimosso o corretto.
 
 Le immagini vengono estratte in cartelle assets/ accanto ai documenti e restano fuori
-dal versionamento (gitignore *.png/*.jpeg gia' presente).
+dal versionamento (gitignore *.png/*.jpeg già' presente).
 
 Uso:
     python docx-to-md.py SORGENTE.docx --out docs [--macro N]
 
-Dipendenze: python-docx (gia' presente).
+Dipendenze: python-docx (già' presente).
 """
 
 import argparse
@@ -46,7 +46,7 @@ SPLIT_LEVEL = 5  # i titoli di livello <= 5 aprono un nuovo file/cartella
 MACRO_NAMES = {}
 
 
-# --- utilita' di slug -------------------------------------------------------
+# --- utilità' di slug -------------------------------------------------------
 def slugify(text, fallback="sezione"):
     text = unicodedata.normalize("NFKD", text)
     text = "".join(c for c in text if not unicodedata.combining(c))
@@ -600,7 +600,7 @@ def main():
     report.append("")
     report.append("> Generato da `tools/docx-to-md.py`. Conversione verbatim: nessun contenuto "
                   "rimosso. Questo report elenca conteggi, marcatori di lavoro dell'autore e "
-                  "mappa delle immagini, per tracciabilita'.")
+                  "mappa delle immagini, per tracciabilità'.")
     report.append("")
     report.append("## Conteggi")
     report.append("")

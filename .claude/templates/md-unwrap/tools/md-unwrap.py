@@ -131,7 +131,7 @@ def is_table_delim(s: str) -> bool:
 
 
 def block_kind(s: str) -> str:
-    """Classifica una riga di inizio blocco, indentazione iniziale gia' rimossa."""
+    """Classifica una riga di inizio blocco, indentazione iniziale già' rimossa."""
     if is_blank(s):
         return 'blank'
     if fence_open(s):
@@ -198,7 +198,7 @@ def looks_like_diagram(body: str) -> bool:
 
     Uno schema ASCII scritto fuori da un blocco di codice e' un paragrafo come
     gli altri per CommonMark, quindi il rendering non cambia se lo si unisce: e'
-    gia' collassato anche prima. Nel sorgente pero' l'allineamento e' l'intero
+    già' collassato anche prima. Nel sorgente pero' l'allineamento e' l'intero
     contenuto informativo del disegno, e unirlo lo distrugge. Quando una riga di
     un blocco di testo sembra un disegno, il blocco si emette verbatim."""
     return bool(RE_ART_CHARS.search(body) or RE_ART_ASCII.search(body))
@@ -213,7 +213,7 @@ def code_span_crosses_line(text: str) -> bool:
     chiude mai e' testo letterale. Solo un code span che si apre su una riga e si
     chiude su un'altra e' un problema: CommonMark normalizza lo spazio ai bordi
     di un code span, quindi unire quelle righe ne cambierebbe il contenuto reso.
-    In quel caso il paragrafo si emette verbatim, perche' un code span vive
+    In quel caso il paragrafo si emette verbatim, perché' un code span vive
     dentro un solo blocco e la sua estensione e' quella del paragrafo."""
     open_len, open_end = 0, -1
     for match in RE_BACKTICK_RUN.finditer(text):
@@ -233,7 +233,7 @@ def code_span_crosses_line(text: str) -> bool:
 
 class Scanner:
     """Percorre le righe una volta, emette i blocchi verbatim e unisce i soli
-    blocchi di testo. Ogni riga e' una coppia (corpo, terminatore), cosi il
+    blocchi di testo. Ogni riga e' una coppia (corpo, terminatore), così il
     terminatore originale di ogni riga sopravvissuta resta quello del file."""
 
     def __init__(self, lines, guard_spans=False):
@@ -244,7 +244,7 @@ class Scanner:
         self.joins = 0
         self.stack = []  # (indentazione del marcatore, indentazione del contenuto)
 
-    # -- utilita' ---------------------------------------------------------- #
+    # -- utilità' ---------------------------------------------------------- #
 
     def inner(self, k: int, bq: bool) -> str:
         """Corpo della riga k privato dell'eventuale catena di citazione."""
@@ -311,7 +311,7 @@ class Scanner:
                 i = self.consume_linkdef(i, bq, s)
             elif kind == 'label-text':
                 # Nota a pie' di pagina o testo etichettato: si comporta come una
-                # voce di elenco, cioe' assorbe le proprie righe di continuazione
+                # voce di elenco, cioè' assorbe le proprie righe di continuazione
                 # conservando il prefisso `[etichetta]: `.
                 i = self.collect_run(i, bq, base)
             elif self.table_starts_at(i, bq, s):
@@ -401,7 +401,7 @@ class Scanner:
         return last_code + 1
 
     def consume_linkdef(self, i: int, bq: bool, s: str) -> int:
-        """Definizione di link di riferimento: riga a se', piu' l'eventuale
+        """Definizione di link di riferimento: riga a se', più' l'eventuale
         continuazione (URL o titolo su riga propria) che le appartiene."""
         j = i + 1
         rest = RE_LINKDEF.match(s).group(1).strip()
@@ -498,10 +498,10 @@ class Scanner:
             j += 1
 
         # Deciso l'intervallo del blocco, due controlli sull'insieme delle sue
-        # righe. Uno schema disegnato a caratteri ferma sempre l'unione, perche'
+        # righe. Uno schema disegnato a caratteri ferma sempre l'unione, perché'
         # il rendering non lo protegge: e' il sorgente a perderci. Un code span
         # che attraversa un a capo la ferma solo nella passata prudente, quella
-        # di riserva, perche' quasi sempre unire e' innocuo e l'arbitro giusto e'
+        # di riserva, perché' quasi sempre unire e' innocuo e l'arbitro giusto e'
         # l'oracolo di rendering, non un'euristica.
         if not verbatim and j > i + 1:
             bodies = [self.lines[k][0] for k in range(i, j)]
@@ -649,7 +649,7 @@ _MARKER_CACHE = {}
 def dir_is_marked(dirpath: str) -> bool:
     """Vero se la cartella, o una qualsiasi delle sue antenate, contiene il file
     marcatore `.md-unwrap-ignore`: quel sottoalbero non si tocca. Serve a proteggere
-    materiale che deve restare byte per byte com'e', per esempio le fixture di test."""
+    materiale che deve restare byte per byte com'è', per esempio le fixture di test."""
     dirpath = os.path.abspath(dirpath)
     chain = []
     current = dirpath
@@ -678,7 +678,7 @@ def collect_files(paths, exts, excludes, only_tracked=False):
         if only_tracked and os.path.isdir(target):
             # Enumerare da git invece che dal filesystem: in un repository che
             # contiene un corpus non tracciato di centinaia di migliaia di file,
-            # camminare l'albero costa minuti e serve a nulla, perche' i file da
+            # camminare l'albero costa minuti e serve a nulla, perché' i file da
             # processare sono solo quelli che git conosce.
             prefix = os.path.normcase(target + os.sep)
             entries = tracked_files(target)
@@ -867,8 +867,8 @@ def main(argv=None) -> int:
             # grado di cambiare il reso pur restando dentro un solo paragrafo.
             after, joins = unwrap(before, guard_spans=True)
             if after == before:
-                # Non e' un errore: il file e' gia' nella forma migliore ottenibile
-                # senza cambiare il reso, e non c'e' altro da unire in sicurezza.
+                # Non e' un errore: il file e' già' nella forma migliore ottenibile
+                # senza cambiare il reso, e non c'è' altro da unire in sicurezza.
                 if not args.quiet:
                     say('intatto %s: nulla da unire senza cambiare il rendering' % rel)
                 continue

@@ -1,7 +1,7 @@
 ---
 tipo: nota di studio
 livello: intermedio
-tags: [checksum, integrita, salvataggio]
+tags: [checksum, integrità, salvataggio]
 up: "[[index]]"
 vedi_anche: ["[[02-numeri-e-bit]]", "[[04-cifratura-gen3]]", "[[22-strumenti]]", "[[SOURCES]]"]
 ---

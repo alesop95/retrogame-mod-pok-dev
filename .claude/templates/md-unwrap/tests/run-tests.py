@@ -178,7 +178,7 @@ def run_cli(args, cwd):
 
 def test_cli():
     with tempfile.TemporaryDirectory() as tmp:
-        # Albero di prova: due file da cambiare, uno gia' a posto, uno in una
+        # Albero di prova: due file da cambiare, uno già' a posto, uno in una
         # cartella esclusa di default, uno con estensione non trattata.
         changing = ['paragrafo-hard-wrapped', 'elenco-numerato']
         for name in changing + ['gia-srotolato']:

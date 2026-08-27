@@ -221,7 +221,7 @@ Il salvataggio è 128 KiB di memoria flash e la sua organizzazione è completame
 | 0x000000 | 57344 | slot di salvataggio A, 14 sezioni da 4096 byte |
 | 0x00E000 | 57344 | slot di salvataggio B, 14 sezioni da 4096 byte |
 | 0x01C000 | 8192 | Sala d'Onore |
-| 0x01E000 | 4096 | Dono Segreto ed e-Reader |
+| 0x01E000 | 4096 | Dono Segreto ed è-Reader |
 | 0x01F000 | 4096 | battaglia registrata |
 
 Ogni sezione da 4096 byte ha un piede fisso: identificatore di sezione a 0x0FF4, checksum a 0x0FF6, firma a 0x0FF8 con il valore costante 0x08012025, e indice di salvataggio a 0x0FFC. La firma sbagliata invalida la sezione e con essa l'intero slot. Il checksum si calcola accumulando in una variabile a 32 bit le parole da 32 bit little-endian della sezione, per un numero di byte che dipende dall'identificatore di sezione, poi sommando i 16 bit alti ai 16 bit bassi: il risultato a 16 bit è il checksum. La scelta dello slot valido segue l'indice di salvataggio, con lo slot A vincente solo se il suo indice è strettamente maggiore, quindi in caso di parità vince B.
