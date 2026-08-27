@@ -112,15 +112,26 @@ def genera(fonti):
     righe.append("% docs/fonti/pokered.md nel vault sono la stessa fonte vista da due parti.")
     righe.append("")
 
-    # La larghezza dell'etichetta più lunga determina il rientro dell'elenco.
-    piu_lunga = max((f[0] for f in fonti), key=len)
-    righe.append(r"\begin{thebibliography}{%s}" % escape_tex(piu_lunga))
+    # L'argomento di thebibliography dimensiona il rientro dell'elenco sulla larghezza
+    # dell'etichetta più larga, e le etichette qui sono i numeri progressivi che LaTeX
+    # genera, non le chiavi di citazione. Passare la chiave più lunga, come faceva una
+    # prima versione di questo generatore, produceva un rientro di venti caratteri per
+    # ospitare etichette che ne occupano due: da qui la colonna di spazio bianco che
+    # rendeva la bibliografia illeggibile. Si passa quindi il numero più largo possibile.
+    piu_larga = "9" * len(str(len(fonti)))
+    righe.append(r"\begin{thebibliography}{%s}" % piu_larga)
     righe.append(r"\addcontentsline{toc}{chapter}{Bibliografia}")
     # A bandiera e non giustificato: su una voce breve che contiene un
     # indirizzo lungo la giustificazione e' precisamente cio' che spinge la
     # riga fuori dal margine, perché' il compositore non ha spazi elastici a
     # sufficienza per rientrare.
     righe.append(r"\raggedright")
+    # Solo i parametri che hanno effetto dentro una lista già' iniziata: labelsep e
+    # itemsep vengono riletti a ogni voce, mentre leftmargin e itemindent sono fissati
+    # dal egin e cambiarli qui non farebbe nulla. Il rientro vero lo determina
+    # l'argomento passato sopra.
+    righe.append(r"\setlength{\labelsep}{0.5em}")
+    righe.append(r"\setlength{\itemsep}{0.8ex}")
     righe.append("")
 
     for slug, nome, url, livello, letto, track, abstract, _perche, _serve, _rel in fonti:
