@@ -11,9 +11,13 @@ stato: documento di conoscenza, non di stato
 
 Questo documento copre il buco tecnico che l'handoff di ricerca aveva lasciato aperto: il formato dei dati byte per byte, che è l'unica base su cui si può scrivere un parser, un writer o un convertitore, in qualunque delle quattro opzioni implementative registrate in ADR-008 si decida di andare. Non è uno stato di avanzamento: è conoscenza, e come tale non va aggiornato quando il progetto avanza, ma solo quando una fonte corregge un fatto.
 
+Ogni sezione apre con una riga di provenienza che nomina le fonti da cui vengono i suoi numeri, con il ruolo di ciascuna: serve a rendere la sezione autosufficiente, perché chi la apre per scrivere del codice deve sapere su quale repository verificare un valore che non gli torna, senza dover risalire a questa introduzione. I nomi fra doppie parentesi quadre sono le note di `docs/fonti/`, quindi aprendo il repository come vault diventano collegamenti navigabili.
+
 Tutto ciò che segue è stato verificato sul disassemblato e sulla decompilazione dei giochi, non sull'enciclopedia. Dove le due si contraddicono ha vinto il sorgente, e la contraddizione è annotata sul posto perché è informazione utile: dice dove non fidarsi della wiki. Le fonti stanno nel registro `SOURCES.md` nella radice del repository, condiviso con gli altri sottoprogetti. Il percorso di studio guidato di questi stessi concetti sta in `docs/`, con il suo indice in `docs/index.md`.
 
 ## 1. Tre invarianti da fissare prima di leggere qualsiasi offset
+
+> Provenienza. L'ordine dei byte dei due processori viene da [[pandocs]] per lo Sharp LR35902 e da [[gbatek]] per l'ARM7TDMI, con l'inquadramento architetturale in [[copetti]]. La distinzione fra struttura di box e di squadra e la posizione esterna dei nomi vengono dalle macro di [[pokered]] e [[pokecrystal]] per le generazioni 1 e 2 e da [[pokeemerald]] per la 3. Registro completo in [[SOURCES]].
 
 Il primo invariante è l'ordine dei byte. Le generazioni 1 e 2 girano su un processore Sharp LR35902 e scrivono i campi multibyte in *big-endian*, quindi l'esperienza a tre byte e le statistiche a due byte si leggono dal byte più significativo. La generazione 3 gira su ARM7TDMI e scrive tutto in *little-endian*. Un convertitore che sbaglia questo punto produce numeri plausibili ma errati, ed è l'errore più facile da non notare, perché un livello 100 letto al contrario resta un numero valido.
 
@@ -22,6 +26,8 @@ Il secondo invariante è la distinzione fra struttura di box e struttura di squa
 Il terzo invariante è che il soprannome del Pokemon e il nome dell'allenatore originale non stanno dentro la struttura nelle generazioni 1 e 2. Stanno in array paralleli, esterni alla struttura, indicizzati dalla posizione nella lista, insieme a una lista separata degli indici di specie. In generazione 3 sono invece dentro la struttura del singolo Pokemon. È una differenza architetturale, non un dettaglio di offset, e cambia la forma del codice: in Gen 1 e 2 si parsifica una lista con quattro array paralleli, in Gen 3 si parsifica un array di record autocontenuti.
 
 ## 2. Generazione 1: struttura del Pokemon
+
+> Provenienza. Interamente da [[pokered]]: le lunghezze da `constants/pokemon_data_constants.asm`, gli offset dei campi dalle macro delle strutture, e la derivazione del quinto valore individuale dal commento nel sorgente della routine di calcolo delle statistiche. Dove [[bulbapedia]] divergeva, il valore corretto è quello del disassemblato e la divergenza è annotata sul posto. Registro completo in [[SOURCES]].
 
 La struttura di box occupa 33 byte, quella di squadra 44, e le due costanti sono dichiarate nel disassemblato come `BOXMON_STRUCT_LENGTH EQU $21` e `PARTYMON_STRUCT_LENGTH EQU $2c`. La forma canonica è la macro `box_struct` di `pret/pokered`, che riporto verbatim perché è la definizione autorevole, e la macro `party_struct` che la estende.
 
@@ -82,6 +88,8 @@ La lista della squadra è un record composto da un contatore a un byte, sette by
 
 ## 3. Generazione 1: struttura del salvataggio
 
+> Provenienza. Offset e algoritmo del checksum da [[pokered]]; la natura del supporto, cioè la memoria statica di cartuccia con banchi commutati, da [[pandocs]]. La dimensione della lista della squadra è stata corretta a 404 byte scrivendo il codice, contro i 194 di una fonte secondaria che aveva letto un valore esadecimale come decimale. Registro completo in [[SOURCES]].
+
 Il salvataggio è la SRAM[^2] della cartuccia, 32 KiB divisi in quattro banchi da 8 KiB. Gli offset che contano per un tool sono i seguenti, e valgono identici fra Rosso, Blu e Giallo per tutto ciò che riguarda i Pokemon.
 
 | Offset | Contenuto |
@@ -101,6 +109,8 @@ Sulla dimensione della lista della squadra c'è una trappola che vale segnalare,
 Il checksum principale è il complemento a uno della somma dei byte da 0x2598 a 0x3522, equivalentemente si parte da 255 e si sottrae ogni byte. Se non torna, il gioco dichiara i dati distrutti e riparte da zero, quindi qualunque scrittura su un salvataggio Gen 1 deve ricalcolare il checksum, e questo vale sia per un tool che lavora su un dump sia per una routine che scrive in SRAM da dentro il gioco.
 
 ## 4. Generazione 2: struttura del Pokemon
+
+> Provenienza. Interamente da [[pokecrystal]]: gli offset delle strutture di box e di squadra, l'ordine dei nibble dei valori individuali con la derivazione del quinto, e i due byte dei dati di cattura che solo Cristallo popola. La struttura di invio del Time Capsule viene dallo stesso repository. Registro completo in [[SOURCES]].
 
 La struttura di box passa a 32 byte e quella di squadra a 48. Il cambiamento non è un'estensione: è un riordino, quindi non si può riusare il parser di Gen 1 con un offset diverso. Anche qui gli offset della Stat Experience sono confermati dalla tabella del PCCS, che per la generazione 2 li dichiara a 0x0B, 0x0D, 0x0F, 0x11 e 0x13.
 
@@ -130,7 +140,9 @@ Gli offset del salvataggio Gen 2 dipendono dal gioco e dalla lingua. Per le vers
 
 ## 5. Generazione 3: la struttura cifrata
 
-Qui cambia la natura del problema. La struttura di box è 80 byte e quella di squadra 100, ma i 48 byte centrali sono cifrati e permutati, e la loro integrità è protetta da un checksum che, se non torna, trasforma il Pokemon in un Uovo Difettoso, cioè lo distrugge in modo visibile e definitivo. Un writer che sbaglia un solo passo di questa catena non produce un Pokemon strano: produce un Uovo Difettoso.
+> Provenienza. Interamente da [[pokeemerald]]: la struttura `BoxPokemon` e le quattro `PokemonSubstruct` da `include/pokemon.h`, le routine `EncryptBoxMon`, `DecryptBoxMon`, `CalculateBoxMonChecksum` e `GetSubstruct` da `src/pokemon.c`, e da quest'ultima le ventiquattro righe della tabella di permutazione. Su questa sezione [[bulbapedia]] contiene l'errore più costoso incontrato dal progetto, cioè il checksum descritto come somma byte per byte invece che per parole da 16 bit. L'algoritmo di permutazione calcolato per fattoriali, invece che tabulato, si trova in [[pccs]]. Registro completo in [[SOURCES]].
+
+Qui cambia la natura del problema. La struttura di box è 80 byte e quella di squadra 100, ma i 48 byte centrali sono cifrati e permutati, e la loro integrità è protetta da un checksum che, se non torna, trasforma il Pokemon in un Uovo Peste, cioè lo distrugge in modo visibile e definitivo. Un writer che sbaglia un solo passo di questa catena non produce un Pokemon strano: produce un Uovo Peste.
 
 L'intestazione in chiaro è questa, e viene dalla struttura `BoxPokemon` di `pret/pokeemerald`.
 
@@ -140,7 +152,7 @@ L'intestazione in chiaro è questa, e viene dalla struttura `BoxPokemon` di `pre
 | 0x04 | 4 | ID dell'allenatore originale, 32 bit: 16 bit visibili più 16 bit di ID segreto |
 | 0x08 | 10 | Soprannome |
 | 0x12 | 1 | Lingua |
-| 0x13 | 1 | Flag: uovo difettoso, ha specie, è uovo, blocco box RS |
+| 0x13 | 1 | Flag: uovo peste, ha specie, è uovo, blocco box RS |
 | 0x14 | 7 | Nome dell'allenatore originale |
 | 0x1B | 1 | Marcature |
 | 0x1C | 2 | Checksum dei 48 byte cifrati |
@@ -214,6 +226,8 @@ I venti byte in più della struttura di squadra sono, in ordine, stato a 32 bit,
 
 ## 6. Generazione 3: struttura del salvataggio
 
+> Provenienza. La mappa delle sezioni, la firma, il contatore e la scelta dello slot da [[pokeemerald]]; la routine `CalculateChecksum` da `src/save.c` dello stesso repository. Gli offset di squadra e oggetti specifici di Rosso Fuoco e Verde Foglia, diversi da quelli di Smeraldo, da [[pokefirered]], dove si è anche corretta la posizione della chiave di sicurezza. Il mascheramento in XOR delle quantità dello zaino viene da `src/item.c` di [[pokeemerald]], e il caso reale che ne mostra le conseguenze diagnostiche da [[projectpokemon]]. Registro completo in [[SOURCES]].
+
 Il salvataggio è 128 KiB di memoria flash e la sua organizzazione è completamente diversa da quella lineare delle generazioni precedenti, perché è progettata per la scrittura a blocchi tipica della flash e per la resistenza a un'interruzione di corrente a metà del salvataggio.
 
 | Offset | Dim. | Contenuto |
@@ -253,6 +267,8 @@ La conseguenza pratica per la diagnosi è precisa e va oltre quanto dicono le fo
 
 ## 7. Codifica dei caratteri
 
+> Provenienza. Le tabelle sono generate dai charmap dei disassemblati, cioè [[pokered]] e [[pokecrystal]] per le generazioni 1 e 2 e [[pokeemerald]] per la 3, e non trascritte: due punti in cui una fonte secondaria sbagliava producevano nomi plausibili e falsi. I byte di controllo di generazione 3, cioè l'escape e la sostituzione di variabile, sono documentati anche da [[gcri-discord]], che ne descrive lo sfruttamento. Registro completo in [[SOURCES]].
+
 Nessuna delle tre generazioni usa ASCII, e le due tabelle sono incompatibili fra loro, quindi la conversione di un soprannome e di un nome di allenatore è una transcodifica vera, non una copia di byte. Su questo punto le fonti secondarie sbagliano due volte, e l'errore è silenzioso perché produce comunque caratteri stampabili: la pagina enciclopedica di Gen 1 colloca le cifre a 0xF0 e quella di Gen 3 colloca le maiuscole a 0xC1. I valori corretti vengono dai charmap dei disassemblati.
 
 | Elemento | Gen 1 e 2 | Gen 3 |
@@ -269,6 +285,8 @@ La tabella di Gen 2 è quasi identica a quella di Gen 1 per tutti i caratteri ch
 
 ## 8. Indici di specie: tre spazi di numerazione diversi
 
+> Provenienza. I tre spazi di numerazione e le loro tabelle di traduzione da [[pokered]], [[pokecrystal]] e [[pokeemerald]]. La tabella dagli indici interni di generazione 1 ai numeri nazionali resta da generare dal disassemblato e non va trascritta a mano. Registro completo in [[SOURCES]].
+
 Nessuna delle tre generazioni identifica la specie con il numero del Pokedex nazionale, e le tre numerazioni sono diverse fra loro. Una tabella di mappatura non è un optional del convertitore: è il suo cuore.
 
 In Gen 1 l'indice interno non ha alcuna relazione ordinata con il Pokedex. L'indice 1 è Rhydon, che è il numero 112, l'indice 99 è Bulbasaur, che è il numero 1. Nell'intervallo valido sono sparse 39 posizioni che non corrispondono a nessuna specie e che il gioco interpreta come MissingNo, e l'indice 0 e tutti gli indici da 191 a 255 sono altrettanto invalidi. Un parser deve quindi trattare l'indice di specie come una chiave opaca da risolvere in tabella, e deve avere una politica esplicita per gli indici invalidi.
@@ -280,6 +298,8 @@ In Gen 3 gli indici da 1 a 251 seguono il Pokedex nazionale, gli indici da 252 a
 Per un ponte da Gen 1 e 2 verso Gen 3 la conseguenza pratica è benigna: tutte le specie sorgente stanno nell'intervallo da 1 a 251, dove Gen 2 e Gen 3 concordano. Serve quindi una sola tabella, quella da indice interno Gen 1 a numero nazionale, più una politica per MissingNo, che il PCCS risolve mappandolo su Porygon.
 
 ## 9. Il problema vero della conversione: ricostruire ciò che non esisteva
+
+> Provenienza. L'enunciato del problema e i quattro metodi dichiarati da [[pccs]], il cui sorgente è anche la prova che la conversione delle statistiche non è implementata: la funzione `convertEVs` azzera tutti e sei i campi. Il comportamento del tool di riferimento da [[ptgb]] e dal suo diario di sviluppo [[devlog-ptgb]]. L'alternativa che opera nel verso opposto è [[gen3togenx]]. Registro completo in [[SOURCES]].
 
 Tutto quanto sopra è meccanica. Il problema difficile è che Gen 3 richiede campi che in Gen 1 e 2 non esistono, e che non sono indipendenti fra loro perché derivano tutti dallo stesso valore di personalità a 32 bit. Le formule sono confermate da due implementazioni indipendenti, il gioco e il PCCS, e in `source/Gen3Pokemon.cpp` si leggono in forma compatta: la natura è il valore di personalità modulo 25; il sesso confronta `PV & 0xFF` con la soglia di sesso della specie ed è maschio se il byte è maggiore o uguale; lo slot di abilità è `PV & 1`; la lettera di Unown compone i due bit meno significativi dei quattro byte e prende il modulo 28; la lucentezza si ha quando lo XOR fra ID visibile, ID segreto, metà bassa e metà alta del valore di personalità è minore di 8.
 
@@ -318,6 +338,8 @@ Ne discende una correzione importante rispetto a quanto l'handoff di ricerca aff
 Vale la pena registrare anche un dettaglio minore, perché insegna qualcosa di generale: in `convertShininess` esiste un caso speciale che, per una specie precisa e per due hash FNV-1a specifici del nome dell'allenatore e del soprannome, forza tutti i DV a 15. È una scelta arbitraria di quella implementazione, non una regola del formato. Una implementazione di riferimento non è una specifica, e distinguere le due cose è esattamente il motivo per cui questo documento cita il gioco e non il tool quando deve stabilire un fatto.
 
 ## 10. Il livello di trasporto: protocollo del cavo Link ed esecuzione di codice
+
+> Provenienza. Il livello fisico del collegamento seriale da [[pandocs]] e [[gbatek]]; le costanti e la macchina a stati del Centro Scambi da [[pokered]] e [[pokecrystal]], e per il lato generazione 3 da [[pokefirered]]. La primitiva del terminatore mancante e le sue conseguenze da [[cableclubhack]], con le due derivazioni [[pksploit]] e [[linkhack]] e la documentazione di [[blog-phasip]]. La specifica del payload e l'uso del Dono Segreto da [[devlog-ptgb]]. Il collaudo del protocollo su emulatore da [[gambatte-gamelink]] e [[pokemongb-online]]. Registro completo in [[SOURCES]].
 
 Un convertitore che lavora su file di salvataggio non ha bisogno di questa sezione. Un ponte su hardware originale ne ha bisogno tutta, perché il formato dei dati è solo metà del problema: l'altra metà è come i byte attraversano il cavo.
 
@@ -363,6 +385,8 @@ Su questo punto c'è una precisazione che cambia il piano di collaudo, e corregg
 
 ## 11. Stato delle verifiche
 
+> Provenienza. Ogni riga di questa tabella nomina la propria fonte nella colonna dell'esito, perché è precisamente il suo contenuto: dice su che cosa un punto è stato chiuso oppure perché resta aperto. I tre punti aperti il 2026-08-25 vengono dalle trascrizioni dei video registrate in [[SOURCES]], e sono affermazioni di terzi credibili non ancora confrontate con il sorgente.
+
 Nessuno dei punti aperti alla prima stesura resta aperto per pigrizia: sono stati chiusi leggendo i sorgenti. Restano aperti sei punti, tre dei quali richiedono materiale che non è pubblico o che non è ancora in mano al progetto, e tre nati il 2026-08-25 dalla lettura delle trascrizioni dei video, che sono affermazioni di terzi credibili e non ancora confrontate con il sorgente. Sono dichiarati come tali, e la regola resta che non entrano in codice finché non sono verificati.
 
 | Punto | Esito |
@@ -386,6 +410,8 @@ Nessuno dei punti aperti alla prima stesura resta aperto per pigrizia: sono stat
 | Comunicazione diretta fra GBA e giochi Gen 2 sul cavo originale | aperto: Goppier mostra una ROM GBA che lo fa e lo dichiara possibile, ma non pubblica né codice né dettagli, e il video che dovrebbe contenerli è fra le trascrizioni arretrate. Se confermato, cambia il confronto fra le quattro opzioni |
 
 ## 12. Cosa implica tutto questo per la scelta fra le quattro opzioni
+
+> Provenienza. Il confronto poggia sui fatti stabiliti nelle sezioni precedenti. Per il lato hardware delle opzioni C e D vanno lette [[usb-gba-multiboot]], [[rom-sender]] e [[gba-link-connection]]; per la conferma indipendente che la via del microcontrollore è quella praticabile verso una console moderna, [[pmr-discord]]. L'analisi aggiornata dei costi sta in [[30-opzioni-implementative]]. Registro completo in [[SOURCES]].
 
 La decisione di ADR-008 resta aperta e questo documento non la chiude, ma la informa, perché ora si vede quanto costa ciascuna opzione in termini di codice da scrivere.
 

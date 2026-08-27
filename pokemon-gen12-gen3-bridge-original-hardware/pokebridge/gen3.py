@@ -4,7 +4,7 @@
 Qui cambia la natura del problema rispetto alle due generazioni Game Boy. La struttura di
 box è 80 byte e quella di squadra 100, ma i 48 byte centrali sono cifrati, permutati in
 uno di ventiquattro ordini possibili, e protetti da un checksum che se non torna non
-produce un Pokemon strano: produce un Uovo Difettoso, cioè distrugge il dato in modo
+produce un Pokemon strano: produce un Uovo Peste, cioè distrugge il dato in modo
 visibile e definitivo. Ogni passo di quella catena è verificato sul sorgente e non su una
 fonte secondaria, perché su questo punto le fonti secondarie sbagliano in un modo che
 distrugge i dati: una pagina enciclopedica descrive il checksum come somma byte per byte,
@@ -395,7 +395,7 @@ class Gen3Mon:
     Il valore di personalità è immutabile dopo la costruzione, ed è una scelta di
     progettazione e non una limitazione: quel valore è anche chiave di cifratura e
     selettore della permutazione, quindi cambiarlo su una struttura già composta la
-    invaliderebbe silenziosamente, che è il modo tipico di produrre Uova Difettose. Chi
+    invaliderebbe silenziosamente, che è il modo tipico di produrre Uova Peste. Chi
     deve cambiarlo, e in conversione serve davvero perché il valore di personalità decide
     anche natura e sesso, usa `with_personality`, che ricompone tutto da capo.
 
@@ -521,7 +521,7 @@ class Gen3Mon:
         None quando non c'è un checksum memorizzato, cioè su una struttura costruita a
         mano e non letta da byte. Un lettore non deve rifiutare un buffer con checksum
         sbagliato, perché è esattamente il caso che si vuole poter diagnosticare: il gioco
-        in quella situazione alza il flag di Uovo Difettoso e distrugge il Pokemon, e uno
+        in quella situazione alza il flag di Uovo Peste e distrugge il Pokemon, e uno
         strumento che si limita a sollevare un'eccezione non dice quale dei due sia il dato
         buono.
         """
@@ -581,7 +581,7 @@ class Gen3Mon:
 
         Il checksum viene ricalcolato, ed è il comportamento di default perché è l'unico
         sicuro: propagare un checksum letto e non più coerente con i dati è precisamente
-        il modo di produrre un Uovo Difettoso. `preserve_checksum` riscrive invece quello
+        il modo di produrre un Uovo Peste. `preserve_checksum` riscrive invece quello
         memorizzato, e serve a due cose legittime, cioè dimostrare che la lettura e la
         riscrittura non perdono un solo bit anche su un buffer arbitrario, e conservare un
         dump corrotto tale e quale per poterlo studiare.
