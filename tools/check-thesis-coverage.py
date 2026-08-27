@@ -208,6 +208,48 @@ def leggi_esenzioni():
     return esenti_doc, esenti_sez, malformate
 
 
+def igiene_tex():
+    """Errori di sorgente LaTeX che si manifestano solo nel PDF composto.
+
+    Due casi reali, entrambi incontrati durante la stesura. Il backtick di Markdown, che in
+    LaTeX non delimita il monospazio ma apre una virgoletta: il documento compila senza
+    lamentarsi e il difetto si vede soltanto rileggendo la pagina. E i caratteri di
+    controllo, che entrano quando una sostituzione automatica interpreta come sequenza di
+    escape cio' che doveva essere un backslash seguito da una lettera: la macro perde il
+    backslash, il suo nome perde la prima lettera, e il testo esce in chiaro nel PDF.
+    """
+    BS = chr(92)
+    NL = chr(10)
+    MACRO = ("file{", "term{", "hx{", "bin{", "cite{", "emph{", "texttt{", "SI{")
+    problemi = []
+    if not os.path.isdir(CAPITOLI):
+        return problemi
+    for nome in sorted(os.listdir(CAPITOLI)):
+        if not nome.endswith(".tex"):
+            continue
+        rel = "tesi/capitoli/" + nome
+        with open(os.path.join(CAPITOLI, nome), "rb") as f:
+            testo = f.read().decode("utf-8")
+
+        n = testo.count(chr(96))
+        if n:
+            problemi.append("%s contiene %d backtick: in LaTeX aprono una virgoletta, "
+                            "non il monospazio" % (rel, n))
+
+        ctrl = sorted(set(ord(c) for c in testo if ord(c) < 32 and c != NL))
+        if ctrl:
+            problemi.append("%s contiene i caratteri di controllo %s, probabile sequenza "
+                            "di escape interpretata da una sostituzione" % (rel, ctrl))
+
+        for numero, riga in enumerate(testo.split(NL), 1):
+            for macro in MACRO:
+                if macro in riga and (BS + macro) not in riga:
+                    problemi.append("%s riga %d: la macro %s compare senza backslash"
+                                    % (rel, numero, macro.rstrip("{")))
+    return problemi
+
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--verbose", action="store_true")
@@ -233,6 +275,12 @@ def main():
         reclamate_sezioni |= c["sezioni"]
 
     errori, avvisi = [], []
+
+    for problema in igiene_tex():
+        print("IGIENE DEL SORGENTE LATEX: %s" % problema)
+        errori.append("igiene del sorgente")
+    if errori:
+        print()
     scoperte = []
     righe_totali = righe_coperte = 0
     slug_esistenti = set()

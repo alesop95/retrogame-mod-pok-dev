@@ -1,0 +1,167 @@
+% =====================================================================
+% Premessa
+% =====================================================================
+% copre: docs/31-glossario.md
+% copre: SOURCES.md#come-si-usa
+% copre: SOURCES.md#due-file-due-scopi
+% verificato-al-commit: 3bc311b
+% ---------------------------------------------------------------------
+
+\section*{Origine del lavoro}
+
+Questo lavoro nasce da una cartuccia guasta e da una curiosità rimasta senza risposta per
+vent'anni.
+
+La cartuccia è una copia originale di Pokemon Smeraldo, giocata da bambino e conservata,
+la cui tasca degli strumenti a un certo punto ha smesso di avere senso: da uno slot in
+avanti gli oggetti ordinari risultano sostituiti da Poke Ball. Non è un guasto che si
+risolva ricominciando la partita, perché quel salvataggio contiene uno stato che non si
+riproduce. Da qui la prima domanda, concreta e non teorica: se sia possibile estrarre un
+salvataggio di vent'anni, determinare che cosa lo abbia alterato e ripararlo senza
+compromettere il resto.
+
+La seconda origine è più antica della prima. I giochi Pokemon delle prime tre generazioni
+comunicano fra loro attraverso un cavo, e ciò che quel cavo trasporta sono creature. Un
+Pokemon che passa da una console a un'altra è, sotto la superficie, una struttura di
+ottanta byte che attraversa un canale seriale sincrono, viene cifrata, verificata da un
+checksum e ricomposta all'altro capo. La formazione in ingegneria delle telecomunicazioni
+fornisce il vocabolario per descrivere quel meccanismo; l'interesse per il dominio fornisce
+la pazienza necessaria a leggerne i disassemblati. Questo documento nasce dalla
+combinazione delle due cose.
+
+Da queste premesse sono derivati cinque lavori paralleli, che costituiscono i casi di
+studio della trattazione. Il primo è la riparazione dell'inventario della cartuccia
+citata, per estrazione fisica del salvataggio. Il secondo è la costruzione di un ponte che
+trasferisca esemplari dalle prime due generazioni alla terza su hardware originale,
+funzione che il produttore non ha mai reso disponibile e che va quindi realizzata. Il terzo
+è la modifica di un Nintendo 3DS per estrarre i dati delle cartucce possedute. Il quarto è
+la comunicazione fra un calcolatore e una Nintendo Switch attraverso il protocollo
+wireless locale proprietario, per eseguire uno scambio con un gioco in esecuzione sulla
+console. Il quinto è lo studio dell'automazione di un gioco mediante pilotaggio del
+controller e analisi del segnale video.
+
+Nessuno dei cinque è nato come esercizio: ciascuno è nato da un obiettivo pratico
+irraggiungibile senza comprendere il meccanismo sottostante. È questa la ragione per cui
+ogni capitolo teorico termina in un vincolo operativo e ogni vincolo operativo risale a un
+principio.
+
+\section*{Oggetto della trattazione}
+
+Il testo che segue non è il resoconto dei cinque lavori, ma l'esposizione sistematica di
+ciò che è stato necessario apprendere per condurli. L'oggetto è la rappresentazione, la
+verifica di integrità, la trasmissione e la conversione di un dato strutturato fra sistemi
+digitali non progettati per interoperare. I dati dei giochi costituiscono il carico utile,
+le console i nodi.
+
+La scelta del dominio è motivata tecnicamente. Quei giochi sono sistemi reali,
+integralmente documentati da decompilazioni fedeli che ricompilano in immagini identiche
+agli originali, abbastanza contenuti da poter essere compresi per intero e abbastanza
+antichi da non presentare alcuna protezione che offuschi i meccanismi. Costituiscono
+pertanto un laboratorio più accessibile della maggior parte dei sistemi contemporanei.
+
+L'esposizione muove dai fondamenti elementari. La prima parte non presuppone la conoscenza
+della rappresentazione binaria, dell'aritmetica in complemento, della distinzione fra
+indirizzo e valore o della nozione di esecuzione. Il resto del documento vi si appoggia
+esplicitamente, e in più punti la spiegazione di un fenomeno complesso si riduce al
+richiamo di un fatto elementare stabilito in quella sede.
+
+Dove occorre un concetto più avanzato, esso viene introdotto nel punto in cui serve. Quando
+tale concetto possiede una denominazione consolidata nella teoria delle telecomunicazioni,
+quella denominazione viene adottata: riconoscere che un problema apparentemente
+idiosincratico è un caso particolare di un problema noto costituisce metà della sua
+soluzione. Il checksum è trattato come codice di rilevazione d'errore; la conversione delle
+statistiche fra due generazioni come quantizzazione con saturazione; lo stallo fra due
+protocolli asimmetrici come problema di controllo di flusso; il collegamento fra due
+console come canale sincrono privo di controllo d'errore.
+
+\section*{Metodo e gerarchia delle fonti}
+
+Ogni affermazione tecnica riporta la fonte da cui deriva, e le fonti sono ordinate secondo
+una gerarchia di affidabilità decrescente che è normativa: quando due fonti si
+contraddicono, prevale quella di livello inferiore.
+
+Il \term{livello 1} comprende il codice dei giochi e la documentazione dell'hardware
+ricostruita e verificata dalla comunità. Nel caso dei giochi si tratta di decompilazioni
+che ricompilano in immagini binariamente identiche alle originali, il che le rende
+definizione del comportamento e non descrizione: \file{pret/pokered} per la prima generazione,
+\file{pret/pokecrystal} per la seconda, \file{pret/pokeemerald} e \file{pret/pokefirered} per la terza.
+Per l'hardware la funzione è svolta da GBATEK per il Game Boy Advance e dalle Pan Docs per
+il Game Boy. Questo livello costituisce la verità operativa.
+
+Il \term{livello 2} comprende la documentazione di dominio, cioè wiki e opere di
+riferimento. È accurata nell'impianto generale e non infallibile nel dettaglio, il che la
+rende adatta a orientarsi e inadatta a fondarvi una riga di codice senza verifica.
+
+Il \term{livello 3} comprende le implementazioni di riferimento, cioè codice di terzi
+funzionante sul campo. Tale codice incorpora conoscenza validata dall'uso, e insieme scelte
+arbitrarie del suo autore che non vanno confuse con specifiche del formato: dimostra che
+una cosa è possibile, non che quello sia il modo corretto di farla.
+
+Il \term{livello 4} comprende articoli, blog, diari di sviluppo e materiale video. È
+prezioso per la ricostruzione delle motivazioni progettuali e inaffidabile per i valori
+numerici.
+
+Il \term{livello 5} comprende forum e comunità. È spesso l'unica sede in cui una
+determinata informazione esista, e va trattato come testimonianza: non è citabile finché
+non si verifica su un livello superiore.
+
+\subsection*{La casistica che ha prodotto la gerarchia}
+
+L'ordinamento non è un formalismo metodologico ma il risultato di errori concreti,
+riscontrati durante la redazione della referenza dei formati di questo progetto e qui
+elencati perché costituiscono la sua giustificazione empirica.
+
+Il livello 2 collocava le cifre della tabella caratteri di prima generazione all'offset
+\hx{F0} in luogo di \hx{F6}, e le maiuscole di quella di terza generazione a \hx{C1} in
+luogo di \hx{BB}: entrambi gli errori producono testo plausibile e falso, cioè il genere di
+difetto che non si manifesta come tale. Descriveva il calcolo del checksum di terza
+generazione come somma di byte in luogo di somma di parole da sedici bit, errore
+sufficiente a distruggere un esemplare in modo definitivo. Riportava due valori in
+conflitto per la dimensione del blocco di scambio, 415 e 424, mentre la somma delle
+costanti nel disassemblato stabilisce 424 byte trasmessi sul canale di cui 418 di dati.
+
+Il livello 3 si è rivelato in disaccordo con la propria documentazione: la libreria di
+conversione della comunità documenta quattro metodi nel proprio manuale e ne implementa uno,
+e la funzione destinata alla conversione dei punti di allenamento contiene un ciclo che
+azzera tutti e sei i campi.
+
+In ciascuno di questi casi ha prevalso il livello 1.
+
+\subsection*{Trattamento del non verificato}
+
+Un'affermazione non verificata non viene esposta come verificata. Le proposizioni che
+poggiano su inferenza, su testimonianza non confermata o su lettura non ancora ricontrollata
+sul sorgente sono racchiuse in un riquadro che le dichiara tali. Il lettore che incontra un
+riquadro sa di trovarsi davanti a un debito e non a un risultato.
+
+Questa disciplina ha un'origine documentata. Quattro affermazioni sulle quali si stava per
+fondare del codice si sono rivelate errate, ed è emerso soltanto clonando i disassemblati e
+cercando nel sorgente. Il clone superficiale è pertanto il primo passo di ogni verifica e
+non l'ultimo.
+
+\section*{Rapporto con gli altri documenti del progetto}
+
+Il presente documento è la forma organizzata e integrale del materiale tecnico prodotto nel
+corso del lavoro. Le note sotto \file{docs/} costituiscono il percorso di studio, che tratta
+gli stessi argomenti per un lettore già in possesso del contesto e in forma navigabile come
+grafo. La referenza dei formati documenta le strutture byte per byte e serve alla scrittura
+del codice. Le schede sotto \file{.claude/} registrano lo stato di avanzamento del lavoro,
+non conoscenza, e non hanno corrispondenza in questa sede.
+
+Tre testi che espongono la stessa materia in registri diversi divergono, in assenza di un
+vincolo che lo impedisca. Il vincolo adottato è un controllo che fallisce: ogni capitolo
+dichiara quali documenti e quali loro sezioni riorganizza, e a quale revisione del
+repository la dichiarazione è stata verificata; lo strumento \file{tools/check-thesis-coverage.py}
+segnala le sezioni che nessun capitolo reclama, i capitoli il cui documento di riferimento
+è stato modificato dopo l'ultima verifica, e i riferimenti bibliografici privi di voce.
+
+La bibliografia non è redatta a mano: è generata dalla medesima tabella da cui derivano le
+note sulle fonti, cosicché le due non possano riportare informazioni discordanti.
+
+\section*{Convenzioni}
+
+I valori esadecimali sono nella forma \hx{2A}, i binari nella forma \bin{00101010}. I
+percorsi dei file del progetto sono in \file{questo stile}. Un termine tecnico alla prima
+occorrenza è in \term{corsivo}, e i termini raccolti nel glossario del progetto conservano
+qui la medesima definizione. Gli estratti di codice riportano in didascalia il file e la
+fonte di provenienza, poiché un estratto privo di provenienza non è verificabile.
