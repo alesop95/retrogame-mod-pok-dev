@@ -1,59 +1,59 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Verifica che la tesi vada di pari passo con i documenti del progetto.
+"""Verifica che ogni riga dei documenti del progetto finisca da qualche parte nella tesi.
 
-Il problema
------------
-La tesi spiega dallo zero assoluto gli stessi argomenti che le note di `docs/` trattano
-per un lettore che ha già il contesto, e la referenza dei formati documenta byte per
-byte. Sono tre registri diversi dello stesso sapere, e tre testi che dicono la stessa
-cosa in tre modi divergono: è quasi una legge. Il modo di non farli divergere non è
-la buona volontà, è un controllo che fallisce.
+Il requisito, detto con precisione
+----------------------------------
+Il PDF deve contenere tutto ciò che sta nei documenti Markdown del progetto. Non serve una
+corrispondenza uno a uno fra un documento e un capitolo: l'organizzazione in parti,
+capitoli e paragrafi è libera, e un capitolo può raccogliere pezzi di documenti diversi
+mentre un documento può finire spezzato in più capitoli. Ciò che non è libero è la
+copertura: nessun pezzo deve restare fuori senza che qualcuno lo abbia deciso.
 
-Il meccanismo, che è lo stesso di sync-context
------------------------------------------------
-Ogni capitolo della tesi dichiara in testa, come commenti LaTeX, quali documenti copre e
-a quale commit è stato verificato contro di essi:
+Perché si conta per sezione e non per riga
+-----------------------------------------
+Contare le righe sarebbe illusorio: una riga di prosa riscritta per un lettore diverso non
+ha lo stesso testo, quindi nessun confronto meccanico fra righe può dire se il contenuto è
+passato. L'unità verificabile più fine è la sezione, cioè l'intestazione Markdown con il
+testo che le sta sotto: è abbastanza piccola da rendere il controllo utile, ed è
+abbastanza stabile da poter essere nominata in una dichiarazione.
+
+Quando una sezione risulta reclamata, il controllo non garantisce che il suo contenuto sia
+stato reso fedelmente: quello resta lavoro umano. Garantisce che nessuna sezione sia stata
+dimenticata, che è il modo in cui il contenuto si perde davvero.
+
+Come si dichiara
+----------------
+In testa a ogni capitolo, come commenti LaTeX. Un capitolo può reclamare interi documenti
+o singole sezioni, e più capitoli possono reclamare lo stesso documento senza conflitto.
 
     % copre: docs/03-integrita-checksum.md
-    % copre: pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md
+    % copre: docs/01-fondamenta-salvataggio.md#il-supporto-fisico
     % verificato-al-commit: 3f1c9b3
 
-Da qui lo strumento ricava quattro verifiche, e ciascuna corrisponde a un modo concreto
-in cui i testi divergerebbero senza accorgersene.
+La forma con il cancelletto nomina una sezione per slug, cioè il titolo ridotto a
+minuscole con i non alfanumerici sostituiti da trattini, come fanno i generatori di
+ancore. Se un titolo viene riscritto lo slug cambia e il controllo lo segnala come
+sconosciuto: non è un falso allarme, è il segnale che quel capitolo va riletto.
 
-La prima è il drift: se un documento coperto è cambiato dopo il commit dichiarato, il
-capitolo che lo copre è sospetto e va riletto. È esattamente il confronto che
-sync-context fa sulle schede di contesto, applicato ai capitoli.
+Le omissioni deliberate
+-----------------------
+Un documento o una sezione che la tesi non deve contenere va dichiarato in
+`tesi/non-coperti.txt`, con il motivo dopo un cancelletto. Le righe di quel file usano la
+stessa sintassi delle dichiarazioni, quindi si può escludere un intero documento oppure una
+sua sezione. Un'esenzione senza motivo viene rifiutata.
 
-La seconda è la copertura: se un documento di `docs/` non è coperto da alcun capitolo,
-la tesi ha un buco. Non è necessariamente un errore, perché un documento può essere
-deliberatamente fuori perimetro, ma deve essere una scelta dichiarata e non una
-dimenticanza: per questo esiste il file di esenzione descritto sotto.
-
-La terza è l'integrità delle citazioni: ogni `\\cite{chiave}` deve corrispondere a una
-voce della bibliografia generata. È il controllo che BibTeX farebbe, e che qui serve
-farlo perché la bibliografia non passa da BibTeX.
-
-La quarta è l'inverso della terza: una fonte in bibliografia che nessun capitolo cita
-è una fonte che il registro tiene e la tesi non usa. Non è un errore, è un elenco da
-guardare, perché spesso significa che un argomento è stato scritto senza appoggiarlo
-alla fonte che lo sosteneva.
-
-Le esenzioni
-------------
-Un documento che la tesi non copre di proposito va elencato in `tesi/non-coperti.txt`,
-una riga per percorso, con il motivo dopo un cancelletto. Un'esenzione senza motivo è
-rifiutata, perché il senso del file è costringere a dichiarare la ragione.
+Le quattro verifiche
+--------------------
+La copertura, cioè quali sezioni nessuno reclama. Il drift, cioè quali capitoli dichiarano
+un commit anteriore all'ultima modifica dei documenti che coprono. Le citazioni orfane,
+cioè i riferimenti bibliografici senza voce. Le fonti mai citate, che sono un avviso.
 
 Uso
 ---
     python tools/check-thesis-coverage.py
     python tools/check-thesis-coverage.py --verbose
-
-Esce con codice diverso da zero se una delle verifiche vincolanti fallisce, cioè drift,
-copertura mancante o citazione orfana. Le fonti mai citate sono un avviso e non un
-errore.
+    python tools/check-thesis-coverage.py --scoperte      solo l'elenco da distribuire
 """
 
 import argparse
@@ -68,17 +68,83 @@ CAPITOLI = os.path.join(TESI, "capitoli")
 BIBLIOGRAFIA = os.path.join(TESI, "bibliografia.tex")
 ESENZIONI = os.path.join(TESI, "non-coperti.txt")
 
-# I documenti che la tesi deve coprire. Sono le note di studio e la referenza dei
-# formati: le schede di .claude/context/ sono stato e non conoscenza, quindi non entrano.
-def documenti_da_coprire():
+# I documenti il cui contenuto deve finire nel PDF. Le schede di .claude/context/ e i file
+# di .claude/memory/ non entrano: sono stato del lavoro e non conoscenza, e il loro posto è
+# il repository, non un documento che si legge dall'inizio alla fine. Le note di
+# docs/fonti/ non entrano perché sono generate dalla stessa tabella da cui nasce la
+# bibliografia del PDF, quindi vi sono già dentro per costruzione.
+ALTRI_DOCUMENTI = (
+    "pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md",
+    "SOURCES.md",
+    "poke-automation-study/STUDIO-01-architettura-e-perimetro.md",
+    "3ds-related/README.md",
+    "gba-save-extraction-smeraldo/README.md",
+    "gba-switch-pokemon-trading/README.md",
+    "poke-automation-study/README.md",
+    "pokemon-gen12-gen3-bridge-original-hardware/README.md",
+    "3ds-related/handoff/HANDOFF_progetto_3DS.md",
+    "gba-save-extraction-smeraldo/handoff/HANDOFF_progetto_smeraldo.md",
+    "gba-switch-pokemon-trading/HANDOFF_frlg-ldn-trade.md",
+)
+
+
+def documenti():
     fonti = []
     docs = os.path.join(ROOT, "docs")
     for nome in sorted(os.listdir(docs)):
         if nome.endswith(".md") and nome != "index.md":
             fonti.append("docs/" + nome)
-    fonti.append("pokemon-gen12-gen3-bridge-original-hardware/"
-                 "DATA-FORMATS_Gen1-Gen2-Gen3.md")
+    for rel in ALTRI_DOCUMENTI:
+        if os.path.exists(os.path.join(ROOT, rel)):
+            fonti.append(rel)
     return fonti
+
+
+def slug(titolo):
+    """Il titolo ridotto ad ancora, come fanno i generatori di indici."""
+    s = titolo.strip().lower()
+    s = re.sub(r"[`*_\[\]()]", "", s)
+    s = re.sub(r"[^a-z0-9àèéìòù]+", "-", s)
+    return s.strip("-")
+
+
+def sezioni_di(rel):
+    """Le sezioni di un documento, ciascuna con il numero di righe non vuote.
+
+    Il testo che precede la prima intestazione è una sezione propria, chiamata preambolo:
+    spesso contiene il paragrafo che spiega a cosa serve il documento, e lasciarlo fuori
+    dal conteggio significherebbe non accorgersi se manca. Il front matter YAML, invece,
+    non è contenuto e non si conta.
+    """
+    with open(os.path.join(ROOT, rel), "rb") as f:
+        testo = f.read().decode("utf-8")
+
+    righe = testo.split("\n")
+    inizio = 0
+    if righe and righe[0].strip() == "---":
+        for i in range(1, len(righe)):
+            if righe[i].strip() == "---":
+                inizio = i + 1
+                break
+
+    sezioni = []
+    corrente = {"slug": "(preambolo)", "titolo": "(preambolo)", "righe": 0, "livello": 0}
+    dentro = False
+    for r in righe[inizio:]:
+        if re.match(r"^\s*(```|~~~)", r):
+            dentro = not dentro
+            corrente["righe"] += 1
+            continue
+        m = None if dentro else re.match(r"^(#{1,6})\s+(.*)$", r)
+        if m:
+            sezioni.append(corrente)
+            corrente = {"slug": slug(m.group(2)), "titolo": m.group(2).strip(),
+                        "righe": 0, "livello": len(m.group(1))}
+            continue
+        if r.strip():
+            corrente["righe"] += 1
+    sezioni.append(corrente)
+    return [s for s in sezioni if s["righe"] > 0]
 
 
 def git(*args):
@@ -88,47 +154,37 @@ def git(*args):
 
 
 def leggi_capitoli():
-    """Ogni capitolo con le sue dichiarazioni. Un capitolo senza dichiarazioni è un errore."""
     capitoli = []
     if not os.path.isdir(CAPITOLI):
         return capitoli
     for nome in sorted(os.listdir(CAPITOLI)):
         if not nome.endswith(".tex"):
             continue
-        percorso = os.path.join(CAPITOLI, nome)
-        with open(percorso, "rb") as f:
+        with open(os.path.join(CAPITOLI, nome), "rb") as f:
             testo = f.read().decode("utf-8")
-        copre = re.findall(r"^%\s*copre:\s*(\S+)\s*$", testo, re.M)
+        interi, sezioni = set(), set()
+        for voce in re.findall(r"^%\s*copre:\s*(\S+)\s*$", testo, re.M):
+            if "#" in voce:
+                doc, sez = voce.split("#", 1)
+                sezioni.add((doc, sez))
+            else:
+                interi.add(voce)
         commit = re.search(r"^%\s*verificato-al-commit:\s*(\S+)\s*$", testo, re.M)
-        cita = set(re.findall(r"\\cite\{([^}]+)\}", testo))
         chiavi = set()
-        for gruppo in cita:
+        for gruppo in re.findall(r"\\cite\{([^}]+)\}", testo):
             for k in gruppo.split(","):
-                k = k.strip()
-                if k:
-                    chiavi.add(k)
-        capitoli.append({
-            "file": "tesi/capitoli/" + nome,
-            "copre": copre,
-            "commit": commit.group(1) if commit else None,
-            "citazioni": chiavi,
-        })
+                if k.strip():
+                    chiavi.add(k.strip())
+        capitoli.append({"file": "tesi/capitoli/" + nome, "interi": interi,
+                         "sezioni": sezioni, "citazioni": chiavi,
+                         "commit": commit.group(1) if commit else None})
     return capitoli
 
 
-def leggi_chiavi_bibliografia():
-    if not os.path.exists(BIBLIOGRAFIA):
-        return None
-    with open(BIBLIOGRAFIA, "rb") as f:
-        testo = f.read().decode("utf-8")
-    return set(re.findall(r"\\bibitem\{([^}]+)\}", testo))
-
-
 def leggi_esenzioni():
-    """I documenti dichiarati fuori perimetro, con il motivo. Senza motivo si rifiuta."""
-    esenti, malformate = {}, []
+    esenti_doc, esenti_sez, malformate = {}, {}, []
     if not os.path.exists(ESENZIONI):
-        return esenti, malformate
+        return esenti_doc, esenti_sez, malformate
     with open(ESENZIONI, "rb") as f:
         for riga in f.read().decode("utf-8").splitlines():
             riga = riga.strip()
@@ -137,110 +193,123 @@ def leggi_esenzioni():
             if "#" not in riga:
                 malformate.append(riga)
                 continue
-            percorso, motivo = riga.split("#", 1)
-            percorso, motivo = percorso.strip(), motivo.strip()
-            if not percorso or not motivo:
+            # L'ultimo cancelletto introduce il motivo; uno precedente, se c'è, separa il
+            # documento dalla sezione.
+            testa, motivo = riga.rsplit("#", 1)
+            testa, motivo = testa.strip(), motivo.strip()
+            if not testa or not motivo:
                 malformate.append(riga)
                 continue
-            esenti[percorso] = motivo
-    return esenti, malformate
+            if "#" in testa:
+                doc, sez = testa.split("#", 1)
+                esenti_sez[(doc.strip(), sez.strip())] = motivo
+            else:
+                esenti_doc[testa] = motivo
+    return esenti_doc, esenti_sez, malformate
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--verbose", action="store_true",
-                    help="elenca anche ciò che è in ordine")
+    ap.add_argument("--verbose", action="store_true")
+    ap.add_argument("--scoperte", action="store_true",
+                    help="stampa solo le sezioni da distribuire, dalla più grande")
     args = ap.parse_args()
 
     head, rc = git("rev-parse", "--short", "HEAD")
     if rc != 0:
-        print("nessun commit: il controllo di drift non si applica")
         head = None
 
     capitoli = leggi_capitoli()
-    if not capitoli:
-        print("nessun capitolo in tesi/capitoli/: niente da verificare")
-        return 0
+    esenti_doc, esenti_sez, malformate = leggi_esenzioni()
+    chiavi_bib = None
+    if os.path.exists(BIBLIOGRAFIA):
+        with open(BIBLIOGRAFIA, "rb") as f:
+            chiavi_bib = set(re.findall(r"\\bibitem\{([^}]+)\}",
+                                        f.read().decode("utf-8")))
 
-    chiavi_bib = leggi_chiavi_bibliografia()
-    esenti, esenzioni_malformate = leggi_esenzioni()
+    reclamati_interi, reclamate_sezioni = set(), set()
+    for c in capitoli:
+        reclamati_interi |= c["interi"]
+        reclamate_sezioni |= c["sezioni"]
 
     errori, avvisi = [], []
+    scoperte = []
+    righe_totali = righe_coperte = 0
+    slug_esistenti = set()
 
-    # --- 1. dichiarazioni presenti -------------------------------------------------
-    for cap in capitoli:
-        if not cap["copre"]:
-            errori.append("%s non dichiara alcun 'copre:'" % cap["file"])
-        if cap["commit"] is None:
-            errori.append("%s non dichiara 'verificato-al-commit:'" % cap["file"])
+    for rel in documenti():
+        sezioni = sezioni_di(rel)
+        doc_coperto = rel in reclamati_interi or rel in esenti_doc
+        for s in sezioni:
+            slug_esistenti.add((rel, s["slug"]))
+            righe_totali += s["righe"]
+            chiave = (rel, s["slug"])
+            if doc_coperto or chiave in reclamate_sezioni or chiave in esenti_sez:
+                righe_coperte += s["righe"]
+            else:
+                scoperte.append((rel, s["slug"], s["titolo"], s["righe"]))
 
-    # --- 2. drift ------------------------------------------------------------------
+    righe_scoperte = righe_totali - righe_coperte
+
+    slug_sconosciuti = [(d, s) for d, s in sorted(reclamate_sezioni | set(esenti_sez))
+                        if (d, s) not in slug_esistenti]
+
     stale = []
-    for cap in capitoli:
-        if not cap["commit"] or not cap["copre"] or head is None:
+    for c in capitoli:
+        if not c["commit"] or head is None:
             continue
-        _, rc = git("cat-file", "-e", cap["commit"] + "^{commit}")
+        _, rc = git("cat-file", "-e", c["commit"] + "^{commit}")
         if rc != 0:
-            errori.append("%s dichiara il commit %s, che non esiste"
-                          % (cap["file"], cap["commit"]))
+            errori.append("%s dichiara il commit %s, inesistente"
+                          % (c["file"], c["commit"]))
             continue
-        out, _ = git("diff", "--name-only", cap["commit"] + "..HEAD", "--", *cap["copre"])
+        percorsi = sorted(c["interi"] | {d for d, _ in c["sezioni"]})
+        if not percorsi:
+            continue
+        out, _ = git("diff", "--name-only", c["commit"] + "..HEAD", "--", *percorsi)
         cambiati = [r for r in out.splitlines() if r.strip()]
         if cambiati:
-            stale.append((cap["file"], cap["commit"], cambiati))
+            stale.append((c["file"], c["commit"], cambiati))
 
-    # --- 3. copertura --------------------------------------------------------------
-    coperti = set()
-    for cap in capitoli:
-        coperti.update(cap["copre"])
-    scoperti = []
-    for doc in documenti_da_coprire():
-        if doc in coperti or doc in esenti:
-            continue
-        scoperti.append(doc)
-
-    # Un 'copre:' che punta a un file inesistente è un errore, non una copertura.
-    for cap in capitoli:
-        for doc in cap["copre"]:
-            if not os.path.exists(os.path.join(ROOT, doc)):
-                errori.append("%s dichiara di coprire %s, che non esiste"
-                              % (cap["file"], doc))
-
-    # --- 4. citazioni --------------------------------------------------------------
     citate = set()
-    for cap in capitoli:
-        citate.update(cap["citazioni"])
-    orfane = []
-    if chiavi_bib is None:
-        errori.append("bibliografia assente: eseguire tools/build-bibliography.py")
-    else:
-        orfane = sorted(citate - chiavi_bib)
-        mai_citate = sorted(chiavi_bib - citate)
+    for c in capitoli:
+        citate |= c["citazioni"]
+    orfane = sorted(citate - chiavi_bib) if chiavi_bib is not None else []
+    mai_citate = sorted(chiavi_bib - citate) if chiavi_bib is not None else []
 
-    # --- rapporto ------------------------------------------------------------------
-    print("Controllo di pari passo della tesi (HEAD = %s)\n" % (head or "n/d"))
-    print("capitoli: %d, documenti da coprire: %d, coperti: %d, esenti: %d"
-          % (len(capitoli), len(documenti_da_coprire()),
-             len(documenti_da_coprire()) - len(scoperti) - len(esenti), len(esenti)))
+    if args.scoperte:
+        print("sezioni non ancora reclamate, dalla più grande:\n")
+        for rel, sl, tit, n in sorted(scoperte, key=lambda x: -x[3]):
+            print("  %4d righe  %s#%s" % (n, rel, sl))
+            print("              %s" % tit[:88])
+        print("\n%d sezioni, %d righe di contenuto da distribuire"
+              % (len(scoperte), righe_scoperte))
+        return 1 if scoperte else 0
+
+    pct = (100.0 * righe_coperte / righe_totali) if righe_totali else 100.0
+    print("Copertura del contenuto nella tesi (HEAD = %s)\n" % (head or "n/d"))
+    print("  capitoli              %d" % len(capitoli))
+    print("  documenti da coprire  %d" % len(documenti()))
+    print("  righe di contenuto    %d, coperte %d (%.1f%%)"
+          % (righe_totali, righe_coperte, pct))
+    print("  sezioni scoperte      %d, per %d righe" % (len(scoperte), righe_scoperte))
     if chiavi_bib is not None:
-        print("bibliografia: %d voci, citate: %d" % (len(chiavi_bib), len(citate)))
+        print("  bibliografia          %d voci, citate %d" % (len(chiavi_bib), len(citate)))
     print()
 
     if stale:
-        print("CAPITOLI DA RILEGGERE, il documento coperto è cambiato dopo la verifica:")
+        print("CAPITOLI DA RILEGGERE, un documento coperto è cambiato dopo la verifica:")
         for f, commit, cambiati in stale:
-            print("  %s (verificato a %s)" % (f, commit))
-            for c in cambiati:
-                print("      cambiato: %s" % c)
+            print("  %s (a %s): %s" % (f, commit, ", ".join(cambiati)))
         print()
         errori.append("%d capitoli in drift" % len(stale))
 
-    if scoperti:
-        print("DOCUMENTI NON COPERTI da alcun capitolo, né dichiarati esenti:")
-        for d in scoperti:
-            print("  %s" % d)
+    if slug_sconosciuti:
+        print("SEZIONI DICHIARATE CHE NON ESISTONO, titolo riscritto o slug sbagliato:")
+        for doc, sez in slug_sconosciuti:
+            print("  %s#%s" % (doc, sez))
         print()
-        errori.append("%d documenti non coperti" % len(scoperti))
+        errori.append("%d sezioni dichiarate inesistenti" % len(slug_sconosciuti))
 
     if orfane:
         print("CITAZIONI SENZA VOCE in bibliografia:")
@@ -249,36 +318,45 @@ def main():
         print()
         errori.append("%d citazioni orfane" % len(orfane))
 
-    if esenzioni_malformate:
+    if malformate:
         print("ESENZIONI SENZA MOTIVO in tesi/non-coperti.txt:")
-        for r in esenzioni_malformate:
+        for r in malformate:
             print("  %s" % r)
         print()
-        errori.append("%d esenzioni malformate" % len(esenzioni_malformate))
+        errori.append("%d esenzioni malformate" % len(malformate))
 
-    if chiavi_bib is not None and mai_citate:
-        print("avviso, fonti in bibliografia che nessun capitolo cita (%d):"
+    if scoperte:
+        print("le dieci sezioni scoperte più grandi, per orientare il lavoro:")
+        for rel, sl, tit, n in sorted(scoperte, key=lambda x: -x[3])[:10]:
+            print("  %4d righe  %s#%s" % (n, rel, sl))
+        print("\n  elenco completo con --scoperte\n")
+        avvisi.append("%.1f%% del contenuto ancora da distribuire" % (100.0 - pct))
+
+    if mai_citate:
+        print("avviso, %d fonti in bibliografia che nessun capitolo cita\n"
               % len(mai_citate))
-        print("  " + ", ".join(mai_citate))
-        print()
-        avvisi.append("%d fonti mai citate" % len(mai_citate))
 
     if args.verbose:
         print("dettaglio dei capitoli:")
-        for cap in capitoli:
-            print("  %s -> %s (a %s, %d citazioni)"
-                  % (cap["file"], ", ".join(cap["copre"]) or "nulla",
-                     cap["commit"], len(cap["citazioni"])))
-        if esenti:
+        for c in capitoli:
+            quante = len(c["interi"]) + len(c["sezioni"])
+            print("  %s: %d dichiarazioni, %d citazioni, a %s"
+                  % (c["file"], quante, len(c["citazioni"]), c["commit"]))
+        if esenti_doc or esenti_sez:
             print("\nesenzioni dichiarate:")
-            for percorso, motivo in sorted(esenti.items()):
-                print("  %s: %s" % (percorso, motivo))
+            for k, v in sorted(esenti_doc.items()):
+                print("  %s: %s" % (k, v))
+            for (d, s), v in sorted(esenti_sez.items()):
+                print("  %s#%s: %s" % (d, s, v))
         print()
 
     if errori:
         print("%d problemi: %s" % (len(errori), "; ".join(errori)))
         return 1
-    print("nessun problema%s" % (", %s" % "; ".join(avvisi) if avvisi else ""))
+    if scoperte:
+        print("nessun errore, ma la copertura non è completa: %s" % "; ".join(avvisi))
+        return 0
+    print("copertura completa, nessun problema")
     return 0
 
 

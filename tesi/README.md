@@ -11,18 +11,45 @@ latexmk -pdf tesi.tex
 
 Il primo comando serve solo se la tabella delle fonti è cambiata, e il secondo va lanciato dalla cartella `tesi/`. Non serve BibTeX né biber: la bibliografia è un ambiente `thebibliography` generato, e `\cite` funziona con il solo nucleo di LaTeX. La ragione di questa scelta è scritta nel docstring del generatore, ed è che la TinyTeX di questa macchina è minimale e non installa pacchetti.
 
-## Come si resta di pari passo con il resto del progetto
+## Come si garantisce che nel PDF finisca tutto
 
-È il vincolo che governa tutta la struttura, ed è meccanico invece di essere una buona intenzione. Ogni capitolo dichiara in testa, come commenti LaTeX, quali documenti del progetto copre e a quale commit è stato verificato contro di essi.
+È il vincolo che governa la struttura, ed è meccanico invece di essere una buona intenzione. Il requisito è che ogni riga dei documenti Markdown del progetto finisca da qualche parte nel PDF; l'organizzazione in parti, capitoli e paragrafi è invece libera. Un capitolo può raccogliere pezzi di documenti diversi e un documento può finire spezzato fra più capitoli: non serve alcuna corrispondenza uno a uno.
+
+L'unità su cui il controllo lavora è la sezione, cioè un'intestazione Markdown con il testo che le sta sotto. Contare le righe sarebbe illusorio, perché una riga riscritta per un lettore diverso non ha lo stesso testo e nessun confronto meccanico potrebbe dire se il contenuto è passato. La sezione è abbastanza piccola da rendere il controllo utile e abbastanza stabile da poter essere nominata.
+
+Ogni capitolo dichiara in testa che cosa reclama, con il commit a cui la dichiarazione è stata verificata.
 
 ```
 % copre: docs/03-integrita-checksum.md
-% verificato-al-commit: 3f1c9b3
+% copre: docs/01-fondamenta-salvataggio.md#il-supporto-fisico
+% verificato-al-commit: f41fd4c
 ```
 
-Da qui `python tools/check-thesis-coverage.py` ricava quattro verifiche: i capitoli il cui documento coperto è cambiato dopo la verifica dichiarata, i documenti che nessun capitolo copre, le citazioni che non corrispondono ad alcuna voce di bibliografia, e le fonti che nessun capitolo cita. Le prime tre fanno fallire il controllo, la quarta è un avviso. È lo stesso meccanismo che `sync-context` applica alle schede di contesto, con la stessa logica: un documento che descrive un'area senza dichiararla resta verde mentre invecchia, e il modo di impedirlo è un confronto che fallisce.
+Da qui `python tools/check-thesis-coverage.py` ricava quattro verifiche. La copertura, cioè quali sezioni nessuno reclama, con il conteggio delle righe che restano fuori. Il drift, cioè quali capitoli dichiarano un commit anteriore all'ultima modifica dei documenti che coprono. Le citazioni orfane, cioè i riferimenti senza voce in bibliografia. E le fonti che nessun capitolo cita, che sono un avviso.
 
-Quando un documento resta fuori perimetro di proposito, va dichiarato in `non-coperti.txt` con il motivo. Un'esenzione senza motivo viene rifiutata.
+Una quinta verifica nasce dalla forma della dichiarazione: se un titolo di sezione viene riscritto, il suo slug cambia e la dichiarazione che lo nominava risulta sconosciuta. Non è un falso allarme, è il segnale che quel capitolo va riletto.
+
+Quando una sezione risulta reclamata il controllo non garantisce che il suo contenuto sia stato reso fedelmente: quello resta lavoro umano. Garantisce che nessuna sezione sia stata dimenticata, che è il modo in cui il contenuto si perde davvero.
+
+Le omissioni deliberate si dichiarano in `non-coperti.txt`, per documento intero o per singola sezione, sempre con il motivo. Un'esenzione senza motivo viene rifiutata.
+
+## Che cosa resta da distribuire
+
+Alla verifica corrente il corpus da coprire è di 1698 righe di contenuto in 29 documenti, e la copertura è al dieci per cento. Le 264 sezioni scoperte si ripartiscono così, e la ripartizione dice dove sta il lavoro vero.
+
+| documento | sezioni scoperte |
+|---|---|
+| `HANDOFF_frlg-ldn-trade.md` | 50 |
+| `HANDOFF_progetto_3DS.md` | 25 |
+| `HANDOFF_progetto_smeraldo.md` | 20 |
+| `SOURCES.md` | 15 |
+| `DATA-FORMATS_Gen1-Gen2-Gen3.md` | 13 |
+| le note di `docs/` | 134 in tutto |
+| il resto | 7 |
+
+I tre handoff da soli sono 95 sezioni, cioè più di un terzo del lavoro, e sono materiale di natura diversa dalle note di studio: procedure operative scritte per chi ha l'hardware in mano. Il loro posto naturale nel documento è la parte sui cinque casi, non i capitoli teorici.
+
+Un gruppo non compare in quella tabella ed è già risolto: le quaranta note di `docs/fonti/` sono generate dalla tabella delle fonti, e la bibliografia del PDF nasce dalla stessa tabella. Sono 1369 righe coperte per costruzione.
 
 ## Struttura e stato
 
