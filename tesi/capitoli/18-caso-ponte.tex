@@ -1,0 +1,88 @@
+% =====================================================================
+% tesi/capitoli/18-caso-ponte.tex
+% =====================================================================
+% copre: pokemon-gen12-gen3-bridge-original-hardware/README.md
+% copre: docs/20-architettura-codice.md
+% ---------------------------------------------------------------------
+
+\chapter{Caso di studio: il ponte, e l'architettura del suo software}
+\label{cap:ponte}
+
+Il quinto caso di studio, che in questa esposizione compare per ultimo pur essendo il più avanzato, consiste nella costruzione di un trasferimento di esemplari dalle generazioni 1 e 2 alla generazione 3, il quale ufficialmente non è mai esistito perché il produttore non lo ha mai fornito. È l'unico dei cinque destinato a diventare software vero: gli altri quattro sono percorsi operativi su hardware fisico oppure studi.
+
+Questo capitolo espone lo stato del codice e l'architettura che lo governa. Il capitolo~\ref{cap:collaudo} espone la strategia di verifica, e il capitolo~\ref{cap:opzioni} il confronto fra le strade implementative ancora aperte.
+
+\section{Che cosa esiste, e che cosa dimostra}
+
+La cartella del sottoprogetto contiene tre gruppi di artefatti. Il primo è la referenza byte per byte, il cui contenuto costituisce le parti seconda e terza di questo lavoro, e di cui va ripetuta la proprietà che la rende utilizzabile: ogni sua affermazione è verificata sul disassemblato o sulla decompilazione del gioco, non sull'enciclopedia, e la sezione dedicata dichiara che cosa resta aperto e per quale ragione.
+
+Il secondo gruppo sono le tabelle di codifica dei caratteri generate e il programma che le genera dai file di definizione dei disassemblati. Le tabelle non si modificano a mano: si rigenerano, e il generatore rifiuta di scrivere quando i valori di controllo non corrispondono. La ragione di questa scelta è documentata nel capitolo~\ref{cap:testo}, e consiste nel fatto che le fonti secondarie sbagliavano quelle tabelle in due punti, con un errore che produce nomi plausibili e sbagliati.
+
+Il terzo gruppo è il codice, privo di dipendenze esterne. Copre attualmente il lato Game Boy: i primitivi, cioè gli interi big-endian, i nibble dei valori individuali con la derivazione del quinto e il byte dei punti potenza; i lettori e gli scrittori della generazione 1 e della generazione 2, per strutture di box, di squadra e liste di squadra; la transcodifica del testo, che legge le tabelle generate; e i lettori e scrittori della generazione 3, con la cifratura, la permutazione e il checksum descritti nel capitolo~\ref{cap:cifratura}. Le prove si eseguono senza alcuna installazione.
+
+La prova portante è la simmetria: leggere una struttura e riscriverla deve restituire byte identici, verificata su cinquecento buffer casuali con seme fissato per ciascuna delle forme. Una sola proprietà cattura un intero genere di errori, perché un offset sbagliato, un ordine di byte invertito, un nibble letto dalla metà sbagliata o un campo dimenticato la violano tutti. Il ragionamento completo è nel capitolo~\ref{cap:collaudo}.
+
+Va infine registrato che questo sottoprogetto non possiede più un documento di ricerca separato: la sua conoscenza è stata verificata sul sorgente e assorbita fra la referenza e le note di studio, e la decisione è registrata come tale nel registro delle decisioni del progetto.
+
+\section{L'osservazione che rende possibile scrivere codice prima di decidere}
+
+Il progetto possiede una decisione aperta fra quattro strade implementative molto diverse fra loro. La tentazione naturale è attendere la decisione prima di scrivere codice. La posizione adottata qui è la contraria, e si fonda su un'osservazione che vale enunciare esplicitamente perché è ciò che ha reso possibile il lavoro finora svolto.
+
+Chiunque trasferisca un esemplare dalla generazione 1 o 2 alla generazione 3 deve compiere le medesime operazioni, indipendentemente da dove il codice sia eseguito. Deve interpretare la struttura di partenza, tradurre il testo, mappare la specie, ricostruire i campi che non esistono, comporre la struttura di destinazione, cifrarla e calcolarne il checksum. Che questo avvenga in Python su un calcolatore oppure in C su una console non modifica alcun aspetto della logica: modifica soltanto la provenienza dei byte e la loro destinazione.
+
+Ne segue che il confine architetturale corretto non passa fra le generazioni, come una lettura ingenua suggerirebbe, ma fra la logica di formato e conversione da un lato e il trasporto dall'altro.
+
+\section{I cinque strati}
+
+Il primo strato è quello dei dati costanti generati. Non contiene logica: contiene le tabelle che nessuno deve scrivere a mano, cioè le due codifiche dei caratteri, la loro traduzione, la mappa dagli indici interni della generazione 1 ai numeri nazionali e le soglie di sesso per specie. Sono file prodotti da programmi a partire dai disassemblati, e la ragione per cui costituiscono uno strato e non un dettaglio è esposta nel capitolo~\ref{cap:testo}.
+
+Il secondo strato è quello dei modelli. Un esemplare di generazione 1, uno di generazione 2 e uno di generazione 3 sono tre tipi distinti, ciascuno con i propri campi, e nessuno dei tre conosce gli altri. Questa separazione costa qualche riga in più e ripaga immediatamente, perché evita il modello unico con campi opzionali, che è il modo classico di rendere impossibile stabilire quali campi siano validi in quale circostanza.
+
+Il terzo strato è quello di lettura e scrittura, e va mantenuto separato dai modelli. Un lettore prende byte e restituisce un modello; uno scrittore prende un modello e restituisce byte. Sono le sole parti che conoscono gli offset, l'ordine dei byte, la cifratura e i checksum, e sono anche le sole che ammettono una verifica per proprietà forte, cioè la simmetria fra lettura e riscrittura.
+
+Il quarto strato è la conversione, che è l'unico luogo in cui si assumono decisioni discutibili nel senso stabilito dal capitolo~\ref{cap:conversione}. Prende un modello di partenza e produce un modello di destinazione, e va scritto in modo che le sue scelte siano parametri espliciti e non costanti disseminate nel codice: la politica per i valori di allenamento, quella per i valori individuali, quella per il gioco di origine, quella per i caratteri privi di destinazione. La tabella dei quattro metodi dell'implementazione di riferimento, che come il capitolo~\ref{cap:conversione} dimostra non è implementata da nessuno, costituisce l'insieme di valori che questi parametri devono poter assumere.
+
+Il quinto strato è il trasporto, e questo dipende effettivamente dalla scelta fra le opzioni. Può essere un lettore di file di salvataggio, il protocollo seriale su emulatore attraverso una connessione TCP, il protocollo seriale su hardware reale attraverso un adattatore, oppure può non esistere affatto se il codice è eseguito dentro la console. Ma qualunque forma assuma, dialoga con lo strato di lettura e scrittura e non con quello di conversione.
+
+\section{Perché l'ordine di costruzione appartiene all'architettura}
+
+Esiste un vincolo di ordine che nasce dal formato e che va rispettato anche nella struttura del codice, ed è quello stabilito dal capitolo~\ref{cap:cifratura}: il valore di personalità è anche chiave di cifratura e selettore della permutazione, dunque va deciso prima di comporre la struttura. Uno scrittore che consenta di modificarlo in un momento successivo, invalidando silenziosamente il blocco già composto, è uno scrittore che produrrà Uova Peste.
+
+La conseguenza pratica è che il modello di generazione 3 non deve consentire la modifica del valore di personalità dopo la costruzione. Renderlo immutabile è una scelta di progetto che chiude a chiave un intero genere di difetti, e appartiene alla categoria delle decisioni in cui la struttura del codice rende impossibile un errore anziché limitarsi a scoraggiarlo. L'implementazione realizzata segue questa scelta, ed espone in sua sostituzione un'operazione che produce una copia con un diverso valore di personalità, cosicché l'unico modo di cambiarlo sia costruire un nuovo oggetto.
+
+\section{Dove è eseguito questo codice}
+
+La domanda non è oziosa e merita una risposta precisa, perché il codice scritto finora è in Python e un Game Boy Advance non esegue Python. Conviene mettere in fila le quattro forme che il sistema finito può assumere, perché due di esse non richiedono alcuna riscrittura e due sì.
+
+\begin{longtable}{@{}p{3.4cm}p{5.4cm}p{5.4cm}@{}}
+\caption{Le quattro forme del sistema finito, e il loro costo in riscrittura.}\label{tab:forme}\\
+\toprule
+Forma & Dove è eseguita la logica & Che cosa serve in più \\
+\midrule
+\endfirsthead
+\toprule
+Forma & Dove è eseguita la logica & Che cosa serve in più \\
+\midrule
+\endhead
+Strumento su calcolatore & interamente sul calcolatore, in Python & un lettore di cartucce per ottenere e riscrivere i dump \\
+Dispositivo intermedio & sul calcolatore in Python; sul microcontrollore soltanto il protocollo seriale & firmware per il microcontrollore, poche centinaia di righe \\
+Impiego dello strumento esistente & sulla console, dentro codice di altri & nulla da scrivere, ma nulla da riusare del proprio \\
+Ponte proprio sulla console & sulla console, in C compilato per quell'architettura & riscrittura degli strati di formato e conversione \\
+\bottomrule
+\end{longtable}
+
+Ne segue la correzione di un'affermazione formulata in modo troppo sbrigativo in una fase precedente del progetto, secondo la quale il Python sarebbe un prototipo in attesa di riscrittura in C. L'affermazione è vera soltanto per l'ultima delle quattro forme. Nelle prime due il Python è il linguaggio definitivo della logica e non un passaggio intermedio: nella forma con dispositivo intermedio il microcontrollore compie il lavoro che nessun calcolatore può compiere, cioè parlare un protocollo seriale sincrono rispettando le temporizzazioni, e tutto il resto rimane sul calcolatore. È esattamente la forma dei due precedenti pubblici descritti nel capitolo~\ref{cap:esecuzione}, e possiede la proprietà notevole di rendere superfluo anche il lettore di cartucce, perché il canale di accesso diventa il connettore del cavo.
+
+La terza forma merita una nota a sé. È l'unica in cui non si scrive quasi nulla, ma è anche l'unica in cui nulla del proprio codice serve, perché la logica risiede dentro un programma altrui. Chi la scelga non sta scegliendo un'architettura, sta scegliendo di non averne una.
+
+\section{La scelta del linguaggio, e il debito che essa comporta}
+
+Gli strati dal primo al quarto sono aritmetica su interi e manipolazione di byte, cioè il tipo di codice che si scrive adeguatamente in qualunque linguaggio e si verifica adeguatamente soltanto dove le prove costano poco da scrivere. Python è stato scelto per due ragioni concrete: gli strumenti già presenti nel progetto sono in Python, e in un lavoro in cui la verifica conta più della prestazione il costo di scrivere una prova è la variabile che determina quante prove esistano.
+
+Qualora servisse la quarta forma, la riscrittura in C riguarderebbe gli strati dal secondo al quarto, e sarebbe fra le riscritture meno onerose possibili a una condizione: che i casi di prova siano dati e non codice. Quella condizione oggi non è rispettata, perché le prove sono metodi che generano i propri buffer. Trasformarle in vettori su file, cioè coppie di byte attesi in un formato leggibile, è un lavoro contenuto che renderebbe la suite riusabile da un'implementazione in qualunque linguaggio, e va compiuto prima che la suite diventi grande. È la medesima idea dei dati generati del primo strato, applicata alle prove, e costituisce il debito tecnico più evidente del pacchetto.
+
+\section{Le due avvertenze del sottoprogetto}
+
+Il trasferimento è a senso unico e distruttivo sulla sorgente, cioè l'esemplare viene rimosso dal gioco di partenza, e modifica entrambi i salvataggi: il backup in doppia copia richiesto dalla norma non è prudenza, è il presupposto dell'operazione.
+
+La verifica finale del ponte richiede hardware reale, perché nessun emulatore riproduce l'interazione fra Game Boy e Game Boy Advance. Il collegamento fra due Game Boy si emula invece correttamente, dunque tutto il lato protocollo si collauda senza cartucce, con la riserva che il capitolo~\ref{cap:collaudo} espone.

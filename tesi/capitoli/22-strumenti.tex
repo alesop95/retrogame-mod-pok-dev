@@ -1,0 +1,83 @@
+% =====================================================================
+% tesi/capitoli/22-strumenti.tex
+% =====================================================================
+% copre: docs/22-strumenti.md
+% copre: pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md#7-codifica-dei-caratteri
+% ---------------------------------------------------------------------
+
+\chapter{Gli strumenti, e il principio che li governa}
+\label{cap:strumenti}
+
+Gli strumenti prodotti da questo lavoro sono pochi e deliberatamente piccoli, e rispondono a un principio che vale enunciare prima di descriverli: in una catena di lavorazione che mescola codice e giudizio, si spinge sul codice deterministico tutto ciò che non richiede comprensione semantica, e se ne conserva l'esito come stato ispezionabile su disco anziché come risposta in una conversazione.
+
+I benefici di questo principio sono tre e sono verificabili. La riproducibilità, perché rieseguendo il programma si ottiene il medesimo risultato. L'economia, perché il lavoro deterministico costa tempo di calcolo locale e non risorse di ragionamento. E l'ispezionabilità, perché gli stati intermedi sono file leggibili che si possono correggere a mano senza rieseguire l'intera catena.
+
+\section{Il presupposto comune: i disassemblati in locale}
+
+Due dei tre strumenti principali leggono dai disassemblati, i quali non risiedono nel repository e non devono risiedervi. Si ottengono con cloni superficiali, che sono sufficienti perché serve soltanto lo stato corrente.
+
+\begin{verbatim}
+git clone --depth 1 https://github.com/pret/pokecrystal
+git clone --depth 1 https://github.com/pret/pokeemerald
+git clone --depth 1 https://github.com/pret/pokered
+\end{verbatim}
+
+Conviene conservarli fuori dal repository. Il vantaggio del clone rispetto alla lettura attraverso il web è che consente di cercare nel codice anziché leggere descrizioni, ed è precisamente in questo modo che sono state individuate le quattro correzioni documentate nella premessa. Vale generalizzare l'osservazione, perché è uno dei risultati metodologici di questo lavoro: su dati di gioco il clone superficiale è il primo passo di qualunque verifica, non l'ultimo.
+
+\section{Il generatore delle tabelle di codifica}
+
+Il primo strumento genera le tabelle di codifica dei caratteri leggendo i file di definizione dei disassemblati, e produce tre file. Il primo è la tabella delle generazioni 1 e 2, il secondo quella della generazione 3, ciascuna con i caratteri stampabili separati dai token di controllo e con l'indicazione del commit di provenienza. Il terzo è la traduzione diretta fra i due spazi di codifica, che è il file che un convertitore impiega effettivamente, e che elenca separatamente i caratteri privi di destinazione.
+
+Le cifre della corsa corrente sono duecento caratteri stampabili per le generazioni 1 e 2, duecentoquarantotto per la generazione 3, centoquarantasette corrispondenze e cinquantatré caratteri privi di destinazione. Quest'ultimo numero non è un residuo ma un dato di progetto, per la ragione esposta nel capitolo~\ref{cap:testo}: che cosa fare di un nome che contenga quei caratteri è una decisione, e il file la rende visibile.
+
+La proprietà rilevante di questo strumento non è ciò che produce ma ciò che rifiuta di produrre. Prima di scrivere verifica un insieme di valori di controllo, cioè i byte del terminatore, dello spazio, delle lettere estreme dei due alfabeti e delle cifre estreme in entrambe le tabelle, e qualora anche uno solo non corrisponda non scrive nulla e riferisce lo scostamento. Se il formato dei file a monte cambiasse, il fallimento sarebbe rumoroso anziché silenzioso, che è esattamente il contrario del comportamento della trascrizione manuale il cui esito è documentato nel capitolo~\ref{cap:testo}.
+
+\section{Lo strumento di diagnosi dello zaino}
+
+Il secondo strumento legge un salvataggio di generazione 3 per diagnosticare lo zaino, e non scrive nulla: legge, valida e riferisce. La sequenza è quella descritta nei capitoli~\ref{cap:integrita} e~\ref{cap:cifratura}, cioè individua i due slot, valida la firma e il checksum di ciascuna sezione, seleziona lo slot più recente secondo la regola del contatore, ricompone il blocco di salvataggio dalle sezioni, identifica il gioco, legge la chiave di cifratura al proprio offset e smaschera le quantità dello zaino lasciando in chiaro quelle del deposito.
+
+L'identificazione del gioco non si fida di un parametro: lo verifica. La ragione proviene da un caso reale documentato in una discussione della comunità, in cui un editor aveva identificato un salvataggio di Smeraldo come Rubino o Zaffiro e gli oggetti sono finiti negli slot sbagliati, il che è esattamente l'effetto dell'applicazione della maschera errata \cite{projectpokemon}. Lo strumento assegna un punteggio a ciascun candidato sulla base di prove indipendenti, cioè la plausibilità del conteggio della squadra al proprio offset, il denaro smascherato entro il tetto, e la chiave dedotta da uno slot vuoto, e stampa le prove di tutti i candidati anziché dichiarare soltanto il vincitore. Qualora due candidati pareggino si arresta e chiede l'indicazione manuale, perché un'identificazione ambigua è un'informazione e non un dettaglio da risolvere per estrazione.
+
+Riferisce poi le anomalie che sa riconoscere: un identificatore di oggetto fuori intervallo, una quantità nulla su uno slot occupato, una quantità oltre il tetto della tasca, uno slot popolato dopo un buco, e un identificatore duplicato nella medesima tasca. Sono cinque classi che coprono i sintomi tipici di uno zaino alterato da codici di alterazione.
+
+A queste si aggiunge un controllo di categoria, introdotto per la casistica concreta esposta nel capitolo~\ref{cap:smeraldo}, cioè quella in cui oggetti ordinari risultano sostituiti da Poké Ball a partire da una certa posizione. Il controllo verifica che l'identificatore di ciascun oggetto appartenga all'intervallo di categoria coerente con la tasca in cui risiede, impiegando gli intervalli verificati sul disassemblato, e riferisce se la difformità possieda un punto di inizio, cioè se esista una posizione a partire dalla quale ogni slot successivo sia difforme. La presenza di un punto di inizio è essa stessa un dato diagnostico, perché distingue una corruzione progressiva da un'alterazione puntuale.
+
+Lo strumento possiede due verifiche incrociate che valgono più del resto, e la loro natura è quella descritta nel capitolo~\ref{cap:collaudo}: due vie indipendenti per il medesimo valore. La prima è che il denaro, smascherato con la medesima chiave, deve stare sotto il proprio tetto: in caso contrario la chiave o l'offset sono errati, e lo strumento lo dichiara anziché produrre numeri privi di senso. La seconda è che uno slot vuoto in una tasca mascherata contiene la chiave stessa, dunque la chiave si ricava per una seconda via e le due si confrontano.
+
+Sul lato dei titoli della coppia Rosso Fuoco e Verde Foglia lo strumento è esplicito sui propri limiti: legge la chiave al proprio offset e la riferisce, ma non pretende di elencare le tasche, perché i loro offset non sono stati verificati sul disassemblato di quel gioco in questa revisione. La dichiarazione di un limite è parte del contratto dello strumento, non un'omissione.
+
+\section{Il pacchetto del ponte}
+
+Il pacchetto non è uno strumento ma la prima parte del software vero, e copre gli strati dal primo al terzo della stratificazione descritta nel capitolo~\ref{cap:ponte}, cioè i dati generati, i modelli e i lettori e scrittori. Non possiede dipendenze esterne.
+
+I primitivi risiedono nel modulo che ospita la conoscenza non appartenente a una singola generazione: interi a sedici e ventiquattro bit big-endian, scomposizione dei nibble dei valori individuali con la derivazione del quinto, byte dei punti potenza diviso secondo lo schema a sei più due bit, e il pattern di valori che nella generazione 2 significa lucentezza. I lettori e scrittori risiedono in un modulo per generazione, perché fra le prime due esiste un riordino e non un'estensione, come il capitolo~\ref{cap:gen2} stabilisce. La transcodifica legge le tabelle generate e non contiene alcun valore scritto a mano.
+
+Vale registrare una circostanza sulla prima esecuzione delle prove, perché ripete la lezione dello strumento precedente applicandola alle prove stesse: una prova è fallita, e il difetto era nella prova e non nel codice, perché il byte di una lettera era stato scritto a mano con il valore sbagliato. La prova ricava adesso i byte dalla tabella anziché dichiararli, che è la medesima disciplina del generare anziché trascrivere applicata al collaudo.
+
+\section{Gli strumenti di infrastruttura}
+
+Esistono infine gli strumenti che servono al repository e non ai giochi, e la loro presenza in questo capitolo è giustificata dal fatto che ciascuno attua meccanicamente una convenzione che altrimenti resterebbe dichiarata e non verificata.
+
+Il primo attua la convenzione di formattazione dei documenti, cioè un paragrafo per riga sorgente, e dispone di una modalità di sola verifica per il controllo che precede una registrazione delle modifiche. Il secondo verifica che i comandi di shell dentro i blocchi di codice non siano spezzati su più righe, perché il primo per contratto non tocca il contenuto dei blocchi di codice e dunque un comando spezzato in quella sede non viene corretto da nessuno.
+
+A questi si aggiungono tre strumenti tipografici che attuano le convenzioni sull'ortografia: il primo converte le vocali accentate scritte con l'apostrofo nella loro forma corretta, distinguendo l'accento acuto dal grave secondo la grammatica; il secondo interviene sugli accenti mancanti del tutto, e non pretende di chiudere il problema da solo, perché converte le sole forme che privi di accento non sarebbero parole e riporta come indecidibili quelle che richiedono di comprendere la frase; il terzo normalizza i trattini, eliminando quelli lunghi in ogni loro variante, incluso il segno meno matematico, che in un testo tecnico è il più insidioso perché è un operatore e chi copia una formula che lo contiene ottiene un carattere che nessun compilatore accetta.
+
+Una convenzione dichiarata e non verificata è esattamente ciò che ha prodotto le tre grafie diverse che questi strumenti hanno dovuto sanare, e questo è l'argomento che ne giustifica l'esistenza.
+
+\section{Il cancello prima dell'hardware}
+
+Tre dei cinque casi di studio convergono, presto o tardi, sulla medesima operazione: prendere un file di salvataggio e collocarlo su un supporto fisico, cioè una cartuccia attraverso il lettore oppure la scheda di memoria della console. È l'unica operazione irreversibile del progetto, e per questa ragione esiste uno strumento unico anziché tre procedure separate.
+
+La proprietà da comprendere di questo strumento è che non scrive, e non scriverà finché l'hardware non sia presente e collaudato. Ciò che compie è la parte che si può scrivere oggi e che evita i danni. Esamina il file: la dimensione confrontata con quelle che possiedono un significato, l'impronta che identifica il contenuto, il numero di settori che portano la firma, il numero di settori il cui checksum torna, l'identificazione del gioco con il margine sul secondo candidato, e i due casi degeneri del file interamente a zero e del file interamente a \hx{FF}, che è lo stato di una memoria flash cancellata. Poi verifica le precondizioni della destinazione e produce il piano dei passi.
+
+La validazione non è duplicata: lo strumento importa le funzioni di validazione dei settori, di ricostruzione dello slot e di identificazione del gioco dallo strumento di diagnosi. Un secondo esemplare della medesima formula di checksum sarebbe un secondo luogo in cui sbagliarla.
+
+La parte più importante è il cancello dei backup, che attua in codice il vincolo normativo esposto nel capitolo~\ref{cap:perimetro}. Lo strumento pretende due backup dichiarati, verifica che i percorsi siano distinti, che i file esistano e siano leggibili, che la dimensione coincida con quella dell'originale e che le due impronte coincidano fra loro, e rifiuta anche il caso in cui i due backup risiedano sul medesimo volume, perché un guasto del supporto li perderebbe insieme. Quando una di queste condizioni manca, il piano non viene stampato affatto: è una scelta deliberata, perché una lista di passi mostrata sotto un elenco di problemi invita a eseguirla comunque.
+
+Il piano, quando viene emesso, presenta cinque passi nell'ordine che la norma impone: dump del contenuto attuale del supporto, confronto con i backup dichiarati, scrittura, rilettura confrontata byte per byte, e infine avvio del gioco, che è un controllo diverso dal precedente e non lo sostituisce. Poi lo strumento dichiara che la scrittura non viene tentata e specifica che cosa manchi a quella destinazione: per la cartuccia il lettore e un collaudo su un esemplare sacrificabile, per la scheda di memoria la decisione su quale percorso sia quello corretto per il titolo installato.
+
+Il collaudo è avvenuto su un salvataggio sintetico generato per l'occasione, con quattordici settori firmati e coerenti, e ha verificato i tre casi che contano: il file valido identificato correttamente con il proprio margine, il rifiuto del file interamente a zero e della dimensione non riconosciuta, e il rifiuto del piano nei tre modi in cui i backup possono risultare insufficienti, cioè uno solo, inesistente, oppure due sul medesimo volume.
+
+\section{Che cosa manca}
+
+Lo strumento successivo in ordine naturale è il generatore della tabella dagli indici interni della generazione 1 ai numeri nazionali, che oggi non esiste e che va costruito con il medesimo metodo, cioè leggendolo dal disassemblato e verificandolo con valori di controllo. È l'ultimo dato costante del progetto che sarebbe tentante trascrivere a mano, ed è anche quello in cui un errore silenzioso produrrebbe il danno maggiore, perché scambierebbe una specie con un'altra.

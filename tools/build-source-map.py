@@ -297,6 +297,57 @@ FONTI = [
      "La terza ha prodotto codice: il rilevamento automatico del gioco nel nostro strumento di diagnosi nasce da là. La prima ha rivelato l'esistenza di CableClub.",
      [("[[22-strumenti]]", "perché lo strumento non si fida del parametro")],
      [("documenta", "cable-link")]),
+
+    ("pokeyellow", "pret/pokeyellow", "https://github.com/pret/pokeyellow", 1, True, ["BRI"],
+     "Disassemblaggio di Pokemon Giallo, clonato e confrontato campo per campo con quello di Rosso e Blu.",
+     "Il confronto ha stabilito che la macro della struttura di box e le costanti di lunghezza sono identiche a quelle di Rosso e Blu, dunque il lettore di generazione 1 copre Giallo senza alcuna modifica. È un risultato negativo, e per questo vale registrarlo: ha eliminato una variante di codice che si sarebbe scritta per precauzione.",
+     [("[[12-analisi-quantitativa]]", "i risultati negativi come categoria di risultato")],
+     []),
+
+    ("pokegold", "pret/pokegold", "https://github.com/pret/pokegold", 1, True, ["BRI"],
+     "Disassemblaggio di Pokemon Oro e Argento, clonato e confrontato con quello di Cristallo.",
+     "La macro della struttura di squadra è identica a quella di Cristallo, dunque il lettore di generazione 2 copre Oro e Argento senza modifiche; restano diversi soltanto gli offset del salvataggio, che erano già registrati. Secondo risultato negativo utile, con la stessa funzione del primo.",
+     [("[[DATA-FORMATS_Gen1-Gen2-Gen3]]", "sezione 4, e la nota sugli offset per gioco")],
+     []),
+
+    ("video-goppier", "Goppier, i due video sul primo ponte", "https://www.youtube.com/watch?v=Qcp4vxyaUJc", 4, True, ["BRI"],
+     "Le due sole testimonianze esistenti sul primo ponte fra generazioni: l'aggiornamento di sviluppo, trascritto e letto per intero, e il video precedente che presenta il dispositivo, privo di sottotitoli di qualunque tipo e quindi ancora da trascrivere.",
+     "Il primo dei due è la fonte più densa dell'intero quarto livello, e documenta sette circostanze che nessuna altra fonte riporta, fra cui il vincolo di sincronizzazione fra i due protocolli, che è il problema architetturale del ponte, e l'affermazione che una ROM per Game Boy Advance possa dialogare direttamente con i giochi di generazione 2. Il secondo è registrato come il più importante degli arretrati, perché il successivo vi si riferisce più volte.",
+     [("[[08-cavo-link]]", "il vincolo di sincronizzazione fra i due lati"),
+      ("[[30-opzioni-implementative]]", "il ponte di Goppier e la prova che sposterebbe il confronto")],
+     []),
+
+    ("video-trascritti", "Quattro video trascritti su formati, cavo e strumenti", "https://www.youtube.com/watch?v=VVbRe7wr3G4", 4, True, ["BRI", "SME", "3DS", "LDN"],
+     "Voce aggregata su quattro video trascritti e letti per intero: la dissezione di un salvataggio di Rosso, il cavo Link negli emulatori, lo scambio locale su Switch in Rosso Fuoco, e due dimostrazioni dello strumento di trasferimento di riferimento. La trascrizione è avvenuta con lo strumento a riga di comando che scarica i sottotitoli automatici, ripuliti dal programma del progetto perché i sottotitoli a scorrimento ripetono ogni riga.",
+     "Il bilancio di questa lettura è controintuitivo e vale registrarlo: due dei sei video trascritti sono, su punti specifici, la migliore fonte che il progetto possieda, mentre uno non ha prodotto nulla. Il limite del formato resta quello noto, cioè che un video non è citabile per un offset e non è confrontabile riga per riga, dunque ciò che affermano va verificato sul sorgente prima di entrare in codice.",
+     [("[[21-collaudo]]", "il secondo livello di collaudo su emulatore"),
+      ("[[24-fonti-di-community]]", "la via di recupero dei sottotitoli")],
+     []),
+
+    ("gbatemp-smeraldo", "GBAtemp, due discussioni sulla scrittura del salvataggio", "https://gbatemp.net/threads/save-failed-on-real-pokemon-emerald.645336/", 5, True, ["SME"],
+     "Voce aggregata su due discussioni lette dalle schermate consegnate dall'utente, perché il dominio respinge il recupero automatico. La prima riguarda il messaggio di salvataggio fallito su cartuccia genuina, la seconda la scrittura di un salvataggio da centoventotto kibibyte su una cartuccia di riproduzione la cui memoria è di sessantaquattro.",
+     "La prima è la discussione più importante per il caso di studio dello Smeraldo: stabilisce che su cartuccia genuina quel messaggio indica una memoria di salvataggio che sta cedendo, perché la schermata compare quando vengono rilevati blocchi difettosi, e che la risposta corretta è produrre il dump immediatamente finché il salvataggio si carica ancora. La seconda contiene una diagnosi indipendente che coincide con il controllo che il nostro strumento compie in una riga, cioè l'assenza della firma attesa nel dump.",
+     [("[[01-fondamenta-salvataggio]]", "perché il backup non è negoziabile"),
+      ("[[22-strumenti]]", "il controllo della firma e quello della dimensione")],
+     []),
+
+    ("retroreversing", "RetroReversing, Game Boy", "https://www.retroreversing.com/gameboy", 4, True, ["BRI"],
+     "Raccolta di risorse di reverse engineering sulla piattaforma, letta per individuare strumenti e documentazione che il progetto non conosceva.",
+     "Da qui provengono lo strumento che identifica la toolchain con cui una ROM è stata compilata, il progetto sugli stati di salvataggio su hardware originale, gli schemi elettrici ricreati dalla comunità, e il protocollo della stampante con i suoi byte di riconoscimento.",
+     [("[[08-cavo-link]]", "altri protocolli sul medesimo collegamento seriale")],
+     []),
+
+    ("hackaday-ponte", "Hackaday, il ponte impossibile", "https://hackaday.com/2021/12/07/bridging-game-worlds-with-the-impossible-pokemon-trade/", 4, True, ["BRI"],
+     "Articolo divulgativo sul primo ponte fra generazioni, letto per estrarne la descrizione dell'hardware.",
+     "Descrive il dispositivo come un circuito stampato semplice con le porte per i due tipi di cavo e un microcontrollore ARM interposto che traduce le strutture, e dichiara di non pubblicare né schemi né sorgenti. È la sola descrizione scritta di quell'hardware, e la sua incompletezza è la ragione per cui la trascrizione del video resta necessaria.",
+     [("[[30-opzioni-implementative]]", "il ponte di Goppier per come lo racconta lui")],
+     []),
+
+    ("pokerom-trader", "pokerom-trader", "https://github.com/savaughn/pokerom-trader", 3, True, ["BRI"],
+     "Strumento che esegue uno scambio fra due file di salvataggio delle prime due generazioni su calcolatore, scritto in C con una libreria di manipolazione dei salvataggi e un'interfaccia grafica propria, con ricalcolo dei checksum e regole di evoluzione da scambio.",
+     "È il precedente più prossimo all'opzione che opera interamente su calcolatore, e la sua esistenza dimostra che quella strada arriva a un risultato funzionante; mostra anche che l'evoluzione da scambio, che il nostro progetto non ha ancora considerato, è una regola che un convertitore deve conoscere.",
+     [("[[30-opzioni-implementative]]", "l'opzione che opera su file di salvataggio")],
+     []),
 ]
 
 

@@ -1,0 +1,60 @@
+% =====================================================================
+% tesi/capitoli/12-multiboot.tex
+% =====================================================================
+% copre: docs/10-multiboot-hardware.md
+% ---------------------------------------------------------------------
+
+\chapter{Il lato ricevente: multiboot, cavi e scambio a caldo}
+\label{cap:multiboot}
+
+Il ponte possiede due lati. Quello del Game Boy è descritto nei capitoli~\ref{cap:cavo} e~\ref{cap:esecuzione}; questo è il lato che riceve, converte e scrive, e i suoi vincoli sono interamente di natura hardware. La distinzione è utile perché sposta il tipo di difficoltà: sul lato Game Boy il problema è ottenere un comportamento non previsto da un programma esistente, su questo lato il problema è collocare un programma proprio in una macchina che non possiede alcun meccanismo pensato per riceverlo.
+
+\section{Perché il cavo deve essere quello apparentemente sbagliato}
+
+La prima circostanza che sorprende chi si avvicina al progetto è che occorre il cavo del Game Boy Color e non quello del Game Boy Advance, nonostante uno dei due dispositivi coinvolti sia proprio un Game Boy Advance. La ragione risiede nel fatto che il lato che detta le condizioni non è la console più recente: è il gioco di generazione 1 o 2, il quale dialoga con l'hardware seriale del Game Boy e non conosce le modalità aggiuntive introdotte dalla console successiva.
+
+Il Game Boy Advance è retrocompatibile e sa parlare quel protocollo, ma soltanto attraverso quel collegamento fisico. I due cavi non sono elettricamente equivalenti per questo scenario, e l'impiego di quello errato non produce un errore comprensibile: produce silenzio. Vale registrare questa proprietà come caso particolare di una regola diagnostica più generale, che ricorre in tutto il lavoro: un guasto nel livello fisico si manifesta come assenza di comportamento, e l'assenza di comportamento è indistinguibile fra molte cause diverse.
+
+\section{Il multiboot}
+
+Il programma che viene eseguito sul Game Boy Advance giunge senza cartuccia. La console dispone di una modalità hardware, documentata in GBATEK, che consente di ricevere un programma dal cavo e di eseguirlo in memoria: si denomina multiboot, e la sua esistenza è la ragione per cui progetti di questo tipo possono essere distribuiti come file anziché come cartucce \cite{gbatek}.
+
+Le vie per trasferire il programma nella console sono in pratica tre. Una console GameCube o Wii dotata di software non ufficiale, che invia il programma attraverso il cavo dedicato; una cartuccia riscrivibile che supporti l'avvio in modalità multiboot; oppure un caricatore residente su cartuccia riscrivibile, per i modelli che non lo supportano direttamente. Esiste inoltre la via dal calcolatore attraverso USB, con hardware dedicato \cite{usb-gba-multiboot,rom-sender}.
+
+Il fatto architetturale che conta è che il programma è eseguito dalla memoria di lavoro e non dalla cartuccia. Ne segue che la cartuccia può essere qualunque cosa, compresa quella che il programma deve modificare, ed è precisamente questa proprietà a rendere possibile il passo descritto nell'ultima sezione di questo capitolo.
+
+\subsection{La procedura, per come la documenta GBATEK}
+
+Vale riportarla perché è ciò che occorre implementare qualora si scelga una delle opzioni che prevedono codice proprio sulla console, e perché i suoi numeri stabiliscono quanto spazio sia effettivamente disponibile \cite{gbatek}.
+
+L'apertura è una stretta di mano ripetuta: il master invia \hx{6200} finché lo slave non risponde \hx{0000}, poi seguono uno scambio con valori della forma \hx{610y} e \hx{720x}, dove le cifre variabili identificano il client e lo slave. Il trasferimento propriamente detto ha una lunghezza che, esclusa l'intestazione, deve essere multipla di \hx{10}, con un minimo di \hx{100} byte e un massimo di \hx{3FF40}, cioè circa duecentocinquantasei kilobyte. L'intestazione risiede in memoria fra \hx{2000000} e \hx{20000BF}, e il programma occupa l'intervallo da \hx{20000C0} a \hx{203FFFF}.
+
+Da qui deriva il vincolo che sorprende chi proviene dallo sviluppo su cartuccia, e la cui violazione produce un programma che non funziona per ragioni non evidenti: gli indirizzi assoluti contenuti nel programma devono riferirsi a \hx{2000000} e non a \hx{8000000}, perché il programma non è eseguito dalla cartuccia ma dalla memoria di lavoro esterna. Il trasferimento è inoltre protetto da trasformazioni XOR e da un checksum ciclico a sedici bit, e dopo ogni trasferimento il master deve attendere che il bit di avvio si azzeri nel registro di controllo seriale, con un ritardo aggiuntivo di trentasei microsecondi.
+
+Sulla memoria in cui quel programma risiede, la descrizione architetturale delle due console fornisce le due cifre rilevanti: la memoria di lavoro interna è di trentadue kilobyte con accesso a trentadue bit, quella esterna di duecentocinquantasei kilobyte con accesso a sedici bit e fino a sei volte più lenta da raggiungere \cite{copetti}. Un programma multiboot risiede nella seconda, e questa è la ragione per cui i progetti di questo tipo dedicano attenzione alla compressione dei dati: non si tratta di eleganza ma della differenza fra un programma che risponde in tempo utile al protocollo e uno che no.
+
+\section{Il lato che scrive, che non è quello che si immagina}
+
+Esiste un fatto architetturale che il capitolo~\ref{cap:esecuzione} documenta e che va ripetuto in questa sede perché riguarda specificamente il lato Game Boy Advance. Il ponte di riferimento non scrive la struttura dell'esemplare nel salvataggio di generazione 3: inietta un evento Dono Segreto nella sezione degli script in memoria, e lascia che il gioco stesso depositi l'esemplare e aggiorni il Pokédex chiamando le proprie routine \cite{devlog-ptgb}.
+
+Chi progetta un'implementazione propria deve decidere quale delle due strade percorrere, e le due decisioni comportano tipi di lavoro radicalmente diversi: scrivere la struttura richiede il dominio di ogni campo derivato e di ogni coerenza interna, iniettare uno script richiede la conoscenza degli indirizzi delle routine per ciascuna delle quarantotto combinazioni di versione e lingua. La prima strada concentra il rischio nella correttezza dei dati, la seconda nella corrispondenza fra il programma e la specifica copia del gioco.
+
+\section{Lo scambio a caldo, che è la parte fragile}
+
+Il programma multiboot deve leggere e scrivere il salvataggio del gioco di generazione 3, dunque quella cartuccia deve essere inserita. All'accensione, però, la cartuccia inserita era quella di avvio. La soluzione consiste nello scambiarle mentre la console è accesa e il programma è in esecuzione nella memoria di lavoro.
+
+L'operazione funziona perché il programma non dipende più dalla cartuccia, ma non è priva di rischi: il connettore non è progettato per l'inserimento a caldo, e la console può reinizializzarsi durante l'operazione. Il progetto di riferimento documenta il problema, lo attribuisce anche allo stato delle batterie e offre vie alternative per chi disponga di una cartuccia riscrivibile che permetta di evitarlo \cite{ptgb}.
+
+Vale osservare che una reinizializzazione durante lo scambio non è catastrofica in sé: è catastrofica quando avviene mentre il programma sta scrivendo il salvataggio. Da qui il valore della norma sul backup enunciata nel capitolo~\ref{cap:supporto}: l'operazione possiede una finestra di rischio reale e quantificabile, e l'unica difesa disponibile è l'esistenza di una copia. È il caso in cui la norma cessa di apparire una formalità e mostra la propria funzione.
+
+\section{Perché questo lato non si emula, e che cosa invece si emula}
+
+Nessun emulatore riproduce l'interazione fra un Game Boy e un Game Boy Advance collegati da un cavo Link con questa dinamica. Il progetto di riferimento lo dichiara e nulla nella documentazione consultata lo contraddice.
+
+La conclusione da trarne è però più stretta di come viene comunemente riportata, e la precisazione modifica il piano di lavoro anziché il quadro teorico. Ciò che non si emula è il ponte fra le due console. Il collegamento fra due Game Boy si emula correttamente, perché l'emulatore BGB espone il cavo su una connessione TCP \cite{gambatte-gamelink,pokemongb-online}, dunque il lato protocollo delle generazioni 1 e 2 è collaudabile in emulazione, con la riserva discussa nel capitolo~\ref{cap:collaudo}: la verifica contro un gioco reale richiede una ROM, e dentro il perimetro di questo progetto quella ROM proviene dal dump di una cartuccia di proprietà. Il lato generazione 3, cioè lettore, writer, cifratura e checksum, si collauda contro file di salvataggio senza alcuna console. Soltanto il passaggio finale, cioè il ponte propriamente detto, richiede l'hardware.
+
+Questa distinzione ha una conseguenza sulla sequenza dei lavori che vale enunciare, perché è il genere di conclusione che una lettura superficiale della documentazione non produce: la parte del progetto che non si può collaudare senza hardware è una frazione minoritaria del totale, e la sua indisponibilità non blocca lo sviluppo del resto.
+
+\section{Che cosa occorre avere in mano}
+
+Quanto segue è l'elenco che la documentazione di ricerca del progetto denominava ricognizione dell'hardware, e resta il preliminare a qualunque scelta fra le opzioni discusse nel capitolo~\ref{cap:opzioni}. Occorre sapere quante console Game Boy Advance siano disponibili, perché due consentono la via più semplice al multiboot. Occorre sapere se esista una console GameCube o Wii con software non ufficiale, che costituisce l'alternativa alla seconda console portatile. Occorre sapere se sia disponibile una cartuccia riscrivibile e quale, perché il modello determina se lo scambio a caldo possa essere evitato. Occorre un cavo Link del Game Boy Color, non del Game Boy Advance. E occorre stabilire se sia disponibile la capacità di saldare e di programmare microcontrollori, che è il discriminante per l'opzione fondata su hardware intermedio.

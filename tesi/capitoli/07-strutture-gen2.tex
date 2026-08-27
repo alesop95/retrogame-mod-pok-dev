@@ -1,0 +1,62 @@
+% =====================================================================
+% tesi/capitoli/07-strutture-gen2.tex
+% =====================================================================
+% copre: pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md#4-generazione-2-struttura-del-pokemon
+% ---------------------------------------------------------------------
+
+\chapter{La struttura della generazione 2, e il riordino che invalida il lettore}
+\label{cap:gen2}
+
+Gli offset di questo capitolo provengono interamente dal disassemblato di Cristallo \cite{pokecrystal}: le strutture di box e di squadra, l'ordine dei nibble dei valori individuali con la derivazione del quinto, e i due byte di dati di cattura che soltanto Cristallo popola. Dal medesimo repository proviene la struttura di invio del Time Capsule.
+
+\section{Un riordino, non un'estensione}
+
+La struttura di box passa a trentadue byte e quella di squadra a quarantotto. La proprietà rilevante di questo cambiamento, e la ragione per cui va enunciata prima della tabella, è che non si tratta di un'estensione ma di un riordino: nessun campo conserva la propria posizione, dunque non è possibile riusare il lettore della generazione 1 con un offset diverso. Un lettore che tenti di farlo non produce errori riconoscibili, per la ragione generale esposta nel capitolo~\ref{cap:bit}, ma un insieme coerente di campi attribuiti al significato sbagliato.
+
+Anche in questa generazione gli offset della Stat Experience trovano conferma indipendente nella tabella del sistema di conversione fra generazioni \cite{pccs}, che per la generazione 2 li dichiara a \hx{0B}, \hx{0D}, \hx{0F}, \hx{11} e \hx{13}.
+
+\begin{longtable}{@{}llp{4.8cm}p{5.2cm}@{}}
+\caption{Struttura di un esemplare in generazione 2, offset assoluti.}\label{tab:gen2}\\
+\toprule
+Offset & Dim. & Campo & Nota \\
+\midrule
+\endfirsthead
+\toprule
+Offset & Dim. & Campo & Nota \\
+\midrule
+\endhead
+\hx{00} & 1 & Indice di specie & coincide con il numero del Pokédex nazionale \\
+\hx{01} & 1 & Oggetto tenuto & stessa posizione del tasso di cattura in generazione 1 \\
+\hx{02} & 4 & Mosse da 1 a 4 & \\
+\hx{06} & 2 & ID dell'allenatore originale & \\
+\hx{08} & 3 & Esperienza & ventiquattro bit big-endian \\
+\hx{0B} & 10 & Stat Experience & PS, Attacco, Difesa, Velocità, Speciale \\
+\hx{15} & 2 & Valori individuali & stesso impaccamento della generazione 1 \\
+\hx{17} & 4 & PP delle quattro mosse & stesso schema a sei più due bit \\
+\hx{1B} & 1 & Amicizia, o cicli di cova se è un uovo & campo nuovo, assente in generazione 1 \\
+\hx{1C} & 1 & Pokérus & nibble alto il ceppo, basso i giorni residui \\
+\hx{1D} & 2 & Dati di cattura & popolato soltanto da Cristallo \\
+\hx{1F} & 1 & Livello & fine della struttura di box \\
+\hx{20} & 1 & Condizione di stato & inizio dei campi di sola squadra \\
+\hx{22} & 2 & Punti salute correnti & \\
+\hx{24} & 12 & Statistiche calcolate & PS massimi, Attacco, Difesa, Velocità, Att. Speciale, Dif. Speciale \\
+\bottomrule
+\end{longtable}
+
+\section{I dati di cattura, e l'unica provenienza esistente prima della generazione 3}
+
+I due byte di dati di cattura, presenti soltanto in Cristallo, sono impaccati come segue. Nel primo byte i due bit alti rappresentano il momento della giornata, con il valore 1 per la mattina, 2 per il giorno e 3 per la notte, e i sei bit bassi il livello di cattura. Nel secondo byte il bit alto rappresenta il sesso dell'allenatore, con 0 per il maschile e 1 per il femminile, e i sette bit bassi l'indice del luogo.
+
+Questa è l'unica posizione, in tutte le generazioni 1 e 2, in cui esista un dato di provenienza, e la conseguenza sulla conversione è precisa: un sistema di conversione può conservare il sesso dell'allenatore soltanto quando il gioco di partenza è Cristallo, e per ogni altro gioco deve inventarlo. L'implementazione di riferimento sceglie in quel caso il maschile \cite{pccs}. Il caso è istruttivo perché mostra come un dato che la destinazione richiede obbligatoriamente possa essere assente nella sorgente, e come la sola risposta possibile sia una convenzione dichiarata; il capitolo~\ref{cap:conversione} generalizza questa situazione.
+
+\section{La lucentezza come pattern di valori, e non come contrassegno}
+
+In generazione 2 la lucentezza non è un contrassegno memorizzato ma una proprietà emergente dei valori individuali: un esemplare è lucente se e solo se i valori di Difesa, Velocità e Speciale valgono tutti dieci e il valore di Attacco appartiene all'insieme composto da due, tre, sei, sette, dieci, undici, quattordici e quindici \cite{pokecrystal}. In generazione 3 la lucentezza è invece una proprietà congiunta del valore di personalità e dell'identificativo dell'allenatore.
+
+Ne segue che conservare la lucentezza attraverso una conversione non consiste nel copiare un bit, perché non esiste alcun bit da copiare: consiste nel soddisfare un vincolo nello spazio dei valori della destinazione. Il capitolo~\ref{cap:conversione} mostra quale variabile libera l'implementazione di riferimento impiega per soddisfarlo, e perché quella variabile sia l'unica disponibile.
+
+\section{Gli offset del salvataggio, e la loro dipendenza dal gioco e dalla lingua}
+
+Gli offset del salvataggio di generazione 2 dipendono dal titolo e dalla lingua, e questa dipendenza è essa stessa un dato di progetto: significa che un lettore non può ricavare la posizione delle strutture dal formato, ma deve prima riconoscere quale gioco ha prodotto il file. Per le versioni inglesi la lista della squadra risiede a \hx{288A} in Oro e Argento e a \hx{2865} in Cristallo; i box da uno a sette cominciano da \hx{4000} e quelli da otto a quattordici da \hx{6000}, con venti esemplari per box e strutture da trentadue byte.
+
+Il checksum principale risiede a \hx{2D69} in Oro e Argento, calcolato sui byte da \hx{2009} a \hx{2D68}, e a \hx{2D0D} in Cristallo, calcolato da \hx{2009} a \hx{2B82}. In entrambi i casi esiste una copia di riserva protetta da un secondo checksum, contigua in Cristallo e frammentata in Oro e Argento. La natura di questa copia e la ragione per cui non costituisce una rete di sicurezza utilizzabile sono discusse nel capitolo~\ref{cap:integrita}.

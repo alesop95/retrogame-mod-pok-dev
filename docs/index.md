@@ -40,6 +40,7 @@ Chi vuole soltanto gli offset non ha bisogno di questo percorso: gli serve [[DAT
 | [[09-esecuzione-codice]] | come si arriva a far eseguire codice proprio a un gioco del 1996, e perché il ponte lo fa |
 | [[10-multiboot-hardware]] | il lato Game Boy Advance, fra multiboot e scambio a caldo della cartuccia |
 | [[11-wireless-locale-e-ponte-switch]] | il protocollo di rete locale della Switch, la modalità monitor, e il ponte verso una console moderna |
+| [[12-analisi-quantitativa]] | le grandezze che decidono se quei meccanismi funzionano: capacità di rilevazione, tasso di chiave, iterazioni attese, bit perduti, tempi sul filo |
 
 ## Il software che scriveremo
 

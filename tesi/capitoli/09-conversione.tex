@@ -1,0 +1,123 @@
+% =====================================================================
+% tesi/capitoli/09-conversione.tex
+% =====================================================================
+% copre: docs/07-conversione-vincoli.md
+% copre: pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md#9-il-problema-vero-della-conversione-ricostruire-ciò-che-non-esisteva
+% ---------------------------------------------------------------------
+
+\chapter{La conversione come problema di soddisfacimento di vincoli}
+\label{cap:conversione}
+
+Tutto ciò che precede è meccanica: offset da leggere, checksum da ricalcolare, tabelle da tradurre. Ognuna di quelle operazioni ammette una risposta corretta, verificabile per confronto con una fonte. Questo capitolo tratta invece un problema che non possiede una soluzione unica, e comprendere per quale ragione non la possieda è la condizione per scegliere consapevolmente la propria.
+
+Le fonti sono l'enunciato del problema e i quattro metodi dichiarati dal sistema di conversione fra generazioni \cite{pccs}, il cui codice sorgente costituisce anche la prova che la conversione delle statistiche non è implementata; il comportamento dello strumento di trasferimento di riferimento \cite{ptgb} e il suo diario di sviluppo \cite{devlog-ptgb}; l'implementazione che opera nel verso opposto \cite{gen3togenx}.
+
+\section{L'enunciato del problema}
+
+Un esemplare di generazione 3 richiede campi che nelle generazioni 1 e 2 non esistono. Non si tratta di un problema di formato ma di un problema di informazione, e la distinzione è sostanziale: la natura di un esemplare catturato in Rosso non è registrata in alcun luogo, perché al momento della sua cattura il concetto di natura non era stato inventato. Non esiste dunque alcuna trasformazione che la recuperi. Va inventata.
+
+La difficoltà non risiede nell'invenzione in sé, che sarebbe banale, ma nel fatto che questi campi non sono indipendenti fra loro. Derivano tutti dal medesimo numero da trentadue bit, il valore di personalità, secondo formule fissate dal gioco che nessun programma esterno può modificare. Le formule sono confermate da due implementazioni indipendenti, il gioco \cite{pokeemerald} e il sistema di conversione \cite{pccs}, e nel secondo si leggono in forma compatta in \file{source/Gen3Pokemon.cpp}: la natura è il valore di personalità modulo venticinque; il sesso confronta \file{PV \& 0xFF} con la soglia di sesso della specie ed è maschile quando il byte è maggiore o uguale; lo slot di abilità è \file{PV \& 1}; la lettera di Unown si compone dei due bit meno significativi di ciascuno dei quattro byte e prende il modulo ventotto; la lucentezza si verifica quando lo XOR fra identificativo visibile, identificativo segreto, metà bassa e metà alta del valore di personalità è minore di otto.
+
+Ne segue la riformulazione che dà il titolo al capitolo, e che è il contributo concettuale principale di questa parte del lavoro: non si scelgono i campi, si scelge un numero, e i campi ne conseguono. E poiché alcuni di quei campi devono corrispondere a proprietà dell'esemplare di partenza, per esempio il sesso, che in generazione 2 dipende dal valore individuale di Attacco, e la lettera di Unown, che dipende dai valori individuali, quel numero non è libero: va cercato. Generare il valore di personalità non è estrarre un numero casuale, è risolvere un problema di soddisfacimento di vincoli.
+
+\section{Come lo risolve l'implementazione di riferimento}
+
+Il sistema di conversione lo risolve nel modo più diretto che esista, cioè per campionamento con rifiuto: estrae un candidato dal generatore pseudocasuale, calcola ciò che ne deriva, e lo scarta quando non corrisponde, ripetendo fino a trovare un valore che soddisfi contemporaneamente tutti i vincoli \cite{pccs}.
+
+\begin{verbatim}
+    do
+    {
+        seedA = newPkmn->getNextRand_u16();
+        seedB = newPkmn->getNextRand_u16();
+        pid = seedA | (seedB << 16);
+        newPkmn->setPersonalityValue(pid);
+    } while (!(
+        newPkmn->getAbilityFromPersonalityValue() == newPkmn->internalAbility &&
+        newPkmn->getUnownLetter() == newPkmn->internalUnownLetter &&
+        newPkmn->getNature() == newPkmn->internalNature &&
+        newPkmn->getGender() == newPkmn->internalGender &&
+        newPkmn->getSize() == newPkmn->internalSize));
+\end{verbatim}
+
+La soluzione è inefficiente in senso teorico e perfettamente adeguata in pratica, perché i vincoli sono pochi e scarsamente correlati, dunque la probabilità che un candidato li soddisfi è sufficientemente alta da far terminare il ciclo rapidamente. Vale però osservare una proprietà ulteriore, che è la ragione più forte per preferirla: è anche la soluzione più robusta. Costruire il valore bit per bit, soddisfacendo un vincolo per volta, sarebbe più rapido e considerevolmente più facile da sbagliare, perché i vincoli si sovrappongono sui medesimi bit e la soddisfazione dell'ultimo può distruggere quella del primo. Il campionamento con rifiuto verifica invece i vincoli congiuntamente e per costruzione non ammette questa classe di errori.
+
+\section{Il vincolo assente dalla lista, e il grado di libertà che nessuno aveva contato}
+
+Nella condizione del ciclo la lucentezza non compare, e questa assenza è la parte più istruttiva dell'intero meccanismo.
+
+L'identificativo dell'allenatore nelle generazioni 1 e 2 occupa sedici bit. In generazione 3 ne occupa trentadue, cioè un identificativo visibile più un identificativo segreto. L'identificativo segreto è dunque un valore che la conversione deve inventare in ogni caso, perché nella sorgente non esiste. E poiché la condizione di lucentezza dipende dallo XOR di quattro mezzi valori, di cui tre risultano ormai fissati nel momento in cui il valore di personalità è stato scelto, l'identificativo segreto è esattamente la variabile che decide la lucentezza a valle di tutto il resto.
+
+\begin{verbatim}
+    u16 shinyTest = TID ^ (PV & 0xFFFF) ^ (PV >> 16);
+    if (getIsShiny())        newPkmn->setSecretID(shinyTest);
+    else if (shinyTest < 8)  newPkmn->setSecretID(51691);
+    else                     newPkmn->setSecretID(0);
+\end{verbatim}
+
+Il primo ramo assegna all'identificativo segreto il valore che annulla lo XOR, rendendo l'esemplare lucente; il terzo assegna zero quando la condizione non rischia di verificarsi per caso; il secondo interviene nel caso in cui l'esemplare risulterebbe lucente per coincidenza pur non dovendolo essere, e assegna un valore arbitrario che rompe la condizione.
+
+Al di là del fatto tecnico esiste una lezione generale, e vale enunciarla perché si applica a qualunque problema di vincoli e non soltanto a questo. Un problema sovradeterminato non si risolve rendendo il solutore più abile: si risolve individuando il grado di libertà che nessuno aveva contato. In questo caso il grado di libertà era nascosto in un campo che si sarebbe potuto riempire con uno zero senza che alcuna verifica protestasse.
+
+\section{La circostanza fortunata, e perché il ponte punta alla generazione 3}
+
+Resta da spiegare per quale ragione tutto questo sia possibile, perché non era garantito e non lo è in generale. In generazione 3 i valori individuali sono memorizzati in un campo proprio, dentro la quarta sottostruttura, e non derivano dal valore di personalità. Dalla generazione 4 in avanti il legame fra i due passa attraverso il generatore pseudocasuale del metodo di incontro, e una coppia arbitraria di valore di personalità e valori individuali diventa riconoscibile come impossibile, cioè illegale agli occhi di qualunque verificatore.
+
+In generazione 3 quel legame, nel dato salvato, non esiste. Un convertitore può dunque scegliere i valori individuali per conservare le statistiche e il valore di personalità per conservare sesso, lucentezza e forma, in modo indipendente. È precisamente questa indipendenza a rendere fattibile una conversione fedele, ed è la ragione tecnica per cui il ponte esiste verso la generazione 3 e non verso una successiva. Non è una preferenza di comodo né un limite dell'implementazione: è una proprietà del formato di destinazione.
+
+\section{Che cosa il codice pubblicato fa davvero, e che cosa non fa}
+
+Su questo punto la lettura del codice ha prodotto una correzione rispetto a quanto la documentazione di ricerca del progetto affermava, e la correzione modifica la stima del lavoro residuo, dunque non è un dettaglio bibliografico.
+
+La documentazione del sistema di conversione descrive quattro metodi, denominati ORIGINAL, FAITHFUL, LEGAL e VIRTUAL, con una tabella campo per campo che specifica come ciascuno tratti ogni dato. Nel codice sorgente della versione corrente i nomi di quei quattro metodi non compaiono affatto, e il comportamento implementato è quello del solo ORIGINAL: i valori individuali sono generati casualmente e i valori di allenamento sono azzerati. La verifica è stata condotta cercando le occorrenze dei quattro nomi nell'intero repository, e la loro unica presenza è nel file di documentazione.
+
+La tabella dei quattro metodi è dunque una specifica e non la descrizione di codice esistente. Chi desideri la conversione fedele delle statistiche, cioè il raddoppio dei valori individuali e la conversione della Stat Experience entro il tetto complessivo, deve implementarla, in qualunque delle opzioni architetturali discusse nel capitolo~\ref{cap:opzioni} scelga di lavorare. Non è un componente che si eredita adottando una libreria, ed è la ragione per cui il carico di lavoro comune a tutte le opzioni è maggiore di quanto una lettura della sola documentazione suggerirebbe.
+
+Restano tre conversioni numeriche non banali, e il codice pubblicato dice su queste qualcosa che la sua documentazione non dice. I valori individuali vanno da zero a quindici in origine e da zero a trentuno in destinazione, dunque la regola naturale sarebbe il raddoppio, ma la funzione \file{convertIVs} genera sei valori dal generatore pseudocasuale e non li deriva affatto da quelli di partenza. Le cinque Stat Experience vanno da zero a sessantacinquemilacinquecentotrentacinque e i sei valori di allenamento da zero a duecentocinquantacinque con tetto complessivo di cinquecentodieci, e \file{convertEVs} li azzera tutti. Il terzo caso è la statistica Speciale, che dovrebbe produrre due valori individuali e due di allenamento, e la questione non si pone perché i primi sono casuali e i secondi nulli.
+
+\section{La Stat Experience verso i valori di allenamento: una derivazione}
+
+\begin{daverificare}
+Quanto segue è una derivazione condotta in questo lavoro, fondata su un dato di fonte e sulla forma delle due formule, e non è la trascrizione di una formula pubblicata da altri. Resta da verificare contro un'implementazione, e finché la verifica non è avvenuta non entra in codice.
+\end{daverificare}
+
+Il problema è quello registrato fra i punti aperti del progetto: le generazioni 1 e 2 misurano l'allenamento con la Stat Experience, un valore a sedici bit per statistica, mentre la generazione 3 lo misura con valori a otto bit per statistica, con un tetto individuale di duecentocinquantadue e un tetto complessivo di cinquecentodieci. L'affermazione che nessuna implementazione pubblica converta l'una negli altri non deriva da una lettura d'insieme ma da una verifica puntuale sul sorgente della libreria di conversione della comunità, condotta il 26 agosto 2026 sul suo stato del 22 agosto 2026. La funzione esiste, si chiama \file{convertEVs}, e il suo corpo è un ciclo che scrive zero in tutti e sei i campi \cite{pccs}.
+
+\begin{verbatim}
+bool GBPokemon::convertEVs(Gen3Pokemon *newPkmn)
+{
+    for (int i = 0; i < 6; i++)
+    {
+        newPkmn->setEV((Stat)i, 0);
+    }
+    return true;
+};
+\end{verbatim}
+
+Accanto a essa, \file{convertContestConditions} azzera le cinque statistiche da gara e la lucentezza estetica, che è l'unica scelta sensata perché quei dati non esistono a monte, mentre \file{convertPokerus} copia ceppo e giorni residui, dunque il Pokérus attraversa la conversione. La citazione di \file{convertEVs} chiude la questione con maggiore efficacia di qualunque ricerca bibliografica: la conversione non è implementata da nessuno, e chi la desidera la scrive. La ricerca nel canale dei disassemblati e quella su Reddit, entrambe del 26 agosto 2026, non hanno individuato la formula, e nel secondo caso si è anche constatato che la domanda era stata posta pubblicamente sotto l'annuncio dello strumento senza ricevere risposta.
+
+La medesima ricerca ha però individuato il dato da cui la conversione si deduce, ed è un'affermazione precisa di un partecipante impegnato nell'ottimizzazione della funzione di radice quadrata di un disassemblato: per raggiungere il massimo di sessantatré punti di statistica al centesimo livello non occorre giungere a sessantacinquemilacinquecentotrentacinque di Stat Experience, perché bastano sessantatré per quattro, il tutto elevato al quadrato, cioè sessantatremilacinquecentoquattro, e per come il calcolo è realizzato ne bastano in pratica sessantatremiladue.
+
+Il numero sessantatremilacinquecentoquattro è quello che chiude il ragionamento, perché la sua radice quadrata è duecentocinquantadue, cioè esattamente il tetto individuale della generazione 3. Da qui la struttura del problema diventa visibile.
+
+Nelle generazioni 1 e 2 il contributo dell'allenamento a una statistica passa per la radice quadrata della Stat Experience divisa per quattro, e satura a sessantatré punti. Nella generazione 3 il contributo passa per i valori di allenamento divisi per quattro, e satura anch'esso a sessantatré punti perché il tetto per statistica è duecentocinquantadue. Le due formule possiedono dunque la medesima forma e il medesimo tetto, e differiscono soltanto per il fatto che una prende la radice quadrata del valore memorizzato e l'altra lo impiega così com'è. La conversione che conserva il contributo alla statistica è allora la radice quadrata:
+\[
+EV = \min\left(252, \left\lfloor \sqrt{StatExp} \right\rfloor \right)
+\]
+
+La verifica ai bordi torna, e vale condurla perché è l'unica prova possibile in assenza di codice. Una Stat Experience di sessantatremilacinquecentoquattro produce un valore di duecentocinquantadue, cioè il massimo diventa il massimo. Una Stat Experience nulla produce un valore nullo. Una Stat Experience di sessantacinquemilacinquecentotrentacinque, che è il massimo rappresentabile e si colloca sopra la saturazione, darebbe una radice di duecentocinquantacinque e viene troncata a duecentocinquantadue, il che è corretto perché entrambi i valori corrispondono ai sessantatré punti di saturazione. Ne segue anche che l'intervallo compreso fra sessantatremilacinquecentoquattro e sessantacinquemilacinquecentotrentacinque è informazione che la generazione 3 non è in grado di rappresentare, e che dunque si perde: è una perdita reale ma innocua, perché non produce effetto su alcuna statistica.
+
+\subsection{Il vincolo complessivo, e la politica che ne consegue}
+
+Resta il tetto sulla somma, e non è un dettaglio. La generazione 3 impone che la somma dei sei valori di allenamento non superi cinquecentodieci, mentre le generazioni 1 e 2 non impongono alcun tetto complessivo alla Stat Experience: un esemplare allenato a lungo può presentare tutte e cinque le Stat Experience al massimo, che convertite darebbero duecentocinquantadue per cinque, cioè milleduecentosessanta, due volte e mezzo il consentito.
+
+La conversione fedele delle statistiche è dunque impossibile in generale, e questo non costituisce un difetto della formula ma una proprietà del problema: la generazione 3 ha deliberatamente reso l'allenamento un gioco a somma zero, in cui migliorare una statistica costa un'altra, e le generazioni precedenti no. Nessuna trasformazione può conservare un'informazione che la destinazione ha per costruzione deciso di non rappresentare.
+
+Ne segue che la conversione necessita di una politica dichiarata per il caso in cui il totale sfori, e che quella politica è una scelta discutibile nel senso preciso in cui questo lavoro impiega il termine, cioè un parametro dello strato di conversione e non una costante sepolta nel codice. Le tre politiche sensate sono la riduzione proporzionale, che conserva i rapporti fra le statistiche; il troncamento secondo un ordine di priorità dichiarato dall'utente; il rifiuto della conversione con richiesta di una decisione. La prima conserva la forma dell'esemplare e ne abbassa il livello complessivo di allenamento, la seconda conserva alcune statistiche intatte e sacrifica le altre, la terza non decide al posto di nessuno. Nessuna delle tre è la risposta giusta in assoluto, ed è esattamente il genere di specificazione che la tabella dei quattro metodi avrebbe dovuto fornire.
+
+Sul dato di partenza va formulato un ultimo avvertimento. La cifra sessantatremiladue riportata dalla medesima fonte, minore di sessantatremilacinquecentoquattro, indica che l'implementazione reale del calcolo non coincide esattamente con la radice quadrata matematica, presumibilmente per il modo in cui è scritta la routine di approssimazione nel gioco. La derivazione qui condotta impiega la radice quadrata matematica, che è la forma pulita; se la conversione dovesse un giorno essere esatta fino a riprodurre il comportamento del gioco anche in quel margine, la routine va letta nel disassemblato e replicata anziché approssimata. Il punto è registrato fra quelli aperti.
+
+\section{Un avvertimento sul distinguere le fonti}
+
+Nel medesimo file esiste un caso speciale che, per una specie precisa e per due impronte hash FNV-1a specifiche del nome dell'allenatore e del soprannome, forza tutti i valori individuali al massimo \cite{pccs}. È una scelta arbitraria di quella implementazione, con ogni probabilità un omaggio, e non una regola del formato.
+
+Costituisce un promemoria efficace della ragione per cui la gerarchia delle fonti descritta nel capitolo~\ref{cap:fonti} collochi il gioco sopra lo strumento: un'implementazione di riferimento dimostra che una cosa è possibile, non che sia il modo corretto di farla. Chi trattasse quel caso speciale come parte del formato lo replicherebbe, propagando in una nuova implementazione una decisione che nessuno ha mai inteso come normativa.

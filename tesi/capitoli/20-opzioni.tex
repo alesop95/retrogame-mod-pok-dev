@@ -1,0 +1,107 @@
+% =====================================================================
+% tesi/capitoli/20-opzioni.tex
+% =====================================================================
+% copre: docs/30-opzioni-implementative.md
+% copre: pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md#12-cosa-implica-tutto-questo-per-la-scelta-fra-le-quattro-opzioni
+% ---------------------------------------------------------------------
+
+\chapter{Le quattro strade, e quanto costano davvero}
+\label{cap:opzioni}
+
+Questo capitolo raccoglie il materiale decisionale sul modo di realizzare il ponte. La decisione non è presa, e questo capitolo non la prende: fornisce gli elementi per prenderla, e dichiara come tale l'inclinazione di chi lo ha scritto.
+
+\section{Perché il ponte non esiste}
+
+Ogni generazione della serie ha storicamente consentito di portare avanti i propri esemplari nella successiva attraverso un meccanismo ufficiale: il Time Capsule fra la prima e la seconda, il Pal Park fra la terza e la quarta, e poi la catena che giunge fino ai servizi in rete. Fra la seconda e la terza quel meccanismo non è mai esistito.
+
+Non si tratta di una dimenticanza. Il cambio di piattaforma ha comportato un cambio completo del formato dei dati, come i capitoli~\ref{cap:identita} e~\ref{cap:cifratura} documentano, e la ricostruzione dei campi mancanti non possiede una risposta unica, come il capitolo~\ref{cap:conversione} dimostra. Un ponte ufficiale avrebbe dovuto assumere pubblicamente decisioni arbitrarie su dati che i giocatori consideravano propri, e questa è una spiegazione sufficiente della sua assenza.
+
+Chi desideri quel ponte deve dunque costruirlo, e la comunità lo ha fatto più volte in modi diversi.
+
+\section{Il progetto di riferimento, e tre fatti che cambiano le aspettative}
+
+Lo strumento di riferimento è un programma non ufficiale per Game Boy Advance, sotto licenza permissiva, che trasferisce esemplari dai titoli delle prime due generazioni verso quelli della terza \cite{ptgb}. Il lato di partenza è supportato nelle versioni inglesi, il lato di destinazione anche in altre quattro lingue. Impiega come dipendenza per la conversione la libreria discussa nel capitolo~\ref{cap:conversione}.
+
+Tre fatti su questo progetto vanno tenuti in evidenza perché modificano le aspettative di chi lo consideri come soluzione già disponibile. Il primo è che il trasferimento è a senso unico e distruttivo sulla sorgente: l'esemplare trasferito viene rimosso dal gioco di partenza, esattamente come accade con i meccanismi ufficiali delle generazioni successive, e sia il salvataggio di partenza sia quello di arrivo vengono modificati. Il secondo è che non funziona con cartucce contraffatte, e il modo in cui non funziona è la perdita degli esemplari trasferiti: la ragione tecnica è esposta nel capitolo~\ref{cap:esecuzione} e risiede negli indirizzi assoluti contenuti nel payload. Il terzo è che non esiste emulatore su cui provarlo, con la precisazione stabilita nel capitolo~\ref{cap:multiboot} su ciò che invece si emula.
+
+Dalla cronologia delle versioni pubblicate emergono due informazioni che confermano dall'esterno quanto ricostruito leggendo il codice, e la loro natura di conferma indipendente vale segnalarla. La prima è che il supporto a uno dei titoli è passato per un punto di ingresso di esecuzione di codice nuovo e dedicato, circostanza coerente con il fatto che il payload dipenda dalla variante di ROM. La seconda è che una versione è stata dedicata a un difetto critico di corruzione dei dati legato al byte \hx{FE}, cioè esattamente il byte che il protocollo del cavo non può trasmettere e per aggirare il quale esiste la lista di correzione: il meccanismo descritto nel capitolo~\ref{cap:cavo} non è dunque una curiosità storica, è una sorgente reale di difetti.
+
+L'autore ha pubblicato una serie di articoli sul processo di sviluppo \cite{devlog-ptgb}, che ripercorre in dieci parti l'architettura della console, il formato di salvataggio, il protocollo del cavo, la tecnica di esecuzione di codice, il motore di testo, il trasferimento e la gestione dell'orologio. È la fonte più ricca sulle scelte implementative, per una ragione che vale enunciare come criterio bibliografico generale: il codice dice che cosa un programma fa, gli articoli dicono perché lo fa in quel modo, e la seconda informazione non è ricavabile dalla prima.
+
+\section{Le quattro opzioni}
+
+La prima opzione consiste nell'impiegare o nel contribuire allo strumento di riferimento così come è. È la strada che produce un risultato funzionante immediatamente, al costo di procurarsi l'hardware elencato nel capitolo~\ref{cap:multiboot}. Qualora l'obiettivo comprenda lo sviluppo, il repository presenta questioni aperte e un supporto linguistico incompleto, dunque il contributo è possibile.
+
+La seconda opzione è uno strumento software su calcolatore che legge un dump del salvataggio di partenza, applica la conversione e scrive un salvataggio di destinazione. Richiede un lettore di cartucce per ottenere e riscrivere i dump, che il progetto già possiede per il caso di studio del capitolo~\ref{cap:smeraldo}, e non richiede né cavo né multiboot né scambio a caldo. È la più semplice da collaudare e la più distante dal vincolo del solo hardware originale, perché il trasferimento avviene su un calcolatore. Esiste per questa strada un precedente funzionante \cite{pokerom-trader}, che esegue uno scambio fra due file di salvataggio delle prime due generazioni con ricalcolo dei checksum e regole di evoluzione da scambio: la sua esistenza dimostra che la strada arriva a un risultato, e la sua gestione dell'evoluzione da scambio segnala una regola che questo lavoro non ha ancora considerato.
+
+La terza opzione è la riproduzione integrale del ponte, con implementazione propria sia del lato che esegue codice sul Game Boy sia del programma ricevente sulla console. È la più impegnativa e la più istruttiva, e richiede la toolchain di compilazione per quell'architettura, la conoscenza dell'assembly del Game Boy per il payload, e hardware fisico per ogni prova del passaggio finale.
+
+La quarta opzione è un dispositivo intermedio su microcontrollore che parla il protocollo seriale del Game Boy da un lato e comunica con un calcolatore dall'altro. Il precedente più prossimo è lo strumento che con un Arduino ottiene lettura e scrittura della memoria della cartuccia passando dal cavo \cite{pksploit}, e questa opzione possiede una proprietà notevole: eliminerebbe la necessità di un lettore di cartucce, perché il canale di accesso diventa il connettore del cavo.
+
+\subsection{Il precedente che abbassa il costo della quarta opzione}
+
+A questa opzione si è aggiunto un riferimento individuato leggendo una discussione che era rimasta fra le fonti non lette, e la circostanza costituisce un buon argomento contro il lasciarne indietro. L'organizzazione CableClub pubblica un progetto che è il precedente più avanzato che questo lavoro conosca per questa strada \cite{cable-link}.
+
+Contiene un circuito stampato completo in formato sorgente, con schema, sbroglio e file di produzione pronti, e un firmware per Raspberry Pi Pico che apre la porta seriale a cinquecento kilohertz, cioè esattamente il massimo che la documentazione dell'hardware dichiara riconosciuto dal Game Boy monocromatico. Il file che descrive il protocollo porta la macchina a stati della generazione 1 con tutte le sue costanti, e come il capitolo~\ref{cap:cavo} documenta coincidono una per una con quelle ricavate dal disassemblato. La licenza è permissiva e il lavoro risale al 2021.
+
+Il significato pratico per una decisione è preciso: la quarta opzione non parte da zero, parte da un circuito progettato e da un firmware che ha completato scambi fra Game Boy reali, su un microcontrollore di costo trascurabile e ampiamente documentato. Ciò che resta da scrivere è la parte che quel firmware non compie, cioè la conversione, che come il capitolo~\ref{cap:ponte} stabilisce risiede sul calcolatore. Resta vero che occorre saper cablare o saldare, e resta valida l'obiezione sullo spirito del progetto di riferimento, ma il costo di sviluppo di questa opzione è considerevolmente inferiore a quanto appariva prima della lettura di quel repository.
+
+\section{Come tre fatti recenti spostano il calcolo}
+
+La stratificazione descritta nel capitolo~\ref{cap:ponte} mostra che gli strati dal primo al quarto sono identici in tutte e quattro le opzioni, e che cambia soltanto il quinto, cioè il trasporto. Questo è il primo fatto che sposta il calcolo, e sposta anche l'ordine dei lavori: non esiste ragione di attendere la decisione per cominciare, perché la maggior parte del lavoro non dipende da essa.
+
+Il secondo è che la conversione fedele delle statistiche non esiste in alcuna implementazione pubblica, perché la libreria di riferimento documenta quattro metodi e ne implementa uno. Qualora la fedeltà sia un obiettivo, quel componente va scritto in ogni caso, anche scegliendo la prima opzione, che dunque non è più la strada a costo di sviluppo nullo che appariva.
+
+Il terzo è che il protocollo del cavo si collauda su emulatore, come il capitolo~\ref{cap:collaudo} espone, con la riserva che quella verifica contro un gioco reale richiede una ROM, e che la ROM richiede il dump di una cartuccia propria. La terza e la quarta opzione restano dunque le sole che richiedono hardware per il passaggio finale, e il loro strato di protocollo è scrivibile immediatamente ma verificabile fino a un certo punto.
+
+\section{Il primo ponte, per come lo racconta il suo autore}
+
+Del primo ponte fra generazioni non esiste documentazione scritta: esiste un video, la cui trascrizione è ora in archivio \cite{video-goppier}. Va letta sapendo che è una trascrizione automatica condensata, dunque vale come fonte di livello quattro nella scala esposta nel capitolo~\ref{cap:fonti} e i suoi numeri vanno verificati, ma il quadro architetturale che ne emerge è chiaro e in un punto sorprende.
+
+Il dispositivo è un circuito su stampato proprio, con un microcontrollore, un pulsante per l'ingresso dell'utente e un indicatore di stato. La conversione non è a senso unico: funziona in entrambe le direzioni, e nella direzione dalla terza generazione verso la seconda offre due politiche alternative, una che preserva le statistiche e una che preserva caratteristiche come il sesso. È una differenza sostanziale rispetto allo strumento di riferimento, che trasferisce in un senso solo e distrugge la sorgente, e mostra che la scelta della politica di conversione, discussa nel capitolo~\ref{cap:conversione}, può essere esposta all'utente anziché fissata.
+
+Sulle scelte di conversione: il gioco di origine viene forzato a un titolo specifico, il valore di personalità viene derivato dai valori individuali, le mosse e gli oggetti inesistenti in destinazione vengono rimossi, e le specie introdotte nella terza generazione appaiono nella seconda come Ditto, che è una soluzione elegante al problema di una specie che nella destinazione non esiste: la sceglie fra le specie esistenti quella la cui semantica di gioco è precisamente l'assunzione dell'identità di un'altra.
+
+Sul protocollo l'autore riporta due difficoltà che valgono come avvertimento per chi implementerà. La sincronizzazione fra i due lati richiede un ritardo, perché i dati giungono completi in tempi diversi, e per annullare uno scambio e ritentare occorre inviare dati di riempimento. Dichiara inoltre di avere scritto una ROM per Game Boy Advance che dialoga direttamente con i giochi della seconda generazione, il che significa che anche la sua soluzione possiede un lato software su console e non soltanto il dispositivo intermedio.
+
+\subsection{Una prova che sposterebbe il confronto, e che va verificata}
+
+Nella chiusura dell'aggiornamento di sviluppo, letto il 25 agosto 2026, il medesimo autore mostra una circostanza che il progetto non aveva messo in conto: una ROM per Game Boy Advance, scritta da lui, che comunica direttamente con i giochi della seconda generazione impiegando il cavo originale, senza alcun hardware interposto. La presenta come dimostrazione di fattibilità, cioè come prova che il protocollo di scambio della seconda generazione si possa rispettare da un Game Boy Advance, e rimanda i dettagli a un video successivo che al momento non esiste.
+
+\begin{daverificare}
+Se l'affermazione è vera, e va detto che è una testimonianza di terzi non verificata su codice pubblico, il confronto fra le opzioni cambia, perché l'ostacolo che teneva alta la valutazione dell'opzione con hardware dedicato era proprio la convinzione che i due lati non potessero dialogare direttamente. Resterebbe il problema elettrico dei livelli di tensione, e resterebbe il vincolo di sincronizzazione descritto nel capitolo~\ref{cap:cavo}, che non dipende da chi svolga il ruolo di intermediario ma dalla forma dei due protocolli. Ciò che cadrebbe è la necessità del microcontrollore come traduttore, e con essa il costo di allestimento più alto fra le quattro strade.
+\end{daverificare}
+
+La verifica non è rimandabile a valle di una decisione: il video precedente dello stesso autore, che dovrebbe contenere la parte sul circuito e sulla questione del protocollo, è ancora da trascrivere perché privo di sottotitoli di qualunque tipo, ed è registrato fra le pendenze come il più importante degli arretrati.
+
+\section{Un'inclinazione, dichiarata come tale}
+
+La decisione non è presa e questo capitolo non la prende, ma trattenere una preferenza motivata non giova a nessuno. Fra le quattro, la quarta opzione è quella che convince maggiormente chi ha condotto questo lavoro, per tre ragioni. La logica resta dove si collauda adeguatamente, cioè su un calcolatore, anziché finire dentro una console in cui ogni prova costa un ciclo di compilazione e un collegamento fisico. L'hardware da costruire è minimo, perché il microcontrollore compie una sola operazione. E possiede l'effetto collaterale di rendere superfluo il lettore di cartucce, perché il canale di accesso alla memoria diventa il connettore del cavo, come il precedente pubblico dimostra.
+
+Contro la quarta opzione valgono due obiezioni oneste. Richiede saldature o almeno cablaggio, e richiede di scrivere firmware, che è un mestiere diverso dallo scrivere codice su calcolatore. E si allontana dallo spirito del progetto di riferimento, che perseguiva un'esperienza interamente contenuta nelle console: un dispositivo interposto funziona ma non è la medesima cosa. Chi decide deve pesare anche questo, che non è un requisito tecnico e conta comunque.
+
+\section{Che cosa si può fare senza hardware}
+
+La parte realizzabile senza toccare alcun dispositivo è più ampia di quanto appaia, e conviene esporla in ordine di utilità decrescente perché costituisce il piano di lavoro effettivo.
+
+Al primo posto sta la verifica di conformità con un'implementazione indipendente, perché è l'unica operazione che può falsificare il lavoro già svolto e costa poco: si sintetizza un salvataggio con il proprio scrittore, con valori distinti e riconoscibili in ogni campo, si apre con l'editor di riferimento e si confronta. Il limite di questa verifica è quello che il capitolo~\ref{cap:collaudo} enuncia sul confronto con un'implementazione altrui.
+
+Al secondo posto sta la tabella dagli indici interni della prima generazione ai numeri del Pokédex nazionale, generata dal disassemblato con il medesimo metodo delle tabelle dei caratteri. È l'ultimo dato costante che sarebbe tentante trascrivere a mano, ed è il luogo in cui un errore silenzioso produrrebbe il danno maggiore, perché scambierebbe una specie con un'altra.
+
+Al terzo posto sta il lato della terza generazione, cioè struttura cifrata, permutazione, checksum e contenitore del salvataggio con le sue sezioni. Una parte della logica del contenitore esiste già ed è provata dentro lo strumento di diagnosi dello zaino: va promossa nel pacchetto anziché riscritta.
+
+Al quarto posto stanno le tabelle di dati che la conversione richiede e che oggi non esistono: soglie di sesso per specie, curve di esperienza per il calcolo del livello, mosse apprendibili per filtrare quelle inesistenti in destinazione, statistiche base per ricalcolare le statistiche derivate. Tutte estraibili dai disassemblati, tutte da generare e non da trascrivere.
+
+Al quinto posto sta lo strato di conversione con il proprio risolutore di vincoli, che è collaudabile in modo quasi esaustivo senza alcun dato esterno: per ogni combinazione di natura, sesso e abilità richieste si verifica che un valore di personalità esista e che le proprietà derivate corrispondano a quelle richieste.
+
+Al sesto posto stanno i vettori di prova esternalizzati su file, che costituiscono il debito tecnico registrato nel capitolo~\ref{cap:ponte} e che conviene pagare prima che la suite cresca.
+
+\section{Che cosa il lettore blocca, compresa una dipendenza non ovvia}
+
+Il lettore di cartucce blocca evidentemente la lettura e la scrittura di una cartuccia reale, e con esse qualunque prova da un capo all'altro su dati reali.
+
+Meno evidentemente blocca anche il collaudo del protocollo del cavo su emulatore, ed è una precisazione che corregge una formulazione impiegata altrove nella documentazione del progetto. È vero che l'emulatore espone il cavo su una connessione TCP e che dunque il protocollo delle prime due generazioni si collauda in emulazione, ma per collaudarlo contro un gioco reale serve la ROM di quel gioco, e ottenerla legittimamente significa produrre il dump di una cartuccia propria, che richiede il lettore. In sua assenza si può scrivere il protocollo e provarlo soltanto per auto-consistenza, il che verifica che il codice sia coerente con sé stesso e non che sia conforme al gioco. È una prova debole e va chiamata con il proprio nome.
+
+\section{La sequenza che ne consegue}
+
+Quanto segue non è una decisione ma un ordine di lavoro, e resta valido qualunque decisione giunga. Anzitutto si costruiscono i dati generati e i lettori e scrittori delle tre generazioni, collaudandoli con la prova di simmetria descritta nel capitolo~\ref{cap:collaudo}, perché questo è il lavoro comune e non richiede nulla. Poi si scrive la conversione con le sue politiche esplicite, che è il componente che nessuno fornisce già fatto. Poi, in parallelo alla ricognizione dell'hardware, si implementa il protocollo del cavo contro l'emulatore. Soltanto a quel punto la scelta fra le quattro opzioni diventa una scelta su come chiudere l'ultimo tratto, e si assume conoscendo il costo di ciascuna anziché stimandolo.

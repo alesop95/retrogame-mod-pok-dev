@@ -1,0 +1,98 @@
+% =====================================================================
+% tesi/capitoli/06-strutture-gen1.tex
+% =====================================================================
+% copre: pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md#formato-dei-dati-pokemon-nelle-generazioni-1-2-e-3
+% copre: pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md#1-tre-invarianti-da-fissare-prima-di-leggere-qualsiasi-offset
+% copre: pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md#2-generazione-1-struttura-del-pokemon
+% copre: pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md#8-indici-di-specie-tre-spazi-di-numerazione-diversi
+% ---------------------------------------------------------------------
+
+\chapter{Le tre invarianti, e la struttura della generazione 1}
+\label{cap:gen1}
+
+La descrizione byte per byte delle strutture dati costituisce il nucleo documentale di questo lavoro, ed è quella su cui poggia ogni riga di codice del ponte fra generazioni. La sua stesura ha seguito un vincolo di provenienza che va dichiarato prima dei contenuti, perché è ciò che ne stabilisce l'autorità: ogni valore riportato in questo capitolo e nei tre che seguono è stato letto nei disassemblati e nelle decompilazioni del gioco originale, e non nelle fonti enciclopediche. Dove le due classi di fonti divergevano, il valore adottato è quello del disassemblato e la divergenza è annotata nel punto in cui si presenta. Il criterio ha una giustificazione strutturale: il gioco viene compilato a partire da quei file, dunque essi non descrivono il formato, lo determinano.
+
+\section{Le tre invarianti da fissare prima di leggere un offset}
+
+Esistono tre proprietà che attraversano tutte le strutture di tutte le generazioni, e la loro conoscenza preventiva evita tre classi distinte di errore. La loro fonte è duplice: l'ordine dei byte dei due processori proviene dalla documentazione dell'hardware Game Boy \cite{pandocs} per lo Sharp LR35902 e da GBATEK \cite{gbatek} per l'ARM7TDMI, con l'inquadramento architetturale delle due macchine in Copetti \cite{copetti}; la distinzione fra struttura di box e struttura di squadra e la collocazione esterna dei nomi provengono dalle macro dei disassemblati \cite{pokered,pokecrystal,pokeemerald}.
+
+La prima invariante è l'ordine dei byte, trattata nel capitolo~\ref{cap:bit}: le generazioni 1 e 2 scrivono i campi multibyte in big-endian, dunque l'esperienza a tre byte e le statistiche a due byte si leggono dal byte più significativo, mentre la generazione 3 scrive tutto in little-endian.
+
+La seconda invariante è la distinzione fra struttura di box e struttura di squadra. In tutte e tre le generazioni la struttura conservata nel deposito è un prefisso di quella della squadra, e i campi in eccesso della squadra sono esattamente i valori derivati, cioè il livello, le statistiche calcolate e i punti salute correnti, che il gioco ricalcola quando l'esemplare esce dal box. La conseguenza operativa è asimmetrica, e l'asimmetria è utile: un convertitore che scrive nel box non deve calcolare quei campi, mentre uno che scrive nella squadra deve calcolarli tutti e correttamente. Il secondo caso è considerevolmente più rischioso, e questa osservazione da sola suggerisce quale delle due destinazioni scegliere quando entrambe sono ammissibili.
+
+La terza invariante riguarda la collocazione dei nomi, e non è un dettaglio di offset ma una differenza di architettura dei dati. Nelle generazioni 1 e 2 il soprannome dell'esemplare e il nome dell'allenatore originale non risiedono dentro la struttura: stanno in array paralleli, esterni a essa, indicizzati dalla posizione nella lista, accanto a una lista separata degli indici di specie. In generazione 3 risiedono invece dentro la struttura del singolo esemplare. La differenza cambia la forma del codice che li legge: nelle prime due generazioni si analizza una lista composta da quattro array paralleli, nella terza un array di record autocontenuti. Un lettore progettato per la seconda forma e adattato alla prima tende a perdere l'allineamento fra gli array, e la perdita si manifesta come nomi attribuiti all'esemplare sbagliato.
+
+\section{La struttura di un esemplare in generazione 1}
+
+La struttura di box occupa trentatré byte e quella di squadra quarantaquattro, e le due costanti sono dichiarate nel disassemblato come \file{BOXMON\_STRUCT\_LENGTH EQU \$21} e \file{PARTYMON\_STRUCT\_LENGTH EQU \$2c} \cite{pokered}. La forma canonica è la macro \file{box\_struct}, che conviene riportare nella sua forma originale perché è la definizione autorevole, insieme alla macro \file{party\_struct} che la estende.
+
+\begin{verbatim}
+box_struct:                      party_struct:
+    \1Species::    db              box_struct \1
+    \1HP::         dw              \1Level::      db
+    \1BoxLevel::   db              \1Stats::
+    \1Status::     db              \1MaxHP::      dw
+    \1Type1::      db              \1Attack::     dw
+    \1Type2::      db              \1Defense::    dw
+    \1CatchRate::  db              \1Speed::      dw
+    \1Moves::      ds NUM_MOVES    \1Special::    dw
+    \1OTID::       dw
+    \1Exp::        ds 3
+    \1HPExp::      dw
+    \1AttackExp::  dw
+    \1DefenseExp:: dw
+    \1SpeedExp::   dw
+    \1SpecialExp:: dw
+    \1DVs::        dw
+    \1PP::         ds NUM_MOVES
+\end{verbatim}
+
+Tradotta in offset assoluti, la struttura assume la forma della tabella~\ref{tab:gen1}. Gli offset della Stat Experience sono confermati in modo indipendente dalla tabella dei campi \file{hpStatExp}, \file{atkStatExp}, \file{defStatExp}, \file{speStatExp} e \file{spcStatExp} del Pokémon Cross-Generation Conversion System \cite{pccs}, che li dichiara rispettivamente a \hx{11}, \hx{13}, \hx{15}, \hx{17} e \hx{19} per la generazione 1. La conferma indipendente ha valore metodologico: due fonti che discendono dallo stesso codice ma sono state prodotte da autori diversi costituiscono un controllo reciproco sulla trascrizione.
+
+\begin{longtable}{@{}llp{4.6cm}p{5.4cm}@{}}
+\caption{Struttura di un esemplare in generazione 1, offset assoluti.}\label{tab:gen1}\\
+\toprule
+Offset & Dim. & Campo & Nota \\
+\midrule
+\endfirsthead
+\toprule
+Offset & Dim. & Campo & Nota \\
+\midrule
+\endhead
+\hx{00} & 1 & Indice di specie & indice interno, non numero del Pokédex \\
+\hx{01} & 2 & Punti salute correnti & big-endian \\
+\hx{03} & 1 & Livello di box & ridondante con \hx{21} nella squadra \\
+\hx{04} & 1 & Condizione di stato & campo di bit \\
+\hx{05} & 1 & Tipo 1 & copia denormalizzata del dato di specie \\
+\hx{06} & 1 & Tipo 2 & idem \\
+\hx{07} & 1 & Tasso di cattura & in generazione 2 diventa l'oggetto tenuto \\
+\hx{08} & 4 & Mosse da 1 a 4 & un byte di indice per mossa \\
+\hx{0C} & 2 & ID dell'allenatore originale & sedici bit, non trentadue \\
+\hx{0E} & 3 & Esperienza & intero a ventiquattro bit big-endian \\
+\hx{11} & 10 & Stat Experience & cinque campi da due byte: PS, Attacco, Difesa, Velocità, Speciale \\
+\hx{1B} & 2 & Valori individuali & quattro nibble \\
+\hx{1D} & 4 & PP delle quattro mosse & PP correnti e PP Up nel medesimo byte \\
+\hx{21} & 1 & Livello & soltanto struttura di squadra \\
+\hx{22} & 10 & Statistiche calcolate & PS massimi, Attacco, Difesa, Velocità, Speciale \\
+\bottomrule
+\end{longtable}
+
+\subsection{Le due trappole della struttura}
+
+Il doppio campo di livello, a \hx{03} e a \hx{21}, costituisce una trappola concreta e non teorica: il gioco impiega quello di squadra e ricalcola quello di box al momento del deposito, dunque un writer che ne aggiorni soltanto uno produce un esemplare che cambia livello quando entra o esce dal box. Il difetto è particolarmente sfuggente perché si manifesta a distanza dall'operazione che lo ha causato, e in una circostanza che chi ha scritto il writer non ha ragione di provare.
+
+Il byte a \hx{07} è l'altro punto sensibile, e la sua storia illumina una proprietà generale del riuso dei formati. In generazione 1 quel byte contiene il tasso di cattura, che è un dato di specie e non ha alcun senso conservare in una struttura per esemplare; nella medesima posizione la generazione 2 colloca l'oggetto tenuto. È precisamente questo riuso la causa del comportamento noto per cui il Time Capsule ufficiale fa comparire oggetti apparentemente casuali sugli esemplari che salgono dalla generazione 1: il valore non è casuale, è il tasso di cattura della specie reinterpretato come indice di oggetto. Un formato che riusa un campo per un significato diverso senza un contrassegno di versione trasforma ogni conversione in un'interpretazione, e l'interpretazione sbagliata resta valida.
+
+\subsection{L'impaccamento dei valori individuali}
+
+I valori individuali\footnote{\term{DV}, Determinant Value: nelle prime due generazioni il valore che determina il potenziale di una statistica, corrispondente agli IV della terza.} sono impaccati in due byte come quattro nibble. L'ordine è verificato sul sorgente, nella routine \file{CalcMonStatC} di \file{engine/pokemon/move\_mon.asm} \cite{pokecrystal}: il primo byte porta l'Attacco nel nibble alto e la Difesa nel nibble basso, il secondo la Velocità nel nibble alto e la statistica Speciale nel nibble basso. Il valore individuale dei punti salute non è memorizzato, e la sua derivazione è scritta come commento nel disassemblato stesso, in una forma che vale più di qualunque parafrasi e che il capitolo~\ref{cap:identita} discute nelle sue conseguenze.
+
+La medesima routine espone un secondo fatto strutturale, che non è documentato come tale in alcuna fonte secondaria e che è emerso dalla lettura del sorgente: sia l'Attacco Speciale sia la Difesa Speciale si diramano al medesimo ramo \file{.Special}. In generazione 2 le due statistiche sono dunque separate nel risultato ma condividono un solo valore individuale e una sola Stat Experience, e la conversione verso la generazione 3, che invece ne prevede due indipendenti, deve produrre due valori da uno.
+
+Ogni byte di PP contiene due informazioni, secondo lo schema descritto nel capitolo~\ref{cap:bit}: i sei bit meno significativi sono i punti potenza correnti, da zero a sessantatré, e i due più significativi il numero di incrementi permanenti applicati, da zero a tre. In generazione 3 il numero di incrementi si sposta in un campo dedicato all'interno della sottostruttura della crescita, dunque la conversione deve smontare questo byte e distribuirne le due metà su due destinazioni distinte.
+
+\subsection{La forma della lista, e il terminatore che diventa una vulnerabilità}
+
+La lista della squadra è un record composto da un contatore di un byte, sette byte di indici di specie terminati da \hx{FF}, poi sei strutture da quarantaquattro byte, poi sei nomi di allenatore originale da undici byte, poi sei soprannomi da undici byte. La lista di un box possiede la medesima forma con venti elementi e strutture da trentatré byte.
+
+Il terminatore \hx{FF} nella lista di specie non è un elemento decorativo né una ridondanza rispetto al contatore: è la condizione di uscita dei cicli del gioco. La sua assenza, cioè la condizione in cui il ciclo non trova mai il valore che lo fermerebbe, è precisamente la primitiva su cui si costruisce l'esecuzione di codice arbitrario descritta nel capitolo~\ref{cap:esecuzione}. Vale la pena notare la struttura logica di questa circostanza, perché ricorre: un campo ridondante rispetto a un altro campo diventa una vulnerabilità nel momento in cui il codice si fida del secondo e ignora il primo.
