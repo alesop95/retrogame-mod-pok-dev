@@ -1,0 +1,104 @@
+% =====================================================================
+% tesi/capitoli/A6-appendice-segnale.tex
+% =====================================================================
+% copre: docs/40-appendice-matematica.md#6-1-quantizzatore-scalare
+% copre: docs/40-appendice-matematica.md#6-2-regione-di-quantizzazione
+% copre: docs/40-appendice-matematica.md#6-3-quantizzatore-uniforme-e-non-uniforme
+% copre: docs/40-appendice-matematica.md#6-4-saturazione
+% copre: docs/40-appendice-matematica.md#6-5-canale-sincrono-e-canale-asincrono
+% copre: docs/40-appendice-matematica.md#6-6-velocità-di-simbolo
+% copre: docs/40-appendice-matematica.md#6-7-occupazione-di-banda
+% copre: docs/40-appendice-matematica.md#6-8-ciclo-di-lavoro
+% copre: docs/40-appendice-matematica.md#6-9-trama-e-delimitazione-di-trama
+% copre: docs/40-appendice-matematica.md#6-10-trasparenza-a-byte-e-perché-lo-stuffing-è-inammissibile-su-quel-canale
+% verificato-al-commit: 0529162
+% ---------------------------------------------------------------------
+
+\chapter{Nozioni di teoria del segnale e delle telecomunicazioni}
+\label{app:segnale}
+
+Questa appendice fornisce il vocabolario con cui i capitoli~\ref{cap:cavo} e~\ref{cap:ldn} descrivono i due canali del lavoro e con cui il capitolo~\ref{cap:analisi} li misura. Contiene inoltre le nozioni sulla quantizzazione, che è il nome corretto dell'operazione che il capitolo~\ref{cap:conversione} chiama conversione, e il nome corretto porta con sé una teoria.
+
+\section{Quantizzatore scalare}
+
+Un quantizzatore scalare è una funzione che manda un insieme di valori, tipicamente ampio o continuo, in un insieme finito di valori di uscita, associando a ciascun ingresso quello che lo rappresenta. La quantizzazione è irreversibile per costruzione, poiché più ingressi condividono la medesima uscita.
+
+La nozione esiste, in questo lavoro, perché nomina correttamente un'operazione che si sarebbe potuta chiamare conversione: chiamandola conversione si cerca la formula migliore, chiamandola quantizzazione si sa in anticipo che una perdita esiste, che è misurabile, e che dipende dalla cardinalità dell'insieme di arrivo prima che dalla formula.
+
+L'esempio da svolgere è la conversione dell'allenamento fra la seconda e la terza generazione. Gli ingressi sono sei grandezze di \SI{16}{bit}, le uscite sei valori limitati a $252$ con tetto complessivo $510$: la funzione che porta dagli uni alle altre è un quantizzatore, e l'appendice~\ref{app:geometria} dimostra per conteggio che nessuna sua variante può essere iniettiva.
+
+\section{Regione di quantizzazione}
+
+La regione di quantizzazione associata a un valore di uscita è l'insieme degli ingressi che vengono mandati in quel valore. Le regioni sono a due a due disgiunte e la loro unione è l'intero insieme di ingresso: costituiscono cioè una partizione.
+
+La nozione esiste perché la verifica che le regioni partizionino lo spazio è il controllo di correttezza di un quantizzatore, ed è un controllo eseguibile per conteggio senza esaminare il codice: se le regioni si sovrapponessero la funzione non sarebbe ben definita, se lasciassero scoperto un valore quel valore non avrebbe immagine.
+
+L'esempio da svolgere è la verifica compiuta sul quantizzatore reale, ed è elegante perché impiega un'identità elementare. Le regioni non di saturazione contengono $63\,504$ valori di ingresso e quella di saturazione ne contiene $2\,032$, e la somma vale
+\begin{equation}
+63\,504 + 2\,032 = 65\,536 = 2^{16},
+\end{equation}
+cioè l'intero insieme dei valori di \SI{16}{bit}. La prima cifra si verifica osservando che la somma dei primi $n$ numeri dispari vale $n^2$, con $252^2 = 63\,504$: le regioni hanno ampiezza crescente in progressione dispari perché il valore di uscita è la radice quadrata dell'ingresso, e la radice quadrata ha inversa quadratica.
+
+\section{Quantizzatore uniforme e non uniforme}
+
+Un quantizzatore è uniforme quando tutte le sue regioni hanno la medesima ampiezza, e non uniforme altrimenti. Il secondo si progetta quando l'errore rilevante non è quello assoluto ma quello relativo, cioè quando uno scostamento fissato pesa più su un valore piccolo che su uno grande.
+
+La nozione esiste perché la scelta fra i due tipi non è una preferenza ma la conseguenza di quale grandezza porti l'informazione utile: nella trasmissione della voce si impiega un quantizzatore non uniforme poiché l'orecchio percepisce rapporti e non differenze, e in questo lavoro se ne incontra uno per una ragione diversa e altrettanto precisa.
+
+L'esempio da svolgere è il quantizzatore dell'allenamento, che non è uniforme perché la funzione che lo definisce è una radice quadrata: le regioni corrispondenti alle uscite piccole sono strette, quelle corrispondenti alle uscite grandi sono ampie, con ampiezze in progressione dispari come mostra la sezione precedente. La conseguenza pratica, registrata nel capitolo~\ref{cap:conversione}, è che l'errore di conversione non è costante sull'intervallo: due esemplari con allenamento modesto restano distinguibili, due con allenamento elevato vengono spesso confusi.
+
+\section{Saturazione}
+
+La saturazione è il comportamento di un quantizzatore quando l'ingresso eccede l'intervallo rappresentabile in uscita: tutti i valori oltre il limite vengono mandati nel massimo. La regione di saturazione è dunque ampia, e al suo interno l'informazione sull'ingresso è perduta interamente.
+
+La nozione esiste perché distingue due perdite di natura diversa che una misura complessiva confonde: nella zona non satura la perdita è graduale e degrada la distinzione fra ingressi vicini, nella zona satura non degrada nulla e azzera tutto, poiché tutti gli ingressi divengono indistinguibili.
+
+L'esempio da svolgere è il caso reale con i suoi numeri: la regione di saturazione contiene $2\,032$ dei $65\,536$ valori di ingresso, cioè il $3{,}1$ per cento. La lettura corretta di quella cifra è che per il $96{,}9$ per cento degli ingressi la conversione è una quantizzazione graduata e per il restante $3{,}1$ per cento è una cancellazione: un esemplare allenato al massimo utile e uno allenato molto oltre divengono il medesimo dato, e nessuna formula alternativa può evitarlo, poiché il formato di arrivo non possiede valori per rappresentare la differenza.
+
+\section{Canale sincrono e canale asincrono}
+
+Un canale è sincrono quando mittente e destinatario condividono un segnale di temporizzazione che stabilisce quando ciascun bit va letto, ed è asincrono quando quel segnale non esiste e il destinatario ricostruisce la temporizzazione dal flusso stesso, tipicamente da un bit di inizio e da una velocità concordata in anticipo.
+
+La nozione esiste perché la scelta fra i due determina l'intera struttura del protocollo: su un canale sincrono ogni impulso produce uno scambio e chi fornisce il clock decide quando, su un canale asincrono i due capi devono accordarsi prima sulla velocità e tollerare uno scostamento.
+
+L'esempio da svolgere è il collegamento del capitolo~\ref{cap:cavo}, che è sincrono e a scambio simultaneo: a ogni impulso un bit esce e un bit entra. Da questa proprietà discendono due fatti impiegati nel lavoro. Il primo è favorevole, e sblocca l'opzione con hardware intermedio del capitolo~\ref{cap:opzioni}: poiché chi fornisce il clock decide quando fornirlo, un microcontrollore può interrompersi fra un bit e il successivo senza compromettere il trasferimento. Il secondo è sfavorevole ed è oggetto dell'ultima sezione di questa appendice.
+
+\section{Velocità di simbolo}
+
+La velocità di simbolo è il numero di simboli trasmessi nell'unità di tempo e si misura in baud. Coincide con la velocità in bit al secondo soltanto quando ciascun simbolo porta un bit, che è il caso di tutti i collegamenti trattati in questo lavoro ma non il caso generale.
+
+La nozione esiste perché la distinzione fra velocità di simbolo e velocità di informazione è la sede di un errore ricorrente: un collegamento che trasmetta quattro bit per simbolo ha velocità di informazione quadrupla della velocità di simbolo, e confondere le due porta a dimensionare male il canale.
+
+L'esempio da svolgere è il calcolo del tempo di scambio. Con clock interno a \SI{8192}{Hz} e un bit per impulso la velocità è di \SI{8192}{bit} al secondo, cioè \SI{1024}{byte} al secondo, e i $424$ byte del blocco di scambio della prima generazione richiedono circa \SI{0,41}{s} per direzione; poiché il canale è a scambio simultaneo le due direzioni non si sommano. Con il clock più rapido disponibile sull'apparecchio successivo, \SI{524\,288}{Hz}, il medesimo blocco richiede circa \SI{6,5}{ms}, e il confronto fra le due cifre mostra che la velocità è un parametro di progetto e non un dettaglio.
+
+\section{Occupazione di banda}
+
+L'occupazione di banda è la porzione di spettro impiegata da un segnale. Per un collegamento numerico è legata alla velocità di simbolo, e per un collegamento radio determina quante trasmissioni possano coesistere senza interferire.
+
+La nozione esiste perché su un canale condiviso l'interferenza non è un guasto ma la conseguenza prevedibile di una scelta di piano: sapere quanta banda occupi una trasmissione consente di stabilire quante ne stiano in un intervallo, e quindi di dedurre un piano dei canali anziché adottarlo per convenzione.
+
+L'esempio da svolgere è la terna di canali della banda a \SI{2,4}{GHz}, che il capitolo~\ref{cap:analisi} dimostra forzata. Una trasmissione occupa circa \SI{22}{MHz}, i canali numerati distano \SI{5}{MHz} l'uno dall'altro, e nell'intervallo utile di circa \SI{60}{MHz} stanno dunque tre trasmissioni non sovrapposte, realizzate dai canali distanti almeno $22/5$, cioè cinque numeri: $1$, $6$ e $11$. La terna non è una scelta ma l'unica soluzione, e la differenza fra conoscere una convenzione e conoscerne la ragione è esattamente questa.
+
+\section{Ciclo di lavoro}
+
+Il ciclo di lavoro è la frazione di tempo in cui un dispositivo trasmette effettivamente, rispetto al tempo totale. Un ciclo di lavoro basso significa che il canale resta libero per gli altri nella maggior parte del tempo.
+
+La nozione esiste perché il costo di una trasmissione periodica non si misura dalla sua cadenza ma dal prodotto fra cadenza e durata: due sistemi che trasmettano con la medesima cadenza possono occupare il canale in misura del tutto diversa.
+
+L'esempio da svolgere è l'annuncio del protocollo di rete locale descritto nel capitolo~\ref{cap:ldn}, che invia una trama ogni \SI{100}{ms}. Se la trama dura una frazione di millisecondo il ciclo di lavoro è dell'ordine di qualche millesimo, cioè il canale resta libero per oltre il novantanove per cento del tempo. La conseguenza operativa registrata dal lavoro è che l'annuncio è compatibile con la presenza di altre reti sul medesimo canale, e che il fattore limitante di quel caso di studio non è la banda ma la disponibilità della modalità di ascolto sull'adattatore.
+
+\section{Trama e delimitazione di trama}
+
+Una trama è l'unità di dati che un protocollo trasmette come un tutto, e la delimitazione di trama è il meccanismo con cui il destinatario riconosce dove essa cominci e finisca: un valore riservato che segna il confine, una lunghezza dichiarata in testa, oppure una lunghezza fissa concordata.
+
+La nozione esiste perché un flusso di byte privo di delimitazione non è interpretabile, giacché il destinatario non sa dove tagliare. Ogni protocollo deve risolvere il problema, e le tre soluzioni hanno costi diversi in banda, in complessità e in robustezza.
+
+L'esempio da svolgere è la lista di correzione dello scambio della prima generazione, che adotta la terza soluzione. Che le altre due non siano disponibili su quel canale non è una supposizione ma un risultato, e la dimostrazione è nella sezione seguente.
+
+\section{Trasparenza a byte, e l'inammissibilità dello stuffing su canale sincrono}
+
+La trasparenza a byte è la proprietà per cui un protocollo può trasmettere qualunque valore di byte, compresi quelli impiegati come delimitatori, senza che il destinatario li confonda con essi. Si ottiene con il byte stuffing, cioè sostituendo ogni occorrenza del valore riservato all'interno dei dati con una sequenza di scampo di due byte, secondo il meccanismo codificato dalla RFC 1662.
+
+La nozione esiste perché il byte stuffing è la soluzione standard al problema della delimitazione, e conoscere la ragione per cui una soluzione standard non si applica è più utile che conoscere quella adottata.
+
+L'esempio da svolgere è la dimostrazione contenuta nel capitolo~\ref{cap:analisi}, che vale riesporre perché conclude con un'impossibilità e non con una preferenza. Lo stuffing produce trame di lunghezza variabile, poiché il numero di sostituzioni dipende dai dati. Su un canale sincrono a scambio simultaneo, però, i due capi si scambiano un byte a ogni impulso di clock, dunque nessuno dei due può inviarne più dell'altro: una trama di lunghezza variabile richiederebbe di annunciare in anticipo la propria lunghezza, e quell'annuncio sarebbe a sua volta uno scambio di lunghezza da concordare, il che rimanda il problema a se stesso senza terminare. La lunghezza fissa non è quindi una scelta conservativa ma l'unica compatibile con la natura del canale, ed è la ragione per cui la lista di correzione ha dimensione costante indipendente dal contenuto.

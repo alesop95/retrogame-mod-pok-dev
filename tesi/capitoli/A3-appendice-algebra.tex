@@ -1,0 +1,117 @@
+% =====================================================================
+% tesi/capitoli/A3-appendice-algebra.tex
+% =====================================================================
+% copre: docs/40-appendice-matematica.md#3-1-fattoriale
+% copre: docs/40-appendice-matematica.md#3-2-permutazione
+% copre: docs/40-appendice-matematica.md#3-3-gruppo-abeliano-e-la-commutatività-da-cui-segue-l-invarianza-del-checksum
+% copre: docs/40-appendice-matematica.md#3-4-anello-dei-resti-modulo-n
+% copre: docs/40-appendice-matematica.md#3-5-aritmetica-modulo-due-e-lo-xor-come-somma
+% copre: docs/40-appendice-matematica.md#3-6-teorema-cinese-del-resto
+% copre: docs/40-appendice-matematica.md#3-7-coefficiente-binomiale
+% copre: docs/40-appendice-matematica.md#3-8-combinazioni-con-ripetizione
+% copre: docs/40-appendice-matematica.md#3-9-principio-di-inclusione-ed-esclusione
+% copre: docs/40-appendice-matematica.md#3-10-principio-dei-cassetti
+% copre: docs/40-appendice-matematica.md#3-11-sistema-numerico-fattoriale-e-codice-di-lehmer
+% verificato-al-commit: 0529162
+% ---------------------------------------------------------------------
+
+\chapter{Nozioni di algebra e di combinatoria}
+\label{app:algebra}
+
+Questa appendice raccoglie le nozioni che sostengono i due risultati più sorprendenti del capitolo~\ref{cap:analisi}, cioè l'invarianza del checksum per permutazione e l'identificazione della tabella delle ventiquattro permutazioni con il codice di Lehmer, oltre agli strumenti di conteggio impiegati nell'appendice~\ref{app:geometria}.
+
+\section{Fattoriale}
+
+Il fattoriale di un intero non negativo $n$, scritto $n!$, è il prodotto degli interi da uno a $n$, con la convenzione $0! = 1$. Conta le disposizioni in fila di $n$ oggetti distinti.
+
+La nozione esiste perché il fattoriale è la cardinalità di base di ogni conteggio di disposizioni, e perché la sua crescita, più rapida di qualunque esponenziale, è la ragione per cui certi spazi si esplorano esaustivamente e altri no.
+
+L'esempio da svolgere è quello che serve al lavoro: $4! = 24$, cioè il numero di ordinamenti delle quattro sottostrutture di un esemplare della terza generazione, e dunque il numero di righe della tabella di permutazione del capitolo~\ref{cap:cifratura}. La convenzione $0! = 1$ non è arbitraria: è ciò che rende valida la formula del coefficiente binomiale nei casi estremi e ciò che chiude la decodifica del codice di Lehmer nell'ultima sezione di questa appendice.
+
+\section{Permutazione}
+
+Una permutazione di un insieme finito è una funzione biiettiva dell'insieme in sé, cioè un riordinamento che non perde né duplica elementi. Le permutazioni di $n$ elementi sono $n!$ e si compongono fra loro come funzioni.
+
+La nozione esiste perché distingue una trasformazione che riorganizza da una che altera. Una permutazione è invertibile, dunque non distrugge informazione, e questo fatto è impiegato nel capitolo~\ref{cap:analisi} in due direzioni opposte: la permutazione delle sottostrutture non aggiunge sicurezza perché non aggiunge incertezza, e la permutazione dei blocchi non viene rilevata dal checksum perché la somma non dipende dall'ordine.
+
+L'esempio da svolgere è la permutazione delle quattro sottostrutture, che il gioco determina dal resto della divisione del valore di personalità per ventiquattro. Poiché la funzione è biiettiva, chi conosce quel resto ricostruisce l'ordine originario applicando la permutazione inversa, e la procedura di lettura risulta simmetrica a quella di scrittura: è la proprietà su cui poggia la verifica di simmetria descritta nel capitolo~\ref{cap:collaudo}.
+
+\section{Gruppo abeliano, e l'origine dell'invarianza del checksum}
+
+Un gruppo è un insieme dotato di un'operazione associativa con elemento neutro, in cui ogni elemento ammette inverso. Il gruppo si dice abeliano, o commutativo, quando l'ordine degli operandi è indifferente, cioè quando $a + b = b + a$ per ogni coppia di elementi.
+
+La nozione esiste, in questo lavoro, perché nomina esattamente la proprietà responsabile di un difetto reale, e nominarla converte un'osservazione empirica in una dimostrazione. Il checksum della terza generazione somma parole nel gruppo abeliano degli interi modulo $2^{16}$; la somma di un insieme di addendi in un gruppo abeliano non dipende dall'ordine in cui gli addendi sono presi; dunque una permutazione dei blocchi produce la medesima somma. Non con probabilità elevata: sempre.
+
+L'esempio da svolgere è minimo e verificabile a mente, giacché la somma di $\mathtt{0x1234}$ e $\mathtt{0x5678}$ vale $\mathtt{0x68AC}$ in entrambi gli ordini. Il caso reale è la tabella delle ventiquattro permutazioni, dove le settecentodiciannove alterazioni consistenti in un riordinamento delle sottostrutture superano il controllo con probabilità unitaria, contro la probabilità $2^{-16}$ attribuibile a un'alterazione generica. È la ragione per cui il capitolo~\ref{cap:collaudo} conclude che il confronto con un'implementazione indipendente non è ridondante rispetto alla verifica di simmetria: le due difese sono cieche al medesimo genere di errore.
+
+\section{Anello dei resti modulo $n$}
+
+L'insieme $\{0, 1, \dots, n-1\}$ con addizione e moltiplicazione definite prendendo il resto del risultato ordinario forma l'anello dei resti modulo $n$. Ogni operazione resta all'interno dell'insieme, che è precisamente il comportamento di un registro di larghezza fissa quando trabocca.
+
+La nozione esiste perché il traboccamento non è un errore da evitare ma un'operazione ben definita di cui conoscere le regole: un'addizione a \SI{16}{bit} che trabocca non produce un valore indefinito, produce la somma modulo $2^{16}$, e i checksum dei giochi si appoggiano a questo fatto anziché combatterlo.
+
+L'esempio da svolgere è il checksum della terza generazione, che somma parole di \SI{16}{bit} conservandone i soli sedici bit inferiori: poiché $65535 + 3 = 65538$ e $65538 \bmod 65536 = 2$, la somma di $\mathtt{0xFFFF}$ e $\mathtt{0x0003}$ vale $\mathtt{0x0002}$. Il confronto con la prima generazione è istruttivo: là il controllo è a \SI{8}{bit} e la somma è nell'anello modulo $2^8$, dunque i valori distinti che il controllo può assumere sono $256$ anziché $65\,536$, ed è questa la ragione per cui la sua capacità di rilevazione è inferiore di due ordini di grandezza, come mostra il capitolo~\ref{cap:integrita}.
+
+\section{Aritmetica modulo due, e lo XOR come somma}
+
+L'aritmetica modulo due ha due soli elementi e in essa l'addizione coincide con l'or esclusivo, poiché $1 + 1 = 0$. Ogni elemento è il proprio opposto, dunque sommare due volte la medesima quantità la annulla.
+
+La nozione esiste perché spiega in una riga tutte le proprietà del cifrario a chiave scorrevole e della mascheratura delle quantità: cifratura e decifratura sono la medesima operazione, e ciò non è una comodità implementativa ma una conseguenza algebrica.
+
+L'esempio da svolgere è la mascheratura dello zaino descritta nel capitolo~\ref{cap:smeraldo}. La quantità in chiaro $q$ è memorizzata come $q \oplus k$ con $k$ la chiave di sicurezza, e in lettura si applica di nuovo la chiave ottenendo $(q \oplus k) \oplus k = q \oplus (k \oplus k) = q$. Dalla medesima proprietà discende il difetto misurato nel capitolo~\ref{cap:analisi}: se due dati distinti sono mascherati con la medesima chiave, il loro or esclusivo elide la chiave e lascia $d_1 \oplus d_2$, cioè una relazione fra i chiari ottenibile senza conoscere $k$.
+
+\section{Teorema cinese del resto}
+
+Il teorema stabilisce che, noti i resti di un intero rispetto a moduli a due a due coprimi, l'intero è determinato in modo unico modulo il prodotto dei moduli. La forma rilevante qui è la sua conseguenza negativa: se i moduli non sono coprimi, la determinazione non è unica e l'informazione dei due resti si sovrappone.
+
+La nozione esiste perché stabilisce quando due vincoli su resti diversi sono indipendenti e quando invece si intralciano, che è la domanda posta da chi voglia costruire un valore di personalità soddisfacente più condizioni simultaneamente.
+
+L'esempio da svolgere è quello del lavoro. Il sesso dipende dal resto modulo $256$, la natura dal resto modulo $25$, la permutazione dal resto modulo $24$. I moduli $256$ e $25$ sono coprimi, essendo potenze di due e di cinque, dunque i due vincoli sono indipendenti ed esiste un valore che li soddisfa entrambi, unico modulo $6400$. I moduli $256$ e $24$ condividono il fattore otto, dunque quei due vincoli non sono indipendenti e alcune combinazioni sono irrealizzabili. È la ragione per cui il risolutore di vincoli discusso nel capitolo~\ref{cap:conversione} non può trattare i vincoli come una lista da soddisfare uno alla volta.
+
+\section{Coefficiente binomiale}
+
+Il coefficiente binomiale conta i sottoinsiemi di $k$ elementi estraibili da un insieme di $n$ elementi distinti, senza riguardo all'ordine:
+
+\begin{equation}
+\binom{n}{k} = \frac{n!}{k!\,(n-k)!} .
+\end{equation}
+
+La nozione esiste perché separa il conteggio delle scelte da quello delle disposizioni: quando l'ordine è irrilevante, contare le disposizioni sovrastima di un fattore $k!$, e il coefficiente binomiale è la correzione di quel fattore.
+
+L'esempio da svolgere è un caso minimo verificabile a mano, $\binom{4}{2} = 6$, cioè i sei modi di scegliere due sottostrutture su quattro. Nel lavoro il coefficiente compare nella distribuzione binomiale dell'appendice~\ref{app:probabilita} e nel conteggio dei punti interi dell'appendice~\ref{app:geometria}.
+
+\section{Combinazioni con ripetizione}
+
+Il numero di modi in cui $s$ unità indistinguibili si distribuiscono fra $d$ contenitori distinti, ammettendo contenitori vuoti, vale
+
+\begin{equation}
+N(s,d) = \binom{s + d - 1}{d - 1}.
+\end{equation}
+
+La nozione esiste perché conta le soluzioni intere non negative di un'equazione a somma fissata, cioè le configurazioni di ogni sistema in cui una risorsa totale si ripartisce fra più campi. La dimostrazione classica è l'argomento delle barre e delle stelle: si dispongono le $s$ unità in fila e si inseriscono $d-1$ separatori, e ogni disposizione dei separatori fra i $s + d - 1$ posti individua una ripartizione.
+
+L'esempio da svolgere è la forma impiegata nel lavoro. La somma dei sei valori di allenamento di un esemplare della terza generazione non supera $510$ e ciascuno non supera $252$: il conteggio delle configurazioni ammissibili parte da $N(s,6)$ per ogni somma $s$ e sottrae le violazioni del tetto individuale con il metodo dell'appendice~\ref{app:geometria}. Il risultato, $22\,858\,382\,491\,812$ punti, corrisponde a \SI{44,38}{bit} e costituisce la capacità informativa dell'insieme di arrivo della conversione.
+
+\section{Principio di inclusione ed esclusione}
+
+Il principio calcola la cardinalità di un'unione sommando le cardinalità dei singoli insiemi, sottraendo quelle delle intersezioni a due, aggiungendo quelle a tre, e proseguendo con segni alterni. Nella forma impiegata qui viene usato al contrario, per contare gli elementi che non violano alcun vincolo, sottraendo dal totale le violazioni con la medesima alternanza.
+
+La nozione esiste perché sommare le violazioni le conta più volte quando due violazioni possono coesistere, e il principio è la contabilità esatta di quella sovrapposizione: omettere il termine di riaggiunta produce un risultato inferiore al vero, ed è l'errore tipico.
+
+L'esempio da svolgere è il conteggio dell'allenamento. Le configurazioni con somma $s$ sono $N(s,6)$; quelle in cui un campo determinato supera $252$ si contano collocandovi $253$ unità e ripartendo le rimanenti, cioè $N(s-253,6)$, e i campi sono sei; le violazioni doppie richiedono $506$ unità, dunque compaiono soltanto per $s \ge 506$, e sono $\binom{6}{2} = 15$ termini $N(s-506,6)$; le violazioni triple richiederebbero $759$ unità e non esistono per $s \le 510$. La somma alternata si arresta quindi al secondo termine, e questa chiusura anticipata è ciò che rende il risultato esatto anziché approssimato.
+
+\section{Principio dei cassetti}
+
+Il principio afferma che collocando $n$ oggetti in $m$ contenitori con $n > m$ almeno un contenitore riceve più di un oggetto e, nella forma quantitativa, che almeno un contenitore riceve almeno $\lceil n/m \rceil$ oggetti.
+
+La nozione esiste perché costituisce la dimostrazione di impossibilità più economica disponibile: non richiede di esaminare la funzione, ma soltanto di contare gli insiemi. Ed è la forma di tutte le dimostrazioni di perdita di informazione di questo lavoro.
+
+L'esempio da svolgere è la conversione dell'allenamento. Le configurazioni di partenza sono $2^{80}$, i punti di arrivo meno di $2^{45}$: qualunque funzione fra i due insiemi manda almeno $2^{35}$ configurazioni distinte nel medesimo punto, dunque nessuna può essere iniettiva e la fedeltà è impossibile. La conclusione è indipendente dalla formula, e questo è il punto: il principio dimostra un limite del formato e non un difetto dell'implementazione.
+
+\section{Sistema numerico fattoriale e codice di Lehmer}
+
+Nel sistema numerico fattoriale la cifra di posizione $i$, contata da destra a partire da uno, ha peso $i!$ e assume valori da zero a $i$. Ogni intero non negativo minore di $n!$ ammette una e una sola rappresentazione con $n-1$ cifre. Il codice di Lehmer è la corrispondenza che ne discende fra gli interi da $0$ a $n!-1$ e le permutazioni di $n$ elementi: si legge la prima cifra come indice dell'elemento da estrarre dalla lista ordinata, si rimuove quell'elemento e si procede con la cifra successiva sulla lista residua.
+
+La nozione esiste perché fornisce una numerazione canonica delle permutazioni, cioè un modo di passare da un indice a una permutazione senza tabelle. Riconoscere che una tabella incorpora quella numerazione consente di sostituirla con un algoritmo e, prima ancora, di verificarla anziché fidarsene.
+
+L'esempio da svolgere è la verifica compiuta in questo lavoro. Per $n = 4$ gli indici vanno da $0$ a $23$; si consideri l'indice $7$. La divisione per $3! = 6$ dà quoziente $1$ e resto $1$, dunque si estrae il secondo elemento della lista ordinata, cioè $B$. Il resto $1$ diviso $2! = 2$ dà quoziente $0$ e resto $1$, dunque si estrae il primo elemento residuo, cioè $A$. Il resto $1$ diviso $1! = 1$ dà quoziente $1$, dunque si estrae il secondo elemento residuo, cioè $D$; resta $C$. La permutazione è $B\,A\,D\,C$, che coincide con la riga di indice $7$ della tabella del gioco. La verifica è stata condotta su tutti i ventiquattro indici, e l'unicità della rappresentazione si dimostra per conteggio: le rappresentazioni possibili sono $1 \cdot 2 \cdot 3 \cdots n = n!$, tante quante le permutazioni, e la corrispondenza è iniettiva per costruzione, dunque biiettiva.

@@ -8,6 +8,7 @@ covers-paths:
   - pokemon-gen12-gen3-bridge-original-hardware/
   - gba-switch-pokemon-trading/
   - poke-automation-study/
+  - recreate-pokemon-distributions-events/
 last-verified-commit: 7696c46
 ---
 
@@ -18,6 +19,8 @@ Questo progetto non ha ancora uno stack software nel senso consueto, e la parte 
 ## Hardware
 
 La console è un Old 3DS XL con seriale che inizia per SEH, partito dal firmware 11.17.0-50E, oggi su custom firmware, con una scheda SD da 32 GB formattata FAT32. Il lettore di cartucce Game Boy e Game Boy Advance è un GBxCart RW v1.4 Pro nella variante USB-C, colore blu, ordinato il 18 agosto 2026 con il cavo USB-A verso USB-C. Il gioco su cui si interviene per il bug dell'inventario gira su Game Boy Advance SP.
+
+Il sesto track, cioè la ricreazione delle distribuzioni di eventi, aggiunge a questo inventario un fabbisogno che non è ancora accertato e che va accertato prima di pianificare qualunque cosa. La catena di trasferimento verso Pokemon Home richiede al primo passaggio un Nintendo DS o un DS Lite, perché il passaggio dalla terza alla quarta generazione avviene con la cartuccia Game Boy Advance inserita nello slot dedicato, che il 3DS non ha; al secondo passaggio richiede due apparecchi della famiglia DS accesi contemporaneamente, di cui uno può essere il 3DS. L'utente ha dichiarato il 2026-08-28 di possedere una console DS della prima o seconda revisione, quindi quel passaggio non è bloccato dall'hardware e la domanda materiale che il track aveva aperto è chiusa; il modello esatto non è registrato e non serve, perché entrambe le revisioni hanno lo slot. Resta invece da verificare la lingua delle cartucce, perché ogni passaggio della catena pretende la stessa lingua ai due capi e una discordanza si scopre al momento del trasferimento. Le vie di iniezione di un evento richiedono in alternativa un e-Reader, una scheda riprogrammabile o una cartuccia riscrivibile, oppure il solo lettore di cartucce già ordinato; esiste inoltre una via che passa da un GameCube con Game Boy Player e la sua interfaccia alternativa, hardware di cui non è registrata la disponibilità.
 
 Per il sottoprogetto del ponte fra generazioni l'inventario hardware non è ancora stato fatto, ed è esattamente il motivo per cui quel track è fermo: quante console Game Boy Advance esistono, se c'è un GameCube o un Wii modificato, se c'è una flashcart, se c'è un cavo Link per Game Boy Color e se c'è la capacità di saldare sono le domande che decidono lo stack di quel sottoprogetto.
 

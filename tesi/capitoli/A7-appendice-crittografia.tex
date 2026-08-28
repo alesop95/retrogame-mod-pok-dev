@@ -1,0 +1,54 @@
+% =====================================================================
+% tesi/capitoli/A7-appendice-crittografia.tex
+% =====================================================================
+% copre: docs/40-appendice-matematica.md#7-1-cifrario
+% copre: docs/40-appendice-matematica.md#7-2-sicurezza-perfetta
+% copre: docs/40-appendice-matematica.md#7-3-cifrario-di-vernam-e-chiave-monouso
+% copre: docs/40-appendice-matematica.md#7-4-attacco-a-testo-cifrato-noto-e-la-sovrapposizione
+% verificato-al-commit: 0529162
+% ---------------------------------------------------------------------
+
+\chapter{Nozioni di crittografia}
+\label{app:crittografia}
+
+Il capitolo~\ref{cap:cifratura} descrive la cifratura della terza generazione e il capitolo~\ref{cap:analisi} la misura contro un criterio. Questa appendice definisce il criterio e le nozioni che lo circondano, e in particolare rende esplicito ciò che rende la misura significativa: la sicurezza perfetta non è un giudizio comparativo ma una condizione dimostrabile.
+
+\section{Cifrario}
+
+Un cifrario è una coppia di funzioni, cifratura e decifratura, parametrizzate da una chiave, tali che la decifratura con la chiave corretta restituisca il chiaro di partenza. La sicurezza di un cifrario non è proprietà delle sue funzioni ma della difficoltà di risalire al chiaro in assenza della chiave.
+
+La nozione esiste perché consente di distinguere la riservatezza dall'offuscamento, distinzione essenziale nel dominio di questo lavoro e spesso trascurata. La cifratura della terza generazione è un cifrario nel senso pieno della definizione, ma il suo scopo non era proteggere un segreto da un avversario: era rendere costosa la manomissione compiuta con dispositivi di alterazione della memoria.
+
+L'esempio da svolgere è quella medesima struttura, dove la chiave è l'or esclusivo fra valore di personalità e identificativo dell'allenatore e la cifratura è l'or esclusivo di quella chiave con ciascuna parola dei dati. Entrambi i termini della chiave sono presenti in chiaro nella medesima struttura, dunque chi possiede il dato possiede la chiave: il cifrario non protegge da chi legge il salvataggio, e ciò non è una debolezza dell'implementazione ma la conseguenza del suo scopo.
+
+\section{Sicurezza perfetta}
+
+Un cifrario ha sicurezza perfetta, nel senso di Shannon, quando il cifrato non porta alcuna informazione sul chiaro, cioè quando l'informazione mutua fra i due si annulla. La condizione necessaria che ne discende è che l'entropia della chiave sia almeno pari a quella del messaggio.
+
+La nozione esiste perché fornisce un criterio assoluto e non comparativo: non afferma che un cifrario è più robusto di un altro, ma stabilisce se soddisfi una condizione dimostrabile, e la dimostrazione è un confronto fra entropie e non un'analisi di attacchi noti.
+
+L'esempio da svolgere è la misura compiuta nel capitolo~\ref{cap:analisi}. La chiave possiede \SI{32}{bit}, i dati cifrati ne possiedono $384$, cioè le quarantotto parole delle quattro sottostrutture; la condizione richiederebbe almeno $384$ bit di chiave, dunque il deficit vale
+\begin{equation}
+384 - 32 = 352 \ \text{bit},
+\end{equation}
+e la sicurezza perfetta non è raggiunta. Va tenuta distinta da questa grandezza il tasso di chiave, cioè il rapporto $384/32 = 12$, che misura quante volte la chiave viene riusata: le due quantità rispondono a domande diverse, e una stesura precedente della nota quantitativa le confondeva. La correzione è registrata perché l'errore è del genere che si ripete: entrambe le grandezze si ottengono dagli stessi due numeri, e soltanto l'enunciato della domanda distingue quale delle due serva.
+
+\section{Cifrario di Vernam e chiave monouso}
+
+Il cifrario di Vernam combina il chiaro con una chiave della medesima lunghezza mediante or esclusivo. Prende il nome di chiave monouso quando la chiave è casuale, lunga quanto il messaggio e impiegata una sola volta, e sotto quelle tre condizioni raggiunge la sicurezza perfetta della sezione precedente.
+
+La nozione esiste perché è l'unico cifrario la cui sicurezza sia dimostrata anziché congetturata, e perché le sue tre condizioni costituiscono il metro con cui si misura ogni cifrario a chiave scorrevole reale: ciascuna, violata, apre un attacco specifico e noto.
+
+L'esempio da svolgere è la violazione che riguarda questo lavoro. La cifratura della terza generazione soddisfa la forma del cifrario di Vernam ma viola la seconda e la terza condizione, poiché la chiave è dodici volte più corta del messaggio e viene riusata su ciascuna parola. Ne discende l'attacco della sezione seguente, che non richiede di indovinare alcuna chiave.
+
+\section{Attacco a testo cifrato noto, e la sovrapposizione}
+
+Un attacco a testo cifrato noto è condotto da chi possiede il solo cifrato, senza alcun chiaro corrispondente. È il modello di avversario più debole e quindi il più realistico, e un cifrario che ceda contro di esso non offre protezione pratica.
+
+La nozione esiste perché la robustezza di un cifrario si dichiara sempre rispetto a un modello di avversario, e omettere il modello priva l'affermazione di contenuto: un cifrario può resistere a chi possieda il solo cifrato e cedere contro chi disponga di una coppia di chiaro e cifrato.
+
+L'esempio da svolgere è l'attacco per sovrapposizione esposto nel capitolo~\ref{cap:analisi}, di cui qui si riporta la struttura logica. Se due parole $d_1$ e $d_2$ sono cifrate con la medesima chiave $k$, l'avversario che osservi $c_1 = d_1 \oplus k$ e $c_2 = d_2 \oplus k$ calcola
+\begin{equation}
+c_1 \oplus c_2 = (d_1 \oplus k) \oplus (d_2 \oplus k) = d_1 \oplus d_2,
+\end{equation}
+ottenendo una relazione fra i chiari senza conoscere la chiave. Poiché molte parole delle sottostrutture sono nulle o assumono valori prevedibili, quella relazione rivela direttamente il contenuto delle parole ignote. Il difetto non risiede nell'or esclusivo, che è la forma corretta del cifrario di Vernam, ma nel riuso della chiave, cioè nella seconda condizione violata della sezione precedente: è la distinzione che separa un algoritmo mal scelto da un algoritmo bene scelto e mal impiegato.
