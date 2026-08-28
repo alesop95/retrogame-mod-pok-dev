@@ -297,4 +297,121 @@
   \\ \emph{Livello 3, implementazione di riferimento; letta. Track: BRI.}
   \\ Strumento che esegue uno scambio fra due file di salvataggio delle prime due generazioni su calcolatore, scritto in C con una libreria di manipolazione dei salvataggi e un'interfaccia grafica propria, con ricalcolo dei checksum e regole di evoluzione da scambio.
 
+\medskip
+\noindent \textbf{Riferimenti teorici.} Le voci che seguono sono la letteratura canonica dei concetti impiegati nell'analisi quantitativa, citate per attribuzione del concetto e non come fonti consultate nel corso del lavoro: la definizione di entropia si attribuisce a Shannon perché è sua, non perché quell'articolo sia stato aperto qui. I numeri di pagina non sono riportati dove non sono stati verificati.\\[0.8ex]
+
+\bibitem{shannon48}
+  \textbf{C. E. Shannon}. A Mathematical Theory of Communication.
+  \\ Bell System Technical Journal, vol. 27, pp. 379-423 e 623-656, 1948.
+  \\ \emph{Riferimento teorico, citato per attribuzione.}
+  \\ Definizione di entropia di una sorgente discreta, di informazione mutua e di capacità di canale. È il riferimento per ogni misura in bit impiegata in questo lavoro.
+
+\bibitem{shannon49}
+  \textbf{C. E. Shannon}. Communication Theory of Secrecy Systems.
+  \\ Bell System Technical Journal, vol. 28, n. 4, pp. 656-715, 1949.
+  \\ \emph{Riferimento teorico, citato per attribuzione.}
+  \\ Nozione di sicurezza perfetta e dimostrazione che essa richiede una chiave di entropia almeno pari a quella del messaggio. È il criterio contro cui si misura la cifratura della generazione 3.
+
+\bibitem{vernam26}
+  \textbf{G. S. Vernam}. Cipher Printing Telegraph Systems for Secret Wire and Radio Telegraphic Communications.
+  \\ Journal of the American Institute of Electrical Engineers, vol. 45, pp. 109-115, 1926.
+  \\ \emph{Riferimento teorico, citato per attribuzione.}
+  \\ Il cifrario a somma modulo due fra messaggio e chiave, di cui la cifratura della generazione 3 è un'istanza con chiave riusata.
+
+\bibitem{cover-thomas}
+  \textbf{T. M. Cover, J. A. Thomas}. Elements of Information Theory, 2ª edizione.
+  \\ Wiley, 2006.
+  \\ \emph{Riferimento teorico, citato per attribuzione.}
+  \\ Trattazione sistematica di entropia, entropia condizionata e informazione mutua, e della disuguaglianza di elaborazione dei dati, impiegata per stabilire che la permutazione non aggiunge incertezza dato il valore di personalità.
+
+\bibitem{katz-lindell}
+  \textbf{J. Katz, Y. Lindell}. Introduction to Modern Cryptography, 3ª edizione.
+  \\ CRC Press, 2020.
+  \\ \emph{Riferimento teorico, citato per attribuzione.}
+  \\ Enunciato e dimostrazione moderna del teorema sulla sicurezza perfetta, e trattazione dell'attacco per sovrapposizione su una chiave riusata.
+
+\bibitem{peterson-brown}
+  \textbf{W. W. Peterson, D. T. Brown}. Cyclic Codes for Error Detection.
+  \\ Proceedings of the IRE, vol. 49, n. 1, pp. 228-235, 1961.
+  \\ \emph{Riferimento teorico, citato per attribuzione.}
+  \\ Introduzione dei codici ciclici per la rilevazione d'errore e delle loro garanzie sugli errori a raffica, che è il termine di confronto per il checksum additivo dei giochi.
+
+\bibitem{lin-costello}
+  \textbf{S. Lin, D. J. Costello}. Error Control Coding, 2ª edizione.
+  \\ Pearson Prentice Hall, 2004.
+  \\ \emph{Riferimento teorico, citato per attribuzione.}
+  \\ Capacità di rilevazione di un codice in funzione della propria distanza minima, e limite della probabilità di errore non rilevato per un codice a sindrome corta.
+
+\bibitem{rfc1071}
+  \textbf{R. Braden, D. Borman, C. Partridge}. Computing the Internet Checksum, RFC 1071.
+  \\ Internet Engineering Task Force, 1988.
+  \\ \emph{Riferimento teorico, citato per attribuzione.}
+  \\ La somma a complemento a uno con ripiegamento del riporto, cioè la tecnica che la generazione 3 impiega per ridurre a sedici bit una somma calcolata a trentadue.
+
+\bibitem{rfc1662}
+  \textbf{W. Simpson (a cura di)}. PPP in HDLC-like Framing, RFC 1662.
+  \\ Internet Engineering Task Force, 1994.
+  \\ \emph{Riferimento teorico, citato per attribuzione.}
+  \\ La trasparenza a byte, cioè il byte stuffing con sequenza di fuga, di cui la lista di correzione del cavo Link è l'alternativa a lunghezza fissa.
+
+\bibitem{rfc3927}
+  \textbf{S. Cheshire, B. Aboba, E. Guttman}. Dynamic Configuration of IPv4 Link-Local Addresses, RFC 3927.
+  \\ Internet Engineering Task Force, 2005.
+  \\ \emph{Riferimento teorico, citato per attribuzione.}
+  \\ Definizione del blocco di indirizzi link-local 169.254.0.0/16 e della sua autoconfigurazione, impiegato dal protocollo di rete locale della console.
+
+\bibitem{tanenbaum}
+  \textbf{A. S. Tanenbaum, D. J. Wetherall}. Computer Networks, 5ª edizione.
+  \\ Prentice Hall, 2011.
+  \\ \emph{Riferimento teorico, citato per attribuzione.}
+  \\ Delimitazione di trama e trasparenza dei dati, rilevazione d'errore a livello di collegamento, e assegnazione dei canali nelle reti locali senza filo.
+
+\bibitem{proakis}
+  \textbf{J. G. Proakis, M. Salehi}. Digital Communications, 5ª edizione.
+  \\ McGraw-Hill, 2008.
+  \\ \emph{Riferimento teorico, citato per attribuzione.}
+  \\ Modello del canale, occupazione di banda e relazione fra velocità di simbolo e larghezza spettrale, impiegati nel calcolo della non sovrapposizione dei canali.
+
+\bibitem{gray-neuhoff}
+  \textbf{R. M. Gray, D. L. Neuhoff}. Quantization.
+  \\ IEEE Transactions on Information Theory, vol. 44, n. 6, pp. 2325-2383, 1998.
+  \\ \emph{Riferimento teorico, citato per attribuzione.}
+  \\ Teoria della quantizzazione scalare, quantizzatori non uniformi e saturazione, che è la forma esatta della conversione dell'allenamento fra le generazioni.
+
+\bibitem{feller}
+  \textbf{W. Feller}. An Introduction to Probability Theory and Its Applications, vol. 1, 3ª edizione.
+  \\ Wiley, 1968.
+  \\ \emph{Riferimento teorico, citato per attribuzione.}
+  \\ Distribuzione geometrica con il proprio valore atteso e la propria varianza, e approssimazione di Poisson della binomiale, impiegate per il campionamento con rifiuto e per il conteggio delle occorrenze del byte riservato.
+
+\bibitem{vonneumann51}
+  \textbf{J. von Neumann}. Various Techniques Used in Connection with Random Digits.
+  \\ National Bureau of Standards, Applied Mathematics Series, vol. 12, 1951.
+  \\ \emph{Riferimento teorico, citato per attribuzione.}
+  \\ Formulazione originale del metodo di campionamento con rifiuto, che è l'algoritmo con cui l'implementazione di riferimento genera il valore di personalità.
+
+\bibitem{devroye}
+  \textbf{L. Devroye}. Non-Uniform Random Variate Generation.
+  \\ Springer-Verlag, 1986.
+  \\ \emph{Riferimento teorico, citato per attribuzione.}
+  \\ Trattazione sistematica del campionamento con rifiuto, compreso il costo atteso in funzione della probabilità di accettazione.
+
+\bibitem{knuth2}
+  \textbf{D. E. Knuth}. The Art of Computer Programming, vol. 2: Seminumerical Algorithms, 3ª edizione.
+  \\ Addison-Wesley, 1997.
+  \\ \emph{Riferimento teorico, citato per attribuzione.}
+  \\ Aritmetica modulare e teorema cinese del resto, impiegato per stabilire l'indipendenza fra vincoli che agiscono su moduli coprimi.
+
+\bibitem{knuth3}
+  \textbf{D. E. Knuth}. The Art of Computer Programming, vol. 3: Sorting and Searching, 2ª edizione.
+  \\ Addison-Wesley, 1998.
+  \\ \emph{Riferimento teorico, citato per attribuzione.}
+  \\ Rappresentazione delle permutazioni mediante tavole di inversione e sistema numerico fattoriale, che è la struttura della tabella di permutazione delle sottostrutture.
+
+\bibitem{ieee80211}
+  \textbf{IEEE}. IEEE Standard 802.11: Wireless LAN Medium Access Control and Physical Layer Specifications.
+  \\ Institute of Electrical and Electronics Engineers, 2020.
+  \\ \emph{Riferimento teorico, citato per attribuzione.}
+  \\ Struttura dei frame di gestione e di azione, piano dei canali nella banda a 2,4 GHz e occupazione di banda delle portanti, su cui il protocollo di rete locale della console è costruito.
+
 \end{thebibliography}

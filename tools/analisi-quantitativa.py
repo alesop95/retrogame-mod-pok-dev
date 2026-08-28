@@ -250,3 +250,48 @@ p_max = 1 - (0.99) ** (1.0 / k)
 print("    p per fotogramma < %.3e, cioè un errore ogni %.0f fotogrammi" % (p_max, 1 / p_max))
 print("  conclusione: su orizzonti lunghi l'errore è certo, quindi il progetto")
 print("  deve essere robusto all'errore e non privo di errori")
+
+print()
+print("=" * 78)
+print("10. DETTAGLI DELLE DERIVAZIONI: BIAS, PARTIZIONE, DEFICIT")
+print("=" * 78)
+
+# Il bias del modulo. PV è uniforme su 2^32, ma 25 non divide 2^32, dunque
+# PV mod 25 non è esattamente uniforme: alcune nature sono più probabili.
+N32 = 2 ** 32
+q, r = divmod(N32, 25)
+print("  BIAS DEL MODULO: 2^32 = 25*%d + %d" % (q, r))
+print("    %d classi di resto con %d preimmagini, %d classi con %d"
+          % (r, q + 1, 25 - r, q))
+print("    verifica della partizione: %d*%d + %d*%d = %d"
+          % (r, q + 1, 25 - r, q, r * (q + 1) + (25 - r) * q))
+p_alta, ideale = (q + 1) / N32, 1 / 25
+print("    deviazione relativa massima dalla uniforme = %.3e" % ((p_alta - ideale) / ideale))
+
+# La partizione del quantizzatore: le regioni devono coprire esattamente lo spazio.
+somma = sum(2 * k + 1 for k in range(252))
+saturazione = 65536 - 63504
+print("  PARTIZIONE DEL QUANTIZZATORE: sum_{k=0}^{251}(2k+1) = %d = 252^2 = %d"
+      % (somma, 252 ** 2))
+print("    regione di saturazione: %d valori" % saturazione)
+print("    %d + %d = %d su 65536 -> %s"
+      % (somma, saturazione, somma + saturazione,
+         "partizione esatta" if somma + saturazione == 65536 else "INCOMPLETA"))
+
+# Il deficit di entropia della chiave, che è grandezza diversa dal riuso.
+print("  DEFICIT DI ENTROPIA: |M| = 2^384, |K| = 2^32 -> deficit %d bit, fattore 2^%d"
+      % (384 - 32, 384 - 32))
+print("    il fattore 12 misura il riuso della chiave, non il deficit: due grandezze")
+
+# Il piano dei canali della banda a 2.4 GHz.
+print("  CANALI 2.4 GHz: f(k) = 2412 + 5*(k-1) MHz")
+for k in (1, 6, 11, 13):
+    print("    canale %2d -> %d MHz" % (k, 2412 + 5 * (k - 1)))
+span = 5 * 12
+print("    massimo di canali non sovrapposti fra 1 e 13: floor(%d/25) + 1 = %d"
+      % (span, span // 25 + 1))
+
+# La qualità dell'approssimazione di Poisson impiegata sul byte riservato.
+n_dati, p_ris = 418, 1 / 256
+print("  POISSON: errore d'ordine np^2 = %.5f, cioè il %.2f per cento"
+      % (n_dati * p_ris * p_ris, 100 * n_dati * p_ris * p_ris))

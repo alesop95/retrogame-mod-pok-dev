@@ -61,7 +61,7 @@ def carica_fonti():
     spec = importlib.util.spec_from_file_location("build_source_map", SORGENTE)
     modulo = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(modulo)
-    return modulo.FONTI
+    return modulo.FONTI, getattr(modulo, "RIFERIMENTI_TEORICI", [])
 
 
 def escape_tex(testo):
@@ -98,7 +98,7 @@ def url_tex(url):
     return url.replace("%", r"\%")
 
 
-def genera(fonti):
+def genera(fonti, teorici):
     righe = []
     righe.append("% " + "=" * 69)
     righe.append("% tesi/bibliografia.tex - GENERATO, non modificare a mano")
@@ -118,7 +118,7 @@ def genera(fonti):
     # prima versione di questo generatore, produceva un rientro di venti caratteri per
     # ospitare etichette che ne occupano due: da qui la colonna di spazio bianco che
     # rendeva la bibliografia illeggibile. Si passa quindi il numero più largo possibile.
-    piu_larga = "9" * len(str(len(fonti)))
+    piu_larga = "9" * len(str(len(fonti) + len(teorici)))
     righe.append(r"\begin{thebibliography}{%s}" % piu_larga)
     righe.append(r"\addcontentsline{toc}{chapter}{Bibliografia}")
     # A bandiera e non giustificato: su una voce breve che contiene un
@@ -149,6 +149,27 @@ def genera(fonti):
         righe.append("\n".join(voce))
         righe.append("")
 
+    # I riferimenti teorici, con l'intestazione che ne dichiara la natura. Senza quella
+    # dichiarazione la bibliografia affermerebbe implicitamente che sono stati consultati
+    # come le altre voci, e non è così: sono citati per attribuzione del concetto.
+    if teorici:
+        righe.append(r"\medskip")
+        righe.append(
+            r"\noindent \textbf{Riferimenti teorici.} Le voci che seguono sono la "
+            r"letteratura canonica dei concetti impiegati nell'analisi quantitativa, "
+            r"citate per attribuzione del concetto e non come fonti consultate nel corso "
+            r"del lavoro: la definizione di entropia si attribuisce a Shannon perché è "
+            r"sua, non perché quell'articolo sia stato aperto qui. I numeri di pagina "
+            r"non sono riportati dove non sono stati verificati.\\[0.8ex]")
+        righe.append("")
+        for slug, autori, titolo, sede, anno, per_cosa in teorici:
+            voce = [r"\bibitem{%s}" % slug]
+            voce.append(r"  \textbf{%s}. %s." % (escape_tex(autori), escape_tex(titolo)))
+            voce.append(r"  \\ %s, %s." % (escape_tex(sede), escape_tex(anno)))
+            voce.append(r"  \\ \emph{Riferimento teorico, citato per attribuzione.}")
+            voce.append(r"  \\ %s" % escape_tex(per_cosa))
+            righe.append("\n".join(voce))
+            righe.append("")
     righe.append(r"\end{thebibliography}")
     righe.append("")
     return "\n".join(righe)
@@ -160,8 +181,8 @@ def main():
                     help="verifica che il file su disco sia aggiornato, senza scrivere")
     args = ap.parse_args()
 
-    fonti = carica_fonti()
-    testo = genera(fonti)
+    fonti, teorici = carica_fonti()
+    testo = genera(fonti, teorici)
 
     if args.check:
         if not os.path.exists(USCITA):
@@ -178,7 +199,10 @@ def main():
     os.makedirs(os.path.dirname(USCITA), exist_ok=True)
     with open(USCITA, "wb") as f:
         f.write(testo.encode("utf-8"))
-    print("%d voci scritte in %s" % (len(fonti), USCITA))
+    # Il conteggio distingue le due tranche: dire soltanto len(fonti) mentre il file
+    # ne contiene anche i riferimenti teorici sarebbe un rapporto che sottostima.
+    print("%d voci scritte in %s: %d fonti di dominio e %d riferimenti teorici"
+          % (len(fonti) + len(teorici), USCITA, len(fonti), len(teorici)))
     return 0
 
 
