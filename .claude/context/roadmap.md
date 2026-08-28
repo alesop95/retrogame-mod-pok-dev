@@ -8,16 +8,17 @@ covers-paths:
   - pokemon-gen12-gen3-bridge-original-hardware/
   - gba-switch-pokemon-trading/
   - poke-automation-study/
+  - recreate-pokemon-distributions-events/
 last-verified-commit: 7696c46
 ---
 
 # Direzione
 
-I cinque sottoprogetti sono task paralleli e non fasi di una sequenza, quindi questa scheda non è un ordine di esecuzione ma una mappa di cosa sblocca cosa. Il progetto è pensato per accoglierne altri: aggiungerne uno significa creare la cartella, istanziare una scheda da `templates/context/sub-subproject.md`, aggiungere una riga in tre posti, cioè la tabella di verifica e il punto di ripresa in `memory/index.md` e la tabella dei track in `current-work.md`, e come quarto passo estendere il `covers-paths` delle schede trasversali che parlano di quel track. Quest'ultimo passo è quello che si dimentica, e dimenticarlo non produce un errore visibile: produce un punto cieco, perché `sync-context` non segnalerà mai un drift su un'area che nessuna scheda dichiara di coprire.
+I sei sottoprogetti sono task paralleli e non fasi di una sequenza, quindi questa scheda non è un ordine di esecuzione ma una mappa di cosa sblocca cosa. Il progetto è pensato per accoglierne altri: aggiungerne uno significa creare la cartella, istanziare una scheda da `templates/context/sub-subproject.md`, aggiungere una riga in tre posti, cioè la tabella di verifica e il punto di ripresa in `memory/index.md` e la tabella dei track in `current-work.md`, e come quarto passo estendere il `covers-paths` delle schede trasversali che parlano di quel track. Quest'ultimo passo è quello che si dimentica, e dimenticarlo non produce un errore visibile: produce un punto cieco, perché `sync-context` non segnalerà mai un drift su un'area che nessuna scheda dichiara di coprire.
 
 ## Cosa sblocca cosa
 
-Il sottoprogetto 3DS è l'unico che può procedere senza dipendere da nulla: le cinque cartucce DS rimanenti si dumpano quando c'è tempo. È anche l'unico che tocca una scadenza esterna reale, perché Pokemon Bank chiude il 25 o 26 febbraio 2027, ma quella strada è già dichiarata chiusa per questo progetto, quindi la scadenza non impone urgenza.
+Il sottoprogetto 3DS è l'unico che può procedere senza dipendere da nulla: le cinque cartucce DS rimanenti si dumpano quando c'è tempo. La scadenza esterna che lo tocca, cioè la chiusura di Pokemon Bank il 26 febbraio 2027, ha però cambiato peso il 2026-08-28 e questa scheda va letta con la modifica: finché la strada verso Pokemon Home era dichiarata chiusa quella data non imponeva urgenza, mentre il sesto track ne fa il proprio vincolo, quindi la scadenza è tornata a contare e le cinque cartucce DS rimanenti non sono più soltanto conservazione. Quattro di esse, cioè Diamante, Perla, Platino e SoulSilver, sono di quarta generazione e Nera 2 è di quinta: sono esattamente gli anelli intermedi della catena di trasferimento.
 
 Il sottoprogetto Smeraldo è bloccato su due fatti fisici, l'arrivo del lettore ordinato il 18 agosto e la conferma dei driver, e non su lavoro da fare. Quando si sblocca, procede in sette step già scritti fino alla verifica in gioco.
 
@@ -26,6 +27,8 @@ Il ponte fra generazioni non è bloccato come lo era alla stesura di questa sche
 Lo scambio fra PC e Switch ha ora un obiettivo scritto, ed è un track autonomo: non è la via verso Pokemon Home che si era ipotizzata quando la cartella era vuota, ma un lavoro di rete e reverse engineering sul protocollo LDN. Il fatto materiale su cui era bloccato ha ora una risposta e non è quella che si aspettava: questa macchina non ha alcuna interfaccia Wi-Fi, quindi l'adattatore non va accertato ma procurato, e la scelta è registrata fra le pendenze. Resta una tensione di piattaforma, perché richiede Linux mentre lo Smeraldo richiede Windows.
 
 Lo studio dell'automazione su Switch è il quinto track e non è bloccato da nulla di materiale, perché oggi è lettura: è bloccato da una decisione di scopo, cioè se resti studio, se diventi il riuso della parte su microcontrollore in comune con l'opzione D del ponte, o se sia automazione vera come obiettivo indipendente. Non sblocca nessuno degli altri quattro e nessuno lo blocca, ma tocca due volte il resto del progetto: condivide il microcontrollore con l'opzione D del ponte e condivide un titolo con il track LDN, perché fra i giochi automatizzati compaiono Rosso Fuoco e Verde Foglia nella versione Switch. La visione artificiale che quel progetto usa è invece una capacità che nessun altro track ha.
+
+La ricreazione delle distribuzioni di eventi è il sesto track, nato il 2026-08-28, ed è il primo che porta con sé una scadenza invece di dipendere da un acquisto o da una decisione interna. Non sblocca gli altri e non è bloccato da loro sul lavoro di ricerca, ma dipende da tre cose che stanno altrove: dal lettore di cartucce del track Smeraldo, perché tre delle quattro vie di iniezione passano dal backup e dal ripristino del salvataggio; dalle cartucce DS del track 3DS, che sono gli anelli intermedi della catena verso Home; e da `pokebridge`, che sa già costruire e verificare una struttura di generazione 3. Ciò che lo blocca davvero non è materiale ma normativo, e sono le due decisioni di perimetro registrate in `pending.md`: l'ultimo tratto della catena passa da due titoli su cui l'assistenza è esclusa, e la via più economica di iniezione richiede materiale di terze parti che la regola sull'hardware esclude. Fino a quelle decisioni il track lavora su ricerca, verifica di legittimità e preparazione, che è comunque il lavoro maggiore.
 
 ## Conseguenze sull'infrastruttura
 

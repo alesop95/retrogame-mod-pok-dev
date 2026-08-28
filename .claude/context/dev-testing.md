@@ -6,6 +6,7 @@ covers-paths:
   - 3ds-related/
   - gba-save-extraction-smeraldo/
   - pokemon-gen12-gen3-bridge-original-hardware/
+  - recreate-pokemon-distributions-events/
 last-verified-commit: 7696c46
 ---
 
@@ -19,7 +20,7 @@ Una operazione su hardware si considera riuscita solo quando è stata riletta, n
 
 ## Verifica automatica del codice del ponte
 
-Le prove del pacchetto `pokebridge` si lanciano con `python tests/run_tests.py` dalla cartella `pokemon-gen12-gen3-bridge-original-hardware/`, non richiedono nulla di installato oltre la libreria standard e girano in una frazione di secondo. Alla verifica del 2026-08-26 sono 63 e passano tutte. Il numero va riletto dall'esecuzione e non copiato da qui: una scheda che dichiara un conteggio più alto di quello reale nasconde esattamente ciò che dovrebbe segnalare.
+Le prove del pacchetto `pokebridge` si lanciano con `python tests/run_tests.py` dalla cartella `pokemon-gen12-gen3-bridge-original-hardware/`, non richiedono nulla di installato oltre la libreria standard e girano in una frazione di secondo. Alla verifica del 2026-08-28 sono 114 e passano tutte. Il numero va riletto dall'esecuzione e non copiato da qui: una scheda che dichiara un conteggio più alto di quello reale nasconde esattamente ciò che dovrebbe segnalare.
 
 La prova portante è la simmetria fra lettura e riscrittura, verificata su cinquecento buffer casuali con seme fissato per ciascuna delle sei forme di struttura, cioè box, squadra e lista di squadra per entrambe le generazioni. È una sola proprietà e cattura un intero genere di errori, perché un offset sbagliato, un ordine di byte invertito, un nibble letto dalla metà sbagliata o un campo dimenticato la rompono tutti. Il ragionamento sta in `docs/21-collaudo.md`.
 
@@ -32,6 +33,10 @@ Il generatore delle tabelle di codifica dei caratteri porta la sua verifica dent
 Prima di qualunque scrittura si fa il backup del salvataggio in doppia copia su due percorsi distinti, e si verifica che entrambe le copie si aprano. Si registra il checksum del file originale, perché è l'unico riferimento che permette dopo di dire se la cartuccia è tornata allo stato di partenza. Si apre il backup in PKHeX in sola lettura, per fotografare l'entità del bug prima di decidere cosa correggere: è lo step in cui si stabilisce quali slot e quali oggetti della tasca Strumenti Base vanno toccati, decisione oggi non presa perché non presa è l'unica risposta onesta finché nessuno ha visto il contenuto. Si modifica, si riscrive, si rilegge, si confronta, e solo alla fine si accende il gioco.
 
 Il criterio di successo dello step corrente è più semplice e va chiuso prima di tutto il resto: in Gestione Dispositivi, sotto "Porte (COM e LPT)", deve comparire una voce USB-SERIAL CH340 con il suo numero di porta, senza punto esclamativo giallo.
+
+## Protocollo per la ricreazione delle distribuzioni
+
+Vale il protocollo dello Smeraldo, perché l'operazione è la stessa, cioè scrivere sul salvataggio di una cartuccia originale, e vi si aggiungono due passi propri di questo track. Il primo precede ogni scrittura e viene da una fonte: se il salvataggio contiene già una carta meraviglia, quella va esportata e conservata prima di sovrascrivere qualunque cosa, perché può essere un evento che la comunità non ha ancora preservato, e in quel caso la sovrascrittura distrugge un dato unico invece di un dato ricostruibile. Il secondo segue la scrittura e riguarda la fedeltà: un esemplare ricreato si verifica confrontandone i campi con quelli documentati per l'evento originale, e la verifica utile è quella di un verificatore di legittimità indipendente, perché è l'unico controllo capace di dire se il metodo di generazione sia stato riprodotto e non soltanto il risultato.
 
 ## Protocollo per il sottoprogetto 3DS
 

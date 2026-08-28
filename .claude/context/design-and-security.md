@@ -8,12 +8,21 @@ covers-paths:
   - pokemon-gen12-gen3-bridge-original-hardware/
   - gba-switch-pokemon-trading/
   - poke-automation-study/
+  - recreate-pokemon-distributions-events/
 last-verified-commit: 7696c46
 ---
 
 # Design e sicurezza
 
 In un progetto software questa scheda descriverebbe superficie di attacco e gestione dei segreti. Qui il perimetro è diverso ma non più leggero: i segreti esistono e non sono ruotabili, i dati personali sono già finiti dentro il materiale di lavoro, e le operazioni distruttive agiscono su hardware fisico. Le norme operative vincolanti stanno in `rules/hardware-and-perimeter.md`; questa scheda spiega perché esistono.
+
+## Le due tensioni di perimetro aperte dal sesto track
+
+Il track della ricreazione delle distribuzioni, nato il 2026-08-28, mette in tensione due norme della regola sull'hardware e sul perimetro, e questa scheda le registra perché la sede di una tensione fra una norma e un obiettivo è qui, mentre la norma resta dove è scritta.
+
+La prima è che l'obiettivo dichiarato, cioè avere in Pokemon Home tutte le specie e le forme prima della chiusura di Bank, dipende in modo essenziale dal suo ultimo tratto, e quel tratto passa da Pokemon Bank e da Pokemon Transporter su questa console, cioè dai due titoli su cui l'assistenza è esclusa. Nessuna via alternativa esiste, perché Poke Transporter è l'unico ingresso verso Home per tutto ciò che precede l'ottava generazione. La contraddizione non si risolve tecnicamente e va decisa dall'utente.
+
+La seconda riguarda il materiale che le vie di iniezione richiedono. La regola esclude i salvataggi scaricati da internet, per il rischio che ricade sull'account e sulla console, e le tre vie di iniezione più economiche di un evento richiedono precisamente materiale di terze parti: una ROM di distribuzione da mettere su una scheda riprogrammabile, oppure un salvataggio precostituito per l'e-Reader. Va notato che non si tratta di un salvataggio di un gioco Pokemon da importare, il che rende la norma non immediatamente applicabile e la decisione non ovvia; resta che il perimetro va dichiarato prima di procurare qualcosa, e non dopo.
 
 ## Segreti non ruotabili
 

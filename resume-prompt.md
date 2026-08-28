@@ -1,12 +1,12 @@
-# Prompt di ripresa - stato al 2026-08-28
+# Prompt di ripresa - stato al 2026-08-28, seconda revisione della giornata
 
 > Questo file esiste per una ragione precisa: la sessione che lo ha prodotto ha lavorato su sette repository, ha portato la tesi da due a venticinque capitoli, ha corretto tre difetti degli strumenti tipografici e ha aperto sei pendenze. Nulla di questo è ricostruibile dai soli commit, perché i commit dicono che cosa è cambiato e non perché, né che cosa era stato deciso di non fare. Si legge dall'inizio alla fine prima di toccare qualunque cosa, e si aggiorna a ogni passo del lavoro: una voce obsoleta qui è peggio della sua assenza, perché induce a fidarsi di uno stato che non esiste più.
 
 ## 0. Come si riprende, in ordine
 
-Prima si legge `.claude/memory/index.md`, che è la fonte di verità sullo stato dei cinque sottoprogetti, poi `.claude/memory/pending.md`, che è il registro di tutto ciò che è in sospeso. Poi si legge questo file per intero. Poi, e solo poi, si apre la scheda del sottoprogetto su cui si lavora.
+Prima si legge `.claude/memory/index.md`, che è la fonte di verità sullo stato dei sei sottoprogetti, poi `.claude/memory/pending.md`, che è il registro di tutto ciò che è in sospeso. Poi si legge questo file per intero. Poi, e solo poi, si apre la scheda del sottoprogetto su cui si lavora.
 
-Il fuoco corrente non è un sottoprogetto ma il documento: la tesi in `tesi/`. I due task dichiarati dall'utente e non ancora eseguiti sono le appendici matematiche, descritte nella sezione 4.1, e la generazione parallela della versione inglese, descritta nella sezione 4.2.
+Il fuoco corrente è cambiato nel corso della giornata del 2026-08-28 e va letto in `index.md`, che ora dichiara `distributions-events`: l'utente ha aperto un sesto sottoprogetto, la ricreazione delle distribuzioni di eventi, e con esso ha dichiarato per la prima volta un obiettivo che sta sopra i singoli track, cioè avere in Pokemon Home tutte le 1025 specie e le forme alternative come collezione di una vita. La sezione 3.2 di questo file racconta cosa è stato fatto e cosa resta. I due task sulla tesi restano aperti e non sono stati eseguiti: le appendici matematiche della sezione 4.1 e la versione inglese della sezione 4.2.
 
 ## 1. Le tre discipline che governano ogni sessione
 
@@ -39,13 +39,15 @@ Questo file, `resume-prompt.md`, è parte di quell'obbligo: si aggiorna a ogni p
 Alla chiusura della sessione, misurato e non stimato:
 
 ```
-25 capitoli in tesi/capitoli/, più frontespizio e premessa
-138 pagine, circa 925 KB
+26 capitoli numerati più 7 appendici, cioè 33 file in tesi/capitoli/, più frontespizio e premessa
+171 pagine
 0 errori di compilazione, 0 sbordi di riga, 0 riferimenti irrisolti
-copertura del contenuto: 1794 righe su 1794, cioè 100,0%
-bibliografia: 66 voci, tutte citate (47 fonti di dominio + 19 riferimenti teorici)
+copertura del contenuto: 2117 righe su 2117, cioè 100,0%
+bibliografia: 72 voci, tutte citate (53 fonti di dominio + 19 riferimenti teorici)
 suite del ponte: 114 prove, OK
 ```
+
+I numeri sono cambiati due volte il 2026-08-28. La prima con l'apertura del sesto track, che ha portato due documenti nuovi da coprire, un capitolo nuovo e sei fonti nuove. La seconda con le appendici matematiche della sezione 4.1, che hanno portato un documento nuovo e sette appendici, numerate da A a G perché `\appendix` commuta la numerazione dei capitoli in lettere. La misura è stata rifatta dopo ciascuna delle due e non stimata.
 
 I comandi che riproducono queste misure, dalla radice del repository:
 
@@ -80,14 +82,22 @@ La struttura in sei parti e la corrispondenza fra capitoli e documenti coperti:
 | 16 Caso LDN trading | `cap:ldn-trading` | handoff e README di `gba-switch-pokemon-trading/` |
 | 17 Caso automazione | `cap:automazione` | README e STUDIO-01 di `poke-automation-study/` |
 | 18 Caso ponte | `cap:ponte` | README del ponte, `docs/20-architettura-codice.md` |
-| 19 Collaudo | `cap:collaudo` | `docs/21-collaudo.md`, `docs/23-prove-eseguite.md`, DATA-FORMATS sez. 11 |
-| 20 Opzioni | `cap:opzioni` | `docs/30-opzioni-implementative.md`, DATA-FORMATS sez. 12 |
-| 21 Fonti | `cap:fonti` | `SOURCES.md`, `docs/24-fonti-di-community.md` |
-| 22 Strumenti | `cap:strumenti` | `docs/22-strumenti.md`, DATA-FORMATS sez. 7 |
-| 23 Perimetro | `cap:perimetro` | le regole normative di `.claude/rules/` |
-| 24 Analisi quantitativa | `cap:analisi` | `docs/12-analisi-quantitativa.md` |
+| 19 Caso distribuzioni | `cap:distribuzioni` | README e STUDIO-01 di `recreate-pokemon-distributions-events/` |
+| 20 Collaudo | `cap:collaudo` | `docs/21-collaudo.md`, `docs/23-prove-eseguite.md`, DATA-FORMATS sez. 11 |
+| 21 Opzioni | `cap:opzioni` | `docs/30-opzioni-implementative.md`, DATA-FORMATS sez. 12 |
+| 22 Fonti | `cap:fonti` | `SOURCES.md`, `docs/24-fonti-di-community.md` |
+| 23 Strumenti | `cap:strumenti` | `docs/22-strumenti.md`, DATA-FORMATS sez. 7 |
+| 24 Perimetro | `cap:perimetro` | le regole normative di `.claude/rules/` |
+| 25 Analisi quantitativa | `cap:analisi` | `docs/12-analisi-quantitativa.md` |
+| A Teoria dell'informazione | `app:informazione` | `docs/40-appendice-matematica.md`, titolo e sezione 1 |
+| B Probabilità | `app:probabilita` | idem, sezione 2 |
+| C Algebra e combinatoria | `app:algebra` | idem, sezione 3 |
+| D Geometria discreta | `app:geometria` | idem, sezione 4 |
+| E Teoria dei codici | `app:codici` | idem, sezione 5 |
+| F Segnale e telecomunicazioni | `app:segnale` | idem, sezione 6 |
+| G Crittografia | `app:crittografia` | idem, sezione 7 |
 
-Le parti sono: I fondamenti (1-5), Le strutture dati (6-9), La trasmissione (10-13), I casi di studio (14-18), Il metodo (19-24).
+Le parti sono: I fondamenti (1-5), Le strutture dati (6-9), La trasmissione (10-13), I casi di studio (14-19), Il metodo (20-25), e le appendici da A a G dopo `\appendix`. I sei file della parte del metodo sono stati rinominati per far posto al capitolo 19, e le etichette non sono cambiate: un `\ref` non si è rotto perché nessun riferimento cita il numero del file.
 
 ## 3. Che cosa contiene l'analisi quantitativa, e che cosa ha corretto
 
@@ -119,11 +129,33 @@ Su un orizzonte lungo **l'errore dell'automazione è certo**: per tenere la prob
 
 La separazione va mantenuta. Se quelle voci stessero in `FONTI`, che per ciascuna dichiara se è stata letta, il conteggio delle fonti lette di `SOURCES.md` si gonfierebbe di diciannove voci che nessuno ha aperto. In bibliografia compaiono sotto un'intestazione che dichiara la loro natura, cioè citate per attribuzione del concetto. **I numeri di pagina non sono riportati perché non sono stati verificati in sessione**, e aggiungerne di inventati violerebbe la regola sull'onestà del contenuto.
 
+### 3.2 Il sesto track, l'obiettivo di collezione, e la data che li governa
+
+Questa sottosezione è la novità della seconda metà del 2026-08-28 e va letta prima di toccare qualunque cosa, perché cambia il senso di tre track che esistevano già.
+
+L'utente ha creato la cartella di un sesto sottoprogetto e ha indicato quattro fonti video; con il messaggio successivo ha dichiarato l'obiettivo a cui quel lavoro serve, cioè avere in Pokemon Home tutte le 1025 specie e anche le forme alternative, e portare avanti quella collezione per tutta la vita. Ha chiesto inoltre di tracciare temporaneamente nel progetto la spedizione del lettore di cartucce, perché serve agli altri task.
+
+Che cosa è stato fatto. La cartella è stata creata con nome in ASCII puro, `recreate-pokemon-distributions-events`, perché quella dell'utente portava una lettera accentata e la convenzione del progetto lo vieta per un percorso che finisce in un `covers-paths`, in un pathspec git e in una dichiarazione di copertura; la cartella accentata era vuota ed è stata rimossa, e la scelta è registrata in ADR-017 come reversibile. Le quattro fonti sono state trascritte con `yt-dlp` più `tools/vtt-to-text.py` e lette per intero, e la conoscenza sta nello studio della cartella, che è il documento da leggere. Il track è registrato nei quattro posti che la procedura di `CLAUDE.md` prescrive, `covers-paths` delle schede trasversali compreso, e il capitolo 19 della tesi lo copre riportando la copertura a cento.
+
+I due fatti verificati che valgono più di tutto il resto. Pokemon Bank chiude il 26 febbraio 2027 alle 12:00 JST, cioè il 25 febbraio alle 19:00 PST, verificato sulla comunicazione ufficiale del supporto Nintendo e non sulla stampa, e con esso cessa il trasferimento verso Home senza alcun periodo di tolleranza. Poke Transporter accetta come sorgente soltanto la quinta generazione e le riedizioni su Virtual Console della prima e della seconda, quindi la terza generazione non entra in Bank e un esemplare nato su cartuccia deve attraversare quattro passaggi irreversibili. Il primo di essi, il Parco Amico, richiede un Nintendo DS o DS Lite, perché il 3DS non ha lo slot per le cartucce Game Boy Advance: la domanda è stata posta e l'utente ha dichiarato il 2026-08-28 di possedere quella console, quindi il passaggio è praticabile e il requisito residuo è la corrispondenza di lingua fra i titoli ai due capi di ogni passaggio. Le cartucce DS del track 3DS coprono invece gli anelli intermedi, perché quattro sono di quarta generazione e Nera 2 è di quinta.
+
+Le due decisioni che restano all'utente e che nessuna sessione deve prendere al suo posto. La prima è se l'obiettivo riapra il perimetro su Pokemon Bank e Pokemon Transporter, dato che l'ultimo tratto della catena passa da quei due titoli e l'assistenza su di essi è esclusa dalla regola dell'hardware per una motivazione che sta in `_notes/perimetro-bank-transporter.md`. Non esiste alternativa tecnica: quella è l'unica porta. La seconda è se le vie di iniezione che richiedono materiale di terze parti, cioè una ROM di distribuzione o un salvataggio precostituito per l'e-Reader, siano dentro il perimetro, dato che la regola esclude i salvataggi scaricati; la norma non si applica in automatico perché non si tratta del salvataggio di un gioco Pokemon, e proprio per questo va decisa. Entrambe stanno in `pending.md` e in ADR-017.
+
+Sulla spedizione lo stato non è stato ottenuto e va detto senza attenuazioni: la pagina di parcelsapp non porta dati nel documento servito, la sua interfaccia programmatica pretende una chiave, e l'interfaccia di Australia Post, che il suffisso del codice rende probabile, risponde che il codice non è fra i suoi. Il tracciamento è registrato in una sezione temporanea di `pending.md`, da cancellare quando il lettore arriva. Le vie che restano sono l'automazione del browser dell'utente, da chiedere prima di usarla, o la consegna manuale dello stato.
+
+Le cose non chiuse del track, tutte registrate in `pending.md`: se un verificatore di legittimità accetti una ricreazione fedele, che è il prossimo passo e non richiede hardware; se la funzione di BIOS numero 11 citata dalla fonte sia la decompressione LZ77; se la posta stia nella sezione quattro del salvataggio; se una collezione completa resti possibile dopo febbraio 2027, affermazione di fonti secondarie non verificata; e il contenuto del thread di r/PokemonHome indicato dall'utente, non leggibile dagli strumenti di sessione.
+
 ## 4. I task aperti, in ordine di priorità
 
-### 4.1 Le appendici matematiche
+### 4.1 Le appendici matematiche, eseguite il 2026-08-28
 
-È il primo task da eseguire, richiesto dall'utente in questi termini: la matematica deve includere in appendice **la definizione di entropia, che cos'è un politopo, e tutte le definizioni necessarie a comprendere la matematica dei capitoli principali senza dare nulla per scontato**.
+Questo task è stato eseguito e questa sottosezione resta come resoconto, perché il criterio con cui è stato riempito serve a chi lo estenderà. Il layer sorgente è `docs/40-appendice-matematica.md`, con quarantasette voci in sette aree, e le appendici composte sono i sette file `tesi/capitoli/A1-...` fino a `A7-...`, collegati dopo `\appendix` in `tesi.tex` e numerati da A a G. Ogni voce ha la forma richiesta, cioè enunciato, ragione per cui la nozione esiste, esempio svolto fino al risultato numerico e rimando al punto del lavoro che la impiega, e ciascuna appendice dichiara le sezioni che copre con gli slug calcolati dallo strumento invece che trascritti a mano. La copertura è tornata a cento e la compilazione è pulita.
+
+Le voci sono le seguenti. Area A, teoria dell'informazione: bit come unità, entropia con le sue due proprietà, entropia condizionata, informazione mutua, disuguaglianza di elaborazione dei dati. Area B, probabilità: variabile aleatoria discreta, distribuzione uniforme con la dimostrazione del bias del modulo su numeri piccoli, indipendenza, geometrica con derivazione del valore atteso, binomiale con il conto dei fotogrammi, approssimazione di Poisson con il criterio di validità e la sua verifica, deviazione standard. Area C, algebra e combinatoria: fattoriale, permutazione, gruppo abeliano come origine dell'invarianza del checksum, anello dei resti, aritmetica modulo due, teorema cinese del resto applicato ai tre moduli del valore di personalità, coefficiente binomiale, combinazioni con ripetizione, inclusione ed esclusione, principio dei cassetti, sistema fattoriale e codice di Lehmer con la decodifica dell'indice sette svolta per intero. Area D, geometria discreta: politopo, punti interi, conteggio con vincoli superiori con la formula esplicita. Area E, teoria dei codici: codice rilevatore, sindrome, distanza di Hamming, errore a raffica, divisione polinomiale svolta a mano, controllo ciclico. Area F, segnale: quantizzatore scalare, regione di quantizzazione con la verifica della partizione, uniforme e non uniforme, saturazione, canale sincrono e asincrono, velocità di simbolo, occupazione di banda, ciclo di lavoro, trama e delimitazione, trasparenza a byte con la dimostrazione di inammissibilità. Area G, crittografia: cifrario, sicurezza perfetta con la distinzione fra deficit e tasso di chiave, cifrario di Vernam e chiave monouso, attacco a testo cifrato noto con la sovrapposizione.
+
+Un errore di metodo è stato commesso e va registrato perché era già scritto in questo file al primo posto della sezione 7: la riga che apre le appendici è stata scritta passando uno script per l'input standard, e la sequenza di escape si è persa producendo un carattere di controllo al posto della macro. Il documento compilava con un errore e numerava le appendici come capitoli 26 a 32 invece che da A a G. La riparazione è stata fatta con uno script scritto su file, che è precisamente la regola che quella sezione prescrive.
+
+La richiesta originale dell'utente era in questi termini: la matematica deve includere in appendice **la definizione di entropia, che cos'è un politopo, e tutte le definizioni necessarie a comprendere la matematica dei capitoli principali senza dare nulla per scontato**.
 
 Il criterio di completezza da adottare è meccanico e va applicato così: si percorre il capitolo 24 e ogni nozione che vi compare senza essere definita nel documento diventa una voce di appendice. Dall'inventario fatto in sessione, le voci necessarie sono le seguenti.
 
@@ -252,3 +284,17 @@ Lo studio dell'automazione è uno studio e non una costruzione, con il perimetro
 Nel repository corrente, oltre ai ventitré capitoli nuovi e al frontespizio: `docs/12-analisi-quantitativa.md` e `docs/index.md`; `docs/22-strumenti.md` e `docs/23-prove-eseguite.md`, allineati da sessantatré a centoquattordici prove; `tools/analisi-quantitativa.py`, `tools/test-tipografia.py`, `tools/prepare-cover-sprite.py`, tutti nuovi; `tools/fix-accents.py`, `tools/fix-missing-accents.py`, `tools/fix-dashes.py`, `tools/check-thesis-coverage.py`, `tools/build-bibliography.py`, `tools/build-source-map.py`, corretti; `tesi/figure/squirtle-sprite.png` con la relativa eccezione dichiarata nel `.gitignore`; `.claude/rules/interaction-style.md`; questo file.
 
 Negli altri sei progetti: i quattro strumenti tipografici, il file delle esclusioni dei trattini, e la sezione tipografica della regola.
+
+## 11. I file toccati nella seconda parte della sessione del 28 agosto
+
+Nuovi: `recreate-pokemon-distributions-events/README.md` e `recreate-pokemon-distributions-events/STUDIO-01-distribuzioni-gen3-e-ricreazione.md`; `.claude/context/sub-distributions-events.md`; `tesi/capitoli/19-caso-distribuzioni.tex`; le sei note generate sotto `docs/fonti/`.
+
+Rinominati: i sei capitoli della parte del metodo, da `19-collaudo.tex` a `24-analisi-quantitativa.tex`, ora da 20 a 25, con l'intestazione interna aggiornata.
+
+Modificati: `tesi/tesi.tex`, `tesi/bibliografia.tex` e `docs/fonti/index-fonti.md`, questi due ultimi rigenerati; `tools/build-source-map.py` con sei fonti nuove e `tools/check-thesis-coverage.py` con due documenti nuovi; `SOURCES.md`, dove sono state aggiunte otto righe e corretta un'affermazione che diceva che nessun video era stato guardato; `.claude/memory/index.md`, `pending.md`, `decisions.md` con ADR-017 e `progress.md`; le schede `current-work.md`, `roadmap.md`, `STACK.md`, `design-and-security.md` e `dev-testing.md`, che hanno il `covers-paths` esteso e un paragrafo sul nuovo track, e in `dev-testing.md` è stato corretto il conteggio delle prove da 63 a 114, che era il numero vecchio.
+
+Le quattro trascrizioni stanno in `_notes/fonti/` e sono sacrificabili secondo ADR-016, perché il loro contenuto è stato trasferito con la profondità che rende il file grezzo inutile: la cancellazione la fa l'utente, come la volta precedente.
+
+Nella terza parte della sessione, quella delle appendici: nuovi `docs/40-appendice-matematica.md` e i sette file `tesi/capitoli/A1-appendice-informazione.tex` fino ad `A7-appendice-crittografia.tex`; modificati `tesi/tesi.tex` con il blocco `\appendix`, `docs/index.md` con la riga della nota nuova, e questo file.
+
+Una pendenza nuova è stata registrata e non risolta: `tesi/README.md` è gravemente disallineato, perché descrive la tesi come se fosse in fase di pianificazione e dichiara una copertura del dieci per cento su ventinove documenti, con le tabelle dei capitoli tutte marcate da scrivere. È un file tracciato e fuorviante, e non entra nel controllo di copertura perché non è fra i documenti da coprire, quindi nessuno strumento lo segnala. La riscrittura è un lavoro a sé e va decisa.

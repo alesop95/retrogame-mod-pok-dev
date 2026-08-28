@@ -1,0 +1,83 @@
+% =====================================================================
+% tesi/capitoli/A1-appendice-informazione.tex
+% =====================================================================
+% copre: docs/40-appendice-matematica.md#appendice-matematica-le-nozioni-che-l-analisi-quantitativa-impiega
+% copre: docs/40-appendice-matematica.md#1-1-il-bit-come-unità-di-informazione
+% copre: docs/40-appendice-matematica.md#1-2-variabile-aleatoria-discreta-in-breve
+% copre: docs/40-appendice-matematica.md#1-3-entropia
+% copre: docs/40-appendice-matematica.md#1-4-entropia-condizionata
+% copre: docs/40-appendice-matematica.md#1-5-informazione-mutua
+% copre: docs/40-appendice-matematica.md#1-6-disuguaglianza-di-elaborazione-dei-dati
+% verificato-al-commit: 0529162
+% ---------------------------------------------------------------------
+
+\chapter{Nozioni di teoria dell'informazione}
+\label{app:informazione}
+
+Il capitolo~\ref{cap:analisi} impiega le grandezze di questa appendice dandole per note. Qui non sono date per note: ogni voce enuncia la nozione, dice per quale problema la nozione è stata introdotta, la svolge su un esempio fino al risultato numerico, e indica il punto del lavoro in cui viene impiegata. La differenza rispetto al glossario, che questo lavoro possiede nella premessa, è deliberata: un glossario si consulta, un'appendice come questa si legge.
+
+Il criterio con cui l'appendice è stata riempita è meccanico, e va dichiarato perché è ciò che la rende verificabile invece che arbitraria: si percorre il capitolo~\ref{cap:analisi} e ogni nozione che vi compare senza essere definita nel corpo del lavoro diventa una voce. L'attribuzione dei concetti segue l'elenco dei riferimenti teorici della bibliografia, che dichiara la propria natura: sono citati per attribuzione del concetto e non come fonti consultate.
+
+\section{Il bit come unità di informazione}
+
+Il bit, in questa appendice, non è la cella di memoria che assume valore nullo o unitario: è l'unità con cui si misura l'incertezza. Un bit di informazione è la quantità che si acquisisce osservando l'esito di un esperimento con due esiti equiprobabili. La distinzione fra le due accezioni va tenuta ferma, perché il capitolo~\ref{cap:analisi} le impiega entrambe nella medesima pagina: quando afferma che un campo occupa quattro bit parla di memoria, quando afferma che la chiave di cifratura presenta un deficit di \SI{352}{bit} parla di informazione.
+
+La nozione esiste perché senza unità di misura due incertezze non si confrontano. Affermare che una chiave di \SI{32}{bit} è più robusta di una di \SI{16}{bit} non richiede alcuna teoria; stabilire quanta parte della robustezza nominale sopravviva al riuso della chiave dodici volte richiede di misurare l'informazione.
+
+Il ponte fra le due accezioni è immediato e vale svolgerlo. Un campo di memoria di $b$ bit ammette $2^b$ configurazioni; se esse sono equiprobabili, l'incertezza sul contenuto vale esattamente $b$ bit di informazione, come la sezione seguente dimostra. La coincidenza numerica vale soltanto sotto l'ipotesi di equiprobabilità, e il capitolo~\ref{cap:analisi} esibisce due casi in cui l'ipotesi cade: la chiave di cifratura della terza generazione, la cui sorgente ha entropia inferiore ai bit che occupa, e il valore di personalità ridotto per resto, la cui distribuzione non è esattamente uniforme.
+
+\section{Entropia}
+
+L'entropia di una variabile aleatoria discreta $X$ a valori in un insieme finito $\mathcal{X}$ è definita come
+
+\begin{equation}
+H(X) = -\sum_{x \in \mathcal{X}} p(x) \log_2 p(x),
+\end{equation}
+
+e si misura in bit. La definizione risponde a una domanda operativa e non speculativa: quanti bit occorrono in media per comunicare l'esito di $X$ a chi non lo conosce. Shannon ha stabilito che quella quantità è esattamente $H(X)$ e che nessuna codifica fa meglio; da qui l'interpretazione adottata in tutto il lavoro, per cui l'entropia è l'incertezza che l'osservazione di $X$ rimuove.
+
+L'esempio da svolgere è il caso uniforme, che è quello ricorrente. Posto $p(x) = 1/n$ per ciascuno degli $n$ valori, ogni addendo vale $-(1/n)\log_2 n$, gli addendi sono $n$, e la somma cambiata di segno dà
+
+\begin{equation}
+H(X) = n \cdot \frac{1}{n} \log_2 n = \log_2 n .
+\end{equation}
+
+Con $n = 2^b$ si ottiene $H(X) = b$, che chiude il ponte della sezione precedente. Il caso opposto è altrettanto istruttivo: se un valore ha probabilità unitaria e gli altri probabilità nulla, l'unico addendo non nullo vale $1 \cdot \log_2 1 = 0$, dunque $H(X) = 0$, cioè un esito certo non porta informazione.
+
+Le due proprietà impiegate nel capitolo~\ref{cap:analisi} sono la non negatività, che segue dal fatto che $\log_2 p(x)$ non è mai positivo per $p(x) \in (0,1]$, e il limite superiore $H(X) \le \log_2 |\mathcal{X}|$, con uguaglianza se e solo se la distribuzione è uniforme. La seconda è la ragione per cui l'entropia di una sorgente si confronta sempre con il logaritmo del numero dei suoi valori: la differenza fra i due è il deficit, cioè la misura di quanto la sorgente sia meno incerta di quanto la sua dimensione consentirebbe.
+
+\section{Entropia condizionata}
+
+L'entropia condizionata misura l'incertezza residua su $X$ una volta osservata $Y$, e si definisce come media delle entropie condizionate ai singoli valori di $Y$, pesata sulle rispettive probabilità:
+
+\begin{equation}
+H(X \mid Y) = \sum_{y} p(y)\, H(X \mid Y = y).
+\end{equation}
+
+La nozione esiste perché l'informazione non è proprietà di un dato, ma di un dato rispetto a ciò che è già noto. La medesima chiave è imprevedibile per chi non ha osservato nulla e completamente determinata per chi disponga del chiaro accanto al cifrato, e nessuna grandezza dipendente dalla sola $X$ può esprimere questa differenza.
+
+L'esempio da svolgere è il caso impiegato due volte nel lavoro. Se $X$ è funzione deterministica di $Y$, cioè $X = f(Y)$, allora per ogni valore osservato di $Y$ la distribuzione di $X$ è concentrata su un solo valore, dunque $H(X \mid Y = y) = 0$ per la sezione precedente, e la media di quantità nulle è nulla: $H(X \mid Y) = 0$. È il caso della permutazione delle sottostrutture della terza generazione, che è funzione del valore di personalità: noto quello, la permutazione non aggiunge incertezza, ed è la ragione per cui il capitolo~\ref{cap:analisi} conclude che essa non aggiunge sicurezza.
+
+\section{Informazione mutua}
+
+L'informazione mutua fra due variabili aleatorie è la riduzione di incertezza sull'una prodotta dall'osservazione dell'altra:
+
+\begin{equation}
+I(X;Y) = H(X) - H(X \mid Y).
+\end{equation}
+
+La nozione esiste perché occorre una misura di dipendenza che non presupponga alcuna forma funzionale del legame. Il coefficiente di correlazione misura la disposizione lungo una retta e si annulla per legami non lineari perfettamente deterministici; l'informazione mutua si annulla se e solo se le due variabili sono indipendenti, qualunque sia la forma del legame.
+
+L'esempio completa quello precedente. Se $X = f(Y)$ si ha $H(X\mid Y) = 0$, dunque $I(X;Y) = H(X)$: la seconda variabile porta tutta l'informazione della prima. All'estremo opposto, sotto indipendenza si ha $H(X \mid Y) = H(X)$ e l'informazione mutua è nulla. Nel lavoro la grandezza compare nell'argomento dell'attacco per sovrapposizione, dove la ripetizione della chiave rende una porzione di cifrato informativa su un'altra.
+
+\section{Disuguaglianza di elaborazione dei dati}
+
+Se $X$, $Y$ e $Z$ formano una catena in cui $Z$ dipende da $X$ soltanto attraverso $Y$, vale
+
+\begin{equation}
+I(X;Z) \le I(X;Y).
+\end{equation}
+
+L'enunciato è la formulazione precisa di un principio che si invoca spesso in forma vaga, cioè che nessuna elaborazione crea informazione. Ed è quel principio a rendere definitive alcune conclusioni di questo lavoro: se un dato è stato quantizzato perdendo informazione, nessuna elaborazione successiva, per ingegnosa che sia, potrà ricostruirla.
+
+L'esempio da svolgere è la conversione dell'allenamento fra generazioni. Sia $X$ il valore di partenza, $Y$ la sua conversione, $Z$ qualunque post-elaborazione di $Y$. Poiché la conversione perde \SI{35,62}{bit} per ragioni di cardinalità, come stabilisce il capitolo~\ref{cap:analisi}, nessuna funzione applicata al risultato può restituirli: la perdita appartiene al formato di destinazione e non alla formula scelta. È la ragione per cui quel capitolo conclude che la fedeltà è impossibile e non semplicemente difficile, e la medesima conclusione governa la discussione dei vincoli nel capitolo~\ref{cap:conversione}.

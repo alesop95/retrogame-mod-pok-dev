@@ -58,10 +58,11 @@ Chi vuole soltanto gli offset non ha bisogno di questo percorso: gli serve [[DAT
 | [[24-fonti-di-community]] | perché alcune informazioni esistono solo in una chat, come si esportano e a quale costo |
 | [[30-opzioni-implementative]] | le quattro strade di ADR-008, il loro costo reale alla luce di ciò che sappiamo oggi |
 | [[31-glossario]] | i termini che ricorrono in tutto il progetto |
+| [[40-appendice-matematica]] | le nozioni matematiche che l'analisi quantitativa impiega dandole per note: entropia, probabilità, algebra e conteggio, politopi, codici, quantizzazione, cifrari, ciascuna con enunciato, motivo, esempio svolto e rimando |
 
 ## Da quale sottoprogetto arrivi
 
-I cinque sottoprogetti hanno scopi diversi e quindi hanno bisogno di cose diverse da questo percorso. Il punto di ingresso di ciascuno è il `README.md` della sua cartella, che dice cos'è il sottoprogetto e dove sta la sua conoscenza; questa tabella dice quali note servono a chi.
+I sei sottoprogetti hanno scopi diversi e quindi hanno bisogno di cose diverse da questo percorso. Il punto di ingresso di ciascuno è il `README.md` della sua cartella, che dice cos'è il sottoprogetto e dove sta la sua conoscenza; questa tabella dice quali note servono a chi.
 
 | Sottoprogetto | Che cosa è | Note che gli servono |
 |---|---|---|
@@ -69,6 +70,7 @@ I cinque sottoprogetti hanno scopi diversi e quindi hanno bisogno di cose divers
 | `gba-save-extraction-smeraldo/` | runbook: riparare un inventario corrotto su cartuccia | [[01-fondamenta-salvataggio]], [[03-integrita-checksum]], [[04-cifratura-gen3]], [[22-strumenti]] |
 | `3ds-related/` | runbook: modding della console e dump delle cartucce | nessuna in modo diretto, perché dumpa file senza interpretarli; [[01-fondamenta-salvataggio]] se un giorno servisse aprirli |
 | `gba-switch-pokemon-trading/` | reverse engineering di rete fra PC e Switch | [[11-wireless-locale-e-ponte-switch]] per prima, poi [[06-identita-pokemon]] e [[04-cifratura-gen3]], perché i dati scambiati sono strutture Gen 3 |
+| `recreate-pokemon-distributions-events/` | ricreazione delle distribuzioni di eventi Gen 3, al servizio della collezione completa in Pokemon Home | [[10-multiboot-hardware]] per prima, perché il canale delle distribuzioni è quello, poi [[04-cifratura-gen3]] e [[06-identita-pokemon]] per il dato distribuito, [[03-integrita-checksum]] per il checksum della ROM di distribuzione e per i settori del salvataggio, e [[01-fondamenta-salvataggio]] per il ciclo di estrazione e ripristino; la nota di studio vive nella cartella del sottoprogetto |
 | `poke-automation-study/` | studio dell'automazione su Switch, scopo da definire | la nota di studio vive nella cartella del sottoprogetto, cioè `poke-automation-study/STUDIO-01-architettura-e-perimetro.md`, perché studia un progetto esterno e non il nostro codice; la sovrapposizione con il ponte è il microcontrollore, trattato in [[30-opzioni-implementative]] |
 
 Il formato dei dati Gen 3 è quindi la conoscenza più trasversale del progetto: serve al ponte per costruirlo, a Smeraldo per diagnosticarlo e allo scambio con la Switch per interpretarlo. È la ragione per cui la referenza vive accanto al ponte ma è citata dalle schede degli altri.
@@ -79,4 +81,4 @@ Le fonti che portano peso tecnico hanno una nota propria sotto `docs/fonti/`, co
 
 ## Ancoraggi fuori da questa cartella
 
-La referenza byte per byte è [[DATA-FORMATS_Gen1-Gen2-Gen3]]. Il registro delle fonti, con la colonna che dice a quale sottoprogetto serve ciascuna voce, è [[SOURCES]]. Lo stato dei quattro track e la riga del fuoco corrente stanno in `.claude/memory/index.md`, le decisioni in `.claude/memory/decisions.md`, e le regole normative sull'hardware in `.claude/rules/hardware-and-perimeter.md`, che va letta prima di qualsiasi operazione fisica.
+La referenza byte per byte è [[DATA-FORMATS_Gen1-Gen2-Gen3]]. Il registro delle fonti, con la colonna che dice a quale sottoprogetto serve ciascuna voce, è [[SOURCES]]. Lo stato dei sei track e la riga del fuoco corrente stanno in `.claude/memory/index.md`, le decisioni in `.claude/memory/decisions.md`, e le regole normative sull'hardware in `.claude/rules/hardware-and-perimeter.md`, che va letta prima di qualsiasi operazione fisica.

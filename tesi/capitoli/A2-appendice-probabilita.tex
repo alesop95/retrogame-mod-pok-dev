@@ -1,0 +1,105 @@
+% =====================================================================
+% tesi/capitoli/A2-appendice-probabilita.tex
+% =====================================================================
+% copre: docs/40-appendice-matematica.md#2-1-variabile-aleatoria-discreta
+% copre: docs/40-appendice-matematica.md#2-2-distribuzione-uniforme
+% copre: docs/40-appendice-matematica.md#2-3-indipendenza
+% copre: docs/40-appendice-matematica.md#2-4-distribuzione-geometrica-valore-atteso-e-varianza
+% copre: docs/40-appendice-matematica.md#2-5-distribuzione-binomiale
+% copre: docs/40-appendice-matematica.md#2-6-approssimazione-di-poisson-con-il-criterio-di-validità
+% copre: docs/40-appendice-matematica.md#2-7-deviazione-standard
+% verificato-al-commit: 0529162
+% ---------------------------------------------------------------------
+
+\chapter{Nozioni di probabilità}
+\label{app:probabilita}
+
+Le grandezze di questa appendice sostengono tre argomenti del capitolo~\ref{cap:analisi}: il costo del campionamento con rifiuto, la probabilità di errore dell'automazione su un orizzonte lungo, e la distorsione introdotta dalla riduzione per resto. Ciascuna voce enuncia, motiva, svolge un esempio e rimanda.
+
+\section{Variabile aleatoria discreta}
+
+Una variabile aleatoria discreta è una funzione che associa a ciascun esito di un esperimento un valore, in modo che i valori possibili siano in numero finito o numerabile e che a ciascuno sia associata una probabilità; le probabilità sono non negative e la loro somma vale uno.
+
+La nozione esiste perché consente di trattare una grandezza incerta come oggetto matematico, e quindi di calcolarne medie, varianze ed entropie. Senza di essa non si potrebbe nemmeno formulare la domanda che il capitolo~\ref{cap:analisi} pone più spesso, cioè quanto valga in media una quantità e quanto essa si disperda attorno alla media.
+
+L'esempio da svolgere è il valore di personalità della terza generazione, che è la variabile aleatoria più impiegata in questo lavoro: assume $2^{32}$ valori interi e, sotto l'ipotesi di uniformità del generatore del gioco, ciascuno ha probabilità $2^{-32}$. Da questa sola dichiarazione discendono la probabilità di lucentezza, il numero atteso di iterazioni del campionamento con rifiuto e la distorsione del resto, tutte calcolate nel capitolo~\ref{cap:analisi} e tutte dipendenti da quell'unica ipotesi.
+
+\section{Distribuzione uniforme}
+
+Una variabile aleatoria discreta ha distribuzione uniforme su un insieme di $n$ valori quando ciascun valore ha probabilità $1/n$. È la distribuzione che formalizza l'assenza di preferenza fra gli esiti, ed è nel presente lavoro un'ipotesi di lavoro e non una verità accertata.
+
+L'ipotesi va dichiarata ogni volta, perché in almeno un caso misurato è falsa: l'estrazione della natura per resto della divisione per venticinque non è uniforme, giacché $2^{32}$ non è multiplo di venticinque, e la deviazione relativa vale $9{,}3 \cdot 10^{-10}$.
+
+L'esempio da svolgere è quel calcolo ridotto a numeri piccoli, affinché il meccanismo sia visibile. Si estragga un valore uniforme fra $0$ e $9$ e si consideri il resto della divisione per tre. Il resto nullo si ottiene dai quattro valori $0, 3, 6, 9$, il resto unitario dai tre valori $1, 4, 7$, il resto pari a due dai tre valori $2, 5, 8$: le probabilità sono $4/10$, $3/10$ e $3/10$, non $1/3$ ciascuna, perché dieci non è multiplo di tre e i valori in eccesso favoriscono i resti minori. La distorsione decresce al crescere del rapporto fra numero di valori estratti e modulo, ed è precisamente ciò che la rende trascurabile ma non nulla nel caso reale, dove si estrae fra $2^{32}$ valori e si divide per venticinque.
+
+\section{Indipendenza}
+
+Due eventi sono indipendenti quando la probabilità della loro intersezione è il prodotto delle rispettive probabilità; due variabili aleatorie sono indipendenti quando ogni coppia di eventi definiti sull'una e sull'altra è indipendente.
+
+La nozione esiste perché l'indipendenza è l'ipotesi che autorizza a moltiplicare le probabilità, e la moltiplicazione è l'operazione con cui si contano le configurazioni di un sistema composto. Il costo dell'ipotesi è che, quando essa è falsa, il risultato non è approssimato ma errato di un fattore ignoto.
+
+L'esempio da svolgere è il caso in cui questo lavoro ha dovuto correggersi. Sesso e abilità di un esemplare della terza generazione dipendono entrambi dal medesimo byte del valore di personalità: il primo dal confronto fra quel byte e la soglia della specie, la seconda dal suo bit meno significativo. Non sono indipendenti, dunque contare le combinazioni come prodotto delle cardinalità sovrastima il risultato, e il capitolo~\ref{cap:analisi} le conta congiuntamente enumerando i $256$ valori del byte. La forma generale dell'errore merita di essere enunciata: due grandezze derivate dalla medesima sorgente non sono indipendenti nemmeno quando appaiono semanticamente estranee.
+
+\section{Distribuzione geometrica}
+
+Si ripeta in modo indipendente un esperimento con probabilità di successo $p$ fino al primo successo. Il numero $K$ di prove necessarie ha distribuzione geometrica:
+
+\begin{equation}
+\Pr[K = k] = (1-p)^{k-1} p, \qquad \mathbb{E}[K] = \frac{1}{p}, \qquad \mathrm{Var}[K] = \frac{1-p}{p^2}.
+\end{equation}
+
+La nozione esiste perché descrive il costo di ogni procedura del tipo prova e riprova, che in questo lavoro è il campionamento con rifiuto: si estrae un valore di personalità, si verifica il vincolo, e in caso di esito negativo si ricomincia.
+
+La derivazione del valore atteso è breve e vale esibirla, poiché è l'unico punto dell'appendice in cui compare una serie. Si ha
+\begin{equation}
+\mathbb{E}[K] = \sum_{k=1}^{\infty} k (1-p)^{k-1} p = p \sum_{k=1}^{\infty} k (1-p)^{k-1} = p \cdot \frac{1}{p^2} = \frac{1}{p},
+\end{equation}
+dove la somma intermedia è la derivata della serie geometrica valutata in $1-p$.
+
+L'esempio da svolgere è il caso più sfavorevole fra quelli reali. Per una specie con rapporto di sesso di una femmina su otto esemplari, la probabilità che un valore estratto realizzi il sesso più raro vale $p = 31/256 \approx 0{,}121$; il numero atteso di estrazioni è dunque circa $8{,}3$ e la deviazione standard circa $7{,}8$. La seconda cifra è quella decisiva per un lavoro che deve dichiarare un limite e non una media: una dispersione dello stesso ordine della media significa che il numero di iterazioni non è concentrato, dunque un limite fissato al valore atteso viene superato con frequenza non trascurabile.
+
+\section{Distribuzione binomiale}
+
+Si ripeta $n$ volte in modo indipendente un esperimento con probabilità di successo $p$. Il numero $K$ di successi ha distribuzione binomiale:
+
+\begin{equation}
+\Pr[K = k] = \binom{n}{k} p^k (1-p)^{n-k}, \qquad \mathbb{E}[K] = n p .
+\end{equation}
+
+Il coefficiente binomiale conta le disposizioni dei $k$ successi fra le $n$ prove ed è definito nell'appendice~\ref{app:algebra}. La nozione esiste perché la domanda operativa non è quasi mai se un evento raro si verifichi, ma quante volte esso si verifichi in un numero grande di occasioni: è la forma di ogni domanda sull'affidabilità di un processo ripetuto.
+
+L'esempio da svolgere è quello dell'automazione, e conduce a una delle cifre più eloquenti del lavoro. Un programma che compia una decisione per fotogramma a sessanta fotogrammi al secondo per otto ore effettua
+\begin{equation}
+n = 60 \cdot 3600 \cdot 8 = 1\,728\,000
+\end{equation}
+prove. Detta $q$ la probabilità di errore per fotogramma, la probabilità di non commettere alcun errore vale $(1-q)^n$. Imponendo che essa non scenda sotto il novantanove per cento si ottiene, passando ai logaritmi e approssimando $\ln(1-q) \simeq -q$ per $q$ piccolo,
+\begin{equation}
+q \le \frac{-\ln 0{,}99}{n} = 5{,}82 \cdot 10^{-9},
+\end{equation}
+che è la soglia riportata nel capitolo~\ref{cap:analisi}. Poiché nessun riconoscitore per immagini realistico raggiunge un tasso di errore di quell'ordine, su un orizzonte lungo l'errore non è probabile ma praticamente certo, e la conseguenza di progetto è che l'anello di controllo del capitolo~\ref{cap:automazione} deve prevedere il recupero dall'errore e non la sua assenza.
+
+\section{Approssimazione di Poisson}
+
+Quando in una distribuzione binomiale il numero di prove è grande e la probabilità di successo è piccola, il numero di successi è ben approssimato da una distribuzione di Poisson di parametro $\lambda = np$:
+
+\begin{equation}
+\Pr[K = k] = \frac{\lambda^k e^{-\lambda}}{k!}, \qquad \Pr[K = 0] = e^{-\lambda}.
+\end{equation}
+
+La nozione esiste per una ragione di calcolo e una di comprensione. Di calcolo, perché il coefficiente binomiale su un milione di prove è intrattabile mentre l'esponenziale non lo è. Di comprensione, perché nella forma di Poisson il risultato dipende dal solo prodotto $np$, e ciò rende immediato il fatto che raddoppiare la durata dell'esperimento e raddoppiare la probabilità di errore producano il medesimo effetto.
+
+Il criterio di validità va dichiarato, perché un'approssimazione priva di criterio è un'affermazione non verificabile: essa si considera buona quando $n$ è grande, indicativamente superiore al centinaio, e $p$ è piccola in modo che $\lambda$ resti moderato, indicativamente inferiore alla decina. Nell'esempio dell'automazione si ha $n = 1\,728\,000$ e $\lambda$ dell'ordine dell'unità, dunque il criterio è soddisfatto con ampio margine.
+
+L'esempio da svolgere è la verifica dell'approssimazione sul medesimo caso: con $\lambda = 0{,}01$ la probabilità di zero errori vale $e^{-0{,}01} = 0{,}99005$, mentre il valore esatto $(1-q)^n$ con $q = 5{,}79 \cdot 10^{-9}$ vale $0{,}99005$. Le due cifre coincidono alla quinta decimale, e questa coincidenza è la verifica che l'impiego dell'approssimazione non ha alterato la conclusione.
+
+\section{Deviazione standard}
+
+La varianza di una variabile aleatoria è il valore atteso del quadrato dello scarto dalla media, e la deviazione standard è la sua radice quadrata:
+
+\begin{equation}
+\mathrm{Var}[X] = \mathbb{E}\big[(X - \mathbb{E}[X])^2\big], \qquad \sigma = \sqrt{\mathrm{Var}[X]}.
+\end{equation}
+
+La seconda si preferisce alla prima quando si vuole una quantità confrontabile con la media, poiché ne condivide l'unità di misura. La nozione esiste perché una media priva di misura di dispersione è un'informazione incompleta, e in un lavoro che deve dichiarare limiti operativi è l'informazione più fuorviante fra quelle disponibili: due procedure con identico costo medio, una concentrata e una dispersa, richiedono decisioni diverse.
+
+L'esempio da svolgere è quello della distribuzione geometrica: valore atteso di $8{,}3$ iterazioni e deviazione standard di $7{,}8$. Il rapporto quasi unitario fra le due non è una peculiarità del caso, ma la regola per quella distribuzione, dato che $\sigma / \mathbb{E}[K] = \sqrt{1-p}$ tende a uno per $p$ piccolo. La lettura operativa è che il campionamento con rifiuto ha costo tipico di poche iterazioni e coda lunga, dunque l'implementazione deve prevedere un limite di iterazioni e un comportamento dichiarato al suo raggiungimento, anziché confidare nella media: è la prescrizione registrata nel capitolo~\ref{cap:collaudo}.

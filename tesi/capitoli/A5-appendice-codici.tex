@@ -1,0 +1,64 @@
+% =====================================================================
+% tesi/capitoli/A5-appendice-codici.tex
+% =====================================================================
+% copre: docs/40-appendice-matematica.md#5-1-codice-rilevatore-d-errore
+% copre: docs/40-appendice-matematica.md#5-2-sindrome
+% copre: docs/40-appendice-matematica.md#5-3-distanza-di-hamming
+% copre: docs/40-appendice-matematica.md#5-4-errore-a-raffica
+% copre: docs/40-appendice-matematica.md#5-5-divisione-polinomiale-in-aritmetica-binaria
+% copre: docs/40-appendice-matematica.md#5-6-crc
+% verificato-al-commit: 0529162
+% ---------------------------------------------------------------------
+
+\chapter{Nozioni di teoria dei codici}
+\label{app:codici}
+
+Il capitolo~\ref{cap:integrita} descrive i tre algoritmi di controllo delle tre generazioni e il capitolo~\ref{cap:analisi} li misura. Questa appendice fornisce il vocabolario con cui quelle due operazioni si compiono, e in particolare la nozione di distanza minima, che è ciò che spiega in una riga il difetto dimostrato a proposito della permutazione.
+
+\section{Codice rilevatore d'errore}
+
+Un codice rilevatore d'errore è una regola che associa a un messaggio un'informazione ridondante, calcolata dal messaggio stesso, in modo che il destinatario possa ricalcolarla e confrontarla: se il confronto fallisce il messaggio è alterato, se riesce il messaggio è probabilmente intatto. La differenza rispetto a un codice correttore è che il primo segnala l'alterazione e il secondo la ripara, al prezzo di una ridondanza molto maggiore.
+
+La nozione esiste perché ogni canale e ogni supporto alterano i dati, e un'alterazione non rilevata è peggiore di un guasto dichiarato: un salvataggio corrotto che il gioco carica senza protestare produce danni che nessuno sa attribuire. La rilevazione converte un errore silenzioso in un errore visibile, che è quanto basta quando esiste una copia di riserva, ed è la ragione per cui il capitolo~\ref{cap:perimetro} impone il backup prima di ogni scrittura.
+
+L'esempio da svolgere è il confronto fra le tre generazioni. Sotto l'ipotesi che un'alterazione produca un valore di controllo uniformemente distribuito, la probabilità di rilevazione di un controllo di $b$ bit vale $1 - 2^{-b}$, cioè il $99{,}61$ per cento per gli otto bit della prima generazione e il $99{,}9985$ per cento per i sedici bit della terza. L'ipotesi va dichiarata, perché è precisamente quella che l'appendice~\ref{app:algebra} mostra falsa per la classe di alterazioni che permutano i blocchi: per quella classe la probabilità di rilevazione non è alta, è nulla.
+
+\section{Sindrome}
+
+La sindrome è il risultato del calcolo di verifica compiuto dal destinatario, ovvero, in forma equivalente, la differenza fra il valore di controllo ricevuto e quello ricalcolato. È nulla quando non si rileva alcun errore, e un valore non nullo individua una classe di alterazioni compatibili con l'osservazione.
+
+La nozione esiste perché separa ciò che il destinatario osserva da ciò che è accaduto: il destinatario non vede l'errore, vede la sindrome, e da essa deduce. In un codice rilevatore la deduzione si arresta alla presenza dell'errore; in un codice correttore la sindrome individua anche la posizione, ed è per questo che nella teoria dei codici essa è l'oggetto centrale e non un dettaglio implementativo.
+
+L'esempio da svolgere mostra perché una sindrome non nulla non identifichi l'errore. Su un checksum additivo di \SI{16}{bit} una sindrome pari a $+1$ è compatibile con l'incremento di una qualunque delle parole sommate, e le parole sono migliaia: la classe individuata è ampia. È la ragione per cui la diagnosi descritta nel capitolo~\ref{cap:strumenti} non si arresta al checksum ma verifica la coerenza fra gli identificativi degli oggetti e le tasche che li contengono: il controllo dice che qualcosa non torna, l'analisi di dominio dice che cosa.
+
+\section{Distanza di Hamming}
+
+La distanza di Hamming fra due sequenze di uguale lunghezza è il numero di posizioni in cui esse differiscono. La distanza minima di un codice è la minima distanza fra due parole valide distinte, e da essa discende la capacità del codice: con distanza minima $d$ si rilevano fino a $d-1$ errori e si correggono fino a $\lfloor (d-1)/2 \rfloor$.
+
+La nozione esiste perché traduce la robustezza di un codice in una grandezza geometrica: le parole valide sono punti di uno spazio, e la distanza minima misura quanto siano isolate. Un codice è robusto quando alterare pochi bit conduce necessariamente in un punto non valido.
+
+L'esempio da svolgere è il caso limite che riguarda questo lavoro. Il checksum additivo ha distanza minima due, poiché esistono due configurazioni valide che differiscono in due posizioni, cioè un dato incrementato di uno e il suo controllo incrementato di uno. Ne segue che rileva ogni errore singolo e non garantisce nulla sugli errori doppi, che è esattamente il comportamento descritto a proposito della permutazione: quest'ultima altera molte posizioni contemporaneamente e resta dentro l'insieme delle configurazioni valide.
+
+\section{Errore a raffica}
+
+Un errore a raffica è un'alterazione che colpisce un insieme di bit consecutivi anziché bit isolati, e la sua lunghezza è la distanza fra il primo e l'ultimo bit alterato.
+
+La nozione esiste perché i guasti reali non sono indipendenti. Un settore di memoria che cede non altera un bit qua e uno là: altera una regione contigua, e il medesimo vale per un disturbo su un collegamento seriale, che ha una durata e quindi colpisce un numero di bit consecutivi. Un codice progettato contro errori indipendenti può comportarsi molto peggio del previsto contro le raffiche, e viceversa.
+
+L'esempio da svolgere è la casistica reale del capitolo~\ref{cap:smeraldo}: gli oggetti di una tasca risultano sostituiti da un altro genere di oggetto a partire da una certa posizione in avanti. È una raffica, e la forma dell'alterazione è essa stessa un'informazione diagnostica, poiché distingue una scrittura che ha invaso una regione a partire da uno scostamento da una corruzione sparsa. È la ragione per cui lo strumento di diagnosi, oltre a elencare le anomalie, cerca il punto di rottura e dichiara se la corruzione abbia un inizio.
+
+\section{Divisione polinomiale in aritmetica binaria}
+
+Una sequenza di bit si legge come vettore dei coefficienti di un polinomio, dove il bit di posizione $i$ è il coefficiente di $x^i$ e i coefficienti appartengono all'aritmetica modulo due dell'appendice~\ref{app:algebra}. In quell'aritmetica la divisione fra polinomi si esegue come la divisione in colonna ordinaria, con la differenza che le sottrazioni sono or esclusivi e non richiedono prestiti.
+
+La nozione esiste perché è il meccanismo su cui poggia il controllo ciclico della sezione seguente, e perché la sua struttura algebrica è ciò che conferisce a quel controllo le proprietà che una somma non possiede: in una somma il contributo di un byte non dipende dalla sua posizione, in una divisione polinomiale sì, poiché la posizione è l'esponente.
+
+L'esempio da svolgere è minimo e va seguito passo a passo. Si divida $1101$ per $101$. Il primo passo allinea il divisore sotto i primi tre bit $110$ e ne esegue l'or esclusivo, ottenendo $011$; si abbassa il bit successivo ottenendo $111$; si allinea di nuovo il divisore e l'or esclusivo dà $010$. Il resto è $10$, e quel resto è il valore di controllo. Ripetendo il calcolo sulla sequenza alterata in una qualunque posizione il resto cambia, ed è questa dipendenza dalla posizione che la somma non possiede.
+
+\section{Controllo di ridondanza ciclica}
+
+Un controllo di ridondanza ciclica è il resto della divisione polinomiale del messaggio, moltiplicato per l'opportuna potenza di $x$, per un polinomio generatore fissato; il destinatario ripete la divisione sul messaggio con il resto in coda e verifica che il resto sia nullo.
+
+La nozione esiste perché un controllo ciclico rileva classi di errori che una somma non rileva, e le rileva con garanzia anziché con probabilità. Con un generatore di grado $g$ scelto opportunamente esso rileva tutti gli errori singoli, tutti i doppi, tutti quelli di peso dispari se il generatore contiene il fattore $x+1$, e tutte le raffiche di lunghezza fino a $g$. Sono garanzie deterministiche, e la differenza rispetto al $99{,}9985$ per cento di una somma di \SI{16}{bit} non sta nella cifra ma nella natura dell'affermazione.
+
+L'esempio da svolgere è la ragione per cui i giochi non lo impiegano, che questo lavoro ha calcolato anziché supporre. Su un processore a \SI{4,194}{MHz} e in assenza di tabella precalcolata, il costo di un controllo ciclico di \SI{16}{bit} sui $2\,938$ byte coperti dal checksum della seconda generazione eccede di un ordine di grandezza quello della somma, come mostra la tabella del capitolo~\ref{cap:analisi}, e risulta incompatibile con il tempo di salvataggio dell'epoca. La scelta della somma non fu ignoranza: fu il compromesso corretto per quel bilancio di risorse, ed è un caso in cui la misura restituisce dignità a una decisione che l'analisi qualitativa avrebbe giudicato negligente.

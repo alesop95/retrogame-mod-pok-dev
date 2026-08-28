@@ -348,6 +348,47 @@ FONTI = [
      "È il precedente più prossimo all'opzione che opera interamente su calcolatore, e la sua esistenza dimostra che quella strada arriva a un risultato funzionante; mostra anche che l'evoluzione da scambio, che il nostro progetto non ha ancora considerato, è una regola che un convertitore deve conoscere.",
      [("[[30-opzioni-implementative]]", "l'opzione che opera su file di salvataggio")],
      []),
+
+    ("video-distribuzioni", "Goppier, la ricreazione delle distribuzioni Gen 3", "https://www.youtube.com/watch?v=NKBb-YS34wg", 4, True, ["EVT", "BRI"],
+     "Racconto tecnico della ricreazione di tutte le distribuzioni di eventi di terza generazione, inglesi, giapponesi e da GameCube, trascritto e letto per intero il 2026-08-28. Descrive come si trova il multiboot dentro la ROM di distribuzione confrontando i byte che passano sul cavo, come lo si decomprime attraverso la chiamata di sistema del BIOS, come si aggira il checksum additivo che ne difende l'integrità, e come si impostano i parametri dell'esemplare riusando il codice del gioco per indice di parametro.",
+     "È la sola fonte esistente sul formato interno di una ROM di distribuzione, e porta due contributi che il progetto non aveva. Il primo è la conferma indipendente, ottenuta per reverse engineering e non dal disassemblato, che il salvataggio di terza generazione ha quattordici sezioni che ruotano fra gli slot e due copie alternate, con la posta nella sezione quattro. Il secondo è la disciplina con cui tratta i casi indeterminati: dei tre non chiusi dichiara l'ipotesi e la sua improbabilità invece di promuoverla a fatto, e su uno chiude la questione per ricerca esaustiva sui 65536 semi possibili, trovando l'unico compatibile.",
+     [("[[03-integrita-checksum]]", "il checksum additivo come difesa dalla corruzione e non da un avversario"),
+      ("[[10-multiboot-hardware]]", "il multiboot come canale ufficiale delle distribuzioni"),
+      ("[[06-identita-pokemon]]", "il valore di personalità visto dal lato di chi genera")],
+     [("conferma", "pokeemerald"),
+      ("documenta", "gen3distributions")]),
+
+    ("video-ereader-eventi", "im a blisy, gli eventi e-Reader su cartuccia vera", "https://www.youtube.com/watch?v=fK-Actf6kME", 4, True, ["EVT", "SME"],
+     "Guida esaustiva alle vie con cui un evento entra in una cartuccia originale, trascritta e letta per intero il 2026-08-28: l'emulatore con due istanze collegate e il BIOS reale, l'e-Reader con un salvataggio precostituito, la scheda riprogrammabile, la stampa delle carte con il codice a punti, e l'iniezione diretta della carta meraviglia nel salvataggio estratto.",
+     "È la fonte operativa del track delle distribuzioni, e porta l'avvertimento che questo progetto adotta come regola: se il salvataggio contiene già una carta meraviglia, quella va esportata prima di ogni scrittura, perché può essere un evento non ancora preservato dalla comunità. Distingue inoltre due funzioni del gioco che si somigliano e non coincidono, cioè il Dono Segreto e l'Evento Mistero, e documenta che in Smeraldo la seconda è stata rimossa dai menu e si riapre soltanto attraverso la prima. Cita GBxCart RW fra i lettori raccomandati, che è una conferma indipendente della scelta fatta per il caso dello Smeraldo.",
+     [("[[01-fondamenta-salvataggio]]", "il ciclo di estrazione e ripristino di un salvataggio"),
+      ("[[22-strumenti]]", "i lettori di cartucce e le loro alternative")],
+     [("alternativa-a", "video-distribuzioni")]),
+
+    ("video-pcny", "Hard4Games, la macchina del Pokemon Center di New York", "https://www.youtube.com/watch?v=AVhqlol6k9o", 4, True, ["EVT"],
+     "Preservazione dell'hardware e del software di distribuzione del Pokemon Center di New York, trascritta e letta per intero il 2026-08-28. Documenta i due dischi in formato proprietario di sviluppo, le schede di campagna che dichiarano quali esemplari distribuire e in quale finestra temporale, le schede che funzionano da chiave, e le date delle campagne di seconda e terza generazione.",
+     "È la fonte storica su un apparecchio che si credeva distrutto, ed è quella che spiega perché gli eventi di quel negozio si possano soltanto ricreare e non riprodurre: il trasferimento avviene attraverso uno scrittore dedicato collegato al GameCube, e la fonte dichiara di aver verificato che con un Game Boy Advance ordinario non funziona. Documenta inoltre due proprietà degli esemplari distribuiti là, cioè l'allenatore originale con l'indicazione della postazione e l'identificativo dell'allenatore incrementato a ogni distribuzione, che la ricreazione per multiboot ha replicato.",
+     [("[[24-fonti-di-community]]", "la conservazione come attività di ricerca")],
+     [("conferma", "video-distribuzioni")]),
+
+    ("video-gbi-bonus", "SuperrSonic, i contenuti bonus dal Game Boy Player", "https://www.youtube.com/watch?v=GBEMP2kEpPw", 4, True, ["EVT"],
+     "Programma per GameCube che applica a un salvataggio di cartuccia i contenuti bonus di diversi giochi, fra cui quelli dei giochi Pokemon di terza generazione, trascritto e letto per intero il 2026-08-28. La via passa dall'interfaccia alternativa del Game Boy Player, che invia un programma multiboot senza cavo perché il collegamento è interno alla console, ed è capace di estrarre BIOS, ROM e salvataggio e di ripristinare il salvataggio modificato.",
+     "Apre una strada che nessuna delle altre fonti del track nomina, perché l'intero ciclo di modifica avviene sulla console senza calcolatore e senza lettore esterno. Il contributo più utile all'obiettivo di collezione non è però un esemplare ma un oggetto: il quiz del disco bonus consegnava i biglietti degli eventi e, sul salvataggio di Smeraldo, la mappa marina che porta all'incontro con Mew, cioè oggetti irripetibili che sbloccano l'unico modo legittimo di ottenere quelle specie. L'autore dichiara di aver implementato i checksum leggendo Bulbapedia, che è la fonte su cui questo progetto ha già documentato un errore in quella materia.",
+     [("[[12-analisi-quantitativa]]", "il costo di modificare un dato cifrato senza invalidarlo"),
+      ("[[10-multiboot-hardware]]", "il multiboot inviato senza cavo")],
+     [("alternativa-a", "video-ereader-eventi")]),
+
+    ("bank-fine-servizio", "Nintendo, fine del servizio di Pokemon Bank", "https://en-americas-support.nintendo.com/app/answers/detail/a_id/61543", 2, True, ["EVT", "3DS"],
+     "Comunicazione ufficiale del supporto Nintendo sulla chiusura di Pokemon Bank, letta il 2026-08-28: il servizio termina giovedì 25 febbraio 2027 alle 19:00 PST, cioè il 26 febbraio alle 12:00 JST, e con esso cessa la possibilità di trasferire verso Pokemon Home. Chi ha esemplari depositati deve spostarli in Home prima di quella data, e la pagina non annuncia alcun periodo di tolleranza.",
+     "È il vincolo temporale esterno del track delle distribuzioni e dell'obiettivo di collezione, e va citato dalla fonte ufficiale e non dalla stampa specializzata, perché la data governa una pianificazione e non una notizia. Bank e Poke Transporter erano rimasti gli ultimi software del Nintendo 3DS con funzioni in linea dopo la chiusura generale del 9 aprile 2024.",
+     [("[[11-wireless-locale-e-ponte-switch]]", "le vie che restano verso le piattaforme moderne")],
+     []),
+
+    ("bulbapedia-trasferimenti", "Bulbapedia, la catena dei trasferimenti fra generazioni", "https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Bank", 2, True, ["EVT", "3DS"],
+     "Le tre pagine che descrivono la catena di trasferimento verso le piattaforme moderne, lette il 2026-08-28: Pokemon Bank con i giochi che Poke Transporter accetta come sorgente, cioè la quinta generazione e le riedizioni su Virtual Console della prima e della seconda; il Parco Amico, che porta dalla terza alla quarta generazione; e il Trasferitore, che porta dalla quarta alla quinta.",
+     "Serve a stabilire un fatto che decide la praticabilità dell'obiettivo di collezione: la terza generazione non entra in Bank direttamente, quindi un esemplare nato su cartuccia Game Boy Advance deve attraversare quattro passaggi irreversibili, il primo dei quali richiede un Nintendo DS o DS Lite perché è l'unica console con lo slot per le cartucce Game Boy Advance. Da qui vengono anche i limiti di ciascun passaggio, cioè sei esemplari per volta, la stessa lingua ai due capi, il rifiuto delle uova e degli esemplari che conoscono una mossa macchina nascosta, e il Pokedex nazionale come prerequisito del secondo passaggio.",
+     [("[[11-wireless-locale-e-ponte-switch]]", "la catena completa verso le piattaforme moderne")],
+     [("conferma", "bank-fine-servizio")]),
 ]
 # ---------------------------------------------------------------------------------------
 # I riferimenti teorici canonici dei concetti impiegati nell'analisi quantitativa.

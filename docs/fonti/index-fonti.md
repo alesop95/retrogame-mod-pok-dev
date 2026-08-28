@@ -37,6 +37,12 @@ graph LR
   gcri-discord -- documenta --> glitchcity
   gambatte-gamelink -- alternativa-a --> cableclubhack
   projectpokemon -- documenta --> cable-link
+  video-distribuzioni -- conferma --> pokeemerald
+  video-distribuzioni -- documenta --> gen3distributions
+  video-ereader-eventi -- alternativa-a --> video-distribuzioni
+  video-pcny -- conferma --> video-distribuzioni
+  video-gbi-bonus -- alternativa-a --> video-ereader-eventi
+  bulbapedia-trasferimenti -- conferma --> bank-fine-servizio
 ```
 
 ## Le fonti, per livello
@@ -64,6 +70,8 @@ graph LR
 |---|---|---|
 | [[bulbapedia]] | BRI, SME, LDN | [[DATA-FORMATS_Gen1-Gen2-Gen3]], [[23-prove-eseguite]] |
 | [[glitchcity]] | BRI | [[09-esecuzione-codice]] |
+| [[bank-fine-servizio]] | EVT, 3DS | [[11-wireless-locale-e-ponte-switch]] |
+| [[bulbapedia-trasferimenti]] | EVT, 3DS | [[11-wireless-locale-e-ponte-switch]] |
 
 ### Livello 3
 
@@ -104,6 +112,10 @@ graph LR
 | [[video-trascritti]] | BRI, SME, 3DS, LDN | [[21-collaudo]], [[24-fonti-di-community]] |
 | [[retroreversing]] | BRI | [[08-cavo-link]] |
 | [[hackaday-ponte]] | BRI | [[30-opzioni-implementative]] |
+| [[video-distribuzioni]] | EVT, BRI | [[03-integrita-checksum]], [[10-multiboot-hardware]], [[06-identita-pokemon]] |
+| [[video-ereader-eventi]] | EVT, SME | [[01-fondamenta-salvataggio]], [[22-strumenti]] |
+| [[video-pcny]] | EVT | [[24-fonti-di-community]] |
+| [[video-gbi-bonus]] | EVT | [[12-analisi-quantitativa]], [[10-multiboot-hardware]] |
 
 ### Livello 5
 
