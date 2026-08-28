@@ -1,0 +1,45 @@
+% =====================================================================
+% tesi/capitoli/A4-appendice-geometria.tex
+% =====================================================================
+% copre: docs/40-appendice-matematica.md#4-1-che-cos-è-un-politopo
+% copre: docs/40-appendice-matematica.md#4-2-i-punti-interi-di-un-politopo
+% copre: docs/40-appendice-matematica.md#4-3-contare-i-punti-interi-in-presenza-di-vincoli-superiori
+% verificato-al-commit: 0529162
+% ---------------------------------------------------------------------
+
+\chapter{Nozioni di geometria discreta}
+\label{app:geometria}
+
+Questa appendice serve un solo risultato del capitolo~\ref{cap:analisi}, il più forte fra quelli che vi compaiono: la dimostrazione che la conversione dell'allenamento fra generazioni non può essere fedele, e che l'impossibilità appartiene al formato di destinazione e non alla formula. Il risultato è geometrico prima di essere informatico, e la ragione va esposta.
+
+\section{Che cos'è un politopo}
+
+Un politopo è l'insieme dei punti di uno spazio a $d$ dimensioni che soddisfano un numero finito di disuguaglianze lineari. In due dimensioni è un poligono convesso, in tre un poliedro convesso, e in dimensione qualunque conserva le medesime proprietà: è convesso, cioè contiene il segmento congiungente due suoi punti qualsiasi, ed è delimitato da facce piatte.
+
+La nozione esiste perché è la forma geometrica di un sistema di vincoli lineari, e consente di ragionare su quei vincoli con l'intuizione dello spazio anziché con la sola manipolazione algebrica. Un insieme di tetti su singole grandezze accompagnato da un tetto sulla loro somma non è un elenco di regole: è un solido, e la domanda su quante configurazioni esso ammetta diviene la domanda su quanti punti a coordinate intere contenga.
+
+L'esempio da svolgere è il politopo dell'allenamento. Le sei grandezze sono le coordinate di uno spazio a sei dimensioni; i vincoli impongono che ciascuna coordinata sia non negativa e non superi $252$, e che la somma non superi $510$. I primi dodici vincoli definiscono un ipercubo di lato $252$, il tredicesimo lo taglia con un iperpiano, e la regione ammissibile è l'intersezione fra il cubo e il semispazio, che è un politopo. La forma spiega perché il conteggio non sia immediato: il taglio interseca il cubo, dunque il numero dei punti non coincide né con quello del cubo né con quello del simplesso, e va calcolato correggendo l'uno con l'altro.
+
+\section{I punti interi di un politopo}
+
+Un punto intero di un politopo è un suo punto le cui coordinate sono tutte intere. Il loro numero è una grandezza discreta che non si ricava dal volume, e la differenza fra le due può essere rilevante: il volume misura la regione, il conteggio misura le configurazioni realizzabili.
+
+La nozione esiste perché in un sistema informatico le grandezze sono intere. Un valore di allenamento non può valere $12{,}5$, dunque la cardinalità che interessa non è il volume del politopo ma il numero dei suoi punti interi, e quel numero è la dimensione effettiva dell'insieme di arrivo di una conversione.
+
+L'esempio da svolgere è il risultato del lavoro. Il politopo dell'allenamento contiene
+\begin{equation}
+22\,858\,382\,491\,812 \quad\text{punti interi}, \qquad \log_2 22\,858\,382\,491\,812 = 44{,}38 ,
+\end{equation}
+dunque la destinazione di una conversione non porta più di \SI{44,38}{bit} di informazione, qualunque sia la formula impiegata. Il confronto con il volume dell'ipercubo, $253^6 \approx 2{,}6 \cdot 10^{14}$, mostra che le due quantità sono dello stesso ordine ma diverse: il taglio della somma rimuove una porzione non trascurabile delle configurazioni, e impiegare la cardinalità del cubo al posto di quella del politopo sovrastimerebbe la capacità del formato.
+
+\section{Contare i punti interi in presenza di vincoli superiori}
+
+Il conteggio dei punti interi di un politopo definito dalla sola non negatività e da un vincolo sulla somma è immediato, poiché coincide con le combinazioni con ripetizione dell'appendice~\ref{app:algebra}. L'aggiunta di un tetto su ciascuna coordinata rompe quell'immediatezza, e la si recupera con l'inclusione ed esclusione: si conta come se il tetto non esistesse, si sottrae per ciascuna coordinata il numero di configurazioni in cui essa lo supera, e si riaggiunge per ciascuna coppia il numero di quelle in cui due coordinate lo superano congiuntamente.
+
+La nozione esiste perché il passaggio dal conteggio libero a quello vincolato è il punto in cui una stima diventa un calcolo, e perché l'omissione del termine di riaggiunta è un errore silenzioso: produce un numero inferiore al vero senza alcun segnale.
+
+L'esempio da svolgere è quello già introdotto, con i suoi numeri. Detta $s$ la somma, il conteggio delle configurazioni ammissibili vale
+\begin{equation}
+\sum_{s=0}^{510} \left[ \binom{s+5}{5} - 6\binom{s-253+5}{5} + 15\binom{s-506+5}{5} \right],
+\end{equation}
+dove i termini con argomento negativo si intendono nulli. Le violazioni triple richiederebbero $759$ unità e non compaiono per $s \le 510$, dunque la somma alternata si arresta al terzo addendo: è questa chiusura anticipata a rendere il risultato esatto. Il valore della somma è quello riportato nella sezione precedente, e da esso, confrontato con le $2^{80}$ configurazioni di partenza, discende per il principio dei cassetti la perdita di \SI{35,62}{bit} che il capitolo~\ref{cap:analisi} attribuisce al formato e non alla formula.

@@ -12,12 +12,22 @@ Tutte le voci che stavano qui sono state consegnate. Il 2026-08-26 sono arrivati
 
 Delle domande a cui quel materiale doveva rispondere, due hanno avuto risposta e una no. Sulle schede Wi-Fi la risposta è arrivata e ha corretto una premessa sbagliata del progetto, registrata in `sub-gba-switch-trading.md`. Sui difetti sfruttabili di generazione 3 la resa è stata molto oltre l'atteso, ed è in `docs/09-esecuzione-codice.md`. Sulla formula da Stat Experience a Effort Value la risposta non c'è, perché il canale dei disassemblati discute la modifica dei giochi e non la conversione fra generazioni; da un dato trovato là è stata però ricavata una derivazione, che sta in `docs/07-conversione-vincoli.md` etichettata come tale e da verificare.
 
+È arrivata invece una voce nuova il 2026-08-28. Il thread di r/PokemonHome indicato dall'utente come contesto dell'obiettivo di collezione, cioè `https://www.reddit.com/r/PokemonHome/s/DrfatG6MJW`, non è leggibile da alcuno strumento di sessione per la ragione già documentata, e il titolo di un thread non è il suo contenuto. Serve il testo, e la domanda a cui deve rispondere è quale sia oggi il consenso della comunità sulla via più economica per completare la collezione prima della chiusura di Bank, perché quella risposta pesa su una delle due decisioni di perimetro aperte. Le vie sono la consegna manuale del testo in `_notes/fonti/` oppure l'automazione del browser dell'utente.
+
 Restano due domande nuove per cui il materiale non basta, e per entrambe la via non è un altro screenshot.
 
 | Domanda aperta | Come si chiude |
 |---|---|
 | quale chip monta l'adattatore Archer T2U Nano in mano all'utente | collegandolo e leggendone l'identificatore USB: il filtro `8811` nel canale non dà alcun risultato, quindi la testimonianza non esiste e la misura sostituisce la ricerca |
 | se la derivazione da Stat Experience a Effort Value coincida con ciò che fa un'implementazione reale | confrontandola con il comportamento del PCCS sul suo sorgente, oppure con `PKHeX` su un caso costruito; è lavoro di lettura e non di raccolta |
+
+## Tracciamento della spedizione del lettore di cartucce
+
+Questa sezione è temporanea per costruzione e va cancellata il giorno in cui il lettore arriva, perché da quel momento non è più una pendenza ma un fatto. È qui e non nella scheda di un singolo track perché il lettore serve a tre track, cioè la correzione dello zaino di Smeraldo, la produzione delle strutture di partenza per il ponte e per lo scambio LDN, e tre delle quattro vie di iniezione di un evento del track delle distribuzioni.
+
+| Cosa | Riferimento | Stato |
+|---|---|---|
+| GBxCart RW v1.4 Pro USB-C, ordinato il 18 agosto 2026 da insideGadgets | codice di tracciamento `CF173291165AU`, pagina https://parcelsapp.com/it/tracking/CF173291165AU | stato non leggibile dagli strumenti di sessione, verificato il 2026-08-28: la pagina è un'applicazione a pagina singola che non porta alcun dato nel documento servito, l'interfaccia programmatica di quel servizio pretende una chiave, e l'interfaccia del corriere presunto risponde che il codice non è fra i suoi. Il suffisso `AU` del codice e la sede del venditore rendono probabile Australia Post, ma è un'inferenza e non un fatto. Le due vie che restano sono l'automazione del browser dell'utente, da chiedere prima di usarla, oppure la consegna dello stato da parte dell'utente |
 
 ## In attesa dell'utente: credenziali e abilitazioni
 
@@ -44,6 +54,8 @@ Questa è la tabella che l'agente deve consultare da sé: ogni riga dice quando 
 
 | Condizione che si verifica | Strumento da ricordare | Che cosa se ne ottiene |
 |---|---|---|
+| esiste un salvataggio Gen 3 su cui iniettare un evento | `Gen3-WCTool` di Project Pokemon, e la sua avvertenza | inietta una carta meraviglia in un salvataggio estratto; se una carta è già presente va esportata e conservata prima di sovrascrivere, perché può essere un evento non ancora preservato dalla comunità |
+| si valuta come portare in Home un esemplare di generazione 3 | la catena Parco Amico, Trasferitore, Poke Transporter e Bank, e il calendario | serve un Nintendo DS o DS Lite per il primo passaggio, due apparecchi DS per il secondo, e tutto va completato prima del 26 febbraio 2027; ogni passaggio è irreversibile e pretende la stessa lingua ai due capi |
 | esiste per la prima volta un dump di salvataggio Gen 3 | `gba-save-extraction-smeraldo/tools/emerald_bag_decode.py` | validazione delle sezioni, identificazione del gioco, smascheramento dello zaino, cinque classi di anomalia |
 | esiste un dump di qualunque generazione | `PKHeX`, anche nella versione web | confronto campo per campo con `pokebridge`, che falsifica le permutazioni di etichette |
 | serve scrivere un salvataggio sintetico da confrontare | `pokebridge` più `PKHeX` | la prova di conformità descritta in `docs/23-prove-eseguite.md`, che non richiede hardware |
@@ -97,6 +109,11 @@ I canali senza un video specifico, cioè Goppier, Lorenzooone, im a blisy, RETIR
 
 | Punto | Dove è registrato |
 |---|---|
+| se un verificatore di legittimità accetti un esemplare prodotto da una ricreazione fedele di un evento | `recreate-pokemon-distributions-events/STUDIO-01-distribuzioni-gen3-e-ricreazione.md`; è la domanda che decide se il sesto track raggiunga il suo obiettivo, e si risponde senza hardware costruendo un esemplare con `pokebridge` e sottoponendolo a PKHeX |
+| se la funzione di BIOS numero 11 citata dalla fonte sulle distribuzioni sia la decompressione LZ77 verso memoria di lavoro | idem, sezione 4; va confrontata con la tabella delle chiamate di sistema di GBATEK, e la fonte non dichiara la notazione del numero |
+| se la posta di generazione 3 stia nella sezione quattro del salvataggio | idem, sezione 5; il numero delle sezioni, la rotazione e la doppia copia sono già verificati sul sorgente, questo dato no |
+| se una collezione completa in Home resti possibile dopo la chiusura di Bank, dato che si afferma che una specie di terza generazione non sia riproducibile dalle vie moderne | idem, sezione 10; affermazione di fonti secondarie non verificata, e cambia il senso della scadenza da urgenza a irreversibilità |
+| quale lingua abbiano le cartucce di quarta e quinta generazione da dumpare, dato che ogni passaggio della catena verso Home pretende la stessa lingua ai due capi | `STACK.md` e `sub-3ds-modding.md`; è una verifica sulle cartucce e non una ricerca, e va fatta prima di pianificare i trasferimenti |
 | offset dei salvataggi Gen 2 per lingue diverse dall'inglese | sezione 11 della referenza dei formati |
 | dimensione esatta del blocco di posta Gen 2 | idem |
 | tabella dagli indici interni Gen 1 ai numeri nazionali, da generare | idem, ed è il prossimo strumento naturale |
@@ -117,6 +134,8 @@ I canali senza un video specifico, cioè Goppier, Lorenzooone, im a blisy, RETIR
 
 | Decisione | Stato |
 |---|---|
+| se l'obiettivo di collezione in Pokemon Home riapra il perimetro su Pokemon Bank e Pokemon Transporter | aperta, nata il 2026-08-28 con il sesto track. L'obiettivo dipende in modo essenziale da quei due titoli, perché Poke Transporter è l'unico ingresso verso Home per tutto ciò che precede l'ottava generazione, e l'assistenza su di essi è esclusa dalla regola `hardware-and-perimeter.md` per una motivazione che sta in `_notes/perimetro-bank-transporter.md`. Non esiste via tecnica alternativa, quindi la decisione è dell'utente e va registrata come ADR invece di essere fatta scivolare dentro un altro lavoro. Fino a quel momento il track lavora su tutto ciò che precede l'ultimo tratto |
+| se le vie di iniezione che richiedono materiale di terze parti siano dentro il perimetro | aperta, nata il 2026-08-28. Tre delle quattro vie di iniezione di un evento chiedono una ROM di distribuzione da mettere su una scheda riprogrammabile oppure un salvataggio precostituito per l'e-Reader, e la regola esclude i salvataggi scaricati da internet. Va notato che non si tratta di un salvataggio di un gioco Pokemon da importare sulla console, quindi la norma non si applica in modo automatico e la decisione non è ovvia; resta che il perimetro va dichiarato prima di procurare il materiale. La quarta via, cioè l'iniezione diretta nel salvataggio con il lettore, è quella che pone meno domande |
 | ADR-008, quale delle quattro opzioni implementative per il ponte | aperta; il costo relativo è cambiato e l'analisi aggiornata sta in `docs/30-opzioni-implementative.md` |
 | se cancellare e ricreare il repository su GitHub per certezza sulla bonifica | rimandata; oggi si accetta che i commit orfani restino raggiungibili per hash fino al garbage collector, come registrato in ADR-014 |
 | che cosa debba essere il track dell'automazione | parzialmente decisa il 2026-08-26: per ora studio, cominciato con la prima nota nella cartella del sottoprogetto. Resta aperto se diventerà riuso della parte su microcontrollore in comune con l'opzione D del ponte oppure automazione vera come obiettivo indipendente. Sul perimetro c'è una buona notizia, cioè che il progetto di riferimento dichiara console non modificate e nessun accesso alla memoria, quindi il suo perimetro è compatibile con le nostre regole |
@@ -129,12 +148,13 @@ I canali senza un video specifico, cioè Goppier, Lorenzooone, im a blisy, RETIR
 | caricatore di salvataggi verso hardware | scritto e collaudato nella sua parte non distruttiva, cioè `tools/save-deploy.py`: esamina il file, identifica il gioco, pretende i due backup su volumi distinti e produce il piano dei cinque passi. La scrittura non è implementata e lo dichiara | per la cartuccia, il lettore e un collaudo su un esemplare sacrificabile; per la scheda SD, la decisione su quale percorso sia quello giusto per il titolo installato |
 | generatore del salvataggio sintetico per il confronto con PKHeX | da scrivere, e non richiede nulla | è il prossimo passo tecnico più utile del ponte |
 | generatore della tabella indici di specie | da scrivere, e non richiede nulla | ultimo dato costante ancora trascritto a mano |
+| riscrittura di `tesi/README.md` | da fare, registrata il 2026-08-28 | il file descrive la tesi come in pianificazione, dichiara una copertura del dieci per cento su ventinove documenti e marca tutti i capitoli come da scrivere, mentre il documento ha ventisei capitoli, sette appendici e copertura al cento per cento. Non entra nel controllo di copertura perché non è fra i documenti da coprire, quindi nessuno strumento lo segnala: è disallineamento silenzioso in un file tracciato |
 | esportazione degli strumenti verso il template | da fare con un handoff, come per la regola sulle fonti non recuperabili | riguarda `read-chat-export.py`, `fetch-reddit.py`, `vtt-to-text.py` e `build-source-map.py`, che non sono specifici di questo dominio |
 
 ## Blocchi materiali
 
 | Blocco | Che cosa impedisce |
 |---|---|
-| lettore GBxCart RW non ancora arrivato | lettura e scrittura di cartucce, prova da un capo all'altro su dati reali, e indirettamente il collaudo del protocollo contro un gioco vero perché serve una ROM dumpata |
+| lettore GBxCart RW non ancora arrivato | lettura e scrittura di cartucce, prova da un capo all'altro su dati reali, e indirettamente il collaudo del protocollo contro un gioco vero perché serve una ROM dumpata. Dal 2026-08-28 blocca anche tre delle quattro vie di iniezione di un evento; lo stato della spedizione è nella sezione dedicata di questo file |
 | discovery hardware non fatta | la scelta fra le quattro opzioni di ADR-008; la lista delle domande sta in `docs/10-multiboot-hardware.md` |
 | driver CH340 non confermati e porta COM non annotata | l'uso del lettore quando arriverà; è il prossimo passo dichiarato del track Smeraldo |
