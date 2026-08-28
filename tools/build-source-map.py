@@ -349,6 +349,96 @@ FONTI = [
      [("[[30-opzioni-implementative]]", "l'opzione che opera su file di salvataggio")],
      []),
 ]
+# ---------------------------------------------------------------------------------------
+# I riferimenti teorici canonici dei concetti impiegati nell'analisi quantitativa.
+# Schema: (slug, autori, titolo, sede, anno, per che cosa è citato).
+#
+# Sono citati per attribuzione del concetto e non come fonti consultate in sessione: la
+# distinzione è dichiarata nella sezione che li introduce in bibliografia, e la ragione
+# per cui non stanno nella tabella FONTI è che quella tabella dichiara per ogni voce se
+# sia stata letta, e mescolarvi la letteratura canonica gonfierebbe quel conteggio.
+#
+# I numeri di pagina non sono riportati: autore, titolo, sede ed edizione si conoscono con
+# certezza, un numero di pagina non verificato in sessione sarebbe un dettaglio inventato.
+# ---------------------------------------------------------------------------------------
+RIFERIMENTI_TEORICI = [
+    ("shannon48", "C. E. Shannon", "A Mathematical Theory of Communication",
+     "Bell System Technical Journal, vol. 27, pp. 379-423 e 623-656", "1948",
+     "Definizione di entropia di una sorgente discreta, di informazione mutua e di capacità di canale. È il riferimento per ogni misura in bit impiegata in questo lavoro."),
+
+    ("shannon49", "C. E. Shannon", "Communication Theory of Secrecy Systems",
+     "Bell System Technical Journal, vol. 28, n. 4, pp. 656-715", "1949",
+     "Nozione di sicurezza perfetta e dimostrazione che essa richiede una chiave di entropia almeno pari a quella del messaggio. È il criterio contro cui si misura la cifratura della generazione 3."),
+
+    ("vernam26", "G. S. Vernam", "Cipher Printing Telegraph Systems for Secret Wire and Radio Telegraphic Communications",
+     "Journal of the American Institute of Electrical Engineers, vol. 45, pp. 109-115", "1926",
+     "Il cifrario a somma modulo due fra messaggio e chiave, di cui la cifratura della generazione 3 è un'istanza con chiave riusata."),
+
+    ("cover-thomas", "T. M. Cover, J. A. Thomas", "Elements of Information Theory, 2ª edizione",
+     "Wiley", "2006",
+     "Trattazione sistematica di entropia, entropia condizionata e informazione mutua, e della disuguaglianza di elaborazione dei dati, impiegata per stabilire che la permutazione non aggiunge incertezza dato il valore di personalità."),
+
+    ("katz-lindell", "J. Katz, Y. Lindell", "Introduction to Modern Cryptography, 3ª edizione",
+     "CRC Press", "2020",
+     "Enunciato e dimostrazione moderna del teorema sulla sicurezza perfetta, e trattazione dell'attacco per sovrapposizione su una chiave riusata."),
+
+    ("peterson-brown", "W. W. Peterson, D. T. Brown", "Cyclic Codes for Error Detection",
+     "Proceedings of the IRE, vol. 49, n. 1, pp. 228-235", "1961",
+     "Introduzione dei codici ciclici per la rilevazione d'errore e delle loro garanzie sugli errori a raffica, che è il termine di confronto per il checksum additivo dei giochi."),
+
+    ("lin-costello", "S. Lin, D. J. Costello", "Error Control Coding, 2ª edizione",
+     "Pearson Prentice Hall", "2004",
+     "Capacità di rilevazione di un codice in funzione della propria distanza minima, e limite della probabilità di errore non rilevato per un codice a sindrome corta."),
+
+    ("rfc1071", "R. Braden, D. Borman, C. Partridge", "Computing the Internet Checksum, RFC 1071",
+     "Internet Engineering Task Force", "1988",
+     "La somma a complemento a uno con ripiegamento del riporto, cioè la tecnica che la generazione 3 impiega per ridurre a sedici bit una somma calcolata a trentadue."),
+
+    ("rfc1662", "W. Simpson (a cura di)", "PPP in HDLC-like Framing, RFC 1662",
+     "Internet Engineering Task Force", "1994",
+     "La trasparenza a byte, cioè il byte stuffing con sequenza di fuga, di cui la lista di correzione del cavo Link è l'alternativa a lunghezza fissa."),
+
+    ("rfc3927", "S. Cheshire, B. Aboba, E. Guttman", "Dynamic Configuration of IPv4 Link-Local Addresses, RFC 3927",
+     "Internet Engineering Task Force", "2005",
+     "Definizione del blocco di indirizzi link-local 169.254.0.0/16 e della sua autoconfigurazione, impiegato dal protocollo di rete locale della console."),
+
+    ("tanenbaum", "A. S. Tanenbaum, D. J. Wetherall", "Computer Networks, 5ª edizione",
+     "Prentice Hall", "2011",
+     "Delimitazione di trama e trasparenza dei dati, rilevazione d'errore a livello di collegamento, e assegnazione dei canali nelle reti locali senza filo."),
+
+    ("proakis", "J. G. Proakis, M. Salehi", "Digital Communications, 5ª edizione",
+     "McGraw-Hill", "2008",
+     "Modello del canale, occupazione di banda e relazione fra velocità di simbolo e larghezza spettrale, impiegati nel calcolo della non sovrapposizione dei canali."),
+
+    ("gray-neuhoff", "R. M. Gray, D. L. Neuhoff", "Quantization",
+     "IEEE Transactions on Information Theory, vol. 44, n. 6, pp. 2325-2383", "1998",
+     "Teoria della quantizzazione scalare, quantizzatori non uniformi e saturazione, che è la forma esatta della conversione dell'allenamento fra le generazioni."),
+
+    ("feller", "W. Feller", "An Introduction to Probability Theory and Its Applications, vol. 1, 3ª edizione",
+     "Wiley", "1968",
+     "Distribuzione geometrica con il proprio valore atteso e la propria varianza, e approssimazione di Poisson della binomiale, impiegate per il campionamento con rifiuto e per il conteggio delle occorrenze del byte riservato."),
+
+    ("vonneumann51", "J. von Neumann", "Various Techniques Used in Connection with Random Digits",
+     "National Bureau of Standards, Applied Mathematics Series, vol. 12", "1951",
+     "Formulazione originale del metodo di campionamento con rifiuto, che è l'algoritmo con cui l'implementazione di riferimento genera il valore di personalità."),
+
+    ("devroye", "L. Devroye", "Non-Uniform Random Variate Generation",
+     "Springer-Verlag", "1986",
+     "Trattazione sistematica del campionamento con rifiuto, compreso il costo atteso in funzione della probabilità di accettazione."),
+
+    ("knuth2", "D. E. Knuth", "The Art of Computer Programming, vol. 2: Seminumerical Algorithms, 3ª edizione",
+     "Addison-Wesley", "1997",
+     "Aritmetica modulare e teorema cinese del resto, impiegato per stabilire l'indipendenza fra vincoli che agiscono su moduli coprimi."),
+
+    ("knuth3", "D. E. Knuth", "The Art of Computer Programming, vol. 3: Sorting and Searching, 2ª edizione",
+     "Addison-Wesley", "1998",
+     "Rappresentazione delle permutazioni mediante tavole di inversione e sistema numerico fattoriale, che è la struttura della tabella di permutazione delle sottostrutture."),
+
+    ("ieee80211", "IEEE", "IEEE Standard 802.11: Wireless LAN Medium Access Control and Physical Layer Specifications",
+     "Institute of Electrical and Electronics Engineers", "2020",
+     "Struttura dei frame di gestione e di azione, piano dei canali nella banda a 2,4 GHz e occupazione di banda delle portanti, su cui il protocollo di rete locale della console è costruito."),
+]
+
 
 
 def nota(slug, nome, url, livello, letto, track, abstract, perche, serve_a, relazioni):
