@@ -63,6 +63,24 @@ I primitivi stanno in `gb.py`, e sono il posto dove vive la conoscenza che non a
 
 Le prove si lanciano con `python tests/run_tests.py` dalla cartella del sottoprogetto, usano solo `unittest` della libreria standard e oggi sono centoquattordici. Vale la pena sapere che la prima esecuzione ne ha fatta fallire una, e che il difetto era nella prova e non nel codice: avevo scritto a mano il byte 0xA4 credendo fosse la lettera a, che invece è 0xA0. La prova ora ricava i byte dalla tabella invece di dichiararli, ed è la stessa lezione dello strumento qui sopra applicata ai test.
 
+## catalogo-eventi-gen3.py
+
+Genera `recreate-pokemon-distributions-events/EVENTI-GEN3.md`, cioè l'inventario delle 177 distribuzioni di evento di generazione 3, dalla tabella `EncountersWC3.cs` di `PKHeX` e dall'enumerazione `PIDType.cs` dello stesso repository. Il percorso del clone si passa sulla riga di comando, esattamente come `extract_charmaps.py` riceve quello dei disassemblati: quel clone non è una dipendenza di questo repository e non viene scaricato dallo strumento.
+
+La ragione per cui il catalogo si genera invece di essere scritto è la stessa delle tabelle di codifica dei caratteri. Quei dati vivono nel codice di chi verifica e non in un documento, perché, come dichiara il commento della tabella stessa, i dati di quella generazione non sono mai stati conservati in forma binaria uniforme e sono scritti a mano uno per uno; trascriverli qui garantirebbe che le due copie divergano alla prima correzione a monte. Lo strumento ha un `--check` che dice se il catalogo è ancora allineato alla fonte, ed è il controllo da lanciare quando il clone viene aggiornato.
+
+Ciò che lo strumento non fa va dichiarato: non giudica la legittimità di alcun esemplare e non ricostruisce alcun metodo, riporta ciò che la fonte dichiara. Le date degli eventi compaiono soltanto dove la fonte le porta nei commenti di blocco, e dove non le porta restano assenti invece di essere indovinate.
+
+## fetch-discord.py
+
+Legge la cronologia di un canale Discord attraverso un bot account ufficiale, con impaginazione, gestione del limite di frequenza dichiarato dal servizio, un cursore che permette di leggere soltanto il delta fra due corse, e gli stessi tre filtri di `read-chat-export.py`, cioè parola chiave, lunghezza minima e data, per non avere due grammatiche di filtro nello stesso progetto.
+
+Esiste perché il progetto conosceva due sole vie di accesso a una fonte di quel tipo, il token personale e la copia manuale, e la prima è vietata dalle condizioni d'uso mentre la seconda è manuale per definizione. La terza via, cioè un account dedicato all'automazione creato nel portale per sviluppatori, era ignota al progetto fino al 2026-08-31; la regola `.claude/rules/web-sources-not-fetchable.md` documenta il criterio che la separa dalla prima, e il limite che la rende inapplicabile dove il consenso di chi amministra il canale non si ottiene.
+
+La parte di questo strumento che vale conoscere è il presidio. Invia sempre l'intestazione di autorizzazione nella forma prevista per i bot e, prima di qualunque lettura, verifica che l'account autenticato sia dichiarato tale, arrestandosi con la ragione se non lo è: un token personale inserito per errore nella variabile d'ambiente non produce una lettura riuscita ma un rifiuto. La prova che il presidio funzioni è un controllo negativo dentro `--self-test`, che esercita anche impaginazione, cursore, attesa dopo un rifiuto per eccesso di frequenza e filtri contro un trasporto finto, cosicché la logica sia provata senza credenziali. Il flusso non è stato eseguito contro il servizio, perché in questa sessione non esiste alcun token, e la nota di collaudo dentro il file lo dichiara.
+
+Una scelta di progetto va motivata perché il materiale di partenza suggeriva altro, cioè un server MCP dedicato. In un agente residente che deve poter chiamare quel tool durante una conversazione quella è la scelta giusta; qui il lavoro è deterministico, cioè leggere una fonte e trasferirla nel registro, e la regola sull'economia dei token prescrive di tenerlo su codice invece che su modello. Un programma sulla sola libreria standard fa quel lavoro senza aggiungere una dipendenza su Node, un pacchetto di terze parti da fidare con un token, e uno strato di protocollo fra noi e una richiesta HTTP.
+
 ## Gli strumenti di infrastruttura
 
 Nella cartella `tools/` della radice ci sono i due strumenti che servono al repository e non ai giochi. Il primo, `md-unwrap.py`, attua la convenzione di formattazione Markdown del progetto, cioè un paragrafo per riga sorgente, e ha una modalità di sola verifica per il controllo prima di un commit.
