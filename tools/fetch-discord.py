@@ -75,10 +75,25 @@ Stato di collaudo
 -----------------
 La logica di impaginazione, del cursore, del filtro e della gestione del limite di
 frequenza è provata con `--self-test`, che la esercita contro un trasporto finto e
-comprende un controllo negativo, cioè la verifica che il presidio rifiuti un token non di
-bot. Il flusso non è stato eseguito contro il servizio, perché in questa sessione non
-esiste alcun token: alla prima esecuzione riuscita va aggiornata questa nota e va
-aggiornata la voce di Discord nel registro delle fonti.
+comprende due controlli negativi, cioè la verifica che il presidio rifiuti un token non di
+bot e che un identificativo non numerico venga riconosciuto in locale.
+
+Il flusso è stato eseguito contro il servizio il 2026-08-31 su un server di prova di
+proprietà dell'utente, e ha funzionato in tutti i suoi passi: elenco dei server, elenco
+dei canali di testo, lettura della cronologia con il testo dei messaggi presente, filtro
+per parola chiave che riduce cinque messaggi a due, e cursore che alla corsa successiva
+riferisce correttamente che non c'è nulla di nuovo. Da quella corsa vengono due
+osservazioni che vale registrare. La prima è che fra i messaggi letti compare anche la
+riga di sistema che annuncia l'ingresso del bot nel canale, perché per il servizio è un
+messaggio come gli altri; chi vuole escluderla usa `--min-length`. La seconda è che il
+messaggio di errore del servizio, quando l'identificativo non è un numero, è
+quattrocento con la dicitura sul corpo della richiesta non valido, che non nomina il
+campo: è la ragione per cui il controllo dell'identificativo è stato spostato in locale.
+
+Resta non provato ciò che il server di prova non poteva esercitare, cioè l'impaginazione
+su una cronologia più lunga di cento messaggi e l'attesa dopo un rifiuto per eccesso di
+frequenza. Entrambe sono provate contro il trasporto finto e nessuna delle due è stata
+osservata sul servizio.
 """
 
 import argparse
@@ -230,6 +245,32 @@ def verifica_identita(trasporto):
             "ha deciso il 2026-08-26 e la decisione non è stata riaperta.\n"
             "Le istruzioni per creare il bot sono nel docstring di questo file.")
     return io_stesso.get("username", "senza nome")
+
+
+def identificativo(valore, cosa):
+    """Un identificativo di Discord è un numero decimale, e va verificato prima di partire.
+
+    Il controllo esiste per un errore osservato all'uso: passando il segnaposto della
+    documentazione al posto del valore, la richiesta partiva e il servizio rispondeva
+    quattrocento con un messaggio che non nomina il campo sbagliato. Riconoscerlo qui
+    costa due righe e dice la causa invece del sintomo.
+    """
+    v = str(valore).strip()
+    if not v.isdigit():
+        raise Errore(
+            "l'identificativo " + cosa + " non è un numero: " + repr(valore) + "\n"
+            "Gli identificativi di Discord sono numeri decimali di diciassette cifre o "
+            "più.\n"
+            "Se hai copiato un segnaposto dalla documentazione, va sostituito con il "
+            "valore vero:\n"
+            "quello del server lo stampa il comando `guilds`, quello del canale il "
+            "comando `channels`.")
+    if len(v) < 15:
+        raise Errore(
+            "l'identificativo " + cosa + " ha solo " + str(len(v)) + " cifre: " + v + "\n"
+            "Quelli di Discord ne hanno diciassette o più, quindi questo è troncato o "
+            "non è un identificativo.")
+    return v
 
 
 def leggi_token():
@@ -411,7 +452,18 @@ def self_test():
     except Errore as e:
         prova("presidio contro il token personale", "non è un bot" in str(e))
 
-    # 5. I filtri.
+    # 5. Il controllo locale dell'identificativo, con il caso che lo ha motivato: il
+    #    segnaposto della documentazione passato per errore al posto del valore.
+    for cattivo in ("ID_CANALE", "", "12345", "1543897298180771914x"):
+        try:
+            identificativo(cattivo, "del canale")
+            prova("identificativo rifiutato: " + repr(cattivo), False, "accettato")
+        except Errore:
+            prova("identificativo rifiutato: " + repr(cattivo), True)
+    prova("identificativo valido accettato",
+          identificativo(" 1543897298180771914 ", "del canale") == "1543897298180771914")
+
+    # 6. I filtri.
     campione = [
         {"id": "1", "content": "parla del link cable", "timestamp": "2026-01-01T00:00:00",
          "author": {"id": "1", "username": "a"}},
@@ -427,7 +479,7 @@ def self_test():
     prova("filtro per data",
           [m["id"] for m in filtra(campione, None, 0, "2026-01-01")] == ["1", "2"])
 
-    # 6. La resa conserva l'identificativo dell'autore, che serve alla cancellazione mirata.
+    # 7. La resa conserva l'identificativo dell'autore, che serve alla cancellazione mirata.
     reso = markdown(campione, 42, "lettore-di-fonti")
     prova("la resa conserva l'identificativo dell'autore", "(1)" in reso and "(3)" in reso)
 
@@ -483,7 +535,8 @@ def main():
             return 0
 
         if a.comando == "channels":
-            for c in chiama(trasporto, "/guilds/" + a.guild + "/channels"):
+            guild = identificativo(a.guild, "del server")
+            for c in chiama(trasporto, "/guilds/" + guild + "/channels"):
                 # Il tipo 0 è un canale testuale ordinario e il 5 è un canale di annunci,
                 # che è l'unico seguibile da un altro server senza il consenso di questo.
                 if c.get("type") in (0, 5):
@@ -492,8 +545,9 @@ def main():
             return 0
 
         if a.comando == "fetch":
-            dopo = cursori_letti().get(str(a.canale)) if a.nuovi else None
-            messaggi = messaggi_del_canale(trasporto, a.canale, a.limit, dopo=dopo)
+            canale = identificativo(a.canale, "del canale")
+            dopo = cursori_letti().get(canale) if a.nuovi else None
+            messaggi = messaggi_del_canale(trasporto, canale, a.limit, dopo=dopo)
             if not messaggi:
                 print("nessun messaggio nuovo" if a.nuovi else "nessun messaggio")
                 return 0
@@ -501,13 +555,20 @@ def main():
             messaggi = filtra(messaggi, a.grep, a.min_length, a.since)
             destinazione = a.out or os.path.join(
                 ROOT, "_notes", "fonti",
-                time.strftime("%Y-%m-%d") + "-discord-" + str(a.canale) + ".md")
+                time.strftime("%Y-%m-%d") + "-discord-" + canale + ".md")
             os.makedirs(os.path.dirname(destinazione), exist_ok=True)
+            if os.path.exists(destinazione):
+                # Il nome predefinito dipende da canale e data, quindi due corse dello
+                # stesso giorno sullo stesso canale finiscono sullo stesso file. Il
+                # materiale è rileggibile e rifiutare sarebbe sproporzionato, ma una
+                # sovrascrittura silenziosa è il genere di cosa che un giorno costa un'ora.
+                print("avviso: " + os.path.relpath(destinazione, ROOT) +
+                      " esiste già e viene sovrascritto; con --out si scrive altrove")
             with open(destinazione, "wb") as f:
-                f.write(markdown(messaggi, a.canale, nome_bot).encode("utf-8"))
+                f.write(markdown(messaggi, canale, nome_bot).encode("utf-8"))
             print("scritti " + str(len(messaggi)) + " messaggi in " +
                   os.path.relpath(destinazione, ROOT))
-            cursore_scritto(a.canale, ultimo)
+            cursore_scritto(canale, ultimo)
             print("cursore aggiornato: la prossima corsa con --nuovi parte da " + ultimo)
             return 0
 
