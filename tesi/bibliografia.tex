@@ -333,6 +333,42 @@
   \\ \emph{Livello 2, wiki o riferimento di dominio; letta. Track: EVT, 3DS.}
   \\ Le tre pagine che descrivono la catena di trasferimento verso le piattaforme moderne, lette il 2026-08-28: Pokemon Bank con i giochi che Poke Transporter accetta come sorgente, cioè la quinta generazione e le riedizioni su Virtual Console della prima e della seconda; il Parco Amico, che porta dalla terza alla quarta generazione; e il Trasferitore, che porta dalla quarta alla quinta.
 
+\bibitem{pkhex-eventi-gen3}
+  \textbf{PKHeX, tabella degli eventi Gen 3 e vocabolario dei metodi}.
+  \\ \url{https://github.com/kwsch/PKHeX}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: EVT, BRI, SME.}
+  \\ Le due parti di PKHeX che documentano le distribuzioni di terza generazione: la tabella `PKHeX.Core/Legality/Encounters/Data/Gen3/EncountersWC3.cs`, con centosettantasette voci ciascuna corredata del proprio metodo di generazione pseudocasuale, e l'enumerazione `PKHeX.Core/Legality/RNG/PIDType.cs`, che documenta i metodi uno per uno. La tabella vive nel codice e non in un documento perché, come dichiara il suo stesso commento, i dati di quella generazione non sono mai stati conservati in forma binaria uniforme e sono quindi scritti a mano.
+
+\bibitem{bulbapedia-eventi-italia}
+  \textbf{Bulbapedia, distribuzioni italiane di eventi in Gen 3}.
+  \\ \url{https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok\%C3\%A9mon_distributions_in_Generation_III}
+  \\ \emph{Livello 2, wiki o riferimento di dominio; letta. Track: EVT.}
+  \\ Elenco delle distribuzioni italiane della terza generazione con luogo, date e campi di ciascun esemplare, letto il 2026-08-29. Porta la manifestazione del 2006 in un parco di divertimenti, dal ventitré al venticinque giugno, con allenatore di provenienza 10ANNI, identificativo 06227, dieci specie al livello settanta e la facoltà per il partecipante di scegliere tre esemplari, e la manifestazione del 2007 nel medesimo luogo, con un Mew di allenatore Aura e identificativo 20078.
+
+\bibitem{gen-iii-event-patcher}
+  \textbf{gen-iii-event-patcher}.
+  \\ \url{https://github.com/superguideguy/gen-iii-event-patcher}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: EVT, BRI.}
+  \\ Strumento in Java che trasforma la ROM di un gioco di terza generazione in una ROM di distribuzione, e che applica uno script di evento a un salvataggio per uso personale. Letto il 2026-08-29 nella descrizione e nella struttura del sorgente, che comprende un compilatore elementare per gli script di evento e un costruttore di checksum.
+
+\bibitem{project-wonder}
+  \textbf{Project Wonder, distribuzioni per applicazione di differenze}.
+  \\ \url{https://github.com/Goppier/Gen3DistributionRoms}
+  \\ \emph{Livello 3, implementazione di riferimento; letta. Track: EVT.}
+  \\ Raccolta di dieci differenze da applicare a una ROM di distribuzione preservata, letta il 2026-08-29. Produce distribuzioni degli oggetti di evento, cioè i biglietti, la mappa marina e la grotta alterna, più due eventi costruiti dalla comunità e tre distribuzioni di uova che riproducono quelle dei negozi, con supporto dichiarato a sei lingue fra cui l'italiano.
+
+\bibitem{eventsgallery}
+  \textbf{Project Pokemon, Events Gallery}.
+  \\ \url{https://github.com/projectpokemon/EventsGallery}
+  \\ \emph{Livello 3, implementazione di riferimento; catalogata e non letta. Track: EVT.}
+  \\ Archivio collettivo della conservazione delle informazioni sugli eventi, per tutte le generazioni. Per la terza generazione le carte meraviglia si manipolano con lo strumento dedicato che questo registro già elenca.
+
+\bibitem{pp-algoritmi-eventi}
+  \textbf{Project Pokemon, ricerca sull'algoritmo di generazione degli eventi Gen 3}.
+  \\ \url{https://projectpokemon.org/home/forums/topic/39517-gen-3-event-generation-algorithm-research-10anniv-etc/}
+  \\ \emph{Livello 5, forum o community; letta. Track: EVT.}
+  \\ Discussione sulla ricostruzione dell'algoritmo di generazione degli esemplari da evento della terza generazione, letta il 2026-08-29. Documenta che la determinazione dei metodi è avvenuta per reverse engineering a partire da campioni raccolti e non da una specifica, e riporta che il metodo di uno degli eventi dei negozi è stato risolto come variante a semi non ristretti in cui la metà alta del valore di personalità è messa in or esclusivo con la metà bassa, con l'identificativo dell'allenatore e con quello segreto.
+
 \medskip
 \noindent \textbf{Riferimenti teorici.} Le voci che seguono sono la letteratura canonica dei concetti impiegati nell'analisi quantitativa, citate per attribuzione del concetto e non come fonti consultate nel corso del lavoro: la definizione di entropia si attribuisce a Shannon perché è sua, non perché quell'articolo sia stato aperto qui. I numeri di pagina non sono riportati dove non sono stati verificati.\\[0.8ex]
 

@@ -8,8 +8,8 @@ Questo progetto ha più sottoprogetti paralleli, oggi sei, quindi il punto di ri
 
 ```
 Branch attivo:         main
-Commit di riferimento: 7696c46
-Data snapshot:         2026-08-26
+Commit di riferimento: 319226b
+Data snapshot:         2026-08-29
 ```
 
 ## Stato di verifica delle schede
@@ -27,7 +27,7 @@ Data snapshot:         2026-08-26
 | sub-gen12-gen3-bridge.md | pokemon-gen12-gen3-bridge | 7696c46 | aggiornata |
 | sub-gba-switch-trading.md | gba-switch-pokemon-trading | 7696c46 | aggiornata |
 | sub-poke-automation.md | poke-automation-study | 7696c46 | aggiornata |
-| sub-distributions-events.md | recreate-pokemon-distributions-events | 0529162 | nuova, scritta il 2026-08-28 alla nascita del track |
+| sub-distributions-events.md | recreate-pokemon-distributions-events | 319226b | aggiornata il 2026-08-29 con la ricerca sui metodi di generazione |
 
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
@@ -46,6 +46,8 @@ smeraldo-save-fix: confermare che i driver CH340 siano installati e annotare la 
 gen12-gen3-bridge: la struttura di generazione 3 è scritta e collaudata dal 2026-08-26, in `pokebridge/gen3.py`, con cifratura, permutazione e checksum verificati sul sorgente di pokeemerald; la suite passa 114 prove. Il prossimo passo è lo strato del salvataggio da 128 KiB, cioè la sezione 6 della referenza, oppure il generatore del salvataggio sintetico da confrontare con PKHeX, che chiude il limite noto della prova di simmetria e non richiede hardware. Il formato dati è documentato byte per byte e verificato sul disassemblato, con undici punti dubbi chiusi e due affermazioni dell'handoff corrette; l'handoff è stato ritirato per ADR-013. Non bloccato: il lavoro comune non dipende da ADR-008, e la discovery hardware serve solo all'ultimo tratto.
 
 poke-automation: lo studio è cominciato il 2026-08-26 e la prima nota sta nella cartella del sottoprogetto, quindi il track non è più un semplice collegamento. Resta da decidere se si fermi allo studio, se diventi il riuso della parte su microcontrollore in comune con l'opzione D del ponte, oppure automazione vera su Switch come obiettivo indipendente. Sul perimetro c'è una notizia buona e verificata: il progetto di riferimento dichiara console non modificate e nessun accesso alla memoria, quindi il suo perimetro è compatibile con le regole di questo progetto, e ciò che resta da dichiarare è il nostro.
+
+distributions-events: la ricerca è stata approfondita il 2026-08-29 e ha prodotto tre cose. Un catalogo generato dei 177 eventi con il metodo di generazione di ciascuno, in `EVENTI-GEN3.md`, prodotto da `tools/catalogo-eventi-gen3.py` a partire dalla tabella di PKHeX. Una seconda nota di studio, `STUDIO-02-metodi-di-generazione.md`, che spiega la sigla BACD e perché l'ordine invertito delle estrazioni sia la firma di un esemplare da evento, conferma quattro affermazioni della prima nota nominandone i metodi, chiude il punto che quella lasciava aperto sulla derivazione del sesso dell'allenatore, distingue i due canali di distribuzione che la prima confondeva, e riporta che il metodo di generazione dipende da un'interruzione hardware. E l'identificazione precisa degli esemplari che l'utente possiede dal Pokemon Day del 2006, cioè allenatore `10ANNI`, identificativo 06227, livello 70, metodo `BACD_R_A`: sono il primo vettore di prova autentico che il progetto abbia, e il prossimo passo è confrontarli con il catalogo appena il lettore arriva.
 
 distributions-events: il track nasce il 2026-08-28 e ha una scadenza esterna verificata, cioè la chiusura di Pokemon Bank il 26 febbraio 2027, perché l'obiettivo dichiarato dall'utente non è la ricreazione in sé ma avere in Pokemon Home tutte le 1025 specie e le forme alternative, come collezione da portare avanti per tutta la vita. Le quattro fonti video sono lette e la conoscenza sta nello studio della cartella del sottoprogetto. Il prossimo passo non richiede hardware: costruire un esemplare con `pokebridge` e sottoporlo a PKHeX per sapere se una ricreazione fedele passi i controlli di legittimità. Due decisioni di perimetro sono aperte e vanno prese dall'utente prima di procedere sull'ultimo tratto, e stanno in `pending.md`.
 

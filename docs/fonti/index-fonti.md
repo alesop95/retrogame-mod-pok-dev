@@ -43,6 +43,12 @@ graph LR
   video-pcny -- conferma --> video-distribuzioni
   video-gbi-bonus -- alternativa-a --> video-ereader-eventi
   bulbapedia-trasferimenti -- conferma --> bank-fine-servizio
+  pkhex-eventi-gen3 -- corregge --> video-distribuzioni
+  pkhex-eventi-gen3 -- conferma --> video-distribuzioni
+  bulbapedia-eventi-italia -- conferma --> pkhex-eventi-gen3
+  gen-iii-event-patcher -- conferma --> devlog-ptgb
+  project-wonder -- deriva-da --> gen3distributions
+  pp-algoritmi-eventi -- documenta --> pkhex-eventi-gen3
 ```
 
 ## Le fonti, per livello
@@ -72,6 +78,7 @@ graph LR
 | [[glitchcity]] | BRI | [[09-esecuzione-codice]] |
 | [[bank-fine-servizio]] | EVT, 3DS | [[11-wireless-locale-e-ponte-switch]] |
 | [[bulbapedia-trasferimenti]] | EVT, 3DS | [[11-wireless-locale-e-ponte-switch]] |
+| [[bulbapedia-eventi-italia]] | EVT | [[23-prove-eseguite]] |
 
 ### Livello 3
 
@@ -98,6 +105,10 @@ graph LR
 | [[switch-lan-play]] | LDN | [[06-identita-pokemon]] |
 | [[pokemon-automation]] | AUT, LDN | [[30-opzioni-implementative]] |
 | [[pokerom-trader]] | BRI | [[30-opzioni-implementative]] |
+| [[pkhex-eventi-gen3]] | EVT, BRI, SME | [[06-identita-pokemon]], [[12-analisi-quantitativa]], [[23-prove-eseguite]] |
+| [[gen-iii-event-patcher]] | EVT, BRI | [[09-esecuzione-codice]], [[10-multiboot-hardware]] |
+| [[project-wonder]] | EVT | [[10-multiboot-hardware]], [[11-wireless-locale-e-ponte-switch]] |
+| [[eventsgallery]] | EVT | [[24-fonti-di-community]] |
 
 ### Livello 4
 
@@ -124,3 +135,4 @@ graph LR
 | [[gambatte-gamelink]] | BRI | [[21-collaudo]] |
 | [[projectpokemon]] | SME, BRI | [[22-strumenti]] |
 | [[gbatemp-smeraldo]] | SME | [[01-fondamenta-salvataggio]], [[22-strumenti]] |
+| [[pp-algoritmi-eventi]] | EVT | [[24-fonti-di-community]] |
