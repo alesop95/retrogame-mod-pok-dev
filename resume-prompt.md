@@ -1,4 +1,4 @@
-# Prompt di ripresa - stato al 2026-08-29
+# Prompt di ripresa - stato al 2026-08-31
 
 > Questo file esiste per una ragione precisa: la sessione che lo ha prodotto ha lavorato su sette repository, ha portato la tesi da due a venticinque capitoli, ha corretto tre difetti degli strumenti tipografici e ha aperto sei pendenze. Nulla di questo è ricostruibile dai soli commit, perché i commit dicono che cosa è cambiato e non perché, né che cosa era stato deciso di non fare. Si legge dall'inizio alla fine prima di toccare qualunque cosa, e si aggiorna a ogni passo del lavoro: una voce obsoleta qui è peggio della sua assenza, perché induce a fidarsi di uno stato che non esiste più.
 
@@ -173,6 +173,22 @@ Sul documento: cinque sezioni nuove al capitolo 19, un'area nuova dell'appendice
 ### 3.4 Che cosa è stato deciso sulla spedizione
 
 Lo stato della spedizione del lettore non si recupera dagli strumenti di sessione: la pagina del servizio è un'applicazione priva di dati nel documento servito, la sua interfaccia programmatica pretende una chiave, e l'interfaccia del corriere presunto non conosce il codice. Il 2026-08-29 si è deciso di non insistere: l'agente chiede lo stato all'utente quando un passo dipende dall'arrivo del lettore, e l'utente lo procura a mano. La riga sta in `pending.md` fra gli strumenti da invocare a una condizione, oltre che nella sezione temporanea del tracciamento, così che nessuna sessione se ne dimentichi.
+
+### 3.5 La terza via per Discord, e il principio che ne è uscito
+
+Il 2026-08-31 il fuoco si è spostato sull'infrastruttura per una richiesta dell'utente, che ha consegnato una consegna tecnica prodotta altrove sull'uso di un agente residente per leggere canali Discord e ha detto che un conoscente lo fa senza essere bannato.
+
+L'esito va conosciuto nella sua forma completa, perché il progetto aveva torto per difetto. Il no del 2026-08-26 riguardava il token del proprio account personale, era corretto e non è stato riaperto; era però incompleto, perché aveva valutato l'unica via conosciuta, l'aveva trovata inaccettabile e aveva concluso che il problema non avesse soluzione. La terza via è un bot account creato nel portale per sviluppatori, e la distinzione dal self-bot poggia su fatti verificabili: tipo di token diverso e dichiarato dalla documentazione ufficiale come dedicato all'automazione, accesso subordinato a un invito autorizzato da chi amministra con permessi scelti e revocabili, contrassegno visibile a tutti, API pubblica con limiti pensati per traffico automatico, e rischio che ricade sull'applicazione invece che sull'account personale. È ADR-018.
+
+Il rovescio va ricordato ogni volta che si tocca questa via, perché nessuna configurazione lo risolve: il meccanismo di consenso che la rende lecita la rende inapplicabile dove il consenso non si ottiene, e dei quattro server che il progetto consulta nessuno è dell'utente. Il primo passo è chiedere agli amministratori, dichiarando a che cosa serve e quali permessi si chiedono, e un no è un esito dopo il quale resta la copia manuale. Una via lecita non è una via disponibile.
+
+Lo strumento è `tools/fetch-discord.py`, sulla sola libreria standard, con impaginazione, limite di frequenza, cursore per il solo delta e i filtri di `read-chat-export.py`. Il presidio è la parte che conta: invia sempre l'intestazione nella forma prevista per i bot e verifica che l'account autenticato sia dichiarato tale prima di leggere, con un controllo negativo dentro `--self-test` a dimostrarlo. Tredici controlli su tredici passano; il flusso verso il servizio non è stato eseguito perché non esiste alcun token, e la nota di collaudo dentro il file lo dichiara. Alla prima esecuzione riuscita va aggiornata quella nota e va aggiornata la voce di Discord nel registro delle fonti.
+
+Il principio generale da conservare: una distinzione normativa diventa effettiva soltanto quando è resa meccanica nel punto in cui potrebbe essere violata per distrazione. Dichiararla la rende conoscibile, verificarla nel codice la rende operante.
+
+Due scelte contro il materiale di partenza, entrambe motivate. Non si usa un server MCP: la raccomandazione è corretta per un agente residente che chiama il tool in conversazione, mentre qui il lavoro è deterministico e la regola sull'economia dei token prescrive di tenerlo su codice; un programma sulla libreria standard evita una dipendenza su Node, un pacchetto di terze parti a cui affidare un token e uno strato di protocollo. E l'esportazione verso il template, che l'utente ha chiesto, è registrata fra le pendenze e non fatta: prima si prova lo strumento contro il servizio, poi si esporta ciò che ha funzionato.
+
+Una nota di igiene che vale come promemoria: la sezione nuova sta nella regola `.claude/rules/web-sources-not-fetchable.md`, che è già generale e già nel template, e il capitolo 24 della tesi è stato esteso deliberatamente perché le regole non entrano nel controllo di copertura. Il silenzio dello strumento non è una assoluzione, ed è la stessa lezione di `tesi/README.md`.
 
 ## 4. I task aperti, in ordine di priorità
 
