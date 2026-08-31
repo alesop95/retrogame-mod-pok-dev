@@ -28,6 +28,24 @@ I file: nuovo `tools/fetch-discord.py`; una sezione nuova nella regola `.claude/
 
 L'esportazione verso il template è stata registrata come pendenza e non fatta, su indicazione dell'utente e con una ragione propria: prima si prova lo strumento contro il servizio, poi si esporta ciò che ha funzionato.
 
+### L'allestimento, fatto lo stesso giorno passo a passo con l'utente
+
+La condizione che rimandava l'esportazione si è verificata nella stessa sessione. L'utente ha chiesto di procedere insieme e l'allestimento è stato completato: applicazione `lettore-fonti-retrogaming` nel portale per sviluppatori, Message Content Intent abilitato, Public Bot spento, Server Members Intent lasciato spento perché non serve, invito con i soli due permessi di lettura su un server di prova creato dall'utente per averne l'amministrazione, token in `.env` scritto a mano perché l'agente non può.
+
+La catena è stata percorsa da un capo all'altro e ogni passo ha funzionato: elenco dei server, elenco dei canali di testo, lettura della cronologia con il testo dei messaggi presente, che è la parte che dipende dall'intent e la sola che lo dimostri, filtro per parola chiave che riduce cinque messaggi a due, e cursore che alla corsa successiva riferisce correttamente che non c'è nulla di nuovo. Lo strumento passa quindi dallo stato di provato contro il proprio trasporto finto a quello di provato contro il servizio, e le note di collaudo dentro il file, in `docs/22-strumenti.md` e nel capitolo 23 sono state aggiornate. Resta dichiarato non provato sul campo ciò che un server di prova non può esercitare, cioè l'impaginazione oltre i cento messaggi e l'attesa dopo un rifiuto per eccesso di frequenza.
+
+Tre cose sono state imparate all'uso e nessuna era deducibile dalla documentazione, il che è la ragione per cui vale registrarle.
+
+La prima è una correzione a un numero che avevo dato a memoria e che la schermata del portale ha smentito: la soglia oltre la quale gli intent richiedono una revisione è di diecimila utenti, non di cento server. I cento server sono la soglia della verifica formale dell'applicazione, che è un'altra cosa, e confonderle porta a credere di dover chiedere un'approvazione che non serve.
+
+La seconda è un difetto dello strumento emerso perché l'utente ha copiato il segnaposto della documentazione al posto dell'identificativo, che è esattamente l'uso reale: la richiesta partiva e il servizio rispondeva quattrocento con la dicitura sul corpo non valido, che non nomina il campo e assomiglia a un problema di permessi. Il controllo è stato spostato in locale, con un messaggio che dice la causa e nomina i due comandi che stampano gli identificativi veri, e il self-test è passato da tredici a diciotto controlli con cinque casi nuovi fra cui proprio quel segnaposto. È un caso particolare di un principio già scritto per il presidio sul token: un presidio va messo nel punto in cui l'errore si produce, non in quello in cui si manifesta.
+
+La terza è una sovrascrittura silenziosa, notata leggendo il file prodotto: il nome predefinito dipende da canale e data, quindi la seconda corsa dello stesso giorno sullo stesso canale aveva sovrascritto la prima senza dirlo. Il materiale è rileggibile e rifiutare sarebbe sproporzionato, quindi lo strumento ora avvisa e ricorda che con `--out` si scrive altrove.
+
+Un dettaglio minore che conviene sapere prima di contare i messaggi: fra quelli letti compare anche la riga di sistema con cui il servizio annuncia l'ingresso del bot nel canale, perché per il servizio è un messaggio come gli altri. I quattro messaggi scritti a mano erano cinque alla lettura, e non era un errore.
+
+Resta il passo che non è tecnico e che nessuna configurazione sostituisce: chiedere agli amministratori dei quattro server di community. La via è ora dimostrata sui server propri, e questo rende la richiesta più credibile, perché si può dire che cosa il bot fa invece di descrivere un'intenzione.
+
 ## 2026-08-29 I metodi di generazione degli eventi: quattro conferme, una correzione e un fatto nuovo
 
 L'utente ha chiesto di approfondire la ricerca sul sesto track, osservando che le quattro fonti del giorno prima erano canali che già conosceva, e ha aggiunto il dato che ha dato forma al lavoro: era presente al Pokemon Day del 2006 e possiede esemplari con allenatore di provenienza «10anni». Ne è uscito il passaggio dal livello 4 al livello 3, che è la cosa più utile fatta su questo track.
