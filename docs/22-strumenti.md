@@ -115,6 +115,12 @@ DCE accetta sia un bot token sia il token di un account personale, e la scelta d
 
 Il token di un account si ottiene con la procedura che DCE stesso documenta. In Discord aperto nel browser, non nell'applicazione desktop, si aprono gli strumenti di sviluppo con la combinazione di tasti per l'ispezione e si va sulla scheda della console; se la console rifiuta di incollare, si scrive `allow pasting` e si conferma, che è una protezione contro le truffe e non un errore. Poi si esegue la riga che la documentazione di DCE riporta, la quale recupera il token dal modulo interno dell'applicazione e lo stampa.
 
+Due inciampi di questa procedura sono stati osservati sul campo il 2026-08-31 e vanno registrati, perché entrambi sembrano un errore di chi esegue e non lo sono. Il primo è che la frase da scrivere per sbloccare l'incollamento va scritta soltanto se il browser la chiede: se non compare alcun avviso, quelle parole vengono interpretate come codice e producono un errore di sintassi, che è innocuo e non impedisce nulla. Il secondo è che, con l'interfaccia degli strumenti di sviluppo in una lingua diversa dall'inglese, la frase richiesta può essere tradotta: va scritta quella che l'avviso indica, non quella riportata in una guida.
+
+Esiste una seconda via per il medesimo token, documentata da DCE e utile quando la prima non funziona, e non passa dalla console. Nella scheda della rete si ricarica la pagina, si filtra per il nome dell'endpoint dei messaggi, si apre la voce che compare e si legge il valore dell'intestazione di autorizzazione fra quelle della richiesta.
+
+Il comando si lancia da qualunque cartella, perché il percorso dell'eseguibile è assoluto; su PowerShell un percorso fra apici va preceduto dall'operatore di chiamata, cioè dalla e commerciale, altrimenti la shell tratta la stringa come testo e non la esegue.
+
 Tre cose operative su quel token, e nessuna è una formalità. Non va scritto in alcun file, nemmeno in `.env`: si incolla nel comando al momento dell'uso, perché un token in un file è un token che prima o poi finisce in un commit, e l'esportazione avviene poche volte l'anno. Cambia quando si cambia la password dell'account, quindi dopo un cambio password va ripreso. E dà accesso completo all'account, quindi non va incollato in una conversazione né condiviso in alcuna forma.
 
 ### I comandi, nell'ordine in cui si usano
