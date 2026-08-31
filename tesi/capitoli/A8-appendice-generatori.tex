@@ -1,0 +1,96 @@
+% =====================================================================
+% tesi/capitoli/A8-appendice-generatori.tex
+% =====================================================================
+% copre: docs/40-appendice-matematica.md#8-generatori-pseudocasuali-e-ricostruzione-del-loro-stato
+% copre: docs/40-appendice-matematica.md#8-1-generatore-lineare-congruenziale
+% copre: docs/40-appendice-matematica.md#8-2-il-periodo-e-le-condizioni-che-lo-rendono-massimo
+% copre: docs/40-appendice-matematica.md#8-3-i-bit-bassi-e-perché-il-gioco-usa-la-parola-alta
+% copre: docs/40-appendice-matematica.md#8-4-reversibilità-e-l-inverso-moltiplicativo-modulo-una-potenza-di-due
+% copre: docs/40-appendice-matematica.md#8-5-salto-in-avanti-e-la-distanza-fra-due-stati
+% copre: docs/40-appendice-matematica.md#8-6-lo-spazio-dei-semi-e-quando-una-ricerca-esaustiva-è-praticabile
+% copre: docs/40-appendice-matematica.md#8-7-determinazione-dello-stato-da-un-osservazione-parziale
+% verificato-al-commit: 319226b
+% ---------------------------------------------------------------------
+
+\chapter{Nozioni sui generatori pseudocasuali}
+\label{app:generatori}
+
+Questa appendice è stata aggiunta dopo le sette che la precedono, e la ragione va dichiarata perché riguarda il metodo con cui l'appendice è stata riempita. Le altre sette raccolgono le nozioni che il capitolo~\ref{cap:analisi} impiega per misurare meccanismi già descritti; questa raccoglie le nozioni che servono a ricostruire un dato che nessuno ha documentato, cioè il lavoro esposto nel capitolo~\ref{cap:distribuzioni}. La differenza non è di argomento ma di funzione: là la matematica misura, qui determina.
+
+I valori numerici di questa appendice sono calcolati e verificati, non trascritti da una fonte. In particolare gli inversi moltiplicativi riportati nella quarta sezione sono stati ottenuti per calcolo e provati con un giro di andata e ritorno, che è il genere di verifica che questo lavoro preferisce a una citazione perché non dipende dalla correttezza di chi ha scritto la fonte.
+
+\section{Generatore lineare congruenziale}
+
+Un generatore lineare congruenziale produce una successione di interi a partire da un valore iniziale, detto seme, applicando ripetutamente una funzione affine seguita da riduzione modulo $m$:
+
+\begin{equation}
+s_{n+1} = (a\,s_n + c) \bmod m .
+\end{equation}
+
+La nozione esiste perché è il generatore più semplice che produca una successione di aspetto casuale al costo di una moltiplicazione e un'addizione, ed è per questo il generatore di ogni sistema a risorse scarse: un processore a pochi megahertz privo di moltiplicatore veloce non può permettersi di più. La scelta del modulo come potenza di due rende la riduzione gratuita, giacché coincide con il troncamento del registro descritto nell'appendice~\ref{app:algebra}.
+
+L'esempio da svolgere sono i due generatori del dominio. Quello dei titoli portatili della terza generazione ha $m = 2^{32}$, $a = \hx{41C64E6D}$ e $c = \hx{6073}$; quello della console domestica della medesima epoca ha la stessa forma con $a = \hx{343FD}$ e $c = \hx{269EC3}$. La differenza fra i due è la ragione per cui una distribuzione proveniente dalla console domestica richiede un metodo di verifica proprio, come il capitolo~\ref{cap:distribuzioni} riporta: il meccanismo è identico, la successione non lo è.
+
+\section{Il periodo, e le condizioni che lo rendono massimo}
+
+Il periodo di un generatore è il numero di passi dopo i quali la successione si ripete. Per modulo potenza di due esso è al più $m$, e vale esattamente $m$ se e solo se $c$ è dispari e $a - 1$ è divisibile per quattro.
+
+La nozione esiste perché un generatore di periodo corto è inutilizzabile e la verifica costa due divisioni: è il controllo più economico eseguibile su un generatore ignoto, e la sua violazione si manifesta come una ripetizione che l'osservatore attribuisce di norma a un difetto del proprio codice anziché del generatore.
+
+L'esempio da svolgere è la verifica su entrambe le costanti. Per il generatore portatile $c = \hx{6073}$ è dispari e $a - 1 = \hx{41C64E6C}$ termina con la cifra esadecimale $\mathtt{C}$, cioè dodici, divisibile per quattro; per quello della console domestica $c = \hx{269EC3}$ è dispari e $a - 1 = \hx{343FC}$ è parimenti divisibile per quattro. Entrambi soddisfano le condizioni e hanno dunque periodo $2^{32}$: percorrono tutti i valori rappresentabili prima di ripetersi, e nessuno dei due presenta cicli brevi in cui la successione possa cadere.
+
+\section{I bit bassi, e la ragione per cui il gioco impiega la parola alta}
+
+Nei generatori lineari congruenziali a modulo potenza di due la qualità dei bit non è uniforme: il bit di posizione $k$ ha periodo al più $2^{k+1}$, dunque i bit bassi si ripetono molto prima della successione completa. È un difetto strutturale della famiglia e non si corregge scegliendo costanti migliori, poiché discende dall'aritmetica del modulo.
+
+La nozione esiste perché rende ragione di una scelta di progetto che altrimenti apparirebbe arbitraria, cioè il fatto che il gioco non impieghi il valore prodotto dal generatore ma i suoi soli sedici bit superiori. Non è uno spreco di metà del valore: è la selezione dell'unica porzione la cui successione ha periodo lungo.
+
+L'esempio da svolgere è la misura, compiuta sul generatore reale anziché argomentata. Il bit di posizione zero ha periodo due, cioè si alterna a ogni passo; il bit uno ha periodo quattro, il bit due periodo otto, il bit tre periodo sedici, e la progressione prosegue raddoppiando, saturando il limite teorico. Ne segue che il bit meno significativo di un valore estratto non porta quasi informazione, essendo determinato dalla parità del passo, mentre il bit trentuno ha periodo pari all'intera successione. Un progetto che ricavasse una scelta binaria dal bit basso otterrebbe un'alternanza regolare in luogo di una scelta casuale, ed è precisamente l'errore che l'impiego della parola alta evita.
+
+Le due difettosità della riduzione per modulo vanno tenute distinte, perché sono indipendenti e la pratica corretta le evita entrambe con la medesima mossa. L'appendice~\ref{app:probabilita} mostra che la riduzione introduce una distorsione quando il modulo non divide il numero dei valori; questa sezione mostra che i bit bassi hanno periodo corto. Prendere la parola alta e ridurre quella risolve l'una e l'altra.
+
+\section{Reversibilità, e l'inverso moltiplicativo modulo una potenza di due}
+
+Un generatore lineare congruenziale è invertibile quando $a$ è invertibile modulo $m$, e modulo una potenza di due ciò accade se e solo se $a$ è dispari. In tal caso il passo inverso ha la medesima forma affine del passo diretto:
+
+\begin{equation}
+s_n = (a^{-1} s_{n+1} + c') \bmod m, \qquad a^{-1} a \equiv 1 \pmod m, \qquad c' = -c\,a^{-1} \bmod m .
+\end{equation}
+
+La nozione esiste perché rende possibile ciò che a prima vista non lo sembra, cioè risalire la successione. Se il generatore fosse a senso unico, ricostruire il seme di origine di un esemplare richiederebbe di provare tutti i semi; essendo invertibile, è sufficiente applicare il passo inverso tante volte quante sono le estrazioni consumate.
+
+L'esempio da svolgere è il calcolo per i due generatori. Per quello portatile si ottiene $a^{-1} = \hx{EEB9EB65}$ e $c' = \hx{0A3561A1}$; per quello della console domestica $a^{-1} = \hx{B9B33155}$ e $c' = \hx{A170F641}$. La verifica è un giro di andata e ritorno: preso un valore arbitrario, si applica il passo diretto e poi quello inverso, e si ritrova il valore di partenza.
+
+La conseguenza per il caso di studio del capitolo~\ref{cap:distribuzioni} è immediata e vale enunciarla, perché trasforma una proprietà algebrica in una tecnica. Un esemplare autentico porta in chiaro il proprio valore di personalità, composto da due estrazioni consecutive; invertendo il generatore si risale al valore che le precede e da quello al seme di origine. È questa proprietà, e non un artificio, a rendere possibile la determinazione del metodo di un evento a partire da un solo campione.
+
+\section{Salto in avanti, e la distanza fra due stati}
+
+Applicare $n$ volte il passo di un generatore lineare congruenziale equivale ad applicarne una volta uno con costanti diverse, calcolabili in un numero di operazioni proporzionale a $\log n$:
+
+\begin{equation}
+a^{(n)} = a^n \bmod m, \qquad c^{(n)} = c \sum_{i=0}^{n-1} a^i \bmod m .
+\end{equation}
+
+La nozione esiste perché risponde a una domanda che si presenta costantemente quando un generatore è osservato dall'esterno: quante estrazioni separano due valori noti. In assenza del salto in avanti occorrerebbe avanzare passo per passo; con esso si avanza per potenze, e la distanza si cerca per bisezione sull'esponente.
+
+L'esempio da svolgere è un confronto di costi. Stabilire se due valori distino meno di un milione di estrazioni richiede un milione di passi per via diretta e circa venti passi composti per via del salto, giacché $2^{20}$ eccede il milione. Il rapporto fra i due costi è di quattro ordini di grandezza, ed è la ragione per cui gli strumenti che analizzano quel generatore rispondono in un istante a interrogazioni che parrebbero richiedere una ricerca lunga.
+
+\section{Lo spazio dei semi, e quando una ricerca esaustiva è praticabile}
+
+Una ricerca esaustiva su uno spazio di $N$ candidati costa $N$ verifiche, e la sua praticabilità non è questione di ingegno ma di aritmetica: si stabilisce moltiplicando $N$ per il costo unitario di verifica e confrontando il prodotto col tempo disponibile.
+
+La nozione esiste perché costituisce la sola dimostrazione di completezza disponibile quando la struttura del problema è ignota, ed è la forma dell'argomento più solido prodotto dalla ricerca sugli eventi. Va accompagnata dal suo rovescio, che ne delimita l'applicabilità: raddoppiare la larghezza dello spazio in bit eleva al quadrato il numero dei candidati, e la distanza fra praticabile e impraticabile si attraversa in poche decine di bit.
+
+L'esempio da svolgere è il confronto fra i due spazi che il dominio presenta. Un seme di origine ristretto a sedici bit ammette $65\,536$ candidati: al ritmo, prudente per qualunque calcolatore moderno, di un milione di verifiche al secondo, la ricerca completa costa meno di un decimo di secondo, ed è ciò che ha reso possibile determinare per esaustione l'unico seme compatibile con un campione, come il capitolo~\ref{cap:distribuzioni} riporta. Un seme non ristretto ammette $2^{32}$ candidati, cioè $65\,536$ volte tanti, e al medesimo ritmo la ricerca costa circa settantadue minuti: praticabile, ma non più gratuita, e con una verifica cento volte più onerosa richiederebbe cinque giorni. La restrizione del seme a sedici bit, che la fonte dichiara come parte costitutiva del metodo, è dunque ciò che sposta il problema dalla categoria del calcolo lungo a quella del calcolo immediato.
+
+La conseguenza generale trascende il caso e vale enunciarla: quando una ricerca esaustiva è praticabile, l'unicità della soluzione converte un'ipotesi in una determinazione, e quella è la sola forma di certezza ottenibile in assenza della specifica. È la medesima struttura di argomento del principio dei cassetti dell'appendice~\ref{app:algebra} e della verifica della tabella delle permutazioni nel capitolo~\ref{cap:analisi}.
+
+\section{Determinazione dello stato da un'osservazione parziale}
+
+Il problema è il seguente: si osservano alcuni bit di alcune estrazioni consecutive e si vuole ricostruire lo stato del generatore. La questione preliminare è quanti bit occorrano, e la risposta è di natura contabile: lo stato ha larghezza fissa in bit, e occorre osservarne almeno altrettanti di informativi, giacché altrimenti i candidati compatibili sono più di uno.
+
+La nozione esiste perché separa i casi in cui la ricostruzione è determinata da quelli in cui restituisce un insieme, e la distinzione va compiuta prima di cercare anziché dopo: cercare uno stato quando le osservazioni non lo vincolano produce molte soluzioni e l'impressione di un errore di implementazione.
+
+L'esempio da svolgere è quello del dominio. Lo stato ha trentadue bit. Un esemplare porta in chiaro un valore di personalità di trentadue bit, proveniente però da due estrazioni delle quali si sono prese le parole alte, cioè da sedici più sedici bit informativi: gli osservati sono trentadue e lo stato ne ha trentadue, dunque il problema si colloca al limite della determinazione e ammette in generale un numero piccolo di candidati, non necessariamente uno. Aggiungendo i valori individuali, che provengono da due estrazioni ulteriori e portano quindici bit informativi ciascuna, il vincolo diviene largamente sovrabbondante; da ciò segue che il campione completo di un esemplare determina il proprio seme di origine quando il metodo è noto, e consente di discriminare fra metodi quando non lo è. È il fondamento aritmetico della ricerca esposta nel capitolo~\ref{cap:distribuzioni}.
+
+Il limite di questo conteggio va dichiarato, poiché si tratta di un conteggio di bit e non di una dimostrazione: contare i bit informativi stabilisce quando la ricostruzione non può essere unica, non garantisce che lo sia quando i bit bastano. Le funzioni in gioco non sono iniettive per costruzione, e la garanzia si ottiene enumerando i candidati, cioè con la ricerca della sezione precedente.

@@ -539,3 +539,97 @@ La nozione esiste perché la robustezza di un cifrario si dichiara sempre rispet
 L'esempio svolto è l'attacco per sovrapposizione che la nota quantitativa espone in tre passaggi, e che qui si riassume nella sua struttura logica. Se due parole di dati `d1` e `d2` sono cifrate con la medesima chiave `k`, l'attaccante che osserva `c1 = d1 XOR k` e `c2 = d2 XOR k` calcola `c1 XOR c2 = d1 XOR d2` per la voce 3.5, ottenendo una relazione fra i chiari senza conoscere `k`. Poiché molte parole delle sottostrutture sono nulle o assumono valori prevedibili, quella relazione rivela direttamente il contenuto delle parole non note. Il difetto non sta nell'or esclusivo, che è la forma corretta del cifrario di Vernam, ma nel riuso della chiave, che è la seconda condizione violata della voce precedente.
 
 Si impiega nella sezione sulla cifratura di [[12-analisi-quantitativa]].
+
+## 8. Generatori pseudocasuali, e ricostruzione del loro stato
+
+Quest'area è stata aggiunta il 2026-08-29, dopo che la ricerca sui metodi di generazione degli eventi di terza generazione ha reso necessario un vocabolario che l'appendice non aveva. Il criterio è lo stesso delle altre sette: ogni nozione che il progetto impiega senza averla definita diventa una voce. Ciò che la rende diversa è che qui la matematica non serve a misurare un meccanismo già descritto, ma a capire come si ricostruisce un dato che nessuno ha documentato, che è il lavoro di `recreate-pokemon-distributions-events/STUDIO-02-metodi-di-generazione.md`.
+
+I numeri di quest'area sono verificati per calcolo e non trascritti da una fonte. Le due costanti dei generatori sono quelle che il dominio usa, e gli inversi moltiplicativi riportati sono stati calcolati e provati con un giro di andata e ritorno.
+
+### 8.1 Generatore lineare congruenziale
+
+Un generatore lineare congruenziale produce una successione di interi a partire da un valore iniziale, chiamato seme, applicando ripetutamente una funzione affine seguita da una riduzione per modulo.
+
+```
+s(n+1) = (a * s(n) + c) modulo m
+```
+
+La nozione esiste perché è il generatore più semplice che produca una successione di aspetto casuale con una sola moltiplicazione e una sola addizione, e per questo è il generatore di ogni sistema con poche risorse: un processore a pochi megahertz senza moltiplicatore veloce non può permettersi di più. Le tre costanti sono il moltiplicatore, l'incremento e il modulo, e la scelta del modulo come potenza di due rende la riduzione gratuita, perché coincide con il troncamento del registro descritto nella voce 3.4.
+
+L'esempio svolto è il generatore dei giochi di terza generazione, dove il modulo è due alla trentaduesima, il moltiplicatore vale `0x41C64E6D` e l'incremento vale `0x6073`. Il generatore della console domestica della stessa epoca ha la medesima forma e costanti diverse, cioè moltiplicatore `0x343FD` e incremento `0x269EC3`, e la differenza fra i due è la ragione per cui una distribuzione proveniente da quella console richiede un metodo proprio: il meccanismo è identico, la successione non lo è.
+
+Si impiega in `STUDIO-02-metodi-di-generazione.md` e in [[06-identita-pokemon]].
+
+### 8.2 Il periodo, e le condizioni che lo rendono massimo
+
+Il periodo di un generatore è il numero di passi dopo i quali la successione si ripete. Per un generatore lineare congruenziale con modulo potenza di due il periodo è al più il modulo stesso, e lo raggiunge se e solo se l'incremento è dispari e il moltiplicatore diminuito di uno è divisibile per quattro.
+
+La nozione esiste perché un generatore con periodo corto è inutilizzabile e la verifica costa due divisioni: è il controllo più economico che si possa fare su un generatore ignoto, e la sua violazione si manifesta come una ripetizione che chi osserva attribuisce di solito a un difetto del proprio codice.
+
+L'esempio svolto è la verifica su entrambe le costanti del dominio. Per il generatore portatile l'incremento `0x6073` è dispari e il moltiplicatore diminuito di uno vale `0x41C64E6C`, che termina con la cifra esadecimale C, cioè dodici, divisibile per quattro: le condizioni sono soddisfatte e il periodo è due alla trentaduesima. Per il generatore della console domestica l'incremento `0x269EC3` è dispari e il moltiplicatore diminuito di uno vale `0x343FC`, anch'esso divisibile per quattro: medesima conclusione. Entrambi i generatori percorrono tutti i valori possibili prima di ripetersi, e nessuno dei due ha un ciclo breve in cui cadere.
+
+Si impiega come verifica preliminare di qualunque ricostruzione, e vale come esempio della differenza fra un controllo che costa due divisioni e una fiducia che costa un progetto.
+
+### 8.3 I bit bassi, e perché il gioco usa la parola alta
+
+Nei generatori lineari congruenziali con modulo potenza di due la qualità dei bit non è uniforme: il bit di posizione k ha periodo al più due alla k più uno, dunque i bit bassi si ripetono molto prima della successione completa. È il difetto strutturale di questa famiglia e non si corregge scegliendo costanti migliori, perché discende dall'aritmetica del modulo.
+
+La nozione esiste perché spiega una scelta di progetto che altrimenti sembra arbitraria, cioè il fatto che il gioco non usi il valore prodotto dal generatore ma i suoi soli sedici bit alti. Non è uno spreco: è la sola parte del valore la cui successione ha periodo lungo.
+
+L'esempio svolto è la misura, fatta sul generatore reale e non argomentata. Il bit di posizione zero ha periodo due, cioè si alterna a ogni passo; il bit uno ha periodo quattro, il bit due periodo otto, il bit tre periodo sedici, e la progressione continua raddoppiando, come il limite teorico prevede. Ne segue che il bit meno significativo di un valore estratto non porta quasi informazione, perché è determinato dalla parità del passo, mentre il bit trentuno ha periodo pari all'intera successione. Un progetto che estraesse una scelta binaria dal bit basso otterrebbe un'alternanza regolare invece di una scelta casuale, e questo è precisamente l'errore che la scelta di usare la parola alta evita.
+
+Vale collegare questa voce alla voce 2.2. Là si mostra che la riduzione per modulo introduce una distorsione quando il modulo non divide il numero di valori; qui si mostra che i bit bassi hanno periodo corto. Sono due difetti indipendenti della stessa operazione, e la pratica corretta li evita entrambi prendendo la parola alta e riducendo quella.
+
+Si impiega in [[06-identita-pokemon]] e in [[12-analisi-quantitativa]], nella sezione sul campionamento con rifiuto.
+
+### 8.4 Reversibilità, e l'inverso moltiplicativo modulo una potenza di due
+
+Un generatore lineare congruenziale è invertibile quando il moltiplicatore è invertibile modulo il modulo, cioè quando esiste un intero che moltiplicato per esso dà uno. Modulo una potenza di due questo accade se e solo se il moltiplicatore è dispari, e in quel caso il passo inverso ha la medesima forma affine del passo diretto.
+
+```
+s(n) = (a_inv * s(n+1) + c_inv) modulo m
+dove   a_inv * a = 1 modulo m     e     c_inv = -c * a_inv modulo m
+```
+
+La nozione esiste perché rende possibile una cosa che sembra impossibile, cioè risalire la successione. Se il generatore fosse a senso unico, ricostruire il seme di origine di un esemplare richiederebbe di provare tutti i semi; essendo invertibile, basta applicare il passo inverso tante volte quante sono le estrazioni consumate.
+
+L'esempio svolto è il calcolo per il generatore portatile, verificato e non citato. L'inverso del moltiplicatore `0x41C64E6D` modulo due alla trentaduesima vale `0xEEB9EB65`, e la costante inversa vale `0x0A3561A1`; per il generatore della console domestica i due valori sono `0xB9B33155` e `0xA170F641`. La verifica è un giro di andata e ritorno: preso un valore arbitrario, si applica il passo diretto e poi quello inverso, e si ritrova il valore di partenza. È il genere di prova che questo progetto preferisce a una citazione, perché non dipende dalla correttezza di chi ha scritto la fonte.
+
+La conseguenza operativa per il track degli eventi è diretta. Un esemplare autentico porta in chiaro il proprio valore di personalità, che è composto da due estrazioni consecutive; invertendo il generatore si risale al valore che le precede, e da quello al seme di origine. È questa proprietà, e non una forzatura, a rendere possibile la determinazione del metodo di un evento a partire da un campione.
+
+Si impiega in `STUDIO-02-metodi-di-generazione.md`.
+
+### 8.5 Salto in avanti, e la distanza fra due stati
+
+Applicare n volte il passo di un generatore lineare congruenziale equivale ad applicare una volta un passo con costanti diverse, calcolabili in un numero di operazioni proporzionale al logaritmo di n. Il moltiplicatore composto è la potenza n-esima del moltiplicatore, e l'incremento composto è il prodotto dell'incremento per la somma dei primi n termini della progressione geometrica del moltiplicatore.
+
+```
+a(n) = a^n modulo m
+c(n) = c * (a^(n-1) + ... + a + 1) modulo m
+```
+
+La nozione esiste perché consente di rispondere a una domanda che si presenta continuamente quando si studia un generatore osservato dall'esterno: quante estrazioni separano due valori noti. Senza il salto in avanti bisognerebbe avanzare uno per uno; con esso si avanza per potenze, e la distanza si cerca per bisezione sull'esponente.
+
+L'esempio svolto, in forma di conteggio, è il costo delle due strade. Stabilire se due valori distino meno di un milione di estrazioni richiede un milione di passi per la via diretta, e circa venti passi composti per la via del salto, perché due alla ventesima supera un milione. Il rapporto fra i due costi è di quattro ordini di grandezza, ed è la ragione per cui gli strumenti che analizzano quel generatore rispondono in un istante a domande che sembrerebbero richiedere una ricerca lunga.
+
+Si impiega nella ricostruzione dei metodi e nella valutazione del costo di una ricerca, cioè nella voce seguente.
+
+### 8.6 Lo spazio dei semi, e quando una ricerca esaustiva è praticabile
+
+Una ricerca esaustiva su uno spazio di N candidati costa N verifiche, e la sua praticabilità non è una questione di ingegno ma di aritmetica: si stabilisce moltiplicando N per il costo di una verifica e confrontando il prodotto con il tempo disponibile.
+
+La nozione esiste perché è la sola dimostrazione di completezza disponibile quando non si conosce la struttura del problema, ed è la forma dell'argomento più forte prodotto dalla ricerca sugli eventi. Va accompagnata dal suo contrario, che è la ragione per cui l'argomento non si applica sempre: raddoppiare la larghezza dello spazio in bit eleva al quadrato il numero dei candidati, e la distanza fra praticabile e impraticabile si attraversa in poche decine di bit.
+
+L'esempio svolto è il confronto fra i due spazi che il dominio presenta. Un seme di origine ristretto a sedici bit ammette 65 536 candidati: al ritmo, prudente per qualunque calcolatore moderno, di un milione di verifiche al secondo, la ricerca completa costa meno di un decimo di secondo, e questo è ciò che ha reso possibile determinare per esaustione l'unico seme compatibile con un campione. Un seme non ristretto ammette 4 294 967 296 candidati, cioè 65 536 volte tanti, e al medesimo ritmo la ricerca completa costa circa settantadue minuti: è ancora praticabile ma non più gratuita, e con una verifica cento volte più costosa diventerebbe di cinque giorni. La restrizione del seme a sedici bit, che una fonte dichiara come parte della definizione del metodo, è quindi ciò che sposta quel problema dalla categoria del calcolo lungo a quella del calcolo immediato.
+
+Vale enunciare la conseguenza generale, perché vale oltre questo caso: quando una ricerca esaustiva è praticabile, l'unicità della soluzione trasforma un'ipotesi in una determinazione, e quella è la sola forma di certezza ottenibile senza la specifica. È la medesima struttura di argomento della voce 3.10 e della verifica della tabella delle permutazioni in [[12-analisi-quantitativa]].
+
+### 8.7 Determinazione dello stato da un'osservazione parziale
+
+Il problema è il seguente: si osservano alcuni bit di alcune estrazioni consecutive e si vuole ricostruire lo stato del generatore. La domanda preliminare è quanti bit servano, e la risposta è di natura contabile: lo stato ha una larghezza fissa in bit, e occorre osservare almeno altrettanti bit informativi, altrimenti i candidati compatibili sono più di uno.
+
+La nozione esiste perché separa i casi in cui la ricostruzione è determinata da quelli in cui restituisce un insieme di candidati, e la distinzione va fatta prima di cercare e non dopo. Cercare uno stato quando le osservazioni non lo vincolano produce molte soluzioni e l'impressione di un errore.
+
+L'esempio svolto è quello del dominio. Lo stato ha trentadue bit. Un esemplare porta in chiaro un valore di personalità di trentadue bit, che proviene però da due estrazioni di cui si sono prese le parole alte, cioè da sedici più sedici bit informativi: i bit osservati sono trentadue e lo stato ne ha trentadue, dunque il problema è al limite della determinazione e ammette in generale un numero piccolo di candidati, non necessariamente uno. Aggiungendo i valori individuali, che provengono da due estrazioni ulteriori e portano quindici bit informativi ciascuna, il vincolo diventa largamente sovrabbondante, e da qui segue che il campione completo di un esemplare determina il suo seme di origine quando il metodo è noto, e permette di distinguere fra metodi quando non lo è. È il fondamento aritmetico della ricerca descritta in `STUDIO-02-metodi-di-generazione.md`.
+
+Va dichiarato il limite di questo conteggio, perché è un conteggio di bit e non una dimostrazione: contare i bit informativi dice quando la ricostruzione non può essere unica, non garantisce che lo sia quando i bit bastano. Le funzioni in gioco non sono iniettive per costruzione, e la garanzia si ottiene enumerando i candidati, cioè con la ricerca della voce precedente.

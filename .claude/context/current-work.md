@@ -25,7 +25,7 @@ La fonte di verità su cosa è fatto resta `memory/index.md`, non le spunte di q
 | smeraldo-save-fix | attivo | confermare l'installazione dei driver CH340 e annotare la porta COM | riscontro sulla macchina, e arrivo del lettore ordinato il 18/08 |
 | gen12-gen3-bridge | attivo | lettore e scrittore della struttura di generazione 3, cifrata, permutata e con checksum | nulla sul lavoro comune: ADR-008 e la discovery hardware pesano solo sull'ultimo tratto |
 | gba-switch-trading | in ricerca, fonti portanti lette | provare l'Archer T2U Nano che l'utente ha già in modalità monitor, e leggere il codice di `frlgtrade.py` | nulla: la macchina non ha Wi-Fi integrato, e l'adattatore da provare è deciso con la sua riserva sul driver fuori albero |
-| distributions-events | attivo in ricerca, con una scadenza esterna | costruire un esemplare di evento con `pokebridge` e verificarne la legittimità con PKHeX | nulla su questo passo; l'ultimo tratto verso Home attende due decisioni di perimetro |
+| distributions-events | attivo, è il fuoco corrente; ricerca sui metodi conclusa | costruire un esemplare di evento con `pokebridge` e verificarne la legittimità con PKHeX, oppure leggere l'archivio degli eventi per i campioni mancanti | nulla su questi passi; la prova su dato autentico attende il lettore, e l'ultimo tratto verso Home due decisioni di perimetro |
 | poke-automation | studio cominciato | studiare confronto di immagini e riconoscimento ottico dei caratteri, che è la parte trasferibile | una decisione di scopo: il perimetro del progetto di riferimento risulta compatibile con le nostre regole |
 
 ## Feature: adozione del sistema di progetto portabile

@@ -12,7 +12,11 @@ Da qui segue il fatto operativo che governa tutto il track: qualunque esemplare 
 
 ## Che cosa c'è in questa cartella
 
-`STUDIO-01-distribuzioni-gen3-e-ricreazione.md` è lo studio tecnico, ed è il documento da leggere: descrive che cosa erano le distribuzioni, come è fatta una ROM di distribuzione, quali sono le quattro ROM preservate e le tre categorie di evento, che cosa la comunità ha ricreato e con quale metodo, quali sono le quattro vie per far entrare un evento in una cartuccia vera, e quali punti restano aperti. È scritto dalle quattro fonti video registrate in `SOURCES.md` con la sigla EVT, lette per trascrizione il 2026-08-28.
+La cartella contiene tre documenti e uno di essi è generato. `STUDIO-01-distribuzioni-gen3-e-ricreazione.md` è il primo studio tecnico: descrive che cosa erano le distribuzioni, come è fatta una ROM di distribuzione, quali sono le quattro ROM preservate e le tre categorie di evento, che cosa la comunità ha ricreato e con quale metodo, quali sono le quattro vie per far entrare un evento in una cartuccia vera, e quali punti restano aperti. È scritto dalle quattro fonti video registrate in `SOURCES.md` con la sigla EVT, lette per trascrizione il 2026-08-28.
+
+`STUDIO-02-metodi-di-generazione.md` è il secondo studio, scritto il 2026-08-29 su fonti di livello superiore, ed è quello da leggere per primo su qualunque questione di dato: spiega che cosa sia la sigla BACD e perché l'ordine invertito delle estrazioni del generatore sia la firma di un esemplare da evento, conferma quattro affermazioni del primo studio nominandone i metodi, chiude il punto che il primo lasciava aperto sulla derivazione del sesso dell'allenatore, distingue i due canali di distribuzione che il primo confondeva, e riporta il fatto più notevole della ricerca, cioè che il metodo di generazione dipende da un'interruzione hardware e non soltanto dal codice.
+
+`EVENTI-GEN3.md` è il catalogo delle distribuzioni, con 177 voci, ed è generato da `tools/catalogo-eventi-gen3.py` a partire dalla tabella di `PKHeX`: non si modifica a mano, si rigenera. Dice per ciascun evento la specie, il livello, l'allenatore di provenienza, la lingua, l'identificativo, il metodo di generazione, la lucentezza ammessa e la derivazione del sesso dell'allenatore. È l'inventario da cui il track lavora, e la riga che riguarda gli esemplari che l'utente possiede è nel blocco italiano.
 
 Non c'è ancora codice, e questo track non è per ora un progetto software: è ricerca e procedura operativa su hardware fisico. Se produrrà codice, il candidato naturale è la costruzione e la verifica delle strutture `.pk3` con `pokebridge`, che il ponte fra generazioni ha già scritto e collaudato.
 
@@ -39,6 +43,8 @@ Sulla legittimità degli esemplari ricreati questo progetto non fa finta di nien
 | Cosa cerchi | Dove sta |
 |---|---|
 | lo studio tecnico delle distribuzioni e delle vie di iniezione | `STUDIO-01-distribuzioni-gen3-e-ricreazione.md`, in questa cartella |
+| i metodi di generazione, i due canali e la firma di un esemplare da evento | `STUDIO-02-metodi-di-generazione.md`, in questa cartella |
+| l'inventario dei 177 eventi con il metodo di ciascuno | `EVENTI-GEN3.md`, generato, in questa cartella |
 | la struttura di un Pokemon di generazione 3, byte per byte | `pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md`, sezioni 5 e 6 |
 | perché esistono cifratura e checksum, spiegato | `docs/04-cifratura-gen3.md` e `docs/03-integrita-checksum.md` |
 | il multiboot, cioè il canale su cui viaggia una distribuzione | `docs/10-multiboot-hardware.md` |

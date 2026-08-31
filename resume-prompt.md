@@ -1,4 +1,4 @@
-# Prompt di ripresa - stato al 2026-08-28, seconda revisione della giornata
+# Prompt di ripresa - stato al 2026-08-29
 
 > Questo file esiste per una ragione precisa: la sessione che lo ha prodotto ha lavorato su sette repository, ha portato la tesi da due a venticinque capitoli, ha corretto tre difetti degli strumenti tipografici e ha aperto sei pendenze. Nulla di questo è ricostruibile dai soli commit, perché i commit dicono che cosa è cambiato e non perché, né che cosa era stato deciso di non fare. Si legge dall'inizio alla fine prima di toccare qualunque cosa, e si aggiorna a ogni passo del lavoro: una voce obsoleta qui è peggio della sua assenza, perché induce a fidarsi di uno stato che non esiste più.
 
@@ -39,15 +39,17 @@ Questo file, `resume-prompt.md`, è parte di quell'obbligo: si aggiorna a ogni p
 Alla chiusura della sessione, misurato e non stimato:
 
 ```
-26 capitoli numerati più 7 appendici, cioè 33 file in tesi/capitoli/, più frontespizio e premessa
-171 pagine
+26 capitoli numerati più 8 appendici, cioè 34 file in tesi/capitoli/, più frontespizio e premessa
+181 pagine
 0 errori di compilazione, 0 sbordi di riga, 0 riferimenti irrisolti
-copertura del contenuto: 2117 righe su 2117, cioè 100,0%
-bibliografia: 72 voci, tutte citate (53 fonti di dominio + 19 riferimenti teorici)
+copertura del contenuto: 2480 righe su 2480, cioè 100,0%
+bibliografia: 78 voci, tutte citate (59 fonti di dominio + 19 riferimenti teorici)
 suite del ponte: 114 prove, OK
 ```
 
-I numeri sono cambiati due volte il 2026-08-28. La prima con l'apertura del sesto track, che ha portato due documenti nuovi da coprire, un capitolo nuovo e sei fonti nuove. La seconda con le appendici matematiche della sezione 4.1, che hanno portato un documento nuovo e sette appendici, numerate da A a G perché `\appendix` commuta la numerazione dei capitoli in lettere. La misura è stata rifatta dopo ciascuna delle due e non stimata.
+Una avvertenza sulla compilazione, pagata il 2026-08-29: un visualizzatore di PDF aperto sul file lo tiene bloccato, e `pdflatex` si arresta con un errore che parla di impossibilità di scrivere. Si chiude il visualizzatore, oppure si compila con `-jobname` diverso per verificare senza toccare il file buono. I numeri qui sopra vengono da una compilazione con nome di lavoro alternativo, quindi `tesi.pdf` sul disco potrebbe essere più vecchio del sorgente finché non si ricompila con il visualizzatore chiuso.
+
+I numeri sono cambiati tre volte, due il 2026-08-28 e una il 2026-08-29 con l'approfondimento sui metodi di generazione, che ha portato tre documenti nuovi da coprire, cinque sezioni al capitolo 19, un'ottava appendice e sei fonti. Le prime due volte il 2026-08-28. La prima con l'apertura del sesto track, che ha portato due documenti nuovi da coprire, un capitolo nuovo e sei fonti nuove. La seconda con le appendici matematiche della sezione 4.1, che hanno portato un documento nuovo e sette appendici, numerate da A a G perché `\appendix` commuta la numerazione dei capitoli in lettere. La misura è stata rifatta dopo ciascuna delle due e non stimata.
 
 I comandi che riproducono queste misure, dalla radice del repository:
 
@@ -96,8 +98,9 @@ La struttura in sei parti e la corrispondenza fra capitoli e documenti coperti:
 | E Teoria dei codici | `app:codici` | idem, sezione 5 |
 | F Segnale e telecomunicazioni | `app:segnale` | idem, sezione 6 |
 | G Crittografia | `app:crittografia` | idem, sezione 7 |
+| H Generatori pseudocasuali | `app:generatori` | idem, sezione 8 |
 
-Le parti sono: I fondamenti (1-5), Le strutture dati (6-9), La trasmissione (10-13), I casi di studio (14-19), Il metodo (20-25), e le appendici da A a G dopo `\appendix`. I sei file della parte del metodo sono stati rinominati per far posto al capitolo 19, e le etichette non sono cambiate: un `\ref` non si è rotto perché nessun riferimento cita il numero del file.
+Le parti sono: I fondamenti (1-5), Le strutture dati (6-9), La trasmissione (10-13), I casi di studio (14-19), Il metodo (20-25), e le appendici da A a H dopo `\appendix`. I sei file della parte del metodo sono stati rinominati per far posto al capitolo 19, e le etichette non sono cambiate: un `\ref` non si è rotto perché nessun riferimento cita il numero del file.
 
 ## 3. Che cosa contiene l'analisi quantitativa, e che cosa ha corretto
 
@@ -144,6 +147,32 @@ Le due decisioni che restano all'utente e che nessuna sessione deve prendere al 
 Sulla spedizione lo stato non è stato ottenuto e va detto senza attenuazioni: la pagina di parcelsapp non porta dati nel documento servito, la sua interfaccia programmatica pretende una chiave, e l'interfaccia di Australia Post, che il suffisso del codice rende probabile, risponde che il codice non è fra i suoi. Il tracciamento è registrato in una sezione temporanea di `pending.md`, da cancellare quando il lettore arriva. Le vie che restano sono l'automazione del browser dell'utente, da chiedere prima di usarla, o la consegna manuale dello stato.
 
 Le cose non chiuse del track, tutte registrate in `pending.md`: se un verificatore di legittimità accetti una ricreazione fedele, che è il prossimo passo e non richiede hardware; se la funzione di BIOS numero 11 citata dalla fonte sia la decompressione LZ77; se la posta stia nella sezione quattro del salvataggio; se una collezione completa resti possibile dopo febbraio 2027, affermazione di fonti secondarie non verificata; e il contenuto del thread di r/PokemonHome indicato dall'utente, non leggibile dagli strumenti di sessione.
+
+### 3.3 L'approfondimento del 2026-08-29, e il salto di livello delle fonti
+
+Questa sottosezione racconta la seconda giornata del sesto track, e la sua lezione trascende il track.
+
+L'utente ha osservato che le quattro fonti del giorno prima erano canali che già conosceva, e ha chiesto di approfondire. Ha aggiunto il dato che ha dato forma al lavoro: era presente al Pokemon Day del 2006 e possiede esemplari con allenatore di provenienza «10anni». L'approfondimento è consistito nel passare dal quarto livello di affidabilità al terzo, e il guadagno è stato sostanziale in un modo che vale registrare come metodo: quando una ricerca su fonti di quarto livello lascia punti aperti, la mossa giusta non è cercare altri video ma trovare il codice di chi verifica.
+
+Il codice è la tabella `EncountersWC3.cs` di `PKHeX` e l'enumerazione `PIDType.cs` dello stesso repository. Quella tabella dichiara, per ciascuna delle 177 distribuzioni, il metodo di generazione pseudocasuale con cui è stata prodotta: il metodo non è dunque una congettura da ricostruire ma un dato da leggere. Il catalogo è stato generato e non scritto, con `tools/catalogo-eventi-gen3.py`, che riceve il percorso del clone sulla riga di comando come `extract_charmaps.py` riceve quello dei disassemblati, è idempotente e ha un `--check`. Il clone non è una dipendenza del repository e vive fuori.
+
+La scoperta concettuale, che ridefinisce l'obiettivo del track, è che cosa significhi la sigla BACD. Un incontro ordinario consuma quattro estrazioni del generatore e assegna le prime due alle metà del valore di personalità in un ordine; un evento le assegna invertite. Non è un algoritmo diverso, è il medesimo generatore letto in un ordine diverso, e quell'inversione è la firma che un verificatore riconosce. Ne segue che ricreare un evento non consiste nel produrre i campi visibili giusti, che sono la parte facile e documentata, ma nel produrli attraverso la sequenza di estrazioni corretta.
+
+Quattro affermazioni dei video sono confermate nominalmente, cioè non genericamente ma metodo per metodo: il seme di origine a sedici bit, il codice anti-lucentezza in due varianti distinte, i duecentoquattordici semi della correzione delle bacche con la ragione che il video non dava, cioè la somma delle cifre di ore, minuti e secondi in decimale binario, e la selezione a pesi che costa esattamente due estrazioni. Una affermazione è corretta, ed è quella che il video dichiarava aperta: per i tre leggendari del film la derivazione del sesso dell'allenatore è uno scorrimento di quindici posizioni dopo l'oggetto tenuto con due avanzamenti, non la divisione per 0xCC0 congetturata. La lezione va conservata perché si ripresenterà: due funzioni diverse possono accordarsi su un campione piccolo, e una formula adattata a pochi campioni resta sottodeterminata anche quando li spiega tutti.
+
+Il fatto nuovo, che nessuna delle due note aveva, è il più notevole. La tabella dichiara che nelle distribuzioni consegnate come uova il gioco riceve un'interruzione di sincronismo verticale fra la generazione del valore di personalità e quella dei valori individuali, e che rimuovendola con una modifica alla ROM i medesimi script producono la correlazione ordinaria. Il metodo di generazione non è quindi una proprietà del solo software: dipende da quante volte il generatore avanza fra due letture, e quel numero dipende da un'interruzione hardware che il codice non governa. La tabella dei metodi è una classificazione di comportamenti osservati e non di algoritmi, e la conformità si verifica sul singolo esemplare e non sulla procedura.
+
+Una correzione strutturale al primo studio: i canali di distribuzione sono due. Il multiboot sul cavo copre le distribuzioni di esemplari; il Dono Segreto con la carta meraviglia scarica nel salvataggio uno script di un kilobyte eseguito più tardi, capace di qualunque istruzione compresa quella che porta all'esecuzione di codice arbitrario, e passa dall'adattatore senza fili. È la convergenza più notevole della ricerca, perché il progetto possedeva già quel meccanismo dall'altro capo, dal dev log dello strumento di trasferimento fra generazioni: due progetti con scopi opposti hanno trovato la stessa porta di servizio del formato.
+
+Sugli esemplari dell'utente la valutazione è precisa e volutamente non entusiastica. La distribuzione italiana è catalogata, cioè allenatore `10ANNI`, identificativo 06227, livello 70, mai lucente, metodo `BACD_R_A`, sesso per scorrimento di sette, dieci specie con quattro mosse fissate, distribuita in un parco di divertimenti dal 23 al 25 giugno 2006 con facoltà di scegliere tre esemplari. Quei campioni non risolvono alcun metodo ignoto e non sono un contributo di conservazione: il loro valore è che sono il primo vettore di prova autentico che il progetto abbia, il caso di prova della questione sulla legittimità, e il primo carico reale della catena verso Home. Il passo operativo, quando il lettore arriverà, è dumpare, leggere con `pokebridge` e confrontare campo per campo con la riga del catalogo.
+
+Le sei fonti nuove sono in `SOURCES.md` e nella tabella unica: la tabella e l'enumerazione di `PKHeX` al terzo livello, la pagina delle distribuzioni italiane al secondo, i due strumenti di distribuzione al terzo, l'archivio degli eventi al terzo e non letto, e la discussione sull'algoritmo al quinto.
+
+Sul documento: cinque sezioni nuove al capitolo 19, un'area nuova dell'appendice matematica sui generatori pseudocasuali con la sua appendice composta, che è l'ottava, e le costanti dei due generatori con i loro inversi moltiplicativi e i periodi dei bit bassi calcolati e verificati in sessione invece di trascritti.
+
+### 3.4 Che cosa è stato deciso sulla spedizione
+
+Lo stato della spedizione del lettore non si recupera dagli strumenti di sessione: la pagina del servizio è un'applicazione priva di dati nel documento servito, la sua interfaccia programmatica pretende una chiave, e l'interfaccia del corriere presunto non conosce il codice. Il 2026-08-29 si è deciso di non insistere: l'agente chiede lo stato all'utente quando un passo dipende dall'arrivo del lettore, e l'utente lo procura a mano. La riga sta in `pending.md` fra gli strumenti da invocare a una condizione, oltre che nella sezione temporanea del tracciamento, così che nessuna sessione se ne dimentichi.
 
 ## 4. I task aperti, in ordine di priorità
 
@@ -297,4 +326,12 @@ Le quattro trascrizioni stanno in `_notes/fonti/` e sono sacrificabili secondo A
 
 Nella terza parte della sessione, quella delle appendici: nuovi `docs/40-appendice-matematica.md` e i sette file `tesi/capitoli/A1-appendice-informazione.tex` fino ad `A7-appendice-crittografia.tex`; modificati `tesi/tesi.tex` con il blocco `\appendix`, `docs/index.md` con la riga della nota nuova, e questo file.
 
-Una pendenza nuova è stata registrata e non risolta: `tesi/README.md` è gravemente disallineato, perché descrive la tesi come se fosse in fase di pianificazione e dichiara una copertura del dieci per cento su ventinove documenti, con le tabelle dei capitoli tutte marcate da scrivere. È un file tracciato e fuorviante, e non entra nel controllo di copertura perché non è fra i documenti da coprire, quindi nessuno strumento lo segnala. La riscrittura è un lavoro a sé e va decisa.
+Una pendenza era stata registrata qui e non risolta, cioè il disallineamento di `tesi/README.md`, e il 2026-08-29 è stata chiusa: la sezione seguente dice come e perché il modo di chiuderla conta più della chiusura.
+
+## 12. I file toccati il 2026-08-29
+
+Nuovi: `recreate-pokemon-distributions-events/STUDIO-02-metodi-di-generazione.md`; `recreate-pokemon-distributions-events/EVENTI-GEN3.md`, generato; `tools/catalogo-eventi-gen3.py`; `tesi/capitoli/A8-appendice-generatori.tex`; le sei note generate sotto `docs/fonti/`.
+
+Modificati: `docs/40-appendice-matematica.md` con l'area 8; `tesi/capitoli/19-caso-distribuzioni.tex` con cinque sezioni, due citazioni e il blocco da verificare precisato; `tesi/tesi.tex`; `tesi/non-coperti.txt` con quattro esenzioni motivate; `tesi/bibliografia.tex` rigenerata; `tools/build-source-map.py` con sei fonti e `tools/check-thesis-coverage.py` con tre documenti; `SOURCES.md`; `recreate-pokemon-distributions-events/README.md` e `STUDIO-01-...` allineati a ciò che il secondo studio chiude; `docs/index.md`; le memorie e la scheda del track; i checkpoint di nove capitoli, bumpati dopo rilettura e non per far tacere lo strumento.
+
+Riscritto: `tesi/README.md`, che dichiarava la tesi in pianificazione con copertura al dieci per cento. La riscrittura non riporta più alcun numero di stato ma dice con quale comando si ottiene, perché un file tracciato che riporta numeri e non è sottoposto a un controllo invecchia in silenzio. Era un punto cieco della stessa specie di quello delle schede senza `covers-paths`.

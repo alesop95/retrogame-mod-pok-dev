@@ -83,6 +83,8 @@ ALTRI_DOCUMENTI = (
     "poke-automation-study/README.md",
     "recreate-pokemon-distributions-events/README.md",
     "recreate-pokemon-distributions-events/STUDIO-01-distribuzioni-gen3-e-ricreazione.md",
+    "recreate-pokemon-distributions-events/STUDIO-02-metodi-di-generazione.md",
+    "recreate-pokemon-distributions-events/EVENTI-GEN3.md",
     "pokemon-gen12-gen3-bridge-original-hardware/README.md",
     "3ds-related/handoff/HANDOFF_progetto_3DS.md",
     "gba-save-extraction-smeraldo/handoff/HANDOFF_progetto_smeraldo.md",
