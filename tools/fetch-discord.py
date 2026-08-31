@@ -67,8 +67,10 @@ cacciare il proprio bot, quindi la sola via è che il bot esca da sé.
 
 Conviene tenere l'applicazione pubblica soltanto mentre le richieste di invito sono in
 corso, e rimetterla privata quando gli inviti sono stati concessi: il comando `guilds` dice
-in ogni momento dove il bot si trova, e uno server inatteso in quell'elenco è il segnale
-che serve. Il comando pretende `--conferma`, perché l'uscita non si annulla da qui e il
+in ogni momento dove il bot si trova, e un server inatteso in quell'elenco è il segnale che
+serve. Se l'applicazione sia pubblica lo dice il comando `stato`, che legge la
+configurazione dal servizio e non dalla schermata del portale: una schermata mostra ciò che
+il browser ha in cache, e un salvataggio non premuto ha l'aspetto di uno premuto. Il comando pretende `--conferma`, perché l'uscita non si annulla da qui e il
 rientro richiede un invito nuovo.
 
 Il presidio contro l'uso di un token personale
@@ -87,6 +89,7 @@ cui l'errore si produce e non in quello in cui si manifesta.
 
 Uso
 ---
+    python tools/fetch-discord.py stato
     python tools/fetch-discord.py guilds
     python tools/fetch-discord.py channels <id del server>
     python tools/fetch-discord.py fetch <id del canale> --limit 500
@@ -924,6 +927,8 @@ def main():
                     help="prova la logica contro un trasporto finto, senza credenziali")
     sub = ap.add_subparsers(dest="comando")
 
+    sub.add_parser("stato", help="la configurazione dell'applicazione, letta dal servizio")
+
     sub.add_parser("guilds", help="i server in cui il bot è stato invitato")
 
     p_ch = sub.add_parser("channels",
@@ -960,6 +965,24 @@ def main():
     try:
         trasporto = TrasportoHTTP(leggi_token())
         nome_bot = verifica_identita(trasporto)
+
+        if a.comando == "stato":
+            # La configurazione si legge dal servizio e non dalla schermata del portale,
+            # per la stessa ragione per cui un PDF si verifica sui byte: una schermata
+            # mostra ciò che il browser ha in cache, e un salvataggio non premuto ha
+            # l'aspetto di uno premuto.
+            app = chiama(trasporto, "/oauth2/applications/@me")
+            pubblica = bool(app.get("bot_public"))
+            print("applicazione:        " + str(app.get("name", "?")))
+            print("identificativo:      " + str(app.get("id", "?")))
+            print("bot pubblico:        " + ("sì" if pubblica else "no") +
+                  ("  (un amministratore di un server altrui può invitarlo)" if pubblica
+                   else "  (solo il proprietario può installarla: un amministratore di un "
+                        "server altrui riceverebbe un errore)"))
+            print("richiede code grant: " +
+                  ("sì  ATTENZIONE: romperebbe il link di invito, va spento"
+                   if app.get("bot_require_code_grant") else "no"))
+            return 0
 
         if a.comando == "guilds":
             for g in chiama(trasporto, "/users/@me/guilds"):
