@@ -87,6 +87,66 @@ Due osservazioni vengono da quella corsa e valgono per chi la ripeterà. Fra i m
 
 Una scelta di progetto va motivata perché il materiale di partenza suggeriva altro, cioè un server MCP dedicato. In un agente residente che deve poter chiamare quel tool durante una conversazione quella è la scelta giusta; qui il lavoro è deterministico, cioè leggere una fonte e trasferirla nel registro, e la regola sull'economia dei token prescrive di tenerlo su codice invece che su modello. Un programma sulla sola libreria standard fa quel lavoro senza aggiungere una dipendenza su Node, un pacchetto di terze parti da fidare con un token, e uno strato di protocollo fra noi e una richiesta HTTP.
 
+## DiscordChatExporter, e la procedura di esportazione dei canali
+
+Non è uno strumento del progetto ma di terze parti, e sta qui perché la procedura d'uso è parte della conoscenza operativa: una procedura che vive in una conversazione è una procedura perduta alla sessione successiva. La fonte è registrata in `SOURCES.md` al livello 3, la decisione che ne autorizza l'uso in questo progetto è ADR-019, e il criterio che distingue le vie di accesso a un canale sta nella regola `.claude/rules/web-sources-not-fetchable.md`.
+
+### Che cosa fa, e come si colloca rispetto allo strumento proprio
+
+Esporta la cronologia di un canale in HTML, testo semplice, JSON o CSV, scarica gli allegati, e ha comandi per un canale singolo, per un server intero, per i messaggi diretti e per tutto ciò che è accessibile. È maturo e completo, e su tre cose è superiore a `tools/fetch-discord.py`: scarica i media in locale, produce una resa HTML che replica l'interfaccia di Discord ed è quindi il formato migliore per rileggere una discussione lunga, e ha una interfaccia grafica comoda quando si deve girare fra molti server per capire quali canali esistano.
+
+Lo strumento proprio resta per ciò che DCE non fa: il cursore che legge il solo incremento fra due corse senza gestire identificativi a mano, l'uscita già filtrata nella convenzione del progetto, e il presidio sul tipo di token. La divisione naturale è quindi che DCE faccia le esportazioni grosse e periodiche, poche volte l'anno, e che il lettore proprio faccia gli aggiornamenti incrementali dove il bot è stato invitato.
+
+Il ponte fra i due esiste già e non va costruito: `tools/read-chat-export.py` era stato scritto per digerire il JSON di DCE, con le chiavi `guild`, `channel` e `messages`.
+
+### Dove vivono i file
+
+Il programma non entra nel repository, perché sono binari da decine di megabyte che non hanno rapporto con il version control, e va in una cartella condivisa dai progetti che ne hanno bisogno, per esempio `E:\tools\dce` per la riga di comando e `E:\tools\dce-gui` per l'interfaccia grafica. Gli export vanno sotto `_notes/fonti/dce/`, che il `.gitignore` esclude in blocco: restano locali per costruzione, e questo è voluto perché sono contenuto di terzi.
+
+### Il rilascio e i file da scaricare
+
+Il rilascio corrente alla data di questa nota è il 2.48, del 27 agosto 2026, e la pagina che dice sempre quale sia l'ultimo è `https://github.com/Tyrrrz/DiscordChatExporter/releases/latest`. I file sono autonomi e non richiedono di installare alcun runtime.
+
+Per Windows su processore Intel o AMD servono i due archivi con il suffisso `win-x64`: `DiscordChatExporter.Cli.win-x64.zip` per la riga di comando, circa 11 MB, e `DiscordChatExporter.win-x64.zip` per l'interfaccia grafica, circa 48 MB. I suffissi `win-arm64` e `win-x86` sono rispettivamente per i processori ARM e per i sistemi a 32 bit, e non servono qui. Esistono anche gli archivi per Linux e macOS e una immagine Docker, `tyrrrz/discordchatexporter`, che è la via da preferire su una macchina dove non si voglia estrarre nulla.
+
+### Il token, e le tre cose da sapere
+
+DCE accetta sia un bot token sia il token di un account personale, e la scelta determina la portata: con il primo vede i soli canali in cui il bot è stato invitato, con il secondo tutto ciò che vede l'account. Le implicazioni della seconda via, e la decisione del progetto, stanno in ADR-019.
+
+Il token di un account si ottiene con la procedura che DCE stesso documenta. In Discord aperto nel browser, non nell'applicazione desktop, si aprono gli strumenti di sviluppo con la combinazione di tasti per l'ispezione e si va sulla scheda della console; se la console rifiuta di incollare, si scrive `allow pasting` e si conferma, che è una protezione contro le truffe e non un errore. Poi si esegue la riga che la documentazione di DCE riporta, la quale recupera il token dal modulo interno dell'applicazione e lo stampa.
+
+Tre cose operative su quel token, e nessuna è una formalità. Non va scritto in alcun file, nemmeno in `.env`: si incolla nel comando al momento dell'uso, perché un token in un file è un token che prima o poi finisce in un commit, e l'esportazione avviene poche volte l'anno. Cambia quando si cambia la password dell'account, quindi dopo un cambio password va ripreso. E dà accesso completo all'account, quindi non va incollato in una conversazione né condiviso in alcuna forma.
+
+### I comandi, nell'ordine in cui si usano
+
+Dalla cartella dove è stata estratta la riga di comando. Su PowerShell il nome dell'eseguibile va prefissato con `.\`, su un prompt tradizionale no, e su Linux o macOS il file si chiama senza estensione.
+
+Il primo comando elenca i server accessibili con il loro identificativo, e serve a sapere su che cosa si sta lavorando: `DiscordChatExporter.Cli.exe guilds -t "TOKEN"`.
+
+Il secondo elenca i canali di un server: `DiscordChatExporter.Cli.exe channels -t "TOKEN" -g ID_DEL_SERVER`. È il passo che non va saltato, perché su un server di sviluppo con decenni di cronologia distribuita su decine di canali l'esportazione totale è inutile prima che costosa: la conoscenza che serve sta in pochi canali, e il resto è rumore che poi va filtrato.
+
+Il terzo esporta un canale: `DiscordChatExporter.Cli.exe export -t "TOKEN" -c ID_CANALE -f Json -o "PERCORSO\%G-%C.json"`. Il formato JSON è quello che il convertitore del progetto digerisce; i segnaposto `%G` e `%C` diventano il nome del server e quello del canale, cosicché i file si riconoscano senza aprirli.
+
+Esistono le varianti per un server intero e per tutto ciò che è accessibile, cioè `exportguild -g ID` e `exportall`, e vanno usate sapendo che producono volumi grandi.
+
+### Le tre opzioni che cambiano il risultato
+
+L'intervallo di date, con `--after 2023-01-01` ed eventualmente `--before`, limita l'esportazione nel tempo. Sulla prima passata di un canale con anni di storia conviene, perché la parte antica di un canale tecnico è spesso superata dal codice che nel frattempo è stato scritto.
+
+Il download degli allegati, con `--media`, porta in locale immagini e file. Su un canale tecnico pieno di schemi elettrici e schermate vale molto, ma moltiplica il volume: non alla prima passata, e poi soltanto sui canali che si è deciso di conservare.
+
+Il formato leggibile, con `-f HtmlDark` oppure `-f HtmlLight`, produce una resa che replica l'interfaccia di Discord. Conviene esportare due volte lo stesso canale, in JSON per la catena automatica e in HTML per la lettura umana, perché sono due usi diversi dello stesso materiale.
+
+Un'ultima nota di comportamento: una esportazione lunga rallenta da sola, perché DCE rispetta i limiti di frequenza dichiarati dal servizio. È il comportamento corretto e va lasciata girare, non interrotta e rilanciata.
+
+### La catena verso il progetto
+
+L'esportazione non è il risultato: il risultato è la sintesi con l'attribuzione nel registro delle fonti. Il passo intermedio è `python tools/read-chat-export.py PERCORSO.json --grep PAROLA --min-length 40`, che riduce il JSON a Markdown filtrato, tenendo autore, momento, testo, allegati e citazioni e scartando la struttura di navigazione.
+
+Da lì vale il flusso che il progetto ha già stabilito, e la ragione per cui vale è che una fonte grezza conservata accanto alla sua sintesi produce il dubbio su quale sia quella buona. Si legge il Markdown filtrato, ciò che documenta entra in `SOURCES.md` in prosa con la profondità che rende il file grezzo sacrificabile, ciò che tocca la referenza dei formati o la tesi entra nei documenti corrispondenti, e il grezzo si elimina quando non porta più informazione che non sia scritta altrove. È ADR-016.
+
+Una avvertenza che vale per il filtro e non per lo strumento: la ricerca per parola chiave sul contenuto di un canale è un filtro cieco alla domanda, mentre la ricerca interna al canale fatta da chi conosce la domanda incorpora la domanda. La regola sulle fonti non recuperabili registra che la seconda ha reso, su un caso reale, più della prima; ne segue che un export in blocco non sostituisce la ricerca mirata ma la precede, e che la lista dei termini da cercare va scelta prima di lanciare il filtro.
+
 ## Gli strumenti di infrastruttura
 
 Nella cartella `tools/` della radice ci sono i due strumenti che servono al repository e non ai giochi. Il primo, `md-unwrap.py`, attua la convenzione di formattazione Markdown del progetto, cioè un paragrafo per riga sorgente, e ha una modalità di sola verifica per il controllo prima di un commit.
