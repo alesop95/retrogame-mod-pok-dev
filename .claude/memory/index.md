@@ -8,8 +8,8 @@ Questo progetto ha più sottoprogetti paralleli, oggi sei, quindi il punto di ri
 
 ```
 Branch attivo:         main
-Commit di riferimento: 319226b
-Data snapshot:         2026-08-29
+Commit di riferimento: 3439cc8
+Data snapshot:         2026-08-31
 ```
 
 ## Stato di verifica delle schede
@@ -34,8 +34,10 @@ Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo q
 ## Punto di ripresa
 
 ```
-Fuoco corrente: distributions-events, il sesto track, e con esso l'obiettivo di collezione in Pokemon Home
+Fuoco corrente: infrastruttura, l'accesso alle fonti di community con un bot account ufficiale
 ```
+
+Il 2026-08-31 il fuoco si è spostato dal sesto track all'infrastruttura, per una richiesta dell'utente: l'accesso automatico ai canali Discord, che il progetto aveva chiuso con un no il 2026-08-26, ha una terza via che il no non aveva considerato, cioè un bot account ufficiale. È ADR-018, lo strumento è `tools/fetch-discord.py` e il limite è che dei quattro server consultati nessuno è dell'utente, quindi serve l'autorizzazione di chi amministra. Il prossimo passo è chiedere. L'esportazione verso il template è registrata fra le pendenze e attende che lo strumento sia provato contro il servizio.
 
 Adozione del sistema: conclusa. La storia git è stata collassata in un unico commit radice il 2026-08-25 per la bonifica di ADR-014, quindi `d08a011` è il commit radice e gli hash citati nelle voci di diario precedenti a quella data non risolvono più. Le schede sono state riconciliate a `7696c46` il 2026-08-26: il drift era quasi tutto contabile, perché erano state aggiornate a mano senza bumpare il checkpoint, e i tre difetti sostanziali trovati nascevano da un unico punto cieco, cioè `covers-paths` trasversali che non seguivano l'aggiunta di un sottoprogetto. Ora lo seguono, e la procedura di aggiunta in `CLAUDE.md` ha un quarto passo che lo impone. Convenzione Markdown conforme su tutto il repository, nulla da fare su questo fronte.
 
