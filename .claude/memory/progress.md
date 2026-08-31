@@ -4,6 +4,20 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-08-31 Una guida di terze parti letta e scartata, con la lezione
+
+L'utente ha proposto una guida trovata in rete sull'allestimento di un bot Discord per un agente, chiedendo se potesse servire. È stata letta per intero con recupero locale, e la risposta è no per quattro errori di fatto che vale registrare, perché seguirli sarebbe costato tempo e in un caso un rifiuto.
+
+Il primo è il più grave: fra i permessi raccomandati compare quello di gestione dei messaggi, che è di moderazione e consente di cancellare e fissare i messaggi altrui. Chiederlo per un bot di sola lettura è il modo più rapido di farsi rifiutare da chi amministra una community, e con ragione; questo progetto ne chiede due, cioè 66560, e non uno di più. Nella stessa lista due nomi sono sbagliati, perché il permesso di lettura si chiama View Channel e l'uso dei comandi rapidi è un permesso lato utente. Il secondo errore è un intent che nel portale non esiste, dato che gli interruttori privilegiati sono tre e sono altri. Il terzo è un'impostazione di server, cioè l'abilitazione di OAuth2 sul server di destinazione, che non esiste. Il quarto è per omissione ed è il più significativo: la guida non nomina i due fatti che hanno governato l'intero allestimento di questo progetto, cioè il permesso di gestione necessario sul server di destinazione e il significato dell'interruttore che rende pubblica l'applicazione.
+
+Un segnale sulla qualità della fonte vale registrarlo perché è generalizzabile: il testo si autocertifica come verificato su hardware reale e contiene istruzioni per cliccare interruttori inesistenti, e la sua sezione di domande frequenti tratta lo strumento come se servisse all'ottimizzazione sui motori di ricerca, argomento estraneo. Quando una fonte si autocertifica e il suo contenuto la contraddice, il livello lo decide il contenuto.
+
+La lezione è stata aggiunta alla regola sulle fonti non recuperabili in entrambe le copie, quella del progetto e quella generalizzata del template, ed è questa: una guida che nomina permessi va confrontata con il riferimento dei permessi prima di essere seguita, perché una guida è di livello basso e la documentazione della piattaforma è la verità.
+
+Non entra nel registro delle fonti, e la ragione va detta per non lasciare l'omissione ambigua: quel registro raccoglie le fonti tecniche di dominio dei sottoprogetti, ciascuna con la sigla del track che serve, e un articolo sull'allestimento di uno strumento non è una di esse. La conoscenza che ne è uscita è normativa e sta quindi nella regola, che è il posto giusto.
+
+Nella stessa parte di sessione sono stati aggiunti allo strumento due comandi nati da bisogni concreti e non da completezza. Il primo è `stato`, che legge dal servizio se l'applicazione è pubblica e se richiede il code grant, invece di far fidare la persona della schermata del portale: è la stessa disciplina della verifica di un PDF sui byte, perché una schermata mostra ciò che il browser ha in cache e un salvataggio non premuto ha l'aspetto di uno premuto. La sua prima esecuzione ha subito reso un fatto utile, cioè che l'applicazione era già pubblica e non c'era nulla da cambiare. Il secondo è `leave`, che fa uscire il bot da un server e pretende `--conferma`: esiste perché per far invitare il bot da un amministratore altrui l'applicazione deve essere pubblica, e con essa pubblica chiunque abbia il link può aggiungerla altrove, dove non si può cacciare il proprio bot perché non si è amministratori. È l'unica operazione dello strumento che non sia una lettura, e il docstring lo dichiara invece di lasciar credere il contrario. Il self-test è a trentanove controlli.
+
 ## 2026-08-31 L'esportazione nel template, e un'affermazione mia che era falsa
 
 Tre cose in questa parte della sessione, e la prima è una correzione.
