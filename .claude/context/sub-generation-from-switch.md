@@ -5,7 +5,7 @@ generated-date: 2026-08-31
 covers-paths:
   - generation-from-switch/
 last-verified-commit: 809289a
-stato: appena aperto, due fonti registrate e non lette
+stato: una delle due fonti letta il 2026-09-01, studio riscritto; resta da leggere il canale di trasmissione per lo stato corrente del servizio
 ---
 
 # Sottoprogetto: generazione e scambio dai giochi su console moderna
@@ -16,15 +16,23 @@ Obiettivo: studiare le vie con cui un esemplare entra nella collezione passando 
 
 ## Dove siamo
 
-Il track nasce il 2026-08-31 e va detto con chiarezza che è il meno sviluppato degli otto: ha una domanda e un posto dove metterla, non una procedura né uno strumento né una decisione presa. Lo studio è in `generation-from-switch/STUDIO-01-scambio-automatico-e-provenienza.md` ed è deliberatamente breve, perché il materiale di partenza sono due fonti registrate e non lette, cioè un canale di trasmissione in diretta e un articolo dell'agosto 2025.
+Il track nasce il 2026-08-31 e il 2026-09-01 ha smesso di essere il meno sviluppato: una delle due fonti è stata letta e lo studio è stato riscritto di conseguenza. La lettura ha reso molto più di quanto il track chiedesse.
+
+Il meccanismo di consegna è noto e non richiede alcuna modifica della propria console: chi ospita il servizio genera l'esemplare e lo consegna per scambio ordinario, e i servizi si trovano fra le trasmissioni più seguite della pagina dedicata a un titolo. Il servizio che il track aveva registrato è identificato, insieme alla sua limitazione dichiarata, cioè che il nome dell'allenatore di provenienza non si può scegliere e resta il proprio: ne segue che ogni esemplare così ottenuto è riconoscibile come costruito.
+
+La parte che vale più del resto non riguarda però questo track ma tutti quelli che producono esemplari, ed è la descrizione per esteso del tracciatore di Pokemon Home. Esso viene assegnato quando un esemplare tocca il servizio per la prima volta, è permanente, non cambia con alcuna modifica successiva, e non è un campo del dato ma un riferimento a un archivio che sta dall'altra parte: un identificativo scritto a mano viene rilevato come falso perché il servizio non lo ha mai emesso. È la seconda descrizione indipendente dello stesso meccanismo trovata lo stesso giorno, di autore diverso e a un anno di distanza dall'altra.
+
+Da quella descrizione lo studio ricava una distinzione che nessuna delle due fonti enuncia e che va portata nella decisione di perimetro: il tracciatore non ostacola un esemplare che entri per una porta vera, perché il servizio glielo assegna in quel momento; ostacola la duplicazione dopo l'ingresso, che è rilevabile, e la fabbricazione di esemplari che potevano esistere soltanto attraversando il servizio.
+
+Lo studio riporta inoltre le cinque categorie che il servizio controlla, e due di esse toccano campi che il generatore del progetto compone con provenienza debole, cioè il contenitore di cattura, che il servizio conserva e mostra, e le sequenze di mosse, che esso conserva separatamente per ciascun gioco.
 
 Ciò che è stabilito, e vale per tutti i track che producono o ricevono esemplari, è la politica ufficiale sui dati alterati: fra le sanzioni compare la sospensione dell'accesso a Home, e l'eccezione per chi possiede dati alterati senza intenzione non copre chi si rivolge deliberatamente a un servizio di generazione.
 
 ## Prossimo passo concreto
 
-Leggere le due fonti registrate e riscrivere lo studio con ciò che dicono davvero, al posto di ciò che si suppone dicano. È lavoro di lettura, non richiede nulla, e va fatto prima di qualunque altra cosa perché la descrizione che il progetto possiede è di seconda mano.
+Leggere il canale di trasmissione, che è la fonte rimasta, e si sa che cosa cercarvi: se il servizio sia ancora attivo, su quali titoli operi oggi, se il nome dell'allenatore sia ancora fisso, e quali specie e forme copra. L'ultima è la domanda che dice se il track serva all'obiettivo o soltanto lo tocchi, e nessuna fonte letta la risponde. Quella pagina non si recupera con una richiesta locale, quindi serve materiale procurato a mano: basta il testo dei pannelli descrittivi del canale e l'indirizzo del canale di conversazione collegato.
 
-Subito dopo, e senza toccare alcun servizio: verificare se gli esemplari prodotti da quei bot superino un controllore di legittimità indipendente, e quali specie e forme coprano effettivamente. La seconda domanda è quella che dice se il track serva all'obiettivo o soltanto lo tocchi.
+Restano poi due verifiche che non dipendono da quella fonte e che si fanno su un esemplare ricevuto: se superi il controllo di conformità della comunità, e quale marchio di origine porti.
 
 ## Decisioni aperte
 
