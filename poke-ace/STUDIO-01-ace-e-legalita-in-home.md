@@ -10,6 +10,8 @@ La domanda è se un esemplare prodotto scrivendo i suoi byte nel salvataggio, tr
 
 La risposta ha tre parti e nessuna delle tre è un sì o un no.
 
+Va premesso un rinvio, perché questa sezione è stata superata in parte. Lo `STUDIO-03-la-risposta-della-comunita-e-le-due-severita.md`, scritto il 2026-09-01 dopo la lettura del server della comunità, stabilisce che i verificatori non sono uno ma tre con severità decrescente, e che la domanda giusta non è se un esemplare passi ma quale dei tre lo esamini. Dove le due note divergono vale quella, e questa resta per il ragionamento che vi conduce.
+
 La prima parte è tecnica e favorevole. I byte di un esemplare di terza generazione prodotti in quel modo possono essere identici a quelli di un esemplare autentico: la struttura è documentata, la cifratura e il checksum sono calcolabili, e il metodo di generazione pseudocasuale è noto evento per evento, come il track delle distribuzioni ha stabilito. Se il dato è coerente, un verificatore che guardi il dato non trova nulla.
 
 La seconda parte è quella che rovescia la prima, e viene dall'autore degli strumenti stessi. Pokemon Home **conserva sul proprio lato l'informazione di quale via un esemplare abbia usato per entrare**. Un esemplare autentico di terza generazione entra attraverso Pokemon Bank; uno che venga dalla versione per console moderna di Rosso Fuoco e Verde Foglia entra per una via diversa. Ne segue, nelle parole della fonte, che anche a parità di dati sottostanti non è garantito che l'esemplare risultante in Home sia un clone indistinguibile da uno passato per Bank. La coerenza del dato non implica la coerenza della storia, e il servizio conosce la storia.
@@ -32,7 +34,7 @@ Ne segue una correzione operativa alla pianificazione: la corsa contro il tempo 
 
 ## 3. Il fatto architetturale più importante, che nessuna fonte dice
 
-Questa sezione è un'inferenza del progetto, non una citazione, ed è marcata come tale perché va verificata prima di essere usata per decidere. Ma se regge, è la cosa più utile che questo studio produce.
+Questa sezione era un'inferenza del progetto e non una citazione, e la marca va rimossa: il 2026-09-01 la via è stata trovata attribuita al suo autore nel server della comunità, in una forma più semplice di quella ipotizzata qui, perché non richiede lo scambio via rete locale ma la ricostruzione dell'esemplare dentro la riedizione per console. Il dettaglio sta in `STUDIO-03`, sezione 4. Ciò che segue resta come documentazione di come l'inferenza era stata costruita, che è il caso in cui una congettura del progetto si è rivelata corretta e vale conservarne il metodo.
 
 Il progetto possiede già un track dedicato allo scambio fra un calcolatore e la versione per console moderna di Rosso Fuoco e Verde Foglia, attraverso il protocollo di rete locale: è `gba-switch-pokemon-trading/`, che è ricerca conclusa e codice non iniziato. Quel track prende strutture di terza generazione da un calcolatore e le fa entrare nel gioco su console tramite lo scambio, cioè attraverso il meccanismo di gioco previsto. E il progetto ha già registrato che quelle strutture si producono da cartucce proprie con il lettore che sta arrivando.
 
