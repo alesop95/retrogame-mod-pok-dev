@@ -219,6 +219,30 @@ Da lì vale il flusso che il progetto ha già stabilito, e la ragione per cui va
 
 Una avvertenza che vale per il filtro e non per lo strumento: la ricerca per parola chiave sul contenuto di un canale è un filtro cieco alla domanda, mentre la ricerca interna al canale fatta da chi conosce la domanda incorpora la domanda. La regola sulle fonti non recuperabili registra che la seconda ha reso, su un caso reale, più della prima; ne segue che un export in blocco non sostituisce la ricerca mirata ma la precede, e che la lista dei termini da cercare va scelta prima di lanciare il filtro.
 
+## lint-md-tables.py
+
+Verifica la struttura delle tabelle Markdown, e copre un punto cieco che nessun altro strumento del progetto poteva coprire. La convenzione di scrittura vuole ogni paragrafo su una riga sorgente unica e lo strumento che la attua è `md-unwrap`, il quale ha però per contratto di non toccare le tabelle, che conserva riga per riga e senza riallineare: è la scelta giusta, perché in una tabella l'a capo è strutturale, e proprio per questo dentro una tabella non c'è nessuno che guardi.
+
+Due difetti, entrambi osservati sul campo il 2026-09-01 e con in comune di non produrre alcun errore e di superare una revisione a video. Il primo è una riga vuota dentro una cella: chi scrive una cella lunga è tentato di spezzarla in paragrafi, e il risultato è che la tabella si chiude a quella riga vuota, il renderer mette il resto della cella fuori dalla griglia come prosa, e le righe successive escono dalla tabella. Il secondo è una riga con meno colonne dell'intestazione: il renderer non protesta e lascia le celle mancanti vuote, quindi un campo obbligatorio per convenzione può essere assente senza che nessuno lo noti, e due voci del registro delle fonti sono rimaste prive della colonna dei track per un giorno.
+
+```powershell
+python tools/lint-md-tables.py
+python tools/lint-md-tables.py SOURCES.md docs
+python tools/lint-md-tables.py --self-test
+```
+
+```bash
+python tools/lint-md-tables.py
+python tools/lint-md-tables.py SOURCES.md docs
+python tools/lint-md-tables.py --self-test
+```
+
+Il criterio con cui la cella spezzata si riconosce merita di essere raccontato, perché le prime due versioni dello strumento lo avevano sbagliato nello stesso modo. Esse guardavano ciò che segue la tabella e sospettavano una cella spezzata quando vi trovavano prosa: la prima sospettava qualunque prosa, la seconda escludeva titoli ed elenchi. Erano entrambe euristiche sul contenuto, e la prosa piana fra due tabelle è legittima, tanto che il catalogo generato degli eventi la impiega per etichettare i propri blocchi e produceva quattordici falsi positivi su sedici segnalazioni.
+
+Il criterio giusto è strutturale e sta dentro la tabella e non fuori di essa: una riga di tabella si chiude con la barra verticale, e una cella tagliata da una riga vuota lascia l'ultima riga del blocco priva di quella barra, perché è stata interrotta a metà. Non ha falsi positivi sulle tabelle del progetto, si applica anche quando dopo la tabella non segue nulla, e non richiede di interpretare la prosa. La generalizzazione vale oltre il caso: quando un controllo richiede di indovinare l'intenzione di un testo, conviene cercare se il medesimo difetto lasci una traccia nella forma, perché la forma si verifica e l'intenzione si congettura.
+
+Va registrata anche una cattiva pratica di cui questo strumento è stato l'occasione, perché è più insidiosa del difetto che cercava. Nella prima versione avevo scritto il caso del titolo fra due tabelle con esito atteso pari a uno, cioè avevo dichiarato il falso positivo come comportamento voluto: la suite passava mentre lo strumento sbagliava. Una prova che si adatta al codice invece di misurarlo è peggio dell'assenza di prove, perché produce fiducia senza fondarla.
+
 ## Gli strumenti di infrastruttura
 
 Nella cartella `tools/` della radice ci sono i due strumenti che servono al repository e non ai giochi. Il primo, `md-unwrap.py`, attua la convenzione di formattazione Markdown del progetto, cioè un paragrafo per riga sorgente, e ha una modalità di sola verifica per il controllo prima di un commit.

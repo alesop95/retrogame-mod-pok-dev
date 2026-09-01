@@ -5,7 +5,7 @@ generated-date: 2026-08-31
 covers-paths:
   - generation-from-switch/
 last-verified-commit: 809289a
-stato: una delle due fonti letta il 2026-09-01, studio riscritto; resta da leggere il canale di trasmissione per lo stato corrente del servizio
+stato: debito di lettura chiuso il 2026-09-01, entrambe le fonti lette; bloccato sulla decisione di perimetro, non sulla conoscenza
 ---
 
 # Sottoprogetto: generazione e scambio dai giochi su console moderna
@@ -28,11 +28,15 @@ Lo studio riporta inoltre le cinque categorie che il servizio controlla, e due d
 
 Ciò che è stabilito, e vale per tutti i track che producono o ricevono esemplari, è la politica ufficiale sui dati alterati: fra le sanzioni compare la sospensione dell'accesso a Home, e l'eccezione per chi possiede dati alterati senza intenzione non copre chi si rivolge deliberatamente a un servizio di generazione.
 
+## Le quattro domande, tutte risposte il 2026-09-01
+
+Il canale è stato letto su consegna dell'utente e i suoi pannelli contenevano per esteso ciò che si cercava. Il servizio è attivo. Opera su cinque titoli dell'ottava e della nona generazione, con un comando di richiesta per titolo e attese nell'ordine dei decimi di minuto. Il nome dell'allenatore non è più fisso, contro quanto la fonte più vecchia affermava, e viene preso da chi richiede: cade il criterio di riconoscimento più economico, mentre non cade nulla di ciò che riguarda la storia dell'esemplare. E la copertura è delle generazioni recenti, che rende il track complementare ai due che coprono le antiche e non alternativo.
+
 ## Prossimo passo concreto
 
-Leggere il canale di trasmissione, che è la fonte rimasta, e si sa che cosa cercarvi: se il servizio sia ancora attivo, su quali titoli operi oggi, se il nome dell'allenatore sia ancora fisso, e quali specie e forme copra. L'ultima è la domanda che dice se il track serva all'obiettivo o soltanto lo tocchi, e nessuna fonte letta la risponde. Quella pagina non si recupera con una richiesta locale, quindi serve materiale procurato a mano: basta il testo dei pannelli descrittivi del canale e l'indirizzo del canale di conversazione collegato.
+Non è di lettura e non è dell'agente. Le due verifiche che restano si fanno su un esemplare ricevuto, cioè dopo avere compiuto uno scambio, e compierlo ricade nella decisione di perimetro aperta: sono descritte e non eseguibili finché quella decisione non è presa. Sono se un esemplare ricevuto superi il controllo di conformità della comunità, e quale marchio di origine porti.
 
-Restano poi due verifiche che non dipendono da quella fonte e che si fanno su un esemplare ricevuto: se superi il controllo di conformità della comunità, e quale marchio di origine porti.
+La medesima misura risolve una tensione che il track ha lasciato aperta ed è più interessante di entrambe le fonti: il servizio dichiara ogni richiesta conforme, la fonte di quarto livello afferma che un esemplare che non possa esistere senza essere passato dal deposito viene segnalato, e le due cose non stanno insieme nel caso dei leggendari. Nessuna delle due parti è disinteressata, quindi la si decide misurando.
 
 ## Decisioni aperte
 
