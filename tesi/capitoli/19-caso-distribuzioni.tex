@@ -4,11 +4,12 @@
 % copre: recreate-pokemon-distributions-events/README.md
 % copre: recreate-pokemon-distributions-events/STUDIO-01-distribuzioni-gen3-e-ricreazione.md
 % copre: recreate-pokemon-distributions-events/STUDIO-02-metodi-di-generazione.md
+% copre: recreate-pokemon-distributions-events/STUDIO-03-verifica-del-metodo-sul-corpus.md
 % copre: recreate-pokemon-distributions-events/EVENTI-GEN3.md#catalogo-delle-distribuzioni-di-evento-di-generazione-3
 % copre: recreate-pokemon-distributions-events/EVENTI-GEN3.md#che-cosa-contiene-in-numeri
 % copre: recreate-pokemon-distributions-events/EVENTI-GEN3.md#i-metodi-di-generazione-e-quanto-pesano
 % copre: recreate-pokemon-distributions-events/EVENTI-GEN3.md#le-derivazioni-del-sesso-dell-allenatore-di-provenienza
-% verificato-al-commit: 3439cc8
+% verificato-al-commit: a427431
 % ---------------------------------------------------------------------
 
 \chapter{Caso di studio: le distribuzioni di eventi e la loro ricreazione}
@@ -199,3 +200,36 @@ Non è verificato se un verificatore di legittimità indipendente accetti un ese
 Restano infine due questioni di perimetro, che questo lavoro registra come aperte anziché risolverle, secondo il criterio del capitolo~\ref{cap:perimetro}. La prima è che l'ultimo tratto della catena impiega due programmi sui quali l'assistenza tecnica di questo progetto è dichiaratamente esclusa, e nessuna via tecnica alternativa esiste, poiché il programma di trasferimento è l'unico ingresso per tutto ciò che precede l'ottava generazione: la contraddizione fra la norma e l'obiettivo è reale e la sua risoluzione non è tecnica. La seconda è che tre delle quattro vie di iniezione richiedono materiale di terze parti, cioè una ROM di distribuzione oppure un salvataggio precostituito, mentre la norma esclude i salvataggi acquisiti in rete; la norma non si applica automaticamente, giacché non si tratta di importare il salvataggio di un titolo della serie, e proprio per questo la decisione va presa esplicitamente e non dedotta.
 
 Fino a quelle decisioni il caso di studio opera su ciò che le precede, che è la parte maggiore del lavoro: la lettura delle fonti, la verifica della legittimità, la determinazione dei dati non chiusi, e la preparazione della procedura di scrittura secondo il protocollo del capitolo~\ref{cap:collaudo}. Il vincolo temporale, per parte sua, non attende alcuna decisione.
+
+\section{Dalla tassonomia alla formula: la verifica su un corpus indipendente}
+
+Fino a questo punto il capitolo espone una tassonomia, cioè quali eventi sono esistiti e a quale metodo di generazione ciascuno appartenga, ricavata dalla tabella di un'implementazione di riferimento. Resta una lacuna che vale nominare invece di lasciarla implicita: conoscere il nome di un metodo e la sua descrizione discorsiva non equivale a possedere una formula, e una formula che non sia stata eseguita su dati indipendenti non è distinguibile da una parafrasi ben scritta. Questa sezione colma quella lacuna.
+
+L'occasione è offerta da uno strumento della comunità che compone il dato di un esemplare di terza generazione e che, insieme al proprio codice, conserva un corpus di duecentodieci esemplari, ciascuno corredato del seme di origine accanto al valore di personalità, ai valori individuali e al sesso dell'allenatore di provenienza \cite{gen3-ace-builder}. Quel corpus costituisce un banco di prova nel senso proprio del termine, poiché contiene esiti e non descrizioni, e non è stato prodotto da questo lavoro.
+
+Il procedimento adottato non è la deduzione ma la ricerca. Si sono enumerate le composizioni plausibili delle prime estrazioni del generatore e si è conservata quella che riproduce il corpus. La scelta del procedimento ha una giustificazione precisa: su un generatore congruenziale un'ipotesi errata sull'ordine di composizione non produce un accordo parziale ma un accordo nullo, quindi l'esito della ricerca è discriminante in un solo passaggio invece di richiedere un giudizio sulla verosimiglianza.
+
+\subsection*{Le tre formule}
+
+Il valore di personalità di un esemplare da evento è la prima estrazione nella metà alta e la seconda nella metà bassa. È l'inversione rispetto all'incontro ordinario descritto nel capitolo~\ref{cap:identita}, dove la prima estrazione occupa la metà bassa, ed è dunque la firma di provenienza che la sigla BACD trascrive. La composizione ordinaria, provata sul medesimo corpus, produce accordo su zero vettori su duecentonove, che è la forma più netta in cui un'ipotesi alternativa può cadere.
+
+I valori individuali provengono dalla terza e dalla quarta estrazione, cinque bit per campo a partire dal bit meno significativo, con la terza che porta punti di salute, attacco e difesa e la quarta velocità, attacco speciale e difesa speciale. Qui l'accordo è totale.
+
+Il sesso dell'allenatore di provenienza, per la derivazione che il capitolo ha già introdotto come scorrimento di sette e che è quella dei novantasette eventi più numerosi del catalogo, si ottiene con cinque avanzamenti dal seme, prendendo il bit di posizione sette della metà alta e negandolo. Due particolari meritano di essere fissati perché non sono deducibili dalla descrizione. Il primo è il numero cinque, che discende dal fatto che il sesso è determinato dopo il valore di personalità e i valori individuali, i quali consumano quattro estrazioni. Il secondo è la negazione, in assenza della quale la formula sbaglia la totalità dei casi anziché la metà: è il modo in cui un errore di questo genere si occulta meglio, poiché produce un esito sistematico che può passare per una convenzione di segno.
+
+\subsection*{L'esito, e l'unica deviazione}
+
+Il valore di personalità si riproduce su duecentotto vettori su duecentonove, i valori individuali su duecentonove su duecentonove, e il sesso dell'allenatore su cento su cento fra quelli appartenenti agli eventi che dichiarano quella derivazione. Su quelli che ne dichiarano altre la medesima formula sbaglia con la frequenza del caso, e questo è il riscontro che conta più dell'accordo: una formula che indovinasse anche là non sarebbe una formula ma una coincidenza.
+
+Il vettore che non si riproduce appartiene alla distribuzione del decennale e il suo scarto è di due unità nella metà bassa del valore di personalità. Ciò che lo rende informativo è che i valori individuali del medesimo esemplare, calcolati dal medesimo seme, tornano esatti: ne segue che il seme non è errato e che il modello non è errato, e che è errato il valore di personalità trascritto accanto, il quale quel seme non può produrre. La voce del corpus è dunque internamente incoerente, e un esemplare costruito su essa avrebbe campi non mutuamente coerenti, che è la condizione che un verificatore di conformità rileva.
+
+Il principio che questo caso illustra è generale e vale enunciarlo: una sola eccezione spiegata vale più di duecentootto conferme, poiché un modello che rende conto anche del caso deviante è di natura diversa da un modello che ha avuto fortuna. Nel presente lavoro esso è conservato come controllo negativo, cosicché una futura modifica che lo facesse tornare venga segnalata come regressione anziché celebrata come progresso.
+
+\subsection*{Che cosa la verifica dimostra, e che cosa non tocca}
+
+La conseguenza per la scelta di metodo è netta. Le due vie che questo lavoro ha distinto, cioè ricostruire la distribuzione originale e comporre direttamente il dato, concordano sui valori: impiegano la medesima tabella di permutazione delle sottostrutture, attribuiscono a ciascun evento il medesimo metodo, e la formula qui verificata è quella che il corpus incorpora. Non sussiste dunque alcun vantaggio tecnico della prima via sul piano dei valori.
+
+Ne segue che ciò che distingue le due vie non è più un'ipotesi da verificare ma soltanto la provenienza, che il capitolo~\ref{cap:provenienza} ha già mostrato essere una proprietà osservabile e registrata dal servizio di destinazione. La verifica ha compiuto esattamente ciò per cui era stata scelta: ha eliminato una delle due ragioni possibili di preferenza, lasciando l'altra intatta e isolata.
+
+Un guadagno collaterale va registrato perché è metodologico. La restrizione del seme a sedici bit, che numerosi metodi da evento dichiarano, rende esaustiva la ricerca inversa: sono sessantacinquemilacinquecentotrentasei possibilità, e si percorrono tutte in una frazione di secondo. Da un esemplare autentico si può dunque ricavare il seme che lo ha generato, e questo è il modo di stabilire che una ricreazione sia fedele a un originale posseduto anziché soltanto conforme a una tabella: è una verifica di identità e non di conformità, e diventerà eseguibile quando gli esemplari del decennale saranno estratti dalla cartuccia che li conserva.
+

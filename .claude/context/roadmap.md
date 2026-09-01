@@ -11,12 +11,13 @@ covers-paths:
   - recreate-pokemon-distributions-events/
   - poke-ace/
   - generation-from-switch/
+  - cart-battery-restoration/
 last-verified-commit: 7696c46
 ---
 
 # Direzione
 
-Gli otto sottoprogetti sono task paralleli e non fasi di una sequenza, quindi questa scheda non è un ordine di esecuzione ma una mappa di cosa sblocca cosa. Il progetto è pensato per accoglierne altri: aggiungerne uno significa creare la cartella, istanziare una scheda da `templates/context/sub-subproject.md`, aggiungere una riga in tre posti, cioè la tabella di verifica e il punto di ripresa in `memory/index.md` e la tabella dei track in `current-work.md`, e come quarto passo estendere il `covers-paths` delle schede trasversali che parlano di quel track. Quest'ultimo passo è quello che si dimentica, e dimenticarlo non produce un errore visibile: produce un punto cieco, perché `sync-context` non segnalerà mai un drift su un'area che nessuna scheda dichiara di coprire.
+I nove sottoprogetti sono task paralleli e non fasi di una sequenza, quindi questa scheda non è un ordine di esecuzione ma una mappa di cosa sblocca cosa. Il progetto è pensato per accoglierne altri: aggiungerne uno significa creare la cartella, istanziare una scheda da `templates/context/sub-subproject.md`, aggiungere una riga in tre posti, cioè la tabella di verifica e il punto di ripresa in `memory/index.md` e la tabella dei track in `current-work.md`, e come quarto passo estendere il `covers-paths` delle schede trasversali che parlano di quel track. Quest'ultimo passo è quello che si dimentica, e dimenticarlo non produce un errore visibile: produce un punto cieco, perché `sync-context` non segnalerà mai un drift su un'area che nessuna scheda dichiara di coprire.
 
 ## L'obiettivo che sta sopra i track
 
@@ -26,7 +27,9 @@ Quattro degli otto track sono vie diverse verso quell'obiettivo, e conviene tene
 
 Le quattro vie differiscono per provenienza del dato, e la provenienza è ciò che decide se l'esito serva all'obiettivo, perché l'obiettivo dichiarato è una collezione legittima e non soltanto numerosa. La prima via produce esemplari autentici. La seconda produce esemplari coerenti per costruzione, perché il metodo di generazione è quello originale. La terza produce esemplari coerenti rispetto ai controlli che il costruttore conosceva. La quarta riceve esemplari di cui non si conosce la costruzione.
 
-I tre track restanti servono l'obiettivo indirettamente e non vanno confusi con le vie: il ponte fra generazioni fornisce la conoscenza dei formati e il codice che li manipola, lo scambio con la console moderna fornisce un canale, e la correzione dell'inventario di Smeraldo è un problema a sé che condivide gli strumenti.
+Il track nato il 2026-09-01 non è una quinta via e non va messo in fila con le altre quattro, perché non porta un esemplare in Home: impedisce che un esemplare scompaia prima che qualcuno lo porti. La sua materia è il supporto fisico, cioè una memoria volatile tenuta viva da una pila saldata, e la sua scadenza è l'unica del progetto che nessuno annuncia. Ne segue la sola regola di priorità che questa scheda contiene: quel track precede gli altri, non perché sia più importante ma perché è il solo la cui finestra si chiude da sé e senza preavviso, e perché ciò che perde non è recuperabile in alcun modo mentre tutto il resto è rimandabile.
+
+Gli altri track restanti servono l'obiettivo indirettamente e non vanno confusi con le vie: il ponte fra generazioni fornisce la conoscenza dei formati e il codice che li manipola, lo scambio con la console moderna fornisce un canale, e la correzione dell'inventario di Smeraldo è un problema a sé che condivide gli strumenti.
 
 ## La scadenza, corretta il 2026-08-31
 
