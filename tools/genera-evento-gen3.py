@@ -80,6 +80,15 @@ SPECIE = "src/data/species.gen3.js"
 GRUPPI = "src/data/expGroups.gen3.js"
 MOSSE = "src/data/moves.gen3.data.js"
 
+# I giochi di origine per nome, dal tavolo verificato di `pokebridge.gen3`. Il campo va
+# scelto e non subito, perché da esso dipende quale porta verso il deposito in rete
+# l'esemplare potrà impiegare: la porta che si apre a ottobre 2026 accetta i soli due titoli
+# della riedizione, e un esemplare che dichiari un altro titolo dovrà comunque trovarsi in un
+# salvataggio di quei due, condizione in cui le fonti dichiarano ignoto se il servizio lo
+# accetti. Dichiarare l'origine compatibile con la porta rimuove l'incognita invece di
+# aggirarla.
+GIOCHI = {v.lower().replace(" ", ""): k for k, v in gen3.ORIGIN_GAMES.items() if k}
+
 # I codici di lingua del byte a 0x12. Vengono dalle chiavi che il corpus usa per i nomi
 # dell'allenatore per lingua, e coincidono con la numerazione nota della generazione 3.
 LINGUE = {"JPN": 1, "ENG": 2, "FRA": 3, "ITA": 4, "GER": 5, "SPA": 7}
@@ -248,7 +257,7 @@ def elenca(ace):
     return 0
 
 
-def componi(ace, tag, nome_specie, seme, lingua, verbose=False):
+def componi(ace, tag, nome_specie, seme, lingua, gioco=None, verbose=False):
     """Compone la struttura, e restituisce l'oggetto insieme al rapporto di provenienza."""
     dati = corpus(ace)
     eventi_noti = dati.get("events", {})
@@ -321,6 +330,23 @@ def componi(ace, tag, nome_specie, seme, lingua, verbose=False):
 
     # Le correzioni si applicano qui, dopo la lettura dei metadati e prima della
     # costruzione, cosicché il rapporto possa dichiararle insieme al valore corretto.
+    gioco_id = int(ev.get("defaultOriginGame") or 2)
+    if gioco is not None:
+        chiave = str(gioco).lower().replace(" ", "")
+        if chiave.isdigit():
+            gioco_id = int(chiave)
+        elif chiave in GIOCHI:
+            gioco_id = GIOCHI[chiave]
+        else:
+            sys.exit("gioco di origine non riconosciuto: " + str(gioco) + "\n"
+                     "ammessi, per nome o per numero: " +
+                     ", ".join("%s=%d" % (n, i) for n, i in sorted(GIOCHI.items(),
+                                                                   key=lambda x: x[1])))
+    ammessi = ev.get("allowedOriginGames")
+    if ammessi and gioco_id not in [int(x) for x in ammessi]:
+        sys.exit("l'evento dichiara come giochi di origine ammessi " + str(ammessi) +
+                 " e " + str(gioco_id) + " non vi appartiene")
+
     fatidico = bool(ev.get("defaultFatefulEncounter"))
     correzioni_applicate = []
     for sigla, campo, valore, autorita in CORREZIONI:
@@ -350,7 +376,7 @@ def componi(ace, tag, nome_specie, seme, lingua, verbose=False):
             pokerus=0,
             met_location=int(ev.get("defaultMetLocationId") or 255),
             met_level=livello,
-            met_game=int(ev.get("defaultOriginGame") or 2),
+            met_game=gioco_id,
             pokeball=4,
             ot_female=(sesso_ot == "femmina"),
             ivs={n: iv[k] for n, k in zip(gen3.EV_ORDER, eventi.ORDINE_IV)},
@@ -391,8 +417,17 @@ def componi(ace, tag, nome_specie, seme, lingua, verbose=False):
         ("sfera", "4",
          "SEGNAPOSTO: il file dei contenitori del costruttore dichiara di essere una "
          "mappatura provvisoria da confermare. È il campo con la provenienza peggiore"),
-        ("gioco di origine", str(mon.misc.met_game),
-         "corpus del costruttore, non verificato"),
+        ("gioco di origine", gen3.ORIGIN_GAMES.get(gioco_id, "?") +
+         " (" + str(gioco_id) + ")",
+         ("scelto sulla riga di comando; il corpus proponeva " +
+          gen3.ORIGIN_GAMES.get(int(ev.get("defaultOriginGame") or 2), "?") +
+          " e l'evento non dichiara alcun insieme di giochi ammessi, quindi il valore non è "
+          "vincolato dalla fonte")
+         if gioco is not None else
+         "corpus del costruttore come valore per difetto, non come vincolo: l'evento non "
+         "dichiara alcun insieme di giochi ammessi. Va notato che da questo campo dipende "
+         "quale porta verso il deposito l'esemplare potrà impiegare, quindi conviene "
+         "scegliersi con --gioco invece di accettare il difetto"),
         ("incontro fatidico", str(mon.misc.modern_fateful_encounter),
          ("CORRETTO rispetto al corpus, che dichiarava " +
           str(correzioni_applicate[0][1]) + ". " + correzioni_applicate[0][3])
@@ -584,6 +619,8 @@ def main():
     ap.add_argument("--specie", help="nome della specie")
     ap.add_argument("--seme", help="seme di origine, in esadecimale o decimale")
     ap.add_argument("--lingua", default="ITA", help="ITA, ENG, JPN, FRA, GER, SPA")
+    ap.add_argument("--gioco", help="gioco di origine, per nome o per numero: rubino, "
+                                    "zaffiro, smeraldo, rossofuoco, verdefoglia")
     ap.add_argument("--out", help="prefisso dei due file da scrivere, senza estensione")
     ap.add_argument("--derivazione", action="store_true",
                     help="stampa la catena dal seme ai campi derivati, in binario, ed esce")
@@ -614,7 +651,7 @@ def main():
         ap.error("servono --evento, --specie e --seme; oppure --elenco")
 
     seme = int(a.seme, 16) if a.seme.lower().startswith("0x") else int(a.seme)
-    mon, rapporto = componi(a.ace, a.evento, a.specie, seme, a.lingua)
+    mon, rapporto = componi(a.ace, a.evento, a.specie, seme, a.lingua, a.gioco)
 
     print("")
     print("=== Esemplare composto, campo per campo con la provenienza")

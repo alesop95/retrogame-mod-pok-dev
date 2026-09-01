@@ -92,13 +92,15 @@ La parte che discende dal seme non è scelta ed è quella su cui il grado di fid
 ```powershell
 python tools/genera-evento-gen3.py --self-test
 python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --elenco
-python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --evento 10ANNI --specie Pikachu --seme 0x9DF6 --lingua ITA --out _notes/prova
+python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --evento 10ANNI --specie Pikachu --seme 0x9DF6 --lingua ITA --gioco rossofuoco --out _notes/prova
+python tools/genera-evento-gen3.py --derivazione --seme 0x9DF6 --soglia-sesso 127 --ace _notes/fonti/ace-builder --evento 10ANNI
 ```
 
 ```bash
 python tools/genera-evento-gen3.py --self-test
 python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --elenco
-python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --evento 10ANNI --specie Pikachu --seme 0x9DF6 --lingua ITA --out _notes/prova
+python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --evento 10ANNI --specie Pikachu --seme 0x9DF6 --lingua ITA --gioco rossofuoco --out _notes/prova
+python tools/genera-evento-gen3.py --derivazione --seme 0x9DF6 --soglia-sesso 127 --ace _notes/fonti/ace-builder --evento 10ANNI
 ```
 
 I due file prodotti hanno estensione `.pk3` e `.ek3`. Il primo è la forma decifrata a ordine fisso, che è quella che gli strumenti della comunità accettano in ingresso; il secondo è la forma che il salvataggio contiene, cioè permutata secondo il valore di personalità e cifrata. Contengono gli stessi dati e la conversione fra le due è esatta nei due versi, ed è stata aggiunta a `pokebridge.gen3` come `to_canonical_bytes` e `from_canonical_bytes`, con sei prove nella suite fra cui il controllo negativo che verifica che le due forme differiscano davvero nei quarantotto byte centrali.

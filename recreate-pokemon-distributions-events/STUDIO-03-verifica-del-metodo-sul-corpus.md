@@ -46,7 +46,7 @@ Il primo sta nella tabella dei caratteri. Il costruttore colloca i trentotto car
 
 Il secondo è la voce incoerente della sezione tre.
 
-## 6. La verifica esterna, eseguita il 2026-09-01
+## 5. La verifica esterna, eseguita il 2026-09-01
 
 Le sezioni precedenti stabiliscono che le formule riproducono un corpus conservato. Questa sezione riporta un esito di grado superiore, perché non è più un confronto fra i nostri numeri e quelli di un archivio ma il giudizio di una implementazione di riferimento su un esemplare che il progetto ha costruito da zero. È il passo che il progetto aveva dichiarato aperto il 2026-08-28.
 
@@ -76,7 +76,7 @@ Il verificatore classifica il valore di personalità come BACD nella variante a 
 
 Va inoltre osservato che il verificatore ha ricondotto l'esemplare a un incontro della famiglia dei doni di evento nominando fra parentesi una specie diversa da quella composta. Il fatto non ha prodotto obiezioni e non è stato indagato; è registrato perché una corrispondenza di incontro che nomina un'altra specie merita di essere capita prima di essere ignorata.
 
-## 7. La derivazione, bit per bit, sul caso del decennale
+## 6. La derivazione, bit per bit, sul caso del decennale
 
 Le sezioni precedenti enunciano le formule e riportano che tornano. Questa le esegue su un caso, e lo fa in binario, perché su un formato dove i campi condividono le parole la sola forma che non lascia dubbi è la disposizione dei bit. Il caso è il Pikachu della distribuzione italiana del decennale dal seme `0x00009DF6`, cioè l'esemplare che il verificatore esterno ha giudicato.
 
@@ -180,21 +180,21 @@ quinta estrazione = 0xE48B = 1110010010001011
 
 Due dettagli di questa formula non sono deducibili e vanno fissati. Il numero cinque discende dal fatto che le prime quattro estrazioni sono già consumate, dal valore di personalità e dai valori individuali, quindi la quinta è quella che decide questo campo. E la negazione va conservata così com'è: senza di essa la formula sbaglia esattamente tutti i casi invece di metà, che è il modo in cui un errore di questo genere si nasconde meglio, perché produce un esito sistematico e non casuale e può passare per una convenzione di segno.
 
-## 8. Il secondo giudizio, dopo la correzione
+## 7. Il secondo giudizio, dopo la correzione
 
-L'esemplare corretto è stato sottoposto di nuovo al verificatore, e il rapporto completo cambia il quadro della sezione 6 in tre punti. Va premesso il contesto, perché due delle sue voci dipendono da esso: il verificatore aveva caricato un salvataggio vuoto di un titolo della nona generazione, quindi ha giudicato un esemplare di terza generazione con i criteri che valgono per quel titolo.
+L'esemplare corretto è stato sottoposto di nuovo al verificatore, e il rapporto completo cambia il quadro della sezione 5 in tre punti. Va premesso il contesto, perché due delle sue voci dipendono da esso: il verificatore aveva caricato un salvataggio vuoto di un titolo della nona generazione, quindi ha giudicato un esemplare di terza generazione con i criteri che valgono per quel titolo.
 
 ### Che cosa il secondo giudizio conferma
 
 Il contrassegno dell'incontro fatidico non è più contestato: la correzione registrata nella tavola ha funzionato.
 
-La classificazione del metodo è cambiata e ha chiuso il punto che la sezione 6 lasciava aperto. Prima il verificatore dichiarava la variante priva di restrizione sul seme; adesso dichiara esattamente la variante che la sua tabella prescrive per questo evento, cioè seme ristretto a sedici bit con anti-lucentezza additiva. Ne segue che la classificazione precedente non era una discrepanza della tabella ma una conseguenza del campo sbagliato: con il contrassegno errato il verificatore riconduceva l'esemplare a un incontro più generico, e con il campo corretto lo riconduce a quello giusto. Il punto aperto si chiude, e la lezione è che una classificazione riportata da un verificatore descrive l'incontro che esso ha saputo far corrispondere, non una proprietà intrinseca del dato.
+La classificazione del metodo è cambiata e ha chiuso il punto che la sezione 5 lasciava aperto. Prima il verificatore dichiarava la variante priva di restrizione sul seme; adesso dichiara esattamente la variante che la sua tabella prescrive per questo evento, cioè seme ristretto a sedici bit con anti-lucentezza additiva. Ne segue che la classificazione precedente non era una discrepanza della tabella ma una conseguenza del campo sbagliato: con il contrassegno errato il verificatore riconduceva l'esemplare a un incontro più generico, e con il campo corretto lo riconduce a quello giusto. Il punto aperto si chiude, e la lezione è che una classificazione riportata da un verificatore descrive l'incontro che esso ha saputo far corrispondere, non una proprietà intrinseca del dato.
 
-Per la medesima ragione si chiude il fatto minore che la sezione 6 registrava come non capito: la corrispondenza di incontro nominava fra parentesi una specie diversa da quella composta, e adesso nomina la specie giusta.
+Per la medesima ragione si chiude il fatto minore che la sezione 5 registrava come non capito: la corrispondenza di incontro nominava fra parentesi una specie diversa da quella composta, e adesso nomina la specie giusta.
 
 Il seme ricostruito resta identico a quello di partenza.
 
-Sono inoltre dichiarati validi, uno per uno, campi che la sezione 6 non poteva enumerare perché la vista sintetica non li mostrava: il soprannome uguale al nome della specie, il livello non inferiore al livello di incontro, i riconoscimenti tutti contabilizzati, l'abilità corrispondente al proprio indice, la forma e il suo argomento, la corrispondenza fra sesso e valore di personalità, quella fra natura e valore di personalità, e infine il contenitore di cattura, dichiarato corretto per il tipo di incontro.
+Sono inoltre dichiarati validi, uno per uno, campi che la sezione 5 non poteva enumerare perché la vista sintetica non li mostrava: il soprannome uguale al nome della specie, il livello non inferiore al livello di incontro, i riconoscimenti tutti contabilizzati, l'abilità corrispondente al proprio indice, la forma e il suo argomento, la corrispondenza fra sesso e valore di personalità, quella fra natura e valore di personalità, e infine il contenitore di cattura, dichiarato corretto per il tipo di incontro.
 
 Quest'ultimo merita una riga a sé perché rovescia una previsione. Il rapporto di provenienza del generatore marcava il contenitore come il campo con la provenienza peggiore fra tutti, poiché il file da cui il valore proviene dichiara nel proprio commento di essere una mappatura provvisoria da confermare. Il verificatore lo dichiara corretto. Il valore era dunque giusto pur venendo da una fonte che si dichiarava incerta, e la conclusione da trarre non è che la fonte fosse affidabile ma che su questo campo ha indovinato: la provenienza dichiarata resta quella, e il campo passa da non verificato a verificato da un giudizio esterno.
 
@@ -207,6 +207,50 @@ La conseguenza è la più concreta che il progetto abbia ottenuto su quel meccan
 Il rapporto segnala inoltre come sospetta, e non come non valida, la lingua dell'ultimo allenatore. È della medesima natura: in un titolo della nona generazione un esemplare trasferito porta i campi dell'ultimo allenatore, e il nostro non li ha perché non è stato trasferito da nessuno. Non è un difetto dell'esemplare ma una proprietà del contesto in cui è stato letto.
 
 Va infine registrato un dettaglio che mostra quanto il contesto pesi: le quattro mosse sono dichiarate valide, ma con la motivazione che sono mosse apprese per aumento di livello nel titolo della nona generazione, ai livelli venticinque, trenta, trentacinque e quaranta. Il verificatore le ha validate secondo le regole di quel titolo e non secondo l'insieme fissato dall'evento, e passano perché coincidono. È una validazione che vale meno di quanto sembri, e la sua sostituzione con quella corretta è il secondo motivo per rifare la prova nel contesto giusto.
+
+## 8. Che cosa succede se lo si mette in un salvataggio che parla con la nona generazione
+
+La domanda è dell'utente e va riportata nei suoi termini, perché è la domanda operativa del track e la sua risposta non è quella che la formulazione suggerisce: se genero questo esemplare e lo metto in un salvataggio che parla con la nona generazione, quando il servizio di deposito della console a doppio schermo sarà dismesso non potrò più averlo.
+
+La risposta è che l'operazione descritta non funziona, e non funziona adesso, indipendentemente da qualunque scadenza. La scadenza riguarda una via diversa. Conviene separare le tre cose, perché confonderle porta a temere la data sbagliata.
+
+### Perché scrivere l'esemplare in un salvataggio di nona generazione non funziona
+
+Un esemplare di terza generazione non arriva in un salvataggio di nona generazione per alcuna via di gioco: fra i due non esiste alcun collegamento, e la catena che li congiunge passa necessariamente dal deposito in rete. Scriverlo là dentro con un editor è quindi possibile come operazione sui byte e non è il caso di cui la catena parla: produce un esemplare che si trova in un posto in cui non poteva arrivare.
+
+Che questo sia rilevabile non è una congettura, ed è la parte che il giudizio della sezione 7 ha dimostrato per via strumentale. Il verificatore, leggendo il nostro esemplare nel contesto di un titolo della nona generazione, ha dichiarato mancante il codice di monitoraggio del deposito. Lo ha cercato perché in quel contesto è atteso: un esemplare originario della terza generazione che si trovi là deve avere transitato dal deposito, e transitandovi avrebbe ricevuto quel codice. Il nostro non lo porta ed è corretto che non lo porti, poiché non è transitato da nulla.
+
+Ne segue il punto che chiude la questione. Quel codice non è un campo che si possa completare, perché non è un dato dell'esemplare ma un riferimento a un archivio che sta presso il servizio: le fonti lette il 2026-09-01, due indipendenti fra loro, dichiarano che un identificativo scritto a mano viene rilevato come falso proprio perché il servizio non lo ha mai emesso. E la sezione 7 aggiunge il verso opposto, che nessuna delle due fonti enunciava: non è nemmeno omettibile, perché la sua assenza è essa stessa un'obiezione.
+
+La conclusione va scritta senza attenuazioni. La via che consiste nello scrivere un esemplare di terza generazione dentro un salvataggio di nona generazione è chiusa in entrambi i sensi: con il codice non si può, perché non lo si può fabbricare; senza il codice non si può, perché la sua assenza si vede. Non è una via che scade, è una via che non c'è.
+
+### Le vie che esistono, e la scadenza di ciascuna
+
+L'esemplare va messo dove appartiene, cioè in un salvataggio di terza generazione, e da là esistono due porte verso il deposito in rete. Hanno scadenze diverse, e questo è il punto che la domanda cercava.
+
+La prima è la catena storica, cioè dalla terza alla quarta generazione con il parco di migrazione, dalla quarta alla quinta con il trasferimento senza fili, poi il programma di trasferimento, poi il servizio di deposito, poi il deposito in rete. Di questa catena muore il solo tratto finale, il 26 febbraio 2027: i due passaggi interni sono funzioni locali dei giochi e continuano a operare dopo quella data, come `poke-ace/STUDIO-01` stabilisce. Chi impiega questa via ha quindi una scadenza vera, e riguarda l'ultimo tratto.
+
+La seconda è la porta che si apre a ottobre 2026, cioè il collegamento diretto fra la riedizione per console moderna dei due titoli della terza generazione e il deposito in rete. Non dipende dal servizio in chiusura e non ha, per quanto se ne sappia, alcuna scadenza. Per impiegarla l'esemplare deve trovarsi dentro un salvataggio di quei due titoli, e le due strade per portarvelo sono documentate: ricostruirlo là dentro con l'esecuzione di codice, che è la via attribuita nell'altro track, oppure trasferirvelo per scambio in rete locale, che è il track dello scambio. In entrambi i casi l'esemplare entra nel deposito da una porta vera e riceve un codice di monitoraggio autentico, perché il servizio glielo assegna in quel momento.
+
+### Il campo che rende la seconda porta praticabile o incerta, e che va scelto
+
+Qui il rapporto del verificatore contiene un dettaglio che vale più di quanto sembri, ed è la riga che dichiara il gioco di origine dell'esemplare che abbiamo prodotto: Rubino.
+
+Il valore veniva dal corpus del costruttore, che per questo evento lo propone come valore per difetto e non come vincolo, poiché l'evento non dichiara alcun insieme di giochi ammessi. La scelta però non è indifferente rispetto alla seconda porta, perché quella porta appartiene ai due titoli della riedizione. Un esemplare che dichiari Rubino dovrebbe quindi trovarsi in un salvataggio di quei due, e su quella condizione precisa entrambi gli studi registrano un punto aperto: non è noto se il servizio accetti un esemplare di provenienza dichiarata Rubino, Zaffiro o Smeraldo che si trovi in un salvataggio della riedizione, e la medesima domanda è stata posta nel server della comunità senza ricevere risposta.
+
+Ne discende una mossa che elimina l'incognita invece di aggirarla: dichiarare come gioco di origine uno dei due titoli della riedizione. Il generatore ha adesso l'opzione per farlo, e la variante è stata prodotta. Non è una furbizia sul campo ma la scelta corretta fra valori tutti ammessi dalla fonte: se la porta che si intende usare appartiene a quei due titoli, l'esemplare dichiari quei due titoli.
+
+Resta da verificare che il verificatore accetti la variante, ed è la prova successiva. Se l'accetta, il progetto ha un esemplare compatibile con la porta che esisterà; se la rifiuta, si è appresa una restrizione che il corpus non dichiarava, e la si registra.
+
+### La risposta, in tre righe
+
+Scrivere l'esemplare in un salvataggio di nona generazione non funziona oggi e non funzionerà dopo: non è questione di scadenze.
+
+Metterlo in un salvataggio di terza generazione e usare la catena storica funziona, e ha per scadenza il 26 febbraio 2027 sul tratto finale.
+
+Metterlo in un salvataggio di terza generazione e usare la porta di ottobre 2026 funziona per quanto si sa, non ha scadenza nota, e conviene dichiararvi come gioco di origine uno dei due titoli a cui quella porta appartiene.
+
+Va ripetuto, perché il resto di questa nota tratta un caso di prova e non un oggetto da collezione: l'esemplare in questione è un caso di prova, e la decisione di perimetro sull'impiego di queste vie per la collezione resta aperta e non è presa qui.
 
 ## 9. Che cosa questa nota cambia per la scelta fra le due vie
 
