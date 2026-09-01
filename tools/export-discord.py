@@ -77,7 +77,11 @@ CANALI = [
      "driver CH340, porta COM e uso del lettore GBxCart RW: è il canale del produttore, "
      "e il prossimo passo dichiarato del track Smeraldo è precisamente quello"),
     (1, "insideGadgets", "faq", "605532563876085770", "SME",
-     "le domande ricorrenti sul lettore, dove finiscono i problemi già risolti"),
+     "le domande ricorrenti sul lettore, dove finiscono i problemi già risolti. NON "
+     "ESPORTABILE al 2026-09-01: il servizio risponde vietato su questo identificativo, "
+     "cioè l'account non vede il canale, mentre vede gli altri tre dello stesso server. "
+     "La voce resta perché il canale esiste ed è pertinente, e perché un canale mancante "
+     "va saputo invece di scoperto quando si cerca una risposta che non c'è"),
     (1, "insideGadgets", "wirelessgb", "586059241912270868", "BRI, LDN",
      "Game Boy senza fili: tocca il cavo Link e il ponte, ed è un canale che il progetto "
      "non sapeva esistere"),

@@ -11,6 +11,7 @@ covers-paths:
   - recreate-pokemon-distributions-events/
   - poke-ace/
   - generation-from-switch/
+  - cart-battery-restoration/
 last-verified-commit: 7696c46
 ---
 

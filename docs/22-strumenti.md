@@ -71,6 +71,30 @@ La ragione per cui il catalogo si genera invece di essere scritto è la stessa d
 
 Ciò che lo strumento non fa va dichiarato: non giudica la legittimità di alcun esemplare e non ricostruisce alcun metodo, riporta ciò che la fonte dichiara. Le date degli eventi compaiono soltanto dove la fonte le porta nei commenti di blocco, e dove non le porta restano assenti invece di essere indovinate.
 
+## confronta-ace-builder.py
+
+Confronta il costruttore di esemplari della comunità con ciò che questo progetto ha verificato, e serve a una domanda che era aperta: se ricreare la distribuzione originale e scrivere direttamente i byte producano lo stesso esemplare. Esegue cinque confronti, in ordine di durezza decrescente per i primi quattro e con il quinto di natura diversa.
+
+I primi quattro mettono a paragone due dichiarazioni scritte in codice: la tabella delle ventiquattro permutazioni delle sottostrutture, la tabella dei caratteri della terza generazione sull'intersezione dei caratteri che entrambe dichiarano, il vocabolario dei metodi come confronto fra insiemi, e l'inventario delle distribuzioni congiunto sulla coppia formata dal nome dell'allenatore e dall'identificativo. Il quinto esegue il nostro `pokebridge.eventi` sul corpus di esemplari conservati che il costruttore porta con sé, e verifica che riproduca valore di personalità, valori individuali e sesso dell'allenatore a partire dal solo seme.
+
+```powershell
+python tools/confronta-ace-builder.py --scarica _notes/fonti/ace-builder
+python tools/confronta-ace-builder.py --ace _notes/fonti/ace-builder
+python tools/confronta-ace-builder.py --ace _notes/fonti/ace-builder --verbose
+```
+
+```bash
+python tools/confronta-ace-builder.py --scarica _notes/fonti/ace-builder
+python tools/confronta-ace-builder.py --ace _notes/fonti/ace-builder
+python tools/confronta-ace-builder.py --ace _notes/fonti/ace-builder --verbose
+```
+
+Il primo comando scarica il sorgente seguendo il grafo degli import a partire dal modulo di ingresso, e prende a parte il corpus, che il costruttore carica a tempo di esecuzione e che quindi il grafo non raggiunge. Il sorgente non è una dipendenza di questo repository e non vi entra: vive sotto `_notes/`, come i disassemblati e gli export delle chat.
+
+Due dettagli di implementazione valgono la menzione perché sono lezioni e non scelte. Il filtro sui riferimenti degli import rifiuta ciò che contiene caratteri non ammessi in un percorso, e non è pedanteria: senza di esso l'espressione regolare aggancia le stringhe dentro i commenti, e la prima versione ha spedito al servizio un percorso che conteneva un blocco di codice intero. E l'uscita è riconfigurata in UTF-8, perché i nomi degli allenatori giapponesi non passano dalla codifica predefinita della console di Windows e senza quella riga il programma muore alla stampa finale dopo avere eseguito tutti i confronti, che è il modo peggiore di fallire.
+
+L'esito registrato il 2026-09-01 sta in `recreate-pokemon-distributions-events/STUDIO-03-verifica-del-metodo-sul-corpus.md`, e il codice verificato sta in `pokebridge/eventi.py` con `tests/test_eventi.py`.
+
 ## fetch-discord.py
 
 Legge la cronologia di un canale Discord attraverso un bot account ufficiale, con impaginazione, un cursore che permette di leggere soltanto il delta fra due corse, e gli stessi tre filtri di `read-chat-export.py`, cioè parola chiave, lunghezza minima e data, per non avere due grammatiche di filtro nello stesso progetto.
