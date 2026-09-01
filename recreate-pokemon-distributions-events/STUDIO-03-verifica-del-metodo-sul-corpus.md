@@ -76,7 +76,139 @@ Il verificatore classifica il valore di personalità come BACD nella variante a 
 
 Va inoltre osservato che il verificatore ha ricondotto l'esemplare a un incontro della famiglia dei doni di evento nominando fra parentesi una specie diversa da quella composta. Il fatto non ha prodotto obiezioni e non è stato indagato; è registrato perché una corrispondenza di incontro che nomina un'altra specie merita di essere capita prima di essere ignorata.
 
-## 5. Che cosa questa nota cambia per la scelta fra le due vie
+## 7. La derivazione, bit per bit, sul caso del decennale
+
+Le sezioni precedenti enunciano le formule e riportano che tornano. Questa le esegue su un caso, e lo fa in binario, perché su un formato dove i campi condividono le parole la sola forma che non lascia dubbi è la disposizione dei bit. Il caso è il Pikachu della distribuzione italiana del decennale dal seme `0x00009DF6`, cioè l'esemplare che il verificatore esterno ha giudicato.
+
+I numeri che seguono non sono trascritti ma calcolati, e si rifanno con un comando invece di essere creduti: `python tools/genera-evento-gen3.py --derivazione --seme 0x9DF6 --soglia-sesso 127 --ace <percorso> --evento 10ANNI`.
+
+### I cinque stati, e perché si scarta la metà bassa
+
+Il generatore è la ricorrenza `s(n+1) = (0x41C64E6D * s(n) + 0x6073) mod 2^32`. Dal seme si ottengono cinque stati, e di ciascuno il gioco impiega la sola metà alta.
+
+```
+s1 = 0xD2A89631   1101001010101000 1001011000110001   metà alta 0xD2A8
+s2 = 0xAA714150   1010101001110001 0100000101010000   metà alta 0xAA71
+s3 = 0xE7FF8F83   1110011111111111 1000111110000011   metà alta 0xE7FF
+s4 = 0xE7DC653A   1110011111011100 0110010100111010   metà alta 0xE7DC
+s5 = 0xE48B2625   1110010010001011 0010011000100101   metà alta 0xE48B
+```
+
+Che la metà bassa sia inservibile non è una convenzione ma una proprietà di questa famiglia di generatori: il bit di posizione `k` ha periodo `2^(k+1)`, quindi i bit più bassi si ripetono dopo pochissimi passi. Sui primi otto avanzamenti dal medesimo seme si vede a occhio.
+
+```
+bit 0: 1 0 1 0 1 0 1 0    periodo 2
+bit 1: 0 0 1 1 0 0 1 1    periodo 4
+bit 2: 0 0 0 0 1 1 1 1    periodo 8
+```
+
+Un generatore i cui bit bassi hanno periodo due non è un generatore difettoso: è un generatore da cui si prende la metà alta, e la struttura del gioco lo fa.
+
+### Il valore di personalità, e l'inversione che è la firma
+
+Le prime due metà alte compongono il valore di personalità, e in un esemplare da evento le due assegnazioni sono scambiate rispetto a un incontro ordinario.
+
+```
+A, prima estrazione   = 0xD2A8 = 1101001010101000
+B, seconda estrazione = 0xAA71 = 1010101001110001
+
+evento:    (A << 16) | B = 0xD2A8AA71   1101001010101000 1010101001110001
+ordinario: (B << 16) | A = 0xAA71D2A8   1010101001110001 1101001010101000
+```
+
+Le due composizioni non differiscono soltanto nell'aspetto: poiché natura, sesso, abilità e lucentezza si calcolano tutte da quel valore, esse producono un esemplare diverso in ogni campo derivato. È questa la ragione per cui l'inversione è la firma di una provenienza da evento e non un dettaglio di ordinamento.
+
+### I valori individuali, tre campi da cinque bit per parola
+
+La terza e la quarta metà alta portano tre valori individuali ciascuna, cinque bit per campo a partire dal bit meno significativo. Il bit di posizione quindici resta fuori e non entra in alcun campo.
+
+```
+terza estrazione = 0xE7FF
+  bit   1 11001 11111 11111
+        ^   ^     ^     ^
+        |   |     |     bit 0-4   PS            = 11111 = 31
+        |   |     bit 5-9         Attacco       = 11111 = 31
+        |   bit 10-14             Difesa        = 11001 = 25
+        bit 15, inutilizzato, vale 1
+
+quarta estrazione = 0xE7DC
+  bit   1 11001 11110 11100
+        |   |     |     bit 0-4   Velocità      = 11100 = 28
+        |   |     bit 5-9         Att. speciale = 11110 = 30
+        |   bit 10-14             Dif. speciale = 11001 = 25
+        bit 15, inutilizzato, vale 1
+```
+
+Il fatto che il bit quindici valga uno in entrambe le parole e non serva a nulla è precisamente il genere di dettaglio che una ricreazione ignora senza conseguenze e che una lettura deve conoscere per non attribuirgli un significato.
+
+### I quattro campi che non si memorizzano
+
+Natura, abilità e sesso non sono campi del dato: sono funzioni del valore di personalità, e il gioco li ricalcola ogni volta. Ometterli da una ricreazione non è possibile, e sbagliarli non è possibile: discendono.
+
+```
+natura  = PID mod 25 = 16          che è l'indice della natura Mite
+abilità = PID and 1  = 1
+
+byte basso del PID = 0x71 = 113 = 01110001
+soglia di sesso di Pikachu = 127
+113 < 127, quindi femmina
+```
+
+La lucentezza è la quarta, e si calcola come somma esclusiva di quattro parole da sedici bit: i due identificativi dell'allenatore e le due metà del valore di personalità. L'esemplare è cromatico se il risultato è minore di otto, cioè se i tredici bit alti sono tutti nulli.
+
+```
+TID  = 0x1853 = 0001100001010011
+SID  = 0x0000 = 0000000000000000
+PIDh = 0xD2A8 = 1101001010101000
+PIDl = 0xAA71 = 1010101001110001
+                ----------------
+xor  = 0x608A = 0110000010001010 = 24714
+
+24714 non è minore di 8, quindi non cromatico
+```
+
+Il valore ventiquattromilasettecentoquattordici va guardato per quello che dice: la probabilità che quel confronto cada sotto otto è di otto su sessantacinquemilacinquecentotrentasei, cioè uno su ottomilacentonovantadue, che è la probabilità di lucentezza della terza generazione ricavata dalla struttura invece che da una tabella.
+
+### Il sesso dell'allenatore, e il numero cinque
+
+```
+quinta estrazione = 0xE48B = 1110010010001011
+                                     ^
+                                     bit di posizione 7 = 1
+1 negato = 0, quindi maschio
+```
+
+Due dettagli di questa formula non sono deducibili e vanno fissati. Il numero cinque discende dal fatto che le prime quattro estrazioni sono già consumate, dal valore di personalità e dai valori individuali, quindi la quinta è quella che decide questo campo. E la negazione va conservata così com'è: senza di essa la formula sbaglia esattamente tutti i casi invece di metà, che è il modo in cui un errore di questo genere si nasconde meglio, perché produce un esito sistematico e non casuale e può passare per una convenzione di segno.
+
+## 8. Il secondo giudizio, dopo la correzione
+
+L'esemplare corretto è stato sottoposto di nuovo al verificatore, e il rapporto completo cambia il quadro della sezione 6 in tre punti. Va premesso il contesto, perché due delle sue voci dipendono da esso: il verificatore aveva caricato un salvataggio vuoto di un titolo della nona generazione, quindi ha giudicato un esemplare di terza generazione con i criteri che valgono per quel titolo.
+
+### Che cosa il secondo giudizio conferma
+
+Il contrassegno dell'incontro fatidico non è più contestato: la correzione registrata nella tavola ha funzionato.
+
+La classificazione del metodo è cambiata e ha chiuso il punto che la sezione 6 lasciava aperto. Prima il verificatore dichiarava la variante priva di restrizione sul seme; adesso dichiara esattamente la variante che la sua tabella prescrive per questo evento, cioè seme ristretto a sedici bit con anti-lucentezza additiva. Ne segue che la classificazione precedente non era una discrepanza della tabella ma una conseguenza del campo sbagliato: con il contrassegno errato il verificatore riconduceva l'esemplare a un incontro più generico, e con il campo corretto lo riconduce a quello giusto. Il punto aperto si chiude, e la lezione è che una classificazione riportata da un verificatore descrive l'incontro che esso ha saputo far corrispondere, non una proprietà intrinseca del dato.
+
+Per la medesima ragione si chiude il fatto minore che la sezione 6 registrava come non capito: la corrispondenza di incontro nominava fra parentesi una specie diversa da quella composta, e adesso nomina la specie giusta.
+
+Il seme ricostruito resta identico a quello di partenza.
+
+Sono inoltre dichiarati validi, uno per uno, campi che la sezione 6 non poteva enumerare perché la vista sintetica non li mostrava: il soprannome uguale al nome della specie, il livello non inferiore al livello di incontro, i riconoscimenti tutti contabilizzati, l'abilità corrispondente al proprio indice, la forma e il suo argomento, la corrispondenza fra sesso e valore di personalità, quella fra natura e valore di personalità, e infine il contenitore di cattura, dichiarato corretto per il tipo di incontro.
+
+Quest'ultimo merita una riga a sé perché rovescia una previsione. Il rapporto di provenienza del generatore marcava il contenitore come il campo con la provenienza peggiore fra tutti, poiché il file da cui il valore proviene dichiara nel proprio commento di essere una mappatura provvisoria da confermare. Il verificatore lo dichiara corretto. Il valore era dunque giusto pur venendo da una fonte che si dichiarava incerta, e la conclusione da trarre non è che la fonte fosse affidabile ma che su questo campo ha indovinato: la provenienza dichiarata resta quella, e il campo passa da non verificato a verificato da un giudizio esterno.
+
+### Le due voci che dipendono dal contesto, e non dall'esemplare
+
+Il rapporto dichiara mancante il codice di monitoraggio del deposito in rete, e la voce va letta con attenzione perché è la conferma sperimentale di ciò che gli studi dell'altro track hanno stabilito per testimonianza. Quel codice è il tracciatore: il verificatore lo cerca perché, nel contesto di un titolo della nona generazione, un esemplare originario della terza non può essere arrivato là senza essere transitato dal deposito, e quindi deve portarne uno. Il nostro non lo porta, ed è corretto che non lo porti, perché non è transitato da nulla.
+
+La conseguenza è la più concreta che il progetto abbia ottenuto su quel meccanismo, e va enunciata: il tracciatore non è un campo che si possa lasciare in bianco senza che si noti, perché la sua assenza è essa stessa un'obiezione. Ciò conferma per via strumentale l'affermazione delle due fonti indipendenti secondo cui il tracciatore non è falsificabile, e vi aggiunge il verso opposto, cioè che non è nemmeno omettibile dove il contesto lo richiede. Vale osservare che la voce non sarebbe comparsa in un contesto di terza generazione, dove nessun tracciatore è atteso, e che verificare l'esemplare in quel contesto è il passo che resta.
+
+Il rapporto segnala inoltre come sospetta, e non come non valida, la lingua dell'ultimo allenatore. È della medesima natura: in un titolo della nona generazione un esemplare trasferito porta i campi dell'ultimo allenatore, e il nostro non li ha perché non è stato trasferito da nessuno. Non è un difetto dell'esemplare ma una proprietà del contesto in cui è stato letto.
+
+Va infine registrato un dettaglio che mostra quanto il contesto pesi: le quattro mosse sono dichiarate valide, ma con la motivazione che sono mosse apprese per aumento di livello nel titolo della nona generazione, ai livelli venticinque, trenta, trentacinque e quaranta. Il verificatore le ha validate secondo le regole di quel titolo e non secondo l'insieme fissato dall'evento, e passano perché coincidono. È una validazione che vale meno di quanto sembri, e la sua sostituzione con quella corretta è il secondo motivo per rifare la prova nel contesto giusto.
+
+## 9. Che cosa questa nota cambia per la scelta fra le due vie
 
 La domanda che ha motivato la verifica era se la ricreazione della distribuzione originale e la scrittura diretta dei byte producano lo stesso esemplare. La risposta è che sui dati concordano: le due parti usano la medesima tabella di permutazione, attribuiscono a ciascun evento il medesimo metodo, e la formula che il progetto ha ora verificato è quella che il corpus del costruttore incorpora. Non esiste un vantaggio tecnico della via lenta sul piano dei valori.
 

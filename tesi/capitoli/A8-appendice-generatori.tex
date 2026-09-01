@@ -94,3 +94,115 @@ La nozione esiste perché separa i casi in cui la ricostruzione è determinata d
 L'esempio da svolgere è quello del dominio. Lo stato ha trentadue bit. Un esemplare porta in chiaro un valore di personalità di trentadue bit, proveniente però da due estrazioni delle quali si sono prese le parole alte, cioè da sedici più sedici bit informativi: gli osservati sono trentadue e lo stato ne ha trentadue, dunque il problema si colloca al limite della determinazione e ammette in generale un numero piccolo di candidati, non necessariamente uno. Aggiungendo i valori individuali, che provengono da due estrazioni ulteriori e portano quindici bit informativi ciascuna, il vincolo diviene largamente sovrabbondante; da ciò segue che il campione completo di un esemplare determina il proprio seme di origine quando il metodo è noto, e consente di discriminare fra metodi quando non lo è. È il fondamento aritmetico della ricerca esposta nel capitolo~\ref{cap:distribuzioni}.
 
 Il limite di questo conteggio va dichiarato, poiché si tratta di un conteggio di bit e non di una dimostrazione: contare i bit informativi stabilisce quando la ricostruzione non può essere unica, non garantisce che lo sia quando i bit bastano. Le funzioni in gioco non sono iniettive per costruzione, e la garanzia si ottiene enumerando i candidati, cioè con la ricerca della sezione precedente.
+
+\section{Una derivazione svolta interamente, in binario}
+
+Le sezioni precedenti enunciano le proprietà del generatore in forma generale. Questa sezione le impiega tutte su un caso concreto e lo svolge fino in fondo, in binario, poiché su un formato in cui più campi condividono la medesima parola la disposizione dei bit è la sola esposizione che non ammetta equivoci. Il caso è l'esemplare descritto nel capitolo~\ref{cap:distribuzioni}, generato dal seme $\hx{00009DF6}$ e sottoposto all'implementazione di riferimento.
+
+I valori che seguono non sono trascritti ma calcolati, e si riproducono con l'opzione dedicata dello strumento descritto nel capitolo~\ref{cap:strumenti}.
+
+\subsection*{I cinque stati, e la conferma sperimentale del periodo dei bit bassi}
+
+Applicando la ricorrenza con $a = \hx{41C64E6D}$ e $c = \hx{6073}$ modulo $2^{32}$ si ottengono cinque stati, di ciascuno dei quali il gioco impiega la sola metà alta.
+
+\begin{verbatim}
+s1 = 0xD2A89631   1101001010101000 1001011000110001   alta 0xD2A8
+s2 = 0xAA714150   1010101001110001 0100000101010000   alta 0xAA71
+s3 = 0xE7FF8F83   1110011111111111 1000111110000011   alta 0xE7FF
+s4 = 0xE7DC653A   1110011111011100 0110010100111010   alta 0xE7DC
+s5 = 0xE48B2625   1110010010001011 0010011000100101   alta 0xE48B
+\end{verbatim}
+
+La sezione sui bit bassi dimostra che il bit di posizione $k$ ha periodo $2^{k+1}$. Sui primi otto avanzamenti dal medesimo seme la dimostrazione si osserva.
+
+\begin{verbatim}
+bit 0: 1 0 1 0 1 0 1 0    periodo 2
+bit 1: 0 0 1 1 0 0 1 1    periodo 4
+bit 2: 0 0 0 0 1 1 1 1    periodo 8
+\end{verbatim}
+
+Un generatore il cui bit meno significativo alterna a ogni passo non è difettoso: è un generatore da cui si preleva la metà alta, e la struttura del gioco fa esattamente questo. La proprietà passa così da teorema a vincolo di formato.
+
+\subsection*{Il valore di personalità, e l'effetto dell'inversione}
+
+Le prime due metà alte compongono il valore di personalità, con le due assegnazioni scambiate rispetto a un incontro ordinario.
+
+\begin{verbatim}
+A, prima estrazione   = 0xD2A8 = 1101001010101000
+B, seconda estrazione = 0xAA71 = 1010101001110001
+
+evento:    (A << 16) | B = 0xD2A8AA71   1101001010101000 1010101001110001
+ordinario: (B << 16) | A = 0xAA71D2A8   1010101001110001 1101001010101000
+\end{verbatim}
+
+L'effetto dell'inversione non è confinato all'aspetto della parola. Poiché natura, sesso, indice di abilità e lucentezza si calcolano tutti da quel valore, le due composizioni descrivono esemplari diversi in ogni campo derivato: è questa la ragione per cui l'inversione costituisce una firma di provenienza e non una convenzione di ordinamento.
+
+\subsection*{I valori individuali, e il bit che non serve}
+
+La terza e la quarta metà alta portano tre valori individuali ciascuna, cinque bit per campo a partire dal meno significativo. Il bit di posizione quindici resta fuori.
+
+\begin{verbatim}
+terza estrazione = 0xE7FF
+  bit   1 11001 11111 11111
+        |   |     |     +-- bit 0-4    PS            = 11111 = 31
+        |   |     +-------- bit 5-9    Attacco       = 11111 = 31
+        |   +-------------- bit 10-14  Difesa        = 11001 = 25
+        +------------------ bit 15, inutilizzato, vale 1
+
+quarta estrazione = 0xE7DC
+  bit   1 11001 11110 11100
+        |   |     |     +-- bit 0-4    Velocita      = 11100 = 28
+        |   |     +-------- bit 5-9    Att. speciale = 11110 = 30
+        |   +-------------- bit 10-14  Dif. speciale = 11001 = 25
+        +------------------ bit 15, inutilizzato, vale 1
+\end{verbatim}
+
+Che il bit più significativo di ciascuna parola sia posto a uno e non abbia alcun significato è il genere di dettaglio che una ricreazione può ignorare senza conseguenze e che una lettura deve conoscere per non attribuirgli un ruolo che non ha.
+
+\subsection*{I campi che discendono, e non si memorizzano}
+
+Natura, indice di abilità e sesso non sono campi della struttura: sono funzioni del valore di personalità, che il gioco ricalcola a ogni bisogno. Non si possono omettere da una ricreazione e non si possono sbagliare, poiché discendono.
+
+\begin{verbatim}
+natura         = PID mod 25 = 16     indice della natura Mite
+abilita        = PID and 1  = 1
+
+byte basso del PID = 0x71 = 113 = 01110001
+soglia di sesso della specie = 127
+113 < 127, dunque femmina
+\end{verbatim}
+
+La lucentezza è il quarto campo derivato e si ottiene come somma esclusiva di quattro parole da sedici bit, cioè i due identificativi dell'allenatore e le due metà del valore di personalità. L'esemplare è cromatico se il risultato è minore di otto, ossia se i tredici bit più significativi sono tutti nulli.
+
+\begin{verbatim}
+TID  = 0x1853 = 0001100001010011
+SID  = 0x0000 = 0000000000000000
+PIDh = 0xD2A8 = 1101001010101000
+PIDl = 0xAA71 = 1010101001110001
+                ----------------
+xor  = 0x608A = 0110000010001010 = 24714
+
+24714 non e minore di 8: non cromatico
+\end{verbatim}
+
+La condizione ammette una lettura che vale più del suo esito su questo caso. Se il risultato della somma esclusiva è uniformemente distribuito sui sedici bit, la probabilità che esso cada sotto otto è $8/65536 = 1/8192$, che è la probabilità di lucentezza della terza generazione. Essa non è dunque un parametro del gioco ma una conseguenza della soglia scelta: è il numero di configurazioni accettate diviso il numero di configurazioni possibili, e questa è la forma in cui una costante di gioco famosa si riduce a un conteggio.
+
+\subsection*{Il sesso dell'allenatore, e il numero cinque}
+
+\begin{verbatim}
+quinta estrazione = 0xE48B = 1110010010001011
+                                     ^
+                                     bit di posizione 7 = 1
+1 negato = 0, dunque maschio
+\end{verbatim}
+
+Due particolari di questa formula non sono deducibili dalla struttura e vanno fissati. Il numero cinque discende da un conteggio: le prime quattro estrazioni sono consumate dal valore di personalità e dai valori individuali, quindi la quinta è quella che decide questo campo, e ogni ipotesi diversa sul numero di avanzamenti produce un campo sbagliato in circa metà dei casi. La negazione va conservata come è scritta: in sua assenza la formula sbaglia la totalità dei casi anziché la metà, ed è il modo in cui un errore di questo genere si occulta meglio, poiché un esito sistematicamente invertito può passare per una convenzione di segno anziché per un difetto.
+
+\subsection*{Che cosa questa derivazione dimostra}
+
+Il valore di questo svolgimento non sta nei numeri, che riguardano un esemplare fra molti, ma in due proprietà che esso rende visibili.
+
+La prima è che la quantità di informazione indipendente in un esemplare da evento è molto minore del numero dei suoi campi. Dal solo seme, che è una parola da sedici bit, discendono il valore di personalità, sei valori individuali, la natura, l'indice di abilità, il sesso, la lucentezza e il sesso dell'allenatore di provenienza: sedici bit determinano quattordici campi. Ne segue che quei campi non sono liberi e che una ricreazione non li scegli ma li subisce, e ne segue anche la praticabilità della ricerca inversa discussa in questa appendice, poiché uno spazio di sessantacinquemilacinquecentotrentasei elementi si percorre interamente.
+
+La seconda è che la verifica di un tale esemplare da parte di un'implementazione indipendente non è un controllo di plausibilità ma un'inversione. Il riferimento, ricevuto il solo esemplare, ha ricostruito il seme da cui esso discende: ciò è possibile soltanto se esso applica le medesime formule qui svolte, e costituisce la conferma più forte che questo lavoro potesse ottenere senza disporre della specifica originale.
+
