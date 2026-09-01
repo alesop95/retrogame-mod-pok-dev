@@ -165,6 +165,34 @@ Le due semplificazioni rispetto alla forma ipotizzata sono sostanziali. Non occo
 
 Che tale via sia praticabile dipende da un fatto verificato in questa medesima fonte: l'esecuzione di codice funziona sulla riedizione per console moderna. All'annuncio della riedizione la comunità dubitava che vi funzionasse; nei mesi successivi sono comparse guide e testimonianze d'uso. Due particolari operativi vanno registrati perché non sono deducibili. Il primo è che i codici differiscono da quelli per cartuccia, poiché la riedizione applica ai nomi delle scatole un filtro sulle parole vietate che sposta le sequenze digitabili. Il secondo è che quel filtro non è noto con esattezza nemmeno all'autore degli strumenti, il quale dichiara che l'elenco impiegato dal proprio costruttore è una ricostruzione empirica accumulata sui casi incontrati e non corrisponde a quello del titolare: è una ammissione che conferma per via indipendente ciò che il confronto sul codice di quello strumento aveva mostrato a proposito della sua tabella di codifica dei caratteri.
 
+\section{Le tre destinazioni possibili, e perché una di esse non esiste}
+
+Le sezioni precedenti stabiliscono che il servizio conserva un tracciatore per ogni esemplare e che esso non è falsificabile. Resta da trarne la conseguenza operativa, ed è più netta di quanto la formulazione consueta della domanda suggerisca. La domanda consueta è quale scadenza si applichi a un esemplare che si voglia portare nel deposito in rete; la risposta è che la scadenza dipende dalla porta, e che una delle tre destinazioni che sembrano disponibili non è una porta.
+
+\subsection*{Scrivere l'esemplare in un salvataggio della generazione corrente}
+
+Fra un titolo della terza generazione e uno della nona non esiste alcun collegamento di gioco: la catena che li congiunge passa necessariamente dal deposito. Scrivere direttamente l'esemplare dentro un salvataggio della generazione corrente è dunque un'operazione sui byte e non un trasferimento, e produce un esemplare che si trova dove non poteva arrivare.
+
+Che ciò sia rilevabile è stato dimostrato per via strumentale nel capitolo~\ref{cap:distribuzioni}: il verificatore, leggendo un esemplare di terza generazione nel contesto di un titolo della nona, ha dichiarato mancante il tracciatore. Lo cerca perché in quel contesto è atteso, e l'esemplare non lo porta perché non è transitato da nulla.
+
+Ne segue una chiusura in entrambi i sensi, ed è la ragione per cui questa destinazione non è una porta. Con il tracciatore non si può, poiché esso non è un campo del dato ma un riferimento a un archivio che risiede presso il servizio, e un identificativo scritto a mano è rilevato come falso perché il servizio non lo ha emesso. Senza il tracciatore non si può, poiché la sua assenza costituisce essa stessa un'obiezione. Non è una via che scade: è una via che non esiste, e la scadenza del servizio di deposito non ha alcun rapporto con essa.
+
+\subsection*{Le due porte che esistono, e le loro scadenze disuguali}
+
+L'esemplare va collocato dove appartiene, ossia in un salvataggio della propria generazione, e da là le porte sono due con scadenze diverse.
+
+La prima è la catena storica descritta nel capitolo~\ref{cap:distribuzioni}. Di essa cessa il solo tratto conclusivo, alla data dichiarata; i due passaggi interni fra terza, quarta e quinta generazione sono funzioni locali dei titoli e continuano a operare, quindi la scadenza si applica all'ultimo tratto e non all'intera catena.
+
+La seconda è il collegamento diretto fra la riedizione dei due titoli della terza generazione e il deposito, che non dipende dal servizio in chiusura e per il quale non è dichiarata alcuna scadenza. Per impiegarlo l'esemplare deve trovarsi in un salvataggio di quei due titoli, e le due strade per portarvelo sono quelle discusse in questo capitolo, ossia ricostruirvelo mediante l'esecuzione di codice oppure trasferirvelo attraverso il protocollo di rete locale. In entrambi i casi l'ingresso nel deposito avviene da una porta effettiva e il tracciatore viene assegnato dal servizio, il che rimuove l'obiezione della sottosezione precedente per costruzione anziché per aggiramento.
+
+\subsection*{Il campo di cui la scelta dipende, e una mossa che rimuove un'incognita}
+
+Il rapporto del verificatore contiene, fra le righe informative, il titolo di origine dichiarato dall'esemplare. Nel caso esaminato esso era il titolo che il corpus di metadati propone come valore predefinito, e va osservato che il medesimo corpus non dichiara per quell'evento alcun insieme di titoli ammessi: il valore non è dunque vincolato dalla fonte.
+
+La scelta non è però indifferente rispetto alla seconda porta, poiché quella porta appartiene ai soli due titoli della riedizione. Un esemplare che dichiari un titolo diverso dovrebbe comunque trovarsi in un salvataggio di quei due, e su quella condizione precisa le fonti registrano un punto aperto: non è noto se il servizio accetti un esemplare la cui provenienza dichiarata sia un titolo diverso da quello della riedizione in cui si trova.
+
+Ne discende una mossa che elimina l'incognita anziché aggirarla, e che vale enunciare come criterio generale: dove un campo non è vincolato dalla fonte e da esso dipende quale via l'esito potrà impiegare, quel campo va scelto in coerenza con la via che si intende impiegare, e non lasciato al valore predefinito. Dichiarare come titolo di origine uno dei due della riedizione non è una furbizia sul dato, poiché entrambi i valori sono ammessi dalla fonte: è la scelta coerente fra valori equivalenti per la fonte e non equivalenti per la destinazione.
+
 \section{La dimensione del problema, e la necessità di una selezione}
 
 Un dato pratico chiude il capitolo e riguarda l'obiettivo anziché la tecnica. L'autore degli strumenti dichiara in quattrocento il numero degli esemplari da distribuzione di cui tenere traccia, e aggiunge il commento che vale come pianificazione: conviene scegliersene alcuni, poiché altrimenti non si termina prima della chiusura del servizio di deposito \cite{mankeymite-server}.
