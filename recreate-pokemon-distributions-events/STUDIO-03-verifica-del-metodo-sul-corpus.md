@@ -46,6 +46,36 @@ Il primo sta nella tabella dei caratteri. Il costruttore colloca i trentotto car
 
 Il secondo è la voce incoerente della sezione tre.
 
+## 6. La verifica esterna, eseguita il 2026-09-01
+
+Le sezioni precedenti stabiliscono che le formule riproducono un corpus conservato. Questa sezione riporta un esito di grado superiore, perché non è più un confronto fra i nostri numeri e quelli di un archivio ma il giudizio di una implementazione di riferimento su un esemplare che il progetto ha costruito da zero. È il passo che il progetto aveva dichiarato aperto il 2026-08-28.
+
+L'esemplare sottoposto è un Pikachu della distribuzione italiana del decennale, composto da `tools/genera-evento-gen3.py` a partire dal solo seme 0x00009DF6 e dai metadati dell'evento. Il verificatore impiegato è PKHeX nella versione del 26 agosto 2026.
+
+### Che cosa il verificatore ha confermato
+
+Il risultato che conta più di ogni altro è che il verificatore ha ricostruito il seme. Accanto all'esemplare esso dichiara un tipo di valore di personalità della famiglia BACD e un seme di origine pari a 0x00009DF6, cioè esattamente il seme da cui l'esemplare è stato generato e che il file non contiene in alcuna forma. Ne segue che la ricostruzione inversa di quella implementazione, partendo dal solo valore di personalità e dai valori individuali, arriva al medesimo seme da cui noi eravamo partiti: le formule della sezione 1 non sono soltanto compatibili con un archivio, sono le stesse che il riferimento impiega.
+
+Sono inoltre confermati per lettura diretta il livello, i quattro valori individuali che il verificatore mostra, la natura, e le quattro mosse. La natura merita una nota perché non è un campo del dato ma una funzione di esso: il verificatore la dichiara Mite, e il valore di personalità ridotto modulo venticinque vale sedici, che è l'indice di quella natura. Anche l'indice di abilità coincide con il bit meno significativo del valore di personalità, che è la regola ordinaria.
+
+Nessuna obiezione è stata sollevata sui due campi che il rapporto di provenienza del generatore marcava come i più debolmente fondati, cioè il contenitore di cattura e l'esperienza calcolata dalla formula del gruppo di crescita. Il fatto va registrato come informazione e non come conferma definitiva: significa che quei due valori sono compatibili con ciò che il verificatore controlla, non che siano stati verificati sul disassemblato.
+
+### L'unica obiezione, e perché è il risultato migliore
+
+Il verificatore ha contestato un campo solo, con la formula che il contrassegno dell'incontro fatidico non dovrebbe essere attivo.
+
+Quel campo è esattamente quello che il rapporto di provenienza del generatore aveva marcato, prima di qualunque verifica, come internamente contraddittorio nella fonte: il corpus del costruttore dichiara il contrassegno attivo, il suo codice lo disattiva con un caso speciale dedicato a questo evento, e le due parti non concordavano. Il verificatore ha detto quale delle due ha ragione, ed è il codice contro il corpus.
+
+Vale enunciare perché questo è l'esito migliore fra quelli possibili, e non un difetto. Il criterio con cui il generatore è stato costruito, cioè dichiarare la provenienza di ciascun campo insieme al suo grado di verifica, esisteva per una ragione dichiarata: un'obiezione è utile soltanto se si può attribuire. Alla prima corsa l'unica obiezione è caduta sull'unico campo che il rapporto segnalava come non attribuibile a una fonte coerente, e la sua risoluzione non ha richiesto alcuna indagine perché il rapporto aveva già nominato le due parti in conflitto. Se il rapporto non ci fosse stato, la medesima obiezione avrebbe richiesto di rileggere due fonti per capire da dove venisse il valore.
+
+La correzione è ora registrata nel generatore in una tavola che porta accanto a ciascuna voce l'autorità che la impone e la data, cosicché nessun campo si allontani dalla propria fonte in silenzio. È la prima voce di quella tavola.
+
+### Il punto che resta aperto
+
+Il verificatore classifica il valore di personalità come BACD nella variante a seme non ristretto, mentre la tabella di quella medesima implementazione dichiara per questo evento la variante a seme ristretto a sedici bit con anti-lucentezza additiva. Le due cose non sono in contraddizione sul dato, poiché il seme impiegato è di sedici bit e l'esemplare non è cromatico, e la spiegazione più probabile è che la classificazione riporti la variante minima che spiega l'osservazione anziché quella dichiarata dall'evento. Resta però una discrepanza fra ciò che il verificatore riconosce e ciò che la sua stessa tabella prescrive, e finché non è spiegata va tenuta come punto aperto e non come dettaglio.
+
+Va inoltre osservato che il verificatore ha ricondotto l'esemplare a un incontro della famiglia dei doni di evento nominando fra parentesi una specie diversa da quella composta. Il fatto non ha prodotto obiezioni e non è stato indagato; è registrato perché una corrispondenza di incontro che nomina un'altra specie merita di essere capita prima di essere ignorata.
+
 ## 5. Che cosa questa nota cambia per la scelta fra le due vie
 
 La domanda che ha motivato la verifica era se la ricreazione della distribuzione originale e la scrittura diretta dei byte producano lo stesso esemplare. La risposta è che sui dati concordano: le due parti usano la medesima tabella di permutazione, attribuiscono a ciascun evento il medesimo metodo, e la formula che il progetto ha ora verificato è quella che il corpus del costruttore incorpora. Non esiste un vantaggio tecnico della via lenta sul piano dei valori.

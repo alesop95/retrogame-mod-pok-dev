@@ -4,6 +4,30 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-01 Il verificatore esterno ricostruisce il seme, e contesta il solo campo che il rapporto segnalava
+
+Il passo dichiarato aperto il 2026-08-28 e mai eseguito è stato eseguito, e l'esito è il grado di prova più alto che il progetto abbia raggiunto su questa materia.
+
+L'esemplare sottoposto è un Pikachu della distribuzione italiana del decennale, composto dal solo seme 0x00009DF6 più i metadati dell'evento. Il verificatore è PKHeX nella versione del 26 agosto 2026, collocato fuori dal repository secondo la convenzione appena stabilita.
+
+Il risultato che conta più di tutti è che il verificatore ha ricostruito il seme. Accanto all'esemplare dichiara un valore di personalità della famiglia BACD e un seme di origine pari a 0x00009DF6, cioè esattamente quello da cui l'avevamo generato e che il file non contiene in alcuna forma: la sua ricostruzione inversa, partendo dal solo valore di personalità e dai valori individuali, arriva al punto da cui eravamo partiti. Stamattina le formule erano compatibili con un corpus conservato; adesso sono le stesse che il riferimento impiega, ed è una cosa diversa.
+
+Confermati per lettura diretta il livello, i quattro valori individuali che il verificatore mostra, le quattro mosse e la natura. Su quest'ultima vale la nota che non è un campo memorizzato ma una funzione del valore di personalità: il verificatore la dichiara Mite, e il valore di personalità modulo venticinque vale sedici, che è l'indice di quella natura. Anche l'indice di abilità coincide con il bit meno significativo, che è la regola ordinaria.
+
+Nessuna obiezione sui due campi che il rapporto di provenienza marcava come i più debolmente fondati, cioè la sfera e l'esperienza calcolata dalla formula del gruppo di crescita. Va registrato come informazione e non come conferma: significa che sono compatibili con ciò che il verificatore controlla, non che siano stati verificati sul disassemblato.
+
+L'obiezione è una sola, e va detto perché è il risultato migliore fra i possibili invece di un difetto: il contrassegno dell'incontro fatidico non dovrebbe essere attivo. Quel campo è esattamente quello che il rapporto di provenienza aveva marcato, prima di qualunque verifica, come internamente contraddittorio nella fonte, cioè il corpus del costruttore lo dichiara attivo e il suo codice lo disattiva con un caso speciale dedicato a questo evento. Il verificatore ha detto quale delle due parti ha ragione, ed è il codice contro il corpus.
+
+Il criterio con cui il generatore è stato costruito, cioè dichiarare la provenienza di ogni campo con il suo grado di verifica, aveva una giustificazione dichiarata: un'obiezione è utile soltanto se si può attribuire. Alla prima corsa l'unica obiezione è caduta sull'unico campo che il rapporto segnalava come non attribuibile a una fonte coerente, e risolverla non ha richiesto alcuna indagine perché le due parti in conflitto erano già nominate. Senza quel rapporto la medesima obiezione avrebbe richiesto di rileggere due fonti per capire da dove venisse il valore. Una scelta di progetto che si ripaga alla prima occasione utile è un argomento a favore di essa, e vale registrarlo come tale.
+
+La correzione è ora una tavola dentro il generatore, con accanto a ciascuna voce l'autorità che la impone e la data: nessun campo si allontana dalla propria fonte in silenzio. È la prima voce di quella tavola, e l'esemplare è stato ricomposto con il contrassegno spento.
+
+Resta un punto aperto e non è un dettaglio. Il verificatore classifica il valore di personalità nella variante della famiglia priva di restrizione sul seme, mentre la sua stessa tabella prescrive per questo evento la variante a seme ristretto a sedici bit con anti-lucentezza additiva. Le due cose non si contraddicono sul dato, perché il seme è di sedici bit e l'esemplare non è cromatico, e la spiegazione probabile è che la classificazione riporti la variante minima che spiega l'osservazione. Finché non è verificata sul codice di quella implementazione, resta una divergenza fra ciò che essa riconosce e ciò che prescrive, e il materiale per chiuderla è già clonato.
+
+Va registrato anche un fatto minore non indagato: il verificatore ha ricondotto l'esemplare a un incontro della famiglia dei doni di evento nominando fra parentesi una specie diversa da quella composta. Non ha prodotto obiezioni, non è stato capito, ed è scritto perché una corrispondenza che nomina un'altra specie merita di essere capita prima di essere ignorata.
+
+Sulla collocazione degli strumenti esterni la giornata ha prodotto una convenzione e una correzione di una mia frase. La convenzione: gli strumenti di terzi non stanno in `tools/`, che è tracciata e dove le copie di riserva dei salvataggi starebbero a un `git add -A` dalla pubblicazione, e non stanno sotto `_notes/`, perché l'esclusione protegge dal commit e non dalla cancellazione e la pulizia profonda di git elimina proprio i file ignorati, portandosi via le sole copie che non si possono riscaricare. Stanno fuori dal repository in una cartella condivisa fra i progetti. La correzione: mezz'ora prima avevo scritto il contrario, cioè che `_notes/` bastasse perché eredita l'esclusione, ed era un consiglio sbagliato.
+
 ## 2026-09-01 La seconda fonte del track chiude il debito, e una tabella rotta produce uno strumento
 
 Quinta e ultima parte della giornata. Due cose, e la seconda è nata da un mio errore.

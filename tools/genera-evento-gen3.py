@@ -26,6 +26,20 @@ tace la provenienza di alcun campo: l'esperimento consiste nel far dire al verif
 di quei campi sono sbagliati, e un campo la cui provenienza non sia dichiarata non insegna
 nulla quando viene contestato.
 
+Le correzioni, e chi le autorizza
+---------------------------------
+Su alcuni campi il corpus del costruttore e il suo codice non concordano: il corpus dichiara un
+valore e il codice lo sovrascrive con un caso speciale. Davanti a una divergenza interna alla
+fonte questo programma non sceglie a occhio: attende che un verificatore indipendente dica quale
+delle due parti ha ragione, e registra la risposta nella tavola delle correzioni con l'autorità e
+la data. Il rapporto dichiara poi la correzione accanto al valore, cosicché nessun campo cambi in
+silenzio rispetto alla fonte da cui è stato letto.
+
+La prima voce di quella tavola è nata così. Il rapporto del primo esemplare prodotto marcava il
+contrassegno dell'incontro fatidico come contraddittorio nella fonte; il verificatore ha
+contestato quel solo campo e nessun altro; la tavola registra il valore corretto con la citazione
+dell'obiezione. È il modo in cui la dichiarazione di provenienza si è ripagata alla prima corsa.
+
 Le due forme del dato
 ---------------------
 Il programma scrive due file. Quello con estensione `.pk3` è la forma decifrata a ordine
@@ -72,6 +86,22 @@ LINGUE = {"JPN": 1, "ENG": 2, "FRA": 3, "ITA": 4, "GER": 5, "SPA": 7}
 
 # I gruppi di crescita, nell'ordine in cui il costruttore li numera.
 MEDIUM_FAST, ERRATIC, FLUCTUATING, MEDIUM_SLOW, FAST, SLOW = range(6)
+
+# Le correzioni ai metadati del corpus, ciascuna con l'autorità che la impone. Questa tavola
+# esiste perché il corpus del costruttore e il codice del costruttore, su alcuni campi, non
+# concordano fra loro: il corpus dichiara un valore e il codice lo sovrascrive con un caso
+# speciale. Dove le due parti divergono non si sceglie a occhio, si aspetta che un verificatore
+# indipendente dica quale ha ragione, e si registra la sua risposta qui con la data.
+#
+# Schema: (sigla evento, campo, valore corretto, autorità e data)
+CORREZIONI = [
+    ("10ANNI", "fateful", False,
+     "PKHeX 26.08.26, il 2026-09-01, sul primo esemplare prodotto da questo programma: "
+     "unica obiezione del rapporto, «Fateful: Evento Speciale non dovrebbe essere "
+     "selezionato». Il corpus dichiarava il contrassegno attivo, il codice del costruttore "
+     "lo disattiva con un caso speciale dedicato a questo evento, e il verificatore conferma "
+     "il codice contro il corpus"),
+]
 
 
 def esperienza(gruppo, livello):
@@ -289,6 +319,18 @@ def componi(ace, tag, nome_specie, seme, lingua, verbose=False):
                  "È il caso che la tabella dei caratteri decide, e su cui il confronto con "
                  "il costruttore ha trovato un disaccordo negli accentati.")
 
+    # Le correzioni si applicano qui, dopo la lettura dei metadati e prima della
+    # costruzione, cosicché il rapporto possa dichiararle insieme al valore corretto.
+    fatidico = bool(ev.get("defaultFatefulEncounter"))
+    correzioni_applicate = []
+    for sigla, campo, valore, autorita in CORREZIONI:
+        if sigla != tag:
+            continue
+        if campo == "fateful":
+            if fatidico != valore:
+                correzioni_applicate.append((campo, fatidico, valore, autorita))
+            fatidico = valore
+
     mon = gen3.Gen3Mon(
         personality=personalita,
         ot_id=(tid | (sid << 16)) & 0xFFFFFFFF,
@@ -314,7 +356,7 @@ def componi(ace, tag, nome_specie, seme, lingua, verbose=False):
             ivs={n: iv[k] for n, k in zip(gen3.EV_ORDER, eventi.ORDINE_IV)},
             is_egg=False,
             ability_num=personalita & 0x01,
-            modern_fateful_encounter=bool(ev.get("defaultFatefulEncounter")),
+            modern_fateful_encounter=fatidico,
         ),
     )
 
@@ -352,9 +394,12 @@ def componi(ace, tag, nome_specie, seme, lingua, verbose=False):
         ("gioco di origine", str(mon.misc.met_game),
          "corpus del costruttore, non verificato"),
         ("incontro fatidico", str(mon.misc.modern_fateful_encounter),
-         "corpus del costruttore. Va notato che per questo evento il codice del costruttore "
-         "porta un caso speciale che disattiva quel contrassegno, quindi il corpus e il "
-         "codice non concordano fra loro"),
+         ("CORRETTO rispetto al corpus, che dichiarava " +
+          str(correzioni_applicate[0][1]) + ". " + correzioni_applicate[0][3])
+         if correzioni_applicate else
+         "corpus del costruttore. Dove il corpus e il codice del costruttore divergono su "
+         "questo campo, la tavola delle correzioni registra quale dei due un verificatore "
+         "indipendente ha confermato; per questo evento non c'è divergenza registrata"),
         ("abilità", str(mon.misc.ability_num),
          "bit meno significativo del valore di personalità, che è la regola ordinaria"),
         ("EV, statistiche da gara, lucentezza estetica, nastri, Pokerus", "tutti a zero",
