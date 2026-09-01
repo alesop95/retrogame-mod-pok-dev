@@ -78,7 +78,7 @@ Vale registrare la convergenza con l'altro track, perché cambia le opzioni di e
 
 La conclusione operativa non è mia ma dell'autore delle fonti, e coincide con ciò che il progetto aveva già stabilito per altra via, il che è la migliore conferma disponibile.
 
-Ciò che si può trasferire ora per la via ufficiale, si trasferisce ora. Non si attende alcun aggiramento per gli esemplari che contano e che hanno una strada legittima aperta, perché quella strada ha una data di scadenza e gli aggiramenti hanno un rischio non quantificato. Per il progetto questo significa che la catena dalla terza alla quarta alla quinta generazione e poi a Bank va percorsa nei prossimi diciotto mesi per tutto ciò che esiste su cartuccia, ed è già il passo dichiarato.
+Ciò che si può trasferire ora per la via ufficiale, si trasferisce ora. Non si attende alcun aggiramento per gli esemplari che contano e che hanno una strada legittima aperta, perché quella strada ha una data di scadenza e gli aggiramenti hanno un rischio non quantificato. Per il progetto questo significa che la catena dalla terza alla quarta alla quinta generazione e poi a Bank va percorsa entro il 26 febbraio 2027 per tutto ciò che esiste su cartuccia, ed è già il passo dichiarato. Il tempo residuo, misurato il 2026-09-01, è di centosettantotto giorni: questa nota aveva scritto diciotto mesi, che era sbagliato per un fattore tre, e la correzione cambia la conclusione perché sei mesi non bastano a completare ciò che diciotto avrebbero permesso.
 
 Ciò che non si può ottenere per alcuna via legittima è il solo caso in cui questo track ha senso. Gli anni non giocati e gli eventi passati sono quel caso, ed è la ragione per cui il track esiste.
 
