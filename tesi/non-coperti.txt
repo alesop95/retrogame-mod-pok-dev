@@ -4,7 +4,7 @@
 
 docs/31-glossario.md # confluisce nella prefazione, che ne adotta le definizioni invece di ripeterle
 
-## Il catalogo degli eventi e' generato da una tabella esterna: la tesi ne rende le misure e
+## Il catalogo degli eventi è generato da una tabella esterna: la tesi ne rende le misure e
 ## la tassonomia, che sono conoscenza, e non le sue centosettantasette righe di dati, che
 ## sono un inventario da consultare. La stessa ragione per cui le note di docs/fonti/ non
 ## entrano fra i documenti da coprire.

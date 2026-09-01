@@ -9,8 +9,10 @@ covers-paths:
   - gba-switch-pokemon-trading/
   - poke-automation-study/
   - recreate-pokemon-distributions-events/
+  - poke-ace/
+  - generation-from-switch/
 last-verified-commit: 7696c46
-stato: adozione conclusa; in corso su 4 track di 6
+stato: adozione conclusa; in corso su 5 track di 8
 ---
 
 # Lavoro in corso
@@ -25,7 +27,9 @@ La fonte di verità su cosa è fatto resta `memory/index.md`, non le spunte di q
 | smeraldo-save-fix | attivo | confermare l'installazione dei driver CH340 e annotare la porta COM | riscontro sulla macchina, e arrivo del lettore ordinato il 18/08 |
 | gen12-gen3-bridge | attivo | lettore e scrittore della struttura di generazione 3, cifrata, permutata e con checksum | nulla sul lavoro comune: ADR-008 e la discovery hardware pesano solo sull'ultimo tratto |
 | gba-switch-trading | in ricerca, fonti portanti lette | provare l'Archer T2U Nano che l'utente ha già in modalità monitor, e leggere il codice di `frlgtrade.py` | nulla: la macchina non ha Wi-Fi integrato, e l'adattatore da provare è deciso con la sua riserva sul driver fuori albero |
-| distributions-events | attivo, è il fuoco corrente; ricerca sui metodi conclusa | costruire un esemplare di evento con `pokebridge` e verificarne la legittimità con PKHeX, oppure leggere l'archivio degli eventi per i campioni mancanti | nulla su questi passi; la prova su dato autentico attende il lettore, e l'ultimo tratto verso Home due decisioni di perimetro |
+| poke-ace | attivo, è il fuoco corrente; due studi scritti | due decisioni dell'utente, cioè se usare la tecnica e quale profilo di collezione sia l'obiettivo; e intanto il confronto fra il costruttore di esemplari e il metodo ricostruito dal track degli eventi | la verifica sui controlli di Home è impossibile prima di ottobre 2026 |
+| generation-from-switch | appena aperto, il meno sviluppato | leggere le due fonti registrate e riscrivere lo studio | nulla: è lavoro di lettura |
+| distributions-events | attivo, ricerca sui metodi conclusa | costruire un esemplare di evento con `pokebridge` e verificarne la legittimità con PKHeX, oppure leggere l'archivio degli eventi per i campioni mancanti | nulla su questi passi; la prova su dato autentico attende il lettore, e l'ultimo tratto verso Home due decisioni di perimetro |
 | poke-automation | studio cominciato | studiare confronto di immagini e riconoscimento ottico dei caratteri, che è la parte trasferibile | una decisione di scopo: il perimetro del progetto di riferimento risulta compatibile con le nostre regole |
 
 ## Feature: adozione del sistema di progetto portabile
