@@ -15,8 +15,8 @@ import unittest
 
 from pokebridge import gb
 from pokebridge.gen3 import (Attacks, EvsCondition, Gen3Mon, Growth, Misc,
-                             BOX_STRUCT_LENGTH, PARTY_STRUCT_LENGTH, SECURE_LENGTH,
-                             SUBSTRUCT_LENGTH, SUBSTRUCT_POSITIONS,
+                             BOX_STRUCT_LENGTH, OFF_SECURE, PARTY_STRUCT_LENGTH,
+                             SECURE_LENGTH, SUBSTRUCT_LENGTH, SUBSTRUCT_POSITIONS,
                              compute_checksum, crypt_key, crypt_secure, substruct_order,
                              u16, u32, put_u16, put_u32)
 
@@ -430,3 +430,90 @@ class TestStatisticheDiSquadra(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestFormaCanonica(unittest.TestCase):
+    """La forma decifrata a ordine fisso, cioè il formato di scambio.
+
+    La prova portante è di nuovo la simmetria, ma qui va formulata su tre percorsi invece di
+    uno, perché esistono due forme e quattro conversioni possibili fra esse. Un errore in una
+    sola direzione passerebbe inosservato su una prova che ne verifichi due.
+    """
+
+    def setUp(self):
+        self.rng = random.Random(20260901)
+
+    def buffer_valido(self, party=False):
+        lunghezza = PARTY_STRUCT_LENGTH if party else BOX_STRUCT_LENGTH
+        return normalizza(blob(self.rng, lunghezza))
+
+    def test_simmetria_della_forma_canonica(self):
+        for party in (False, True):
+            for _ in range(40):
+                raw = self.buffer_valido(party)
+                mon = Gen3Mon.from_bytes(raw)
+                canonica = mon.to_canonical_bytes(party=party)
+                riletto = Gen3Mon.from_canonical_bytes(canonica, party=party)
+                self.assertEqual(riletto.to_canonical_bytes(party=party), canonica)
+
+    def test_le_due_forme_si_convertono_a_vicenda(self):
+        """Dalla forma del salvataggio alla canonica e ritorno si torna agli stessi byte."""
+        for party in (False, True):
+            for _ in range(40):
+                raw = self.buffer_valido(party)
+                mon = Gen3Mon.from_bytes(raw)
+                canonica = mon.to_canonical_bytes(party=party)
+                ritorno = Gen3Mon.from_canonical_bytes(canonica, party=party)
+                self.assertEqual(ritorno.to_bytes(party=party), mon.to_bytes(party=party))
+
+    def test_l_intestazione_e_il_checksum_non_cambiano(self):
+        """I primi trentadue byte sono identici nelle due forme, checksum compreso.
+
+        Se cambiassero, il checksum della forma canonica sarebbe calcolato sull'ordine fisso
+        e non su quello permutato, che è il modo di produrre un file che nessuno strumento
+        accetta e di non capire perché.
+        """
+        for _ in range(20):
+            mon = Gen3Mon.from_bytes(self.buffer_valido())
+            a = mon.to_bytes(party=False)
+            b = mon.to_canonical_bytes(party=False)
+            self.assertEqual(a[:OFF_SECURE], b[:OFF_SECURE])
+
+    def test_i_quarantotto_byte_centrali_differiscono(self):
+        """Il corpo differisce, altrimenti la conversione non sta facendo niente.
+
+        È il controllo negativo della prova precedente: senza di esso una implementazione
+        che restituisse gli stessi byte passerebbe tutte le altre prove.
+        """
+        differiscono = 0
+        for _ in range(20):
+            mon = Gen3Mon.from_bytes(self.buffer_valido())
+            a = mon.to_bytes(party=False)
+            b = mon.to_canonical_bytes(party=False)
+            if a[OFF_SECURE:] != b[OFF_SECURE:]:
+                differiscono += 1
+        self.assertEqual(differiscono, 20,
+                         "su qualche buffer le due forme coincidono: la cifratura o la "
+                         "permutazione non stanno operando")
+
+    def test_le_sottostrutture_stanno_in_chiaro_e_in_ordine(self):
+        """Nella forma canonica le quattro sottostrutture si leggono senza decifrare.
+
+        È la proprietà per cui questa forma esiste, e va verificata direttamente invece di
+        essere dedotta dalla simmetria: si compone una struttura con valori riconoscibili e
+        li si ricerca nei byte alla posizione attesa.
+        """
+        mon = Gen3Mon(personality=0x12345679, ot_id=0xABCDEF01,
+                      growth=Growth(species=0x0199, experience=0x000103F1),
+                      attacks=Attacks(moves=[0x0111, 0x0122, 0x0133, 0x0144],
+                                      pp=[10, 20, 30, 40]))
+        b = mon.to_canonical_bytes(party=False)
+        self.assertEqual(u16(b, OFF_SECURE + 0), 0x0199)
+        self.assertEqual(u32(b, OFF_SECURE + 4), 0x000103F1)
+        self.assertEqual(u16(b, OFF_SECURE + SUBSTRUCT_LENGTH + 0), 0x0111)
+        self.assertEqual(list(b[OFF_SECURE + SUBSTRUCT_LENGTH + 8:
+                               OFF_SECURE + SUBSTRUCT_LENGTH + 12]), [10, 20, 30, 40])
+
+    def test_lunghezza_sbagliata_rifiutata(self):
+        with self.assertRaises(Exception):
+            Gen3Mon.from_canonical_bytes(b"\x00" * 64)

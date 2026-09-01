@@ -637,6 +637,65 @@ class Gen3Mon:
                 put_u16(buf, OFF_STATS + 2 * i, self.stats[name])
         return bytes(buf)
 
+    def to_canonical_bytes(self, party=None):
+        """I byte nella forma decifrata a ordine fisso, cioè il formato di scambio.
+
+        La differenza rispetto a `to_bytes` è tutta nei quarantotto byte centrali. Là essi
+        sono permutati secondo il valore di personalità e messi in XOR con la chiave; qui
+        stanno in chiaro e sempre nello stesso ordine, cioè Growth, Attacks, EV e
+        condizione, Miscellaneous. L'intestazione e il checksum sono identici nelle due
+        forme, e il checksum resta quello calcolato sui byte permutati, perché è definito
+        così dal gioco e non dalla forma di scambio: calcolarlo sull'ordine fisso darebbe
+        un valore diverso e sbagliato.
+
+        Vale dire perché questa forma esiste. Un esemplare che debba uscire dal progetto per
+        essere esaminato da uno strumento di terzi non può uscire nella forma del
+        salvataggio, perché quella forma dipende dal valore di personalità e nessuno
+        strumento la accetta come input diretto; la forma a ordine fisso è quella che la
+        comunità impiega, ed è anche la sola in cui un essere umano possa leggere i campi
+        con un editor esadecimale senza prima decifrare.
+        """
+        if party is None:
+            party = self.is_party
+        raw = bytearray(self.to_bytes(party=party))
+        plain = bytearray(SECURE_LENGTH)
+        positions = SUBSTRUCT_POSITIONS[self.personality % 24]
+        decifrato = crypt_secure(bytes(raw[OFF_SECURE:OFF_SECURE + SECURE_LENGTH]),
+                                 self.personality, self.ot_id)
+        for type_index in range(SUBSTRUCT_COUNT):
+            slot = positions[type_index]
+            plain[type_index * SUBSTRUCT_LENGTH:(type_index + 1) * SUBSTRUCT_LENGTH] = \
+                decifrato[slot * SUBSTRUCT_LENGTH:(slot + 1) * SUBSTRUCT_LENGTH]
+        raw[OFF_SECURE:OFF_SECURE + SECURE_LENGTH] = plain
+        return bytes(raw)
+
+    @classmethod
+    def from_canonical_bytes(cls, data, party=None):
+        """Rilegge la forma decifrata a ordine fisso.
+
+        È l'inversa esatta di `to_canonical_bytes`, e serve a leggere un esemplare prodotto
+        da uno strumento di terzi. Il procedimento è ricomporre la forma del salvataggio,
+        cioè permutare e cifrare, e poi affidarla al lettore ordinario: così esiste un solo
+        lettore e non due, e la prova di simmetria che vale per quello vale anche per questo.
+        """
+        if len(data) not in (BOX_STRUCT_LENGTH, PARTY_STRUCT_LENGTH):
+            raise gb.FormatError(
+                "una struttura in forma canonica è lunga %d o %d byte, non %d"
+                % (BOX_STRUCT_LENGTH, PARTY_STRUCT_LENGTH, len(data)))
+        raw = bytearray(data)
+        personality = u32(raw, OFF_PERSONALITY)
+        ot_id = u32(raw, OFF_OT_ID)
+        positions = SUBSTRUCT_POSITIONS[personality % 24]
+        permutato = bytearray(SECURE_LENGTH)
+        for type_index in range(SUBSTRUCT_COUNT):
+            slot = positions[type_index]
+            permutato[slot * SUBSTRUCT_LENGTH:(slot + 1) * SUBSTRUCT_LENGTH] = \
+                raw[OFF_SECURE + type_index * SUBSTRUCT_LENGTH:
+                    OFF_SECURE + (type_index + 1) * SUBSTRUCT_LENGTH]
+        raw[OFF_SECURE:OFF_SECURE + SECURE_LENGTH] = crypt_secure(
+            bytes(permutato), personality, ot_id)
+        return cls.from_bytes(bytes(raw), party=party)
+
     def refresh_checksum(self):
         """Allinea il checksum memorizzato a quello dei dati attuali.
 
