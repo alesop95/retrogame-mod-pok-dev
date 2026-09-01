@@ -150,6 +150,23 @@ CANALI = [
      "script di evento, che è il meccanismo del Dono Segreto"),
 ]
 
+# ---------------------------------------------------------------------------------------
+# I server da esportare interi, invece che canale per canale. Sono i server piccoli e
+# monotematici, dove la selezione dei canali costerebbe più di quanto risparmi e dove il
+# progetto non conosce gli identificativi dei canali: esportare tutto è più economico che
+# enumerare. Il meccanismo è exportguild di DiscordChatExporter, che non richiede alcun
+# identificativo di canale.
+#
+# Schema: (server, id del server, track, domanda a cui serve)
+# ---------------------------------------------------------------------------------------
+GUILDS = [
+    ("MankeyMite", "1219279603286409346", "ACE, EVT",
+     "il server dedicato all'esecuzione di codice arbitrario in terza generazione: il suo "
+     "canale dei collegamenti è la fonte dell'inventario degli strumenti registrato in "
+     "SOURCES.md, e il resto del server è la sola testimonianza di campo che il progetto "
+     "possa avere sull'accettazione degli esemplari così prodotti"),
+]
+
 # I server esclusi, con il motivo, perché una esclusione senza motivo è indistinguibile da
 # una dimenticanza e verrà riaperta dalla prossima sessione.
 ESCLUSI = {
@@ -157,7 +174,6 @@ ESCLUSI = {
                   "sono la causa più probabile del problema del track Smeraldo e non la sua "
                   "soluzione",
     "Domesday86": "conservazione di LaserDisc, estranea al dominio",
-    "MankeyMite's server": "non valutato, presumibilmente personale",
     "Reddit Marche": "estraneo al dominio",
     "Direct Messages": "messaggi privati, fuori perimetro per scelta",
 }
@@ -203,9 +219,65 @@ def elenco():
             print("  id " + cid)
             print("  " + perche)
     print("")
+    print("=== Server esportati interi")
+    for srv, gid, track, perche in GUILDS:
+        print("")
+        print("  " + srv + "  [" + track + "]")
+        print("  id " + gid)
+        print("  " + perche)
+    print("")
     print("=== Server esclusi")
     for srv, motivo in ESCLUSI.items():
         print("  " + srv + ": " + motivo)
+
+
+def interi(a):
+    """Esporta interi i server di GUILDS, ciascuno in una cartella propria.
+
+    Il percorso di destinazione è una cartella e non un file: DiscordChatExporter, quando
+    riceve una cartella, nomina da sé i file dei singoli canali, ed è precisamente ciò che
+    serve qui, perché i nomi dei canali non li conosciamo in anticipo.
+    """
+    scelti = [g for g in GUILDS if not a.server or g[0] in a.server]
+    if not scelti:
+        sys.exit("nessun server corrisponde ai criteri; provare --elenco")
+
+    exe = eseguibile(a.dce) if not a.dry_run else (a.dce or "<percorso di DCE>")
+    t = None if a.dry_run else token()
+
+    fatti, falliti = 0, 0
+    for i, (srv, gid, _track, _perche) in enumerate(scelti, 1):
+        cartella = os.path.join(USCITA, srv)
+        etichetta = "[" + str(i) + "/" + str(len(scelti)) + "] " + srv + " -> " + cartella
+        if os.path.isdir(cartella) and os.listdir(cartella) and not a.forza:
+            print(etichetta + ": la cartella esiste e non è vuota, salto; "
+                  "con --forza si riesporta")
+            continue
+        os.makedirs(cartella, exist_ok=True)
+        comando = [exe, "exportguild", "-t", "<token>" if a.dry_run else t,
+                   "-g", gid, "-f", "Json", "-o", cartella + os.sep]
+        if a.after:
+            comando += ["--after", a.after]
+        if a.media:
+            comando += ["--media"]
+        print(etichetta)
+        if a.dry_run:
+            continue
+        esito = subprocess.run(comando)
+        if esito.returncode == 0:
+            fatti += 1
+        else:
+            print("   non riuscito, codice " + str(esito.returncode) +
+                  "; si prosegue con gli altri")
+            falliti += 1
+
+    if a.dry_run:
+        print("")
+        print("nulla eseguito: " + str(len(scelti)) + " server sarebbero stati esportati")
+        return 0
+    print("")
+    print("server esportati " + str(fatti) + ", non riusciti " + str(falliti))
+    return 1 if falliti else 0
 
 
 def main():
@@ -214,6 +286,8 @@ def main():
                     help="stampa la scelta dei canali con la ragione di ciascuno")
     ap.add_argument("--tier", type=int, action="append",
                     help="quale gruppo esportare; ripetibile")
+    ap.add_argument("--guilds", action="store_true",
+                    help="esporta interi i server della tabella GUILDS, invece dei canali")
     ap.add_argument("--server", action="append", help="limita a questi server; ripetibile")
     ap.add_argument("--dce", help="percorso dell'eseguibile di DiscordChatExporter")
     ap.add_argument("--html", action="store_true",
@@ -230,6 +304,9 @@ def main():
     if a.elenco:
         elenco()
         return 0
+
+    if a.guilds:
+        return interi(a)
 
     scelti = [c for c in CANALI
               if (not a.tier or c[0] in a.tier)

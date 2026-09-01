@@ -145,6 +145,24 @@ Il formato leggibile, con `-f HtmlDark` oppure `-f HtmlLight`, produce una resa 
 
 Un'ultima nota di comportamento: una esportazione lunga rallenta da sola, perché DCE rispetta i limiti di frequenza dichiarati dal servizio. È il comportamento corretto e va lasciata girare, non interrotta e rilanciata.
 
+### I server piccoli, esportati interi
+
+Dal 2026-08-31 la tabella dei canali ha una compagna, `GUILDS`, che elenca i server da esportare interi invece che canale per canale. Serve al caso in cui la selezione costerebbe più di quanto risparmi, cioè un server piccolo e monotematico di cui il progetto non conosce gli identificativi dei canali, e si appoggia al sottocomando `exportguild` dello strumento, che non richiede alcun identificativo di canale. Il primo server così trattato è quello dedicato all'esecuzione di codice arbitrario in terza generazione.
+
+Vale dire perché questa via esiste accanto all'altra e non al suo posto. Un identificativo di canale inventato produce un errore che non nomina il campo sbagliato, come questa stessa giornata ha mostrato quando un segnaposto è stato incollato alla lettera, quindi dove gli identificativi non si conoscono la scelta corretta non è indovinarli ma cambiare granularità. Dove invece si conoscono, la selezione per canale resta preferibile, perché un archivio di trenta canali scelti è leggibile e uno di un server intero no.
+
+```powershell
+python tools/export-discord.py --guilds --dry-run
+python tools/export-discord.py --guilds --dce "C:\Users\Utente\Downloads\DiscordChatExporter.Cli.win-x64\DiscordChatExporter.Cli.exe"
+```
+
+```bash
+python tools/export-discord.py --guilds --dry-run
+python tools/export-discord.py --guilds --dce "$HOME/DiscordChatExporter.Cli/DiscordChatExporter.Cli.exe"
+```
+
+L'uscita non è un file ma una cartella per server sotto `_notes/fonti/dce/`, perché i nomi dei canali si conoscono soltanto a esportazione avvenuta: lo strumento nomina da sé i file quando riceve una cartella come destinazione. La protezione contro la sovrascrittura è la stessa dell'altra via, cioè una cartella che esiste e non è vuota viene saltata a meno di `--forza`.
+
 ### La catena verso il progetto
 
 L'esportazione non è il risultato: il risultato è la sintesi con l'attribuzione nel registro delle fonti. Il passo intermedio è `python tools/read-chat-export.py PERCORSO.json --grep PAROLA --min-length 40`, che riduce il JSON a Markdown filtrato, tenendo autore, momento, testo, allegati e citazioni e scartando la struttura di navigazione.

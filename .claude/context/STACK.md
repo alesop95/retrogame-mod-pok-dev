@@ -9,6 +9,8 @@ covers-paths:
   - gba-switch-pokemon-trading/
   - poke-automation-study/
   - recreate-pokemon-distributions-events/
+  - poke-ace/
+  - generation-from-switch/
 last-verified-commit: 7696c46
 ---
 
