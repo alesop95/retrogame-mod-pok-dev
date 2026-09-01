@@ -409,6 +409,102 @@ def componi(ace, tag, nome_specie, seme, lingua, verbose=False):
     return mon, rapporto
 
 
+def b32(x):
+    """Un intero a trentadue bit in binario, spezzato fra le due metà."""
+    t = format(x & 0xFFFFFFFF, "032b")
+    return t[:16] + " " + t[16:]
+
+
+def b16_campi(x):
+    """Un intero a sedici bit spezzato nei tre campi da cinque bit e nel bit inutilizzato."""
+    t = format(x & 0xFFFF, "016b")
+    return t[:1] + " " + t[1:6] + " " + t[6:11] + " " + t[11:]
+
+
+def derivazione(seme, tid, sid, soglia_sesso=None):
+    """Stampa la catena completa dal seme ai campi derivati, in esadecimale e in binario.
+
+    Serve a due cose. La prima è documentaria: la nota di studio e la tesi riportano questa
+    derivazione, e chi le legge deve poterla rifare con un comando invece di fidarsi di numeri
+    trascritti. La seconda è diagnostica: quando un verificatore esterno contesta un campo
+    derivato, la sola informazione utile è quale passo della catena lo produce.
+    """
+    print("")
+    print("=== gli stati del generatore, e perché si usa la metà alta")
+    stato, meta = seme & 0xFFFFFFFF, []
+    for i in range(1, 6):
+        stato = eventi.avanza(stato)
+        meta.append(stato >> 16)
+        print("  s%d = 0x%08X   %s   metà alta 0x%04X"
+              % (i, stato, b32(stato), stato >> 16))
+    print("")
+    print("  I bit bassi non si usano perché il bit di posizione k ha periodo 2^(k+1):")
+    for k in (0, 1, 2):
+        seq, st = [], seme & 0xFFFFFFFF
+        for _ in range(8):
+            st = eventi.avanza(st)
+            seq.append((st >> k) & 1)
+        print("    bit %d: %s   (periodo %d)" % (k, " ".join(str(v) for v in seq), 2 ** (k + 1)))
+
+    a, b, terza, quarta, quinta = meta
+    pid = ((a << 16) | b) & 0xFFFFFFFF
+
+    print("")
+    print("=== valore di personalità, con le due metà scambiate")
+    print("  A, prima estrazione  = 0x%04X = %s" % (a, format(a, "016b")))
+    print("  B, seconda estrazione = 0x%04X = %s" % (b, format(b, "016b")))
+    print("  evento:    (A << 16) | B = 0x%08X   %s" % (pid, b32(pid)))
+    ordinario = ((b << 16) | a) & 0xFFFFFFFF
+    print("  ordinario: (B << 16) | A = 0x%08X   %s" % (ordinario, b32(ordinario)))
+    print("  Le due composizioni differiscono su tutti i campi derivati: è la ragione per cui")
+    print("  l'inversione è la firma di provenienza da evento e non un dettaglio di ordine.")
+
+    print("")
+    print("=== valori individuali, tre campi da cinque bit per estrazione")
+    for etichetta, parola, campi in (
+            ("terza estrazione", terza, ("PS", "Attacco", "Difesa")),
+            ("quarta estrazione", quarta, ("Velocità", "Att. speciale", "Dif. speciale"))):
+        print("  %s = 0x%04X" % (etichetta, parola))
+        print("    bit   %s   (inutilizzato | 10-14 | 5-9 | 0-4)" % b16_campi(parola))
+        for nome, valore in zip(campi, (parola & 31, (parola >> 5) & 31, (parola >> 10) & 31)):
+            print("    %-14s %2d" % (nome, valore))
+        print("    il bit 15 vale %d e non entra in alcun campo" % ((parola >> 15) & 1))
+
+    print("")
+    print("=== i campi che si calcolano dal valore di personalità e non si memorizzano")
+    print("  natura   = PID mod 25 = %d" % (pid % 25))
+    print("  abilità  = PID and 1  = %d" % (pid & 1))
+    basso = pid & 0xFF
+    print("  il byte basso del PID è 0x%02X = %d = %s"
+          % (basso, basso, format(basso, "08b")))
+    if soglia_sesso is not None:
+        print("  sesso    = %s, perché %d %s %d, che è la soglia della specie"
+              % ("femmina" if basso < soglia_sesso else "maschio", basso,
+                 "<" if basso < soglia_sesso else ">=", soglia_sesso))
+    else:
+        print("  sesso    = dipende dalla soglia della specie, confrontata con quel byte")
+
+    x = (tid ^ sid ^ (pid >> 16) ^ (pid & 0xFFFF)) & 0xFFFF
+    print("")
+    print("=== lucentezza, come somma esclusiva di quattro parole")
+    for nome, valore in (("TID ", tid), ("SID ", sid),
+                         ("PIDh", pid >> 16), ("PIDl", pid & 0xFFFF)):
+        print("  %s = 0x%04X = %s" % (nome, valore & 0xFFFF, format(valore & 0xFFFF, "016b")))
+    print("  xor  = 0x%04X = %s = %d" % (x, format(x, "016b"), x))
+    print("  cromatico se il risultato è minore di 8: %s" % ("sì" if x < 8 else "no"))
+
+    print("")
+    print("=== sesso dell'allenatore, derivazione a scorrimento di sette")
+    print("  quinta estrazione = 0x%04X = %s" % (quinta, format(quinta, "016b")))
+    print("  bit di posizione 7 = %d, negato = %d, quindi %s"
+          % ((quinta >> 7) & 1, ((quinta >> 7) & 1) ^ 1,
+             eventi.sesso_allenatore_rand_s7(seme)))
+    print("  Il numero cinque non è deducibile dalla struttura: le prime quattro estrazioni")
+    print("  sono consumate dal valore di personalità e dai valori individuali, e la quinta")
+    print("  è quella che decide questo campo.")
+    return 0
+
+
 def scrivi(mon, base):
     cartella = os.path.dirname(base)
     if cartella:
@@ -489,12 +585,27 @@ def main():
     ap.add_argument("--seme", help="seme di origine, in esadecimale o decimale")
     ap.add_argument("--lingua", default="ITA", help="ITA, ENG, JPN, FRA, GER, SPA")
     ap.add_argument("--out", help="prefisso dei due file da scrivere, senza estensione")
+    ap.add_argument("--derivazione", action="store_true",
+                    help="stampa la catena dal seme ai campi derivati, in binario, ed esce")
+    ap.add_argument("--soglia-sesso", type=int, dest="soglia_sesso",
+                    help="soglia di sesso della specie, per far calcolare anche quel campo")
     ap.add_argument("--self-test", action="store_true", dest="self_test",
                     help="prove che non richiedono il sorgente del costruttore")
     a = ap.parse_args()
 
     if a.self_test:
         return self_test()
+    if a.derivazione:
+        if not a.seme:
+            ap.error("--derivazione richiede --seme")
+        seme = int(a.seme, 16) if a.seme.lower().startswith("0x") else int(a.seme)
+        tid, sid = 6227, 0
+        if a.ace and a.evento:
+            ev = corpus(a.ace).get("events", {}).get(a.evento)
+            if ev:
+                tid = int(ev.get("fixedTID") or 0)
+                sid = int(ev.get("fixedSID") or 0)
+        return derivazione(seme, tid, sid, a.soglia_sesso)
     if not a.ace:
         ap.error("serve --ace con la cartella del sorgente del costruttore")
     if a.elenco:
