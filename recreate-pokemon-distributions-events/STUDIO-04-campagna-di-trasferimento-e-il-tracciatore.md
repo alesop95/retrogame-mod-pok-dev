@@ -64,7 +64,57 @@ Su quanto ci sia da fare il progetto ha una cifra e non l'ha verificata: l'autor
 
 Ne discende la sola raccomandazione di questa nota, e riguarda l'ordine e non la quantità. Ciò che ha una scadenza va prima di ciò che non l'ha. Gli esemplari che possono raggiungere Home soltanto attraverso il servizio in chiusura sono quelli della prima, della seconda, della quarta e della quinta generazione, e per essi il 26 febbraio 2027 è assoluto. Gli esemplari di terza generazione hanno una seconda porta, che si apre a ottobre 2026 e non dipende da Bank: pianificare come se non esistesse è prudente, ma spendere i centosettantotto giorni su di essi mentre le altre quattro generazioni aspettano sarebbe spendere il tempo scarso sulla sola generazione che ne ha anche un altro.
 
-## 7. Che cosa resta da fare, in ordine
+## 7. Che cosa il progetto sa generare, e che cosa no
+
+La domanda va risposta separando tre cose che il piano tiene insieme, perché su una di esse la risposta è negativa e conviene saperlo prima di contarci.
+
+### Gli esemplari da evento della terza generazione: si
+
+Il progetto li genera e la generazione è verificata. Il modulo `pokebridge/eventi.py` porta le formule che dal seme producono il valore di personalità, i sei valori individuali e il sesso dell'allenatore di provenienza; `pokebridge/gen3.py` compone la struttura, la cifra, la permuta, ne calcola il checksum e la scrive nelle due forme di scambio; `tools/genera-evento-gen3.py` mette insieme le due cose con i metadati dell'evento e dichiara la provenienza di ciascun campo. Il verificatore esterno ha giudicato il risultato e, dopo la correzione di un campo, dichiara validi uno per uno tutti i campi enumerabili.
+
+Va precisato un punto che l'espressione generare un evento nasconde. Il generatore parte da un seme, e il seme non deve essere quello storico dell'esemplare che qualcuno ricevette nel 2006: poiché il metodo restringe il seme a sedici bit, qualunque valore in quello spazio produce un esemplare coerente, e la coerenza è tutto ciò che un verificatore misura. Il seme storico serve a una cosa diversa e più ristretta, cioè riprodurre un esemplare specifico che qualcuno possiede, e su quel caso il progetto ha lo strumento inverso, che dal valore di personalità e dai valori individuali ricava il seme.
+
+### Qualunque altro esemplare: no, e conviene non implementarlo
+
+Il generatore è specifico degli eventi, e non è una limitazione temporanea. Un esemplare non da evento nasce per un metodo diverso, con altre relazioni fra le estrazioni, e la sua conformità dipende da cose che un evento non ha: la casella di incontro del luogo dichiarato, il livello ammesso in quel luogo, la compatibilità della sequenza di mosse con il livello, e nel caso delle uova un insieme di regole proprio. Implementare tutto questo sarebbe riscrivere il verificatore, che esiste, è mantenuto, e per di più è l'autorità con cui misuriamo noi stessi.
+
+Va aggiunto che quel lavoro non servirebbe all'obiettivo. Gli esemplari ordinari si ottengono giocando, oppure per le generazioni recenti dai servizi documentati nell'altro track; la gamba che nessuna via ordinaria copre è quella degli eventi, ed è esattamente quella che il progetto ha coperto.
+
+### Metterli dentro un salvataggio: si, ma non con il nostro codice
+
+Il progetto produce l'esemplare e non il salvataggio che lo contiene: lo strato del salvataggio da centoventotto kibibyte, cioè la sezione 6 della referenza, non è scritto ed è il prossimo passo tecnico dichiarato del track del ponte. Operativamente la cosa non blocca nulla, perché l'editor della comunità apre un salvataggio, accetta un esemplare in una scatola e lo riscrive: la scrittura nel salvataggio è quindi coperta da uno strumento esistente, e duplicarla sarebbe lavoro sprecato.
+
+Ciò che manca per arrivare alla cartuccia non è software ma il lettore, che deve ancora arrivare. Fino a quel momento la catena è percorribile sui salvataggi e non sull'hardware.
+
+## 8. La via di produzione in volume, che non è il nostro generatore
+
+Questa sezione corregge un'aspettativa che il resto della nota potrebbe indurre, e va scritta perché cambia il piano nel verso di renderlo praticabile.
+
+Il nostro generatore compone un esemplare per volta a partire da un evento presente nel corpus del costruttore della comunità, e quel corpus contiene diciassette eventi. Il catalogo che il progetto genera dalla tabella del verificatore ne contiene centosettantasette. La differenza non è un difetto del corpus, che dichiara di raccogliere gli esemplari conservati e non tutti gli eventi esistiti, ma segna il limite della nostra via di produzione: per centosessanta eventi il progetto conosce metodo, allenatore, identificativo, livello e mosse dal proprio catalogo, e non ha un corpus da cui partire.
+
+Il verificatore, però, porta con sé la medesima tabella da cui il nostro catalogo è generato, e la espone come propria base di dati dei doni segreti. Ne segue che esso può produrre da sé un esemplare conforme per ciascuno di quei centosettantasette eventi, scegliendo un seme valido come lo scegliamo noi. Per una campagna a volume, con centosettantotto giorni e molti esemplari da produrre, quella è la via da impiegare: è la più rapida, copre dieci volte più eventi, e ha per autorità il medesimo programma che giudicherebbe il nostro risultato.
+
+Va detto allora a che cosa serve il lavoro di questo progetto, perché la conclusione precedente potrebbe farlo sembrare superfluo e non lo è. Esso serve a tre cose che quella via non da'. La prima è la comprensione: le formule sono scritte, svolte bit per bit e verificate, quindi il progetto sa perché un esemplare è conforme invece di constatare che lo è. La seconda è la verifica incrociata: due implementazioni indipendenti che concordano valgono più di una, e il confronto ha trovato due difetti reali nel costruttore della comunità proprio perché esisteva un secondo punto di vista. La terza è la ricerca inversa: dato un esemplare autentico posseduto, il progetto ne ricava il seme, e quello è l'unico modo di stabilire che una ricreazione sia fedele a un originale e non soltanto conforme a una tabella. Quando il lettore arriverà e gli esemplari del decennale saranno estratti dalla cartuccia, sarà quello lo strumento che conta.
+
+La divisione del lavoro è dunque questa: la produzione in volume la fa il verificatore dalla propria base di dati, la comprensione e la verifica le fa il progetto, e il confronto fra le due vie resta disponibile ogni volta che un esemplare vale la pena di essere guardato due volte.
+
+## 9. I salvataggi procurati dal web, e la distinzione che riduce la questione
+
+La richiesta di cominciare a impiegare salvataggi trovati in rete è arrivata il 2026-09-01, e la regola sull'hardware prescrive che il fatto sia esposto una volta e che la decisione, se presa, sia registrata come ADR invece di scivolare dentro un altro lavoro. Questa sezione fa la prima cosa; la seconda spetta all'utente.
+
+Il fatto, nei suoi termini e senza attenuarlo. La regola dice che i salvataggi scaricati da internet non si importano su questa console, e la motivazione scritta è che sono la causa principale delle sanzioni quando poi vengono impiegati in linea o depositati, e che il rischio ricade sull'account e sulla console e non sul file. Quella motivazione non è cambiata.
+
+Esiste però una distinzione che nessuna sezione precedente aveva enunciato e che riduce la questione invece di aggirarla, perché separa due usi che la parola importare confonde.
+
+Il primo uso è leggere. Un salvataggio scaricato si apre sul calcolatore con l'editor della comunità e se ne guardano i campi: nulla tocca la console, nulla tocca l'account, e nessun esemplare di provenienza altrui entra in alcuna cartuccia. Il valore di quest'uso è concreto e riguarda proprio la gamba che il progetto persegue: gli archivi di conservazione della comunità contengono esemplari da evento con i loro campi autentici, e per i centosessanta eventi che il nostro catalogo elenca senza avere un corpus da cui partire, un archivio letto è la sola fonte dei valori storici. Da un esemplare letto il progetto ricava il seme con la ricerca inversa, e da quel seme rigenera l'esemplare con il proprio codice: ciò che entra nel salvataggio proprio è allora un esemplare prodotto qui, non un esemplare altrui.
+
+Il secondo uso è importare, cioè portare il salvataggio altrui, o gli esemplari che contiene, dentro una cartuccia propria o sulla console, e da la nella catena. È questo l'uso che la regola esclude, ed è quello a cui la motivazione della regola si applica.
+
+Ne segue una osservazione che il progetto può fare e una decisione che non può prendere. L'osservazione è che il primo uso da' quasi tutto il valore del secondo senza il suo rischio, perché ciò che il progetto ha bisogno di procurarsi non sono salvataggi ma valori di campo, e i valori di campo si leggono. La decisione è se il secondo uso sia dentro il perimetro, resta aperta in `pending.md` dal 2026-08-28, e non viene presa qui.
+
+Va aggiunta una precisazione sulla natura delle fonti, perché la parola scaricato copre cose diverse e la differenza è di merito e non di forma. Un archivio di conservazione mantenuto da un progetto della comunità, che il registro delle fonti di questo lavoro elenca già fra le implementazioni di riferimento, e un salvataggio anonimo trovato in un forum non hanno la medesima provenienza ne la medesima verificabilità. La regola come è scritta non distingue i due casi, e se la decisione dovesse riaprirla la distinzione va scritta nell'ADR invece di essere applicata in silenzio.
+
+## 10. Che cosa resta da fare, in ordine
 
 Verificare l'esemplare di prova nel contesto della terza generazione, che è la condizione perché il giudizio significhi qualcosa e che costa una operazione.
 
