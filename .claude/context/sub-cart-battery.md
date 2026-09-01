@@ -38,7 +38,11 @@ Su Rosso e Argento resta la sostituzione, che non ha più fretta e può essere f
 
 Se la saldatura la faccia l'utente o un servizio della comunità. Nella comunità del lettore la sostituzione con prova e spedizione di ritorno costa dell'ordine dei venti dollari, cioè meno di una cartuccia di quei titoli, e su una cartuccia di vent'anni l'errore non è un file ma una piazzola staccata. L'assistenza dell'agente finisce dove comincia il saldatore.
 
-Se montare un porta-pila invece di saldare le linguette della pila nuova. Costa un poco più di lavoro adesso e rende la sostituzione successiva un gesto senza saldatore, quindi su cartucce che si vogliono conservare a vita è probabilmente la scelta giusta; non è stata presa.
+Chiusa il 2026-09-01: si monta un porta-pila. La decisione è dell'utente e la ragione va scritta perché guiderà anche le cartucce future. Saldare le linguette di una pila nuova risolve una volta e riporta il problema fra quindici anni nella medesima forma, cioè con un saldatore su una scheda che nel frattempo è invecchiata di altri quindici anni; un porta-pila sposta la saldatura una volta sola e rende ogni sostituzione successiva un gesto a mani nude. Su un progetto il cui obiettivo dichiarato è una collezione da tenere per tutta la vita, la scelta che riduce il numero di interventi futuri sul rame è quella giusta, e il costo è qualche minuto in più adesso.
+
+Ne discende una conseguenza sull'acquisto che va detta prima di ordinare, perché altrimenti si ordina la cosa sbagliata: con il porta-pila la variante a linguette non serve più, e servono invece pile nude del formato corretto, che sono anche quelle che si trovano in qualunque negozio. Il formato si legge comunque sulla pila che sta dentro la cartuccia, e su questo la decisione non cambia nulla.
+
+Resta aperto un solo punto subordinato, e non è una decisione ma una verifica: che il porta-pila scelto stia nello spazio disponibile dentro il guscio della cartuccia. Va confrontata l'altezza del supporto con lo spazio che la pila attuale occupa, prima dell'acquisto e non dopo.
 
 ## Evidenze e materiale locale
 
