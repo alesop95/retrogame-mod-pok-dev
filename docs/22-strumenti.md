@@ -22,6 +22,18 @@ git clone --depth 1 https://github.com/pret/pokered
 
 Conviene tenerli fuori dal repository, per esempio in una cartella di lavoro temporanea. Il vantaggio del clone rispetto alla lettura via web è che permette di cercare nel codice invece di leggere riassunti, ed è precisamente così che sono state trovate le quattro correzioni registrate in [[SOURCES]].
 
+## Dove vivono gli strumenti esterni, e perché non nel repository
+
+Questo documento descrive due famiglie di strumenti che vanno tenute distinte, perché la loro collocazione segue regole opposte. Gli strumenti di questo progetto sono programmi brevi sulla sola libreria standard, vivono in `tools/`, sono versionati e si leggono come si legge il resto del repository. Gli strumenti esterni sono binari di terzi da decine di megabyte, e non entrano nel repository in alcuna forma.
+
+I tre posti candidati sono tre e due sono sbagliati, e vale enunciare perché, perché la ragione del secondo errore non è evidente ed è stata scoperta ragionandoci sopra il 2026-09-01.
+
+Dentro `tools/` è sbagliato perché quella cartella è tracciata. Un binario di terzi vi finirebbe in un commit, e il caso peggiore non è la dimensione: alcuni di quegli strumenti scrivono accanto a sé, e ciò che il verificatore di conformità scrive sono copie di riserva di salvataggi, cioè esattamente la categoria che ADR-005 esclude dal version control senza eccezioni. In una cartella tracciata quelle copie starebbero a un `git add -A` di distanza dall'essere pubblicate.
+
+Dentro `_notes/` è sbagliato per una ragione diversa e meno visibile. Quella cartella è esclusa in blocco, quindi il rischio del commit non c'è; l'esclusione però protegge dal commit e non dalla cancellazione, e la pulizia profonda di git, che è un gesto di manutenzione ordinaria, elimina proprio i file ignorati. Uno strumento collocato là viene distrutto da un comando che si dà per rimettere in ordine un albero di lavoro, e con esso spariscono le copie di riserva che ha scritto accanto a sé. Sono le sole copie che non si possono riscaricare.
+
+Il posto giusto è fuori dal repository, in una cartella condivisa fra i progetti che ne hanno bisogno, per esempio `E:\tools\pkhex` e `E:\tools\dce`. Ne discendono tre proprietà che nessuna delle altre due collocazioni ha: lo strumento non interagisce con git in alcun modo, sopravvive a qualunque operazione sul repository, ed è condiviso con gli altri progetti che nasceranno dal template invece di essere scaricato una volta per ciascuno. Il prezzo è che il percorso è specifico della macchina e va comunicato allo strumento che lo invoca, e i nostri lo prevedono già: si passa con l'opzione dedicata oppure si mette in una variabile d'ambiente.
+
 ## extract_charmaps.py
 
 Sta in `pokemon-gen12-gen3-bridge-original-hardware/tools/` e genera le tabelle di codifica dei caratteri leggendo i charmap dei disassemblati.
@@ -95,6 +107,22 @@ Il passo successivo non è del programma: si apre il file `.pk3` con lo strument
 
 Due difetti di questo programma valgono la menzione perché sono lo stesso difetto in due posti, e nessuno dei due produce un errore. Il costruttore indicizza gli eventi per sigla e le mosse per etichetta leggibile, e cercare per sigla nella tabella delle mosse restituisce zero risultati invece di un errore: l'esemplare esce senza mosse e sembra una lacuna della fonte. Il file delle mosse è la conversione di un foglio di calcolo e la colonna dell'identificativo ha per nome la stringa vuota, quindi cercare una chiave chiamata `id` restituisce un dizionario vuoto e i punti potenza restano a zero. Il principio che ne discende, e che vale oltre questi due casi, è che una ricerca per chiave dentro un dato di terzi va corredata di un controllo sul fatto che abbia trovato qualcosa, perché il silenzio di un dizionario vuoto è indistinguibile da un dato assente.
 
+## PKHeX, il verificatore di conformità: dove si prende e come si usa
+
+È lo strumento con cui si sottopone a giudizio esterno un esemplare prodotto da questo progetto, ed è la seconda metà dell'esperimento che `genera-evento-gen3.py` prepara. Il registro delle fonti lo elenca fra le implementazioni di riferimento; qui sta la procedura, perché una procedura che vive in una conversazione è perduta alla sessione successiva.
+
+Sul dove prenderlo va detto il punto che fa perdere tempo, verificato il 2026-09-01. La pagina dei rilasci sul servizio di repository non contiene alcun binario: i soli due allegati del rilascio sono l'archivio del codice sorgente nelle due forme consuete, e quella pagina serve a leggere il registro delle modifiche e a sapere quale sia la versione corrente. Il binario si scarica dal sito della comunità che lo ospita, cioè `https://projectpokemon.org/home/files/file/1-pkhex/`.
+
+Sul requisito, il file di presentazione del progetto dichiara che si tratta di un'applicazione Windows Forms che richiede la decima versione dell'ambiente di esecuzione. Serve quindi il pacchetto denominato Desktop Runtime nella variante a sessantaquattro bit, e non l'insieme di sviluppo né la variante per applicazioni web: in sua assenza il programma si avvia e termina subito, oppure il sistema propone da sé il download.
+
+Due dettagli di primo avvio non sono deducibili dalla documentazione.
+
+Il primo è che il programma propone di creare una cartella di riserva accanto al proprio eseguibile, dove conserverà una copia dei salvataggi che apre. La risposta corretta per questo progetto è affermativa, e non è una preferenza: la regola sull'hardware pretende un backup prima di ogni scrittura, e uno strumento che lo faccia da sé è un presidio in più e non un ingombro. Proprio perché quella cartella conterrà copie di salvataggi, l'eseguibile va collocato dove la sezione iniziale di questo documento prescrive, cioè fuori dal repository: le copie di riserva sono la ragione più forte di quella regola, perché sono irriproducibili e una pulizia profonda del repository le eliminerebbe insieme a tutto ciò che è ignorato.
+
+Il secondo è che il programma si avvia caricando un salvataggio vuoto di una generazione recente, e questo determina il formato con cui l'editor lavora. Ne segue che per esaminare un esemplare di terza generazione conviene prima portare l'editor in quel contesto, creando un salvataggio vuoto della generazione giusta dal menu dei file, e soltanto dopo trascinare il file dell'esemplare sulla finestra. Trascinandolo mentre è caricato un salvataggio di un'altra generazione, il programma tenta una conversione di formato che non è ciò che si vuole misurare: l'esperimento chiede se l'esemplare sia conforme come esemplare di terza generazione, non se sia convertibile.
+
+Il giudizio si legge dall'indicatore di conformità che il programma mostra accanto all'immagine dell'esemplare, in alto a sinistra: cliccandolo si apre il rapporto. Quel rapporto è il risultato dell'esperimento, e va confrontato voce per voce con la colonna delle provenienze che `genera-evento-gen3.py` stampa, perché è quella a dire se un difetto contestato sia nostro o dei dati di terzi da cui i metadati provengono.
+
 ## confronta-ace-builder.py
 
 Confronta il costruttore di esemplari della comunità con ciò che questo progetto ha verificato, e serve a una domanda che era aperta: se ricreare la distribuzione originale e scrivere direttamente i byte producano lo stesso esemplare. Esegue cinque confronti, in ordine di durezza decrescente per i primi quattro e con il quinto di natura diversa.
@@ -149,7 +177,7 @@ Il ponte fra i due esiste già e non va costruito: `tools/read-chat-export.py` e
 
 ### Dove vivono i file
 
-Il programma non entra nel repository, perché sono binari da decine di megabyte che non hanno rapporto con il version control, e va in una cartella condivisa dai progetti che ne hanno bisogno, per esempio `E:\tools\dce` per la riga di comando e `E:\tools\dce-gui` per l'interfaccia grafica. Gli export vanno sotto `_notes/fonti/dce/`, che il `.gitignore` esclude in blocco: restano locali per costruzione, e questo è voluto perché sono contenuto di terzi.
+Il programma non entra nel repository e va nella cartella condivisa fuori da esso, secondo la convenzione enunciata in apertura di questo documento: per esempio `E:\tools\dce` per la riga di comando e `E:\tools\dce-gui` per l'interfaccia grafica. Va notato che tenerlo nella cartella dei download del sistema, come è accaduto durante il primo allestimento, è la collocazione peggiore di tutte fra quelle fuori dal repository, perché quella cartella si svuota per abitudine o per strumento di pulizia e il percorso che si è scritto nei comandi smette di esistere senza preavviso. Gli export vanno sotto `_notes/fonti/dce/`, che il `.gitignore` esclude in blocco: restano locali per costruzione, e questo è voluto perché sono contenuto di terzi.
 
 ### Il rilascio e i file da scaricare
 
