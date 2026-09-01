@@ -8,7 +8,7 @@ L'obiettivo dichiarato non è ricreare una distribuzione: è completare la colle
 
 La scadenza è esterna, verificata su fonte ufficiale il 2026-08-28 e non negoziabile. Pokemon Bank chiude il 26 febbraio 2027 alle 12:00 JST, cioè il 25 febbraio 2027 alle 19:00 PST, e con Bank cessa la funzione che trasferisce verso Pokemon Home. Bank e Poke Transporter erano rimasti gli unici servizi in linea del Nintendo 3DS dopo la chiusura generale del 9 aprile 2024, e questa eccezione finisce là. Nintendo dichiara di spostare in Home ciò che si vuole conservare prima di quella data e non annuncia alcun periodo di tolleranza.
 
-Da qui segue il fatto operativo che governa tutto il track: qualunque esemplare della prima, seconda, terza, quarta e quinta generazione che debba finire in Home deve avere completato l'intera catena di trasferimenti prima di quella data, perché dopo quella data non esiste più alcun ingresso per i giochi che non parlano direttamente con Home. Il tempo utile, dalla nascita di questo track, è di diciotto mesi.
+Da qui segue il fatto operativo che governa tutto il track: qualunque esemplare della prima, seconda, terza, quarta e quinta generazione che debba finire in Home deve avere completato l'intera catena di trasferimenti prima di quella data, perché dopo quella data non esiste più alcun ingresso per i giochi che non parlano direttamente con Home. Il tempo utile va scritto come conteggio a una data, perché una durata invecchia in silenzio: al 2026-09-01 sono centosettantotto giorni, cioè meno di sei mesi. Questo file aveva dichiarato diciotto mesi, sbagliando per un fattore tre nel verso che rassicura, e la differenza non è di margine ma di piano: sei mesi impongono di scegliere ciò che diciotto avrebbero permesso di completare.
 
 ## Che cosa c'è in questa cartella
 
@@ -27,6 +27,12 @@ Il legame più stretto è con la correzione del salvataggio di Smeraldo, e non �
 Il legame con il ponte fra generazioni è la struttura del dato: un Pokemon di evento è una struttura di generazione 3 come le altre, cifrata, permutata e con il suo checksum, e `pokebridge/gen3.py` la sa leggere e scrivere. Ciò che un evento aggiunge è il modo in cui quella struttura viene generata, cioè il metodo pseudocasuale, che è la parte che distingue una ricreazione fedele da un dato costruito a mano.
 
 Il legame con il modding del 3DS è la catena di trasferimento verso Home, che passa dalla quarta e dalla quinta generazione e quindi dalle cartucce DS di quel track, e infine da Bank sulla console. Su quell'ultimo tratto pesa un limite di perimetro dichiarato altrove e non riaperto qui: vedi la sezione seguente.
+
+## La nota da leggere per prima, se il tempo stringe
+
+`STUDIO-04-campagna-di-trasferimento-e-il-tracciatore.md` è la nota operativa e risponde a tre domande poste insieme: che cos'è il tracciatore di Pokemon Home, se lo si possa scrivere da sé, e se il piano di iniettare esemplari in salvataggi e farli passare da Pokemon Bank prima della chiusura sia risolvibile.
+
+Le risposte in breve, perché una lettura affrettata delle altre note scoraggia dal piano giusto. Il tracciatore lo assegna Home a chiunque entri per una porta vera, quindi non è un ostacolo per quel piano: è un ostacolo per una cosa diversa, cioè scrivere un esemplare di terza generazione dentro un salvataggio di nona, che è una via che non esiste e non una via che scade. Scriverlo da sé è impossibile per natura e non per difficoltà, perché non è un valore da calcolare ma una chiave verso un archivio che sta presso il servizio. E il piano è risolvibile: le difficoltà vere sono la coerenza degli esemplari, che il progetto sa già produrre e verificare, e il tempo.
 
 ## Perimetro
 

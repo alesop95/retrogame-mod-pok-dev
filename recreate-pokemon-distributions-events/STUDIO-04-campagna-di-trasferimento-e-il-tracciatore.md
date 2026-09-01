@@ -1,0 +1,75 @@
+# Studio 04: il tracciatore, e la campagna di trasferimento entro il 26 febbraio 2027
+
+Questa nota nasce da tre domande dell'utente poste insieme, e conviene tenerle insieme perché la risposta alla terza dipende dalle prime due: che cosa sia il tracciatore di Pokemon Home, se lo si possa scrivere da sé, e se il problema sia risolvibile dato che il piano è iniettare molti esemplari in salvataggi e farli passare da Pokemon Bank prima della chiusura, avendo a disposizione una console modificata.
+
+Va detto in apertura ciò che le note precedenti non dicevano con chiarezza sufficiente, perché una loro lettura affrettata scoraggia dal piano giusto. Il tracciatore non è un ostacolo per il piano dell'utente. È un ostacolo per una cosa diversa, che il piano dell'utente non fa.
+
+## 1. Che cos'è il tracciatore
+
+È un identificativo che Pokemon Home assegna a un esemplare nel momento in cui esso tocca il servizio per la prima volta, sia che vi arrivi per trasferimento sia che provenga dal gioco per dispositivo mobile. Le due fonti indipendenti lette il 2026-09-01 lo descrivono nei medesimi termini: assegnato una volta, non cambia più, e segue quell'esemplare attraverso tutti i giochi in cui esso passerà, indipendentemente da qualunque modifica successiva.
+
+Sul piano del formato è un campo che nelle strutture delle generazioni recenti esiste e in quelle antiche no: una struttura di terza generazione non ha alcun posto dove metterlo, e il campo compare quando la struttura viene convertita nel formato di una generazione che lo prevede. È la ragione per cui il verificatore, leggendo il nostro esemplare nel contesto di un titolo della nona generazione, ne ha dichiarato l'assenza: la conversione aveva creato il campo, e il campo era vuoto.
+
+Il servizio lo impiega per tre cose dichiarate: distinguere gli esemplari individuali, rilevare i caricamenti duplicati provenienti da più account, e ricostruire lo stato di un esemplare gioco per gioco quando esso si sposta fra titoli.
+
+## 2. Perché non si può scriverlo da sé, e perché è una impossibilità di natura diversa dalle altre
+
+La domanda se lo si possa scrivere ha una risposta negativa, e la ragione va capita perché non somiglia a nessuna delle altre impossibilità che questo progetto ha incontrato.
+
+Tutti gli altri campi di un esemplare sono calcolabili. Il checksum è una somma che si ricalcola; il valore di personalità è una parola che si compone; i valori individuali si impaccano cinque bit per volta; natura, sesso, abilità e lucentezza discendono per formula dal valore di personalità. Per ciascuno di essi esiste una regola, e chi conosce la regola può soddisfarla: è precisamente ciò che il generatore di questo progetto fa, e il verificatore esterno lo ha confermato campo per campo.
+
+Il tracciatore non ha una regola da soddisfare. Non è un valore derivato dai dati dell'esemplare e non è verificabile da chi lo legge: è una chiave che rimanda a un archivio che sta presso il servizio, e il servizio la valuta cercandola nel proprio archivio e confrontando ciò che vi trova con l'esemplare che ha davanti. Le fonti lo dicono nella forma più utile: un identificativo scritto a mano viene rilevato come falso perché il servizio non lo ha mai emesso, e non perché sia mal formato.
+
+Ne segue la formulazione che il progetto adotta e che vale ripetere ogni volta che la domanda si ripresenta. Non si tratta di un calcolo che non sappiamo fare, ma di una consultazione che non possiamo fare: non esiste alcun algoritmo da scoprire, perché non c'è un algoritmo, c'è una base di dati che non possediamo. Un campo così non si falsifica per definizione e non per difficoltà, e nessun progresso tecnico lo rende falsificabile.
+
+Il verso opposto, che nessuna delle due fonti enunciava e che il giudizio del verificatore ha reso visibile, completa il quadro: non lo si può nemmeno lasciare in bianco dove il contesto lo attende, perché la sua assenza è essa stessa un'obiezione.
+
+## 3. Perché tutto questo non riguarda il piano dell'utente
+
+Qui sta il punto che le note precedenti lasciavano implicito e che va scritto per esteso.
+
+Il tracciatore lo assegna Home, e lo assegna a qualunque esemplare che entri per una via che Home riconosce. Il piano dell'utente è precisamente quello: iniettare gli esemplari in salvataggi di giochi che appartengono alla catena, percorrere la catena ufficiale, e depositarli in Home attraverso Pokemon Bank. In quel momento Home assegna il tracciatore, come lo assegna a qualunque altro esemplare che arrivi da Bank. Non c'è nulla da falsificare, perché non c'è nulla da aggirare: la porta è quella vera.
+
+Il caso in cui il tracciatore è un ostacolo è un altro, e va tenuto distinto perché è quello che il turno precedente aveva esaminato: scrivere un esemplare di terza generazione direttamente dentro un salvataggio della nona generazione. Là il tracciatore serve perché in quel posto un esemplare della terza generazione non può essere arrivato senza essere transitato da Home, e non essendovi transitato non ce l'ha. Quella non è una via che scade: è una via che non esiste, e nessuno la percorre nel piano dell'utente.
+
+La risposta alla terza domanda è dunque affermativa. Il problema è risolvibile, la via è quella ufficiale, e il tracciatore non è la difficoltà. Le difficoltà sono altre due, e sono il resto di questa nota: la coerenza degli esemplari, e il tempo.
+
+## 4. Che cosa controlla ciascun anello, e perché la coerenza è l'unica cosa che conta
+
+La catena non è un tubo trasparente: ogni anello applica i propri controlli, e un esemplare incoerente viene fermato là dove il controllo lo rileva e non alla fine. Ne segue che l'unico lavoro che paga è produrre esemplari coerenti, e che verificarli prima costa infinitamente meno che scoprire a metà catena che non passano.
+
+Il progetto ha già gli strumenti per questo, e il 2026-09-01 li ha visti funzionare. Il generatore compone l'esemplare dalle formule verificate e dichiara la provenienza di ogni campo; il verificatore esterno giudica il risultato e, sul nostro primo caso, ha contestato un campo solo, quello che il rapporto di provenienza segnalava già come contraddittorio nella fonte. La procedura è quindi stabilita: si genera, si verifica, si corregge ciò che il verificatore contesta, si registra la correzione con la sua autorità, e soltanto allora si inietta.
+
+Vale ricordare che il verificatore va interrogato nel contesto della generazione giusta. Il primo giudizio è stato dato nel contesto di un titolo della nona generazione, e tre delle sue voci dipendevano da quel contesto invece che dall'esemplare: verificare un esemplare di terza generazione nel contesto della terza generazione non è un dettaglio di comodità ma la condizione perché il giudizio significhi qualcosa.
+
+## 5. Dove iniettare, e la decisione che ne dipende
+
+La catena ha quattro tratti e quindi quattro punti in cui si potrebbe entrare, e la scelta non è indifferente perché determina quanto lavoro manuale resta.
+
+Entrare in terza generazione significa percorrere tutto: il parco di migrazione verso la quarta, che impone sei esemplari per volta e pretende la medesima lingua ai due capi, il trasferimento senza fili verso la quinta, che richiede due apparecchi accesi insieme, poi il programma di trasferimento, poi il servizio di deposito. È il percorso più lungo e quello che produce il dato più simile a un dato reale, perché ogni trasformazione la compie il gioco.
+
+Entrare in quinta generazione significa saltare i due passaggi interni e restare con il solo tratto finale, cioè il programma di trasferimento e poi il servizio di deposito. È il percorso più corto, e la questione che apre è se il dato che ne risulta sia il medesimo. Le trasformazioni dei due passaggi interni sono deterministiche, e l'editor della comunità le implementa quando converte una struttura da un formato a un altro: la conversione dovrebbe quindi produrre ciò che la catena avrebbe prodotto. Il verbo dovrebbe va conservato, perché il progetto non lo ha verificato, e la verifica è possibile e costa poco: si prende un esemplare reale che abbia percorso la catena, si prende la conversione del medesimo esemplare fatta dall'editor, e si confrontano i byte.
+
+La decisione fra i due percorsi è dell'utente e dipende dal tempo, che è la sezione seguente. Ciò che il progetto può dire è il criterio: il percorso lungo costa tempo e non pone domande, il percorso corto costa una verifica e le pone tutte in un punto solo. Con centosettantotto giorni e molti esemplari, il percorso corto è quello che va verificato per primo, perché se regge cambia l'ordine di grandezza del lavoro.
+
+Va aggiunto un vincolo che nessuno dei due percorsi elimina e che va conosciuto prima di pianificare: il trasferimento dal servizio di deposito verso Home richiede il piano a pagamento di Home, mentre il servizio in chiusura è gratuito, e il piano gratuito di Home conserva trenta esemplari. Una catena completata fino al servizio in chiusura non è una collezione al sicuro.
+
+## 6. Il tempo, contato
+
+La chiusura è il 26 febbraio 2027 alle dodici del fuso giapponese. Misurato il 2026-09-01, il tempo residuo è di centosettantotto giorni.
+
+Va scritto così, cioè come conteggio a una data e non come durata, perché una durata invecchia in silenzio e nessuno la ricalcola. Il progetto lo ha appena imparato nel modo peggiore: tre file tracciati dichiaravano diciotto mesi, e diciotto mesi era sbagliato per un fattore tre nel verso che rassicura. La correzione non è di margine ma di piano, perché sei mesi impongono di scegliere ciò che diciotto avrebbero permesso di completare.
+
+Su quanto ci sia da fare il progetto ha una cifra e non l'ha verificata: l'autore degli strumenti della comunità dichiara in quattrocento gli esemplari da distribuzione di cui tenere traccia, e accompagna la cifra con l'osservazione che non si finisce prima della chiusura. La cifra è di quinto livello e la conseguenza non dipende dalla sua esattezza: l'insieme completo non è raggiungibile nel tempo residuo, quindi una selezione è necessaria.
+
+Ne discende la sola raccomandazione di questa nota, e riguarda l'ordine e non la quantità. Ciò che ha una scadenza va prima di ciò che non l'ha. Gli esemplari che possono raggiungere Home soltanto attraverso il servizio in chiusura sono quelli della prima, della seconda, della quarta e della quinta generazione, e per essi il 26 febbraio 2027 è assoluto. Gli esemplari di terza generazione hanno una seconda porta, che si apre a ottobre 2026 e non dipende da Bank: pianificare come se non esistesse è prudente, ma spendere i centosettantotto giorni su di essi mentre le altre quattro generazioni aspettano sarebbe spendere il tempo scarso sulla sola generazione che ne ha anche un altro.
+
+## 7. Che cosa resta da fare, in ordine
+
+Verificare l'esemplare di prova nel contesto della terza generazione, che è la condizione perché il giudizio significhi qualcosa e che costa una operazione.
+
+Verificare se la conversione dell'editor fra i formati produca ciò che la catena produce, perché da quella risposta dipende l'ordine di grandezza del lavoro. Si fa confrontando i byte di un esemplare reale che ha percorso la catena con quelli della conversione del medesimo esemplare, e non richiede alcun hardware oltre a un salvataggio reale.
+
+Decidere la selezione, cioè quali esemplari perseguire nei centosettantotto giorni. È una decisione dell'utente e non del progetto, e la nota le fornisce il criterio dell'ordine: prima ciò che ha una sola porta.
+
+Registrare la decisione di perimetro che resta aperta, perché tutto questo la presuppone e nessuna sezione di questa nota la prende. L'iniezione di esemplari costruiti dentro salvataggi propri, e il loro deposito in un servizio in linea, ricade nella politica sui dati alterati che gli studi dell'altro track riportano: la valutazione corrente delle fonti è che un esemplare coerente sia accettato, con la clausola, ripetuta da due fonti indipendenti, che questo potrebbe cambiare. Il tracciatore rende quella clausola pesante, perché ciò che entra resta identificabile.

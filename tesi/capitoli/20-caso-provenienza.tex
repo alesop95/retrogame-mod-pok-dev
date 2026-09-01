@@ -5,6 +5,7 @@
 % copre: poke-ace/STUDIO-01-ace-e-legalita-in-home.md
 % copre: poke-ace/STUDIO-02-marchi-di-origine-e-che-cosa-conta-una-collezione.md
 % copre: poke-ace/STUDIO-03-la-risposta-della-comunita-e-le-due-severita.md
+% copre: recreate-pokemon-distributions-events/STUDIO-04-campagna-di-trasferimento-e-il-tracciatore.md
 % copre: generation-from-switch/README.md
 % copre: generation-from-switch/STUDIO-01-scambio-automatico-e-provenienza.md
 % verificato-al-commit: a427431
@@ -164,6 +165,20 @@ La sezione dedicata alla via composta la presentava come inferenza di questo lav
 Le due semplificazioni rispetto alla forma ipotizzata sono sostanziali. Non occorre il protocollo di rete locale, poiché l'esemplare non viene trasferito nella riedizione ma ricostruito dentro di essa; e il presupposto non è possedere un canale di comunicazione ma possedere i dati, cioè avere letto la cartuccia originale. La via del protocollo di rete resta disponibile come alternativa, ed è nominata dalla medesima fonte insieme al progetto che la implementa, con l'osservazione che per quella via non serve alcun codice.
 
 Che tale via sia praticabile dipende da un fatto verificato in questa medesima fonte: l'esecuzione di codice funziona sulla riedizione per console moderna. All'annuncio della riedizione la comunità dubitava che vi funzionasse; nei mesi successivi sono comparse guide e testimonianze d'uso. Due particolari operativi vanno registrati perché non sono deducibili. Il primo è che i codici differiscono da quelli per cartuccia, poiché la riedizione applica ai nomi delle scatole un filtro sulle parole vietate che sposta le sequenze digitabili. Il secondo è che quel filtro non è noto con esattezza nemmeno all'autore degli strumenti, il quale dichiara che l'elenco impiegato dal proprio costruttore è una ricostruzione empirica accumulata sui casi incontrati e non corrisponde a quello del titolare: è una ammissione che conferma per via indipendente ciò che il confronto sul codice di quello strumento aveva mostrato a proposito della sua tabella di codifica dei caratteri.
+
+\section{Un campo che non si falsifica per natura, e non per difficoltà}
+
+Le sezioni precedenti riportano che il tracciatore assegnato dal deposito non è falsificabile e che la sua assenza è rilevabile. Resta da enunciare perché, poiché la ragione non è di grado ma di specie e distingue quel campo da tutti gli altri trattati in questo lavoro.
+
+Ogni altro campo di un esemplare è calcolabile, e la parte tecnica di questo lavoro consiste nel saperlo calcolare. Il checksum è una somma di parole che si ricalcola; il valore di personalità è una parola che si compone da due estrazioni; i valori individuali si impaccano cinque bit per volta; natura, sesso, indice di abilità e lucentezza discendono per formula dal valore di personalità, come l'appendice~\ref{app:generatori} svolge per esteso. Per ciascuno di essi esiste una regola, e chi la conosce la soddisfa: la conferma è che un'implementazione indipendente, ricevuto un esemplare così composto, ne ha ricostruito il seme.
+
+Il tracciatore non ha una regola da soddisfare. Non è una funzione dei dati dell'esemplare, e chi lo legge non lo verifica ricalcolandolo: è una chiave che rimanda a un archivio detenuto dal servizio, il quale la valuta cercandola e confrontando ciò che vi trova con l'esemplare che ha davanti. Un valore inventato non è dunque un valore sbagliato ma un valore inesistente, e viene rilevato come tale non perché sia mal formato ma perché il servizio non lo ha mai emesso.
+
+La distinzione ha una conseguenza che vale enunciare in forma generale, poiché si applica oltre il caso. Un campo la cui correttezza è definita da un calcolo è falsificabile da chiunque conosca il calcolo, e la sua difesa dipende dalla segretezza della regola, che è una difesa fragile e che questo lavoro documenta essere stata superata su ogni altro campo. Un campo la cui correttezza è definita da una corrispondenza con uno stato remoto non è falsificabile da nessuno che non abbia accesso a quello stato, e la sua difesa non dipende da alcun segreto: nessun progresso nell'analisi del formato la scalfisce, perché non c'è nulla da analizzare. Il primo tipo di campo protegge finché la regola è ignota; il secondo protegge per costruzione.
+
+Il verso opposto completa il quadro e discende dalla medesima natura: un campo di quel tipo non si può nemmeno lasciare in bianco dove il contesto lo attende, poiché la sua assenza è già una risposta. Ne segue che, per un esemplare la cui provenienza dichiarata implichi il transito dal deposito, non esistono tre possibilità ma una: o vi è transitato, e allora il campo è pieno di un valore emesso; o non vi è transitato, e allora nessuna scrittura locale rimedia.
+
+Vale osservare, per non trarne una conclusione più larga del dovuto, che tutto ciò riguarda un esemplare che dichiari una provenienza incompatibile con l'assenza di storia. Un esemplare che entri nel deposito attraverso una delle porte effettive riceve il proprio tracciatore dal servizio nel momento dell'ingresso, e per esso la questione non si pone: la sezione precedente distingue le due situazioni, e confonderle porta a credere chiuse anche le vie che sono aperte.
 
 \section{Le tre destinazioni possibili, e perché una di esse non esiste}
 
