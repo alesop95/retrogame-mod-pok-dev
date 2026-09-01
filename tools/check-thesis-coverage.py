@@ -89,6 +89,7 @@ ALTRI_DOCUMENTI = (
     "poke-ace/STUDIO-01-ace-e-legalita-in-home.md",
     "poke-ace/STUDIO-02-marchi-di-origine-e-che-cosa-conta-una-collezione.md",
     "recreate-pokemon-distributions-events/STUDIO-03-verifica-del-metodo-sul-corpus.md",
+    "poke-ace/STUDIO-03-la-risposta-della-comunita-e-le-due-severita.md",
     "cart-battery-restoration/README.md",
     "cart-battery-restoration/STUDIO-01-batteria-e-ritenzione.md",
     "generation-from-switch/README.md",

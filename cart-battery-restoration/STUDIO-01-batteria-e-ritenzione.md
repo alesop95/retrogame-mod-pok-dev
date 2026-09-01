@@ -76,12 +76,30 @@ La sequenza completa la riporta un'altra testimonianza del canale, ed è in tre 
 
 Va registrato che il medesimo problema esiste in terza generazione e che il progetto lo incontrerà sul track di Smeraldo: una testimonianza riferisce che la sostituzione della pila ha alterato i tempi di crescita delle bacche e la definisce un problema comune (Speedy77). Non è una novità di questa nota ma un rinvio: quando quel track arriverà alla scrittura, questa sezione è il posto dove la conoscenza è già.
 
+## 10. La diagnosi su Rosso e Argento, arrivata il 2026-09-01
+
+Le nove sezioni precedenti descrivono una procedura che presuppone una finestra aperta. Su queste due cartucce la finestra è chiusa, e il fatto va scritto qui invece di lasciare il runbook a suggerire che ci sia ancora qualcosa da salvare.
+
+L'osservazione dell'utente è che entrambe le cartucce, all'accensione, offrono soltanto la voce per una partita nuova e non conservano il salvataggio che si crea. Le due parti dell'osservazione sono ciascuna sufficiente e insieme non lasciano margine. L'assenza della voce di continuazione significa che il gioco non trova alcun salvataggio valido; il fatto che un salvataggio nuovo non sopravviva allo spegnimento è la prova di ritenzione della sezione 4 già eseguita, con esito negativo. Le pile sono esaurite e i due salvataggi non esistono più.
+
+Ne discendono quattro conseguenze, e la seconda è controintuitiva.
+
+La prima è che su queste due cartucce non c'è nulla da estrarre e l'ordine dei passi della sezione 9 non si applica: l'estrazione precede la saldatura perché protegge un dato, e qui il dato non c'è. Resta utile leggere la cartuccia una volta prima di intervenire, ma per una ragione diversa, cioè verificare che la memoria del salvataggio risponda e che la cartuccia sia autentica, il che è informazione sulla cartuccia e non sul suo contenuto.
+
+La seconda è che l'operazione diventa di rischio basso invece che alto. Ciò che rendeva delicata la sostituzione era la possibilità di cancellare un salvataggio nell'istante in cui il contatto si apre, e quella possibilità presuppone un salvataggio. Su una cartuccia già vuota la sostituzione ha per unico rischio quello meccanico della saldatura, che è reale ma è di natura diversa e non è irreversibile sul dato.
+
+La terza è che il seguito sull'orologio della sezione 8 si semplifica per la cartuccia di seconda generazione. Quella sequenza serve a rimettere in ordine un salvataggio che conserva l'istante in cui l'orologio si era fermato; una partita nuova, iniziata dopo la sostituzione, fissa lo scostamento dell'ora al momento in cui la si comincia e non ha eventi a durata già avviati. Dei tre passi resta quindi il primo.
+
+La quarta è la sola che riguarda l'urgenza, e sposta la priorità del track. Queste due cartucce non hanno più una finestra e possono attendere; le cartucce di prima e seconda generazione non ancora provate, se esistono, ne hanno una e non si sa quanto sia larga. La prova della sezione 4 va quindi applicata a tutte le altre prima di ogni altra cosa, ricordando il vincolo che la limita, cioè che si esegue solo su un salvataggio irrilevante oppure dopo l'estrazione di quello che conta. Su una cartuccia il cui salvataggio interessa, la prima operazione non è la prova ma l'estrazione.
+
+Va enunciato senza giri di parole ciò che questa diagnosi significa per l'obiettivo del progetto. I salvataggi di prima e seconda generazione di queste due cartucce non sono recuperabili e non lo saranno: quanto vi era dentro è perduto in modo definitivo, e nessuna delle vie che il progetto studia lo riporta indietro, perché tutte spostano o costruiscono un dato che esiste e nessuna ricostruisce un dato che non esiste più. Ciò che resta possibile è rimettere le cartucce in condizione di funzionare e ricominciarvi a giocare, oppure ottenere per altra via gli esemplari di quelle generazioni che l'obiettivo di collezione richiede, dove per altra via si intendono le vie già studiate e non un recupero.
+
 ## 9. Che cosa resta aperto
 
-Se le due cartucce di questo track siano nella condizione che la sezione due descrive per la loro generazione, oppure no. È una misura e non una congettura, e si fa con la seconda prova della sezione quattro: finché non è fatta, tutto il resto di questa nota è preparazione.
+Chiuso il 2026-09-01 dalla sezione 10: entrambe le cartucce hanno la pila esaurita e i salvataggi non esistono più. La domanda che resta al suo posto è se esistano altre cartucce di prima o seconda generazione non ancora provate, perché quelle sono le sole che abbiano ancora una finestra.
 
 Quale sia il valore effettivo della pila dentro ciascuna delle due cartucce. Si legge sulla pila, e va letto prima di ordinare.
 
-Se il salvataggio di seconda generazione esista ancora. La sezione due dà la probabilità e non la risposta, e la risposta si ottiene aprendo il gioco e guardando, che è la sola operazione che non consuma nulla.
+Chiuso il 2026-09-01: non esiste più. La previsione della sezione due, secondo cui una cartuccia di seconda generazione mai sottoposta a sostituzione ha con buona probabilità già perduto il salvataggio per via dell'orologio, si è verificata; e si è verificata anche sulla cartuccia di prima generazione, che secondo la stessa sezione avrebbe dovuto avere più margine.
 
-Se lo scostamento dell'ora della seconda generazione si corregga con l'editor già in uso nel progetto oppure richieda un passaggio ulteriore. La testimonianza lo dà per fatto con quell'editor; il progetto non l'ha verificato.
+Se lo scostamento dell'ora della seconda generazione si corregga con l'editor già in uso nel progetto oppure richieda un passaggio ulteriore. La testimonianza lo dà per fatto con quell'editor; il progetto non l'ha verificato. La domanda perde urgenza per la cartuccia di questo track, per la ragione della sezione 10, e la conserva per il caso in cui si recuperasse un salvataggio di seconda generazione da un'altra cartuccia.
