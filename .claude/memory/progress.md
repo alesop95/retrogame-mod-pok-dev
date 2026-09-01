@@ -4,6 +4,32 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-01 Il tempo residuo era sbagliato per un fattore tre, e il tracciatore non ostacola il piano
+
+Due cose, e la prima è l'errore più grave della giornata perché riguarda la sola scadenza assoluta del progetto.
+
+Tre file tracciati dichiaravano diciotto mesi fino alla chiusura del servizio di deposito. Sono centosettantotto giorni, misurati il 2026-09-01, cioè meno di sei mesi: l'errore è di un fattore tre e nel verso che rassicura. Corretto in `sub-distributions-events.md`, in `poke-ace/STUDIO-01` e nel README del track degli eventi, e messo in evidenza nel blocco di ripresa dell'indice perché va letto prima di qualunque pianificazione.
+
+La forma della correzione conta quanto il numero, e la regola che ne discende vale per ogni scadenza futura: un tempo residuo scritto come durata invecchia in silenzio, perché nessuno lo ricalcola, mentre scritto come data di riferimento più conteggio a quella data dichiara da sé quando è stato misurato. Da adesso si scrive nella seconda forma.
+
+La conseguenza non è di margine ma di piano, e va detta perché è quella che cambia il lavoro: sei mesi impongono di scegliere ciò che diciotto avrebbero permesso di completare. La cifra di quattrocento esemplari da distribuzione dichiarata dalla comunità, con l'avvertenza che non si finisce prima della chiusura, passa da osservazione a vincolo.
+
+La seconda cosa è la risposta a tre domande dell'utente poste insieme, e sta in `STUDIO-04-campagna-di-trasferimento-e-il-tracciatore.md`. Va registrato che le note precedenti lasciavano implicito il punto principale, e che una loro lettura affrettata scoraggia dal piano giusto: il tracciatore non ostacola il piano dell'utente.
+
+Che cos'è: un identificativo che il servizio assegna quando un esemplare lo tocca per la prima volta, permanente, invariante rispetto a ogni modifica, e che segue l'esemplare attraverso i giochi. Sul piano del formato è un campo che esiste nelle strutture recenti e non in quelle antiche, e compare quando una struttura antica viene convertita: è la ragione per cui il verificatore lo ha dichiarato mancante sul nostro esemplare, cioè la conversione aveva creato il campo e il campo era vuoto.
+
+Perché non si può scriverlo: la ragione è di specie e non di grado, e vale enunciarla perché distingue quel campo da tutti gli altri che il progetto tratta. Ogni altro campo è calcolabile e la parte tecnica del progetto consiste nel saperlo calcolare; per ciascuno esiste una regola e chi la conosce la soddisfa. Il tracciatore non ha una regola: è una chiave verso un archivio che sta presso il servizio, che lo valuta cercandolo e confrontando ciò che trova con l'esemplare. Un valore inventato non è sbagliato ma inesistente. Non è un calcolo che non sappiamo fare, è una consultazione che non possiamo fare, e nessun progresso nell'analisi del formato la rende possibile perché non c'è nulla da analizzare.
+
+La generalizzazione, che vale oltre il caso: un campo la cui correttezza è definita da un calcolo è falsificabile da chiunque conosca il calcolo, e la sua difesa dipende dalla segretezza della regola, che è fragile e che questo progetto documenta essere stata superata su ogni altro campo. Un campo la cui correttezza è definita da una corrispondenza con uno stato remoto non è falsificabile da chi non ha accesso a quello stato, e la sua difesa non dipende da alcun segreto: protegge per costruzione.
+
+Perché non riguarda il piano: il tracciatore lo assegna il servizio a chiunque entri da una porta che esso riconosce, e il piano dell'utente è esattamente quello, cioè iniettare in salvataggi della catena e percorrere la catena ufficiale fino al deposito. In quel momento il servizio assegna il tracciatore come a qualunque altro esemplare arrivato da la. Non c'è nulla da falsificare perché non c'è nulla da aggirare. Il caso in cui il tracciatore ostacola è quello del turno precedente, cioè scrivere un esemplare di terza generazione dentro un salvataggio di nona: quella non è una via che scade ma una via che non esiste, e nessuno la percorre nel piano.
+
+La nota aggiunge poi le due difficoltà vere. La coerenza degli esemplari, che il progetto sa già produrre e verificare e la cui procedura è stabilita, con l'avvertenza che il verificatore va interrogato nel contesto della generazione giusta perché altrimenti tre voci del suo giudizio dipendono dal contesto. E il tempo, con la raccomandazione sull'ordine: prima ciò che ha una sola porta, cioè prima, seconda, quarta e quinta generazione, perché per la terza esiste anche la porta di ottobre.
+
+Ne è nata una pendenza nuova che decide l'ordine di grandezza del lavoro: se la conversione fra formati dell'editor produca ciò che i due passaggi interni della catena producono. Se regge, si entra direttamente in quinta generazione e si percorre il solo tratto finale, risparmiando il parco di migrazione e il trasferimento senza fili su ogni esemplare. Si verifica confrontando i byte di un esemplare reale che ha percorso la catena con quelli della conversione del medesimo esemplare, e non richiede hardware oltre a un salvataggio reale.
+
+Il generatore ha inoltre l'opzione per il gioco di origine, e il controllo delle tabelle ha segnalato che la riga che avevo aggiunto in `pending.md` aveva due colonne invece di tre. Lo strumento scritto stamattina ha quindi trovato il primo difetto vero introdotto da me dopo la sua scrittura, che è il modo in cui un controllo dimostra di servire.
+
 ## 2026-09-01 Le tre destinazioni, e il campo che decide quale porta si potra usare
 
 L'utente ha posto la domanda operativa del track e va riportata nei suoi termini: se genero questo esemplare e lo metto in un salvataggio che parla con la nona generazione, quando il servizio di deposito verrà dismesso non potrò più averlo. La risposta non è quella che la formulazione suggerisce, e la differenza vale registrarla perché è il genere di equivoco che fa temere la data sbagliata.
