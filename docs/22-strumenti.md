@@ -71,6 +71,30 @@ La ragione per cui il catalogo si genera invece di essere scritto è la stessa d
 
 Ciò che lo strumento non fa va dichiarato: non giudica la legittimità di alcun esemplare e non ricostruisce alcun metodo, riporta ciò che la fonte dichiara. Le date degli eventi compaiono soltanto dove la fonte le porta nei commenti di blocco, e dove non le porta restano assenti invece di essere indovinate.
 
+## genera-evento-gen3.py
+
+Compone un esemplare da evento di terza generazione e lo scrive nelle due forme del dato. È il passo che il progetto aveva dichiarato aperto il 2026-08-28 e non aveva mai eseguito, cioè costruire un esemplare con il proprio codice e sottoporlo a un verificatore di conformità indipendente. Non richiede hardware, non tocca alcun account, e non produce nulla destinato a una collezione: produce un caso di prova.
+
+La parte che discende dal seme non è scelta ed è quella su cui il grado di fiducia è alto: valore di personalità, sei valori individuali e sesso dell'allenatore di provenienza vengono dalle formule di `pokebridge.eventi`, verificate su duecentonove esemplari conservati. Tutto il resto è metadato dell'evento e viene da fonti di grado diverso, e qui sta la scelta di progetto che rende utile questo programma: esso stampa un rapporto campo per campo con la provenienza di ciascuno, compresi i due che nel codice d'origine portano la parola segnaposto. La ragione è che l'esperimento consiste nel far dire al verificatore quali campi sono sbagliati, e un campo la cui provenienza non sia dichiarata non insegna nulla quando viene contestato.
+
+```powershell
+python tools/genera-evento-gen3.py --self-test
+python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --elenco
+python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --evento 10ANNI --specie Pikachu --seme 0x9DF6 --lingua ITA --out _notes/prova
+```
+
+```bash
+python tools/genera-evento-gen3.py --self-test
+python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --elenco
+python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --evento 10ANNI --specie Pikachu --seme 0x9DF6 --lingua ITA --out _notes/prova
+```
+
+I due file prodotti hanno estensione `.pk3` e `.ek3`. Il primo è la forma decifrata a ordine fisso, che è quella che gli strumenti della comunità accettano in ingresso; il secondo è la forma che il salvataggio contiene, cioè permutata secondo il valore di personalità e cifrata. Contengono gli stessi dati e la conversione fra le due è esatta nei due versi, ed è stata aggiunta a `pokebridge.gen3` come `to_canonical_bytes` e `from_canonical_bytes`, con sei prove nella suite fra cui il controllo negativo che verifica che le due forme differiscano davvero nei quarantotto byte centrali.
+
+Il passo successivo non è del programma: si apre il file `.pk3` con lo strumento di conformità e si legge che cosa esso obietta, confrontando ogni obiezione con la colonna della provenienza. È quella colonna a dire se un difetto sia nostro o dei dati di terzi, e senza di essa l'esito dell'esperimento sarebbe un elenco di errori senza responsabile.
+
+Due difetti di questo programma valgono la menzione perché sono lo stesso difetto in due posti, e nessuno dei due produce un errore. Il costruttore indicizza gli eventi per sigla e le mosse per etichetta leggibile, e cercare per sigla nella tabella delle mosse restituisce zero risultati invece di un errore: l'esemplare esce senza mosse e sembra una lacuna della fonte. Il file delle mosse è la conversione di un foglio di calcolo e la colonna dell'identificativo ha per nome la stringa vuota, quindi cercare una chiave chiamata `id` restituisce un dizionario vuoto e i punti potenza restano a zero. Il principio che ne discende, e che vale oltre questi due casi, è che una ricerca per chiave dentro un dato di terzi va corredata di un controllo sul fatto che abbia trovato qualcosa, perché il silenzio di un dizionario vuoto è indistinguibile da un dato assente.
+
 ## confronta-ace-builder.py
 
 Confronta il costruttore di esemplari della comunità con ciò che questo progetto ha verificato, e serve a una domanda che era aperta: se ricreare la distribuzione originale e scrivere direttamente i byte producano lo stesso esemplare. Esegue cinque confronti, in ordine di durezza decrescente per i primi quattro e con il quinto di natura diversa.
