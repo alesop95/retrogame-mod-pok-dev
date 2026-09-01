@@ -105,6 +105,36 @@ python tools/genera-evento-gen3.py --derivazione --seme 0x9DF6 --soglia-sesso 12
 
 I due file prodotti hanno estensione `.pk3` e `.ek3`. Il primo è la forma decifrata a ordine fisso, che è quella che gli strumenti della comunità accettano in ingresso; il secondo è la forma che il salvataggio contiene, cioè permutata secondo il valore di personalità e cifrata. Contengono gli stessi dati e la conversione fra le due è esatta nei due versi, ed è stata aggiunta a `pokebridge.gen3` come `to_canonical_bytes` e `from_canonical_bytes`, con sei prove nella suite fra cui il controllo negativo che verifica che le due forme differiscano davvero nei quarantotto byte centrali.
 
+Dal 2026-09-01 il programma legge anche la tabella del verificatore invece del solo corpus del costruttore, e la differenza è di copertura: diciassette eventi contro centosettantatre voci su centosettantasette. Le quattro che restano fuori impiegano una forma del costruttore che il lettore non copre, e appartengono all'insieme giapponese, dove serve comunque una codifica dei caratteri che il progetto non ha ancora estratto.
+
+```powershell
+python tools/genera-evento-gen3.py --elenco --pkhex _notes/fonti/pkhex
+python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --indice 59 --seme 0x9DF6 --out _notes/prova
+```
+
+```bash
+python tools/genera-evento-gen3.py --elenco --pkhex _notes/fonti/pkhex
+python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --indice 59 --seme 0x9DF6 --out _notes/prova
+```
+
+Dal medesimo giorno esiste il modo a lotto, che produce in una corsa tutti gli esemplari producibili e dichiara con la ragione quelli che non lo sono. Il seme non si passa più: si cerca fra i sessantacinquemilacinquecentotrentasei ammessi verificando i vincoli che la tabella dichiara, cioè la lucentezza e, dove la derivazione è implementata, il sesso dell'allenatore; e la ricerca riparte da dove si era fermata, cosicché due esemplari del medesimo evento non ricevano il medesimo valore di personalità.
+
+```powershell
+python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --lotto _notes/lotto-eventi
+python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --lotto _notes/lotto-eventi --solo-ot 10ANNI
+```
+
+```bash
+python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --lotto _notes/lotto-eventi
+python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --lotto _notes/lotto-eventi --solo-ot 10ANNI
+```
+
+Sulla tabella intera l'esito al 2026-09-01 è di centoquattro esemplari prodotti e sessantanove non producibili, e l'inventario delle ragioni con il loro costo sta nella sezione 10 di `recreate-pokemon-distributions-events/STUDIO-04`. Il programma non produce nulla per una voce che non sappia fare, e la scelta va difesa perché è la sola sicura: un generatore che produca qualcosa per ogni voce è peggio di uno che si rifiuti, poiché un esemplare sbagliato in mezzo a centosettanta giusti non si trova guardando.
+
+L'elenco stampa le voci raggruppate per allenatore e identificativo con l'intervallo di indici di ciascun gruppo, e la composizione di una voce sola si chiede per indice. Serve comunque il sorgente del costruttore, perché da esso vengono tre dati che la tabella non porta, cioè la corrispondenza fra numerazione nazionale e identificativi interni di specie, i gruppi di crescita e i punti potenza delle mosse.
+
+Un esito di questo doppio percorso vale registrare, perché è una verifica che nessuno aveva cercato. Il medesimo esemplare composto dalle due fonti indipendenti risulta identico byte per byte: un errore nella conversione fra le numerazioni, nella correzione registrata o nelle formule avrebbe prodotto una differenza, e non ce n'è. Due strade per lo stesso punto valgono una autorità esterna e costano meno.
+
 Il passo successivo non è del programma: si apre il file `.pk3` con lo strumento di conformità e si legge che cosa esso obietta, confrontando ogni obiezione con la colonna della provenienza. È quella colonna a dire se un difetto sia nostro o dei dati di terzi, e senza di essa l'esito dell'esperimento sarebbe un elenco di errori senza responsabile.
 
 Due difetti di questo programma valgono la menzione perché sono lo stesso difetto in due posti, e nessuno dei due produce un errore. Il costruttore indicizza gli eventi per sigla e le mosse per etichetta leggibile, e cercare per sigla nella tabella delle mosse restituisce zero risultati invece di un errore: l'esemplare esce senza mosse e sembra una lacuna della fonte. Il file delle mosse è la conversione di un foglio di calcolo e la colonna dell'identificativo ha per nome la stringa vuota, quindi cercare una chiave chiamata `id` restituisce un dizionario vuoto e i punti potenza restano a zero. Il principio che ne discende, e che vale oltre questi due casi, è che una ricerca per chiave dentro un dato di terzi va corredata di un controllo sul fatto che abbia trovato qualcosa, perché il silenzio di un dizionario vuoto è indistinguibile da un dato assente.
