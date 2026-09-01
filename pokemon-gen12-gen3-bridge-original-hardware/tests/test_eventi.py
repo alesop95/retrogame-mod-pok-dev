@@ -149,5 +149,158 @@ class ProveRicercaInversa(unittest.TestCase):
                                                         "difesa_speciale": 0}), [])
 
 
+
+class ProveDerivazioniDelSesso(unittest.TestCase):
+    """Le nove derivazioni del sesso dell'allenatore di provenienza.
+
+    Le formule vengono dal codice della implementazione di riferimento e non da congettura, e
+    queste prove servono a due cose distinte: che ciascuna sia implementata, e che le due con
+    una particolarità la conservino. Le due particolarità sono la negazione della derivazione a
+    scorrimento di sette e il fatto che quella a scorrimento di quindici legga la sesta
+    estrazione anziché la quinta, e una riscrittura che le uniformasse passerebbe le prove
+    banali e sbaglierebbe queste.
+    """
+
+    def test_le_derivazioni_fisse_non_guardano_il_seme(self):
+        for seme in (0x0000, 0x1234, 0x9DF6, 0xFFFF):
+            self.assertEqual(eventi.sesso_allenatore("Only0", seme), "maschio")
+            self.assertEqual(eventi.sesso_allenatore("Only1", seme), "femmina")
+            self.assertEqual(eventi.sesso_allenatore("RandD3_0", seme), "maschio")
+            self.assertEqual(eventi.sesso_allenatore("RandD3_1", seme), "femmina")
+
+    def test_la_derivazione_a_scorrimento_di_sette_e_negata(self):
+        """Femmina quando il bit vale zero: senza la negazione sbaglia tutti i casi.
+
+        La prova confronta il valore restituito con il bit grezzo, cosicché una
+        implementazione che perdesse la negazione fallisca qui e non altrove.
+        """
+        for seme in (0x0000, 0x1234, 0x9DF6, 0xABCD, 0xFFFF):
+            bit = (eventi.estrazioni(seme, 5)[4] >> 7) & 1
+            atteso = "femmina" if bit == 0 else "maschio"
+            self.assertEqual(eventi.sesso_allenatore("RandS7", seme), atteso)
+
+    def test_la_derivazione_a_scorrimento_di_quindici_legge_la_sesta(self):
+        """Legge la sesta estrazione, perché fra gli IV e il sesso si consuma l'oggetto.
+
+        Il controllo negativo è nella seconda parte: su almeno un seme la quinta e la sesta
+        estrazione danno esiti diversi, quindi una implementazione che leggesse la quinta
+        sarebbe distinguibile da questa.
+        """
+        for seme in (0x0000, 0x1234, 0x9DF6, 0xFFFF):
+            sesta = eventi.estrazioni(seme, 6)[5]
+            atteso = "femmina" if (sesta >> 15) & 1 else "maschio"
+            self.assertEqual(eventi.sesso_allenatore("RandSG15", seme), atteso)
+        diversi = 0
+        for seme in range(0, 4096):
+            quinta = eventi.estrazioni(seme, 6)[4]
+            sesta = eventi.estrazioni(seme, 6)[5]
+            if ((quinta >> 15) & 1) != ((sesta >> 15) & 1):
+                diversi += 1
+        self.assertGreater(diversi, 0, "leggere la quinta invece della sesta sarebbe "
+                                       "indistinguibile: la prova non dimostrerebbe nulla")
+
+    def test_la_derivazione_per_divisione_usa_il_quoziente(self):
+        for seme in (0x0000, 0x1234, 0x9DF6, 0xFFFF):
+            quinta = eventi.estrazioni(seme, 5)[4]
+            atteso = "femmina" if ((quinta // 3) & 1) else "maschio"
+            self.assertEqual(eventi.sesso_allenatore("RandD3", seme), atteso)
+
+    def test_la_derivazione_a_scorrimento_di_tre(self):
+        for seme in (0x0000, 0x1234, 0x9DF6, 0xFFFF):
+            quinta = eventi.estrazioni(seme, 5)[4]
+            atteso = "femmina" if ((quinta >> 3) & 1) else "maschio"
+            self.assertEqual(eventi.sesso_allenatore("RandS3", seme), atteso)
+
+    def test_la_derivazione_dal_ricevente_pretende_il_dato(self):
+        self.assertEqual(eventi.sesso_allenatore("Recipient", 0, "femmina"), "femmina")
+        with self.assertRaises(Exception):
+            eventi.sesso_allenatore("Recipient", 0)
+
+    def test_la_derivazione_non_implementabile_si_dichiara(self):
+        """Solleva invece di restituire un valore qualunque.
+
+        È la differenza fra un limite dichiarato e un difetto silenzioso: la fonte stessa non
+        verifica quella derivazione con la logica ordinaria, e scrivere un valore inventato
+        sarebbe peggio di non scriverlo.
+        """
+        with self.assertRaises(Exception):
+            eventi.sesso_allenatore("RandAlgo", 0x9DF6)
+
+    def test_una_derivazione_sconosciuta_solleva(self):
+        with self.assertRaises(Exception):
+            eventi.sesso_allenatore("NonEsiste", 0)
+
+    def test_tutte_le_derivazioni_dichiarate_sono_chiamabili(self):
+        for d in eventi.DERIVAZIONI_SESSO:
+            eventi.sesso_allenatore(d, 0x9DF6, "maschio")
+
+
+class ProveLucentezza(unittest.TestCase):
+
+    def test_la_soglia_e_otto(self):
+        """Cromatico se la somma esclusiva delle quattro parole è minore di otto."""
+        # Si costruisce il caso limite: identificativi nulli e le due metà del valore di
+        # personalità uguali fra loro danno somma esclusiva nulla, cioè cromatico.
+        self.assertTrue(eventi.e_cromatico(0x12341234, 0, 0))
+        self.assertFalse(eventi.e_cromatico(0x12345678, 0, 0))
+
+    def test_gli_identificativi_partecipano(self):
+        """Il medesimo valore di personalità cambia esito al variare dell'allenatore.
+
+        Serve a escludere una implementazione che ignorasse gli identificativi, la quale
+        passerebbe la prova precedente.
+        """
+        personalita = 0x12341234
+        self.assertTrue(eventi.e_cromatico(personalita, 0, 0))
+        self.assertFalse(eventi.e_cromatico(personalita, 0x9999, 0))
+
+    def test_il_vettore_del_decennale_non_e_cromatico(self):
+        personalita, _iv = eventi.personalita_e_iv(0x9DF6)
+        self.assertFalse(eventi.e_cromatico(personalita, 6227, 0))
+
+
+class ProveRicercaDelSeme(unittest.TestCase):
+    """La scelta del seme che soddisfa i vincoli dichiarati dall'evento.
+
+    Esiste perché scegliere un seme senza verificare è un difetto latente: su un evento a
+    lucentezza negata un seme sfortunato produce un esemplare cromatico, che nessun
+    verificatore accetta, e nulla lo segnalerebbe.
+    """
+
+    def test_il_seme_trovato_rispetta_la_lucentezza_negata(self):
+        seme = eventi.cerca_seme_per_evento(6227, 0, "Never")
+        self.assertIsNotNone(seme)
+        personalita, _iv = eventi.personalita_e_iv(seme)
+        self.assertFalse(eventi.e_cromatico(personalita, 6227, 0))
+
+    def test_il_seme_trovato_rispetta_la_lucentezza_imposta(self):
+        seme = eventi.cerca_seme_per_evento(6227, 0, "Always")
+        self.assertIsNotNone(seme)
+        personalita, _iv = eventi.personalita_e_iv(seme)
+        self.assertTrue(eventi.e_cromatico(personalita, 6227, 0))
+
+    def test_il_vincolo_sul_sesso_e_rispettato(self):
+        for atteso in ("maschio", "femmina"):
+            seme = eventi.cerca_seme_per_evento(6227, 0, "Never", "RandS7", atteso)
+            self.assertIsNotNone(seme, atteso)
+            self.assertEqual(eventi.sesso_allenatore("RandS7", seme), atteso)
+            personalita, _iv = eventi.personalita_e_iv(seme)
+            self.assertFalse(eventi.e_cromatico(personalita, 6227, 0))
+
+    def test_la_dicitura_casuale_non_vincola(self):
+        self.assertIsNotNone(eventi.cerca_seme_per_evento(6227, 0, "Random"))
+
+    def test_vincoli_incompatibili_restituiscono_nulla(self):
+        """Nessun seme trovato è informazione e non un guasto.
+
+        Si impone un insieme di semi di un solo elemento e un vincolo che quel seme non
+        soddisfa: la funzione deve dire di no invece di restituire quel seme.
+        """
+        personalita, _iv = eventi.personalita_e_iv(0x9DF6)
+        self.assertFalse(eventi.e_cromatico(personalita, 6227, 0))
+        self.assertIsNone(eventi.cerca_seme_per_evento(6227, 0, "Always", semi=[0x9DF6]))
+
+
+
 if __name__ == "__main__":
     unittest.main()

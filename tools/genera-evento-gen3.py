@@ -648,6 +648,270 @@ def elenca_wc3(pkhex):
     return 0
 
 
+def componi_da_wc3(ace, pkhex, indice, seme):
+    """Compone un esemplare da una voce della tabella del verificatore.
+
+    La differenza rispetto al percorso che parte dal corpus e' la fonte dei metadati, e con
+    essa il grado di fiducia: qui vengono dalla tabella che il verificatore stesso impiega per
+    giudicare, quindi ogni campo che essa dichiara e' per costruzione quello atteso. I campi
+    che la tabella non dichiara restano quelli che il giudizio del 2026-09-01 ha confermato
+    corretti, cioe' la sfera ordinaria e il luogo di incontro speciale, e il rapporto continua
+    a dichiararne la provenienza invece di presentarli come letti.
+    """
+    voci = voci_wc3(pkhex)
+    if not 0 <= indice < len(voci):
+        sys.exit("indice fuori intervallo: la tabella ha %d voci leggibili, da 0 a %d"
+                 % (len(voci), len(voci) - 1))
+    v = voci[indice]
+
+    mappa = nazionale_verso_interno(ace)
+    specie_id = mappa.get(v["nazionale"])
+    if specie_id is None:
+        sys.exit("nessun identificativo interno per il numero nazionale %d: la corrispondenza "
+                 "fra le due numerazioni non copre quella specie, e indovinarla scambierebbe "
+                 "una specie con un'altra" % v["nazionale"])
+    _per_nome, per_id = specie_per_nome(ace)
+
+    gruppo = gruppo_di_crescita(ace).get(specie_id)
+    if gruppo is None:
+        sys.exit("gruppo di crescita non noto per la specie interna %d" % specie_id)
+
+    codice_lingua = LINGUE_PKHEX.get(v.get("lingua", "English"), 2)
+    gioco_id = VERSIONI.get(v["versione"], 2)
+    livello = v["livello"]
+    ident = int(v.get("identificativo", 0))
+
+    personalita, iv = eventi.personalita_e_iv(seme)
+    sesso_ot = eventi.sesso_allenatore_rand_s7(seme)
+    derivazione = v.get("sesso_ot", "")
+
+    tabella = cm.Charmap.gen3()
+    nome_visibile = per_id.get(specie_id, "").upper()
+    try:
+        soprannome = tabella.encode(nome_visibile, length=gen3.NICKNAME_LENGTH)
+    except ValueError as e:
+        sys.exit("il nome della specie non si codifica: " + str(e))
+    try:
+        ot_bytes = tabella.encode(v.get("ot", ""), length=gen3.OT_NAME_LENGTH)
+    except ValueError as e:
+        sys.exit("il nome dell'allenatore non si codifica: " + str(e) + "\n"
+                 "Le voci giapponesi della tabella portano nomi che la tabella dei caratteri "
+                 "occidentale non contiene: per esse serve la codifica giapponese, che questo "
+                 "progetto non ha ancora estratto.")
+
+    mosse = [m for m in v.get("mosse", []) if m]
+    pp_base = punti_potenza(ace)
+    pp = [pp_base.get(m, 0) for m in mosse]
+
+    mon = gen3.Gen3Mon(
+        personality=personalita,
+        ot_id=ident & 0xFFFFFFFF,
+        nickname=soprannome,
+        language=codice_lingua,
+        flags=0x02,
+        ot_name=ot_bytes,
+        markings=0,
+        growth=gen3.Growth(species=specie_id, held_item=0,
+                           experience=esperienza(gruppo, livello),
+                           pp_bonuses=0, friendship=70),
+        attacks=gen3.Attacks(moves=(mosse + [0, 0, 0, 0])[:4], pp=(pp + [0, 0, 0, 0])[:4]),
+        evs=gen3.EvsCondition(),
+        misc=gen3.Misc(
+            pokerus=0,
+            met_location=255,
+            met_level=livello,
+            met_game=gioco_id,
+            pokeball=4,
+            ot_female=(sesso_ot == "femmina"),
+            ivs={n: iv[k] for n, k in zip(gen3.EV_ORDER, eventi.ORDINE_IV)},
+            is_egg=False,
+            ability_num=personalita & 0x01,
+            modern_fateful_encounter=bool(v.get("fatidico", False)),
+        ),
+    )
+
+    rapporto = [
+        ("voce della tabella", "indice " + str(indice) + ", " +
+         (v.get("commento") or ("numero nazionale " + str(v["nazionale"]))),
+         "tabella del verificatore, che e la fonte con cui esso stesso giudica"),
+        ("valore di personalita", "0x%08X" % personalita,
+         "derivato dal seme, formula verificata su 208 vettori su 209 e confermata dalla "
+         "ricostruzione inversa del verificatore"),
+        ("valori individuali", ", ".join("%s=%d" % (k, iv[k]) for k in eventi.ORDINE_IV),
+         "derivati dal seme, formula verificata su 209 vettori su 209"),
+        ("sesso dell'allenatore", sesso_ot,
+         ("derivato dal seme con la derivazione a scorrimento di sette, che la tabella "
+          "dichiara per questa voce") if derivazione == "RandS7" else
+         ("ATTENZIONE: la tabella dichiara per questa voce la derivazione " +
+          (derivazione or "nessuna") + ", che questo progetto non implementa. Il valore "
+          "scritto viene dalla derivazione a scorrimento di sette e sara contestato")),
+        ("allenatore e identificativo", v.get("ot", "?") + ", " + str(ident),
+         "tabella del verificatore"),
+        ("lingua", v.get("lingua", "?") + " (" + str(codice_lingua) + ")",
+         "tabella del verificatore, con la numerazione nota del byte a 0x12"),
+        ("specie", per_id.get(specie_id, "?") + " (interna " + str(specie_id) +
+         ", nazionale " + str(v["nazionale"]) + ")",
+         "numero nazionale dalla tabella, convertito nell'identificativo interno: la "
+         "conversione e necessaria perche le due fonti numerano le specie in modo diverso"),
+        ("livello", str(livello), "tabella del verificatore"),
+        ("gioco di origine", gen3.ORIGIN_GAMES.get(gioco_id, "?") + " (" + str(gioco_id) + ")",
+         "tabella del verificatore, che per questo campo e vincolante: la versione dichiarata "
+         "la e " + v["versione"]),
+        ("mosse", ", ".join(str(m) for m in mon.attacks.moves),
+         "tabella del verificatore"),
+        ("punti potenza", ", ".join(str(p) for p in mon.attacks.pp),
+         "valori di base delle mosse dal costruttore, senza alcun PP Up"),
+        ("incontro fatidico", str(mon.misc.modern_fateful_encounter),
+         "tabella del verificatore, che lo dichiara solo dove serve: e la fonte che ha "
+         "sostituito la correzione empirica registrata il 2026-09-01"),
+        ("metodo dichiarato", str(v.get("metodo")),
+         "tabella del verificatore. Il progetto implementa la famiglia BACD con seme a sedici "
+         "bit; su un metodo diverso il seme scelto non produce un esemplare conforme"),
+        ("lucentezza attesa", str(v.get("lucentezza", "non dichiarata")),
+         "tabella del verificatore; il seme va scelto in coerenza con essa"),
+        ("sfera e luogo di incontro", "4 e 255",
+         "non dichiarati dalla tabella: sono i valori che il giudizio del 2026-09-01 ha "
+         "confermato corretti per il tipo di incontro"),
+        ("EV, statistiche da gara, lucentezza estetica, nastri, Pokerus", "tutti a zero",
+         "scelta deliberata: un esemplare appena distribuito non ne ha"),
+    ]
+    return mon, rapporto
+
+
+# I metodi di generazione che questo programma sa produrre, cioe' quelli in cui il valore di
+# personalita' e i valori individuali discendono dalle prime quattro estrazioni di un seme a
+# sedici bit. Gli altri consumano estrazioni aggiuntive, restringono il seme a un intervallo
+# diverso, oppure impiegano un generatore differente: si dichiarano e non si tentano, perche'
+# un esemplare prodotto con il metodo sbagliato e' indistinguibile a occhio da uno giusto.
+METODI_PRODUCIBILI = ("BACD_R", "BACD_R_A", "BACD_A", "BACD")
+
+
+def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1):
+    """Produce un esemplare per ogni voce producibile, e riferisce sulle altre.
+
+    Il seme si cerca invece di chiederlo, e i vincoli verificati sono quelli che la tabella
+    dichiara, cioe' la lucentezza e, dove la derivazione e' implementata, il sesso
+    dell'allenatore. Il seme di partenza della ricerca e' un parametro perche' due voci del
+    medesimo evento con i medesimi vincoli otterrebbero altrimenti il medesimo seme, e due
+    esemplari distinti dello stesso evento con il medesimo valore di personalita' sarebbero
+    un duplicato riconoscibile.
+    """
+    voci = voci_wc3(pkhex)
+    mappa = nazionale_verso_interno(ace)
+    _per_nome, per_id = specie_per_nome(ace)
+    gruppi = gruppo_di_crescita(ace)
+    pp_base = punti_potenza(ace)
+    tabella = cm.Charmap.gen3()
+    os.makedirs(cartella, exist_ok=True)
+
+    fatti, saltate = 0, []
+    seme_corrente = primo_seme
+    for indice, v in enumerate(voci):
+        etichetta = (v.get("ot", "?") + " " + str(v.get("identificativo", 0)) + " " +
+                     (v.get("commento") or str(v["nazionale"])))
+        if solo_ot and v.get("ot") != solo_ot:
+            continue
+
+        metodo = v.get("metodo", "")
+        if metodo not in METODI_PRODUCIBILI:
+            saltate.append((indice, etichetta, "metodo " + str(metodo) +
+                            ": consuma estrazioni aggiuntive, restringe il seme in altro modo "
+                            "o impiega un generatore diverso"))
+            continue
+        derivazione = v.get("sesso_ot")
+        if derivazione and derivazione not in eventi.DERIVAZIONI_SESSO:
+            saltate.append((indice, etichetta, "derivazione del sesso " + derivazione +
+                            ": non implementata, e la fonte stessa non la verifica con la "
+                            "logica ordinaria"))
+            continue
+        if derivazione == "Recipient":
+            saltate.append((indice, etichetta, "il sesso dell'allenatore lo copia dal "
+                            "ricevente, quindi dipende dal salvataggio di destinazione e non "
+                            "dall'evento: va prodotto quando quel salvataggio esiste"))
+            continue
+        specie_id = mappa.get(v["nazionale"])
+        if specie_id is None:
+            saltate.append((indice, etichetta, "nessun identificativo interno per il numero "
+                            "nazionale " + str(v["nazionale"])))
+            continue
+        gruppo = gruppi.get(specie_id)
+        if gruppo is None:
+            saltate.append((indice, etichetta, "gruppo di crescita non noto"))
+            continue
+        try:
+            ot_bytes = tabella.encode(v.get("ot", ""), length=gen3.OT_NAME_LENGTH)
+            soprannome = tabella.encode(per_id.get(specie_id, "").upper(),
+                                        length=gen3.NICKNAME_LENGTH)
+        except ValueError as e:
+            saltate.append((indice, etichetta, "codifica dei caratteri: " + str(e)))
+            continue
+
+        ident = int(v.get("identificativo", 0))
+        semi = list(range(seme_corrente, 0x10000)) + list(range(0, seme_corrente))
+        seme = eventi.cerca_seme_per_evento(
+            ident & 0xFFFF, (ident >> 16) & 0xFFFF, v.get("lucentezza"),
+            derivazione if derivazione in ("RandS7", "RandD3", "RandS3", "RandSG15") else None,
+            None, semi=semi)
+        if seme is None:
+            saltate.append((indice, etichetta, "nessun seme soddisfa i vincoli dichiarati"))
+            continue
+        seme_corrente = (seme + 1) & 0xFFFF or 1
+
+        personalita, iv = eventi.personalita_e_iv(seme)
+        try:
+            sesso_ot = eventi.sesso_allenatore(derivazione or "Only0", seme)
+        except gb_errore():
+            saltate.append((indice, etichetta, "derivazione del sesso non calcolabile"))
+            continue
+        mosse = [m for m in v.get("mosse", []) if m]
+        pp = [pp_base.get(m, 0) for m in mosse]
+        livello = v["livello"]
+
+        mon = gen3.Gen3Mon(
+            personality=personalita,
+            ot_id=ident & 0xFFFFFFFF,
+            nickname=soprannome,
+            language=LINGUE_PKHEX.get(v.get("lingua", "English"), 2),
+            flags=0x02,
+            ot_name=ot_bytes,
+            growth=gen3.Growth(species=specie_id, experience=esperienza(gruppo, livello),
+                               friendship=70),
+            attacks=gen3.Attacks(moves=(mosse + [0, 0, 0, 0])[:4],
+                                 pp=(pp + [0, 0, 0, 0])[:4]),
+            evs=gen3.EvsCondition(),
+            misc=gen3.Misc(met_location=255, met_level=livello,
+                           met_game=VERSIONI.get(v["versione"], 2), pokeball=4,
+                           ot_female=(sesso_ot == "femmina"),
+                           ivs={n: iv[k] for n, k in zip(gen3.EV_ORDER, eventi.ORDINE_IV)},
+                           ability_num=personalita & 0x01,
+                           modern_fateful_encounter=bool(v.get("fatidico", False))),
+        )
+        nome = "%03d-%s-%s" % (indice, re.sub(r"[^A-Za-z0-9]", "", v.get("ot", "x")),
+                              re.sub(r"[^A-Za-z0-9]", "", per_id.get(specie_id, "x")))
+        scrivi(mon, os.path.join(cartella, nome))
+        fatti += 1
+        print("  %-44s seme 0x%04X  PID 0x%08X" % (etichetta[:44], seme, personalita))
+
+    print("")
+    print("prodotti " + str(fatti) + ", non producibili " + str(len(saltate)))
+    if saltate:
+        print("")
+        print("=== Voci non prodotte, con la ragione")
+        for indice, etichetta, ragione in saltate:
+            print("  [%3d] %-40s %s" % (indice, etichetta[:40], ragione))
+    print("")
+    print("I file stanno in " + cartella + ", che non entra in git. Il passo seguente non e")
+    print("di questo programma: si aprono con il verificatore di conformita, nel contesto della")
+    print("terza generazione, e si legge che cosa esso obietti.")
+    return 0
+
+
+def gb_errore():
+    """L'eccezione che il pacchetto solleva, presa senza importare il modulo per nome."""
+    from pokebridge import gb
+    return gb.FormatError
+
+
 def scrivi(mon, base):
     cartella = os.path.dirname(base)
     if cartella:
@@ -726,6 +990,10 @@ def main():
     ap.add_argument("--pkhex", help="clone di PKHeX, per leggere la tabella dei "
                                     "centosettantasette eventi invece del corpus dei diciassette")
     ap.add_argument("--indice", type=int, help="indice della voce nella tabella del verificatore")
+    ap.add_argument("--lotto", metavar="CARTELLA",
+                    help="produce tutti gli esemplari producibili nella cartella indicata")
+    ap.add_argument("--solo-ot", dest="solo_ot",
+                    help="limita il lotto alle voci con questo nome di allenatore")
     ap.add_argument("--evento", help="sigla dell'evento, per esempio 10ANNI")
     ap.add_argument("--specie", help="nome della specie")
     ap.add_argument("--seme", help="seme di origine, in esadecimale o decimale")
@@ -760,11 +1028,21 @@ def main():
         ap.error("serve --ace con la cartella del sorgente del costruttore")
     if a.elenco:
         return elenca(a.ace)
-    if not (a.evento and a.specie and a.seme):
-        ap.error("servono --evento, --specie e --seme; oppure --elenco")
-
-    seme = int(a.seme, 16) if a.seme.lower().startswith("0x") else int(a.seme)
-    mon, rapporto = componi(a.ace, a.evento, a.specie, seme, a.lingua, a.gioco)
+    if a.lotto:
+        if not (a.ace and a.pkhex):
+            ap.error("--lotto richiede --ace e --pkhex")
+        return lotto(a.ace, a.pkhex, a.lotto, a.solo_ot)
+    if a.indice is not None:
+        if not (a.pkhex and a.seme):
+            ap.error("--indice richiede --pkhex e --seme")
+        seme = int(a.seme, 16) if a.seme.lower().startswith("0x") else int(a.seme)
+        mon, rapporto = componi_da_wc3(a.ace, a.pkhex, a.indice, seme)
+    else:
+        if not (a.evento and a.specie and a.seme):
+            ap.error("servono --evento, --specie e --seme; oppure --indice con --pkhex; "
+                     "oppure --elenco")
+        seme = int(a.seme, 16) if a.seme.lower().startswith("0x") else int(a.seme)
+        mon, rapporto = componi(a.ace, a.evento, a.specie, seme, a.lingua, a.gioco)
 
     print("")
     print("=== Esemplare composto, campo per campo con la provenienza")
