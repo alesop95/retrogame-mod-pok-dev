@@ -7,6 +7,8 @@ covers-paths:
   - gba-save-extraction-smeraldo/
   - pokemon-gen12-gen3-bridge-original-hardware/
   - recreate-pokemon-distributions-events/
+  - poke-ace/
+  - generation-from-switch/
 last-verified-commit: 7696c46
 ---
 
