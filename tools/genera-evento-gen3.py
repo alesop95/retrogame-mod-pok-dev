@@ -540,6 +540,114 @@ def derivazione(seme, tid, sid, soglia_sesso=None):
     return 0
 
 
+
+# ---------------------------------------------------------------------------------------
+# La tabella del verificatore, che elenca tutti gli eventi e non i soli conservati
+# ---------------------------------------------------------------------------------------
+
+WC3 = "PKHeX.Core/Legality/Encounters/Data/Gen3/EncountersWC3.cs"
+
+# Le versioni che la tabella dichiara, verso il codice del campo di provenienza. La voce
+# doppia RS non e' decidibile dalla tabella e si risolve sulla prima delle due, dichiarandolo.
+VERSIONI = {"R": 2, "S": 1, "E": 3, "FR": 4, "LG": 5, "RS": 2}
+
+# I nomi di lingua dell'enumerazione del verificatore verso i codici del byte a 0x12.
+LINGUE_PKHEX = {"Japanese": 1, "English": 2, "French": 3, "Italian": 4, "German": 5,
+                "Spanish": 7}
+
+# Il costruttore della tabella ha tre forme, con tre, quattro o cinque argomenti: le due
+# forme lunghe aggiungono un booleano e un luogo di incontro. Accettarle tutte e' necessario,
+# perche' la forma a tre argomenti copre centoventidue voci su centosettantasette e le
+# cinquantacinque restanti sono precisamente quelle degli insiemi giapponese e delle uova,
+# cioe' meta' del materiale che il progetto non ha altrove.
+VOCE_WC3 = re.compile(
+    r"new\(\s*(\d+)\s*,\s*(\d+)\s*,\s*([A-Za-z]+)\s*(?:,[^){]*)?\)\s*\{(.*?)\}"
+    r"\s*,?\s*(?://\s*(.*))?$", re.M)
+
+
+def voci_wc3(pkhex):
+    """Le voci della tabella, come dizionari con i soli campi che essa dichiara.
+
+    Si leggono i campi presenti e non si inventano i mancanti: un campo assente dalla voce
+    significa che la tabella non lo vincola, ed e' informazione, non una lacuna da colmare.
+    """
+    p = os.path.join(pkhex, WC3.replace("/", os.sep))
+    if not os.path.exists(p):
+        sys.exit("manca " + WC3 + " sotto " + pkhex + ".\n"
+                 "Si ottiene con un clone superficiale di PKHeX, come per il catalogo: il "
+                 "clone non e una dipendenza di questo repository.")
+    testo = io.open(p, encoding="utf-8", errors="ignore").read()
+    fuori = []
+    for m in VOCE_WC3.finditer(testo):
+        specie, livello, versione, corpo, commento = m.groups()
+        voce = {
+            "nazionale": int(specie),
+            "livello": int(livello),
+            "versione": versione,
+            "commento": (commento or "").strip(),
+        }
+        mosse = re.search(r"Moves = new\(([\d,\s]+)\)", corpo)
+        if mosse:
+            voce["mosse"] = [int(x) for x in re.findall(r"\d+", mosse.group(1))]
+        for chiave, schema, conversione in (
+                ("metodo", r"Method = ([A-Za-z0-9_]+)", str),
+                ("ot", r'OriginalTrainerName = "([^"]*)"', str),
+                ("sesso_ot", r"OriginalTrainerGender = ([A-Za-z0-9_]+)", str),
+                ("identificativo", r"ID32 = (\d+)", int),
+                ("lucentezza", r"Shiny = ([A-Za-z]+)", str),
+                ("lingua", r"Language = \(int\)([A-Za-z]+)", str),
+                ("fatidico", r"FatefulEncounter = (true|false)", lambda v: v == "true"),
+        ):
+            trovato = re.search(schema, corpo)
+            if trovato:
+                voce[chiave] = conversione(trovato.group(1))
+        fuori.append(voce)
+    return fuori
+
+
+def nazionale_verso_interno(ace):
+    """La corrispondenza fra numero nazionale e identificativo interno di terza generazione.
+
+    Serve perche' le due fonti numerano le specie in modo diverso, e la differenza non e'
+    visibile su Charizard ma lo e' su Latias, che e' 380 per la tabella e 407 per il
+    costruttore. Confondere le due numerazioni scambia una specie con un'altra, che e' il
+    difetto piu' grave possibile su questo dato.
+    """
+    per_nome, per_id = specie_per_nome(ace)
+    testo = leggi(ace, "src/data/nationalDex.gen3.js")
+    fuori = {}
+    for numero, nome in re.findall(r"\[\s*(\d+)\s*,\s*\"([^\"]+)\"\s*\]", testo):
+        chiave = re.sub(r"[^a-z0-9]", "", nome.lower())
+        for candidato, ident in per_nome.items():
+            if re.sub(r"[^a-z0-9]", "", candidato) == chiave:
+                fuori[int(numero)] = ident
+                break
+    return fuori
+
+
+def elenca_wc3(pkhex):
+    voci = voci_wc3(pkhex)
+    print("")
+    print("=== Tabella del verificatore: " + str(len(voci)) + " voci")
+    per_evento = {}
+    for i, v in enumerate(voci):
+        chiave = (v.get("ot", "?"), v.get("identificativo", 0))
+        per_evento.setdefault(chiave, []).append((i, v))
+    print("    " + str(len(per_evento)) + " combinazioni di allenatore e identificativo")
+    for (ot, ident), gruppo in sorted(per_evento.items(), key=lambda x: x[0][1]):
+        specie = ", ".join(str(v.get("commento") or v["nazionale"]) for _i, v in gruppo[:8])
+        print("")
+        print("  " + ot + "  identificativo " + str(ident) + "  (" + str(len(gruppo)) +
+              " voci, indici " + str(gruppo[0][0]) + "-" + str(gruppo[-1][0]) + ")")
+        primo = gruppo[0][1]
+        print("    livello " + str(primo["livello"]) + ", versione " + primo["versione"] +
+              ", metodo " + str(primo.get("metodo")) + ", lucentezza " +
+              str(primo.get("lucentezza")) + ", sesso OT " + str(primo.get("sesso_ot")) +
+              ", fatidico " + str(primo.get("fatidico", False)))
+        print("    " + specie)
+    return 0
+
+
 def scrivi(mon, base):
     cartella = os.path.dirname(base)
     if cartella:
@@ -615,6 +723,9 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--ace", help="cartella con il sorgente del costruttore")
     ap.add_argument("--elenco", action="store_true", help="elenca gli eventi disponibili")
+    ap.add_argument("--pkhex", help="clone di PKHeX, per leggere la tabella dei "
+                                    "centosettantasette eventi invece del corpus dei diciassette")
+    ap.add_argument("--indice", type=int, help="indice della voce nella tabella del verificatore")
     ap.add_argument("--evento", help="sigla dell'evento, per esempio 10ANNI")
     ap.add_argument("--specie", help="nome della specie")
     ap.add_argument("--seme", help="seme di origine, in esadecimale o decimale")
@@ -632,6 +743,8 @@ def main():
 
     if a.self_test:
         return self_test()
+    if a.elenco and a.pkhex:
+        return elenca_wc3(a.pkhex)
     if a.derivazione:
         if not a.seme:
             ap.error("--derivazione richiede --seme")
