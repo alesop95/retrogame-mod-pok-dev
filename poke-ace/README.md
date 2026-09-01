@@ -36,6 +36,7 @@ Un punto è specifico di questo track e va dichiarato qui perché è la ragione 
 |---|---|
 | lo studio, gli strumenti e la risposta sulla legittimità | `STUDIO-01-ace-e-legalita-in-home.md`, in questa cartella |
 | i marchi di origine, e che cosa conta come collezione completa | `STUDIO-02-marchi-di-origine-e-che-cosa-conta-una-collezione.md`, in questa cartella |
+| la risposta della comunità, le tre severità e il tracciatore di Home | `STUDIO-03-la-risposta-della-comunita-e-le-due-severita.md`, in questa cartella |
 | come si arriva a far eseguire codice a un gioco del 2004 | `docs/09-esecuzione-codice.md` |
 | la struttura del dato che si scrive, byte per byte | `pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md`, sezioni 5 e 6 |
 | l'altra via verso gli stessi esemplari, cioè la ricreazione della distribuzione | `recreate-pokemon-distributions-events/` |

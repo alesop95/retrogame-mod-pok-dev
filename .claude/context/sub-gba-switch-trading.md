@@ -77,3 +77,9 @@ Le `prod.keys` della console sono materiale di chiave proprietario, si estraggon
 ## Evidenze e materiale locale
 
 L'handoff `HANDOFF_frlg-ldn-trade.md` sta nella cartella del sottoprogetto ed è l'unico materiale esistente. Non ci sono media. Il codice dei due repository di riferimento non è ancora presente in locale.
+
+## Aggiunta del 2026-09-01: il track è riconosciuto dall'esterno, e siamo più aggiornati della fonte
+
+Nel server della comunità dell'esecuzione di codice, l'autore degli strumenti indica il proof of concept su cui questo track si appoggia come la via alternativa alla propria per portare un esemplare di terza generazione dentro la riedizione per console moderna, osservando che per questa via non serve alcun codice e che il suo costruttore può produrre il file di struttura da trasferire. È una conferma esterna che il track affronta un problema reale e non una curiosità.
+
+Sulla medesima descrizione il progetto è però più aggiornato della fonte, e vale registrarlo perché è il tipo di scarto che si perde: la fonte elenca fra i requisiti Linux, mentre ADR-015 ha stabilito che quel requisito è decaduto, perché esiste un demone che porta lo stack senza fili di Linux su Windows. Una fonte di quinto livello resta ferma al momento in cui è stata scritta, e su un dominio che si muove questo è il modo normale in cui invecchia.

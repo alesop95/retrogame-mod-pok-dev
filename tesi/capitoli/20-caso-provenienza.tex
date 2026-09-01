@@ -4,6 +4,7 @@
 % copre: poke-ace/README.md
 % copre: poke-ace/STUDIO-01-ace-e-legalita-in-home.md
 % copre: poke-ace/STUDIO-02-marchi-di-origine-e-che-cosa-conta-una-collezione.md
+% copre: poke-ace/STUDIO-03-la-risposta-della-comunita-e-le-due-severita.md
 % copre: generation-from-switch/README.md
 % copre: generation-from-switch/STUDIO-01-scambio-automatico-e-provenienza.md
 % verificato-al-commit: a427431
@@ -115,6 +116,42 @@ cartuccia posseduta $\rightarrow$ lettura del salvataggio $\rightarrow$ estrazio
 Il pregio di quella via rispetto alla scrittura diretta dei byte è che il dato non è generato ma autentico: proviene da una cartuccia posseduta, con la sua storia vera, e il suo ingresso nel titolo su console avviene per scambio, cioè per il meccanismo previsto. Resta la medesima incertezza della sezione seconda su ciò che il servizio registrerà come provenienza, poiché anche qui l'ingresso avviene dalla porta nuova; ma la differenza fra un dato autentico consegnato per una via non ufficiale e un dato costruito è la stessa che questo lavoro documenta fra coerenza per costruzione e coerenza rispetto ai controlli noti.
 
 Va dichiarato ciò che la rende non ancora praticabile, perché sono tre condizioni e nessuna è piccola: il lettore di cartucce non è ancora disponibile, il codice del capitolo~\ref{cap:ldn-trading} non è iniziato e la sua praticabilità dipende da una misura sull'adattatore senza fili che non è stata compiuta, e il collegamento con il deposito non esiste prima di ottobre. La via è dunque un'ipotesi di lavoro con tre precondizioni, non un piano.
+
+\section{Le tre severità, e perché la domanda era mal posta}
+
+La sezione sulla domanda che decide, all'inizio di questo capitolo, presuppone un verificatore soltanto e chiede se un esemplare costruito lo superi. Quella formulazione va corretta, e la correzione discende da una fonte di quinto livello interrogata dopo la stesura, cioè il complesso delle testimonianze della comunità che impiega la tecnica \cite{mankeymite-server}. I verificatori sono tre, con severità decrescente, e la domanda utile non è se un esemplare passi ma quale dei tre lo esamini.
+
+Il più severo è il verificatore di conformità della comunità. Esige la coerenza fra il valore di personalità, l'identificativo dell'allenatore e quello segreto, e rileva un esemplare a cui la natura sia stata modificata dopo la generazione, poiché la modifica della natura altera il valore di personalità e rompe la corrispondenza con il seme e con il fotogramma dell'incontro.
+
+Il secondo è il deposito in rete, la cui severità è descritta dalle fonti con una formula che vale riportare: rileva gli errori clamorosi, per esempio un luogo di incontro impossibile, e non l'incoerenza fine che il primo trova. Ne segue la conseguenza che appariva paradossale e non lo è: un esemplare può essere legale per il deposito e non legittimo per il verificatore della comunità, giacché le due domande sono diverse.
+
+Il terzo, e in senso pratico il più severo, non è un programma ma il gioco competitivo ufficiale, dove un esemplare alterato comporta la squalifica.
+
+La distinzione che ne discende è quella fra \term{legale} e \term{legittimo}, e non è una sfumatura terminologica: essa determina quale delle due proprietà si stia perseguendo, e un obiettivo di collezione che non la dichiari non è verificabile. Il presente lavoro adotta la seconda come propria, con la conseguenza che la conformità al deposito non è un criterio sufficiente.
+
+\section{Il tracciatore, e la differenza fra un cancello e un'esposizione}
+
+Alla proprietà osservabile descritta nella sezione sui marchi di origine si aggiunge un secondo meccanismo, che le fonti nominano separatamente e che ha conseguenze di natura diversa: a ogni esemplare che entra nel deposito viene assegnato un identificativo univoco di tracciamento. La conseguenza riferita è che un esemplare duplicato prima dell'ingresso non è distinguibile, mentre uno che entri, riceva il tracciatore e venga duplicato dopo risulta segnalato \cite{mankeymite-server}.
+
+La rilevanza per un obiettivo di lungo periodo è maggiore di quella dei marchi, e conviene enunciarla nella forma più netta. Un marchio è un dato statico che dichiara la porta di ingresso; un tracciatore rende ogni esemplare depositato identificabile in modo persistente, il che significa che l'esame non avviene una volta sola al momento dell'ingresso ma resta possibile indefinitamente. Le fonti aggiungono, indipendentemente e a mesi di distanza, la clausola che completa il quadro: la valutazione corrente è che gli esemplari in questione siano legali per il deposito, e questo potrebbe cambiare in futuro.
+
+Ne segue la formulazione corretta del rischio, che differisce da quella della sezione precedente e la sostituisce. Il rischio non è un cancello da superare una volta, ma un'esposizione permanente: ciò che oggi è accettato resta identificabile domani, e la regola con cui verrà esaminato domani non è quella con cui è stato accettato oggi. Per un obiettivo dichiarato come impresa di lungo periodo questa è la differenza fra un costo una volta pagato e un debito che resta aperto.
+
+\section{La via composta, non più un'inferenza}
+
+La sezione dedicata alla via composta la presentava come inferenza di questo lavoro non sostenuta da alcuna fonte, e la marca va rimossa. La medesima via è descritta dall'autore degli strumenti della comunità, in una forma più semplice di quella qui ipotizzata: per la terza generazione si ricostruisce una copia esatta dell'esemplare all'interno della riedizione per console moderna mediante l'esecuzione di codice, dopo averne letto il valore di personalità e gli altri dati dalla cartuccia, e da là si trasferisce al deposito \cite{mankeymite-server}.
+
+Le due semplificazioni rispetto alla forma ipotizzata sono sostanziali. Non occorre il protocollo di rete locale, poiché l'esemplare non viene trasferito nella riedizione ma ricostruito dentro di essa; e il presupposto non è possedere un canale di comunicazione ma possedere i dati, cioè avere letto la cartuccia originale. La via del protocollo di rete resta disponibile come alternativa, ed è nominata dalla medesima fonte insieme al progetto che la implementa, con l'osservazione che per quella via non serve alcun codice.
+
+Che tale via sia praticabile dipende da un fatto verificato in questa medesima fonte: l'esecuzione di codice funziona sulla riedizione per console moderna. All'annuncio della riedizione la comunità dubitava che vi funzionasse; nei mesi successivi sono comparse guide e testimonianze d'uso. Due particolari operativi vanno registrati perché non sono deducibili. Il primo è che i codici differiscono da quelli per cartuccia, poiché la riedizione applica ai nomi delle scatole un filtro sulle parole vietate che sposta le sequenze digitabili. Il secondo è che quel filtro non è noto con esattezza nemmeno all'autore degli strumenti, il quale dichiara che l'elenco impiegato dal proprio costruttore è una ricostruzione empirica accumulata sui casi incontrati e non corrisponde a quello del titolare: è una ammissione che conferma per via indipendente ciò che il confronto sul codice di quello strumento aveva mostrato a proposito della sua tabella di codifica dei caratteri.
+
+\section{La dimensione del problema, e la necessità di una selezione}
+
+Un dato pratico chiude il capitolo e riguarda l'obiettivo anziché la tecnica. L'autore degli strumenti dichiara in quattrocento il numero degli esemplari da distribuzione di cui tenere traccia, e aggiunge il commento che vale come pianificazione: conviene scegliersene alcuni, poiché altrimenti non si termina prima della chiusura del servizio di deposito \cite{mankeymite-server}.
+
+Quel numero è una dichiarazione di quinto livello e non è stato verificato; la conseguenza che ne discende non dipende però dalla sua esattezza. L'insieme completo delle distribuzioni non è raggiungibile nel tempo residuo, quindi una selezione è necessaria, e l'unica scelta effettiva riguarda se compierla deliberatamente o subirla quando il tempo finisce. È l'elemento che mancava alla decisione sul profilo di collezione discussa nella sezione sui marchi di origine, e la rende più concreta: non si tratta soltanto di dichiarare quali dimensioni contare, ma di ordinare per priorità all'interno di una dimensione che non si può esaurire.
+
+Va infine registrata un'attesa della comunità, etichettata come tale perché non è stata verificata su fonte ufficiale: si attende una riedizione per console moderna dei titoli di Hoenn, che renderebbe legittimi per quella via anche gli esemplari di quella regione. Il presente lavoro non la adotta come pianificazione e la registra come dato sul contesto. Nella medesima fonte compare tuttavia un'avvertenza che conviene raccogliere, poiché proviene da chi conosce gli strumenti meglio di chiunque: la domanda se convenga astenersi dall'impiegare il codice che completa l'inventario nazionale finché quella riedizione non esista, per possibili conseguenze sul deposito. È la medesima prudenza che questo lavoro ha adottato riguardo alla porta di ottobre, formulata da chi ha più ragioni di volere il contrario.
 
 \section{La strategia, e i punti che restano aperti}
 

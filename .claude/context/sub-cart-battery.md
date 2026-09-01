@@ -5,30 +5,34 @@ generated-date: 2026-09-01
 covers-paths:
   - cart-battery-restoration/
 last-verified-commit: a427431
-stato: runbook scritto e verificato sulle fonti; bloccato sull'arrivo del lettore e su due misure
+stato: runbook scritto; diagnosi conclusa il 2026-09-01, i due salvataggi sono perduti e l'operazione diventa di rischio basso
 ---
 
 # Sottoprogetto: conservazione del supporto e sostituzione della batteria
 
 Lo stato canonico di questo track è questo file, insieme alla riga che lo riguarda in `memory/index.md`.
 
-Obiettivo: sostituire la batteria tampone delle cartucce di prima e seconda generazione, cominciando da Rosso e Argento, conservando il salvataggio che vi si trova. È l'unico track del progetto la cui scadenza non è annunciata da nessuno: è la carica residua di una pila saldata nel 1998, e quando finisce il salvataggio non si degrada ma cessa di esistere.
+Obiettivo: sostituire la batteria tampone delle cartucce di prima e seconda generazione, conservando il salvataggio dove ce n'è ancora uno. È l'unico track del progetto la cui scadenza non è annunciata da nessuno: è la carica residua di una pila saldata negli anni Novanta, e quando finisce il salvataggio non si degrada ma cessa di esistere. Su Rosso e Argento, che erano il punto di partenza, quella scadenza è già passata.
 
 ## Dove siamo
 
-Il track nasce il 2026-09-01. Il runbook è in `cart-battery-restoration/STUDIO-01-batteria-e-ritenzione.md` ed è completo sulle nove sezioni che servono: come muore un salvataggio, la differenza fra le due generazioni, il segnale d'allarme della seconda, le due prove di diagnosi, il trabocchetto di tensione, l'estrazione, la sostituzione, il ripristino con il seguito sull'orologio, e ciò che resta aperto.
+Il track nasce il 2026-09-01. Il runbook è in `cart-battery-restoration/STUDIO-01-batteria-e-ritenzione.md` ed è completo in dieci sezioni: come muore un salvataggio, la differenza fra le due generazioni, il segnale d'allarme della seconda, le due prove di diagnosi, il trabocchetto di tensione, l'estrazione, la sostituzione, il ripristino con il seguito sull'orologio, ciò che resta aperto, e la diagnosi su Rosso e Argento che chiude una parte del track lo stesso giorno in cui è nato.
 
-La risposta alla domanda che ha aperto il track è no, e non è negoziabile: un salvataggio perduto per esaurimento della pila non si recupera, perché la memoria è volatile e i bit non sono danneggiati ma assenti. Tutto ciò che si può fare va fatto prima, e la finestra si chiude senza preavviso.
+La risposta alla domanda che ha aperto il track è no, e non è negoziabile: un salvataggio perduto per esaurimento della pila non si recupera, perché la memoria è volatile e i bit non sono danneggiati ma assenti. Tutto ciò che si può fare va fatto prima, e la finestra si chiude senza preavviso. Su queste due cartucce si è chiusa, e la risposta è passata da avvertimento a constatazione.
 
 Il risultato più importante della giornata è però un altro, e riguarda il rischio invece della procedura. Il lettore impiegato da questo progetto, nella revisione in cui la tensione è controllata dal software, parte in modalità a tre virgola tre volt, e una testimonianza del canale del produttore riferisce che inserire una cartuccia di seconda generazione in quella condizione cancella il salvataggio, anche senza premere il pulsante di connessione. È un modo di perdere il dato prima di avere fatto alcun backup, il rimedio è una sequenza documentata, e va conosciuto prima di collegare qualunque cosa.
 
+## La diagnosi, arrivata il 2026-09-01
+
+L'utente riferisce che entrambe le cartucce, all'accensione, offrono soltanto la voce per una partita nuova e non conservano il salvataggio che si crea. È la firma completa della pila esaurita: l'assenza della voce di continuazione dice che il gioco non trova un salvataggio valido, e la mancata sopravvivenza di un salvataggio nuovo è la prova di ritenzione già eseguita con esito negativo. I due salvataggi non esistono più e non sono recuperabili.
+
+La diagnosi chiude due delle domande aperte del track e sposta la priorità. Su queste cartucce non c'è nulla da estrarre, quindi l'ordine che imponeva l'estrazione prima della saldatura non si applica e l'operazione passa da rischio alto a rischio basso: resta il solo rischio meccanico della saldatura, che non è irreversibile sul dato perché il dato non c'è. Per la cartuccia di seconda generazione il seguito sull'orologio si riduce al primo dei tre passi, perché una partita nuova fissa da sé lo scostamento dell'ora.
+
 ## Prossimo passo concreto
 
-Due misure che non richiedono il lettore e che vanno fatte nell'ordine. La prima è accendere la console con la cartuccia di seconda generazione e guardare se il salvataggio esista ancora e se compaia il messaggio sull'esaurimento della batteria: è l'unica operazione che non consuma nulla e decide l'urgenza di tutto il resto. La seconda è aprire le due cartucce e leggere il valore stampato sulla pila, che va letto e non dedotto da una guida, perché le revisioni di scheda differiscono.
+Applicare la prova di ritenzione della sezione 4 del runbook a ogni altra cartuccia di prima o seconda generazione che esista, se ne esistono, perché quelle sono le sole che abbiano ancora una finestra e non si sa quanto sia larga. Su una cartuccia il cui salvataggio interessi, la prima operazione non è la prova ma l'estrazione, e attende il lettore.
 
-Se la seconda prova si fa con un multimetro, si misura anche la tensione senza rimuovere la pila: tre volt e qualcosa è sana, poco più di due è alla fine della finestra, sotto due è fuori specifica.
-
-Poi si attende il lettore, perché l'estrazione precede la saldatura e non viceversa.
+Su Rosso e Argento resta la sostituzione, che non ha più fretta e può essere fatta quando conviene. Prima conviene leggere il valore stampato sulla pila dentro ciascuna, che va letto e non dedotto da una guida.
 
 ## Decisioni aperte
 
