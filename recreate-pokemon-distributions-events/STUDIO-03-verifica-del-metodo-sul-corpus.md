@@ -511,3 +511,32 @@ Il quarto campo è il nome dell'allenatore, e su esso il progetto ha sbagliato u
 Il lotto passa da centoventidue esemplari a centosettantadue su centosettantatre. La sola voce che resta è quella del canale televisivo, che impiega un generatore pseudocasuale differente e che il progetto ha sempre dichiarato fuori portata.
 
 La misura di copertura è stata riallineata, perché escludeva ancora le uova dal conto delle voci producibili e una esclusione che sopravvive alla propria causa falsa la copertura per difetto, dichiarando provate dimensioni che cinquanta voci non hanno esercitato. Con le uova dentro, le dimensioni strutturali passano da ventinove a trentasei coppie da coprire, il minimo assoluto da quattordici a sedici, e gli esemplari ancora da sottoporre da otto a dieci.
+## 24. La verifica di massa eseguita, e il sesto difetto
+
+Il 2026-09-02 l'utente ha caricato tutti i centosettantadue esemplari nelle scatole di un salvataggio vuoto di terza generazione e ha fotografato le sei scatole con il puntatore fuori dalla griglia, come la sezione 21 prescrive. La lettura ha dato un quadro netto e un difetto.
+
+Le prime quattro scatole, cioè i centoventidue esemplari che non sono uova, non portano alcun contrassegno di non conformità. Il difetto dei fiocchi è chiuso, e con esso l'ultimo rilievo noto su quella parte del lotto: centoventidue esemplari su centoventidue non contestati in una lettura di massa.
+
+Le due scatole delle uova portano trentacinque contrassegni su cinquanta, e la distribuzione dei contrassegni è essa stessa l'indizio che ha risolto il caso: le quindici uova non contestate sono tutte quelle di una medesima distribuzione, e le trentacinque contestate tutte le altre. Un difetto che colpisca un gruppo intero e ne risparmi un altro intero non è casuale, e la differenza fra i due gruppi va cercata in ciò che la tabella dichiara di essi e non nel codice che li produce.
+
+### Il difetto: un argomento che manca non vale il suo valore predefinito ovvio
+
+Il rilievo del verificatore era che il livello di incontro fosse invalido, e la sua conseguenza visibile era più istruttiva del rilievo stesso: non riconoscendo il dono, il verificatore aveva ricondotto quelle uova a un incontro generico, dichiarando come luogo di incontro un percorso della regione dove gli allevatori consegnano le uova ordinarie, e marcando in rosso una mossa che per un uovo ordinario è illegittima. Un solo campo sbagliato aveva spostato l'intera attribuzione.
+
+La causa sta nel costruttore della tabella, che ha due forme. Quella a tre argomenti pone il livello di incontro uguale al livello. Quella a cinque lo prende dal quinto argomento, e lo lascia a zero quando quell'argomento manca. Il progetto usava il livello per tutte le voci, che è corretto per le forme a tre argomenti e sbagliato per le altre.
+
+Il conto delle voci conferma la diagnosi prima di ogni prova: nel catalogo quindici uova portano il quinto argomento con il valore cinque, e trentacinque non lo portano e valgono dunque zero. Sono esattamente i due gruppi che le schermate distinguono.
+
+### La lezione, che è sui valori predefiniti
+
+L'errore non era nel leggere il dato ma nel supporre quale fosse il suo valore in assenza. Un argomento assente ha un valore predefinito, e quel valore è scritto nella firma del costruttore e non deducibile dal contesto: qui il valore ovvio sarebbe stato il livello, poiché un uovo si riceve a livello cinque, mentre il valore vero è zero, poiché un uovo non è stato incontrato da nessuna parte finché non schiude.
+
+Il difetto era invisibile per la ragione consueta di questa serie: le quindici voci che il quinto argomento porta funzionavano, quindi il campo sembrava trattato bene. Ed è il sesto difetto trovato dal giudizio esterno, dopo il contrassegno dell'incontro fatidico, il bit dell'abilità, il vincolo del sesso derivato, il troncamento del nome e i fiocchi. Cinque dei sei riguardavano campi che nessuna descrizione del formato segnala come problematici, e tutti e sei sono stati trovati da un giudizio e nessuno da una prova interna.
+
+## 25. Spinda, chiuso da due vie invece che da una
+
+Il controllo su Spinda, eseguito con la base dati degli incontri del verificatore, ha dato ventotto incontri per quella specie, e fra essi compare un dono di evento della terza generazione per i titoli di Hoenn e di Kanto, a livello cinque, con le tre mosse che il nostro catalogo dichiara.
+
+Ne segue che il caso è chiuso per due vie indipendenti e nessuna delle due passa dalla banca. La prima è che Spinda è nativa dei titoli di Hoenn, e l'utente possiede una cartuccia di uno di essi. La seconda, che nessuno dei due aveva visto, è che il lotto di questo progetto contiene già due Spinda da evento, l'uovo di una distribuzione statunitense e quello di una giapponese, entrambi prodotti dal 2026-09-02.
+
+Vale registrare come il caso è nato, perché è un esempio di affermazione vera che porta a una conclusione falsa. L'affermazione della fonte era che Spinda non si potesse depositare da un certo titolo per un difetto di quella implementazione, ed è probabilmente vera. La conclusione che ne era stata tratta, cioè che Spinda andasse procurata dalla banca prima della scadenza, non segue: seguirebbe soltanto se quel titolo fosse la sola via, e non lo era. Una via rotta non implica una scadenza se esistono altre vie, e contare le vie è un lavoro diverso dal verificare che una sia rotta.
