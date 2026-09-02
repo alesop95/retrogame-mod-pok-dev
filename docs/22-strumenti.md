@@ -361,3 +361,24 @@ Il prossimo strumento naturale è il generatore della tabella dagli indici inter
 ## Cosa leggere dopo
 
 [[20-architettura-codice]] colloca questi strumenti nella stratificazione del software, e [[21-collaudo]] racconta come il collaudo del secondo ha trovato un difetto reale.
+## Il catalogo delle distribuzioni, e perché la provenienza sta in un file a parte
+
+Lo strumento `tools/catalogo-eventi.py` produce `recreate-pokemon-distributions-events/CATALOGO-EVENTI.md`, che è il documento da leggere quando serve sapere non che cosa un esemplare sia ma da dove venga. Esiste perché il generatore scrive file i cui nomi dicono la specie e poco altro, mentre un esemplare da evento è un oggetto storico prima che un dato: è stato consegnato in un luogo, in una finestra che a volte durava tre ore e a volte tre anni, e in un modo che ne spiega la rarità.
+
+La struttura del documento riflette una distinzione che vale enunciare perché è il motivo per cui esistono due file invece di uno. I fatti meccanici, cioè specie, livello, mosse, lingua, metodo di generazione, lucentezza e derivazione del sesso dell'allenatore, vengono dalla tabella del verificatore di conformità, che è codice eseguito, e si rigenerano a ogni corsa: se la tabella cambia, il documento cambia da sé. I fatti storici non stanno in nessuna fonte di primo livello, perché nessun disassemblato sa in quali negozi un dono venne distribuito, e sono quindi autorati in `provenienze-eventi.json` con il collegamento alla fonte e la data di lettura accanto a ciascuna voce.
+
+```powershell
+python tools/catalogo-eventi.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex
+python tools/catalogo-eventi.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --check
+```
+
+```bash
+python tools/catalogo-eventi.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex
+python tools/catalogo-eventi.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --check
+```
+
+Il secondo modo non scrive nulla e riferisce se il documento in repository sia allineato alle fonti, cosicché una modifica alla tabella o alle provenienze che non sia stata rigenerata risulti visibile prima di un commit invece che dopo.
+
+Due scelte del programma vanno difese perché sono il genere di cosa che si toglie per fare pulizia. La prima è che i gruppi senza provenienza documentata non vengono taciuti ma elencati con la dicitura esplicita, e il programma stampa quanti sono: un catalogo che nasconda le proprie lacune è peggio di uno incompleto, perché toglie a chi legge la possibilità di colmarle. La seconda è che le divergenze fra la fonte storica e la tabella si scrivono invece di essere risolte in silenzio, con la regola che sui fatti meccanici vale la tabella e sui fatti storici vale l'enciclopedia, che è la sola a occuparsene.
+
+Il file delle provenienze porta anche l'unico campo meccanico che gli appartiene di diritto, ed è l'oggetto tenuto documentato dalla storia. Nel catalogo esistono due specie di oggetto tenuto con gradi di verità diversi: quello derivato, che l'evento del desiderio estrae dal generatore pseudocasuale e che è quindi una funzione del seme, e quello storico, come la Sfera Luminosa del Pikachu del decennale, che non discende da nessun calcolo. La tabella del verificatore non dichiara il secondo e non lo pretende, perché un oggetto tenuto si può togliere o scambiare e non è un vincolo di legittimità; resta un tratto dell'esemplare originale, e la distinzione fra un esemplare che passa i controlli e uno fedele all'originale passa esattamente per fatti di questo genere.

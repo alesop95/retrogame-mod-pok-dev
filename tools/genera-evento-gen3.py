@@ -381,7 +381,7 @@ def componi(ace, tag, nome_specie, seme, lingua, gioco=None, verbose=False):
             ot_female=(sesso_ot == "femmina"),
             ivs={n: iv[k] for n, k in zip(gen3.EV_ORDER, eventi.ORDINE_IV)},
             is_egg=False,
-            ability_num=personalita & 0x01,
+            ability_num=bit_abilita(personalita, specie_id, abilita_per_specie(ace)),
             modern_fateful_encounter=fatidico,
         ),
     )
@@ -741,6 +741,104 @@ def nomi_specie_per_lingua(ace, lingua):
     return {i: n for i, n in enumerate(voci) if n}
 
 
+ABILITA_SPECIE = "src/data/pokemonAbilities.gen3.js"
+
+# Le tre specie che in terza generazione hanno due caselle di abilita' contenenti la medesima
+# abilita', e che per questo sono l'eccezione alla regola scritta sotto. Gli identificativi sono
+# quelli interni, non i numeri nazionali, e vanno verificati e non dedotti: per Granbull i due
+# coincidono, per le altre due no.
+SPECIE_DOPPIA_ABILITA_UGUALE = (210, 333, 334)
+
+
+def abilita_per_specie(ace):
+    """Le due caselle di abilita' di ciascuna specie, per identificativo interno.
+
+    Sulla numerazione delle chiavi questa funzione non crede al commento della fonte, e va
+    detto perche' e' un caso concreto della regola che il progetto si e' dato. L'intestazione
+    del file dichiara le chiavi in ordine di numero nazionale; i dati dicono altro, perche' la
+    chiave 407 porta Latias, il cui numero nazionale e' 380, e la chiave 380 porta Zangoose.
+    Le chiavi sono dunque identificativi interni. Confondere le due numerazioni scambierebbe
+    una specie con un'altra, che su questo dato significa attribuire a un esemplare le abilita'
+    di un altro, quindi la funzione verifica la propria lettura su due specie di controllo
+    invece di fidarsi di una riga di commento.
+    """
+    testo = leggi(ace, ABILITA_SPECIE)
+    fuori = {}
+    for chiave, prima, seconda in re.findall(
+            r"^\s*(\d+)\s*:\s*\[\s*(\d+)\s*,\s*(\d+)\s*\]", testo, re.M):
+        fuori[int(chiave)] = (int(prima), int(seconda))
+    if len(fuori) < 380:
+        sys.exit("la tabella delle abilita ha %d voci, troppo poche per coprire gli "
+                 "identificativi interni della terza generazione" % (len(fuori),))
+    # I due controlli che stabiliscono quale numerazione sia: se le chiavi fossero nazionali,
+    # la 407 non esisterebbe affatto e la 380 porterebbe Latias invece di Zangoose.
+    if 407 not in fuori or 380 not in fuori:
+        sys.exit("la tabella delle abilita non contiene le chiavi 380 e 407, sulle quali si "
+                 "distingue la numerazione interna da quella nazionale")
+    return fuori
+
+
+def bit_abilita(personalita, specie_interna, abilita):
+    """Il bit dell'abilita' da scrivere, che non e' sempre il bit del valore di personalita'.
+
+    La regola non e' deducibile dal formato e viene dal verificatore, che la 2026-09-02 ha
+    contestato su questo campo un esemplare in cui avevamo scritto il bit del valore di
+    personalita' senza altre considerazioni. Se la specie ha una sola abilita' distinta, cioe'
+    se le sue due caselle portano la medesima, il bit deve restare a zero qualunque cosa dica
+    il valore di personalita'. Le tre specie che hanno davvero due caselle uguali sono
+    l'eccezione, e per esse il bit segue il valore di personalita' come per tutte le altre.
+
+    Vale enunciare perche' il difetto era invisibile: su una specie a due abilita' il bit e'
+    corretto, su una a una sola e' corretto la meta' delle volte, cioe' quando il valore di
+    personalita' e' pari, e nella meta' rimanente produce un esemplare che il verificatore
+    rifiuta su un campo che nessuno guarda.
+    """
+    coppia = abilita.get(specie_interna)
+    if coppia is None:
+        raise KeyError("abilita non note per la specie interna %d: senza quel dato non si puo "
+                       "decidere il bit, e scriverne uno a caso e esattamente cio che il "
+                       "verificatore contesta" % (specie_interna,))
+    prima, seconda = coppia
+    if prima == seconda and specie_interna not in SPECIE_DOPPIA_ABILITA_UGUALE:
+        return 0
+    return personalita & 0x01
+
+
+PROVENIENZE_EVENTI = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+    "recreate-pokemon-distributions-events", "provenienze-eventi.json")
+
+
+def oggetti_documentati():
+    """Gli oggetti tenuti che la provenienza storica documenta, per evento e specie.
+
+    Esistono due specie di oggetto tenuto in questo catalogo e vanno tenute distinte, perche'
+    hanno gradi di verita' diversi. Il primo e' derivato: l'evento del desiderio estrae una
+    delle due bacche dal generatore pseudocasuale, quindi l'oggetto e' una funzione del seme e
+    lo calcola `pokebridge.eventi`. Il secondo e' storico: la campagna del decennale consegnava
+    il Pikachu con una Sfera Luminosa, e quel fatto non discende da nessun calcolo, sta in una
+    enciclopedia e va letto da la'.
+
+    La tabella del verificatore non dichiara il secondo, e non e' una lacuna: un oggetto tenuto
+    si puo' togliere o scambiare, quindi non e' un vincolo di legittimita' e il verificatore non
+    lo pretende. Resta un tratto dell'esemplare originale, e la distinzione fra un esemplare che
+    passa i controlli e uno fedele all'originale e' esattamente cio' che questo progetto sta
+    cercando di fare.
+
+    Restituisce un dizionario dalla chiave dell'evento a una corrispondenza fra numero nazionale
+    di specie e identificativo dell'oggetto. Se il file non c'e', restituisce un dizionario
+    vuoto e non solleva: la provenienza e' documentazione e non una dipendenza del generatore.
+    """
+    if not os.path.exists(PROVENIENZE_EVENTI):
+        return {}
+    dati = json.loads(io.open(PROVENIENZE_EVENTI, encoding="utf-8").read())
+    fuori = {}
+    for chiave, voce in dati.get("gruppi", {}).items():
+        if voce.get("oggetti"):
+            fuori[chiave] = {int(k): int(v) for k, v in voce["oggetti"].items()}
+    return fuori
+
+
 def nazionale_verso_interno(ace):
     """La corrispondenza fra numero nazionale e identificativo interno di terza generazione.
 
@@ -861,7 +959,7 @@ def componi_da_wc3(ace, pkhex, indice, seme):
             ot_female=(sesso_ot == "femmina"),
             ivs={n: iv[k] for n, k in zip(gen3.EV_ORDER, eventi.ORDINE_IV)},
             is_egg=False,
-            ability_num=personalita & 0x01,
+            ability_num=bit_abilita(personalita, specie_id, abilita_per_specie(ace)),
             modern_fateful_encounter=bool(v.get("fatidico", False)),
         ),
     )
@@ -974,6 +1072,8 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
     gruppi = gruppo_di_crescita(ace)
     pp_base = punti_potenza(ace)
     semi_mystry = semi_mystry_mew(pkhex)
+    abilita = abilita_per_specie(ace)
+    oggetti_storici = oggetti_documentati()
     # Le tabelle dei nomi di specie si leggono una volta per lingua e non una volta per voce,
     # perche' ciascuna e' una lettura di file.
     nomi_localizzati = {}
@@ -1093,6 +1193,13 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
         oggetto = 0
         if esito["estrazione_oggetto"] is not None:
             oggetto = eventi.oggetto_tenuto_desiderio(esito["estrazione_oggetto"])
+        else:
+            # L'oggetto storico, dove la provenienza lo documenti. Non ha precedenza su quello
+            # derivato e non puo' entrare in conflitto con esso, perche' il solo evento che
+            # deriva un oggetto dal generatore e' anche il solo per cui la provenienza non ne
+            # documenta uno: le due vie sono disgiunte, e questo ramo lo rende evidente.
+            oggetto = oggetti_storici.get(
+                "%s|%d" % (nome_ot, ident), {}).get(v["nazionale"], 0)
         mosse = [m for m in v.get("mosse", []) if m]
         pp = [pp_base.get(m, 0) for m in mosse]
         livello = v["livello"]
@@ -1113,7 +1220,7 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
                            met_game=VERSIONI.get(v["versione"], 2), pokeball=4,
                            ot_female=(sesso_ot == "femmina"),
                            ivs={n: iv[k] for n, k in zip(gen3.EV_ORDER, eventi.ORDINE_IV)},
-                           ability_num=personalita & 0x01,
+                           ability_num=bit_abilita(personalita, specie_id, abilita),
                            modern_fateful_encounter=bool(v.get("fatidico", False))),
         )
         # Il nome del file porta la descrizione dell'evento e non il nome dell'allenatore, e la
@@ -1217,9 +1324,34 @@ def self_test():
     controlla("il nome dell'allenatore si rilegge",
               tabella.decode(riletto.ot_name) == "10ANNI")
 
+    # La regola del bit dell'abilita', con i suoi controlli negativi. Le prove girano su una
+    # tabella costruita qui e non sul sorgente di terzi, cosicche' il self-test resti eseguibile
+    # senza il clone: cio' che si prova e' la regola, non i dati.
+    finta = {25: (9, 9), 1: (65, 65), 3: (65, 34), 210: (22, 22), 333: (26, 26)}
+    controlla("con una sola abilita il bit resta a zero anche se il PID dice uno",
+              bit_abilita(0x00000001, 25, finta) == 0)
+    controlla("con una sola abilita il bit resta a zero anche se il PID dice zero",
+              bit_abilita(0x00000000, 25, finta) == 0)
+    controlla("con due abilita distinte il bit segue il PID",
+              bit_abilita(0x00000001, 3, finta) == 1 and bit_abilita(0x00000000, 3, finta) == 0)
+    controlla("le tre specie a doppia abilita uguale sono l'eccezione e seguono il PID",
+              bit_abilita(0x00000001, 210, finta) == 1
+              and bit_abilita(0x00000001, 333, finta) == 1)
+    controlla("una specie senza abilita note fa sollevare invece di scrivere un bit a caso",
+              _solleva_senza_abilita(finta))
+
     print("")
-    print("self-test: %d controlli falliti su %d" % (fallite, 12))
+    print("self-test: %d controlli falliti su %d" % (fallite, 17))
     return 1 if fallite else 0
+
+
+def _solleva_senza_abilita(tabella):
+    """Il controllo negativo del rifiuto: senza il dato non si indovina, si solleva."""
+    try:
+        bit_abilita(0x00000001, 9999, tabella)
+    except KeyError:
+        return True
+    return False
 
 
 def main():
