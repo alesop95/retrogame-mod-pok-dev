@@ -734,3 +734,22 @@ def esemplare_da_evento(metodo, id_allenatore, id_segreto=0, lucentezza=None, sp
             "estrazione_oggetto": estrazione_oggetto,
         }
     return None
+# Le due bacche che l'evento del desiderio puo' consegnare, e la formula che scegle fra esse.
+# Vale scriverla perche' e' un caso in cui una estrazione gia' consumata portava informazione
+# che il generatore buttava: il modulo contava quella estrazione per leggere il sesso
+# dell'allenatore nella posizione giusta, ma non ne usava il valore, quindi gli esemplari di
+# quell'evento uscivano senza l'oggetto che l'originale porta.
+#
+# La formula e' la medesima della derivazione del sesso per divisione per tre, applicata a un
+# altro campo, e la coincidenza non e' un caso: il gioco riusa la stessa riduzione a un bit.
+OGGETTO_DESIDERIO = (170, 169)
+
+
+def oggetto_tenuto_desiderio(estrazione):
+    """L'oggetto tenuto dell'evento del desiderio, dalla sua estrazione dedicata.
+
+    Restituisce l'identificativo di una delle due bacche. La forma della fonte e' una
+    sottrazione da centosettanta, e si conserva cosi' invece di indicizzare una coppia,
+    perche' e' quella che si confronta a vista con il sorgente.
+    """
+    return OGGETTO_DESIDERIO[0] - (_bit0_diviso_tre(estrazione) & 1)
