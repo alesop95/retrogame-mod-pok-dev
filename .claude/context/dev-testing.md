@@ -10,6 +10,7 @@ covers-paths:
   - poke-ace/
   - generation-from-switch/
   - cart-battery-restoration/
+  - pokedex-home-completo/
 last-verified-commit: 7696c46
 ---
 

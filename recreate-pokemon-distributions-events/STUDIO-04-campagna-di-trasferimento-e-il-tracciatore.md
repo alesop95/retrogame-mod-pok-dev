@@ -183,3 +183,32 @@ Verificare se la conversione dell'editor fra i formati produca ciò che la caten
 Decidere la selezione, cioè quali esemplari perseguire nei centosettantotto giorni. È una decisione dell'utente e non del progetto, e la nota le fornisce il criterio dell'ordine: prima ciò che ha una sola porta.
 
 Registrare la decisione di perimetro che resta aperta, perché tutto questo la presuppone e nessuna sezione di questa nota la prende. L'iniezione di esemplari costruiti dentro salvataggi propri, e il loro deposito in un servizio in linea, ricade nella politica sui dati alterati che gli studi dell'altro track riportano: la valutazione corrente delle fonti è che un esemplare coerente sia accettato, con la clausola, ripetuta da due fonti indipendenti, che questo potrebbe cambiare. Il tracciatore rende quella clausola pesante, perché ciò che entra resta identificabile.
+## 12. Il Pokedex completo, e perché la scadenza non vincola tutto
+
+L'obiettivo dichiarato del progetto è avere in Pokemon Home ogni specie, più copie autentiche degli esemplari di terza generazione che l'utente possedeva. Fin qui il lavoro ha riguardato la seconda metà. Questa sezione riquadra la prima, e la riquadratura cambia il piano, perché la lettura ingenua del vincolo di tempo è sbagliata in un modo che costa lavoro inutile.
+
+### La scadenza si applica a un sottoinsieme, non alla collezione
+
+Il deposito in rete accetta esemplari per due vie con proprietà temporali opposte. La prima è diretta e non ha scadenza: i titoli dell'ottava e della nona generazione, e le riedizioni che vi si collegano, versano in Home senza passare da alcun servizio in dismissione. La seconda passa per la banca e cessa il 26 febbraio 2027, cioè fra centosettantasette giorni contati dal 2026-09-02.
+
+Ne segue che il vincolo di tempo non riguarda la collezione ma soltanto ciò che non ha una via della prima specie. Una specie ottenibile in un titolo dell'ottava o della nona generazione si può portare in Home dopo la chiusura della banca, con tutta la calma che serve, per sempre. Spendere le settimane che restano su quelle specie sarebbe spendere una risorsa scarsa su un problema che non ha scadenza, ed è esattamente l'errore che una lettura affrettata del vincolo produce.
+
+### Le tre categorie che la scadenza vincola davvero
+
+Dentro l'insieme urgente stanno tre cose diverse, e distinguerle serve perché hanno rimedi diversi e priorità diverse.
+
+La prima è l'insieme delle specie e delle forme che nessun titolo dell'ottava o della nona generazione produce. Per esse la banca è la sola porta, quindi la loro finestra si chiude e non si riapre. L'enumerazione di questo insieme è il lavoro che il Pokedex completo deve fare, e non è deducibile: richiede la disponibilità per specie e per gioco, che è un dato.
+
+La seconda è l'insieme degli esemplari la cui identità richiede una provenienza antica anche quando la specie è disponibile dopo, e questa è la categoria su cui il progetto ha lavorato fin qui. Un Charizard si ottiene nella nona generazione; il Charizard della distribuzione del decennale no, e nessuna via moderna lo produce, perché ciò che lo distingue non è la specie ma l'allenatore, l'identificativo, il luogo di incontro e il contrassegno dell'incontro fatidico. Vale la medesima cosa, e con più forza, per gli esemplari che l'utente possiede su cartuccia: la specie è sostituibile, quell'esemplare no.
+
+La terza è l'insieme delle forme e delle varianti che dipendono da un dato che le vie moderne non riproducono. Il progetto ne ha una in sospeso da prima, registrata nella sezione 10 di questa nota come punto di dominio non verificato, e riguarda una specie della terza generazione i cui disegni sul manto discendono dal valore di personalità: se l'affermazione è vera, una collezione che voglia comprendere una configurazione determinata di quei disegni ha una scadenza, mentre una che si accontenti di un esemplare qualunque della specie non ne ha. La distinzione fra le due letture della parola completa non è verbale e va sciolta prima di pianificare.
+
+### La priorità che ne discende
+
+L'ordine è dunque il seguente, e non è quello che l'obiettivo suggerisce a prima vista. Prima la seconda categoria, perché è irrimediabile e perché la sua macchina esiste già, cioè il generatore e la catena su hardware posseduto. Poi la prima, perché richiede un dato da procurare prima di poter agire. La terza si scioglie dove si incontra, ed è anzitutto una questione di definizione dell'obiettivo e non di lavoro tecnico.
+
+### Il dato che manca, e la fonte che non lo dà nella forma che serve
+
+La disponibilità per specie e per gioco non è nel progetto, e la fonte che il progetto già clona non la offre in forma leggibile a basso costo. L'implementazione di riferimento porta duecento file di dati di legittimità, che coprono incontri selvatici, incontri fissi e doni per ogni generazione, ma li tiene in un formato binario compresso proprio, con una struttura diversa per generazione: leggerli richiederebbe di riscrivere i suoi lettori, uno per generazione, che è un lavoro sproporzionato rispetto allo scopo.
+
+Quella conclusione è stata ritirata poche ore dopo averla scritta, ed è ADR-027: la deroga non serviva, perché era fondata su un errore di ricognizione. La domanda sulla disponibilità non richiede i dati degli incontri ma quelli di presenza, che stanno altrove e in forma molto più semplice, cioè array di record a dimensione fissa con un contrassegno in un bit noto, leggibili in cinquanta righe. Lo strumento `tools/disponibilita-titoli.py` li legge e il risultato sta in `pokedex-home-completo/STUDIO-01`. La lezione che resta è sul metodo: avevo guardato l'insieme di file che nomina la cosa cercata e avevo concluso dalla loro difficoltà che la cosa fosse difficile, mentre la domanda giusta era un'altra e più vicina. Segue la formulazione originale, conservata perché la deroga che dichiarava non è più in vigore ma il criterio con cui una deroga va dichiarata resta valido. La dichiarazione ha la stessa forma di quella già presa per la tabella dei caratteri giapponese: si nomina la fonte, si data la lettura, e si accetta che il rango sia inferiore. Va aggiunto un presidio che in quel caso non serviva e qui sì: la disponibilità di una specie in un gioco è una affermazione che il verificatore di conformità sa giudicare, quindi ogni voce dubbia si può mettere alla prova componendo un esemplare con quella provenienza e chiedendo il giudizio. Non è una verifica esaustiva ed è meglio di nessuna.
