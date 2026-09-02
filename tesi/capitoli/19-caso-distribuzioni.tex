@@ -278,3 +278,67 @@ Chiusi i metodi di generazione, il limite alla produzione si è rivelato altrove
 Il presente lavoro aveva registrato che la propria tabella dei caratteri non mancasse di nulla, coprendo duecentocinquanta byte su duecentocinquantasei, e che servisse una seconda tabella perché il medesimo byte rende un glifo diverso secondo la lingua del gioco. La seconda metà dell'affermazione è esatta, la prima fuorviante: è vero che la tabella non ha lacune, ma essa è la tabella internazionale, e nella direzione che serve a scrivere, cioè dal carattere al byte, non contiene i caratteri giapponesi le cui posizioni la versione internazionale assegna ad altri segni. Non si tratta di due caratteri, come il lavoro aveva scritto, ma di almeno otto fra quelli osservati, e il caso più istruttivo è il byte 0x52, che rende una sillaba katakana su un gioco giapponese e una sillaba katakana diversa su uno internazionale: non un accento contro una sillaba, ma due sillabe che si scambiano. Ne segue che scrivere un nome giapponese con la tabella internazionale non produce un errore ma un nome plausibile e sbagliato, che è la classe di difetto contro cui l'intero apparato di generazione delle tabelle di questo lavoro è stato costruito.
 
 L'estrazione della tabella giapponese ha chiuso quel limite e ne ha rivelato un altro, ed è un caso di ciò che accade quando si apre una porta: il soprannome che il generatore scriveva era il nome inglese della specie anche sulle voci giapponesi, dunque cinque esemplari già prodotti portavano un soprannome che il gioco giapponese non avrebbe mai scritto. Il difetto era rimasto invisibile perché quelle voci non arrivavano al punto in cui il soprannome viene scritto, essendo respinte prima dalla codifica del nome dell'allenatore. Vale come osservazione generale: un controllo che respinge presto nasconde i difetti che stanno dopo di esso, e rimuoverlo non introduce quei difetti ma li rende osservabili.
+\section{Un bit che non dipende soltanto dal valore di personalità}
+
+Le sezioni precedenti hanno esposto un difetto scoperto leggendo una specifica e un secondo scoperto aprendo una porta. Questa espone il terzo modo in cui un difetto si scopre, che è il giudizio di un'implementazione indipendente su un caso scelto da altri, ed è il modo che ha dato il risultato più ampio: una sola obiezione ha rivelato un campo errato in cinquantanove esemplari su centoventidue.
+
+\subsection*{Che cosa è un'abilità, e dove vive la scelta fra due}
+
+Conviene partire dal principio, poiché il campo è minuscolo e la regola che lo governa non è deducibile dal formato. Ogni specie della terza generazione dispone di due caselle di abilità. In alcune specie le due caselle contengono abilità distinte, e ciascun esemplare ne possiede una delle due; in molte altre la seconda casella è vuota, e ogni esemplare possiede necessariamente la prima.
+
+Quale delle due caselle valga per un dato esemplare non è memorizzato né come nome dell'abilità né come suo numero, ma come un bit solo: vale zero per la prima casella e uno per la seconda. Quel bit occupa la posizione trentuno della parola da trentadue bit che contiene i valori individuali, cioè la posizione immediatamente successiva a quella occupata dal contrassegno che dichiara l'esemplare un uovo. Le due informazioni convivono nella medesima parola per la ragione già esposta nel capitolo: i sei valori individuali occupano cinque bit ciascuno, dunque trenta bit, e i due rimanenti sono stati impiegati per due contrassegni anziché essere lasciati inerti.
+
+Il valore di quel bit non è una scelta di chi costruisce l'esemplare. Come la natura, esso è una funzione del valore di personalità, e la funzione è la più semplice possibile, cioè il bit meno significativo:
+\begin{equation}
+b_{\mathrm{abilita}} = P \bmod 2 = P \wedge 1 .
+\end{equation}
+Ne segue una conseguenza che vale enunciare perché è controintuitiva per chi immagini i campi indipendenti: due esemplari con il medesimo valore di personalità hanno necessariamente la medesima natura, la medesima abilità e il medesimo sesso, poiché tutti e tre sono funzioni di quel numero.
+
+\subsection*{La regola vera, che ha una seconda parte}
+
+La formula appena scritta è la regola che il presente lavoro applicava, e è corretta soltanto per metà dei casi. L'implementazione di riferimento applica una regola in due parti. Se la specie possiede due abilità distinte, il bit è quello della formula. Se la specie possiede una sola abilità distinta, il bit deve valere zero, qualunque parità abbia il valore di personalità:
+\begin{equation}
+b_{\mathrm{abilita}} =
+\begin{cases}
+0 & \text{se le due caselle contengono la stessa abilità},\\
+P \wedge 1 & \text{altrimenti}.
+\end{cases}
+\end{equation}
+
+La ragione dell'eccezione si vede guardando al gioco anziché al formato. Quando la seconda casella è vuota, non esiste alcun oggetto a cui il bit possa puntare, dunque il gioco non lo attiva mai. Un esemplare che lo attivi dichiara di possedere un'abilità che la sua specie non ha, e nessuna partita reale può averlo prodotto. L'eccezione non è quindi una convenzione arbitraria dell'implementazione di riferimento, è un'affermazione sul comportamento del gioco, ed è precisamente il genere di affermazione che nessuna ispezione del formato può suggerire.
+
+Esiste inoltre un'eccezione all'eccezione, senza la quale la regola scarterebbe esemplari legittimi: tre specie dispongono davvero di due caselle piene contenenti la medesima abilità, e per esse il bit torna a seguire la parità del valore di personalità. Il fatto che due caselle possano contenere lo stesso valore senza che ciò significhi una casella vuota è la distinzione fra assenza e ripetizione, e confonderle è il modo in cui una regola corretta produce un rifiuto sbagliato.
+
+\subsection*{L'aritmetica dell'invisibilità}
+
+Il difetto non colpiva un esemplare su cento ma uno su due, e nondimeno era sopravvissuto a una verifica esterna. La ragione è quantificabile, e conviene farlo perché descrive una classe di difetti anziché questo caso solo.
+
+Degli esemplari prodotti, $n = 120$ su centoventidue appartengono a specie con una sola abilità distinta. La proporzione non è casuale: le distribuzioni degli eventi consegnavano in larga maggioranza leggendari ed esemplari iniziali, e nella terza generazione quelle specie possiedono tipicamente un'abilità sola. Su ciascuno di quei centoventi il bit risultava errato se e solo se il valore di personalità era dispari. Poiché il bit meno significativo di un numero prodotto dal generatore congruenziale è equiprobabile, il numero $X$ di esemplari errati è una variabile binomiale:
+\begin{equation}
+X \sim \mathrm{Bin}\!\left(120, \tfrac{1}{2}\right), \qquad
+\mathbb{E}[X] = 60, \qquad
+\sigma = \sqrt{120 \cdot \tfrac{1}{2} \cdot \tfrac{1}{2}} = \sqrt{30} \approx 5{,}48 .
+\end{equation}
+Il numero osservato è $59$, dunque lo scarto vale
+\begin{equation}
+\frac{59 - 60}{5{,}48} \approx -0{,}18
+\end{equation}
+deviazioni standard. L'accordo non dimostra nulla riguardo al difetto, che è certo; dimostra che il modello della sua incidenza è corretto, e è da quel modello che segue l'affermazione che interessa.
+
+Se l'incidenza vale $\tfrac12$, la probabilità che un singolo esemplare sottoposto a un giudizio esterno non manifesti il difetto vale $\tfrac12$, e quella che $k$ esemplari indipendenti lo nascondano tutti vale $2^{-k}$. Con una sola prova, come era il caso, la probabilità di non accorgersene era del cinquanta per cento.
+
+Ne discende un'osservazione generale sull'efficacia dei controlli a campione, che vale ben oltre il caso di specie. Un difetto raro non si trova quasi mai per campionamento, ma la sua rarità limita anche il danno; un difetto sistematico si trova alla prima prova, poiché nessuna prova lo evita. Il caso peggiore è quello intermedio, in cui l'incidenza è dell'ordine di un mezzo: il danno è massimo, perché metà della produzione è compromessa, e la probabilità di scoperta per prova è appena sufficiente a generare fiducia infondata, perché una prova che passa somiglia in tutto a una conferma. Il numero di prove necessarie per portare la probabilità di mancata scoperta sotto una soglia $\varepsilon$ è
+\begin{equation}
+k \geq \frac{\log \varepsilon}{\log \tfrac{1}{2}} = \log_2 \frac{1}{\varepsilon},
+\end{equation}
+cioè sette prove per scendere sotto l'uno per cento e dieci per scendere sotto il per mille: numeri piccoli, che è la ragione per cui la lezione operativa non è diffidare del campionamento ma campionare più di una volta.
+
+\subsection*{Un conto che non torna, e l'esperimento a variabile singola}
+
+La conclusione precedente ha un'implicazione che il presente lavoro deve dichiarare come contraddizione anziché risolvere per congettura. Il primo esemplare mai sottoposto al giudizio esterno appartiene alla medesima specie a una sola abilità e ha valore di personalità $\mathtt{0xD2A8AA71}$, il cui bit meno significativo vale uno: portava dunque il bit errato, e l'obiezione ricevuta dal secondo esemplare della medesima specie doveva valere anche per lui. Non è comparsa.
+
+Le spiegazioni compatibili sono due e si escludono a vicenda. La prima è che il rapporto di allora contenesse più di un rilievo e che ne sia stato registrato uno solo, e in tal caso il registro di questo lavoro sovrastima la qualità di quel primo esito. La seconda è che i due casi differiscano per una circostanza non ancora individuata, e in tal caso esiste una ulteriore regola da comprendere.
+
+L'esperimento che discrimina è un confronto a variabile singola, ed è stato predisposto: due file del medesimo esemplare, identici in ogni byte tranne quel bit e la somma di controllo che ne dipende, cioè i byte di posizione ventinove e settantacinque. Che l'intervento riguardi due byte e non uno è esso stesso istruttivo, ed è la ragione per cui un esperimento su un formato con somma di controllo non può mai essere davvero a un solo byte: qualunque modifica al contenuto si propaga necessariamente al campo che lo riassume, e un confronto che non lo prevedesse produrrebbe un file che il verificatore rifiuta prima di guardare il campo in esame.
+
+Vale infine registrare l'errore di metodo che ha permesso al difetto di restare, poiché appartiene alla medesima famiglia di quello descritto a proposito del vettore deviante. Il resoconto della prima verifica affermava che l'indice di abilità risultava confermato, coincidendo con il bit meno significativo del valore di personalità secondo la regola ordinaria. Il verificatore non aveva affermato nulla di simile: su quel campo aveva taciuto, e da un silenzio era stata ricavata una conferma. Un verificatore che non obietta non conferma: dice soltanto che, fra i controlli che esegue, nessuno è scattato. Trattare quel silenzio come una attestazione trasforma un'assenza di informazione in un'informazione positiva, e è la forma più economica di illusione disponibile a chi verifica.
