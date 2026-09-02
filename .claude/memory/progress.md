@@ -4,6 +4,20 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-02 Il settimo difetto, e l'ambito del lavoro sotto scadenza
+
+La correzione del livello di incontro ha reso conformi dieci delle trentacinque uova contestate, e la partizione delle restanti venticinque ha indicato la causa senza un altro rapporto: erano tutte e sole le voci che la tabella dichiara per più titoli insieme. La corrispondenza fra sigle di versione e codici comprendeva le sigle singole e una sola delle multiple, e la interrogavamo con un valore predefinito: le venticinque cadevano su quel valore e dichiaravano un gioco di origine che il loro evento non contemplava.
+
+La forma del difetto ricorre e vale enunciarla: un valore predefinito ragionevole su un campo che non si conosce non somiglia a un errore. Se il predefinito fosse stato assurdo si sarebbe visto alla prima corsa; essendo un titolo esistente della generazione giusta ha prodotto venticinque esemplari plausibili e sbagliati. La correzione non è aggiungere le sigle mancanti ma togliere il predefinito, cosicché una sigla ignota solleva.
+
+Una sigla multipla ha un significato preciso: un dono distribuito a più titoli non ha un gioco di origine proprio, lo prende dal salvataggio che lo riscatta, come prende da là il nome dell'allenatore quando l'evento non lo fissa. Il gioco di destinazione è diventato quindi un parametro, con la medesima ragione per cui l'allenatore lo era già.
+
+È il settimo difetto trovato dal giudizio esterno, e i sette hanno in comune una cosa che vale contare: nessuno riguarda il generatore pseudocasuale, che era la parte difficile e che era giusta dal principio. Tutti e sette riguardano campi di contorno, e sei dei sette sono difetti di valore predefinito o di lettura di un campo che la tabella dichiarava e noi non leggevamo. La difficoltà non stava dove il progetto si era preparato a trovarla.
+
+L'utente ha poi posto la domanda di ambito nella forma giusta: se nessun gioco moderno li produce, non si dovrebbero prendere tutti gli esemplari possedibili e ampliare l'elenco a tutte le generazioni che dopo non parleranno da sole con il deposito. Il principio è corretto, e la sezione 13 di STUDIO-04 distingue i tre insiemi concentrici, cioè ciò che l'utente possiede, ciò che fu distribuito e non si rifà, e un Pokedex dal marchio di origine antico, che è facoltativo e di gusto e non va confuso con una necessità.
+
+La parte che rovescia l'intuizione è che il vincolo non è la generazione ma il trasporto. Produrre un esemplare non costa nulla e chiedersi quanti produrne è una domanda senza contenuto; trasportarli costa, perché ogni passaggio è manuale e alcuni hanno un limite di frequenza imposto dal gioco. Il primo passaggio della catena della terza generazione ne muove sei per volta e si ritiene con un limite giornaliero, che se confermato pone il tetto a poco più di mille nei giorni che restano: con esso i primi due insiemi ci stanno e il terzo no. Quel numero è riportato come da verificare e non come fatto, perché da esso dipende se l'ambito sia di cinquecento esemplari o di cinquemila, e la misura si esegue in un giorno.
+
 ## 2026-09-02 Verifica di massa eseguita: centoventidue puliti, e il sesto difetto sulle uova
 
 L'utente ha caricato tutti i centosettantadue esemplari nelle scatole e ha fotografato le sei scatole con il puntatore fuori dalla griglia. Le prime quattro, cioè i centoventidue esemplari che non sono uova, non portano alcun contrassegno: il difetto dei fiocchi è chiuso e non resta alcun rilievo noto su quella parte del lotto.

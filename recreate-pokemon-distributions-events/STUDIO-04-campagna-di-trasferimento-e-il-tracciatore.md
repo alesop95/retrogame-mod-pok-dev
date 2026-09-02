@@ -212,3 +212,34 @@ L'ordine è dunque il seguente, e non è quello che l'obiettivo suggerisce a pri
 La disponibilità per specie e per gioco non è nel progetto, e la fonte che il progetto già clona non la offre in forma leggibile a basso costo. L'implementazione di riferimento porta duecento file di dati di legittimità, che coprono incontri selvatici, incontri fissi e doni per ogni generazione, ma li tiene in un formato binario compresso proprio, con una struttura diversa per generazione: leggerli richiederebbe di riscrivere i suoi lettori, uno per generazione, che è un lavoro sproporzionato rispetto allo scopo.
 
 Quella conclusione è stata ritirata poche ore dopo averla scritta, ed è ADR-027: la deroga non serviva, perché era fondata su un errore di ricognizione. La domanda sulla disponibilità non richiede i dati degli incontri ma quelli di presenza, che stanno altrove e in forma molto più semplice, cioè array di record a dimensione fissa con un contrassegno in un bit noto, leggibili in cinquanta righe. Lo strumento `tools/disponibilita-titoli.py` li legge e il risultato sta in `pokedex-home-completo/STUDIO-01`. La lezione che resta è sul metodo: avevo guardato l'insieme di file che nomina la cosa cercata e avevo concluso dalla loro difficoltà che la cosa fosse difficile, mentre la domanda giusta era un'altra e più vicina. Segue la formulazione originale, conservata perché la deroga che dichiarava non è più in vigore ma il criterio con cui una deroga va dichiarata resta valido. La dichiarazione ha la stessa forma di quella già presa per la tabella dei caratteri giapponese: si nomina la fonte, si data la lettura, e si accetta che il rango sia inferiore. Va aggiunto un presidio che in quel caso non serviva e qui sì: la disponibilità di una specie in un gioco è una affermazione che il verificatore di conformità sa giudicare, quindi ogni voce dubbia si può mettere alla prova componendo un esemplare con quella provenienza e chiedendo il giudizio. Non è una verifica esaustiva ed è meglio di nessuna.
+## 13. L'ambito del lavoro che ha una scadenza, e il numero che lo decide
+
+La sezione 12 ha stabilito che la scadenza non vincola il Pokedex ma i singoli esemplari la cui identità richiede una provenienza anteriore all'ottava generazione. Ne segue immediatamente una domanda di ambito, posta dall'utente il 2026-09-02 nella forma giusta: se nessun gioco moderno li produce, non si dovrebbero prendere tutti gli esemplari che era possibile possedere e farli passare per la banca, ampliando l'elenco a tutte le generazioni che dopo non parleranno da sole con il deposito.
+
+Il principio è corretto. Ogni esemplare che nasce nelle prime sette generazioni e che si voglia nel deposito con la propria provenienza originale ha quella scadenza, senza eccezioni: le prime due passano per la riedizione virtuale e il trasferitore, la terza per il parco e il trasferitore, la quarta e la quinta per il trasferitore, la sesta e la settima direttamente per la banca. Tutte finiscono nella banca, e la banca chiude.
+
+### I tre insiemi concentrici, e perché vanno tenuti distinti
+
+Ciò che il principio non dice è quanto grande sia l'insieme, e la risposta dipende da una scelta che non è tecnica. Gli insiemi candidati sono tre e stanno uno dentro l'altro.
+
+Il primo è ciò che l'utente possiede: gli esemplari che stanno sulle sue cartucce. Sono irrimediabili nel senso più forte, perché non sono soltanto irriproducibili ma suoi, con il suo allenatore e la sua storia. La loro quantità è fissata da ciò che c'è sulle cartucce e non da una decisione: sono i trecentottantasei di una cartuccia di terza generazione, più ciò che sta sull'altra, più ciò che sta sui giochi della console portatile.
+
+Il secondo è ciò che fu distribuito e non si rifà: gli esemplari da evento di ciascuna generazione. Sono irrimediabili in un senso diverso, cioè che nessun gioco moderno li produce, e la loro quantità è fissata dai cataloghi storici. Per la terza generazione sono centosettantadue e il progetto li produce; per la quarta e la quinta sono le carte del dono segreto, che il progetto ha contato in duecentoquattro e ottantaquattro; per la sesta e la settima esistono e non sono ancora state contate.
+
+Il terzo è un Pokedex il cui marchio di origine sia antico, cioè un esemplare per specie che provenga dalle prime sette generazioni. Questo insieme è facoltativo, ed è di gran lunga il più grande: il suo valore non è di completezza, poiché il Pokedex si completa senza di esso, ma consiste nel far comparire nel deposito il marchio del gioco antico accanto a ciascuna specie. È una scelta di gusto, e va riconosciuta come tale invece di essere confusa con una necessità.
+
+### Il vincolo non è la generazione ma il trasporto
+
+La distinzione che decide l'ambito non è fra questi tre insiemi ma fra due tipi di costo, e va enunciata perché rovescia l'intuizione.
+
+Produrre un esemplare non costa nulla. Il generatore ne fa centosettantadue in una frazione di secondo, e ne farebbe diecimila con lo stesso codice: sul lato della produzione non esiste alcun vincolo di ambito, e chiedersi quanti esemplari produrre è una domanda senza contenuto.
+
+Trasportarli costa. Ogni passaggio della catena è manuale, richiede hardware fisico e non si automatizza, e alcuni passaggi hanno un limite di frequenza imposto dal gioco. Il primo passaggio della catena della terza generazione, quello che porta dalla terza alla quarta generazione, ne muove sei per volta e ha un limite giornaliero: se così è, il tetto della terza generazione è di sei esemplari al giorno, cioè poco più di mille nei giorni che restano.
+
+Quel numero, se confermato, è il numero che decide l'ambito. Con esso i due primi insiemi ci stanno, poiché centosettantadue più trecentottantasei fanno cinquecentocinquantotto; il terzo insieme non ci starebbe, perché richiederebbe di aggiungere un esemplare per ciascuna delle specie che si volesse con marchio antico. E ne segue anche l'ordine con cui riempire il tetto, che è quello della irrimediabilità: prima ciò che è suo, poi ciò che fu distribuito, e il resto se avanza tempo.
+
+### Perché questa nota non decide, e che cosa va misurato
+
+Il limite di sei al giorno è riportato qui come da verificare e non come fatto. Il progetto non lo ha letto su una fonte in questa sessione, e la sua importanza è tale che una stima non basta: da esso dipende se l'ambito sia di cinquecento esemplari o di cinquemila, e quindi se il terzo insieme sia una possibilità o una fantasia.
+
+La misura è però semplice e si esegue in un giorno, e non richiede di avere deciso nulla: si esegue un passaggio, si conta quanti esemplari muove, si tenta di ripeterlo subito e si osserva se il gioco lo consenta. È la medesima raccomandazione che questa nota dà per le carte del dono segreto, cioè misurare un ciclo prima di pianificarne duecento, e la ragione è la stessa: una pianificazione fondata su un tasso non misurato non è una pianificazione ma un augurio.
