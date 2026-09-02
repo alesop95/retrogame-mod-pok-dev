@@ -75,9 +75,28 @@ class TestDecodifica(unittest.TestCase):
             self.assertEqual(self.g12.decode(raw), testo)
 
     def test_troncamento_di_un_nome_troppo_lungo(self):
+        """Il taglio avviene alla lunghezza del campo, non a un carattere in meno.
+
+        Questa prova ha cambiato attesa il 2026-09-02, e il motivo va scritto perché la
+        modifica di una prova esistente è il momento in cui si può nascondere un errore. La
+        versione precedente attendeva dieci caratteri su undici byte, cioè riservava sempre un
+        byte al terminatore. Non misurava il formato ma l'implementazione che il progetto aveva
+        allora: il codice della implementazione di riferimento, letto in `StringConverter1.cs`,
+        scrive il terminatore soltanto se dopo i caratteri resta almeno un byte libero, e in
+        `StringConverter3.cs` fa la stessa cosa. La regola è quindi uniforme fra le generazioni,
+        e la vecchia attesa era sbagliata.
+
+        Va aggiunto che nella prima e nella seconda generazione il caso non si presenta con i
+        nomi reali, perché il limite di lunghezza imposto dal gioco è di sette caratteri per le
+        versioni occidentali e di cinque per quelle giapponesi, su un campo di undici byte:
+        il terminatore ci sta sempre. È la ragione per cui il difetto è rimasto invisibile qui e
+        si è manifestato invece nella terza generazione, dove il nome dell'allenatore può
+        riempire esattamente i suoi sette byte.
+        """
         raw = self.g12.encode("ABCDEFGHIJKLMNOP", length=11)
         self.assertEqual(len(raw), 11)
-        self.assertEqual(self.g12.decode(raw), "ABCDEFGHIJ")
+        self.assertEqual(self.g12.decode(raw), "ABCDEFGHIJK")
+        self.assertNotEqual(raw[10], self.g12.terminator)
 
     def test_un_byte_ignoto_non_fa_esplodere_la_decodifica(self):
         # Su un salvataggio corrotto vedere dove sta il byte strano aiuta, un'eccezione no.
@@ -128,6 +147,55 @@ class TestTraduzione(unittest.TestCase):
         # invece di due, e nessun punto intermedio in cui perdere un byte.
         self.assertEqual(self.tr.mapping[self.g12.char_to_byte["A"]],
                          self.g3.char_to_byte["A"])
+
+
+class ProveNomePieno(unittest.TestCase):
+    """Il confine del terminatore, che è la sola parte non ovvia della codifica di un nome.
+
+    Il difetto che queste prove fissano è stato scoperto il 2026-09-02 da una obiezione del
+    verificatore esterno su un esemplare il cui nome di allenatore era lungo esattamente quanto
+    il campo: veniva scritto con un carattere in meno, e il nome troncato era una parola
+    plausibile appartenente a un altro evento.
+    """
+
+    def setUp(self):
+        self.tabella = Charmap.gen3()
+
+    def test_un_nome_piu_corto_del_campo_porta_il_terminatore(self):
+        fuori = self.tabella.encode("MYSTRY", length=7)
+        self.assertEqual(len(fuori), 7)
+        self.assertEqual(fuori[6], self.tabella.terminator)
+        self.assertEqual(self.tabella.decode(fuori), "MYSTRY")
+
+    def test_un_nome_lungo_quanto_il_campo_non_porta_terminatore(self):
+        """È il caso che il difetto sbagliava: sette caratteri in sette byte."""
+        fuori = self.tabella.encode("WISHMKR", length=7)
+        self.assertEqual(len(fuori), 7)
+        self.assertNotEqual(fuori[6], self.tabella.terminator)
+        self.assertEqual(self.tabella.decode(fuori), "WISHMKR")
+
+    def test_il_controllo_negativo_del_troncamento(self):
+        """Il nome pieno non deve coincidere con quello troncato di un carattere.
+
+        Senza questo controllo la prova precedente passerebbe anche con una implementazione che
+        tronchi, purché scriva sette byte: ciò che si vuole verificare è che il settimo
+        carattere ci sia.
+        """
+        pieno = self.tabella.encode("WISHMKR", length=7)
+        troncato = self.tabella.encode("WISHMK", length=7)
+        self.assertNotEqual(pieno, troncato)
+        self.assertEqual(self.tabella.decode(troncato), "WISHMK")
+
+    def test_un_nome_piu_lungo_del_campo_si_taglia_alla_lunghezza_del_campo(self):
+        fuori = self.tabella.encode("ABCDEFGHI", length=7)
+        self.assertEqual(len(fuori), 7)
+        self.assertEqual(self.tabella.decode(fuori), "ABCDEFG")
+
+    def test_il_soprannome_segue_la_medesima_regola_su_dieci_byte(self):
+        """Le specie con dieci lettere nel nome sono il caso analogo sul campo del soprannome."""
+        fuori = self.tabella.encode("CHARMANDER", length=10)
+        self.assertEqual(len(fuori), 10)
+        self.assertEqual(self.tabella.decode(fuori), "CHARMANDER")
 
 
 if __name__ == "__main__":

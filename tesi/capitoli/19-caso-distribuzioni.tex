@@ -342,3 +342,74 @@ Le spiegazioni compatibili sono due e si escludono a vicenda. La prima è che il
 L'esperimento che discrimina è un confronto a variabile singola, ed è stato predisposto: due file del medesimo esemplare, identici in ogni byte tranne quel bit e la somma di controllo che ne dipende, cioè i byte di posizione ventinove e settantacinque. Che l'intervento riguardi due byte e non uno è esso stesso istruttivo, ed è la ragione per cui un esperimento su un formato con somma di controllo non può mai essere davvero a un solo byte: qualunque modifica al contenuto si propaga necessariamente al campo che lo riassume, e un confronto che non lo prevedesse produrrebbe un file che il verificatore rifiuta prima di guardare il campo in esame.
 
 Vale infine registrare l'errore di metodo che ha permesso al difetto di restare, poiché appartiene alla medesima famiglia di quello descritto a proposito del vettore deviante. Il resoconto della prima verifica affermava che l'indice di abilità risultava confermato, coincidendo con il bit meno significativo del valore di personalità secondo la regola ordinaria. Il verificatore non aveva affermato nulla di simile: su quel campo aveva taciuto, e da un silenzio era stata ricavata una conferma. Un verificatore che non obietta non conferma: dice soltanto che, fra i controlli che esegue, nessuno è scattato. Trattare quel silenzio come una attestazione trasforma un'assenza di informazione in un'informazione positiva, e è la forma più economica di illusione disponibile a chi verifica.
+\section{Un campo ridondante è un vincolo, non una libertà}
+
+Le sezioni precedenti hanno descritto difetti scoperti leggendo una specifica, aprendo una porta e sottoponendo un esemplare a un giudizio. Questa e la successiva descrivono i due difetti scoperti quando quattro esemplari, scelti ciascuno per esercitare un ramo del codice non ancora giudicato, sono stati sottoposti in blocco. Entrambi erano invisibili ai controlli interni, ed entrambi appartengono a classi che si ripresentano al di fuori del caso di specie.
+
+\subsection*{Il caso concreto}
+
+Il sesso dell'allenatore di provenienza è, per la maggioranza delle distribuzioni, una funzione del seme: si legge da una determinata estrazione con una determinata riduzione a un bit. Per due distribuzioni, invece, la tabella dell'implementazione di riferimento dichiara che quel valore è fissato, cioè che l'allenatore era maschio oppure femmina per costruzione. Il presente lavoro ne aveva tratto la conclusione naturale, cioè che per esse il seme non fosse vincolato su quel punto, e scriveva il valore dichiarato.
+
+La conclusione è errata, e l'errore è stato rivelato da una contestazione sulla correlazione fra valore di personalità e valori individuali. Il verificatore, per quelle due distribuzioni, ricalcola il bit dal seme e pretende che coincida con il valore memorizzato; il generatore della medesima implementazione, invece, scrive il valore dichiarato e vincola il seme soltanto per i metodi che cadono nel ramo predefinito del proprio albero di scelta, e la distribuzione in questione esce dall'albero prima di arrivarvi. Ne segue che quel generatore può produrre un esemplare che quel verificatore rifiuta, e la contraddizione è interna alla fonte.
+
+\subsection*{Perché la ridondanza è un vincolo}
+
+Il fatto generale è di teoria dell'informazione elementare e conviene enunciarlo con precisione, poiché la formulazione intuitiva porta alla conclusione sbagliata.
+
+Sia $S$ il seme, $g$ il bit del sesso memorizzato nell'esemplare, e $\varphi$ la funzione che dal seme deriva quel bit, cioè $\varphi(S) = \lfloor r_k(S)/3 \rfloor \bmod 2$, dove $r_k$ è la $k$-esima estrazione. Un esemplare è una coppia $(S, g)$, e lo spazio delle coppie ha cardinalità $|S| \cdot 2$. La condizione che il verificatore impone è
+\begin{equation}
+g = \varphi(S),
+\end{equation}
+la quale riduce lo spazio ammissibile da $|S| \cdot 2$ a $|S|$: il bit non porta informazione indipendente, essendo determinato dal seme.
+
+Quando invece l'evento dichiara $g = g_0$ per costruzione, si aggiunge una seconda condizione, e le due insieme diventano
+\begin{equation}
+g = g_0 \quad\text{e}\quad \varphi(S) = g_0,
+\end{equation}
+la seconda delle quali è un vincolo sul seme e non sul bit. Lo spazio ammissibile si riduce ora a $\{S : \varphi(S) = g_0\}$, cioè in media a metà dei semi. Il passaggio che il presente lavoro ha sbagliato è precisamente questo: dalla dichiarazione $g = g_0$ ha dedotto che il bit fosse libero dal seme, mentre essa aggiunge un vincolo anziché rimuoverlo. Un dato ridondante non diventa arbitrario perché è dichiarato: resta ridondante, e la ridondanza è sempre una condizione di consistenza fra le due strade che vi conducono.
+
+Il conteggio verificato sul caso in esame conferma la stima teorica. Il metodo interessato ammette $214$ semi, e la partizione secondo il valore di $\varphi$ li divide in due insiemi non vuoti la cui unione è l'insieme intero: il vincolo dimezza dunque lo spazio di ricerca senza svuotarlo, che è la condizione perché una ricreazione resti possibile.
+
+\subsection*{Chi decide, quando la fonte si contraddice}
+
+Resta la questione di metodo, poiché la fonte di riferimento afferma due cose incompatibili. La regola adottata è che fra il generatore e il verificatore della medesima implementazione prevalga il verificatore, e la ragione non è di gerarchia ma di funzione: è il verificatore a giudicare, dunque è la sua nozione di correttezza a determinare se un esemplare sarà accettato. Un generatore che produca esemplari che il proprio verificatore rifiuta ha un difetto; ma quel difetto non è nostro da correggere, e adeguarsi al generatore anziché al verificatore significherebbe ereditarlo.
+
+\section{Un terminatore in un campo di lunghezza nota, e l'aritmetica dell'errore di uno}
+
+Il secondo difetto è il più esteso incontrato in tutto il lavoro, e la sua causa occupa una riga di codice.
+
+\subsection*{Perché un campo di lunghezza fissa non ha bisogno di terminatore}
+
+Una stringa memorizzata in un supporto binario pone a chi la legge una sola domanda, cioè dove finisca. Esistono due modi di rispondere, e sono mutuamente esclusivi in linea di principio. Il primo è il terminatore: si riserva un simbolo dell'alfabeto per segnare la fine, e la lunghezza diventa informazione interna alla stringa. Il secondo è la lunghezza dichiarata fuori dalla stringa, che nel caso di un campo di dimensione fissa è nota per costruzione a chiunque conosca il formato.
+
+Ne segue che in un campo di lunghezza fissa il terminatore è necessario soltanto quando la stringa è più corta del campo, poiché in quel caso la lunghezza del campo non dice dove finisca il contenuto. Quando la stringa riempie esattamente il campo, il terminatore non serve e non c'è posto per esso: la lunghezza del campo è già la risposta. È esattamente il comportamento dell'implementazione di riferimento, verificato nel suo codice per tre generazioni distinte, e in tutte e tre la forma è la medesima, cioè si scrive il terminatore soltanto se dopo i caratteri resta almeno un byte libero.
+
+Il presente lavoro riservava invece sempre un byte al terminatore, e accettava dunque al massimo un carattere in meno della capienza del campo.
+
+\subsection*{Quanto costa un byte riservato, in nomi rappresentabili}
+
+La misura dell'errore è istruttiva perché è enormemente più grande di quanto la sua estensione osservata suggerisca. Sia $A$ la cardinalità dell'alfabeto rappresentabile, che per la tabella dei caratteri di questa generazione vale circa $250$, e sia $L$ la lunghezza del campo in byte, che per il nome dell'allenatore vale $7$. Il numero di stringhe rappresentabili in un campo che ammette lunghezze da $0$ a $L$ è
+\begin{equation}
+N(L) = \sum_{k=0}^{L} A^k = \frac{A^{L+1}-1}{A-1},
+\end{equation}
+mentre riservando un byte al terminatore si ottiene $N(L-1)$. Il rapporto fra le due è
+\begin{equation}
+\frac{N(L)}{N(L-1)} = \frac{A^{L+1}-1}{A^{L}-1} \approx A = 250 ,
+\end{equation}
+cioè la regola errata rendeva inaccessibili circa il novantanove virgola sei per cento dello spazio dei nomi rappresentabili. In termini di informazione, la capacità del campo passa da $L \log_2 A \approx 55{,}7$ bit a $(L-1)\log_2 A \approx 47{,}7$ bit: si perdono circa otto bit, cioè esattamente un carattere.
+
+Il contrasto fra questo numero e l'estensione osservata del difetto merita di essere spiegato, poiché insegna qualcosa sul rapporto fra la gravità formale di un errore e la sua manifestazione. Nel catalogo esaminato le voci colpite sono settantacinque su centosettantatre, cioè il quarantatre per cento, e non il novantanove: la ragione è che i nomi reali non sono distribuiti uniformemente sullo spazio delle stringhe ma sono corti, e un errore che rende inaccessibile la quasi totalità di uno spazio si manifesta soltanto sulla frazione di quello spazio che qualcuno usa davvero. Ne segue un criterio pratico: la gravità formale di un errore su un formato non predice la sua estensione osservata, e viceversa; occorrono entrambe le misure, perché la prima dice quanto l'implementazione sia lontana dalla specifica e la seconda quanto lavoro occorra per rimediare.
+
+\subsection*{Perché è rimasto invisibile, e la prova che lo copriva}
+
+Tre circostanze indipendenti si sono sommate. La prima è che il difetto colpisce soltanto i nomi che riempiono esattamente il campo, dunque la maggioranza dei casi funzionava. La seconda è che il nome troncato resta una parola plausibile, e nel caso peggiore incontrato è addirittura un nome che esiste e appartiene a un'altra edizione della medesima campagna: il nome inglese della distribuzione del decennale, privato del settimo carattere, coincide con quello italiano. Un esemplare così non appare difettoso, appare appartenere a un altro evento.
+
+La terza circostanza è la più grave, poiché è interna al lavoro. Esisteva una prova sul confine del terminatore, ed essa passava: era scritta sull'attesa sbagliata, cioè misurava il comportamento dell'implementazione anziché la regola del formato. È la seconda prova di questo genere trovata in due giorni, dopo quella che presidiava la diagnosi errata del vettore deviante, e la loro ricorrenza suggerisce che il fenomeno non sia accidentale.
+
+La spiegazione plausibile è che una prova scritta dopo il codice, e verificata soltanto contro il codice, non possa che confermarlo: essa registra ciò che il programma fa, e la conferma che ne segue è tautologica. Una prova acquista potere di falsificazione solo se la sua attesa proviene da una fonte indipendente dal programma, cioè dalla specifica o da una implementazione di riferimento. La conseguenza operativa che il presente lavoro adotta è di annotare, accanto a ogni attesa non ovvia, da dove essa provenga; e quando una correzione rompe una prova esistente, di rileggere la fonte prima di aggiornare l'attesa, poiché il momento in cui si modifica una prova è quello in cui è più facile nascondere un errore anziché correggerlo.
+
+\subsection*{Il limite di una suite di prove, enunciato senza attenuazioni}
+
+I quattro esemplari sottoposti in blocco hanno prodotto due difetti, ed entrambi passavano indenni una suite che al momento del giudizio contava centoottantuno prove, tutte verdi. Il fatto va enunciato nella sua forma generale: una suite di prove misura la coerenza di un programma con le proprie assunzioni, e non ha alcun modo di misurare la correttezza di quelle assunzioni. Per la seconda serve un'autorità esterna al programma.
+
+Il dato empirico raccolto in due giorni permette una stima grossolana e non rassicurante. Sei esemplari sono stati sottoposti a giudizio esterno e hanno prodotto quattro difetti distinti, di cui due sul primo e sul secondo esemplare e due sui quattro successivi. Il tasso di scoperta non mostra segno di calare, e in un processo di questo genere un tasso costante è l'indicazione che il numero di difetti residui non è ancora stimabile: soltanto quando esemplari nuovi cessano di produrre contestazioni nuove si può cominciare a credere che l'insieme sia stato esaurito. Ne segue che sottoporre altri esemplari resta, in questo momento, il lavoro con il rendimento più alto fra quelli disponibili.

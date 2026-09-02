@@ -717,6 +717,14 @@ def esemplare_da_evento(metodo, id_allenatore, id_segreto=0, lucentezza=None, sp
             continue
         if lucentezza == "Always" and not cromatico:
             continue
+        # Le due derivazioni che dichiarano il sesso pretendono anche che il seme lo produca:
+        # il verificatore ricalcola il bit e lo confronta con quello memorizzato, quindi un seme
+        # che non lo soddisfi produce un esemplare rifiutato. Il controllo sta prima
+        # dell'estrazione dell'oggetto perche' i due eventi interessati sono disgiunti e
+        # metterlo dopo darebbe l'impressione di un ordine che conta.
+        if derivazione in BIT_SESSO_DICHIARATO:
+            if bit_sesso_derivato(stato) != BIT_SESSO_DICHIARATO[derivazione]:
+                continue
         estrazione_oggetto = None
         if (id_allenatore & 0xFFFF) == ID_ALLENATORE_CON_OGGETTO:
             stato, estrazione_oggetto = prossima16(stato)
@@ -753,3 +761,28 @@ def oggetto_tenuto_desiderio(estrazione):
     perche' e' quella che si confronta a vista con il sorgente.
     """
     return OGGETTO_DESIDERIO[0] - (_bit0_diviso_tre(estrazione) & 1)
+# Le due derivazioni che dichiarano il sesso dell'allenatore invece di calcolarlo, e il bit che
+# ciascuna pretende. Il valore dichiarato non basta: il verificatore ricalcola il bit dal seme e
+# richiede che i due combacino, ed e' questo il "controllo algoritmico dopo" che la fonte nomina
+# in un commento accanto alla funzione che si limita a restituire il valore dichiarato.
+#
+# La contraddizione e' interna alla fonte e va conosciuta, perche' spiega come un difetto simile
+# possa nascere anche in una implementazione matura: il suo generatore vincola il seme al bit
+# soltanto per i metodi che cadono nel ramo predefinito, mentre il metodo a orologio esce dallo
+# switch prima di arrivarci; il suo verificatore invece pretende il vincolo sempre. Ne segue che
+# quel generatore puo' produrre un esemplare che quel verificatore rifiuta. Noi seguiamo il
+# verificatore, perche' e' lui a giudicare.
+BIT_SESSO_DICHIARATO = {"RandD3_0": 0, "RandD3_1": 1}
+
+
+def bit_sesso_derivato(stato):
+    """Il bit del sesso dell'allenatore letto dalla prima estrazione successiva allo stato.
+
+    Lo stato che entra qui e' quello residuo dopo il valore di personalita' e i valori
+    individuali, quindi l'estrazione letta e' la quinta o la sesta secondo quante ne abbia
+    consumate il ramo della composizione. Questa e' la ragione per cui la funzione prende lo
+    stato e non il seme: contare le estrazioni dal seme richiederebbe di sapere quale ramo si
+    stia usando, e la conta sbagliata produce un bit plausibile.
+    """
+    _stato, parola = prossima16(stato)
+    return _bit0_diviso_tre(parola)
