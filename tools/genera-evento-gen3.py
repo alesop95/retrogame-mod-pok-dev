@@ -1011,6 +1011,35 @@ def incubazioni_per_specie(pkhex):
     return fuori
 
 
+def tabella_per_nome(nome):
+    """La tabella dei caratteri che sa scrivere quel nome, e il rifiuto se nessuna lo sa.
+
+    Serve a un caso che le due tabelle rendono possibile e che non e' un aggiramento: in un uovo
+    della terza generazione il byte della lingua vale giapponese per costruzione, ma il nome
+    dell'allenatore lo scrive il gioco che lo consegna, che puo' essere internazionale. Le due
+    tabelle sono allineate sui caratteri latini, cioe' il byte che nella internazionale rende la
+    lettera A rende nella giapponese la medesima lettera a larghezza intera, quindi un nome
+    latino scritto dal gioco internazionale si rilegge con la tabella giapponese come il
+    medesimo nome in larghezza intera. E' cio' che accadeva sulla cartuccia, e non una nostra
+    invenzione.
+
+    La scelta si fa dunque sul nome e non sulla lingua dichiarata: si prova la tabella che sa
+    scriverlo. Se nessuna delle due lo sa, si solleva invece di scrivere un nome troncato,
+    perche' un nome vuoto o mutilo e' esattamente il rilievo che il verificatore ha sollevato il
+    2026-09-02 su venticinque esemplari.
+    """
+    for etichetta, tabella in (("internazionale", cm.Charmap.gen3()),
+                               ("giapponese", cm.Charmap.gen3_jp())):
+        try:
+            tabella.encode(nome, length=gen3.OT_NAME_LENGTH)
+            return etichetta, tabella
+        except ValueError:
+            continue
+    raise ValueError("il nome %r non si scrive con nessuna delle due tabelle della terza "
+                     "generazione: non si scrive un nome mutilo, perche un nome incompleto e "
+                     "un rilievo del verificatore e non un difetto estetico" % (nome,))
+
+
 def nazionale_verso_interno(ace):
     """La corrispondenza fra numero nazionale e identificativo interno di terza generazione.
 
@@ -1304,15 +1333,15 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None,
         uovo = bool(v.get("uovo"))
         lingua_voce = "Japanese" if uovo else v.get("lingua", "English")
         tabella = cm.Charmap.gen3_per_lingua(lingua_voce)
-        # Il nome dell'allenatore di un uovo non si sostituisce con quello di chi riceve, e la
-        # ragione viene dalla fonte e non da una scelta nostra. In terza generazione un uovo
-        # porta la lingua giapponese per costruzione, e il nome si scrive con la tabella di
-        # quella lingua: un nome in caratteri latini non vi si puo' scrivere. La fonte lo
-        # lascia quindi vuoto, e lo riempie soltanto quando l'uovo schiude su una generazione
-        # successiva, prendendolo dal salvataggio che lo fa schiudere. Un uovo di terza
-        # generazione non ha ancora un allenatore, e scrivergliene uno sarebbe inventarlo.
-        nome_effettivo = nome_ot if uovo else (nome_ot or
-                                              (allenatore["nome"] if allenatore else ""))
+        # Anche un uovo porta il nome di chi lo riceve quando l'evento non lo fissa, e questo
+        # corregge una conclusione che il progetto aveva tratto il 2026-09-02 e che era
+        # sbagliata. Avevo ragionato che, dovendo un uovo portare la lingua giapponese, un nome
+        # latino non fosse scrivibile e che la fonte lo lasciasse dunque vuoto. Il verificatore
+        # ha contestato quei venticinque esemplari con la formula che il nome e' troppo corto, e
+        # la regola che lo impone e' esplicita: un nome di lunghezza nulla e' invalido. La
+        # contraddizione si scioglie perche' le due tabelle sono allineate sui caratteri latini,
+        # quindi il nome lo scrive il gioco che lo consegna e si rilegge in larghezza intera.
+        nome_effettivo = nome_ot or (allenatore["nome"] if allenatore else "")
         if uovo:
             nome_specie = SOPRANNOME_UOVO
         else:
@@ -1323,8 +1352,14 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None,
                             " per l'identificativo interno " + str(specie_id)))
             continue
         try:
-            ot_bytes = tabella.encode(nome_effettivo, length=gen3.OT_NAME_LENGTH)
+            # Il soprannome si scrive con la tabella della lingua dell'esemplare, perche' e' con
+            # quella che il verificatore lo rileggera'. Il nome dell'allenatore si scrive con la
+            # tabella che sa scriverlo, perche' e' il gioco che lo consegna a scriverlo e quel
+            # gioco puo' essere di lingua diversa dal byte della lingua, che in un uovo vale
+            # giapponese per costruzione.
             soprannome = tabella.encode(nome_specie, length=gen3.NICKNAME_LENGTH)
+            _quale, tabella_nome = tabella_per_nome(nome_effettivo)
+            ot_bytes = tabella_nome.encode(nome_effettivo, length=gen3.OT_NAME_LENGTH)
         except ValueError as e:
             saltate.append((indice, etichetta, "codifica dei caratteri: " + str(e)))
             continue

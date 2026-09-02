@@ -551,3 +551,28 @@ Il difetto è della classe che questo progetto incontra più spesso, e vale enun
 Resta da spiegare che cosa una sigla multipla significhi, perché la risposta non è arbitraria. Un dono distribuito a più titoli non ha un gioco di origine proprio: lo prende dal salvataggio che lo riscatta, esattamente come prende da là il nome dell'allenatore quando l'evento non lo fissa. Il gioco di destinazione diventa dunque un parametro del programma, con la medesima ragione per cui l'allenatore lo è già: è un dato del salvataggio e non dell'evento, e inventarlo produrrebbe un esemplare che dichiara una provenienza che non ha.
 
 È il settimo difetto trovato dal giudizio esterno, e i sette hanno in comune una cosa che vale contare: nessuno di essi riguarda il generatore pseudocasuale, che era la parte difficile e che era giusta dal principio. Tutti e sette riguardano campi di contorno, cioè contrassegni, nomi, livelli e codici di versione, e sei dei sette sono difetti di attribuzione di un valore predefinito o di lettura di un campo che la tabella dichiarava e noi non leggevamo. La difficoltà non stava dove il progetto si era preparato a trovarla.
+## 27. L'ottavo difetto, e la seconda volta che il generatore della fonte contraddice il suo verificatore
+
+La correzione del gioco di origine ha avuto l'effetto che doveva: il verificatore ora riconosce il dono, dichiara il tipo di incontro giusto, classifica il valore di personalità nel metodo delle uova e ricostruisce il nostro seme. Il rilievo che restava era un altro, e sul nome dell'allenatore.
+
+### Che cosa avevo concluso, e perché era sbagliato
+
+Quando le venticinque uova del centro di New York erano state rifiutate per la codifica dei caratteri, avevo ragionato così: un uovo della terza generazione porta il byte della lingua a giapponese per costruzione, il nome dell'allenatore si scrive con la tabella di quella lingua, un nome in caratteri latini in quella tabella non esiste, quindi la fonte lascia il nome vuoto e lo riempie soltanto quando l'uovo schiude su una generazione successiva. Avevo perfino verificato che la funzione di scrittura della fonte, incontrando un carattere che non sa scrivere, interrompe e lascia il campo vuoto.
+
+La conclusione era falsa, e il verificatore l'ha detto con una formula secca: il nome dell'allenatore è troppo corto. La regola che lo impone è esplicita e non ammette casi: un nome di lunghezza nulla è invalido.
+
+L'errore di metodo va nominato perché è nuovo in questa serie e ricorrerà. Avevo osservato che cosa l'implementazione di riferimento *fa* in un caso limite, e avevo preso quel comportamento per la specifica. Ma ciò che un programma fa in un caso che non ha previsto non è una norma: è soltanto ciò che accade. La prova che non lo fosse stava nella medesima implementazione, nel suo verificatore, che rifiuta il risultato che il suo generatore produrrebbe.
+
+### La seconda volta, e la regola che ne discende
+
+È la seconda volta in due giorni che il generatore e il verificatore della medesima implementazione si contraddicono, e le due volte il verificatore aveva ragione. La prima era il vincolo che lega il seme al bit del sesso dichiarato, dove il generatore scriveva il valore dichiarato e il verificatore pretendeva che il seme lo producesse. La seconda è questa.
+
+La regola operativa è quindi da promuovere da osservazione a criterio: fra il generatore e il verificatore di una implementazione di riferimento vince sempre il verificatore, e non per gerarchia ma per funzione, poiché è esso a giudicare. Un generatore che produca esemplari che il proprio verificatore rifiuta ha un difetto, e quel difetto non è nostro da correggere; adeguarsi a esso significherebbe ereditarlo.
+
+### La soluzione, che era nei byte e non nel ragionamento
+
+La contraddizione fra la lingua giapponese e un nome latino si scioglie per un fatto delle due tabelle che nessuno dei due aveva guardato: sui caratteri latini esse sono allineate. Il byte che nella tabella internazionale rende la lettera A rende nella giapponese la medesima lettera a larghezza intera, e così per tutto l'alfabeto. Ne segue che un nome latino scritto dal gioco internazionale, riletto con la tabella giapponese, non da' spazzatura ma il medesimo nome in larghezza intera.
+
+È ciò che accadeva sulla cartuccia, e la spiegazione è semplice quando si separano due cose che avevo confuso: il byte della lingua e la tabella con cui i byte sono stati scritti. In un uovo il primo vale giapponese per costruzione del formato, mentre il secondo è quello del gioco che consegna l'uovo, che può essere internazionale. Il generatore sceglie ora la tabella del nome guardando il nome, cioè provando quella che sa scriverlo, e si rifiuta se nessuna delle due lo sa: un nome mutilo è un rilievo del verificatore e non un difetto estetico.
+
+Il soprannome resta scritto con la tabella della lingua dell'esemplare, perché è con quella che il verificatore lo rilegge, e la fonte dichiara in un commento che tutte le uova della terza generazione sono trattate come giapponesi, quindi il soprannome è la parola giapponese per uovo in ogni lingua. Le due tabelle in uso nel medesimo esemplare non sono dunque un aggiramento ma la descrizione di come quei byte nacquero.
