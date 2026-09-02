@@ -72,13 +72,26 @@ def carica_generatore():
     return modulo
 
 
-def stato_giudizi():
-    """Lo stato del giudizio esterno per indice di voce, dal registro autorato."""
+def stato_giudizi(quante):
+    """Lo stato del giudizio esterno per indice di voce, dal registro autorato.
+
+    Riceve il numero delle voci della tabella perché un giudizio può riguardare l'intero lotto
+    invece di un esemplare: capita quando la lettura è di massa, cioè quando gli esemplari sono
+    caricati nelle scatole di un salvataggio e si legge quali posizioni portino il contrassegno
+    di non conformità. Quel giudizio vale su ciascuno, perché il contrassegno riflette l'analisi
+    completa e la sua assenza equivale a un rapporto senza rilievi, e va scritto su ciascuna
+    scheda: altrimenti questo documento dichiarerebbe non giudicate delle voci che lo sono, che è
+    il difetto opposto a quello per cui esiste.
+    """
     if not os.path.exists(GIUDIZI):
         return {}
     dati = json.loads(io.open(GIUDIZI, encoding="utf-8").read())
     fuori = {}
     for g in dati["giudizi"]:
+        if g.get("copre") == "tutti":
+            for i in range(quante):
+                fuori[i] = g
+            continue
         base = os.path.basename(g["file"])
         if len(base) > 3 and base[:3].isdigit():
             indice = int(base[:3])
@@ -265,11 +278,15 @@ def componi(ace, pkhex):
     prov, fonti = provenienze()
     contesto = (ace, pkhex, mappa, per_id, gruppi, pp_base, {}, semi_mystry, abilita,
                 posizioni, storici, prov, fonti)
-    giudizi = stato_giudizi()
+    giudizi = stato_giudizi(len(voci))
 
+    # Le uova erano escluse fino al 2026-09-02, perché il generatore le rifiutava per mancanza
+    # del conto delle incubazioni. Adesso le produce, quindi entrano: una esclusione rimasta
+    # dopo la sua causa avrebbe fatto descrivere a questo documento centoventidue esemplari
+    # mentre il lotto ne produce centosettantadue, cioè avrebbe taciuto cinquanta schede senza
+    # che nulla lo segnalasse.
     producibili = [i for i, v in enumerate(voci)
-                   if v.get("metodo") in g.METODI_PRODUCIBILI and not v.get("uovo")
-                   and "ot_irrisolto" not in v]
+                   if v.get("metodo") in g.METODI_PRODUCIBILI and "ot_irrisolto" not in v]
     conformi = [i for i in producibili
                 if i in giudizi and "conforme" in (giudizi[i].get("esito") or "")]
 

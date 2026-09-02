@@ -117,6 +117,18 @@
         "è una controprova di non regressione: le correzioni sul bit dell'abilità, sul nome che riempie il campo e sul vincolo del sesso derivato non toccano questo esemplare, perché il suo valore di personalità è pari, il suo nome ha sei caratteri e la sua derivazione non è fra le due dichiarate",
         "il seme ricostruito è identico a quello della prima lettura, quindi il file non è cambiato"
       ]
+    },
+    {
+      "file": "tutti i 172 esemplari producibili, lettura di massa nelle sei scatole",
+      "copre": "tutti",
+      "data": "2026-09-02",
+      "esito": "conforme",
+      "rilievi": [],
+      "conferme": [
+        "i centosettantadue esemplari sono stati caricati nelle scatole di un salvataggio vuoto di terza generazione, con il caricamento che ne dichiara il numero, e le sei scatole sono state fotografate con il puntatore fuori dalla griglia perché il riquadro informativo copre le posizioni che gli stanno sotto",
+        "nessuna posizione porta il contrassegno di non conformità, e quel contrassegno riflette l'esito dell'analisi completa di legittimità e non un controllo parziale: la sua assenza su una posizione equivale a un rapporto senza rilievi su quell'esemplare",
+        "è la lettura che chiude la campagna sul generatore: ogni voce del catalogo che il progetto sa produrre è stata giudicata da una implementazione indipendente e nessuna è contestata"
+      ]
     }
   ]
 }

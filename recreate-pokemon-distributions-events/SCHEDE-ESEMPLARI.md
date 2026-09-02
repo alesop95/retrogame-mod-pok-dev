@@ -6,9 +6,9 @@ Un giudizio di conformità riguarda una configurazione precisa di byte e non una
 
 Che il documento sia ricalcolato e non letto dal disco ha una conseguenza che vale dichiarare: esso è anche una verifica del determinismo della produzione. Se due corse dessero schede diverse, la scelta del seme non sarebbe riproducibile, e il difetto si manifesterebbe come una modifica del documento senza che nulla sia stato modificato a mano.
 
-Stato: 122 voci producibili, di cui 5 dichiarate conformi da un verificatore indipendente al momento dell'ultima generazione di questo documento. Le voci conformi portano la dicitura accanto al titolo; le altre non sono state giudicate oppure lo sono state con rilievi, e il registro dei giudizi in `giudizi-esterni.json` dice quale dei due casi.
+Stato: 172 voci producibili, di cui 172 dichiarate conformi da un verificatore indipendente al momento dell'ultima generazione di questo documento. Le voci conformi portano la dicitura accanto al titolo; le altre non sono state giudicate oppure lo sono state con rilievi, e il registro dei giudizi in `giudizi-esterni.json` dice quale dei due casi.
 
-### 000 Mew  (giudizio: conforme, riletta dopo le tre correzioni della giornata, 2026-09-02)
+### 000 Mew  (giudizio: conforme, 2026-09-02)
 
 **Mystery Mew.** Quando: 30 settembre 2006. Dove: negozi Toys "R" Us degli Stati Uniti. Come: distribuzione senza fili in un'unica finestra di tre ore, dalle dodici alle quindici. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -34,7 +34,7 @@ Stato: 122 voci producibili, di cui 5 dichiarate conformi da un verificatore ind
 | incontro fatidico | sì | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_M, Never | dichiarati dalla tabella |
 
-### 001 WISHMKR  (giudizio: contestato, poi conforme dopo la correzione, 2026-09-02)
+### 001 WISHMKR  (giudizio: conforme, 2026-09-02)
 
 **Jirachi della stella dei desideri, edizione occidentale.** Quando: non ancora documentate con certezza. Dove: non ancora documentato con certezza. Come: disco allegato al titolo per la console domestica, secondo la conoscenza comune, da verificare. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate. Su questo gruppo le fonti divergono: la voce corrispondente del catalogo riporta la divergenza e l'argomento con cui è stata risolta.
 
@@ -59,7 +59,7 @@ Stato: 122 voci producibili, di cui 5 dichiarate conformi da un verificatore ind
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R, Random | dichiarati dalla tabella |
 
-### 003 Berry Fix Ruby
+### 003 Berry Fix Ruby  (giudizio: conforme, 2026-09-02)
 
 **Berry Program Update Zigzagoon, edizione giapponese con allenatore Rubino.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -84,7 +84,7 @@ Stato: 122 voci producibili, di cui 5 dichiarate conformi da un verificatore ind
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_RBCD, Always | dichiarati dalla tabella |
 
-### 004 Berry Fix Sapphire
+### 004 Berry Fix Sapphire  (giudizio: conforme, 2026-09-02)
 
 **Berry Program Update Zigzagoon, edizione giapponese con allenatore Zaffiro.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -141,7 +141,7 @@ Stato: 122 voci producibili, di cui 5 dichiarate conformi da un verificatore ind
 
 Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè BACD_U_AX, la lucentezza Never e la lingua Japanese.
 
-### 007 Tanabata Jirachi (2004)
+### 007 Tanabata Jirachi (2004)  (giudizio: conforme, 2026-09-02)
 
 **Jirachi della festa delle stelle, edizione 2004.** Quando: luglio 2004, giorni precisi non ancora documentati. Dove: Pokémon Center giapponesi. Come: distribuzione senza fili nei negozi. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -166,7 +166,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 008 ANA Pikachu  (giudizio: contestato, 2026-09-02)
+### 008 ANA Pikachu  (giudizio: conforme, 2026-09-02)
 
 **Pikachu della compagnia aerea.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -191,7 +191,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 009 PokéPark Meowth
+### 009 PokéPark Meowth  (giudizio: conforme, 2026-09-02)
 
 **PokéPark Meowth e le uova del PokéPark.** Quando: 18 marzo - 25 settembre 2005 per il Meowth; 12 marzo - 8 maggio 2005 per le uova. Dove: PokéPark, Giappone, e un cinema nelle vicinanze. Come: distribuzione senza fili sul posto, oppure attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02. Su questo gruppo le fonti divergono: la voce corrispondente del catalogo riporta la divergenza e l'argomento con cui è stata risolta.
 
@@ -216,7 +216,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 010 Yokohama Pikachu
+### 010 Yokohama Pikachu  (giudizio: conforme, 2026-09-02)
 
 **Pikachu di Yokohama.** Quando: 19 marzo - 3 aprile 2005. Dove: Pokémon Center di Tokyo, Osaka, Nagoya, Fukuoka e Yokohama. Come: distribuzione senza fili nei negozi. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -241,7 +241,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 011 Hadou Mew
+### 011 Hadou Mew  (giudizio: conforme, 2026-09-02)
 
 **Mew dell'aura.** Quando: 25 giugno - 31 agosto 2005. Dove: rivenditori che vendevano i biglietti in prevendita per il film. Come: consegnato con la prevendita del biglietto. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -266,7 +266,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | sì | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 012 GW Pikachu
+### 012 GW Pikachu  (giudizio: conforme, 2026-09-02)
 
 **Pikachu della settimana d'oro.** Quando: 25 aprile - 8 maggio 2005. Dove: Pokémon Center di Tokyo, Osaka, Nagoya, Fukuoka e Yokohama. Come: distribuzione senza fili nei negozi. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -291,7 +291,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 013 Sapporo Pikachu
+### 013 Sapporo Pikachu  (giudizio: conforme, 2026-09-02)
 
 **Pikachu di Sapporo.** Quando: 1 luglio - 21 agosto 2005. Dove: Pokémon Center di Sapporo. Come: distribuzione senza fili nel negozio. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -316,7 +316,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 014 Tanabata Jirachi (2005)
+### 014 Tanabata Jirachi (2005)  (giudizio: conforme, 2026-09-02)
 
 **Jirachi della festa delle stelle, edizione 2005.** Quando: 17 luglio - 21 agosto 2005. Dove: sedi del Pokémon Festa 2005, Giappone. Come: distribuzione senza fili alla manifestazione. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -341,7 +341,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 015 Festa Metang
+### 015 Festa Metang  (giudizio: conforme, 2026-09-02)
 
 **Metang della festa.** Quando: 17 luglio - 21 agosto 2005. Dove: sedi del Pokémon Festa 2005, Giappone. Come: consegnato a chi partecipava alla dimostrazione del titolo per la console domestica. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -366,7 +366,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 016 Sunday Wobbuffet
+### 016 Sunday Wobbuffet  (giudizio: conforme, 2026-09-02)
 
 **Wobbuffet della trasmissione domenicale.** Quando: 17 luglio - 21 agosto 2005. Dove: sedi del Pokémon Festa 2005, Giappone. Come: distribuzione senza fili alla manifestazione. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -391,7 +391,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 017 Regirock
+### 017 Regirock  (giudizio: conforme, 2026-09-02)
 
 **I tre leggendari dell'aura, cioè Regirock, Regice e Registeel.** Quando: 1-25 settembre 2005. Dove: un cinema 109 nelle vicinanze del PokéPark, Giappone. Come: distribuzione senza fili sul posto, anche attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -416,7 +416,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 018 Regice
+### 018 Regice  (giudizio: conforme, 2026-09-02)
 
 **I tre leggendari dell'aura, cioè Regirock, Regice e Registeel.** Quando: 1-25 settembre 2005. Dove: un cinema 109 nelle vicinanze del PokéPark, Giappone. Come: distribuzione senza fili sul posto, anche attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -441,7 +441,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 019 Registeel
+### 019 Registeel  (giudizio: conforme, 2026-09-02)
 
 **I tre leggendari dell'aura, cioè Regirock, Regice e Registeel.** Quando: 1-25 settembre 2005. Dove: un cinema 109 nelle vicinanze del PokéPark, Giappone. Come: distribuzione senza fili sul posto, anche attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -466,7 +466,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 020 PokéPark Mew
+### 020 PokéPark Mew  (giudizio: conforme, 2026-09-02)
 
 **Mew del PokéPark.** Quando: 10 maggio - 4 giugno 2006. Dove: negozi Shin Kong Mitsukoshi, Taiwan. Come: distribuzione senza fili nei negozi. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -491,7 +491,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | sì | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 021 PokéPark Celebi
+### 021 PokéPark Celebi  (giudizio: conforme, 2026-09-02)
 
 **Celebi del PokéPark.** Quando: 23 giugno - 24 settembre 2006. Dove: PokéPark, Taiwan. Come: distribuzione senza fili sul posto. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -516,7 +516,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 022 Tanabata Jirachi (2006)
+### 022 Tanabata Jirachi (2006)  (giudizio: conforme, 2026-09-02)
 
 **Jirachi della festa delle stelle, edizione 2006.** Quando: 15-31 luglio 2006. Dove: Pokémon Center di Tokyo, Yokohama, Nagoya, Osaka, Fukuoka e Sapporo. Come: distribuzione senza fili nei negozi. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -541,7 +541,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 023 Mitsurin Celebi (2006)
+### 023 Mitsurin Celebi (2006)  (giudizio: conforme, 2026-09-02)
 
 **Celebi della foresta.** Quando: 20 luglio - 3 settembre 2006. Dove: sedi del giro nella giungla, e Pokémon Center di Nagoya, Osaka, Fukuoka e Sapporo. Come: distribuzione senza fili sul posto. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -566,7 +566,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 024 PokéPark Jirachi (2006)
+### 024 PokéPark Jirachi (2006)  (giudizio: conforme, 2026-09-02)
 
 **Jirachi del PokéPark, prima finestra.** Quando: 24-31 luglio 2006. Dove: PokéPark, Taiwan. Come: distribuzione senza fili ai vincitori di un'estrazione a premi. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -591,7 +591,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 025 PokéPark Jirachi (2006)
+### 025 PokéPark Jirachi (2006)  (giudizio: conforme, 2026-09-02)
 
 **Jirachi del PokéPark, seconda finestra.** Quando: 23-30 agosto 2006. Dove: PokéPark, Taiwan. Come: distribuzione senza fili ai vincitori di un'estrazione a premi. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -616,7 +616,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 026 Berry Fix Ruby  (giudizio: contestato, poi conforme dopo la correzione, 2026-09-02)
+### 026 Berry Fix Ruby  (giudizio: conforme, 2026-09-02)
 
 **Berry Program Update Zigzagoon, edizione inglese con allenatore RUBY.** Quando: 1 marzo 2004 - 22 aprile 2007. Dove: negozi EB Games e GameStop, e disco dimostrativo per la console domestica. Come: distribuzione senza fili nei negozi, oppure dal disco dimostrativo a casa. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -641,7 +641,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_RBCD, Always | dichiarati dalla tabella |
 
-### 027 Berry Fix Sapphire
+### 027 Berry Fix Sapphire  (giudizio: conforme, 2026-09-02)
 
 **Berry Program Update Zigzagoon, edizione inglese con allenatore SAPHIRE.** Quando: 1 marzo 2004 - 22 aprile 2007. Dove: negozi EB Games e GameStop, e disco dimostrativo per la console domestica. Come: distribuzione senza fili nei negozi, oppure dal disco dimostrativo a casa. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -666,7 +666,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_RBCD, Always | dichiarati dalla tabella |
 
-### 028 Charizard
+### 028 Charizard  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -691,7 +691,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 029 Pikachu
+### 029 Pikachu  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -716,7 +716,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 030 Articuno
+### 030 Articuno  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -741,7 +741,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 031 Raikou
+### 031 Raikou  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -766,7 +766,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 032 Entei
+### 032 Entei  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -791,7 +791,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 033 Suicune
+### 033 Suicune  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -816,7 +816,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 034 Lugia
+### 034 Lugia  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -841,7 +841,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 035 Ho-Oh
+### 035 Ho-Oh  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -866,7 +866,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 036 Latias
+### 036 Latias  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -891,7 +891,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 037 Latios
+### 037 Latios  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -916,7 +916,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 038 Charizard
+### 038 Charizard  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -941,7 +941,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 039 Pikachu
+### 039 Pikachu  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -966,7 +966,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 040 Articuno
+### 040 Articuno  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -991,7 +991,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 041 Raikou
+### 041 Raikou  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -1016,7 +1016,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 042 Entei
+### 042 Entei  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -1041,7 +1041,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 043 Suicune
+### 043 Suicune  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -1066,7 +1066,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 044 Lugia
+### 044 Lugia  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -1091,7 +1091,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 045 Ho-Oh
+### 045 Ho-Oh  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -1116,7 +1116,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 046 Latias
+### 046 Latias  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -1141,7 +1141,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 047 Latios
+### 047 Latios  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -1166,7 +1166,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 048 Charizard
+### 048 Charizard  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione tedesca.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -1191,7 +1191,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 049 Pikachu
+### 049 Pikachu  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione tedesca.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -1216,7 +1216,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 050 Articuno
+### 050 Articuno  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione tedesca.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -1241,7 +1241,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 051 Raikou
+### 051 Raikou  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione tedesca.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -1266,7 +1266,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 052 Entei
+### 052 Entei  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione tedesca.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -1291,7 +1291,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 053 Suicune
+### 053 Suicune  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione tedesca.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -1316,7 +1316,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 054 Lugia
+### 054 Lugia  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione tedesca.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -1341,7 +1341,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 055 Ho-Oh
+### 055 Ho-Oh  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione tedesca.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -1366,7 +1366,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 056 Latias
+### 056 Latias  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione tedesca.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -1391,7 +1391,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 057 Latios
+### 057 Latios  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione tedesca.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -1416,7 +1416,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 058 Charizard
+### 058 Charizard  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione italiana.** Quando: 23-25 giugno 2006. Dove: parco di Mirabilandia, Italia. Come: distribuzione senza fili al parco. Fonte: [List of Italian event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -1441,7 +1441,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 059 Pikachu
+### 059 Pikachu  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione italiana.** Quando: 23-25 giugno 2006. Dove: parco di Mirabilandia, Italia. Come: distribuzione senza fili al parco. Fonte: [List of Italian event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -1466,7 +1466,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 060 Articuno
+### 060 Articuno  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione italiana.** Quando: 23-25 giugno 2006. Dove: parco di Mirabilandia, Italia. Come: distribuzione senza fili al parco. Fonte: [List of Italian event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -1491,7 +1491,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 061 Raikou
+### 061 Raikou  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione italiana.** Quando: 23-25 giugno 2006. Dove: parco di Mirabilandia, Italia. Come: distribuzione senza fili al parco. Fonte: [List of Italian event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -1516,7 +1516,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 062 Entei
+### 062 Entei  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione italiana.** Quando: 23-25 giugno 2006. Dove: parco di Mirabilandia, Italia. Come: distribuzione senza fili al parco. Fonte: [List of Italian event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -1541,7 +1541,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 063 Suicune
+### 063 Suicune  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione italiana.** Quando: 23-25 giugno 2006. Dove: parco di Mirabilandia, Italia. Come: distribuzione senza fili al parco. Fonte: [List of Italian event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -1566,7 +1566,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 064 Lugia
+### 064 Lugia  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione italiana.** Quando: 23-25 giugno 2006. Dove: parco di Mirabilandia, Italia. Come: distribuzione senza fili al parco. Fonte: [List of Italian event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -1591,7 +1591,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 065 Ho-Oh
+### 065 Ho-Oh  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione italiana.** Quando: 23-25 giugno 2006. Dove: parco di Mirabilandia, Italia. Come: distribuzione senza fili al parco. Fonte: [List of Italian event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -1616,7 +1616,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 066 Latias
+### 066 Latias  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione italiana.** Quando: 23-25 giugno 2006. Dove: parco di Mirabilandia, Italia. Come: distribuzione senza fili al parco. Fonte: [List of Italian event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -1641,7 +1641,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 067 Latios
+### 067 Latios  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione italiana.** Quando: 23-25 giugno 2006. Dove: parco di Mirabilandia, Italia. Come: distribuzione senza fili al parco. Fonte: [List of Italian event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -1666,7 +1666,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 068 Charizard
+### 068 Charizard  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione spagnola.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -1691,7 +1691,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 069 Pikachu
+### 069 Pikachu  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione spagnola.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -1716,7 +1716,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 070 Articuno
+### 070 Articuno  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione spagnola.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -1741,7 +1741,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 071 Raikou
+### 071 Raikou  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione spagnola.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -1766,7 +1766,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 072 Entei
+### 072 Entei  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione spagnola.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -1791,7 +1791,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 073 Suicune
+### 073 Suicune  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione spagnola.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -1816,7 +1816,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 074 Lugia
+### 074 Lugia  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione spagnola.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -1841,7 +1841,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 075 Ho-Oh
+### 075 Ho-Oh  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione spagnola.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -1866,7 +1866,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 076 Latias
+### 076 Latias  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione spagnola.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -1891,7 +1891,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 077 Latios
+### 077 Latios  (giudizio: conforme, 2026-09-02)
 
 **Top 10 Distribution Pokémon, edizione spagnola.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -1916,7 +1916,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 078 Mew
+### 078 Mew  (giudizio: conforme, 2026-09-02)
 
 **Aura Mew.** Quando: 2-26 agosto 2007 nel Regno Unito, 25-28 ottobre 2007 in Norvegia, 5 novembre - 14 dicembre 2007 in Svezia, 3-30 gennaio 2008 in Danimarca; 7-8 luglio 2007 in Italia. Dove: negozi Toys "R" Us nel Regno Unito, manifestazioni e distribuzioni per posta nei paesi nordici, parco di Mirabilandia in Italia. Come: distribuzione senza fili alle manifestazioni, e per posta nei due paesi nordici dove non si tenne un evento. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -1941,7 +1941,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | sì | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 079 Metang
+### 079 Metang  (giudizio: conforme, 2026-09-02)
 
 **Pokémon Rocks America 2005 Metang.** Quando: 17 settembre - 22 ottobre 2005. Dove: cinque città degli Stati Uniti, cioè San Jose, Phoenix, Dallas, Chicago e Boston. Come: consegnato a chi completava la dimostrazione del titolo per la console domestica, tramite una tessera. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -1966,7 +1966,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 080 Deoxys
+### 080 Deoxys  (giudizio: conforme, 2026-09-02)
 
 **Doel Deoxys.** Quando: 25-28 maggio 2006. Dove: TV Toy Museum nei Paesi Bassi, durante i Pokémon Fan Days 2006. Come: distribuzione senza fili alla manifestazione. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -1991,7 +1991,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | sì | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 081 Deoxys
+### 081 Deoxys  (giudizio: conforme, 2026-09-02)
 
 **Space Center Deoxys.** Quando: dal 10 al 19 marzo 2006, e poi ogni sabato e domenica fino al 14 maggio 2006. Dove: Space Center Houston, Stati Uniti. Come: distribuzione senza fili sul posto. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
@@ -2016,7 +2016,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | sì | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 082 Bulbasaur
+### 082 Bulbasaur  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2041,7 +2041,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 083 Charizard
+### 083 Charizard  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2066,7 +2066,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 084 Blastoise
+### 084 Blastoise  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2091,7 +2091,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 085 Pikachu (Fly)
+### 085 Pikachu (Fly)  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2116,7 +2116,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 086 Alakazam
+### 086 Alakazam  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2141,7 +2141,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 087 Articuno
+### 087 Articuno  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2166,7 +2166,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 088 Zapdos
+### 088 Zapdos  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2191,7 +2191,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 089 Moltres
+### 089 Moltres  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2216,7 +2216,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 090 Dragonite
+### 090 Dragonite  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2241,7 +2241,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 091 Typhlosion
+### 091 Typhlosion  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2266,7 +2266,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 092 Espeon
+### 092 Espeon  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2291,7 +2291,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 093 Umbreon
+### 093 Umbreon  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2316,7 +2316,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 094 Raikou
+### 094 Raikou  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2341,7 +2341,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 095 Entei
+### 095 Entei  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2366,7 +2366,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 096 Suicune
+### 096 Suicune  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2391,7 +2391,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 097 Tyranitar
+### 097 Tyranitar  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2416,7 +2416,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 098 Blaziken
+### 098 Blaziken  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2441,7 +2441,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 099 Absol
+### 099 Absol  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2466,7 +2466,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 100 Latias
+### 100 Latias  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2491,7 +2491,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 101 Latios
+### 101 Latios  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2516,7 +2516,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 102 Bulbasaur
+### 102 Bulbasaur  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2541,7 +2541,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 103 Charizard
+### 103 Charizard  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2566,7 +2566,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 104 Blastoise
+### 104 Blastoise  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2591,7 +2591,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 105 Pikachu (No Fly)
+### 105 Pikachu (No Fly)  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2616,7 +2616,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 106 Alakazam
+### 106 Alakazam  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2641,7 +2641,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 107 Articuno
+### 107 Articuno  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2666,7 +2666,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 108 Zapdos
+### 108 Zapdos  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2691,7 +2691,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 109 Moltres
+### 109 Moltres  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2716,7 +2716,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 110 Dragonite
+### 110 Dragonite  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2741,7 +2741,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 111 Typhlosion
+### 111 Typhlosion  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2766,7 +2766,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 112 Espeon
+### 112 Espeon  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2791,7 +2791,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 113 Umbreon
+### 113 Umbreon  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2816,7 +2816,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 114 Raikou
+### 114 Raikou  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2841,7 +2841,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 115 Entei
+### 115 Entei  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2866,7 +2866,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 116 Suicune
+### 116 Suicune  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2891,7 +2891,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 117 Tyranitar
+### 117 Tyranitar  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2916,7 +2916,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 118 Celebi
+### 118 Celebi  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2941,7 +2941,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 119 Blaziken
+### 119 Blaziken  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2966,7 +2966,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 120 Absol
+### 120 Absol  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -2991,7 +2991,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 121 Latias
+### 121 Latias  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -3016,7 +3016,7 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
-### 122 Latios
+### 122 Latios  (giudizio: conforme, 2026-09-02)
 
 **Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
@@ -3040,3 +3040,588 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | fiocchi di merito | `0x000` | nessuno dichiarato |
 | incontro fatidico | no | dichiarato dalla tabella |
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
+
+### 123 Pichu with Teeter Dance  (giudizio: conforme, 2026-09-02)
+
+**Uova del quinto anniversario del centro Pokémon giapponese.** Quando: non ancora documentate. Dove: centri Pokémon giapponesi. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè BACD_TS, la lucentezza Always e la lingua English.
+
+### 124 Pichu with Wish  (giudizio: conforme, 2026-09-02)
+
+**Uova del quinto anniversario del centro Pokémon giapponese.** Quando: non ancora documentate. Dove: centri Pokémon giapponesi. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè BACD_TS, la lucentezza Always e la lingua English.
+
+### 125 Pichu with Teeter Dance  (giudizio: conforme, 2026-09-02)
+
+**Uova del quinto anniversario del centro Pokémon giapponese.** Quando: non ancora documentate. Dove: centri Pokémon giapponesi. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè BACD_TA, la lucentezza non vincolata e la lingua English.
+
+### 126 Pichu with Wish  (giudizio: conforme, 2026-09-02)
+
+**Uova del quinto anniversario del centro Pokémon giapponese.** Quando: non ancora documentate. Dove: centri Pokémon giapponesi. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè BACD_TA, la lucentezza non vincolata e la lingua English.
+
+### 127 Ralts with Charm  (giudizio: conforme, 2026-09-02)
+
+**Uova del quinto anniversario del centro Pokémon giapponese.** Quando: non ancora documentate. Dove: centri Pokémon giapponesi. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè BACD_TA, la lucentezza non vincolata e la lingua English.
+
+### 128 Ralts with Wish  (giudizio: conforme, 2026-09-02)
+
+**Uova del quinto anniversario del centro Pokémon giapponese.** Quando: non ancora documentate. Dove: centri Pokémon giapponesi. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè BACD_TA, la lucentezza non vincolata e la lingua English.
+
+### 129 Absol with Spite  (giudizio: conforme, 2026-09-02)
+
+**Uova del quinto anniversario del centro Pokémon giapponese.** Quando: non ancora documentate. Dove: centri Pokémon giapponesi. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè BACD_TA, la lucentezza non vincolata e la lingua English.
+
+### 130 Absol with Wish  (giudizio: conforme, 2026-09-02)
+
+**Uova del quinto anniversario del centro Pokémon giapponese.** Quando: non ancora documentate. Dove: centri Pokémon giapponesi. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè BACD_TA, la lucentezza non vincolata e la lingua English.
+
+### 131 Bagon with Iron Defense  (giudizio: conforme, 2026-09-02)
+
+**Uova del quinto anniversario del centro Pokémon giapponese.** Quando: non ancora documentate. Dove: centri Pokémon giapponesi. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè BACD_TA, la lucentezza non vincolata e la lingua English.
+
+### 132 Bagon with Wish  (giudizio: conforme, 2026-09-02)
+
+**Uova del quinto anniversario del centro Pokémon giapponese.** Quando: non ancora documentate. Dove: centri Pokémon giapponesi. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè BACD_TA, la lucentezza non vincolata e la lingua English.
+
+### 133 Oddish with Leech Seed  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 134 Meowth with Petal Dance  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 135 Poliwag with Sweet Kiss  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 136 Bellsprout with Teeter Dance  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 137 Farfetch'd with Wish & Yawn  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 138 Drowzee with Wish & Belly Drum  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 139 Exeggcute with Wish & Sweet Scent  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 140 Lickitung with Wish & Heal Bell  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 141 Chansey with Wish & Sweet Scent  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 142 Kangaskhan with Wish & Yawn  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 143 Psyduck with Mud Sport  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 144 Pichu with Follow me  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 145 Igglybuff with Tickle  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 146 Corsola with Mud Sport  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 147 Taillow with Feather Dance  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 148 Surskit with Mud Sport  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 149 Whismur with Teeter Dance  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 150 Skitty with Rollout  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 151 Plusle with Water Sport  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 152 Minun with Mud Sport  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 153 Spoink with Uproar  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 154 Spinda with Sing  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 155 Cacnea with Encore  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 156 Corphish with Water Sport  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 157 Wynaut with Tickle  (giudizio: conforme, 2026-09-02)
+
+**Uova del desiderio del centro Pokémon di New York.** Quando: non ancora documentate. Dove: Pokémon Center di New York. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
+Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè Method_2, la lucentezza non vincolata e la lingua English.
+
+### 158 Psyduck with Mud Sport  (giudizio: conforme, 2026-09-02)
+
+**PokéPark Meowth e le uova del PokéPark.** Quando: 18 marzo - 25 settembre 2005 per il Meowth; 12 marzo - 8 maggio 2005 per le uova. Dove: PokéPark, Giappone, e un cinema nelle vicinanze. Come: distribuzione senza fili sul posto, oppure attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02. Su questo gruppo le fonti divergono: la voce corrispondente del catalogo riporta la divergenza e l'argomento con cui è stata risolta.
+
+| Campo | Valore | Da dove viene |
+|---|---|---|
+| seme di origine | `0x009F` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
+| valore di personalità | `0xDA2BCC7C` | prime estrazioni, secondo il ramo del metodo |
+| natura | Lax | resto per venticinque del valore di personalità |
+| bit dell'abilità | 0 | bit meno significativo del valore di personalità, oppure zero se la specie ha una sola abilità |
+| cromatico | no | somma esclusiva delle quattro parole sotto otto |
+| valori individuali | 9 PS / 4 Att / 8 Dif / 29 Asp / 1 Dsp / 25 Vel | due estrazioni, cinque bit per campo |
+| allenatore | `ポケパーク` | dichiarato dalla tabella |
+| identificativo, segreto | 50318, 0 | dichiarati dalla tabella |
+| sesso dell'allenatore | maschio | derivazione Only0 |
+| lingua | English | dichiarata dalla tabella |
+| specie interna, soprannome | 54, `PSYDUCK` | numero nazionale 54, nome nella lingua della voce |
+| livello, esperienza | 5, 125 | livello dichiarato, esperienza dalla formula del gruppo di crescita |
+| mosse | 346, 10, 39, 300 | dichiarate dalla tabella |
+| punti potenza | 15, 35, 30, 15 | dal valore base di ciascuna mossa |
+| oggetto tenuto | nessuno | l'evento non ne dichiara alcuno |
+| fiocchi di merito | `0x000` | nessuno dichiarato |
+| incontro fatidico | no | dichiarato dalla tabella |
+| metodo, lucentezza | BACD_R, non vincolata | dichiarati dalla tabella |
+
+### 159 Pichu with Follow Me  (giudizio: conforme, 2026-09-02)
+
+**PokéPark Meowth e le uova del PokéPark.** Quando: 18 marzo - 25 settembre 2005 per il Meowth; 12 marzo - 8 maggio 2005 per le uova. Dove: PokéPark, Giappone, e un cinema nelle vicinanze. Come: distribuzione senza fili sul posto, oppure attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02. Su questo gruppo le fonti divergono: la voce corrispondente del catalogo riporta la divergenza e l'argomento con cui è stata risolta.
+
+| Campo | Valore | Da dove viene |
+|---|---|---|
+| seme di origine | `0x00A0` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
+| valore di personalità | `0x1BF18F1E` | prime estrazioni, secondo il ramo del metodo |
+| natura | Gentle | resto per venticinque del valore di personalità |
+| bit dell'abilità | 0 | bit meno significativo del valore di personalità, oppure zero se la specie ha una sola abilità |
+| cromatico | no | somma esclusiva delle quattro parole sotto otto |
+| valori individuali | 7 PS / 8 Att / 8 Dif / 14 Asp / 29 Dsp / 0 Vel | due estrazioni, cinque bit per campo |
+| allenatore | `ポケパーク` | dichiarato dalla tabella |
+| identificativo, segreto | 50318, 0 | dichiarati dalla tabella |
+| sesso dell'allenatore | maschio | derivazione Only0 |
+| lingua | English | dichiarata dalla tabella |
+| specie interna, soprannome | 172, `PICHU` | numero nazionale 172, nome nella lingua della voce |
+| livello, esperienza | 5, 125 | livello dichiarato, esperienza dalla formula del gruppo di crescita |
+| mosse | 84, 204, 266 | dichiarate dalla tabella |
+| punti potenza | 30, 20, 20 | dal valore base di ciascuna mossa |
+| oggetto tenuto | nessuno | l'evento non ne dichiara alcuno |
+| fiocchi di merito | `0x000` | nessuno dichiarato |
+| incontro fatidico | no | dichiarato dalla tabella |
+| metodo, lucentezza | BACD_R, non vincolata | dichiarati dalla tabella |
+
+### 160 Igglybuff with Tickle  (giudizio: conforme, 2026-09-02)
+
+**PokéPark Meowth e le uova del PokéPark.** Quando: 18 marzo - 25 settembre 2005 per il Meowth; 12 marzo - 8 maggio 2005 per le uova. Dove: PokéPark, Giappone, e un cinema nelle vicinanze. Come: distribuzione senza fili sul posto, oppure attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02. Su questo gruppo le fonti divergono: la voce corrispondente del catalogo riporta la divergenza e l'argomento con cui è stata risolta.
+
+| Campo | Valore | Da dove viene |
+|---|---|---|
+| seme di origine | `0x00A1` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
+| valore di personalità | `0x5DB751C1` | prime estrazioni, secondo il ramo del metodo |
+| natura | Bold | resto per venticinque del valore di personalità |
+| bit dell'abilità | 0 | bit meno significativo del valore di personalità, oppure zero se la specie ha una sola abilità |
+| cromatico | no | somma esclusiva delle quattro parole sotto otto |
+| valori individuali | 4 PS / 12 Att / 8 Dif / 30 Asp / 24 Dsp / 6 Vel | due estrazioni, cinque bit per campo |
+| allenatore | `ポケパーク` | dichiarato dalla tabella |
+| identificativo, segreto | 50318, 0 | dichiarati dalla tabella |
+| sesso dell'allenatore | maschio | derivazione Only0 |
+| lingua | English | dichiarata dalla tabella |
+| specie interna, soprannome | 174, `IGGLYBUFF` | numero nazionale 174, nome nella lingua della voce |
+| livello, esperienza | 5, 100 | livello dichiarato, esperienza dalla formula del gruppo di crescita |
+| mosse | 47, 204, 111, 321 | dichiarate dalla tabella |
+| punti potenza | 15, 20, 40, 20 | dal valore base di ciascuna mossa |
+| oggetto tenuto | nessuno | l'evento non ne dichiara alcuno |
+| fiocchi di merito | `0x000` | nessuno dichiarato |
+| incontro fatidico | no | dichiarato dalla tabella |
+| metodo, lucentezza | BACD_R, non vincolata | dichiarati dalla tabella |
+
+### 161 Corsola with Mud Sport  (giudizio: conforme, 2026-09-02)
+
+**PokéPark Meowth e le uova del PokéPark.** Quando: 18 marzo - 25 settembre 2005 per il Meowth; 12 marzo - 8 maggio 2005 per le uova. Dove: PokéPark, Giappone, e un cinema nelle vicinanze. Come: distribuzione senza fili sul posto, oppure attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02. Su questo gruppo le fonti divergono: la voce corrispondente del catalogo riporta la divergenza e l'argomento con cui è stata risolta.
+
+| Campo | Valore | Da dove viene |
+|---|---|---|
+| seme di origine | `0x00A2` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
+| valore di personalità | `0x9F7E1464` | prime estrazioni, secondo il ramo del metodo |
+| natura | Hardy | resto per venticinque del valore di personalità |
+| bit dell'abilità | 0 | bit meno significativo del valore di personalità, oppure zero se la specie ha una sola abilità |
+| cromatico | no | somma esclusiva delle quattro parole sotto otto |
+| valori individuali | 2 PS / 16 Att / 8 Dif / 14 Asp / 20 Dsp / 13 Vel | due estrazioni, cinque bit per campo |
+| allenatore | `ポケパーク` | dichiarato dalla tabella |
+| identificativo, segreto | 50318, 0 | dichiarati dalla tabella |
+| sesso dell'allenatore | maschio | derivazione Only0 |
+| lingua | English | dichiarata dalla tabella |
+| specie interna, soprannome | 222, `CORSOLA` | numero nazionale 222, nome nella lingua della voce |
+| livello, esperienza | 5, 100 | livello dichiarato, esperienza dalla formula del gruppo di crescita |
+| mosse | 33, 300 | dichiarate dalla tabella |
+| punti potenza | 35, 15 | dal valore base di ciascuna mossa |
+| oggetto tenuto | nessuno | l'evento non ne dichiara alcuno |
+| fiocchi di merito | `0x000` | nessuno dichiarato |
+| incontro fatidico | no | dichiarato dalla tabella |
+| metodo, lucentezza | BACD_R, non vincolata | dichiarati dalla tabella |
+
+### 162 Taillow with Feather Dance  (giudizio: conforme, 2026-09-02)
+
+**PokéPark Meowth e le uova del PokéPark.** Quando: 18 marzo - 25 settembre 2005 per il Meowth; 12 marzo - 8 maggio 2005 per le uova. Dove: PokéPark, Giappone, e un cinema nelle vicinanze. Come: distribuzione senza fili sul posto, oppure attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02. Su questo gruppo le fonti divergono: la voce corrispondente del catalogo riporta la divergenza e l'argomento con cui è stata risolta.
+
+| Campo | Valore | Da dove viene |
+|---|---|---|
+| seme di origine | `0x00A3` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
+| valore di personalità | `0xE144D706` | prime estrazioni, secondo il ramo del metodo |
+| natura | Rash | resto per venticinque del valore di personalità |
+| bit dell'abilità | 0 | bit meno significativo del valore di personalità, oppure zero se la specie ha una sola abilità |
+| cromatico | no | somma esclusiva delle quattro parole sotto otto |
+| valori individuali | 0 PS / 20 Att / 8 Dif / 30 Asp / 15 Dsp / 19 Vel | due estrazioni, cinque bit per campo |
+| allenatore | `ポケパーク` | dichiarato dalla tabella |
+| identificativo, segreto | 50318, 0 | dichiarati dalla tabella |
+| sesso dell'allenatore | maschio | derivazione Only0 |
+| lingua | English | dichiarata dalla tabella |
+| specie interna, soprannome | 304, `TAILLOW` | numero nazionale 276, nome nella lingua della voce |
+| livello, esperienza | 5, 135 | livello dichiarato, esperienza dalla formula del gruppo di crescita |
+| mosse | 64, 45, 116, 297 | dichiarate dalla tabella |
+| punti potenza | 35, 40, 30, 15 | dal valore base di ciascuna mossa |
+| oggetto tenuto | nessuno | l'evento non ne dichiara alcuno |
+| fiocchi di merito | `0x000` | nessuno dichiarato |
+| incontro fatidico | no | dichiarato dalla tabella |
+| metodo, lucentezza | BACD_R, non vincolata | dichiarati dalla tabella |
+
+### 163 Surskit with Mud Sport  (giudizio: conforme, 2026-09-02)
+
+**PokéPark Meowth e le uova del PokéPark.** Quando: 18 marzo - 25 settembre 2005 per il Meowth; 12 marzo - 8 maggio 2005 per le uova. Dove: PokéPark, Giappone, e un cinema nelle vicinanze. Come: distribuzione senza fili sul posto, oppure attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02. Su questo gruppo le fonti divergono: la voce corrispondente del catalogo riporta la divergenza e l'argomento con cui è stata risolta.
+
+| Campo | Valore | Da dove viene |
+|---|---|---|
+| seme di origine | `0x00A4` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
+| valore di personalità | `0x230A99A9` | prime estrazioni, secondo il ramo del metodo |
+| natura | Relaxed | resto per venticinque del valore di personalità |
+| bit dell'abilità | 0 | bit meno significativo del valore di personalità, oppure zero se la specie ha una sola abilità |
+| cromatico | no | somma esclusiva delle quattro parole sotto otto |
+| valori individuali | 30 PS / 23 Att / 8 Dif / 14 Asp / 11 Dsp / 26 Vel | due estrazioni, cinque bit per campo |
+| allenatore | `ポケパーク` | dichiarato dalla tabella |
+| identificativo, segreto | 50318, 0 | dichiarati dalla tabella |
+| sesso dell'allenatore | maschio | derivazione Only0 |
+| lingua | English | dichiarata dalla tabella |
+| specie interna, soprannome | 311, `SURSKIT` | numero nazionale 283, nome nella lingua della voce |
+| livello, esperienza | 5, 125 | livello dichiarato, esperienza dalla formula del gruppo di crescita |
+| mosse | 145, 300 | dichiarate dalla tabella |
+| punti potenza | 30, 15 | dal valore base di ciascuna mossa |
+| oggetto tenuto | nessuno | l'evento non ne dichiara alcuno |
+| fiocchi di merito | `0x000` | nessuno dichiarato |
+| incontro fatidico | no | dichiarato dalla tabella |
+| metodo, lucentezza | BACD_R, non vincolata | dichiarati dalla tabella |
+
+### 164 Whismur with Teeter Dance  (giudizio: conforme, 2026-09-02)
+
+**PokéPark Meowth e le uova del PokéPark.** Quando: 18 marzo - 25 settembre 2005 per il Meowth; 12 marzo - 8 maggio 2005 per le uova. Dove: PokéPark, Giappone, e un cinema nelle vicinanze. Come: distribuzione senza fili sul posto, oppure attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02. Su questo gruppo le fonti divergono: la voce corrispondente del catalogo riporta la divergenza e l'argomento con cui è stata risolta.
+
+| Campo | Valore | Da dove viene |
+|---|---|---|
+| seme di origine | `0x00A5` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
+| valore di personalità | `0x64D05C4C` | prime estrazioni, secondo il ramo del metodo |
+| natura | Mild | resto per venticinque del valore di personalità |
+| bit dell'abilità | 0 | bit meno significativo del valore di personalità, oppure zero se la specie ha una sola abilità |
+| cromatico | no | somma esclusiva delle quattro parole sotto otto |
+| valori individuali | 27 PS / 27 Att / 8 Dif / 31 Asp / 6 Dsp / 0 Vel | due estrazioni, cinque bit per campo |
+| allenatore | `ポケパーク` | dichiarato dalla tabella |
+| identificativo, segreto | 50318, 0 | dichiarati dalla tabella |
+| sesso dell'allenatore | maschio | derivazione Only0 |
+| lingua | English | dichiarata dalla tabella |
+| specie interna, soprannome | 370, `WHISMUR` | numero nazionale 293, nome nella lingua della voce |
+| livello, esperienza | 5, 135 | livello dichiarato, esperienza dalla formula del gruppo di crescita |
+| mosse | 1, 253, 298 | dichiarate dalla tabella |
+| punti potenza | 35, 10, 20 | dal valore base di ciascuna mossa |
+| oggetto tenuto | nessuno | l'evento non ne dichiara alcuno |
+| fiocchi di merito | `0x000` | nessuno dichiarato |
+| incontro fatidico | no | dichiarato dalla tabella |
+| metodo, lucentezza | BACD_R, non vincolata | dichiarati dalla tabella |
+
+### 165 Skitty with Rollout  (giudizio: conforme, 2026-09-02)
+
+**PokéPark Meowth e le uova del PokéPark.** Quando: 18 marzo - 25 settembre 2005 per il Meowth; 12 marzo - 8 maggio 2005 per le uova. Dove: PokéPark, Giappone, e un cinema nelle vicinanze. Come: distribuzione senza fili sul posto, oppure attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02. Su questo gruppo le fonti divergono: la voce corrispondente del catalogo riporta la divergenza e l'argomento con cui è stata risolta.
+
+| Campo | Valore | Da dove viene |
+|---|---|---|
+| seme di origine | `0x00A6` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
+| valore di personalità | `0xA6971EEE` | prime estrazioni, secondo il ramo del metodo |
+| natura | Timid | resto per venticinque del valore di personalità |
+| bit dell'abilità | 0 | bit meno significativo del valore di personalità, oppure zero se la specie ha una sola abilità |
+| cromatico | no | somma esclusiva delle quattro parole sotto otto |
+| valori individuali | 25 PS / 31 Att / 8 Dif / 15 Asp / 2 Dsp / 7 Vel | due estrazioni, cinque bit per campo |
+| allenatore | `ポケパーク` | dichiarato dalla tabella |
+| identificativo, segreto | 50318, 0 | dichiarati dalla tabella |
+| sesso dell'allenatore | maschio | derivazione Only0 |
+| lingua | English | dichiarata dalla tabella |
+| specie interna, soprannome | 315, `SKITTY` | numero nazionale 300, nome nella lingua della voce |
+| livello, esperienza | 5, 100 | livello dichiarato, esperienza dalla formula del gruppo di crescita |
+| mosse | 45, 33, 39, 205 | dichiarate dalla tabella |
+| punti potenza | 40, 35, 30, 20 | dal valore base di ciascuna mossa |
+| oggetto tenuto | nessuno | l'evento non ne dichiara alcuno |
+| fiocchi di merito | `0x000` | nessuno dichiarato |
+| incontro fatidico | no | dichiarato dalla tabella |
+| metodo, lucentezza | BACD_R, non vincolata | dichiarati dalla tabella |
+
+### 166 Plusle with Water Sport  (giudizio: conforme, 2026-09-02)
+
+**PokéPark Meowth e le uova del PokéPark.** Quando: 18 marzo - 25 settembre 2005 per il Meowth; 12 marzo - 8 maggio 2005 per le uova. Dove: PokéPark, Giappone, e un cinema nelle vicinanze. Come: distribuzione senza fili sul posto, oppure attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02. Su questo gruppo le fonti divergono: la voce corrispondente del catalogo riporta la divergenza e l'argomento con cui è stata risolta.
+
+| Campo | Valore | Da dove viene |
+|---|---|---|
+| seme di origine | `0x00A7` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
+| valore di personalità | `0xE85DE191` | prime estrazioni, secondo il ramo del metodo |
+| natura | Bold | resto per venticinque del valore di personalità |
+| bit dell'abilità | 0 | bit meno significativo del valore di personalità, oppure zero se la specie ha una sola abilità |
+| cromatico | no | somma esclusiva delle quattro parole sotto otto |
+| valori individuali | 23 PS / 3 Att / 9 Dif / 31 Asp / 29 Dsp / 13 Vel | due estrazioni, cinque bit per campo |
+| allenatore | `ポケパーク` | dichiarato dalla tabella |
+| identificativo, segreto | 50318, 0 | dichiarati dalla tabella |
+| sesso dell'allenatore | maschio | derivazione Only0 |
+| lingua | English | dichiarata dalla tabella |
+| specie interna, soprannome | 353, `PLUSLE` | numero nazionale 311, nome nella lingua della voce |
+| livello, esperienza | 5, 125 | livello dichiarato, esperienza dalla formula del gruppo di crescita |
+| mosse | 45, 86, 346 | dichiarate dalla tabella |
+| punti potenza | 40, 20, 15 | dal valore base di ciascuna mossa |
+| oggetto tenuto | nessuno | l'evento non ne dichiara alcuno |
+| fiocchi di merito | `0x000` | nessuno dichiarato |
+| incontro fatidico | no | dichiarato dalla tabella |
+| metodo, lucentezza | BACD_R, non vincolata | dichiarati dalla tabella |
+
+### 167 Minun with Mud Sport  (giudizio: conforme, 2026-09-02)
+
+**PokéPark Meowth e le uova del PokéPark.** Quando: 18 marzo - 25 settembre 2005 per il Meowth; 12 marzo - 8 maggio 2005 per le uova. Dove: PokéPark, Giappone, e un cinema nelle vicinanze. Come: distribuzione senza fili sul posto, oppure attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02. Su questo gruppo le fonti divergono: la voce corrispondente del catalogo riporta la divergenza e l'argomento con cui è stata risolta.
+
+| Campo | Valore | Da dove viene |
+|---|---|---|
+| seme di origine | `0x00A8` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
+| valore di personalità | `0x2A23A433` | prime estrazioni, secondo il ramo del metodo |
+| natura | Quiet | resto per venticinque del valore di personalità |
+| bit dell'abilità | 0 | bit meno significativo del valore di personalità, oppure zero se la specie ha una sola abilità |
+| cromatico | no | somma esclusiva delle quattro parole sotto otto |
+| valori individuali | 21 PS / 7 Att / 9 Dif / 15 Asp / 25 Dsp / 20 Vel | due estrazioni, cinque bit per campo |
+| allenatore | `ポケパーク` | dichiarato dalla tabella |
+| identificativo, segreto | 50318, 0 | dichiarati dalla tabella |
+| sesso dell'allenatore | maschio | derivazione Only0 |
+| lingua | English | dichiarata dalla tabella |
+| specie interna, soprannome | 354, `MINUN` | numero nazionale 312, nome nella lingua della voce |
+| livello, esperienza | 5, 125 | livello dichiarato, esperienza dalla formula del gruppo di crescita |
+| mosse | 45, 86, 300 | dichiarate dalla tabella |
+| punti potenza | 40, 20, 15 | dal valore base di ciascuna mossa |
+| oggetto tenuto | nessuno | l'evento non ne dichiara alcuno |
+| fiocchi di merito | `0x000` | nessuno dichiarato |
+| incontro fatidico | no | dichiarato dalla tabella |
+| metodo, lucentezza | BACD_R, non vincolata | dichiarati dalla tabella |
+
+### 168 Spoink with Uproar  (giudizio: conforme, 2026-09-02)
+
+**PokéPark Meowth e le uova del PokéPark.** Quando: 18 marzo - 25 settembre 2005 per il Meowth; 12 marzo - 8 maggio 2005 per le uova. Dove: PokéPark, Giappone, e un cinema nelle vicinanze. Come: distribuzione senza fili sul posto, oppure attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02. Su questo gruppo le fonti divergono: la voce corrispondente del catalogo riporta la divergenza e l'argomento con cui è stata risolta.
+
+| Campo | Valore | Da dove viene |
+|---|---|---|
+| seme di origine | `0x00A9` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
+| valore di personalità | `0x6BEA66D6` | prime estrazioni, secondo il ramo del metodo |
+| natura | Serious | resto per venticinque del valore di personalità |
+| bit dell'abilità | 0 | bit meno significativo del valore di personalità, oppure zero se la specie ha una sola abilità |
+| cromatico | no | somma esclusiva delle quattro parole sotto otto |
+| valori individuali | 18 PS / 11 Att / 9 Dif / 31 Asp / 20 Dsp / 26 Vel | due estrazioni, cinque bit per campo |
+| allenatore | `ポケパーク` | dichiarato dalla tabella |
+| identificativo, segreto | 50318, 0 | dichiarati dalla tabella |
+| sesso dell'allenatore | maschio | derivazione Only0 |
+| lingua | English | dichiarata dalla tabella |
+| specie interna, soprannome | 351, `SPOINK` | numero nazionale 325, nome nella lingua della voce |
+| livello, esperienza | 5, 100 | livello dichiarato, esperienza dalla formula del gruppo di crescita |
+| mosse | 150, 253 | dichiarate dalla tabella |
+| punti potenza | 40, 10 | dal valore base di ciascuna mossa |
+| oggetto tenuto | nessuno | l'evento non ne dichiara alcuno |
+| fiocchi di merito | `0x000` | nessuno dichiarato |
+| incontro fatidico | no | dichiarato dalla tabella |
+| metodo, lucentezza | BACD_R, non vincolata | dichiarati dalla tabella |
+
+### 169 Spinda with Sing  (giudizio: conforme, 2026-09-02)
+
+**PokéPark Meowth e le uova del PokéPark.** Quando: 18 marzo - 25 settembre 2005 per il Meowth; 12 marzo - 8 maggio 2005 per le uova. Dove: PokéPark, Giappone, e un cinema nelle vicinanze. Come: distribuzione senza fili sul posto, oppure attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02. Su questo gruppo le fonti divergono: la voce corrispondente del catalogo riporta la divergenza e l'argomento con cui è stata risolta.
+
+| Campo | Valore | Da dove viene |
+|---|---|---|
+| seme di origine | `0x00AA` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
+| valore di personalità | `0xADB02979` | prime estrazioni, secondo il ramo del metodo |
+| natura | Gentle | resto per venticinque del valore di personalità |
+| bit dell'abilità | 0 | bit meno significativo del valore di personalità, oppure zero se la specie ha una sola abilità |
+| cromatico | no | somma esclusiva delle quattro parole sotto otto |
+| valori individuali | 16 PS / 15 Att / 9 Dif / 16 Asp / 16 Dsp / 1 Vel | due estrazioni, cinque bit per campo |
+| allenatore | `ポケパーク` | dichiarato dalla tabella |
+| identificativo, segreto | 50318, 0 | dichiarati dalla tabella |
+| sesso dell'allenatore | maschio | derivazione Only0 |
+| lingua | English | dichiarata dalla tabella |
+| specie interna, soprannome | 308, `SPINDA` | numero nazionale 327, nome nella lingua della voce |
+| livello, esperienza | 5, 100 | livello dichiarato, esperienza dalla formula del gruppo di crescita |
+| mosse | 33, 253, 47 | dichiarate dalla tabella |
+| punti potenza | 35, 10, 15 | dal valore base di ciascuna mossa |
+| oggetto tenuto | nessuno | l'evento non ne dichiara alcuno |
+| fiocchi di merito | `0x000` | nessuno dichiarato |
+| incontro fatidico | no | dichiarato dalla tabella |
+| metodo, lucentezza | BACD_R, non vincolata | dichiarati dalla tabella |
+
+### 170 Cacnea with Encore  (giudizio: conforme, 2026-09-02)
+
+**PokéPark Meowth e le uova del PokéPark.** Quando: 18 marzo - 25 settembre 2005 per il Meowth; 12 marzo - 8 maggio 2005 per le uova. Dove: PokéPark, Giappone, e un cinema nelle vicinanze. Come: distribuzione senza fili sul posto, oppure attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02. Su questo gruppo le fonti divergono: la voce corrispondente del catalogo riporta la divergenza e l'argomento con cui è stata risolta.
+
+| Campo | Valore | Da dove viene |
+|---|---|---|
+| seme di origine | `0x00AB` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
+| valore di personalità | `0xEF76EC1B` | prime estrazioni, secondo il ramo del metodo |
+| natura | Modest | resto per venticinque del valore di personalità |
+| bit dell'abilità | 0 | bit meno significativo del valore di personalità, oppure zero se la specie ha una sola abilità |
+| cromatico | no | somma esclusiva delle quattro parole sotto otto |
+| valori individuali | 14 PS / 19 Att / 9 Dif / 0 Asp / 12 Dsp / 7 Vel | due estrazioni, cinque bit per campo |
+| allenatore | `ポケパーク` | dichiarato dalla tabella |
+| identificativo, segreto | 50318, 0 | dichiarati dalla tabella |
+| sesso dell'allenatore | maschio | derivazione Only0 |
+| lingua | English | dichiarata dalla tabella |
+| specie interna, soprannome | 344, `CACNEA` | numero nazionale 331, nome nella lingua della voce |
+| livello, esperienza | 5, 135 | livello dichiarato, esperienza dalla formula del gruppo di crescita |
+| mosse | 40, 43, 71, 227 | dichiarate dalla tabella |
+| punti potenza | 35, 30, 20, 5 | dal valore base di ciascuna mossa |
+| oggetto tenuto | nessuno | l'evento non ne dichiara alcuno |
+| fiocchi di merito | `0x000` | nessuno dichiarato |
+| incontro fatidico | no | dichiarato dalla tabella |
+| metodo, lucentezza | BACD_R, non vincolata | dichiarati dalla tabella |
+
+### 171 Corphish with Water Sport  (giudizio: conforme, 2026-09-02)
+
+**PokéPark Meowth e le uova del PokéPark.** Quando: 18 marzo - 25 settembre 2005 per il Meowth; 12 marzo - 8 maggio 2005 per le uova. Dove: PokéPark, Giappone, e un cinema nelle vicinanze. Come: distribuzione senza fili sul posto, oppure attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02. Su questo gruppo le fonti divergono: la voce corrispondente del catalogo riporta la divergenza e l'argomento con cui è stata risolta.
+
+| Campo | Valore | Da dove viene |
+|---|---|---|
+| seme di origine | `0x00AC` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
+| valore di personalità | `0x313DAEBE` | prime estrazioni, secondo il ramo del metodo |
+| natura | Naive | resto per venticinque del valore di personalità |
+| bit dell'abilità | 0 | bit meno significativo del valore di personalità, oppure zero se la specie ha una sola abilità |
+| cromatico | no | somma esclusiva delle quattro parole sotto otto |
+| valori individuali | 12 PS / 23 Att / 9 Dif / 16 Asp / 7 Dsp / 14 Vel | due estrazioni, cinque bit per campo |
+| allenatore | `ポケパーク` | dichiarato dalla tabella |
+| identificativo, segreto | 50318, 0 | dichiarati dalla tabella |
+| sesso dell'allenatore | maschio | derivazione Only0 |
+| lingua | English | dichiarata dalla tabella |
+| specie interna, soprannome | 326, `CORPHISH` | numero nazionale 341, nome nella lingua della voce |
+| livello, esperienza | 5, 65 | livello dichiarato, esperienza dalla formula del gruppo di crescita |
+| mosse | 145, 346 | dichiarate dalla tabella |
+| punti potenza | 30, 15 | dal valore base di ciascuna mossa |
+| oggetto tenuto | nessuno | l'evento non ne dichiara alcuno |
+| fiocchi di merito | `0x000` | nessuno dichiarato |
+| incontro fatidico | no | dichiarato dalla tabella |
+| metodo, lucentezza | BACD_R, non vincolata | dichiarati dalla tabella |
+
+### 172 Wynaut with Tickle  (giudizio: conforme, 2026-09-02)
+
+**PokéPark Meowth e le uova del PokéPark.** Quando: 18 marzo - 25 settembre 2005 per il Meowth; 12 marzo - 8 maggio 2005 per le uova. Dove: PokéPark, Giappone, e un cinema nelle vicinanze. Come: distribuzione senza fili sul posto, oppure attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02. Su questo gruppo le fonti divergono: la voce corrispondente del catalogo riporta la divergenza e l'argomento con cui è stata risolta.
+
+| Campo | Valore | Da dove viene |
+|---|---|---|
+| seme di origine | `0x00AD` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
+| valore di personalità | `0x73037160` | prime estrazioni, secondo il ramo del metodo |
+| natura | Sassy | resto per venticinque del valore di personalità |
+| bit dell'abilità | 0 | bit meno significativo del valore di personalità, oppure zero se la specie ha una sola abilità |
+| cromatico | no | somma esclusiva delle quattro parole sotto otto |
+| valori individuali | 9 PS / 27 Att / 9 Dif / 0 Asp / 3 Dsp / 20 Vel | due estrazioni, cinque bit per campo |
+| allenatore | `ポケパーク` | dichiarato dalla tabella |
+| identificativo, segreto | 50318, 0 | dichiarati dalla tabella |
+| sesso dell'allenatore | maschio | derivazione Only0 |
+| lingua | English | dichiarata dalla tabella |
+| specie interna, soprannome | 360, `WYNAUT` | numero nazionale 360, nome nella lingua della voce |
+| livello, esperienza | 5, 125 | livello dichiarato, esperienza dalla formula del gruppo di crescita |
+| mosse | 150, 204, 227, 321 | dichiarate dalla tabella |
+| punti potenza | 40, 20, 5, 20 | dal valore base di ciascuna mossa |
+| oggetto tenuto | nessuno | l'evento non ne dichiara alcuno |
+| fiocchi di merito | `0x000` | nessuno dichiarato |
+| incontro fatidico | no | dichiarato dalla tabella |
+| metodo, lucentezza | BACD_R, non vincolata | dichiarati dalla tabella |
