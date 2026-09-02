@@ -103,16 +103,36 @@ class Charmap:
         return "".join(out)
 
     def encode(self, text, length=None):
-        """Da testo a byte, con riempimento al terminatore se length è data."""
+        """Da testo a byte, con riempimento al terminatore se length è data.
+
+        La regola del terminatore vale enunciarla, perché una sua versione plausibile e
+        sbagliata è rimasta qui fino al 2026-09-02 e ha prodotto nomi troncati di un carattere.
+        Un campo di nome della terza generazione è lungo un numero fisso di byte e il
+        terminatore non è obbligatorio: si scrive solo se avanza spazio. Un nome che riempie
+        esattamente il campo occupa tutti i byte e non porta terminatore, ed è corretto così,
+        perché la lunghezza del campo è già nota a chi lo legge.
+
+        La versione sbagliata riservava sempre un byte al terminatore e quindi tagliava a un
+        carattere in meno. Il difetto era invisibile per due ragioni che si sommano: colpisce
+        soltanto i nomi che riempiono esattamente il campo, e il nome troncato resta una parola
+        plausibile. Nel catalogo degli eventi produceva per esempio la forma italiana del nome
+        del decennale al posto di quella inglese, cioè un nome che esiste, appartiene a un altro
+        evento, e non fa sospettare nulla a chi lo guardi.
+
+        Il comportamento qui implementato è quello dell'implementazione di riferimento, letto
+        nel suo codice: taglia a `length` caratteri, non a `length` meno uno, e aggiunge il
+        terminatore soltanto se dopo la scrittura resta almeno un byte libero.
+        """
         out = bytearray()
         for char in text:
             if char not in self.char_to_byte:
                 raise ValueError("il carattere %r non esiste in questa codifica" % char)
             out.append(self.char_to_byte[char])
         if length is not None:
-            if len(out) >= length:
-                out = out[:length - 1]
-            out.append(self.terminator)
+            if len(out) > length:
+                out = out[:length]
+            if len(out) < length:
+                out.append(self.terminator)
             while len(out) < length:
                 out.append(self.terminator)
         return bytes(out)

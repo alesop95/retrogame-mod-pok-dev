@@ -1080,7 +1080,6 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
     os.makedirs(cartella, exist_ok=True)
 
     fatti, saltate = 0, []
-    seme_corrente = primo_seme
     for indice, v in enumerate(voci):
         nome_ot = v.get("ot", "")
         etichetta = ((nome_ot or "(dal ricevente)") + " " +
@@ -1160,7 +1159,16 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
                             "viene dal salvataggio che riceve: si passa con --allenatore"))
             continue
 
-        semi = list(range(seme_corrente, 0x10000)) + list(range(0, seme_corrente))
+        # Il punto di partenza della ricerca dipende dall'indice della voce e non da quanto e'
+        # accaduto alle voci precedenti, e la ragione e' pratica: con un cursore a scorrimento
+        # una correzione su una voce spostava il seme di tutte quelle dopo di essa, quindi ogni
+        # esemplare gia' sottoposto a giudizio andava sottoposto di nuovo. Con la partenza
+        # legata all'indice, una correzione cambia i soli esemplari che quella correzione
+        # riguarda, e il lavoro di verifica fatto a mano non si perde. Resta lo scopo per cui il
+        # cursore esisteva, cioe' che due voci del medesimo evento non ricevano il medesimo
+        # valore di personalita', perche' due indici distinti partono da punti distinti.
+        partenza = (primo_seme + indice) & 0xFFFF or 1
+        semi = list(range(partenza, 0x10000)) + list(range(0, partenza))
         if metodo in ("BACD_RBCD", "BACD_M"):
             # Questi due metodi schiacciano il seme su un insieme molto piu' piccolo, quindi
             # percorrere i sessantacinquemila ripeterebbe lo stesso esemplare migliaia di volte
@@ -1169,7 +1177,7 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
             # medesimo evento ripartirebbero dallo stesso punto e riceverebbero il medesimo
             # valore di personalita', cioe' un duplicato riconoscibile a occhio.
             ammessi = list(eventi.semi_ammessi(metodo, semi_mystry))
-            taglio = seme_corrente % max(1, len(ammessi))
+            taglio = (primo_seme + indice) % max(1, len(ammessi))
             semi = ammessi[taglio:] + ammessi[:taglio]
         try:
             esito = eventi.esemplare_da_evento(
@@ -1183,7 +1191,6 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
         if esito is None:
             saltate.append((indice, etichetta, "nessun seme soddisfa i vincoli dichiarati"))
             continue
-        seme_corrente = (esito["seme"] + 1) & 0xFFFF or 1
 
         personalita, iv, sesso_ot = esito["personalita"], esito["iv"], esito["sesso_ot"]
         # L'evento del desiderio consuma una estrazione per l'oggetto tenuto, e quella
