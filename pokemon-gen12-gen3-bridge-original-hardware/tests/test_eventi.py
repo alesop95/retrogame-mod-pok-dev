@@ -587,5 +587,43 @@ class ProveEsemplareCompleto(unittest.TestCase):
         self.assertFalse(esito["cromatico"])
 
 
+class ProveOggettoTenuto(unittest.TestCase):
+    """L'oggetto tenuto dell'evento del desiderio, che una estrazione già consumata determina."""
+
+    def test_le_due_bacche_sono_entrambe_raggiungibili(self):
+        """Il controllo negativo che rende la formula una scelta e non una costante.
+
+        Se restituisse sempre il medesimo valore la prova sul singolo caso passerebbe comunque,
+        quindi si verifica che entrambe le uscite si presentino su un intervallo di semi.
+        """
+        vedute = set()
+        for seme in range(1, 400):
+            esito = eventi.esemplare_da_evento(
+                "BACD_R", eventi.ID_ALLENATORE_CON_OGGETTO, 0, semi=[seme])
+            vedute.add(eventi.oggetto_tenuto_desiderio(esito["estrazione_oggetto"]))
+        self.assertEqual(vedute, set(eventi.OGGETTO_DESIDERIO))
+
+    def test_l_oggetto_viene_dalla_quinta_estrazione(self):
+        """La posizione è la quinta, e la fonte la dichiara due volte in due modi diversi.
+
+        Il modulo la raggiunge portando avanti lo stato dopo le quattro estrazioni del valore
+        di personalità e dei valori individuali; la fonte offre anche una funzione che parte
+        dal seme e avanza di cinque. Le due devono concordare, e questa prova lo fissa perché
+        è il solo punto in cui un errore di conteggio produrrebbe un oggetto plausibile.
+        """
+        for seme in (1, 100, 0x9DF6, 0xFFFF):
+            esito = eventi.esemplare_da_evento(
+                "BACD_R", eventi.ID_ALLENATORE_CON_OGGETTO, 0, semi=[seme])
+            quinta = eventi.estrazioni(seme, 5)[4]
+            self.assertEqual(esito["estrazione_oggetto"], quinta)
+            self.assertEqual(eventi.oggetto_tenuto_desiderio(quinta),
+                             eventi.oggetto_tenuto_desiderio(esito["estrazione_oggetto"]))
+
+    def test_gli_altri_eventi_non_consumano_quella_estrazione(self):
+        """Il controllo negativo sull'identità dell'evento: l'oggetto è di quello e non di tutti."""
+        esito = eventi.esemplare_da_evento("BACD_R", 6808, 0, semi=[1])
+        self.assertIsNone(esito["estrazione_oggetto"])
+
+
 if __name__ == "__main__":
     unittest.main()
