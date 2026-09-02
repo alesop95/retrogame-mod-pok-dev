@@ -549,7 +549,47 @@ WC3 = "PKHeX.Core/Legality/Encounters/Data/Gen3/EncountersWC3.cs"
 
 # Le versioni che la tabella dichiara, verso il codice del campo di provenienza. La voce
 # doppia RS non e' decidibile dalla tabella e si risolve sulla prima delle due, dichiarandolo.
-VERSIONI = {"R": 2, "S": 1, "E": 3, "FR": 4, "LG": 5, "RS": 2}
+VERSIONI = {"R": 2, "S": 1, "E": 3, "FR": 4, "LG": 5}
+
+# Le sigle che la tabella usa per dichiarare piu' versioni insieme, con i loro membri in ordine.
+# Vanno tenute separate dalle sigle singole per una ragione che il progetto ha pagato: fino al
+# 2026-09-02 la tabella delle versioni conteneva RS come se fosse una versione, e le altre due
+# sigle multiple non c'erano affatto, quindi venticinque voci cadevano su un valore predefinito
+# e dichiaravano Rubino come gioco di origine mentre il loro evento era per altri titoli. Il
+# verificatore le contestava tutte, e il difetto era invisibile perche' un valore predefinito
+# ragionevole non somiglia a un errore.
+GRUPPI_VERSIONE = {
+    "RS": ("R", "S"),
+    "FRLG": ("FR", "LG"),
+    "EFL": ("E", "FR", "LG"),
+}
+
+
+def codice_versione(sigla, destinazione=None):
+    """Il codice del gioco di origine, dalla sigla che la tabella dichiara.
+
+    Una sigla singola da' il proprio codice. Una sigla multipla non ne ha uno: la fonte, in quel
+    caso, ricava la versione dal salvataggio che riceve l'esemplare, perche' un dono distribuito
+    a piu' titoli porta il titolo di chi lo riscatta. Si sceglie quindi il membro che coincide
+    con il gioco di destinazione, se e' fra i membri, e altrimenti il primo.
+
+    Una sigla ignota solleva invece di cadere su un valore predefinito, ed e' il punto di questa
+    funzione: un valore predefinito ragionevole su un campo che non si conosce produce un
+    esemplare plausibile e sbagliato, che e' la classe di difetto che questo progetto incontra
+    piu' spesso.
+    """
+    if sigla in VERSIONI:
+        return VERSIONI[sigla]
+    if sigla in GRUPPI_VERSIONE:
+        membri = GRUPPI_VERSIONE[sigla]
+        if destinazione in membri:
+            return VERSIONI[destinazione]
+        return VERSIONI[membri[0]]
+    raise KeyError("sigla di versione ignota: %r. Le sigle note sono %s per le versioni singole "
+                   "e %s per i gruppi, e una sigla nuova va aggiunta invece di ricevere un "
+                   "valore predefinito, perche un gioco di origine sbagliato produce un "
+                   "esemplare che il verificatore rifiuta senza che nulla lo segnali"
+                   % (sigla, ", ".join(sorted(VERSIONI)), ", ".join(sorted(GRUPPI_VERSIONE))))
 
 # I nomi di lingua dell'enumerazione del verificatore verso i codici del byte a 0x12.
 LINGUE_PKHEX = {"Japanese": 1, "English": 2, "French": 3, "Italian": 4, "German": 5,
@@ -1043,7 +1083,7 @@ def componi_da_wc3(ace, pkhex, indice, seme):
         sys.exit("gruppo di crescita non noto per la specie interna %d" % specie_id)
 
     codice_lingua = LINGUE_PKHEX.get(v.get("lingua", "English"), 2)
-    gioco_id = VERSIONI.get(v["versione"], 2)
+    gioco_id = codice_versione(v["versione"])
     livello = v["livello"]
     ident = int(v.get("identificativo", 0))
 
@@ -1188,7 +1228,8 @@ def allenatore_da_argomento(testo):
             "sesso": sesso}
 
 
-def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
+def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None,
+          destinazione="LG"):
     """Produce un esemplare per ogni voce producibile, e riferisce sulle altre.
 
     Il seme si cerca invece di chiederlo, e i vincoli verificati sono quelli che la tabella
@@ -1351,6 +1392,11 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
         except KeyError as e:
             saltate.append((indice, etichetta, "fiocchi: " + str(e)))
             continue
+        try:
+            gioco_origine = codice_versione(v["versione"], destinazione)
+        except KeyError as e:
+            saltate.append((indice, etichetta, "gioco di origine: " + str(e)))
+            continue
         mosse = [m for m in v.get("mosse", []) if m]
         pp = [pp_base.get(m, 0) for m in mosse]
         livello = v["livello"]
@@ -1370,7 +1416,7 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
             evs=gen3.EvsCondition(),
             misc=gen3.Misc(merit_ribbons=fiocchi, met_location=255,
                            met_level=v.get("livello_incontro", livello),
-                           met_game=VERSIONI.get(v["versione"], 2), pokeball=4,
+                           met_game=gioco_origine, pokeball=4,
                            ot_female=(sesso_ot == "femmina"),
                            ivs={n: iv[k] for n, k in zip(gen3.EV_ORDER, eventi.ORDINE_IV)},
                            is_egg=uovo,
@@ -1571,6 +1617,11 @@ def main():
                     help="produce tutti gli esemplari producibili nella cartella indicata")
     ap.add_argument("--solo-ot", dest="solo_ot",
                     help="limita il lotto alle voci con questo nome di allenatore")
+    ap.add_argument("--destinazione", default="LG",
+                    help="la sigla del gioco in cui gli esemplari verranno iniettati, fra R, "
+                         "S, E, FR e LG. Serve alle voci che la tabella dichiara per piu' "
+                         "titoli insieme, perche' per esse la versione di origine viene dal "
+                         "salvataggio che le riceve")
     ap.add_argument("--allenatore", metavar="NOME:ID:SEGRETO:SESSO",
                     help="l'allenatore di destinazione, per le voci che lo prendono da chi "
                          "riceve invece di fissarlo")
@@ -1611,8 +1662,11 @@ def main():
     if a.lotto:
         if not (a.ace and a.pkhex):
             ap.error("--lotto richiede --ace e --pkhex")
+        if a.destinazione not in VERSIONI:
+            ap.error("--destinazione vale una fra " + ", ".join(sorted(VERSIONI)))
         return lotto(a.ace, a.pkhex, a.lotto, a.solo_ot,
-                     allenatore=allenatore_da_argomento(a.allenatore))
+                     allenatore=allenatore_da_argomento(a.allenatore),
+                     destinazione=a.destinazione)
     if a.indice is not None:
         if not (a.pkhex and a.seme):
             ap.error("--indice richiede --pkhex e --seme")

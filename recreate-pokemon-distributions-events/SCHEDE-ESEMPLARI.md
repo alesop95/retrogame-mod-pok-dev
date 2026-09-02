@@ -10,6 +10,8 @@ Stato: 122 voci producibili, di cui 5 dichiarate conformi da un verificatore ind
 
 ### 000 Mew  (giudizio: conforme, riletta dopo le tre correzioni della giornata, 2026-09-02)
 
+**Mystery Mew.** Quando: 30 settembre 2006. Dove: negozi Toys "R" Us degli Stati Uniti. Come: distribuzione senza fili in un'unica finestra di tre ore, dalle dodici alle quindici. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | posizione nell'elenco | 1 | l'elenco degli ottantacinque semi storicamente distribuiti, percorso a partire dall'indice della voce |
@@ -34,6 +36,8 @@ Stato: 122 voci producibili, di cui 5 dichiarate conformi da un verificatore ind
 
 ### 001 WISHMKR  (giudizio: contestato, poi conforme dopo la correzione, 2026-09-02)
 
+**Jirachi della stella dei desideri, edizione occidentale.** Quando: non ancora documentate con certezza. Dove: non ancora documentato con certezza. Come: disco allegato al titolo per la console domestica, secondo la conoscenza comune, da verificare. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate. Su questo gruppo le fonti divergono: la voce corrispondente del catalogo riporta la divergenza e l'argomento con cui è stata risolta.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0002` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -56,6 +60,8 @@ Stato: 122 voci producibili, di cui 5 dichiarate conformi da un verificatore ind
 | metodo, lucentezza | BACD_R, Random | dichiarati dalla tabella |
 
 ### 003 Berry Fix Ruby
+
+**Berry Program Update Zigzagoon, edizione giapponese con allenatore Rubino.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -80,6 +86,8 @@ Stato: 122 voci producibili, di cui 5 dichiarate conformi da un verificatore ind
 
 ### 004 Berry Fix Sapphire
 
+**Berry Program Update Zigzagoon, edizione giapponese con allenatore Zaffiro.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0005` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -102,6 +110,8 @@ Stato: 122 voci producibili, di cui 5 dichiarate conformi da un verificatore ind
 | metodo, lucentezza | BACD_RBCD, Always | dichiarati dalla tabella |
 
 ### 005 Negai Boshi Jirachi  (giudizio: conforme, 2026-09-02)
+
+**Jirachi della stella dei desideri, edizione giapponese.** Quando: durante il Pokémon Festa 2003, giorno preciso non ancora documentato. Dove: sedi del Pokémon Festa 2003, Giappone. Come: distribuzione senza fili alla manifestazione. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02. Su questo gruppo le fonti divergono: la voce corrispondente del catalogo riporta la divergenza e l'argomento con cui è stata risolta.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -127,9 +137,13 @@ Stato: 122 voci producibili, di cui 5 dichiarate conformi da un verificatore ind
 
 ### 006 Negai Boshi Jirachi (Match Recipient)  (giudizio: conforme, 2026-09-02)
 
+**Jirachi della stella dei desideri, edizione giapponese.** Quando: durante il Pokémon Festa 2003, giorno preciso non ancora documentato. Dove: sedi del Pokémon Festa 2003, Giappone. Come: distribuzione senza fili alla manifestazione. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02. Su questo gruppo le fonti divergono: la voce corrispondente del catalogo riporta la divergenza e l'argomento con cui è stata risolta.
+
 Questa voce prende dall'allenatore di destinazione uno o più fra nome, identificativo e sesso, quindi le sue caratteristiche derivate dipendono dal salvataggio in cui verrà riscattata e non sono fissate qui. Ciò che l'evento fissa resta il metodo di generazione, cioè BACD_U_AX, la lucentezza Never e la lingua Japanese.
 
 ### 007 Tanabata Jirachi (2004)
+
+**Jirachi della festa delle stelle, edizione 2004.** Quando: luglio 2004, giorni precisi non ancora documentati. Dove: Pokémon Center giapponesi. Come: distribuzione senza fili nei negozi. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -154,6 +168,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 008 ANA Pikachu  (giudizio: contestato, 2026-09-02)
 
+**Pikachu della compagnia aerea.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0009` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -176,6 +192,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 009 PokéPark Meowth
+
+**PokéPark Meowth e le uova del PokéPark.** Quando: 18 marzo - 25 settembre 2005 per il Meowth; 12 marzo - 8 maggio 2005 per le uova. Dove: PokéPark, Giappone, e un cinema nelle vicinanze. Come: distribuzione senza fili sul posto, oppure attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02. Su questo gruppo le fonti divergono: la voce corrispondente del catalogo riporta la divergenza e l'argomento con cui è stata risolta.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -200,6 +218,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 010 Yokohama Pikachu
 
+**Pikachu di Yokohama.** Quando: 19 marzo - 3 aprile 2005. Dove: Pokémon Center di Tokyo, Osaka, Nagoya, Fukuoka e Yokohama. Come: distribuzione senza fili nei negozi. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x000B` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -222,6 +242,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 011 Hadou Mew
+
+**Mew dell'aura.** Quando: 25 giugno - 31 agosto 2005. Dove: rivenditori che vendevano i biglietti in prevendita per il film. Come: consegnato con la prevendita del biglietto. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -246,6 +268,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 012 GW Pikachu
 
+**Pikachu della settimana d'oro.** Quando: 25 aprile - 8 maggio 2005. Dove: Pokémon Center di Tokyo, Osaka, Nagoya, Fukuoka e Yokohama. Come: distribuzione senza fili nei negozi. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x000D` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -268,6 +292,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 013 Sapporo Pikachu
+
+**Pikachu di Sapporo.** Quando: 1 luglio - 21 agosto 2005. Dove: Pokémon Center di Sapporo. Come: distribuzione senza fili nel negozio. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -292,6 +318,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 014 Tanabata Jirachi (2005)
 
+**Jirachi della festa delle stelle, edizione 2005.** Quando: 17 luglio - 21 agosto 2005. Dove: sedi del Pokémon Festa 2005, Giappone. Come: distribuzione senza fili alla manifestazione. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x000F` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -314,6 +342,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 015 Festa Metang
+
+**Metang della festa.** Quando: 17 luglio - 21 agosto 2005. Dove: sedi del Pokémon Festa 2005, Giappone. Come: consegnato a chi partecipava alla dimostrazione del titolo per la console domestica. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -338,6 +368,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 016 Sunday Wobbuffet
 
+**Wobbuffet della trasmissione domenicale.** Quando: 17 luglio - 21 agosto 2005. Dove: sedi del Pokémon Festa 2005, Giappone. Come: distribuzione senza fili alla manifestazione. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0011` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -360,6 +392,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 017 Regirock
+
+**I tre leggendari dell'aura, cioè Regirock, Regice e Registeel.** Quando: 1-25 settembre 2005. Dove: un cinema 109 nelle vicinanze del PokéPark, Giappone. Come: distribuzione senza fili sul posto, anche attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -384,6 +418,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 018 Regice
 
+**I tre leggendari dell'aura, cioè Regirock, Regice e Registeel.** Quando: 1-25 settembre 2005. Dove: un cinema 109 nelle vicinanze del PokéPark, Giappone. Come: distribuzione senza fili sul posto, anche attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0013` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -406,6 +442,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 019 Registeel
+
+**I tre leggendari dell'aura, cioè Regirock, Regice e Registeel.** Quando: 1-25 settembre 2005. Dove: un cinema 109 nelle vicinanze del PokéPark, Giappone. Come: distribuzione senza fili sul posto, anche attraverso i punti di accesso pubblici. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -430,6 +468,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 020 PokéPark Mew
 
+**Mew del PokéPark.** Quando: 10 maggio - 4 giugno 2006. Dove: negozi Shin Kong Mitsukoshi, Taiwan. Come: distribuzione senza fili nei negozi. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0015` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -452,6 +492,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 021 PokéPark Celebi
+
+**Celebi del PokéPark.** Quando: 23 giugno - 24 settembre 2006. Dove: PokéPark, Taiwan. Come: distribuzione senza fili sul posto. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -476,6 +518,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 022 Tanabata Jirachi (2006)
 
+**Jirachi della festa delle stelle, edizione 2006.** Quando: 15-31 luglio 2006. Dove: Pokémon Center di Tokyo, Yokohama, Nagoya, Osaka, Fukuoka e Sapporo. Come: distribuzione senza fili nei negozi. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0017` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -498,6 +542,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 023 Mitsurin Celebi (2006)
+
+**Celebi della foresta.** Quando: 20 luglio - 3 settembre 2006. Dove: sedi del giro nella giungla, e Pokémon Center di Nagoya, Osaka, Fukuoka e Sapporo. Come: distribuzione senza fili sul posto. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -522,6 +568,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 024 PokéPark Jirachi (2006)
 
+**Jirachi del PokéPark, prima finestra.** Quando: 24-31 luglio 2006. Dove: PokéPark, Taiwan. Come: distribuzione senza fili ai vincitori di un'estrazione a premi. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0019` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -544,6 +592,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 025 PokéPark Jirachi (2006)
+
+**Jirachi del PokéPark, seconda finestra.** Quando: 23-30 agosto 2006. Dove: PokéPark, Taiwan. Come: distribuzione senza fili ai vincitori di un'estrazione a premi. Fonte: [List of Japanese event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -568,6 +618,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 026 Berry Fix Ruby  (giudizio: contestato, poi conforme dopo la correzione, 2026-09-02)
 
+**Berry Program Update Zigzagoon, edizione inglese con allenatore RUBY.** Quando: 1 marzo 2004 - 22 aprile 2007. Dove: negozi EB Games e GameStop, e disco dimostrativo per la console domestica. Come: distribuzione senza fili nei negozi, oppure dal disco dimostrativo a casa. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x001B` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -590,6 +642,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_RBCD, Always | dichiarati dalla tabella |
 
 ### 027 Berry Fix Sapphire
+
+**Berry Program Update Zigzagoon, edizione inglese con allenatore SAPHIRE.** Quando: 1 marzo 2004 - 22 aprile 2007. Dove: negozi EB Games e GameStop, e disco dimostrativo per la console domestica. Come: distribuzione senza fili nei negozi, oppure dal disco dimostrativo a casa. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -614,6 +668,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 028 Charizard
 
+**Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x001D` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -636,6 +692,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 029 Pikachu
+
+**Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -660,6 +718,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 030 Articuno
 
+**Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x001F` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -682,6 +742,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 031 Raikou
+
+**Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -706,6 +768,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 032 Entei
 
+**Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0021` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -728,6 +792,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 033 Suicune
+
+**Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -752,6 +818,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 034 Lugia
 
+**Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0023` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -774,6 +842,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 035 Ho-Oh
+
+**Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -798,6 +868,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 036 Latias
 
+**Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0025` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -820,6 +892,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 037 Latios
+
+**Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -844,6 +918,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 038 Charizard
 
+**Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0027` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -866,6 +942,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 039 Pikachu
+
+**Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -890,6 +968,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 040 Articuno
 
+**Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0029` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -912,6 +992,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 041 Raikou
+
+**Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -936,6 +1018,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 042 Entei
 
+**Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x002B` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -958,6 +1042,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 043 Suicune
+
+**Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -982,6 +1068,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 044 Lugia
 
+**Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x002D` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -1004,6 +1092,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 045 Ho-Oh
+
+**Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1028,6 +1118,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 046 Latias
 
+**Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x002F` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -1050,6 +1142,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 047 Latios
+
+**Top 10 Distribution Pokémon, edizione inglese.** Quando: da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008. Dove: campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia. Come: distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1074,6 +1168,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 048 Charizard
 
+**Top 10 Distribution Pokémon, edizione tedesca.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0031` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -1096,6 +1192,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 049 Pikachu
+
+**Top 10 Distribution Pokémon, edizione tedesca.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1120,6 +1218,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 050 Articuno
 
+**Top 10 Distribution Pokémon, edizione tedesca.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0033` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -1142,6 +1242,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 051 Raikou
+
+**Top 10 Distribution Pokémon, edizione tedesca.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1166,6 +1268,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 052 Entei
 
+**Top 10 Distribution Pokémon, edizione tedesca.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0035` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -1188,6 +1292,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 053 Suicune
+
+**Top 10 Distribution Pokémon, edizione tedesca.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1212,6 +1318,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 054 Lugia
 
+**Top 10 Distribution Pokémon, edizione tedesca.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0037` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -1234,6 +1342,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 055 Ho-Oh
+
+**Top 10 Distribution Pokémon, edizione tedesca.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1258,6 +1368,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 056 Latias
 
+**Top 10 Distribution Pokémon, edizione tedesca.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0039` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -1280,6 +1392,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 057 Latios
+
+**Top 10 Distribution Pokémon, edizione tedesca.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1304,6 +1418,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 058 Charizard
 
+**Top 10 Distribution Pokémon, edizione italiana.** Quando: 23-25 giugno 2006. Dove: parco di Mirabilandia, Italia. Come: distribuzione senza fili al parco. Fonte: [List of Italian event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x003B` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -1326,6 +1442,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 059 Pikachu
+
+**Top 10 Distribution Pokémon, edizione italiana.** Quando: 23-25 giugno 2006. Dove: parco di Mirabilandia, Italia. Come: distribuzione senza fili al parco. Fonte: [List of Italian event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1350,6 +1468,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 060 Articuno
 
+**Top 10 Distribution Pokémon, edizione italiana.** Quando: 23-25 giugno 2006. Dove: parco di Mirabilandia, Italia. Come: distribuzione senza fili al parco. Fonte: [List of Italian event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x003D` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -1372,6 +1492,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 061 Raikou
+
+**Top 10 Distribution Pokémon, edizione italiana.** Quando: 23-25 giugno 2006. Dove: parco di Mirabilandia, Italia. Come: distribuzione senza fili al parco. Fonte: [List of Italian event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1396,6 +1518,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 062 Entei
 
+**Top 10 Distribution Pokémon, edizione italiana.** Quando: 23-25 giugno 2006. Dove: parco di Mirabilandia, Italia. Come: distribuzione senza fili al parco. Fonte: [List of Italian event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x003F` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -1418,6 +1542,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 063 Suicune
+
+**Top 10 Distribution Pokémon, edizione italiana.** Quando: 23-25 giugno 2006. Dove: parco di Mirabilandia, Italia. Come: distribuzione senza fili al parco. Fonte: [List of Italian event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1442,6 +1568,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 064 Lugia
 
+**Top 10 Distribution Pokémon, edizione italiana.** Quando: 23-25 giugno 2006. Dove: parco di Mirabilandia, Italia. Come: distribuzione senza fili al parco. Fonte: [List of Italian event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0041` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -1464,6 +1592,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 065 Ho-Oh
+
+**Top 10 Distribution Pokémon, edizione italiana.** Quando: 23-25 giugno 2006. Dove: parco di Mirabilandia, Italia. Come: distribuzione senza fili al parco. Fonte: [List of Italian event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1488,6 +1618,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 066 Latias
 
+**Top 10 Distribution Pokémon, edizione italiana.** Quando: 23-25 giugno 2006. Dove: parco di Mirabilandia, Italia. Come: distribuzione senza fili al parco. Fonte: [List of Italian event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0043` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -1510,6 +1642,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 067 Latios
+
+**Top 10 Distribution Pokémon, edizione italiana.** Quando: 23-25 giugno 2006. Dove: parco di Mirabilandia, Italia. Come: distribuzione senza fili al parco. Fonte: [List of Italian event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1534,6 +1668,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 068 Charizard
 
+**Top 10 Distribution Pokémon, edizione spagnola.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0045` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -1556,6 +1692,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 069 Pikachu
+
+**Top 10 Distribution Pokémon, edizione spagnola.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1580,6 +1718,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 070 Articuno
 
+**Top 10 Distribution Pokémon, edizione spagnola.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0047` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -1602,6 +1742,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 071 Raikou
+
+**Top 10 Distribution Pokémon, edizione spagnola.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1626,6 +1768,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 072 Entei
 
+**Top 10 Distribution Pokémon, edizione spagnola.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0049` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -1648,6 +1792,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 073 Suicune
+
+**Top 10 Distribution Pokémon, edizione spagnola.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1672,6 +1818,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 074 Lugia
 
+**Top 10 Distribution Pokémon, edizione spagnola.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x004B` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -1694,6 +1842,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 075 Ho-Oh
+
+**Top 10 Distribution Pokémon, edizione spagnola.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1718,6 +1868,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 076 Latias
 
+**Top 10 Distribution Pokémon, edizione spagnola.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x004D` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -1740,6 +1892,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 077 Latios
+
+**Top 10 Distribution Pokémon, edizione spagnola.** Quando: non ancora documentate. Dove: non ancora documentato. Come: distribuzione senza fili. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1764,6 +1918,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 078 Mew
 
+**Aura Mew.** Quando: 2-26 agosto 2007 nel Regno Unito, 25-28 ottobre 2007 in Norvegia, 5 novembre - 14 dicembre 2007 in Svezia, 3-30 gennaio 2008 in Danimarca; 7-8 luglio 2007 in Italia. Dove: negozi Toys "R" Us nel Regno Unito, manifestazioni e distribuzioni per posta nei paesi nordici, parco di Mirabilandia in Italia. Come: distribuzione senza fili alle manifestazioni, e per posta nei due paesi nordici dove non si tenne un evento. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x004F` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -1786,6 +1942,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 079 Metang
+
+**Pokémon Rocks America 2005 Metang.** Quando: 17 settembre - 22 ottobre 2005. Dove: cinque città degli Stati Uniti, cioè San Jose, Phoenix, Dallas, Chicago e Boston. Come: consegnato a chi completava la dimostrazione del titolo per la console domestica, tramite una tessera. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1810,6 +1968,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 080 Deoxys
 
+**Doel Deoxys.** Quando: 25-28 maggio 2006. Dove: TV Toy Museum nei Paesi Bassi, durante i Pokémon Fan Days 2006. Come: distribuzione senza fili alla manifestazione. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0051` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -1832,6 +1992,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 081 Deoxys
+
+**Space Center Deoxys.** Quando: dal 10 al 19 marzo 2006, e poi ogni sabato e domenica fino al 14 maggio 2006. Dove: Space Center Houston, Stati Uniti. Come: distribuzione senza fili sul posto. Fonte: [List of English event Pokémon distributions in Generation III](https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III), letta il 2026-09-02.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1856,6 +2018,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 082 Bulbasaur
 
+**Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0053` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -1878,6 +2042,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 083 Charizard
+
+**Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1902,6 +2068,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 084 Blastoise
 
+**Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0055` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -1924,6 +2092,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 085 Pikachu (Fly)
+
+**Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1948,6 +2118,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 086 Alakazam
 
+**Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0057` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -1970,6 +2142,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 087 Articuno
+
+**Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1994,6 +2168,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 088 Zapdos
 
+**Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0059` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -2016,6 +2192,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 089 Moltres
+
+**Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2040,6 +2218,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 090 Dragonite
 
+**Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x005B` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -2062,6 +2242,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 091 Typhlosion
+
+**Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2086,6 +2268,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 092 Espeon
 
+**Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x005D` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -2108,6 +2292,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 093 Umbreon
+
+**Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2132,6 +2318,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 094 Raikou
 
+**Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x005F` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -2154,6 +2342,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 095 Entei
+
+**Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2178,6 +2368,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 096 Suicune
 
+**Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0061` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -2200,6 +2392,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 097 Tyranitar
+
+**Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2224,6 +2418,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 098 Blaziken
 
+**Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0063` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -2246,6 +2442,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 099 Absol
+
+**Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2270,6 +2468,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 100 Latias
 
+**Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0065` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -2292,6 +2492,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 101 Latios
+
+**Festa del decennale, prima serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2316,6 +2518,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 102 Bulbasaur
 
+**Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0067` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -2338,6 +2542,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 103 Charizard
+
+**Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2362,6 +2568,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 104 Blastoise
 
+**Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0069` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -2384,6 +2592,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 105 Pikachu (No Fly)
+
+**Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2408,6 +2618,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 106 Alakazam
 
+**Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x006B` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -2430,6 +2642,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 107 Articuno
+
+**Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2454,6 +2668,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 108 Zapdos
 
+**Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x006D` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -2476,6 +2692,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 109 Moltres
+
+**Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2500,6 +2718,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 110 Dragonite
 
+**Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x006F` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -2522,6 +2742,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 111 Typhlosion
+
+**Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2546,6 +2768,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 112 Espeon
 
+**Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0071` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -2568,6 +2792,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 113 Umbreon
+
+**Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2592,6 +2818,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 114 Raikou
 
+**Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0073` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -2614,6 +2842,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 115 Entei
+
+**Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2638,6 +2868,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 116 Suicune
 
+**Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0075` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -2660,6 +2892,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 117 Tyranitar
+
+**Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2684,6 +2918,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 118 Celebi
 
+**Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0077` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -2706,6 +2942,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 119 Blaziken
+
+**Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2730,6 +2968,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 120 Absol
 
+**Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x0079` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -2753,6 +2993,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 
 ### 121 Latias
 
+**Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
+
 | Campo | Valore | Da dove viene |
 |---|---|---|
 | seme di origine | `0x007A` | scelto fra gli ammessi verificando i vincoli, con partenza dall'indice della voce |
@@ -2775,6 +3017,8 @@ Questa voce prende dall'allenatore di destinazione uno o più fra nome, identifi
 | metodo, lucentezza | BACD_R_A, Never | dichiarati dalla tabella |
 
 ### 122 Latios
+
+**Festa del decennale, seconda serie.** Quando: non ancora documentate. Dove: non ancora documentato. Come: non ancora documentato. Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci precedenti sono dichiarate non documentate e non vanno citate.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
