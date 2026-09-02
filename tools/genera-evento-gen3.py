@@ -609,6 +609,20 @@ def voci_wc3(pkhex):
             # in piu': ha soprannome, lingua e amicizia stabiliti dalla sua condizione.
             "uovo": bool(re.search(r"\btrue\b", coda or "")),
         }
+        # Il quinto argomento posizionale e' il livello di incontro, e la sua assenza non
+        # significa che coincida con il livello. Il costruttore della fonte ha due forme:
+        # quella a tre argomenti pone il livello di incontro uguale al livello, quella a
+        # cinque lo prende dal quinto e lo lascia a zero quando esso manca. Ne segue che un
+        # uovo senza quinto argomento ha livello di incontro zero e non cinque, ed e'
+        # esattamente la differenza fra le trentacinque voci che il verificatore ha
+        # contestato il 2026-09-02 e le quindici che ha accettato.
+        quinto = re.search(r"\btrue\s*,\s*(\d+)", coda or "")
+        if quinto:
+            voce["livello_incontro"] = int(quinto.group(1))
+        elif voce["uovo"]:
+            voce["livello_incontro"] = 0
+        else:
+            voce["livello_incontro"] = int(livello)
         mosse = re.search(r"Moves = new\(([\d,\s]+)\)", corpo)
         if mosse:
             voce["mosse"] = [int(x) for x in re.findall(r"\d+", mosse.group(1))]
@@ -1354,7 +1368,8 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
             attacks=gen3.Attacks(moves=(mosse + [0, 0, 0, 0])[:4],
                                  pp=(pp + [0, 0, 0, 0])[:4]),
             evs=gen3.EvsCondition(),
-            misc=gen3.Misc(merit_ribbons=fiocchi, met_location=255, met_level=livello,
+            misc=gen3.Misc(merit_ribbons=fiocchi, met_location=255,
+                           met_level=v.get("livello_incontro", livello),
                            met_game=VERSIONI.get(v["versione"], 2), pokeball=4,
                            ot_female=(sesso_ot == "femmina"),
                            ivs={n: iv[k] for n, k in zip(gen3.EV_ORDER, eventi.ORDINE_IV)},

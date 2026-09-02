@@ -4,6 +4,22 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-02 Verifica di massa eseguita: centoventidue puliti, e il sesto difetto sulle uova
+
+L'utente ha caricato tutti i centosettantadue esemplari nelle scatole e ha fotografato le sei scatole con il puntatore fuori dalla griglia. Le prime quattro, cioè i centoventidue esemplari che non sono uova, non portano alcun contrassegno: il difetto dei fiocchi è chiuso e non resta alcun rilievo noto su quella parte del lotto.
+
+Le due scatole delle uova portano trentacinque contrassegni su cinquanta, e la distribuzione era essa stessa l'indizio: le quindici pulite appartengono tutte a una medesima distribuzione e le trentacinque contestate a tutte le altre. Un difetto che risparmia un gruppo intero non è casuale, e la differenza va cercata in ciò che la tabella dichiara e non nel codice.
+
+Il rilievo era sul livello di incontro, e la sua conseguenza visibile insegnava più del rilievo: non riconoscendo il dono, il verificatore aveva ricondotto quelle uova a un incontro generico, con il luogo di incontro su un percorso di allevamento e una mossa marcata in rosso. Un campo sbagliato aveva spostato l'intera attribuzione.
+
+La causa è nel costruttore della tabella, che ha due forme: quella a tre argomenti pone il livello di incontro uguale al livello, quella a cinque lo prende dal quinto e lo lascia a zero quando manca. Usavamo il livello per tutte. Il conto conferma la diagnosi prima della prova: quindici uova portano il quinto argomento con valore cinque, trentacinque non lo portano e valgono zero, ed è la partizione esatta delle schermate.
+
+La lezione è sui valori predefiniti: un argomento assente ha un valore che sta nella firma del costruttore e non si deduce dal contesto. Qui il valore ovvio sarebbe stato cinque, poiché un uovo si riceve a quel livello, e quello vero è zero, poiché un uovo non è stato incontrato da nessuna parte finché non schiude. È il sesto difetto trovato dal giudizio esterno, e tutti e sei sono stati trovati da un giudizio e nessuno da una prova interna.
+
+Spinda è chiuso, e da due vie invece di una. La base dati degli incontri ne mostra ventotto, fra cui un dono di evento della terza generazione con le tre mosse del nostro catalogo. Quindi: è nativa dei titoli di Hoenn e l'utente ne possiede una cartuccia, e inoltre il nostro lotto contiene già due Spinda da evento, che nessuno dei due aveva notato. Vale registrare come il caso era nato, perché è un'affermazione vera che porta a una conclusione falsa: che una via sia rotta non implica una scadenza se esistono altre vie, e contare le vie è un lavoro diverso dal verificare che una sia rotta.
+
+Resta una pendenza che ho promosso e che va detta chiaramente: sessanta voci non fissano l'identificativo dell'allenatore e lo prendono dal salvataggio che le riceve, e il lotto attuale porta per esse un identificativo di esempio che non è dell'utente. È un segnaposto e il lotto va rigenerato quando il salvataggio di destinazione esisterà in forma leggibile, cioè quando il lettore arriverà.
+
 ## 2026-09-02 Le uova prodotte, e il dato che stava nella tabella che leggevamo già
 
 Le cinquanta voci del catalogo che sono uova erano rifiutate per la mancanza del conto delle incubazioni, e la nota precedente diceva di cercarlo nel disassemblato con un clone in più. Era la risposta giusta alla domanda sbagliata: quel dato sta nella tabella delle statistiche di base della terza generazione che l'implementazione di riferimento porta e che il progetto legge già, a un offset noto di un record da ventotto byte. Trenta righe invece di un clone.
