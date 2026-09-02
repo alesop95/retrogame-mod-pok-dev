@@ -902,6 +902,61 @@ def parola_fiocchi_merito(nomi, posizioni):
     return valore
 
 
+# La tabella delle statistiche di base della terza generazione, dalla quale si legge il solo
+# campo che le uova richiedono. Va detto dove il progetto lo ha cercato prima, perche' l'errore
+# e' lo stesso commesso sulla disponibilita' per titolo e vale conoscerlo due volte: era stato
+# cercato nel disassemblato, che avrebbe richiesto un clone in piu', mentre stava nella tabella
+# che il progetto gia' legge, a un offset noto di un record da ventotto byte.
+TABELLA_BASE_GEN3 = "PKHeX.Core/Resources/byte/personal/personal_rs"
+RECORD_BASE_GEN3 = 0x1C
+OFFSET_INCUBAZIONI = 0x11
+
+# Il numero di specie che la tabella deve coprire, come controllo sulla lettura. La terza
+# generazione ne ha trecentottantasei, piu' la voce nulla in testa.
+SPECIE_GEN3 = 386
+
+# Il soprannome che un uovo porta, e la sua lingua. Non si scelgono: l'implementazione di
+# riferimento li impone nel momento in cui il contrassegno dell'uovo viene attivato, e la
+# ragione e' che nel gioco un uovo non mostra la specie che contiene. Il nome e' in giapponese
+# per tutte le lingue, che e' un fatto del formato e non una scelta di localizzazione.
+SOPRANNOME_UOVO = "\u30bf\u30de\u30b4"
+LINGUA_UOVO = 1
+
+# I due bit che dichiarano un uovo, e stanno in posti diversi. Il primo e' nella parola dei
+# valori individuali, il secondo nel byte dei contrassegni accanto a quello che dichiara la
+# presenza della specie. Scriverne uno solo produce un esemplare incoerente.
+CONTRASSEGNO_UOVO = 0x04
+
+
+def incubazioni_per_specie(pkhex):
+    """Il conto delle incubazioni di ciascuna specie, dalla tabella delle statistiche di base.
+
+    E' il dato che nell'uovo occupa il campo dell'amicizia, e un verificatore lo controlla:
+    senza di esso il generatore rifiutava le cinquanta voci del catalogo che sono uova.
+    """
+    percorso = os.path.join(pkhex, TABELLA_BASE_GEN3.replace("/", os.sep))
+    if not os.path.exists(percorso):
+        sys.exit("manca " + TABELLA_BASE_GEN3 + " sotto " + pkhex + ".")
+    d = io.open(percorso, "rb").read()
+    n = len(d) // RECORD_BASE_GEN3
+    if n < SPECIE_GEN3 + 1:
+        sys.exit("la tabella delle statistiche di base ha %d record, meno dei %d attesi: la "
+                 "lettura non copre tutte le specie della terza generazione"
+                 % (n, SPECIE_GEN3 + 1))
+    fuori = {}
+    for sp in range(1, SPECIE_GEN3 + 1):
+        fuori[sp] = d[sp * RECORD_BASE_GEN3 + OFFSET_INCUBAZIONI]
+    # Il controllo che rende la lettura verificata: un conto di incubazioni nullo non esiste,
+    # quindi uno zero significa che si sta leggendo l'offset sbagliato e non che quella specie
+    # schiuda subito.
+    nulli = [sp for sp, v in fuori.items() if v == 0]
+    if nulli:
+        sys.exit("il conto delle incubazioni vale zero per %d specie, fra cui la %d: e il segno "
+                 "che l'offset e sbagliato, perche nessuna specie schiude senza passi"
+                 % (len(nulli), nulli[0]))
+    return fuori
+
+
 def nazionale_verso_interno(ace):
     """La corrispondenza fra numero nazionale e identificativo interno di terza generazione.
 
@@ -1138,6 +1193,7 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
     abilita = abilita_per_specie(ace)
     oggetti_storici = oggetti_documentati()
     posizioni_fiocchi = bit_fiocchi(pkhex)
+    incubazioni = incubazioni_per_specie(pkhex)
     # Le tabelle dei nomi di specie si leggono una volta per lingua e non una volta per voce,
     # perche' ciascuna e' una lettura di file.
     nomi_localizzati = {}
@@ -1163,16 +1219,6 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
                             "costante " + v["ot_irrisolto"] + ", che non si risolve nel file "
                             "della tabella: si rifiuta invece di scrivere un nome vuoto"))
             continue
-        if v.get("uovo"):
-            # Un uovo non e' un esemplare con un contrassegno in piu': il soprannome e la
-            # lingua sono imposti dalla sua condizione, e l'amicizia porta il conto delle
-            # incubazioni, che e' un dato per specie che questo progetto non ha ancora estratto.
-            # Si rifiuta, e la ragione nomina il dato che manca.
-            saltate.append((indice, etichetta, "e un uovo: il generatore pseudocasuale e "
-                            "pronto, ma manca il conto delle incubazioni per specie, che "
-                            "nell'uovo occupa il campo dell'amicizia e che un verificatore "
-                            "controlla"))
-            continue
         derivazione = v.get("sesso_ot")
         if derivazione and derivazione not in eventi.DERIVAZIONI_SESSO:
             saltate.append((indice, etichetta, "derivazione del sesso " + derivazione +
@@ -1197,11 +1243,26 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
         # generazione il medesimo byte rende un glifo diverso secondo la lingua del gioco,
         # quindi un nome giapponese scritto con la tabella internazionale non produce un errore
         # ma un nome plausibile e sbagliato.
-        lingua_voce = v.get("lingua", "English")
+        # Un uovo impone la propria lingua e il proprio soprannome, e la scelta non e' nostra:
+        # l'implementazione di riferimento li fissa nel momento in cui il contrassegno viene
+        # attivato, perche' nel gioco un uovo non mostra la specie che contiene.
+        uovo = bool(v.get("uovo"))
+        lingua_voce = "Japanese" if uovo else v.get("lingua", "English")
         tabella = cm.Charmap.gen3_per_lingua(lingua_voce)
-        nome_effettivo = nome_ot or (allenatore["nome"] if allenatore else "")
-        nome_specie = nomi_localizzati.setdefault(
-            lingua_voce, nomi_specie_per_lingua(ace, lingua_voce)).get(specie_id)
+        # Il nome dell'allenatore di un uovo non si sostituisce con quello di chi riceve, e la
+        # ragione viene dalla fonte e non da una scelta nostra. In terza generazione un uovo
+        # porta la lingua giapponese per costruzione, e il nome si scrive con la tabella di
+        # quella lingua: un nome in caratteri latini non vi si puo' scrivere. La fonte lo
+        # lascia quindi vuoto, e lo riempie soltanto quando l'uovo schiude su una generazione
+        # successiva, prendendolo dal salvataggio che lo fa schiudere. Un uovo di terza
+        # generazione non ha ancora un allenatore, e scrivergliene uno sarebbe inventarlo.
+        nome_effettivo = nome_ot if uovo else (nome_ot or
+                                              (allenatore["nome"] if allenatore else ""))
+        if uovo:
+            nome_specie = SOPRANNOME_UOVO
+        else:
+            nome_specie = nomi_localizzati.setdefault(
+                lingua_voce, nomi_specie_per_lingua(ace, lingua_voce)).get(specie_id)
         if not nome_specie:
             saltate.append((indice, etichetta, "nessun nome di specie in " + lingua_voce +
                             " per l'identificativo interno " + str(specie_id)))
@@ -1285,10 +1346,11 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
             ot_id=ident & 0xFFFFFFFF,
             nickname=soprannome,
             language=LINGUE_PKHEX.get(lingua_voce, 2),
-            flags=0x02,
+            flags=0x02 | (CONTRASSEGNO_UOVO if uovo else 0x00),
             ot_name=ot_bytes,
             growth=gen3.Growth(species=specie_id, held_item=oggetto,
-                               experience=esperienza(gruppo, livello), friendship=70),
+                               experience=esperienza(gruppo, livello),
+                               friendship=(incubazioni[v["nazionale"]] if uovo else 70)),
             attacks=gen3.Attacks(moves=(mosse + [0, 0, 0, 0])[:4],
                                  pp=(pp + [0, 0, 0, 0])[:4]),
             evs=gen3.EvsCondition(),
@@ -1296,6 +1358,7 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
                            met_game=VERSIONI.get(v["versione"], 2), pokeball=4,
                            ot_female=(sesso_ot == "femmina"),
                            ivs={n: iv[k] for n, k in zip(gen3.EV_ORDER, eventi.ORDINE_IV)},
+                           is_egg=uovo,
                            ability_num=bit_abilita(personalita, specie_id, abilita),
                            modern_fateful_encounter=bool(v.get("fatidico", False))),
         )
