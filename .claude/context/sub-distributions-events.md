@@ -5,7 +5,7 @@ generated-date: 2026-08-28
 covers-paths:
   - recreate-pokemon-distributions-events/
 last-verified-commit: 319226b
-stato: attivo, ricerca sui metodi conclusa, in attesa del lettore per la prova su dato autentico
+stato: attivo, generatore chiuso e verificato dall'esterno su tutte le voci producibili, in attesa del lettore per la prova su dato autentico e per l'identificativo vero dell'allenatore
 ---
 
 # Sottoprogetto: ricreazione delle distribuzioni e degli eventi
@@ -22,9 +22,17 @@ Il 2026-08-29 la ricerca è passata dal quarto al terzo livello di affidabilità
 
 La scadenza è verificata su fonte ufficiale e non è del progetto: Pokemon Bank chiude il 26 febbraio 2027, e con essa l'unico ingresso verso Home per tutto ciò che precede l'ottava generazione. Il tempo residuo va scritto come conteggio a una data e non come durata, perché una durata invecchia in silenzio: al 2026-09-01 restano centosettantotto giorni, cioè meno di sei mesi. La scheda ha dichiarato per quattro giorni diciotto mesi, che era sbagliato per un fattore tre nel verso che rassicura.
 
+## Aggiunta del 2026-09-02: il generatore è chiuso
+
+La domanda che questa scheda poneva come prossimo passo ha ricevuto risposta, e la risposta è sì. I centosettantadue esemplari che il progetto sa produrre sono stati caricati nelle scatole di un salvataggio vuoto di terza generazione e riletti da PKHeX: nessuna posizione porta il contrassegno di non conformità, e quel contrassegno riflette l'analisi completa di legittimità, quindi la sua assenza equivale a un rapporto senza rilievi. La sola voce del catalogo che resta fuori è quella del canale televisivo, dichiarata fuori portata prima di cominciare perché impiega un generatore pseudocasuale differente.
+
+La campagna è costata otto difetti, tutti nel nostro codice, tutti corretti e tutti riverificati, e nessuno dei quali riguardava il generatore pseudocasuale: stavano tutti nei campi di contorno, cioè contrassegni, nomi, livelli, codici di versione e fiocchi. Il conto e la lezione stanno in `STUDIO-03` sezione 28 e nel capitolo 19 della tesi, ed è una lezione di metodo che vale oltre questo track: le prove interne servono dove il fallimento è visibile, il giudizio esterno dove non lo è, e la nostra suite era verde durante tutti e otto i difetti.
+
+Resta una rigenerazione futura, che non è un difetto: sessanta voci prendono l'identificativo dell'allenatore dal salvataggio che le riceve, e il lotto attuale porta per esse un identificativo di esempio, quindi cambieranno seme e valore di personalità quando esisterà il salvataggio di destinazione. Il giudizio ottenuto resta valido perché esercita rami di codice e non byte particolari.
+
 ## Prossimo passo concreto
 
-Verificare se un verificatore di legittimità accetti un esemplare prodotto da una ricreazione fedele, costruendone uno con `pokebridge` e sottoponendolo a PKHeX. Il passo non è cambiato ma la domanda è diventata più precisa il 2026-08-29: si sa ora che quel verificatore controlla la relazione fra valore di personalità e valori individuali, dichiarata evento per evento come metodo di generazione, quindi la risposta attesa è positiva per una ricreazione che riproduca il metodo. Attesa non è verificata, e la prova costa poco.
+Il generatore di terza generazione non ha più un passo che dipenda da noi: ciò che resta su questo track dipende dall'hardware, cioè dal lettore di cartucce, e sta in `pending.md`. Il prossimo passo che non dipende dall'hardware è fuori da questa generazione, ed è contare e catalogare gli eventi di quarta, quinta, sesta e settima generazione con lo stesso metodo usato qui, cosicché quando l'hardware arriverà la produzione sia pronta e non da studiare. Per la quarta e la quinta la base di dati dei doni segreti del verificatore contiene i file, quindi il lavoro è di conteggio e di campagna e non di ricostruzione di un algoritmo.
 
 Esiste un secondo passo che non richiede hardware e che la ricerca ha reso possibile: leggere l'archivio degli eventi di Project Pokemon per stabilire se i campioni degli eventi dichiarati non chiusi manchino davvero, cioè se il progetto possa contribuire alla conservazione invece di consumarla soltanto.
 
