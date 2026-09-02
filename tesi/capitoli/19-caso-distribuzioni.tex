@@ -429,11 +429,7 @@ dove $m$ è il metodo di generazione, $\sigma$ il vincolo di lucentezza, $\gamma
 
 Le componenti si dividono in due nature, e la distinzione è l'intero contenuto di questa sezione. Le prime quattro sono dimensioni strutturali: a ciascun loro valore corrisponde un ramo di codice, e un ramo eseguito sotto giudizio senza contestazione è provato per ogni esemplare che vi passi, quale che sia il resto della tupla. Le ultime tre sono dimensioni di dato: a ciascun loro valore corrisponde una riga di una tabella, e provarne una non dice nulla sulle altre, poiché non esiste alcun ragionamento che dalla correttezza della riga di una specie deduca quella della riga di un'altra.
 
-La conseguenza è quantitativa. Detto $D_{\text{str}}$ l'insieme delle dimensioni strutturali e $|d|$ il numero di valori distinti che la dimensione $d$ assume nel lotto prodotto, il numero minimo di esemplari necessario a coprire tutte le dimensioni strutturali è
-\begin{equation}
-k_{\min} = \max_{d \in D_{\text{str}}} |d|,
-\end{equation}
-e non la loro somma né il loro prodotto, poiché un singolo esemplare copre un valore di ciascuna dimensione simultaneamente. Nel caso in esame il massimo vale nove, essendo nove le derivazioni del sesso presenti, quindi nove esemplari opportunamente scelti basterebbero a chiudere l'intera copertura strutturale di centoventidue. Il numero effettivamente necessario è maggiore, perché gli esemplari esistenti non realizzano tutte le combinazioni utili e la scelta non è libera; l'ordine di grandezza però resta quello, e il contrasto fra nove e centoventidue è la ragione per cui questa misura vale la pena di essere calcolata.
+La conseguenza è quantitativa, e la sezione seguente la sviluppa per intero, poiché la risposta intuitiva è sbagliata in un modo che vale esporre.
 
 Per le dimensioni di dato non esiste alcun $k_{\min}$ minore del numero dei valori, e la copertura completa richiederebbe di sottoporre un esemplare per specie, per livello e per insieme di mosse. Ne segue che su quelle dimensioni la verifica per campionamento non è la strategia giusta, e che il rischio va ridotto per un'altra via: non trascrivendo i dati ma generandoli dalla fonte che li definisce. È il principio metodologico che il presente lavoro ha adottato dall'inizio per un'altra ragione, cioè che una tabella copiata a mano si sbaglia; qui esso riceve una seconda giustificazione, indipendente dalla prima, cioè che una tabella copiata a mano non è verificabile per campionamento.
 
@@ -454,3 +450,120 @@ Un dato empirico merita di chiudere la sezione, con la cautela che il suo campio
 Vale registrare un vincolo che nella letteratura sulla verifica software raramente compare, perché in questo caso è dominante: la prova non è automatizzabile e il suo costo è tempo di una persona. Ogni giudizio richiede di aprire un file in un programma interattivo, leggere un rapporto e riferirlo, e nulla di ciò si può mettere in uno script.
 
 Da questo vincolo discendono due scelte di progetto che altrimenti sembrerebbero eccessive. La prima è che la scelta del seme, che prima dipendeva da un cursore progressivo, dipende ora dall'indice della voce: con il cursore una correzione su una voce spostava il valore di personalità di tutte le successive, e quindi ogni esemplare già giudicato andava rigiudicato, cioè una correzione distruggeva il lavoro umano accumulato. La seconda è la separazione delle due forme del dato in cartelle distinte, che rende praticabile il caricamento di una cartella intera nelle scatole di un salvataggio e riduce centoventidue aperture a cinque schermate. Entrambe le scelte non migliorano il prodotto: riducono il costo di verificarlo, che quando il verificatore è una persona è la stessa cosa.
+\section{Il minimo numero di prove, che è un problema di copertura di insiemi}
+
+La sezione precedente ha stabilito che la quantità da massimizzare è la copertura delle dimensioni strutturali e non il numero degli esemplari sottoposti. Ne segue una domanda con una risposta esatta: quale sia il numero minimo di esemplari che coprano tutti i valori di tutte le dimensioni strutturali. La domanda ha una risposta intuitiva, essa è sbagliata, e il modo in cui è sbagliata è più istruttivo del numero corretto.
+
+\subsection*{Formulazione}
+
+Sia $D$ l'insieme delle dimensioni strutturali e, per ogni $d \in D$, sia $V_d$ l'insieme dei valori che $d$ assume fra gli esemplari prodotti. L'universo da coprire è l'insieme delle coppie
+\begin{equation}
+U = \{ (d, v) : d \in D,\; v \in V_d \}, \qquad |U| = \sum_{d \in D} |V_d| .
+\end{equation}
+Ogni esemplare $e$ determina un sottoinsieme
+\begin{equation}
+S_e = \{ (d, v_d(e)) : d \in D \} \subseteq U, \qquad |S_e| = |D| ,
+\end{equation}
+dove $v_d(e)$ è il valore che l'esemplare assume sulla dimensione $d$. La cardinalità di $S_e$ è esattamente $|D|$, e non minore né maggiore, poiché ogni esemplare ha uno e un solo valore per ciascuna dimensione: è la proprietà strutturale che caratterizza questa istanza.
+
+Il problema è allora: dato l'insieme $\mathcal{S} = \{S_e\}$ degli esemplari disponibili, trovare una sottofamiglia $\mathcal{C} \subseteq \mathcal{S}$ di cardinalità minima tale che $\bigcup_{S \in \mathcal{C}} S = U$. È il problema della copertura di insiemi nella sua forma canonica.
+
+\subsection*{Il limite inferiore, e la sua dimostrazione in una riga}
+
+Per ogni dimensione $d$, le coppie $(d, v)$ con $v \in V_d$ sono $|V_d|$ e ciascun esemplare ne copre esattamente una. Ne segue che una copertura deve contenere almeno $|V_d|$ esemplari, per ogni $d$, e dunque
+\begin{equation}
+|\mathcal{C}| \geq \max_{d \in D} |V_d| \;=\; L .
+\end{equation}
+Questo è un limite inferiore e non il minimo, e la differenza fra le due nozioni è il punto centrale di questa sezione. Affermare che il minimo valga $L$ significherebbe affermare che esista una scelta di $L$ esemplari i quali, sulla dimensione di cardinalità massima, assumano $L$ valori tutti distinti, e simultaneamente, su ogni altra dimensione $d'$, coprano tutti i $|V_{d'}|$ valori distribuendoli fra quegli stessi $L$ esemplari. È una condizione di ortogonalità fra le dimensioni, analoga a quella che definisce un array ortogonale, e non c'è ragione perché un catalogo di eventi storici la soddisfi: il catalogo è un sottoinsieme arbitrario del prodotto cartesiano delle dimensioni, determinato da quali distribuzioni siano effettivamente avvenute vent'anni fa, non da un criterio combinatorio.
+
+\subsection*{La difficoltà del problema, e perché qui non è un ostacolo}
+
+Nella sua forma generale la copertura di insiemi è NP-difficile, e non si conosce alcun algoritmo che ne calcoli l'ottimo in tempo polinomiale. L'algoritmo goloso, che a ogni passo scelga l'insieme il quale copra il maggior numero di elementi ancora scoperti, ha un rapporto di approssimazione pari al numero armonico $H(|U|) \approx \ln|U| + 1$; ed è noto che nessun algoritmo polinomiale può garantire un rapporto migliore di $(1-o(1))\ln|U|$, salvo il collasso della gerarchia di complessità. La garanzia teorica dell'euristica ovvia è dunque debole.
+
+Nel caso in esame, tuttavia, l'ottimo si calcola esattamente, e due osservazioni lo rendono possibile. La prima è che molti esemplari condividono la medesima firma di copertura, cioè il medesimo $S_e$: due esemplari con la stessa firma sono intercambiabili ai fini della copertura, dunque uno per firma basta. Sui centoventidue esemplari prodotti le firme distinte sono trentaquattro, e il problema si riduce di un fattore quasi quattro senza approssimare nulla. La seconda è che $|U|$ vale ventinove, dunque una ricerca esaustiva in profondità che si diramifichi sull'elemento coperto dal minor numero di firme, e abbandoni un ramo appena raggiunge il minimo già trovato, termina in una frazione di secondo.
+
+\subsection*{I numeri del caso}
+
+Con $D$ composta dal metodo di generazione, dal vincolo di lucentezza, dalla derivazione del sesso dell'allenatore, dalla lingua, dalla condizione di uovo e dal gruppo di crescita, le cardinalità sono rispettivamente sei, tre, nove, sette, uno e tre, dunque
+\begin{equation}
+|U| = 6+3+9+7+1+3 = 29, \qquad L = \max\{6,3,9,7,1,3\} = 9 .
+\end{equation}
+Il limite inferiore vale dunque nove, ed è determinato dalle derivazioni del sesso dell'allenatore.
+
+Il minimo esatto vale invece \emph{quattordici}. Il limite inferiore non è raggiunto, e la ragione è quella esposta sopra: le combinazioni realizzate dal catalogo storico non permettono di distribuire i sette valori della lingua e i sei del metodo fra nove esemplari che coprano anche le nove derivazioni. Il rapporto fra minimo e limite inferiore vale $14/9 \approx 1{,}56$, che misura quanto quel catalogo sia lontano dall'ortogonalità.
+
+L'algoritmo goloso, su questa istanza, restituisce anch'esso quattordici, cioè coincide con l'ottimo. Il fatto merita una nota perché è un caso concreto in cui una garanzia teorica pessimistica non descrive il comportamento osservato: il rapporto garantito sarebbe $H(29) \approx 3{,}9$, e quello realizzato è $1$. Ne segue che mantenere la ricerca esatta, in questo caso, non compra nulla in qualità; la si mantiene per una ragione diversa, cioè che l'esattezza dell'ottimo è essa stessa un'informazione: sapere che quattordici è il minimo, e non soltanto un numero raggiunto da un'euristica, permette di affermare che nessuna scelta migliore esiste, e quindi di chiudere la questione anziché lasciarla aperta.
+
+Il contrasto che giustifica l'intero calcolo è fra quattordici e centoventidue: la copertura strutturale completa costa l'undici e mezzo per cento del lotto, e i centootto esemplari rimanenti non aggiungerebbero alcuna copertura strutturale, ma soltanto copertura sulle dimensioni di dato, che per la ragione già esposta non si chiude comunque.
+
+\subsection*{Il residuo non è una sottrazione}
+
+Resta la quantità operativamente utile, cioè quanti esemplari restino da sottoporre dato ciò che è già stato sottoposto. Essa non si ottiene sottraendo, e la ragione è che i giudizi già eseguiti non formano necessariamente un sottoinsieme di una soluzione ottima: sono stati scelti per esercitare rami sospetti, non per minimizzare il numero delle prove.
+
+Formalmente, detto $G$ l'insieme degli esemplari già giudicati, il residuo è la soluzione di una nuova istanza di copertura di insiemi sull'universo ridotto
+\begin{equation}
+U' = U \setminus \bigcup_{e \in G} S_e ,
+\end{equation}
+con la medesima famiglia $\mathcal{S}$ a disposizione. Nel caso in esame i sette esemplari giudicati coprono ventuno delle ventinove coppie, il residuo $|U'|$ vale otto, e il minimo per coprirlo vale otto: ciascuno degli esemplari residui copre dunque esattamente una coppia nuova, che è la situazione peggiore possibile e conferma quanto le combinazioni disponibili siano rigide.
+
+La somma fra giudizi eseguiti e residuo minimo vale quindi quindici, contro un minimo assoluto di quattordici: la strada percorsa costa una prova in più di quella ottima. La discrepanza è piccola, ed è utile registrarla per quello che è, cioè il prezzo di avere scelto le prime prove secondo il sospetto anziché secondo la combinatoria. È un prezzo che valeva pagare, poiché le prime prove hanno trovato quattro difetti mentre una scelta ottima li avrebbe trovati altrettanto bene ma senza indicare dove guardare.
+\section{Che cosa mostra lo strumento, e che cosa il lettore crede di vedere}
+
+Una circostanza di questa vicenda riguarda lo strumento di verifica anziché l'oggetto verificato, e merita una sezione perché la classe di errore che produce è indipendente dal dominio.
+
+Il verificatore impiegato espone i propri esiti in due luoghi con proprietà diverse. Il primo è un riquadro informativo che compare accanto all'esemplare selezionato e che, fra le altre cose, riporta una riga di contestazione. Il secondo è un rapporto di legittimità in una finestra separata, che elenca tutti i rilievi. La differenza fra i due non è di comodità: il riquadro mostra una riga, e un esemplare con due difetti appare in esso identico a un esemplare con un difetto.
+
+La conseguenza osservata è stata la seguente. Un esemplare sottoposto il primo giorno portava due difetti indipendenti; il riquadro ne mostrava uno; il resoconto scritto quel giorno registrò dunque una sola contestazione, e da essa fu tratta la conclusione che tutti gli altri campi fossero stati esaminati e accettati. La conclusione era doppiamente errata, poiché il campo che il secondo difetto riguardava non era stato accettato, e anzi era stato contestato senza che il resoconto lo riportasse. Il difetto rimase per un giorno, e fu ritrovato soltanto quando un secondo esemplare della medesima specie fu sottoposto dopo che il primo difetto era stato corretto: corretto il primo, il riquadro cominciò a mostrare il secondo.
+
+Il fenomeno generale è che un'interfaccia che riassuma un insieme di esiti in un solo elemento non distingue fra l'insieme di cardinalità uno e quello di cardinalità maggiore, e chi legge, non avendo modo di distinguerli, conclude naturalmente per il primo. Non è un difetto dello strumento, che offre anche la vista completa: è un difetto del protocollo con cui lo strumento viene interrogato. La correzione adottata è procedurale e consiste nel richiedere sempre la vista completa, e il suo costo è nullo.
+
+Vale isolare la forma logica dell'errore, poiché è la stessa già incontrata a proposito del silenzio del verificatore sul campo dell'abilità. In entrambi i casi da un'assenza di informazione è stata ricavata un'informazione positiva: là dal fatto che il verificatore non dicesse nulla su un campo si concluse che lo avesse approvato, qui dal fatto che mostrasse una riga si concluse che ce ne fosse una sola. La regola che ne discende, e che il presente lavoro adotta, è che un'interfaccia va interrogata sulla propria completezza prima di essere usata come fonte: sapere se essa mostri tutto, o soltanto il primo elemento, è una proprietà dello strumento che va accertata e non presunta.
+
+\section{L'esito della campagna di verifica, e ciò che resta esposto}
+
+Conviene chiudere il capitolo con lo stato raggiunto, poiché le sezioni precedenti descrivono un percorso e non il suo punto d'arrivo.
+
+Sette esemplari costruiti da questo lavoro sono stati sottoposti al giudizio di un'implementazione indipendente, più i due bracci di un esperimento a variabile singola. Il giudizio ha prodotto quattro difetti distinti, tutti corretti e tutti verificati dopo la correzione: il contrassegno dell'incontro fatidico, il bit dell'abilità su una specie con una sola abilità, il vincolo che lega il seme al bit del sesso dichiarato, e il troncamento di un nome che riempie il proprio campo. Il secondo riguardava cinquantanove esemplari su centoventidue e il quarto settantaquattro.
+
+L'esito strutturale è che ogni ramo dell'algoritmo che questo lavoro sa produrre è stato giudicato conforme. Sono sei: la composizione invertita con seme ristretto a sedici bit, la medesima con la mutazione antilucente additiva, il ramo a lucentezza garantita che scrive nel valore di personalità i bit dell'identificativo, il ramo antilucente a numero variabile di estrazioni, la trasformazione del seme attraverso la tabella aritmetica dei doni, e la selezione del seme da un elenco di valori storicamente distribuiti. I due metodi rimanenti del catalogo non sono stati giudicati per la ragione che non producono nulla da giudicare: uno riguarda le uova, che questo lavoro non compone per mancanza di un dato per specie, e l'altro impiega un generatore pseudocasuale differente.
+
+Ciò che resta esposto va enunciato con la medesima precisione, poiché un elenco di successi senza il suo complemento non è un resoconto. Restano non esercitate sotto giudizio quattro delle nove derivazioni del sesso dell'allenatore e quattro delle sette lingue, per un totale di otto esemplari che la sezione sulla copertura nomina uno per uno; e restano per costruzione parzialmente coperte le dimensioni di dato, cioè le trentatre specie e i cinque livelli presenti nel lotto, su cui il rischio non si riduce provando di più ma soltanto generando i dati dalla fonte che li definisce anziché trascriverli.
+
+Una previsione falsificabile chiude il capitolo, ed è formulata perché una previsione che non si possa smentire non insegna nulla. I quattro difetti trovati stavano tutti in rami che nessun giudizio precedente aveva esercitato, e nessuno è stato trovato in un ramo già coperto; se le otto prove residue non producessero alcuna contestazione, la correlazione fra assenza di copertura e presenza di difetto sarebbe smentita e ne seguirebbe che l'insieme dei difetti era già completo. Se invece ne producessero, la correlazione reggerebbe e la conclusione operativa sarebbe che la copertura strutturale è la grandezza da massimizzare, come questo capitolo ha argomentato.
+\section{I campi irreversibili, e una gerarchia dei campi secondo chi può cambiarli}
+
+La verifica di massa, cioè il caricamento dell'intera produzione nelle scatole di un salvataggio e la lettura dei contrassegni che il programma disegna sulle posizioni difettose, ha prodotto un difetto ulteriore. Esso vale come occasione per introdurre una distinzione che le sezioni precedenti hanno impiegato senza enunciarla, e che governa quali campi un verificatore possa controllare e quali no.
+
+\subsection*{Il caso}
+
+Un esemplare portava il contrassegno di non conformità, e il rilievo era l'assenza di un fiocco, precisamente quello Nazionale. Il difetto era di lettura: la tabella dell'implementazione di riferimento dichiara quel campo su due delle proprie centosettantatre voci, e la nostra estrazione non lo raccoglieva, dunque nessuna delle due lo portava.
+
+La posizione di un fiocco all'interno della parola dei contrassegni non è documentata altrove che nel codice che la legge e la scrive, una riga per fiocco, e si estrae da là. I fiocchi di merito sono dodici e occupano i bit dal quindicesimo al ventiseiesimo, con quello Nazionale al ventiquattresimo. Sotto di essi stanno quindici bit che contengono i cinque livelli di gara, tre bit ciascuno, e la struttura impiegata da questo lavoro li tiene in campi separati: un fiocco di gara passato per errore al campo di merito viene rifiutato anziché scritto in una posizione sbagliata.
+
+\subsection*{La distinzione: campi reversibili e campi irreversibili}
+
+Un fiocco potrebbe sembrare un dettaglio ornamentale, e la ragione per cui non lo è chiarisce per contrasto perché l'oggetto tenuto, discusso in un capitolo precedente, lo è. La differenza non sta nell'importanza dei due campi ma in una loro proprietà formale, cioè quali operazioni del gioco possano modificarli dopo la consegna.
+
+Si dividano i campi di un esemplare in due classi. Un campo è \emph{reversibile} se esiste una sequenza di azioni di gioco che lo porta da un valore a un altro: l'oggetto tenuto lo è, poiché si può togliere, scambiare e consumare; il livello lo è in una direzione sola, poiché cresce e non decresce; l'amicizia lo è in entrambe. Un campo è \emph{irreversibile} se nessuna azione di gioco lo modifica dopo la creazione: il valore di personalità lo è, i valori individuali lo sono, il nome dell'allenatore di provenienza lo è, e un fiocco di merito lo è, poiché nessuna azione lo assegna.
+
+La conseguenza sulla verificabilità è immediata e vale enunciarla come principio. Su un campo reversibile, un verificatore non può concludere nulla dall'osservazione del suo valore, poiché qualunque valore è raggiungibile a partire da quello originale: l'assenza di un oggetto tenuto è compatibile con un esemplare che lo abbia avuto e usato. Su un campo irreversibile, invece, il valore osservato deve coincidere con quello di creazione, e ogni discrepanza è una contraddizione dimostrabile.
+
+Ne discende che l'insieme dei campi che un verificatore controlla è, con buona approssimazione, l'insieme dei campi irreversibili; e ne discende anche, per la stessa ragione, che l'insieme dei campi su cui la fedeltà a un originale non è verificabile è l'insieme dei campi reversibili. Le due nozioni introdotte in capitoli distinti, cioè la legittimità e la fedeltà, si separano dunque esattamente lungo questa frattura: la legittimità è decidibile perché riguarda i campi irreversibili, la fedeltà non lo è perché riguarda anche gli altri.
+
+Il fiocco appartiene alla prima classe, e questo è il motivo per cui la sua assenza è stata contestata mentre quella dell'oggetto tenuto non lo era stata. Nel produrre una ricreazione entrambi vanno scritti, ma per ragioni diverse: il fiocco perché altrimenti l'esemplare è illegittimo, l'oggetto perché altrimenti è soltanto infedele.
+
+\subsection*{Un dettaglio dello strumento, della medesima famiglia dei precedenti}
+
+La verifica di massa richiede una precauzione che merita una riga perché appartiene alla stessa classe di errore già incontrata due volte. Il contrassegno di non conformità è disegnato sopra l'immagine di ciascuna posizione, dunque una schermata per scatola individua tutte le posizioni difettose; ma il riquadro informativo che compare al passaggio del puntatore copre una parte della griglia, e una schermata scattata mentre esso è aperto nasconde le posizioni che gli stanno sotto.
+
+L'incompletezza di una tale schermata non è visibile in essa, ed è precisamente questo che la rende insidiosa: chi la guarda vede una griglia con dei contrassegni e conclude che siano tutti. È la terza occorrenza della medesima forma logica, dopo il silenzio del verificatore su un campo e la riga singola del riquadro, e in tutte e tre da un'assenza si è ricavata un'informazione positiva. La regola operativa che le governa tutte è una sola: prima di usare un'osservazione come prova di assenza, accertare che lo strumento con cui è stata fatta sia in grado di mostrare ciò di cui si nega l'esistenza.
+
+\section{Registrare un giudizio con i suoi byte}
+
+Un'ultima considerazione di metodo chiude il capitolo, e riguarda la forma in cui gli esiti della verifica vanno conservati.
+
+Un giudizio di conformità non è un'affermazione su una categoria ma su una configurazione: vale per quel valore di personalità, quei valori individuali, quel nome, quel seme. Registrare soltanto l'esito, cioè che un dato esemplare è stato dichiarato conforme, conserva l'informazione meno utile e perde quella che serve, perché non permette né di riprodurre il caso né di riconoscere che una modifica successiva del generatore lo ha cambiato. Il secondo punto è il più pratico: senza il registro dei valori, una correzione che alterasse un esemplare già giudicato lo lascerebbe marcato come conforme, e la marca sarebbe falsa senza che nulla lo segnali.
+
+La forma adottata è dunque un inventario generato, una scheda per esemplare producibile, che riporta ogni campo derivato accanto alla propria provenienza, e accanto al titolo lo stato del giudizio letto da un registro separato. Le due parti hanno nature diverse e restano in file diversi: le schede sono calcolate, il registro dei giudizi è autorato, poiché ogni sua voce è il resoconto di una prova eseguita da una persona.
+
+Una scelta di quel generatore va difesa perché è controintuitiva. Esso non legge i file prodotti: li ricalcola dalle sorgenti con il medesimo codice che li scrive. Un documento che leggesse i file descriverebbe lo stato del disco di una macchina, che non è versionato e in una copia del progetto non esiste; questo descrive ciò che il progetto produce, e resta vero dove i file non sono stati ancora generati. La scelta porta con sé un effetto collaterale che è a sua volta una verifica: se due generazioni consecutive producessero schede diverse, ne seguirebbe che la scelta del seme non è riproducibile, e il difetto si manifesterebbe come una modifica del documento che nessuno ha compiuto.
