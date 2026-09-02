@@ -91,6 +91,8 @@ ALTRI_DOCUMENTI = (
     "recreate-pokemon-distributions-events/STUDIO-03-verifica-del-metodo-sul-corpus.md",
     "recreate-pokemon-distributions-events/STUDIO-04-campagna-di-trasferimento-e-il-tracciatore.md",
     "recreate-pokemon-distributions-events/CATALOGO-EVENTI.md",
+    "pokedex-home-completo/README.md",
+    "pokedex-home-completo/STUDIO-01-che-cosa-vincola-la-scadenza.md",
     "poke-ace/STUDIO-03-la-risposta-della-comunita-e-le-due-severita.md",
     "cart-battery-restoration/README.md",
     "cart-battery-restoration/STUDIO-01-batteria-e-ritenzione.md",

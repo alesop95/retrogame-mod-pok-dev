@@ -7,6 +7,8 @@
 % copre: poke-ace/STUDIO-03-la-risposta-della-comunita-e-le-due-severita.md
 % copre: recreate-pokemon-distributions-events/STUDIO-04-campagna-di-trasferimento-e-il-tracciatore.md
 % copre: recreate-pokemon-distributions-events/CATALOGO-EVENTI.md
+% copre: pokedex-home-completo/README.md
+% copre: pokedex-home-completo/STUDIO-01-che-cosa-vincola-la-scadenza.md
 % copre: generation-from-switch/README.md
 % copre: generation-from-switch/STUDIO-01-scambio-automatico-e-provenienza.md
 % verificato-al-commit: a427431
@@ -253,3 +255,50 @@ Un esemplare può essere valutato secondo due criteri indipendenti. Il primo è 
 I due criteri divergono su un insieme di campi che è facile individuare in astratto e facile dimenticare in pratica: quelli che il gioco lascia modificare dopo la consegna. L'oggetto tenuto è l'esempio canonico. Un verificatore non può pretendere che un esemplare porti l'oggetto con cui fu distribuito, poiché un oggetto si toglie, si scambia e si consuma, e un esemplare privo di esso è indistinguibile da uno che l'abbia semplicemente usato; ne segue che il campo non è vincolato e che un esemplare senza oggetto passa i controlli. Il caso concreto incontrato è che la distribuzione italiana della campagna del decennale consegnava il proprio Pikachu con un oggetto specifico, documentato dalla sola fonte enciclopedica: la tabella dell'implementazione di riferimento non lo dichiara, il verificatore non lo pretende, e gli esemplari prodotti da questo lavoro ne erano privi senza che nulla lo segnalasse.
 
 Vale enunciare il criterio generale che ne discende, poiché si applica a qualunque ricostruzione e non a questa sola. Quando si misura la qualità di una ricostruzione con il giudizio di un verificatore, si sta misurando la legittimità e non la fedeltà, e la differenza fra le due è precisamente l'insieme dei campi che il verificatore ignora. Quell'insieme non è vuoto e non è piccolo, e i suoi elementi hanno una proprietà comune che li rende insidiosi: sono ignorati dal verificatore proprio perché sono modificabili, e sono modificabili proprio perché appartengono alla storia dell'esemplare anziché alla sua identità. Chi voglia la fedeltà deve quindi documentare la storia, e la documentazione della storia non può venire dal codice.
+\section{Una scadenza che non vincola ciò che sembrava vincolare}
+
+Il capitolo ha distinto la legittimità dalla fedeltà, e la specie dall'esemplare. Questa sezione mostra che cosa quella distinzione produca quando la si applica a un vincolo di tempo, e il risultato è che il vincolo si sposta interamente da una delle due categorie all'altra.
+
+\subsection*{Il problema, e la lettura ingenua}
+
+Un servizio di deposito accetta esemplari per due vie. La prima proviene dai titoli recenti e non ha termine. La seconda passa per un servizio in dismissione, con una data di cessazione annunciata. La lettura ingenua del vincolo è che la data limiti la collezione, e da essa segue il piano di lavoro ovvio, cioè spendere il tempo residuo sulla collezione.
+
+La lettura è sbagliata, e la struttura dell'errore è la seguente: essa confonde l'insieme degli oggetti da collezionare con l'insieme degli oggetti che soltanto la via in dismissione può fornire. Il secondo è la differenza fra il primo e l'unione delle vie permanenti, e la sua cardinalità non è nota a priori. Può essere l'intero insieme, può essere vuota, e da quale dei due casi si dia dipende interamente il piano.
+
+\subsection*{Il calcolo, e il dato su cui va fatto}
+
+La cardinalità si calcola. Detto $U$ l'insieme delle voci collezionabili, $D_i$ l'insieme delle voci fornite dal titolo permanente $i$ e $I_j$ quello fornito dal titolo in dismissione $j$, l'insieme vincolato dalla scadenza è
+\begin{equation}
+V = \Bigl(\bigcup_j I_j\Bigr) \setminus \Bigl(\bigcup_i D_i\Bigr) ,
+\end{equation}
+e la domanda pratica è la cardinalità di $V$ e non quella di $U$.
+
+Il calcolo richiede, per ciascun titolo, l'elenco delle voci che esso contiene. Su questo il presente lavoro ha commesso un errore di ricognizione che vale raccontare, poiché è di una specie ricorrente. La prima ispezione ha cercato quel dato fra i file che l'implementazione di riferimento dedica agli incontri, essendo l'incontro il modo in cui una voce si ottiene; li ha trovati in numero di duecento, in un formato binario compresso con struttura diversa per generazione; e ne ha concluso che il dato non fosse ottenibile a costo ragionevole, dichiarando formalmente una deroga alla regola del lavoro che vuole i dati generati e non trascritti.
+
+La conclusione era falsa perché la domanda era mal posta. Non serviva sapere quali incontri un titolo offra, ma quali voci esso contenga, che è un dato diverso e sta altrove: nelle tabelle delle statistiche di base, che sono array di record a dimensione fissa con un contrassegno di presenza in un bit noto, e si leggono in cinquanta righe senza riscrivere alcun lettore. La deroga è stata ritirata poche ore dopo essere stata dichiarata.
+
+La lezione generale è che la difficoltà percepita di un dato dipende da quale domanda si è formulata, e che davanti a un dato apparentemente inaccessibile conviene chiedersi se esista una domanda più debole che serva allo stesso scopo. Nel caso in esame la domanda debole, cioè la presenza anziché l'ottenibilità, era sufficiente per il calcolo di $V$ e costava due ordini di grandezza in meno.
+
+\subsection*{Il risultato, e la correzione che lo completa}
+
+Il calcolo dà $|V| = 0$ al livello delle specie: l'unione dei titoli permanenti copre l'intero insieme delle millleventicinque voci del catalogo nazionale. Al livello delle forme la differenza contiene dodici elementi, dei quali dieci sono forme totemiche di una generazione e due forme di sola battaglia.
+
+Le seconde sono escluse per definizione, poiché una forma che esiste soltanto durante un incontro non può stare in un deposito. Le prime richiedono una correzione a una conclusione che la ricerca preliminare aveva tratto, ed è la parte più istruttiva del caso. Quella ricerca le dichiarava irrecuperabili dopo la scadenza, il che implica che fossero recuperabili prima. Il verificatore dei trasferimenti dell'implementazione di riferimento afferma invece due cose: che quattro di quelle specie non si trasferiscono affatto alla generazione successiva, e che per le altre l'esemplare trasferito deve portare la forma base anziché quella totemica, pena l'invalidità.
+
+Ne segue che nessuna di quelle voci può esistere nel deposito, né prima né dopo la data. Esse non sono in attesa di scadenza: sono irraggiungibili per costruzione, e la loro assenza dalla collezione non è un costo della dismissione ma una proprietà permanente del formato. Il risultato completo è dunque $|V| = 0$ a entrambi i livelli.
+
+Vale isolare la forma logica della correzione, poiché non riguarda un conteggio ma una modalità. Dire che un oggetto è irrecuperabile dopo una data significa affermare implicitamente che sia recuperabile prima, e quella affermazione implicita è una proposizione distinta che richiede una verifica propria. Il presente lavoro ha già incontrato tre volte l'errore di ricavare un'informazione positiva da un'assenza; questo ne è una quarta variante, in cui da una scadenza si ricava una disponibilità.
+
+\subsection*{Dove il vincolo si è spostato}
+
+L'insieme $V$ è vuoto, ma il vincolo di tempo non è scomparso: si è spostato interamente sull'altra categoria, cioè sui singoli esemplari la cui identità richiede una provenienza anteriore. Essi non appartengono a $U$ e non si contano in voci di catalogo, poiché non sono specie ma esemplari: la specie è sostituibile e l'esemplare no.
+
+La conclusione operativa è dunque l'inversione della lettura ingenua. Il tempo residuo non va speso sulla collezione, che non ha scadenza, ma sugli esemplari, che ne hanno una e per i quali nessuna via alternativa esiste. È esattamente il lavoro che i capitoli precedenti descrivono, e la sezione dà a esso, retrospettivamente, la sua giustificazione quantitativa: quel lavoro non era una parte del problema fra le altre, era l'unica parte con una scadenza.
+
+\subsection*{Una nota sul valore di una fonte, che dipende dalla domanda}
+
+Il conteggio è stato confrontato con una base dati indipendente, quella che serve un simulatore di battaglie della comunità. Il confronto ha prodotto un accordo esatto sul numero delle specie, portando a tre le ricostruzioni indipendenti concordi, e una discrepanza sul numero delle forme.
+
+La discrepanza non è un errore di nessuna delle due parti, e la sua spiegazione è un'osservazione generale sull'uso delle fonti. Quella base dati serve il gioco competitivo, dunque enumera le forme che modificano il comportamento di un esemplare in battaglia e omette quelle puramente estetiche; le tabelle dell'implementazione di riferimento enumerano invece tutto ciò che esiste nei dati. Le due contano insiemi diversi, e chi le confrontasse senza saperlo attribuirebbe a un errore ciò che è una differenza di definizione.
+
+Ne segue che una fonte non è semplicemente attendibile o inattendibile: è attendibile su certe domande e muta su altre, e la sua utilità dipende dal riconoscere quali. Impiegare quella base dati per contare le forme non produce un errore evidente ma un numero preciso, ricavato correttamente, e non pertinente, che è il genere di risultato più difficile da individuare in una revisione.
