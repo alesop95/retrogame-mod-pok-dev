@@ -4,6 +4,22 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-02 L'ottavo difetto, una mia conclusione rovesciata, e l'hardware dell'utente
+
+La correzione del gioco di origine ha avuto l'effetto che doveva: il verificatore ora riconosce il dono, dichiara il tipo di incontro giusto, classifica il valore di personalità nel metodo delle uova e ricostruisce il nostro seme. Restava un rilievo diverso, sul nome dell'allenatore, e ha rovesciato una conclusione che avevo scritto poche ore prima.
+
+Avevo ragionato che un uovo della terza generazione, portando il byte della lingua a giapponese per costruzione, non potesse avere un nome latino, e che la fonte lo lasciasse dunque vuoto riempiendolo alla schiusa. Avevo perfino verificato che la funzione di scrittura della fonte, davanti a un carattere che non sa scrivere, interrompe e lascia il campo vuoto. Il verificatore ha risposto che il nome è troppo corto, con una regola esplicita: lunghezza nulla, invalido.
+
+L'errore di metodo è nuovo in questa serie e va nominato perché ricorrerà: avevo osservato che cosa l'implementazione di riferimento fa in un caso limite e avevo preso quel comportamento per la specifica. Ciò che un programma fa in un caso che non ha previsto non è una norma, è soltanto ciò che accade. La prova stava nella medesima implementazione: il suo verificatore rifiuta il risultato che il suo generatore produrrebbe.
+
+È la seconda volta in due giorni che quelle due parti si contraddicono, e le due volte il verificatore aveva ragione, quindi ho promosso l'osservazione a criterio in ADR-028: fra il generatore e il verificatore della fonte vince il verificatore, non per gerarchia ma per funzione. Con un corollario utile: quando le due parti divergono, la divergenza segnala un caso limite che vale studiare, ed è esattamente così che sono stati trovati i due difetti.
+
+La soluzione era nei byte e non nel ragionamento. Le due tabelle dei caratteri sono allineate sui caratteri latini: il byte che nella internazionale rende la A rende nella giapponese la medesima lettera a larghezza intera. Quindi un nome latino scritto dal gioco internazionale, riletto con la tabella giapponese, non da' spazzatura ma il medesimo nome in larghezza intera. Avevo confuso due cose: il byte della lingua, che in un uovo vale giapponese per costruzione del formato, e la tabella con cui i byte sono stati scritti, che è quella del gioco che consegna l'uovo. Il generatore sceglie ora la tabella del nome provando quella che sa scriverlo, e si rifiuta se nessuna lo sa. Zero esemplari con nome vuoto su centosettantadue.
+
+Sull'hardware, l'utente ha dichiarato tre cartucce della quarta generazione, e la dichiarazione vale un fattore tre sul tetto della campagna. Il limite di frequenza del primo passaggio è registrato sul salvataggio e non sulla console, quindi con tre salvataggi il tetto passa da circa mille a circa tremila esemplari nei giorni che restano, e a quel punto anche il Pokedex dal marchio antico diventa possibile. Ne segue che le misure da fare sono due e non una, e la seconda vale quel fattore: quanti esemplari muove un passaggio, e se il limite sia per salvataggio o per console.
+
+Le tre cartucce servono anche al riscatto delle carte del dono segreto della quarta generazione, quindi hanno due usi e non uno, e la decisione su quale consumare come veicolo va presa sapendolo. Sull'acquisto di una cartuccia di appoggio della terza generazione la decisione è buona per una ragione che eccede il collezionismo: separa il lavoro rischioso dalla cosa irripetibile, cosicché la cartuccia con i trecentottantasei originali non venga mai scritta. È il principio del backup prima della scrittura, applicato un passo prima.
+
 ## 2026-09-02 Il settimo difetto, e l'ambito del lavoro sotto scadenza
 
 La correzione del livello di incontro ha reso conformi dieci delle trentacinque uova contestate, e la partizione delle restanti venticinque ha indicato la causa senza un altro rapporto: erano tutte e sole le voci che la tabella dichiara per più titoli insieme. La corrispondenza fra sigle di versione e codici comprendeva le sigle singole e una sola delle multiple, e la interrogavamo con un valore predefinito: le venticinque cadevano su quel valore e dichiaravano un gioco di origine che il loro evento non contemplava.
