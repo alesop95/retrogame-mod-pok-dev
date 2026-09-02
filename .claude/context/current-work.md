@@ -12,6 +12,7 @@ covers-paths:
   - poke-ace/
   - generation-from-switch/
   - cart-battery-restoration/
+  - pokedex-home-completo/
 last-verified-commit: 7696c46
 stato: adozione conclusa; in corso su 6 track di 9
 ---
@@ -29,6 +30,7 @@ La fonte di verità su cosa è fatto resta `memory/index.md`, non le spunte di q
 | gen12-gen3-bridge | attivo | lettore e scrittore della struttura di generazione 3, cifrata, permutata e con checksum | nulla sul lavoro comune: ADR-008 e la discovery hardware pesano solo sull'ultimo tratto |
 | gba-switch-trading | in ricerca, fonti portanti lette | provare l'Archer T2U Nano che l'utente ha già in modalità monitor, e leggere il codice di `frlgtrade.py` | nulla: la macchina non ha Wi-Fi integrato, e l'adattatore da provare è deciso con la sua riserva sul driver fuori albero |
 | cart-battery | attivo, è il fuoco corrente; runbook scritto | due misure che non richiedono il lettore, cioè se il salvataggio di seconda generazione esista ancora e quale pila stia dentro ciascuna cartuccia | l'estrazione attende il lettore; la saldatura attende una decisione fra farla e affidarla |
+| pokedex-completo | attivo, aperto il 2026-09-02; è l'obiettivo principale a cui gli altri track concorrono | verificare se Spinda abbia davvero una scadenza, che è l'unico punto che potrebbe darne una a una specie | la scelta di che cosa significhi completo, e l'acquisto dei titoli recenti, che la verifica dichiara non urgenti |
 | poke-ace | attivo, due studi scritti | due decisioni dell'utente, cioè se usare la tecnica e quale profilo di collezione sia l'obiettivo; e intanto il confronto fra il costruttore di esemplari e il metodo ricostruito dal track degli eventi | la verifica sui controlli di Home è impossibile prima di ottobre 2026 |
 | generation-from-switch | appena aperto, il meno sviluppato | leggere le due fonti registrate e riscrivere lo studio | nulla: è lavoro di lettura |
 | distributions-events | attivo, metodo verificato ed eseguibile | costruire un esemplare di evento con `pokebridge` e verificarne la legittimità con PKHeX, oppure leggere l'archivio degli eventi per i campioni mancanti | nulla su questi passi; la prova su dato autentico attende il lettore, e l'ultimo tratto verso Home due decisioni di perimetro |

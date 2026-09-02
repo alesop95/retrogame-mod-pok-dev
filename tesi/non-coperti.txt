@@ -19,3 +19,10 @@ recreate-pokemon-distributions-events/EVENTI-GEN3.md#insieme-eggs # elenco gener
 ## centoventidue tabelle di valori sono dati da consultare, non prosa da rendere, e
 ## valgono l'esenzione per la stessa ragione del catalogo degli eventi.
 recreate-pokemon-distributions-events/SCHEDE-ESEMPLARI.md # inventario generato di valori derivati, non prosa da rendere
+
+## La ricerca consegnata dall'utente e' conservata verbatim come fonte con
+## provenienza, e la tesi ne rende il metodo, il controllo di validita', i due limiti
+## dichiarati e la correzione che la verifica ha prodotto. La sua tabella del Dex
+## Nazionale e le sue enumerazioni di forme sono dati da consultare e non prosa da
+## rendere, e un documento copiato verbatim da una fonte esterna non va riscritto.
+pokedex-home-completo/RICERCA-UTENTE-2026-09-01.md # fonte verbatim con provenienza, non prosa del progetto

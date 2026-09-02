@@ -306,3 +306,23 @@ Decisione. La tabella giapponese si estrae dal codice della implementazione di r
 
 Conseguenze. La scelta è difendibile per una ragione che vale enunciare perché è più forte della necessità: quella tabella non è soltanto la migliore disponibile, è anche la tabella con cui i nostri esemplari verranno letti quando saranno giudicati. Se il verificatore leggerà i nostri byte con la sua tabella, la tabella con cui li scriviamo deve essere la sua, e in questo caso specifico una fonte di rango inferiore è preferibile a una di rango superiore che descriva un'altra edizione del gioco. Resta aperto che se un giorno il progetto clonasse un disassemblato della versione giapponese, la tabella andrebbe rigenerata da quello e le due andrebbero confrontate: una divergenza fra loro sarebbe informazione, non un fastidio.
 
+## ADR-026: il completamento del Pokedex in Home è l'obiettivo principale, e diventa un sottoprogetto
+
+Data: 2026-09-02. Stato: accettata.
+
+Contesto. Il progetto nasce come raccolta di sottoprogetti paralleli, e il `CLAUDE.md` li descrive esplicitamente come obiettivi diversi che avanzano in parallelo e non come fasi di una sequenza. L'obiettivo del completamento della collezione in Pokemon Home era invece dichiarato nella prosa di più track senza avere una casa propria, e la sua assenza produceva due difetti. Il primo è che le decisioni che lo riguardano finivano nella scheda del track degli eventi, che non dichiara fra i propri percorsi coperti nulla che riguardi le altre generazioni, cioè il punto cieco esatto contro cui il `CLAUDE.md` mette in guardia. Il secondo è che senza una casa nessuno misurava la sua grandezza, e il progetto pianificava il tempo su una stima invece che su un numero.
+
+Decisione. Il completamento del Pokedex in Home diventa un sottoprogetto, `pokedex-home-completo/`, con la sua scheda di contesto, la sua riga nella tabella di verifica, la sua riga nel blocco del punto di ripresa e la sua riga nella tabella dei track, e con il quarto passo della procedura eseguito, cioè l'estensione del `covers-paths` delle schede trasversali. Nello stesso tempo esso è dichiarato obiettivo principale: gli altri sottoprogetti possono concorrervi e restano ciascuno autonomo, con uno scopo proprio che vale anche se questo non si completasse.
+
+Conseguenze. La prima è che il numero si è potuto misurare, e la misura ha cambiato il piano: la chiusura della banca non vincola il Pokedex, né al livello delle specie né a quello delle forme. La seconda è che la relazione fra i track diventa dichiarata invece di implicita, e questo ha un effetto sulle priorità che vale enunciare: un track può essere prioritario per il proprio scopo autonomo pur non essendolo per l'obiettivo principale, e viceversa. La terza è che la parola completo resta da definire, ed è ora una decisione aperta con un posto dove stare.
+
+## ADR-027: la disponibilità per titolo si genera, e la deroga dichiarata poche ore prima si ritira
+
+Data: 2026-09-02. Stato: accettata, e sostituisce una dichiarazione della medesima giornata.
+
+Contesto. La sezione 12 di `recreate-pokemon-distributions-events/STUDIO-04`, scritta poche ore prima, dichiarava che la tabella di disponibilità per specie e per gioco sarebbe stata autorata da fonti e non generata, in deroga alla regola del progetto, e ne dava la ragione: l'implementazione di riferimento tiene i propri dati di legittimità in duecento file binari compressi con struttura diversa per generazione, e leggerli avrebbe richiesto di riscriverne i lettori uno per generazione.
+
+Decisione. La deroga si ritira, perché era fondata su un errore di ricognizione. La domanda sulla disponibilità non richiede i dati degli incontri ma quelli di presenza, che stanno altrove e in forma molto più semplice: le tabelle delle statistiche di base sono array di record a dimensione fissa, un record per voce, con un contrassegno di presenza in un bit noto, e si leggono in cinquanta righe senza riscrivere alcun lettore. La tabella si genera dunque, e `tools/disponibilita-titoli.py` la genera.
+
+Conseguenze. La prima è che la regola del progetto resta intatta e non ha eccezioni su questo dato. La seconda è una lezione sul metodo che vale registrare, perché l'errore è del genere che si ripete: avevo guardato l'insieme dei file che *nomina* la cosa cercata, cioè gli incontri, e avevo concluso dalla loro difficoltà che la cosa fosse difficile. La domanda giusta non era quali incontri esistano in un titolo ma quali voci quel titolo contenga, che è un dato diverso e più vicino. Prima di dichiarare una deroga a una regola conviene chiedersi se la difficoltà stia nel dato o nella formulazione della domanda.
+
