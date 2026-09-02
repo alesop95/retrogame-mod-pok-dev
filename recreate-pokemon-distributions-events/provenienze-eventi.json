@@ -1,0 +1,332 @@
+{
+  "formato": 1,
+  "nota": "Provenienza storica delle distribuzioni, una voce per gruppo di evento. La chiave è il nome dell'allenatore seguito da una barra verticale e dall'identificativo a 32 bit come la tabella del verificatore lo dichiara, perché quella coppia è ciò che identifica un evento. Questo file è autorato e non generato: i fatti meccanici (specie, livello, metodo, mosse, lingua) vengono dalla tabella e non si scrivono qui, mentre le date, i luoghi e il modo di distribuzione non stanno in nessuna fonte di primo livello e vanno letti dall'enciclopedia, con il collegamento e la data di lettura accanto. Dove la fonte storica e la tabella divergono, la divergenza si dichiara nel campo omonimo invece di scegliere in silenzio: sui fatti meccanici vale la tabella, che è codice eseguito da un verificatore, e sui fatti storici vale l'enciclopedia, che è la sola a occuparsene. Un campo fa eccezione al principio per cui qui non stanno fatti meccanici, ed è l'oggetto tenuto: il campo `oggetti` associa a un numero nazionale di specie l'identificativo dell'oggetto che quell'esemplare portava. Sta qui e non nella tabella del verificatore perché quella non lo dichiara, e non lo dichiara per una ragione buona, cioè che un oggetto tenuto si può togliere o scambiare e quindi non è un vincolo di legittimità. È però un tratto dell'esemplare originale, e una ricreazione che voglia essere fedele e non soltanto accettata deve scriverlo. La fonte di quel dato è la medesima della voce che lo contiene, e il campo va compilato solo dove essa lo documenta esplicitamente.",
+  "fonti": {
+    "bulba-jp": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III",
+      "titolo": "List of Japanese event Pokémon distributions in Generation III",
+      "letta": "2026-09-02",
+      "rango": "livello 2, enciclopedia collaborativa: buona sulle date e sui luoghi, che nessuna fonte di primo livello registra, e da non preferire alla tabella del verificatore sui fatti meccanici"
+    },
+    "bulba-en": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III",
+      "titolo": "List of English event Pokémon distributions in Generation III",
+      "letta": "2026-09-02",
+      "rango": "livello 2, enciclopedia collaborativa: buona sulle date e sui luoghi, che nessuna fonte di primo livello registra, e da non preferire alla tabella del verificatore sui fatti meccanici"
+    },
+    "bulba-it": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III",
+      "titolo": "List of Italian event Pokémon distributions in Generation III",
+      "letta": "2026-09-02",
+      "rango": "livello 2, enciclopedia collaborativa: buona sulle date e sui luoghi, che nessuna fonte di primo livello registra, e da non preferire alla tabella del verificatore sui fatti meccanici"
+    }
+  },
+  "gruppi": {
+    "MYSTRY|6930": {
+      "nome": "Mystery Mew",
+      "date": "30 settembre 2006",
+      "luogo": "negozi Toys \"R\" Us degli Stati Uniti",
+      "come": "distribuzione senza fili in un'unica finestra di tre ore, dalle dodici alle quindici",
+      "fonte": "bulba-en",
+      "note": "È l'evento con il quale il Mew tornò disponibile nel mercato statunitense. La brevità della finestra, tre ore in un solo giorno, è la ragione per cui questo esemplare è fra i più difficili da trovare in forma autentica."
+    },
+    "Aura|20078": {
+      "nome": "Aura Mew",
+      "date": "2-26 agosto 2007 nel Regno Unito, 25-28 ottobre 2007 in Norvegia, 5 novembre - 14 dicembre 2007 in Svezia, 3-30 gennaio 2008 in Danimarca; 7-8 luglio 2007 in Italia",
+      "luogo": "negozi Toys \"R\" Us nel Regno Unito, manifestazioni e distribuzioni per posta nei paesi nordici, parco di Mirabilandia in Italia",
+      "come": "distribuzione senza fili alle manifestazioni, e per posta nei due paesi nordici dove non si tenne un evento",
+      "fonte": "bulba-en",
+      "note": "La distribuzione italiana avvenne nel medesimo parco che l'anno precedente aveva ospitato quella del decennale, ed è documentata separatamente dalla pagina italiana."
+    },
+    "10ANNIV|6227": {
+      "nome": "Top 10 Distribution Pokémon, edizione inglese",
+      "date": "da giugno a dicembre 2006, con una prosecuzione norvegese il 30 marzo e il 10-11 maggio 2008",
+      "luogo": "campionati nazionali del Regno Unito, tappe del giro europeo, manifestazioni Nintendo in Grecia, Repubblica Ceca, Paesi Bassi e Finlandia",
+      "come": "distribuzione senza fili alle manifestazioni, e programmi per posta in Svezia e Danimarca",
+      "fonte": "bulba-en",
+      "note": "È la campagna del decimo anniversario, e le sue quattro edizioni linguistiche portano il medesimo identificativo 6227 con nomi di allenatore diversi. La tabella del verificatore ne dichiara venti voci per l'inglese contro dieci per ciascuna delle altre lingue, perché per l'inglese esistono due varianti dei medesimi dieci esemplari.",
+      "oggetti": {
+        "25": 202
+      }
+    },
+    "10ANNI|6227": {
+      "nome": "Top 10 Distribution Pokémon, edizione italiana",
+      "date": "23-25 giugno 2006",
+      "luogo": "parco di Mirabilandia, Italia",
+      "come": "distribuzione senza fili al parco",
+      "fonte": "bulba-it",
+      "oggetto_tenuto": "Il Pikachu di questa distribuzione teneva una Sfera Luminosa, e gli altri nove esemplari non tenevano nulla.",
+      "note": "È la distribuzione che questo progetto possiede su cartuccia, ed è quindi il caso su cui il lavoro viene misurato. Il campo dell'oggetto tenuto merita una nota: la tabella del verificatore non lo dichiara per questa campagna, e infatti il verificatore non lo pretende, perché un oggetto tenuto si può togliere o scambiare e non è quindi un vincolo di legittimità. Resta un tratto dell'esemplare originale, e chi voglia una ricreazione fedele e non soltanto accettata deve scriverlo.",
+      "oggetti": {
+        "25": 202
+      }
+    },
+    "10JAHRE|6227": {
+      "nome": "Top 10 Distribution Pokémon, edizione tedesca",
+      "date": "non ancora documentate",
+      "luogo": "non ancora documentato",
+      "come": "distribuzione senza fili",
+      "fonte": null,
+      "note": "Stessa campagna del decennale, con il nome dell'allenatore nella forma tedesca e il medesimo identificativo. La pagina tedesca dell'enciclopedia non è ancora stata letta."
+    },
+    "10ANIV|6227": {
+      "nome": "Top 10 Distribution Pokémon, edizione spagnola",
+      "date": "non ancora documentate",
+      "luogo": "non ancora documentato",
+      "come": "distribuzione senza fili",
+      "fonte": null,
+      "note": "Stessa campagna del decennale, con il nome dell'allenatore nella forma spagnola e il medesimo identificativo. La pagina spagnola dell'enciclopedia non è ancora stata letta."
+    },
+    "DOEL|28606": {
+      "nome": "Doel Deoxys",
+      "date": "25-28 maggio 2006",
+      "luogo": "TV Toy Museum nei Paesi Bassi, durante i Pokémon Fan Days 2006",
+      "come": "distribuzione senza fili alla manifestazione",
+      "fonte": "bulba-en",
+      "note": "Il nome dell'allenatore è quello della località che ospitava il museo."
+    },
+    "SPACE C|10": {
+      "nome": "Space Center Deoxys",
+      "date": "dal 10 al 19 marzo 2006, e poi ogni sabato e domenica fino al 14 maggio 2006",
+      "luogo": "Space Center Houston, Stati Uniti",
+      "come": "distribuzione senza fili sul posto",
+      "fonte": "bulba-en",
+      "note": "L'identificativo dell'allenatore vale dieci, che è il valore più basso di tutto il catalogo e va ricordato perché rende questo esemplare un caso limite per qualunque calcolo che coinvolga la somma esclusiva degli identificativi."
+    },
+    "ROCKS|2005": {
+      "nome": "Pokémon Rocks America 2005 Metang",
+      "date": "17 settembre - 22 ottobre 2005",
+      "luogo": "cinque città degli Stati Uniti, cioè San Jose, Phoenix, Dallas, Chicago e Boston",
+      "come": "consegnato a chi completava la dimostrazione del titolo per la console domestica, tramite una tessera",
+      "fonte": "bulba-en",
+      "note": "L'identificativo coincide con l'anno della manifestazione, che è una convenzione ricorrente in questo catalogo."
+    },
+    "RUBY|30317": {
+      "nome": "Berry Program Update Zigzagoon, edizione inglese con allenatore RUBY",
+      "date": "1 marzo 2004 - 22 aprile 2007",
+      "luogo": "negozi EB Games e GameStop, e disco dimostrativo per la console domestica",
+      "come": "distribuzione senza fili nei negozi, oppure dal disco dimostrativo a casa",
+      "fonte": "bulba-en",
+      "note": "Questo esemplare non era il dono ma il veicolo: la sua funzione era correggere un difetto dell'orologio interno delle prime cartucce di Rubino e Zaffiro, che dopo un anno smetteva di far crescere le bacche. Il nome dell'allenatore veniva scelto fra RUBY e SAPHIRE, e la seconda grafia manca di una lettera perché il campo del nome ammette sette caratteri. La distribuzione durò più di tre anni, la più lunga di tutto il catalogo."
+    },
+    "SAPHIRE|30317": {
+      "nome": "Berry Program Update Zigzagoon, edizione inglese con allenatore SAPHIRE",
+      "date": "1 marzo 2004 - 22 aprile 2007",
+      "luogo": "negozi EB Games e GameStop, e disco dimostrativo per la console domestica",
+      "come": "distribuzione senza fili nei negozi, oppure dal disco dimostrativo a casa",
+      "fonte": "bulba-en",
+      "note": "Variante con il nome dell'allenatore troncato a sette caratteri. Vedi la voce dell'allenatore RUBY per il resto."
+    },
+    "WISHMKR|20043": {
+      "nome": "Jirachi della stella dei desideri, edizione occidentale",
+      "date": "non ancora documentate con certezza",
+      "luogo": "non ancora documentato con certezza",
+      "come": "disco allegato al titolo per la console domestica, secondo la conoscenza comune, da verificare",
+      "fonte": null,
+      "divergenze": "La pagina inglese dell'enciclopedia, letta il 2026-09-02, associa il nome di allenatore WISHMKR a una distribuzione tenuta alla Electronic Game Show 2004 di Città del Messico. La conoscenza comune associa invece quel nome al disco allegato al titolo per la console domestica. Le due cose non si escludono, perché il medesimo dono può essere stato distribuito per due vie, ma la voce non va scritta finché non è letta una pagina dedicata: qui si dichiara l'incertezza invece di sceglierne una.",
+      "note": "È l'unico evento di tutto il catalogo il cui esemplare porta un oggetto tenuto derivato dal generatore pseudocasuale, cioè una delle due bacche Salac o Ganlon scelta dal bit meno significativo del quoziente per tre della quinta estrazione."
+    },
+    "ネガイボシ|30719": {
+      "nome": "Jirachi della stella dei desideri, edizione giapponese",
+      "date": "durante il Pokémon Festa 2003, giorno preciso non ancora documentato",
+      "luogo": "sedi del Pokémon Festa 2003, Giappone",
+      "come": "distribuzione senza fili alla manifestazione",
+      "fonte": "bulba-jp",
+      "divergenze": "La pagina dell'enciclopedia, letta attraverso uno strumento di sintesi, riporta per questa voce un identificativo di allenatore diverso da quello che la tabella del verificatore dichiara. Vale la tabella, e vi è un argomento interno a favore: gli identificativi di questo catalogo codificano la data nella forma anno, mese e giorno, e il valore della tabella si legge come il 19 luglio 2003, coerente con il Pokémon Festa di quell'anno, mentre l'altro no.",
+      "note": "Il catalogo ne porta due voci, che differiscono per il modo in cui è determinato il sesso dell'allenatore: una lo fissa e l'altra lo copia da chi riceve, cioè dal salvataggio di destinazione."
+    },
+    "タナバタ|40707": {
+      "nome": "Jirachi della festa delle stelle, edizione 2004",
+      "date": "luglio 2004, giorni precisi non ancora documentati",
+      "luogo": "Pokémon Center giapponesi",
+      "come": "distribuzione senza fili nei negozi",
+      "fonte": "bulba-jp",
+      "note": "Il nome dell'allenatore è quello della festa delle stelle, che cade il sette luglio, e l'identificativo lo ripete nella forma anno, mese e giorno. Il catalogo porta tre edizioni di questa distribuzione, una per anno dal 2004 al 2006."
+    },
+    "タナバタ|50707": {
+      "nome": "Jirachi della festa delle stelle, edizione 2005",
+      "date": "17 luglio - 21 agosto 2005",
+      "luogo": "sedi del Pokémon Festa 2005, Giappone",
+      "come": "distribuzione senza fili alla manifestazione",
+      "fonte": "bulba-jp",
+      "note": "Vedi l'edizione 2004 per il senso del nome e dell'identificativo."
+    },
+    "タナバタ|60707": {
+      "nome": "Jirachi della festa delle stelle, edizione 2006",
+      "date": "15-31 luglio 2006",
+      "luogo": "Pokémon Center di Tokyo, Yokohama, Nagoya, Osaka, Fukuoka e Sapporo",
+      "come": "distribuzione senza fili nei negozi",
+      "fonte": "bulba-jp",
+      "note": "Vedi l'edizione 2004 per il senso del nome e dell'identificativo."
+    },
+    "ＡＮＡ|41205": {
+      "nome": "Pikachu della compagnia aerea",
+      "date": "non ancora documentate",
+      "luogo": "non ancora documentato",
+      "come": "non ancora documentato",
+      "fonte": null,
+      "note": "Il nome dell'allenatore è la sigla della compagnia aerea giapponese, scritta con i caratteri latini a larghezza intera che la tabella giapponese dei caratteri contiene e quella internazionale no: è uno degli esemplari che il progetto non riusciva a comporre prima dell'estrazione di quella tabella. L'identificativo si legge come il 5 dicembre 2004. È anche l'esemplare sul quale il verificatore ha scoperto la regola del bit dell'abilità."
+    },
+    "ルビー|21121": {
+      "nome": "Berry Program Update Zigzagoon, edizione giapponese con allenatore Rubino",
+      "date": "non ancora documentate",
+      "luogo": "non ancora documentato",
+      "come": "non ancora documentato",
+      "fonte": null,
+      "note": "Corrisponde alla campagna di correzione dell'orologio delle bacche descritta nella voce dell'allenatore RUBY, nella sua edizione giapponese e con identificativo distinto. È uno dei quattro esemplari del catalogo con lucentezza garantita, cioè quelli che il ramo dell'algoritmo scrive cromatici per costruzione invece di cercarli."
+    },
+    "サファイア|21121": {
+      "nome": "Berry Program Update Zigzagoon, edizione giapponese con allenatore Zaffiro",
+      "date": "non ancora documentate",
+      "luogo": "non ancora documentato",
+      "come": "non ancora documentato",
+      "fonte": null,
+      "note": "Come la voce dell'allenatore Rubino, con l'altro nome. A differenza delle edizioni inglesi, il nome giapponese non è troncato, perché la scrittura sillabica sta nei sette caratteri."
+    },
+    "ポケパーク|50318": {
+      "nome": "PokéPark Meowth e le uova del PokéPark",
+      "date": "18 marzo - 25 settembre 2005 per il Meowth; 12 marzo - 8 maggio 2005 per le uova",
+      "luogo": "PokéPark, Giappone, e un cinema nelle vicinanze",
+      "come": "distribuzione senza fili sul posto, oppure attraverso i punti di accesso pubblici",
+      "fonte": "bulba-jp",
+      "divergenze": "La pagina dell'enciclopedia attribuisce alle uova del PokéPark un nome di allenatore che coincide con quello di chi le fa schiudere, mentre la tabella del verificatore dichiara per esse il nome PokéPark con questo identificativo. La differenza è sostanziale e non ancora spiegata: un uovo può portare il nome di chi lo consegna oppure di chi lo cova, e le due fonti dicono cose diverse. Vale la tabella per la composizione, e la questione resta aperta.",
+      "note": "È il gruppo più numeroso del catalogo dopo quelli del decennale, con sedici voci di cui quindici sono uova."
+    },
+    "ヨコハマ|50319": {
+      "nome": "Pikachu di Yokohama",
+      "date": "19 marzo - 3 aprile 2005",
+      "luogo": "Pokémon Center di Tokyo, Osaka, Nagoya, Fukuoka e Yokohama",
+      "come": "distribuzione senza fili nei negozi",
+      "fonte": "bulba-jp",
+      "note": "L'identificativo si legge come il 19 marzo 2005, cioè il primo giorno della distribuzione."
+    },
+    "ＧＷ|50425": {
+      "nome": "Pikachu della settimana d'oro",
+      "date": "25 aprile - 8 maggio 2005",
+      "luogo": "Pokémon Center di Tokyo, Osaka, Nagoya, Fukuoka e Yokohama",
+      "come": "distribuzione senza fili nei negozi",
+      "fonte": "bulba-jp",
+      "note": "Il nome dell'allenatore sono le due iniziali della settimana di festività giapponese di fine aprile, scritte a larghezza intera. L'identificativo si legge come il 25 aprile 2005."
+    },
+    "サッポロ|50701": {
+      "nome": "Pikachu di Sapporo",
+      "date": "1 luglio - 21 agosto 2005",
+      "luogo": "Pokémon Center di Sapporo",
+      "come": "distribuzione senza fili nel negozio",
+      "fonte": "bulba-jp",
+      "note": "Distribuzione a sede unica, e l'identificativo si legge come il primo luglio 2005. Condivide il numero con il Wobbuffet della trasmissione domenicale, che cominciò lo stesso giorno."
+    },
+    "サンデー|50701": {
+      "nome": "Wobbuffet della trasmissione domenicale",
+      "date": "17 luglio - 21 agosto 2005",
+      "luogo": "sedi del Pokémon Festa 2005, Giappone",
+      "come": "distribuzione senza fili alla manifestazione",
+      "fonte": "bulba-jp",
+      "note": "Il nome dell'allenatore è quello della trasmissione televisiva. L'identificativo si legge come il primo luglio 2005 e coincide con quello del Pikachu di Sapporo, il che mostra che la coppia nome e identificativo, e non l'identificativo da solo, è ciò che individua un evento."
+    },
+    "フェスタ|2005": {
+      "nome": "Metang della festa",
+      "date": "17 luglio - 21 agosto 2005",
+      "luogo": "sedi del Pokémon Festa 2005, Giappone",
+      "come": "consegnato a chi partecipava alla dimostrazione del titolo per la console domestica",
+      "fonte": "bulba-jp",
+      "note": "Porta il medesimo identificativo del Metang statunitense della stessa specie e dello stesso anno, cioè l'anno stesso, e i due si distinguono per il nome dell'allenatore."
+    },
+    "ハドウ|50716": {
+      "nome": "Mew dell'aura",
+      "date": "25 giugno - 31 agosto 2005",
+      "luogo": "rivenditori che vendevano i biglietti in prevendita per il film",
+      "come": "consegnato con la prevendita del biglietto",
+      "fonte": "bulba-jp",
+      "note": "Il nome dell'allenatore è quello dell'aura del film di quell'anno, e lo condivide con i tre leggendari distribuiti pochi mesi dopo, che portano però un identificativo diverso."
+    },
+    "ハドウ|50901": {
+      "nome": "I tre leggendari dell'aura, cioè Regirock, Regice e Registeel",
+      "date": "1-25 settembre 2005",
+      "luogo": "un cinema 109 nelle vicinanze del PokéPark, Giappone",
+      "come": "distribuzione senza fili sul posto, anche attraverso i punti di accesso pubblici",
+      "fonte": "bulba-jp",
+      "note": "Sono i tre esemplari del catalogo il cui sesso dell'allenatore si ricava dal bit più significativo della sesta estrazione e non della quinta, perché fra i valori individuali e il sesso si consuma l'estrazione dell'oggetto tenuto. È la derivazione che il progetto ha implementato per prima e la sola con quel ritardo."
+    },
+    "ポケパーク|60510": {
+      "nome": "Mew del PokéPark",
+      "date": "10 maggio - 4 giugno 2006",
+      "luogo": "negozi Shin Kong Mitsukoshi, Taiwan",
+      "come": "distribuzione senza fili nei negozi",
+      "fonte": "bulba-jp",
+      "note": "È una delle quattro distribuzioni del catalogo tenute a Taiwan e non in Giappone, pur essendo rivolte a cartucce giapponesi."
+    },
+    "ポケパーク|60623": {
+      "nome": "Celebi del PokéPark",
+      "date": "23 giugno - 24 settembre 2006",
+      "luogo": "PokéPark, Taiwan",
+      "come": "distribuzione senza fili sul posto",
+      "fonte": "bulba-jp",
+      "note": "Distribuzione lunga tre mesi, la più estesa fra quelle taiwanesi."
+    },
+    "ポケパーク|60731": {
+      "nome": "Jirachi del PokéPark, prima finestra",
+      "date": "24-31 luglio 2006",
+      "luogo": "PokéPark, Taiwan",
+      "come": "distribuzione senza fili ai vincitori di un'estrazione a premi",
+      "fonte": "bulba-jp",
+      "note": "La distribuzione ai soli vincitori di un'estrazione rende questo esemplare, insieme alla sua seconda finestra, uno dei più rari del catalogo."
+    },
+    "ポケパーク|60830": {
+      "nome": "Jirachi del PokéPark, seconda finestra",
+      "date": "23-30 agosto 2006",
+      "luogo": "PokéPark, Taiwan",
+      "come": "distribuzione senza fili ai vincitori di un'estrazione a premi",
+      "fonte": "bulba-jp",
+      "note": "Seconda finestra della medesima campagna, con identificativo distinto perché codifica la data di inizio."
+    },
+    "ミツリン|60720": {
+      "nome": "Celebi della foresta",
+      "date": "20 luglio - 3 settembre 2006",
+      "luogo": "sedi del giro nella giungla, e Pokémon Center di Nagoya, Osaka, Fukuoka e Sapporo",
+      "come": "distribuzione senza fili sul posto",
+      "fonte": "bulba-jp",
+      "note": "Il nome dell'allenatore è quello della foresta fitta che dà il nome al luogo del film di quell'anno."
+    },
+    "10 ANIV|6808": {
+      "nome": "Festa del decennale, prima serie",
+      "date": "non ancora documentate",
+      "luogo": "non ancora documentato",
+      "come": "non ancora documentato",
+      "fonte": null,
+      "note": "Il corpus del costruttore chiama questa campagna la festa del decennale e il nome dell'allenatore porta uno spazio che le altre edizioni non hanno. È la campagna su cui il progetto ha trovato la mutazione antilucente, perché il suo unico vettore apparentemente deviante appartiene a essa."
+    },
+    "10 ANIV|10": {
+      "nome": "Festa del decennale, seconda serie",
+      "date": "non ancora documentate",
+      "luogo": "non ancora documentato",
+      "come": "non ancora documentato",
+      "fonte": null,
+      "note": "Ventuno voci, la più numerosa del catalogo, e condivide l'identificativo dieci con il Deoxys del centro spaziale, dal quale si distingue per il nome dell'allenatore."
+    },
+    "CHANNEL|0": {
+      "nome": "Jirachi del canale televisivo",
+      "date": "non ancora documentate",
+      "luogo": "non ancora documentato",
+      "come": "attraverso il servizio televisivo per la console domestica",
+      "fonte": null,
+      "note": "È l'unica voce del catalogo che questo progetto non sa produrre, e non per una lacuna colmabile: impiega un generatore pseudocasuale differente da quello della terza generazione su cartuccia, cioè quello dei titoli per la console domestica."
+    },
+    "オヤＮＡＭＥ|0": {
+      "nome": "Uova del quinto anniversario del centro Pokémon giapponese",
+      "date": "non ancora documentate",
+      "luogo": "centri Pokémon giapponesi",
+      "come": "non ancora documentato",
+      "fonte": null,
+      "note": "Dieci voci, tutte uova, e il nome dell'allenatore è letteralmente la dicitura giapponese per nome del genitore, cioè un segnaposto. Sono le voci che impiegano la tabella aritmetica di otto doni descritta nello studio: una sola estrazione decide insieme la specie, l'insieme di mosse e la lucentezza, e soltanto il Pichu di quella tabella può risultare cromatico."
+    },
+    "|0": {
+      "nome": "Uova del desiderio del centro Pokémon di New York",
+      "date": "non ancora documentate",
+      "luogo": "Pokémon Center di New York",
+      "come": "non ancora documentato",
+      "fonte": null,
+      "note": "Venticinque voci, tutte uova, e il nome dell'allenatore è vuoto nella tabella. Il vuoto non è una lacuna ma una istruzione: quelle uova prendono nome e identificativo dal salvataggio in cui vengono riscattate, quindi un esemplare ricreato porterebbe legittimamente il nome di chi lo ricrea. Sono le sole voci del catalogo che impiegano il metodo delle uova, cioè la composizione ordinaria del valore di personalità seguita da una estrazione consumata e non usata."
+    }
+  }
+}

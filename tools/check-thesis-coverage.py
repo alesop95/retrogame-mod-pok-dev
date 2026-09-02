@@ -90,6 +90,7 @@ ALTRI_DOCUMENTI = (
     "poke-ace/STUDIO-02-marchi-di-origine-e-che-cosa-conta-una-collezione.md",
     "recreate-pokemon-distributions-events/STUDIO-03-verifica-del-metodo-sul-corpus.md",
     "recreate-pokemon-distributions-events/STUDIO-04-campagna-di-trasferimento-e-il-tracciatore.md",
+    "recreate-pokemon-distributions-events/CATALOGO-EVENTI.md",
     "poke-ace/STUDIO-03-la-risposta-della-comunita-e-le-due-severita.md",
     "cart-battery-restoration/README.md",
     "cart-battery-restoration/STUDIO-01-batteria-e-ritenzione.md",
