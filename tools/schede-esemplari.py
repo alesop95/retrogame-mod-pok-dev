@@ -48,6 +48,8 @@ sys.path.insert(0, os.path.join(RADICE, "pokemon-gen12-gen3-bridge-original-hard
 from pokebridge import eventi  # noqa: E402
 
 GIUDIZI = os.path.join(RADICE, "recreate-pokemon-distributions-events", "giudizi-esterni.json")
+PROVENIENZE = os.path.join(RADICE, "recreate-pokemon-distributions-events",
+                           "provenienze-eventi.json")
 USCITA = os.path.join(RADICE, "recreate-pokemon-distributions-events", "SCHEDE-ESEMPLARI.md")
 
 # Le venticinque nature, nell'ordine in cui il resto per venticinque del valore di personalità le
@@ -86,9 +88,55 @@ def stato_giudizi():
     return fuori
 
 
+def provenienze():
+    """La provenienza storica per gruppo di evento, dal file autorato.
+
+    Serve alle schede perche' un esemplare da evento e' un oggetto storico prima che un dato, e
+    chi legge una scheda vuole sapere non soltanto quali byte porta ma da dove viene. Le due
+    informazioni hanno gradi di verita' diversi e restano distinte anche nella scheda: i dati
+    tecnici sono calcolati, la provenienza e' letta da una fonte che si cita.
+    """
+    if not os.path.exists(PROVENIENZE):
+        return {}, {}
+    dati = json.loads(io.open(PROVENIENZE, encoding="utf-8").read())
+    return dati.get("gruppi", {}), dati.get("fonti", {})
+
+
+def riga_provenienza(prov, fonti, nome_ot, ident):
+    """Le righe di provenienza di una scheda, compatte e con la fonte citata.
+
+    Sono compatte per scelta: la trattazione distesa di ciascun evento sta nel catalogo, e
+    ripeterla in centosettantadue schede produrrebbe un documento in cui la medesima pagina
+    ricorre venti volte. Qui stanno i fatti che chi guarda un esemplare vuole sapere subito,
+    cioe' quale evento fu, quando, dove e in che modo, con il collegamento per approfondire.
+    """
+    chiave = "%s|%d" % (nome_ot, ident)
+    v = prov.get(chiave)
+    if v is None:
+        return ["Provenienza storica non documentata per questo gruppo di evento.", ""]
+    # Le parti si uniscono in una riga sola, perche' la convenzione del progetto vuole un
+    # paragrafo su una riga sorgente unica e un documento generato deve nascere conforme: se
+    # nascesse da unire, il controllo di formattazione fallirebbe dopo ogni rigenerazione e
+    # qualcuno finirebbe per disattivarlo.
+    parti = ["**%s.** Quando: %s. Dove: %s. Come: %s."
+             % (v.get("nome", "evento senza nome"), v.get("date", "non documentate"),
+                v.get("luogo", "non documentato"), v.get("come", "non documentato"))]
+    if v.get("fonte") and v["fonte"] in fonti:
+        f = fonti[v["fonte"]]
+        parti.append("Fonte: [%s](%s), letta il %s." % (f["titolo"], f["url"], f["letta"]))
+    else:
+        parti.append("Fonte: nessuna ancora letta per questo gruppo, quindi le tre voci "
+                     "precedenti sono dichiarate non documentate e non vanno citate.")
+    if v.get("divergenze"):
+        parti.append("Su questo gruppo le fonti divergono: la voce corrispondente del catalogo "
+                     "riporta la divergenza e l'argomento con cui è stata risolta.")
+    return [" ".join(parti), ""]
+
+
 def scheda(g, voci, indice, contesto):
     """Il blocco di una singola voce, con tutte le sue caratteristiche derivate."""
-    ace, pkhex, mappa, per_id, gruppi, pp_base, nomi, semi_mystry, abilita, posizioni, storici = contesto
+    (ace, pkhex, mappa, per_id, gruppi, pp_base, nomi, semi_mystry, abilita, posizioni,
+     storici, prov, fonti) = contesto
     v = voci[indice]
     nome_ot = v.get("ot", "")
     lingua = v.get("lingua", "English")
@@ -100,6 +148,7 @@ def scheda(g, voci, indice, contesto):
     titolo = v.get("commento") or (nome_ot or "evento") or "evento"
     fuori.append("### %03d %s" % (indice, titolo))
     fuori.append("")
+    fuori.extend(riga_provenienza(prov, fonti, nome_ot, int(ident) if ident is not None else 0))
 
     if ident is None or derivazione == "Recipient" or not nome_ot:
         fuori.append("Questa voce prende dall'allenatore di destinazione uno o più fra nome, "
@@ -213,8 +262,9 @@ def componi(ace, pkhex):
     abilita = g.abilita_per_specie(ace)
     posizioni = g.bit_fiocchi(pkhex)
     storici = g.oggetti_documentati()
+    prov, fonti = provenienze()
     contesto = (ace, pkhex, mappa, per_id, gruppi, pp_base, {}, semi_mystry, abilita,
-                posizioni, storici)
+                posizioni, storici, prov, fonti)
     giudizi = stato_giudizi()
 
     producibili = [i for i, v in enumerate(voci)
