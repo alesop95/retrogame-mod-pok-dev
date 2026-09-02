@@ -305,6 +305,20 @@ def corpus_ace(ace):
 
 # Gli eventi il cui sesso dell'allenatore segue la derivazione a scorrimento di sette. La
 # lista viene dal modulo del costruttore che la implementa, non da una nostra congettura.
+def _intero(valore):
+    """Un intero da un campo che la fonte scrive a volte come numero e a volte come stringa.
+
+    Esiste perche' il modo in cui questa differenza sbaglia non e' un errore ma un silenzio: un
+    confronto fra una stringa e un numero non solleva, restituisce sempre falso, e un vincolo
+    che e' sempre falso somiglia a un vincolo rispettato.
+    """
+    if valore is None:
+        return None
+    if isinstance(valore, str):
+        return int(valore, 0)
+    return int(valore)
+
+
 def eventi_rand_s7(ace):
     p = os.path.join(ace, "src", "domain", "mysteryGiftOtGender.js")
     if not os.path.exists(p):
@@ -506,11 +520,26 @@ def confronta(ace, verbose):
         tag_s7 = eventi_rand_s7(ace)
         vettori = [v for v in corpus if "seed" in v and "pid" in v]
         senza_seme = len(corpus) - len(vettori)
-        ok_pid = ok_iv = ok_sesso = con_sesso = 0
+        ok_pid = ok_iv = ok_sesso = con_sesso = mutati = 0
         devianti = []
         for v in vettori:
             seme = int(v["seed"], 16)
-            personalita, valori = motore.personalita_e_iv(seme)
+            # Il ramo dell'algoritmo dipende dall'evento e non dal seme, quindi va cercata la
+            # definizione dell'evento a cui l'esemplare appartiene: da la vengono i due
+            # identificativi, da cui la somma esclusiva, e il blocco della lucentezza.
+            ev = (eventi_corpus or {}).get(v.get("tag")) or {}
+            tid = _intero(ev.get("fixedTID"))
+            sid = _intero(ev.get("fixedSID"))
+            id_xor = ((tid or 0) & 0xFFFF) ^ ((sid or 0) & 0xFFFF)
+            lucentezza = "Never" if ev.get("shinyLocked") else None
+            metodo = ev.get("pidMethod") or "BACD_R_A"
+            # Il seme del corpus e quello da cui si genera, cioe quello gia trasformato: la
+            # trasformazione non si applica di nuovo, altrimenti si genererebbe da uno stato
+            # avanzato di due passi rispetto a quello che l'esemplare dichiara.
+            personalita, valori, stato = motore.genera(metodo, seme, lucentezza, id_xor)
+            piana = motore.personalita_invertita(*motore.estrazioni(seme, 2))
+            if personalita != piana:
+                mutati += 1
             if personalita == int(v["pid"], 16):
                 ok_pid += 1
             else:
@@ -521,10 +550,13 @@ def confronta(ace, verbose):
             if v.get("tag") in tag_s7 and v.get("ot_gender"):
                 con_sesso += 1
                 atteso = "femmina" if v["ot_gender"].lower().startswith("f") else "maschio"
-                if motore.sesso_allenatore_rand_s7(seme) == atteso:
+                if motore.sesso_allenatore_da_stato("RandS7", stato) == atteso:
                     ok_sesso += 1
         print("  esemplari nel corpus " + str(len(corpus)) + ", con seme utilizzabile " +
               str(len(vettori)) + ", senza seme " + str(senza_seme))
+        print("  esemplari in cui e scattata la mutazione antilucente: " + str(mutati) +
+              " su " + str(len(vettori)) + ", cioe quelli il cui valore di personalita"
+              " sarebbe stato cromatico")
         print("  valore di personalità riprodotto: " + str(ok_pid) + " su " + str(len(vettori)))
         print("  valori individuali riprodotti: " + str(ok_iv) + " su " + str(len(vettori)))
         print("  sesso dell'allenatore riprodotto, sui soli eventi che usano la derivazione")

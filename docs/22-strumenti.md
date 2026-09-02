@@ -129,7 +129,19 @@ python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --pkhex _notes
 python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --lotto _notes/lotto-eventi --solo-ot 10ANNI
 ```
 
-Sulla tabella intera l'esito al 2026-09-01 è di centoquattro esemplari prodotti e sessantanove non producibili, e l'inventario delle ragioni con il loro costo sta nella sezione 10 di `recreate-pokemon-distributions-events/STUDIO-04`. Il programma non produce nulla per una voce che non sappia fare, e la scelta va difesa perché è la sola sicura: un generatore che produca qualcosa per ogni voce è peggio di uno che si rifiuti, poiché un esemplare sbagliato in mezzo a centosettanta giusti non si trova guardando.
+Sulla tabella intera l'esito al 2026-09-01, dopo la chiusura dei metodi, è di centoventidue esemplari prodotti e cinquantuno non producibili, e l'inventario delle ragioni con il loro costo sta nella sezione 10 di `recreate-pokemon-distributions-events/STUDIO-04`. Delle cinquantuno che restano, cinquanta sono uova e una impiega un generatore pseudocasuale diverso: nessuna voce è più bloccata dal metodo di generazione né dalla codifica dei caratteri. Il programma non produce nulla per una voce che non sappia fare, e la scelta va difesa perché è la sola sicura: un generatore che produca qualcosa per ogni voce è peggio di uno che si rifiuti, poiché un esemplare sbagliato in mezzo a centosettanta giusti non si trova guardando.
+
+Alcune voci non fissano il nome dell'allenatore, l'identificativo o il sesso, e quella non è una lacuna della tabella ma una istruzione: quegli eventi prendono i tre campi dal salvataggio in cui vengono riscattati. Si passano quindi al programma con `--allenatore`, nella forma `nome:identificativo:segreto:sesso`, e senza di esso quelle voci vengono dichiarate non producibili invece di ricevere un valore inventato. La ragione non è formale: un esemplare con un allenatore inventato porterebbe per sempre il nome di uno sconosciuto dentro la collezione.
+
+```powershell
+python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --lotto _notes/lotto-eventi --allenatore "MARIO:31121:5432:maschio"
+```
+
+```bash
+python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --lotto _notes/lotto-eventi --allenatore "MARIO:31121:5432:maschio"
+```
+
+Due dati che il programma legge dalla fonte meritano una nota, perché sono i soli che non discendono da una formula e perché la loro lettura porta un controllo del conteggio. Il primo è l'elenco degli ottantasei semi dell'unico evento distribuito per semi noti, dal quale se ne esclude uno che la fonte dichiara distribuito in una sola delle sue cinque varianti. Il secondo è la tabella dei caratteri giapponese, che il progetto ha estratto lo stesso giorno da `PKHeX.Core/PKM/Strings/StringConverter3.cs` e che vive in `data/charmap-gen3-jp.json`. Su entrambi il controllo del conteggio non è una formalità: una lettura che perdesse una parte dell'elenco non produrrebbe un errore ma un insieme più povero dal quale si continuerebbe a generare esemplari validi, e una tabella letta con uno scostamento di una posizione produrrebbe nomi plausibili e sbagliati. Per questo l'estrazione della tabella verifica anche tre byte di cui si conosce il valore atteso, scelti fra quelli su cui la tabella internazionale dice altro.
 
 L'elenco stampa le voci raggruppate per allenatore e identificativo con l'intervallo di indici di ciascun gruppo, e la composizione di una voce sola si chiede per indice. Serve comunque il sorgente del costruttore, perché da esso vengono tre dati che la tabella non porta, cioè la corrispondenza fra numerazione nazionale e identificativi interni di specie, i gruppi di crescita e i punti potenza delle mosse.
 

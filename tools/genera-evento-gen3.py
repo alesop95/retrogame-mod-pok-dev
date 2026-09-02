@@ -561,8 +561,26 @@ LINGUE_PKHEX = {"Japanese": 1, "English": 2, "French": 3, "Italian": 4, "German"
 # cinquantacinque restanti sono precisamente quelle degli insiemi giapponese e delle uova,
 # cioe' meta' del materiale che il progetto non ha altrove.
 VOCE_WC3 = re.compile(
-    r"new\(\s*(\d+)\s*,\s*(\d+)\s*,\s*([A-Za-z]+)\s*(?:,[^){]*)?\)\s*\{(.*?)\}"
+    r"new\(\s*(\d+)\s*,\s*(\d+)\s*,\s*([A-Za-z]+)\s*((?:,[^){]*)?)\)\s*\{(.*?)\}"
     r"\s*,?\s*(?://\s*(.*))?$", re.M)
+
+# La mossa che nella tabella del quinto anniversario distingue le due meta' delle otto voci.
+# Il suo numero e' un dato e non una convenzione, e sta qui perche' senza di esso il metodo a
+# tabella non sa quale delle due voci della specie stia producendo.
+MOSSA_DESIDERIO = 273
+
+# I nomi di allenatore che la tabella non scrive come stringa ma come costante dichiarata
+# altrove nel medesimo file. Vanno risolti leggendo quella dichiarazione, e non indovinati: uno
+# dei due vale la stringa vuota, che non e' una lacuna ma una istruzione, cioe' prendi il nome
+# dal salvataggio che riceve, e l'altro e' un nome giapponese che con la tabella occidentale
+# darebbe byte plausibili e sbagliati.
+COSTANTE_OT = re.compile(r"OriginalTrainerName = ([A-Za-z_][A-Za-z0-9_]*)")
+DICHIARAZIONE_COSTANTE = r'const string %s = "([^"]*)"'
+
+
+def costanti_ot(testo):
+    """Le costanti di nome allenatore dichiarate nel file della tabella, con il loro valore."""
+    return dict(re.findall(r'const string ([A-Za-z_][A-Za-z0-9_]*) = "([^"]*)"', testo))
 
 
 def voci_wc3(pkhex):
@@ -578,13 +596,18 @@ def voci_wc3(pkhex):
                  "clone non e una dipendenza di questo repository.")
     testo = io.open(p, encoding="utf-8", errors="ignore").read()
     fuori = []
+    costanti = costanti_ot(testo)
     for m in VOCE_WC3.finditer(testo):
-        specie, livello, versione, corpo, commento = m.groups()
+        specie, livello, versione, coda, corpo, commento = m.groups()
         voce = {
             "nazionale": int(specie),
             "livello": int(livello),
             "versione": versione,
             "commento": (commento or "").strip(),
+            # Il quarto argomento posizionale del costruttore, quando c'e' e vale vero, dichiara
+            # che la voce e' un uovo. Va letto perche' un uovo non e' un esemplare con un campo
+            # in piu': ha soprannome, lingua e amicizia stabiliti dalla sua condizione.
+            "uovo": bool(re.search(r"\btrue\b", coda or "")),
         }
         mosse = re.search(r"Moves = new\(([\d,\s]+)\)", corpo)
         if mosse:
@@ -601,8 +624,121 @@ def voci_wc3(pkhex):
             trovato = re.search(schema, corpo)
             if trovato:
                 voce[chiave] = conversione(trovato.group(1))
+        if "ot" not in voce:
+            # Il nome puo' essere scritto come costante invece che come stringa. Se lo e' e non
+            # si risolve, la voce porta la ragione invece di un nome vuoto: un nome vuoto e' una
+            # istruzione legittima in questa tabella, quindi confonderlo con un dato mancante
+            # produrrebbe un esemplare con l'allenatore sbagliato e nessun segnale.
+            simbolo = COSTANTE_OT.search(corpo)
+            if simbolo:
+                nome = simbolo.group(1)
+                if nome in costanti:
+                    voce["ot"] = costanti[nome]
+                    voce["ot_da_costante"] = nome
+                else:
+                    voce["ot_irrisolto"] = nome
+        voce["desiderio"] = MOSSA_DESIDERIO in voce.get("mosse", [])
         fuori.append(voce)
     return fuori
+
+
+SORGENTE_MYSTRY = "PKHeX.Core/Legality/RNG/ClassicEra/Gen3/MystryMew.cs"
+
+# Il numero di semi che l'elenco deve contenere, e perche' il conteggio e' un presidio e non
+# una curiosita': l'elenco e' l'unico dato di questo strumento che non discende da una formula,
+# quindi una lettura che ne perdesse una parte non produrrebbe un errore ma un insieme piu'
+# povero, dal quale si continuerebbe a generare esemplari validi. Il conteggio atteso e' il
+# solo modo di accorgersene.
+SEMI_MYSTRY_ATTESI = 86
+
+
+def semi_mystry_mew(pkhex):
+    """I semi ammessi dell'unico evento che non si genera da una formula ma da un elenco.
+
+    L'elenco non e' derivabile: sono i semi che l'organizzatore dell'evento ha effettivamente
+    distribuito, quindi e' un fatto storico e non un calcolo. Si legge dalla fonte invece di
+    trascriverlo, per la stessa ragione per cui nessuna tabella di questo progetto e' scritta a
+    mano, e si esclude il seme che la fonte dichiara distribuito solo in una delle sue cinque
+    varianti, perche' produrre quella sbagliata darebbe un esemplare mai esistito.
+    """
+    percorso = os.path.join(pkhex, SORGENTE_MYSTRY.replace("/", os.sep))
+    if not os.path.exists(percorso):
+        sys.exit("manca " + SORGENTE_MYSTRY + " sotto " + pkhex + ".")
+    testo = io.open(percorso, encoding="utf-8", errors="ignore").read()
+    inizio = testo.find("Seeds =>")
+    if inizio < 0:
+        sys.exit("non trovo l'elenco dei semi in " + SORGENTE_MYSTRY)
+    corpo = testo[testo.index("[", inizio):testo.index("];", inizio)]
+    semi = [int(x, 16) for x in re.findall(r"0x([0-9A-Fa-f]{4})", corpo)]
+    if len(semi) != SEMI_MYSTRY_ATTESI:
+        sys.exit("l'elenco dei semi ha %d voci invece di %d: la lettura ha perso qualcosa, e "
+                 "un elenco piu povero non produce errori ma esemplari tratti da un "
+                 "sottoinsieme, che e il modo peggiore di sbagliare"
+                 % (len(semi), SEMI_MYSTRY_ATTESI))
+    rilasciato = re.search(r"ReleasedSeed = 0x([0-9A-Fa-f]+)", testo)
+    if rilasciato:
+        # Questo seme fu distribuito in una sola delle sue cinque varianti, e questo strumento
+        # produce la prima: escluderlo costa un seme su ottantasei e rimuove la possibilita' di
+        # comporre un esemplare che nessuno ha mai ricevuto.
+        semi = [x for x in semi if x != int(rilasciato.group(1), 16)]
+    return semi
+
+
+SPECIE_LOCALIZZATE = "src/data/localizedSpeciesNames.gen3.js"
+
+# Le tabelle dei nomi di specie per lingua, con il nome che la fonte usa per ciascuna. Le
+# lingue assenti non sono una lacuna: la fonte dichiara che lo spagnolo e l'italiano, nella
+# terza generazione, impiegano i nomi inglesi, quindi per esse la tabella inglese e' la tabella
+# giusta e non un ripiego.
+TABELLE_NOMI_SPECIE = {
+    "Japanese": "JAPANESE_SPECIES_NAMES",
+    "English": "ENGLISH_SPECIES_NAMES",
+    "French": "FRENCH_SPECIES_NAMES",
+    "German": "GERMAN_SPECIES_NAMES",
+    "Spanish": "ENGLISH_SPECIES_NAMES",
+    "Italian": "ENGLISH_SPECIES_NAMES",
+}
+
+
+def nomi_specie_per_lingua(ace, lingua):
+    """I nomi delle specie nella lingua richiesta, indicizzati per identificativo interno.
+
+    Esiste perche' il soprannome di un esemplare senza soprannome non e' una stringa vuota ma
+    il nome della sua specie nella lingua dell'esemplare, e la differenza non e' cosmetica: un
+    esemplare giapponese con il nome inglese della specie porta un soprannome che il gioco
+    giapponese non avrebbe mai scritto, e un verificatore lo nota. Fino al 2026-09-01 questo
+    programma scriveva il nome inglese su tutte le voci, comprese le giapponesi.
+    """
+    nome_tabella = TABELLE_NOMI_SPECIE.get(lingua)
+    if nome_tabella is None:
+        sys.exit("nessuna tabella di nomi di specie per la lingua " + repr(lingua) + ": le "
+                 "lingue note sono " + ", ".join(sorted(TABELLE_NOMI_SPECIE)))
+    testo = leggi(ace, SPECIE_LOCALIZZATE)
+    apertura = testo.find("const " + nome_tabella)
+    if apertura < 0:
+        sys.exit("non trovo la tabella " + nome_tabella + " in " + SPECIE_LOCALIZZATE)
+    inizio = testo.index("[", apertura)
+    corpo = testo[inizio + 1:testo.index("]", inizio)]
+    voci = []
+    for pezzo in corpo.split(","):
+        pezzo = pezzo.strip()
+        if not pezzo:
+            continue
+        if pezzo == "null":
+            voci.append(None)
+        elif pezzo.startswith('"') and pezzo.endswith('"'):
+            voci.append(pezzo[1:-1])
+        else:
+            sys.exit("voce non riconosciuta in " + nome_tabella + ": " + repr(pezzo))
+    # Il controllo che rende la lettura verificata: la tabella e' indicizzata per
+    # identificativo interno e comincia con una posizione nulla, quindi la sua lunghezza deve
+    # coprire almeno le specie della terza generazione. Una lettura troncata darebbe nomi
+    # assenti per le specie alte, che poi diventerebbero soprannomi vuoti.
+    if len(voci) < 412:
+        sys.exit("la tabella " + nome_tabella + " ha %d voci, troppo poche per coprire gli "
+                 "identificativi interni della terza generazione: la lettura si e fermata "
+                 "presto e i nomi delle specie alte mancherebbero in silenzio" % (len(voci),))
+    return {i: n for i, n in enumerate(voci) if n}
 
 
 def nazionale_verso_interno(ace):
@@ -778,15 +914,51 @@ def componi_da_wc3(ace, pkhex, indice, seme):
     return mon, rapporto
 
 
-# I metodi di generazione che questo programma sa produrre, cioe' quelli in cui il valore di
-# personalita' e i valori individuali discendono dalle prime quattro estrazioni di un seme a
-# sedici bit. Gli altri consumano estrazioni aggiuntive, restringono il seme a un intervallo
-# diverso, oppure impiegano un generatore differente: si dichiarano e non si tentano, perche'
-# un esemplare prodotto con il metodo sbagliato e' indistinguibile a occhio da uno giusto.
-METODI_PRODUCIBILI = ("BACD_R", "BACD_R_A", "BACD_A", "BACD")
+# I metodi di generazione che questo programma sa produrre. Fino al 2026-09-01 erano quattro,
+# ed erano quelli in cui il valore di personalita' discende direttamente dalle prime due
+# estrazioni di un seme a sedici bit. Dopo il confronto riga per riga con il codice della
+# implementazione di riferimento sono tutti tranne uno, perche' cio' che li distingueva non era
+# un algoritmo diverso ma una trasformazione del seme e un ramo di composizione, e l'una e
+# l'altro sono ora implementati e provati.
+#
+# Resta fuori il solo metodo del canale televisivo, che impiega un generatore
+# pseudocasuale differente, cioe' quello dei titoli del cubo, e la sola derivazione del sesso
+# che la fonte stessa dichiara di non verificare con la logica ordinaria. Non si tenta, e la
+# ragione per cui non si tenta e' la medesima di sempre: un esemplare prodotto con il metodo
+# sbagliato e' indistinguibile a occhio da uno giusto.
+METODI_PRODUCIBILI = ("BACD_R", "BACD_R_A", "BACD_A", "BACD", "BACD_RBCD", "BACD_TA",
+                      "BACD_TS", "BACD_U_AX", "BACD_M", "Method_2")
+
+# Il metodo che resta fuori, nominato invece di essere semplicemente assente, cosicche' il
+# rapporto possa dirne la ragione al posto di un silenzio.
+METODO_NON_IMPLEMENTATO = "Channel"
 
 
-def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1):
+def allenatore_da_argomento(testo):
+    """L'allenatore di destinazione, letto dalla forma `nome:identificativo:segreto:sesso`.
+
+    Serve a due gruppi di voci che senza di esso non si possono produrre, e vale distinguerli
+    perche' la ragione e' diversa. Alcune voci dichiarano il sesso dell'allenatore uguale a
+    quello di chi riceve, quindi non e' un dato dell'evento. Altre dichiarano il nome vuoto, che
+    non e' una lacuna della tabella ma una istruzione: quell'evento prende il nome dal
+    salvataggio in cui viene riscattato. In entrambi i casi il dato manca all'evento e appartiene
+    alla destinazione, e chiederlo e' l'unica via corretta: metterci un valore inventato
+    produrrebbe una collezione che porta per sempre il nome di uno sconosciuto.
+    """
+    if not testo:
+        return None
+    pezzi = testo.split(":")
+    if len(pezzi) != 4:
+        sys.exit("l'allenatore si scrive come nome:identificativo:segreto:sesso, per esempio "
+                 "MARIO:31121:5432:maschio")
+    nome, ident, segreto, sesso = pezzi
+    if sesso not in ("maschio", "femmina"):
+        sys.exit("il sesso dell'allenatore vale maschio o femmina, non " + repr(sesso))
+    return {"nome": nome, "identificativo": int(ident, 0), "segreto": int(segreto, 0),
+            "sesso": sesso}
+
+
+def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
     """Produce un esemplare per ogni voce producibile, e riferisce sulle altre.
 
     Il seme si cerca invece di chiederlo, e i vincoli verificati sono quelli che la tabella
@@ -801,22 +973,42 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1):
     _per_nome, per_id = specie_per_nome(ace)
     gruppi = gruppo_di_crescita(ace)
     pp_base = punti_potenza(ace)
-    tabella = cm.Charmap.gen3()
+    semi_mystry = semi_mystry_mew(pkhex)
+    # Le tabelle dei nomi di specie si leggono una volta per lingua e non una volta per voce,
+    # perche' ciascuna e' una lettura di file.
+    nomi_localizzati = {}
     os.makedirs(cartella, exist_ok=True)
 
     fatti, saltate = 0, []
     seme_corrente = primo_seme
     for indice, v in enumerate(voci):
-        etichetta = (v.get("ot", "?") + " " + str(v.get("identificativo", 0)) + " " +
+        nome_ot = v.get("ot", "")
+        etichetta = ((nome_ot or "(dal ricevente)") + " " +
+                     str(v.get("identificativo", 0)) + " " +
                      (v.get("commento") or str(v["nazionale"])))
-        if solo_ot and v.get("ot") != solo_ot:
+        if solo_ot and nome_ot != solo_ot:
             continue
 
         metodo = v.get("metodo", "")
         if metodo not in METODI_PRODUCIBILI:
             saltate.append((indice, etichetta, "metodo " + str(metodo) +
-                            ": consuma estrazioni aggiuntive, restringe il seme in altro modo "
-                            "o impiega un generatore diverso"))
+                            ": impiega un generatore pseudocasuale diverso da quello della "
+                            "terza generazione su cartuccia"))
+            continue
+        if "ot_irrisolto" in v:
+            saltate.append((indice, etichetta, "il nome dell'allenatore e scritto come "
+                            "costante " + v["ot_irrisolto"] + ", che non si risolve nel file "
+                            "della tabella: si rifiuta invece di scrivere un nome vuoto"))
+            continue
+        if v.get("uovo"):
+            # Un uovo non e' un esemplare con un contrassegno in piu': il soprannome e la
+            # lingua sono imposti dalla sua condizione, e l'amicizia porta il conto delle
+            # incubazioni, che e' un dato per specie che questo progetto non ha ancora estratto.
+            # Si rifiuta, e la ragione nomina il dato che manca.
+            saltate.append((indice, etichetta, "e un uovo: il generatore pseudocasuale e "
+                            "pronto, ma manca il conto delle incubazioni per specie, che "
+                            "nell'uovo occupa il campo dell'amicizia e che un verificatore "
+                            "controlla"))
             continue
         derivazione = v.get("sesso_ot")
         if derivazione and derivazione not in eventi.DERIVAZIONI_SESSO:
@@ -824,10 +1016,9 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1):
                             ": non implementata, e la fonte stessa non la verifica con la "
                             "logica ordinaria"))
             continue
-        if derivazione == "Recipient":
-            saltate.append((indice, etichetta, "il sesso dell'allenatore lo copia dal "
-                            "ricevente, quindi dipende dal salvataggio di destinazione e non "
-                            "dall'evento: va prodotto quando quel salvataggio esiste"))
+        if (derivazione == "Recipient" or not nome_ot) and not allenatore:
+            saltate.append((indice, etichetta, "dipende dall'allenatore che riceve, che non e "
+                            "un dato dell'evento: si passa con --allenatore"))
             continue
         specie_id = mappa.get(v["nazionale"])
         if specie_id is None:
@@ -838,31 +1029,63 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1):
         if gruppo is None:
             saltate.append((indice, etichetta, "gruppo di crescita non noto"))
             continue
+
+        # La tabella dei caratteri si scegli per lingua e non una volta per tutte: nella terza
+        # generazione il medesimo byte rende un glifo diverso secondo la lingua del gioco,
+        # quindi un nome giapponese scritto con la tabella internazionale non produce un errore
+        # ma un nome plausibile e sbagliato.
+        lingua_voce = v.get("lingua", "English")
+        tabella = cm.Charmap.gen3_per_lingua(lingua_voce)
+        nome_effettivo = nome_ot or (allenatore["nome"] if allenatore else "")
+        nome_specie = nomi_localizzati.setdefault(
+            lingua_voce, nomi_specie_per_lingua(ace, lingua_voce)).get(specie_id)
+        if not nome_specie:
+            saltate.append((indice, etichetta, "nessun nome di specie in " + lingua_voce +
+                            " per l'identificativo interno " + str(specie_id)))
+            continue
         try:
-            ot_bytes = tabella.encode(v.get("ot", ""), length=gen3.OT_NAME_LENGTH)
-            soprannome = tabella.encode(per_id.get(specie_id, "").upper(),
-                                        length=gen3.NICKNAME_LENGTH)
+            ot_bytes = tabella.encode(nome_effettivo, length=gen3.OT_NAME_LENGTH)
+            soprannome = tabella.encode(nome_specie, length=gen3.NICKNAME_LENGTH)
         except ValueError as e:
             saltate.append((indice, etichetta, "codifica dei caratteri: " + str(e)))
             continue
 
-        ident = int(v.get("identificativo", 0))
+        if v.get("identificativo") is not None:
+            ident = int(v["identificativo"])
+        elif allenatore:
+            ident = (allenatore["identificativo"] & 0xFFFF) | \
+                    ((allenatore["segreto"] & 0xFFFF) << 16)
+        else:
+            saltate.append((indice, etichetta, "la tabella non fissa l'identificativo, quindi "
+                            "viene dal salvataggio che riceve: si passa con --allenatore"))
+            continue
+
         semi = list(range(seme_corrente, 0x10000)) + list(range(0, seme_corrente))
-        seme = eventi.cerca_seme_per_evento(
-            ident & 0xFFFF, (ident >> 16) & 0xFFFF, v.get("lucentezza"),
-            derivazione if derivazione in ("RandS7", "RandD3", "RandS3", "RandSG15") else None,
-            None, semi=semi)
-        if seme is None:
+        if metodo in ("BACD_RBCD", "BACD_M"):
+            # Questi due metodi schiacciano il seme su un insieme molto piu' piccolo, quindi
+            # percorrere i sessantacinquemila ripeterebbe lo stesso esemplare migliaia di volte
+            # dando l'impressione di una ricerca che non c'e'. La rotazione va conservata anche
+            # qui, e vale dirlo perche' dimenticarla non produce un errore: due voci del
+            # medesimo evento ripartirebbero dallo stesso punto e riceverebbero il medesimo
+            # valore di personalita', cioe' un duplicato riconoscibile a occhio.
+            ammessi = list(eventi.semi_ammessi(metodo, semi_mystry))
+            taglio = seme_corrente % max(1, len(ammessi))
+            semi = ammessi[taglio:] + ammessi[:taglio]
+        try:
+            esito = eventi.esemplare_da_evento(
+                metodo, ident & 0xFFFF, (ident >> 16) & 0xFFFF, v.get("lucentezza"),
+                specie=v["nazionale"], desiderio=v.get("desiderio"), derivazione=derivazione,
+                sesso_ricevente=(allenatore["sesso"] if allenatore else None),
+                semi_mystry=semi_mystry, semi=semi)
+        except gb_errore() as e:
+            saltate.append((indice, etichetta, "il generatore si rifiuta: " + str(e)))
+            continue
+        if esito is None:
             saltate.append((indice, etichetta, "nessun seme soddisfa i vincoli dichiarati"))
             continue
-        seme_corrente = (seme + 1) & 0xFFFF or 1
+        seme_corrente = (esito["seme"] + 1) & 0xFFFF or 1
 
-        personalita, iv = eventi.personalita_e_iv(seme)
-        try:
-            sesso_ot = eventi.sesso_allenatore(derivazione or "Only0", seme)
-        except gb_errore():
-            saltate.append((indice, etichetta, "derivazione del sesso non calcolabile"))
-            continue
+        personalita, iv, sesso_ot = esito["personalita"], esito["iv"], esito["sesso_ot"]
         mosse = [m for m in v.get("mosse", []) if m]
         pp = [pp_base.get(m, 0) for m in mosse]
         livello = v["livello"]
@@ -871,7 +1094,7 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1):
             personality=personalita,
             ot_id=ident & 0xFFFFFFFF,
             nickname=soprannome,
-            language=LINGUE_PKHEX.get(v.get("lingua", "English"), 2),
+            language=LINGUE_PKHEX.get(lingua_voce, 2),
             flags=0x02,
             ot_name=ot_bytes,
             growth=gen3.Growth(species=specie_id, experience=esperienza(gruppo, livello),
@@ -886,11 +1109,13 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1):
                            ability_num=personalita & 0x01,
                            modern_fateful_encounter=bool(v.get("fatidico", False))),
         )
-        nome = "%03d-%s-%s" % (indice, re.sub(r"[^A-Za-z0-9]", "", v.get("ot", "x")),
+        nome = "%03d-%s-%s" % (indice, re.sub(r"[^A-Za-z0-9]", "", nome_effettivo or "ricevente"),
                               re.sub(r"[^A-Za-z0-9]", "", per_id.get(specie_id, "x")))
         scrivi(mon, os.path.join(cartella, nome))
         fatti += 1
-        print("  %-44s seme 0x%04X  PID 0x%08X" % (etichetta[:44], seme, personalita))
+        print("  %-40s %-9s seme 0x%04X  PID 0x%08X%s"
+              % (etichetta[:40], metodo, esito["seme"], personalita,
+                 "  cromatico" if esito["cromatico"] else ""))
 
     print("")
     print("prodotti " + str(fatti) + ", non producibili " + str(len(saltate)))
@@ -994,6 +1219,9 @@ def main():
                     help="produce tutti gli esemplari producibili nella cartella indicata")
     ap.add_argument("--solo-ot", dest="solo_ot",
                     help="limita il lotto alle voci con questo nome di allenatore")
+    ap.add_argument("--allenatore", metavar="NOME:ID:SEGRETO:SESSO",
+                    help="l'allenatore di destinazione, per le voci che lo prendono da chi "
+                         "riceve invece di fissarlo")
     ap.add_argument("--evento", help="sigla dell'evento, per esempio 10ANNI")
     ap.add_argument("--specie", help="nome della specie")
     ap.add_argument("--seme", help="seme di origine, in esadecimale o decimale")
@@ -1031,7 +1259,8 @@ def main():
     if a.lotto:
         if not (a.ace and a.pkhex):
             ap.error("--lotto richiede --ace e --pkhex")
-        return lotto(a.ace, a.pkhex, a.lotto, a.solo_ot)
+        return lotto(a.ace, a.pkhex, a.lotto, a.solo_ot,
+                     allenatore=allenatore_da_argomento(a.allenatore))
     if a.indice is not None:
         if not (a.pkhex and a.seme):
             ap.error("--indice richiede --pkhex e --seme")

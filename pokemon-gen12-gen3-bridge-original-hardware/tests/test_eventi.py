@@ -24,6 +24,7 @@ lavoro verrà misurato.
 import unittest
 
 from pokebridge import eventi
+from pokebridge import gb
 
 
 # Ogni voce: (evento, seme, valore di personalità, valori individuali nell'ordine del
@@ -300,6 +301,290 @@ class ProveRicercaDelSeme(unittest.TestCase):
         self.assertFalse(eventi.e_cromatico(personalita, 6227, 0))
         self.assertIsNone(eventi.cerca_seme_per_evento(6227, 0, "Always", semi=[0x9DF6]))
 
+
+
+class ProveQuattroRami(unittest.TestCase):
+    """I quattro rami della composizione, e i loro controlli negativi.
+
+    Ogni prova qui porta un controllo negativo, e la ragione e' la stessa in tutti i casi: i
+    rami differiscono fra loro per pochi bit o per una estrazione, quindi una prova che accerti
+    soltanto il valore giusto non distingue il ramo giusto da uno sbagliato che per caso
+    coincide. Il controllo negativo dice che cosa il ramo NON produce.
+    """
+
+    # Il vettore che per un giorno e' stato chiamato deviante, e che invece esercita la
+    # mutazione antilucente. Vale come prova di regressione piu' di ogni altro, perche' e' il
+    # solo esemplare del corpus in cui quel ramo scatta.
+    SEME_MUTATO = 0x0000A823
+    ID_DECENNALE = 6808
+    PERSONALITA_ORDINARIA = 0x21943B0E
+    PERSONALITA_MUTATA = 0x21943B10
+
+    def test_mutazione_antilucente_spiega_il_vettore_deviante(self):
+        """La differenza di due unita' e' la mutazione, non una incoerenza della fonte."""
+        piana = eventi.personalita_invertita(*eventi.estrazioni(self.SEME_MUTATO, 2))
+        self.assertEqual(piana, self.PERSONALITA_ORDINARIA)
+        self.assertTrue(eventi.e_cromatico_da_xor(piana, self.ID_DECENNALE))
+        self.assertEqual(eventi.correggi_antilucente(piana), self.PERSONALITA_MUTATA)
+
+    def test_il_ramo_a_lucentezza_negata_applica_la_mutazione(self):
+        """Il ramo intero, non la sola formula: e' cio' che il generatore chiama davvero."""
+        personalita, _iv, _stato = eventi.genera(
+            "BACD_R_A", self.SEME_MUTATO, "Never", self.ID_DECENNALE)
+        self.assertEqual(personalita, self.PERSONALITA_MUTATA)
+
+    def test_senza_il_vincolo_di_lucentezza_lo_stesso_seme_da_il_valore_non_mutato(self):
+        """Il controllo negativo del ramo: la mutazione dipende dal vincolo, non dal seme."""
+        personalita, _iv, _stato = eventi.genera(
+            "BACD_R_A", self.SEME_MUTATO, None, self.ID_DECENNALE)
+        self.assertEqual(personalita, self.PERSONALITA_ORDINARIA)
+        self.assertNotEqual(personalita, self.PERSONALITA_MUTATA)
+
+    def test_la_mutazione_non_consuma_estrazioni(self):
+        """I valori individuali sono gli stessi con e senza mutazione.
+
+        E' il fatto che rendeva il vettore apparentemente incoerente, ed e' invece la prova che
+        la mutazione agisce sul valore e non sullo stato del generatore.
+        """
+        _p1, iv_mutato, _s1 = eventi.genera(
+            "BACD_R_A", self.SEME_MUTATO, "Never", self.ID_DECENNALE)
+        _p2, iv_piano, _s2 = eventi.genera(
+            "BACD_R_A", self.SEME_MUTATO, None, self.ID_DECENNALE)
+        self.assertEqual(iv_mutato, iv_piano)
+
+    def test_composizione_diretta_e_invertita_non_coincidono(self):
+        """Le due composizioni si distinguono, altrimenti la distinzione sarebbe decorativa."""
+        self.assertEqual(eventi.personalita_invertita(0x1234, 0xABCD), 0x1234ABCD)
+        self.assertEqual(eventi.personalita_diretta(0x1234, 0xABCD), 0xABCD1234)
+
+    def test_lucentezza_garantita_produce_un_esemplare_cromatico(self):
+        """Il ramo che scrive i bit dell'identificativo: la lucentezza non si cerca, si ottiene.
+
+        La prova gira su tutti i semi ammessi del metodo a orologio invece che su uno, perche'
+        l'affermazione da verificare e' universale: quel ramo deve produrre un esemplare
+        cromatico sempre, non su un seme fortunato.
+        """
+        id_xor = 30317
+        for seme in eventi.semi_ammessi("BACD_RBCD"):
+            personalita, _iv, _stato = eventi.genera("BACD_RBCD", seme, "Always", id_xor)
+            self.assertTrue(eventi.e_cromatico_da_xor(personalita, id_xor),
+                            "il seme %d non ha prodotto un esemplare cromatico" % (seme,))
+
+    def test_la_vecchia_ricerca_non_avrebbe_trovato_quel_valore(self):
+        """Il controllo negativo che giustifica l'esistenza del ramo.
+
+        Con la composizione invertita e i semi ammessi dal metodo a orologio nessun valore e'
+        cromatico, quindi la vecchia via, che cercava un seme fortunato, avrebbe restituito
+        nulla o, peggio, un esemplare non cromatico su un evento che lo dichiara sempre.
+        """
+        id_xor = 30317
+        cromatici = [s for s in eventi.semi_ammessi("BACD_RBCD")
+                     if eventi.e_cromatico_da_xor(
+                         eventi.personalita_invertita(*eventi.estrazioni(s, 2)), id_xor)]
+        self.assertEqual(cromatici, [])
+
+    def test_lucentezza_garantita_consuma_tre_estrazioni(self):
+        """I valori individuali vengono dalla quarta e dalla quinta, non dalla terza e quarta.
+
+        Il controllo negativo e' che leggerli dalla terza e dalla quarta dia valori diversi:
+        senza di esso la prova non distinguerebbe le due letture.
+        """
+        seme = 100
+        _p, iv, _stato = eventi.genera("BACD_RBCD", seme, "Always", 30317)
+        parole = eventi.estrazioni(seme, 5)
+        quarta, quinta = parole[3], parole[4]
+        atteso = dict(zip(("ps", "attacco", "difesa"), eventi.spacchetta_iv(quarta)))
+        atteso.update(zip(("velocita", "attacco_speciale", "difesa_speciale"),
+                          eventi.spacchetta_iv(quinta)))
+        self.assertEqual(iv, atteso)
+        terza = parole[2]
+        self.assertNotEqual(eventi.spacchetta_iv(terza), eventi.spacchetta_iv(quarta))
+
+    def test_metodo_delle_uova_scarta_una_estrazione(self):
+        """Composizione diretta, poi una estrazione di quadro, poi i valori individuali."""
+        seme = 4242
+        personalita, iv, _stato = eventi.genera("Method_2", seme, None, 0)
+        parole = eventi.estrazioni(seme, 5)
+        self.assertEqual(personalita, eventi.personalita_diretta(parole[0], parole[1]))
+        atteso = dict(zip(("ps", "attacco", "difesa"), eventi.spacchetta_iv(parole[3])))
+        atteso.update(zip(("velocita", "attacco_speciale", "difesa_speciale"),
+                          eventi.spacchetta_iv(parole[4])))
+        self.assertEqual(iv, atteso)
+
+    def test_ramo_antilucente_non_ristretto_evita_i_bit_nulli(self):
+        """La prima estrazione utilizzabile ha almeno un bit oltre il terzo.
+
+        Il controllo negativo e' sul valore prodotto: deve differire dalla composizione
+        invertita delle medesime estrazioni, altrimenti il ramo non starebbe facendo nulla.
+        """
+        seme, id_xor = 777, 30719
+        personalita, _iv, _stato = eventi.genera("BACD_U_AX", seme, "Never", id_xor)
+        self.assertFalse(eventi.e_cromatico_da_xor(personalita, id_xor))
+        piana = eventi.personalita_invertita(*eventi.estrazioni(seme, 2))
+        self.assertNotEqual(personalita, piana)
+
+
+class ProveTabellaQuintoAnniversario(unittest.TestCase):
+    """La tabella degli otto doni, che e' aritmetica e non un elenco di dati."""
+
+    # Le quattro specie della tabella, nell'ordine in cui l'aritmetica le mette.
+    SPECIE = (172, 371, 359, 280)
+
+    def test_indice_delle_quattro_specie(self):
+        """La via aritmetica da' proprio zero, uno, due e tre, nell'ordine della fonte."""
+        self.assertEqual([eventi.indice_quinto_anniversario(s) for s in self.SPECIE],
+                         [0, 1, 2, 3])
+
+    def test_il_peso_resta_nell_intervallo(self):
+        """Mille valori possibili, e nessuno fuori: e' cio' che la funzione promette."""
+        for seme in range(0, 0x10000, 997):
+            peso = eventi.peso_periodico(eventi.casuale32_tabella(seme),
+                                         eventi.PESO_MASSIMO_TABELLA)
+            self.assertTrue(0 <= peso < eventi.PESO_MASSIMO_TABELLA)
+
+    def test_il_peso_non_e_un_resto_della_divisione(self):
+        """Il controllo negativo che protegge la formula da una semplificazione.
+
+        La tentazione di scrivere un resto della divisione al posto della moltiplicazione a
+        precisione estesa e' forte e il risultato sembrerebbe plausibile. Questa prova esiste
+        per mostrare che i due non coincidono, cosicche' la semplificazione rompa la suite
+        invece di passare inosservata.
+        """
+        diversi = 0
+        for seme in range(0, 0x1000):
+            casuale = eventi.casuale32_tabella(seme)
+            if (eventi.peso_periodico(casuale, eventi.PESO_MASSIMO_TABELLA)
+                    != casuale % eventi.PESO_MASSIMO_TABELLA):
+                diversi += 1
+        self.assertGreater(diversi, 0)
+
+    def test_ogni_dono_ha_un_seme(self):
+        """Per ciascuna delle otto voci esiste un seme che la tabella risolve in quella."""
+        for specie in self.SPECIE:
+            for desiderio in (False, True):
+                seme = eventi.seme_quinto_anniversario(specie, False, desiderio, 1)
+                self.assertIsNotNone(seme, "nessun seme per specie %d desiderio %s"
+                                     % (specie, desiderio))
+                self.assertTrue(eventi.combacia_quinto_anniversario(
+                    specie, False, desiderio, seme))
+
+    def test_solo_il_pichu_puo_essere_cromatico(self):
+        """La lucentezza appartiene alla tabella, e la tabella la concede a una specie sola."""
+        self.assertIsNotNone(eventi.seme_quinto_anniversario(172, True, False, 1))
+        for specie in (371, 359, 280):
+            self.assertIsNone(eventi.seme_quinto_anniversario(
+                specie, True, False, 1, tentativi=0x4000))
+
+
+class ProveTrasformazioneDelSeme(unittest.TestCase):
+    """Cio' che sta fra il numero di partenza e la generazione, caso per caso."""
+
+    def test_il_metodo_a_orologio_restringe_a_duecentoquattordici_valori(self):
+        """Il massimo e' la somma delle cifre di un'ora in decimale codificato in binario."""
+        self.assertEqual(len(eventi.semi_ammessi("BACD_RBCD")), 214)
+        self.assertEqual(eventi.seme_effettivo("BACD_RBCD", 0), 0)
+        self.assertEqual(eventi.seme_effettivo("BACD_RBCD", 213), 213)
+        self.assertEqual(eventi.seme_effettivo("BACD_RBCD", 5000), 213)
+
+    def test_il_jirachi_a_tabella_avanza_di_due(self):
+        """Tutte le voci della sua tabella danno lo stesso dono, ma le estrazioni si consumano."""
+        seme = 0x1234
+        self.assertEqual(eventi.seme_effettivo("BACD_TA", seme, specie=385),
+                         eventi.avanza(eventi.avanza(seme)))
+
+    def test_i_metodi_a_tabella_chiedono_la_specie(self):
+        """Senza la specie non si puo' scegliere la voce, e il modulo lo dice invece di indovinare."""
+        with self.assertRaises(gb.FormatError):
+            eventi.seme_effettivo("BACD_TS", 1, specie=None)
+
+    def test_il_metodo_a_elenco_chiede_i_semi(self):
+        """I semi ammessi non sono derivabili da una formula e vanno estratti dalla fonte."""
+        with self.assertRaises(gb.FormatError):
+            eventi.seme_effettivo("BACD_M", 1)
+        self.assertEqual(eventi.seme_effettivo("BACD_M", 3, semi_mystry=[10, 20, 30]), 10)
+
+    def test_il_seme_vincolato_dal_sesso_produce_il_bit_richiesto(self):
+        """Le due derivazioni che dichiarano il sesso tengono il seme coerente con esso."""
+        for bit in (0, 1):
+            seme = eventi.seme_ristretto_per_sesso(1, bit)
+            self.assertIsNotNone(seme)
+            quinta = eventi.estrazioni(seme, 5)[4]
+            self.assertEqual(eventi._bit0_diviso_tre(quinta), bit)
+
+    def test_i_metodi_non_ristretti_conservano_il_seme(self):
+        """Il controllo negativo della restrizione: non tutti i metodi la applicano."""
+        self.assertEqual(eventi.seme_effettivo("Method_2", 0x1234ABCD), 0x1234ABCD)
+        self.assertEqual(eventi.seme_effettivo("BACD_R", 0x1234ABCD), 0xABCD)
+
+
+class ProveSessoDalloStato(unittest.TestCase):
+    """La lettura del sesso dallo stato residuo, e la sua coerenza con quella dal seme."""
+
+    def test_coincide_con_la_lettura_dal_seme_quando_le_estrazioni_sono_quattro(self):
+        """Le due letture devono concordare esattamente dove il vecchio conteggio valeva.
+
+        Sono le derivazioni che leggono la quinta estrazione, su un ramo che ne consuma quattro:
+        la' contare dal seme e portare avanti lo stato sono la medesima cosa, e questa prova lo
+        fissa cosicche' una modifica a una delle due non passi inosservata.
+        """
+        for derivazione in ("RandD3", "RandS3", "RandS7", "RandSG15"):
+            for seme in (1, 0x9DF6, 0xA823, 0xFFFF):
+                stato = seme
+                for _ in range(4):
+                    stato = eventi.avanza(stato)
+                self.assertEqual(
+                    eventi.sesso_allenatore_da_stato(derivazione, stato),
+                    eventi.sesso_allenatore(derivazione, seme),
+                    "%s sul seme 0x%04X" % (derivazione, seme))
+
+    def test_la_derivazione_a_scorrimento_di_quindici_legge_la_sesta(self):
+        """Il controllo negativo: leggere la quinta darebbe un esito distinguibile."""
+        distinti = 0
+        for seme in range(1, 500):
+            stato = seme
+            for _ in range(4):
+                stato = eventi.avanza(stato)
+            parole = eventi.estrazioni(seme, 6)
+            da_quinta = "femmina" if (parole[4] >> 15) & 1 else "maschio"
+            if eventi.sesso_allenatore_da_stato("RandSG15", stato) != da_quinta:
+                distinti += 1
+        self.assertGreater(distinti, 0)
+
+
+class ProveEsemplareCompleto(unittest.TestCase):
+    """La funzione che mette assieme tutto, e i vincoli che verifica."""
+
+    def test_l_evento_a_lucentezza_garantita_esce_cromatico(self):
+        esito = eventi.esemplare_da_evento("BACD_RBCD", 30317, 0, "Always",
+                                           derivazione="RandD3_1")
+        self.assertIsNotNone(esito)
+        self.assertTrue(esito["cromatico"])
+        self.assertEqual(esito["sesso_ot"], "femmina")
+
+    def test_l_evento_a_lucentezza_negata_non_esce_cromatico(self):
+        esito = eventi.esemplare_da_evento("BACD_R_A", 6808, 0, "Never",
+                                           derivazione="RandS7")
+        self.assertIsNotNone(esito)
+        self.assertFalse(esito["cromatico"])
+
+    def test_l_evento_con_oggetto_consuma_una_estrazione_in_piu(self):
+        """L'evento del desiderio estrae anche l'oggetto tenuto, e questo sposta il sesso.
+
+        Il controllo negativo e' che l'estrazione dell'oggetto sia riportata soltanto per quel
+        identificativo: su un altro evento resta assente, cosicche' la prova distingua i due
+        casi invece di accertare un valore sempre presente.
+        """
+        con = eventi.esemplare_da_evento("BACD_R", eventi.ID_ALLENATORE_CON_OGGETTO, 0)
+        senza = eventi.esemplare_da_evento("BACD_R", 6808, 0)
+        self.assertIsNotNone(con["estrazione_oggetto"])
+        self.assertIsNone(senza["estrazione_oggetto"])
+
+    def test_il_metodo_a_elenco_produce_da_un_seme_dell_elenco(self):
+        esito = eventi.esemplare_da_evento("BACD_M", 6930, 0, "Never", derivazione="RandD3",
+                                           semi_mystry=[0x0652, 0x0932, 0x0C13])
+        self.assertIsNotNone(esito)
+        self.assertIn(esito["seme_effettivo"], (0x0652, 0x0932, 0x0C13))
+        self.assertFalse(esito["cromatico"])
 
 
 if __name__ == "__main__":

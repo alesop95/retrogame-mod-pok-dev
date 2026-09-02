@@ -57,6 +57,33 @@ class Charmap:
     def gen3(cls):
         return cls(_load("charmap-gen3.json"))
 
+    @classmethod
+    def gen3_jp(cls):
+        """La tabella della terza generazione nella variante giapponese.
+
+        Esiste perché in questa generazione un byte non ha un carattere ma due, e quale dei
+        due si veda dipende dalla lingua del gioco. Non è una raffinatezza: il byte 0x6F rende
+        una sillaba katakana su un gioco giapponese e una lettera accentata su uno
+        internazionale, e il byte 0x52 rende due sillabe diverse nei due casi. Scrivere un
+        nome giapponese con la tabella internazionale non produce un errore ma un nome
+        plausibile e sbagliato, che è il modo di sbagliare contro cui questo modulo esiste.
+
+        La provenienza è dichiarata dentro il file di dati e va conosciuta perché è di rango
+        diverso dalle altre: viene dall'implementazione di riferimento e non da un
+        disassemblato, perché il disassemblato che il progetto clona è quello internazionale.
+        """
+        return cls(_load("charmap-gen3-jp.json"))
+
+    @classmethod
+    def gen3_per_lingua(cls, lingua):
+        """La tabella giusta per la lingua dichiarata da una voce di evento.
+
+        La selezione sta qui e non nel chiamante perché è una regola della codifica e non una
+        scelta di prodotto, e perché ripeterla in ogni chiamante è il modo in cui un giorno
+        uno dei chiamanti la dimenticherà.
+        """
+        return cls.gen3_jp() if str(lingua).lower().startswith("japan") else cls.gen3()
+
     def decode(self, raw, stop_at_terminator=True):
         """Da byte a testo. I byte non stampabili diventano una forma leggibile.
 
