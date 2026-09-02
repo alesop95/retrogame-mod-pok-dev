@@ -206,3 +206,38 @@ La prima è che la quantità di informazione indipendente in un esemplare da eve
 
 La seconda è che la verifica di un tale esemplare da parte di un'implementazione indipendente non è un controllo di plausibilità ma un'inversione. Il riferimento, ricevuto il solo esemplare, ha ricostruito il seme da cui esso discende: ciò è possibile soltanto se esso applica le medesime formule qui svolte, e costituisce la conferma più forte che questo lavoro potesse ottenere senza disporre della specifica originale.
 
+\section{La mutazione antilucente, svolta in binario}
+
+La sezione precedente svolge una derivazione completa dal seme all'esemplare. Conviene svolgere anche la mutazione che il capitolo~\ref{cap:distribuzioni} ha descritto, poiché essa occupa due sole operazioni e tuttavia produce l'unico scostamento che quel capitolo non riusciva a spiegare: è dunque il caso in cui il rapporto fra la brevità di una formula e la difficoltà di individuarla è più sfavorevole.
+
+La mutazione è
+\begin{equation}
+P' = (P + 8) \wedge \overline{7},
+\end{equation}
+dove $\wedge$ denota la congiunzione bit a bit e $\overline{7}$ la parola con i tre bit meno significativi nulli e gli altri unitari, cioè $\mathtt{0xFFFFFFF8}$. Essa si applica soltanto quando il valore ordinario $P$ risulterebbe cromatico, cioè quando
+\begin{equation}
+\left( T \oplus S \oplus P_{\mathrm{alta}} \oplus P_{\mathrm{bassa}} \right) < 8,
+\end{equation}
+con $T$ e $S$ i due identificativi dell'allenatore e $P_{\mathrm{alta}}$, $P_{\mathrm{bassa}}$ le due metà da sedici bit del valore di personalità.
+
+Sul vettore del decennale il valore ordinario è $P = \mathtt{0x21943B0E}$ e i due identificativi valgono $T = 6808$ e $S = 0$. La somma esclusiva delle quattro parole vale
+\begin{equation}
+\mathtt{0x1A98} \oplus \mathtt{0x0000} \oplus \mathtt{0x2194} \oplus \mathtt{0x3B0E} = \mathtt{0x0002},
+\end{equation}
+che è minore di otto, dunque la condizione è soddisfatta e la mutazione si applica. Svolgendola sui soli byte che cambiano, in binario:
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+& esadecimale & binario dei dodici bit bassi \\
+\midrule
+$P$        & \texttt{...3B0E} & \texttt{0011 1011 0000 1110} \\
+$P + 8$    & \texttt{...3B16} & \texttt{0011 1011 0001 0110} \\
+$\overline{7}$ & \texttt{...FFF8} & \texttt{1111 1111 1111 1000} \\
+$P'$       & \texttt{...3B10} & \texttt{0011 1011 0001 0000} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Lo scarto complessivo è dunque $\mathtt{0x3B10} - \mathtt{0x3B0E} = 2$, e la ragione per cui è due e non otto è che i tre bit bassi del valore di partenza valevano $110_2 = 6$: la somma di otto ne produce un riporto e la congiunzione ne cancella il residuo, cosicché lo spostamento netto vale $8 - 6 = 2$. Se i tre bit bassi fossero stati nulli lo spostamento sarebbe stato di otto, e in generale esso vale $8 - (P \bmod 8)$, cioè un valore fra uno e otto.
+
+Due osservazioni chiudono il punto, e la seconda è la ragione per cui questa appendice contiene il calcolo. La prima è che la mutazione non consuma estrazioni: essa opera sul valore già composto e non sullo stato del generatore, dunque i valori individuali che seguono restano quelli che si otterrebbero senza di essa. La seconda è che l'insieme dei valori possibili dello spostamento, cioè da uno a otto, è troppo piccolo perché la sua osservazione su un solo caso lo identifichi. Osservato uno scostamento di due unità, le ipotesi compatibili includono una trascrizione errata di una cifra, un arrotondamento e una mutazione additiva, e nessuna evidenza interna al singolo caso le separa. Ciò che le separa è la fonte, e questo è il contenuto generale del caso: quando la grandezza di un residuo è dello stesso ordine del rumore che le ipotesi alternative producono, l'inferenza dal dato è indecidibile e l'unica via è leggere la specifica.

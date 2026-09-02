@@ -180,3 +180,104 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+# ---------------------------------------------------------------------------------------------
+# La tabella giapponese, e perche' viene da una fonte di rango diverso
+# ---------------------------------------------------------------------------------------------
+# Le altre tabelle di questo strumento vengono dai disassemblati, che sono la fonte di rango piu'
+# alto: sono il gioco stesso, tradotto in una forma leggibile. Per la tabella giapponese di terza
+# generazione quella via non e' disponibile, perche' il disassemblato che il progetto clona e'
+# quello della versione internazionale e la sua tabella e' quella internazionale.
+#
+# La fonte impiegata qui e' quindi di rango inferiore e va dichiarata come tale: e' il codice
+# della implementazione di riferimento, cioe' il verificatore di conformita' che la comunita'
+# usa. Non e' il gioco, ma e' cio' contro cui gli esemplari verranno misurati, che per questo
+# scopo e' esattamente la cosa giusta: se il verificatore leggera' i nostri byte con la sua
+# tabella, la tabella con cui li scriviamo deve essere la sua.
+#
+# Il fatto che rende necessaria una seconda tabella vale scritto perche' non e' evidente e
+# perche' sbagliarlo non produce un errore ma un nome plausibile e sbagliato. Nella terza
+# generazione un byte non ha un carattere: ha due caratteri, e quale dei due si veda dipende
+# dalla lingua del gioco. Due esempi verificati fra i tanti: il byte 0x6F rende "ma" in
+# katakana su un gioco giapponese e la lettera i con accento acuto su uno internazionale, e il
+# byte 0x52 rende "i" in katakana sul primo e "ka" in katakana sul secondo, cioe' due sillabe
+# diverse. Un nome giapponese scritto con la tabella internazionale produce dunque byte che il
+# gioco giapponese legge come un'altra parola, e nessun controllo di formato lo segnala.
+
+# I nomi simbolici che la fonte impiega dentro le tabelle al posto di un carattere letterale,
+# con il valore che la fonte stessa dichiara accanto alla loro definizione.
+SIMBOLI_CSHARP = {
+    "FGM": "\u2642",
+    "FGF": "\u2640",
+    "HGM": "\u2642",
+    "HGF": "\u2640",
+}
+
+# Il byte di terminazione, che nella fonte riempie la coda della tabella per portarla a
+# duecentocinquantasei posizioni. Non e' un carattere e non entra nella corrispondenza.
+TERMINATORE_CSHARP = "Terminator"
+
+SORGENTE_JP = "PKHeX.Core/PKM/Strings/StringConverter3.cs"
+
+
+def _voci_array_csharp(testo, nome):
+    """Le voci dell'array di caratteri che la fonte definisce con quel nome.
+
+    Si legge il testo fra la freccia e la parentesi quadra di chiusura, e da la' si estraggono
+    in ordine i letterali di carattere e i nomi simbolici. L'ordine e' l'informazione: la
+    posizione di una voce nell'array e' il byte che le corrisponde, quindi perdere una voce non
+    sposta una riga ma tutte quelle che seguono.
+    """
+    apertura = testo.find("ReadOnlySpan<char> " + nome)
+    if apertura < 0:
+        raise SystemExit("non trovo la tabella " + nome + " in " + SORGENTE_JP)
+    inizio = testo.index("[", apertura)
+    chiusura = testo.index("];", inizio)
+    corpo = testo[inizio + 1:chiusura]
+    # Si tolgono i commenti di riga, che nella fonte portano il numero della riga di sedici.
+    corpo = re.sub(r"//[^\n]*", "", corpo)
+    voci = []
+    for pezzo in corpo.split(","):
+        pezzo = pezzo.strip()
+        if not pezzo:
+            continue
+        letterale = re.match(r"^'(\\.|[^'])'$", pezzo)
+        if letterale:
+            grezzo = letterale.group(1)
+            voci.append({"\\'": "'", "\\\\": "\\"}.get(grezzo, grezzo))
+        elif pezzo == TERMINATORE_CSHARP:
+            voci.append(None)
+        elif pezzo in SIMBOLI_CSHARP:
+            voci.append(SIMBOLI_CSHARP[pezzo])
+        else:
+            raise SystemExit("voce non riconosciuta nella tabella " + nome + ": " + repr(pezzo))
+    return voci
+
+
+def estrai_gen3_giapponese(pkhex):
+    """La corrispondenza byte-carattere della tabella giapponese, dalla fonte di riferimento.
+
+    Restituisce il dizionario nella forma che il modulo di transcodifica attende, cioe' con la
+    chiave del byte in esadecimale. Le posizioni di terminazione non entrano.
+    """
+    percorso = os.path.join(pkhex, SORGENTE_JP.replace("/", os.sep))
+    if not os.path.exists(percorso):
+        raise SystemExit(
+            "manca " + SORGENTE_JP + " sotto " + pkhex + ".\n"
+            "Si ottiene estendendo il clone superficiale con la cartella PKM/Strings.")
+    testo = open(percorso, encoding="utf-8", errors="ignore").read()
+    voci = _voci_array_csharp(testo, "G3_JP")
+    if len(voci) != 256:
+        raise SystemExit(
+            "la tabella giapponese ha %d voci invece di 256: la lettura ha perso o duplicato "
+            "qualcosa, e siccome la posizione e il byte, un solo scostamento sposta tutto cio "
+            "che segue" % (len(voci),))
+    # Il controllo che rende l'estrazione verificata e non soltanto eseguita: tre byte di cui
+    # si conosce il valore atteso, scelti perche' sono quelli su cui la tabella internazionale
+    # dice altro. Se la lettura si sposta di una posizione, questi tre non tornano.
+    ATTESI = {0x6F: "\u30de", 0x52: "\u30a4", 0xAE: "\u30fc"}
+    for byte, carattere in ATTESI.items():
+        if voci[byte] != carattere:
+            raise SystemExit(
+                "il byte 0x%02X della tabella giapponese vale %r invece di %r: la lettura non "
+                "e allineata" % (byte, voci[byte], carattere))
+    return {"%02X" % b: c for b, c in enumerate(voci) if c is not None}
