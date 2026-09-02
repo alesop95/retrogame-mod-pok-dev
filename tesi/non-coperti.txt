@@ -12,3 +12,10 @@ recreate-pokemon-distributions-events/EVENTI-GEN3.md#insieme-common # elenco gen
 recreate-pokemon-distributions-events/EVENTI-GEN3.md#insieme-japan # elenco generato di righe di dati, non prosa da rendere
 recreate-pokemon-distributions-events/EVENTI-GEN3.md#insieme-international # elenco generato di righe di dati, non prosa da rendere
 recreate-pokemon-distributions-events/EVENTI-GEN3.md#insieme-eggs # elenco generato di righe di dati, non prosa da rendere
+
+## Le schede tecniche degli esemplari sono un inventario di valori derivati, uno per
+## voce producibile, e la tesi ne rende il criterio nel capitolo sulle distribuzioni:
+## perche' un giudizio va registrato con i suoi byte e non come categoria. Le
+## centoventidue tabelle di valori sono dati da consultare, non prosa da rendere, e
+## valgono l'esenzione per la stessa ragione del catalogo degli eventi.
+recreate-pokemon-distributions-events/SCHEDE-ESEMPLARI.md # inventario generato di valori derivati, non prosa da rendere

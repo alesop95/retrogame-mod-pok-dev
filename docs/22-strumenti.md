@@ -400,8 +400,39 @@ La distinzione che il programma applica va conosciuta perché cambia come si leg
 
 Per ciascun valore non ancora provato il programma nomina la voce che lo esercita, con il nome del file che il lotto scrive per essa, perché un elenco di valori dice dove sta il rischio e non dice che cosa fare.
 
+Dal medesimo giorno lo strumento risponde anche alla domanda su quante prove servano, e la risponde in modo esatto invece di stimarla. Il modo `--minimo` formula la questione come problema di copertura di insiemi: l'universo sono le coppie fra dimensione e valore, ciascun esemplare copre esattamente una coppia per dimensione, e si cerca la sottofamiglia di cardinalità minima che copra tutto.
+
+```powershell
+python tools/copertura-verifica.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --minimo
+```
+
+```bash
+python tools/copertura-verifica.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --minimo
+```
+
+Due cose vanno conosciute per leggerne l'uscita. La prima è che il massimo delle cardinalità delle dimensioni è un limite inferiore e non il minimo: su una dimensione con nove valori servono almeno nove esemplari perché ciascuno ne copre uno solo, ma che nove bastino richiederebbe che quei nove coprano simultaneamente anche tutti i valori delle altre dimensioni, cioè una condizione di ortogonalità che un catalogo di eventi storici non ha ragione di soddisfare. Al 2026-09-02 il limite inferiore vale nove e il minimo esatto quattordici. La seconda è che il numero utile non è il minimo assoluto ma il minimo residuo, cioè quanti esemplari restino dato ciò che è già stato provato, e non si ottiene sottraendo: i giudizi già eseguiti sono stati scelti per esercitare rami sospetti e non per minimizzare le prove, quindi non formano un sottoinsieme di una soluzione ottima. Il programma risolve quindi una seconda istanza sulle sole coppie residue, e ne stampa gli esemplari da aprire.
+
+Il problema nella forma generale è NP-difficile, e qui si risolve in modo esatto perché è piccolo: le firme di copertura distinte fra i centoventidue esemplari sono trentaquattro, perché molti esemplari coprono le medesime coppie e uno per firma basta, e le coppie da coprire sono ventinove.
+
 ## Le due forme in cartelle separate, e la via di massa che ciò rende possibile
 
 Dal 2026-09-02 il modo a lotto scrive la forma di scambio nella cartella indicata e la forma cifrata in una sottocartella. La ragione non è di ordine ma operativa, ed è ciò che rende praticabile la verifica di massa.
 
 Il verificatore offre di caricare una cartella intera dentro le scatole di un salvataggio, e da lì si leggono in poche schermate quali posizioni portino il contrassegno di non conformità: centoventidue esemplari occupano cinque scatole, quindi cinque schermate sostituiscono centoventidue aperture. Quel caricamento però riconosce un file dalla sua dimensione, e le due forme hanno entrambe ottanta byte: tenendole insieme si otterrebbero duecentoquarantaquattro voci di cui la metà illeggibile, perché la forma cifrata letta come forma di scambio produce byte senza senso. Il caricamento di massa non scende nelle sottocartelle, quindi la separazione basta.
+## Le schede tecniche degli esemplari
+
+Lo strumento `tools/schede-esemplari.py` produce `recreate-pokemon-distributions-events/SCHEDE-ESEMPLARI.md`, che per ciascuna voce producibile porta ogni campo derivato con la propria provenienza, e accanto al titolo lo stato del suo giudizio esterno.
+
+```powershell
+python tools/schede-esemplari.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex
+python tools/schede-esemplari.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --check
+```
+
+```bash
+python tools/schede-esemplari.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex
+python tools/schede-esemplari.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --check
+```
+
+La ragione per cui il documento esiste è che un giudizio di conformità riguarda una configurazione precisa di byte e non una categoria: registrare soltanto che un esemplare è conforme perde l'informazione su che cosa esattamente sia stato dichiarato tale, e senza quella non si può né riprodurre il caso né riconoscere che una modifica successiva lo ha cambiato.
+
+Una scelta del programma va conosciuta perché è controintuitiva: esso non legge i file prodotti ma li ricalcola dalle sorgenti con il medesimo codice che li scrive. Un documento che leggesse i file descriverebbe il disco di una macchina, che non è versionato; questo descrive ciò che il progetto produce e resta vero in un clone dove i file non esistono ancora. L'effetto collaterale è una verifica del determinismo: se due corse dessero schede diverse, la scelta del seme non sarebbe riproducibile e il difetto si vedrebbe come una modifica del documento che nessuno ha fatto.

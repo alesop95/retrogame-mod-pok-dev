@@ -107,6 +107,16 @@
         "già nella prova contestata l'oggetto tenuto era quello giusto, quindi la sua derivazione dalla quinta estrazione era corretta anche mentre la corrispondenza fallisce",
         "dopo la correzione il nome si legge per intero nei suoi sette caratteri e l'esemplare è conforme"
       ]
+    },
+    {
+      "file": "000-Mew-Mew.pk3",
+      "data": "2026-09-02",
+      "esito": "conforme, riletta dopo le tre correzioni della giornata",
+      "rilievi": [],
+      "conferme": [
+        "è una controprova di non regressione: le correzioni sul bit dell'abilità, sul nome che riempie il campo e sul vincolo del sesso derivato non toccano questo esemplare, perché il suo valore di personalità è pari, il suo nome ha sei caratteri e la sua derivazione non è fra le due dichiarate",
+        "il seme ricostruito è identico a quello della prima lettura, quindi il file non è cambiato"
+      ]
     }
   ]
 }
