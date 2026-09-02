@@ -4,6 +4,22 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-02 I sei rami chiusi, la copertura misurata per dimensione, e la via di massa
+
+Le due correzioni sono state verificate sui medesimi esemplari che le avevano provocate, ed entrambi sono ora conformi. Sullo Zigzagoon il verificatore riporta accanto al tipo osservato anche il metodo dichiarato dall'evento, fra parentesi, e la presenza del secondo significa che la corrispondenza con il dono è avvenuta. Sul Jirachi del desiderio il nome dell'allenatore si legge nei suoi sette caratteri.
+
+Con questi due, ogni ramo dell'algoritmo che il progetto sa produrre è stato giudicato conforme da una implementazione indipendente: sono sei, cioè la composizione invertita con seme ristretto, la stessa con la mutazione antilucente, il ramo a lucentezza garantita, quello antilucente a estrazioni variabili, la trasformazione per la tabella dei doni e la selezione da un elenco di semi distribuiti. Restano fuori i due metodi che il progetto non produce, e per essi non esiste esemplare da giudicare.
+
+Poi ho affrontato una domanda che avrei dovuto porre prima: sette esemplari su centoventidue non è una misura, perché gli esemplari non sono intercambiabili. La misura giusta è la copertura per dimensione, e la distinzione che la rende utile è fra dimensioni strutturali e dimensioni di dato. Metodo, lucentezza, derivazione del sesso e lingua sono rami di codice: provarne uno lo prova per tutti, e la copertura si può chiudere. Specie e livello sono righe di tabella: provarne una prova quella riga, e la copertura resta parziale per costruzione, con il rischio che si riduce non provando di più ma generando i dati da una fonte invece di trascriverli. Fra le due sta il gruppo di crescita, che è una formula scelta da un dato.
+
+Lo strumento `tools/copertura-verifica.py` calcola quella misura dal registro dei giudizi, che è un file nuovo e autorato perché ciascuna voce è il resoconto di una prova umana, e per ogni valore scoperto nomina il file che lo esercita. L'esito al 2026-09-02: metodo sei su sei, lucentezza tre su tre, gruppo di crescita tre su tre, cioè tutti quelli che il lotto impiega. Scoperte quattro derivazioni del sesso su nove e quattro lingue su sette, per un totale di otto esemplari nominati.
+
+Un dato di quella misura vale più del resto: i due difetti trovati oggi stavano entrambi in rami che nessun giudizio aveva toccato, quindi su questo campione la correlazione fra copertura assente e difetto trovato è totale. Non è una legge, ma è la migliore stima disponibile di dove guardare.
+
+Infine la via di massa, che rende ragionevole giudicare tutti. Si carica una cartella intera nelle scatole di un salvataggio e si legge quali posizioni portino il contrassegno di non conformità: cinque schermate al posto di centoventidue aperture. Richiedeva una precauzione non evidente, ed è che le due forme in cui il generatore scrive hanno la medesima dimensione di ottanta byte e il caricamento di massa riconosce un file dalla dimensione: insieme darebbero duecentoquarantaquattro voci di cui la metà illeggibile. Il generatore scrive ora la forma cifrata in una sottocartella, e il caricamento non scende nelle sottocartelle.
+
+Ho anche cambiato il modo di scegliere il seme, e la ragione è che il lavoro di verifica dell'utente è costoso: prima il punto di partenza della ricerca era un cursore a scorrimento, quindi correggere una voce spostava il seme di tutte le successive e ogni esemplare già giudicato andava rigiudicato. Adesso dipende dall'indice della voce, quindi una correzione cambia i soli esemplari che riguarda, e ho verificato che nessuno dei centoventidue condivida il valore di personalità con un altro.
+
 ## 2026-09-02 Quattro esemplari giudicati, due difetti trovati, e il conto del bit dell'abilità chiuso
 
 L'esperimento a variabile singola ha risposto. Il file con il bit dell'abilità attivo viene contestato su quel campo, quello identico in tutto tranne quel bit e la somma di controllo è dichiarato conforme, e in entrambi i casi il verificatore ricostruisce il medesimo seme. Vale dunque la prima delle due spiegazioni: il rapporto del 2026-09-01 conteneva più di un rilievo e ne ho registrato uno solo. Il registro sopravvalutava quel primo esito ed è corretto.

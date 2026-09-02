@@ -414,3 +414,34 @@ La correzione ha rotto una prova esistente della prima e della seconda generazio
 Quattro esemplari scelti per esercitare rami diversi hanno prodotto due difetti, ed entrambi erano invisibili ai controlli interni del progetto. Il primo perché richiedeva di leggere una funzione del verificatore che nessuna descrizione del formato menziona; il secondo perché una prova interna lo copriva con un'attesa sbagliata. La suite di prove del progetto passava al cento per cento in entrambi i casi.
 
 Ne segue la formulazione di un limite che vale enunciare senza attenuarlo: una suite di prove misura la coerenza di un programma con le proprie assunzioni, e non può misurare la correttezza di quelle assunzioni. Per quello serve un'autorità esterna, e l'esperienza di questi due giorni dice quanto: due esemplari giudicati hanno trovato un difetto ciascuno, e i quattro successivi ne hanno trovati altri due. Il tasso di scoperta non sta calando, il che significa che il numero di difetti residui non è ancora stimabile e che sottoporre più esemplari resta il lavoro più redditizio disponibile.
+## 18. I due contestati tornano conformi, e i sei rami sono chiusi
+
+Le due correzioni della sezione 17 sono state verificate lo stesso giorno sui medesimi esemplari che le avevano provocate, e entrambi sono ora dichiarati conformi.
+
+Sullo Zigzagoon della correzione delle bacche il verificatore riporta il tipo osservato del valore di personalità e, fra parentesi quadre, il metodo che l'evento dichiara: la presenza del secondo significa che la corrispondenza con il dono è avvenuta, cioè che il vincolo che mancava era l'unico ostacolo. Il seme ricostruito è quello nuovo, spostato di un'unità dal vincolo appena imposto.
+
+Sul Jirachi dell'evento del desiderio la barra del titolo riporta ora il nome dell'allenatore nei suoi sette caratteri e l'esemplare è conforme, con l'oggetto tenuto che era già corretto anche quando la corrispondenza falliva.
+
+Con questi due, ogni ramo dell'algoritmo che il progetto sa produrre è stato giudicato conforme da un'implementazione indipendente. Sono sei: la composizione invertita con seme ristretto, la stessa con la mutazione antilucente, il ramo a lucentezza garantita che scrive i bit dell'identificativo, quello antilucente a estrazioni variabili, la trasformazione del seme per la tabella dei doni, e la selezione del seme da un elenco di valori distribuiti. Restano fuori dal giudizio i due metodi che il progetto non produce, cioè quello delle uova e quello del canale televisivo, e per essi non esiste alcun esemplare da giudicare.
+
+## 19. Che cosa la verifica copre, misurato per dimensione
+
+Sette esemplari giudicati su centoventidue prodotti è un rapporto che non dice nulla, e il modo in cui non dice nulla merita di essere spiegato perché la misura giusta è un'altra.
+
+Gli esemplari non sono intercambiabili: differiscono lungo dimensioni indipendenti fra loro, e un giudizio vale per le dimensioni che quell'esemplare esercita e non per le altre. Le dimensioni si dividono però in due nature, e la distinzione è ciò che rende la misura utile. Il metodo di generazione, il ramo della lucentezza, la derivazione del sesso e la lingua sono dimensioni strutturali, cioè rami di codice: provarne uno lo prova per ogni esemplare che vi passi, e la loro copertura si può chiudere. La specie, il livello e le mosse sono dimensioni di dato, cioè righe di tabella: provarne una prova quella riga e nessun'altra, quindi la copertura completa richiederebbe di provare tutto. Fra le due sta il gruppo di crescita, che è una formula scelta da un dato: le formule sono sei e provarle tutte è fattibile, mentre provare tutte le specie non lo è.
+
+Ne segue la lettura corretta, ed è che sulle dimensioni strutturali la copertura va portata a completa, mentre su quelle di dato resterà sempre parziale e il rischio si riduce per un'altra via: generando i dati da una fonte invece di trascriverli. È esattamente la ragione per cui questo progetto non trascrive tabelle, e la misura di copertura la ripaga rendendola visibile.
+
+Lo strumento `tools/copertura-verifica.py` calcola quella misura dal registro dei giudizi e dalla tabella del verificatore, e per ciascun valore non ancora provato nomina la voce che lo esercita, perché un elenco di valori dice dove sta il rischio e non dice che cosa fare. Al 2026-09-02 l'esito è che il metodo di generazione è coperto su sei valori su sei, la lucentezza su tre su tre, il gruppo di crescita su tre su tre, cioè su tutti quelli che il lotto impiega. Restano scoperte quattro derivazioni del sesso dell'allenatore su nove e quattro lingue su sette, e sono otto esemplari nominati uno per uno: chiuderle è un lavoro di otto prove.
+
+Va aggiunta l'osservazione che rende quel numero interessante e non soltanto amministrativo. Le quattro derivazioni scoperte sono rami di codice mai eseguiti sotto giudizio, e i due difetti trovati il medesimo giorno stavano entrambi in rami che nessun giudizio aveva toccato: la correlazione fra copertura assente e difetto trovato, su questo campione, è totale. Non è una legge, ma è la migliore stima disponibile di dove convenga guardare.
+
+## 20. La via di massa, e il vincolo che la rendeva impraticabile
+
+Provare centoventidue esemplari uno alla volta non è ragionevole, e il verificatore offre una via migliore che vale documentare perché richiede una precauzione non evidente.
+
+La via è caricare una cartella intera dentro le scatole di un salvataggio, con la voce del menu dei dati dedicata al caricamento delle scatole, e poi leggere quali posizioni portino il contrassegno di non conformità che il programma disegna sopra ciascuna. Centoventidue esemplari occupano cinque scatole, quindi cinque schermate sostituiscono centoventidue aperture, e per le sole posizioni contrassegnate si chiede poi il rapporto completo.
+
+La precauzione riguarda le due forme in cui il generatore scrive ciascun esemplare. La forma di scambio e quella che il salvataggio contiene hanno la medesima dimensione di ottanta byte, e il caricamento di massa riconosce un file dalla sua dimensione: tenendole nella medesima cartella si otterrebbero duecentoquarantaquattro voci di cui la metà illeggibile, perché la forma del salvataggio è permutata secondo il valore di personalità e cifrata, e letta come forma di scambio produce byte senza senso. Il generatore scrive quindi la forma cifrata in una sottocartella, e il caricamento di massa non scende nelle sottocartelle: la separazione rende praticabile la via.
+
+Vale notare che la precauzione non è una limitazione del verificatore ma una conseguenza di una scelta di formato di vent'anni fa, cioè che la lunghezza di un esemplare sia fissa e non porti con sé alcuna indicazione di quale delle due forme contenga. È lo stesso principio del terminatore della sezione 17: quando l'informazione su come leggere un dato sta fuori dal dato, chi legge deve procurarsela altrove, e in mancanza tira a indovinare.

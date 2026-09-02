@@ -413,3 +413,44 @@ La spiegazione plausibile è che una prova scritta dopo il codice, e verificata 
 I quattro esemplari sottoposti in blocco hanno prodotto due difetti, ed entrambi passavano indenni una suite che al momento del giudizio contava centoottantuno prove, tutte verdi. Il fatto va enunciato nella sua forma generale: una suite di prove misura la coerenza di un programma con le proprie assunzioni, e non ha alcun modo di misurare la correttezza di quelle assunzioni. Per la seconda serve un'autorità esterna al programma.
 
 Il dato empirico raccolto in due giorni permette una stima grossolana e non rassicurante. Sei esemplari sono stati sottoposti a giudizio esterno e hanno prodotto quattro difetti distinti, di cui due sul primo e sul secondo esemplare e due sui quattro successivi. Il tasso di scoperta non mostra segno di calare, e in un processo di questo genere un tasso costante è l'indicazione che il numero di difetti residui non è ancora stimabile: soltanto quando esemplari nuovi cessano di produrre contestazioni nuove si può cominciare a credere che l'insieme sia stato esaurito. Ne segue che sottoporre altri esemplari resta, in questo momento, il lavoro con il rendimento più alto fra quelli disponibili.
+\section{Quanti esemplari bastano, e la misura che risponde alla domanda}
+
+Le sezioni precedenti hanno stabilito che il giudizio di un'implementazione indipendente è lo strumento che trova i difetti che una suite interna non può trovare. Ne segue immediatamente una domanda pratica, cioè quanti esemplari convenga sottoporre, e una risposta apparentemente ovvia che è sbagliata: il rapporto fra esemplari giudicati e esemplari prodotti.
+
+Quel rapporto non misura nulla, e la ragione è che gli esemplari non sono intercambiabili. Sottoporre due esemplari che differiscano soltanto per la specie prova due volte la medesima porzione di codice; sottoporne due che differiscano per il metodo di generazione prova due porzioni distinte. La quantità che conta non è dunque il numero degli esemplari ma la copertura dello spazio delle loro differenze, e per costruirla occorre anzitutto stabilire quali siano quelle differenze.
+
+\subsection*{Lo spazio delle differenze, e le sue due nature}
+
+Un esemplare da evento è determinato da una tupla di attributi che, per il catalogo esaminato, si può scrivere come
+\begin{equation}
+e = (m, \sigma, \gamma, \ell, u, s, v, \mu),
+\end{equation}
+dove $m$ è il metodo di generazione, $\sigma$ il vincolo di lucentezza, $\gamma$ la derivazione del sesso dell'allenatore, $\ell$ la lingua, $u$ la condizione di uovo, $s$ la specie, $v$ il livello e $\mu$ l'insieme di mosse. Lo spazio cartesiano di quelle componenti è molto più grande del catalogo, che ne occupa soltanto le combinazioni storicamente esistite; ma la domanda sulla copertura non riguarda lo spazio cartesiano, riguarda le componenti una per una, e la ragione è che il codice è organizzato per componenti.
+
+Le componenti si dividono in due nature, e la distinzione è l'intero contenuto di questa sezione. Le prime quattro sono dimensioni strutturali: a ciascun loro valore corrisponde un ramo di codice, e un ramo eseguito sotto giudizio senza contestazione è provato per ogni esemplare che vi passi, quale che sia il resto della tupla. Le ultime tre sono dimensioni di dato: a ciascun loro valore corrisponde una riga di una tabella, e provarne una non dice nulla sulle altre, poiché non esiste alcun ragionamento che dalla correttezza della riga di una specie deduca quella della riga di un'altra.
+
+La conseguenza è quantitativa. Detto $D_{\text{str}}$ l'insieme delle dimensioni strutturali e $|d|$ il numero di valori distinti che la dimensione $d$ assume nel lotto prodotto, il numero minimo di esemplari necessario a coprire tutte le dimensioni strutturali è
+\begin{equation}
+k_{\min} = \max_{d \in D_{\text{str}}} |d|,
+\end{equation}
+e non la loro somma né il loro prodotto, poiché un singolo esemplare copre un valore di ciascuna dimensione simultaneamente. Nel caso in esame il massimo vale nove, essendo nove le derivazioni del sesso presenti, quindi nove esemplari opportunamente scelti basterebbero a chiudere l'intera copertura strutturale di centoventidue. Il numero effettivamente necessario è maggiore, perché gli esemplari esistenti non realizzano tutte le combinazioni utili e la scelta non è libera; l'ordine di grandezza però resta quello, e il contrasto fra nove e centoventidue è la ragione per cui questa misura vale la pena di essere calcolata.
+
+Per le dimensioni di dato non esiste alcun $k_{\min}$ minore del numero dei valori, e la copertura completa richiederebbe di sottoporre un esemplare per specie, per livello e per insieme di mosse. Ne segue che su quelle dimensioni la verifica per campionamento non è la strategia giusta, e che il rischio va ridotto per un'altra via: non trascrivendo i dati ma generandoli dalla fonte che li definisce. È il principio metodologico che il presente lavoro ha adottato dall'inizio per un'altra ragione, cioè che una tabella copiata a mano si sbaglia; qui esso riceve una seconda giustificazione, indipendente dalla prima, cioè che una tabella copiata a mano non è verificabile per campionamento.
+
+\subsection*{Fra le due nature, un caso intermedio}
+
+Una componente non appartiene con chiarezza a nessuna delle due nature, ed è istruttiva perché mostra che la classificazione è una proprietà del codice e non del dato. Il gruppo di crescita è un dato, essendo un attributo della specie, ma seleziona una fra sei formule dell'esperienza: il valore è un dato, ciò che il valore attiva è un ramo. Provare tutti i gruppi è dunque possibile con sforzo finito, poiché sono sei, mentre provare tutte le specie non lo è; e provare un gruppo prova la formula per ogni specie che lo condivida.
+
+Ne segue un criterio operativo generale: una dimensione di dato che agisca da indice su un insieme piccolo di comportamenti si tratta come strutturale, con cardinalità pari a quella dell'insieme dei comportamenti e non a quella dell'insieme dei dati. La riduzione che ne risulta può essere enorme, e nel caso in esame porta la copertura delle formule dell'esperienza da trentatre valori, cioè le specie del lotto, a sei, cioè i gruppi.
+
+\subsection*{L'esito, e una correlazione che indica dove guardare}
+
+Applicata al caso, la misura dice che al momento della scrittura la copertura è completa sul metodo di generazione, sul vincolo di lucentezza e sul gruppo di crescita, e incompleta su due dimensioni, cioè quattro derivazioni del sesso dell'allenatore su nove e quattro lingue su sette non sono state esercitate sotto giudizio. Corrispondono a otto esemplari, che lo strumento nomina uno per uno: il residuo strutturale è dunque un lavoro di otto prove e non di centoquindici.
+
+Un dato empirico merita di chiudere la sezione, con la cautela che il suo campione impone. I due difetti trovati nella tornata di giudizi descritta nelle sezioni precedenti stavano entrambi in rami che nessun giudizio precedente aveva toccato, e nessun difetto è stato trovato in un ramo già coperto. Su un campione di quattro esemplari la correlazione fra assenza di copertura e presenza di difetto è quindi totale. Non è una legge e non lo diventerà con questi numeri; è però la migliore stima disponibile di dove convenga spendere la prossima prova, e ha il pregio di essere una previsione falsificabile: se le otto prove residue non producessero alcuna contestazione, la correlazione sarebbe smentita e ne seguirebbe che i difetti trovati fin qui erano l'insieme completo.
+
+\subsection*{Una nota sul costo della verifica, e su chi lo paga}
+
+Vale registrare un vincolo che nella letteratura sulla verifica software raramente compare, perché in questo caso è dominante: la prova non è automatizzabile e il suo costo è tempo di una persona. Ogni giudizio richiede di aprire un file in un programma interattivo, leggere un rapporto e riferirlo, e nulla di ciò si può mettere in uno script.
+
+Da questo vincolo discendono due scelte di progetto che altrimenti sembrerebbero eccessive. La prima è che la scelta del seme, che prima dipendeva da un cursore progressivo, dipende ora dall'indice della voce: con il cursore una correzione su una voce spostava il valore di personalità di tutte le successive, e quindi ogni esemplare già giudicato andava rigiudicato, cioè una correzione distruggeva il lavoro umano accumulato. La seconda è la separazione delle due forme del dato in cartelle distinte, che rende praticabile il caricamento di una cartella intera nelle scatole di un salvataggio e riduce centoventidue aperture a cinque schermate. Entrambe le scelte non migliorano il prodotto: riducono il costo di verificarlo, che quando il verificatore è una persona è la stessa cosa.

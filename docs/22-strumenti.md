@@ -384,3 +384,24 @@ Il secondo modo non scrive nulla e riferisce se il documento in repository sia a
 Due scelte del programma vanno difese perché sono il genere di cosa che si toglie per fare pulizia. La prima è che i gruppi senza provenienza documentata non vengono taciuti ma elencati con la dicitura esplicita, e il programma stampa quanti sono: un catalogo che nasconda le proprie lacune è peggio di uno incompleto, perché toglie a chi legge la possibilità di colmarle. La seconda è che le divergenze fra la fonte storica e la tabella si scrivono invece di essere risolte in silenzio, con la regola che sui fatti meccanici vale la tabella e sui fatti storici vale l'enciclopedia, che è la sola a occuparsene.
 
 Il file delle provenienze porta anche l'unico campo meccanico che gli appartiene di diritto, ed è l'oggetto tenuto documentato dalla storia. Nel catalogo esistono due specie di oggetto tenuto con gradi di verità diversi: quello derivato, che l'evento del desiderio estrae dal generatore pseudocasuale e che è quindi una funzione del seme, e quello storico, come la Sfera Luminosa del Pikachu del decennale, che non discende da nessun calcolo. La tabella del verificatore non dichiara il secondo e non lo pretende, perché un oggetto tenuto si può togliere o scambiare e non è un vincolo di legittimità; resta un tratto dell'esemplare originale, e la distinzione fra un esemplare che passa i controlli e uno fedele all'originale passa esattamente per fatti di questo genere.
+## La copertura della verifica esterna, e il registro dei giudizi
+
+Lo strumento `tools/copertura-verifica.py` risponde a una domanda che il rapporto fra due numeri non sa affrontare: sapere che sette esemplari su centoventidue sono stati giudicati non dice dove stia il rischio residuo, perché gli esemplari non sono intercambiabili. Esso legge il registro dei giudizi in `recreate-pokemon-distributions-events/giudizi-esterni.json`, che è autorato perché ciascuna voce è il resoconto di una prova eseguita da una persona, e lo confronta con la tabella del verificatore per calcolare la copertura lungo ciascuna dimensione in cui gli esemplari differiscono.
+
+```powershell
+python tools/copertura-verifica.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex
+```
+
+```bash
+python tools/copertura-verifica.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex
+```
+
+La distinzione che il programma applica va conosciuta perché cambia come si legge l'esito. Le dimensioni strutturali, cioè metodo di generazione, ramo della lucentezza, derivazione del sesso dell'allenatore e lingua, sono rami di codice: provarne uno lo prova per ogni esemplare che vi passi, quindi la loro copertura si può chiudere e va chiusa. Le dimensioni di dato, cioè specie e livello, sono righe di tabella: provarne una prova quella riga e nessun'altra, quindi la loro copertura resta parziale per costruzione e il rischio si riduce per un'altra via, cioè generando i dati da una fonte invece di trascriverli. Fra le due sta il gruppo di crescita, che è una formula scelta da un dato: le formule sono sei e provarle tutte è fattibile.
+
+Per ciascun valore non ancora provato il programma nomina la voce che lo esercita, con il nome del file che il lotto scrive per essa, perché un elenco di valori dice dove sta il rischio e non dice che cosa fare.
+
+## Le due forme in cartelle separate, e la via di massa che ciò rende possibile
+
+Dal 2026-09-02 il modo a lotto scrive la forma di scambio nella cartella indicata e la forma cifrata in una sottocartella. La ragione non è di ordine ma operativa, ed è ciò che rende praticabile la verifica di massa.
+
+Il verificatore offre di caricare una cartella intera dentro le scatole di un salvataggio, e da lì si leggono in poche schermate quali posizioni portino il contrassegno di non conformità: centoventidue esemplari occupano cinque scatole, quindi cinque schermate sostituiscono centoventidue aperture. Quel caricamento però riconosce un file dalla sua dimensione, e le due forme hanno entrambe ottanta byte: tenendole insieme si otterrebbero duecentoquarantaquattro voci di cui la metà illeggibile, perché la forma cifrata letta come forma di scambio produce byte senza senso. Il caricamento di massa non scende nelle sottocartelle, quindi la separazione basta.
