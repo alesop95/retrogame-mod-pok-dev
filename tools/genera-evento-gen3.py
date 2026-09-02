@@ -1086,6 +1086,13 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
         seme_corrente = (esito["seme"] + 1) & 0xFFFF or 1
 
         personalita, iv, sesso_ot = esito["personalita"], esito["iv"], esito["sesso_ot"]
+        # L'evento del desiderio consuma una estrazione per l'oggetto tenuto, e quella
+        # estrazione porta un'informazione che va scritta: un esemplare di quell'evento senza
+        # la sua bacca non e' sbagliato in un campo vincolato, ma non e' l'esemplare che
+        # l'originale era. Gli altri eventi non consumano quella estrazione e restano a zero.
+        oggetto = 0
+        if esito["estrazione_oggetto"] is not None:
+            oggetto = eventi.oggetto_tenuto_desiderio(esito["estrazione_oggetto"])
         mosse = [m for m in v.get("mosse", []) if m]
         pp = [pp_base.get(m, 0) for m in mosse]
         livello = v["livello"]
@@ -1097,8 +1104,8 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
             language=LINGUE_PKHEX.get(lingua_voce, 2),
             flags=0x02,
             ot_name=ot_bytes,
-            growth=gen3.Growth(species=specie_id, experience=esperienza(gruppo, livello),
-                               friendship=70),
+            growth=gen3.Growth(species=specie_id, held_item=oggetto,
+                               experience=esperienza(gruppo, livello), friendship=70),
             attacks=gen3.Attacks(moves=(mosse + [0, 0, 0, 0])[:4],
                                  pp=(pp + [0, 0, 0, 0])[:4]),
             evs=gen3.EvsCondition(),
@@ -1109,13 +1116,20 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
                            ability_num=personalita & 0x01,
                            modern_fateful_encounter=bool(v.get("fatidico", False))),
         )
-        nome = "%03d-%s-%s" % (indice, re.sub(r"[^A-Za-z0-9]", "", nome_effettivo or "ricevente"),
-                              re.sub(r"[^A-Za-z0-9]", "", per_id.get(specie_id, "x")))
+        # Il nome del file porta la descrizione dell'evento e non il nome dell'allenatore, e la
+        # ragione e' pratica: i nomi giapponesi non sopravvivono alla riduzione ai caratteri
+        # latini, quindi cinquanta file su centoventidue si chiamerebbero allo stesso modo a
+        # meno dell'indice. La descrizione e' in latino nella tabella e distingue le voci.
+        descrizione = re.sub(r"[^A-Za-z0-9]", "",
+                             v.get("commento") or nome_effettivo or "ricevente")
+        nome = "%03d-%s-%s" % (indice, descrizione or "evento",
+                               re.sub(r"[^A-Za-z0-9]", "", per_id.get(specie_id, "x")))
         scrivi(mon, os.path.join(cartella, nome))
         fatti += 1
-        print("  %-40s %-9s seme 0x%04X  PID 0x%08X%s"
+        print("  %-40s %-9s seme 0x%04X  PID 0x%08X%s%s"
               % (etichetta[:40], metodo, esito["seme"], personalita,
-                 "  cromatico" if esito["cromatico"] else ""))
+                 "  cromatico" if esito["cromatico"] else "",
+                 "  oggetto %d" % oggetto if oggetto else ""))
 
     print("")
     print("prodotti " + str(fatti) + ", non producibili " + str(len(saltate)))

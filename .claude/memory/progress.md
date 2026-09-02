@@ -4,6 +4,18 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-02 Il contesto di salvataggio, un messaggio che accusa il file, e l'oggetto che mancava
+
+L'utente ha aperto i primi due esemplari del lotto con il verificatore e ha ricevuto un messaggio che dichiarava il file di tipologia o grandezza non supportata, con la doppia ipotesi della generazione diversa o del file corrotto. La barra del titolo diceva che nel programma era caricato un salvataggio vuoto di nona generazione, che è la causa.
+
+Il modo in cui la causa è stata stabilita vale più della causa: si è letto il codice che emette quel messaggio invece di interpretarne il testo. Il programma riconosce il file, perché ottanta byte è la dimensione dichiarata di un esemplare immagazzinato di terza generazione; poi tenta di convertirlo nel tipo del salvataggio caricato, e la conversione dalla terza alla nona generazione non esiste; la conversione restituisce nulla e la funzione che sceglie il messaggio, non trovando una estensione di salvataggio nel percorso, sceglie quella dicitura. Nessun controllo di integrità ha mai messo in dubbio il file.
+
+L'integrità è stata comunque verificata a parte e in modo indipendente, sui centoventidue esemplari e non sui due: dimensione, contrassegno di presenza nel byte a 0x13 e somma di controllo a sedici bit sui byte da 0x20 a 0x50, cioè le tre cose che il verificatore controlla per accettare il file. Nessun guasto. Il modo di caricare il contesto giusto è passare il file al programma all'avvio, perché in quel caso il programma costruisce da sé un salvataggio vuoto della generazione dell'esemplare, prendendo versione, nome dell'allenatore e lingua da quelli scritti nel file.
+
+Guardando quale file l'utente avesse aperto è emerso un difetto che nessun controllo avrebbe segnalato: l'esemplare dell'evento del desiderio usciva senza il suo oggetto tenuto. Il generatore contava già l'estrazione dedicata a quell'oggetto, perché senza contarla avrebbe letto il sesso dell'allenatore nella posizione sbagliata, ma ne buttava il valore. La formula che sceglie fra le due bacche è la medesima riduzione a un bit della derivazione del sesso per divisione per tre, e ora l'oggetto si scrive. Non era un campo vincolato e probabilmente non sarebbe stato contestato: era una differenza dall'originale, che in una collezione che vuole essere fedele è peggio.
+
+Un difetto minore di ergonomia è stato chiuso nello stesso passaggio, e non era cosmetico: il nome dei file prendeva il nome dell'allenatore, che ridotto ai caratteri latini svanisce per i cinquanta eventi giapponesi, quindi cinquanta file su centoventidue si distinguevano solo per l'indice. Adesso il nome porta la descrizione dell'evento, che nella tabella è in latino. La suite passa da centosettantacinque a centosettantotto prove.
+
 ## 2026-09-01 Gli eventi dello scostamento chiusi, il vettore deviante che era il ramo mancante, e la tabella giapponese
 
 L'utente aveva chiesto di chiudere gli eventi dello scostamento. La chiusura ha portato con sé una correzione che vale più della chiusura, e conviene metterla per prima perché riguarda il metodo e non il codice.
