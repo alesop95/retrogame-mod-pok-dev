@@ -326,3 +326,13 @@ Decisione. La deroga si ritira, perché era fondata su un errore di ricognizione
 
 Conseguenze. La prima è che la regola del progetto resta intatta e non ha eccezioni su questo dato. La seconda è una lezione sul metodo che vale registrare, perché l'errore è del genere che si ripete: avevo guardato l'insieme dei file che *nomina* la cosa cercata, cioè gli incontri, e avevo concluso dalla loro difficoltà che la cosa fosse difficile. La domanda giusta non era quali incontri esistano in un titolo ma quali voci quel titolo contenga, che è un dato diverso e più vicino. Prima di dichiarare una deroga a una regola conviene chiedersi se la difficoltà stia nel dato o nella formulazione della domanda.
 
+## ADR-028: fra il generatore e il verificatore della fonte vince il verificatore
+
+Data: 2026-09-02. Stato: accettata. Promuove a criterio una osservazione fatta due volte.
+
+Contesto. L'implementazione di riferimento che questo progetto impiega come fonte contiene due parti che possono contraddirsi: un generatore, che compone un esemplare da un incontro, e un verificatore, che giudica se un esemplare sia legittimo. Nei due giorni fra il 2026-09-01 e il 2026-09-02 le due parti si sono contraddette due volte. La prima sul vincolo che lega il seme al bit del sesso dichiarato, dove il generatore scrive il valore dichiarato e il verificatore pretende che il seme lo produca. La seconda sul nome dell'allenatore di un uovo, dove il generatore, incontrando un carattere che la tabella della lingua non contiene, interrompe la scrittura e lascia il campo vuoto, mentre il verificatore rifiuta un nome di lunghezza nulla con una regola esplicita.
+
+Decisione. Dove il generatore e il verificatore della fonte divergono, si segue il verificatore. La ragione non è di gerarchia fra le due parti ma di funzione: è il verificatore a giudicare gli esemplari che questo progetto produce, quindi è la sua nozione di correttezza a determinare se un esemplare sarà accettato.
+
+Conseguenze. La prima è che un difetto del generatore della fonte non è nostro da correggere, e adeguarsi a esso significherebbe ereditarlo. La seconda è un vincolo su come si legge quella fonte: osservare che cosa il suo generatore faccia in un caso limite non stabilisce quale sia il comportamento corretto, perché ciò che un programma fa in un caso che non ha previsto è soltanto ciò che accade. La terza, che è la più utile, è che le due parti della fonte formano insieme un presidio più forte di ciascuna: quando divergono, la divergenza stessa segnala un caso limite che vale studiare, ed è esattamente così che sono stati trovati i due difetti.
+
