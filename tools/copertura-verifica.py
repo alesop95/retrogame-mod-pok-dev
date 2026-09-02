@@ -243,7 +243,11 @@ def producibili(g, voci, ace, pkhex):
     for indice, v in enumerate(voci):
         if v.get("metodo") not in g.METODI_PRODUCIBILI:
             continue
-        if v.get("uovo") or "ot_irrisolto" in v:
+        # Le uova erano escluse fino al 2026-09-02, perche' il generatore le rifiutava per
+        # mancanza del conto delle incubazioni. Adesso le produce, quindi entrano nel conto:
+        # una esclusione rimasta dopo la sua causa falserebbe la copertura per difetto,
+        # dichiarando provate dimensioni che non sono state esercitate su cinquanta voci.
+        if "ot_irrisolto" in v:
             continue
         fuori.add(indice)
     return fuori

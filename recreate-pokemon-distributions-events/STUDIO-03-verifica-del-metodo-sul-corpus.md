@@ -486,3 +486,28 @@ Da qui il documento `SCHEDE-ESEMPLARI.md`, generato da `tools/schede-esemplari.p
 Una scelta di quel programma va difesa perché è controintuitiva: esso non legge i file prodotti ma li ricalcola dalle sorgenti con il medesimo codice che li scrive. Un documento che leggesse i file descriverebbe ciò che si trova sul disco di una macchina, che non è versionato e in un clone non esiste; questo descrive ciò che il progetto produce, e resta vero dove i file non sono stati ancora generati. La scelta ha un effetto collaterale che è essa stessa una verifica: se due corse dessero schede diverse, la scelta del seme non sarebbe riproducibile, e il difetto si manifesterebbe come una modifica del documento senza che nessuno lo abbia toccato.
 
 Un difetto di questo documento è stato trovato e corretto subito dopo la prima generazione, e vale registrarlo perché riguarda la precisione dei nomi. La prima versione chiamava seme di origine, per tutte le voci, il valore da cui la ricerca parte; per il metodo a elenco quel valore non è un seme ma la posizione nell'elenco degli ottantacinque semi distribuiti, e il verificatore per quelle voci dichiara come seme di origine il valore dell'elenco e non la posizione. Chiamare seme entrambe le cose avrebbe reso il documento incomparabile con il rapporto del verificatore proprio sul campo su cui il confronto conta.
+## 23. Le uova, e il dato che era nella tabella che leggevamo già
+
+Le cinquanta voci del catalogo che sono uova erano rifiutate dal generatore per la mancanza di un dato per specie, cioè il conto delle incubazioni, che nell'uovo occupa il campo dell'amicizia e che un verificatore controlla. La nota precedente lo dichiarava come il lavoro singolo più redditizio che restasse, e diceva dove trovarlo: il campo delle incubazioni nella tabella delle statistiche di base del disassemblato, da ottenere con un clone superficiale.
+
+Era la risposta giusta alla domanda sbagliata. Quel dato non richiedeva alcun clone nuovo, perché sta nella tabella delle statistiche di base che l'implementazione di riferimento porta per la terza generazione, e che il progetto legge già: un record di ventotto byte per specie, con il conto delle incubazioni a un offset noto. Il costo reale era di trenta righe.
+
+È la seconda volta nella medesima giornata che il progetto sopravvaluta un costo per avere cercato un dato nel posto che lo nomina invece che nel posto che lo contiene, e la prima era la disponibilità per titolo, dove avevo guardato i file degli incontri e concluso che il dato fosse inaccessibile mentre stava nelle tabelle di presenza. La regola che ne discende va scritta perché due occorrenze in un giorno non sono un caso: davanti a un dato apparentemente costoso conviene chiedersi non dove esso sia documentato, ma quale programma lo usi, perché quel programma deve averlo in una forma che si legge.
+
+### Le tre cose che un uovo impone, e la quarta che non si può inventare
+
+Un uovo non è un esemplare con un contrassegno in più, e i campi che la sua condizione governa sono quattro.
+
+Il contrassegno sta in due posti e va scritto in entrambi, cioè nella parola dei valori individuali e nel byte dei contrassegni accanto a quello che dichiara la presenza della specie. Scriverne uno solo produce un esemplare internamente incoerente.
+
+Il soprannome è imposto: l'implementazione di riferimento lo fissa nel momento in cui il contrassegno viene attivato, e vale per ogni lingua la parola giapponese per uovo. La ragione è di gioco e non di localizzazione, cioè che un uovo non mostra la specie che contiene.
+
+La lingua è imposta a giapponese, che è una particolarità nota del formato in questa generazione e non una scelta.
+
+Il quarto campo è il nome dell'allenatore, e su esso il progetto ha sbagliato una prima volta prima di leggere la fonte. La prima versione sostituiva al nome vuoto quello dell'allenatore di destinazione, che è la regola corretta per gli esemplari ordinari, e venticinque uova venivano rifiutate perché un nome in caratteri latini non si può scrivere con la tabella giapponese che la loro lingua impone. La fonte risolve la contraddizione in un modo che non avevo previsto: in terza generazione il nome di un uovo resta vuoto, e viene riempito soltanto quando l'uovo schiude su una generazione successiva, prendendolo dal salvataggio che lo fa schiudere. Un uovo di terza generazione non ha ancora un allenatore, e scrivergliene uno significherebbe inventarlo.
+
+### L'esito
+
+Il lotto passa da centoventidue esemplari a centosettantadue su centosettantatre. La sola voce che resta è quella del canale televisivo, che impiega un generatore pseudocasuale differente e che il progetto ha sempre dichiarato fuori portata.
+
+La misura di copertura è stata riallineata, perché escludeva ancora le uova dal conto delle voci producibili e una esclusione che sopravvive alla propria causa falsa la copertura per difetto, dichiarando provate dimensioni che cinquanta voci non hanno esercitato. Con le uova dentro, le dimensioni strutturali passano da ventinove a trentasei coppie da coprire, il minimo assoluto da quattordici a sedici, e gli esemplari ancora da sottoporre da otto a dieci.
