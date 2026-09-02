@@ -138,6 +138,101 @@ def valore(v, dimensione, gruppi, mappa):
     return v.get(dimensione)
 
 
+# ---------------------------------------------------------------------------------------------
+# La copertura minima, che e' un problema di copertura di insiemi
+# ---------------------------------------------------------------------------------------------
+# La domanda "quanti esemplari bastano" ha una risposta esatta e non una stima, e vale enunciare
+# di che problema si tratti perche' la risposta intuitiva e' sbagliata in un modo istruttivo.
+#
+# Ogni esemplare copre esattamente un valore per ciascuna dimensione, quindi copre un insieme di
+# coppie dimensione-valore. Cercare il numero minimo di esemplari che coprano tutte le coppie e'
+# il problema della copertura di insiemi, ed e' fra i piu' studiati: nella sua forma generale e'
+# NP-difficile, cioe' non si conosce alcun algoritmo che lo risolva in tempo polinomiale, e la
+# migliore approssimazione garantita da un algoritmo veloce e' peggiore del logaritmo della
+# dimensione dell'universo.
+#
+# Il massimo delle cardinalita' delle dimensioni e' un limite inferiore e non il minimo, e la
+# distinzione non e' pedanteria: la dimensione con piu' valori richiede da sola almeno tanti
+# esemplari quanti sono i suoi valori, perche' ogni esemplare ne copre uno solo, e nessun'altra
+# dimensione puo' abbassare quel numero. Che il minimo lo raggiunga o no dipende da quali
+# combinazioni gli esemplari realizzino davvero, e su un catalogo storico le combinazioni
+# disponibili sono quelle che sono accadute, non quelle che servirebbero.
+#
+# Qui il problema e' piccolo e si risolve in modo esatto invece di approssimarlo. Due
+# osservazioni lo rendono tale. La prima e' che molti esemplari hanno la medesima firma di
+# copertura, cioe' coprono le medesime coppie, e uno per firma basta: le centoventidue voci si
+# riducono a poche decine di firme distinte. La seconda e' che l'universo delle coppie e' di
+# poche decine di elementi, quindi una ricerca in profondita' che si diramifichi sull'elemento
+# meno coperto e si fermi appena supera il minimo trovato termina in una frazione di secondo.
+
+
+def firme(voci, prodotti, dimensioni, gruppi, mappa):
+    """Le firme di copertura distinte, con un rappresentante per ciascuna.
+
+    Una firma e' l'insieme delle coppie dimensione-valore che un esemplare copre. Due esemplari
+    con la medesima firma sono intercambiabili ai fini della copertura, quindi tenerne uno solo
+    non cambia la risposta e riduce il problema di un ordine di grandezza.
+    """
+    fuori = {}
+    for i in sorted(prodotti):
+        firma = frozenset((d, valore(voci[i], d, gruppi, mappa)) for d in dimensioni)
+        fuori.setdefault(firma, i)
+    return fuori
+
+
+def copertura_minima(universo, disponibili, limite_superiore=None):
+    """Il minimo numero di firme che coprono l'universo, e una scelta che lo realizza.
+
+    Ricerca esatta in profondita' con due potature. La prima e' il limite superiore corrente: un
+    ramo che lo raggiunga senza avere finito viene abbandonato. La seconda e' la scelta
+    dell'elemento su cui diramare, che e' quello coperto dal minor numero di firme ancora
+    disponibili: e' la potatura che rende praticabile la ricerca, perche' concentra le
+    diramazioni dove le alternative sono poche.
+    """
+    firme_lista = list(disponibili)
+    migliore = [None]
+    tetto = [limite_superiore if limite_superiore is not None else len(firme_lista) + 1]
+
+    def cerca(residuo, scelte):
+        if not residuo:
+            if len(scelte) < tetto[0]:
+                tetto[0] = len(scelte)
+                migliore[0] = list(scelte)
+            return
+        if len(scelte) + 1 >= tetto[0] + 1 and len(scelte) >= tetto[0]:
+            return
+        # L'elemento con meno alternative: se non ne ha nessuna, il ramo e' senza uscita.
+        candidati = {e: [f for f in firme_lista if e in f] for e in residuo}
+        elemento = min(candidati, key=lambda e: len(candidati[e]))
+        if not candidati[elemento]:
+            return
+        for f in candidati[elemento]:
+            if len(scelte) + 1 > tetto[0]:
+                continue
+            cerca(residuo - f, scelte + [f])
+
+    cerca(frozenset(universo), [])
+    return tetto[0], migliore[0]
+
+
+def golosa(universo, disponibili):
+    """La soluzione dell'algoritmo goloso, per confronto con quella esatta.
+
+    Serve a un solo scopo, ed e' misurare quanto l'euristica piu' ovvia si allontani
+    dall'ottimo su questo caso concreto: la garanzia teorica e' debole, e sapere che qui essa
+    coincide o quasi con l'esatto dice se valga la pena mantenere la ricerca esatta.
+    """
+    residuo, scelte = set(universo), []
+    firme_lista = list(disponibili)
+    while residuo:
+        f = max(firme_lista, key=lambda x: len(residuo & x))
+        if not (residuo & f):
+            break
+        scelte.append(f)
+        residuo -= f
+    return len(scelte), scelte
+
+
 def producibili(g, voci, ace, pkhex):
     """Gli indici delle voci che il lotto produce davvero.
 
@@ -158,6 +253,9 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--ace", required=True)
     ap.add_argument("--pkhex", required=True)
+    ap.add_argument("--minimo", action="store_true",
+                    help="calcola la copertura minima esatta, cioè il numero più piccolo di "
+                         "esemplari che coprono tutte le dimensioni strutturali")
     a = ap.parse_args(argv)
 
     g = carica_generatore()
@@ -180,6 +278,75 @@ def main(argv=None):
         for n in senza:
             print("    " + n)
     print("")
+
+    if a.minimo:
+        dimensioni = tuple(d for d in STRUTTURALI + FORMULA)
+        distinte = firme(voci, prodotti, dimensioni, gruppi, mappa)
+        universo = set()
+        for f in distinte:
+            universo |= set(f)
+        cardinalita = {}
+        for d, val in universo:
+            cardinalita[d] = cardinalita.get(d, 0) + 1
+        limite = max(cardinalita.values())
+        print("=== La copertura minima, come problema di copertura di insiemi")
+        print("  coppie dimensione-valore da coprire " + str(len(universo)))
+        print("  firme di copertura distinte fra le %d voci producibili: %d"
+              % (len(prodotti), len(distinte)))
+        for d in dimensioni:
+            print("    %-12s %d valori" % (d, cardinalita.get(d, 0)))
+        print("  limite inferiore, cioè il massimo delle cardinalità: " + str(limite))
+        n_gol, _scelte_gol = golosa(universo, distinte.keys())
+        print("  soluzione dell'algoritmo goloso: " + str(n_gol))
+        n_min, scelta = copertura_minima(universo, distinte.keys())
+        print("  minimo esatto: " + str(n_min))
+        if limite == n_min:
+            print("  il limite inferiore è raggiunto, quindi nessuna scelta può fare meglio e")
+            print("  la dimensione con più valori è l'unico vincolo che conta")
+        else:
+            print("  il limite inferiore NON è raggiunto: le combinazioni realizzate dal")
+            print("  catalogo storico non permettono di coprire tutto con %d esemplari" % limite)
+        if scelta:
+            print("")
+            print("  Una scelta che realizza il minimo:")
+            for f in scelta:
+                i = distinte[f]
+                print("    voce %3d  %s%s" % (i, etichetta_voce(voci[i], i),
+                                              "  (già giudicata)"
+                                              if i in coperti_prodotti else ""))
+
+        # Il numero che serve davvero non e' il minimo assoluto ma il minimo residuo, cioe'
+        # quanti esemplari restino da provare dato cio' che e' gia' stato provato. Non si ottiene
+        # sottraendo, e la ragione va detta: i giudizi gia' fatti non formano necessariamente un
+        # sottoinsieme di una soluzione ottima, quindi il residuo puo' essere piu' grande della
+        # differenza fra il minimo e il numero dei giudizi. E' il problema di copertura di
+        # insiemi risolto di nuovo sulle sole coppie non ancora coperte.
+        gia_coperte = set()
+        for i in sorted(coperti_prodotti):
+            gia_coperte |= set((d, valore(voci[i], d, gruppi, mappa)) for d in dimensioni)
+        residuo = universo - gia_coperte
+        print("")
+        print("  coppie già coperte dai giudizi eseguiti " + str(len(gia_coperte & universo)))
+        print("  coppie residue " + str(len(residuo)))
+        if not residuo:
+            print("  la copertura strutturale è completa")
+        else:
+            n_res, scelta_res = copertura_minima(residuo, distinte.keys())
+            print("  minimo esatto degli esemplari ancora da provare: " + str(n_res))
+            print("  somma fra giudizi eseguiti e residuo minimo: %d, contro un minimo assoluto "
+                  "di %d" % (len(coperti_prodotti) + n_res, n_min))
+            if len(coperti_prodotti) + n_res > n_min:
+                print("  la somma supera il minimo assoluto, ed è normale: i giudizi già")
+                print("  eseguiti sono stati scelti per esercitare rami sospetti e non per")
+                print("  minimizzare il numero delle prove, quindi non formano un sottoinsieme")
+                print("  di una soluzione ottima")
+            print("")
+            print("  Gli esemplari ancora da provare, che chiudono la copertura strutturale:")
+            for f in scelta_res:
+                i = distinte[f]
+                print("    voce %3d  %s" % (i, etichetta_voce(voci[i], i)))
+        print("")
+        return 0
 
     for etichetta, dimensioni in (("Dimensioni strutturali, la cui copertura si può chiudere",
                                    STRUTTURALI),

@@ -638,6 +638,10 @@ def voci_wc3(pkhex):
                 else:
                     voce["ot_irrisolto"] = nome
         voce["desiderio"] = MOSSA_DESIDERIO in voce.get("mosse", [])
+        # I fiocchi che la voce dichiara. Sono pochi nel catalogo, ma la loro assenza e' un
+        # rilievo del verificatore e non un dettaglio estetico: un fiocco e' un contrassegno che
+        # l'esemplare portava alla consegna e che nessuna partita puo' aggiungere dopo.
+        voce["fiocchi"] = re.findall(r"(Ribbon[A-Za-z0-9]+) = true", corpo)
         fuori.append(voce)
     return fuori
 
@@ -837,6 +841,65 @@ def oggetti_documentati():
         if voce.get("oggetti"):
             fuori[chiave] = {int(k): int(v) for k, v in voce["oggetti"].items()}
     return fuori
+
+
+SORGENTE_FIOCCHI = "PKHeX.Core/PKM/PK3.cs"
+
+# Il primo bit della parola dei fiocchi occupato dai fiocchi di merito, cioe' quelli che non
+# vengono dalle gare. I quindici bit sotto di esso sono i cinque livelli di gara, tre bit
+# ciascuno, e la nostra struttura li tiene separati: qui serve la conversione da posizione
+# assoluta nella parola a posizione relativa dentro il campo dei fiocchi di merito.
+PRIMO_BIT_MERITO = 15
+
+# Il numero di fiocchi di merito che la fonte dichiara, usato come controllo sulla lettura. Un
+# elenco letto per difetto non produce un errore ma un fiocco mancante, che e' esattamente il
+# difetto che questa lettura esiste per rimediare.
+FIOCCHI_MERITO_ATTESI = 12
+
+
+def bit_fiocchi(pkhex):
+    """La posizione di ciascun fiocco dentro la parola, letta dalla fonte e non trascritta.
+
+    La posizione di un fiocco non e' deducibile e non e' documentata altrove: sta nel codice
+    che la legge e la scrive, una riga per fiocco. Si estrae da la' con la medesima disciplina
+    con cui il progetto estrae ogni tabella, e con un controllo sul conteggio, perche' un elenco
+    letto per difetto produrrebbe un fiocco assente invece di un errore.
+    """
+    percorso = os.path.join(pkhex, SORGENTE_FIOCCHI.replace("/", os.sep))
+    if not os.path.exists(percorso):
+        sys.exit("manca " + SORGENTE_FIOCCHI + " sotto " + pkhex + ".\n"
+                 "Si ottiene estendendo il clone superficiale con la cartella PKM.")
+    testo = io.open(percorso, encoding="utf-8", errors="ignore").read()
+    fuori = {}
+    for nome, bit in re.findall(
+            r"bool (Ribbon[A-Za-z0-9]+)\s*\{\s*get => \(RIB0 & \(1 << (\d+)\)\)", testo):
+        fuori[nome] = int(bit)
+    if len(fuori) < FIOCCHI_MERITO_ATTESI - 1:
+        sys.exit("ho letto %d fiocchi in %s, meno dei %d attesi: la lettura ha perso qualcosa, "
+                 "e un fiocco perso non produce un errore ma un esemplare al quale manca un "
+                 "contrassegno che l'evento dichiarava"
+                 % (len(fuori), SORGENTE_FIOCCHI, FIOCCHI_MERITO_ATTESI))
+    return fuori
+
+
+def parola_fiocchi_merito(nomi, posizioni):
+    """Il valore del campo dei fiocchi di merito, dati i nomi che l'evento dichiara.
+
+    Solleva se un nome non ha posizione nota, invece di ignorarlo: un fiocco dichiarato dalla
+    fonte e non scritto e' precisamente il difetto che il verificatore ha contestato il
+    2026-09-02 su due esemplari, e ignorare in silenzio un nome sconosciuto lo ricreerebbe.
+    """
+    valore = 0
+    for nome in nomi:
+        if nome not in posizioni:
+            raise KeyError("fiocco %r di posizione ignota: non si scrive un esemplare al quale "
+                           "manchi un contrassegno che l'evento dichiara" % (nome,))
+        assoluto = posizioni[nome]
+        if assoluto < PRIMO_BIT_MERITO:
+            raise KeyError("il fiocco %r sta fra i bit delle gare e non fra quelli di merito, "
+                           "quindi non appartiene a questo campo" % (nome,))
+        valore |= 1 << (assoluto - PRIMO_BIT_MERITO)
+    return valore
 
 
 def nazionale_verso_interno(ace):
@@ -1074,6 +1137,7 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
     semi_mystry = semi_mystry_mew(pkhex)
     abilita = abilita_per_specie(ace)
     oggetti_storici = oggetti_documentati()
+    posizioni_fiocchi = bit_fiocchi(pkhex)
     # Le tabelle dei nomi di specie si leggono una volta per lingua e non una volta per voce,
     # perche' ciascuna e' una lettura di file.
     nomi_localizzati = {}
@@ -1207,6 +1271,11 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
             # documenta uno: le due vie sono disgiunte, e questo ramo lo rende evidente.
             oggetto = oggetti_storici.get(
                 "%s|%d" % (nome_ot, ident), {}).get(v["nazionale"], 0)
+        try:
+            fiocchi = parola_fiocchi_merito(v.get("fiocchi", []), posizioni_fiocchi)
+        except KeyError as e:
+            saltate.append((indice, etichetta, "fiocchi: " + str(e)))
+            continue
         mosse = [m for m in v.get("mosse", []) if m]
         pp = [pp_base.get(m, 0) for m in mosse]
         livello = v["livello"]
@@ -1223,7 +1292,7 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None):
             attacks=gen3.Attacks(moves=(mosse + [0, 0, 0, 0])[:4],
                                  pp=(pp + [0, 0, 0, 0])[:4]),
             evs=gen3.EvsCondition(),
-            misc=gen3.Misc(met_location=255, met_level=livello,
+            misc=gen3.Misc(merit_ribbons=fiocchi, met_location=255, met_level=livello,
                            met_game=VERSIONI.get(v["versione"], 2), pokeball=4,
                            ot_female=(sesso_ot == "femmina"),
                            ivs={n: iv[k] for n, k in zip(gen3.EV_ORDER, eventi.ORDINE_IV)},
@@ -1362,9 +1431,46 @@ def self_test():
     controlla("una specie senza abilita note fa sollevare invece di scrivere un bit a caso",
               _solleva_senza_abilita(finta))
 
+    # I fiocchi, con il controllo negativo del rifiuto. Le posizioni si costruiscono qui e non
+    # si leggono dalla fonte, cosicche' il self-test resti eseguibile senza il clone: cio' che
+    # si prova e' la conversione da posizione assoluta a posizione nel campo, non i dati.
+    finte_posizioni = {"RibbonChampionG3": 15, "RibbonNational": 24, "RibbonEarth": 25,
+                       "RibbonCool": 3}
+    controlla("nessun fiocco dichiarato da' un campo nullo",
+              parola_fiocchi_merito([], finte_posizioni) == 0)
+    controlla("il fiocco nazionale occupa il decimo bit del campo di merito",
+              parola_fiocchi_merito(["RibbonNational"], finte_posizioni) == 1 << 9)
+    controlla("il primo fiocco di merito occupa il bit zero del campo",
+              parola_fiocchi_merito(["RibbonChampionG3"], finte_posizioni) == 1)
+    controlla("due fiocchi si sommano nei rispettivi bit",
+              parola_fiocchi_merito(["RibbonNational", "RibbonEarth"], finte_posizioni)
+              == (1 << 9) | (1 << 10))
+    controlla("un fiocco di posizione ignota fa sollevare invece di essere ignorato",
+              _solleva_fiocco_ignoto(finte_posizioni))
+    controlla("un fiocco di gara non entra nel campo di merito e fa sollevare",
+              _solleva_fiocco_di_gara(finte_posizioni))
+
     print("")
-    print("self-test: %d controlli falliti su %d" % (fallite, 17))
+    print("self-test: %d controlli falliti su %d" % (fallite, 23))
     return 1 if fallite else 0
+
+
+def _solleva_fiocco_ignoto(posizioni):
+    """Il controllo negativo che protegge dal difetto trovato: ignorare in silenzio."""
+    try:
+        parola_fiocchi_merito(["RibbonInesistente"], posizioni)
+    except KeyError:
+        return True
+    return False
+
+
+def _solleva_fiocco_di_gara(posizioni):
+    """Un fiocco che sta sotto il primo bit di merito non appartiene a questo campo."""
+    try:
+        parola_fiocchi_merito(["RibbonCool"], posizioni)
+    except KeyError:
+        return True
+    return False
 
 
 def _solleva_senza_abilita(tabella):
