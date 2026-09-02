@@ -625,5 +625,50 @@ class ProveOggettoTenuto(unittest.TestCase):
         self.assertIsNone(esito["estrazione_oggetto"])
 
 
+class ProveVincoloSessoDichiarato(unittest.TestCase):
+    """Le due derivazioni che dichiarano il sesso e nondimeno vincolano il seme.
+
+    Il vincolo è stato scoperto il 2026-09-02 da una obiezione del verificatore su un esemplare
+    a lucentezza garantita, e la sua esistenza è la ragione per cui un valore dichiarato non
+    esime dal calcolarlo: chi giudica ricalcola.
+    """
+
+    ID_CORREZIONE_BACCHE = 30317
+
+    def test_il_seme_scelto_soddisfa_il_bit_dichiarato(self):
+        for derivazione, atteso in eventi.BIT_SESSO_DICHIARATO.items():
+            esito = eventi.esemplare_da_evento(
+                "BACD_RBCD", self.ID_CORREZIONE_BACCHE, 0, "Always", derivazione=derivazione)
+            self.assertIsNotNone(esito, "nessun seme per %s" % derivazione)
+            _p, _iv, stato = eventi.genera(
+                "BACD_RBCD", esito["seme_effettivo"], "Always",
+                self.ID_CORREZIONE_BACCHE & 0xFFFF)
+            self.assertEqual(eventi.bit_sesso_derivato(stato), atteso)
+
+    def test_il_vincolo_esclude_dei_semi(self):
+        """Il controllo negativo: se non escludesse nulla, non sarebbe un vincolo.
+
+        Fra i duecentoquattordici semi ammessi dal metodo a orologio, quelli che soddisfano il
+        bit zero e quelli che soddisfano il bit uno devono essere due insiemi diversi e nessuno
+        dei due deve essere l'insieme intero.
+        """
+        conta = {0: 0, 1: 0}
+        for seme in eventi.semi_ammessi("BACD_RBCD"):
+            _p, _iv, stato = eventi.genera("BACD_RBCD", seme, "Always",
+                                           self.ID_CORREZIONE_BACCHE & 0xFFFF)
+            conta[eventi.bit_sesso_derivato(stato)] += 1
+        self.assertGreater(conta[0], 0)
+        self.assertGreater(conta[1], 0)
+        self.assertEqual(conta[0] + conta[1], 214)
+
+    def test_la_lucentezza_resta_garantita_col_vincolo_in_piu(self):
+        """Due vincoli insieme non devono escludersi a vicenda."""
+        esito = eventi.esemplare_da_evento(
+            "BACD_RBCD", self.ID_CORREZIONE_BACCHE, 0, "Always", derivazione="RandD3_1")
+        self.assertIsNotNone(esito)
+        self.assertTrue(esito["cromatico"])
+        self.assertEqual(esito["sesso_ot"], "femmina")
+
+
 if __name__ == "__main__":
     unittest.main()
