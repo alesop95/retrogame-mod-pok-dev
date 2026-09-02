@@ -96,6 +96,16 @@ def giudicati(voci):
     dati = json.loads(io.open(GIUDIZI, encoding="utf-8").read())
     coperti, senza = set(), []
     for g in dati["giudizi"]:
+        # Un giudizio può coprire l'intero lotto invece di un esemplare, e capita quando la
+        # lettura è di massa: si caricano tutti gli esemplari nelle scatole di un salvataggio e si
+        # legge quali posizioni portino il contrassegno di non conformità. Vale come giudizio su
+        # ciascuno, perché quel contrassegno riflette l'analisi completa e la sua assenza equivale
+        # a un rapporto senza rilievi, e va trattato come tale: altrimenti la copertura resterebbe
+        # dichiarata parziale mentre non lo è più, che è il difetto opposto a quello per cui
+        # questo programma esiste.
+        if g.get("copre") == "tutti":
+            coperti |= set(range(len(voci)))
+            continue
         indice = indice_dal_nome(g["file"])
         if indice is not None and 0 <= indice < len(voci):
             coperti.add(indice)
