@@ -1265,12 +1265,27 @@ def gb_errore():
     return gb.FormatError
 
 
+# La sottocartella in cui va la forma cifrata. Le due forme non stanno piu' accanto, e la
+# ragione e' operativa e non di ordine. Il verificatore di conformita' offre un caricamento di
+# massa che legge una cartella intera e ne mette il contenuto nelle scatole di un salvataggio,
+# ed e' la sola via praticabile per far giudicare centoventidue esemplari invece di uno; quel
+# caricamento riconosce un file dalla sua dimensione, e le due forme hanno la medesima
+# dimensione di ottanta byte. Tenendole nella medesima cartella si otterrebbero
+# duecentoquarantaquattro voci di cui la meta' illeggibile, perche' la forma cifrata e'
+# permutata secondo il valore di personalita' e cifrata, quindi letta come forma di scambio
+# produce byte senza senso. Separarle rende il caricamento di massa utilizzabile.
+CARTELLA_FORMA_CIFRATA = "forma-cifrata"
+
+
 def scrivi(mon, base):
     cartella = os.path.dirname(base)
+    nome = os.path.basename(base)
     if cartella:
         os.makedirs(cartella, exist_ok=True)
+    cifrata = os.path.join(cartella, CARTELLA_FORMA_CIFRATA) if cartella         else CARTELLA_FORMA_CIFRATA
+    os.makedirs(cifrata, exist_ok=True)
     pk3 = base + ".pk3"
-    ek3 = base + ".ek3"
+    ek3 = os.path.join(cifrata, nome + ".ek3")
     io.open(pk3, "wb").write(mon.to_canonical_bytes(party=False))
     io.open(ek3, "wb").write(mon.to_bytes(party=False))
     return pk3, ek3
