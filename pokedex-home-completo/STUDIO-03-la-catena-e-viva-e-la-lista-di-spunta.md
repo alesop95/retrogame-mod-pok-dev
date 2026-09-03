@@ -34,7 +34,19 @@ Il secondo è la rimozione degli oggetti tenuti. Chi deposita un esemplare che t
 
 Il terzo è che l'identificativo di rete si lega a una sola console, e l'unico modo di spostarlo è trasferire l'intero contenuto del sistema. Vincola una eventualità che il progetto non aveva considerato, cioè l'uso di una seconda console per parallelizzare i trasferimenti: non si può, non per difficoltà ma per costruzione.
 
-Il quarto è un conto alla rovescia. Il menu del deposito mostra un periodo di prova gratuito con un numero di giorni, e la prima cifra di quel numero non è leggibile nelle fotografie: si legge un segno non interpretabile seguito da ottantacinque. Le due letture plausibili portano a date diverse e una delle due cade prima della chiusura annunciata del servizio, quindi il numero va riletto sulla console e non dedotto. Ciò che è certo, e che va detto perché è una decisione già presa senza che fosse discussa, è che quel conto alla rovescia è cominciato: la scheda del track dichiarava che il piano a pagamento sarebbe stato attivato soltanto a lavoro pronto, e la stessa logica valeva per la prova gratuita, che avviando il deposito è partita.
+Il quarto non è un vincolo e va registrato come tale, perché per qualche ora questo progetto lo ha trattato come se lo fosse. Il menu del deposito mostra la dicitura di un periodo di prova gratuito seguita da un numero di giorni la cui prima cifra non è leggibile nelle fotografie, e la lettura prudente sarebbe stata di riprendere quel numero sulla console. La lettura prudente era però la lettura sbagliata, perché quel numero non significa nulla.
+
+Il fatto, portato dall'utente con le proprie fonti, è che si tratta di un artefatto annunciato. Quando il negozio digitale della console è stato chiuso, il deposito intermedio è stato reso gratuito, e chi lo pubblica ha avvisato in anticipo che i giocatori avrebbero visto la dicitura del periodo di prova seguita da un numero fra zero e novantanove, e che quella riga andava ignorata perché nessuna data di fine era prevista per il servizio gratuito; nel marzo 2023 la stessa avvertenza è stata ripetuta. Ne segue che il segno illeggibile non era una cifra da recuperare ma parte di una stringa priva di senso, e che l'intera questione era un falso problema.
+
+La data vera non ha nulla a che vedere con quel contatore: il servizio termina il 26 febbraio 2027 alle dodici del fuso giapponese. Vale scriverla in tutti i fusi che contano, perché una scadenza espressa in un fuso solo si sbaglia di un giorno con facilità: sono le tre del mattino del 26 febbraio 2027 nel tempo coordinato universale, le quattro del mattino dello stesso giorno in ora italiana, ed è un venerdì; nel fuso del Pacifico è invece il giorno prima, giovedì 25 febbraio alle diciannove, che è il medesimo istante e non una scadenza diversa. La coerenza è stata verificata convertendo l'istante fra i quattro fusi, e torna esatta.
+
+Su questo punto va registrato un errore di metodo mio, perché è più istruttivo del fatto. Quella data era già nel registro delle fonti di questo progetto dal 2026-08-28, letta sulla pagina di assistenza ufficiale del produttore, con entrambi i fusi scritti accanto. Non mi mancava il dato: non ho consultato il registro. Ne è seguita una voce di verifica aperta su una cifra illeggibile, cioè un lavoro programmato per recuperare un numero che il registro avrebbe fatto capire irrilevante, e la richiesta all'utente di rileggere sulla console qualcosa che era già scritto in casa.
+
+È la seconda volta che questo progetto commette esattamente questo errore, e la prima è registrata a proposito della base dei doni segreti, dove una affermazione sbagliata durò poche ore e la nota di allora concluse che bastava rileggere il nostro documento prima di affermare. La conclusione è la stessa e va promossa a regola operativa: prima di aprire una verifica su un dato esterno si cerca quel dato in `SOURCES.md`, perché il costo della ricerca è una riga di comando e il costo dell'omissione è una voce di lavoro inventata.
+
+Ne discende un aggiornamento del tempo residuo, contato a una data come questo progetto prescrive di fare: al 3 settembre 2026 restano centosettantasei giorni, e l'annuncio ha dato centonovantasette giorni di preavviso.
+
+Resta un fatto minore che vale conservare, staccato dal contatore a cui era stato erroneamente legato: la prova gratuita non è una risorsa che si consuma avviando il servizio, quindi la cautela del progetto sul non attivare nulla prima di essere pronti non riguardava questo. Riguarda il piano a pagamento del deposito finale, che è un'altra cosa e resta non attivo.
 
 ## 4. Il censimento, perché si fa e perché esce adesso
 
@@ -74,8 +86,56 @@ La correzione non è stata correggere la riscrittura ma eliminarla. La lettura d
 
 ## 8. Che cosa resta da fare, in ordine di resa
 
-Rileggere sulla console il numero di giorni del periodo di prova, perché la prima cifra non è leggibile e le due letture plausibili portano a date diverse.
-
 Proiettare sulla lista le fonti che ancora non vi sono proiettate, cioè le tremilasettantadue voci di dono delle generazioni moderne, i depositi dei salvataggi di quarta, quinta, sesta e settima generazione, e il deposito di Pokemon Box. Ciascuna di esse è oggi un conto e diventerà una colonna, e il numero delle seicentoquaranta voci senza fonte scenderà di conseguenza.
 
 Decidere la questione delle forme, che non si decide leggendo: richiede di osservare il comportamento del deposito finale, quindi di avere il piano attivo e almeno una forma da depositare.
+## 9. Il terzo asse: le voci da evento, e la roadmap che ne discende
+
+L'utente ha precisato che la collezione non è l'insieme delle specie ma quello delle specie più tutti gli esemplari da distribuzione, e che la lista deve essere completa in quel senso. La precisazione non è un ampliamento di comodo ma una correzione necessaria, e la ragione va scritta perché la lista, come era la mattina del 2026-09-03, la ignorava.
+
+Un esemplare da distribuzione è un collezionabile distinto anche quando la sua specie è già coperta. Il Pikachu del decennale non è il Pikachu di un prato: porta un nome di allenatore, un identificativo e una data che nessun prato produce, e chi possiede il secondo non possiede il primo. Ne segue che gli assi sono tre e non due, cioè specie, forme e voci da evento, e che nessuno dei tre si riduce agli altri.
+
+### Che cosa esiste, generazione per generazione
+
+La lista porta ora duemilasettecentouno voci da evento, lette dalle tabelle di ciascuna generazione, e la loro ripartizione è il dato che governa la roadmap.
+
+| Gen | Voci | Specie distinte | Sotto scadenza | Resa attuale |
+|---|---|---|---|---|
+| 1 | 11 | 10 | sì | struttura alla portata di `pokebridge` |
+| 2 | 157 | 107 | sì | struttura alla portata di `pokebridge` |
+| 3 | 173 | 59 | sì | 172 producibili e verificate, 1 fuori portata |
+| 4 | 247 | 43 | sì | letta, non ancora producibile |
+| 5 | 700 | 98 | sì | letta, non ancora producibile |
+| 6 | 787 | 129 | sì | letta, non ancora producibile |
+| 7 | 611 | 99 | sì | letta, non ancora producibile |
+| 7 | 15 | 9 | no | letta, non ancora producibile |
+
+Le voci sotto scadenza sono duemilaseicentottantasei e portano trecentotrentasei specie distinte. Sono il solo insieme di questa lista che il 26 febbraio 2027 chiude davvero, e vale metterlo accanto al risultato delle sezioni precedenti per vedere come i due si compongano: le voci di specie e di forma sono tutte raggiungibili per via diretta e nessuna scade, mentre un esemplare da distribuzione di una generazione anteriore all'ottava non ha altra strada che la banca. Il tempo che resta va quindi speso qui e non sulle specie.
+
+### La sorpresa: le due generazioni più antiche sono le meno costose
+
+Il conto per generazione porta un fatto che va contro l'intuizione e che decide l'ordine di lavoro.
+
+Prima e seconda generazione non hanno doni segreti, perché quel meccanismo non esisteva: hanno tabelle di incontro, che la fonte conserva come record di lunghezza fissa con i campi in chiaro, otto byte per la prima e dodici per la seconda. Ciascun record porta specie, livello, quattro mosse, una restrizione di lingua e un tipo di allenatore, e nella prima generazione i valori individuali sono fissati da una tabella scritta accanto per tre dei cinque tipi di allenatore.
+
+Il punto che conta è che in quelle generazioni non esiste alcun valore di personalità e non esiste alcun generatore pseudocasuale da ricostruire, perché natura, sesso, lucentezza e caratteristiche non derivano da un seme. Produrre un esemplare da evento di prima o seconda generazione significa dunque scrivere la struttura con i campi che la tabella dichiara, che è esattamente ciò che `pokebridge` sa già fare e ha già verificato con prove proprie. Centosessantotto voci su duemilaseicentottantasei sono quindi alla portata del codice che esiste, e le abbiamo trascurate per settimane perché sembravano le più difficili in quanto le più antiche.
+
+Il confronto con la terza generazione chiude il ragionamento. Quella ha centosettantatre voci e ha richiesto settimane, perché la sua tabella vive nel codice, il suo generatore pseudocasuale andava ricostruito e verificato su duecentonove vettori, e la campagna di verifica esterna ha prodotto otto difetti. La quarta, quinta, sesta e settima insieme hanno duemilatrecentoquarantacinque voci sotto scadenza e non richiedono alcuna ricostruzione di algoritmo, perché ogni dono è un record binario. Il costo per voce, in questo dominio, non cresce con l'età: cresce con la presenza di un valore di personalità derivato da un seme, e quella presenza comincia con la terza generazione e finisce con essa nella forma difficile.
+
+### L'ordine di lavoro che ne discende
+
+Ne segue una roadmap in quattro tempi, ordinata per rapporto fra ciò che si ottiene e ciò che costa.
+
+Il primo tempo è prima e seconda generazione: centosessantotto voci, centonove specie distinte, e nessun algoritmo nuovo. Il lavoro è leggere le due tabelle nel nostro formato, comporre le strutture con `pokebridge`, e sottoporle al verificatore come è stato fatto per la terza. È il tempo con il rapporto migliore e va fatto per primo.
+
+Il secondo tempo è la quinta generazione, e viene prima della quarta nonostante l'ordine naturale suggerisca il contrario. La ragione è la forma del dato: i suoi settecento record portano i campi in chiaro dentro il record, quindi si leggono direttamente, mentre quelli di quarta generazione contengono un esemplare nel formato del gioco la cui parte utile è normalmente cifrata. Nella base dati della fonte quegli esemplari sono conservati in chiaro, e questo rende la lettura possibile oggi; scriverli su un salvataggio richiederà però la cifratura, che è un pezzo di codice in più.
+
+Il terzo tempo è la quarta generazione, con la cifratura del formato di quel gioco come unico lavoro nuovo.
+
+Il quarto tempo è sesta e settima, che sono le più numerose con millequattrocentonovantotto voci sotto scadenza, e che vanno affrontate sapendo che il collo di bottiglia sarà il trasferimento e non la produzione: sono già dentro la finestra in cui la catena verso il deposito finale è breve.
+
+### Due grandezze da non confondere, e il collo di bottiglia vero
+
+Il conto delle voci misura il lavoro di trasferimento; il conto delle specie distinte misura il contributo alla collezione. I due divergono di un fattore otto, poiché duemilaseicentottantasei voci portano trecentotrentasei specie, e la divergenza ha una causa precisa: la medesima distribuzione compare come voce distinta per ogni regione e ogni lingua in cui fu fatta, e le generazioni distribuirono in gran parte le medesime specie. La somma dei conti per generazione vale trecentosettantotto contro un'unione di duecentocinquantasette per le sole generazioni dalla quarta in avanti, e quella differenza è precisamente la sovrapposizione che i conti separati nascondevano.
+
+Ne discende quale scelta la roadmap deve fare esplicitamente, e che non tocca a me. Se l'obiettivo è il Pokedex, cioè le caselle, basta una voce per specie e il lavoro utile è di trecentotrentasei unità. Se l'obiettivo è la collezione delle distribuzioni, cioè gli esemplari nella loro identità storica, il lavoro è di duemilaseicentottantasei unità e il collo di bottiglia diventa il tempo di trasferimento e non la produzione, perché il primo anello della catena muove sei esemplari per sessione. Con quattro veicoli e un limite giornaliero ancora non misurato, i due obiettivi stanno su scale diverse, e sceglierli implicitamente significherebbe sceglierli male.

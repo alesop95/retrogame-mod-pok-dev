@@ -34,3 +34,4 @@ pokedex-home-completo/RICERCA-UTENTE-2026-09-01.md # fonte verbatim con provenie
 ## degli eventi e delle schede degli esemplari.
 pokedex-home-completo/CHECKLIST-COMPLETA.md#voci-di-specie # inventario generato di righe di dati, non prosa da rendere
 pokedex-home-completo/CHECKLIST-COMPLETA.md#voci-di-forma # inventario generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CHECKLIST-COMPLETA.md#voci-da-evento # inventario generato di righe di dati, non prosa da rendere

@@ -1044,6 +1044,2716 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-1024-00` | 1024 | Terapagos | diretta | nessuna |
 | `PKD-1025-00` | 1025 | Pecharunt | diretta | nessuna |
 
+## Voci da evento
+
+Una voce da evento è un collezionabile distinto anche quando la sua specie è già coperta altrove, e la ragione è che porta un nome di allenatore, un identificativo e una data che nessun incontro selvatico produce: chi possiede il secondo non possiede il primo. La colonna della resa dice a che punto siamo su quella voce, e tiene distinte tre condizioni che non vanno confuse, cioè una voce che il progetto sa produrre e ha fatto verificare, una che sa soltanto leggere, e una la cui struttura è alla portata di codice che già esiste.
+
+Le voci enumerate sono 2701, di cui 2686 sotto scadenza, e queste ultime portano 336 specie distinte. Sono il solo insieme di questa lista che il 26 febbraio 2027 chiude davvero: le voci di specie e di forma sono tutte raggiungibili per via diretta, mentre un esemplare da distribuzione di una generazione anteriore all'ottava non ha altra strada che la banca.
+
+| Codice | Gen | Dex | Forma | Provenienza | Sotto scadenza | Resa |
+|---|---|---|---|---|---|---|
+| `EVT-3-0000` | 3 | 151 | 0 | Mew | sì | producibile e verificata |
+| `EVT-3-0001` | 3 | 385 | 0 | WISHMKR | sì | producibile e verificata |
+| `EVT-3-0002` | 3 | 385 | 0 | CHANNEL | sì | non producibile |
+| `EVT-3-0003` | 3 | 263 | 0 | Berry Fix Ruby | sì | producibile e verificata |
+| `EVT-3-0004` | 3 | 263 | 0 | Berry Fix Sapphire | sì | producibile e verificata |
+| `EVT-3-0005` | 3 | 385 | 0 | Negai Boshi Jirachi | sì | producibile e verificata |
+| `EVT-3-0006` | 3 | 385 | 0 | Negai Boshi Jirachi (Match Recipient) | sì | producibile e verificata |
+| `EVT-3-0007` | 3 | 385 | 0 | Tanabata Jirachi (2004) | sì | producibile e verificata |
+| `EVT-3-0008` | 3 | 25 | 0 | ANA Pikachu | sì | producibile e verificata |
+| `EVT-3-0009` | 3 | 52 | 0 | PokéPark Meowth | sì | producibile e verificata |
+| `EVT-3-0010` | 3 | 25 | 0 | Yokohama Pikachu | sì | producibile e verificata |
+| `EVT-3-0011` | 3 | 151 | 0 | Hadou Mew | sì | producibile e verificata |
+| `EVT-3-0012` | 3 | 25 | 0 | GW Pikachu | sì | producibile e verificata |
+| `EVT-3-0013` | 3 | 25 | 0 | Sapporo Pikachu | sì | producibile e verificata |
+| `EVT-3-0014` | 3 | 385 | 0 | Tanabata Jirachi (2005) | sì | producibile e verificata |
+| `EVT-3-0015` | 3 | 375 | 0 | Festa Metang | sì | producibile e verificata |
+| `EVT-3-0016` | 3 | 202 | 0 | Sunday Wobbuffet | sì | producibile e verificata |
+| `EVT-3-0017` | 3 | 377 | 0 | Regirock | sì | producibile e verificata |
+| `EVT-3-0018` | 3 | 378 | 0 | Regice | sì | producibile e verificata |
+| `EVT-3-0019` | 3 | 379 | 0 | Registeel | sì | producibile e verificata |
+| `EVT-3-0020` | 3 | 151 | 0 | PokéPark Mew | sì | producibile e verificata |
+| `EVT-3-0021` | 3 | 251 | 0 | PokéPark Celebi | sì | producibile e verificata |
+| `EVT-3-0022` | 3 | 385 | 0 | Tanabata Jirachi (2006) | sì | producibile e verificata |
+| `EVT-3-0023` | 3 | 251 | 0 | Mitsurin Celebi (2006) | sì | producibile e verificata |
+| `EVT-3-0024` | 3 | 385 | 0 | PokéPark Jirachi (2006) | sì | producibile e verificata |
+| `EVT-3-0025` | 3 | 385 | 0 | PokéPark Jirachi (2006) | sì | producibile e verificata |
+| `EVT-3-0026` | 3 | 263 | 0 | Berry Fix Ruby | sì | producibile e verificata |
+| `EVT-3-0027` | 3 | 263 | 0 | Berry Fix Sapphire | sì | producibile e verificata |
+| `EVT-3-0028` | 3 | 6 | 0 | Charizard | sì | producibile e verificata |
+| `EVT-3-0029` | 3 | 25 | 0 | Pikachu | sì | producibile e verificata |
+| `EVT-3-0030` | 3 | 144 | 0 | Articuno | sì | producibile e verificata |
+| `EVT-3-0031` | 3 | 243 | 0 | Raikou | sì | producibile e verificata |
+| `EVT-3-0032` | 3 | 244 | 0 | Entei | sì | producibile e verificata |
+| `EVT-3-0033` | 3 | 245 | 0 | Suicune | sì | producibile e verificata |
+| `EVT-3-0034` | 3 | 249 | 0 | Lugia | sì | producibile e verificata |
+| `EVT-3-0035` | 3 | 250 | 0 | Ho-Oh | sì | producibile e verificata |
+| `EVT-3-0036` | 3 | 380 | 0 | Latias | sì | producibile e verificata |
+| `EVT-3-0037` | 3 | 381 | 0 | Latios | sì | producibile e verificata |
+| `EVT-3-0038` | 3 | 6 | 0 | Charizard | sì | producibile e verificata |
+| `EVT-3-0039` | 3 | 25 | 0 | Pikachu | sì | producibile e verificata |
+| `EVT-3-0040` | 3 | 144 | 0 | Articuno | sì | producibile e verificata |
+| `EVT-3-0041` | 3 | 243 | 0 | Raikou | sì | producibile e verificata |
+| `EVT-3-0042` | 3 | 244 | 0 | Entei | sì | producibile e verificata |
+| `EVT-3-0043` | 3 | 245 | 0 | Suicune | sì | producibile e verificata |
+| `EVT-3-0044` | 3 | 249 | 0 | Lugia | sì | producibile e verificata |
+| `EVT-3-0045` | 3 | 250 | 0 | Ho-Oh | sì | producibile e verificata |
+| `EVT-3-0046` | 3 | 380 | 0 | Latias | sì | producibile e verificata |
+| `EVT-3-0047` | 3 | 381 | 0 | Latios | sì | producibile e verificata |
+| `EVT-3-0048` | 3 | 6 | 0 | Charizard | sì | producibile e verificata |
+| `EVT-3-0049` | 3 | 25 | 0 | Pikachu | sì | producibile e verificata |
+| `EVT-3-0050` | 3 | 144 | 0 | Articuno | sì | producibile e verificata |
+| `EVT-3-0051` | 3 | 243 | 0 | Raikou | sì | producibile e verificata |
+| `EVT-3-0052` | 3 | 244 | 0 | Entei | sì | producibile e verificata |
+| `EVT-3-0053` | 3 | 245 | 0 | Suicune | sì | producibile e verificata |
+| `EVT-3-0054` | 3 | 249 | 0 | Lugia | sì | producibile e verificata |
+| `EVT-3-0055` | 3 | 250 | 0 | Ho-Oh | sì | producibile e verificata |
+| `EVT-3-0056` | 3 | 380 | 0 | Latias | sì | producibile e verificata |
+| `EVT-3-0057` | 3 | 381 | 0 | Latios | sì | producibile e verificata |
+| `EVT-3-0058` | 3 | 6 | 0 | Charizard | sì | producibile e verificata |
+| `EVT-3-0059` | 3 | 25 | 0 | Pikachu | sì | producibile e verificata |
+| `EVT-3-0060` | 3 | 144 | 0 | Articuno | sì | producibile e verificata |
+| `EVT-3-0061` | 3 | 243 | 0 | Raikou | sì | producibile e verificata |
+| `EVT-3-0062` | 3 | 244 | 0 | Entei | sì | producibile e verificata |
+| `EVT-3-0063` | 3 | 245 | 0 | Suicune | sì | producibile e verificata |
+| `EVT-3-0064` | 3 | 249 | 0 | Lugia | sì | producibile e verificata |
+| `EVT-3-0065` | 3 | 250 | 0 | Ho-Oh | sì | producibile e verificata |
+| `EVT-3-0066` | 3 | 380 | 0 | Latias | sì | producibile e verificata |
+| `EVT-3-0067` | 3 | 381 | 0 | Latios | sì | producibile e verificata |
+| `EVT-3-0068` | 3 | 6 | 0 | Charizard | sì | producibile e verificata |
+| `EVT-3-0069` | 3 | 25 | 0 | Pikachu | sì | producibile e verificata |
+| `EVT-3-0070` | 3 | 144 | 0 | Articuno | sì | producibile e verificata |
+| `EVT-3-0071` | 3 | 243 | 0 | Raikou | sì | producibile e verificata |
+| `EVT-3-0072` | 3 | 244 | 0 | Entei | sì | producibile e verificata |
+| `EVT-3-0073` | 3 | 245 | 0 | Suicune | sì | producibile e verificata |
+| `EVT-3-0074` | 3 | 249 | 0 | Lugia | sì | producibile e verificata |
+| `EVT-3-0075` | 3 | 250 | 0 | Ho-Oh | sì | producibile e verificata |
+| `EVT-3-0076` | 3 | 380 | 0 | Latias | sì | producibile e verificata |
+| `EVT-3-0077` | 3 | 381 | 0 | Latios | sì | producibile e verificata |
+| `EVT-3-0078` | 3 | 151 | 0 | Mew | sì | producibile e verificata |
+| `EVT-3-0079` | 3 | 375 | 0 | Metang | sì | producibile e verificata |
+| `EVT-3-0080` | 3 | 386 | 0 | Deoxys | sì | producibile e verificata |
+| `EVT-3-0081` | 3 | 386 | 0 | Deoxys | sì | producibile e verificata |
+| `EVT-3-0082` | 3 | 1 | 0 | Bulbasaur | sì | producibile e verificata |
+| `EVT-3-0083` | 3 | 6 | 0 | Charizard | sì | producibile e verificata |
+| `EVT-3-0084` | 3 | 9 | 0 | Blastoise | sì | producibile e verificata |
+| `EVT-3-0085` | 3 | 25 | 0 | Pikachu (Fly) | sì | producibile e verificata |
+| `EVT-3-0086` | 3 | 65 | 0 | Alakazam | sì | producibile e verificata |
+| `EVT-3-0087` | 3 | 144 | 0 | Articuno | sì | producibile e verificata |
+| `EVT-3-0088` | 3 | 145 | 0 | Zapdos | sì | producibile e verificata |
+| `EVT-3-0089` | 3 | 146 | 0 | Moltres | sì | producibile e verificata |
+| `EVT-3-0090` | 3 | 149 | 0 | Dragonite | sì | producibile e verificata |
+| `EVT-3-0091` | 3 | 157 | 0 | Typhlosion | sì | producibile e verificata |
+| `EVT-3-0092` | 3 | 196 | 0 | Espeon | sì | producibile e verificata |
+| `EVT-3-0093` | 3 | 197 | 0 | Umbreon | sì | producibile e verificata |
+| `EVT-3-0094` | 3 | 243 | 0 | Raikou | sì | producibile e verificata |
+| `EVT-3-0095` | 3 | 244 | 0 | Entei | sì | producibile e verificata |
+| `EVT-3-0096` | 3 | 245 | 0 | Suicune | sì | producibile e verificata |
+| `EVT-3-0097` | 3 | 248 | 0 | Tyranitar | sì | producibile e verificata |
+| `EVT-3-0098` | 3 | 257 | 0 | Blaziken | sì | producibile e verificata |
+| `EVT-3-0099` | 3 | 359 | 0 | Absol | sì | producibile e verificata |
+| `EVT-3-0100` | 3 | 380 | 0 | Latias | sì | producibile e verificata |
+| `EVT-3-0101` | 3 | 381 | 0 | Latios | sì | producibile e verificata |
+| `EVT-3-0102` | 3 | 1 | 0 | Bulbasaur | sì | producibile e verificata |
+| `EVT-3-0103` | 3 | 6 | 0 | Charizard | sì | producibile e verificata |
+| `EVT-3-0104` | 3 | 9 | 0 | Blastoise | sì | producibile e verificata |
+| `EVT-3-0105` | 3 | 25 | 0 | Pikachu (No Fly) | sì | producibile e verificata |
+| `EVT-3-0106` | 3 | 65 | 0 | Alakazam | sì | producibile e verificata |
+| `EVT-3-0107` | 3 | 144 | 0 | Articuno | sì | producibile e verificata |
+| `EVT-3-0108` | 3 | 145 | 0 | Zapdos | sì | producibile e verificata |
+| `EVT-3-0109` | 3 | 146 | 0 | Moltres | sì | producibile e verificata |
+| `EVT-3-0110` | 3 | 149 | 0 | Dragonite | sì | producibile e verificata |
+| `EVT-3-0111` | 3 | 157 | 0 | Typhlosion | sì | producibile e verificata |
+| `EVT-3-0112` | 3 | 196 | 0 | Espeon | sì | producibile e verificata |
+| `EVT-3-0113` | 3 | 197 | 0 | Umbreon | sì | producibile e verificata |
+| `EVT-3-0114` | 3 | 243 | 0 | Raikou | sì | producibile e verificata |
+| `EVT-3-0115` | 3 | 244 | 0 | Entei | sì | producibile e verificata |
+| `EVT-3-0116` | 3 | 245 | 0 | Suicune | sì | producibile e verificata |
+| `EVT-3-0117` | 3 | 248 | 0 | Tyranitar | sì | producibile e verificata |
+| `EVT-3-0118` | 3 | 251 | 0 | Celebi | sì | producibile e verificata |
+| `EVT-3-0119` | 3 | 257 | 0 | Blaziken | sì | producibile e verificata |
+| `EVT-3-0120` | 3 | 359 | 0 | Absol | sì | producibile e verificata |
+| `EVT-3-0121` | 3 | 380 | 0 | Latias | sì | producibile e verificata |
+| `EVT-3-0122` | 3 | 381 | 0 | Latios | sì | producibile e verificata |
+| `EVT-3-0123` | 3 | 172 | 0 | Pichu with Teeter Dance | sì | producibile e verificata |
+| `EVT-3-0124` | 3 | 172 | 0 | Pichu with Wish | sì | producibile e verificata |
+| `EVT-3-0125` | 3 | 172 | 0 | Pichu with Teeter Dance | sì | producibile e verificata |
+| `EVT-3-0126` | 3 | 172 | 0 | Pichu with Wish | sì | producibile e verificata |
+| `EVT-3-0127` | 3 | 280 | 0 | Ralts with Charm | sì | producibile e verificata |
+| `EVT-3-0128` | 3 | 280 | 0 | Ralts with Wish | sì | producibile e verificata |
+| `EVT-3-0129` | 3 | 359 | 0 | Absol with Spite | sì | producibile e verificata |
+| `EVT-3-0130` | 3 | 359 | 0 | Absol with Wish | sì | producibile e verificata |
+| `EVT-3-0131` | 3 | 371 | 0 | Bagon with Iron Defense | sì | producibile e verificata |
+| `EVT-3-0132` | 3 | 371 | 0 | Bagon with Wish | sì | producibile e verificata |
+| `EVT-3-0133` | 3 | 43 | 0 | Oddish with Leech Seed | sì | producibile e verificata |
+| `EVT-3-0134` | 3 | 52 | 0 | Meowth with Petal Dance | sì | producibile e verificata |
+| `EVT-3-0135` | 3 | 60 | 0 | Poliwag with Sweet Kiss | sì | producibile e verificata |
+| `EVT-3-0136` | 3 | 69 | 0 | Bellsprout with Teeter Dance | sì | producibile e verificata |
+| `EVT-3-0137` | 3 | 83 | 0 | Farfetch'd with Wish & Yawn | sì | producibile e verificata |
+| `EVT-3-0138` | 3 | 96 | 0 | Drowzee with Wish & Belly Drum | sì | producibile e verificata |
+| `EVT-3-0139` | 3 | 102 | 0 | Exeggcute with Wish & Sweet Scent | sì | producibile e verificata |
+| `EVT-3-0140` | 3 | 108 | 0 | Lickitung with Wish & Heal Bell | sì | producibile e verificata |
+| `EVT-3-0141` | 3 | 113 | 0 | Chansey with Wish & Sweet Scent | sì | producibile e verificata |
+| `EVT-3-0142` | 3 | 115 | 0 | Kangaskhan with Wish & Yawn | sì | producibile e verificata |
+| `EVT-3-0143` | 3 | 54 | 0 | Psyduck with Mud Sport | sì | producibile e verificata |
+| `EVT-3-0144` | 3 | 172 | 0 | Pichu with Follow me | sì | producibile e verificata |
+| `EVT-3-0145` | 3 | 174 | 0 | Igglybuff with Tickle | sì | producibile e verificata |
+| `EVT-3-0146` | 3 | 222 | 0 | Corsola with Mud Sport | sì | producibile e verificata |
+| `EVT-3-0147` | 3 | 276 | 0 | Taillow with Feather Dance | sì | producibile e verificata |
+| `EVT-3-0148` | 3 | 283 | 0 | Surskit with Mud Sport | sì | producibile e verificata |
+| `EVT-3-0149` | 3 | 293 | 0 | Whismur with Teeter Dance | sì | producibile e verificata |
+| `EVT-3-0150` | 3 | 300 | 0 | Skitty with Rollout | sì | producibile e verificata |
+| `EVT-3-0151` | 3 | 311 | 0 | Plusle with Water Sport | sì | producibile e verificata |
+| `EVT-3-0152` | 3 | 312 | 0 | Minun with Mud Sport | sì | producibile e verificata |
+| `EVT-3-0153` | 3 | 325 | 0 | Spoink with Uproar | sì | producibile e verificata |
+| `EVT-3-0154` | 3 | 327 | 0 | Spinda with Sing | sì | producibile e verificata |
+| `EVT-3-0155` | 3 | 331 | 0 | Cacnea with Encore | sì | producibile e verificata |
+| `EVT-3-0156` | 3 | 341 | 0 | Corphish with Water Sport | sì | producibile e verificata |
+| `EVT-3-0157` | 3 | 360 | 0 | Wynaut with Tickle | sì | producibile e verificata |
+| `EVT-3-0158` | 3 | 54 | 0 | Psyduck with Mud Sport | sì | producibile e verificata |
+| `EVT-3-0159` | 3 | 172 | 0 | Pichu with Follow Me | sì | producibile e verificata |
+| `EVT-3-0160` | 3 | 174 | 0 | Igglybuff with Tickle | sì | producibile e verificata |
+| `EVT-3-0161` | 3 | 222 | 0 | Corsola with Mud Sport | sì | producibile e verificata |
+| `EVT-3-0162` | 3 | 276 | 0 | Taillow with Feather Dance | sì | producibile e verificata |
+| `EVT-3-0163` | 3 | 283 | 0 | Surskit with Mud Sport | sì | producibile e verificata |
+| `EVT-3-0164` | 3 | 293 | 0 | Whismur with Teeter Dance | sì | producibile e verificata |
+| `EVT-3-0165` | 3 | 300 | 0 | Skitty with Rollout | sì | producibile e verificata |
+| `EVT-3-0166` | 3 | 311 | 0 | Plusle with Water Sport | sì | producibile e verificata |
+| `EVT-3-0167` | 3 | 312 | 0 | Minun with Mud Sport | sì | producibile e verificata |
+| `EVT-3-0168` | 3 | 325 | 0 | Spoink with Uproar | sì | producibile e verificata |
+| `EVT-3-0169` | 3 | 327 | 0 | Spinda with Sing | sì | producibile e verificata |
+| `EVT-3-0170` | 3 | 331 | 0 | Cacnea with Encore | sì | producibile e verificata |
+| `EVT-3-0171` | 3 | 341 | 0 | Corphish with Water Sport | sì | producibile e verificata |
+| `EVT-3-0172` | 3 | 360 | 0 | Wynaut with Tickle | sì | producibile e verificata |
+| `EVT-4-0000` | 4 | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0001` | 4 | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0002` | 4 | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0003` | 4 | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0004` | 4 | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0005` | 4 | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0006` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0007` | 4 | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0008` | 4 | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0009` | 4 | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0010` | 4 | 149 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0011` | 4 | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0012` | 4 | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0013` | 4 | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0014` | 4 | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0018` | 4 | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0019` | 4 | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0020` | 4 | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0022` | 4 | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0023` | 4 | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0024` | 4 | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0025` | 4 | 447 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0026` | 4 | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0027` | 4 | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0028` | 4 | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0029` | 4 | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0032` | 4 | 133 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0033` | 4 | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0035` | 4 | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0036` | 4 | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0037` | 4 | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0038` | 4 | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0039` | 4 | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0040` | 4 | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0041` | 4 | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0042` | 4 | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0043` | 4 | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0044` | 4 | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0045` | 4 | 169 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0046` | 4 | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0047` | 4 | 466 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0048` | 4 | 467 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0049` | 4 | 448 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0050` | 4 | 350 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0051` | 4 | 350 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0052` | 4 | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0053` | 4 | 461 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0054` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0055` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0056` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0057` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0058` | 4 | 485 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0059` | 4 | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0060` | 4 | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0061` | 4 | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0064` | 4 | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0066` | 4 | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0067` | 4 | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0068` | 4 | 447 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0069` | 4 | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0072` | 4 | 133 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0073` | 4 | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0075` | 4 | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0076` | 4 | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0077` | 4 | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0078` | 4 | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0079` | 4 | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0080` | 4 | 466 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0081` | 4 | 467 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0082` | 4 | 350 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0083` | 4 | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0084` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0085` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0086` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0087` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0088` | 4 | 485 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0089` | 4 | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0090` | 4 | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0091` | 4 | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0092` | 4 | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0095` | 4 | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0097` | 4 | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0098` | 4 | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0099` | 4 | 447 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0100` | 4 | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0103` | 4 | 133 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0104` | 4 | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0106` | 4 | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0107` | 4 | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0108` | 4 | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0109` | 4 | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0110` | 4 | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0111` | 4 | 466 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0112` | 4 | 467 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0113` | 4 | 350 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0114` | 4 | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0115` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0116` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0117` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0118` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0119` | 4 | 485 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0120` | 4 | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0121` | 4 | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0122` | 4 | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0125` | 4 | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0127` | 4 | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0128` | 4 | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0129` | 4 | 447 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0130` | 4 | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0133` | 4 | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0135` | 4 | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0136` | 4 | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0137` | 4 | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0138` | 4 | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0139` | 4 | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0140` | 4 | 466 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0141` | 4 | 467 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0142` | 4 | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0143` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0144` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0145` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0146` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0147` | 4 | 485 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0148` | 4 | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0149` | 4 | 289 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0150` | 4 | 224 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0151` | 4 | 330 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0152` | 4 | 52 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0153` | 4 | 376 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0154` | 4 | 441 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0155` | 4 | 125 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0156` | 4 | 126 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0157` | 4 | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0158` | 4 | 357 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0159` | 4 | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0160` | 4 | 340 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0161` | 4 | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0162` | 4 | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0163` | 4 | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0164` | 4 | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0165` | 4 | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0166` | 4 | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0167` | 4 | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0168` | 4 | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0169` | 4 | 448 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0171` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0172` | 4 | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0173` | 4 | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0174` | 4 | 4 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0175` | 4 | 224 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0176` | 4 | 466 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0177` | 4 | 467 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0178` | 4 | 350 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0179` | 4 | 149 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0180` | 4 | 373 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0181` | 4 | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0182` | 4 | 447 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0183` | 4 | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0184` | 4 | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0185` | 4 | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0186` | 4 | 4 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0187` | 4 | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0188` | 4 | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0189` | 4 | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0190` | 4 | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0191` | 4 | 350 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0193` | 4 | 133 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0194` | 4 | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0195` | 4 | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0196` | 4 | 52 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0199` | 4 | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0200` | 4 | 4 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0202` | 4 | 390 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0203` | 4 | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0205` | 4 | 133 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0206` | 4 | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0207` | 4 | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0210` | 4 | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0211` | 4 | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0213` | 4 | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0214` | 4 | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0215` | 4 | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0216` | 4 | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0217` | 4 | 212 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0219` | 4 | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0220` | 4 | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0221` | 4 | 4 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0222` | 4 | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0223` | 4 | 390 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0224` | 4 | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0226` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0227` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0228` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0229` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0230` | 4 | 485 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0231` | 4 | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0232` | 4 | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0233` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0234` | 4 | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0235` | 4 | 384 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0236` | 4 | 466 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0237` | 4 | 467 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0238` | 4 | 465 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0239` | 4 | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0240` | 4 | 59 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0241` | 4 | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0242` | 4 | 446 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0243` | 4 | 349 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0244` | 4 | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0245` | 4 | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0248` | 4 | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0249` | 4 | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0250` | 4 | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0253` | 4 | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0256` | 4 | 350 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0257` | 4 | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0258` | 4 | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0259` | 4 | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0260` | 4 | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0261` | 4 | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0262` | 4 | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0263` | 4 | 212 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0265` | 4 | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0266` | 4 | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0267` | 4 | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0268` | 4 | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0271` | 4 | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0273` | 4 | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0274` | 4 | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0275` | 4 | 447 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0276` | 4 | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0279` | 4 | 133 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0280` | 4 | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0282` | 4 | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0283` | 4 | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0284` | 4 | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0285` | 4 | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0286` | 4 | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0287` | 4 | 466 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0288` | 4 | 467 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0289` | 4 | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0290` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0291` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0292` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0293` | 4 | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0294` | 4 | 485 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-4-0295` | 4 | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | letta, non ancora producibile |
+| `EVT-5-0000` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0001` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0002` | 5 | 491 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0003` | 5 | 491 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0004` | 5 | 610 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0005` | 5 | 511 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0006` | 5 | 519 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0007` | 5 | 571 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0008` | 5 | 571 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0009` | 5 | 494 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0010` | 5 | 644 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0011` | 5 | 644 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0012` | 5 | 643 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0013` | 5 | 643 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0014` | 5 | 560 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0015` | 5 | 150 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0016` | 5 | 246 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0017` | 5 | 647 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0018` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0019` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0020` | 5 | 649 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0021` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0022` | 5 | 647 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0023` | 5 | 648 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0024` | 5 | 91 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0025` | 5 | 272 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0026` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0027` | 5 | 386 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0028` | 5 | 150 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0029` | 5 | 483 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0030` | 5 | 483 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0031` | 5 | 484 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0032` | 5 | 484 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0033` | 5 | 487 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0034` | 5 | 487 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0035` | 5 | 235 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0037` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0038` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0039` | 5 | 491 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0040` | 5 | 571 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0041` | 5 | 571 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0042` | 5 | 494 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0043` | 5 | 644 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0044` | 5 | 643 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0045` | 5 | 560 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0046` | 5 | 150 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0047` | 5 | 246 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0048` | 5 | 647 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0049` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0050` | 5 | 649 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0051` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0052` | 5 | 647 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0053` | 5 | 648 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0054` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0055` | 5 | 386 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0056` | 5 | 483 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0057` | 5 | 484 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0058` | 5 | 487 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0059` | 5 | 235 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0061` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0062` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0063` | 5 | 491 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0064` | 5 | 571 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0065` | 5 | 494 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0066` | 5 | 644 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0067` | 5 | 643 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0068` | 5 | 560 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0069` | 5 | 150 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0070` | 5 | 246 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0071` | 5 | 647 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0072` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0073` | 5 | 649 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0074` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0075` | 5 | 647 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0076` | 5 | 648 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0077` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0078` | 5 | 386 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0079` | 5 | 483 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0080` | 5 | 484 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0081` | 5 | 487 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0082` | 5 | 235 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0084` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0085` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0086` | 5 | 491 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0087` | 5 | 571 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0088` | 5 | 494 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0089` | 5 | 644 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0090` | 5 | 643 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0091` | 5 | 560 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0092` | 5 | 150 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0093` | 5 | 246 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0094` | 5 | 647 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0095` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0096` | 5 | 649 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0097` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0098` | 5 | 52 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0099` | 5 | 647 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0100` | 5 | 648 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0101` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0102` | 5 | 386 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0103` | 5 | 483 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0104` | 5 | 484 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0105` | 5 | 487 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0106` | 5 | 235 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0108` | 5 | 613 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0109` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0110` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0111` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0112` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0113` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0114` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0115` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0116` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0117` | 5 | 531 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0118` | 5 | 531 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0119` | 5 | 531 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0120` | 5 | 531 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0121` | 5 | 531 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0122` | 5 | 531 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0123` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0124` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0125` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0126` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0127` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0128` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0129` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0130` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0131` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0132` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0133` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0134` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0135` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0136` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0137` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0138` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0139` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0140` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0141` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0142` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0143` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0144` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0145` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0146` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0147` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0148` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0149` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0150` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0151` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0152` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0153` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0154` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0155` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0156` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0157` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0158` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0159` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0160` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0161` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0162` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0163` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0164` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0165` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0166` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0167` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0168` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0169` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0170` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0171` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0172` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0173` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0174` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0175` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0176` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0177` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0178` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0179` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0180` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0181` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0182` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0183` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0184` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0185` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0186` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0187` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0188` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0189` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0190` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0191` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0192` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0193` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0194` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0195` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0196` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0197` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0198` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0199` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0200` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0201` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0202` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0203` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0204` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0205` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0206` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0207` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0208` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0209` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0210` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0211` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0212` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0213` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0214` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0215` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0216` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0217` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0218` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0219` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0220` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0221` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0222` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0223` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0224` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0225` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0226` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0227` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0228` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0229` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0230` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0231` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0232` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0233` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0234` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0235` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0236` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0237` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0238` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0239` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0240` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0241` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0242` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0243` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0244` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0245` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0246` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0247` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0248` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0249` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0250` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0251` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0252` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0253` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0254` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0255` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0256` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0257` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0258` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0259` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0260` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0261` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0262` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0263` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0264` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0265` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0266` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0267` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0268` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0269` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0270` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0271` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0272` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0273` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0274` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0275` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0276` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0277` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0278` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0279` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0280` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0281` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0282` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0283` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0284` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0285` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0286` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0287` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0288` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0289` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0290` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0291` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0292` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0293` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0294` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0295` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0296` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0297` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0298` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0299` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0300` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0301` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0302` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0303` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0304` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0305` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0306` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0307` | 5 | 125 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0308` | 5 | 93 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0309` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0310` | 5 | 67 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0311` | 5 | 126 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0312` | 5 | 123 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0313` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0314` | 5 | 79 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0315` | 5 | 491 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0316` | 5 | 491 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0317` | 5 | 610 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0318` | 5 | 511 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0319` | 5 | 519 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0320` | 5 | 571 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0321` | 5 | 559 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0322` | 5 | 494 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0323` | 5 | 644 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0324` | 5 | 643 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0325` | 5 | 610 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0326` | 5 | 635 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0327` | 5 | 623 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0328` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0329` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0330` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0331` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0332` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0333` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0334` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0335` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0336` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0337` | 5 | 150 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0338` | 5 | 495 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0339` | 5 | 531 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0340` | 5 | 531 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0341` | 5 | 531 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0342` | 5 | 531 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0343` | 5 | 531 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0344` | 5 | 531 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0345` | 5 | 531 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0346` | 5 | 642 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0347` | 5 | 641 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0349` | 5 | 492 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0350` | 5 | 371 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0351` | 5 | 633 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0352` | 5 | 621 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0353` | 5 | 116 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0354` | 5 | 333 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0355` | 5 | 328 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0356` | 5 | 371 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0357` | 5 | 633 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0358` | 5 | 621 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0359` | 5 | 116 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0360` | 5 | 333 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0361` | 5 | 328 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0362` | 5 | 371 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0363` | 5 | 633 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0364` | 5 | 621 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0365` | 5 | 116 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0366` | 5 | 333 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0367` | 5 | 328 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0368` | 5 | 371 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0369` | 5 | 633 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0370` | 5 | 621 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0371` | 5 | 116 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0372` | 5 | 333 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0373` | 5 | 328 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0374` | 5 | 384 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0375` | 5 | 384 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0376` | 5 | 257 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0377` | 5 | 254 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0378` | 5 | 260 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0379` | 5 | 272 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0380` | 5 | 350 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0381` | 5 | 365 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0382` | 5 | 282 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0383` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0384` | 5 | 373 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0385` | 5 | 383 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0386` | 5 | 382 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0387` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0389` | 5 | 647 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0390` | 5 | 648 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0391` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0392` | 5 | 257 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0393` | 5 | 254 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0394` | 5 | 260 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0395` | 5 | 272 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0396` | 5 | 350 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0397` | 5 | 365 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0398` | 5 | 282 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0399` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0400` | 5 | 373 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0401` | 5 | 257 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0402` | 5 | 254 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0403` | 5 | 260 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0404` | 5 | 272 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0405` | 5 | 350 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0406` | 5 | 365 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0407` | 5 | 282 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0408` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0409` | 5 | 373 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0410` | 5 | 257 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0411` | 5 | 254 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0412` | 5 | 260 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0413` | 5 | 272 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0414` | 5 | 350 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0415` | 5 | 365 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0416` | 5 | 282 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0417` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0418` | 5 | 373 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0419` | 5 | 257 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0420` | 5 | 254 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0421` | 5 | 260 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0422` | 5 | 272 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0423` | 5 | 350 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0424` | 5 | 365 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0425` | 5 | 282 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0426` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0427` | 5 | 373 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0428` | 5 | 257 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0429` | 5 | 254 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0430` | 5 | 260 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0431` | 5 | 272 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0432` | 5 | 350 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0433` | 5 | 365 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0434` | 5 | 282 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0435` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0436` | 5 | 373 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0437` | 5 | 257 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0438` | 5 | 254 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0439` | 5 | 260 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0440` | 5 | 272 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0441` | 5 | 350 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0442` | 5 | 365 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0443` | 5 | 282 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0444` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0445` | 5 | 373 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0446` | 5 | 257 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0447` | 5 | 254 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0448` | 5 | 260 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0449` | 5 | 272 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0450` | 5 | 350 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0451` | 5 | 365 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0452` | 5 | 282 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0453` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0454` | 5 | 373 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0455` | 5 | 393 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0456` | 5 | 1 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0457` | 5 | 4 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0458` | 5 | 7 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0459` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0460` | 5 | 393 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0461` | 5 | 142 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0462` | 5 | 347 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0463` | 5 | 566 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0464` | 5 | 408 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0465` | 5 | 140 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0466` | 5 | 345 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0467` | 5 | 138 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0468` | 5 | 410 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0469` | 5 | 564 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0470` | 5 | 649 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0471` | 5 | 38 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0472` | 5 | 609 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0473` | 5 | 547 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0474` | 5 | 448 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0475` | 5 | 149 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0476` | 5 | 445 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0477` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0478` | 5 | 212 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0479` | 5 | 248 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0480` | 5 | 149 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0481` | 5 | 445 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0482` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0483` | 5 | 212 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0484` | 5 | 248 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0485` | 5 | 149 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0486` | 5 | 445 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0487` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0488` | 5 | 212 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0489` | 5 | 248 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0490` | 5 | 149 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0491` | 5 | 445 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0492` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0493` | 5 | 212 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0494` | 5 | 248 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0495` | 5 | 149 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0496` | 5 | 445 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0497` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0498` | 5 | 212 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0499` | 5 | 248 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0500` | 5 | 149 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0501` | 5 | 445 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0502` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0503` | 5 | 212 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0504` | 5 | 248 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0505` | 5 | 149 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0506` | 5 | 445 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0507` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0508` | 5 | 212 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0509` | 5 | 248 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0510` | 5 | 383 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0511` | 5 | 382 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0512` | 5 | 52 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0513` | 5 | 531 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0514` | 5 | 531 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0515` | 5 | 531 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0516` | 5 | 531 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0517` | 5 | 531 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0518` | 5 | 531 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0519` | 5 | 531 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0520` | 5 | 494 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0521` | 5 | 386 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0522` | 5 | 649 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0523` | 5 | 386 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0524` | 5 | 129 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0525` | 5 | 150 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0526` | 5 | 649 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0527` | 5 | 385 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0528` | 5 | 133 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0529` | 5 | 395 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0530` | 5 | 497 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0531` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0532` | 5 | 389 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0533` | 5 | 392 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0534` | 5 | 500 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0535` | 5 | 503 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0536` | 5 | 503 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0537` | 5 | 392 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0538` | 5 | 500 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0539` | 5 | 395 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0540` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0541` | 5 | 497 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0542` | 5 | 389 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0543` | 5 | 133 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0544` | 5 | 385 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0545` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0546` | 5 | 612 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0547` | 5 | 637 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0548` | 5 | 18 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0549` | 5 | 442 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0550` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0551` | 5 | 350 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0552` | 5 | 149 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0553` | 5 | 612 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0554` | 5 | 637 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0555` | 5 | 18 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0556` | 5 | 442 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0557` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0558` | 5 | 350 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0559` | 5 | 149 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0560` | 5 | 610 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0561` | 5 | 479 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0562` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0563` | 5 | 511 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0564` | 5 | 610 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0565` | 5 | 479 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0566` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0567` | 5 | 511 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0568` | 5 | 610 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0569` | 5 | 479 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0570` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0571` | 5 | 511 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0572` | 5 | 610 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0573` | 5 | 479 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0574` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0575` | 5 | 511 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0576` | 5 | 302 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0577` | 5 | 186 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0578` | 5 | 230 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0580` | 5 | 491 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0581` | 5 | 610 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0582` | 5 | 511 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0583` | 5 | 519 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0584` | 5 | 571 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0585` | 5 | 559 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0586` | 5 | 494 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0587` | 5 | 644 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0588` | 5 | 643 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0589` | 5 | 635 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0590` | 5 | 623 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0591` | 5 | 150 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0592` | 5 | 642 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0593` | 5 | 641 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0594` | 5 | 647 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0595` | 5 | 648 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0596` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0597` | 5 | 637 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0598` | 5 | 1 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0599` | 5 | 4 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0600` | 5 | 7 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0601` | 5 | 393 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0602` | 5 | 649 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0603` | 5 | 371 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0604` | 5 | 633 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0605` | 5 | 621 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0606` | 5 | 116 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0607` | 5 | 333 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0608` | 5 | 328 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0609` | 5 | 371 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0610` | 5 | 633 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0611` | 5 | 621 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0612` | 5 | 116 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0613` | 5 | 333 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0614` | 5 | 328 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0615` | 5 | 371 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0616` | 5 | 633 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0617` | 5 | 621 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0618` | 5 | 116 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0619` | 5 | 333 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0620` | 5 | 328 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0621` | 5 | 371 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0622` | 5 | 633 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0623` | 5 | 621 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0624` | 5 | 116 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0625` | 5 | 333 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0626` | 5 | 328 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0627` | 5 | 371 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0628` | 5 | 633 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0629` | 5 | 621 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0630` | 5 | 116 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0631` | 5 | 333 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0632` | 5 | 328 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0633` | 5 | 371 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0634` | 5 | 633 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0635` | 5 | 621 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0636` | 5 | 116 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0637` | 5 | 333 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0638` | 5 | 328 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0639` | 5 | 149 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0640` | 5 | 445 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0641` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0642` | 5 | 212 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0643` | 5 | 248 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0644` | 5 | 149 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0645` | 5 | 445 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0646` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0647` | 5 | 212 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0648` | 5 | 248 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0649` | 5 | 149 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0650` | 5 | 445 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0651` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0652` | 5 | 212 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0653` | 5 | 248 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0654` | 5 | 149 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0655` | 5 | 445 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0656` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0657` | 5 | 212 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0658` | 5 | 248 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0659` | 5 | 149 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0660` | 5 | 445 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0661` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0662` | 5 | 212 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0663` | 5 | 248 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0664` | 5 | 52 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0665` | 5 | 1 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0666` | 5 | 4 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0667` | 5 | 7 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0668` | 5 | 1 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0669` | 5 | 4 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0670` | 5 | 7 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0671` | 5 | 1 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0672` | 5 | 4 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0673` | 5 | 7 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0674` | 5 | 386 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0675` | 5 | 649 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0676` | 5 | 483 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0677` | 5 | 484 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0678` | 5 | 487 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0679` | 5 | 385 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0680` | 5 | 385 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0681` | 5 | 237 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0682` | 5 | 488 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0683` | 5 | 510 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0685` | 5 | 588 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0686` | 5 | 616 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0687` | 5 | 491 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0688` | 5 | 571 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0689` | 5 | 494 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0690` | 5 | 644 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0691` | 5 | 643 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0692` | 5 | 560 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0693` | 5 | 150 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0694` | 5 | 246 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0695` | 5 | 647 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0696` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0697` | 5 | 649 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0698` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0699` | 5 | 25 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0700` | 5 | 647 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0701` | 5 | 648 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0702` | 5 | 376 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0703` | 5 | 386 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0704` | 5 | 483 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0705` | 5 | 484 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0706` | 5 | 487 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-5-0707` | 5 | 235 | 0 | Bianco, Nero e i loro seguiti | sì | letta, non ancora producibile |
+| `EVT-6-0000` | 6 | 445 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0001` | 6 | 700 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0002` | 6 | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0003` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0004` | 6 | 392 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0005` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0006` | 6 | 150 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0007` | 6 | 151 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0008` | 6 | 721 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0009` | 6 | 473 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0010` | 6 | 681 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0011` | 6 | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0012` | 6 | 417 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0013` | 6 | 149 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0014` | 6 | 319 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0015` | 6 | 384 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0016` | 6 | 302 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0017` | 6 | 683 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0018` | 6 | 626 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0019` | 6 | 687 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0020` | 6 | 720 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0021` | 6 | 720 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0022` | 6 | 571 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0023` | 6 | 571 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0024` | 6 | 151 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0025` | 6 | 251 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0026` | 6 | 385 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0027` | 6 | 491 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0028` | 6 | 490 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0029` | 6 | 492 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0030` | 6 | 493 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0031` | 6 | 494 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0032` | 6 | 647 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0033` | 6 | 649 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0034` | 6 | 649 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0035` | 6 | 648 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0036` | 6 | 144 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0037` | 6 | 144 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0038` | 6 | 145 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0039` | 6 | 145 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0040` | 6 | 146 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0041` | 6 | 146 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0042` | 6 | 52 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0043` | 6 | 716 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0044` | 6 | 716 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0045` | 6 | 717 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0046` | 6 | 717 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0047` | 6 | 718 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0048` | 6 | 718 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0049` | 6 | 68 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0050` | 6 | 150 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0051` | 6 | 721 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0052` | 6 | 1 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0053` | 6 | 4 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0054` | 6 | 7 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0055` | 6 | 720 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0056` | 6 | 696 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0057` | 6 | 698 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0058` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0060` | 6 | 225 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0061` | 6 | 149 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0062` | 6 | 241 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0063` | 6 | 445 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0064` | 6 | 555 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0065` | 6 | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0066` | 6 | 384 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0067` | 6 | 302 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0068` | 6 | 683 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0069` | 6 | 626 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0070` | 6 | 687 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0071` | 6 | 720 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0072` | 6 | 720 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0073` | 6 | 571 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0074` | 6 | 571 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0075` | 6 | 151 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0076` | 6 | 251 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0077` | 6 | 385 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0078` | 6 | 491 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0079` | 6 | 490 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0080` | 6 | 492 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0081` | 6 | 493 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0082` | 6 | 494 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0083` | 6 | 647 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0084` | 6 | 649 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0085` | 6 | 649 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0086` | 6 | 648 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0087` | 6 | 144 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0088` | 6 | 144 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0089` | 6 | 145 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0090` | 6 | 145 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0091` | 6 | 146 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0092` | 6 | 146 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0093` | 6 | 52 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0094` | 6 | 716 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0095` | 6 | 716 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0096` | 6 | 717 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0097` | 6 | 717 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0098` | 6 | 718 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0099` | 6 | 718 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0100` | 6 | 150 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0101` | 6 | 721 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0102` | 6 | 720 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0103` | 6 | 696 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0104` | 6 | 698 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0105` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0107` | 6 | 225 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0108` | 6 | 149 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0109` | 6 | 241 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0110` | 6 | 445 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0111` | 6 | 555 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0112` | 6 | 473 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0113` | 6 | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0114` | 6 | 384 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0115` | 6 | 302 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0116` | 6 | 683 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0117` | 6 | 626 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0118` | 6 | 687 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0119` | 6 | 720 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0120` | 6 | 571 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0121` | 6 | 151 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0122` | 6 | 251 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0123` | 6 | 385 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0124` | 6 | 491 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0125` | 6 | 490 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0126` | 6 | 492 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0127` | 6 | 493 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0128` | 6 | 494 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0129` | 6 | 647 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0130` | 6 | 649 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0131` | 6 | 648 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0132` | 6 | 144 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0133` | 6 | 145 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0134` | 6 | 146 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0135` | 6 | 52 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0136` | 6 | 716 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0137` | 6 | 717 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0138` | 6 | 718 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0139` | 6 | 150 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0140` | 6 | 721 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0141` | 6 | 696 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0142` | 6 | 698 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0143` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0145` | 6 | 225 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0146` | 6 | 149 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0147` | 6 | 241 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0148` | 6 | 445 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0149` | 6 | 555 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0150` | 6 | 473 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0151` | 6 | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0152` | 6 | 384 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0153` | 6 | 302 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0154` | 6 | 683 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0155` | 6 | 626 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0156` | 6 | 687 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0157` | 6 | 720 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0158` | 6 | 571 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0159` | 6 | 151 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0160` | 6 | 251 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0161` | 6 | 385 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0162` | 6 | 491 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0163` | 6 | 490 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0164` | 6 | 492 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0165` | 6 | 493 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0166` | 6 | 494 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0167` | 6 | 647 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0168` | 6 | 649 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0169` | 6 | 648 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0170` | 6 | 144 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0171` | 6 | 145 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0172` | 6 | 146 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0173` | 6 | 52 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0174` | 6 | 716 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0175` | 6 | 717 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0176` | 6 | 718 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0177` | 6 | 150 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0178` | 6 | 721 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0179` | 6 | 696 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0180` | 6 | 698 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0181` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0183` | 6 | 225 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0184` | 6 | 149 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0185` | 6 | 241 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0186` | 6 | 445 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0187` | 6 | 555 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0188` | 6 | 133 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0189` | 6 | 196 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0190` | 6 | 136 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0191` | 6 | 471 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0192` | 6 | 135 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0193` | 6 | 470 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0194` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0195` | 6 | 700 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0196` | 6 | 197 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0197` | 6 | 134 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0198` | 6 | 445 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0199` | 6 | 686 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0200` | 6 | 202 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0202` | 6 | 93 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0203` | 6 | 123 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0205` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0206` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0207` | 6 | 212 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0208` | 6 | 212 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0209` | 6 | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0210` | 6 | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0211` | 6 | 491 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0212` | 6 | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0213` | 6 | 130 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0214` | 6 | 212 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0215` | 6 | 115 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0216` | 6 | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0217` | 6 | 248 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0218` | 6 | 303 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0219` | 6 | 130 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0220` | 6 | 115 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0221` | 6 | 212 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0222` | 6 | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0223` | 6 | 303 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0224` | 6 | 248 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0225` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0226` | 6 | 385 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0227` | 6 | 666 | 19 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0228` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0229` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0230` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0231` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0232` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0233` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0234` | 6 | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0235` | 6 | 479 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0236` | 6 | 133 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0237` | 6 | 196 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0238` | 6 | 136 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0239` | 6 | 471 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0240` | 6 | 135 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0241` | 6 | 470 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0242` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0243` | 6 | 700 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0244` | 6 | 197 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0245` | 6 | 134 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0246` | 6 | 385 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0247` | 6 | 264 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0248` | 6 | 385 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0249` | 6 | 1 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0250` | 6 | 4 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0251` | 6 | 7 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0252` | 6 | 716 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0253` | 6 | 717 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0254` | 6 | 718 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0255` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0256` | 6 | 68 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0257` | 6 | 235 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0258` | 6 | 571 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0259` | 6 | 133 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0260` | 6 | 196 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0261` | 6 | 136 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0262` | 6 | 471 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0263` | 6 | 135 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0264` | 6 | 470 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0265` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0266` | 6 | 700 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0267` | 6 | 197 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0268` | 6 | 134 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0269` | 6 | 152 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0270` | 6 | 155 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0271` | 6 | 158 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0272` | 6 | 151 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0273` | 6 | 666 | 19 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0274` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0275` | 6 | 133 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0276` | 6 | 144 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0277` | 6 | 145 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0278` | 6 | 146 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0281` | 6 | 3 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0282` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0283` | 6 | 9 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0284` | 6 | 150 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0287` | 6 | 721 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0288` | 6 | 658 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0289` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0290` | 6 | 250 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0291` | 6 | 54 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0292` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0293` | 6 | 645 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0294` | 6 | 282 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0295` | 6 | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0296` | 6 | 384 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0297` | 6 | 385 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0298` | 6 | 385 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0299` | 6 | 514 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0300` | 6 | 31 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0301` | 6 | 323 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0302` | 6 | 319 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0303` | 6 | 461 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0304` | 6 | 635 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0305` | 6 | 668 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0306` | 6 | 133 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0307` | 6 | 196 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0308` | 6 | 136 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0309` | 6 | 471 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0310` | 6 | 135 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0311` | 6 | 470 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0312` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0313` | 6 | 700 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0314` | 6 | 197 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0315` | 6 | 134 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0316` | 6 | 497 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0317` | 6 | 500 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0318` | 6 | 503 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0319` | 6 | 696 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0320` | 6 | 698 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0321` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0323` | 6 | 225 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0324` | 6 | 149 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0325` | 6 | 241 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0326` | 6 | 445 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0327` | 6 | 555 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0329` | 6 | 700 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0330` | 6 | 93 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0331` | 6 | 123 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0332` | 6 | 445 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0334` | 6 | 179 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0336` | 6 | 716 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0337` | 6 | 717 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0338` | 6 | 718 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0339` | 6 | 718 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0340` | 6 | 144 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0341` | 6 | 145 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0342` | 6 | 146 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0343` | 6 | 150 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0344` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0345` | 6 | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0346` | 6 | 282 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0347` | 6 | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0348` | 6 | 248 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0349` | 6 | 303 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0350` | 6 | 494 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0351` | 6 | 133 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0352` | 6 | 721 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0353` | 6 | 696 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0354` | 6 | 698 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0355` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0357` | 6 | 225 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0358` | 6 | 149 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0359` | 6 | 241 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0360` | 6 | 445 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0361` | 6 | 555 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0363` | 6 | 362 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0364` | 6 | 362 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0365` | 6 | 208 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0366` | 6 | 362 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0367` | 6 | 251 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0368` | 6 | 160 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0369` | 6 | 154 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0370` | 6 | 157 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0371` | 6 | 378 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0372` | 6 | 377 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0373` | 6 | 379 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0374` | 6 | 126 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0375` | 6 | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0376` | 6 | 384 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0377` | 6 | 302 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0378` | 6 | 683 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0379` | 6 | 626 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0380` | 6 | 687 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0381` | 6 | 720 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0382` | 6 | 720 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0383` | 6 | 571 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0384` | 6 | 571 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0385` | 6 | 151 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0386` | 6 | 251 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0387` | 6 | 385 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0388` | 6 | 491 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0389` | 6 | 490 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0390` | 6 | 492 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0391` | 6 | 493 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0392` | 6 | 494 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0393` | 6 | 647 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0394` | 6 | 649 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0395` | 6 | 649 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0396` | 6 | 648 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0397` | 6 | 144 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0398` | 6 | 144 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0399` | 6 | 145 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0400` | 6 | 145 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0401` | 6 | 146 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0402` | 6 | 146 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0403` | 6 | 52 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0404` | 6 | 716 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0405` | 6 | 716 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0406` | 6 | 717 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0407` | 6 | 717 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0408` | 6 | 718 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0409` | 6 | 718 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0410` | 6 | 150 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0411` | 6 | 721 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0412` | 6 | 720 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0413` | 6 | 696 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0414` | 6 | 698 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0415` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0417` | 6 | 225 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0418` | 6 | 149 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0419` | 6 | 241 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0420` | 6 | 445 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0421` | 6 | 555 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0000` | 6 | 445 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0001` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0002` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0003` | 6 | 491 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0004` | 6 | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0005` | 6 | 115 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0006` | 6 | 384 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0007` | 6 | 720 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0008` | 6 | 384 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0009` | 6 | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0010` | 6 | 385 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0011` | 6 | 493 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0012` | 6 | 445 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0013` | 6 | 212 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0014` | 6 | 126 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0015` | 6 | 126 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0016` | 6 | 125 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0017` | 6 | 666 | 19 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0018` | 6 | 666 | 19 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0019` | 6 | 214 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0020` | 6 | 127 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0021` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0022` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0025` | 6 | 710 | 3 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0026` | 6 | 710 | 3 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0027` | 6 | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0028` | 6 | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0029` | 6 | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0030` | 6 | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0035` | 6 | 491 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0036` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0037` | 6 | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0038` | 6 | 255 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0040` | 6 | 666 | 18 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0041` | 6 | 666 | 18 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0042` | 6 | 374 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0043` | 6 | 497 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0044` | 6 | 497 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0045` | 6 | 500 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0046` | 6 | 500 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0047` | 6 | 503 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0048` | 6 | 503 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0050` | 6 | 126 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0051` | 6 | 125 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0052` | 6 | 666 | 19 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0053` | 6 | 666 | 19 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0054` | 6 | 666 | 19 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0055` | 6 | 214 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0056` | 6 | 127 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0059` | 6 | 710 | 3 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0060` | 6 | 710 | 3 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0061` | 6 | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0062` | 6 | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0063` | 6 | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0064` | 6 | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0068` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0069` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0070` | 6 | 149 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0071` | 6 | 149 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0072` | 6 | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0073` | 6 | 255 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0074` | 6 | 666 | 18 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0075` | 6 | 666 | 18 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0076` | 6 | 374 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0077` | 6 | 497 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0078` | 6 | 497 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0079` | 6 | 500 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0080` | 6 | 500 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0081` | 6 | 503 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0082` | 6 | 503 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0084` | 6 | 126 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0085` | 6 | 126 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0086` | 6 | 125 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0087` | 6 | 666 | 19 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0088` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0089` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0090` | 6 | 710 | 3 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0091` | 6 | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0092` | 6 | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0093` | 6 | 417 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0094` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0095` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0096` | 6 | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0097` | 6 | 68 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0098` | 6 | 255 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0099` | 6 | 666 | 18 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0100` | 6 | 374 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0101` | 6 | 497 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0102` | 6 | 497 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0103` | 6 | 500 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0104` | 6 | 500 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0105` | 6 | 503 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0106` | 6 | 503 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0108` | 6 | 126 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0109` | 6 | 125 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0110` | 6 | 666 | 19 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0111` | 6 | 202 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0112` | 6 | 710 | 3 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0113` | 6 | 710 | 3 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0114` | 6 | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0115` | 6 | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0116` | 6 | 417 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0117` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0118` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0119` | 6 | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0120` | 6 | 68 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0121` | 6 | 255 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0122` | 6 | 666 | 18 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0123` | 6 | 666 | 18 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0124` | 6 | 374 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0125` | 6 | 497 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0126` | 6 | 497 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0127` | 6 | 500 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0128` | 6 | 500 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0129` | 6 | 503 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0130` | 6 | 503 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0133` | 6 | 492 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0134` | 6 | 647 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0135` | 6 | 494 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0144` | 6 | 658 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0145` | 6 | 393 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0146` | 6 | 393 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0147` | 6 | 656 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0148` | 6 | 656 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0149` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0150` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0151` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0152` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0153` | 6 | 371 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0154` | 6 | 371 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0155` | 6 | 318 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0156` | 6 | 318 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0157` | 6 | 322 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0158` | 6 | 322 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0159` | 6 | 280 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0160` | 6 | 280 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0161` | 6 | 333 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0162` | 6 | 333 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0163` | 6 | 371 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0164` | 6 | 371 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0165` | 6 | 318 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0166` | 6 | 318 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0167` | 6 | 322 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0168` | 6 | 322 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0169` | 6 | 280 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0170` | 6 | 280 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0171` | 6 | 333 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0172` | 6 | 333 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0173` | 6 | 371 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0174` | 6 | 371 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0175` | 6 | 318 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0176` | 6 | 318 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0177` | 6 | 322 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0178` | 6 | 322 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0179` | 6 | 280 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0180` | 6 | 280 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0181` | 6 | 333 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0182` | 6 | 333 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0183` | 6 | 371 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0184` | 6 | 371 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0185` | 6 | 318 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0186` | 6 | 318 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0187` | 6 | 322 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0188` | 6 | 322 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0189` | 6 | 280 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0190` | 6 | 280 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0191` | 6 | 333 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0192` | 6 | 333 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0193` | 6 | 371 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0194` | 6 | 371 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0195` | 6 | 318 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0196` | 6 | 318 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0197` | 6 | 322 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0198` | 6 | 322 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0199` | 6 | 280 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0200` | 6 | 280 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0201` | 6 | 333 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0202` | 6 | 333 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0203` | 6 | 371 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0204` | 6 | 371 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0205` | 6 | 318 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0206` | 6 | 318 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0207` | 6 | 322 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0208` | 6 | 322 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0209` | 6 | 280 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0210` | 6 | 280 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0211` | 6 | 333 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0212` | 6 | 333 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0213` | 6 | 384 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0214` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0215` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0216` | 6 | 493 | 6 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0217` | 6 | 493 | 15 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0218` | 6 | 493 | 12 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0219` | 6 | 493 | 17 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0220` | 6 | 493 | 1 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0221` | 6 | 493 | 9 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0222` | 6 | 493 | 7 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0223` | 6 | 493 | 11 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0224` | 6 | 493 | 4 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0225` | 6 | 493 | 14 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0226` | 6 | 493 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0227` | 6 | 493 | 3 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0228` | 6 | 493 | 13 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0229` | 6 | 493 | 5 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0230` | 6 | 493 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0231` | 6 | 493 | 8 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0232` | 6 | 493 | 10 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0233` | 6 | 483 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0234` | 6 | 487 | 1 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0235` | 6 | 383 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0236` | 6 | 382 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0237` | 6 | 646 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0238` | 6 | 484 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0239` | 6 | 720 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0240` | 6 | 653 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0241` | 6 | 384 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0242` | 6 | 130 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0243` | 6 | 130 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0244` | 6 | 129 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0245` | 6 | 129 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0246` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0247` | 6 | 674 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0248` | 6 | 249 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0249` | 6 | 381 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0250` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0251` | 6 | 674 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0252` | 6 | 249 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0253` | 6 | 381 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0254` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0255` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0256` | 6 | 385 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0257` | 6 | 385 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0258` | 6 | 710 | 3 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0259` | 6 | 710 | 3 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0260` | 6 | 493 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0261` | 6 | 720 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0262` | 6 | 248 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0263` | 6 | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0264` | 6 | 334 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0265` | 6 | 334 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0266` | 6 | 531 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0267` | 6 | 531 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0268` | 6 | 448 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0269` | 6 | 448 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0270` | 6 | 302 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0271` | 6 | 302 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0272` | 6 | 80 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0273` | 6 | 80 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0274` | 6 | 334 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0275` | 6 | 334 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0276` | 6 | 531 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0277` | 6 | 531 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0278` | 6 | 448 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0279` | 6 | 448 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0280` | 6 | 302 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0281` | 6 | 302 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0282` | 6 | 80 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0283` | 6 | 80 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0284` | 6 | 334 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0285` | 6 | 334 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0286` | 6 | 531 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0287` | 6 | 531 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0288` | 6 | 448 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0289` | 6 | 448 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0290` | 6 | 302 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0291` | 6 | 302 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0292` | 6 | 80 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0293` | 6 | 80 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0294` | 6 | 334 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0295` | 6 | 334 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0296` | 6 | 531 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0297` | 6 | 531 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0298` | 6 | 448 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0299` | 6 | 448 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0300` | 6 | 302 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0301` | 6 | 302 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0302` | 6 | 80 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0303` | 6 | 80 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0304` | 6 | 334 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0305` | 6 | 334 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0306` | 6 | 531 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0307` | 6 | 531 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0308` | 6 | 448 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0309` | 6 | 448 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0310` | 6 | 302 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0311` | 6 | 302 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0312` | 6 | 80 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0313` | 6 | 80 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0314` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0315` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0316` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0317` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0318` | 6 | 384 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0319` | 6 | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0320` | 6 | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0321` | 6 | 371 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0322` | 6 | 371 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0323` | 6 | 318 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0324` | 6 | 318 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0325` | 6 | 322 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0326` | 6 | 322 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0327` | 6 | 280 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0328` | 6 | 280 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0329` | 6 | 333 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0330` | 6 | 333 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0331` | 6 | 255 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0332` | 6 | 666 | 18 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0333` | 6 | 666 | 18 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0334` | 6 | 374 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0336` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0337` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0338` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0339` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0340` | 6 | 214 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0341` | 6 | 214 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0342` | 6 | 310 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0343` | 6 | 310 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0344` | 6 | 248 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0345` | 6 | 248 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0346` | 6 | 127 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0347` | 6 | 127 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0348` | 6 | 229 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0349` | 6 | 229 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0350` | 6 | 306 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0351` | 6 | 306 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0352` | 6 | 385 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0353` | 6 | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0354` | 6 | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0355` | 6 | 491 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0356` | 6 | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0357` | 6 | 417 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0358` | 6 | 647 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0359` | 6 | 492 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0360` | 6 | 264 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0361` | 6 | 264 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0362` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0363` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0364` | 6 | 417 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0365` | 6 | 384 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0366` | 6 | 490 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0367` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0368` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0369` | 6 | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0370` | 6 | 382 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0371` | 6 | 383 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0372` | 6 | 483 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0373` | 6 | 484 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0374` | 6 | 487 | 1 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0375` | 6 | 646 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0376` | 6 | 493 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0377` | 6 | 720 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0378` | 6 | 130 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0379` | 6 | 130 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0380` | 6 | 151 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0381` | 6 | 255 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0382` | 6 | 666 | 18 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0383` | 6 | 666 | 18 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0384` | 6 | 374 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0385` | 6 | 125 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0386` | 6 | 666 | 19 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0387` | 6 | 666 | 19 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0388` | 6 | 214 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0389` | 6 | 127 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0392` | 6 | 710 | 3 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0393` | 6 | 710 | 3 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0394` | 6 | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0395` | 6 | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0396` | 6 | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0397` | 6 | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0401` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0402` | 6 | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0403` | 6 | 149 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0404` | 6 | 149 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0405` | 6 | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0406` | 6 | 255 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0407` | 6 | 666 | 18 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0408` | 6 | 374 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0409` | 6 | 497 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0410` | 6 | 500 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0411` | 6 | 503 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-6-0412` | 6 | 503 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | letta, non ancora producibile |
+| `EVT-7-0001` | 7 | 129 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0002` | 7 | 785 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0003` | 7 | 773 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0005` | 7 | 25 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0006` | 7 | 802 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0007` | 7 | 802 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0008` | 7 | 25 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0009` | 7 | 25 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0011` | 7 | 745 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0012` | 7 | 758 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0013` | 7 | 785 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0014` | 7 | 6 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0015` | 7 | 59 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0016` | 7 | 103 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0017` | 7 | 802 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0018` | 7 | 25 | 6 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0019` | 7 | 25 | 2 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0020` | 7 | 25 | 5 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0021` | 7 | 25 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0022` | 7 | 25 | 3 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0023` | 7 | 25 | 4 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0025` | 7 | 773 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0026` | 7 | 251 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0027` | 7 | 251 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0030` | 7 | 483 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0031` | 7 | 484 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0032` | 7 | 483 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0033` | 7 | 484 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0034` | 7 | 243 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0035` | 7 | 244 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0036` | 7 | 243 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0037` | 7 | 244 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0038` | 7 | 485 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0039` | 7 | 486 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0040` | 7 | 485 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0041` | 7 | 486 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0042` | 7 | 716 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0043` | 7 | 717 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0044` | 7 | 716 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0045` | 7 | 717 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0046` | 7 | 718 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0047` | 7 | 718 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0048` | 7 | 641 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0049` | 7 | 642 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0050` | 7 | 641 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0051` | 7 | 642 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0052` | 7 | 383 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0053` | 7 | 382 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0054` | 7 | 383 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0055` | 7 | 382 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0056` | 7 | 381 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0057` | 7 | 380 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0058` | 7 | 381 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0059` | 7 | 380 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0060` | 7 | 643 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0061` | 7 | 644 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0062` | 7 | 643 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0063` | 7 | 644 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0064` | 7 | 250 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0065` | 7 | 249 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0066` | 7 | 250 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0067` | 7 | 249 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0068` | 7 | 553 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0069` | 7 | 803 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0070` | 7 | 807 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0071` | 7 | 648 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0072` | 7 | 423 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0073` | 7 | 142 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0074` | 7 | 791 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0075` | 7 | 792 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0076` | 7 | 446 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0099` | 7 | 744 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0100` | 7 | 744 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0103` | 7 | 778 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0104` | 7 | 25 | 2 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0105` | 7 | 25 | 3 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0106` | 7 | 25 | 4 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0107` | 7 | 25 | 5 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0108` | 7 | 25 | 6 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0109` | 7 | 786 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0110` | 7 | 787 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0111` | 7 | 788 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0113` | 7 | 785 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0114` | 7 | 517 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0118` | 7 | 745 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0119` | 7 | 758 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0120` | 7 | 785 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0121` | 7 | 6 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0122` | 7 | 802 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0123` | 7 | 25 | 6 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0124` | 7 | 25 | 2 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0125` | 7 | 25 | 5 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0126` | 7 | 25 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0127` | 7 | 25 | 3 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0128` | 7 | 25 | 4 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0130` | 7 | 773 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0131` | 7 | 251 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0132` | 7 | 251 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0135` | 7 | 483 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0136` | 7 | 484 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0137` | 7 | 483 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0138` | 7 | 484 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0139` | 7 | 243 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0140` | 7 | 244 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0141` | 7 | 243 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0142` | 7 | 244 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0143` | 7 | 485 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0144` | 7 | 486 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0145` | 7 | 485 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0146` | 7 | 486 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0147` | 7 | 716 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0148` | 7 | 717 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0149` | 7 | 716 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0150` | 7 | 717 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0151` | 7 | 718 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0152` | 7 | 718 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0153` | 7 | 641 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0154` | 7 | 642 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0155` | 7 | 641 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0156` | 7 | 642 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0157` | 7 | 383 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0158` | 7 | 382 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0159` | 7 | 383 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0160` | 7 | 382 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0161` | 7 | 381 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0162` | 7 | 380 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0163` | 7 | 381 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0164` | 7 | 380 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0165` | 7 | 643 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0166` | 7 | 644 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0167` | 7 | 643 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0168` | 7 | 644 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0169` | 7 | 250 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0170` | 7 | 249 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0171` | 7 | 250 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0172` | 7 | 249 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0173` | 7 | 803 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0174` | 7 | 807 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0175` | 7 | 791 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0176` | 7 | 792 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0177` | 7 | 446 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0200` | 7 | 744 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0201` | 7 | 744 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0204` | 7 | 778 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0205` | 7 | 25 | 2 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0206` | 7 | 25 | 3 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0207` | 7 | 25 | 4 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0208` | 7 | 25 | 5 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0209` | 7 | 25 | 6 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0210` | 7 | 786 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0211` | 7 | 787 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0212` | 7 | 788 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0214` | 7 | 785 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0215` | 7 | 517 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0219` | 7 | 745 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0220` | 7 | 758 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0221` | 7 | 785 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0222` | 7 | 802 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0223` | 7 | 25 | 6 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0224` | 7 | 25 | 2 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0225` | 7 | 25 | 5 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0226` | 7 | 25 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0227` | 7 | 25 | 3 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0228` | 7 | 25 | 4 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0230` | 7 | 773 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0231` | 7 | 251 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0232` | 7 | 483 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0233` | 7 | 484 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0234` | 7 | 483 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0235` | 7 | 484 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0236` | 7 | 243 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0237` | 7 | 244 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0238` | 7 | 243 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0239` | 7 | 244 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0240` | 7 | 485 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0241` | 7 | 486 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0242` | 7 | 485 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0243` | 7 | 486 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0244` | 7 | 716 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0245` | 7 | 717 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0246` | 7 | 716 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0247` | 7 | 717 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0248` | 7 | 718 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0249` | 7 | 718 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0250` | 7 | 641 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0251` | 7 | 642 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0252` | 7 | 641 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0253` | 7 | 642 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0254` | 7 | 383 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0255` | 7 | 382 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0256` | 7 | 383 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0257` | 7 | 382 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0258` | 7 | 381 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0259` | 7 | 380 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0260` | 7 | 381 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0261` | 7 | 380 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0262` | 7 | 643 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0263` | 7 | 644 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0264` | 7 | 643 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0265` | 7 | 644 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0266` | 7 | 250 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0267` | 7 | 249 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0268` | 7 | 250 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0269` | 7 | 249 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0270` | 7 | 803 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0271` | 7 | 807 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0272` | 7 | 791 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0273` | 7 | 792 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0274` | 7 | 446 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0296` | 7 | 744 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0297` | 7 | 744 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0300` | 7 | 778 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0301` | 7 | 25 | 2 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0302` | 7 | 25 | 3 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0303` | 7 | 25 | 4 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0304` | 7 | 25 | 5 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0305` | 7 | 25 | 6 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0306` | 7 | 786 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0307` | 7 | 787 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0308` | 7 | 788 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0310` | 7 | 785 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0311` | 7 | 517 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0315` | 7 | 745 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0316` | 7 | 758 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0317` | 7 | 785 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0318` | 7 | 802 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0319` | 7 | 25 | 6 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0320` | 7 | 25 | 2 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0321` | 7 | 25 | 5 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0322` | 7 | 25 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0323` | 7 | 25 | 3 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0324` | 7 | 25 | 4 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0326` | 7 | 773 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0327` | 7 | 251 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0328` | 7 | 483 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0329` | 7 | 484 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0330` | 7 | 483 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0331` | 7 | 484 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0332` | 7 | 243 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0333` | 7 | 244 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0334` | 7 | 243 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0335` | 7 | 244 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0336` | 7 | 485 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0337` | 7 | 486 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0338` | 7 | 485 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0339` | 7 | 486 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0340` | 7 | 716 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0341` | 7 | 717 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0342` | 7 | 716 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0343` | 7 | 717 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0344` | 7 | 718 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0345` | 7 | 718 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0346` | 7 | 641 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0347` | 7 | 642 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0348` | 7 | 641 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0349` | 7 | 642 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0350` | 7 | 383 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0351` | 7 | 382 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0352` | 7 | 383 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0353` | 7 | 382 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0354` | 7 | 381 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0355` | 7 | 380 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0356` | 7 | 381 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0357` | 7 | 380 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0358` | 7 | 643 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0359` | 7 | 644 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0360` | 7 | 643 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0361` | 7 | 644 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0362` | 7 | 250 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0363` | 7 | 249 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0364` | 7 | 250 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0365` | 7 | 249 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0366` | 7 | 803 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0367` | 7 | 807 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0368` | 7 | 791 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0369` | 7 | 792 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0370` | 7 | 446 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0392` | 7 | 744 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0393` | 7 | 744 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0396` | 7 | 778 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0397` | 7 | 25 | 2 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0398` | 7 | 25 | 3 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0399` | 7 | 25 | 4 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0400` | 7 | 25 | 5 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0401` | 7 | 25 | 6 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0402` | 7 | 786 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0403` | 7 | 787 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0404` | 7 | 788 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0406` | 7 | 785 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0407` | 7 | 517 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0410` | 7 | 764 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0411` | 7 | 133 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0412` | 7 | 25 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0413` | 7 | 37 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0434` | 7 | 68 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0435` | 7 | 785 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0436` | 7 | 780 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0437` | 7 | 704 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0438` | 7 | 747 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0439` | 7 | 765 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0440` | 7 | 766 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0441` | 7 | 776 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0442` | 7 | 760 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0443` | 7 | 25 | 6 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0444` | 7 | 25 | 2 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0445` | 7 | 25 | 5 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0446` | 7 | 25 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0447` | 7 | 25 | 3 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0448` | 7 | 25 | 4 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0449` | 7 | 6 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0456` | 7 | 25 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0457` | 7 | 802 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0458` | 7 | 250 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0459` | 7 | 196 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0460` | 7 | 136 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0461` | 7 | 471 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0462` | 7 | 135 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0463` | 7 | 470 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0464` | 7 | 700 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0465` | 7 | 197 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0466` | 7 | 134 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0467` | 7 | 494 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0468` | 7 | 385 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0469` | 7 | 762 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0470` | 7 | 776 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0471` | 7 | 37 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0472` | 7 | 151 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0473` | 7 | 151 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0474` | 7 | 6 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0475` | 7 | 393 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0476` | 7 | 448 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0477` | 7 | 773 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0478` | 7 | 337 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0479` | 7 | 338 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0480` | 7 | 776 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0481` | 7 | 762 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0482` | 7 | 37 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0483` | 7 | 6 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0484` | 7 | 448 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0485` | 7 | 393 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0486` | 7 | 151 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0487` | 7 | 778 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0488` | 7 | 25 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0489` | 7 | 778 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0490` | 7 | 132 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0491` | 7 | 25 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0492` | 7 | 251 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0493` | 7 | 251 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0494` | 7 | 251 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0496` | 7 | 490 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0497` | 7 | 648 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0498` | 7 | 720 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0516` | 7 | 479 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0518` | 7 | 493 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0521` | 7 | 764 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0522` | 7 | 133 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0523` | 7 | 25 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0525` | 7 | 383 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0526` | 7 | 382 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0527` | 7 | 803 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0528` | 7 | 34 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0529` | 7 | 169 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0530` | 7 | 262 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0531` | 7 | 430 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0532` | 7 | 563 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0533` | 7 | 620 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0534` | 7 | 222 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0535` | 7 | 143 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0536` | 7 | 25 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0537` | 7 | 249 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0538` | 7 | 492 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0539` | 7 | 25 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0540` | 7 | 807 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0544` | 7 | 55 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0550` | 7 | 385 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0551` | 7 | 249 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0552` | 7 | 807 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0553` | 7 | 25 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0554` | 7 | 764 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0555` | 7 | 133 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0556` | 7 | 31 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0557` | 7 | 800 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0558` | 7 | 791 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0559` | 7 | 792 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0560` | 7 | 446 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0583` | 7 | 744 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0584` | 7 | 744 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0587` | 7 | 778 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0588` | 7 | 786 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0589` | 7 | 787 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0590` | 7 | 788 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0592` | 7 | 785 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0593` | 7 | 517 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0598` | 7 | 785 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0599` | 7 | 37 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0600` | 7 | 27 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0601` | 7 | 50 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0602` | 7 | 88 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0603` | 7 | 780 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0604` | 7 | 704 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0605` | 7 | 747 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0606` | 7 | 765 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0607` | 7 | 766 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0608` | 7 | 776 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0609` | 7 | 151 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0610` | 7 | 196 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0611` | 7 | 136 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0612` | 7 | 471 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0613` | 7 | 135 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0614` | 7 | 470 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0615` | 7 | 700 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0616` | 7 | 197 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0617` | 7 | 134 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0618` | 7 | 776 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0619` | 7 | 37 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0620` | 7 | 762 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0621` | 7 | 773 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0622` | 7 | 251 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0623` | 7 | 778 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0625` | 7 | 25 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0626` | 7 | 25 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0627` | 7 | 802 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0628` | 7 | 393 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0629` | 7 | 6 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0630` | 7 | 448 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0631` | 7 | 250 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0632` | 7 | 25 | 2 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0633` | 7 | 25 | 2 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0634` | 7 | 25 | 3 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0635` | 7 | 25 | 3 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0636` | 7 | 25 | 4 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0637` | 7 | 25 | 4 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0638` | 7 | 25 | 5 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0639` | 7 | 25 | 5 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0640` | 7 | 25 | 6 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0641` | 7 | 25 | 6 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0642` | 7 | 383 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0643` | 7 | 382 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0644` | 7 | 803 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0645` | 7 | 491 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0646` | 7 | 483 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0647` | 7 | 484 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0648` | 7 | 25 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0649` | 7 | 718 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0650` | 7 | 492 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0651` | 7 | 490 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0652` | 7 | 376 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0653` | 7 | 807 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0654` | 7 | 249 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0655` | 7 | 243 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0656` | 7 | 244 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0657` | 7 | 641 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0658` | 7 | 642 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0659` | 7 | 381 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0660` | 7 | 380 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0661` | 7 | 643 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0662` | 7 | 644 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0663` | 7 | 791 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0664` | 7 | 792 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0665` | 7 | 800 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0666` | 7 | 446 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0688` | 7 | 744 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0689` | 7 | 744 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0691` | 7 | 778 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0692` | 7 | 786 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0693` | 7 | 787 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0694` | 7 | 788 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0696` | 7 | 785 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0697` | 7 | 517 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0701` | 7 | 745 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0702` | 7 | 758 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0703` | 7 | 785 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0704` | 7 | 6 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0705` | 7 | 802 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0706` | 7 | 25 | 6 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0707` | 7 | 25 | 2 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0708` | 7 | 25 | 5 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0709` | 7 | 25 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0710` | 7 | 25 | 3 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0711` | 7 | 25 | 4 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0713` | 7 | 773 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0714` | 7 | 251 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0715` | 7 | 251 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0718` | 7 | 483 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0719` | 7 | 484 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0720` | 7 | 483 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0721` | 7 | 484 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0722` | 7 | 243 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0723` | 7 | 244 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0724` | 7 | 243 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0725` | 7 | 244 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0726` | 7 | 485 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0727` | 7 | 486 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0728` | 7 | 485 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0729` | 7 | 486 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0730` | 7 | 716 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0731` | 7 | 717 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0732` | 7 | 716 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0733` | 7 | 717 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0734` | 7 | 718 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0735` | 7 | 718 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0736` | 7 | 641 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0737` | 7 | 642 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0738` | 7 | 641 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0739` | 7 | 642 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0740` | 7 | 383 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0741` | 7 | 382 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0742` | 7 | 383 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0743` | 7 | 382 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0744` | 7 | 381 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0745` | 7 | 380 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0746` | 7 | 381 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0747` | 7 | 380 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0748` | 7 | 643 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0749` | 7 | 644 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0750` | 7 | 643 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0751` | 7 | 644 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0752` | 7 | 250 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0753` | 7 | 249 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0754` | 7 | 250 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0755` | 7 | 249 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0756` | 7 | 803 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0757` | 7 | 807 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0758` | 7 | 791 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0759` | 7 | 792 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0760` | 7 | 446 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0783` | 7 | 744 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0784` | 7 | 744 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0787` | 7 | 778 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0788` | 7 | 25 | 2 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0789` | 7 | 25 | 3 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0790` | 7 | 25 | 4 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0791` | 7 | 25 | 5 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0792` | 7 | 25 | 6 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0793` | 7 | 786 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0794` | 7 | 787 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0795` | 7 | 788 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0797` | 7 | 785 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0798` | 7 | 517 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0000` | 7 | 801 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0001` | 7 | 25 | 7 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0002` | 7 | 724 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0003` | 7 | 727 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0004` | 7 | 765 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0005` | 7 | 766 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0006` | 7 | 730 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0014` | 7 | 658 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0015` | 7 | 801 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0016` | 7 | 25 | 7 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0017` | 7 | 724 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0018` | 7 | 727 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0019` | 7 | 765 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0020` | 7 | 766 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0021` | 7 | 730 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0029` | 7 | 658 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0030` | 7 | 801 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0031` | 7 | 25 | 7 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0033` | 7 | 724 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0034` | 7 | 727 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0035` | 7 | 765 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0036` | 7 | 766 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0037` | 7 | 730 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0045` | 7 | 658 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0046` | 7 | 801 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0047` | 7 | 25 | 7 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0048` | 7 | 724 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0049` | 7 | 727 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0050` | 7 | 765 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0051` | 7 | 766 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0052` | 7 | 730 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0060` | 7 | 658 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0061` | 7 | 801 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0062` | 7 | 25 | 7 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0063` | 7 | 724 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0064` | 7 | 727 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0065` | 7 | 765 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0066` | 7 | 766 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0067` | 7 | 730 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0075` | 7 | 658 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0076` | 7 | 801 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0077` | 7 | 25 | 7 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0078` | 7 | 724 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0079` | 7 | 727 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0080` | 7 | 765 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0081` | 7 | 766 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0082` | 7 | 730 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0090` | 7 | 658 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0091` | 7 | 801 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0092` | 7 | 25 | 7 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0093` | 7 | 724 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0094` | 7 | 727 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0095` | 7 | 765 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0096` | 7 | 766 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0097` | 7 | 730 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0105` | 7 | 658 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0106` | 7 | 801 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0107` | 7 | 25 | 7 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0108` | 7 | 724 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0109` | 7 | 727 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0110` | 7 | 765 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0111` | 7 | 766 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0112` | 7 | 730 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0120` | 7 | 658 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0121` | 7 | 801 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0122` | 7 | 25 | 7 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0123` | 7 | 724 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0124` | 7 | 727 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0125` | 7 | 765 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0126` | 7 | 766 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0127` | 7 | 730 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0135` | 7 | 658 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | letta, non ancora producibile |
+| `EVT-7-0000` | 7 | 113 | 0 | Let's Go Pikachu ed Eevee | no | letta, non ancora producibile |
+| `EVT-7-0001` | 7 | 150 | 0 | Let's Go Pikachu ed Eevee | no | letta, non ancora producibile |
+| `EVT-7-0003` | 7 | 98 | 0 | Let's Go Pikachu ed Eevee | no | letta, non ancora producibile |
+| `EVT-7-0004` | 7 | 133 | 0 | Let's Go Pikachu ed Eevee | no | letta, non ancora producibile |
+| `EVT-7-0005` | 7 | 25 | 0 | Let's Go Pikachu ed Eevee | no | letta, non ancora producibile |
+| `EVT-7-0006` | 7 | 150 | 0 | Let's Go Pikachu ed Eevee | no | letta, non ancora producibile |
+| `EVT-7-0007` | 7 | 150 | 0 | Let's Go Pikachu ed Eevee | no | letta, non ancora producibile |
+| `EVT-7-0008` | 7 | 133 | 0 | Let's Go Pikachu ed Eevee | no | letta, non ancora producibile |
+| `EVT-7-0009` | 7 | 25 | 0 | Let's Go Pikachu ed Eevee | no | letta, non ancora producibile |
+| `EVT-7-0010` | 7 | 150 | 0 | Let's Go Pikachu ed Eevee | no | letta, non ancora producibile |
+| `EVT-7-0011` | 7 | 808 | 0 | Let's Go Pikachu ed Eevee | no | letta, non ancora producibile |
+| `EVT-7-0012` | 7 | 809 | 0 | Let's Go Pikachu ed Eevee | no | letta, non ancora producibile |
+| `EVT-7-0013` | 7 | 24 | 0 | Let's Go Pikachu ed Eevee | no | letta, non ancora producibile |
+| `EVT-7-0014` | 7 | 151 | 0 | Let's Go Pikachu ed Eevee | no | letta, non ancora producibile |
+| `EVT-7-0015` | 7 | 808 | 0 | Let's Go Pikachu ed Eevee | no | letta, non ancora producibile |
+| `EVT-1-0000` | 1 | 1 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-1-0001` | 1 | 4 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-1-0002` | 1 | 7 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-1-0003` | 1 | 54 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-1-0004` | 1 | 106 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-1-0005` | 1 | 107 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-1-0006` | 1 | 133 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-1-0007` | 1 | 138 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-1-0008` | 1 | 140 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-1-0009` | 1 | 151 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-1-0010` | 1 | 151 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0000` | 2 | 83 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0001` | 2 | 207 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0002` | 2 | 83 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0003` | 2 | 207 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0004` | 2 | 83 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0005` | 2 | 207 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0006` | 2 | 151 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0007` | 2 | 251 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0008` | 2 | 243 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0009` | 2 | 244 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0010` | 2 | 245 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0011` | 2 | 144 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0012` | 2 | 145 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0013` | 2 | 146 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0014` | 2 | 3 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0015` | 2 | 6 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0016` | 2 | 9 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0017` | 2 | 150 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0018` | 2 | 250 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0019` | 2 | 249 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0020` | 2 | 154 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0021` | 2 | 157 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0022` | 2 | 160 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0023` | 2 | 225 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0024` | 2 | 1 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0025` | 2 | 4 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0026` | 2 | 7 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0027` | 2 | 152 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0028` | 2 | 155 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0029` | 2 | 158 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0030` | 2 | 29 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0031` | 2 | 29 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0032` | 2 | 32 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0033` | 2 | 32 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0034` | 2 | 69 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0035` | 2 | 69 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0036` | 2 | 183 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0037` | 2 | 193 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0038` | 2 | 206 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0039` | 2 | 209 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0040` | 2 | 211 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0041` | 2 | 223 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0042` | 2 | 172 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0043` | 2 | 173 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0044` | 2 | 174 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0045` | 2 | 238 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0046` | 2 | 239 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0047` | 2 | 240 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0048` | 2 | 54 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0049` | 2 | 152 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0050` | 2 | 172 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0051` | 2 | 173 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0052` | 2 | 174 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0053` | 2 | 238 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0054` | 2 | 194 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0055` | 2 | 60 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0056` | 2 | 116 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0057` | 2 | 118 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0058` | 2 | 129 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0059` | 2 | 183 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0060` | 2 | 54 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0061` | 2 | 72 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0062` | 2 | 131 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0063` | 2 | 170 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0064` | 2 | 223 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0065` | 2 | 226 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0066` | 2 | 29 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0067` | 2 | 32 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0068` | 2 | 113 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0069` | 2 | 115 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0070` | 2 | 128 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0071` | 2 | 147 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0072` | 2 | 21 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0073` | 2 | 83 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0074` | 2 | 84 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0075` | 2 | 177 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0076` | 2 | 198 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0077` | 2 | 227 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0078` | 2 | 172 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0079` | 2 | 81 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0080` | 2 | 239 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0081` | 2 | 100 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0082` | 2 | 173 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0083` | 2 | 174 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0084` | 2 | 183 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0085` | 2 | 172 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0086` | 2 | 194 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0087` | 2 | 114 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0088` | 2 | 77 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0089` | 2 | 200 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0090` | 2 | 246 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0091` | 2 | 120 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0092` | 2 | 98 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0093` | 2 | 95 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0094` | 2 | 131 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0095` | 2 | 63 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0096` | 2 | 96 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0097` | 2 | 102 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0098` | 2 | 122 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0099` | 2 | 74 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0100` | 2 | 41 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0101` | 2 | 66 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0102` | 2 | 104 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0103` | 2 | 225 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0104` | 2 | 86 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0105` | 2 | 220 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0106` | 2 | 163 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0107` | 2 | 215 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0108` | 2 | 191 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0109` | 2 | 46 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0110` | 2 | 187 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0111` | 2 | 43 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0112` | 2 | 161 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0113` | 2 | 234 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0114` | 2 | 241 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0115` | 2 | 190 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0116` | 2 | 108 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0117` | 2 | 143 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0118` | 2 | 66 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0119` | 2 | 129 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0120` | 2 | 236 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0121` | 2 | 206 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0122` | 2 | 202 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0123` | 2 | 231 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0124` | 2 | 216 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0125` | 2 | 60 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0126` | 2 | 60 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0127` | 2 | 143 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0128` | 2 | 143 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0129` | 2 | 140 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0130` | 2 | 138 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0131` | 2 | 142 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0132` | 2 | 137 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0133` | 2 | 133 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0134` | 2 | 185 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0135` | 2 | 123 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0136` | 2 | 214 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0137` | 2 | 127 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0138` | 2 | 165 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0139` | 2 | 167 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0140` | 2 | 193 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0141` | 2 | 204 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0142` | 2 | 152 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0143` | 2 | 172 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0144` | 2 | 173 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0145` | 2 | 194 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0146` | 2 | 231 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0147` | 2 | 238 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0148` | 2 | 54 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0149` | 2 | 172 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0150` | 2 | 173 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0151` | 2 | 174 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0152` | 2 | 238 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0153` | 2 | 1 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0154` | 2 | 4 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0155` | 2 | 158 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0156` | 2 | 163 | 0 | tabella di incontro da evento | sì | letta, struttura alla portata di pokebridge |
+
 ## Voci di forma
 
 | Codice | Dex | Specie | Forma | Via | Natura |
