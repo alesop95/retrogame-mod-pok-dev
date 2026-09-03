@@ -9,6 +9,8 @@
 % copre: recreate-pokemon-distributions-events/CATALOGO-EVENTI.md
 % copre: pokedex-home-completo/README.md
 % copre: pokedex-home-completo/STUDIO-01-che-cosa-vincola-la-scadenza.md
+% copre: pokedex-home-completo/STUDIO-02-salvataggi-esterni-e-che-cosa-provano.md
+% copre: pokedex-home-completo/CENSIMENTO-SALVATAGGI.md
 % copre: generation-from-switch/README.md
 % copre: generation-from-switch/STUDIO-01-scambio-automatico-e-provenienza.md
 % verificato-al-commit: a427431
@@ -281,7 +283,7 @@ La lezione generale è che la difficoltà percepita di un dato dipende da quale 
 
 \subsection*{Il risultato, e la correzione che lo completa}
 
-Il calcolo dà $|V| = 0$ al livello delle specie: l'unione dei titoli permanenti copre l'intero insieme delle millleventicinque voci del catalogo nazionale. Al livello delle forme la differenza contiene dodici elementi, dei quali dieci sono forme totemiche di una generazione e due forme di sola battaglia.
+Il calcolo dà $|V| = 0$ al livello delle specie: l'unione dei titoli permanenti copre l'intero insieme delle milleventicinque voci del catalogo nazionale. Al livello delle forme la differenza contiene dodici elementi, dei quali dieci sono forme totemiche di una generazione e due forme di sola battaglia.
 
 Le seconde sono escluse per definizione, poiché una forma che esiste soltanto durante un incontro non può stare in un deposito. Le prime richiedono una correzione a una conclusione che la ricerca preliminare aveva tratto, ed è la parte più istruttiva del caso. Quella ricerca le dichiarava irrecuperabili dopo la scadenza, il che implica che fossero recuperabili prima. Il verificatore dei trasferimenti dell'implementazione di riferimento afferma invece due cose: che quattro di quelle specie non si trasferiscono affatto alla generazione successiva, e che per le altre l'esemplare trasferito deve portare la forma base anziché quella totemica, pena l'invalidità.
 
@@ -302,3 +304,76 @@ Il conteggio è stato confrontato con una base dati indipendente, quella che ser
 La discrepanza non è un errore di nessuna delle due parti, e la sua spiegazione è un'osservazione generale sull'uso delle fonti. Quella base dati serve il gioco competitivo, dunque enumera le forme che modificano il comportamento di un esemplare in battaglia e omette quelle puramente estetiche; le tabelle dell'implementazione di riferimento enumerano invece tutto ciò che esiste nei dati. Le due contano insiemi diversi, e chi le confrontasse senza saperlo attribuirebbe a un errore ciò che è una differenza di definizione.
 
 Ne segue che una fonte non è semplicemente attendibile o inattendibile: è attendibile su certe domande e muta su altre, e la sua utilità dipende dal riconoscere quali. Impiegare quella base dati per contare le forme non produce un errore evidente ma un numero preciso, ricavato correttamente, e non pertinente, che è il genere di risultato più difficile da individuare in una revisione.
+\section{Un artefatto di provenienza esterna, e le tre domande che pone}
+
+Il capitolo si chiude con una classe di materiale che i precedenti non avevano incontrato e che merita una trattazione propria, perché il modo tipico di sbagliare su di essa è un errore di categoria e non di calcolo. Il materiale è un salvataggio prodotto da qualcun altro e reso disponibile in rete; l'errore è trattare come una domanda sola tre domande distinte.
+
+La prima domanda è se il file sia strutturalmente un salvataggio funzionante del gioco che dichiara di essere. Ha una risposta binaria, poggia su somme di controllo, e si risponde con un programma.
+
+La seconda è che cosa contenga, cioè quali esemplari e dunque quali voci del catalogo contribuirebbe. Ha una risposta numerica, poggia su un censimento, e si risponde con lo stesso programma.
+
+La terza è se sia lecito impiegarlo. Non ha una risposta che un programma possa dare, perché non riguarda i byte del file ma le conseguenze del suo uso su un account e su una console, e la sua sede è un documento di norme. Uno strumento che rispondesse anche a questa nasconderebbe una decisione dentro un calcolo, ed è la ragione per cui lo strumento costruito qui chiude ogni corsa dichiarando esplicitamente ciò che il proprio esito non dice.
+
+\subsection*{Il rischio effettivo, e perché la rassicurazione consueta è la sbagliata}
+
+La reazione consueta davanti a un file scaricato è passarlo a un antivirus, e l'esito pulito viene letto come esclusione del rischio. Vale mostrare perché in questo caso quell'esito, benché vero, sia informativo quasi quanto nulla.
+
+Un salvataggio è dato e non codice. Nessun processo lo esegue: viene letto da un gioco che ne interpreta i campi a offset noti, oppure da un editor. Non può quindi ospitare un programma nel senso in cui lo ospita un eseguibile, e uno scanner non trova nulla perché in un file di quella natura non c'è nulla di quel genere da trovare. L'esito conferma una proprietà che era vera per costruzione, prima di qualunque scansione.
+
+I rischi effettivi sono tre e nessuno è visibile a uno scanner. Il primo è la malformazione: un file che il gioco rifiuta all'avvio, o che accetta e poi corrompe. Si esclude verificando le somme di controllo che il formato porta, e questa è la ragione per cui la verifica strutturale, che sembra un dettaglio di ingegneria, è invece l'unico controllo di sicurezza che qui abbia senso. Il secondo è l'esemplare costruito per innescare un difetto del gioco, di cui la struttura corrotta che i giochi di terza generazione marcano con un bit dedicato è il caso classico: si riconosce dai campi incoerenti, e va detto con precisione che controllarli è meno di un giudizio di legittimità, non un suo equivalente. Il terzo non è tecnico, ed è il maggiore dei tre: impiegare esemplari altrui su un account proprio, che è la terza domanda e non la prima.
+
+\subsection*{Identificare senza credere al nome}
+
+Il nome di un file scaricato è una dichiarazione del suo autore, non un dato, e il metodo di identificazione impiegato qui è quello già usato in questo lavoro per stabilire il gioco di un salvataggio: la dimensione restringe la famiglia, e dentro la famiglia si prova ciascun candidato con il predicato che la fonte usa per distinguerli, riferendo quale risponde e quali no.
+
+Vale l'osservazione generale che rende il metodo non negoziabile. Un predicato inventato che per caso funzioni sul file che si ha in mano è indistinguibile da uno corretto, e la differenza compare soltanto sul file successivo: la trascrizione dei predicati dalla fonte non è dunque pedanteria bibliografica ma la sola difesa contro una identificazione che sembra funzionare.
+
+I predicati impiegati mostrano una varietà istruttiva. Per la quarta generazione si legge il piede del blocco generale e si verifica che il campo della dimensione coincida con la dimensione del blocco e che la parola seguente sia una delle due costanti note; e poiché la dimensione di quel blocco differisce fra i tre gruppi di titoli, il medesimo predicato che accerta la validità identifica anche il gioco, che è un caso raro e comodo. Per la quinta è un codice ciclico a sedici bit calcolato sul piede, con due lunghezze diverse per i due gruppi. Per la sesta e la settima è una firma di coda comune, e a distinguere i titoli resta la sola dimensione. Per la prima generazione sono due liste a offset noti, di cui si verifica che il contatore stia entro il massimo e che il byte successivo sia il terminatore, con offset diversi fra edizioni internazionali e giapponesi: due controlli banali, e in congiunzione bastano.
+
+Un caso di ambiguità reale vale segnalarlo perché mostra come si risolve. Due formati appartenenti a piattaforme diverse hanno esattamente la medesima dimensione, e la dimensione da sola non li separa. Si separano perché portano strutture diverse in posizioni diverse: l'uno una firma di coda, l'altro una somma di controllo e un'intestazione di scheda di memoria. Verificare entrambe costa due confronti e rimuove l'ambiguità; deciderla sulla dimensione l'avrebbe nascosta.
+
+\section{Una normalizzazione che cancella ciò che distingue}
+
+Il censimento condotto con lo strumento appena descritto ha rivelato un difetto non nei file esaminati ma nel codice che li esaminava, e il difetto merita una sezione perché è un esemplare puro di una classe di errore che questo lavoro ha incontrato più volte in forme diverse.
+
+\subsection*{Il caso}
+
+Due fonti indipendenti numerano le specie in modo diverso, e per metterle in corrispondenza si confrontano i nomi. Poiché due fonti scrivono lo stesso nome con convenzioni tipografiche diverse, il confronto avviene su una forma normalizzata, ottenuta portando il nome a minuscole e rimuovendo ogni carattere che non sia lettera o cifra.
+
+Fra i caratteri così rimossi ci sono i due segni di sesso, e due specie della prima generazione differiscono per il solo segno finale. Le due normalizzazioni coincidono, la corrispondenza associa il primo dei due nomi e scarta il secondo, e il numero della seconda specie finisce a puntare sull'identificatore interno della prima.
+
+La gravità va misurata per quello che è. Non è una imprecisione: è attribuire a un numero di catalogo la specie sbagliata, che su questo dato è il difetto peggiore concepibile, poiché ogni campo derivato successivo, cioè gruppo di crescita, coppia di abilità, punti potenza e tabella delle mosse, viene letto dalla riga di un'altra specie. E il commento della funzione che costruisce la corrispondenza avvertiva esplicitamente di questo pericolo, citando come esempio una coppia di specie su cui le due numerazioni divergono: la funzione portava dentro il difetto dal quale dichiarava di proteggere.
+
+\subsection*{Perché è rimasto invisibile}
+
+Le ragioni sono tre e si sommano.
+
+La prima è che la riga colpevole non appartiene al dominio del problema. Il problema difficile era la corrispondenza fra due numerazioni, ed era stato studiato, documentato e verificato su due specie di controllo; la normalizzazione del testo era un dettaglio di implementazione, del genere che si scrive senza pensarci. È la stessa asimmetria descritta nel capitolo precedente a proposito di dove i difetti si concentrino, e qui si presenta in forma ancora più netta, perché lo stesso file conteneva il presidio e la falla.
+
+La seconda è che la corrispondenza non era mai stata interrogata sulla riga difettosa. Nessuna voce del catalogo degli eventi riguarda quelle due specie, quindi il generatore, che è l'unico consumatore fino a quel momento, non aveva mai chiesto quella riga. Il difetto era latente, e il primo uso nuovo della funzione lo ha attivato: è la ragione per cui un difetto in una struttura condivisa non va classificato per il danno che ha fatto ma per il danno che può fare.
+
+La terza è la forma in cui si è manifestato, che è quella insidiosa. Non un errore, non un'eccezione, non un valore assurdo: un rapporto in cui un conteggio valeva trecentottantacinque anziché trecentottantasei, con una riga che segnalava una specie priva di corrispondenza. Un numero leggermente sbagliato dentro un output corretto è precisamente ciò che supera una revisione a video, e in questo caso è stato notato solo perché la specie mancante era implausibile: una specie comunissima, assente da una collezione che dichiarava di essere completa. L'implausibilità del risultato ha fatto da campanello, e va registrato che è un campanello che non suona sempre.
+
+\subsection*{La correzione, e la parte che conta}
+
+La correzione ha due parti, e la seconda vale più della prima.
+
+La prima è tradurre i due segni in lettere distinte invece di cancellarli, così che le chiavi restino due. Risolve il caso.
+
+La seconda è imporre e verificare le due proprietà che la corrispondenza deve possedere e che nessuno controllava. La prima proprietà è che la normalizzazione sia iniettiva sull'insieme dei nomi: due nomi distinti non devono produrre la medesima chiave. La seconda è che la corrispondenza stessa sia iniettiva: due numeri di catalogo non devono puntare al medesimo identificatore interno. Entrambe si esprimono in due righe, entrambe fanno terminare il programma con la ragione scritta, ed entrambe avrebbero colto questo difetto nel momento in cui fu introdotto anziché mesi dopo.
+
+Il punto generale, che è la ragione per cui questa sezione esiste, è che le due proprietà erano note e implicite. Chiunque avesse riflettuto sulla struttura del problema le avrebbe enunciate senza esitazione, e nessuno le aveva scritte, perché sembravano troppo evidenti per meritare codice. Un invariante evidente e non verificato ha esattamente la stessa forza di un invariante falso, e la differenza fra i due si scopre soltanto quando qualcosa lo viola.
+
+Una precisazione tecnica va aggiunta perché mostra che anche il controllo va calibrato. Applicato senza cautela, il controllo di iniettività della normalizzazione fallisce subito su due voci della tabella delle specie che non sono specie ma segnaposto per identificatori interni non impiegati, e portano come nome una sequenza di punti interrogativi: la loro normalizzazione è la stringa vuota, e la stringa vuota collide con se stessa. Vanno escluse prima del controllo, e la lezione minore è che un presidio troppo severo che vada rilassato dopo la prima corsa è comunque preferibile a un presidio assente, perché il rilassamento avviene con il caso concreto sotto gli occhi.
+
+\section{Stato e esemplare, cioè due cose che il perimetro non distingueva}
+
+Un'ultima distinzione chiude il capitolo, e nasce da un problema pratico: il primo anello della catena di trasferimenti richiede che una funzione del gioco sia stata sbloccata, e sbloccarla richiede di avere completato la storia principale di quel titolo. Con più titoli da attraversare, il costo di questa condizione domina il costo di tutto il resto.
+
+La via che si offre è importare in quella cartuccia un salvataggio in cui la funzione risulti già disponibile. La norma di perimetro che regola i salvataggi di terze parti li ammette subordinando ogni esemplare importato al giudizio di un verificatore, esemplare per esemplare, e quella norma parlava di esemplari perché il caso che l'aveva generata riguardava esemplari.
+
+Il caso presente non muove alcun esemplare. Ciò che entra è uno stato di avanzamento, cioè un insieme di indicatori che dichiarano un evento della storia come accaduto. Ne segue che il rischio che la norma intendeva prevenire, cioè l'impiego di esemplari di provenienza altrui, non si presenta: non perché sia stato ridotto, ma perché non ha oggetto.
+
+La distinzione va enunciata come categoria e non come eccezione a un caso, perché ricorrerà. Sbloccare una funzione, possedere un oggetto necessario a un evento, avere ottenuto un riconoscimento sono tutti stati; nessuno di essi porta con sé la questione della provenienza di un'entità collezionabile. E la distinzione porta con sé le proprie condizioni, che sono ciò che la rende una distinzione onesta e non una scappatoia: lo spazio di deposito del salvataggio importato va svuotato prima dell'impiego, perché gli esemplari che contiene non servono allo scopo e la loro sola presenza reintrodurrebbe il problema; e le garanzie della norma sull'hardware restano intere, poiché l'operazione non è la lettura di un file ma la sovrascrittura di un supporto fisico.
+
+Una nota conclusiva sull'asse che questa distinzione illumina. Il capitolo ha già separato legale da legittimo; il materiale di provenienza esterna introduce un terzo asse, indipendente da entrambi, che si può chiamare proprio. Un esemplare può essere legittimo, nel senso che nessun verificatore ha da contestargli, e non proprio, nel senso che porta il nome e l'identificatore di un altro e nel gioco figura come ricevuto. Un obiettivo di collezione formulato in termini di storia possibile riguarda il terzo asse almeno quanto il secondo, e chi non lo enuncia rischia di soddisfare una condizione credendo di soddisfarne un'altra.

@@ -5,6 +5,7 @@
 % copre: recreate-pokemon-distributions-events/STUDIO-01-distribuzioni-gen3-e-ricreazione.md
 % copre: recreate-pokemon-distributions-events/STUDIO-02-metodi-di-generazione.md
 % copre: recreate-pokemon-distributions-events/STUDIO-03-verifica-del-metodo-sul-corpus.md
+% copre: recreate-pokemon-distributions-events/CONTEGGIO-DONI-MODERNI.md
 % copre: recreate-pokemon-distributions-events/EVENTI-GEN3.md#catalogo-delle-distribuzioni-di-evento-di-generazione-3
 % copre: recreate-pokemon-distributions-events/EVENTI-GEN3.md#che-cosa-contiene-in-numeri
 % copre: recreate-pokemon-distributions-events/EVENTI-GEN3.md#i-metodi-di-generazione-e-quanto-pesano
@@ -590,3 +591,30 @@ Un giudizio di conformità non è un'affermazione su una categoria ma su una con
 La forma adottata è dunque un inventario generato, una scheda per esemplare producibile, che riporta ogni campo derivato accanto alla propria provenienza, e accanto al titolo lo stato del giudizio letto da un registro separato. Le due parti hanno nature diverse e restano in file diversi: le schede sono calcolate, il registro dei giudizi è autorato, poiché ogni sua voce è il resoconto di una prova eseguita da una persona.
 
 Una scelta di quel generatore va difesa perché è controintuitiva. Esso non legge i file prodotti: li ricalcola dalle sorgenti con il medesimo codice che li scrive. Un documento che leggesse i file descriverebbe lo stato del disco di una macchina, che non è versionato e in una copia del progetto non esiste; questo descrive ciò che il progetto produce, e resta vero dove i file non sono stati ancora generati. La scelta porta con sé un effetto collaterale che è a sua volta una verifica: se due generazioni consecutive producessero schede diverse, ne seguirebbe che la scelta del seme non è riproducibile, e il difetto si manifesterebbe come una modifica del documento che nessuno ha compiuto.
+\section{Le generazioni successive, e un'asimmetria che inverte il costo del lavoro}
+
+Il capitolo ha trattato una sola generazione, e la scelta non era di comodo: quella generazione è l'unica in cui il problema fosse di conoscenza. Vale chiudere mostrando perché per le generazioni successive il problema sia un altro, poiché l'asimmetria è forte e ha una conseguenza diretta sulla pianificazione.
+
+\subsection*{Il fatto strutturale}
+
+Nella generazione qui studiata i doni non hanno un formato binario uniforme, e i loro parametri vivono come una tabella dentro il codice di un programma. Ne segue tutto ciò che questo capitolo racconta: per riprodurre un esemplare bisogna leggere quella tabella, capire quale algoritmo ciascuna voce dichiari, ricostruire l'algoritmo dalla sua implementazione, e verificare la ricostruzione su un corpus di esemplari conservati.
+
+Dalla generazione successiva in avanti il formato esiste. Ogni dono è un record binario di lunghezza fissa, l'insieme dei record è un file, e la fonte porta un file per famiglia di titoli. L'esemplare non va ricostruito da un algoritmo: sta nel record, oppure vi stanno i vincoli che lo determinano. La conoscenza necessaria a produrre un esemplare da dono di quelle generazioni è dunque prossima a zero rispetto a quella richiesta dalla generazione precedente, e il lavoro che resta è di tre specie diverse e minori: contare, catalogare, e misurare quanto tempo costi un trasferimento.
+
+\subsection*{Il conteggio, e i tre casi in cui la divisione ingenua sbaglia}
+
+Contare le voci di un file di record a lunghezza fissa è una divisione, e questo è precisamente il genere di operazione che si fa a mano e si sbaglia. Il conteggio è stato dunque affidato a un programma, e il programma ha trovato tre casi in cui la divisione ingenua dà un numero sbagliato.
+
+Il primo è una generazione in cui ogni record porta un byte aggiuntivo, raccolto in coda al file anziché accanto al record, che codifica in quattro bit una restrizione di versione e in altri quattro una restrizione di lingua. Il passo effettivo è la lunghezza del record più uno; la divisione per la sola lunghezza del record dà settecentododici voci contro le settecentonove vere.
+
+Gli altri due sono due generazioni in cui la base è divisa in due file distinti, uno con la carta completa e uno con il solo dono. La tentazione è leggerli come due codifiche del medesimo insieme, e prendere il maggiore dei due conti; la fonte li concatena, quindi sono due insiemi disgiunti e il conto della generazione è la loro somma.
+
+Vale registrare come i tre casi si sono manifestati, perché il meccanismo è generalizzabile e costa una riga di codice. Il programma non arrotonda: se la lunghezza di un file non è multiplo esatto del passo dichiarato, la lunghezza del record che si sta usando è sbagliata, e il programma si arresta dicendolo anziché troncare il quoziente. Un resto non nullo è un'informazione, e trattarlo come tale trasforma un difetto silenzioso in un messaggio.
+
+\subsection*{L'ordine di grandezza, e ciò che ne discende}
+
+Le quattro generazioni che dipendono da un servizio intermedio, e che dunque condividono la scadenza discussa nel capitolo seguente, portano complessivamente $3072$ voci di dono. La generazione studiata in questo capitolo ne porta $177$. Il rapporto è di circa diciassette a uno, e va letto insieme all'asimmetria di conoscenza appena descritta: le voci che hanno richiesto settimane di studio sono la parte piccola dell'insieme, e la parte grande non richiede studio.
+
+Ne discende la conclusione che serve alla pianificazione, e che è controintuitiva quanto quella sul luogo dei difetti. Su queste generazioni il fattore limitante non è ciò che non si sa, ma il tempo che ciascun esemplare impiega ad attraversare la catena. Un progetto che avesse continuato a investire nella comprensione avrebbe migliorato la grandezza già abbondante e lasciato invariata quella scarsa. La grandezza da misurare per prima è dunque il tasso del primo anello della catena, che è un esperimento di un giorno e non un lavoro di ricerca, e che nessuna quantità di lettura può sostituire.
+
+Un'ultima osservazione riguarda le due generazioni più antiche, che il capitolo non ha trattato. La fonte tiene nella medesima cartella le tabelle dei loro esemplari da evento, in un formato che non è una serie di record a lunghezza fissa e che il programma di conteggio riferisce per esistenza e dimensione senza contarlo. Quelle due generazioni raggiungono il deposito per una via che esiste e che passa dal medesimo servizio intermedio, quindi condividono la scadenza: sono la coda del problema, non un'appendice fuori tema.

@@ -93,6 +93,8 @@ ALTRI_DOCUMENTI = (
     "recreate-pokemon-distributions-events/CATALOGO-EVENTI.md",
     "pokedex-home-completo/README.md",
     "pokedex-home-completo/STUDIO-01-che-cosa-vincola-la-scadenza.md",
+    "pokedex-home-completo/STUDIO-02-salvataggi-esterni-e-che-cosa-provano.md",
+    "pokedex-home-completo/CENSIMENTO-SALVATAGGI.md",
     "poke-ace/STUDIO-03-la-risposta-della-comunita-e-le-due-severita.md",
     "cart-battery-restoration/README.md",
     "cart-battery-restoration/STUDIO-01-batteria-e-ritenzione.md",
@@ -105,15 +107,72 @@ ALTRI_DOCUMENTI = (
 )
 
 
+# I documenti che non entrano nell'elenco pur trovandosi dove l'elenco cerca, ciascuno con la
+# propria ragione. Un'esenzione senza ragione non serve a nulla, perché il senso di questa
+# tabella è costringere a dichiararla invece di dimenticarla; e il posto di queste voci non è
+# `tesi/non-coperti.txt`, che esenta una sezione di un documento coperto, mentre qui si esenta
+# un documento intero dal dover essere coperto.
+NON_DA_COPRIRE = {
+    "pokedex-home-completo/RICERCA-UTENTE-2026-09-01.md":
+        "consegna dell'utente conservata verbatim come fonte: il suo contenuto entra nel PDF "
+        "attraverso i documenti che la verificano, e coprirla riga per riga significherebbe "
+        "riportare nel PDF anche le sue affermazioni sbagliate",
+}
+
+
 def documenti():
-    fonti = []
+    """I documenti il cui contenuto deve finire nel PDF, scoperti e non elencati a mano.
+
+    La versione precedente teneva l'elenco in una tabella scritta a mano, e va detto perché non
+    andava bene, perché il difetto non era visibile: un documento di studio nuovo, non aggiunto
+    alla tabella, restava fuori dal conto e la copertura continuava a riferire cento per cento.
+    Nessuno strumento lo segnalava, perché il conto era esatto sull'insieme che gli era stato
+    dato, e l'insieme era incompleto. È la medesima specie di punto cieco che il `CLAUDE.md`
+    descrive per una scheda senza `covers-paths`, ed è emersa il 2026-09-02 su due documenti
+    nuovi del track del Pokedex.
+
+    L'elenco si scopre dunque dai luoghi dove i documenti stanno per convenzione, cioè il
+    percorso di studio sotto `docs/` e i README, gli STUDIO e i CATALOGO delle cartelle dei
+    sottoprogetti; la tabella scritta a mano resta per ciò che non segue quella convenzione,
+    come il registro delle fonti e la referenza dei formati. Un documento che non deve essere
+    coperto va dichiarato in `NON_DA_COPRIRE` con la ragione, che è l'unico modo di distinguere
+    una scelta da una dimenticanza.
+    """
+    fonti, visti = [], set()
+
+    def aggiungi(rel):
+        if rel in visti or rel in NON_DA_COPRIRE:
+            return
+        if os.path.exists(os.path.join(ROOT, rel)):
+            visti.add(rel)
+            fonti.append(rel)
+
     docs = os.path.join(ROOT, "docs")
     for nome in sorted(os.listdir(docs)):
         if nome.endswith(".md") and nome != "index.md":
-            fonti.append("docs/" + nome)
+            aggiungi("docs/" + nome)
+
+    # Ogni documento Markdown nella radice di una cartella di sottoprogetto. Il criterio è
+    # deliberatamente larghissimo, e la ragione va detta perché la scelta opposta sembra più
+    # prudente e non lo è: un criterio per convenzione di nome, per esempio i soli README, gli
+    # STUDIO e i CATALOGO, lascia sfuggire il documento successivo che porti un nome nuovo, e lo
+    # lascia sfuggire in silenzio. La larghezza sposta il difetto dal silenzio al rumore, cioè da
+    # un documento dimenticato a un documento incluso per errore, e il rumore si vede.
+    for nome in sorted(os.listdir(ROOT)):
+        cartella = os.path.join(ROOT, nome)
+        # Le cartelle che cominciano con un trattino basso sono materiale locale non
+        # versionato, per convenzione di questo progetto, e non sono sottoprogetti: `_notes/`
+        # contiene diari, prompt di ripresa e appunti, che non sono conoscenza da portare in un
+        # documento e che il criterio largo altrimenti raccoglierebbe.
+        if (not os.path.isdir(cartella) or nome.startswith((".", "_"))
+                or nome in ("docs", "tesi", "tools", "reports")):
+            continue
+        for figlio in sorted(os.listdir(cartella)):
+            if figlio.endswith(".md"):
+                aggiungi(nome + "/" + figlio)
+
     for rel in ALTRI_DOCUMENTI:
-        if os.path.exists(os.path.join(ROOT, rel)):
-            fonti.append(rel)
+        aggiungi(rel)
     return fonti
 
 
