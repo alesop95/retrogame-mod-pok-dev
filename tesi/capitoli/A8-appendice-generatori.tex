@@ -9,6 +9,12 @@
 % copre: docs/40-appendice-matematica.md#8-5-salto-in-avanti-e-la-distanza-fra-due-stati
 % copre: docs/40-appendice-matematica.md#8-6-lo-spazio-dei-semi-e-quando-una-ricerca-esaustiva-è-praticabile
 % copre: docs/40-appendice-matematica.md#8-7-determinazione-dello-stato-da-un-osservazione-parziale
+% copre: docs/40-appendice-matematica.md#8-8-il-nome-e-la-catena-dei-passaggi-di-una-singola-estrazione
+% copre: docs/40-appendice-matematica.md#8-9-la-forma-chiusa-del-termine-ennesimo
+% copre: docs/40-appendice-matematica.md#8-10-il-generatore-come-sistema-a-stato-e-l-uscita-come-troncamento
+% copre: docs/40-appendice-matematica.md#8-11-la-struttura-a-reticolo-e-ciò-che-il-test-spettrale-misura
+% copre: docs/40-appendice-matematica.md#8-12-pseudocasuale-non-significa-bianco
+% copre: docs/40-appendice-matematica.md#8-13-identificabilità-e-la-differenza-fra-un-dato-assente-e-un-dato-perduto
 % verificato-al-commit: 3439cc8
 % ---------------------------------------------------------------------
 
@@ -241,3 +247,91 @@ $P'$       & \texttt{...3B10} & \texttt{0011 1011 0001 0000} \\
 Lo scarto complessivo è dunque $\mathtt{0x3B10} - \mathtt{0x3B0E} = 2$, e la ragione per cui è due e non otto è che i tre bit bassi del valore di partenza valevano $110_2 = 6$: la somma di otto ne produce un riporto e la congiunzione ne cancella il residuo, cosicché lo spostamento netto vale $8 - 6 = 2$. Se i tre bit bassi fossero stati nulli lo spostamento sarebbe stato di otto, e in generale esso vale $8 - (P \bmod 8)$, cioè un valore fra uno e otto.
 
 Due osservazioni chiudono il punto, e la seconda è la ragione per cui questa appendice contiene il calcolo. La prima è che la mutazione non consuma estrazioni: essa opera sul valore già composto e non sullo stato del generatore, dunque i valori individuali che seguono restano quelli che si otterrebbero senza di essa. La seconda è che l'insieme dei valori possibili dello spostamento, cioè da uno a otto, è troppo piccolo perché la sua osservazione su un solo caso lo identifichi. Osservato uno scostamento di due unità, le ipotesi compatibili includono una trascrizione errata di una cifra, un arrotondamento e una mutazione additiva, e nessuna evidenza interna al singolo caso le separa. Ciò che le separa è la fonte, e questo è il contenuto generale del caso: quando la grandezza di un residuo è dello stesso ordine del rumore che le ipotesi alternative producono, l'inferenza dal dato è indecidibile e l'unica via è leggere la specifica.
+\section{Il nome, e la catena dei passaggi di una singola estrazione}
+
+La sigla che designa questo generatore, LCRNG, sta per \emph{Linear Congruential Random Number Generator}, e i tre qualificatori costituiscono una definizione compressa che vale espandere. \emph{Lineare} perché il passo è una funzione affine dello stato; \emph{congruenziale} perché il risultato si riduce per congruenza modulo un intero fissato; \emph{di numeri casuali} per convenzione e non per proprietà, poiché la successione è interamente determinata dal seme e nulla in essa è casuale. La qualificazione corretta è \emph{pseudocasuale}, e la distinzione non è pedanteria terminologica: è precisamente la proprietà che rende possibile il lavoro di ricostruzione esposto in questa appendice, giacché una successione veramente casuale non sarebbe invertibile.
+
+La formula del passo, però, non descrive ciò che il sistema fa. Fra la formula e l'operazione effettiva vi sono tre passaggi che essa non nomina, e vale scriverli una volta per intero, poiché è su di essi che poggia ogni conteggio successivo.
+
+\subsection*{I cinque passaggi}
+
+Primo: si legge lo stato corrente, che è una parola di trentadue bit conservata in memoria e non un valore leggibile in alcun campo di alcun esemplare. Secondo: si moltiplica lo stato per il moltiplicatore, ottenendo un prodotto largo sessantaquattro bit. Terzo: si somma l'incremento. Quarto: si riduce modulo $2^{32}$, che sull'elaboratore non è una divisione ma lo scarto dei bit oltre il trentaduesimo, cioè il troncamento naturale del registro; qui la scelta del modulo come potenza di due si paga zero. Quinto, e questo è il passaggio che la formula non contiene: si sovrascrive lo stato e si consegna al chiamante non lo stato ma la sua parola alta, cioè i soli sedici bit superiori.
+
+Ne discende una distinzione che genera confusione ogni volta che non è dichiarata: lo stato del generatore e il valore estratto sono due oggetti distinti, di larghezza distinta, e un singolo passo produce un singolo valore estratto consumando un singolo stato. Contare le estrazioni consumate da un metodo, che è l'operazione centrale del lavoro sulle distribuzioni, significa contare quante volte questa catena è stata percorsa, non quante parole di trentadue bit sono comparse.
+
+\subsection*{La composizione, che non appartiene al generatore}
+
+Il passaggio successivo va tenuto separato, poiché è dove si annidano le differenze fra i metodi. Il valore di personalità di un esemplare ha trentadue bit e nasce da due estrazioni consecutive: la parola alta della prima diviene la metà bassa e quella della seconda la metà alta, oppure il contrario, e quale delle due disposizioni valga costituisce la firma del metodo. I valori individuali nascono da due estrazioni ulteriori, con quindici bit informativi ciascuna. Un esemplare da distribuzione è dunque il risultato di quattro percorsi della catena, e conoscere il generatore senza conoscere la disposizione non basta a riprodurlo: è la ragione per cui il capitolo~\ref{cap:distribuzioni} descrive quattro rami di composizione e non uno.
+
+\section{La forma chiusa del termine ennesimo, e la divisione che non si può eseguire}
+
+La ricorrenza affine ammette una forma chiusa, ottenuta risolvendola come si risolve una serie geometrica:
+
+\begin{equation}
+s_n = \left( a^n s_0 + c\,\frac{a^n - 1}{a - 1} \right) \bmod m .
+\end{equation}
+
+La nozione esiste perché separa due domande che si confondono. La prima è quanto valga lo stato dopo un numero noto di passi, e la forma chiusa la risolve con un'elevazione a potenza modulare, in tempo proporzionale al logaritmo del numero di passi. La seconda è quanti passi separino due stati noti: è il problema inverso, richiede un logaritmo discreto, e in pratica si affronta per bisezione sull'esponente come descritto sopra.
+
+La divisione che compare nella formula richiede una cautela che costituisce il contenuto tecnico di questa sezione. Il denominatore $a-1$ non è invertibile modulo una potenza di due: le condizioni di periodo massimo impongono che sia divisibile per quattro, dunque pari, dunque non invertibile. La scrittura come frazione è un abuso di notazione ereditato dal caso reale, e il valore corretto è la somma geometrica dei primi $n$ termini calcolata modulo $m$, cioè la sommatoria già riportata per l'incremento del salto in avanti. Chi implementa la forma chiusa invertendo il denominatore ottiene un risultato errato senza alcun errore visibile, e il difetto si manifesta soltanto come valori che non tornano: è il genere di trappola per cui una formula corretta sui reali diventa scorretta sui modulari senza che la scrittura ne dia avviso.
+
+\section{Il generatore come sistema a stato, e l'uscita come troncamento}
+
+Conviene descrivere il generatore come un sistema dinamico a tempo discreto, autonomo e a stato finito: lo stato è una parola di trentadue bit, la legge di evoluzione è la funzione affine del passo, e non esiste ingresso alcuno oltre la condizione iniziale. L'uscita non coincide con lo stato: ne è una funzione, la selezione dei sedici bit superiori.
+
+Questa descrizione rende immediata la proprietà che governa l'intero lavoro di ricostruzione. Il sistema è deterministico, dunque la traiettoria è funzione della sola condizione iniziale; e l'osservatore che vede l'uscita non vede lo stato. Fra i due vi è una perdita, ed è di sedici bit per passo.
+
+\subsection*{La ricostruzione come problema di osservabilità}
+
+Ne segue la formulazione corretta del problema. Osservare un'uscita significa conoscere sedici dei trentadue bit dello stato che l'ha prodotta; osservarne due consecutive significa conoscere trentadue bit distribuiti su due stati legati dalla legge di evoluzione. La domanda se lo stato sia ricostruibile è dunque la domanda se il sistema sia \emph{osservabile} a partire da quel numero di uscite, e si risolve contando i bit informativi.
+
+È la medesima struttura del problema di stima dello stato di un sistema lineare da misure parziali, con due differenze che ne semplificano il trattamento: l'aritmetica è modulare anziché reale, e l'assenza di rumore rende la determinazione esatta anziché statistica. Non si stima uno stato con un intervallo di confidenza: lo si determina, o non lo si determina.
+
+\subsection*{La restrizione del seme, letta in questi termini}
+
+Un metodo che dichiari il seme di origine ristretto a sedici bit non sta scegliendo un numero piccolo per comodità: sta riducendo lo spazio delle condizioni iniziali da $2^{32}$ a $2^{16}$, cioè di un fattore $65\,536$. Poiché la ricostruzione consiste nel cercare quale condizione iniziale produca l'uscita osservata, la restrizione è ciò che sposta il problema dall'enumerazione lunga all'enumerazione immediata. Una restrizione dello spazio degli stati iniziali è, in questo senso, la cosa più utile che una specifica possa dichiarare a chi debba ricostruirla.
+
+\section{La struttura a reticolo, e ciò che il test spettrale misura}
+
+Le terne di valori consecutivi prodotte da un generatore lineare congruenziale non riempiono uniformemente il cubo: cadono su un numero limitato di piani paralleli. È un risultato generale della famiglia e non un difetto delle costanti impiegate, poiché qualunque scelta di moltiplicatore e incremento produce la medesima struttura, variando soltanto il numero dei piani e la loro spaziatura.
+
+Il risultato individua il limite oltre il quale un generatore di questa famiglia non va impiegato, e il limite va conosciuto per non trasportare la tecnica dove non regge. Se si estraggono $k$ valori consecutivi e si interpretano come coordinate di un punto in $k$ dimensioni, i punti giacciono su un reticolo, e il numero di piani su cui si dispongono cresce come la radice $k$-esima del modulo: per $k$ piccolo i piani sono molti e la struttura è invisibile, per $k$ grande sono pochi e la struttura domina.
+
+Il conto per il generatore in esame, con modulo $2^{32}$, dà circa $65\,536$ piani per le coppie, che è la radice quadrata; circa $1\,600$ per le terne, che è la radice cubica; una decina per le decuple. Ne segue che una simulazione che consumasse dieci valori consecutivi per collocare un punto in dieci dimensioni otterrebbe punti disposti su una decina di iperpiani anziché sparsi, e qualunque conclusione statistica ne uscirebbe distorta.
+
+Vale enunciare perché questo limite non tocchi il lavoro qui descritto, poiché il confronto è la parte utile. Qui il generatore non serve a simulare ma a determinare: non si chiede che le sue uscite siano indistinguibili dal caso, si chiede che siano riproducibili, e la struttura a reticolo non ostacola la riproduzione. Il medesimo generatore è inadatto a una simulazione in molte dimensioni e perfettamente adatto a produrre un esemplare: la differenza sta nello scopo e non nel generatore.
+
+\section{Pseudocasuale non significa bianco}
+
+Una successione pseudocasuale supera per costruzione alcune prove statistiche e non altre, e la formulazione precisa è la seguente: la distribuzione dei valori è prossima all'uniforme, mentre la successione non è priva di correlazione fra i propri termini. Le due proprietà sono indipendenti, e chiamare casuale una successione perché soddisfa la prima è l'errore più diffuso su questo argomento.
+
+La differenza fra le due decide quali usi siano legittimi. Una successione a distribuzione uniforme e correlata è adeguata dove serva soltanto che i valori coprano l'intervallo con la giusta frequenza; è inadeguata dove serva che due valori vicini nella successione siano indipendenti, come in una simulazione o in un impiego crittografico. Un generatore lineare congruenziale appartiene al primo caso e mai al secondo, e la ragione ultima è la sua invertibilità: chi osserva un'uscita risale allo stato e prevede tutte le successive, che è la definizione stessa dell'inadeguatezza crittografica.
+
+La conseguenza per questo lavoro è ironica nella direzione giusta, e chiude l'appendice. La proprietà che rende quel generatore inadatto alla crittografia, cioè la ricostruibilità dello stato da poche uscite, è esattamente la proprietà su cui l'intero lavoro si fonda: la ricerca inversa del seme di un esemplare autentico è un attacco elementare a un generatore che non pretende di resistervi. Ne segue che qui non si aggira alcuna protezione, poiché non ve n'è alcuna: si impiega un generatore per ciò che è, e la sua debolezza rispetto a un uso che non ha mai avuto costituisce la nostra strada.
+\section{Identificabilità, e la differenza fra un dato assente e un dato perduto}
+
+Un parametro si dice \emph{identificabile} a partire da un'osservazione quando l'osservazione lo determina in modo unico, ossia quando due valori distinti del parametro non possono produrre la medesima osservazione. È una nozione della teoria della stima e non della crittografia, e la distinzione è sostanziale: non si domanda se un parametro sia difficile da ricavare, si domanda se sia ricavabile.
+
+La nozione separa tre situazioni che la parola \emph{irrecuperabile} confonde, e che in questo lavoro si presentano tutte e tre. La prima è il parametro identificabile e di calcolo breve. La seconda è il parametro identificabile e costoso, dove l'osservazione lo determina ma il calcolo richiede una ricerca: la determinazione esiste e il costo è il solo ostacolo. La terza è il parametro non identificabile, dove nessun calcolo di alcuna durata lo determina, poiché l'osservazione è compatibile con più di un valore. Le prime due sono questioni di risorse; la terza è una questione di informazione, e nessuna quantità di ingegno converte la terza nelle prime.
+
+\subsection*{Il confronto fra le generazioni sul medesimo campo}
+
+L'esempio è il confronto fra le generazioni sui valori individuali di un esemplare da distribuzione, e dà esiti opposti.
+
+Nella terza generazione i valori individuali non sono un parametro libero: derivano dal seme attraverso il generatore, insieme al valore di personalità. L'osservazione porta trentadue bit di valore di personalità e trenta di valori individuali, mentre il parametro da identificare, il seme, ne ha trentadue oppure sedici secondo il metodo. I bit osservati eccedono quelli del parametro, dunque il seme è sovradeterminato: è identificabile, e sul seme ristretto la sua determinazione è anche immediata. Ne segue che la fedeltà di una ricreazione a un originale è decidibile, poiché si riduce al confronto fra due semi; e lo è in senso forte, giacché non si confrontano i campi visibili bensì la causa che li ha prodotti.
+
+Nelle prime due generazioni i valori individuali non derivano da alcun parametro conservato: furono estratti al momento della consegna da uno stato del gioco che nessun campo dell'esemplare registra, e l'esemplare li porta come dato primario. L'osservazione di un esemplare autentico non contiene dunque alcuna informazione su quale fosse quello stato; e non serve che la contenga, poiché non esiste un parametro comune da ritrovare. Due esemplari della medesima distribuzione hanno valori individuali diversi, e nessuno dei due è più autentico dell'altro. Il parametro non è nascosto: è assente, e la fedeltà su quel campo non è decidibile nemmeno in principio.
+
+\subsection*{La formulazione precisa, e l'errore che evita}
+
+La differenza si enuncia così: nella terza generazione la fedeltà è verificabile perché la funzione dal parametro all'osservazione è iniettiva nella direzione utile; nelle prime due non lo è, e non lo è perché non vi è alcuna funzione, essendo quel campo un ingresso e non un'uscita. Impiegare la parola \emph{irrecuperabile} per entrambi i casi è l'errore che questa sezione serve a prevenire, e non è un errore di vocabolario: chi lo commette cerca ciò che non esiste, e attribuisce alla propria insufficienza un esito che è strutturale.
+
+\subsection*{L'asimmetria fra legittimità e fedeltà}
+
+Ne discende un'asimmetria fra le due nozioni che questo lavoro distingue nei capitoli sui casi di studio, e le due generazioni si comportano in modo opposto.
+
+Dove il campo deriva da un parametro, la legittimità è difficile e la fedeltà è dimostrabile: difficile perché il verificatore controlla la coerenza fra campo e parametro, e ogni errore di ricostruzione la rompe, come gli otto difetti del capitolo~\ref{cap:distribuzioni} documentano; dimostrabile perché il parametro è identificabile.
+
+Dove il campo non deriva da nulla, la legittimità è banale e la fedeltà è impossibile: banale perché qualunque valore del campo è coerente con qualunque altro, non esistendo vincolo da rispettare; impossibile per assenza del parametro.
+
+Le due difficoltà sono complementari e non si presentano mai congiuntamente. È un fatto che vale registrare come previsione: una generazione futura che introducesse un vincolo sui valori individuali senza introdurre un parametro che li generi renderebbe difficile la legittimità senza rendere dimostrabile la fedeltà, e sarebbe il caso peggiore di entrambi i mondi. Nessuna delle generazioni esaminate in questo lavoro presenta quella combinazione.
