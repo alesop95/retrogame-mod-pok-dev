@@ -27,6 +27,28 @@ perché non dipende da alcuna numerazione interna di alcuna implementazione e ne
 è ordinabile, perché l'ordine lessicografico coincide con quello del Dex; ed è totale, perché
 esiste per ogni voce e non soltanto per quelle di cui si conosce il nome della forma.
 
+I tre assi, e perché una voce da evento non è una specie
+-------------------------------------------------------
+La collezione che questo progetto persegue non è l'insieme delle specie: è l'insieme delle specie
+più l'insieme delle forme che il deposito conta a parte più l'insieme degli esemplari da
+distribuzione. I tre non si riducono l'uno all'altro, e la ragione è che un esemplare da
+distribuzione è un collezionabile distinto anche quando la sua specie è già coperta: il Pikachu
+del decennale non è il Pikachu di un prato, perché porta un nome di allenatore, un identificativo
+e una data che nessun prato produce, e chi possiede il secondo non possiede il primo.
+
+Ne segue che la lista porta tre tabelle e tre famiglie di codici. Le voci di specie hanno codice
+`PKD-####-00`, le voci di forma `PKD-####-##` con forma diversa da zero, e le voci da evento
+`EVT-<generazione>-<indice>`.
+
+Sul codice delle voci da evento va dichiarato un limite che i codici di specie non hanno, perché
+tacerlo lo renderebbe insidioso. L'indice è la posizione della voce nella tabella della fonte, e
+dunque il codice è stabile soltanto quanto quella tabella: se la fonte riordinasse i propri dati,
+i codici si sposterebbero in blocco senza che nulla lo segnali. È un compromesso accettato per
+ora, poiché l'alternativa, cioè derivare il codice dal contenuto della voce, richiede di leggere
+per ogni formato i campi che identificano la distribuzione, e per la terza generazione quel dato
+non esiste in forma numerica. Il giorno in cui i codici da evento serviranno a spuntare e non
+soltanto a contare, questa è la prima cosa da cambiare.
+
 Che cosa questo elenco dichiara e che cosa non dichiara
 ------------------------------------------------------
 Dichiara, per ciascuna voce, il numero del Dex, il nome della specie in italiano, l'indice di
@@ -144,6 +166,84 @@ def fonti_disponibili(ace, esito_salvataggi):
     return fuori
 
 
+def voci_da_evento(pkhex, ace):
+    """Le voci da distribuzione di tutte le generazioni, con la loro provenienza e la nostra resa.
+
+    Le fonti sono due e restano distinte. Per la terza generazione la tabella vive nel codice del
+    verificatore e la legge il nostro generatore, che di ciascuna voce sa anche se la sappia
+    produrre; per le altre generazioni le tabelle sono file binari e le legge lo strumento del
+    conteggio, che di ciascuna voce sa la specie e non se la sappiamo produrre, perché per quelle
+    generazioni non abbiamo ancora un generatore.
+
+    La distinzione fra le due va conservata nell'uscita, perché è la differenza fra una voce che
+    il progetto sa già fare e una che sa soltanto contare, e mescolarle darebbe l'impressione di
+    una copertura che non c'è.
+    """
+    fuori = []
+
+    # ------------------------------------------------------------------ terza generazione
+    try:
+        generatore = carica_modulo("gen3ev", os.path.join(RADICE, "tools",
+                                                          "genera-evento-gen3.py"))
+        voci = generatore.voci_wc3(pkhex)
+    except Exception as exc:
+        print("  nota: il catalogo di terza generazione non si e' caricato (%s)" % exc)
+        voci = []
+    for indice, v in enumerate(voci):
+        producibile = (v.get("metodo") in generatore.METODI_PRODUCIBILI
+                       and "ot_irrisolto" not in v)
+        fuori.append({
+            "codice": "EVT-3-%04d" % indice,
+            "generazione": 3,
+            "nazionale": v.get("nazionale"),
+            "forma": 0,
+            "descrizione": (v.get("commento") or v.get("ot") or "evento"),
+            "metodo": v.get("metodo"),
+            "sotto_scadenza": True,
+            "resa": "producibile e verificata" if producibile else "non producibile",
+        })
+
+    # ------------------------------------------------------------------ le altre generazioni
+    try:
+        conteggio = carica_modulo("conteggio", os.path.join(RADICE, "tools",
+                                                            "conteggio-doni-moderni.py"))
+        righe, antichi, _difetti = conteggio.conta(pkhex)
+    except Exception as exc:
+        print("  nota: il conteggio dei doni non si e' caricato (%s)" % exc)
+        return fuori
+
+    # La corrispondenza serve soltanto alla terza generazione, che numera per numero nazionale;
+    # dalla quarta in avanti le tabelle dei doni usano gia' la numerazione nazionale.
+    for r in righe:
+        if not r.get("letti"):
+            continue
+        for v in r.get("voci_dettaglio", []):
+            fuori.append({
+                "codice": "EVT-%d-%04d" % (r["generazione"], v["indice"]),
+                "generazione": r["generazione"],
+                "nazionale": v["specie"],
+                "forma": v["forma"],
+                "descrizione": r["titoli"],
+                "metodo": v["file"],
+                "sotto_scadenza": r["sotto_scadenza"],
+                "resa": "letta, non ancora producibile",
+            })
+    for a in antichi:
+        generazione = 1 if a["file"] == "event1.pkl" else 2
+        for v in a.get("voci_dettaglio", []):
+            fuori.append({
+                "codice": "EVT-%d-%04d" % (generazione, v["indice"]),
+                "generazione": generazione,
+                "nazionale": v["specie"],
+                "forma": v["forma"],
+                "descrizione": "tabella di incontro da evento",
+                "metodo": a["file"],
+                "sotto_scadenza": True,
+                "resa": "letta, struttura alla portata di pokebridge",
+            })
+    return fuori
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--pkhex", required=True, help="clone del verificatore")
@@ -213,6 +313,8 @@ def main(argv=None):
             "fonti": fonti.get(s, []),
         })
 
+    eventi = voci_da_evento(a.pkhex, a.ace)
+
     # ---------------------------------------------------------------- uscita a schermo
     print("Lista di spunta del Pokedex completo")
     print("")
@@ -246,15 +348,37 @@ def main(argv=None):
     print("")
     print("  Il conto che decide la campagna: %d voci di specie non hanno ancora alcuna fonte "
           "nel progetto." % (len(righe_specie) - len(coperte)))
+    print("")
+    print("  voci da evento enumerate           %d" % len(eventi))
+    per_gen = {}
+    for e in eventi:
+        chiave = (e["generazione"], e["sotto_scadenza"])
+        per_gen.setdefault(chiave, []).append(e)
+    for (gen, scad) in sorted(per_gen):
+        gruppo = per_gen[(gen, scad)]
+        print("    gen %d  %5d voci  %4d specie distinte  %s"
+              % (gen, len(gruppo), len({x["nazionale"] for x in gruppo if x["nazionale"]}),
+                 "sotto scadenza" if scad else "senza scadenza"))
+    rese = {}
+    for e in eventi:
+        rese[e["resa"]] = rese.get(e["resa"], 0) + 1
+    print("")
+    for k, n in sorted(rese.items(), key=lambda x: -x[1]):
+        print("    %-42s %5d" % (k, n))
+    scad_ev = [e for e in eventi if e["sotto_scadenza"]]
+    print("")
+    print("  Le voci da evento sotto scadenza sono %d, e portano %d specie distinte. Sono il "
+          "solo insieme" % (len(scad_ev), len({e["nazionale"] for e in scad_ev if e["nazionale"]})))
+    print("  di questa lista che il 26 febbraio 2027 chiude davvero.")
 
     if a.markdown:
-        scrivi(a.markdown, righe_specie, righe_forma, per_fonte)
+        scrivi(a.markdown, righe_specie, righe_forma, per_fonte, eventi)
         print("")
         print("  scritto " + a.markdown)
     return 0
 
 
-def scrivi(percorso, righe_specie, righe_forma, per_fonte):
+def scrivi(percorso, righe_specie, righe_forma, per_fonte, eventi):
     r = []
     r.append("# Lista di spunta del Pokedex completo")
     r.append("")
@@ -309,6 +433,34 @@ def scrivi(percorso, righe_specie, righe_forma, per_fonte):
         r.append("| `%s` | %d | %s | %s | %s |"
                  % (x["codice"], x["numero"], x["nome"], x["via"],
                     ", ".join(x["fonti"]) if x["fonti"] else "nessuna"))
+    r.append("")
+
+    r.append("## Voci da evento")
+    r.append("")
+    r.append("Una voce da evento è un collezionabile distinto anche quando la sua specie è già "
+             "coperta altrove, e la ragione è che porta un nome di allenatore, un identificativo "
+             "e una data che nessun incontro selvatico produce: chi possiede il secondo non "
+             "possiede il primo. La colonna della resa dice a che punto siamo su quella voce, e "
+             "tiene distinte tre condizioni che non vanno confuse, cioè una voce che il progetto "
+             "sa produrre e ha fatto verificare, una che sa soltanto leggere, e una la cui "
+             "struttura è alla portata di codice che già esiste.")
+    r.append("")
+    scad_ev = [x for x in eventi if x["sotto_scadenza"]]
+    r.append("Le voci enumerate sono %d, di cui %d sotto scadenza, e queste ultime portano %d "
+             "specie distinte. Sono il solo insieme di questa lista che il 26 febbraio 2027 "
+             "chiude davvero: le voci di specie e di forma sono tutte raggiungibili per via "
+             "diretta, mentre un esemplare da distribuzione di una generazione anteriore "
+             "all'ottava non ha altra strada che la banca."
+             % (len(eventi), len(scad_ev),
+                len({x["nazionale"] for x in scad_ev if x["nazionale"]})))
+    r.append("")
+    r.append("| Codice | Gen | Dex | Forma | Provenienza | Sotto scadenza | Resa |")
+    r.append("|---|---|---|---|---|---|---|")
+    for x in eventi:
+        r.append("| `%s` | %d | %s | %d | %s | %s | %s |"
+                 % (x["codice"], x["generazione"],
+                    x["nazionale"] if x["nazionale"] else "-", x["forma"],
+                    x["descrizione"], "sì" if x["sotto_scadenza"] else "no", x["resa"]))
     r.append("")
 
     r.append("## Voci di forma")
