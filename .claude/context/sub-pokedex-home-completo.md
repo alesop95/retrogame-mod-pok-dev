@@ -5,7 +5,7 @@ generated-date: 2026-09-02
 covers-paths:
   - pokedex-home-completo/
 last-verified-commit: e692a02b8a46ab119e0389449d61327384841236
-stato: attivo, ultimo anello della catena verificato rispondente, lista di spunta completa generata, seicentoquaranta voci di specie senza fonte
+stato: attivo, catena verificata rispondente, lista di spunta a tre assi, 2686 voci da evento sotto scadenza con 336 specie distinte
 ---
 
 # Sottoprogetto: Pokedex completo in Pokemon Home
@@ -36,9 +36,21 @@ Quattro vincoli numerici sono entrati nei conti e nessuno li avevamo. Il deposit
 
 La lista di spunta è `CHECKLIST-COMPLETA.md`, generata da `tools/checklist-pokedex.py`. Il codice interno è la coppia fra numero del Dex e indice di forma, scritta `PKD-####-##`, e serve perché il numero del Dex identifica una specie e non un esemplare da ottenere: non cambia per il sesso, per una variante regionale o per una forma. Al 2026-09-03 la lista dice milleventicinque voci di specie tutte per via diretta, trecentottantacinque con una fonte già nel progetto, e seicentoquaranta senza alcuna fonte: quest'ultimo è il numero che misura la campagna e il solo che scende quando si lavora.
 
+## Aggiunta del 2026-09-03, seconda: il terzo asse e la roadmap
+
+La lista ha ora tre assi, perché la collezione non è l'insieme delle specie ma quello delle specie più le forme che il deposito conta a parte più tutti gli esemplari da distribuzione: un esemplare da distribuzione è un collezionabile distinto anche quando la sua specie è coperta altrove. Le voci da evento enumerate sono 2701, di cui 2686 sotto scadenza con 336 specie distinte, e sono il solo insieme della lista che il 26 febbraio 2027 chiude davvero.
+
+La sorpresa che decide l'ordine di lavoro è che prima e seconda generazione sono le meno costose e non le più costose: non hanno doni segreti ma tabelle di incontro con i campi in chiaro, e in quelle generazioni non esiste alcun valore di personalità né alcun generatore pseudocasuale da ricostruire, quindi 168 voci sono alla portata di `pokebridge` come è oggi. Il costo per voce non cresce con l'età ma con la presenza di un seme, e quella comincia e finisce con la terza generazione. La roadmap in quattro tempi sta nella sezione 9 di `STUDIO-03`.
+
+Una correzione dichiarata e non ancora fatta: il conto che dice zero specie vincolate dalla scadenza poggia sul contrassegno di presenza delle tabelle delle statistiche, e la presenza non è l'ottenibilità. Zero è un limite inferiore e non la risposta; la risposta richiede le tabelle degli incontri. La voce è in `pending.md` ed è il lavoro più grosso fra quelli aperti su questo track.
+
+La scadenza è definitiva e verificata su fonte ufficiale già presente nel registro dal 2026-08-28: 26 febbraio 2027 alle 12:00 del fuso giapponese, cioè le 04:00 in ora italiana di un venerdì, che nel fuso del Pacifico è giovedì 25 alle 19:00, il medesimo istante.
+
 ## Prossimo passo concreto
 
-Proiettare sulla lista di spunta le fonti che ancora non vi sono proiettate, in ordine di resa: le tremilasettantadue voci di dono delle generazioni moderne, i depositi dei salvataggi di quarta, quinta, sesta e settima generazione, e il deposito di Pokemon Box. Ciascuna è oggi un conto che vive da solo e diventerà una colonna, e le seicentoquaranta voci senza fonte scenderanno di conseguenza. Pokemon Box resta la più interessante per la domanda di completezza, perché il suo caricamento dichiara di contenere tutto ciò che in terza generazione si può ancora ottenere legittimamente; il formato del suo deposito differisce da quello delle cartucce e va letto su `PKHeX.Core/Saves/SAV3RSBox.cs` prima di essere scritto.
+Prima e seconda generazione: leggere le due tabelle nel nostro formato, comporre le 168 strutture con `pokebridge`, e sottoporle al verificatore come è stato fatto per la terza. È il tempo con il rapporto migliore fra ciò che si ottiene e ciò che costa, e non richiede alcun algoritmo nuovo.
+
+Poi, proiettare sulla lista di spunta le fonti che ancora non vi sono proiettate, in ordine di resa: le tremilasettantadue voci di dono delle generazioni moderne, i depositi dei salvataggi di quarta, quinta, sesta e settima generazione, e il deposito di Pokemon Box. Ciascuna è oggi un conto che vive da solo e diventerà una colonna, e le seicentoquaranta voci senza fonte scenderanno di conseguenza. Pokemon Box resta la più interessante per la domanda di completezza, perché il suo caricamento dichiara di contenere tutto ciò che in terza generazione si può ancora ottenere legittimamente; il formato del suo deposito differisce da quello delle cartucce e va letto su `PKHeX.Core/Saves/SAV3RSBox.cs` prima di essere scritto.
 
 Il passo che segue, e che vale di più per la pianificazione, è contare e catalogare gli eventi di quarta, quinta, sesta e settima generazione con il metodo usato per la terza. La base dei doni segreti del verificatore contiene i file per tutte e quattro, cioè `wc4.pkl`, `pgf.pkl`, `wc6.pkl` con il suo complemento e `wc7.pkl` con il suo, quindi non c'è alcun algoritmo da ricostruire: il lavoro è di conteggio, di catalogazione e di misura della campagna.
 
