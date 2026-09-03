@@ -501,3 +501,40 @@ Chiude la sezione ciò che è rimasto fuori, poiché un resoconto senza il propr
 Quindici voci della seconda generazione sono uova giapponesi che la fonte classifica come consegnate al destinatario, con mosse assegnate a mano e nessuna indicazione di quale evento fossero. La fonte non le nomina, non le data e non le colloca: il documento generato dichiara i tre campi come non documentati anziché riempirli, e la loro identificazione resta un lavoro aperto. È la scelta opposta a quella che renderebbe il documento più bello, ed è la sola che lo lascia correggibile.
 
 Tre voci non si sono potute comporre per un limite di codifica dichiarato: il nome del loro donatore è in caratteri giapponesi, e il progetto possiede la tabella dei caratteri giapponese della terza generazione ma non quella delle prime due. Il limite è del nostro strumento e non del formato, e va registrato come tale.
+\section{Il controllo incrociato, e che cosa produce oltre alla conferma}
+
+Le sezioni precedenti hanno costruito la provenienza degli esemplari da distribuzione delle prime due generazioni a partire da una sola fonte, cioè l'implementazione di riferimento che il lavoro impiega anche come verificatore. Sottoporre quella ricostruzione a una seconda fonte indipendente, un'enciclopedia di dominio, ha prodotto quattro esiti di natura diversa, e vale distinguerli perché soltanto il primo è quello che si attende.
+
+\subsection*{La conferma, che è l'esito atteso e il meno informativo}
+
+Su gran parte dei campi le due fonti concordano: le specie, i livelli, gli assortimenti di mosse, i nomi e gli identificatori dei donatori. La concordanza vale quanto costa, ossia poco: due fonti che descrivono il medesimo artefatto storico hanno buone probabilità di derivare l'una dall'altra, e l'accordo non esclude un errore comune.
+
+Vi è però un caso in cui la conferma è pesante, e si riconosce da una proprietà: le due fonti descrivono il medesimo dato in linguaggi che non si traducono l'uno nell'altro. Il byte che nella struttura di un esemplare porta di norma il tasso di cattura della specie assume, negli esemplari premio distribuiti da un gioco su console domestica, uno di due valori fissi. La fonte tecnica lo presenta come un vincolo che il verificatore impone; l'enciclopedia lo presenta come la confezione, di due tipi, in cui il premio veniva consegnato. Nessuna delle due formulazioni si deduce dall'altra, e la loro coincidenza numerica è dunque una conferma che non poteva nascere per trascrizione.
+
+Un secondo caso della medesima specie riguarda un insieme di valori individuali fissati. La fonte tecnica lo dichiara come una sequenza ordinata di sei numeri; l'enciclopedia lo dichiara nominando le statistiche. La coincidenza fra le due letture, unita a un vincolo interno al dato per cui uno dei sei valori si deriva dagli altri, produce tre accordi indipendenti sulla medesima assegnazione. È il grado di certezza più alto che questo lavoro abbia ottenuto su un campo che nessuna specifica documenta.
+
+\subsection*{La correzione, e la forma in cui l'errore si presentava}
+
+Il secondo esito è la correzione di due affermazioni del lavoro, entrambe della medesima specie: una specie identificata a memoria anziché letta dalla tabella dei nomi.
+
+La forma dell'errore merita attenzione perché non è un errore nei dati. In entrambi i casi il numero della specie era corretto nei byte prodotti, e lo era il nome nella prosa che li descriveva a essere falso. Nel caso peggiore dei due, su quel nome era stata costruita un'affermazione di interesse: si era scritto che una certa mossa fosse impossibile per quella specie, il che era vero della specie erroneamente nominata e non di quella reale, dove la medesima mossa era soltanto rara.
+
+Ne discende un avvertimento sulla scrittura di documentazione tecnica generata. Un documento che deriva i propri numeri da una tabella e la propria prosa dalla memoria di chi scrive contiene due classi di affermazioni con affidabilità incompatibili, e il lettore non ha modo di distinguerle: entrambe si presentano nel medesimo carattere. La disciplina che ne segue è che ogni nome che compaia nella prosa provenga dalla medesima tabella da cui provengono i numeri, e che dove ciò non sia possibile la provenienza sia dichiarata.
+
+\subsection*{La congettura risolta, e la divergenza dichiarata}
+
+Il terzo esito è la risoluzione di una congettura. La fonte tecnica ammette quattro nomi di donatore per un gruppo di distribuzioni, e il lavoro aveva scritto che si trattasse di quattro postazioni oppure di quattro periodi, dichiarando l'alternativa anziché scegliere. L'enciclopedia risolve nel primo senso: nel luogo della distribuzione vi erano quattro macchine, e i quattro nomi sono le quattro macchine. Un campo di un byte diventa un luogo fisico, e l'alternativa dichiarata era la forma corretta in cui portare avanti una domanda aperta.
+
+Il quarto esito è la divergenza, ed è quello su cui la disciplina conta di più. In due punti le fonti non concordano: un assortimento di mosse in cui l'enciclopedia elenca un elemento in più, e una distribuzione con valori individuali che la fonte tecnica non contempla. Le divergenze non si mediano e non si tacciono, e in questo lavoro si risolvono con un criterio dichiarato: si segue la fonte tecnica, non per una gerarchia astratta fra i tipi di fonte, ma perché quella fonte è il verificatore che giudicherà gli esemplari prodotti, dunque è la sua nozione di correttezza a determinare se un esemplare sarà accettato.
+
+Il criterio porta con sé il proprio limite e va registrato insieme a esso: se la fonte tecnica venisse corretta nella direzione dell'enciclopedia, gli esemplari prodotti diventerebbero scorretti senza che alcun controllo lo segnali. La divergenza resta perciò scritta nel documento della provenienza, così che quel giorno la si ritrovi anziché riscoprirla.
+
+\section{Un difetto di procedura, alla sua terza occorrenza}
+
+Chiude il capitolo un difetto che non riguarda i dati né il codice, e che va registrato con la medesima cura perché è costato più di entrambi.
+
+Il lavoro mantiene un registro delle fonti, in cui ogni fonte consultata è annotata con ciò che documenta in modo autorevole. In tre occasioni distinte, nell'arco di due giorni, una domanda è stata dichiarata aperta e messa in coda alla verifica mentre la sua risposta era già scritta in quel registro. Nella prima un'affermazione errata è sopravvissuta per alcune ore. Nella seconda è stata aperta una verifica su un dato privo di significato, e si è chiesto a una persona di rileggere su un dispositivo un numero che era annotato in casa. Nella terza, e la più onerosa, un limite di trasferimento è stato dichiarato da verificare mentre il registro lo documentava da giorni; poiché quel limite definiva la scala dell'intera campagna, la pianificazione ha lavorato per giorni su un tetto che il materiale disponibile non imponeva.
+
+La lettura corretta di questi tre episodi non è che serva più attenzione, poiché l'attenzione non ha mai prevenuto nulla di sistematico. La lettura corretta è che un registro delle fonti è un'infrastruttura di consultazione, e un'infrastruttura di consultazione che non venga consultata prima di dichiarare aperta una domanda produce esattamente l'effetto di non esistere, con il costo aggiuntivo di essere mantenuta. Il rimedio è procedurale e verificabile: prima di dichiarare da verificare un fatto esterno, si cerca quel fatto nel registro, e la ricerca è una singola invocazione di uno strumento di ricerca testuale.
+
+Vale notare la simmetria con il difetto della sezione precedente, poiché le due lezioni sono la medesima applicata a due materiali. Là un nome nella prosa proveniva dalla memoria anziché dalla tabella accanto; qui una risposta proveniva dalla memoria anziché dal registro accanto. In entrambi i casi l'informazione corretta era a distanza di un comando, e in entrambi i casi il costo dell'omissione è stato pagato più tardi e da qualcun altro: nel primo dal lettore, che avrebbe creduto a una frase falsa; nel secondo dalla pianificazione, che ha misurato uno spazio più piccolo del reale.

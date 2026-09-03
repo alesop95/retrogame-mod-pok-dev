@@ -62,6 +62,14 @@ La prova va completata con due contenitori: i dieci file di prima generazione in
 
 L'utente ha deciso l'ambito: la collezione delle distribuzioni, cioè 2686 voci sotto scadenza e non 336, con esecuzione in due tempi, prima una voce per specie e poi i gemelli. La coda di produzione va quindi ordinata per specie e non per gruppo di evento.
 
+## Aggiunta del 2026-09-03, quinta: il tetto del Parco Amico non esiste sul veicolo che possediamo
+
+È il fatto che decide l'ambito di tutta la campagna, ed era nel registro delle fonti dal 2026-08-28: il limite di sei esemplari ogni ventiquattro ore vale per Diamante, Perla e Platino, mentre HeartGold e SoulSilver lo rimuovono. L'utente possiede un Argento SoulSilver italiano, quindi il collo di bottiglia è sei per sessione senza tetto giornaliero, e le 2686 voci sotto scadenza richiedono circa 448 sessioni: una questione di pazienza e non di calendario. Il tetto di circa mille esemplari su cui il progetto ha pianificato per giorni era quello di un veicolo che non siamo obbligati a usare.
+
+Il gruppo di prima generazione del lotto GB è ora pulito nel verificatore, con Bulbasaur che dichiara tasso di cattura centosessantasette. Gli otto contrassegni residui sono esemplari di seconda generazione letti come di prima per effetto del contenitore sbagliato, e non un difetto nostro: le dimensioni dei file prodotti sono quelle attese e il Mew cromatico del medesimo gruppo, letto come di seconda generazione, è legale.
+
+Tutti e otto i gruppi di evento di prima e seconda generazione hanno ora una provenienza storica con collegamento alla pagina che la descrive, verificata su una seconda fonte indipendente. L'ultimo gruppo senza provenienza è chiuso: erano le uova misteriose dei Pokemon Center di Tokyo e Osaka in tre campagne fra il dicembre 2001 e il maggio 2002, e ciascuna delle quindici voci è attribuita alla propria campagna con il marcatore che la distingue.
+
 ## Prossimo passo concreto
 
 Ordinare la coda per specie, cioè aggiungere alla lista di spunta la colonna che dice se una voce da evento sia la prima della propria specie e l'ordinamento che mette prima tutte le prime. È la traduzione operativa della decisione dell'utente e costa poche righe.
