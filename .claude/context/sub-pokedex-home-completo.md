@@ -5,7 +5,7 @@ generated-date: 2026-09-02
 covers-paths:
   - pokedex-home-completo/
 last-verified-commit: e692a02b8a46ab119e0389449d61327384841236
-stato: attivo
+stato: attivo, ultimo anello della catena verificato rispondente, lista di spunta completa generata, seicentoquaranta voci di specie senza fonte
 ---
 
 # Sottoprogetto: Pokedex completo in Pokemon Home
@@ -28,9 +28,17 @@ Il numero che serve a questo track è la copertura: l'unione delle specie presen
 
 Le quattro fonti sono in `SOURCES.md` al livello cinque, come ADR-024 prescrive. Il perimetro dell'uso resta quello di ADR-024 per gli esemplari, mentre ADR-029 aggiunge la distinzione fra importare uno stato di avanzamento, che è ammesso per sbloccare il Parco Amici a tre condizioni, e importare un esemplare, che resta subordinato al giudizio del verificatore.
 
+## Aggiunta del 2026-09-03: la catena risponde, e la lista di spunta esiste
+
+L'ultimo anello della catena verso il deposito finale non è più un'ipotesi: la voce che sposta gli esemplari esiste, risponde, e su un deposito vuoto dichiara di non avere nulla da spostare. Lo stato è documentato in `STUDIO-03-la-catena-e-viva-e-la-lista-di-spunta.md`, che in apertura dichiara la distinzione richiesta da ADR-030, cioè che si registra lo stato della catena e non la procedura del deposito intermedio, sul quale il limite di perimetro resta intero.
+
+Quattro vincoli numerici sono entrati nei conti e nessuno li avevamo. Il deposito intermedio tiene tremila posizioni, quindi è un condotto e non un magazzino. Rimuove gli oggetti tenuti al deposito, il che tocca il nostro lotto perché alcune voci del catalogo portano un oggetto che fa parte della loro identità storica. L'identificativo di rete si lega a una sola console, quindi parallelizzare i trasferimenti su una seconda console è escluso per costruzione. E un periodo di prova ha un conto alla rovescia già cominciato, il cui numero di giorni va riletto sulla console perché nelle fotografie la prima cifra non è leggibile.
+
+La lista di spunta è `CHECKLIST-COMPLETA.md`, generata da `tools/checklist-pokedex.py`. Il codice interno è la coppia fra numero del Dex e indice di forma, scritta `PKD-####-##`, e serve perché il numero del Dex identifica una specie e non un esemplare da ottenere: non cambia per il sesso, per una variante regionale o per una forma. Al 2026-09-03 la lista dice milleventicinque voci di specie tutte per via diretta, trecentottantacinque con una fonte già nel progetto, e seicentoquaranta senza alcuna fonte: quest'ultimo è il numero che misura la campagna e il solo che scende quando si lavora.
+
 ## Prossimo passo concreto
 
-Censire il deposito del salvataggio di Pokemon Box, che è la fonte più interessante delle trenta per la domanda di completezza: il suo caricamento dichiara di contenere tutto ciò che in terza generazione si può ancora ottenere legittimamente, esemplari ombra e distribuzioni comprese, e confrontarlo con il nostro elenco dice se abbiamo lasciato fuori qualcosa. La somma di controllo del file torna e il file è identificato; il formato del suo deposito differisce da quello delle cartucce e va letto su `PKHeX.Core/Saves/SAV3RSBox.cs` prima di essere scritto.
+Proiettare sulla lista di spunta le fonti che ancora non vi sono proiettate, in ordine di resa: le tremilasettantadue voci di dono delle generazioni moderne, i depositi dei salvataggi di quarta, quinta, sesta e settima generazione, e il deposito di Pokemon Box. Ciascuna è oggi un conto che vive da solo e diventerà una colonna, e le seicentoquaranta voci senza fonte scenderanno di conseguenza. Pokemon Box resta la più interessante per la domanda di completezza, perché il suo caricamento dichiara di contenere tutto ciò che in terza generazione si può ancora ottenere legittimamente; il formato del suo deposito differisce da quello delle cartucce e va letto su `PKHeX.Core/Saves/SAV3RSBox.cs` prima di essere scritto.
 
 Il passo che segue, e che vale di più per la pianificazione, è contare e catalogare gli eventi di quarta, quinta, sesta e settima generazione con il metodo usato per la terza. La base dei doni segreti del verificatore contiene i file per tutte e quattro, cioè `wc4.pkl`, `pgf.pkl`, `wc6.pkl` con il suo complemento e `wc7.pkl` con il suo, quindi non c'è alcun algoritmo da ricostruire: il lavoro è di conteggio, di catalogazione e di misura della campagna.
 

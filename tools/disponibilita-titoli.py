@@ -189,6 +189,38 @@ def voci_del_titolo(pkhex, nome, size, off_fsi, off_fc, modo, maxsp):
     return fuori
 
 
+def insiemi_per_via(pkhex):
+    """Le coppie specie e forma che ciascun titolo dichiara, e l'unione per via.
+
+    Esiste per una ragione che vale registrare, perché è la seconda volta che questo progetto
+    incontra la medesima forma di errore. Il 2026-09-03 un secondo programma aveva bisogno degli
+    stessi due insiemi, e invece di chiamare questo codice ne ha riscritto la lettura; nella
+    riscrittura ha sostituito la tabella di Let's Go con l'insieme delle sue specie a forma base,
+    perdendo le forme che quel titolo dichiara. L'esito non è stato un errore ma un numero
+    plausibile e sbagliato, cioè millecinquecentoventinove voci al posto di millecinquecentotrentacinque
+    e sedici voci di sola via indiretta al posto di dodici, con quattro forme di Alola che
+    apparivano vincolate dalla scadenza senza esserlo.
+
+    La cura non è la correzione della riscrittura ma la sua eliminazione: la lettura vive qui, e
+    chi ne ha bisogno la chiama. Il trattamento particolare di Let's Go resta dentro, dove la sua
+    ragione è scritta accanto.
+    """
+    insiemi = {}
+    for etichetta, nome, size, fsi, fc, modo, maxsp, _via in TAVOLE:
+        v = voci_del_titolo(pkhex, nome, size, fsi, fc, modo, maxsp)
+        if etichetta == "LGPE":
+            # La sua tabella non porta il contrassegno di presenza, quindi si filtra per
+            # l'insieme scritto delle sue specie. Il filtro è sulla specie e conserva le voci di
+            # forma di quelle specie: sostituirlo con le sole forme base perderebbe le varianti
+            # di Alola che quel titolo introduce.
+            v = {(s, f) for (s, f) in v if s in LGPE_SPECIE}
+        insiemi[etichetta] = v
+    diretta, indiretta = set(), set()
+    for etichetta, *_resto, via in TAVOLE:
+        (diretta if via == "diretta" else indiretta).update(insiemi[etichetta])
+    return insiemi, diretta, indiretta
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--pkhex", required=True, help="cartella del clone del verificatore")
@@ -207,25 +239,12 @@ def main(argv=None):
     print("  specie con forma totemica                " + str(len(totemiche)))
     print("")
 
-    insiemi = {}
-    for et, nome, size, fsi, fc, modo, maxsp, via in TAVOLE:
-        v = voci_del_titolo(a.pkhex, nome, size, fsi, fc, modo, maxsp)
-        if et == "LGPE":
-            # La sua tabella non porta il contrassegno, quindi si filtra per l'insieme scritto.
-            v = {(s, f) for (s, f) in v if s in LGPE_SPECIE}
-        insiemi[et] = v
+    insiemi, diretta, indiretta = insiemi_per_via(a.pkhex)
+    for et, _nome, _size, _fsi, _fc, _modo, _maxsp, via in TAVOLE:
+        v = insiemi[et]
         print("  %-5s via %-10s specie %4d   voci-forma %4d"
               % (et, via, len({s for s, _ in v}), len(v)))
     print("")
-
-    diretta = set()
-    for et, *_rest, via in TAVOLE:
-        if via == "diretta":
-            diretta |= insiemi[et]
-    indiretta = set()
-    for et, *_rest, via in TAVOLE:
-        if via == "indiretta":
-            indiretta |= insiemi[et]
 
     print("=== Livello di specie")
     sp_diretta = {s for s, _ in diretta}
