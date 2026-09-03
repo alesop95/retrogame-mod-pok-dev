@@ -1,0 +1,80 @@
+{
+  "nota": "Provenienza storica dei gruppi di evento di prima e seconda generazione. File autorato e non generato, come il suo omologo di terza generazione: i dati tecnici si calcolano, la provenienza si legge e si cita. La chiave di un gruppo è la generazione e il tipo di donatore separati da un trattino, cioè i due campi con cui le tabelle della fonte classificano una voce. Dove una fonte non esiste il campo lo dichiara invece di essere riempito per ipotesi, e in quel caso il campo fonte resta assente: una provenienza inventata su una scheda che si presenta come tecnica sarebbe indistinguibile da una letta.",
+  "fonti": {
+    "pkhex-gift1": {
+      "titolo": "PKHeX, template degli eventi di prima generazione",
+      "url": "https://github.com/kwsch/PKHeX/blob/master/PKHeX.Core/Legality/Encounters/Templates/Gen1/EncounterGift1.cs",
+      "letta": "2026-09-03"
+    },
+    "pkhex-gift2": {
+      "titolo": "PKHeX, template degli eventi di seconda generazione",
+      "url": "https://github.com/kwsch/PKHeX/blob/master/PKHeX.Core/Legality/Encounters/Templates/Gen2/EncounterGift2.cs",
+      "letta": "2026-09-03"
+    }
+  },
+  "gruppi": {
+    "1-2": {
+      "nome": "Esemplari premio di Pokemon Stadium",
+      "date": "non dichiarate dalla fonte",
+      "luogo": "dentro il gioco, su console domestica",
+      "come": "premio consegnato dal gioco su console domestica e scritto sulla cartuccia portatile collegata",
+      "racconto": "Sono i nove esemplari che il gioco su console domestica consegnava alla cartuccia collegata: i tre iniziali al livello cinque, un Psyduck al quindici, i due combattenti di Kanto al venti, un Ditto al venticinque e i due fossili al venti. La cosa che li rende interessanti tecnicamente è l'allenatore, perché è l'unico caso di prima generazione in cui il nome e l'identificativo non appartengono a chi riceve: il nome è quello del gioco tradotto in ciascuna lingua, e in italiano è STADIO, mentre l'identificativo vale millenovecentonovantanove sulle versioni giapponesi e duemila sulle altre. Un esemplare così porta scritto addosso di essere passato per un'altra macchina, che in prima generazione è un'informazione che quasi nessun altro esemplare possiede.",
+      "fonte": "pkhex-gift1"
+    },
+    "1-3": {
+      "nome": "Mew dei tour europei",
+      "date": "non dichiarate dalla fonte",
+      "luogo": "manifestazioni itineranti in Europa",
+      "come": "consegnato sul posto da una postazione, con il nome dell'allenatore scelto fra diciannove valori",
+      "racconto": "La fonte elenca diciannove nomi di allenatore ammessi per questo gruppo, e l'elenco è esso stesso il documento dell'evento: nomi di personaggi come YOSHIRA, LINKE, LUIGE e MARIO accanto a nomi di paesi come SWEDEN, NORWAY, FINLAND, DENMARK, AUSTRIA e UK. Ne segue che la distribuzione non fu un evento unico ma una serie, con una postazione per tappa e un nome per postazione. Il dettaglio tecnico che li distingue è che i valori individuali non sono liberi: la fonte li fissa a cinque, dieci, uno e dodici, con i punti salute che ne derivano, quindi su questo gruppo la fedeltà di una ricreazione è verificabile, che nel resto di queste due generazioni non è vero.",
+      "fonte": "pkhex-gift1"
+    },
+    "1-4": {
+      "nome": "Mew delle manifestazioni giapponesi",
+      "date": "22-24 novembre 1997, 7 dicembre 1997 - 15 febbraio 1998, 27-29 agosto 1999",
+      "luogo": "Space World 1997, Next Generation World Hobby Fair Dome Cup, Space World 1999",
+      "come": "consegnato sul posto, con il nome dell'allenatore che identifica la manifestazione o la città",
+      "racconto": "Questo è il gruppo di cui la fonte dichiara le date, e le dichiara nei propri commenti accanto ai nomi degli allenatori, il che permette di ricostruire tre eventi distinti dentro un solo tipo. I nomi dei personaggi Nintendo, cioè Mario, Bowser, Luigi, Peach, Yoshi e Donkey, appartengono allo Space World del novembre 1997; i nomi delle cinque città, cioè Fukuoka, Tokyo, Osaka, Sapporo e Nagoya, appartengono alla fiera itinerante fra il dicembre 1997 e il febbraio 1998, e sono la prova che quella fu una serie di tappe; il nome Makuhari appartiene allo Space World dell'agosto 1999, ed è il quartiere di Chiba dove si teneva. I valori individuali sono gli stessi del tour europeo e sono fissati dalla fonte.",
+      "fonte": "pkhex-gift1"
+    },
+    "2-1": {
+      "nome": "Esemplari premio di Pokemon Stadium 2, versione giapponese",
+      "date": "non dichiarate dalla fonte",
+      "luogo": "dentro il gioco, su console domestica",
+      "come": "premio consegnato dal gioco su console domestica e scritto sulla cartuccia portatile collegata",
+      "racconto": "Due esemplari soli, e sono la ragione per cui questo gruppo è celebre fra chi studia questi giochi. Il primo è un Farfetch'd al livello cinque che conosce Staffetta, Danzaspada, Agilità e Lacerazione, cioè quattro mosse che a quel livello nessun Farfetch'd potrebbe avere e che insieme formano una strategia compiuta. Il secondo è un Sunkern al livello cinque che conosce Terremoto, Contrattacco e Attacco d'Ala: un Sunkern con Terremoto è l'esempio classico di mossa impossibile per la specie, e la sua sola presenza in un salvataggio dichiara che l'esemplare viene da là. Entrambi portano il luogo di cattura centoventisette, che è il valore riservato agli eventi.",
+      "fonte": "pkhex-gift2"
+    },
+    "2-2": {
+      "nome": "Esemplari premio di Pokemon Stadium 2, versione inglese",
+      "date": "non dichiarate dalla fonte",
+      "luogo": "dentro il gioco, su console domestica",
+      "come": "premio consegnato dal gioco su console domestica e scritto sulla cartuccia portatile collegata",
+      "racconto": "Gli stessi due esemplari del gruppo giapponese, con il nome dell'allenatore nella forma inglese e l'identificativo duemila. La ragione per cui la fonte tiene i tre gruppi separati non è il contenuto ma l'identità dell'allenatore, che cambia con la lingua e che il verificatore controlla: un Farfetch'd con il nome giapponese su una cartuccia inglese non è un esemplare più raro ma un esemplare sbagliato.",
+      "fonte": "pkhex-gift2"
+    },
+    "2-3": {
+      "nome": "Esemplari premio di Pokemon Stadium 2, versioni internazionali non inglesi",
+      "date": "non dichiarate dalla fonte",
+      "luogo": "dentro il gioco, su console domestica",
+      "come": "premio consegnato dal gioco su console domestica e scritto sulla cartuccia portatile collegata",
+      "racconto": "Gli stessi due esemplari, con il nome dell'allenatore tradotto e l'identificativo duemilauno, che è il solo campo a distinguere questo gruppo dal precedente. La fonte elenca le forme francese, tedesca, italiana e spagnola del nome, e quella italiana è Stadio: è il gruppo che interessa direttamente le cartucce di questo progetto, perché sono italiane.",
+      "fonte": "pkhex-gift2"
+    },
+    "2-4": {
+      "nome": "Distribuzioni del Pokemon Center di New York",
+      "date": "non dichiarate dalla fonte",
+      "luogo": "Pokemon Center di New York",
+      "come": "consegnato al negozio, con il nome dell'allenatore scelto fra quattro valori",
+      "racconto": "Centotrentasei voci, cioè l'ottantasei per cento di tutti gli eventi di seconda generazione, tutte dallo stesso luogo. La fonte ammette quattro nomi di allenatore, da PCNYa a PCNYd, e la loro esistenza suggerisce quattro postazioni o quattro periodi. Il contenuto è la parte notevole: fra le prime voci compaiono un Mew cromatico, un Celebi con Parassiseme, Confusione, Rintoccasana e Ripresa, i tre leggendari di Johto cromatici e i tre uccelli di Kanto cromatici, oltre a esemplari comuni con assortimenti di mosse costruiti a mano. Tecnicamente il gruppo è interessante perché la cromaticità in seconda generazione non è un contrassegno ma una configurazione dei valori individuali: dichiarare cromatico un esemplare significa vincolarne quattro campi su cinque, quindi su queste voci la fedeltà è in parte verificabile mentre sul resto della generazione non lo è.",
+      "fonte": "pkhex-gift2"
+    },
+    "2-0": {
+      "nome": "Uova distribuite in Giappone",
+      "date": "non documentate",
+      "luogo": "non documentato",
+      "come": "non documentato",
+      "racconto": "Quindici voci giapponesi che la fonte classifica come consegnate al destinatario, cioè con il nome e l'identificativo di chi le riceve, e che si riconoscono per un campo: le incubazioni sono diverse da zero, quindi sono uova e non esemplari. Le specie sono iniziali di due generazioni, i tre cuccioli introdotti allora, un Wooper, uno Smoochum, un Phanpy, un Psyduck, un Sentret e un Hoothoot, tutte al livello cinque e con una mossa che la specie non impara per crescita. Che cosa fossero questi eventi il progetto non lo sa: la fonte non li nomina, non porta date e non porta un luogo, quindi i tre campi sopra restano non documentati e non vanno citati. Ciò che si può dire con certezza sta nei byte, cioè che sono uova giapponesi con mosse assegnate a mano, e va tenuto separato da qualunque ricostruzione. Trovare la fonte di questo gruppo è fra le cose che restano da fare."
+    }
+  }
+}
