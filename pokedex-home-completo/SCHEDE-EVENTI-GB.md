@@ -12,7 +12,7 @@ Generazione 1, donatore dichiarato dalla fonte come Stadium. Il gruppo porta 9 v
 
 Quando: non dichiarate dalla fonte. Dove: dentro il gioco, su console domestica. Come: premio consegnato dal gioco su console domestica e scritto sulla cartuccia portatile collegata.
 
-Sono i nove esemplari che il gioco su console domestica consegnava alla cartuccia collegata: i tre iniziali al livello cinque, un Psyduck al quindici, i due combattenti di Kanto al venti, un Ditto al venticinque e i due fossili al venti. La cosa che li rende interessanti tecnicamente è l'allenatore, perché è l'unico caso di prima generazione in cui il nome e l'identificativo non appartengono a chi riceve: il nome è quello del gioco tradotto in ciascuna lingua, e in italiano è STADIO, mentre l'identificativo vale millenovecentonovantanove sulle versioni giapponesi e duemila sulle altre. Un esemplare così porta scritto addosso di essere passato per un'altra macchina, che in prima generazione è un'informazione che quasi nessun altro esemplare possiede.
+Sono i nove esemplari che il gioco su console domestica consegnava alla cartuccia collegata: i tre iniziali al livello cinque, un Psyduck al quindici, i due combattenti di Kanto al venti, un Eevee al venticinque e i due fossili al venti. La cosa che li rende interessanti tecnicamente è l'allenatore, perché è l'unico caso di prima generazione in cui il nome e l'identificativo non appartengono a chi riceve: il nome è quello del gioco tradotto in ciascuna lingua, e in italiano è STADIO, mentre l'identificativo vale millenovecentonovantanove sulle versioni giapponesi e duemila sulle altre. Un esemplare così porta scritto addosso di essere passato per un'altra macchina, che in prima generazione è un'informazione che quasi nessun altro esemplare possiede. C'è un secondo campo che li tradisce, e la sua storia è migliore: il byte che di norma porta il tasso di cattura della specie porta invece uno di due valori fissi, centosessantasette o centosessantotto, che sono gli identificativi della Scatola Normale e della Scatola Splendida, cioè la confezione in cui il premio veniva consegnato. Psyduck pretende la seconda e gli altri accettano entrambe. Quel byte, passando alla seconda generazione, diventa il byte dell'oggetto tenuto: un premio di Stadium arriva in Johto tenendo in mano la propria scatola.
 
 Fonte: [PKHeX, template degli eventi di prima generazione](https://github.com/kwsch/PKHeX/blob/master/PKHeX.Core/Legality/Encounters/Templates/Gen1/EncounterGift1.cs), letta il 2026-09-03.
 
@@ -189,10 +189,10 @@ Fonte: [PKHeX, template degli eventi di prima generazione](https://github.com/kw
 | mosse | Botta (1) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
-| valori individuali | attacco 5, difesa 10, velocità 1, speciale 12, punti salute 10 | fissati dalla fonte |
+| valori individuali | attacco 10, difesa 1, velocità 12, speciale 5, punti salute 5 | fissati dalla fonte |
 | tipi | 24 e 24 | tabella delle statistiche di base |
 | tasso di cattura | 45 | tabella delle statistiche di base |
-| statistiche | max_hp 26, atk 15, def 16, spd 15, spc 16 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| statistiche | max_hp 25, atk 16, def 15, spd 16, spc 15 | formula delle prime due generazioni, con esperienza di statistica nulla |
 | allenatore | YOSHIRA, identificativo 6000 | la fonte accetta diciannove nomi per il tour europeo e non fissa alcun identificativo: si sceglie il primo dell'elenco, e l'identificativo è una scelta nostra dichiarata e non un dato |
 | restrizione di lingua | internazionale | tabella degli eventi |
 
@@ -216,10 +216,10 @@ Fonte: [PKHeX, template degli eventi di prima generazione](https://github.com/kw
 | mosse | Botta (1) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
-| valori individuali | attacco 5, difesa 10, velocità 1, speciale 12, punti salute 10 | fissati dalla fonte |
+| valori individuali | attacco 10, difesa 1, velocità 12, speciale 5, punti salute 5 | fissati dalla fonte |
 | tipi | 24 e 24 | tabella delle statistiche di base |
 | tasso di cattura | 45 | tabella delle statistiche di base |
-| statistiche | max_hp 26, atk 15, def 16, spd 15, spc 16 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| statistiche | max_hp 25, atk 16, def 15, spd 16, spc 15 | formula delle prime due generazioni, con esperienza di statistica nulla |
 | allenatore | マクハリ, identificativo 6000 | nome dello Space World '99 di Makuhari, primo dell'elenco giapponese della fonte; l'identificativo è una scelta nostra |
 | restrizione di lingua | giapponese | tabella degli eventi |
 

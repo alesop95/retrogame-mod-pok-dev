@@ -54,9 +54,19 @@ Il risultato di metodo vale più del lotto ed è speculare alla terza generazion
 
 Il lotto NON è ancora stato giudicato dal verificatore, e finché non lo è nessuna voce va considerata conforme.
 
+## Aggiunta del 2026-09-03, quarta: il giudizio sul lotto GB e la decisione sull'ambito
+
+Il giudizio esterno ha prodotto tre difetti, tutti corretti con un presidio: il tasso di cattura dei premi di Stadium, che non è quello della specie ma l'identificativo della scatola in cui il premio veniva consegnato; l'ordine dei valori individuali dichiarati per i Mew dei tour, che comincia dai punti salute; e il nome dell'allenatore segnaposto, che eccedeva i sette caratteri del formato. La forma nuova di difetto va ricordata: una voce legale può nascondere un errore che si manifesta soltanto sulle voci vicine, perché il verificatore le assegna un incontro alternativo e la dichiara legale con la provenienza sbagliata.
+
+La prova va completata con due contenitori: i dieci file di prima generazione in un salvataggio di prima e i centocinquantacinque di seconda in un salvataggio di seconda. Il caricamento in blocco in un salvataggio di prima generazione converte i secondi e li invalida per una ragione che non è nostra.
+
+L'utente ha deciso l'ambito: la collezione delle distribuzioni, cioè 2686 voci sotto scadenza e non 336, con esecuzione in due tempi, prima una voce per specie e poi i gemelli. La coda di produzione va quindi ordinata per specie e non per gruppo di evento.
+
 ## Prossimo passo concreto
 
-Far giudicare il lotto di `_notes/lotto-gb/` dal verificatore esterno, con la via di massa o su alcuni singoli. Due formule sono trascritte e non verificate sul disassemblato, cioè le statistiche delle prime due generazioni e l'esperienza, e il verificatore è lo strumento che dirà se sono giuste. È la lezione della campagna di terza generazione, dove la suite di prove era verde durante tutti e otto i difetti.
+Ordinare la coda per specie, cioè aggiungere alla lista di spunta la colonna che dice se una voce da evento sia la prima della propria specie e l'ordinamento che mette prima tutte le prime. È la traduzione operativa della decisione dell'utente e costa poche righe.
+
+Poi completare il giudizio del lotto GB con i due contenitori giusti. Due formule restano trascritte e non verificate sul disassemblato, cioè le statistiche delle prime due generazioni e l'esperienza, e il verificatore è lo strumento che dirà se sono giuste.
 
 Poi, proiettare sulla lista di spunta le fonti che ancora non vi sono proiettate, in ordine di resa: le tremilasettantadue voci di dono delle generazioni moderne, i depositi dei salvataggi di quarta, quinta, sesta e settima generazione, e il deposito di Pokemon Box. Ciascuna è oggi un conto che vive da solo e diventerà una colonna, e le seicentoquaranta voci senza fonte scenderanno di conseguenza. Pokemon Box resta la più interessante per la domanda di completezza, perché il suo caricamento dichiara di contenere tutto ciò che in terza generazione si può ancora ottenere legittimamente; il formato del suo deposito differisce da quello delle cartucce e va letto su `PKHeX.Core/Saves/SAV3RSBox.cs` prima di essere scritto.
 
