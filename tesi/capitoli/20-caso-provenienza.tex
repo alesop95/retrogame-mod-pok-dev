@@ -11,6 +11,8 @@
 % copre: pokedex-home-completo/STUDIO-01-che-cosa-vincola-la-scadenza.md
 % copre: pokedex-home-completo/STUDIO-02-salvataggi-esterni-e-che-cosa-provano.md
 % copre: pokedex-home-completo/CENSIMENTO-SALVATAGGI.md
+% copre: pokedex-home-completo/STUDIO-03-la-catena-e-viva-e-la-lista-di-spunta.md
+% copre: pokedex-home-completo/CHECKLIST-COMPLETA.md
 % copre: generation-from-switch/README.md
 % copre: generation-from-switch/STUDIO-01-scambio-automatico-e-provenienza.md
 % verificato-al-commit: a427431
@@ -377,3 +379,56 @@ Il caso presente non muove alcun esemplare. Ciò che entra è uno stato di avanz
 La distinzione va enunciata come categoria e non come eccezione a un caso, perché ricorrerà. Sbloccare una funzione, possedere un oggetto necessario a un evento, avere ottenuto un riconoscimento sono tutti stati; nessuno di essi porta con sé la questione della provenienza di un'entità collezionabile. E la distinzione porta con sé le proprie condizioni, che sono ciò che la rende una distinzione onesta e non una scappatoia: lo spazio di deposito del salvataggio importato va svuotato prima dell'impiego, perché gli esemplari che contiene non servono allo scopo e la loro sola presenza reintrodurrebbe il problema; e le garanzie della norma sull'hardware restano intere, poiché l'operazione non è la lettura di un file ma la sovrascrittura di un supporto fisico.
 
 Una nota conclusiva sull'asse che questa distinzione illumina. Il capitolo ha già separato legale da legittimo; il materiale di provenienza esterna introduce un terzo asse, indipendente da entrambi, che si può chiamare proprio. Un esemplare può essere legittimo, nel senso che nessun verificatore ha da contestargli, e non proprio, nel senso che porta il nome e l'identificatore di un altro e nel gioco figura come ricevuto. Un obiettivo di collezione formulato in termini di storia possibile riguarda il terzo asse almeno quanto il secondo, e chi non lo enuncia rischia di soddisfare una condizione credendo di soddisfarne un'altra.
+\section{Contare non è censire, e perché la differenza emerge tardi}
+
+Il capitolo si chiude con una osservazione di metodo che il lavoro ha imposto tardi e che sarebbe stata invisibile prima, poiché dipende dal numero delle fonti e non dalla loro qualità.
+
+\subsection*{Il difetto di un progetto che conta}
+
+Per settimane il lavoro qui descritto ha prodotto conteggi. Quante voci contenga un catalogo di distribuzioni; quante di esse un programma sappia riprodurre; quante specie stiano nei depositi di una raccolta di salvataggi; quante voci di dono portino le generazioni che dipendono da un servizio intermedio; quante specie e quante voci di forma le tabelle dei titoli dichiarino. Ogni conteggio era esatto, ciascuno era stato verificato contro la propria fonte, e nessuno rispondeva alla domanda che governa una campagna di collezione, cioè che cosa manchi.
+
+La ragione è strutturale e vale enunciarla in forma generale: un conteggio è un numero e non un insieme, e i numeri non si intersecano. Sapere che una fonte offre $385$ elementi e un'altra $59$ non permette di dire quanti ne offrano insieme, poiché la loro sovrapposizione non è nel dato; e non permette di dire quanti restino, poiché non esiste il riferimento rispetto a cui calcolare il complemento. Due grandezze che sembrano confrontabili non lo sono, e la somma che verrebbe naturale scrivere è priva di significato.
+
+Il censimento è l'operazione che rimedia, e richiede un oggetto che i conteggi non producono: un elenco esplicito delle voci desiderate, ciascuna con un'identità stabile, su cui ogni fonte si possa proiettare. Costruito quell'elenco, ogni conteggio precedente cessa di essere un numero isolato e diventa una colonna, cioè un predicato definito su un insieme comune; e la domanda su ciò che manca diventa una differenza insiemistica, che è calcolabile.
+
+\subsection*{Perché la necessità emerge tardi, e non è una svista}
+
+Vale difendere il lavoro precedente, perché la sua forma era adeguata al proprio momento. Con una o due fonti, ciascuna si descrive da sé e la sovrapposizione è ispezionabile a occhio; il costo di costruire un elenco di riferimento supererebbe il suo beneficio. La necessità compare quando le fonti diventano abbastanza numerose perché le loro intersezioni siano la parte interessante dell'informazione, e nel caso in esame ciò è avvenuto al passaggio da due a quattro famiglie di fonti.
+
+Ne discende un criterio trasferibile, che è la ragione per cui questa sezione esiste. Il momento in cui passare dal conteggio al censimento non è dettato dalla dimensione del problema ma dal numero delle fonti che vi concorrono: finché sono poche, contare informa; appena si sovrappongono, contare smette di informare e continua a sembrare informativo. Il secondo è lo stato pericoloso, poiché produce rapporti pieni di numeri esatti e inutili.
+
+\section{Un identificatore per una voce da ottenere}
+
+L'elenco di riferimento richiede un identificatore, e la scelta apparentemente ovvia è sbagliata in un modo che vale analizzare, poiché l'errore è di tipo e non di merito.
+
+\subsection*{Perché il numero di catalogo non serve}
+
+Il catalogo nazionale assegna un numero a ogni specie, ed è l'identificatore che ogni fonte usa. Ha però una proprietà che lo rende inadatto allo scopo: è invariante rispetto alle distinzioni che qui contano. Non cambia per il sesso, non cambia per una variante regionale, non cambia per una forma alternativa. È esattamente ciò che si vuole da un identificatore di specie, ed esattamente ciò che non si vuole da un identificatore di voce da ottenere.
+
+La conseguenza pratica è che una lista indicizzata per numero di catalogo non è una lista di ciò che si desidera ottenere ma di ciò che si desidera possedere almeno una volta, in qualche variante. Al termine di una campagna essa non distingue una voce soddisfatta da una soddisfatta in parte, e la distinzione è precisamente ciò per cui la lista esiste.
+
+\subsection*{Le tre proprietà richieste}
+
+L'identificatore adottato è la coppia ordinata fra numero di catalogo e indice di forma, resa come stringa a lunghezza fissa con la forma base a zero. Tre proprietà lo giustificano, e ciascuna esclude un'alternativa.
+
+La prima è la stabilità rispetto alle implementazioni. Ogni programma che manipoli questi dati porta una propria numerazione interna, e questo lavoro ha già pagato il prezzo di confondere due numerazioni: un identificatore che poggiasse su una di esse erediterebbe quel rischio e lo propagherebbe a ogni documento derivato. La coppia poggia sulla sola numerazione pubblicata, che nessuna implementazione può cambiare.
+
+La seconda è l'ordinabilità. La resa a lunghezza fissa con riempimento di zeri fa coincidere l'ordine lessicografico con quello del catalogo, cosicché ogni elenco ordinato per identificatore risulti già nell'ordine in cui un lettore lo cerca. È una proprietà minore che si paga con nulla e la cui assenza costa un riordinamento a ogni consultazione.
+
+La terza è la totalità, ed è la più importante. L'identificatore esiste per ogni voce, comprese quelle di cui non si conosce il nome della forma; e poiché il nome della forma richiede una tabella di corrispondenza che varia per titolo e per lingua, un identificatore che lo contenesse sarebbe definito solo su una parte dell'insieme. Un'identità parziale non è un'identità.
+
+\subsection*{Il limite dell'elenco, dichiarato dall'elenco stesso}
+
+L'elenco enumera le voci di forma che i dati dichiarano, e per la maggior parte di esse non afferma se il deposito di destinazione le conti come caselle separate: nessuna documentazione di primo livello lo stabilisce. La scelta adottata è enumerare e marcare l'indeterminatezza anziché decidere, e vale enunciarne la ragione in forma generale, poiché la tentazione opposta è forte.
+
+Un elenco di riferimento che risolvesse per proprio conto una questione aperta produrrebbe un documento internamente coerente e falso in un punto che nessuna verifica successiva potrebbe individuare, poiché la decisione sarebbe indistinguibile da un dato. Marcare l'indeterminatezza costa una colonna e conserva la distinzione fra ciò che si è letto e ciò che si è supposto, che è la sola proprietà che rende un documento correggibile.
+
+\section{Una terza occorrenza, e il criterio che la governa}
+
+Un difetto introdotto durante la costruzione di quell'elenco chiude il capitolo, perché è la terza istanza della medesima forma logica in tre giorni e la ripetizione permette di enunciare il criterio che la previene.
+
+Il generatore dell'elenco necessitava di due insiemi che un altro programma già calcolava, e ne ha riscritto la lettura anziché invocarlo. Nella riscrittura, il caso particolare di un titolo la cui tabella non porta il contrassegno di presenza è stato risolto sostituendo l'insieme delle sue voci con l'insieme delle sue specie in forma base: una semplificazione che perde le voci di forma di quel titolo.
+
+L'esito non è stato un errore ma un numero plausibile, inferiore di sei unità al corretto, con quattro voci che risultavano vincolate da una scadenza da cui non sono vincolate. La forma logica è la stessa dei due casi precedenti descritti in questo lavoro, cioè il bit di un'abilità dedotto per la via breve e una normalizzazione di testo che cancellava un carattere distintivo: una scorciatoia in una parte considerata ovvia produce un risultato che nessun controllo esistente distingue da quello giusto.
+
+Il criterio che le governa tutte e tre non è una raccomandazione di attenzione, che non ha mai prevenuto nulla, ma una regola strutturale: quando due programmi hanno bisogno della medesima lettura, la lettura appartiene a uno solo dei due e l'altro la invoca. La correzione applicata non è stata correggere la riscrittura ma eliminarla, spostando la lettura in una funzione unica dove il trattamento del caso particolare vive accanto alla propria motivazione. E il difetto è stato individuato per una ragione che merita di essere registrata: i due programmi sono stati confrontati sui rispettivi numeri prima che al secondo si prestasse fede, e il confronto è costato una singola esecuzione.
