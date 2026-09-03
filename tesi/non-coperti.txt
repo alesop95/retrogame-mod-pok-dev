@@ -26,3 +26,11 @@ recreate-pokemon-distributions-events/SCHEDE-ESEMPLARI.md # inventario generato 
 ## Nazionale e le sue enumerazioni di forme sono dati da consultare e non prosa da
 ## rendere, e un documento copiato verbatim da una fonte esterna non va riscritto.
 pokedex-home-completo/RICERCA-UTENTE-2026-09-01.md # fonte verbatim con provenienza, non prosa del progetto
+## La lista di spunta del Pokedex e' un inventario di milleventicinque voci di specie e
+## cinquecentoventidue di forma, una riga per voce, e la tesi ne rende il criterio nel capitolo
+## sulla provenienza: perche' il numero del Dex non basta a identificare una voce da ottenere e
+## quali proprieta' debba avere il codice che lo sostituisce. Le due tabelle sono dati da
+## consultare, non prosa da rendere, e valgono l'esenzione per la stessa ragione del catalogo
+## degli eventi e delle schede degli esemplari.
+pokedex-home-completo/CHECKLIST-COMPLETA.md#voci-di-specie # inventario generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CHECKLIST-COMPLETA.md#voci-di-forma # inventario generato di righe di dati, non prosa da rendere
