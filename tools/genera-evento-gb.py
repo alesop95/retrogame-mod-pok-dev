@@ -670,6 +670,7 @@ def scrivi_schede(percorso, prodotti, nomi, mosse, prov):
     """
     gruppi_prov = prov.get("gruppi", {})
     fonti = prov.get("fonti", {})
+    voci_prov = prov.get("voci", {})
 
     r = []
     r.append("# Schede degli esemplari da evento di prima e seconda generazione")
@@ -728,14 +729,31 @@ def scrivi_schede(percorso, prodotti, nomi, mosse, prov):
             if g.get("racconto"):
                 r.append(g["racconto"])
                 r.append("")
-            if g.get("fonte") and g["fonte"] in fonti:
-                f = fonti[g["fonte"]]
-                r.append("Fonte: [%s](%s), letta il %s."
-                         % (f["titolo"], f["url"], f["letta"]))
+            # Il collegamento alla pagina che descrive l'evento. Sta accanto alle fonti e non
+            # fra loro, perché ha una funzione diversa: le fonti sono ciò su cui il racconto
+            # poggia, la pagina è dove chi legge va a leggere di più. Sono spesso lo stesso
+            # indirizzo e non sempre.
+            if g.get("pagina"):
+                r.append("Pagina che descrive l'evento: <%s>." % g["pagina"])
+                r.append("")
+            citate = []
+            for chiave_fonte in ("fonte", "fonte_secondaria"):
+                nome_fonte = g.get(chiave_fonte)
+                if nome_fonte and nome_fonte in fonti:
+                    f = fonti[nome_fonte]
+                    citate.append("[%s](%s), letta il %s" % (f["titolo"], f["url"], f["letta"]))
+            if citate:
+                r.append("Fonti: " + "; ".join(citate) + ".")
             else:
-                r.append("Fonte: nessuna letta per questo gruppo, quindi quanto sopra è "
+                r.append("Fonti: nessuna letta per questo gruppo, quindi quanto sopra è "
                          "dichiarato e non verificato.")
             r.append("")
+            # Le divergenze fra le fonti non si mediano e non si tacciono: si dichiarano, con la
+            # ragione per cui si è seguita l'una e non l'altra. Una divergenza taciuta diventa
+            # un difetto quando la fonte che non abbiamo seguito ha ragione.
+            if g.get("divergenze"):
+                r.append("Divergenza fra le fonti: " + g["divergenze"])
+                r.append("")
 
         for x in gruppo:
             v = x["voce"]
@@ -744,6 +762,15 @@ def scrivi_schede(percorso, prodotti, nomi, mosse, prov):
             nome = nomi.get(v["nazionale"], "?")
             r.append("### %s %s" % (codice(v), nome))
             r.append("")
+            # L'attribuzione della singola voce, dove il gruppo non basta. Serve al solo gruppo
+            # delle uova, dove un medesimo tipo di donatore raccoglie tre campagne distinte e il
+            # marcatore che le separa è una mossa.
+            vp = voci_prov.get(codice(v))
+            if vp:
+                r.append("Attribuzione di questa voce: %s. Il marcatore che la distingue è %s."
+                         % (vp.get("campagna", "non determinata"),
+                            vp.get("marcatore", "non dichiarato")))
+                r.append("")
             r.append("| Campo | Valore | Provenienza |")
             r.append("|---|---|---|")
             r.append("| numero del Dex | %d | tabella degli eventi |" % v["nazionale"])
