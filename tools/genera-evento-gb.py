@@ -161,14 +161,52 @@ ALLENATORI = {
              "sceglie il primo e l'identificativo è una scelta nostra dichiarata"},
 }
 
+# Il tasso di cattura degli esemplari premio di Pokemon Stadium, da EncounterGift1.IsCatchRateValid
+# letto il 2026-09-03 dopo che il verificatore ha rifiutato sei voci su nove. Il byte del tasso di
+# cattura di quel gruppo non porta il tasso della specie ma uno di due valori fissi, e i due valori
+# sono gli identificativi di due oggetti: la Scatola Normale e la Scatola Splendida, cioè
+# letteralmente la confezione in cui il premio veniva consegnato. Psyduck pretende la seconda e
+# tutti gli altri accettano entrambe.
+#
+# Il dettaglio non è una curiosità ma la chiave del difetto: avevo scritto il tasso della specie,
+# preso dalla tabella delle statistiche di base, e con quello l'incontro diventa una
+# corrispondenza soltanto parziale. Su Bulbasaur non si notava, perché esiste un incontro statico
+# che lo accetta ed è quello che il verificatore ha scelto, riportandolo legale ma con la
+# provenienza sbagliata; sulle sei voci senza alternativa statica il verificatore non ha trovato
+# alcuna corrispondenza e le ha dichiarate non valide. È il caso in cui una voce legale nasconde
+# un difetto che si manifesta soltanto sulle voci vicine.
+#
+# Vale inoltre notare la conseguenza sul trasferimento, che è il motivo per cui questi due valori
+# esistono in questa posizione: passando alla seconda generazione il byte del tasso di cattura
+# diventa il byte dell'oggetto tenuto, quindi un premio di Stadium arriva in Johto tenendo in mano
+# la propria scatola.
+SCATOLA_NORMALE = 167
+SCATOLA_SPLENDIDA = 168
+PSYDUCK = 54
+
 # I valori individuali che la fonte fissa, da EncounterGift1: i due tour hanno valori dichiarati
 # e il Mew della Virtual Console li ha tutti al massimo. Dove la fonte non li fissa restano una
 # scelta nostra, per la ragione spiegata nel docstring.
+# L'ordine dei sei valori nella dichiarazione della fonte è punti salute, attacco, difesa,
+# velocità, attacco speciale e difesa speciale, verificato su
+# IndividualValueSet il 2026-09-03. La prima stesura di questo programma lo aveva letto come se
+# fosse attacco, difesa, velocità e speciale, cioè aveva saltato i punti salute e slittato tutto
+# di una posizione: il verificatore ha rifiutato entrambi i Mew dei tour.
+#
+# Il controllo che rende questa lettura certa e non probabile è interno al dato, e vale
+# registrarlo perché è elegante. In prima generazione il valore dei punti salute non è
+# indipendente: si ricava dai bit meno significativi degli altri quattro. La fonte lo dichiara
+# comunque, quindi la lettura giusta è la sola in cui il valore derivato coincide con quello
+# dichiarato. Con la lettura sbagliata i punti salute derivati valgono dieci contro i cinque
+# dichiarati; con quella giusta valgono cinque. Il self-test verifica questa coincidenza.
 DV_FISSI_1 = {
-    3: {"atk": 5, "def": 10, "spd": 1, "spc": 12},
-    4: {"atk": 5, "def": 10, "spd": 1, "spc": 12},
+    3: {"atk": 10, "def": 1, "spd": 12, "spc": 5},
+    4: {"atk": 10, "def": 1, "spd": 12, "spc": 5},
     1: {"atk": 15, "def": 15, "spd": 15, "spc": 15},
 }
+# I punti salute che la fonte dichiara per i due tour, usati dal self-test come controllo della
+# lettura e non come dato da scrivere: nella struttura quel valore non esiste come campo.
+DV_HP_DICHIARATO_TOUR = 5
 DV_PREDEFINITI = {"atk": 15, "def": 15, "spd": 15, "spc": 15}
 
 # L'allenatore segnaposto per le voci che lo prendono da chi riceve. È la medesima situazione
@@ -179,10 +217,19 @@ DV_PREDEFINITI = {"atk": 15, "def": 15, "spd": 15, "spc": 15}
 # l'identificativo non entra in alcun calcolo: non esiste un valore di personalità che dipenda da
 # esso, quindi cambiarlo non cambia nessun altro campo e la rigenerazione è una riscrittura di
 # due campi invece di un ricalcolo.
-ALLENATORE_SEGNAPOSTO = {"nome": "ALLENATORE", "tid": 31121,
+# La lunghezza massima di un nome di allenatore nelle prime due generazioni, da
+# PKM.MaxStringLengthTrainer per quei formati: sette caratteri, come in terza generazione. Il
+# segnaposto della prima stesura ne aveva dieci e il verificatore ha rifiutato quindici voci con
+# la formula che il nome è troppo lungo. È il difetto speculare a quello di terza generazione del
+# 2026-09-02, dove il nome era troppo corto: là era vuoto e qui eccedeva, e in entrambi i casi la
+# causa era che nessuno controllava la lunghezza contro il limite del formato. Ora la si controlla.
+LUNGHEZZA_MASSIMA_NOME = 7
+
+ALLENATORE_SEGNAPOSTO = {"nome": "ALLENAT", "tid": 31121,
                          "nota": "segnaposto dichiarato: questa voce prende nome e "
                                  "identificativo dal salvataggio che la riceve, e va riscritta "
-                                 "con i valori veri quando quel salvataggio esisterà"}
+                                 "con i valori veri quando quel salvataggio esisterà; sette "
+                                 "caratteri perché è il massimo che il formato ammette"}
 
 
 def carica_modulo(nome, percorso):
@@ -321,10 +368,16 @@ def componi(v, gen1, gen2, gb, pers1, pers2, esperienza):
         # le due era il primo difetto di questo programma.
         p = pers1[v["nazionale"]]
         exp = esperienza(p["crescita"], livello)
+        # Il tasso di cattura del gruppo di Stadium non è quello della specie ma la scatola in cui
+        # il premio veniva consegnato: vedi il commento accanto alle due costanti.
+        if v["tipo"] == 2:
+            cattura = (SCATOLA_SPLENDIDA if v["nazionale"] == PSYDUCK else SCATOLA_NORMALE)
+        else:
+            cattura = p["cattura"]
         mon = gen1.Gen1Mon(
             species=interno,
             box_level=livello,
-            type1=p["tipo1"], type2=p["tipo2"], catch_rate=p["cattura"],
+            type1=p["tipo1"], type2=p["tipo2"], catch_rate=cattura,
             moves=list(v["mosse"]),
             ot_id=0, exp=exp, dvs=dvs, pp=pp,
             level=livello,
@@ -406,6 +459,16 @@ def self_test():
     prova("e vale zero quando i quattro sono pari",
           dv_hp({"atk": 10, "def": 10, "spd": 10, "spc": 10}) == 0)
 
+    # Il controllo interno al dato che rende certa la lettura dei valori individuali dei tour:
+    # i punti salute derivati dai quattro valori devono coincidere con quelli che la fonte
+    # dichiara. Con la lettura sbagliata questo controllo falliva.
+    prova("i punti salute derivati dei Mew dei tour coincidono con quelli dichiarati",
+          dv_hp(DV_FISSI_1[3]) == DV_HP_DICHIARATO_TOUR)
+    prova("le due scatole di Stadium hanno gli identificativi contigui che la fonte dichiara",
+          SCATOLA_SPLENDIDA == SCATOLA_NORMALE + 1)
+    prova("il massimo del nome dell'allenatore e' sette caratteri",
+          LUNGHEZZA_MASSIMA_NOME == 7 and len(ALLENATORE_SEGNAPOSTO["nome"]) <= 7)
+
     # Un caso di controllo calcolato a mano: Mew ha base cento in tutto, e al livello cinque con
     # valore individuale quindici i punti salute valgono ((100+15)*2*5)//100 + 5 + 10 = 26.
     prova("i punti salute di un caso calcolato a mano tornano",
@@ -414,7 +477,7 @@ def self_test():
           statistica_gen1(100, 15, 5, False) == 16)
 
     print("")
-    print("self-test: %d controlli falliti su 12" % len(falliti))
+    print("self-test: %d controlli falliti su 15" % len(falliti))
     return 1 if falliti else 0
 
 
@@ -542,6 +605,14 @@ def scrivi_lotto(prodotti, destinazione, nomi, cm, gb):
         chiave = (v["generazione"], v["tipo"])
         allenatore = ALLENATORI.get(chiave, ALLENATORE_SEGNAPOSTO)
         nome_ot = allenatore["nome"]
+        # Il presidio sulla lunghezza. Non si tronca: un nome troncato sarebbe accettato dalla
+        # tabella dei caratteri e rifiutato dal verificatore, che è esattamente il difetto del
+        # 2026-09-03, quindi si solleva e la voce non entra nel lotto con un nome sbagliato.
+        if len(nome_ot) > LUNGHEZZA_MASSIMA_NOME:
+            saltati.append((codice(v), "nome dell'allenatore %r di %d caratteri, oltre il "
+                                       "massimo di %d che il formato ammette"
+                            % (nome_ot, len(nome_ot), LUNGHEZZA_MASSIMA_NOME)))
+            continue
         giapponese = bool(re.search(r"[^\x00-\x7F]", nome_ot))
         lung = LUNGHEZZA_NOME_JP if giapponese else LUNGHEZZA_NOME_INT
         try:
