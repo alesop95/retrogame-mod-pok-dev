@@ -13,6 +13,7 @@
 % copre: pokedex-home-completo/CENSIMENTO-SALVATAGGI.md
 % copre: pokedex-home-completo/STUDIO-03-la-catena-e-viva-e-la-lista-di-spunta.md
 % copre: pokedex-home-completo/CHECKLIST-COMPLETA.md
+% copre: pokedex-home-completo/SCHEDE-EVENTI-GB.md
 % copre: generation-from-switch/README.md
 % copre: generation-from-switch/STUDIO-01-scambio-automatico-e-provenienza.md
 % verificato-al-commit: a427431
@@ -465,3 +466,38 @@ Il capitolo ha stabilito tre volte, con misure indipendenti, che nessuna specie 
 La misura poggia sul contrassegno di presenza delle tabelle delle statistiche di base, cioè sul fatto che una specie esista nei dati di un titolo raggiungibile senza il servizio intermedio. La presenza nei dati non è però l'ottenibilità nel gioco: una specie può essere presente perché il titolo deve saperla rappresentare quando arriva da un trasferimento, e non essere ottenibile in esso. Ne segue che l'insieme delle specie vincolate dalla scadenza è contenuto in ciò che la misura riporta e non coincide con esso, e che zero è un estremo inferiore.
 
 Il difetto non è di conoscenza ma di trasmissione: il limite era scritto, accanto alla fonte, dal giorno in cui la fonte fu registrata. Un limite dichiarato in un registro e non ripetuto nelle conclusioni che ne dipendono ha lo stesso effetto di un limite non dichiarato, e questa è la sua terza manifestazione in questo lavoro, dopo un'intestazione che dichiarava una numerazione diversa da quella dei propri dati e una nota che diceva di verificare ciò che nessuno aveva verificato. La misura corretta richiede le tabelle degli incontri, che hanno un formato per generazione, ed è il lavoro maggiore fra quelli che restano aperti.
+\section{Le prime due generazioni, e la fedeltà che non è decidibile}
+
+L'ordine di lavoro stabilito nella sezione precedente prescriveva di cominciare dal materiale più antico, e la sua esecuzione ha prodotto due risultati: uno atteso, cioè che il costo fosse basso, e uno che non lo era e che riguarda i limiti di ciò che si può dimostrare.
+
+\subsection*{Che cosa esiste, e come lo si legge}
+
+Le due generazioni più antiche non possiedono un meccanismo di distribuzione digitale, e i loro esemplari da evento sono descritti da tabelle di incontro: undici voci per la prima, centocinquantasette per la seconda, in record di lunghezza fissa di otto e dodici byte con i campi in chiaro. Il record della prima porta specie, livello, quattro mosse, una restrizione linguistica e un tipo di donatore; quello della seconda aggiunge un luogo di cattura, un contrassegno di cromaticità e un numero di incubazioni, dove un valore diverso da zero dichiara che la voce è un uovo.
+
+Il tipo di donatore è il campo interessante, poiché non è un dettaglio tecnico ma una classificazione storica compressa in un byte. Nella prima generazione distingue gli esemplari premio consegnati da un gioco su console domestica alla cartuccia collegata da quelli distribuiti a manifestazioni itineranti, e in questi ultimi separa il circuito europeo da quello giapponese. Nella seconda distingue tre localizzazioni del medesimo gioco su console domestica, una serie di distribuzioni fatte in un singolo negozio, e un gruppo in cui il donatore è il destinatario stesso.
+
+\subsection*{Un elenco di nomi come documento storico}
+
+Vale segnalare un caso in cui la struttura dei dati conserva più storia di quanta ne dichiari, poiché è un esempio generalizzabile di come si legge una fonte tecnica.
+
+Per gli esemplari distribuiti alle manifestazioni, la verifica dell'autenticità non può poggiare su un identificatore, che non è fissato, e poggia invece sul nome del donatore, che deve appartenere a un elenco chiuso. Quell'elenco è il documento. Per il circuito europeo contiene diciannove nomi, alcuni di personaggi e altri di paesi, e la loro coesistenza dice che la distribuzione non fu un evento unico ma una serie con una postazione per tappa. Per il circuito giapponese l'elenco si divide in tre insiemi, e i commenti della fonte datano ciascuno: sei nomi di personaggi per una fiera del novembre 1997, cinque nomi di città per una manifestazione itinerante fra il dicembre 1997 e il febbraio 1998, un nome di quartiere per una fiera dell'agosto 1999. Tre eventi distinti vivono dentro un solo valore di un byte, e si separano soltanto guardando quali nomi il verificatore accetti.
+
+Un secondo caso mostra la stessa cosa dal lato delle mosse. Fra gli esemplari premio della seconda generazione ce n'è uno di una specie modesta che conosce una mossa che quella specie non può imparare in nessun modo ordinario. Non è un difetto dei dati: è la firma dell'evento, e la sola presenza di quella combinazione in un salvataggio dichiara da dove l'esemplare provenga. Una mossa impossibile, in questo dominio, è un certificato di origine.
+
+\subsection*{Il risultato sulla fedeltà, che è speculare a quello della terza generazione}
+
+Il capitolo sulle distribuzioni ha mostrato che in terza generazione un singolo valore a trentadue bit determina, attraverso un generatore pseudocasuale, sia l'identità dell'esemplare sia i suoi valori individuali; ne seguiva che, dato un esemplare autentico, la ricerca inversa ne ricava il seme e la fedeltà di una ricreazione diventa decidibile per confronto fra due numeri.
+
+Nelle prime due generazioni quel valore non esiste. I valori individuali furono estratti dal gioco al momento della consegna e non derivano da nulla che l'esemplare porti con sé: non c'è seme da ritrovare, perché non c'è stato alcun seme. Ne segue che la fedeltà su quel campo non è decidibile per difetto di informazione, e non per limite degli strumenti: nessuna analisi, per accurata che sia, può stabilire se una certa combinazione di valori individuali fosse quella di un esemplare consegnato trent'anni prima.
+
+L'asimmetria fra le due nozioni si inverte quindi rispetto alla terza generazione, e vale enunciarla come coppia. Là la legittimità era difficile, perché il generatore andava ricostruito e otto difetti sono emersi solo sotto giudizio esterno, e la fedeltà era dimostrabile. Qui la legittimità è banale, perché qualunque combinazione di valori individuali è legale e non c'è nulla da ricostruire, e la fedeltà è impossibile.
+
+La conseguenza pratica per un progetto di ricreazione è che su queste due generazioni i valori individuali vanno dichiarati come una scelta e non presentati come una ricostruzione, e che le sole voci su cui la fedeltà torna verificabile sono quelle in cui la fonte li fissa: gli esemplari delle manifestazioni, dove i valori sono parte dell'evento, e quelli dichiarati cromatici della seconda generazione, dove la cromaticità non è un contrassegno ma una configurazione dei valori individuali e quindi ne vincola quattro su cinque. Su tutto il resto, il documento generato marca il campo come una scelta dichiarata; ed è preferibile una scheda che dichiari una scelta a una che presenti la medesima cifra come un dato.
+
+\subsection*{Due gruppi senza fonte, e un limite di codifica}
+
+Chiude la sezione ciò che è rimasto fuori, poiché un resoconto senza il proprio complemento non è un resoconto.
+
+Quindici voci della seconda generazione sono uova giapponesi che la fonte classifica come consegnate al destinatario, con mosse assegnate a mano e nessuna indicazione di quale evento fossero. La fonte non le nomina, non le data e non le colloca: il documento generato dichiara i tre campi come non documentati anziché riempirli, e la loro identificazione resta un lavoro aperto. È la scelta opposta a quella che renderebbe il documento più bello, ed è la sola che lo lascia correggibile.
+
+Tre voci non si sono potute comporre per un limite di codifica dichiarato: il nome del loro donatore è in caratteri giapponesi, e il progetto possiede la tabella dei caratteri giapponese della terza generazione ma non quella delle prime due. Il limite è del nostro strumento e non del formato, e va registrato come tale.

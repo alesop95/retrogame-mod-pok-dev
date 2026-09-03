@@ -46,9 +46,17 @@ Una correzione dichiarata e non ancora fatta: il conto che dice zero specie vinc
 
 La scadenza è definitiva e verificata su fonte ufficiale già presente nel registro dal 2026-08-28: 26 febbraio 2027 alle 12:00 del fuso giapponese, cioè le 04:00 in ora italiana di un venerdì, che nel fuso del Pacifico è giovedì 25 alle 19:00, il medesimo istante.
 
+## Aggiunta del 2026-09-03, terza: il primo tempo è eseguito
+
+Centosessantotto voci composte e centosessantacinque scritte con `tools/genera-evento-gb.py`, con le schede in `SCHEDE-EVENTI-GB.md` raggruppate per evento e la provenienza in `provenienze-eventi-gb.json`. Le tre non scritte hanno il nome del donatore in caratteri giapponesi e mancano della tabella dei caratteri di quelle generazioni; quindici portano un allenatore segnaposto perché lo prendono da chi riceve.
+
+Il risultato di metodo vale più del lotto ed è speculare alla terza generazione: là un valore a trentadue bit determina identità e valori individuali, quindi la fedeltà è decidibile per confronto di semi e la legittimità era difficile; qui quel valore non esiste, quindi la legittimità è banale e la fedeltà è impossibile per difetto di informazione. Le sole voci su cui la fedeltà torna verificabile sono le due dei tour, dove la fonte fissa i valori individuali, e le sedici cromatiche, dove la cromaticità li vincola.
+
+Il lotto NON è ancora stato giudicato dal verificatore, e finché non lo è nessuna voce va considerata conforme.
+
 ## Prossimo passo concreto
 
-Prima e seconda generazione: leggere le due tabelle nel nostro formato, comporre le 168 strutture con `pokebridge`, e sottoporle al verificatore come è stato fatto per la terza. È il tempo con il rapporto migliore fra ciò che si ottiene e ciò che costa, e non richiede alcun algoritmo nuovo.
+Far giudicare il lotto di `_notes/lotto-gb/` dal verificatore esterno, con la via di massa o su alcuni singoli. Due formule sono trascritte e non verificate sul disassemblato, cioè le statistiche delle prime due generazioni e l'esperienza, e il verificatore è lo strumento che dirà se sono giuste. È la lezione della campagna di terza generazione, dove la suite di prove era verde durante tutti e otto i difetti.
 
 Poi, proiettare sulla lista di spunta le fonti che ancora non vi sono proiettate, in ordine di resa: le tremilasettantadue voci di dono delle generazioni moderne, i depositi dei salvataggi di quarta, quinta, sesta e settima generazione, e il deposito di Pokemon Box. Ciascuna è oggi un conto che vive da solo e diventerà una colonna, e le seicentoquaranta voci senza fonte scenderanno di conseguenza. Pokemon Box resta la più interessante per la domanda di completezza, perché il suo caricamento dichiara di contenere tutto ciò che in terza generazione si può ancora ottenere legittimamente; il formato del suo deposito differisce da quello delle cartucce e va letto su `PKHeX.Core/Saves/SAV3RSBox.cs` prima di essere scritto.
 
