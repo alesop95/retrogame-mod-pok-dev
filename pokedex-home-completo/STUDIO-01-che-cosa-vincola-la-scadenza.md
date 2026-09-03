@@ -22,7 +22,7 @@ La conclusione è stata verificata invece di essere accolta, e il modo conta: no
 
 Il primo esito è che i numeri di controllo si riproducono esattamente. Le specie con il contrassegno di presenza sono seicentosessantaquattro nel primo titolo, quattrocentonovantatre nel secondo e ottocentosette nel terzo, cioè le tre cifre che la ricerca dichiarava. Il suo parsing era corretto.
 
-Il secondo esito è al livello delle specie, e non era nella ricerca: l'unione dei titoli a via diretta copre tutte e millleventicinque le specie del Dex Nazionale, quindi le specie che la scadenza vincola sono zero.
+Il secondo esito è al livello delle specie, e non era nella ricerca: l'unione dei titoli a via diretta copre tutte e milleventicinque le specie del Dex Nazionale, quindi le specie che la scadenza vincola sono zero.
 
 Il terzo esito è al livello delle voci-forma, e differisce dalla ricerca in un modo che si spiega interamente. Le voci che soltanto la via indiretta dichiara sono dodici e non nove. Le tre in più sono la variante di un travestimento, una forma di fusione e una forma legata a una abilità speciale, e sono escluse dal medesimo filtro che la ricerca dichiarava di avere applicato: due sono forme di sola battaglia, e la terza è la variante rotta di una forma totemica. Con quel filtro applicato le voci diventano nove, cioè esattamente il numero della ricerca.
 
@@ -67,7 +67,7 @@ Non ha stabilito nulla sui costi. Il verdetto è che il Pokedex non ha scadenza,
 
 Il conto sulle tabelle del verificatore è stato confrontato con una base dati indipendente, quella che serve il simulatore di battaglie della comunità, letta il 2026-09-02. Il confronto ha dato un accordo e una discrepanza, e la discrepanza è la parte istruttiva.
 
-L'accordo è sul numero delle specie. Quella base dati porta millleventicinque voci base con numero da uno a millleventicinque e nessun numero mancante, cioè esattamente il conto che le tabelle del verificatore danno e quello che la ricerca consegnata dichiarava. Tre ricostruzioni indipendenti, fatte da persone diverse su materiali diversi, concordano sul medesimo numero: è il grado di conferma più alto che questa domanda possa ricevere senza una pubblicazione ufficiale.
+L'accordo è sul numero delle specie. Quella base dati porta milleventicinque voci base con numero da uno a milleventicinque e nessun numero mancante, cioè esattamente il conto che le tabelle del verificatore danno e quello che la ricerca consegnata dichiarava. Tre ricostruzioni indipendenti, fatte da persone diverse su materiali diversi, concordano sul medesimo numero: è il grado di conferma più alto che questa domanda possa ricevere senza una pubblicazione ufficiale.
 
 La discrepanza è sul numero delle forme, e non è un errore di nessuna delle due parti: le due fonti contano cose diverse. Quella base dati serve il gioco competitivo, quindi enumera le forme che cambiano il comportamento di un esemplare in battaglia e omette quelle puramente estetiche, mentre le tabelle del verificatore enumerano tutto ciò che esiste nei dati dei giochi, comprese le decine di varianti che differiscono per il solo aspetto. Le sue trecentocinquantacinque forme non base, di cui centoquarantatre senza marca di non standard, non sono dunque un conteggio alternativo delle nostre millecinquecentotrentacinque voci-forma: sono il conteggio di un altro insieme.
 

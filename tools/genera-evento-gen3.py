@@ -157,6 +157,41 @@ def leggi(ace, rel):
     return io.open(p, encoding="utf-8", errors="ignore").read()
 
 
+def chiave_specie(nome):
+    """La chiave con cui si confrontano due nomi di specie fra fonti diverse.
+
+    Esiste perché la normalizzazione ingenua, cioè togliere tutto ciò che non è lettera o cifra,
+    cancella anche i due segni che distinguono Nidoran femmina da Nidoran maschio, e i due nomi
+    collassano sulla medesima chiave. La conseguenza non è cosmetica: il primo dei due vince e il
+    secondo eredita il suo identificativo interno, quindi il numero nazionale 32 finisce a
+    puntare sull'identificativo di Nidoran femmina, che significa scambiare una specie con
+    un'altra. È esattamente il difetto contro cui la funzione della corrispondenza mette in
+    guardia nel proprio commento, e lo aveva dentro.
+
+    Il difetto è emerso il 2026-09-02 censendo il deposito di un salvataggio esterno, dove una
+    specie su trecentottantacinque risultava priva di corrispondenza: la mappa aveva
+    trecentottantasei chiavi nazionali e soltanto trecentottantacinque identificativi interni
+    distinti. Nessuna voce del catalogo degli eventi è un Nidoran, quindi il lotto prodotto non ne
+    è stato toccato; la mappa però serve a chiunque, e un difetto che non ha ancora colpito è
+    comunque un difetto.
+
+    La cura è tradurre i segni distintivi invece di cancellarli, così che restino due chiavi.
+    """
+    fuori = []
+    for carattere in nome.lower():
+        if carattere.isalnum():
+            fuori.append(carattere)
+        elif carattere in SEGNI_DI_SESSO:
+            fuori.append(SEGNI_DI_SESSO[carattere])
+    return "".join(fuori)
+
+
+# I due segni che nei nomi delle specie non sono decorazione ma identità. Si traducono in
+# lettere invece di essere rimossi, cosicché la chiave resti distinta senza dipendere dal fatto
+# che il carattere sopravviva a una codifica.
+SEGNI_DI_SESSO = {u"\u2640": "f", u"\u2642": "m"}
+
+
 def specie_per_nome(ace):
     """Nome della specie verso identificativo interno, e l'inverso."""
     testo = leggi(ace, SPECIE)
@@ -1050,13 +1085,41 @@ def nazionale_verso_interno(ace):
     """
     per_nome, per_id = specie_per_nome(ace)
     testo = leggi(ace, "src/data/nationalDex.gen3.js")
+    # Le due fonti si confrontano per chiave normalizzata, e la normalizzazione conserva i segni
+    # di sesso: vedi `chiave_specie`, e il difetto che quella funzione documenta.
+    per_chiave = {}
+    for candidato, ident in per_nome.items():
+        chiave = chiave_specie(candidato)
+        # Due voci della tabella non sono specie ma segnaposto per gli identificativi interni
+        # non usati, e portano un nome di soli punti di domanda: la loro chiave e' vuota. Si
+        # saltano, perche' includerle farebbe scattare il controllo di collisione su un dato che
+        # non e' un nome.
+        if not chiave:
+            continue
+        # Due nomi distinti che producono la medesima chiave sono un difetto della
+        # normalizzazione e non un dato: si solleva invece di lasciare vincere il primo, che è
+        # precisamente il modo in cui il difetto di Nidoran era passato inosservato.
+        if chiave in per_chiave and per_chiave[chiave] != ident:
+            sys.exit("due specie diverse producono la chiave %r, cioe' gli identificativi "
+                     "interni %d e %d: la normalizzazione dei nomi cancella qualcosa che "
+                     "distingue due specie, e proseguire ne scambierebbe una con l'altra"
+                     % (chiave, per_chiave[chiave], ident))
+        per_chiave[chiave] = ident
     fuori = {}
     for numero, nome in re.findall(r"\[\s*(\d+)\s*,\s*\"([^\"]+)\"\s*\]", testo):
-        chiave = re.sub(r"[^a-z0-9]", "", nome.lower())
-        for candidato, ident in per_nome.items():
-            if re.sub(r"[^a-z0-9]", "", candidato) == chiave:
-                fuori[int(numero)] = ident
-                break
+        ident = per_chiave.get(chiave_specie(nome))
+        if ident is not None:
+            fuori[int(numero)] = ident
+    # La corrispondenza deve essere iniettiva: se due numeri nazionali finissero sul medesimo
+    # identificativo interno, uno dei due sarebbe sbagliato. Il controllo costa una riga e
+    # avrebbe colto il difetto di Nidoran il giorno in cui fu introdotto.
+    visti = {}
+    for numero, ident in sorted(fuori.items()):
+        if ident in visti:
+            sys.exit("i numeri nazionali %d e %d puntano entrambi all'identificativo interno "
+                     "%d: la corrispondenza non e' iniettiva, quindi una delle due specie e' "
+                     "sbagliata" % (visti[ident], numero, ident))
+        visti[ident] = numero
     return fuori
 
 
