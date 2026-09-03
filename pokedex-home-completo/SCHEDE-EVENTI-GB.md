@@ -10,11 +10,15 @@ Una avvertenza sui valori individuali, che è un risultato e non un limite dello
 
 Generazione 1, donatore dichiarato dalla fonte come Stadium. Il gruppo porta 9 voci e 9 specie distinte.
 
-Quando: non dichiarate dalla fonte. Dove: dentro il gioco, su console domestica. Come: premio consegnato dal gioco su console domestica e scritto sulla cartuccia portatile collegata.
+Quando: legate alla vita commerciale del gioco su console domestica, e non dichiarate come intervallo da alcuna delle due fonti. Dove: Nord America, Europa e Australia per la versione internazionale, Giappone per quella con identificativo millenovecentonovantanove. Come: premio consegnato dal gioco su console domestica alla cartuccia portatile collegata, uno estratto a sorte per ciascuna vittoria sul Castello dei Capipalestra e sui Superquattro.
 
-Sono i nove esemplari che il gioco su console domestica consegnava alla cartuccia collegata: i tre iniziali al livello cinque, un Psyduck al quindici, i due combattenti di Kanto al venti, un Eevee al venticinque e i due fossili al venti. La cosa che li rende interessanti tecnicamente è l'allenatore, perché è l'unico caso di prima generazione in cui il nome e l'identificativo non appartengono a chi riceve: il nome è quello del gioco tradotto in ciascuna lingua, e in italiano è STADIO, mentre l'identificativo vale millenovecentonovantanove sulle versioni giapponesi e duemila sulle altre. Un esemplare così porta scritto addosso di essere passato per un'altra macchina, che in prima generazione è un'informazione che quasi nessun altro esemplare possiede. C'è un secondo campo che li tradisce, e la sua storia è migliore: il byte che di norma porta il tasso di cattura della specie porta invece uno di due valori fissi, centosessantasette o centosessantotto, che sono gli identificativi della Scatola Normale e della Scatola Splendida, cioè la confezione in cui il premio veniva consegnato. Psyduck pretende la seconda e gli altri accettano entrambe. Quel byte, passando alla seconda generazione, diventa il byte dell'oggetto tenuto: un premio di Stadium arriva in Johto tenendo in mano la propria scatola.
+Sono i nove esemplari che il gioco su console domestica consegnava alla cartuccia collegata: i tre iniziali al livello cinque, i due combattenti di Kanto al venti, un Eevee al venticinque, i due fossili al venti, e un Psyduck al quindici che sta a parte. Otto erano premi del Castello dei Capipalestra, estratti a sorte uno per vittoria; il Psyduck no, ed è il pezzo migliore del gruppo, perché si otteneva riempiendo l'albo dei campioni con tutte e centocinquantuno le specie. Era il premio del Pokedex completo, e conosce Amnesia al livello quindici. Due campi tradiscono la loro provenienza, e il secondo ha la storia migliore. Il primo è l'allenatore, perché è l'unico caso di prima generazione in cui nome e identificativo non appartengono a chi riceve: il nome è quello del gioco tradotto in ciascuna lingua, in italiano STADIO, con identificativo duemila sulle versioni internazionali e millenovecentonovantanove su quella giapponese. Il secondo è il byte che di norma porta il tasso di cattura della specie e che qui porta invece uno di due valori fissi, centosessantasette o centosessantotto, che sono gli identificativi della Scatola Normale e della Scatola Splendida: la confezione in cui il premio veniva consegnato, la prima al primo giro e la seconda al secondo. Il Psyduck pretende la Splendida, cioè il premio più difficile arrivava nella scatola migliore. Quel byte, passando alla seconda generazione, diventa il byte dell'oggetto tenuto: un premio di Stadium arriva in Johto tenendo in mano la propria scatola. Su questo gruppo il progetto ha imparato una cosa a proprie spese il 2026-09-03: avevamo scritto il tasso della specie invece della scatola, e su Bulbasaur il difetto non si vedeva perché esiste un incontro statico che lo accetta e il verificatore ha scelto quello, dichiarando la voce legale con la provenienza sbagliata, mentre sulle sei voci senza alternativa statica non ha trovato corrispondenza. Una voce legale può nascondere un difetto che si manifesta soltanto sulle voci vicine.
 
-Fonte: [PKHeX, template degli eventi di prima generazione](https://github.com/kwsch/PKHeX/blob/master/PKHeX.Core/Legality/Encounters/Templates/Gen1/EncounterGift1.cs), letta il 2026-09-03.
+Pagina che descrive l'evento: <https://bulbapedia.bulbagarden.net/wiki/List_of_game-based_Pok%C3%A9mon_distributions_in_Generation_I>.
+
+Fonti: [PKHeX, template degli eventi di prima generazione](https://github.com/kwsch/PKHeX/blob/master/PKHeX.Core/Legality/Encounters/Templates/Gen1/EncounterGift1.cs), letta il 2026-09-03; [Bulbapedia, distribuzioni da gioco in prima generazione](https://bulbapedia.bulbagarden.net/wiki/List_of_game-based_Pok%C3%A9mon_distributions_in_Generation_I), letta il 2026-09-03.
+
+Divergenza fra le fonti: La fonte secondaria attribuisce l'identificativo millenovecentonovantanove alla versione giapponese di Pokemon Stadium 2, che è il gioco uscito in Occidente come primo Stadium: la numerazione dei titoli su console domestica differisce fra i mercati, e chiamarli per numero senza dichiarare quale mercato produce confusione.
 
 ### EVT-1-0000 Bulbasaur
 
@@ -169,15 +173,19 @@ Fonte: [PKHeX, template degli eventi di prima generazione](https://github.com/kw
 | allenatore | STADIO, identificativo 2000 | nome e identificativo fissati dalla fonte per la lingua italiana, cioè STADIO con identificativo 2000 per le versioni non giapponesi |
 | restrizione di lingua | qualunque | tabella degli eventi |
 
-## Mew dei tour europei
+## Mew dei tour internazionali
 
 Generazione 1, donatore dichiarato dalla fonte come tour europeo. Il gruppo porta 1 voci e 1 specie distinte.
 
-Quando: non dichiarate dalla fonte. Dove: manifestazioni itineranti in Europa. Come: consegnato sul posto da una postazione, con il nome dell'allenatore scelto fra diciannove valori.
+Quando: dal novembre 1999 alla primavera 2001, in una dozzina di eventi distinti. Dove: Stati Uniti, Canada, Regno Unito, Irlanda, Danimarca, Norvegia, Svezia, Finlandia, Austria. Come: consegnato sul posto da una macchina di distribuzione, con il nome dell'allenatore che identifica l'evento o la postazione.
 
-La fonte elenca diciannove nomi di allenatore ammessi per questo gruppo, e l'elenco è esso stesso il documento dell'evento: nomi di personaggi come YOSHIRA, LINKE, LUIGE e MARIO accanto a nomi di paesi come SWEDEN, NORWAY, FINLAND, DENMARK, AUSTRIA e UK. Ne segue che la distribuzione non fu un evento unico ma una serie, con una postazione per tappa e un nome per postazione. Il dettaglio tecnico che li distingue è che i valori individuali non sono liberi: la fonte li fissa a cinque, dieci, uno e dodici, con i punti salute che ne derivano, quindi su questo gruppo la fedeltà di una ricreazione è verificabile, che nel resto di queste due generazioni non è vero.
+Il nome che la fonte tecnica dà a questo gruppo, cioè tour europeo, ne sottostima la portata, e la scoperta vale registrarla perché mostra come si legge una fonte di quel tipo. La verifica dell'autenticità non poggia su un identificativo, che non è fissato, ma sull'appartenenza del nome dell'allenatore a un elenco chiuso di diciannove valori, e quell'elenco è il documento dell'evento. Confrontato con la fonte enciclopedica, l'elenco si scompone in una dozzina di distribuzioni su tre continenti. I nomi con Yoshi e Bowser appartengono ai negozi di giocattoli statunitensi del dicembre 1999 e canadesi del gennaio 2000, e alla rivista ufficiale fra il novembre 1999 e il gennaio 2000. I nomi con Link e Luigi appartengono al tour degli stadi negli Stati Uniti, fra il 5 febbraio e il 9 aprile 2000, e alla sua tappa canadese di marzo. I nomi dei paesi, cioè Svezia, Norvegia, Finlandia, Danimarca, Austria e Regno Unito, appartengono a eventi nazionali fra l'estate 2000 e la primavera 2001, fra cui il campionato britannico e irlandese e il tour norvegese che durò più di sei mesi. Il dettaglio tecnico che li distingue è che i valori individuali non sono liberi: la fonte li fissa, e la fonte enciclopedica riporta gli stessi valori con parole diverse, cioè cinque punti salute, dieci attacco, uno difesa, dodici velocità e cinque speciale. Ne segue che su questo gruppo la fedeltà di una ricreazione è verificabile, che nel resto di queste due generazioni non è vero. Il progetto ha inoltre una conferma incrociata che vale come prova della lettura: in prima generazione il valore dei punti salute non è indipendente ma si ricava dagli altri quattro, e con questa assegnazione il derivato vale cinque, cioè esattamente il valore che entrambe le fonti dichiarano, mentre una lettura diversa dei sei numeri lo farebbe valere dieci.
 
-Fonte: [PKHeX, template degli eventi di prima generazione](https://github.com/kwsch/PKHeX/blob/master/PKHeX.Core/Legality/Encounters/Templates/Gen1/EncounterGift1.cs), letta il 2026-09-03.
+Pagina che descrive l'evento: <https://bulbapedia.bulbagarden.net/wiki/List_of_European_language_event_Pok%C3%A9mon_distributions_in_Generation_I>.
+
+Fonti: [PKHeX, template degli eventi di prima generazione](https://github.com/kwsch/PKHeX/blob/master/PKHeX.Core/Legality/Encounters/Templates/Gen1/EncounterGift1.cs), letta il 2026-09-03; [Bulbapedia, distribuzioni in lingue europee in prima generazione](https://bulbapedia.bulbagarden.net/wiki/List_of_European_language_event_Pok%C3%A9mon_distributions_in_Generation_I), letta il 2026-09-03.
+
+Divergenza fra le fonti: La fonte enciclopedica riporta una distribuzione spagnola del luglio 2000 con valori individuali diversi, cioè due, sei, quattro, tre e otto, e nomi di allenatore che comprendono D-J. La tabella tecnica porta un solo insieme di valori individuali per questo tipo, quindi non copre quella variante: un esemplare autentico di quella distribuzione non corrisponderebbe alla voce, e il progetto non lo produce.
 
 ### EVT-1-0009 Mew
 
@@ -200,11 +208,13 @@ Fonte: [PKHeX, template degli eventi di prima generazione](https://github.com/kw
 
 Generazione 1, donatore dichiarato dalla fonte come tour giapponese. Il gruppo porta 1 voci e 1 specie distinte.
 
-Quando: 22-24 novembre 1997, 7 dicembre 1997 - 15 febbraio 1998, 27-29 agosto 1999. Dove: Space World 1997, Next Generation World Hobby Fair Dome Cup, Space World 1999. Come: consegnato sul posto, con il nome dell'allenatore che identifica la manifestazione o la città.
+Quando: 22-24 novembre 1997, 7 dicembre 1997 - 15 febbraio 1998, 27-29 agosto 1999. Dove: Makuhari Messe a Chiba, e i palazzetti di Fukuoka, Chiba, Osaka, Sapporo e Nagoya. Come: consegnato sul posto, con il nome dell'allenatore che identifica la manifestazione o la città della tappa.
 
-Questo è il gruppo di cui la fonte dichiara le date, e le dichiara nei propri commenti accanto ai nomi degli allenatori, il che permette di ricostruire tre eventi distinti dentro un solo tipo. I nomi dei personaggi Nintendo, cioè Mario, Bowser, Luigi, Peach, Yoshi e Donkey, appartengono allo Space World del novembre 1997; i nomi delle cinque città, cioè Fukuoka, Tokyo, Osaka, Sapporo e Nagoya, appartengono alla fiera itinerante fra il dicembre 1997 e il febbraio 1998, e sono la prova che quella fu una serie di tappe; il nome Makuhari appartiene allo Space World dell'agosto 1999, ed è il quartiere di Chiba dove si teneva. I valori individuali sono gli stessi del tour europeo e sono fissati dalla fonte.
+È il gruppo di cui la fonte tecnica dichiara le date, e le dichiara nei propri commenti accanto ai nomi degli allenatori: tre eventi distinti vivono dentro un solo valore di un byte, e si separano soltanto guardando quali nomi il verificatore accetti. I sei nomi dei personaggi Nintendo, cioè Mario, Bowser, Luigi, Peach, Yoshi e Donkey, appartengono allo Space World del 22-24 novembre 1997, tenuto al Makuhari Messe di Chiba. I cinque nomi di città, cioè Fukuoka, Tokyo, Osaka, Sapporo e Nagoya, appartengono alla coppa itinerante della fiera dell'hobby fra il 7 dicembre 1997 e il 15 febbraio 1998, e la fonte enciclopedica ne dà le tappe una per una: Fukuoka il 7 dicembre, Chiba il 10 e 11 gennaio, Osaka il primo febbraio, Sapporo l'8 e Nagoya il 15. Il nome Makuhari appartiene invece allo Space World dell'agosto 1999, ed è il quartiere di Chiba dove quelle fiere si tenevano. Su quest'ultima attribuzione vale una nota di prudenza, perché la coppa itinerante fece tappa proprio al Makuhari Messe e il nome potrebbe sembrare suo: la fonte enciclopedica non elenca Makuhari fra i nomi di quella coppa, che usa i nomi delle città, e la fonte tecnica lo attribuisce esplicitamente allo Space World del 1999, quindi le due si accordano e l'accordo è la ragione per cui l'attribuzione si può scrivere. I valori individuali sono gli stessi del gruppo internazionale e sono fissati.
 
-Fonte: [PKHeX, template degli eventi di prima generazione](https://github.com/kwsch/PKHeX/blob/master/PKHeX.Core/Legality/Encounters/Templates/Gen1/EncounterGift1.cs), letta il 2026-09-03.
+Pagina che descrive l'evento: <https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_I>.
+
+Fonti: [PKHeX, template degli eventi di prima generazione](https://github.com/kwsch/PKHeX/blob/master/PKHeX.Core/Legality/Encounters/Templates/Gen1/EncounterGift1.cs), letta il 2026-09-03; [Bulbapedia, distribuzioni giapponesi in prima generazione](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_I), letta il 2026-09-03.
 
 ### EVT-1-0010 Mew
 
@@ -223,17 +233,21 @@ Fonte: [PKHeX, template degli eventi di prima generazione](https://github.com/kw
 | allenatore | マクハリ, identificativo 6000 | nome dello Space World '99 di Makuhari, primo dell'elenco giapponese della fonte; l'identificativo è una scelta nostra |
 | restrizione di lingua | giapponese | tabella degli eventi |
 
-## Uova distribuite in Giappone
+## Uova misteriose dei Pokemon Center giapponesi
 
 Generazione 2, donatore dichiarato dalla fonte come destinatario. Il gruppo porta 15 voci e 12 specie distinte.
 
-Quando: non documentate. Dove: non documentato. Come: non documentato.
+Quando: 15 dicembre 2001 - 14 gennaio 2002, 16 marzo - 7 aprile 2002, 27 aprile - 12 maggio 2002. Dove: negozi Pokemon Center di Tokyo e Osaka. Come: consegnata al negozio, una sola per visitatore e con la specie estratta a sorte, con il nome e l'identificativo di chi la riceve.
 
-Quindici voci giapponesi che la fonte classifica come consegnate al destinatario, cioè con il nome e l'identificativo di chi le riceve, e che si riconoscono per un campo: le incubazioni sono diverse da zero, quindi sono uova e non esemplari. Le specie sono iniziali di due generazioni, i tre cuccioli introdotti allora, un Wooper, uno Smoochum, un Phanpy, un Psyduck, un Sentret e un Hoothoot, tutte al livello cinque e con una mossa che la specie non impara per crescita. Che cosa fossero questi eventi il progetto non lo sa: la fonte non li nomina, non porta date e non porta un luogo, quindi i tre campi sopra restano non documentati e non vanno citati. Ciò che si può dire con certezza sta nei byte, cioè che sono uova giapponesi con mosse assegnate a mano, e va tenuto separato da qualunque ricostruzione. Trovare la fonte di questo gruppo è fra le cose che restano da fare.
+Questo era l'ultimo gruppo di prima e seconda generazione senza provenienza, e il 2026-09-03 è stato chiuso. La fonte tecnica lo classifica come consegnato al destinatario e non dichiara nome, data né luogo; la fonte enciclopedica lo identifica come le uova misteriose distribuite nei negozi Pokemon Center di Tokyo e Osaka in tre campagne fra il dicembre 2001 e il maggio 2002. La conferma non poggia sul nome ma sul conto e sui dettagli: le tre campagne portano rispettivamente sei, sei e cinque specie, le specie coincidono con le nostre, e coincidono anche le mosse, che sono la parte diagnostica. Il visitatore riceveva una sola uova con la specie estratta a sorte, il che spiega perché le voci siano quindici e non tre. Il marcatore che permette di attribuire ciascuna voce alla propria campagna è una mossa: la seconda campagna assegnò Petalodanza a quasi tutte le proprie uova, e quella mossa non compare nelle altre due. Le voci con Petalodanza sono dunque della seconda campagna, quelle con Ripeti, Panciamburo o Metronomo della prima, e quelle con Forzantica, Sgranocchio, Sottomissione e Ombra Notturna della terza; la sezione delle voci di questo file porta l'attribuzione una per una. Due avvertenze sull'accordo fra le due fonti, che non è perfetto e va dichiarato. La prima campagna comprendeva secondo l'enciclopedia anche un Chikorita con due mosse sole, che la tabella tecnica non porta; e il Pichu con Canto compare identico nella prima e nella terza campagna, quindi la nostra voce corrispondente appartiene a entrambe e non è attribuibile a una sola. Ne segue che quindici voci coprono diciassette consegne storiche, perché due coincidono nei byte.
 
-Fonte: nessuna letta per questo gruppo, quindi quanto sopra è dichiarato e non verificato.
+Pagina che descrive l'evento: <https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_(Generation_II)>.
+
+Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/kwsch/PKHeX/blob/master/PKHeX.Core/Legality/Encounters/Templates/Gen2/EncounterGift2.cs), letta il 2026-09-03; [Bulbapedia, distribuzioni giapponesi in seconda generazione](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_(Generation_II)), letta il 2026-09-03.
 
 ### EVT-2-0142 Chikorita
+
+Attribuzione di questa voce: seconda campagna, 16 marzo - 7 aprile 2002. Il marcatore che la distingue è Petalodanza.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -251,6 +265,8 @@ Fonte: nessuna letta per questo gruppo, quindi quanto sopra è dichiarato e non 
 
 ### EVT-2-0143 Pichu
 
+Attribuzione di questa voce: prima campagna, 15 dicembre 2001 - 14 gennaio 2002, e terza campagna, 27 aprile - 12 maggio 2002. Il marcatore che la distingue è Canto, identico nelle due campagne, quindi la voce appartiene a entrambe e non è attribuibile a una sola.
+
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 172 | tabella degli eventi |
@@ -266,6 +282,8 @@ Fonte: nessuna letta per questo gruppo, quindi quanto sopra è dichiarato e non 
 | restrizione di lingua | giapponese | tabella degli eventi |
 
 ### EVT-2-0144 Cleffa
+
+Attribuzione di questa voce: prima campagna, 15 dicembre 2001 - 14 gennaio 2002. Il marcatore che la distingue è Ripeti, senza Petalodanza.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -283,6 +301,8 @@ Fonte: nessuna letta per questo gruppo, quindi quanto sopra è dichiarato e non 
 
 ### EVT-2-0145 Wooper
 
+Attribuzione di questa voce: prima campagna, 15 dicembre 2001 - 14 gennaio 2002. Il marcatore che la distingue è Panciamburo, che compare in questa sola voce.
+
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 194 | tabella degli eventi |
@@ -298,6 +318,8 @@ Fonte: nessuna letta per questo gruppo, quindi quanto sopra è dichiarato e non 
 | restrizione di lingua | giapponese | tabella degli eventi |
 
 ### EVT-2-0146 Phanpy
+
+Attribuzione di questa voce: prima campagna, 15 dicembre 2001 - 14 gennaio 2002. Il marcatore che la distingue è Ripeti, senza Petalodanza.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -315,6 +337,8 @@ Fonte: nessuna letta per questo gruppo, quindi quanto sopra è dichiarato e non 
 
 ### EVT-2-0147 Smoochum
 
+Attribuzione di questa voce: prima campagna, 15 dicembre 2001 - 14 gennaio 2002. Il marcatore che la distingue è Metronomo, che compare in questa sola voce.
+
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 238 | tabella degli eventi |
@@ -330,6 +354,8 @@ Fonte: nessuna letta per questo gruppo, quindi quanto sopra è dichiarato e non 
 | restrizione di lingua | giapponese | tabella degli eventi |
 
 ### EVT-2-0148 Psyduck
+
+Attribuzione di questa voce: seconda campagna, 16 marzo - 7 aprile 2002. Il marcatore che la distingue è Petalodanza.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -347,6 +373,8 @@ Fonte: nessuna letta per questo gruppo, quindi quanto sopra è dichiarato e non 
 
 ### EVT-2-0149 Pichu
 
+Attribuzione di questa voce: seconda campagna, 16 marzo - 7 aprile 2002. Il marcatore che la distingue è Petalodanza.
+
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 172 | tabella degli eventi |
@@ -362,6 +390,8 @@ Fonte: nessuna letta per questo gruppo, quindi quanto sopra è dichiarato e non 
 | restrizione di lingua | giapponese | tabella degli eventi |
 
 ### EVT-2-0150 Cleffa
+
+Attribuzione di questa voce: seconda campagna, 16 marzo - 7 aprile 2002. Il marcatore che la distingue è Petalodanza.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -379,6 +409,8 @@ Fonte: nessuna letta per questo gruppo, quindi quanto sopra è dichiarato e non 
 
 ### EVT-2-0151 Igglybuff
 
+Attribuzione di questa voce: seconda campagna, 16 marzo - 7 aprile 2002. Il marcatore che la distingue è Petalodanza, con Ricciolscudo che l'enciclopedia riporta per questa specie.
+
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 174 | tabella degli eventi |
@@ -394,6 +426,8 @@ Fonte: nessuna letta per questo gruppo, quindi quanto sopra è dichiarato e non 
 | restrizione di lingua | giapponese | tabella degli eventi |
 
 ### EVT-2-0152 Smoochum
+
+Attribuzione di questa voce: seconda campagna, 16 marzo - 7 aprile 2002. Il marcatore che la distingue è Petalodanza.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -411,6 +445,8 @@ Fonte: nessuna letta per questo gruppo, quindi quanto sopra è dichiarato e non 
 
 ### EVT-2-0153 Bulbasaur
 
+Attribuzione di questa voce: terza campagna, 27 aprile - 12 maggio 2002. Il marcatore che la distingue è Forzantica.
+
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 1 | tabella degli eventi |
@@ -426,6 +462,8 @@ Fonte: nessuna letta per questo gruppo, quindi quanto sopra è dichiarato e non 
 | restrizione di lingua | giapponese | tabella degli eventi |
 
 ### EVT-2-0154 Charmander
+
+Attribuzione di questa voce: terza campagna, 27 aprile - 12 maggio 2002. Il marcatore che la distingue è Sgranocchio.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -443,6 +481,8 @@ Fonte: nessuna letta per questo gruppo, quindi quanto sopra è dichiarato e non 
 
 ### EVT-2-0155 Totodile
 
+Attribuzione di questa voce: terza campagna, 27 aprile - 12 maggio 2002. Il marcatore che la distingue è Sottomissione.
+
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 158 | tabella degli eventi |
@@ -458,6 +498,8 @@ Fonte: nessuna letta per questo gruppo, quindi quanto sopra è dichiarato e non 
 | restrizione di lingua | giapponese | tabella degli eventi |
 
 ### EVT-2-0156 Hoothoot
+
+Attribuzione di questa voce: terza campagna, 27 aprile - 12 maggio 2002. Il marcatore che la distingue è Ombra Notturna.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -477,11 +519,15 @@ Fonte: nessuna letta per questo gruppo, quindi quanto sopra è dichiarato e non 
 
 Generazione 2, donatore dichiarato dalla fonte come Stadium giapponese. Il gruppo porta 2 voci e 2 specie distinte.
 
-Quando: non dichiarate dalla fonte. Dove: dentro il gioco, su console domestica. Come: premio consegnato dal gioco su console domestica e scritto sulla cartuccia portatile collegata.
+Quando: non dichiarate da alcuna delle due fonti. Dove: dentro il gioco, su console domestica, in Giappone. Come: premio consegnato dal gioco su console domestica alla cartuccia portatile collegata.
 
-Due esemplari soli, e sono la ragione per cui questo gruppo è celebre fra chi studia questi giochi. Il primo è un Farfetch'd al livello cinque che conosce Staffetta, Danzaspada, Agilità e Lacerazione, cioè quattro mosse che a quel livello nessun Farfetch'd potrebbe avere e che insieme formano una strategia compiuta. Il secondo è un Sunkern al livello cinque che conosce Terremoto, Contrattacco e Attacco d'Ala: un Sunkern con Terremoto è l'esempio classico di mossa impossibile per la specie, e la sua sola presenza in un salvataggio dichiara che l'esemplare viene da là. Entrambi portano il luogo di cattura centoventisette, che è il valore riservato agli eventi.
+Due esemplari soli, ed entrambi portano una mossa che la specie non avrebbe. Il primo è un Farfetch'd al livello cinque che conosce Staffetta, Danzaspada, Agilità e Lacerazione, e la fonte enciclopedica segnala che Staffetta era indisponibile a quella specie in seconda generazione: la sola presenza di quella mossa dichiara da dove l'esemplare venga. Il secondo è un Gligar al livello cinque che conosce Terremoto, Contrattacco e Attacco d'Ala, e Terremoto su quella specie era una mossa distribuita di rado. Una mossa impossibile, in questo dominio, è un certificato di origine: non è un difetto dei dati ma la firma dell'evento. Entrambi portano il luogo di cattura centoventisette, che è il valore riservato agli eventi.
 
-Fonte: [PKHeX, template degli eventi di seconda generazione](https://github.com/kwsch/PKHeX/blob/master/PKHeX.Core/Legality/Encounters/Templates/Gen2/EncounterGift2.cs), letta il 2026-09-03.
+Pagina che descrive l'evento: <https://bulbapedia.bulbagarden.net/wiki/List_of_game-based_Pok%C3%A9mon_distributions_in_Generation_II>.
+
+Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/kwsch/PKHeX/blob/master/PKHeX.Core/Legality/Encounters/Templates/Gen2/EncounterGift2.cs), letta il 2026-09-03; [Bulbapedia, distribuzioni da gioco in seconda generazione](https://bulbapedia.bulbagarden.net/wiki/List_of_game-based_Pok%C3%A9mon_distributions_in_Generation_II), letta il 2026-09-03.
+
+Divergenza fra le fonti: La fonte enciclopedica attribuisce al Gligar quattro mosse, cioè Terremoto, Velenospina, Contrattacco e Attacco d'Ala, mentre la tabella tecnica ne porta tre e omette Velenospina. Il progetto segue la tabella tecnica, e la ragione non è una gerarchia astratta fra le due fonti: è che quella tabella appartiene al verificatore che giudicherà i nostri esemplari, quindi è la sua nozione di corretto a determinare se un esemplare sarà accettato. La divergenza resta registrata perché se un giorno il verificatore aggiungesse quella mossa la nostra voce diventerebbe sbagliata senza che nulla lo segnali.
 
 ### EVT-2-0000 Farfetch’d
 
@@ -521,11 +567,13 @@ Fonte: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 
 Generazione 2, donatore dichiarato dalla fonte come Stadium inglese. Il gruppo porta 2 voci e 2 specie distinte.
 
-Quando: non dichiarate dalla fonte. Dove: dentro il gioco, su console domestica. Come: premio consegnato dal gioco su console domestica e scritto sulla cartuccia portatile collegata.
+Quando: non dichiarate da alcuna delle due fonti. Dove: Nord America, Europa e Australia. Come: premio consegnato dal gioco su console domestica alla cartuccia portatile collegata.
 
 Gli stessi due esemplari del gruppo giapponese, con il nome dell'allenatore nella forma inglese e l'identificativo duemila. La ragione per cui la fonte tiene i tre gruppi separati non è il contenuto ma l'identità dell'allenatore, che cambia con la lingua e che il verificatore controlla: un Farfetch'd con il nome giapponese su una cartuccia inglese non è un esemplare più raro ma un esemplare sbagliato.
 
-Fonte: [PKHeX, template degli eventi di seconda generazione](https://github.com/kwsch/PKHeX/blob/master/PKHeX.Core/Legality/Encounters/Templates/Gen2/EncounterGift2.cs), letta il 2026-09-03.
+Pagina che descrive l'evento: <https://bulbapedia.bulbagarden.net/wiki/List_of_game-based_Pok%C3%A9mon_distributions_in_Generation_II>.
+
+Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/kwsch/PKHeX/blob/master/PKHeX.Core/Legality/Encounters/Templates/Gen2/EncounterGift2.cs), letta il 2026-09-03; [Bulbapedia, distribuzioni da gioco in seconda generazione](https://bulbapedia.bulbagarden.net/wiki/List_of_game-based_Pok%C3%A9mon_distributions_in_Generation_II), letta il 2026-09-03.
 
 ### EVT-2-0002 Farfetch’d
 
@@ -565,11 +613,13 @@ Fonte: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 
 Generazione 2, donatore dichiarato dalla fonte come Stadium internazionale. Il gruppo porta 2 voci e 2 specie distinte.
 
-Quando: non dichiarate dalla fonte. Dove: dentro il gioco, su console domestica. Come: premio consegnato dal gioco su console domestica e scritto sulla cartuccia portatile collegata.
+Quando: non dichiarate da alcuna delle due fonti. Dove: Europa continentale. Come: premio consegnato dal gioco su console domestica alla cartuccia portatile collegata.
 
 Gli stessi due esemplari, con il nome dell'allenatore tradotto e l'identificativo duemilauno, che è il solo campo a distinguere questo gruppo dal precedente. La fonte elenca le forme francese, tedesca, italiana e spagnola del nome, e quella italiana è Stadio: è il gruppo che interessa direttamente le cartucce di questo progetto, perché sono italiane.
 
-Fonte: [PKHeX, template degli eventi di seconda generazione](https://github.com/kwsch/PKHeX/blob/master/PKHeX.Core/Legality/Encounters/Templates/Gen2/EncounterGift2.cs), letta il 2026-09-03.
+Pagina che descrive l'evento: <https://bulbapedia.bulbagarden.net/wiki/List_of_game-based_Pok%C3%A9mon_distributions_in_Generation_II>.
+
+Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/kwsch/PKHeX/blob/master/PKHeX.Core/Legality/Encounters/Templates/Gen2/EncounterGift2.cs), letta il 2026-09-03; [Bulbapedia, distribuzioni da gioco in seconda generazione](https://bulbapedia.bulbagarden.net/wiki/List_of_game-based_Pok%C3%A9mon_distributions_in_Generation_II), letta il 2026-09-03.
 
 ### EVT-2-0004 Farfetch’d
 
@@ -609,11 +659,13 @@ Fonte: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 
 Generazione 2, donatore dichiarato dalla fonte come Pokemon Center New York. Il gruppo porta 136 voci e 106 specie distinte.
 
-Quando: non dichiarate dalla fonte. Dove: Pokemon Center di New York. Come: consegnato al negozio, con il nome dell'allenatore scelto fra quattro valori.
+Quando: dal 16 novembre 2001, data di apertura del negozio. Dove: Pokemon Center di New York, secondo piano. Come: una macchina distributrice fra quattro, una consegna a settimana per visitatore e non più di una al giorno, inserendo la propria cartuccia.
 
-Centotrentasei voci, cioè l'ottantasei per cento di tutti gli eventi di seconda generazione, tutte dallo stesso luogo. La fonte ammette quattro nomi di allenatore, da PCNYa a PCNYd, e la loro esistenza suggerisce quattro postazioni o quattro periodi. Il contenuto è la parte notevole: fra le prime voci compaiono un Mew cromatico, un Celebi con Parassiseme, Confusione, Rintoccasana e Ripresa, i tre leggendari di Johto cromatici e i tre uccelli di Kanto cromatici, oltre a esemplari comuni con assortimenti di mosse costruiti a mano. Tecnicamente il gruppo è interessante perché la cromaticità in seconda generazione non è un contrassegno ma una configurazione dei valori individuali: dichiarare cromatico un esemplare significa vincolarne quattro campi su cinque, quindi su queste voci la fedeltà è in parte verificabile mentre sul resto della generazione non lo è.
+Centotrentasei voci, cioè l'ottantasei per cento di tutti gli eventi di seconda generazione, tutte dallo stesso luogo: il primo e finora unico negozio Pokemon degli Stati Uniti, aperto il 16 novembre 2001. La fonte tecnica ammette quattro nomi di allenatore, da PCNYa a PCNYd, e il progetto aveva congetturato che fossero quattro postazioni oppure quattro periodi. La fonte enciclopedica lo conferma nel primo senso: al secondo piano c'era una postazione chiamata Gotta catch 'em all Station composta da quattro macchine distributrici, e i quattro nomi sono le quattro macchine. È il genere di dettaglio che trasforma un campo di un byte in un luogo fisico. Le regole della consegna erano una a settimana per visitatore e non più di una al giorno se la macchina veniva riavviata, il che spiega la quantità delle voci: centotrentasei esemplari distinti erano una ragione per tornare al negozio ogni settimana. Due fatti della fonte enciclopedica cambiano come si leggono i nostri dati. Il primo è che tutti gli esemplari tranne gli evoluti, i leggendari e i mitici venivano consegnati come uova. Il secondo è che ciascuna distribuzione aveva una probabilità del quindici per cento di essere cromatica, salvo dichiarazione contraria: ne segue che le voci che la tabella tecnica non marca come cromatiche potevano esserlo, quindi la nostra scelta di produrle non cromatiche è una fra due legittime e non la sola. Le sedici che la tabella marca come cromatiche sono invece quelle in cui la cromaticità era garantita, e su quelle la cromaticità vincola quattro valori individuali su cinque: sono le sole voci di questo gruppo su cui la fedeltà sia in parte verificabile. Il contenuto è la parte notevole, perché fra le prime voci compaiono un Mew cromatico, un Celebi con Parassiseme, Confusione, Rintoccasana e Ripresa, i tre leggendari di Johto cromatici e i tre uccelli di Kanto cromatici, oltre a esemplari comuni con assortimenti di mosse costruiti a mano.
 
-Fonte: [PKHeX, template degli eventi di seconda generazione](https://github.com/kwsch/PKHeX/blob/master/PKHeX.Core/Legality/Encounters/Templates/Gen2/EncounterGift2.cs), letta il 2026-09-03.
+Pagina che descrive l'evento: <https://bulbapedia.bulbagarden.net/wiki/List_of_PCNY_event_Pok%C3%A9mon_distributions_in_Generation_II>.
+
+Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/kwsch/PKHeX/blob/master/PKHeX.Core/Legality/Encounters/Templates/Gen2/EncounterGift2.cs), letta il 2026-09-03; [Bulbapedia, distribuzioni del Pokemon Center di New York in seconda generazione](https://bulbapedia.bulbagarden.net/wiki/List_of_PCNY_event_Pok%C3%A9mon_distributions_in_Generation_II), letta il 2026-09-03.
 
 ### EVT-2-0006 Mew
 
