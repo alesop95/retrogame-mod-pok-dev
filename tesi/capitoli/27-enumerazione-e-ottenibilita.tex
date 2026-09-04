@@ -1,0 +1,125 @@
+% =====================================================================
+% tesi/capitoli/27-enumerazione-e-ottenibilita.tex
+% =====================================================================
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#censimento-degli-esemplari-da-evento-fuori-dalla-base-dei-doni-segreti
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#il-conto-per-gruppo
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#le-voci-che-nessuna-fonte-dichiara-distribuite
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#che-cosa-questo-censimento-non-copre
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#distribuzioni-in-cui-il-dono-era-un-oggetto
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#colosseum-disco-bonus-solo-giappone
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#colosseum-premio-del-monte-lotta
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#colosseum-iniziali
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#colosseum-doni
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#colosseum-ombra
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#xd-doni
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#xd-scambi
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#xd-ombra
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#pokewalker
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#dream-radar
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#my-pokemon-ranch
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#leggende-arceus-doni-fatidici
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#diamante-lucente-e-perla-splendente-doni-fatidici
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#spada-e-scudo-doni-fatidici
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#spada-e-scudo-incursioni-delle-grotte-di-cristallo
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#spada-incursioni-da-distribuzione
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#scudo-incursioni-da-distribuzione
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#spada-e-scudo-avventure-dynamax-nei-sotterranei
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#scarlatto-e-violetto-incursioni-da-distribuzione
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#scarlatto-e-violetto-esemplari-di-potere
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#pokemon-go-verso-il-deposito
+% copre: pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md#pokemon-go-verso-let-s-go
+% copre: pokedex-home-completo/OTTENIBILITA-TITOLI.md
+% copre: pokedex-home-completo/OTTENIBILITA-TITOLI.md#ottenibilità-nei-titoli-a-via-diretta
+% copre: pokedex-home-completo/OTTENIBILITA-TITOLI.md#il-conto-per-titolo
+% copre: pokedex-home-completo/OTTENIBILITA-TITOLI.md#le-specie-che-la-scadenza-vincola-davvero
+% copre: pokedex-home-completo/OTTENIBILITA-TITOLI.md#le-specie-che-nessun-gioco-moderno-sa-far-prendere
+% copre: pokedex-home-completo/OTTENIBILITA-TITOLI.md#il-verso-dell-errore-e-come-stringere-il-limite
+% verificato-al-commit: PENDING-NEXT-COMMIT
+% ---------------------------------------------------------------------
+
+\chapter{Enumerare un insieme e misurarne l'ottenibilità}
+\label{cap:enumerazione}
+
+I capitoli precedenti descrivono come si ricrea un esemplare e come lo si trasferisce. Questo ne affronta uno che li precede logicamente e che il lavoro aveva dato per risolto troppo presto: stabilire di quali esemplari si stia parlando, e quali fra essi siano davvero ottenibili. Sono due domande distinte, entrambe apparentemente meccaniche, ed entrambe hanno prodotto un risultato sbagliato per giorni senza che alcun controllo lo segnalasse.
+
+La ragione per cui meritano un capitolo è metodologica prima che di dominio. Un difetto di enumerazione non si comporta come un difetto di calcolo. Un calcolo sbagliato produce un numero che qualcosa contraddice, prima o poi; un'enumerazione incompleta produce un insieme coerente, ordinabile, verificabile in ogni sua voce, e semplicemente più piccolo del vero. Nessuna prova interna può coglierlo, perché la prova verifica ciò che il programma fa e non ciò che il programma ignora di dover fare. La sola difesa è strutturale, e consiste nel dichiarare la propria copertura invece del proprio risultato.
+
+\section{La differenza fra un difetto di lettura e un difetto di copertura}
+
+Conviene fissare la distinzione con precisione, perché è il concetto portante del capitolo.
+
+Un \term{difetto di lettura} è l'interpretazione sbagliata di dati che il programma sta effettivamente guardando: un offset errato, un passo di record non divisore, una conversione omessa. Ha una proprietà preziosa, cioè che quasi sempre produce una manifestazione: una dimensione che non è multipla del passo, un valore fuori intervallo, un totale implausibile. Il programma può quindi difendersene da sé, e la difesa consiste nel rifiutare invece di proseguire.
+
+Un \term{difetto di copertura} è l'assenza dall'analisi di una fonte che esiste. Non ha alcuna manifestazione. I dati che il programma legge sono letti bene, i totali sono coerenti, ogni voce regge alla verifica, e l'insieme prodotto è semplicemente un sottoinsieme proprio del vero. Non esiste alcun controllo interno capace di rivelarlo, perché rivelare l'assenza di una fonte richiede di conoscere quella fonte, e chi la conoscesse l'avrebbe già inclusa.
+
+Ne discende la sola difesa possibile, che è di natura dichiarativa e non computazionale. Un programma di enumerazione deve elencare in chiaro le fonti che ha letto e, dove ne conosca l'esistenza, quelle che non ha letto con il motivo. Chi ne legge l'esito non giudica allora un numero ma una copertura, e può accorgersi di ciò che manca perché l'elenco è esposto invece che implicito. Il documento generato da questo lavoro dedica per questa ragione una sezione propria a ciò che il censimento non copre, e quella sezione è la parte che ne stabilisce l'attendibilità.
+
+\section{Il caso concreto: tre fonti dove se ne leggevano due}
+
+L'insieme da enumerare è quello degli esemplari da distribuzione. Il lavoro lo costruiva da due fonti: la tabella delle carte meraviglia di terza generazione, che vive nel codice del verificatore, e la base dati binaria dei doni segreti, che copre la prima e la seconda generazione con le loro tabelle di incontro e poi dalla quarta alla nona con i doni veri e propri. Sono le due fonti corrette per le distribuzioni consegnate come dono, e sono cieche su tutto il resto.
+
+Il resto esiste ed è ampio, perché il verificatore classifica per meccanismo di ottenimento e non per natura storica. Una distribuzione in cui l'oggetto consegnato era un biglietto, e l'esemplare un incontro fisso dentro il gioco, non compare fra i doni ma fra gli incontri statici: è il caso dei quattro biglietti di terza generazione, della Tessera Membro e della Lettera di Oak in quarta, del Passo Libertà in quinta. Le periferiche stanno altrove ancora, ciascuna con un formato proprio. I due giochi da console fissa hanno tabelle dedicate. Le incursioni da distribuzione di ottava e nona generazione sono risorse binarie con record di lunghezza fissa.
+
+La tabella~\ref{tab:classi-censimento} riporta la ripartizione, e la sua struttura è essa stessa un risultato: le classi restano separate perché hanno natura diversa, e sommarle produrrebbe un totale grande e inutilizzabile.
+
+\begin{table}[htbp]
+\centering
+\caption{Le classi del censimento degli esemplari fuori dalla base dei doni}
+\label{tab:classi-censimento}
+\begin{tabular}{llrr}
+\toprule
+Classe & Contenuto & Voci & Specie \\
+\midrule
+oggetto distribuito & biglietti, Tessera Membro, Lettera di Oak, Passo Libertà & 15 & 9 \\
+disco bonus & consegne del disco giapponese di Colosseum & 2 & 2 \\
+periferica & Pokewalker, Dream Radar, My Pokemon Ranch & 210 & 166 \\
+spinoff & Colosseum e XD, fra doni, scambi, iniziali e ombra & 182 & 141 \\
+condizionato & doni interni che pretendono un altro salvataggio & 13 & 10 \\
+incursione & incursioni da distribuzione di ottava e nona & 2866 & 597 \\
+porta permanente & trasferimenti da Pokemon GO & 1334 & 964 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Le distribuzioni consegnate come oggetto sono la classe più piccola e la più significativa, perché sono distribuzioni a tutti gli effetti e la sola ragione per cui sfuggivano è dove il verificatore le colloca. Portano nove specie soltanto, ma sono nove specie che nessuna altra via consegna: Latias e Latios dell'Isola del Sud, il Mew dell'Isola Lontana, Lugia e Ho-Oh della Rocca Ombelico, il Deoxys dell'Isola Nascita nelle sue tre forme decise dal gioco di origine, il Darkrai dell'Isola Lunanova, lo Shaymin del Giardino Floreale e il Victini del Giardino Libertà.
+
+Va registrata anche la classe complementare, cioè le voci che una fonte dichiara mai distribuite. Il documento le elenca perché la loro assenza dal censimento è un risultato e non una lacuna: chi cercasse l'Arceus del Flauto Azzurro senza quella riga concluderebbe che il censimento sia incompleto, e cercherebbe a lungo una distribuzione che non è mai avvenuta. La distinzione fra ciò che manca perché non esiste e ciò che manca perché non è stato letto è la stessa distinzione fra uno zero misurato e uno zero non misurato, e vale la stessa disciplina.
+
+\section{La presenza non è l'ottenibilità}
+
+La seconda domanda riguarda la scadenza. Il lavoro affermava che nessuna specie dipenda dal servizio in chiusura, e l'affermazione poggiava sul contrassegno di presenza delle tabelle delle statistiche di base, cioè sul fatto che una specie esista nei dati di un gioco che comunica direttamente con la piattaforma di destinazione.
+
+La deduzione è invalida, e il motivo è istruttivo. Un gioco moderno porta i dati di una specie anche soltanto perché la piattaforma gliela possa inviare: la specie esiste nel gioco, si può allenare, mostrare e depositare, e non si può prendere. Contarla fra le raggiungibili senza il servizio significa dichiarare raggiungibile senza il servizio qualcosa che per entrare in quel gioco dal servizio deve passare. La presenza è dunque una condizione necessaria e non sufficiente, e l'insieme che se ne ricava è un limite inferiore all'insieme delle ottenibili, quindi un limite superiore all'insieme delle vincolate. Zero era un limite inferiore travestito da risultato.
+
+La misura corretta sostituisce la presenza con l'incontro. Per ciascun titolo a via diretta si leggono le tabelle dei luoghi selvatici, degli incontri fissi, dei doni interni, degli scambi e delle incursioni, e se ne ricava l'insieme delle specie che quel gioco sa consegnare da sé.
+
+Un insieme di soli incontri sottostima però in modo grave, e la correzione è algebrica prima che di dominio. Sia $E$ l'insieme delle specie con un incontro nel titolo, $P$ l'insieme delle specie che il titolo dichiara presenti, e sia $R \subseteq P \times P$ la relazione di evoluzione del titolo, dove $(a,b) \in R$ significa che $a$ evolve in $b$. Chi ottiene $a$ ottiene anche ogni $b$ raggiungibile da $a$ per evoluzioni successive; e chi ottiene $b$ ottiene $a$ per riproduzione, poiché dalla riproduzione si ottiene la forma base della linea. L'insieme delle ottenibili è dunque la chiusura di $E$ rispetto alla relazione simmetrizzata, ristretta a $P$:
+\[
+O = \operatorname{cl}_{(R \cup R^{-1}) \cap (P \times P)}(E \cap P).
+\]
+La restrizione a $P$ non è una cautela formale: un'evoluzione verso una specie che il gioco non conosce non avviene, quindi la chiusura si arresta al confine del titolo. Senza la chiusura l'insieme sarebbe drammaticamente più piccolo del vero, perché nessuna tabella dichiara Venusaur nel luogo in cui si incontra Bulbasaur.
+
+All'unione dei sei insiemi $O$ va infine aggiunto l'insieme delle specie consegnate come dono nelle generazioni che comunicano direttamente con la piattaforma. Un dono non è un incontro e nessuna tabella di incontri lo dichiara, ma un esemplare consegnato in quelle generazioni raggiunge la destinazione senza toccare il servizio in chiusura: che la distribuzione sia chiusa da anni lo rende difficile da procurarsi e non lo rende vincolato dalla scadenza, e le due difficoltà non vanno confuse.
+
+\section{L'esito, e i due versi in cui la misura sbaglia}
+
+L'unione delle specie con un incontro, dopo la chiusura, copre 1021 delle 1025 voci di specie; con i doni delle generazioni a via diretta si arriva a 1025. L'esito numerico coincide dunque con quello precedente, e il cambiamento non sta nel numero ma nel suo statuto: era una deduzione da una condizione necessaria, è una misura.
+
+L'esito nuovo è la differenza fra i due insiemi. Quattro specie sono presenti nei dati di un gioco moderno, sono ottenibili senza il servizio, e non hanno alcun incontro in alcuno dei sei titoli: Celebi, Deoxys, Victini e Zarude. Per averle l'unica via è un esemplare da distribuzione, quindi appartengono all'asse degli eventi e non a quello delle specie, e chi ne pianificasse la cattura giocando lavorerebbe a vuoto. Il caso di Victini è il più esplicito, poiché la fonte porta la sua riga di incontro esclusa dal codice attivo, cioè la dichiara mai rilasciata in quel titolo.
+
+Resta da dichiarare come la misura sbagli, e la dichiarazione va fatta per intero perché una prima stesura ne descriveva un verso solo e ne traeva una conclusione rassicurante e falsa.
+
+Il primo verso è prudente. Le tabelle lette sono molte e non tutte; dove una fonte manca, la specie che solo quella consegnerebbe risulta non ottenibile, e si finisce per dichiarare vincolata dalla scadenza una specie che invece si prende. Il costo dell'errore è lavoro superfluo, che su una scadenza è il costo accettabile.
+
+Il secondo verso non lo è. Gli incontri scritti in codice si leggono con una regola generosa, che accetta sia le righe con la specie dichiarata per nome di campo sia quelle il cui costruttore comincia con un numero, poiché le tabelle usano entrambe le forme e nessuna copre l'altra. Una regola generosa può raccogliere un numero che specie non è, e allora una specie risulterebbe ottenibile senza esserlo: il costo dell'errore è una perdita definitiva. Il presidio contro questo verso non è automatico ed è un campione verificato a mano sulle voci più sospette, cioè i mitici, che il documento nomina uno per uno; chi tocchi quella regola deve rifare il campione.
+
+La distinzione fra i due versi è il contributo metodologico di questa sezione. Un'analisi che dichiari il proprio errore come uniformemente prudente, quando prudente è soltanto una delle sue componenti, è più pericolosa di un'analisi che non dichiari nulla, perché induce a fidarsi nella direzione sbagliata.
+
+\section{Il limite che nessuna misura interna può togliere}
+
+Il censimento copre ciò che il verificatore sa. Le sue tabelle sono una ricostruzione compiuta da persone a partire dai giochi e dalle distribuzioni documentate, non un manifesto emesso da chi le ha prodotte. Se una distribuzione è avvenuta e nessuno l'ha registrata in quelle tabelle, questo lavoro non può rivelarla, perché questo lavoro è una lettura di quelle tabelle. È un difetto di copertura del secondo ordine, e vale per esso ciò che vale per il primo: non è aggirabile dall'interno e si dichiara.
+
+Il rimedio è di metodo e consiste nel confronto con elenchi indipendenti. Il primo è stato compiuto sul deposito di un gioco da console fissa che raccoglie esemplari di terza generazione, il cui autore ne dichiara la completezza rispetto a ciò che oggi si può ottenere legittimamente. Il confronto ha dato un esito doppiamente utile: l'unione fra quel deposito e la raccolta di salvataggi del lavoro copre tutte e 386 le voci nazionali di terza generazione, e le due specie che a quel deposito mancano sono esattamente il Mew e il Deoxys dei biglietti. Un elenco costruito da chi non sa nulla di questa analisi ha cioè confermato, per la via della propria lacuna, che la classe delle distribuzioni consegnate come oggetto esiste ed è la più difficile da completare.
+
+Un secondo confronto è possibile e va nominato perché non richiede alcuno strumento: le notifiche conservate dalla piattaforma di destinazione, che testimoniano distribuzioni realmente avvenute e sono per costruzione indipendenti dal verificatore. È materiale che appartiene al possessore dell'account e non al lavoro, e la sua acquisizione è registrata fra le voci in sospeso.

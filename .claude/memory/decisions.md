@@ -360,3 +360,51 @@ La richiesta cade esattamente sul confine. Una parte di ciò che quelle fotograf
 Decisione. Si registra lo stato e si tacciono le procedure. Entrano nei file tracciati i fatti che servono a pianificare e non a operare: che l'ultimo anello della catena risponde, quali vincoli numerici impone, quali conseguenze quei vincoli hanno sul lotto che il progetto produce. Non entrano, in nessuna forma e in nessun file, le istruzioni per ottenere, installare o far funzionare quel software, né il troubleshooting dei suoi errori. Un codice di errore incontrato si può nominare come fatto accaduto quando serve a spiegare perché un requisito esista; non si può accompagnare con la sua soluzione.
 
 Conseguenze. La prima è che le fotografie restano materiale locale e non entrano nel repository, come già prescrive la regola sugli screenshot, e la nota di studio che ne discende dichiara in apertura la distinzione invece di applicarla in silenzio. La seconda è che una circostanza della motivazione del limite va aggiornata senza che il limite cada: quella motivazione poggiava fra l'altro sull'assenza di un identificativo di rete anteriore alla chiusura del negozio digitale, e un identificativo è stato creato il 2026-09-03; poiché non produce alcuna cronologia di acquisti anteriore, la via ufficiale per ottenere quel software resta inesistente e la ragione del limite è intatta. È cambiato un presupposto tecnico e non il motivo. La terza è che questa decisione non autorizza nulla di nuovo: descrive dove passa una linea che esisteva già, cosicché la prossima sessione non debba ricavarla da capo e non rischi di spostarla senza accorgersene.
+## ADR-031: l'ambito è tutti gli esemplari da distribuzione, e le classi restano separate
+
+Data: 2026-09-04. Stato: accettata.
+
+L'utente ha deciso che la collezione comprende tutti gli esemplari da distribuzione esistenti, senza eccezione e senza selezione, e che la ricerca deve andare a cercarli ovunque siano invece di fermarsi alle fonti che il progetto già leggeva. La decisione supera l'ambito registrato il 2026-09-03, che parlava di 2686 voci: quel numero veniva da due sole fonti e non era l'insieme.
+
+Ne discende la struttura dell'asse degli eventi, che nasce ora da tre fonti e non da una. La prima è la tabella delle carte meraviglia di terza generazione, che vive nel codice del verificatore. La seconda sono i file binari della base dei doni segreti, dalla prima alla nona generazione. La terza sono le tabelle degli incontri del verificatore, dove stanno le distribuzioni in cui il dono era un oggetto, le periferiche, i giochi da console fissa, i doni interni condizionati e le incursioni da distribuzione.
+
+Le classi restano dichiarate e separate nell'uscita, e questa è la parte della decisione che vale più del numero. Una distribuzione in cui il dono era un oggetto è un evento a tutti gli effetti, e la sola ragione per cui sfuggiva è che il verificatore la tiene fra gli incontri statici; un esemplare di Colosseum non è invece una distribuzione ma un incontro ordinario di un gioco diverso, irripetibile altrove; un dono condizionato di ottava generazione pretende il salvataggio di un altro gioco e non una consegna. Sommarle in un totale unico darebbe un numero grande e inutilizzabile, e toglierebbe a chi colleziona la possibilità di ridiscutere l'ambito senza rifare la misura.
+
+Una classe resta fuori dall'asse per scelta motivata, ed è quella dei trasferimenti da Pokemon GO. Non sono esemplari da distribuzione ma una porta di ingresso permanente: dire che una specie è ottenibile da quel gioco è un'affermazione sulla sua reperibilità, cioè la materia dell'asse delle specie, e non un collezionabile in più con un allenatore e una data propri. Sono contati e visibili nel censimento, dove la loro classe dice che cosa sono, e non entrano nel conto che misura la coda di produzione. Non sono nemmeno entrati fra le fonti dell'asse delle specie, e la ragione è diversa: quella colonna dichiara i materiali che il progetto possiede, e un account di quel gioco con quelle specie non lo possediamo.
+
+Resta dichiarato il limite che nessuna di queste scelte può togliere: il censimento copre ciò che il verificatore sa. Una distribuzione che nessuna sua tabella conosce non comparirebbe, e da dentro non avremmo modo di accorgercene. Il rimedio non è tecnico ma di metodo, cioè il confronto con elenchi indipendenti, e il primo è stato fatto lo stesso giorno con il deposito di Pokemon Box.
+
+## ADR-032: l'ottenibilità sostituisce la presenza, e il risultato precedente era un limite inferiore
+
+Data: 2026-09-04. Stato: accettata. Supera in parte il risultato registrato con ADR-026 e nella scheda del track.
+
+Il progetto rispondeva alla domanda su quali specie la chiusura della banca porti via usando il contrassegno di presenza delle tabelle delle statistiche, cioè l'affermazione che una specie esiste nei dati di un gioco. Da lì veniva il risultato per cui tutte e milleventicinque le specie sono raggiungibili per via diretta e nessuna è vincolata dal 26 febbraio 2027.
+
+La presenza non è però l'ottenibilità. Un gioco moderno porta i dati di una specie anche soltanto perché il deposito gliela possa mandare: la specie esiste nel gioco, si può allenare e mostrare, e non si può prendere. Contarla fra le raggiungibili per via diretta significa dichiarare raggiungibile senza banca qualcosa che per entrare in quel gioco dalla banca deve passare, che è il contrario del vero.
+
+Si adotta quindi la misura per incontro. Per ciascun titolo a via diretta si leggono le tabelle dei luoghi selvatici, degli incontri fissi, dei doni, degli scambi interni e delle incursioni, e l'insieme si chiude rispetto alle evoluzioni di quel titolo nei due versi, perché chi prende la forma base ottiene le evolute e dalla riproduzione si ottiene la forma base di una linea. Ai risultati si aggiungono le specie consegnate come dono nelle generazioni che parlano al deposito direttamente, perché un dono non è un incontro e nessuna tabella degli incontri lo dichiara, ma un esemplare consegnato in quelle generazioni arriva al deposito senza toccare la banca.
+
+L'esito numerico non cambia, cioè zero specie vincolate dalla scadenza, e il cambiamento non è nel numero ma in ciò che il numero significa: prima era un limite inferiore, ora è una misura. L'esito nuovo è che quattro specie non hanno alcun incontro in alcun gioco moderno, cioè Celebi, Deoxys, Victini e Zarude: non sono vincolate dalla scadenza perché un dono di ottava generazione le consegna, ma non si prendono giocando, quindi stanno sull'asse degli eventi e chi pianificasse di catturarle perderebbe tempo.
+
+Si accetta infine che la misura sbagli in due versi opposti e che vadano dichiarati entrambi, perché una prima stesura ne dichiarava uno solo e concludeva che l'errore fosse tutto prudente. Il verso prudente è che le tabelle lette non sono tutte, e dove una fonte manca la specie che solo quella consegnerebbe risulta non ottenibile. Il verso rischioso è che gli incontri scritti in codice si leggono con una regola generosa che potrebbe raccogliere un numero che specie non è, e allora una specie risulterebbe ottenibile senza esserlo. Il presidio contro il secondo non è automatico ed è un campione fatto a mano sulle voci più sospette: chi tocchi quella regola rifaccia il campione.
+
+## ADR-033: i gate di igiene si leggono nel testo dello strumento e non nel suo codice di uscita
+
+Data: 2026-09-04. Stato: accettata.
+
+Per un'intera sessione il codice di uscita di `tools/fix-accents.py --check` è stato usato come gate di igiene, e quel programma esce sempre a zero riferendo le sostituzioni nel testo e non nello stato. Ne è seguita una serie di dichiarazioni di igiene a zero che erano vere per quattro controlli su cinque e non stabilite per il quinto, mentre cinque file tracciati portavano seicentoquaranta forme non accentate.
+
+Si stabilisce quindi che per gli strumenti della famiglia tipografica il gate è il testo prodotto e non il codice di uscita, e che il controllo si fa sui soli file per cui la convenzione vale, cioè i file Markdown tracciati: i sorgenti e gli script portano prosa in forma ASCII per scelta e non vanno contati.
+
+Si stabilisce inoltre che una violazione trovata in un documento generato si corregge nella stringa del programma che lo genera e mai nel documento, perché correggere l'uscita di un programma la fa tornare sbagliata alla corsa successiva. È lo stesso principio per cui i documenti generati portano in testa l'avvertenza di non modificarli a mano.
+
+## ADR-034: la fedeltà di un esemplare ricreato si misura sui campi che il verificatore incrocia
+
+Data: 2026-09-04. Stato: accettata.
+
+Il giudizio esterno sul lotto di prima e seconda generazione ha prodotto in tre giri consecutivi tre difetti che appartengono a una sola famiglia: campi distinti che sembrano lo stesso campo. La tabella degli eventi di seconda generazione porta due livelli e ne usavamo uno; il livello di incontro di un uovo non è quello dichiarato ma uno; la fase del giorno deve essere nulla per un dono e vera per un uovo già schiuso, cioè il contrario di come verrebbe da scriverla.
+
+Nessuno dei tre era rilevabile dall'interno. Le prove interne verificavano che i campi fossero scritti dove la struttura li vuole, ed erano verdi mentre tutti e tre erano presenti; il difetto non stava nella scrittura ma nella scelta di quale valore scrivere, che è una domanda a cui solo il verificatore risponde perché è lui a incrociare i campi fra loro.
+
+Si stabilisce quindi che per ogni gruppo di esemplari ricreati il criterio di conformità non è la suite interna ma il giudizio esterno su tutto il gruppo e non su un campione, e che ogni difetto trovato dal verificatore va chiuso con una funzione dedicata e una prova, invece che con una correzione in linea: una funzione si può provare, un'espressione sparsa in mezzo al codice no. Le cinque prove aggiunte in questa occasione, che portano il self-test da quindici a ventidue controlli, sono la forma che questo presidio prende.
+

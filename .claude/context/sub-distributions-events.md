@@ -4,7 +4,7 @@ generated-from-branch: main
 generated-date: 2026-08-28
 covers-paths:
   - recreate-pokemon-distributions-events/
-last-verified-commit: 319226b
+last-verified-commit: 0f72ba487040b9198c78e3d9512285f45b55c1c8
 stato: attivo, generatore chiuso e verificato dall'esterno su tutte le voci producibili, in attesa del lettore per la prova su dato autentico e per l'identificativo vero dell'allenatore
 ---
 
@@ -55,3 +55,13 @@ Gli esemplari con allenatore `10ANNI` vivono sulla cartuccia dell'utente e sono 
 `STUDIO-04-campagna-di-trasferimento-e-il-tracciatore.md` è la nota da leggere quando si opera, e contiene tre cose che le altre non avevano. La prima è che il tracciatore di Pokemon Home non ostacola il piano di iniettare esemplari e percorrere la catena ufficiale, perché il servizio lo assegna a chiunque entri da una porta vera: ostacola una cosa diversa, cioè scrivere un esemplare di terza generazione dentro un salvataggio di nona, che è una via che non esiste e non una via che scade. La seconda è il tempo residuo contato, che al 2026-09-01 è di centosettantotto giorni e non di diciotto mesi come tre file dichiaravano. La terza è la divisione del lavoro fra il nostro codice e il verificatore della comunità.
 
 Quella divisione va tenuta presente perché evita di rifare ciò che esiste, e va corretta su un punto che avevo affermato senza verificarlo: la base di dati dei doni segreti del verificatore non contiene la terza generazione, perché quella generazione non ha mai avuto un formato binario uniforme per i doni e la sua tabella vive nel codice. L'esportazione integrale fatta il 2026-09-01 lo dimostra, cioè ottocentosettantuno file dalla quarta alla nona generazione e nessuno di terza. La produzione in volume per la terza generazione la fa quindi il nostro generatore, che dal 2026-09-01 legge direttamente la tabella del verificatore e copre centosettantatré voci su centosettantasette invece delle diciassette del corpus del costruttore. Il nostro codice serve a tre cose che quella via non dà: la comprensione, perché le formule sono scritte, svolte bit per bit e verificate; la verifica incrociata, che ha già trovato due difetti reali in una implementazione di terzi; e la ricerca inversa, che dato un esemplare autentico posseduto ne ricava il seme, ed è il solo modo di stabilire che una ricreazione sia fedele a un originale e non soltanto conforme a una tabella. Quest'ultima è quella che conterà quando il lettore arriverà e gli esemplari del decennale saranno estratti dalla cartuccia.
+
+## Aggiunta del 2026-09-04: le cinque famiglie che erano dichiarate non lette
+
+Fino a questa data il conteggio dei doni segreti portava cinque celle con la dicitura non letti, cioè Spada e Scudo, Leggende Arceus, Diamante Lucente e Perla Splendente, Scarlatto e Violetto e Leggende Z-A. La dicitura era onesta e distingueva uno zero non misurato da uno zero misurato, ma era un debito e non una conclusione: nessuna di quelle famiglie è sotto scadenza, ed è la sola ragione per cui erano rimaste indietro. La decisione di ambito di ADR-031 le rimette dentro il conto.
+
+Sono ora lette tutte e cinque, con gli offset presi dalle classi omonime della fonte esattamente come per le generazioni precedenti. La sola difficoltà stava nella nona, dove la specie dentro il record non è il numero nazionale ma quello interno del gioco e i due divergono dal 917 in avanti: senza la conversione le voci avrebbero portato numeri di specie esistenti e sbagliati, che è il difetto peggiore fra quelli possibili perché non si manifesta. La tabella di conversione si legge dal clone e non è trascritta, per la stessa ragione per cui si leggono di là le tabelle degli eventi.
+
+Le due grandezze che cambiano sono queste: gli esemplari saliti da 1860 a 2115 e le specie distinte portate dai doni senza scadenza salite da 9 a 130, con l'unione di tutti i doni che passa da 261 a 325. La prova che la lettura sia giusta e non soltanto plausibile è che il numero di specie più alto di ciascuna famiglia coincide con il tetto del proprio gioco, cioè 893 per Spada e Scudo, 905 per Leggende Arceus, 493 per Diamante Lucente, 1008 per Scarlatto e Violetto e 721 per Z-A: se gli offset o la conversione fossero sbagliati quei cinque numeri non tornerebbero tutti.
+
+Il documento generato non porta più alcuna cella che dica non letti, e al loro posto dichiara in prosa che le dieci famiglie sono lette e perché le ultime cinque lo sono diventate.
