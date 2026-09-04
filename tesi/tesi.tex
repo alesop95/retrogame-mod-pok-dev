@@ -80,6 +80,15 @@
 % cui sono state scelte è meccanico, cioè ogni nozione che compare nel capitolo 25
 % senza essere definita altrove nel documento.
 \appendix
+% Le appendici si numerano A1, A2 e cosi' via, e non A, B, C come la classe farebbe da
+% se'. La ragione e' una confusione reale e non un gusto tipografico: i file dei sorgenti
+% si chiamano A1 fino ad A8, il progetto le nomina cosi' in ogni documento e in ogni
+% conversazione, e con la numerazione predefinita l'appendice che chiamiamo A8 compariva
+% nel PDF come H. Chi cercava A8 non la trovava, e non perche' mancasse. La numerazione
+% qui sotto fa combaciare l'etichetta stampata con il nome del file, cosicche' una
+% citazione si possa seguire.
+\renewcommand{\thechapter}{A\arabic{chapter}}
+\setcounter{chapter}{0}
 \input{capitoli/A1-appendice-informazione}
 \input{capitoli/A2-appendice-probabilita}
 \input{capitoli/A3-appendice-algebra}

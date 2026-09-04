@@ -239,15 +239,17 @@ Generazione 2, donatore dichiarato dalla fonte come destinatario. Il gruppo port
 
 Quando: 15 dicembre 2001 - 14 gennaio 2002, 16 marzo - 7 aprile 2002, 27 aprile - 12 maggio 2002. Dove: negozi Pokemon Center di Tokyo e Osaka. Come: consegnata al negozio, una sola per visitatore e con la specie estratta a sorte, con il nome e l'identificativo di chi la riceve.
 
-Questo era l'ultimo gruppo di prima e seconda generazione senza provenienza, e il 2026-09-03 è stato chiuso. La fonte tecnica lo classifica come consegnato al destinatario e non dichiara nome, data né luogo; la fonte enciclopedica lo identifica come le uova misteriose distribuite nei negozi Pokemon Center di Tokyo e Osaka in tre campagne fra il dicembre 2001 e il maggio 2002. La conferma non poggia sul nome ma sul conto e sui dettagli: le tre campagne portano rispettivamente sei, sei e cinque specie, le specie coincidono con le nostre, e coincidono anche le mosse, che sono la parte diagnostica. Il visitatore riceveva una sola uova con la specie estratta a sorte, il che spiega perché le voci siano quindici e non tre. Il marcatore che permette di attribuire ciascuna voce alla propria campagna è una mossa: la seconda campagna assegnò Petalodanza a quasi tutte le proprie uova, e quella mossa non compare nelle altre due. Le voci con Petalodanza sono dunque della seconda campagna, quelle con Ripeti, Panciamburo o Metronomo della prima, e quelle con Forzantica, Sgranocchio, Sottomissione e Ombra Notturna della terza; la sezione delle voci di questo file porta l'attribuzione una per una. Due avvertenze sull'accordo fra le due fonti, che non è perfetto e va dichiarato. La prima campagna comprendeva secondo l'enciclopedia anche un Chikorita con due mosse sole, che la tabella tecnica non porta; e il Pichu con Canto compare identico nella prima e nella terza campagna, quindi la nostra voce corrispondente appartiene a entrambe e non è attribuibile a una sola. Ne segue che quindici voci coprono diciassette consegne storiche, perché due coincidono nei byte.
+Questo era l'ultimo gruppo di prima e seconda generazione senza provenienza, e il 2026-09-03 è stato chiuso con tre fonti che concordano. La fonte tecnica lo classifica come consegnato al destinatario e non dichiara nome, data né luogo; le due fonti enciclopediche lo identificano come le uova misteriose distribuite nei negozi Pokemon Center di Tokyo e Osaka in tre campagne, chiamate serie, fra il dicembre 2001 e il maggio 2002. La terza fonte, un evendex francese, è quella decisiva perché enumera le consegne una per una e ne dà i campi: diciassette consegne storiche, sei nella prima serie, sei nella seconda e cinque nella terza, ciascuna con specie, livello cinque, mosse, e la dichiarazione che nome e identificativo dell'allenatore sono quelli del giocatore. L'accordo con la nostra tabella è campo per campo sulle mosse, che sono la parte diagnostica, e conferma una deduzione che il progetto aveva fatto il giorno prima senza poterla provare: quindici voci coprono diciassette consegne perché due coincidono nei byte, cioè il Chikorita della prima serie è identico a quello della seconda e il Pichu della prima è identico a quello della terza. Il marcatore che attribuisce una voce alla propria serie è una mossa, e la sezione delle voci di questo file porta l'attribuzione una per una. Un fatto nuovo dalla terza fonte cambia come si leggono i nostri dati: la consegna era ripetibile per ottenere un esemplare cromatico, quindi la nostra scelta di produrre queste uova non cromatiche è una fra due legittime e non la sola. Va infine registrata una divergenza con la prima fonte enciclopedica, che attribuiva alla prima serie un Chikorita con due mosse sole: la terza fonte gli attribuisce le medesime tre della seconda serie, e la nostra tabella concorda con la terza.
 
 Pagina che descrive l'evento: <https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_(Generation_II)>.
 
 Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/kwsch/PKHeX/blob/master/PKHeX.Core/Legality/Encounters/Templates/Gen2/EncounterGift2.cs), letta il 2026-09-03; [Bulbapedia, distribuzioni giapponesi in seconda generazione](https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_(Generation_II)), letta il 2026-09-03.
 
+Divergenza fra le fonti: La prima fonte enciclopedica attribuisce alla prima serie un Chikorita con due mosse sole, mentre la terza fonte e la tabella tecnica gli attribuiscono tre mosse identiche a quelle della seconda serie. Si segue la maggioranza, che è anche la fonte che enumera le consegne una per una. Va inoltre segnalato che l'utente ha portato il 2026-09-03 un elenco di dieci specie per campagna, comprendente Cyndaquil, Tyrogue, Elekid e Magby, con mosse che nessuna delle tre fonti riporta per queste serie. Quelle quattro specie esistono nella tabella tecnica ma nel gruppo del Pokemon Center di New York e non in questo, quindi l'elenco confonde due gruppi distinti; le mosse indicate non corrispondono ad alcuna delle tre fonti e restano non confermate.
+
 ### EVT-2-0142 Chikorita
 
-Attribuzione di questa voce: seconda campagna, 16 marzo - 7 aprile 2002. Il marcatore che la distingue è Petalodanza.
+Attribuzione di questa voce: prima serie, 15 dicembre 2001 - 14 gennaio 2002, e seconda serie, 16 marzo - 7 aprile 2002. Il marcatore che la distingue è Petalodanza; la terza fonte attribuisce alle due serie il medesimo Chikorita, quindi questa voce copre due consegne.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -265,7 +267,7 @@ Attribuzione di questa voce: seconda campagna, 16 marzo - 7 aprile 2002. Il marc
 
 ### EVT-2-0143 Pichu
 
-Attribuzione di questa voce: prima campagna, 15 dicembre 2001 - 14 gennaio 2002, e terza campagna, 27 aprile - 12 maggio 2002. Il marcatore che la distingue è Canto, identico nelle due campagne, quindi la voce appartiene a entrambe e non è attribuibile a una sola.
+Attribuzione di questa voce: prima serie, 15 dicembre 2001 - 14 gennaio 2002, e terza serie, 27 aprile - 12 maggio 2002. Il marcatore che la distingue è Canto; la terza fonte attribuisce alle due serie il medesimo Pichu, quindi questa voce copre due consegne.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -283,7 +285,7 @@ Attribuzione di questa voce: prima campagna, 15 dicembre 2001 - 14 gennaio 2002,
 
 ### EVT-2-0144 Cleffa
 
-Attribuzione di questa voce: prima campagna, 15 dicembre 2001 - 14 gennaio 2002. Il marcatore che la distingue è Ripeti, senza Petalodanza.
+Attribuzione di questa voce: prima serie, 15 dicembre 2001 - 14 gennaio 2002. Il marcatore che la distingue è Comete.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -301,7 +303,7 @@ Attribuzione di questa voce: prima campagna, 15 dicembre 2001 - 14 gennaio 2002.
 
 ### EVT-2-0145 Wooper
 
-Attribuzione di questa voce: prima campagna, 15 dicembre 2001 - 14 gennaio 2002. Il marcatore che la distingue è Panciamburo, che compare in questa sola voce.
+Attribuzione di questa voce: prima serie, 15 dicembre 2001 - 14 gennaio 2002. Il marcatore che la distingue è Panciamburo.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -319,7 +321,7 @@ Attribuzione di questa voce: prima campagna, 15 dicembre 2001 - 14 gennaio 2002.
 
 ### EVT-2-0146 Phanpy
 
-Attribuzione di questa voce: prima campagna, 15 dicembre 2001 - 14 gennaio 2002. Il marcatore che la distingue è Ripeti, senza Petalodanza.
+Attribuzione di questa voce: prima serie, 15 dicembre 2001 - 14 gennaio 2002. Il marcatore che la distingue è Ripeti.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -337,7 +339,7 @@ Attribuzione di questa voce: prima campagna, 15 dicembre 2001 - 14 gennaio 2002.
 
 ### EVT-2-0147 Smoochum
 
-Attribuzione di questa voce: prima campagna, 15 dicembre 2001 - 14 gennaio 2002. Il marcatore che la distingue è Metronomo, che compare in questa sola voce.
+Attribuzione di questa voce: prima serie, 15 dicembre 2001 - 14 gennaio 2002. Il marcatore che la distingue è Metronomo.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -355,7 +357,7 @@ Attribuzione di questa voce: prima campagna, 15 dicembre 2001 - 14 gennaio 2002.
 
 ### EVT-2-0148 Psyduck
 
-Attribuzione di questa voce: seconda campagna, 16 marzo - 7 aprile 2002. Il marcatore che la distingue è Petalodanza.
+Attribuzione di questa voce: seconda serie, 16 marzo - 7 aprile 2002. Il marcatore che la distingue è Petalodanza.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -373,7 +375,7 @@ Attribuzione di questa voce: seconda campagna, 16 marzo - 7 aprile 2002. Il marc
 
 ### EVT-2-0149 Pichu
 
-Attribuzione di questa voce: seconda campagna, 16 marzo - 7 aprile 2002. Il marcatore che la distingue è Petalodanza.
+Attribuzione di questa voce: seconda serie, 16 marzo - 7 aprile 2002. Il marcatore che la distingue è Petalodanza.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -391,7 +393,7 @@ Attribuzione di questa voce: seconda campagna, 16 marzo - 7 aprile 2002. Il marc
 
 ### EVT-2-0150 Cleffa
 
-Attribuzione di questa voce: seconda campagna, 16 marzo - 7 aprile 2002. Il marcatore che la distingue è Petalodanza.
+Attribuzione di questa voce: seconda serie, 16 marzo - 7 aprile 2002. Il marcatore che la distingue è Petalodanza.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -409,7 +411,7 @@ Attribuzione di questa voce: seconda campagna, 16 marzo - 7 aprile 2002. Il marc
 
 ### EVT-2-0151 Igglybuff
 
-Attribuzione di questa voce: seconda campagna, 16 marzo - 7 aprile 2002. Il marcatore che la distingue è Petalodanza, con Ricciolscudo che l'enciclopedia riporta per questa specie.
+Attribuzione di questa voce: seconda serie, 16 marzo - 7 aprile 2002. Il marcatore che la distingue è Petalodanza.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -427,7 +429,7 @@ Attribuzione di questa voce: seconda campagna, 16 marzo - 7 aprile 2002. Il marc
 
 ### EVT-2-0152 Smoochum
 
-Attribuzione di questa voce: seconda campagna, 16 marzo - 7 aprile 2002. Il marcatore che la distingue è Petalodanza.
+Attribuzione di questa voce: seconda serie, 16 marzo - 7 aprile 2002. Il marcatore che la distingue è Petalodanza.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -445,7 +447,7 @@ Attribuzione di questa voce: seconda campagna, 16 marzo - 7 aprile 2002. Il marc
 
 ### EVT-2-0153 Bulbasaur
 
-Attribuzione di questa voce: terza campagna, 27 aprile - 12 maggio 2002. Il marcatore che la distingue è Forzantica.
+Attribuzione di questa voce: terza serie, 27 aprile - 12 maggio 2002. Il marcatore che la distingue è Forzantica.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -463,7 +465,7 @@ Attribuzione di questa voce: terza campagna, 27 aprile - 12 maggio 2002. Il marc
 
 ### EVT-2-0154 Charmander
 
-Attribuzione di questa voce: terza campagna, 27 aprile - 12 maggio 2002. Il marcatore che la distingue è Sgranocchio.
+Attribuzione di questa voce: terza serie, 27 aprile - 12 maggio 2002. Il marcatore che la distingue è Sgranocchio.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -481,7 +483,7 @@ Attribuzione di questa voce: terza campagna, 27 aprile - 12 maggio 2002. Il marc
 
 ### EVT-2-0155 Totodile
 
-Attribuzione di questa voce: terza campagna, 27 aprile - 12 maggio 2002. Il marcatore che la distingue è Sottomissione.
+Attribuzione di questa voce: terza serie, 27 aprile - 12 maggio 2002. Il marcatore che la distingue è Sottomissione.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -499,7 +501,7 @@ Attribuzione di questa voce: terza campagna, 27 aprile - 12 maggio 2002. Il marc
 
 ### EVT-2-0156 Hoothoot
 
-Attribuzione di questa voce: terza campagna, 27 aprile - 12 maggio 2002. Il marcatore che la distingue è Ombra Notturna.
+Attribuzione di questa voce: terza serie, 27 aprile - 12 maggio 2002. Il marcatore che la distingue è Ombra Notturna.
 
 | Campo | Valore | Provenienza |
 |---|---|---|
@@ -661,7 +663,7 @@ Generazione 2, donatore dichiarato dalla fonte come Pokemon Center New York. Il 
 
 Quando: dal 16 novembre 2001, data di apertura del negozio. Dove: Pokemon Center di New York, secondo piano. Come: una macchina distributrice fra quattro, una consegna a settimana per visitatore e non più di una al giorno, inserendo la propria cartuccia.
 
-Centotrentasei voci, cioè l'ottantasei per cento di tutti gli eventi di seconda generazione, tutte dallo stesso luogo: il primo e finora unico negozio Pokemon degli Stati Uniti, aperto il 16 novembre 2001. La fonte tecnica ammette quattro nomi di allenatore, da PCNYa a PCNYd, e il progetto aveva congetturato che fossero quattro postazioni oppure quattro periodi. La fonte enciclopedica lo conferma nel primo senso: al secondo piano c'era una postazione chiamata Gotta catch 'em all Station composta da quattro macchine distributrici, e i quattro nomi sono le quattro macchine. È il genere di dettaglio che trasforma un campo di un byte in un luogo fisico. Le regole della consegna erano una a settimana per visitatore e non più di una al giorno se la macchina veniva riavviata, il che spiega la quantità delle voci: centotrentasei esemplari distinti erano una ragione per tornare al negozio ogni settimana. Due fatti della fonte enciclopedica cambiano come si leggono i nostri dati. Il primo è che tutti gli esemplari tranne gli evoluti, i leggendari e i mitici venivano consegnati come uova. Il secondo è che ciascuna distribuzione aveva una probabilità del quindici per cento di essere cromatica, salvo dichiarazione contraria: ne segue che le voci che la tabella tecnica non marca come cromatiche potevano esserlo, quindi la nostra scelta di produrle non cromatiche è una fra due legittime e non la sola. Le sedici che la tabella marca come cromatiche sono invece quelle in cui la cromaticità era garantita, e su quelle la cromaticità vincola quattro valori individuali su cinque: sono le sole voci di questo gruppo su cui la fedeltà sia in parte verificabile. Il contenuto è la parte notevole, perché fra le prime voci compaiono un Mew cromatico, un Celebi con Parassiseme, Confusione, Rintoccasana e Ripresa, i tre leggendari di Johto cromatici e i tre uccelli di Kanto cromatici, oltre a esemplari comuni con assortimenti di mosse costruiti a mano.
+Centotrentasei voci, cioè l'ottantasei per cento di tutti gli eventi di seconda generazione, tutte dallo stesso luogo: il primo e finora unico negozio Pokemon degli Stati Uniti, aperto il 16 novembre 2001. La fonte tecnica ammette quattro nomi di allenatore, da PCNYa a PCNYd, e il progetto aveva congetturato che fossero quattro postazioni oppure quattro periodi. La fonte enciclopedica lo conferma nel primo senso: al secondo piano c'era una postazione chiamata Gotta catch 'em all Station composta da quattro macchine distributrici, e i quattro nomi sono le quattro macchine. È il genere di dettaglio che trasforma un campo di un byte in un luogo fisico. Le regole della consegna erano una a settimana per visitatore e non più di una al giorno se la macchina veniva riavviata, il che spiega la quantità delle voci: centotrentasei esemplari distinti erano una ragione per tornare al negozio ogni settimana. Due fatti della fonte enciclopedica cambiano come si leggono i nostri dati. Il primo è che tutti gli esemplari tranne gli evoluti, i leggendari e i mitici venivano consegnati come uova. Il secondo è che ciascuna distribuzione aveva una probabilità del quindici per cento di essere cromatica, salvo dichiarazione contraria: ne segue che le voci che la tabella tecnica non marca come cromatiche potevano esserlo, quindi la nostra scelta di produrle non cromatiche è una fra due legittime e non la sola. Le sedici che la tabella marca come cromatiche sono invece quelle in cui la cromaticità era garantita, e su quelle la cromaticità vincola quattro valori individuali su cinque: sono le sole voci di questo gruppo su cui la fedeltà sia in parte verificabile. Il contenuto è la parte notevole, perché fra le prime voci compaiono un Mew cromatico, un Celebi con Parassiseme, Confusione, Rintoccasana e Ripresa, i tre leggendari di Johto cromatici e i tre uccelli di Kanto cromatici, oltre a esemplari comuni con assortimenti di mosse costruiti a mano. Un chiarimento che il 2026-09-03 si è rivelato necessario, perché la descrizione precedente dava un'impressione sbagliata: questo gruppo non è fatto di esemplari con esemplari cromatici notevoli e poche uova, è fatto quasi soltanto di uova. Centodiciannove delle centotrentasei voci sono uova, e diciassette sono esemplari; sommate alle quindici del gruppo giapponese fanno centotrentaquattro uova su centocinquantasette voci di seconda generazione, con ottantanove specie distinte. Ne segue che le uova baby con mossa insolita, che l'utente cercava nel lotto, ci sono e sono la maggioranza: Cyndaquil, Tyrogue, Elekid e Magby stanno qui e non nel gruppo giapponese, ed erano nel lotto dal principio sotto i loro indici.
 
 Pagina che descrive l'evento: <https://bulbapedia.bulbagarden.net/wiki/List_of_PCNY_event_Pok%C3%A9mon_distributions_in_Generation_II>.
 
