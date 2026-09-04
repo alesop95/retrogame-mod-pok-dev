@@ -202,6 +202,7 @@ def voci_da_evento(pkhex, ace):
     for indice, v in enumerate(voci):
         producibile = (v.get("metodo") in generatore.METODI_PRODUCIBILI
                        and "ot_irrisolto" not in v)
+        mn = [MN_TERZA[x] for x in v.get("mosse", []) if x in MN_TERZA]
         fuori.append({
             "codice": "EVT-3-%04d" % indice,
             "generazione": 3,
@@ -212,6 +213,7 @@ def voci_da_evento(pkhex, ace):
             "metodo": v.get("metodo"),
             "sotto_scadenza": True,
             "resa": "producibile e verificata" if producibile else "non producibile",
+            "mn": mn,
         })
 
     # ------------------------------------------------------------------ le altre generazioni
@@ -316,6 +318,81 @@ def voci_da_evento(pkhex, ace):
     return fuori
 
 
+# Le macchine nascoste di terza generazione, per numero di mossa. Contano perche' il primo anello
+# della catena, cioe' il Parco Amici, rifiuta un esemplare che ne conosca una: la voce va quindi
+# prodotta sapendo che prima di trasferirla una mossa andra' tolta, e su alcune voci quella mossa
+# e' l'identita' stessa dell'esemplare.
+MN_TERZA = {15: "Taglio", 19: "Volo", 57: "Surf", 70: "Forza", 127: "Cascata",
+            148: "Flash", 249: "Spaccaroccia", 291: "Sub"}
+
+
+def scrivi_coda(percorso, eventi, nomi):
+    """La coda del primo tempo: una voce per ciascuna specie distinta, nell'ordine di produzione.
+
+    E' il documento operativo che manca fra la lista di spunta e il lavoro: la lista dice che cosa
+    esiste, questa dice che cosa fare adesso e in che ordine. Contiene le sole voci marcate come
+    prime della propria specie e sotto scadenza, che sono la definizione stessa del primo tempo
+    deciso il 2026-09-03.
+
+    Ogni riga porta lo stato di produzione, perche' e' l'informazione che decide se una voce sia
+    lavoro nostro o attesa: una voce producibile e verificata e' pronta, una letta e non ancora
+    producibile aspetta un generatore che non esiste, e le due non vanno confuse in un unico
+    elenco di cose da fare.
+    """
+    coda = [x for x in eventi if x.get("primo_della_specie") and x.get("sotto_scadenza")]
+    r = []
+    r.append("# Coda di produzione, primo tempo")
+    r.append("")
+    r.append("> Documento generato da `tools/checklist-pokedex.py --coda`. Non si modifica a "
+             "mano: si rigenera. La spunta di ciò che è stato prodotto e trasferito va tenuta "
+             "altrove, perché questo file si riscrive.")
+    r.append("")
+    r.append("Il primo tempo è la decisione di ambito del 2026-09-03: prima una voce per ciascuna "
+             "specie distinta fra quelle da distribuzione sotto scadenza, poi i gemelli. Questo "
+             "documento è quel primo tempo, cioè %d voci, ed è l'ordine in cui produrle e "
+             "trasferirle." % len(coda))
+    r.append("")
+    per_resa = {}
+    for x in coda:
+        per_resa[x["resa"]] = per_resa.get(x["resa"], 0) + 1
+    r.append("Lo stato di partenza è questo, e separa il lavoro fatto da quello che aspetta uno "
+             "strumento che non esiste ancora: "
+             + ", ".join("%s %d" % (k, n) for k, n in sorted(per_resa.items(), key=lambda y: -y[1]))
+             + ".")
+    r.append("")
+    r.append("## Il vincolo delle macchine nascoste")
+    r.append("")
+    con_mn = [x for x in coda if x.get("mn")]
+    r.append("Il primo anello della catena rifiuta un esemplare che conosca una macchina "
+             "nascosta, quindi prima di trasferirlo la mossa va tolta con l'apposito personaggio "
+             "del gioco. Nel primo tempo le voci interessate sono %d, e su di esse il vincolo "
+             "non è una scomodità ma un conflitto: la mossa che va tolta è la ragione per cui "
+             "quell'esemplare esiste, e toglierla produce un esemplare che non è più quello "
+             "dell'evento. La decisione su che cosa farne non è di questo documento."
+             % len(con_mn))
+    r.append("")
+    if con_mn:
+        r.append("| Codice | Specie | Mossa da togliere |")
+        r.append("|---|---|---|")
+        for x in con_mn:
+            r.append("| `%s` | %s | %s |"
+                     % (x["codice"], nomi.get(x["nazionale"], "?"), ", ".join(x["mn"])))
+        r.append("")
+    r.append("## La coda")
+    r.append("")
+    r.append("| Ordine | Codice | Dex | Specie | Gen | Classe | Stato di produzione | MN |")
+    r.append("|---|---|---|---|---|---|---|---|")
+    for i, x in enumerate(coda, 1):
+        r.append("| %d | `%s` | %s | %s | %d | %s | %s | %s |"
+                 % (i, x["codice"], x["nazionale"] or "-",
+                    nomi.get(x["nazionale"], "?"), x["generazione"],
+                    x.get("classe", "?"), x["resa"],
+                    ", ".join(x["mn"]) if x.get("mn") else "-"))
+    r.append("")
+    io.open(percorso, "w", encoding="utf-8", newline="").write("\n".join(r) + "\n")
+    return len(coda), len(con_mn)
+
+
 def codici_duplicati(eventi):
     """I codici che due o piu' voci si contendono, che devono essere nessuno.
 
@@ -374,6 +451,7 @@ def main(argv=None):
     ap.add_argument("--ace", required=True, help="clone di ace-builder")
     ap.add_argument("--salvataggi", help="esito JSON di tools/verifica-salvataggi.py")
     ap.add_argument("--markdown", help="scrive la lista come documento tracciato")
+    ap.add_argument("--coda", help="scrive la coda di produzione del primo tempo")
     a = ap.parse_args(argv)
 
     os.environ["PKHEX_CLONE"] = a.pkhex
@@ -511,6 +589,11 @@ def main(argv=None):
           "del secondo tempo" % len(primi))
     print("  sono %d. La coda scritta porta i primi in testa." % (len(scad_ev) - len(primi)))
 
+    if a.coda:
+        quante, con_mn = scrivi_coda(a.coda, eventi, nomi)
+        print("")
+        print("  scritta la coda del primo tempo in %s: %d voci, di cui %d con una macchina "
+              "nascosta da togliere prima del trasferimento" % (a.coda, quante, con_mn))
     if a.markdown:
         scrivi(a.markdown, righe_specie, righe_forma, per_fonte, eventi)
         print("")
