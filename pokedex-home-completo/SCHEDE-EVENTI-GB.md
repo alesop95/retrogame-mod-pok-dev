@@ -26,7 +26,8 @@ Divergenza fra le fonti: La fonte secondaria attribuisce l'identificativo millen
 |---|---|---|
 | numero del Dex | 1 | tabella degli eventi |
 | identificativo interno | 153 | corrispondenza fra numerazione del Dex e numerazione interna di prima generazione |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Ruggito (45) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -43,7 +44,8 @@ Divergenza fra le fonti: La fonte secondaria attribuisce l'identificativo millen
 |---|---|---|
 | numero del Dex | 4 | tabella degli eventi |
 | identificativo interno | 176 | corrispondenza fra numerazione del Dex e numerazione interna di prima generazione |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Graffio (10), Ruggito (45) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -60,7 +62,8 @@ Divergenza fra le fonti: La fonte secondaria attribuisce l'identificativo millen
 |---|---|---|
 | numero del Dex | 7 | tabella degli eventi |
 | identificativo interno | 177 | corrispondenza fra numerazione del Dex e numerazione interna di prima generazione |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Colpocoda (39) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -77,7 +80,8 @@ Divergenza fra le fonti: La fonte secondaria attribuisce l'identificativo millen
 |---|---|---|
 | numero del Dex | 54 | tabella degli eventi |
 | identificativo interno | 47 | corrispondenza fra numerazione del Dex e numerazione interna di prima generazione |
-| livello | 15 | tabella degli eventi |
+| livello di incontro | 15 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 15 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Graffio (10), Amnesia (133) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 20 | tabella dei punti potenza di base |
 | esperienza | 3375 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -94,7 +98,8 @@ Divergenza fra le fonti: La fonte secondaria attribuisce l'identificativo millen
 |---|---|---|
 | numero del Dex | 106 | tabella degli eventi |
 | identificativo interno | 43 | corrispondenza fra numerazione del Dex e numerazione interna di prima generazione |
-| livello | 20 | tabella degli eventi |
+| livello di incontro | 20 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 20 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Doppiocalcio (24), Meditazione (96) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 40 | tabella dei punti potenza di base |
 | esperienza | 8000 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -111,7 +116,8 @@ Divergenza fra le fonti: La fonte secondaria attribuisce l'identificativo millen
 |---|---|---|
 | numero del Dex | 107 | tabella degli eventi |
 | identificativo interno | 44 | corrispondenza fra numerazione del Dex e numerazione interna di prima generazione |
-| livello | 20 | tabella degli eventi |
+| livello di incontro | 20 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 20 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Cometapugno (4), Agilità (97) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 15, 30 | tabella dei punti potenza di base |
 | esperienza | 8000 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -128,7 +134,8 @@ Divergenza fra le fonti: La fonte secondaria attribuisce l'identificativo millen
 |---|---|---|
 | numero del Dex | 133 | tabella degli eventi |
 | identificativo interno | 102 | corrispondenza fra numerazione del Dex e numerazione interna di prima generazione |
-| livello | 25 | tabella degli eventi |
+| livello di incontro | 25 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 25 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Colpocoda (39) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30 | tabella dei punti potenza di base |
 | esperienza | 15625 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -145,7 +152,8 @@ Divergenza fra le fonti: La fonte secondaria attribuisce l'identificativo millen
 |---|---|---|
 | numero del Dex | 138 | tabella degli eventi |
 | identificativo interno | 98 | corrispondenza fra numerazione del Dex e numerazione interna di prima generazione |
-| livello | 20 | tabella degli eventi |
+| livello di incontro | 20 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 20 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Pistolacqua (55), Ritirata (110) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 25, 40 | tabella dei punti potenza di base |
 | esperienza | 8000 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -162,7 +170,8 @@ Divergenza fra le fonti: La fonte secondaria attribuisce l'identificativo millen
 |---|---|---|
 | numero del Dex | 140 | tabella degli eventi |
 | identificativo interno | 90 | corrispondenza fra numerazione del Dex e numerazione interna di prima generazione |
-| livello | 20 | tabella degli eventi |
+| livello di incontro | 20 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 20 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Graffio (10), Rafforzatore (106) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30 | tabella dei punti potenza di base |
 | esperienza | 8000 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -193,7 +202,8 @@ Divergenza fra le fonti: La fonte enciclopedica riporta una distribuzione spagno
 |---|---|---|
 | numero del Dex | 151 | tabella degli eventi |
 | identificativo interno | 21 | corrispondenza fra numerazione del Dex e numerazione interna di prima generazione |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Botta (1) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -222,7 +232,8 @@ Fonti: [PKHeX, template degli eventi di prima generazione](https://github.com/kw
 |---|---|---|
 | numero del Dex | 151 | tabella degli eventi |
 | identificativo interno | 21 | corrispondenza fra numerazione del Dex e numerazione interna di prima generazione |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Botta (1) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -254,7 +265,8 @@ Attribuzione di questa voce: prima serie, 15 dicembre 2001 - 14 gennaio 2002, e 
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 152 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Ruggito (45), Petalodanza (80) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 20 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -272,7 +284,8 @@ Attribuzione di questa voce: prima serie, 15 dicembre 2001 - 14 gennaio 2002, e 
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 172 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Tuonoshock (84), Fascino (204), Canto (47) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 20, 15 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -290,7 +303,8 @@ Attribuzione di questa voce: prima serie, 15 dicembre 2001 - 14 gennaio 2002. Il
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 173 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Botta (1), Fascino (204), Ripeti (227), Comete (129) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 20, 5, 20 | tabella dei punti potenza di base |
 | esperienza | 100 | formula del gruppo di crescita 4, importata dal generatore di terza generazione |
@@ -308,7 +322,8 @@ Attribuzione di questa voce: prima serie, 15 dicembre 2001 - 14 gennaio 2002. Il
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 194 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Pistolacqua (55), Colpocoda (39), Panciamburo (187) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 25, 30, 10 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -326,7 +341,8 @@ Attribuzione di questa voce: prima serie, 15 dicembre 2001 - 14 gennaio 2002. Il
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 231 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Ruggito (45), Ripeti (227) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 5 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -344,7 +360,8 @@ Attribuzione di questa voce: prima serie, 15 dicembre 2001 - 14 gennaio 2002. Il
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 238 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Botta (1), Leccata (122), Metronomo (118) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 10 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -362,7 +379,8 @@ Attribuzione di questa voce: seconda serie, 16 marzo - 7 aprile 2002. Il marcato
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 54 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Graffio (10), Colpocoda (39), Petalodanza (80) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -380,7 +398,8 @@ Attribuzione di questa voce: seconda serie, 16 marzo - 7 aprile 2002. Il marcato
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 172 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Tuonoshock (84), Fascino (204), Petalodanza (80) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 20, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -398,7 +417,8 @@ Attribuzione di questa voce: seconda serie, 16 marzo - 7 aprile 2002. Il marcato
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 173 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Botta (1), Fascino (204), Ripeti (227), Petalodanza (80) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 20, 5, 20 | tabella dei punti potenza di base |
 | esperienza | 100 | formula del gruppo di crescita 4, importata dal generatore di terza generazione |
@@ -416,7 +436,8 @@ Attribuzione di questa voce: seconda serie, 16 marzo - 7 aprile 2002. Il marcato
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 174 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Canto (47), Fascino (204), Ricciolscudo (111), Petalodanza (80) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 15, 20, 40, 20 | tabella dei punti potenza di base |
 | esperienza | 100 | formula del gruppo di crescita 4, importata dal generatore di terza generazione |
@@ -434,7 +455,8 @@ Attribuzione di questa voce: seconda serie, 16 marzo - 7 aprile 2002. Il marcato
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 238 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Botta (1), Leccata (122), Petalodanza (80) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -452,7 +474,8 @@ Attribuzione di questa voce: terza serie, 27 aprile - 12 maggio 2002. Il marcato
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 1 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Ruggito (45), Forzantica (246) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 5 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -470,7 +493,8 @@ Attribuzione di questa voce: terza serie, 27 aprile - 12 maggio 2002. Il marcato
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 4 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Graffio (10), Ruggito (45), Sgranocchio (242) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 15 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -488,7 +512,8 @@ Attribuzione di questa voce: terza serie, 27 aprile - 12 maggio 2002. Il marcato
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 158 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Graffio (10), Fulmisguardo (43), Sottomissione (66) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 25 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -506,7 +531,8 @@ Attribuzione di questa voce: terza serie, 27 aprile - 12 maggio 2002. Il marcato
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 163 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Ruggito (45), Ombra Notturna (101) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 15 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -536,7 +562,8 @@ Divergenza fra le fonti: La fonte enciclopedica attribuisce al Gligar quattro mo
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 83 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Staffetta (226), Danzaspada (14), Agilità (97), Lacerazione (163) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 40, 30, 30, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -553,7 +580,8 @@ Divergenza fra le fonti: La fonte enciclopedica attribuisce al Gligar quattro mo
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 207 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Terremoto (89), Contrattacco (68), Attacco d’Ala (17) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 10, 20, 35 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -582,7 +610,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 83 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Staffetta (226), Danzaspada (14), Agilità (97), Lacerazione (163) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 40, 30, 30, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -599,7 +628,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 207 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Terremoto (89), Contrattacco (68), Attacco d’Ala (17) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 10, 20, 35 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -628,7 +658,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 83 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Staffetta (226), Danzaspada (14), Agilità (97), Lacerazione (163) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 40, 30, 30, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -645,7 +676,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 207 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Terremoto (89), Contrattacco (68), Attacco d’Ala (17) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 10, 20, 35 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -674,7 +706,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 151 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Botta (1) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -691,7 +724,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 251 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Parassiseme (73), Confusione (93), Rintoccasana (215), Ripresa (105) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 10, 25, 5, 20 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -708,15 +742,16 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 243 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 40 | tabella degli eventi, campo a sette byte dall'inizio del record: e' il livello a cui l'esemplare si trova, mentre quello di incontro resta nei dati di cattura. I due divergono sulle quindici voci del gruppo notevole, e usare il solo livello di incontro le faceva respingere tutte |
 | mosse | Fulmisguardo (43), Tuonoshock (84), Boato (46), Attacco Rapido (98) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 30, 20, 30 | tabella dei punti potenza di base |
-| esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
+| esperienza | 80000 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
 | valori individuali | attacco 15, difesa 10, velocità 10, speciale 10, punti salute 8 | vincolati dalla cromaticità dichiarata dalla fonte |
 | cromatico | sì | tabella degli eventi |
 | uovo | no | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 127 | tabella degli eventi |
-| statistiche | max_hp 24, atk 15, def 13, spd 17, satk 17, sdef 16 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| statistiche | max_hp 128, atk 85, def 73, spd 105, satk 105, sdef 93 | formula delle prime due generazioni, con esperienza di statistica nulla |
 | allenatore | PCNYa, identificativo 1000 | la fonte accetta quattro nomi per il Pokemon Center di New York, da PCNYa a PCNYd, e non fissa alcun identificativo: si sceglie il primo e l'identificativo è una scelta nostra dichiarata |
 | restrizione di lingua | internazionale | tabella degli eventi |
 
@@ -725,15 +760,16 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 244 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 40 | tabella degli eventi, campo a sette byte dall'inizio del record: e' il livello a cui l'esemplare si trova, mentre quello di incontro resta nei dati di cattura. I due divergono sulle quindici voci del gruppo notevole, e usare il solo livello di incontro le faceva respingere tutte |
 | mosse | Fulmisguardo (43), Braciere (52), Boato (46), Turbofuoco (83) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 25, 20, 15 | tabella dei punti potenza di base |
-| esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
+| esperienza | 80000 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
 | valori individuali | attacco 15, difesa 10, velocità 10, speciale 10, punti salute 8 | vincolati dalla cromaticità dichiarata dalla fonte |
 | cromatico | sì | tabella degli eventi |
 | uovo | no | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 127 | tabella degli eventi |
-| statistiche | max_hp 27, atk 18, def 14, spd 16, satk 15, sdef 13 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| statistiche | max_hp 148, atk 109, def 81, spd 93, satk 85, sdef 73 | formula delle prime due generazioni, con esperienza di statistica nulla |
 | allenatore | PCNYa, identificativo 1000 | la fonte accetta quattro nomi per il Pokemon Center di New York, da PCNYa a PCNYd, e non fissa alcun identificativo: si sceglie il primo e l'identificativo è una scelta nostra dichiarata |
 | restrizione di lingua | internazionale | tabella degli eventi |
 
@@ -742,15 +778,16 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 245 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 40 | tabella degli eventi, campo a sette byte dall'inizio del record: e' il livello a cui l'esemplare si trova, mentre quello di incontro resta nei dati di cattura. I due divergono sulle quindici voci del gruppo notevole, e usare il solo livello di incontro le faceva respingere tutte |
 | mosse | Fulmisguardo (43), Pistolacqua (55), Boato (46), Raffica (16) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 25, 20, 35 | tabella dei punti potenza di base |
-| esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
+| esperienza | 80000 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
 | valori individuali | attacco 15, difesa 10, velocità 10, speciale 10, punti salute 8 | vincolati dalla cromaticità dichiarata dalla fonte |
 | cromatico | sì | tabella degli eventi |
 | uovo | no | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 127 | tabella degli eventi |
-| statistiche | max_hp 25, atk 14, def 17, spd 14, satk 15, sdef 17 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| statistiche | max_hp 136, atk 77, def 105, spd 81, satk 85, sdef 105 | formula delle prime due generazioni, con esperienza di statistica nulla |
 | allenatore | PCNYa, identificativo 1000 | la fonte accetta quattro nomi per il Pokemon Center di New York, da PCNYa a PCNYd, e non fissa alcun identificativo: si sceglie il primo e l'identificativo è una scelta nostra dichiarata |
 | restrizione di lingua | internazionale | tabella degli eventi |
 
@@ -759,15 +796,16 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 144 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 50 | tabella degli eventi, campo a sette byte dall'inizio del record: e' il livello a cui l'esemplare si trova, mentre quello di incontro resta nei dati di cattura. I due divergono sulle quindici voci del gruppo notevole, e usare il solo livello di incontro le faceva respingere tutte |
 | mosse | Nebbia (54), Agilità (97), Leggimente (170), Geloraggio (58) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 30, 5, 10 | tabella dei punti potenza di base |
-| esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
+| esperienza | 156250 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
 | valori individuali | attacco 15, difesa 10, velocità 10, speciale 10, punti salute 8 | vincolati dalla cromaticità dichiarata dalla fonte |
 | cromatico | sì | tabella degli eventi |
 | uovo | no | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 127 | tabella degli eventi |
-| statistiche | max_hp 24, atk 15, def 16, spd 14, satk 15, sdef 18 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| statistiche | max_hp 158, atk 105, def 115, spd 100, satk 110, sdef 140 | formula delle prime due generazioni, con esperienza di statistica nulla |
 | allenatore | PCNYa, identificativo 1000 | la fonte accetta quattro nomi per il Pokemon Center di New York, da PCNYa a PCNYd, e non fissa alcun identificativo: si sceglie il primo e l'identificativo è una scelta nostra dichiarata |
 | restrizione di lingua | internazionale | tabella degli eventi |
 
@@ -776,15 +814,16 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 145 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 50 | tabella degli eventi, campo a sette byte dall'inizio del record: e' il livello a cui l'esemplare si trova, mentre quello di incontro resta nei dati di cattura. I due divergono sulle quindici voci del gruppo notevole, e usare il solo livello di incontro le faceva respingere tutte |
 | mosse | Tuononda (86), Agilità (97), Individua (197), Perforbecco (65) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 20, 30, 5, 20 | tabella dei punti potenza di base |
-| esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
+| esperienza | 156250 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
 | valori individuali | attacco 15, difesa 10, velocità 10, speciale 10, punti salute 8 | vincolati dalla cromaticità dichiarata dalla fonte |
 | cromatico | sì | tabella degli eventi |
 | uovo | no | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 127 | tabella degli eventi |
-| statistiche | max_hp 24, atk 15, def 14, spd 16, satk 18, sdef 15 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| statistiche | max_hp 158, atk 110, def 100, spd 115, satk 140, sdef 105 | formula delle prime due generazioni, con esperienza di statistica nulla |
 | allenatore | PCNYa, identificativo 1000 | la fonte accetta quattro nomi per il Pokemon Center di New York, da PCNYa a PCNYd, e non fissa alcun identificativo: si sceglie il primo e l'identificativo è una scelta nostra dichiarata |
 | restrizione di lingua | internazionale | tabella degli eventi |
 
@@ -793,15 +832,16 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 146 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 50 | tabella degli eventi, campo a sette byte dall'inizio del record: e' il livello a cui l'esemplare si trova, mentre quello di incontro resta nei dati di cattura. I due divergono sulle quindici voci del gruppo notevole, e usare il solo livello di incontro le faceva respingere tutte |
 | mosse | Turbofuoco (83), Agilità (97), Resistenza (203), Lanciafiamme (53) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 15, 30, 10, 15 | tabella dei punti potenza di base |
-| esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
+| esperienza | 156250 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
 | valori individuali | attacco 15, difesa 10, velocità 10, speciale 10, punti salute 8 | vincolati dalla cromaticità dichiarata dalla fonte |
 | cromatico | sì | tabella degli eventi |
 | uovo | no | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 127 | tabella degli eventi |
-| statistiche | max_hp 24, atk 16, def 15, spd 15, satk 18, sdef 14 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| statistiche | max_hp 158, atk 120, def 105, spd 105, satk 140, sdef 100 | formula delle prime due generazioni, con esperienza di statistica nulla |
 | allenatore | PCNYa, identificativo 1000 | la fonte accetta quattro nomi per il Pokemon Center di New York, da PCNYa a PCNYd, e non fissa alcun identificativo: si sceglie il primo e l'identificativo è una scelta nostra dichiarata |
 | restrizione di lingua | internazionale | tabella degli eventi |
 
@@ -810,15 +850,16 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 3 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 40 | tabella degli eventi, campo a sette byte dall'inizio del record: e' il livello a cui l'esemplare si trova, mentre quello di incontro resta nei dati di cattura. I due divergono sulle quindici voci del gruppo notevole, e usare il solo livello di incontro le faceva respingere tutte |
 | mosse | Velenpolvere (77), Sonnifero (79), Foglielama (75), Profumino (230) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 15, 25, 20 | tabella dei punti potenza di base |
-| esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
+| esperienza | 56660 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
 | valori individuali | attacco 15, difesa 10, velocità 10, speciale 10, punti salute 8 | vincolati dalla cromaticità dichiarata dalla fonte |
 | cromatico | sì | tabella degli eventi |
 | uovo | no | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 127 | tabella degli eventi |
-| statistiche | max_hp 23, atk 14, def 14, spd 14, satk 16, sdef 16 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| statistiche | max_hp 120, atk 82, def 79, spd 77, satk 93, sdef 93 | formula delle prime due generazioni, con esperienza di statistica nulla |
 | allenatore | PCNYa, identificativo 1000 | la fonte accetta quattro nomi per il Pokemon Center di New York, da PCNYa a PCNYd, e non fissa alcun identificativo: si sceglie il primo e l'identificativo è una scelta nostra dichiarata |
 | restrizione di lingua | internazionale | tabella degli eventi |
 
@@ -827,15 +868,16 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 6 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 40 | tabella degli eventi, campo a sette byte dall'inizio del record: e' il livello a cui l'esemplare si trova, mentre quello di incontro resta nei dati di cattura. I due divergono sulle quindici voci del gruppo notevole, e usare il solo livello di incontro le faceva respingere tutte |
 | mosse | Ira (99), Visotruce (184), Lanciafiamme (53), Attacco d’Ala (17) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 20, 10, 15, 35 | tabella dei punti potenza di base |
-| esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
+| esperienza | 56660 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
 | valori individuali | attacco 15, difesa 10, velocità 10, speciale 10, punti salute 8 | vincolati dalla cromaticità dichiarata dalla fonte |
 | cromatico | sì | tabella degli eventi |
 | uovo | no | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 127 | tabella degli eventi |
-| statistiche | max_hp 23, atk 14, def 13, spd 16, satk 16, sdef 14 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| statistiche | max_hp 118, atk 84, def 75, spd 93, satk 100, sdef 81 | formula delle prime due generazioni, con esperienza di statistica nulla |
 | allenatore | PCNYa, identificativo 1000 | la fonte accetta quattro nomi per il Pokemon Center di New York, da PCNYa a PCNYd, e non fissa alcun identificativo: si sceglie il primo e l'identificativo è una scelta nostra dichiarata |
 | restrizione di lingua | internazionale | tabella degli eventi |
 
@@ -844,15 +886,16 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 9 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 40 | tabella degli eventi, campo a sette byte dall'inizio del record: e' il livello a cui l'esemplare si trova, mentre quello di incontro resta nei dati di cattura. I due divergono sulle quindici voci del gruppo notevole, e usare il solo livello di incontro le faceva respingere tutte |
 | mosse | Pistolacqua (55), Morso (44), Rapigiro (229), Protezione (182) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 25, 25, 40, 10 | tabella dei punti potenza di base |
-| esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
+| esperienza | 56660 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
 | valori individuali | attacco 15, difesa 10, velocità 10, speciale 10, punti salute 8 | vincolati dalla cromaticità dichiarata dalla fonte |
 | cromatico | sì | tabella degli eventi |
 | uovo | no | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 127 | tabella degli eventi |
-| statistiche | max_hp 23, atk 14, def 16, spd 13, satk 14, sdef 16 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| statistiche | max_hp 119, atk 83, def 93, spd 75, satk 81, sdef 97 | formula delle prime due generazioni, con esperienza di statistica nulla |
 | allenatore | PCNYa, identificativo 1000 | la fonte accetta quattro nomi per il Pokemon Center di New York, da PCNYa a PCNYd, e non fissa alcun identificativo: si sceglie il primo e l'identificativo è una scelta nostra dichiarata |
 | restrizione di lingua | internazionale | tabella degli eventi |
 
@@ -861,15 +904,16 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 150 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 70 | tabella degli eventi, campo a sette byte dall'inizio del record: e' il livello a cui l'esemplare si trova, mentre quello di incontro resta nei dati di cattura. I due divergono sulle quindici voci del gruppo notevole, e usare il solo livello di incontro le faceva respingere tutte |
 | mosse | Psicamisù (244), Divinazione (248), Nebbia (54), Psichico (94) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 10, 15, 30, 10 | tabella dei punti potenza di base |
-| esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
+| esperienza | 428750 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
 | valori individuali | attacco 15, difesa 10, velocità 10, speciale 10, punti salute 8 | vincolati dalla cromaticità dichiarata dalla fonte |
 | cromatico | sì | tabella degli eventi |
 | uovo | no | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 127 | tabella degli eventi |
-| statistiche | max_hp 26, atk 17, def 15, spd 19, satk 21, sdef 15 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| statistiche | max_hp 239, atk 180, def 145, spd 201, satk 234, sdef 145 | formula delle prime due generazioni, con esperienza di statistica nulla |
 | allenatore | PCNYa, identificativo 1000 | la fonte accetta quattro nomi per il Pokemon Center di New York, da PCNYa a PCNYd, e non fissa alcun identificativo: si sceglie il primo e l'identificativo è una scelta nostra dichiarata |
 | restrizione di lingua | internazionale | tabella degli eventi |
 
@@ -878,15 +922,16 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 250 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 40 | tabella degli eventi, campo a sette byte dall'inizio del record: e' il livello a cui l'esemplare si trova, mentre quello di incontro resta nei dati di cattura. I due divergono sulle quindici voci del gruppo notevole, e usare il solo livello di incontro le faceva respingere tutte |
 | mosse | Magifuoco (221), Salvaguardia (219), Raffica (16), Ripresa (105) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 5, 25, 35, 20 | tabella dei punti potenza di base |
-| esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
+| esperienza | 80000 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
 | valori individuali | attacco 15, difesa 10, velocità 10, speciale 10, punti salute 8 | vincolati dalla cromaticità dichiarata dalla fonte |
 | cromatico | sì | tabella degli eventi |
 | uovo | no | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 127 | tabella degli eventi |
-| statistiche | max_hp 26, atk 19, def 15, spd 15, satk 17, sdef 21 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| statistiche | max_hp 141, atk 121, def 85, spd 85, satk 101, sdef 136 | formula delle prime due generazioni, con esperienza di statistica nulla |
 | allenatore | PCNYa, identificativo 1000 | la fonte accetta quattro nomi per il Pokemon Center di New York, da PCNYa a PCNYd, e non fissa alcun identificativo: si sceglie il primo e l'identificativo è una scelta nostra dichiarata |
 | restrizione di lingua | internazionale | tabella degli eventi |
 
@@ -895,15 +940,16 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 249 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 40 | tabella degli eventi, campo a sette byte dall'inizio del record: e' il livello a cui l'esemplare si trova, mentre quello di incontro resta nei dati di cattura. I due divergono sulle quindici voci del gruppo notevole, e usare il solo livello di incontro le faceva respingere tutte |
 | mosse | Aerocolpo (177), Salvaguardia (219), Raffica (16), Ripresa (105) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 5, 25, 35, 20 | tabella dei punti potenza di base |
-| esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
+| esperienza | 80000 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
 | valori individuali | attacco 15, difesa 10, velocità 10, speciale 10, punti salute 8 | vincolati dalla cromaticità dichiarata dalla fonte |
 | cromatico | sì | tabella degli eventi |
 | uovo | no | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 127 | tabella degli eventi |
-| statistiche | max_hp 26, atk 15, def 19, spd 17, satk 15, sdef 21 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| statistiche | max_hp 141, atk 89, def 117, spd 101, satk 85, sdef 136 | formula delle prime due generazioni, con esperienza di statistica nulla |
 | allenatore | PCNYa, identificativo 1000 | la fonte accetta quattro nomi per il Pokemon Center di New York, da PCNYa a PCNYd, e non fissa alcun identificativo: si sceglie il primo e l'identificativo è una scelta nostra dichiarata |
 | restrizione di lingua | internazionale | tabella degli eventi |
 
@@ -912,15 +958,16 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 154 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 40 | tabella degli eventi, campo a sette byte dall'inizio del record: e' il livello a cui l'esemplare si trova, mentre quello di incontro resta nei dati di cattura. I due divergono sulle quindici voci del gruppo notevole, e usare il solo livello di incontro le faceva respingere tutte |
 | mosse | Riflesso (115), Velenpolvere (77), Sintesi (235), Corposcontro (34) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 20, 35, 5, 15 | tabella dei punti potenza di base |
-| esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
+| esperienza | 56660 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
 | valori individuali | attacco 15, difesa 10, velocità 10, speciale 10, punti salute 8 | vincolati dalla cromaticità dichiarata dalla fonte |
 | cromatico | sì | tabella degli eventi |
 | uovo | no | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 127 | tabella degli eventi |
-| statistiche | max_hp 23, atk 14, def 16, spd 14, satk 14, sdef 16 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| statistiche | max_hp 120, atk 82, def 93, spd 77, satk 79, sdef 93 | formula delle prime due generazioni, con esperienza di statistica nulla |
 | allenatore | PCNYa, identificativo 1000 | la fonte accetta quattro nomi per il Pokemon Center di New York, da PCNYa a PCNYd, e non fissa alcun identificativo: si sceglie il primo e l'identificativo è una scelta nostra dichiarata |
 | restrizione di lingua | internazionale | tabella degli eventi |
 
@@ -929,15 +976,16 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 157 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 40 | tabella degli eventi, campo a sette byte dall'inizio del record: e' il livello a cui l'esemplare si trova, mentre quello di incontro resta nei dati di cattura. I due divergono sulle quindici voci del gruppo notevole, e usare il solo livello di incontro le faceva respingere tutte |
 | mosse | Muro di Fumo (108), Braciere (52), Attacco Rapido (98), Ruotafuoco (172) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 20, 25, 30, 25 | tabella dei punti potenza di base |
-| esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
+| esperienza | 56660 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
 | valori individuali | attacco 15, difesa 10, velocità 10, speciale 10, punti salute 8 | vincolati dalla cromaticità dichiarata dalla fonte |
 | cromatico | sì | tabella degli eventi |
 | uovo | no | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 127 | tabella degli eventi |
-| statistiche | max_hp 23, atk 14, def 13, spd 16, satk 16, sdef 14 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| statistiche | max_hp 118, atk 84, def 75, spd 93, satk 100, sdef 81 | formula delle prime due generazioni, con esperienza di statistica nulla |
 | allenatore | PCNYa, identificativo 1000 | la fonte accetta quattro nomi per il Pokemon Center di New York, da PCNYa a PCNYd, e non fissa alcun identificativo: si sceglie il primo e l'identificativo è una scelta nostra dichiarata |
 | restrizione di lingua | internazionale | tabella degli eventi |
 
@@ -946,15 +994,16 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 160 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 40 | tabella degli eventi, campo a sette byte dall'inizio del record: e' il livello a cui l'esemplare si trova, mentre quello di incontro resta nei dati di cattura. I due divergono sulle quindici voci del gruppo notevole, e usare il solo livello di incontro le faceva respingere tutte |
 | mosse | Pistolacqua (55), Morso (44), Visotruce (184), Lacerazione (163) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 25, 25, 10, 20 | tabella dei punti potenza di base |
-| esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
+| esperienza | 56660 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
 | valori individuali | attacco 15, difesa 10, velocità 10, speciale 10, punti salute 8 | vincolati dalla cromaticità dichiarata dalla fonte |
 | cromatico | sì | tabella degli eventi |
 | uovo | no | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 127 | tabella degli eventi |
-| statistiche | max_hp 24, atk 17, def 16, spd 13, satk 13, sdef 14 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| statistiche | max_hp 124, atk 101, def 93, spd 75, satk 76, sdef 79 | formula delle prime due generazioni, con esperienza di statistica nulla |
 | allenatore | PCNYa, identificativo 1000 | la fonte accetta quattro nomi per il Pokemon Center di New York, da PCNYa a PCNYd, e non fissa alcun identificativo: si sceglie il primo e l'identificativo è una scelta nostra dichiarata |
 | restrizione di lingua | internazionale | tabella degli eventi |
 
@@ -963,7 +1012,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 225 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Regalino (217), Giornopaga (6) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 15, 20 | tabella dei punti potenza di base |
 | esperienza | 100 | formula del gruppo di crescita 4, importata dal generatore di terza generazione |
@@ -980,7 +1030,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 1 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Ruggito (45), Forzantica (246) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 5 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -997,7 +1048,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 4 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Graffio (10), Ruggito (45), Sgranocchio (242) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 15 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -1014,7 +1066,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 7 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Colpocoda (39), Elettrocannone (192) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 5 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -1031,7 +1084,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 152 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Ruggito (45), Petalodanza (80) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 20 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -1048,7 +1102,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 155 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Fulmisguardo (43), Sdoppiatore (38) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 15 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -1065,7 +1120,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 158 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Graffio (10), Fulmisguardo (43), Sottomissione (66) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 25 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -1082,7 +1138,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 29 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Ruggito (45), Azione (33), Demonbacio (142) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 40, 35, 10 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -1099,7 +1156,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 29 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Ruggito (45), Azione (33), Dolcebacio (186) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 40, 35, 10 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -1116,7 +1174,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 32 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Fulmisguardo (43), Azione (33), Demonbacio (142) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 35, 10 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -1133,7 +1192,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 32 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Fulmisguardo (43), Azione (33), Dolcebacio (186) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 35, 10 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -1150,7 +1210,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 69 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Frustata (22), Demonbacio (142) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 10, 10 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -1167,7 +1228,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 69 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Frustata (22), Dolcebacio (186) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 10, 10 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -1184,7 +1246,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 183 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Ricciolscudo (111), Idropompa (56) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 5 | tabella dei punti potenza di base |
 | esperienza | 100 | formula del gruppo di crescita 4, importata dal generatore di terza generazione |
@@ -1201,7 +1264,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 193 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Preveggenza (193), Alacciaio (211) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 25 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1218,7 +1282,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 206 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Ira (99), Ricciolscudo (111), Perforcorno (32) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 20, 40, 5 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1235,7 +1300,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 209 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Visotruce (184), Colpocoda (39), Demonbacio (142) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 10, 30, 10 | tabella dei punti potenza di base |
 | esperienza | 100 | formula del gruppo di crescita 4, importata dal generatore di terza generazione |
@@ -1252,7 +1318,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 211 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Velenospina (40), Sdoppiatore (38) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 35, 15 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1269,7 +1336,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 223 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Pistolacqua (55), Amnesia (133) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 25, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1286,7 +1354,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 172 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Tuonoshock (84), Fascino (204), Canto (47) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 20, 15 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1303,7 +1372,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 173 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Botta (1), Fascino (204), Ripeti (227), Comete (129) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 20, 5, 20 | tabella dei punti potenza di base |
 | esperienza | 100 | formula del gruppo di crescita 4, importata dal generatore di terza generazione |
@@ -1320,7 +1390,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 174 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Canto (47), Fascino (204), Ricciolscudo (111), Mimica (102) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 15, 20, 40, 10 | tabella dei punti potenza di base |
 | esperienza | 100 | formula del gruppo di crescita 4, importata dal generatore di terza generazione |
@@ -1337,7 +1408,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 238 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Botta (1), Leccata (122), Metronomo (118) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 10 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1354,7 +1426,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 239 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Attacco Rapido (98), Fulmisguardo (43), Inseguimento (228) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 30, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1371,7 +1444,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 240 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Braciere (52), Finta (185) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 25, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1388,7 +1462,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 54 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Graffio (10), Colpocoda (39), Petalodanza (80) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1405,7 +1480,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 152 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Ruggito (45), Petalodanza (80) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 20 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -1422,7 +1498,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 172 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Tuonoshock (84), Fascino (204), Petalodanza (80) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 20, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1439,7 +1516,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 173 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Botta (1), Fascino (204), Ripeti (227), Petalodanza (80) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 20, 5, 20 | tabella dei punti potenza di base |
 | esperienza | 100 | formula del gruppo di crescita 4, importata dal generatore di terza generazione |
@@ -1456,7 +1534,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 174 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Canto (47), Fascino (204), Ricciolscudo (111), Petalodanza (80) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 15, 20, 40, 20 | tabella dei punti potenza di base |
 | esperienza | 100 | formula del gruppo di crescita 4, importata dal generatore di terza generazione |
@@ -1473,7 +1552,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 238 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Botta (1), Leccata (122), Petalodanza (80) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1490,7 +1570,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 194 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Pistolacqua (55), Colpocoda (39), Panciamburo (187) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 25, 30, 10 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1507,7 +1588,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 60 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Bolla (145), Crescita (74) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 40 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -1524,7 +1606,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 116 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Bolla (145), Nube (114) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 30 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1541,7 +1624,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 118 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Beccata (64), Colpocoda (39), Danzaspada (14) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 30 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1558,7 +1642,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 129 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Splash (150), Contropiede (179) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 40, 15 | tabella dei punti potenza di base |
 | esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
@@ -1575,7 +1660,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 183 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Ricciolscudo (111), Stordipugno (146) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 10 | tabella dei punti potenza di base |
 | esperienza | 100 | formula del gruppo di crescita 4, importata dal generatore di terza generazione |
@@ -1592,7 +1678,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 54 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Graffio (10), Colpocoda (39), Tripletta (161) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 10 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1609,7 +1696,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 72 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Velenospina (40), Stordiraggio (109) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 10 | tabella dei punti potenza di base |
 | esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
@@ -1626,7 +1714,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 131 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Pistolacqua (55), Ruggito (45), Morso (44) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 25, 40, 25 | tabella dei punti potenza di base |
 | esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
@@ -1643,7 +1732,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 170 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Bolla (145), Tuononda (86), Supersuono (48), Schermoluce (113) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 20, 20, 30 | tabella dei punti potenza di base |
 | esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
@@ -1660,7 +1750,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 223 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Pistolacqua (55), Nebbia (54) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 25, 30 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1677,7 +1768,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 226 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Bolla (145), Raffica (16) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 35 | tabella dei punti potenza di base |
 | esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
@@ -1694,7 +1786,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 29 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Ruggito (45), Azione (33), Lucelunare (236) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 40, 35, 5 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -1711,7 +1804,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 32 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Fulmisguardo (43), Azione (33), Mattindoro (234) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 35, 5 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -1728,7 +1822,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 113 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Botta (1), Profumino (230) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 20 | tabella dei punti potenza di base |
 | esperienza | 100 | formula del gruppo di crescita 4, importata dal generatore di terza generazione |
@@ -1745,7 +1840,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 115 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Cometapugno (4), Finta (185) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 15, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1762,7 +1858,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 128 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Colpocoda (39), Attacco Rapido (98) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 30 | tabella dei punti potenza di base |
 | esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
@@ -1779,7 +1876,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 147 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Avvolgibotta (35), Fulmisguardo (43), Idropompa (56) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 20, 30, 5 | tabella dei punti potenza di base |
 | esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
@@ -1796,7 +1894,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 21 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Beccata (64), Ruggito (45), Sonicboom (49) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1813,7 +1912,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 83 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Beccata (64), Tagliofuria (210) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1830,7 +1930,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 84 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Beccata (64), Ruggito (45), Colpo Basso (67) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1847,7 +1948,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 177 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Beccata (64), Fulmisguardo (43), Salvaguardia (219) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 25 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1864,7 +1966,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 198 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Beccata (64), Picchiaduro (251) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 10 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -1881,7 +1984,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 227 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Fulmisguardo (43), Beccata (64), Tagliofuria (210) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 35, 20 | tabella dei punti potenza di base |
 | esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
@@ -1898,7 +2002,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 172 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Tuonoshock (84), Fascino (204), Stordipugno (146) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 20, 10 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1915,7 +2020,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 81 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Agilità (97) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1932,7 +2038,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 239 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Attacco Rapido (98), Fulmisguardo (43), Stordipugno (146) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 30, 10 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1949,7 +2056,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 100 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Agilità (97) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -1966,7 +2074,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 173 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Botta (1), Fascino (204), Ripeti (227), Visotruce (184) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 20, 5, 10 | tabella dei punti potenza di base |
 | esperienza | 100 | formula del gruppo di crescita 4, importata dal generatore di terza generazione |
@@ -1983,7 +2092,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 174 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Canto (47), Fascino (204), Ricciolscudo (111), Visotruce (184) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 15, 20, 40, 10 | tabella dei punti potenza di base |
 | esperienza | 100 | formula del gruppo di crescita 4, importata dal generatore di terza generazione |
@@ -2000,7 +2110,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 183 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Ricciolscudo (111), Visotruce (184) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 10 | tabella dei punti potenza di base |
 | esperienza | 100 | formula del gruppo di crescita 4, importata dal generatore di terza generazione |
@@ -2017,7 +2128,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 172 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Tuonoshock (84), Fascino (204), Visotruce (184) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 20, 10 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2034,7 +2146,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 194 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Pistolacqua (55), Colpocoda (39), Visotruce (184) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 25, 30, 10 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2051,7 +2164,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 114 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Limitazione (132), Sonnifero (79), Sintesi (235) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 15, 5 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2068,7 +2182,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 77 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Ruggito (45), Colpo Basso (67) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2085,7 +2200,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 200 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Ruggito (45), Psiconda (149), Ipnosi (95) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 40, 15, 20 | tabella dei punti potenza di base |
 | esperienza | 100 | formula del gruppo di crescita 4, importata dal generatore di terza generazione |
@@ -2102,7 +2218,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 246 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Morso (44), Fulmisguardo (43), Ira (99) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 25, 30, 20 | tabella dei punti potenza di base |
 | esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
@@ -2119,7 +2236,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 120 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Rafforzatore (106), Tornado (239) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 20 | tabella dei punti potenza di base |
 | esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
@@ -2136,7 +2254,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 98 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Bolla (145), Fulmisguardo (43), Ferrartigli (232) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 30, 35 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2153,7 +2272,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 95 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Stridio (103), Affilatore (159) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 30 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2170,7 +2290,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 131 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Pistolacqua (55), Ruggito (45), Canto (47), Divinazione (248) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 25, 40, 15, 15 | tabella dei punti potenza di base |
 | esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
@@ -2187,7 +2308,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 63 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Teletrasporto (100), Preveggenza (193) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 20, 40 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -2204,7 +2326,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 96 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Botta (1), Ipnosi (95), Amnesia (133) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 20, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2221,7 +2344,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 102 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Sferattacco (140), Ipnosi (95), Profumino (230) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 20, 20, 20 | tabella dei punti potenza di base |
 | esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
@@ -2238,7 +2362,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 122 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Barriera (112), Leggimente (170) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 5 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2255,7 +2380,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 74 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Rapigiro (229) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -2272,7 +2398,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 41 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Sanguisuga (141), Flagello (175) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 15, 15 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2289,7 +2416,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 66 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Colpo Basso (67), Fulmisguardo (43), Colpo (37) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 20, 30, 20 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -2306,7 +2434,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 104 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Ruggito (45), Colpocoda (39), Furia (31) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 40, 30, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2323,7 +2452,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 225 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Regalino (217), Punte (191) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 15, 20 | tabella dei punti potenza di base |
 | esperienza | 100 | formula del gruppo di crescita 4, importata dal generatore di terza generazione |
@@ -2340,7 +2470,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 86 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Bottintesta (29), Ruggito (45), Flagello (175) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 15, 40, 15 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2357,7 +2488,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 220 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Turbine (18) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 20 | tabella dei punti potenza di base |
 | esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
@@ -2374,7 +2506,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 163 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Ruggito (45), Ombra Notturna (101) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 15 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2391,7 +2524,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 215 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Graffio (10), Fulmisguardo (43), Lucelunare (236) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 5 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -2408,7 +2542,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 191 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Assorbimento (71), Crescita (74), Splash (150) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 20, 40, 40 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -2425,7 +2560,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 46 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Graffio (10), Sintesi (235) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 5 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2442,7 +2578,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 187 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Splash (150), Sintesi (235), Colpocoda (39), Agilità (97) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 40, 5, 30, 30 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -2459,7 +2596,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 43 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Assorbimento (71), Parassiseme (73) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 20, 10 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -2476,7 +2614,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 161 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Ricciolscudo (111), Stordipugno (146) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 10 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2493,7 +2632,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 234 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Salvaguardia (219) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 25 | tabella dei punti potenza di base |
 | esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
@@ -2510,7 +2650,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 241 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Ruggito (45), Megacalcio (25) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 5 | tabella dei punti potenza di base |
 | esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
@@ -2527,7 +2668,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 190 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Graffio (10), Colpocoda (39), Mimica (102) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 10 | tabella dei punti potenza di base |
 | esperienza | 100 | formula del gruppo di crescita 4, importata dal generatore di terza generazione |
@@ -2544,7 +2686,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 108 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Leccata (122), Doppiasberla (3) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 10 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2561,7 +2704,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 143 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Splash (150) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40 | tabella dei punti potenza di base |
 | esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
@@ -2578,7 +2722,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 66 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Colpo Basso (67), Fulmisguardo (43), Falsofinale (206) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 20, 30, 40 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -2595,7 +2740,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 129 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Splash (150), Bolla (145) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 40, 30 | tabella dei punti potenza di base |
 | esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
@@ -2612,7 +2758,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 236 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Ira (99) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2629,7 +2776,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 206 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Ira (99), Ricciolscudo (111), Furia (31) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 20, 40, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2646,7 +2794,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 202 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Specchiovelo (243), Salvaguardia (219), Destinobbligato (194), Mimica (102) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 20, 25, 5, 10 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2663,7 +2812,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 231 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Ruggito (45), Assorbimento (71) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2680,7 +2830,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 216 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Graffio (10), Fulmisguardo (43), Profumino (230) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2697,7 +2848,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 60 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Bolla (145), Dolcebacio (186) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 10 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -2714,7 +2866,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 60 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Bolla (145), Demonbacio (142) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 10 | tabella dei punti potenza di base |
 | esperienza | 135 | formula del gruppo di crescita 3, importata dal generatore di terza generazione |
@@ -2731,7 +2884,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 143 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Dolcebacio (186) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 10 | tabella dei punti potenza di base |
 | esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
@@ -2748,7 +2902,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 143 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Demonbacio (142) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 10 | tabella dei punti potenza di base |
 | esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
@@ -2765,7 +2920,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 140 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Graffio (10), Rafforzatore (106), Sassata (88) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 15 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2782,7 +2938,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 138 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Limitazione (132), Ritirata (110), Sassata (88) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 15 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2799,7 +2956,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 142 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Attacco d’Ala (17), Sassata (88) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 15 | tabella dei punti potenza di base |
 | esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
@@ -2816,7 +2974,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 137 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Conversione (160), Conversione2 (176), Barriera (112) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 30, 30 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2833,7 +2992,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 133 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Colpocoda (39), Crescita (74) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 40 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2850,7 +3010,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 185 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Sassata (88), Mimica (102), Sostituto (164) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 15, 10, 10 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2867,7 +3028,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 123 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Attacco Rapido (98), Fulmisguardo (43), Sonicboom (49) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 30, 20 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2884,7 +3046,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 214 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Fulmisguardo (43), Movim. Sismico (69) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30, 20 | tabella dei punti potenza di base |
 | esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
@@ -2901,7 +3064,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 127 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Presa (11), Sassata (88) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 30, 15 | tabella dei punti potenza di base |
 | esperienza | 156 | formula del gruppo di crescita 5, importata dal generatore di terza generazione |
@@ -2918,7 +3082,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 165 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Barriera (112) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 30 | tabella dei punti potenza di base |
 | esperienza | 100 | formula del gruppo di crescita 4, importata dal generatore di terza generazione |
@@ -2935,7 +3100,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 167 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Velenospina (40), Millebave (81), Crescita (74) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 40 | tabella dei punti potenza di base |
 | esperienza | 100 | formula del gruppo di crescita 4, importata dal generatore di terza generazione |
@@ -2952,7 +3118,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 193 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Preveggenza (193), Dolcebacio (186) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 40, 10 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
@@ -2969,7 +3136,8 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | Campo | Valore | Provenienza |
 |---|---|---|
 | numero del Dex | 204 | tabella degli eventi |
-| livello | 5 | tabella degli eventi |
+| livello di incontro | 5 | tabella degli eventi, campo a un byte dall'inizio del record |
+| livello corrente | 5 | coincide con quello di incontro, come nella grande maggioranza delle voci |
 | mosse | Azione (33), Protezione (182), Sostituto (164) | tabella degli eventi, con i nomi dalla tabella dei nomi |
 | punti potenza | 35, 10, 10 | tabella dei punti potenza di base |
 | esperienza | 125 | formula del gruppo di crescita 0, importata dal generatore di terza generazione |
