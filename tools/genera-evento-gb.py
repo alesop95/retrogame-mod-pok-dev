@@ -42,6 +42,7 @@ Uso
 """
 
 import argparse
+import hashlib
 import importlib.util
 import io
 import json
@@ -728,9 +729,56 @@ def scrivi_lotto(prodotti, destinazione, nomi, cm, gb):
         estensione = ".pk1" if v["generazione"] == 1 else ".pk2"
         nome_file = "%s-%s%s" % (codice(v),
                                  re.sub(r"[^A-Za-z0-9]", "", specie_nome), estensione)
-        io.open(os.path.join(destinazione, nome_file), "wb").write(bytes(buf))
+        byte = bytes(buf)
+        io.open(os.path.join(destinazione, nome_file), "wb").write(byte)
+        # L'impronta si calcola qui e non altrove, cioe' sui byte che sono stati scritti davvero
+        # e non su una loro ricostruzione: e' la differenza fra dichiarare che il file sia
+        # riproducibile e poterlo dimostrare.
+        x["impronta"] = hashlib.sha256(byte).hexdigest()
+        x["nome_file"] = nome_file
         scritti += 1
     return scritti, saltati
+
+
+REGISTRO_GIUDIZI = os.path.join("recreate-pokemon-distributions-events", "giudizi-esterni.json")
+
+
+def giudizi_del_lotto():
+    """I giudizi esterni che coprono il lotto di prima e seconda generazione.
+
+    Restituisce una funzione che dato un codice dice se quella voce sia stata giudicata, con
+    quale esito e quando. Un giudizio che dichiari di coprire tutto vale per ogni voce; uno che
+    nomini un file vale per quella sola. La distinzione conta perche' una scheda che tacesse lo
+    stato della verifica descriverebbe un esemplare che nessuno ha controllato senza dirlo.
+    """
+    percorso = os.path.join(RADICE, REGISTRO_GIUDIZI)
+    if not os.path.exists(percorso):
+        return lambda _codice: None
+    try:
+        registro = json.loads(io.open(percorso, encoding="utf-8").read())
+    except Exception:
+        return lambda _codice: None
+    massa, singoli = [], {}
+    for g in registro.get("giudizi", []):
+        if "prima e seconda generazione" not in g.get("file", ""):
+            continue
+        if g.get("copre") == "tutti":
+            massa.append(g)
+        else:
+            singoli[g.get("file", "")] = g
+
+    def per_voce(codice_voce):
+        g = singoli.get(codice_voce)
+        if g is None and massa:
+            g = massa[-1]
+        if g is None:
+            return None
+        return {"esito": g.get("esito", "?"), "data": g.get("data", "?"),
+                "come": "lettura di massa delle nove scatole in un salvataggio vuoto di seconda "
+                        "generazione, dove l'assenza del contrassegno di non conformità su una "
+                        "posizione equivale a un rapporto senza rilievi su quell'esemplare"
+                        if g.get("copre") == "tutti" else "prova singola registrata"}
+    return per_voce
 
 
 def scrivi_schede(percorso, prodotti, nomi, mosse, prov):
@@ -773,6 +821,7 @@ def scrivi_schede(percorso, prodotti, nomi, mosse, prov):
 
     # L'ordine dei gruppi segue la generazione e poi il tipo di donatore, che è l'ordine in cui
     # le tabelle della fonte li presentano.
+    giudizio_per_voce = giudizi_del_lotto()
     ordinati = {}
     for x in prodotti:
         v = x["voce"]
@@ -834,6 +883,7 @@ def scrivi_schede(percorso, prodotti, nomi, mosse, prov):
             mon = x["mon"]
             p = x["personale"]
             nome = nomi.get(v["nazionale"], "?")
+            giudizio = giudizio_per_voce(codice(v))
             r.append("### %s %s" % (codice(v), nome))
             r.append("")
             # L'attribuzione della singola voce, dove il gruppo non basta. Serve al solo gruppo
@@ -903,6 +953,38 @@ def scrivi_schede(percorso, prodotti, nomi, mosse, prov):
                          % (allenatore["nome"], allenatore["tid"], allenatore["nota"]))
             r.append("| restrizione di lingua | %s | tabella degli eventi |"
                      % (LINGUA_1 if generazione == 1 else LINGUA_2).get(v["lingua"], "?"))
+            # Le tre righe che chiudono il pedigree, e che non descrivono l'esemplare ma la sua
+            # tracciabilita'. La prima lega la voce al gruppo, cosicche' chi legge una scheda
+            # sappia dove sta il racconto dell'evento senza cercarlo. La seconda e' l'impronta
+            # del file prodotto, che rende la ricreazione dimostrabile e non soltanto dichiarata:
+            # chi rigenera il lotto e ottiene la medesima impronta ha una prova, non una
+            # impressione. La terza dice se il verificatore esterno abbia giudicato quella voce e
+            # quando, perche' una scheda senza quel dato descrive un esemplare che nessuno ha
+            # ancora controllato e non lo dichiara.
+            r.append("| gruppo di appartenenza | %s | il racconto dell'evento, le date, il luogo "
+                     "e le fonti stanno nella sezione di gruppo di questo documento |"
+                     % titolo)
+            impronta = x.get("impronta")
+            if impronta:
+                r.append("| impronta del file prodotto | `%s` | SHA-256 dei byte scritti in "
+                         "`_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto "
+                         "dalle medesime tabelle deve riprodurla identica, e una differenza "
+                         "segnala che qualcosa è cambiato nelle tabelle o nel programma |"
+                         % impronta)
+            else:
+                r.append("| impronta del file prodotto | non calcolata | l'impronta si calcola "
+                         "sui byte scritti, quindi esiste soltanto quando le schede si "
+                         "generano insieme al lotto: se manca su tutte le voci la corsa è "
+                         "stata di sole schede, se manca su alcune quelle voci non sono state "
+                         "scritte e il motivo è dichiarato nell'elenco delle non scritte |")
+            if giudizio:
+                r.append("| giudizio del verificatore | %s, %s | %s |"
+                         % (giudizio["esito"], giudizio["data"], giudizio["come"]))
+            else:
+                r.append("| giudizio del verificatore | non ancora giudicata | nessuna prova "
+                         "esterna registrata copre questa voce, quindi la sua conformità non è "
+                         "stabilita: le prove interne dicono che i campi sono scritti dove la "
+                         "struttura li vuole, non che i valori siano quelli giusti |")
             r.append("")
 
     io.open(percorso, "w", encoding="utf-8", newline="").write("\n".join(r) + "\n")
