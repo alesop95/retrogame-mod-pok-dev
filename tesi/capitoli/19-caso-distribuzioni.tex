@@ -618,3 +618,63 @@ Le quattro generazioni che dipendono da un servizio intermedio, e che dunque con
 Ne discende la conclusione che serve alla pianificazione, e che è controintuitiva quanto quella sul luogo dei difetti. Su queste generazioni il fattore limitante non è ciò che non si sa, ma il tempo che ciascun esemplare impiega ad attraversare la catena. Un progetto che avesse continuato a investire nella comprensione avrebbe migliorato la grandezza già abbondante e lasciato invariata quella scarsa. La grandezza da misurare per prima è dunque il tasso del primo anello della catena, che è un esperimento di un giorno e non un lavoro di ricerca, e che nessuna quantità di lettura può sostituire.
 
 Un'ultima osservazione riguarda le due generazioni più antiche, che il capitolo non ha trattato. La fonte tiene nella medesima cartella le tabelle dei loro esemplari da evento, in un formato che non è una serie di record a lunghezza fissa e che il programma di conteggio riferisce per esistenza e dimensione senza contarlo. Quelle due generazioni raggiungono il deposito per una via che esiste e che passa dal medesimo servizio intermedio, quindi condividono la scadenza: sono la coda del problema, non un'appendice fuori tema.
+
+\section{L'indipendenza della lucentezza dagli identificativi dell'allenatore}
+\label{sec:invarianza-lucentezza}
+
+Il 4 settembre 2026 il lavoro ha dovuto rispondere a una domanda che sembrava minore e non lo era. Venticinque delle centosettantadue voci producibili dichiarano che il nome e gli identificativi dell'allenatore non appartengono all'evento ma a chi riceve la consegna; fino a quel giorno esse portavano un segnaposto e attendevano gli identificativi di una partita reale. Quella partita ha cessato di esistere, perché la batteria della cartuccia che la conteneva si è esaurita, e si è quindi adottata una coppia scelta e dichiarata.
+
+La domanda che ne discende riguarda la lucentezza. Essa si calcola, come stabilito nella sezione precedente, dalla somma esclusiva di quattro parole a sedici bit, due delle quali sono precisamente gli identificativi dell'allenatore. Ne segue immediatamente che sostituirli cambia il valore di quella somma, e dunque che un esemplare non cromatico potrebbe diventarlo e viceversa. Poiché la tabella degli eventi dichiara per molte voci una lucentezza obbligata, in un verso o nell'altro, la sostituzione sembrava mettere a rischio la conformità dell'intero lotto e imporne la rigenerazione con verifica integrale.
+
+La conclusione operativa era corretta e la ragione addotta era sbagliata, ed è la sbagliatura a essere istruttiva. La formulazione che questo lavoro aveva dato per prima è che il generatore cerchi un seme dopo avere fissato gli identificativi, cosicché il vincolo torni soddisfatto con la coppia nuova. Descrive una ricerca con rigetto, cioè un procedimento che prova i semi e scarta quelli che violano il vincolo, e implica che il successo dipenda dall'abbondanza dei semi ammissibili. Se così fosse, la sostituzione degli identificativi sarebbe genuinamente rischiosa sui metodi a seme ristretto, dove i semi ammessi sono duecentoquattordici e non sessantacinquemila.
+
+Il procedimento non è quello. La lucentezza non è verificata dopo la composizione del valore di personalità: è costruita dentro di essa, e gli identificativi vi entrano come parametro. Le due composizioni interessate si scrivono per esteso, e da esse il risultato segue in tre righe di algebra.
+
+\subsection{La composizione a lucentezza garantita}
+
+Sia $\iota = \mathrm{TID} \oplus \mathrm{SID}$ la somma esclusiva dei due identificativi, siano $x$ e $b$ due estrazioni a sedici bit, e sia $\wedge$ la congiunzione bit a bit. Il ramo a lucentezza garantita compone
+\[
+P_{\mathrm{alta}} = x,
+\qquad
+P_{\mathrm{bassa}} = \bigl((\iota \oplus x) \wedge \mathtt{0xFFF8}\bigr) \vee (b \wedge 7).
+\]
+La condizione di cromaticità è $\iota \oplus P_{\mathrm{alta}} \oplus P_{\mathrm{bassa}} < 8$. Posto $u = \iota \oplus x$, si ha $\iota \oplus P_{\mathrm{alta}} = u$, e dunque
+\[
+\iota \oplus P_{\mathrm{alta}} \oplus P_{\mathrm{bassa}}
+= u \oplus \Bigl(\bigl(u \wedge \mathtt{0xFFF8}\bigr) \vee (b \wedge 7)\Bigr).
+\]
+I tredici bit superiori di $P_{\mathrm{bassa}}$ sono per costruzione i tredici bit superiori di $u$, quindi nella somma esclusiva si annullano; restano i soli tre bit inferiori, che valgono la somma esclusiva fra i tre bit inferiori di $u$ e quelli di $b$. Il risultato è dunque minore di otto qualunque siano $x$, $b$ e $\iota$. La lucentezza è garantita per ogni coppia di identificativi, e non per una coppia fortunata.
+
+\subsection{La composizione a lucentezza negata}
+
+Il ramo a lucentezza negata del metodo a seme non ristretto compone invece
+\[
+P_{\mathrm{alta}} = a \oplus (\iota \oplus b),
+\qquad
+P_{\mathrm{bassa}} = b,
+\]
+dove $a$ è la prima estrazione. Sostituendo nella condizione di cromaticità e semplificando,
+\[
+\iota \oplus P_{\mathrm{alta}} \oplus P_{\mathrm{bassa}}
+= \iota \oplus a \oplus \iota \oplus b \oplus b
+= a .
+\]
+La somma esclusiva delle quattro parole è dunque identicamente uguale alla prima estrazione, e gli identificativi si cancellano. L'esemplare è cromatico se e solo se $a < 8$, e il ramo ripesca $a$ finché i suoi bit oltre il terzo non sono tutti nulli, cioè finché $a \geq 8$. Anche qui la condizione è soddisfatta per costruzione e per ogni $\iota$.
+
+Il ramo a lucentezza negata degli altri metodi impiega la mutazione additiva svolta nell'appendice~\ref{app:generatori}: il valore di personalità si compone nel modo ordinario e, quando risulterebbe cromatico rispetto a quel particolare $\iota$, si sostituisce con $(P \wedge \overline{7}) + 8$. Qui gli identificativi entrano davvero nel test, e tuttavia la conclusione non cambia: la mutazione si applica proprio quando serve e produce un valore non cromatico rispetto al medesimo $\iota$, quindi il vincolo resta soddisfatto per costruzione anche in questo ramo, con la differenza che la costruzione è condizionale invece che incondizionata.
+
+\subsection{Il teorema, e la sua verifica}
+
+Da quanto precede segue l'enunciato che governa la sostituzione:
+
+\begin{quote}
+Per ogni voce del catalogo la cui lucentezza sia dichiarata obbligata, il valore di personalità è composto in funzione degli identificativi dell'allenatore in modo tale che il vincolo risulti soddisfatto identicamente. La coppia di identificativi è dunque, rispetto a quel vincolo, un parametro libero: la sua sostituzione cambia il valore di personalità e non cambia la soddisfazione del vincolo.
+\end{quote}
+
+L'enunciato è stato verificato per via esaustiva anziché essere dedotto soltanto. Per il metodo a seme ristretto a sedici bit con anti-lucentezza, che copre centoquattordici voci, si sono percorsi tutti i $65\,536$ semi ammessi e si è contato quanti producano un esemplare cromatico, cioè quanti il generatore dovrebbe scartare: sono zero, con la coppia adottata come con il segnaposto precedente. Per il metodo a seme ristretto all'intervallo $[0,213]$ con lucentezza garantita, che è il caso peggiore perché i semi ammessi sono duecentoquattordici, si sono percorsi tutti e duecentoquattordici e i semi da scartare sono ugualmente zero, con entrambe le coppie. Un procedimento a ricerca con rigetto avrebbe prodotto numeri diversi da zero e diversi fra le due coppie; che siano zero in tutti e quattro i casi è la firma di una costruzione e non di una ricerca.
+
+Il giudizio esterno ha poi confermato l'enunciato sul lotto intero. Le centosettantadue voci rigenerate con gli identificativi nuovi sono state caricate nelle sei scatole di un salvataggio vuoto e nessuna posizione porta il contrassegno di non conformità. Su una di esse il verificatore dichiara, oltre alla legittimità, il metodo di generazione riconosciuto e il seme di origine: è la forma più forte di conferma che questo lavoro abbia ottenuto, perché non attesta che l'esemplare sia accettabile ma che il procedimento con cui è stato costruito sia quello che l'implementazione di riferimento si aspetta.
+
+\subsection{Che cosa questa sezione insegna oltre al caso}
+
+Il valore metodologico non sta nel risultato ma nella distanza fra la prima spiegazione e quella vera. Entrambe prevedevano correttamente che il lotto rigenerato risultasse conforme, quindi nessuna osservazione sul solo esito le avrebbe distinte. Differiscono però su ciò che accadrebbe in un caso diverso: la spiegazione a ricerca implica che una coppia di identificativi sfortunata possa non ammettere alcuna soluzione sui metodi a seme ristretto, e avrebbe imposto di validare ogni coppia futura; la spiegazione a costruzione stabilisce che nessuna coppia possa fallire, e rende quella validazione superflua. Una previsione giusta ottenuta da un meccanismo sbagliato non è quindi una conoscenza equivalente: è una conoscenza che smetterà di funzionare al primo caso fuori dal campione, e la sola via per distinguerle è scrivere l'algebra invece di osservare l'esito.
