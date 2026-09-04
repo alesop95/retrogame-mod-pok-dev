@@ -429,3 +429,30 @@ Si adotta la terza definizione, e il bersaglio dell'asse delle forme diventa qui
 La decorazione di Alcremie resta fuori, e la ragione va scritta perché è il caso su cui la scelta pesa di più. Il campo che la porta non è il campo della forma: è un campo separato, come lo sono il fiocco o l'oggetto tenuto, e chiamare forma un parametro che il formato tiene altrove significherebbe cambiare la definizione per una specie sola. Alcremie contribuisce dunque con nove voci e non con sessantatré. Chi volesse le sessantatré perseguirebbe un obiettivo diverso e più grande, e la differenza su quella sola specie è di cinquantaquattro esemplari, cioè più di quanto pesino le forme di molte generazioni intere: è precisamente il genere di scelta che va fatta esplicitamente prima e non per accumulo dopo.
 
 Resta dichiarato un limite di questa decisione. Essa non stabilisce che il deposito conservi le 342 come voci distinte nel proprio archivio, che è un fatto che nessuna schermata mostra: stabilisce che il progetto le persegue come oggetti. Se un giorno si scoprisse che il deposito le fonde, la decisione non cambierebbe, perché l'oggetto resterebbe distinto anche se il catalogo non lo mostrasse.
+## ADR-036: una prova di simmetria non coglie un errore simmetrico
+
+Data: 2026-09-04. Stato: accettata.
+
+Il lettore dei depositi di sesta generazione decifra ciascun esemplare e ne rimette in ordine i quattro blocchi secondo una permutazione scelta dalla costante di cifratura. La direzione della permutazione era invertita: la tabella dice, per ogni posizione logica, quale blocco del dato cifrato la occupa, e il programma faceva l'opposto.
+
+Il difetto non si è manifestato come un errore per due ragioni concorrenti, ed è la coppia a renderlo istruttivo. La prima è che la somma di controllo del formato somma parole a sedici bit ed è quindi invariante rispetto all'ordine dei blocchi: ogni struttura risultava valida e una parte di esse portava semplicemente campi presi dal blocco sbagliato, cioè numeri leciti nel posto sbagliato. La seconda è che il self-test verificava che cifrare e decifrare si annullassero, e passava: le due funzioni erano sbagliate nello stesso modo, e la loro composizione restava l'identità.
+
+Se ne trae la regola che questa decisione registra. Una prova che verifichi la composizione di due funzioni inverse non stabilisce nulla sulla correttezza di ciascuna, perché un errore applicato in andata e disfatto al ritorno la lascia verde. Una prova di simmetria è quindi una prova di coerenza interna e non di correttezza, e va accompagnata da almeno un ancoraggio esterno: un valore atteso letto dalla fonte, un conto confrontato con quello del verificatore, un vettore noto. Nel caso presente il difetto è stato trovato soltanto confrontando il numero di esemplari letti dal nostro lettore con quello elencato dal rapporto del verificatore, cioè da fuori, ed era del dieci per cento su tutti e tre i file provati.
+
+Ne discende una prescrizione operativa per i lettori di formato che questo progetto scrive. Ogni lettore deve avere, oltre alla prova di simmetria dove ha senso, almeno un controllo il cui valore atteso non venga dal lettore stesso: il conto delle voci confrontato con quello di una implementazione indipendente, il tetto di specie della generazione, la dimensione attesa di una tabella. È lo stesso principio per cui il progetto ha stabilito che le prove interne vanno dove il fallimento è visibile e il giudizio esterno dove non lo è, applicato al caso in cui il fallimento non è visibile nemmeno a una prova che sembra completa.
+
+## ADR-037: i salvataggi esterni si valutano per provenienza, e i tre dei forum non sono una fonte di esemplari
+
+Data: 2026-09-04. Stato: accettata. Precisa l'ambito di ADR-024 sull'uso dei salvataggi di terzi.
+
+I cinque salvataggi di 3DS della raccolta sono stati sottoposti al verificatore uno per uno, con il rapporto sui box che ne dichiara la legittimità riga per riga. L'esito separa i cinque in due gruppi che coincidono esattamente con la loro provenienza, senza eccezioni.
+
+I due che vengono dalla raccolta contribuita di Project Pokemon sono partite vere: Rubino Omega porta settecentotrentasette esemplari legali su settecentosessantanove, Y ne porta seicentoquarantasei su seicentosettantacinque con cinquecentosei specie distinte. Sono fonti utilizzabili.
+
+I tre che vengono dai forum italiani sono costruiti: Rubino Omega B porta un esemplare legale su quattrocentosessantadue, X uno su quattrocentocinquantuno, UltraSole due su cinquecentocinquantotto, e in tutti e tre i punti allenamento superano il tetto su quasi ogni esemplare. La descrizione che il forum stesso dava di essi, cioè partite complete con valori individuali e punti allenamento al massimo, era esatta e ne descriveva la costruzione.
+
+Su uno di quei tre la riparazione automatica è stata provata fino in fondo, correggendo punti allenamento, geolocalizzazione, data e luogo di incontro su centinaia di esemplari: il conto dei legali è passato da uno a uno. Se ne conclude che il difetto non stia nei campi che si possono riscrivere ma nel fatto che quegli esemplari non hanno una storia che stia in piedi, e che rimettergliela significherebbe rigenerarli, cioè fare per la sesta generazione ciò che il progetto fa per le prime tre. Non è una riparazione ed è un progetto a sé.
+
+Si stabilisce quindi che i tre salvataggi dei forum restano nella raccolta come veicoli, cioè come partite avanzate su cui girare quando serva uno stato di avanzamento secondo ADR-029, e non come fonti di esemplari; e che i due di Project Pokemon sono fonti di esemplari a tutti gli effetti, con l'obbligo di verifica che ADR-024 già impone.
+
+Si stabilisce inoltre un criterio di triage per i salvataggi futuri, che costa un solo rapporto sui box e sostituisce ore di lavoro: prima di studiare o riparare un salvataggio esterno se ne legge il rapporto e se ne conta la quota di legali. Sotto una quota bassa il file non è una fonte e nessuna riparazione lo renderà tale, quindi non vi si spende altro tempo.
