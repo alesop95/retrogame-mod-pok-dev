@@ -42,8 +42,8 @@ Vanno scritte perché la loro assenza dal censimento è un risultato e non una l
 
 | Gen | Oggetto | Luogo | Dex | Perché non c'è |
 |---|---|---|---|---|
-| 4 | Flauto Azzurro | Colonna Lancia | 493 | il verificatore non porta alcuna voce per questo incontro, cioe' non fu mai distribuito per via ufficiale in alcuna regione |
-| 4 | Lettera di Oak | Giardino Floreale | 492 | in Diamante e Perla la voce esiste nella fonte ma e' commentata come non distribuita: la ebbe soltanto Platino |
+| 4 | Flauto Azzurro | Colonna Lancia | 493 | il verificatore non porta alcuna voce per questo incontro, cioè non fu mai distribuito per via ufficiale in alcuna regione |
+| 4 | Lettera di Oak | Giardino Floreale | 492 | in Diamante e Perla la voce esiste nella fonte ma è commentata come non distribuita: la ebbe soltanto Platino |
 
 ## Che cosa questo censimento non copre
 
@@ -67,7 +67,7 @@ Nessuna, fra le classi che il verificatore porta. Il 2026-09-04 questa sezione e
 | 386 | 2 | Biglietto Aurora, Isola Nascita, Verde Foglia, livello 30 | `Encounters3FRLG.cs StaticLG, forma Difesa` |
 | 491 | 0 | Tessera Membro, Isola Lunanova, Platino, livello 50 | `Encounters4DPPt.cs, in Diamante e Perla la voce e' commentata come non distribuita` |
 | 492 | 0 | Lettera di Oak, Giardino Floreale, Platino, livello 30 | `Encounters4DPPt.cs, in Diamante e Perla la voce e' commentata come non distribuita` |
-| 494 | 0 | Passo Liberta', Giardino Liberta', Nero e Bianco, livello 15 | `Encounters5BW.cs, la fonte dichiara che non puo' essere cromatico` |
+| 494 | 0 | Passo Libertà, Giardino Libertà, Nero e Bianco, livello 15 | `Encounters5BW.cs, la fonte dichiara che non puo' essere cromatico` |
 
 ## Colosseum, disco bonus, solo Giappone
 
