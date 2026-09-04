@@ -53,6 +53,7 @@ Uso
 import argparse
 import io
 import os
+import re
 import struct
 import sys
 
@@ -127,10 +128,72 @@ CAMPI = {
                       "base": 0x208},
     "wb7full.pkl":   {"specie": 0x82, "forma": 0x84, "livello": 0xD0, "tipo": (0x51, {0}),
                       "base": 0x208},
+    # Ottava e nona generazione, letti il 2026-09-04. Fino a quella data queste cinque famiglie
+    # erano dichiarate non lette, che era la formulazione onesta ma non la fine del lavoro: gli
+    # offset stanno nelle classi omonime di PKHeX.Core/MysteryGifts/ esattamente come per le
+    # generazioni precedenti, e il solo motivo per cui non erano state lette era che nessuna di
+    # esse e' sotto scadenza. La decisione di ambito del 2026-09-04 le rimette dentro, perche'
+    # l'obiettivo dichiarato e' la collezione completa e non la sola parte che scade.
+    #
+    # In tutte e cinque il tipo di dono e' un byte e il valore uno indica l'esemplare, ma la sua
+    # posizione non e' la stessa ovunque: in WA8 sta a 0x0F e nelle altre quattro a 0x11. E' il
+    # genere di differenza che una lettura frettolosa uniforma, ottenendo zero esemplari su un
+    # file intero senza alcun errore.
+    "wc8.pkl":       {"specie": 0x240, "forma": 0x242, "livello": 0x244, "tipo": (0x11, {1}),
+                      "base": 0},
+    "wa8.pkl":       {"specie": 0x238, "forma": 0x23A, "livello": 0x23C, "tipo": (0x0F, {1}),
+                      "base": 0},
+    "wb8.pkl":       {"specie": 0x288, "forma": 0x28A, "livello": 0x28C, "tipo": (0x11, {1}),
+                      "base": 0},
+    # Nona generazione: la specie nel record non e' il numero nazionale ma quello interno del
+    # gioco, e i due divergono dal 917 in avanti. Convertire e' obbligatorio e non cosmetico,
+    # perche' senza conversione le voci della nona generazione porterebbero numeri di specie
+    # esistenti ma sbagliati, che e' il difetto peggiore fra quelli possibili: non si vede.
+    "wc9.pkl":       {"specie": 0x238, "forma": 0x23A, "livello": 0x23C, "tipo": (0x11, {1}),
+                      "base": 0, "nazionale9": True},
+    "wa9.pkl":       {"specie": 0x270, "forma": 0x272, "livello": 0x274, "tipo": (0x11, {1}),
+                      "base": 0, "nazionale9": True},
 }
 
 
-def leggi_specie(dati, nome, passo_conteggio, quante, campi):
+# La conversione fra la numerazione interna della nona generazione e quella nazionale. La tabella
+# non si trascrive qui ma si legge dal clone, per la stessa ragione per cui si leggono di la' le
+# tabelle degli eventi: una copia in questo file invecchierebbe senza che nessuno se ne accorga.
+# La forma della conversione e' quella dichiarata dalla fonte, cioe' uno scostamento con segno da
+# sommare al numero interno, valido da 917 in avanti e identita' fuori da quell'intervallo.
+PRIMO_DISALLINEATO_9 = 917
+_tabella9 = None
+
+
+def tabella_nazionale9(pkhex):
+    global _tabella9
+    if _tabella9 is None:
+        percorso = os.path.join(pkhex, "PKHeX.Core", "PKM", "Util", "Conversion",
+                                "SpeciesConverter.cs")
+        if not os.path.exists(percorso):
+            _tabella9 = []
+        else:
+            testo = io.open(percorso, encoding="utf-8").read()
+            blocco = re.search(r"Table9InternalToNational =>\s*\[(.*?)\];", testo, re.S)
+            _tabella9 = ([int(x) for x in re.findall(r"-?\d+", blocco.group(1))]
+                         if blocco else [])
+    return _tabella9
+
+
+def nazionale9(interno, tabella):
+    """Il numero nazionale a partire da quello interno della nona generazione.
+
+    Fuori dall'intervallo coperto dalla tabella la conversione e' l'identita', che e' quanto
+    dichiara la fonte e non una scorciatoia: la maggior parte dei numeri coincide, e la tabella
+    conserva i soli scostamenti diversi da zero.
+    """
+    scostamento = interno - PRIMO_DISALLINEATO_9
+    if scostamento < 0 or scostamento >= len(tabella):
+        return interno
+    return interno + tabella[scostamento]
+
+
+def leggi_specie(dati, nome, passo_conteggio, quante, campi, tabella9=()):
     """Le specie dei doni di un file, con forma e livello dove il formato li porta.
 
     Riceve separatamente il passo con cui si contano le voci e quante voci ci siano, perche' su
@@ -170,6 +233,8 @@ def leggi_specie(dati, nome, passo_conteggio, quante, campi):
             specie = carta[campi["specie"]]
         else:
             specie = struct.unpack_from("<H", carta, campi["specie"])[0]
+        if campi.get("nazionale9"):
+            specie = nazionale9(specie, tabella9)
         if specie == 0:
             non_esemplari += 1
             continue
@@ -231,7 +296,8 @@ def conta(pkhex):
                 letti = False
                 continue
             trovate, scartati = leggi_specie(io.open(percorso, "rb").read(),
-                                             nome, p, quoziente, campi)
+                                             nome, p, quoziente, campi,
+                                             tabella_nazionale9(pkhex))
             specie_trovate.extend(trovate)
             non_esemplari += scartati
         diretto = all(n in DIRETTI for n in files)
@@ -378,6 +444,14 @@ def scrivi_markdown(percorso, righe, antichi):
                  "si sanno ancora leggere i campi sono %s, e sono tutte senza scadenza, quindi "
                  "la loro assenza non tocca alcun conto sotto scadenza."
                  % ", ".join(x["titoli"] for x in non_letti))
+        r.append("")
+    else:
+        r.append("Non c'è alcuna cella che dica non letti, e la circostanza va dichiarata perché "
+                 "fino al 2026-09-03 ce n'erano cinque: tutte e dieci le famiglie sono ora lette "
+                 "nei campi, comprese l'ottava e la nona generazione, che non sono sotto scadenza "
+                 "e per questo erano rimaste indietro. La decisione di ambito del 2026-09-04 le "
+                 "rimette dentro il conto, perché l'obiettivo dichiarato è la collezione completa "
+                 "e non la sola parte che la banca porta via.")
         r.append("")
     sotto, senza = set(), set()
     for x in righe:
