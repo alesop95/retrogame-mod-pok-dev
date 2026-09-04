@@ -263,9 +263,19 @@ def voci_da_evento(pkhex, ace):
     except Exception as exc:
         print("  nota: il censimento delle tabelle non si e' caricato (%s)" % exc)
         gruppi = []
+    # Una classe del censimento non entra in questo asse, e la scelta va motivata perche' e' il
+    # contrario di quella che l'obiettivo dichiarato suggerirebbe. I trasferimenti da Pokemon GO
+    # non sono esemplari da distribuzione ma una porta di ingresso permanente: dire che una
+    # specie e' ottenibile da GO e' un'affermazione sulla sua reperibilita', cioe' la materia
+    # dell'asse delle specie, non un collezionabile in piu' con un allenatore e una data propri.
+    # Metterli qui gonfierebbe l'asse degli eventi di millecentosessantaquattro voci che
+    # ripeterebbero specie gia' presenti altrove, e falserebbe il solo numero che questo asse
+    # serve a produrre, cioe' quante voci il primo tempo della coda debba coprire. Restano contate
+    # e visibili nel censimento, dove la loro classe dice che cosa sono.
+    FUORI_DALL_ASSE = {"porta-permanente"}
     indice_tabelle = 0
     for gruppo in gruppi:
-        if not gruppo.get("letto"):
+        if not gruppo.get("letto") or gruppo["classe"] in FUORI_DALL_ASSE:
             continue
         for v in gruppo["voci"]:
             fuori.append({
@@ -570,11 +580,23 @@ def scrivi(percorso, righe_specie, righe_forma, per_fonte, eventi):
              "incontro e poi dalla quarta alla nona con i doni veri e propri; la terza sono le "
              "tabelle degli incontri del verificatore, dove stanno le distribuzioni in cui il "
              "dono era un oggetto, le periferiche, i giochi da console fissa e i doni interni "
-             "condizionati. Le prime due erano cieche sulla terza, ed è un difetto di copertura e "
-             "non di lettura: non produceva alcun errore, e la lista sembrava completa mentre "
-             "mancavano 422 voci. La colonna della classe dice da quale delle tre viene ciascuna "
+             "condizionati, e insieme a essi le incursioni da distribuzione di ottava e nona "
+             "generazione. Le prime due erano cieche sulla terza, ed è un difetto di copertura e "
+             "non di lettura: non produceva alcun errore, e la lista sembrava completa mentre ne "
+             "mancavano %d voci. La colonna della classe dice da quale delle tre viene ciascuna "
              "voce, e i codici delle voci della terza cominciano con `EVT-T-` invece che con la "
-             "generazione, perché una sola numerazione le attraversa tutte.")
+             "generazione, perché una sola numerazione le attraversa tutte."
+             % sum(1 for x in eventi if str(x.get("codice", "")).startswith("EVT-T-")))
+    r.append("")
+    r.append("Una classe del censimento resta fuori da questo asse per scelta, ed è quella dei "
+             "trasferimenti da Pokemon GO. Non sono esemplari da distribuzione ma una porta di "
+             "ingresso permanente: dire che una specie è ottenibile da quel gioco è "
+             "un'affermazione sulla sua reperibilità, cioè la materia dell'asse delle specie, e "
+             "non un collezionabile in più con un allenatore e una data propri. Metterli qui "
+             "aggiungerebbe milleduecento voci che ripeterebbero specie già presenti altrove e "
+             "falserebbe il solo numero che questo asse serve a produrre, cioè quante voci il "
+             "primo tempo della coda debba coprire. Restano contate e visibili nel censimento "
+             "`CENSIMENTO-EVENTI-FUORI-DONI.md`, dove la loro classe dice che cosa sono.")
     r.append("")
     r.append("La ripartizione per classe è la seguente: "
              + ", ".join("%s %d" % (k, n) for k, n in sorted(per_classe.items(),
