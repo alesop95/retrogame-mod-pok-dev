@@ -38,7 +38,9 @@ e una data che nessun prato produce, e chi possiede il secondo non possiede il p
 
 Ne segue che la lista porta tre tabelle e tre famiglie di codici. Le voci di specie hanno codice
 `PKD-####-00`, le voci di forma `PKD-####-##` con forma diversa da zero, e le voci da evento
-`EVT-<generazione>-<indice>`.
+`EVT-<generazione>-<indice>`, con l'eccezione delle voci che vengono dalle tabelle degli incontri
+invece che dai doni, il cui codice è `EVT-T-<indice>` perché una sola numerazione le attraversa
+tutte e la generazione resta nella propria colonna.
 
 Sul codice delle voci da evento va dichiarato un limite che i codici di specie non hanno, perché
 tacerlo lo renderebbe insidioso. L'indice è la posizione della voce nella tabella della fonte, e
@@ -195,6 +197,7 @@ def voci_da_evento(pkhex, ace):
         fuori.append({
             "codice": "EVT-3-%04d" % indice,
             "generazione": 3,
+            "classe": "carta meraviglia",
             "nazionale": v.get("nazionale"),
             "forma": 0,
             "descrizione": (v.get("commento") or v.get("ot") or "evento"),
@@ -214,13 +217,28 @@ def voci_da_evento(pkhex, ace):
 
     # La corrispondenza serve soltanto alla terza generazione, che numera per numero nazionale;
     # dalla quarta in avanti le tabelle dei doni usano gia' la numerazione nazionale.
+    # L'indice del codice scorre sulla generazione e non sul file, e la ragione va scritta perche'
+    # la scelta opposta era gia' stata fatta e produceva un difetto silenzioso. Una generazione
+    # puo' avere piu' di un file di doni, e la sesta, la settima, l'ottava e la nona ne hanno due o
+    # tre: numerando da zero dentro ciascun file, la voce zero di `wc8.pkl` e quella di `wa8.pkl`
+    # ricevevano il medesimo codice. Il difetto e' stato trovato il 2026-09-04 da un controllo di
+    # unicita', non da un errore: novecentosette voci condividevano un codice con un'altra, e
+    # nulla lo segnalava perche' un codice duplicato non rompe niente finche' nessuno lo usa per
+    # spuntare. Le generazioni dalla prima alla quinta hanno un file solo per generazione e i loro
+    # codici non si sono mossi, il che conta perche' i lotti gia' prodotti li portano nel nome dei
+    # file.
+    contatore_per_generazione = {}
     for r in righe:
         if not r.get("letti"):
             continue
         for v in r.get("voci_dettaglio", []):
+            gen = r["generazione"]
+            indice_gen = contatore_per_generazione.get(gen, 0)
+            contatore_per_generazione[gen] = indice_gen + 1
             fuori.append({
-                "codice": "EVT-%d-%04d" % (r["generazione"], v["indice"]),
-                "generazione": r["generazione"],
+                "codice": "EVT-%d-%04d" % (gen, indice_gen),
+                "generazione": gen,
+                "classe": "dono segreto",
                 "nazionale": v["specie"],
                 "forma": v["forma"],
                 "descrizione": r["titoli"],
@@ -228,12 +246,48 @@ def voci_da_evento(pkhex, ace):
                 "sotto_scadenza": r["sotto_scadenza"],
                 "resa": "letta, non ancora producibile",
             })
+    # ------------------------------------------------- le tabelle fuori dalla base dei doni
+    # Il terzo troncone dell'asse, aggiunto il 2026-09-04. Le due fonti sopra coprono le
+    # distribuzioni fatte come dono e sono cieche su tutto il resto, cioe' le distribuzioni in cui
+    # il dono era un oggetto, le periferiche, i giochi da console fissa e i doni interni
+    # condizionati. Erano 422 voci per 256 specie distinte, nessuna delle quali compariva in
+    # questa lista: il difetto era di copertura e non di lettura, quindi non produceva alcun
+    # errore e la lista sembrava completa.
+    #
+    # La lettura appartiene a un solo programma e questo la invoca, che e' la regola che il
+    # progetto si e' dato dopo il difetto della lettura dei titoli riscritta invece che chiamata.
+    try:
+        censimento = carica_modulo("censtab", os.path.join(RADICE, "tools",
+                                                           "censimento-eventi-tabelle.py"))
+        gruppi, _difetti_cens = censimento.censisci(pkhex)
+    except Exception as exc:
+        print("  nota: il censimento delle tabelle non si e' caricato (%s)" % exc)
+        gruppi = []
+    indice_tabelle = 0
+    for gruppo in gruppi:
+        if not gruppo.get("letto"):
+            continue
+        for v in gruppo["voci"]:
+            fuori.append({
+                "codice": "EVT-T-%04d" % indice_tabelle,
+                "generazione": v.get("gen") or gruppo.get("gen") or 0,
+                "classe": gruppo["classe"],
+                "nazionale": v["specie"],
+                "forma": v.get("forma", 0),
+                "descrizione": "%s: %s" % (gruppo["etichetta"], v.get("commento") or "-"),
+                "metodo": v.get("riferimento", ""),
+                "sotto_scadenza": gruppo["sotto_scadenza"],
+                "resa": "censita, non ancora producibile",
+            })
+            indice_tabelle += 1
+
     for a in antichi:
         generazione = 1 if a["file"] == "event1.pkl" else 2
         for v in a.get("voci_dettaglio", []):
             fuori.append({
                 "codice": "EVT-%d-%04d" % (generazione, v["indice"]),
                 "generazione": generazione,
+                "classe": "tabella di incontro",
                 "nazionale": v["specie"],
                 "forma": v["forma"],
                 "descrizione": "tabella di incontro da evento",
@@ -242,6 +296,25 @@ def voci_da_evento(pkhex, ace):
                 "resa": "letta, struttura alla portata di pokebridge",
             })
     return fuori
+
+
+def codici_duplicati(eventi):
+    """I codici che due o piu' voci si contendono, che devono essere nessuno.
+
+    Il controllo esiste perche' il difetto che chiude e' stato trovato per caso e non da un
+    errore: un codice duplicato non rompe nulla finche' nessuno lo usa per spuntare, e si
+    manifesta soltanto il giorno in cui due collezionabili diversi risultano lo stesso. Vale la
+    regola generale che questo progetto ha gia' pagato altrove, cioe' che un difetto invisibile
+    va reso visibile da un controllo e non dalla prudenza di chi legge.
+    """
+    visti, doppi = {}, {}
+    for e in eventi:
+        codice = e["codice"]
+        if codice in visti:
+            doppi.setdefault(codice, [visti[codice]]).append(e)
+        else:
+            visti[codice] = e
+    return doppi
 
 
 def ordina_per_specie(eventi):
@@ -348,6 +421,7 @@ def main(argv=None):
 
     eventi = voci_da_evento(a.pkhex, a.ace)
     ordina_per_specie(eventi)
+    duplicati = codici_duplicati(eventi)
 
     # ---------------------------------------------------------------- uscita a schermo
     print("Lista di spunta del Pokedex completo")
@@ -384,6 +458,15 @@ def main(argv=None):
           "nel progetto." % (len(righe_specie) - len(coperte)))
     print("")
     print("  voci da evento enumerate           %d" % len(eventi))
+    if duplicati:
+        print("  ATTENZIONE: %d codici sono condivisi da piu' voci, per un totale di %d voci. "
+              "Un codice" % (len(duplicati), sum(len(g) for g in duplicati.values())))
+        print("  duplicato non rompe nulla finche' nessuno lo usa per spuntare, e proprio per "
+              "questo va corretto ora.")
+        for doppio in sorted(duplicati)[:5]:
+            print("    %s: %s" % (doppio, [e["metodo"] for e in duplicati[doppio]]))
+    else:
+        print("  codici distinti                    %d, cioe' uno per voce" % len(eventi))
     per_gen = {}
     for e in eventi:
         chiave = (e["generazione"], e["sotto_scadenza"])
@@ -476,6 +559,28 @@ def scrivi(percorso, righe_specie, righe_forma, per_fonte, eventi):
 
     r.append("## Voci da evento")
     r.append("")
+    per_classe = {}
+    for x in eventi:
+        per_classe[x.get("classe", "?")] = per_classe.get(x.get("classe", "?"), 0) + 1
+    r.append("L'asse degli eventi nasce da tre fonti e non da una, e la distinzione va letta prima "
+             "dei numeri perché fino al 2026-09-04 le fonti erano due e la terza mancava del "
+             "tutto. La prima è la tabella delle carte meraviglia di terza generazione, che vive "
+             "nel codice del verificatore; la seconda sono i file binari della base dei doni "
+             "segreti, che coprono la prima e la seconda generazione con le loro tabelle di "
+             "incontro e poi dalla quarta alla nona con i doni veri e propri; la terza sono le "
+             "tabelle degli incontri del verificatore, dove stanno le distribuzioni in cui il "
+             "dono era un oggetto, le periferiche, i giochi da console fissa e i doni interni "
+             "condizionati. Le prime due erano cieche sulla terza, ed è un difetto di copertura e "
+             "non di lettura: non produceva alcun errore, e la lista sembrava completa mentre "
+             "mancavano 422 voci. La colonna della classe dice da quale delle tre viene ciascuna "
+             "voce, e i codici delle voci della terza cominciano con `EVT-T-` invece che con la "
+             "generazione, perché una sola numerazione le attraversa tutte.")
+    r.append("")
+    r.append("La ripartizione per classe è la seguente: "
+             + ", ".join("%s %d" % (k, n) for k, n in sorted(per_classe.items(),
+                                                             key=lambda x: -x[1]))
+             + ".")
+    r.append("")
     r.append("Una voce da evento è un collezionabile distinto anche quando la sua specie è già "
              "coperta altrove, e la ragione è che porta un nome di allenatore, un identificativo "
              "e una data che nessun incontro selvatico produce: chi possiede il secondo non "
@@ -507,13 +612,14 @@ def scrivi(percorso, righe_specie, righe_forma, per_fonte, eventi):
              "ma soltanto quale basti a coprire la specie."
              % (len(primi), len(scad_ev) - len(primi)))
     r.append("")
-    r.append("| Codice | Gen | Dex | Forma | Provenienza | Sotto scadenza | Primo della specie | Resa |")
-    r.append("|---|---|---|---|---|---|---|---|")
+    r.append("| Codice | Gen | Classe | Dex | Forma | Provenienza | Sotto scadenza | Primo della specie | Resa |")
+    r.append("|---|---|---|---|---|---|---|---|---|")
     for x in eventi:
-        r.append("| `%s` | %d | %s | %d | %s | %s | %s | %s |"
-                 % (x["codice"], x["generazione"],
+        r.append("| `%s` | %d | %s | %s | %d | %s | %s | %s | %s |"
+                 % (x["codice"], x["generazione"], x.get("classe", "?"),
                     x["nazionale"] if x["nazionale"] else "-", x["forma"],
-                    x["descrizione"], "sì" if x["sotto_scadenza"] else "no",
+                    str(x["descrizione"]).replace("|", "/"),
+                    "sì" if x["sotto_scadenza"] else "no",
                     "sì" if x.get("primo_della_specie") else "no", x["resa"]))
     r.append("")
 

@@ -465,9 +465,12 @@ def scrivi(percorso, gruppi, difetti):
     tutte = [v for g in gruppi if g["letto"] for v in g["voci"]]
     scad = [v for g in gruppi if g["letto"] and g["sotto_scadenza"] for v in g["voci"]]
     r.append("Le voci censite sono %d e portano %d specie distinte; quelle sotto scadenza sono %d "
-             "e portano %d specie distinte. Il confronto che conta è con le 2686 voci sotto "
-             "scadenza dell'asse degli eventi della lista di spunta: queste non vi sono comprese, "
-             "e ciascuna è un collezionabile che il 26 febbraio 2027 chiude come tutti gli altri."
+             "e portano %d specie distinte. Fino al 2026-09-04 nessuna di esse compariva nella "
+             "lista di spunta, che le ignorava tutte: da quella data `tools/checklist-pokedex.py` "
+             "invoca questo programma e le voci entrano nel suo asse degli eventi con la classe "
+             "dichiarata e il codice `EVT-T-`. Il numero da guardare per misurare quanto pesassero "
+             "è quello delle specie distinte sotto scadenza, perché è la parte che il primo tempo "
+             "della coda deve coprire e che prima non sapeva di dover coprire."
              % (len(tutte), len({v["specie"] for v in tutte}),
                 len(scad), len({v["specie"] for v in scad})))
     r.append("")
