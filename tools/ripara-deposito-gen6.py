@@ -127,8 +127,8 @@ def cifra(chiaro, blocchi):
     ordine = blocchi[scelta]
     corpo = bytearray(DIM_STORED - 8)
     for posizione, blocco in enumerate(ordine):
-        corpo[posizione * DIM_BLOCCO:(posizione + 1) * DIM_BLOCCO] = \
-            chiaro[8 + blocco * DIM_BLOCCO:8 + (blocco + 1) * DIM_BLOCCO]
+        corpo[blocco * DIM_BLOCCO:(blocco + 1) * DIM_BLOCCO] = \
+            chiaro[8 + posizione * DIM_BLOCCO:8 + (posizione + 1) * DIM_BLOCCO]
     seme = ec
     for i in range(0, len(corpo), 2):
         seme = (0x41C64E6D * seme + 0x00006073) & 0xFFFFFFFF
