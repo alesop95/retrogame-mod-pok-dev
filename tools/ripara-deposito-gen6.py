@@ -169,21 +169,29 @@ def ripara_ev(ev):
     return nuovo, True
 
 
-def data_valida(anno, mese, giorno, anno_massimo):
-    """Se i tre byte formino una data possibile per un esemplare di questi due giochi.
+def data_valida(anno, mese, giorno, _anno_massimo=None):
+    """Se i tre byte formino una data del calendario, e nient'altro.
 
-    Il controllo e' su tre livelli e vale enunciarli, perche' il difetto piu' frequente nei
-    salvataggi trovati in rete e' il primo. Il primo e' che i tre byte formino una data del
-    calendario, cioe' mese fra uno e dodici e giorno dentro la lunghezza di quel mese: un mese
-    zero o un giorno quaranta non sono una data. Il secondo e' che l'anno non preceda l'uscita del
-    gioco, perche' un esemplare non puo' essere stato incontrato prima che il gioco esistesse. Il
-    terzo e' che l'anno non superi quello corrente, perche' non puo' venire dal futuro.
+    La prima stesura di questa funzione controllava tre cose: che i tre byte formassero una data,
+    che l'anno non precedesse l'uscita di Rubino Omega e che non venisse dal futuro. Le ultime due
+    erano sbagliate e hanno rotto centosessantotto esemplari su un salvataggio che ne aveva pochi
+    di guasti, ed e' il difetto peggiore commesso su questo track perche' ha peggiorato cio' che
+    doveva riparare.
+
+    L'errore di ragionamento e' preciso e vale enunciarlo. La data di incontro appartiene al gioco
+    di origine e non al gioco che ospita l'esemplare: un Pokemon catturato in Diamante nel 2008 e
+    poi trasferito porta legittimamente il 2008, e imporgli l'anno di uscita di Rubino Omega
+    significa dichiarare impossibile una cosa che e' avvenuta. Nel salvataggio esaminato quasi
+    tutte le specie vengono da giochi anteriori, quindi la regola sbagliata colpiva la maggioranza.
+
+    Resta il solo controllo che non dipende da alcuna assunzione sul gioco: che mese e giorno
+    formino una data che esiste. Un mese zero o un giorno quaranta non sono una data in nessun
+    gioco e in nessun anno, e quello e' il difetto che i salvataggi trovati in rete portano
+    davvero.
     """
     if not 1 <= mese <= 12:
         return False
-    if not 1 <= giorno <= GIORNI_DEL_MESE[mese - 1]:
-        return False
-    return ANNO_MINIMO <= anno <= anno_massimo
+    return 1 <= giorno <= GIORNI_DEL_MESE[mese - 1]
 
 
 def geo_valida(geo):
@@ -337,8 +345,6 @@ def ripara(percorso, uscita, incontri=None, indietro=None):
     if len(dati) != DIM_ORAS:
         return None, ("la dimensione %d non e' quella di un salvataggio di Rubino Omega o "
                       "Zaffiro Alfa" % len(dati))
-    import datetime
-    anno_massimo = datetime.date.today().year - 2000
     conto = {"esaminati": 0, "geo": 0, "ev": 0, "data": 0, "incontro": 0, "intatti": 0,
              "per_preevoluzione": 0, "senza_incontro": []}
     for scatola in range(SCATOLE):
@@ -362,9 +368,13 @@ def ripara(percorso, uscita, incontri=None, indietro=None):
 
             anno, mese, giorno = (chiaro[OFF_MET_ANNO], chiaro[OFF_MET_MESE],
                                   chiaro[OFF_MET_GIORNO])
-            if not data_valida(anno, mese, giorno, anno_massimo):
-                (chiaro[OFF_MET_ANNO], chiaro[OFF_MET_MESE],
-                 chiaro[OFF_MET_GIORNO]) = DATA_PREDEFINITA
+            if not data_valida(anno, mese, giorno):
+                # L'anno si conserva quando e' un anno e non un byte qualunque, perche' e'
+                # l'unica parte della data che porti informazione sulla storia dell'esemplare:
+                # si riscrivono il mese e il giorno, che erano fuori dal calendario.
+                chiaro[OFF_MET_ANNO] = anno if 1 <= anno <= 99 else DATA_PREDEFINITA[0]
+                chiaro[OFF_MET_MESE] = DATA_PREDEFINITA[1]
+                chiaro[OFF_MET_GIORNO] = DATA_PREDEFINITA[2]
                 conto["data"] += 1
                 toccato = True
 
@@ -420,15 +430,17 @@ def self_test():
     prova("la riparazione punta sulle due statistiche piu' alte",
           [0, 252, 0, 0, 252, 6], riparato)
 
-    prova("una data del calendario dopo l'uscita e' valida", True,
-          data_valida(15, 6, 15, 26))
-    prova("il mese zero non e' una data", False, data_valida(15, 0, 15, 26))
-    prova("il giorno quaranta non e' una data", False, data_valida(15, 6, 40, 26))
-    prova("il 31 novembre non esiste", False, data_valida(15, 11, 31, 26))
-    prova("un anno anteriore all'uscita non e' valido", False, data_valida(5, 6, 15, 26))
-    prova("un anno futuro non e' valido", False, data_valida(30, 6, 15, 26))
+    prova("una data del calendario e' valida", True, data_valida(15, 6, 15))
+    prova("il mese zero non e' una data", False, data_valida(15, 0, 15))
+    prova("il giorno quaranta non e' una data", False, data_valida(15, 6, 40))
+    prova("il 31 novembre non esiste", False, data_valida(15, 11, 31))
+    # Le due prove che documentano il difetto corretto: un anno anteriore all'uscita di Rubino
+    # Omega e un anno alto restano validi, perche' la data appartiene al gioco di origine e non a
+    # quello che ospita l'esemplare. La regola che li rifiutava ha rotto centosessantotto voci.
+    prova("un anno anteriore all'uscita resta valido", True, data_valida(8, 6, 15))
+    prova("un anno alto resta valido", True, data_valida(30, 6, 15))
     prova("la data predefinita e' essa stessa valida", True,
-          data_valida(DATA_PREDEFINITA[0], DATA_PREDEFINITA[1], DATA_PREDEFINITA[2], 26))
+          data_valida(DATA_PREDEFINITA[0], DATA_PREDEFINITA[1], DATA_PREDEFINITA[2]))
 
     prova("cinque coppie vuote sono valide", True, geo_valida([0] * 10))
     prova("una coppia piena seguita da vuote e' valida", True,

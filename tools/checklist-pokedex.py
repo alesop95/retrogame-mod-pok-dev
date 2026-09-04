@@ -161,6 +161,14 @@ def fonti_disponibili(ace, esito_salvataggi):
                 continue
             etichetta = ("archivio esterno" if nome.lower().endswith(".zip")
                          else "salvataggio esterno")
+            # I censimenti di terza generazione numerano le specie con l'identificativo interno
+            # e vanno tradotti; quelli di sesta portano gia' il numero nazionale e dichiararlo
+            # con il campo `nazionali` evita di tradurre due volte, che darebbe specie
+            # sbagliate senza alcun segnale.
+            if censimento.get("nazionali"):
+                for naz in censimento["nazionali"]:
+                    aggiungi(int(naz), etichetta)
+                continue
             for interno in censimento.get("specie", {}):
                 naz = i2n.get(int(interno))
                 if naz:

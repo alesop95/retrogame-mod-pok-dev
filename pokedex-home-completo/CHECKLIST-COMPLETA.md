@@ -8,9 +8,9 @@ La colonna della via dice se quella voce si raggiunga da un titolo che parla al 
 
 ## Che cosa dice il conto
 
-Le voci di specie sono 1025. Di queste, 386 hanno già una fonte dentro il progetto e 639 non ne hanno ancora alcuna: quest'ultimo è il numero che misura la campagna, e l'unico che scende quando si lavora.
+Le voci di specie sono 1025. Di queste, 615 hanno già una fonte dentro il progetto e 410 non ne hanno ancora alcuna: quest'ultimo è il numero che misura la campagna, e l'unico che scende quando si lavora.
 
-La ripartizione per fonte, che non si somma perché una specie può avere più fonti, è la seguente. Da salvataggio esterno, 386 voci. Da archivio esterno, 385 voci. Da evento Gen 3 producibile, 59 voci.
+La ripartizione per fonte, che non si somma perché una specie può avere più fonti, è la seguente. Da salvataggio esterno, 615 voci. Da archivio esterno, 385 voci. Da evento Gen 3 producibile, 59 voci.
 
 Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fini del completamento è indeterminato: nessuna fonte di primo livello dichiara quali forme il deposito conti come casella separata. L'elenco le enumera e marca l'indeterminatezza invece di decidere, perché decidere sarebbe inventare.
 
@@ -406,339 +406,339 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-0386-00` | 386 | Deoxys | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
 | `PKD-0387-00` | 387 | Turtwig | diretta | nessuna |
 | `PKD-0388-00` | 388 | Grotle | diretta | nessuna |
-| `PKD-0389-00` | 389 | Torterra | diretta | nessuna |
+| `PKD-0389-00` | 389 | Torterra | diretta | salvataggio esterno |
 | `PKD-0390-00` | 390 | Chimchar | diretta | nessuna |
-| `PKD-0391-00` | 391 | Monferno | diretta | nessuna |
-| `PKD-0392-00` | 392 | Infernape | diretta | nessuna |
+| `PKD-0391-00` | 391 | Monferno | diretta | salvataggio esterno |
+| `PKD-0392-00` | 392 | Infernape | diretta | salvataggio esterno |
 | `PKD-0393-00` | 393 | Piplup | diretta | nessuna |
 | `PKD-0394-00` | 394 | Prinplup | diretta | nessuna |
-| `PKD-0395-00` | 395 | Empoleon | diretta | nessuna |
+| `PKD-0395-00` | 395 | Empoleon | diretta | salvataggio esterno |
 | `PKD-0396-00` | 396 | Starly | diretta | nessuna |
 | `PKD-0397-00` | 397 | Staravia | diretta | nessuna |
-| `PKD-0398-00` | 398 | Staraptor | diretta | nessuna |
+| `PKD-0398-00` | 398 | Staraptor | diretta | salvataggio esterno |
 | `PKD-0399-00` | 399 | Bidoof | diretta | nessuna |
-| `PKD-0400-00` | 400 | Bibarel | diretta | nessuna |
+| `PKD-0400-00` | 400 | Bibarel | diretta | salvataggio esterno |
 | `PKD-0401-00` | 401 | Kricketot | diretta | nessuna |
-| `PKD-0402-00` | 402 | Kricketune | diretta | nessuna |
-| `PKD-0403-00` | 403 | Shinx | diretta | nessuna |
-| `PKD-0404-00` | 404 | Luxio | diretta | nessuna |
-| `PKD-0405-00` | 405 | Luxray | diretta | nessuna |
+| `PKD-0402-00` | 402 | Kricketune | diretta | salvataggio esterno |
+| `PKD-0403-00` | 403 | Shinx | diretta | salvataggio esterno |
+| `PKD-0404-00` | 404 | Luxio | diretta | salvataggio esterno |
+| `PKD-0405-00` | 405 | Luxray | diretta | salvataggio esterno |
 | `PKD-0406-00` | 406 | Budew | diretta | nessuna |
-| `PKD-0407-00` | 407 | Roserade | diretta | nessuna |
-| `PKD-0408-00` | 408 | Cranidos | diretta | nessuna |
-| `PKD-0409-00` | 409 | Rampardos | diretta | nessuna |
+| `PKD-0407-00` | 407 | Roserade | diretta | salvataggio esterno |
+| `PKD-0408-00` | 408 | Cranidos | diretta | salvataggio esterno |
+| `PKD-0409-00` | 409 | Rampardos | diretta | salvataggio esterno |
 | `PKD-0410-00` | 410 | Shieldon | diretta | nessuna |
 | `PKD-0411-00` | 411 | Bastiodon | diretta | nessuna |
-| `PKD-0412-00` | 412 | Burmy | diretta | nessuna |
+| `PKD-0412-00` | 412 | Burmy | diretta | salvataggio esterno |
 | `PKD-0413-00` | 413 | Wormadam | diretta | nessuna |
-| `PKD-0414-00` | 414 | Mothim | diretta | nessuna |
-| `PKD-0415-00` | 415 | Combee | diretta | nessuna |
-| `PKD-0416-00` | 416 | Vespiquen | diretta | nessuna |
-| `PKD-0417-00` | 417 | Pachirisu | diretta | nessuna |
-| `PKD-0418-00` | 418 | Buizel | diretta | nessuna |
+| `PKD-0414-00` | 414 | Mothim | diretta | salvataggio esterno |
+| `PKD-0415-00` | 415 | Combee | diretta | salvataggio esterno |
+| `PKD-0416-00` | 416 | Vespiquen | diretta | salvataggio esterno |
+| `PKD-0417-00` | 417 | Pachirisu | diretta | salvataggio esterno |
+| `PKD-0418-00` | 418 | Buizel | diretta | salvataggio esterno |
 | `PKD-0419-00` | 419 | Floatzel | diretta | nessuna |
-| `PKD-0420-00` | 420 | Cherubi | diretta | nessuna |
+| `PKD-0420-00` | 420 | Cherubi | diretta | salvataggio esterno |
 | `PKD-0421-00` | 421 | Cherrim | diretta | nessuna |
 | `PKD-0422-00` | 422 | Shellos | diretta | nessuna |
-| `PKD-0423-00` | 423 | Gastrodon | diretta | nessuna |
-| `PKD-0424-00` | 424 | Ambipom | diretta | nessuna |
+| `PKD-0423-00` | 423 | Gastrodon | diretta | salvataggio esterno |
+| `PKD-0424-00` | 424 | Ambipom | diretta | salvataggio esterno |
 | `PKD-0425-00` | 425 | Drifloon | diretta | nessuna |
-| `PKD-0426-00` | 426 | Drifblim | diretta | nessuna |
+| `PKD-0426-00` | 426 | Drifblim | diretta | salvataggio esterno |
 | `PKD-0427-00` | 427 | Buneary | diretta | nessuna |
-| `PKD-0428-00` | 428 | Lopunny | diretta | nessuna |
-| `PKD-0429-00` | 429 | Mismagius | diretta | nessuna |
-| `PKD-0430-00` | 430 | Honchkrow | diretta | nessuna |
-| `PKD-0431-00` | 431 | Glameow | diretta | nessuna |
-| `PKD-0432-00` | 432 | Purugly | diretta | nessuna |
-| `PKD-0433-00` | 433 | Chingling | diretta | nessuna |
+| `PKD-0428-00` | 428 | Lopunny | diretta | salvataggio esterno |
+| `PKD-0429-00` | 429 | Mismagius | diretta | salvataggio esterno |
+| `PKD-0430-00` | 430 | Honchkrow | diretta | salvataggio esterno |
+| `PKD-0431-00` | 431 | Glameow | diretta | salvataggio esterno |
+| `PKD-0432-00` | 432 | Purugly | diretta | salvataggio esterno |
+| `PKD-0433-00` | 433 | Chingling | diretta | salvataggio esterno |
 | `PKD-0434-00` | 434 | Stunky | diretta | nessuna |
-| `PKD-0435-00` | 435 | Skuntank | diretta | nessuna |
-| `PKD-0436-00` | 436 | Bronzor | diretta | nessuna |
-| `PKD-0437-00` | 437 | Bronzong | diretta | nessuna |
+| `PKD-0435-00` | 435 | Skuntank | diretta | salvataggio esterno |
+| `PKD-0436-00` | 436 | Bronzor | diretta | salvataggio esterno |
+| `PKD-0437-00` | 437 | Bronzong | diretta | salvataggio esterno |
 | `PKD-0438-00` | 438 | Bonsly | diretta | nessuna |
-| `PKD-0439-00` | 439 | Mime Jr. | diretta | nessuna |
+| `PKD-0439-00` | 439 | Mime Jr. | diretta | salvataggio esterno |
 | `PKD-0440-00` | 440 | Happiny | diretta | nessuna |
-| `PKD-0441-00` | 441 | Chatot | diretta | nessuna |
-| `PKD-0442-00` | 442 | Spiritomb | diretta | nessuna |
-| `PKD-0443-00` | 443 | Gible | diretta | nessuna |
+| `PKD-0441-00` | 441 | Chatot | diretta | salvataggio esterno |
+| `PKD-0442-00` | 442 | Spiritomb | diretta | salvataggio esterno |
+| `PKD-0443-00` | 443 | Gible | diretta | salvataggio esterno |
 | `PKD-0444-00` | 444 | Gabite | diretta | nessuna |
-| `PKD-0445-00` | 445 | Garchomp | diretta | nessuna |
-| `PKD-0446-00` | 446 | Munchlax | diretta | nessuna |
-| `PKD-0447-00` | 447 | Riolu | diretta | nessuna |
-| `PKD-0448-00` | 448 | Lucario | diretta | nessuna |
-| `PKD-0449-00` | 449 | Hippopotas | diretta | nessuna |
-| `PKD-0450-00` | 450 | Hippowdon | diretta | nessuna |
+| `PKD-0445-00` | 445 | Garchomp | diretta | salvataggio esterno |
+| `PKD-0446-00` | 446 | Munchlax | diretta | salvataggio esterno |
+| `PKD-0447-00` | 447 | Riolu | diretta | salvataggio esterno |
+| `PKD-0448-00` | 448 | Lucario | diretta | salvataggio esterno |
+| `PKD-0449-00` | 449 | Hippopotas | diretta | salvataggio esterno |
+| `PKD-0450-00` | 450 | Hippowdon | diretta | salvataggio esterno |
 | `PKD-0451-00` | 451 | Skorupi | diretta | nessuna |
-| `PKD-0452-00` | 452 | Drapion | diretta | nessuna |
-| `PKD-0453-00` | 453 | Croagunk | diretta | nessuna |
-| `PKD-0454-00` | 454 | Toxicroak | diretta | nessuna |
-| `PKD-0455-00` | 455 | Carnivine | diretta | nessuna |
+| `PKD-0452-00` | 452 | Drapion | diretta | salvataggio esterno |
+| `PKD-0453-00` | 453 | Croagunk | diretta | salvataggio esterno |
+| `PKD-0454-00` | 454 | Toxicroak | diretta | salvataggio esterno |
+| `PKD-0455-00` | 455 | Carnivine | diretta | salvataggio esterno |
 | `PKD-0456-00` | 456 | Finneon | diretta | nessuna |
-| `PKD-0457-00` | 457 | Lumineon | diretta | nessuna |
-| `PKD-0458-00` | 458 | Mantyke | diretta | nessuna |
+| `PKD-0457-00` | 457 | Lumineon | diretta | salvataggio esterno |
+| `PKD-0458-00` | 458 | Mantyke | diretta | salvataggio esterno |
 | `PKD-0459-00` | 459 | Snover | diretta | nessuna |
-| `PKD-0460-00` | 460 | Abomasnow | diretta | nessuna |
-| `PKD-0461-00` | 461 | Weavile | diretta | nessuna |
-| `PKD-0462-00` | 462 | Magnezone | diretta | nessuna |
-| `PKD-0463-00` | 463 | Lickilicky | diretta | nessuna |
-| `PKD-0464-00` | 464 | Rhyperior | diretta | nessuna |
-| `PKD-0465-00` | 465 | Tangrowth | diretta | nessuna |
-| `PKD-0466-00` | 466 | Electivire | diretta | nessuna |
-| `PKD-0467-00` | 467 | Magmortar | diretta | nessuna |
-| `PKD-0468-00` | 468 | Togekiss | diretta | nessuna |
-| `PKD-0469-00` | 469 | Yanmega | diretta | nessuna |
-| `PKD-0470-00` | 470 | Leafeon | diretta | nessuna |
-| `PKD-0471-00` | 471 | Glaceon | diretta | nessuna |
-| `PKD-0472-00` | 472 | Gliscor | diretta | nessuna |
-| `PKD-0473-00` | 473 | Mamoswine | diretta | nessuna |
-| `PKD-0474-00` | 474 | Porygon-Z | diretta | nessuna |
+| `PKD-0460-00` | 460 | Abomasnow | diretta | salvataggio esterno |
+| `PKD-0461-00` | 461 | Weavile | diretta | salvataggio esterno |
+| `PKD-0462-00` | 462 | Magnezone | diretta | salvataggio esterno |
+| `PKD-0463-00` | 463 | Lickilicky | diretta | salvataggio esterno |
+| `PKD-0464-00` | 464 | Rhyperior | diretta | salvataggio esterno |
+| `PKD-0465-00` | 465 | Tangrowth | diretta | salvataggio esterno |
+| `PKD-0466-00` | 466 | Electivire | diretta | salvataggio esterno |
+| `PKD-0467-00` | 467 | Magmortar | diretta | salvataggio esterno |
+| `PKD-0468-00` | 468 | Togekiss | diretta | salvataggio esterno |
+| `PKD-0469-00` | 469 | Yanmega | diretta | salvataggio esterno |
+| `PKD-0470-00` | 470 | Leafeon | diretta | salvataggio esterno |
+| `PKD-0471-00` | 471 | Glaceon | diretta | salvataggio esterno |
+| `PKD-0472-00` | 472 | Gliscor | diretta | salvataggio esterno |
+| `PKD-0473-00` | 473 | Mamoswine | diretta | salvataggio esterno |
+| `PKD-0474-00` | 474 | Porygon-Z | diretta | salvataggio esterno |
 | `PKD-0475-00` | 475 | Gallade | diretta | nessuna |
-| `PKD-0476-00` | 476 | Probopass | diretta | nessuna |
-| `PKD-0477-00` | 477 | Dusknoir | diretta | nessuna |
-| `PKD-0478-00` | 478 | Froslass | diretta | nessuna |
-| `PKD-0479-00` | 479 | Rotom | diretta | nessuna |
-| `PKD-0480-00` | 480 | Uxie | diretta | nessuna |
-| `PKD-0481-00` | 481 | Mesprit | diretta | nessuna |
-| `PKD-0482-00` | 482 | Azelf | diretta | nessuna |
-| `PKD-0483-00` | 483 | Dialga | diretta | nessuna |
-| `PKD-0484-00` | 484 | Palkia | diretta | nessuna |
-| `PKD-0485-00` | 485 | Heatran | diretta | nessuna |
-| `PKD-0486-00` | 486 | Regigigas | diretta | nessuna |
-| `PKD-0487-00` | 487 | Giratina | diretta | nessuna |
-| `PKD-0488-00` | 488 | Cresselia | diretta | nessuna |
-| `PKD-0489-00` | 489 | Phione | diretta | nessuna |
-| `PKD-0490-00` | 490 | Manaphy | diretta | nessuna |
-| `PKD-0491-00` | 491 | Darkrai | diretta | nessuna |
-| `PKD-0492-00` | 492 | Shaymin | diretta | nessuna |
-| `PKD-0493-00` | 493 | Arceus | diretta | nessuna |
-| `PKD-0494-00` | 494 | Victini | diretta | nessuna |
+| `PKD-0476-00` | 476 | Probopass | diretta | salvataggio esterno |
+| `PKD-0477-00` | 477 | Dusknoir | diretta | salvataggio esterno |
+| `PKD-0478-00` | 478 | Froslass | diretta | salvataggio esterno |
+| `PKD-0479-00` | 479 | Rotom | diretta | salvataggio esterno |
+| `PKD-0480-00` | 480 | Uxie | diretta | salvataggio esterno |
+| `PKD-0481-00` | 481 | Mesprit | diretta | salvataggio esterno |
+| `PKD-0482-00` | 482 | Azelf | diretta | salvataggio esterno |
+| `PKD-0483-00` | 483 | Dialga | diretta | salvataggio esterno |
+| `PKD-0484-00` | 484 | Palkia | diretta | salvataggio esterno |
+| `PKD-0485-00` | 485 | Heatran | diretta | salvataggio esterno |
+| `PKD-0486-00` | 486 | Regigigas | diretta | salvataggio esterno |
+| `PKD-0487-00` | 487 | Giratina | diretta | salvataggio esterno |
+| `PKD-0488-00` | 488 | Cresselia | diretta | salvataggio esterno |
+| `PKD-0489-00` | 489 | Phione | diretta | salvataggio esterno |
+| `PKD-0490-00` | 490 | Manaphy | diretta | salvataggio esterno |
+| `PKD-0491-00` | 491 | Darkrai | diretta | salvataggio esterno |
+| `PKD-0492-00` | 492 | Shaymin | diretta | salvataggio esterno |
+| `PKD-0493-00` | 493 | Arceus | diretta | salvataggio esterno |
+| `PKD-0494-00` | 494 | Victini | diretta | salvataggio esterno |
 | `PKD-0495-00` | 495 | Snivy | diretta | nessuna |
-| `PKD-0496-00` | 496 | Servine | diretta | nessuna |
-| `PKD-0497-00` | 497 | Serperior | diretta | nessuna |
+| `PKD-0496-00` | 496 | Servine | diretta | salvataggio esterno |
+| `PKD-0497-00` | 497 | Serperior | diretta | salvataggio esterno |
 | `PKD-0498-00` | 498 | Tepig | diretta | nessuna |
-| `PKD-0499-00` | 499 | Pignite | diretta | nessuna |
-| `PKD-0500-00` | 500 | Emboar | diretta | nessuna |
+| `PKD-0499-00` | 499 | Pignite | diretta | salvataggio esterno |
+| `PKD-0500-00` | 500 | Emboar | diretta | salvataggio esterno |
 | `PKD-0501-00` | 501 | Oshawott | diretta | nessuna |
 | `PKD-0502-00` | 502 | Dewott | diretta | nessuna |
-| `PKD-0503-00` | 503 | Samurott | diretta | nessuna |
+| `PKD-0503-00` | 503 | Samurott | diretta | salvataggio esterno |
 | `PKD-0504-00` | 504 | Patrat | diretta | nessuna |
-| `PKD-0505-00` | 505 | Watchog | diretta | nessuna |
+| `PKD-0505-00` | 505 | Watchog | diretta | salvataggio esterno |
 | `PKD-0506-00` | 506 | Lillipup | diretta | nessuna |
 | `PKD-0507-00` | 507 | Herdier | diretta | nessuna |
-| `PKD-0508-00` | 508 | Stoutland | diretta | nessuna |
+| `PKD-0508-00` | 508 | Stoutland | diretta | salvataggio esterno |
 | `PKD-0509-00` | 509 | Purrloin | diretta | nessuna |
-| `PKD-0510-00` | 510 | Liepard | diretta | nessuna |
+| `PKD-0510-00` | 510 | Liepard | diretta | salvataggio esterno |
 | `PKD-0511-00` | 511 | Pansage | diretta | nessuna |
-| `PKD-0512-00` | 512 | Simisage | diretta | nessuna |
-| `PKD-0513-00` | 513 | Pansear | diretta | nessuna |
-| `PKD-0514-00` | 514 | Simisear | diretta | nessuna |
-| `PKD-0515-00` | 515 | Panpour | diretta | nessuna |
-| `PKD-0516-00` | 516 | Simipour | diretta | nessuna |
+| `PKD-0512-00` | 512 | Simisage | diretta | salvataggio esterno |
+| `PKD-0513-00` | 513 | Pansear | diretta | salvataggio esterno |
+| `PKD-0514-00` | 514 | Simisear | diretta | salvataggio esterno |
+| `PKD-0515-00` | 515 | Panpour | diretta | salvataggio esterno |
+| `PKD-0516-00` | 516 | Simipour | diretta | salvataggio esterno |
 | `PKD-0517-00` | 517 | Munna | diretta | nessuna |
-| `PKD-0518-00` | 518 | Musharna | diretta | nessuna |
+| `PKD-0518-00` | 518 | Musharna | diretta | salvataggio esterno |
 | `PKD-0519-00` | 519 | Pidove | diretta | nessuna |
 | `PKD-0520-00` | 520 | Tranquill | diretta | nessuna |
-| `PKD-0521-00` | 521 | Unfezant | diretta | nessuna |
-| `PKD-0522-00` | 522 | Blitzle | diretta | nessuna |
-| `PKD-0523-00` | 523 | Zebstrika | diretta | nessuna |
+| `PKD-0521-00` | 521 | Unfezant | diretta | salvataggio esterno |
+| `PKD-0522-00` | 522 | Blitzle | diretta | salvataggio esterno |
+| `PKD-0523-00` | 523 | Zebstrika | diretta | salvataggio esterno |
 | `PKD-0524-00` | 524 | Roggenrola | diretta | nessuna |
 | `PKD-0525-00` | 525 | Boldore | diretta | nessuna |
-| `PKD-0526-00` | 526 | Gigalith | diretta | nessuna |
-| `PKD-0527-00` | 527 | Woobat | diretta | nessuna |
-| `PKD-0528-00` | 528 | Swoobat | diretta | nessuna |
-| `PKD-0529-00` | 529 | Drilbur | diretta | nessuna |
-| `PKD-0530-00` | 530 | Excadrill | diretta | nessuna |
-| `PKD-0531-00` | 531 | Audino | diretta | nessuna |
+| `PKD-0526-00` | 526 | Gigalith | diretta | salvataggio esterno |
+| `PKD-0527-00` | 527 | Woobat | diretta | salvataggio esterno |
+| `PKD-0528-00` | 528 | Swoobat | diretta | salvataggio esterno |
+| `PKD-0529-00` | 529 | Drilbur | diretta | salvataggio esterno |
+| `PKD-0530-00` | 530 | Excadrill | diretta | salvataggio esterno |
+| `PKD-0531-00` | 531 | Audino | diretta | salvataggio esterno |
 | `PKD-0532-00` | 532 | Timburr | diretta | nessuna |
-| `PKD-0533-00` | 533 | Gurdurr | diretta | nessuna |
-| `PKD-0534-00` | 534 | Conkeldurr | diretta | nessuna |
+| `PKD-0533-00` | 533 | Gurdurr | diretta | salvataggio esterno |
+| `PKD-0534-00` | 534 | Conkeldurr | diretta | salvataggio esterno |
 | `PKD-0535-00` | 535 | Tympole | diretta | nessuna |
 | `PKD-0536-00` | 536 | Palpitoad | diretta | nessuna |
-| `PKD-0537-00` | 537 | Seismitoad | diretta | nessuna |
+| `PKD-0537-00` | 537 | Seismitoad | diretta | salvataggio esterno |
 | `PKD-0538-00` | 538 | Throh | diretta | nessuna |
-| `PKD-0539-00` | 539 | Sawk | diretta | nessuna |
+| `PKD-0539-00` | 539 | Sawk | diretta | salvataggio esterno |
 | `PKD-0540-00` | 540 | Sewaddle | diretta | nessuna |
 | `PKD-0541-00` | 541 | Swadloon | diretta | nessuna |
 | `PKD-0542-00` | 542 | Leavanny | diretta | nessuna |
 | `PKD-0543-00` | 543 | Venipede | diretta | nessuna |
-| `PKD-0544-00` | 544 | Whirlipede | diretta | nessuna |
-| `PKD-0545-00` | 545 | Scolipede | diretta | nessuna |
+| `PKD-0544-00` | 544 | Whirlipede | diretta | salvataggio esterno |
+| `PKD-0545-00` | 545 | Scolipede | diretta | salvataggio esterno |
 | `PKD-0546-00` | 546 | Cottonee | diretta | nessuna |
-| `PKD-0547-00` | 547 | Whimsicott | diretta | nessuna |
-| `PKD-0548-00` | 548 | Petilil | diretta | nessuna |
-| `PKD-0549-00` | 549 | Lilligant | diretta | nessuna |
-| `PKD-0550-00` | 550 | Basculin | diretta | nessuna |
+| `PKD-0547-00` | 547 | Whimsicott | diretta | salvataggio esterno |
+| `PKD-0548-00` | 548 | Petilil | diretta | salvataggio esterno |
+| `PKD-0549-00` | 549 | Lilligant | diretta | salvataggio esterno |
+| `PKD-0550-00` | 550 | Basculin | diretta | salvataggio esterno |
 | `PKD-0551-00` | 551 | Sandile | diretta | nessuna |
 | `PKD-0552-00` | 552 | Krokorok | diretta | nessuna |
-| `PKD-0553-00` | 553 | Krookodile | diretta | nessuna |
+| `PKD-0553-00` | 553 | Krookodile | diretta | salvataggio esterno |
 | `PKD-0554-00` | 554 | Darumaka | diretta | nessuna |
-| `PKD-0555-00` | 555 | Darmanitan | diretta | nessuna |
-| `PKD-0556-00` | 556 | Maractus | diretta | nessuna |
+| `PKD-0555-00` | 555 | Darmanitan | diretta | salvataggio esterno |
+| `PKD-0556-00` | 556 | Maractus | diretta | salvataggio esterno |
 | `PKD-0557-00` | 557 | Dwebble | diretta | nessuna |
-| `PKD-0558-00` | 558 | Crustle | diretta | nessuna |
+| `PKD-0558-00` | 558 | Crustle | diretta | salvataggio esterno |
 | `PKD-0559-00` | 559 | Scraggy | diretta | nessuna |
-| `PKD-0560-00` | 560 | Scrafty | diretta | nessuna |
-| `PKD-0561-00` | 561 | Sigilyph | diretta | nessuna |
-| `PKD-0562-00` | 562 | Yamask | diretta | nessuna |
-| `PKD-0563-00` | 563 | Cofagrigus | diretta | nessuna |
+| `PKD-0560-00` | 560 | Scrafty | diretta | salvataggio esterno |
+| `PKD-0561-00` | 561 | Sigilyph | diretta | salvataggio esterno |
+| `PKD-0562-00` | 562 | Yamask | diretta | salvataggio esterno |
+| `PKD-0563-00` | 563 | Cofagrigus | diretta | salvataggio esterno |
 | `PKD-0564-00` | 564 | Tirtouga | diretta | nessuna |
 | `PKD-0565-00` | 565 | Carracosta | diretta | nessuna |
 | `PKD-0566-00` | 566 | Archen | diretta | nessuna |
-| `PKD-0567-00` | 567 | Archeops | diretta | nessuna |
+| `PKD-0567-00` | 567 | Archeops | diretta | salvataggio esterno |
 | `PKD-0568-00` | 568 | Trubbish | diretta | nessuna |
-| `PKD-0569-00` | 569 | Garbodor | diretta | nessuna |
+| `PKD-0569-00` | 569 | Garbodor | diretta | salvataggio esterno |
 | `PKD-0570-00` | 570 | Zorua | diretta | nessuna |
-| `PKD-0571-00` | 571 | Zoroark | diretta | nessuna |
+| `PKD-0571-00` | 571 | Zoroark | diretta | salvataggio esterno |
 | `PKD-0572-00` | 572 | Minccino | diretta | nessuna |
-| `PKD-0573-00` | 573 | Cinccino | diretta | nessuna |
+| `PKD-0573-00` | 573 | Cinccino | diretta | salvataggio esterno |
 | `PKD-0574-00` | 574 | Gothita | diretta | nessuna |
 | `PKD-0575-00` | 575 | Gothorita | diretta | nessuna |
-| `PKD-0576-00` | 576 | Gothitelle | diretta | nessuna |
+| `PKD-0576-00` | 576 | Gothitelle | diretta | salvataggio esterno |
 | `PKD-0577-00` | 577 | Solosis | diretta | nessuna |
 | `PKD-0578-00` | 578 | Duosion | diretta | nessuna |
-| `PKD-0579-00` | 579 | Reuniclus | diretta | nessuna |
-| `PKD-0580-00` | 580 | Ducklett | diretta | nessuna |
+| `PKD-0579-00` | 579 | Reuniclus | diretta | salvataggio esterno |
+| `PKD-0580-00` | 580 | Ducklett | diretta | salvataggio esterno |
 | `PKD-0581-00` | 581 | Swanna | diretta | nessuna |
 | `PKD-0582-00` | 582 | Vanillite | diretta | nessuna |
 | `PKD-0583-00` | 583 | Vanillish | diretta | nessuna |
-| `PKD-0584-00` | 584 | Vanilluxe | diretta | nessuna |
+| `PKD-0584-00` | 584 | Vanilluxe | diretta | salvataggio esterno |
 | `PKD-0585-00` | 585 | Deerling | diretta | nessuna |
-| `PKD-0586-00` | 586 | Sawsbuck | diretta | nessuna |
-| `PKD-0587-00` | 587 | Emolga | diretta | nessuna |
-| `PKD-0588-00` | 588 | Karrablast | diretta | nessuna |
-| `PKD-0589-00` | 589 | Escavalier | diretta | nessuna |
+| `PKD-0586-00` | 586 | Sawsbuck | diretta | salvataggio esterno |
+| `PKD-0587-00` | 587 | Emolga | diretta | salvataggio esterno |
+| `PKD-0588-00` | 588 | Karrablast | diretta | salvataggio esterno |
+| `PKD-0589-00` | 589 | Escavalier | diretta | salvataggio esterno |
 | `PKD-0590-00` | 590 | Foongus | diretta | nessuna |
-| `PKD-0591-00` | 591 | Amoonguss | diretta | nessuna |
+| `PKD-0591-00` | 591 | Amoonguss | diretta | salvataggio esterno |
 | `PKD-0592-00` | 592 | Frillish | diretta | nessuna |
-| `PKD-0593-00` | 593 | Jellicent | diretta | nessuna |
-| `PKD-0594-00` | 594 | Alomomola | diretta | nessuna |
+| `PKD-0593-00` | 593 | Jellicent | diretta | salvataggio esterno |
+| `PKD-0594-00` | 594 | Alomomola | diretta | salvataggio esterno |
 | `PKD-0595-00` | 595 | Joltik | diretta | nessuna |
-| `PKD-0596-00` | 596 | Galvantula | diretta | nessuna |
-| `PKD-0597-00` | 597 | Ferroseed | diretta | nessuna |
-| `PKD-0598-00` | 598 | Ferrothorn | diretta | nessuna |
+| `PKD-0596-00` | 596 | Galvantula | diretta | salvataggio esterno |
+| `PKD-0597-00` | 597 | Ferroseed | diretta | salvataggio esterno |
+| `PKD-0598-00` | 598 | Ferrothorn | diretta | salvataggio esterno |
 | `PKD-0599-00` | 599 | Klink | diretta | nessuna |
 | `PKD-0600-00` | 600 | Klang | diretta | nessuna |
-| `PKD-0601-00` | 601 | Klinklang | diretta | nessuna |
+| `PKD-0601-00` | 601 | Klinklang | diretta | salvataggio esterno |
 | `PKD-0602-00` | 602 | Tynamo | diretta | nessuna |
 | `PKD-0603-00` | 603 | Eelektrik | diretta | nessuna |
-| `PKD-0604-00` | 604 | Eelektross | diretta | nessuna |
+| `PKD-0604-00` | 604 | Eelektross | diretta | salvataggio esterno |
 | `PKD-0605-00` | 605 | Elgyem | diretta | nessuna |
-| `PKD-0606-00` | 606 | Beheeyem | diretta | nessuna |
+| `PKD-0606-00` | 606 | Beheeyem | diretta | salvataggio esterno |
 | `PKD-0607-00` | 607 | Litwick | diretta | nessuna |
-| `PKD-0608-00` | 608 | Lampent | diretta | nessuna |
+| `PKD-0608-00` | 608 | Lampent | diretta | salvataggio esterno |
 | `PKD-0609-00` | 609 | Chandelure | diretta | nessuna |
 | `PKD-0610-00` | 610 | Axew | diretta | nessuna |
-| `PKD-0611-00` | 611 | Fraxure | diretta | nessuna |
-| `PKD-0612-00` | 612 | Haxorus | diretta | nessuna |
+| `PKD-0611-00` | 611 | Fraxure | diretta | salvataggio esterno |
+| `PKD-0612-00` | 612 | Haxorus | diretta | salvataggio esterno |
 | `PKD-0613-00` | 613 | Cubchoo | diretta | nessuna |
-| `PKD-0614-00` | 614 | Beartic | diretta | nessuna |
-| `PKD-0615-00` | 615 | Cryogonal | diretta | nessuna |
-| `PKD-0616-00` | 616 | Shelmet | diretta | nessuna |
-| `PKD-0617-00` | 617 | Accelgor | diretta | nessuna |
-| `PKD-0618-00` | 618 | Stunfisk | diretta | nessuna |
+| `PKD-0614-00` | 614 | Beartic | diretta | salvataggio esterno |
+| `PKD-0615-00` | 615 | Cryogonal | diretta | salvataggio esterno |
+| `PKD-0616-00` | 616 | Shelmet | diretta | salvataggio esterno |
+| `PKD-0617-00` | 617 | Accelgor | diretta | salvataggio esterno |
+| `PKD-0618-00` | 618 | Stunfisk | diretta | salvataggio esterno |
 | `PKD-0619-00` | 619 | Mienfoo | diretta | nessuna |
-| `PKD-0620-00` | 620 | Mienshao | diretta | nessuna |
-| `PKD-0621-00` | 621 | Druddigon | diretta | nessuna |
-| `PKD-0622-00` | 622 | Golett | diretta | nessuna |
-| `PKD-0623-00` | 623 | Golurk | diretta | nessuna |
-| `PKD-0624-00` | 624 | Pawniard | diretta | nessuna |
-| `PKD-0625-00` | 625 | Bisharp | diretta | nessuna |
+| `PKD-0620-00` | 620 | Mienshao | diretta | salvataggio esterno |
+| `PKD-0621-00` | 621 | Druddigon | diretta | salvataggio esterno |
+| `PKD-0622-00` | 622 | Golett | diretta | salvataggio esterno |
+| `PKD-0623-00` | 623 | Golurk | diretta | salvataggio esterno |
+| `PKD-0624-00` | 624 | Pawniard | diretta | salvataggio esterno |
+| `PKD-0625-00` | 625 | Bisharp | diretta | salvataggio esterno |
 | `PKD-0626-00` | 626 | Bouffalant | diretta | nessuna |
 | `PKD-0627-00` | 627 | Rufflet | diretta | nessuna |
-| `PKD-0628-00` | 628 | Braviary | diretta | nessuna |
-| `PKD-0629-00` | 629 | Vullaby | diretta | nessuna |
+| `PKD-0628-00` | 628 | Braviary | diretta | salvataggio esterno |
+| `PKD-0629-00` | 629 | Vullaby | diretta | salvataggio esterno |
 | `PKD-0630-00` | 630 | Mandibuzz | diretta | nessuna |
-| `PKD-0631-00` | 631 | Heatmor | diretta | nessuna |
-| `PKD-0632-00` | 632 | Durant | diretta | nessuna |
-| `PKD-0633-00` | 633 | Deino | diretta | nessuna |
+| `PKD-0631-00` | 631 | Heatmor | diretta | salvataggio esterno |
+| `PKD-0632-00` | 632 | Durant | diretta | salvataggio esterno |
+| `PKD-0633-00` | 633 | Deino | diretta | salvataggio esterno |
 | `PKD-0634-00` | 634 | Zweilous | diretta | nessuna |
-| `PKD-0635-00` | 635 | Hydreigon | diretta | nessuna |
+| `PKD-0635-00` | 635 | Hydreigon | diretta | salvataggio esterno |
 | `PKD-0636-00` | 636 | Larvesta | diretta | nessuna |
-| `PKD-0637-00` | 637 | Volcarona | diretta | nessuna |
-| `PKD-0638-00` | 638 | Cobalion | diretta | nessuna |
+| `PKD-0637-00` | 637 | Volcarona | diretta | salvataggio esterno |
+| `PKD-0638-00` | 638 | Cobalion | diretta | salvataggio esterno |
 | `PKD-0639-00` | 639 | Terrakion | diretta | nessuna |
-| `PKD-0640-00` | 640 | Virizion | diretta | nessuna |
-| `PKD-0641-00` | 641 | Tornadus | diretta | nessuna |
-| `PKD-0642-00` | 642 | Thundurus | diretta | nessuna |
-| `PKD-0643-00` | 643 | Reshiram | diretta | nessuna |
-| `PKD-0644-00` | 644 | Zekrom | diretta | nessuna |
-| `PKD-0645-00` | 645 | Landorus | diretta | nessuna |
-| `PKD-0646-00` | 646 | Kyurem | diretta | nessuna |
+| `PKD-0640-00` | 640 | Virizion | diretta | salvataggio esterno |
+| `PKD-0641-00` | 641 | Tornadus | diretta | salvataggio esterno |
+| `PKD-0642-00` | 642 | Thundurus | diretta | salvataggio esterno |
+| `PKD-0643-00` | 643 | Reshiram | diretta | salvataggio esterno |
+| `PKD-0644-00` | 644 | Zekrom | diretta | salvataggio esterno |
+| `PKD-0645-00` | 645 | Landorus | diretta | salvataggio esterno |
+| `PKD-0646-00` | 646 | Kyurem | diretta | salvataggio esterno |
 | `PKD-0647-00` | 647 | Keldeo | diretta | nessuna |
-| `PKD-0648-00` | 648 | Meloetta | diretta | nessuna |
-| `PKD-0649-00` | 649 | Genesect | diretta | nessuna |
+| `PKD-0648-00` | 648 | Meloetta | diretta | salvataggio esterno |
+| `PKD-0649-00` | 649 | Genesect | diretta | salvataggio esterno |
 | `PKD-0650-00` | 650 | Chespin | diretta | nessuna |
-| `PKD-0651-00` | 651 | Quilladin | diretta | nessuna |
-| `PKD-0652-00` | 652 | Chesnaught | diretta | nessuna |
+| `PKD-0651-00` | 651 | Quilladin | diretta | salvataggio esterno |
+| `PKD-0652-00` | 652 | Chesnaught | diretta | salvataggio esterno |
 | `PKD-0653-00` | 653 | Fennekin | diretta | nessuna |
 | `PKD-0654-00` | 654 | Braixen | diretta | nessuna |
-| `PKD-0655-00` | 655 | Delphox | diretta | nessuna |
+| `PKD-0655-00` | 655 | Delphox | diretta | salvataggio esterno |
 | `PKD-0656-00` | 656 | Froakie | diretta | nessuna |
 | `PKD-0657-00` | 657 | Frogadier | diretta | nessuna |
-| `PKD-0658-00` | 658 | Greninja | diretta | nessuna |
-| `PKD-0659-00` | 659 | Bunnelby | diretta | nessuna |
-| `PKD-0660-00` | 660 | Diggersby | diretta | nessuna |
+| `PKD-0658-00` | 658 | Greninja | diretta | salvataggio esterno |
+| `PKD-0659-00` | 659 | Bunnelby | diretta | salvataggio esterno |
+| `PKD-0660-00` | 660 | Diggersby | diretta | salvataggio esterno |
 | `PKD-0661-00` | 661 | Fletchling | diretta | nessuna |
-| `PKD-0662-00` | 662 | Fletchinder | diretta | nessuna |
-| `PKD-0663-00` | 663 | Talonflame | diretta | nessuna |
+| `PKD-0662-00` | 662 | Fletchinder | diretta | salvataggio esterno |
+| `PKD-0663-00` | 663 | Talonflame | diretta | salvataggio esterno |
 | `PKD-0664-00` | 664 | Scatterbug | diretta | nessuna |
-| `PKD-0665-00` | 665 | Spewpa | diretta | nessuna |
-| `PKD-0666-00` | 666 | Vivillon | diretta | nessuna |
+| `PKD-0665-00` | 665 | Spewpa | diretta | salvataggio esterno |
+| `PKD-0666-00` | 666 | Vivillon | diretta | salvataggio esterno |
 | `PKD-0667-00` | 667 | Litleo | diretta | nessuna |
-| `PKD-0668-00` | 668 | Pyroar | diretta | nessuna |
+| `PKD-0668-00` | 668 | Pyroar | diretta | salvataggio esterno |
 | `PKD-0669-00` | 669 | Flabébé | diretta | nessuna |
-| `PKD-0670-00` | 670 | Floette | diretta | nessuna |
-| `PKD-0671-00` | 671 | Florges | diretta | nessuna |
-| `PKD-0672-00` | 672 | Skiddo | diretta | nessuna |
-| `PKD-0673-00` | 673 | Gogoat | diretta | nessuna |
+| `PKD-0670-00` | 670 | Floette | diretta | salvataggio esterno |
+| `PKD-0671-00` | 671 | Florges | diretta | salvataggio esterno |
+| `PKD-0672-00` | 672 | Skiddo | diretta | salvataggio esterno |
+| `PKD-0673-00` | 673 | Gogoat | diretta | salvataggio esterno |
 | `PKD-0674-00` | 674 | Pancham | diretta | nessuna |
-| `PKD-0675-00` | 675 | Pangoro | diretta | nessuna |
-| `PKD-0676-00` | 676 | Furfrou | diretta | nessuna |
-| `PKD-0677-00` | 677 | Espurr | diretta | nessuna |
-| `PKD-0678-00` | 678 | Meowstic | diretta | nessuna |
+| `PKD-0675-00` | 675 | Pangoro | diretta | salvataggio esterno |
+| `PKD-0676-00` | 676 | Furfrou | diretta | salvataggio esterno |
+| `PKD-0677-00` | 677 | Espurr | diretta | salvataggio esterno |
+| `PKD-0678-00` | 678 | Meowstic | diretta | salvataggio esterno |
 | `PKD-0679-00` | 679 | Honedge | diretta | nessuna |
-| `PKD-0680-00` | 680 | Doublade | diretta | nessuna |
-| `PKD-0681-00` | 681 | Aegislash | diretta | nessuna |
-| `PKD-0682-00` | 682 | Spritzee | diretta | nessuna |
-| `PKD-0683-00` | 683 | Aromatisse | diretta | nessuna |
-| `PKD-0684-00` | 684 | Swirlix | diretta | nessuna |
-| `PKD-0685-00` | 685 | Slurpuff | diretta | nessuna |
+| `PKD-0680-00` | 680 | Doublade | diretta | salvataggio esterno |
+| `PKD-0681-00` | 681 | Aegislash | diretta | salvataggio esterno |
+| `PKD-0682-00` | 682 | Spritzee | diretta | salvataggio esterno |
+| `PKD-0683-00` | 683 | Aromatisse | diretta | salvataggio esterno |
+| `PKD-0684-00` | 684 | Swirlix | diretta | salvataggio esterno |
+| `PKD-0685-00` | 685 | Slurpuff | diretta | salvataggio esterno |
 | `PKD-0686-00` | 686 | Inkay | diretta | nessuna |
-| `PKD-0687-00` | 687 | Malamar | diretta | nessuna |
+| `PKD-0687-00` | 687 | Malamar | diretta | salvataggio esterno |
 | `PKD-0688-00` | 688 | Binacle | diretta | nessuna |
-| `PKD-0689-00` | 689 | Barbaracle | diretta | nessuna |
+| `PKD-0689-00` | 689 | Barbaracle | diretta | salvataggio esterno |
 | `PKD-0690-00` | 690 | Skrelp | diretta | nessuna |
-| `PKD-0691-00` | 691 | Dragalge | diretta | nessuna |
+| `PKD-0691-00` | 691 | Dragalge | diretta | salvataggio esterno |
 | `PKD-0692-00` | 692 | Clauncher | diretta | nessuna |
-| `PKD-0693-00` | 693 | Clawitzer | diretta | nessuna |
-| `PKD-0694-00` | 694 | Helioptile | diretta | nessuna |
-| `PKD-0695-00` | 695 | Heliolisk | diretta | nessuna |
-| `PKD-0696-00` | 696 | Tyrunt | diretta | nessuna |
-| `PKD-0697-00` | 697 | Tyrantrum | diretta | nessuna |
-| `PKD-0698-00` | 698 | Amaura | diretta | nessuna |
-| `PKD-0699-00` | 699 | Aurorus | diretta | nessuna |
-| `PKD-0700-00` | 700 | Sylveon | diretta | nessuna |
-| `PKD-0701-00` | 701 | Hawlucha | diretta | nessuna |
-| `PKD-0702-00` | 702 | Dedenne | diretta | nessuna |
-| `PKD-0703-00` | 703 | Carbink | diretta | nessuna |
+| `PKD-0693-00` | 693 | Clawitzer | diretta | salvataggio esterno |
+| `PKD-0694-00` | 694 | Helioptile | diretta | salvataggio esterno |
+| `PKD-0695-00` | 695 | Heliolisk | diretta | salvataggio esterno |
+| `PKD-0696-00` | 696 | Tyrunt | diretta | salvataggio esterno |
+| `PKD-0697-00` | 697 | Tyrantrum | diretta | salvataggio esterno |
+| `PKD-0698-00` | 698 | Amaura | diretta | salvataggio esterno |
+| `PKD-0699-00` | 699 | Aurorus | diretta | salvataggio esterno |
+| `PKD-0700-00` | 700 | Sylveon | diretta | salvataggio esterno |
+| `PKD-0701-00` | 701 | Hawlucha | diretta | salvataggio esterno |
+| `PKD-0702-00` | 702 | Dedenne | diretta | salvataggio esterno |
+| `PKD-0703-00` | 703 | Carbink | diretta | salvataggio esterno |
 | `PKD-0704-00` | 704 | Goomy | diretta | nessuna |
-| `PKD-0705-00` | 705 | Sliggoo | diretta | nessuna |
-| `PKD-0706-00` | 706 | Goodra | diretta | nessuna |
-| `PKD-0707-00` | 707 | Klefki | diretta | nessuna |
+| `PKD-0705-00` | 705 | Sliggoo | diretta | salvataggio esterno |
+| `PKD-0706-00` | 706 | Goodra | diretta | salvataggio esterno |
+| `PKD-0707-00` | 707 | Klefki | diretta | salvataggio esterno |
 | `PKD-0708-00` | 708 | Phantump | diretta | nessuna |
-| `PKD-0709-00` | 709 | Trevenant | diretta | nessuna |
-| `PKD-0710-00` | 710 | Pumpkaboo | diretta | nessuna |
-| `PKD-0711-00` | 711 | Gourgeist | diretta | nessuna |
+| `PKD-0709-00` | 709 | Trevenant | diretta | salvataggio esterno |
+| `PKD-0710-00` | 710 | Pumpkaboo | diretta | salvataggio esterno |
+| `PKD-0711-00` | 711 | Gourgeist | diretta | salvataggio esterno |
 | `PKD-0712-00` | 712 | Bergmite | diretta | nessuna |
-| `PKD-0713-00` | 713 | Avalugg | diretta | nessuna |
-| `PKD-0714-00` | 714 | Noibat | diretta | nessuna |
-| `PKD-0715-00` | 715 | Noivern | diretta | nessuna |
-| `PKD-0716-00` | 716 | Xerneas | diretta | nessuna |
-| `PKD-0717-00` | 717 | Yveltal | diretta | nessuna |
-| `PKD-0718-00` | 718 | Zygarde | diretta | nessuna |
-| `PKD-0719-00` | 719 | Diancie | diretta | nessuna |
-| `PKD-0720-00` | 720 | Hoopa | diretta | nessuna |
-| `PKD-0721-00` | 721 | Volcanion | diretta | nessuna |
+| `PKD-0713-00` | 713 | Avalugg | diretta | salvataggio esterno |
+| `PKD-0714-00` | 714 | Noibat | diretta | salvataggio esterno |
+| `PKD-0715-00` | 715 | Noivern | diretta | salvataggio esterno |
+| `PKD-0716-00` | 716 | Xerneas | diretta | salvataggio esterno |
+| `PKD-0717-00` | 717 | Yveltal | diretta | salvataggio esterno |
+| `PKD-0718-00` | 718 | Zygarde | diretta | salvataggio esterno |
+| `PKD-0719-00` | 719 | Diancie | diretta | salvataggio esterno |
+| `PKD-0720-00` | 720 | Hoopa | diretta | salvataggio esterno |
+| `PKD-0721-00` | 721 | Volcanion | diretta | salvataggio esterno |
 | `PKD-0722-00` | 722 | Rowlet | diretta | nessuna |
 | `PKD-0723-00` | 723 | Dartrix | diretta | nessuna |
 | `PKD-0724-00` | 724 | Decidueye | diretta | nessuna |

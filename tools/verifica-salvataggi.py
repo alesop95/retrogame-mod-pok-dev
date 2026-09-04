@@ -478,6 +478,57 @@ def analizza_nds(dati):
 # Generazione 6 e 7, e Pokemon Box
 # ---------------------------------------------------------------------------------------------
 
+DIM_ORAS = 0x76000
+
+
+def censisci_deposito_gen6(dati):
+    """Il censimento del deposito di un salvataggio di Rubino Omega o Zaffiro Alpha.
+
+    Esiste perche' il salvataggio migliore della raccolta e' di quella famiglia e porta
+    quattrocentoventi specie che il progetto non ha da nessun'altra parte: finche' questo
+    programma lo riconosceva senza aprirlo, quelle quattrocentoventi restavano invisibili alla
+    lista di spunta e il conto della campagna era piu' alto del vero.
+
+    La lettura appartiene a `tools/leggi-deposito-gen6.py` e qui si invoca, che e' la regola che
+    questo progetto si e' dato dopo il difetto della lettura dei titoli riscritta invece che
+    chiamata.
+
+    Va detto che cosa questo censimento non stabilisce: la legittimita'. Esso dice quali specie
+    stanno nelle scatole, non quali di esse il verificatore accetti, e le due grandezze
+    differiscono di molto su un salvataggio trovato in rete. Il numero da usare per la campagna
+    e' il secondo, e viene dal verificatore e non da qui.
+    """
+    if len(dati) != DIM_ORAS:
+        return None
+    import importlib.util
+    percorso = os.path.join(RADICE, "tools", "leggi-deposito-gen6.py")
+    if not os.path.exists(percorso):
+        return None
+    spec = importlib.util.spec_from_file_location("g6lettore", percorso)
+    lettore = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(lettore)
+    import struct as _struct
+    occupate, specie = 0, {}
+    for scatola in range(lettore.SCATOLE):
+        for posizione in range(lettore.POSIZIONI):
+            off = (lettore.OFF_DEPOSITO
+                   + (scatola * lettore.POSIZIONI + posizione) * lettore.DIM_STORED)
+            grezzo = dati[off:off + lettore.DIM_STORED]
+            if len(grezzo) < lettore.DIM_STORED or not any(grezzo):
+                continue
+            chiaro = lettore.decifra(grezzo)
+            sp = _struct.unpack_from("<H", chiaro, lettore.OFF_SPECIE)[0]
+            if not 1 <= sp <= lettore.MAX_SPECIE:
+                continue
+            occupate += 1
+            specie[sp] = specie.get(sp, 0) + 1
+    if not occupate:
+        return None
+    return {"occupate": occupate, "specie": specie, "nazionali": sorted(specie),
+            "nota": "in sesta generazione il numero della specie e' gia' quello nazionale, "
+                    "quindi non serve alcuna corrispondenza"}
+
+
 def analizza_tre_ds(dati):
     """La firma di coda comune ai salvataggi decifrati di Nintendo 3DS, HasSaveFooterBEEF.
 
@@ -783,6 +834,10 @@ def analizza(percorso, gen3, tabella, censimento):
         esito = analizza_gen12(dati)
     elif dimensione in [d for _n, d in TRE_DS_CANDIDATI]:
         esito = analizza_tre_ds(dati)
+        if esito.get("valido") and censimento:
+            deposito = censisci_deposito_gen6(dati)
+            if deposito is not None:
+                esito["deposito"] = deposito
     else:
         esito = {"famiglia": "non riconosciuta", "valido": False,
                  "ragione": "la dimensione %d non corrisponde a nessuna famiglia nota" % dimensione}
@@ -934,10 +989,18 @@ def stampa(nome, esito, interno_verso_nazionale):
             print("      deposito: sezioni mancanti, non censito")
         else:
             distinte = len(d["specie"])
-            print("      deposito: %d posizioni occupate, %d specie distinte, %d cromatici, "
-                  "%d uova, %d strutture rifiutate"
-                  % (d["occupate"], distinte, d["cromatici"], d["uova"], d["difettosi"]))
-            if interno_verso_nazionale:
+            if "cromatici" in d:
+                print("      deposito: %d posizioni occupate, %d specie distinte, %d cromatici, "
+                      "%d uova, %d strutture rifiutate"
+                      % (d["occupate"], distinte, d["cromatici"], d["uova"], d["difettosi"]))
+            else:
+                # Il censimento di sesta generazione non porta le tre grandezze di terza, e la
+                # differenza non e' una lacuna: la cromaticita' e le uova si leggono con campi che
+                # quel formato colloca altrove, e contarli qui significherebbe leggerli male. La
+                # riga dice quindi cio' che il censimento stabilisce davvero.
+                print("      deposito: %d posizioni occupate, %d specie distinte, gia' in "
+                      "numerazione nazionale" % (d["occupate"], distinte))
+            if interno_verso_nazionale and "nazionali" not in d:
                 nazionali = sorted({interno_verso_nazionale[i] for i in d["specie"]
                                     if i in interno_verso_nazionale})
                 senza = [i for i in d["specie"] if i not in interno_verso_nazionale]
