@@ -169,6 +169,20 @@
    ],
    "lotto": "gen3",
    "copre": "tutti"
+  },
+  {
+   "file": "tutti i 172 esemplari del lotto di terza generazione dopo l'adozione dell'allenatore del progetto, lettura di massa nelle sei scatole",
+   "lotto": "gen3",
+   "copre": "tutti",
+   "data": "2026-09-04",
+   "esito": "conforme",
+   "rilievi": [],
+   "conferme": [
+    "il lotto rigenerato con Alessio e identificativo 42317 e' stato caricato nelle sei scatole di un salvataggio vuoto di terza generazione e nessuna posizione porta il contrassegno di non conformita': la voce 'da rifare' registrata poche ore prima e' quindi chiusa con esito positivo",
+    "il timore che motivava la richiesta era fondato ma non si e' realizzato: l'identificativo entra nel calcolo della lucentezza, quindi cambiarlo poteva rendere cromatico un esemplare che non lo era, e il generatore cerca il seme dopo avere fissato gli identificativi, cosicche' il vincolo di lucentezza dichiarato dalla tabella resta soddisfatto anche con la coppia nuova",
+    "una lettura mostra il dettaglio di uno Zigzagoon cromatico con tipo di incontro Event Gift, tipo PID BACD_S nella variante BACD_RBCD e seme di origine 00000005: il verificatore riconosce quindi non soltanto la legittimita' ma anche il metodo di generazione, che e' la prova piu' forte che il generatore ricostruisca il procedimento e non soltanto il risultato",
+    "le venticinque voci che portano l'allenatore del progetto sono quelle che la tabella dichiara consegnate al ricevente, dalla 133 alla 157 comprese, e le altre conservano il proprio allenatore storico: il file 000 porta MYSTRY con identificativo 6930 e il file 133 porta Alessio con 42317"
+   ]
   }
  ]
 }
