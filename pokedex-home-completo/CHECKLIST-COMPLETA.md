@@ -8,9 +8,9 @@ La colonna della via dice se quella voce si raggiunga da un titolo che parla al 
 
 ## Che cosa dice il conto
 
-Le voci di specie sono 1025. Di queste, 385 hanno già una fonte dentro il progetto e 640 non ne hanno ancora alcuna: quest'ultimo è il numero che misura la campagna, e l'unico che scende quando si lavora.
+Le voci di specie sono 1025. Di queste, 386 hanno già una fonte dentro il progetto e 639 non ne hanno ancora alcuna: quest'ultimo è il numero che misura la campagna, e l'unico che scende quando si lavora.
 
-La ripartizione per fonte, che non si somma perché una specie può avere più fonti, è la seguente. Da salvataggio esterno, 385 voci. Da archivio esterno, 385 voci. Da evento Gen 3 producibile, 59 voci.
+La ripartizione per fonte, che non si somma perché una specie può avere più fonti, è la seguente. Da salvataggio esterno, 386 voci. Da archivio esterno, 385 voci. Da evento Gen 3 producibile, 59 voci.
 
 Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fini del completamento è indeterminato: nessuna fonte di primo livello dichiara quali forme il deposito conti come casella separata. L'elenco le enumera e marca l'indeterminatezza invece di decidere, perché decidere sarebbe inventare.
 
@@ -278,7 +278,7 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-0258-00` | 258 | Mudkip | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0259-00` | 259 | Marshtomp | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0260-00` | 260 | Swampert | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0261-00` | 261 | Poochyena | diretta | nessuna |
+| `PKD-0261-00` | 261 | Poochyena | diretta | salvataggio esterno |
 | `PKD-0262-00` | 262 | Mightyena | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0263-00` | 263 | Zigzagoon | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
 | `PKD-0264-00` | 264 | Linoone | diretta | salvataggio esterno, archivio esterno |
