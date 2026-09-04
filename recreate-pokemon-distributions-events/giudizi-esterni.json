@@ -1,134 +1,147 @@
 {
-  "formato": 1,
-  "nota": "Registro dei giudizi del verificatore di conformità esterno sugli esemplari prodotti da questo progetto. È autorato e non generato: ciascuna voce è il resoconto di una prova eseguita da una persona, che ha aperto un file con il verificatore e ne ha letto l'esito. Serve a due cose. La prima è non ripetere una prova già fatta, perché ciascuna costa tempo umano. La seconda, meno ovvia e più importante, è misurare che cosa la verifica copra: sette esemplari giudicati su centoventidue prodotti non dicono nulla da soli, mentre sapere quante delle dimensioni lungo cui gli esemplari differiscono siano state toccate dice esattamente dove resta il rischio. Lo strumento `tools/copertura-verifica.py` calcola quella misura da questo file e dalla tabella del verificatore.",
-  "verificatore": {
-    "nome": "PKHeX",
-    "versione": "26.08.26",
-    "come": "il file viene passato al programma all'avvio, cosicché esso costruisca da sé un salvataggio vuoto della generazione dell'esemplare; il verdetto si legge dal rapporto completo di legittimità e non dal riquadro informativo, che mostra una sola riga di contestazione e fa quindi sembrare un difetto solo un esemplare che ne ha due"
+ "formato": 1,
+ "nota": "Registro dei giudizi del verificatore di conformità esterno sugli esemplari prodotti da questo progetto. È autorato e non generato: ciascuna voce è il resoconto di una prova eseguita da una persona, che ha aperto un file con il verificatore e ne ha letto l'esito. Serve a due cose. La prima è non ripetere una prova già fatta, perché ciascuna costa tempo umano. La seconda, meno ovvia e più importante, è misurare che cosa la verifica copra: sette esemplari giudicati su centoventidue prodotti non dicono nulla da soli, mentre sapere quante delle dimensioni lungo cui gli esemplari differiscono siano state toccate dice esattamente dove resta il rischio. Lo strumento `tools/copertura-verifica.py` calcola quella misura da questo file e dalla tabella del verificatore.",
+ "verificatore": {
+  "nome": "PKHeX",
+  "versione": "26.08.26",
+  "come": "il file viene passato al programma all'avvio, cosicché esso costruisca da sé un salvataggio vuoto della generazione dell'esemplare; il verdetto si legge dal rapporto completo di legittimità e non dal riquadro informativo, che mostra una sola riga di contestazione e fa quindi sembrare un difetto solo un esemplare che ne ha due"
+ },
+ "giudizi": [
+  {
+   "file": "10ANNI Pikachu, composto a mano dal seme 0x9DF6",
+   "data": "2026-09-01",
+   "esito": "contestato",
+   "rilievi": [
+    "il contrassegno dell'incontro fatidico non doveva essere attivo",
+    "il bit dell'abilità non doveva essere attivo, rilievo non registrato quel giorno e ricostruito il 2026-09-02 dall'esperimento a variabile singola"
+   ],
+   "conferme": [
+    "il seme di origine è stato ricostruito per via inversa e coincide con quello impiegato",
+    "il contenitore di cattura e l'esperienza calcolata dalla formula del gruppo di crescita non sono stati contestati"
+   ]
   },
-  "giudizi": [
-    {
-      "file": "10ANNI Pikachu, composto a mano dal seme 0x9DF6",
-      "data": "2026-09-01",
-      "esito": "contestato",
-      "rilievi": [
-        "il contrassegno dell'incontro fatidico non doveva essere attivo",
-        "il bit dell'abilità non doveva essere attivo, rilievo non registrato quel giorno e ricostruito il 2026-09-02 dall'esperimento a variabile singola"
-      ],
-      "conferme": [
-        "il seme di origine è stato ricostruito per via inversa e coincide con quello impiegato",
-        "il contenitore di cattura e l'esperienza calcolata dalla formula del gruppo di crescita non sono stati contestati"
-      ]
-    },
-    {
-      "file": "000-Mew-Mew.pk3",
-      "data": "2026-09-02",
-      "esito": "conforme",
-      "rilievi": [],
-      "conferme": [
-        "il seme di origine ricostruito è il secondo dell'elenco degli ottantacinque estratti dalla fonte, quindi il metodo a elenco è riconosciuto",
-        "l'esperienza del gruppo medio lento al livello dieci vale cinquecentosessanta e non è contestata",
-        "il soprannome non risulta marcato come tale, quindi coincide con il nome canonico della specie nella lingua dell'esemplare"
-      ]
-    },
-    {
-      "file": "008-ANAPikachu-Pikachu.pk3",
-      "data": "2026-09-02",
-      "esito": "contestato",
-      "rilievi": [
-        "il bit dell'abilità non corrisponde al numero dell'abilità: la specie ne ha una sola e il bit deve restare a zero"
-      ],
-      "conferme": [
-        "la tabella dei caratteri giapponese funziona: il nome dell'allenatore in caratteri latini a larghezza intera e il soprannome in katakana si rileggono",
-        "il seme di origine è stato ricostruito"
-      ]
-    },
-    {
-      "file": "prova-abilita/vecchia-regola-bit-1.pk3",
-      "data": "2026-09-02",
-      "esito": "contestato",
-      "rilievi": [
-        "il bit dell'abilità non corrisponde al numero dell'abilità"
-      ],
-      "conferme": [
-        "è il primo braccio dell'esperimento a variabile singola: identico all'altro in ogni byte tranne quel bit e la somma di controllo"
-      ]
-    },
-    {
-      "file": "prova-abilita/nuova-regola-bit-0.pk3",
-      "data": "2026-09-02",
-      "esito": "conforme",
-      "rilievi": [],
-      "conferme": [
-        "è il secondo braccio dell'esperimento, e la sua conformità dimostra che la sola variabile che cambia il verdetto è il bit dell'abilità",
-        "il seme di origine ricostruito è il medesimo del braccio contestato"
-      ]
-    },
-    {
-      "file": "005-NegaiBoshiJirachi-Jirachi.pk3",
-      "data": "2026-09-02",
-      "esito": "conforme",
-      "rilievi": [],
-      "conferme": [
-        "accanto al seme effettivo il verificatore scrive fra parentesi il valore a sedici bit da cui esso discende, che coincide con il nostro: la trasformazione della tabella dei doni è riconosciuta tornando indietro di due passi",
-        "la tabella dei caratteri giapponese funziona anche sul soprannome della specie in katakana"
-      ]
-    },
-    {
-      "file": "006-NegaiBoshiJirachiMatchRecipient-Jirachi.pk3",
-      "data": "2026-09-02",
-      "esito": "conforme",
-      "rilievi": [],
-      "conferme": [
-        "il ramo antilucente a estrazioni variabili è riconosciuto e il seme ricostruito",
-        "l'allenatore di destinazione passato al programma è accettato per le voci che non lo fissano"
-      ]
-    },
-    {
-      "file": "026-BerryFixRuby-Zigzagoon.pk3",
-      "data": "2026-09-02",
-      "esito": "contestato, poi conforme dopo la correzione",
-      "rilievi": [
-        "la correlazione fra valore di personalità e valori individuali non corrispondeva a quanto previsto, perché mancava il vincolo che lega il seme al bit del sesso dichiarato"
-      ],
-      "conferme": [
-        "già nella prova contestata il seme era ricostruito e l'esemplare riconosciuto cromatico, quindi il ramo a lucentezza garantita funzionava",
-        "dopo la correzione il verificatore riporta il tipo osservato e fra parentesi il metodo dichiarato dall'evento, cioè la corrispondenza con il dono è avvenuta"
-      ]
-    },
-    {
-      "file": "001-WISHMKR-Jirachi.pk3",
-      "data": "2026-09-02",
-      "esito": "contestato, poi conforme dopo la correzione",
-      "rilievi": [
-        "impossibile trovare una corrispondenza fra l'esemplare e i doni conosciuti, perché il nome dell'allenatore era troncato di un carattere"
-      ],
-      "conferme": [
-        "già nella prova contestata l'oggetto tenuto era quello giusto, quindi la sua derivazione dalla quinta estrazione era corretta anche mentre la corrispondenza fallisce",
-        "dopo la correzione il nome si legge per intero nei suoi sette caratteri e l'esemplare è conforme"
-      ]
-    },
-    {
-      "file": "000-Mew-Mew.pk3",
-      "data": "2026-09-02",
-      "esito": "conforme, riletta dopo le tre correzioni della giornata",
-      "rilievi": [],
-      "conferme": [
-        "è una controprova di non regressione: le correzioni sul bit dell'abilità, sul nome che riempie il campo e sul vincolo del sesso derivato non toccano questo esemplare, perché il suo valore di personalità è pari, il suo nome ha sei caratteri e la sua derivazione non è fra le due dichiarate",
-        "il seme ricostruito è identico a quello della prima lettura, quindi il file non è cambiato"
-      ]
-    },
-    {
-      "file": "tutti i 172 esemplari producibili, lettura di massa nelle sei scatole",
-      "copre": "tutti",
-      "data": "2026-09-02",
-      "esito": "conforme",
-      "rilievi": [],
-      "conferme": [
-        "i centosettantadue esemplari sono stati caricati nelle scatole di un salvataggio vuoto di terza generazione, con il caricamento che ne dichiara il numero, e le sei scatole sono state fotografate con il puntatore fuori dalla griglia perché il riquadro informativo copre le posizioni che gli stanno sotto",
-        "nessuna posizione porta il contrassegno di non conformità, e quel contrassegno riflette l'esito dell'analisi completa di legittimità e non un controllo parziale: la sua assenza su una posizione equivale a un rapporto senza rilievi su quell'esemplare",
-        "è la lettura che chiude la campagna sul generatore: ogni voce del catalogo che il progetto sa produrre è stata giudicata da una implementazione indipendente e nessuna è contestata"
-      ]
-    }
-  ]
+  {
+   "file": "000-Mew-Mew.pk3",
+   "data": "2026-09-02",
+   "esito": "conforme",
+   "rilievi": [],
+   "conferme": [
+    "il seme di origine ricostruito è il secondo dell'elenco degli ottantacinque estratti dalla fonte, quindi il metodo a elenco è riconosciuto",
+    "l'esperienza del gruppo medio lento al livello dieci vale cinquecentosessanta e non è contestata",
+    "il soprannome non risulta marcato come tale, quindi coincide con il nome canonico della specie nella lingua dell'esemplare"
+   ]
+  },
+  {
+   "file": "008-ANAPikachu-Pikachu.pk3",
+   "data": "2026-09-02",
+   "esito": "contestato",
+   "rilievi": [
+    "il bit dell'abilità non corrisponde al numero dell'abilità: la specie ne ha una sola e il bit deve restare a zero"
+   ],
+   "conferme": [
+    "la tabella dei caratteri giapponese funziona: il nome dell'allenatore in caratteri latini a larghezza intera e il soprannome in katakana si rileggono",
+    "il seme di origine è stato ricostruito"
+   ]
+  },
+  {
+   "file": "prova-abilita/vecchia-regola-bit-1.pk3",
+   "data": "2026-09-02",
+   "esito": "contestato",
+   "rilievi": [
+    "il bit dell'abilità non corrisponde al numero dell'abilità"
+   ],
+   "conferme": [
+    "è il primo braccio dell'esperimento a variabile singola: identico all'altro in ogni byte tranne quel bit e la somma di controllo"
+   ]
+  },
+  {
+   "file": "prova-abilita/nuova-regola-bit-0.pk3",
+   "data": "2026-09-02",
+   "esito": "conforme",
+   "rilievi": [],
+   "conferme": [
+    "è il secondo braccio dell'esperimento, e la sua conformità dimostra che la sola variabile che cambia il verdetto è il bit dell'abilità",
+    "il seme di origine ricostruito è il medesimo del braccio contestato"
+   ]
+  },
+  {
+   "file": "005-NegaiBoshiJirachi-Jirachi.pk3",
+   "data": "2026-09-02",
+   "esito": "conforme",
+   "rilievi": [],
+   "conferme": [
+    "accanto al seme effettivo il verificatore scrive fra parentesi il valore a sedici bit da cui esso discende, che coincide con il nostro: la trasformazione della tabella dei doni è riconosciuta tornando indietro di due passi",
+    "la tabella dei caratteri giapponese funziona anche sul soprannome della specie in katakana"
+   ]
+  },
+  {
+   "file": "006-NegaiBoshiJirachiMatchRecipient-Jirachi.pk3",
+   "data": "2026-09-02",
+   "esito": "conforme",
+   "rilievi": [],
+   "conferme": [
+    "il ramo antilucente a estrazioni variabili è riconosciuto e il seme ricostruito",
+    "l'allenatore di destinazione passato al programma è accettato per le voci che non lo fissano"
+   ]
+  },
+  {
+   "file": "026-BerryFixRuby-Zigzagoon.pk3",
+   "data": "2026-09-02",
+   "esito": "contestato, poi conforme dopo la correzione",
+   "rilievi": [
+    "la correlazione fra valore di personalità e valori individuali non corrispondeva a quanto previsto, perché mancava il vincolo che lega il seme al bit del sesso dichiarato"
+   ],
+   "conferme": [
+    "già nella prova contestata il seme era ricostruito e l'esemplare riconosciuto cromatico, quindi il ramo a lucentezza garantita funzionava",
+    "dopo la correzione il verificatore riporta il tipo osservato e fra parentesi il metodo dichiarato dall'evento, cioè la corrispondenza con il dono è avvenuta"
+   ]
+  },
+  {
+   "file": "001-WISHMKR-Jirachi.pk3",
+   "data": "2026-09-02",
+   "esito": "contestato, poi conforme dopo la correzione",
+   "rilievi": [
+    "impossibile trovare una corrispondenza fra l'esemplare e i doni conosciuti, perché il nome dell'allenatore era troncato di un carattere"
+   ],
+   "conferme": [
+    "già nella prova contestata l'oggetto tenuto era quello giusto, quindi la sua derivazione dalla quinta estrazione era corretta anche mentre la corrispondenza fallisce",
+    "dopo la correzione il nome si legge per intero nei suoi sette caratteri e l'esemplare è conforme"
+   ]
+  },
+  {
+   "file": "000-Mew-Mew.pk3",
+   "data": "2026-09-02",
+   "esito": "conforme, riletta dopo le tre correzioni della giornata",
+   "rilievi": [],
+   "conferme": [
+    "è una controprova di non regressione: le correzioni sul bit dell'abilità, sul nome che riempie il campo e sul vincolo del sesso derivato non toccano questo esemplare, perché il suo valore di personalità è pari, il suo nome ha sei caratteri e la sua derivazione non è fra le due dichiarate",
+    "il seme ricostruito è identico a quello della prima lettura, quindi il file non è cambiato"
+   ]
+  },
+  {
+   "file": "tutti i 172 esemplari producibili, lettura di massa nelle sei scatole",
+   "copre": "tutti",
+   "data": "2026-09-02",
+   "esito": "conforme",
+   "rilievi": [],
+   "conferme": [
+    "i centosettantadue esemplari sono stati caricati nelle scatole di un salvataggio vuoto di terza generazione, con il caricamento che ne dichiara il numero, e le sei scatole sono state fotografate con il puntatore fuori dalla griglia perché il riquadro informativo copre le posizioni che gli stanno sotto",
+    "nessuna posizione porta il contrassegno di non conformità, e quel contrassegno riflette l'esito dell'analisi completa di legittimità e non un controllo parziale: la sua assenza su una posizione equivale a un rapporto senza rilievi su quell'esemplare",
+    "è la lettura che chiude la campagna sul generatore: ogni voce del catalogo che il progetto sa produrre è stata giudicata da una implementazione indipendente e nessuna è contestata"
+   ]
+  },
+  {
+   "file": "tutti i 165 esemplari del lotto di prima e seconda generazione, lettura di massa nelle nove scatole",
+   "copre": "tutti",
+   "data": "2026-09-04",
+   "esito": "conforme",
+   "rilievi": [],
+   "conferme": [
+    "i centosessantacinque file sono stati caricati con la funzione di caricamento di massa in un salvataggio vuoto di SECONDA generazione, che il verificatore costruisce da Nuovo salvataggio: il contenitore giusto conta, perche' caricarli in un salvataggio di prima generazione li converte e li invalida per una ragione che non e' nostra",
+    "nessuna delle nove scatole porta alcun contrassegno di non conformita', ne' sulle voci di prima generazione ne' sulle centotrentaquattro uova, che erano la parte che i tre giri precedenti avevano fatto cadere",
+    "e' il quarto giro, e i tre precedenti hanno prodotto i tre difetti che questa lettura chiude: i due livelli della tabella di seconda generazione, il livello di incontro delle uova che deve valere uno, e la fase del giorno che deve essere nulla per un dono e vera per un uovo schiuso",
+    "restano fuori dal lotto tre voci su centosessantotto, e non per un difetto ma per un limite dichiarato: il nome del loro donatore e' in caratteri giapponesi e la tabella dei caratteri di quelle generazioni non e' ancora nel progetto"
+   ]
+  }
+ ]
 }
