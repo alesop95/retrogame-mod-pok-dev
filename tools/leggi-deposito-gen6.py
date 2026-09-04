@@ -54,6 +54,15 @@ import sys
 
 # Il deposito di Rubino Omega e Zaffiro Alpha, da SAV6AO: le altre famiglie hanno un altro
 # offset, quindi il programma verifica la dimensione prima di leggere invece di fidarsi.
+# Le famiglie di sesta generazione, per dimensione del salvataggio: il titolo, l'indirizzo del
+# deposito e il numero delle scatole. La struttura dell'esemplare e' la medesima e cambia soltanto
+# dove il deposito comincia. UltraSole e UltraLuna restano fuori perche' li' l'indirizzo non e'
+# fisso ma dichiarato dalla quindicesima voce di una tabella di blocchi, e indovinarlo
+# produrrebbe specie plausibili e sbagliate.
+FAMIGLIE = {
+    0x76000: ("Rubino Omega o Zaffiro Alpha", 0x33000, 31),
+    0x65600: ("X o Y", 0x22600, 31),
+}
 DIM_ORAS = 0x76000
 OFF_DEPOSITO = 0x33000
 SCATOLE = 31
@@ -111,8 +120,8 @@ def decifra(grezzo):
     fuori = bytearray(DIM_STORED)
     fuori[0:8] = grezzo[0:8]
     for posizione, blocco in enumerate(ordine):
-        sorgente = posizione * DIM_BLOCCO
-        destinazione = 8 + blocco * DIM_BLOCCO
+        sorgente = blocco * DIM_BLOCCO
+        destinazione = 8 + posizione * DIM_BLOCCO
         fuori[destinazione:destinazione + DIM_BLOCCO] = corpo[sorgente:sorgente + DIM_BLOCCO]
     return bytes(fuori)
 
@@ -174,13 +183,15 @@ def contestazioni(c):
 
 def leggi(percorso):
     dati = io.open(percorso, "rb").read()
-    if len(dati) != DIM_ORAS:
-        return None, ("la dimensione %d non e' quella di un salvataggio di Rubino Omega o "
-                      "Zaffiro Alfa, che e' %d" % (len(dati), DIM_ORAS))
+    famiglia = FAMIGLIE.get(len(dati))
+    if famiglia is None:
+        return None, ("la dimensione %d non e' quella di una famiglia nota: le famiglie lette "
+                      "sono %s" % (len(dati), ", ".join(t[0] for t in FAMIGLIE.values())))
+    _titolo, base, quante = famiglia
     fuori, residui = [], 0
-    for scatola in range(SCATOLE):
+    for scatola in range(quante):
         for posizione in range(POSIZIONI):
-            off = OFF_DEPOSITO + (scatola * POSIZIONI + posizione) * DIM_STORED
+            off = base + (scatola * POSIZIONI + posizione) * DIM_STORED
             grezzo = dati[off:off + DIM_STORED]
             if len(grezzo) < DIM_STORED or not any(grezzo):
                 continue
@@ -242,8 +253,8 @@ def self_test():
     ordine = BLOCCHI[scelta]
     corpo = bytearray(DIM_STORED - 8)
     for posizione, blocco in enumerate(ordine):
-        corpo[posizione * DIM_BLOCCO:(posizione + 1) * DIM_BLOCCO] = \
-            chiaro[8 + blocco * DIM_BLOCCO:8 + (blocco + 1) * DIM_BLOCCO]
+        corpo[blocco * DIM_BLOCCO:(blocco + 1) * DIM_BLOCCO] = \
+            chiaro[8 + posizione * DIM_BLOCCO:8 + (posizione + 1) * DIM_BLOCCO]
     seme = ec
     for i in range(0, len(corpo), 2):
         seme = (0x41C64E6D * seme + 0x00006073) & 0xFFFFFFFF
