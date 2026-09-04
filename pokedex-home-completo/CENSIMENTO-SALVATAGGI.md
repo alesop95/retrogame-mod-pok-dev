@@ -1,12 +1,12 @@
 # Censimento dei salvataggi esterni
 
-> Documento generato da `tools/verifica-salvataggi.py --markdown`. Non si modifica a mano. Descrive una cartella locale che non entra nel controllo di versione, cioè `_notes/salvataggi`, allo stato del 2026-09-02: è un inventario di materiale di riferimento e non una proprietà del progetto, e va rigenerato quando la cartella cambia.
+> Documento generato da `tools/verifica-salvataggi.py --markdown`. Non si modifica a mano. Descrive una cartella locale che non entra nel controllo di versione, cioè `_notes/salvataggi`, allo stato del 2026-09-04: è un inventario di materiale di riferimento e non una proprietà del progetto, e va rigenerato quando la cartella cambia.
 
 Che cosa ciascuna colonna dice, e che cosa non dice. L'esito è strutturale: dice che il file è un salvataggio leggibile del gioco indicato, con le somme di controllo che tornano, e non dice nulla sulla legittimità degli esemplari che contiene né sulla liceità del loro uso. Il conto delle specie riguarda ciò che sta nel deposito, non le caselle del Pokedex: un giocatore che abbia completato il Pokedex e poi liberato un esemplare ha la casella accesa e la scatola vuota, e queste due grandezze non si sommano.
 
 | File | Esito | Famiglia | Gioco | Allenatore | Esemplari | Specie | Cromatici |
 |---|---|---|---|---|---|---|---|
-| `01-GPXP-pokemon_rs_memory_box.gci` | integro | Pokemon Box Rubino e Zaffiro, su GameCube | - | - | - | - | - |
+| `01-GPXP-pokemon_rs_memory_box.gci` | integro | Pokemon Box Rubino e Zaffiro, su GameCube | - | - | 674 | 384 | 2 |
 | `172 - PICHU - 0377DA486937.pk3` | integro | esemplare singolo di terza generazione | - | - | - | - | - |
 | `POKEMON SS(2).sav` | integro | Gen 4 o Gen 5 su Nintendo DS | Oro HeartGold o Argento SoulSilver | - | - | - | - |
 | `POKEMON SS.0.sav` | integro | Gen 4 o Gen 5 su Nintendo DS | Oro HeartGold o Argento SoulSilver | - | - | - | - |
@@ -39,7 +39,7 @@ Che cosa ciascuna colonna dice, e che cosa non dice. L'esito è strutturale: dic
 
 ## Copertura complessiva delle trecentottantasei voci di terza generazione
 
-L'unione delle specie presenti come esemplare in questa raccolta copre 385 delle trecentottantasei voci nazionali di terza generazione. Il conto è sull'unione e non fonte per fonte, perché le fonti si sovrappongono e la somma dei loro conti non significherebbe nulla.
+L'unione delle specie presenti come esemplare in questa raccolta copre 386 delle trecentottantasei voci nazionali di terza generazione. Il conto è sull'unione e non fonte per fonte, perché le fonti si sovrappongono e la somma dei loro conti non significherebbe nulla.
 
-Manca una voce sola, ed è: 261 Poochyena.
+Non manca nessuna voce.
 

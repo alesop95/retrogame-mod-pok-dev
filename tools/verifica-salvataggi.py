@@ -533,7 +533,96 @@ def analizza_box_gc(dati):
     esito["valido"] = memorizzato == calcolato
     if not esito["valido"]:
         esito["ragione"] = "la prima somma di controllo non torna"
-    return esito
+    return esito, corpo
+
+
+# Pokemon Box: la disposizione del deposito. Da SAV3RSBox e BlockInfoRSBOX, letti il 2026-09-04.
+# Il file porta due salvataggi da ventitre blocchi di 0x2000 byte a partire da 0x2000, e quello
+# valido e' l'insieme dei ventitre con il contatore di salvataggio piu' alto. Ogni blocco ha
+# dodici byte di intestazione, cioe' somma, identificativo e contatore, tutti in ordine di byte
+# inverso, e 0x1FF0 byte di contenuto; i contenuti si concatenano nell'ordine dell'identificativo
+# e formano un'area continua in cui vive il deposito.
+BOX_BLOCCHI = 23
+BOX_DIM_BLOCCO = 0x2000
+BOX_UTILE = BOX_DIM_BLOCCO - 0x10
+BOX_SCATOLE = 50
+BOX_POSIZIONI = 30
+# Una posizione e' l'esemplare da ottanta byte piu' quattro byte con gli identificativi di chi lo
+# ha depositato, che e' la differenza con il deposito di una cartuccia e la ragione per cui il
+# passo qui e' ottantaquattro e non ottanta.
+BOX_PASSO = STRUTTURA_BOX + 4
+BOX_PRIMO = 8
+
+
+def spacchetta_box_gc(corpo):
+    """L'area continua del deposito, ricomposta dai blocchi del salvataggio valido.
+
+    Riferisce anche quale dei due salvataggi sia stato scelto e con quale contatore, perche' un
+    file di Pokemon Box ne porta due e leggere quello vecchio darebbe un deposito plausibile e
+    non quello corrente.
+    """
+    blocchi = []
+    for i in range(2 * BOX_BLOCCHI):
+        off = BOX_DIM_BLOCCO + i * BOX_DIM_BLOCCO
+        if off + BOX_DIM_BLOCCO > len(corpo):
+            break
+        blocchi.append({"off": off,
+                        "id": u32be(corpo, off + 4),
+                        "conteggio": u32be(corpo, off + 8)})
+    if len(blocchi) < 2 * BOX_BLOCCHI:
+        return None, None
+    conteggi = [b["conteggio"] for b in blocchi]
+    massimo = max(conteggi)
+    quale = conteggi.index(massimo) // BOX_BLOCCHI
+    scelti = sorted(blocchi[quale * BOX_BLOCCHI:(quale + 1) * BOX_BLOCCHI],
+                    key=lambda b: b["id"])
+    area = bytearray(BOX_BLOCCHI * BOX_UTILE)
+    for b in scelti:
+        base = b["id"] * BOX_UTILE
+        if base + BOX_UTILE > len(area):
+            return None, None
+        area[base:base + BOX_UTILE] = corpo[b["off"] + 0xC:b["off"] + 0xC + BOX_UTILE]
+    return bytes(area), {"salvataggio": quale, "conteggio": massimo}
+
+
+def censisci_deposito_box(corpo, gen3):
+    """Il censimento del deposito di Pokemon Box, cioe' millecinquecento posizioni.
+
+    Restituisce le stesse grandezze del censimento di una cartuccia, cosicche' i due si possano
+    confrontare senza tradurre nulla: e' il punto di questo lavoro, perche' il confronto fra
+    questo deposito e il nostro conto di terza generazione e' il solo controllo indipendente che
+    il progetto possa fare sulla completezza della propria enumerazione.
+    """
+    area, scelta = spacchetta_box_gc(corpo)
+    if area is None:
+        return None
+    occupate, uova, cromatici, difettosi = 0, 0, 0, 0
+    specie = {}
+    for scatola in range(BOX_SCATOLE):
+        for posizione in range(BOX_POSIZIONI):
+            off = BOX_PRIMO + BOX_PASSO * (scatola * BOX_POSIZIONI + posizione)
+            grezzo = area[off:off + STRUTTURA_BOX]
+            if len(grezzo) < STRUTTURA_BOX:
+                continue
+            try:
+                mon = gen3.Gen3Mon.from_bytes(grezzo, party=False)
+            except Exception:
+                difettosi += 1
+                continue
+            if not mon.has_species:
+                continue
+            occupate += 1
+            if mon.is_bad_egg:
+                difettosi += 1
+            if mon.is_egg:
+                uova += 1
+            if mon.is_shiny:
+                cromatici += 1
+            interno = mon.growth.species
+            specie[interno] = specie.get(interno, 0) + 1
+    return {"occupate": occupate, "uova": uova, "cromatici": cromatici,
+            "difettosi": difettosi, "specie": specie,
+            "salvataggio_scelto": scelta["salvataggio"], "conteggio": scelta["conteggio"]}
 
 
 # ---------------------------------------------------------------------------------------------
@@ -675,7 +764,11 @@ def analizza(percorso, gen3, tabella, censimento):
     if ext in (".pk3", ".ek3"):
         esito = analizza_pk3(dati, gen3, tabella)
     elif ext == ".gci" or dimensione == SIZE_G3BOX + GCI_INTESTAZIONE:
-        esito = analizza_box_gc(dati)
+        esito, corpo = analizza_box_gc(dati)
+        if esito.get("valido") and censimento and corpo is not None:
+            deposito = censisci_deposito_box(corpo, gen3)
+            if deposito is not None:
+                esito["deposito"] = deposito
     elif dimensione in (SIZE_G3RAW,) or (SIZE_G3RAW < dimensione <= SIZE_G3RAW + 64):
         # Un salvataggio di terza generazione con una coda: alcuni strumenti di estrazione
         # aggiungono al file un piede con l'orologio in tempo reale o con la propria firma. La
