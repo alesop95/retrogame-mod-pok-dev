@@ -226,11 +226,36 @@ DV_PREDEFINITI = {"atk": 15, "def": 15, "spd": 15, "spc": 15}
 # causa era che nessuno controllava la lunghezza contro il limite del formato. Ora la si controlla.
 LUNGHEZZA_MASSIMA_NOME = 7
 
-ALLENATORE_SEGNAPOSTO = {"nome": "ALLENAT", "tid": 31121,
-                         "nota": "segnaposto dichiarato: questa voce prende nome e "
-                                 "identificativo dal salvataggio che la riceve, e va riscritta "
-                                 "con i valori veri quando quel salvataggio esisterà; sette "
-                                 "caratteri perché è il massimo che il formato ammette"}
+REGISTRO_ALLENATORE = os.path.join("recreate-pokemon-distributions-events", "allenatore.json")
+
+
+def allenatore_del_progetto():
+    """L'allenatore con cui si scrivono le voci che nel gioco prendevano quei campi dal ricevente.
+
+    Si legge da un file condiviso e non si scrive qui, perche' il medesimo dato scritto in due
+    programmi diverge senza che nessuno se ne accorga: la lettura appartiene a uno solo e l'altro
+    la invoca, che e' la regola che questo progetto si e' dato dopo il difetto della lettura dei
+    titoli riscritta invece che chiamata.
+
+    Fino al 2026-09-04 queste voci portavano un segnaposto dichiarato e attendevano
+    l'identificativo di una partita vera. Quella partita non esiste piu', perche' la pila della
+    cartuccia di seconda generazione si e' esaurita e il salvataggio con essa, quindi l'attesa non
+    aveva piu' un termine: l'utente ha deciso di adottare un allenatore scelto e dichiarato, che
+    e' una scelta nostra come lo sono i valori individuali dove la fonte non li fissa.
+    """
+    percorso = os.path.join(RADICE, REGISTRO_ALLENATORE)
+    if not os.path.exists(percorso):
+        return {"nome": "ALLENAT", "tid": 31121,
+                "nota": "segnaposto: il file dell'allenatore del progetto non e' stato trovato"}
+    d = json.loads(io.open(percorso, encoding="utf-8").read())
+    return {"nome": d["nome"], "tid": int(d["tid"]), "sid": int(d.get("sid", 0)),
+            "nota": "allenatore del progetto, scelto e dichiarato in "
+                    "`recreate-pokemon-distributions-events/allenatore.json`: la fonte dichiara "
+                    "che questa voce prende nome e identificativo da chi riceve la consegna, e "
+                    "chi riceve siamo noi"}
+
+
+ALLENATORE_SEGNAPOSTO = allenatore_del_progetto()
 
 
 def carica_modulo(nome, percorso):
@@ -643,8 +668,11 @@ def main(argv=None):
         segnaposto = sum(1 for x in prodotti
                          if (x["voce"]["generazione"], x["voce"]["tipo"]) not in ALLENATORI)
         if segnaposto:
-            print("  di cui %d con allenatore segnaposto, da riscrivere quando il salvataggio "
-                  "di destinazione esisterà" % segnaposto)
+            print("  di cui %d con l'allenatore del progetto, cioe' %s con identificativo %d: "
+                  "sono le voci" % (segnaposto, ALLENATORE_SEGNAPOSTO["nome"],
+                                    ALLENATORE_SEGNAPOSTO["tid"]))
+            print("  che la fonte dichiara come consegnate al ricevente, e il ricevente siamo "
+                  "noi")
         if saltati:
             print("  non scritti %d, con la ragione di ciascuno:" % len(saltati))
             visti = set()
@@ -760,7 +788,7 @@ def giudizi_del_lotto():
         return lambda _codice: None
     massa, singoli = [], {}
     for g in registro.get("giudizi", []):
-        if "prima e seconda generazione" not in g.get("file", ""):
+        if g.get("lotto") != "gb":
             continue
         if g.get("copre") == "tutti":
             massa.append(g)
@@ -947,7 +975,7 @@ def scrivi_schede(percorso, prodotti, nomi, mosse, prov):
             r.append("| statistiche | %s | formula delle prime due generazioni, con esperienza "
                      "di statistica nulla |"
                      % ", ".join("%s %d" % (k, val) for k, val in mon.stats.items()))
-            allenatore = ALLENATORI.get(chiave)
+            allenatore = ALLENATORI.get(chiave, ALLENATORE_SEGNAPOSTO)
             if allenatore:
                 r.append("| allenatore | %s, identificativo %d | %s |"
                          % (allenatore["nome"], allenatore["tid"], allenatore["nota"]))
