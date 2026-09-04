@@ -1046,13 +1046,15 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 
 ## Voci da evento
 
-L'asse degli eventi nasce da tre fonti e non da una, e la distinzione va letta prima dei numeri perché fino al 2026-09-04 le fonti erano due e la terza mancava del tutto. La prima è la tabella delle carte meraviglia di terza generazione, che vive nel codice del verificatore; la seconda sono i file binari della base dei doni segreti, che coprono la prima e la seconda generazione con le loro tabelle di incontro e poi dalla quarta alla nona con i doni veri e propri; la terza sono le tabelle degli incontri del verificatore, dove stanno le distribuzioni in cui il dono era un oggetto, le periferiche, i giochi da console fissa e i doni interni condizionati. Le prime due erano cieche sulla terza, ed è un difetto di copertura e non di lettura: non produceva alcun errore, e la lista sembrava completa mentre mancavano 422 voci. La colonna della classe dice da quale delle tre viene ciascuna voce, e i codici delle voci della terza cominciano con `EVT-T-` invece che con la generazione, perché una sola numerazione le attraversa tutte.
+L'asse degli eventi nasce da tre fonti e non da una, e la distinzione va letta prima dei numeri perché fino al 2026-09-04 le fonti erano due e la terza mancava del tutto. La prima è la tabella delle carte meraviglia di terza generazione, che vive nel codice del verificatore; la seconda sono i file binari della base dei doni segreti, che coprono la prima e la seconda generazione con le loro tabelle di incontro e poi dalla quarta alla nona con i doni veri e propri; la terza sono le tabelle degli incontri del verificatore, dove stanno le distribuzioni in cui il dono era un oggetto, le periferiche, i giochi da console fissa e i doni interni condizionati, e insieme a essi le incursioni da distribuzione di ottava e nona generazione. Le prime due erano cieche sulla terza, ed è un difetto di copertura e non di lettura: non produceva alcun errore, e la lista sembrava completa mentre ne mancavano 3288 voci. La colonna della classe dice da quale delle tre viene ciascuna voce, e i codici delle voci della terza cominciano con `EVT-T-` invece che con la generazione, perché una sola numerazione le attraversa tutte.
 
-La ripartizione per classe è la seguente: dono segreto 2615, periferica 210, spinoff 182, carta meraviglia 173, tabella di incontro 168, oggetto-distribuito 15, condizionato 13, disco-bonus 2.
+Una classe del censimento resta fuori da questo asse per scelta, ed è quella dei trasferimenti da Pokemon GO. Non sono esemplari da distribuzione ma una porta di ingresso permanente: dire che una specie è ottenibile da quel gioco è un'affermazione sulla sua reperibilità, cioè la materia dell'asse delle specie, e non un collezionabile in più con un allenatore e una data propri. Metterli qui aggiungerebbe milleduecento voci che ripeterebbero specie già presenti altrove e falserebbe il solo numero che questo asse serve a produrre, cioè quante voci il primo tempo della coda debba coprire. Restano contate e visibili nel censimento `CENSIMENTO-EVENTI-FUORI-DONI.md`, dove la loro classe dice che cosa sono.
+
+La ripartizione per classe è la seguente: incursione 2866, dono segreto 2615, periferica 210, spinoff 182, carta meraviglia 173, tabella di incontro 168, oggetto-distribuito 15, condizionato 13, disco-bonus 2.
 
 Una voce da evento è un collezionabile distinto anche quando la sua specie è già coperta altrove, e la ragione è che porta un nome di allenatore, un identificativo e una data che nessun incontro selvatico produce: chi possiede il secondo non possiede il primo. La colonna della resa dice a che punto siamo su quella voce, e tiene distinte tre condizioni che non vanno confuse, cioè una voce che il progetto sa produrre e ha fatto verificare, una che sa soltanto leggere, e una la cui struttura è alla portata di codice che già esiste.
 
-Le voci enumerate sono 3378, di cui 3095 sotto scadenza, e queste ultime portano 433 specie distinte. Sono il solo insieme di questa lista che il 26 febbraio 2027 chiude davvero: le voci di specie e di forma sono tutte raggiungibili per via diretta, mentre un esemplare da distribuzione di una generazione anteriore all'ottava non ha altra strada che la banca.
+Le voci enumerate sono 6244, di cui 3095 sotto scadenza, e queste ultime portano 433 specie distinte. Sono il solo insieme di questa lista che il 26 febbraio 2027 chiude davvero: le voci di specie e di forma sono tutte raggiungibili per via diretta, mentre un esemplare da distribuzione di una generazione anteriore all'ottava non ha altra strada che la banca.
 
 L'ordine della tabella non è quello della fonte, ed è una scelta che va dichiarata perché cambia che cosa si legge per primo. La fonte raggruppa le voci per evento, cioè nell'ordine in cui le distribuzioni avvennero; la decisione di ambito è invece la collezione completa in due tempi, con prima una voce per ciascuna specie distinta e poi i gemelli. La colonna che dice se una voce sia la prima della propria specie porta dunque in testa le 433 voci del primo tempo, e lascia in coda le 2662 del secondo; dentro ciascuno dei due blocchi l'ordine per evento è conservato, perché è l'informazione utile a chi produce. La prima voce di una specie è scelta nell'ordine della fonte e non per merito: dove più voci portano la medesima specie, la marcatura non dice quale sia la più desiderabile ma soltanto quale basti a coprire la specie.
 
@@ -1437,56 +1439,56 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-T-0234` | 5 | periferica | 425 | 0 | Dream Radar: Drifloon | sì | sì | censita, non ancora producibile |
 | `EVT-T-0235` | 5 | periferica | 436 | 0 | Dream Radar: Bronzor | sì | sì | censita, non ancora producibile |
 | `EVT-T-0243` | 5 | periferica | 561 | 0 | Dream Radar: Sigilyph | sì | sì | censita, non ancora producibile |
-| `EVT-T-0261` | 4 | periferica | 84 | 0 | Pokewalker: corso Prato Ristoro, livello 8, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0262` | 4 | periferica | 29 | 0 | Pokewalker: corso Prato Ristoro, livello 5, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0263` | 4 | periferica | 32 | 0 | Pokewalker: corso Prato Ristoro, livello 5, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0264` | 4 | periferica | 16 | 0 | Pokewalker: corso Prato Ristoro, livello 5, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0265` | 4 | periferica | 161 | 0 | Pokewalker: corso Prato Ristoro, livello 5, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0268` | 4 | periferica | 48 | 0 | Pokewalker: corso Bosco Rumoroso, livello 6, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0272` | 4 | periferica | 240 | 0 | Pokewalker: corso Strada Sconnessa, livello 9, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0273` | 4 | periferica | 95 | 0 | Pokewalker: corso Strada Sconnessa, livello 9, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0274` | 4 | periferica | 66 | 0 | Pokewalker: corso Strada Sconnessa, livello 7, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0277` | 4 | periferica | 74 | 0 | Pokewalker: corso Strada Sconnessa, livello 8, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0282` | 4 | periferica | 191 | 0 | Pokewalker: corso Bella Spiaggia, livello 6, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0283` | 4 | periferica | 194 | 0 | Pokewalker: corso Bella Spiaggia, livello 6, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0285` | 4 | periferica | 81 | 0 | Pokewalker: corso Zona Suburbana, livello 11, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0289` | 4 | periferica | 19 | 0 | Pokewalker: corso Zona Suburbana, livello 7, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0291` | 4 | periferica | 92 | 0 | Pokewalker: corso Grotta Buia, livello 15, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0294` | 4 | periferica | 41 | 0 | Pokewalker: corso Grotta Buia, livello 8, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0296` | 4 | periferica | 147 | 0 | Pokewalker: corso Lago Blu, livello 10, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0298` | 4 | periferica | 98 | 0 | Pokewalker: corso Lago Blu, livello 12, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0300` | 4 | periferica | 118 | 0 | Pokewalker: corso Lago Blu, livello 9, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0301` | 4 | periferica | 72 | 0 | Pokewalker: corso Lago Blu, livello 9, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0302` | 4 | periferica | 63 | 0 | Pokewalker: corso Periferia, livello 15, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0304` | 4 | periferica | 109 | 0 | Pokewalker: corso Periferia, livello 13, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0310` | 4 | periferica | 314 | 0 | Pokewalker: corso Prato di Hoenn, livello 25, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0311` | 4 | periferica | 313 | 0 | Pokewalker: corso Prato di Hoenn, livello 25, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0313` | 4 | periferica | 265 | 0 | Pokewalker: corso Prato di Hoenn, livello 15, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0315` | 4 | periferica | 298 | 0 | Pokewalker: corso Spiaggia Calda, livello 20, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0323` | 4 | periferica | 111 | 0 | Pokewalker: corso Via del Vulcano, livello 25, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0326` | 4 | periferica | 352 | 0 | Pokewalker: corso Casa sull Albero, livello 30, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0327` | 4 | periferica | 351 | 0 | Pokewalker: corso Casa sull Albero, livello 30, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0328` | 4 | periferica | 203 | 0 | Pokewalker: corso Casa sull Albero, livello 28, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0330` | 4 | periferica | 44 | 0 | Pokewalker: corso Casa sull Albero, livello 14, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0334` | 4 | periferica | 42 | 0 | Pokewalker: corso Grotta Spaventosa, livello 33, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0338` | 4 | periferica | 439 | 0 | Pokewalker: corso Prato di Sinnoh, livello 29, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0340` | 4 | periferica | 403 | 0 | Pokewalker: corso Prato di Sinnoh, livello 33, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0341` | 4 | periferica | 406 | 0 | Pokewalker: corso Prato di Sinnoh, livello 30, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0342` | 4 | periferica | 399 | 0 | Pokewalker: corso Prato di Sinnoh, livello 13, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0343` | 4 | periferica | 401 | 0 | Pokewalker: corso Prato di Sinnoh, livello 15, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0351` | 4 | periferica | 438 | 0 | Pokewalker: corso Grande Foresta, livello 30, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0353` | 4 | periferica | 400 | 0 | Pokewalker: corso Grande Foresta, livello 30, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0356` | 4 | periferica | 433 | 0 | Pokewalker: corso Lago Bianco, livello 22, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0359` | 4 | periferica | 418 | 0 | Pokewalker: corso Lago Bianco, livello 28, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0361` | 4 | periferica | 170 | 0 | Pokewalker: corso Lago Bianco, livello 17, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0370` | 4 | periferica | 39 | 0 | Pokewalker: corso Villaggio Turistico, livello 30, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0371` | 4 | periferica | 35 | 0 | Pokewalker: corso Villaggio Turistico, livello 31, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0372` | 4 | periferica | 183 | 0 | Pokewalker: corso Villaggio Turistico, livello 25, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0373` | 4 | periferica | 187 | 0 | Pokewalker: corso Villaggio Turistico, livello 25, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0406` | 4 | periferica | 279 | 0 | Pokewalker: corso Gita, livello 15, corso distribuito | sì | sì | censita, non ancora producibile |
-| `EVT-T-0407` | 4 | periferica | 61 | 0 | Pokewalker: corso Gita, livello 15, corso distribuito | sì | sì | censita, non ancora producibile |
-| `EVT-T-0419` | 4 | periferica | 440 | 0 | Pokewalker: corso Prato Amicizia, livello 5, corso distribuito | sì | sì | censita, non ancora producibile |
-| `EVT-T-0421` | 4 | periferica | 173 | 0 | Pokewalker: corso Prato Amicizia, livello 5, corso distribuito | sì | sì | censita, non ancora producibile |
+| `EVT-T-0274` | 4 | periferica | 84 | 0 | Pokewalker: corso Prato Ristoro, livello 8, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0275` | 4 | periferica | 29 | 0 | Pokewalker: corso Prato Ristoro, livello 5, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0276` | 4 | periferica | 32 | 0 | Pokewalker: corso Prato Ristoro, livello 5, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0277` | 4 | periferica | 16 | 0 | Pokewalker: corso Prato Ristoro, livello 5, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0278` | 4 | periferica | 161 | 0 | Pokewalker: corso Prato Ristoro, livello 5, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0281` | 4 | periferica | 48 | 0 | Pokewalker: corso Bosco Rumoroso, livello 6, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0285` | 4 | periferica | 240 | 0 | Pokewalker: corso Strada Sconnessa, livello 9, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0286` | 4 | periferica | 95 | 0 | Pokewalker: corso Strada Sconnessa, livello 9, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0287` | 4 | periferica | 66 | 0 | Pokewalker: corso Strada Sconnessa, livello 7, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0290` | 4 | periferica | 74 | 0 | Pokewalker: corso Strada Sconnessa, livello 8, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0295` | 4 | periferica | 191 | 0 | Pokewalker: corso Bella Spiaggia, livello 6, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0296` | 4 | periferica | 194 | 0 | Pokewalker: corso Bella Spiaggia, livello 6, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0298` | 4 | periferica | 81 | 0 | Pokewalker: corso Zona Suburbana, livello 11, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0302` | 4 | periferica | 19 | 0 | Pokewalker: corso Zona Suburbana, livello 7, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0304` | 4 | periferica | 92 | 0 | Pokewalker: corso Grotta Buia, livello 15, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0307` | 4 | periferica | 41 | 0 | Pokewalker: corso Grotta Buia, livello 8, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0309` | 4 | periferica | 147 | 0 | Pokewalker: corso Lago Blu, livello 10, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0311` | 4 | periferica | 98 | 0 | Pokewalker: corso Lago Blu, livello 12, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0313` | 4 | periferica | 118 | 0 | Pokewalker: corso Lago Blu, livello 9, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0314` | 4 | periferica | 72 | 0 | Pokewalker: corso Lago Blu, livello 9, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0315` | 4 | periferica | 63 | 0 | Pokewalker: corso Periferia, livello 15, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0317` | 4 | periferica | 109 | 0 | Pokewalker: corso Periferia, livello 13, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0323` | 4 | periferica | 314 | 0 | Pokewalker: corso Prato di Hoenn, livello 25, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0324` | 4 | periferica | 313 | 0 | Pokewalker: corso Prato di Hoenn, livello 25, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0326` | 4 | periferica | 265 | 0 | Pokewalker: corso Prato di Hoenn, livello 15, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0328` | 4 | periferica | 298 | 0 | Pokewalker: corso Spiaggia Calda, livello 20, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0336` | 4 | periferica | 111 | 0 | Pokewalker: corso Via del Vulcano, livello 25, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0339` | 4 | periferica | 352 | 0 | Pokewalker: corso Casa sull Albero, livello 30, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0340` | 4 | periferica | 351 | 0 | Pokewalker: corso Casa sull Albero, livello 30, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0341` | 4 | periferica | 203 | 0 | Pokewalker: corso Casa sull Albero, livello 28, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0343` | 4 | periferica | 44 | 0 | Pokewalker: corso Casa sull Albero, livello 14, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0347` | 4 | periferica | 42 | 0 | Pokewalker: corso Grotta Spaventosa, livello 33, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0351` | 4 | periferica | 439 | 0 | Pokewalker: corso Prato di Sinnoh, livello 29, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0353` | 4 | periferica | 403 | 0 | Pokewalker: corso Prato di Sinnoh, livello 33, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0354` | 4 | periferica | 406 | 0 | Pokewalker: corso Prato di Sinnoh, livello 30, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0355` | 4 | periferica | 399 | 0 | Pokewalker: corso Prato di Sinnoh, livello 13, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0356` | 4 | periferica | 401 | 0 | Pokewalker: corso Prato di Sinnoh, livello 15, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0364` | 4 | periferica | 438 | 0 | Pokewalker: corso Grande Foresta, livello 30, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0366` | 4 | periferica | 400 | 0 | Pokewalker: corso Grande Foresta, livello 30, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0369` | 4 | periferica | 433 | 0 | Pokewalker: corso Lago Bianco, livello 22, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0372` | 4 | periferica | 418 | 0 | Pokewalker: corso Lago Bianco, livello 28, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0374` | 4 | periferica | 170 | 0 | Pokewalker: corso Lago Bianco, livello 17, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0383` | 4 | periferica | 39 | 0 | Pokewalker: corso Villaggio Turistico, livello 30, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0384` | 4 | periferica | 35 | 0 | Pokewalker: corso Villaggio Turistico, livello 31, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0385` | 4 | periferica | 183 | 0 | Pokewalker: corso Villaggio Turistico, livello 25, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0386` | 4 | periferica | 187 | 0 | Pokewalker: corso Villaggio Turistico, livello 25, corso in dotazione | sì | sì | censita, non ancora producibile |
+| `EVT-T-0419` | 4 | periferica | 279 | 0 | Pokewalker: corso Gita, livello 15, corso distribuito | sì | sì | censita, non ancora producibile |
+| `EVT-T-0420` | 4 | periferica | 61 | 0 | Pokewalker: corso Gita, livello 15, corso distribuito | sì | sì | censita, non ancora producibile |
+| `EVT-T-0432` | 4 | periferica | 440 | 0 | Pokewalker: corso Prato Amicizia, livello 5, corso distribuito | sì | sì | censita, non ancora producibile |
+| `EVT-T-0434` | 4 | periferica | 173 | 0 | Pokewalker: corso Prato Amicizia, livello 5, corso distribuito | sì | sì | censita, non ancora producibile |
 | `EVT-2-0039` | 2 | tabella di incontro | 209 | 0 | tabella di incontro da evento | sì | sì | letta, struttura alla portata di pokebridge |
 | `EVT-2-0102` | 2 | tabella di incontro | 104 | 0 | tabella di incontro da evento | sì | sì | letta, struttura alla portata di pokebridge |
 | `EVT-2-0120` | 2 | tabella di incontro | 236 | 0 | tabella di incontro da evento | sì | sì | letta, struttura alla portata di pokebridge |
@@ -4147,131 +4149,2997 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-T-0244` | 5 | periferica | 641 | 0 | Dream Radar: Therian Tornadus | sì | no | censita, non ancora producibile |
 | `EVT-T-0245` | 5 | periferica | 642 | 0 | Dream Radar: Therian Thundurus | sì | no | censita, non ancora producibile |
 | `EVT-T-0246` | 5 | periferica | 645 | 0 | Dream Radar: Therian Landorus | sì | no | censita, non ancora producibile |
-| `EVT-T-0247` | 8 | condizionato | 493 | 0 | Leggende Arceus, doni fatidici: Arceus | no | no | censita, non ancora producibile |
-| `EVT-T-0248` | 8 | condizionato | 489 | 0 | Leggende Arceus, doni fatidici: Phione | no | no | censita, non ancora producibile |
-| `EVT-T-0249` | 8 | condizionato | 490 | 0 | Leggende Arceus, doni fatidici: Manaphy | no | no | censita, non ancora producibile |
-| `EVT-T-0250` | 8 | condizionato | 491 | 0 | Leggende Arceus, doni fatidici: Darkrai | no | no | censita, non ancora producibile |
-| `EVT-T-0251` | 8 | condizionato | 492 | 0 | Leggende Arceus, doni fatidici: Shaymin | no | no | censita, non ancora producibile |
-| `EVT-T-0252` | 8 | condizionato | 491 | 0 | Leggende Arceus, doni fatidici: Darkrai (Lonely Spring) | no | no | censita, non ancora producibile |
-| `EVT-T-0253` | 8 | condizionato | 151 | 0 | Diamante Lucente e Perla Splendente, doni fatidici: Mew | no | no | censita, non ancora producibile |
-| `EVT-T-0254` | 8 | condizionato | 385 | 0 | Diamante Lucente e Perla Splendente, doni fatidici: Jirachi | no | no | censita, non ancora producibile |
-| `EVT-T-0255` | 8 | condizionato | 491 | 0 | Diamante Lucente e Perla Splendente, doni fatidici: Darkrai | no | no | censita, non ancora producibile |
-| `EVT-T-0256` | 8 | condizionato | 492 | 0 | Diamante Lucente e Perla Splendente, doni fatidici: Shaymin | no | no | censita, non ancora producibile |
-| `EVT-T-0257` | 8 | condizionato | 493 | 0 | Diamante Lucente e Perla Splendente, doni fatidici: Arceus (Brilliant Diamond) | no | no | censita, non ancora producibile |
-| `EVT-T-0258` | 8 | condizionato | 493 | 0 | Diamante Lucente e Perla Splendente, doni fatidici: Arceus (Shining Pearl) | no | no | censita, non ancora producibile |
-| `EVT-T-0259` | 8 | condizionato | 647 | 1 | Spada e Scudo, doni fatidici: Keldeo-1 at Ballimere Lake | no | no | censita, non ancora producibile |
-| `EVT-T-0260` | 4 | periferica | 115 | 0 | Pokewalker: corso Prato Ristoro, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0266` | 4 | periferica | 202 | 0 | Pokewalker: corso Bosco Rumoroso, livello 15, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0267` | 4 | periferica | 69 | 0 | Pokewalker: corso Bosco Rumoroso, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0269` | 4 | periferica | 46 | 0 | Pokewalker: corso Bosco Rumoroso, livello 6, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0270` | 4 | periferica | 43 | 0 | Pokewalker: corso Bosco Rumoroso, livello 5, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0271` | 4 | periferica | 21 | 0 | Pokewalker: corso Bosco Rumoroso, livello 5, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0275` | 4 | periferica | 77 | 0 | Pokewalker: corso Strada Sconnessa, livello 7, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0276` | 4 | periferica | 163 | 0 | Pokewalker: corso Strada Sconnessa, livello 6, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0278` | 4 | periferica | 54 | 0 | Pokewalker: corso Bella Spiaggia, livello 10, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0279` | 4 | periferica | 120 | 0 | Pokewalker: corso Bella Spiaggia, livello 10, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0280` | 4 | periferica | 79 | 0 | Pokewalker: corso Bella Spiaggia, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0281` | 4 | periferica | 60 | 0 | Pokewalker: corso Bella Spiaggia, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0284` | 4 | periferica | 239 | 0 | Pokewalker: corso Zona Suburbana, livello 11, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0286` | 4 | periferica | 81 | 0 | Pokewalker: corso Zona Suburbana, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0287` | 4 | periferica | 198 | 0 | Pokewalker: corso Zona Suburbana, livello 11, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0288` | 4 | periferica | 163 | 0 | Pokewalker: corso Zona Suburbana, livello 7, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0290` | 4 | periferica | 238 | 0 | Pokewalker: corso Grotta Buia, livello 12, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0292` | 4 | periferica | 92 | 0 | Pokewalker: corso Grotta Buia, livello 10, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0293` | 4 | periferica | 95 | 0 | Pokewalker: corso Grotta Buia, livello 10, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0295` | 4 | periferica | 66 | 0 | Pokewalker: corso Grotta Buia, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0297` | 4 | periferica | 60 | 0 | Pokewalker: corso Lago Blu, livello 15, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0299` | 4 | periferica | 90 | 0 | Pokewalker: corso Lago Blu, livello 12, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0303` | 4 | periferica | 100 | 0 | Pokewalker: corso Periferia, livello 15, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0305` | 4 | periferica | 88 | 0 | Pokewalker: corso Periferia, livello 13, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0306` | 4 | periferica | 19 | 0 | Pokewalker: corso Periferia, livello 16, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0307` | 4 | periferica | 162 | 0 | Pokewalker: corso Periferia, livello 15, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0308` | 4 | periferica | 300 | 0 | Pokewalker: corso Prato di Hoenn, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0309` | 4 | periferica | 264 | 0 | Pokewalker: corso Prato di Hoenn, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0312` | 4 | periferica | 263 | 0 | Pokewalker: corso Prato di Hoenn, livello 17, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0314` | 4 | periferica | 320 | 0 | Pokewalker: corso Spiaggia Calda, livello 31, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0316` | 4 | periferica | 116 | 0 | Pokewalker: corso Spiaggia Calda, livello 20, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0317` | 4 | periferica | 318 | 0 | Pokewalker: corso Spiaggia Calda, livello 26, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0318` | 4 | periferica | 118 | 0 | Pokewalker: corso Spiaggia Calda, livello 22, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0319` | 4 | periferica | 129 | 0 | Pokewalker: corso Spiaggia Calda, livello 15, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0320` | 4 | periferica | 218 | 0 | Pokewalker: corso Via del Vulcano, livello 31, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0321` | 4 | periferica | 307 | 0 | Pokewalker: corso Via del Vulcano, livello 32, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0322` | 4 | periferica | 228 | 0 | Pokewalker: corso Via del Vulcano, livello 27, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0324` | 4 | periferica | 77 | 0 | Pokewalker: corso Via del Vulcano, livello 19, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0325` | 4 | periferica | 74 | 0 | Pokewalker: corso Via del Vulcano, livello 29, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0329` | 4 | periferica | 234 | 0 | Pokewalker: corso Casa sull Albero, livello 28, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0331` | 4 | periferica | 70 | 0 | Pokewalker: corso Casa sull Albero, livello 13, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0332` | 4 | periferica | 105 | 0 | Pokewalker: corso Grotta Spaventosa, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0333` | 4 | periferica | 128 | 0 | Pokewalker: corso Grotta Spaventosa, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0335` | 4 | periferica | 177 | 0 | Pokewalker: corso Grotta Spaventosa, livello 24, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0336` | 4 | periferica | 66 | 0 | Pokewalker: corso Grotta Spaventosa, livello 13, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0337` | 4 | periferica | 92 | 0 | Pokewalker: corso Grotta Spaventosa, livello 15, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0339` | 4 | periferica | 415 | 0 | Pokewalker: corso Prato di Sinnoh, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0344` | 4 | periferica | 459 | 0 | Pokewalker: corso Strada Ghiacciata, livello 31, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0345` | 4 | periferica | 361 | 0 | Pokewalker: corso Strada Ghiacciata, livello 28, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0346` | 4 | periferica | 215 | 0 | Pokewalker: corso Strada Ghiacciata, livello 28, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0347` | 4 | periferica | 436 | 0 | Pokewalker: corso Strada Ghiacciata, livello 20, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0348` | 4 | periferica | 220 | 0 | Pokewalker: corso Strada Ghiacciata, livello 16, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0349` | 4 | periferica | 179 | 0 | Pokewalker: corso Strada Ghiacciata, livello 15, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0350` | 4 | periferica | 357 | 0 | Pokewalker: corso Grande Foresta, livello 35, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0352` | 4 | periferica | 114 | 0 | Pokewalker: corso Grande Foresta, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0354` | 4 | periferica | 179 | 0 | Pokewalker: corso Grande Foresta, livello 19, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0355` | 4 | periferica | 102 | 0 | Pokewalker: corso Grande Foresta, livello 17, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0357` | 4 | periferica | 200 | 0 | Pokewalker: corso Lago Bianco, livello 32, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0358` | 4 | periferica | 93 | 0 | Pokewalker: corso Lago Bianco, livello 25, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0360` | 4 | periferica | 223 | 0 | Pokewalker: corso Lago Bianco, livello 19, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0362` | 4 | periferica | 456 | 0 | Pokewalker: corso Spiaggia Tempestosa, livello 26, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0363` | 4 | periferica | 422 | 0 | Pokewalker: corso Spiaggia Tempestosa, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0364` | 4 | periferica | 129 | 0 | Pokewalker: corso Spiaggia Tempestosa, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0365` | 4 | periferica | 86 | 0 | Pokewalker: corso Spiaggia Tempestosa, livello 27, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0366` | 4 | periferica | 54 | 0 | Pokewalker: corso Spiaggia Tempestosa, livello 22, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0367` | 4 | periferica | 90 | 0 | Pokewalker: corso Spiaggia Tempestosa, livello 20, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0368` | 4 | periferica | 417 | 0 | Pokewalker: corso Villaggio Turistico, livello 33, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0369` | 4 | periferica | 25 | 0 | Pokewalker: corso Villaggio Turistico, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0374` | 4 | periferica | 442 | 0 | Pokewalker: corso Grotta Silente, livello 31, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0375` | 4 | periferica | 446 | 0 | Pokewalker: corso Grotta Silente, livello 33, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0376` | 4 | periferica | 433 | 0 | Pokewalker: corso Grotta Silente, livello 26, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0377` | 4 | periferica | 349 | 0 | Pokewalker: corso Grotta Silente, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0378` | 4 | periferica | 164 | 0 | Pokewalker: corso Grotta Silente, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0379` | 4 | periferica | 42 | 0 | Pokewalker: corso Grotta Silente, livello 33, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0380` | 4 | periferica | 120 | 0 | Pokewalker: corso Oltre il Mare, livello 18, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0381` | 4 | periferica | 224 | 0 | Pokewalker: corso Oltre il Mare, livello 19, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0382` | 4 | periferica | 116 | 0 | Pokewalker: corso Oltre il Mare, livello 15, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0383` | 4 | periferica | 222 | 0 | Pokewalker: corso Oltre il Mare, livello 16, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0384` | 4 | periferica | 223 | 0 | Pokewalker: corso Oltre il Mare, livello 14, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0385` | 4 | periferica | 170 | 0 | Pokewalker: corso Oltre il Mare, livello 12, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0386` | 4 | periferica | 35 | 0 | Pokewalker: corso Confine del Cielo, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0387` | 4 | periferica | 39 | 0 | Pokewalker: corso Confine del Cielo, livello 10, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0388` | 4 | periferica | 41 | 0 | Pokewalker: corso Confine del Cielo, livello 9, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0389` | 4 | periferica | 163 | 0 | Pokewalker: corso Confine del Cielo, livello 6, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0390` | 4 | periferica | 74 | 0 | Pokewalker: corso Confine del Cielo, livello 5, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0391` | 4 | periferica | 95 | 0 | Pokewalker: corso Confine del Cielo, livello 5, corso in dotazione | sì | no | censita, non ancora producibile |
-| `EVT-T-0392` | 4 | periferica | 25 | 0 | Pokewalker: corso Foresta Gialla, livello 15, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0393` | 4 | periferica | 25 | 0 | Pokewalker: corso Foresta Gialla, livello 14, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0394` | 4 | periferica | 25 | 0 | Pokewalker: corso Foresta Gialla, livello 13, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0395` | 4 | periferica | 25 | 0 | Pokewalker: corso Foresta Gialla, livello 12, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0396` | 4 | periferica | 25 | 0 | Pokewalker: corso Foresta Gialla, livello 10, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0397` | 4 | periferica | 25 | 0 | Pokewalker: corso Foresta Gialla, livello 10, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0398` | 4 | periferica | 441 | 0 | Pokewalker: corso Raduno, livello 15, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0399` | 4 | periferica | 302 | 0 | Pokewalker: corso Raduno, livello 15, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0400` | 4 | periferica | 25 | 0 | Pokewalker: corso Raduno, livello 10, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0401` | 4 | periferica | 453 | 0 | Pokewalker: corso Raduno, livello 10, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0402` | 4 | periferica | 427 | 0 | Pokewalker: corso Raduno, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0403` | 4 | periferica | 417 | 0 | Pokewalker: corso Raduno, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0404` | 4 | periferica | 255 | 0 | Pokewalker: corso Gita, livello 10, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0405` | 4 | periferica | 133 | 0 | Pokewalker: corso Gita, livello 10, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0408` | 4 | periferica | 52 | 0 | Pokewalker: corso Gita, livello 10, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0409` | 4 | periferica | 25 | 0 | Pokewalker: corso Gita, livello 8, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0410` | 4 | periferica | 446 | 0 | Pokewalker: corso Via del Vincitore, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0411` | 4 | periferica | 374 | 0 | Pokewalker: corso Via del Vincitore, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0412` | 4 | periferica | 116 | 0 | Pokewalker: corso Via del Vincitore, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0413` | 4 | periferica | 355 | 0 | Pokewalker: corso Via del Vincitore, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0414` | 4 | periferica | 129 | 0 | Pokewalker: corso Via del Vincitore, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0415` | 4 | periferica | 436 | 0 | Pokewalker: corso Via del Vincitore, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0416` | 4 | periferica | 239 | 0 | Pokewalker: corso Prato Amicizia, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0417` | 4 | periferica | 240 | 0 | Pokewalker: corso Prato Amicizia, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0418` | 4 | periferica | 238 | 0 | Pokewalker: corso Prato Amicizia, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
-| `EVT-T-0420` | 4 | periferica | 174 | 0 | Pokewalker: corso Prato Amicizia, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0247` | 8 | incursione | 782 | 0 | Spada e Scudo, incursioni delle grotte di cristallo: ★And458 Jangmo-o | no | no | censita, non ancora producibile |
+| `EVT-T-0248` | 8 | incursione | 246 | 0 | Spada e Scudo, incursioni delle grotte di cristallo: ★And15 Larvitar | no | no | censita, non ancora producibile |
+| `EVT-T-0249` | 8 | incursione | 823 | 0 | Spada e Scudo, incursioni delle grotte di cristallo: ★And337 Gigantamax Corviknight | no | no | censita, non ancora producibile |
+| `EVT-T-0250` | 8 | incursione | 875 | 0 | Spada e Scudo, incursioni delle grotte di cristallo: ★And603 Eiscue | no | no | censita, non ancora producibile |
+| `EVT-T-0251` | 8 | incursione | 874 | 0 | Spada e Scudo, incursioni delle grotte di cristallo: ★And390 Stonjourner | no | no | censita, non ancora producibile |
+| `EVT-T-0252` | 8 | incursione | 879 | 0 | Spada e Scudo, incursioni delle grotte di cristallo: ★Sgr6879 Gigantamax Copperajah | no | no | censita, non ancora producibile |
+| `EVT-T-0253` | 8 | incursione | 851 | 0 | Spada e Scudo, incursioni delle grotte di cristallo: ★Sgr6859 Gigantamax Centiskorch | no | no | censita, non ancora producibile |
+| `EVT-T-0254` | 8 | incursione | 842 | 0 | Spada e Scudo, incursioni delle grotte di cristallo: ★Sgr6913 Gigantamax Appletun | no | no | censita, non ancora producibile |
+| `EVT-T-0255` | 8 | incursione | 841 | 0 | Spada e Scudo, incursioni delle grotte di cristallo: ★Sgr6913 Gigantamax Flapple | no | no | censita, non ancora producibile |
+| `EVT-T-0256` | 8 | incursione | 844 | 0 | Spada e Scudo, incursioni delle grotte di cristallo: ★Sgr7348 Gigantamax Sandaconda | no | no | censita, non ancora producibile |
+| `EVT-T-0257` | 8 | incursione | 884 | 0 | Spada e Scudo, incursioni delle grotte di cristallo: ★Sgr7121 Gigantamax Duraludon | no | no | censita, non ancora producibile |
+| `EVT-T-0258` | 8 | incursione | 25 | 0 | Spada e Scudo, incursioni delle grotte di cristallo: ★Sgr6746 Gigantamax Pikachu | no | no | censita, non ancora producibile |
+| `EVT-T-0259` | 8 | incursione | 133 | 0 | Spada e Scudo, incursioni delle grotte di cristallo: ★Sgr7194 Gigantamax Eevee | no | no | censita, non ancora producibile |
+| `EVT-T-0260` | 8 | condizionato | 493 | 0 | Leggende Arceus, doni fatidici: Arceus | no | no | censita, non ancora producibile |
+| `EVT-T-0261` | 8 | condizionato | 489 | 0 | Leggende Arceus, doni fatidici: Phione | no | no | censita, non ancora producibile |
+| `EVT-T-0262` | 8 | condizionato | 490 | 0 | Leggende Arceus, doni fatidici: Manaphy | no | no | censita, non ancora producibile |
+| `EVT-T-0263` | 8 | condizionato | 491 | 0 | Leggende Arceus, doni fatidici: Darkrai | no | no | censita, non ancora producibile |
+| `EVT-T-0264` | 8 | condizionato | 492 | 0 | Leggende Arceus, doni fatidici: Shaymin | no | no | censita, non ancora producibile |
+| `EVT-T-0265` | 8 | condizionato | 491 | 0 | Leggende Arceus, doni fatidici: Darkrai (Lonely Spring) | no | no | censita, non ancora producibile |
+| `EVT-T-0266` | 8 | condizionato | 151 | 0 | Diamante Lucente e Perla Splendente, doni fatidici: Mew | no | no | censita, non ancora producibile |
+| `EVT-T-0267` | 8 | condizionato | 385 | 0 | Diamante Lucente e Perla Splendente, doni fatidici: Jirachi | no | no | censita, non ancora producibile |
+| `EVT-T-0268` | 8 | condizionato | 491 | 0 | Diamante Lucente e Perla Splendente, doni fatidici: Darkrai | no | no | censita, non ancora producibile |
+| `EVT-T-0269` | 8 | condizionato | 492 | 0 | Diamante Lucente e Perla Splendente, doni fatidici: Shaymin | no | no | censita, non ancora producibile |
+| `EVT-T-0270` | 8 | condizionato | 493 | 0 | Diamante Lucente e Perla Splendente, doni fatidici: Arceus (Brilliant Diamond) | no | no | censita, non ancora producibile |
+| `EVT-T-0271` | 8 | condizionato | 493 | 0 | Diamante Lucente e Perla Splendente, doni fatidici: Arceus (Shining Pearl) | no | no | censita, non ancora producibile |
+| `EVT-T-0272` | 8 | condizionato | 647 | 1 | Spada e Scudo, doni fatidici: Keldeo-1 at Ballimere Lake | no | no | censita, non ancora producibile |
+| `EVT-T-0273` | 4 | periferica | 115 | 0 | Pokewalker: corso Prato Ristoro, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0279` | 4 | periferica | 202 | 0 | Pokewalker: corso Bosco Rumoroso, livello 15, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0280` | 4 | periferica | 69 | 0 | Pokewalker: corso Bosco Rumoroso, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0282` | 4 | periferica | 46 | 0 | Pokewalker: corso Bosco Rumoroso, livello 6, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0283` | 4 | periferica | 43 | 0 | Pokewalker: corso Bosco Rumoroso, livello 5, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0284` | 4 | periferica | 21 | 0 | Pokewalker: corso Bosco Rumoroso, livello 5, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0288` | 4 | periferica | 77 | 0 | Pokewalker: corso Strada Sconnessa, livello 7, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0289` | 4 | periferica | 163 | 0 | Pokewalker: corso Strada Sconnessa, livello 6, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0291` | 4 | periferica | 54 | 0 | Pokewalker: corso Bella Spiaggia, livello 10, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0292` | 4 | periferica | 120 | 0 | Pokewalker: corso Bella Spiaggia, livello 10, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0293` | 4 | periferica | 79 | 0 | Pokewalker: corso Bella Spiaggia, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0294` | 4 | periferica | 60 | 0 | Pokewalker: corso Bella Spiaggia, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0297` | 4 | periferica | 239 | 0 | Pokewalker: corso Zona Suburbana, livello 11, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0299` | 4 | periferica | 81 | 0 | Pokewalker: corso Zona Suburbana, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0300` | 4 | periferica | 198 | 0 | Pokewalker: corso Zona Suburbana, livello 11, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0301` | 4 | periferica | 163 | 0 | Pokewalker: corso Zona Suburbana, livello 7, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0303` | 4 | periferica | 238 | 0 | Pokewalker: corso Grotta Buia, livello 12, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0305` | 4 | periferica | 92 | 0 | Pokewalker: corso Grotta Buia, livello 10, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0306` | 4 | periferica | 95 | 0 | Pokewalker: corso Grotta Buia, livello 10, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0308` | 4 | periferica | 66 | 0 | Pokewalker: corso Grotta Buia, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0310` | 4 | periferica | 60 | 0 | Pokewalker: corso Lago Blu, livello 15, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0312` | 4 | periferica | 90 | 0 | Pokewalker: corso Lago Blu, livello 12, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0316` | 4 | periferica | 100 | 0 | Pokewalker: corso Periferia, livello 15, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0318` | 4 | periferica | 88 | 0 | Pokewalker: corso Periferia, livello 13, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0319` | 4 | periferica | 19 | 0 | Pokewalker: corso Periferia, livello 16, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0320` | 4 | periferica | 162 | 0 | Pokewalker: corso Periferia, livello 15, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0321` | 4 | periferica | 300 | 0 | Pokewalker: corso Prato di Hoenn, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0322` | 4 | periferica | 264 | 0 | Pokewalker: corso Prato di Hoenn, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0325` | 4 | periferica | 263 | 0 | Pokewalker: corso Prato di Hoenn, livello 17, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0327` | 4 | periferica | 320 | 0 | Pokewalker: corso Spiaggia Calda, livello 31, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0329` | 4 | periferica | 116 | 0 | Pokewalker: corso Spiaggia Calda, livello 20, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0330` | 4 | periferica | 318 | 0 | Pokewalker: corso Spiaggia Calda, livello 26, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0331` | 4 | periferica | 118 | 0 | Pokewalker: corso Spiaggia Calda, livello 22, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0332` | 4 | periferica | 129 | 0 | Pokewalker: corso Spiaggia Calda, livello 15, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0333` | 4 | periferica | 218 | 0 | Pokewalker: corso Via del Vulcano, livello 31, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0334` | 4 | periferica | 307 | 0 | Pokewalker: corso Via del Vulcano, livello 32, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0335` | 4 | periferica | 228 | 0 | Pokewalker: corso Via del Vulcano, livello 27, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0337` | 4 | periferica | 77 | 0 | Pokewalker: corso Via del Vulcano, livello 19, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0338` | 4 | periferica | 74 | 0 | Pokewalker: corso Via del Vulcano, livello 29, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0342` | 4 | periferica | 234 | 0 | Pokewalker: corso Casa sull Albero, livello 28, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0344` | 4 | periferica | 70 | 0 | Pokewalker: corso Casa sull Albero, livello 13, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0345` | 4 | periferica | 105 | 0 | Pokewalker: corso Grotta Spaventosa, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0346` | 4 | periferica | 128 | 0 | Pokewalker: corso Grotta Spaventosa, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0348` | 4 | periferica | 177 | 0 | Pokewalker: corso Grotta Spaventosa, livello 24, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0349` | 4 | periferica | 66 | 0 | Pokewalker: corso Grotta Spaventosa, livello 13, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0350` | 4 | periferica | 92 | 0 | Pokewalker: corso Grotta Spaventosa, livello 15, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0352` | 4 | periferica | 415 | 0 | Pokewalker: corso Prato di Sinnoh, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0357` | 4 | periferica | 459 | 0 | Pokewalker: corso Strada Ghiacciata, livello 31, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0358` | 4 | periferica | 361 | 0 | Pokewalker: corso Strada Ghiacciata, livello 28, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0359` | 4 | periferica | 215 | 0 | Pokewalker: corso Strada Ghiacciata, livello 28, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0360` | 4 | periferica | 436 | 0 | Pokewalker: corso Strada Ghiacciata, livello 20, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0361` | 4 | periferica | 220 | 0 | Pokewalker: corso Strada Ghiacciata, livello 16, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0362` | 4 | periferica | 179 | 0 | Pokewalker: corso Strada Ghiacciata, livello 15, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0363` | 4 | periferica | 357 | 0 | Pokewalker: corso Grande Foresta, livello 35, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0365` | 4 | periferica | 114 | 0 | Pokewalker: corso Grande Foresta, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0367` | 4 | periferica | 179 | 0 | Pokewalker: corso Grande Foresta, livello 19, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0368` | 4 | periferica | 102 | 0 | Pokewalker: corso Grande Foresta, livello 17, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0370` | 4 | periferica | 200 | 0 | Pokewalker: corso Lago Bianco, livello 32, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0371` | 4 | periferica | 93 | 0 | Pokewalker: corso Lago Bianco, livello 25, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0373` | 4 | periferica | 223 | 0 | Pokewalker: corso Lago Bianco, livello 19, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0375` | 4 | periferica | 456 | 0 | Pokewalker: corso Spiaggia Tempestosa, livello 26, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0376` | 4 | periferica | 422 | 0 | Pokewalker: corso Spiaggia Tempestosa, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0377` | 4 | periferica | 129 | 0 | Pokewalker: corso Spiaggia Tempestosa, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0378` | 4 | periferica | 86 | 0 | Pokewalker: corso Spiaggia Tempestosa, livello 27, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0379` | 4 | periferica | 54 | 0 | Pokewalker: corso Spiaggia Tempestosa, livello 22, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0380` | 4 | periferica | 90 | 0 | Pokewalker: corso Spiaggia Tempestosa, livello 20, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0381` | 4 | periferica | 417 | 0 | Pokewalker: corso Villaggio Turistico, livello 33, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0382` | 4 | periferica | 25 | 0 | Pokewalker: corso Villaggio Turistico, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0387` | 4 | periferica | 442 | 0 | Pokewalker: corso Grotta Silente, livello 31, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0388` | 4 | periferica | 446 | 0 | Pokewalker: corso Grotta Silente, livello 33, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0389` | 4 | periferica | 433 | 0 | Pokewalker: corso Grotta Silente, livello 26, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0390` | 4 | periferica | 349 | 0 | Pokewalker: corso Grotta Silente, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0391` | 4 | periferica | 164 | 0 | Pokewalker: corso Grotta Silente, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0392` | 4 | periferica | 42 | 0 | Pokewalker: corso Grotta Silente, livello 33, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0393` | 4 | periferica | 120 | 0 | Pokewalker: corso Oltre il Mare, livello 18, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0394` | 4 | periferica | 224 | 0 | Pokewalker: corso Oltre il Mare, livello 19, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0395` | 4 | periferica | 116 | 0 | Pokewalker: corso Oltre il Mare, livello 15, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0396` | 4 | periferica | 222 | 0 | Pokewalker: corso Oltre il Mare, livello 16, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0397` | 4 | periferica | 223 | 0 | Pokewalker: corso Oltre il Mare, livello 14, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0398` | 4 | periferica | 170 | 0 | Pokewalker: corso Oltre il Mare, livello 12, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0399` | 4 | periferica | 35 | 0 | Pokewalker: corso Confine del Cielo, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0400` | 4 | periferica | 39 | 0 | Pokewalker: corso Confine del Cielo, livello 10, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0401` | 4 | periferica | 41 | 0 | Pokewalker: corso Confine del Cielo, livello 9, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0402` | 4 | periferica | 163 | 0 | Pokewalker: corso Confine del Cielo, livello 6, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0403` | 4 | periferica | 74 | 0 | Pokewalker: corso Confine del Cielo, livello 5, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0404` | 4 | periferica | 95 | 0 | Pokewalker: corso Confine del Cielo, livello 5, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0405` | 4 | periferica | 25 | 0 | Pokewalker: corso Foresta Gialla, livello 15, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0406` | 4 | periferica | 25 | 0 | Pokewalker: corso Foresta Gialla, livello 14, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0407` | 4 | periferica | 25 | 0 | Pokewalker: corso Foresta Gialla, livello 13, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0408` | 4 | periferica | 25 | 0 | Pokewalker: corso Foresta Gialla, livello 12, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0409` | 4 | periferica | 25 | 0 | Pokewalker: corso Foresta Gialla, livello 10, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0410` | 4 | periferica | 25 | 0 | Pokewalker: corso Foresta Gialla, livello 10, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0411` | 4 | periferica | 441 | 0 | Pokewalker: corso Raduno, livello 15, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0412` | 4 | periferica | 302 | 0 | Pokewalker: corso Raduno, livello 15, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0413` | 4 | periferica | 25 | 0 | Pokewalker: corso Raduno, livello 10, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0414` | 4 | periferica | 453 | 0 | Pokewalker: corso Raduno, livello 10, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0415` | 4 | periferica | 427 | 0 | Pokewalker: corso Raduno, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0416` | 4 | periferica | 417 | 0 | Pokewalker: corso Raduno, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0417` | 4 | periferica | 255 | 0 | Pokewalker: corso Gita, livello 10, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0418` | 4 | periferica | 133 | 0 | Pokewalker: corso Gita, livello 10, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0421` | 4 | periferica | 52 | 0 | Pokewalker: corso Gita, livello 10, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0422` | 4 | periferica | 25 | 0 | Pokewalker: corso Gita, livello 8, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0423` | 4 | periferica | 446 | 0 | Pokewalker: corso Via del Vincitore, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0424` | 4 | periferica | 374 | 0 | Pokewalker: corso Via del Vincitore, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0425` | 4 | periferica | 116 | 0 | Pokewalker: corso Via del Vincitore, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0426` | 4 | periferica | 355 | 0 | Pokewalker: corso Via del Vincitore, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0427` | 4 | periferica | 129 | 0 | Pokewalker: corso Via del Vincitore, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0428` | 4 | periferica | 436 | 0 | Pokewalker: corso Via del Vincitore, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0429` | 4 | periferica | 239 | 0 | Pokewalker: corso Prato Amicizia, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0430` | 4 | periferica | 240 | 0 | Pokewalker: corso Prato Amicizia, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0431` | 4 | periferica | 238 | 0 | Pokewalker: corso Prato Amicizia, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0433` | 4 | periferica | 174 | 0 | Pokewalker: corso Prato Amicizia, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0435` | 8 | incursione | 1 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0436` | 8 | incursione | 1 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0437` | 8 | incursione | 1 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0438` | 8 | incursione | 2 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0439` | 8 | incursione | 2 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0440` | 8 | incursione | 2 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0441` | 8 | incursione | 3 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0442` | 8 | incursione | 3 | 0 | Spada, incursioni da distribuzione: livello 80 | no | no | censita, non ancora producibile |
+| `EVT-T-0443` | 8 | incursione | 3 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0444` | 8 | incursione | 3 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0445` | 8 | incursione | 3 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0446` | 8 | incursione | 3 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0447` | 8 | incursione | 4 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0448` | 8 | incursione | 4 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0449` | 8 | incursione | 4 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0450` | 8 | incursione | 4 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0451` | 8 | incursione | 4 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0452` | 8 | incursione | 5 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0453` | 8 | incursione | 5 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0454` | 8 | incursione | 5 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0455` | 8 | incursione | 6 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0456` | 8 | incursione | 6 | 0 | Spada, incursioni da distribuzione: livello 80 | no | no | censita, non ancora producibile |
+| `EVT-T-0457` | 8 | incursione | 6 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0458` | 8 | incursione | 6 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0459` | 8 | incursione | 6 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0460` | 8 | incursione | 6 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0461` | 8 | incursione | 6 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0462` | 8 | incursione | 7 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0463` | 8 | incursione | 7 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0464` | 8 | incursione | 7 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0465` | 8 | incursione | 8 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0466` | 8 | incursione | 9 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0467` | 8 | incursione | 9 | 0 | Spada, incursioni da distribuzione: livello 80 | no | no | censita, non ancora producibile |
+| `EVT-T-0468` | 8 | incursione | 12 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0469` | 8 | incursione | 12 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0470` | 8 | incursione | 12 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0471` | 8 | incursione | 12 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0472` | 8 | incursione | 12 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0473` | 8 | incursione | 12 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0474` | 8 | incursione | 12 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0475` | 8 | incursione | 12 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0476` | 8 | incursione | 12 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0477` | 8 | incursione | 12 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0478` | 8 | incursione | 12 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0479` | 8 | incursione | 12 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0480` | 8 | incursione | 12 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0481` | 8 | incursione | 12 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0482` | 8 | incursione | 12 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0483` | 8 | incursione | 12 | 0 | Spada, incursioni da distribuzione: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-0484` | 8 | incursione | 25 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0485` | 8 | incursione | 25 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0486` | 8 | incursione | 25 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0487` | 8 | incursione | 25 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0488` | 8 | incursione | 25 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0489` | 8 | incursione | 25 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0490` | 8 | incursione | 25 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0491` | 8 | incursione | 25 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0492` | 8 | incursione | 25 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0493` | 8 | incursione | 25 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0494` | 8 | incursione | 25 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0495` | 8 | incursione | 25 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0496` | 8 | incursione | 25 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0497` | 8 | incursione | 25 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0498` | 8 | incursione | 25 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0499` | 8 | incursione | 25 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0500` | 8 | incursione | 25 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0501` | 8 | incursione | 26 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0502` | 8 | incursione | 26 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0503` | 8 | incursione | 26 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0504` | 8 | incursione | 26 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0505` | 8 | incursione | 26 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0506` | 8 | incursione | 26 | 1 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0507` | 8 | incursione | 26 | 1 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0508` | 8 | incursione | 26 | 1 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0509` | 8 | incursione | 26 | 1 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0510` | 8 | incursione | 26 | 1 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0511` | 8 | incursione | 36 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0512` | 8 | incursione | 36 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0513` | 8 | incursione | 36 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0514` | 8 | incursione | 36 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0515` | 8 | incursione | 36 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0516` | 8 | incursione | 36 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0517` | 8 | incursione | 37 | 1 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0518` | 8 | incursione | 37 | 1 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0519` | 8 | incursione | 37 | 1 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0520` | 8 | incursione | 37 | 1 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0521` | 8 | incursione | 37 | 1 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0522` | 8 | incursione | 37 | 1 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0523` | 8 | incursione | 40 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0524` | 8 | incursione | 40 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0525` | 8 | incursione | 40 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0526` | 8 | incursione | 40 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0527` | 8 | incursione | 40 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0528` | 8 | incursione | 43 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0529` | 8 | incursione | 43 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0530` | 8 | incursione | 44 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0531` | 8 | incursione | 45 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0532` | 8 | incursione | 45 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0533` | 8 | incursione | 45 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0534` | 8 | incursione | 45 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0535` | 8 | incursione | 45 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0536` | 8 | incursione | 45 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0537` | 8 | incursione | 45 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0538` | 8 | incursione | 45 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0539` | 8 | incursione | 52 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0540` | 8 | incursione | 52 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0541` | 8 | incursione | 52 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0542` | 8 | incursione | 52 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0543` | 8 | incursione | 52 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0544` | 8 | incursione | 52 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0545` | 8 | incursione | 52 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0546` | 8 | incursione | 52 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0547` | 8 | incursione | 52 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0548` | 8 | incursione | 52 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0549` | 8 | incursione | 52 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0550` | 8 | incursione | 52 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0551` | 8 | incursione | 52 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0552` | 8 | incursione | 52 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0553` | 8 | incursione | 52 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0554` | 8 | incursione | 52 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0555` | 8 | incursione | 52 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0556` | 8 | incursione | 52 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0557` | 8 | incursione | 52 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0558` | 8 | incursione | 52 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0559` | 8 | incursione | 52 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0560` | 8 | incursione | 52 | 1 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0561` | 8 | incursione | 52 | 1 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0562` | 8 | incursione | 52 | 1 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0563` | 8 | incursione | 52 | 1 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0564` | 8 | incursione | 52 | 1 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0565` | 8 | incursione | 52 | 2 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0566` | 8 | incursione | 52 | 2 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0567` | 8 | incursione | 52 | 2 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0568` | 8 | incursione | 52 | 2 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0569` | 8 | incursione | 52 | 2 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0570` | 8 | incursione | 52 | 2 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0571` | 8 | incursione | 52 | 2 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0572` | 8 | incursione | 60 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0573` | 8 | incursione | 60 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0574` | 8 | incursione | 60 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0575` | 8 | incursione | 60 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0576` | 8 | incursione | 60 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0577` | 8 | incursione | 60 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0578` | 8 | incursione | 61 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0579` | 8 | incursione | 66 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0580` | 8 | incursione | 67 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0581` | 8 | incursione | 67 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0582` | 8 | incursione | 68 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0583` | 8 | incursione | 68 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0584` | 8 | incursione | 68 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0585` | 8 | incursione | 68 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0586` | 8 | incursione | 68 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0587` | 8 | incursione | 68 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0588` | 8 | incursione | 68 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0589` | 8 | incursione | 68 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0590` | 8 | incursione | 68 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0591` | 8 | incursione | 68 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0592` | 8 | incursione | 77 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0593` | 8 | incursione | 77 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0594` | 8 | incursione | 77 | 1 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0595` | 8 | incursione | 77 | 1 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0596` | 8 | incursione | 78 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0597` | 8 | incursione | 78 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0598` | 8 | incursione | 78 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0599` | 8 | incursione | 78 | 1 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0600` | 8 | incursione | 90 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0601` | 8 | incursione | 90 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0602` | 8 | incursione | 90 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0603` | 8 | incursione | 90 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0604` | 8 | incursione | 90 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0605` | 8 | incursione | 90 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0606` | 8 | incursione | 90 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0607` | 8 | incursione | 90 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0608` | 8 | incursione | 90 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0609` | 8 | incursione | 90 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0610` | 8 | incursione | 90 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0611` | 8 | incursione | 92 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0612` | 8 | incursione | 92 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0613` | 8 | incursione | 93 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0614` | 8 | incursione | 93 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0615` | 8 | incursione | 93 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0616` | 8 | incursione | 94 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0617` | 8 | incursione | 94 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0618` | 8 | incursione | 94 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0619` | 8 | incursione | 94 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0620` | 8 | incursione | 94 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0621` | 8 | incursione | 94 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0622` | 8 | incursione | 94 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0623` | 8 | incursione | 94 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0624` | 8 | incursione | 94 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0625` | 8 | incursione | 94 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0626` | 8 | incursione | 94 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0627` | 8 | incursione | 94 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0628` | 8 | incursione | 94 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0629` | 8 | incursione | 95 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0630` | 8 | incursione | 95 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0631` | 8 | incursione | 95 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0632` | 8 | incursione | 95 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0633` | 8 | incursione | 95 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0634` | 8 | incursione | 98 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0635` | 8 | incursione | 98 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0636` | 8 | incursione | 98 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0637` | 8 | incursione | 99 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0638` | 8 | incursione | 99 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0639` | 8 | incursione | 99 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0640` | 8 | incursione | 99 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0641` | 8 | incursione | 99 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0642` | 8 | incursione | 99 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0643` | 8 | incursione | 99 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0644` | 8 | incursione | 99 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0645` | 8 | incursione | 99 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0646` | 8 | incursione | 99 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0647` | 8 | incursione | 99 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0648` | 8 | incursione | 109 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0649` | 8 | incursione | 109 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0650` | 8 | incursione | 109 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0651` | 8 | incursione | 109 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0652` | 8 | incursione | 109 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0653` | 8 | incursione | 109 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0654` | 8 | incursione | 109 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0655` | 8 | incursione | 110 | 1 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0656` | 8 | incursione | 110 | 1 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0657` | 8 | incursione | 110 | 1 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0658` | 8 | incursione | 111 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0659` | 8 | incursione | 111 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0660` | 8 | incursione | 112 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0661` | 8 | incursione | 118 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0662` | 8 | incursione | 118 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0663` | 8 | incursione | 119 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0664` | 8 | incursione | 119 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0665` | 8 | incursione | 119 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0666` | 8 | incursione | 121 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0667` | 8 | incursione | 121 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0668` | 8 | incursione | 121 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0669` | 8 | incursione | 121 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0670` | 8 | incursione | 121 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0671` | 8 | incursione | 124 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0672` | 8 | incursione | 124 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0673` | 8 | incursione | 124 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0674` | 8 | incursione | 124 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0675` | 8 | incursione | 124 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0676` | 8 | incursione | 127 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0677` | 8 | incursione | 127 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0678` | 8 | incursione | 127 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0679` | 8 | incursione | 127 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0680` | 8 | incursione | 127 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0681` | 8 | incursione | 128 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0682` | 8 | incursione | 128 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0683` | 8 | incursione | 128 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0684` | 8 | incursione | 128 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0685` | 8 | incursione | 128 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0686` | 8 | incursione | 128 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0687` | 8 | incursione | 129 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0688` | 8 | incursione | 129 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0689` | 8 | incursione | 129 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0690` | 8 | incursione | 129 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0691` | 8 | incursione | 129 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0692` | 8 | incursione | 129 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0693` | 8 | incursione | 129 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0694` | 8 | incursione | 129 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0695` | 8 | incursione | 129 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0696` | 8 | incursione | 129 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0697` | 8 | incursione | 129 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0698` | 8 | incursione | 129 | 0 | Spada, incursioni da distribuzione: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-0699` | 8 | incursione | 131 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0700` | 8 | incursione | 131 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0701` | 8 | incursione | 131 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0702` | 8 | incursione | 131 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0703` | 8 | incursione | 131 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0704` | 8 | incursione | 132 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0705` | 8 | incursione | 132 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0706` | 8 | incursione | 132 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0707` | 8 | incursione | 132 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0708` | 8 | incursione | 132 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0709` | 8 | incursione | 133 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0710` | 8 | incursione | 133 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0711` | 8 | incursione | 133 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0712` | 8 | incursione | 133 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0713` | 8 | incursione | 133 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0714` | 8 | incursione | 133 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0715` | 8 | incursione | 133 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0716` | 8 | incursione | 133 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0717` | 8 | incursione | 133 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0718` | 8 | incursione | 133 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0719` | 8 | incursione | 133 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0720` | 8 | incursione | 133 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0721` | 8 | incursione | 133 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0722` | 8 | incursione | 133 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0723` | 8 | incursione | 134 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0724` | 8 | incursione | 134 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0725` | 8 | incursione | 134 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0726` | 8 | incursione | 135 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0727` | 8 | incursione | 135 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0728` | 8 | incursione | 135 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0729` | 8 | incursione | 136 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0730` | 8 | incursione | 136 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0731` | 8 | incursione | 136 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0732` | 8 | incursione | 138 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0733` | 8 | incursione | 138 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0734` | 8 | incursione | 138 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0735` | 8 | incursione | 138 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0736` | 8 | incursione | 138 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0737` | 8 | incursione | 138 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0738` | 8 | incursione | 140 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0739` | 8 | incursione | 140 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0740` | 8 | incursione | 140 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0741` | 8 | incursione | 140 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0742` | 8 | incursione | 140 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0743` | 8 | incursione | 142 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0744` | 8 | incursione | 142 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0745` | 8 | incursione | 142 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0746` | 8 | incursione | 142 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0747` | 8 | incursione | 142 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0748` | 8 | incursione | 143 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0749` | 8 | incursione | 143 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0750` | 8 | incursione | 143 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0751` | 8 | incursione | 143 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0752` | 8 | incursione | 143 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0753` | 8 | incursione | 143 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0754` | 8 | incursione | 143 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0755` | 8 | incursione | 143 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0756` | 8 | incursione | 143 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0757` | 8 | incursione | 143 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0758` | 8 | incursione | 143 | 0 | Spada, incursioni da distribuzione: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-0759` | 8 | incursione | 143 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0760` | 8 | incursione | 172 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0761` | 8 | incursione | 172 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0762` | 8 | incursione | 172 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0763` | 8 | incursione | 172 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0764` | 8 | incursione | 172 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0765` | 8 | incursione | 172 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0766` | 8 | incursione | 173 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0767` | 8 | incursione | 175 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0768` | 8 | incursione | 175 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0769` | 8 | incursione | 176 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0770` | 8 | incursione | 182 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0771` | 8 | incursione | 182 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0772` | 8 | incursione | 182 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0773` | 8 | incursione | 182 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0774` | 8 | incursione | 182 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0775` | 8 | incursione | 182 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0776` | 8 | incursione | 182 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0777` | 8 | incursione | 183 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0778` | 8 | incursione | 183 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0779` | 8 | incursione | 183 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0780` | 8 | incursione | 183 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0781` | 8 | incursione | 183 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0782` | 8 | incursione | 183 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0783` | 8 | incursione | 183 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0784` | 8 | incursione | 184 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0785` | 8 | incursione | 184 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0786` | 8 | incursione | 184 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0787` | 8 | incursione | 184 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0788` | 8 | incursione | 184 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0789` | 8 | incursione | 185 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0790` | 8 | incursione | 185 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0791` | 8 | incursione | 185 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0792` | 8 | incursione | 186 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0793` | 8 | incursione | 186 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0794` | 8 | incursione | 186 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0795` | 8 | incursione | 186 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0796` | 8 | incursione | 194 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0797` | 8 | incursione | 195 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0798` | 8 | incursione | 195 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0799` | 8 | incursione | 195 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0800` | 8 | incursione | 195 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0801` | 8 | incursione | 195 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0802` | 8 | incursione | 195 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0803` | 8 | incursione | 195 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0804` | 8 | incursione | 195 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0805` | 8 | incursione | 195 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0806` | 8 | incursione | 196 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0807` | 8 | incursione | 196 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0808` | 8 | incursione | 196 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0809` | 8 | incursione | 197 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0810` | 8 | incursione | 197 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0811` | 8 | incursione | 197 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0812` | 8 | incursione | 202 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0813` | 8 | incursione | 202 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0814` | 8 | incursione | 202 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0815` | 8 | incursione | 202 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0816` | 8 | incursione | 202 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0817` | 8 | incursione | 208 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0818` | 8 | incursione | 208 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0819` | 8 | incursione | 208 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0820` | 8 | incursione | 208 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0821` | 8 | incursione | 208 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0822` | 8 | incursione | 213 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0823` | 8 | incursione | 213 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0824` | 8 | incursione | 213 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0825` | 8 | incursione | 213 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0826` | 8 | incursione | 213 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0827` | 8 | incursione | 214 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0828` | 8 | incursione | 214 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0829` | 8 | incursione | 214 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0830` | 8 | incursione | 214 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0831` | 8 | incursione | 214 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0832` | 8 | incursione | 222 | 1 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0833` | 8 | incursione | 222 | 1 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0834` | 8 | incursione | 222 | 1 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0835` | 8 | incursione | 223 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0836` | 8 | incursione | 223 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0837` | 8 | incursione | 224 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0838` | 8 | incursione | 224 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0839` | 8 | incursione | 224 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0840` | 8 | incursione | 225 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0841` | 8 | incursione | 225 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0842` | 8 | incursione | 225 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0843` | 8 | incursione | 225 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0844` | 8 | incursione | 225 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0845` | 8 | incursione | 225 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0846` | 8 | incursione | 225 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0847` | 8 | incursione | 225 | 0 | Spada, incursioni da distribuzione: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-0848` | 8 | incursione | 226 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0849` | 8 | incursione | 226 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0850` | 8 | incursione | 226 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0851` | 8 | incursione | 236 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0852` | 8 | incursione | 241 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0853` | 8 | incursione | 241 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0854` | 8 | incursione | 241 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0855` | 8 | incursione | 241 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0856` | 8 | incursione | 241 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0857` | 8 | incursione | 246 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0858` | 8 | incursione | 247 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0859` | 8 | incursione | 248 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0860` | 8 | incursione | 248 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0861` | 8 | incursione | 248 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0862` | 8 | incursione | 280 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0863` | 8 | incursione | 281 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0864` | 8 | incursione | 282 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0865` | 8 | incursione | 282 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0866` | 8 | incursione | 282 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0867` | 8 | incursione | 290 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0868` | 8 | incursione | 290 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0869` | 8 | incursione | 291 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0870` | 8 | incursione | 291 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0871` | 8 | incursione | 291 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0872` | 8 | incursione | 291 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0873` | 8 | incursione | 291 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0874` | 8 | incursione | 291 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0875` | 8 | incursione | 291 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0876` | 8 | incursione | 291 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0877` | 8 | incursione | 302 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0878` | 8 | incursione | 302 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0879` | 8 | incursione | 302 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0880` | 8 | incursione | 302 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0881` | 8 | incursione | 302 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0882` | 8 | incursione | 318 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0883` | 8 | incursione | 319 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0884` | 8 | incursione | 319 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0885` | 8 | incursione | 319 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0886` | 8 | incursione | 319 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0887` | 8 | incursione | 320 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0888` | 8 | incursione | 320 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0889` | 8 | incursione | 321 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0890` | 8 | incursione | 321 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0891` | 8 | incursione | 321 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0892` | 8 | incursione | 321 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0893` | 8 | incursione | 330 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0894` | 8 | incursione | 330 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0895` | 8 | incursione | 330 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0896` | 8 | incursione | 330 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0897` | 8 | incursione | 330 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0898` | 8 | incursione | 333 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0899` | 8 | incursione | 333 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0900` | 8 | incursione | 334 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0901` | 8 | incursione | 334 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0902` | 8 | incursione | 334 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0903` | 8 | incursione | 337 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0904` | 8 | incursione | 337 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0905` | 8 | incursione | 337 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0906` | 8 | incursione | 337 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0907` | 8 | incursione | 337 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0908` | 8 | incursione | 337 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0909` | 8 | incursione | 338 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0910` | 8 | incursione | 338 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0911` | 8 | incursione | 338 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0912` | 8 | incursione | 338 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0913` | 8 | incursione | 338 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0914` | 8 | incursione | 338 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0915` | 8 | incursione | 349 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0916` | 8 | incursione | 349 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0917` | 8 | incursione | 350 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0918` | 8 | incursione | 350 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0919` | 8 | incursione | 350 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0920` | 8 | incursione | 355 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0921` | 8 | incursione | 355 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0922` | 8 | incursione | 360 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0923` | 8 | incursione | 363 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0924` | 8 | incursione | 363 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0925` | 8 | incursione | 363 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0926` | 8 | incursione | 363 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0927` | 8 | incursione | 363 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0928` | 8 | incursione | 406 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0929` | 8 | incursione | 420 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0930` | 8 | incursione | 420 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0931` | 8 | incursione | 420 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0932` | 8 | incursione | 420 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0933` | 8 | incursione | 420 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0934` | 8 | incursione | 420 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0935` | 8 | incursione | 421 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0936` | 8 | incursione | 421 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0937` | 8 | incursione | 421 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0938` | 8 | incursione | 421 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0939` | 8 | incursione | 422 | 1 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0940` | 8 | incursione | 423 | 1 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0941` | 8 | incursione | 423 | 1 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0942` | 8 | incursione | 423 | 1 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0943` | 8 | incursione | 423 | 1 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0944` | 8 | incursione | 425 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0945` | 8 | incursione | 425 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0946` | 8 | incursione | 426 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0947` | 8 | incursione | 426 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0948` | 8 | incursione | 426 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0949` | 8 | incursione | 426 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0950` | 8 | incursione | 426 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0951` | 8 | incursione | 426 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0952` | 8 | incursione | 426 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0953` | 8 | incursione | 426 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0954` | 8 | incursione | 427 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0955` | 8 | incursione | 428 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0956` | 8 | incursione | 428 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0957` | 8 | incursione | 428 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0958` | 8 | incursione | 428 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0959` | 8 | incursione | 438 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0960` | 8 | incursione | 438 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0961` | 8 | incursione | 438 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0962` | 8 | incursione | 439 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0963` | 8 | incursione | 446 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0964` | 8 | incursione | 446 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0965` | 8 | incursione | 446 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0966` | 8 | incursione | 447 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0967` | 8 | incursione | 447 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0968` | 8 | incursione | 447 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0969` | 8 | incursione | 448 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0970` | 8 | incursione | 448 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0971` | 8 | incursione | 448 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0972` | 8 | incursione | 449 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0973` | 8 | incursione | 449 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0974` | 8 | incursione | 450 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0975` | 8 | incursione | 450 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0976` | 8 | incursione | 450 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0977` | 8 | incursione | 453 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0978` | 8 | incursione | 453 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0979` | 8 | incursione | 453 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0980` | 8 | incursione | 453 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0981` | 8 | incursione | 453 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0982` | 8 | incursione | 453 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0983` | 8 | incursione | 453 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0984` | 8 | incursione | 454 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0985` | 8 | incursione | 454 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0986` | 8 | incursione | 454 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0987` | 8 | incursione | 458 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0988` | 8 | incursione | 458 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0989` | 8 | incursione | 458 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0990` | 8 | incursione | 461 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-0991` | 8 | incursione | 461 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-0992` | 8 | incursione | 461 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0993` | 8 | incursione | 461 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0994` | 8 | incursione | 461 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0995` | 8 | incursione | 464 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0996` | 8 | incursione | 464 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-0997` | 8 | incursione | 468 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-0998` | 8 | incursione | 468 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-0999` | 8 | incursione | 468 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1000` | 8 | incursione | 470 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1001` | 8 | incursione | 470 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1002` | 8 | incursione | 470 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1003` | 8 | incursione | 471 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1004` | 8 | incursione | 471 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1005` | 8 | incursione | 471 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1006` | 8 | incursione | 477 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1007` | 8 | incursione | 477 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1008` | 8 | incursione | 477 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1009` | 8 | incursione | 479 | 1 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1010` | 8 | incursione | 479 | 1 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1011` | 8 | incursione | 479 | 1 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1012` | 8 | incursione | 479 | 1 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1013` | 8 | incursione | 479 | 1 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1014` | 8 | incursione | 479 | 4 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1015` | 8 | incursione | 479 | 4 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1016` | 8 | incursione | 479 | 4 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1017` | 8 | incursione | 479 | 4 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1018` | 8 | incursione | 479 | 4 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1019` | 8 | incursione | 479 | 5 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1020` | 8 | incursione | 479 | 5 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1021` | 8 | incursione | 479 | 5 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1022` | 8 | incursione | 479 | 5 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1023` | 8 | incursione | 479 | 5 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1024` | 8 | incursione | 518 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1025` | 8 | incursione | 518 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1026` | 8 | incursione | 518 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1027` | 8 | incursione | 518 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1028` | 8 | incursione | 518 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1029` | 8 | incursione | 529 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1030` | 8 | incursione | 529 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1031` | 8 | incursione | 530 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1032` | 8 | incursione | 530 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1033` | 8 | incursione | 530 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1034` | 8 | incursione | 535 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1035` | 8 | incursione | 536 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1036` | 8 | incursione | 537 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1037` | 8 | incursione | 537 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1038` | 8 | incursione | 537 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1039` | 8 | incursione | 546 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1040` | 8 | incursione | 546 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1041` | 8 | incursione | 547 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1042` | 8 | incursione | 547 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1043` | 8 | incursione | 547 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1044` | 8 | incursione | 547 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1045` | 8 | incursione | 547 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1046` | 8 | incursione | 547 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1047` | 8 | incursione | 547 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1048` | 8 | incursione | 549 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1049` | 8 | incursione | 549 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1050` | 8 | incursione | 549 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1051` | 8 | incursione | 549 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1052` | 8 | incursione | 549 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1053` | 8 | incursione | 549 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1054` | 8 | incursione | 549 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1055` | 8 | incursione | 549 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1056` | 8 | incursione | 549 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1057` | 8 | incursione | 549 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1058` | 8 | incursione | 549 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1059` | 8 | incursione | 554 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1060` | 8 | incursione | 554 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1061` | 8 | incursione | 555 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1062` | 8 | incursione | 555 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1063` | 8 | incursione | 555 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1064` | 8 | incursione | 562 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1065` | 8 | incursione | 563 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1066` | 8 | incursione | 563 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1067` | 8 | incursione | 563 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1068` | 8 | incursione | 563 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1069` | 8 | incursione | 564 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1070` | 8 | incursione | 564 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1071` | 8 | incursione | 565 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1072` | 8 | incursione | 565 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1073` | 8 | incursione | 565 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1074` | 8 | incursione | 566 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1075` | 8 | incursione | 566 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1076` | 8 | incursione | 567 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1077` | 8 | incursione | 567 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1078` | 8 | incursione | 567 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1079` | 8 | incursione | 568 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1080` | 8 | incursione | 568 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1081` | 8 | incursione | 568 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1082` | 8 | incursione | 568 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1083` | 8 | incursione | 569 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1084` | 8 | incursione | 569 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1085` | 8 | incursione | 569 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1086` | 8 | incursione | 569 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1087` | 8 | incursione | 569 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1088` | 8 | incursione | 569 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1089` | 8 | incursione | 570 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1090` | 8 | incursione | 571 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1091` | 8 | incursione | 571 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1092` | 8 | incursione | 571 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1093` | 8 | incursione | 571 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1094` | 8 | incursione | 571 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1095` | 8 | incursione | 572 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1096` | 8 | incursione | 572 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1097` | 8 | incursione | 573 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1098` | 8 | incursione | 573 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1099` | 8 | incursione | 573 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1100` | 8 | incursione | 573 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1101` | 8 | incursione | 573 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1102` | 8 | incursione | 573 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1103` | 8 | incursione | 573 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1104` | 8 | incursione | 573 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1105` | 8 | incursione | 573 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1106` | 8 | incursione | 574 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1107` | 8 | incursione | 574 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1108` | 8 | incursione | 575 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1109` | 8 | incursione | 576 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1110` | 8 | incursione | 576 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1111` | 8 | incursione | 577 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1112` | 8 | incursione | 577 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1113` | 8 | incursione | 578 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1114` | 8 | incursione | 579 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1115` | 8 | incursione | 579 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1116` | 8 | incursione | 582 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1117` | 8 | incursione | 582 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1118` | 8 | incursione | 583 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1119` | 8 | incursione | 584 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1120` | 8 | incursione | 584 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1121` | 8 | incursione | 588 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1122` | 8 | incursione | 589 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1123` | 8 | incursione | 590 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1124` | 8 | incursione | 590 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1125` | 8 | incursione | 591 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1126` | 8 | incursione | 591 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1127` | 8 | incursione | 591 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1128` | 8 | incursione | 592 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1129` | 8 | incursione | 592 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1130` | 8 | incursione | 593 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1131` | 8 | incursione | 593 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1132` | 8 | incursione | 593 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1133` | 8 | incursione | 597 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1134` | 8 | incursione | 597 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1135` | 8 | incursione | 598 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1136` | 8 | incursione | 598 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1137` | 8 | incursione | 598 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1138` | 8 | incursione | 607 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1139` | 8 | incursione | 607 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1140` | 8 | incursione | 607 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1141` | 8 | incursione | 607 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1142` | 8 | incursione | 608 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1143` | 8 | incursione | 609 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1144` | 8 | incursione | 609 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1145` | 8 | incursione | 609 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1146` | 8 | incursione | 609 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1147` | 8 | incursione | 609 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1148` | 8 | incursione | 609 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1149` | 8 | incursione | 610 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1150` | 8 | incursione | 610 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1151` | 8 | incursione | 611 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1152` | 8 | incursione | 612 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1153` | 8 | incursione | 612 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1154` | 8 | incursione | 615 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1155` | 8 | incursione | 615 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1156` | 8 | incursione | 615 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1157` | 8 | incursione | 615 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1158` | 8 | incursione | 615 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1159` | 8 | incursione | 616 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1160` | 8 | incursione | 617 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1161` | 8 | incursione | 623 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1162` | 8 | incursione | 623 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1163` | 8 | incursione | 623 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1164` | 8 | incursione | 623 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1165` | 8 | incursione | 623 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1166` | 8 | incursione | 626 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1167` | 8 | incursione | 626 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1168` | 8 | incursione | 626 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1169` | 8 | incursione | 626 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1170` | 8 | incursione | 626 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1171` | 8 | incursione | 627 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1172` | 8 | incursione | 627 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1173` | 8 | incursione | 628 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1174` | 8 | incursione | 628 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1175` | 8 | incursione | 628 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1176` | 8 | incursione | 630 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1177` | 8 | incursione | 633 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1178` | 8 | incursione | 633 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1179` | 8 | incursione | 633 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1180` | 8 | incursione | 634 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1181` | 8 | incursione | 635 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1182` | 8 | incursione | 659 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1183` | 8 | incursione | 660 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1184` | 8 | incursione | 660 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1185` | 8 | incursione | 660 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1186` | 8 | incursione | 660 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1187` | 8 | incursione | 686 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1188` | 8 | incursione | 686 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1189` | 8 | incursione | 687 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1190` | 8 | incursione | 687 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1191` | 8 | incursione | 687 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1192` | 8 | incursione | 695 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1193` | 8 | incursione | 695 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1194` | 8 | incursione | 695 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1195` | 8 | incursione | 695 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1196` | 8 | incursione | 695 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1197` | 8 | incursione | 696 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1198` | 8 | incursione | 696 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1199` | 8 | incursione | 697 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1200` | 8 | incursione | 697 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1201` | 8 | incursione | 697 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1202` | 8 | incursione | 697 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1203` | 8 | incursione | 698 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1204` | 8 | incursione | 698 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1205` | 8 | incursione | 699 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1206` | 8 | incursione | 699 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1207` | 8 | incursione | 699 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1208` | 8 | incursione | 700 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1209` | 8 | incursione | 700 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1210` | 8 | incursione | 700 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1211` | 8 | incursione | 704 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1212` | 8 | incursione | 704 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1213` | 8 | incursione | 705 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1214` | 8 | incursione | 706 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1215` | 8 | incursione | 706 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1216` | 8 | incursione | 709 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1217` | 8 | incursione | 709 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1218` | 8 | incursione | 709 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1219` | 8 | incursione | 709 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1220` | 8 | incursione | 709 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1221` | 8 | incursione | 710 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1222` | 8 | incursione | 710 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1223` | 8 | incursione | 711 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1224` | 8 | incursione | 711 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1225` | 8 | incursione | 711 | 1 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1226` | 8 | incursione | 711 | 1 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1227` | 8 | incursione | 711 | 2 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1228` | 8 | incursione | 711 | 2 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1229` | 8 | incursione | 711 | 3 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1230` | 8 | incursione | 711 | 3 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1231` | 8 | incursione | 712 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1232` | 8 | incursione | 712 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1233` | 8 | incursione | 713 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1234` | 8 | incursione | 713 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1235` | 8 | incursione | 713 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1236` | 8 | incursione | 722 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1237` | 8 | incursione | 722 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1238` | 8 | incursione | 722 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1239` | 8 | incursione | 722 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1240` | 8 | incursione | 722 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1241` | 8 | incursione | 725 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1242` | 8 | incursione | 725 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1243` | 8 | incursione | 725 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1244` | 8 | incursione | 725 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1245` | 8 | incursione | 725 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1246` | 8 | incursione | 728 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1247` | 8 | incursione | 728 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1248` | 8 | incursione | 728 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1249` | 8 | incursione | 728 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1250` | 8 | incursione | 728 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1251` | 8 | incursione | 753 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1252` | 8 | incursione | 753 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1253` | 8 | incursione | 754 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1254` | 8 | incursione | 754 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1255` | 8 | incursione | 754 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1256` | 8 | incursione | 755 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1257` | 8 | incursione | 756 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1258` | 8 | incursione | 756 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1259` | 8 | incursione | 756 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1260` | 8 | incursione | 756 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1261` | 8 | incursione | 759 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1262` | 8 | incursione | 759 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1263` | 8 | incursione | 760 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1264` | 8 | incursione | 760 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1265` | 8 | incursione | 760 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1266` | 8 | incursione | 764 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1267` | 8 | incursione | 764 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1268` | 8 | incursione | 764 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1269` | 8 | incursione | 764 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1270` | 8 | incursione | 764 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1271` | 8 | incursione | 765 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1272` | 8 | incursione | 767 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1273` | 8 | incursione | 767 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1274` | 8 | incursione | 767 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1275` | 8 | incursione | 767 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1276` | 8 | incursione | 767 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1277` | 8 | incursione | 771 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1278` | 8 | incursione | 771 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1279` | 8 | incursione | 771 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1280` | 8 | incursione | 771 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1281` | 8 | incursione | 771 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1282` | 8 | incursione | 771 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1283` | 8 | incursione | 771 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1284` | 8 | incursione | 771 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1285` | 8 | incursione | 771 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1286` | 8 | incursione | 771 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1287` | 8 | incursione | 776 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1288` | 8 | incursione | 776 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1289` | 8 | incursione | 776 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1290` | 8 | incursione | 776 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1291` | 8 | incursione | 776 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1292` | 8 | incursione | 778 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1293` | 8 | incursione | 778 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1294` | 8 | incursione | 778 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1295` | 8 | incursione | 778 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1296` | 8 | incursione | 778 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1297` | 8 | incursione | 819 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1298` | 8 | incursione | 819 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1299` | 8 | incursione | 819 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1300` | 8 | incursione | 819 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1301` | 8 | incursione | 819 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1302` | 8 | incursione | 819 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1303` | 8 | incursione | 820 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1304` | 8 | incursione | 820 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1305` | 8 | incursione | 820 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1306` | 8 | incursione | 820 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1307` | 8 | incursione | 820 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1308` | 8 | incursione | 821 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1309` | 8 | incursione | 822 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1310` | 8 | incursione | 823 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1311` | 8 | incursione | 823 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1312` | 8 | incursione | 823 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1313` | 8 | incursione | 823 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1314` | 8 | incursione | 823 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1315` | 8 | incursione | 823 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1316` | 8 | incursione | 823 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1317` | 8 | incursione | 823 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1318` | 8 | incursione | 824 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1319` | 8 | incursione | 825 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1320` | 8 | incursione | 825 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1321` | 8 | incursione | 826 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1322` | 8 | incursione | 826 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1323` | 8 | incursione | 826 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1324` | 8 | incursione | 826 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1325` | 8 | incursione | 826 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1326` | 8 | incursione | 826 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1327` | 8 | incursione | 826 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1328` | 8 | incursione | 826 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1329` | 8 | incursione | 827 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1330` | 8 | incursione | 828 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1331` | 8 | incursione | 828 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1332` | 8 | incursione | 828 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1333` | 8 | incursione | 828 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1334` | 8 | incursione | 829 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1335` | 8 | incursione | 830 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1336` | 8 | incursione | 830 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1337` | 8 | incursione | 830 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1338` | 8 | incursione | 830 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1339` | 8 | incursione | 831 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1340` | 8 | incursione | 831 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1341` | 8 | incursione | 831 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1342` | 8 | incursione | 831 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1343` | 8 | incursione | 831 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1344` | 8 | incursione | 831 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1345` | 8 | incursione | 831 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1346` | 8 | incursione | 831 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1347` | 8 | incursione | 832 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1348` | 8 | incursione | 832 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1349` | 8 | incursione | 832 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1350` | 8 | incursione | 832 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1351` | 8 | incursione | 832 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1352` | 8 | incursione | 832 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1353` | 8 | incursione | 832 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1354` | 8 | incursione | 833 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1355` | 8 | incursione | 833 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1356` | 8 | incursione | 833 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1357` | 8 | incursione | 833 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1358` | 8 | incursione | 834 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1359` | 8 | incursione | 834 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1360` | 8 | incursione | 834 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1361` | 8 | incursione | 834 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1362` | 8 | incursione | 834 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1363` | 8 | incursione | 834 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1364` | 8 | incursione | 834 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1365` | 8 | incursione | 834 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1366` | 8 | incursione | 834 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1367` | 8 | incursione | 834 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1368` | 8 | incursione | 834 | 0 | Spada, incursioni da distribuzione: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-1369` | 8 | incursione | 834 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1370` | 8 | incursione | 834 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1371` | 8 | incursione | 834 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1372` | 8 | incursione | 835 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1373` | 8 | incursione | 836 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1374` | 8 | incursione | 836 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1375` | 8 | incursione | 836 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1376` | 8 | incursione | 836 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1377` | 8 | incursione | 837 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1378` | 8 | incursione | 837 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1379` | 8 | incursione | 837 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1380` | 8 | incursione | 838 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1381` | 8 | incursione | 838 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1382` | 8 | incursione | 838 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1383` | 8 | incursione | 839 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1384` | 8 | incursione | 839 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1385` | 8 | incursione | 839 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1386` | 8 | incursione | 839 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1387` | 8 | incursione | 839 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1388` | 8 | incursione | 839 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1389` | 8 | incursione | 839 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1390` | 8 | incursione | 839 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1391` | 8 | incursione | 839 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1392` | 8 | incursione | 840 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1393` | 8 | incursione | 840 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1394` | 8 | incursione | 840 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1395` | 8 | incursione | 841 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1396` | 8 | incursione | 841 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1397` | 8 | incursione | 841 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1398` | 8 | incursione | 841 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1399` | 8 | incursione | 841 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1400` | 8 | incursione | 841 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1401` | 8 | incursione | 841 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1402` | 8 | incursione | 841 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1403` | 8 | incursione | 841 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1404` | 8 | incursione | 841 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1405` | 8 | incursione | 842 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1406` | 8 | incursione | 842 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1407` | 8 | incursione | 842 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1408` | 8 | incursione | 842 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1409` | 8 | incursione | 842 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1410` | 8 | incursione | 842 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1411` | 8 | incursione | 843 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1412` | 8 | incursione | 843 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1413` | 8 | incursione | 843 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1414` | 8 | incursione | 843 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1415` | 8 | incursione | 843 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1416` | 8 | incursione | 843 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1417` | 8 | incursione | 844 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1418` | 8 | incursione | 844 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1419` | 8 | incursione | 844 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1420` | 8 | incursione | 844 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1421` | 8 | incursione | 844 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1422` | 8 | incursione | 844 | 0 | Spada, incursioni da distribuzione: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-1423` | 8 | incursione | 844 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1424` | 8 | incursione | 844 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1425` | 8 | incursione | 844 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1426` | 8 | incursione | 844 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1427` | 8 | incursione | 845 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1428` | 8 | incursione | 845 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1429` | 8 | incursione | 845 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1430` | 8 | incursione | 845 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1431` | 8 | incursione | 845 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1432` | 8 | incursione | 845 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1433` | 8 | incursione | 845 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1434` | 8 | incursione | 845 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1435` | 8 | incursione | 845 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1436` | 8 | incursione | 845 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1437` | 8 | incursione | 845 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1438` | 8 | incursione | 848 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1439` | 8 | incursione | 848 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1440` | 8 | incursione | 849 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1441` | 8 | incursione | 849 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1442` | 8 | incursione | 849 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1443` | 8 | incursione | 849 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1444` | 8 | incursione | 849 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1445` | 8 | incursione | 849 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1446` | 8 | incursione | 849 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1447` | 8 | incursione | 849 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1448` | 8 | incursione | 849 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1449` | 8 | incursione | 849 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1450` | 8 | incursione | 849 | 1 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1451` | 8 | incursione | 849 | 1 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1452` | 8 | incursione | 849 | 1 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1453` | 8 | incursione | 849 | 1 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1454` | 8 | incursione | 849 | 1 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1455` | 8 | incursione | 850 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1456` | 8 | incursione | 850 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1457` | 8 | incursione | 851 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1458` | 8 | incursione | 851 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1459` | 8 | incursione | 851 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1460` | 8 | incursione | 851 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1461` | 8 | incursione | 851 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1462` | 8 | incursione | 851 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1463` | 8 | incursione | 851 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1464` | 8 | incursione | 851 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1465` | 8 | incursione | 851 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1466` | 8 | incursione | 851 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1467` | 8 | incursione | 852 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1468` | 8 | incursione | 852 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1469` | 8 | incursione | 853 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1470` | 8 | incursione | 853 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1471` | 8 | incursione | 853 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1472` | 8 | incursione | 853 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1473` | 8 | incursione | 855 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1474` | 8 | incursione | 855 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1475` | 8 | incursione | 855 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1476` | 8 | incursione | 855 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1477` | 8 | incursione | 855 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1478` | 8 | incursione | 856 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1479` | 8 | incursione | 856 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1480` | 8 | incursione | 857 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1481` | 8 | incursione | 858 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1482` | 8 | incursione | 858 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1483` | 8 | incursione | 858 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1484` | 8 | incursione | 859 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1485` | 8 | incursione | 859 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1486` | 8 | incursione | 859 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1487` | 8 | incursione | 859 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1488` | 8 | incursione | 859 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1489` | 8 | incursione | 859 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1490` | 8 | incursione | 859 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1491` | 8 | incursione | 859 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1492` | 8 | incursione | 860 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1493` | 8 | incursione | 860 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1494` | 8 | incursione | 860 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1495` | 8 | incursione | 860 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1496` | 8 | incursione | 861 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1497` | 8 | incursione | 861 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1498` | 8 | incursione | 861 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1499` | 8 | incursione | 861 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1500` | 8 | incursione | 861 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1501` | 8 | incursione | 861 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1502` | 8 | incursione | 861 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1503` | 8 | incursione | 861 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1504` | 8 | incursione | 861 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1505` | 8 | incursione | 861 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1506` | 8 | incursione | 863 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1507` | 8 | incursione | 863 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1508` | 8 | incursione | 863 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1509` | 8 | incursione | 863 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1510` | 8 | incursione | 868 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1511` | 8 | incursione | 868 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1512` | 8 | incursione | 868 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1513` | 8 | incursione | 868 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1514` | 8 | incursione | 868 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1515` | 8 | incursione | 868 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1516` | 8 | incursione | 868 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1517` | 8 | incursione | 868 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1518` | 8 | incursione | 868 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1519` | 8 | incursione | 868 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1520` | 8 | incursione | 868 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1521` | 8 | incursione | 868 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1522` | 8 | incursione | 868 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1523` | 8 | incursione | 869 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1524` | 8 | incursione | 869 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1525` | 8 | incursione | 869 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1526` | 8 | incursione | 869 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1527` | 8 | incursione | 869 | 1 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1528` | 8 | incursione | 869 | 2 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1529` | 8 | incursione | 869 | 3 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1530` | 8 | incursione | 869 | 4 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1531` | 8 | incursione | 869 | 5 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1532` | 8 | incursione | 869 | 6 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1533` | 8 | incursione | 870 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1534` | 8 | incursione | 870 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1535` | 8 | incursione | 870 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1536` | 8 | incursione | 870 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1537` | 8 | incursione | 870 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1538` | 8 | incursione | 871 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1539` | 8 | incursione | 871 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1540` | 8 | incursione | 871 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1541` | 8 | incursione | 871 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1542` | 8 | incursione | 871 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1543` | 8 | incursione | 871 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1544` | 8 | incursione | 871 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1545` | 8 | incursione | 871 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1546` | 8 | incursione | 871 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1547` | 8 | incursione | 872 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1548` | 8 | incursione | 872 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1549` | 8 | incursione | 872 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1550` | 8 | incursione | 872 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1551` | 8 | incursione | 872 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1552` | 8 | incursione | 872 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1553` | 8 | incursione | 873 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1554` | 8 | incursione | 873 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1555` | 8 | incursione | 873 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1556` | 8 | incursione | 873 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1557` | 8 | incursione | 873 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1558` | 8 | incursione | 875 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1559` | 8 | incursione | 875 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1560` | 8 | incursione | 875 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1561` | 8 | incursione | 875 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1562` | 8 | incursione | 875 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1563` | 8 | incursione | 875 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1564` | 8 | incursione | 876 | 1 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1565` | 8 | incursione | 876 | 1 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1566` | 8 | incursione | 876 | 1 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1567` | 8 | incursione | 876 | 1 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1568` | 8 | incursione | 876 | 1 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1569` | 8 | incursione | 876 | 1 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1570` | 8 | incursione | 877 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1571` | 8 | incursione | 877 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1572` | 8 | incursione | 877 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1573` | 8 | incursione | 877 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1574` | 8 | incursione | 877 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1575` | 8 | incursione | 878 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1576` | 8 | incursione | 878 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1577` | 8 | incursione | 878 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1578` | 8 | incursione | 878 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1579` | 8 | incursione | 878 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1580` | 8 | incursione | 878 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1581` | 8 | incursione | 879 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1582` | 8 | incursione | 879 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1583` | 8 | incursione | 879 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1584` | 8 | incursione | 879 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1585` | 8 | incursione | 879 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1586` | 8 | incursione | 879 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1587` | 8 | incursione | 879 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1588` | 8 | incursione | 879 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1589` | 8 | incursione | 879 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1590` | 8 | incursione | 879 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1591` | 8 | incursione | 884 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1592` | 8 | incursione | 884 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1593` | 8 | incursione | 884 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1594` | 8 | incursione | 884 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1595` | 8 | incursione | 884 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1596` | 8 | incursione | 884 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1597` | 8 | incursione | 884 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1598` | 8 | incursione | 884 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1599` | 8 | incursione | 884 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1600` | 8 | incursione | 884 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1601` | 8 | incursione | 885 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1602` | 8 | incursione | 886 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1603` | 8 | incursione | 887 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1604` | 8 | incursione | 887 | 0 | Spada, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1605` | 8 | incursione | 887 | 0 | Spada, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1606` | 8 | incursione | 1 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1607` | 8 | incursione | 1 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1608` | 8 | incursione | 1 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1609` | 8 | incursione | 2 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1610` | 8 | incursione | 2 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1611` | 8 | incursione | 2 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1612` | 8 | incursione | 3 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1613` | 8 | incursione | 3 | 0 | Scudo, incursioni da distribuzione: livello 80 | no | no | censita, non ancora producibile |
+| `EVT-T-1614` | 8 | incursione | 3 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1615` | 8 | incursione | 3 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1616` | 8 | incursione | 3 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1617` | 8 | incursione | 3 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1618` | 8 | incursione | 4 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1619` | 8 | incursione | 4 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1620` | 8 | incursione | 4 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1621` | 8 | incursione | 4 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1622` | 8 | incursione | 4 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1623` | 8 | incursione | 5 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1624` | 8 | incursione | 5 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1625` | 8 | incursione | 5 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1626` | 8 | incursione | 6 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1627` | 8 | incursione | 6 | 0 | Scudo, incursioni da distribuzione: livello 80 | no | no | censita, non ancora producibile |
+| `EVT-T-1628` | 8 | incursione | 6 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1629` | 8 | incursione | 6 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1630` | 8 | incursione | 6 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1631` | 8 | incursione | 6 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1632` | 8 | incursione | 6 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1633` | 8 | incursione | 6 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1634` | 8 | incursione | 6 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1635` | 8 | incursione | 7 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1636` | 8 | incursione | 7 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1637` | 8 | incursione | 7 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1638` | 8 | incursione | 8 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1639` | 8 | incursione | 9 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1640` | 8 | incursione | 9 | 0 | Scudo, incursioni da distribuzione: livello 80 | no | no | censita, non ancora producibile |
+| `EVT-T-1641` | 8 | incursione | 12 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1642` | 8 | incursione | 12 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1643` | 8 | incursione | 12 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1644` | 8 | incursione | 12 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1645` | 8 | incursione | 12 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1646` | 8 | incursione | 12 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1647` | 8 | incursione | 12 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1648` | 8 | incursione | 12 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1649` | 8 | incursione | 12 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1650` | 8 | incursione | 12 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1651` | 8 | incursione | 12 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1652` | 8 | incursione | 12 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1653` | 8 | incursione | 12 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1654` | 8 | incursione | 12 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1655` | 8 | incursione | 12 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1656` | 8 | incursione | 12 | 0 | Scudo, incursioni da distribuzione: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-1657` | 8 | incursione | 25 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1658` | 8 | incursione | 25 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1659` | 8 | incursione | 25 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1660` | 8 | incursione | 25 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1661` | 8 | incursione | 25 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1662` | 8 | incursione | 25 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1663` | 8 | incursione | 25 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1664` | 8 | incursione | 25 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1665` | 8 | incursione | 25 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1666` | 8 | incursione | 25 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1667` | 8 | incursione | 25 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1668` | 8 | incursione | 25 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1669` | 8 | incursione | 25 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1670` | 8 | incursione | 25 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1671` | 8 | incursione | 25 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1672` | 8 | incursione | 25 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1673` | 8 | incursione | 25 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1674` | 8 | incursione | 26 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1675` | 8 | incursione | 26 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1676` | 8 | incursione | 26 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1677` | 8 | incursione | 26 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1678` | 8 | incursione | 26 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1679` | 8 | incursione | 26 | 1 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1680` | 8 | incursione | 26 | 1 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1681` | 8 | incursione | 26 | 1 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1682` | 8 | incursione | 26 | 1 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1683` | 8 | incursione | 26 | 1 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1684` | 8 | incursione | 36 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1685` | 8 | incursione | 36 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1686` | 8 | incursione | 36 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1687` | 8 | incursione | 36 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1688` | 8 | incursione | 36 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1689` | 8 | incursione | 36 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1690` | 8 | incursione | 37 | 1 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1691` | 8 | incursione | 37 | 1 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1692` | 8 | incursione | 37 | 1 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1693` | 8 | incursione | 37 | 1 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1694` | 8 | incursione | 37 | 1 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1695` | 8 | incursione | 37 | 1 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1696` | 8 | incursione | 40 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1697` | 8 | incursione | 40 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1698` | 8 | incursione | 40 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1699` | 8 | incursione | 40 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1700` | 8 | incursione | 40 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1701` | 8 | incursione | 43 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1702` | 8 | incursione | 43 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1703` | 8 | incursione | 44 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1704` | 8 | incursione | 45 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1705` | 8 | incursione | 45 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1706` | 8 | incursione | 45 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1707` | 8 | incursione | 45 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1708` | 8 | incursione | 45 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1709` | 8 | incursione | 45 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1710` | 8 | incursione | 45 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1711` | 8 | incursione | 45 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1712` | 8 | incursione | 52 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1713` | 8 | incursione | 52 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1714` | 8 | incursione | 52 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1715` | 8 | incursione | 52 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1716` | 8 | incursione | 52 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1717` | 8 | incursione | 52 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1718` | 8 | incursione | 52 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1719` | 8 | incursione | 52 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1720` | 8 | incursione | 52 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1721` | 8 | incursione | 52 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1722` | 8 | incursione | 52 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1723` | 8 | incursione | 52 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1724` | 8 | incursione | 52 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1725` | 8 | incursione | 52 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1726` | 8 | incursione | 52 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1727` | 8 | incursione | 52 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1728` | 8 | incursione | 52 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1729` | 8 | incursione | 52 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1730` | 8 | incursione | 52 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1731` | 8 | incursione | 52 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1732` | 8 | incursione | 52 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1733` | 8 | incursione | 52 | 1 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1734` | 8 | incursione | 52 | 1 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1735` | 8 | incursione | 52 | 1 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1736` | 8 | incursione | 52 | 1 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1737` | 8 | incursione | 52 | 1 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1738` | 8 | incursione | 52 | 2 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1739` | 8 | incursione | 52 | 2 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1740` | 8 | incursione | 52 | 2 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1741` | 8 | incursione | 52 | 2 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1742` | 8 | incursione | 52 | 2 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1743` | 8 | incursione | 52 | 2 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1744` | 8 | incursione | 52 | 2 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1745` | 8 | incursione | 60 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1746` | 8 | incursione | 60 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1747` | 8 | incursione | 60 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1748` | 8 | incursione | 60 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1749` | 8 | incursione | 60 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1750` | 8 | incursione | 60 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1751` | 8 | incursione | 61 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1752` | 8 | incursione | 66 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1753` | 8 | incursione | 67 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1754` | 8 | incursione | 67 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1755` | 8 | incursione | 68 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1756` | 8 | incursione | 68 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1757` | 8 | incursione | 68 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1758` | 8 | incursione | 68 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1759` | 8 | incursione | 68 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1760` | 8 | incursione | 68 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1761` | 8 | incursione | 68 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1762` | 8 | incursione | 68 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1763` | 8 | incursione | 68 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1764` | 8 | incursione | 68 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1765` | 8 | incursione | 77 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1766` | 8 | incursione | 77 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1767` | 8 | incursione | 78 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1768` | 8 | incursione | 78 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1769` | 8 | incursione | 78 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1770` | 8 | incursione | 83 | 1 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1771` | 8 | incursione | 83 | 1 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1772` | 8 | incursione | 90 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1773` | 8 | incursione | 90 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1774` | 8 | incursione | 90 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1775` | 8 | incursione | 90 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1776` | 8 | incursione | 90 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1777` | 8 | incursione | 90 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1778` | 8 | incursione | 90 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1779` | 8 | incursione | 90 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1780` | 8 | incursione | 90 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1781` | 8 | incursione | 90 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1782` | 8 | incursione | 90 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1783` | 8 | incursione | 92 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1784` | 8 | incursione | 92 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1785` | 8 | incursione | 93 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1786` | 8 | incursione | 93 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1787` | 8 | incursione | 93 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1788` | 8 | incursione | 94 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1789` | 8 | incursione | 94 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1790` | 8 | incursione | 94 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1791` | 8 | incursione | 94 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1792` | 8 | incursione | 94 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1793` | 8 | incursione | 94 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1794` | 8 | incursione | 94 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1795` | 8 | incursione | 94 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1796` | 8 | incursione | 94 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1797` | 8 | incursione | 94 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1798` | 8 | incursione | 94 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1799` | 8 | incursione | 94 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1800` | 8 | incursione | 94 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1801` | 8 | incursione | 94 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1802` | 8 | incursione | 95 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1803` | 8 | incursione | 95 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1804` | 8 | incursione | 95 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1805` | 8 | incursione | 95 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1806` | 8 | incursione | 95 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1807` | 8 | incursione | 98 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1808` | 8 | incursione | 98 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1809` | 8 | incursione | 99 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1810` | 8 | incursione | 99 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1811` | 8 | incursione | 99 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1812` | 8 | incursione | 109 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1813` | 8 | incursione | 109 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1814` | 8 | incursione | 109 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1815` | 8 | incursione | 109 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1816` | 8 | incursione | 109 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1817` | 8 | incursione | 109 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1818` | 8 | incursione | 109 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1819` | 8 | incursione | 110 | 1 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1820` | 8 | incursione | 110 | 1 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1821` | 8 | incursione | 110 | 1 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1822` | 8 | incursione | 111 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1823` | 8 | incursione | 111 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1824` | 8 | incursione | 112 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1825` | 8 | incursione | 118 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1826` | 8 | incursione | 118 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1827` | 8 | incursione | 119 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1828` | 8 | incursione | 119 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1829` | 8 | incursione | 119 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1830` | 8 | incursione | 121 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1831` | 8 | incursione | 121 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1832` | 8 | incursione | 121 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1833` | 8 | incursione | 121 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1834` | 8 | incursione | 121 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1835` | 8 | incursione | 124 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1836` | 8 | incursione | 124 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1837` | 8 | incursione | 124 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1838` | 8 | incursione | 124 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1839` | 8 | incursione | 124 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1840` | 8 | incursione | 127 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1841` | 8 | incursione | 127 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1842` | 8 | incursione | 127 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1843` | 8 | incursione | 127 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1844` | 8 | incursione | 127 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1845` | 8 | incursione | 128 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1846` | 8 | incursione | 128 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1847` | 8 | incursione | 128 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1848` | 8 | incursione | 128 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1849` | 8 | incursione | 128 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1850` | 8 | incursione | 128 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1851` | 8 | incursione | 129 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1852` | 8 | incursione | 129 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1853` | 8 | incursione | 129 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1854` | 8 | incursione | 129 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1855` | 8 | incursione | 129 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1856` | 8 | incursione | 129 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1857` | 8 | incursione | 129 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1858` | 8 | incursione | 129 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1859` | 8 | incursione | 129 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1860` | 8 | incursione | 129 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1861` | 8 | incursione | 129 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1862` | 8 | incursione | 129 | 0 | Scudo, incursioni da distribuzione: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-1863` | 8 | incursione | 131 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1864` | 8 | incursione | 131 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1865` | 8 | incursione | 131 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1866` | 8 | incursione | 131 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1867` | 8 | incursione | 131 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1868` | 8 | incursione | 131 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1869` | 8 | incursione | 131 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1870` | 8 | incursione | 131 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1871` | 8 | incursione | 131 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1872` | 8 | incursione | 131 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1873` | 8 | incursione | 131 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1874` | 8 | incursione | 131 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1875` | 8 | incursione | 131 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1876` | 8 | incursione | 131 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1877` | 8 | incursione | 131 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1878` | 8 | incursione | 132 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1879` | 8 | incursione | 132 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1880` | 8 | incursione | 132 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1881` | 8 | incursione | 132 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1882` | 8 | incursione | 132 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1883` | 8 | incursione | 133 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1884` | 8 | incursione | 133 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1885` | 8 | incursione | 133 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1886` | 8 | incursione | 133 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1887` | 8 | incursione | 133 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1888` | 8 | incursione | 133 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1889` | 8 | incursione | 133 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1890` | 8 | incursione | 133 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1891` | 8 | incursione | 133 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1892` | 8 | incursione | 133 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1893` | 8 | incursione | 133 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1894` | 8 | incursione | 133 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1895` | 8 | incursione | 133 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1896` | 8 | incursione | 133 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1897` | 8 | incursione | 134 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1898` | 8 | incursione | 134 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1899` | 8 | incursione | 134 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1900` | 8 | incursione | 135 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1901` | 8 | incursione | 135 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1902` | 8 | incursione | 135 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1903` | 8 | incursione | 136 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1904` | 8 | incursione | 136 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1905` | 8 | incursione | 136 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1906` | 8 | incursione | 138 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1907` | 8 | incursione | 138 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1908` | 8 | incursione | 138 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1909` | 8 | incursione | 138 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1910` | 8 | incursione | 138 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1911` | 8 | incursione | 138 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1912` | 8 | incursione | 140 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1913` | 8 | incursione | 140 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1914` | 8 | incursione | 140 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1915` | 8 | incursione | 140 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1916` | 8 | incursione | 140 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1917` | 8 | incursione | 142 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1918` | 8 | incursione | 142 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1919` | 8 | incursione | 142 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1920` | 8 | incursione | 142 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1921` | 8 | incursione | 142 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1922` | 8 | incursione | 143 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1923` | 8 | incursione | 143 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1924` | 8 | incursione | 143 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1925` | 8 | incursione | 143 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1926` | 8 | incursione | 143 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1927` | 8 | incursione | 143 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1928` | 8 | incursione | 143 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1929` | 8 | incursione | 143 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1930` | 8 | incursione | 143 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1931` | 8 | incursione | 143 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1932` | 8 | incursione | 143 | 0 | Scudo, incursioni da distribuzione: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-1933` | 8 | incursione | 143 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1934` | 8 | incursione | 172 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1935` | 8 | incursione | 172 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1936` | 8 | incursione | 172 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1937` | 8 | incursione | 172 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1938` | 8 | incursione | 172 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1939` | 8 | incursione | 172 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1940` | 8 | incursione | 173 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1941` | 8 | incursione | 175 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1942` | 8 | incursione | 175 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1943` | 8 | incursione | 176 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1944` | 8 | incursione | 182 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1945` | 8 | incursione | 182 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1946` | 8 | incursione | 182 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1947` | 8 | incursione | 182 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1948` | 8 | incursione | 182 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1949` | 8 | incursione | 182 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1950` | 8 | incursione | 182 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1951` | 8 | incursione | 183 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1952` | 8 | incursione | 183 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1953` | 8 | incursione | 183 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1954` | 8 | incursione | 183 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1955` | 8 | incursione | 183 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1956` | 8 | incursione | 183 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1957` | 8 | incursione | 183 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1958` | 8 | incursione | 184 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1959` | 8 | incursione | 184 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1960` | 8 | incursione | 184 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1961` | 8 | incursione | 184 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1962` | 8 | incursione | 184 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1963` | 8 | incursione | 185 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1964` | 8 | incursione | 185 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1965` | 8 | incursione | 185 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1966` | 8 | incursione | 186 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1967` | 8 | incursione | 186 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1968` | 8 | incursione | 186 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1969` | 8 | incursione | 186 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1970` | 8 | incursione | 194 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1971` | 8 | incursione | 195 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1972` | 8 | incursione | 195 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1973` | 8 | incursione | 195 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1974` | 8 | incursione | 195 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1975` | 8 | incursione | 195 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1976` | 8 | incursione | 195 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1977` | 8 | incursione | 195 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1978` | 8 | incursione | 195 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1979` | 8 | incursione | 195 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1980` | 8 | incursione | 196 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1981` | 8 | incursione | 196 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1982` | 8 | incursione | 196 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1983` | 8 | incursione | 197 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1984` | 8 | incursione | 197 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1985` | 8 | incursione | 197 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1986` | 8 | incursione | 202 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1987` | 8 | incursione | 202 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1988` | 8 | incursione | 202 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1989` | 8 | incursione | 202 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1990` | 8 | incursione | 202 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1991` | 8 | incursione | 208 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1992` | 8 | incursione | 208 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1993` | 8 | incursione | 208 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1994` | 8 | incursione | 208 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-1995` | 8 | incursione | 208 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-1996` | 8 | incursione | 213 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-1997` | 8 | incursione | 213 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-1998` | 8 | incursione | 213 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-1999` | 8 | incursione | 213 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2000` | 8 | incursione | 213 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2001` | 8 | incursione | 214 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2002` | 8 | incursione | 214 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2003` | 8 | incursione | 214 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2004` | 8 | incursione | 214 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2005` | 8 | incursione | 214 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2006` | 8 | incursione | 223 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2007` | 8 | incursione | 223 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2008` | 8 | incursione | 224 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2009` | 8 | incursione | 224 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2010` | 8 | incursione | 224 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2011` | 8 | incursione | 225 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2012` | 8 | incursione | 225 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2013` | 8 | incursione | 225 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2014` | 8 | incursione | 225 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2015` | 8 | incursione | 225 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2016` | 8 | incursione | 225 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2017` | 8 | incursione | 225 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2018` | 8 | incursione | 225 | 0 | Scudo, incursioni da distribuzione: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2019` | 8 | incursione | 226 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2020` | 8 | incursione | 226 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2021` | 8 | incursione | 226 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2022` | 8 | incursione | 236 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2023` | 8 | incursione | 241 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2024` | 8 | incursione | 241 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2025` | 8 | incursione | 241 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2026` | 8 | incursione | 241 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2027` | 8 | incursione | 241 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2028` | 8 | incursione | 246 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2029` | 8 | incursione | 247 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2030` | 8 | incursione | 248 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2031` | 8 | incursione | 248 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2032` | 8 | incursione | 248 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2033` | 8 | incursione | 280 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2034` | 8 | incursione | 281 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2035` | 8 | incursione | 282 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2036` | 8 | incursione | 282 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2037` | 8 | incursione | 282 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2038` | 8 | incursione | 290 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2039` | 8 | incursione | 290 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2040` | 8 | incursione | 291 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2041` | 8 | incursione | 291 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2042` | 8 | incursione | 291 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2043` | 8 | incursione | 291 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2044` | 8 | incursione | 291 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2045` | 8 | incursione | 291 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2046` | 8 | incursione | 291 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2047` | 8 | incursione | 291 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2048` | 8 | incursione | 302 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2049` | 8 | incursione | 302 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2050` | 8 | incursione | 302 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2051` | 8 | incursione | 302 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2052` | 8 | incursione | 302 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2053` | 8 | incursione | 318 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2054` | 8 | incursione | 319 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2055` | 8 | incursione | 319 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2056` | 8 | incursione | 319 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2057` | 8 | incursione | 319 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2058` | 8 | incursione | 320 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2059` | 8 | incursione | 320 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2060` | 8 | incursione | 321 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2061` | 8 | incursione | 321 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2062` | 8 | incursione | 321 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2063` | 8 | incursione | 321 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2064` | 8 | incursione | 330 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2065` | 8 | incursione | 330 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2066` | 8 | incursione | 330 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2067` | 8 | incursione | 330 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2068` | 8 | incursione | 330 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2069` | 8 | incursione | 333 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2070` | 8 | incursione | 333 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2071` | 8 | incursione | 334 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2072` | 8 | incursione | 334 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2073` | 8 | incursione | 334 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2074` | 8 | incursione | 337 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2075` | 8 | incursione | 337 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2076` | 8 | incursione | 337 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2077` | 8 | incursione | 337 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2078` | 8 | incursione | 337 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2079` | 8 | incursione | 337 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2080` | 8 | incursione | 338 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2081` | 8 | incursione | 338 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2082` | 8 | incursione | 338 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2083` | 8 | incursione | 338 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2084` | 8 | incursione | 338 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2085` | 8 | incursione | 338 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2086` | 8 | incursione | 349 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2087` | 8 | incursione | 349 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2088` | 8 | incursione | 350 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2089` | 8 | incursione | 350 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2090` | 8 | incursione | 350 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2091` | 8 | incursione | 355 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2092` | 8 | incursione | 355 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2093` | 8 | incursione | 360 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2094` | 8 | incursione | 363 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2095` | 8 | incursione | 363 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2096` | 8 | incursione | 363 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2097` | 8 | incursione | 363 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2098` | 8 | incursione | 363 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2099` | 8 | incursione | 406 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2100` | 8 | incursione | 420 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2101` | 8 | incursione | 420 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2102` | 8 | incursione | 420 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2103` | 8 | incursione | 420 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2104` | 8 | incursione | 420 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2105` | 8 | incursione | 420 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2106` | 8 | incursione | 421 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2107` | 8 | incursione | 421 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2108` | 8 | incursione | 421 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2109` | 8 | incursione | 421 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2110` | 8 | incursione | 422 | 1 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2111` | 8 | incursione | 423 | 1 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2112` | 8 | incursione | 423 | 1 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2113` | 8 | incursione | 423 | 1 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2114` | 8 | incursione | 423 | 1 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2115` | 8 | incursione | 425 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2116` | 8 | incursione | 425 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2117` | 8 | incursione | 426 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2118` | 8 | incursione | 426 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2119` | 8 | incursione | 426 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2120` | 8 | incursione | 426 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2121` | 8 | incursione | 426 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2122` | 8 | incursione | 426 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2123` | 8 | incursione | 426 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2124` | 8 | incursione | 426 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2125` | 8 | incursione | 427 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2126` | 8 | incursione | 428 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2127` | 8 | incursione | 428 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2128` | 8 | incursione | 428 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2129` | 8 | incursione | 428 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2130` | 8 | incursione | 438 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2131` | 8 | incursione | 438 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2132` | 8 | incursione | 438 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2133` | 8 | incursione | 439 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2134` | 8 | incursione | 446 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2135` | 8 | incursione | 446 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2136` | 8 | incursione | 446 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2137` | 8 | incursione | 447 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2138` | 8 | incursione | 447 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2139` | 8 | incursione | 447 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2140` | 8 | incursione | 448 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2141` | 8 | incursione | 448 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2142` | 8 | incursione | 448 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2143` | 8 | incursione | 449 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2144` | 8 | incursione | 449 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2145` | 8 | incursione | 450 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2146` | 8 | incursione | 450 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2147` | 8 | incursione | 450 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2148` | 8 | incursione | 453 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2149` | 8 | incursione | 453 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2150` | 8 | incursione | 453 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2151` | 8 | incursione | 453 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2152` | 8 | incursione | 453 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2153` | 8 | incursione | 453 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2154` | 8 | incursione | 453 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2155` | 8 | incursione | 454 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2156` | 8 | incursione | 454 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2157` | 8 | incursione | 454 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2158` | 8 | incursione | 458 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2159` | 8 | incursione | 458 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2160` | 8 | incursione | 458 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2161` | 8 | incursione | 461 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2162` | 8 | incursione | 461 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2163` | 8 | incursione | 461 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2164` | 8 | incursione | 461 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2165` | 8 | incursione | 461 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2166` | 8 | incursione | 464 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2167` | 8 | incursione | 464 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2168` | 8 | incursione | 468 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2169` | 8 | incursione | 468 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2170` | 8 | incursione | 468 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2171` | 8 | incursione | 470 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2172` | 8 | incursione | 470 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2173` | 8 | incursione | 470 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2174` | 8 | incursione | 471 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2175` | 8 | incursione | 471 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2176` | 8 | incursione | 471 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2177` | 8 | incursione | 477 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2178` | 8 | incursione | 477 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2179` | 8 | incursione | 477 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2180` | 8 | incursione | 479 | 2 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2181` | 8 | incursione | 479 | 2 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2182` | 8 | incursione | 479 | 2 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2183` | 8 | incursione | 479 | 2 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2184` | 8 | incursione | 479 | 2 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2185` | 8 | incursione | 479 | 2 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2186` | 8 | incursione | 479 | 4 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2187` | 8 | incursione | 479 | 4 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2188` | 8 | incursione | 479 | 4 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2189` | 8 | incursione | 479 | 4 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2190` | 8 | incursione | 479 | 4 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2191` | 8 | incursione | 479 | 5 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2192` | 8 | incursione | 479 | 5 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2193` | 8 | incursione | 479 | 5 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2194` | 8 | incursione | 479 | 5 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2195` | 8 | incursione | 479 | 5 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2196` | 8 | incursione | 518 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2197` | 8 | incursione | 518 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2198` | 8 | incursione | 518 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2199` | 8 | incursione | 518 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2200` | 8 | incursione | 518 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2201` | 8 | incursione | 529 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2202` | 8 | incursione | 529 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2203` | 8 | incursione | 530 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2204` | 8 | incursione | 530 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2205` | 8 | incursione | 530 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2206` | 8 | incursione | 535 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2207` | 8 | incursione | 536 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2208` | 8 | incursione | 537 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2209` | 8 | incursione | 537 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2210` | 8 | incursione | 537 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2211` | 8 | incursione | 546 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2212` | 8 | incursione | 546 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2213` | 8 | incursione | 547 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2214` | 8 | incursione | 547 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2215` | 8 | incursione | 547 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2216` | 8 | incursione | 547 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2217` | 8 | incursione | 547 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2218` | 8 | incursione | 547 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2219` | 8 | incursione | 547 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2220` | 8 | incursione | 549 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2221` | 8 | incursione | 549 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2222` | 8 | incursione | 549 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2223` | 8 | incursione | 549 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2224` | 8 | incursione | 549 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2225` | 8 | incursione | 549 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2226` | 8 | incursione | 549 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2227` | 8 | incursione | 549 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2228` | 8 | incursione | 549 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2229` | 8 | incursione | 549 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2230` | 8 | incursione | 549 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2231` | 8 | incursione | 554 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2232` | 8 | incursione | 554 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2233` | 8 | incursione | 554 | 1 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2234` | 8 | incursione | 554 | 1 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2235` | 8 | incursione | 554 | 1 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2236` | 8 | incursione | 555 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2237` | 8 | incursione | 555 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2238` | 8 | incursione | 555 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2239` | 8 | incursione | 562 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2240` | 8 | incursione | 563 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2241` | 8 | incursione | 563 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2242` | 8 | incursione | 563 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2243` | 8 | incursione | 563 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2244` | 8 | incursione | 564 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2245` | 8 | incursione | 564 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2246` | 8 | incursione | 565 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2247` | 8 | incursione | 565 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2248` | 8 | incursione | 565 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2249` | 8 | incursione | 566 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2250` | 8 | incursione | 566 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2251` | 8 | incursione | 567 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2252` | 8 | incursione | 567 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2253` | 8 | incursione | 567 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2254` | 8 | incursione | 568 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2255` | 8 | incursione | 568 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2256` | 8 | incursione | 568 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2257` | 8 | incursione | 568 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2258` | 8 | incursione | 569 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2259` | 8 | incursione | 569 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2260` | 8 | incursione | 569 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2261` | 8 | incursione | 569 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2262` | 8 | incursione | 569 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2263` | 8 | incursione | 569 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2264` | 8 | incursione | 569 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2265` | 8 | incursione | 569 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2266` | 8 | incursione | 570 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2267` | 8 | incursione | 571 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2268` | 8 | incursione | 571 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2269` | 8 | incursione | 571 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2270` | 8 | incursione | 571 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2271` | 8 | incursione | 571 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2272` | 8 | incursione | 572 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2273` | 8 | incursione | 572 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2274` | 8 | incursione | 573 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2275` | 8 | incursione | 573 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2276` | 8 | incursione | 573 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2277` | 8 | incursione | 573 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2278` | 8 | incursione | 573 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2279` | 8 | incursione | 573 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2280` | 8 | incursione | 573 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2281` | 8 | incursione | 573 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2282` | 8 | incursione | 573 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2283` | 8 | incursione | 574 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2284` | 8 | incursione | 574 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2285` | 8 | incursione | 575 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2286` | 8 | incursione | 576 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2287` | 8 | incursione | 576 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2288` | 8 | incursione | 577 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2289` | 8 | incursione | 577 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2290` | 8 | incursione | 578 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2291` | 8 | incursione | 579 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2292` | 8 | incursione | 579 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2293` | 8 | incursione | 582 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2294` | 8 | incursione | 582 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2295` | 8 | incursione | 583 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2296` | 8 | incursione | 584 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2297` | 8 | incursione | 584 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2298` | 8 | incursione | 588 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2299` | 8 | incursione | 589 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2300` | 8 | incursione | 590 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2301` | 8 | incursione | 590 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2302` | 8 | incursione | 591 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2303` | 8 | incursione | 591 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2304` | 8 | incursione | 591 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2305` | 8 | incursione | 592 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2306` | 8 | incursione | 592 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2307` | 8 | incursione | 593 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2308` | 8 | incursione | 593 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2309` | 8 | incursione | 593 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2310` | 8 | incursione | 597 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2311` | 8 | incursione | 597 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2312` | 8 | incursione | 598 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2313` | 8 | incursione | 598 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2314` | 8 | incursione | 598 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2315` | 8 | incursione | 607 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2316` | 8 | incursione | 607 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2317` | 8 | incursione | 607 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2318` | 8 | incursione | 607 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2319` | 8 | incursione | 608 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2320` | 8 | incursione | 609 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2321` | 8 | incursione | 609 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2322` | 8 | incursione | 609 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2323` | 8 | incursione | 609 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2324` | 8 | incursione | 609 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2325` | 8 | incursione | 609 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2326` | 8 | incursione | 610 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2327` | 8 | incursione | 610 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2328` | 8 | incursione | 611 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2329` | 8 | incursione | 612 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2330` | 8 | incursione | 612 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2331` | 8 | incursione | 615 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2332` | 8 | incursione | 615 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2333` | 8 | incursione | 615 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2334` | 8 | incursione | 615 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2335` | 8 | incursione | 615 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2336` | 8 | incursione | 616 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2337` | 8 | incursione | 617 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2338` | 8 | incursione | 623 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2339` | 8 | incursione | 623 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2340` | 8 | incursione | 623 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2341` | 8 | incursione | 623 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2342` | 8 | incursione | 623 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2343` | 8 | incursione | 626 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2344` | 8 | incursione | 626 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2345` | 8 | incursione | 626 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2346` | 8 | incursione | 626 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2347` | 8 | incursione | 626 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2348` | 8 | incursione | 627 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2349` | 8 | incursione | 627 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2350` | 8 | incursione | 628 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2351` | 8 | incursione | 628 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2352` | 8 | incursione | 628 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2353` | 8 | incursione | 628 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2354` | 8 | incursione | 633 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2355` | 8 | incursione | 633 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2356` | 8 | incursione | 633 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2357` | 8 | incursione | 634 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2358` | 8 | incursione | 635 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2359` | 8 | incursione | 659 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2360` | 8 | incursione | 660 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2361` | 8 | incursione | 660 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2362` | 8 | incursione | 660 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2363` | 8 | incursione | 660 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2364` | 8 | incursione | 686 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2365` | 8 | incursione | 686 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2366` | 8 | incursione | 687 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2367` | 8 | incursione | 687 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2368` | 8 | incursione | 687 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2369` | 8 | incursione | 695 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2370` | 8 | incursione | 695 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2371` | 8 | incursione | 695 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2372` | 8 | incursione | 695 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2373` | 8 | incursione | 695 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2374` | 8 | incursione | 696 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2375` | 8 | incursione | 696 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2376` | 8 | incursione | 697 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2377` | 8 | incursione | 697 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2378` | 8 | incursione | 697 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2379` | 8 | incursione | 697 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2380` | 8 | incursione | 698 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2381` | 8 | incursione | 698 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2382` | 8 | incursione | 699 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2383` | 8 | incursione | 699 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2384` | 8 | incursione | 699 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2385` | 8 | incursione | 700 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2386` | 8 | incursione | 700 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2387` | 8 | incursione | 700 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2388` | 8 | incursione | 704 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2389` | 8 | incursione | 704 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2390` | 8 | incursione | 705 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2391` | 8 | incursione | 706 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2392` | 8 | incursione | 706 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2393` | 8 | incursione | 709 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2394` | 8 | incursione | 709 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2395` | 8 | incursione | 709 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2396` | 8 | incursione | 709 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2397` | 8 | incursione | 709 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2398` | 8 | incursione | 710 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2399` | 8 | incursione | 710 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2400` | 8 | incursione | 711 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2401` | 8 | incursione | 711 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2402` | 8 | incursione | 711 | 1 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2403` | 8 | incursione | 711 | 1 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2404` | 8 | incursione | 711 | 2 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2405` | 8 | incursione | 711 | 2 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2406` | 8 | incursione | 711 | 3 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2407` | 8 | incursione | 711 | 3 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2408` | 8 | incursione | 712 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2409` | 8 | incursione | 712 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2410` | 8 | incursione | 713 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2411` | 8 | incursione | 713 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2412` | 8 | incursione | 713 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2413` | 8 | incursione | 722 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2414` | 8 | incursione | 722 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2415` | 8 | incursione | 722 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2416` | 8 | incursione | 722 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2417` | 8 | incursione | 722 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2418` | 8 | incursione | 725 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2419` | 8 | incursione | 725 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2420` | 8 | incursione | 725 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2421` | 8 | incursione | 725 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2422` | 8 | incursione | 725 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2423` | 8 | incursione | 728 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2424` | 8 | incursione | 728 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2425` | 8 | incursione | 728 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2426` | 8 | incursione | 728 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2427` | 8 | incursione | 728 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2428` | 8 | incursione | 753 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2429` | 8 | incursione | 753 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2430` | 8 | incursione | 754 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2431` | 8 | incursione | 754 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2432` | 8 | incursione | 754 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2433` | 8 | incursione | 755 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2434` | 8 | incursione | 756 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2435` | 8 | incursione | 756 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2436` | 8 | incursione | 756 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2437` | 8 | incursione | 756 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2438` | 8 | incursione | 759 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2439` | 8 | incursione | 759 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2440` | 8 | incursione | 760 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2441` | 8 | incursione | 760 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2442` | 8 | incursione | 760 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2443` | 8 | incursione | 764 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2444` | 8 | incursione | 764 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2445` | 8 | incursione | 764 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2446` | 8 | incursione | 764 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2447` | 8 | incursione | 764 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2448` | 8 | incursione | 766 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2449` | 8 | incursione | 767 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2450` | 8 | incursione | 767 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2451` | 8 | incursione | 767 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2452` | 8 | incursione | 767 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2453` | 8 | incursione | 767 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2454` | 8 | incursione | 771 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2455` | 8 | incursione | 771 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2456` | 8 | incursione | 771 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2457` | 8 | incursione | 771 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2458` | 8 | incursione | 771 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2459` | 8 | incursione | 771 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2460` | 8 | incursione | 771 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2461` | 8 | incursione | 771 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2462` | 8 | incursione | 771 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2463` | 8 | incursione | 771 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2464` | 8 | incursione | 776 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2465` | 8 | incursione | 776 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2466` | 8 | incursione | 776 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2467` | 8 | incursione | 776 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2468` | 8 | incursione | 776 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2469` | 8 | incursione | 778 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2470` | 8 | incursione | 778 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2471` | 8 | incursione | 778 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2472` | 8 | incursione | 778 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2473` | 8 | incursione | 778 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2474` | 8 | incursione | 819 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2475` | 8 | incursione | 819 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2476` | 8 | incursione | 819 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2477` | 8 | incursione | 819 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2478` | 8 | incursione | 819 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2479` | 8 | incursione | 819 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2480` | 8 | incursione | 820 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2481` | 8 | incursione | 820 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2482` | 8 | incursione | 820 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2483` | 8 | incursione | 820 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2484` | 8 | incursione | 820 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2485` | 8 | incursione | 821 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2486` | 8 | incursione | 821 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2487` | 8 | incursione | 821 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2488` | 8 | incursione | 821 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2489` | 8 | incursione | 822 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2490` | 8 | incursione | 822 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2491` | 8 | incursione | 822 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2492` | 8 | incursione | 822 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2493` | 8 | incursione | 823 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2494` | 8 | incursione | 823 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2495` | 8 | incursione | 823 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2496` | 8 | incursione | 823 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2497` | 8 | incursione | 823 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2498` | 8 | incursione | 823 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2499` | 8 | incursione | 823 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2500` | 8 | incursione | 823 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2501` | 8 | incursione | 823 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2502` | 8 | incursione | 823 | 0 | Scudo, incursioni da distribuzione: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2503` | 8 | incursione | 823 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2504` | 8 | incursione | 823 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2505` | 8 | incursione | 823 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2506` | 8 | incursione | 824 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2507` | 8 | incursione | 825 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2508` | 8 | incursione | 825 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2509` | 8 | incursione | 825 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2510` | 8 | incursione | 826 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2511` | 8 | incursione | 826 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2512` | 8 | incursione | 826 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2513` | 8 | incursione | 826 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2514` | 8 | incursione | 826 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2515` | 8 | incursione | 826 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2516` | 8 | incursione | 826 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2517` | 8 | incursione | 826 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2518` | 8 | incursione | 826 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2519` | 8 | incursione | 826 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2520` | 8 | incursione | 826 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2521` | 8 | incursione | 826 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2522` | 8 | incursione | 826 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2523` | 8 | incursione | 826 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2524` | 8 | incursione | 826 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2525` | 8 | incursione | 826 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2526` | 8 | incursione | 826 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2527` | 8 | incursione | 826 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2528` | 8 | incursione | 827 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2529` | 8 | incursione | 828 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2530` | 8 | incursione | 828 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2531` | 8 | incursione | 828 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2532` | 8 | incursione | 828 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2533` | 8 | incursione | 829 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2534` | 8 | incursione | 830 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2535` | 8 | incursione | 830 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2536` | 8 | incursione | 830 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2537` | 8 | incursione | 830 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2538` | 8 | incursione | 831 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2539` | 8 | incursione | 831 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2540` | 8 | incursione | 831 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2541` | 8 | incursione | 831 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2542` | 8 | incursione | 831 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2543` | 8 | incursione | 831 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2544` | 8 | incursione | 831 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2545` | 8 | incursione | 831 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2546` | 8 | incursione | 832 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2547` | 8 | incursione | 832 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2548` | 8 | incursione | 832 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2549` | 8 | incursione | 832 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2550` | 8 | incursione | 832 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2551` | 8 | incursione | 832 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2552` | 8 | incursione | 832 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2553` | 8 | incursione | 833 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2554` | 8 | incursione | 833 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2555` | 8 | incursione | 834 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2556` | 8 | incursione | 834 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2557` | 8 | incursione | 834 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2558` | 8 | incursione | 834 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2559` | 8 | incursione | 834 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2560` | 8 | incursione | 834 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2561` | 8 | incursione | 834 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2562` | 8 | incursione | 835 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2563` | 8 | incursione | 836 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2564` | 8 | incursione | 836 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2565` | 8 | incursione | 836 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2566` | 8 | incursione | 836 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2567` | 8 | incursione | 837 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2568` | 8 | incursione | 838 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2569` | 8 | incursione | 839 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2570` | 8 | incursione | 839 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2571` | 8 | incursione | 839 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2572` | 8 | incursione | 839 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2573` | 8 | incursione | 840 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2574` | 8 | incursione | 840 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2575` | 8 | incursione | 840 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2576` | 8 | incursione | 841 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2577` | 8 | incursione | 841 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2578` | 8 | incursione | 841 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2579` | 8 | incursione | 841 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2580` | 8 | incursione | 841 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2581` | 8 | incursione | 841 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2582` | 8 | incursione | 842 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2583` | 8 | incursione | 842 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2584` | 8 | incursione | 842 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2585` | 8 | incursione | 842 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2586` | 8 | incursione | 842 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2587` | 8 | incursione | 842 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2588` | 8 | incursione | 842 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2589` | 8 | incursione | 842 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2590` | 8 | incursione | 842 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2591` | 8 | incursione | 843 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2592` | 8 | incursione | 843 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2593` | 8 | incursione | 844 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2594` | 8 | incursione | 844 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2595` | 8 | incursione | 844 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2596` | 8 | incursione | 844 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2597` | 8 | incursione | 845 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2598` | 8 | incursione | 845 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2599` | 8 | incursione | 845 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2600` | 8 | incursione | 845 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2601` | 8 | incursione | 845 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2602` | 8 | incursione | 845 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2603` | 8 | incursione | 845 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2604` | 8 | incursione | 845 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2605` | 8 | incursione | 845 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2606` | 8 | incursione | 845 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2607` | 8 | incursione | 845 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2608` | 8 | incursione | 848 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2609` | 8 | incursione | 848 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2610` | 8 | incursione | 849 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2611` | 8 | incursione | 849 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2612` | 8 | incursione | 849 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2613` | 8 | incursione | 849 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2614` | 8 | incursione | 849 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2615` | 8 | incursione | 849 | 1 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2616` | 8 | incursione | 849 | 1 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2617` | 8 | incursione | 849 | 1 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2618` | 8 | incursione | 849 | 1 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2619` | 8 | incursione | 849 | 1 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2620` | 8 | incursione | 849 | 1 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2621` | 8 | incursione | 849 | 1 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2622` | 8 | incursione | 849 | 1 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2623` | 8 | incursione | 849 | 1 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2624` | 8 | incursione | 850 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2625` | 8 | incursione | 850 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2626` | 8 | incursione | 850 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2627` | 8 | incursione | 850 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2628` | 8 | incursione | 850 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2629` | 8 | incursione | 850 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2630` | 8 | incursione | 851 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2631` | 8 | incursione | 851 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2632` | 8 | incursione | 851 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2633` | 8 | incursione | 851 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2634` | 8 | incursione | 851 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2635` | 8 | incursione | 851 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2636` | 8 | incursione | 851 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2637` | 8 | incursione | 851 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2638` | 8 | incursione | 851 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2639` | 8 | incursione | 851 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2640` | 8 | incursione | 851 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2641` | 8 | incursione | 851 | 0 | Scudo, incursioni da distribuzione: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2642` | 8 | incursione | 851 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2643` | 8 | incursione | 851 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2644` | 8 | incursione | 851 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2645` | 8 | incursione | 851 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2646` | 8 | incursione | 851 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2647` | 8 | incursione | 851 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2648` | 8 | incursione | 852 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2649` | 8 | incursione | 852 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2650` | 8 | incursione | 853 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2651` | 8 | incursione | 853 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2652` | 8 | incursione | 853 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2653` | 8 | incursione | 853 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2654` | 8 | incursione | 855 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2655` | 8 | incursione | 855 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2656` | 8 | incursione | 855 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2657` | 8 | incursione | 855 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2658` | 8 | incursione | 855 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2659` | 8 | incursione | 856 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2660` | 8 | incursione | 856 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2661` | 8 | incursione | 856 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2662` | 8 | incursione | 856 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2663` | 8 | incursione | 857 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2664` | 8 | incursione | 857 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2665` | 8 | incursione | 858 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2666` | 8 | incursione | 858 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2667` | 8 | incursione | 858 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2668` | 8 | incursione | 858 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2669` | 8 | incursione | 858 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2670` | 8 | incursione | 858 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2671` | 8 | incursione | 859 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2672` | 8 | incursione | 859 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2673` | 8 | incursione | 859 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2674` | 8 | incursione | 859 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2675` | 8 | incursione | 859 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2676` | 8 | incursione | 859 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2677` | 8 | incursione | 860 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2678` | 8 | incursione | 860 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2679` | 8 | incursione | 860 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2680` | 8 | incursione | 861 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2681` | 8 | incursione | 861 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2682` | 8 | incursione | 861 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2683` | 8 | incursione | 861 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2684` | 8 | incursione | 861 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2685` | 8 | incursione | 861 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2686` | 8 | incursione | 863 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2687` | 8 | incursione | 863 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2688` | 8 | incursione | 863 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2689` | 8 | incursione | 863 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2690` | 8 | incursione | 865 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2691` | 8 | incursione | 868 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2692` | 8 | incursione | 868 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2693` | 8 | incursione | 868 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2694` | 8 | incursione | 868 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2695` | 8 | incursione | 868 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2696` | 8 | incursione | 868 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2697` | 8 | incursione | 868 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2698` | 8 | incursione | 868 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2699` | 8 | incursione | 868 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2700` | 8 | incursione | 868 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2701` | 8 | incursione | 868 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2702` | 8 | incursione | 868 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2703` | 8 | incursione | 868 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2704` | 8 | incursione | 869 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2705` | 8 | incursione | 869 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2706` | 8 | incursione | 869 | 1 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2707` | 8 | incursione | 869 | 2 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2708` | 8 | incursione | 869 | 3 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2709` | 8 | incursione | 869 | 4 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2710` | 8 | incursione | 869 | 7 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2711` | 8 | incursione | 869 | 8 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2712` | 8 | incursione | 870 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2713` | 8 | incursione | 870 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2714` | 8 | incursione | 870 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2715` | 8 | incursione | 870 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2716` | 8 | incursione | 870 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2717` | 8 | incursione | 871 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2718` | 8 | incursione | 871 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2719` | 8 | incursione | 871 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2720` | 8 | incursione | 871 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2721` | 8 | incursione | 871 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2722` | 8 | incursione | 871 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2723` | 8 | incursione | 871 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2724` | 8 | incursione | 871 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2725` | 8 | incursione | 871 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2726` | 8 | incursione | 872 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2727` | 8 | incursione | 872 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2728` | 8 | incursione | 872 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2729` | 8 | incursione | 872 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2730` | 8 | incursione | 872 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2731` | 8 | incursione | 872 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2732` | 8 | incursione | 873 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2733` | 8 | incursione | 873 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2734` | 8 | incursione | 873 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2735` | 8 | incursione | 873 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2736` | 8 | incursione | 873 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2737` | 8 | incursione | 875 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2738` | 8 | incursione | 875 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2739` | 8 | incursione | 875 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2740` | 8 | incursione | 875 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2741` | 8 | incursione | 875 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2742` | 8 | incursione | 875 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2743` | 8 | incursione | 876 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2744` | 8 | incursione | 876 | 1 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2745` | 8 | incursione | 876 | 1 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2746` | 8 | incursione | 876 | 1 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2747` | 8 | incursione | 876 | 1 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2748` | 8 | incursione | 876 | 1 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2749` | 8 | incursione | 877 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2750` | 8 | incursione | 877 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2751` | 8 | incursione | 877 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2752` | 8 | incursione | 877 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2753` | 8 | incursione | 877 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2754` | 8 | incursione | 878 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2755` | 8 | incursione | 878 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2756` | 8 | incursione | 878 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2757` | 8 | incursione | 878 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2758` | 8 | incursione | 878 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2759` | 8 | incursione | 878 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2760` | 8 | incursione | 879 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2761` | 8 | incursione | 879 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2762` | 8 | incursione | 879 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2763` | 8 | incursione | 879 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2764` | 8 | incursione | 879 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2765` | 8 | incursione | 879 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2766` | 8 | incursione | 879 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2767` | 8 | incursione | 879 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2768` | 8 | incursione | 879 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2769` | 8 | incursione | 879 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2770` | 8 | incursione | 884 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2771` | 8 | incursione | 884 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2772` | 8 | incursione | 884 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2773` | 8 | incursione | 884 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2774` | 8 | incursione | 884 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2775` | 8 | incursione | 884 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2776` | 8 | incursione | 884 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2777` | 8 | incursione | 884 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2778` | 8 | incursione | 884 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2779` | 8 | incursione | 884 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2780` | 8 | incursione | 885 | 0 | Scudo, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
+| `EVT-T-2781` | 8 | incursione | 886 | 0 | Scudo, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
+| `EVT-T-2782` | 8 | incursione | 887 | 0 | Scudo, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
+| `EVT-T-2783` | 8 | incursione | 887 | 0 | Scudo, incursioni da distribuzione: livello 50 | no | no | censita, non ancora producibile |
+| `EVT-T-2784` | 8 | incursione | 887 | 0 | Scudo, incursioni da distribuzione: livello 60 | no | no | censita, non ancora producibile |
+| `EVT-T-2785` | 8 | incursione | 2 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2786` | 8 | incursione | 5 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2787` | 8 | incursione | 8 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2788` | 8 | incursione | 12 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2789` | 8 | incursione | 26 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2790` | 8 | incursione | 26 | 1 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2791` | 8 | incursione | 28 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2792` | 8 | incursione | 28 | 1 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2793` | 8 | incursione | 31 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2794` | 8 | incursione | 34 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2795` | 8 | incursione | 35 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2796` | 8 | incursione | 36 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2797` | 8 | incursione | 39 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2798` | 8 | incursione | 40 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2799` | 8 | incursione | 44 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2800` | 8 | incursione | 45 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2801` | 8 | incursione | 51 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2802` | 8 | incursione | 51 | 1 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2803` | 8 | incursione | 53 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2804` | 8 | incursione | 53 | 1 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2805` | 8 | incursione | 55 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2806` | 8 | incursione | 62 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2807` | 8 | incursione | 64 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2808` | 8 | incursione | 67 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2809` | 8 | incursione | 73 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2810` | 8 | incursione | 80 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2811` | 8 | incursione | 82 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2812` | 8 | incursione | 93 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2813` | 8 | incursione | 99 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2814` | 8 | incursione | 103 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2815` | 8 | incursione | 105 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2816` | 8 | incursione | 105 | 1 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2817` | 8 | incursione | 106 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2818` | 8 | incursione | 107 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2819` | 8 | incursione | 108 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2820` | 8 | incursione | 110 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2821` | 8 | incursione | 110 | 1 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2822` | 8 | incursione | 112 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2823` | 8 | incursione | 113 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2824` | 8 | incursione | 114 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2825` | 8 | incursione | 115 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2826` | 8 | incursione | 117 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2827` | 8 | incursione | 119 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2828` | 8 | incursione | 121 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2829` | 8 | incursione | 122 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2830` | 8 | incursione | 122 | 1 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2831` | 8 | incursione | 123 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2832` | 8 | incursione | 124 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2833` | 8 | incursione | 125 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2834` | 8 | incursione | 126 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2835` | 8 | incursione | 128 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2836` | 8 | incursione | 132 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2837` | 8 | incursione | 134 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2838` | 8 | incursione | 135 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2839` | 8 | incursione | 136 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2840` | 8 | incursione | 137 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2841` | 8 | incursione | 144 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2842` | 8 | incursione | 145 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2843` | 8 | incursione | 146 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2844` | 8 | incursione | 148 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2845` | 8 | incursione | 150 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2846` | 8 | incursione | 164 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2847` | 8 | incursione | 171 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2848` | 8 | incursione | 176 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2849` | 8 | incursione | 178 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2850` | 8 | incursione | 182 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2851` | 8 | incursione | 184 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2852` | 8 | incursione | 185 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2853` | 8 | incursione | 186 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2854` | 8 | incursione | 195 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2855` | 8 | incursione | 199 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2856` | 8 | incursione | 206 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2857` | 8 | incursione | 211 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2858` | 8 | incursione | 215 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2859` | 8 | incursione | 221 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2860` | 8 | incursione | 224 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2861` | 8 | incursione | 226 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2862` | 8 | incursione | 227 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2863` | 8 | incursione | 237 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2864` | 8 | incursione | 241 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2865` | 8 | incursione | 243 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2866` | 8 | incursione | 244 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2867` | 8 | incursione | 245 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2868` | 8 | incursione | 249 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2869` | 8 | incursione | 250 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2870` | 8 | incursione | 253 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2871` | 8 | incursione | 254 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2872` | 8 | incursione | 256 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2873` | 8 | incursione | 257 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2874` | 8 | incursione | 259 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2875` | 8 | incursione | 260 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2876` | 8 | incursione | 264 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2877` | 8 | incursione | 264 | 1 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2878` | 8 | incursione | 279 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2879` | 8 | incursione | 291 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2880` | 8 | incursione | 295 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2881` | 8 | incursione | 305 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2882` | 8 | incursione | 310 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2883` | 8 | incursione | 315 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2884` | 8 | incursione | 319 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2885` | 8 | incursione | 320 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2886` | 8 | incursione | 324 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2887` | 8 | incursione | 330 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2888` | 8 | incursione | 334 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2889` | 8 | incursione | 340 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2890` | 8 | incursione | 342 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2891` | 8 | incursione | 344 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2892` | 8 | incursione | 346 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2893` | 8 | incursione | 348 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2894` | 8 | incursione | 356 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2895` | 8 | incursione | 359 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2896` | 8 | incursione | 362 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2897` | 8 | incursione | 364 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2898` | 8 | incursione | 369 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2899` | 8 | incursione | 375 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2900` | 8 | incursione | 380 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2901` | 8 | incursione | 381 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2902` | 8 | incursione | 382 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2903` | 8 | incursione | 383 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2904` | 8 | incursione | 384 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2905` | 8 | incursione | 405 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2906` | 8 | incursione | 416 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2907` | 8 | incursione | 421 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2908` | 8 | incursione | 423 | 1 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2909` | 8 | incursione | 426 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2910` | 8 | incursione | 428 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2911` | 8 | incursione | 435 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2912` | 8 | incursione | 437 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2913` | 8 | incursione | 446 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2914` | 8 | incursione | 452 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2915` | 8 | incursione | 460 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2916` | 8 | incursione | 478 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2917` | 8 | incursione | 479 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2918` | 8 | incursione | 480 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2919` | 8 | incursione | 481 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2920` | 8 | incursione | 482 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2921` | 8 | incursione | 483 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2922` | 8 | incursione | 484 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2923` | 8 | incursione | 485 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2924` | 8 | incursione | 487 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2925` | 8 | incursione | 488 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2926` | 8 | incursione | 508 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2927` | 8 | incursione | 510 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2928` | 8 | incursione | 518 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2929` | 8 | incursione | 521 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2930` | 8 | incursione | 525 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2931` | 8 | incursione | 528 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2932` | 8 | incursione | 531 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2933` | 8 | incursione | 533 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2934` | 8 | incursione | 536 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2935` | 8 | incursione | 537 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2936` | 8 | incursione | 545 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2937` | 8 | incursione | 547 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2938` | 8 | incursione | 549 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2939` | 8 | incursione | 550 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2940` | 8 | incursione | 550 | 1 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2941` | 8 | incursione | 553 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2942` | 8 | incursione | 556 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2943` | 8 | incursione | 558 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2944` | 8 | incursione | 561 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2945` | 8 | incursione | 563 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2946` | 8 | incursione | 569 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2947` | 8 | incursione | 573 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2948` | 8 | incursione | 583 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2949` | 8 | incursione | 587 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2950` | 8 | incursione | 589 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2951` | 8 | incursione | 591 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2952` | 8 | incursione | 593 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2953` | 8 | incursione | 596 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2954` | 8 | incursione | 600 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2955` | 8 | incursione | 601 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2956` | 8 | incursione | 606 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2957` | 8 | incursione | 608 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2958` | 8 | incursione | 611 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2959` | 8 | incursione | 614 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2960` | 8 | incursione | 615 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2961` | 8 | incursione | 617 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2962` | 8 | incursione | 618 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2963` | 8 | incursione | 618 | 1 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2964` | 8 | incursione | 620 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2965` | 8 | incursione | 621 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2966` | 8 | incursione | 623 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2967` | 8 | incursione | 625 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2968` | 8 | incursione | 626 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2969` | 8 | incursione | 631 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2970` | 8 | incursione | 632 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2971` | 8 | incursione | 641 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2972` | 8 | incursione | 642 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2973` | 8 | incursione | 643 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2974` | 8 | incursione | 644 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2975` | 8 | incursione | 645 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2976` | 8 | incursione | 646 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2977` | 8 | incursione | 660 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2978` | 8 | incursione | 663 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2979` | 8 | incursione | 675 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2980` | 8 | incursione | 680 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2981` | 8 | incursione | 687 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2982` | 8 | incursione | 689 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2983` | 8 | incursione | 695 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2984` | 8 | incursione | 697 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2985` | 8 | incursione | 699 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2986` | 8 | incursione | 701 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2987` | 8 | incursione | 702 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2988` | 8 | incursione | 707 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2989` | 8 | incursione | 709 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2990` | 8 | incursione | 711 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2991` | 8 | incursione | 716 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2992` | 8 | incursione | 717 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2993` | 8 | incursione | 718 | 3 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-2994` | 8 | incursione | 737 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2995` | 8 | incursione | 738 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2996` | 8 | incursione | 743 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2997` | 8 | incursione | 745 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2998` | 8 | incursione | 745 | 1 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-2999` | 8 | incursione | 750 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3000` | 8 | incursione | 752 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3001` | 8 | incursione | 754 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3002` | 8 | incursione | 756 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3003` | 8 | incursione | 758 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3004` | 8 | incursione | 760 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3005` | 8 | incursione | 763 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3006` | 8 | incursione | 764 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3007` | 8 | incursione | 765 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3008` | 8 | incursione | 766 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3009` | 8 | incursione | 770 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3010` | 8 | incursione | 771 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3011` | 8 | incursione | 777 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3012` | 8 | incursione | 778 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3013` | 8 | incursione | 785 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-3014` | 8 | incursione | 786 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-3015` | 8 | incursione | 787 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-3016` | 8 | incursione | 788 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-3017` | 8 | incursione | 791 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-3018` | 8 | incursione | 792 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-3019` | 8 | incursione | 793 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-3020` | 8 | incursione | 794 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-3021` | 8 | incursione | 795 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-3022` | 8 | incursione | 796 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-3023` | 8 | incursione | 797 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-3024` | 8 | incursione | 798 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-3025` | 8 | incursione | 799 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-3026` | 8 | incursione | 800 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-3027` | 8 | incursione | 805 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-3028` | 8 | incursione | 806 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 70 | no | no | censita, non ancora producibile |
+| `EVT-T-3029` | 8 | incursione | 820 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3030` | 8 | incursione | 826 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3031` | 8 | incursione | 828 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3032` | 8 | incursione | 830 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3033` | 8 | incursione | 832 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3034` | 8 | incursione | 834 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3035` | 8 | incursione | 836 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3036` | 8 | incursione | 838 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3037` | 8 | incursione | 839 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3038` | 8 | incursione | 844 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3039` | 8 | incursione | 845 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3040` | 8 | incursione | 847 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3041` | 8 | incursione | 849 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3042` | 8 | incursione | 851 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3043` | 8 | incursione | 853 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3044` | 8 | incursione | 855 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3045` | 8 | incursione | 858 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3046` | 8 | incursione | 861 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3047` | 8 | incursione | 862 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3048` | 8 | incursione | 863 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3049` | 8 | incursione | 869 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3050` | 8 | incursione | 870 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3051` | 8 | incursione | 871 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3052` | 8 | incursione | 873 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3053` | 8 | incursione | 876 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3054` | 8 | incursione | 877 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3055` | 8 | incursione | 879 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3056` | 8 | incursione | 884 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3057` | 8 | incursione | 886 | 0 | Spada e Scudo, avventure Dynamax nei sotterranei: livello 65 | no | no | censita, non ancora producibile |
+| `EVT-T-3058` | 9 | incursione | 94 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 45 | no | no | censita, non ancora producibile |
+| `EVT-T-3059` | 9 | incursione | 94 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3060` | 9 | incursione | 94 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3061` | 9 | incursione | 94 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3062` | 9 | incursione | 103 | 1 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3063` | 9 | incursione | 130 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 45 | no | no | censita, non ancora producibile |
+| `EVT-T-3064` | 9 | incursione | 130 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3065` | 9 | incursione | 130 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3066` | 9 | incursione | 132 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3067` | 9 | incursione | 132 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3068` | 9 | incursione | 132 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3069` | 9 | incursione | 132 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3070` | 9 | incursione | 133 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 12 | no | no | censita, non ancora producibile |
+| `EVT-T-3071` | 9 | incursione | 133 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 20 | no | no | censita, non ancora producibile |
+| `EVT-T-3072` | 9 | incursione | 133 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 35 | no | no | censita, non ancora producibile |
+| `EVT-T-3073` | 9 | incursione | 133 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 45 | no | no | censita, non ancora producibile |
+| `EVT-T-3074` | 9 | incursione | 133 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3075` | 9 | incursione | 133 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3076` | 9 | incursione | 184 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3077` | 9 | incursione | 212 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3078` | 9 | incursione | 212 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3079` | 9 | incursione | 225 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 12 | no | no | censita, non ancora producibile |
+| `EVT-T-3080` | 9 | incursione | 225 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 20 | no | no | censita, non ancora producibile |
+| `EVT-T-3081` | 9 | incursione | 225 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 35 | no | no | censita, non ancora producibile |
+| `EVT-T-3082` | 9 | incursione | 225 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 45 | no | no | censita, non ancora producibile |
+| `EVT-T-3083` | 9 | incursione | 225 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3084` | 9 | incursione | 225 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3085` | 9 | incursione | 225 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3086` | 9 | incursione | 225 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3087` | 9 | incursione | 225 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3088` | 9 | incursione | 225 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3089` | 9 | incursione | 242 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3090` | 9 | incursione | 242 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3091` | 9 | incursione | 242 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3092` | 9 | incursione | 242 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3093` | 9 | incursione | 242 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3094` | 9 | incursione | 242 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3095` | 9 | incursione | 242 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3096` | 9 | incursione | 242 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3097` | 9 | incursione | 242 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3098` | 9 | incursione | 242 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3099` | 9 | incursione | 242 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3100` | 9 | incursione | 242 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3101` | 9 | incursione | 242 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3102` | 9 | incursione | 242 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3103` | 9 | incursione | 242 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3104` | 9 | incursione | 242 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3105` | 9 | incursione | 248 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 45 | no | no | censita, non ancora producibile |
+| `EVT-T-3106` | 9 | incursione | 248 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3107` | 9 | incursione | 248 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3108` | 9 | incursione | 370 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 35 | no | no | censita, non ancora producibile |
+| `EVT-T-3109` | 9 | incursione | 370 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3110` | 9 | incursione | 373 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 45 | no | no | censita, non ancora producibile |
+| `EVT-T-3111` | 9 | incursione | 373 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3112` | 9 | incursione | 373 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3113` | 9 | incursione | 384 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3114` | 9 | incursione | 426 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 45 | no | no | censita, non ancora producibile |
+| `EVT-T-3115` | 9 | incursione | 426 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3116` | 9 | incursione | 426 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3117` | 9 | incursione | 429 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 45 | no | no | censita, non ancora producibile |
+| `EVT-T-3118` | 9 | incursione | 429 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3119` | 9 | incursione | 429 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3120` | 9 | incursione | 429 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3121` | 9 | incursione | 437 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 45 | no | no | censita, non ancora producibile |
+| `EVT-T-3122` | 9 | incursione | 437 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3123` | 9 | incursione | 437 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3124` | 9 | incursione | 445 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 45 | no | no | censita, non ancora producibile |
+| `EVT-T-3125` | 9 | incursione | 445 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3126` | 9 | incursione | 445 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3127` | 9 | incursione | 448 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 45 | no | no | censita, non ancora producibile |
+| `EVT-T-3128` | 9 | incursione | 448 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3129` | 9 | incursione | 448 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3130` | 9 | incursione | 483 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3131` | 9 | incursione | 484 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3132` | 9 | incursione | 635 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 45 | no | no | censita, non ancora producibile |
+| `EVT-T-3133` | 9 | incursione | 635 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3134` | 9 | incursione | 635 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3135` | 9 | incursione | 635 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3136` | 9 | incursione | 635 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3137` | 9 | incursione | 671 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 45 | no | no | censita, non ancora producibile |
+| `EVT-T-3138` | 9 | incursione | 671 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3139` | 9 | incursione | 700 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 45 | no | no | censita, non ancora producibile |
+| `EVT-T-3140` | 9 | incursione | 700 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3141` | 9 | incursione | 700 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3142` | 9 | incursione | 778 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 45 | no | no | censita, non ancora producibile |
+| `EVT-T-3143` | 9 | incursione | 778 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3144` | 9 | incursione | 823 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3145` | 9 | incursione | 858 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3146` | 9 | incursione | 858 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3147` | 9 | incursione | 861 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3148` | 9 | incursione | 861 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3149` | 9 | incursione | 868 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3150` | 9 | incursione | 874 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3151` | 9 | incursione | 874 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 35 | no | no | censita, non ancora producibile |
+| `EVT-T-3152` | 9 | incursione | 875 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3153` | 9 | incursione | 875 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 35 | no | no | censita, non ancora producibile |
+| `EVT-T-3154` | 9 | incursione | 887 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 45 | no | no | censita, non ancora producibile |
+| `EVT-T-3155` | 9 | incursione | 887 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3156` | 9 | incursione | 887 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3157` | 9 | incursione | 924 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 12 | no | no | censita, non ancora producibile |
+| `EVT-T-3158` | 9 | incursione | 924 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 20 | no | no | censita, non ancora producibile |
+| `EVT-T-3159` | 9 | incursione | 924 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 35 | no | no | censita, non ancora producibile |
+| `EVT-T-3160` | 9 | incursione | 924 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 45 | no | no | censita, non ancora producibile |
+| `EVT-T-3161` | 9 | incursione | 924 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3162` | 9 | incursione | 924 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3163` | 9 | incursione | 936 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 45 | no | no | censita, non ancora producibile |
+| `EVT-T-3164` | 9 | incursione | 936 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3165` | 9 | incursione | 936 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3166` | 9 | incursione | 936 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 35 | no | no | censita, non ancora producibile |
+| `EVT-T-3167` | 9 | incursione | 937 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 45 | no | no | censita, non ancora producibile |
+| `EVT-T-3168` | 9 | incursione | 937 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3169` | 9 | incursione | 937 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3170` | 9 | incursione | 937 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 35 | no | no | censita, non ancora producibile |
+| `EVT-T-3171` | 9 | incursione | 939 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3172` | 9 | incursione | 979 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3173` | 9 | incursione | 980 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3174` | 9 | incursione | 983 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3175` | 9 | incursione | 984 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3176` | 9 | incursione | 984 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3177` | 9 | incursione | 984 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3178` | 9 | incursione | 984 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3179` | 9 | incursione | 984 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3180` | 9 | incursione | 985 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3181` | 9 | incursione | 985 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3182` | 9 | incursione | 985 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3183` | 9 | incursione | 986 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3184` | 9 | incursione | 986 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3185` | 9 | incursione | 986 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3186` | 9 | incursione | 986 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3187` | 9 | incursione | 987 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3188` | 9 | incursione | 987 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3189` | 9 | incursione | 987 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3190` | 9 | incursione | 987 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3191` | 9 | incursione | 988 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3192` | 9 | incursione | 988 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3193` | 9 | incursione | 988 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3194` | 9 | incursione | 988 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3195` | 9 | incursione | 989 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3196` | 9 | incursione | 989 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3197` | 9 | incursione | 989 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3198` | 9 | incursione | 989 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3199` | 9 | incursione | 990 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3200` | 9 | incursione | 990 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3201` | 9 | incursione | 990 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3202` | 9 | incursione | 990 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3203` | 9 | incursione | 990 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3204` | 9 | incursione | 991 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3205` | 9 | incursione | 991 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3206` | 9 | incursione | 991 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3207` | 9 | incursione | 992 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3208` | 9 | incursione | 992 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3209` | 9 | incursione | 992 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3210` | 9 | incursione | 992 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3211` | 9 | incursione | 993 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3212` | 9 | incursione | 993 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3213` | 9 | incursione | 993 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3214` | 9 | incursione | 993 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3215` | 9 | incursione | 994 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3216` | 9 | incursione | 994 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3217` | 9 | incursione | 994 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3218` | 9 | incursione | 994 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3219` | 9 | incursione | 995 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3220` | 9 | incursione | 995 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3221` | 9 | incursione | 995 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3222` | 9 | incursione | 995 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3223` | 9 | incursione | 999 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 12 | no | no | censita, non ancora producibile |
+| `EVT-T-3224` | 9 | incursione | 999 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 20 | no | no | censita, non ancora producibile |
+| `EVT-T-3225` | 9 | incursione | 999 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 35 | no | no | censita, non ancora producibile |
+| `EVT-T-3226` | 9 | incursione | 999 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 45 | no | no | censita, non ancora producibile |
+| `EVT-T-3227` | 9 | incursione | 999 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3228` | 9 | incursione | 1009 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3229` | 9 | incursione | 1009 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3230` | 9 | incursione | 1010 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3231` | 9 | incursione | 1010 | 0 | Scarlatto e Violetto, incursioni da distribuzione: livello 75 | no | no | censita, non ancora producibile |
+| `EVT-T-3232` | 9 | incursione | 3 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3233` | 9 | incursione | 6 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3234` | 9 | incursione | 9 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3235` | 9 | incursione | 25 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3236` | 9 | incursione | 25 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3237` | 9 | incursione | 129 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3238` | 9 | incursione | 133 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3239` | 9 | incursione | 149 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3240` | 9 | incursione | 150 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3241` | 9 | incursione | 154 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3242` | 9 | incursione | 157 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3243` | 9 | incursione | 157 | 1 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3244` | 9 | incursione | 160 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3245` | 9 | incursione | 233 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3246` | 9 | incursione | 248 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3247` | 9 | incursione | 254 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3248` | 9 | incursione | 257 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3249` | 9 | incursione | 260 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3250` | 9 | incursione | 373 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3251` | 9 | incursione | 376 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3252` | 9 | incursione | 389 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3253` | 9 | incursione | 392 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3254` | 9 | incursione | 395 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3255` | 9 | incursione | 445 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3256` | 9 | incursione | 497 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3257` | 9 | incursione | 500 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3258` | 9 | incursione | 503 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3259` | 9 | incursione | 503 | 1 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3260` | 9 | incursione | 635 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3261` | 9 | incursione | 652 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3262` | 9 | incursione | 655 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3263` | 9 | incursione | 658 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3264` | 9 | incursione | 706 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3265` | 9 | incursione | 724 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3266` | 9 | incursione | 724 | 1 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3267` | 9 | incursione | 727 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3268` | 9 | incursione | 730 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3269` | 9 | incursione | 784 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3270` | 9 | incursione | 812 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3271` | 9 | incursione | 815 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3272` | 9 | incursione | 818 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3273` | 9 | incursione | 887 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3274` | 9 | incursione | 908 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3275` | 9 | incursione | 911 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3276` | 9 | incursione | 914 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3277` | 9 | incursione | 970 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3278` | 9 | incursione | 977 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3279` | 9 | incursione | 979 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3280` | 9 | incursione | 981 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3281` | 9 | incursione | 983 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3282` | 9 | incursione | 991 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3283` | 9 | incursione | 998 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3284` | 9 | incursione | 1005 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3285` | 9 | incursione | 1005 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3286` | 9 | incursione | 1006 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
+| `EVT-T-3287` | 9 | incursione | 1006 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
 | `EVT-1-0000` | 1 | tabella di incontro | 1 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
 | `EVT-1-0001` | 1 | tabella di incontro | 4 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
 | `EVT-1-0002` | 1 | tabella di incontro | 7 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |

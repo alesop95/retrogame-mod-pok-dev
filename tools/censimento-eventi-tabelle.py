@@ -107,24 +107,48 @@ MAI_DISTRIBUITE = (
      "la ebbe soltanto Platino"),
 )
 
-# Le classi che esistono, che questo programma NON legge, e il motivo. Vanno elencate perche' un
-# censimento che tacesse le proprie lacune sarebbe peggio di uno incompleto dichiarato: chi lo
-# legge conterebbe le voci e concluderebbe di avere l'insieme intero.
+# Le tabelle binarie, lette il 2026-09-04. Erano dichiarate non lette fino a quel giorno, ed e'
+# il motivo per cui la sezione delle lacune di questo documento e' ora vuota: la dichiarazione di
+# non lettura era onesta, ma era un debito e non una conclusione.
 #
-# (gen, classe, dove sta, perche' non e' letta)
-NON_LETTE = (
-    (8, "Incursioni da distribuzione di Spada e Scudo",
-     "Gen8/Encounters8Nest.cs, tabelle sw_dist, sh_dist, i sotterranei e le grotte di cristallo",
-     "sono risorse binarie con un formato proprio che non abbiamo ancora letto; sono senza "
-     "scadenza, quindi la loro assenza non tocca alcun conto sotto scadenza"),
-    (9, "Incursioni da distribuzione di Scarlatto e Violetto",
-     "Gen9/Encounters9.cs, tabelle dist_paldea e might_paldea",
-     "stessa ragione dell'ottava generazione, e stessa conseguenza"),
-    (7, "Trasferimenti da Pokemon GO",
-     "Live/EncountersGO.cs e le tabelle encounter_go_home.pkl e encounter_go_lgpe.pkl",
-     "non sono distribuzioni ma una porta di ingresso permanente e senza scadenza, quindi "
-     "stanno fuori dall'ambito di questo censimento e non fra le sue lacune"),
+# Il passo di ciascun formato non si indovina e non si deduce dalla dimensione del file: si legge
+# dalla classe che lo interpreta, e il programma verifica poi che la dimensione sia un multiplo
+# esatto del passo. Un resto diverso da zero significa che il passo e' sbagliato, e proseguire
+# darebbe specie plausibili e false, che e' il modo in cui questo progetto ha gia' perso una
+# giornata sulla quinta generazione.
+#
+# (classe, gen, etichetta, file relativo a legality/wild, passo, off specie, off forma,
+#  off livello, sotto scadenza)
+BINARI = (
+    ("incursione", 8, "Spada, incursioni da distribuzione", "Gen8/encounter_sw_dist.pkl",
+     0x10, 0x00, 0x02, 0x0C, False),
+    ("incursione", 8, "Scudo, incursioni da distribuzione", "Gen8/encounter_sh_dist.pkl",
+     0x10, 0x00, 0x02, 0x0C, False),
+    ("incursione", 8, "Spada e Scudo, avventure Dynamax nei sotterranei",
+     "Gen8/encounter_swsh_underground.pkl", 14, 0x00, 0x02, 0x03, False),
+    ("incursione", 9, "Scarlatto e Violetto, incursioni da distribuzione",
+     "Gen9/encounter_dist_paldea.pkl", 62, 0x00, 0x02, 0x07, False),
+    ("incursione", 9, "Scarlatto e Violetto, esemplari di potere",
+     "Gen9/encounter_might_paldea.pkl", 62, 0x00, 0x02, 0x07, False),
 )
+
+# I trasferimenti da Pokemon GO. Stanno in una classe propria e non fra le incursioni, e la
+# ragione e' di sostanza e non di ordinamento: non sono una distribuzione ma una porta di
+# ingresso permanente, che non chiude il 26 febbraio 2027 e non chiude affatto. Il censimento li
+# conta perche' l'obiettivo dichiarato e' la collezione completa, e li tiene separati perche'
+# chiamarli eventi sarebbe falso.
+#
+# Il formato e' un archivio indicizzato: due byte di identificativo, il numero delle aree a
+# sedici bit, e poi una tabella di posizioni dove l'inizio dell'area i-esima e la fine coincidono
+# con l'inizio della successiva. Ogni area vale una coppia di specie e forma, e porta N finestre
+# temporali da dieci byte. La voce da contare e' l'area e non la finestra: una finestra e' un
+# periodo in cui quella specie era ottenibile, non un collezionabile in piu'.
+GO = (
+    ("porta-permanente", 8, "Pokemon GO verso il deposito", "encounter_go_home.pkl", False),
+    ("porta-permanente", 7, "Pokemon GO verso Let's Go", "encounter_go_lgpe.pkl", False),
+)
+
+NON_LETTE = ()
 
 # --------------------------------------------------------------------------------------------
 # Le tabelle che si estraggono per intero, dichiarate una per una.
@@ -151,6 +175,8 @@ TABELLE = (
      True),
     ("periferica", 5, "Dream Radar", "Gen5/Encounters5DR.cs", "Encounter_DreamRadar", "primo",
      True),
+    ("incursione", 8, "Spada e Scudo, incursioni delle grotte di cristallo",
+     "Gen8/Encounters8Nest.cs", "Crystal_SWSH", "campo", False),
     ("condizionato", 8, "Leggende Arceus, doni fatidici", "Gen8/Encounters8a.cs", None,
      "fatidico", False),
     ("condizionato", 8, "Diamante Lucente e Perla Splendente, doni fatidici",
@@ -286,6 +312,74 @@ def pokewalker(pkhex):
     return fuori, None
 
 
+def leggi_binario(pkhex, relativo, passo, off_specie, off_forma, off_livello):
+    """Le voci di una tabella binaria a record di lunghezza fissa.
+
+    Restituisce la lista delle voci e, in caso di rifiuto, il motivo. Il rifiuto e' deliberato e
+    non un ripiego: se la dimensione non e' un multiplo del passo, il passo che stiamo usando non
+    e' quello del formato, e leggere comunque produrrebbe un elenco di specie esistenti e
+    sbagliate invece di un errore.
+    """
+    percorso = os.path.join(pkhex, WILD, relativo.replace("/", os.sep))
+    if not os.path.exists(percorso):
+        return None, "il file non e' nel clone: " + percorso
+    dati = io.open(percorso, "rb").read()
+    quante, resto = divmod(len(dati), passo)
+    if resto:
+        return None, ("la dimensione %d non e' multipla del passo %d, resto %d: il passo che "
+                      "stiamo usando e' sbagliato" % (len(dati), passo, resto))
+    fuori = []
+    for indice in range(quante):
+        off = indice * passo
+        specie = struct.unpack_from("<H", dati, off + off_specie)[0]
+        if specie == 0:
+            continue
+        if not 1 <= specie <= 1025:
+            return None, ("la voce %d porta la specie %d, fuori dall'intervallo noto: il "
+                          "formato non e' quello che stiamo usando" % (indice, specie))
+        fuori.append({"specie": specie, "forma": dati[off + off_forma],
+                      "livello": dati[off + off_livello]})
+    return fuori, None
+
+
+def leggi_go(pkhex, nome):
+    """Le aree di un archivio di Pokemon GO, una per coppia di specie e forma.
+
+    L'archivio comincia con due byte di identificativo e il numero delle aree a sedici bit, e
+    prosegue con una tabella di posizioni in cui la fine di un'area coincide con l'inizio della
+    successiva: la posizione dell'area i-esima si legge come intero a sessantaquattro bit alla
+    quarta posizione piu' quattro volte l'indice, di cui la meta' bassa e' l'inizio e quella alta
+    la fine. Ogni area porta specie, forma e formato di importazione nei primi quattro byte, e poi
+    finestre temporali da dieci byte.
+
+    Si contano le aree e non le finestre, e la distinzione e' di sostanza: una finestra e' un
+    periodo in cui quella specie era ottenibile, non un collezionabile in piu'.
+    """
+    percorso = os.path.join(pkhex, WILD, nome)
+    if not os.path.exists(percorso):
+        return None, "il file non e' nel clone: " + percorso
+    dati = io.open(percorso, "rb").read()
+    if dati[:2] != b"go":
+        return None, ("l'identificativo dell'archivio e' %r invece di 'go': il formato non e' "
+                      "quello che stiamo usando" % dati[:2])
+    quante = struct.unpack_from("<H", dati, 2)[0]
+    fuori = []
+    for indice in range(quante):
+        inizio_fine = struct.unpack_from("<Q", dati, 4 + indice * 4)[0]
+        inizio = inizio_fine & 0xFFFFFFFF
+        fine = inizio_fine >> 32
+        area = dati[inizio:fine]
+        if len(area) < 4:
+            continue
+        specie = struct.unpack_from("<H", area, 0)[0]
+        if not 1 <= specie <= 1025:
+            return None, ("l'area %d porta la specie %d, fuori dall'intervallo noto"
+                          % (indice, specie))
+        finestre = (len(area) - 4) // 10
+        fuori.append({"specie": specie, "forma": area[2], "finestre": finestre})
+    return fuori, None
+
+
 def censisci(pkhex):
     gruppi, difetti = [], []
 
@@ -332,6 +426,34 @@ def censisci(pkhex):
                                 "corso distribuito" if v["distribuito"] else "corso in dotazione"))
         gruppi.append({"classe": "periferica", "gen": 4, "etichetta": "Pokewalker",
                        "voci": voci, "sotto_scadenza": True, "letto": True})
+
+    for classe, gen, etichetta, relativo, passo, o_s, o_f, o_l, scad in BINARI:
+        voci, errore = leggi_binario(pkhex, relativo, passo, o_s, o_f, o_l)
+        if errore:
+            difetti.append((etichetta, errore))
+            gruppi.append({"classe": classe, "gen": gen, "etichetta": etichetta, "voci": [],
+                           "sotto_scadenza": scad, "letto": False})
+            continue
+        for v in voci:
+            v["gen"] = gen
+            v["riferimento"] = relativo
+            v["commento"] = "livello %d" % v["livello"]
+        gruppi.append({"classe": classe, "gen": gen, "etichetta": etichetta, "voci": voci,
+                       "sotto_scadenza": scad, "letto": True})
+
+    for classe, gen, etichetta, nome, scad in GO:
+        voci, errore = leggi_go(pkhex, nome)
+        if errore:
+            difetti.append((etichetta, errore))
+            gruppi.append({"classe": classe, "gen": gen, "etichetta": etichetta, "voci": [],
+                           "sotto_scadenza": scad, "letto": False})
+            continue
+        for v in voci:
+            v["gen"] = gen
+            v["riferimento"] = nome
+            v["commento"] = ("%d finestre temporali" % v["finestre"]) if v["finestre"] else "-"
+        gruppi.append({"classe": classe, "gen": gen, "etichetta": etichetta, "voci": voci,
+                       "sotto_scadenza": scad, "letto": True})
     return gruppi, difetti
 
 
@@ -376,7 +498,9 @@ def self_test():
     prova("fatidici, specie", 151, voci[0]["specie"])
 
     prova("corsi del Pokewalker", 27, len(CORSI_POKEWALKER))
-    prova("classi dichiarate non lette", 3, len(NON_LETTE))
+    prova("classi dichiarate non lette", 0, len(NON_LETTE))
+    prova("tabelle binarie dichiarate", 5, len(BINARI))
+    prova("archivi di Pokemon GO dichiarati", 2, len(GO))
     prova("voci con dono a oggetto", 15, len(OGGETTO_DISTRIBUITO))
     specie_biglietti = {s for (_g, _o, _l, s, _f, _lv, _gi, _fa, _r) in OGGETTO_DISTRIBUITO}
     prova("specie dei doni a oggetto", {151, 249, 250, 380, 381, 386, 491, 492, 494},
@@ -385,7 +509,8 @@ def self_test():
     return 1 if falliti else 0
 
 
-ORDINE_CLASSI = ("oggetto-distribuito", "disco-bonus", "periferica", "spinoff", "condizionato")
+ORDINE_CLASSI = ("oggetto-distribuito", "disco-bonus", "periferica", "spinoff", "condizionato",
+                 "incursione", "porta-permanente")
 
 
 def stampa(gruppi, difetti):
@@ -487,15 +612,25 @@ def scrivi(percorso, gruppi, difetti):
     r.append("")
     r.append("## Che cosa questo censimento non copre")
     r.append("")
-    r.append("Un censimento che tacesse le proprie lacune sarebbe peggio di uno dichiarato "
-             "incompleto, perché chi lo legge conta le voci e conclude di avere l'insieme "
-             "intero. Queste classi esistono, il programma non le legge, e il motivo è scritto "
-             "accanto a ciascuna.")
-    r.append("")
-    r.append("| Gen | Classe | Dove sta nella fonte | Perché non è letta |")
-    r.append("|---|---|---|---|")
-    for gen, classe, dove, perche in NON_LETTE:
-        r.append("| %d | %s | %s | %s |" % (gen, classe, dove, perche))
+    if NON_LETTE:
+        r.append("Un censimento che tacesse le proprie lacune sarebbe peggio di uno dichiarato "
+                 "incompleto, perché chi lo legge conta le voci e conclude di avere l'insieme "
+                 "intero. Queste classi esistono, il programma non le legge, e il motivo è "
+                 "scritto accanto a ciascuna.")
+        r.append("")
+        r.append("| Gen | Classe | Dove sta nella fonte | Perché non è letta |")
+        r.append("|---|---|---|---|")
+        for gen, classe, dove, perche in NON_LETTE:
+            r.append("| %d | %s | %s | %s |" % (gen, classe, dove, perche))
+    else:
+        r.append("Nessuna, fra le classi che il verificatore porta. Il 2026-09-04 questa sezione "
+                 "elencava tre classi non lette, cioè le incursioni da distribuzione di ottava e "
+                 "di nona generazione e i trasferimenti da Pokemon GO, e nella stessa giornata "
+                 "sono state lette tutte e tre: la dichiarazione di non lettura era onesta, ma era "
+                 "un debito e non una conclusione. Resta vero, e va ripetuto qui perché è il "
+                 "limite di questo documento, che il censimento copre ciò che il verificatore "
+                 "sa: una distribuzione che nessuna sua tabella conosce non comparirebbe, e non "
+                 "avremmo modo di accorgercene da dentro.")
     r.append("")
     for classe in ORDINE_CLASSI:
         for g in gruppi:
