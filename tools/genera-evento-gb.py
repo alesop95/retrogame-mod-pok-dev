@@ -408,8 +408,8 @@ def componi(v, gen1, gen2, gb, pers1, pers2, esperienza):
 
     p = pers2[v["nazionale"]]
     exp = esperienza(p["crescita"], livello_corrente)
-    caught = gen2.CaughtData(level=livello_incontro, time_of_day=0, ot_female=False,
-                             location=v.get("luogo", 0))
+    caught = gen2.CaughtData(level=livello_incontro, time_of_day=fase_del_giorno(v),
+                             ot_female=False, location=v.get("luogo", 0))
     mon = gen2.Gen2Mon(
         species=v["nazionale"],
         held_item=0,
@@ -461,6 +461,22 @@ def livelli_della_voce(v):
     corrente = v.get("livello_attuale") or dichiarato
     incontro = 1 if v.get("incubazioni") else dichiarato
     return dichiarato, corrente, incontro
+
+
+def fase_del_giorno(v):
+    """La fase del giorno da scrivere nei dati di cattura, e perche' non e' sempre nulla.
+
+    La regola del verificatore e' esplicita e va letta al contrario di come verrebbe da scriverla.
+    Per un dono che uovo non e', e per un uovo ancora tale, la fase deve valere zero: non c'e'
+    stato alcun momento della giornata in cui e' stato incontrato, perche' e' stato consegnato.
+    Per un uovo gia' schiuso invece la fase deve valere uno, due o tre, perche' quel momento
+    esiste ed e' quello della schiusa.
+
+    Questo programma scrive esemplari schiusi e non uova, quindi le voci consegnate come uovo
+    vogliono una fase vera. Si sceglie il mattino, che e' una scelta nostra dichiarata come lo
+    sono i valori individuali dove la fonte non li fissa: la fonte non dice a che ora schiuse.
+    """
+    return 1 if v.get("incubazioni") else 0
 
 
 def self_test():
@@ -531,7 +547,11 @@ def self_test():
           livelli_della_voce({"livello": 5, "incubazioni": 10}) == (5, 5, 1))
     prova("una voce che uovo non e' conserva il livello di incontro dichiarato",
           livelli_della_voce({"livello": 20, "incubazioni": 0}) == (20, 20, 20))
-    print("self-test: %d controlli falliti su %d" % (len(falliti), 20))
+    prova("un dono che uovo non e' ha fase del giorno nulla",
+          fase_del_giorno({"incubazioni": 0}) == 0)
+    prova("un uovo schiuso ha una fase del giorno vera",
+          fase_del_giorno({"incubazioni": 10}) in (1, 2, 3))
+    print("self-test: %d controlli falliti su %d" % (len(falliti), 22))
     return 1 if falliti else 0
 
 
