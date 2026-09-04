@@ -58,6 +58,7 @@ di questo repository e non vi entra: si ottiene con `tools/confronta-ace-builder
 """
 
 import argparse
+import hashlib
 import io
 import json
 import os
@@ -1296,6 +1297,34 @@ METODI_PRODUCIBILI = ("BACD_R", "BACD_R_A", "BACD_A", "BACD", "BACD_RBCD", "BACD
 METODO_NON_IMPLEMENTATO = "Channel"
 
 
+REGISTRO_ALLENATORE = os.path.join("recreate-pokemon-distributions-events", "allenatore.json")
+
+
+def allenatore_del_progetto():
+    """L'allenatore predefinito, letto dal file condiviso con il generatore delle prime due.
+
+    Fino al 2026-09-04 questo programma rifiutava le voci il cui allenatore viene dal ricevente,
+    e il rifiuto era la scelta corretta: mettervi un valore inventato avrebbe prodotto una
+    collezione che porta per sempre il nome di uno sconosciuto. La circostanza e' cambiata, e non
+    perche' abbiamo cambiato idea: il salvataggio da cui quel nome sarebbe dovuto venire non
+    esiste piu', poiche' la pila della cartuccia di seconda generazione si e' esaurita, quindi
+    l'attesa non aveva piu' un termine. L'utente ha deciso di adottare un allenatore scelto e
+    dichiarato, che non e' un valore inventato ma una scelta registrata in un file tracciato, e
+    che vale identico per tutte le generazioni.
+
+    Chi voglia un allenatore diverso lo passa con l'argomento, che conserva la precedenza.
+    """
+    percorso = os.path.join(RADICE, REGISTRO_ALLENATORE)
+    if not os.path.exists(percorso):
+        return None
+    try:
+        d = json.loads(io.open(percorso, encoding="utf-8").read())
+    except Exception:
+        return None
+    return {"nome": d["nome"], "identificativo": int(d["tid"]), "segreto": int(d.get("sid", 0)),
+            "sesso": d.get("sesso", "maschio"), "dal_progetto": True}
+
+
 def allenatore_da_argomento(testo):
     """L'allenatore di destinazione, letto dalla forma `nome:identificativo:segreto:sesso`.
 
@@ -1308,7 +1337,7 @@ def allenatore_da_argomento(testo):
     produrrebbe una collezione che porta per sempre il nome di uno sconosciuto.
     """
     if not testo:
-        return None
+        return allenatore_del_progetto()
     pezzi = testo.split(":")
     if len(pezzi) != 4:
         sys.exit("l'allenatore si scrive come nome:identificativo:segreto:sesso, per esempio "
@@ -1331,6 +1360,7 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None,
     esemplari distinti dello stesso evento con il medesimo valore di personalita' sarebbero
     un duplicato riconoscibile.
     """
+    impronte = {}
     voci = voci_wc3(pkhex)
     mappa = nazionale_verso_interno(ace)
     _per_nome, per_id = specie_per_nome(ace)
@@ -1530,6 +1560,17 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None,
         nome = "%03d-%s-%s" % (indice, descrizione or "evento",
                                re.sub(r"[^A-Za-z0-9]", "", per_id.get(specie_id, "x")))
         scrivi(mon, os.path.join(cartella, nome))
+        # L'impronta si calcola sulla forma canonica, che e' quella che il verificatore legge, e
+        # si conserva in un manifesto accanto al lotto. Serve al pedigree: una scheda che dica
+        # quali campi un esemplare abbia non dimostra che il file sul disco sia quell'esemplare,
+        # mentre una impronta lo dimostra. Il manifesto non entra in git perche' vive accanto al
+        # lotto, che a sua volta non vi entra.
+        impronte[str(indice)] = {
+            "file": nome + ".pk3",
+            "sha256": hashlib.sha256(mon.to_canonical_bytes(party=False)).hexdigest(),
+            "seme": "0x%04X" % esito["seme"],
+            "personalita": "0x%08X" % personalita,
+        }
         fatti += 1
         print("  %-40s %-9s seme 0x%04X  PID 0x%08X%s%s"
               % (etichetta[:40], metodo, esito["seme"], personalita,
@@ -1543,6 +1584,19 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None,
         print("=== Voci non prodotte, con la ragione")
         for indice, etichetta, ragione in saltate:
             print("  [%3d] %-40s %s" % (indice, etichetta[:40], ragione))
+    print("")
+    percorso_manifesto = os.path.join(cartella, MANIFESTO)
+    io.open(percorso_manifesto, "w", encoding="utf-8", newline="").write(
+        json.dumps({"formato": 1,
+                    "nota": "Impronte SHA-256 della forma canonica di ciascun esemplare "
+                            "prodotto, indicizzate per posizione nella tabella degli eventi. "
+                            "Servono al pedigree: una scheda che dica quali campi un esemplare "
+                            "abbia non dimostra che il file sul disco sia quell'esemplare, "
+                            "mentre l'impronta lo dimostra.",
+                    "allenatore": (allenatore or {}).get("nome"),
+                    "identificativo": (allenatore or {}).get("identificativo"),
+                    "impronte": impronte}, ensure_ascii=False, indent=1) + chr(10))
+    print("  manifesto delle impronte in " + percorso_manifesto)
     print("")
     print("I file stanno in " + cartella + ", che non entra in git. Il passo seguente non e")
     print("di questo programma: si aprono con il verificatore di conformita, nel contesto della")
@@ -1566,6 +1620,9 @@ def gb_errore():
 # permutata secondo il valore di personalita' e cifrata, quindi letta come forma di scambio
 # produce byte senza senso. Separarle rende il caricamento di massa utilizzabile.
 CARTELLA_FORMA_CIFRATA = "forma-cifrata"
+
+# Il manifesto delle impronte, scritto accanto al lotto e letto dalle schede.
+MANIFESTO = "impronte.json"
 
 
 def scrivi(mon, base):

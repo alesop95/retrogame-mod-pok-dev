@@ -1,6 +1,6 @@
 {
  "formato": 1,
- "nota": "Registro dei giudizi del verificatore di conformità esterno sugli esemplari prodotti da questo progetto. È autorato e non generato: ciascuna voce è il resoconto di una prova eseguita da una persona, che ha aperto un file con il verificatore e ne ha letto l'esito. Serve a due cose. La prima è non ripetere una prova già fatta, perché ciascuna costa tempo umano. La seconda, meno ovvia e più importante, è misurare che cosa la verifica copra: sette esemplari giudicati su centoventidue prodotti non dicono nulla da soli, mentre sapere quante delle dimensioni lungo cui gli esemplari differiscono siano state toccate dice esattamente dove resta il rischio. Lo strumento `tools/copertura-verifica.py` calcola quella misura da questo file e dalla tabella del verificatore.",
+ "nota": "Registro dei giudizi del verificatore di conformità esterno sugli esemplari prodotti da questo progetto. È autorato e non generato: ciascuna voce è il resoconto di una prova eseguita da una persona, che ha aperto un file con il verificatore e ne ha letto l'esito. Serve a due cose. La prima è non ripetere una prova già fatta, perché ciascuna costa tempo umano. La seconda, meno ovvia e più importante, è misurare che cosa la verifica copra: sette esemplari giudicati su centoventidue prodotti non dicono nulla da soli, mentre sapere quante delle dimensioni lungo cui gli esemplari differiscono siano state toccate dice esattamente dove resta il rischio. Lo strumento `tools/copertura-verifica.py` calcola quella misura da questo file e dalla tabella del verificatore. Dal 2026-09-04 ogni voce dichiara a quale lotto si riferisca nel campo lotto, con valore gen3 oppure gb. Il campo nasce da un difetto: il giudizio di massa del lotto di prima e seconda generazione, aggiunto quel giorno senza quel campo, veniva applicato dalle schede di terza generazione a tutte le loro voci, perche' esse prendono l'ultimo giudizio che dichiari di coprire tutto. Un registro che raccoglie due lotti deve dire di quale lotto parli, e senza il campo la confusione non produceva un errore ma una dichiarazione di conformita' falsa.",
  "verificatore": {
   "nome": "PKHeX",
   "versione": "26.08.26",
@@ -18,7 +18,8 @@
    "conferme": [
     "il seme di origine è stato ricostruito per via inversa e coincide con quello impiegato",
     "il contenitore di cattura e l'esperienza calcolata dalla formula del gruppo di crescita non sono stati contestati"
-   ]
+   ],
+   "lotto": "gen3"
   },
   {
    "file": "000-Mew-Mew.pk3",
@@ -29,7 +30,8 @@
     "il seme di origine ricostruito è il secondo dell'elenco degli ottantacinque estratti dalla fonte, quindi il metodo a elenco è riconosciuto",
     "l'esperienza del gruppo medio lento al livello dieci vale cinquecentosessanta e non è contestata",
     "il soprannome non risulta marcato come tale, quindi coincide con il nome canonico della specie nella lingua dell'esemplare"
-   ]
+   ],
+   "lotto": "gen3"
   },
   {
    "file": "008-ANAPikachu-Pikachu.pk3",
@@ -41,7 +43,8 @@
    "conferme": [
     "la tabella dei caratteri giapponese funziona: il nome dell'allenatore in caratteri latini a larghezza intera e il soprannome in katakana si rileggono",
     "il seme di origine è stato ricostruito"
-   ]
+   ],
+   "lotto": "gen3"
   },
   {
    "file": "prova-abilita/vecchia-regola-bit-1.pk3",
@@ -52,7 +55,8 @@
    ],
    "conferme": [
     "è il primo braccio dell'esperimento a variabile singola: identico all'altro in ogni byte tranne quel bit e la somma di controllo"
-   ]
+   ],
+   "lotto": "gen3"
   },
   {
    "file": "prova-abilita/nuova-regola-bit-0.pk3",
@@ -62,7 +66,8 @@
    "conferme": [
     "è il secondo braccio dell'esperimento, e la sua conformità dimostra che la sola variabile che cambia il verdetto è il bit dell'abilità",
     "il seme di origine ricostruito è il medesimo del braccio contestato"
-   ]
+   ],
+   "lotto": "gen3"
   },
   {
    "file": "005-NegaiBoshiJirachi-Jirachi.pk3",
@@ -72,7 +77,8 @@
    "conferme": [
     "accanto al seme effettivo il verificatore scrive fra parentesi il valore a sedici bit da cui esso discende, che coincide con il nostro: la trasformazione della tabella dei doni è riconosciuta tornando indietro di due passi",
     "la tabella dei caratteri giapponese funziona anche sul soprannome della specie in katakana"
-   ]
+   ],
+   "lotto": "gen3"
   },
   {
    "file": "006-NegaiBoshiJirachiMatchRecipient-Jirachi.pk3",
@@ -82,7 +88,8 @@
    "conferme": [
     "il ramo antilucente a estrazioni variabili è riconosciuto e il seme ricostruito",
     "l'allenatore di destinazione passato al programma è accettato per le voci che non lo fissano"
-   ]
+   ],
+   "lotto": "gen3"
   },
   {
    "file": "026-BerryFixRuby-Zigzagoon.pk3",
@@ -94,7 +101,8 @@
    "conferme": [
     "già nella prova contestata il seme era ricostruito e l'esemplare riconosciuto cromatico, quindi il ramo a lucentezza garantita funzionava",
     "dopo la correzione il verificatore riporta il tipo osservato e fra parentesi il metodo dichiarato dall'evento, cioè la corrispondenza con il dono è avvenuta"
-   ]
+   ],
+   "lotto": "gen3"
   },
   {
    "file": "001-WISHMKR-Jirachi.pk3",
@@ -106,7 +114,8 @@
    "conferme": [
     "già nella prova contestata l'oggetto tenuto era quello giusto, quindi la sua derivazione dalla quinta estrazione era corretta anche mentre la corrispondenza fallisce",
     "dopo la correzione il nome si legge per intero nei suoi sette caratteri e l'esemplare è conforme"
-   ]
+   ],
+   "lotto": "gen3"
   },
   {
    "file": "000-Mew-Mew.pk3",
@@ -116,7 +125,8 @@
    "conferme": [
     "è una controprova di non regressione: le correzioni sul bit dell'abilità, sul nome che riempie il campo e sul vincolo del sesso derivato non toccano questo esemplare, perché il suo valore di personalità è pari, il suo nome ha sei caratteri e la sua derivazione non è fra le due dichiarate",
     "il seme ricostruito è identico a quello della prima lettura, quindi il file non è cambiato"
-   ]
+   ],
+   "lotto": "gen3"
   },
   {
    "file": "tutti i 172 esemplari producibili, lettura di massa nelle sei scatole",
@@ -128,7 +138,8 @@
     "i centosettantadue esemplari sono stati caricati nelle scatole di un salvataggio vuoto di terza generazione, con il caricamento che ne dichiara il numero, e le sei scatole sono state fotografate con il puntatore fuori dalla griglia perché il riquadro informativo copre le posizioni che gli stanno sotto",
     "nessuna posizione porta il contrassegno di non conformità, e quel contrassegno riflette l'esito dell'analisi completa di legittimità e non un controllo parziale: la sua assenza su una posizione equivale a un rapporto senza rilievi su quell'esemplare",
     "è la lettura che chiude la campagna sul generatore: ogni voce del catalogo che il progetto sa produrre è stata giudicata da una implementazione indipendente e nessuna è contestata"
-   ]
+   ],
+   "lotto": "gen3"
   },
   {
    "file": "tutti i 165 esemplari del lotto di prima e seconda generazione, lettura di massa nelle nove scatole",
@@ -141,7 +152,23 @@
     "nessuna delle nove scatole porta alcun contrassegno di non conformita', ne' sulle voci di prima generazione ne' sulle centotrentaquattro uova, che erano la parte che i tre giri precedenti avevano fatto cadere",
     "e' il quarto giro, e i tre precedenti hanno prodotto i tre difetti che questa lettura chiude: i due livelli della tabella di seconda generazione, il livello di incontro delle uova che deve valere uno, e la fase del giorno che deve essere nulla per un dono e vera per un uovo schiuso",
     "restano fuori dal lotto tre voci su centosessantotto, e non per un difetto ma per un limite dichiarato: il nome del loro donatore e' in caratteri giapponesi e la tabella dei caratteri di quelle generazioni non e' ancora nel progetto"
-   ]
+   ],
+   "lotto": "gb"
+  },
+  {
+   "file": "il lotto di terza generazione dopo l'adozione dell'allenatore del progetto",
+   "data": "2026-09-04",
+   "esito": "da rifare",
+   "rilievi": [
+    "il giudizio di massa del 2026-09-02 non copre piu' il lotto che sta sul disco, e la ragione non e' un difetto ma un cambiamento voluto: le venticinque voci che prendono nome e identificativo da chi riceve portavano un segnaposto e ora portano l'allenatore del progetto, cioe' Alessio con identificativo 42317",
+    "in terza generazione l'identificativo entra nel calcolo della lucentezza, che si ottiene come somma esclusiva fra identificativo, identificativo segreto e le due meta' del valore di personalita': cambiare la coppia puo' rendere cromatico un esemplare che non lo era o viceversa, quindi la rigenerazione e' un ricalcolo e non una riscrittura di due campi",
+    "ne segue che il lotto va sottoposto di nuovo al verificatore per intero, e non a campione: un verdetto verde su un campione non autorizza a concludere sul gruppo, che e' una lezione gia' pagata da questo progetto"
+   ],
+   "conferme": [
+    "le impronte del lotto nuovo sono nel manifesto `_notes/lotto-eventi/impronte.json` e compaiono nelle schede: chi rifara' il giudizio potra' dichiarare esattamente su quali byte lo ha fatto, che e' cio' che mancava alla prova precedente"
+   ],
+   "lotto": "gen3",
+   "copre": "tutti"
   }
  ]
 }

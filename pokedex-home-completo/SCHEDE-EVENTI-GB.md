@@ -320,9 +320,10 @@ Attribuzione di questa voce: prima serie, 15 dicembre 2001 - 14 gennaio 2002, e 
 | uovo | sì, 10 incubazioni | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 0 | tabella degli eventi |
 | statistiche | max_hp 21, atk 11, def 13, spd 11, satk 11, sdef 13 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| allenatore | Alessio, identificativo 42317 | allenatore del progetto, scelto e dichiarato in `recreate-pokemon-distributions-events/allenatore.json`: la fonte dichiara che questa voce prende nome e identificativo da chi riceve la consegna, e chi riceve siamo noi |
 | restrizione di lingua | giapponese | tabella degli eventi |
 | gruppo di appartenenza | Uova misteriose dei Pokemon Center giapponesi | il racconto dell'evento, le date, il luogo e le fonti stanno nella sezione di gruppo di questo documento |
-| impronta del file prodotto | `bec649762733f91370ec806e9004edf6e5a941a7dd7029fc13f60a0dd6b36f82` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
+| impronta del file prodotto | `7c831f600fdb443063f4af2bb903cbde7f1f0356f740a68acc3b7b08b6e5776c` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
 | giudizio del verificatore | conforme, 2026-09-04 | lettura di massa delle nove scatole in un salvataggio vuoto di seconda generazione, dove l'assenza del contrassegno di non conformità su una posizione equivale a un rapporto senza rilievi su quell'esemplare |
 
 ### EVT-2-0143 Pichu
@@ -343,9 +344,10 @@ Attribuzione di questa voce: prima serie, 15 dicembre 2001 - 14 gennaio 2002, e 
 | uovo | sì, 10 incubazioni | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 0 | tabella degli eventi |
 | statistiche | max_hp 18, atk 10, def 8, spd 12, satk 10, sdef 10 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| allenatore | Alessio, identificativo 42317 | allenatore del progetto, scelto e dichiarato in `recreate-pokemon-distributions-events/allenatore.json`: la fonte dichiara che questa voce prende nome e identificativo da chi riceve la consegna, e chi riceve siamo noi |
 | restrizione di lingua | giapponese | tabella degli eventi |
 | gruppo di appartenenza | Uova misteriose dei Pokemon Center giapponesi | il racconto dell'evento, le date, il luogo e le fonti stanno nella sezione di gruppo di questo documento |
-| impronta del file prodotto | `4205222d2d70ecaf4adecf48f0cd00e2015386e6746488c809bf3cdf296dd885` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
+| impronta del file prodotto | `754b8967456f9c9898114d6d59be328901103f58b9596f20a36e2337ff193089` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
 | giudizio del verificatore | conforme, 2026-09-04 | lettura di massa delle nove scatole in un salvataggio vuoto di seconda generazione, dove l'assenza del contrassegno di non conformità su una posizione equivale a un rapporto senza rilievi su quell'esemplare |
 
 ### EVT-2-0144 Cleffa
@@ -366,9 +368,10 @@ Attribuzione di questa voce: prima serie, 15 dicembre 2001 - 14 gennaio 2002. Il
 | uovo | sì, 10 incubazioni | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 0 | tabella degli eventi |
 | statistiche | max_hp 21, atk 9, def 9, spd 8, satk 11, sdef 12 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| allenatore | Alessio, identificativo 42317 | allenatore del progetto, scelto e dichiarato in `recreate-pokemon-distributions-events/allenatore.json`: la fonte dichiara che questa voce prende nome e identificativo da chi riceve la consegna, e chi riceve siamo noi |
 | restrizione di lingua | giapponese | tabella degli eventi |
 | gruppo di appartenenza | Uova misteriose dei Pokemon Center giapponesi | il racconto dell'evento, le date, il luogo e le fonti stanno nella sezione di gruppo di questo documento |
-| impronta del file prodotto | `50c6695cab5a59c7b8f8a2e6af492fcbbc055e06e6fe18742d333b5d4baad153` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
+| impronta del file prodotto | `1b40ec91363d00230130d32260aa3895cbaa65d6c0866124e5a90c81068b74f4` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
 | giudizio del verificatore | conforme, 2026-09-04 | lettura di massa delle nove scatole in un salvataggio vuoto di seconda generazione, dove l'assenza del contrassegno di non conformità su una posizione equivale a un rapporto senza rilievi su quell'esemplare |
 
 ### EVT-2-0145 Wooper
@@ -389,9 +392,10 @@ Attribuzione di questa voce: prima serie, 15 dicembre 2001 - 14 gennaio 2002. Il
 | uovo | sì, 10 incubazioni | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 0 | tabella degli eventi |
 | statistiche | max_hp 22, atk 11, def 11, spd 8, satk 9, sdef 9 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| allenatore | Alessio, identificativo 42317 | allenatore del progetto, scelto e dichiarato in `recreate-pokemon-distributions-events/allenatore.json`: la fonte dichiara che questa voce prende nome e identificativo da chi riceve la consegna, e chi riceve siamo noi |
 | restrizione di lingua | giapponese | tabella degli eventi |
 | gruppo di appartenenza | Uova misteriose dei Pokemon Center giapponesi | il racconto dell'evento, le date, il luogo e le fonti stanno nella sezione di gruppo di questo documento |
-| impronta del file prodotto | `7b27d015c4449deeddd27f27c8ec59d18dc13e4300b3958878a9e6ebd068073b` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
+| impronta del file prodotto | `929388fb5f6511c068250cbfa79712afe0c10b28c158dfe2dfe56689151e4837` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
 | giudizio del verificatore | conforme, 2026-09-04 | lettura di massa delle nove scatole in un salvataggio vuoto di seconda generazione, dove l'assenza del contrassegno di non conformità su una posizione equivale a un rapporto senza rilievi su quell'esemplare |
 
 ### EVT-2-0146 Phanpy
@@ -412,9 +416,10 @@ Attribuzione di questa voce: prima serie, 15 dicembre 2001 - 14 gennaio 2002. Il
 | uovo | sì, 10 incubazioni | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 0 | tabella degli eventi |
 | statistiche | max_hp 25, atk 12, def 12, spd 10, satk 10, sdef 10 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| allenatore | Alessio, identificativo 42317 | allenatore del progetto, scelto e dichiarato in `recreate-pokemon-distributions-events/allenatore.json`: la fonte dichiara che questa voce prende nome e identificativo da chi riceve la consegna, e chi riceve siamo noi |
 | restrizione di lingua | giapponese | tabella degli eventi |
 | gruppo di appartenenza | Uova misteriose dei Pokemon Center giapponesi | il racconto dell'evento, le date, il luogo e le fonti stanno nella sezione di gruppo di questo documento |
-| impronta del file prodotto | `5558077b8afc1edd9b24b45b9e7943d32904981eeb6b1f212577c4be568219e4` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
+| impronta del file prodotto | `e9752c7e40eb2d8c1f6b6a2f968611518ed78827bb591f3a5cab29bdcd346d73` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
 | giudizio del verificatore | conforme, 2026-09-04 | lettura di massa delle nove scatole in un salvataggio vuoto di seconda generazione, dove l'assenza del contrassegno di non conformità su una posizione equivale a un rapporto senza rilievi su quell'esemplare |
 
 ### EVT-2-0147 Smoochum
@@ -435,9 +440,10 @@ Attribuzione di questa voce: prima serie, 15 dicembre 2001 - 14 gennaio 2002. Il
 | uovo | sì, 10 incubazioni | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 0 | tabella degli eventi |
 | statistiche | max_hp 21, atk 9, def 8, spd 13, satk 15, sdef 13 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| allenatore | Alessio, identificativo 42317 | allenatore del progetto, scelto e dichiarato in `recreate-pokemon-distributions-events/allenatore.json`: la fonte dichiara che questa voce prende nome e identificativo da chi riceve la consegna, e chi riceve siamo noi |
 | restrizione di lingua | giapponese | tabella degli eventi |
 | gruppo di appartenenza | Uova misteriose dei Pokemon Center giapponesi | il racconto dell'evento, le date, il luogo e le fonti stanno nella sezione di gruppo di questo documento |
-| impronta del file prodotto | `5bddc1395f642fb3ac35c320f598cf6870ad015fdf0e8cdfec08e0a3bb46a611` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
+| impronta del file prodotto | `e82d89e31a3af43aa07c8ececf1b5e5713a48b048badaef96da1c524e745a54f` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
 | giudizio del verificatore | conforme, 2026-09-04 | lettura di massa delle nove scatole in un salvataggio vuoto di seconda generazione, dove l'assenza del contrassegno di non conformità su una posizione equivale a un rapporto senza rilievi su quell'esemplare |
 
 ### EVT-2-0148 Psyduck
@@ -458,9 +464,10 @@ Attribuzione di questa voce: seconda serie, 16 marzo - 7 aprile 2002. Il marcato
 | uovo | sì, 10 incubazioni | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 0 | tabella degli eventi |
 | statistiche | max_hp 21, atk 11, def 11, spd 12, satk 13, sdef 11 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| allenatore | Alessio, identificativo 42317 | allenatore del progetto, scelto e dichiarato in `recreate-pokemon-distributions-events/allenatore.json`: la fonte dichiara che questa voce prende nome e identificativo da chi riceve la consegna, e chi riceve siamo noi |
 | restrizione di lingua | giapponese | tabella degli eventi |
 | gruppo di appartenenza | Uova misteriose dei Pokemon Center giapponesi | il racconto dell'evento, le date, il luogo e le fonti stanno nella sezione di gruppo di questo documento |
-| impronta del file prodotto | `d15a12e1ba5aed397c4d8c92a50cabc9edc15589cf9765f5ea3a7d2af5bc6247` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
+| impronta del file prodotto | `13c161958f9a8be48f0b439d4c875d9041be67480e79dfb0d0ec93f51178a865` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
 | giudizio del verificatore | conforme, 2026-09-04 | lettura di massa delle nove scatole in un salvataggio vuoto di seconda generazione, dove l'assenza del contrassegno di non conformità su una posizione equivale a un rapporto senza rilievi su quell'esemplare |
 
 ### EVT-2-0149 Pichu
@@ -481,9 +488,10 @@ Attribuzione di questa voce: seconda serie, 16 marzo - 7 aprile 2002. Il marcato
 | uovo | sì, 10 incubazioni | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 0 | tabella degli eventi |
 | statistiche | max_hp 18, atk 10, def 8, spd 12, satk 10, sdef 10 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| allenatore | Alessio, identificativo 42317 | allenatore del progetto, scelto e dichiarato in `recreate-pokemon-distributions-events/allenatore.json`: la fonte dichiara che questa voce prende nome e identificativo da chi riceve la consegna, e chi riceve siamo noi |
 | restrizione di lingua | giapponese | tabella degli eventi |
 | gruppo di appartenenza | Uova misteriose dei Pokemon Center giapponesi | il racconto dell'evento, le date, il luogo e le fonti stanno nella sezione di gruppo di questo documento |
-| impronta del file prodotto | `b91c8e0aeb15a9cd0611b322c401a1b2707ea95940602211badd8dfb49eb709c` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
+| impronta del file prodotto | `d7cd1c0ee8ba1204a8b0b1efa16c05f1124562e2a3dc04f175015bb27fe1c3bf` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
 | giudizio del verificatore | conforme, 2026-09-04 | lettura di massa delle nove scatole in un salvataggio vuoto di seconda generazione, dove l'assenza del contrassegno di non conformità su una posizione equivale a un rapporto senza rilievi su quell'esemplare |
 
 ### EVT-2-0150 Cleffa
@@ -504,9 +512,10 @@ Attribuzione di questa voce: seconda serie, 16 marzo - 7 aprile 2002. Il marcato
 | uovo | sì, 10 incubazioni | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 0 | tabella degli eventi |
 | statistiche | max_hp 21, atk 9, def 9, spd 8, satk 11, sdef 12 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| allenatore | Alessio, identificativo 42317 | allenatore del progetto, scelto e dichiarato in `recreate-pokemon-distributions-events/allenatore.json`: la fonte dichiara che questa voce prende nome e identificativo da chi riceve la consegna, e chi riceve siamo noi |
 | restrizione di lingua | giapponese | tabella degli eventi |
 | gruppo di appartenenza | Uova misteriose dei Pokemon Center giapponesi | il racconto dell'evento, le date, il luogo e le fonti stanno nella sezione di gruppo di questo documento |
-| impronta del file prodotto | `4f5f87c128b321efee4054220e4c71152503e169a2017c705a4fe31416a18f18` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
+| impronta del file prodotto | `fa80d2161505c9635d465e70ea7fd746258938de7c39ea62593dd95d4e49b8dc` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
 | giudizio del verificatore | conforme, 2026-09-04 | lettura di massa delle nove scatole in un salvataggio vuoto di seconda generazione, dove l'assenza del contrassegno di non conformità su una posizione equivale a un rapporto senza rilievi su quell'esemplare |
 
 ### EVT-2-0151 Igglybuff
@@ -527,9 +536,10 @@ Attribuzione di questa voce: seconda serie, 16 marzo - 7 aprile 2002. Il marcato
 | uovo | sì, 10 incubazioni | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 0 | tabella degli eventi |
 | statistiche | max_hp 25, atk 9, def 8, spd 8, satk 10, sdef 8 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| allenatore | Alessio, identificativo 42317 | allenatore del progetto, scelto e dichiarato in `recreate-pokemon-distributions-events/allenatore.json`: la fonte dichiara che questa voce prende nome e identificativo da chi riceve la consegna, e chi riceve siamo noi |
 | restrizione di lingua | giapponese | tabella degli eventi |
 | gruppo di appartenenza | Uova misteriose dei Pokemon Center giapponesi | il racconto dell'evento, le date, il luogo e le fonti stanno nella sezione di gruppo di questo documento |
-| impronta del file prodotto | `4d65fbbfbd78254360b0c0fcec5896f1c0f2360fd8c41c220f62026e6ae964f6` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
+| impronta del file prodotto | `00e74f63fb7868a84e16a9a8ed85bd22d790a846008e79480c2f3fcfe8d91cec` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
 | giudizio del verificatore | conforme, 2026-09-04 | lettura di massa delle nove scatole in un salvataggio vuoto di seconda generazione, dove l'assenza del contrassegno di non conformità su una posizione equivale a un rapporto senza rilievi su quell'esemplare |
 
 ### EVT-2-0152 Smoochum
@@ -550,9 +560,10 @@ Attribuzione di questa voce: seconda serie, 16 marzo - 7 aprile 2002. Il marcato
 | uovo | sì, 10 incubazioni | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 0 | tabella degli eventi |
 | statistiche | max_hp 21, atk 9, def 8, spd 13, satk 15, sdef 13 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| allenatore | Alessio, identificativo 42317 | allenatore del progetto, scelto e dichiarato in `recreate-pokemon-distributions-events/allenatore.json`: la fonte dichiara che questa voce prende nome e identificativo da chi riceve la consegna, e chi riceve siamo noi |
 | restrizione di lingua | giapponese | tabella degli eventi |
 | gruppo di appartenenza | Uova misteriose dei Pokemon Center giapponesi | il racconto dell'evento, le date, il luogo e le fonti stanno nella sezione di gruppo di questo documento |
-| impronta del file prodotto | `b45d6561439c01610746a6b97e22ba87b8e202c3356310ef307c7b63d43b6620` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
+| impronta del file prodotto | `4dec7bf41929ec084079c11f46d03207e8b9d01e2e6624eb70e004d45668136c` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
 | giudizio del verificatore | conforme, 2026-09-04 | lettura di massa delle nove scatole in un salvataggio vuoto di seconda generazione, dove l'assenza del contrassegno di non conformità su una posizione equivale a un rapporto senza rilievi su quell'esemplare |
 
 ### EVT-2-0153 Bulbasaur
@@ -573,9 +584,10 @@ Attribuzione di questa voce: terza serie, 27 aprile - 12 maggio 2002. Il marcato
 | uovo | sì, 10 incubazioni | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 0 | tabella degli eventi |
 | statistiche | max_hp 21, atk 11, def 11, spd 11, satk 13, sdef 13 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| allenatore | Alessio, identificativo 42317 | allenatore del progetto, scelto e dichiarato in `recreate-pokemon-distributions-events/allenatore.json`: la fonte dichiara che questa voce prende nome e identificativo da chi riceve la consegna, e chi riceve siamo noi |
 | restrizione di lingua | giapponese | tabella degli eventi |
 | gruppo di appartenenza | Uova misteriose dei Pokemon Center giapponesi | il racconto dell'evento, le date, il luogo e le fonti stanno nella sezione di gruppo di questo documento |
-| impronta del file prodotto | `acb93fec5c1155b5d57c5adfcc7f3a9bc538646fa8f4dd4e81b9af45dd413d6a` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
+| impronta del file prodotto | `a2e48bd1fa1a51e63c9ea8675f293a0fa9cacbf460ec8715bb6d7c7ee671c819` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
 | giudizio del verificatore | conforme, 2026-09-04 | lettura di massa delle nove scatole in un salvataggio vuoto di seconda generazione, dove l'assenza del contrassegno di non conformità su una posizione equivale a un rapporto senza rilievi su quell'esemplare |
 
 ### EVT-2-0154 Charmander
@@ -596,9 +608,10 @@ Attribuzione di questa voce: terza serie, 27 aprile - 12 maggio 2002. Il marcato
 | uovo | sì, 10 incubazioni | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 0 | tabella degli eventi |
 | statistiche | max_hp 20, atk 11, def 10, spd 13, satk 12, sdef 11 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| allenatore | Alessio, identificativo 42317 | allenatore del progetto, scelto e dichiarato in `recreate-pokemon-distributions-events/allenatore.json`: la fonte dichiara che questa voce prende nome e identificativo da chi riceve la consegna, e chi riceve siamo noi |
 | restrizione di lingua | giapponese | tabella degli eventi |
 | gruppo di appartenenza | Uova misteriose dei Pokemon Center giapponesi | il racconto dell'evento, le date, il luogo e le fonti stanno nella sezione di gruppo di questo documento |
-| impronta del file prodotto | `7353933f2aa6fd13bcd895cebf92f1d00eea6db9f7f4bfc501c7b54d05dc7473` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
+| impronta del file prodotto | `6212b6f4c5525a254b43ef69e2eccf72a1f75edf86c9946f36118257f8c31b4e` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
 | giudizio del verificatore | conforme, 2026-09-04 | lettura di massa delle nove scatole in un salvataggio vuoto di seconda generazione, dove l'assenza del contrassegno di non conformità su una posizione equivale a un rapporto senza rilievi su quell'esemplare |
 
 ### EVT-2-0155 Totodile
@@ -619,9 +632,10 @@ Attribuzione di questa voce: terza serie, 27 aprile - 12 maggio 2002. Il marcato
 | uovo | sì, 10 incubazioni | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 0 | tabella degli eventi |
 | statistiche | max_hp 21, atk 13, def 12, spd 10, satk 10, sdef 11 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| allenatore | Alessio, identificativo 42317 | allenatore del progetto, scelto e dichiarato in `recreate-pokemon-distributions-events/allenatore.json`: la fonte dichiara che questa voce prende nome e identificativo da chi riceve la consegna, e chi riceve siamo noi |
 | restrizione di lingua | giapponese | tabella degli eventi |
 | gruppo di appartenenza | Uova misteriose dei Pokemon Center giapponesi | il racconto dell'evento, le date, il luogo e le fonti stanno nella sezione di gruppo di questo documento |
-| impronta del file prodotto | `8350f06e02c55263f7f8fadf50c0b5255f0d266e5c4276bfab525437b914d09c` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
+| impronta del file prodotto | `39609c14b88b8d2e0b91c449ef9e2b5b17630d47eed88e2c097a8bca596c6b2a` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
 | giudizio del verificatore | conforme, 2026-09-04 | lettura di massa delle nove scatole in un salvataggio vuoto di seconda generazione, dove l'assenza del contrassegno di non conformità su una posizione equivale a un rapporto senza rilievi su quell'esemplare |
 
 ### EVT-2-0156 Hoothoot
@@ -642,9 +656,10 @@ Attribuzione di questa voce: terza serie, 27 aprile - 12 maggio 2002. Il marcato
 | uovo | sì, 10 incubazioni | tabella degli eventi, dove le incubazioni diverse da zero lo dichiarano |
 | luogo di cattura | 0 | tabella degli eventi |
 | statistiche | max_hp 22, atk 9, def 9, spd 11, satk 10, sdef 12 | formula delle prime due generazioni, con esperienza di statistica nulla |
+| allenatore | Alessio, identificativo 42317 | allenatore del progetto, scelto e dichiarato in `recreate-pokemon-distributions-events/allenatore.json`: la fonte dichiara che questa voce prende nome e identificativo da chi riceve la consegna, e chi riceve siamo noi |
 | restrizione di lingua | giapponese | tabella degli eventi |
 | gruppo di appartenenza | Uova misteriose dei Pokemon Center giapponesi | il racconto dell'evento, le date, il luogo e le fonti stanno nella sezione di gruppo di questo documento |
-| impronta del file prodotto | `cf77e0fb92d592bff8fc909d7a204667b2e99f403ddf814871b8b8a7546bfa06` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
+| impronta del file prodotto | `bdb7abd402121a6c26109d2a1b7a6381802c9e12a2f6e85d53b43939915b8f57` | SHA-256 dei byte scritti in `_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
 | giudizio del verificatore | conforme, 2026-09-04 | lettura di massa delle nove scatole in un salvataggio vuoto di seconda generazione, dove l'assenza del contrassegno di non conformità su una posizione equivale a un rapporto senza rilievi su quell'esemplare |
 
 ## Esemplari premio di Pokemon Stadium 2, versione giapponese
