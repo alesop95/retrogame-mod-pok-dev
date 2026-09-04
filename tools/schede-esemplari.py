@@ -88,6 +88,14 @@ def stato_giudizi(quante):
     dati = json.loads(io.open(GIUDIZI, encoding="utf-8").read())
     fuori = {}
     for g in dati["giudizi"]:
+        # Il registro raccoglie i giudizi di due lotti, quello di terza generazione e quello di
+        # prima e seconda, e questo documento descrive il primo: senza il filtro il giudizio di
+        # massa del secondo verrebbe applicato a tutte le voci di questo, dichiarandole conformi
+        # sulla base di una prova che non le riguarda. Il difetto e' stato commesso il
+        # 2026-09-04, e la sua forma e' quella solita, cioe' un dato che vale per un insieme
+        # usato su un insieme diverso.
+        if g.get("lotto", "gen3") != "gen3":
+            continue
         if g.get("copre") == "tutti":
             for i in range(quante):
                 fuori[i] = g
@@ -146,10 +154,30 @@ def riga_provenienza(prov, fonti, nome_ot, ident):
     return [" ".join(parti), ""]
 
 
+MANIFESTO_LOTTO = os.path.join("_notes", "lotto-eventi", "impronte.json")
+
+
+def impronte_del_lotto():
+    """Le impronte dei file prodotti, dal manifesto che il generatore scrive accanto al lotto.
+
+    E' la sola informazione di questo documento che venga dal disco invece che dal ricalcolo, e
+    la ragione e' che nessun ricalcolo puo' dimostrare che un file esista: le altre righe dicono
+    quali campi un esemplare abbia, questa dice che sul disco c'e' quell'esemplare e non un
+    altro. Se il manifesto manca, la riga lo dichiara invece di tacere.
+    """
+    percorso = os.path.join(RADICE, MANIFESTO_LOTTO)
+    if not os.path.exists(percorso):
+        return {}
+    try:
+        return json.loads(io.open(percorso, encoding="utf-8").read()).get("impronte", {})
+    except Exception:
+        return {}
+
+
 def scheda(g, voci, indice, contesto):
     """Il blocco di una singola voce, con tutte le sue caratteristiche derivate."""
     (ace, pkhex, mappa, per_id, gruppi, pp_base, nomi, semi_mystry, abilita, posizioni,
-     storici, prov, fonti) = contesto
+     storici, prov, fonti, impronte) = contesto
     v = voci[indice]
     nome_ot = v.get("ot", "")
     lingua = v.get("lingua", "English")
@@ -260,6 +288,18 @@ def scheda(g, voci, indice, contesto):
                  % ("sì" if v.get("fatidico") else "no",))
     fuori.append("| metodo, lucentezza | %s, %s | dichiarati dalla tabella |"
                  % (v.get("metodo"), v.get("lucentezza") or "non vincolata"))
+    imp = (impronte or {}).get(str(indice))
+    if imp:
+        fuori.append("| impronta del file prodotto | `%s` | SHA-256 della forma canonica scritta "
+                     "in `_notes/lotto-eventi/`, presa dal manifesto che il generatore scrive "
+                     "accanto al lotto. Le schede ricalcolano i campi dalle sorgenti e non "
+                     "leggono i file, quindi questa riga è la sola che venga dal disco: è la "
+                     "prova che il file esiste ed è quell'esemplare, non una sua descrizione |"
+                     % imp["sha256"])
+    else:
+        fuori.append("| impronta del file prodotto | non disponibile | il manifesto delle "
+                     "impronte non è stato trovato accanto al lotto, oppure questa voce non è "
+                     "stata prodotta nell'ultima corsa: si rigenera con `--lotto` |")
     fuori.append("")
     return fuori
 
@@ -277,7 +317,7 @@ def componi(ace, pkhex):
     storici = g.oggetti_documentati()
     prov, fonti = provenienze()
     contesto = (ace, pkhex, mappa, per_id, gruppi, pp_base, {}, semi_mystry, abilita,
-                posizioni, storici, prov, fonti)
+                posizioni, storici, prov, fonti, impronte_del_lotto())
     giudizi = stato_giudizi(len(voci))
 
     # Le uova erano escluse fino al 2026-09-02, perché il generatore le rifiutava per mancanza
