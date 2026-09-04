@@ -9,15 +9,15 @@
 | 6 | X, Y, Rubino Omega e Zaffiro Alpha | `wc6full.pkl`, `wc6.pkl` | 836 | 787 | 129 | 145 | sì | WC6Full.Size e WC6.Size |
 | 7 | Sole, Luna, UltraSole e UltraLuna | `wc7full.pkl`, `wc7.pkl` | 937 | 611 | 99 | 106 | sì | WC7Full.Size e WC7.Size |
 | 7 | Let's Go Pikachu ed Eevee | `wb7full.pkl` | 16 | 15 | 9 | 9 | no | WB7.Size |
-| 8 | Spada e Scudo | `wc8.pkl` | 949 | non letti | non letti | non letti | no | WC8.Size |
-| 8 | Leggende Arceus | `wa8.pkl` | 19 | non letti | non letti | non letti | no | WA8.Size |
-| 8 | Diamante Lucente e Perla Splendente | `wb8.pkl` | 18 | non letti | non letti | non letti | no | WB8.Size |
-| 9 | Scarlatto e Violetto | `wc9.pkl` | 228 | non letti | non letti | non letti | no | WC9.Size |
-| 9 | Leggende Z-A | `wa9.pkl` | 16 | non letti | non letti | non letti | no | WA9.Size |
+| 8 | Spada e Scudo | `wc8.pkl` | 949 | 113 | 57 | 67 | no | WC8.Size |
+| 8 | Leggende Arceus | `wa8.pkl` | 19 | 11 | 9 | 9 | no | WA8.Size |
+| 8 | Diamante Lucente e Perla Splendente | `wb8.pkl` | 18 | 10 | 7 | 7 | no | WB8.Size |
+| 9 | Scarlatto e Violetto | `wc9.pkl` | 228 | 113 | 66 | 70 | no | WC9.Size |
+| 9 | Leggende Z-A | `wa9.pkl` | 16 | 8 | 8 | 8 | no | WA9.Size |
 
-Le celle che dicono non letti non sono zeri, e la distinzione è la stessa che questo progetto ha già pagato altrove: uno zero non misurato e uno zero misurato hanno lo stesso aspetto e significato opposto. Le famiglie di cui non si sanno ancora leggere i campi sono Spada e Scudo, Leggende Arceus, Diamante Lucente e Perla Splendente, Scarlatto e Violetto, Leggende Z-A, e sono tutte senza scadenza, quindi la loro assenza non tocca alcun conto sotto scadenza.
+Non c'è alcuna cella che dica non letti, e la circostanza va dichiarata perché fino al 2026-09-03 ce n'erano cinque: tutte e dieci le famiglie sono ora lette nei campi, comprese l'ottava e la nona generazione, che non sono sotto scadenza e per questo erano rimaste indietro. La decisione di ambito del 2026-09-04 le rimette dentro il conto, perché l'obiettivo dichiarato è la collezione completa e non la sola parte che la banca porta via.
 
-Le specie distinte portate dai doni sotto scadenza sono 252, quelle portate dai doni senza scadenza 9, e la loro unione 257. La somma dei conti per generazione vale invece 378, e il confronto fra quella somma e l'unione misura quanto la sovrapposizione pesi: le generazioni distribuirono in gran parte le medesime specie, e sommare i conti per generazione produrrebbe un numero privo di significato. È lo stesso motivo per cui questo progetto ha dovuto passare dal contare al censire.
+Le specie distinte portate dai doni sotto scadenza sono 252, quelle portate dai doni senza scadenza 130, e la loro unione 325. La somma dei conti per generazione vale invece 525, e il confronto fra quella somma e l'unione misura quanto la sovrapposizione pesi: le generazioni distribuirono in gran parte le medesime specie, e sommare i conti per generazione produrrebbe un numero privo di significato. È lo stesso motivo per cui questo progetto ha dovuto passare dal contare al censire.
 
 Le voci sotto scadenza, cioè quelle delle generazioni che per arrivare al deposito dipendono dalla banca, sono 3072. Quelle senza scadenza, cioè l'ottava, la nona e i due titoli di Let's Go, che parlano al deposito direttamente, sono 1246. Il totale è 4318.
 
