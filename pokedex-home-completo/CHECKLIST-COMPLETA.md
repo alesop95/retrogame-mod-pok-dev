@@ -8,9 +8,9 @@ La colonna della via dice se quella voce si raggiunga da un titolo che parla al 
 
 ## Che cosa dice il conto
 
-Le voci di specie sono 1025. Di queste, 615 hanno già una fonte dentro il progetto e 410 non ne hanno ancora alcuna: quest'ultimo è il numero che misura la campagna, e l'unico che scende quando si lavora.
+Le voci di specie sono 1025. Di queste, 645 hanno già una fonte dentro il progetto e 380 non ne hanno ancora alcuna: quest'ultimo è il numero che misura la campagna, e l'unico che scende quando si lavora.
 
-La ripartizione per fonte, che non si somma perché una specie può avere più fonti, è la seguente. Da salvataggio esterno, 615 voci. Da archivio esterno, 385 voci. Da evento Gen 3 producibile, 59 voci.
+La ripartizione per fonte, che non si somma perché una specie può avere più fonti, è la seguente. Da salvataggio esterno, 645 voci. Da archivio esterno, 385 voci. Da evento Gen 3 producibile, 59 voci.
 
 Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fini del completamento è indeterminato: nessuna fonte di primo livello dichiara quali forme il deposito conti come casella separata. L'elenco le enumera e marca l'indeterminatezza invece di decidere, perché decidere sarebbe inventare.
 
@@ -405,7 +405,7 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-0385-00` | 385 | Jirachi | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
 | `PKD-0386-00` | 386 | Deoxys | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
 | `PKD-0387-00` | 387 | Turtwig | diretta | nessuna |
-| `PKD-0388-00` | 388 | Grotle | diretta | nessuna |
+| `PKD-0388-00` | 388 | Grotle | diretta | salvataggio esterno |
 | `PKD-0389-00` | 389 | Torterra | diretta | salvataggio esterno |
 | `PKD-0390-00` | 390 | Chimchar | diretta | nessuna |
 | `PKD-0391-00` | 391 | Monferno | diretta | salvataggio esterno |
@@ -413,24 +413,24 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-0393-00` | 393 | Piplup | diretta | nessuna |
 | `PKD-0394-00` | 394 | Prinplup | diretta | nessuna |
 | `PKD-0395-00` | 395 | Empoleon | diretta | salvataggio esterno |
-| `PKD-0396-00` | 396 | Starly | diretta | nessuna |
+| `PKD-0396-00` | 396 | Starly | diretta | salvataggio esterno |
 | `PKD-0397-00` | 397 | Staravia | diretta | nessuna |
 | `PKD-0398-00` | 398 | Staraptor | diretta | salvataggio esterno |
 | `PKD-0399-00` | 399 | Bidoof | diretta | nessuna |
 | `PKD-0400-00` | 400 | Bibarel | diretta | salvataggio esterno |
-| `PKD-0401-00` | 401 | Kricketot | diretta | nessuna |
+| `PKD-0401-00` | 401 | Kricketot | diretta | salvataggio esterno |
 | `PKD-0402-00` | 402 | Kricketune | diretta | salvataggio esterno |
 | `PKD-0403-00` | 403 | Shinx | diretta | salvataggio esterno |
 | `PKD-0404-00` | 404 | Luxio | diretta | salvataggio esterno |
 | `PKD-0405-00` | 405 | Luxray | diretta | salvataggio esterno |
-| `PKD-0406-00` | 406 | Budew | diretta | nessuna |
+| `PKD-0406-00` | 406 | Budew | diretta | salvataggio esterno |
 | `PKD-0407-00` | 407 | Roserade | diretta | salvataggio esterno |
 | `PKD-0408-00` | 408 | Cranidos | diretta | salvataggio esterno |
 | `PKD-0409-00` | 409 | Rampardos | diretta | salvataggio esterno |
 | `PKD-0410-00` | 410 | Shieldon | diretta | nessuna |
-| `PKD-0411-00` | 411 | Bastiodon | diretta | nessuna |
+| `PKD-0411-00` | 411 | Bastiodon | diretta | salvataggio esterno |
 | `PKD-0412-00` | 412 | Burmy | diretta | salvataggio esterno |
-| `PKD-0413-00` | 413 | Wormadam | diretta | nessuna |
+| `PKD-0413-00` | 413 | Wormadam | diretta | salvataggio esterno |
 | `PKD-0414-00` | 414 | Mothim | diretta | salvataggio esterno |
 | `PKD-0415-00` | 415 | Combee | diretta | salvataggio esterno |
 | `PKD-0416-00` | 416 | Vespiquen | diretta | salvataggio esterno |
@@ -438,7 +438,7 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-0418-00` | 418 | Buizel | diretta | salvataggio esterno |
 | `PKD-0419-00` | 419 | Floatzel | diretta | nessuna |
 | `PKD-0420-00` | 420 | Cherubi | diretta | salvataggio esterno |
-| `PKD-0421-00` | 421 | Cherrim | diretta | nessuna |
+| `PKD-0421-00` | 421 | Cherrim | diretta | salvataggio esterno |
 | `PKD-0422-00` | 422 | Shellos | diretta | nessuna |
 | `PKD-0423-00` | 423 | Gastrodon | diretta | salvataggio esterno |
 | `PKD-0424-00` | 424 | Ambipom | diretta | salvataggio esterno |
@@ -455,9 +455,9 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-0435-00` | 435 | Skuntank | diretta | salvataggio esterno |
 | `PKD-0436-00` | 436 | Bronzor | diretta | salvataggio esterno |
 | `PKD-0437-00` | 437 | Bronzong | diretta | salvataggio esterno |
-| `PKD-0438-00` | 438 | Bonsly | diretta | nessuna |
+| `PKD-0438-00` | 438 | Bonsly | diretta | salvataggio esterno |
 | `PKD-0439-00` | 439 | Mime Jr. | diretta | salvataggio esterno |
-| `PKD-0440-00` | 440 | Happiny | diretta | nessuna |
+| `PKD-0440-00` | 440 | Happiny | diretta | salvataggio esterno |
 | `PKD-0441-00` | 441 | Chatot | diretta | salvataggio esterno |
 | `PKD-0442-00` | 442 | Spiritomb | diretta | salvataggio esterno |
 | `PKD-0443-00` | 443 | Gible | diretta | salvataggio esterno |
@@ -473,7 +473,7 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-0453-00` | 453 | Croagunk | diretta | salvataggio esterno |
 | `PKD-0454-00` | 454 | Toxicroak | diretta | salvataggio esterno |
 | `PKD-0455-00` | 455 | Carnivine | diretta | salvataggio esterno |
-| `PKD-0456-00` | 456 | Finneon | diretta | nessuna |
+| `PKD-0456-00` | 456 | Finneon | diretta | salvataggio esterno |
 | `PKD-0457-00` | 457 | Lumineon | diretta | salvataggio esterno |
 | `PKD-0458-00` | 458 | Mantyke | diretta | salvataggio esterno |
 | `PKD-0459-00` | 459 | Snover | diretta | nessuna |
@@ -519,14 +519,14 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-0499-00` | 499 | Pignite | diretta | salvataggio esterno |
 | `PKD-0500-00` | 500 | Emboar | diretta | salvataggio esterno |
 | `PKD-0501-00` | 501 | Oshawott | diretta | nessuna |
-| `PKD-0502-00` | 502 | Dewott | diretta | nessuna |
+| `PKD-0502-00` | 502 | Dewott | diretta | salvataggio esterno |
 | `PKD-0503-00` | 503 | Samurott | diretta | salvataggio esterno |
 | `PKD-0504-00` | 504 | Patrat | diretta | nessuna |
 | `PKD-0505-00` | 505 | Watchog | diretta | salvataggio esterno |
 | `PKD-0506-00` | 506 | Lillipup | diretta | nessuna |
 | `PKD-0507-00` | 507 | Herdier | diretta | nessuna |
 | `PKD-0508-00` | 508 | Stoutland | diretta | salvataggio esterno |
-| `PKD-0509-00` | 509 | Purrloin | diretta | nessuna |
+| `PKD-0509-00` | 509 | Purrloin | diretta | salvataggio esterno |
 | `PKD-0510-00` | 510 | Liepard | diretta | salvataggio esterno |
 | `PKD-0511-00` | 511 | Pansage | diretta | nessuna |
 | `PKD-0512-00` | 512 | Simisage | diretta | salvataggio esterno |
@@ -555,15 +555,15 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-0535-00` | 535 | Tympole | diretta | nessuna |
 | `PKD-0536-00` | 536 | Palpitoad | diretta | nessuna |
 | `PKD-0537-00` | 537 | Seismitoad | diretta | salvataggio esterno |
-| `PKD-0538-00` | 538 | Throh | diretta | nessuna |
+| `PKD-0538-00` | 538 | Throh | diretta | salvataggio esterno |
 | `PKD-0539-00` | 539 | Sawk | diretta | salvataggio esterno |
-| `PKD-0540-00` | 540 | Sewaddle | diretta | nessuna |
+| `PKD-0540-00` | 540 | Sewaddle | diretta | salvataggio esterno |
 | `PKD-0541-00` | 541 | Swadloon | diretta | nessuna |
-| `PKD-0542-00` | 542 | Leavanny | diretta | nessuna |
+| `PKD-0542-00` | 542 | Leavanny | diretta | salvataggio esterno |
 | `PKD-0543-00` | 543 | Venipede | diretta | nessuna |
 | `PKD-0544-00` | 544 | Whirlipede | diretta | salvataggio esterno |
 | `PKD-0545-00` | 545 | Scolipede | diretta | salvataggio esterno |
-| `PKD-0546-00` | 546 | Cottonee | diretta | nessuna |
+| `PKD-0546-00` | 546 | Cottonee | diretta | salvataggio esterno |
 | `PKD-0547-00` | 547 | Whimsicott | diretta | salvataggio esterno |
 | `PKD-0548-00` | 548 | Petilil | diretta | salvataggio esterno |
 | `PKD-0549-00` | 549 | Lilligant | diretta | salvataggio esterno |
@@ -587,36 +587,36 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-0567-00` | 567 | Archeops | diretta | salvataggio esterno |
 | `PKD-0568-00` | 568 | Trubbish | diretta | nessuna |
 | `PKD-0569-00` | 569 | Garbodor | diretta | salvataggio esterno |
-| `PKD-0570-00` | 570 | Zorua | diretta | nessuna |
+| `PKD-0570-00` | 570 | Zorua | diretta | salvataggio esterno |
 | `PKD-0571-00` | 571 | Zoroark | diretta | salvataggio esterno |
 | `PKD-0572-00` | 572 | Minccino | diretta | nessuna |
 | `PKD-0573-00` | 573 | Cinccino | diretta | salvataggio esterno |
-| `PKD-0574-00` | 574 | Gothita | diretta | nessuna |
+| `PKD-0574-00` | 574 | Gothita | diretta | salvataggio esterno |
 | `PKD-0575-00` | 575 | Gothorita | diretta | nessuna |
 | `PKD-0576-00` | 576 | Gothitelle | diretta | salvataggio esterno |
 | `PKD-0577-00` | 577 | Solosis | diretta | nessuna |
 | `PKD-0578-00` | 578 | Duosion | diretta | nessuna |
 | `PKD-0579-00` | 579 | Reuniclus | diretta | salvataggio esterno |
 | `PKD-0580-00` | 580 | Ducklett | diretta | salvataggio esterno |
-| `PKD-0581-00` | 581 | Swanna | diretta | nessuna |
-| `PKD-0582-00` | 582 | Vanillite | diretta | nessuna |
+| `PKD-0581-00` | 581 | Swanna | diretta | salvataggio esterno |
+| `PKD-0582-00` | 582 | Vanillite | diretta | salvataggio esterno |
 | `PKD-0583-00` | 583 | Vanillish | diretta | nessuna |
 | `PKD-0584-00` | 584 | Vanilluxe | diretta | salvataggio esterno |
-| `PKD-0585-00` | 585 | Deerling | diretta | nessuna |
+| `PKD-0585-00` | 585 | Deerling | diretta | salvataggio esterno |
 | `PKD-0586-00` | 586 | Sawsbuck | diretta | salvataggio esterno |
 | `PKD-0587-00` | 587 | Emolga | diretta | salvataggio esterno |
 | `PKD-0588-00` | 588 | Karrablast | diretta | salvataggio esterno |
 | `PKD-0589-00` | 589 | Escavalier | diretta | salvataggio esterno |
 | `PKD-0590-00` | 590 | Foongus | diretta | nessuna |
 | `PKD-0591-00` | 591 | Amoonguss | diretta | salvataggio esterno |
-| `PKD-0592-00` | 592 | Frillish | diretta | nessuna |
+| `PKD-0592-00` | 592 | Frillish | diretta | salvataggio esterno |
 | `PKD-0593-00` | 593 | Jellicent | diretta | salvataggio esterno |
 | `PKD-0594-00` | 594 | Alomomola | diretta | salvataggio esterno |
-| `PKD-0595-00` | 595 | Joltik | diretta | nessuna |
+| `PKD-0595-00` | 595 | Joltik | diretta | salvataggio esterno |
 | `PKD-0596-00` | 596 | Galvantula | diretta | salvataggio esterno |
 | `PKD-0597-00` | 597 | Ferroseed | diretta | salvataggio esterno |
 | `PKD-0598-00` | 598 | Ferrothorn | diretta | salvataggio esterno |
-| `PKD-0599-00` | 599 | Klink | diretta | nessuna |
+| `PKD-0599-00` | 599 | Klink | diretta | salvataggio esterno |
 | `PKD-0600-00` | 600 | Klang | diretta | nessuna |
 | `PKD-0601-00` | 601 | Klinklang | diretta | salvataggio esterno |
 | `PKD-0602-00` | 602 | Tynamo | diretta | nessuna |
@@ -636,14 +636,14 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-0616-00` | 616 | Shelmet | diretta | salvataggio esterno |
 | `PKD-0617-00` | 617 | Accelgor | diretta | salvataggio esterno |
 | `PKD-0618-00` | 618 | Stunfisk | diretta | salvataggio esterno |
-| `PKD-0619-00` | 619 | Mienfoo | diretta | nessuna |
+| `PKD-0619-00` | 619 | Mienfoo | diretta | salvataggio esterno |
 | `PKD-0620-00` | 620 | Mienshao | diretta | salvataggio esterno |
 | `PKD-0621-00` | 621 | Druddigon | diretta | salvataggio esterno |
 | `PKD-0622-00` | 622 | Golett | diretta | salvataggio esterno |
 | `PKD-0623-00` | 623 | Golurk | diretta | salvataggio esterno |
 | `PKD-0624-00` | 624 | Pawniard | diretta | salvataggio esterno |
 | `PKD-0625-00` | 625 | Bisharp | diretta | salvataggio esterno |
-| `PKD-0626-00` | 626 | Bouffalant | diretta | nessuna |
+| `PKD-0626-00` | 626 | Bouffalant | diretta | salvataggio esterno |
 | `PKD-0627-00` | 627 | Rufflet | diretta | nessuna |
 | `PKD-0628-00` | 628 | Braviary | diretta | salvataggio esterno |
 | `PKD-0629-00` | 629 | Vullaby | diretta | salvataggio esterno |
@@ -656,7 +656,7 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-0636-00` | 636 | Larvesta | diretta | nessuna |
 | `PKD-0637-00` | 637 | Volcarona | diretta | salvataggio esterno |
 | `PKD-0638-00` | 638 | Cobalion | diretta | salvataggio esterno |
-| `PKD-0639-00` | 639 | Terrakion | diretta | nessuna |
+| `PKD-0639-00` | 639 | Terrakion | diretta | salvataggio esterno |
 | `PKD-0640-00` | 640 | Virizion | diretta | salvataggio esterno |
 | `PKD-0641-00` | 641 | Tornadus | diretta | salvataggio esterno |
 | `PKD-0642-00` | 642 | Thundurus | diretta | salvataggio esterno |
@@ -709,7 +709,7 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-0689-00` | 689 | Barbaracle | diretta | salvataggio esterno |
 | `PKD-0690-00` | 690 | Skrelp | diretta | nessuna |
 | `PKD-0691-00` | 691 | Dragalge | diretta | salvataggio esterno |
-| `PKD-0692-00` | 692 | Clauncher | diretta | nessuna |
+| `PKD-0692-00` | 692 | Clauncher | diretta | salvataggio esterno |
 | `PKD-0693-00` | 693 | Clawitzer | diretta | salvataggio esterno |
 | `PKD-0694-00` | 694 | Helioptile | diretta | salvataggio esterno |
 | `PKD-0695-00` | 695 | Heliolisk | diretta | salvataggio esterno |
@@ -721,11 +721,11 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-0701-00` | 701 | Hawlucha | diretta | salvataggio esterno |
 | `PKD-0702-00` | 702 | Dedenne | diretta | salvataggio esterno |
 | `PKD-0703-00` | 703 | Carbink | diretta | salvataggio esterno |
-| `PKD-0704-00` | 704 | Goomy | diretta | nessuna |
+| `PKD-0704-00` | 704 | Goomy | diretta | salvataggio esterno |
 | `PKD-0705-00` | 705 | Sliggoo | diretta | salvataggio esterno |
 | `PKD-0706-00` | 706 | Goodra | diretta | salvataggio esterno |
 | `PKD-0707-00` | 707 | Klefki | diretta | salvataggio esterno |
-| `PKD-0708-00` | 708 | Phantump | diretta | nessuna |
+| `PKD-0708-00` | 708 | Phantump | diretta | salvataggio esterno |
 | `PKD-0709-00` | 709 | Trevenant | diretta | salvataggio esterno |
 | `PKD-0710-00` | 710 | Pumpkaboo | diretta | salvataggio esterno |
 | `PKD-0711-00` | 711 | Gourgeist | diretta | salvataggio esterno |

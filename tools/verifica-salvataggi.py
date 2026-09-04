@@ -478,6 +478,17 @@ def analizza_nds(dati):
 # Generazione 6 e 7, e Pokemon Box
 # ---------------------------------------------------------------------------------------------
 
+# I depositi delle famiglie di sesta generazione, per dimensione del salvataggio. La struttura
+# dell'esemplare e' la medesima e cambia soltanto dove il deposito comincia, quindi la tabella
+# porta l'offset e nient'altro. UltraSole e UltraLuna restano fuori e la ragione va dichiarata:
+# in quella famiglia il deposito non sta a un indirizzo fisso ma a quello che la quindicesima
+# voce di una tabella di blocchi dichiara, quindi leggerlo richiede di leggere prima quella
+# tabella, che e' lavoro che non e' stato fatto. Un offset indovinato produrrebbe specie
+# plausibili e sbagliate, che e' il difetto che questo progetto teme di piu'.
+DEPOSITI_TRE_DS = {
+    0x76000: ("Rubino Omega o Zaffiro Alpha", 0x33000, 31),
+    0x65600: ("X o Y", 0x22600, 31),
+}
 DIM_ORAS = 0x76000
 
 
@@ -498,8 +509,10 @@ def censisci_deposito_gen6(dati):
     differiscono di molto su un salvataggio trovato in rete. Il numero da usare per la campagna
     e' il secondo, e viene dal verificatore e non da qui.
     """
-    if len(dati) != DIM_ORAS:
+    voce = DEPOSITI_TRE_DS.get(len(dati))
+    if voce is None:
         return None
+    _titolo, base_deposito, quante_scatole = voce
     import importlib.util
     percorso = os.path.join(RADICE, "tools", "leggi-deposito-gen6.py")
     if not os.path.exists(percorso):
@@ -509,9 +522,9 @@ def censisci_deposito_gen6(dati):
     spec.loader.exec_module(lettore)
     import struct as _struct
     occupate, specie = 0, {}
-    for scatola in range(lettore.SCATOLE):
+    for scatola in range(quante_scatole):
         for posizione in range(lettore.POSIZIONI):
-            off = (lettore.OFF_DEPOSITO
+            off = (base_deposito
                    + (scatola * lettore.POSIZIONI + posizione) * lettore.DIM_STORED)
             grezzo = dati[off:off + lettore.DIM_STORED]
             if len(grezzo) < lettore.DIM_STORED or not any(grezzo):
