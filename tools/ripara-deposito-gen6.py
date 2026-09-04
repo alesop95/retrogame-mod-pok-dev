@@ -74,6 +74,9 @@ OFF_SPECIE = 0x08
 OFF_EV = 0x1E
 OFF_GEO = 0x94          # dieci byte: cinque coppie di regione e paese
 LUN_GEO = 10
+OFF_MET_ANNO = 0xD4
+OFF_MET_MESE = 0xD5
+OFF_MET_GIORNO = 0xD6
 OFF_MET_LUOGO = 0xDA
 OFF_BALL = 0xDC
 OFF_MET_LIVELLO = 0xDD
@@ -81,6 +84,17 @@ OFF_MET_LIVELLO = 0xDD
 EV_TOTALE_MASSIMO = 510
 EV_SINGOLO_MASSIMO = 252
 PALLA_POKE = 4
+
+# La data di incontro va scritta come tre byte, con l'anno contato dal duemila. Rubino Omega e
+# Zaffiro Alpha uscirono il 21 novembre 2014, quindi nessuna data anteriore a quell'anno e'
+# possibile per un esemplare che vi sia stato incontrato. La data che il programma scrive quando
+# quella trovata non e' valida e' una scelta nostra dichiarata, come lo sono i valori individuali
+# dove la fonte non li fissa: si sceglie un giorno ben dentro la vita del gioco invece del giorno
+# dell'uscita, perche' il giorno dell'uscita su centinaia di esemplari sarebbe esso stesso un
+# indizio.
+ANNO_MINIMO = 14
+DATA_PREDEFINITA = (15, 6, 15)   # 15 giugno 2015
+GIORNI_DEL_MESE = (31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
 
 WILD = os.path.join("PKHeX.Core", "Resources", "legality", "wild")
 INCONTRI_ORAS = ("Gen6/encounter_or.pkl", "Gen6/encounter_as.pkl")
@@ -153,6 +167,23 @@ def ripara_ev(ev):
     nuovo[ordine[1]] = EV_SINGOLO_MASSIMO
     nuovo[ordine[2]] = EV_TOTALE_MASSIMO - 2 * EV_SINGOLO_MASSIMO
     return nuovo, True
+
+
+def data_valida(anno, mese, giorno, anno_massimo):
+    """Se i tre byte formino una data possibile per un esemplare di questi due giochi.
+
+    Il controllo e' su tre livelli e vale enunciarli, perche' il difetto piu' frequente nei
+    salvataggi trovati in rete e' il primo. Il primo e' che i tre byte formino una data del
+    calendario, cioe' mese fra uno e dodici e giorno dentro la lunghezza di quel mese: un mese
+    zero o un giorno quaranta non sono una data. Il secondo e' che l'anno non preceda l'uscita del
+    gioco, perche' un esemplare non puo' essere stato incontrato prima che il gioco esistesse. Il
+    terzo e' che l'anno non superi quello corrente, perche' non puo' venire dal futuro.
+    """
+    if not 1 <= mese <= 12:
+        return False
+    if not 1 <= giorno <= GIORNI_DEL_MESE[mese - 1]:
+        return False
+    return ANNO_MINIMO <= anno <= anno_massimo
 
 
 def geo_valida(geo):
@@ -306,7 +337,9 @@ def ripara(percorso, uscita, incontri=None, indietro=None):
     if len(dati) != DIM_ORAS:
         return None, ("la dimensione %d non e' quella di un salvataggio di Rubino Omega o "
                       "Zaffiro Alfa" % len(dati))
-    conto = {"esaminati": 0, "geo": 0, "ev": 0, "incontro": 0, "intatti": 0,
+    import datetime
+    anno_massimo = datetime.date.today().year - 2000
+    conto = {"esaminati": 0, "geo": 0, "ev": 0, "data": 0, "incontro": 0, "intatti": 0,
              "per_preevoluzione": 0, "senza_incontro": []}
     for scatola in range(SCATOLE):
         for posizione in range(POSIZIONI):
@@ -325,6 +358,14 @@ def ripara(percorso, uscita, incontri=None, indietro=None):
             if not geo_valida(geo) or any(geo):
                 chiaro[OFF_GEO:OFF_GEO + LUN_GEO] = bytes(LUN_GEO)
                 conto["geo"] += 1
+                toccato = True
+
+            anno, mese, giorno = (chiaro[OFF_MET_ANNO], chiaro[OFF_MET_MESE],
+                                  chiaro[OFF_MET_GIORNO])
+            if not data_valida(anno, mese, giorno, anno_massimo):
+                (chiaro[OFF_MET_ANNO], chiaro[OFF_MET_MESE],
+                 chiaro[OFF_MET_GIORNO]) = DATA_PREDEFINITA
+                conto["data"] += 1
                 toccato = True
 
             ev = list(chiaro[OFF_EV:OFF_EV + 6])
@@ -378,6 +419,16 @@ def self_test():
     riparato, _ = ripara_ev([0, 300, 0, 0, 400, 100])
     prova("la riparazione punta sulle due statistiche piu' alte",
           [0, 252, 0, 0, 252, 6], riparato)
+
+    prova("una data del calendario dopo l'uscita e' valida", True,
+          data_valida(15, 6, 15, 26))
+    prova("il mese zero non e' una data", False, data_valida(15, 0, 15, 26))
+    prova("il giorno quaranta non e' una data", False, data_valida(15, 6, 40, 26))
+    prova("il 31 novembre non esiste", False, data_valida(15, 11, 31, 26))
+    prova("un anno anteriore all'uscita non e' valido", False, data_valida(5, 6, 15, 26))
+    prova("un anno futuro non e' valido", False, data_valida(30, 6, 15, 26))
+    prova("la data predefinita e' essa stessa valida", True,
+          data_valida(DATA_PREDEFINITA[0], DATA_PREDEFINITA[1], DATA_PREDEFINITA[2], 26))
 
     prova("cinque coppie vuote sono valide", True, geo_valida([0] * 10))
     prova("una coppia piena seguita da vuote e' valida", True,
@@ -449,6 +500,7 @@ def main(argv=None):
     print("  esemplari esaminati                %5d" % conto["esaminati"])
     print("  con la geolocalizzazione azzerata  %5d" % conto["geo"])
     print("  con i punti allenamento riportati  %5d" % conto["ev"])
+    print("  con la data di incontro corretta   %5d" % conto["data"])
     if incontri is not None:
         print("  con un incontro selvatico vero     %5d" % conto["incontro"])
         print("  di cui presi da una preevoluzione   %5d" % conto["per_preevoluzione"])

@@ -408,3 +408,24 @@ Nessuno dei tre era rilevabile dall'interno. Le prove interne verificavano che i
 
 Si stabilisce quindi che per ogni gruppo di esemplari ricreati il criterio di conformità non è la suite interna ma il giudizio esterno su tutto il gruppo e non su un campione, e che ogni difetto trovato dal verificatore va chiuso con una funzione dedicata e una prova, invece che con una correzione in linea: una funzione si può provare, un'espressione sparsa in mezzo al codice no. Le cinque prove aggiunte in questa occasione, che portano il self-test da quindici a ventidue controlli, sono la forma che questo presidio prende.
 
+## ADR-035: che cosa conta come forma alternativa, e perché la domanda non ha una risposta di fatto
+
+Data: 2026-09-04. Stato: accettata. Chiude la questione che la scheda del track del Pokedex teneva aperta come indeterminatezza su 342 voci.
+
+Il progetto ha cercato per giorni una risposta di fatto alla domanda su quali forme il deposito conti, e la risposta di fatto è arrivata il 2026-09-04 dalle schermate dell'applicazione: il Pokedex mostra una casella per specie. Alcremie compare come `No. 0869` con una sola silhouette, e non con nove caselle né con sessantatré. Il Pokedex Nazionale si ferma inoltre a 807, perché quel catalogo fu ritirato dopo la settima generazione, e tutto ciò che segue è ripartito fra i Pokedex per regione della scheda Giochi.
+
+Ne segue che ai fini del completamento del Pokedex le forme non contano affatto, e che non esiste una singola percentuale da inseguire ma un insieme di contatori per regione. Questo però risponde a una domanda che non è la nostra, e la distinzione è il contenuto di questa decisione: l'obiettivo dichiarato del progetto è la collezione, cioè possedere gli esemplari, non accendere le caselle. Un Alcremie alla panna di fragola con la fragola sopra è un oggetto che si possiede o non si possiede, e che il catalogo non lo distingua dal suo gemello al latte non lo rende il medesimo oggetto.
+
+La domanda su che cosa conti come forma non ha quindi una risposta di fatto, perché nessuna autorità la definisce per la collezione, e va decisa. Le definizioni candidate sono tre e portano numeri diversi.
+
+La prima è la forma come indice del dato, cioè ciò che i giochi memorizzano nel campo della forma. Su questa base il progetto enumera 522 voci di forma e Alcremie ne porta nove, che sono le creme.
+
+La seconda è la variante visibile, cioè ciò che un collezionatore distingue guardando. Su questa base Alcremie porta sessantatré combinazioni di crema e decorazione, e la discussione della comunità consultata il 2026-09-04 ne registra sette come aspetti cromatici distinguibili, il che dà la misura di quanto la definizione cambi il conto sulla medesima specie.
+
+La terza è la voce ottenibile e conservabile, cioè la coppia di specie e forma che può esistere dentro una scatola. Su questa base si escludono le 170 voci di forma di sola battaglia, che nel deposito non possono esistere, e le 10 forme totemiche, che al trasferimento tornano alla forma base o non si trasferiscono affatto.
+
+Si adotta la terza definizione, e il bersaglio dell'asse delle forme diventa quindi 342 voci: sono le 522 enumerate meno le 170 di sola battaglia e le 10 totemiche. Quelle 342 erano marcate come indeterminate proprio perché non si sapeva se il deposito le contasse; ora si sa che non le conta come caselle, e si decide che la collezione le conta come oggetti.
+
+La decorazione di Alcremie resta fuori, e la ragione va scritta perché è il caso su cui la scelta pesa di più. Il campo che la porta non è il campo della forma: è un campo separato, come lo sono il fiocco o l'oggetto tenuto, e chiamare forma un parametro che il formato tiene altrove significherebbe cambiare la definizione per una specie sola. Alcremie contribuisce dunque con nove voci e non con sessantatré. Chi volesse le sessantatré perseguirebbe un obiettivo diverso e più grande, e la differenza su quella sola specie è di cinquantaquattro esemplari, cioè più di quanto pesino le forme di molte generazioni intere: è precisamente il genere di scelta che va fatta esplicitamente prima e non per accumulo dopo.
+
+Resta dichiarato un limite di questa decisione. Essa non stabilisce che il deposito conservi le 342 come voci distinte nel proprio archivio, che è un fatto che nessuna schermata mostra: stabilisce che il progetto le persegue come oggetti. Se un giorno si scoprisse che il deposito le fonde, la decisione non cambierebbe, perché l'oggetto resterebbe distinto anche se il catalogo non lo mostrasse.
