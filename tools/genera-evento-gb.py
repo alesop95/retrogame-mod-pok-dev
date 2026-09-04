@@ -352,7 +352,20 @@ def dvs_per_voce(v):
 def componi(v, gen1, gen2, gb, pers1, pers2, esperienza):
     """La struttura di un esemplare, composta dai campi che la voce dichiara."""
     dvs, origine_dv = dvs_per_voce(v)
-    livello = v["livello"]
+    # I due livelli della seconda generazione, e perche' usarne uno solo produceva quindici voci
+    # respinte. Il record di dodici byte ne porta due: quello a un byte dall'inizio e' il livello
+    # di incontro, cioe' quello che il gioco scrive nei dati di cattura, e quello a sette byte e'
+    # il livello a cui l'esemplare si trova davvero. Nelle voci ordinarie coincidono, e in quelle
+    # del gruppo notevole del Pokemon Center di New York no: la fonte dichiara incontro a cinque e
+    # livello corrente quaranta, cinquanta o settanta.
+    #
+    # Fino al 2026-09-04 questo programma leggeva il campo a sette byte, lo conservava nella voce
+    # e non lo usava: scriveva l'esemplare al livello di incontro. Il verificatore lo rifiutava
+    # senza spiegarlo, dicendo soltanto che nessun incontro corrispondeva, perche' la sua
+    # condizione e' che il livello corrente dichiarato dalla tabella non superi quello
+    # dell'esemplare. E' l'ennesima occorrenza della stessa forma di difetto: due campi che
+    # sembrano lo stesso campo, e la scorciatoia che ne prende uno.
+    livello, livello_corrente = livelli_della_voce(v)
     mosse = [m for m in v["mosse"] if m]
     pp = []
     for m in v["mosse"]:
@@ -394,7 +407,7 @@ def componi(v, gen1, gen2, gb, pers1, pers2, esperienza):
         return mon, dvs, origine_dv, p
 
     p = pers2[v["nazionale"]]
-    exp = esperienza(p["crescita"], livello)
+    exp = esperienza(p["crescita"], livello_corrente)
     caught = gen2.CaughtData(level=livello, time_of_day=0, ot_female=False,
                              location=v.get("luogo", 0))
     mon = gen2.Gen2Mon(
@@ -404,23 +417,36 @@ def componi(v, gen1, gen2, gb, pers1, pers2, esperienza):
         ot_id=0, exp=exp, dvs=dvs, pp=pp,
         friendship=v["incubazioni"] if v["incubazioni"] else 70,
         pokerus=0, caught=caught,
-        level=livello,
+        level=livello_corrente,
         # In seconda generazione la struttura di squadra si distingue da quella di scatola per
         # la presenza dei due byte di stato, quindi vanno scritti anche se nulli: senza di essi
         # `pokebridge` considera la struttura di scatola e rifiuta di scriverne una di squadra.
         status=0, unused=0,
     )
-    hp = statistica_gen1(p["hp"], dv_hp(dvs), livello, True)
+    # Le statistiche si calcolano al livello corrente e non a quello di incontro, per la stessa
+    # ragione per cui il livello della struttura e' quello corrente: sono le statistiche che
+    # l'esemplare ha, non quelle che aveva quando fu consegnato.
+    hp = statistica_gen1(p["hp"], dv_hp(dvs), livello_corrente, True)
     mon.hp = hp
     mon.stats = {
         "max_hp": hp,
-        "atk": statistica_gen1(p["atk"], dvs["atk"], livello, False),
-        "def": statistica_gen1(p["def"], dvs["def"], livello, False),
-        "spd": statistica_gen1(p["spd"], dvs["spd"], livello, False),
-        "satk": statistica_gen1(p["satk"], dvs["spc"], livello, False),
-        "sdef": statistica_gen1(p["sdef"], dvs["spc"], livello, False),
+        "atk": statistica_gen1(p["atk"], dvs["atk"], livello_corrente, False),
+        "def": statistica_gen1(p["def"], dvs["def"], livello_corrente, False),
+        "spd": statistica_gen1(p["spd"], dvs["spd"], livello_corrente, False),
+        "satk": statistica_gen1(p["satk"], dvs["spc"], livello_corrente, False),
+        "sdef": statistica_gen1(p["sdef"], dvs["spc"], livello_corrente, False),
     }
     return mon, dvs, origine_dv, p
+
+
+def livelli_della_voce(v):
+    """I due livelli di una voce: quello di incontro e quello corrente.
+
+    Ha una funzione propria perche' il difetto che chiude era esattamente la confusione fra i
+    due, e una funzione si puo' provare mentre una espressione sparsa in mezzo al codice no.
+    """
+    incontro = v["livello"]
+    return incontro, (v.get("livello_attuale") or incontro)
 
 
 def self_test():
@@ -477,7 +503,17 @@ def self_test():
           statistica_gen1(100, 15, 5, False) == 16)
 
     print("")
-    print("self-test: %d controlli falliti su 15" % len(falliti))
+    # I due livelli della seconda generazione. Il difetto corretto il 2026-09-04 stava qui: il
+    # campo del livello corrente veniva letto, conservato e mai usato, e le quindici voci in cui
+    # differisce dal livello di incontro venivano scritte al livello sbagliato. Il verificatore le
+    # respingeva senza spiegare, dicendo soltanto che nessun incontro corrispondeva.
+    prova("i due livelli coincidono quando il campo corrente e' assente",
+          livelli_della_voce({"livello": 5}) == (5, 5))
+    prova("i due livelli coincidono quando il campo corrente e' zero",
+          livelli_della_voce({"livello": 5, "livello_attuale": 0}) == (5, 5))
+    prova("i due livelli divergono quando la fonte lo dichiara",
+          livelli_della_voce({"livello": 5, "livello_attuale": 40}) == (5, 40))
+    print("self-test: %d controlli falliti su %d" % (len(falliti), 18))
     return 1 if falliti else 0
 
 
@@ -777,7 +813,18 @@ def scrivi_schede(percorso, prodotti, nomi, mosse, prov):
             if generazione == 1:
                 r.append("| identificativo interno | %d | corrispondenza fra numerazione del "
                          "Dex e numerazione interna di prima generazione |" % mon.species)
-            r.append("| livello | %d | tabella degli eventi |" % v["livello"])
+            r.append("| livello di incontro | %d | tabella degli eventi, campo a un byte "
+                     "dall'inizio del record |" % v["livello"])
+            corrente = v.get("livello_attuale") or v["livello"]
+            if corrente != v["livello"]:
+                r.append("| livello corrente | %d | tabella degli eventi, campo a sette byte "
+                         "dall'inizio del record: e' il livello a cui l'esemplare si trova, "
+                         "mentre quello di incontro resta nei dati di cattura. I due divergono "
+                         "sulle quindici voci del gruppo notevole, e usare il solo livello di "
+                         "incontro le faceva respingere tutte |" % corrente)
+            else:
+                r.append("| livello corrente | %d | coincide con quello di incontro, come nella "
+                         "grande maggioranza delle voci |" % corrente)
             r.append("| mosse | %s | tabella degli eventi, con i nomi dalla tabella dei nomi |"
                      % ", ".join("%s (%d)" % (mosse.get(m, "?"), m) for m in v["mosse"] if m))
             r.append("| punti potenza | %s | tabella dei punti potenza di base |"
