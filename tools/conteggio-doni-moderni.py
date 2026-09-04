@@ -68,7 +68,7 @@ MGDB = os.path.join("PKHeX.Core", "Resources", "legality", "mgdb")
 # lunghezza sbagliata sembra giusta.
 FAMIGLIE = (
     (4, "Diamante, Perla, Platino, HeartGold e SoulSilver", ("wc4.pkl",), 0x358, 0x358, "PCD.Size"),
-    (5, "Bianco, Nero e i loro seguiti", ("pgf.pkl",), 0xCC, 0xCC + 1, "PGF.Size piu' il byte di restrizione"),
+    (5, "Bianco, Nero e i loro seguiti", ("pgf.pkl",), 0xCC, 0xCC + 1, "PGF.Size più il byte di restrizione"),
     (6, "X, Y, Rubino Omega e Zaffiro Alpha", ("wc6full.pkl", "wc6.pkl"), None, None, "WC6Full.Size e WC6.Size"),
     (7, "Sole, Luna, UltraSole e UltraLuna", ("wc7full.pkl", "wc7.pkl"), None, None, "WC7Full.Size e WC7.Size"),
     (7, "Let's Go Pikachu ed Eevee", ("wb7full.pkl",), 0x310, 0x310, "WB7.Size"),

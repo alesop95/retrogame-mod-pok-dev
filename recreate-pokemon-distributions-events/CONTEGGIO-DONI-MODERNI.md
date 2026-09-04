@@ -5,7 +5,7 @@
 | Gen | Titoli | File | Voci | Esemplari | Specie distinte | Voci specie e forma | Sotto scadenza | Lunghezza del record |
 |---|---|---|---|---|---|---|---|---|
 | 4 | Diamante, Perla, Platino, HeartGold e SoulSilver | `wc4.pkl` | 590 | 247 | 43 | 43 | sì | PCD.Size |
-| 5 | Bianco, Nero e i loro seguiti | `pgf.pkl` | 709 | 700 | 98 | 98 | sì | PGF.Size piu' il byte di restrizione |
+| 5 | Bianco, Nero e i loro seguiti | `pgf.pkl` | 709 | 700 | 98 | 98 | sì | PGF.Size più il byte di restrizione |
 | 6 | X, Y, Rubino Omega e Zaffiro Alpha | `wc6full.pkl`, `wc6.pkl` | 836 | 787 | 129 | 145 | sì | WC6Full.Size e WC6.Size |
 | 7 | Sole, Luna, UltraSole e UltraLuna | `wc7full.pkl`, `wc7.pkl` | 937 | 611 | 99 | 106 | sì | WC7Full.Size e WC7.Size |
 | 7 | Let's Go Pikachu ed Eevee | `wb7full.pkl` | 16 | 15 | 9 | 9 | no | WB7.Size |

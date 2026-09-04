@@ -4019,7 +4019,7 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-T-0011` | 3 | oggetto-distribuito | 386 | 2 | Distribuzioni in cui il dono era un oggetto: Biglietto Aurora, Isola Nascita, Verde Foglia, livello 30 | sì | no | censita, non ancora producibile |
 | `EVT-T-0012` | 4 | oggetto-distribuito | 491 | 0 | Distribuzioni in cui il dono era un oggetto: Tessera Membro, Isola Lunanova, Platino, livello 50 | sì | no | censita, non ancora producibile |
 | `EVT-T-0013` | 4 | oggetto-distribuito | 492 | 0 | Distribuzioni in cui il dono era un oggetto: Lettera di Oak, Giardino Floreale, Platino, livello 30 | sì | no | censita, non ancora producibile |
-| `EVT-T-0014` | 5 | oggetto-distribuito | 494 | 0 | Distribuzioni in cui il dono era un oggetto: Passo Liberta', Giardino Liberta', Nero e Bianco, livello 15 | sì | no | censita, non ancora producibile |
+| `EVT-T-0014` | 5 | oggetto-distribuito | 494 | 0 | Distribuzioni in cui il dono era un oggetto: Passo Libertà, Giardino Libertà, Nero e Bianco, livello 15 | sì | no | censita, non ancora producibile |
 | `EVT-T-0015` | 3 | disco-bonus | 25 | 0 | Colosseum, disco bonus, solo Giappone: Colosseum Pikachu bonus gift | sì | no | censita, non ancora producibile |
 | `EVT-T-0016` | 3 | disco-bonus | 251 | 0 | Colosseum, disco bonus, solo Giappone: Ageto Celebi bonus gift | sì | no | censita, non ancora producibile |
 | `EVT-T-0017` | 3 | spinoff | 250 | 0 | Colosseum, premio del Monte Lotta: Ho-oh @ Mt. Battle | sì | no | censita, non ancora producibile |

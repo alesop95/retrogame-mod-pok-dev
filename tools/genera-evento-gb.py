@@ -365,7 +365,7 @@ def componi(v, gen1, gen2, gb, pers1, pers2, esperienza):
     # condizione e' che il livello corrente dichiarato dalla tabella non superi quello
     # dell'esemplare. E' l'ennesima occorrenza della stessa forma di difetto: due campi che
     # sembrano lo stesso campo, e la scorciatoia che ne prende uno.
-    livello, livello_corrente = livelli_della_voce(v)
+    livello, livello_corrente, livello_incontro = livelli_della_voce(v)
     mosse = [m for m in v["mosse"] if m]
     pp = []
     for m in v["mosse"]:
@@ -408,7 +408,7 @@ def componi(v, gen1, gen2, gb, pers1, pers2, esperienza):
 
     p = pers2[v["nazionale"]]
     exp = esperienza(p["crescita"], livello_corrente)
-    caught = gen2.CaughtData(level=livello, time_of_day=0, ot_female=False,
+    caught = gen2.CaughtData(level=livello_incontro, time_of_day=0, ot_female=False,
                              location=v.get("luogo", 0))
     mon = gen2.Gen2Mon(
         species=v["nazionale"],
@@ -440,13 +440,27 @@ def componi(v, gen1, gen2, gb, pers1, pers2, esperienza):
 
 
 def livelli_della_voce(v):
-    """I due livelli di una voce: quello di incontro e quello corrente.
+    """I tre livelli di una voce: quello dichiarato, quello corrente e quello dei dati di cattura.
 
-    Ha una funzione propria perche' il difetto che chiude era esattamente la confusione fra i
-    due, e una funzione si puo' provare mentre una espressione sparsa in mezzo al codice no.
+    Ha una funzione propria perche' i difetti che chiude erano esattamente confusioni fra questi
+    numeri, e una funzione si puo' provare mentre una espressione sparsa in mezzo al codice no.
+
+    Il primo e' il livello che la tabella dichiara. Il secondo e' il livello a cui l'esemplare si
+    trova, che sta in un campo diverso e che sulle quindici voci del gruppo notevole e' quaranta,
+    cinquanta o settanta invece di cinque.
+
+    Il terzo e' il livello che va scritto nei dati di cattura, e non coincide con il primo su
+    tutte le voci consegnate come uovo. La condizione del verificatore e' esplicita: per un uovo
+    il livello di incontro deve essere uno, per tutto il resto deve essere quello dichiarato. La
+    ragione sta nel gioco e non nella tabella, poiche' un uovo viene ricevuto a livello uno e
+    schiude a cinque, e il livello di incontro registra il momento in cui e' stato ricevuto.
+    Centotrentaquattro delle centocinquantasette voci di seconda generazione sono uova, quindi la
+    confusione fra questi due numeri non e' un caso limite ma la maggioranza del lotto.
     """
-    incontro = v["livello"]
-    return incontro, (v.get("livello_attuale") or incontro)
+    dichiarato = v["livello"]
+    corrente = v.get("livello_attuale") or dichiarato
+    incontro = 1 if v.get("incubazioni") else dichiarato
+    return dichiarato, corrente, incontro
 
 
 def self_test():
@@ -508,12 +522,16 @@ def self_test():
     # differisce dal livello di incontro venivano scritte al livello sbagliato. Il verificatore le
     # respingeva senza spiegare, dicendo soltanto che nessun incontro corrispondeva.
     prova("i due livelli coincidono quando il campo corrente e' assente",
-          livelli_della_voce({"livello": 5}) == (5, 5))
+          livelli_della_voce({"livello": 5}) == (5, 5, 5))
     prova("i due livelli coincidono quando il campo corrente e' zero",
-          livelli_della_voce({"livello": 5, "livello_attuale": 0}) == (5, 5))
+          livelli_della_voce({"livello": 5, "livello_attuale": 0}) == (5, 5, 5))
     prova("i due livelli divergono quando la fonte lo dichiara",
-          livelli_della_voce({"livello": 5, "livello_attuale": 40}) == (5, 40))
-    print("self-test: %d controlli falliti su %d" % (len(falliti), 18))
+          livelli_della_voce({"livello": 5, "livello_attuale": 40}) == (5, 40, 5))
+    prova("un uovo ha livello di incontro uno e non quello dichiarato",
+          livelli_della_voce({"livello": 5, "incubazioni": 10}) == (5, 5, 1))
+    prova("una voce che uovo non e' conserva il livello di incontro dichiarato",
+          livelli_della_voce({"livello": 20, "incubazioni": 0}) == (20, 20, 20))
+    print("self-test: %d controlli falliti su %d" % (len(falliti), 20))
     return 1 if falliti else 0
 
 
@@ -813,17 +831,26 @@ def scrivi_schede(percorso, prodotti, nomi, mosse, prov):
             if generazione == 1:
                 r.append("| identificativo interno | %d | corrispondenza fra numerazione del "
                          "Dex e numerazione interna di prima generazione |" % mon.species)
-            r.append("| livello di incontro | %d | tabella degli eventi, campo a un byte "
-                     "dall'inizio del record |" % v["livello"])
-            corrente = v.get("livello_attuale") or v["livello"]
-            if corrente != v["livello"]:
+            dichiarato, corrente, incontro = livelli_della_voce(v)
+            r.append("| livello dichiarato | %d | tabella degli eventi, campo a un byte "
+                     "dall'inizio del record |" % dichiarato)
+            if incontro != dichiarato:
+                r.append("| livello nei dati di cattura | %d | non è quello dichiarato, perché "
+                         "questa voce è consegnata come uovo: un uovo si riceve a livello uno e "
+                         "schiude a cinque, e i dati di cattura registrano il momento in cui è "
+                         "stato ricevuto. Scrivervi il livello dichiarato faceva respingere tutte "
+                         "e centotrentaquattro le uova del lotto |" % incontro)
+            else:
+                r.append("| livello nei dati di cattura | %d | coincide con quello dichiarato, "
+                         "perché questa voce non è un uovo |" % incontro)
+            if corrente != dichiarato:
                 r.append("| livello corrente | %d | tabella degli eventi, campo a sette byte "
-                         "dall'inizio del record: e' il livello a cui l'esemplare si trova, "
+                         "dall'inizio del record: è il livello a cui l'esemplare si trova, "
                          "mentre quello di incontro resta nei dati di cattura. I due divergono "
                          "sulle quindici voci del gruppo notevole, e usare il solo livello di "
                          "incontro le faceva respingere tutte |" % corrente)
             else:
-                r.append("| livello corrente | %d | coincide con quello di incontro, come nella "
+                r.append("| livello corrente | %d | coincide con quello dichiarato, come nella "
                          "grande maggioranza delle voci |" % corrente)
             r.append("| mosse | %s | tabella degli eventi, con i nomi dalla tabella dei nomi |"
                      % ", ".join("%s (%d)" % (mosse.get(m, "?"), m) for m in v["mosse"] if m))

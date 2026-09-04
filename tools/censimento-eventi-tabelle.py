@@ -90,7 +90,7 @@ OGGETTO_DISTRIBUITO = (
      "Encounters4DPPt.cs, in Diamante e Perla la voce e' commentata come non distribuita"),
     (4, "Lettera di Oak", "Giardino Floreale", 492, 0, 30, "Platino", True,
      "Encounters4DPPt.cs, in Diamante e Perla la voce e' commentata come non distribuita"),
-    (5, "Passo Liberta'", "Giardino Liberta'", 494, 0, 15, "Nero e Bianco", False,
+    (5, "Passo Libertà", "Giardino Libertà", 494, 0, 15, "Nero e Bianco", False,
      "Encounters5BW.cs, la fonte dichiara che non puo' essere cromatico"),
 )
 
@@ -100,10 +100,10 @@ OGGETTO_DISTRIBUITO = (
 # distribuzione che non e' mai avvenuta.
 MAI_DISTRIBUITE = (
     (4, "Flauto Azzurro", "Colonna Lancia", 493,
-     "il verificatore non porta alcuna voce per questo incontro, cioe' non fu mai distribuito "
+     "il verificatore non porta alcuna voce per questo incontro, cioè non fu mai distribuito "
      "per via ufficiale in alcuna regione"),
     (4, "Lettera di Oak", "Giardino Floreale", 492,
-     "in Diamante e Perla la voce esiste nella fonte ma e' commentata come non distribuita: "
+     "in Diamante e Perla la voce esiste nella fonte ma è commentata come non distribuita: "
      "la ebbe soltanto Platino"),
 )
 
