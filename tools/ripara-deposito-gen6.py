@@ -339,7 +339,7 @@ def risali(specie, incontri, indietro, visti=None):
     return None, None
 
 
-def ripara(percorso, uscita, incontri=None, indietro=None):
+def ripara(percorso, uscita, incontri=None, indietro=None, ripara_date=False):
     lettore = carica_lettore()
     dati = bytearray(io.open(percorso, "rb").read())
     if len(dati) != DIM_ORAS:
@@ -361,14 +361,26 @@ def ripara(percorso, uscita, incontri=None, indietro=None):
             toccato = False
 
             geo = list(chiaro[OFF_GEO:OFF_GEO + LUN_GEO])
-            if not geo_valida(geo) or any(geo):
+            # Si azzera soltanto quando la sequenza e' rotta, e non ogni volta che c'e' qualcosa.
+            # La prima stesura scriveva `or any(geo)`, cioe' azzerava anche le sequenze valide, e
+            # il confronto fra i rapporti del salvataggio originale e di quello riparato ha
+            # mostrato che quella clausola concorre a rompere duecentoundici esemplari che erano
+            # legali: una geolocalizzazione valida porta informazione sugli scambi che
+            # l'esemplare ha subito, e cancellarla la mette in contraddizione con i ricordi
+            # dell'allenatore che lo ha ricevuto.
+            if not geo_valida(geo):
                 chiaro[OFF_GEO:OFF_GEO + LUN_GEO] = bytes(LUN_GEO)
                 conto["geo"] += 1
                 toccato = True
 
             anno, mese, giorno = (chiaro[OFF_MET_ANNO], chiaro[OFF_MET_MESE],
                                   chiaro[OFF_MET_GIORNO])
-            if not data_valida(anno, mese, giorno):
+            # La riparazione della data e' spenta per difetto, e la ragione e' una misura e non
+            # una prudenza generica: il confronto fra i rapporti del 2026-09-04 mostra che da
+            # sola porta a non legali trentadue esemplari che lo erano, mentre l'insieme delle
+            # riparazioni ne recupera quattordici in tutto. Una riparazione che perde piu' di
+            # quanto guadagni non e' una riparazione, e va accesa soltanto da chi sappia perche'.
+            if ripara_date and not data_valida(anno, mese, giorno):
                 # L'anno si conserva quando e' un anno e non un byte qualunque, perche' e'
                 # l'unica parte della data che porti informazione sulla storia dell'esemplare:
                 # si riscrivono il mese e il giorno, che erano fuori dal calendario.
@@ -469,6 +481,10 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("file", nargs="?", help="il salvataggio da riparare")
     ap.add_argument("--out", help="il file nuovo da scrivere; l'originale non si tocca mai")
+    ap.add_argument("--date", action="store_true",
+                    help="riscrive anche le date di incontro che non sono date del calendario; "
+                         "spenta per difetto perche' la misura del 2026-09-04 mostra che perde "
+                         "piu' di quanto guadagni")
     ap.add_argument("--incontri", action="store_true",
                     help="assegna anche un luogo e un livello di incontro selvatico veri")
     ap.add_argument("--pkhex", help="clone del verificatore, necessario con --incontri")
@@ -504,7 +520,7 @@ def main(argv=None):
         indietro = preevoluzioni(a.pkhex)
         print("incontri selvatici letti per %d specie, catene di evoluzione per %d"
               % (len(incontri), len(indietro)))
-    conto, errore = ripara(a.file, a.out, incontri, indietro)
+    conto, errore = ripara(a.file, a.out, incontri, indietro, a.date)
     if errore:
         print("rifiutato: " + errore)
         return 1
