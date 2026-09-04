@@ -244,6 +244,39 @@ def voci_da_evento(pkhex, ace):
     return fuori
 
 
+def ordina_per_specie(eventi):
+    """Marca la prima voce di ciascuna specie e porta tutte le prime in testa alla coda.
+
+    L'ordine naturale della fonte raggruppa le voci per evento, che è l'ordine in cui una
+    distribuzione avvenne e non quello in cui conviene produrla. La decisione di ambito presa il
+    2026-09-03 è la collezione completa in due tempi, con prima una voce per ciascuna specie
+    distinta e poi i gemelli: il primo tempo esiste soltanto se la coda dice quali voci lo
+    compongono, e dedurlo a occhio da una tabella di migliaia di righe non è una operazione che si
+    fa due volte allo stesso modo.
+
+    La marcatura guarda le sole voci sotto scadenza, perché sono quelle che il primo tempo deve
+    coprire, e procede nell'ordine della fonte, cosicché la voce scelta per una specie sia sempre
+    la stessa a parità di catalogo. Una voce senza numero nazionale non può essere la prima di
+    alcuna specie e resta nel secondo blocco, dichiarata come tale invece di essere scartata.
+
+    L'ordinamento è stabile e conserva dentro ciascuno dei due blocchi l'ordine per evento, che
+    resta l'informazione utile a chi produce: si sposta il confine fra i due tempi, non l'ordine
+    interno di ciascuno.
+    """
+    viste = set()
+    for e in eventi:
+        naz = e.get("nazionale")
+        if e.get("sotto_scadenza") and naz and naz not in viste:
+            viste.add(naz)
+            e["primo_della_specie"] = True
+        else:
+            e["primo_della_specie"] = False
+    for indice, e in enumerate(eventi):
+        e["ordine_di_catalogo"] = indice
+    eventi.sort(key=lambda e: (0 if e["primo_della_specie"] else 1, e["ordine_di_catalogo"]))
+    return eventi
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--pkhex", required=True, help="clone del verificatore")
@@ -314,6 +347,7 @@ def main(argv=None):
         })
 
     eventi = voci_da_evento(a.pkhex, a.ace)
+    ordina_per_specie(eventi)
 
     # ---------------------------------------------------------------- uscita a schermo
     print("Lista di spunta del Pokedex completo")
@@ -370,6 +404,11 @@ def main(argv=None):
     print("  Le voci da evento sotto scadenza sono %d, e portano %d specie distinte. Sono il "
           "solo insieme" % (len(scad_ev), len({e["nazionale"] for e in scad_ev if e["nazionale"]})))
     print("  di questa lista che il 26 febbraio 2027 chiude davvero.")
+    primi = [e for e in eventi if e.get("primo_della_specie")]
+    print("")
+    print("  Il primo tempo della coda, cioe' una voce per specie, e' di %d voci; i gemelli "
+          "del secondo tempo" % len(primi))
+    print("  sono %d. La coda scritta porta i primi in testa." % (len(scad_ev) - len(primi)))
 
     if a.markdown:
         scrivi(a.markdown, righe_specie, righe_forma, per_fonte, eventi)
@@ -454,13 +493,28 @@ def scrivi(percorso, righe_specie, righe_forma, per_fonte, eventi):
              % (len(eventi), len(scad_ev),
                 len({x["nazionale"] for x in scad_ev if x["nazionale"]})))
     r.append("")
-    r.append("| Codice | Gen | Dex | Forma | Provenienza | Sotto scadenza | Resa |")
-    r.append("|---|---|---|---|---|---|---|")
+    primi = [x for x in eventi if x.get("primo_della_specie")]
+    r.append("L'ordine della tabella non è quello della fonte, ed è una scelta che va "
+             "dichiarata perché cambia che cosa si legge per primo. La fonte raggruppa le voci "
+             "per evento, cioè nell'ordine in cui le distribuzioni avvennero; la decisione di "
+             "ambito è invece la collezione completa in due tempi, con prima una voce per "
+             "ciascuna specie distinta e poi i gemelli. La colonna che dice se una voce sia la "
+             "prima della propria specie porta dunque in testa le %d voci del primo tempo, e "
+             "lascia in coda le %d del secondo; dentro ciascuno dei due blocchi l'ordine per "
+             "evento è conservato, perché è l'informazione utile a chi produce. La prima voce "
+             "di una specie è scelta nell'ordine della fonte e non per merito: dove più voci "
+             "portano la medesima specie, la marcatura non dice quale sia la più desiderabile "
+             "ma soltanto quale basti a coprire la specie."
+             % (len(primi), len(scad_ev) - len(primi)))
+    r.append("")
+    r.append("| Codice | Gen | Dex | Forma | Provenienza | Sotto scadenza | Primo della specie | Resa |")
+    r.append("|---|---|---|---|---|---|---|---|")
     for x in eventi:
-        r.append("| `%s` | %d | %s | %d | %s | %s | %s |"
+        r.append("| `%s` | %d | %s | %d | %s | %s | %s | %s |"
                  % (x["codice"], x["generazione"],
                     x["nazionale"] if x["nazionale"] else "-", x["forma"],
-                    x["descrizione"], "sì" if x["sotto_scadenza"] else "no", x["resa"]))
+                    x["descrizione"], "sì" if x["sotto_scadenza"] else "no",
+                    "sì" if x.get("primo_della_specie") else "no", x["resa"]))
     r.append("")
 
     r.append("## Voci di forma")
