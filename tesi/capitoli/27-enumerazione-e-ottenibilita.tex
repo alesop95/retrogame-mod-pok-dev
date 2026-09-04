@@ -35,6 +35,10 @@
 % copre: pokedex-home-completo/OTTENIBILITA-TITOLI.md#le-specie-che-la-scadenza-vincola-davvero
 % copre: pokedex-home-completo/OTTENIBILITA-TITOLI.md#le-specie-che-nessun-gioco-moderno-sa-far-prendere
 % copre: pokedex-home-completo/OTTENIBILITA-TITOLI.md#il-verso-dell-errore-e-come-stringere-il-limite
+% copre: pokedex-home-completo/CODA-PRIMO-TEMPO.md
+% copre: pokedex-home-completo/CODA-PRIMO-TEMPO.md#coda-di-produzione-primo-tempo
+% copre: pokedex-home-completo/CODA-PRIMO-TEMPO.md#il-vincolo-delle-macchine-nascoste
+% copre: pokedex-home-completo/CODA-PRIMO-TEMPO.md#la-coda
 % verificato-al-commit: d3667cb
 % ---------------------------------------------------------------------
 
@@ -123,3 +127,14 @@ Il censimento copre ciò che il verificatore sa. Le sue tabelle sono una ricostr
 Il rimedio è di metodo e consiste nel confronto con elenchi indipendenti. Il primo è stato compiuto sul deposito di un gioco da console fissa che raccoglie esemplari di terza generazione, il cui autore ne dichiara la completezza rispetto a ciò che oggi si può ottenere legittimamente. Il confronto ha dato un esito doppiamente utile: l'unione fra quel deposito e la raccolta di salvataggi del lavoro copre tutte e 386 le voci nazionali di terza generazione, e le due specie che a quel deposito mancano sono esattamente il Mew e il Deoxys dei biglietti. Un elenco costruito da chi non sa nulla di questa analisi ha cioè confermato, per la via della propria lacuna, che la classe delle distribuzioni consegnate come oggetto esiste ed è la più difficile da completare.
 
 Un secondo confronto è possibile e va nominato perché non richiede alcuno strumento: le notifiche conservate dalla piattaforma di destinazione, che testimoniano distribuzioni realmente avvenute e sono per costruzione indipendenti dal verificatore. È materiale che appartiene al possessore dell'account e non al lavoro, e la sua acquisizione è registrata fra le voci in sospeso.
+
+\section{Dalla enumerazione alla coda, e il vincolo che la attraversa}
+\label{sec:coda}
+
+Un insieme enumerato non è ancora un piano. Fra l'elenco di ciò che esiste e il lavoro da compiere manca un oggetto intermedio, che dica non che cosa sia stato censito ma che cosa fare per primo, e quell'oggetto ha una struttura propria che vale descrivere perché non coincide con l'elenco da cui deriva.
+
+La decisione di ambito prevede due tempi: prima una voce per ciascuna specie distinta fra quelle soggette alla scadenza, poi i duplicati che la stessa distribuzione produsse per ogni regione e lingua. Il primo tempo conta $433$ voci contro le $3095$ complessive, cioè poco più di un settimo, e la sua costruzione non è una selezione arbitraria ma una marcatura deterministica: si percorre l'insieme nell'ordine in cui la fonte lo dichiara e si marca la prima occorrenza di ciascuna specie. L'ordine della fonte è quello degli eventi storici, quindi la scelta di quale esemplare rappresenti una specie non è per merito ma per anzianità, ed è una proprietà da dichiarare perché chi legge la coda potrebbe attribuirle un significato che non ha.
+
+Lo stato di partenza della coda separa tre condizioni che l'elenco confondeva. Cinquantanove voci sono producibili e già giudicate conformi da un verificatore indipendente; quattro hanno una struttura che il codice esistente sa scrivere; le restanti trecentosettanta sono lette e non ancora producibili, cioè attendono un generatore che non esiste. La distinzione è la sola informazione che decide se una riga sia lavoro o attesa, e senza di essa una coda di quattrocentotrentatré elementi sembrerebbe uniformemente affrontabile.
+
+Attraverso la coda passa infine un vincolo che non viene dai dati ma dal meccanismo di trasferimento, ed è il primo caso in questo lavoro in cui un vincolo di trasporto contraddice un requisito di fedeltà. Il primo anello della catena rifiuta un esemplare che conosca una macchina nascosta, e la mossa va rimossa prima del trasferimento. Cinque voci del catalogo di terza generazione ne conoscono una, e sono tutte la medesima specie: quattro con Volo e una con Surf, cioè precisamente gli esemplari che quella mossa rende riconoscibili. Rimuoverla produce un esemplare che raggiunge la destinazione privo della caratteristica per cui esisteva; conservarla significa non trasferirlo. Il conflitto non ammette una soluzione tecnica, poiché entrambe le alternative soddisfano un requisito e violano l'altro, e appartiene quindi alla categoria delle decisioni di perimetro che questo lavoro registra anziché risolvere.
