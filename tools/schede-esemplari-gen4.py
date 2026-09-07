@@ -212,14 +212,19 @@ def stato_giudizio(giudizi, indice):
     prima e seconda generazione era stato applicato per errore alle schede di terza, e la
     correzione fu introdurre il campo che dice a quale lotto un giudizio si riferisca.
     """
+    trovato = None
     for g in giudizi:
         if g.get("lotto") != "gen4":
             continue
-        if g.get("tutte"):
-            return g
-        if indice in g.get("voci", []):
-            return g
-    return None
+        # Un giudizio successivo sostituisce il precedente sulla medesima voce, come nel documento
+        # fratello di terza generazione: il registro e' in ordine cronologico e l'ultimo che copra
+        # una voce e' il suo stato corrente. E' cosi' che una lettura di massa e l'elenco delle
+        # posizioni che essa ha rifiutato convivono senza contraddirsi.
+        if g.get("copre") == "tutti":
+            trovato = g
+        elif g.get("copre") == "elenco" and indice in g.get("voci", []):
+            trovato = g
+    return trovato
 
 
 def gruppo_di(voce, provenienze):
@@ -332,6 +337,12 @@ def scheda(v, provenienze, giudizi, impronte):
     r.append("")
     r.append("**%s.** %s" % (titolo_gruppo, racconto))
     r.append("")
+    # I rilievi del giudizio stanno accanto alla scheda e non soltanto nel registro, perche' una
+    # scheda che dichiari il solo esito perde l'informazione che serve a rimediare: sapere che una
+    # voce non e' conforme non dice che cosa cambiare.
+    for rilievo in (g.get("rilievi", []) if g else []):
+        r.append("> Rilievo del verificatore: %s" % rilievo)
+        r.append("")
     r.append("| Campo | Valore | Da dove viene |")
     r.append("|---|---|---|")
     r.append("| posizione nella base dei doni | %d | l'indice del record nella base dei doni "
@@ -464,11 +475,20 @@ def self_test():
 
     # Il filtro sul lotto: un giudizio di massa espresso su un altro lotto non deve toccare queste
     # schede, ed e' il difetto che il campo del lotto e' stato introdotto per impedire.
-    giudizi = [{"lotto": "gb", "tutte": True, "esito": "conforme", "data": "2026-09-04"},
-               {"lotto": "gen4", "voci": [7], "esito": "conforme", "data": "2026-09-05"}]
-    prova("un giudizio di un altro lotto non tocca la voce", None, stato_giudizio(giudizi, 3))
-    prova("un giudizio del lotto giusto la tocca", "2026-09-05",
-          stato_giudizio(giudizi, 7)["data"])
+    giudizi = [{"lotto": "gb", "copre": "tutti", "esito": "conforme", "data": "2026-09-04"},
+               {"lotto": "gen4", "copre": "tutti", "esito": "conforme", "data": "2026-09-07"},
+               {"lotto": "gen4", "copre": "elenco", "voci": [232], "esito": "non conforme",
+                "data": "2026-09-07"}]
+    prova("un giudizio di un altro lotto non tocca la voce", "conforme",
+          stato_giudizio(giudizi, 3)["esito"])
+    prova("la lettura di massa copre una voce qualunque", "2026-09-07",
+          stato_giudizio(giudizi, 3)["data"])
+    prova("l'elenco successivo sostituisce la lettura di massa", "non conforme",
+          stato_giudizio(giudizi, 232)["esito"])
+    prova("e non tocca le voci che non nomina", "conforme",
+          stato_giudizio(giudizi, 231)["esito"])
+    prova("un registro di un lotto diverso soltanto non da' nulla", None,
+          stato_giudizio([{"lotto": "gb", "copre": "tutti"}], 3))
 
     # La provenienza derivata dichiara di essere derivata, che e' la regola di onesta'.
     voce = {"allenatore": "TRU", "lingua_nome": "inglese", "luogo": 3060}
