@@ -38,7 +38,7 @@ Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo q
 ## Punto di ripresa
 
 ```
-Fuoco corrente: pokedex-home-completo, sull'asse degli eventi: quarta generazione chiusa salvo la decisione sulle 28 coreane, quinta generazione da costruire a partire dalla forma dell'archivio pgf.pkl, scadenza fra 172 giorni
+Fuoco corrente: pokedex-home-completo, sull'asse degli eventi e su quello delle forme: quinta generazione con archivio letto e censito e generatore da scrivere, ventidue fonti nuove registrate e nessuna ancora letta, scadenza fra 172 giorni
 ```
 
 Il 2026-08-31 il fuoco si è mosso due volte nella stessa giornata, e vale registrare entrambi i movimenti perché il primo è concluso e il secondo è quello attivo.

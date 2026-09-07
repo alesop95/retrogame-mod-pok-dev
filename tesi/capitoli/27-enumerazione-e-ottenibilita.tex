@@ -138,3 +138,161 @@ La decisione di ambito prevede due tempi: prima una voce per ciascuna specie dis
 Lo stato di partenza della coda separa tre condizioni che l'elenco confondeva. Cinquantanove voci sono producibili e già giudicate conformi da un verificatore indipendente; quattro hanno una struttura che il codice esistente sa scrivere; le restanti trecentosettanta sono lette e non ancora producibili, cioè attendono un generatore che non esiste. La distinzione è la sola informazione che decide se una riga sia lavoro o attesa, e senza di essa una coda di quattrocentotrentatré elementi sembrerebbe uniformemente affrontabile.
 
 Attraverso la coda passa infine un vincolo che non viene dai dati ma dal meccanismo di trasferimento, ed è il primo caso in questo lavoro in cui un vincolo di trasporto contraddice un requisito di fedeltà. Il primo anello della catena rifiuta un esemplare che conosca una macchina nascosta, e la mossa va rimossa prima del trasferimento. Cinque voci del catalogo di terza generazione ne conoscono una, e sono tutte la medesima specie: quattro con Volo e una con Surf, cioè precisamente gli esemplari che quella mossa rende riconoscibili. Rimuoverla produce un esemplare che raggiunge la destinazione privo della caratteristica per cui esisteva; conservarla significa non trasferirlo. Il conflitto non ammette una soluzione tecnica, poiché entrambe le alternative soddisfano un requisito e violano l'altro, e appartiene quindi alla categoria delle decisioni di perimetro che questo lavoro registra anziché risolvere.
+
+\section{La forma di un archivio, e la lunghezza del file come affermazione verificabile}
+\label{sec:forma-archivio}
+
+Un archivio di record può avere due forme, e distinguerle è il primo passo obbligato prima di leggerne anche un solo campo. Nella forma a passo fisso tutti i record sono lunghi uguali, il record di indice $i$ comincia all'offset $i \cdot D$ dove $D$ è il passo, e attraversare l'archivio costa una moltiplicazione. Nella forma a indice una tabella in testa dichiara dove ciascun record comincia, i record possono avere lunghezze diverse, e attraversare l'archivio costa una indirezione. Le due forme non si distinguono guardando i byte, perché entrambe cominciano con byte qualsiasi, e sbagliare la scelta produce un lettore che non fallisce ma riferisce numeri privi di senso, che è il modo peggiore di fallire.
+
+Esiste però una prova che costa una divisione e che questo lavoro ha imparato a fare per prima, perché la lunghezza di un file è essa stessa un'affermazione verificabile sulla sua struttura. Se l'archivio è a passo fisso e il passo è $D$, allora la lunghezza $L$ deve essere un multiplo esatto di $D$; un resto diverso da zero confuta l'ipotesi senza bisogno di leggere nulla. Il caso incontrato è quello dei doni di quinta generazione, dove la struttura dichiara $D = \mathtt{0xCC} = 204$ byte e il file ne misura $L = 145\,345$, con
+\[
+\frac{145\,345}{204} = 712{,}47\ldots \notin \mathbb{N},
+\]
+il che stabilisce con certezza che l'archivio non è la semplice giustapposizione dei record e nient'altro.
+
+\subsection{Il piano parallelo, e perché non si è allungato il record}
+
+La struttura reale, letta poi sul codice della fonte, è più interessante di entrambe le ipotesi. L'archivio è la concatenazione di due piani. Il primo occupa i primi $n \cdot D$ byte e contiene gli $n$ record a passo fisso; il secondo occupa gli ultimi $n$ byte e contiene un byte per record, allineato per indice, che porta due campi da quattro bit ciascuno, cioè il vincolo di versione nel semiottetto basso e il vincolo di lingua in quello alto. La relazione che ne discende,
+\[
+n \cdot D + n = L \qquad \Longrightarrow \qquad n = \frac{L}{D+1} = \frac{145\,345}{205} = 709,
+\]
+ha soluzione intera esatta, e l'esattezza è la verifica: il resto nullo su un divisore diverso da quello dichiarato dalla struttura non è una coincidenza plausibile, e stabilisce la forma prima ancora che si legga un campo. Il controllo è stato poi confermato dal contenuto, perché delle settecentonove voci nessuna porta un numero di specie fuori dall'intervallo della generazione.
+
+La scelta di aggiungere i due campi come piano parallelo invece che allungando il record merita di essere commentata, perché è la stessa scelta che si fa in trasmissione quando si aggiunge informazione a un flusso che non si vuole rompere. Il record di duecentoquattro byte non è un formato interno dell'archivio: è il formato del file di distribuzione vero, quello che una carta consegnata occupava sul supporto. Allungarlo avrebbe reso i record dell'archivio non più estraibili come file validi, cioè avrebbe rotto la compatibilità con il formato che l'archivio esiste per conservare. Tenendo i due campi fuori banda, in un piano allineato per indice, ciascun record resta copiabile verbatim ed è un file di distribuzione legittimo.
+
+C'è anche una ragione semantica che rafforza quella tecnica, e vale distinguerle perché portano alla stessa scelta per motivi diversi. I due campi non sono dati della distribuzione ma conoscenza ricostruita su di essa: dicono quali versioni del gioco e quali lingue quella carta ricevettero davvero, cioè un fatto storico che la carta non contiene e che qualcuno ha dovuto accertare. Metterli dentro il record li avrebbe confusi con il dato originale; tenerli in un piano separato conserva la distinzione fra ciò che la fonte porta e ciò che l'archivio aggiunge, che è la medesima disciplina con cui questo progetto separa, in ogni scheda di pedigree, i campi che vengono dalla distribuzione da quelli composti da noi.
+
+La densità del piano parallelo è infine dimensionata al minimo necessario e non oltre: quattro bit bastano perché gli identificativi di lingua della generazione non superano il quindici, e altrettanti bastano al vincolo di versione, che è una enumerazione piccola. Un byte per record porta dunque entrambi i campi senza spreco, e il costo dell'intero piano è lo $0{,}49$ per cento della dimensione dell'archivio.
+
+\subsection{Il censimento che ne discende, e il confronto con la quarta generazione}
+
+Stabilita la forma, il censimento prescritto dalla decisione ADR-038 di questo progetto si esegue in una passata, e il suo esito colloca la quinta generazione rispetto alla quarta in modo netto. Delle settecentonove voci, settecento sono esemplari e nove sono consegne di altro genere. Di quelle settecento, tutte e settecento portano il valore di personalità nullo, cioè nessuna lo dichiara e tutte lo fanno comporre; seicentoquarantasette portano i sei valori individuali al valore che il formato riserva all'indefinito, cioè $\mathtt{0xFF}$, mentre cinquantatré li fissano.
+
+Il confronto con la quarta generazione è quindi il seguente. Là il valore di personalità era dichiarato su centoventotto voci su duecentoquarantasette e composto sulle altre centodiciannove; qui è composto su tutte. Là i valori individuali erano assenti su tutte; qui sono assenti su nove decimi delle voci e presenti sul decimo restante. La quinta generazione è dunque, sull'asse della composizione, il caso più estremo dei tre studiati, e non il più semplice come la maggiore modernità del formato lascerebbe supporre.
+
+Su un punto però è il più onesto dei tre, e conviene dirlo perché rovescia il verso della difficoltà. La quarta generazione nascondeva la richiesta di comporre dentro un valore magico, cioè un valore di personalità pari a uno, che va riconosciuto come segnale e non come dato e che nulla nella struttura dichiara. La quinta la scrive in chiaro in un campo dedicato, che vale zero per mai cromatico, uno per casuale e due per sempre cromatico, e la distribuzione di quel campo sulle settecento voci è cinquecentodiciassette, ottantatré e cento rispettivamente. Le cento voci che impongono la lucentezza sono precisamente le distribuzioni che l'hanno resa il proprio contenuto, e un generatore che ignorasse quel campo produrrebbe settecento esemplari ordinari di cui cento sbagliati in modo invisibile alla struttura e visibile a chiunque guardi il colore.
+
+\section{Quando una enumerazione è finita, e come si stima ciò che nessuno ha visto}
+\label{sec:chiusura-enumerazione}
+
+Questa sezione nasce da una obiezione posta al lavoro mentre era in corso, ed è la più difficile da rispondere fra quelle che ha ricevuto: dopo settimane di ricerca continuano a comparire voci nuove, e se una ricerca è completa deve essere completa. L'obiezione è fondata, e la risposta onesta non è che le voci nuove siano poche. È che la parola completa era stata usata in un senso che non può reggere, e che al suo posto occorre un criterio verificabile.
+
+\subsection{La completezza rispetto a un archivio non è la completezza rispetto al mondo}
+
+Ciò che il lavoro possedeva era la chiusura rispetto a una sorgente sola. La distinzione non è sottile: è la causa strutturale di ogni voce comparsa dopo, perché le sorgenti impiegate hanno coperture che non sono l'una contenuta nell'altra, e ciascuna è cieca per costruzione su una categoria che le altre vedono.
+
+La base dei doni dell'implementazione di riferimento conosce le \emph{carte}, cioè i file che una distribuzione consegnava, e non può conoscere un evento che una carta non l'ha mai lasciata: la consegna fatta da un apparecchio che scriveva direttamente nel salvataggio, il biglietto che sbloccava un incontro invece di consegnare un esemplare, la ricompensa di un titolo della serie derivata. L'archivio enciclopedico conosce gli \emph{eventi}, cioè le cose accadute, e non sempre ne porta il dato tecnico. Il foglio mantenuto dalla comunità conosce ciò che un collezionatore deve \emph{possedere}, comprese le differenze di sesso e le varianti cromatiche che nessun campo del formato separa. Le tabelle interne del gioco conoscono le \emph{forme} che il formato sa rappresentare, comprese molte che oggetti distinti non sono.
+
+Quattro sorgenti, quattro coperture, e nessuna in grado di dichiarare la propria completezza dall'interno. È lo stesso ordine di problema di ADR-036 di questo progetto, dove una struttura internamente coerente risultava incompleta e nessuna verifica interna poteva accorgersene, e la soluzione è la stessa: l'ancoraggio deve venire da fuori.
+
+\subsection{La chiusura come proprietà di una coppia}
+
+Se ne trae un criterio che ha il pregio di essere misurabile. Una enumerazione si dice \emph{chiusa rispetto a una sorgente} quando quella sorgente non le aggiunge alcuna voce. La chiusura non è quindi una proprietà dell'enumerazione ma della coppia formata dall'enumerazione e dalla sorgente con cui la si prova, e si misura contando due numeri e non uno: quante voci la sorgente nuova porta che l'enumerazione non ha, e quante ne porta l'enumerazione che la sorgente non ha.
+
+I due numeri vanno tenuti distinti e non sommati, perché si leggono in modo diverso. Il primo misura la cecità dell'enumerazione; il secondo misura o il suo rumore, o un difetto della sorgente. Il confronto condotto in questo lavoro fra la propria enumerazione e il foglio della comunità ne è l'esempio: i due scarti valevano centosettantuno e centoquarantanove voci e andavano in versi opposti, cosicché la differenza dei totali era di sole ventidue voci e avrebbe suggerito un accordo quasi perfetto dove in realtà entrambe le liste erano sbagliate in modo diverso.
+
+\subsection{Stimare ciò che nessuna sorgente ha visto}
+
+Il criterio di chiusura dice quando fermarsi ma non dice quanto manchi, che è la domanda che l'obiezione poneva davvero. Anche quella però si stima, e lo strumento è quello che l'ecologia impiega per contare una popolazione che non si può censire, cioè la cattura e ricattura.
+
+Siano $n_1$ le voci portate da una prima sorgente, $n_2$ quelle portate da una seconda, e $m$ quelle presenti in entrambe. Sotto le ipotesi che si diranno, la dimensione della popolazione vera si stima con
+\[
+\hat{N} = \frac{n_1 \, n_2}{m},
+\]
+e nella variante corretta per la distorsione dei campioni piccoli, dovuta a Chapman,
+\[
+\hat{N} = \frac{(n_1+1)(n_2+1)}{m+1} - 1 .
+\]
+La quantità che interessa non è però $\hat{N}$ ma la sua differenza dall'unione osservata,
+\[
+\hat{U} = \hat{N} - \left( n_1 + n_2 - m \right),
+\]
+che è il numero stimato di voci che \emph{nessuna} delle due sorgenti ha visto. È il numero che risponde alla domanda, e la sua esistenza è la ragione per cui la completezza smette di essere una sensazione.
+
+\subsection{Le tre ipotesi, e perché la stima resta utile pur violandole}
+
+Il metodo poggia su tre ipotesi, e nel caso presente due delle tre non valgono. Dichiararle è obbligatorio, perché una stima presentata senza le proprie condizioni è peggio di nessuna stima.
+
+La popolazione deve essere chiusa, cioè nulla deve nascere o sparire durante la misura. Qui è quasi vero, perché una distribuzione avvenuta non smette di essere avvenuta; è falso al margine, perché distribuzioni nuove continuano a nascere, e infatti l'archivio consultato porta già una voce di ottobre 2026 che l'altra sorgente non può conoscere.
+
+Le due sorgenti devono essere indipendenti. Qui è falso: chi compila l'una legge l'altra, e le due comunità si guardano.
+
+Ogni voce deve avere la stessa probabilità di essere vista da entrambe. Anche questo è falso, e in modo sistematico: una distribuzione che ha prodotto una carta è vista dalla prima sorgente per costruzione, e una che non l'ha prodotta non lo è mai.
+
+La direzione dell'errore è però conoscibile, ed è ciò che salva il metodo. Quando le due sorgenti sono correlate positivamente, cioè quando ciò che una vede l'altra tende a vederlo, la sovrapposizione osservata $m$ è maggiore di quella che l'indipendenza produrrebbe; poiché $m$ sta al denominatore, la stima $\hat{N}$ risulta minore del vero, e con essa $\hat{U}$. Ne segue che il numero di voci mai viste che il metodo restituisce è un \emph{limite inferiore} e non una previsione: se dice che ne mancano cinquanta, ne mancano almeno cinquanta.
+
+Un limite inferiore su ciò che si ignora è precisamente quanto serve a decidere se continuare a cercare, ed è più di quanto una dichiarazione di completezza abbia mai offerto. La prescrizione che ne discende, adottata come ADR-044, è che nessun documento di enumerazione di questo lavoro usi la parola completo senza dichiarare accanto contro quali sorgenti sia stato chiuso e con quale residuo, e che l'aggiunta di una sorgente nuova produca sempre la coppia di numeri della sovrapposizione, perché è quella coppia e non il totale a dire se il lavoro stia convergendo.
+
+\section{Leggere un archivio scritto a mano per trent'anni}
+\label{sec:archivio-umano}
+
+Un archivio compilato da una persona anno dopo anno non è una base dati, e trattarlo come tale produce difetti di una famiglia che non si incontra leggendo un file binario. Questa sezione ne descrive due, incontrati nello stesso pomeriggio sullo stesso archivio, e mostra il procedimento con cui una interpretazione non documentata è stata promossa a fatto senza che nessuna legenda la dichiarasse.
+
+\subsection{La busta letta al posto della lettera}
+
+Il primo difetto è di livello, non di contenuto. Un documento per la rete può rappresentare un carattere in due modi: direttamente, con i byte della sua codifica, oppure indirettamente, con un riferimento numerico che ne nomina il punto di codice. Le due forme sono equivalenti per il destinatario che le interpreta e sono diversissime per un programma che non lo faccia: un nome scritto nella seconda forma non è testo illeggibile, è testo che nessuno ha ancora aperto.
+
+Il caso concreto è quello dei nomi di allenatore giapponesi e coreani, che nell'archivio sono scritti interamente in quella forma. Un lettore che tolga i marcatori e non sciolga i riferimenti restituisce una fila di cifre, e il difetto si presenta con l'aspetto di un guasto di codifica mentre è l'opposto: la codifica è intatta e non è stata applicata. Il sintomo è ingannevole perché somiglia a un problema di tabella dei caratteri, che in questo stesso lavoro è stato incontrato davvero altrove, sulle codifiche proprietarie delle prime tre generazioni; là il problema era che la tabella fosse sbagliata, qui che non fosse stata consultata affatto.
+
+La lezione generale è che il testo estratto da un documento di rete ha almeno due strati, e che saltarne uno non produce un errore ma un dato plausibile e falso. Vale la pena enunciarla nella forma che serve a un lettore: prima si toglie la struttura, poi si scioglie la rappresentazione, e i due passi non commutano.
+
+\subsection{Gli strati di un archivio, e il campo vuoto come peggiore dei guasti}
+
+Il secondo difetto è più interessante perché non è un errore di programmazione ma un errore di modello. Un archivio compilato per trent'anni non è omogeneo: chi lo scrive cambia strumenti, convenzioni e abitudini, e le voci antiche e quelle recenti sono scritte in modi diversi che convivono nella stessa pagina. L'archivio ha degli \emph{strati}, come un terreno, e un lettore scritto guardando lo strato superiore è cieco su quelli sotto.
+
+Il caso concreto sono i contrassegni che accompagnano il livello di ciascuna distribuzione. Nelle voci antiche sono caratteri, cioè riferimenti numerici a simboli tipografici. In quelle recenti sono immagini, cioè elementi grafici il cui nome di file porta l'informazione. Un lettore che cerchi soltanto i primi riferisce corretti tutti i record antichi e privi di contrassegno tutti i recenti, e viceversa.
+
+Ciò che rende questo difetto peggiore di un errore franco è la forma in cui si manifesta. Non solleva alcuna eccezione, non produce alcun valore assurdo, non fa fallire alcuna verifica: produce un campo vuoto. E un campo vuoto è indistinguibile dall'assenza legittima del dato, perché molte distribuzioni davvero non hanno contrassegni. Il difetto si nasconde quindi dentro una categoria che deve esistere, ed è la ragione per cui non lo si trova ispezionando l'uscita ma soltanto chiedendosi se la distribuzione dei valori sia plausibile. Nel caso presente il sospetto è nato da una asimmetria temporale: nessuna voce successiva a una certa data portava contrassegni, il che è un fatto sul lettore e non sul mondo.
+
+Se ne trae una prescrizione che vale per qualunque lettura di archivio storico. Quando le voci coprono un arco lungo, si controlla sempre la distribuzione dei campi \emph{per epoca} e non soltanto nel complesso, perché un campo che si svuota a partire da una data non è un fenomeno ma un confine fra strati che il lettore non attraversa.
+
+\subsection{Promuovere una inferenza a fatto senza una legenda}
+
+Dei contrassegni così recuperati, uno era certo e due erano interpretazioni. Il certo è la stella, che indica un esemplare cromatico, e lo è per una ragione di costruzione e non di lettura: l'archivio dedica una pagina alle sole distribuzioni cromatiche, quella pagina porta duecentoventicinque voci, e tutte e duecentoventicinque portano la stella. Verificare una interpretazione su un insieme che la fonte stessa definisce è la forma più economica di prova che esista, e va cercata per prima.
+
+Per gli altri due, un pentagono e una croce, nessuna pagina dell'archivio offriva un insieme di controllo e nessuna legenda li dichiarava. L'ipotesi, suggerita per analogia dal fatto che i contrassegni recenti portano nel proprio nome di file quello di una regione, era che fossero i marchi di origine della sesta e della settima generazione.
+
+Il procedimento con cui è stata provata è generale e merita di essere enunciato come tale. Si cerca nel medesimo record un campo indipendente che, se l'ipotesi è vera, deve correlare in modo obbligato; si formula la correlazione come un divieto invece che come una tendenza; e si contano le violazioni. Qui il campo indipendente è l'elenco dei giochi in cui la carta funziona, e il divieto è che un marchio di origine di una generazione non possa comparire su una carta destinata a un'altra.
+
+L'esito è privo di eccezioni su un campione di dimensione utile. Il pentagono compare su trecentoquarantaquattro distribuzioni e nessuna di esse nomina un gioco fuori dalla sesta generazione. La croce compare su centonovantasei distribuzioni e nessuna nomina un gioco fuori dalla settima. Per contrasto, e come controllo negativo, la stella compare su centoquaranta distribuzioni sparse su tutte le generazioni, cioè si comporta esattamente come deve comportarsi una proprietà dell'esemplare che non sia un marchio di origine.
+
+Il controllo negativo non è un ornamento. Una correlazione perfetta osservata su un solo contrassegno potrebbe discendere da una proprietà dell'archivio invece che dal significato del simbolo, per esempio dal fatto che tutte le voci di una certa epoca portino gli stessi giochi; mostrare che un terzo simbolo, presente nella stessa colonna e nella stessa epoca, \emph{non} correla è ciò che esclude quella spiegazione alternativa. Due predizioni, una positiva e una negativa, entrambe verificate, sono ciò che distingue una prova da una coincidenza.
+
+\subsection{Un contrassegno che compare una volta sola, e che cosa attesta}
+
+Vale registrare un esito accessorio, perché è la conferma indipendente di un fatto che il progetto aveva da una sola fonte. Fra i contrassegni recuperati ne compare uno il cui nome di file rimanda alla console portatile della terza generazione, e compare su una distribuzione sola in tutto il censimento: il regalo di ottobre 2026 consegnato dal deposito a chi completi il catalogo delle versioni per console moderna dei titoli di Kanto.
+
+L'archivio ha dunque già coniato un marchio di origine per un canale che al momento della lettura non era ancora aperto, e lo ha fatto in modo consistente con il proprio schema, cioè un marchio per famiglia di titoli. Ciò corrobora dall'esterno l'annuncio ufficiale su cui questo lavoro aveva fondato la revisione della propria scadenza, e aggiunge una previsione verificabile: gli esemplari provenienti da quel canale porteranno un marchio di origine proprio, distinto da quelli delle generazioni precedenti.
+
+\section{La misura della cecità, e il numero che spiega i pezzi mancanti}
+\label{sec:misura-cecita}
+
+La sezione precedente ha stabilito che la completezza è una proprietà di una coppia e che ciò che nessuna sorgente ha visto si può stimare. Questa riporta l'esito della prima applicazione di quel metodo, che è anche la risposta quantitativa all'obiezione da cui il metodo è nato.
+
+\subsection{Il censimento, e la sua misura verso la fonte}
+
+L'archivio enciclopedico consultato indicizza le proprie pagine dentro tendine di selezione e non dentro collegamenti, quindi la sua mappa si legge dai valori delle opzioni: sono millesettantasette indirizzi, di cui milleventicinque pagine di specie, ventiquattro per anno, sette per i biglietti, nove per i metodi di consegna e undici per le distribuzioni di oggetti. L'attraversamento è stato deliberatamente lento e non parallelo, con una pausa fra le richieste, e la copia grezza resta fuori dal controllo di versione perché è contenuto di terzi: entra nel repository la sintesi con l'attribuzione, non la copia.
+
+Lo spoglio delle sole pagine di specie rende milleottocentottanta distribuzioni distinte, distribuite su trecentonovantatré specie, di cui duecentoventiquattro cromatiche, con un arco che va dal 2003 al 2026.
+
+\subsection{Il numero che spiega tutto}
+
+Fra i campi di ciascuna voce c'è il metodo di consegna, e la sua distribuzione è il fatto centrale di questa sezione. Ottocentootto distribuzioni sono avvenute di persona, presso un apparecchio di negozio o una manifestazione; ottantaquattro dentro il gioco stesso; ottantacinque attraverso il servizio in rete della quinta generazione, chiuso nel 2014. In tutto \emph{novecentosettantotto su milleottocentottanta}, cioè più della metà, sono avvenute per vie che non producono alcuna carta.
+
+Ne discende un limite superiore alla copertura della sorgente su cui questo lavoro aveva fondato per settimane la propria enumerazione. Quella sorgente è una base di carte, e una base di carte non può conoscere una distribuzione che una carta non l'ha lasciata: la sua copertura sull'universo delle distribuzioni è quindi al più il complemento di quel numero. Non è un difetto di quella base dati, che è eccellente per ciò che dichiara di essere; è un limite di dominio, ed era conoscibile prima di misurarlo semplicemente leggendo che cosa la base dati contenga.
+
+È questa la risposta quantitativa alla domanda su perché continuassero a comparire pezzi. Non comparivano per distrazione: comparivano perché la sorgente interrogata era cieca per costruzione su più della metà del fenomeno, e nessuna quantità di lavoro dentro quella sorgente avrebbe potuto rivelarlo.
+
+\subsection{La sovrapposizione, e la stima di ciò che manca ancora}
+
+Ridotte le due enumerazioni all'unità comparabile, cioè la specie che possiede almeno una distribuzione, i conti sono i seguenti. L'archivio enciclopedico ne porta trecentonovantatré, la nostra enumerazione settecentoquarantadue, e le specie presenti in entrambe sono trecentosettantanove.
+
+I due scarti si leggono in modo diverso, come la sezione precedente prescrive. Le quattordici specie che soltanto l'archivio possiede sono la nostra cecità misurata, e l'ispezione conferma la previsione fatta prima di guardarle: sono tutte e quattordici distribuzioni avvenute di persona presso i punti vendita, oppure attraverso il servizio in rete della quinta generazione. Le trecentosessantatré che soltanto noi possediamo sono in prevalenza consegne moderne che l'archivio classifica altrove, e non sono un difetto suo: sono una differenza di perimetro, che va risolta allineando le definizioni e non sommando i numeri.
+
+Applicando lo stimatore di Chapman alle due enumerazioni si ottiene una popolazione di circa settecentosessantanove specie contro un'unione osservata di settecentocinquantasei, e quindi una tredicina di specie che nessuna delle due sorgenti ha mai visto. Vale la riserva già dichiarata: le sorgenti sono correlate positivamente, quindi la sovrapposizione è gonfia, la stima è per difetto, e quel numero è un limite inferiore.
+
+\subsection{Che cosa questo cambia nella conduzione del lavoro}
+
+La lezione non riguarda l'archivio consultato ma il modo di scegliere le sorgenti. Aggiungere una seconda sorgente scelta perché \emph{accurata} avrebbe prodotto poco: due sorgenti accurate della stessa specie si confermano a vicenda e lasciano il punto cieco dov'era. Ciò che ha prodotto le quattordici voci è stato scegliere una sorgente con una \emph{copertura di natura diversa}, cioè una che raccogliesse eventi invece di carte.
+
+Se ne trae il criterio di selezione che questo lavoro adotta d'ora in avanti: una sorgente nuova si valuta prima di tutto su che cosa possa sapere per costruzione, e soltanto dopo su quanto sia affidabile. Una sorgente meno accurata ma cieca su cose diverse vale più di una sorgente accuratissima e cieca sulle medesime, perché la prima riduce la varianza dell'ignoranza e la seconda ne riduce soltanto il rumore.
