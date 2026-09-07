@@ -18,6 +18,12 @@ Resta una sola eccezione possibile a livello di specie, e va verificata prima di
 README.md                          questo file
 RICERCA-UTENTE-2026-09-01.md       la ricerca consegnata dall'utente, verbatim e con provenienza
 STUDIO-01-che-cosa-vincola-la-scadenza.md   la verifica indipendente e il suo esito
+CONFRONTO-FOGLIO-LIVINGDEX.md               il confronto con il foglio comunitario, e le divergenze
+foglio-livingdex.csv                        il foglio comunitario normalizzato, per il diff
+serebii-eventi.csv                          le 1880 distribuzioni delle pagine di specie
+serebii-eventi-senza-specie.csv             i 236 record che nessuna specie indicizza
+EVENTI-SENZA-CARTA.md                       la coda delle consegne che non lasciano una carta
+CATENA-DI-TRASFERIMENTO.md                  i vincoli di ogni passaggio e la via in emulazione
 ```
 
 Lo strumento che produce il conto sta fra quelli comuni, in `tools/disponibilita-titoli.py`, perché serve a più di un track: la sua risposta governa la pianificazione del tempo di tutto il progetto e non soltanto di questo sottoprogetto.

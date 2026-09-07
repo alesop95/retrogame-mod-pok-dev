@@ -242,6 +242,20 @@
     "il costo di rinunciarvi si misura in cinque specie, cioè Arcanine, Feebas, Munchlax, Rayquaza e Tangrowth, che nella base dei doni di quarta generazione compaiono soltanto in distribuzioni coreane: le altre diciotto specie del blocco coreano hanno un gemello in un'altra lingua"
    ],
    "conferme": []
+  },
+  {
+   "lotto": "gen5",
+   "data": "2026-09-07",
+   "copre": "tutti",
+   "esito": "conforme",
+   "file": "tutti i 700 esemplari del lotto di quinta generazione, ottavo giro, lettura di massa nelle scatole di un salvataggio di Nero 2",
+   "rilievi": [],
+   "conferme": [
+    "settecento posizioni su settecento sono dichiarate conformi, comprese le quarantotto uova e i cento esemplari cromatici, e nessuna porta il contrassegno di non conformità",
+    "il lotto è stato chiuso in otto giri, e ciascun giro ha isolato una classe di difetto distinta: la natura copiata cruda dove 255 è il segnale di tirarla, il sesso derivato da un valore di personalità non ancora composto, i punti potenza mai scritti, i quindici fiocchi di merito mai rimappati, il soprannome scritto in una lingua sola invece che nella lingua dell'esemplare, la forma a un byte della parola bassa del valore cromatico, il contrassegno di uovo e i suoi campi, le mosse assenti da sette carte che vanno prese dal repertorio di livello, il livello di incontro letto dal campo omonimo invece che dal campo del livello, e la data di incontro scritta su un uovo che un luogo di incontro non ce l'ha",
+    "due difetti su dieci sono stati chiusi leggendo il rapporto di legittimità a parole invece del rapporto tabellare, e due giri erano stati spesi prima di adottare quella lettura",
+    "un difetto è stato chiuso da un ancoraggio esterno inatteso, cioè un salvataggio della raccolta che conteneva esemplari con gli allenatori delle carte che il verificatore non riconosceva"
+   ]
   }
  ]
 }

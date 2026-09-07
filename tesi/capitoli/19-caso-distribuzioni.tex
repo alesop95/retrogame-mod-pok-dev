@@ -777,3 +777,54 @@ Componendoli si ottiene però un enunciato che nessuno dei due contiene, ed è q
 Se ne trae una conseguenza operativa che vale registrare perché rovescia il modo consueto di leggere un rifiuto. La condizione non è una proprietà dell'esemplare ma della coppia formata dall'esemplare e dal salvataggio che lo ospita: la regola confronta la lingua dell'allenatore attivo con quella dell'esemplare e si attiva soltanto quando le due cadono su lati opposti della barriera. Le medesime ventotto voci, caricate in un salvataggio coreano, non porterebbero alcun rilievo. Non c'è dunque un difetto da riparare ma un veicolo da scegliere, e la scelta ha un costo che si misura: cinque specie, cioè Arcanine, Feebas, Munchlax, Rayquaza e Tangrowth, compaiono fra i doni di quarta generazione soltanto in distribuzioni coreane, mentre le altre diciotto specie del blocco hanno un gemello in un'altra lingua.
 
 Vale infine notare quanto sia stato economico stabilire tutto ciò, perché è il genere di misura che questo lavoro cerca. Il rilievo era uno solo e identico su ventotto voci, e le ventotto erano contigue nelle scatole: due schermate di scatola bastavano a delimitarle, una lettura di dettaglio a nominare la causa, e una lettura del codice della fonte a stabilirne la regola. Un rifiuto omogeneo su un blocco contiguo è un'informazione di qualità superiore a un rifiuto sparso, perché indica una variabile comune invece di un difetto diffuso, ed è la ragione per cui conviene sempre far giudicare un lotto intero invece di un campione.
+
+\section{Tre regimi di correlazione, e una proprietà che non è un campo}
+\label{sec:tre-regimi}
+
+Le sezioni precedenti hanno descritto due modi di comporre un esemplare, e li hanno presentati come alternative di implementazione. Questa mostra che sono invece tre, che sono mutuamente esclusivi, e che la scelta fra loro non è una preferenza ma un dato della classe di provenienza. Si chiude poi con un caso in cui una proprietà che ogni fonte attribuisce all'esemplare non è affatto un suo campo, il che è la forma più insidiosa di errore di modello perché non produce alcun sintomo.
+
+\subsection{La terza classe: ciò che il biglietto non consegnava}
+
+Una parte delle distribuzioni della terza generazione non consegnava un esemplare ma un oggetto, cioè un biglietto o una mappa, e l'oggetto sbloccava l'accesso a un luogo dove l'esemplare andava cercato, indebolito e catturato come qualunque altro. La distinzione sembra narrativa e non lo è: decide tre campi e una relazione.
+
+I tre campi sono l'allenatore, che è il giocatore e non il distributore, tanto che l'archivio enciclopedico scrive nei due campi la parola che significa \emph{i tuoi}; la sfera, che è quella impiegata per la cattura e non quella cerimoniale della consegna; e il luogo di incontro, che è il luogo reale e non il codice riservato agli eventi.
+
+La relazione è quella fra il valore di personalità e i sei valori individuali, ed è la parte che nessuna ispezione campo per campo può accertare.
+
+\subsection{I tre regimi, e la loro mutua incompatibilità}
+
+Un esemplare catturato nasce da un generatore lineare congruenziale, e i suoi campi non sono estratti indipendentemente: provengono da chiamate consecutive dello stesso generatore, quindi sono funzioni deterministiche di un unico stato iniziale. Detto $s_0$ il seme e $s_{n+1} = a s_n + c \bmod 2^{32}$, il primo metodo consuma quattro chiamate: le prime due, troncate ai sedici bit alti, compongono il valore di personalità con la seconda nella parola alta; le altre due, troncate ai quindici bit alti, compongono la parola dei valori individuali, la prima con salute, attacco e difesa e la seconda con velocità, attacco speciale e difesa speciale.
+
+\begin{center}
+\begin{tabular}{lll}
+\hline
+Classe di provenienza & Regime richiesto & Vincolo sul seme \\
+\hline
+distribuzione di terza generazione & correlazione a seme ristretto & il seme sta in un insieme dichiarato \\
+dono di quinta generazione & assenza di ogni correlazione & nessun seme, i campi sono indipendenti \\
+incontro sbloccato da biglietto & primo metodo & quattro chiamate consecutive \\
+\hline
+\end{tabular}
+\end{center}
+
+I tre regimi si escludono a vicenda, e l'esclusione è il punto. Un esemplare composto con l'assenza di correlazione dove serve il primo metodo ha sei valori individuali tutti nell'intervallo lecito e un valore di personalità lecito, e nessuna delle due cose è sbagliata; è sbagliata la coppia. Chi verifichi controlla precisamente questo, perché è ciò che distingue un esemplare nato dal gioco da uno assemblato: l'esistenza di un seme che generi entrambi.
+
+Vale osservare che la verifica è asimmetrica rispetto alla generazione, e in modo favorevole a chi verifica. Generare è immediato, perché basta scegliere un seme e far girare il generatore quattro volte. Verificare richiede di invertire, cioè di cercare i semi che producano i trenta bit noti dei valori individuali e poi di controllare se uno di essi, retrocesso di due passi, produca il valore di personalità osservato. L'inversione è fattibile perché la ricorrenza è affine su un anello e la sua inversa è ancora affine, ma il costo è quello di una ricerca e non di un calcolo, e l'insieme dei semi compatibili con trenta bit di valori individuali è piccolo. La conseguenza pratica è che chi assembla non può nascondersi dietro il costo della verifica.
+
+\subsection{Il presidio contro un errore che non ha sintomi}
+
+Nel programma che compone questi esemplari, la prova che il primo metodo sia implementato correttamente non può essere il controllo che i sei valori individuali stiano fra zero e trentuno, perché quel controllo passa anche se le due metà della parola sono scambiate. Uno scambio del genere produce un esemplare in cui salute e velocità sono permutate insieme alle altre due coppie, cioè sei valori tutti leciti e una relazione inesistente.
+
+Il presidio adottato è un controllo negativo accanto a quello positivo: si verifica che il vettore di prova scelto non sia degenere, cioè che lo scambio delle due metà lo cambierebbe davvero. Senza questa clausola la prova potrebbe passare per caso su un vettore in cui le due metà coincidono, e una prova che passa sempre non prova nulla. È la stessa disciplina già applicata alla permutazione dei blocchi di un formato successivo, dove una prova di simmetria restava vera con entrambe le direzioni sbagliate.
+
+\subsection{Una proprietà che non è un campo}
+
+Resta il caso più istruttivo, ed è quello di una specie il cui aspetto dipende dal gioco. Ogni fonte divulgativa la descrive dicendo che essa \emph{ha} una forma diversa in ciascuno dei quattro titoli, e la formulazione induce a cercare il campo in cui quella forma è scritta. Il campo non esiste. Il lettore del formato di terza generazione calcola la forma sempre uguale a zero per ogni specie tranne una, dove discende dal valore di personalità, e il ramo di scrittura rifiuta di scriverla per ogni altra. Un file che contenga quella specie non porta alcuna forma.
+
+Ciò che varia non è il dato ma la sua resa: è il gioco che apre il file a decidere l'aspetto, sulla base della propria identità e non di un byte del file. Si tratta quindi di una proprietà del contesto di lettura e non dell'oggetto letto, e la differenza ha due conseguenze operative opposte che vanno tenute insieme perché prese separatamente conducono a due conclusioni entrambe sbagliate.
+
+La prima è che non si può produrre una data forma scrivendo un campo, e che le tabelle degli incontri registrano soltanto le forme rese dai giochi che ospitarono quell'evento: la quarta resa non ha una voce perché il biglietto non uscì per i due titoli che la producono. Chi ne concludesse che quella forma è irraggiungibile sbaglierebbe.
+
+La seconda è che nella generazione successiva la forma diventa un campo memorizzato, e che questa specie appartiene all'insieme di quelle per cui il cambiamento di forma è lecito indipendentemente dall'origine. La quarta resa si ottiene dunque su un quarto corpo, dopo il trasferimento, senza alcuna origine speciale. Chi ne concludesse che basta un solo corpo sbaglierebbe altrettanto, perché ciò che si conta sono caselle e una casella la occupa un corpo.
+
+Se ne trae una regola di modellazione che vale oltre il caso: quando una fonte attribuisce a un oggetto una proprietà che il suo formato non memorizza, quella proprietà è una funzione del contesto di lettura e va documentata come tale. Confondere una resa con un campo produce due difetti simmetrici, cioè tentare di scrivere ciò che non si scrive, oppure concludere che ciò che non si scrive non esiste, e il secondo è il più costoso perché chiude una strada che era aperta.
