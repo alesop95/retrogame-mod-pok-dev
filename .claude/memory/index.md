@@ -9,7 +9,7 @@ Questo progetto ha più sottoprogetti paralleli, oggi nove, quindi il punto di r
 ```
 Branch attivo:         main
 Commit di riferimento: d3667cb
-Data snapshot:         2026-09-04
+Data snapshot:         2026-09-07
 ```
 
 ## Stato di verifica delle schede
@@ -27,7 +27,7 @@ Data snapshot:         2026-09-04
 | sub-gen12-gen3-bridge.md | pokemon-gen12-gen3-bridge | 7696c46 | aggiornata |
 | sub-gba-switch-trading.md | gba-switch-pokemon-trading | 7696c46 | aggiornata |
 | sub-poke-automation.md | poke-automation-study | 7696c46 | aggiornata |
-| sub-distributions-events.md | recreate-pokemon-distributions-events | 0f72ba4 | riverificata il 2026-09-04 nella terza parte della giornata: la quarta generazione e' passata da estrazione a composizione con ADR-038, il generatore e' riscritto e il lotto di 247 voci riscritto, il secondo giro attende il giudizio esterno |
+| sub-distributions-events.md | recreate-pokemon-distributions-events | 0f72ba4 | riverificata il 2026-09-07: il lotto di quarta generazione è giudicato, 219 conformi su 247, e le 28 rifiutate sono le sole coreane per la barriera di lingua di ADR-040; le schede di pedigree della quarta generazione esistono e portano il giudizio |
 | sub-poke-ace.md | poke-ace | a427431 | nuova, scritta il 2026-08-31 e aggiornata lo stesso giorno con il secondo studio |
 | sub-generation-from-switch.md | generation-from-switch | 809289a | nuova, scritta il 2026-08-31; il track meno sviluppato dei nove |
 | sub-cart-battery.md | cart-battery-restoration | a427431 | nuova, scritta il 2026-09-01 alla nascita del track |
@@ -38,7 +38,7 @@ Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo q
 ## Punto di ripresa
 
 ```
-Fuoco corrente: pokedex-home-completo, sull'asse degli eventi: quarta generazione riscritta come compositore e in attesa del secondo giudizio, quinta generazione da costruire, scadenza fra 175 giorni
+Fuoco corrente: pokedex-home-completo, sull'asse degli eventi: quarta generazione chiusa salvo la decisione sulle 28 coreane, quinta generazione da costruire a partire dalla forma dell'archivio pgf.pkl, scadenza fra 172 giorni
 ```
 
 Il 2026-08-31 il fuoco si è mosso due volte nella stessa giornata, e vale registrare entrambi i movimenti perché il primo è concluso e il secondo è quello attivo.

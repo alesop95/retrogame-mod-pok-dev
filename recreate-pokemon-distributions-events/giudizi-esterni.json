@@ -1,6 +1,6 @@
 {
  "formato": 1,
- "nota": "Registro dei giudizi del verificatore di conformità esterno sugli esemplari prodotti da questo progetto. È autorato e non generato: ciascuna voce è il resoconto di una prova eseguita da una persona, che ha aperto un file con il verificatore e ne ha letto l'esito. Serve a due cose. La prima è non ripetere una prova già fatta, perché ciascuna costa tempo umano. La seconda, meno ovvia e più importante, è misurare che cosa la verifica copra: sette esemplari giudicati su centoventidue prodotti non dicono nulla da soli, mentre sapere quante delle dimensioni lungo cui gli esemplari differiscono siano state toccate dice esattamente dove resta il rischio. Lo strumento `tools/copertura-verifica.py` calcola quella misura da questo file e dalla tabella del verificatore. Dal 2026-09-04 ogni voce dichiara a quale lotto si riferisca nel campo lotto, con valore gen3 oppure gb. Il campo nasce da un difetto: il giudizio di massa del lotto di prima e seconda generazione, aggiunto quel giorno senza quel campo, veniva applicato dalle schede di terza generazione a tutte le loro voci, perche' esse prendono l'ultimo giudizio che dichiari di coprire tutto. Un registro che raccoglie due lotti deve dire di quale lotto parli, e senza il campo la confusione non produceva un errore ma una dichiarazione di conformita' falsa.",
+ "nota": "Registro dei giudizi del verificatore di conformità esterno sugli esemplari prodotti da questo progetto. È autorato e non generato: ciascuna voce è il resoconto di una prova eseguita da una persona, che ha aperto un file con il verificatore e ne ha letto l'esito. Serve a due cose. La prima è non ripetere una prova già fatta, perché ciascuna costa tempo umano. La seconda, meno ovvia e più importante, è misurare che cosa la verifica copra: sette esemplari giudicati su centoventidue prodotti non dicono nulla da soli, mentre sapere quante delle dimensioni lungo cui gli esemplari differiscono siano state toccate dice esattamente dove resta il rischio. Lo strumento `tools/copertura-verifica.py` calcola quella misura da questo file e dalla tabella del verificatore. Dal 2026-09-04 ogni voce dichiara a quale lotto si riferisca nel campo lotto, con valore gen3 oppure gb. Il campo nasce da un difetto: il giudizio di massa del lotto di prima e seconda generazione, aggiunto quel giorno senza quel campo, veniva applicato dalle schede di terza generazione a tutte le loro voci, perché esse prendono l'ultimo giudizio che dichiari di coprire tutto. Un registro che raccoglie due lotti deve dire di quale lotto parli, e senza il campo la confusione non produceva un errore ma una dichiarazione di conformità falsa.",
  "verificatore": {
   "nome": "PKHeX",
   "versione": "26.08.26",
@@ -148,10 +148,10 @@
    "esito": "conforme",
    "rilievi": [],
    "conferme": [
-    "i centosessantacinque file sono stati caricati con la funzione di caricamento di massa in un salvataggio vuoto di SECONDA generazione, che il verificatore costruisce da Nuovo salvataggio: il contenitore giusto conta, perche' caricarli in un salvataggio di prima generazione li converte e li invalida per una ragione che non e' nostra",
-    "nessuna delle nove scatole porta alcun contrassegno di non conformita', ne' sulle voci di prima generazione ne' sulle centotrentaquattro uova, che erano la parte che i tre giri precedenti avevano fatto cadere",
-    "e' il quarto giro, e i tre precedenti hanno prodotto i tre difetti che questa lettura chiude: i due livelli della tabella di seconda generazione, il livello di incontro delle uova che deve valere uno, e la fase del giorno che deve essere nulla per un dono e vera per un uovo schiuso",
-    "restano fuori dal lotto tre voci su centosessantotto, e non per un difetto ma per un limite dichiarato: il nome del loro donatore e' in caratteri giapponesi e la tabella dei caratteri di quelle generazioni non e' ancora nel progetto"
+    "i centosessantacinque file sono stati caricati con la funzione di caricamento di massa in un salvataggio vuoto di SECONDA generazione, che il verificatore costruisce da Nuovo salvataggio: il contenitore giusto conta, perché caricarli in un salvataggio di prima generazione li converte e li invalida per una ragione che non è nostra",
+    "nessuna delle nove scatole porta alcun contrassegno di non conformità, né sulle voci di prima generazione né sulle centotrentaquattro uova, che erano la parte che i tre giri precedenti avevano fatto cadere",
+    "è il quarto giro, e i tre precedenti hanno prodotto i tre difetti che questa lettura chiude: i due livelli della tabella di seconda generazione, il livello di incontro delle uova che deve valere uno, e la fase del giorno che deve essere nulla per un dono e vera per un uovo schiuso",
+    "restano fuori dal lotto tre voci su centosessantotto, e non per un difetto ma per un limite dichiarato: il nome del loro donatore è in caratteri giapponesi e la tabella dei caratteri di quelle generazioni non è ancora nel progetto"
    ],
    "lotto": "gb"
   },
@@ -160,12 +160,12 @@
    "data": "2026-09-04",
    "esito": "da rifare",
    "rilievi": [
-    "il giudizio di massa del 2026-09-02 non copre piu' il lotto che sta sul disco, e la ragione non e' un difetto ma un cambiamento voluto: le venticinque voci che prendono nome e identificativo da chi riceve portavano un segnaposto e ora portano l'allenatore del progetto, cioe' Alessio con identificativo 42317",
-    "in terza generazione l'identificativo entra nel calcolo della lucentezza, che si ottiene come somma esclusiva fra identificativo, identificativo segreto e le due meta' del valore di personalita': cambiare la coppia puo' rendere cromatico un esemplare che non lo era o viceversa, quindi la rigenerazione e' un ricalcolo e non una riscrittura di due campi",
-    "ne segue che il lotto va sottoposto di nuovo al verificatore per intero, e non a campione: un verdetto verde su un campione non autorizza a concludere sul gruppo, che e' una lezione gia' pagata da questo progetto"
+    "il giudizio di massa del 2026-09-02 non copre più il lotto che sta sul disco, e la ragione non è un difetto ma un cambiamento voluto: le venticinque voci che prendono nome e identificativo da chi riceve portavano un segnaposto e ora portano l'allenatore del progetto, cioè Alessio con identificativo 42317",
+    "in terza generazione l'identificativo entra nel calcolo della lucentezza, che si ottiene come somma esclusiva fra identificativo, identificativo segreto e le due metà del valore di personalità: cambiare la coppia può rendere cromatico un esemplare che non lo era o viceversa, quindi la rigenerazione è un ricalcolo e non una riscrittura di due campi",
+    "ne segue che il lotto va sottoposto di nuovo al verificatore per intero, e non a campione: un verdetto verde su un campione non autorizza a concludere sul gruppo, che è una lezione già pagata da questo progetto"
    ],
    "conferme": [
-    "le impronte del lotto nuovo sono nel manifesto `_notes/lotto-eventi/impronte.json` e compaiono nelle schede: chi rifara' il giudizio potra' dichiarare esattamente su quali byte lo ha fatto, che e' cio' che mancava alla prova precedente"
+    "le impronte del lotto nuovo sono nel manifesto `_notes/lotto-eventi/impronte.json` e compaiono nelle schede: chi rifarà il giudizio potrà dichiarare esattamente su quali byte lo ha fatto, che è ciò che mancava alla prova precedente"
    ],
    "lotto": "gen3",
    "copre": "tutti"
@@ -178,11 +178,70 @@
    "esito": "conforme",
    "rilievi": [],
    "conferme": [
-    "il lotto rigenerato con Alessio e identificativo 42317 e' stato caricato nelle sei scatole di un salvataggio vuoto di terza generazione e nessuna posizione porta il contrassegno di non conformita': la voce 'da rifare' registrata poche ore prima e' quindi chiusa con esito positivo",
-    "il timore che motivava la richiesta era fondato ma non si e' realizzato: l'identificativo entra nel calcolo della lucentezza, quindi cambiarlo poteva rendere cromatico un esemplare che non lo era, e il generatore cerca il seme dopo avere fissato gli identificativi, cosicche' il vincolo di lucentezza dichiarato dalla tabella resta soddisfatto anche con la coppia nuova",
-    "una lettura mostra il dettaglio di uno Zigzagoon cromatico con tipo di incontro Event Gift, tipo PID BACD_S nella variante BACD_RBCD e seme di origine 00000005: il verificatore riconosce quindi non soltanto la legittimita' ma anche il metodo di generazione, che e' la prova piu' forte che il generatore ricostruisca il procedimento e non soltanto il risultato",
+    "il lotto rigenerato con Alessio e identificativo 42317 è stato caricato nelle sei scatole di un salvataggio vuoto di terza generazione e nessuna posizione porta il contrassegno di non conformità: la voce 'da rifare' registrata poche ore prima è quindi chiusa con esito positivo",
+    "il timore che motivava la richiesta era fondato ma non si è realizzato: l'identificativo entra nel calcolo della lucentezza, quindi cambiarlo poteva rendere cromatico un esemplare che non lo era, e il generatore cerca il seme dopo avere fissato gli identificativi, cosicché il vincolo di lucentezza dichiarato dalla tabella resta soddisfatto anche con la coppia nuova",
+    "una lettura mostra il dettaglio di uno Zigzagoon cromatico con tipo di incontro Event Gift, tipo PID BACD_S nella variante BACD_RBCD e seme di origine 00000005: il verificatore riconosce quindi non soltanto la legittimità ma anche il metodo di generazione, che è la prova più forte che il generatore ricostruisca il procedimento e non soltanto il risultato",
     "le venticinque voci che portano l'allenatore del progetto sono quelle che la tabella dichiara consegnate al ricevente, dalla 133 alla 157 comprese, e le altre conservano il proprio allenatore storico: il file 000 porta MYSTRY con identificativo 6930 e il file 133 porta Alessio con 42317"
    ]
+  },
+  {
+   "lotto": "gen4",
+   "data": "2026-09-07",
+   "copre": "tutti",
+   "esito": "conforme",
+   "file": "tutti i 247 esemplari del lotto di quarta generazione riscritto come composizione, lettura di massa nelle nove scatole di un salvataggio vuoto di Argento SoulSilver",
+   "rilievi": [],
+   "conferme": [
+    "duecentodiciannove posizioni su duecentoquarantasette non portano alcun contrassegno di non conformità, e le ventotto che lo portano sono trattate nella voce successiva di questo registro: il rifiuto in blocco del primo giro, che era duecentoquarantasette su duecentoquarantasette, è quindi chiuso",
+    "il verificatore riconosce la carta di origine e la nomina: su una lettura dichiara Tipo di incontro Event Gift (PCD) e Card #: 0065, cioè non soltanto accetta l'esemplare ma lo attribuisce alla distribuzione da cui viene",
+    "il verificatore dichiara Tipo PID: None su ciascuna lettura, che è esattamente il valore che la fonte pretende per un dono di quarta generazione: la scelta di comporre valore di personalità e valori individuali da due semi indipendenti è quindi verificata dall'esterno e non soltanto argomentata",
+    "il luogo di incontro compare come Evento Pokemon, che conferma dal lato del verificatore lo spostamento del campo con l'aggiunta di tremila, già confermato dal lato dei byte sul salvataggio di Argento SoulSilver del forum"
+   ]
+  },
+  {
+   "lotto": "gen4",
+   "data": "2026-09-07",
+   "copre": "elenco",
+   "voci": [
+    232,
+    233,
+    234,
+    235,
+    236,
+    237,
+    238,
+    239,
+    240,
+    241,
+    242,
+    243,
+    244,
+    245,
+    248,
+    249,
+    250,
+    253,
+    256,
+    257,
+    258,
+    259,
+    260,
+    261,
+    262,
+    263,
+    265,
+    266
+   ],
+   "esito": "non conforme nel salvataggio internazionale, conforme in un salvataggio coreano",
+   "file": "le ventotto voci coreane del lotto di quarta generazione, posizioni da 197 a 224, cioè le scatole 7 e 8",
+   "rilievi": [
+    "il verificatore dichiara su tutte e ventotto il medesimo rilievo, cioè che il Fiocco Classico non può essere scambiato attraverso il servizio di scambio globale, e lo classifica sotto la voce della lingua",
+    "il rilievo non riguarda la nostra composizione e non c'è nulla da correggere nei byte: in quarta generazione i giochi coreani non potevano scambiare direttamente con quelli internazionali, e il solo ponte fra i due mondi era il servizio di scambio globale, che rifiutava le uova e gli esemplari con il Fiocco Classico. Un esemplare da evento coreano dentro un salvataggio non coreano di quarta generazione è quindi storicamente impossibile, e il verificatore ha ragione a rifiutarlo",
+    "la condizione dipende dal salvataggio di destinazione e non dall'esemplare: la regola confronta la lingua dell'allenatore attivo con quella dell'esemplare e si attiva solo quando le due differiscono sull'asse coreano contro internazionale. Le medesime ventotto voci in un salvataggio coreano di quarta generazione non porterebbero alcun rilievo",
+    "tutte e ventotto le voci coreane portano il Fiocco Classico, quindi non esiste un sottoinsieme salvabile; centosessantasei voci non coreane lo portano a loro volta e sono conformi, il che conferma che il fiocco da solo non è il difetto",
+    "il costo di rinunciarvi si misura in cinque specie, cioè Arcanine, Feebas, Munchlax, Rayquaza e Tangrowth, che nella base dei doni di quarta generazione compaiono soltanto in distribuzioni coreane: le altre diciotto specie del blocco coreano hanno un gemello in un'altra lingua"
+   ],
+   "conferme": []
   }
  ]
 }
