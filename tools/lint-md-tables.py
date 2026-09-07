@@ -74,13 +74,19 @@ def conta_colonne(riga):
 
     Si toglie la barra iniziale e quella finale prima di dividere, perché sono delimitatori e
     non separatori: contarle come tali darebbe due celle vuote su ogni riga.
+
+    Una barra preceduta da una barra rovesciata non separa alcuna cella: è il modo che il formato
+    prevede per scrivere il carattere dentro una cella, e ignorarlo farebbe segnalare come difetto
+    una riga corretta. Il caso non è teorico e nasce da una riga vera: le chiavi dei semi delle
+    schede di quarta generazione usano la barra come separatore dei propri campi, e devono restare
+    copiabili tali e quali perché è da esse che l'impronta del seme si ricalcola.
     """
     corpo = riga.strip()
     if corpo.startswith("|"):
         corpo = corpo[1:]
     if corpo.endswith("|"):
         corpo = corpo[:-1]
-    return len(corpo.split("|"))
+    return len(corpo.replace(chr(92) + "|", chr(1)).split("|"))
 
 
 def analizza(testo):
@@ -161,6 +167,8 @@ def self_test():
          "| a | b | c |\n|---|---|---|\n| 1 | 2 |\n", 1),
         ("riga con una colonna in piu",
          "| a | b |\n|---|---|\n| 1 | 2 | 3 |\n", 1),
+        ("barra protetta dentro una cella, che non separa nulla",
+         "| a | b |\n|---|---|\n| x\\|y | 2 |\n", 0),
         ("barra dentro un blocco recintato",
          "```\n| non | una | tabella\n```\n", 0),
         ("prosa dopo una tabella, senza ripresa",

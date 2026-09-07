@@ -678,3 +678,76 @@ Il giudizio esterno ha poi confermato l'enunciato sul lotto intero. Le centosett
 \subsection{Che cosa questa sezione insegna oltre al caso}
 
 Il valore metodologico non sta nel risultato ma nella distanza fra la prima spiegazione e quella vera. Entrambe prevedevano correttamente che il lotto rigenerato risultasse conforme, quindi nessuna osservazione sul solo esito le avrebbe distinte. Differiscono però su ciò che accadrebbe in un caso diverso: la spiegazione a ricerca implica che una coppia di identificativi sfortunata possa non ammettere alcuna soluzione sui metodi a seme ristretto, e avrebbe imposto di validare ogni coppia futura; la spiegazione a costruzione stabilisce che nessuna coppia possa fallire, e rende quella validazione superflua. Una previsione giusta ottenuta da un meccanismo sbagliato non è quindi una conoscenza equivalente: è una conoscenza che smetterà di funzionare al primo caso fuori dal campione, e la sola via per distinguerle è scrivere l'algebra invece di osservare l'esito.
+
+\section{La quarta generazione, e il modello che sembrava un esemplare}
+\label{sec:gen4-modello}
+
+Questa sezione registra una previsione sbagliata insieme alla sua correzione, e le tiene entrambe perché il valore metodologico sta nella distanza fra le due. La previsione era che la quarta generazione fosse quasi gratis: che la ricostruzione del generatore, costata alla terza generazione settimane di lavoro e otto difetti, qui non servisse affatto, perché un dono di quarta generazione non descrive un esemplare da generare ma lo contiene già fatto. La previsione era falsa, e il modo in cui è caduta merita di essere raccontato perché è lo stesso di altre volte in questo lavoro: una struttura ben formata è stata scambiata per una struttura completa.
+
+\subsection{Il contenitore, e ciò che vi si legge senza guardare i valori}
+
+Il record di un dono di quarta generazione occupa \texttt{0x358} byte e comincia con l'intestazione della carta. A otto byte dal proprio inizio porta una struttura di esemplare nel formato di squadra, lunga duecentotrentasei byte, che nella base dati di riferimento è conservata in chiaro invece che cifrata. Il fatto che sia in chiaro non è una comodità dell'archivio ma un dato osservabile della struttura stessa: la parola a trentadue bit all'offset \texttt{0x64}, che nella forma cifrata porta i bit di fiocco inutilizzati, vale zero soltanto quando il dato non è cifrato, ed è il criterio che l'implementazione di riferimento usa per distinguere le due forme senza doverle provare entrambe.
+
+Una lettura ingenua si ferma qui e conclude che l'esemplare c'è. La somma di controllo torna su tutte e duecentoquarantasette le strutture, la specie sta nell'intervallo della generazione, il livello e l'esperienza si corrispondono, il nome dell'allenatore è quello storico dell'evento. Nulla, nella forma, denuncia un'assenza. È esattamente il caso di cui la decisione ADR-036 di questo progetto tratta: una struttura può essere internamente coerente e insieme incompleta, e nessuna verifica interna può accorgersene.
+
+\subsection{La misura dell'assenza}
+
+Ciò che l'ispezione della forma non dice, la statistica dei valori lo dice subito, e in modo netto. Su duecentoquarantasette modelli, tutti e duecentoquarantasette portano i trenta bit dei valori individuali a zero. Su duecentoquarantasette, centodiciannove portano il valore di personalità uguale a uno. Nessuno dei due è un valore plausibile: sei statistiche tutte nulle sono un esemplare che non esiste, e un valore di personalità pari a uno non è un valore ma un segnale, che nella convenzione della fonte significa \emph{generane uno che non risulti cromatico}.
+
+Ne segue che il valore di personalità e i valori individuali di un evento di quarta generazione non stavano nel dono e non sono mai esistiti prima della consegna. Li tirava il gioco, sulla console di chi riceveva, nel momento in cui la carta veniva riscossa. Due esemplari dello stesso evento consegnati a due persone diverse erano dunque diversi, e non per un accidente ma per costruzione: la carta fissava l'identità dell'evento, la console forniva l'identità dell'individuo.
+
+La quantità di informazione che il progetto deve fornire al posto della console si calcola esattamente. Ogni esemplare richiede i trenta bit dei valori individuali; centodiciannove ne richiedono altri trentadue per il valore di personalità. In tutto
+
+\[
+H = 247 \cdot 30 + 119 \cdot 32 = 7410 + 3808 = 11218 \text{ bit},
+\]
+
+cioè poco meno di un chilobyte e mezzo di scelte che nessuna fonte documenta perché nessuna fonte le ha mai conosciute. La quarta generazione non è quindi più economica della terza per la parte che conta: è composizione, esattamente come la terza. La differenza, che resta reale ma è di grado e non di natura, è che qui il modello fissa già specie, mosse, livello, palla, allenatore, lingua e fiocchi, mentre in terza generazione andava composto anche quello a partire da un solo seme.
+
+\subsection{Le mutazioni della consegna, e la sola che spiega il rifiuto}
+
+La consegna applica al modello un insieme chiuso di mutazioni, che l'implementazione di riferimento concentra in un unico metodo. La più importante non è un calcolo ma uno spostamento, ed è la ragione per cui il primo lotto prodotto da questo progetto è stato rifiutato in blocco, duecentoquarantasette voci su duecentoquarantasette.
+
+Il modello non tiene il luogo della distribuzione nel campo del luogo di incontro, che è nullo, ma nel campo del luogo dell'uovo. La consegna lo sposta, sommandovi tremila e azzerando il campo di partenza. Uno spostamento di campo, non una trasformazione di valore: la struttura estratta e non trasformata è ben formata, ha la somma di controllo giusta, ed è nondimeno un esemplare senza luogo di provenienza, che nessun verificatore può accettare.
+
+Le altre mutazioni sono minori e si elencano per completezza. Il campo di integrità formale va azzerato, perché un solo dono storico lo porta diverso da zero, per un difetto della distribuzione originale. La cordialità si riporta al valore base della specie. Il contrassegno di uovo si spegne. La data di incontro si scrive, e questo progetto la fissa a una data dichiarata invece che al giorno della corsa, perché un lotto riproducibile non può dipendere da quando lo si produce.
+
+\subsection{L'ancoraggio esterno, che è la parte non deducibile}
+
+La somma di tremila non si deduce dalla struttura, e prenderla sulla parola dalla sola implementazione di riferimento avrebbe ripetuto l'errore che ADR-036 vieta. È stata quindi confrontata con i byte di esemplari da evento veri e riconosciuti conformi, letti direttamente dal salvataggio di Argento SoulSilver della raccolta, decifrando le posizioni delle scatole con lo schema della quarta generazione.
+
+Il confronto è netto. Nel salvataggio i valori del campo del luogo di incontro sono tremilasessanta per l'evento Pokémon, tremilasettantatré per il dono senza fili e tremilauno per il gioco spin-off della serie Ranger, e i modelli corrispondenti portano nel campo dell'uovo rispettivamente sessanta, settantatré e uno. Di più: sette dei diciassette esemplari da evento presenti in quel salvataggio coincidono con altrettante voci del nostro lotto su specie, valore di personalità e coppia di identificativi dell'allenatore, il che conferma che i centoventotto valori di personalità che il modello dichiara e noi conserviamo sono davvero quelli distribuiti. Su quelle sette voci il confronto è stato esteso a dodici campi, e dopo la correzione dell'ultimo di essi nessuno diverge.
+
+L'ultimo campo corretto merita una riga, perché ha insegnato un fatto che la sola lettura della fonte non dava. Il campo esteso del luogo, che le versioni successive a Diamante e Perla affiancano a quello originale, non dipende dalla versione che la carta dichiara ma dal gioco su cui la carta è stata riscossa. Nel medesimo salvataggio convivono, entrambi conformi, un Pichu che dichiara Diamante come versione di origine e porta il campo esteso scritto, e un Manaphy che dichiara la stessa versione e lo porta nullo. Il campo racconta dunque dove la consegna è avvenuta, non da dove viene la specie, e il generatore lo prende come parametro invece di dedurlo.
+
+\subsection{Il vincolo di scorrelazione, che rovescia quello della terza generazione}
+
+Resta il punto tecnicamente più interessante, ed è quello in cui la quarta generazione contraddice la terza. Per una distribuzione di terza generazione la prova di autenticità è la correlazione: il verificatore ricostruisce il seme di origine e dichiara riconosciuto il metodo, e questo progetto ha registrato quel riconoscimento come la conferma più forte ottenuta, perché attesta il procedimento e non soltanto il risultato. Per un dono di quarta generazione il verificatore pretende l'opposto, cioè che la coppia formata dal valore di personalità e dai valori individuali non esibisca alcuna delle correlazioni note, e classifica come conforme soltanto il caso in cui il tipo di correlazione riconosciuto sia nessuno.
+
+La ragione sta nel modo in cui la console riscuoteva la carta. Le due grandezze non venivano tirate dalla medesima sequenza pseudocasuale in passi consecutivi, come accade per un incontro selvatico, ma da due percorsi distinti del codice, e la loro indipendenza è quindi una firma della consegna tanto quanto il seme lo è della distribuzione di terza generazione. Comporle da un seme unico in passi consecutivi produrrebbe la correlazione del primo metodo, e l'esemplare verrebbe rifiutato precisamente perché troppo regolare.
+
+Il generatore di questo progetto rispetta il vincolo derivando i due valori da due semi distinti, ottenuti come impronte crittografiche della voce con due sali diversi. Che una coppia così ottenuta esibisca per caso una correlazione è possibile e va quantificato invece che escluso a parole. Una coppia correlata secondo il primo metodo è determinata interamente dal seme a trentadue bit che la genera, quindi le coppie correlate sono al più $2^{32}$ su un dominio di $2^{32} \cdot 2^{30} = 2^{62}$ coppie, e la probabilità che una coppia scelta senza correlazione ne esibisca una vale
+
+\[
+P \le \frac{2^{32}}{2^{62}} = 2^{-30} \approx 9{,}3 \cdot 10^{-10},
+\]
+
+che sull'intero lotto di duecentoquarantasette voci dà un valore atteso di circa $2{,}3 \cdot 10^{-7}$ collisioni. Il verificatore prova più di un metodo, e moltiplicare la stima per una decina di famiglie non ne cambia l'ordine di grandezza. Il vincolo è dunque soddisfatto con margine, e resta comunque il giudizio esterno a stabilirlo caso per caso: la stima dice che non occorre un presidio, non che il presidio sarebbe inutile.
+
+\subsection{I tre vincoli del valore di personalità composto}
+
+Dove il modello porta il segnale invece del valore, il valore va composto, e non è libero. I vincoli sono tre e vanno enunciati perché due di essi vengono dalla fonte e il terzo è stato aggiunto da questo progetto.
+
+Il primo è la non lucentezza. Il segnale significa esattamente questo, e la condizione da rispettare è quella comune alla terza, quarta e quinta generazione, cioè che la somma esclusiva delle quattro parole a sedici bit formate dai due identificativi e dalle due metà del valore di personalità non sia minore di otto. Il gioco vi provvedeva facendo avanzare il valore con un secondo generatore lineare congruenziale, di moltiplicatore \texttt{0x6C078965} e incremento uno, finché la condizione non fosse soddisfatta, ed è il procedimento che il generatore rifà.
+
+Il secondo è il sesso. La struttura del modello lo dichiara nei bit uno e due del byte all'offset \texttt{0x40}, mentre nel dato dell'esemplare il sesso non è memorizzato ma discende dal valore di personalità confrontando il suo byte meno significativo con il rapporto dichiarato dalla tabella personale della specie. Un valore che desse il sesso sbagliato produrrebbe un esemplare in contraddizione con se stesso.
+
+Il terzo è la parità, e non viene dalla fonte. In quarta generazione la casella di abilità discende dal bit meno significativo del valore di personalità, mentre il modello dichiara già quale delle due abilità l'esemplare porti, scrivendone il numero. Un valore di parità sbagliata darebbe dunque un esemplare la cui abilità non è quella che il suo stesso valore impone. Il vincolo tocca in pratica una sola voce, perché fra le duecentoquarantasette soltanto ventisei riguardano specie con due abilità e di queste venticinque portano già il proprio valore di personalità, ma vale enunciarlo perché è il genere di condizione che, non essendo enunciata, si scopre soltanto da un rifiuto.
+
+\subsection{La riproducibilità, e perché il seme non viene dall'orologio}
+
+Un requisito che questo progetto si è dato è che ogni esemplare da evento porti dati tecnici completi e univoci, cioè tali che chiunque possa rifarli. Un generatore che tirasse i propri semi dal generatore di sistema soddisferebbe tutti i vincoli di conformità e violerebbe questo: due corse darebbero due lotti diversi, e la scheda di pedigree scritta dopo la prima descriverebbe un esemplare che la seconda non produce più.
+
+I due semi di ciascuna voce si ricavano quindi da un'impronta SHA-256 di una chiave che nomina l'indice della voce nella base dati, il valore di personalità che il modello dichiara, la coppia di identificativi dell'allenatore e il sale che distingue i due usi. Ne segue che il lotto è una funzione della base dati e dell'allenatore scelto, e non del momento in cui lo si produce. La medesima disciplina vale per la data di incontro, che è una costante dichiarata nel codice e ripetuta nel manifesto scritto accanto al lotto, e non il giorno della corsa.
+
+Vale infine notare che questa scelta ha un costo dichiarato e accettato. I valori individuali che il progetto compone non sono quelli che una console avrebbe tirato in quel giorno del duemilanove, e nessuno può esserlo, perché quei valori non furono mai uno solo: erano tanti quante furono le console. Ciò che il progetto ricrea non è dunque l'esemplare di qualcun altro ma un esemplare legittimo della medesima distribuzione, che è precisamente ciò che il canale consentiva a chi si presentava al negozio.

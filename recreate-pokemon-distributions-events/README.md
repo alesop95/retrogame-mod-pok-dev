@@ -55,6 +55,8 @@ Sulla legittimità degli esemplari ricreati questo progetto non fa finta di nien
 | perché esistono cifratura e checksum, spiegato | `docs/04-cifratura-gen3.md` e `docs/03-integrita-checksum.md` |
 | il multiboot, cioè il canale su cui viaggia una distribuzione | `docs/10-multiboot-hardware.md` |
 | le fonti di questo track, con il livello di affidabilità | `SOURCES.md` alla radice, colonna EVT |
+| il pedigree tecnico di ciascun esemplare prodotto per le prime tre generazioni | `SCHEDE-ESEMPLARI.md`, generato, in questa cartella |
+| il pedigree tecnico dei 247 esemplari da evento di quarta generazione | `SCHEDE-ESEMPLARI-GEN4.md`, generato da `tools/schede-esemplari-gen4.py`, in questa cartella |
 | a che punto è il track e qual è il prossimo passo | `.claude/context/sub-distributions-events.md` |
 
 Lo stato canonico del track vive nella scheda, e il quadro d'insieme di tutti i sottoprogetti in `.claude/memory/index.md`. Questo file dice cos'è il sottoprogetto; quelli dicono a che punto è. Dal 2026-09-02 il track porta anche `CATALOGO-EVENTI.md`, che è generato da `tools/catalogo-eventi.py` e non si modifica a mano: accanto a ciascun gruppo di evento sta la sua provenienza storica, cioè quando, dove e come quel dono venne consegnato, con il collegamento alla fonte e la data di lettura. I fatti meccanici vengono dalla tabella del verificatore e si rigenerano; i fatti storici sono autorati in `provenienze-eventi.json`, che è il file da modificare. Lo stato della copertura è scritto in testa al documento come numero, perché un catalogo che nasconda le proprie lacune è peggio di uno incompleto.

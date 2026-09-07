@@ -456,3 +456,27 @@ Su uno di quei tre la riparazione automatica è stata provata fino in fondo, cor
 Si stabilisce quindi che i tre salvataggi dei forum restano nella raccolta come veicoli, cioè come partite avanzate su cui girare quando serva uno stato di avanzamento secondo ADR-029, e non come fonti di esemplari; e che i due di Project Pokemon sono fonti di esemplari a tutti gli effetti, con l'obbligo di verifica che ADR-024 già impone.
 
 Si stabilisce inoltre un criterio di triage per i salvataggi futuri, che costa un solo rapporto sui box e sostituisce ore di lavoro: prima di studiare o riparare un salvataggio esterno se ne legge il rapporto e se ne conta la quota di legali. Sotto una quota bassa il file non è una fonte e nessuna riparazione lo renderà tale, quindi non vi si spende altro tempo.
+
+## ADR-038: una struttura di dono è un modello e non un esemplare, e la differenza si misura sui valori
+
+Data: 2026-09-04. Stato: accettata. Ritira l'affermazione che la quarta generazione fosse quasi gratis.
+
+Il progetto aveva stabilito, guardando la forma della base dei doni di quarta generazione, che quella generazione non richiedesse alcuna ricostruzione del generatore pseudocasuale, perché la carta porta al proprio interno una struttura di esemplare completa e in chiaro. Il lotto prodotto su quella premessa è stato rifiutato dal verificatore in blocco, duecentoquarantasette voci su duecentoquarantasette.
+
+La premessa era falsa e il modo in cui lo era va enunciato come regola, perché non riguarda soltanto quella base dati. La struttura era ben formata e insieme incompleta: somma di controllo corretta, specie nell'intervallo, livello ed esperienza coerenti, allenatore storico presente, e tuttavia i trenta bit dei valori individuali a zero su tutte e duecentoquarantasette le voci e il valore di personalità pari a uno su centodiciannove di esse, che nella convenzione della fonte non è un valore ma l'ordine di generarne uno non cromatico. Il dono non conteneva l'esemplare: conteneva la sua descrizione più il procedimento per completarla, e i bit mancanti erano 11218, forniti al momento della riscossione dalla console di chi riceveva.
+
+Se ne trae la prescrizione che questa decisione registra. La completezza di una struttura non si stabilisce dalla sua forma ma dai suoi valori, e il controllo da fare prima di dichiarare che un dato è utilizzabile è statistico e non sintattico: si conta quante voci portino un campo interamente nullo e quante portino un valore che il formato riserva come segnale. Un campo nullo su tutte le voci non è un caso, è una dichiarazione di assenza; un valore piccolo e ricorrente in un campo che dovrebbe essere uniforme non è un valore, è un codice. Nessuna somma di controllo può dirlo, perché una somma verifica che i byte siano quelli che qualcuno ha scritto e non che siano tutti quelli che servono.
+
+Ne discende anche la revisione di un giudizio di costo. La quarta generazione non è più economica della terza per la parte che conta, cioè la composizione dell'individuo: è la medesima classe di problema, con la differenza, reale ma di grado, che il modello fissa già specie, mosse, livello, palla, allenatore, lingua e fiocchi.
+
+## ADR-039: la provenienza di un salvataggio è un indizio di priorità, non un criterio di qualità
+
+Data: 2026-09-04. Stato: accettata. Restringe ADR-037, che resta valida nel proprio ambito.
+
+ADR-037 aveva registrato che su cinque salvataggi di 3DS la provenienza predice la qualità senza eccezioni: i due della raccolta contribuita di Project Pokémon sono partite vere e legali quasi al cento per cento, i tre dei forum italiani sono costruiti e legali all'uno per mille. La regolarità era reale sul campione e la conclusione operativa, cioè leggere il rapporto sui box prima di spendere tempo su un file, resta giusta.
+
+L'estensione della regolarità alla quarta generazione è però falsa, e il caso che la smentisce non è marginale. Dei due salvataggi di Argento SoulSilver della raccolta, quello di Project Pokémon porta novantuno esemplari, tutti legali, sessantuno specie e nessun esemplare da evento; quello del forum italiano ne porta quattrocentoquarantanove, di cui quattrocentoquarantacinque legali, trecentocinquantacinque specie distinte e diciassette esemplari da evento fatidici tutti legali con i loro allenatori storici. Il file del forum è il più ricco della raccolta ed è quello che ha fatto da testimone esterno alla correzione del generatore di quarta generazione.
+
+Si stabilisce quindi che la provenienza non entra nel giudizio di qualità di un salvataggio. Entra al più nell'ordine con cui si esaminano i file quando sono molti, e anche là il costo di sbagliare ordine è un minuto. Il criterio resta uno solo ed è il rapporto sui box del verificatore, che va letto su ogni file prima di trarne qualsiasi conclusione, e nessuna regolarità osservata su un campione piccolo lo sostituisce.
+
+Vale enunciare anche la ragione per cui la regolarità reggeva sul primo campione e cade sul secondo. I tre file di sesta generazione erano stati descritti dai forum stessi come partite complete con valori individuali e punti allenamento al massimo, cioè erano costruiti per uno scopo, il gioco competitivo, che impone di riscrivere ogni esemplare. Un salvataggio di quarta generazione di un forum non ha quella spinta, e può essere semplicemente la partita lunga di una persona. La variabile che predice la qualità non è dunque il sito da cui il file viene ma lo scopo per cui è stato costruito, che il sito non dichiara e il rapporto sui box invece rivela.
