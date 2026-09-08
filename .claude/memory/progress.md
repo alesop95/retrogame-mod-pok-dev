@@ -4,6 +4,38 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-08, nona parte. ADR-049 accolta, i Pokemon di N contati, e la politica sulla versione nativa
+
+### Il criterio è deciso
+
+L'utente ha accolto ADR-049: gli incontri ordinari dei giochi non si producono, e il sondatore dei sogni entra nel perimetro con le sue centottantuno voci. Il criterio è quindi in vigore, e si produce un esemplare quando la sua sola via di provenienza non esiste più.
+
+### La politica sulla versione, e la distinzione che la rende applicabile
+
+L'utente ha chiesto che un leggendario prodotto sia generato come se fosse stato incontrato legittimamente nella cartuccia della propria versione, portando l'esempio di Groudon che viene da Rubino. La richiesta è giusta e ha richiesto di separare due casi che si comportano in modo opposto, perché applicarla al caso sbagliato farebbe danno.
+
+Per un esemplare da distribuzione la versione non è una nostra scelta e non va toccata: la carta veniva consegnata a un gruppo di titoli e l'esemplare porta il titolo di chi la riscattò. Un Groudon distribuito ai tre titoli di quarta generazione e riscattato in Diamante è autentico, e riscriverlo come Rubino sarebbe falso due volte, perché Rubino non apparteneva a quel gruppo e perché quella distribuzione là non esisteva. La misura sui lotti prodotti: la quarta generazione porta centoquarantadue voci da Diamante e centocinque dalle riedizioni di seconda, la quinta cinquecentonovantadue da Nero e novantacinque da Nero 2, cioè il primo membro di ciascun gruppo, che è legittimo e resta.
+
+Per un esemplare da incontro statico la versione è invece una nostra scelta ogni volta che la tabella ne ammette più d'una, e là la politica si applica: si sceglie la versione in cui quella specie è nativa o esclusiva. Dove la tabella ammette una sola versione non c'è nulla da decidere, ed è il caso dei tre esemplari di quarta già prodotti, che esistono soltanto in Platino.
+
+Va registrato che il generatore di terza generazione soddisfa già questa politica senza che fosse una regola, e non per caso: il Biglietto Eone consegna Latias in Rubino e Latios in Zaffiro, cioè in ciascun caso il leggendario che quella versione non fa vagare, e la tavola lo riporta perché è così che la tabella del verificatore lo dichiara.
+
+### I Pokemon di N, contati invece che stimati
+
+L'utente ha chiesto se li possieda tutti e se siano trasferibili. La risposta è misurata sul salvataggio e non stimata.
+
+La tabella del verificatore ne dichiara quindici, identificati da un valore di personalità fisso che vale da firma: Purrloin, Pidove, Timburr, Tympole, Woobat, Sandile, Darumaka, Darmanitan, Scraggy, Sigilyph, Boldore, Joltik, Ferroseed, Klink e Zorua. Il salvataggio di Jack ne contiene quindici su quindici, tutti e quindici dichiarati legali dal verificatore, dove Zorua compare evoluto in Zoroark, il che conserva il valore di personalità e resta la medesima voce.
+
+Va corretta la cifra che il progetto aveva in memoria dal 2026-09-07, cioè trentasei Pokemon di N in quel salvataggio: quel conteggio misurava qualcos'altro, probabilmente gli esemplari con quell'allenatore comunque ottenuti, e il numero giusto è quindici perché quindici sono le voci che esistono.
+
+Sulla trasferibilità i tre vincoli noti sono tutti soddisfatti e sono stati verificati uno per uno invece di essere dati per buoni: nessuno dei quindici porta un oggetto tenuto, nessuno è un uovo, e nessuno conosce una macchina nascosta. Sono inoltre tutti e quindici in italiano, che è la lingua delle cartucce dell'utente e quindi la lingua che ogni anello della catena pretende. La via è quella breve, cioè Trasferitore verso la banca senza passare dal Trasferimento fra due console, quindi il vincolo delle macchine nascoste non li tocca affatto.
+
+Resta una sola riserva, dichiarata come tale: non conosco alcuna restrizione del Trasferitore specifica per i Pokemon di N, e non conoscerne una non è la stessa cosa che aver verificato che non esista. La prova costa un esemplare e si fa quando la catena si allestisce.
+
+### L'osservazione di metodo dell'utente, che va registrata perché è su di noi
+
+L'utente ha osservato che il controllo all'indietro imposto da ADR-049 era già la ragione per cui insisteva a completare l'analisi di tutte le fonti prima di procedere, invece di andare avanti e indietro. L'osservazione è corretta e il rilievo è su di me: il sistema di scambio globale ricostruito ha riaperto una via che ADR-040 dava per chiusa, e quella riapertura stava dentro il corpus che era già sul disco. Non l'ha trovata una intuizione, l'ha trovata la lettura di un cluster che l'ordine di priorità aveva messo per primo. La conseguenza operativa è che i due cluster prioritari che restano vanno letti prima di aprire il lavoro sul sondatore dei sogni, e non dopo.
+
 ## 2026-09-08, ottava parte. Il lotto di quarta conforme, e il confine che era implicito
 
 Il lotto degli incontri di quarta generazione è conforme su tutte e tre le voci al primo giudizio, e il rapporto dichiara il tipo di incontro come statico. Il campo nuovo di questo formato, cioè il tipo di terreno, non è stato contestato su nessuna delle tre: erboso per Darkrai, assente per Shaymin, caverna per Regigigas.
