@@ -18,6 +18,10 @@ Poi leggi la scheda `.claude/context/sub-<slug>.md` del solo sottoprogetto perti
 
 Se il lavoro tocca più track o l'infrastruttura, leggi `.claude/context/current-work.md`. La conoscenza tecnica invece non è stato e non si rilegge a ogni sessione: le fonti stanno in `SOURCES.md` e il percorso di studio in `docs/index.md`, e si aprono quando servono al task. Prima di dare per buona una scheda, se ci sono stati commit dall'ultima verifica, invoca `sync-context`.
 
+## Se non si trova un documento
+
+`MAPPA-DOCUMENTI.md` alla radice dice che cosa è ciascun file Markdown del progetto, chi lo scrive e se qualcuno lo debba ancora aprire. Serve a una domanda sola e la risolve in una lettura: distinguere i file generati, che sono i più grossi e che nessuno legge in sequenza, da quelli autorati, che sono pochi e sono dove sta il ragionamento. Porta anche i candidati alla rimozione con il loro perché.
+
 ## Indice dei file satellite tracciati
 
 Memoria e stato:
