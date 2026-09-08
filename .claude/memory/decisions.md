@@ -669,7 +669,7 @@ Gli impieghi assegnati alla via non cambiano, e il primo si rafforza: proprio pe
 
 ## ADR-049: si produce un esemplare quando la sua sola via non esiste più, e il criterio non è la classe di incontro
 
-Data: 2026-09-08. Stato: proposta, in attesa della decisione dell'utente.
+Data: 2026-09-08. Stato: accettata dall'utente il medesimo giorno, con due aggiunte registrate in coda.
 
 Contesto, e l'osservazione che la apre. Il generatore degli incontri sbloccati da un oggetto produce, dal punto di vista del codice, esemplari da incontro statico. L'utente ha osservato che nulla nella macchina distingue un incontro statico sbloccato da un evento da uno ordinario del gioco, e che se il criterio diventasse la classe di incontro allora il progetto dovrebbe produrre anche i vaganti e i leggendari di tutte le generazioni. L'osservazione è corretta e il confine va enunciato, perché finora era implicito nella tavola scritta a mano e non in una regola.
 
@@ -712,3 +712,15 @@ Va infine registrato che il criterio si applica anche all'indietro e potrebbe ca
 ### Il caso che il criterio non decide, e va dichiarato
 
 Restano fuori dalla classificazione i Pokemon di N, che si ottengono collegando un salvataggio di quinta generazione a uno dell'altra coppia con la funzione dei ricordi. Il canale non è chiuso, perché non è un servizio in rete ma una funzione fra due giochi, e il progetto possiede i salvataggi; ma richiede due cartucce e una procedura che il progetto non ha ancora provato. Non si producono, e la voce resta come lavoro di gioco e non di generazione.
+
+### Le due aggiunte dell'utente, del 2026-09-08
+
+La prima è l'accoglimento con una estensione. Il sondatore dei sogni entra nel perimetro, quindi le sue centottantuno voci vanno misurate e prodotte. Gli incontri ordinari restano fuori, come proposto.
+
+La seconda è una politica di produzione che vale per il futuro e che va enunciata con precisione, perché applicata al caso sbagliato farebbe danno. L'utente chiede che un leggendario prodotto sia generato come se fosse stato incontrato legittimamente nella cartuccia della propria versione, e porta l'esempio di Groudon che viene da Rubino anche se potrebbe venire da altre. La richiesta è giusta e va distinta in due casi che si comportano in modo opposto.
+
+Per un esemplare da distribuzione la versione non è una nostra scelta e non va toccata. La carta veniva consegnata a un gruppo di titoli, e l'esemplare porta il titolo di chi la riscattò: un Groudon distribuito ai tre titoli di quarta generazione e riscattato in Diamante è autentico, e riscriverlo come Rubino sarebbe falso due volte, perché Rubino non apparteneva a quel gruppo e perché quella distribuzione non esisteva là. La nostra scelta, dove il gruppo ne ammette più d'uno, è già registrata e resta: il lotto di quarta generazione porta centoquarantadue voci da Diamante e centocinque dalle riedizioni di seconda, che è il primo membro di ciascun gruppo.
+
+Per un esemplare da incontro statico la versione è invece una nostra scelta ogni volta che la tabella ne ammette più d'una, e là la politica si applica: si sceglie la versione in cui quella specie è nativa o esclusiva. È il caso di Groudon, che si prende da Rubino e non da Smeraldo, e di Kyogre, che si prende da Zaffiro. Dove la tabella ammette una sola versione la politica non ha nulla da decidere, ed è il caso di tutti e tre gli esemplari di quarta generazione già prodotti, che esistono soltanto in Platino.
+
+Ne segue una prescrizione per i generatori di incontri: dove la tavola porta più versioni per la medesima specie, la colonna della versione non si compila con la prima disponibile ma con quella nativa, e la scelta si dichiara nella tavola accanto alla voce. Il generatore di terza generazione lo fa già senza che fosse una regola, perché il Biglietto Eone consegna Latias in Rubino e Latios in Zaffiro, cioè in ciascun caso il leggendario che quella versione non fa vagare.
