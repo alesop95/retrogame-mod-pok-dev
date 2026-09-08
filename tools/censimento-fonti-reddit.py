@@ -1,0 +1,463 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Trasforma una corsa del lettore di Reddit in un censimento di fonti, raggruppate per cluster.
+
+Perché esiste
+-------------
+Il lettore di Reddit produce un grafo: nodi, archi e file su disco sotto `_notes/`, che git
+ignora perché è materiale grezzo di terzi. Il registro delle fonti del progetto vuole invece
+righe curate, ciascuna con ciò su cui la fonte si può citare e le sigle dei track che serve. Fra
+le due cose manca un passo, ed è questo: prendere ottocento nodi e novecento archi e renderli un
+elenco leggibile, ordinato per argomento, in cui ogni voce dice chi la cita e con che parole.
+
+Il passo è deterministico e per questo sta in un programma invece che in una lettura. La regola
+sull'economia del contesto lo prescrive: parsing, normalizzazione, deduplicazione e
+raggruppamento sono lavoro da codice, e il salto semantico, cioè decidere il livello di
+affidabilità di una fonte e su che cosa la si possa citare, è l'unico che richiede di capire.
+
+Da dove viene il raggruppamento, e perché non lo inventiamo noi
+---------------------------------------------------------------
+Un post di raccolta ben scritto porta già la propria tassonomia, sotto forma di intestazioni. Il
+programma la legge invece di imporne una: ogni collegamento eredita come cluster l'intestazione
+numerata che lo contiene e la sotto-intestazione più vicina che lo precede. Il risultato è che i
+cluster sono quelli che l'autore della fonte ha scelto, il che ha due vantaggi non ovvi. Il
+primo è che restano confrontabili con la fonte, quindi chi verifica può risalire. Il secondo è
+che una tassonomia scritta da chi conosce il dominio è quasi sempre migliore di una inventata da
+chi lo sta imparando.
+
+Ai collegamenti che compaiono nei commenti e non nel corpo si assegna un cluster proprio, perché
+il commento non è il documento e la distinzione fra ciò che l'autore ha organizzato e ciò che i
+lettori hanno aggiunto è essa stessa informazione.
+
+La normalizzazione, e il difetto che evita
+-------------------------------------------
+Lo stesso indirizzo compare in forme diverse: con la coda del pulsante di condivisione, con i
+parametri di provenienza, con o senza la barra finale, con o senza lo spezzone di titolo. Senza
+normalizzazione la stessa fonte comparirebbe cinque volte nel censimento, e cinque righe che
+sembrano cinque fonti sono peggio di una riga mancante, perché gonfiano un conteggio su cui poi
+si ragiona.
+
+Uso
+---
+    python tools/censimento-fonti-reddit.py --corsa _notes/fonti/reddit-pokemonhome-1vtj5hf-2026-09-08
+    python tools/censimento-fonti-reddit.py --corsa <cartella> --out pokedex-home-completo/CENSIMENTO-FONTI-COLLEZIONE.md
+    python tools/censimento-fonti-reddit.py --self-test
+"""
+
+import argparse
+import collections
+import io
+import json
+import os
+import re
+import sys
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# I parametri di coda che non identificano una risorsa ma la provenienza di chi ci arriva. Sono
+# gli stessi che il lettore di Reddit toglie, e la ragione per cui vanno tolti anche qui e' che
+# questo programma normalizza anche gli indirizzi esterni, che quello classifica soltanto.
+PARAMETRI_DI_PROVENIENZA = frozenset([
+    "share_id", "si", "feature", "ref", "ref_source", "ref_campaign", "context", "rdt",
+    "utm_source", "utm_medium", "utm_name", "utm_term", "utm_content", "utm_campaign",
+    "pp", "pli", "usp", "sfnsn", "mibextid",
+])
+
+# L'intestazione numerata di primo livello, nella forma che il corpo del post usa.
+SEZIONE = re.compile(r"^\*\*(\d+)\)\s*(.+?)\*\*\s*$")
+# Una sotto-intestazione qualunque, cioe' una riga interamente in grassetto che non e' numerata.
+SOTTOSEZIONE = re.compile(r"^\*\*(.+?)\*\*\s*$")
+# Un collegamento in forma Markdown, con la sua ancora.
+COLLEGAMENTO = re.compile(r"\[([^\]]*)\]\((https?://[^)\s]+)\)")
+# Un indirizzo nudo, per i casi in cui l'autore non ha usato la forma con l'ancora.
+NUDO = re.compile(r"(?<![(\[])\bhttps?://[^\s)\]<>\"']+")
+
+CLUSTER_COMMENTI = "Commenti al post"
+CLUSTER_PREAMBOLO = "Preambolo"
+
+
+def normalizza(indirizzo):
+    """La chiave con cui due indirizzi si confrontano, e sotto cui una fonte compare una volta.
+
+    Toglie i parametri di provenienza, la barra finale e il frammento, e riduce l'host alla
+    forma minuscola senza il prefisso delle tre doppie vu. Non tocca il resto del percorso,
+    perche' su molti siti due percorsi diversi sono due documenti diversi anche quando si
+    somigliano.
+    """
+    indirizzo = indirizzo.strip().rstrip(".,;:!?")
+    indirizzo = indirizzo.split("#", 1)[0]
+    if "?" in indirizzo:
+        base, coda = indirizzo.split("?", 1)
+        tenuti = []
+        for pezzo in coda.split("&"):
+            if not pezzo:
+                continue
+            nome = pezzo.split("=", 1)[0]
+            if nome in PARAMETRI_DI_PROVENIENZA or nome.startswith("utm_"):
+                continue
+            tenuti.append(pezzo)
+        indirizzo = base + ("?" + "&".join(tenuti) if tenuti else "")
+    schema, resto = indirizzo.split("://", 1)
+    if "/" in resto:
+        host, percorso = resto.split("/", 1)
+        percorso = "/" + percorso
+    else:
+        host, percorso = resto, ""
+    host = host.lower()
+    if host.startswith("www."):
+        host = host[4:]
+    percorso = percorso.rstrip("/")
+    return schema.lower() + "://" + host + percorso
+
+
+def host_di(indirizzo):
+    resto = indirizzo.split("://", 1)[1] if "://" in indirizzo else indirizzo
+    host = resto.split("/", 1)[0].lower()
+    return host[4:] if host.startswith("www.") else host
+
+
+def corpo_del_post(testo):
+    """Il solo corpo del post, cioe' cio' che sta fra l'intestazione e i commenti.
+
+    Il taglio conta: senza di esso i collegamenti dei commenti erediterebbero come cluster
+    l'ultima intestazione del corpo, che e' un'attribuzione falsa e non un'approssimazione.
+    """
+    i = testo.find("\n## Corpo\n")
+    if i < 0:
+        return ""
+    j = testo.find("\n## Commenti", i)
+    return testo[i + len("\n## Corpo\n"):(j if j > 0 else len(testo))]
+
+
+def parte_commenti(testo):
+    j = testo.find("\n## Commenti")
+    return testo[j:] if j > 0 else ""
+
+
+def raccogli(testo, cluster_iniziale):
+    """I collegamenti di un testo, ciascuno con il cluster in cui cade e la sua ancora.
+
+    Il cluster e' una coppia, cioe' la sezione numerata e la sotto-intestazione piu' vicina, e
+    si porta dietro entrambe perche' la sola sotto-intestazione non basta: nel corpo che questo
+    programma legge la parola Reddit compare come sotto-intestazione dentro sezioni diverse.
+    """
+    sezione = cluster_iniziale
+    sotto = ""
+    fuori = []
+    visti_nella_riga = None
+    for riga in testo.splitlines():
+        m = SEZIONE.match(riga.strip())
+        if m:
+            sezione = "%s) %s" % (m.group(1), m.group(2).strip())
+            sotto = ""
+            continue
+        m = SOTTOSEZIONE.match(riga.strip())
+        if m and not COLLEGAMENTO.search(riga):
+            sotto = m.group(1).strip()
+            continue
+        visti_nella_riga = set()
+        for ancora, url in COLLEGAMENTO.findall(riga):
+            visti_nella_riga.add(url)
+            fuori.append((sezione, sotto, ancora.strip(), url))
+        for url in NUDO.findall(riga):
+            if url in visti_nella_riga:
+                continue
+            # Un indirizzo gia' catturato dalla forma con l'ancora comparirebbe due volte,
+            # perche' l'espressione dell'indirizzo nudo non sa di stare dentro una parentesi.
+            if any(url in u for _, u in COLLEGAMENTO.findall(riga)):
+                continue
+            fuori.append((sezione, sotto, "", url))
+    return fuori
+
+
+def censisci(cartella):
+    stato = json.loads(io.open(os.path.join(cartella, "mappa.json"), encoding="utf-8").read())
+    nodi = {n["chiave"]: n for n in stato["nodi"]}
+    seme = stato["seme"]
+    percorso_seme = nodi[seme].get("file")
+    if not percorso_seme:
+        sys.exit("il nodo di partenza non e' stato scaricato: non c'e' un corpo da spogliare")
+    testo = io.open(os.path.join(cartella, percorso_seme), encoding="utf-8").read()
+
+    voci = raccogli(corpo_del_post(testo), CLUSTER_PREAMBOLO)
+    voci += [(CLUSTER_COMMENTI, s, a, u)
+             for _sez, s, a, u in raccogli(parte_commenti(testo), CLUSTER_COMMENTI)]
+
+    # L'esito di ciascun indirizzo, letto dal grafo invece che indovinato. Un nodo di Reddit si
+    # ritrova per identificativo, uno esterno per indirizzo normalizzato.
+    esito_per_chiave = {}
+    for chiave, n in nodi.items():
+        if chiave.startswith("web:"):
+            esito_per_chiave[normalizza(chiave[4:])] = n
+        elif n.get("permalink"):
+            esito_per_chiave[normalizza(n["permalink"])] = n
+
+    raggruppate = collections.OrderedDict()
+    per_chiave = {}
+    for sezione, sotto, ancora, url in voci:
+        chiave = normalizza(url)
+        gruppo = (sezione, sotto)
+        if chiave in per_chiave:
+            v = per_chiave[chiave]
+            if ancora and ancora not in v["ancore"]:
+                v["ancore"].append(ancora)
+            if gruppo not in v["gruppi"]:
+                v["gruppi"].append(gruppo)
+            continue
+        nodo = esito_per_chiave.get(chiave)
+        # Un identificativo di post si ritrova anche quando il permalink differisce, perche' la
+        # forma con lo spezzone di titolo e quella senza sono lo stesso post.
+        if nodo is None and "reddit.com/r/" in chiave and "/comments/" in chiave:
+            pezzi = chiave.split("/comments/", 1)[1].split("/")
+            if pezzi:
+                nodo = nodi.get("reddit:" + pezzi[0])
+        v = {"url": url, "chiave": chiave, "host": host_di(chiave),
+             "ancore": [ancora] if ancora else [], "gruppi": [gruppo],
+             "esito": (nodo or {}).get("esito", "non nel grafo"),
+             "titolo": (nodo or {}).get("titolo", ""),
+             "autore": (nodo or {}).get("autore", ""),
+             "file": (nodo or {}).get("file", "")}
+        per_chiave[chiave] = v
+        raggruppate.setdefault(gruppo, []).append(v)
+    return {"seme": seme, "seme_url": stato.get("seme_url", ""), "nodi": len(nodi),
+            "archi": len(stato.get("archi", [])), "gruppi": raggruppate,
+            "distinte": per_chiave}
+
+
+# Il livello di affidabilita' per host, secondo la gerarchia dichiarata in `SOURCES.md`. Sta qui
+# e non nella testa di chi legge per due ragioni. La prima e' che una classificazione fatta a
+# mano su centosettantuno voci e' incoerente per costruzione, perche' la stessa fonte ricevera'
+# livelli diversi a distanza di venti righe. La seconda e' che scritta qui la si puo' contestare:
+# una riga sbagliata si corregge in un posto solo e il censimento si rigenera.
+#
+# Il livello e' una proprieta' della fonte e non del suo contenuto, quindi vale per host e non per
+# indirizzo. Dove un host ospita cose di natura diversa, come un servizio di pagine personali, si
+# assegna il livello piu' prudente fra quelli plausibili e la voce va poi guardata a mano.
+LIVELLO_PER_HOST = {
+    # Livello 2: riferimenti di dominio. Accurati, non infallibili, e su un byte vanno confermati.
+    "bulbapedia.bulbagarden.net": 2, "m.bulbapedia.bulbagarden.net": 2, "serebii.net": 2,
+    "glitchcity.wiki": 2, "pokebip.com": 2,
+    # Livello 3: implementazioni, calcolatori, basi di dati e tracciatori. Codice o dati che
+    # funzionano sul campo, con dentro anche scelte arbitrarie che non sono specifiche.
+    "projectpokemon.org": 3, "gist.github.com": 3, "github.com": 3, "classic.pokepc.net": 3,
+    "pokedextracker.com": 3, "godex.site": 3, "rotomlabs.net": 3, "dragonflycave.com": 3,
+    "blisy.net": 3, "pokemonrng.com": 3, "retailrng.com": 3, "smogon.com": 3,
+    "bluemoonfalls.com": 3, "buriedrelic.neocities.org": 3, "cecilbowen.github.io": 3,
+    "e-sh4rk.github.io": 3, "ribbons.guide": 3, "pkmnclassic.net": 3, "3ds.hacks.guide": 3,
+    # Livello 4: articoli e guide redazionali. Buoni per il perche', non per il come.
+    "pokejungle.net": 4, "austinjohnplays.com": 4, "shacknews.com": 4,
+    # Livello 5: community.
+    "reddit.com": 5,
+}
+
+# Gli host che non ricevono un livello perche' non sono fonti testuali: vanno in una sezione
+# propria del registro, e la ragione e' scritta accanto invece di essere sottintesa.
+FUORI_LIVELLO = {
+    "youtube.com": "canale o video: la fonte citabile e' la trascrizione, non la pagina",
+    "youtu.be": "canale o video: la fonte citabile e' la trascrizione, non la pagina",
+    "docs.google.com": "foglio di calcolo: va esportato e conservato in locale per essere letto",
+    "imgur.com": "immagine o galleria, non testo",
+    "x.com": "richiede autenticazione: non recuperabile dagli strumenti di sessione",
+}
+
+
+def livello_di(host):
+    if host in FUORI_LIVELLO:
+        return None
+    return LIVELLO_PER_HOST.get(host, 5)
+
+
+def righe_per_registro(c):
+    """Le righe pronte per il registro delle fonti, una per fonte distinta e ordinate per cluster.
+
+    La descrizione parte dall'ancora che l'autore ha scritto e, quando la corsa ha recuperato il
+    titolo vero, li unisce: l'ancora dice a che cosa serve secondo chi la cita, il titolo dice che
+    cosa la fonte e'. Le due informazioni non si sostituiscono a vicenda.
+    """
+    r = []
+    for (sezione, sotto), voci in c["gruppi"].items():
+        for v in voci:
+            liv = livello_di(v["host"])
+            ancora = v["ancore"][0] if v["ancore"] else ""
+            titolo = v["titolo"] or ""
+            if ancora and titolo and ancora.lower() not in titolo.lower():
+                desc = "%s. Titolo della fonte: %s" % (ancora, titolo)
+            else:
+                desc = titolo or ancora or "senza descrizione"
+            if v["autore"]:
+                desc += ", di %s" % v["autore"]
+            r.append({"cluster": sezione + (" / " + sotto if sotto else ""),
+                      "livello": liv, "motivo_fuori": FUORI_LIVELLO.get(v["host"], ""),
+                      "url": v["url"], "host": v["host"], "descrizione": desc,
+                      "esito": v["esito"]})
+    return r
+
+
+def markdown_registro(c):
+    """La sezione da incollare nel registro delle fonti, gia' nella sua forma di tabella."""
+    righe = righe_per_registro(c)
+    fuori = [x for x in righe if x["livello"] is None]
+    dentro = [x for x in righe if x["livello"] is not None]
+    r = []
+    r.append("| Cluster | Liv | Che cosa documenta | URL |")
+    r.append("|---|---|---|---|")
+    for x in dentro:
+        r.append("| %s | %d | %s | %s |" % (x["cluster"].replace("|", "/"), x["livello"],
+                                            x["descrizione"].replace("|", "/"),
+                                            x["url"].replace("|", "%7C")))
+    r.append("")
+    r.append("| Cluster | Perche' non ha un livello | Che cosa documenta | URL |")
+    r.append("|---|---|---|---|")
+    for x in fuori:
+        r.append("| %s | %s | %s | %s |" % (x["cluster"].replace("|", "/"), x["motivo_fuori"],
+                                            x["descrizione"].replace("|", "/"),
+                                            x["url"].replace("|", "%7C")))
+    return "\n".join(r) + "\n"
+
+
+def markdown(c, cartella):
+    r = []
+    r.append("# Censimento delle fonti del post di raccolta sulle collezioni")
+    r.append("")
+    r.append("> Documento generato da `tools/censimento-fonti-reddit.py` a partire dalla corsa "
+             "di `tools/fetch-reddit.py` in `%s`, che non entra in git perche' e' materiale "
+             "grezzo di terzi. Si rigenera invece di modificarlo a mano." % cartella.replace("\\", "/"))
+    r.append("")
+    r.append("Il post di partenza e' %s, e il grafo che ne discende ha %d nodi e %d archi. Questo "
+             "censimento non e' il grafo: e' l'elenco dei collegamenti che il post cita "
+             "direttamente, deduplicati e raggruppati secondo le intestazioni che l'autore ha "
+             "scelto. I cluster sono quindi suoi e non nostri, il che li rende confrontabili con "
+             "la fonte." % (c["seme_url"], c["nodi"], c["archi"]))
+    r.append("")
+    r.append("La colonna dell'esito dice se quella fonte sia stata scaricata dalla corsa, "
+             "catalogata con un motivo, oppure non raggiunta perche' oltre un tetto. Le tre cose "
+             "non si equivalgono e contarle insieme darebbe una copertura apparente piu' alta di "
+             "quella reale.")
+    r.append("")
+    r.append("| Cluster | Voci |")
+    r.append("|---|---|")
+    for (sezione, sotto), voci in c["gruppi"].items():
+        nome = sezione + (" / " + sotto if sotto else "")
+        r.append("| %s | %d |" % (nome.replace("|", "/"), len(voci)))
+    r.append("| **totale distinte** | **%d** |" % len(c["distinte"]))
+    r.append("")
+    for (sezione, sotto), voci in c["gruppi"].items():
+        nome = sezione + (" / " + sotto if sotto else "")
+        r.append("## " + nome)
+        r.append("")
+        r.append("| Che cosa e' | Indirizzo | Host | Esito nella corsa |")
+        r.append("|---|---|---|---|")
+        for v in voci:
+            desc = v["titolo"] or (v["ancore"][0] if v["ancore"] else "")
+            if v["ancore"] and v["titolo"] and v["ancore"][0].lower() not in v["titolo"].lower():
+                desc = "%s - %s" % (v["ancore"][0], v["titolo"])
+            if v["autore"]:
+                desc += " (di %s)" % v["autore"]
+            esito = v["esito"]
+            if esito.startswith("catalogato"):
+                esito = "catalogato"
+            r.append("| %s | %s | %s | %s |"
+                     % ((desc or "senza descrizione").replace("|", "/"),
+                        v["url"].replace("|", "%7C"), v["host"], esito))
+        r.append("")
+    return "\n".join(r).rstrip("\n") + "\n"
+
+
+def csv_righe(c):
+    r = ["cluster;sottocluster;ancora;indirizzo;host;esito;titolo;autore"]
+    for (sezione, sotto), voci in c["gruppi"].items():
+        for v in voci:
+            r.append(";".join((x or "").replace(";", ",").replace("\n", " ") for x in [
+                sezione, sotto, (v["ancore"][0] if v["ancore"] else ""), v["url"],
+                v["host"], v["esito"], v["titolo"], v["autore"]]))
+    return "\n".join(r) + "\n"
+
+
+def self_test():
+    esiti = []
+
+    def prova(nome, cond, det=""):
+        esiti.append((nome, bool(cond), det))
+
+    a = normalizza("https://www.reddit.com/r/X/comments/abc/titolo/?utm_source=share&si=1")
+    b = normalizza("https://reddit.com/r/X/comments/abc/titolo")
+    prova("le code di provenienza non fanno due fonti di una", a == b, a + " vs " + b)
+    prova("il frammento non fa due fonti di una",
+          normalizza("https://a.b/c#x") == normalizza("https://a.b/c"), "")
+    prova("un parametro che identifica la risorsa si conserva",
+          "gid=17" in normalizza("https://docs.google.com/x/edit?gid=17&usp=sharing"),
+          normalizza("https://docs.google.com/x/edit?gid=17&usp=sharing"))
+    prova("negativo: due percorsi diversi restano due fonti",
+          normalizza("https://a.b/c") != normalizza("https://a.b/d"), "")
+
+    corpo = ("**1) Prima**\n\n* [uno](https://a.b/1)\n\n**Sotto**\n\n* [due](https://a.b/2)\n"
+             "\n**2) Seconda**\n\n* [tre](https://a.b/3)\n")
+    v = raccogli(corpo, "P")
+    prova("la sezione numerata apre un cluster", v[0][0] == "1) Prima", str(v[0]))
+    prova("la sotto-intestazione si annida nella sezione",
+          v[1][0] == "1) Prima" and v[1][1] == "Sotto", str(v[1]))
+    prova("una sezione nuova azzera la sotto-intestazione",
+          v[2][0] == "2) Seconda" and v[2][1] == "", str(v[2]))
+    prova("l'ancora si conserva", v[0][2] == "uno", str(v[0]))
+
+    # Il controllo negativo che rende utile il taglio fra corpo e commenti: senza di esso i
+    # collegamenti dei commenti erediterebbero l'ultima intestazione del corpo.
+    testo = "x\n## Corpo\n**1) A**\n* [u](https://a.b/1)\n## Commenti (2)\n* [v](https://a.b/2)\n"
+    prova("il corpo si ferma prima dei commenti",
+          "a.b/2" not in corpo_del_post(testo), corpo_del_post(testo))
+    prova("i commenti si leggono a parte", "a.b/2" in parte_commenti(testo), "")
+
+    # Una riga interamente in grassetto che contiene un collegamento non e' un'intestazione.
+    v2 = raccogli("**1) A**\n**[titolo](https://a.b/9)**\n", "P")
+    prova("negativo: un collegamento in grassetto non diventa un'intestazione",
+          len(v2) == 1 and v2[0][1] == "", str(v2))
+
+    larghezza = max(len(n) for n, _, _ in esiti)
+    for nome, ok, det in esiti:
+        print("  %-*s  %s%s" % (larghezza, nome, "ok" if ok else "FALLITO",
+                                ("  " + det) if (det and not ok) else ""))
+    caduti = [n for n, ok, _ in esiti if not ok]
+    print("")
+    print("%d prove, %d fallite." % (len(esiti), len(caduti)))
+    return 1 if caduti else 0
+
+
+def main():
+    p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    p.add_argument("--corsa")
+    p.add_argument("--out", default=os.path.join("pokedex-home-completo",
+                                                 "CENSIMENTO-FONTI-COLLEZIONE.md"))
+    p.add_argument("--csv")
+    p.add_argument("--registro", help="scrive le righe pronte per SOURCES.md")
+    p.add_argument("--self-test", action="store_true")
+    a = p.parse_args()
+
+    if a.self_test:
+        return self_test()
+    if not a.corsa:
+        p.error("serve --corsa con la cartella di una corsa del lettore di Reddit")
+
+    c = censisci(a.corsa)
+    testo = markdown(c, a.corsa)
+    io.open(a.out, "w", encoding="utf-8", newline="\n").write(testo)
+    print("%d fonti distinte in %d cluster, scritte in %s"
+          % (len(c["distinte"]), len(c["gruppi"]), a.out))
+    if a.csv:
+        io.open(a.csv, "w", encoding="utf-8", newline="\n").write(csv_righe(c))
+        print("tabella in " + a.csv)
+    if a.registro:
+        io.open(a.registro, "w", encoding="utf-8", newline="\n").write(markdown_registro(c))
+        print("righe per il registro in " + a.registro)
+    per_host = collections.Counter(v["host"] for v in c["distinte"].values())
+    print("")
+    print("I dieci host piu' citati:")
+    for h, n in per_host.most_common(10):
+        print("  %-32s %d" % (h, n))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
