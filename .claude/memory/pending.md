@@ -96,6 +96,7 @@ Questa è la tabella che l'agente deve consultare da sé: ogni riga dice quando 
 | serve una trascrizione di un video senza sottotitoli automatici | il progetto `E:\local-audio-transcriptor`, che però non è installato | riconoscimento vocale locale con marcatura temporale; verificato il 2026-08-26 che i due video arretrati, cioè il primo di Goppier e quello sullo scambio locale su Switch, non hanno sottotitoli di alcun tipo, quindi questa è l'unica via. Attenzione allo stato reale, verificato il 2026-08-26: `deno` c'è, nella versione 2.9.5, ma il comando `transcribe` non è sul PATH e `uv tool list` non riporta alcuno strumento installato, quindi il progetto è su disco e non è allestito. Prima di usarlo va installato con lo script che porta con sé, e quella è una decisione dell'utente perché scarica i modelli di riconoscimento vocale, che pesano |
 | esiste un bot account Discord invitato in un server | `tools/fetch-discord.py`, provato contro il servizio il 2026-08-31 | legge la cronologia di un canale con impaginazione, cursore per il solo delta e filtri; il token si legge da `.env`, il presidio rifiuta un token che non sia di un bot, e gli identificativi vanno passati come numeri perché il servizio non dice quale campo sia sbagliato |
 | serve esportare in blocco un canale con i suoi allegati, o rileggere una discussione lunga in forma comoda | `DiscordChatExporter` con il bot token, poi `tools/read-chat-export.py` sul JSON prodotto | esportazione in HTML, testo, JSON o CSV, con `--media` per gli allegati; la portata è quella del bot, cioè i soli server dove è stato invitato, quindi non sostituisce la richiesta agli amministratori |
+| serve sapere che cosa un corpus di fonti nomini e i nostri lotti non abbiano | `tools/spoglio-corpus.py`, sulla cartella di una corsa | il confronto fra i vocabolari chiusi del dominio nominati nelle fonti e cio' che i nostri file contengono, per specie, mosse e fiocchi. E' la risposta operativa alla richiesta di leggere tutte le fonti: si leggono tutte, ma con un predicato invece che in sequenza, perche' su trecento documenti la lettura umana non e' piu' affidabile di una macchina proprio sulla cosa che conta. Due limiti dichiarati e visibili nell'esito: i nomi corti o ambigui sono esclusi per non produrre falsi positivi, e i nomi in lingua diversa dall'inglese non sono riconosciuti. La sezione delle specie ha poco segnale per costruzione, perche' confronta con i lotti che non sono un catalogo vivente; quelle che contano sono le mosse e i fiocchi |
 | serve leggere un post di Reddit, o il grafo dei rinvii che parte da esso | `tools/fetch-reddit.py`, senza alcuna credenziale | il post con il suo albero di commenti, i post che esso rinvia fino a un tetto dichiarato, le pagine esterne ridotte a testo se richieste, e due file di lettura, cioè l'indice di Livello 1 e la mappa dei rinvii ad albero. Passa dall'archivio pubblico Arctic Shift e non da Reddit, che è la ragione per cui funziona. Due cose da ricordare prima di lanciarlo: un collegamento di condivisione nella forma `/r/<sub>/s/<codice>` va prima risolto seguendo i reindirizzamenti con `curl`, perché l'archivio non sa risolverlo; e su un post di raccolta conviene sempre una prova a vuoto, che costa una richiesta e riferisce la frontiera del primo livello. Ciò che un tetto esclude resta elencato come non raggiunto e ripreso da `riprendi` senza rifare il resto |
 | l'utente produce un export di un canale Discord o di una chat Telegram | `tools/read-chat-export.py` | converte in Markdown filtrato per parola chiave, intervallo di date e lunghezza minima, e lo mette fra le fonti procurate a mano |
 | si collega per la prima volta un adattatore Wi-Fi USB destinato al track LDN | la lettura del suo identificatore USB, e la tabella di compatibilità in `SOURCES.md` | dice subito se il chip cade in una famiglia con driver in albero capace di modalità monitor, che è ciò che decide la praticabilità del track |
@@ -172,6 +173,24 @@ La buona notizia tecnica, verificata sul verificatore il 2026-09-08, e' che il r
 | le rovine di Sinjoh, cioe' Dialga, Palkia e Giratina al livello uno | caso diverso e va tenuto separato: non lo sblocca un oggetto ma il possesso di un Arceus portato nelle riedizioni di seconda generazione. Da studiare a parte |
 
 Va infine registrata la ragione per cui questa classe non era stata vista prima: nella base dei doni segreti queste voci non ci sono, perche' cio' che la carta consegnava era l'oggetto e non l'esemplare. Sono invisibili a chiunque enumeri partendo dalle carte, ed e' la stessa cecita' per costruzione gia' misurata in ADR-044 su un'altra sorgente.
+
+## La discordanza su Alcremie, che ora e' a tre voci
+
+Aperta il 2026-09-08. Tre fonti danno tre numeri per lo stesso asse, e la differenza non e' di arrotondamento ma di definizione.
+
+| Fonte | Numero | Su quale definizione |
+|---|---|---|
+| le tabelle del verificatore | 9 | le sole creme, cioe' cio' che il campo della forma memorizza |
+| il foglio della comunita', e ADR-042 su decisione dell'utente | 63 | ogni configurazione visibile, cioe' nove creme per sette dolcetti |
+| l'organizzatore di Austin John, letto il 2026-09-08 | 47 | dichiarato come tutte le Alcremie, senza spiegare il conto |
+
+Il terzo numero non si fattorizza in modo ovvio e non va adottato ne' scartato per intuizione: quarantasette non e' un multiplo di nove ne' di sette, quindi o l'autore esclude alcune combinazioni per una ragione che la pagina non dice, oppure conta qualcosa di diverso. La risposta sta dentro il foglio di calcolo che quella pagina distribuisce, e si chiude scaricandolo e contando le righe di quella specie invece di discutere il numero. Finche' non e' chiusa, il bersaglio del progetto resta quello di ADR-042, cioe' sessantatre, perche' e' una decisione dell'utente e non una stima.
+
+| Materiale che chiude la voce | Dove |
+|---|---|
+| il foglio del catalogo vivente, versione 1.4 aggiornata al 2026-07-07 | distribuito dalla pagina di pokejungle, va scaricato e messo in `_notes/spreadsheets e passaggi home/` |
+| il foglio del catalogo vivente cromatico, stessa versione | stessa pagina; serve anche ad ADR-041, perche' e' un'enumerazione dell'asse dei cromatici fatta da altri |
+| il registro delle modifiche della pagina, che e' un pannello richiuso | serve a sapere se le voci dei due titoli nuovi siano gia' dentro, il che cambia il denominatore |
 
 ## Punti tecnici aperti
 
