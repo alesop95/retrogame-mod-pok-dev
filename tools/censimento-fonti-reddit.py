@@ -435,6 +435,114 @@ def markdown_inventario(righe):
     return "\n".join(r) + "\n"
 
 
+def _sicuro(nome):
+    """Un nome di file che Obsidian e il filesystem accettano, ricavato da un titolo di cluster."""
+    fuori = []
+    for ch in nome:
+        fuori.append(ch if (ch.isalnum() or ch in " -_") else "-")
+    return re.sub(r"-{2,}", "-", "".join(fuori)).strip(" -")[:80] or "senza-nome"
+
+
+def scrivi_vault(c, cartella_note, sorgente):
+    """Le note collegate per il vault, una per cluster piu' un indice con il grafo.
+
+    Il registro dice che una fonte esiste e su che cosa la si puo' citare; questo dice come le
+    fonti si tengono, ed e' il taglio che una tabella non produce. La forma e' quella che il
+    progetto usa gia' sotto `docs/fonti/`, cioe' note che si rimandano con i collegamenti a
+    doppia quadra, cosicche' aprendo la radice come vault il grafo si navighi invece di leggerlo.
+
+    Il grafo che si disegna non e' quello dei rinvii fra i post, che ha migliaia di archi ed e'
+    illeggibile: e' quello fra i cluster e gli host, che ha una lettura sola e la dice subito,
+    cioe' quali argomenti poggino su quali sorgenti. Il grafo completo resta in `mappa.json`.
+    """
+    if not os.path.isdir(cartella_note):
+        os.makedirs(cartella_note)
+    righe = righe_per_registro(c)
+    per_cluster = collections.OrderedDict()
+    for x in righe:
+        per_cluster.setdefault(x["cluster"], []).append(x)
+
+    scritti = []
+    for cluster, voci in per_cluster.items():
+        nome = _sicuro(cluster)
+        scritti.append((nome, cluster, len(voci)))
+        r = ["# " + cluster, ""]
+        r.append("> Nota generata da `tools/censimento-fonti-reddit.py`. Il cluster non è nostro: "
+                 "è l'intestazione che l'autore del post di raccolta ha scelto, e conservarla "
+                 "tiene la nota confrontabile con la fonte.")
+        r.append("")
+        r.append("Torna all'indice: [[collezione-indice]]. Il registro con i livelli è "
+                 "`SOURCES.md`, sezione sul corpus della collezione.")
+        r.append("")
+        per_host = collections.Counter(x["host"] for x in voci)
+        r.append("Questo cluster ha %d fonti su %d host: %s."
+                 % (len(voci), len(per_host),
+                    ", ".join("%s con %d" % (h, n) for h, n in per_host.most_common())))
+        r.append("")
+        r.append("| Liv | Che cosa documenta | Host | URL |")
+        r.append("|---|---|---|---|")
+        for x in voci:
+            liv = str(x["livello"]) if x["livello"] is not None else "-"
+            r.append("| %s | %s | %s | %s |"
+                     % (liv, x["descrizione"].replace("|", "/"), x["host"],
+                        x["url"].replace("|", "%7C")))
+        io.open(os.path.join(cartella_note, nome + ".md"), "w",
+                encoding="utf-8", newline="\n").write("\n".join(r) + "\n")
+
+    # L'indice, con il grafo fra cluster e host.
+    coppie = collections.Counter()
+    for x in righe:
+        coppie[(x["cluster"], x["host"])] += 1
+    host_totali = collections.Counter(x["host"] for x in righe)
+    principali = {h for h, _ in host_totali.most_common(12)}
+
+    r = ["# Il corpus della collezione, come mappa", ""]
+    r.append("> Nota generata. È il taglio relazionale del censimento che sta in "
+             "`pokedex-home-completo/CENSIMENTO-FONTI-COLLEZIONE.md`: là c'è l'elenco, qui c'è "
+             "come le fonti si tengono. Aprendo la radice del repository come vault Obsidian, i "
+             "collegamenti qui sotto diventano un grafo navigabile.")
+    r.append("")
+    r.append("La sorgente è la corsa in `%s`, e il post di partenza è %s."
+             % (sorgente.replace("\\", "/"), c.get("seme_url", "")))
+    r.append("")
+    r.append("Il grafo disegnato qui non è quello dei rinvii fra i post, che ha oltre millecinque"
+             "cento archi ed è illeggibile a occhio: è quello fra i cluster e gli host più "
+             "citati, che ha una lettura sola e la dice subito, cioè quali argomenti poggino su "
+             "quali sorgenti. Il grafo completo resta in `mappa.json` accanto alla corsa.")
+    r.append("")
+    r.append("```mermaid")
+    r.append("graph LR")
+    id_cluster, id_host = {}, {}
+    for i, cl in enumerate(per_cluster):
+        id_cluster[cl] = "C%d" % i
+        r.append('  C%d["%s"]' % (i, cl.replace('"', "'")[:44]))
+    for i, h in enumerate(sorted(principali)):
+        id_host[h] = "H%d" % i
+        r.append('  H%d(("%s"))' % (i, h))
+    for (cl, h), n in sorted(coppie.items(), key=lambda x: -x[1]):
+        if h in id_host and cl in id_cluster:
+            r.append("  %s -->|%d| %s" % (id_cluster[cl], n, id_host[h]))
+    r.append("```")
+    r.append("")
+    r.append("## I cluster")
+    r.append("")
+    r.append("| Cluster | Fonti | Nota |")
+    r.append("|---|---|---|")
+    for nome, cluster, n in scritti:
+        r.append("| %s | %d | [[%s]] |" % (cluster.replace("|", "/"), n, nome))
+    r.append("")
+    r.append("## Gli host, e che cosa ciascuno porta")
+    r.append("")
+    r.append("| Host | Fonti | Cluster in cui compare |")
+    r.append("|---|---|---|")
+    for h, n in host_totali.most_common():
+        cl = sorted({c2 for (c2, h2) in coppie if h2 == h})
+        r.append("| %s | %d | %d |" % (h, n, len(cl)))
+    io.open(os.path.join(cartella_note, "collezione-indice.md"), "w",
+            encoding="utf-8", newline="\n").write("\n".join(r) + "\n")
+    return len(scritti) + 1
+
+
 def csv_righe(c):
     r = ["cluster;sottocluster;ancora;indirizzo;host;esito;titolo;autore"]
     for (sezione, sotto), voci in c["gruppi"].items():
@@ -501,6 +609,7 @@ def main():
                                                  "CENSIMENTO-FONTI-COLLEZIONE.md"))
     p.add_argument("--csv")
     p.add_argument("--registro", help="scrive le righe pronte per SOURCES.md")
+    p.add_argument("--vault", help="cartella delle note collegate per Obsidian")
     p.add_argument("--self-test", action="store_true")
     a = p.parse_args()
 
@@ -521,6 +630,9 @@ def main():
     if a.registro:
         io.open(a.registro, "w", encoding="utf-8", newline="\n").write(markdown_registro(c))
         print("righe per il registro in " + a.registro)
+    if a.vault:
+        n = scrivi_vault(c, a.vault, a.corsa)
+        print("%d note collegate in %s" % (n, a.vault))
     per_host = collections.Counter(v["host"] for v in c["distinte"].values())
     print("")
     print("I dieci host piu' citati:")
