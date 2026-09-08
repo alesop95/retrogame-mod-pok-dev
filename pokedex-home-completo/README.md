@@ -29,6 +29,9 @@ CENSIMENTO-FONTI-COLLEZIONE.md              le 171 fonti del corpus, per cluster
 fonti-collezione.csv                        le stesse, come tabella per il confronto
 STUDIO-04-la-via-del-dns-e-il-servizio-rianimato.md   i servizi in rete ricostruiti da terzi, e le due decisioni che rimettono in gioco
 STUDIO-05-gli-assi-che-non-contavamo.md     mosse, fiocchi, sfere e sfide: i tre assi nuovi e la misura sulle mosse
+MOSSE-PERDUTE.md                   le mosse perdute derivate dai dati, e il confronto con la testimonianza
+FIOCCHI.md                         l'asse dei fiocchi: enumerazione dal sorgente e copertura dei lotti
+SPOGLIO-CORPUS.md                  che cosa le fonti del corpus nominano e i nostri lotti non hanno
 ```
 
 Lo strumento che produce il conto sta fra quelli comuni, in `tools/disponibilita-titoli.py`, perché serve a più di un track: la sua risposta governa la pianificazione del tempo di tutto il progetto e non soltanto di questo sottoprogetto.
