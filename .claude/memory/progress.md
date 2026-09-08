@@ -4,6 +4,50 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-08, quinta parte. Le mosse perdute derivate invece che citate, due nozioni di irraggiungibilità, e l'asse dei fiocchi
+
+### Alcremie, chiusa
+
+L'utente ha chiuso la discordanza a tre voci osservando che sessantatré è esattamente nove creme per sette dolcetti, cioè un prodotto e non una stima, e che il foglio della comunità arriva allo stesso numero per la stessa via. Il quarantasette dell'organizzatore di Austin John non è quindi una definizione diversa ma un conto sbagliato. Resta registrato accanto alla sua fonte, perché una fonte che sbaglia su un punto non diventa inutilizzabile sugli altri, e non entra in alcun conteggio. ADR-042 è confermata.
+
+### Le mosse perdute, derivate
+
+L'asse delle mosse era nato da una testimonianza della comunità che ne elencava sessantatré. La gerarchia delle fonti dice che dove una fonte di livello inferiore può rispondere alla stessa domanda si usa quella, e qui poteva: il verificatore porta, per ciascun contesto di gioco, l'insieme delle mosse rese inefficaci, cioè presenti nei dati e non utilizzabili in battaglia, ed è il dato che genera il triangolo giallo. Una mossa è perduta quando è resa inefficace in tutti i titoli correnti insieme, e questo si calcola. È `tools/mosse-perdute.py`.
+
+Il dato ha una forma che vale registrare, perché è la stessa che il formato degli esemplari usa per i fiocchi: non un elenco di identificatori ma un insieme di bit, uno per mossa, impacchettati otto per byte con il meno significativo per primo. La convenzione di ordinamento è la sola parte che si può sbagliare, e sbagliarla produce un insieme della medesima cardinalità e interamente diverso: la suite porta quindi un controllo negativo che verifica che la lettura rovesciata dia un insieme diverso, perché altrimenti la cardinalità corretta sembrerebbe una conferma.
+
+### Il confronto, e il suo esito nei due versi
+
+La derivazione ne trova ottanta, la testimonianza sessantatré, in comune quarantacinque. I due scarti si leggono in modo opposto e nessuno dei due si vedrebbe possedendo una lista sola.
+
+Le trentacinque che la derivazione trova in più si spiegano con un limite della derivazione, dichiarato: i contesti che portano quell'insieme sono cinque, e un sesto titolo corrente non lo porta affatto, quindi su di esso la derivazione tace mentre la testimonianza lo considera. Suddividendo per intervallo di identificatore, ventidue sono mosse della prima generazione e tredici sono esclusive del compagno in quel medesimo titolo. Tolte le une e le altre il residuo è zero: le due liste concordano esattamente, il che è la conferma più forte che una testimonianza possa ricevere.
+
+Le diciotto che la testimonianza ha in più sono il risultato che vale, e non sono un errore. Sono le mosse caratteristiche dei mitici e quelle consegnate dalle distribuzioni, e la derivazione le trova perfettamente funzionanti nei titoli correnti. La testimonianza le chiama perdute perché lo sono, ma per un'altra ragione: la sola specie che le impara non è ottenibile su quei titoli.
+
+### Due nozioni di irraggiungibilità, che è la parte andata in tesi
+
+Esiste una irraggiungibilità che è proprietà dell'oggetto, cioè la mossa resa inefficace, e una che è proprietà della coppia, cioè la mossa funzionante il cui insieme di portatori possibili è vuoto. Detto M l'insieme delle mosse e S quello delle specie, la prima è un predicato su M e la seconda è la proiezione su M di un predicato su S per M, e le due coincidono soltanto quando ogni mossa ha almeno un portatore ottenibile.
+
+La distinzione cambia il lavoro e non soltanto la descrizione. Una proprietà del primo tipo si procura come proprietà, con un portatore qualunque, e la scelta di quale è libera e quindi ottimizzabile. Una del secondo tipo non si procura come proprietà affatto, perché il collo di bottiglia è il portatore: si ottiene producendo la specie, che è lavoro già in corso per un altro asse.
+
+Applicata al caso, la distinzione riduce il lavoro dichiarato. Delle ottanta voci, trentacinque non sono perdute perché un titolo corrente le offre, diciassette sono già nei nostri lotti, e diciotto ricadono su specie già in produzione. Il lotto effettivamente nuovo scende a ventotto voci, definito da una derivazione che si rigenera quando il verificatore aggiorna le proprie tabelle.
+
+La regola generale, in tesi: quando un asse di completezza si enumera a partire da una lista, conviene chiedersi di quale insieme quella lista sia il sottoinsieme, perché due liste plausibili dello stesso fenomeno possono essere sottoinsiemi di insiemi diversi. Il modo economico di scoprirlo non è discutere le definizioni ma derivare la lista dai dati e confrontare gli scarti nei due versi.
+
+### L'asse dei fiocchi, che prima non esisteva
+
+`tools/fiocchi.py` lo enumera leggendo le posizioni dal sorgente del verificatore invece di trascriverle, e nello stesso passo misura la copertura. Settantasei fiocchi nel formato di quarta e quinta generazione, diciassette in quello di terza. Dei settantasei, sessantanove non sono portati da alcun nostro esemplare, ed è la lista di lavoro dell'asse.
+
+Ciò che i lotti portano è poco e concentrato: il fiocco classico su centonovantaquattro esemplari di quarta e centonovantanove di quinta, il souvenir su duecentosessantotto di quinta, l'evento su ottantuno, il desiderio su settantacinque, il compleanno su venti, il premier su sette per parte, il fiocco nazionale su due esemplari di terza generazione.
+
+### Due difetti miei nello stesso strumento, e perché li registro entrambi
+
+Il primo. Avevo scritto a mano l'ordine dei bit di terza generazione supponendo quattro bit per ciascuna gara, e sono tre: le cinque gare sono contatori a tre bit e non bit singoli, perché ognuna porta un livello da zero a quattro. La conseguenza non era un errore ma un conteggio plausibile e sbagliato. È esattamente il difetto contro cui il resto dello strumento era stato scritto, cioè la trascrizione di una tabella lunga, e averlo commesso mentre lo si evitava altrove è la ragione per cui il commento che lo corregge è lungo quanto il codice.
+
+Il secondo, trovato dal primo. Corretto l'ordine, il conto dava due esemplari con il fiocco di gara raffinata, e la tabella del verificatore dichiara per quei due il fiocco nazionale. La causa era che il pacchetto del ponte non espone la parola intera ma i due gruppi separati, e il campo dei meriti ha il proprio bit zero al quindicesimo bit assoluto: leggerlo come parola assoluta sposta ogni fiocco di quindici posizioni. Il generatore era corretto e il lettore no, e la prova è che dopo la correzione i due esemplari portano il fiocco nazionale, cioè esattamente le due sole voci che la tabella del verificatore dichiara con quel fiocco su centosettantasette.
+
+Vale trarne la lezione, perché è la stessa due volte. Quando due componenti dello stesso progetto leggono lo stesso campo, la loro sola coerenza reciproca non è una prova: qui il generatore e il lettore concordavano sul nome del campo e discordavano sulla sua origine, e la discordanza si è vista soltanto confrontando il risultato con una terza fonte, cioè la tabella che dichiara quali esemplari quel fiocco dovrebbero portarlo.
+
 ## 2026-09-08, quarta parte. Il lotto dei biglietti chiuso, il registro diventa completo, e la mappa dei documenti
 
 ### Quattordici su quattordici

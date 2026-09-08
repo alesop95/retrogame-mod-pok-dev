@@ -516,3 +516,40 @@ Ne segue la conseguenza progettuale, che è quella che il capitolo~\ref{cap:auto
 I capitoli precedenti stabiliscono che i meccanismi funzionano; questo stabilisce entro quali margini, e in quattro casi dimostra che un limite attribuito all'implementazione appartiene invece al formato o al canale: la perdita nella conversione dell'allenamento, imposta dalla cardinalità della destinazione; l'inammissibilità dello stuffing su un canale sincrono, imposta dall'impossibilità di annunciare una lunghezza variabile; la cecità del checksum additivo verso le permutazioni, imposta dalla commutatività della somma; e l'inevitabilità dell'errore su un orizzonte lungo, imposta dalla crescita di $1-(1-p)^k$.
 
 Un limite del formato non si risolve scrivendo codice migliore, si dichiara e si governa con una politica, ed è la ragione per cui riconoscerlo modifica il progetto anziché soltanto la sua documentazione. In tre dei quattro casi il riconoscimento ha prodotto una decisione concreta: la politica di sforamento come parametro esplicito, la terza difesa di collaudo come non ridondante, e la verifica periodica dello stato come requisito di architettura per l'automazione.
+
+\section{Due nozioni di irraggiungibilità, e perché confonderle costa lavoro}
+\label{sec:due-irraggiungibilita}
+
+Questa sezione nasce da un confronto fra due enumerazioni della stessa cosa, e il suo interesse non è che una delle due fosse sbagliata, perché non lo era. È che le due misuravano cose diverse credendo di misurare la stessa, e che la differenza si vede soltanto derivando la proprietà dai dati invece di leggerla.
+
+\subsection{Il problema}
+
+Fra le proprietà che un oggetto può portare ce ne sono alcune che i sistemi successori non supportano più. Nel dominio di questo lavoro sono le mosse: un certo numero di esse è stato reso inefficace nei titoli recenti, cioè resta presente nei dati e non è più utilizzabile, e l'unico modo di possederne una è trasferire un oggetto che già la conosca da un sistema in cui funzionava. La chiusura del canale di trasferimento le rende quindi definitivamente irraggiungibili, ed è un asse della collezione che va enumerato.
+
+L'enumerazione disponibile era una testimonianza di comunità, accurata e curata, che ne elencava sessantatré. Il lavoro l'ha adottata e poi, per la regola sulla gerarchia delle fonti, ha cercato se una sorgente di livello inferiore potesse rispondere alla stessa domanda.
+
+\subsection{La derivazione}
+
+Poteva. Il verificatore di conformità porta, per ciascun contesto di gioco, l'insieme delle mosse rese inefficaci in quel contesto, ed è il dato con cui esso segnala all'utente che un esemplare trasferito conosce una mossa inutilizzabile. La proprietà cercata è allora l'intersezione di quegli insiemi su tutti i titoli correnti, ed è un calcolo e non una lettura.
+
+Vale osservare la forma del dato, perché è la stessa scelta che il formato degli esemplari fa per i fiocchi: non un elenco di identificatori ma un insieme di bit, uno per mossa, impacchettati otto per byte con il meno significativo per primo. Duecentocinquantuno mosse stanno in cento byte invece che in cinquecentodue. La convenzione di ordinamento dei bit è la sola parte che si può sbagliare, e sbagliarla produce un insieme della medesima cardinalità e interamente diverso: è la ragione per cui la suite di prova di questo strumento porta un controllo negativo che verifica che la lettura rovesciata dia un insieme diverso, perché altrimenti la cardinalità corretta sembrerebbe una conferma.
+
+\subsection{Lo scarto, e le due nozioni}
+
+La derivazione ne trova ottanta e la testimonianza sessantatré, con quarantacinque in comune. Lo scarto è nei due versi e si legge diversamente.
+
+Le trentacinque presenti nella derivazione e assenti dalla testimonianza si spiegano con un limite della derivazione stessa, che va dichiarato: i contesti che portano l'insieme sono cinque, e un sesto titolo corrente non lo porta affatto, quindi su di esso la derivazione tace. La testimonianza invece lo considera, e dichiara esplicitamente che quelle mosse si recuperano di là. Suddividendo lo scarto per intervallo di identificatore, ventidue sono mosse della prima generazione e tredici sono esclusive del compagno in quel medesimo titolo: tolte le une e le altre, il residuo è \emph{zero}. Le due liste concordano esattamente una volta tenuto conto del titolo che la derivazione non vede, il che è la conferma più forte che una testimonianza possa ricevere.
+
+Le diciotto presenti nella testimonianza e assenti dalla derivazione sono il risultato interessante, perché non sono un errore. Sono in massima parte le mosse caratteristiche delle specie mitiche e quelle consegnate dalle distribuzioni, e la derivazione le trova perfettamente funzionanti nei titoli correnti. La testimonianza le chiama perdute perché lo sono, ma per un'altra ragione: la sola specie che le impara non è ottenibile su quei titoli.
+
+Se ne ricava la distinzione che dà il nome a questa sezione. Esiste una irraggiungibilità che è \emph{proprietà dell'oggetto}: la mossa è resa inefficace, e nessun esemplare che la porti la può usare. Ed esiste una irraggiungibilità che è \emph{proprietà della coppia}: la mossa funziona, ma l'insieme dei portatori possibili è vuoto nel sistema corrente. Formalmente, detto $M$ l'insieme delle mosse e $S$ quello delle specie, la prima è un predicato su $M$ e la seconda è la proiezione su $M$ di un predicato su $S \times M$, e le due coincidono soltanto quando ogni mossa ha almeno un portatore ottenibile.
+
+\subsection{Perché la distinzione cambia il lavoro}
+
+Non è terminologia. Una proprietà del primo tipo si procura come proprietà: basta un portatore qualunque che la conosca, e la scelta di quale è libera e quindi ottimizzabile. Una del secondo tipo non si procura affatto come proprietà, perché il collo di bottiglia non è la proprietà ma il portatore: si ottiene producendo la specie, che è lavoro che il progetto stava già facendo per un altro asse.
+
+Applicata al caso, la distinzione riduce il lavoro dichiarato. Delle ottanta voci, trentacinque non sono perdute affatto perché un titolo corrente le offre, e diciotto non richiedono un lavoro proprio perché ricadono su specie già in produzione. Il lotto effettivamente nuovo scende a ventotto voci, ed è definito da una derivazione invece che da una citazione, il che significa che si rigenera quando il verificatore aggiorna le proprie tabelle.
+
+\subsection{La regola che se ne trae}
+
+Quando un asse di completezza si enumera a partire da una lista, conviene chiedersi di quale insieme quella lista sia il sottoinsieme, perché due liste plausibili dello stesso fenomeno possono essere sottoinsiemi di insiemi diversi. Il modo economico di scoprirlo non è discutere le definizioni ma derivare la lista dai dati e confrontare gli scarti nei due versi: uno scarto in un verso misura la cecità della derivazione, l'altro misura la differenza di definizione, e nessuno dei due si vede possedendo una lista sola.
