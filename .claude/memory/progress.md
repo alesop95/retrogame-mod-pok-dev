@@ -4,6 +4,52 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-08, seconda parte. La profondità due è chiusa, gli assi sono sei e non tre, e una regola che avevo enunciato era sbagliata
+
+Tre cose in questa voce: il completamento del grafo, la correzione di una mia regola, e la scoperta che l'obiettivo ha più dimensioni di quante ne contassimo.
+
+### Il grafo, chiuso alla profondità due
+
+Due riprese hanno portato la corsa a termine su quel livello. Tutti e centosedici i post di Reddit del grafo sono scaricati, e tutte e centosettantasei le pagine esterne scaricabili sono ridotte a testo su ottocentonovantatré viste, dove la differenza sono i video, le immagini e le pagine che pretendono autenticazione, catalogati con il loro motivo e non silenziosamente assenti. Restano duecentosettantotto elementi a profondità tre, che sono una decisione e non una dimenticanza.
+
+I dieci collegamenti brevi che l'archivio non sa risolvere sono stati risolti a mano con l'inseguimento dei reindirizzamenti, e tre di essi erano post che il grafo non aveva: la discussione sull'adattatore che collega la console portatile di terza generazione a quella corrente, che è arrivata da sola dentro questo corpus e appartiene a un altro track; la tabella della connettività, cioè esattamente il collegamento che l'utente aveva riscritto per sicurezza; e un permalink a commento sulla via del nome di dominio. Gli altri sette rimandano a post già presenti oppure sono canali di conversazione, che non sono post e l'archivio non li conserva.
+
+Lo strumento di censimento ha preso una seconda uscita, e la ragione è un rischio che avevo lasciato aperto. Il censimento per cluster copre i soli collegamenti che il post di partenza cita, perché sono i soli che ereditano una tassonomia; il grafo però ne contiene molti di più, e quelli esistevano soltanto nella cartella grezza, che git ignora e che un giorno sparirà. L'inventario completo li elenca tutti in un file tracciato: milleduecentottantasette nodi, di cui duecentonovantadue scaricati, seicentonovantasei catalogati con il motivo, duecentosettantotto non raggiunti e ventuno falliti. Non classifica e non giudica: elenca, perché il suo scopo è che nessun indirizzo esista nella cartella grezza e in nessun file tracciato.
+
+### La correzione, ed è mia
+
+Avevo scritto, dallo Studio 04, che se una parte dei doni si può ricevere invece che comporre allora quella parte non va composta. L'utente ha chiesto se ricevere sia davvero più conveniente e ha detto che vuole comunque i lotti come file completi. Ha ragione, e la regola che avevo enunciato era sbagliata nel modo peggiore, cioè plausibile. È ADR-048, con quattro motivi.
+
+Copertura: una ventina di doni per gioco contro le duecentoquarantasette voci di quarta e le settecento di quinta. Selettività, e conta più della copertura: la consegna è casuale e produce duplicati, quindi non si chiede una carta, si ricevono carte finché non esce quella che si voleva, e una via che non si può indirizzare non è produzione ma una lotteria con un catalogo. Dipendenza: un file non smette di esistere e un servizio non ufficiale sì, e questo progetto nasce proprio dall'osservazione che un servizio ufficiale con vent'anni di storia sta chiudendo.
+
+Il quarto motivo rovescia la premessa e non l'avevo visto. Un dono di quinta generazione ricevuto oggi scrive nell'esemplare la data di oggi, che per un evento chiuso nel 2013 è precisamente la firma con cui la comunità riconosce quella via. I nostri settecento portano invece centocinquantasette date distinte fra il 2010 e il 2013, verificate sui file. Sul solo asse che un osservatore guarda per primo, l'esemplare composto da noi è più fedele di quello ricevuto dal canale vero, e la ragione è che noi possiamo scrivere una data che il gioco, ricevendo oggi, non può.
+
+Al canale restano tre impieghi che la produzione per file non può avere, ed è per quelli che vale percorrerlo. Il primo e principale è l'oracolo: un esemplare ricevuto davvero è verità di riferimento, e confrontarlo campo per campo con il gemello composto dice se il modello sia giusto, cosa che nessun verificatore può dire perché il verificatore controlla la conformità a un modello e non il modello. Il secondo è il ponte per i ventotto coreani. Il terzo sono gli oggetti chiave che i nostri generatori non producono affatto.
+
+La regola generale che ne discende, e che è la parte riusabile: un canale nuovo non si valuta su quanto sia più autentico di quello in uso, ma su quante voci copra, se si possa indirizzare, quanto duri, e quale traccia lasci. Può essere più autentico e insieme peggiore su tutte e quattro.
+
+### Gli assi sono sei
+
+La lettura del primo cluster prioritario, cioè le sei voci su che cosa si perde con la chiusura, ha prodotto lo Studio 05 e una scoperta che cambia la definizione dell'obiettivo. Il progetto contava tre assi: specie, forme, esemplari da distribuzione. Ce ne sono almeno altri tre, e non sono raffinamenti dei primi ma dimensioni indipendenti, nel senso preciso che una collezione completa sui primi può essere vuota sui secondi.
+
+Le mosse che sui titoli per console corrente non esistono più, e che si possiedono soltanto trasferendo un esemplare che le conosca. I fiocchi che soltanto un gioco vecchio conferisce, fra cui due che si ottengono unicamente purificando esemplari ombra nei due giochi da tavolo di terza generazione, sorgente che il progetto non aveva mai considerato. E le combinazioni fra specie e sfera che nessun gioco moderno produce, che vanno trattate come i cromatici, cioè misurate e non moltiplicate.
+
+Un quarto asse è di natura diversa e va tenuto separato: le sfide del deposito, che sono un registro interno al servizio e che vincolano non quali esemplari si possiedano ma da quale gioco provengano. Quarantadue di esse diventano impossibili con la chiusura. Non aggiungono caselle, vincolano la provenienza di caselle che avremmo riempito comunque.
+
+### La misura, che è la parte che vale
+
+L'asse delle mosse è il solo misurabile oggi senza aggiungere nulla, perché le mosse stanno dentro i file già prodotti. Risolti i sessantatré nomi della fonte sugli identificativi della tabella del verificatore e passati i quattro lotti che portano mosse, cioè settecento più duecentoquarantasette più centosettantadue più dieci esemplari, l'esito è che ventidue delle sessantatré mosse perdute sono già nostre e quarantuno no.
+
+Delle quarantuno, sedici sono di sesta e settima generazione e non sono un difetto: i nostri lotti coprono dalla prima alla quinta e per definizione non possono portare una mossa introdotta dopo. Le venticinque restanti, dalla seconda alla quinta, sono dentro il nostro perimetro e formano un lotto nuovo piccolo e definito, che non richiede alcuna ricerca perché la lista è esattamente quella.
+
+Il metodo vale oltre il caso ed è la lezione della giornata. Una fonte di quinto livello che elenca cose perdute non si legge per crederle: si trasforma in un predicato e lo si esegue sui propri dati. Il risultato non dipende dall'affidabilità della fonte per la parte che conta, cioè che cosa noi possediamo, e dipende da essa soltanto per che cosa sia da cercare; se la fonte avesse elencato una voce in più o in meno, la misura resterebbe corretta su tutte le altre.
+
+### Due conferme indipendenti
+
+La stessa fonte conferma dall'esterno due decisioni prese ieri leggendo il codice del verificatore, ed è una coincidenza che vale registrare perché le due sorgenti sono di natura completamente diversa. Che Deoxys si ottenga legalmente su qualunque copia di Smeraldo tranne quella giapponese, che il verificatore dice con un caso speciale nel proprio codice. E che Mew si ottenga soltanto sulle copie giapponesi, che il verificatore dice forzando quella lingua sulla sola specie Mew: il generatore degli incontri scritto ieri produce infatti quel solo esemplare in giapponese, ed è ora confermato da una fonte che quel codice non l'ha letto.
+
+Una terza cosa la fonte la aggiunge e noi non l'avevamo: le copie giapponesi di Smeraldo sono anche l'unico modo di avere un Mew in una sfera diversa dalla Poké Ball e dalla Pregio, il che lega quell'esemplare al nuovo asse delle combinazioni di sfera.
+
 ## 2026-09-08, prima parte. Centosettantuno fonti da un post solo, la tassonomia presa in prestito, e un servizio che qualcuno ha rianimato
 
 L'utente ha consegnato come radice da spogliare il post di raccolta sulle collezioni nel deposito, seconda versione, e ha ripetuto il vincolo che governa questa parte del progetto: ogni singolo collegamento è una fonte da tracciare, da classificare e da indicizzare verso le altre, e le fonti vanno possedute dentro il progetto e citate nel punto dove servono. Ne è uscita una giornata di lavoro sulle fonti e non sui generatori, e vale scriverne il metodo perché è riusabile.

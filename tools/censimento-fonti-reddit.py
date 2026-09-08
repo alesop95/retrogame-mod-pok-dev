@@ -309,7 +309,7 @@ def markdown_registro(c):
                                             x["descrizione"].replace("|", "/"),
                                             x["url"].replace("|", "%7C")))
     r.append("")
-    r.append("| Cluster | Perche' non ha un livello | Che cosa documenta | URL |")
+    r.append("| Cluster | Perché non ha un livello | Che cosa documenta | URL |")
     r.append("|---|---|---|---|")
     for x in fuori:
         r.append("| %s | %s | %s | %s |" % (x["cluster"].replace("|", "/"), x["motivo_fuori"],
@@ -323,18 +323,18 @@ def markdown(c, cartella):
     r.append("# Censimento delle fonti del post di raccolta sulle collezioni")
     r.append("")
     r.append("> Documento generato da `tools/censimento-fonti-reddit.py` a partire dalla corsa "
-             "di `tools/fetch-reddit.py` in `%s`, che non entra in git perche' e' materiale "
+             "di `tools/fetch-reddit.py` in `%s`, che non entra in git perché è materiale "
              "grezzo di terzi. Si rigenera invece di modificarlo a mano." % cartella.replace("\\", "/"))
     r.append("")
-    r.append("Il post di partenza e' %s, e il grafo che ne discende ha %d nodi e %d archi. Questo "
-             "censimento non e' il grafo: e' l'elenco dei collegamenti che il post cita "
+    r.append("Il post di partenza è %s, e il grafo che ne discende ha %d nodi e %d archi. Questo "
+             "censimento non è il grafo: è l'elenco dei collegamenti che il post cita "
              "direttamente, deduplicati e raggruppati secondo le intestazioni che l'autore ha "
              "scelto. I cluster sono quindi suoi e non nostri, il che li rende confrontabili con "
              "la fonte." % (c["seme_url"], c["nodi"], c["archi"]))
     r.append("")
     r.append("La colonna dell'esito dice se quella fonte sia stata scaricata dalla corsa, "
-             "catalogata con un motivo, oppure non raggiunta perche' oltre un tetto. Le tre cose "
-             "non si equivalgono e contarle insieme darebbe una copertura apparente piu' alta di "
+             "catalogata con un motivo, oppure non raggiunta perché oltre un tetto. Le tre cose "
+             "non si equivalgono e contarle insieme darebbe una copertura apparente più alta di "
              "quella reale.")
     r.append("")
     r.append("| Cluster | Voci |")
@@ -348,7 +348,7 @@ def markdown(c, cartella):
         nome = sezione + (" / " + sotto if sotto else "")
         r.append("## " + nome)
         r.append("")
-        r.append("| Che cosa e' | Indirizzo | Host | Esito nella corsa |")
+        r.append("| Che cosa è | Indirizzo | Host | Esito nella corsa |")
         r.append("|---|---|---|---|")
         for v in voci:
             desc = v["titolo"] or (v["ancore"][0] if v["ancore"] else "")
@@ -364,6 +364,75 @@ def markdown(c, cartella):
                         v["url"].replace("|", "%7C"), v["host"], esito))
         r.append("")
     return "\n".join(r).rstrip("\n") + "\n"
+
+
+def inventario_completo(cartella):
+    """Ogni nodo che il grafo ha visto, a qualunque profondita', con chi lo cita.
+
+    Il censimento per cluster copre i soli collegamenti che il post di partenza cita
+    direttamente, perche' quelli sono i soli che ereditano una tassonomia. Il grafo pero' ne
+    contiene molti di piu', trovati dentro i post che il primo rinvia, e perderli significherebbe
+    che una fonte esiste nella cartella grezza e in nessun file tracciato. Questo inventario e'
+    il presidio contro quella perdita: non classifica e non giudica, elenca.
+    """
+    stato = json.loads(io.open(os.path.join(cartella, "mappa.json"), encoding="utf-8").read())
+    archi = collections.defaultdict(list)
+    for a in stato.get("archi", []):
+        archi[a["a"]].append(a)
+    righe = []
+    for n in stato["nodi"]:
+        chiave = n["chiave"]
+        prof = n.get("profondità", n.get("profondita"))
+        entranti = archi.get(chiave, [])
+        ancore = [a.get("ancora") for a in entranti if a.get("ancora")]
+        righe.append({
+            "chiave": chiave,
+            "tipo": n.get("tipo", ""),
+            "profondita": prof if prof is not None else "",
+            "esito": n.get("esito", ""),
+            "titolo": n.get("titolo") or "",
+            "autore": n.get("autore") or "",
+            "url": n.get("permalink") or (chiave[4:] if chiave.startswith("web:") else ""),
+            "host": host_di(n.get("permalink") or chiave[4:]) if (
+                n.get("permalink") or chiave.startswith("web:")) else "reddit.com",
+            "citato_da": len(entranti),
+            "ancora": ancore[0] if ancore else "",
+        })
+    righe.sort(key=lambda r: (str(r["profondita"]), r["host"], r["chiave"]))
+    return righe
+
+
+def markdown_inventario(righe):
+    r = []
+    r.append("## Inventario completo del grafo")
+    r.append("")
+    r.append("Il censimento per cluster qui sopra copre i soli collegamenti che il post di "
+             "partenza cita direttamente, perché quelli sono i soli che ereditano una "
+             "tassonomia dall'autore. Il grafo ne contiene molti di più, trovati dentro i post "
+             "che il primo rinvia. Questa tabella li elenca tutti senza classificarli, e il suo "
+             "scopo è che nessun indirizzo esista nella cartella grezza e in nessun file "
+             "tracciato: la cartella grezza non entra in git e sparisce, questo file resta.")
+    r.append("")
+    per_prof = collections.Counter(str(x["profondita"]) for x in righe)
+    per_esito = collections.Counter(
+        x["esito"].split(":")[0] for x in righe)
+    r.append("Nodi per profondità: " + ", ".join(
+        "%s con %d" % (k, v) for k, v in sorted(per_prof.items())) + ".")
+    r.append("")
+    r.append("Nodi per esito: " + ", ".join(
+        "%s con %d" % (k, v) for k, v in sorted(per_esito.items(), key=lambda x: -x[1])) + ".")
+    r.append("")
+    r.append("| Prof | Tipo | Titolo o ancora | Host | Esito | Citato da | Indirizzo |")
+    r.append("|---|---|---|---|---|---|---|")
+    for x in righe:
+        desc = x["titolo"] or x["ancora"] or ""
+        if x["autore"]:
+            desc = (desc + ", di " + x["autore"]) if desc else ("di " + x["autore"])
+        esito = x["esito"].split(":")[0]
+        r.append("| %s | %s | %s | %s | %s | %d | %s |" % (
+            x["profondita"], x["tipo"], (desc or "-").replace("|", "/")[:160], x["host"],
+            esito, x["citato_da"], (x["url"] or x["chiave"]).replace("|", "%7C")))
+    return "\n".join(r) + "\n"
 
 
 def csv_righe(c):
@@ -441,7 +510,8 @@ def main():
         p.error("serve --corsa con la cartella di una corsa del lettore di Reddit")
 
     c = censisci(a.corsa)
-    testo = markdown(c, a.corsa)
+    inventario = inventario_completo(a.corsa)
+    testo = markdown(c, a.corsa) + "\n" + markdown_inventario(inventario)
     io.open(a.out, "w", encoding="utf-8", newline="\n").write(testo)
     print("%d fonti distinte in %d cluster, scritte in %s"
           % (len(c["distinte"]), len(c["gruppi"]), a.out))

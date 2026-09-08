@@ -111,7 +111,7 @@ Dal 2026-09-08 la voce più grossa di questa sezione è il corpus della collezio
 
 | Ordine | Cluster | Perché per primo |
 |---|---|---|
-| 1 | 2) What are we loosing with Pokemon Bank, sei voci tutte scaricate | è il vincolo temporale dell'intero progetto, e queste sei enumerazioni indipendenti si confrontano con la nostra invece di sommarvisi. Una di esse si intitola esplicitamente alle sfide che diventano impossibili dopo la chiusura, che è la domanda su cui STUDIO-01 aveva risposto con i nostri soli dati |
+| 1 | 2) What are we loosing with Pokemon Bank, sei voci | LETTO il 2026-09-08, e l'esito e' STUDIO-05: gli assi della collezione sono sei e non tre. Il cluster resta qui perche' due delle sei voci portano fogli di calcolo che vanno ancora esportati e confrontati |
 | 2 | 1) Dex completions / Overall lists for multiple generations, dieci voci | porta le enumerazioni trasversali: gli scambi e i doni interni ai giochi, gli eventi interni, le differenze di sesso, i sottolivellati, e le due voci sulla via del nome di dominio da cui è nato STUDIO-04 |
 | 3 | 9) RNG Manipulation and Glitches, sedici voci in sei sotto-cluster | è la stessa materia del track sulla generazione e dell'esecuzione di codice, cioè l'unica parte del corpus che tocca il come e non il che cosa |
 
@@ -145,6 +145,17 @@ Il debito di lettura sulle trascrizioni è chiuso: il 2026-08-26 tutte e sei que
 | Scambio locale su Switch in FRLG | https://www.youtube.com/watch?v=epCf87MTLnk | serve al track LDN, ed è il presupposto di quel track visto dal lato utente |
 
 I canali senza un video specifico, cioè Goppier, Lorenzooone, im a blisy, RETIRE, TheZZAZZGlitch, Retro Game Mechanics Explained e Displaced Gamers, restano da esplorare per scegliere quali video valga la pena trascrivere: è una decisione da prendere, non una trascrizione da lanciare.
+
+## I quattro lavori che STUDIO-05 apre
+
+Nascono il 2026-09-08 dalla scoperta che gli assi della collezione sono sei e non tre, e stanno qui e non nella roadmap perche' sono voci di lavoro e non passi con dipendenze. L'ordine e' quello del rapporto fra valore e costo.
+
+| Lavoro | Stato e come si chiude |
+|---|---|
+| il confronto fra le sfide del deposito gia' fotografate e le quarantadue dichiarate impossibili | e' il piu' economico dei quattro perche' e' tutto in casa: le schermate stanno in `_notes/spreadsheets e passaggi home/challenge-home` e l'elenco sta nel post gia' scaricato. Dice quante sfide siano ancora aperte per noi, e soprattutto quali vincolino la provenienza di un esemplare che avremmo comunque preso, il che cambia da quale gioco conviene prenderlo |
+| il lotto delle venticinque mosse perdute dalla seconda alla quinta generazione | definito dalla misura di STUDIO-05 e non richiede altra ricerca, perche' la lista e' esattamente quella. Sono mosse che nessuna carta di distribuzione consegnava, quindi vanno da un esemplare catturato o cresciuto che le conosca, e non dai generatori di eventi. Le sedici di sesta e settima generazione restano fuori dal perimetro dei lotti e si prendono dai titoli che l'utente possiede |
+| l'asse dei fiocchi, da enumerare e poi misurare | il metodo e' quello gia' usato per le mosse, cioe' trasformare l'elenco della fonte in un predicato ed eseguirlo sui nostri file, e il costo e' lo stesso perche' i fiocchi sono un campo dei nostri esemplari. Va enumerato prima, perche' la fonte li elenca per gioco e non come lista unica. Due di essi, il fiocco nazionale e quello della terra, vengono soltanto dai due giochi da tavolo di terza generazione, che il progetto non ha mai considerato una sorgente |
+| l'asse delle combinazioni fra specie e sfera | si tratta come quello dei cromatici per ADR-041, cioe' si misura e non si moltiplica. Il caso noto e' Mew in una sfera diversa dalla Poke Ball o dalla Pregio, che viene soltanto dalle copie giapponesi di Smeraldo, cioe' dallo stesso esemplare che il generatore degli incontri produce gia' in giapponese per un'altra ragione |
 
 ## Punti tecnici aperti
 
