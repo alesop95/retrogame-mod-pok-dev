@@ -828,3 +828,40 @@ La prima è che non si può produrre una data forma scrivendo un campo, e che le
 La seconda è che nella generazione successiva la forma diventa un campo memorizzato, e che questa specie appartiene all'insieme di quelle per cui il cambiamento di forma è lecito indipendentemente dall'origine. La quarta resa si ottiene dunque su un quarto corpo, dopo il trasferimento, senza alcuna origine speciale. Chi ne concludesse che basta un solo corpo sbaglierebbe altrettanto, perché ciò che si conta sono caselle e una casella la occupa un corpo.
 
 Se ne trae una regola di modellazione che vale oltre il caso: quando una fonte attribuisce a un oggetto una proprietà che il suo formato non memorizza, quella proprietà è una funzione del contesto di lettura e va documentata come tale. Confondere una resa con un campo produce due difetti simmetrici, cioè tentare di scrivere ciò che non si scrive, oppure concludere che ciò che non si scrive non esiste, e il secondo è il più costoso perché chiude una strada che era aperta.
+
+\section{Il contorno di un campo, e l'informazione che sta fuori dal dato}
+\label{sec:contorno-campo}
+
+La sezione precedente ha mostrato tre regimi di correlazione e una proprietà che non è un campo. Questa mostra il caso complementare e, per chi progetta formati, più istruttivo: un campo che porta informazione anche in ciò che non appartiene al suo valore. È il risultato del primo giudizio esterno sul lotto degli incontri sbloccati da un oggetto, dove nove voci su dieci sono risultate conformi e la decima portava un rilievo solo, su un byte.
+
+\subsection{Il fatto}
+
+Il nome dell'allenatore di provenienza occupa, nel formato di terza generazione, un campo di sette byte a lunghezza fissa. La lettura ingenua è che si tratti di una stringa terminata: si scrivono i caratteri, si chiude con il terminatore, e ciò che segue è irrilevante perché nessun lettore lo guarda.
+
+Il verificatore lo guarda. La ragione non è una scelta arbitraria di chi lo ha scritto ma una proprietà del gioco: quel campo non viene composto al momento della consegna, viene \emph{copiato byte per byte} dal blocco del salvataggio che contiene il nome del giocatore. Ne segue che il contenuto oltre il terminatore non è spazzatura casuale ma il residuo dell'inizializzazione di quel blocco, ed è quindi prevedibile. Un esemplare il cui contorno non corrisponda a quel residuo non è stato scritto dal gioco.
+
+La regola effettiva ha due rami e la differenza fra i due è di un solo byte. Su un gioco internazionale il buffer è inizializzato a terminatore su tutti e sette i byte, quindi un nome che li riempia tutti è lecito e non porta alcun terminatore: la condizione degenera e passa. Su un gioco giapponese sono inizializzati a terminatore i primi sei, mentre il settimo resta a zero. Un nome giapponese va dunque scritto in sei byte con riempimento a terminatore, e il settimo byte deve valere zero.
+
+Il nostro generatore riempiva a terminatore tutti e sette anche nel caso giapponese, e il verificatore ha contestato quell'unica voce con la formula che manca il terminatore finale.
+
+\subsection{Perché il difetto non ha sintomi}
+
+Vale enumerare le proprietà che il file difettoso conserva, perché sono tutte quelle che un autore si preoccuperebbe di controllare. I byte appartengono tutti all'alfabeto del formato. La stringa si decodifica correttamente e restituisce il nome atteso. La somma di controllo è valida. Il nome compare corretto in ogni schermata che lo mostri, compresa quella del verificatore stesso. La differenza sta in un byte che non appartiene alla stringa e che nessuna funzione di lettura del nome restituisce.
+
+Ne segue che nessun controllo interno al generatore poteva coglierlo. Un confronto fra ciò che si è scritto e ciò che si rilegge passa; un controllo di intervallo passa; una prova di simmetria fra codifica e decodifica passa. Il difetto è visibile soltanto a chi conosca il processo che avrebbe dovuto produrre quel campo, cioè a chi modelli non il dato ma la sua storia.
+
+\subsection{La generalizzazione, che vale oltre il caso}
+
+Si può enunciare così. In un formato a campi di lunghezza fissa scritto per copia da una struttura preesistente, l'informazione non sta soltanto nel valore del campo ma anche nella traccia della sua inizializzazione. Chi ricostruisce un esemplare deve quindi riprodurre due cose e non una: il valore, che è ciò che si vede, e il contorno, che è ciò che il processo di scrittura avrebbe lasciato.
+
+È lo stesso principio per cui, in analisi forense di un supporto, un settore riscritto si distingue da uno scritto una volta sola non per il suo contenuto ma per ciò che gli sta intorno. E ha la stessa conseguenza pratica: l'attaccante, o in questo caso chi ricostruisce, ha bisogno di un modello del processo e non del formato, e i due sono documenti diversi. Il formato dice dove stanno i byte; il processo dice come ci sono arrivati.
+
+\subsection{Il presidio, e la sua forma}
+
+La correzione ha portato con sé quattro prove interne, e la quarta è quella che conta perché è negativa. Le prime tre verificano che il campo giapponese finisca con un byte nullo, che quello internazionale riempia tutti e sette i byte, e che entrambi soddisfino la condizione. La quarta \emph{riproduce la regola del verificatore} dentro la suite e verifica che il campo difettoso, cioè quello chiuso a terminatore anche nel settimo byte, la fallisca.
+
+La scelta di riprodurre la regola invece di fidarsi della propria lettura di essa non è ridondanza. Una prova che verifichi soltanto che il nostro codice produce ciò che il nostro codice intendeva produrre è una tautologia; una prova che verifichi che il nostro output soddisfa una condizione riscritta a partire dalla fonte è un confronto fra due implementazioni indipendenti della stessa regola, e fallisce quando una delle due è sbagliata. È la stessa disciplina già applicata al vettore degenere del primo metodo, ed è la forma generale di presidio che questo lavoro adotta contro i difetti privi di sintomi.
+
+\subsection{L'esito}
+
+Il lotto, corretto e riesteso a quattordici voci con l'aggiunta dei quattro esemplari dell'isola meridionale, è risultato conforme su tutte e quattordici al secondo giudizio. Il rapporto conferma inoltre due affermazioni che il generatore poggiava sul solo argomento: dichiara il tipo di incontro come statico e non come dono, e dichiara il tipo di correlazione come primo metodo nominando il seme di origine, che coincide con quello derivato dal nostro programma.

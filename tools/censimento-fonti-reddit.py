@@ -543,6 +543,42 @@ def scrivi_vault(c, cartella_note, sorgente):
     return len(scritti) + 1
 
 
+def markdown_registro_esteso(c, righe_inv):
+    """Le righe del registro per le fonti che il post non cita direttamente.
+
+    Esiste per una richiesta esplicita e non negoziabile dell'utente: `SOURCES.md` deve
+    contenere tutte le fonti, non le sole curate. Il censimento e la mappa restano dove sono e
+    servono a navigare; qui il registro diventa completo, che e' cio' che rende vera la frase
+    scritta in testa a quel file, cioe' che nessuna informazione su una fonte viva soltanto
+    altrove.
+
+    Il raggruppamento e' per host e non per cluster, e la ragione e' che queste fonti un cluster
+    non ce l'hanno: nessuna intestazione le governa, perche' compaiono dentro il corpo di un post
+    che il primo rinviava. L'host e' allora l'unico raggruppamento che non sia inventato.
+    """
+    citate = set(v["chiave"] for v in c["distinte"].values())
+    fuori = [x for x in righe_inv
+             if (x["url"] or "").startswith("http") and normalizza(x["url"]) not in citate]
+    per_host = collections.OrderedDict()
+    for x in sorted(fuori, key=lambda r: (r["host"], str(r["profondita"]), r["url"])):
+        per_host.setdefault(x["host"], []).append(x)
+    r = []
+    for host, voci in sorted(per_host.items(), key=lambda kv: (-len(kv[1]), kv[0])):
+        r.append("### " + host + " (%d)" % len(voci))
+        r.append("")
+        r.append("| Prof | Che cosa documenta | Esito nella corsa | URL |")
+        r.append("|---|---|---|---|")
+        for x in voci:
+            desc = x["titolo"] or x["ancora"] or "senza descrizione"
+            if x["autore"]:
+                desc += ", di " + x["autore"]
+            r.append("| %s | %s | %s | %s |"
+                     % (x["profondita"], desc.replace("|", "/")[:200],
+                        x["esito"].split(":")[0], x["url"].replace("|", "%7C")))
+        r.append("")
+    return "\n".join(r) + "\n", len(fuori), len(per_host)
+
+
 def csv_righe(c):
     r = ["cluster;sottocluster;ancora;indirizzo;host;esito;titolo;autore"]
     for (sezione, sotto), voci in c["gruppi"].items():
@@ -610,6 +646,7 @@ def main():
     p.add_argument("--csv")
     p.add_argument("--registro", help="scrive le righe pronte per SOURCES.md")
     p.add_argument("--vault", help="cartella delle note collegate per Obsidian")
+    p.add_argument("--registro-esteso", help="righe di registro per le fonti non citate dal post")
     p.add_argument("--self-test", action="store_true")
     a = p.parse_args()
 
@@ -633,6 +670,10 @@ def main():
     if a.vault:
         n = scrivi_vault(c, a.vault, a.corsa)
         print("%d note collegate in %s" % (n, a.vault))
+    if a.registro_esteso:
+        testo2, quante, host = markdown_registro_esteso(c, inventario)
+        io.open(a.registro_esteso, "w", encoding="utf-8", newline="\n").write(testo2)
+        print("%d fonti su %d host, righe estese in %s" % (quante, host, a.registro_esteso))
     per_host = collections.Counter(v["host"] for v in c["distinte"].values())
     print("")
     print("I dieci host piu' citati:")
