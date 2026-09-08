@@ -113,78 +113,119 @@ Sui 247 esemplari di quarta e 700 di quinta. La colonna del nome umano viene dal
 | RibbonG4SmartUltra | Smart Ultra | 0x61 | 6 | 0 | 0 |
 | RibbonG4SmartMaster | Smart Master | 0x61 | 7 | 0 | 0 |
 
-## Quelli che nessun nostro esemplare porta (69 su 76)
+## L'asse intero, e la parte che i nostri formati sanno rappresentare
 
-E' la lista di lavoro dell'asse, e va letta sapendo che comprende cose di natura molto diversa: fiocchi di gara che si conquistano giocando, fiocchi di ricordo che un gioco assegna una volta sola, e fiocchi che soltanto una distribuzione conferiva. Il passo successivo e' classificarli per via di conferimento, che e' l'informazione che decide quali siano perduti con la chiusura.
+La tabella dei nomi del verificatore elenca 164 fiocchi, ed e' l'asse. Il formato di quarta e quinta generazione ne rappresenta 76, cioe' quelli che esistevano fino alla quinta: gli altri vivono nei formati successivi e nessun nostro lotto puo' portarli, perche' i nostri lotti arrivano alla quinta. Enumerare l'asse dal formato invece che dalla tabella dei nomi e' l'errore che questa sezione esiste per non far commettere: il conto torna e il denominatore e' sbagliato.
 
-| Fiocco | Nome umano |
+## Quelli rappresentabili che nessun nostro esemplare porta (69 su 76)
+
+E' la lista di lavoro dell'asse, e comprende cose di natura molto diversa: fiocchi di gara che si conquistano giocando, fiocchi di ricordo che un gioco assegna una volta sola, e fiocchi che soltanto una distribuzione conferiva. La classificazione per via di conferimento e' quella che decide quali siano perduti con la chiusura, ed e' qui sotto.
+
+La classificazione che segue viene dal raggruppamento che il verificatore stesso fa dei fiocchi in insiemi, uno per generazione: quel raggruppamento e' letto dal sorgente, mentre l'attribuzione di ciascun insieme alla propria generazione e la conseguenza sulla scadenza sono un nostro giudizio, dichiarato dentro il programma. Il criterio e' che un fiocco si perde con la chiusura quando il solo gioco che lo conferisce raggiunge il deposito attraverso la banca; basta invece un solo insieme di console corrente perche' resti conquistabile.
+
+Va dichiarata una approssimazione, perche' rende questo conto un limite superiore e non un numero esatto. Le riedizioni della quarta generazione per console corrente riconferiscono una parte dei fiocchi di quarta, e il verificatore lo esprime dentro condizioni che questo programma non interpreta: alcune voci contate qui come perdute sono quindi riconquistabili la'. Distinguerle richiede di leggere quelle condizioni una per una, ed e' il passo successivo.
+
+| Esito | Quanti |
 |---|---|
-| RibbonChampionSinnoh | Sinnoh Champion |
-| RibbonAbility | Ability |
-| RibbonAbilityGreat | Great Ability |
-| RibbonAbilityDouble | Double Ability |
-| RibbonAbilityMulti | Multi Ability |
-| RibbonAbilityPair | Pair Ability |
-| RibbonAbilityWorld | World Ability |
-| RibbonAlert | Alert |
-| RibbonShock | Shock |
-| RibbonDowncast | Downcast |
-| RibbonCareless | Careless |
-| RibbonRelax | Relax |
-| RibbonSnooze | Snooze |
-| RibbonSmile | Smile |
-| RibbonGorgeous | Gorgeous |
-| RibbonRoyal | Royal |
-| RibbonGorgeousRoyal | Gorgeous Royal |
-| RibbonFootprint | Footprint |
-| RibbonRecord | Record |
-| RibbonLegend | Legend |
-| RibbonChampionWorld | World Champion |
-| RibbonSpecial | Special |
-| RibbonG3Cool | Cool (G3) |
-| RibbonG3CoolSuper | Cool Super |
-| RibbonG3CoolHyper | Cool Hyper |
-| RibbonG3CoolMaster | Cool Master |
-| RibbonG3Beauty | Beauty (G3) |
-| RibbonG3BeautySuper | Beauty Super |
-| RibbonG3BeautyHyper | Beauty Hyper |
-| RibbonG3BeautyMaster | Beauty Master |
-| RibbonG3Cute | Cute (G3) |
-| RibbonG3CuteSuper | Cute Super |
-| RibbonG3CuteHyper | Cute Hyper |
-| RibbonG3CuteMaster | Cute Master |
-| RibbonG3Smart | Smart (G3) |
-| RibbonG3SmartSuper | Smart Super |
-| RibbonG3SmartHyper | Smart Hyper |
-| RibbonG3SmartMaster | Smart Master |
-| RibbonG3Tough | Tough (G3) |
-| RibbonG3ToughSuper | Tough Super |
-| RibbonG3ToughHyper | Tough Hyper |
-| RibbonG3ToughMaster | Tough Master |
-| RibbonChampionG3 | Champion (Gen3) |
-| RibbonWinning | Winning |
-| RibbonVictory | Victory |
-| RibbonArtist | Artist |
-| RibbonEffort | Effort |
-| RibbonChampionRegional | Regional Champion |
-| RibbonChampionNational | National Champion |
-| RibbonCountry | Country |
-| RibbonNational | National |
-| RibbonEarth | Earth |
-| RibbonWorld | World |
-| RibbonG4Cool | Cool (G4) |
-| RibbonG4CoolGreat | Cool Great |
-| RibbonG4CoolUltra | Cool Ultra |
-| RibbonG4CoolMaster | Cool Master |
-| RibbonG4Beauty | Beauty (G4) |
-| RibbonG4BeautyGreat | Beauty Great |
-| RibbonG4BeautyUltra | Beauty Ultra |
-| RibbonG4BeautyMaster | Beauty Master |
-| RibbonG4Cute | Cute (G4) |
-| RibbonG4CuteGreat | Cute Great |
-| RibbonG4CuteUltra | Cute Ultra |
-| RibbonG4CuteMaster | Cute Master |
-| RibbonG4Smart | Smart (G4) |
-| RibbonG4SmartGreat | Smart Great |
-| RibbonG4SmartUltra | Smart Ultra |
-| RibbonG4SmartMaster | Smart Master |
+| perduti con la chiusura, al piu' | 69 |
+| conquistabili su console corrente | 0 |
+| non trattati da alcun insieme | 0 |
+
+### Perduti con la chiusura, al piu' (69)
+
+| Fiocco | Nome umano | Insiemi che lo trattano |
+|---|---|---|
+| RibbonChampionSinnoh | Sinnoh Champion | comuni di quarta generazione |
+| RibbonAbility | Ability | gara e abilita' di quarta generazione |
+| RibbonAbilityGreat | Great Ability | gara e abilita' di quarta generazione |
+| RibbonAbilityDouble | Double Ability | gara e abilita' di quarta generazione |
+| RibbonAbilityMulti | Multi Ability | gara e abilita' di quarta generazione |
+| RibbonAbilityPair | Pair Ability | gara e abilita' di quarta generazione |
+| RibbonAbilityWorld | World Ability | gara e abilita' di quarta generazione |
+| RibbonAlert | Alert | comuni di quarta generazione |
+| RibbonShock | Shock | comuni di quarta generazione |
+| RibbonDowncast | Downcast | comuni di quarta generazione |
+| RibbonCareless | Careless | comuni di quarta generazione |
+| RibbonRelax | Relax | comuni di quarta generazione |
+| RibbonSnooze | Snooze | comuni di quarta generazione |
+| RibbonSmile | Smile | comuni di quarta generazione |
+| RibbonGorgeous | Gorgeous | comuni di quarta generazione |
+| RibbonRoyal | Royal | comuni di quarta generazione |
+| RibbonGorgeousRoyal | Gorgeous Royal | comuni di quarta generazione |
+| RibbonFootprint | Footprint | comuni di quarta generazione |
+| RibbonRecord | Record | comuni di quarta generazione |
+| RibbonLegend | Legend | comuni di quarta generazione |
+| RibbonChampionWorld | World Champion | conferiti da distribuzioni di quarta generazione |
+| RibbonSpecial | Special | conferiti da distribuzioni di quarta generazione |
+| RibbonG3Cool | Cool (G3) | gara e abilita' di quarta generazione |
+| RibbonG3CoolSuper | Cool Super | gara e abilita' di quarta generazione |
+| RibbonG3CoolHyper | Cool Hyper | gara e abilita' di quarta generazione |
+| RibbonG3CoolMaster | Cool Master | gara e abilita' di quarta generazione |
+| RibbonG3Beauty | Beauty (G3) | gara e abilita' di quarta generazione |
+| RibbonG3BeautySuper | Beauty Super | gara e abilita' di quarta generazione |
+| RibbonG3BeautyHyper | Beauty Hyper | gara e abilita' di quarta generazione |
+| RibbonG3BeautyMaster | Beauty Master | gara e abilita' di quarta generazione |
+| RibbonG3Cute | Cute (G3) | gara e abilita' di quarta generazione |
+| RibbonG3CuteSuper | Cute Super | gara e abilita' di quarta generazione |
+| RibbonG3CuteHyper | Cute Hyper | gara e abilita' di quarta generazione |
+| RibbonG3CuteMaster | Cute Master | gara e abilita' di quarta generazione |
+| RibbonG3Smart | Smart (G3) | gara e abilita' di quarta generazione |
+| RibbonG3SmartSuper | Smart Super | gara e abilita' di quarta generazione |
+| RibbonG3SmartHyper | Smart Hyper | gara e abilita' di quarta generazione |
+| RibbonG3SmartMaster | Smart Master | gara e abilita' di quarta generazione |
+| RibbonG3Tough | Tough (G3) | gara e abilita' di quarta generazione |
+| RibbonG3ToughSuper | Tough Super | gara e abilita' di quarta generazione |
+| RibbonG3ToughHyper | Tough Hyper | gara e abilita' di quarta generazione |
+| RibbonG3ToughMaster | Tough Master | gara e abilita' di quarta generazione |
+| RibbonChampionG3 | Champion (Gen3) | gara e campione di terza generazione |
+| RibbonWinning | Winning | unici della terza generazione |
+| RibbonVictory | Victory | unici della terza generazione |
+| RibbonArtist | Artist | gara e campione di terza generazione |
+| RibbonEffort | Effort | gara e campione di terza generazione |
+| RibbonChampionRegional | Regional Champion | conferiti da distribuzioni di terza generazione |
+| RibbonChampionNational | National Champion | conferiti da distribuzioni di terza generazione |
+| RibbonCountry | Country | conferiti da distribuzioni di terza generazione |
+| RibbonNational | National | conferiti da distribuzioni di terza generazione |
+| RibbonEarth | Earth | conferiti da distribuzioni di terza generazione |
+| RibbonWorld | World | esclusivi della terza generazione; conferiti da distribuzioni di quarta generazione |
+| RibbonG4Cool | Cool (G4) | gara e abilita' di quarta generazione |
+| RibbonG4CoolGreat | Cool Great | gara e abilita' di quarta generazione |
+| RibbonG4CoolUltra | Cool Ultra | gara e abilita' di quarta generazione |
+| RibbonG4CoolMaster | Cool Master | gara e abilita' di quarta generazione |
+| RibbonG4Beauty | Beauty (G4) | gara e abilita' di quarta generazione |
+| RibbonG4BeautyGreat | Beauty Great | gara e abilita' di quarta generazione |
+| RibbonG4BeautyUltra | Beauty Ultra | gara e abilita' di quarta generazione |
+| RibbonG4BeautyMaster | Beauty Master | gara e abilita' di quarta generazione |
+| RibbonG4Cute | Cute (G4) | gara e abilita' di quarta generazione |
+| RibbonG4CuteGreat | Cute Great | gara e abilita' di quarta generazione |
+| RibbonG4CuteUltra | Cute Ultra | gara e abilita' di quarta generazione |
+| RibbonG4CuteMaster | Cute Master | gara e abilita' di quarta generazione |
+| RibbonG4Smart | Smart (G4) | gara e abilita' di quarta generazione |
+| RibbonG4SmartGreat | Smart Great | gara e abilita' di quarta generazione |
+| RibbonG4SmartUltra | Smart Ultra | gara e abilita' di quarta generazione |
+| RibbonG4SmartMaster | Smart Master | gara e abilita' di quarta generazione |
+
+### Conquistabili su console corrente (0)
+
+| Fiocco | Nome umano | Insiemi che lo trattano |
+|---|---|---|
+
+### Non trattati da alcun insieme del verificatore (0)
+
+| Fiocco | Nome umano | Insiemi che lo trattano |
+|---|---|---|
+
+## La parte dell'asse fuori dai nostri formati (88)
+
+Sono i fiocchi introdotti dalla sesta generazione in avanti, piu' i contrassegni della nona. Nessun esemplare dei nostri lotti puo' portarli, e non e' una lacuna della produzione ma una proprieta' del perimetro: i lotti arrivano alla quinta generazione. Si ottengono giocando i titoli che li conferiscono, e per quelli di ottava e nona generazione la chiusura non li tocca.
+
+| Insieme che li tratta | Quanti |
+|---|---|
+| nessun insieme lo tratta | 45 |
+| comuni di sesta generazione | 14 |
+| contrassegni di nona generazione, su console corrente | 8 |
+| comuni di ottava generazione, su console corrente | 5 |
+| esclusivi della terza generazione | 5 |
+| comuni di settima generazione | 4 |
+| gara e abilita' di quarta generazione | 4 |
+| comuni di nona generazione, su console corrente | 3 |
