@@ -666,3 +666,49 @@ Il quarto fatto è la misura della copertura, che era il primo motivo ed esce co
 I motivi validi restano quindi tre: la copertura, ora misurata e non stimata; la dipendenza da un servizio non ufficiale; e la traccia, che è peggiore di quanto avessi scritto. Il motivo della selettività si ritira.
 
 Gli impieghi assegnati alla via non cambiano, e il primo si rafforza: proprio perché il dono è indirizzabile, l'oracolo diventa praticabile in modo mirato invece che per tentativi, cioè si può chiedere al canale esattamente la carta il cui gemello composto si vuole verificare.
+
+## ADR-049: si produce un esemplare quando la sua sola via non esiste più, e il criterio non è la classe di incontro
+
+Data: 2026-09-08. Stato: proposta, in attesa della decisione dell'utente.
+
+Contesto, e l'osservazione che la apre. Il generatore degli incontri sbloccati da un oggetto produce, dal punto di vista del codice, esemplari da incontro statico. L'utente ha osservato che nulla nella macchina distingue un incontro statico sbloccato da un evento da uno ordinario del gioco, e che se il criterio diventasse la classe di incontro allora il progetto dovrebbe produrre anche i vaganti e i leggendari di tutte le generazioni. L'osservazione è corretta e il confine va enunciato, perché finora era implicito nella tavola scritta a mano e non in una regola.
+
+La misura che rende concreta la questione. Le tabelle degli incontri del verificatore portano, per le sole generazioni dalla prima alla quinta, milleduecentoquattro voci fra statici, doni e vaganti: sessantuno in prima, sessantanove in seconda, quattrocentosessantuno in terza, centocinquantacinque in quarta e quattrocentocinquantotto in quinta. Adottare la classe di incontro come criterio significherebbe quindi aggiungere circa milleduecento esemplari al perimetro per le sole prime cinque generazioni, senza contare le quattro successive.
+
+### Il criterio sbagliato, e perché è attraente
+
+Il criterio della classe di incontro ha un pregio evidente: è meccanico. Si legge dalla tabella, non richiede giudizio, e produce un perimetro definito senza discussione. È esattamente per questo che va rifiutato: definisce un perimetro sulla proprietà che il progetto sa misurare invece che su quella che al progetto interessa, il che è la forma più comune di scelta sbagliata in un lavoro di enumerazione.
+
+### Il criterio proposto
+
+Si produce un esemplare quando la sua sola via di provenienza non esiste più. Non si produce quando esiste ancora una via che il progetto possa percorrere.
+
+Il criterio è una proprietà della via e non dell'esemplare, ed è verificabile: per ciascuna classe si può dire se il canale che la produceva sia aperto o chiuso, e la risposta non dipende da un giudizio di gusto.
+
+Ne discende la classificazione seguente, che copre tutto ciò che il progetto ha incontrato finora.
+
+Gli esemplari consegnati da un evento si producono, perché il canale che li consegnava è chiuso da anni e i loro esemplari esistono soltanto in mani private. Sono le duemilaseicentottantasei voci sotto scadenza.
+
+Gli esemplari sbloccati da un oggetto distribuito si producono, per la medesima ragione applicata un passo più indietro: senza quell'oggetto il luogo non si apre, e l'oggetto non si distribuisce più. Sono diciotto voci, quattordici in terza generazione, tre in quarta e una in quinta.
+
+Gli esemplari che venivano da un servizio o da un'applicazione dismessa si producono, e questa è la parte che il criterio aggiunge rispetto a ciò che il progetto faceva. L'esempio misurato è il sondatore dei sogni, un'applicazione a pagamento del negozio in rete della console portatile, chiuso: le sue centottantuno voci non sono ottenibili in alcun altro modo, e fra esse stanno i tre spiriti e i leggendari di quarta generazione al livello cinque, che nessuna altra via produce a quel livello.
+
+Gli incontri ordinari dei giochi non si producono. Comprendono i leggendari, i vaganti e ogni statico che il gioco offre a chi lo giochi, e la ragione del rifiuto è doppia e va detta per intero.
+
+### Perché gli incontri ordinari restano fuori
+
+La prima ragione è che non hanno scadenza, ed è un fatto misurato e non una impressione: lo Studio 01 ha stabilito che zero specie e zero voci-forma dipendono dalla via indiretta, perché l'unione dei titoli a via diretta le copre tutte. Un leggendario che si cattura giocando un gioco posseduto sarà catturabile anche dopo il ventisei febbraio 2027, quindi produrlo oggi non compra tempo: consuma tempo.
+
+La seconda ragione è di qualità e pesa più della prima. Un esemplare catturato dal giocatore con il proprio allenatore è migliore di uno composto su ogni asse che a questo progetto interessi, e produrlo significherebbe sostituire una cosa ottenibile bene con una ottenibile male. È il rovescio esatto dell'argomento che ha giustificato i lotti: là si compone perché non c'è altra via, qui ci sarebbe.
+
+Una terza ragione, minore ma non trascurabile, è che quel perimetro non ha chiusura. Milleduecento voci per cinque generazioni sono una parte, non un totale, e un progetto che perda la proprietà di poter finire perde con essa la possibilità di misurare quanto gli manchi.
+
+### Che cosa la decisione cambia in concreto
+
+Se accolta, apre un lavoro nuovo e ne chiude uno mai aperto. Il lavoro nuovo sono le centottantuno voci del sondatore dei sogni, che vanno prima misurate contro le nostre enumerazioni per sapere quante caselle aggiungano davvero, e che vanno prodotte con il ramo senza correlazione della quinta generazione. Il lavoro che si chiude è la produzione dei leggendari e dei vaganti, che non si apre.
+
+Va infine registrato che il criterio si applica anche all'indietro e potrebbe cambiare qualcosa: ogni classe già prodotta va riletta chiedendosi se la sua via sia davvero chiusa, e ogni classe scartata va riletta chiedendosi se la sua via lo sia diventata. È un controllo da rifare quando un servizio chiude o riapre, non una volta sola.
+
+### Il caso che il criterio non decide, e va dichiarato
+
+Restano fuori dalla classificazione i Pokemon di N, che si ottengono collegando un salvataggio di quinta generazione a uno dell'altra coppia con la funzione dei ricordi. Il canale non è chiuso, perché non è un servizio in rete ma una funzione fra due giochi, e il progetto possiede i salvataggi; ma richiede due cartucce e una procedura che il progetto non ha ancora provato. Non si producono, e la voce resta come lavoro di gioco e non di generazione.

@@ -4,6 +4,42 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-08, ottava parte. Il lotto di quarta conforme, e il confine che era implicito
+
+Il lotto degli incontri di quarta generazione è conforme su tutte e tre le voci al primo giudizio, e il rapporto dichiara il tipo di incontro come statico. Il campo nuovo di questo formato, cioè il tipo di terreno, non è stato contestato su nessuna delle tre: erboso per Darkrai, assente per Shaymin, caverna per Regigigas.
+
+Va notato che il primo giudizio è andato pulito, mentre quello di terza generazione aveva portato un rilievo. Non è merito: è che il difetto di terza stava nel riempimento del campo del nome dell'allenatore, che in quarta generazione ha una forma diversa e non pone quel problema. Il ramo del primo metodo, che era la parte da provare, era già stato provato là.
+
+### L'osservazione dell'utente, e il confine che non avevo enunciato
+
+L'utente ha osservato che il generatore, dal punto di vista del codice, produce esemplari da incontro statico senza distinguere quelli sbloccati da un evento da quelli ordinari del gioco, e che se il criterio diventasse la classe di incontro allora il progetto dovrebbe produrre anche i vaganti e i leggendari di tutte le generazioni. L'osservazione è corretta e coglie una cosa vera: il confine esisteva soltanto nella tavola scritta a mano e non in una regola.
+
+La misura che rende concreta la questione. Le tabelle degli incontri del verificatore portano, per le sole generazioni dalla prima alla quinta, milleduecentoquattro voci fra statici, doni e vaganti. Adottare la classe di incontro come criterio aggiungerebbe quindi circa milleduecento esemplari al perimetro per le sole prime cinque generazioni.
+
+### Il criterio proposto, ed è ADR-049
+
+Il criterio della classe di incontro ha un pregio che lo rende attraente, cioè che è meccanico e non richiede giudizio, ed è esattamente per questo che va rifiutato: definisce il perimetro sulla proprietà che sappiamo misurare invece che su quella che ci interessa, che è la forma più comune di scelta sbagliata in un lavoro di enumerazione.
+
+Il criterio proposto è un altro: si produce un esemplare quando la sua sola via di provenienza non esiste più, e non si produce quando esiste ancora una via che il progetto possa percorrere. È una proprietà della via e non dell'esemplare, ed è verificabile, perché per ciascuna classe si può dire se il canale che la produceva sia aperto o chiuso.
+
+Le quattro classi che ne discendono. I consegnati da un evento si producono, e sono le duemilaseicentottantasei voci sotto scadenza. Gli sbloccati da un oggetto distribuito si producono, per la medesima ragione applicata un passo indietro, e sono le diciotto voci di questo lavoro. Quelli che venivano da un servizio o da un'applicazione dismessa si producono, ed è la parte che il criterio aggiunge. Gli incontri ordinari dei giochi non si producono.
+
+### La cosa che il criterio aggiunge, misurata
+
+Il sondatore dei sogni era un'applicazione a pagamento del negozio in rete della console portatile, e quel negozio è chiuso. Le tabelle del verificatore ne portano centottantuno voci, e fra esse stanno i tre spiriti e i leggendari di quarta generazione al livello cinque, che nessuna altra via produce a quel livello. Per il criterio proposto vanno prodotte, e vanno prima misurate contro le nostre enumerazioni per sapere quante caselle aggiungano davvero.
+
+### Perché i leggendari ordinari restano fuori, con due ragioni e mezzo
+
+La prima è che non hanno scadenza, ed è un fatto misurato e non una impressione: lo Studio 01 ha stabilito che zero specie e zero voci-forma dipendono dalla via indiretta. Un leggendario che si cattura giocando un gioco posseduto sarà catturabile anche dopo la chiusura, quindi produrlo oggi non compra tempo ma lo consuma.
+
+La seconda pesa di più ed è di qualità: un esemplare catturato dal giocatore con il proprio allenatore è migliore di uno composto su ogni asse che a questo progetto interessi, e produrlo significherebbe sostituire una cosa ottenibile bene con una ottenibile male. È il rovescio esatto dell'argomento che ha giustificato i lotti, dove si compone perché non c'è altra via.
+
+La mezza ragione, che vale comunque enunciare, è che quel perimetro non ha chiusura: milleduecento voci per cinque generazioni sono una parte e non un totale, e un progetto che perda la proprietà di poter finire perde con essa la possibilità di misurare quanto gli manchi.
+
+### Un controllo che il criterio impone e che prima non esisteva
+
+Il criterio si applica anche all'indietro, e questa è la sua parte scomoda. Ogni classe già prodotta va riletta chiedendosi se la sua via sia davvero chiusa, e ogni classe scartata va riletta chiedendosi se la sua via lo sia diventata. Non è un controllo da fare una volta: è da rifare ogni volta che un servizio chiude o riapre, ed è precisamente ciò che è successo con il sistema di scambio globale ricostruito, che ha riaperto una via che ADR-040 dava per chiusa.
+
 ## 2026-09-08, settima parte. Gli incontri di quarta generazione, e un esemplare che si registra invece di produrlo
 
 ### Il generatore
