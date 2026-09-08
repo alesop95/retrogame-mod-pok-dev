@@ -170,6 +170,17 @@ INCONTRI = [
     ("deoxys-e", 386, 30, "E", 200, 3, "Italian", "Isola della Nascita"),
     ("deoxys-fr", 386, 30, "FR", 187, 1, "Italian", "Isola della Nascita"),
     ("deoxys-lg", 386, 30, "LG", 187, 2, "Italian", "Isola della Nascita"),
+    # Il Biglietto Eone e l'Isola del Sud, aggiunti il 2026-09-08 su segnalazione dell'utente.
+    # La loro asimmetria non e' un capriccio della tavola ed e' l'informazione piu' densa di
+    # questo blocco: nelle due versioni di apertura il biglietto consegna il leggendario opposto
+    # a quello che vaga per la regione, cioe' Latias in Rubino e Latios in Zaffiro, e l'incontro
+    # NON e' fatidico; in Smeraldo sono disponibili entrambi e l'incontro e' fatidico. Ne segue
+    # che il contrassegno fatidico qui non e' una proprieta' dell'evento ma della versione, ed e'
+    # il solo caso del lotto in cui due esemplari della stessa specie differiscono su quel campo.
+    ("latias-r", 380, 50, "R", 73, None, "Italian", "Isola del Sud"),
+    ("latios-s", 381, 50, "S", 73, None, "Italian", "Isola del Sud"),
+    ("latias-e", 380, 50, "E", 73, None, "Italian", "Isola del Sud"),
+    ("latios-e", 381, 50, "E", 73, None, "Italian", "Isola del Sud"),
 ]
 
 # Il nome dell'allenatore in katakana, per la sola voce giapponese. La traslitterazione e' una
@@ -184,7 +195,13 @@ LINGUE = {"Japanese": 1, "English": 2, "French": 3, "Italian": 4, "German": 5, "
 
 # I repertori di livello, uno per gioco, dal deposito compilato del verificatore.
 REPERTORI = {"E": "lvlmove_e.pkl", "FR": "lvlmove_fr.pkl", "LG": "lvlmove_lg.pkl",
-             "RS": "lvlmove_rs.pkl"}
+             "R": "lvlmove_rs.pkl", "S": "lvlmove_rs.pkl"}
+
+# Le due voci che il verificatore NON marca come incontro fatidico, cioe' quelle delle due
+# versioni di apertura. Sta qui come insieme e non come colonna della tavola perche' e'
+# un'eccezione a una regola e non una proprieta' indipendente: tutto il resto del lotto e'
+# fatidico, e scrivere una colonna quasi costante nasconde proprio le due righe che contano.
+SENZA_INCONTRO_FATIDICO = frozenset(["latias-r", "latios-s"])
 
 CARTELLA_REPERTORI = os.path.join("PKHeX.Core", "Resources", "byte", "levelup")
 CARTELLA_INDOLI = os.path.join("PKHeX.Core", "Resources", "byte", "personal")
@@ -245,6 +262,30 @@ def mosse_al_livello(coppie, livello):
     return imparate[-4:]
 
 
+def nome_allenatore(tabella, nome, lingua):
+    """Il campo del nome dell'allenatore, che non si riempie allo stesso modo nelle due lingue.
+
+    Il campo misura sette byte e il verificatore non lo legge come una stringa ma come una
+    impronta di riempimento, perche' il gioco lo copia dal salvataggio byte per byte e quindi la
+    spazzatura che vi resta dietro e' essa stessa un dato. La regola che esso applica sta in
+    `MiscVerifierG3.VerifyTrashJPN` e in `VerifyTrashINT`, ed e' diversa per le due lingue.
+
+    Su un gioco internazionale tutti e sette i byte sono inizializzati al terminatore, quindi un
+    nome che li riempia tutti e' lecito senza terminatore finale: e' il caso del nostro
+    allenatore, il cui nome misura esattamente sette caratteri.
+
+    Su un gioco giapponese sono inizializzati al terminatore i soli primi sei, e il settimo
+    resta a zero. Ne segue che un nome giapponese va scritto in sei byte con il riempimento a
+    terminatore, e il settimo byte deve valere zero. Scriverlo a terminatore come gli altri
+    produce l'unico rilievo che il primo giudizio di questo lotto ha portato, cioe' che manca il
+    terminatore finale, ed e' un difetto che nessun controllo interno poteva cogliere perche' i
+    byte sono tutti leciti e la stringa si rilegge correttamente in entrambi i casi.
+    """
+    if lingua != "Japanese":
+        return tabella.encode(nome, length=gen3.OT_NAME_LENGTH)
+    return tabella.encode(nome, length=gen3.OT_NAME_LENGTH - 1) + b"\x00"
+
+
 def indole_di_specie(pkhex, nazionale):
     """Amicizia di base e le due caselle di abilita', dal deposito delle indoli di Smeraldo.
 
@@ -268,6 +309,7 @@ def indole_di_specie(pkhex, nazionale):
 
 def componi(ace, pkhex, voce, allenatore, giro=0):
     sigla, nazionale, livello, versione, luogo, forma, lingua, nome_luogo = voce
+    fatidico = sigla not in SENZA_INCONTRO_FATIDICO
 
     mappa = G3.nazionale_verso_interno(ace)
     specie_id = mappa.get(nazionale)
@@ -298,7 +340,7 @@ def componi(ace, pkhex, voce, allenatore, giro=0):
     soprannome = tabella.encode(nome_visibile, length=gen3.NICKNAME_LENGTH)
 
     nome_ot = NOME_GIAPPONESE if lingua == "Japanese" else allenatore["nome"]
-    ot_bytes = tabella.encode(nome_ot, length=gen3.OT_NAME_LENGTH)
+    ot_bytes = nome_allenatore(tabella, nome_ot, lingua)
 
     grezzo = io.open(os.path.join(pkhex, CARTELLA_REPERTORI, REPERTORI[versione]), "rb").read()
     coppie = repertorio_di_livello(aree_indicizzate(grezzo)[nazionale])
@@ -332,7 +374,7 @@ def componi(ace, pkhex, voce, allenatore, giro=0):
             ivs=iv,
             is_egg=False,
             ability_num=bit,
-            modern_fateful_encounter=True,
+            modern_fateful_encounter=fatidico,
         ),
     )
     return mon, {
@@ -432,6 +474,52 @@ def self_test():
     prova("la lucentezza si annulla per costruzione",
           cromatico(((0x1234 ^ 111 ^ 222) << 16) | 0x1234, 111, 222), "")
     prova("e non si annulla altrimenti", not cromatico(0x00000001, 111, 222), "")
+
+    # Il riempimento del nome dell'allenatore, che e' il difetto trovato dal primo giudizio.
+    class _Finta(object):
+        def encode(self, testo, length):
+            return bytes(range(0x50, 0x50 + len(testo))) + bytes([0xFF]) * (length - len(testo))
+    f = _Finta()
+    jp = nome_allenatore(f, "abcd", "Japanese")
+    it = nome_allenatore(f, "abcdefg", "Italian")
+    prova("il nome giapponese finisce con un byte nullo",
+          len(jp) == 7 and jp[-1] == 0x00 and jp[4:6] == bytes([0xFF, 0xFF]), jp.hex(" "))
+    prova("il nome internazionale riempie tutti e sette i byte",
+          len(it) == 7 and 0x00 not in it, it.hex(" "))
+    # I due controlli negativi riproducono la regola del verificatore invece di fidarsi della
+    # nostra lettura: un campo giapponese chiuso a terminatore, che e' il difetto corretto qui,
+    # deve fallire la prova che il campo corretto supera.
+    def terminato_ff_zero(dati, prefill):
+        i = dati.find(0xFF)
+        if i == -1 or i >= len(dati) - 1:
+            return True
+        i += 1
+        if i < prefill:
+            if any(b != 0xFF for b in dati[i:prefill]):
+                return False
+            i = prefill
+            if i >= len(dati):
+                return True
+        return all(b == 0 for b in dati[i:])
+    prova("il campo giapponese corretto supera la regola del verificatore",
+          terminato_ff_zero(jp, 6), jp.hex(" "))
+    prova("negativo: il campo giapponese chiuso a terminatore la fallisce",
+          not terminato_ff_zero(f.encode("abcd", 7), 6), f.encode("abcd", 7).hex(" "))
+    prova("il campo internazionale pieno supera la regola",
+          terminato_ff_zero(it, 7), it.hex(" "))
+
+    # La tavola dell'Isola del Sud, e l'asimmetria del contrassegno fatidico.
+    eone = {v[0]: v for v in INCONTRI if v[1] in (380, 381)}
+    prova("quattro voci dall'Isola del Sud", len(eone) == 4, str(sorted(eone)))
+    prova("le due versioni di apertura non sono fatidiche",
+          SENZA_INCONTRO_FATIDICO == frozenset(["latias-r", "latios-s"]),
+          str(sorted(SENZA_INCONTRO_FATIDICO)))
+    prova("le due voci di Smeraldo lo sono",
+          "latias-e" not in SENZA_INCONTRO_FATIDICO
+          and "latios-e" not in SENZA_INCONTRO_FATIDICO, "")
+    prova("ogni versione della tavola ha un repertorio",
+          all(v[3] in REPERTORI for v in INCONTRI),
+          str(sorted({v[3] for v in INCONTRI} - set(REPERTORI))))
 
     forme = sorted(v[5] for v in INCONTRI if v[1] == 386)
     prova("tre voci di Deoxys con tre forme rese distinte", forme == [1, 2, 3], str(forme))

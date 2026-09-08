@@ -4,6 +4,40 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-08, terza parte. Il lotto dei biglietti giudicato, quattro esemplari mancanti, e B1 che falsifica un mio motivo
+
+### Il giudizio, e l'unico rilievo
+
+Il primo giro del lotto degli incontri da biglietto è stato giudicato: nove voci su dieci conformi, e il rilievo unico è sul solo Mew. Due cose vanno lette prima del difetto, perché sono la conferma che il ramo nuovo funziona. Il rapporto dichiara il tipo di incontro come statico e non come dono, che è la classe giusta; e dichiara il tipo di correlazione come primo metodo, nominando anche il seme di origine, che coincide con quello che il nostro programma ha derivato. Il terzo regime di correlazione è quindi implementato correttamente, ed è la cosa che valeva verificare.
+
+Il difetto è il riempimento del campo del nome dell'allenatore, e vale registrarlo per intero perché è della classe che nessun controllo interno può cogliere. Quel campo misura sette byte e il verificatore non lo legge come una stringa ma come un'impronta di riempimento, perché il gioco lo copia dal salvataggio byte per byte e la spazzatura che vi resta dietro è essa stessa un dato. Su un gioco internazionale tutti e sette i byte partono a terminatore, quindi un nome che li riempia tutti è lecito senza terminatore finale, ed è il caso del nostro allenatore il cui nome misura esattamente sette caratteri. Su un gioco giapponese partono a terminatore i soli primi sei, e il settimo resta a zero. Noi scrivevamo il terminatore anche nel settimo, e il verificatore lo ha contestato con la formula che manca il terminatore finale.
+
+Perché era invisibile: i byte sono tutti leciti, la stringa si rilegge correttamente in entrambi i casi, e il nome compare giusto in ogni schermata. La differenza sta in un byte che non appartiene alla stringa ma al suo contorno. Corretto, e il self-test ha preso quattro prove nuove, di cui una negativa che riproduce la regola del verificatore invece di fidarsi della nostra lettura di essa.
+
+### I quattro che mancavano, segnalati dall'utente
+
+L'utente ha osservato che mancano Latias e Latios, ottenibili con il Biglietto Eone. Ha ragione, e la lettura delle tabelle mostra un'asimmetria che vale più delle quattro voci che aggiunge. Nelle due versioni di apertura il biglietto consegna il leggendario opposto a quello che vaga per la regione, cioè Latias in Rubino e Latios in Zaffiro, e l'incontro NON è fatidico. In Smeraldo sono disponibili entrambi e l'incontro è fatidico. Il contrassegno fatidico non è quindi una proprietà dell'evento ma della versione, ed è il solo caso del lotto in cui due esemplari della stessa specie differiscono su quel campo. Il lotto passa da dieci a quattordici esemplari, e il programma ora legge anche il repertorio di Rubino e Zaffiro, che prima non serviva a nessuna voce.
+
+### B1, che falsifica un mio motivo e ne rafforza un altro
+
+Il passo B1 della roadmap è stato eseguito leggendo il codice invece delle testimonianze, ed è andato meglio di come sarebbe andato leggendo ancora testimonianze. Tre risultati.
+
+Il primo conferma la cautela dello Studio 04 su una confusione fra strati. Il servizio che fornisce il sistema di scambio globale dichiara nel proprio README che cosa funziona, e i doni segreti non ci sono: compaiono nel suo documento di prospettiva fra le cose che l'autore vorrebbe avere. Non li distribuisce. Li distribuisce l'altro strato, che è un progetto diverso, ed è esattamente la distinzione che avevo marcato come da verificare invece di darla per buona.
+
+Il secondo falsifica il secondo dei quattro motivi di ADR-048. Avevo scritto che la consegna è casuale e che una via non indirizzabile non è produzione ma una lotteria: è falso, e veniva da una testimonianza invece che dalla documentazione. Il progetto che distribuisce i doni documenta il contrario, cioè che ogni gioco ha una cartella con un elenco numerato e che si sceglie quale dono ricevere impostando l'orologio della console al giorno dell'anno pari al numero di riga. Il motivo si ritira.
+
+Il terzo lo sostituisce con uno più forte, e nasce dallo stesso meccanismo. Per scegliere un dono si deve impostare una data arbitraria, quindi l'esemplare non porta la data di oggi ma quella che si è dovuta impostare per ottenerlo, cioè un giorno di gennaio o febbraio scelto per il suo numero. Non è una data recente, è una data priva di senso.
+
+### La misura della copertura, che chiude la questione
+
+Il catalogo è pubblico e si legge per gioco. Per le cartucce italiane che il progetto possiede: trentaquattro carte per Diamante, diciotto per Platino, sedici per Argento SoulSilver. Le cartelle di Perla, di Oro HeartGold e dei quattro titoli di quinta generazione in italiano non esistono; quella di Bianco esiste, porta trecentosettantasette voci fra musical e sfondi, e nessuna carta.
+
+Ne segue il numero che chiude la questione: per la quinta generazione italiana il canale non distribuisce alcun Pokemon, e per la quarta ne distribuisce al più sessantotto contro le duecentoquarantasette prodotte. ADR-048 regge, con un margine molto più ampio di quello che avevo stimato, e i suoi motivi validi sono ora tre e misurati invece di quattro e argomentati.
+
+### La mappa delle fonti, che l'utente aveva chiesto
+
+Il censimento aveva un elenco e non una mappa. Ora ha entrambe: `tools/censimento-fonti-reddit.py` scrive anche quarantatre note collegate sotto `docs/fonti/collezione/`, una per cluster più un indice, che aprendo la radice come vault diventano un grafo navigabile. Il grafo disegnato non è quello dei rinvii fra i post, che ha oltre millecinquecento archi ed è illeggibile: è quello fra i cluster e gli host, che ha una lettura sola e la dice subito, cioè quali argomenti poggino su quali sorgenti.
+
 ## 2026-09-08, seconda parte. La profondità due è chiusa, gli assi sono sei e non tre, e una regola che avevo enunciato era sbagliata
 
 Tre cose in questa voce: il completamento del grafo, la correzione di una mia regola, e la scoperta che l'obiettivo ha più dimensioni di quante ne contassimo.
