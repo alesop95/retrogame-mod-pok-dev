@@ -622,3 +622,31 @@ La seconda è che dalla quarta generazione in avanti la forma diventa un campo m
 Decisione. Le quattro caselle di Deoxys si riempiono con quattro corpi e tre biglietti. I tre esemplari dell'isola della nascita si producono con i loro tre giochi di origine, che sono un dato dell'incontro e non una scelta; il quarto corpo si ottiene duplicando uno qualsiasi dei tre e portandolo alla forma normale dopo il trasferimento, dove la forma esiste come campo e il cambiamento è lecito qualunque sia l'origine. Non si tenta di produrre un quarto esemplare con un gioco di origine che quel biglietto non ebbe mai.
 
 Si stabilisce inoltre, come regola generale e non come nota su questa specie, che quando una fonte attribuisce a un esemplare una proprietà che il suo formato non memorizza, quella proprietà non è un campo da riprodurre ma una funzione del contesto di lettura, e va registrata come tale nella documentazione. Confondere una resa con un campo produce due difetti opposti e simmetrici: si cerca di scrivere ciò che non si scrive, oppure si conclude che ciò che non si scrive non esiste.
+
+## ADR-048: i lotti restano file completi, e un canale ricostruito vale come oracolo e non come sostituto
+
+Data: 2026-09-08. Stato: accettata.
+
+Contesto. Lo Studio 04 ha stabilito che i servizi in rete di quarta e quinta generazione, chiusi nel 2014, sono stati ricostruiti da terzi e che per quella via un gioco può ricevere doni segreti veri attraverso il proprio canale di consegna. Da quel fatto avevo tratto una conseguenza operativa e l'avevo scritta come regola: se una parte dei doni si può ricevere invece che comporre, quella parte non va composta. L'utente ha risposto che vuole comunque i lotti come file completi e tutti conformi, e ha chiesto se ricevere sia davvero più conveniente che comporre.
+
+La risposta è che non lo è, e la regola che avevo enunciato era sbagliata nel modo peggiore, cioè plausibile. Va corretta con i suoi motivi, perché la stessa tentazione tornerà ogni volta che comparirà un canale nuovo.
+
+Il primo motivo è la copertura. La testimonianza su cui poggia la via elenca una ventina di doni per gioco, non le duecentoquarantasette voci di quarta e le settecento di quinta che abbiamo prodotto. Una via che copre un sottoinsieme non sostituisce una che copre l'insieme.
+
+Il secondo è la selettività, e conta più della copertura. La consegna per quel canale è casuale e produce duplicati: non si chiede una carta, si ricevono carte finché non esce quella che si voleva. Una via che non si può indirizzare non è una via di produzione, è una lotteria con un catalogo.
+
+Il terzo è la dipendenza. Un file su disco non smette di esistere; un servizio non ufficiale sì, e questo progetto nasce esattamente dall'osservazione che un servizio ufficiale con vent'anni di storia sta per chiudere. Fondare la produzione su un secondo servizio, più fragile del primo, contraddice la ragione per cui il progetto esiste.
+
+Il quarto è il più interessante e rovescia del tutto la premessa. Un dono di quinta generazione ricevuto oggi scrive nell'esemplare la data di oggi, e per un evento chiuso nel 2013 quella data è precisamente la firma con cui la comunità riconosce la via del nome di dominio. I nostri settecento esemplari di quinta generazione portano invece centocinquantasette date distinte fra il 2010 e il 2013, cioè quelle storiche dichiarate dalle carte, verificate sui file il 2026-09-07. Sul solo asse che un osservatore esterno guarda per primo, l'esemplare composto da noi è più fedele di quello ricevuto dal canale ricostruito. È il contrario di ciò che l'intuizione suggerisce, e nasce dal fatto che noi possiamo scrivere una data che il gioco, ricevendo oggi, non può.
+
+Decisione. I lotti restano quello che sono, cioè file completi e conformi per ogni voce enumerata, e la loro produzione non si sospende in attesa di alcun canale. La via del canale ricostruito non entra nella produzione.
+
+Le si assegnano invece tre impieghi distinti, in ordine di valore, e sono impieghi che la produzione per file non può avere.
+
+Il primo è l'oracolo, ed è la ragione principale per cui vale percorrerla. Un esemplare ricevuto davvero dal gioco è verità di riferimento: confrontarlo campo per campo con il nostro gemello composto dice se il nostro modello sia giusto, e lo dice in un modo che nessun verificatore può, perché il verificatore controlla la conformità a un modello mentre questo confronto controlla il modello stesso. Basta un solo esemplare per carta per rendere il confronto informativo, e la quinta generazione è la scelta giusta per la prova perché non richiede il punto di accesso aperto.
+
+Il secondo è il ponte per i ventotto coreani. Là non si tratta di produrre ma di trasportare, e il sistema di scambio globale è l'unico passaggio che la barriera di lingua della quarta generazione ammetta: se quello ricostruito attraversa davvero la barriera, sostituisce una stazione coreana in emulazione con un servizio già in piedi.
+
+Il terzo riguarda ciò che non è un esemplare e che i nostri generatori non producono affatto, cioè gli oggetti chiave e le applicazioni che alcune distribuzioni consegnavano, fra cui uno mai distribuito fuori dal Giappone. Non occupano una casella nel deposito e quindi non toccano l'obiettivo, ma appartengono alla storia delle distribuzioni che il progetto documenta.
+
+Si stabilisce infine la regola generale che questa correzione produce, perché è la parte riusabile. Un canale nuovo non si valuta su quanto sia più autentico di quello in uso, ma su quattro proprietà separate: quante voci copra, se si possa indirizzare a una voce scelta, quanto duri, e quale traccia lasci nell'esemplare. Un canale può essere più autentico e insieme peggiore su tutte e quattro, ed è precisamente questo caso.

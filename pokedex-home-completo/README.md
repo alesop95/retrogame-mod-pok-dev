@@ -16,6 +16,7 @@ Resta una sola eccezione possibile a livello di specie, e va verificata prima di
 
 ```
 README.md                          questo file
+ROADMAP.md                         l'ordine in cui le cose vanno fatte, con le dipendenze e chi esegue
 RICERCA-UTENTE-2026-09-01.md       la ricerca consegnata dall'utente, verbatim e con provenienza
 STUDIO-01-che-cosa-vincola-la-scadenza.md   la verifica indipendente e il suo esito
 CONFRONTO-FOGLIO-LIVINGDEX.md               il confronto con il foglio comunitario, e le divergenze
@@ -27,6 +28,7 @@ CATENA-DI-TRASFERIMENTO.md                  i vincoli di ogni passaggio e la via
 CENSIMENTO-FONTI-COLLEZIONE.md              le 171 fonti del corpus, per cluster e con l'esito della corsa
 fonti-collezione.csv                        le stesse, come tabella per il confronto
 STUDIO-04-la-via-del-dns-e-il-servizio-rianimato.md   i servizi in rete ricostruiti da terzi, e le due decisioni che rimettono in gioco
+STUDIO-05-gli-assi-che-non-contavamo.md     mosse, fiocchi, sfere e sfide: i tre assi nuovi e la misura sulle mosse
 ```
 
 Lo strumento che produce il conto sta fra quelli comuni, in `tools/disponibilita-titoli.py`, perché serve a più di un track: la sua risposta governa la pianificazione del tempo di tutto il progetto e non soltanto di questo sottoprogetto.
