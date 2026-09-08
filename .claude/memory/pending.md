@@ -107,6 +107,16 @@ Questa è la tabella che l'agente deve consultare da sé: ogni riga dice quando 
 
 Ciò che è raggiungibile e non ancora letto. Il debito si chiude leggendo, non aspettando.
 
+Dal 2026-09-08 la voce più grossa di questa sezione è il corpus della collezione, cioè le centosettantuno fonti registrate in `SOURCES.md` e censite in `pokedex-home-completo/CENSIMENTO-FONTI-COLLEZIONE.md`. Centouno di esse stanno già su disco sotto `_notes/fonti/reddit-pokemonhome-1vtj5hf-2026-09-08/`, quindi il debito non richiede nulla da nessuno: richiede solo di leggere. L'ordine non è quello del post ma quello dell'utilità per il lavoro in corso, e i primi tre cluster sono questi.
+
+| Ordine | Cluster | Perché per primo |
+|---|---|---|
+| 1 | 2) What are we loosing with Pokemon Bank, sei voci tutte scaricate | è il vincolo temporale dell'intero progetto, e queste sei enumerazioni indipendenti si confrontano con la nostra invece di sommarvisi. Una di esse si intitola esplicitamente alle sfide che diventano impossibili dopo la chiusura, che è la domanda su cui STUDIO-01 aveva risposto con i nostri soli dati |
+| 2 | 1) Dex completions / Overall lists for multiple generations, dieci voci | porta le enumerazioni trasversali: gli scambi e i doni interni ai giochi, gli eventi interni, le differenze di sesso, i sottolivellati, e le due voci sulla via del nome di dominio da cui è nato STUDIO-04 |
+| 3 | 9) RNG Manipulation and Glitches, sedici voci in sei sotto-cluster | è la stessa materia del track sulla generazione e dell'esecuzione di codice, cioè l'unica parte del corpus che tocca il come e non il che cosa |
+
+Gli altri trentanove cluster restano catalogati e si leggono quando una domanda li chiama, che è la disciplina dichiarata nel registro: una fonte letta senza una domanda produce note che nessuno rilegge.
+
 | Fonte | Stato |
 |---|---|
 | `pokeyellow` e `pokegold` | disassemblati non ancora clonati; servono per le differenze di offset di Giallo e di Oro e Argento |

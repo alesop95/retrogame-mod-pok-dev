@@ -24,6 +24,9 @@ serebii-eventi.csv                          le 1880 distribuzioni delle pagine d
 serebii-eventi-senza-specie.csv             i 236 record che nessuna specie indicizza
 EVENTI-SENZA-CARTA.md                       la coda delle consegne che non lasciano una carta
 CATENA-DI-TRASFERIMENTO.md                  i vincoli di ogni passaggio e la via in emulazione
+CENSIMENTO-FONTI-COLLEZIONE.md              le 171 fonti del corpus, per cluster e con l'esito della corsa
+fonti-collezione.csv                        le stesse, come tabella per il confronto
+STUDIO-04-la-via-del-dns-e-il-servizio-rianimato.md   i servizi in rete ricostruiti da terzi, e le due decisioni che rimettono in gioco
 ```
 
 Lo strumento che produce il conto sta fra quelli comuni, in `tools/disponibilita-titoli.py`, perché serve a più di un track: la sua risposta governa la pianificazione del tempo di tutto il progetto e non soltanto di questo sottoprogetto.
