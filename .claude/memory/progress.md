@@ -4,6 +4,36 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-08, sesta parte. L'asse dei fiocchi classificato, e un denominatore che era il sottoinsieme di sé stesso
+
+### La classificazione, e da dove viene
+
+I sessantanove fiocchi che nessun nostro esemplare porta sono stati classificati per via di conferimento, che è l'informazione che decide quali si perdano con la chiusura. Il raggruppamento non è inventato: il verificatore organizza i propri controlli in insiemi, uno per generazione, e il programma legge da quei file quali fiocchi ciascun insieme tratti. Ciò che resta nostro, ed è dichiarato dentro il programma perché è un giudizio e non un dato, è l'attribuzione di ciascun insieme alla propria generazione e la conseguenza sulla scadenza.
+
+Il criterio è che un fiocco si perde con la chiusura quando il solo gioco che lo conferisce raggiunge il deposito attraverso la banca, e che basta un solo insieme di console corrente perché resti conquistabile.
+
+Un dettaglio di lettura che il primo giro aveva mancato: il verificatore nomina un fiocco in due modi dentro lo stesso file, come proprietà letta dall'esemplare con il prefisso, e come voce dell'elenco dei rilievi senza. Cercare la sola prima forma lasciava fuori i fiocchi che un file segnala e non legge, che nella sesta e settima generazione sono la maggioranza. Le due forme si uniscono ricomponendo il prefisso.
+
+### Il difetto di denominatore, che è la cosa che vale di questa parte
+
+Alla prima stesura il programma enumerava l'asse dal formato di quarta generazione, cioè dal file che descrive come quel formato dispone i fiocchi nei propri byte, e ne trovava settantasei. Il numero è giusto e la conclusione era sbagliata: quel formato porta i soli fiocchi che esistevano fino alla quinta generazione, quindi enumerare da lì significa dichiarare come asse completo un suo sottoinsieme.
+
+Il difetto è della stessa famiglia già incontrata due volte oggi, cioè un risultato plausibile e privo di sintomi, ma la sua forma è peggiore delle altre due e vale nominarla: qui il conto tornava. Settantasei fiocchi enumerati, sette portati, sessantanove mancanti, e la somma quadra perfettamente. Un denominatore sbagliato non produce alcuna incoerenza interna, perché tutto ciò che vi si appoggia è coerente con esso; si vede soltanto chiedendosi da dove venga, che è una domanda che nessun controllo automatico pone.
+
+L'asse vero è la tabella dei nomi, che ne elenca centosessantaquattro. Di questi, settantasei sono rappresentabili nei formati dei nostri lotti e ottantotto no, perché sono stati introdotti dalla sesta generazione in avanti: non sono una lacuna della produzione ma una proprietà del perimetro, dato che i nostri lotti arrivano alla quinta. Fra gli ottantotto, tredici appartengono a insiemi di ottava e nona generazione e la chiusura non li tocca affatto.
+
+### Lo stato dell'asse
+
+Centosessantaquattro fiocchi nell'asse. Settantasei rappresentabili dai nostri formati, di cui sette portati da almeno un nostro esemplare e sessantanove no. Dei sessantanove, tutti ricadono in insiemi di generazione dalla terza alla settima, quindi si perdono con la chiusura, e il numero è dichiarato come limite superiore per una ragione che va detta: le riedizioni della quarta generazione per console corrente riconferiscono una parte dei fiocchi di quarta, e il verificatore lo esprime dentro condizioni che il programma non interpreta. Distinguerle richiede di leggere quelle condizioni una per una ed è il passo successivo.
+
+Ciò che i lotti portano è poco e concentrato: il fiocco classico su centonovantaquattro esemplari di quarta e centonovantanove di quinta, il souvenir su duecentosessantotto di quinta, l'evento su ottantuno, il desiderio su settantacinque, il compleanno su venti, il premier su sette per parte, e il fiocco nazionale su due esemplari di terza generazione.
+
+### Tre difetti in un giorno, tutti della stessa famiglia
+
+Vale contarli insieme perché la ripetizione è essa stessa un dato. La trascrizione a mano dell'ordine dei bit di gara, dove le gare sono contatori a tre bit e non bit singoli. La lettura del campo dei meriti come parola assoluta, mentre il pacchetto del ponte lo espone con l'origine spostata di quindici posizioni. E l'enumerazione dell'asse dal formato invece che dalla tabella dei nomi.
+
+Tutti e tre producono un risultato plausibile, nessuno produce un errore, e nessuno dei tre sarebbe stato colto da un controllo interno. Il primo si è visto perché il conto dei fiocchi di gara era assurdo, il secondo perché il fiocco che risultava non era quello che la tabella del verificatore dichiara per quei due esemplari, il terzo perché mi sono chiesto da dove venisse il denominatore. Le tre vie sono diverse e nessuna è automatica: la prima è il buon senso sul dominio, la seconda è il confronto con una terza fonte, la terza è una domanda di provenienza. Un progetto che produca dati deve avere tutte e tre come abitudine, perché ciascuna coglie una classe che le altre due non vedono.
+
 ## 2026-09-08, quinta parte. Le mosse perdute derivate invece che citate, due nozioni di irraggiungibilità, e l'asse dei fiocchi
 
 ### Alcremie, chiusa
