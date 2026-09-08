@@ -4,6 +4,40 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-08, quarta parte. Il lotto dei biglietti chiuso, il registro diventa completo, e la mappa dei documenti
+
+### Quattordici su quattordici
+
+Il secondo giudizio del lotto degli incontri sbloccati da un oggetto è conforme su tutte e quattordici le voci. Il difetto del primo giro era un byte, ed è andato in tesi come sezione propria perché la sua classe è generale: il campo del nome dell'allenatore non è una stringa terminata ma un'impronta di riempimento, perché il gioco lo copia dal salvataggio byte per byte e il residuo dell'inizializzazione è esso stesso un dato. Internazionale: sette byte a terminatore, quindi un nome di sette caratteri passa senza terminatore. Giapponese: sei a terminatore e il settimo a zero. Noi scrivevamo terminatore anche nel settimo.
+
+La generalizzazione scritta in tesi è che in un formato a campi fissi scritto per copia da una struttura preesistente l'informazione non sta soltanto nel valore ma nella traccia dell'inizializzazione, e che chi ricostruisce deve modellare non il formato ma il processo che lo ha riempito. I due sono documenti diversi: il formato dice dove stanno i byte, il processo dice come ci sono arrivati.
+
+### La domanda di Deoxys, che aveva già una risposta altrove
+
+L'utente ha chiesto di nuovo perché il lotto porti tre Deoxys e non la forma normale di Rubino o Zaffiro. La risposta in due parti, e la seconda l'avevo io stesso senza saperlo.
+
+Nessun incontro produce un Deoxys con quel gioco di origine, perché il biglietto dell'aurora non uscì per quelle due versioni: l'Isola della Nascita non è raggiungibile là. Un quarto file di terza generazione con quella versione non è producibile e il verificatore lo rifiuterebbe, perché non esiste alcuna voce nelle tabelle degli incontri che lo giustifichi.
+
+Ma la forma normale il progetto ce l'ha già, e viene da un altro lotto. Le due distribuzioni di Deoxys della terza generazione, cioè quelle degli allenatori DOEL e SPACE C, portano Rubino come gioco di origine e sono le voci 080 e 081 del lotto delle distribuzioni, prodotte e verificate conformi. Aperte in Rubino o Zaffiro rendono la forma normale. Le quattro caselle sono quindi coperte da quattro corpi che il progetto possiede già, tre dagli incontri e uno dalle distribuzioni, ed è la conferma pratica di ADR-047.
+
+### Il registro diventa davvero completo
+
+L'utente ha chiesto se le milleduecentottantasette voci dell'inventario del grafo comparissero anche in `SOURCES.md`, e ha detto che la risposta deve essere sì. Non lo era: là stavano le sole centosettantuno che il post cita direttamente, e le altre vivevano nel censimento e nella cartella grezza. Ora ci sono: `tools/censimento-fonti-reddit.py` produce anche le righe di registro per le fonti non citate, millecentoventotto su duecento host, raggruppate per host perché un cluster non ce l'hanno e l'host è l'unico raggruppamento non inventato. `SOURCES.md` passa a milleottocento righe di tabella.
+
+La distinzione fra le due parti è dichiarata nel file e va tenuta: le curate hanno un livello e una descrizione di ciò su cui si possono citare, le altre hanno il titolo che la corsa ha recuperato e la profondità nel grafo, e nient'altro, perché nessuno le ha lette. Una voce migra verso l'alto quando qualcuno la legge e ne ricava qualcosa da citare. La colonna della profondità è il solo indizio di pertinenza che quella parte porti, ed è utile: più il numero cresce, più la voce è lontana dalla domanda che ha aperto la corsa.
+
+Vale registrare la ragione per cui questo era necessario e non cosmetico. La frase in testa a quel file dice che nessuna informazione su una fonte vive soltanto altrove: o è vera per tutte, o non è una regola ma una descrizione di come stavano le cose quando è stata scritta.
+
+### La mappa dei documenti
+
+L'utente ha detto di andare pazzo fra i file di testo, e aveva ragione: sono trecentoquarantacinque tracciati. `MAPPA-DOCUMENTI.md` alla radice li classifica, ed è il solo documento del progetto il cui scopo sia parlare degli altri.
+
+Il fatto che spiega quasi tutta la confusione è che quei trecentoquarantacinque non sono trecentoquarantacinque cose da leggere. Centotrentaquattro stanno sotto il pacchetto del template e non sono contenuto di questo progetto. Centotré sono note di fonti, quasi tutte generate. Quattordici sono file generati da uno strumento, sommano oltre tre megabyte, cioè la quasi totalità del peso testuale, e nessuno di essi va letto in sequenza. Ciò che resta da leggere davvero sono una ventina di studi e referenze autorate, più il percorso di studio.
+
+Un candidato alla rimozione è emerso con il suo perché, e non l'ho cancellato perché la decisione è dell'utente: `resume-prompt.md` alla radice, cinquantunmila byte, fermo al 2026-08-31, cioè a otto giorni e a più di venti voci di lavoro fa. Dichiara nella propria intestazione che una voce obsoleta lì dentro è peggio della sua assenza perché induce a fidarsi di uno stato che non esiste più, il che è esattamente la sua condizione, e la funzione che svolgeva è quella di `index.md` e `pending.md`, che sono aggiornati.
+
+Un secondo rilievo è emerso guardando le dimensioni: la scheda `sub-pokedex-home-completo.md` è a diciottomila byte contro le trenta righe che la convenzione prescrive, perché quel track è cresciuto molto in una settimana. Va potata riportando la conoscenza nei documenti del track e lasciando nella scheda il solo stato.
+
 ## 2026-09-08, terza parte. Il lotto dei biglietti giudicato, quattro esemplari mancanti, e B1 che falsifica un mio motivo
 
 ### Il giudizio, e l'unico rilievo

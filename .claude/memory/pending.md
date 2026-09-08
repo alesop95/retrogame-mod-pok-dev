@@ -157,6 +157,22 @@ Nascono il 2026-09-08 dalla scoperta che gli assi della collezione sono sei e no
 | l'asse dei fiocchi, da enumerare e poi misurare | il metodo e' quello gia' usato per le mosse, cioe' trasformare l'elenco della fonte in un predicato ed eseguirlo sui nostri file, e il costo e' lo stesso perche' i fiocchi sono un campo dei nostri esemplari. Va enumerato prima, perche' la fonte li elenca per gioco e non come lista unica. Due di essi, il fiocco nazionale e quello della terra, vengono soltanto dai due giochi da tavolo di terza generazione, che il progetto non ha mai considerato una sorgente |
 | l'asse delle combinazioni fra specie e sfera | si tratta come quello dei cromatici per ADR-041, cioe' si misura e non si moltiplica. Il caso noto e' Mew in una sfera diversa dalla Poke Ball o dalla Pregio, che viene soltanto dalle copie giapponesi di Smeraldo, cioe' dallo stesso esemplare che il generatore degli incontri produce gia' in giapponese per un'altra ragione |
 
+## Gli incontri sbloccati da un oggetto, in tutte le generazioni
+
+Direttiva dell'utente del 2026-09-08: il progetto deve saper generare qualunque esemplare che in qualunque generazione si otteneva con un oggetto che sbloccava un luogo, e non con una consegna diretta. La terza generazione e' fatta, quattordici voci conformi; le altre due generazioni dentro il perimetro dei lotti sono progettate e non costruite.
+
+La buona notizia tecnica, verificata sul verificatore il 2026-09-08, e' che il ramo gia' scritto serve anche altrove: gli incontri statici di quarta generazione richiedono la correlazione del primo metodo, la stessa della terza, quindi `tools/genera-incontro-gen3.py` porta gia' l'unica parte difficile. Cio' che manca e' l'assemblaggio della struttura, che sta in `tools/genera-evento-gen4.py`, e la tabella degli incontri.
+
+| Voce | Che cosa serve, e che cosa e' gia' verificato |
+|---|---|
+| Darkrai all'Isola Nuovaluna, dalla Carta Iscrizione | letto dalle tabelle: solo Platino, livello 50, luogo 79, terreno erba, NON fatidico. Le due versioni di apertura non lo hanno |
+| Shaymin al Giardinfiore, dalla Lettera del Professore | letto dalle tabelle: solo Platino, livello 30, luogo 63, fatidico. La voce per Diamante e Perla esiste nel sorgente ma e' commentata come non distribuita, il che e' un dato e non una lacuna |
+| Arceus alla Sala Origine, dal Flauto Azzurro | da verificare, e la verifica potrebbe essere negativa: il Flauto Azzurro non fu mai distribuito ufficialmente in alcuna regione, quindi il verificatore potrebbe non avere alcuna voce che lo giustifichi. Se non ce l'ha, l'esemplare non e' producibile come conforme e va trattato con ADR-046, cioe' conservato come file in attesa di una via diversa |
+| Victini al Giardino Liberta, dal Pass Liberta | letto dalle tabelle: Nero e Bianco, livello 15, luogo 62, mai cromatico. La quinta generazione non ha correlazione, quindi il ramo e' quello gia' usato per i doni di quinta |
+| le rovine di Sinjoh, cioe' Dialga, Palkia e Giratina al livello uno | caso diverso e va tenuto separato: non lo sblocca un oggetto ma il possesso di un Arceus portato nelle riedizioni di seconda generazione. Da studiare a parte |
+
+Va infine registrata la ragione per cui questa classe non era stata vista prima: nella base dei doni segreti queste voci non ci sono, perche' cio' che la carta consegnava era l'oggetto e non l'esemplare. Sono invisibili a chiunque enumeri partendo dalle carte, ed e' la stessa cecita' per costruzione gia' misurata in ADR-044 su un'altra sorgente.
+
 ## Punti tecnici aperti
 
 | Punto | Dove è registrato |
