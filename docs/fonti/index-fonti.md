@@ -51,6 +51,12 @@ graph LR
   pp-algoritmi-eventi -- documenta --> pkhex-eventi-gen3
 ```
 
+## Il corpus della collezione, che ha una mappa propria
+
+Le fonti curate a mano stanno qui sotto, una nota ciascuna, e sono quelle che portano peso tecnico su un'affermazione del progetto. Dal 2026-09-08 esiste accanto un secondo insieme che non si cura a mano perche' e' troppo grande e nasce da una corsa automatica: sono le centosettantuno fonti che discendono dal post di raccolta sulle collezioni nel deposito. La loro mappa sta in [[collezione-indice]], con quarantadue note di cluster sotto `docs/fonti/collezione/`, e si rigenera con `tools/censimento-fonti-reddit.py`.
+
+Le due parti non si sovrappongono e vale dire perche'. Qui una nota dice a che cosa una fonte serve nel progetto e quali altre fonti conferma o corregge, ed e' scritta da chi ha letto la fonte. La', una nota dice quali fonti un argomento raccoglie e su quali host poggiano, ed e' scritta da un programma che le fonti non le ha lette. Una voce migra dalla seconda alla prima quando qualcuno la legge e ne ricava qualcosa da citare.
+
 ## Le fonti, per livello
 
 ### Livello 1
