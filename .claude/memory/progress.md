@@ -4,6 +4,36 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-08, settima parte. Gli incontri di quarta generazione, e un esemplare che si registra invece di produrlo
+
+### Il generatore
+
+`tools/genera-incontro-gen4.py` compone gli esemplari di quarta generazione che un oggetto sbloccava e che nessuno consegnava, ed è la seconda metà della direttiva dell'utente sulla generalizzazione. Tre esemplari scritti in `_notes/lotto-incontri-gen4/`, nove prove interne di cui una negativa, tutte verdi.
+
+La parte difficile non c'era da scrivere, ed è il risultato che rende questa classe economica: gli incontri statici di quarta generazione richiedono la correlazione del primo metodo, cioè la stessa della terza, e il verificatore lo dichiara nel proprio codice restituendo quel tipo come correlazione suggerita. Il ramo è quindi quello già scritto e già giudicato conforme su quattordici voci, e il programma nuovo lo carica dal fratello di terza invece di riscriverlo. Carica dal fratello dei doni di quarta gli scostamenti del formato e la somma di controllo, e dal generatore delle schede la tabella dei caratteri, che quel programma aveva già dovuto correggere due volte.
+
+Ciò che era nuovo davvero è un campo che la terza generazione non ha e che qui non si può lasciare a zero: il tipo di terreno su cui l'incontro è avvenuto. Il verificatore lo controlla contro la propria tabella, e la regola con cui esso lo ricava non è ovvia: la tabella dichiara una maschera di terreni ammessi, e il valore da scrivere è l'indice del bit più basso acceso. Il self-test la riproduce con un controllo negativo, cioè che fra più terreni ammessi vinca il più basso e non il più alto.
+
+### Le tre voci, e la loro asimmetria
+
+Darkrai all'Isola Nuovaluna, sbloccata dalla Carta Iscrizione, al livello cinquanta, luogo settantanove, terreno erboso, e non fatidico. Shaymin al Giardinfiore, sbloccato dalla Lettera del Professore, al livello trenta, luogo sessantatré, senza terreno, e fatidico. Entrambi soltanto in Platino: le due versioni di apertura non hanno né l'una né l'altra voce.
+
+La terza non la sblocca un oggetto ma una condizione, ed è registrata con quella distinzione nella propria colonna: Regigigas al Tempio Nevepoli, che si risveglia possedendo i tre golem regionali portati dalla terza generazione. Sta nella stessa tavola perché appartiene alla stessa famiglia, cioè gli esemplari che un evento rende raggiungibili senza consegnarli. Il suo livello uno esiste soltanto in Platino, mentre negli altri giochi lo stesso esemplare è al settanta, ed è la ragione per cui vale prenderlo di là.
+
+I campi riletti dai file scritti tornano tutti: esperienza sulle formule dei gruppi di crescita per i tre livelli, amicizia di base dalla tabella personale delle riedizioni di seconda generazione come fa il modello del verificatore, mosse dal repertorio di Platino e non di un gioco qualsiasi, e somma di controllo che si ricalcola uguale su tutti e tre.
+
+### Arceus, che si registra e non si produce
+
+Il flauto azzurro sbloccava la sala d'origine e con essa Arceus, e le tabelle del verificatore non portano alcuna voce per quell'incontro. Non è una lacuna della tabella: quel flauto non fu mai distribuito ufficialmente in alcuna regione, quindi non esiste alcun Arceus di quella provenienza che sia conforme, e comporne uno significherebbe produrre un esemplare che il verificatore rifiuterà sempre.
+
+La voce va in coda d'attesa secondo ADR-046, e il programma la nomina in una tavola propria invece di ometterla, perché una voce omessa in silenzio è indistinguibile da una dimenticata. Va detto per completezza che il progetto possiede comunque nove Arceus da distribuzione nel lotto di quarta generazione: sono un'altra provenienza e non un ripiego, esattamente come i due Deoxys da distribuzione sono un'altra provenienza rispetto ai tre dell'isola.
+
+### Il conto della classe, ora che è chiusa su due generazioni
+
+Terza generazione: quattordici esemplari, tutti conformi al secondo giudizio. Quarta generazione: tre esemplari, da giudicare. Quinta generazione: una voce sola, Victini al Giardino Libertà sbloccato dal Pass Libertà, letta dalle tabelle e non ancora prodotta, che richiede il ramo senza correlazione già usato per i doni di quinta e non quello del primo metodo.
+
+Resta da dire perché questa classe valga il lavoro, dato che tutte e quattro le specie coinvolte sono già nei nostri lotti come distribuzioni. Perché sono esemplari diversi, non copie: l'allenatore è il giocatore e non il distributore, la sfera è quella della cattura, il luogo è un luogo reale e non il codice riservato agli eventi, e la coppia fra valore di personalità e valori individuali porta la firma di una cattura invece di quella di una consegna. Sull'asse delle distribuzioni sono voci distinte, ed è la stessa ragione per cui i tre Deoxys dell'isola non sostituiscono i due delle carte.
+
 ## 2026-09-08, sesta parte. L'asse dei fiocchi classificato, e un denominatore che era il sottoinsieme di sé stesso
 
 ### La classificazione, e da dove viene
