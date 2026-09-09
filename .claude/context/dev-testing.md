@@ -24,7 +24,7 @@ Una operazione su hardware si considera riuscita solo quando è stata riletta, n
 
 ## Verifica automatica del codice del ponte
 
-Le prove del pacchetto `pokebridge` si lanciano con `python tests/run_tests.py` dalla cartella `pokemon-gen12-gen3-bridge-original-hardware/`, non richiedono nulla di installato oltre la libreria standard e girano in una frazione di secondo. Alla verifica del 2026-08-28 sono 114 e passano tutte. Il numero va riletto dall'esecuzione e non copiato da qui: una scheda che dichiara un conteggio più alto di quello reale nasconde esattamente ciò che dovrebbe segnalare.
+Le prove del pacchetto `pokebridge` si lanciano con `python tests/run_tests.py` dalla cartella `pokemon-gen12-gen3-bridge-original-hardware/`, non richiedono nulla di installato oltre la libreria standard e girano in una frazione di secondo. Alla verifica del 2026-09-09 sono 206 e passano tutte, cresciute da 114 con i moduli degli eventi e dello strato del salvataggio. Il numero va riletto dall'esecuzione e non copiato da qui: una scheda che dichiara un conteggio più alto di quello reale nasconde esattamente ciò che dovrebbe segnalare.
 
 La prova portante è la simmetria fra lettura e riscrittura, verificata su cinquecento buffer casuali con seme fissato per ciascuna delle sei forme di struttura, cioè box, squadra e lista di squadra per entrambe le generazioni. È una sola proprietà e cattura un intero genere di errori, perché un offset sbagliato, un ordine di byte invertito, un nibble letto dalla metà sbagliata o un campo dimenticato la rompono tutti. Il ragionamento sta in `docs/21-collaudo.md`.
 

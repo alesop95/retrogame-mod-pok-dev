@@ -5,7 +5,7 @@ generated-date: 2026-08-24
 covers-paths:
   - gba-save-extraction-smeraldo/
 last-verified-commit: 7696c46
-stato: attivo, bloccato su riscontro hardware
+stato: attivo, lettore arrivato il 2026-09-09, prima sessione da eseguire con i cancelli di sicurezza del runbook
 ---
 
 # Sottoprogetto: correzione del bug inventario di Pokemon Smeraldo
@@ -18,11 +18,11 @@ Obiettivo: correggere un inventario corrotto della cartuccia di Pokemon Smeraldo
 
 Il percorso basato su Action Replay è chiuso. Il Master Code e l'Anti-DMA erano stati verificati su più fonti indipendenti, ma per i codici specifici della tasca Strumenti Base non esisteva alcuna fonte affidabile, e indovinare indirizzi di memoria è stato giudicato inaccettabile. Il percorso attivo è l'estrazione fisica del salvataggio: cartuccia verso GBxCart RW 1.4 Pro via USB-C, backup del file con FlashGBX, editing mirato con PKHeX, riscrittura sulla cartuccia e verifica in gioco. Il sistema operativo scelto è Windows 11, perché PKHeX è un'applicazione .NET Windows Forms e il supporto Mono e Wine è stato abbandonato dal 2023.
 
-Il lettore GBxCart RW v1.4 Pro USB-C blu, insieme al cavo USB-A verso USB-C, è stato ordinato il 18 agosto 2026 presso insideGadgets. Il setup software è fermo al primo dei sette step: l'installazione dei driver CH340 e CH341 scaricati da wch-ic.com.
+Il lettore GBxCart RW v1.4 Pro USB-C blu, insieme al cavo USB-A verso USB-C, era stato ordinato il 18 agosto 2026 presso insideGadgets ed è arrivato il 2026-09-09. Il setup software resta fermo al primo dei sette passi, cioè l'installazione dei driver CH340 e CH341 scaricati da wch-ic.com, e quello è ora il solo cancello prima di collegare la cartuccia.
 
 ## Prossimo passo concreto
 
-Confermare l'esito dell'installazione dei driver. Il criterio di successo, dalla sezione 5.4 dell'handoff, è che in Gestione Dispositivi, sotto "Porte (COM e LPT)", compaia una voce del tipo USB-SERIAL CH340 seguita dal numero di porta, senza punto esclamativo giallo, annotando quale porta COM viene assegnata. Finché questo riscontro manca il track è bloccato, e non è lavoro da fare ma una verifica che spetta a te sulla macchina.
+Confermare l'esito dell'installazione dei driver, che è il criterio della sezione 5.4 dell'handoff: in Gestione Dispositivi, sotto Porte COM e LPT, deve comparire una voce del tipo USB-SERIAL CH340 seguita dal numero di porta, senza punto esclamativo giallo, e la porta assegnata va annotata. Subito dopo si esegue la sequenza di `RUNBOOK-PRIMA-SESSIONE.md`, che ordina le operazioni per irreversibilità e non per interesse: prima i salvataggi delle cartucce di prima e seconda generazione la cui pila tenga ancora, perché è la sola finestra che si chiude da sé, poi Smeraldo, che sta in memoria flash e non dipende da alcuna pila.
 
 ## Decisioni aperte
 

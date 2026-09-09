@@ -21,6 +21,7 @@ Ne segue una conseguenza che va tenuta presente prima di guardare il dump: una q
 | Cosa cerchi | Dove sta |
 |---|---|
 | la procedura operativa e lo stato del setup | `handoff/HANDOFF_progetto_smeraldo.md` |
+| la sequenza della prima sessione col lettore, in ordine di irreversibilità | `RUNBOOK-PRIMA-SESSIONE.md` |
 | la struttura del salvataggio Gen 3, sezione per sezione | `pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md`, sezioni 5 e 6 |
 | perché esistono checksum e cifratura, spiegato | `docs/03-integrita-checksum.md` e `docs/04-cifratura-gen3.md` |
 | come si usa lo strumento di diagnosi | `docs/22-strumenti.md` |

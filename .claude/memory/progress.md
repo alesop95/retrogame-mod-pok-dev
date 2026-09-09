@@ -4,6 +4,34 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-09, sesta parte. Il lettore è arrivato, e con esso lo strato che mancava
+
+### L'arrivo, e che cosa sblocca
+
+Il lettore GBxCart RW v1.4 Pro è arrivato. La sezione di tracciamento della spedizione è stata cancellata da `pending.md` come essa stessa prescriveva, il blocco materiale che ne dipendeva è chiuso, e resta un solo cancello prima di collegare qualcosa: i driver CH340, con il criterio della sezione 5.4 dell'handoff.
+
+La sequenza della prima sessione è scritta in `gba-save-extraction-smeraldo/RUNBOOK-PRIMA-SESSIONE.md`, e il suo principio è che l'ordine non è quello dell'interesse ma quello del rischio. Delle cose che il lettore rende possibili una sola ha una finestra che si chiude da sé, cioè l'estrazione dei salvataggi delle cartucce di prima e seconda generazione la cui pila tenga ancora; il salvataggio di Smeraldo sta in memoria flash e non dipende da alcuna pila, e le ROM sono di sola lettura. Il runbook porta anche il presidio che il track della pila aveva trovato e che riguarda proprio questo hardware, cioè che nella revisione a tensione controllata dal software l'interfaccia parte a tre virgola tre volt e che inserire una cartuccia di seconda generazione in quella condizione può cancellarne il salvataggio.
+
+### Lo strato del salvataggio, che era il passo tecnico più utile
+
+`pokebridge/save3.py` apre un file da 128 KiB come quello che il lettore produce. Sceglie fra i due slot secondo l'indice di salvataggio con la regola che a parità vince B, ricompone i buffer che le quattordici sezioni frammentano prendendo i primi 3968 byte di ciascuna, legge e scrive le posizioni del deposito e della squadra ricalcolando i checksum delle sole sezioni toccate, e genera un salvataggio sintetico valido. Le prove nuove sono venticinque e la suite passa a duecentosei.
+
+La prova che vale più delle altre è quella sul record a cavallo di due sezioni: con 3968 byte di dati per sezione e record da ottanta, la posizione quarantanove comincia dentro la prima sezione del deposito e finisce nella seconda. Scrivere come se il buffer fosse contiguo sovrascriverebbe il piede di una sezione, invalidando lo slot senza che nulla se ne accorga fino al caricamento della partita.
+
+### Il difetto che il caricatore ha trovato al primo tentativo
+
+`tools/carica-lotto-gen3.py` prende una cartella di file e li scrive nelle posizioni libere del deposito, con quattro presidi: non sovrascrive mai il file di ingresso, rifiuta uno slot non integro, non scrive su una posizione occupata senza che lo si chieda, e verifica ogni file prima di scriverlo.
+
+Al primo lancio sul lotto degli incontri di terza generazione ha rifiutato tutte e quattordici le voci con la medesima diagnosi, cioè checksum interno sbagliato, e la diagnosi era mia e non del lotto. I file dell'editor sono in chiaro e con le quattro sottostrutture nell'ordine logico; una posizione del deposito le vuole permutate secondo il valore di personalità e mascherate in XOR. Sono due forme dello stesso esemplare e scambiarle non produce alcun errore visibile: produce esemplari che il gioco marca come Uovo Peste al caricamento. La conversione fra le due sta ora in `save3.py` come `record_da_file` e `file_da_record`, con cinque prove fra cui quella che esercita tutte e ventiquattro le permutazioni, perché un errore su una sola riga della tavola colpirebbe un ventiquattresimo di un lotto e sarebbe difficile da attribuire.
+
+Sulla strada è emerso anche il perché la mia verifica a mano sembrava smentire il file: il campo della specie in terza generazione porta l'indice interno e non il numero nazionale, quindi il Deoxys del lotto dichiara quattrocentodieci. È il fatto della sezione 8 della referenza, e cercare 386 in quei byte non lo avrebbe trovato mai.
+
+Dopo la correzione il lotto entra: quattordici voci scritte, zero rifiutate, e il controllo di andata e ritorno dice che le quattordici posizioni rilette dal salvataggio sono identiche byte per byte ai file di partenza.
+
+### Che cosa questo abilita
+
+Il pezzo che mancava fra il generatore e la catena esiste: da oggi un lotto si porta in un salvataggio con un comando invece che a mano con l'editor esterno, che va bene per centosettantadue voci e non per le migliaia che ADR-051 apre. Resta da fare il confronto del salvataggio sintetico con quello che il verificatore genera, che è la prova che alla simmetria mancava, e la rigenerazione delle sessanta voci che prendono l'identificativo dall'allenatore ricevente, che ora si conosce appena il salvataggio di Smeraldo sarà letto.
+
 ## 2026-09-09, quinta parte. I cataloghi per generazione, e cinque fatti che toccano il lotto
 
 Letti i cluster del catalogo per generazione dalla prima alla quarta, seguendo l'ordine di ADR-052, cioè la scadenza. La fonte portante sono le tre guide al catalogo per regione d'origine di electroswingmix, di cui quella di terza generazione è aggiornata al 15 agosto 2026, cioè dopo l'annuncio della chiusura. L'esito sta nel secondo lotto di `LETTURA-DEL-CORPUS.md` e i cinque punti tecnici in `pending.md`.
