@@ -39,6 +39,11 @@ INDICE-FOGLI-ESTERNI.md                     lo scheletro di Livello 1 delle quat
 foglio-sfide-deposito.csv                   la scheda delle sfide sotto scadenza, normalizzata
 foglio-spinoff-greenpangolin17.csv          i doni dei giochi derivati, che sono vie chiuse
 foglio-storage-greenpangolin17.csv          i doni dei giochi di deposito, compresi quelli del deposito stesso
+STUDIO-07-scambi-in-gioco-e-incontri-condizionati.md   le due classi aperte dall'utente, contate sulla fonte di primo livello
+CENSIMENTO-SCAMBI.md                        i 238 scambi in gioco di tutte le generazioni, con il valore di personalita
+scambi.csv                                  gli stessi, come tabella per il confronto
+CENSIMENTO-CONDIZIONATI.md                  gli incontri che una condizione sblocca, con i tre criteri
+condizionati.csv                            gli stessi, come tabella per il confronto
 ```
 
 Lo strumento che produce il conto sta fra quelli comuni, in `tools/disponibilita-titoli.py`, perché serve a più di un track: la sua risposta governa la pianificazione del tempo di tutto il progetto e non soltanto di questo sottoprogetto.

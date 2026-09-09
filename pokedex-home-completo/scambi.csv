@@ -1,0 +1,239 @@
+generazione,tabella,tipo,dex,specie,livello,pid,identificativo,forma,luogo,nota
+1,TradeGift_RB,EncounterTrade1,122,Mr. Mime,6,,,,,Mr. Mime - Abra
+1,TradeGift_RB,EncounterTrade1,29,Nidoran♀,2,,,,,Nidoran♀ - Nidoran♂ (International)
+1,TradeGift_RB,EncounterTrade1,32,Nidoran♂,2,,,,,Nidoran♂ - Nidoran♀ (Japanese)
+1,TradeGift_RB,EncounterTrade1,30,Nidorina,16,,,,,Nidorina - Nidorino
+1,TradeGift_RB,EncounterTrade1,108,Lickitung,15,,,,,Lickitung - Slowbro
+1,TradeGift_RB,EncounterTrade1,124,Jynx,15,,,,,Jynx - Poliwhirl
+1,TradeGift_RB,EncounterTrade1,83,Farfetch’d,2,,,,,Farfetch’d - Spearow
+1,TradeGift_RB,EncounterTrade1,101,Electrode,3,,,,,Electrode - Raichu
+1,TradeGift_RB,EncounterTrade1,114,Tangela,13,,,,,Tangela - Venonat
+1,TradeGift_RB,EncounterTrade1,86,Seel,28,,,,,Seel - Ponyta
+1,TradeGift_YW,EncounterTrade1,122,Mr. Mime,8,,,,,Mr. Mime - Clefairy
+1,TradeGift_YW,EncounterTrade1,67,Machoke,16,,,,,Machoke - Cubone
+1,TradeGift_YW,EncounterTrade1,51,Dugtrio,15,,,,,Dugtrio - Lickitung
+1,TradeGift_YW,EncounterTrade1,47,Parasect,13,,,,,Parasect - Tangel
+1,TradeGift_YW,EncounterTrade1,112,Rhydon,15,,,,,Rhydon - Golduck
+1,TradeGift_YW,EncounterTrade1,87,Dewgong,15,,,,,Dewgong - Growlithe
+1,TradeGift_YW,EncounterTrade1,89,Muk,25,,,,,Muk - Kangaskhan
+1,TradeGift_BU,EncounterTrade1,122,Mr. Mime,3,,,,,Mr. Mime - Jigglypuff
+1,TradeGift_BU,EncounterTrade1,60,Poliwag,2,,,,,Poliwag - Rattata
+1,TradeGift_BU,EncounterTrade1,115,Kangaskhan,15,,,,,Kangaskhan - Rhydon
+1,TradeGift_BU,EncounterTrade1,128,Tauros,28,,,,,Tauros - Persian
+1,TradeGift_BU,EncounterTrade1,93,Haunter,28,,,,,Haunter - Machop->Machoke
+1,TradeGift_BU,EncounterTrade1,83,Farfetch’d,2,,,,,Farfetch’d - Wild Pidgey
+1,TradeGift_BU,EncounterTrade1,75,Graveler,16,,,,,Graveler - Abra->Kadabra
+1,TradeGift_BU,EncounterTrade1,79,Slowpoke,22,,,,,Slowpoke - Seel
+1,TradeGift_BU,EncounterTrade1,98,Krabby,15,,,,,Krabby - Growlithe
+2,TradeGift_GSC,EncounterTrade2,95,Onix,3,,,,,Onix @ Violet City for Bellsprout [wild]
+2,TradeGift_GSC,EncounterTrade2,66,Machop,5,,,,,"Machop @ Goldenrod City for Drowzee [wild 9, hatched egg 5]"
+2,TradeGift_GSC,EncounterTrade2,100,Voltorb,5,,,,,Voltorb @ Olivine City for Krabby [egg]
+2,TradeGift_GSC,EncounterTrade2,112,Rhydon,10,,,,,Rhydon @ Blackthorn City for Dragonair [wild]
+2,TradeGift_GSC,EncounterTrade2,142,Aerodactyl,5,,,,,Aerodactyl @ Route 14 for Chansey [egg]
+2,TradeGift_GSC,EncounterTrade2,78,Rapidash,14,,,,,Rapidash @ Pewter City for Gloom [wild]
+2,TradeGift_GSC,EncounterTrade2,85,Dodrio,10,,,,,Dodrio @ Blackthorn City for Dragonair [wild]
+2,TradeGift_GSC,EncounterTrade2,178,Xatu,15,,,,,Xatu @ Pewter City for Haunter [wild]
+2,TradeGift_GSC,EncounterTrade2,82,Magneton,5,,,,,Magneton @ Power Plant for Dugtrio [traded for Lickitung]
+2,TradeGift_GSC,EncounterTrade2,21,Spearow,10,,,,,Spearow @ Goldenrod City for free
+2,TradeGift_GSC,EncounterTrade2,213,Shuckle,15,,,,,Shuckle @ Cianwood City for free
+3,TradeGift_FRLG,EncounterTrade3,122,Mr. Mime,5,0x00009CAE,01985,,,Abra (Level 5 Breeding) -> Mr. Mime
+3,TradeGift_FRLG,EncounterTrade3,124,Jynx,20,0x498A2E1D,36728,,,Poliwhirl (Level 20) -> Jynx
+3,TradeGift_FRLG,EncounterTrade3,83,Farfetch’d,3,0x151943D7,08810,,,Spearow (Level 3 Capture) -> Farfetch'd
+3,TradeGift_FRLG,EncounterTrade3,101,Electrode,3,0x06341016,50298,,,Raichu (Level 3) -> Electrode
+3,TradeGift_FRLG,EncounterTrade3,114,Tangela,5,0x5C77ECFA,60042,,,Venonat (Level 5 Breeding) -> Tangela
+3,TradeGift_FRLG,EncounterTrade3,86,Seel,5,0x482CAC89,09853,,,Ponyta (Level 5 Breeding) -> Seel *
+3,TradeGift_FR,EncounterTrade3,29,Nidoran♀,5,0x4C970B89,63184,,,Nidoran♀
+3,TradeGift_FR,EncounterTrade3,30,Nidorina,16,0x00EECA15,13637,,,Nidorina *
+3,TradeGift_FR,EncounterTrade3,108,Lickitung,25,0x451308AB,01239,,,Golduck (Level 25) -> Lickitung  *
+3,TradeGift_LG,EncounterTrade3,32,Nidoran♂,5,0x4C970B9E,63184,,,Nidoran♂ *
+3,TradeGift_LG,EncounterTrade3,33,Nidorino,16,0x00EECA19,13637,,,Nidorino  *
+3,TradeGift_LG,EncounterTrade3,108,Lickitung,25,0x451308AB,01239,,,Slowbro (Level 25) -> Lickitung  *
+3,TradeGift_RS,EncounterTrade3,296,Makuhita,5,0x00009C40,49562,,,Slakoth (Level 5 Breeding) -> Makuhita
+3,TradeGift_RS,EncounterTrade3,300,Skitty,3,0x498A2E17,02259,,,Pikachu (Level 3 Viridian Forest) -> Skitty
+3,TradeGift_RS,EncounterTrade3,222,Corsola,21,0x4C970B7F,50183,,,Bellossom (Level 21 Oddish -> Gloom -> Bellossom) -> Corsola
+3,TradeGift_E,EncounterTrade3,273,Seedot,4,0x00000084,38726,,,Ralts (Level 4 Route 102) -> Seedot
+3,TradeGift_E,EncounterTrade3,311,Plusle,5,0x0000006F,08460,,,Volbeat (Level 5 Breeding) -> Plusle
+3,TradeGift_E,EncounterTrade3,116,Horsea,5,0x0000007F,46285,,,Bagon (Level 5 Breeding) -> Horsea*
+3,TradeGift_E,EncounterTrade3,52,Meowth,3,0x0000008B,25945,,,Skitty (Level 3 Trade)-> Meowth*
+3,Trades,EncounterTrade3XD,239,Elekid,20,,41400,,164,Elekid @ Snagem Hideout
+3,Trades,EncounterTrade3XD,307,Meditite,20,,37149,,116,Meditite @ Pyrite Town
+3,Trades,EncounterTrade3XD,213,Shuckle,20,,37149,,116,Shuckle @ Pyrite Town
+3,Trades,EncounterTrade3XD,246,Larvitar,20,,37149,,116,Larvitar @ Pyrite Town
+4,RanchGifts,EncounterTrade4RanchGift,25,Pikachu,20,,,,0068,Pikachu
+4,RanchGifts,EncounterTrade4RanchGift,37,Vulpix,30,,,,3000,Vulpix
+4,RanchGifts,EncounterTrade4RanchGift,77,Ponyta,16,,,,3000,Ponyta
+4,RanchGifts,EncounterTrade4RanchGift,108,Lickitung,40,,,,0077,Lickitung
+4,RanchGifts,EncounterTrade4RanchGift,114,Tangela,1,,,,3000,Tangela
+4,RanchGifts,EncounterTrade4RanchGift,133,Eevee,30,,,,0068,Eevee
+4,RanchGifts,EncounterTrade4RanchGift,142,Aerodactyl,50,,,,0094,Aerodactyl
+4,RanchGifts,EncounterTrade4RanchGift,193,Yanma,45,,,,0052,Yanma
+4,RanchGifts,EncounterTrade4RanchGift,241,Miltank,48,,,,3000,Miltank
+4,RanchGifts,EncounterTrade4RanchGift,285,Shroomish,45,,,,3000,Shroomish
+4,RanchGifts,EncounterTrade4RanchGift,320,Wailmer,45,,,,0038,Wailmer
+4,RanchGifts,EncounterTrade4RanchGift,360,Wynaut,1,,,,0004,Wynaut
+4,RanchGifts,EncounterTrade4RanchGift,397,Staravia,23,,,,0016,Staravia
+4,RanchGifts,EncounterTrade4RanchGift,415,Combee,20,,,,0020,Combee
+4,RanchGifts,EncounterTrade4RanchGift,417,Pachirisu,10,,,,0020,Pachirisu
+4,RanchGifts,EncounterTrade4RanchGift,422,Shellos,25,,,1,0028,Shellos
+4,RanchGifts,EncounterTrade4RanchGift,427,Buneary,16,,,,3000,Buneary
+4,RanchGifts,EncounterTrade4RanchGift,453,Croagunk,31,,,,0052,Croagunk
+4,RanchGifts,EncounterTrade4RanchGift,456,Finneon,35,,,,0020,Finneon
+4,RanchGifts,EncounterTrade4RanchGift,459,Snover,41,,,,0031,Snover
+4,RanchGifts,EncounterTrade4RanchGift,151,Mew,50,,,,3000,Mew
+4,RanchGifts,EncounterTrade4RanchGift,489,Phione,50,,,,3000,Phione
+4,TradeGift_DPPtIngame,EncounterTrade4PID,63,Abra,1,0x0000008E,25643,,,Machop -> Abra
+4,TradeGift_DPPtIngame,EncounterTrade4PID,441,Chatot,1,0x00000867,44142,,,Buizel -> Chatot
+4,TradeGift_DPPtIngame,EncounterTrade4PID,93,Haunter,35,0x00000088,19248,,,Medicham (35 from Route 217) -> Haunter
+4,TradeGift_DPPtIngame,EncounterTrade4PID,129,Magikarp,1,0x0000045C,53277,,,Finneon -> Magikarp
+4,TradeGift_HGSS,EncounterTrade4PID,95,Onix,1,0x000025EF,48926,,,Bellsprout -> Onix
+4,TradeGift_HGSS,EncounterTrade4PID,66,Machop,1,0x00002310,37460,,,Drowzee -> Machop
+4,TradeGift_HGSS,EncounterTrade4PID,100,Voltorb,1,0x000001DB,29189,,,Krabby -> Voltorb
+4,TradeGift_HGSS,EncounterTrade4PID,85,Dodrio,15,0x0001FC0A,00283,,,Dragonair (15 from DPPt) -> Dodrio
+4,TradeGift_HGSS,EncounterTrade4PID,82,Magneton,19,0x0000D136,50082,,,Dugtrio (19 from Diglett's Cave) -> Magneton
+4,TradeGift_HGSS,EncounterTrade4PID,178,Xatu,16,0x000034E4,15616,,,Haunter (16 from Old Château) -> Xatu
+4,TradeGift_HGSS,EncounterTrade4PID,25,Pikachu,2,0x00485876,33038,,,Pikachu
+4,TradeGift_HGSS,EncounterTrade4PID,374,Beldum,31,0x0012B6D4,23478,,,Forretress -> Beldum
+4,TradeGift_HGSS,EncounterTrade4PID,111,Rhyhorn,1,0x0012971C,06845,,,Bonsly -> Rhyhorn w/ Thunder Fang
+4,TradeGift_HGSS,EncounterTrade4PID,208,Steelix,1,0x00101596,26491,,,Any -> Steelix
+4,TradeGift_HGSS,EncounterTrade4PID,21,Spearow,20,0x00006B5E,01001,,,Webster's Spearow
+4,TradeGift_HGSS,EncounterTrade4PID,213,Shuckle,20,0x000214D7,04336,,,Kirk's Shuckle
+5,TradeGift_B2W2,EncounterTrade5B2W2,548,Petilil,20,,65217,,,Petilil
+5,TradeGift_B2W2,EncounterTrade5B2W2,546,Cottonee,20,,71256,,,Cottonee
+5,TradeGift_B2W2,EncounterTrade5B2W2,526,Gigalith,35,,11195,,,Gigalith
+5,TradeGift_B2W2,EncounterTrade5B2W2,465,Tangrowth,45,,93194,,,Tangrowth
+5,TradeGift_B2W2,EncounterTrade5B2W2,479,Rotom,60,,54673,,,Rotom
+5,TradeGift_B2W2,EncounterTrade5B2W2,424,Ambipom,40,,82610,,,Ambipom
+5,TradeGift_B2W2,EncounterTrade5B2W2,65,Alakazam,40,,82610,,,Alakazam
+5,TradeGift_B2W2,EncounterTrade5B2W2,52,Meowth,50,,YancyTID,,,Meowth
+5,TradeGift_B2W2,EncounterTrade5B2W2,202,Wobbuffet,50,,YancyTID,,,Wobbuffet
+5,TradeGift_B2W2,EncounterTrade5B2W2,280,Ralts,50,,YancyTID,,,Ralts
+5,TradeGift_B2W2,EncounterTrade5B2W2,410,Shieldon,50,,YancyTID,,,Shieldon
+5,TradeGift_B2W2,EncounterTrade5B2W2,111,Rhyhorn,50,,YancyTID,,,Rhyhorn
+5,TradeGift_B2W2,EncounterTrade5B2W2,422,Shellos,50,,YancyTID,0,,Shellos-West
+5,TradeGift_B2W2,EncounterTrade5B2W2,303,Mawile,50,,YancyTID,,,Mawile
+5,TradeGift_B2W2,EncounterTrade5B2W2,442,Spiritomb,50,,YancyTID,,,Spiritomb
+5,TradeGift_B2W2,EncounterTrade5B2W2,143,Snorlax,50,,YancyTID,,,Snorlax
+5,TradeGift_B2W2,EncounterTrade5B2W2,216,Teddiursa,50,,YancyTID,,,Teddiursa
+5,TradeGift_B2W2,EncounterTrade5B2W2,327,Spinda,50,,YancyTID,,,Spinda
+5,TradeGift_B2W2,EncounterTrade5B2W2,175,Togepi,50,,YancyTID,,,Togepi
+5,TradeGift_B2W2,EncounterTrade5B2W2,56,Mankey,50,,CurtisTID,,,Mankey
+5,TradeGift_B2W2,EncounterTrade5B2W2,202,Wobbuffet,50,,CurtisTID,,,Wobbuffet
+5,TradeGift_B2W2,EncounterTrade5B2W2,280,Ralts,50,,CurtisTID,,,Ralts
+5,TradeGift_B2W2,EncounterTrade5B2W2,408,Cranidos,50,,CurtisTID,,,Cranidos
+5,TradeGift_B2W2,EncounterTrade5B2W2,111,Rhyhorn,50,,CurtisTID,,,Rhyhorn
+5,TradeGift_B2W2,EncounterTrade5B2W2,422,Shellos,50,,CurtisTID,1,,Shellos-East
+5,TradeGift_B2W2,EncounterTrade5B2W2,302,Sableye,50,,CurtisTID,,,Sableye
+5,TradeGift_B2W2,EncounterTrade5B2W2,442,Spiritomb,50,,CurtisTID,,,Spiritomb
+5,TradeGift_B2W2,EncounterTrade5B2W2,143,Snorlax,50,,CurtisTID,,,Snorlax
+5,TradeGift_B2W2,EncounterTrade5B2W2,231,Phanpy,50,,CurtisTID,,,Phanpy
+5,TradeGift_B2W2,EncounterTrade5B2W2,327,Spinda,50,,CurtisTID,,,Spinda
+5,TradeGift_B2W2,EncounterTrade5B2W2,175,Togepi,50,,CurtisTID,,,Togepi
+5,TradeGift_W2,EncounterTrade5B2W2,546,Cottonee,20,,71256,,,Cottonee
+5,TradeGift_B2,EncounterTrade5B2W2,548,Petilil,20,,65217,,,Petilil
+5,TradeGift_BW,EncounterTrade5BW,587,Emolga,30,0xD400007F,11195,,,Emolga
+5,TradeGift_BW,EncounterTrade5BW,479,Rotom,60,0x2A000000,54673,,,Rotom
+5,TradeGift_BW,EncounterTrade5BW,446,Munchlax,60,0x6200001F,40217,,,Munchlax
+5,TradeGift_B,EncounterTrade5BW,548,Petilil,15,0x64000000,39922,,,Petilil
+5,TradeGift_B,EncounterTrade5BW,550,Basculin,25,0x9400007F,27646,0,,Basculin-Red
+5,TradeGift_W,EncounterTrade5BW,546,Cottonee,15,0x6400007E,39922,,,Cottonee
+5,TradeGift_W,EncounterTrade5BW,550,Basculin,25,0x9400007F,27646,1,,Basculin-Blue
+6,TradeGift_AO,EncounterTrade6,296,Makuhita,9,,30724,,,Makuhita
+6,TradeGift_AO,EncounterTrade6,300,Skitty,30,,03239,,,Skitty
+6,TradeGift_AO,EncounterTrade6,222,Corsola,50,,00325,,,Corsola
+6,TradeGift_XY,EncounterTrade6,129,Magikarp,5,,44285,,,Magikarp
+6,TradeGift_XY,EncounterTrade6,133,Eevee,5,,29294,,,Eevee
+6,TradeGift_XY,EncounterTrade6,83,Farfetch’d,10,,00185,,,Farfetch'd
+6,TradeGift_XY,EncounterTrade6,208,Steelix,20,,19250,,,Steelix
+6,TradeGift_XY,EncounterTrade6,625,Bisharp,50,,03447,,,Bisharp
+6,TradeGift_XY,EncounterTrade6,656,Froakie,5,,00037,,,Froakie
+6,TradeGift_XY,EncounterTrade6,650,Chespin,5,,00037,,,Chespin
+6,TradeGift_XY,EncounterTrade6,653,Fennekin,5,,00037,,,Fennekin
+6,TradeGift_XY,EncounterTrade6,280,Ralts,5,,37110,,,Ralts
+7,TradeGift_GG,EncounterTrade7b,19,Rattata,12,,121106,1,,"Rattata @ Cerulean City, AV rand [0-5)"
+7,TradeGift_GG,EncounterTrade7b,50,Diglett,25,,520159,1,,"Diglett @ Lavender Town, AV rand [0-5)"
+7,TradeGift_GG,EncounterTrade7b,26,Raichu,30,,940711,1,,"Raichu @ Saffron City, AV rand [0-10)"
+7,TradeGift_GG,EncounterTrade7b,105,Marowak,38,,102595,1,,"Marowak @ Fuchsia City, AV rand [0-10)"
+7,TradeGift_GG,EncounterTrade7b,103,Exeggutor,46,,060310,1,,"Exeggutor @ Indigo Plateau, AV rand [0-15)"
+7,TradeGift_GG,EncounterTrade7b,74,Geodude,16,,551873,1,,"Geodude @ Vermilion City, AV rand [0-5)"
+7,TradeGift_GP,EncounterTrade7b,27,Sandshrew,27,,703019,1,,"Sandshrew @ Celadon City, AV rand [0-5)"
+7,TradeGift_GP,EncounterTrade7b,88,Grimer,44,,000219,1,,"Grimer @ Cinnabar Island, AV rand [0-10)"
+7,TradeGift_GE,EncounterTrade7b,37,Vulpix,27,,703019,1,,"Vulpix @ Celadon City, AV rand [0-5)"
+7,TradeGift_GE,EncounterTrade7b,52,Meowth,44,,000219,1,,"Meowth @ Cinnabar Island, AV rand [0-10)"
+7,TradeGift_SM,EncounterTrade7,66,Machop,9,,000410,0,,Machop
+7,TradeGift_SM,EncounterTrade7,761,Bounsweet,16,,610507,0,,Bounsweet
+7,TradeGift_SM,EncounterTrade7,61,Poliwhirl,22,,590916,0,,Poliwhirl
+7,TradeGift_SM,EncounterTrade7,440,Happiny,27,,010913,0,,Happiny
+7,TradeGift_SM,EncounterTrade7,75,Graveler,32,,610602,1,,Graveler-1
+7,TradeGift_SM,EncounterTrade7,762,Steenee,43,,610503,0,,Steenee
+7,TradeGift_SM,EncounterTrade7,663,Talonflame,59,,581022,0,,Talonflame
+7,TradeGift_USUM,EncounterTrade7,701,Hawlucha,8,,000410,0,,Hawlucha
+7,TradeGift_USUM,EncounterTrade7,714,Noibat,19,,610507,0,,Noibat
+7,TradeGift_USUM,EncounterTrade7,339,Barboach,21,,590916,0,,Barboach
+7,TradeGift_USUM,EncounterTrade7,24,Arbok,22,,010913,0,,Arbok
+7,TradeGift_USUM,EncounterTrade7,708,Phantump,33,,610602,0,,Phantump
+7,TradeGift_USUM,EncounterTrade7,422,Shellos,44,,610503,0,,Shellos
+7,TradeGift_USUM,EncounterTrade7,128,Tauros,59,,581022,0,,Tauros
+8,TradeSWSH,EncounterTrade8,52,Meowth,18,,263455,,,Meowth
+8,TradeSWSH,EncounterTrade8,819,Skwovet,10,,648753,,,Skwovet
+8,TradeSWSH,EncounterTrade8,546,Cottonee,23,,101154,,,Cottonee
+8,TradeSWSH,EncounterTrade8,175,Togepi,25,,109591,,,Togepi
+8,TradeSWSH,EncounterTrade8,562,Yamask,35,,102534,,,Yamask
+8,TradeSWSH,EncounterTrade8,122,Mr. Mime,40,,891846,,,Mr. Mime
+8,TradeSWSH,EncounterTrade8,884,Duraludon,50,,101141,,,Duraludon
+8,TradeSWSH,EncounterTrade8,52,Meowth,15,,101141,,,Meowth
+8,TradeSWSH,EncounterTrade8,122,Mr. Mime,15,,101141,,,Mr. Mime
+8,TradeSWSH,EncounterTrade8,263,Zigzagoon,15,,101141,,,Zigzagoon
+8,TradeSWSH,EncounterTrade8,618,Stunfisk,15,,101141,,,Stunfisk
+8,TradeSWSH,EncounterTrade8,110,Weezing,15,,101141,,,Weezing
+8,TradeSWSH,EncounterTrade8,103,Exeggutor,15,,101141,1,,Exeggutor-1
+8,TradeSWSH,EncounterTrade8,105,Marowak,15,,101141,1,,Marowak-1
+8,TradeSW,EncounterTrade8,856,Hatenna,30,,101101,,,Hatenna
+8,TradeSW,EncounterTrade8,538,Throh,37,,768945,,,Throh
+8,TradeSW,EncounterTrade8,83,Farfetch’d,15,,101141,,,Farfetch’d
+8,TradeSW,EncounterTrade8,554,Darumaka,15,,101141,,,Darumaka
+8,TradeSH,EncounterTrade8,859,Impidimp,30,,256081,,,Impidimp
+8,TradeSH,EncounterTrade8,539,Sawk,37,,881426,,,Sawk
+8,TradeSH,EncounterTrade8,222,Corsola,15,,101141,,,Corsola
+8,TradeSH,EncounterTrade8,77,Ponyta,15,,101141,,,Ponyta
+8,TradeGift_BDSP,EncounterTrade8b,63,Abra,9,0xFF50A8F5,25643,,,Abra
+8,TradeGift_BDSP,EncounterTrade8b,441,Chatot,15,0x17DAAB19,44142,,,Chatot
+8,TradeGift_BDSP,EncounterTrade8b,93,Haunter,33,0xF60AB5BB,19248,,,Haunter
+8,TradeGift_BDSP,EncounterTrade8b,129,Magikarp,45,0xFCE82F88,53277,,,Magikarp
+9,TradeGift_SV,EncounterTrade9,194,Wooper,18,,033081,,,Wooper
+9,TradeGift_SV,EncounterTrade9,93,Haunter,25,,016519,,,Haunter
+9,TradeGift_SV,EncounterTrade9,240,Magby,12,,418071,,,Magby
+9,TradeGift_SV,EncounterTrade9,982,Dudunsparce,35,,766634,,,Dudunsparce
+9,TradeGift_SV,EncounterTrade9,133,Eevee,1,,376983,,,Eevee
+9,TradeGift_SV,EncounterTrade9,194,Wooper,8,,591912,1,,Wooper-1
+9,TradeGift_SV,EncounterTrade9,922,Pawmo,24,,209896,,,Pawmo
+9,TradeGift_SV,EncounterTrade9,974,Cetoddle,37,,209896,,,Cetoddle
+9,TradeGift_SV,EncounterTrade9,976,Veluza,20,,373015,,,Veluza
+9,TradeGift_SV,EncounterTrade9,997,Arctibax,45,,316242,,,Arctibax
+9,TradeGift_SV,EncounterTrade9,415,Combee,15,,993663,,,Combee
+9,TradeGift_SV,EncounterTrade9,884,Duraludon,36,,217978,,,Duraludon
+9,TradeGift_SV,EncounterTrade9,307,Meditite,28,,137719,,,Meditite
+9,TradeGift_SV,EncounterTrade9,192,Sunflora,40,,584457,,,Sunflora
+9,TradeGift_SV,EncounterTrade9,747,Mareanie,20,,158604,,,Mareanie
+9,TradeGift_SV,EncounterTrade9,81,Magnemite,22,,568659,,,Magnemite
+9,TradeGift_SV,EncounterTrade9,128,Tauros,50,,933665,1,,Tauros-1
+9,TradeGift_SV,EncounterTrade9,227,Skarmory,40,,745642,,,Skarmory
+9,TradeGift_SV,EncounterTrade9,969,Glimmet,5,,661291,,,Glimmet
+9,TradeGift_SV,EncounterTrade9,819,Skwovet,7,,105971,,,Skwovet
+9,TradeGift_SV,EncounterTrade9,958,Tinkatuff,25,,949475,,,Tinkatuff
+9,TradeGift_SV,EncounterTrade9,971,Greavard,10,,275703,,,Greavard
+9,TradeGift_SV,EncounterTrade9,999,Gimmighoul,30,,361010,,,Gimmighoul
+9,TradeGift_SV,EncounterTrade9,955,Flittle,32,,149671,,,Flittle
+9,TradeGift_SV,EncounterTrade9,857,Hattrem,33,,654886,,,Hattrem
+9,TradeGift_SV,EncounterTrade9,52,Meowth,21,,314512,1,,Meowth-1
+9,TradeGift_SV,EncounterTrade9,522,Blitzle,20,,390518,,,Blitzle
+9,TradeGift_SV,EncounterTrade9,840,Applin,15,,184745,,,Applin
+9,TradeGift_SV,EncounterTrade9,209,Snubbull,18,,816963,,,Snubbull
+9,TradeGift_SV,EncounterTrade9,744,Rockruff,12,,980975,,,Rockruff
+9,TradeGift_SV,EncounterTrade9,1012,Poltchageist,30,,704310,,,Poltchageist
+9,TradeGift_SV,EncounterTrade9,316,Gulpin,17,,134745,,,Gulpin
+9,TradeGift_SV,EncounterTrade9,872,Snom,10,,050724,,,Snom
+9,Trades,EncounterTrade9a,214,Heracross,12,,797394,,,Heracross (sub_tradepoke_heracros)
+9,Trades,EncounterTrade9a,447,Riolu,25,,348226,,,Riolu (sub_tradepoke_riolu)
+9,Trades,EncounterTrade9a,79,Slowpoke,30,,934764,,,Slowpoke-1 (sub_addpoke_gyadon)
+9,Trades,EncounterTrade9a,26,Raichu,64,,693489,,,Raichu-1 (sub_addpoke_araichu)
+9,Trades,EncounterTrade9a,233,Porygon2,50,,065536,,,Porygon2 (sub_tradepoke_poligon2)

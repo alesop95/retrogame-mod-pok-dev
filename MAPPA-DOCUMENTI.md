@@ -73,6 +73,8 @@ Sono i più grossi del progetto e la causa principale del senso di ingestibilit�
 | `recreate-pokemon-distributions-events/EVENTI-GEN3.md` | 23k | `tools/genera-evento-gen3.py` |
 | `pokedex-home-completo/FIOCCHI.md` | 16k | `tools/fiocchi.py` |
 | `pokedex-home-completo/DIFFERENZE-DI-SESSO.md` | 12k | `tools/enumera-differenze-sesso.py` |
+| `pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md` | 28k | `tools/censimento-condizionati.py` |
+| `pokedex-home-completo/CENSIMENTO-SCAMBI.md` | 24k | `tools/censimento-scambi.py` |
 | `pokedex-home-completo/EVENTI-SENZA-CARTA.md` | 15k | `tools/leggi-serebii-eventi.py --senza-carta` |
 | `pokedex-home-completo/MOSSE-PERDUTE.md` | 8k | `tools/mosse-perdute.py` |
 | `pokedex-home-completo/INDICE-FOGLI-ESTERNI.md` | 8k | `tools/leggi-foglio-google.py` |
@@ -88,7 +90,7 @@ Sommano oltre tre megabyte, cioè la quasi totalità del peso testuale del proge
 
 ## Gli studi e le referenze autorate, che sono i file da leggere
 
-Sono i documenti dove sta il ragionamento, e sono pochi. Per il track del deposito: la catena di trasferimento, la roadmap cronologica, e sei studi numerati. Per le distribuzioni: quattro studi. Per l'esecuzione di codice: tre studi. Per il ponte fra generazioni: la referenza dei formati, che è il documento tecnico più denso del progetto. Più uno studio a testa per la batteria, per la generazione da console corrente e per l'automazione.
+Sono i documenti dove sta il ragionamento, e sono pochi. Per il track del deposito: la catena di trasferimento, la roadmap cronologica, e sette studi numerati. Per le distribuzioni: quattro studi. Per l'esecuzione di codice: tre studi. Per il ponte fra generazioni: la referenza dei formati, che è il documento tecnico più denso del progetto. Più uno studio a testa per la batteria, per la generazione da console corrente e per l'automazione.
 
 Ciascun sottoprogetto ha un `README.md` che elenca i propri file: è quello il posto dove cercare dentro un track, non questa mappa.
 
