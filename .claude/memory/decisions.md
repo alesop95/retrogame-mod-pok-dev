@@ -785,3 +785,28 @@ ADR-035 aveva chiuso la questione delle forme fissando il bersaglio a trecentoqu
 L'utente ha deciso che le sessantatre configurazioni si producono come entità separate. Ne segue che il bersaglio delle forme si alza di cinquantaquattro voci e che il dolcetto, che nel formato non è un campo della forma, diventa per il progetto un asse di distinzione al pari della crema.
 
 La conseguenza tecnica va dichiarata perché è la ragione per cui ADR-035 aveva deciso in senso opposto. Il dolcetto di Alcremie non è rappresentato dal campo della forma ma da un altro campo dell'esemplare, quindi le sessantatre configurazioni non sono sessantatre valori di forma: sono nove valori di forma per sette valori di un secondo campo. Il generatore deve quindi comporre la coppia, la lista di spunta deve portare due colonne invece di una, e il codice interno di una voce di Alcremie non è più la coppia fra numero del Dex e indice di forma.
+
+## ADR-055: la tabella delle fonti è la fonte unica, e un file generato non si corregge mai a mano
+
+Data: 2026-09-09. Stato: accettata, decisione dell'agente su una constatazione, esposta all'utente.
+
+Il fatto che l'ha aperta. `tesi/bibliografia.tex` dichiara nella propria intestazione di essere generato da `tools/build-bibliography.py` a partire dalla tabella `FONTI` di `tools/build-source-map.py`, e di non doversi modificare perché una correzione fatta là sparisce alla corsa successiva. Il 2026-09-09 il confronto fra le due ha mostrato che dieci voci vivevano nella sola bibliografia: `frlg-home`, `tpc-dati-alterati`, `mankeymite-home`, `gen3-ace-builder`, `ace-archive`, `mankeymite-server`, `insidegadgets-canale`, `home-checklist`, `berichandev` e `amiibodoctor-generazione`. Sono state scritte a mano nel file generato fra il 2026-08-31 e il 2026-09-01, e i capitoli le citano.
+
+Perché è grave e non soltanto disordinato. Quelle dieci voci erano una bomba a orologeria: la prima rigenerazione le avrebbe cancellate, e con esse sarebbero rimaste orfane dieci citazioni, cioè il controllo di copertura avrebbe segnalato dieci citazioni senza voce in un momento qualunque e apparentemente senza causa. Il difetto non produceva alcun errore visibile finché nessuno rigenerava, che è la firma della classe di difetti che questo progetto registra con più cura.
+
+La decisione. Le dieci voci sono state riportate nella tabella `FONTI` con il loro abstract, il loro livello e i loro track, e con esse sono entrate le diciotto fonti nuove dei cluster del corpus letti fra il 7 e il 9 settembre; la mappa passa da cinquantanove a ottantasette fonti e la bibliografia da ottantotto a centosei voci, tutte citate. Da qui in avanti vale la regola in forma esplicita: quando un file dichiara di essere generato, la correzione si fa nella tabella che lo genera e mai nel file, e il presidio prima di ogni commit è che `python tools/build-source-map.py --check` e `python tools/build-bibliography.py --check` passino entrambi.
+
+La lezione generalizzata, che è la ragione per cui questa voce esiste invece di una riga nel work log: un dato che esiste in un posto solo e non in quello che lo governa non è un dato, è una copia che sopravvive per caso. È la stessa forma del difetto delle schede senza `covers-paths`, dove un'area descritta e non dichiarata resta verde per sempre.
+
+## ADR-056: nella tesi un documento generato si esenta per le sue righe di dati e si copre per la sua prosa
+
+Data: 2026-09-09. Stato: accettata, decisione dell'agente sul criterio, con i suoi effetti dichiarati.
+
+Il problema. L'invariante del progetto dice che ogni riga di ogni `.md` finisce nella tesi, e i documenti generati sono oggi la quasi totalità del peso testuale: la sola lista di spunta pesa novecentoquarantacinque kilobyte. Applicare l'invariante alla lettera significherebbe rendere in prosa accademica duecentoquarantotto tabelle di valori derivati, il che non è né possibile né utile; ignorarlo significherebbe lasciare che la copertura scenda e che l'invariante diventi decorativo. Al 2026-09-09 la copertura era al sessantotto virgola tre per cento con cinquecentoquindici sezioni scoperte, accumulate in dieci giorni.
+
+Il criterio adottato. Di un documento generato si esentano, dichiarandone il motivo in `tesi/non-coperti.txt`, le sole sezioni che sono elenchi di righe di dati o inventari di valori derivati, e si coprono in un capitolo il titolo, la definizione, i criteri, il quadro d'insieme e le misure, che sono conoscenza. Il precedente era già nel file per il catalogo degli eventi, le schede di pedigree di terza generazione e la lista di spunta; questa decisione lo enuncia come criterio invece di ripeterlo caso per caso, e lo applica alle undici enumerazioni nuove.
+
+Che cosa la decisione rifiuta. Rifiuta la via alternativa, cioè dichiarare in un capitolo di coprire anche le sezioni di dati senza renderle: un capitolo del progetto lo fa già, ed è una copertura contabile che soddisfa lo strumento senza soddisfare l'invariante. Fra le due, questa costa quattro capitoli nuovi e una riga di motivazione per ciascuna esenzione, e ha il vantaggio che la lista delle esenzioni è essa stessa leggibile come dichiarazione di che cosa la tesi non contiene.
+
+La fragilità dichiarata. Alcune sezioni generate portano un conteggio nel proprio titolo, quindi il loro slug cambia quando il numero cambia e l'esenzione smette di applicarsi. Non è un difetto da correggere ma un comportamento da conoscere: la sezione riemerge come scoperta, il che è il segnale che quel conteggio si è mosso, e l'esenzione va riscritta con il numero nuovo dopo avere guardato perché si sia mosso.
+
