@@ -1,0 +1,897 @@
+identificativo,cifre,allenatore,evento,stato,nota
+00000,5,e-Reader Trainers,Multiple,non collezionabile,"Internally, Pokémon used by e-Reader Trainers use this ID number except when Shiny , in which case their ID number will instead match the low half of their personality value"
+00000,5,Pokémon Emerald 's Pokédex,Multiple,non collezionabile,"The ID of the ""fake Trainer"" used internally by the Pokédex in Pokémon Emerald , as a method to store the personality value and other details about a registered Pokémon's apperance, such as Spinda 's spot pattern, and Unown 's form . [ 1 ]"
+000000,6,Mr. Al Rent,Multiple,non collezionabile,The ID of the Rental Pokémon given to the player by the Rental team receptionist in the Battle Tower
+000001,6,AZ,Eternal Flower Floette,non coperta,AZ 's ID
+00002,5,Ｎ N,Unova Classic N's Darmanitan,coperta sul solo identificativo,None
+00002,5,N,Multiple,coperta con allenatore,N's Pokémon
+00010,5,10 ANIV 10ANNIV 10JAHRE 10ANNI,Multiple,coperta sul solo identificativo,Used for the Pokémon obtained at events that celebrated the tenth anniversary of Pokémon
+00010,5,SPACE C,Space C Deoxys,coperta con allenatore,
+000132,6,ひみつ,Secret Shiny Krabby,coperta con allenatore,Shiny
+000219,6,ワルモン Darko,Multiple,coperta sul solo identificativo,The ID of the trainer on Cinnabar Island who wants to trade Grimer for Alolan Grimer P or Meowth for Alolan Meowth E
+00022,5,ウチダアツト,Atsuto Uchida Pikachu,coperta con allenatore,None
+00037,5,サナ Shauna,Multiple,coperta sul solo identificativo,Shauna 's ID
+000410,6,ヒラヒラ Hila,Multiple,coperta sul solo identificativo,The ID of the Trainer on Route 2 who wants to trade Spearow for Machop S M or Hawlucha US UM
+00108,5,GTS,GTS Fancy Pattern Vivillon,coperta con allenatore,None
+00185,5,ぐりお Cliff,Farfetch'd (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Santalune City who wants to trade X Y
+00283,5,ミサコ Ayana,Dodrio (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Blackthorn City who wants to trade HG SS
+00325,5,サトチン Lane,Corsola (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Pacifidlog Town who wants to trade OR AS
+00711,5,７ ＳＰＯＴ,Multiple,coperta con allenatore,Used for the 7-Eleven Lugia and Latios
+00711,5,サトシ,7-Eleven Ash's Pikachu,coperta con allenatore,None
+00711,5,セレナ,7-Eleven Serena's Pancham,coperta con allenatore,None
+00720,5,そうせんきょ,Multiple,coperta con allenatore,Used for the Pokémon General Election 720 Greninja and Simisear
+01000,5,ユカリ Hayley EULALIE EUKALIA GIULIA EULALIA,Multiple,coperta sul solo identificativo,Used for the Pokémon given by Hayley in My Pokémon Ranch
+01001,5,ユウジ 유랑 Vijay Webster Norman Mark Quintín,Spearow,coperta sul solo identificativo,The OT of the Trainer who gives the player a Spearow to deliver to his friend
+01014,5,영화관,Cinema Genesect,non coperta,Shiny
+01016,5,ポケセン,Multiple,non coperta,"Used for the first distribution of Mega Campaign Slowbro , Sableye , Altaria , Lucario , and Audino"
+01031,5,GAMESTP,GameStop Raikou,coperta con allenatore,Shiny ; activates a battle with a wild Zoroark in Black and White via Relocator
+01044,5,XY,XY Sylveon,non coperta,None
+01069,5,あきやま,Akiyama Slaking,coperta con allenatore,None
+01071,5,달건,Goone's Scizor,non coperta,None
+010913,6,キーヤン Miyo,Arbok (Pokémon),coperta sul solo identificativo,The ID of the Trainer on Route 8 who wants to trade US UM
+010913,6,モエモエ Momoe,Happiny (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Malie City who wants to trade S M
+01095,5,Ｐ－Ｃａｆｅ,Pokémon Cafe Pikachu,coperta sul solo identificativo,None
+01095,5,プレゼント,Hidden Ability Present Serperior,coperta con allenatore,None
+01096,5,ポケセン,Multiple,non coperta,"Used for the second distribution of Mega Campaign Slowbro , Sableye , Altaria , Lucario , and Audino"
+01110,5,ＷＣＳ,2010 World Championships Eevee,coperta sul solo identificativo,Shiny
+01113,5,Ｐ２ラボ,P2 Laboratory Genesect,coperta sul solo identificativo,Can activate an event at P2 Laboratory where the player receives two Drives
+01154,5,XY,XY Garchomp,non coperta,Used in Taiwanese regions
+01155,5,영화관,Cinema Diancie,coperta con allenatore,"In Generation VI, prompts special dialogue upon leaving a Pokémon Center . In Omega Ruby and Alpha Sapphire , the player also obtains a Diancite"
+01158,5,さいきょう,Strongest Dragonite,coperta con allenatore,None
+01161,5,ポケスマ！,Pokémon Smash! Zoroark,coperta sul solo identificativo,None
+01163,5,HVR2013 INV2013 WIN2013,Winter 2013 Keldeo,coperta sul solo identificativo,Can learn Secret Sword in Generation V
+01165,5,プレゼント,Multiple,coperta con allenatore,Used for the Hidden Ability Present Emboar and Samurott
+01166,5,겨울의반격,Winter Counterattack Gyarados,coperta con allenatore,Shiny
+01166,5,ポケセン,Multiple,coperta sul solo identificativo,"Used for the third distribution of Mega Campaign Slowbro , Sableye , Altaria , Lucario , and Audino"
+01171,5,GAMESTP,GameStop Entei,coperta con allenatore,Shiny ; activates a battle with a wild Zoroark in Black and White via Relocator
+011814,6,Ash Sacha,Kalos Cap Pikachu,coperta sul solo identificativo,"Distributed in America, Europe, and Taiwan"
+01185,5,ＷＨＦ１５,Winter 2015 World Hobby Fair Rayquaza,coperta sul solo identificativo,Shiny
+01193,5,플라스마단,Plasma Genesect,non coperta,Can activate an event at P2 Laboratory where the player receives two Drives
+01203,5,Abram,Winter Regional Championships 2013 Cloyster,coperta con allenatore,None
+01211,5,HVR2011 INV2011 WIN2011,Winter 2011 Celebi,coperta sul solo identificativo,Allows the player to battle Giovanni in HeartGold and SoulSilver Allows a Zorua to join the party in Black and White via Relocator
+01225,5,Cadeau Geschenk Present Regalo,Hidden Ability Present Serperior,coperta sul solo identificativo,None
+01235,5,ＰＧＬ PGL,PGL Tyrunt,coperta sul solo identificativo,None
+01236,5,ポケセン,Multiple,non coperta,"Used for the fourth distribution of Mega Campaign Slowbro , Sableye , Altaria , Lucario , and Audino"
+01239,5,HADEN,Lickitung (Pokémon),coperta sul solo identificativo,The ID of the Trainer on Route 18 who wants to trade FR LG
+01244,5,XY,XY Garchomp,coperta con allenatore,Used in American regions
+01256,5,ウッツ－,Utz Magikarp,coperta con allenatore,None
+01281,5,サトシ,Satoshi's Scraggy,coperta con allenatore,None
+01286,5,Jade,Jade Infernape,coperta con allenatore,None
+01294,5,サカキ,Pokémon Center Occupation Plan Giovanni's Nidoqueen,coperta con allenatore,None
+01295,5,Cadeau Geschenk Present Regalo,Hidden Ability Present Emboar,coperta sul solo identificativo,None
+01300,5,GAMESTP,GameStop Pichu,coperta con allenatore,"Shiny ; When traded to HeartGold and SoulSilver , allows the player to obtain a Spiky-eared Pichu"
+01300,5,한국닌텐도,Nintendo of Korea Jirachi,coperta sul solo identificativo,"When traded to HeartGold and SoulSilver , unlocks the Pokéwalker route Night Sky's Edge"
+01301,5,Ash,Ash's Pikachu,coperta con allenatore,None
+01306,5,ポケセン,Multiple,non coperta,"Used for the fifth and final distribution of Mega Campaign Slowbro , Sableye , Altaria , Lucario , and Audino"
+01311,5,GAMESTP,GameStop Suicune,coperta con allenatore,Shiny ; activates a battle with a wild Zoroark in Black and White via Relocator
+019248,6,ミナッチ Mindy,Haunter (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Snowpoint City who wants to trade BD SP
+01985,5,ひとまろ REYLEY,Mr. Mime (Pokémon),coperta sul solo identificativo,The ID of the Trainer on Route 2 who wants to trade FR LG
+02005,5,ROCKS,Pokémon Rocks America 2005 Metang,coperta con allenatore,None
+02005,5,フェスタ,Pokémon Festa 2005 Metang,coperta con allenatore,None
+02010,5,MICHINA,Europe Michina Arceus,coperta con allenatore,"In HeartGold and SoulSilver , grants access to the Sinjoh Ruins . In Platinum , prompts special dialogue in the Oreburgh Mine"
+02011,5,지우,Han Jiwoo's Pikachu,non coperta,None
+02014,5,새해복많이,Multiple,coperta sul solo identificativo,"Used for the New Year Haunter and Scyther . Because they are traded to the recipient, they will evolved immediately."
+02014,5,ポケセン,Multiple,coperta con allenatore,Used for the Pokémon Center Gengar and Scizor
+02016,5,GF,20th Anniversary Mew,coperta con allenatore,None
+020218,6,2018 Legends Légendes2018 Legenden2018 Leggende2018 Leyendas2018,Multiple,coperta sul solo identificativo,Used for the Legendary Pokémon Celebration Dialga and Palkia
+02027,5,しょこたん,Shokotan Tropius,coperta con allenatore,None
+02055,5,속성클리어,Strategy Guide Keldeo,coperta con allenatore,None
+02056,5,オンライン,Pokémon Center Online Pikachu,coperta con allenatore,None
+02071,5,HVR2011 INV2011 WIN2011,Winter 2011 Raikou,coperta sul solo identificativo,Shiny ; activates a battle with a wild Zoroark in Black and White via Relocator
+020713,6,アルトマーレ,Alto Mare Latias,coperta con allenatore,None
+02079,5,おねむり,Onemuri Pikachu,coperta con allenatore,None
+02089,5,TRU,"Toys ""R"" Us Shaymin",coperta con allenatore,Can be used to obtain a Gracidea from Platinum to Black 2 and White 2
+02102,5,せんきょ,15th Anniversary Rayquaza,coperta con allenatore,None
+02105,5,Cadeau Geschenk Present Regalo,Hidden Ability Present Samurott,coperta sul solo identificativo,None
+02109,5,レッド,Red Metagross,coperta con allenatore,None
+02112,5,2012FEB,February 2012 Mewtwo,coperta sul solo identificativo,None
+021121,6,サトシ,Hoenn Cap Pikachu,coperta con allenatore,Distributed in Japan
+021211,6,Ash Sacha,Unova Cap Pikachu,coperta sul solo identificativo,"Distributed in America, Europe, and Taiwan"
+02135,5,FEB2015,February 2015 Darkrai,coperta con allenatore,None
+02141,5,HVR2011 INV2011 WIN2011,Winter 2011 Entei,coperta sul solo identificativo,Shiny ; activates a battle with a wild Zoroark in Black and White via Relocator
+02158,5,さいきょう,Strongest Salamence,coperta con allenatore,None
+02211,5,HVR2011 INV2011 WIN2011,Winter 2011 Suicune,coperta sul solo identificativo,Shiny ; activates a battle with a wild Zoroark in Black and White via Relocator
+02211,5,WIN2011,North America Winter 2011 Celebi,coperta con allenatore,Allows the player to battle Giovanni in HeartGold and SoulSilver Allows a Zorua to join the party in Black and White via Relocator
+02226,5,ルイルイθ,Ruirui Magikarp,coperta con allenatore,None
+02243,5,SETEC,Multiple,non coperta,"Used for the Dragonite , Scizor , Tyranitar , Metagross , and Garchomp distrubted as part of the Strongest Class Pokémon Gift"
+02259,5,ユキポン DARRELL,Skitty (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Fortree City who wants to trade R S
+02265,5,セレナ,Serena's Fennekin,coperta con allenatore,None
+02270,5,GAMESTP,GameStop Jirachi,coperta con allenatore,"When traded to HeartGold and SoulSilver , unlocks the Pokéwalker route Night Sky's Edge"
+02276,5,グリーン,PGS Blue's Pidgeot,coperta sul solo identificativo,None
+02276,5,マスダ,Junichi Masuda's Psyduck,coperta con allenatore,None
+025643,6,ハッシー Hilary,Abra (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Oreburgh City who wants to trade BD SP
+02730,5,おり,Ori Bidoof,non coperta,None
+03010,5,PKLATAM,Latin America Jirachi,coperta con allenatore,"When traded to HeartGold and SoulSilver , unlocks the Pokéwalker route Night Sky's Edge"
+030118,6,2018 Legends Légendes2018 Legenden2018 Leggende2018 Leyendas2018,Multiple,coperta sul solo identificativo,Used for the Legendary Pokémon Celebration Heatran and Regigigas
+03012,5,さくら,ExtremeSpeed Pikachu,coperta con allenatore,None
+03013,5,FRÜ2013 PRI2013 SPR2013,Spring 2013 Meloetta,coperta sul solo identificativo,Can learn Relic Song in Generation V
+03016,5,GF,20th Anniversary Celebi,coperta con allenatore,None
+03016,5,Ｐスクラップ,Multiple,coperta sul solo identificativo,"Used for the Pokémon Scrap 2016 Articuno , Zapdos , Moltres , and Shiny Eevee"
+03032,5,VGC12,Video Game Championships 2012 Larvitar,coperta con allenatore,Shiny
+03042,5,최강의귀환,Strongest Return Mewtwo,non coperta,None
+03046,5,ワタル Lance Peter Siegfried 목호,Kanto Classic Lance's Dragonite,coperta sul solo identificativo,None
+03050,5,FRü2010 SPR2010 PRI2010,Spring 2010 Pichu,coperta sul solo identificativo,"Shiny ; When traded to HeartGold and SoulSilver , allows the player to obtain a Spiky-eared Pichu"
+03055,5,WCSK15,2015 Korean World Championship Series Linoone,coperta con allenatore,None
+03060,5,オブリビア Oblivia,Multiple,coperta sul solo identificativo,Used by Pokémon received in Ranger Net missions in Pokémon Ranger: Guardian Signs
+030719,6,ネガイボシ,Wishing Star Jirachi,coperta con allenatore,None
+03075,5,デセルシティ,Dahara City Arceus,coperta con allenatore,Chance of being Shiny in Japan
+03089,5,TRU,"Toys ""R"" Us Regigigas",coperta con allenatore,"When traded to Platinum , unlocks the Rock Peak , Iceberg , and Iron Ruins"
+03102,5,FRÜ2012 PRI2012 SPR2012,Multiple,coperta sul solo identificativo,Used for the Spring 2012 Reshiram and Zekrom distributed in Wi-Fi Could be tucked into the Dream World to access the special Pokémon Movie home.
+03102,5,SPR2012,Multiple,coperta con allenatore,Used for the Spring 2012 Reshiram and Zekrom distributed at V&D stores in the Netherlands Could be tucked into the Dream World to access the special Pokémon Movie home.
+03116,5,Aldora,Multiple,coperta con allenatore,Used for the Aldora legendary birds in PAL regions
+03121,5,포켓몬사랑,Pokémon Love Manaphy,non coperta,None
+03126,5,ノリィ♪,Nory Magikarp,coperta con allenatore,None
+03145,5,SG Summer'15,Singapore Summer 2015 Rayquaza,coperta con allenatore,Shiny
+03145,5,コロコロ,CoroCoro Rayquaza,coperta con allenatore,Shiny ; Later redistributed at Pokémon Center Hiroshima
+03154,5,コロコロ,CoroCoro Charizard,coperta con allenatore,Moveset and held item vary by the player's game
+03166,5,﻿ＰＣキョウト,Pokémon Center Kyoto Ho-Oh,coperta sul solo identificativo,Shiny
+03172,5,かこしま くまもと こくら ちが させぼ ながさき べっぷ みやざき,Multiple,coperta sul solo identificativo,Used for the Pokémon distributed as part of the Super Strong Pokémon Present Campaign
+03172,5,ノブナガ,Nobunaga's Black Rayquaza,coperta con allenatore,Shiny
+03172,5,フクオカ,Multiple,coperta con allenatore,Used for the Kyogre and Groudon distributed as part of the Super Strong Pokémon Present Campaign
+03191,5,サーチャー,Pokémon Searcher BW Axew,coperta con allenatore,None
+03196,5,XY&Z,XY&Z Zygarde,coperta con allenatore,Used in Korean regions
+03203,5,ナゴヤ,Pokémon Center Nagoya Magikarp,coperta con allenatore,Shiny
+03205,5,ＰＧＬ PGL,PGL Amaura,coperta sul solo identificativo,None
+03208,5,カイト Carlo Karel Kiko Kyle,Pokémon Ranger Riolu,coperta sul solo identificativo,"Obtainable from Pokémon Ranger: Shadows of Almia . Knows Aura Sphere , a move Riolu cannot learn until evolving into Lucario."
+03208,5,アルミア Almia,Almia Darkrai,coperta sul solo identificativo,None
+03209,5,オーサカ,PC Osaka Meowth,coperta con allenatore,None
+03217,5,やまもと,Yamamoto Whiscash,coperta con allenatore,None
+03219,5,한국닌텐도,Nintendo of Korea Mew,non coperta,None
+03226,5,XY&Z,XY&Z Xerneas,coperta con allenatore,Shiny ; Used in Korean regions
+03232,5,トウホク,Pikachu Festival Pikachu,coperta con allenatore,None
+03239,5,ユキポン Elyssa,Skitty (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Fortree City who wants to trade OR AS
+03298,5,한국닌텐도,Nintendo of Korea Manaphy,non coperta,None
+03303,5,SETEC,Multiple,non coperta,"Used for the Dragonite , Scizor , Tyranitar , Metagross , and Garchomp distributed as part of the Strongest Class Pokémon Gift"
+03447,5,パンク Punky,Bisharp (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Snowbelle City who wants to trade X Y
+03866,5,ヤミらみこ,Kotone Yasue's Tyranitar,coperta con allenatore,None
+04014,5,FRÜHL. 2014 PRIMAV2014 PRIMAVERA14 PRINT. 2014 SPRING 2014,Multiple,coperta sul solo identificativo,Used for the Spring 2014 Electabuzz and Magmar
+04015,5,FRÜHL. 2015 PRIMAV2015 PRIMAVERA15 PRINT. 2015 SPRING 2015,Spring 2015 Charizard,coperta sul solo identificativo,Shiny
+04016,5,GF,20th Anniversary Jirachi,coperta con allenatore,None
+04019,5,Film11 Movie11 Peli11,Movie 11 Shaymin,coperta sul solo identificativo,Can be used to obtain a Gracidea from Platinum to Black 2 and White 2
+04035,5,2015 Spring,Spring 2015 Kangaskhan,coperta con allenatore,None
+04045,5,박세준,Se Jun Park's Pachirisu,coperta con allenatore,Korean Regional Championships distribution
+040601,6,Ilex,European Ilex Forest Celebi,coperta con allenatore,None
+04114,5,올레 tv,2014 Olleh TV Charizard,coperta con allenatore,Moveset and held item vary by the player's game
+04124,5,스프링카니발,Spring Carnival Garchomp,coperta con allenatore,None
+04143,5,Toler,Spring Regional Championships 2013 Ludicolo,coperta con allenatore,None
+04155,5,완전스토리,Full Story Shaymin,coperta con allenatore,None
+04161,5,アイント,Eind Victini,coperta con allenatore,None
+04166,5,ネーベル,East Asian Nebel Volcanion,coperta con allenatore,Prompts special dialogue in X and Y
+04194,5,ふしぎのくに,Wonderland Darkrai,coperta con allenatore,None
+04203,5,BEXCO,Multiple,non coperta,"Used for the Dragonite , Scizor , Tyranitar , Metagross , and Garchomp distributed as part of the Strongest Class Pokémon Gift"
+04206,5,XY&Z,XY&Z Yveltal,coperta con allenatore,Shiny ; Used in Korean regions
+042218,6,2018 Legends Légendes2018 Legenden2018 Leggende2018 Leyendas2018,Multiple,coperta sul solo identificativo,Used for the Legendary Pokémon Celebration Raikou and Entei
+042402,6,너도밤나무,South Korean Ilex Forest Celebi,coperta con allenatore,None
+04282,5,サーチャー,Pokémon Searcher BW Piplup,coperta con allenatore,None
+04286,5,Ｐスクラップ,Multiple,coperta sul solo identificativo,"Used for the Pokémon Scrap 2016 Venusaur , Charizard , Blastoise , and Shiny Mewtwo"
+04296,5,포켓몬영화,Multiple,coperta con allenatore,Used for the distribution of the Movie legendary birds in Korean regions
+04305,5,올레 tv,2015 Olleh TV Charizard,coperta con allenatore,None
+04336,5,セイジ Kirk,Shuckle (Pokémon),coperta sul solo identificativo,The OT of the trainer who gives the player a Shuckle to keep safe
+044142,6,ノブリン Norton,Chatot (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Eterna City who wants to trade BD SP
+04625,5,ゆのすけ,Yunosuke Ralts,non coperta,None
+05010,5,타임스퀘어,Times Square Shaymin,non coperta,Can be used to obtain a Gracidea from Platinum to Black 2 and White 2
+05013,5,로켓단,Team Rocket Meowth,non coperta,None
+05016,5,GF,20th Anniversary Darkrai,coperta con allenatore,None
+05025,5,포켓몬타운15,Pokémon Spring Carnival 2015 Rayquaza,coperta con allenatore,Shiny
+05026,5,Cartesio Descartes,Multiple,coperta sul solo identificativo,"Used for the distribution of the Shiny Xerneas , Shiny Yveltal , and Zygarde in PAL regions"
+05026,5,Aldora,Multiple,coperta con allenatore,Used for the Aldora legendary birds in US regions
+05026,5,XYZ,Pokémon the Series: XYZ Zygarde,coperta con allenatore,None
+05034,5,Arash,Arash Ommati's Mamoswine,coperta con allenatore,Shiny
+050418,6,2018 Legends Légendes2018 Legenden2018 Leggende2018 Leyendas2018,Multiple,coperta sul solo identificativo,Used for the Legendary Pokémon Celebration Xerneas and Yveltal
+05043,5,aT센터,Multiple,non coperta,"Used for the Dragonite , Scizor , Tyranitar , Metagross , and Garchomp distributed as part of the Strongest Class Pokémon Gift"
+05043,5,플라스마단,Team Plasma Deoxys,non coperta,None
+05053,5,aT센터,Multiple,non coperta,"Used for the Dragonite , Scizor , Tyranitar , Metagross , and Garchomp distributed as part of the Strongest Class Pokémon Gift"
+05056,5,WCSK16,2016 Korean World Championship Series Mewtwo,coperta con allenatore,Shiny
+05072,5,PC,Multiple,coperta con allenatore,Used for the Ninetales and Chandelure distributed in the first part of Powerful Tag Pokémon series
+05080,5,VGC10,Video Game Championships 2010 Eevee,coperta con allenatore,Shiny
+05083,5,Plasma,Plasma Deoxys,coperta con allenatore,None
+05092,5,2012MAY,May 2012 Darkrai,coperta con allenatore,None
+05099,5,VGC09,US Video Game Championships 2009 Milotic,coperta con allenatore,Shiny
+05112,5,Fes おまつり,Pika Pika Carnival Pikachu,coperta sul solo identificativo,None
+05113,5,Ray,Video Game Championships 2013 Metagross,coperta con allenatore,Shiny
+05116,5,XYZ,Pokémon the Series: XYZ Xerneas,coperta con allenatore,Shiny
+05138,5,ごるこ,Golgo Octillery,coperta con allenatore,None
+05142,5,삼로스섬,Multiple,non coperta,Used for the Korean Milos Island Tornadus and Thundurus
+05146,5,﻿ScreenPeekaz,Mark McQuillan's Machamp,coperta sul solo identificativo,Shiny
+051517,6,Rocky,Rocky Lycanroc,coperta con allenatore,None
+05153,5,ＰＣＳ,Pokémon Center 15th Anniversary Empoleon,coperta sul solo identificativo,None
+05165,5,박세준,Se Jun Park's Pachirisu,coperta con allenatore,National Championships distribution
+05194,5,ポケセン,Pokémon Center Battle Championship Gyarados,coperta con allenatore,First distribution
+05194,5,ポケセン,Pokémon Center Battle Championship Scizor,coperta con allenatore,First distribution
+05206,5,XYZ,Pokémon the Series: XYZ Yveltal,coperta con allenatore,Shiny
+05223,5,ＰＣＴＨ,Pokémon Center 15th Anniversary Serperior,coperta sul solo identificativo,None
+05264,5,ポケセン,Pokémon Center Battle Championship Kangaskhan,coperta con allenatore,First distribution
+05276,5,アカネ Blanca Blanche Whitney Bianka Chiara 꼭두,Johto Classic Whitney's Miltank,coperta sul solo identificativo,None
+05276,5,P-Cafe,Pokémon Cafe Pikachu,coperta con allenatore,None
+05293,5,ＰＣＴ,Pokémon Center 15th Anniversary Pikachu,coperta sul solo identificativo,None
+05308,5,マック,McDonald's Pikachu,coperta con allenatore,None
+05309,5,VGC09,Europe Video Game Championships 2009 Milotic,coperta con allenatore,Shiny
+05318,5,ALAMOS,Nintendo World Store Darkrai,coperta con allenatore,None
+05318,5,ALAMOS,"Toys ""R"" Us Darkrai",coperta con allenatore,None
+05318,5,한국닌텐도,Nintendo of Korea Rayquaza,coperta sul solo identificativo,None
+053277,6,マイスター Meister,Meister 's ID BD SP,coperta sul solo identificativo,None
+05458,5,ジュン,Jun Psyduck,non coperta,None
+05720,5,ショウスケ Cotton,Cottonee (Pokémon),non coperta,The ID of Trainer wanting to trade on Route 4 W2
+06011,5,SMR2011 ÉTÉ2011 EST2011 VER2011,Summer 2011 Zoroark,coperta sul solo identificativo,None
+06011,5,SMR2011 ÉTÉ2011 EST2011 VER2011,Summer 2011 Karrablast,coperta sul solo identificativo,None
+06011,5,SMR2011 ÉTÉ2011 EST2011 VER2011,Summer 2011 Shelmet,coperta sul solo identificativo,None
+06012,5,FILM14,Movie 14 Victini,coperta sul solo identificativo,The gender of the OT is determined by the gender of the player character
+06012,5,PC,Multiple,coperta con allenatore,Used for the Lucario and Whimsicott distributed in the second part of Powerful Tag Pokémon series
+06014,5,Paris,Paris Poké Ball Pattern Vivillon,coperta con allenatore,None
+06016,5,GF,20th Anniversary Manaphy,coperta con allenatore,None
+060218,6,2018 Legends Légendes2018 Legenden2018 Leggende2018 Leyendas2018,Multiple,coperta sul solo identificativo,Used for the Legendary Pokémon Celebration Shiny Zygarde
+06024,5,ポケセン,Pokémon Center Battle Championship Gengar,coperta con allenatore,First distribution
+06030,5,SMR2010,Australian Summer 2010 Jirachi,coperta con allenatore,"When traded to HeartGold and SoulSilver , unlocks the Pokéwalker route Night Sky's Edge"
+060310,6,マニシ Exemann,Exeggutor (Pokémon),coperta sul solo identificativo,The ID of the Trainer at Indigo Plateau who wants to trade
+060407,6,Ash Sacha,Sinnoh Cap Pikachu,coperta sul solo identificativo,"Distributed in America, Europe, and Taiwan"
+06053,5,ＰＣＹ,Pokémon Center 15th Anniversary Torterra,coperta sul solo identificativo,None
+06055,5,완전전국도감,National Pokédex Mareep,coperta con allenatore,None
+06069,5,배틀시리즈,Battle Series 2009 Arcanine,non coperta,None
+06092,5,선발전12,Korean Nationals 2012 Volcarona,non coperta,Shiny
+060928,6,サトシ,Sinnoh Cap Pikachu,coperta con allenatore,Distributed in Japan
+06094,5,ポケセン,Pokémon Center Battle Championship Tyranitar,coperta con allenatore,First distribution
+06096,5,Nintendo HK,Nintendo Hong Kong Mewtwo,coperta con allenatore,Shiny
+06123,5,ＰＣＮ,Pokémon Center 15th Anniversary Infernape,coperta sul solo identificativo,None
+06153,5,Ｐヒルズ,Pokémon Hills Mewtwo,coperta con allenatore,None
+06164,5,ポケセン,Pokémon Center Battle Championship Mawile,coperta con allenatore,First distribution
+06171,5,カリータ,Carlita's Hydreigon,coperta con allenatore,Shiny
+06171,5,ジャンタ,Juanita's Golurk,coperta con allenatore,Shiny
+06176,5,キミア,Kimia's Gardevoir,coperta con allenatore,Shiny
+06180,5,グーン,Goone's Scizor,coperta con allenatore,None
+06180,5,クラウン,Multiple,coperta con allenatore,"Shiny ; used for the Entei , Raikou , and Suicune given away to commemorate Zoroark: Master of Illusions Compatible with Black and White 's Relocator , where they can trigger a battle with a wild Zoroark via Relocator"
+06193,5,ＰＣＯ,Pokémon Center 15th Anniversary Emboar,coperta sul solo identificativo,None
+06199,5,NZ,Nintendo Zone Jirachi,coperta con allenatore,None
+06199,5,しょこたん,Shokotan Pichu,coperta con allenatore,"Shiny ; When traded to HeartGold and SoulSilver , allows the player to obtain a Spiky-eared Pichu"
+06205,5,デセルシティ,Multiple,coperta con allenatore,"Used for the disribution of the Dahara City Kyogre , Groudon , Dialga , Palkia , and Kyurem"
+06209,5,한국닌텐도,Nintendo of Korea Regigigas,non coperta,"When traded to Platinum , unlocks the Rock Peak , Iceberg , and Iron Ruins"
+06214,5,Jessie,Pokémon Day Jessie's Wobbuffet,coperta con allenatore,None
+06216,5,방송국,Station Zoroark,non coperta,None
+06218,5,Gamestp,GameStop Deoxys,coperta con allenatore,None
+06225,5,JUN2015,June 2015 Dragonite,coperta con allenatore,None
+06227,5,10ANNIV 10JAHRE 10ANIV 10ANNI,Multiple,coperta sul solo identificativo,Used for the Top 10 Distribution Pokémon in Europe
+06232,5,アイリス,PGS Iris's Haxorus,coperta con allenatore,None
+06232,5,ゲーチス,Pokémon Center Occupation Plan Ghetsis's Hydreigon,coperta con allenatore,None
+06232,5,しょこたん,Shokotan Keldeo,coperta con allenatore,Can learn Secret Sword in Generation V
+06234,5,ポケセン,Multiple,non coperta,"Used for the second distribution of the Pokémon Center Battle Championship Kangaskhan , Scizor , and Gyarados"
+06257,5,PKTOPIA,Multiple,coperta con allenatore,Used for the Pokémon obtainable from the American Pokémon Battle Revolution
+06260,5,EST2010 ETE2010 SMR2010 SO2010 VER2010,Summer 2010 Jirachi,coperta sul solo identificativo,"When traded to HeartGold and SoulSilver , unlocks the Pokéwalker route Night Sky's Edge"
+06263,5,ＰＣＦ,Pokémon Center 15th Anniversary Samurott,coperta sul solo identificativo,None
+06265,5,ポケセン,Multiple,coperta con allenatore,Used for the Pokémon Center Hiroshima Magikarp and Shiny Gyarados
+06281,5,지우,Han Jiwoo's Scraggy,coperta sul solo identificativo,None
+06298,5,피카츄 카페,Multiple,non coperta,Used for an special event Electivire and Magmortar given away in South Korea
+063017,6,NA Champs 17,North American International Championships 2017 Arcanine,coperta con allenatore,None
+06808,5,10 ANIV,Multiple,coperta con allenatore,"Used for the Pokémon obtained at events that celebrated the tenth anniversary of Pokémon in Bryant Park, New York"
+06845,5,タケシ Brock,Rhyhorn (Pokémon),coperta sul solo identificativo,Brock 's ID
+06930,5,MYSTRY,Mystery Mew,coperta con allenatore,None
+07012,5,ÉTÉ2012 EST2012 SMR2012 VER2012,Summer 2012 Pikachu,coperta sul solo identificativo,None
+07013,5,デコロラ,Decolora Jirachi,coperta con allenatore,None
+07016,5,GF,20th Anniversary Shaymin,coperta con allenatore,None
+07016,5,포켓몬스파,Pika Pika Pokémon Spa Pikachu,coperta sul solo identificativo,None
+07018,5,ばば,Baba Flygon,coperta con allenatore,None
+07038,5,ALAMOS,European Darkrai,coperta con allenatore,None
+07049,5,신세계,Multiple,non coperta,Used for an special event Feebas and Munchlax given away in South Korea
+07054,5,WCS14K,Multiple,non coperta,"Used for the distribution of the 2014 Korean World Championship Series Pinsir , Tyranitar , and Manectric"
+070618,6,2018 Legends Légendes2018 Legenden2018 Leggende2018 Leyendas2018,Multiple,coperta sul solo identificativo,Used for the Legendary Pokémon Celebration Tornadus and Thundurus
+070618,6,ルイ,Ryota Otsubo's Krookodile,coperta con allenatore,None
+07064,5,WCS14K,Multiple,coperta sul solo identificativo,"Used for the distribution of the 2014 Korean World Championship Series Heracross , Houndoom , and Aggron"
+07066,5,ポケセン,Pokémon Center Skytree Town Rayquaza,coperta con allenatore,Shiny
+070714,6,アラモス,Multiple,coperta con allenatore,Used for the distribution of the 25th Anniversary Film Fest 's Alamos Dialga Sh and Palkia Sw
+07074,5,ポケセン,Multiple,non coperta,"Used for the second distribution of the Pokémon Center Battle Championship Mawile , Tyranitar , and Gengar"
+07076,5,ナナ,Nana Magikarp,coperta con allenatore,None
+07077,5,タナバタ,2007 Tanabata Jirachi,coperta con allenatore,None
+07085,5,ポケモンラボ,Multiple,coperta con allenatore,Used for the Pokémon Lab Kanto first partner Pokémon
+07096,5,ジャービス,Alva's Gengar,coperta con allenatore,Shiny
+07100,5,えいがかん,Cinema Celebi,coperta con allenatore,Allows the player to battle Giovanni in HeartGold and SoulSilver Allows a Zorua to join the party in Black and White via Relocator
+07114,5,GAME 2014,GAME 2014 Charizard,coperta con allenatore,Moveset and held item vary by the player's game
+07133,5,えいがかん,Cinema Genesect,coperta con allenatore,Shiny ; Can activate an event at P2 Laboratory where the player receives two Drives
+07142,5,썸머카니발,Summer Carnival Pikachu,coperta sul solo identificativo,None
+07142,5,えいがかん,Cinema Meloetta,coperta con allenatore,Can learn Relic Song in Generation V
+07147,5,１０ｔｈ,10th Deoxys,coperta sul solo identificativo,None
+07147,5,えいがかん,Cinema Darkrai,coperta con allenatore,None
+07150,5,サトシ,Satoshi's Pikachu,coperta con allenatore,None
+07157,5,PALCITY,PalCity Lucario,coperta con allenatore,None
+07157,5,パルシティ,PalCity Manaphy,coperta con allenatore,None
+07157,5,パルシティ,PalCity Mew,coperta con allenatore,None
+07161,5,サトシ,Multiple,coperta con allenatore,Used for Ash's Reshiram and Zekrom distributed in Japan Could be tucked into the Dream World to access the special Pokémon Movie home.
+07173,5,캐릭터페어,Character Fair Jirachi,non coperta,None
+07181,5,ＡＮＡ,2011 All Nippon Airways Pikachu,coperta sul solo identificativo,None
+07185,5,おりひめ ひこぼし,2015 Tanabata Jirachi,coperta sul solo identificativo,"Uses the OT Vega if distributed to X or Y , and Altair if distributed to Omega Ruby or Alpha Sapphire"
+07185,5,Mighty,Mighty Hoopa,coperta con allenatore,Prompts special dialogue in X and Y . Allows the collection of the Prison Bottle in Omega Ruby and Alpha Sapphire
+07185,5,えいがかん,Cinema Hoopa,coperta con allenatore,Prompts special dialogue in X and Y . Allows the collection of the Prison Bottle in Omega Ruby and Alpha Sapphire
+07189,5,ESTEU09 EUETE09 EUSMR09 EUVER09,Summer 2009 Regigigas,coperta sul solo identificativo,"When traded to Platinum , unlocks the Rock Peak , Iceberg , and Iron Ruins"
+07189,5,えいがかん,Cinema Arceus,coperta con allenatore,None
+07192,5,キャンプ,Multiple,coperta con allenatore,"Used for the Omanyte , Kabuto , Aerodactyl , Lileep , Anorith , Cranidos , Shieldon , Tirtouga , and Archen distributed at Nagashima Spa Land"
+07194,5,えいがかん,Cinema Diancie,coperta con allenatore,"In Generation VI, prompts special dialogue upon leaving a Pokémon Center . In Omega Ruby and Alpha Sapphire , the player also obtains a Diancite"
+07198,5,えいがかん,Cinema Shaymin,coperta con allenatore,None
+07198,5,えいがかん,Movie Regigigas,coperta con allenatore,"When traded to Platinum , unlocks the Rock Peak , Iceberg , and Iron Ruins"
+07202,5,リサイタル,Recital Piplup,coperta con allenatore,None
+07207,5,トウキョー,2007 Birthday Charmander,coperta con allenatore,None
+07208,5,トウキョー,2008 Birthday Charmander,coperta con allenatore,None
+07209,5,トウキョー,2009 Birthday Charmander,coperta con allenatore,None
+07210,5,캐릭터페어,Character Fair Milotic,non coperta,Shiny
+07226,5,シロナ Cintia Cynthia Camilla 난천,Sinnoh Classic Cynthia's Garchomp,coperta sul solo identificativo,None
+07235,5,물의일족,Water Tribe Manaphy,coperta con allenatore,None
+07245,5,Hope,Hope Diancie,coperta con allenatore,"In Generation VI, prompts special dialogue upon leaving a Pokémon Center . In Omega Ruby and Alpha Sapphire , the player also obtains a Diancite"
+07249,5,캐릭터페어,Multiple,non coperta,Used for Character Fair Pikachu and Shaymin given away in South Korea The Shaymin can be used to obtain a Gracidea from Platinum to Black 2 and White 2
+07263,5,イベント,Strongest Class Pikachu,non coperta,None
+07264,5,올레 tv,Olleh TV Charizard,coperta con allenatore,Moveset and held item vary by the player's game
+07266,5,Play! 2016,Play! Pokémon 2016 Mewtwo,coperta con allenatore,Shiny
+07274,5,XY,XY Charizard,coperta con allenatore,Moveset and held item vary by the player's game
+07301,5,ＡＡＡ わっしょい いえるかな ちゅるの ＳＫＥ４８ チサ アミーゴ ＥＬＴ,Singing Pikachu,coperta sul solo identificativo,None
+07310,5,Nzone,German Nintendo Zone Pikachu,coperta con allenatore,None
+08013,5,칠석,Chilseok Festival Jirachi,coperta sul solo identificativo,None
+08013,5,たなばた,2013 Tanabata Jirachi,coperta con allenatore,None
+08014,5,たなばた,2014 Tanabata Jirachi,coperta con allenatore,Shiny
+08014,5,ポケセン,Pokémon Center Poké Ball Pattern Vivillon,coperta con allenatore,Later redistributed at Pokémon Center Hiroshima
+08016,5,GF,20th Anniversary Arceus,coperta con allenatore,None
+080318,6,2018 Legends Légendes2018 Legenden2018 Leggende2018 Leyendas2018,Multiple,coperta sul solo identificativo,Used for the Legendary Pokémon Celebration Kyogre and Groudon
+08055,5,Galilée Galileo,Galileo Rayquaza,coperta sul solo identificativo,Shiny
+08055,5,Shigeshige,Multiple,coperta con allenatore,"Used for the distribution of Shigeki Morimoto's Sableye , Bouffalant , Aromatisse , and Malamar"
+08064,5,ÉTÉ 2014 SUM2014 VERANO 2014,Summer 2014 Poké Ball Pattern Vivillon,coperta sul solo identificativo,None
+08074,5,Wonderland,Wonderland Darkrai,non coperta,None
+08076,5,おりひめ ひこぼし,2016 Tanabata Jirachi,non coperta,"Uses the OT Vega if distributed to X or Y , and Altair if distributed to Omega Ruby or Alpha Sapphire"
+080817,6,Clovis,Clovis Salazzle,coperta con allenatore,None
+08085,5,메가배틀,Pokémon Mega Battle Festival Charizard,coperta sul solo identificativo,Shiny
+08085,5,ヨコハマ,Yokohama Pikachu,coperta con allenatore,None
+08094,5,みなとみらい,Minato Mirai Pikachu,coperta con allenatore,None
+08095,5,Satay King,Satay King Pikachu,coperta con allenatore,None
+08103,5,アイリス,Pokémon Center Iris's Axew,coperta con allenatore,None
+08103,5,オーキド,Pokémon Center Professor Oak's Rotom,coperta con allenatore,None
+08103,5,サトシ,Pokémon Center Ash's Pikachu,coperta con allenatore,None
+08103,5,デント,Pokémon Center Cilan's Pansage,coperta con allenatore,None
+08107,5,TCGWC,2007 TCG World Championships Pikachu,coperta con allenatore,None
+08110,5,NZ,Nintendo Zone Manaphy,coperta con allenatore,None
+08112,5,プラズマ,Plasma Genesect,coperta con allenatore,Can activate an event at P2 Laboratory where the player receives two Drives
+08113,5,WORLD13,2013 World Championships Smeargle,coperta con allenatore,None
+08122,5,WORLD12,2012 World Championships Pikachu,coperta con allenatore,None
+08134,5,ESTATE14 ÉTÉ 2014 SOMMER 2014 SUM2014 VERANO 2014,Summer 2014 Poké Ball Pattern Vivillon,coperta sul solo identificativo,None
+08134,5,GAMESTOP14,GameStop 2014 Charizard,coperta con allenatore,Moveset and held item vary by the player's game
+08134,5,SUM2014,Multiple,coperta con allenatore,Used for the Summer 2014 Tough Pinsir and Heracross
+08136,5,올스타,Pokémon All-Stars Battle Diancie,coperta con allenatore,"Shiny ; In Generation VI, prompts special dialogue upon leaving a Pokémon Center . In Omega Ruby and Alpha Sapphire , the player also obtains a Diancite"
+08141,5,WORLD11,2011 World Championships Scrafty,coperta con allenatore,The gender of the OT is determined by the gender of the player character
+08144,5,소원의별,Wishing Star Jirachi,coperta con allenatore,None
+08150,5,WORLD10,2010 World Championships Crobat,coperta con allenatore,None
+08159,5,WORLD09,2009 World Championships Weavile,coperta con allenatore,None
+08164,5,WORLD14,2014 World Championships Aegislash,coperta con allenatore,None
+08173,5,권도훈,WCQ Junior Division Hitmontop,non coperta,None
+08175,5,セレナ,Pokémon Center Serena's Pancham,coperta con allenatore,None
+08178,5,WORLD08,2008 World Championships Lucario,coperta con allenatore,None
+081817,6,Worlds17,2017 World Championships Alolan Exeggutor,coperta con allenatore,None
+08188,5,タナバタ,2008 Tanabata Jirachi,coperta con allenatore,None
+08193,5,SUM2013,Summer 2013 Dialga,coperta con allenatore,None
+08195,5,Manesh,Manesh Hoopa,coperta con allenatore,Prompts special dialogue in X and Y . Allows the collection of the Prison Bottle in Omega Ruby and Alpha Sapphire
+08196,5,Happy,Happy Meal Meowth,coperta con allenatore,None
+08196,5,WORLDS16,Multiple,coperta con allenatore,Used for the 2016 World Championships Kanto first partner Pokémon
+08200,5,セブン,7-11 Pikachu,coperta con allenatore,None
+08215,5,ＰＧＬ PGL,PGL Pikachu,coperta sul solo identificativo,None
+08215,5,WORLD15,2015 World Championships Sharpedo,coperta con allenatore,None
+08232,5,용의해,Multiple,non coperta,"Used for the Year of the Dragon Horsea , Trapinch , Swablu , Bagon , Druddigon and Deino distributed over Korean Wi-Fi"
+082418,6,Worlds18,2018 World Championships Meloetta,coperta con allenatore,None
+08243,5,사승헌,WCQ Senior Division Cresselia,non coperta,None
+08245,5,サトシ,Pokémon Center Ash's Pikachu,coperta con allenatore,None
+08272,5,EST2012 ÉTÉ2012 SMR2012 VER2012,Summer 2012 Keldeo,coperta sul solo identificativo,Can learn Secret Sword in Generation V
+08274,5,MovieTheater,Movie Theater Diancie,non coperta,"In Generation VI, prompts special dialogue upon leaving a Pokémon Center . In Omega Ruby and Alpha Sapphire , the player also obtains a Diancite"
+08303,5,EST2013 ÉTÉ2013 SOM2013 SUM2013 VER2013,Summer 2013 Dialga,coperta sul solo identificativo,None
+08308,5,한국닌텐도,Nintendo of Korea Deoxys,non coperta,None
+08308,5,ノリィ,Norii Bidoof,non coperta,None
+08311,5,だいすき,Kyocera Concert Starly,coperta con allenatore,None
+08313,5,박세준,WCQ Master Division Liepard,non coperta,None
+08315,5,ポケセン,Pokémon Center Latios,coperta con allenatore,None
+08460,5,アッキー ROMAN,Plusle (Pokémon),coperta sul solo identificativo,The ID of Trainer wanting to trade in Fortree City E
+08604,5,Seth,Seth Heracross,non coperta,None
+08810,5,モーリン ELYSSA,Farfetch'd (Pokémon),coperta sul solo identificativo,"The ID of the Trainer in Vermilion City who wants to trade. FR LG Although the trainer's overworld sprite appears to be female, games other than FireRed and LeafGreen color the OT in blue, as if it was male"
+090118,6,2018 Legends Légendes2018 Legenden2018 Leggende2018 Leyendas2018,Multiple,coperta sul solo identificativo,Used for the Legendary Pokémon Celebration Latias and Latios
+09016,5,GF,20th Anniversary Victini,coperta con allenatore,None
+09031,5,홈플러스,Homeplus Darkrai,non coperta,None
+09075,5,ポケセン,Pokémon Center Lugia,coperta con allenatore,None
+090898,6,Ash,Original Cap Pikachu,coperta sul solo identificativo,"Distributed in America, Europe, Taiwan, and Singapore"
+09093,5,SUM2013,Summer 2013 Palkia,coperta con allenatore,None
+09115,5,Nintendo HK,Nintendo Hong Kong Rayquaza,coperta con allenatore,Shiny
+09120,5,ナゴヤ,2010 Birthday Chimchar,coperta con allenatore,None
+09129,5,ナゴヤ,2009 Birthday Chimchar,coperta con allenatore,None
+091303,6,Ash Sacha,Hoenn Cap Pikachu,coperta sul solo identificativo,"Distributed in America, Europe, and Taiwan"
+09133,5,EST2013 ÉTÉ2013 SOM2013 SUM2013 VER2013,Summer 2013 Palkia,coperta sul solo identificativo,None
+09134,5,スマブラ,Super Smash Bros. Greninja,coperta con allenatore,"The release date of Super Smash Bros. for 3DS in Japan, September 13 , 201 4"
+09134,5,ハロウィン,Halloween Gengar,coperta con allenatore,Shiny ; Later redistributed at Pokémon Center Hiroshima
+09143,5,10/12,Multiple,non coperta,Used for the 10/12 Shiny Pokémon of myth distribution in South Korea
+09152,5,PC,Multiple,coperta con allenatore,"Used for the Dragonite , Scizor , Tyranitar , Metagross , and Garchomp distrubted as part of the Strongest Class Single Battle Pokémon"
+09153,5,しょちょう,Chief Golgo's Sableye,coperta con allenatore,None
+09161,5,EVENT11 ÉVNMT11,Zoroark Month Zoroark,coperta sul solo identificativo,None
+09164,5,ミクリ,PGS Wallace's Milotic,coperta con allenatore,None
+091718,6,Ultra,Ultra Poipole,coperta con allenatore,Shiny
+09180,5,크라운시티,Shinsegae Raikou,coperta sul solo identificativo,Shiny ; activates a battle with a wild Zoroark in Black and White via Relocator
+09180,5,アデク,PGS Alder's Volcarona,coperta con allenatore,None
+09206,5,XY&Z,XY&Z Gardevoir,coperta con allenatore,None
+09254,5,トレッタ,Tretta Rotom,coperta con allenatore,None
+09261,5,ポケスマ！,Pokémon Smash! Mewtwo,coperta sul solo identificativo,None
+09273,5,EST2013 ÉTÉ2013 SOM2013 SUM2013 VER2013,Summer 2013 Giratina,coperta sul solo identificativo,None
+09286,5,アカギ,Pokémon Center Occupation Plan Cyrus's Weavile,coperta con allenatore,None
+09286,5,シロナ,PGS Cynthia's Spiritomb,coperta con allenatore,None
+09293,5,ヤマモト,Multiple,coperta con allenatore,Used for the Yamamoto's Tournament Politoed and Kingdra
+09297,5,TRU,"Toys ""R"" Us Manaphy",coperta con allenatore,None
+09303,5,SUM2013,Summer 2013 Giratina,coperta con allenatore,None
+09853,5,よしもつ GARETT,Seel (Pokémon),coperta sul solo identificativo,The ID of a Trainer wanting to trade on Cinnabar Island FR LG
+100117,6,Bullseye,Bullseye Charizard,coperta con allenatore,None
+100118,6,Fula City Fula Eolipoli Mistral,Fula City Zeraora,coperta sul solo identificativo,Distributed in America
+10014,5,Grusel 2014 Horreur 2014 Spooky2014 Tenebre 2014 Tétrico 2014,Spooky 2014 Super Size Pumpkaboo,coperta sul solo identificativo,None
+10014,5,ポケセン♪,Multiple,coperta con allenatore,"Used for the Pokémon Center Birthday Pikachu , Eevee , and Eeveelutions from October 1, 2014 to September 30, 2015"
+10015,5,ポケセン♪,Multiple,non coperta,"Used for the Pokémon Center Birthday Pikachu , Eevee , and Eeveelutions from October 1, 2015 to September 30, 2016"
+10016,5,GF,20th Anniversary Keldeo,coperta con allenatore,None
+10016,5,Helen,Helen Volcanion,coperta con allenatore,Prompts special dialogue in X and Y
+10016,5,새로운모험자,New Adventure Victini,coperta sul solo identificativo,None
+10016,5,ポケセン♪,Multiple,coperta sul solo identificativo,"Used for the Pokémon Center Birthday Pikachu , Eevee , and Eeveelutions from October 1 to December 31, 2016"
+10017,5,NWS,Nintendo World Store Manaphy,coperta con allenatore,None
+10036,5,Alexander,Alexander Hoopa,coperta con allenatore,Prompts special dialogue in X and Y . Allows the collection of the Prison Bottle in Omega Ruby and Alpha Sapphire
+10038,5,피카츄카페,Pikachu Cafe Tangrowth,non coperta,None
+10039,5,キョウト,Kyoto Cross Media Experience 2009 Pikachu,coperta con allenatore,None
+10045,5,Universe,Universe Diancie,coperta con allenatore,"In Generation VI, prompts special dialogue upon leaving a Pokémon Center . In Omega Ruby and Alpha Sapphire , the player also obtains a Diancite"
+10048,5,バトルやま MATTLE DUELLBE ERNESTO MT BATA MONTE L,Colosseum Ho-Oh,non coperta,"100 refers to the number of Trainers on Mt. Battle , while 48 refers to the number of Shadow Pokémon in Colosseum"
+100518,6,2018 Legends Légendes2018 Legenden2018 Leggende2018 Leyendas2018,Multiple,coperta sul solo identificativo,Used for the Legendary Pokémon Celebration Reshiram and Zekrom
+10072,5,Plasma,Plasma Genesect,coperta con allenatore,Can activate an event at P2 Laboratory where the player receives two Drives
+100917,6,MT. Tensei Mt Tensei Mt. Tensei M. del Passo,Mount Tensei Marshadow,coperta sul solo identificativo,"Distributed in American, Taiwan, Singapore, and Hong Kong"
+100918,6,マコモ Fennel Oryse Vivian Zania Prof. Oryza 주리,Fennel's Munna,coperta sul solo identificativo,"The release date of Pokémon Black and Pokémon White in Japan, September 18, 2010"
+100923,6,サトシ,Unova Cap Pikachu,coperta con allenatore,Distributed in Japan
+10095,5,초보트레이너,Beginner Trainer Pikachu,coperta con allenatore,Shiny
+10100,5,きょうえん せいしゃ めいじろう ミカエル いちだい セントポル はくもん ほうせい めいがく とうかい すえかわ もみじ こまざわ まちかね ロンクー おおくま ＹＮＵ スエカワ しずっぴー ふぃえすた しょうだい ピーチくん もえた わだいさい ちゅらうみ,Multiple,coperta sul solo identificativo,"Used for the Machoke , Slowpoke , Haunter , Scyther , Electabuzz , Magmar , Karrablast , and Shelmet distributed at the Trade for Evolution! event."
+10105,5,ポケセン,Pokémon Center Super Size Pumpkaboo,coperta con allenatore,None
+10108,5,ヨコハマ,Yokohama Pikachu,coperta con allenatore,None
+101101,6,ロミオ Romeo,Multiple,coperta sul solo identificativo,The ID of the Trainer in Stow-on-Side who wants to trade Maractus for Hatenna Sw or Impidimp Sh
+10114,5,모험예약자,Pre-ordering player Gengar,non coperta,Shiny
+101141,6,カプーア Kapoor,Duraludon (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Wyndon who wants to trade
+101141,6,チホコ Regina,Multiple,coperta sul solo identificativo,The ID of the Trainer on the Isle of Armor who wants to trade
+101154,6,マイド Grazia,Cottonee (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Hulbury who wants to trade
+10123,5,XY,XY Torchic,coperta con allenatore,None
+10123,5,フラダリ,Pokémon Center Occupation Plan Lysandre's Pyroar,coperta con allenatore,None
+10123,5,ポケセン♪,Multiple,coperta con allenatore,"Used for the Pokémon Center Birthday Pikachu , Eevee , and Eeveelutions from October 12, 2013 to September 30, 2014"
+10128,5,ＷＣＳ,2008 TCG World Championships Milotic,coperta sul solo identificativo,Shiny
+10134,5,OCT2014 OCTUBRE 2014 OKT. 2014 OTTOBRE14,October 2014 Gengar,coperta sul solo identificativo,Shiny
+10147,5,ごるこ,Golgo Octillery,coperta con allenatore,None
+101500,6,Ilex,American Ilex Forest Celebi,coperta con allenatore,None
+10160,5,AUT2010 FAL2010 HRB2010 OTO2010,Fall 2010 Mew,coperta sul solo identificativo,None
+10187,5,E4ALL,E for All Manaphy,coperta con allenatore,None
+10196,5,XY&Z,Multiple,non coperta,"Used for the distribution of XY&Z Gengar , Tyranitar , and Mawile"
+10220,5,ポケスマ,Pokémon Smash! Cubchoo,coperta con allenatore,None
+10226,5,코리안리그,Korean League Eevee,non coperta,Shiny
+102317,6,Aether Æther,Aether Silvally,coperta sul solo identificativo,Distributed in America and Europe
+10235,5,Harry,Harry Hoopa,coperta con allenatore,Prompts special dialogue in X and Y . Allows the collection of the Prison Bottle in Omega Ruby and Alpha Sapphire
+10244,5,XY,XY Gengar,non coperta,Shiny
+102534,6,イヴ Eve,Yamask (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Ballonlea Stadium who wants to trade
+102595,6,ジェンガラ Genmar,Marowak (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Fuchsia City who wants to trade
+102618,6,PGL,Ultra Spooky Cup Shiny Mimikyu,coperta con allenatore,Shiny ; Distributed in America and Europe
+10274,5,OCT2014 OCTUBRE 2014,October 2014 Diancie,coperta sul solo identificativo,"In Generation VI, prompts special dialogue upon leaving a Pokémon Center . In Omega Ruby and Alpha Sapphire , the player also obtains a Diancite"
+10278,5,Nzone,Nintendo Zone Pikachu,coperta con allenatore,None
+10286,5,コンサート,Concert Chatot,coperta sul solo identificativo,None
+10295,5,ＸＹ＆Ｚ,XY&Z Xerneas,coperta sul solo identificativo,Shiny ; Used in Japanese regions
+10300,5,크라운시티,Shinsegae Entei,non coperta,Shiny ; activates a battle with a wild Zoroark in Black and White via Relocator
+10303,5,ルリ Yancy,Multiple,non coperta,Used for the Pokémon traded by Yancy
+10308,5,ALAMOS,Target Darkrai,coperta con allenatore,None
+105971,6,ペパー Arven,Skwovet (Pokémon),coperta sul solo identificativo,Arven 's ID
+109591,6,タカラコ Holly,Togepi (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Hammerlocke who wants to trade
+11011,5,2011HVR 2011INV 2011WIN,Winter 2011 Darkrai,coperta sul solo identificativo,None
+11016,5,GF,20th Anniversary Genesect,coperta con allenatore,None
+110218,6,2018 Legends Légendes2018 Legenden2018 Leggende2018 Leyendas2018,Multiple,coperta sul solo identificativo,Used for the Legendary Pokémon Celebration Lugia and Ho-Oh
+11031,5,잔타,Juanita's Golurk,non coperta,Shiny
+11031,5,카리타,Carlita's Hydreigon,non coperta,Shiny
+11036,5,Nebel,Southeast Asian Nebel Volcanion,coperta con allenatore,Prompts special dialogue in X and Y
+11040,5,フクオカ ナゴヤ オーサカ サッポロ トウキョー ヨコハマ,2010 Birthday Audino,coperta sul solo identificativo,Used for Birthday Audino released in 2010
+11041,5,フクオカ ナゴヤ オーサカ サッポロ トウホク トウキョー ヨコハマ,2011 Birthday Audino,coperta sul solo identificativo,Used for Birthday Audino released in 2011
+11042,5,フクオカ ナゴヤ オーサカ サッポロ トウホク トウキョー ヨコハマ,2012 Birthday Audino,coperta sul solo identificativo,Used for Birthday Audino released in 2012
+11045,5,Sly,Sly Zoroark,coperta con allenatore,Used in American regions
+11055,5,ＸＹ＆Ｚ,XY&Z Yveltal,coperta sul solo identificativo,Shiny ; Used in Japanese regions
+11059,5,Michina,Australia Michina Arceus,coperta con allenatore,"In HeartGold and SoulSilver , grants access to the Sinjoh Ruins . In Platinum , prompts special dialogue in the Oreburgh Mine"
+11064,5,NOV2014 NOV. 2014 NOVEMBRE14,November 2014 Diancie,coperta sul solo identificativo,"In Generation VI, prompts special dialogue upon leaving a Pokémon Center . In Omega Ruby and Alpha Sapphire , the player also obtains a Diancite"
+11065,5,Sly,Sly Zoroark,coperta con allenatore,Used in PAL regions
+11077,5,JBHF,JB Hi-Fi Manaphy,coperta con allenatore,None
+11079,5,TRU,"Toys ""R"" Us Arceus",coperta con allenatore,"In HeartGold and SoulSilver , grants access to the Sinjoh Ruins . In Platinum , prompts special dialogue in the Oreburgh Mine"
+11088,5,TRU,"Toys ""R"" Us Dragonite",coperta con allenatore,None
+11088,5,한국닌텐도,Nintendo of Korea Darkrai,coperta sul solo identificativo,None
+11125,5,ＸＹ＆Ｚ,XY&Z Zygarde,coperta sul solo identificativo,Used in Japansese regions
+11153,5,WINTER2013,Multiple,coperta con allenatore,Used for the Winter 2013 Scizor and Garchomp
+11153,5,コロコロ,CoroCoro Garchomp,coperta con allenatore,None
+11154,5,박세준,Se Jun Park's Pachirisu,coperta con allenatore,Dongdaemun Design Plaza distribution
+11157,5,さいきょう,Strongest Electivire,coperta con allenatore,None
+11195,5,ゲンゾウ 건상 Dani Güschti Hilbert Manny Urano,Multiple,coperta sul solo identificativo,The ID of the Trainer on Route 7 who wants to trade Emolga for Boldore B W or Gigalith for Emolga B2 W2
+11195,5,ＡＤサカイ,Pokémon EXPO Gym Smeargle,coperta con allenatore,None
+11195,5,﻿Ｄｒ．シャイ,Pokémon EXPO Gym Machamp,coperta sul solo identificativo,None
+11195,5,サダ,Pokémon EXPO Gym Zoroark,coperta con allenatore,None
+11195,5,マオ,Pokémon EXPO Gym Charizard,coperta con allenatore,None
+11205,5,데세르시티,Multiple,coperta con allenatore,"Used for the disribution of the Dahara City Kyogre , Groudon , Dialga , Palkia , and Kyurem"
+11212,5,サファイア,Sapphire Anniversary Kyogre,coperta con allenatore,None
+11212,5,ダイゴ,PGS Steven's Metagross,coperta con allenatore,None
+11212,5,ルビー,Ruby Anniversary Groudon,coperta con allenatore,None
+11214,5,ダイゴ Máximo Pierre Rocco Steven Troy 성호,Steven's Beldum,coperta sul solo identificativo,"Shiny ; In Omega Ruby and Alpha Sapphire , prompts special dialogue during the Delta Episode"
+11214,5,アオギリ,Pokémon Center Occupation Plan Archie's Sharpedo,coperta con allenatore,None
+11214,5,マツブサ,Pokémon Center Occupation Plan Maxie's Camerupt,coperta con allenatore,None
+11219,5,アリオ,Ario Pikachu,coperta con allenatore,None
+11219,5,ススム,10th Anniversary Mew,coperta con allenatore,None
+11219,5,ワタル,PGS Lance's Dragonite,coperta con allenatore,None
+112199,6,ウバメ,Japanese Ilex Forest Celebi,coperta con allenatore,None
+11223,5,ＰＣＴＢ,Pokémon Center Tokyo Bay Inkay,coperta sul solo identificativo,None
+11252,5,トウホク,Pokémon Center Tohoku Victini,coperta con allenatore,None
+11256,5,フェスタ,Multiple,coperta con allenatore,Used for special Electabuzz and Magmar given away at the Pokémon Festa event in 2006
+11265,5,데세르시티,Dahara City Giratina,coperta con allenatore,Holding Griseous Orb
+11275,5,Mac,Mac Hoopa,coperta con allenatore,Prompts special dialogue in X and Y . Allows the collection of the Prison Bottle in Omega Ruby and Alpha Sapphire
+113018,6,Akala,Akala Island Shiny Tapu Lele,non coperta,Shiny ; Distributed in America
+12013,5,이브이하우스,Eevee House Sylveon,non coperta,None
+12014,5,Ｐスクラップ,Multiple,coperta sul solo identificativo,"Used for the Pokémon Scrap 2014 Shaymin , Victini , and Keldeo"
+12014,5,ポケセン,Pokémon Center Jirachi,coperta con allenatore,Shiny
+12015,5,Nintendo HK,Nintendo Hong Kong Jirachi,coperta con allenatore,Shiny
+12016,5,GF,20th Anniversary Meloetta,coperta con allenatore,None
+12017,5,さいきょう,Strongest Magmortar,coperta con allenatore,None
+12031,5,Movie14 FILM14 PELI14,Movie 14 Victini,coperta sul solo identificativo,The gender of the OT is determined by the gender of the player character
+12041,5,トウホク,PC Tohoku Snivy,coperta con allenatore,None
+120516,6,Ash Sacha,Alola Cap Pikachu,coperta sul solo identificativo,"Distributed in America, Europe, and Taiwan"
+12063,5,ヌケッタ,Nuketta Wobbuffet,coperta con allenatore,None
+12068,5,ブイコレ,Pokémon Center Eevee,coperta con allenatore,None
+12072,5,Ｒだん,Team Rocket Meowth,coperta sul solo identificativo,None
+12074,5,はままつちょ,Multiple,coperta con allenatore,Used for the Pokémon Center Tokyo Froakie and Piplup
+12077,5,PKTOPIA,Multiple,coperta con allenatore,Used for the Pokémon obtainable from the European Pokémon Battle Revolution
+12098,5,ゆっきーな,Yukina Meowth,coperta con allenatore,None
+121106,6,ミニコ Tatianna,Rattata (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Cerulean City who wants to trade
+12124,5,メガトウキョ,Multiple,coperta sul solo identificativo,Used for the Pokémon Center Mega Tokyo Shiny Charizard and Shiny Pikachu Later redistributed at Pokémon Center Hiroshima
+12125,5,ポケセン,Pokémon Center Diancie,coperta con allenatore,"Shiny ; In Generation VI, prompts special dialogue upon leaving a Pokémon Center . In Omega Ruby and Alpha Sapphire , the player also obtains a Diancite"
+12146,5,ポケトピア,Multiple,coperta con allenatore,Used for the Pokémon obtainable from the Japanese Pokémon Battle Revolution
+12152,5,음악회,Concert Piplup,coperta sul solo identificativo,None
+12152,5,マスダ,Masuda Deoxys,coperta con allenatore,None
+12157,5,さいきょう,Strongest Milotic,coperta con allenatore,None
+12160,5,크라운시티,Multiple,non coperta,"Shiny ; used for the Crown Entei , Raikou , and Suicune given away to commemorate Zoroark: Master of Illusions being released in South Korea' Compatible with Black and White 's Relocator , where they can trigger a battle with a wild Zoroark via Relocator"
+12161,5,ミロスとう,Multiple,coperta con allenatore,Used for the Milos Island Tornadus and Thundurus
+12179,5,미케나,Mikena Pichu,non coperta,"Shiny ; When traded to HeartGold and SoulSilver , allows the player to obtain a Spiky-eared Pichu"
+12191,5,ＰＣ,Pokémon Center Shaymin,coperta sul solo identificativo,None
+12192,5,성검사,Sacred Swordsman Keldeo,non coperta,Can learn Secret Sword in Generation V
+12192,5,영화관,Cinema Meloetta,non coperta,Can learn Relic Song in Generation V
+12204,5,신비한 세계,Mysterious World Darkrai,coperta sul solo identificativo,None
+12204,5,ジャンフェス,Jump Festa 2015 Linoone,coperta con allenatore,None
+12205,5,トウホク,Tohoku Pikachu,coperta sul solo identificativo,None
+12213,5,クリスマス,Multiple,coperta con allenatore,"Used for the Christmas Haunter and Scyther . Because they are traded to the recipient, they will evolved immediately."
+12215,5,ＰＧＬ PGL,PGL Delibird,coperta sul solo identificativo,Used for the PGL Delibird distribution in Japanese and American regions
+12215,5,Manesh,Manesh Arceus,coperta con allenatore,None
+12221,5,아인트,Eind Victini,non coperta,None
+12221,5,지우,Multiple,non coperta,Used for Ash's Reshiram and Zekrom distributed in South Korea Could be tucked into the Dream World to access the special Pokémon Movie home.
+12226,5,네벨,Nebel Volcanion,coperta sul solo identificativo,Prompts special dialogue in X and Y
+12226,5,みずのたみ,World Hobby Fair Manaphy,coperta con allenatore,None
+12226,5,りゅうた,Ryuuta Magikarp,coperta con allenatore,None
+12230,5,영화관,Cinema Celebi,non coperta,None
+12235,5,데세르시티,Dahara City Arceus,coperta con allenatore,None
+12235,5,영화관,Dahara City Hoopa,coperta con allenatore,Prompts special dialogue in X and Y . Allows the collection of the Prison Bottle in Omega Ruby and Alpha Sapphire
+12235,5,ポケモンラボ,Multiple,coperta con allenatore,Used for the Pokémon Lab Johto first partner Pokémon
+12249,5,영화관,Cinema Arceus,non coperta,"In HeartGold and SoulSilver , grants access to the Sinjoh Ruins . In Platinum , prompts special dialogue in the Oreburgh Mine"
+12255,5,PGL,PGL Delibird,coperta con allenatore,Used for the PGL Delibird distribution in PAL and Korean regions
+12268,5,ヨコハマ,2008 Birthday Pikachu,coperta con allenatore,None
+12269,5,ヨコハマ,2009 Birthday Pikachu,coperta con allenatore,None
+12270,5,ＡＮＡ,All Nippon Airways Darkrai,coperta sul solo identificativo,None
+12270,5,ふゆやすみ,Winter Vacation Darkrai,coperta sul solo identificativo,None
+131017,6,サトシ Ash Sacha 지우 Satoshi,Special Demo Version Ash's Greninja,coperta sul solo identificativo,None
+131017,6,サトシ,Kalos Cap Pikachu,coperta con allenatore,Distributed in Japan
+134745,6,ジニア Jacq,Gulpin (Pokémon),coperta sul solo identificativo,Jacq 's ID
+13579,5,JEREMY,Multiple,coperta con allenatore,Used for certain Pokémon given away in 2004 to players of Pokémon FireRed and LeafGreen
+13637,5,とーたん TURNER,Multiple,coperta sul solo identificativo,"The ID of Trainer wanting to trade on Route 11 , will trade Nidorino for Nidorina FR or Nidorina for Nidorino LG"
+137719,6,キハダ Dendra,Meditite (Pokémon),coperta sul solo identificativo,Dendra 's ID
+14818,5,ヒャダイン,Hyadain's Landorus,coperta con allenatore,None
+149671,6,リップ Tulip,Flittle (Pokémon),coperta sul solo identificativo,Tulip 's ID
+15616,5,モンド Mondo,Xatu (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Pewter City who wants to trade HG SS
+158604,6,ミモザ Miriam,Mareanie (Pokémon),coperta sul solo identificativo,Miriam 's ID
+160206,6,サオリ,Saori Yoshida's Machamp,coperta con allenatore,None
+161117,6,サトシ,Alola Cap Pikachu,coperta con allenatore,Distributed in Japan
+161118,6,Kukui,Pikachu (Pokémon),coperta sul solo identificativo,Professor Kukui 's ID in the Special Demo of Sun and Moon
+161118,6,ポケセン♪,Multiple,coperta con allenatore,"Used for the first distribution of Pokémon Center Birthday Pikachu , Eevee , and Comfey for the Nintendo 3DS Generation VII games"
+161201,6,サッポロ,Pokémon Center Sapporo Alolan Vulpix,coperta con allenatore,None
+170128,6,Lunar,Lunar Magikarp,coperta con allenatore,Shiny
+170317,6,メレメレ,Japanese Melemele Island Shiny Tapu Koko,coperta con allenatore,Shiny
+170404,6,썬문,Pokémon Sun & Moon Alolan Vulpix,coperta con allenatore,None
+170408,6,멜레멜레,Korean Melemele Island Shiny Tapu Koko,coperta con allenatore,Shiny
+170415,6,ポケセン,Pokémon Center Bewear,coperta con allenatore,None
+170428,6,Melemele,Taiwanese Melemele Island Shiny Tapu Koko,coperta con allenatore,Shiny
+170502,6,썬문,Multiple,coperta con allenatore,"Used for the South Korean Pokémon Sun & Moon Alolan Sandshrew , Grimer , and Diglett"
+170505,6,WCSK17,2017 Korean World Championship Series Mew,non coperta,None
+170513,6,ポケセン,Multiple,coperta con allenatore,Used for the distribution of the Pokémon Center Eeveelutions
+170513,6,ポケセン,Multiple,coperta con allenatore,Used for the distribution of the Pokémon Store Eeveelutions
+170617,6,マオ,Æon Mallow's Steenee,coperta con allenatore,Later distributed locally at Japanese Pokémon Centers
+170626,6,カキ,Æon Kiawe's Turtonator,coperta con allenatore,Later distributed locally at Japanese Pokémon Centers
+170630,6,トウホク,Pokémon Center Tohoku Victini,coperta con allenatore,None
+170705,6,リーリエ,Æon Lillie's Alolan Vulpix,coperta con allenatore,Later distributed locally at Japanese Pokémon Centers
+170714,6,Melemele Mele-Mele Mele Mele,International Melemele Island Shiny Tapu Koko,coperta sul solo identificativo,None
+170715,6,サトシ Ash Sacha 지우 Satoshi,Partner Cap Pikachu,coperta sul solo identificativo,Chance of being Shiny due to an error
+170715,6,サクジ,Multiple,coperta sul solo identificativo,Used for Sakuji's Mystery Files Solrock and Lunatone
+170715,6,サトシ,Pokémon Rally 2017 Ash's Charizard,coperta con allenatore,Later distributed locally at Japanese Pokémon Centers
+170715,6,ソウジ,Pokémon Rally 2017 Sorrel's Lucario,coperta con allenatore,Later distributed locally at Japanese Pokémon Centers
+170715,6,テンセイざん,Multiple,coperta con allenatore,Used for the Japanese local distribution of Mount Tensei Marshadow and the Japanese serial code distribution of Mount Tensei Ho-Oh
+170715,6,マコト,Pokémon Rally 2017 Verity's Piplup,coperta con allenatore,Later distributed locally at Japanese Pokémon Centers
+17074,5,ハツネ Diana,Multiple,non coperta,"The ID of Trainer wanting to trade in Accumula Town , will trade Ambipom for Excadrill , and then Alakazam for Hippowdon"
+170806,6,たなばた,2017 Tanabata Jirachi,coperta con allenatore,None
+170809,6,カーニバル,Carnival Pikachu,coperta con allenatore,None
+170812,6,키아웨,South Korean Kiawe's Turtonator,non coperta,None
+170814,6,カーニバル,Multiple,coperta con allenatore,"Used for the local distribution of Pikachu Carnival Parade Pikachu , Ditto , and Mimikyu"
+170822,6,릴리에,South Korean Lillie's Alolan Vulpix,coperta con allenatore,None
+170919,6,마오,South Korean Mallow's Steenee,coperta con allenatore,None
+170922,6,エーテル,Aether Silvally,coperta con allenatore,Shiny ; Distributed in Japan and Taiwan
+170922,6,ポケセン,Pokémon Center Mimikyu,coperta con allenatore,Shiny
+171007,6,포켓몬스토어,Autumn Korean League Mimikyu,non coperta,Shiny
+171014,6,에테르,Aether Silvally,non coperta,Shiny ; Distributed in South Korea
+171101,6,ポケセン♪,Multiple,non coperta,"Used for the second distribution of Pokémon Center Birthday Pikachu , Eevee , and Comfey for the Nintendo 3DS Generation VII games"
+171104,6,다연,Pokémon Festa Verity's Piplup,non coperta,None
+171117,6,ククイ,LINE Rotom,coperta con allenatore,None
+171201,6,ゼンリョク,Multiple,coperta con allenatore,"Used for Pokémon Scrap 2017 Manaphy , Meloetta , and Hoopa"
+171209,6,민준,South Korean Sorrel's Lucario,coperta con allenatore,None
+171215,6,지우,South Korean Ash's Charizard,non coperta,None
+171221,6,지우,Cap Pikachu,non coperta,Used for the South Korean distribution of the first six Cap Pikachu in South Korea
+171221,6,천청산,Multiple,non coperta,Used for the South Korean distribution of Mount Tensei Marshadow and Ho-Oh
+17336,5,だいすき,Kyocera Concert Bidoof,coperta con allenatore,None
+180113,6,ウルトラ,Multiple,coperta con allenatore,Used for the Japanese distribution of Ultra Shiny Kyogre
+180114,6,はじめ,Hajime Syacho's Corsola,coperta con allenatore,None
+180115,6,コロコロ,CoroCoro Arceus,coperta con allenatore,None
+180120,6,アオギリ,Team Rainbow Rocket Archie's Mightyena,coperta con allenatore,None
+180120,6,アカギ,Team Rainbow Rocket Cyrus's Honchkrow,coperta con allenatore,None
+180120,6,ゲーチス,Team Rainbow Rocket Ghetsis's Cofagrigus,coperta con allenatore,None
+180120,6,サカキ,Team Rainbow Rocket Giovanni's Nidoking,coperta con allenatore,None
+180120,6,フラダリ,Team Rainbow Rocket Lysandre's Mienshao,coperta con allenatore,None
+180120,6,マツブサ,Team Rainbow Rocket Maxie's Crobat,coperta con allenatore,None
+180127,6,울트라,Multiple,coperta con allenatore,Used for the South Korean distribution of Ultra Shiny Kyogre and Groudon Also distributed locally at the Winter Korean Leauge
+180302,6,ウルトラ,Japanese Ultra Shiny Poipole,coperta con allenatore,Shiny
+180314,6,にほんばし,Nihonbashi Snorlax,coperta con allenatore,None
+180314,6,ポケカフェ,Pokémon Cafe Pikachu,coperta con allenatore,None
+180331,6,울트라,South Korean Ultra Shiny Poipole,coperta con allenatore,Shiny ; Also distributed locally Spring Korean Leauge
+180413,6,フウラシティ,Fula City Lugia,coperta con allenatore,None
+180425,6,ポケセン,Pokémon Center Shaymin,coperta con allenatore,None
+180427,6,월드페스티벌,Pokémon World Festival Pikachu,non coperta,None
+180501,6,마음,Heart Shaymin,non coperta,None
+180606,6,아라모스,Multiple,coperta con allenatore,"Used for the distribution of Alamos Dialga , Palkia , and Darkrai"
+180609,6,ルイ,Ryota Otsubo's Golduck,coperta con allenatore,None
+180620,6,제너레이션즈,Pokémon Generations Zygarde,coperta con allenatore,None
+180713,6,여름,Summer Manaphy,coperta sul solo identificativo,None
+180713,6,フウラシティ,Fula City Zeraora,coperta con allenatore,None
+180801,6,たなばた,2018 Tanabata Jirachi,non coperta,None
+180915,6,정수웅,Suwoong Cheong's Metagross,coperta con allenatore,None
+181026,6,PGL,Ultra Spooky Cup Shiny Mimikyu,coperta con allenatore,Shiny ; Distributed in Japan and South Korea
+181101,6,ポケセン♪,Multiple,non coperta,"Used for the third and final distribution of Pokémon Center Birthday Pikachu , Eevee , and Comfey for the Nintendo 3DS Generation VII games"
+181116,6,ポケセン,Pokémon Center Birthday Chansey,coperta con allenatore,None
+181130,6,アーカラ Akala 아칼라,Akala Island Shiny Tapu Lele,coperta sul solo identificativo,"Shiny ; Distributed in Japan, Europe and South Korea"
+181219,6,후우라시티,Multiple,coperta con allenatore,Used for the South Korean distribution of Fula City Zeraora and Lugia
+181222,6,코리안리그,Multiple,coperta con allenatore,Used for the local distribution of Korean League Season 1 Entei and Raikou
+184745,6,スグリ Kieran,Applin (Pokémon),coperta sul solo identificativo,Kieran 's ID
+190216,6,코리안리그,Multiple,coperta con allenatore,Used for the local distribution of Korean League Season 2 Tornadus and Thundurus
+190501,6,베스트프렌드,Multiple,non coperta,Used for the Shiny Pikachu E and Eevee P distributed over at Pokémon Festa 2019
+190511,6,Bullseye,Multiple,coperta con allenatore,Used for the Shiny Pikachu E and Eevee P distributed over Pokémon Pass at Target stores
+190801,6,Giovanni,Giovanni's Mewtwo,coperta con allenatore,None
+191115,6,ポケセン,Multiple,coperta con allenatore,Used for the distribution of Pokémon Center Birthday Pikachu and Eevee for the Nintendo Switch Generation VIII games
+19248,5,ミナッチ Mindy,Haunter (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Snowpoint City who wants to trade D P Pt
+19250,5,アイン Farris,Steelix (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Cyllage City who wants to trade X Y
+200126,6,サトシ,Ash's Dragonite,coperta con allenatore,None
+200212,6,HOME,HOME Pikachu,non coperta,None
+200308,6,サトシ,Ash's Gengar,coperta con allenatore,Has a Gigantamax factor
+200412,6,サトシ,Ash's Lucario,coperta con allenatore,None
+20043,5,WISHMKR,Wishmaker Jirachi,coperta con allenatore,None
+200630,6,HOME,1 Million Victories Shiny Zeraora,coperta con allenatore,Shiny
+200705,6,サトシ,Ash's Sirfetch'd,coperta con allenatore,None
+20078,5,Aura,Aura Mew,coperta con allenatore,None
+200807,6,オコヤのもり Jungle Giungla Dschungel Selva 정글 丛林 叢林,Multiple,coperta sul solo identificativo,"The ID and OTs of the Jungle Zarude and Shiny Celebi distribution in Japan. For Celebi, the original ID was planned to be 200417."
+200809,6,백종윤,Baik Jongyoon's Amoonguss,coperta con allenatore,Shiny
+200822,6,VGC20,Pokémon Players Cup Porygon2,coperta con allenatore,None
+200822,6,カ・エール,Pokémon Japan Championships 2019 Gastrodon,coperta con allenatore,None
+200930,6,지우,List of event Pokémon distributions in Pokémon Sword and Shield#Ash's Charizard,coperta con allenatore,Korean Generation VIII distribution
+201023,6,サトシ Ash Sacha 지우 小智,Pikachu in a cap,coperta sul solo identificativo,ID used for the Generation VIII distributions of all Cap Pikachu
+201101,6,ポケセン PCSG,Pokémon Center Birthday Milcery,coperta sul solo identificativo,None
+201113,6,オコヤのもり Jungle Giungla Dschungel Selva 정글 丛林 叢林,Worldwide Jungle Zarude,coperta sul solo identificativo,None
+201120,6,ゲッチャレ,Multiple,coperta con allenatore,"Used for the Pokémon Scrap 2020 Genesect , Volcanion , and Marshadow"
+201204,6,ミスド,Mister Donut's Chansey,coperta con allenatore,None
+201204,6,ミスド,Mister Donut's Chansey,coperta con allenatore,None
+201225,6,オコヤのもり Jungle Giungla Dschungel Selva 정글 丛林 叢林,Forest of Okoya Dada Zarude,coperta sul solo identificativo,None
+20163,5,トウホク,Tohoku Pikachu,coperta con allenatore,None
+201703,6,トウホク,Tohoku Pikachu,coperta con allenatore,None
+201803,6,トウホク１８,2018 Tohoku Pikachu,coperta sul solo identificativo,None
+209896,6,クラベル Clavell,Pawmo (Pokémon),coperta sul solo identificativo,Clavell 's ID
+209896,6,グルーシャ Grusha,Cetoddle (Pokémon),coperta sul solo identificativo,Grusha 's ID
+210101,6,KIBO,KIBO's Pikachu,coperta con allenatore,None
+210108,6,サトシ,Ash's Dracovish,coperta con allenatore,None
+210219,6,Rock Star,Rock Star Shiny Toxtricity,coperta con allenatore,Shiny
+210227,6,GF,Singing Pikachu,coperta con allenatore,None
+210426,6,어드벤처,Multiple,coperta con allenatore,"Used for the Pokémon Adventure 25 Genesect , Volcanion , and Marshadow"
+210601,6,HOME,Multiple,coperta con allenatore,Used for both the Sword and Shield and HOME -based distributions of Gigantamax Factor Bulbasaur and Squirtle
+210718,6,クララ,Pokémon Japan Championships 2020 Torkoal,coperta con allenatore,None
+210807,6,정상윤,Jeong Sang-yoon's Porygon-Z,coperta con allenatore,None
+210813,6,Wolfe,Wolfe Glick's Gigantamax Coalossal,coperta con allenatore,None
+210915,6,Jungle Dschungel Selva Giungla オコヤのもり 정글 丛林 叢林,Multiple,non coperta,"Used for the Korean distribution of Zarude , Dada Zarude, and Shiny Celebi"
+211006,6,Jungle Dschungel Selva Giungla オコヤのもり 정글 丛林 叢林,Multiple,coperta sul solo identificativo,Used for the International distribution of Dada Zarude and Shiny Celebi
+211022,6,Arthur ガラル 가라르 伽勒尔 伽勒爾,Arthur's Shiny Zamazenta,coperta sul solo identificativo,None
+211022,6,Lancer ガラル 가라르 伽勒尔 伽勒爾,Lancer's Shiny Zacian,coperta sul solo identificativo,None
+211031,6,Leonardo,Leonardo Bonanomi's Gigantamax Charizard,coperta con allenatore,None
+211101,6,Poké Center ポケセン,Pokémon Center Birthday Happiny,coperta sul solo identificativo,None
+21121,5,ルビー サファイア,Ruby and Sapphire Zigzagoon,coperta sul solo identificativo,None
+217978,6,カキツバタ Drayton,Duraludon (Pokémon),coperta sul solo identificativo,Drayton 's ID
+220205,6,プロポチャ,Project Pochama Pocha Marche Piplup,coperta con allenatore,None
+220218,6,Crown Krone Couronneige Corona L. Corona カンムリ 왕관설원 王冠,Crown Tundra's Shiny Galarian Articuno,coperta sul solo identificativo,None
+220218,6,Wild Natur Sauvage Silvestre T. Selvagg ワイルド 와일드에리어 旷野 曠野,Wild Area's Shiny Galarian Zapdos,coperta sul solo identificativo,None
+220415,6,Armor Rüstung Isolarmure Armadura I. Armatura ヨロイ 갑옷섬 铠岛 鎧島,Isle of Armor's Shiny Galarian Moltres,coperta sul solo identificativo,None
+220422,6,Marco,Marco Hemantha Kaludura Silva's Dracovish,coperta con allenatore,None
+220601,6,빛나,Dawn's Piplup,coperta con allenatore,None
+220601,6,전이마을,Ten'i Village Regigigas,coperta con allenatore,None
+220611,6,정원석,Wonseok Jung's Grimmsnarl,coperta con allenatore,None
+220611,6,コウ,Kohei Fujida's Sableye,coperta con allenatore,None
+220618,6,Jirawiwat,Jirawiwat Thitasiri's Clefairy,coperta con allenatore,Shiny
+220624,6,Eric,Eric Rios's East Sea Gastrodon,coperta con allenatore,None
+220721,6,Hisui ヒスイ 히스이 翠洗,Hisui's Hisuian Growlithe,coperta sul solo identificativo,None
+220818,6,Victory ビクトリー 빅토리 胜利  勝利,Victory Victini,coperta sul solo identificativo,None
+220818,6,WCS22 ＷＣＳ２２,2022 World Championships Sinistea,coperta sul solo identificativo,None
+220910,6,おつきみ２２,Pokémon Center Otsukimi Clefairy,coperta con allenatore,None
+221118,6,ポケセン PokéCenter,Multiple,coperta sul solo identificativo,Used for the Pokémon Center Birthday Flabébé distribution
+22796,5,ゲーフリ GF 게임프리크,Game Freak Mew,coperta sul solo identificativo,None
+230217,6,Jiseok,Jiseok Lee's Garganacl,coperta con allenatore,None
+230414,6,Liko リコ 리코 莉可,Liko's Sprigatito,coperta sul solo identificativo,None
+230414,6,Gavin,Gavin Michaels' Palafin,coperta con allenatore,None
+230422,6,ポケセン,25th Anniversary Pikatto Pika Pika Pikachu,coperta con allenatore,None
+230512,6,Roy Rod Rhod ロイ 로드 羅伊,Roy's Fuecoco,coperta sul solo identificativo,None
+230531,6,기신,Marcus's Bronzong,coperta con allenatore,None
+230531,6,미케나,Michina Town Pichu,coperta con allenatore,None
+230603,6,정원석,Wonseok Jung's East Sea Gastrodon,coperta con allenatore,None
+230610,6,そらみつ,Yasuharu Shimizu's Bronzong,coperta con allenatore,None
+230630,6,Paul,Paul Chua's Arcanine,coperta con allenatore,None
+230728,6,Nontaro,Chaiyawat Traiwichcha's Grimmsnarl,coperta con allenatore,None
+230804,6,Dot Doti ドット 도트 点点 小點,Dot's Quaxly,non coperta,None
+230811,6,Eduardo,Eduardo Cunha's East Sea Gastrodon,coperta con allenatore,None
+230811,6,WCS23 Worlds23,2023 Pokémon World Championships Stretchy Form Tatsugiri,coperta sul solo identificativo,None
+230906,6,ナッペやま Glaseado Montanata Mont Nappé SierraNapada S. Napada 나페산 霜抹山,Glaseado Mountain Cetitan,coperta sul solo identificativo,None
+231006,6,Trixie,Trixie's Mimikyu,coperta con allenatore,None
+231101,6,ポケセン PokéCenter 寶可夢中心,Multiple,coperta sul solo identificativo,Used for the Pokémon Center Birthday Pawmi & Charcadet distribution
+231103,6,포켓몬스토어,Pokémon Store Fidough,coperta con allenatore,None
+231117,6,Alex,Alex Gómez Berna's Dragapult,coperta con allenatore,None
+231118,6,YOASOBI ヨアソビ 요아소비 夜游 夜遊,Pawmot (Pokémon),coperta sul solo identificativo,None
+231122,6,スターだん Team Star 스타단 天星队的 天星隊的,Team Star's Revavroom,coperta sul solo identificativo,None
+231213,6,パルデア Paldea 팔데아 帕底亚 帕底亞,Paldea's Gimmighoul,coperta sul solo identificativo,None
+23478,5,ダイゴ Steven,Beldum (Pokémon),coperta sul solo identificativo,Steven Stone 's ID in HeartGold and SoulSilver
+240101,6,윈터페스타,Winter Festa 2023 Baxcalibur,coperta con allenatore,None
+240223,6,プロカビ,Snorlax (Pokémon),coperta con allenatore,None
+240405,6,Marco,Iron Hands (Pokémon),coperta con allenatore,None
+240505,6,신여명,Flutter Mane (Pokémon),coperta con allenatore,None
+240512,6,Sophia,Gyarados (Pokémon),coperta con allenatore,None
+240601,6,ナーク,Talonflame (Pokémon),coperta con allenatore,None
+240607,6,Nils,Porygon2 (Pokémon),coperta con allenatore,None
+240816,6,Worlds24 WCS24,2024 Pokémon World Championships Steenee,coperta sul solo identificativo,None
+240816,6,トモヤ,Tomoya Ogawa's Sylveon,coperta con allenatore,None
+241016,6,HOME,HOME Shiny Meloetta,coperta con allenatore,Shiny
+241101,6,"PokéCenter ポケセン , 寶可夢中心",Pokémon Center Birthday Tandemaus,coperta sul solo identificativo,None
+241115,6,Patrick​,Patrick Connors's Pelipper,coperta sul solo identificativo,Shiny
+241122,6,대작전,Multiple,coperta con allenatore,Used for The Great Pokémon Get Operation 2024 Pokémon distributed in South Korea
+241122,6,だいさくせん,Multiple,coperta con allenatore,Used for the Pokémon Get Large-scale Campaign 2024 Pokémon distributed in Japan
+24680,5,JEREMY,Multiple,coperta con allenatore,Used for certain Pokémon given away in 2004 to players of Pokémon FireRed and LeafGreen
+24974,5,Tom,Tom Heracross,non coperta,None
+250122,6,아론,Sir Aaron's Lucario,coperta con allenatore,None
+250128,6,HOME,Multiple,coperta con allenatore,Used for the Shiny Enamorus and Shiny Manaphy distributed over Pokémon HOME
+250212,6,HOME,HOME Shiny Keldeo,coperta con allenatore,Shiny
+250221,6,Marco,Marco Silva's Jumpluff,coperta con allenatore,None
+250227,6,POKEMONDAY25,Pokémon Day 2025 Eevee,coperta con allenatore,None
+250419,6,Wei Chyr,Wei Chyrto's Rillaboom,coperta con allenatore,None
+250425,6,포켓몬타운,Pokémon Town 2025 Ditto,coperta con allenatore,None
+250607,6,홍주영,Juyoung Hong's Porygon2,coperta con allenatore,None
+250613,6,Wolfe,Wolfe Glick's Incineroar,coperta con allenatore,None
+250621,6,ヒュウマ,Hyuma Hara's Flutter Mane,coperta con allenatore,None
+250621,6,レイ,Ray Yamanaka's Amoonguss,coperta con allenatore,None
+250932,6,Terri,Stunfisk (Pokémon),non coperta,The OT of the trainer who gives the player a Galarian Stunfisk
+25643,5,ハッシー Hilary,Abra (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Oreburgh City who wants to trade D P Pt
+25945,5,マリッペ ISIS,Meowth (Pokémon),coperta sul solo identificativo,The ID of the Trainer at Hoenn's Battle Frontier who wants to trade E
+263455,6,ジョバンニ Mattia,Meowth (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Turffield Stadium who wants to trade
+26491,5,ミカン Jasmine,Steelix (Pokémon),coperta sul solo identificativo,Jasmine 's ID
+270222,6,Teresa Roca,Teresa Roca's Hisuian Growlithe,coperta sul solo identificativo,None
+27471,5,さおり,Saori Bidoof,non coperta,None
+275703,6,ライム Ryme,Greavard (Pokémon),coperta sul solo identificativo,Ryme 's ID
+27646,5,ナオキ 청수 Aldo Bertín Chester Devon Kyle,Basculin (Pokémon),coperta sul solo identificativo,"The ID of the Trainer in Driftveil City who wants to trade Red-Striped Form with Reckless in Black, Blue-Striped Form with Rock Head in White"
+27658,5,ツルマル Slick,Tangrowth (Pokémon),non coperta,The ID of the Trainer in Humilau City who wants to trade
+28606,5,DOEL,Doel Deoxys,coperta con allenatore,None
+29189,5,ジン Richard,Voltorb (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Olivine City who wants to trade HG SS
+29294,5,ヘレン Elena,Eevee (Pokémon),coperta sul solo identificativo,The ID of the Trainer staying in one of the hotels of Kalos who wants to trade X Y
+30317,5,RUBY SAPHIRE,Ruby and Sapphire Zigzagoon,coperta sul solo identificativo,Shiny ; fixes the Berry glitch in Ruby and Sapphire Versions
+30719,5,ネガイボシ,Wishing Star Jirachi,coperta con allenatore,None
+30724,5,モーリン Darrell,Makuhita (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Rustboro City who wants to trade OR AS
+30821,5,スタンプ,Multiple,non coperta,Used for the Stamp Pichu and Absol distributed in Japan
+30994,5,るいるい,Ruirui Shinx,non coperta,None
+31121,5,アゲト,Ageto Celebi,coperta con allenatore,"The release date of Pokémon Colosseum in Japan, November 21, 2003"
+31121,5,コロシアム,Colosseum Pikachu,coperta con allenatore,"The release date of Pokémon Colosseum in Japan, November 21, 2003"
+314512,6,セイジ Salvatore,Meowth (Pokémon),coperta sul solo identificativo,Salvatore 's ID
+316242,6,ハッサク Hassaku,Arctibax (Pokémon),coperta sul solo identificativo,Hassel 's ID
+33038,5,マチス Surge,Pikachu (Pokémon),coperta sul solo identificativo,Lt. Surge 's ID
+348226,6,Bond,Riolu (Pokémon),coperta sul solo identificativo,The ID of the Trainer at Académie Étoile who wants to trade Abra for Riolu
+361010,6,レホール Raifort,Gimmighoul (Pokémon),coperta sul solo identificativo,Raifort 's ID
+36728,5,DONTAE,Jynx (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Cerulean City who wants to trade FR LG
+37030,5,ナナ,Nana Ralts,non coperta,None
+37110,5,カルネ Diantha,Ralts (Pokémon),coperta sul solo identificativo,Diantha 's ID
+37149,5,ギンザル DUKING DOKING GERMÁN GRAND RODRIGO,Multiple,coperta sul solo identificativo,Used for the Plusle obtained from Duking in Pokémon Colosseum and the Pokémon traded in Pokémon XD: Gale of Darkness
+373015,6,ハイダイ Kofu,Veluza (Pokémon),coperta sul solo identificativo,Kofu 's ID
+37379,5,キヨ,Kiyo Eevee,non coperta,None
+37460,5,ナオキ Jose,Machop (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Goldenrod City who wants to trade HG SS
+376983,6,ボタン Penny,Eevee (Pokémon),coperta sul solo identificativo,Penny 's ID
+38726,5,マッチャン KOBE,Seedot (Pokémon),coperta sul solo identificativo,The ID of Trainer wanting to trade in Rustboro City E
+38793,5,けん,Ken Psyduck,non coperta,None
+390518,6,シアノ Cyrano,Blitzle (Pokémon),coperta sul solo identificativo,Cyrano 's ID
+39922,5,アヤ 소영 Anémone Bettina Denise Dye Geles,Multiple,coperta sul solo identificativo,The ID of the Trainer in Nacrene City who wants to trade her Petilil B or Cottonee W
+40122,5,CHANNEL,Channel Jirachi,coperta con allenatore,None
+40217,5,フトシ 태사 Ander Bigrond Hajo Nico Tiziano,Munchlax (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Undella Town who wants to trade in the summer
+40707,5,タナバタ,2004 Tanabata Jirachi,coperta con allenatore,None
+41205,5,ＡＮＡ,2004 All Nippon Airways Pikachu,coperta sul solo identificativo,None
+41400,5,ダニー HORDEL HORAZ ODINO VOLKER,Hordel,coperta sul solo identificativo,Moveset varies based on what Pokémon is traded to him.
+418071,6,アカマツ Crispin,Magby (Pokémon),coperta sul solo identificativo,Crispin 's ID
+42356,5,シン,Shin Shinx,non coperta,None
+44142,5,ノブリン Norton,Chatot (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Eterna City who wants to trade D P Pt
+442255,6,デデンクス,V Jump Christmas Trade Party Buizel,non coperta,None
+44285,5,カープ Caveat,Magikarp (Pokémon),coperta sul solo identificativo,The ID of the Trainer staying in one of the hotels of Kalos who wants to trade X Y
+46285,5,ソガチン SKYLAR,Horsea (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Pacifidlog Town who wants to trade E
+48040,5,トシ,Toshi Ralts,non coperta,None
+48926,5,コンタ Rudy,Onix (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Violet City who wants to trade HG SS
+49562,5,みどりん ELYSSA,Makuhita (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Rustboro City who wants to trade R S
+500031,6,ポケタイムス,Poké Times Trade Meeting Campaign #3 Stantler,non coperta,None
+500031,6,ポケタイムス,Poké Times Trade Meeting Campaign #3 Bidoof BD SP,non coperta,None
+50039,5,Christy,Christy Heracross,non coperta,None
+50082,5,モリオ Lorenzo,Magneton (Pokémon),coperta sul solo identificativo,The ID of the Trainer at the Kanto Power Plant who wants to trade HG SS
+50183,5,サトチン LANE,Corsola (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Pacifidlog Town who wants to trade R S
+50298,5,タナーカ CLIFTON,Electrode (Pokémon),coperta sul solo identificativo,The ID of a Trainer wanting to trade on Cinnabar Island FR LG
+50318,5,ポケパーク,PokéPark Meowth,coperta con allenatore,None
+50319,5,ヨコハマ,Yokohama Pikachu,coperta con allenatore,None
+50425,5,ＧＷ,GW Pikachu,coperta sul solo identificativo,None
+50701,5,サッポロ,Sapporo Pikachu,coperta con allenatore,None
+50701,5,サンデー,Pokémon Sunday Wobbuffet,coperta sul solo identificativo,None
+50707,5,タナバタ,2005 Tanabata Jirachi,coperta con allenatore,None
+50716,5,ハドウ,Hadō Mew,coperta con allenatore,None
+50901,5,ハドウ,Multiple,coperta con allenatore,"Used for the Regirock , Regice and Registeel given away to commemorate Lucario and the Mystery of Mew"
+51126,5,フクオカ オーサカ ナゴヤ サッポロ トウキョー ヨコハマ,Multiple,coperta sul solo identificativo,Used for the First Gather More Pokémon! Campaign events
+51224,5,フクオカ オーサカ ナゴヤ サッポロ トウキョー ヨコハマ,Multiple,coperta sul solo identificativo,Used for the Second Gather More Pokémon! Campaign events
+520159,6,レディダグ Diggette,Diglett (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Lavender Town who wants to trade
+53277,5,マイスター Meister,Magikarp (Pokémon),coperta sul solo identificativo,Meister 's ID D P Pt
+53437,5,しげしげ,ShigeShige Psyduck,non coperta,None
+54118,5,テツ Curtis,Multiple,non coperta,Used for the Pokémon traded by Curtis
+54193,5,かけれる,Kakereru Ralts,non coperta,None
+54673,5,ユイ 유이 Liesel Lillian Lilo Luna Juno,Rotom (Pokémon),coperta sul solo identificativo,The ID of the Trainer on Route 15 who wants to trade
+551873,6,コツブ Higeo,Geodude (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Vermilion City who wants to trade
+5656,4,コロコロ,Multiple,coperta con allenatore,Used for the CoroCoro Paradox Pokémon distributions
+565640,6,コロコロ,CoroCoro Charizard,coperta con allenatore,None
+568659,6,ナンジャモ Iono,Magnemite (Pokémon),coperta sul solo identificativo,Iono 's ID
+581022,6,フフー Anga,Multiple,coperta sul solo identificativo,The ID of the Trainer at Poni Gauntlet who wants to trade Bewear for Talonflame S M or Tauros US UM
+58125,5,ケイイチ,Keiichi Shinx,non coperta,None
+584457,6,コルサ Brassius,Sunflora (Pokémon),coperta sul solo identificativo,Brassius 's ID
+590916,6,ユイッチー Yuichi,Barboach (Pokémon),coperta sul solo identificativo,The ID of the Trainer at Royal Avenue who wants to trade US UM
+590916,6,ラウレア Laule'a,Poliwhirl (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Konikoni City who wants to trade S M
+60042,5,なっつん NORMA,Tangela (Pokémon),coperta sul solo identificativo,The ID of a Trainer wanting to trade on Cinnabar Island FR LG
+60114,5,フクオカ オーサカ ナゴヤ サッポロ トウキョー ヨコハマ,Multiple,coperta sul solo identificativo,Used for the Third Gather More Pokémon! Campaign events
+60227,5,フクオカ オーサカ ナゴヤ サッポロ トウキョー ヨコハマ,Multiple,coperta sul solo identificativo,Used for the Fourth Gather More Pokémon! Campaign events
+60321,5,フクオカ オーサカ ナゴヤ サッポロ トウキョー ヨコハマ,Multiple,coperta sul solo identificativo,Used for the Fifth Gather More Pokémon! Campaign events
+60505,5,フクオカ オーサカ ナゴヤ トウキョー ヨコハマ,Multiple,coperta sul solo identificativo,Used for the Sixth and final Gather More Pokémon! Campaign events
+60510,5,ポケパーク,PokéPark Mew,coperta sul solo identificativo,None
+60623,5,ポケパーク,PokéPark Celebi,coperta sul solo identificativo,None
+60707,5,タナバタ,2006 Tanabata Jirachi,coperta con allenatore,None
+60720,5,ミツリン,Mitsurin Celebi,coperta con allenatore,None
+607213,6,ポケタイムス,Poké Times Trade Meeting Campaign #3 Bidoof LA,non coperta,None
+60731,5,ポケパーク,PokéPark Jirachi,coperta sul solo identificativo,First distribution
+60830,5,ポケパーク,PokéPark Jirachi,coperta sul solo identificativo,Second distribution
+610503,6,クム Kumu,Multiple,coperta sul solo identificativo,The ID of the trainer in Seafolk Village who wants to trade Granbull for Steenee S M or West Sea Shellos US UM
+610507,6,キヘ Kihei,Multiple,coperta sul solo identificativo,The ID of the Trainer on Route 5 who wants to trade Lillipup for Bounsweet S M or Noibat US UM
+610602,6,ヘパ Sill,Multiple,coperta sul solo identificativo,The ID of the Trainer in Tapu Village who wants to trade Haunter for Alolan Graveler S M or Phantump for another Phantump US UM The traded Pokémon will evolve after being received
+61226,5,???,Multiple,non coperta,"Used for Steven's Pokémon in the Multi Battle in Mossdeep Space Center, as well as the Frontier Brains, in Pokémon Emerald"
+61848,5,まーたん,Maatan Shinx,non coperta,None
+62475,5,あり,Ari Bidoof,non coperta,None
+63184,5,めぐっぺ SAIGE,Multiple,coperta sul solo identificativo,"The ID of Trainer wanting to trade on Route 5 , will trade Nidoran♀ for Nidoran♂ FR or vice-versa LG"
+648753,6,ハツミ Haley,Skwovet (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Motostoke who wants to trade
+65217,5,ユリコ Calla,Petilil (Pokémon),coperta sul solo identificativo,The ID of Trainer wanting to trade on Route 4 B2
+654886,6,サワロ Saguaro,Hattrem (Pokémon),coperta sul solo identificativo,Saguaro 's ID
+661291,6,オモダカ Geeta,Glimmet (Pokémon),coperta sul solo identificativo,Geeta 's ID
+676088,6,ポケタイムス,Poké Times Trade Meeting Campaign #3 Gible,non coperta,None
+693489,6,Griddella,Raichu (Pokémon),coperta sul solo identificativo,The ID of the Trainer outside Quasartico Inc. who wants to trade
+703019,6,ボーアイス Nicholice,Multiple,coperta sul solo identificativo,The ID of the trainer in Celadon City who wants to trade Sandshrew for Alolan Sandshrew P or Vulpix for Alolan Vulpix E
+704310,6,ゼイユ Carmine,Poltchageist (Pokémon),coperta sul solo identificativo,Carmine 's ID
+714674,6,ポケタイムス,Multiple,non coperta,Used for the Poké Times Trade Meeting Campaign Chansey and Clefairy distributions
+745642,6,ネリネ Amarys,Skarmory (Pokémon),coperta sul solo identificativo,Amarys 's ID
+766634,6,アオキ Larry,Dudunsparce (Pokémon),coperta sul solo identificativo,Larry 's ID
+766634,6,チリ Rika,Wooper (Pokémon),coperta sul solo identificativo,Rika 's ID
+768945,6,シラユキ Grimm,Multiple,coperta sul solo identificativo,The ID of the Trainer in Circhester who wants to trade Vanillish for Throh Sw or Sawk Sh
+776706,6,デデンクス,V Jump Christmas Trade Party Dedenne,non coperta,None
+797394,6,Tracie,Heracross (Pokémon),coperta sul solo identificativo,The ID of the Trainer on Rouge Street who wants to trade Pikachu for Heracross
+808809,6,HOME,Pokémon GO Melmetal,coperta con allenatore,None
+816963,6,タロ Lacey,Snubbull (Pokémon),coperta sul solo identificativo,Lacey 's ID
+891846,6,タナベ Edmund,Mr. Mime (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Spikemuth who wants to trade
+912562,6,Korrina,Lucario (Pokémon),non coperta,Korrina 's ID
+933665,6,ネモ Nemona,Tauros (Pokémon),coperta sul solo identificativo,Nemona 's ID
+934764,6,Quille,Slowpoke (Pokémon),coperta sul solo identificativo,The ID of the Trainer on South Boulevard who wants to trade
+940711,6,エリッチ Psytrice,Raichu (Pokémon),coperta sul solo identificativo,The ID of the Trainer in Saffron City who wants to trade
+949475,6,ポピー Poppy,Tinkatuff (Pokémon),coperta sul solo identificativo,Poppy 's ID
+970401,6,サトシ Satoshi,Original Cap Pikachu,coperta sul solo identificativo,"Distributed in Japan, Taiwan, and Hong Kong"
+970401,6,サトシ,Ash's World Cap Pikachu,coperta con allenatore,None
+980718,6,２０ＴＨ☆ ２０ＴＨ,Pokémon Rally 2017 Mew,coperta sul solo identificativo,"The ☆ in the initial OT was considered by the game system to be illegitimate, and was soon replaced by the other OT The second variant was later distributed locally at Japanese Pokémon Centers"
+980718,6,はかせ,Professor's Mewtwo,coperta con allenatore,None
+980975,6,タイム Tyme,Rockruff (Pokémon),coperta sul solo identificativo,Tyme 's ID
+993663,6,カエデ Katy,Combee (Pokémon),coperta sul solo identificativo,"Katy 's ID <span class=""mw-headline"""

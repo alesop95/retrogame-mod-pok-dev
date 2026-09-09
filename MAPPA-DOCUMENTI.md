@@ -75,6 +75,7 @@ Sono i pi√π grossi del progetto e la causa principale del senso di ingestibilit√
 | `pokedex-home-completo/DIFFERENZE-DI-SESSO.md` | 12k | `tools/enumera-differenze-sesso.py` |
 | `pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md` | 28k | `tools/censimento-condizionati.py` |
 | `pokedex-home-completo/CENSIMENTO-SCAMBI.md` | 24k | `tools/censimento-scambi.py` |
+| `pokedex-home-completo/ID-NOTEVOLI.md` | 52k | `tools/censimento-id-notevoli.py` |
 | `pokedex-home-completo/EVENTI-SENZA-CARTA.md` | 15k | `tools/leggi-serebii-eventi.py --senza-carta` |
 | `pokedex-home-completo/MOSSE-PERDUTE.md` | 8k | `tools/mosse-perdute.py` |
 | `pokedex-home-completo/INDICE-FOGLI-ESTERNI.md` | 8k | `tools/leggi-foglio-google.py` |
