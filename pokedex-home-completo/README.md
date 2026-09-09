@@ -44,6 +44,7 @@ CENSIMENTO-SCAMBI.md                        i 238 scambi in gioco di tutte le ge
 scambi.csv                                  gli stessi, come tabella per il confronto
 CENSIMENTO-CONDIZIONATI.md                  gli incontri che una condizione sblocca, con i tre criteri
 condizionati.csv                            gli stessi, come tabella per il confronto
+STUDIO-08-esecuzione-di-codice-e-manipolazione-del-generatore.md   la via interna al gioco, e la manipolazione come alternativa
 ```
 
 Lo strumento che produce il conto sta fra quelli comuni, in `tools/disponibilita-titoli.py`, perché serve a più di un track: la sua risposta governa la pianificazione del tempo di tutto il progetto e non soltanto di questo sottoprogetto.

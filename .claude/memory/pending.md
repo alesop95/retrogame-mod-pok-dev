@@ -118,9 +118,9 @@ Dal 2026-09-08 la voce più grossa di questa sezione è il corpus della collezio
 |---|---|---|
 | 1 | 2) What are we loosing with Pokemon Bank, sei voci | CHIUSO il 2026-09-08. L'esito era STUDIO-05, cioè sei assi invece di tre; i due fogli di calcolo che restavano da esportare sono stati letti con `tools/leggi-foglio-google.py` e il loro scheletro sta in `INDICE-FOGLI-ESTERNI.md` |
 | 2 | 1) Dex completions / Overall lists for multiple generations, dieci voci | LETTO il 2026-09-08, sei voci per intero e una in parte, con le tre restanti già assorbite in STUDIO-04. L'esito è `STUDIO-06-le-enumerazioni-trasversali.md`: asse del sesso chiuso a 102 specie, quattro correzioni sull'asse delle sfide, undici classi a via chiusa per il controllo all'indietro di ADR-049 |
-| 3 | 9) RNG Manipulation and Glitches, sedici voci in sei sotto-cluster | DA LEGGERE, ed è il prossimo passo dichiarato su questo fronte: è la stessa materia del track sulla generazione e dell'esecuzione di codice, cioè l'unica parte del corpus che tocca il come e non il che cosa. Per la prescrizione di metodo dell'utente va letto prima di aprire il lavoro sul sondatore dei sogni |
+| 3 | 9) RNG Manipulation and Glitches, sedici voci in sei sotto-cluster | LETTO il 2026-09-09, e l'esito è `STUDIO-08-esecuzione-di-codice-e-manipolazione-del-generatore.md`: la via interna al gioco esiste per prima, seconda e terza generazione, in seconda copre l'italiano e la Console Virtuale, e consegna esemplari ottenuti invece che scritti. Ne è venuta anche una voce mancante sull'asse degli eventi, cioè il Mew ufficiale con allenatore GF e identificativo 22796. Restano non lette le tre voci in forma di video e il contenuto delle due pagine sulla manipolazione del generatore, perse dalla nostra estrazione |
 
-Gli altri trentanove cluster restano catalogati e si leggono quando una domanda li chiama, che è la disciplina dichiarata nel registro: una fonte letta senza una domanda produce note che nessuno rilegge.
+Dal 2026-09-09 quella disciplina è sospesa per direttiva dell'utente, che ha chiesto di leggere tutto prima di produrre altro lavoro. La misura di che cosa resti: il corpus scaricato è di duecentonovantadue documenti per sei milioni e duecentomila byte, di cui i tre cluster prioritari sono letti; gli altri trentanove cluster sono da leggere in ordine di utilità, e la lettura procede a lotti con la sintesi che entra in un documento invece di restare in conversazione, perché il corpus non entra in una sessione sola.
 
 | Fonte | Stato |
 |---|---|
@@ -189,13 +189,17 @@ Il risultato tecnico che ha reso la quarta economica va conservato: gli incontri
 
 Va ricordato, perché la domanda tornerà: tutte le specie coinvolte sono già nei lotti come distribuzioni, e non è una duplicazione. Sono esemplari diversi, perché l'allenatore è il giocatore e non il distributore, la sfera è quella della cattura, il luogo è reale e non il codice degli eventi, e la coppia fra valore di personalità e valori individuali porta la firma di una cattura invece di quella di una consegna.
 
-## La decisione di perimetro che le due classi nuove aprono
+## Il perimetro deciso il 2026-09-09, e il lavoro che ne discende
 
-APERTA il 2026-09-09 e non è tecnica: la risposta appartiene all'utente e cambia il perimetro della produzione.
+CHIUSA come decisione ed è ADR-050: una via che esista ma non sia percorribile entro il 26 febbraio 2027 si tratta come chiusa, quindi si produce tutto. Il criterio di ADR-049 resta nella forma e cambia il predicato, da esiste una via a esiste una via percorribile nel tempo residuo.
 
-ADR-049 dice che si produce un esemplare quando la sua sola via di provenienza non esiste più. Applicato alla lettera, il criterio esclude quasi tutti gli scambi in gioco e quasi tutti gli incontri condizionati, perché l'utente possiede le cartucce e quelle vie esistono. Alcune però esistono e non sono percorribili nei giorni che restano: l'Isola Miraggio compare in un giorno su decine di migliaia, le caselle del Feebas sono sei su quattrocentonovanta e si spostano, la zona safari delle riedizioni di seconda generazione chiede giorni di attesa per ogni blocco disposto.
-
-La domanda è se una via aperta ma non percorribile entro la scadenza vada trattata come chiusa ai fini della produzione. Il progetto ha un precedente in senso contrario, cioè la scelta di non produrre i leggendari ordinari perché catturarli è migliore su ogni asse che interessi, e uno in senso favorevole, cioè che la scadenza è il solo vincolo che il progetto non controlla. Le tre eccezioni che il criterio riconosce già senza bisogno di questa decisione sono i ventidue scambi del Ranch, i quattro dei due giochi da console fissa, che l'utente non possiede, e le voci delle riedizioni per console corrente, che scadenza non hanno.
+| Lavoro che la decisione apre | Stato |
+|---|---|
+| estendere il generatore agli scambi in gioco | DA FARE. Le 46 voci con il valore di personalità scritto nella fonte, cioè 19 in terza generazione, 16 in quarta, 7 in quinta e 4 in ottava, sono riproducibili byte per byte senza alcuna ricerca; le altre hanno la fedeltà indecidibile come i doni moderni |
+| estendere il generatore agli incontri condizionati | DA FARE, e la traccia da riprodurre è la terna fra luogo, tipo di casella e specie, non il solo luogo |
+| estendere il generatore agli statici ordinari delle prime cinque generazioni | DA VALUTARE per la sola parte non percorribile nel tempo residuo: sono 1204 voci fra statici, doni e vaganti, ed è la parte che ADR-050 riapre e che ADR-049 aveva escluso |
+| il Mew ufficiale con allenatore GF e identificativo 22796 | DA AGGIUNGERE all'asse degli eventi. Scoperto il 2026-09-09 leggendo il terzo cluster: sta nelle tabelle del verificatore in un file a parte, `Encounters1VC.Gift`, livello 5 e tutti i valori individuali a 15, e il nostro lotto di prima generazione non lo contiene perché ha i soli Mew dei tour |
+| ordinare la coda per costo unitario invece che per classe | DA FARE, perché con questo perimetro il collo di bottiglia è il tempo di macchina e di catena e non la conoscenza |
 
 ## Il lavoro che ADR-049 apre, ora che è accolta
 
