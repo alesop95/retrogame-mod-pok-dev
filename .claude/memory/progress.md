@@ -4,6 +4,22 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-09, quarta parte. Il quarto lotto di lettura, e la misura della copertura sugli identificativi
+
+Letti i cluster 6, 5, 4 e 3, cioè diciannove fonti, e la lettura integrale ha ora un documento proprio dove accumularsi a lotti: `pokedex-home-completo/LETTURA-DEL-CORPUS.md`, che per ogni cluster dice che cosa ha aggiunto, che cosa ha corretto e che cosa resta non letto con il motivo.
+
+Il risultato del lotto è una misura che il progetto non poteva darsi da solo. L'elenco enciclopedico degli identificativi di allenatore notevoli, che il crawler non aveva scaricato e che una richiesta locale ha restituito al primo tentativo, porta ottocentonovantasei righe utili con identificativo, allenatore ed evento. Lo strumento è `tools/censimento-id-notevoli.py` e il documento `ID-NOTEVOLI.md`. Il confronto è nei due versi: quattrocentosettantatre righe corrispondono alle nostre liste sulla coppia fra allenatore e identificativo, trecentouno sul solo numero e la coincidenza è dichiarata debole, tre la fonte stessa le dichiara non collezionabili, e centodiciannove restano non coperte.
+
+Le centodiciannove hanno una spiegazione che conferma per via indipendente una decisione già presa: sono in grande maggioranza distribuzioni coreane e giapponesi, con l'allenatore in hangul o in katakana, cioè la classe che ADR-040 aveva escluso per la barriera della lingua. Le poche restanti sono eventi in gioco che nessuna carta ha lasciato, come il Floette del fiore eterno, e distribuzioni locali di piccola scala.
+
+Tre fonti del lotto non si recuperano con una richiesta locale perché stanno su servizi di condivisione che rifiutano lo scaricamento diretto, e sono ora in `pending.md` come materiale che l'utente può procurare in pochi minuti: il foglio delle sfere abbinate, la tabella della connettività ad alta risoluzione, e le sotto-pagine del manuale dei fiocchi, di cui abbiamo il solo guscio. Di quel guscio vale registrare l'unica riga di testo che contiene, perché è un avviso dedicato al nostro problema: la banca chiude il 26 febbraio 2027 ed esiste una pagina di preparazione d'emergenza per chi voglia chiudere un fiocco master entro la scadenza.
+
+Due limiti nostri e non delle fonti sono stati dichiarati nel documento di lettura. La tavola dei livelli minimi per sfera, che è esattamente ciò che serve a comporre una coppia fra specie e sfera accettabile, è illeggibile nel derivato perché l'estrattore ha perso le intestazioni di colonna conservando i numeri; il grezzo la contiene ancora. E la guida alla console definitiva enuncia un vincolo materiale che il progetto soddisfaceva senza averlo scritto: il passaggio dalla quarta alla quinta generazione richiede due console fisiche nello stesso momento, perché avviene fra due apparecchi in comunicazione locale.
+
+### La correzione dell'utente sul piano a pagamento
+
+Il vincolo di calendario che `STUDIO-09` aveva sollevato non esiste: l'utente ha il piano a pagamento attivo e la banca è gratuita dal 2023, quando chiuse il negozio in rete della console portatile. Il contatore di giorni che l'applicazione della banca mostra è il residuo di quella gratuità, cosa che il progetto aveva già registrato il 2026-09-03 come artefatto privo di significato. Della sezione resta la sola capienza, che va contata nel piano perché il perimetro aperto da ADR-051 è più grande di novemila posizioni.
+
 ## 2026-09-09, terza parte. Le otto decisioni prese, la regola del tracciatore, e due verifiche chiuse
 
 ### Le decisioni, registrate una per una
