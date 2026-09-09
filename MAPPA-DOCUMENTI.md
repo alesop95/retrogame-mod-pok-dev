@@ -78,6 +78,7 @@ Sono i pi√π grossi del progetto e la causa principale del senso di ingestibilit√
 | `pokedex-home-completo/ID-NOTEVOLI.md` | 52k | `tools/censimento-id-notevoli.py` |
 | `pokedex-home-completo/EVENTI-SENZA-CARTA.md` | 15k | `tools/leggi-serebii-eventi.py --senza-carta` |
 | `pokedex-home-completo/MOSSE-PERDUTE.md` | 8k | `tools/mosse-perdute.py` |
+| `pokedex-home-completo/MOSSE-MN.md` | 4k | `tools/mosse-mn.py` |
 | `pokedex-home-completo/INDICE-FOGLI-ESTERNI.md` | 8k | `tools/leggi-foglio-google.py` |
 | `pokedex-home-completo/OTTENIBILITA-TITOLI.md` | 7k | `tools/ottenibilita-titoli.py` |
 | `recreate-pokemon-distributions-events/CONTEGGIO-DONI-MODERNI.md` | 5k | `tools/conteggio-doni-moderni.py` |

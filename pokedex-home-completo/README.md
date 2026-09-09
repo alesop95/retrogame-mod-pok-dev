@@ -49,6 +49,8 @@ STUDIO-09-la-regola-del-tracciatore-e-le-porte-dopo-la-chiusura.md   che cosa il
 LETTURA-DEL-CORPUS.md                       il registro della lettura integrale, cluster per cluster
 ID-NOTEVOLI.md                              gli 896 identificativi notevoli, e quanto ne copriamo
 id-notevoli.csv                             gli stessi, come tabella per il confronto
+MOSSE-MN.md                                 le voci che una macchina nascosta blocca al Parco Amico
+mosse-mn.csv                                le stesse, come tabella per il confronto
 ```
 
 Lo strumento che produce il conto sta fra quelli comuni, in `tools/disponibilita-titoli.py`, perché serve a più di un track: la sua risposta governa la pianificazione del tempo di tutto il progetto e non soltanto di questo sottoprogetto.

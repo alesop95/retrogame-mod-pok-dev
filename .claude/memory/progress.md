@@ -4,6 +4,30 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-09, settima parte. L'handoff assorbito, le macchine nascoste contate, e la regola che la chat non è memoria
+
+### La direttiva che vale da qui in avanti
+
+L'utente ha chiesto che tutto ciò che l'agente scrive in chat sia salvato su disco e che i file si aggiornino ogni volta, non alla fine. È ora `.claude/rules/chat-non-e-memoria.md`, con il suo presidio: alla fine di ogni giro di lavoro sostanziale l'agente dichiara in una riga quali file ha scritto, cosicché la regola si verifichi invece di essere soltanto dichiarata. La regola non tocca il vincolo di team sulle schede e sulla memoria, che restano sotto controllo umano, salvo che la richiesta di aggiornarle sia già stata data in forma generale, come è avvenuto oggi.
+
+### L'handoff sul Pikachu surfista, e che cosa ne era nuovo
+
+L'utente ha consegnato un handoff prodotto in un'altra sessione, chiedendo di assorbirlo e di eliminarlo in ogni caso. Il vincolo che descriveva il progetto lo aveva già: `CATENA-DI-TRASFERIMENTO.md` registra dal 2026-08-28 che il Parco Amico rifiuta gli esemplari che conoscono una macchina nascosta, con l'elenco delle mosse, le due eccezioni dichiarate dalla fonte e la misura sul lotto di quarta generazione, cioè diciassette voci fra dieci Pikachu con Surf, sei Manaphy con Vortice e un Rayquaza con Volo.
+
+Nuove erano due cose. La prima è la ragione per cui il vincolo non si risolve cancellando la mossa: su alcune specie quella mossa non è più apprendibile in alcun gioco successivo, e il caso del Pikachu surfista dei premi di Stadium è esemplare, perché Surf non sta nel suo insieme di mosse apprendibili per macchina né per insegnamento. Togliergliela per soddisfare il controllo la perderebbe per sempre, e con essa la ragione per cui quell'esemplare è un collezionabile. La seconda è la conferma che la via che resta è quella che il progetto percorre un anello più sotto, cioè ricostruire il dato direttamente nel formato di destinazione e saltare il passaggio invece di soddisfarlo, con l'avvertenza che i controlli più severi possono segnalare un esemplare che non abbia percorso un passaggio verificabile.
+
+Le otto fonti dell'handoff sono in `SOURCES.md` in una sezione propria, che dichiara di corroborare per vie indipendenti ciò che Bulbapedia dava già. Il file dell'handoff è stato eliminato dopo l'assorbimento, come chiesto.
+
+### La misura che l'assorbimento ha reso possibile
+
+`tools/mosse-mn.py` estende alle prime tre generazioni la misura che esisteva per la quarta. Su trecentocinquantuno voci prodotte, cinque conoscono una macchina nascosta della propria generazione: tutte di terza, tutte Pikachu da distribuzione, quattro con Volo e una con Surf. Le centosessantacinque voci di prima e seconda non ne conoscono alcuna, che è un risultato e non un'assenza di risultato. La tavola delle macchine nascoste per generazione viene dalla pagina enciclopedica dedicata e i numeri delle mosse dalla tavola del verificatore, che il programma risolve all'avvio invece di assumerli.
+
+Lo strumento ha trovato due difetti miei prima di dare il numero giusto, e valgono la registrazione perché sono la stessa famiglia. Al primo lancio dichiarava illeggibili centosessantacinque voci di prima e seconda generazione: i nostri file non sono la struttura nuda ma la forma di lista, cioè tre byte di intestazione, la struttura di squadra, il nome dell'allenatore e il soprannome. Al secondo ne dichiarava illeggibili centocinquantacinque: la struttura di squadra misura quarantaquattro byte in prima generazione e quarantotto in seconda, e prendere quarantaquattro da un file di seconda produce un buffer che il lettore rifiuta. Entrambi erano difetti di lettura e non del lotto, ed entrambi si sono manifestati come rifiuti in massa, che è il modo migliore in cui un difetto possa manifestarsi.
+
+### Il resume prompt
+
+`_notes/RESUME-PROMPT.md` è stato riscritto da capo per chiudere questa sessione e riaprirla senza perdere nulla: le tre cose da fare prima di leggere altro, il fuoco e la scadenza, le sei decisioni di oggi, il fatto materiale del lettore arrivato, che cosa è stato costruito, i numeri che contano, ciò che resta in sospeso, le cinque cose che erano in testa e non in un file, il promemoria di chiusura della macchina e il prompt da incollare nella sessione nuova.
+
 ## 2026-09-09, sesta parte. Il lettore è arrivato, e con esso lo strato che mancava
 
 ### L'arrivo, e che cosa sblocca
