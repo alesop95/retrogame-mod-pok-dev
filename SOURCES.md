@@ -52,6 +52,21 @@ Ogni riga porta quattro cose e la quarta è quella che si dimentica: il luogo, l
 
 Sul rapporto fra questo file e il resto del progetto valgono due direzioni obbligate, e sono la ragione per cui il registro non è un archivio morto. Ogni fonte che entra qui e che porta peso su un'affermazione va poi citata nel punto o nei punti del progetto dove quell'affermazione vive, cioè nel documento di track, nella nota di studio o nel capitolo della tesi che la impiega: una fonte registrata e mai citata non sta corroborando nulla. E ogni affermazione scritta in un documento di progetto va accompagnata dalla fonte da cui è corroborata, il che è il vincolo speculare e il più facile da violare, perché una frase senza fonte non produce alcun errore visibile finché qualcuno non prova a verificarla.
 
+## Le fonti sul vincolo delle macchine nascoste, consegnate il 2026-09-09
+
+Nascono da una ricerca che l'utente ha condotto in un'altra sessione e consegnato come handoff. Il vincolo in sé il progetto lo aveva già, con la sua misura sul lotto di quarta generazione; queste fonti lo corroborano per vie indipendenti e portano la parte che mancava, cioè perché la mossa non si possa cancellare e quale via resti. L'assorbimento sta in `pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md` e la misura in `MOSSE-MN.md`; il file dell'handoff è stato eliminato dopo l'assorbimento, come l'utente ha chiesto.
+
+| Fonte | URL | Autorevole su | Track |
+|---|---|---|---|
+| Parco Amico, Pokemon Central Wiki | https://wiki.pokemoncentral.it/Parco_Amici | il rifiuto categorico degli esemplari che conoscono una macchina nascosta nel gioco d'origine; corrobora in italiano ciò che Bulbapedia dava dal 2026-08-28 | PKD, EVT |
+| Scambio, Pokemon Central Wiki | https://wiki.pokemoncentral.it/Scambio | il Parco Amico come unico mezzo fra terza e quarta generazione | PKD |
+| Trasferimento, Pokemon Central Wiki | https://wiki.pokemoncentral.it/Trasferimento | come il deposito tratta gli insiemi di mosse fra ambienti di gioco diversi | PKD |
+| Pokemon HOME, Pokemon Central Wiki | https://m.wiki.pokemoncentral.it/Pok%C3%A9mon_HOME | i passaggi dalla banca e dal gioco per telefono verso il deposito | PKD |
+| Pocket Monsters Stadium, Wikipedia | https://en.wikipedia.org/wiki/Pocket_Monsters_Stadium | che Surf su Pikachu è un premio di torneo di Stadium e che la specie non lo apprende altrimenti | EVT |
+| Waxing Nostalgic About Surfing Pikachu, pokemon.com | https://www.pokemon.com/us/pokemon-news/waxing-nostalgic-about-surfing-pikachu | la storia del Pikachu surfista, dal titolare della serie | EVT |
+| Dalla Tempocapsula a Pokemon HOME, Pokemon Millennium | https://www.pokemonmillennium.net/rubriche/184574-dalla-tempocapsula-a-pokemon-home-la-guida-completa-ai-passaggi-tra-generazioni/ | la guida ai passaggi fra generazioni, con gli aggiramenti esistenti e la loro assenza per Surf | PKD |
+| Macchina nascosta, Bulbapedia | https://bulbapedia.bulbagarden.net/wiki/HM | quali mosse siano macchine nascoste in ciascuna generazione, che è la tavola su cui `tools/mosse-mn.py` poggia il controllo | PKD, EVT |
+
 ## Livello 1: disassemblati, decompilazioni e documentazione dell'hardware
 
 Sono la fonte autorevole su ogni offset, ogni campo di bit, ogni formula e ogni tabella. Un dato letto qui non ha bisogno di conferma; un dato che li contraddice è sbagliato.
