@@ -4,8 +4,8 @@ generated-from-branch: main
 generated-date: 2026-09-02
 covers-paths:
   - pokedex-home-completo/
-last-verified-commit: 0f72ba487040b9198c78e3d9512285f45b55c1c8
-stato: attivo, asse degli eventi da tre fonti con 6244 voci di cui 3095 sotto scadenza e 433 specie distinte, ottenibilita misurata, terza generazione chiusa a 386 su 386
+last-verified-commit: ded68c5
+stato: attivo, sei assi e non tre, asse del sesso chiuso a 102 specie con scarto nullo su due fonti, criterio di produzione fissato da ADR-049, due classi nuove aperte il 2026-09-09
 ---
 
 # Sottoprogetto: Pokedex completo in Pokemon Home
@@ -105,3 +105,17 @@ L'ottenibilità è misurata ed è ADR-032. `tools/ottenibilita-titoli.py` sostit
 La terza generazione è chiusa sull'asse delle specie. `tools/verifica-salvataggi.py` sa ora leggere il deposito di Pokemon Box, che riconosceva e non apriva, e vi trova 674 posizioni occupate con zero strutture rifiutate. L'unione con i salvataggi della raccolta copre 386 specie su 386: il Box manca di Mew e Deoxys, i salvataggi della sola Poochyena, e nessuna specie manca a entrambi. Le due assenti dal Box sono precisamente quelle dei biglietti, il che è una conferma indipendente, da una fonte che non sa nulla del nostro lavoro, che la classe delle distribuzioni consegnate come oggetto esiste ed è la parte più difficile. Il conto della campagna scende quindi da 640 a 639 voci di specie senza fonte.
 
 Resta aperta una sola domanda su questo track, ed è quella delle forme. Il confronto a macchina fra l'elenco consegnato dall'utente e le 1535 voci di forma che il progetto enumera dà 54 concordi e 9 divergenti, e le divergenze non sono errori ma la domanda in forma precisa: Alcremie ha nove forme nei dati contro sessantatré nell'elenco, perché la decorazione sta in un campo separato dalla crema, e la differenza su quella sola specie vale cinquantaquattro caselle. La risposta non è su una fonte ma nell'applicazione che l'utente possiede, e il materiale atteso è registrato in `pending.md`.
+
+## Aggiunta dal 2026-09-07 al 2026-09-09: gli assi sono sei, e il criterio di produzione esiste
+
+Questa sezione allinea la scheda a cinque giorni di lavoro e sostituisce, dove divergono, i numeri delle sezioni precedenti.
+
+Gli assi della collezione sono sei e non tre, ed è `STUDIO-05` a stabilirlo: alle specie, alle forme e agli esemplari da distribuzione si aggiungono le mosse che nessun titolo moderno insegna più, i fiocchi conferiti da vie chiuse, e le sfide interne al deposito. Le mosse perdute sono venticinque fra la seconda e la quinta generazione, derivate dai dati con `tools/mosse-perdute.py`; i fiocchi sono centosessantaquattro nell'asse, di cui settantasei rappresentabili dai nostri formati, classificati con `tools/fiocchi.py`; le sfide hanno ora come fonte primaria l'applicazione stessa e non un elenco di terzi.
+
+L'asse del sesso è chiuso. Le specie con differenze di sesso visibili sono centodue, enumerate da Bulbapedia con `tools/enumera-differenze-sesso.py` in `DIFFERENZE-DI-SESSO.md`, e il confronto con il foglio comunitario dà zero divergenze in entrambi i versi: per ADR-044 l'enumerazione è chiusa rispetto a entrambe le fonti. Il centotre che la scheda e la memoria portavano era un denominatore assunto, perché Sneasel porta quattro righe e non due, e la forma di Hisui è una voce dell'asse delle forme.
+
+Il criterio di produzione è fissato da ADR-049, accolta dall'utente il 2026-09-08: si produce un esemplare quando la sua sola via di provenienza non esiste più. Ne segue che gli incontri ordinari dei giochi restano fuori dal perimetro, che il sondatore dei sogni vi entra con le sue centottantuno voci, e che ogni classe già prodotta o già scartata va riletta chiedendosi se la sua via sia davvero chiusa. Il controllo all'indietro ha già i suoi candidati, ed è la tabella delle undici classi a via chiusa in `STUDIO-06-le-enumerazioni-trasversali.md`.
+
+Le cartelle di calcolo della comunità si leggono con `tools/leggi-foglio-google.py`, che le porta al Livello 1 in `INDICE-FOGLI-ESTERNI.md` invece di versarle in conversazione: quattro cartelle, ventinove schede, e le due schede decisive esportate come tabelle tracciate.
+
+Il prossimo passo su questo track è in tre tempi dichiarati. Il terzo cluster prioritario del corpus, cioè le sedici voci sulla manipolazione del generatore, va letto prima di aprire il lavoro sul sondatore dei sogni. Le due classi aperte dall'utente il 2026-09-09, cioè gli scambi in gioco e gli incontri che una condizione sblocca, vanno definite ed enumerate. E tre verifiche restano in sospeso in `pending.md`, di cui una tocca lavoro già fatto, cioè la trasferibilità dei premi di Stadium.
