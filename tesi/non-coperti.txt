@@ -210,3 +210,113 @@ pokedex-home-completo/SCHEDE-EVENTI-GB.md#evt-2-0138-ledyba # inventario generat
 pokedex-home-completo/SCHEDE-EVENTI-GB.md#evt-2-0139-spinarak # inventario generato di valori derivati, non prosa da rendere
 pokedex-home-completo/SCHEDE-EVENTI-GB.md#evt-2-0140-yanma # inventario generato di valori derivati, non prosa da rendere
 pokedex-home-completo/SCHEDE-EVENTI-GB.md#evt-2-0141-pineco # inventario generato di valori derivati, non prosa da rendere
+
+## Le schede degli esemplari di quarta generazione sono l'inventario fratello di quelle di terza,
+## con una tabella di valori derivati per ciascuna delle duecentoquarantasette voci del lotto, e
+## valgono l'esenzione per la medesima ragione: la tesi rende il criterio con cui un giudizio si
+## registra con i suoi byte, non le sue duecentoquarantotto tabelle.
+recreate-pokemon-distributions-events/SCHEDE-ESEMPLARI-GEN4.md # inventario generato di valori derivati, non prosa da rendere
+
+## Il censimento delle fonti del corpus della collezione e' un registro generato di
+## millecentoventotto collegamenti raggruppati per cluster e per host: la tesi ne rende il metodo
+## di attraversamento del grafo dei rinvii, la copertura dichiarata e i limiti, che sono
+## conoscenza, e non l'elenco degli indirizzi, che e' un indice da consultare.
+pokedex-home-completo/CENSIMENTO-FONTI-COLLEZIONE.md # registro generato di collegamenti, non prosa da rendere
+
+## Il censimento degli incontri condizionati elenca, titolo per titolo, le specie che ciascun
+## criterio isola. La tesi rende i tre criteri, il quadro d'insieme e le misure; le liste per
+## titolo sono dati da consultare.
+pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md#giallo # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md#oro # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md#argento # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md#cristallo # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md#rubino # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md#zaffiro # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md#smeraldo # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md#rosso-fuoco # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md#verde-foglia # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md#sciami-di-hoenn # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md#diamante # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md#perla # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md#platino # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md#oro-heartgold # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md#argento-soulsilver # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md#nero # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md#bianco # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md#nero-2 # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md#bianco-2 # elenco generato di righe di dati, non prosa da rendere
+
+## Il censimento degli scambi in gioco elenca una tabella per ciascuna tavola del verificatore,
+## nominata come la tavola stessa. La tesi rende la misura, la distinzione fra voci e voci
+## distinte e la parte riproducibile byte per byte; le tavole sono dati da consultare.
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftrb-da-encounters1-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftyw-da-encounters1-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftbu-da-encounters1-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftgsc-da-encounters2-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftfrlg-da-encounters3frlg-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftfr-da-encounters3frlg-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftlg-da-encounters3frlg-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftrs-da-encounters3rse-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegifte-da-encounters3rse-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#trades-da-encounters3xd-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#ranchgifts-da-encounters4dppt-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftdpptingame-da-encounters4dppt-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegifthgss-da-encounters4hgss-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftb2w2-da-encounters5b2w2-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftw2-da-encounters5b2w2-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftb2-da-encounters5b2w2-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftbw-da-encounters5bw-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftb-da-encounters5bw-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftw-da-encounters5bw-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftao-da-encounters6ao-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftxy-da-encounters6xy-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftgg-da-encounters7gg-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftgp-da-encounters7gg-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftge-da-encounters7gg-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftsm-da-encounters7sm-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftusum-da-encounters7usum-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradeswsh-da-encounters8-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradesw-da-encounters8-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradesh-da-encounters8-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftbdsp-da-encounters8b-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#tradegiftsv-da-encounters9-cs # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CENSIMENTO-SCAMBI.md#trades-da-encounters9a-cs # elenco generato di righe di dati, non prosa da rendere
+
+## Le enumerazioni per generazione delle differenze di sesso, le liste dei fiocchi, le righe degli
+## identificativi notevoli, i vocabolari dello spoglio del corpus, le due liste del confronto con il
+## foglio comunitario e le liste di nomi delle mosse perdute sono tutte enumerazioni generate. La
+## tesi ne rende la definizione, il metodo e i numeri; le righe restano dati da consultare, e la
+## ragione e' quella gia' dichiarata per il catalogo degli eventi.
+pokedex-home-completo/DIFFERENZE-DI-SESSO.md#generazione-i # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/DIFFERENZE-DI-SESSO.md#generazione-ii # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/DIFFERENZE-DI-SESSO.md#generazione-iii # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/DIFFERENZE-DI-SESSO.md#generazione-iv # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/DIFFERENZE-DI-SESSO.md#generazione-v # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/DIFFERENZE-DI-SESSO.md#generazione-vi # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/DIFFERENZE-DI-SESSO.md#generazione-viii # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/DIFFERENZE-DI-SESSO.md#generazione-ix # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/FIOCCHI.md#terza-generazione-i-trentadue-della-parola-dei-meriti # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/FIOCCHI.md#quarta-e-quinta-generazione # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/FIOCCHI.md#quelli-rappresentabili-che-nessun-nostro-esemplare-porta-69-su-76 # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/FIOCCHI.md#perduti-con-la-chiusura-al-piu-69 # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/FIOCCHI.md#conquistabili-su-console-corrente-0 # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/FIOCCHI.md#non-trattati-da-alcun-insieme-del-verificatore-0 # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/FIOCCHI.md#la-parte-dell-asse-fuori-dai-nostri-formati-88 # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/ID-NOTEVOLI.md#non-coperta-119-righe # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/ID-NOTEVOLI.md#coperta-sul-solo-identificativo-301-righe # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/ID-NOTEVOLI.md#coperta-con-allenatore-473-righe # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/ID-NOTEVOLI.md#non-collezionabile-3-righe # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/SPOGLIO-CORPUS.md#specie # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/SPOGLIO-CORPUS.md#mosse # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/SPOGLIO-CORPUS.md#fiocchi # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CONFRONTO-FOGLIO-LIVINGDEX.md#dove-il-foglio-conta-più-di-noi-cioè-dove-siamo-ciechi # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CONFRONTO-FOGLIO-LIVINGDEX.md#dove-contiamo-più-del-foglio-cioè-dove-abbiamo-rumore # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/CONFRONTO-FOGLIO-LIVINGDEX.md#le-voci-del-foglio-che-portano-una-nota-sull-ottenimento # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/MOSSE-PERDUTE.md#trovate-dalla-derivazione-e-assenti-dalla-testimonianza-35 # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/MOSSE-PERDUTE.md#nella-testimonianza-e-non-nella-derivazione-18 # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/MOSSE-PERDUTE.md#quelle-che-mancano-28 # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/EVENTI-SENZA-CARTA.md#l-espansione-per-allenatore # elenco generato di righe di dati, non prosa da rendere
+pokedex-home-completo/INDICE-FOGLI-ESTERNI.md#bank-closing-all-possible-things-checklist-v0-5-xlsx # scheletro generato di Livello 1, non prosa da rendere
+pokedex-home-completo/INDICE-FOGLI-ESTERNI.md#pokémon-master-dex-and-retro-dex-challenges-xlsx # scheletro generato di Livello 1, non prosa da rendere
+pokedex-home-completo/INDICE-FOGLI-ESTERNI.md#2026-09-08-foglio-ingame-events-chaboijish-xlsx # scheletro generato di Livello 1, non prosa da rendere
+pokedex-home-completo/INDICE-FOGLI-ESTERNI.md#2026-09-08-foglio-scambi-e-doni-greenpangolin17-xlsx # scheletro generato di Livello 1, non prosa da rendere

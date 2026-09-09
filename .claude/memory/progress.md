@@ -4,6 +4,44 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-09, ottava parte. Il riallineamento del progetto a se stesso, e tre difetti silenziosi
+
+### La richiesta, e perché ha prodotto questo lavoro invece di altro
+
+L'utente ha chiesto di ripartire dal prompt di ripresa e ha ricordato che ogni singolo dettaglio del progetto deve essere sempre aggiornato, compresa la mappatura delle fonti e dei documenti. Il prompt di ripresa alla radice era fermo al 2026-08-31 e dichiarava sei track, centottantuno pagine di tesi e un lettore di cartucce non ancora arrivato, cioè tre affermazioni false: la richiesta ha quindi trovato subito il proprio primo caso, e il giro di lavoro è diventato la verifica sistematica di ciò che il progetto dice di se stesso contro ciò che il progetto è.
+
+Tutti e tre i disallineamenti trovati appartengono alla medesima classe, che è quella che questo progetto registra con più cura: non producono alcun errore visibile finché qualcuno non guarda.
+
+### La copertura della tesi, scesa al sessantotto per cento senza che nulla lo segnalasse
+
+L'invariante dice che ogni riga di ogni `.md` finisce nella tesi, e lo strumento che lo misura era stato eseguito l'ultima volta prima di dieci giorni di lavoro intenso sul track del deposito. La misura di partenza è sessantotto virgola tre per cento, cinquecentoquindici sezioni scoperte per undicimilaseicentottantacinque righe, e quattro capitoli in drift rispetto ai documenti che coprono.
+
+Il primo passo non è stato scrivere ma riparare lo strumento, perché `--scoperte`, cioè l'opzione che elenca il lavoro da fare, si arrestava con un errore di codifica sul primo titolo contenente un carattere fuori dalla tabella della console di Windows. La correzione è la riconfigurazione dello standard output in UTF-8 con sostituzione, che è l'idioma già presente in una dozzina di altri strumenti del progetto: il difetto era che questo non lo aveva. Vale registrarlo perché è un caso puro di strumento che nasconde proprio la cosa che serve a usarlo.
+
+Il lavoro si è poi diviso in due secondo il criterio che è diventato ADR-056. Undici documenti generati hanno ricevuto un blocco di esenzione motivata in `tesi/non-coperti.txt` per le sole sezioni che sono righe di dati, cioè le duecentoquarantotto schede di pedigree della quarta generazione, il censimento delle fonti del corpus, le liste per titolo dei due censimenti nuovi, le enumerazioni per generazione delle differenze di sesso, le liste dei fiocchi, le righe degli identificativi notevoli, i vocabolari dello spoglio e le due liste del confronto con il foglio comunitario. Quella sola operazione ha portato la copertura da sessantotto virgola tre a novantotto virgola nove per cento, il che è la misura di quanto peso i documenti generati abbiano preso.
+
+Il resto, cioè centosei sezioni di prosa vera per quattrocentodue righe, è stato reso in quattro capitoli nuovi. Il 28 tratta la catena di trasferimento con i suoi vincoli anello per anello, la via in emulazione, la regola di ammissione del deposito e le porte che restano dopo la chiusura. Il 29 tratta gli assi della collezione, come si enumerano, il metodo del predicato applicato a una testimonianza, la chiusura dell'asse del sesso e le due classi nuove degli scambi in gioco e degli incontri condizionati. Il 30 tratta le due vie che non compongono nulla, cioè l'esecuzione di codice interna al gioco e il canale ricostruito. Il 31 tratta come si legge un corpus che non entra in una sessione e come se ne ricava una pianificazione. Il capitolo 14 ha ricevuto la sezione sulla prima sessione con il lettore, ordinata per rischio, e il 23 due sezioni nuove.
+
+Il capitolo 23 portava inoltre due affermazioni diventate false, ed è la ragione per cui il drift va guardato invece di essere silenziato: diceva che il lettore di cartucce non fosse ancora arrivato e che il forum tecnico non fosse raggiungibile per alcuna via. La prima è stata riscritta al passato invece che cancellata, perché le affermazioni di quel capitolo sul debito di lettura riguardano il periodo in cui quello strumento non c'era; la seconda ha ricevuto il paragrafo sulla settima via e la prescrizione generale che ne discende, cioè che quando più vie falliscono con lo stesso esito conviene chiedersi che cosa abbiano in comune, perché se condividono il capo che rifiuta non sono vie diverse ma la stessa via ripetuta.
+
+Esito misurato alla fine: quaranta file di capitolo, trecento pagine, copertura al cento per cento su trentaseimilaottocentotrenta righe, zero errori di compilazione, zero riferimenti irrisolti, centosei voci di bibliografia tutte citate, e i quattro capitoli in drift riverificati e riportati al commit corrente dopo avere guardato che cosa fosse cambiato nei documenti che coprono.
+
+### La bibliografia, che portava dieci voci scritte a mano dentro un file generato
+
+È il difetto più insidioso dei tre ed è ADR-055. `tesi/bibliografia.tex` dichiara in testa di essere generato dalla tabella `FONTI` di `tools/build-source-map.py` e di non doversi modificare; il confronto fra i due ha mostrato che dieci voci vivevano nella sola bibliografia, aggiunte a mano fra il 2026-08-31 e il 2026-09-01, e che i capitoli le citano. La prima rigenerazione le avrebbe cancellate lasciando dieci citazioni orfane in un momento qualunque e apparentemente senza causa.
+
+Le dieci sono state riportate nella tabella con abstract, livello e track ricostruiti dalla voce bibliografica, e nel medesimo giro sono entrate diciotto fonti nuove che il registro aveva e la mappa no, cioè quelle dei cluster del corpus letti fra il 7 e il 9 settembre: la regola del tracciatore, le tre guide al catalogo per regione di origine, la pagina delle differenze di sesso, quella degli identificativi notevoli, il post sulle sfide, i due fogli comunitari, la guida ai sottolivellati, le due voci sull'esecuzione di codice in seconda generazione, le due sulla via del nome di dominio, la procedura delle rovine, la tavola delle macchine nascoste e l'articolo ufficiale sull'esemplare surfista. La mappa passa da cinquantanove a ottantasette fonti con cinquantuno relazioni, la bibliografia da ottantotto a centosei voci, e tutte e centosei risultano citate.
+
+### I documenti che descrivono il progetto invece di farne parte
+
+`CLAUDE.md` dichiarava cinque track ed elencava cinque schede verticali su dieci esistenti, e non nominava l'obiettivo che sta sopra i track: ora dichiara i dieci, la scadenza, le nove regole con le tre da conoscere per prime, e l'indice dei file satellite comprende la mappa dei documenti, la tesi, gli strumenti e le due cartelle di conoscenza dei track più grossi. `docs/index.md` parlava di sei sottoprogetti e la sua tabella ne saltava quattro, che sono stati aggiunti con le note del percorso di studio che servono a ciascuno. `MAPPA-DOCUMENTI.md` contava trecentoquarantacinque file Markdown e otto regole, mentre i file sono trecentonovanta e le regole nove, e la sua tabella dei documenti generati mancava di una voce e portava quattro dimensioni vecchie.
+
+`resume-prompt.md` è stato riscritto da capo. La mappa dei documenti lo indicava come candidato alla rimozione con un argomento corretto, cioè che duplicava la funzione dell'indice e delle pendenze mentre invecchiava; la scelta è stata opposta e la ragione sta nella richiesta stessa dell'utente, che da quel file riparte. Cancellare il documento da cui una persona riparte non risolve il problema di cui quel documento soffriva. Ora dichiara la data del proprio stato, i numeri accanto ai comandi che li ricalcolano, le quattro discipline compresa la regola nuova sulla persistenza, i task aperti e gli errori di metodo, che sono la parte che l'indice e le pendenze non contengono.
+
+### File scritti in questo giro
+
+`tools/check-thesis-coverage.py`, `tools/build-source-map.py`, `tesi/non-coperti.txt`, `tesi/tesi.tex`, i quattro capitoli nuovi da `28-catena-di-trasferimento.tex` a `31-corpus-e-pianificazione.tex`, `tesi/capitoli/14-caso-smeraldo.tex`, `tesi/capitoli/23-fonti.tex`, i quattro capitoli con il checkpoint riverificato, `tesi/bibliografia.tex` e le ottantasette note sotto `docs/fonti/` rigenerate, `tesi/tesi.pdf` ricompilato, `CLAUDE.md`, `docs/index.md`, `MAPPA-DOCUMENTI.md`, `resume-prompt.md`, `.claude/memory/index.md`, `.claude/memory/decisions.md` con ADR-055 e ADR-056, `.claude/memory/pending.md` e questo file.
+
 ## 2026-09-09, settima parte. L'handoff assorbito, le macchine nascoste contate, e la regola che la chat non è memoria
 
 ### La direttiva che vale da qui in avanti

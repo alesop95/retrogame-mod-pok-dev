@@ -4,8 +4,8 @@ generated-from-branch: main
 generated-date: 2026-08-24
 covers-paths:
   - pokemon-gen12-gen3-bridge-original-hardware/
-last-verified-commit: 7696c46
-stato: decisione aperta, lato Game Boy scritto e collaudato
+last-verified-commit: ee0f52b
+stato: decisione ADR-008 ancora aperta; le tre generazioni sono scritte e collaudate e dal 2026-09-09 esiste anche lo strato del salvataggio da 128 KiB
 ---
 
 # Sottoprogetto: ponte Pokemon da Gen 1 e 2 verso Gen 3 su hardware originale
@@ -24,7 +24,11 @@ Questo è l'unico dei quattro sottoprogetti destinato a diventare software vero.
 
 Il lettore e scrittore della struttura di generazione 3 è scritto e collaudato dal 2026-08-26, in `pokebridge/gen3.py`, con cifratura, permutazione e checksum verificati sul sorgente di `pret/pokeemerald` invece che su fonte secondaria: le ventiquattro righe della tabella di permutazione sono verbatim dalla macro `SUBSTRUCT_CASE` di `src/pokemon.c`, i confini dei campi di bit vengono dalle dichiarazioni di `include/pokemon.h`, e da là si sono chiusi i quattro bit che la referenza non nominava, cioè i bit 27 a 30 della parola dei nastri, che nel sorgente sono `unusedRibbons`. La suite passa 114 prove. Il valore di personalità è immutabile dopo la costruzione, come prescrive `docs/20-architettura-codice.md`, e chi deve cambiarlo usa `with_personality`, che ricompone la struttura da capo.
 
-Il prossimo passo è quindi lo strato successivo, e ci sono due candidati con costo simile. Il primo è il generatore del salvataggio sintetico da confrontare con `PKHeX`, che è il controllo che chiude il limite noto descritto sotto e non richiede alcun hardware. Il secondo è la struttura del salvataggio da 128 KiB, cioè le sezioni da 4096 byte con il loro piede, la scelta dello slot valido e il buffer contiguo del deposito, che è la sezione 6 della referenza e che `gen3.py` dichiara esplicitamente di non coprire.
+Entrambi i candidati che questa sezione elencava sono stati eseguiti il 2026-09-09 e il prossimo passo è quello che ne resta. Lo strato del salvataggio da 128 KiB è `pokebridge/save3.py`: sceglie fra i due slot con la regola che a parità vince B, ricompone i buffer che le quattordici sezioni frammentano prendendo i primi 3968 byte di ciascuna, legge e scrive le posizioni del deposito e della squadra ricalcolando i checksum delle sole sezioni toccate, genera un salvataggio sintetico valido con `crea_vuoto` e converte fra la forma del file dell'editor e quella del salvataggio, che non sono la stessa. La suite passa 206 prove. Il caricatore è `tools/carica-lotto-gen3.py`, provato sul lotto degli incontri con quattordici voci scritte e rilette identiche byte per byte.
+
+La prova che vale più delle altre è quella sul record a cavallo di due sezioni: con 3968 byte di dati per sezione e record da ottanta, la posizione quarantanove comincia dentro una sezione e finisce nella successiva, e scrivere come se il buffer fosse contiguo sovrascriverebbe il piede di una sezione invalidando lo slot senza che nulla se ne accorga fino al caricamento della partita.
+
+Il prossimo passo è quindi il confronto vero, cioè generare il medesimo contenitore con il verificatore esterno e diffare i byte: è la prova che alla simmetria mancava e che il limite noto descritto sotto richiede.
 
 ## Decisione aperta, registrata come ADR-008
 

@@ -13,8 +13,8 @@ covers-paths:
   - generation-from-switch/
   - cart-battery-restoration/
   - pokedex-home-completo/
-last-verified-commit: 7696c46
-stato: adozione conclusa; in corso su 6 track di 9
+last-verified-commit: ee0f52b
+stato: adozione conclusa; dieci track, fuoco corrente sul completamento del Pokedex nel deposito
 ---
 
 # Lavoro in corso
@@ -25,15 +25,15 @@ La fonte di verità su cosa è fatto resta `memory/index.md`, non le spunte di q
 
 | Sottoprogetto | Stato | Prossima azione concreta | Bloccato da |
 |---|---|---|---|
+| pokedex-completo | attivo ed è il fuoco corrente; sei assi più le due classi nuove, criterio di produzione fissato e coda ordinata per scadenza | finire la lettura del corpus a lotti, poi il lavoro che ADR-051 apre, cioè estendere il generatore alle classi nuove e rigenerare la lista di spunta con i tre cambi recenti | nulla di tecnico; restano due decisioni dell'utente, cioè l'ambito delle sfide e la scelta del profilo di collezione |
+| distributions-events | attivo; cinque lotti prodotti, quello di terza conforme su tutte le voci producibili e quello di quarta su 219 su 247 | il pedigree delle voci di quarta generazione e il generatore di quinta, che è l'ultimo dei tre regimi a non essere scritto | nulla su questi passi; le 28 voci coreane attendono una decisione registrata in ADR-040 |
+| gen12-gen3-bridge | attivo; le tre generazioni e lo strato del salvataggio da 128 KiB sono scritti e collaudati, 206 prove | il confronto del salvataggio sintetico con il contenitore che il verificatore genera, che è la prova che alla simmetria mancava | nulla sul lavoro comune: ADR-008 e la discovery hardware pesano solo sull'ultimo tratto |
+| smeraldo-save-fix | attivo; il lettore è arrivato il 2026-09-09 e la prima sessione è progettata nel runbook | confermare i driver CH340 e annotare la porta, poi eseguire i quattro tempi del runbook nell'ordine del rischio | il solo riscontro sulla macchina per i driver |
+| cart-battery | diagnosi conclusa e negativa su Rosso e Argento; il runbook è scritto e verificato sulle fonti | provare le eventuali altre cartucce di prima e seconda generazione, che sono le sole con una finestra ancora aperta | nulla; la saldatura si fa quando conviene, perché su quelle due non c'è più nulla da perdere |
 | 3ds-modding | attivo | dump delle cinque cartucce DS rimanenti: Diamante, Perla, Platino, Nera 2, SoulSilver | nulla |
-| smeraldo-save-fix | attivo | confermare l'installazione dei driver CH340 e annotare la porta COM | riscontro sulla macchina, e arrivo del lettore ordinato il 18/08 |
-| gen12-gen3-bridge | attivo | lettore e scrittore della struttura di generazione 3, cifrata, permutata e con checksum | nulla sul lavoro comune: ADR-008 e la discovery hardware pesano solo sull'ultimo tratto |
-| gba-switch-trading | in ricerca, fonti portanti lette | provare l'Archer T2U Nano che l'utente ha già in modalità monitor, e leggere il codice di `frlgtrade.py` | nulla: la macchina non ha Wi-Fi integrato, e l'adattatore da provare è deciso con la sua riserva sul driver fuori albero |
-| cart-battery | attivo, è il fuoco corrente; runbook scritto | due misure che non richiedono il lettore, cioè se il salvataggio di seconda generazione esista ancora e quale pila stia dentro ciascuna cartuccia | l'estrazione attende il lettore; la saldatura attende una decisione fra farla e affidarla |
-| pokedex-completo | attivo, aperto il 2026-09-02; è l'obiettivo principale a cui gli altri track concorrono | verificare se Spinda abbia davvero una scadenza, che è l'unico punto che potrebbe darne una a una specie | la scelta di che cosa significhi completo, e l'acquisto dei titoli recenti, che la verifica dichiara non urgenti |
-| poke-ace | attivo, due studi scritti | due decisioni dell'utente, cioè se usare la tecnica e quale profilo di collezione sia l'obiettivo; e intanto il confronto fra il costruttore di esemplari e il metodo ricostruito dal track degli eventi | la verifica sui controlli di Home è impossibile prima di ottobre 2026 |
-| generation-from-switch | appena aperto, il meno sviluppato | leggere le due fonti registrate e riscrivere lo studio | nulla: è lavoro di lettura |
-| distributions-events | attivo, metodo verificato ed eseguibile | costruire un esemplare di evento con `pokebridge` e verificarne la legittimità con PKHeX, oppure leggere l'archivio degli eventi per i campioni mancanti | nulla su questi passi; la prova su dato autentico attende il lettore, e l'ultimo tratto verso Home due decisioni di perimetro |
+| poke-ace | attivo, tre studi scritti; il confronto fra il costruttore e il metodo ricostruito è fatto e concorda | resta una decisione dell'utente sulla produzione per vie che non siano una partita giocata, e la sua estensione | la verifica pratica è impossibile prima di ottobre 2026 |
+| gba-switch-trading | in ricerca, fonti portanti lette | leggere l'identificatore USB dell'adattatore che l'utente ha già, che è una misura e non un acquisto, e leggere il codice dei due repository | nulla: il track non richiede più Linux per ADR-015 |
+| generation-from-switch | il meno sviluppato dei dieci; il canale è stato letto su consegna di una schermata | riscrivere lo studio con lo stato corrente del servizio, cioè su quali titoli operi oggi e quali specie copra | materiale che l'utente può procurare, perché quella pagina non si recupera con una richiesta locale |
 | poke-automation | studio cominciato | studiare confronto di immagini e riconoscimento ottico dei caratteri, che è la parte trasferibile | una decisione di scopo: il perimetro del progetto di riferimento risulta compatibile con le nostre regole |
 
 ## Feature: adozione del sistema di progetto portabile
@@ -56,4 +56,6 @@ Il PDF che documenta il bug dell'inventario è escluso dal version control per l
 
 ## Riconciliazione
 
-Ultima verifica: 2026-08-26 al commit 7696c46. La corsa di `sync-context` di quella data ha trovato un drift quasi tutto contabile, perché le schede erano state aggiornate a mano nei commit successivi senza che nessuno bumpasse il loro `last-verified-commit`, e tre difetti sostanziali: `dev-testing.md` dichiarava che non esistono test automatici mentre 63 prove passano, l'apertura di `STACK.md` negava l'esistenza del codice che la sua stessa sezione delle dipendenze descriveva, e il conteggio dei track era fermo a quattro. Il difetto strutturale che li rendeva possibili era il `covers-paths` delle schede trasversali, che non seguiva l'aggiunta di un sottoprogetto: è stato esteso, e la procedura di aggiunta ha ora un quarto passo che lo impone.
+Ultima verifica: 2026-09-09 al commit ee0f52b, limitata alle schede che questa sezione nomina; le schede trasversali `STACK.md`, `design-and-security.md` e `roadmap.md` restano al 2026-08-26 e vanno rilette, perché i loro percorsi coperti hanno centoquattro file cambiati da allora. La corsa del 2026-09-09 ha riscritto la scheda del fuoco corrente, che era arrivata a ventimila byte duplicando i documenti del track, ha aggiornato quella del ponte, dove lo strato del salvataggio era dichiarato come prossimo passo ed è invece scritto e collaudato, e ha esteso il `covers-paths` di `dev-testing.md` ai due track che gli mancavano, cioè lo scambio locale e l'automazione: è di nuovo il difetto strutturale che la riga seguente descrive, ricomparso su due track invece che su uno.
+
+Verifica precedente: 2026-08-26 al commit 7696c46. La corsa di `sync-context` di quella data ha trovato un drift quasi tutto contabile, perché le schede erano state aggiornate a mano nei commit successivi senza che nessuno bumpasse il loro `last-verified-commit`, e tre difetti sostanziali: `dev-testing.md` dichiarava che non esistono test automatici mentre 63 prove passano, l'apertura di `STACK.md` negava l'esistenza del codice che la sua stessa sezione delle dipendenze descriveva, e il conteggio dei track era fermo a quattro. Il difetto strutturale che li rendeva possibili era il `covers-paths` delle schede trasversali, che non seguiva l'aggiunta di un sottoprogetto: è stato esteso, e la procedura di aggiunta ha ora un quarto passo che lo impone.
