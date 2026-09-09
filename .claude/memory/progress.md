@@ -4,6 +4,32 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-09, terza parte. Le otto decisioni prese, la regola del tracciatore, e due verifiche chiuse
+
+### Le decisioni, registrate una per una
+
+L'utente ha risposto a tutte e otto le domande poste, e le quattro che hanno conseguenze indipendenti sono diventate ADR. ADR-051 estende il perimetro agli incontri ordinari e supera la quarta classe di ADR-049, con tre motivazioni dell'utente di cui due nuove per il progetto: l'asimmetria dei tempi fra comporre e catturare, il valore ingegneristico e per la tesi della produzione, e la sicurezza di non dipendere da una via che potrebbe rivelarsi chiusa. ADR-052 fissa l'ordinamento della coda per scadenza senza eccezioni, e la ragione per cui va contro l'intuizione del costo è che una voce che scade e non viene prodotta non torna, mentre una costosa che non scade si produce dopo. ADR-053 adotta la via interna al gioco sulla Console Virtuale e tiene separata la decisione sulle cartucce, con le tre condizioni che quella decisione richiederà. ADR-054 fissa le sessantatre configurazioni di Alcremie come voci distinte e supera ADR-035 su quel punto, alzando il bersaglio delle forme di cinquantaquattro.
+
+Le altre quattro risposte sono conferme e stanno dentro le ADR o in `pending.md`: l'allenatore del progetto per le classi nuove, la produzione delle classi a fedeltà indecidibile con la scelta dichiarata accanto alla voce, il rinvio degli acquisti a dopo la chiusura, e la richiesta di rispiegare le sfide del deposito.
+
+### La regola che cambia la pianificazione, ed era su disco da un giorno
+
+Il cluster sui trasferimenti porta la regola che `STUDIO-04` non aveva: il deposito accetta un esemplare privo di tracciatore soltanto se il gioco di origine coincide con il gioco da cui lo si sta depositando. Un esemplare di nona generazione dentro un salvataggio di nona entra e riceve il tracciatore; lo stesso esemplare con origine di quarta dentro quel salvataggio viene rifiutato. Ne segue che dopo la chiusura non basterà iniettare un esemplare anziano in un salvataggio moderno: quella via è chiusa per costruzione.
+
+L'eccezione unica è Spada e Scudo, che accetta qualunque origine e fa assegnare un tracciatore nuovo, e il meccanismo la rende credibile: gli esemplari che arrivano dalla banca generano il blocco specifico del gioco nel formato di quel titolo, che è quindi il formato di sbarco della banca e l'unico senza validazione stretta. Le due avvertenze della fonte sono che non si sa se il deposito annoti il punto d'ingresso, e che quando la banca chiude quel formato non serve più. Ne segue che la scappatoia non allunga la scadenza, perché lo farebbe solo se fosse garantita: ADR-052 non è prudenza ma conseguenza.
+
+La seconda fonte non spogliata era una trascrizione già in `_notes/fonti/` dal 2026-08-31, e documenta il ponte di ottobre: sulle versioni per console corrente di Rosso Fuoco e Verde Foglia si allestisce uno scrittore in base sessantaquattro che scrive il dato byte per byte, e quelle versioni ricevono la compatibilità diretta col deposito. L'autore aggiunge la propria riserva, cioè che il deposito conserva lato servizio da dove un esemplare sia entrato e che a dato identico il risultato non è garantito indistinguibile. Le due fonti insieme permettono una previsione che nessuna fa da sola, registrata come inferenza: dalle versioni nuove passeranno gli esemplari con origine in quelle versioni e non quelli con origine sulle cartucce, quindi il ponte di ottobre è un ponte per la terza generazione rifatta e non per la terza generazione. La verifica costa un esemplare e si fa a ottobre.
+
+La medesima trascrizione porta i numeri del piano a pagamento, e da essi un vincolo di calendario che tocca la decisione dell'utente di comprare dopo la chiusura: i titoli moderni possono attendere perché servono a prelevare, il piano a pagamento no perché è la condizione del passaggio dalla banca al deposito, che esiste solo fino al 26 febbraio 2027. La capienza è di seimila posizioni e sale a novemila da ottobre 2026 senza aumento di prezzo, il piano gratuito ne tiene trenta, e alla scadenza dell'abbonamento restano accessibili i trenta più recenti.
+
+### Due verifiche chiuse e una che resta
+
+I premi di Stadium: la fonte comunitaria e il verificatore non si contraddicono perché parlano di due cose. Il verificatore li accetta come incontri validi e ne descrive il tasso di cattura come identificativo della scatola di consegna, centosessantasette per la normale e centosessantotto per la pregiata, con Psyduck ammesso solo nella seconda. La trasferibilità è altro: nascevano su cartuccia collegata alla console fissa, la cartuccia non ha via ufficiale verso la banca, e la riedizione per Console Virtuale che quella via ha non può averli ricevuti perché non si collega alla console fissa. Sono quindi producibili come dato e non legittimamente trasferibili come esemplari, e la voce resta nel lotto con questa dichiarazione accanto.
+
+L'Isola Miraggio: la classe non è svuotata. L'affermazione registrata in `poke-ace/STUDIO-03` va letta nel suo contesto, che è il canale sull'esecuzione di codice, dove si discutono codici da digitare nei nomi delle scatole per sbloccare l'isola: riguarda gli esemplari ottenuti così e non quelli catturati sull'isola per la via del gioco.
+
+Resta aperta la rimozione del timbro della banca all'uscita dal deposito: il corpus non porta una fonte migliore della discussione che l'afferma, e la regola del tracciatore è cosa diversa, perché il tracciatore è un identificativo lato servizio e il timbro un contrassegno sul dato.
+
 ## 2026-09-09, seconda parte. ADR-050, il terzo cluster letto, e il Mew che ci mancava
 
 ### La decisione, e che cosa comporta
