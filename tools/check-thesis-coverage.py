@@ -343,6 +343,8 @@ def igiene_tex():
 
 
 def main():
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--verbose", action="store_true")
     ap.add_argument("--scoperte", action="store_true",

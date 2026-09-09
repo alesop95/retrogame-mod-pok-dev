@@ -430,6 +430,194 @@ FONTI = [
      "Serve a una cosa sola e va classificata per quella: dice come la conoscenza dei metodi è stata ottenuta, cioè da campioni e non da un sorgente, il che spiega perché alcuni eventi restino non chiusi e perché la richiesta pubblica di campioni sia il modo in cui quella ricerca progredisce. Sul dettaglio non è citabile e il suo contenuto va verificato sulla tabella di PKHeX, che è la forma consolidata della medesima conoscenza.",
      [("[[24-fonti-di-community]]", "una ricerca che avanza per campioni invece che per sorgente")],
      [("documenta", "pkhex-eventi-gen3")]),
+
+    # Le dieci voci che seguono erano in bibliografia e non in questa tabella, cioè erano
+    # state scritte a mano nel file generato fra il 2026-08-31 e il 2026-09-01, contro
+    # l'intestazione di quel file che dichiara di non doversi modificare. Sono state
+    # riportate qui il 2026-09-09, perché la tabella è la fonte unica e una voce che vive
+    # solo nel derivato sparisce alla prima rigenerazione, portandosi via le citazioni che
+    # vi puntano. È lo stesso difetto che il progetto ha già registrato altrove con un nome
+    # proprio, cioè un dato che esiste in un posto solo e non in quello che lo governa.
+    ("frlg-home", "Pokemon, il collegamento della riedizione con il deposito in rete", "https://www.pokemon.com/us/news/pokemon-firered-version-and-pokemon-leafgreen-version-link-with-pokemon-home", 1, True, ["ACE", "EVT", "LDN", "3DS"],
+     "Annuncio del 13 agosto 2026, letto il 2026-08-31: le riedizioni per la console corrente dei due titoli della terza generazione si collegheranno al deposito in rete a ottobre 2026, con la versione 4.1.0 del servizio. Il trasferimento è a senso unico, la capienza del piano a pagamento sale da seimila a novemila esemplari, e il completamento dell'inventario consegna un esemplare altrimenti non ottenibile. È la fonte che corregge la scadenza di questo lavoro: per la sola terza generazione la chiusura del servizio di deposito cessa di essere l'ultima porta.",
+     "È l'unica fonte ufficiale sul fatto che cambia il calendario del progetto, e va tenuta distinta dalle testimonianze che lo commentano. La sua lettura corretta è stretta: dice che il collegamento esisterà, non quali esemplari il servizio accetterà da quella porta, che è la domanda su cui il progetto ha una previsione dichiarata come tale.",
+     [("[[CATENA-DI-TRASFERIMENTO]]", "la seconda catena, e perché non allunga la scadenza per tutti"),
+      ("[[STUDIO-09-la-regola-del-tracciatore-e-le-porte-dopo-la-chiusura]]", "la previsione sul ponte di ottobre, marcata come inferenza")],
+     []),
+
+    ("tpc-dati-alterati", "Pokemon, gestione dei dati alterati per mezzi non autorizzati", "https://support.pokemon.com/hc/en-us/articles/360055828671-Addressing-the-use-of-data-altered-via-unauthorized-means", 1, True, ["ACE", "GEN", "EVT"],
+     "Politica ufficiale, letta il 2026-08-31, ed è l'unico elemento non congetturale sul rischio delle vie che producono esemplari: chi risulti impiegare dati alterati può subire la restrizione del gioco in rete, la restrizione delle funzioni di scambio nella versione per dispositivo mobile e la sospensione dell'accesso al deposito, in forma temporanea o indefinita a discrezione del titolare e senza rimborso. Dichiara un'eccezione che delimita il rischio e non lo assolve: nessuna restrizione per chi possieda dati alterati senza intenzione, per esempio ricevendoli in uno scambio senza saperlo.",
+     "È la sola fonte di primo livello sulla decisione di perimetro che resta all'utente, e va letta per ciò che dice invece che per ciò che conforterebbe: l'eccezione descrive chi riceve senza sapere, non chi produce deliberatamente.",
+     [("[[20-architettura-codice]]", "il perimetro entro cui gli strumenti di questo progetto sono scritti")],
+     []),
+
+    ("mankeymite-home", "MankeyMite, avvertenza sui trasferimenti verso il deposito in rete", "https://www.youtube.com/watch?v=KtJGkd0Qvvg", 4, True, ["ACE", "EVT", "3DS", "LDN"],
+     "Trascritta con yt-dlp e letta il 2026-08-31. Porta tre contributi: la catena ufficiale passo per passo, con i dettagli operativi sul luogo e sui prerequisiti di ciascun passaggio; il fatto che il trasferimento dal servizio di deposito verso il deposito in rete richieda il piano a pagamento di quest'ultimo, mentre il piano gratuito conserva trenta esemplari; e l'affermazione centrale sulla provenienza, cioè che il deposito in rete conserva sul proprio lato l'informazione della via da cui un esemplare è entrato, con la conseguenza che a parità di dati la storia differisce.",
+     "È la fonte da cui il progetto ha ricavato che la provenienza è una grandezza conservata dal servizio e non una sfumatura, e la regola del tracciatore letta un anno dopo la conferma dall'interno spiegandone il meccanismo. La sua sezione sul piano a pagamento porta i numeri della capienza, che entrano nella pianificazione della campagna.",
+     [("[[CATENA-DI-TRASFERIMENTO]]", "la capienza e i prerequisiti di ciascun passaggio"),
+      ("[[STUDIO-09-la-regola-del-tracciatore-e-le-porte-dopo-la-chiusura]]", "la porta di ottobre e la riserva dell'autore")],
+     []),
+
+    ("gen3-ace-builder", "Gen 3 ACE Pokemon Builder", "https://mankeymite.github.io/Gen3ACEPokemonBuilder/", 3, False, ["ACE", "EVT"],
+     "Funzione dichiarata dal suo autore: comporre il dato completo di un esemplare di terza generazione, comprese le vecchie distribuzioni di evento, con informazioni dell'allenatore, statistiche e lucentezza a scelta, restituendo un codice da digitare nei nomi delle scatole ed eseguire con il difetto del motore di testo. L'autore dichiara le opzioni di generazione conforme attive per difetto e dichiara di non poter garantire l'accettazione da parte del deposito in rete.",
+     "È il punto di convergenza con il track delle distribuzioni, perché produce lo stesso esemplare per la via opposta: il confronto fra il suo esito e quello del metodo ricostruito da questo progetto è stato fatto e concorda sui dati, il che rende la scelta fra le due vie una questione di provenienza e non di tecnica.",
+     [("[[23-prove-eseguite]]", "il confronto fra il costruttore e il metodo ricostruito")],
+     [("alternativa-a", "pkhex-eventi-gen3")]),
+
+    ("ace-archive", "Gen 3 ACE Archive", "https://mankeymite.github.io/gen3-ace-archive/", 3, True, ["ACE"],
+     "Archivio di codici cercabili per titolo, lingua e piattaforma, con guide video, generatori e documentazione di allestimento, letto il 2026-08-31. Va registrata un'assenza perché è significativa quanto un contenuto: non contiene alcuna dichiarazione sulla legittimità degli esemplari prodotti, sulla loro accettazione da parte dei verificatori né sui rischi per l'account, e tratta la tecnica come problema di implementazione e non di conseguenze.",
+     "Serve a stabilire quanto la via sia matura, che è una informazione diversa dal sapere se sia opportuna: la maturità di uno strumento non dice nulla sulle conseguenze del suo uso, e il silenzio dell'archivio su quelle conseguenze è esso stesso un dato per la decisione di perimetro.",
+     [("[[09-esecuzione-codice]]", "lo stato dell'arte degli strumenti di quella via")],
+     [("deriva-da", "gen3-ace-builder")]),
+
+    ("mankeymite-server", "MankeyMite's server, comunità dell'esecuzione di codice in generazione III", "https://discord.com/invite/rjQGPhG7e3", 5, True, ["ACE", "EVT", "GEN", "LDN"],
+     "Ventiquattro canali e centounomilaottocentodiciassette messaggi, esportati il 2026-09-01 e interrogati per le domande dichiarate aperte anziché letti; le affermazioni citate sono attribuite al loro autore. È la fonte che corregge la formulazione della domanda sulla legittimità, stabilendo che i verificatori sono tre con severità decrescente. Porta inoltre il tracciatore univoco assegnato a ogni esemplare in ingresso nel deposito, la via composta attribuita al suo autore e in forma più semplice di quella ipotizzata da questo lavoro, il funzionamento dell'esecuzione di codice sulla riedizione per console moderna con i codici differenziati dal filtro sulle parole vietate, l'ammissione che l'elenco di quel filtro impiegato dal costruttore è una ricostruzione empirica, e la cifra di quattrocento esemplari da distribuzione con la dichiarazione che non si termina prima della chiusura del servizio.",
+     "Il grado di fiducia è quello del quinto livello: testimonianze concordi di più membri, alcune ripetute a distanza di mesi, e nessuna verificabile su fonte superiore poiché il titolare del servizio non pubblica i propri criteri. Vale però più di una fonte redazionale, perché parla chi quella via la percorre.",
+     [("[[24-fonti-di-community]]", "come si interroga un archivio di community invece di leggerlo")],
+     [("conferma", "mankeymite-home")]),
+
+    ("insidegadgets-canale", "insideGadgets, canale di assistenza del produttore del lettore", "https://shop.insidegadgets.com/product/gbxcart-rw/", 5, True, ["BAT", "SME", "BRI"],
+     "Canale di assistenza del produttore del lettore di cartucce, esportato il 2026-08-31 con l'esportatore della comunità e letto per filtri il 2026-09-01: cinquantaquattromilasettecentocinquantuno messaggi, dai quali sono state estratte per parola chiave le testimonianze citate in questo lavoro, ciascuna attribuita al proprio autore. È la fonte di ciò che nessuna documentazione di prodotto contiene: la soglia di ritenzione dei componenti impiegati, la prova non strumentale per stabilire se la pila tenga ancora, il fatto che l'avvio dell'interfaccia nella modalità della terza generazione cancelli il salvataggio di una cartuccia della seconda anche senza comando di connessione, il formato della pila con la necessità della variante a linguette, e la sequenza in tre passi per rimettere in ordine l'orologio dopo la sostituzione.",
+     "Il grado di fiducia è quello del quinto livello, cioè testimonianza di campo non verificata su fonte superiore: dove una sua affermazione contraddicesse il sorgente o la documentazione dell'hardware, prevarrebbero questi ultimi. Il fatto sulla tensione è però quello che governa la prima sessione con il lettore, e la sua conseguenza è una sequenza e non una impostazione.",
+     [("[[RUNBOOK-PRIMA-SESSIONE]]", "il presidio sulla tensione prima di inserire una cartuccia")],
+     []),
+
+    ("home-checklist", "Pokemon HOME Checklist, inventario vivente e marchi di origine", "https://jacs720.github.io/Home-Checklist/", 3, True, ["ACE", "GEN", "EVT"],
+     "La pagina è un'applicazione a pagina singola e una richiesta restituisce il solo involucro; il contenuto è stato ricavato il 2026-08-31 sondando per costanti il fascio JavaScript, da cui le enumerazioni e le etichette di interfaccia sono leggibili in chiaro anche dopo la minimizzazione. Ne viene il modello dei dati: undici marchi di origine, di cui uno dedicato alla terza generazione e trattato nel codice come non ancora ottenibile; undici collezioni di provenienza speciale; quindici profili di collezione predefiniti, la cui cardinalità differisce di un ordine di grandezza fra il minimo e quello per marchio; quattro livelli di reperibilità di cui uno dichiaratamente ipotetico. Il catalogo delle singole specie non compare in chiaro e non è stato enumerato, quindi la fonte documenta la tassonomia e non l'elenco.",
+     "È la fonte che ha reso concreta la domanda su che cosa significhi collezione completa, mostrando che un superlativo non identifica un insieme: finché un profilo non è scelto non si sa quale lavoro sia necessario e quale superfluo.",
+     [("[[CHECKLIST-COMPLETA]]", "la nostra enumerazione, che a quella tassonomia si confronta")],
+     []),
+
+    ("berichandev", "berichandev, canale di trasmissione sui bot di scambio", "https://www.twitch.tv/berichandev", 5, True, ["GEN"],
+     "Registrato il 2026-08-31 su indicazione dell'utente, che lo descrive come noto nella comunità per avere sviluppato e ospitato bot di scambio automatico sui titoli per la console corrente; letto il 2026-09-01 su consegna di una schermata dei pannelli descrittivi del canale, che è la via della consegna manuale prevista dalla regola sulle fonti non recuperabili.",
+     "Serve al track della generazione dai giochi su console corrente, e la lezione di metodo che ne è venuta vale oltre il caso: la descrizione di seconda mano andava confermata leggendo la fonte invece che ripetuta, e la prima via del recupero automatico va tentata quando si cataloga e non un giorno dopo.",
+     [("[[24-fonti-di-community]]", "la consegna manuale come ultima via, e il suo formato")],
+     []),
+
+    ("amiibodoctor-generazione", "amiibodoctor, generare esemplari per il titolo competitivo", "https://amiibodoctor.com/2025/08/25/how-to-generate-pokemon-to-use-in-pokemon-champions/", 4, True, ["GEN"],
+     "Registrata il 2026-08-31 e letta per intero il 2026-09-01, recuperata con una richiesta locale al primo tentativo dopo essere stata catalogata come non letta. È dell'agosto 2025 e in questo dominio un anno è molto, quindi va letta sapendo che la procedura descritta può essere stata resa obsoleta da un aggiornamento del titolo.",
+     "È precisamente il caso in cui la gerarchia delle fonti prescrive di annotare la data della fonte accanto alla sua affermazione, e il caso in cui la regola sulle fonti non recuperabili ha mostrato il proprio costo quando la si applica in ritardo.",
+     [("[[24-fonti-di-community]]", "la data di una fonte come parte dell'affermazione")],
+     []),
+
+    ("home-tracker-psa", "Il tracciatore del deposito e la regola che governa chi entra senza", "https://www.reddit.com/r/PokemonHome/comments/1vqrxf4/psa_pok%C3%A9mon_home_bank_connectivity_the_home/", 5, True, ["PKD", "EVT", "ACE"],
+     "Nota tecnica della comunità, letta il 2026-09-09 dal cluster del corpus sull'accesso alla banca, che enuncia in una riga la regola di ammissione del deposito: un esemplare privo di tracciatore viene accettato soltanto se il gioco che dichiara come origine coincide con il gioco da cui lo si sta depositando. Porta l'esempio e il controesempio, cioè un leggendario con marchio di origine della nona generazione accettato dentro un salvataggio di nona e il medesimo leggendario con origine di quarta rifiutato dal medesimo salvataggio. Documenta inoltre l'unica eccezione nota, cioè che gli esemplari depositati dal titolo dell'ottava generazione sono accettati qualunque sia la loro origine, e ne spiega il meccanismo con la forma dei dati, poiché quel titolo è il formato di sbarco che la banca impiega.",
+     "È la fonte che decide la pianificazione, perché tocca la sola variabile che il progetto non controlla, cioè che cosa il servizio accetti. Da essa discende che dopo la chiusura non basterà iniettare un esemplare antico in un salvataggio moderno e depositarlo, e che la scappatoia dell'ottava generazione non allunga la scadenza perché è probabile che la validazione stretta si estenda quando il formato di sbarco non serva più. È il fondamento dell'ordinamento della coda per scadenza senza eccezioni.",
+     [("[[CATENA-DI-TRASFERIMENTO]]", "l'ultimo anello e la regola che lo governa"),
+      ("[[STUDIO-09-la-regola-del-tracciatore-e-le-porte-dopo-la-chiusura]]", "la regola, la scappatoia e la previsione sul ponte di ottobre")],
+     [("conferma", "mankeymite-home")]),
+
+    ("guide-origine-gen1", "Guida al catalogo per regione d'origine, prima generazione", "https://www.reddit.com/r/PokemonHome/comments/1p0hzxn/original_region_guides_gen_1/", 5, True, ["PKD", "EVT"],
+     "Guida della comunità al completamento del catalogo di prima generazione con esemplari nativi di quella regione, letta il 2026-09-09. Dichiara che un esemplare selvatico di prima generazione non può essere legittimamente cromatico, mentre lo possono essere i doni, gli scambi in gioco e gli incontri fissi; enumera gli esclusivi di versione fra le edizioni giapponesi e internazionali, e le tredici specie che la terza versione non dà; elenca i nove scambi in gioco della coppia originale e i sette della terza versione con il loro soprannome.",
+     "Serve a due controlli sul lavoro già fatto. Il primo è sulle nostre sedici voci cromatiche di prima generazione, che vanno riviste contro un vincolo di legalità e non di probabilità. Il secondo è sui premi del torneo per console fissa, dove la guida conferma per via indipendente la verifica chiusa lo stesso giorno e la rende più precisa, aggiungendo che per iniezione passano tutti tranne l'esemplare che conosce la mossa che il verificatore del trasferimento non ammette su quella specie.",
+     [("[[LETTURA-DEL-CORPUS]]", "il lotto di lettura del 2026-09-09 e i vincoli per generazione"),
+      ("[[CENSIMENTO-SCAMBI]]", "il confronto sugli scambi in gioco della prima generazione")],
+     [("conferma", "bulbapedia")]),
+
+    ("guide-origine-gen2", "Guida al catalogo per regione d'origine, seconda generazione", "https://www.reddit.com/r/PokemonHome/comments/1p362dn/original_region_guides_gen_2/", 5, True, ["PKD", "EVT"],
+     "Guida della comunità al completamento del catalogo di seconda generazione, letta il 2026-09-09. Enuncia le specie che quella generazione non dà legittimamente, cioè gli iniziali della prima, i fossili tranne uno, i tre uccelli leggendari e i due mitici; dichiara che Unown vi esiste nelle sole ventisei lettere, e che le due forme di punteggiatura compaiono per la prima volta nelle riedizioni di terza generazione; registra che il mitico dell'erba è ottenibile soltanto nella terza versione, che è anche la sola in cui lo si possa cercare cromatico.",
+     "Il dato sulle forme risolve una discrepanza che il progetto portava senza spiegazione, cioè un'enumerazione a ventotto valori su una generazione che ne ha ventisei, e mostra che la sfida del deposito che chiede ventotto forme non è soddisfacibile con la sola seconda generazione. Le specie escluse dalla generazione sono un vincolo di provenienza e non di ottenibilità, e vanno lette insieme al criterio del catalogo per regione d'origine.",
+     [("[[LETTURA-DEL-CORPUS]]", "che cosa vincola la seconda generazione"),
+      ("[[CHECKLIST-COMPLETA]]", "l'enumerazione delle forme e il loro denominatore")],
+     [("conferma", "bulbapedia")]),
+
+    ("guide-origine-gen3", "Guida al catalogo per regione d'origine, terza generazione", "https://www.reddit.com/r/PokemonHome/comments/1vphi1w/original_region_guides_gen_3/", 5, True, ["PKD", "EVT"],
+     "Guida della comunità aggiornata al 15 agosto 2026, cioè dopo l'annuncio della chiusura, letta il 2026-09-09. Dichiara che la versione per console corrente dei due titoli di Kanto include l'evento dell'isola della nascita, che il mitico dello spazio profondo vi si può cercare cromatico e che registra Kanto come regione. Completa l'asse delle uova del deposito per console fissa con la mossa esclusiva di ciascuna delle quattro, e dichiara che soltanto una di esse deve dimenticarla per essere trasferita. Sui due giochi da console fissa chiarisce che non portano specie esclusive ma fiocchi e luoghi d'incontro esclusivi, e che ogni esemplare vi si può cercare cromatico a probabilità piena.",
+     "Porta il fatto che sposta un risultato misurato del progetto: se è esatto, delle quattro specie senza alcun incontro nei giochi moderni ne restano tre, e una specie in meno dipende dalla catena storica. Le tre uova che conservano la propria mossa fino al deposito sono collezionabili con una proprietà che nessun'altra via riproduce, e vanno nella coda con quella mossa accanto.",
+     [("[[LETTURA-DEL-CORPUS]]", "che cosa cambia nella terza generazione, e riguarda la scadenza"),
+      ("[[OTTENIBILITA-TITOLI]]", "la riga delle specie senza incontro moderno, da correggere se il fatto regge")],
+     [("corregge", "bulbapedia")]),
+
+    ("bulbapedia-differenze-sesso", "Bulbapedia, elenco delle specie con differenze di sesso visibili", "https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_with_gender_differences", 2, True, ["PKD"],
+     "Pagina enciclopedica letta il 2026-09-08 con una richiesta locale e salvata in `_notes/fonti/`. Enumera specie per specie le differenze visibili fra i due sessi, con il numero di catalogo a quattro cifre davanti a ciascuna riga, il che la rende estraibile a macchina; dichiara centodue specie nella prosa delle proprie sezioni e ne porta centodue nelle tabelle. Aggiunge fuori tabella la forma regionale di una specie che porta la differenza anche in quella forma.",
+     "Chiude l'asse del sesso, che era aperto non sulla decisione di contarlo ma su quale fonte enumerarlo. Il conto concorda con il foglio comunitario a scarto nullo nei due versi, ed è la prima enumerazione del progetto che chiude su entrambi i lati; corregge inoltre un numero che il progetto portava, cioè centotre specie, nato da un denominatore assunto invece che misurato perché una specie porta quattro righe e non due.",
+     [("[[DIFFERENZE-DI-SESSO]]", "l'enumerazione generata dalla pagina"),
+      ("[[CONFRONTO-FOGLIO-LIVINGDEX]]", "la seconda misura, indipendente, che concorda")],
+     [("conferma", "bulbapedia")]),
+
+    ("bulbapedia-id-notevoli", "Bulbapedia, elenco degli identificativi di allenatore notevoli", "https://bulbapedia.bulbagarden.net/wiki/List_of_notable_ID_numbers", 2, True, ["PKD", "EVT"],
+     "Tabella enciclopedica di ottocentonovantasei righe utili, ciascuna con l'identificativo, il nome dell'allenatore di provenienza e l'evento a cui appartiene, letta il 2026-09-09 con una richiesta locale dopo che l'attraversamento del corpus non l'aveva scaricata. Dichiara essa stessa tre righe come non appartenenti ad alcun esemplare da collezione, cioè gli identificativi degli esemplari da noleggio e quello che il catalogo di un gioco usa internamente.",
+     "È il termine di confronto con cui il progetto misura la propria copertura sulle distribuzioni documentate, in un verso e nell'altro come il criterio di chiusura prescrive: quattrocentosettantatre righe corrispondono sulla coppia fra allenatore e identificativo, trecentouno sul solo numero e centodiciannove restano non coperte. Quelle centodiciannove sono in grandissima parte distribuzioni coreane e giapponesi, il che conferma per via indipendente che la lacuna del progetto sta dove il progetto ha deciso che stesse.",
+     [("[[ID-NOTEVOLI]]", "la misura della copertura nei due versi")],
+     [("conferma", "bulbapedia")]),
+
+    ("sfide-impossibili", "Le sfide del deposito che la chiusura rende impossibili", "https://www.reddit.com/r/PokemonHome/comments/1voa411/all_pokemon_home_challenges_that_will_become/", 5, True, ["PKD"],
+     "Post della comunità che elenca trentasette sfide esplicite più cinque già invisibili fra quelle che la chiusura della banca renderà impossibili, letto il 2026-09-08. L'autore dichiara di averle ricavate dall'elenco di un archivio di terze parti, e nei commenti dichiara di avere voluto escludere le sfide che le riedizioni per console corrente rimetteranno in gioco, dimenticandone una.",
+     "È la fonte da cui il progetto aveva preso il numero quarantadue, e il confronto con le schermate dell'applicazione consegnate dall'utente ne ha corretto quattro punti, tre dei quali alleggeriscono la scadenza. Il suo valore residuo è di indizio e non di elenco, perché la lettura ha stabilito che su questo asse la fonte primaria è l'applicazione e che l'archivio da cui il post discende è incompleto.",
+     [("[[STUDIO-06-le-enumerazioni-trasversali]]", "le quattro correzioni e la gerarchia delle fonti su questo asse")],
+     []),
+
+    ("bank-exclusives", "Raccolta di ciò che si perde con la chiusura della banca", "https://www.reddit.com/r/PokemonHome/comments/1apiuee/pok%C3%A9mon_bank_exclusives_masterpost/", 5, True, ["PKD", "EVT"],
+     "Raccoglitore mantenuto da una collezionista, aggiornato al febbraio 2024 e letto il 2026-09-08 come voce principale del cluster sulla chiusura. Elenca sessantatre mosse fra tagliate, esclusive dei mitici e consegnate solo da distribuzioni, più tre abilità nella stessa condizione; elenca i fiocchi che ciascuna generazione ha conferito e le successive no; e nomina le combinazioni fra specie e sfera che nessun gioco moderno può produrre.",
+     "È la fonte che ha mostrato che gli assi della collezione erano più di tre, e il modo in cui è stata usata vale quanto il suo contenuto: una testimonianza di quinto livello che elenca cose perdute non si legge per crederle, si trasforma in un predicato e lo si esegue sui propri dati. Fatto così, il suo elenco di mosse ha prodotto una misura che non dipende dalla sua affidabilità per la parte che conta, cioè quali di quelle mosse i nostri lotti già portino.",
+     [("[[STUDIO-05-gli-assi-che-non-contavamo]]", "i tre assi nuovi e la misura sulle mosse"),
+      ("[[MOSSE-PERDUTE]]", "la derivazione dai dati che ha poi sostituito questa testimonianza come fonte primaria")],
+     []),
+
+    ("foglio-scambi-doni", "Cartella di calcolo degli scambi in gioco, dei doni e delle uova", "https://docs.google.com/spreadsheets/d/e/2PACX-1vTusrkjjQVxfqANVboZbw-VplOUBioFRDcHi5yEz4tXupmNvs9s2MHDBPA0jBzS38Ic9UT6Xulr0Sko/pubhtml", 5, True, ["PKD", "EVT"],
+     "Cartella di calcolo comunitaria di ottocentouno voci fra scambi in gioco, doni, uova ed esemplari con cui si interagisce, scaricata il 2026-09-08 con una richiesta locale all'indirizzo di pubblicazione e divisa in quattro schede secondo l'epoca e la natura del titolo. Le due schede piccole, cioè quelle sui giochi derivati e sui giochi di deposito, sono l'elenco delle vie che non esistono più.",
+     "Serve al controllo all'indietro che il criterio di produzione impone, cioè rileggere le classi scartate chiedendosi se la loro via si sia chiusa: da quelle due schede vengono le undici classi a via chiusa che il progetto ha poi verificato sulle tabelle del verificatore. Porta inoltre l'affermazione, da verificare, che tre esemplari da scambio delle versioni inglesi della quarta generazione dichiarino una lingua diversa da quella che mostrano.",
+     [("[[STUDIO-06-le-enumerazioni-trasversali]]", "le undici classi a via chiusa e il controllo all'indietro"),
+      ("[[CENSIMENTO-SCAMBI]]", "la stessa classe contata sulla fonte di primo livello")],
+     [("conferma", "pkhex-eventi-gen3")]),
+
+    ("foglio-eventi-interni", "Cartella di calcolo degli esemplari da evento interno al gioco", "https://www.reddit.com/r/pokemontrades/comments/18y648l/", 5, True, ["PKD"],
+     "Cartella di calcolo comunitaria di millequattrocentocinquantotto esemplari consegnati o imposti una volta sola dalla storia dei giochi, più duecentotrentotto scambi in gioco su una scheda a parte, scaricata il 2026-09-08. La distribuzione per titolo, misurata sulla scheda esportata, dà novecentottantasei voci da titoli la cui via verso il deposito passa dalla banca e quattrocentosettantadue da titoli a via diretta.",
+     "Il numero va letto con il criterio di produzione accanto, altrimenti conduce alla conclusione opposta al vero: quelle novecentottantasei voci sono in grandissima parte incontri ordinari, la cui via è aperta perché le cartucce sono possedute, e appartengono quindi alla lista di ciò che si ottiene giocando e non alla coda di produzione. Il suo valore è di enumerazione e di ordine di lavoro.",
+     [("[[STUDIO-06-le-enumerazioni-trasversali]]", "che cosa aggiungono davvero le due enumerazioni nuove"),
+      ("[[INDICE-FOGLI-ESTERNI]]", "lo scheletro di Livello 1 con cui la cartella si legge")],
+     []),
+
+    ("sottolivellati", "Guida agli esemplari sottolivellati", "https://www.reddit.com/r/pokemon/comments/hhlm8k/", 5, True, ["PKD"],
+     "Guida comunitaria letta il 2026-09-08, da cui discende la scheda dei sottolivellati della lista di controllo che l'utente ha su disco e che la accredita per nome. Un esemplare sottolivellato è ottenuto a un livello inferiore a quello in cui la sua specie evolve per natura, quindi porta una proprietà che nessun altro titolo può ricreare; la guida dichiara le dieci voci più difficili con la loro probabilità, fra cui una su diecimila per un caso di quinta generazione e una su millecento per uno di terza.",
+     "Definisce un asse che il progetto non contava e ne dichiara la parte praticamente irraggiungibile per via di gioco entro la scadenza, che è l'informazione utile: le probabilità riguardano chi cattura e non chi compone, e servono a decidere quali voci dell'asse debbano passare dalla produzione.",
+     [("[[STUDIO-06-le-enumerazioni-trasversali]]", "i sottolivellati come asse con la sua fonte")],
+     []),
+
+    ("timovm-ace-gen2", "Guide all'esecuzione di codice in seconda generazione", "https://glitchcity.wiki/wiki/Guides:TimoVM%27s_gen_2_ACE_setups", 2, True, ["ACE", "PKD", "EVT"],
+     "Guide della wiki dedicata ai difetti sfruttabili, lette il 2026-09-09, che coprono ogni versione e ogni lingua dei tre titoli di seconda generazione, l'italiano compreso, e sono dichiarate compatibili sia con le cartucce originali sia con le riedizioni per console corrente. L'allestimento si raggiunge dopo la seconda medaglia nei due titoli maggiori e senza alcuna medaglia nel terzo, e la fonte dichiara fra trenta e sessanta minuti per installare il programma di cinquanta byte che consente di scrivere ed eseguire codice arbitrario senza più passare dalle quantità degli oggetti.",
+     "È la parte più utilizzabile del cluster sulla manipolazione, perché la compatibilità con l'italiano non è un dettaglio: la catena di questo progetto vincola ogni anello alla medesima lingua, e una via che funzionasse solo sull'inglese non servirebbe. La differenza che introduce non è di comodità ma di provenienza, perché un esemplare consegnato dal gioco perché il suo codice è stato indotto a consegnarlo è ottenuto e non creato.",
+     [("[[STUDIO-08-esecuzione-di-codice-e-manipolazione-del-generatore]]", "la via interna al gioco, generazione per generazione"),
+      ("[[09-esecuzione-codice]]", "la primitiva e i suoi vincoli d'uso")],
+     [("deriva-da", "glitchcity")]),
+
+    ("glitchcity-mailwriter", "Glitch City, i codici del programma di scrittura", "https://glitchcity.wiki/wiki/Guides:Mail_Writer_Codes", 2, True, ["ACE", "PKD"],
+     "Raccolta dei codici già scritti per il programma di cinquanta byte installato dalle guide di seconda generazione, letta il 2026-09-09. Tre di essi riguardano la produzione: uno consegna un mitico al livello cinque e ne adatta nome e identificativo dell'allenatore perché il trasferimento lo accetti, uno fa lo stesso per la linea di due iniziali di terza generazione, e uno riempie la scatola attiva chiedendo ogni volta specie e livello dell'esemplare successivo. Accanto stanno codici che cambiano le condizioni di una caccia invece di produrre, e un programma più grande con cui si leggono e si cambiano i valori in memoria.",
+     "Documenta il fatto che decide se questa via valga il suo costo per il nostro lotto delle prime due generazioni: i codici pubblicati coprono alcune voci e non quelle con allenatore e soprannome storici, che richiederebbero codice proprio. Porta anche i vincoli d'uso che fanno fallire un tentativo, cioè le dimensioni richieste della squadra e della scatola e l'azzeramento dei punti potenza dopo l'esecuzione.",
+     [("[[STUDIO-08-esecuzione-di-codice-e-manipolazione-del-generatore]]", "i codici che producono e quelli che cambiano una caccia")],
+     [("deriva-da", "glitchcity")]),
+
+    ("pkmnclassic", "Rete ricostruita dei servizi in rete di quarta e quinta generazione", "https://pkmnclassic.net/", 3, True, ["EVT", "PKD"],
+     "Servizio non ufficiale che fornisce oggi il sistema di scambio globale, i video delle lotte e altri servizi in rete per la quarta e la quinta generazione, raggiungibile cambiando un solo parametro sulla console. La pagina è stata letta il 2026-09-08 nel momento in cui la si scarica e dichiara contatori di esercizio aggiornati, cioè esemplari offerti e video registrati, il che è la prova che il servizio è vivo e non una pagina abbandonata.",
+     "Apre una via che non compone nulla: il gioco riceve una carta vera attraverso il proprio canale, la riscatta con il proprio codice, e l'esemplare che ne esce è generato dal gioco, quindi nessuna correlazione va imitata. Due cose restano non verificate e vanno tenute come tali, cioè se quel servizio distribuisca anche i doni oltre allo scambio, e quale catalogo distribuisca; la prima è una misura da fare sul suo codice pubblico e non una lettura.",
+     [("[[STUDIO-04-la-via-del-dns-e-il-servizio-rianimato]]", "la via, ciò che è verificato e ciò che non lo è")],
+     []),
+
+    ("shacknews-dns", "Come riaprire i doni segreti di quarta e quinta generazione", "https://www.shacknews.com/article/108512/how-to-unlock-gen-4-and-5-pokemon-mystery-events-in-2018", 4, True, ["EVT", "PKD"],
+     "Articolo redazionale del 2018 che descrive la procedura per riaprire i doni segreti nei giochi di quarta e quinta generazione cambiando il nome del server dei nomi sulla console, e che dichiara il sistema di scambio globale pienamente funzionante in quarta generazione. La consegna dei doni vi è descritta come casuale e ripetibile, e produce duplicati.",
+     "È la fonte più vecchia delle tre su questa via e serve per la procedura, non per lo stato attuale: l'ostacolo tecnico che dichiara riguarda la sola quarta generazione, la cui radio parla soltanto con reti prive di cifratura o con la più vecchia, e quello di provenienza è la data, che una carta ricevuta oggi scrive nell'esemplare. Per la quinta generazione la data è la firma con cui la comunità riconosce questa via.",
+     [("[[STUDIO-04-la-via-del-dns-e-il-servizio-rianimato]]", "gli ostacoli pratici e quello di provenienza")],
+     [("documenta", "pkmnclassic")]),
+
+    ("sinjoh-ruins", "La procedura delle rovine e il terzetto al livello uno", "https://www.reddit.com/r/PokemonHGSS/comments/1hy3b12/", 5, True, ["PKD", "EVT"],
+     "Guida passo per passo letta il 2026-09-09, che chiude un punto che il progetto teneva aperto: il terzetto del tempo e dello spazio al livello uno si ottiene portando un esemplare mitico di quarta generazione in una riedizione di seconda, tenendolo come solo esemplare in squadra, entrando nelle rovine e scegliendo uno dei tre cerchi, ciascuno dei quali dà una delle tre specie al livello uno.",
+     "Sposta la voce da sbloccata da un oggetto a sbloccata dal possesso di un esemplare, e con essa la dipendenza: quel mitico viene dal flauto mai distribuito ufficialmente oppure dalla distribuzione di un rivenditore, che il servizio in rete ricostruito rende di nuovo ottenibile. È il punto in cui due vie che il progetto studiava separatamente si toccano.",
+     [("[[LETTURA-DEL-CORPUS]]", "la quarta generazione, e una voce che si chiude"),
+      ("[[STUDIO-04-la-via-del-dns-e-il-servizio-rianimato]]", "la via da cui il mitico che la procedura richiede si può ottenere")],
+     [("usa", "pkmnclassic")]),
+
+    ("bulbapedia-macchine-nascoste", "Bulbapedia, le macchine nascoste per generazione", "https://bulbapedia.bulbagarden.net/wiki/HM", 2, True, ["PKD", "EVT"],
+     "Pagina enciclopedica che elenca quali mosse siano macchine nascoste in ciascuna generazione, consegnata il 2026-09-09 dentro una ricerca dell'utente e assorbita nel documento della catena. È la tavola su cui poggia il controllo automatico che misura quante voci dei lotti prodotti il passaggio fra generazioni rifiuterebbe.",
+     "Il vincolo il progetto lo aveva già; questa fonte lo rende meccanico, perché una mossa non è una macchina nascosta in assoluto ma nella propria generazione, e il controllo va fatto con la tavola giusta per ciascun lotto. La misura che ne è venuta è che cinque voci su trecentocinquantuno delle prime tre generazioni sono bloccate, tutte di terza, e che le centosessantacinque delle prime due non lo sono affatto.",
+     [("[[MOSSE-MN]]", "la misura sui lotti prodotti"),
+      ("[[CATENA-DI-TRASFERIMENTO]]", "il vincolo sull'anello che lo applica")],
+     [("conferma", "bulbapedia")]),
+
+    ("surfing-pikachu", "La storia dell'esemplare surfista, dal titolare della serie", "https://www.pokemon.com/us/pokemon-news/waxing-nostalgic-about-surfing-pikachu", 2, True, ["EVT", "PKD"],
+     "Articolo del sito ufficiale della serie, consegnato il 2026-09-09 dentro la medesima ricerca, che racconta la storia dell'esemplare consegnato come premio di un torneo per console fissa e della mossa che lo caratterizza. Accanto a esso una voce enciclopedica indipendente stabilisce che quella specie non apprende quella mossa per macchina né per insegnamento in alcun titolo successivo.",
+     "È la ragione per cui il vincolo delle macchine nascoste non si risolve cancellando la mossa: toglierla per soddisfare il controllo del passaggio la perderebbe per sempre, e con essa la ragione per cui quell'esemplare è un collezionabile e non un esemplare qualunque della sua specie. Da qui la via che resta, cioè ricostruire il dato direttamente nel formato di destinazione invece di attraversare l'anello che lo rifiuta.",
+     [("[[CATENA-DI-TRASFERIMENTO]]", "perché la mossa non si cancella, e la via che resta")],
+     [("conferma", "bulbapedia-macchine-nascoste")]),
 ]
 # ---------------------------------------------------------------------------------------
 # I riferimenti teorici canonici dei concetti impiegati nell'analisi quantitativa.

@@ -11,7 +11,9 @@ covers-paths:
   - generation-from-switch/
   - cart-battery-restoration/
   - pokedex-home-completo/
-last-verified-commit: 7696c46
+  - gba-switch-pokemon-trading/
+  - poke-automation-study/
+last-verified-commit: ee0f52b
 ---
 
 # Sviluppo e verifica

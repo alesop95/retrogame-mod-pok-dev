@@ -4,9 +4,9 @@
 
 Un progetto unico che raccoglie più sottoprogetti paralleli di retrogaming e modding, quasi tutti legati ai Pokemon. Non sono fasi di una sequenza: sono obiettivi diversi che avanzano in parallelo, ciascuno con il proprio handoff, e il progetto è pensato per accoglierne di nuovi nel tempo.
 
-Oggi i track sono cinque. Il modding di un Nintendo 3DS con dump delle cartucce possedute. La correzione di un inventario corrotto sulla cartuccia di Pokemon Smeraldo, agendo sul salvataggio estratto fisicamente. Un ponte software fra le generazioni 1 e 2 e la generazione 3 su hardware originale, che è il primo a essere diventato vero codice e oggi ha un pacchetto con la sua suite di prove. Uno scambio fra GBA e Switch, in ricerca e destinato anch'esso a produrre codice. E lo studio dell'automazione dei giochi su Switch, aggiunto il 2026-08-26 e ancora da definire nel suo scopo.
+Oggi i track sono dieci, e sopra di essi sta un obiettivo dichiarato che nessuno di loro esaurisce da solo, cioè avere in Pokemon Home tutte le 1025 specie con le forme alternative e gli esemplari da distribuzione, prima che il 26 febbraio 2027 la banca chiuda. Il modding di un Nintendo 3DS con dump delle cartucce possedute. La correzione di un inventario corrotto sulla cartuccia di Pokemon Smeraldo, agendo sul salvataggio estratto fisicamente. Un ponte software fra le generazioni 1 e 2 e la generazione 3 su hardware originale, che è il primo a essere diventato vero codice e oggi ha un pacchetto con la sua suite di prove. Uno scambio fra GBA e Switch, in ricerca e destinato anch'esso a produrre codice. Lo studio dell'automazione dei giochi su Switch, aggiunto il 2026-08-26 e ancora da definire nel suo scopo. La ricreazione delle distribuzioni di eventi, aperta il 2026-08-28, che è il track che ha portato il progetto dalla lettura dei formati alla loro scrittura. Lo studio dell'esecuzione di codice come via di generazione e della legittimità di ciò che produce, aperto il 2026-08-31. La generazione e lo scambio dai giochi su console moderna, aperto lo stesso giorno e il meno sviluppato dei dieci. La conservazione del supporto e la sostituzione della pila tampone, aperta il 2026-09-01, che è il solo track la cui scadenza non è su un calendario ma nella carica residua di una pila. E il completamento del Pokedex nel deposito, aperto il 2026-09-02, che è il fuoco corrente e il track a cui l'obiettivo dichiarato appartiene.
 
-Tre dei cinque sono runbook operativi su hardware fisico, dove gli errori sono irreversibili: è la ragione per cui `rules/hardware-and-perimeter.md` esiste ed è normativa.
+Quattro dei dieci sono runbook operativi su hardware fisico, dove gli errori sono irreversibili: è la ragione per cui `rules/hardware-and-perimeter.md` esiste ed è normativa.
 
 ## Procedura di ripresa in una sessione nuova
 
@@ -47,28 +47,38 @@ Schede trasversali, cioè ciò che vale per tutto il progetto:
 Schede verticali, una per sottoprogetto:
 
 ```
-.claude/context/sub-3ds-modding.md         modding 3DS e dump delle cartucce
-.claude/context/sub-smeraldo-save-fix.md   correzione dell'inventario di Pokemon Smeraldo
-.claude/context/sub-gen12-gen3-bridge.md   ponte fra generazioni su hardware originale
-.claude/context/sub-gba-switch-trading.md  scambio fra GBA e Switch, non iniziato
-.claude/context/sub-poke-automation.md     studio dell'automazione su Switch, non iniziato
+.claude/context/sub-3ds-modding.md            modding 3DS e dump delle cartucce
+.claude/context/sub-smeraldo-save-fix.md      correzione dell'inventario di Pokemon Smeraldo
+.claude/context/sub-gen12-gen3-bridge.md      ponte fra generazioni su hardware originale
+.claude/context/sub-gba-switch-trading.md     scambio fra GBA e Switch, ricerca conclusa e codice non iniziato
+.claude/context/sub-poke-automation.md        studio dell'automazione su Switch, perimetro da decidere
+.claude/context/sub-distributions-events.md   ricreazione delle distribuzioni di eventi, cinque lotti prodotti
+.claude/context/sub-poke-ace.md               esecuzione di codice come via di generazione, e la sua legittimita'
+.claude/context/sub-generation-from-switch.md generazione e scambio dai giochi su console moderna
+.claude/context/sub-cart-battery.md           conservazione del supporto e pila tampone, diagnosi conclusa
+.claude/context/sub-pokedex-home-completo.md  completamento del Pokedex nel deposito, fuoco corrente
 ```
 
 Fuori da `.claude/`, alla radice e nelle cartelle dei sottoprogetti, stanno la conoscenza tecnica e gli strumenti. Sono materiale di riferimento e non di stato, quindi non entrano nel ciclo di verifica delle schede.
 
 ```
 <slug>/README.md                              punto di ingresso di ciascun sottoprogetto, con l'instradamento
+MAPPA-DOCUMENTI.md                            che cosa e' ciascun file Markdown, chi lo scrive, se va aperto
 SOURCES.md                                    registro delle fonti, con il sottoprogetto servito da ciascuna
 docs/index.md                                 indice del percorso di studio tecnico, leggibile come vault Obsidian
 docs/fonti/index-fonti.md                     mappa relazionale delle fonti, con abstract e grafo
+tesi/                                         il documento composto, che copre ogni riga dei .md del progetto
 reports/README.md                             report di milestone in LaTeX, uno per traguardo chiuso
-pokemon-gen12-gen3-bridge-original-hardware/  referenza byte per byte, tabelle generate e loro generatore
+tools/                                        gli strumenti deterministici, uno per misura riproducibile
+pokemon-gen12-gen3-bridge-original-hardware/  referenza byte per byte, il pacchetto pokebridge e la sua suite
+pokedex-home-completo/                        la catena, la roadmap, i censimenti e gli studi del fuoco corrente
+recreate-pokemon-distributions-events/        i cataloghi degli eventi, le schede di pedigree e i quattro studi
 gba-save-extraction-smeraldo/tools/           diagnostica dello zaino su un salvataggio Gen 3
 ```
 
-Le regole normative stanno sotto `.claude/rules/` e le skill del motore sotto `.claude/skills/`. Fra le regole, `hardware-and-perimeter.md` è specifica di questo progetto e va letta prima di qualsiasi operazione su hardware, mentre `web-sources-not-fetchable.md` dice cosa fare quando una fonte esiste ma non si riesce a recuperarla, ed è generale abbastanza da valere fuori da questo progetto.
+Le regole normative stanno sotto `.claude/rules/` e le skill del motore sotto `.claude/skills/`. Sono nove, e tre vanno conosciute prima delle altre. `hardware-and-perimeter.md` è specifica di questo progetto e va letta prima di qualsiasi operazione su hardware. `web-sources-not-fetchable.md` dice cosa fare quando una fonte esiste ma non si riesce a recuperarla, ed è generale abbastanza da valere fuori da questo progetto. `chat-non-e-memoria.md`, aggiunta il 2026-09-09 su direttiva dell'utente, dice che nessun contenuto sostanziale resta nella sola conversazione e che i file si aggiornano nello stesso giro di lavoro in cui il contenuto nasce, con il presidio della riga finale che dichiara quali file sono stati scritti.
 
-Gli handoff restano nelle cartelle dei rispettivi sottoprogetti, che è voluto e motivato in ADR-003: `3ds-related/handoff/` e `gba-save-extraction-smeraldo/handoff/`. Il sottoprogetto del ponte non ha più un handoff, perché la sua conoscenza è stata verificata sul sorgente e assorbita nella referenza `pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md` e nel percorso di studio sotto `docs/`, come registrato in ADR-013.
+Gli handoff restano nelle cartelle dei rispettivi sottoprogetti, che è voluto e motivato in ADR-003: `3ds-related/handoff/`, `gba-save-extraction-smeraldo/handoff/` e quello del track dello scambio locale, che sta nella radice della sua cartella. Il sottoprogetto del ponte non ha più un handoff, perché la sua conoscenza è stata verificata sul sorgente e assorbita nella referenza `pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md` e nel percorso di studio sotto `docs/`, come registrato in ADR-013.
 
 ## Come si aggiunge un sottoprogetto
 

@@ -4,7 +4,7 @@ generated-from-branch: main
 generated-date: 2026-08-24
 covers-paths:
   - gba-save-extraction-smeraldo/
-last-verified-commit: 7696c46
+last-verified-commit: ee0f52b
 stato: attivo, lettore arrivato il 2026-09-09, prima sessione da eseguire con i cancelli di sicurezza del runbook
 ---
 

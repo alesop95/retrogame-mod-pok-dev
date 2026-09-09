@@ -1,0 +1,119 @@
+% =====================================================================
+% tesi/capitoli/28-catena-di-trasferimento.tex
+% =====================================================================
+% copre: pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md
+% copre: pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md#la-catena-di-trasferimento-i-suoi-vincoli-e-la-via-in-emulazione
+% copre: pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md#perché-questo-documento-esiste
+% copre: pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md#le-quattro-catene-e-quanto-costano
+% copre: pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md#il-parco-amici-dalla-terza-alla-quarta
+% copre: pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md#il-trasferimento-dalla-quarta-alla-quinta
+% copre: pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md#il-trasferitore-e-la-banca-dalla-quinta-al-deposito
+% copre: pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md#la-capienza-che-è-un-vincolo-dimensionale-e-non-di-regola
+% copre: pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md#l-oggetto-tenuto-che-non-è-un-problema
+% copre: pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md#le-macchine-nascoste-che-un-problema-lo-sono
+% copre: pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md#la-lingua-che-è-un-vincolo-di-catena-e-non-di-esemplare
+% copre: pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md#la-via-in-emulazione-passo-per-passo
+% copre: pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md#aggiunta-del-2026-09-09-la-misura-si-estende-alle-prime-tre-generazioni-e-la-via-che-resta
+% copre: pokedex-home-completo/MOSSE-MN.md
+% copre: pokedex-home-completo/MOSSE-MN.md#le-voci-dei-lotti-che-una-macchina-nascosta-blocca
+% copre: pokedex-home-completo/STUDIO-09-la-regola-del-tracciatore-e-le-porte-dopo-la-chiusura.md
+% copre: pokedex-home-completo/STUDIO-09-la-regola-del-tracciatore-e-le-porte-dopo-la-chiusura.md#studio-09-la-regola-del-tracciatore-la-porta-che-resta-dopo-la-chiusura-e-tre-verifiche-chiuse
+% copre: pokedex-home-completo/STUDIO-09-la-regola-del-tracciatore-e-le-porte-dopo-la-chiusura.md#la-regola-che-il-progetto-non-aveva-e-che-spiega-tutto-il-resto
+% copre: pokedex-home-completo/STUDIO-09-la-regola-del-tracciatore-e-le-porte-dopo-la-chiusura.md#la-scappatoia-e-perché-esiste
+% copre: pokedex-home-completo/STUDIO-09-la-regola-del-tracciatore-e-le-porte-dopo-la-chiusura.md#la-porta-nuova-di-ottobre-e-la-previsione-che-due-fonti-insieme-permettono
+% copre: pokedex-home-completo/STUDIO-09-la-regola-del-tracciatore-e-le-porte-dopo-la-chiusura.md#il-piano-a-pagamento-e-un-vincolo-di-calendario-che-tocca-una-decisione-già-presa
+% copre: pokedex-home-completo/STUDIO-09-la-regola-del-tracciatore-e-le-porte-dopo-la-chiusura.md#le-tre-verifiche-che-erano-aperte
+% verificato-al-commit: ee0f52b
+% ---------------------------------------------------------------------
+
+\chapter{La catena di trasferimento, e le porte che restano}
+\label{cap:catena}
+
+Il capitolo~\ref{cap:distribuzioni} ha mostrato come si ricostruisce un esemplare, e il capitolo~\ref{cap:provenienza} perché la sua provenienza sia una grandezza distinta dai suoi byte. Resta la domanda che quei due capitoli lasciano aperta e che decide se il lavoro serva a qualcosa: come un esemplare passa dal supporto su cui nasce al deposito in rete che è la destinazione dichiarata, e quali vincoli quel percorso imponga a chi lo produce.
+
+La risposta non è un protocollo ma una catena di passaggi eterogenei, ciascuno con la propria condizione di ammissione, e la circostanza che li rende interessanti è che si compongono. Un esemplare accettato da ogni singolo anello preso da solo può essere rifiutato dalla catena, perché due anelli chiedono cose incompatibili; e un vincolo che su un anello è aggirabile può non esserlo sul successivo. Comporli a memoria è il modo di scoprire un ostacolo a metà strada invece che prima di partire, ed è accaduto due volte nella stessa giornata durante la stesura di questo lavoro, con la capienza delle scatole della quinta generazione e con la perdita dell'oggetto tenuto.
+
+\section{Le quattro catene, e la loro economia}
+
+Un esemplare entra nel deposito per una di quattro vie, secondo la generazione in cui nasce, e le quattro hanno costi che differiscono di un ordine di grandezza. Il costo non si misura in tempo di calcolo ma in \emph{sessioni}, cioè in passaggi che spostano un numero fisso di esemplari per volta e che richiedono una persona davanti a due apparecchi.
+
+\begin{center}
+\begin{tabular}{@{}p{0.20\textwidth}p{0.44\textwidth}p{0.28\textwidth}@{}}
+\hline
+\textbf{Origine} & \textbf{Passaggi} & \textbf{Sessioni da sei} \\
+\hline
+quinta generazione & servizio di deposito, poi la banca & nessuna \\
+quarta generazione & trasferimento verso la quinta, poi come sopra & una ogni sei esemplari \\
+terza generazione & parco di migrazione verso la quarta, poi trasferimento verso la quinta, poi come sopra & due ogni sei esemplari \\
+prima e seconda & riedizione per console corrente, poi servizio di deposito & nessuna \\
+\hline
+\end{tabular}
+\end{center}
+
+Ne segue un ordine di lavoro che non è quello dell'interesse. Il lotto della quinta generazione è insieme il più numeroso, con settecento esemplari, e il più economico, perché il servizio di deposito sposta scatole intere e non sei esemplari per volta: va quindi per primo. Il lotto della terza generazione, che è quello su cui il progetto ha lavorato più a lungo, è il più caro di tutti, perché ogni suo esemplare attraversa due passaggi contingentati.
+
+\section{I vincoli, anello per anello}
+
+Il primo anello è il parco di migrazione dalla terza alla quarta generazione \cite{bulbapedia-trasferimenti}. Richiede una console della famiglia a doppio schermo dotata dello slot per le cartucce della generazione precedente, e i due giochi nella medesima lingua. Sposta sei esemplari per volta ed è irreversibile. Il limite di sei ogni ventiquattro ore, che per giorni ha definito l'ampiezza della campagna in questo lavoro, vale sui tre titoli della regione di Sinnoh e non sulle riedizioni della seconda generazione, che lo rimuovono: il collo di bottiglia reale è dunque sei per sessione senza tetto giornaliero, e la differenza fra le due letture è quella fra una campagna impossibile e una faticosa.
+
+Il secondo anello è il trasferimento dalla quarta alla quinta generazione. Avviene fra due apparecchi distinti che comunicano in locale, il che è un vincolo materiale e non una comodità: non esiste modo di eseguirlo dentro una console sola. Richiede sul gioco di destinazione la storia completata e il catalogo nazionale ottenuto, sposta sei esemplari per volta, non ha limite giornaliero ed è irreversibile. Le sue restrizioni di dettaglio sono quattro e vanno conosciute prima di preparare un lotto, perché tre di esse riguardano il dato e non la procedura: nessun oggetto tenuto, che il gioco rimette nello zaino; nessuna mossa che nel gioco di origine sia una macchina nascosta; nessun uovo; e il rifiuto esplicito di una forma particolare, quella dalle orecchie a punta di Pichu, che ne segue non possa raggiungere il deposito per alcuna via.
+
+Il terzo anello è il servizio di deposito verso la banca, e la sua condizione di ammissione è quella che governa l'intero disegno: accetta come sorgente soltanto i giochi della quinta generazione e le riedizioni per console corrente della prima e della seconda. La terza generazione non vi entra direttamente, ed è la ragione per cui il suo lotto deve attraversare due passaggi contingentati invece di nessuno.
+
+A questi tre si aggiunge un vincolo che non è di ammissione ma di capienza. Le scatole di un gioco di quinta generazione tengono ventiquattro contenitori da trenta, cioè settecentoventi posizioni, e il lotto di quinta generazione ne occupa settecento: anche un salvataggio vuoto starebbe al limite, e nessuno dei tre disponibili lo è. Il trasferimento verso la banca va fatto in due passaggi con lo svuotamento delle scatole fra l'uno e l'altro. Il deposito finale, invece, tiene seimila esemplari con il piano a pagamento e novemila dopo l'aggiornamento previsto per ottobre 2026 \cite{frlg-home}, e là il vincolo non morde per il perimetro corrente.
+
+\section{Due problemi che sembrano lo stesso e non lo sono}
+
+L'oggetto tenuto sembra un problema e non lo è. Il trasferimento lo toglie e lo rimette nello zaino, e nel lotto della quarta generazione riguarda centottantuno esemplari su duecentoquarantasette; ma l'oggetto tenuto non è un campo dell'incontro, non entra in alcuna verifica di legittimità sull'origine, e si può attaccare e staccare in qualunque momento. Un esemplare da distribuzione privato del proprio oggetto resta quel medesimo esemplare, con il proprio allenatore di provenienza, il proprio identificativo, il proprio luogo di incontro e i propri fiocchi. La soluzione è riattaccare l'oggetto dopo il trasferimento, e la sola cura richiesta è conservare l'elenco di quale esemplare portasse quale oggetto, che sta nel lotto stesso e nelle schede di pedigree. La verifica fatta su quel lotto dice che tutti e trentotto gli oggetti distinti esistono nell'intervallo degli oggetti della quinta generazione, quindi nessuno è irrecuperabile.
+
+Le macchine nascoste, al contrario, sono un problema vero, e la ragione non è il rifiuto in sé ma ciò che accade se lo si soddisfa. La fonte dichiara due eccezioni utili, cioè che una certa mossa passa se si parte dalle riedizioni della seconda generazione, dove là non è una macchina nascosta, e che un'altra passa se si parte dai tre titoli di Sinnoh: sei esemplari del lotto di quarta generazione si salvano per questa via. Restano dieci esemplari con una mossa d'acqua e uno con una mossa di volo, per i quali l'eccezione non esiste perché quelle due mosse sono macchine nascoste in tutti e cinque i titoli di quella generazione.
+
+La misura su ciò che il progetto ha prodotto è stata estesa alle generazioni precedenti con uno strumento dedicato, che legge la tavola delle macchine nascoste generazione per generazione invece di applicarne una sola \cite{bulbapedia-macchine-nascoste}. Su trecentocinquantuno voci prodotte per la prima, la seconda e la terza generazione, cinque conoscono una macchina nascosta della propria generazione: sono tutte di terza e tutte esemplari da distribuzione della medesima specie, quattro con la mossa di volo e uno con quella d'acqua. Le centosessantacinque voci delle prime due generazioni non ne conoscono alcuna, il che è un risultato e non un'assenza di risultato, perché stabilisce che su quell'anello il vincolo non morde.
+
+Il fatto che trasforma il fastidio in un problema di conservazione è che su alcune specie quella mossa non è più apprendibile in alcun gioco successivo \cite{surfing-pikachu}. Il caso esemplare è l'esemplare surfista consegnato come premio di un torneo per console fissa: la mossa che lo caratterizza non sta nel suo insieme di mosse apprendibili né per macchina né per insegnamento, quindi cancellarla per soddisfare il controllo la perderebbe per sempre, e con essa la ragione per cui quell'esemplare è un collezionabile e non un esemplare qualunque della sua specie. Trasferire un esemplare così mutilato significa trasferire un altro esemplare.
+
+La via che resta è quella che il progetto già percorre un anello più sotto: si ricostruisce il dato direttamente nel formato di destinazione, lo si inietta in un salvataggio di quel titolo, e da lì la catena prosegue verso la banca e il deposito, che non ripetono il controllo del parco di migrazione. L'originale resta come copia di riferimento e ciò che sale è una ricostruzione dei suoi byte. Vale l'avvertenza già enunciata nel capitolo~\ref{cap:provenienza}: un esemplare che non abbia percorso un passaggio verificabile può essere segnalato dai controlli più severi, cioè quelli del gioco competitivo e degli scambi automatici, mentre per una collezione depositata la cosa non si manifesta.
+
+\section{La lingua, che è un vincolo di catena e non di esemplare}
+
+Ogni passaggio pretende la stessa lingua ai due capi, e questo trasforma una proprietà del singolo esemplare in un vincolo su tutta la sua catena. Il lavoro lo ha incontrato tre volte in tre forme che sembrano diverse e sono la stessa.
+
+I ventotto esemplari coreani della quarta generazione, che il trasferimento rifiuta perché quei titoli non si scambiavano direttamente con quelli internazionali. Il rifiuto è corretto e non riparabile nei byte, ed è di formato e non di esemplare: basta una stazione coreana della quarta generazione, e da lì la catena è quella ordinaria. Il mitico dell'isola lontana, il cui biglietto non uscì mai dal Giappone e sul quale il modello del verificatore forza la lingua giapponese: quell'unico esemplare richiede un gioco di quarta e uno di quinta generazione giapponesi, per lo stesso motivo e con la stessa soluzione. E il fatto che le cartucce possedute siano italiane, che è la ragione per cui né la stazione coreana né quella giapponese possono essere una cartuccia vera.
+
+La conseguenza operativa è precisa e vale registrarla come regola di dimensionamento: il numero delle stazioni da allestire è il numero delle lingue distinte che il lotto contiene, non il numero degli esemplari bloccati.
+
+\section{La via in emulazione, e perché non è un ripiego}
+
+La catena richiede due apparecchi che si parlino e, per una parte del lotto, cartucce di lingue che il progetto non possiede. La via praticabile è quindi l'emulazione, e la ragione per cui non è un ripiego è di sostanza: il trasferimento è una comunicazione fra due giochi e non fra due pezzi di plastica, e ciò che conta è che il salvataggio risultante sia quello che il gioco avrebbe prodotto.
+
+I passi sono sei, e conviene provarli su un solo esemplare prima di lanciare un lotto. Si allestisce un emulatore capace di far comunicare due istanze con il collegamento locale, registrandone la versione perché il comportamento di quel collegamento cambia fra le versioni. Si prepara il salvataggio di partenza, che per i coreani è un salvataggio coreano in cui gli esemplari vengono iniettati e per il resto del lotto è uno di quelli già disponibili. Si prepara il salvataggio di arrivo, cioè un gioco di quinta generazione con la storia completata e il catalogo nazionale ottenuto. Si esegue il trasferimento fra le due istanze, sei esemplari per volta, avendo prima tolto gli oggetti tenuti e trattato le macchine nascoste dove la regola lo impone. Si estrae il salvataggio risultante e lo si confronta con quello di partenza, che è il passo che rende la via verificabile invece che sperata. E infine si porta quel salvataggio sulla cartuccia vera, perché la banca e il deposito richiedono i servizi in rete della console.
+
+Il sesto passo è il solo che il progetto non abbia ancora provato in questa forma, ed è anche il solo dove un errore costa: scrivere su una cartuccia è irreversibile, e la norma interna di questo lavoro impone il doppio backup verificato prima di qualunque scrittura, come il capitolo~\ref{cap:perimetro} enuncia.
+
+\section{La regola di ammissione del deposito, che spiega tutto il resto}
+
+Fino a questo punto la catena è stata descritta come una sequenza di controlli locali, ciascuno interno a un gioco. L'ultimo anello non funziona così, e la regola che lo governa è stata trovata in una nota tecnica della comunità che la enuncia in una riga \cite{home-tracker-psa}: il deposito accetta un esemplare privo di \emph{tracciatore} soltanto se il gioco che esso dichiara come origine coincide con il gioco da cui lo si sta depositando.
+
+L'esempio e il controesempio della fonte sono la forma più chiara in cui la regola si possa dire. Un leggendario con marchio di origine della nona generazione, dentro un salvataggio di nona generazione, viene accettato e riceve un tracciatore nuovo. Il medesimo leggendario con origine di quarta generazione, dentro il medesimo salvataggio di nona, viene rifiutato, perché di un esemplare che dichiara una provenienza anteriore il deposito pretende un tracciatore già registrato nel proprio archivio.
+
+Ne discende una conseguenza che rovescia una speranza implicita e che va scritta per esteso: dopo la chiusura della banca non basterà iniettare un esemplare di prima o di terza generazione in un salvataggio moderno e depositarlo. Quella via è chiusa per costruzione e non per severità, il che significa che nessun perfezionamento del dato la riapre.
+
+La medesima fonte documenta l'unica eccezione nota e ne spiega il meccanismo, che è la parte che la rende credibile. Gli esemplari depositati dal titolo maggiore dell'ottava generazione vengono accettati e ricevono un tracciatore nuovo qualunque sia la loro origine, comprese le generazioni anteriori. La ragione sta nella forma dei dati: il deposito conserva un blocco generale con gli attributi condivisi e un blocco specifico del gioco, e gli esemplari che arrivano dalla banca generano il blocco specifico nel formato di quel titolo, che è dunque il formato di sbarco della banca e per questo non porta la validazione stretta.
+
+Le due avvertenze che la fonte stessa aggiunge vanno registrate insieme all'eccezione, altrimenti la si legge come una soluzione. Non è noto se il deposito annoti il punto d'ingresso: se lo annota, un esemplare entrato da quel titolo con un marchio di origine anteriore è una combinazione che il servizio potrebbe considerare impossibile. E quando la banca chiude non c'è più ragione di mantenere quel formato di sbarco, quindi è probabile che la validazione stretta venga estesa. La lettura corretta per la pianificazione è dunque che la scappatoia non allunga la scadenza, perché la allungherebbe soltanto se fosse garantita: è una via che oggi funziona e che nessuno promette per domani.
+
+\section{La porta di ottobre, e una previsione che nessuna fonte fa da sola}
+
+L'annuncio ufficiale del 13 agosto 2026 stabilisce che le riedizioni per console corrente dei due titoli di Kanto si collegheranno al deposito a ottobre 2026 \cite{frlg-home}, e una testimonianza tecnica indipendente aggiunge che su quelle versioni si può allestire un meccanismo di scrittura che compone il dato di un esemplare byte per byte dentro il salvataggio \cite{mankeymite-home}. La conclusione naturale, che l'autore stesso formula come possibilità e accompagna con una riserva, è che quella diventi una porta nuova per la terza generazione dopo la chiusura della banca.
+
+Le due fonti insieme permettono però una previsione che nessuna delle due fa da sola, e che questo lavoro registra come inferenza e non come fatto. Se un esemplare privo di tracciatore è accettato solo quando l'origine coincide con il gioco da cui lo si deposita, allora da quelle versioni passeranno gli esemplari con origine \emph{in quelle versioni}, non quelli con origine nei titoli per console portatile della medesima generazione. Il ponte di ottobre, se la regola resta quella, non è un ponte per la terza generazione: è un ponte per la terza generazione rifatta. La verifica costa un esemplare e si potrà fare a ottobre.
+
+Sul piano a pagamento la medesima testimonianza porta i numeri, e ne discende un vincolo di calendario che va enunciato perché contraddice in parte l'ordine di acquisto altrimenti sensato. I titoli moderni possono attendere, perché servono a prelevare dal deposito e non a depositare; il piano a pagamento non può, perché è la condizione del passaggio dalla banca al deposito e quel passaggio esiste soltanto fino alla data di chiusura. La capienza, seimila posizioni e novemila da ottobre, è il tetto della campagna: le voci sotto scadenza vi stanno, il perimetro complessivo vi sta appena, e va contato nella pianificazione invece di essere scoperto alla fine.
+
+\section{Tre verifiche, e che cosa insegna il modo in cui si chiudono}
+
+La prima riguardava i premi del torneo per console fissa e toccava lavoro già fatto, cioè le voci del lotto delle prime due generazioni. L'esito è che la fonte comunitaria e il verificatore non si contraddicono, perché parlano di due cose diverse: il verificatore accetta quegli esemplari come incontri validi, mentre la trasferibilità è un'altra questione, poiché nascevano su una cartuccia collegata alla console fissa e una cartuccia non ha alcuna via ufficiale verso la banca, mentre la riedizione per console corrente, che quella via ha, non poteva riceverli. Sono dunque producibili come dato e non legittimamente trasferibili come esemplari, salvo iniettarli in un salvataggio della riedizione, che è esattamente il confine fra creare e ottenere.
+
+La seconda riguardava gli esemplari dell'isola che compare a intermittenza, e l'esito è che la classe non è svuotata. L'affermazione secondo cui non si trasferiscono va letta nel suo contesto, che è un canale sull'esecuzione di codice: riguarda gli esemplari ottenuti sbloccando l'isola con un codice, non quelli catturati quando essa compare per la via del gioco, che restano incontri ordinari di un'area d'erba.
+
+La terza, cioè la rimozione permanente del contrassegno della banca quando un esemplare esce dal deposito, resta aperta, e il modo in cui resta aperta è la parte istruttiva. La fonte che l'afferma è una discussione, il corpus non ne porta una migliore, e la regola del tracciatore trovata nello stesso giro non la conferma perché parla di un'altra cosa: il tracciatore è un identificativo lato servizio, il contrassegno è un segno sul dato. Due affermazioni distinte che si somigliano sono il caso in cui la tentazione di chiudere una verifica con l'esito di un'altra è più forte, ed è il motivo per cui questo lavoro le tiene separate.
