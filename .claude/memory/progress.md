@@ -4,6 +4,36 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-09, seconda parte. ADR-050, il terzo cluster letto, e il Mew che ci mancava
+
+### La decisione, e che cosa comporta
+
+L'utente ha deciso che si produce tutto, con il tempo come ragione, ed è ADR-050: una via che esista ma non sia percorribile entro il 26 febbraio 2027 si tratta come chiusa ai fini della produzione. Il criterio di ADR-049 resta nella forma e cambia il predicato, da esiste una via a esiste una via percorribile nel tempo residuo.
+
+Il perimetro cresce di un ordine di grandezza e va detto in numeri: 2686 voci da distribuzione sotto scadenza, 164 scambi in gioco nelle generazioni che passano dalla banca, 137 specie da incontro condizionato più 49 da area monospecie esclusiva, e i 1204 fra statici, doni e vaganti delle prime cinque generazioni che ADR-049 aveva escluso e che questa decisione riapre per la parte non percorribile. Le tre conseguenze operative sono che la coda si ordina per costo unitario e non per classe, che il generatore va esteso a tre classi nuove, e che la produzione dentro il gioco passa da ipotesi a via da valutare.
+
+### Il terzo cluster prioritario, letto
+
+Era in coda con una precedenza dichiarata perché è l'unica parte del corpus che tocca il come e non il che cosa. L'esito è `STUDIO-08-esecuzione-di-codice-e-manipolazione-del-generatore.md`.
+
+In prima generazione la via è l'oggetto glitch che riscrive nome e identificativo dell'allenatore del primo esemplare della squadra, con una variante che fissa i valori individuali per la cromaticità, e il vincolo dichiarato del livello almeno cinque per il trasferimento. In seconda generazione la via è completa e ci riguarda direttamente: le guide di TimoVM coprono ogni versione e ogni lingua di Oro, Argento e Cristallo, italiano compreso, su cartuccia e su Console Virtuale, con l'allestimento raggiungibile dopo la seconda medaglia e un programma di cinquanta byte che esegue assembly arbitrario. I codici già pubblicati consegnano un Mew trasferibile, un esemplare della linea di Treecko o Torchic trasferibile, e il riempimento della scatola attiva chiedendo specie e livello, che è un generatore interno al gioco. In terza generazione la via esiste in forma più matura e meno confezionata, cioè un generatore di codici, una raccolta per tutte le lingue e un editor di salvataggi.
+
+La differenza che rende tutto questo rilevante non è la comodità ma la provenienza, ed è la distinzione fra creare e ottenere su cui poggia la trasferibilità secondo la testimonianza registrata in `poke-ace/STUDIO-03`: un esemplare che il gioco consegna perché il suo codice è stato indotto a consegnarlo non è scritto in un salvataggio.
+
+### La scoperta laterale, che è una voce mancante
+
+Leggendo la procedura di prima generazione è emerso che l'esemplare che essa imita, cioè il Mew con allenatore GF e identificativo 22796, sta nelle tabelle del verificatore in un file a parte rispetto agli altri doni: è un dono unico, livello cinque, con tutti i valori individuali a quindici. Il nostro lotto di prima generazione contiene i Mew dei tour internazionali e delle manifestazioni giapponesi, che hanno valori fissati a cinque, dieci, uno, dodici e cinque, e non contiene questo. È una voce mancante sull'asse degli eventi ed è la più celebre di tutte; la voce è in `pending.md`.
+
+Va registrata la conferma incrociata perché è la prova che su questo punto la fonte comunitaria è affidabile: la guida afferma che i valori individuali massimi sono quelli dell'esemplare ufficiale, e il codice del verificatore lo conferma assegnando quindici a tutti e cinque i valori quando il tipo di allenatore è quello della Console Virtuale, con il commento che l'identificativo è la data di uscita giapponese dei primi due titoli.
+
+### Un limite nostro, dichiarato
+
+Le due pagine sulla manipolazione del generatore sono catalogate e non lette per un difetto della nostra estrazione, che ha conservato la navigazione e perso il contenuto. Il grezzo sta accanto al derivato e una seconda passata lo recupera senza ri-scaricare. Con ADR-050 quella lettura conta più di prima, perché la manipolazione produce esemplari indistinguibili da quelli catturati per caso, essendo catturati per caso, e ciò che serve sapere è quanto costi in tempo.
+
+### Lo stato della lettura del corpus
+
+Su direttiva dell'utente la disciplina di leggere una fonte solo quando una domanda la chiama è sospesa: va letto tutto prima di produrre altro lavoro. La misura è che il corpus scaricato è di duecentonovantadue documenti per sei milioni e duecentomila byte, che i tre cluster prioritari sono letti, e che gli altri trentanove cluster restano. La lettura procede a lotti con la sintesi che entra in un documento invece di restare in conversazione, perché il corpus non entra in una sessione sola.
+
 ## 2026-09-09. Le due classi nuove contate sulla fonte, e una premessa corretta prima che diventasse un fatto
 
 ### L'allineamento della memoria, che era la prima richiesta

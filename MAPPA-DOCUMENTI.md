@@ -90,7 +90,7 @@ Sommano oltre tre megabyte, cioè la quasi totalità del peso testuale del proge
 
 ## Gli studi e le referenze autorate, che sono i file da leggere
 
-Sono i documenti dove sta il ragionamento, e sono pochi. Per il track del deposito: la catena di trasferimento, la roadmap cronologica, e sette studi numerati. Per le distribuzioni: quattro studi. Per l'esecuzione di codice: tre studi. Per il ponte fra generazioni: la referenza dei formati, che è il documento tecnico più denso del progetto. Più uno studio a testa per la batteria, per la generazione da console corrente e per l'automazione.
+Sono i documenti dove sta il ragionamento, e sono pochi. Per il track del deposito: la catena di trasferimento, la roadmap cronologica, e otto studi numerati. Per le distribuzioni: quattro studi. Per l'esecuzione di codice: tre studi. Per il ponte fra generazioni: la referenza dei formati, che è il documento tecnico più denso del progetto. Più uno studio a testa per la batteria, per la generazione da console corrente e per l'automazione.
 
 Ciascun sottoprogetto ha un `README.md` che elenca i propri file: è quello il posto dove cercare dentro un track, non questa mappa.
 
