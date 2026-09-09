@@ -4,6 +4,90 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-09. Le due classi nuove contate sulla fonte, e una premessa corretta prima che diventasse un fatto
+
+### L'allineamento della memoria, che era la prima richiesta
+
+`index.md` era fermo allo snapshot del 2026-09-07 e non conosceva le nove parti del giorno dopo: ora porta il commit `ded68c5`, la data del 2026-09-09, il fuoco corrente riscritto e un paragrafo che copre i cinque giorni mancanti. La scheda `sub-pokedex-home-completo.md` era ferma al 2026-09-04 e ha una sezione nuova che sostituisce, dove divergono, i numeri delle sezioni precedenti. In `pending.md` sono state chiuse le due voci sull'asse del sesso, aggiornato il debito di lettura sui tre cluster prioritari, e aggiunte le tre verifiche aperte dallo Studio 06 più la richiesta mirata delle schermate delle due schede non fotografate.
+
+### Gli scambi in gioco, prima classe della direttiva
+
+`tools/censimento-scambi.py` legge le tabelle di scambio del verificatore su tutte e nove le generazioni: 238 voci di tabella, 233 distinte, 152 specie, e 46 con il valore di personalità scritto nella fonte. Il documento è `CENSIMENTO-SCAMBI.md` e la tabella `scambi.csv`.
+
+Il numero che conta per la produzione non è il totale ma la colonna del valore di personalità, perché dove la fonte lo scrive l'esemplare è riproducibile byte per byte senza alcuna ricerca di semi: sono diciannove voci in terza generazione, sedici in quarta, sette in quinta e quattro in ottava. In prima e seconda quel valore non esiste affatto, quindi la legittimità è banale; in sesta, settima e nona il gioco lo genera alla consegna e la fedeltà torna indecidibile come per i doni moderni.
+
+Due scoperte laterali valgono più del conto. La prima è che i ventidue doni del Ranch stanno nella fonte fra le tabelle di scambio: la classe a via chiusa che lo Studio 06 aveva trovato attraverso una fonte comunitaria è dunque enumerabile dalla fonte di primo livello, con il valore di personalità di ciascuna voce. La seconda è che quattro scambi di terza generazione stanno nel gioco da console fissa, con allenatore Hordel e Duking, e la loro via richiede un titolo che l'utente non possiede: la via esiste nel mondo ma non per noi, che è una cosa diversa dalla via chiusa e va tenuta distinta.
+
+Va registrata anche una coincidenza da non promuovere ad accordo: la fonte comunitaria letta ieri contava 238 scambi e noi ne contiamo 238, ma le due enumerazioni non sono state confrontate riga per riga, e per il criterio di ADR-044 finché non lo sono il numero uguale può nascere da insiemi diversi.
+
+### Il difetto che il presidio ha colto, e che nessun controllo interno avrebbe visto
+
+Il programma verifica ogni voce contro il commento che la fonte le scrive accanto, che nomina la specie in inglese. Il controllo ha rilevato sette voci su quattordici sbagliate nell'ottava generazione: quella tabella usa due costruttori diversi nelle stesse righe, uno con l'indice della voce e uno senza, e la specie scorre di una posizione fra l'uno e l'altro. Senza il confronto col commento il censimento avrebbe attribuito a sette esemplari la specie di un altro, e nessun controllo interno lo avrebbe potuto cogliere, perché entrambi i numeri sono specie valide. È la stessa famiglia di difetto già registrata in ADR-034, cioè i campi che sembrano lo stesso campo.
+
+### Gli incontri condizionati, e la correzione all'esempio
+
+L'esempio dato dall'utente era il Wynaut dell'Isola Miraggio, che conserverebbe come luogo d'incontro quello dell'isola. La verifica sulle tabelle dice altro, e la correzione va scritta perché altrimenti diventava un fatto nei documenti: l'isola non ha un luogo proprio, è l'area d'erba del luogo quarantacinque, cioè la rotta che affaccia, e quel luogo porta accanto le proprie aree d'acqua e di pesca con Tentacool, Wingull, Pelipper, Magikarp e Sharpedo. Un Wynaut catturato là registra la rotta e non l'isola.
+
+Ciò che lo rende comunque irripetibile è più preciso: in quel luogo l'erba ospita quella specie sola, e quella specie non compare in nessun'altra area del titolo. La traccia sul dato è dunque la terna fra luogo, tipo di casella e specie. Da qui il criterio meccanico, in tre prove distinte dichiarate dentro `tools/censimento-condizionati.py`, applicate a tutti e ventuno gli archivi selvatici dalla prima alla quinta generazione: 137 specie vengono da un tipo di casella che è esso stesso una condizione, 49 da un'area monospecie esclusiva, 12 da un luogo dedicato. Il documento è `CENSIMENTO-CONDIZIONATI.md`.
+
+I casi che la comunità nomina da vent'anni compaiono da sé, e questo è il segno che il criterio è quello giusto: il Wynaut della rotta centotrenta, il Feebas come sciame in acqua, lo Smeargle della grotta degli artisti, gli Unown delle rovine, lo Shuckle da spaccaroccia. Le due righe fuori scala hanno una spiegazione: le ottanta specie condizionate delle riedizioni di seconda generazione vengono dalla zona safari, che il giocatore costruisce disponendo blocchi e attendendo giorni, e le quarantotto della seconda coppia di quinta vengono dalle grotte nascoste.
+
+Il limite è dichiarato nel documento e va ripetuto qui perché cambia la lettura: le tabelle selvatiche non contengono incontri fissi, doni e scambi, quindi la frase unica via nel gioco vale sulle sole vie selvatiche. Il caso concreto è proprio il Wynaut, che in Rubino, Zaffiro e Smeraldo ha anche un uovo consegnato al centro termale.
+
+### La decisione di perimetro che ne discende, e che non è mia
+
+ADR-049 esclude quasi tutte le voci di entrambe le classi, perché l'utente possiede le cartucce e quelle vie esistono. Alcune però esistono e non sono percorribili nei centosettanta giorni che restano, e la domanda se una via aperta ma impercorribile vada trattata come chiusa è una decisione di perimetro registrata in `pending.md`. Le tre eccezioni che il criterio riconosce già sono i ventidue scambi del Ranch, i quattro dei giochi da console fissa e le voci delle riedizioni per console corrente.
+
+Resta infine una verifica che tocca il valore dell'intera classe seconda: lo Studio 03 del track sull'esecuzione di codice registra, su testimonianza del 2024, che gli esemplari dell'Isola Miraggio non si trasferiscono perché non nascono da un evento che li renda legittimi. Va stabilito se quell'affermazione riguardi gli esemplari composti con quella provenienza, che è la lettura coerente col resto di quello studio, oppure anche quelli catturati giocando.
+
+## 2026-09-08, decima parte. La ripresa dopo il crash, il lettore di fogli a livelli, e il cluster delle enumerazioni trasversali
+
+### Che cosa il crash aveva interrotto
+
+La sessione è caduta alle 15:14, tre minuti dopo il commit `bf4cc54`, mentre scriveva `tools/leggi-foglio-google.py`. Non si è perso nulla di sostanziale: il working tree era pulito e tutte e nove le parti della giornata erano già in memoria e committate. L'unico residuo era un file temporaneo da zero byte, rimosso alla ripresa.
+
+### Lo strumento, ricostruito con una forma diversa da quella perduta
+
+`tools/leggi-foglio-google.py` non è il lettore di un foglio solo ma un lettore a livelli crescenti, perché la cartella delle due sfide del catalogo porta da sola quattrocentoventicinquemila celle piene: al Livello 1 scrive lo scheletro di tutte le schede in `pokedex-home-completo/INDICE-FOGLI-ESTERNI.md`, al Livello 2 mostra a video l'intestazione e le righe di testa e coda di una scheda, al Livello 3 la esporta in CSV. Tratta e dichiara tre insidie del formato: l'estensione che il file dichiara non è quella del dato e va ricalcolata scandendo le celle, il titolo di una scheda è troncato a trentuno caratteri dal formato e non dalla fonte, e le caselle di spunta vanno contate a parte perché distinguono una enumerazione da leggere dallo stato di avanzamento di chi ha compilato il foglio. Il self-test passa venti controlli, uno dei quali negativo sull'estensione dichiarata.
+
+Le cartelle registrate sono quattro. Due erano la consegna dell'utente; le altre due erano catalogate e non scaricate nel corpus, e la prima via della regola sulle fonti non recuperabili le ha restituite intere al primo tentativo, cioè una richiesta locale all'indirizzo di esportazione, senza credenziali e senza browser. È la seconda volta in due giorni che quella via funziona dove il progetto si aspettava un ostacolo.
+
+### L'asse del sesso è chiuso, e per la prima volta con scarto nullo nei due versi
+
+La voce aperta il 2026-09-07 non era se adottare le differenze di sesso, che l'utente aveva già deciso, ma da quale fonte enumerarle. La fonte è la pagina di Bulbapedia, che si è rivelata enumerabile a macchina perché ogni riga porta davanti il numero di catalogo a quattro cifre. Lo strumento è `tools/enumera-differenze-sesso.py`, e il conto è centodue specie contro le centodue che la pagina dichiara nella propria prosa sezione per sezione. Il confronto con il foglio comunitario, che è una misura indipendente, dà zero divergenze in entrambi i versi: per il criterio di ADR-044 l'asse è chiuso rispetto a entrambe le fonti.
+
+Il presidio dello strumento vale registrarlo perché è nato da un errore commesso in diretta: la prima estrazione, fatta sui collegamenti invece che sui numeri di catalogo, dava centoquattro specie perché raccoglieva anche i nomi citati dentro le descrizioni, per esempio Espurr nominato nella riga di Meowstic. Lo strumento quindi non si fida della propria estrazione e la confronta con il numero che ogni sezione dichiara, riferendo una discordanza invece di scrivere un documento che sembrerebbe misurato.
+
+Ne discende una correzione a un numero che il progetto portava dal 2026-09-07: le specie con differenze di sesso sono centodue e non centotre. Le duecentosei righe del foglio sono giuste, ma una specie ne porta quattro invece di due, ed è Sneasel nella forma comune e in quella di Hisui. Il centotre nasceva dal dividere duecentosei per due assumendo una coppia per specie, cioè lo stesso denominatore assunto invece che misurato già registrato nella medesima giornata sull'asse dei fiocchi.
+
+### Le sfide del deposito, e la fonte primaria che era in casa da un giorno
+
+Il più economico dei quattro lavori di STUDIO-05 è fatto, e sposta la gerarchia delle fonti su quell'asse. Le ventuno schermate consegnate il 2026-09-07 sono l'applicazione stessa, mentre il post delle quarantadue e la lista di controllo derivata discendono entrambi dall'elenco di Serebii, che su questo asse è incompleto. L'elenco dell'applicazione è di un ordine di grandezza più grande, perché porta anche le sfide che la chiusura non tocca, cioè i diciotto tipi, le venticinque indoli, il deposito in ciascuna sfera compresa la serie di Hisui, il riempimento dei cataloghi regionali e il conto delle forme di una specie.
+
+Quattro correzioni, e tre alleggeriscono la scadenza. Le due sfide di Rosso Fuoco e Verde Foglia non sono sotto scadenza perché quei titoli si collegano al deposito da ottobre. La sfida su Zekrom da Nero o Bianco esiste nell'applicazione e manca nell'elenco di Serebii, quindi manca nel post che ne discende mentre la nostra lista derivata la porta. L'esemplare cromatico di Genesect resta ottenibile dal gioco per telefono. E una sfida di provenienza si soddisfa anche con un esemplare ricevuto in scambio, quindi la scadenza vincola l'esistenza di quegli esemplari nel mondo e non la nostra facoltà di registrarli. Sullo stato dell'utente le schermate dicono che nessuna sfida di provenienza è soddisfatta e che le sole in corso sono quelle che si soddisfano depositando ciò che si ha. La copertura è parziale e dichiarata: le schede Scambi e Altro non sono fotografate.
+
+### Il controllo all'indietro di ADR-049 ha i suoi candidati
+
+Le due schede piccole del foglio degli scambi e dei doni sono di fatto una lista di vie chiuse, cioè la materia esatta del controllo che ADR-049 impone: premi di Stadium e Stadium 2, dischi bonus di Colosseum, ricompense interne di Colosseum e XD, Jirachi di Channel, i tre di Battle Revolution, l'uovo di Ranger, le quattro uova di Pokemon Box, i ventidue scambi di My Pokemon Ranch con Phione al livello quindici e Mew al venticinque, il disco dimostrativo da negozio, le due dimostrazioni di sesta e settima generazione, e le ventisei voci del sondatore dei sogni. La tabella con lo stato di ciascuna via sta in `STUDIO-06`.
+
+Sul sondatore dei sogni le due fonti danno numeri diversi e non è una contraddizione: centottantuno nelle tabelle del verificatore, che contano le combinazioni fra specie e livello, ventisei in questa fonte, che conta specie e forme. Il conto per la coda resta quello del verificatore e questo serve da controllo di copertura.
+
+### Le due enumerazioni nuove, e la classe che non avevamo
+
+La cartella di ChaBoiJish porta millequattrocentocinquantotto esemplari da evento interno più duecentotrentotto scambi in gioco, e la distribuzione per titolo dice che novecentottantasei di quelle voci vengono da titoli la cui via verso il deposito passa dalla banca. Va letta con la distinzione di ADR-049, altrimenti si conclude il contrario del vero: sono in grandissima parte incontri ordinari, la cui via è ancora aperta perché l'utente possiede le cartucce, quindi entrano nella lista di spunta e non nella coda di produzione. La cartella di greenpangolin17 porta ottocentouno voci fra scambi, doni, uova e interagibili su quattro epoche.
+
+La classe che nessuna nostra enumerazione conteneva sono i doni che il deposito consegna da sé: il Pikachu del primo avvio con allenatore HOME, i terzetti di iniziali legati al deposito da ciascun titolo, il Melmetal gigantesco del primo trasferimento dal gioco per telefono, il Magearna nel colore originale che chiede il catalogo nazionale, e i sei cromatici legati al completamento del catalogo di un titolo. Sono voci senza scadenza, ma sono collezionabili distinti, e una di esse lega l'asse dei doni a quello delle sfide perché chiede una sfida completata.
+
+### Due tensioni che restano da verificare, ed è la parte da non dimenticare
+
+La prima tocca lavoro già fatto: la fonte afferma che almeno un premio di Stadium non è trasferibile verso il deposito, mentre il nostro lotto GB contiene quei premi e il verificatore li ha dichiarati conformi. Le due affermazioni non si escludono, perché conformità e trasferibilità sono controlli diversi fatti da soggetti diversi, ma la seconda va verificata prima di contare quelle voci come collezione raggiungibile.
+
+La seconda riguarda i marchi: la raccolta sui simboli afferma che il timbro della banca e quello del deposito vengono rimossi in modo permanente quando l'esemplare esce dal deposito, mentre quelli dei titoli per console corrente restano. Se confermato, va scritto che il deposito conserva internamente la porta d'ingresso, che è il tracciatore di STUDIO-04, ma che il segno visibile di quella porta non è permanente: sono due affermazioni diverse e il progetto ne usava una sola.
+
+### Igiene e allineamento
+
+`SOURCES.md` porta ora sette righe del cluster marcate come lette con la data e con ciò su cui la fonte è autorevole, più tre righe nuove per le cartelle di calcolo derivate, che sono indirizzi distinti dai post che le annunciano. `MAPPA-DOCUMENTI.md` porta i quattro documenti generati nuovi, compresi i due della medesima giornata che nessuno aveva registrato, cioè i fiocchi e le mosse perdute. Il README del track elenca i sette file nuovi. Tutti i controlli tipografici passano, e i tre strumenti con `--check` dichiarano i propri documenti allineati.
+
 ## 2026-09-08, nona parte. ADR-049 accolta, i Pokemon di N contati, e la politica sulla versione nativa
 
 ### Il criterio è deciso
