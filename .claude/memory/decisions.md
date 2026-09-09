@@ -738,3 +738,50 @@ Ciò che la decisione comporta, detto in numeri e non in principio, perché' il 
 Le conseguenze operative, che sono tre e vanno enunciate perché' cambiano il lavoro e non solo il conto. La prima è che la coda di produzione non si ordina più' per classe ma per costo unitario e per rischio di irreversibilità, perché' con questo perimetro il collo di bottiglia diventa il tempo di macchina e di catena e non la conoscenza. La seconda è che il generatore va esteso alle classi che oggi non copre, cioè' gli scambi in gioco, gli incontri condizionati e gli statici ordinari, e per le prime la fonte scrive il valore di personalità' su quarantasei voci, che sono quindi riproducibili byte per byte senza alcuna ricerca. La terza è che la produzione su hardware reale diventa una via da valutare seriamente e non un'ipotesi, perché' l'esecuzione di codice arbitrario di prima, seconda e terza generazione consegna esemplari ottenuti dentro il gioco invece che scritti in un salvataggio, ed è precisamente la distinzione fra creare e ottenere su cui poggia la trasferibilità secondo la testimonianza registrata in `poke-ace/STUDIO-03`.
 
 Ciò che questa decisione non decide, e va tenuto distinto. Non decide che si produca ciò che è comodamente ottenibile giocando: l'argomento di ADR-049 sulla qualità' superiore di un esemplare catturato dal giocatore resta valido dove il tempo lo consente, e la sua applicazione caso per caso è una scelta di priorità' e non di perimetro. Non decide la questione della legittimità, che resta quella di ADR-023 e degli studi del track sull'esecuzione di codice: legale e legittimo non sono sinonimi, e il progetto persegue il secondo. E non autorizza alcuna operazione su hardware fisico, che resta soggetta alla regola del perimetro e ai suoi presidi.
+
+## ADR-051: si producono anche gli incontri ordinari, e il criterio di ADR-049 è superato nella sua quarta classe
+
+Data: 2026-09-09. Stato: accettata, su decisione esplicita dell'utente.
+
+Contesto. ADR-049 aveva escluso dal perimetro gli incontri ordinari dei giochi, con due ragioni e mezzo: non hanno scadenza, un esemplare catturato dal giocatore è migliore su ogni asse che interessi al progetto, e quel perimetro non ha chiusura. ADR-050 ha poi stabilito che una via impercorribile nel tempo residuo vale come chiusa. Restava da decidere se si producano anche gli incontri che resterebbero comodamente ottenibili giocando dopo la scadenza.
+
+La decisione, con la motivazione dell'utente. Si producono anche quelli. Le ragioni dichiarate sono tre e vanno registrate perché due di esse non erano fra quelle che il progetto aveva considerato. La prima è l'asimmetria dei tempi: comporre un esemplare costa poco una volta che il metodo è capito, mentre catturarlo costa una quantità di tempo umano che l'utente non ha. La seconda è che la produzione è istruttiva sul piano ingegneristico e alimenta la tesi, quindi ha un valore che non è soltanto quello dell'esemplare prodotto. La terza è la sicurezza, cioè produrre anche ciò che sembra ottenibile per non dipendere da una via che potrebbe rivelarsi chiusa.
+
+Ciò che supera. La quarta classe di ADR-049, cioè gli incontri ordinari non si producono, è superata da questa decisione. Restano valide le altre tre classi di quella decisione e resta valido il suo criterio come forma, perché il criterio dice quando si deve produrre e non quando si possa: questa decisione aggiunge che si può produrre anche quando non si deve.
+
+La conseguenza sul perimetro, misurata. Le tabelle degli incontri del verificatore portano per le sole generazioni dalla prima alla quinta milleduecentoquattro voci fra statici, doni e vaganti, e a queste si aggiungono le classi enumerate il 2026-09-09, cioè duecentotrentatre scambi in gioco distinti e le specie da incontro condizionato. Il perimetro cessa quindi di essere definito per esclusione e diventa: tutto ciò che le fonti enumerano e che il progetto sappia comporre.
+
+Il presidio che questa decisione richiede, e che va scritto perché senza di esso la decisione produce un archivio inservibile. Ogni esemplare prodotto porta accanto la dichiarazione di che cosa sia: la classe di provenienza, la fonte che la documenta, e se la sua via fosse aperta o chiusa al momento della produzione. Un lotto in cui non si distingua più ciò che era irrecuperabile da ciò che era soltanto scomodo perde il significato che ADR-049 e ADR-050 gli danno.
+
+
+## ADR-052: la coda di produzione si ordina per scadenza, sempre
+
+Data: 2026-09-09. Stato: accettata, su decisione esplicita dell'utente.
+
+La coda si ordina per scadenza e non per costo unitario né per irreversibilità del supporto. La formulazione dell'utente è senza eccezioni, e va conservata come tale perché il suo valore sta nell'assenza di eccezioni: una regola di ordinamento che si negozi caso per caso non ordina nulla.
+
+Ne segue l'ordine operativo. Prima ciò che il 26 febbraio 2027 rende irraggiungibile, cioè le duemilaseicentottantasei voci da distribuzione sotto scadenza e le voci delle classi nuove che appartengono alle generazioni la cui via passa dalla banca. Poi ciò che scade per un'altra ragione ma non ha quella data, cioè le cartucce la cui pila è esaurita, che restano governate dalla loro regola di irreversibilità e non entrano in competizione con la scadenza del servizio. Infine ciò che non scade.
+
+La ragione per cui questo ordinamento va contro l'intuizione del costo, e perché l'utente ha ragione. Ordinare per costo unitario massimizza il numero di voci prodotte nel tempo disponibile, ed è il criterio giusto quando tutte le voci restano ottenibili. Qui non è così: una voce che scade e non viene prodotta non torna, mentre una voce costosa che non scade si produce dopo. Il costo unitario resta un criterio, ma di secondo ordine, cioè si applica dentro l'insieme delle voci che condividono la medesima scadenza.
+
+
+## ADR-053: la via interna al gioco si adotta sulla Console Virtuale, e sulle cartucce resta una decisione a parte
+
+Data: 2026-09-09. Stato: accettata, su decisione esplicita dell'utente che ha seguito la raccomandazione.
+
+L'esecuzione di codice arbitrario documentata nel terzo cluster del corpus si adotta come via di produzione sulle riedizioni per Console Virtuale di prima e seconda generazione, che vivono sulla console modificata dell'utente. Sulle cartucce fisiche non si adotta ora, e la decisione resta separata.
+
+La ragione della separazione non è la difficoltà ma la reversibilità, ed è la stessa distinzione che governa tutto il progetto sull'hardware. Un salvataggio di Console Virtuale è un file su una scheda di memoria: si copia prima di toccarlo, si ripristina se l'allestimento va male, e un errore costa il tempo di ricominciare. Un salvataggio su cartuccia vive in una memoria alimentata da una pila saldata nel millenovecentonovantotto: non esiste copia se non quella che si estrae con un lettore che non è ancora arrivato, un errore lo cancella, e ciò che si cancella non torna. L'allestimento dell'esecuzione di codice richiede inoltre di disporre quantità precise di oggetti e una squadra precisa, cioè di modificare a fondo lo stato di gioco, e su una cartuccia il cui salvataggio ha vent'anni quello stato è esso stesso il collezionabile.
+
+Ne segue la prescrizione operativa. Sulla Console Virtuale si procede, con la copia del salvataggio prima di ogni sessione di allestimento e la rilettura dopo, secondo la regola dei backup in doppia copia. Sulle cartucce non si esegue alcun allestimento finché non siano soddisfatte tre condizioni: il lettore arrivato, il salvataggio estratto in doppia copia su volumi distinti e verificato leggibile, e una prova dell'allestimento condotta prima su una cartuccia sacrificabile o su un salvataggio copia. La decisione di procedere allora sarà una decisione nuova e non un'estensione automatica di questa.
+
+
+## ADR-054: le sessantatre configurazioni di Alcremie sono voci distinte, e il bersaglio delle forme si alza di cinquantaquattro
+
+Data: 2026-09-09. Stato: accettata, su decisione esplicita dell'utente. Supera ADR-035 sul punto di Alcremie.
+
+ADR-035 aveva chiuso la questione delle forme fissando il bersaglio a trecentoquarantadue voci e attribuendo ad Alcremie nove voci, cioè le nove creme che il campo della forma rappresenta, e non sessantatre. ADR-042 aveva poi stabilito che il sessantatre non è una stima ma un prodotto, cioè nove creme per sette dolcetti, e che il foglio comunitario arriva allo stesso numero per la stessa via.
+
+L'utente ha deciso che le sessantatre configurazioni si producono come entità separate. Ne segue che il bersaglio delle forme si alza di cinquantaquattro voci e che il dolcetto, che nel formato non è un campo della forma, diventa per il progetto un asse di distinzione al pari della crema.
+
+La conseguenza tecnica va dichiarata perché è la ragione per cui ADR-035 aveva deciso in senso opposto. Il dolcetto di Alcremie non è rappresentato dal campo della forma ma da un altro campo dell'esemplare, quindi le sessantatre configurazioni non sono sessantatre valori di forma: sono nove valori di forma per sette valori di un secondo campo. Il generatore deve quindi comporre la coppia, la lista di spunta deve portare due colonne invece di una, e il codice interno di una voce di Alcremie non è più la coppia fra numero del Dex e indice di forma.
