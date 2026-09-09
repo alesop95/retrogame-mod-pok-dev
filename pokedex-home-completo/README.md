@@ -32,6 +32,13 @@ STUDIO-05-gli-assi-che-non-contavamo.md     mosse, fiocchi, sfere e sfide: i tre
 MOSSE-PERDUTE.md                   le mosse perdute derivate dai dati, e il confronto con la testimonianza
 FIOCCHI.md                         l'asse dei fiocchi: enumerazione dal sorgente e copertura dei lotti
 SPOGLIO-CORPUS.md                  che cosa le fonti del corpus nominano e i nostri lotti non hanno
+STUDIO-06-le-enumerazioni-trasversali.md    il cluster delle liste trasversali letto, e le vie chiuse che riapre
+DIFFERENZE-DI-SESSO.md                      le 102 specie con differenze di sesso, enumerate e concordi con il foglio
+differenze-di-sesso.csv                     le stesse, come tabella per il confronto
+INDICE-FOGLI-ESTERNI.md                     lo scheletro di Livello 1 delle quattro cartelle di calcolo della comunita
+foglio-sfide-deposito.csv                   la scheda delle sfide sotto scadenza, normalizzata
+foglio-spinoff-greenpangolin17.csv          i doni dei giochi derivati, che sono vie chiuse
+foglio-storage-greenpangolin17.csv          i doni dei giochi di deposito, compresi quelli del deposito stesso
 ```
 
 Lo strumento che produce il conto sta fra quelli comuni, in `tools/disponibilita-titoli.py`, perché serve a più di un track: la sua risposta governa la pianificazione del tempo di tutto il progetto e non soltanto di questo sottoprogetto.
