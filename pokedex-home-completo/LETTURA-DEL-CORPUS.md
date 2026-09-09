@@ -15,7 +15,9 @@ La misura del compito, fissata all'inizio perché serve a valutare l'avanzamento
 | 5) Other lists and spreadsheets | 6 | letto il 2026-09-09, due voci non recuperabili | `ID-NOTEVOLI.md` e questa nota |
 | 4) Ribbon Master | 3 | letto il 2026-09-09, il manuale resta da recuperare | questa nota |
 | 3) Collections of one Pokemon species | 6 | letto il 2026-09-09 | questa nota |
-| gli altri trentacinque cluster | il resto | da leggere | |
+| 1) Dex completions / Gen 1, Gen 2, Gen 3 | 16 | letti il 2026-09-09, meno le tre voci in forma di video | questa nota |
+| 1) Dex completions / Gen 4 | 7 | letto il 2026-09-09 nelle voci decisive, e chiude il punto sulle rovine di Sinjoh | questa nota e `pending.md` |
+| gli altri trentuno cluster | il resto | da leggere | |
 
 ## Lotto del 2026-09-09: i cluster 6, 5, 4 e 3
 
@@ -50,3 +52,37 @@ I contrassegni e il meteo di ottava generazione non toccano la scadenza, perché
 ## Una correzione che viene dall'utente e non dalle fonti
 
 Il vincolo di calendario che `STUDIO-09` aveva sollevato sul piano a pagamento è già soddisfatto: l'utente ha il piano attivo, e la banca è gratuita dal 2023, quando chiuse il negozio in rete della console portatile. Il contatore di giorni che l'applicazione della banca mostra è il residuo di quella gratuità e non un abbonamento da rinnovare, ed era già stato registrato il 2026-09-03 come artefatto privo di significato per la nostra pianificazione. Resta della sezione di `STUDIO-09` la sola parte che conta, cioè la capienza: seimila posizioni, novemila da ottobre 2026, e il tetto va contato nel piano perché il perimetro che ADR-051 apre è più grande di quella cifra.
+
+## Lotto del 2026-09-09, secondo: i cataloghi per generazione dalla prima alla terza, e la quarta
+
+L'ordine è quello di ADR-052, cioè la scadenza: questi sono i cluster delle generazioni la cui via verso il deposito passa dalla banca. La fonte portante sono le tre guide al catalogo per regione d'origine di electroswingmix, aggiornate rispettivamente al novembre 2025 per le prime due e al 15 agosto 2026 per la terza, cioè dopo l'annuncio della chiusura.
+
+### Che cosa vincola la prima generazione
+
+Il fatto che tocca il nostro lotto più di ogni altro riguarda la cromaticità: in prima generazione un esemplare selvatico non può essere legalmente cromatico, mentre lo possono essere i doni, gli scambi in gioco e gli incontri fissi. È un vincolo di legalità e non una probabilità, quindi qualunque voce cromatica che il progetto componga per quella generazione deve appartenere a una di quelle tre classi, e le nostre sedici voci cromatiche vanno riviste con questo criterio.
+
+La guida conferma per via indipendente la verifica sui premi di Stadium chiusa poche ore prima, e aggiunge un dettaglio che la rende più precisa: non esiste modo legale di trasferirli perché la riedizione per Console Virtuale non ha mai avuto la connessione con la console fissa, e per iniezione passano tutti tranne il Farfetch'd che conosce Staffetta, perché quella mossa su quella specie il verificatore del trasferimento non la ammette. Il nostro lotto contiene quella voce, quindi va marcata come non trasferibile nemmeno per iniezione.
+
+Sugli esclusivi di versione la guida enumera ciò che il progetto non aveva scritto: Lickitung e Jynx selvatici nella sola versione giapponese Blu, undici specie nella versione internazionale Rossa, undici nella coppia Verde giapponese e Blu internazionale, Farfetch'd e Lickitung selvatici in Giallo, e tredici specie che in Giallo non si ottengono affatto. Ne segue che il catalogo di prima generazione richiede tre versioni e non una, cosa che il progetto sapeva per la terza generazione e non aveva enunciato per la prima.
+
+I nove scambi di Rosso e Blu e i sette di Giallo sono elencati con il loro soprannome, e coincidono con il nostro censimento degli scambi tranne per una voce, che è lo scambio del Nidoran differente fra versione internazionale e giapponese: la nostra tabella lo porta come due voci e la guida come una.
+
+### Che cosa vincola la seconda generazione
+
+La guida enuncia un limite che il progetto deve conoscere prima di comporre: in nessun gioco di seconda generazione si ottengono legittimamente gli iniziali di prima, i fossili di prima esclusa Aerodactyl, i tre uccelli leggendari, Mewtwo e Mew. Sono quindi voci che la seconda generazione non può dare, e chi le volesse con provenienza di quella regione deve passare per la prima.
+
+Sull'asse delle forme arriva un dato preciso che tocca una sfida del deposito: in seconda generazione Unown esiste nelle sole ventisei lettere, mentre le due forme con il punto esclamativo e il punto interrogativo compaiono per la prima volta in terza generazione, nelle versioni di Kanto rifatto. La sfida che chiede ventotto forme di Unown non è dunque soddisfacibile con la sola seconda generazione, e questo spiega perché la nostra enumerazione delle forme trovasse ventotto valori dove la generazione d'origine ne ha ventisei.
+
+Celebi è ottenibile legittimamente soltanto in Cristallo, ed è la sola generazione in cui si possa cercarlo cromatico. Gli esclusivi di versione e le tre linee che Cristallo non dà, cioè Mareep, Girafarig e Remoraid, completano il quadro.
+
+### Che cosa cambia nella terza generazione, e riguarda la scadenza
+
+La guida è aggiornata dopo l'annuncio della chiusura e porta il fatto che sposta un risultato del progetto: la versione per console corrente di Rosso Fuoco e Verde Foglia include l'evento dell'Isola Nascita, quindi Deoxys si ottiene là, si può cercare cromatico, e registra come regione Kanto invece di Hoenn. Deoxys era una delle quattro specie che ADR-032 aveva trovato prive di qualunque incontro nei giochi moderni, insieme a Celebi, Victini e Zarude: se la fonte è esatta, quella riga va corretta perché da ottobre esiste un incontro moderno, con la conseguenza che una specie in meno dipende dalla catena storica.
+
+Il resto della guida completa l'asse delle uova con quattro voci che il progetto aveva registrato senza il loro dettaglio tecnico. Le uova del deposito per console fissa di terza generazione portano ciascuna una mossa esclusiva: Swablu con Falsofinale, Zigzagoon con Extrarapido, Skitty con Giornopaga e Pichu con Surf. E soltanto Pichu deve dimenticare la propria mossa per essere trasferito, il che significa che le altre tre la conservano fino al deposito e sono quindi collezionabili con una proprietà che nessun'altra via riproduce.
+
+Sui due giochi da console fissa la guida chiarisce una cosa che il nostro censimento non diceva: non contengono specie esclusive, ma gli esemplari che vi si ottengono portano fiocchi e luoghi d'incontro esclusivi, e ogni esemplare catturabile vi si può cercare cromatico a probabilità piena. Il disco supplementare giapponese aggiunge Celebi e Pikachu, e tre carte per il lettore esterno sbloccano Togepi, Mareep e Scizor ombra catturabili.
+
+### La quarta generazione, e una voce che si chiude
+
+Il punto in sospeso sulle rovine di Sinjoh si chiude con la procedura, che la guida dedicata descrive passo per passo. Il terzetto del tempo e dello spazio al livello uno si ottiene portando un Arceus di quarta generazione in una riedizione di seconda, tenendolo come solo esemplare in squadra, entrando nelle rovine di Alph e scegliendo uno dei tre cerchi: quello a sinistra dà Dialga, quello a destra Palkia, quello in alto Giratina, ciascuno al livello uno. Ne segue che la voce non è sbloccata da un oggetto ma dal possesso di un Arceus, e che l'Arceus a sua volta viene dal flauto mai distribuito ufficialmente oppure dalla distribuzione di un rivenditore, che il servizio in rete ricostruito rende di nuovo ottenibile: è la via del nome di dominio già studiata in `STUDIO-04`, con la procedura completa del menu dei doni misteriosi e la domanda a due risposte che lo sblocca nei titoli di Sinnoh.

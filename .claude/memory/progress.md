@@ -4,6 +4,24 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-09, quinta parte. I cataloghi per generazione, e cinque fatti che toccano il lotto
+
+Letti i cluster del catalogo per generazione dalla prima alla quarta, seguendo l'ordine di ADR-052, cioè la scadenza. La fonte portante sono le tre guide al catalogo per regione d'origine di electroswingmix, di cui quella di terza generazione è aggiornata al 15 agosto 2026, cioè dopo l'annuncio della chiusura. L'esito sta nel secondo lotto di `LETTURA-DEL-CORPUS.md` e i cinque punti tecnici in `pending.md`.
+
+Il fatto che tocca il nostro lotto più di ogni altro è che in prima generazione la cromaticità non è libera: un esemplare selvatico non può essere legalmente cromatico, mentre lo possono essere doni, scambi in gioco e incontri fissi. Le sedici voci cromatiche che il progetto ha composto per quelle generazioni vanno riviste contro questo criterio, perché è un vincolo di legalità e non una probabilità.
+
+Il secondo restringe la verifica chiusa poche ore prima sui premi di Stadium, e la restringe in modo utile: la guida conferma per via indipendente che non esiste trasferimento legale perché la riedizione per Console Virtuale non ha mai avuto la connessione con la console fissa, e aggiunge che per iniezione passano tutti tranne il Farfetch'd che conosce Staffetta, perché quella mossa su quella specie il verificatore non la ammette. Quella voce del nostro lotto va marcata come non trasferibile nemmeno per iniezione.
+
+Il terzo riguarda le forme e spiega una discrepanza che avevamo: Unown esiste in ventisei lettere in seconda generazione, e le due forme con il punto esclamativo e il punto interrogativo compaiono per la prima volta nelle versioni di Kanto rifatto. Ne segue che la sfida del deposito che chiede ventotto forme non è soddisfacibile con la sola seconda generazione.
+
+Il quarto correggerebbe ADR-032 e va verificato prima di scriverlo come fatto: la guida dichiara che la versione per console corrente di Rosso Fuoco e Verde Foglia include l'evento dell'Isola Nascita, che Deoxys vi si può cercare cromatico, e che registra Kanto come regione invece di Hoenn. Se è esatto, delle quattro specie che ADR-032 aveva trovato prive di qualunque incontro moderno ne restano tre.
+
+Il quinto completa l'asse delle uova con il dettaglio tecnico che mancava: le quattro uova del deposito per console fissa di terza generazione portano ciascuna una mossa esclusiva, cioè Swablu con Falsofinale, Zigzagoon con Extrarapido, Skitty con Giornopaga e Pichu con Surf, e soltanto Pichu deve dimenticare la propria mossa per essere trasferito. Le altre tre la conservano fino al deposito, quindi sono collezionabili con una proprietà che nessun'altra via riproduce.
+
+Si chiude infine il punto in sospeso sulle rovine di Sinjoh, con la procedura completa: un Arceus di quarta generazione portato in una riedizione di seconda, tenuto come solo esemplare in squadra, apre nelle rovine di Alph la scelta fra tre cerchi che danno Dialga, Palkia e Giratina al livello uno. L'Arceus viene dal flauto mai distribuito ufficialmente o dalla distribuzione di un rivenditore, che il servizio in rete ricostruito rende di nuovo ottenibile, quindi la via è aperta e la voce passa da studiare a produrre oppure ottenere.
+
+Due limiti di copertura restano dichiarati: le voci di questi cluster in forma di video non sono leggibili, e le guide al catalogo di quarta generazione oltre quelle lette contengono materiale sugli incontri ordinari che ADR-051 ha portato nel perimetro e che andrà ripreso quando la coda arriverà a quella generazione.
+
 ## 2026-09-09, quarta parte. Il quarto lotto di lettura, e la misura della copertura sugli identificativi
 
 Letti i cluster 6, 5, 4 e 3, cioè diciannove fonti, e la lettura integrale ha ora un documento proprio dove accumularsi a lotti: `pokedex-home-completo/LETTURA-DEL-CORPUS.md`, che per ogni cluster dice che cosa ha aggiunto, che cosa ha corretto e che cosa resta non letto con il motivo.
