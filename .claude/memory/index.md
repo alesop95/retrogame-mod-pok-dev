@@ -8,7 +8,7 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: 6b2dc05
+Commit di riferimento: fa1b2f0
 Data snapshot:         2026-09-10, terza parte
 ```
 
