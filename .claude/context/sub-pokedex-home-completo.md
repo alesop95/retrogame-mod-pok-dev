@@ -4,8 +4,8 @@ generated-from-branch: main
 generated-date: 2026-09-02
 covers-paths:
   - pokedex-home-completo/
-last-verified-commit: 7b66def
-stato: attivo ed è il fuoco corrente; sei assi più le due classi nuove, criterio di produzione in ADR-049 come modificato da ADR-050 e ADR-051, coda ordinata per scadenza per ADR-052
+last-verified-commit: 6b2dc05
+stato: attivo ed è il fuoco corrente; due linee parallele dal 2026-09-10, cioè lettura del corpus e produzione dei lotti; sei assi più le due classi nuove, criterio di produzione in ADR-049 come modificato da ADR-050 e ADR-051, coda ordinata per scadenza per ADR-052
 ---
 
 # Sottoprogetto: Pokedex completo in Pokemon Home
@@ -24,7 +24,9 @@ Il collo di bottiglia non è più la produzione ma il trasferimento: cinque lott
 
 ## Prossimo passo
 
-Nell'ordine di ADR-052, cioè la scadenza. Finire la lettura del corpus, che è a circa un terzo e procede a lotti in `LETTURA-DEL-CORPUS.md`. Poi il lavoro che ADR-051 apre, cioè estendere il generatore agli scambi in gioco, agli incontri condizionati e agli statici ordinari, aggiungere all'asse degli eventi il Mew ufficiale con allenatore GF e identificativo 22796, e rigenerare la lista di spunta con Alcremie a sessantatre, le centodue specie del sesso e le due classi nuove.
+Due linee in parallelo, per direttiva dell'utente del 2026-09-10: la sola lettura consumerebbe il tempo che serve alla produzione, e 2686 voci non si compongono in una settimana. La prima linea è la lettura del corpus, a undici cluster su quarantadue, e il prossimo lotto è la coda delle liste di completamento per generazione, cioè dalla quinta alla nona più gli spinoff; i quaranta documenti sulla caccia ai cromatici restano per ultimi perché servono soltanto se il profilo scelto comprende i cromatici. La seconda linea è la produzione nell'ordine per scadenza di ADR-052, cioè il lavoro che ADR-051 apre: estendere il generatore agli scambi in gioco, agli incontri condizionati e agli statici ordinari, aggiungere all'asse degli eventi il Mew ufficiale con allenatore GF e identificativo 22796, e rigenerare la lista di spunta con Alcremie a sessantatre, le centodue specie del sesso e le due classi nuove.
+
+Sulla produzione pesa una domanda aperta dal 2026-09-10 e da risolvere prima di comporre ciò che si potrebbe ricevere: il servizio ricostruito distribuisce ancora i doni di quarta e quinta generazione alle cartucce vere, e un esemplare ricevuto è preferibile a uno composto su ogni dimensione. La voce sta in `pending.md` fra i punti tecnici aperti.
 
 ## Decisioni aperte
 
@@ -37,6 +39,7 @@ README.md                     l'instradamento, con l'elenco di ogni file della c
 ROADMAP.md                    la sequenza, con dipendenze e chi esegue ciascun passo
 CATENA-DI-TRASFERIMENTO.md    i vincoli di ogni anello, la via in emulazione, la regola del deposito
 LETTURA-DEL-CORPUS.md         il registro della lettura integrale, cluster per cluster
+CONFRONTO-LIVINGDEX-POKEPC.md la terza enumerazione indipendente, e il confronto con la nostra
 STUDIO-01 .. STUDIO-09        le nove note di studio, dalla scadenza alla regola del tracciatore
 CHECKLIST-COMPLETA.md         la lista di spunta generata, con il codice interno PKD-####-##
 ```

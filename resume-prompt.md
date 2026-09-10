@@ -1,6 +1,8 @@
-# Prompt di ripresa - stato al 2026-09-09
+# Prompt di ripresa - le discipline e il modo di lavorare
 
 > Questo file esiste per una ragione precisa: i commit dicono che cosa è cambiato e non perché, né che cosa era stato deciso di non fare. Si legge dopo l'indice e le pendenze, e si aggiorna a ogni passo del lavoro: una voce obsoleta qui è peggio della sua assenza, perché induce a fidarsi di uno stato che non esiste più. La versione precedente di questo file era ferma al 2026-08-31 e dichiarava sei track, centottantuno pagine di tesi e un lettore di cartucce non ancora arrivato: tutte e tre le cose erano false il giorno in cui sono state rilette, ed è la ragione per cui la riscrittura è stata fatta invece di rattoppare.
+
+Dal 2026-09-10 la divisione del lavoro con il file locale è dichiarata, perché tenerne due senza dichiararla è il modo di farli divergere. Questo file, che è tracciato, porta le discipline, il modo di lavorare e gli errori di metodo, cioè ciò che cambia di rado ed è utile anche a un clone. Lo stato volatile della ripresa, cioè il fuoco, i numeri del giorno, i lotti e le decisioni in attesa, sta in `_notes/RESUME_PROMPT.md`, che git esclude e che si riscrive alla fine di ogni giro sostanziale per il presidio della regola sulla persistenza. Chi riprende legge quello per primo e questo subito dopo.
 
 ## 0. Come si riprende, in ordine
 
