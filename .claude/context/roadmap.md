@@ -13,18 +13,18 @@ covers-paths:
   - generation-from-switch/
   - cart-battery-restoration/
   - pokedex-home-completo/
-last-verified-commit: 7696c46
+last-verified-commit: 7b66def
 ---
 
 # Direzione
 
-I nove sottoprogetti sono task paralleli e non fasi di una sequenza, quindi questa scheda non è un ordine di esecuzione ma una mappa di cosa sblocca cosa. Il progetto è pensato per accoglierne altri: aggiungerne uno significa creare la cartella, istanziare una scheda da `templates/context/sub-subproject.md`, aggiungere una riga in tre posti, cioè la tabella di verifica e il punto di ripresa in `memory/index.md` e la tabella dei track in `current-work.md`, e come quarto passo estendere il `covers-paths` delle schede trasversali che parlano di quel track. Quest'ultimo passo è quello che si dimentica, e dimenticarlo non produce un errore visibile: produce un punto cieco, perché `sync-context` non segnalerà mai un drift su un'area che nessuna scheda dichiara di coprire.
+I dieci sottoprogetti sono task paralleli e non fasi di una sequenza, quindi questa scheda non è un ordine di esecuzione ma una mappa di cosa sblocca cosa. Il progetto è pensato per accoglierne altri: aggiungerne uno significa creare la cartella, istanziare una scheda da `templates/context/sub-subproject.md`, aggiungere una riga in tre posti, cioè la tabella di verifica e il punto di ripresa in `memory/index.md` e la tabella dei track in `current-work.md`, e come quarto passo estendere il `covers-paths` delle schede trasversali che parlano di quel track. Quest'ultimo passo è quello che si dimentica, e dimenticarlo non produce un errore visibile: produce un punto cieco, perché `sync-context` non segnalerà mai un drift su un'area che nessuna scheda dichiara di coprire.
 
 ## L'obiettivo che sta sopra i track
 
 Fino al 2026-08-28 questa scheda descriveva track paralleli senza un fine comune, e la descrizione era corretta. Dal 2026-08-31 non lo è più, e la novità va scritta qui perché cambia il modo di leggere tutto il resto: il progetto ha un obiettivo dichiarato dall'utente che sta sopra i singoli track, cioè avere in Pokemon Home la collezione più completa possibile, comprese le forme regionali, gli esemplari di evento e le forme speciali, e tenerla come lavoro di una vita.
 
-Quattro degli otto track sono vie diverse verso quell'obiettivo, e conviene tenerle distinte perché confonderle porta a scegliere lo strumento sbagliato per il problema che si ha. Il modding del 3DS fornisce gli anelli intermedi della catena di trasferimento, cioè le cartucce di quarta e quinta generazione. La ricreazione delle distribuzioni prende un evento passato e fa rifare al gioco ciò che il gioco faceva allora, su hardware proprio. L'esecuzione di codice arbitrario scrive i byte dell'esemplare dentro un salvataggio proprio. E la generazione dai giochi su console moderna riceve un esemplare da terzi attraverso lo scambio.
+Quattro dei dieci track sono vie diverse verso quell'obiettivo, e conviene tenerle distinte perché confonderle porta a scegliere lo strumento sbagliato per il problema che si ha. Il modding del 3DS fornisce gli anelli intermedi della catena di trasferimento, cioè le cartucce di quarta e quinta generazione. La ricreazione delle distribuzioni prende un evento passato e fa rifare al gioco ciò che il gioco faceva allora, su hardware proprio. L'esecuzione di codice arbitrario scrive i byte dell'esemplare dentro un salvataggio proprio. E la generazione dai giochi su console moderna riceve un esemplare da terzi attraverso lo scambio.
 
 Le quattro vie differiscono per provenienza del dato, e la provenienza è ciò che decide se l'esito serva all'obiettivo, perché l'obiettivo dichiarato è una collezione legittima e non soltanto numerosa. La prima via produce esemplari autentici. La seconda produce esemplari coerenti per costruzione, perché il metodo di generazione è quello originale. La terza produce esemplari coerenti rispetto ai controlli che il costruttore conosceva. La quarta riceve esemplari di cui non si conosce la costruzione.
 
@@ -55,6 +55,26 @@ La ricreazione delle distribuzioni di eventi è il sesto track, nato il 2026-08-
 I due track nati il 2026-08-31 non sono bloccati da nulla di materiale e sono bloccati dalla medesima cosa, che non è tecnica: una decisione dell'utente sull'esposizione dell'account che custodisce la collezione. Vanno decisi insieme perché espongono il medesimo account e perché la politica ufficiale che li riguarda è la stessa. Fino a quella decisione producono conoscenza e non risultati, e per l'esecuzione di codice esiste un passo che non la richiede, cioè il confronto fra ciò che il costruttore di esemplari produce e ciò che il track degli eventi ricostruisce dal metodo di generazione: è fattibile senza hardware, senza toccare alcun account, e falsificherebbe o confermerebbe entrambe le vie in un colpo.
 
 Vale registrare una convergenza che cambia le opzioni di due track. Il costruttore di esemplari del track dell'esecuzione di codice genera anche le vecchie distribuzioni di evento, cioè lo stesso risultato che il track delle distribuzioni persegue ricreando la ROM originale. Le due vie producono lo stesso esemplare per strade opposte, e quale convenga dipende interamente dalla risposta alla domanda sulla legittimità: se Home accetta soltanto ciò che ha una storia, la via lenta è la sola; se guarda i dati, la via rapida basta.
+
+## Aggiornamento del 2026-09-09, e le tre affermazioni che erano diventate false
+
+Questa scheda è stata riletta per intero il 2026-09-09, dopo essere rimasta ferma al 2026-08-31 mentre i suoi percorsi coperti accumulavano centoquattro file cambiati. Tre delle sue affermazioni erano diventate false e una sua sezione taceva il track più grosso: le correzioni stanno qui invece di essere applicate sopra, perché il modo in cui una scheda invecchia è esso stesso un dato e cancellarlo nasconderebbe la lezione.
+
+La prima affermazione falsa era che il sottoprogetto Smeraldo fosse bloccato dall'arrivo del lettore. Il lettore GBxCart RW v1.4 Pro è arrivato il 2026-09-09, resta il solo cancello dei driver, e la sequenza della prima sessione è in `gba-save-extraction-smeraldo/RUNBOOK-PRIMA-SESSIONE.md`, ordinata per rischio e non per interesse. Con esso cadono tre dipendenze che questa scheda dichiarava, cioè le vie di iniezione che passano dal backup e dal ripristino del salvataggio, la prova del ponte da un capo all'altro su dati reali, e il collaudo del protocollo del cavo, che richiedeva una ROM dumpata da una cartuccia propria.
+
+La seconda era la tensione di piattaforma fra il track LDN e quello di Smeraldo, cioè che il primo richiedesse Linux e il secondo Windows. Non esiste più per ADR-015, perché il demone `ldnd` porta lo stack wireless di Linux su Windows senza macchina virtuale, e la sezione della toolchain in `STACK.md` lo dichiara già; questa scheda continuava a nominarla. Con essa cade anche l'affermazione che l'adattatore vada procurato: l'utente ne possiede uno e il primo passo è una misura, cioè leggerne l'identificatore USB, non un acquisto.
+
+La terza era che il ponte fra generazioni avesse davanti lo strato del salvataggio. Quello strato esiste dal 2026-09-09 in `pokebridge/save3.py`, la suite è a duecentosei prove, e il caricatore `tools/carica-lotto-gen3.py` porta un lotto nelle scatole di un salvataggio reale: ciò che resta davanti è il confronto del salvataggio sintetico con il contenitore che il verificatore genera.
+
+## Il track che questa scheda non nominava
+
+La sezione su cosa sblocca cosa è stata scritta quando i track erano otto e non è mai stata estesa al decimo, cioè il completamento del Pokedex nel deposito, aperto il 2026-09-02. È il track a cui l'obiettivo che sta sopra gli altri appartiene, ed è il fuoco corrente: tacerlo qui significava che la mappa delle dipendenze descriveva tutto tranne il punto in cui le dipendenze convergono.
+
+La sua posizione nella mappa è questa. Non sblocca nessun altro track e nessuno lo blocca del tutto, ma consuma l'esito di quattro. Dal track delle distribuzioni prende i lotti prodotti, che sono cinque e coprono dalla prima alla quinta generazione. Dal ponte prende il codice che scrive quei lotti dentro un salvataggio reale, che prima del 2026-09-09 non esisteva. Dal track 3DS prende gli anelli intermedi della catena, cioè le cartucce di quarta e quinta generazione da dumpare. E dal track di Smeraldo prende il lettore, che è lo strumento con cui un salvataggio esce da una cartuccia e vi rientra.
+
+Ciò che lo blocca non è materiale ed è di due specie. La prima è la lettura, perché l'utente ha chiesto di leggere tutto il corpus prima di produrre altro, e il corpus è a circa un terzo. La seconda sono due decisioni che restano sue, cioè l'ambito delle sfide del deposito e la scelta del profilo di collezione fra i quindici che lo strumento della comunità distingue; le altre sono state prese fra ADR-049 e ADR-054, e con esse il criterio di produzione, l'ordinamento della coda per scadenza e il perimetro allargato agli incontri ordinari.
+
+La regola di priorità che questa scheda contiene resta una sola e non cambia: il track della conservazione del supporto precede gli altri, perché è il solo la cui finestra si chiude da sé e senza preavviso. Va però letta con la diagnosi del 2026-09-01, che l'ha in parte svuotata: su Rosso e Argento i salvataggi non esistono più, quindi su quelle due cartucce non c'è nulla da perdere e la sostituzione della pila si fa quando conviene. La precedenza vale sulle eventuali altre cartucce di prima e seconda generazione non ancora provate, che sono le sole con una finestra ancora aperta.
 
 ## Conseguenze sull'infrastruttura
 

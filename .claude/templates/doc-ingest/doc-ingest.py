@@ -93,7 +93,7 @@ def convert_with_ocr(path):
     except ImportError:
         raise RuntimeError(
             "Il flag --ocr richiede 'pytesseract' e 'pdf2image' "
-            "(pip install pytesseract pdf2image) più' il binario di sistema "
+            "(pip install pytesseract pdf2image) più il binario di sistema "
             "tesseract-ocr, non trovati nell'ambiente corrente."
         )
     pages = convert_from_path(str(path))
@@ -208,7 +208,7 @@ def run(source_dir, cache_dir, engine, ocr, force):
         else:
             try:
                 text, note = convert_file(path, engine, ocr)
-            except Exception as exc:  # qualunque libreria di conversione può' fallire
+            except Exception as exc:  # qualunque libreria di conversione può fallire
                 print(f"[errore] {source_rel}: {exc}", file=sys.stderr)
                 counts["errore"] += 1
                 continue

@@ -4,8 +4,8 @@ generated-from-branch: main
 generated-date: 2026-08-31
 covers-paths:
   - poke-ace/
-last-verified-commit: 809289a
-stato: due studi scritti; bloccato su una decisione, e la verifica pratica resta impossibile prima di ottobre 2026
+last-verified-commit: 7b66def
+stato: tre studi scritti; bloccato su una decisione dell'utente, e la verifica pratica resta impossibile prima di ottobre 2026
 ---
 
 # Sottoprogetto: esecuzione di codice arbitrario come via di generazione
@@ -16,11 +16,15 @@ Obiettivo: impiegare l'esecuzione di codice arbitrario nei giochi di terza gener
 
 ## Dove siamo
 
-Il track nasce il 2026-08-31 e ha due studi. Il primo, `poke-ace/STUDIO-01-ace-e-legalita-in-home.md`, contiene l'inventario degli strumenti della comunità con la funzione di ciascuno, undici voci fra generatori, convertitori, guide ed editor, nessuno eseguito e la maggior parte non aperti. La tecnica in sé il progetto la documenta già in `docs/09-esecuzione-codice.md`, dove serve al ponte fra generazioni: la novità è il suo uso come strumento di generazione invece che di trasferimento.
+Il track nasce il 2026-08-31 e ha tre studi. Il primo, `poke-ace/STUDIO-01-ace-e-legalita-in-home.md`, contiene l'inventario degli strumenti della comunità con la funzione di ciascuno, undici voci fra generatori, convertitori, guide ed editor, nessuno eseguito e la maggior parte non aperti. La tecnica in sé il progetto la documenta già in `docs/09-esecuzione-codice.md`, dove serve al ponte fra generazioni: la novità è il suo uso come strumento di generazione invece che di trasferimento.
 
 Il secondo, `poke-ace/STUDIO-02-marchi-di-origine-e-che-cosa-conta-una-collezione.md`, chiude con dati un punto che il primo lasciava aperto, ed è stato prodotto sondando per costanti il fascio JavaScript compilato della lista di controllo indicata dall'utente, che nessuna richiesta HTTP restituisce. Due esiti. L'informazione di provenienza è categorica e visibile all'utente, cioè un marchio scelto in un insieme di undici, e la riedizione della terza generazione ne ha uno proprio che il codice tratta come non ancora ottenibile: un esemplare entrato dalla porta nuova sarà quindi distinguibile a occhio da uno passato per la catena storica, che non porta alcun marchio. E la lista di controllo non è una lista ma un insieme parametrico con quindici profili, la cui cardinalità differisce di un ordine di grandezza, il che rende malposta la domanda se sia completa e impone di precisare l'obiettivo del progetto scegliendo un profilo.
 
 Il punto che governa il track è una domanda con risposta verificata in tre parti. I byte prodotti possono essere identici a quelli autentici. Home però conserva sul proprio lato la via da cui un esemplare è entrato, quindi a parità di dati la storia differisce. E la politica ufficiale sui dati alterati elenca fra le sanzioni la sospensione dell'accesso a Home, a discrezione del titolare e senza rimborso. La verifica pratica è impossibile prima di ottobre 2026, perché la compatibilità che la renderebbe testabile non esiste ancora.
+
+Il terzo, `poke-ace/STUDIO-03-la-risposta-della-comunita-e-le-due-severita.md`, e' del 2026-09-01 e corregge la parte piu' importante del primo: la domanda era posta come se ci fosse un verificatore solo, mentre i verificatori sono tre con severita' decrescente, cioe' lo strumento della comunita' che pretende la coerenza fra valore di personalita' e identificativi, il servizio che rileva i soli errori clamorosi, e il gioco competitivo che squalifica. Ne discende che legale e legittimo non sono sinonimi e che il progetto persegue il secondo. Porta inoltre quattro fatti nuovi, di cui il piu' pesante e' che il servizio assegna a ogni esemplare in ingresso un tracciatore univoco: l'esame non e' un cancello istantaneo ma un'esposizione permanente.
+
+Il passo che non richiedeva la decisione e' stato eseguito il 2026-09-01 ed e' concluso, ed e' ADR-023: il confronto fra il costruttore di esemplari della comunita' e il metodo ricostruito dal track degli eventi concorda sui dati, quindi la via lenta non ha alcun vantaggio tecnico sulla via rapida e la scelta fra le due e' interamente una decisione di provenienza.
 
 ## Prossimo passo concreto
 

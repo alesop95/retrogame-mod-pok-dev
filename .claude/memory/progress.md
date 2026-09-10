@@ -4,6 +4,106 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-10, terza parte. Il lotto dei tracciatori, la terza enumerazione, e un canale che distribuisce ancora
+
+### Che cosa è stato letto, e perché proprio questo
+
+Il prossimo passo dichiarato era la lettura del corpus, ferma a nove cluster su quarantadue. Fra i trentatre rimasti è stato scelto quello dei tracciatori di collezione, perché serve la decisione aperta sul profilo, che è dell'utente e che blocca la pianificazione: leggere in ordine di utilità per una decisione in attesa vale più che leggere nell'ordine del post. Con esso è stato chiuso anche il cluster principale delle liste di completamento e il suo sotto-cluster su Reddit. Il lotto è registrato in `LETTURA-DEL-CORPUS.md`, con la dichiarazione esplicita delle cinque voci che restano non lette e del perché nessuna di esse cambi una decisione.
+
+### La terza enumerazione, e ciò che dice di noi
+
+Il risultato principale è che il tracciatore PokePC Classic, già SuperEffective.gg, pubblica sotto licenza MIT i dati che lo alimentano: un'anagrafica di 1599 voci con i contrassegni che dicono che cosa ciascuna sia, e sette disposizioni in scatole per il deposito. Non è una lista di specie ma un elenco di caselle da riempire, cioè esattamente la domanda che la nostra lista di spunta dichiara indeterminata e su cui nessuna fonte di primo livello si pronuncia.
+
+Lo strumento nuovo è `tools/confronta-livingdex-pokepc.py`, fratello di quello che confronta con il foglio comunitario, e carica da quello il lettore della nostra lista invece di ricopiarlo. Il documento generato è `pokedex-home-completo/CONFRONTO-LIVINGDEX-POKEPC.md`. Il numero che conta non è lo scarto ma la sua forma: le due enumerazioni esterne distano fra loro due voci su quasi millequattrocento, cioè 1387 contro 1389, mentre la nostra dista da entrambe una ventina con 1367. Una convergenza fra due misure indipendenti non dimostra che abbiano ragione, ma sposta l'onere della prova su di noi.
+
+Delle 362 voci che PokePC conta oltre la specie base, 157 sono forme cosmetiche, 103 forme femminili e 103 forme vere; megaevoluzioni, forme gigamax e forme di sola battaglia non compaiono affatto, il che corrobora il nostro perimetro per via indipendente. Le 63 configurazioni di Alcremie sono ora confermate da tre fonti esterne oltre alla nostra decisione. Sulle differenze di sesso PokePC dichiara 103 specie contro le nostre 102, e la specie in più è una sola, cioè Basculin: la pagina enciclopedica non la nomina affatto, quindi il conto resta 102 e la divergenza è registrata come non corroborata invece che come correzione.
+
+Un difetto della prima stesura del programma vale la registrazione perché è del genere che produce un numero sbagliato con l'aria di essere esatto. Assumeva che le sette disposizioni differissero per il solo ordinamento, e non è vero: due danno una casella propria alla forma gigamax e due si dichiarano minime, quindi i totali sono 1425, 1387 e 1373. Assumeva inoltre che una cella fosse sempre un identificativo, mentre può essere un oggetto con un contrassegno, e identificarla con il solo identificativo faceva sparire trentotto caselle. Il programma ora misura invece di assumere, e dichiara nel documento quale disposizione usa e di quanto quella scelta muova il totale.
+
+### Il risultato che non veniva dal cluster
+
+Seguendo un rinvio della guida al catalogo per regione d'origine si è arrivati a una fonte che il censimento aveva scaricato e che nessuno aveva letto: l'elenco dei doni di quarta e quinta generazione che si ricevono collegando la console al servizio ricostruito attraverso una diversa configurazione dei server dei nomi. È del 2020, ha 1384 commenti, e due testimonianze indipendenti del 2026-09-07 dichiarano il canale ancora attivo nominando le stesse voci mancate, il che suggerisce un insieme stabile e quindi misurabile.
+
+È la risposta parziale al primo dei quattro passi che il capitolo trenta della tesi lasciava aperti: il canale distribuisce doni e non soltanto scambi, e un catalogo esiste in forma di testimonianza. Ne segue che una parte dell'asse degli eventi potrebbe essere ricevuta invece che composta, che è preferibile su ogni dimensione. Due dettagli sono stati isolati: il canale serve anche due doni mai distribuiti ufficialmente, fra cui l'oggetto la cui assenza rende non conforme l'Arceus registrato come non producibile, e riceverlo non lo rende conforme perché il verificatore non ha alcuna voce che gli corrisponda. Resta intero il terzo passo, cioè la prova su un solo esemplare esaminato prima di qualunque trasferimento, e resta intera la domanda di perimetro, perché quel canale non è quello dell'editore.
+
+### Che cosa è stato scritto, e i controlli
+
+Quattro fonti nuove sono entrate nella tabella `FONTI`, che ADR-055 dichiara fonte unica, e con esse in `SOURCES.md` e nelle note generate sotto `docs/fonti/`: i dati di PokePC, il tracciatore Monarium, il foglio del catalogo per coppia di sessi e il foglio con sei tracciatori. La quinta è quella del canale ricostruito. Il capitolo 29 della tesi ha una sezione nuova sulla terza enumerazione e il capitolo 30 tre paragrafi sulla risposta al primo passo; la copertura resta al cento per cento su 37008 righe e le 111 voci di bibliografia sono tutte citate. Il PDF è stato ricompilato e il controllo che lo confronta con i sorgenti riferisce zero titoli assenti, che è il presidio nato il 2026-09-03 per il punto cieco di chi confronta i sorgenti con i sorgenti.
+
+Due esenzioni di copertura aggiunte per riflesso sono state poi rimosse, ed è un chiarimento che vale oltre il caso: una dichiarazione `% copre:` senza ancora copre il documento intero, quindi le esenzioni per le sue sezioni di sola tabella non servivano. Il fratello maggiore ne porta tre analoghe, presumibilmente per la stessa ragione, e non sono state toccate perché rimuoverle è un lavoro di pulizia e non di questo giro.
+
+## 2026-09-10, seconda parte. L'handoff già assorbito, la misura degli archivi Discord, e il lettore che resta sul tavolo
+
+### L'handoff del Pikachu surfista, consegnato una seconda volta
+
+L'utente ha consegnato di nuovo `handoff-surfing-pikachu-pkhex.md`, chiedendo di leggerlo e di eliminarlo in ogni caso. È lo stesso documento della settima parte del 2026-09-09 e non porta nulla di nuovo: il vincolo delle macchine nascoste sta in `CATENA-DI-TRASFERIMENTO.md` dal 2026-08-28, la ragione per cui la mossa non si può cancellare sta alla sezione che l'assorbimento precedente ha scritto, la misura sulle prime tre generazioni sta in `MOSSE-MN.md`, e tutte e otto le sue fonti sono in `SOURCES.md`, di cui tre in una sezione propria alle righe da 65 a 67. Verificato riga per riga prima di dirlo, secondo il presidio che impone di cercare nei nostri file prima di dichiarare una lacuna. Il file è stato eliminato di nuovo.
+
+Va registrata la circostanza in sé, perché è un rischio di procedura e non un fastidio: un handoff prodotto altrove e consegnato due volte a nove ore di distanza può essere riassorbito due volte, e la seconda volta produrrebbe una sezione doppia o, peggio, una fonte contata due volte nel registro. Il presidio è quello già scritto, cioè cercare il contenuto nei file prima di scriverlo; qui ha funzionato.
+
+### Che cosa è esportato dei cinque server Discord, misurato invece che ricordato
+
+L'utente ha chiesto che l'esportazione, se serve, si faccia adesso che lo strumento esiste. Lo stato reale, misurato con le corse a vuoto di `tools/export-discord.py`, è che il livello uno è quasi tutto fatto e la memoria del progetto lo dava come in corso. Dei suoi undici canali dieci sono su disco dal 2026-08-31 per circa seicento megabyte, e l'undicesimo, cioè le domande ricorrenti di insideGadgets, non è esportabile perché il servizio risponde vietato su quell'identificativo. Il server MankeyMite è esportato intero dal 2026-09-01 con dieci canali. Restano diciotto canali: sei di livello due, tutti di PRET, e dodici fra livello tre e quattro.
+
+La conseguenza per il fuoco corrente è che l'esportazione non è un collo di bottiglia. Nessun canale della tabella porta l'etichetta del track del Pokedex, e i soli non esportati che gli servano sono i tre di Hex Maniac Advance con etichetta degli eventi, cioè l'assembly Thumb, i dati di specie e gli script di evento; a essi si aggiunge `pret/pokeemerald` di livello due. La testimonianza sull'accettazione degli esemplari prodotti per esecuzione di codice, che è la sola cosa capace di muovere una decisione aperta, sta già su disco nel server esportato intero.
+
+L'esecuzione resta dell'utente e non dell'agente, perché lo strumento chiede il token in modo interattivo per non lasciarlo nella cronologia della shell. L'eseguibile del programma della comunità è in `E:\tools\dce\DiscordChatExporter.Cli.exe` e la variabile `DCE_PATH` non è impostata, quindi il percorso va passato con `--dce`.
+
+### Il lettore, che resta sul tavolo per decisione dell'utente
+
+L'utente ha dichiarato il 2026-09-10 di non voler collegare il GBxCart RW per ora, e ha chiesto che gli sia ricordato. È ora in `pending.md` fra i blocchi materiali, con la marcatura che lo fa ripetere a ogni sessione. Ne segue che le sessanta voci che prendono l'identificativo dal salvataggio ricevente restano non rigenerate, che l'estrazione dei salvataggi resta in coda, e che il lavoro sotto scadenza da qui in avanti è tutto quello che non dipende dall'hardware.
+
+### Le cinque decisioni aperte, riformulate perché siano rispondibili
+
+L'utente ha chiesto che le cinque decisioni aperte gli siano poste in modo preciso e puntuale. Sono state riscritte in sessione con, per ciascuna, l'oggetto esatto, ciò che cambia a seconda della risposta, le opzioni con il loro costo misurato e la domanda in una riga. Le fonti dei numeri sono `poke-ace/STUDIO-02` per i quindici profili e gli undici marchi, ADR-040 per le ventotto voci coreane e le cinque specie che ne dipendono, `_notes/perimetro-bank-transporter.md` per il limite sui due titoli, e la riga del pacchetto `alignment` in questo registro delle pendenze.
+
+## 2026-09-10, prima parte. Ripresa dopo il riavvio, e la verifica che nulla si sia perso
+
+Il calcolatore si è riavviato alle 01:03 del 2026-09-10 per un aggiornamento pianificato del sistema operativo, chiudendo la sessione precedente senza che l'utente la terminasse. Il giro è quindi di sola ripresa: nessun contenuto nuovo, e la sola cosa che valeva misurare era se l'albero di lavoro lasciato a metà fosse integro.
+
+Lo è. Le modifiche della nona parte del 2026-09-09 sono tutte sul disco e non committate, cioè trentasei file modificati e quattro cartelle di pacchetto nuove sotto `.claude/templates/`, e la loro descrizione sta già nel work log e nell'indice: la scrittura dei file era avvenuta nel medesimo giro in cui il contenuto era nato, che è esattamente ciò che la regola sulla persistenza prescrive, e il riavvio non ha quindi portato via nulla. Il commit resta da fare a mano.
+
+I sei controlli prescritti prima di un commit passano tutti, e li si registra perché sono la prova che l'interruzione non ha lasciato un file a metà: `md-unwrap --check` riferisce trecentocinquantotto file esaminati e nessuno da modificare, `lint-md-commands` zero errori, `lint-md-tables` quattrocento file e nessun difetto, la copertura della tesi è completa con centosei voci di bibliografia tutte citate, la mappa delle fonti riferisce ottantasette fonti e cinquantuno relazioni allineate, e la bibliografia è allineata alla tabella delle fonti. La suite del ponte passa duecentosei prove.
+
+## 2026-09-09, nona parte. Il conto con il template, e un difetto che due strumenti si passavano
+
+### La domanda che ha aperto il giro
+
+L'utente ha chiesto due cose insieme: se fra una chiusura di sessione e l'altra si fosse perso qualcosa, e che le discrepanze ereditate dal template risalissero al template invece di restare qui. La prima ha una risposta verificata e la seconda ha prodotto il lavoro.
+
+Sulla continuità: il prompt di ripresa che viveva in `_notes` e che questa sessione ha ridotto a puntatore conteneva una sezione con quattro fatti dichiarati come non presenti in alcun file. Sono stati cercati uno per uno e ci sono tutti, tre in `progress.md` e uno nella referenza dei formati alla sezione otto. Nulla è andato perduto.
+
+Va però dichiarato che cosa questa sessione ha letto per intero e che cosa no, perché è la domanda che l'utente ha posto e perché una risposta generica non varrebbe nulla. Letti per intero: `memory/index.md`, `memory/pending.md`, le sei schede trasversali e le dieci verticali, il prompt di ripresa vecchio e quello in `_notes`. Letti per estratti: `memory/progress.md`, che è di cinquecentocinquantotto kilobyte su centotredici voci, e `memory/decisions.md`, che è di centocinquantatre kilobyte su cinquantasei decisioni. Non sono state lette per intero deliberatamente, perché `MAPPA-DOCUMENTI.md` prescrive che i due append-only si leggano dalla cima e mai per intero; le decisioni sono state consultate per numero quando servivano. Va corretto per inciso un numero che l'utente ricordava: le decisioni non sono undici ma cinquantasei, e le ultime due sono di oggi.
+
+### Il difetto che i due strumenti tipografici si passavano
+
+È il risultato tecnico del giro e vale oltre questo progetto. `fix-accents.py` converte la convenzione con l'apostrofo nell'accento vero e `fix-missing-accents.py` accenta le parole che l'accento non lo hanno affatto. I due domini si sovrappongono su una forma sola: una parola scritta con l'apostrofo è, per il secondo strumento, una parola senza accento, quindi la accenta e lascia l'apostrofo dov'era.
+
+Il prodotto è una vocale accentata seguita da apostrofo. In italiano quella sequenza non esiste, perché l'apostrofo dopo una vocale già accentata non sostituisce e non elide nulla; e nessuno dei due strumenti sapeva più riconoscerla, perché il loro riconoscitore cerca una parola che finisca con una lettera ASCII. Il difetto era quindi invisibile ai suoi stessi autori e non lo segnalava alcun controllo: quarantasette occorrenze in questo progetto e ventuno nel template, tutte in prosa di commenti e docstring, tutte perfettamente leggibili.
+
+La correzione è in due parti perché il difetto ha una causa e un residuo. La causa è tolta in `fix-missing-accents.py`, il cui riconoscitore ora esclude una parola seguita da apostrofo, cioè restituisce quella forma al suo proprietario. Il residuo è riparato in `fix-accents.py`, che possiede quella forma e ora toglie l'apostrofo di troppo dove lo trova; la riparazione non ha casi ambigui e per questo non riporta residui, e si dichiara nel rapporto con una riga propria invece di passare per il riquadro delle conversioni, dopo che la prima corsa aveva stampato una resa inventata applicando la regola dei suffissi alla chiave interna del contatore.
+
+La prova è in `tools/test-tipografia.py` e verifica tre cose, cioè che il primo strumento non tocchi la forma con apostrofo, che il secondo ripari il residuo, e che il secondo continui a convertire la forma con apostrofo: senza la terza il presidio passerebbe anche con uno strumento che non fa più nulla. I frammenti si costruiscono per concatenazione, perché scritti per intero verrebbero corretti dagli strumenti alla prima passata su quel file, che è la trappola già pagata quattro volte in questo progetto.
+
+### Che cosa era divergente fra progetto e template, in tre direzioni
+
+La prima direzione è il template verso il progetto. La copia del pacchetto di sistema sotto `.claude/templates/` era ferma a prima di quattro pacchetti, cioè `alignment`, `anonymization`, `community-sources` e `fix-typography`, oltre a un aggiornamento dell'indice dei pacchetti e alla nota sul perimetro dell'hook di scansione dei segreti. Il caso di `community-sources` merita di essere detto perché è il più imbarazzante: quel pacchetto lo ha prodotto questo progetto il 2026-08-31 esportandolo al template, e la copia locale non è mai stata riletta. I due alberi ora coincidono file per file.
+
+La seconda direzione è il progetto verso il template, ed è ciò che l'utente ha chiesto esplicitamente. Sono risaliti i quattro strumenti tipografici con la correzione e la prova nuova, la regola `chat-non-e-memoria.md` con la riga che la indicizza nel ciclo di lavoro di `PROJECT-SYSTEM.md`, il modello di scheda `sub-subproject.md` che questo progetto aveva inventato per i track paralleli, e un case-study che racconta le due lezioni. Al modello di scheda è stato aggiunto dentro le istruzioni il quarto passo dell'istanziazione, cioè estendere il `covers-paths` delle schede trasversali, perché è il punto cieco che questo progetto ha incontrato due volte e che il modello non nominava.
+
+La terza direzione è interna al template e non l'avrebbe trovata nessuno se non allineando i due alberi: la copia dei tre strumenti dentro il pacchetto `fix-typography` era più vecchia di quella in `tools/` e non aveva il mascheramento degli identificatori LaTeX, cioè la difesa nata il 2026-08-27 dopo che quel difetto aveva riscritto il nome di un'etichetta. Chi avesse istanziato il pacchetto avrebbe ricevuto lo strumento senza la difesa e senza la prova che la difesa esiste; ora il pacchetto porta entrambe.
+
+### Le schede, che non sono più in drift
+
+Le tre schede trasversali che il giro precedente aveva dichiarato indietro sono state lette per intero e aggiornate. `roadmap.md` portava tre affermazioni diventate false, cioè il blocco sull'arrivo del lettore, la tensione fra Linux e Windows superata da ADR-015 e lo strato del salvataggio come lavoro futuro, e la sua mappa delle dipendenze non nominava affatto il decimo track, che è il fuoco corrente. `STACK.md` dava il lettore come ordinato e la domanda sull'adattatore wireless come aperta, e non descriveva il codice del progetto oltre al pacchetto del ponte. `design-and-security.md` fermava le tensioni di perimetro a due e a un track solo, mentre sono cinque su quattro track e una di esse riguarda un account di terze parti.
+
+Delle dieci schede verticali, tre portavano un'affermazione superata: quella dell'esecuzione di codice diceva due studi dove sono tre, quella delle distribuzioni si dichiarava in attesa del lettore e indicava come prossimo passo un conteggio già fatto, e quella dello scambio locale poneva Linux nell'obiettivo. Sono state corrette. Alla fine del giro nessuna scheda risulta in drift rispetto ai propri percorsi coperti, il che non era mai stato vero da quando i track sono dieci.
+
+### File scritti in questo giro
+
+Nel progetto: `tools/fix-accents.py`, `tools/fix-missing-accents.py`, `tools/fix-dashes.py`, `tools/test-tipografia.py`, `tools/build-bibliography.py`, `tesi/preambolo.tex`, le sei schede di `.claude/context/` aggiornate più i checkpoint di tutte, `.claude/templates/` allineato al template con quattro pacchetti nuovi, `.claude/memory/index.md`, `.claude/memory/pending.md`, `.claude/memory/decisions.md` e questo file.
+
+Nel template: `tools/fix-accents.py`, `tools/fix-missing-accents.py`, `tools/fix-dashes.py`, `tools/test-tipografia.py`, `tools/dashes-exclude.txt`, `.claude/rules/chat-non-e-memoria.md`, `.claude/PROJECT-SYSTEM.md`, `.claude/templates/context/sub-subproject.md`, `.claude/templates/fix-typography/tools/` con i quattro file, `CASE-STUDIES.md`, più la riparazione del residuo nei file che lo portavano.
+
 ## 2026-09-09, ottava parte. Il riallineamento del progetto a se stesso, e tre difetti silenziosi
 
 ### La richiesta, e perché ha prodotto questo lavoro invece di altro

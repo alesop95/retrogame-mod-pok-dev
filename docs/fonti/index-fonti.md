@@ -65,6 +65,10 @@ graph LR
   sinjoh-ruins -- usa --> pkmnclassic
   bulbapedia-macchine-nascoste -- conferma --> bulbapedia
   surfing-pikachu -- conferma --> bulbapedia-macchine-nascoste
+  pokepc-dati -- conferma --> home-checklist
+  monarium -- alternativa-a --> pokepc-dati
+  foglio-arca -- conferma --> pokepc-dati
+  foglio-collezione-thundrosaur -- conferma --> foglio-scambi-doni
 ```
 
 ## Le fonti, per livello
@@ -137,6 +141,8 @@ graph LR
 | [[ace-archive]] | ACE | [[09-esecuzione-codice]] |
 | [[home-checklist]] | ACE, GEN, EVT | [[CHECKLIST-COMPLETA]] |
 | [[pkmnclassic]] | EVT, PKD | [[STUDIO-04-la-via-del-dns-e-il-servizio-rianimato]] |
+| [[pokepc-dati]] | PKD | [[CONFRONTO-LIVINGDEX-POKEPC]] |
+| [[monarium]] | PKD | [[CHECKLIST-COMPLETA]] |
 
 ### Livello 4
 
@@ -180,3 +186,6 @@ graph LR
 | [[foglio-eventi-interni]] | PKD | [[STUDIO-06-le-enumerazioni-trasversali]], [[INDICE-FOGLI-ESTERNI]] |
 | [[sottolivellati]] | PKD | [[STUDIO-06-le-enumerazioni-trasversali]] |
 | [[sinjoh-ruins]] | PKD, EVT | [[LETTURA-DEL-CORPUS]], [[STUDIO-04-la-via-del-dns-e-il-servizio-rianimato]] |
+| [[foglio-arca]] | PKD | [[CHECKLIST-COMPLETA]] |
+| [[foglio-collezione-thundrosaur]] | PKD | [[STUDIO-06-le-enumerazioni-trasversali]] |
+| [[dns-eventi-gen45]] | PKD, EVT | [[30-produrre-dentro-il-gioco]] |

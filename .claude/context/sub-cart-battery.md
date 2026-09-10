@@ -4,7 +4,7 @@ generated-from-branch: main
 generated-date: 2026-09-01
 covers-paths:
   - cart-battery-restoration/
-last-verified-commit: a427431
+last-verified-commit: 7b66def
 stato: runbook scritto; diagnosi conclusa il 2026-09-01, i due salvataggi sono perduti e l'operazione diventa di rischio basso
 ---
 

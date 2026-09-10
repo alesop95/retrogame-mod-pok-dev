@@ -618,6 +618,36 @@ FONTI = [
      "È la ragione per cui il vincolo delle macchine nascoste non si risolve cancellando la mossa: toglierla per soddisfare il controllo del passaggio la perderebbe per sempre, e con essa la ragione per cui quell'esemplare è un collezionabile e non un esemplare qualunque della sua specie. Da qui la via che resta, cioè ricostruire il dato direttamente nel formato di destinazione invece di attraversare l'anello che lo rifiuta.",
      [("[[CATENA-DI-TRASFERIMENTO]]", "perché la mossa non si cancella, e la via che resta")],
      [("conferma", "bulbapedia-macchine-nascoste")]),
+
+    ("pokepc-dati", "PokePC Classic, i dati del tracciatore di catalogo vivente", "https://github.com/pokepc/classic.pokepc.net", 3, True, ["PKD"],
+     "Il tracciatore gia' noto come SuperEffective.gg pubblica sotto licenza permissiva i dati che lo alimentano, letti il 2026-09-10 dal deposito pubblico e non dall'interfaccia: un'anagrafica di millecinquecentonovantanove voci con il numero di catalogo e i contrassegni che dicono che cosa ciascuna sia, e sette disposizioni in scatole per il deposito, che sono l'elenco delle caselle da riempire perche' un catalogo sia completo. Le sette non differiscono per il solo ordinamento come sembrerebbe: due danno una casella propria alla forma gigamax e due si dichiarano minime, quindi i totali sono millequattrocentoventicinque, milletrecentottantasette e milletrecentosettantatre.",
+     "E' la terza enumerazione indipendente del catalogo vivente, dopo la nostra e quella del foglio comunitario, e serve a rompere la parita' fra le prime due. Risponde inoltre, da fonte di terzo livello, alla domanda che la nostra lista dichiara indeterminata, cioe' quali forme il deposito conti come casella separata: colloca trecentosessantadue voci oltre la specie base, di cui centocinquantasette cosmetiche, centotre femminili e centotre forme vere, e non colloca affatto megaevoluzioni, forme gigamax e forme di sola battaglia.",
+     [("[[CONFRONTO-LIVINGDEX-POKEPC]]", "il confronto specie per specie con la nostra enumerazione")],
+     [("conferma", "home-checklist")]),
+
+    ("monarium", "Monarium, generatore di disposizioni del deposito con marchi", "https://github.com/kristopheles/monarium", 3, True, ["PKD"],
+     "Tracciatore pubblicato nel 2026 e letto il 2026-09-10 nella presentazione del suo autore, che va installato per conto proprio perche' non esiste un'istanza pubblica. Genera la disposizione delle scatole a partire da piu' di quindici opzioni, fra cui le sole evoluzioni finali, le varianti regionali accanto alla forma di partenza, i cromatici in scatole dedicate e l'esclusione delle forme da evento; sopra la disposizione tiene cinque contrassegni per esemplare, cioe' se porti l'allenatore di chi colleziona, se sia stato catturato nel titolo o nella regione di origine, se sia cromatico, se stia nella sfera giusta e se venga dall'applicazione per telefono.",
+     "Corrobora per via indipendente che un catalogo vivente non e' una lista ma un insieme parametrico, che e' la ragione per cui questo progetto ha una decisione aperta sul profilo da perseguire. I suoi cinque contrassegni sono inoltre la stessa famiglia di assi che il progetto ha enumerato per proprio conto, e il quarto di essi coincide con l'asse delle combinazioni fra specie e sfera.",
+     [("[[CHECKLIST-COMPLETA]]", "la nostra enumerazione, che quelle opzioni parametrizzano")],
+     [("alternativa-a", "pokepc-dati")]),
+
+    ("foglio-arca", "Cartella di calcolo del catalogo per coppia di sessi", "https://www.reddit.com/r/PokemonHome/comments/1djbdm0/", 5, True, ["PKD"],
+     "Foglio comunitario del 2024, letto il 2026-09-10, che definisce operativamente il profilo detto dell'arca: un esemplare per ciascuno dei due sessi di ogni specie e di ogni forma, uno solo per le specie senza sesso o con un sesso solo, e la variante cromatica di ciascuno per chi voglia il caso estremo. L'autore dichiara di escludere gli esemplari a distribuzione limitatissima e di comprendere le sessanta e piu' configurazioni della specie il cui dolcetto non e' un campo della forma.",
+     "Vale come definizione di uno dei profili fra cui il progetto deve scegliere, scritta da chi lo persegue invece che dedotta da un'interfaccia. Conferma inoltre per via indipendente il numero delle configurazioni di quella specie, che una decisione del progetto aveva adottato contro la struttura del dato.",
+     [("[[CHECKLIST-COMPLETA]]", "il profilo dell'arca fra quelli possibili")],
+     [("conferma", "pokepc-dati")]),
+
+    ("foglio-collezione-thundrosaur", "Cartella di calcolo della collezione, sei tracciatori in uno", "https://www.reddit.com/r/PokemonHome/comments/xp1ise/", 5, True, ["PKD"],
+     "Foglio comunitario del 2022, letto il 2026-09-10, che l'autore dichiara composto prendendo gli elementi migliori da piu' strumenti precedenti. Tiene insieme sei tracciatori distinti: il catalogo vivente, il catalogo degli esemplari di taglia massima, i marchi di origine, i marchi ordinari, i fiocchi e le sfere di cattura.",
+     "E' la prima fonte che enumeri gli assi della collezione nella stessa forma in cui il progetto li ha ricostruiti per conto proprio, e li enumera quattro anni prima: la coincidenza fra i suoi sei tracciatori e i nostri sei assi e' una conferma indipendente che l'insieme degli assi sia quello e non un altro.",
+     [("[[STUDIO-06-le-enumerazioni-trasversali]]", "gli assi della collezione, enumerati per conto nostro")],
+     [("conferma", "foglio-scambi-doni")]),
+
+    ("dns-eventi-gen45", "I doni di quarta e quinta generazione dal servizio ricostruito, elenco e testimonianze", "https://www.reddit.com/r/wiimmfi/comments/fugd8l/", 5, True, ["PKD", "EVT"],
+     "Post del 2020 letto il 2026-09-10, con l'elenco dei doni che il suo autore dichiara di avere ricevuto cambiando i server dei nomi sulla console e collegandosi al servizio ricostruito, titolo per titolo, e con milletrecentottantaquattro commenti che lo aggiornano. L'elenco comprende per la quarta generazione i mitici, i tre cani cromatici, alcuni oggetti chiave e due doni che non furono mai distribuiti ufficialmente, cioe' il flauto azzurro e la capsula; per la quinta comprende ventidue voci fra cui i tre draghi cromatici e i mitici della generazione. Due testimonianze indipendenti del 2026-09-07, cioe' tre giorni prima della lettura, dichiarano il canale ancora attivo e nominano le sole voci che non hanno ottenuto.",
+     "Risponde in parte al primo dei quattro passi che il capitolo sulla produzione dentro il gioco lascia aperti, cioe' misurare che cosa il canale offra oggi: offre doni oltre allo scambio, e un catalogo per titolo esiste in forma di testimonianza. Ne segue che una parte dell'asse degli eventi potrebbe essere ricevuta invece che composta, che e' preferibile su ogni dimensione, e che la domanda residua non e' piu' tecnica ma di perimetro. Resta una fonte di quinto livello: dice che qualcuno ha ricevuto quelle voci, non che il servizio le distribuisca a chiunque oggi.",
+     [("[[30-produrre-dentro-il-gioco]]", "il primo dei quattro passi, e cio' che la misura gli risponde")],
+     []),
 ]
 # ---------------------------------------------------------------------------------------
 # I riferimenti teorici canonici dei concetti impiegati nell'analisi quantitativa.

@@ -4,7 +4,7 @@
 
 Sola lettura, non scrive nulla, zero dipendenze. Cerca i comandi non copiabili in
 una riga sola: continuazioni di riga (`\\` bash, backtick PowerShell, `^` cmd),
-heredoc multi-riga, e comandi git che proseguono sulla riga seguente. Serve perché'
+heredoc multi-riga, e comandi git che proseguono sulla riga seguente. Serve perché
 `md-unwrap` per contratto non tocca il contenuto dei blocchi recintati, quindi un
 comando spezzato dentro un blocco di codice non lo corregge nessuno: va trovato e
 sistemato a mano. Attua la verifica richiesta dalla regola
@@ -13,10 +13,10 @@ sistemato a mano. Attua la verifica richiesta dalla regola
 Un blocco conta come shell solo se lo dichiara la sua info string (`bash`,
 `powershell`, `sh`, `console`, ...) oppure se non ha info string e contiene
 comandi: un blocco `markdown` o `text` che cita un comando resta prosa, e la prosa
-può' legittimamente finire con un backtick.
+può legittimamente finire con un backtick.
 
 Uso: python tools/lint-md-commands.py <cartella> [...]
-Esce 0 se non trova nulla, 1 altrimenti, così si può' usare come gate.
+Esce 0 se non trova nulla, 1 altrimenti, così si può usare come gate.
 """
 import os
 import re
@@ -71,7 +71,7 @@ def check_block(path, info, start, block):
     has_cmd = any(CMD_START.match(l) for _, l in block)
     # Un blocco conta come shell solo se lo dichiara la info string, oppure se non
     # ha info string e contiene comandi: un blocco `markdown` o `text` che cita un
-    # comando resta prosa, e la prosa può' legittimamente finire con un backtick.
+    # comando resta prosa, e la prosa può legittimamente finire con un backtick.
     if not is_shell and not (not info and has_cmd):
         return []
     # Una continuazione di riga è un problema quando rompe il copia-incolla sulla
@@ -88,7 +88,7 @@ def check_block(path, info, start, block):
             # o è un percorso Windows che finisce con la barra rovesciata, come in
             # `git add docs\`. I due casi non si distinguono con certezza da qui, e
             # quando si tratta davvero di un comando git spezzato lo intercetta il
-            # controllo apposta, più' sotto.
+            # controllo apposta, più sotto.
             out.append((path, idx, 'continuazione con backslash', body, False))
         elif body.endswith('`'):
             out.append((path, idx, 'continuazione con backtick PowerShell', body, not shell_ps))
@@ -96,16 +96,16 @@ def check_block(path, info, start, block):
             out.append((path, idx, 'continuazione con caret cmd', body, True))
         if '<<' in body and re.search(r'<<-?\s*[\'"]?\w+', body):
             # L'heredoc è un costrutto delle shell POSIX: dentro un blocco bash è
-            # la forma corretta di passare un testo a un comando, e non si può'
+            # la forma corretta di passare un testo a un comando, e non si può
             # scrivere su una riga sola senza riscriverlo. Vale come errore solo
-            # dove non funzionerebbe affatto, cioè' in un blocco PowerShell. Chi
-            # copia solo la prima riga di un heredoc se ne accorge subito, perché'
+            # dove non funzionerebbe affatto, cioè in un blocco PowerShell. Chi
+            # copia solo la prima riga di un heredoc se ne accorge subito, perché
             # la shell resta in attesa: non è il guasto silenzioso del comando
             # spezzato da una continuazione.
             out.append((path, idx, 'heredoc multi-riga', body, shell_ps))
         # Comando git che prosegue sulla riga dopo senza essere un nuovo comando.
         # Si segnala solo quando la riga seguente ha davvero la forma di una
-        # continuazione, cioè' comincia con un'opzione oppure è rientrata rispetto
+        # continuazione, cioè comincia con un'opzione oppure è rientrata rispetto
         # al comando: altrimenti una riga di stringa in un blocco PowerShell, che è
         # un'istruzione a sé, verrebbe scambiata per continuazione.
         if GIT_START.match(body) and n + 1 < len(block):

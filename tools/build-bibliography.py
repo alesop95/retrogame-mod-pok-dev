@@ -123,10 +123,10 @@ def genera(fonti, teorici):
     righe.append(r"\addcontentsline{toc}{chapter}{Bibliografia}")
     # A bandiera e non giustificato: su una voce breve che contiene un
     # indirizzo lungo la giustificazione è precisamente ciò che spinge la
-    # riga fuori dal margine, perché' il compositore non ha spazi elastici a
+    # riga fuori dal margine, perché il compositore non ha spazi elastici a
     # sufficienza per rientrare.
     righe.append(r"\raggedright")
-    # Solo i parametri che hanno effetto dentro una lista già' iniziata: labelsep e
+    # Solo i parametri che hanno effetto dentro una lista già iniziata: labelsep e
     # itemsep vengono riletti a ogni voce, mentre leftmargin e itemindent sono fissati
     # dal egin e cambiarli qui non farebbe nulla. Il rientro vero lo determina
     # l'argomento passato sopra.

@@ -1,10 +1,10 @@
 # Mappa dei documenti del progetto
 
-> Documento autorato del 2026-09-08, aggiornato il 2026-09-09. Nasce da una constatazione dell'utente, cioè che i file di testo sono diventati troppi per orientarsi. Non aggiunge contenuto: dice che cosa è ciascun file, chi lo scrive, e se qualcuno lo debba ancora aprire. È l'unico documento del progetto il cui scopo sia parlare degli altri documenti.
+> Documento autorato del 2026-09-08, aggiornato due volte il 2026-09-09. Nasce da una constatazione dell'utente, cioè che i file di testo sono diventati troppi per orientarsi. Non aggiunge contenuto: dice che cosa è ciascun file, chi lo scrive, e se qualcuno lo debba ancora aprire. È l'unico documento del progetto il cui scopo sia parlare degli altri documenti.
 
 ## Il criterio che governa tutto, e che spiega la maggior parte della confusione
 
-I trecentonovanta file Markdown del repository non sono trecentonovanta cose da leggere, e la ragione è che appartengono a cinque categorie che si comportano in modo opposto. Confonderle è ciò che rende il progetto illeggibile, perché induce ad aprire un file di novecentomila byte credendo che qualcuno lo abbia scritto.
+I quattrocentoquattro file Markdown del repository non sono quattrocentoquattro cose da leggere, e la ragione è che appartengono a cinque categorie che si comportano in modo opposto. Confonderle è ciò che rende il progetto illeggibile, perché induce ad aprire un file di novecentomila byte credendo che qualcuno lo abbia scritto.
 
 I file **generati** si rigenerano con un comando e non si modificano mai a mano: contengono un elenco, e il loro valore è di essere completi e coerenti con la fonte, non di essere letti dall'inizio alla fine. Sono i più grossi del progetto e sono la ragione per cui la cartella sembra ingestibile. Ciascuno dichiara nella propria seconda riga da quale strumento nasce.
 
@@ -14,7 +14,7 @@ I file **normativi** vincolano il comportamento e vanno letti prima di agire nel
 
 I file **di stato** dicono a che punto è il progetto e si leggono a inizio sessione.
 
-I file **del template** stanno sotto `.claude/templates/` e non sono contenuto di questo progetto: sono il pacchetto di sistema da cui il progetto è istanziato. Sono centotrentaquattro, cioè più di un terzo del totale, e nessuno di essi va aperto lavorando ai Pokémon.
+I file **del template** stanno sotto `.claude/templates/` e non sono contenuto di questo progetto: sono il pacchetto di sistema da cui il progetto è istanziato. Sono centoquarantacinque, cioè più di un terzo del totale, e sono cresciuti di undici il 2026-09-09 quando la copia locale è stata riallineata al template con i quattro pacchetti che le mancavano, e nessuno di essi va aperto lavorando ai Pokémon.
 
 ## Da dove si comincia, se si è persi
 
@@ -71,6 +71,7 @@ Sono i più grossi del progetto e la causa principale del senso di ingestibilit�
 | `pokedex-home-completo/CODA-PRIMO-TEMPO.md` | 42k | `tools/checklist-pokedex.py --coda` |
 | `pokedex-home-completo/CONFRONTO-FOGLIO-LIVINGDEX.md` | 33k | `tools/confronta-foglio-livingdex.py` |
 | `recreate-pokemon-distributions-events/EVENTI-GEN3.md` | 23k | `tools/genera-evento-gen3.py` |
+| `pokedex-home-completo/CONFRONTO-LIVINGDEX-POKEPC.md` | 20k | `tools/confronta-livingdex-pokepc.py` |
 | `pokedex-home-completo/FIOCCHI.md` | 16k | `tools/fiocchi.py` |
 | `pokedex-home-completo/DIFFERENZE-DI-SESSO.md` | 12k | `tools/enumera-differenze-sesso.py` |
 | `pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md` | 24k | `tools/censimento-condizionati.py` |

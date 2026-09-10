@@ -4,8 +4,8 @@ generated-from-branch: main
 generated-date: 2026-08-28
 covers-paths:
   - recreate-pokemon-distributions-events/
-last-verified-commit: 0f72ba487040b9198c78e3d9512285f45b55c1c8
-stato: attivo, generatore chiuso e verificato dall'esterno su tutte le voci producibili, in attesa del lettore per la prova su dato autentico e per l'identificativo vero dell'allenatore
+last-verified-commit: 7b66def
+stato: attivo; cinque lotti prodotti e giudicati dall'esterno, il lettore e' arrivato il 2026-09-09 e con esso cadono le dipendenze dall'hardware
 ---
 
 # Sottoprogetto: ricreazione delle distribuzioni e degli eventi
@@ -29,6 +29,12 @@ La domanda che questa scheda poneva come prossimo passo ha ricevuto risposta, e 
 La campagna è costata otto difetti, tutti nel nostro codice, tutti corretti e tutti riverificati, e nessuno dei quali riguardava il generatore pseudocasuale: stavano tutti nei campi di contorno, cioè contrassegni, nomi, livelli, codici di versione e fiocchi. Il conto e la lezione stanno in `STUDIO-03` sezione 28 e nel capitolo 19 della tesi, ed è una lezione di metodo che vale oltre questo track: le prove interne servono dove il fallimento è visibile, il giudizio esterno dove non lo è, e la nostra suite era verde durante tutti e otto i difetti.
 
 Resta una rigenerazione futura, che non è un difetto: sessanta voci prendono l'identificativo dell'allenatore dal salvataggio che le riceve, e il lotto attuale porta per esse un identificativo di esempio, quindi cambieranno seme e valore di personalità quando esisterà il salvataggio di destinazione. Il giudizio ottenuto resta valido perché esercita rami di codice e non byte particolari.
+
+## Aggiornamento del 2026-09-09
+
+Due cose che questa scheda dava per future sono avvenute, e una terza che dava per fatta va precisata. Il lettore di cartucce e' arrivato, quindi cade la dipendenza dall'hardware che questa scheda dichiarava: la prova su dato autentico, l'identificativo vero dell'allenatore per le sessanta voci che lo prendono dal salvataggio ricevente, e le tre vie di iniezione che passavano dal backup del salvataggio diventano tutte percorribili, nell'ordine di rischio fissato dal runbook della prima sessione. Il conteggio e la catalogazione degli eventi delle generazioni successive alla terza, che questa scheda indicava come prossimo passo indipendente dall'hardware, sono stati fatti: esistono i lotti di quarta e di quinta generazione, con duecentoquarantasette e settecento voci, giudicati dall'esterno rispettivamente su duecentodiciannove su duecentoquarantasette e su tutte e settecento.
+
+Il lavoro che resta su questo track e' quindi di altra natura. Le ventotto voci coreane rifiutate non hanno un difetto nei byte e attendono la decisione di ADR-040. Il pedigree delle voci di quarta generazione esiste come manifesto delle impronte e non come schede, che e' lo strumento fratello ancora da scrivere. E il generatore di quinta generazione resta da scrivere, con la forma dell'archivio e il censimento gia' chiusi: e' il caso piu' estremo dei tre sull'asse della composizione, perche' tutte e settecento le voci fanno comporre il valore di personalita' e cento di esse sono sempre cromatiche.
 
 ## Prossimo passo concreto
 
