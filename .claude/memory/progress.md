@@ -4,6 +4,30 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-10, quarta parte. La relazione fra fonti e documenti, e l'iniezione di sessione
+
+### La richiesta, e perché non era una richiesta di stile
+
+L'utente ha detto di perdere il contatto con le fonti e con le possibilità che il progetto apre, e ha posto tre vincoli: `SOURCES.md` deve racchiudere tutte le fonti esterne, comprese le centosettantuno del post di raccolta e quelle che si stanno ingerendo; deve essere sempre noto quali fonti finiscono in tesi; e deve essere chiaro che cosa sta scritto in quale parte della documentazione. La richiesta non è di stile ma strutturale, perché descrive un difetto reale: il progetto aveva tre liste di fonti che non si vedevano fra loro, cioè la tabella `FONTI` che alimenta il registro, il censimento del corpus con le sue centosettantuno voci, e le chiavi bibliografiche che i capitoli citano. Nessun file diceva dove fosse finito ciò che una fonte aveva dato.
+
+### L'indice unico, e le due scelte che lo rendono affidabile
+
+Lo strumento è `tools/indice-fonti-unico.py` e riscrive un blocco delimitato in testa a `SOURCES.md`. Non aggiunge fonti e non ne toglie, che è il vincolo che l'utente ha posto dicendo di non fare casino: il registro resta l'elenco di tutte le fonti esterne, e il blocco è una vista che mette le tre liste in corrispondenza. Porta il conto, la tabella delle novantadue fonti registrate con accanto il documento del progetto che le usa e i capitoli che le citano, la tabella dei quarantadue cluster del corpus con lo stato di lettura e quante voci siano diventate fonti registrate, e una sezione che dichiara i buchi.
+
+Le due scelte che lo rendono affidabile vanno registrate perché una vista che rassicura è peggio di nessuna vista. La prima è la normalizzazione dell'indirizzo, che riconosce come identiche le due scritture di un post, cioè con e senza il titolo appeso all'identificativo: senza quella riduzione le voci promosse risultavano undici invece di diciassette. La seconda è che lo stato di lettura non si indovina per somiglianza: il nome del cluster nel registro di lettura deve essere esattamente quello del censimento, e se non lo è il blocco lo dichiara fra i buchi. Per questo la tabella di stato di `LETTURA-DEL-CORPUS.md` è stata riscritta con i nomi esatti, e i cluster con stato dichiarato sono passati da otto a diciannove: erano già letti, ma nessuna macchina poteva saperlo.
+
+### L'iniezione di sessione
+
+Per direttiva dell'utente l'iniezione completa vive in `_notes/RESUME_PROMPT.md` e si riscrive alla fine di ogni giro sostanziale. Porta il prompt da incollare, l'ordine di lettura, il fuoco con i giorni residui, le due linee parallele, la mappa minima di quale file risponda a quale domanda, lo stato delle due linee, le cinque decisioni in attesa, i promemoria permanenti, i controlli prima del commit e gli errori di metodo da non ripetere. La copia locale precedente, che era un puntatore con il nome scritto con il trattino, è stata eliminata: due file di ripresa sono il modo di farli divergere. La divisione del lavoro con il `resume-prompt.md` tracciato è ora dichiarata in entrambi, cioè le discipline nel tracciato e lo stato volatile nel locale, e l'obbligo di riscriverlo è la seconda parte del presidio in `.claude/rules/chat-non-e-memoria.md`.
+
+### Le due linee di lavoro, che ora sono dichiarate
+
+L'utente ha stabilito che la lettura del corpus e la produzione dei lotti da evento procedono in parallelo, perché altrimenti non si arriva in tempo. La dichiarazione è entrata nella riga del fuoco corrente dell'indice, nella scheda del track e nell'iniezione di sessione, cosicché una sessione futura non ricada nella lettura sequenziale. Il prossimo lotto di lettura è la coda delle liste di completamento per generazione, dalla quinta alla nona più gli spinoff; i quaranta documenti sulla caccia ai cromatici restano per ultimi perché servono soltanto se il profilo che l'utente sceglierà comprende i cromatici.
+
+### I quattro capitoli in drift, e il PDF
+
+Il controllo di copertura ha segnalato quattro capitoli il cui documento coperto era cambiato dopo la verifica, ed è il presidio che funziona: la premessa e il capitolo sulle fonti per `SOURCES.md`, il ventinovesimo per il confronto nuovo e il trentunesimo per il registro di lettura. Il ventinovesimo era già aggiornato nel giro precedente, mentre gli altri hanno ricevuto contenuto nuovo: il capitolo sulle fonti ha una sezione sulla terza vista e sul difetto che la rendeva necessaria, e il trentunesimo una sezione sul perché uno stato di lettura scritto per una persona sia diventato un dato leggibile da un programma. I checkpoint sono stati portati a `6b2dc05`, la copertura resta al cento per cento su 37165 righe, le 111 voci di bibliografia sono tutte citate e il PDF ricompilato non ha titoli assenti.
+
 ## 2026-09-10, terza parte. Il lotto dei tracciatori, la terza enumerazione, e un canale che distribuisce ancora
 
 ### Che cosa è stato letto, e perché proprio questo

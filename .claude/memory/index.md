@@ -8,8 +8,8 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: 7b66def
-Data snapshot:         2026-09-09, terza parte
+Commit di riferimento: 6b2dc05
+Data snapshot:         2026-09-10, terza parte
 ```
 
 ## Stato di verifica delle schede
@@ -38,7 +38,7 @@ Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo q
 ## Punto di ripresa
 
 ```
-Fuoco corrente: pokedex-home-completo, sulle enumerazioni: asse del sesso chiuso a 102 specie con scarto nullo su due fonti, terzo cluster prioritario del corpus ancora da leggere, e due classi nuove aperte dall'utente il 2026-09-09, cioe gli scambi in gioco e gli incontri che una condizione sblocca; scadenza fra 170 giorni
+Fuoco corrente: pokedex-home-completo, su due linee parallele decise dall'utente il 2026-09-10, cioe la lettura del corpus a lotti, oggi a undici cluster su quarantadue, e la produzione dei lotti da evento nell'ordine per scadenza di ADR-052; le enumerazioni hanno ora una terza misura indipendente e SOURCES.md porta in testa l'indice che lega ogni fonte al documento e al capitolo; scadenza fra 169 giorni
 ```
 
 Il 2026-08-31 il fuoco si è mosso due volte nella stessa giornata, e vale registrare entrambi i movimenti perché il primo è concluso e il secondo è quello attivo.
@@ -81,6 +81,14 @@ La seconda discrepanza è una deriva interna al template che questo progetto ha 
 La terza è che la copia del pacchetto di sistema dentro `.claude/templates/` era ferma a prima di quattro pacchetti, cioè `alignment`, `anonymization`, `community-sources` e `fix-typography`, e il secondo di essi il progetto lo aveva addirittura prodotto e mai riletto. I due alberi ora coincidono file per file. Sono risaliti al template la regola `chat-non-e-memoria.md` con la sua riga in `PROJECT-SYSTEM.md`, il modello di scheda `sub-subproject.md` con il quarto passo dell'istanziazione scritto dentro, i quattro strumenti tipografici corretti in `tools/` e nel pacchetto, e il case-study che racconta le due lezioni.
 
 Il pacchetto `alignment` merita una riga a sé, perché è la risposta già scritta al problema che questa giornata ha incontrato tre volte: è un controllo eseguibile sulle affermazioni che invecchiano senza che nulla le contraddica, cioè le scadenze scritte in prosa, le misure più vecchie della loro cadenza, le asserzioni che nessun programma può verificare e quattro invarianti fra ciò che i documenti dicono e ciò che sta nel repository. Non è stato adottato: è una decisione dell'utente e sta in `pending.md` con i suoi termini.
+
+DODICESIMA AGGIUNTA del 2026-09-10, ed è quella che rende visibile la relazione fra le fonti e ciò che il progetto ne ha fatto. Su richiesta dell'utente, che aveva dichiarato di perdere il contatto con il corpus e con le possibilità che apre, `SOURCES.md` porta ora in testa un blocco generato da `tools/indice-fonti-unico.py`: novantadue fonti registrate con accanto il documento del progetto che le usa e il capitolo di tesi che le cita, centosettantuno voci di corpus raggruppate nei quarantadue cluster con lo stato di lettura di ciascuno, e una sezione che dichiara i buchi invece di lasciarli dedurre. Il blocco non aggiunge fonti: mette in corrispondenza tre liste che non si vedevano fra loro. Perché funzionasse, la tabella di stato di `LETTURA-DEL-CORPUS.md` è stata riscritta con i nomi esatti dei cluster, che è il tipo di correzione che rende un documento leggibile a una macchina senza toglierlo a una persona.
+
+Nel medesimo giro è stata letta la prima parte del lotto di corpus successivo, cioè il cluster dei tracciatori, ed è arrivata la terza enumerazione indipendente del catalogo vivente: PokePC Classic pubblica i propri dati sotto licenza MIT, conta 1387 voci contro le 1389 del foglio comunitario e le nostre 1367, e il confronto specie per specie sta in `pokedex-home-completo/CONFRONTO-LIVINGDEX-POKEPC.md`. Le due enumerazioni esterne distano fra loro due voci e la nostra dista da entrambe una ventina, il che sposta l'onere della prova su di noi. Ne sono venute la conferma delle sessantatre configurazioni di Alcremie da tre fonti esterne, e una divergenza sola sull'asse del sesso, cioè Basculin, che la pagina enciclopedica non nomina e che resta non corroborata.
+
+Il risultato che pesa di più non veniva dal cluster ma da un suo rinvio: il servizio ricostruito distribuisce ancora i doni segreti di quarta e quinta generazione alle cartucce vere, con due testimonianze indipendenti del 2026-09-07, e ciò significa che una parte dell'asse degli eventi potrebbe essere ricevuta invece che composta. È la risposta parziale al primo dei quattro passi del capitolo trenta della tesi, e apre una domanda di perimetro che sta in `pending.md`.
+
+Infine, per direttiva dell'utente, l'iniezione di sessione vive ora in `_notes/RESUME_PROMPT.md` e si riscrive alla fine di ogni giro sostanziale: è la seconda parte del presidio della regola sulla persistenza, e la divisione del lavoro con il `resume-prompt.md` tracciato è dichiarata in entrambi i file.
 
 cart-battery-restoration: DIAGNOSI CONCLUSA il 2026-09-01, e la conclusione è negativa. L'utente riferisce che Rosso e Argento offrono all'accensione il solo avvio di una partita nuova e non conservano il salvataggio che si crea: è la firma completa della pila esaurita, e i due salvataggi non esistono più e non sono recuperabili. Tre conseguenze. Su quelle cartucce non c'è nulla da estrarre, quindi l'ordine che imponeva l'estrazione prima della saldatura non si applica e l'operazione passa da rischio alto a rischio basso. Per la cartuccia di seconda generazione il seguito sull'orologio si riduce al primo dei tre passi, perché una partita nuova fissa da sé lo scostamento dell'ora. E la priorità si sposta: queste due possono attendere, mentre le eventuali altre cartucce di prima o seconda generazione non ancora provate sono le sole che abbiano ancora una finestra.
 
