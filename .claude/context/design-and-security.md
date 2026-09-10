@@ -13,7 +13,7 @@ covers-paths:
   - generation-from-switch/
   - cart-battery-restoration/
   - pokedex-home-completo/
-last-verified-commit: 7696c46
+last-verified-commit: 7b66def
 ---
 
 # Design e sicurezza
@@ -27,6 +27,18 @@ Il track della ricreazione delle distribuzioni, nato il 2026-08-28, mette in ten
 La prima è che l'obiettivo dichiarato, cioè avere in Pokemon Home tutte le specie e le forme prima della chiusura di Bank, dipende in modo essenziale dal suo ultimo tratto, e quel tratto passa da Pokemon Bank e da Pokemon Transporter su questa console, cioè dai due titoli su cui l'assistenza è esclusa. Nessuna via alternativa esiste, perché Poke Transporter è l'unico ingresso verso Home per tutto ciò che precede l'ottava generazione. La contraddizione non si risolve tecnicamente e va decisa dall'utente.
 
 La seconda riguarda il materiale che le vie di iniezione richiedono. La regola esclude i salvataggi scaricati da internet, per il rischio che ricade sull'account e sulla console, e le tre vie di iniezione più economiche di un evento richiedono precisamente materiale di terze parti: una ROM di distribuzione da mettere su una scheda riprogrammabile, oppure un salvataggio precostituito per l'e-Reader. Va notato che non si tratta di un salvataggio di un gioco Pokemon da importare, il che rende la norma non immediatamente applicabile e la decisione non ovvia; resta che il perimetro va dichiarato prima di procurare qualcosa, e non dopo.
+
+## Le tensioni aperte dai track nati dal 2026-08-31, e una che riguarda un account diverso
+
+La sezione precedente registrava due tensioni e nominava un track solo. Al 2026-09-09 le tensioni sono cinque e i track che le portano sono quattro, quindi la sezione va letta come il primo capitolo di questa e non come l'elenco completo.
+
+La terza tensione nasce insieme ai due track del 2026-08-31, cioè l'esecuzione di codice come via di generazione e la generazione dai giochi su console corrente, ed è una sola per entrambi anche se le tecniche sono opposte. L'una scrive i byte di un esemplare dentro un salvataggio proprio, l'altra riceve da terzi un esemplare costruito da loro; le due espongono il medesimo account alla medesima sanzione dichiarata dalla politica ufficiale, cioè la sospensione dell'accesso al deposito, temporanea o indefinita e senza rimborso. Ciò che rende questa tensione diversa dalle altre del progetto è l'oggetto esposto: non è un account accessorio ma il contenitore dell'obiettivo dichiarato, cioè la collezione di una vita. Va inoltre distinto che i verificatori sono tre con severità decrescente e che il progetto persegue la legittimità e non la sola legalità presso il servizio, e che il servizio assegna a ogni esemplare in ingresso un tracciatore univoco: l'esame non è quindi un cancello istantaneo ma un'esposizione permanente, e ciò che oggi è accettato resta identificabile domani. La decisione resta dell'utente, e finché non è presa quei due track producono conoscenza e non esemplari.
+
+La quarta riguarda i salvataggi di provenienza esterna e va scritta con precisione, perché la regola sull'hardware li esclude e il progetto ne usa trenta. La distinzione che risolve la tensione invece di aggirarla è fra leggere e importare: leggere un salvataggio scaricato sul calcolatore per ricavarne valori di campo non tocca né la console né l'account, e da quei valori il progetto rigenera l'esemplare con il proprio codice, cosicché ciò che entra in un salvataggio proprio sia prodotto qui; importare il salvataggio altrui o i suoi esemplari nella catena è invece l'uso che la regola esclude. Su questa base ADR-029 ammette l'iniezione di uno stato di avanzamento per sbloccare un passaggio a tre condizioni, fra cui lo svuotamento del deposito del salvataggio importato prima dell'uso, e ADR-037 aggiunge il triage da fare prima di studiare un salvataggio esterno, dopo che la provenienza ne ha predetto la qualità su cinque casi su cinque.
+
+La quinta non riguarda la console ma un account di terze parti, ed è ADR-019. Per leggere i canali di community dove il bot account non può essere invitato, l'utente ha scelto di usare il proprio token personale con lo strumento della comunità, accettando esplicitamente il rischio di sospensione dopo che gli era stato esposto tre volte, con la cadenza di poche esportazioni all'anno. Il presidio operativo è che quel token non si scrive in alcun file, nemmeno in quello escluso dal version control, e si incolla nel comando al momento dell'uso; la via lecita del bot account resta preferibile dove il consenso di chi amministra si ottenga, e l'agente non ripropone l'obiezione perché la decisione è stata presa con i fatti davanti.
+
+Va infine registrata una conseguenza che tocca la conservazione dei dati di terzi e non il rischio dell'utente. Gli archivi delle community e l'archivio pubblico da cui si leggono i post contengono messaggi scritti da altre persone, e la loro visibilità non equivale a un'autorizzazione a conservarli altrove: il progetto conserva quindi l'identificativo dell'autore accanto al contenuto, perché senza di esso una richiesta di cancellazione non sarebbe eseguibile, tiene quel materiale in un posto solo cosicché una cancellazione sia un'operazione e non una caccia, e considera il grezzo sacrificabile una volta che la sintesi con l'attribuzione è entrata nel registro.
 
 ## Segreti non ruotabili
 

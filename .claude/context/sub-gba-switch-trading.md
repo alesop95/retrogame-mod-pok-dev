@@ -4,7 +4,7 @@ generated-from-branch: main
 generated-date: 2026-08-24
 covers-paths:
   - gba-switch-pokemon-trading/
-last-verified-commit: 7696c46
+last-verified-commit: 7b66def
 stato: in ricerca, nessun ambiente allestito
 ---
 
@@ -12,7 +12,7 @@ stato: in ricerca, nessun ambiente allestito
 
 Lo stato canonico di questo track è questo file, insieme alla riga che lo riguarda in `memory/index.md`. La sezione 14 dell'handoff propone un prompt di ripartenza scritto per una chat: resta come storico, la precedenza è qui.
 
-Obiettivo: far comunicare un PC Linux con una Nintendo Switch tramite LDN, il protocollo wireless locale proprietario di Nintendo, per eseguire uno scambio di Pokemon con una copia di FireRed o LeafGreen in esecuzione sulla console. Il PC simula la seconda console. È un proof of concept dimostrativo, non un tool finito.
+Obiettivo: far comunicare un PC con una Nintendo Switch tramite LDN, il protocollo wireless locale proprietario di Nintendo, per eseguire uno scambio di Pokemon con una copia di FireRed o LeafGreen in esecuzione sulla console. Il PC simula la seconda console. È un proof of concept dimostrativo, non un tool finito.
 
 ## Dove siamo
 

@@ -37,5 +37,5 @@ Il covers-paths si scrive come prefisso di cartella con lo slash finale, non com
 
 La scheda sta sotto le trenta righe. Se ti accorgi di stare copiando un paragrafo dall'handoff dentro la scheda, stai violando la divisione di competenza: l'handoff è procedura, troubleshooting, fonti e log; la scheda è dove siamo, cosa viene dopo, cosa è aperto.
 
-Dopo aver creato la scheda vanno aggiornati tre posti: la tabella di verifica in memory/index.md, il blocco del punto di ripresa nello stesso file, e la tabella dei track in context/current-work.md.
+Dopo aver creato la scheda vanno aggiornati quattro posti, e il quarto e' quello che si dimentica. I primi tre sono la tabella di verifica in memory/index.md, il blocco del punto di ripresa nello stesso file, e la tabella dei track in context/current-work.md. Il quarto e' il covers-paths delle schede trasversali che parlano del nuovo track, cioe' STACK, dev-testing, design-and-security, roadmap e current-work: una scheda che descrive un'area senza dichiararla fra i percorsi coperti e' un punto cieco permanente, perche' sync-context non segnalera' mai un drift su un'area che nessuno dichiara di coprire, e la scheda resta indefinitamente verde mentre invecchia.
 -->

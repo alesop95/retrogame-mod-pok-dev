@@ -17,7 +17,9 @@ La misura del compito, fissata all'inizio perché serve a valutare l'avanzamento
 | 3) Collections of one Pokemon species | 6 | letto il 2026-09-09 | questa nota |
 | 1) Dex completions / Gen 1, Gen 2, Gen 3 | 16 | letti il 2026-09-09, meno le tre voci in forma di video | questa nota |
 | 1) Dex completions / Gen 4 | 7 | letto il 2026-09-09 nelle voci decisive, e chiude il punto sulle rovine di Sinjoh | questa nota e `pending.md` |
-| gli altri trentuno cluster | il resto | da leggere | |
+| 1) Dex completions / Pokemon Collection Trackers | 7 | letto il 2026-09-10, cinque voci su sette | `CONFRONTO-LIVINGDEX-POKEPC.md` e questa nota |
+| 1) Dex completions, e il suo sotto-cluster su Reddit | 5 | letti il 2026-09-10, meno le due voci in forma di video e la pagina non scaricata | questa nota |
+| gli altri ventinove cluster | il resto | da leggere | |
 
 ## Lotto del 2026-09-09: i cluster 6, 5, 4 e 3
 
@@ -86,3 +88,36 @@ Sui due giochi da console fissa la guida chiarisce una cosa che il nostro censim
 ### La quarta generazione, e una voce che si chiude
 
 Il punto in sospeso sulle rovine di Sinjoh si chiude con la procedura, che la guida dedicata descrive passo per passo. Il terzetto del tempo e dello spazio al livello uno si ottiene portando un Arceus di quarta generazione in una riedizione di seconda, tenendolo come solo esemplare in squadra, entrando nelle rovine di Alph e scegliendo uno dei tre cerchi: quello a sinistra dà Dialga, quello a destra Palkia, quello in alto Giratina, ciascuno al livello uno. Ne segue che la voce non è sbloccata da un oggetto ma dal possesso di un Arceus, e che l'Arceus a sua volta viene dal flauto mai distribuito ufficialmente oppure dalla distribuzione di un rivenditore, che il servizio in rete ricostruito rende di nuovo ottenibile: è la via del nome di dominio già studiata in `STUDIO-04`, con la procedura completa del menu dei doni misteriosi e la domanda a due risposte che lo sblocca nei titoli di Sinnoh.
+
+
+## Lotto del 2026-09-10: i tracciatori, e la terza enumerazione
+
+### Perché questo cluster prima degli altri
+
+Il cluster dei tracciatori è stato scelto per primo fra quelli rimasti perché serve la decisione aperta sul profilo di collezione, che è dell'utente e che blocca la pianificazione: finché non si sa quale collezione si vuole non si sa quale lavoro sia necessario e quale superfluo. Il criterio di scelta è quindi l'utilità per una decisione in attesa, non l'ordine del post.
+
+### La terza enumerazione, che rompe la parità
+
+Il risultato principale del lotto è che PokePC Classic, già SuperEffective.gg, pubblica sotto licenza permissiva i dati che lo alimentano: un'anagrafica di millecinquecentonovantanove voci con i contrassegni che dicono che cosa ciascuna sia, e sette disposizioni in scatole per il deposito. Non è una lista di specie ma un elenco di caselle da riempire, cioè precisamente la domanda che la nostra lista di spunta dichiara indeterminata.
+
+Il confronto è `CONFRONTO-LIVINGDEX-POKEPC.md`, generato da `tools/confronta-livingdex-pokepc.py`, e il numero che conta non è lo scarto ma la sua forma. Le due enumerazioni esterne, scritte da autori diversi con metodi diversi, distano fra loro due voci su quasi millequattrocento, cioè milletrecentottantasette contro milletrecentottantanove, mentre la nostra dista da entrambe una ventina, con milletrecentosessantasette. Una convergenza di quel genere non dimostra che le due esterne abbiano ragione, ma sposta l'onere della prova su di noi.
+
+Delle trecentosessantadue voci che PokePC conta oltre la specie base, centocinquantasette sono forme cosmetiche, centotre forme femminili e centotre forme che il campo della forma separa davvero; megaevoluzioni, forme gigamax e forme di sola battaglia non compaiono affatto, il che corrobora per via indipendente il nostro perimetro. Due voci minori cadono su questioni già decise: le sessantatre configurazioni di Alcremie sono confermate da tre fonti indipendenti oltre alla nostra, e la specie con differenze di sesso in più rispetto alle nostre centodue è una sola, cioè Basculin, che la pagina enciclopedica non nomina affatto e che resta quindi una divergenza non corroborata invece che una correzione.
+
+Un difetto della prima stesura del programma va registrato perché è del genere che produce un numero sbagliato con l'aria di essere esatto: assumeva che le sette disposizioni differissero per il solo ordinamento, mentre due danno una casella propria alla forma gigamax e due si dichiarano minime, e una cella non è sempre un identificativo ma può essere un oggetto con un contrassegno. Identificarla con il solo identificativo faceva sparire trentotto caselle senza che nulla se ne accorgesse.
+
+### Gli altri profili, letti da chi li persegue
+
+Il cluster ha dato le definizioni operative di tre profili, scritte da chi li porta avanti invece che dedotte da una interfaccia. Il profilo dell'arca chiede un esemplare per ciascuno dei due sessi di ogni specie e di ogni forma, uno solo per le specie senza sesso, e la variante cromatica di ciascuno per il caso estremo. Il profilo per regione di origine chiede che ogni esemplare venga dal titolo più antico in cui la sua forma possa esistere, e la sua guida elenca i tredici titoli minimi e le sei console che servono a percorrerlo. Il terzo è un foglio del 2022 che tiene insieme sei tracciatori distinti, cioè catalogo vivente, esemplari di taglia massima, marchi di origine, marchi ordinari, fiocchi e sfere: la coincidenza fra quei sei e i sei assi che questo progetto ha ricostruito quattro anni dopo per conto proprio è la conferma indipendente più forte che l'insieme degli assi sia quello.
+
+Una quarta enumerazione, in forma di documento invece che di foglio, dichiara esplicitamente che cosa include e che cosa esclude, ed è utile proprio per l'elenco delle esclusioni: niente cromatici, niente forme effimere come le megaevoluzioni e le gigamax, niente forme che dipendono da un oggetto tenuto o da un'abilità, niente tosature, niente totem e niente forme mai rilasciate. È il medesimo perimetro del progetto, enunciato da un altro.
+
+### Il risultato che non veniva dal cluster, e che vale più del cluster
+
+Seguendo un rinvio della guida al profilo per regione di origine si è arrivati a una fonte che il censimento aveva scaricato e che nessuno aveva letto, cioè l'elenco dei doni di quarta e quinta generazione che si ricevono collegando la console al servizio ricostruito attraverso una diversa configurazione dei server dei nomi. La fonte è del 2020, ha milletrecentottantaquattro commenti, e due testimonianze indipendenti del 2026-09-07 dichiarano il canale ancora attivo nominando le sole voci che non hanno ottenuto.
+
+Ciò che questo aggiunge al progetto è la risposta parziale al primo dei quattro passi lasciati aperti dal capitolo sulla produzione dentro il gioco: il canale distribuisce doni e non soltanto scambi, e un catalogo di ciò che distribuisce esiste in forma di testimonianza. Ne segue che una parte dell'asse degli eventi potrebbe essere ricevuta invece che composta, il che è preferibile su ogni dimensione che a questo progetto interessi. Due dettagli meritano l'isolamento: il canale serve anche due doni mai distribuiti ufficialmente, fra cui l'oggetto la cui assenza rende non conforme l'esemplare che il progetto aveva registrato come non producibile, e le voci mancate dai due testimoni sono le stesse, il che suggerisce un insieme stabile e quindi misurabile. Ciò che una testimonianza non dà resta intero: nessuna delle due dice nulla sui campi dell'esemplare ricevuto, che sono l'unica cosa che decide se il verificatore lo accetti.
+
+### Che cosa del lotto resta non letto
+
+Del cluster dei tracciatori restano due voci in forma di applicazione che il censimento marca come catalogate e che una richiesta locale non rende, cioè un tracciatore generico e uno dedicato all'applicazione per telefono. Del cluster principale restano la pagina che la corsa non ha scaricato, due voci in forma di video e la guida al profilo alfabetico, che è stata aperta ma non spogliata. Nessuna delle cinque cambia una decisione aperta, che è la ragione per cui il lotto si chiude qui invece di attenderle.

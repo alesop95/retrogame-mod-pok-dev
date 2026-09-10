@@ -4,7 +4,7 @@ generated-from-branch: main
 generated-date: 2026-08-31
 covers-paths:
   - generation-from-switch/
-last-verified-commit: 809289a
+last-verified-commit: 7b66def
 stato: debito di lettura chiuso il 2026-09-01, entrambe le fonti lette; bloccato sulla decisione di perimetro, non sulla conoscenza
 ---
 

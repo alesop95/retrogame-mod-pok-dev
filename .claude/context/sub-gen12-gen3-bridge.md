@@ -4,7 +4,7 @@ generated-from-branch: main
 generated-date: 2026-08-24
 covers-paths:
   - pokemon-gen12-gen3-bridge-original-hardware/
-last-verified-commit: ee0f52b
+last-verified-commit: 7b66def
 stato: decisione ADR-008 ancora aperta; le tre generazioni sono scritte e collaudate e dal 2026-09-09 esiste anche lo strato del salvataggio da 128 KiB
 ---
 
