@@ -21,3 +21,5 @@ La regola non autorizza a toccare `context/` e `memory/` di propria iniziativa q
 ## Il presidio
 
 Alla fine di ogni giro di lavoro sostanziale l'agente dichiara, in una riga, quali file ha scritto. È il modo in cui la regola si verifica invece di essere solo dichiarata: se quella riga non c'è, il contenuto è rimasto in chat.
+
+Dal 2026-09-10, su direttiva dell'utente, il presidio ha una seconda parte: alla fine di ogni giro sostanziale si riscrive anche `_notes/RESUME_PROMPT.md`, che è l'iniezione con cui la sessione successiva riparte esattamente da dove questa si è fermata. La ragione è la stessa della prima parte e vale anche quando tutto il resto è stato scritto correttamente: lo stato di avanzamento sta sparso fra indice, pendenze, registro di lettura e lotti su disco, e ricomporlo costa una lettura lunga a chi riprende. Un file che lo ricompone non duplica quei documenti se dichiara di essere volatile e rimanda a essi per la conoscenza durevole, ed è il patto che quel file dichiara in testa.

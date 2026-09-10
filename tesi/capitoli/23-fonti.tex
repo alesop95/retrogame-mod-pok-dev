@@ -3,7 +3,7 @@
 % =====================================================================
 % copre: SOURCES.md
 % copre: docs/24-fonti-di-community.md
-% verificato-al-commit: ee0f52b
+% verificato-al-commit: 6b2dc05
 % ---------------------------------------------------------------------
 
 \chapter{Il trattamento delle fonti}
@@ -125,3 +125,11 @@ Vale infine registrare una forma di consegna che in questo periodo si è ripetut
 \section{Che cosa non entra nel registro}
 
 Non entrano le fonti che documentano come ottenere materiale escluso dal perimetro dichiarato nel capitolo~\ref{cap:perimetro}, né i salvataggi di terze parti, e non entra nulla che contenga o distribuisca materiale di chiave specifico di una console. Non entrano le pagine effimere, cioè discussioni che valgono per una singola sessione. Non entrano i mirror di ROM, che non servono ad alcuno degli obiettivi di questo lavoro, dato che si opera su cartucce possedute. E non entrano le pagine di codici di alterazione, che sono la causa più probabile del problema che il caso di studio del capitolo~\ref{cap:smeraldo} deve risolvere, e non la sua soluzione.
+
+\section{La terza vista, e il difetto che la rendeva necessaria}
+
+Due artefatti erano ancora due liste che non si vedevano fra loro, e a esse se n'era aggiunta una terza senza che nessuno la contasse come tale: le fonti registrate nella tabella unica, le centosettantuno voci del corpus della collezione, e le chiavi bibliografiche che i capitoli citano. Chi legge il registro vede la prima, chi legge il censimento vede la seconda, e la terza si manifesta soltanto compilando il documento. La conseguenza pratica non è teorica ed è stata segnalata dall'utente il 2026-09-10: davanti a duecentosessanta voci sparse su tre viste, la domanda utile non è quali fonti esistano ma dove sia finito ciò che ciascuna ha dato, e a quella domanda nessun file rispondeva.
+
+La risposta è un blocco generato dentro il registro stesso, delimitato da due commenti e prodotto da un programma che non aggiunge e non toglie fonti. Per ogni fonte registrata mette accanto al nome il documento del progetto che la usa e il capitolo che la cita; per ogni cluster del corpus mette accanto al conto delle voci lo stato di lettura dichiarato e quante di esse siano diventate fonti registrate. Le due corrispondenze si fanno su chiavi che le viste già condividono, cioè l'indirizzo normalizzato fra corpus e registro e la chiave bibliografica fra registro e tesi.
+
+Due scelte di quel programma meritano di essere enunciate perché sono la differenza fra una vista affidabile e una che rassicura. La prima è che la normalizzazione dell'indirizzo riconosce come identiche le due scritture correnti di un post, cioè quella con il titolo appeso all'identificativo e quella senza: senza quella riduzione il registro e il censimento sembrano portare due fonti dove ne portano una, e il conto delle voci promosse risulta più basso del vero, come è accaduto alla prima corsa. La seconda è che lo stato di lettura non si indovina: il nome del cluster nel registro di lettura deve essere esattamente quello del censimento, e se non lo è il blocco lo dichiara fra i propri buchi invece di accoppiarlo per somiglianza. Uno stato di lettura falso è peggio di uno stato mancante, perché nessuno lo rilegge.

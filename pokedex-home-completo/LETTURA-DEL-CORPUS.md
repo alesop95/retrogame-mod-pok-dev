@@ -9,17 +9,18 @@ La misura del compito, fissata all'inizio perché serve a valutare l'avanzamento
 | Cluster | Fonti | Stato | Dove sta l'esito |
 |---|---|---|---|
 | 2) What are we loosing with Pokemon Bank | 6 | letto il 2026-09-08 | `STUDIO-05` e `INDICE-FOGLI-ESTERNI.md` |
-| 1) Dex completions / Overall lists | 10 | letto il 2026-09-08 | `STUDIO-06` |
-| 9) RNG Manipulation and Glitches, sei sotto-cluster | 16 | letto il 2026-09-09 | `STUDIO-08` |
-| 6) How to still get Bank / 3DS modding | 4 | letto il 2026-09-09 | `STUDIO-09` e questa nota |
+| 1) Dex completions / Overall lists for multiple generations | 10 | letto il 2026-09-08 | `STUDIO-06` |
+| 9) RNG Manipulation and Glitches / RNG Manipulation - the best sources to start, 9) RNG Manipulation and Glitches / Item Printer Gen 9, 9) RNG Manipulation and Glitches / Glitches, 9) RNG Manipulation and Glitches / 8F for Gen 1 games, 9) RNG Manipulation and Glitches / Coin Case Glitch for Gen 2 games, 9) RNG Manipulation and Glitches / ACE coding in Gen 2 & Gen 3 | 17 | letto il 2026-09-09 | `STUDIO-08` |
+| 6) How to still get Bank and other games/ 3DS modding | 4 | letto il 2026-09-09 | `STUDIO-09` e questa nota |
 | 5) Other lists and spreadsheets | 6 | letto il 2026-09-09, due voci non recuperabili | `ID-NOTEVOLI.md` e questa nota |
 | 4) Ribbon Master | 3 | letto il 2026-09-09, il manuale resta da recuperare | questa nota |
 | 3) Collections of one Pokemon species | 6 | letto il 2026-09-09 | questa nota |
-| 1) Dex completions / Gen 1, Gen 2, Gen 3 | 16 | letti il 2026-09-09, meno le tre voci in forma di video | questa nota |
+| 1) Dex completions / Gen 1, 1) Dex completions / Gen 2, 1) Dex completions / Gen 3 | 16 | letti il 2026-09-09, meno le tre voci in forma di video | questa nota |
 | 1) Dex completions / Gen 4 | 7 | letto il 2026-09-09 nelle voci decisive, e chiude il punto sulle rovine di Sinjoh | questa nota e `pending.md` |
 | 1) Dex completions / Pokemon Collection Trackers | 7 | letto il 2026-09-10, cinque voci su sette | `CONFRONTO-LIVINGDEX-POKEPC.md` e questa nota |
-| 1) Dex completions, e il suo sotto-cluster su Reddit | 5 | letti il 2026-09-10, meno le due voci in forma di video e la pagina non scaricata | questa nota |
-| gli altri ventinove cluster | il resto | da leggere | |
+| 1) Dex completions, 1) Dex completions / Reddit | 5 | letti il 2026-09-10, meno le due voci in forma di video e la pagina non scaricata | questa nota |
+
+Il nome di un cluster in questa tabella deve essere esattamente quello del censimento, e più nomi si separano con la virgola: è la chiave con cui `tools/indice-fonti-unico.py` porta lo stato di lettura dentro il registro delle fonti, e un nome che non corrisponde non produce un errore ma una riga senza stato, che il blocco generato elenca fra i buchi. I cluster che non compaiono qui sono da leggere, e il loro conto sta nel blocco generato invece che in una riga di prosa che invecchia.
 
 ## Lotto del 2026-09-09: i cluster 6, 5, 4 e 3
 

@@ -67,6 +67,185 @@ Nascono da una ricerca che l'utente ha condotto in un'altra sessione e consegnat
 | Dalla Tempocapsula a Pokemon HOME, Pokemon Millennium | https://www.pokemonmillennium.net/rubriche/184574-dalla-tempocapsula-a-pokemon-home-la-guida-completa-ai-passaggi-tra-generazioni/ | la guida ai passaggi fra generazioni, con gli aggiramenti esistenti e la loro assenza per Surf | PKD |
 | Macchina nascosta, Bulbapedia | https://bulbapedia.bulbagarden.net/wiki/HM | quali mosse siano macchine nascoste in ciascuna generazione, che è la tavola su cui `tools/mosse-mn.py` poggia il controllo | PKD, EVT |
 
+<!-- indice-fonti-unico: inizio, generato da tools/indice-fonti-unico.py -->
+
+## Indice unico: dove sta ciascuna fonte, e dove finisce
+
+> Blocco generato da `tools/indice-fonti-unico.py`. Non si modifica a mano: si rigenera. Non aggiunge e non toglie fonti, perche' non e' un registro ma una vista: mette in corrispondenza le tre liste che il progetto gia' possiede, cioe' le fonti registrate, le voci del corpus e le citazioni della tesi.
+
+Esiste per una ragione dichiarata dall'utente il 2026-09-10, ed e' la stessa che giustifica `MAPPA-DOCUMENTI.md`: un progetto che produce documenti generati a partire da fonti perde in fretta la relazione fra i due, e la domanda utile non e' quali fonti esistano ma dove sia scritto cio' che ciascuna ha dato. Le tre liste non si vedono fra loro: chi legge il registro vede le fonti registrate, chi legge il censimento vede il corpus, e le citazioni della tesi si vedono soltanto compilando.
+
+### Il conto
+
+| Misura | Valore |
+|---|---|
+| fonti registrate nella tabella unica | 92 |
+| di esse, lette | 90 |
+| di esse, citate in tesi | 92 |
+| di esse, con almeno un documento del progetto che le usa | 92 |
+| voci del corpus della collezione | 171 |
+| di esse, promosse a fonte registrata | 17 |
+| cluster del corpus | 42 |
+| di essi, con uno stato di lettura dichiarato | 19 |
+
+### Le fonti registrate, e dove finisce ciascuna
+
+La colonna dei documenti dice dove sta la sintesi di quella fonte dentro il progetto, cioe' quale nota, referenza o censimento la usa; la colonna dei capitoli dice dove la tesi la cita. Una riga senza documenti e' una fonte registrata e non ancora sfruttata; una riga senza capitoli e' una fonte che il documento composto non ha ancora assorbito.
+
+| Fonte | Liv | Track | Dove sta la sintesi | Capitoli |
+|---|---|---|---|---|
+| Copetti, architettura del GBA | 1 | ponte fra generazioni | `10-multiboot-hardware` | 06, 12, 23 |
+| Pokemon, il collegamento della riedizione con il deposito in rete | 1 | esecuzione di codice, ricreazione degli eventi, scambio locale, modding della console | `CATENA-DI-TRASFERIMENTO`, `STUDIO-09-la-regola-del-tracciatore-e-le-porte-dopo-la-chiusura` | 20, 28 |
+| GBATEK, multiboot | 1 | ponte fra generazioni | `10-multiboot-hardware` | 06, 11, 12, 23 |
+| kinnay, protocollo LDN | 1 | scambio locale | `04-cifratura-gen3` | 13, 16 |
+| unlimitedcoder2/ldnd | 1 | scambio locale | `11-wireless-locale-e-ponte-switch` | 13 |
+| Pan Docs, trasferimento seriale | 1 | ponte fra generazioni | `08-cavo-link`, `30-opzioni-implementative` | 03, 06, 10, 11, 23 |
+| pret/pokecrystal | 1 | ponte fra generazioni | `DATA-FORMATS_Gen1-Gen2-Gen3`, `06-identita-pokemon`, `08-cavo-link` | 01, 03, 05, 06, 07, 10, 23 |
+| pret/pokeemerald | 1 | ponte fra generazioni, salvataggio di Smeraldo | `DATA-FORMATS_Gen1-Gen2-Gen3`, `04-cifratura-gen3`, `03-integrita-checksum`, `22-strumenti` | 01, 03, 04, 05, 06, 08, 09, 14, 23 |
+| pret/pokefirered | 1 | ponte fra generazioni, scambio locale, salvataggio di Smeraldo | `22-strumenti`, `DATA-FORMATS_Gen1-Gen2-Gen3` | 02, 03, 10, 14, 16, 23 |
+| pret/pokegold | 1 | ponte fra generazioni | `DATA-FORMATS_Gen1-Gen2-Gen3` | 23 |
+| pret/pokered | 1 | ponte fra generazioni | `DATA-FORMATS_Gen1-Gen2-Gen3`, `08-cavo-link`, `09-esecuzione-codice` | 01, 03, 04, 05, 06, 10, 23 |
+| pret/pokeruby | 1 | ponte fra generazioni, salvataggio di Smeraldo | `22-strumenti` | 14, 23 |
+| pret/pokeyellow | 1 | ponte fra generazioni | `12-analisi-quantitativa` | 23 |
+| Pokemon, gestione dei dati alterati per mezzi non autorizzati | 1 | esecuzione di codice, generazione da console corrente, ricreazione degli eventi | `20-architettura-codice` | 20 |
+| Nintendo, fine del servizio di Pokemon Bank | 2 | ricreazione degli eventi, modding della console | `11-wireless-locale-e-ponte-switch` | 19 |
+| Bulbapedia, pagine sui formati | 2 | ponte fra generazioni, salvataggio di Smeraldo, scambio locale | `DATA-FORMATS_Gen1-Gen2-Gen3`, `23-prove-eseguite` | 03, 08, 23 |
+| Bulbapedia, elenco delle specie con differenze di sesso visibili (dal corpus) | 2 | Pokedex nel deposito | `DIFFERENZE-DI-SESSO`, `CONFRONTO-FOGLIO-LIVINGDEX` | 29 |
+| Bulbapedia, distribuzioni italiane di eventi in Gen 3 | 2 | ricreazione degli eventi | `23-prove-eseguite` | 19 |
+| Bulbapedia, elenco degli identificativi di allenatore notevoli (dal corpus) | 2 | Pokedex nel deposito, ricreazione degli eventi | `ID-NOTEVOLI` | 29 |
+| Bulbapedia, le macchine nascoste per generazione | 2 | Pokedex nel deposito, ricreazione degli eventi | `MOSSE-MN`, `CATENA-DI-TRASFERIMENTO` | 28 |
+| Bulbapedia, la catena dei trasferimenti fra generazioni | 2 | ricreazione degli eventi, modding della console | `11-wireless-locale-e-ponte-switch` | 19, 28 |
+| Glitch City Wiki | 2 | ponte fra generazioni | `09-esecuzione-codice` | 11, 23 |
+| Glitch City, i codici del programma di scrittura | 2 | esecuzione di codice, Pokedex nel deposito | `STUDIO-08-esecuzione-di-codice-e-manipolazione-del-generatore` | 30 |
+| La storia dell'esemplare surfista, dal titolare della serie | 2 | ricreazione degli eventi, Pokedex nel deposito | `CATENA-DI-TRASFERIMENTO` | 28 |
+| Guide all'esecuzione di codice in seconda generazione | 2 | esecuzione di codice, Pokedex nel deposito, ricreazione degli eventi | `STUDIO-08-esecuzione-di-codice-e-manipolazione-del-generatore`, `09-esecuzione-codice` | 30 |
+| Gen 3 ACE Archive | 3 | esecuzione di codice | `09-esecuzione-codice` | 20, 30 |
+| pepijndevos/arduino-boy | 3 | ponte fra generazioni | `30-opzioni-implementative` | 23 |
+| arduino-poke-gen2 | 3 | ponte fra generazioni | `30-opzioni-implementative` | 23 |
+| CableClub/cable-link | 3 | ponte fra generazioni | `08-cavo-link`, `30-opzioni-implementative` | 10, 22 |
+| vaguilar/pokemon-red-cable-club-hack | 3 | ponte fra generazioni | `09-esecuzione-codice`, `21-collaudo` | 11 |
+| Project Pokemon, Events Gallery (non letta) | 3 | ricreazione degli eventi | `24-fonti-di-community` | 19 |
+| frlg-ldn-trade | 3 | scambio locale | `06-identita-pokemon`, `11-wireless-locale-e-ponte-switch` | 13, 16 |
+| gba-link-connection | 3 | ponte fra generazioni | `10-multiboot-hardware`, `30-opzioni-implementative` | 23 |
+| gen-iii-event-patcher | 3 | ricreazione degli eventi, ponte fra generazioni | `09-esecuzione-codice`, `10-multiboot-hardware` | 19 |
+| Gen 3 ACE Pokemon Builder (non letta) | 3 | esecuzione di codice, ricreazione degli eventi | `23-prove-eseguite` | 19, 20 |
+| Goppier/GEN3PokemonDistributions | 3 | ponte fra generazioni | `10-multiboot-hardware` | 23 |
+| Pokemon-Gen3-to-Gen-X | 3 | ponte fra generazioni | `08-cavo-link`, `30-opzioni-implementative` | 09, 11, 23 |
+| Pokemon HOME Checklist, inventario vivente e marchi di origine | 3 | esecuzione di codice, generazione da console corrente, ricreazione degli eventi | `CHECKLIST-COMPLETA` | 20 |
+| ldn_mitm | 3 | scambio locale | `06-identita-pokemon` | 23 |
+| Phasip/PokemonLinkHack | 3 | ponte fra generazioni | `09-esecuzione-codice` | 11 |
+| Monarium, generatore di disposizioni del deposito con marchi | 3 | Pokedex nel deposito | `CHECKLIST-COMPLETA` | 29 |
+| PCCS | 3 | ponte fra generazioni | `07-conversione-vincoli`, `DATA-FORMATS_Gen1-Gen2-Gen3` | 06, 07, 08, 09, 23 |
+| PKHeX, tabella degli eventi Gen 3 e vocabolario dei metodi | 3 | ricreazione degli eventi, ponte fra generazioni, salvataggio di Smeraldo | `06-identita-pokemon`, `12-analisi-quantitativa`, `23-prove-eseguite` | 19 |
+| Rete ricostruita dei servizi in rete di quarta e quinta generazione (dal corpus) | 3 | ricreazione degli eventi, Pokedex nel deposito | `STUDIO-04-la-via-del-dns-e-il-servizio-rianimato` | 30 |
+| PkSploit | 3 | ponte fra generazioni, salvataggio di Smeraldo | `09-esecuzione-codice`, `30-opzioni-implementative` | 02, 11, 22 |
+| Pokemon Automation | 3 | AUT, scambio locale | `30-opzioni-implementative` | 17 |
+| PokemonGB_Online_Trades | 3 | ponte fra generazioni | `21-collaudo` | 10, 12, 21, 23 |
+| PokePC Classic, i dati del tracciatore di catalogo vivente | 3 | Pokedex nel deposito | `CONFRONTO-LIVINGDEX-POKEPC` | 29 |
+| pokerom-trader | 3 | ponte fra generazioni | `30-opzioni-implementative` | 22 |
+| Project Wonder, distribuzioni per applicazione di differenze | 3 | ricreazione degli eventi | `10-multiboot-hardware`, `11-wireless-locale-e-ponte-switch` | 19 |
+| Poke Transporter GB | 3 | ponte fra generazioni | `09-esecuzione-codice`, `30-opzioni-implementative` | 09, 11, 12, 22, 23 |
+| Progetto REON | 3 | ponte fra generazioni | `08-cavo-link` | 23 |
+| gba-link-cable-rom-sender | 3 | ponte fra generazioni | `10-multiboot-hardware` | 12 |
+| MrCheeze/pokestadium-ace | 3 | ponte fra generazioni | `08-cavo-link` | 23 |
+| switch-lan-play | 3 | scambio locale | `06-identita-pokemon` | 23 |
+| usb-gba-multiboot | 3 | ponte fra generazioni | `10-multiboot-hardware` | 12 |
+| amiibodoctor, generare esemplari per il titolo competitivo | 4 | generazione da console corrente | `24-fonti-di-community` | 20 |
+| Blog di Phasip | 4 | ponte fra generazioni | `09-esecuzione-codice` | 11 |
+| Dev log di Poke Transporter GB | 4 | ponte fra generazioni | `09-esecuzione-codice`, `10-multiboot-hardware`, `08-cavo-link` | 09, 10, 11, 12, 22, 23 |
+| GBAtemp, correzione dei salvataggi in Virtual Console | 4 | modding della console | `01-fondamenta-salvataggio` | 23 |
+| Glitch City Research Institute, canali | 4 | ponte fra generazioni | `09-esecuzione-codice`, `05-testo-e-charmap` | 11 |
+| Hackaday, il ponte impossibile | 4 | ponte fra generazioni | `30-opzioni-implementative` | 23 |
+| MankeyMite, avvertenza sui trasferimenti verso il deposito in rete | 4 | esecuzione di codice, ricreazione degli eventi, modding della console, scambio locale | `CATENA-DI-TRASFERIMENTO`, `STUDIO-09-la-regola-del-tracciatore-e-le-porte-dopo-la-chiusura` | 20, 28 |
+| Pokemon Multiplayer Research, canali di supporto | 4 | scambio locale, ponte fra generazioni | `11-wireless-locale-e-ponte-switch`, `30-opzioni-implementative` | 13 |
+| RetroReversing, Game Boy | 4 | ponte fra generazioni | `08-cavo-link` | 23 |
+| Come riaprire i doni segreti di quarta e quinta generazione (dal corpus) | 4 | ricreazione degli eventi, Pokedex nel deposito | `STUDIO-04-la-via-del-dns-e-il-servizio-rianimato` | 30 |
+| Goppier, la ricreazione delle distribuzioni Gen 3 | 4 | ricreazione degli eventi, ponte fra generazioni | `03-integrita-checksum`, `10-multiboot-hardware`, `06-identita-pokemon` | 19 |
+| im a blisy, gli eventi e-Reader su cartuccia vera | 4 | ricreazione degli eventi, salvataggio di Smeraldo | `01-fondamenta-salvataggio`, `22-strumenti` | 19 |
+| SuperrSonic, i contenuti bonus dal Game Boy Player | 4 | ricreazione degli eventi | `12-analisi-quantitativa`, `10-multiboot-hardware` | 19 |
+| Goppier, i due video sul primo ponte (dal corpus) | 4 | ponte fra generazioni | `08-cavo-link`, `30-opzioni-implementative` | 22, 23 |
+| Hard4Games, la macchina del Pokemon Center di New York | 4 | ricreazione degli eventi | `24-fonti-di-community` | 19 |
+| Quattro video trascritti su formati, cavo e strumenti | 4 | ponte fra generazioni, salvataggio di Smeraldo, modding della console, scambio locale | `21-collaudo`, `24-fonti-di-community` | 23 |
+| Raccolta di ciò che si perde con la chiusura della banca (dal corpus) | 5 | Pokedex nel deposito, ricreazione degli eventi | `STUDIO-05-gli-assi-che-non-contavamo`, `MOSSE-PERDUTE` | 29 |
+| berichandev, canale di trasmissione sui bot di scambio | 5 | generazione da console corrente | `24-fonti-di-community` | 20 |
+| I doni di quarta e quinta generazione dal servizio ricostruito, elenco e testimonianze (dal corpus) | 5 | Pokedex nel deposito, ricreazione degli eventi | `30-produrre-dentro-il-gioco` | 30 |
+| Cartella di calcolo del catalogo per coppia di sessi (dal corpus) | 5 | Pokedex nel deposito | `CHECKLIST-COMPLETA` | 29 |
+| Cartella di calcolo della collezione, sei tracciatori in uno (dal corpus) | 5 | Pokedex nel deposito | `STUDIO-06-le-enumerazioni-trasversali` | 29 |
+| Cartella di calcolo degli esemplari da evento interno al gioco (dal corpus) | 5 | Pokedex nel deposito | `STUDIO-06-le-enumerazioni-trasversali`, `INDICE-FOGLI-ESTERNI` | 29 |
+| Cartella di calcolo degli scambi in gioco, dei doni e delle uova | 5 | Pokedex nel deposito, ricreazione degli eventi | `STUDIO-06-le-enumerazioni-trasversali`, `CENSIMENTO-SCAMBI` | 29 |
+| Gambatte con GameLink su TCP | 5 | ponte fra generazioni | `21-collaudo` | 12, 21 |
+| GBAtemp, due discussioni sulla scrittura del salvataggio | 5 | salvataggio di Smeraldo | `01-fondamenta-salvataggio`, `22-strumenti` | 14 |
+| Guida al catalogo per regione d'origine, prima generazione (dal corpus) | 5 | Pokedex nel deposito, ricreazione degli eventi | `LETTURA-DEL-CORPUS`, `CENSIMENTO-SCAMBI` | 31 |
+| Guida al catalogo per regione d'origine, seconda generazione (dal corpus) | 5 | Pokedex nel deposito, ricreazione degli eventi | `LETTURA-DEL-CORPUS`, `CHECKLIST-COMPLETA` | 31 |
+| Guida al catalogo per regione d'origine, terza generazione (dal corpus) | 5 | Pokedex nel deposito, ricreazione degli eventi | `LETTURA-DEL-CORPUS`, `OTTENIBILITA-TITOLI` | 31 |
+| Il tracciatore del deposito e la regola che governa chi entra senza (dal corpus) | 5 | Pokedex nel deposito, ricreazione degli eventi, esecuzione di codice | `CATENA-DI-TRASFERIMENTO`, `STUDIO-09-la-regola-del-tracciatore-e-le-porte-dopo-la-chiusura` | 28 |
+| insideGadgets, canale di assistenza del produttore del lettore | 5 | pila tampone, salvataggio di Smeraldo, ponte fra generazioni | `RUNBOOK-PRIMA-SESSIONE` | 02, 14 |
+| MankeyMite's server, comunità dell'esecuzione di codice in generazione III | 5 | esecuzione di codice, ricreazione degli eventi, generazione da console corrente, scambio locale | `24-fonti-di-community` | 20 |
+| Project Pokemon, ricerca sull'algoritmo di generazione degli eventi Gen 3 | 5 | ricreazione degli eventi | `24-fonti-di-community` | 19 |
+| Project Pokemon, discussioni | 5 | salvataggio di Smeraldo, ponte fra generazioni | `22-strumenti` | 14, 23, 24 |
+| Le sfide del deposito che la chiusura rende impossibili (dal corpus) | 5 | Pokedex nel deposito | `STUDIO-06-le-enumerazioni-trasversali` | 29 |
+| La procedura delle rovine e il terzetto al livello uno (dal corpus) | 5 | Pokedex nel deposito, ricreazione degli eventi | `LETTURA-DEL-CORPUS`, `STUDIO-04-la-via-del-dns-e-il-servizio-rianimato` | 31 |
+| Guida agli esemplari sottolivellati (dal corpus) | 5 | Pokedex nel deposito | `STUDIO-06-le-enumerazioni-trasversali` | 29 |
+
+### Il corpus della collezione, cluster per cluster
+
+Ogni riga e' un cluster del post di raccolta. Lo stato viene dal registro di lettura e non da questa vista, che si limita a metterlo accanto al conto delle voci e a quante di esse siano diventate fonti registrate. Un cluster letto le cui voci non abbiano prodotto alcuna fonte registrata non e' un difetto: significa che il cluster ha confermato cose gia' note, e il registro di lettura lo dice.
+
+| Cluster | Voci | Promosse | Stato di lettura | Dove sta l'esito |
+|---|---|---|---|---|
+| Preambolo | 1 | 0 | da leggere | - |
+| 1) Dex completions | 4 | 2 | letti il 2026-09-10, meno le due voci in forma di video e la pagina non scaricata | questa nota |
+| 1) Dex completions / Youtube | 5 | 4 | da leggere | - |
+| 1) Dex completions / Reddit | 1 | 0 | letti il 2026-09-10, meno le due voci in forma di video e la pagina non scaricata | questa nota |
+| 1) Dex completions / Pokemon Collection Trackers | 7 | 1 | letto il 2026-09-10, cinque voci su sette | `CONFRONTO-LIVINGDEX-POKEPC.md` e questa nota |
+| 1) Dex completions / Gen 1 | 3 | 1 | letti il 2026-09-09, meno le tre voci in forma di video | questa nota |
+| 1) Dex completions / Gen 2 | 5 | 1 | letti il 2026-09-09, meno le tre voci in forma di video | questa nota |
+| 1) Dex completions / Gen 3 | 8 | 3 | letti il 2026-09-09, meno le tre voci in forma di video | questa nota |
+| 1) Dex completions / Gen 4 | 7 | 3 | letto il 2026-09-09 nelle voci decisive, e chiude il punto sulle rovine di Sinjoh | questa nota e `pending.md` |
+| 1) Dex completions / Gen 5 | 5 | 1 | da leggere | - |
+| 1) Dex completions / Gen 6 | 2 | 1 | da leggere | - |
+| 1) Dex completions / Gen 7 | 6 | 3 | da leggere | - |
+| 1) Dex completions / Gen 8 | 2 | 0 | da leggere | - |
+| 1) Dex completions / Gen 9 | 5 | 1 | da leggere | - |
+| 1) Dex completions / Spinoffs | 4 | 0 | da leggere | - |
+| 1) Dex completions / Overall lists for multiple generations | 10 | 6 | letto il 2026-09-08 | `STUDIO-06` |
+| 2) What are we loosing with Pokemon Bank | 6 | 2 | letto il 2026-09-08 | `STUDIO-05` e `INDICE-FOGLI-ESTERNI.md` |
+| 3) Collections of one Pokemon species | 6 | 0 | letto il 2026-09-09 | questa nota |
+| 4) Ribbon Master | 3 | 0 | letto il 2026-09-09, il manuale resta da recuperare | questa nota |
+| 5) Other lists and spreadsheets | 6 | 2 | letto il 2026-09-09, due voci non recuperabili | `ID-NOTEVOLI.md` e questa nota |
+| 6) How to still get Bank and other games/ 3DS modding | 4 | 1 | letto il 2026-09-09 | `STUDIO-09` e questa nota |
+| 7) General tools | 3 | 0 | da leggere | - |
+| 8) Shiny Hunting | 1 | 0 | da leggere | - |
+| 8) Shiny Hunting / Gen 1 | 1 | 0 | da leggere | - |
+| 8) Shiny Hunting / Gen 2 | 4 | 0 | da leggere | - |
+| 8) Shiny Hunting / Gen 3 | 2 | 0 | da leggere | - |
+| 8) Shiny Hunting / Gen 4 | 4 | 0 | da leggere | - |
+| 8) Shiny Hunting / Gen 5 | 3 | 0 | da leggere | - |
+| 8) Shiny Hunting / Gen 6 | 5 | 4 | da leggere | - |
+| 8) Shiny Hunting / Gen 7 | 3 | 1 | da leggere | - |
+| 8) Shiny Hunting / Gen 8 | 2 | 1 | da leggere | - |
+| 8) Shiny Hunting / Gen 9 | 3 | 0 | da leggere | - |
+| 8) Shiny Hunting / Spinoffs | 9 | 2 | da leggere | - |
+| 8) Shiny Hunting / General tips | 3 | 0 | da leggere | - |
+| 9) RNG Manipulation and Glitches / RNG Manipulation - the best sources to start | 7 | 1 | letto il 2026-09-09 | `STUDIO-08` |
+| 9) RNG Manipulation and Glitches / Item Printer Gen 9 | 3 | 1 | letto il 2026-09-09 | `STUDIO-08` |
+| 9) RNG Manipulation and Glitches / Glitches | 1 | 0 | letto il 2026-09-09 | `STUDIO-08` |
+| 9) RNG Manipulation and Glitches / 8F for Gen 1 games | 1 | 0 | letto il 2026-09-09 | `STUDIO-08` |
+| 9) RNG Manipulation and Glitches / Coin Case Glitch for Gen 2 games | 1 | 0 | letto il 2026-09-09 | `STUDIO-08` |
+| 9) RNG Manipulation and Glitches / ACE coding in Gen 2 & Gen 3 | 4 | 1 | letto il 2026-09-09 | `STUDIO-08` |
+| 10) Lastly, a shootout the YT channels I follow closely on the topic of collecting | 6 | 0 | da leggere | - |
+| Commenti al post | 5 | 1 | da leggere | - |
+
+### I buchi, dichiarati invece che dedotti
+
+Non ci sono fonti registrate che nessun capitolo cita.
+
+Non ci sono fonti registrate che nessun documento del progetto usa.
+
+Ogni riga del registro di lettura corrisponde a un cluster del censimento.
+
+<!-- indice-fonti-unico: fine -->
+
 ## Livello 1: disassemblati, decompilazioni e documentazione dell'hardware
 
 Sono la fonte autorevole su ogni offset, ogni campo di bit, ogni formula e ogni tabella. Un dato letto qui non ha bisogno di conferma; un dato che li contraddice è sbagliato.
