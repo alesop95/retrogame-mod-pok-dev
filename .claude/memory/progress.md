@@ -4,6 +4,32 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-14, ottava parte. Il secondo giudizio: da zero a otto, e un pattern netto sui restanti
+
+### L'esito, e perche' e' un progresso e non meta' fallimento
+
+Il secondo giro del lotto degli scambi di terza generazione da' otto conformi su diciannove, contro zero su diciannove del primo. Le quattro correzioni della settima parte, cioe' lingua, mosse, amicizia e statistiche da gara, erano quindi necessarie e sono state sufficienti per otto voci: nessuna di esse e' piu' contestata su quei campi.
+
+### Il metodo con cui si e' cercata la causa, che vale piu' del risultato
+
+Il primo tentativo e' stato confrontare tutti i campi del rapporto fra il gruppo conforme e quello non conforme, cercando i valori che comparissero soltanto nel secondo. Ha prodotto un elenco lungo e inutile, con dentro le mosse, i valori individuali e i punti potenza, e la ragione va registrata perche' e' una trappola generale: su un campo che dipende dalla specie, due gruppi di specie diverse differiscono sempre, e la differenza non dice nulla. Un confronto fra insiemi ha senso solo sui campi che non dipendono dall'individuo.
+
+Rifatto sui soli campi strutturali, il confronto da' una risposta netta. Tutti e otto i conformi hanno il sesso dell'allenatore maschio; sei degli undici non conformi lo hanno femmina, e non esiste alcun conforme con allenatore femmina. La separazione e' completa in un verso: allenatore femmina implica non conforme, su sei casi su sei.
+
+### Che cosa e' gia' escluso, e perche' la causa non e' nostra scrittura
+
+Il bit del sesso dell'allenatore vive nel quindicesimo bit della parola delle origini, e il verificatore lo rilegge esattamente come lo abbiamo scritto: il rapporto mostra il valore uno proprio sulle sei voci in cui la fonte dichiara uno. Non e' quindi un difetto di scrittura, ne' una posizione sbagliata, ne' una svista sul valore: scriviamo cio' che la fonte dichiara e il verificatore lo legge come lo scriviamo, e nondimeno lo rifiuta.
+
+Ne segue che la causa sta in una regola del verificatore che non conosciamo, e che va letta invece che dedotta. Formulare l'ipotesi qui sarebbe facile e sbagliato: il rapporto dei box porta i campi e non i rilievi, e il testo del giudizio, che e' l'unica cosa che nomina la regola violata, non e' stato ancora consegnato.
+
+### I cinque che restano, e che sono un'altra cosa
+
+Cinque non conformi hanno l'allenatore maschio, cioe' Seedot, Plusle, i due Lickitung delle due versioni e Jynx, quindi la causa del sesso non li spiega. Non hanno fra loro un campo strutturale in comune che i conformi non abbiano, e questo e' esso stesso un dato: sono probabilmente una seconda causa distinta, e trattarli insieme ai sei sarebbe l'errore. Uno di essi, Plusle, porta il secondo identificativo diverso da zero, come lo porta uno dei sei; gli altri quattro no.
+
+### Che cosa serve per chiudere, ed e' materiale dell'utente
+
+Il testo del giudizio di due esemplari, uno per causa: uno fra i sei con allenatore femmina e uno fra i cinque con allenatore maschio. E' l'unica informazione che il rapporto sui box non contiene e che decide fra le ipotesi invece di moltiplicarle, e vale la regola sugli screenshot, cioe' che cio' che non si vede si chiede invece di inventarlo.
+
 ## 2026-09-14, settima parte. Il primo giudizio del lotto degli scambi, e quattro campi sbagliati
 
 ### Il giudizio e' arrivato dal verificatore e non dall'hardware, ed e' l'ordine giusto
