@@ -4,6 +4,52 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-14. Il lotto trasversale, la catena che cancella, e otto vie che non erano chiuse
+
+### Perche' questo lotto non e' un cluster
+
+Il recupero del 2026-09-12 ha riportato dentro centoundici pagine, e nove di esse erano attese da giorni per lavori gia' aperti. Stanno a profondita' due nel grafo dei rinvii e non dentro un cluster, quindi leggerle insieme non muove alcuna riga della tabella dei cluster: e' un lotto trasversale, e vale piu' di un cluster perche' ciascuna voce chiude o corregge qualcosa che era fermo. Che la parte utile del corpus non coincida con la parte citata dal post di raccolta e' esso stesso un dato, e va tenuto quando si decidera' il prossimo ordine di lettura.
+
+Una sola di esse appartiene a un cluster: l'indice delle distribuzioni era una delle due voci che il cluster delle altre liste dichiarava non recuperabili il 2026-09-09, e con quel recupero il cluster si chiude.
+
+### Il primo anello della catena, riletto per intero
+
+La pagina del Parco Amici conferma per via indipendente il fatto che il 2026-09-03 ha cambiato la scala della campagna, cioe' che il limite giornaliero cade nelle riedizioni di seconda generazione. Aggiunge pero' un vincolo che il conto delle sessioni non aveva: nessuna migrazione ulteriore e' possibile finche' i sei esemplari trasferiti non sono stati catturati nello spettacolo. Il collo di bottiglia non e' sei per sessione ma sei per spettacolo completato, e lo spettacolo e' la parte serializzata della procedura invece di una formalita'. Il cronometraggio che resta da fare, cioe' la voce D2 della roadmap, ha ora un ordine di grandezza da confermare: il punteggio del tempo si azzera dopo sedici minuti e quaranta secondi, quindi la durata di progetto e' quella e non ore.
+
+Sulle modifiche imposte all'esemplare la pagina dice una cosa che il progetto sapeva gia' dal 2026-09-03, letta allora sul codice di uno strumento di terze parti, cioe' che luogo, livello e data d'incontro vengono riscritti. Averlo verificato prima di scriverlo come nuovo e' il presidio che la regola prescrive, e qui ha funzionato. Le cose nuove sono cinque e tre di esse cancellano proprio i campi che un esemplare prodotto porta con cura: il livello d'incontro diventa il livello di arrivo, il luogo viene reso secondo il gioco di origine riducendo tre regioni a tre etichette, e la data diventa quella dello spettacolo. Restano invece intatti allenatore, identificativo e sfera, il che smentisce l'ipotesi che la Sfera Parco venga scritta sull'esemplare, che era l'ipotesi comoda da fare. L'amicizia si azzera a settanta. E il contrassegno di incontro fatidico sopravvive, mentre il luogo d'incontro omonimo, che e' un campo diverso, viene ignorato: molti esemplari portano l'uno senza l'altro, e confonderli produrrebbe una combinazione che nessuna distribuzione ha mai prodotto.
+
+Si aggiunge una trappola sul soprannome il cui difetto e' permanente e invisibile: la terza generazione non registra se un esemplare abbia un soprannome e la quarta si', quindi al passaggio il nome corrente diventa per sempre un soprannome se non coincide con il nome della specie nella lingua del gioco di arrivo. Un esemplare giapponese non puo' mai risultare privo di soprannome in un gioco occidentale, perche' i suoi caratteri latini sono a larghezza piena.
+
+### La correzione sulla lingua, che e' aperta e non chiusa
+
+`CATENA-DI-TRASFERIMENTO.md` dice che ogni passaggio pretende la stessa lingua ai due capi e ne fa discendere che il Mew dell'isola lontana richiede una stazione giapponese in emulazione. La fonte dice qualcosa di piu' preciso: il vincolo e' fra i due giochi e non sull'esemplare, e poiche' in terza generazione lo scambio fra lingue e' possibile, un esemplare di qualunque lingua si migra passandolo prima in una cartuccia della lingua del gioco di arrivo. Vi si aggiunge una eccezione dichiarata per il coreano.
+
+La correzione e' scritta nel documento come DA VERIFICARE e non promossa a fatto, per due ragioni. La prima e' che la fonte copre il solo primo anello e la pagina del Trasferimento fra quarta e quinta non e' nel corpus. La seconda e' che la trappola sul soprannome colpisce esattamente il caso che la correzione risolverebbe, e se il verificatore consideri conforme un Mew giapponese marcato come soprannominato e' una domanda per il verificatore e non per l'enciclopedia. Se regge, la stazione giapponese non serve piu' e resta la sola coreana.
+
+### Le rovine di Sinjoh, corrette
+
+La procedura registrata il 2026-09-09 diceva che si scelgono i tre cerchi e si ottengono i tre draghi al livello uno. La corrispondenza fra cerchi e specie e' confermata; il numero no. Se ne sceglie uno, l'evento si attiva due volte in tutto, la seconda richiede un Arceus della Sala Origine che il flauto mai distribuito rende non ottenibile per vie legittime, e dopo la seconda le rovine sono irraggiungibili per sempre. Su un salvataggio si ottiene quindi un drago solo. La scheda non portava inoltre che il drago arriva con il proprio globo come oggetto tenuto e che Cynthia lascia passare solo con l'Arceus come unico esemplare in squadra.
+
+### Otto classi che non erano chiuse come credevamo
+
+STUDIO-06 aveva isolato undici classi a via chiusa e ADR-049 impone il controllo all'indietro. Le pagine recuperate lo permettono su otto, e l'esito riclassifica quasi tutte perche' il criterio vero non e' quello che l'etichetta suggerisce. Una sola e' chiusa dalla morte di un servizio, cioe' il ranch, che era un titolo scaricabile e non e' piu' acquistabile dalla chiusura del negozio della console il 31 gennaio 2019. Le altre sette dipendono da un supporto fisico e non da una rete, compresa la rete dei ranger, che e' il caso che il nome fa sembrare piu' legato a un servizio e che invece nelle edizioni localizzate porta le missioni dentro la cartuccia, sbloccate da una parola d'ordine resa pubblica all'epoca.
+
+Il criterio che ne discende vale oltre le otto: una via non e' chiusa perche' e' vecchia, ma perche' il servizio che la reggeva e' spento, e allora l'esclusione e' irreversibile e ADR-050 giustifica la produzione, oppure perche' il supporto e' raro, e allora la questione e' di perimetro e di spesa e la decisione e' dell'utente. Le quattro uova del deposito per console fissa e i due Jirachi sono peraltro gia' nel nostro catalogo con il generatore che li produce, quindi queste pagine aggiungono la condizione e non l'enumerazione, che e' esattamente cio' che il controllo all'indietro chiedeva.
+
+Una tensione resta marcata invece di essere risolta a occhio: l'enciclopedia dice che le quattro uova portano allenatore e identificativo di chi le schiude, la tabella del verificatore nomina un allenatore fisso in caratteri giapponesi. Dove divergono vale la tabella, che e' di primo livello e che il giudizio esterno ha convalidato su tutte e centosettantadue le voci; l'ipotesi che l'enciclopedia descriva l'edizione occidentale resta una ipotesi.
+
+### Gli scambi in gioco, e cio' che manca per produrli
+
+La classe e' enumerata dal 2026-09-09 e ADR-051 chiede di estendervi il generatore. La fonte dice due cose che le tabelle non contengono nella forma che serve. Per la prima generazione identificativi e valori individuali sono casuali e l'allenatore e' una stringa di controllo sensibile alla lingua, quindi la fedelta' e' banale come per le distribuzioni della stessa generazione e quegli esemplari possono essere cromatici una volta trasferiti; il Trasferimento converte pero' quella stringa in modo permanente in una stringa letterale nella lingua di provenienza, ed e' una trasformazione deterministica che il generatore deve riprodurre. Resta una lacuna che tocca la producibilita': quegli esemplari sono definiti dal nome dell'allenatore e dal soprannome, che sono specifici della lingua, e il nostro censimento porta le voci e non le stringhe. Le cartucce possedute sono italiane e la forma italiana di quei nomi il progetto non ce l'ha da nessuna parte.
+
+### Lo strumento di esportazione, e una verifica incrociata gratuita
+
+L'utente ha chiesto dei quattro canali Discord che servono al fuoco corrente. La selezione dello strumento aveva due filtri, per gruppo di priorita' e per server, e nessuno dei due esprime quella domanda: i quattro canali stanno su tre gruppi diversi. E' stato aggiunto `--track`, che prende le sigle di `SOURCES.md` e confronta per appartenenza all'insieme e non per sottostringa, perche' la colonna ne porta piu' d'una. La prova a vuoto sul track degli eventi riferisce sei canali di cui due gia' sul disco, e i quattro che restano sono esattamente quelli che `pending.md` dichiara mancanti: una verifica incrociata gratuita fra lo strumento e la memoria del progetto. L'esportazione resta dell'utente, perche' per ADR-019 il token si incolla al momento dell'uso e non vive in alcun file.
+
+### Che cosa e' stato scritto, e i controlli
+
+Cinque fonti nuove nella tabella `FONTI`, che portano la mappa a centoquattro note e la bibliografia a centoventitre voci tutte citate. `CATENA-DI-TRASFERIMENTO.md` ha due sezioni riscritte, cioe' il primo anello con le sue sei modifiche e la lingua con la correzione marcata. Il capitolo 28 della tesi ha due sezioni nuove e il 31 una; la copertura resta al cento per cento su 37542 righe, il PDF ricompilato conta trecentotredici pagine e zero titoli assenti. I checkpoint di sei capitoli sono stati portati a `c0e76e0`.
+
 ## 2026-09-12. Il corpus che si credeva letto, un certificato scaduto, e l'asse dei marchi
 
 ### Il lotto non era leggibile, e la causa non era dove il messaggio la indicava

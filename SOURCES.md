@@ -79,12 +79,12 @@ Esiste per una ragione dichiarata dall'utente il 2026-09-10, ed e' la stessa che
 
 | Misura | Valore |
 |---|---|
-| fonti registrate nella tabella unica | 99 |
-| di esse, lette | 97 |
-| di esse, citate in tesi | 99 |
-| di esse, con almeno un documento del progetto che le usa | 99 |
+| fonti registrate nella tabella unica | 104 |
+| di esse, lette | 102 |
+| di esse, citate in tesi | 104 |
+| di esse, con almeno un documento del progetto che le usa | 104 |
 | voci del corpus della collezione | 171 |
-| di esse, promosse a fonte registrata | 24 |
+| di esse, promosse a fonte registrata | 25 |
 | cluster del corpus | 42 |
 | di essi, con uno stato di lettura dichiarato | 25 |
 
@@ -114,11 +114,16 @@ La colonna dei documenti dice dove sta la sintesi di quella fonte dentro il prog
 | Pokemon Dream Radar, l'enciclopedia (dal corpus) | 2 | Pokedex nel deposito, ricreazione degli eventi | `LETTURA-DEL-CORPUS` | 31 |
 | Bulbapedia, distribuzioni italiane di eventi in Gen 3 | 2 | ricreazione degli eventi | `23-prove-eseguite` | 19 |
 | Bulbapedia, elenco degli identificativi di allenatore notevoli (dal corpus) | 2 | Pokedex nel deposito, ricreazione degli eventi | `ID-NOTEVOLI` | 29 |
+| Gli scambi in gioco, l'enciclopedia | 2 | Pokedex nel deposito, ricreazione degli eventi | `CENSIMENTO-SCAMBI`, `LETTURA-DEL-CORPUS` | 31 |
+| L'indice delle distribuzioni di evento, l'enciclopedia (dal corpus) | 2 | ricreazione degli eventi, Pokedex nel deposito | `LETTURA-DEL-CORPUS` | 31 |
 | La scansione dell'isola, l'enciclopedia (dal corpus) | 2 | Pokedex nel deposito | `LETTURA-DEL-CORPUS` | 31 |
 | Bulbapedia, le macchine nascoste per generazione | 2 | Pokedex nel deposito, ricreazione degli eventi | `MOSSE-MN`, `CATENA-DI-TRASFERIMENTO` | 28 |
 | I Pokemon di N, l'enciclopedia (dal corpus) | 2 | Pokedex nel deposito | `LETTURA-DEL-CORPUS` | 31 |
+| Il Parco Amici, l'enciclopedia | 2 | Pokedex nel deposito | `CATENA-DI-TRASFERIMENTO`, `LETTURA-DEL-CORPUS` | 28 |
+| Le rovine di Sinjoh, l'enciclopedia | 2 | Pokedex nel deposito | `LETTURA-DEL-CORPUS` | 31 |
 | I Pokemon totemici, l'enciclopedia (dal corpus) | 2 | Pokedex nel deposito | `LETTURA-DEL-CORPUS` | 31 |
 | Bulbapedia, la catena dei trasferimenti fra generazioni | 2 | ricreazione degli eventi, modding della console | `11-wireless-locale-e-ponte-switch` | 19, 28 |
+| Le otto pagine delle classi a via chiusa, l'enciclopedia | 2 | Pokedex nel deposito, ricreazione degli eventi | `STUDIO-06-le-enumerazioni-trasversali`, `LETTURA-DEL-CORPUS` | 31 |
 | Glitch City Wiki | 2 | ponte fra generazioni | `09-esecuzione-codice` | 11, 23 |
 | Glitch City, i codici del programma di scrittura | 2 | esecuzione di codice, Pokedex nel deposito | `STUDIO-08-esecuzione-di-codice-e-manipolazione-del-generatore` | 30 |
 | I titoli di Pokemon Champions (dal corpus) | 2 | Pokedex nel deposito, GFS | `MARCHI` | 29 |
@@ -219,7 +224,7 @@ Ogni riga e' un cluster del post di raccolta. Lo stato viene dal registro di let
 | 2) What are we loosing with Pokemon Bank | 6 | 2 | letto il 2026-09-08 | `STUDIO-05` e `INDICE-FOGLI-ESTERNI.md` |
 | 3) Collections of one Pokemon species | 6 | 0 | letto il 2026-09-09 | questa nota |
 | 4) Ribbon Master | 3 | 0 | letto il 2026-09-09, il manuale resta da recuperare | questa nota |
-| 5) Other lists and spreadsheets | 6 | 2 | letto il 2026-09-09, due voci non recuperabili | `ID-NOTEVOLI.md` e questa nota |
+| 5) Other lists and spreadsheets | 6 | 3 | CHIUSO il 2026-09-14: le due voci dichiarate non recuperabili il 2026-09-09 sono rientrate con il recupero di ADR-057, e l'indice delle distribuzioni è letto | `ID-NOTEVOLI.md` e questa nota |
 | 6) How to still get Bank and other games/ 3DS modding | 4 | 1 | letto il 2026-09-09 | `STUDIO-09` e questa nota |
 | 7) General tools | 3 | 0 | da leggere | - |
 | 8) Shiny Hunting | 1 | 0 | da leggere | - |

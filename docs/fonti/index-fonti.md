@@ -69,6 +69,8 @@ graph LR
   monarium -- alternativa-a --> pokepc-dati
   foglio-arca -- conferma --> pokepc-dati
   foglio-collezione-thundrosaur -- conferma --> foglio-scambi-doni
+  bulbapedia-pal-park -- conferma --> bulbapedia
+  bulbapedia-sinjoh -- corregge --> bulbapedia
 ```
 
 ## Le fonti, per livello
@@ -114,6 +116,11 @@ graph LR
 | [[serebii-titan]] | PKD | [[MARCHI]] |
 | [[serebii-tera-eventi]] | PKD | [[MARCHI]] |
 | [[serebii-champions-titoli]] | PKD, GFS | [[MARCHI]] |
+| [[bulbapedia-pal-park]] | PKD | [[CATENA-DI-TRASFERIMENTO]], [[LETTURA-DEL-CORPUS]] |
+| [[bulbapedia-sinjoh]] | PKD | [[LETTURA-DEL-CORPUS]] |
+| [[bulbapedia-in-game-trade]] | PKD, EVT | [[CENSIMENTO-SCAMBI]], [[LETTURA-DEL-CORPUS]] |
+| [[bulbapedia-vie-chiuse]] | PKD, EVT | [[STUDIO-06-le-enumerazioni-trasversali]], [[LETTURA-DEL-CORPUS]] |
+| [[bulbapedia-indice-distribuzioni]] | EVT, PKD | [[LETTURA-DEL-CORPUS]] |
 
 ### Livello 3
 
