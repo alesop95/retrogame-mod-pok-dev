@@ -4,6 +4,32 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-14, terza parte. I canali digeriti, e la lacuna che era del nostro clone
+
+### I quattro canali, e una resa che e' essa stessa un risultato
+
+L'utente ha esportato i quattro canali che servivano al fuoco corrente. Prima di leggerli sono stati verificati integri, cioe' JSON chiuso, conteggi coerenti e ultimo messaggio del giorno stesso su tre dei quattro: sono cinquecentotrentatremilaquattrocentoquarantanove messaggi, che e' la ragione per cui non si leggono ma si filtrano. I filtri sono stati scelti sulle voci di lavoro aperte e non su temi generici, come la regola sulle fonti prescrive, e la resa e' di quattrocento messaggi su mezzo milione, cioe' meno di uno su mille.
+
+Quella resa va scritta invece di essere nascosta: sono canali di modifica delle ROM e la loro utilita' a questo obiettivo e' indiretta. Ne discende una prescrizione per i venti canali non esportati, cioe' che una esportazione si giustifica per una domanda e non per un inventario, e che la domanda va posta prima.
+
+Tre cose utili sono uscite. Due messaggi indipendenti confermano che l'isola miraggio non ha un luogo d'incontro proprio, che e' la correzione fatta il 2026-09-09 sulla fonte di primo livello, e vi aggiungono cio' che quella fonte non diceva: la comparsa e' una estrazione casuale giornaliera confrontata con il valore di personalita' degli esemplari in squadra, quindi non e' una condizione che si soddisfa ma una lotteria che si aspetta. La voce ricade percio' nel caso che ADR-050 governa, cioe' via aperta e impercorribile, e va prodotta. Un messaggio di chi ha controllato le distribuzioni archiviate enumera quali famiglie di eventi di terza generazione accendano il contrassegno di incontro fatidico e quali no, e chiude dicendo che tutte avevano comunque il luogo d'incontro omonimo: e' la distinzione che la pagina del Parco Amici enunciava in astratto, resa elenco, e spiega perche' le tavole del verificatore siano disomogenee su quel bit, cioe' che la disomogeneita' e' nei dati storici e non nella loro trascrizione.
+
+Il terzo caso e' un esercizio della gerarchia delle fonti. Lo stesso messaggio afferma che i due Jirachi del disco e del canale televisivo hanno livelli d'incontro diversi: le tavole del verificatore li danno entrambi al livello cinque e il nostro catalogo lo riporta, quindi l'affermazione e' falsa sul campo che nomina. La sua conclusione e' pero' vera per un'altra ragione, cioe' che i due differiscono per identificativo, allenatore, generatore e luogo d'incontro, che per quello del canale la tavola fissa esplicitamente a zero. Ne segue una lacuna del nostro catalogo, registrata: le righe generate non portano il luogo d'incontro, che su quella classe e' distintivo.
+
+### La lacuna degli scambi non era della fonte ma del nostro clone
+
+Il 2026-09-14 avevo dichiarato che gli scambi in gioco non si potevano produrre perche' il censimento porta le voci e non i soprannomi, e che il dato stava su Bulbapedia. Stavo per costruire un estrattore su quella pagina quando il controllo d'obbligo ha detto altro: il verificatore quei soprannomi li ha, in elenchi per lingua, e li indicizza con lo stesso indice che le tabelle degli scambi passano come secondo argomento. Il nostro clone non li aveva perche' e' sparso e non scaricava le risorse di testo.
+
+La correzione giusta era quindi estendere il clone, non parsare una fonte di secondo livello, e le due vie sono state comunque confrontate sulle cinque voci controllabili a mano, che concordano. E' la seconda volta in tre giorni che il presidio del grep prima di dichiarare una mancanza cambia la direzione del lavoro, e questa volta ha evitato di mescolare due livelli di fonte dentro un documento generato da uno solo.
+
+`tools/censimento-scambi.py` porta ora i soprannomi in italiano e in giapponese, e la corrispondenza fra una tabella e il proprio elenco non e' trascritta ma letta dalle due dichiarazioni con cui il sorgente la stabilisce, perche' una trascrizione di dodici righe sbaglierebbe qui in modo invisibile: un indice letto nell'elenco sbagliato restituisce comunque un nome. Delle 238 voci, 127 hanno il soprannome italiano, 10 hanno il solo giapponese e le altre appartengono a costruttori che una tavola di nomi non la passano.
+
+Un caso ha fatto sbagliare la prima stesura e vale conservarlo. Gli elenchi occidentali di prima generazione hanno sedici voci e quello giapponese ventisei, perche' gli scambi del Blu giapponese e uno dei due Nidoran esistono soltanto la': la prima stesura dichiarava discordanza su ognuno di essi, cioe' undici allarmi su voci corrette. Per quelle voci il soprannome italiano non manca, non esiste, e si dichiara difetto soltanto un indice fuori da ogni elenco. Con la distinzione le discordanze sono zero.
+
+### Che cosa e' stato scritto, e i controlli
+
+Il lotto dei canali sta in `LETTURA-DEL-CORPUS.md`. Il censimento degli scambi e' rigenerato con due colonne nuove e il suo `--check` e' allineato; il collaudo dello strumento passa da ventotto a trentaquattro controlli, sei dei quali sul caso della lingua che manca contro quella che non esiste. Il clone del verificatore ha ora le risorse di testo e quelle di legalita', che restano fuori dal repository come tutti i cloni.
+
 ## 2026-09-14, seconda parte. Un difetto portante, il secondo anello, e una fonte di prima parte
 
 ### Il sottocomando che mancava, e il difetto che il suo collaudo ha trovato
