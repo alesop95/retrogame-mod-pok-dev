@@ -723,6 +723,27 @@ FONTI = [
      "Non cambia i byte di alcun esemplare e quindi non tocca la conformita'. Cambia che cosa si possa dire sulla legittimita' di una collezione costruita su cartucce italiane, perche' nessuna delle due fonti dell'asse degli eventi dichiara in quali paesi una distribuzione sia stata tenuta e la sottolista italiana lo direbbe. Le circa quaranta sottoliste non sono nel corpus e sono un lavoro dichiarato.",
      [("[[LETTURA-DEL-CORPUS]]", "il lotto del 2026-09-14")],
      []),
+
+    ("bulbapedia-poke-transfer", "Il Trasferimento fra quarta e quinta generazione, l'enciclopedia", "https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Transfer", 2, True, ["PKD"],
+     "Pagina enciclopedica recuperata e letta il 2026-09-14 con il sottocomando `pagina` di `tools/fetch-reddit.py`. Dichiara che il passaggio avviene fra un gioco di quarta e uno di quinta generazione della stessa lingua e senza limite giornaliero, che sono esclusi le uova, il Pichu dalle orecchie a punta e gli esemplari che conoscano una macchina nascosta misurata sul gioco di origine, e che gli oggetti tenuti tornano nello zaino. Sulle modifiche dichiara che il livello di incontro diventa il livello di arrivo e la data diventa quella del trasferimento, e soprattutto che il passaggio non legge il luogo di incontro ma soltanto il gioco in cui l'esemplare e' stato generato: un esemplare nato in quarta generazione ottiene Sinnoh o Johto anche se veniva da Kanto, dalle rovine di Sinjoh o dal contapassi, mentre uno nato in terza conserva Kanto, Hoenn o terra lontana con l'aggiunta della formula sul lungo viaggio nel tempo.",
+     "Corregge un controllo che il progetto aveva dichiarato il 2026-09-03 su una testimonianza di Reddit, cioe' che ogni esemplare legittimamente arrivato al deposito debba mostrare il Trasferimento come luogo di incontro: applicato, avrebbe dichiarato illegittima la parte piu' grossa dei nostri lotti, che e' di terza generazione. Chiude inoltre meta' della correzione sulla lingua aperta lo stesso giorno, perche' mostra che anche il secondo anello vincola i giochi e non gli esemplari.",
+     [("[[CATENA-DI-TRASFERIMENTO]]", "il secondo anello, e il controllo corretto"),
+      ("[[LETTURA-DEL-CORPUS]]", "il lotto del 2026-09-14, seconda parte")],
+     [("corregge", "dns-eventi-gen45")]),
+
+    ("bulbapedia-scambi-lingue", "Gli scambi in gioco nelle altre lingue, l'enciclopedia", "https://bulbapedia.bulbagarden.net/wiki/List_of_in-game_trades_in_other_languages", 2, True, ["PKD", "EVT"],
+     "Pagina enciclopedica recuperata e letta il 2026-09-14. Porta, per ciascuno scambio in gioco, il soprannome dell'esemplare consegnato in giapponese, inglese, francese, tedesco, italiano e spagnolo, e separatamente i nomi dell'allenatore nelle stesse lingue piu' il coreano.",
+     "E' il dato che mancava per produrre la classe degli scambi in gioco: quegli esemplari sono definiti dal nome dell'allenatore e dal soprannome, che sono specifici della lingua, e le cartucce possedute sono italiane. La lacuna si chiude come fonte e resta aperta come lavoro, perche' il censimento porta le voci e non ancora le stringhe, e l'estrazione e' deterministica e appartiene a `tools/censimento-scambi.py`.",
+     [("[[CENSIMENTO-SCAMBI]]", "le stringhe per lingua che il censimento non porta ancora"),
+      ("[[LETTURA-DEL-CORPUS]]", "il lotto del 2026-09-14, seconda parte")],
+     []),
+
+    ("avviso-home-mightiest", "L'avviso del deposito sugli incontri a cristallo nero", "https://home.pokemon.com/", 1, True, ["PKD"],
+     "Avviso mostrato dal deposito nella sezione dei programmi collegati, consegnato dall'utente come schermata il 2026-09-14 e conservato in `_notes/media/`. Annuncia un incontro a cristallo nero con Skeledirge di tipo cristallino Fuoco che porta il marchio del piu' forte, aperto dall'11 settembre 2026 alle 00:00 al 17 settembre 2026 alle 23:59 del tempo universale. Dichiara che quell'esemplare si cattura una sola volta per salvataggio e che chi lo avesse gia' preso in una edizione precedente non lo riprende, e che potrebbe comparire in eventi futuri o diventare ottenibile per altre vie.",
+     "E' una fonte di prima parte, quindi di livello superiore all'archivio su cui l'asse dei marchi era stato misurato il 2026-09-12, e cambia il denominatore di quell'asse: il collezionabile e' la specie con il marchio e non l'edizione, perche' le edizioni si ripetono e la cattura e' una sola per salvataggio. Ne segue che contare le edizioni darebbe un numero piu' grande del vero. Dichiara inoltre, per bocca dell'editore, che una edizione chiusa non chiude necessariamente la via, il che tocca il criterio di produzione di ADR-050.",
+     [("[[MARCHI]]", "il marchio del piu' forte, e il denominatore da contare per specie"),
+      ("[[LETTURA-DEL-CORPUS]]", "il lotto del 2026-09-14, seconda parte")],
+     [("corregge", "serebii-tera-eventi")]),
 ]
 # ---------------------------------------------------------------------------------------
 # I riferimenti teorici canonici dei concetti impiegati nell'analisi quantitativa.

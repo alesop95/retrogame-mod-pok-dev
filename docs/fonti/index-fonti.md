@@ -71,6 +71,8 @@ graph LR
   foglio-collezione-thundrosaur -- conferma --> foglio-scambi-doni
   bulbapedia-pal-park -- conferma --> bulbapedia
   bulbapedia-sinjoh -- corregge --> bulbapedia
+  bulbapedia-poke-transfer -- corregge --> dns-eventi-gen45
+  avviso-home-mightiest -- corregge --> serebii-tera-eventi
 ```
 
 ## Le fonti, per livello
@@ -93,6 +95,7 @@ graph LR
 | [[pokegold]] | BRI | [[DATA-FORMATS_Gen1-Gen2-Gen3]] |
 | [[frlg-home]] | ACE, EVT, LDN, 3DS | [[CATENA-DI-TRASFERIMENTO]], [[STUDIO-09-la-regola-del-tracciatore-e-le-porte-dopo-la-chiusura]] |
 | [[tpc-dati-alterati]] | ACE, GEN, EVT | [[20-architettura-codice]] |
+| [[avviso-home-mightiest]] | PKD | [[MARCHI]], [[LETTURA-DEL-CORPUS]] |
 
 ### Livello 2
 
@@ -121,6 +124,8 @@ graph LR
 | [[bulbapedia-in-game-trade]] | PKD, EVT | [[CENSIMENTO-SCAMBI]], [[LETTURA-DEL-CORPUS]] |
 | [[bulbapedia-vie-chiuse]] | PKD, EVT | [[STUDIO-06-le-enumerazioni-trasversali]], [[LETTURA-DEL-CORPUS]] |
 | [[bulbapedia-indice-distribuzioni]] | EVT, PKD | [[LETTURA-DEL-CORPUS]] |
+| [[bulbapedia-poke-transfer]] | PKD | [[CATENA-DI-TRASFERIMENTO]], [[LETTURA-DEL-CORPUS]] |
+| [[bulbapedia-scambi-lingue]] | PKD, EVT | [[CENSIMENTO-SCAMBI]], [[LETTURA-DEL-CORPUS]] |
 
 ### Livello 3
 
