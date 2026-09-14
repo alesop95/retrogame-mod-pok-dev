@@ -46,6 +46,8 @@ Verso l'archivio non c'è nulla da negoziare, perché si interroga un servizio c
 
 Sul significato dei codici di `robots.txt` la scelta è dichiarata perché le implementazioni divergono. Una risposta 200 si interpreta secondo le sue regole; una risposta 4xx significa assenza di regole e quindi permesso, come prescrive la specifica corrente; una risposta 5xx o un guasto di rete si trattano invece come divieto totale, che è la lettura prudente della stessa specifica per il caso di un servizio indisponibile.
 
+Quel divieto prudente, però, non è della stessa natura di quello scritto, e la differenza va resa meccanica perché altrimenti costa una fonte. Un divieto scritto è una proprietà del sito e vale finché il sito non cambia idea; un `robots.txt` che non risponde è una proprietà dell'istante, e trattare i due allo stesso modo trasforma un guasto di pochi minuti in una esclusione permanente, che nessuna ripresa ritenta perché il nodo risulta deciso. Il secondo caso finisce quindi fra i pendenti con il proprio motivo, cioè dove questo programma mette già ciò che un tetto ha escluso, e l'opzione `--riprova-transitori` della ripresa recupera le corse fatte prima che la distinzione esistesse, rimettendo fra i pendenti i nodi che portano quel motivo. Il caso non è ipotetico: la corsa del 2026-09-08 su questo progetto ha catalogato per questa ragione centotrenta nodi su trentadue host, fra cui ottanta di Bulbapedia, e il loro `robots.txt` consente esplicitamente le pagine che erano state escluse.
+
 L'uscita su disco
 -----------------
 
@@ -91,7 +93,7 @@ La radice si ricava dalla posizione del file, cioè la cartella che contiene `to
 Stato di collaudo
 -----------------
 
-Provati contro il trasporto finto, senza rete: la formazione dei lotti di identificativi, la deduplicazione delle cinque forme di indirizzo dello stesso post, la risoluzione dei collegamenti brevi, l'ordine in ampiezza e il conteggio della profondità, i tetti con i pendenti registrati, il rifiuto per eccesso di frequenza con l'attesa dichiarata dal servizio, il guasto transitorio con l'attesa raddoppiata, il budget di tentativi ridotto per le pagine esterne, la risposta di errore che arriva con un codice 200, il divieto di `robots.txt`, l'intervallo fra richieste allo stesso host, la protezione del testo di terzi che aprirebbe un'intestazione, la classificazione di un host da catalogare, il riconoscimento di uno scheletro JavaScript, la registrazione degli archi della mappa anche verso i nodi che non verranno letti, la ripresa che salta cio che è fatto, e la scrittura del marcatore che esenta la cartella della corsa dal normalizzatore di Markdown.
+Provati contro il trasporto finto, senza rete: la formazione dei lotti di identificativi, la deduplicazione delle cinque forme di indirizzo dello stesso post, la risoluzione dei collegamenti brevi, l'ordine in ampiezza e il conteggio della profondità, i tetti con i pendenti registrati, il rifiuto per eccesso di frequenza con l'attesa dichiarata dal servizio, il guasto transitorio con l'attesa raddoppiata, il budget di tentativi ridotto per le pagine esterne, la risposta di errore che arriva con un codice 200, il divieto di `robots.txt`, la distinzione fra quel divieto e il rifiuto transitorio che lascia il nodo pendente, il recupero di una corsa vecchia che aveva catalogato quel rifiuto, l'intervallo fra richieste allo stesso host, la protezione del testo di terzi che aprirebbe un'intestazione, la classificazione di un host da catalogare, il riconoscimento di uno scheletro JavaScript, la registrazione degli archi della mappa anche verso i nodi che non verranno letti, la ripresa che salta cio che è fatto, e la scrittura del marcatore che esenta la cartella della corsa dal normalizzatore di Markdown.
 
 Provati contro il servizio reale: il recupero di un post, l'albero completo dei suoi commenti, il lotto di più identificativi in una richiesta, la ricorsione su un post figlio, la forma della risposta di errore per un campo non selezionabile, e una corsa su un grafo di alcune centinaia di nodi con le pagine esterne attive.
 
@@ -107,6 +109,7 @@ import html.parser
 import json
 import os
 import re
+import ssl
 import sys
 import time
 import urllib.error
@@ -184,6 +187,15 @@ SOGLIA_TESTO = 300
 # comunque in `mappa.json`, che è fatto per essere letto da un programma.
 SOGLIA_ELENCO = 200
 SOGLIA_ARCHI = 500
+
+# Il motivo con cui si rifiuta un host il cui `robots.txt` non si è potuto leggere. Vive in una
+# costante e non in una stringa scritta sul posto perché non è un messaggio ma una condizione su
+# cui il programma decide: un rifiuto di questa specie non è una proprietà del contenuto ma
+# dell'istante in cui la corsa vi è passata, quindi il nodo va dichiarato pendente invece che
+# catalogato, e una ripresa deve poterlo riconoscere fra i nodi già registrati per riprovarlo. Il
+# testo va tenuto identico a quello che le corse precedenti hanno scritto su disco, perché è la
+# chiave con cui `--riprova-transitori` li ritrova.
+MOTIVO_ROBOTS_TRANSITORIO = "robots.txt non leggibile per indisponibilità del servizio"
 
 # Da sostituire all'istanziazione con il nome del progetto ospite. Un programma che visita
 # pagine altrui dichiara chi è: è la forma minima di rispetto verso chi ne legge i log.
@@ -274,6 +286,33 @@ class Errore(Exception):
 # non JSON, e non c'è alcuna intestazione di autorizzazione perché non c'è alcuna credenziale.
 # ---------------------------------------------------------------------------------------------
 
+def contesto_tls():
+    """Il contesto di verifica dei certificati, con un archivio di radici che sia aggiornato.
+
+    Esiste per una ragione misurata su questa macchina il 2026-09-12 e non per prudenza astratta.
+    L'archivio delle radici del sistema conteneva nove certificati scaduti, e fra questi una copia
+    di ISRG Root X2 scaduta il 15 settembre 2025. I siti che si appoggiano a quell'autorità, che
+    sono moltissimi, servono una catena che termina in ISRG Root X2 firmata da ISRG Root X1, la
+    quale resta valida fino al 2035; ma la verifica, trovando X2 fra le radici di cui si fida, si
+    ferma là e la dichiara scaduta invece di proseguire sul ramo firmato che è valido. L'effetto è
+    che Bulbapedia, Wikipedia e Project Pokemon risultano irraggiungibili a questo programma
+    mentre rispondono a qualunque browser, e con essi centotrenta nodi di una corsa.
+
+    Il rimedio è un archivio di radici corrente, che il pacchetto `certifi` fornisce e tiene
+    aggiornato. Quando non c'è, si torna al comportamento di prima, cioè le radici del sistema,
+    perché su una macchina sana quelle bastano. Ciò che non si fa in nessun caso è disattivare la
+    verifica: il difetto è nell'elenco di chi ci si fida, non nel fatto di fidarsi.
+    """
+    try:
+        import certifi
+    except ImportError:
+        return ssl.create_default_context()
+    try:
+        return ssl.create_default_context(cafile=certifi.where())
+    except Exception:
+        return ssl.create_default_context()
+
+
 class TrasportoHTTP:
     """Il trasporto vero.
 
@@ -286,6 +325,7 @@ class TrasportoHTTP:
     def __init__(self, limite=LIMITE_BYTE):
         self.limite = limite
         self.ultimo_indirizzo = None
+        self.contesto = contesto_tls()
 
     def get(self, url):
         richiesta = urllib.request.Request(url, method="GET", headers={
@@ -294,7 +334,8 @@ class TrasportoHTTP:
             "Accept-Language": "en;q=0.9,it;q=0.8",
         })
         try:
-            with urllib.request.urlopen(richiesta, timeout=30) as risposta:
+            with urllib.request.urlopen(richiesta, timeout=30,
+                                        context=self.contesto) as risposta:
                 intestazioni = {k.lower(): v for k, v in risposta.headers.items()}
                 # Si legge un byte oltre il tetto per distinguere una risposta esattamente al
                 # tetto da una che lo supera, invece di troncare in silenzio.
@@ -311,10 +352,20 @@ class TrasportoHTTP:
                 corpo = b""
             intestazioni = {k.lower(): v for k, v in (e.headers or {}).items()}
             return e.code, corpo, intestazioni
+        except ssl.SSLCertVerificationError as e:
+            # Separato dagli altri guasti perché dice una cosa diversa da tutte: non che il sito
+            # non risponda, ma che questa macchina non sa fidarsi di lui. Confonderlo con un
+            # guasto di rete è costato a questo progetto centotrenta fonti dichiarate irraggiungibili
+            # mentre erano in piedi, e la diagnosi va quindi scritta nel messaggio e non dedotta.
+            messaggio = ("CertificatoNonVerificabile: " + str(e)[:200] + " -- non è il sito a "
+                         "essere giù: è la catena di certificati di questa macchina a non "
+                         "chiudere. Si rimedia con un archivio di radici aggiornato, per esempio "
+                         "il pacchetto certifi, non disattivando la verifica.")
+            return GUASTO, messaggio.encode("utf-8"), {}
         except Exception as e:
-            # Comprende gli errori di rete, i timeout, la risoluzione del nome fallita e i
-            # certificati non validi. Il messaggio si tronca perché una traccia lunga in un log
-            # di corsa nasconde le righe che contano.
+            # Comprende gli errori di rete, i timeout e la risoluzione del nome fallita. Il
+            # messaggio si tronca perché una traccia lunga in un log di corsa nasconde le righe
+            # che contano.
             messaggio = type(e).__name__ + ": " + str(e)[:200]
             return GUASTO, messaggio.encode("utf-8"), {}
 
@@ -863,7 +914,7 @@ class Educato:
         pezzi = urllib.parse.urlsplit(url)
         esito = self._leggi(pezzi.scheme or "https", pezzi.netloc.lower())
         if esito == "vietato":
-            return False, "robots.txt non leggibile per indisponibilità del servizio"
+            return False, MOTIVO_ROBOTS_TRANSITORIO
         if esito is None:
             return True, ""
         if esito.can_fetch(UA, url):
@@ -1514,6 +1565,36 @@ class Corsa:
                 "motivo": motivo,
             })
 
+    def promuovi_transitori(self):
+        """Rimette fra i pendenti i nodi catalogati per un `robots.txt` indisponibile.
+
+        Serve alle corse fatte prima che quel rifiuto fosse distinto da un divieto vero, dove il
+        nodo risulta deciso e nessuna ripresa lo ritenta. Restituisce quanti nodi sono stati
+        promossi e l'insieme degli host a cui appartengono, perché il numero da solo non dice se
+        il recupero riguardi una fonte o un dominio intero.
+
+        La promozione toglie il nodo da `visti`: un nodo che restasse registrato verrebbe saltato
+        dall'attraversamento, che salta per costruzione tutto ciò che ha già visto.
+        """
+        promossi, host = [], set()
+        for chiave, scheda in list(self.stato["visti"].items()):
+            if scheda.get("esito") != "catalogato":
+                continue
+            if scheda.get("motivo") != MOTIVO_ROBOTS_TRANSITORIO:
+                continue
+            promossi.append({
+                "chiave": chiave,
+                "tipo": scheda.get("tipo") or "web",
+                "profondità": scheda.get("profondità", 0),
+                "da": scheda.get("da") or [],
+                "ancora": scheda.get("ancora") or "",
+            })
+            host.add(scheda.get("host") or host_di(chiave.split(":", 1)[-1]) or "host-ignoto")
+            del self.stato["visti"][chiave]
+        if promossi:
+            self.rinvia(promossi, MOTIVO_ROBOTS_TRANSITORIO)
+        return len(promossi), host
+
     def fallisci(self, chiave, codice, messaggio):
         self.stato["falliti"].append({"chiave": chiave, "codice": codice,
                                       "messaggio": cella(messaggio)})
@@ -1766,6 +1847,19 @@ class Corsa:
             indirizzo = voce["chiave"].split(":", 1)[1]
             consentito, motivo = self.educato.permesso(indirizzo)
             if not consentito:
+                # Due rifiuti che il codice trattava allo stesso modo non sono la stessa cosa,
+                # e confonderli è il difetto che questa distinzione ripara. Un divieto scritto in
+                # `robots.txt` è una proprietà stabile del sito, e registrarlo come catalogato in
+                # via definitiva è corretto. Un `robots.txt` che non si è potuto leggere non dice
+                # invece nulla del sito: dice che in quell'istante il servizio, o la rete di chi
+                # legge, non rispondeva. Registrarlo come catalogato trasforma un guasto di pochi
+                # minuti in una esclusione permanente e silenziosa, che nessuna ripresa ritenta
+                # perché il nodo risulta già deciso. Va quindi fra i pendenti, che è lo stesso
+                # trattamento che questo programma riserva a ciò che un tetto ha escluso, e per la
+                # medesima ragione: l'esclusione non è una proprietà del contenuto.
+                if motivo == MOTIVO_ROBOTS_TRANSITORIO:
+                    self.rinvia([voce], motivo)
+                    continue
                 self.registra(voce["chiave"], {
                     "tipo": "web", "profondità": voce["profondità"], "esito": "catalogato",
                     "motivo": motivo, "da": voce.get("da") or [],
@@ -2072,6 +2166,9 @@ def collaudo():
           educato.permesso("https://aperto.it/privato/x")[0] is False)
     prova("un robots.txt indisponibile per guasto del servizio vale come divieto",
           educato.permesso("https://guasto.it/a")[0] is False)
+    prova("il divieto per guasto si distingue da quello scritto, e porta il motivo che lo dice",
+          educato.permesso("https://guasto.it/a")[1] == MOTIVO_ROBOTS_TRANSITORIO and
+          educato.permesso("https://vietato.it/a")[1] != MOTIVO_ROBOTS_TRANSITORIO)
     prova("un robots.txt assente vale come assenza di regole",
           educato.permesso("https://assente.it/a")[0] is True)
     quante = len(finto_web.chiamate)
@@ -2250,6 +2347,66 @@ def collaudo():
         prova("la ripresa non riscarica cio che era già fatto",
               alzata.stato["visti"]["reddit:aaa001"]["esito"] == "scaricato")
 
+        # Il caso che ha prodotto questa distinzione, riprodotto per intero: una corsa passa
+        # mentre il `robots.txt` di un host non risponde, e una seconda corsa lo trova in piedi.
+        # Si prova che il nodo non finisca fra i decisi, che l'indice lo dichiari non raggiunto e
+        # non catalogato, e che la ripresa lo scarichi davvero. Senza l'ultima delle tre la
+        # correzione sarebbe soltanto contabile.
+        cartella_t = os.path.join(temporanea, "transitorio")
+        pagina_t = {"https://intermittente.it/a": (200, "<html><title>Ripresa</title><body><p>" +
+                                                   "z" * 600 + "</p></body></html>")}
+        giu = TrasportoFinto(post={"eee001": post_finto(
+            "eee001", (), "[pagina](https://intermittente.it/a)")},
+            robots={"intermittente.it": (503, "")}, pagine=pagina_t)
+        corsa_t = Corsa(giu, Educato(giu), cartella_t,
+                        {"max_post": 5, "max_esterni": 5, "max_profondita": 2}, esterni=True)
+        corsa_t.stato["seme"] = "reddit:eee001"
+        corsa_t.esegui([{"chiave": "reddit:eee001", "tipo": "reddit", "profondità": 0,
+                         "da": [], "ancora": "", "commenti_puntati": []}])
+        corsa_t.salva()
+        prova("negativo: un robots.txt indisponibile non decide il nodo come catalogato",
+              "web:https://intermittente.it/a" not in corsa_t.stato["visti"])
+        prova("un robots.txt indisponibile lascia il nodo fra i pendenti, con il suo motivo",
+              any(v["chiave"] == "web:https://intermittente.it/a" and
+                  v.get("motivo") == MOTIVO_ROBOTS_TRANSITORIO
+                  for v in corsa_t.stato["pendenti"]))
+        su = TrasportoFinto(post={"eee001": post_finto("eee001")},
+                            robots={"intermittente.it": (200, "User-agent: *\nAllow: /\n")},
+                            pagine=pagina_t)
+        ripresa_t = Corsa(su, Educato(su), cartella_t,
+                          {"max_post": 5, "max_esterni": 5, "max_profondita": 2}, esterni=True)
+        ripresa_t.carica()
+        attesi = list(ripresa_t.stato["pendenti"])
+        ripresa_t.stato["pendenti"] = []
+        ripresa_t.esegui([{"chiave": v["chiave"], "tipo": v["tipo"],
+                           "profondità": v.get("profondità", 0), "da": v.get("da") or [],
+                           "ancora": "", "commenti_puntati": []} for v in attesi])
+        ripresa_t.salva()
+        prova("quando il servizio torna, la ripresa scarica la pagina che era stata rinviata",
+              ripresa_t.stato["visti"].get("web:https://intermittente.it/a",
+                                           {}).get("esito") == "scaricato")
+
+        # Il recupero delle corse fatte prima della distinzione: il nodo è già registrato fra i
+        # decisi, e va rimesso fra i pendenti perché l'attraversamento salta ciò che ha visto.
+        vecchia = Corsa(su, Educato(su), os.path.join(temporanea, "vecchia"),
+                        {"max_post": 5, "max_esterni": 5, "max_profondita": 2}, esterni=True)
+        vecchia.stato["visti"]["web:https://intermittente.it/a"] = {
+            "tipo": "web", "profondità": 1, "esito": "catalogato",
+            "motivo": MOTIVO_ROBOTS_TRANSITORIO, "host": "intermittente.it",
+            "da": ["reddit:eee001"], "ancora": "pagina"}
+        vecchia.stato["visti"]["web:https://youtu.be/k"] = {
+            "tipo": "web", "profondità": 1, "esito": "catalogato",
+            "motivo": "video: serve la trascrizione", "host": "youtu.be", "da": [], "ancora": ""}
+        quanti, host = vecchia.promuovi_transitori()
+        prova("il recupero promuove il solo nodo rifiutato per il robots.txt indisponibile",
+              quanti == 1 and host == {"intermittente.it"})
+        prova("negativo: il recupero non tocca un nodo catalogato per una ragione sua",
+              vecchia.stato["visti"]["web:https://youtu.be/k"]["esito"] == "catalogato")
+        prova("il recupero toglie il nodo dai visti, altrimenti la ripresa lo salterebbe",
+              "web:https://intermittente.it/a" not in vecchia.stato["visti"] and
+              any(v["chiave"] == "web:https://intermittente.it/a"
+                  for v in vecchia.stato["pendenti"]))
+
         senza = Corsa(trasporto_corsa, Educato(trasporto_corsa),
                       os.path.join(temporanea, "senza"),
                       {"max_post": 1, "max_esterni": 0, "max_profondita": 0}, esterni=False)
@@ -2286,6 +2443,39 @@ def collaudo():
 
     # -- l'interfaccia non espone il modo di aggirare i presidi -------------------------------
     aiuto = costruisci_parser().format_help()
+    # -- la verifica dei certificati ----------------------------------------------------------
+    ctx = contesto_tls()
+    prova("il contesto di verifica dei certificati verifica davvero",
+          ctx.verify_mode == ssl.CERT_REQUIRED and ctx.check_hostname is True)
+    prova("negativo: non esiste un'opzione per non verificare i certificati",
+          "--senza-certificati" not in aiuto and "insecure" not in aiuto)
+    # Le due prove che seguono non riguardano il programma ma l'archivio di radici con cui gira,
+    # ed esistono perché il difetto che ha motivato tutto questo era di quella specie e nessun
+    # collaudo lo vedeva. Vale distinguere due cose che si somigliano: una radice scaduta
+    # nell'archivio è comune e per lo più innocua, perché nessuna catena viva vi termina, e
+    # certifi ne conserva una per compatibilità. Diventa un guasto quando la radice scaduta è
+    # anche servita come anello intermedio da una catena viva: allora la verifica si ferma su di
+    # essa invece di proseguire sul ramo firmato che è valido, e il sito risulta irraggiungibile.
+    # È esattamente ciò che ISRG Root X2 faceva qui, quindi la prova nomina quel caso.
+    adesso = datetime.datetime.now(datetime.timezone.utc)
+
+    def scaduta(certificato):
+        try:
+            quando = datetime.datetime.strptime(certificato.get("notAfter"),
+                                                "%b %d %H:%M:%S %Y %Z")
+        except Exception:
+            return False
+        return quando.replace(tzinfo=datetime.timezone.utc) < adesso
+
+    radici = ctx.get_ca_certs()
+    ponti = [c for c in radici
+             if "ISRG Root X" in str(dict(x[0] for x in c.get("subject", ())).get("commonName"))]
+    prova("nessuna radice ISRG scaduta nell'archivio in uso: è la forma esatta del guasto per "
+          "cui un sito in piedi risulta irraggiungibile a questo programma",
+          not any(scaduta(c) for c in ponti))
+    prova("l'archivio in uso porta le radici che servono, e non è vuoto o troncato",
+          len(radici) > 100 and len(ponti) >= 1)
+
     prova("negativo: non esiste un modo di ignorare robots.txt",
           "ignora-robots" not in aiuto and "--robots" not in aiuto)
 
@@ -2349,6 +2539,15 @@ def costruisci_parser():
     riprendi = comandi.add_parser("riprendi", help="prosegue una corsa dai suoi pendenti")
     radice_locale(riprendi)
     riprendi.add_argument("cartella", help="la cartella della corsa da riprendere")
+    riprendi.add_argument("--riprova-transitori", action="store_true",
+                          help="rimette fra i pendenti i nodi che una corsa precedente aveva "
+                               "catalogato perché il robots.txt del loro host non rispondeva: "
+                               "serve a recuperare le corse fatte prima che quel rifiuto fosse "
+                               "riconosciuto come transitorio")
+    riprendi.add_argument("--solo-transitori", action="store_true",
+                          help="con --riprova-transitori, riprende i soli nodi appena promossi e "
+                               "lascia dove sono quelli rinviati da un tetto: riparare un "
+                               "difetto e proseguire una frontiera sono due operazioni diverse")
     riprendi.add_argument("--max-post", type=int, default=None)
     riprendi.add_argument("--max-esterni", type=int, default=None)
     riprendi.add_argument("--max-profondita", type=int, default=None)
@@ -2390,8 +2589,38 @@ def principale(argomenti=None):
                       esterni=a.esterni, esclusi=a.dominio_escluso, soli=a.solo_domini,
                       lotto=a.lotto, riferisci=riferisci)
         corsa.carica()
+        trattenuti = []
+        if a.riprova_transitori:
+            quanti, quali = corsa.promuovi_transitori()
+            if quanti:
+                riferisci("Rimessi fra i pendenti " + str(quanti) + " nodi che una corsa "
+                          "precedente aveva catalogato per un robots.txt indisponibile, su " +
+                          str(len(quali)) + " host: " + ", ".join(sorted(quali)[:8]) +
+                          ("..." if len(quali) > 8 else ""))
+            else:
+                riferisci("Nessun nodo catalogato per un robots.txt indisponibile: non c'è "
+                          "nulla da recuperare in " + cartella)
+        elif a.solo_transitori:
+            riferisci("--solo-transitori ha senso soltanto insieme a --riprova-transitori: "
+                      "da solo non seleziona nulla, quindi la corsa si arresta invece di "
+                      "riprendere tutta la frontiera senza che nessuno lo abbia chiesto.")
+            return 2
+        if a.solo_transitori:
+            # La selezione guarda il motivo e non la provenienza, cosicché funzioni anche su una
+            # corsa dove i nodi transitori sono già fra i pendenti: un recupero interrotto a metà
+            # va potuto riprendere, altrimenti il rimedio ha bisogno di un rimedio suo.
+            tutti = list(corsa.stato.get("pendenti") or [])
+            trattenuti = [v for v in tutti if v.get("motivo") != MOTIVO_ROBOTS_TRANSITORIO]
+            corsa.stato["pendenti"] = [v for v in tutti
+                                       if v.get("motivo") == MOTIVO_ROBOTS_TRANSITORIO]
+            if trattenuti:
+                riferisci("Restano da parte " + str(len(trattenuti)) + " pendenti rinviati per "
+                          "altre ragioni, che questa corsa non tocca.")
         pendenti = list(corsa.stato.get("pendenti") or [])
         if not pendenti:
+            corsa.stato["pendenti"] = trattenuti + (corsa.stato.get("pendenti") or [])
+            if trattenuti:
+                corsa.salva()
             riferisci("Non c'è nulla di pendente in " + cartella + ": la corsa precedente ha "
                       "esaurito la frontiera.")
             return 0
@@ -2401,6 +2630,12 @@ def principale(argomenti=None):
                        "profondità": v.get("profondità", 0), "da": v.get("da") or [],
                        "ancora": v.get("ancora") or "", "commenti_puntati": []}
                       for v in pendenti])
+        # I pendenti tenuti da parte tornano in coda, e non in testa: quelli che la corsa ha
+        # appena prodotto vengono dalla frontiera nuova e hanno la precedenza naturale.
+        if trattenuti:
+            gia = set(v.get("chiave") for v in corsa.stato["pendenti"])
+            gia |= set(corsa.stato["visti"])
+            corsa.stato["pendenti"].extend(v for v in trattenuti if v.get("chiave") not in gia)
         corsa.salva()
         riferisci("Fatto. Indice in " + os.path.join(cartella, "_INDEX.md"))
         return 0

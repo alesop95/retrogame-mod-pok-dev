@@ -320,3 +320,4 @@ pokedex-home-completo/INDICE-FOGLI-ESTERNI.md#bank-closing-all-possible-things-c
 pokedex-home-completo/INDICE-FOGLI-ESTERNI.md#pokémon-master-dex-and-retro-dex-challenges-xlsx # scheletro generato di Livello 1, non prosa da rendere
 pokedex-home-completo/INDICE-FOGLI-ESTERNI.md#2026-09-08-foglio-ingame-events-chaboijish-xlsx # scheletro generato di Livello 1, non prosa da rendere
 pokedex-home-completo/INDICE-FOGLI-ESTERNI.md#2026-09-08-foglio-scambi-e-doni-greenpangolin17-xlsx # scheletro generato di Livello 1, non prosa da rendere
+

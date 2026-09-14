@@ -9,5 +9,5 @@ Questo cluster ha 3 fonti su 3 host: buriedrelic.neocities.org con 1, bulbapedia
 | Liv | Che cosa documenta | Host | URL |
 |---|---|---|---|
 | 3 | Gen 5 shiny hunting guide. Titolo della fonte: Old-Gen Shiny hunter manual (Generation 5) - Buried Relic | buriedrelic.neocities.org | https://buriedrelic.neocities.org/pages/manual/generation_5 |
-| 2 | Introduction of the Shiny Charm in B2W2 | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/Shiny_Charm |
+| 2 | Introduction of the Shiny Charm in B2W2. Titolo della fonte: Shiny Charm - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/Shiny_Charm |
 | 2 | Increasing shiny odds with lucky pass power - french. Titolo della fonte: Dossier Shasse > Le secret des Auras Porte-Bonheur - Pokébip.com | pokebip.com | https://www.pokebip.com/page/jeux-video/dossier-shasse/auras-porte-bonheur |

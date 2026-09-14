@@ -79,14 +79,14 @@ Esiste per una ragione dichiarata dall'utente il 2026-09-10, ed e' la stessa che
 
 | Misura | Valore |
 |---|---|
-| fonti registrate nella tabella unica | 92 |
-| di esse, lette | 90 |
-| di esse, citate in tesi | 92 |
-| di esse, con almeno un documento del progetto che le usa | 92 |
+| fonti registrate nella tabella unica | 99 |
+| di esse, lette | 97 |
+| di esse, citate in tesi | 99 |
+| di esse, con almeno un documento del progetto che le usa | 99 |
 | voci del corpus della collezione | 171 |
-| di esse, promosse a fonte registrata | 17 |
+| di esse, promosse a fonte registrata | 24 |
 | cluster del corpus | 42 |
-| di essi, con uno stato di lettura dichiarato | 19 |
+| di essi, con uno stato di lettura dichiarato | 25 |
 
 ### Le fonti registrate, e dove finisce ciascuna
 
@@ -111,12 +111,19 @@ La colonna dei documenti dice dove sta la sintesi di quella fonte dentro il prog
 | Nintendo, fine del servizio di Pokemon Bank | 2 | ricreazione degli eventi, modding della console | `11-wireless-locale-e-ponte-switch` | 19 |
 | Bulbapedia, pagine sui formati | 2 | ponte fra generazioni, salvataggio di Smeraldo, scambio locale | `DATA-FORMATS_Gen1-Gen2-Gen3`, `23-prove-eseguite` | 03, 08, 23 |
 | Bulbapedia, elenco delle specie con differenze di sesso visibili (dal corpus) | 2 | Pokedex nel deposito | `DIFFERENZE-DI-SESSO`, `CONFRONTO-FOGLIO-LIVINGDEX` | 29 |
+| Pokemon Dream Radar, l'enciclopedia (dal corpus) | 2 | Pokedex nel deposito, ricreazione degli eventi | `LETTURA-DEL-CORPUS` | 31 |
 | Bulbapedia, distribuzioni italiane di eventi in Gen 3 | 2 | ricreazione degli eventi | `23-prove-eseguite` | 19 |
 | Bulbapedia, elenco degli identificativi di allenatore notevoli (dal corpus) | 2 | Pokedex nel deposito, ricreazione degli eventi | `ID-NOTEVOLI` | 29 |
+| La scansione dell'isola, l'enciclopedia (dal corpus) | 2 | Pokedex nel deposito | `LETTURA-DEL-CORPUS` | 31 |
 | Bulbapedia, le macchine nascoste per generazione | 2 | Pokedex nel deposito, ricreazione degli eventi | `MOSSE-MN`, `CATENA-DI-TRASFERIMENTO` | 28 |
+| I Pokemon di N, l'enciclopedia (dal corpus) | 2 | Pokedex nel deposito | `LETTURA-DEL-CORPUS` | 31 |
+| I Pokemon totemici, l'enciclopedia (dal corpus) | 2 | Pokedex nel deposito | `LETTURA-DEL-CORPUS` | 31 |
 | Bulbapedia, la catena dei trasferimenti fra generazioni | 2 | ricreazione degli eventi, modding della console | `11-wireless-locale-e-ponte-switch` | 19, 28 |
 | Glitch City Wiki | 2 | ponte fra generazioni | `09-esecuzione-codice` | 11, 23 |
 | Glitch City, i codici del programma di scrittura | 2 | esecuzione di codice, Pokedex nel deposito | `STUDIO-08-esecuzione-di-codice-e-manipolazione-del-generatore` | 30 |
+| I titoli di Pokemon Champions (dal corpus) | 2 | Pokedex nel deposito, GFS | `MARCHI` | 29 |
+| Gli incontri a cristallo nero (dal corpus) | 2 | Pokedex nel deposito | `MARCHI` | 29 |
+| I Pokemon titanici (dal corpus) | 2 | Pokedex nel deposito | `MARCHI` | 29 |
 | La storia dell'esemplare surfista, dal titolare della serie | 2 | ricreazione degli eventi, Pokedex nel deposito | `CATENA-DI-TRASFERIMENTO` | 28 |
 | Guide all'esecuzione di codice in seconda generazione | 2 | esecuzione di codice, Pokedex nel deposito, ricreazione degli eventi | `STUDIO-08-esecuzione-di-codice-e-manipolazione-del-generatore`, `09-esecuzione-codice` | 30 |
 | Gen 3 ACE Archive | 3 | esecuzione di codice | `09-esecuzione-codice` | 20, 30 |
@@ -202,12 +209,12 @@ Ogni riga e' un cluster del post di raccolta. Lo stato viene dal registro di let
 | 1) Dex completions / Gen 2 | 5 | 1 | letti il 2026-09-09, meno le tre voci in forma di video | questa nota |
 | 1) Dex completions / Gen 3 | 8 | 3 | letti il 2026-09-09, meno le tre voci in forma di video | questa nota |
 | 1) Dex completions / Gen 4 | 7 | 3 | letto il 2026-09-09 nelle voci decisive, e chiude il punto sulle rovine di Sinjoh | questa nota e `pending.md` |
-| 1) Dex completions / Gen 5 | 5 | 1 | da leggere | - |
-| 1) Dex completions / Gen 6 | 2 | 1 | da leggere | - |
-| 1) Dex completions / Gen 7 | 6 | 3 | da leggere | - |
-| 1) Dex completions / Gen 8 | 2 | 0 | da leggere | - |
-| 1) Dex completions / Gen 9 | 5 | 1 | da leggere | - |
-| 1) Dex completions / Spinoffs | 4 | 0 | da leggere | - |
+| 1) Dex completions / Gen 5 | 5 | 3 | letto il 2026-09-12, meno la voce in forma di video | questa nota e `pending.md` |
+| 1) Dex completions / Gen 6 | 2 | 1 | letto il 2026-09-12, meno la voce in forma di video | questa nota |
+| 1) Dex completions / Gen 7 | 6 | 5 | letto il 2026-09-12, meno le tre voci in forma di video | questa nota |
+| 1) Dex completions / Gen 8 | 2 | 0 | letto il 2026-09-12 | questa nota |
+| 1) Dex completions / Gen 9 | 5 | 3 | letto il 2026-09-12, meno la voce in forma di video e i due scheletri JavaScript | `MARCHI.md` e questa nota |
+| 1) Dex completions / Spinoffs | 4 | 1 | letto il 2026-09-12, meno il profilo che richiede autenticazione | `MARCHI.md`, questa nota e `pending.md` |
 | 1) Dex completions / Overall lists for multiple generations | 10 | 6 | letto il 2026-09-08 | `STUDIO-06` |
 | 2) What are we loosing with Pokemon Bank | 6 | 2 | letto il 2026-09-08 | `STUDIO-05` e `INDICE-FOGLI-ESTERNI.md` |
 | 3) Collections of one Pokemon species | 6 | 0 | letto il 2026-09-09 | questa nota |
