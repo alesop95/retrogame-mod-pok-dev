@@ -4,6 +4,32 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-14, quarta parte. Il generatore degli scambi, e quattro difetti invisibili in un'ora
+
+### Che cosa rende questa classe diversa da tutte le altre che produciamo
+
+Gli scambi in gioco di terza generazione non richiedono alcun generatore pseudocasuale ne' alcuna ricerca di semi, ed e' l'unica classe di cui questo si possa dire. La fonte scrive tutto: per diciannove voci il valore di personalita' e' una costante nella tabella, i sei valori individuali sono un insieme dichiarato, e con essi ci sono identificativo dell'allenatore, il suo sesso, il sesso dell'esemplare, quale delle due abilita' porti e le statistiche di gara. Ne segue che la fedelta' qui non e' un argomento ma una identita': l'esemplare composto e' quello storico, campo per campo.
+
+Lo strumento nuovo e' `tools/genera-scambio-gen3.py`, con sette prove. Elenca le diciannove voci e non compone ancora, e la ragione e' dichiarata nel programma invece che lasciata intendere: manca la sola traduzione della versione di incontro, che e' il terzo argomento della tabella, e comporre senza averla letta dalla fonte significherebbe indovinare un campo. Dopo la giornata che segue, indovinare non sembrava una buona idea.
+
+### Quattro difetti, tutti della stessa specie
+
+Il lavoro di un'ora ne ha prodotti e corretti quattro, e sono tutti della famiglia che questo progetto teme di piu', cioe' quella che non produce un errore ma un risultato plausibile.
+
+Il primo era latente nel censimento e non si era mai visto: il lettore delle proprieta' spezzava sulla virgola anche dentro le parentesi, quindi `IVs = new(20,15,17,24,23,22)` usciva come `new(20`. Nessuno se ne era accorto perche' il censimento non usava quel campo; e' emerso appena il generatore ne ha avuto bisogno.
+
+Il secondo e' mio e riguarda la regola con cui si ricava il nome dell'allenatore. Un solo elenco per lingua contiene due cose, i soprannomi nella prima meta' e i nomi di allenatore nella seconda, e la fonte lo dichiara nel costruttore. Ho applicato la regola a tutte le generazioni: la prima non la segue, perche' il suo allenatore non e' un nome ma un codice di controllo che il gioco rende come la parola allenatore nella lingua propria. Applicarvela avrebbe dato un allenatore inventato su ogni scambio di prima e seconda generazione. La correzione non e' stata elencare a mano i tipi che spezzano ma leggerlo dai modelli della fonte, cosicche' un tipo nuovo si dichiari da se'.
+
+Il terzo e' il piu' insidioso dei quattro. Per calcolare quella meta' avevo scartato le righe vuote degli elenchi, credendole rumore di fine file. L'elenco giapponese di prima generazione ne ha una in posizione uno, ed e' uno slot legittimo che significa che quella voce non ha un nome in quella lingua: scartarla spostava di uno ogni indice successivo, cioe' assegnava a ogni voce il soprannome della voce seguente. Ora si toglie soltanto l'ultima riga vuota, e soltanto quando e' l'artefatto di un file che termina con un a capo.
+
+Il quarto e' un difetto di ombreggiatura e si e' manifestato in modo spettacolare: la variabile del ciclo che cercava la meta' si chiamava come il percorso della cartella dei dati, quindi dalla prima tabella che spezza in avanti ogni generazione successiva risultava inesistente. Il censimento e' sceso da trentadue tabelle a quattro e da duecentotrentotto voci a trentasette senza emettere alcun errore, e l'ho visto soltanto perche' guardavo il numero.
+
+### Che cosa il censimento porta adesso
+
+Duecentotrentotto voci, zero discordanze, il soprannome italiano su centoventisette e quello dell'allenatore italiano su centoquarantuno. La prima generazione non ha allenatore ed e' corretto che non ce l'abbia. Lo scambio del Nidoran femmina non ha nome giapponese ed e' corretto anche quello, perche' quello scambio esiste soltanto fuori dal Giappone. Il documento e la tabella portano entrambi le colonne nuove, perche' i due file escono dallo stesso strumento e nascono per essere confrontati.
+
+Un presidio nuovo vale registrarlo: la regola su quali tipi spezzino l'elenco non e' scritta nel nostro programma ma letta dai modelli della fonte, e la prima stesura di quella lettura non trovava nulla perche' la classe negata dell'espressione escludeva la parentesi che la riga vera contiene nel cast. Dichiarare che nessun tipo spezza sarebbe stato un silenzio, non un errore.
+
 ## 2026-09-14, terza parte. I canali digeriti, e la lacuna che era del nostro clone
 
 ### I quattro canali, e una resa che e' essa stessa un risultato
