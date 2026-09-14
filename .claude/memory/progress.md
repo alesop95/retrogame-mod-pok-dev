@@ -4,6 +4,30 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-14, settima parte. Il primo giudizio del lotto degli scambi, e quattro campi sbagliati
+
+### Il giudizio e' arrivato dal verificatore e non dall'hardware, ed e' l'ordine giusto
+
+L'utente ha caricato il lotto in PKHeX su un salvataggio vuoto di Smeraldo e ha esportato il rapporto sui box. La sua osservazione vale registrarla perche' fissa una precedenza: non ha senso provare su una cartuccia fisica cio' che il verificatore rifiuta a costo zero, e il lettore di cartucce resta fermo finche' il lotto non passa. Il solo hardware disponibile sarebbe un Rubino sacrificabile, e non va speso per un difetto che si vede prima.
+
+Esito del primo giro: diciannove su diciannove non conformi. Le tre cose che avevo indicato come da guardare per prime sono invece tutte corrette, ed e' un dato utile perche' erano le sole che il generatore non potesse verificare da se': il luogo risulta lo scambio con un personaggio, la sfera e' la Poke Ball, la bandierina del soprannome e' accesa, e l'apostrofo di CH'DING e' accettato con Farfetch'd reso correttamente. La struttura della classe era quindi giusta e l'illegalita' stava altrove.
+
+### I quattro campi, e come sono stati trovati
+
+Il primo si vede a occhio nella schermata e non richiede alcuna analisi: la lingua dichiarata e' tedesco. La tabella che avevo scritto nel programma dava all'italiano il codice cinque, che e' il tedesco; il codice giusto e' quattro. Il progetto quella tabella ce l'ha gia', in `genera-evento-gen3.py`, corretta e commentata. Ho trascritto a memoria una tabella di sei righe che era a due cartelle di distanza, ed e' esattamente l'errore che questi documenti descrivono da giorni. Ora non e' piu' trascritta: si prende da la'.
+
+Il secondo viene dal rapporto: tutte le mosse sono vuote. Avevo lasciato il vettore a zero perche' la tabella degli scambi non dichiara mosse, deducendone che non ne servissero; un esemplare senza alcuna mossa non e' mai esistito. Le mosse di uno scambio sono il repertorio di livello della specie a quel livello, come per qualunque altro incontro, e il generatore degli incontri le sa gia' leggere.
+
+Il terzo e il quarto vengono dalle colonne del rapporto: amicizia a zero invece del valore di base della specie, e le cinque statistiche da gara a zero mentre la fonte ne dichiara una costante per ciascuno scambio, con sei valori che comprendono la lucentezza estetica. Le costanti ora si leggono dal sorgente, e il programma verifica che due file omonimi non le definiscano in modo diverso invece di prendere la prima e sperare.
+
+### Un errore di verifica mio, che vale piu' dei quattro
+
+Rileggendo i file prodotti per controllare le correzioni ho usato la forma sbagliata, cioe' `from_bytes` invece di `from_canonical_bytes`, e ho letto mosse impossibili come 39890 e 62838. Ho creduto per qualche minuto a un difetto del generatore che non esisteva, e la verifica in memoria lo ha smentito: i valori erano giusti da subito e sbagliata era la lettura. La lezione e' che uno strumento di verifica va verificato quanto quello che verifica, e che un numero fuori scala e' un indizio sul lettore almeno quanto sullo scritto.
+
+### Che cosa resta
+
+Il lotto e' stato riscritto con i quattro campi corretti e attende il secondo giudizio, che e' dell'utente e si fa nello stesso modo. Le prove del generatore passano da sette a quattordici, e le nuove coprono per nome ciascuno dei quattro campi piu' la distinzione fra un dato che manca e uno che non esiste.
+
 ## 2026-09-14, sesta parte. Diciannove esemplari scritti senza cercare un seme
 
 ### Il lotto degli scambi di terza generazione esiste
