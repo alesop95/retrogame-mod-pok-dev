@@ -61,7 +61,7 @@
 % copre: pokedex-home-completo/ID-NOTEVOLI.md
 % copre: pokedex-home-completo/ID-NOTEVOLI.md#gli-identificativi-di-allenatore-notevoli-e-quanto-ne-copriamo
 % copre: pokedex-home-completo/MARCHI.md
-% verificato-al-commit: e83a85f
+% verificato-al-commit: 66e625d
 % ---------------------------------------------------------------------
 
 \chapter{Gli assi di una collezione, e come si enumerano}
@@ -224,3 +224,17 @@ Il terzo è il più insidioso e nasce da una pulizia apparentemente innocua. Per
 Il quarto è banale nella forma e spettacolare nell'effetto. La variabile del ciclo che cercava quella metà portava lo stesso nome del percorso della cartella dei dati, e lo sovrascriveva: dalla prima tabella che segue la regola in avanti, ogni generazione successiva risultava inesistente. L'enumerazione è scesa da trentadue tabelle a quattro e da duecentotrentotto voci a trentasette senza emettere alcun messaggio, e la caduta è stata notata soltanto perché il programma stampa i propri conteggi e qualcuno li stava guardando.
 
 La lezione comune ai quattro non è di scrivere codice migliore, che è un proposito e non un metodo. È che un programma il cui esito è un numero deve stamparlo, e che chi lo esegue deve conoscerne l'ordine di grandezza atteso: dei quattro difetti, tre erano invisibili a qualunque verifica interna e il quarto lo sarebbe stato se l'uscita fosse stata silenziosa. Le prove aggiunte in quell'ora coprono ciascuno dei quattro casi, e tre di esse sono negative, cioè verificano che il programma non faccia una cosa che sarebbe sembrata ragionevole.
+
+\section{La prima classe che si compone senza cercare nulla}
+
+Ogni classe prodotta da questo lavoro ha finora condiviso un ostacolo: il gioco calcolava il valore di personalità e i valori individuali al momento della consegna, quindi riprodurre un esemplare richiedeva o ricostruire il generatore pseudocasuale o cercare il seme che produce quei valori. La classe degli scambi in gioco della terza generazione non ha quell'ostacolo, ed è l'unica di cui si possa dire.
+
+La fonte scrive ogni campo: per diciannove voci il valore di personalità è una costante nella tabella, i sei valori individuali sono un insieme dichiarato, e con essi sono dichiarati l'identificativo del personaggio che consegna, il suo sesso, il sesso dell'esemplare, quale delle due abilità porti e le statistiche di gara. Ne segue una conseguenza che cambia il registro del discorso: dove per una distribuzione questo lavoro deve argomentare quanto un esemplare composto somigli a quello storico, qui l'esemplare composto è quello storico, campo per campo, salvo ciò che il giocatore aggiunge dopo averlo ricevuto. La fedeltà smette di essere un argomento e diventa una identità.
+
+Il programma che li compone è perciò un compositore e non un cercatore, e non contiene alcun generatore pseudocasuale. Riusa due cose anziché riscriverle, e la ragione è la stessa che governa il resto del lavoro: la risoluzione della sigla di versione e le tabelle che legano la numerazione nazionale agli identificativi interni vengono dal generatore delle distribuzioni, perché averne due copie significherebbe avere due verità sugli stessi dati, e la seconda diverge dalla prima senza che nessuno se ne accorga.
+
+Tre proprietà distinguono uno scambio da ogni altra classe, e vanno tenute insieme perché sbagliarne una sola produce un esemplare rifiutato senza indicazione del campo. Il personaggio che compare come allenatore non è il giocatore, e il suo nome è specifico della lingua. Il nome assegnato all'esemplare è fissato e anch'esso specifico della lingua, il che impone di accendere la bandierina che distingue un esemplare rinominato da uno che porta il proprio nome di specie. E il luogo d'incontro non è un luogo del mondo ma il codice convenzionale dello scambio con un personaggio, mentre la sfera è invariabilmente la prima.
+
+Un dettaglio di codifica merita di essere registrato perché non è un difetto ma un fatto sul sistema di scrittura. Uno dei nomi assegnati contiene un apostrofo, e la fonte lo scrive nella forma dattilografica; la codifica della terza generazione non conosce quella forma e conosce invece le due tipografiche, di cui il gioco mostra la destra. La sostituzione non è dunque una pulizia di comodo ma una traduzione verso il carattere che esiste davvero, ed è la stessa che il programma di enumerazione compie nel verso opposto quando confronta i nomi delle specie con i commenti della fonte. La prova che l'accompagna verifica entrambe le proposizioni separatamente: che la codifica conosca l'una forma e non l'altra, e che il nome si scriva davvero anziché sollevare un errore.
+
+Resta ciò che nessun programma può dire di sé, ed è il giudizio esterno. Tre proprietà andranno guardate per prime nel rapporto, perché sono esattamente quelle che il compositore non può verificare: che il luogo risulti lo scambio con un personaggio e non un luogo del mondo, che il nome con l'apostrofo sia accettato, e che l'esemplare risulti rinominato, poiché quella bandierina è accesa deliberatamente e la sua assenza sarebbe contestata.
