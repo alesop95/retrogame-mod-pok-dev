@@ -31,6 +31,7 @@ STUDIO-04-la-via-del-dns-e-il-servizio-rianimato.md   i servizi in rete ricostru
 STUDIO-05-gli-assi-che-non-contavamo.md     mosse, fiocchi, sfere e sfide: i tre assi nuovi e la misura sulle mosse
 MOSSE-PERDUTE.md                   le mosse perdute derivate dai dati, e il confronto con la testimonianza
 FIOCCHI.md                         l'asse dei fiocchi: enumerazione dal sorgente e copertura dei lotti
+MARCHI.md                          l'asse dei marchi: 53 voci in sei famiglie, e nessuna sotto scadenza
 SPOGLIO-CORPUS.md                  che cosa le fonti del corpus nominano e i nostri lotti non hanno
 STUDIO-06-le-enumerazioni-trasversali.md    il cluster delle liste trasversali letto, e le vie chiuse che riapre
 DIFFERENZE-DI-SESSO.md                      le 102 specie con differenze di sesso, enumerate e concordi con il foglio

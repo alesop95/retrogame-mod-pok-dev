@@ -8,9 +8,9 @@ Questo cluster ha 6 fonti su 2 host: bulbapedia.bulbagarden.net con 3, youtube.c
 
 | Liv | Che cosa documenta | Host | URL |
 |---|---|---|---|
-| 2 | Totem Pokemon | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/Totem_Pok%C3%A9mon |
-| 2 | Island scan | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/QR_Scanner#Island_Scan |
+| 2 | Totem Pokemon. Titolo della fonte: Totem Pokémon - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/Totem_Pok%C3%A9mon |
+| 2 | Island scan. Titolo della fonte: QR Scanner - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/QR_Scanner#Island_Scan |
 | - | Shiny Cap Pikachu | youtube.com | https://www.youtube.com/watch?v=d-2mHUdbn8k |
-| 2 | Surf Pikachu - can be shiny hunted | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/Surfing_Pikachu#Pok%C3%A9mon_Ultra_Sun_and_Ultra_Moon |
+| 2 | Surf Pikachu - can be shiny hunted. Titolo della fonte: Surfing Pikachu - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/Surfing_Pikachu#Pok%C3%A9mon_Ultra_Sun_and_Ultra_Moon |
 | - | Transfer Ash Greninja | youtube.com | https://www.youtube.com/watch?v=o3TWbBsOv8I |
 | - | Zygarde 100% Guide | youtube.com | https://www.youtube.com/watch?v=65OcoKMBK_o |

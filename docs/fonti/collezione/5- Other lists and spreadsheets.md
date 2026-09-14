@@ -9,8 +9,8 @@ Questo cluster ha 6 fonti su 5 host: bulbapedia.bulbagarden.net con 2, reddit.co
 | Liv | Che cosa documenta | Host | URL |
 |---|---|---|---|
 | 5 | Spreadsheet of matching Pokemon-Ball colours. Titolo della fonte: Legal Matching Pokéballs 2.0 spreadsheet, di OracleLink | reddit.com | https://www.reddit.com/r/pokemon/comments/zi89xa/legal_matching_pok%C3%A9balls_20_spreadsheet/ |
-| 2 | List of all unique NPC and gift TIDs | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/List_of_notable_ID_numbers |
-| 2 | List of crossgen evolutions | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/List_of_cross-generational_evolutionary_lines |
-| 2 | List of Events | m.bulbapedia.bulbagarden.net | https://m.bulbapedia.bulbagarden.net/wiki/List_of_event_Pok%C3%A9mon_distributions |
-| 3 | Event gallery | projectpokemon.org | https://projectpokemon.org/home/files/category/2-event-gallery/ |
+| 2 | List of all unique NPC and gift TIDs. Titolo della fonte: List of notable ID numbers - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/List_of_notable_ID_numbers |
+| 2 | List of crossgen evolutions. Titolo della fonte: List of cross-generational evolutionary lines - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/List_of_cross-generational_evolutionary_lines |
+| 2 | List of Events. Titolo della fonte: List of event Pokémon distributions - Bulbapedia, the community-driven Pokémon encyclopedia | m.bulbapedia.bulbagarden.net | https://m.bulbapedia.bulbagarden.net/wiki/List_of_event_Pok%C3%A9mon_distributions |
+| 3 | Event Gallery - Project Pokemon Forums | projectpokemon.org | https://projectpokemon.org/home/files/category/2-event-gallery/ |
 | - | Cherish ball dex | youtube.com | https://www.youtube.com/watch?app=desktop&v=mGM_nNGAEgU |

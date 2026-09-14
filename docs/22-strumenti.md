@@ -336,6 +336,36 @@ python tools/md-unwrap.py --check .
 
 Il secondo, `lint-md-commands.py`, verifica che i comandi di shell dentro i blocchi recintati non siano spezzati su più righe, perché `md-unwrap` per contratto non tocca il contenuto dei blocchi recintati e quindi un comando spezzato là dentro non lo corregge nessuno.
 
+## marchi.py, l'asse che il formato teneva nascosto accanto ai fiocchi
+
+Enumera i marchi leggendo le loro posizioni dal formato che il deposito conserva, cioè da `PKHeX.Core/PKM/HOME/GameDataCore.cs`, e non da quello di un gioco: la collezione che il progetto persegue vive nel deposito, quindi la domanda su che cosa sia un marchio va posta a chi lo conserva. La scelta di leggere invece di trascrivere è la stessa di `fiocchi.py` e per la stessa ragione, cioè che un bit letto nella posizione sbagliata restituisce comunque un booleano plausibile e nessun controllo interno se ne accorge.
+
+```
+python tools/marchi.py --pkhex _notes/fonti/pkhex --out pokedex-home-completo/MARCHI.md
+python tools/marchi.py --pkhex _notes/fonti/pkhex --out pokedex-home-completo/MARCHI.md --check
+python tools/marchi.py --self-test
+```
+
+L'esito è di cinquantatre marchi su otto byte, raggruppati in sei famiglie per la circostanza che li conferisce, di cui otto appartengono all'insieme che il verificatore della nona generazione tratta a parte. Il risultato che conta per la pianificazione è negativo: nessun marchio è sotto la scadenza, perché i marchi vivono nell'ottava e nella nona generazione, che parlano al deposito per via diretta.
+
+Una cosa che questo strumento non fa va detta, perché la prima stesura la faceva e produceva un numero. La copertura sui lotti si misura soltanto su file dei formati in cui quelle posizioni significano ciò che si pretende, cioè dall'ottava generazione in avanti; puntarle contro i nostri lotti, che arrivano alla quinta, riferiva quattordicimilacinquecentosettantotto marchi accesi su millequattrocentottantasette esemplari, che non era un conteggio sbagliato ma la lettura di punti esperienza e bandierine di sistema interpretati come marchi. Senza file di quei formati lo strumento riporta zero esemplari esaminati, che è un'informazione onesta, invece di un conto privo di senso.
+
+## Il recupero di una corsa del lettore del corpus, e il difetto che lo ha reso necessario
+
+`fetch-reddit.py` ha ricevuto il 2026-09-12 due correzioni che vale conoscere insieme, perché la seconda senza la prima non sarebbe servita a nulla e la prima senza la seconda avrebbe riprovato all'infinito.
+
+La prima distingue due rifiuti che il codice trattava allo stesso modo. Un divieto scritto in `robots.txt` è una proprietà del sito e la registrazione definitiva del nodo come catalogato è corretta; un `robots.txt` che non si è potuto leggere non dice nulla del sito e dice tutto dell'istante, quindi il nodo va fra i pendenti, che è dove il programma metteva già ciò che un tetto aveva escluso e per la medesima ragione. Senza questa distinzione un guasto di pochi minuti diventa un'esclusione permanente che nessuna ripresa ritenta, perché il nodo risulta già deciso.
+
+La seconda riguarda la verifica dei certificati, ed è la causa vera del caso osservato. L'archivio delle radici di sistema di questa macchina contiene nove certificati scaduti, e fra essi una copia di ISRG Root X2 scaduta il 15 settembre 2025; i siti che si appoggiano a quell'autorità servono una catena che termina in X2 controfirmata da ISRG Root X1, valida fino al 2035, ma la verifica si ferma sulla radice di cui si fida e la dichiara scaduta invece di proseguire sul ramo valido. Il programma usa ora l'archivio di radici di `certifi` quando è disponibile, e quando la verifica fallisce lo dichiara come problema di certificato invece di chiamarlo guasto di rete, perché la diagnosi sbagliata nominava il sito remoto mentre il difetto stava nella macchina locale. La verifica non è stata disattivata e non esiste un'opzione per disattivarla: il difetto stava nell'elenco di chi ci si fida, non nel fatto di fidarsi.
+
+Il recupero di una corsa fatta prima della distinzione è un'operazione dello strumento e non un intervento a mano sul suo stato, perché il caso tornerà.
+
+```
+python tools/fetch-reddit.py riprendi "_notes/fonti/<corsa>" --riprova-transitori --solo-transitori --esterni --max-profondita 2
+```
+
+La prima opzione rimette fra i pendenti i nodi che portano quel motivo, la seconda restringe la ripresa a quelli lasciando dove sono i pendenti rinviati da un tetto: riparare un difetto e proseguire una frontiera sono due operazioni diverse e vanno potute fare separatamente. Sulla corsa del corpus della collezione il recupero ha riportato il conto dei documenti da duecentonovantadue a quattrocentocinque.
+
 ## save-deploy.py, il cancello prima dell'hardware
 
 Tre dei cinque sottoprogetti convergono, presto o tardi, sulla stessa operazione: prendere un file di salvataggio e metterlo su un supporto fisico, cioè una cartuccia tramite il lettore oppure la scheda SD della console modificata. È l'unica operazione irreversibile del progetto, e per questo esiste uno strumento alla radice invece di tre procedure separate dentro i sottoprogetti.
