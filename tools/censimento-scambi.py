@@ -430,6 +430,12 @@ def leggi_voce(tipo, riga, nomi_en, tavole=None, elenchi=None, spezza=False, met
         "soprannomi": soprannomi,
         "allenatori": allenatori,
         "proprieta": props,
+        # La riga grezza resta accanto ai campi estratti, perche' un consumatore puo' avere
+        # bisogno di un argomento che questo censimento non interpreta: il generatore degli
+        # scambi, per esempio, ne ricava la sigla della versione. Conservarla costa nulla ed
+        # evita che chi la vuole rilegga il file per conto proprio, cioe' che esistano due
+        # letture della stessa tabella.
+        "riga": riga,
     }
 
 

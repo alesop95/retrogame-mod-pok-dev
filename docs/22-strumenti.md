@@ -396,7 +396,13 @@ tabella              dex   lv personalita  id       soprannome IT nota TradeGift
 
 7 prove, 0 fallite.
 
-Due cose vanno conosciute prima di usarlo. La prima e' l'ordine dei valori individuali, che nella fonte e' punti salute, attacco, difesa, VELOCITA', attacco speciale e difesa speciale: la velocita' sta al quarto posto e non al sesto, e chi assumesse l'ordine consueto otterrebbe sei numeri plausibili nelle posizioni sbagliate. Lo strumento verifica a ogni corsa che quell'ordine coincida con quello che lo strato di terza generazione impacchetta, invece di fidarsi della coincidenza. La seconda e' che la composizione non e' ancora attiva e il programma dice perche': manca la traduzione della versione di incontro, che la tabella dichiara come terzo argomento.
+Tre cose vanno conosciute prima di usarlo. La prima e' l'ordine dei valori individuali, che nella fonte e' punti salute, attacco, difesa, VELOCITA', attacco speciale e difesa speciale: la velocita' sta al quarto posto e non al sesto, e chi assumesse l'ordine consueto otterrebbe sei numeri plausibili nelle posizioni sbagliate. Lo strumento verifica a ogni corsa che quell'ordine coincida con quello che lo strato di terza generazione impacchetta, invece di fidarsi della coincidenza.
+
+La seconda e' che l'apostrofo dritto che la fonte scrive dentro alcuni soprannomi non esiste nella codifica di terza generazione, che conosce i due apostrofi tipografici: la sostituzione verso quello destro e' una traduzione verso il carattere vero e non una pulizia, ed e' la medesima che il censimento fa nel verso opposto quando confronta i nomi delle specie con i commenti della fonte.
+
+La terza e' che lo strumento riusa due cose invece di riscriverle, ed e' la ragione per cui e' corto: la risoluzione della sigla di versione e le tabelle di gioco vengono dal generatore delle distribuzioni, che le porta gia' con la disciplina di sollevare su una sigla ignota invece di cadere su un valore predefinito.
+
+Il lotto prodotto conta diciannove esemplari e attende il giudizio esterno, che e' l'unica prova che conta: si importa la cartella in un salvataggio di terza generazione e se ne esporta il rapporto sui box.
 
 ## save-deploy.py, il cancello prima dell'hardware
 

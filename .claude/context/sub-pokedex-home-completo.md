@@ -20,7 +20,7 @@ Il risultato che governa la pianificazione regge ed è misurato e non assunto: n
 
 Gli assi sono sei più tre. Specie, forme, esemplari da distribuzione, mosse che nessun titolo moderno insegna più, fiocchi conferiti da vie chiuse, sfide interne al deposito; dal 2026-09-09 gli scambi in gioco e gli incontri che una condizione sblocca, enumerati sulla fonte di primo livello; e dal 2026-09-12 i marchi, che sono cinquantatré in sei famiglie ed è ADR-058. I marchi non sono una sottofamiglia dei fiocchi benché il formato li tenga negli stessi byte, perché un fiocco si conferisce per un merito e un marchio per una circostanza dell'incontro, e nessuno di essi è sotto la scadenza.
 
-Il collo di bottiglia non è più la produzione ma il trasferimento: cinque lotti sono prodotti e giudicati, la catena ha i suoi vincoli misurati anello per anello, e la regola di ammissione del deposito è nota e non aggirabile.
+Il collo di bottiglia non è più la produzione ma il trasferimento: sei lotti sono prodotti, la catena ha i suoi vincoli misurati anello per anello, e la regola di ammissione del deposito è nota e non aggirabile. Il sesto, dal 2026-09-14, è quello degli scambi in gioco di terza generazione, ed è il primo che il progetto compone senza alcuna ricerca di semi, perché la fonte ne scrive ogni campo.
 
 ## Prossimo passo
 

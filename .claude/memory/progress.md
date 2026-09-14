@@ -4,6 +4,42 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-14, sesta parte. Diciannove esemplari scritti senza cercare un seme
+
+### Il lotto degli scambi di terza generazione esiste
+
+`tools/genera-scambio-gen3.py` compone, e il lotto sta in `_notes/lotto-scambi-gen3/` con diciannove esemplari e il manifesto delle impronte. E' la prima classe che questo progetto produce senza alcuna ricerca di semi e senza alcun generatore pseudocasuale: la fonte scrive il valore di personalita', i sei valori individuali, l'identificativo, il sesso dell'allenatore e dell'esemplare, l'abilita' e le statistiche di gara, quindi l'esemplare composto e' quello storico campo per campo. I soprannomi e i nomi degli allenatori sono quelli italiani, perche' le cartucce possedute sono italiane.
+
+Due riusi valgono la nota, perche' sono la ragione per cui lo strumento e' corto. La risoluzione della versione viene dal generatore delle distribuzioni, che la porta gia' con la disciplina giusta, cioe' una sigla ignota solleva invece di cadere su un valore predefinito; e le tabelle di gioco, cioe' la corrispondenza fra numerazione nazionale e identificativo interno e i gruppi di crescita, vengono dallo stesso modulo. Riscriverle avrebbe significato avere due verita' sugli stessi dati.
+
+### Tre inciampi, e il terzo era un fatto sul gioco
+
+Il primo e' stato mio e banale: il caricatore che avevo scritto restituiva il modulo sbagliato, perche' nel generatore fratello la variabile delle tabelle di gioco si popola soltanto dentro il proprio `main`. Il secondo pure: la sigla della versione andava letta dal terzo argomento della riga, e per farlo il censimento ha dovuto esporre la riga grezza accanto ai campi estratti, cosa che ora fa dichiarando perche'.
+
+Il terzo non e' un difetto del programma ma un fatto sulla codifica, e vale conservarlo. Il soprannome italiano di uno degli scambi contiene un apostrofo dritto, e la codifica di terza generazione non lo conosce: conosce i due apostrofi tipografici, e il gioco mostra quello destro. La sostituzione e' quindi una traduzione verso il carattere vero e non una pulizia di comodo, ed e' la medesima che il censimento fa nel verso opposto quando confronta i nomi delle specie con i commenti della fonte. La prova che la accompagna verifica entrambe le cose, cioe' che la codifica conosca l'apostrofo destro e non quello dritto, e che il nome si scriva davvero invece di sollevare.
+
+### Che cosa manca a questo lotto
+
+Il giudizio esterno, che e' l'unica prova che conta e che non e' mia: il lotto va importato in un salvataggio di terza generazione e se ne esporta il rapporto. Tre cose andranno guardate per prime, perche' sono quelle che il generatore non puo' verificare da se': che il luogo risulti lo scambio con un personaggio e non un luogo del mondo, che il soprannome sia accettato con il proprio apostrofo, e che l'esemplare risulti soprannominato, perche' la bandierina relativa e' accesa apposta e senza di essa il verificatore contesta.
+
+## 2026-09-14, quinta parte. Tre correzioni dell'utente, e un file che avevo ripristinato per errore
+
+### Il file di ripresa: una decisione scambiata per un incidente
+
+A fine della quarta parte avevo segnalato che `resume-prompt.md` alla radice risultava cancellato e lo avevo ripristinato, dichiarando la causa non accertata. La causa era l'utente: lo aveva cancellato apposta perche' due file di ripresa gli creano confusione. Ripristinarlo e' stato l'errore, e la lezione e' che davanti a un file tracciato sparito la prima domanda va fatta a chi lavora sul repository invece di dedurre da `git status`.
+
+La correzione e' ADR-059 e ha due parti. La fonte di verita' della ripresa e' `_notes/RESUME_PROMPT.md` e nessun'altra; il file alla radice e' stato ricancellato dopo avervi fuso le sue due parti non duplicate, cioe' le quattro discipline e i vincoli che non si negoziano. La voce di `MAPPA-DOCUMENTI.md` resta e dichiara la rimozione con il suo perche', perche' un documento cancellato in silenzio e' indistinguibile da uno dimenticato e la sessione dopo lo ricreerebbe. Il costo e' dichiarato: quelle discipline non arrivano piu' a un clone attraverso quel file, e la mitigazione e' che vivono in forma normativa nelle regole tracciate.
+
+### Non spezzettare
+
+La seconda parte di ADR-059 e' una direttiva sul modo di lavorare e non su un file: non si moltiplicano i documenti `.md`. Prima di crearne uno si verifica se il contenuto appartenga a uno che esiste gia', e la risposta preferita e' che vi appartenga; un documento nuovo si giustifica soltanto se e' generato da uno strumento e ha un `--check` che lo tiene allineato. E' una correzione che mi riguarda direttamente, perche' nelle giornate precedenti ho aggiunto documenti dove avrei potuto estendere.
+
+### La nona generazione non e' posseduta
+
+L'utente ha dichiarato di non avere Scarlatto e Violetto. Ne segue che la sezione delle finestre che si chiudono, aperta poche ore prima con l'edizione dello Skeledirge e le sue istruzioni operative, era costruita su un presupposto mai verificato: quelle istruzioni non erano eseguibili. E' ADR-060, e la sezione e' stata riscritta come coda di produzione della nona generazione, con tre voci, cioe' lo Skeledirge, le altre specie che portano il marchio del piu' forte e i sei incontri del marchio del titano. Non hanno urgenza perche' non scadono, e ADR-052 ordina per scadenza: entrano quando la coda arriva alla nona.
+
+L'errore di metodo e' piccolo nel costo e facile da ripetere: il possesso di un titolo o di un pezzo di hardware non si assume, si chiede. Qui e' costato una consegna inutile e nulla di piu' soltanto perche' la scadenza era di tre giorni.
+
 ## 2026-09-14, quarta parte. Il generatore degli scambi, e quattro difetti invisibili in un'ora
 
 ### Che cosa rende questa classe diversa da tutte le altre che produciamo

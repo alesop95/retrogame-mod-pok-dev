@@ -837,3 +837,23 @@ Il risultato che governa la pianificazione, e che è negativo. Nessun marchio è
 Come si conta, e come non si conta. Vale qui la regola già fissata per i cromatici da ADR-041 e per le sfere: un marchio non si moltiplica per le specie, si misura. Il marchio del titano ha denominatore sei, fissato dalla fonte; quello del più forte va contato sulla pagina delle edizioni perché non tutte lo conferiscono, e dedurlo dal numero delle edizioni darebbe un valore plausibile e sbagliato.
 
 Il vincolo di catena che ne discende, e che non riguarda l'enumerazione. La pagina dei titoli dichiara che un esemplare arrivato dal deposito ha i propri titoli disponibili al primo trasferimento, ma che se vi ottiene il titolo di rango massimo non può tornare indietro attraverso il deposito. Un titolo guadagnato là costa dunque la reversibilità del trasferimento, e la voce sta accanto alla tensione già aperta sulla rimozione permanente del timbro della banca all'uscita.
+
+## ADR-059: un solo file di ripresa, e non si moltiplicano i documenti
+
+Data: 2026-09-14. Stato: accettata, direttiva esplicita dell'utente.
+
+Il problema. La ripresa di sessione viveva in due file, uno tracciato alla radice con le discipline e uno locale sotto `_notes/` con lo stato volatile, e la divisione era stata dichiarata il 2026-09-10 proprio per evitare che divergessero. L'utente ha cancellato quello alla radice dichiarando che due file gli creano confusione, e l'agente lo ha ripristinato credendolo perduto per errore: era una decisione, non un incidente.
+
+La decisione, in due parti. La prima e' che la fonte di verita' della ripresa e' `_notes/RESUME_PROMPT.md` e nessun'altra: il file alla radice resta cancellato e non si ricrea, e le sue due parti non duplicate, cioe' le quattro discipline e i vincoli che non si negoziano, sono state fuse dentro di esso prima della rimozione. La seconda e' generale e vale oltre questo caso: non si spezzettano le cose in nuovi file `.md`. Prima di creare un documento nuovo si verifica se il contenuto appartenga a uno che esiste gia', e la risposta preferita e' che vi appartenga; un documento nuovo si giustifica soltanto quando e' generato da uno strumento e ha un `--check` che lo tiene allineato.
+
+Che cosa la decisione costa, e va detto. Il file locale non e' versionato, quindi le discipline che vi sono state fuse non arrivano a un clone: e' un prezzo accettato dall'utente in cambio della chiarezza, e la mitigazione e' che quelle discipline vivono comunque, in forma normativa, nelle regole sotto `.claude/rules/` e nel `CLAUDE.md`, che sono tracciati. La voce di `MAPPA-DOCUMENTI.md` sul file rimosso resta al proprio posto e dichiara la rimozione con il suo perche', perche' un documento cancellato in silenzio e' indistinguibile da uno dimenticato e la sessione successiva lo ricreerebbe.
+
+## ADR-060: la nona generazione non e' posseduta, quindi i suoi marchi si producono
+
+Data: 2026-09-14. Stato: accettata, fatto dichiarato dall'utente.
+
+Il problema. L'asse dei marchi aperto da ADR-058 era stato pianificato sul presupposto implicito che i titoli della nona generazione fossero giocabili, e da quel presupposto era nata una sezione di scadenze operative con una edizione aperta da cogliere entro tre giorni. L'utente ha dichiarato di non possedere Scarlatto e Violetto.
+
+La decisione. I marchi di nona generazione non sono voci da cogliere ma voci da produrre, e rientrano in ADR-050 come qualunque altra via non percorribile: il marchio del piu' forte con le sue specie, e il marchio del titano con i suoi sei incontri. Entrano nella coda quando la coda arrivera' alla nona generazione, e non prima, perche' ADR-052 ordina per scadenza e questi non scadono. La sezione di `pending.md` che li elencava come finestre e' stata riscritta di conseguenza.
+
+L'errore di metodo, registrato perche' e' il piu' facile da ripetere. Il possesso di un titolo o di un pezzo di hardware non si assume: si chiede. Assumerlo ha prodotto una consegna operativa inutile, cioe' istruzioni per una cattura impossibile, ed e' un costo piccolo qui soltanto perche' la scadenza era di tre giorni e non di tre mesi.
