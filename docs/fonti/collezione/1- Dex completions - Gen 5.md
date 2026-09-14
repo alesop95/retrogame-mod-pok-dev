@@ -8,8 +8,8 @@ Questo cluster ha 5 fonti su 2 host: bulbapedia.bulbagarden.net con 4, youtube.c
 
 | Liv | Che cosa documenta | Host | URL |
 |---|---|---|---|
-| 2 | Dream radar Pokemon | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Dream_Radar |
-| 2 | Hidden Grotto | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/Hidden_Grotto |
-| 2 | B2W2 Pass Power | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/Entralink#Pass_Powers |
-| 2 | N's Pokemon | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/N%27s_Pok%C3%A9mon |
+| 2 | Dream radar Pokemon. Titolo della fonte: Pokémon Dream Radar - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Dream_Radar |
+| 2 | Hidden Grotto - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/Hidden_Grotto |
+| 2 | B2W2 Pass Power. Titolo della fonte: Entralink - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/Entralink#Pass_Powers |
+| 2 | N's Pokemon. Titolo della fonte: N's Pokémon - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/N%27s_Pok%C3%A9mon |
 | - | B2W2 Yancy/Curtis trades | youtube.com | https://www.youtube.com/watch?v=tb0eeLjTMOo |

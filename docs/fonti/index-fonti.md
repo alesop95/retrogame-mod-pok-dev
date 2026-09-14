@@ -107,6 +107,13 @@ graph LR
 | [[glitchcity-mailwriter]] | ACE, PKD | [[STUDIO-08-esecuzione-di-codice-e-manipolazione-del-generatore]] |
 | [[bulbapedia-macchine-nascoste]] | PKD, EVT | [[MOSSE-MN]], [[CATENA-DI-TRASFERIMENTO]] |
 | [[surfing-pikachu]] | EVT, PKD | [[CATENA-DI-TRASFERIMENTO]] |
+| [[bulbapedia-dream-radar]] | PKD, EVT | [[LETTURA-DEL-CORPUS]] |
+| [[bulbapedia-n-pokemon]] | PKD | [[LETTURA-DEL-CORPUS]] |
+| [[bulbapedia-totem]] | PKD | [[LETTURA-DEL-CORPUS]] |
+| [[bulbapedia-island-scan]] | PKD | [[LETTURA-DEL-CORPUS]] |
+| [[serebii-titan]] | PKD | [[MARCHI]] |
+| [[serebii-tera-eventi]] | PKD | [[MARCHI]] |
+| [[serebii-champions-titoli]] | PKD, GFS | [[MARCHI]] |
 
 ### Livello 3
 

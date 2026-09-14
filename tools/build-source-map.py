@@ -648,6 +648,48 @@ FONTI = [
      "Risponde in parte al primo dei quattro passi che il capitolo sulla produzione dentro il gioco lascia aperti, cioe' misurare che cosa il canale offra oggi: offre doni oltre allo scambio, e un catalogo per titolo esiste in forma di testimonianza. Ne segue che una parte dell'asse degli eventi potrebbe essere ricevuta invece che composta, che e' preferibile su ogni dimensione, e che la domanda residua non e' piu' tecnica ma di perimetro. Resta una fonte di quinto livello: dice che qualcuno ha ricevuto quelle voci, non che il servizio le distribuisca a chiunque oggi.",
      [("[[30-produrre-dentro-il-gioco]]", "il primo dei quattro passi, e cio' che la misura gli risponde")],
      []),
+
+    ("bulbapedia-dream-radar", "Pokemon Dream Radar, l'enciclopedia", "https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Dream_Radar", 2, True, ["PKD", "EVT"],
+     "Pagina enciclopedica letta il 2026-09-12 dopo il recupero del corpus. Enumera le ventisei specie che il sondatore dei sogni consegna, in quattro insiemi che si sbloccano in sequenza: quindici come sfere luminose, tre dietro altrettante estensioni sbloccate da una combinazione di tasti, cinque legate ciascuna a una scheda di gioco di quarta generazione inserita nella console, e le tre forze della natura in volo libero e in forma totemica. Dichiara inoltre che ogni esemplare porta la propria abilita' nascosta tranne Rotom che non ne ha, che la sfera e' sempre la Sfera Sogno, che il luogo d'incontro e' il sondatore stesso, e che il livello non e' fissato dalla tavola ma dal numero di medaglie del gioco che riceve, da cinque senza medaglie a quaranta con sette o otto.",
+     "E' la fonte che trasforma le centottantuno voci del sondatore da conteggio a elenco con le proprie condizioni. Corregge inoltre un'aspettativa del progetto: il livello cinque non e' una proprieta' dell'esemplare ma una conseguenza di quando lo si riceve, quindi va prodotto o ottenuto su un salvataggio senza medaglie. Registra infine, per la prima volta su un meccanismo di quinta generazione, che la scheda inserita funziona indipendentemente dalla propria lingua.",
+     [("[[LETTURA-DEL-CORPUS]]", "il lotto del 2026-09-12, quinta generazione")],
+     []),
+
+    ("bulbapedia-n-pokemon", "I Pokemon di N, l'enciclopedia", "https://bulbapedia.bulbagarden.net/wiki/N%27s_Pok%C3%A9mon", 2, True, ["PKD"],
+     "Pagina enciclopedica letta il 2026-09-12. Elenca quindici esemplari e ne dichiara i tratti: identificativo 00002 con allenatore N, trenta in ogni valore individuale, natura fissata, amicizia al massimo alla cattura, impossibilita' di ricevere un soprannome e cromaticita' bloccata nel codice. Dichiara inoltre che la sfera non e' fissata ma e' quella che il giocatore usa per catturarli.",
+     "Conferma per via indipendente il quindici che il progetto aveva misurato sulle tavole del verificatore il 2026-09-08, correggendo il trentasei che portava in memoria. Toglie inoltre un tratto che si sarebbe potuto assumere, cioe' che la sfera fosse parte dell'identita' dell'esemplare.",
+     [("[[LETTURA-DEL-CORPUS]]", "il lotto del 2026-09-12, quinta generazione")],
+     []),
+
+    ("bulbapedia-totem", "I Pokemon totemici, l'enciclopedia", "https://bulbapedia.bulbagarden.net/wiki/Totem_Pok%C3%A9mon", 2, True, ["PKD"],
+     "Pagina enciclopedica letta il 2026-09-12. Dichiara che gli esemplari di taglia totemica si ottengono soltanto nelle riedizioni della settima generazione, in cambio di adesivi con soglie da venti a cento, che sono undici e tutti tranne uno esclusivi di una versione, e che se trasferiti nel deposito vengono riportati alla taglia ordinaria.",
+     "E' la conferma indipendente della conclusione che il progetto aveva raggiunto il 2026-09-02 sulle proprie tavole, cioe' che quelle voci non sono irrecuperabili dopo la scadenza ma irraggiungibili sempre. Una fonte che non conosce il nostro ragionamento e vi arriva per un'altra strada e' esattamente cio' che serve a promuovere una conclusione a fatto.",
+     [("[[LETTURA-DEL-CORPUS]]", "il lotto del 2026-09-12, settima generazione")],
+     []),
+
+    ("bulbapedia-island-scan", "La scansione dell'isola, l'enciclopedia", "https://bulbapedia.bulbagarden.net/wiki/QR_Scanner", 2, True, ["PKD"],
+     "Pagina enciclopedica letta il 2026-09-12. Descrive il meccanismo che, accumulati cento punti, rende disponibile per un'ora una specie non nativa della regione, diversa per isola e per giorno della settimana, e ne enumera quarantasette fra le due coppie di titoli della settima generazione. Dichiara che ciascuna conosce una mossa che a quel livello non avrebbe, e che natura, abilita' e dati si rigenerano a ogni incontro se si fugge.",
+     "Da' al progetto un insieme che non aveva, e che contiene i capostipiti di ogni regione precedente: e' quindi una via alla loro cattura dentro la settima generazione invece che un trasferimento. La mossa che l'esemplare porta e' la traccia che lo rende distinguibile da una cattura ordinaria.",
+     [("[[LETTURA-DEL-CORPUS]]", "il lotto del 2026-09-12, settima generazione")],
+     []),
+
+    ("serebii-titan", "I Pokemon titanici", "https://www.serebii.net/scarletviolet/titanpokemon.shtml", 2, True, ["PKD"],
+     "Pagina letta il 2026-09-12. Elenca i sei incontri che restano disponibili dopo la trama, cioe' Klawf, Bombirdier, Orthworm, la coppia fra Great Tusk e Iron Treads secondo la versione, e Tatsugiri, ciascuno con livello, luogo, natura, tipo cristallino e mosse, e dichiara che hanno altezza e peso al massimo, trenta garantiti in ogni valore individuale e il marchio del titano.",
+     "E' una delle tre fonti di questo lotto che hanno reso visibile l'asse dei marchi, che il progetto non aveva perche' il formato tiene marchi e fiocchi nella stessa regione di byte. Fissa inoltre il denominatore di uno dei due marchi rari, che e' sei e non un numero da stimare.",
+     [("[[MARCHI]]", "il marchio del titano e i suoi sei incontri")],
+     []),
+
+    ("serebii-tera-eventi", "Gli incontri a cristallo nero", "https://serebii.net/scarletviolet/teraraidbattleevents.shtml", 2, True, ["PKD"],
+     "Pagina letta il 2026-09-12. Elenca novantuno edizioni di incontro a distribuzione, ciascuna con le proprie date di apertura e chiusura, e dichiara per la maggior parte di esse che l'esemplare sconfitto conferisce il marchio del piu' forte. Le edizioni durano tipicamente una settimana e non tornano.",
+     "E' la seconda delle tre fonti che hanno aperto l'asse dei marchi, ed e' quella che ne mostra la forma temporale: un marchio legato a una settimana di calendario si comporta come una distribuzione e non come un merito, quindi appartiene allo stesso genere di collezionabile delle voci da evento. Il conto esatto delle edizioni che lo conferiscono resta da fare sulla pagina e non e' stimato.",
+     [("[[MARCHI]]", "il marchio del piu' forte, e perche' il suo conto va fatto sulla fonte")],
+     []),
+
+    ("serebii-champions-titoli", "I titoli di Pokemon Champions", "https://www.serebii.net/pokemonchampions/pokemontitles.shtml", 2, True, ["PKD", "GFS"],
+     "Pagina letta il 2026-09-12. Dichiara che quel gioco non disegna i marchi e li espone come titoli scegliibili, elenca gli undici disponibili con il metodo di ciascuno, e avverte che un esemplare arrivato dal deposito ha i propri titoli disponibili al primo trasferimento, ma che se vi ottiene il titolo di rango massimo non puo' tornare indietro attraverso il deposito.",
+     "E' la terza fonte che ha aperto l'asse dei marchi, e la sola che mostri gli stessi marchi sotto un altro nome, il che chiarisce che sono una proprieta' dell'esemplare e non una decorazione di un gioco. L'avvertenza sul ritorno e' un vincolo di catena e va conservata accanto alle altre: un titolo guadagnato la' costa la reversibilita' del trasferimento.",
+     [("[[MARCHI]]", "i marchi visti da un altro gioco, e il trasferimento che non torna")],
+     []),
 ]
 # ---------------------------------------------------------------------------------------
 # I riferimenti teorici canonici dei concetti impiegati nell'analisi quantitativa.

@@ -9,6 +9,6 @@ Questo cluster ha 4 fonti su 4 host: buriedrelic.neocities.org con 1, bulbapedia
 | Liv | Che cosa documenta | Host | URL |
 |---|---|---|---|
 | 3 | Gen 4 shiny hunting guide. Titolo della fonte: Old-Gen Shiny hunter manual (Generation 4) - Buried Relic | buriedrelic.neocities.org | https://buriedrelic.neocities.org/pages/manual/generation_4 |
-| 2 | Introduction to Masuda Method | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/Masuda_method |
+| 2 | Introduction to Masuda Method. Titolo della fonte: Masuda method - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/Masuda_method |
 | - | Gen 4 Pokeradar | youtu.be | https://youtu.be/AIslziEvNIU?si=ztdU_rYWgxwSsQuH |
 | 5 | How to shiny hunt Manaphy - only for complete maniacs. Titolo della fonte: [Discuss] A guide to shiny hunting Manaphy optimally, di pup_pup_pass | reddit.com | https://www.reddit.com/r/ShinyPokemon/comments/fdowih/discuss_a_guide_to_shiny_hunting_manaphy_optimally/ |

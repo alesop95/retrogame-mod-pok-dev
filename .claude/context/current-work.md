@@ -13,7 +13,7 @@ covers-paths:
   - generation-from-switch/
   - cart-battery-restoration/
   - pokedex-home-completo/
-last-verified-commit: 7b66def
+last-verified-commit: e26e59e
 stato: adozione conclusa; dieci track, fuoco corrente sul completamento del Pokedex nel deposito
 ---
 
@@ -25,7 +25,7 @@ La fonte di verità su cosa è fatto resta `memory/index.md`, non le spunte di q
 
 | Sottoprogetto | Stato | Prossima azione concreta | Bloccato da |
 |---|---|---|---|
-| pokedex-completo | attivo ed è il fuoco corrente; sei assi più le due classi nuove, criterio di produzione fissato e coda ordinata per scadenza | finire la lettura del corpus a lotti, poi il lavoro che ADR-051 apre, cioè estendere il generatore alle classi nuove e rigenerare la lista di spunta con i tre cambi recenti | nulla di tecnico; restano due decisioni dell'utente, cioè l'ambito delle sfide e la scelta del profilo di collezione |
+| pokedex-completo | attivo ed è il fuoco corrente; sei assi più le due classi nuove più i marchi di ADR-058, criterio di produzione fissato e coda ordinata per scadenza; il corpus è a 405 documenti e 25 cluster dichiarati dopo il recupero di ADR-057 | proseguire le due linee in parallelo, cioè il lotto trasversale delle fonti recuperate che chiudono lavori già aperti, e il lavoro che ADR-051 apre, cioè estendere il generatore alle classi nuove e rigenerare la lista di spunta con i tre cambi recenti | nulla di tecnico; restano due decisioni dell'utente, cioè l'ambito delle sfide e la scelta del profilo di collezione |
 | distributions-events | attivo; cinque lotti prodotti, quello di terza conforme su tutte le voci producibili e quello di quarta su 219 su 247 | il pedigree delle voci di quarta generazione e il generatore di quinta, che è l'ultimo dei tre regimi a non essere scritto | nulla su questi passi; le 28 voci coreane attendono una decisione registrata in ADR-040 |
 | gen12-gen3-bridge | attivo; le tre generazioni e lo strato del salvataggio da 128 KiB sono scritti e collaudati, 206 prove | il confronto del salvataggio sintetico con il contenitore che il verificatore genera, che è la prova che alla simmetria mancava | nulla sul lavoro comune: ADR-008 e la discovery hardware pesano solo sull'ultimo tratto |
 | smeraldo-save-fix | attivo; il lettore è arrivato il 2026-09-09 e la prima sessione è progettata nel runbook | confermare i driver CH340 e annotare la porta, poi eseguire i quattro tempi del runbook nell'ordine del rischio | il solo riscontro sulla macchina per i driver |

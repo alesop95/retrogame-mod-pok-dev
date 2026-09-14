@@ -2,7 +2,7 @@
 
 > Documento generato da `tools/censimento-fonti-reddit.py` a partire dalla corsa di `tools/fetch-reddit.py` in `_notes/fonti/reddit-pokemonhome-1vtj5hf-2026-09-08`, che non entra in git perché è materiale grezzo di terzi. Si rigenera invece di modificarlo a mano.
 
-Il post di partenza è https://www.reddit.com/r/PokemonHome/comments/1vtj5hf/, e il grafo che ne discende ha 1287 nodi e 1545 archi. Questo censimento non è il grafo: è l'elenco dei collegamenti che il post cita direttamente, deduplicati e raggruppati secondo le intestazioni che l'autore ha scelto. I cluster sono quindi suoi e non nostri, il che li rende confrontabili con la fonte.
+Il post di partenza è https://www.reddit.com/r/PokemonHome/comments/1vtj5hf/, e il grafo che ne discende ha 1515 nodi e 1800 archi. Questo censimento non è il grafo: è l'elenco dei collegamenti che il post cita direttamente, deduplicati e raggruppati secondo le intestazioni che l'autore ha scelto. I cluster sono quindi suoi e non nostri, il che li rende confrontabili con la fonte.
 
 La colonna dell'esito dice se quella fonte sia stata scaricata dalla corsa, catalogata con un motivo, oppure non raggiunta perché oltre un tetto. Le tre cose non si equivalgono e contarle insieme darebbe una copertura apparente più alta di quella reale.
 
@@ -120,7 +120,7 @@ La colonna dell'esito dice se quella fonte sia stata scaricata dalla corsa, cata
 | Original Region Guides: Gen 3 (di electroswingmix) | https://www.reddit.com/r/PokemonHome/comments/1vphi1w/original_region_guides_gen_3/ | reddit.com | scaricato |
 | National Dex Guide for RSE - How to complete your Pokédex in generation 3 (Ruby/Sapphire/Fire Red/Leaf Green/Emerald) (di Poison-Powder) | https://www.reddit.com/r/Pokemonguide/comments/l0bwym/how_to_complete_your_pok%C3%A9dex_in_generation_3/ | reddit.com | scaricato |
 | Generation 3 Feebas Guide (also applies to Gen 4) (di flipflipshift) | https://www.reddit.com/r/pokemon/comments/lettfp/generation_3_feebas_guide_also_applies_to_gen_4/?utm_source=share&utm_medium=ios_app&utm_name=iossmf | reddit.com | scaricato |
-| Berry glitch Zigzagoon | https://bulbapedia.bulbagarden.net/wiki/Berry_glitch | bulbapedia.bulbagarden.net | catalogato |
+| Berry glitch Zigzagoon - Berry glitch - Bulbapedia, the community-driven Pokémon encyclopedia | https://bulbapedia.bulbagarden.net/wiki/Berry_glitch | bulbapedia.bulbagarden.net | scaricato |
 | FRLG Safari Zone Research | https://www.youtube.com/watch?v=y81nojEHKh8 | youtube.com | catalogato |
 | Gen 3 Check: Pokémon you need to have in Pokémon HOME (di Dararakz) | https://www.reddit.com/r/PokemonHome/comments/1p06clm/gen_3_check_pok%C3%A9mon_you_need_to_have_in_pok%C3%A9mon/ | reddit.com | scaricato |
 | Arbitrary Code Execution FRLG for past events | https://www.youtube.com/watch?v=fK4jxsuvAsk&t=2512s | youtube.com | catalogato |
@@ -131,7 +131,7 @@ La colonna dell'esito dice se quella fonte sia stata scaricata dalla corsa, cata
 | Che cosa è | Indirizzo | Host | Esito nella corsa |
 |---|---|---|---|
 | National Dex Guide for Platinum - I've written the most comprehensive guide ever to completing the National Dex in Platinum (di big_bill_wilson) | https://www.reddit.com/r/pokemon/comments/oyjuy7/ive_written_the_most_comprehensive_guide_ever_to/ | reddit.com | scaricato |
-| HGSS bug catching contest | https://bulbapedia.bulbagarden.net/wiki/Bug-Catching_Contest | bulbapedia.bulbagarden.net | catalogato |
+| HGSS bug catching contest - Bug-Catching Contest - Bulbapedia, the community-driven Pokémon encyclopedia | https://bulbapedia.bulbagarden.net/wiki/Bug-Catching_Contest | bulbapedia.bulbagarden.net | scaricato |
 | Gen 4 Check: Pokémon you need to have in Pokémon HOME (di Dararakz) | https://www.reddit.com/r/PokemonHome/comments/1pd8ve9/gen_4_check_pok%C3%A9mon_you_need_to_have_in_pok%C3%A9mon/ | reddit.com | scaricato |
 | HGSS ingame trades | https://www.youtube.com/watch?v=xOBSFSiK2R0 | youtube.com | catalogato |
 | Level 1 (shiny) Sinjoh ruins legendaries - How did I get a low level Giritina? Here is a step by step guide so you too can get all the gen 4 and gen 5 event Pokemon!  (di BoxLongjumping1067) | https://www.reddit.com/r/PokemonHGSS/comments/1hy3b12/how_did_i_get_a_low_level_giritina_here_is_a_step/ | reddit.com | scaricato |
@@ -142,10 +142,10 @@ La colonna dell'esito dice se quella fonte sia stata scaricata dalla corsa, cata
 
 | Che cosa è | Indirizzo | Host | Esito nella corsa |
 |---|---|---|---|
-| Dream radar Pokemon | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Dream_Radar | bulbapedia.bulbagarden.net | catalogato |
-| Hidden Grotto | https://bulbapedia.bulbagarden.net/wiki/Hidden_Grotto | bulbapedia.bulbagarden.net | catalogato |
-| B2W2 Pass Power | https://bulbapedia.bulbagarden.net/wiki/Entralink#Pass_Powers | bulbapedia.bulbagarden.net | catalogato |
-| N's Pokemon | https://bulbapedia.bulbagarden.net/wiki/N%27s_Pok%C3%A9mon | bulbapedia.bulbagarden.net | catalogato |
+| Dream radar Pokemon - Pokémon Dream Radar - Bulbapedia, the community-driven Pokémon encyclopedia | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Dream_Radar | bulbapedia.bulbagarden.net | scaricato |
+| Hidden Grotto - Bulbapedia, the community-driven Pokémon encyclopedia | https://bulbapedia.bulbagarden.net/wiki/Hidden_Grotto | bulbapedia.bulbagarden.net | scaricato |
+| B2W2 Pass Power - Entralink - Bulbapedia, the community-driven Pokémon encyclopedia | https://bulbapedia.bulbagarden.net/wiki/Entralink#Pass_Powers | bulbapedia.bulbagarden.net | scaricato |
+| N's Pokemon - N's Pokémon - Bulbapedia, the community-driven Pokémon encyclopedia | https://bulbapedia.bulbagarden.net/wiki/N%27s_Pok%C3%A9mon | bulbapedia.bulbagarden.net | scaricato |
 | B2W2 Yancy/Curtis trades | https://www.youtube.com/watch?v=tb0eeLjTMOo | youtube.com | catalogato |
 
 ## 1) Dex completions / Gen 6
@@ -159,10 +159,10 @@ La colonna dell'esito dice se quella fonte sia stata scaricata dalla corsa, cata
 
 | Che cosa è | Indirizzo | Host | Esito nella corsa |
 |---|---|---|---|
-| Totem Pokemon | https://bulbapedia.bulbagarden.net/wiki/Totem_Pok%C3%A9mon | bulbapedia.bulbagarden.net | catalogato |
-| Island scan | https://bulbapedia.bulbagarden.net/wiki/QR_Scanner#Island_Scan | bulbapedia.bulbagarden.net | catalogato |
+| Totem Pokemon - Totem Pokémon - Bulbapedia, the community-driven Pokémon encyclopedia | https://bulbapedia.bulbagarden.net/wiki/Totem_Pok%C3%A9mon | bulbapedia.bulbagarden.net | scaricato |
+| Island scan - QR Scanner - Bulbapedia, the community-driven Pokémon encyclopedia | https://bulbapedia.bulbagarden.net/wiki/QR_Scanner#Island_Scan | bulbapedia.bulbagarden.net | scaricato |
 | Shiny Cap Pikachu | https://www.youtube.com/watch?v=d-2mHUdbn8k | youtube.com | catalogato |
-| Surf Pikachu - can be shiny hunted | https://bulbapedia.bulbagarden.net/wiki/Surfing_Pikachu#Pok%C3%A9mon_Ultra_Sun_and_Ultra_Moon | bulbapedia.bulbagarden.net | catalogato |
+| Surf Pikachu - can be shiny hunted - Surfing Pikachu - Bulbapedia, the community-driven Pokémon encyclopedia | https://bulbapedia.bulbagarden.net/wiki/Surfing_Pikachu#Pok%C3%A9mon_Ultra_Sun_and_Ultra_Moon | bulbapedia.bulbagarden.net | scaricato |
 | Transfer Ash Greninja | https://www.youtube.com/watch?v=o3TWbBsOv8I | youtube.com | catalogato |
 | Zygarde 100% Guide | https://www.youtube.com/watch?v=65OcoKMBK_o | youtube.com | catalogato |
 
@@ -187,7 +187,7 @@ La colonna dell'esito dice se quella fonte sia stata scaricata dalla corsa, cata
 
 | Che cosa è | Indirizzo | Host | Esito nella corsa |
 |---|---|---|---|
-| List of purfified shadow Pokemon from XD/Colosseum | https://bulbapedia.bulbagarden.net/wiki/List_of_Shadow_Pok%C3%A9mon | bulbapedia.bulbagarden.net | catalogato |
+| List of purfified shadow Pokemon from XD/Colosseum - List of Shadow Pokémon - Bulbapedia, the community-driven Pokémon encyclopedia | https://bulbapedia.bulbagarden.net/wiki/List_of_Shadow_Pok%C3%A9mon | bulbapedia.bulbagarden.net | scaricato |
 | AlphaDex Pokemon - AlphaDex, part 3 (di Roval3) | https://www.reddit.com/r/PokemonHome/comments/1py3n1f/alphadex_part_3/ | reddit.com | scaricato |
 | Current GO Home dex | https://x.com/gohomedex | x.com | catalogato |
 | Overview of possible titles for Pokemon Champions - Pokémon Champions - Pokémon Titles | https://www.serebii.net/pokemonchampions/pokemontitles.shtml | serebii.net | scaricato |
@@ -199,7 +199,7 @@ La colonna dell'esito dice se quella fonte sia stata scaricata dalla corsa, cata
 | Checklist ingame trades & gifts - I made a spreadsheet/checklist of all the in-game trades/gift pokemon/interactable pokemon in all the games. This might not be useful to almost anyone, but if there’s someone out there collecting them like me, this might help! Also, feedback is appreciated! (di greenpangolin17) | https://www.reddit.com/r/PokemonHome/comments/17rt8yo/i_made_a_spreadsheetchecklist_of_all_the_ingame/ | reddit.com | scaricato |
 | Checklist ingame events - New checklist for Collectors! Every In-Game Event Pokemon! Finish before pokebank goes away forever (di ChaBoiJish) | https://www.reddit.com/r/pokemontrades/comments/18y648l/new_checklist_for_collectors_every_ingame_event/ | reddit.com | scaricato |
 | Rarest pokemon to have (di Dependent_Relief_652) | https://www.reddit.com/r/PokemonHome/comments/1flidyg/rarest_pokemon_to_have/ | reddit.com | scaricato |
-| Gender Differences | https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_with_gender_differences | bulbapedia.bulbagarden.net | catalogato |
+| List of Pokémon with gender differences - Bulbapedia, the community-driven Pokémon encyclopedia | https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_with_gender_differences | bulbapedia.bulbagarden.net | scaricato |
 | A guide to underleveled pokemon without Pokemon GO - A guide to underleveled Pokemon. (di Pikmin34) | https://www.reddit.com/r/pokemon/comments/hhlm8k/a_guide_to_underleveled_pokemon/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button | reddit.com | scaricato |
 | Overview DNS glitch Gen 4&5 - [DNS] Gen IV & V events (list inside) (di JoseGamer33) | https://www.reddit.com/r/wiimmfi/comments/fugd8l/dns_gen_iv_v_events_list_inside/?show=original | reddit.com | scaricato |
 | List of obtainable DNS pokemon - How to unlock Gen 4 and 5 Pokemon Mystery Events in 2018 / Shacknews | https://www.shacknews.com/article/108512/how-to-unlock-gen-4-and-5-pokemon-mystery-events-in-2018 | shacknews.com | scaricato |
@@ -224,7 +224,7 @@ La colonna dell'esito dice se quella fonte sia stata scaricata dalla corsa, cata
 |---|---|---|---|
 | Pikachu event dex - Serebii.net Eventdex - #0025 Pikachu | https://www.serebii.net/events/dex/025.shtml | serebii.net | scaricato |
 | Mark overview - Pokémon Scarlet & Violet - Marks | https://www.serebii.net/scarletviolet/marks.shtml | serebii.net | scaricato |
-| Curry mark | https://projectpokemon.org/home/forums/topic/57870-swsh-camp-encounters-after-making-curry/ | projectpokemon.org | catalogato |
+| Curry mark - SWSH - Camp Encounters after making curry - Generation 8 - Project Pokemon Forums | https://projectpokemon.org/home/forums/topic/57870-swsh-camp-encounters-after-making-curry/ | projectpokemon.org | scaricato |
 | Weather marks SWSH - Pokémon Sword & Shield - Weather | https://www.serebii.net/swordshield/weather.shtml | serebii.net | scaricato |
 | Misty mark in SV | https://x.com/Sibun4a_Switch/status/1930459094202163632 | x.com | catalogato |
 | guide to all possible Pokemon, lvl, ball combination - Serebii.net Games - PokéBall Details - Generation I | https://www.serebii.net/games/geniball.shtml | serebii.net | scaricato |
@@ -242,10 +242,10 @@ La colonna dell'esito dice se quella fonte sia stata scaricata dalla corsa, cata
 | Che cosa è | Indirizzo | Host | Esito nella corsa |
 |---|---|---|---|
 | Spreadsheet of matching Pokemon-Ball colours - Legal Matching Pokéballs 2.0 spreadsheet (di OracleLink) | https://www.reddit.com/r/pokemon/comments/zi89xa/legal_matching_pok%C3%A9balls_20_spreadsheet/ | reddit.com | scaricato |
-| List of all unique NPC and gift TIDs | https://bulbapedia.bulbagarden.net/wiki/List_of_notable_ID_numbers | bulbapedia.bulbagarden.net | catalogato |
-| List of crossgen evolutions | https://bulbapedia.bulbagarden.net/wiki/List_of_cross-generational_evolutionary_lines | bulbapedia.bulbagarden.net | catalogato |
-| List of Events | https://m.bulbapedia.bulbagarden.net/wiki/List_of_event_Pok%C3%A9mon_distributions | m.bulbapedia.bulbagarden.net | catalogato |
-| Event gallery | https://projectpokemon.org/home/files/category/2-event-gallery/ | projectpokemon.org | catalogato |
+| List of all unique NPC and gift TIDs - List of notable ID numbers - Bulbapedia, the community-driven Pokémon encyclopedia | https://bulbapedia.bulbagarden.net/wiki/List_of_notable_ID_numbers | bulbapedia.bulbagarden.net | scaricato |
+| List of crossgen evolutions - List of cross-generational evolutionary lines - Bulbapedia, the community-driven Pokémon encyclopedia | https://bulbapedia.bulbagarden.net/wiki/List_of_cross-generational_evolutionary_lines | bulbapedia.bulbagarden.net | scaricato |
+| List of Events - List of event Pokémon distributions - Bulbapedia, the community-driven Pokémon encyclopedia | https://m.bulbapedia.bulbagarden.net/wiki/List_of_event_Pok%C3%A9mon_distributions | m.bulbapedia.bulbagarden.net | scaricato |
+| Event Gallery - Project Pokemon Forums | https://projectpokemon.org/home/files/category/2-event-gallery/ | projectpokemon.org | scaricato |
 | Cherish ball dex | https://www.youtube.com/watch?app=desktop&v=mGM_nNGAEgU | youtube.com | non nel grafo |
 
 ## 6) How to still get Bank and other games/ 3DS modding
@@ -283,7 +283,7 @@ La colonna dell'esito dice se quella fonte sia stata scaricata dalla corsa, cata
 |---|---|---|---|
 | Gen 1 and 2 shiny hunting guide - Old-Gen Shiny hunter manual (Generations 1 & 2) - Buried Relic | https://buriedrelic.neocities.org/pages/manual/generations_1_2 | buriedrelic.neocities.org | scaricato |
 | Gen 2 chain breeding - How to breed an army of Shinies with Red Gyarados (di Chamale) | https://www.reddit.com/r/Pokemonguide/comments/8w0x5i/how_to_breed_an_army_of_shinies_with_red_gyarados/ | reddit.com | scaricato |
-| Pokemon Crystal Odd Egg | https://bulbapedia.bulbagarden.net/wiki/Odd_Egg | bulbapedia.bulbagarden.net | catalogato |
+| Pokemon Crystal Odd Egg - Odd Egg - Bulbapedia, the community-driven Pokémon encyclopedia | https://bulbapedia.bulbagarden.net/wiki/Odd_Egg | bulbapedia.bulbagarden.net | scaricato |
 | Shiny Gene Ditto - DV Breeding For Shinies - Blue Moon Falls | https://bluemoonfalls.com/pages/shinies/dv-breeding | bluemoonfalls.com | scaricato |
 
 ## 8) Shiny Hunting / Gen 3
@@ -298,7 +298,7 @@ La colonna dell'esito dice se quella fonte sia stata scaricata dalla corsa, cata
 | Che cosa è | Indirizzo | Host | Esito nella corsa |
 |---|---|---|---|
 | Gen 4 shiny hunting guide - Old-Gen Shiny hunter manual (Generation 4) - Buried Relic | https://buriedrelic.neocities.org/pages/manual/generation_4 | buriedrelic.neocities.org | scaricato |
-| Introduction to Masuda Method | https://bulbapedia.bulbagarden.net/wiki/Masuda_method | bulbapedia.bulbagarden.net | catalogato |
+| Introduction to Masuda Method - Masuda method - Bulbapedia, the community-driven Pokémon encyclopedia | https://bulbapedia.bulbagarden.net/wiki/Masuda_method | bulbapedia.bulbagarden.net | scaricato |
 | Gen 4 Pokeradar | https://youtu.be/AIslziEvNIU?si=ztdU_rYWgxwSsQuH | youtu.be | catalogato |
 | How to shiny hunt Manaphy - only for complete maniacs - [Discuss] A guide to shiny hunting Manaphy optimally (di pup_pup_pass) | https://www.reddit.com/r/ShinyPokemon/comments/fdowih/discuss_a_guide_to_shiny_hunting_manaphy_optimally/ | reddit.com | scaricato |
 
@@ -307,7 +307,7 @@ La colonna dell'esito dice se quella fonte sia stata scaricata dalla corsa, cata
 | Che cosa è | Indirizzo | Host | Esito nella corsa |
 |---|---|---|---|
 | Gen 5 shiny hunting guide - Old-Gen Shiny hunter manual (Generation 5) - Buried Relic | https://buriedrelic.neocities.org/pages/manual/generation_5 | buriedrelic.neocities.org | scaricato |
-| Introduction of the Shiny Charm in B2W2 | https://bulbapedia.bulbagarden.net/wiki/Shiny_Charm | bulbapedia.bulbagarden.net | catalogato |
+| Introduction of the Shiny Charm in B2W2 - Shiny Charm - Bulbapedia, the community-driven Pokémon encyclopedia | https://bulbapedia.bulbagarden.net/wiki/Shiny_Charm | bulbapedia.bulbagarden.net | scaricato |
 | Increasing shiny odds with lucky pass power - french - Dossier Shasse > Le secret des Auras Porte-Bonheur - Pokébip.com | https://www.pokebip.com/page/jeux-video/dossier-shasse/auras-porte-bonheur | pokebip.com | scaricato |
 
 ## 8) Shiny Hunting / Gen 6
@@ -363,7 +363,7 @@ La colonna dell'esito dice se quella fonte sia stata scaricata dalla corsa, cata
 |---|---|---|---|
 | r/ShinyPokemon Introduction to Shiny Hunting | https://www.reddit.com/r/ShinyPokemon/wiki/index/#wiki_game_faq | reddit.com | catalogato |
 | Overview on utility pokemon for catching - Utility Pokémon - Buried Relic | https://buriedrelic.neocities.org/pages/utility_pokemon | buriedrelic.neocities.org | scaricato |
-| Shiny locked encounters | https://bulbapedia.bulbagarden.net/wiki/List_of_unobtainable_Shiny_Pok%C3%A9mon | bulbapedia.bulbagarden.net | catalogato |
+| Shiny locked encounters - List of unobtainable Shiny Pokémon - Bulbapedia, the community-driven Pokémon encyclopedia | https://bulbapedia.bulbagarden.net/wiki/List_of_unobtainable_Shiny_Pok%C3%A9mon | bulbapedia.bulbagarden.net | scaricato |
 
 ## 9) RNG Manipulation and Glitches / RNG Manipulation - the best sources to start
 
@@ -437,35 +437,35 @@ La colonna dell'esito dice se quella fonte sia stata scaricata dalla corsa, cata
 
 Il censimento per cluster qui sopra copre i soli collegamenti che il post di partenza cita direttamente, perché quelli sono i soli che ereditano una tassonomia dall'autore. Il grafo ne contiene molti di più, trovati dentro i post che il primo rinvia. Questa tabella li elenca tutti senza classificarli, e il suo scopo è che nessun indirizzo esista nella cartella grezza e in nessun file tracciato: la cartella grezza non entra in git e sparisce, questo file resta.
 
-Nodi per profondità: 0 con 1, 1 con 171, 2 con 642, 3 con 473.
+Nodi per profondità: 0 con 1, 1 con 171, 2 con 680, 3 con 663.
 
-Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fallito con 21.
+Nodi per esito: catalogato con 643, non raggiunto con 422, scaricato con 403, fallito con 47.
 
 | Prof | Tipo | Titolo o ancora | Host | Esito | Citato da | Indirizzo |
 |---|---|---|---|---|---|---|
 | 0 | reddit | Guide on Pokemon Home Collections - Updated Version, di El_Boosty | reddit.com | scaricato | 0 | https://www.reddit.com/r/PokemonHome/comments/1vtj5hf/ |
-| 1 | web | 3DS Hacks Guide | 3ds.hacks.guide | scaricato | 5 | https://3ds.hacks.guide/ |
+| 1 | web | 3DS Hacks Guide | 3ds.hacks.guide | scaricato | 6 | https://3ds.hacks.guide/ |
 | 1 | web | Pokemon Home Organizer — Austin John Plays | austinjohnplays.com | scaricato | 1 | https://www.austinjohnplays.com/pokemonhome |
 | 1 | web | Blisy.net | blisy.net | catalogato | 1 | https://blisy.net/ |
 | 1 | web | DV Breeding For Shinies - Blue Moon Falls | bluemoonfalls.com | scaricato | 3 | https://bluemoonfalls.com/pages/shinies/dv-breeding |
 | 1 | web | Generation 1 Shiny Hunting - Blue Moon Falls | bluemoonfalls.com | scaricato | 2 | https://bluemoonfalls.com/pages/shinies/gen-1-shiny-hunting |
-| 1 | web | Berry glitch Zigzagoon | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Berry_glitch |
-| 1 | web | HGSS bug catching contest | bulbapedia.bulbagarden.net | catalogato | 2 | https://bulbapedia.bulbagarden.net/wiki/Bug-Catching_Contest |
-| 1 | web | B2W2 Pass Power | bulbapedia.bulbagarden.net | catalogato | 2 | https://bulbapedia.bulbagarden.net/wiki/Entralink |
-| 1 | web | Hidden Grotto | bulbapedia.bulbagarden.net | catalogato | 2 | https://bulbapedia.bulbagarden.net/wiki/Hidden_Grotto |
-| 1 | web | Gender Differences | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_with_gender_differences |
-| 1 | web | List of purfified shadow Pokemon from XD/Colosseum | bulbapedia.bulbagarden.net | catalogato | 2 | https://bulbapedia.bulbagarden.net/wiki/List_of_Shadow_Pok%C3%A9mon |
-| 1 | web | List of crossgen evolutions | bulbapedia.bulbagarden.net | catalogato | 2 | https://bulbapedia.bulbagarden.net/wiki/List_of_cross-generational_evolutionary_lines |
-| 1 | web | List of all unique NPC and gift TIDs | bulbapedia.bulbagarden.net | catalogato | 2 | https://bulbapedia.bulbagarden.net/wiki/List_of_notable_ID_numbers |
-| 1 | web | Shiny locked encounters | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/List_of_unobtainable_Shiny_Pok%C3%A9mon |
-| 1 | web | Introduction to Masuda Method | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Masuda_method |
-| 1 | web | N's Pokemon | bulbapedia.bulbagarden.net | catalogato | 4 | https://bulbapedia.bulbagarden.net/wiki/N%27s_Pok%C3%A9mon |
-| 1 | web | Pokemon Crystal Odd Egg | bulbapedia.bulbagarden.net | catalogato | 2 | https://bulbapedia.bulbagarden.net/wiki/Odd_Egg |
-| 1 | web | Dream radar Pokemon | bulbapedia.bulbagarden.net | catalogato | 3 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Dream_Radar |
-| 1 | web | Island scan | bulbapedia.bulbagarden.net | catalogato | 2 | https://bulbapedia.bulbagarden.net/wiki/QR_Scanner |
-| 1 | web | Introduction of the Shiny Charm in B2W2 | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Shiny_Charm |
-| 1 | web | Surf Pikachu - can be shiny hunted | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Surfing_Pikachu |
-| 1 | web | Totem Pokemon | bulbapedia.bulbagarden.net | catalogato | 2 | https://bulbapedia.bulbagarden.net/wiki/Totem_Pok%C3%A9mon |
+| 1 | web | Berry glitch - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Berry_glitch |
+| 1 | web | Bug-Catching Contest - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 2 | https://bulbapedia.bulbagarden.net/wiki/Bug-Catching_Contest |
+| 1 | web | Entralink - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 2 | https://bulbapedia.bulbagarden.net/wiki/Entralink |
+| 1 | web | Hidden Grotto - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 2 | https://bulbapedia.bulbagarden.net/wiki/Hidden_Grotto |
+| 1 | web | List of Pokémon with gender differences - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_with_gender_differences |
+| 1 | web | List of Shadow Pokémon - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 2 | https://bulbapedia.bulbagarden.net/wiki/List_of_Shadow_Pok%C3%A9mon |
+| 1 | web | List of cross-generational evolutionary lines - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 2 | https://bulbapedia.bulbagarden.net/wiki/List_of_cross-generational_evolutionary_lines |
+| 1 | web | List of notable ID numbers - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 2 | https://bulbapedia.bulbagarden.net/wiki/List_of_notable_ID_numbers |
+| 1 | web | List of unobtainable Shiny Pokémon - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/List_of_unobtainable_Shiny_Pok%C3%A9mon |
+| 1 | web | Masuda method - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Masuda_method |
+| 1 | web | N's Pokémon - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 4 | https://bulbapedia.bulbagarden.net/wiki/N%27s_Pok%C3%A9mon |
+| 1 | web | Odd Egg - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 2 | https://bulbapedia.bulbagarden.net/wiki/Odd_Egg |
+| 1 | web | Pokémon Dream Radar - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 3 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Dream_Radar |
+| 1 | web | QR Scanner - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 2 | https://bulbapedia.bulbagarden.net/wiki/QR_Scanner |
+| 1 | web | Shiny Charm - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Shiny_Charm |
+| 1 | web | Surfing Pikachu - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Surfing_Pikachu |
+| 1 | web | Totem Pokémon - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 2 | https://bulbapedia.bulbagarden.net/wiki/Totem_Pok%C3%A9mon |
 | 1 | web | Shiny hunting in Gale of Darkness - Buried Relic | buriedrelic.neocities.org | scaricato | 1 | https://buriedrelic.neocities.org/pages/GoD_shiny_guide |
 | 1 | web | Old-Gen Shiny hunter manual (Generation 3) - Buried Relic | buriedrelic.neocities.org | scaricato | 1 | https://buriedrelic.neocities.org/pages/manual/generation_3 |
 | 1 | web | Old-Gen Shiny hunter manual (Generation 4) - Buried Relic | buriedrelic.neocities.org | scaricato | 1 | https://buriedrelic.neocities.org/pages/manual/generation_4 |
@@ -482,14 +482,14 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 1 | web | Coin Case glitches - Glitch City Wiki | glitchcity.wiki | scaricato | 2 | https://glitchcity.wiki/wiki/Coin_Case_glitches |
 | 1 | web | Up to date GO Dex tracker | godex.site | catalogato | 1 | https://godex.site/collection/90977 |
 | 1 | web | SV sandwich overview | imgur.com | catalogato | 2 | https://imgur.com/a/scarlet-violet-shiny-sandwich-recipes-by-papa-jef-BTuymY3 |
-| 1 | web | List of Events | m.bulbapedia.bulbagarden.net | catalogato | 2 | https://m.bulbapedia.bulbagarden.net/wiki/List_of_event_Pok%C3%A9mon_distributions |
+| 1 | web | List of event Pokémon distributions - Bulbapedia, the community-driven Pokémon encyclopedia | m.bulbapedia.bulbagarden.net | scaricato | 2 | https://m.bulbapedia.bulbagarden.net/wiki/List_of_event_Pok%C3%A9mon_distributions |
 | 1 | web | Poké Classic Network | pkmnclassic.net | scaricato | 7 | https://pkmnclassic.net/ |
 | 1 | web | Dossier Shasse > Le secret des Auras Porte-Bonheur - Pokébip.com | pokebip.com | scaricato | 1 | https://www.pokebip.com/page/jeux-video/dossier-shasse/auras-porte-bonheur |
 | 1 | web | Pokedextracker | pokedextracker.com | catalogato | 2 | https://pokedextracker.com/ |
 | 1 | web | Final Form Dex - only final evolutions | pokejungle.net | fallito | 2 | https://pokejungle.net/2023/03/27/how-to-organize-pokemon-home-for-a-living-dex |
 | 1 | web | Retail Emerald Egg RNG | pokemonrng.com | scaricato | 1 | https://www.pokemonrng.com/retail-emerald-egg |
-| 1 | web | Event gallery | projectpokemon.org | catalogato | 3 | https://projectpokemon.org/home/files/category/2-event-gallery |
-| 1 | web | Curry mark | projectpokemon.org | catalogato | 2 | https://projectpokemon.org/home/forums/topic/57870-swsh-camp-encounters-after-making-curry |
+| 1 | web | Event Gallery - Project Pokemon Forums | projectpokemon.org | scaricato | 3 | https://projectpokemon.org/home/files/category/2-event-gallery |
+| 1 | web | SWSH - Camp Encounters after making curry - Generation 8 - Project Pokemon Forums | projectpokemon.org | scaricato | 3 | https://projectpokemon.org/home/forums/topic/57870-swsh-camp-encounters-after-making-curry |
 | 1 | web | - | reddit.com | catalogato | 1 | breve:/r/PokemonHome/s/EluL4buXeT |
 | 1 | reddit | These are all the Hunting Methods of every Game with their Shiny Odds!!, di NewAgeHydreigons | reddit.com | scaricato | 1 | https://www.reddit.com/r/pokemon/comments/10wzzt9/ |
 | 1 | reddit | Special Text About Many Pretty Symbols (STAMPS 6.0), di TwistedTextures | reddit.com | scaricato | 2 | https://www.reddit.com/r/PokemonHome/comments/145ylee/ |
@@ -615,23 +615,23 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 1 | web | Shiny hunting in Dynamax adventures | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=uAIxIe-IsDk |
 | 1 | web | HGSS ingame trades | youtube.com | catalogato | 2 | https://www.youtube.com/watch?v=xOBSFSiK2R0 |
 | 1 | web | FRLG Safari Zone Research | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=y81nojEHKh8 |
-| 2 | web | 0.0.0.0 | 0.0.0.0 | catalogato | 1 | http://0.0.0.0/ |
-| 2 | web | 0.0.0.0 | 0.0.0.0 | catalogato | 2 | https://0.0.0.0/ |
-| 2 | web | 001.001.001.001 | 001.001.001.001 | catalogato | 1 | http://001.001.001.001/ |
+| 2 | web | 0.0.0.0 | 0.0.0.0 | non raggiunto | 1 | http://0.0.0.0/ |
+| 2 | web | 0.0.0.0 | 0.0.0.0 | non raggiunto | 2 | https://0.0.0.0/ |
+| 2 | web | 001.001.001.001 | 001.001.001.001 | non raggiunto | 1 | http://001.001.001.001/ |
 | 2 | web | 1.1.1.1 — The free app that makes your Internet faster. | 1.1.1.1 | scaricato | 1 | http://1.1.1.1/ |
 | 2 | web | 1.1.1.1 — The free app that makes your Internet faster. | 1.1.1.1 | scaricato | 2 | https://1.1.1.1/ |
-| 2 | web | 164.132.44.106 | 164.132.44.106 | catalogato | 1 | http://164.132.44.106/ |
-| 2 | web | 164.132.44.106 | 164.132.44.106 | catalogato | 2 | https://164.132.44.106/ |
+| 2 | web | 164.132.44.106 | 164.132.44.106 | non raggiunto | 1 | http://164.132.44.106/ |
+| 2 | web | 164.132.44.106 | 164.132.44.106 | non raggiunto | 2 | https://164.132.44.106/ |
 | 2 | web | 167.235.229.36 | 167.235.229.36 | catalogato | 1 | http://167.235.229.36/ |
-| 2 | web | 167.86.108.126 | 167.86.108.126 | catalogato | 1 | http://167.86.108.126/ |
-| 2 | web | 167.86.108.126 | 167.86.108.126 | catalogato | 1 | https://167.86.108.126/ |
-| 2 | web | 172.104.88.237 | 172.104.88.237 | catalogato | 2 | http://172.104.88.237/ |
-| 2 | web | 172.104.88.237 | 172.104.88.237 | catalogato | 2 | https://172.104.88.237/ |
-| 2 | web | 178.062.043.212 | 178.062.043.212 | catalogato | 1 | http://178.062.043.212/ |
-| 2 | web | **178.62.43.212** | 178.62.43.212 | catalogato | 1 | http://178.62.43.212/ |
-| 2 | web | 178.62.43.212 | 178.62.43.212 | catalogato | 2 | https://178.62.43.212/ |
+| 2 | web | 167.86.108.126 | 167.86.108.126 | non raggiunto | 1 | http://167.86.108.126/ |
+| 2 | web | 167.86.108.126 | 167.86.108.126 | non raggiunto | 1 | https://167.86.108.126/ |
+| 2 | web | 172.104.88.237 | 172.104.88.237 | non raggiunto | 2 | http://172.104.88.237/ |
+| 2 | web | 172.104.88.237 | 172.104.88.237 | non raggiunto | 2 | https://172.104.88.237/ |
+| 2 | web | 178.062.043.212 | 178.062.043.212 | non raggiunto | 1 | http://178.062.043.212/ |
+| 2 | web | **178.62.43.212** | 178.62.43.212 | non raggiunto | 1 | http://178.62.43.212/ |
+| 2 | web | 178.62.43.212 | 178.62.43.212 | non raggiunto | 2 | https://178.62.43.212/ |
 | 2 | web | LINK | 37.97.147.73 | catalogato | 1 | http://37.97.147.73/Headbutt%20Grid.htm |
-| 2 | web | PKHeX Desktop App | 3ds.eiphax.tech | catalogato | 2 | https://3ds.eiphax.tech/pkhex |
+| 2 | web | PKHeX Tutorial | 3ds.eiphax.tech | scaricato | 2 | https://3ds.eiphax.tech/pkhex |
 | 2 | web | 3DS Hacks Guide | 3ds.hacks.guide | scaricato | 1 | http://3ds.hacks.guide/ |
 | 2 | web | Dumping Titles and Game Cartridges / 3DS Hacks Guide | 3ds.hacks.guide | scaricato | 2 | https://3ds.hacks.guide/dumping-titles-and-game-cartridges |
 | 2 | web | Dumping Titles and Game Cartridges / 3DS Hacks Guide | 3ds.hacks.guide | scaricato | 1 | https://3ds.hacks.guide/dumping-titles-and-game-cartridges.html |
@@ -643,72 +643,91 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 2 | web | Mentioned Videos for Reddit – Get this Extension for 🦊 Firefox (en-US) | addons.mozilla.org | scaricato | 1 | https://addons.mozilla.org/en-US/firefox/addon/mentioned-videos-for-reddit |
 | 2 | web | Alabaster Icelands Pokémon Map | altissimo1.github.io | scaricato | 1 | https://altissimo1.github.io/Supplementary-Series/Legends/Legends-Arceus/Pokemon/icelands.html |
 | 2 | web | Pokémon Maps Home | altissimo1.github.io | scaricato | 1 | https://altissimo1.github.io/Supplementary-Series/Legends/Legends-Arceus/Pokemon/index.html |
-| 2 | web | DV Method | angelfire.com | catalogato | 1 | https://www.angelfire.com/pokemon2/dv-info/shinies.html |
+| 2 | web | DV Method | angelfire.com | non raggiunto | 1 | https://www.angelfire.com/pokemon2/dv-info/shinies.html |
 | 2 | web | ‎FileBrowser: Documents Manager App - App Store | apps.apple.com | scaricato | 2 | https://apps.apple.com/us/app/filebrowser-document-manager/id364738545 |
-| 2 | web | nightmare fuel | archives.bulbagarden.net | catalogato | 2 | https://archives.bulbagarden.net/wiki/Category:Red_and_Green_sprites |
-| 2 | web | Battle Tower Glitch | archives.glitchcity.info | catalogato | 1 | https://archives.glitchcity.info/forums/board-109/thread-7016/page-0.html |
+| 2 | web | nightmare fuel | archives.bulbagarden.net | fallito | 2 | https://archives.bulbagarden.net/wiki/Category:Red_and_Green_sprites |
+| 2 | web | Glitch City Laboratories Archives - Battle Tower Lati@s glitch - Page 1 | archives.glitchcity.info | scaricato | 1 | https://archives.glitchcity.info/forums/board-109/thread-7016/page-0.html |
 | 2 | web | Hex to Base64 / Base64 Encode / Base64 Converter / Base64 | base64.guru | scaricato | 1 | https://base64.guru/converter/encode/hex |
 | 2 | web | Pokémon Platinum National Dex Guide | bepis.io | scaricato | 1 | https://bepis.io/pokemon |
 | 2 | web | Pokémon Platinum National Dex Guide | bepis.io | scaricato | 1 | https://bepis.io/pokemon/wild.html |
 | 2 | web | Time Changing Passcode Generator - Blue Moon Falls | bluemoonfalls.com | scaricato | 1 | https://bluemoonfalls.com/pages/tools/time-passcode-generator |
-| 2 | web | experience underflow glitch, enabling it to jump to level 100 immediately | bulbapedia.bulbagarden.net | catalogato | 1 | http://bulbapedia.bulbagarden.net/wiki/Experience |
-| 2 | web | This list | bulbapedia.bulbagarden.net | catalogato | 1 | http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_index_number_%28Generation_I%29 |
-| 2 | web | looked up here | bulbapedia.bulbagarden.net | catalogato | 1 | http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_index_number_(Generation_I\ |
-| 2 | web | Bulbapedia article | bulbapedia.bulbagarden.net | catalogato | 2 | http://bulbapedia.bulbagarden.net/wiki/Mew_glitch |
-| 2 | web | Alpha Pokemon | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Alpha_Pok%C3%A9mon |
-| 2 | web | Birth Island | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Birth_Island |
-| 2 | web | - | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Catch_Combo |
-| 2 | web | Celebi and Bellsprout are in the same group | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Category:Pok%C3%A9mon_in_the_Medium_Slow_experience_group |
-| 2 | web | Coin Case Glitch | bulbapedia.bulbagarden.net | catalogato | 3 | https://bulbapedia.bulbagarden.net/wiki/Coin_Case_glitches |
-| 2 | web | Curtis | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Curtis |
-| 2 | web | Cute Charm Glitch | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Cute_Charm_(Ability |
-| 2 | web | https://bulbapedia.bulbagarden.net/wiki/DexNav#Calculated\_rates | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/DexNav |
-| 2 | web | Dongle Method | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Dual-slot_mode |
-| 2 | web | GBA eReader | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/E-Reader |
-| 2 | web | here | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Fight_Safari_Zone_Pok%C3%A9mon_trick |
-| 2 | web | https://bulbapedia.bulbagarden.net/wiki/Gender#Generation\_I | bulbapedia.bulbagarden.net | catalogato | 2 | https://bulbapedia.bulbagarden.net/wiki/Gender |
-| 2 | web | GTS | bulbapedia.bulbagarden.net | catalogato | 2 | https://bulbapedia.bulbagarden.net/wiki/Global_Trade_System |
-| 2 | web | Hayley ones | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Hayley |
-| 2 | web | Hayley's Trades from | bulbapedia.bulbagarden.net | catalogato | 2 | https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades |
-| 2 | web | here | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Headbutt_tree |
-| 2 | web | here | bulbapedia.bulbagarden.net | catalogato | 3 | https://bulbapedia.bulbagarden.net/wiki/In-game_trade |
-| 2 | web | here | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Item_duplication_glitch |
-| 2 | web | trade with Jasmine in HeartGold/SoulSilver. | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Jasmine%27s_Steelix |
-| 2 | web | - | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/List\_of\_Wi-Fi\_English\_event\_Pok%C3%A9mon\_distributions\_(Generation\_V |
-| 2 | web | - | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/List\_of\_local\_English\_event\_Pok%C3%A9mon\_distributions\_(Generation\_IV |
-| 2 | web | - | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/List\_of\_local\_English\_event\_Pok%C3%A9mon\_distributions\_(Generation\_V |
-| 2 | web | This bulbapedia list | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/List_of_local_Japanese_event_Pokémon_distributions_in_Generation_IV |
-| 2 | web | - | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Mew\_glitch |
-| 2 | web | You can also get Mew from My Pokemon Ranch | bulbapedia.bulbagarden.net | catalogato | 2 | https://bulbapedia.bulbagarden.net/wiki/My_Pok%C3%A9mon_Ranch |
-| 2 | web | My Pokémon Ranch | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/My_Pokémon_Ranch |
-| 2 | web | Pal Park | bulbapedia.bulbagarden.net | catalogato | 2 | https://bulbapedia.bulbagarden.net/wiki/Pal_Park |
-| 2 | web | Gen VIII | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Pikachu_in_a_cap |
-| 2 | web | Poké Radar Shiny Odds | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9_Radar |
-| 2 | web | *Pokémon Battle Revolution* | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Battle_Revolution |
-| 2 | web | *Pokémon Box Ruby & Sapphire* | bulbapedia.bulbagarden.net | catalogato | 2 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Box_Ruby_%26_Sapphire |
-| 2 | web | *Pokémon Channel* | bulbapedia.bulbagarden.net | catalogato | 2 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Channel |
-| 2 | web | *Pokémon Colosseum* | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Colosseum |
-| 2 | web | WISHMKR Jirachi | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Colosseum_Bonus_Disc |
-| 2 | web | *XD: Gale of Darkness* | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_XD:_Gale_of_Darkness |
-| 2 | web | Poke-Transfer | bulbapedia.bulbagarden.net | catalogato | 2 | https://bulbapedia.bulbagarden.net/wiki/Poké_Transfer |
-| 2 | web | Pokémon Battle Revolution | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Battle_Revolution |
-| 2 | web | Pokémon Box: Ruby & Sapphire | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Box_Ruby_%26_Sapphire |
-| 2 | web | Pokémon Channel | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Channel |
-| 2 | web | Pokémon Colosseum | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Colosseum |
-| 2 | web | Pokémon Dream RADAR | bulbapedia.bulbagarden.net | catalogato | 2 | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Dream_Radar |
-| 2 | web | Pokémon Dream World | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Dream_World |
-| 2 | web | Pokémon Global Link | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Global_Link |
-| 2 | web | Pokémon Ranger | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Ranger_series |
-| 2 | web | Pokémon Gale of Darkness XD | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Pokémon_XD:_Gale_of_Darkness |
-| 2 | web | You can get Darkrai by loading a save file with Darkrai (or the mission) in Shadows of Almia | bulbapedia.bulbagarden.net | catalogato | 2 | https://bulbapedia.bulbagarden.net/wiki/Ranger_Net |
-| 2 | web | https://bulbapedia.bulbagarden.net/wiki/Record\_mixing#Feebas\_factor | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Record_mixing |
-| 2 | web | Bulbapedia | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Roaming_Pok%C3%A9mon |
-| 2 | web | More details on Bulbapedia. | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Sinjoh_Ruins |
-| 2 | web | Time Capsule Exploit | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Time_Capsule_exploit |
-| 2 | web | https://bulbapedia.bulbagarden.net/wiki/Turnback\_Cave#Before\_encountering\_a\_pillar | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Turnback_Cave |
-| 2 | web | level 63 in Sw/Sh | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Victini_(Pok%C3%A9mon |
-| 2 | web | https://bulbapedia.bulbagarden.net/wiki/Wild\_Area\_News/2021#February\_4\_to\_8.2C\_2021 | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Wild_Area_News/2021 |
-| 2 | web | Yancy | bulbapedia.bulbagarden.net | catalogato | 1 | https://bulbapedia.bulbagarden.net/wiki/Yancy |
+| 2 | web | Experience - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | http://bulbapedia.bulbagarden.net/wiki/Experience |
+| 2 | web | List of Pokémon by index number in Generation I - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_index_number_%28Generation_I%29 |
+| 2 | web | looked up here | bulbapedia.bulbagarden.net | fallito | 1 | http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_index_number_(Generation_I\ |
+| 2 | web | Mew glitch - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 2 | http://bulbapedia.bulbagarden.net/wiki/Mew_glitch |
+| 2 | web | Berry glitch - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Berry_glitch&oldid=4506262 |
+| 2 | web | Bug-Catching Contest - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Bug-Catching_Contest&oldid=4617706 |
+| 2 | web | Entralink - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Entralink&oldid=4621972 |
+| 2 | web | Hidden Grotto - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Hidden_Grotto&oldid=4620358 |
+| 2 | web | List of Pokémon with gender differences - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=List_of_Pok%C3%A9mon_with_gender_differences&oldid=4620815 |
+| 2 | web | List of Shadow Pokémon - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=List_of_Shadow_Pok%C3%A9mon&oldid=4534154 |
+| 2 | web | List of cross-generational evolutionary lines - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=List_of_cross-generational_evolutionary_lines&oldid=4546560 |
+| 2 | web | List of event Pokémon distributions - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=List_of_event_Pok%C3%A9mon_distributions&oldid=4517440 |
+| 2 | web | List of notable ID numbers - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=List_of_notable_ID_numbers&oldid=4603740 |
+| 2 | web | List of unobtainable Shiny Pokémon - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=List_of_unobtainable_Shiny_Pok%C3%A9mon&oldid=4612991 |
+| 2 | web | Masuda method - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Masuda_method&oldid=4565317 |
+| 2 | web | N's Pokémon - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=N%27s_Pok%C3%A9mon&oldid=4587652 |
+| 2 | web | Odd Egg - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Odd_Egg&oldid=4465880 |
+| 2 | web | Pokémon Dream Radar - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Pok%C3%A9mon_Dream_Radar&oldid=4582296 |
+| 2 | web | QR Scanner - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=QR_Scanner&oldid=4618416 |
+| 2 | web | Shiny Charm - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Shiny_Charm&oldid=4546700 |
+| 2 | web | Surfing Pikachu - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Surfing_Pikachu&oldid=4610043 |
+| 2 | web | Totem Pokémon - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Totem_Pok%C3%A9mon&oldid=4613569 |
+| 2 | web | Alpha Pokémon - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Alpha_Pok%C3%A9mon |
+| 2 | web | Birth Island - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Birth_Island |
+| 2 | web | Catch Combo - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Catch_Combo |
+| 2 | web | Category:Pokémon in the Medium Slow experience group - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Category:Pok%C3%A9mon_in_the_Medium_Slow_experience_group |
+| 2 | web | Coin Case glitches - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 3 | https://bulbapedia.bulbagarden.net/wiki/Coin_Case_glitches |
+| 2 | web | Curtis - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Curtis |
+| 2 | web | Cute Charm Glitch | bulbapedia.bulbagarden.net | fallito | 1 | https://bulbapedia.bulbagarden.net/wiki/Cute_Charm_(Ability |
+| 2 | web | DexNav - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/DexNav |
+| 2 | web | Dual-slot mode - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Dual-slot_mode |
+| 2 | web | e-Reader - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/E-Reader |
+| 2 | web | Fight Safari Zone Pokémon trick - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Fight_Safari_Zone_Pok%C3%A9mon_trick |
+| 2 | web | Gender - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 2 | https://bulbapedia.bulbagarden.net/wiki/Gender |
+| 2 | web | Global Trade System - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 2 | https://bulbapedia.bulbagarden.net/wiki/Global_Trade_System |
+| 2 | web | Hayley - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Hayley |
+| 2 | web | Hayley's trades - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 2 | https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades |
+| 2 | web | Headbutt tree - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Headbutt_tree |
+| 2 | web | In-game trade - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 3 | https://bulbapedia.bulbagarden.net/wiki/In-game_trade |
+| 2 | web | Item duplication glitch - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Item_duplication_glitch |
+| 2 | web | Jasmine's Steelix - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Jasmine%27s_Steelix |
+| 2 | web | - | bulbapedia.bulbagarden.net | fallito | 1 | https://bulbapedia.bulbagarden.net/wiki/List\_of\_Wi-Fi\_English\_event\_Pok%C3%A9mon\_distributions\_(Generation\_V |
+| 2 | web | - | bulbapedia.bulbagarden.net | fallito | 1 | https://bulbapedia.bulbagarden.net/wiki/List\_of\_local\_English\_event\_Pok%C3%A9mon\_distributions\_(Generation\_IV |
+| 2 | web | - | bulbapedia.bulbagarden.net | fallito | 1 | https://bulbapedia.bulbagarden.net/wiki/List\_of\_local\_English\_event\_Pok%C3%A9mon\_distributions\_(Generation\_V |
+| 2 | web | This bulbapedia list | bulbapedia.bulbagarden.net | fallito | 1 | https://bulbapedia.bulbagarden.net/wiki/List_of_local_Japanese_event_Pokémon_distributions_in_Generation_IV |
+| 2 | web | - | bulbapedia.bulbagarden.net | fallito | 1 | https://bulbapedia.bulbagarden.net/wiki/Mew\_glitch |
+| 2 | web | My Pokémon Ranch - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 2 | https://bulbapedia.bulbagarden.net/wiki/My_Pok%C3%A9mon_Ranch |
+| 2 | web | My Pokémon Ranch | bulbapedia.bulbagarden.net | fallito | 1 | https://bulbapedia.bulbagarden.net/wiki/My_Pokémon_Ranch |
+| 2 | web | Pal Park - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 2 | https://bulbapedia.bulbagarden.net/wiki/Pal_Park |
+| 2 | web | Pikachu in a cap - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Pikachu_in_a_cap |
+| 2 | web | Poké Radar - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9_Radar |
+| 2 | web | Pokémon Battle Revolution - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Battle_Revolution |
+| 2 | web | Pokémon Box Ruby & Sapphire - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 2 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Box_Ruby_%26_Sapphire |
+| 2 | web | Pokémon Channel - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 2 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Channel |
+| 2 | web | Pokémon Colosseum - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Colosseum |
+| 2 | web | Pokémon Colosseum Bonus Disc - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Colosseum_Bonus_Disc |
+| 2 | web | Pokémon XD: Gale of Darkness - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_XD:_Gale_of_Darkness |
+| 2 | web | Poke-Transfer | bulbapedia.bulbagarden.net | fallito | 2 | https://bulbapedia.bulbagarden.net/wiki/Poké_Transfer |
+| 2 | web | Pokémon Battle Revolution | bulbapedia.bulbagarden.net | fallito | 1 | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Battle_Revolution |
+| 2 | web | Pokémon Box: Ruby & Sapphire | bulbapedia.bulbagarden.net | fallito | 1 | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Box_Ruby_%26_Sapphire |
+| 2 | web | Pokémon Channel | bulbapedia.bulbagarden.net | fallito | 1 | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Channel |
+| 2 | web | Pokémon Colosseum | bulbapedia.bulbagarden.net | fallito | 1 | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Colosseum |
+| 2 | web | Pokémon Dream RADAR | bulbapedia.bulbagarden.net | fallito | 2 | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Dream_Radar |
+| 2 | web | Pokémon Dream World | bulbapedia.bulbagarden.net | fallito | 1 | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Dream_World |
+| 2 | web | Pokémon Global Link | bulbapedia.bulbagarden.net | fallito | 1 | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Global_Link |
+| 2 | web | Pokémon Ranger | bulbapedia.bulbagarden.net | fallito | 1 | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Ranger_series |
+| 2 | web | Pokémon Gale of Darkness XD | bulbapedia.bulbagarden.net | fallito | 1 | https://bulbapedia.bulbagarden.net/wiki/Pokémon_XD:_Gale_of_Darkness |
+| 2 | web | Ranger Net - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 2 | https://bulbapedia.bulbagarden.net/wiki/Ranger_Net |
+| 2 | web | Record mixing - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Record_mixing |
+| 2 | web | Roaming Pokémon - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Roaming_Pok%C3%A9mon |
+| 2 | web | Sinjoh Ruins - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Sinjoh_Ruins |
+| 2 | web | Time Capsule exploit - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Time_Capsule_exploit |
+| 2 | web | Turnback Cave - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Turnback_Cave |
+| 2 | web | level 63 in Sw/Sh | bulbapedia.bulbagarden.net | fallito | 1 | https://bulbapedia.bulbagarden.net/wiki/Victini_(Pok%C3%A9mon |
+| 2 | web | Wild Area News/2021 - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Wild_Area_News/2021 |
+| 2 | web | Yancy - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | scaricato | 1 | https://bulbapedia.bulbagarden.net/wiki/Yancy |
+| 2 | web | 事実無根の中傷については、即、警察に通報します。 | bystrousky.blogspot.com | scaricato | 3 | http://bystrousky.blogspot.com/2019/07/blog-post.html |
 | 2 | web | this instead | cdn.bulbagarden.net | catalogato | 1 | https://cdn.bulbagarden.net/upload/archive/7/70/20140517072647%21Ilex_Forest_GSC.png |
 | 2 | web | Completely the same as the OG | cdn.discordapp.com | catalogato | 1 | https://cdn.discordapp.com/attachments/907741323757506590/908875821769449472/2021111219280400-7DCC42E2AF4C1BBE54BB71700F7161B6.jpg |
 | 2 | web | 3DS Game Cheats with Checkpoint (Sharkive) - CFWaifu | cfwaifu.com | scaricato | 2 | https://www.cfwaifu.com/3ds-cheats |
@@ -752,7 +771,7 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 2 | web | Main / The Cave of Dragonflies | dragonflycave.com | scaricato | 3 | http://www.dragonflycave.com/ |
 | 2 | web | Gen II Catch Rate Calculator / The Cave of Dragonflies | dragonflycave.com | scaricato | 1 | https://www.dragonflycave.com/calculators/gen-ii-catch-rate |
 | 2 | web | Gen III/IV Catch Rate Calculator / The Cave of Dragonflies | dragonflycave.com | scaricato | 1 | https://www.dragonflycave.com/calculators/gen-iii-iv-catch-rate |
-| 2 | web | draw.io | draw.io | catalogato | 1 | http://draw.io/ |
+| 2 | web | Flowchart Maker & Online Diagram Software | draw.io | scaricato | 1 | http://draw.io/ |
 | 2 | web | https://drive.google.com/drive/folders/159W-2Wlo5sPA5DSqHwijdVWuA9z4-qfe | drive.google.com | catalogato | 1 | https://drive.google.com/drive/folders/159W-2Wlo5sPA5DSqHwijdVWuA9z4-qfe |
 | 2 | web | Battle Pyramid Glitch | drive.google.com | catalogato | 1 | https://drive.google.com/drive/folders/15RNkGdAzbalwlzwijt1E8SnnMX9lHM8i |
 | 2 | web | https://drive.google.com/drive/u/0/folders/1aBDkBWJbZj-3AYjDCd7K5NG9zCSFP9WT | drive.google.com | catalogato | 1 | https://drive.google.com/drive/u/0/folders/1aBDkBWJbZj-3AYjDCd7K5NG9zCSFP9WT |
@@ -763,16 +782,16 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 2 | web | Compatible Wireless Modes and Wireless Security Types / Nintendo Support | en-americas-support.nintendo.com | scaricato | 1 | https://en-americas-support.nintendo.com/app/answers/detail/a_id/498/~/compatible-wireless-modes-and-wireless-security-types |
 | 2 | web | Announcement of Discontinuation of Online Services for Nintendo 3DS and Wii U software / Nintendo Support | en-americas-support.nintendo.com | scaricato | 1 | https://en-americas-support.nintendo.com/app/answers/detail/a_id/63227 |
 | 2 | web | Announcement of Discontinuation of Online Services for Nintendo 3DS and Wii U software / Nintendo Support | en-americas-support.nintendo.com | scaricato | 1 | https://en-americas-support.nintendo.com/app/answers/detail/a_id/63227/~/announcement-of-discontinuation-of-online-services-for-nintendo-3ds-and-wii-u |
-| 2 | web | buffer overflow | en.wikipedia.org | catalogato | 1 | https://en.wikipedia.org/wiki/Buffer_overflow |
-| 2 | web | game cart with IR | en.wikipedia.org | catalogato | 2 | https://en.wikipedia.org/wiki/Nintendo_Game_Card |
-| 2 | web | program counter | en.wikipedia.org | catalogato | 1 | https://en.wikipedia.org/wiki/Program_counter |
+| 2 | web | Buffer overflow - Wikipedia | en.wikipedia.org | scaricato | 1 | https://en.wikipedia.org/wiki/Buffer_overflow |
+| 2 | web | Nintendo Game Card - Wikipedia | en.wikipedia.org | scaricato | 2 | https://en.wikipedia.org/wiki/Nintendo_Game_Card |
+| 2 | web | Program counter - Wikipedia | en.wikipedia.org | scaricato | 1 | https://en.wikipedia.org/wiki/Program_counter |
 | 2 | web | Play and manage Game Boy cartridges on your PC / GB Operator | epilogue.co | scaricato | 2 | https://www.epilogue.co/product/gb-operator |
 | 2 | web | patched/converted | exelotl.github.io | catalogato | 2 | https://exelotl.github.io/gba-eeprom-save-fix |
 | 2 | web | 327: Exploits of a Mom - explain xkcd | explainxkcd.com | scaricato | 1 | https://www.explainxkcd.com/wiki/index.php/327 |
 | 2 | web | PNG Image Compressor | ezgif.com | scaricato | 1 | https://ezgif.com/optipng |
 | 2 | web | https://ezgif.com/resize | ezgif.com | scaricato | 1 | https://ezgif.com/resize |
-| 2 | web | Rip a ROM from a cartridge via a DS, DS Lite, or GameCube | feuniverse.us | catalogato | 2 | https://feuniverse.us/t/dumping-roms-from-gba-cartridges-a-primer/3667 |
-| 2 | web | - | forums.glitchcity.info | catalogato | 1 | http://forums.glitchcity.info/index.php?board=11.0 |
+| 2 | web | Dumping ROMs from GBA Cartridges: A Primer - Tutorials - Fire Emblem Universe | feuniverse.us | scaricato | 2 | https://feuniverse.us/t/dumping-roms-from-gba-cartridges-a-primer/3667 |
+| 2 | web | Glitch City Laboratories Archives - Pokémon Glitch Discussion | forums.glitchcity.info | scaricato | 1 | http://forums.glitchcity.info/index.php?board=11.0 |
 | 2 | web | - | forums.glitchcity.info | catalogato | 2 | http://forums.glitchcity.info/index.php?topic=6638.0 |
 | 2 | web | Link to Code Post | forums.glitchcity.info | catalogato | 1 | http://forums.glitchcity.info/index.php?topic=6638.15 |
 | 2 | web | Link to Code Post | forums.glitchcity.info | catalogato | 1 | http://forums.glitchcity.info/index.php?topic=6638.msg200226.html |
@@ -786,13 +805,14 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 2 | web | this very helpful GameFAQs Thread | gamefaqs.gamespot.com | fallito | 1 | https://gamefaqs.gamespot.com/boards/359434-pokemon-violet/80618645 |
 | 2 | web | GameFAQ's "False Swipe on Breeloom" Guide | gamefaqs.gamespot.com | fallito | 1 | https://gamefaqs.gamespot.com/gba/921905-pokemon-emerald-version/answers/558964-how-to-make-breloom-learn-false-swipe-in-pokemon-emerald- |
 | 2 | web | How to Transfer Pokemon from Game Boy to Pokemon Home: Step-by-Step Guide - Gamer by mistake | gamerbymistake.com | scaricato | 2 | https://www.gamerbymistake.com/2023/06/how-to-transfer-pokemon-from-game-boy-to-pokemon-home.html |
-| 2 | web | https://gaming.stackexchange.com/questions/294147/what-determines-the-gender-of-a-gen-1-pokemon | gaming.stackexchange.com | catalogato | 1 | https://gaming.stackexchange.com/questions/294147/what-determines-the-gender-of-a-gen-1-pokemon |
+| 2 | web | https://gaming.stackexchange.com/questions/294147/what-determines-the-gender-of-a-gen-1-pokemon | gaming.stackexchange.com | fallito | 1 | https://gaming.stackexchange.com/questions/294147/what-determines-the-gender-of-a-gen-1-pokemon |
 | 2 | web | one | gamingintel.com | fallito | 1 | https://gamingintel.com/how-to-increase-shiny-odds-in-pokemon-scarlet-violet |
 | 2 | web | Game Saves / GBAtemp.net - The Independent Video Game Community | gbatemp.net | scaricato | 1 | https://gbatemp.net/download/categories/game-saves.134 |
 | 2 | web | Game Saves / GBAtemp.net - The Independent Video Game Community | gbatemp.net | scaricato | 1 | https://gbatemp.net/download/categories/game-saves.88 |
 | 2 | web | DeadSkullzJr's NDS(i) Cheat Databases / GBAtemp.net - The Independent Video Game Community | gbatemp.net | scaricato | 2 | https://gbatemp.net/threads/deadskullzjrs-nds-i-cheat-databases.488711 |
 | 2 | web | [NDS] Yet Another nds-bootstrap Forwarder: more than 40 forwarders are now possible / GBAtemp.net - The Independent Video Game Community | gbatemp.net | scaricato | 2 | https://gbatemp.net/threads/nds-yet-another-nds-bootstrap-forwarder-more-than-40-forwarders-are-now-possible.606138 |
 | 2 | web | - | gist.github.com | fallito | 1 | https://gist.github.com/claydolwithexplosion/017f1784deebcd118b61d3ad917edb3c.js&quot;&gt;&lt;/script&gt |
+| 2 | web | [BW2] Shiny Charm · Issue #17 · Admiral-Fish/PokeFinder · GitHub | github.com | scaricato | 2 | https://github.com/Admiral-Fish/PokeFinder/issues/17 |
 | 2 | web | Releases · Ajarmar/universal-pokemon-randomizer-zx · GitHub | github.com | scaricato | 1 | https://github.com/Ajarmar/universal-pokemon-randomizer-zx/releases |
 | 2 | web | Home · Ajarmar/universal-pokemon-randomizer-zx Wiki · GitHub | github.com | scaricato | 1 | https://github.com/Ajarmar/universal-pokemon-randomizer-zx/wiki |
 | 2 | web | GitHub - DS-Homebrew/GodMode9i: GodMode9i Explorer - A full access file browser for the Nintendo DS and DSi consoles :godmode: · GitHub | github.com | scaricato | 1 | https://github.com/DS-Homebrew/GodMode9i |
@@ -867,9 +887,9 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 2 | web | collegamento del post | i.redd.it | catalogato | 1 | https://i.redd.it/tashtuju1x711.png |
 | 2 | web | collegamento del post | i.redd.it | catalogato | 1 | https://i.redd.it/zm5mkt70ke7a1.png |
 | 2 | web | - | i1.kym-cdn.com | catalogato | 1 | http://i1.kym-cdn.com/photos/images/original/001/070/953/1da.jpeg |
-| 2 | web | - | ibb.co | catalogato | 2 | https://ibb.co/LNWjPMT |
-| 2 | web | - | ibb.co | catalogato | 1 | https://ibb.co/mJRnpz2 |
-| 2 | web | - | ibb.co | catalogato | 2 | https://ibb.co/v4q9nFL |
+| 2 | web | 21-E9-A9-B6-E865-4-B3-C-8-CC5-715-E11-C441-C9 hosted at ImgBB — ImgBB | ibb.co | scaricato | 2 | https://ibb.co/LNWjPMT |
+| 2 | web | DE889809-114-C-4572-91-FF-E36-A19-CF0104 hosted at ImgBB — ImgBB | ibb.co | scaricato | 1 | https://ibb.co/mJRnpz2 |
+| 2 | web | 79-C48-EF1-ABE1-4-A1-E-9-E02-700716-A57-FF3 hosted at ImgBB — ImgBB | ibb.co | scaricato | 2 | https://ibb.co/v4q9nFL |
 | 2 | web | Image | imgs.xkcd.com | catalogato | 1 | http://imgs.xkcd.com/comics/exploits_of_a_mom.png |
 | 2 | web | You are the fucking man! | imgur.com | catalogato | 2 | http://imgur.com/CQlmBLe |
 | 2 | web | IMGUR GUIDE HERE | imgur.com | catalogato | 1 | http://imgur.com/a/fzn0c |
@@ -887,13 +907,13 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 2 | web | Kaeru WFC - Kaeru Team | kaeru.world | scaricato | 1 | https://kaeru.world/projects/wfc |
 | 2 | web | Pokémon G/S Password Generator / LegendaryPKMN | legendarypkmn.net | scaricato | 1 | https://legendarypkmn.net/pass |
 | 2 | web | - | linksharing.samsungcloud.com | catalogato | 1 | https://linksharing.samsungcloud.com/czNRSK1nNfFI |
-| 2 | web | Lyra's Living Dex Guide | lyra-made-a.website | catalogato | 1 | https://lyra-made-a.website/pokemon_gen1/full_guide |
-| 2 | web | Lyra's Gen 2 Living Dex Guide | lyra-made-a.website | catalogato | 1 | https://lyra-made-a.website/pokemon_gen2/full_guide |
-| 2 | web | Lyra's Gen 3 Living Dex Guide | lyra-made-a.website | catalogato | 1 | https://lyra-made-a.website/pokemon_gen3/full_guide |
-| 2 | web | Experience Group | m.bulbapedia.bulbagarden.net | catalogato | 1 | https://m.bulbapedia.bulbagarden.net/wiki/Category:Pok%C3%A9mon_in_the_Medium_Slow_experience_group |
-| 2 | web | Diamond Storm | m.bulbapedia.bulbagarden.net | catalogato | 1 | https://m.bulbapedia.bulbagarden.net/wiki/Diamond_Storm_(move |
-| 2 | web | - | m.bulbapedia.bulbagarden.net | catalogato | 1 | https://m.bulbapedia.bulbagarden.net/wiki/Distribution_device |
-| 2 | web | - | m.bulbapedia.bulbagarden.net | catalogato | 1 | https://m.bulbapedia.bulbagarden.net/wiki/List_of_Wi-Fi_English_event_Pok%C3%A9mon_distributions_(Generation_IV |
+| 2 | web | Full Guide - Gen 1 | lyra-made-a.website | scaricato | 1 | https://lyra-made-a.website/pokemon_gen1/full_guide |
+| 2 | web | Full Guide - Gen 2 | lyra-made-a.website | scaricato | 1 | https://lyra-made-a.website/pokemon_gen2/full_guide |
+| 2 | web | Full Guide - Gen 3 | lyra-made-a.website | scaricato | 1 | https://lyra-made-a.website/pokemon_gen3/full_guide |
+| 2 | web | Category:Pokémon in the Medium Slow experience group - Bulbapedia, the community-driven Pokémon encyclopedia | m.bulbapedia.bulbagarden.net | scaricato | 1 | https://m.bulbapedia.bulbagarden.net/wiki/Category:Pok%C3%A9mon_in_the_Medium_Slow_experience_group |
+| 2 | web | Diamond Storm | m.bulbapedia.bulbagarden.net | fallito | 1 | https://m.bulbapedia.bulbagarden.net/wiki/Diamond_Storm_(move |
+| 2 | web | Distribution device - Bulbapedia, the community-driven Pokémon encyclopedia | m.bulbapedia.bulbagarden.net | scaricato | 1 | https://m.bulbapedia.bulbagarden.net/wiki/Distribution_device |
+| 2 | web | - | m.bulbapedia.bulbagarden.net | fallito | 1 | https://m.bulbapedia.bulbagarden.net/wiki/List_of_Wi-Fi_English_event_Pok%C3%A9mon_distributions_(Generation_IV |
 | 2 | web | xkcd: Exploits of a Mom | m.xkcd.com | scaricato | 1 | https://m.xkcd.com/327 |
 | 2 | web | Rom Patcher JS | marcrobledo.com | scaricato | 1 | https://www.marcrobledo.com/RomPatcher.js |
 | 2 | web | mGBA 0.9.0 - mGBA | mgba.io | scaricato | 2 | https://mgba.io/2021/03/28/mgba-0.9.0 |
@@ -901,7 +921,9 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 2 | web | Pokemon 6G Chain Fishing Probability Analysis | mrnbayoh.github.io | scaricato | 1 | https://mrnbayoh.github.io/pkmn6gen/chain_fishing_shiny |
 | 2 | web | Feebas Tile Calculator | mucksw.github.io | scaricato | 1 | https://mucksw.github.io/Feebas-Tile-Calculator |
 | 2 | web | Iwata Asks / 1. Just Making The Last Train / Iwata Asks - Pokémon HeartGold Version & SoulSilver Version / Nintendo UK | nintendo.co.uk | scaricato | 1 | https://www.nintendo.co.uk/Iwata-Asks/Iwata-Asks-Pokemon-HeartGold-Version-SoulSilver-Version/Iwata-Asks-Pokemon-HeartGold-Version-SoulSilver-Version/1-Just-Making-The-Last-Train/1-Just-Making-The-Last-Train-225842.html |
-| 2 | web | Picnic Breeding | nintendolife.com | catalogato | 1 | https://www.nintendolife.com/guides/pokemon-scarlet-and-violet-how-to-breed-pokemon |
+| 2 | web | - | nintendo.com | fallito | 2 | http://www.nintendo.com/consumer/berryfaq.jsp |
+| 2 | web | - | nintendo.com | fallito | 2 | https://www.nintendo.com/consumer/berryfaq.jsp |
+| 2 | web | Pokémon Scarlet & Violet: How To Breed Pokémon / Nintendo Life | nintendolife.com | scaricato | 1 | https://www.nintendolife.com/guides/pokemon-scarlet-and-violet-how-to-breed-pokemon |
 | 2 | web | Info | np.reddit.com | catalogato | 1 | https://np.reddit.com/r/SubtleTV/wiki/mentioned_videos |
 | 2 | web | top posts | np.reddit.com | catalogato | 1 | https://np.reddit.com/r/pokemonribbons/top?sort=top&t=year |
 | 2 | web | Info | np.reddit.com | catalogato | 1 | https://np.reddit.com/r/sneakpeekbot |
@@ -909,13 +931,15 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 2 | web | Mew Farming Setup - Pastebin.com | pastebin.com | scaricato | 2 | http://pastebin.com/uFTQtwwZ |
 | 2 | web | Meaning there's more space for you to fail and break your chain even if you are following the rules, unlike before | pbs.twimg.com | catalogato | 1 | https://pbs.twimg.com/media/FEHhugrVkAA93od?format=png&name=360x360 |
 | 2 | web | Papa Jefe’s 3-ingredient sandwiches | pbs.twimg.com | catalogato | 1 | https://pbs.twimg.com/media/FiigD-DWIAQViNI?format=jpg&name=medium |
+| 2 | web | Noticias Pokémon, Pokémon Rubí Omega, Pokémon Zafiro Alfa, Pokémon X, Pokémon Y, Pokémon Blanco, Pokémon Negro, Pokédex, Guías Pokémon... - Pokémon Paraíso | pkparaiso.com | scaricato | 1 | http://www.pkparaiso.com/ |
 | 2 | web | - | plailect.github.io | fallito | 1 | https://plailect.github.io/Guide |
+| 2 | web | - | pokemon-sunmoon.com | non raggiunto | 2 | https://www.pokemon-sunmoon.com/ultra/en-us/cool-features.html |
 | 2 | web | Pokémon Bank Services Will Be Available at No Cost to Players | pokemon.com | scaricato | 1 | https://www.pokemon.com/us/pokemon-news/pokemon-bank-services-will-be-available-at-no-cost-to-players |
 | 2 | web | Pokémon.com | pokemon.com | fallito | 1 | https://www.pokemon.com/us/strategy/gigantamax-shiny-pokemon-sword-pokemon-shield-wild-area?cid=&amp%3Bamp%3Bamp%3Butm_source=tw&amp%3Bamp%3Bamp%3Butm_medium=social&amp%3Bamp%3Bamp%3Butm_campaign=swordshield&amp%3Bamp%3Bamp%3Butm_term=wildareaguide |
 | 2 | web | Dual Slot Mode | pokemonlp.fandom.com | fallito | 1 | https://pokemonlp.fandom.com/wiki/Dual-slot_mode |
-| 2 | web | - | pokepal.rpintosh.eu | catalogato | 1 | https://pokepal.rpintosh.eu/ |
-| 2 | web | this | pokepast.es | catalogato | 1 | https://pokepast.es/e98bb534818c8ec3 |
-| 2 | web | Follow this link | pokewiki.de | catalogato | 1 | https://www.pokewiki.de/Spezial:Geheimcode-Generator |
+| 2 | web | - | pokepal.rpintosh.eu | non raggiunto | 1 | https://pokepal.rpintosh.eu/ |
+| 2 | web | Athis' Gen 7 Battle Tree Team | pokepast.es | scaricato | 1 | https://pokepast.es/e98bb534818c8ec3 |
+| 2 | web | Geheimcode-Generator – PokéWiki | pokewiki.de | scaricato | 1 | https://www.pokewiki.de/Spezial:Geheimcode-Generator |
 | 2 | web | PRAMA Initiative - Accueil | prama-initiative.com | scaricato | 1 | https://www.prama-initiative.com/ |
 | 2 | web | Pretendo Network | pretendo.network | scaricato | 1 | https://pretendo.network/ |
 | 2 | web | - | preview.redd.it | catalogato | 1 | https://preview.redd.it/0fnjmxsnhhmf1.png?width=6912&format=png&auto=webp&s=b5c31b811cc5b6830ca5b6294c13c472b05a5242 |
@@ -1003,14 +1027,15 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 2 | web | - | preview.redd.it | catalogato | 1 | https://preview.redd.it/yvghw1ulc9od1.png?width=995&format=png&auto=webp&s=4e19cb2541ab33b507428bb263c726162e19ae6d |
 | 2 | web | - | preview.redd.it | catalogato | 1 | https://preview.redd.it/zazewpl611qd1.jpeg?width=552&format=pjpg&auto=webp&s=73593f3c5e2bb6c2869660ede0032b65a6d81b83 |
 | 2 | web | - | preview.redd.it | catalogato | 1 | https://preview.redd.it/zq52r8bjz9uc1.png?width=1920&format=png&auto=webp&s=017e5037961e9c8ae757adc4c6970fd9ee748fc1 |
-| 2 | web | - | projectpokemon.org | catalogato | 1 | https://projectpokemon.org/forums/forums/topic/39841-pokemon-bank-update?page=2 |
-| 2 | web | program on this projectpokemon post | projectpokemon.org | catalogato | 1 | https://projectpokemon.org/home/files/file/647-feebas-fishing-spot-finder |
-| 2 | web | - | projectpokemon.org | catalogato | 1 | https://projectpokemon.org/home/forums/topic/37192-feebas-fishing-spot-value-rusaem |
-| 2 | web | There is an effort to recover | projectpokemon.org | catalogato | 1 | https://projectpokemon.org/home/index/announcements/help-awaken-the-pokémon-dream-world-r162 |
-| 2 | web | Add borders to .GB games | projectpokemon.org | catalogato | 1 | https://projectpokemon.org/home/tutorials/rom/3ds-pokemon-games-hacking-tutorials/injecting-a-custom-virtual-console-frame-into-an-official-virtual-console-release-r120 |
-| 2 | web | Use Checkpoint | projectpokemon.org | catalogato | 2 | https://projectpokemon.org/home/tutorials/save-editing/managing-nds-saves/using-checkpoint-r70 |
-| 2 | web | More Info Here | projectpokemon.org | catalogato | 2 | https://projectpokemon.org/home/tutorials/save-editing/using-pkhex/how-to-use-the-batch-editor-in-pkhex-r77 |
-| 2 | web | Legality checking and fixing with PKHeX and RNGReporter | projectpokemon.org | catalogato | 2 | https://projectpokemon.org/home/tutorials/save-editing/using-pkhex/pid-mismatch-origin-game-rsefrlg-dppthgss-rngreporter-r31 |
+| 2 | web | Pokemon Bank Update - Page 2 - User-Submitted News - Project Pokemon Forums | projectpokemon.org | scaricato | 1 | https://projectpokemon.org/forums/forums/topic/39841-pokemon-bank-update?page=2 |
+| 2 | web | Feebas Fishing Spot Finder - Save Editing - Project Pokemon Forums | projectpokemon.org | scaricato | 1 | https://projectpokemon.org/home/files/file/647-feebas-fishing-spot-finder |
+| 2 | web | Feebas Fishing Spot value (Ru/Sa/Em) - Saves - Research - Project Pokemon Forums | projectpokemon.org | scaricato | 1 | https://projectpokemon.org/home/forums/topic/37192-feebas-fishing-spot-value-rusaem |
+| 2 | web | SWSH - Camp Encounters after making curry - Generation 8 - Project Pokemon Forums | projectpokemon.org | scaricato | 1 | https://projectpokemon.org/home/forums/topic/57870-swsh-camp-encounters-after-making-curry/&media= |
+| 2 | web | There is an effort to recover | projectpokemon.org | fallito | 1 | https://projectpokemon.org/home/index/announcements/help-awaken-the-pokémon-dream-world-r162 |
+| 2 | web | Playing on a Custom Virtual Console Frame on an Official Virtual Console Release - 3DS Pokémon Games Hacking Tutorials - Project Pokemon Forums | projectpokemon.org | scaricato | 1 | https://projectpokemon.org/home/tutorials/rom/3ds-pokemon-games-hacking-tutorials/injecting-a-custom-virtual-console-frame-into-an-official-virtual-console-release-r120 |
+| 2 | web | Using Checkpoint - Managing NDS Saves - Project Pokemon Forums | projectpokemon.org | scaricato | 2 | https://projectpokemon.org/home/tutorials/save-editing/managing-nds-saves/using-checkpoint-r70 |
+| 2 | web | How to Use the Batch Editor in PKHeX - Using PKHeX - Project Pokemon Forums | projectpokemon.org | scaricato | 2 | https://projectpokemon.org/home/tutorials/save-editing/using-pkhex/how-to-use-the-batch-editor-in-pkhex-r77 |
+| 2 | web | PID Mismatch - Origin Game RSEFRLG DPPtHGSS (RNGReporter) - Using PKHeX - Project Pokemon Forums | projectpokemon.org | scaricato | 2 | https://projectpokemon.org/home/tutorials/save-editing/using-pkhex/pid-mismatch-origin-game-rsefrlg-dppthgss-rngreporter-r31 |
 | 2 | web | collegamento del post | puu.sh | catalogato | 1 | http://puu.sh/257S |
 | 2 | web | Pokemon IV Calculator (Gen 1) | pycosites.com | scaricato | 1 | https://pycosites.com/pkmn/ivcalc_gen1.php |
 | 2 | web | Source | raw.githubusercontent.com | scaricato | 2 | https://raw.githubusercontent.com/wiki/FlagBrew/PKSM/Built-In-Scripts.md |
@@ -1144,7 +1169,9 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 2 | web | PokemonSlots - Gen V | sites.google.com | scaricato | 1 | https://sites.google.com/site/pokemonslots/gen-v?authuser=0 |
 | 2 | web | Athis' Ribbon Handbook | sites.google.com | scaricato | 1 | https://sites.google.com/view/athis-ribbon-handbook |
 | 2 | web | Athis' Ribbon Handbook | sites.google.com | scaricato | 1 | https://sites.google.com/view/athis-ribbon-handbook/home |
+| 2 | web | Pokémon Sword and Shield - Classification and Technicalities | skadiv.github.io | scaricato | 2 | https://skadiv.github.io/guides/swsh |
 | 2 | web | - | smoda.elpais.com | catalogato | 1 | https://smoda.elpais.com/wp-content/uploads/2016/12/cover43.jpg |
+| 2 | web | Past Gen RNG Research / Page 27 / Smogon Forums | smogon.com | scaricato | 2 | http://www.smogon.com/forums/showpost.php?p=3322452&postcount=664 |
 | 2 | web | Gen III Battle Frontier Discussion and Records / Smogon Forums | smogon.com | scaricato | 1 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697 |
 | 2 | web | Metagame - LGPE OverUsed / Smogon Forums | smogon.com | scaricato | 1 | https://www.smogon.com/forums/threads/lgpe-overused.3644015 |
 | 2 | web | Shiny Hunting in Pokémon Sword and Shield - Smogon University | smogon.com | scaricato | 1 | https://www.smogon.com/ingame/guides/swsh_shiny_hunt |
@@ -1156,12 +1183,22 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 2 | web | [this stopwatch | timeanddate.com | fallito | 1 | https://timeanddate.com/stopwatch |
 | 2 | web | here | tshadowknight.com | catalogato | 1 | http://tshadowknight.com/Headbutt%20Grid.htm |
 | 2 | web | the VOD itself | twitch.tv | catalogato | 3 | https://www.twitch.tv/videos/117651897 |
+| 2 | web | - | twitter.com | catalogato | 2 | https://twitter.com/Atrius97/status/1558988423460925440 |
 | 2 | web | https://twitter.com/JoeMerrick/status/1228055915573710849 | twitter.com | catalogato | 1 | https://twitter.com/JoeMerrick/status/1228055915573710849 |
 | 2 | web | https://twitter.com/JoeMerrick/status/1664958038657187842 | twitter.com | catalogato | 1 | https://twitter.com/JoeMerrick/status/1664958038657187842 |
 | 2 | web | Link | twitter.com | catalogato | 1 | https://twitter.com/REVERSALx7/status/1463350315579842563?t=qbnAE0Mh82ztKbZ1hz8uQQ&s=19 |
+| 2 | web | - | twitter.com | catalogato | 4 | https://twitter.com/SciresM/status/1319799153162006530 |
+| 2 | web | - | twitter.com | catalogato | 4 | https://twitter.com/SciresM/status/1319805906691842050 |
+| 2 | web | - | twitter.com | catalogato | 2 | https://twitter.com/SciresM/status/1319878015581523968 |
+| 2 | web | - | twitter.com | catalogato | 2 | https://twitter.com/Sibuna_Switch/status/1558955387369439232 |
+| 2 | web | - | twitter.com | catalogato | 2 | https://twitter.com/Sibuna_Switch/status/1558956869829492737 |
+| 2 | web | - | twitter.com | catalogato | 2 | https://twitter.com/ariga_megamix/status/1672213717063471107 |
 | 2 | web | - | twitter.com | catalogato | 1 | https://twitter.com/riiconnect24/status/1583996519325147137?s=46&t=zixZJ1jNdh4EIWdujbBRGg |
 | 2 | web | pkmn-chest / Universal-Team | universal-team.net | scaricato | 2 | https://universal-team.net/projects/pkmn-chest |
+| 2 | web | - | upc.pkmn.co.uk | catalogato | 2 | http://upc.pkmn.co.uk/games/crystal/oddegg.shtml |
 | 2 | web | Nintendo Wi-Fi Connection service for Nintendo DS and Wii has ended - Nintendo Official Site | web.archive.org | scaricato | 2 | https://web.archive.org/web/20140825172450/http://www.nintendo.com/whatsnew/detail/vyWpoM6CBIe6FjW8NIY7bvzOrgBURhzw |
+| 2 | web | 事実無根の中傷については、即、警察に通報します。 | web.archive.org | scaricato | 2 | https://web.archive.org/web/20230216155411/http://bystrousky.blogspot.com/2019/07/blog-post.html |
+| 2 | web | ありがひとし🌇🦖 on Twitter: "@Lewchube 随分懐かしい絵ですね、これは描いたことを覚えています。" / Twitter | web.archive.org | scaricato | 2 | https://web.archive.org/web/20230623121003/https://twitter.com/ariga_megamix/status/1672213717063471107 |
 | 2 | web | https://wiimmfi.de | wiimmfi.de | fallito | 1 | https://wiimmfi.de/ |
 | 2 | web | TWiLight Menu++ / DS-Homebrew Wiki | wiki.ds-homebrew.com | scaricato | 2 | https://wiki.ds-homebrew.com/twilightmenu |
 | 2 | web | GBARunner2/Link - WikiTemp, the GBAtemp wiki | wiki.gbatemp.net | scaricato | 2 | https://wiki.gbatemp.net/wiki/GBARunner2/Link |
@@ -1178,7 +1215,7 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 2 | web | Misty mark in SV | x.com | catalogato | 1 | https://x.com/Sibuna_Switch/status/1930459094202163632 |
 | 2 | web | xkcd: Semaphore | xkcd.com | scaricato | 1 | https://www.xkcd.com/ |
 | 2 | web | xkcd: Exploits of a Mom | xkcd.com | scaricato | 1 | https://xkcd.com/327 |
-| 2 | web | Statistics | xkcdref.info | catalogato | 1 | http://xkcdref.info/statistics |
+| 2 | web | Statistics | xkcdref.info | non raggiunto | 1 | http://xkcdref.info/statistics |
 | 2 | web | seconds | youtu.be | catalogato | 1 | https://youtu.be/1GF_LFPz34U?t=2647 |
 | 2 | web | this video | youtu.be | catalogato | 1 | https://youtu.be/63LN2N2usbg |
 | 2 | web | Mario 64 | youtu.be | catalogato | 1 | https://youtu.be/7CgXvIuZR40?t=2 |
@@ -1215,6 +1252,7 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 2 | web | - | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=14wqBA5Q1yc |
 | 2 | web | Pomeg Glitch | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=1cEm84fUmE4&t=0s |
 | 2 | web | Professor Oak | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=1nC7gAAdSPo&list=PLWQDwiGdrVjkPMnCe9P73FPzeDWUrgT6V&pp=iAQB |
+| 2 | web | - | youtube.com | catalogato | 2 | https://www.youtube.com/watch?v=4uaqsBIAAGw |
 | 2 | web | Here's | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=5CtLqTc8IaM |
 | 2 | web | - | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=5uDQLUi0ZEo&lc= |
 | 2 | web | Have a biscuit! | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=6XX5nIQqjrQ |
@@ -1257,22 +1295,97 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 2 | web | follow up | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=yyIa9611uZk |
 | 2 | web | - | youtube.com | catalogato | 1 | https://youtube.com/shorts/MC8UcAATaE4 |
 | 2 | web | Feebas Finder | yuhasem.github.io | scaricato | 1 | https://yuhasem.github.io/FeebasFinder |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-0-ZNK_MFMG4/XTiZMcVkgjI/AAAAAAAAaN0/RFFP2Lie7bkUMDbPtbjgAFd-fymxKvbvgCLcBGAs/s1600/011.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-1q9Zju1Tcks/XTiZSLMPbEI/AAAAAAAAaPU/j_12o9VQaDYc_O0JHJH-Eu3QNGNsAsD6gCLcBGAs/s1600/bwtenji9.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-3t2jV1aLaqc/XTiZQbVfRYI/AAAAAAAAaO4/Yr61ag59aLE2ENVKgZGz835yWNwNdvt-wCLcBGAs/s1600/bwtenji24.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-7YCFEuQlrns/XTiZOZ-LY2I/AAAAAAAAaOU/WAb-04eQlrIJjHMy0IBk3kC6WnBOY6D5wCLcBGAs/s1600/bwtenji16.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-97Gy0QlF3uA/XTiZMTHGzDI/AAAAAAAAaN8/SSN1laRhHugFZ37SqMAargculRdc9i1TQCLcBGAs/s1600/bwtenji11.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-9j0_BxkgcN0/XTiZNDejkFI/AAAAAAAAaOA/FnZ8YPedThca-A5gW5YznMDrs3NuJn3ngCLcBGAs/s1600/bwtenji12.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-Blo6QA7EQdQ/XTiZPAmb4RI/AAAAAAAAaOk/qc2IAipZMSEAkBcZlpX5vVZMCBgDNdiEwCLcBGAs/s1600/bwtenji20.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-Hf69jCvFH4w/XTiZQ3OTBKI/AAAAAAAAaPA/ils0P78UhQgRTWyi9lCvKy_n0bY2tZmHQCLcBGAs/s1600/bwtenji26.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-I7LnrTb-OK0/XTiZSgc8N8I/AAAAAAAAaPg/l4E2fYg9SmwKa69FjPqVszG-faVUxLb4wCLcBGAs/s1600/tumblr_mjif7sFwEO1rnqy52o7_1280.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-Jf0j-55lgnc/XTiZQphDTxI/AAAAAAAAaO8/8asr33mLWO0uuyh8buHjHQthoDCF7KeDQCLcBGAs/s1600/bwtenji25.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-JfU1blWb-HE/XTiZNtq-MEI/AAAAAAAAaOI/30EhHiR3BnkXYdUrD-YSXItcYQgrQ2pYgCLcBGAs/s1600/bwtenji13.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-KhLr2fHI23w/XTiZN-PZrwI/AAAAAAAAaOM/wTt52n03AG0g92WDiXqEgbuDp4ACPX44ACLcBGAs/s1600/bwtenji14.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-SPFKYzGe0zg/XTiZRa0MtZI/AAAAAAAAaPI/I1sC8_uW1A457k52o1hTIvlklHhE8MsOgCLcBGAs/s1600/bwtenji3.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-SbptNrABoFY/XTiZON4Px6I/AAAAAAAAaOQ/O4xzyAbld1k8lIAiT7K-NCv0-hKRFHbOACLcBGAs/s1600/bwtenji15.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-T54qVSY67L0/XTiZP_2iaII/AAAAAAAAaOw/g56TlQ0eg5MOGfl2r0noj9ZeSjZZNftCgCLcBGAs/s1600/bwtenji22.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-X83jc4G7fFQ/XTiZPvjx5cI/AAAAAAAAaOs/3mXXddmj9mIBoDZk8c6gBrC1SVzb9uCxQCLcBGAs/s1600/bwtenji21.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-YiiOuIODh7k/XTiZOm9S9BI/AAAAAAAAaOY/VA_Z18d0EqkoYIYekF4zWmBPuH0lxQzaQCLcBGAs/s1600/bwtenji17.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-Zi4FxzydysM/XTiZMf-ywSI/AAAAAAAAaN4/qDVrDiImvXouOHpR52cgdXYH8OVPm867gCLcBGAs/s1600/bwtenji10.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-d6vWI-_RLds/XTiZSRJvN2I/AAAAAAAAaPY/Wu-ZctP2b4wNMk3LrsUOJLWWNXz5APgIACLcBGAs/s1600/c20120805_poke_006_cs1w1_640x479.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-hZBZ-JsirB4/XTiZNQFbqVI/AAAAAAAAaOE/ElYPAT4auichwpa1YL_z4rv2qamIAT0sACLcBGAs/s1600/bwtenji13%2B%25281%2529.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-iFPTanU9iTk/XTiZR0AyAvI/AAAAAAAAaPQ/4o_2ryk0uPwRy2P_ydsg1XE00pIL1lx2ACLcBGAs/s1600/bwtenji8.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-jU9wQCaTzoo/XTiZPFhSxXI/AAAAAAAAaOo/W7fDnoUbO3ctjWVmsnrKroWQANg7-GfmQCLcBGAs/s1600/bwtenji21%2B%25281%2529.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-kH7I5kKayrk/XTiZQ3VYIgI/AAAAAAAAaPE/Ng7IlVDtu-AAGsiuYeqviE9s9AMMjh-dgCLcBGAs/s1600/bwtenji27.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-kseLVctsmAQ/XTiZQCoXeYI/AAAAAAAAaO0/A2X2oSUkhG0uWSVD0p95KpSQ9qXU4sjigCLcBGAs/s1600/bwtenji23.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-pV4QXpMFzqg/XTiZOm_T0bI/AAAAAAAAaOc/A5RMC-6_Z40f6ipKJRaRMq3kCmlqwtj3gCLcBGAs/s1600/bwtenji18.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-qg00cy4EJOU/XTiZPL-K6XI/AAAAAAAAaOg/YHa7qFy1CuYJt8sYb1H_zeNV9t85DuRcACLcBGAs/s1600/bwtenji19.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-qi3feDielcU/XTiZRrxwl0I/AAAAAAAAaPM/Bc1CK_24ivsRXGBnAHrHUDHksj9YbEgxgCLcBGAs/s1600/bwtenji4.jpg |
+| 3 | web | - | 1.bp.blogspot.com | catalogato | 1 | https://1.bp.blogspot.com/-tHtcFL7qDlY/XTiZSmGt1bI/AAAAAAAAaPc/YgUBzvoW3Bg-e2n7a9tkvOWN8R2hMK2MgCLcBGAs/s1600/c20120805_poke_016_cs1w1_640x480.jpg |
 | 3 | web | https://3ds.guide/ | 3ds.guide | non raggiunto | 2 | https://3ds.guide/ |
 | 3 | web | https://3ds.pokemon-gl.com/ | 3ds.pokemon-gl.com | non raggiunto | 1 | https://3ds.pokemon-gl.com/ |
 | 3 | web | There are no mainline Pokémon games with Amiibo support | amiibo.life | non raggiunto | 1 | https://amiibo.life/games |
+| 3 | web | - | and.org | non raggiunto | 1 | http://www.and.org/vstr |
 | 3 | web | The hunt started | archive.nyafuu.org | non raggiunto | 1 | https://archive.nyafuu.org/vp/thread/30676572 |
+| 3 | web | - | archive.org | non raggiunto | 1 | https://archive.org/details/MyPokemonRanchWiiGuide/page/26/mode/2up |
 | 3 | web | scan the QR codes | archive.org | non raggiunto | 1 | https://archive.org/download/3ds-cia-qr-code |
 | 3 | web | here's the archived ID list. | archives.glitchcity.info | non raggiunto | 1 | https://archives.glitchcity.info/wiki/The_Big_HEX_List.html |
+| 3 | web | - | awarenetwork.org | non raggiunto | 1 | https://www.awarenetwork.org/etc/alpha?x=5 |
 | 3 | web | - | bear.ces.cwru.edu | catalogato | 1 | http://bear.ces.cwru.edu/eecs_382/ARM7-TDMI-manual-pt3.pdf |
 | 3 | web | BillsPC.com | billspc.com | non raggiunto | 1 | http://billspc.com/ |
 | 3 | web | - | binance.bh | non raggiunto | 1 | https://www.binance.bh/futures/ref?code=IHJUI7TF |
 | 3 | web | A Decimal to Hexadecimal converter | binaryhexconverter.com | non raggiunto | 1 | http://www.binaryhexconverter.com/decimal-to-hex-converter |
+| 3 | web | - | blog.livedoor.jp | non raggiunto | 1 | http://blog.livedoor.jp/ktxad/archives/1538967.html |
+| 3 | web | - | blogger.com | non raggiunto | 1 | https://www.blogger.com/comment/frame/7301142893660077732?po=1821368774370293558&hl=ja&skin=contempo |
+| 3 | web | - | blogs.msdn.com | non raggiunto | 1 | http://blogs.msdn.com/michael_howard/archive/2006/01/30/520200.aspx |
+| 3 | web | - | blogs.msdn.com | non raggiunto | 1 | http://blogs.msdn.com/michael_howard/archive/2006/08/16/702707.aspx |
 | 3 | web | - | bobby-tables.com | non raggiunto | 1 | http://bobby-tables.com/ |
 | 3 | web | - | bulbagarden.net | non raggiunto | 1 | https://www.bulbagarden.net/ |
 | 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | http://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pokémon_distributions_in_Generation_I |
 | 3 | web | This list of Pokémon by index number | bulbapedia.bulbagarden.net | non raggiunto | 1 | http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_index_number_%28Generation_II%29 |
 | 3 | web | see here | bulbapedia.bulbagarden.net | non raggiunto | 1 | http://bulbapedia.bulbagarden.net/wiki/List_of_items_by_index_number_%28Generation_II%29 |
 | 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | http://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_breeding |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Alpha_Pok%C3%A9mon&oldid=4624085 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Birth_Island&oldid=4599996 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Catch_Combo&oldid=4341599 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 2 | https://bulbapedia.bulbagarden.net/w/index.php?title=Category%3APok%C3%A9mon_in_the_Medium_Slow_experience_group&oldid=1805717 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Coin_Case_glitches&oldid=4505559 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Curtis&oldid=4515047 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=DexNav&oldid=4067843 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Distribution_device&oldid=4546719 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Dual-slot_mode&oldid=4586715 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=E-Reader&oldid=4627843 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Experience&oldid=4619908 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Fight_Safari_Zone_Pok%C3%A9mon_trick&oldid=4217384 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Gender&oldid=4615835 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Global_Trade_System&oldid=4559149 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Hayley%27s_trades&oldid=4618543 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Hayley&oldid=4561221 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Headbutt_tree&oldid=4573213 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=In-game_trade&oldid=4617447 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Item_duplication_glitch&oldid=4331523 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Jasmine%27s_Steelix&oldid=4587931 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=List_of_Pok%C3%A9mon_by_index_number_in_Generation_I&oldid=4349628 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Mew_glitch&oldid=4365162 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=My_Pok%C3%A9mon_Ranch&oldid=4621813 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Pal_Park&oldid=4541362 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Pikachu_in_a_cap&oldid=4621331 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Pok%C3%A9_Radar&oldid=4567777 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Pok%C3%A9mon_Battle_Revolution&oldid=4623769 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Pok%C3%A9mon_Box_Ruby_%26_Sapphire&oldid=4622772 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Pok%C3%A9mon_Channel&oldid=4628317 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Pok%C3%A9mon_Colosseum&oldid=4624526 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Pok%C3%A9mon_Colosseum_Bonus_Disc&oldid=4627683 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Pok%C3%A9mon_XD%3A_Gale_of_Darkness&oldid=4546937 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Ranger_Net&oldid=4462438 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Record_mixing&oldid=4523241 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Roaming_Pok%C3%A9mon&oldid=4559692 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Sinjoh_Ruins&oldid=4621739 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Time_Capsule_exploit&oldid=4505547 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Turnback_Cave&oldid=4604697 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Wild_Area_News%2F2021&oldid=4521772 |
+| 3 | web | - | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/w/index.php?title=Yancy&oldid=4515046 |
 | 3 | web | here | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/wiki/Anville_Town |
 | 3 | web | Black City (Bulbapedia) | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/wiki/Black_City |
 | 3 | web | here | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/wiki/Black_Tower |
@@ -1288,13 +1401,22 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 3 | web | here | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/wiki/Prop |
 | 3 | web | here | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/wiki/Union_Room |
 | 3 | web | White Forest (Bulbapedia) | bulbapedia.bulbagarden.net | non raggiunto | 1 | https://bulbapedia.bulbagarden.net/wiki/White_Forest |
+| 3 | web | - | bystrousky.blogspot.com&skin=contempo | non raggiunto | 1 | http://bystrousky.blogspot.com&skin=contempo/ |
+| 3 | web | - | c0re.23.nu | catalogato | 1 | http://c0re.23.nu/~chris/presentations/overflow2005.pdf |
+| 3 | web | - | cansecwest.com | catalogato | 1 | https://cansecwest.com/csw08/csw08-holtmann.pdf |
 | 3 | web | - | cantsay.github.io | non raggiunto | 1 | https://cantsay.github.io/ |
 | 3 | web | shiny Starly | cdn.discordapp.com | catalogato | 1 | https://cdn.discordapp.com/attachments/907741323757506590/908898581681950720/2021111220582900-7DCC42E2AF4C1BBE54BB71700F7161B6.jpg |
+| 3 | web | - | cosbypokemon.com | non raggiunto | 1 | http://cosbypokemon.com/ |
+| 3 | web | - | csrc.nist.gov | catalogato | 1 | https://csrc.nist.gov/publications/history/ande72.pdf |
+| 3 | web | - | cube.ign.com | non raggiunto | 1 | http://cube.ign.com/objects/566/566823.html |
 | 3 | web | https://cultivatenation.com | cultivatenation.com | non raggiunto | 1 | https://cultivatenation.com/ |
 | 3 | web | This Pokémon GS RAM Map | datacrystal.romhacking.net | non raggiunto | 1 | http://datacrystal.romhacking.net/wiki/Pok%C3%A9mon_Gold:RAM_map |
 | 3 | web | RAM Map | datacrystal.romhacking.net | non raggiunto | 1 | http://datacrystal.romhacking.net/wiki/Pokémon_Red/Blue:RAM_map |
 | 3 | web | ROM Map | datacrystal.romhacking.net | non raggiunto | 1 | http://datacrystal.romhacking.net/wiki/Pokémon_Red_and_Blue:ROM_map |
 | 3 | web | - | davidgf.net | non raggiunto | 1 | https://www.davidgf.net/2024/01/13/gba-wireless-adapter |
+| 3 | web | - | dcs.ics.forth.gr | catalogato | 1 | http://dcs.ics.forth.gr/Activities/papers/stride-IFIP-SEC05.pdf |
+| 3 | web | - | detelony.blog.fc2.com | non raggiunto | 1 | http://detelony.blog.fc2.com/ |
+| 3 | web | - | developer.intel.com | catalogato | 1 | http://developer.intel.com/design/processor/manuals/253666.pdf |
 | 3 | web | - | devkitpro.org | non raggiunto | 1 | https://devkitpro.org/wiki/devkitPro_pacman |
 | 3 | web | https://www.dexerto.com/pokemon/pokemon-home-players-report-bizarre-magearna-pokedex-gift-bug-1328506 | dexerto.com | non raggiunto | 1 | https://www.dexerto.com/pokemon/pokemon-home-players-report-bizarre-magearna-pokedex-gift-bug-1328506 |
 | 3 | web | BW-tool | digiex.net | non raggiunto | 1 | https://digiex.net/threads/pokemon-black-white-1-2-save-tool-global-link-arceus-entralink-editor-medals-join-avenue.15061 |
@@ -1303,6 +1425,7 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 3 | web | - | discord.gg | catalogato | 1 | https://discord.gg/nBnTrv3UMn |
 | 3 | web | - | discord.gg | catalogato | 1 | https://discord.gg/pMs38vWAx3 |
 | 3 | web | - | discord.kaeru.world | non raggiunto | 1 | https://discord.kaeru.world/ |
+| 3 | web | - | doc.bughunter.net | non raggiunto | 1 | https://doc.bughunter.net/buffer-overflow |
 | 3 | web | - | docs.google.com | catalogato | 1 | https://docs.google.com/document/d/1Q733nUB-q_1Ao3qTMN_0pjFkwW2NyRXdsZtW9r795SU/edit |
 | 3 | web | Click here to apply! | docs.google.com | catalogato | 1 | https://docs.google.com/forms/u/0/d/e/1FAIpQLScQPusfkDX9P2IWBKo8KIdBitvjMXn43TFt2DEzHCTTtmHXSw/formResponse |
 | 3 | web | Pokemon Home COMPLETE Living Dex List, Spreadsheet Edition | docs.google.com | catalogato | 1 | https://docs.google.com/spreadsheets/d/11ov5BCgmdjftGcgtZ49TFglPXJdLBC05OZSLWwSxUMY/edit?usp=sharing |
@@ -1318,14 +1441,20 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 3 | web | . | drive.google.com | catalogato | 1 | https://drive.google.com/open?id=1LAGxOjbAPv6ppUq5giiRY17ybsUmPyzw |
 | 3 | web | , | drive.google.com | catalogato | 1 | https://drive.google.com/open?id=1zb60PTOoYWRjnHdmvTYEbNQlbktK_y4v |
 | 3 | web | this file | dropbox.com | non raggiunto | 1 | https://www.dropbox.com/s/rzwr0ycdml3akk9/ntr_launcher.ini?dl=1 |
+| 3 | web | - | ds.ign.com | non raggiunto | 1 | http://ds.ign.com/articles/966/966301p1.html |
 | 3 | web | - | ecs.csun.edu | catalogato | 1 | https://www.ecs.csun.edu/~smirzaei/docs/ece425/arm7tdmi_instruction_set_reference.pdf |
 | 3 | web | https://eduatec-my.sharepoint.com/:x:/g/personal/tiago\_cristo\_t0104843\_edu\_atec\_pt/EeQCiXq1X-hMkf8Bt\_y8HiIBWYD7J-ZChc2xjPx-IlS4VQ?e=69O49b | eduatec-my.sharepoint.com | non raggiunto | 1 | https://eduatec-my.sharepoint.com/:x:/g/personal/tiago_cristo_t0104843_edu_atec_pt/EeQCiXq1X-hMkf8Bt_y8HiIBWYD7J-ZChc2xjPx-IlS4VQ?e=69O49b |
 | 3 | web | Nintendo's servers for Bank still work. They were never closed. | en-americas-support.nintendo.com | non raggiunto | 1 | https://en-americas-support.nintendo.com/app/answers/detail/a_id/61543/~/pok%C3%A9mon-bank-service-update |
 | 3 | web | Taiyaki | en.m.wikipedia.org | non raggiunto | 1 | https://en.m.wikipedia.org/wiki/Taiyaki |
+| 3 | web | - | en.wikipedia.org | non raggiunto | 1 | https://en.wikipedia.org/w/index.php?title=Buffer_overflow&oldid=1360180985 |
+| 3 | web | - | en.wikipedia.org | non raggiunto | 1 | https://en.wikipedia.org/w/index.php?title=Nintendo_Game_Card&oldid=1374460720 |
+| 3 | web | - | en.wikipedia.org | non raggiunto | 1 | https://en.wikipedia.org/w/index.php?title=Program_counter&oldid=1352557684 |
 | 3 | web | list | en.wikipedia.org | non raggiunto | 1 | https://en.wikipedia.org/wiki/Game_Boy_Advance_Wireless_Adapter |
 | 3 | web | gaming the system | en.wikipedia.org | non raggiunto | 1 | https://en.wikipedia.org/wiki/Gaming_the_system |
 | 3 | web | Here is the list of NA VC games | en.wikipedia.org | non raggiunto | 1 | https://en.wikipedia.org/wiki/List_of_Virtual_Console_games_for_Nintendo_3DS_(North_America |
+| 3 | web | - | enderunix.org | non raggiunto | 1 | http://enderunix.org/docs/en/bof-eng.txt |
 | 3 | web | - | explainxkcd.com | non raggiunto | 1 | https://www.explainxkcd.com/w/index.php?title=327%3A_Exploits_of_a_Mom&oldid=197752 |
+| 3 | web | - | exploit-db.com | catalogato | 1 | https://www.exploit-db.com/docs/18346.pdf |
 | 3 | web | on this tile | extratricky.com | non raggiunto | 1 | https://www.extratricky.com/pokeworld/rb/1 |
 | 3 | web | 100 coins here | extratricky.com | non raggiunto | 1 | https://www.extratricky.com/pokeworld/rb/135 |
 | 3 | web | the man at the top left of the hotel | extratricky.com | non raggiunto | 1 | https://www.extratricky.com/pokeworld/rb/138 |
@@ -1333,8 +1462,10 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 3 | web | - | filecenter.com | non raggiunto | 1 | https://www.filecenter.com/blog/how-to-unzip-files-mac-iphone-android-windows |
 | 3 | web | - | flagbrew.org | non raggiunto | 1 | https://flagbrew.org/ |
 | 3 | web | Click here to apply! | forms.gle | non raggiunto | 1 | https://forms.gle/xPPYT4sa4ZL55gt47 |
+| 3 | web | - | forums.glitchcity.info | non raggiunto | 1 | http://forums.glitchcity.info/index.php/topic,3929.0.html |
 | 3 | web | Glitchcity research thread | forums.glitchcity.info | non raggiunto | 1 | http://forums.glitchcity.info/index.php/topic,6716.0.html |
 | 3 | web | this guide | forums.glitchcity.info | non raggiunto | 1 | http://forums.glitchcity.info/index.php?topic=6638.msg198625.html |
+| 3 | web | - | forums.serebii.net | non raggiunto | 1 | https://forums.serebii.net/threads/ubers-now-banned.255246/page-8 |
 | 3 | web | And delicious | foryourinebriation.com | catalogato | 1 | http://www.foryourinebriation.com/uploads/1/5/5/3/15536798/220954881.png?356= |
 | 3 | web | - | gamebrew.org | non raggiunto | 1 | https://www.gamebrew.org/index.php?title=3DShell&oldid=191635 |
 | 3 | web | - | gamebrew.org | non raggiunto | 1 | https://www.gamebrew.org/index.php?title=New_Super_Ultimate_Injector_3DS&oldid=154359 |
@@ -1342,7 +1473,10 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 3 | web | - | gamebrew.org | non raggiunto | 1 | https://www.gamebrew.org/index.php?title=PKSM_3DS&oldid=209458 |
 | 3 | web | Time Machine Breeding Method | gamefaqs.com | non raggiunto | 1 | http://www.gamefaqs.com/boards/696959-pokemon-x/67960441 |
 | 3 | web | Source 2 | gamefaqs.gamespot.com | non raggiunto | 1 | https://gamefaqs.gamespot.com/gba/918915-pokemon-firered-version/answers/127512-how-do-i-trade-between-firered-and-leafgreen-with-2-dss |
+| 3 | web | - | gamerankings.com | non raggiunto | 1 | http://www.gamerankings.com/wii/934033-pokemon-battle-revolution/index.html |
 | 3 | web | Black 2 and White 2 - Introduction - Intro and Gameplay / Pokémon: Black & White 2 / Gamer Guides® | gamerguides.com | non raggiunto | 1 | https://www.gamerguides.com/pokemon-black-white-2/guide |
+| 3 | web | - | games.nintendo.com.au | non raggiunto | 1 | http://games.nintendo.com.au/title.php?id=1275 |
+| 3 | web | - | gamesindustry.biz | non raggiunto | 1 | http://www.gamesindustry.biz/content_page.php?aid=1461 |
 | 3 | web | - | gbatemp.net | non raggiunto | 1 | https://gbatemp.net/threads/3ds-screen-recording-without-a-capture-card-ntr-cfw-method.423445 |
 | 3 | web | - | gbatemp.net | non raggiunto | 1 | https://gbatemp.net/threads/3dshell-multi-purpose-file-manager-for-the-3ds.471503 |
 | 3 | web | - | gbatemp.net | non raggiunto | 1 | https://gbatemp.net/threads/426174 |
@@ -1359,6 +1493,7 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 3 | web | - | gbatemp.net | non raggiunto | 1 | https://gbatemp.net/threads/xy-oras-sm-custom-3d-models-textures-sharing-thread.392711/page-108 |
 | 3 | web | Ghost eShop | ghosteshop.com | non raggiunto | 1 | https://ghosteshop.com/ |
 | 3 | web | https://gist.github.com/Bl4ckSh4rk/256ed3b857c9677310837d5180121f35 | gist.github.com | non raggiunto | 1 | https://gist.github.com/Bl4ckSh4rk/256ed3b857c9677310837d5180121f35 |
+| 3 | web | - | gist.github.com | non raggiunto | 1 | https://gist.github.com/Lusamine/5408c25a59422e701de932c3941fa255 |
 | 3 | web | How to add rom hacks to 3DS games | gist.github.com | non raggiunto | 1 | https://gist.github.com/figgyc/0d31b77fc6e4e8f9a49399d392740d46 |
 | 3 | web | NTR Launcher | github.com | non raggiunto | 1 | https://github.com/ApacheThunder/NTR_Launcher/releases/download/1.9.9/NTR_Launcher.cia |
 | 3 | web | second menu | github.com | non raggiunto | 1 | https://github.com/DS-Homebrew/TWiLightMenu |
@@ -1372,6 +1507,7 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 3 | web | Edit the Pokémon to make it legal | github.com | non raggiunto | 1 | https://github.com/FlagBrew/PKSM/wiki/Editor |
 | 3 | web | - | github.com | non raggiunto | 1 | https://github.com/FlagBrew/PKSM/wiki/Hex-Editor |
 | 3 | web | - | github.com | non raggiunto | 1 | https://github.com/Gericom/GBARunner2/releases/tag/v20200217-194452_0b8bbe3 |
+| 3 | web | - | github.com | non raggiunto | 1 | https://github.com/LegoFigure11/owoow/blob/f1bdcd4534587517315d0d23157ad6ecab1c757b/owoow.Core/RNG/Generators/Overworld/Common.cs |
 | 3 | web | the Japanese do, I just havent been able to decipher it | github.com | non raggiunto | 1 | https://github.com/MersenneTwister-Lab/TinyMT/blob/master/jump/sample.c |
 | 3 | web | - | github.com | non raggiunto | 1 | https://github.com/Olmectron/Simple-Web-App-GUI-for-YANBF-Generator |
 | 3 | web | - | github.com | non raggiunto | 1 | https://github.com/RocketRobz/NTR_Forwarder/releases |
@@ -1393,6 +1529,8 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 3 | web | 1 | github.com | non raggiunto | 1 | https://github.com/mamba2410/reverse-pokewalker |
 | 3 | web | DaedalusX64 for 3DS | github.com | non raggiunto | 1 | https://github.com/masterfeizz/DaedalusX64-3DS/releases |
 | 3 | web | - | github.com | non raggiunto | 1 | https://github.com/polaris-/dwc_network_server_emulator/wiki/Nintendo-DS-Download-Content |
+| 3 | web | - | github.com | non raggiunto | 1 | https://github.com/pret/pokeemerald/blob/bcd5fc1481dc540d9007f1a82a2862e7d6e7de77/src/mystery_event_script.c |
+| 3 | web | - | github.com | non raggiunto | 1 | https://github.com/pret/pokeplatinum/blob/main/src/pokeradar.c |
 | 3 | web | pokered disassembly | github.com | non raggiunto | 1 | https://github.com/pret/pokered |
 | 3 | web | EventsGallery (GitHub) | github.com | non raggiunto | 1 | https://github.com/projectpokemon/EventsGallery/tree/master/Released/Gen%205/C-Gear%20Backgrounds |
 | 3 | web | EventsGallery (GitHub) | github.com | non raggiunto | 1 | https://github.com/projectpokemon/EventsGallery/tree/master/Released/Gen%205/Musicals |
@@ -1408,6 +1546,7 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 3 | web | - | glitchcity.wiki | non raggiunto | 1 | https://glitchcity.wiki/wiki/Guides:TimoVM%27s_gen_2_ACE_setups?oldid=51789 |
 | 3 | web | - | glitchcity.wiki | non raggiunto | 1 | https://glitchcity.wiki/wiki/Time_Capsule_exploit?oldid=51684 |
 | 3 | web | - | global3.memecdn.com | catalogato | 1 | http://global3.memecdn.com/i-have-no-idea-what-im-doing_gp_865021.jpg |
+| 3 | web | - | gonintendo.com | non raggiunto | 1 | http://gonintendo.com/viewstory.php?id=94312 |
 | 3 | web | - | gyazo.com | non raggiunto | 1 | https://gyazo.com/7fc291f31533729c2b82cc7e66e37d52 |
 | 3 | web | here | hq.porygon.co | non raggiunto | 1 | https://hq.porygon.co/ |
 | 3 | web | H Shop | hshop.erista.me | non raggiunto | 1 | https://hshop.erista.me/ |
@@ -1443,6 +1582,7 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 3 | web | Go inside the Mart | i.imgur.com | catalogato | 1 | http://i.imgur.com/oaA4AXS.png?1= |
 | 3 | web | lvl 254 Blissey with Tail Whip (which I defeat with Toxic) | i.imgur.com | catalogato | 1 | http://i.imgur.com/vOMd5Yq.png?1= |
 | 3 | web | - | i.imgur.com | catalogato | 1 | http://i.imgur.com/yefMuNy.jpg |
+| 3 | web | - | i.imgur.com | catalogato | 1 | https://i.imgur.com/4Q9rLmQ.png |
 | 3 | web | collegamento del post | i.redd.it | catalogato | 1 | https://i.redd.it/3j5vegztr1c91.jpg |
 | 3 | web | collegamento del post | i.redd.it | catalogato | 1 | https://i.redd.it/4vbh98sq1x711.png |
 | 3 | web | collegamento del post | i.redd.it | catalogato | 1 | https://i.redd.it/60blf9m4c2dc1.png |
@@ -1453,6 +1593,8 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 3 | web | collegamento del post | i.redd.it | catalogato | 1 | https://i.redd.it/9v8cvm83k96f1.png |
 | 3 | web | collegamento del post | i.redd.it | catalogato | 1 | https://i.redd.it/ge39d5p4m4tc1.jpeg |
 | 3 | web | collegamento del post | i.redd.it | catalogato | 1 | https://i.redd.it/pd1oktdho4ef1.jpeg |
+| 3 | web | - | iac.dtic.mil | catalogato | 1 | https://iac.dtic.mil/iatac/download/Vol7_No4.pdf |
+| 3 | web | - | ign.com | non raggiunto | 1 | https://www.ign.com/blogs/mechassaultds/2006/06/16/creating-a-3d-game-on-the-nintendo-ds |
 | 3 | web | - | imgs.xkcd.com | catalogato | 1 | https://imgs.xkcd.com/comics/exploits_of_a_mom.png |
 | 3 | web | - | imgs.xkcd.com | catalogato | 1 | https://imgs.xkcd.com/comics/semaphore.png |
 | 3 | web | legit shiny magikarp | imgur.com | catalogato | 1 | http://imgur.com/A6zfset |
@@ -1474,14 +1616,23 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 3 | web | Daily activities checklist in Pokemon Black 2 & White 2 - Imgur | imgur.com | catalogato | 1 | https://imgur.com/jyza4r9 |
 | 3 | web | convert .SAV files to VC save files | inject.sigkill.tech | non raggiunto | 1 | https://inject.sigkill.tech/vc-save |
 | 3 | web | - | is.4chan.org | catalogato | 1 | http://is.4chan.org/vp/1481893195109.png |
+| 3 | web | - | jesseworld.com | non raggiunto | 1 | http://www.jesseworld.com/Codes/gameGetTesters.asp?platform_id=4&game_id=1066 |
+| 3 | web | - | john.ccac.rwth-aachen.de | non raggiunto | 1 | http://john.ccac.rwth-aachen.de/as/as_EN.html |
 | 3 | web | essentially unusable | kotaku.com | non raggiunto | 1 | https://kotaku.com/a-lone-hacker-has-been-terrorizing-pokemon-fans-trying-1848144461 |
+| 3 | web | - | kotaku.com | non raggiunto | 1 | https://kotaku.com/pokemon-battle-revolution-animations-wii-scarlet-violet-1850362666 |
 | 3 | web | - | kyraminol.github.io | non raggiunto | 1 | https://kyraminol.github.io/3DSync |
+| 3 | web | - | linux.softpedia.com | non raggiunto | 1 | http://linux.softpedia.com/get/System/Operating-Systems/Kernels/Openwall-Linux-kernel-patch-16454.shtml |
 | 3 | web | Bulbapedia | m.bulbapedia.bulbagarden.net | non raggiunto | 1 | https://m.bulbapedia.bulbagarden.net/wiki/List_of_Battle_Maison_Trainers |
 | 3 | web | - | m.imgur.com | catalogato | 1 | http://m.imgur.com/HBb2Zzd,hFCCRWd,FS7VYSA,IzvZClq,a0cl6AS,4gbkU6e,JNAv85o |
+| 3 | web | - | mega.nz | non raggiunto | 1 | https://mega.nz/ |
 | 3 | web | Mega | mega.nz | non raggiunto | 1 | https://mega.nz/file/5YZE0b5T |
 | 3 | web | - | mega.nz | non raggiunto | 1 | https://mega.nz/folder/UNwxET6K |
 | 3 | web | https://melonds.kuribo64.net/ | melonds.kuribo64.net | non raggiunto | 1 | https://melonds.kuribo64.net/ |
+| 3 | web | - | metacritic.com | non raggiunto | 1 | http://www.metacritic.com/games/platforms/wii/pokemonbattlerevolution |
+| 3 | web | - | metasploit.com | non raggiunto | 1 | http://www.metasploit.com/users/opcode/msfopcode.cgi |
 | 3 | web | #190 | mgba.io | non raggiunto | 1 | https://mgba.io/i/190 |
+| 3 | web | - | microsoft.com | non raggiunto | 1 | http://www.microsoft.com/technet/security/bulletin/MS04-028.mspx |
+| 3 | web | - | microsoft.com | non raggiunto | 1 | http://www.microsoft.com/technet/security/bulletin/ms02-039.mspx |
 | 3 | web | - | mtheall.com | non raggiunto | 1 | https://mtheall.com/~mtheall/ftpd-classic.3dsx |
 | 3 | web | - | mtheall.com | non raggiunto | 1 | https://mtheall.com/~mtheall/ftpd-classic.cia |
 | 3 | web | - | mtheall.com | non raggiunto | 1 | https://mtheall.com/~mtheall/ftpd-classic.nro |
@@ -1489,11 +1640,33 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 3 | web | - | mtheall.com | non raggiunto | 1 | https://mtheall.com/~mtheall/ftpd.cia |
 | 3 | web | - | mtheall.com | non raggiunto | 1 | https://mtheall.com/~mtheall/ftpd.nds |
 | 3 | web | - | mtheall.com | non raggiunto | 1 | https://mtheall.com/~mtheall/ftpd.nro |
+| 3 | web | - | net-security.org | catalogato | 1 | http://www.net-security.org/dl/articles/unicodebo.pdf |
+| 3 | web | - | neworder.box.sk | non raggiunto | 1 | http://www.neworder.box.sk/newsread.php?newsid=12476 |
+| 3 | web | - | ngsec.com | non raggiunto | 1 | http://www.ngsec.com/ngproducts/stackdefender |
+| 3 | web | - | nintendo.co.jp | non raggiunto | 1 | http://www.nintendo.co.jp/n10/news/030430a.html |
+| 3 | web | - | nintendo.co.jp | non raggiunto | 1 | http://www.nintendo.co.jp/wii/rpbj |
+| 3 | web | - | nintendo.co.jp | non raggiunto | 1 | http://www.nintendo.co.jp/wii/wiiware/wbmj/index.html |
+| 3 | web | - | nintendo.co.kr | non raggiunto | 1 | http://www.nintendo.co.kr/www/soft/PokemonDP/sub07.php |
 | 3 | web | - | nintendo.co.uk | non raggiunto | 1 | https://www.nintendo.co.uk/en-gb/-225842.html&original_referer=https://www.nintendo.com/en-gb/Iwata-Asks/Iwata-Asks-Pokemon-HeartGold-Version-SoulSilver-Version/Iwata-Asks-Pokemon-HeartGold-Version-SoulSilver-Version/1-Just-Making-The-Last-Train/1-Just-Making-The-Last-Train-225842.html&source=tweetbutton&text=Iwata+Asks+-+Pokémon+HeartGold+Version+&+SoulSilver+Version&via=NintendoUK |
+| 3 | web | - | nintendo.com | non raggiunto | 1 | http://www.nintendo.com/consumer/gameslist/en/games-wifi.jsp |
+| 3 | web | - | nintendo.com | non raggiunto | 1 | http://www.nintendo.com/cpp/login/offSiteGetProfile.do?rDirect=http%3A%2F%2Fwww.pokemon-games.com%2Fportal%2Fportal.jsp |
+| 3 | web | - | nintendo.com | non raggiunto | 1 | http://www.nintendo.com/gamemini?gameid=d5ee1100-0385-4455-b6ad-df678c8da714 |
+| 3 | web | - | nintendo.com | non raggiunto | 1 | http://www.nintendo.com/gamemini?gameid=m-Game-0000-1846 |
+| 3 | web | - | nintendo.com | non raggiunto | 1 | http://www.nintendo.com/gamemini?gameid=m-Game-0000-1847 |
+| 3 | web | - | nintendo.com | non raggiunto | 1 | http://www.nintendo.com/games/detail/V0813Zh_mhIXGhrmFekxBPPq4wEXQolA |
+| 3 | web | - | nintendo.com | non raggiunto | 1 | http://www.nintendo.com/news/news_articles.jsp?articleID=3938 |
+| 3 | web | - | nintendo.com | catalogato | 1 | https://www.nintendo.com/consumer/downloads/Pokewalker_Tri.pdf |
+| 3 | web | - | nintendo.com | catalogato | 1 | https://www.nintendo.com/consumer/gameslist/manuals/DS_Pokemon_Black.pdf |
+| 3 | web | - | nintendo.com | catalogato | 1 | https://www.nintendo.com/consumer/gameslist/manuals/DS_pokemon_black_2.pdf |
 | 3 | web | - | nintendo.com | non raggiunto | 1 | https://www.nintendo.com/en-gb/Iwata-Asks/Iwata-Asks-Pokemon-HeartGold-Version-SoulSilver-Version/Iwata-Asks-Pokemon-HeartGold-Version-SoulSilver-Version/1-Just-Making-The-Last-Train/1-Just-Making-The-Last-Train-225842.html |
 | 3 | web | - | nintendo.com | non raggiunto | 1 | https://www.nintendo.com/en-gb/Iwata-Asks/Iwata-Asks-Pokemon-HeartGold-Version-SoulSilver-Version/Iwata-Asks-Pokemon-HeartGold-Version-SoulSilver-Version/1-Just-Making-The-Last-Train/1-Just-Making-The-Last-Train-225842.html&original_referer=https://www.nintendo.com/en-gb/Iwata-Asks/Iwata-Asks-Pokemon-HeartGold-Version-SoulSilver-Version/Iwata-Asks-Pokemon-HeartGold-Version-SoulSilver-Version/1-Just-Making-The-Last-Train/1-Just-Making-The-Last-Train-225842.html&source=tweetbutton&text=Iwata+Asks+-+Pokémon+HeartGold+Version+&+SoulSilver+Version&via=NintendoUK |
+| 3 | web | - | nintendo.com.au | non raggiunto | 2 | http://www.nintendo.com.au/nintendo/news/index.php |
 | 3 | web | - | nintendo.fandom.com | non raggiunto | 1 | https://nintendo.fandom.com/wiki/List_of_Pok%C3%A9mon_games |
+| 3 | web | - | nintendo.tw | non raggiunto | 1 | http://www.nintendo.tw/wii/wii_software.htm |
 | 3 | web | - | olmectron.github.io | non raggiunto | 2 | http://olmectron.github.io/forwarders/sdcard.(fwd%7Cnds |
+| 3 | web | - | owasp.org | non raggiunto | 1 | https://www.owasp.org/index.php/Buffer_Overflows |
+| 3 | web | - | owasp.org | non raggiunto | 1 | https://www.owasp.org/index.php/Buffer_OverflowsBuffer |
+| 3 | web | - | packetstormsecurity.com | catalogato | 1 | http://packetstormsecurity.com/files/download/121751/ModernOverflowTargets.pdf |
 | 3 | web | - | pages.citebite.com | non raggiunto | 1 | http://pages.citebite.com/v5l6v8x9t1sph |
 | 3 | web | Pastebin | pastebin.com | non raggiunto | 1 | http://pastebin.com/4Gp9Esm9 |
 | 3 | web | this list for how to convert it into actual BOX9 code (courtesy of Crystal_) | pastebin.com | non raggiunto | 1 | http://pastebin.com/4ZDpQXGe |
@@ -1502,10 +1675,17 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 3 | web | you need to have these (and only these) items in your own PC item box | pastebin.com | non raggiunto | 1 | http://pastebin.com/in4MS7zW |
 | 3 | web | - | pastebin.com | non raggiunto | 1 | http://pastebin.com/wpvRzC01 |
 | 3 | web | - | pastebin.com | non raggiunto | 1 | https://pastebin.com/3EdALBrP |
+| 3 | web | - | pastebin.com | non raggiunto | 1 | https://pastebin.com/dRU27qVd |
 | 3 | web | https://pastebin.com/hr2vmPCN | pastebin.com | non raggiunto | 1 | https://pastebin.com/hr2vmPCN |
 | 3 | web | Sync for reddit | play.google.com | non raggiunto | 1 | https://play.google.com/store/apps/details?id=com.laurencedawson.reddit_sync |
 | 3 | web | - | play.pokemonshowdown.com | non raggiunto | 1 | https://play.pokemonshowdown.com/lgpeoverused |
 | 3 | web | follow this tutorial | pokecommunity.com | non raggiunto | 1 | https://www.pokecommunity.com/showthread.php?t=378618 |
+| 3 | web | - | pokemon.co.jp | non raggiunto | 1 | http://www.pokemon.co.jp/anime/sunday/special.html |
+| 3 | web | - | pokemon.co.jp | non raggiunto | 1 | http://www.pokemon.co.jp/game/wii/bokujou |
+| 3 | web | - | pokemon.com | non raggiunto | 1 | http://pokemon.com/pokedex/encyclopedia/nidoran-male.html |
+| 3 | web | - | pokemon.com | non raggiunto | 1 | http://www.pokemon.com/pokedex/encyclopedia/nidoran-female.html |
+| 3 | web | - | pokemon.com | non raggiunto | 1 | https://www.pokemon.com/us/pokemon-news/get-ashs-pikachu-wearing-ashs-caps-in-pokemon-sword-or-pokemon-shield |
+| 3 | web | - | pokemonchannel.tv | non raggiunto | 1 | http://www.pokemonchannel.tv/ |
 | 3 | web | - | pokemondb.net | non raggiunto | 1 | https://pokemondb.net/ |
 | 3 | web | here | pokemondb.net | non raggiunto | 1 | https://pokemondb.net/pokebase/99090/what-are-all-the-berries-you-can-possibly-get-in-black-2 |
 | 3 | web | Black & White 2 Post Game Checklist (pokemonpostgame.com) | pokemonpostgame.com | non raggiunto | 1 | https://pokemonpostgame.com/src/PKMNPostGame.Web/b2w2_checklist.html |
@@ -1558,10 +1738,19 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 3 | web | - | projectpokemon.org | non raggiunto | 1 | https://projectpokemon.org/ |
 | 3 | web | PKHeX | projectpokemon.org | non raggiunto | 1 | https://projectpokemon.org/home/files/file/1-pkhex |
 | 3 | web | - | projectpokemon.org | non raggiunto | 1 | https://projectpokemon.org/home/files/file/2107-ohana3ds |
+| 3 | web | - | projectpokemon.org | non raggiunto | 1 | https://projectpokemon.org/home/files/file/4450-wild-area-event-42-monthly-default |
+| 3 | web | - | projectpokemon.org | non raggiunto | 1 | https://projectpokemon.org/home/files/file/647-feebas-fishing-spot-finder/&media= |
 | 3 | web | - | projectpokemon.org | non raggiunto | 1 | https://projectpokemon.org/home/forums/forum/83-pkhex |
+| 3 | web | - | projectpokemon.org | non raggiunto | 1 | https://projectpokemon.org/home/forums/topic/37192-feebas-fishing-spot-value-rusaem/&media= |
+| 3 | web | - | projectpokemon.org | non raggiunto | 1 | https://projectpokemon.org/home/forums/topic/39841-pokemon-bank-update |
+| 3 | web | - | projectpokemon.org | non raggiunto | 1 | https://projectpokemon.org/home/forums/topic/39841-pokemon-bank-update/&media= |
 | 3 | web | - | projectpokemon.org | non raggiunto | 1 | https://projectpokemon.org/home/forums/topic/41730-managing-gba-saves-using-gba-backup-tool |
 | 3 | web | this | projectpokemon.org | non raggiunto | 1 | https://projectpokemon.org/home/forums/topic/56414-living-form-dex-in-home-checklist |
+| 3 | web | - | projectpokemon.org | non raggiunto | 1 | https://projectpokemon.org/home/tutorials/rom/3ds-pokemon-games-hacking-tutorials/injecting-a-custom-virtual-console-frame-into-an-official-virtual-console-release-r120/&media= |
 | 3 | web | - | projectpokemon.org | non raggiunto | 1 | https://projectpokemon.org/home/tutorials/save-editing |
+| 3 | web | - | projectpokemon.org | non raggiunto | 1 | https://projectpokemon.org/home/tutorials/save-editing/managing-nds-saves/using-checkpoint-r70/&media= |
+| 3 | web | - | projectpokemon.org | non raggiunto | 1 | https://projectpokemon.org/home/tutorials/save-editing/using-pkhex/how-to-use-the-batch-editor-in-pkhex-r77/&media= |
+| 3 | web | - | projectpokemon.org | non raggiunto | 1 | https://projectpokemon.org/home/tutorials/save-editing/using-pkhex/pid-mismatch-origin-game-rsefrlg-dppthgss-rngreporter-r31/&media= |
 | 3 | web | this calculator | psypokes.com | non raggiunto | 1 | http://www.psypokes.com/gsc/dv.php |
 | 3 | web | . | r-roms.github.io | non raggiunto | 1 | https://r-roms.github.io/ |
 | 3 | web | - | raw.githubusercontent.com | non raggiunto | 1 | https://raw.githubusercontent.com/RiiConnect24/DNS-Server/master/dns_zones-hosts.txt |
@@ -1636,9 +1825,11 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 3 | web | Reddiquette here | reddit.zendesk.com | non raggiunto | 1 | https://reddit.zendesk.com/hc/en-us/articles/205926439-Reddiquette |
 | 3 | web | reddiquette | reddithelp.com | non raggiunto | 1 | https://www.reddithelp.com/en/categories/reddit-101/reddit-basics/reddiquette |
 | 3 | web | Reddit's Content Policy | redditinc.com | non raggiunto | 1 | https://www.redditinc.com/policies/content-policy |
+| 3 | web | - | research.eeye.com | non raggiunto | 1 | http://research.eeye.com/html/advisories/published/AL20010717.html |
 | 3 | web | https://scarletviolet.pokemon.com/en-us/news/pokemon\_go\_connect/ | scarletviolet.pokemon.com | non raggiunto | 1 | https://scarletviolet.pokemon.com/en-us/news/pokemon_go_connect |
 | 3 | web | - | scontent-lhr3-1.xx.fbcdn.net | catalogato | 1 | https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/15940978_1883267241904863_4393868519816564903_n.jpg?oh=fe6b4c9bc9db5d56d37980e2d5136287&oe=58DD9CB9 |
 | 3 | web | - | scontent-lhr3-1.xx.fbcdn.net | catalogato | 1 | https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/16002849_1590518517630714_1630673376565328564_n.jpg?oh=c85275692d72c09026c831b70eabf57b&oe=59244C20 |
+| 3 | web | - | security-express.com | non raggiunto | 1 | http://www.security-express.com/archives/bugtraq/1995_1/0403.html |
 | 3 | web | Serebii | serebii.net | non raggiunto | 1 | https://serebii.net/ |
 | 3 | web | here | serebii.net | non raggiunto | 1 | https://www.serebii.net/black2white2/battlesubway.shtml |
 | 3 | web | here | serebii.net | non raggiunto | 1 | https://www.serebii.net/black2white2/droppeditem.shtml |
@@ -1656,11 +1847,17 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 3 | web | ORAS Demo | serebii.net | non raggiunto | 1 | https://www.serebii.net/omegarubyalphasapphire/demo.shtml |
 | 3 | web | Sun/Moon demo | serebii.net | non raggiunto | 1 | https://www.serebii.net/sunmoon/demo.shtml |
 | 3 | web | RAM Map 2 | skeetendo.proboards.com | non raggiunto | 1 | http://skeetendo.proboards.com/thread/75/pokemon-golds-ram |
+| 3 | web | - | smogon.com | non raggiunto | 1 | http://www.smogon.com/forums/showpost.php?p=3229521&postcount=608 |
 | 3 | web | - | smogon.com | non raggiunto | 1 | http://www.smogon.com/forums/threads/breeding-rng-quirk.3589338 |
+| 3 | web | - | smogon.com | non raggiunto | 1 | http://www.smogon.com/forums/threads/rng-manipulation-in-firered-leafgreen-wild-pokémon-supported-in-rng-reporter-9-93.62357 |
+| 3 | web | - | smogon.com | non raggiunto | 1 | http://www.smogon.com/ingame/rng/dpphgss_rng_part2 |
+| 3 | web | - | smogon.com | non raggiunto | 1 | http://www.smogon.com/ingame/rng/emerald_rng_part2 |
+| 3 | web | - | smogon.com | non raggiunto | 1 | http://www.smogon.com/ingame/rng/emerald_wild_pokemon |
 | 3 | web | - | smogon.com | non raggiunto | 1 | https://www.smogon.com/forums/threads/battle-tree-discussion-and-records.3587215 |
 | 3 | web | - | smogon.com | non raggiunto | 1 | https://www.smogon.com/forums/threads/dans-macabre-a-record-breaking-gen-3-battle-tower-singles-team.3651964 |
 | 3 | web | - | smogon.com | non raggiunto | 1 | https://www.smogon.com/forums/threads/emerald-battle-frontier-guide-please-help-developing.3579762/post-7800197 |
 | 3 | web | - | smogon.com | non raggiunto | 1 | https://www.smogon.com/forums/threads/lgpe-little-cup.3645797 |
+| 3 | web | - | smogon.com | non raggiunto | 1 | https://www.smogon.com/forums/threads/little-things-that-annoy-you-in-pok%C3%A9mon.3512924/page-427 |
 | 3 | web | - | smogon.com | non raggiunto | 1 | https://www.smogon.com/ingame/rng/dpphgss_rng_part5 |
 | 3 | web | still applicable | ssbwiki.com | non raggiunto | 1 | http://www.ssbwiki.com/index.php?title=Wobbling&mobileaction=toggle_view_desktop |
 | 3 | web | - | store.xkcd.com | non raggiunto | 1 | https://store.xkcd.com/products/signed-prints |
@@ -1668,23 +1865,48 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 3 | web | - | stratospherix.com | non raggiunto | 1 | https://www.stratospherix.com/setupvpn |
 | 3 | web | SuperEffective.gg | supereffective.gg | non raggiunto | 1 | http://supereffective.gg/ |
 | 3 | web | - | support.nintendo.com | non raggiunto | 1 | http://support.nintendo.com/servicesupdate |
+| 3 | web | - | syngress.com | catalogato | 1 | https://www.syngress.com/book_catalog/327_SSPC/sample.pdf |
+| 3 | web | - | technet2.microsoft.com | non raggiunto | 1 | http://technet2.microsoft.com/WindowsServer/en/Library/b0de1052-4101-44c3-a294-4da1bd1ef2271033.mspx?mfr=true |
 | 3 | web | - | tellu.wpblog.jp | non raggiunto | 1 | http://tellu.wpblog.jp/rng-abuse/7thgen-rng-abuse/guide-for-breeding-abuse-on-sunmoon |
+| 3 | web | - | thegamer.com | non raggiunto | 1 | https://www.thegamer.com/best-nintendo-video-games-sold-poorly |
 | 3 | web | google translate version | translate.googleusercontent.com | non raggiunto | 1 | https://translate.googleusercontent.com/translate_c?depth=1&hl=de&ie=UTF8&prev=_t&rurl=translate.google.com&sl=ja&tl=en&u=http%3A%2F%2Fblastoise-x.hatenablog.com%2Fentry%2FSM-breed&usg=ALkJrhiRnklaS0fZrdeVutgQ4qLI56h3QQ |
 | 3 | web | list of known genners here | tswann89.github.io | non raggiunto | 1 | https://tswann89.github.io/PokemonSV/blacklist |
 | 3 | web | Twitch | twitch.tv | non raggiunto | 1 | https://twitch.tv/Pokemon |
 | 3 | web | starting from 17:05 in the video | twitch.tv | non raggiunto | 1 | https://www.twitch.tv/videos/117651897?t=17m05s |
+| 3 | web | - | twitter.com | catalogato | 1 | https://twitter.com/SciresM/status/1197055570290700288 |
+| 3 | web | - | twitter.com | catalogato | 1 | https://twitter.com/Sibuna_Switch/status/1483795417288564743 |
+| 3 | web | - | twitter.com | catalogato | 1 | https://twitter.com/Sibuna_Switch/status/1492970750264979456 |
+| 3 | web | - | twitter.com | catalogato | 1 | https://twitter.com/Sibuna_Switch/status/1495426743343194117 |
+| 3 | web | - | twitter.com | catalogato | 1 | https://twitter.com/Sibuna_Switch/status/1538721015269826561 |
+| 3 | web | - | twitter.com | catalogato | 1 | https://twitter.com/Sibuna_Switch/status/1538721018717560832 |
+| 3 | web | - | twitter.com | catalogato | 1 | https://twitter.com/Sibuna_Switch/status/1538721153342066689 |
+| 3 | web | - | twitter.com | catalogato | 1 | https://twitter.com/Sibuna_Switch/status/1538721156932444161 |
+| 3 | web | - | twitter.com | catalogato | 1 | https://twitter.com/Sibuna_Switch/status/1768100292413796367 |
+| 3 | web | - | twitter.com | catalogato | 1 | https://twitter.com/Sibuna_Switch/status/1881209369146359923 |
 | 3 | web | determined by the experience it has | twitter.com | catalogato | 1 | https://twitter.com/TheMantyke/status/824138136129339392 |
 | 3 | web | the RNG abuse method is released | twitter.com | catalogato | 1 | https://twitter.com/pokemon_PhD/status/809313886117695488 |
 | 3 | web | RNG Reporter | twitter.com | catalogato | 1 | https://twitter.com/pokemon_PhD/status/809906064649048065 |
+| 3 | web | - | uninformed.org | non raggiunto | 1 | http://www.uninformed.org/?v=2&a=4&t=txt |
+| 3 | web | - | usenix.org | catalogato | 1 | http://www.usenix.org/publications/login/2005-06/pdfs/alexander0506.pdf |
+| 3 | web | - | usenix.org | catalogato | 1 | https://www.usenix.org/publications/library/proceedings/sec98/full_papers/cowan/cowan.pdf |
 | 3 | web | collegamento del post | v.redd.it | catalogato | 1 | https://v.redd.it/lg0upuoiil191 |
 | 3 | web | collegamento del post | v.redd.it | catalogato | 1 | https://v.redd.it/mvbczpu4g9z71 |
+| 3 | web | - | vgchartz.com | non raggiunto | 1 | http://www.vgchartz.com/games/index.php?name=Pokemon+Battle+Revolution |
+| 3 | web | - | vidgame.net | non raggiunto | 1 | http://www.vidgame.net/NINTENDO/e_reader.htm |
 | 3 | web | - | vimm.net | non raggiunto | 1 | https://vimm.net/vault |
+| 3 | web | - | web.archive.org | non raggiunto | 1 | https://web.archive.org/web/20230216155439/http://bystrousky.blogspot.com/2019/07/blog-post.html |
+| 3 | web | - | web.archive.org | non raggiunto | 1 | https://web.archive.org/web/20230416220427/https://www.youtube.com/watch?v=LxOassBqWiA |
 | 3 | web | - | wii.guide | non raggiunto | 1 | https://wii.guide/riiconnect24 |
 | 3 | web | - | wiki.gbatemp.net | non raggiunto | 1 | https://wiki.gbatemp.net/w/index.php?title=GBARunner2%2FLink&oldid=73221 |
 | 3 | web | This is the compatibility list | wiki.gbatemp.net | non raggiunto | 1 | https://wiki.gbatemp.net/wiki/DaedalusX64_3DS_Compatibility_List |
+| 3 | web | - | wiki.x.org | non raggiunto | 1 | http://wiki.x.org/wiki/ProPolice |
+| 3 | web | - | wiretap.area.com | non raggiunto | 1 | http://wiretap.area.com/Gopher/Library/Techdoc/Virus/inetvir.823 |
 | 3 | web | **2026-09-05 05:33:38 UTC** | wolframalpha.com | non raggiunto | 1 | http://www.wolframalpha.com/input?i=2026-09-05+05%3A33%3A38+UTC+To+Local+Time |
+| 3 | web | - | world.std.com | non raggiunto | 1 | http://world.std.com/~franl/worm.html |
 | 3 | web | - | ww1.microchip.com | catalogato | 1 | http://ww1.microchip.com/downloads/en/DeviceDoc/DDI0029G_7TDMI_R3_trm.pdf |
+| 3 | web | - | x.com | catalogato | 1 | https://x.com/Sibuna_Switch/status/1913263101908070662 |
 | 3 | web | - | x.com | catalogato | 1 | https://x.com/lewchube/status/1510382980132442113 |
+| 3 | web | - | x.com | catalogato | 1 | https://x.com/wwwwwwzx/status/979949167224045568 |
 | 3 | web | - | xkcd.com | non raggiunto | 1 | https://xkcd.com/3295 |
 | 3 | web | - | your-domain.com | non raggiunto | 1 | https://your-domain.com/ |
 | 3 | web | - | youtu.be | catalogato | 1 | https://youtu.be/5uDQLUi0ZEo |
@@ -1694,8 +1916,10 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 3 | web | This video | youtu.be | catalogato | 1 | https://youtu.be/G_D3IIXaoTw |
 | 3 | web | - | youtu.be | catalogato | 1 | https://youtu.be/JBjSym_lfEs |
 | 3 | web | collegamento del post | youtu.be | catalogato | 1 | https://youtu.be/Ld2YphF-HVI |
+| 3 | web | - | youtu.be | catalogato | 1 | https://youtu.be/QP19sj3HaWw |
 | 3 | web | 2 | youtu.be | catalogato | 1 | https://youtu.be/TzRL_opOvVM |
 | 3 | web | this video | youtu.be | catalogato | 1 | https://youtu.be/UJTneOSkCcg |
+| 3 | web | - | youtu.be | catalogato | 1 | https://youtu.be/WzgdwZaXtnA?t=1231 |
 | 3 | web | Video about it | youtu.be | catalogato | 1 | https://youtu.be/XyKTeQkzqys?t=115 |
 | 3 | web | How to install | youtu.be | catalogato | 1 | https://youtu.be/XyKTeQkzqys?t=629 |
 | 3 | web | Youtube of Crystal_ performing this glitch | youtu.be | catalogato | 1 | https://youtu.be/ffZjCabeNr4 |
@@ -1707,14 +1931,17 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 3 | web | *^TheZZAZZGlitch* | youtube.com | catalogato | 1 | https://www.youtube.com/channel/UCKlA7qF9XKwu79ULYmVu28w |
 | 3 | web | ReneaCollects | youtube.com | catalogato | 1 | https://www.youtube.com/channel/UCNOJh-R1C9OBC4TqNwEAMMg |
 | 3 | web | *^Crystal_* | youtube.com | catalogato | 1 | https://www.youtube.com/channel/UCQcizw_rc-q55lmwU3w6-wA |
+| 3 | web | - | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=1qRGQacKRm0 |
 | 3 | web | - | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=98_azamLeh4 |
 | 3 | web | Video Proof of Isle Abeens Shiny Hunting | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=9EKfcIpYS2w&t=1s%2F |
 | 3 | web | Youtube | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=Dh2WcRJOVPU |
 | 3 | web | - | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=E757YbGVWoo |
+| 3 | web | - | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=FjqMC_p024A |
 | 3 | web | collegamento del post | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=GWWCicAWpNY |
 | 3 | web | - | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=H8AgGp5cqPI&t=32s |
 | 3 | web | - | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=H8AgGp5cqPI&t=9m47s |
 | 3 | web | https://www.youtube.com/watch?v=KlxO\_Ge\_BdI&t=72s | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=KlxO_Ge_BdI&t=72s |
+| 3 | web | - | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=LxOassBqWiA |
 | 3 | web | https://www.youtube.com/watch?v=NeJeWOcWS5Y&t=52s | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=NeJeWOcWS5Y&t=52s |
 | 3 | web | https://www.youtube.com/watch?v=Qcp4vxyaUJc | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=Qcp4vxyaUJc |
 | 3 | web | - | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=WD_GVaQwn8o |
@@ -1723,6 +1950,7 @@ Nodi per esito: catalogato con 696, scaricato con 292, non raggiunto con 278, fa
 | 3 | web | https://www.youtube.com/watch?v=k0HFRpqvSk4&t=3s&ab\_channel=Voltzo%28Manectric77%29 | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=k0HFRpqvSk4&t=3s&ab_channel=Voltzo%28Manectric77%29 |
 | 3 | web | link | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=mQLkeK3ETP4 |
 | 3 | web | Glitzer Popping | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=nOEwPnv2TFM |
+| 3 | web | - | youtube.com | catalogato | 1 | https://www.youtube.com/watch?v=za92Q5L3A3A |
 | 3 | web | Odd Tinkering | youtube.com | catalogato | 1 | https://youtube.com/@OddTinkering |
 | 3 | web | Retro Game Corps | youtube.com | catalogato | 1 | https://youtube.com/@RetroGameCorps |
 | 3 | web | Scott the Woz | youtube.com | catalogato | 1 | https://youtube.com/@ScottTheWoz |

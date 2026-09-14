@@ -8,7 +8,7 @@ Questo cluster ha 4 fonti su 4 host: bulbapedia.bulbagarden.net con 1, reddit.co
 
 | Liv | Che cosa documenta | Host | URL |
 |---|---|---|---|
-| 2 | List of purfified shadow Pokemon from XD/Colosseum | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/List_of_Shadow_Pok%C3%A9mon |
+| 2 | List of purfified shadow Pokemon from XD/Colosseum. Titolo della fonte: List of Shadow Pokémon - Bulbapedia, the community-driven Pokémon encyclopedia | bulbapedia.bulbagarden.net | https://bulbapedia.bulbagarden.net/wiki/List_of_Shadow_Pok%C3%A9mon |
 | 5 | AlphaDex Pokemon. Titolo della fonte: AlphaDex, part 3, di Roval3 | reddit.com | https://www.reddit.com/r/PokemonHome/comments/1py3n1f/alphadex_part_3/ |
 | - | Current GO Home dex | x.com | https://x.com/gohomedex |
 | 2 | Overview of possible titles for Pokemon Champions. Titolo della fonte: Pokémon Champions - Pokémon Titles | serebii.net | https://www.serebii.net/pokemonchampions/pokemontitles.shtml |

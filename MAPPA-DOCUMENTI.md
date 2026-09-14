@@ -73,6 +73,7 @@ Sono i pi√π grossi del progetto e la causa principale del senso di ingestibilit√
 | `recreate-pokemon-distributions-events/EVENTI-GEN3.md` | 23k | `tools/genera-evento-gen3.py` |
 | `pokedex-home-completo/CONFRONTO-LIVINGDEX-POKEPC.md` | 20k | `tools/confronta-livingdex-pokepc.py` |
 | `pokedex-home-completo/FIOCCHI.md` | 16k | `tools/fiocchi.py` |
+| `pokedex-home-completo/MARCHI.md` | 9k | `tools/marchi.py` |
 | `pokedex-home-completo/DIFFERENZE-DI-SESSO.md` | 12k | `tools/enumera-differenze-sesso.py` |
 | `pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md` | 24k | `tools/censimento-condizionati.py` |
 | `pokedex-home-completo/CENSIMENTO-SCAMBI.md` | 20k | `tools/censimento-scambi.py` |
