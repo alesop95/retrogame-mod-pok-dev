@@ -61,7 +61,7 @@
 % copre: pokedex-home-completo/ID-NOTEVOLI.md
 % copre: pokedex-home-completo/ID-NOTEVOLI.md#gli-identificativi-di-allenatore-notevoli-e-quanto-ne-copriamo
 % copre: pokedex-home-completo/MARCHI.md
-% verificato-al-commit: ceac81a
+% verificato-al-commit: e83a85f
 % ---------------------------------------------------------------------
 
 \chapter{Gli assi di una collezione, e come si enumerano}
@@ -210,3 +210,17 @@ La differenza fra le due soluzioni non è di comodità ma di coerenza, e vale en
 L'incorporazione ha richiesto una scelta di metodo coerente con il resto di questo lavoro. La corrispondenza fra ciascuna tabella e il proprio elenco di stringhe non è stata trascritta ma letta dalle due dichiarazioni con cui il codice sorgente la stabilisce, cioè la costante che nomina il file e la variabile che vi si lega: una trascrizione di una dozzina di righe sarebbe stata rapida e avrebbe sbagliato in modo invisibile, perché un indice letto nell'elenco sbagliato restituisce comunque un nome plausibile.
 
 Resta un caso che la prima stesura trattava come difetto e che difetto non è, ed è istruttivo perché riguarda la differenza fra un dato mancante e un dato inesistente. Gli elenchi delle lingue occidentali della prima generazione contano sedici voci e quello giapponese ventisei, perché una parte di quegli scambi esiste soltanto nell'edizione giapponese. La prima stesura segnalava una discordanza per ciascuna di quelle voci, cioè undici allarmi su righe corrette. Per esse il soprannome nella lingua occidentale non manca: non esiste, e il programma lo dichiara come tale, riservando la segnalazione al solo indice che cada fuori da ogni elenco, il che significherebbe tabella cambiata a monte.
+
+\section{Quattro difetti in un'ora, e la famiglia a cui appartengono}
+
+L'incorporazione delle stringhe descritta nella sezione precedente ha prodotto, nel giro di un'ora di lavoro, quattro difetti distinti. Vale registrarli insieme non per contrizione ma perché appartengono tutti alla medesima famiglia, e riconoscerla vale più che ricordare i singoli casi: nessuno dei quattro produceva un errore, tutti e quattro producevano un risultato plausibile.
+
+Il primo era latente da tempo nel lettore delle tabelle, che separava le proprietà sulla virgola senza distinguere se la virgola stesse dentro una parentesi. Un insieme di sei valori usciva troncato al primo. Nessuno se ne era accorto perché fino a quel giorno nessun consumatore leggeva quel campo: il difetto è emerso nell'istante in cui è servito, che è il comportamento tipico di un errore in un ramo non esercitato.
+
+Il secondo riguarda la regola con cui si ricava il nome del personaggio che consegna. Un solo elenco per lingua contiene due cose, i nomi assegnati nella prima metà e i nomi dei personaggi nella seconda, e la fonte lo dichiara nel proprio costruttore. La regola era stata applicata a ogni generazione; la prima non la segue, perché là il nome del personaggio non è un nome ma un codice di controllo che ciascuna edizione rende nella propria lingua. Applicarla avrebbe attribuito un personaggio inventato a ogni scambio delle prime due generazioni. La correzione non è stata elencare a mano le eccezioni ma leggere dalla fonte quali tipi seguano la regola, cosicché un tipo introdotto in futuro si dichiari da sé.
+
+Il terzo è il più insidioso e nasce da una pulizia apparentemente innocua. Per calcolare quella metà erano state scartate le righe vuote degli elenchi, prese per rumore di fine file. L'elenco giapponese della prima generazione ne contiene una in seconda posizione, ed è una casella legittima che significa che quella voce non ha un nome in quella lingua: scartarla spostava di uno ogni indice successivo, cioè assegnava a ogni voce il nome della voce seguente. Ogni riga restava un nome valido, e nessun controllo interno poteva distinguere il risultato giusto da quello spostato. La regola corretta distingue l'assenza dall'artefatto: si rimuove soltanto l'ultima riga vuota, e soltanto quando è l'effetto di un file che termina con un a capo.
+
+Il quarto è banale nella forma e spettacolare nell'effetto. La variabile del ciclo che cercava quella metà portava lo stesso nome del percorso della cartella dei dati, e lo sovrascriveva: dalla prima tabella che segue la regola in avanti, ogni generazione successiva risultava inesistente. L'enumerazione è scesa da trentadue tabelle a quattro e da duecentotrentotto voci a trentasette senza emettere alcun messaggio, e la caduta è stata notata soltanto perché il programma stampa i propri conteggi e qualcuno li stava guardando.
+
+La lezione comune ai quattro non è di scrivere codice migliore, che è un proposito e non un metodo. È che un programma il cui esito è un numero deve stamparlo, e che chi lo esegue deve conoscerne l'ordine di grandezza atteso: dei quattro difetti, tre erano invisibili a qualunque verifica interna e il quarto lo sarebbe stato se l'uscita fosse stata silenziosa. Le prove aggiunte in quell'ora coprono ciascuno dei quattro casi, e tre di esse sono negative, cioè verificano che il programma non faccia una cosa che sarebbe sembrata ragionevole.
