@@ -50,6 +50,7 @@ import argparse
 import importlib.util
 import io
 import os
+import re
 import sys
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -70,10 +71,14 @@ FILE_LUOGHI = os.path.join("PKHeX.Core", "Game", "Locations", "Locations.cs")
 # programma lo verifichi contro lo strato di terza generazione, non perche' lo si possa cambiare.
 ORDINE_IV = ("hp", "atk", "def", "spd", "satk", "sdef")
 
-# Le lingue che il progetto produce, con il codice che il formato usa. L'italiano c'e' perche' le
-# cartucce possedute sono italiane; il giapponese perche' una parte di questi scambi esiste
-# soltanto la'.
-LINGUE = {"Italian": 5, "English": 2, "Japanese": 1}
+# Le lingue che il progetto produce, nella grafia che la fonte usa per i nomi delle specie e per
+# la codifica dei caratteri. Il codice del byte della lingua NON e' scritto qui: si prende dalla
+# tabella del generatore delle distribuzioni, che la porta gia'. La prima stesura lo aveva
+# trascritto a memoria e aveva dato all'italiano il codice cinque, che e' il tedesco: tutti e
+# diciannove gli esemplari del primo lotto sono usciti in tedesco, e il verificatore lo ha
+# mostrato al primo colpo. E' l'errore che il progetto documenta da giorni, cioe' trascrivere una
+# tabella corta invece di leggerla, commesso su una tabella di sei righe.
+LINGUE = {"Italian": "ITA", "English": "ENG", "Japanese": "JPN"}
 
 # Le due abilita' come la fonte le nomina, e il bit che ne discende.
 ABILITA = {"OnlyFirst": 0, "OnlySecond": 1}
@@ -115,6 +120,42 @@ APOSTROFO_DESTRO = u"\u2019"
 def verso_la_codifica(testo):
     """Un nome della fonte nella forma che la codifica di terza generazione sa scrivere."""
     return (testo or "").replace(APOSTROFO_DRITTO, APOSTROFO_DESTRO)
+
+
+# Le costanti delle statistiche da gara che la fonte dichiara accanto a ciascuno scambio. Si
+# leggono dal sorgente e non si trascrivono: sono sei numeri per costante e una mezza dozzina di
+# costanti, cioe' esattamente la taglia di tabella che questo progetto ha gia' sbagliato tre volte
+# copiandola a mano.
+RE_COSTANTE_GARA = re.compile(
+    r"ReadOnlySpan<byte>\s+(TradeContest_\w+)\s*=>\s*\[([^\]]*)\]")
+
+
+def statistiche_di_gara(pkhex):
+    """Dal nome della costante ai suoi sei valori, letti dai file degli incontri di terza.
+
+    I sei sono, nell'ordine della fonte, le cinque statistiche da gara e la lucentezza estetica.
+    Le stesse costanti compaiono in piu' file con i medesimi valori: si legge il primo che si
+    incontra e si verifica che un secondo non lo contraddica, perche' una divergenza fra due
+    definizioni omonime sarebbe un fatto sulla fonte e non un dettaglio da ignorare.
+    """
+    fuori = {}
+    cartella = os.path.join(pkhex, "PKHeX.Core", "Legality", "Encounters", "Data", "Gen3")
+    if not os.path.isdir(cartella):
+        return fuori
+    for nome in sorted(os.listdir(cartella)):
+        if not nome.endswith(".cs"):
+            continue
+        testo = io.open(os.path.join(cartella, nome), encoding="utf-8", errors="replace").read()
+        for chiave, corpo in RE_COSTANTE_GARA.findall(testo):
+            valori = [int(n) for n in re.findall(r"\d+", corpo)]
+            if len(valori) != 6:
+                continue
+            if chiave in fuori and fuori[chiave] != valori:
+                raise SystemExit("la costante %s vale %s in un file e %s in un altro: la fonte "
+                                 "non concorda con se stessa e va letta prima di proseguire"
+                                 % (chiave, fuori[chiave], valori))
+            fuori[chiave] = valori
+    return fuori
 
 
 def valori_individuali(testo):
@@ -167,7 +208,8 @@ def voci_scambio(censimento, pkhex):
     return fuori
 
 
-def componi(ace, pkhex, tabella, voce, lingua, luogo, eventi, destinazione=None):
+def componi(ace, pkhex, tabella, voce, lingua, luogo, eventi, incontri, gara=None,
+            destinazione=None):
     """Un esemplare di scambio, composto dai campi che la fonte dichiara.
 
     Le tabelle di gioco, cioe' la corrispondenza fra numerazione nazionale e identificativo
@@ -212,11 +254,50 @@ def componi(ace, pkhex, tabella, voce, lingua, luogo, eventi, destinazione=None)
 
     bit = ABILITA.get(props.get("Ability", "OnlyFirst"), 0)
 
+    # Le mosse. Un esemplare consegnato da uno scambio porta il repertorio che la sua specie
+    # conosce a quel livello, come qualunque altro incontro: il primo lotto le aveva tutte a
+    # zero, cioe' un esemplare senza alcuna mossa, che nessun gioco ha mai prodotto. Il
+    # repertorio si sceglie sulla versione dell'incontro, e per una sigla che ne comprende piu'
+    # d'una si prende la prima, dichiarandolo, perche' i repertori delle versioni di una coppia
+    # coincidono su queste specie.
+    sigla = voce.get("versione") or ""
+    chiave_rep = sigla if sigla in incontri.REPERTORI else None
+    if chiave_rep is None:
+        for membro in eventi.GRUPPI_VERSIONE.get(sigla, ()):  # FRLG -> FR, RS -> R
+            if membro in incontri.REPERTORI:
+                chiave_rep = membro
+                break
+    if chiave_rep is None:
+        raise KeyError("nessun repertorio di livello per la sigla di versione %r" % sigla)
+    grezzo = io.open(os.path.join(pkhex, incontri.CARTELLA_REPERTORI,
+                                  incontri.REPERTORI[chiave_rep]), "rb").read()
+    coppie = incontri.repertorio_di_livello(incontri.aree_indicizzate(grezzo)[nazionale])
+    mosse = incontri.mosse_al_livello(coppie, livello)
+    pp_base = eventi.punti_potenza(ace)
+    pp = [pp_base.get(m, 0) for m in mosse]
+    indole = incontri.indole_di_specie(pkhex, nazionale)
+
+    # Le statistiche da gara. La fonte le dichiara per ciascuno scambio con il nome di una
+    # costante, e il primo lotto le scriveva a zero: uno scambio consegna un esemplare che le
+    # porta, e zero e' un valore che nessuno di essi ha. I sei numeri sono le cinque statistiche
+    # piu' la lucentezza estetica, che sta in un campo proprio.
+    condizione = gen3.EvsCondition()
+    nome_gara = props.get("Contest")
+    if nome_gara and gara:
+        valori = gara.get(nome_gara)
+        if valori is None:
+            raise KeyError("la fonte nomina la costante di gara %r e non la definisce: va letta "
+                           "invece di essere sostituita con zeri" % nome_gara)
+        condizione = gen3.EvsCondition(
+            contest=dict(zip(gen3.CONTEST_ORDER, valori[:5])),
+            sheen=valori[5],
+        )
+
     mon = gen3.Gen3Mon(
         personality=personalita,
         ot_id=((sid & 0xFFFF) << 16) | (tid & 0xFFFF),
         nickname=soprannome,
-        language=LINGUE[lingua],
+        language=eventi.LINGUE[LINGUE[lingua]],
         # La bandierina del soprannome: questi esemplari ne portano uno fissato, diverso dal
         # nome della specie, e senza di essa il verificatore li contesta.
         flags=0x02,
@@ -224,9 +305,10 @@ def componi(ace, pkhex, tabella, voce, lingua, luogo, eventi, destinazione=None)
         markings=0,
         growth=gen3.Growth(species=specie_id, held_item=0,
                            experience=g3.esperienza(gruppo, livello),
-                           pp_bonuses=0, friendship=0),
-        attacks=gen3.Attacks(moves=[0, 0, 0, 0], pp=[0, 0, 0, 0]),
-        evs=gen3.EvsCondition(),
+                           pp_bonuses=0, friendship=indole["amicizia"]),
+        attacks=gen3.Attacks(moves=(mosse + [0, 0, 0, 0])[:4],
+                             pp=(pp + [0, 0, 0, 0])[:4]),
+        evs=condizione,
         misc=gen3.Misc(
             pokerus=0,
             met_location=luogo,
@@ -246,6 +328,21 @@ def componi(ace, pkhex, tabella, voce, lingua, luogo, eventi, destinazione=None)
         "iv": iv, "soprannome": soprannome_testo, "allenatore": nome_ot_testo,
         "lingua": lingua, "luogo": luogo, "abilita": bit,
     }
+
+
+def carica_incontri():
+    """Il generatore degli incontri di terza, da cui si riusano mosse, indoli e repertori.
+
+    Porta gia' la lettura dei repertori di livello per versione, la tavola delle indoli con
+    l'amicizia di base, e la selezione delle mosse conosciute a un livello dato. Un esemplare da
+    scambio arriva con il proprio repertorio di livello come qualunque altro, quindi quelle tre
+    cose servono identiche e riscriverle significherebbe avere due verita' sugli stessi dati.
+    """
+    percorso = os.path.join(RADICE, "tools", "genera-incontro-gen3.py")
+    spec = importlib.util.spec_from_file_location("incontri_gen3", percorso)
+    modulo = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(modulo)
+    return modulo
 
 
 def carica_eventi():
@@ -304,6 +401,18 @@ def collaudo():
           "per cui la traduzione esiste",
           APOSTROFO_DESTRO in tab_it.char_to_byte and
           APOSTROFO_DRITTO not in tab_it.char_to_byte)
+    # Le quattro correzioni del primo giudizio, ciascuna con la propria prova.
+    prova("la lingua NON e' trascritta qui ma presa dalla tavola del generatore delle "
+          "distribuzioni: la prima stesura dava all'italiano il codice del tedesco",
+          set(LINGUE.values()) == {"ITA", "ENG", "JPN"})
+    finta = '    private static ReadOnlySpan<byte> TradeContest_Cool   => [ 30, 05, 05, 05, 05, 10 ];'
+    letto = dict((k, [int(x) for x in re.findall(r"\d+", c)])
+                 for k, c in RE_COSTANTE_GARA.findall(finta))
+    prova("le statistiche da gara si leggono dalla fonte e sono sei",
+          letto.get("TradeContest_Cool") == [30, 5, 5, 5, 5, 10])
+    prova("negativo: una costante con meno di sei valori non si completa a zero",
+          [int(x) for x in re.findall(r"\d+", "30, 05, 05")] != [30, 5, 5, 5, 5, 10])
+
     prova("un soprannome con apostrofo si scrive davvero, invece di sollevare",
           len(tab_it.encode(verso_la_codifica("CH'DING"),
                             length=gen3.NICKNAME_LENGTH)) == gen3.NICKNAME_LENGTH)
@@ -356,6 +465,8 @@ def principale(argomenti=None):
         return 2
 
     eventi = carica_eventi()
+    incontri = carica_incontri()
+    gara = statistiche_di_gara(a.pkhex)
     luogo = luogo_scambio(a.pkhex)
     cartella = a.lotto
     if not os.path.isdir(cartella):
@@ -363,7 +474,8 @@ def principale(argomenti=None):
 
     impronte, fatti, saltate = {}, 0, []
     for tabella, voce in voci:
-        mon, r = componi(a.ace, a.pkhex, tabella, voce, a.lingua, luogo, eventi)
+        mon, r = componi(a.ace, a.pkhex, tabella, voce, a.lingua, luogo, eventi, incontri,
+                         gara)
         if mon is None:
             saltate.append((tabella, voce["specie"], r.get("saltata")))
             continue
