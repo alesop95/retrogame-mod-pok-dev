@@ -13,7 +13,7 @@ covers-paths:
   - generation-from-switch/
   - cart-battery-restoration/
   - pokedex-home-completo/
-last-verified-commit: c0e76e0
+last-verified-commit: dd8d10b
 stato: adozione conclusa; dieci track, fuoco corrente sul completamento del Pokedex nel deposito
 ---
 
