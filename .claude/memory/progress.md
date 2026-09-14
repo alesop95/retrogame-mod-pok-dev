@@ -4,6 +4,30 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-14, nona parte. Il terzo giro non aggiunge nulla, e i controlli della fonte applicati a mano
+
+### Il terzo dump e' identico al secondo
+
+Il rapporto del terzo giro da' otto conformi su diciannove come il secondo, e il confronto riga per riga fra i due dice che l'unica differenza e' la posizione nella scatola di uno dei due Lickitung, con il checksum che ne consegue. Non c'e' informazione nuova, ed e' giusto registrarlo invece di analizzarlo una seconda volta: due esportazioni dello stesso stato sono lo stesso dato, e trattarle come due misure sarebbe un errore di conteggio.
+
+### Invece di richiedere il riquadro, i controlli si sono applicati a mano
+
+Il sorgente del verificatore elenca esattamente che cosa confronta per questa classe, e l'elenco e' corto: valore di personalita', valori individuali, identificativo e suo secondo, livello dell'evoluzione, forma, sesso dell'esemplare, sesso dell'allenatore, luogo dell'uovo, e statistiche da gara non inferiori a quelle dichiarate. Accanto vi sono due confronti sulle stringhe, cioe' il nome dell'allenatore e il soprannome, ciascuno nella lingua dell'esemplare.
+
+Tutti questi controlli sono stati applicati al dump confrontandolo con la fonte, e il risultato e' netto: TUTTE E DICIANNOVE le voci coincidono con la fonte su ognuno di quei campi, comprese le undici non conformi. Le stringhe pure: nome dell'allenatore e soprannome coincidono voce per voce con l'elenco italiano, e le due divergenze apparenti erano un difetto del mio confronto, che indicizzava le voci su identificativo e livello e faceva collidere le due versioni di una coppia.
+
+### Che cosa questo esclude, che e' la parte utile
+
+Restano esclusi come causa: valore di personalita', sei valori individuali, identificativo e secondo identificativo, sesso dell'esemplare, sesso dell'allenatore, statistiche da gara e lucentezza, livello di incontro, nome dell'allenatore, soprannome, lingua, sfera, luogo di incontro e bandierina del soprannome. Sono undici campi piu' tre proprieta' strutturali, e nessuno di essi spiega il rifiuto.
+
+Cade con essi anche il pattern del sesso dell'allenatore notato nell'ottava parte. Restava netto in un verso, ma ora si sa che quel campo coincide con la fonte su tutte e sei le voci che lo portano a uno: la correlazione era vera e la causa no, ed e' il genere di conclusione che si sarebbe potuta scrivere come spiegazione se ci si fosse fermati al confronto fra insiemi.
+
+### Che cosa resta, e perche' non si prosegue per ipotesi
+
+Resta un solo gruppo di campi che il programma calcola invece di copiare, cioe' le mosse con i loro punti potenza, e con esso l'esperienza, l'amicizia e il bit dell'abilita'. Una ipotesi sulle mosse e' formulabile e non e' verificabile con il materiale disponibile, perche' il verificatore accetta qualunque mossa che la specie possa conoscere e non soltanto quelle che assegnerebbe lui: il rapporto sui box non dice se le contesti.
+
+La domanda e' quindi arrivata al punto in cui il materiale che serve e' uno solo e piccolo, cioe' il testo del giudizio di due esemplari. Proseguire senza di esso significherebbe cambiare un campo alla volta e riprovare, che su undici voci e quattro campi residui e' un numero di giri che l'utente non deve pagare per una pigrizia mia.
+
 ## 2026-09-14, ottava parte. Il secondo giudizio: da zero a otto, e un pattern netto sui restanti
 
 ### L'esito, e perche' e' un progresso e non meta' fallimento
