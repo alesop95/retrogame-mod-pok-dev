@@ -4,6 +4,24 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-14, undicesima parte. Il lotto degli scambi e' chiuso, diciannove su diciannove
+
+### L'esito
+
+Il quarto giudizio esterno dichiara conformi tutte e diciannove le voci. Il rapporto conferma inoltre le tre proprieta' che definiscono la classe e che nessun programma puo' verificare da se': la lingua e' l'italiana su tutte, il luogo e' lo scambio in gioco su tutte, la sfera e' la Poke Ball su tutte.
+
+E' il sesto lotto del progetto e il primo prodotto senza alcuna ricerca di semi, perche' la fonte ne scrive ogni campo: per queste diciannove voci l'esemplare composto e' quello storico campo per campo, e la fedelta' non e' un argomento ma una identita'.
+
+### Il conto dei quattro giri, che vale come misura del metodo
+
+Il primo giro ha respinto diciannove su diciannove per quattro campi: lingua trascritta a memoria invece che letta, mosse lasciate vuote, amicizia a zero e statistiche da gara a zero. Il secondo ne ha accettate otto. Il terzo e' stato una riesportazione dello stesso stato e non ha aggiunto nulla. Il quarto, dopo l'azzeramento dei byte oltre il terminatore nel campo del nome dell'allenatore, le ha accettate tutte.
+
+Cinque campi sbagliati in tutto, e tutti e cinque della stessa famiglia: cose che la fonte dichiarava e che erano state scritte a memoria, dedotte dal silenzio, o lasciate al valore predefinito. Nessuno dei cinque era un errore di ragionamento sul dominio: erano tutti scorciatoie di scrittura.
+
+### Che cosa resta di questa classe
+
+Restano le ventisette voci di scambio delle altre generazioni che portano il valore di personalita' nella fonte, cioe' sedici di quarta, sette di quinta e quattro di ottava, piu' le voci senza valore di personalita' dichiarato, sulle quali la fedelta' torna a essere un argomento come per le altre classi. Restano inoltre le due generazioni che il ponte gia' scrive, la prima e la seconda, dove gli scambi hanno identificativi e valori individuali casuali e quindi la legittimita' e' banale.
+
 ## 2026-09-14, decima parte. I byte spazzatura, e una misura che spiega tutte e diciannove le voci
 
 ### Il riquadro del giudizio dice una cosa sola
@@ -126,7 +144,7 @@ Il giudizio esterno, che e' l'unica prova che conta e che non e' mia: il lotto v
 
 A fine della quarta parte avevo segnalato che `resume-prompt.md` alla radice risultava cancellato e lo avevo ripristinato, dichiarando la causa non accertata. La causa era l'utente: lo aveva cancellato apposta perche' due file di ripresa gli creano confusione. Ripristinarlo e' stato l'errore, e la lezione e' che davanti a un file tracciato sparito la prima domanda va fatta a chi lavora sul repository invece di dedurre da `git status`.
 
-La correzione e' ADR-059 e ha due parti. La fonte di verita' della ripresa e' `_notes/RESUME_PROMPT.md` e nessun'altra; il file alla radice e' stato ricancellato dopo avervi fuso le sue due parti non duplicate, cioe' le quattro discipline e i vincoli che non si negoziano. La voce di `MAPPA-DOCUMENTI.md` resta e dichiara la rimozione con il suo perche', perche' un documento cancellato in silenzio e' indistinguibile da uno dimenticato e la sessione dopo lo ricreerebbe. Il costo e' dichiarato: quelle discipline non arrivano piu' a un clone attraverso quel file, e la mitigazione e' che vivono in forma normativa nelle regole tracciate.
+La correzione e' ADR-059 e ha due parti. La fonte di verita' della ripresa e' `_notes/resume-prompt.md` e nessun'altra; il file alla radice e' stato ricancellato dopo avervi fuso le sue due parti non duplicate, cioe' le quattro discipline e i vincoli che non si negoziano. La voce di `MAPPA-DOCUMENTI.md` resta e dichiara la rimozione con il suo perche', perche' un documento cancellato in silenzio e' indistinguibile da uno dimenticato e la sessione dopo lo ricreerebbe. Il costo e' dichiarato: quelle discipline non arrivano piu' a un clone attraverso quel file, e la mitigazione e' che vivono in forma normativa nelle regole tracciate.
 
 ### Non spezzettare
 
@@ -326,7 +344,7 @@ Le due scelte che lo rendono affidabile vanno registrate perché una vista che r
 
 ### L'iniezione di sessione
 
-Per direttiva dell'utente l'iniezione completa vive in `_notes/RESUME_PROMPT.md` e si riscrive alla fine di ogni giro sostanziale. Porta il prompt da incollare, l'ordine di lettura, il fuoco con i giorni residui, le due linee parallele, la mappa minima di quale file risponda a quale domanda, lo stato delle due linee, le cinque decisioni in attesa, i promemoria permanenti, i controlli prima del commit e gli errori di metodo da non ripetere. La copia locale precedente, che era un puntatore con il nome scritto con il trattino, è stata eliminata: due file di ripresa sono il modo di farli divergere. La divisione del lavoro con il `resume-prompt.md` tracciato è ora dichiarata in entrambi, cioè le discipline nel tracciato e lo stato volatile nel locale, e l'obbligo di riscriverlo è la seconda parte del presidio in `.claude/rules/chat-non-e-memoria.md`.
+Per direttiva dell'utente l'iniezione completa vive in `_notes/resume-prompt.md` e si riscrive alla fine di ogni giro sostanziale. Porta il prompt da incollare, l'ordine di lettura, il fuoco con i giorni residui, le due linee parallele, la mappa minima di quale file risponda a quale domanda, lo stato delle due linee, le cinque decisioni in attesa, i promemoria permanenti, i controlli prima del commit e gli errori di metodo da non ripetere. La copia locale precedente, che era un puntatore con il nome scritto con il trattino, è stata eliminata: due file di ripresa sono il modo di farli divergere. La divisione del lavoro con il `resume-prompt.md` tracciato è ora dichiarata in entrambi, cioè le discipline nel tracciato e lo stato volatile nel locale, e l'obbligo di riscriverlo è la seconda parte del presidio in `.claude/rules/chat-non-e-memoria.md`.
 
 ### Le due linee di lavoro, che ora sono dichiarate
 

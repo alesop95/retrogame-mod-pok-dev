@@ -8,8 +8,8 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: 4319558
-Data snapshot:         2026-09-14, seconda parte
+Commit di riferimento: dd8d10b
+Data snapshot:         2026-09-14, chiusura di sessione
 ```
 
 ## Stato di verifica delle schede
@@ -38,7 +38,7 @@ Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo q
 ## Punto di ripresa
 
 ```
-Fuoco corrente: pokedex-home-completo, su due linee parallele decise dall'utente il 2026-09-10, cioe la lettura del corpus a lotti e la produzione dei lotti da evento nell'ordine per scadenza di ADR-052; il lotto del 2026-09-14 e' trasversale e non un cluster, ha corretto la procedura delle rovine di Sinjoh, ha aperto una correzione DA VERIFICARE sulla lingua della catena che dimezzerebbe l'allestimento in emulazione, e ha riclassificato otto delle undici classi a via chiusa, di cui una sola e' chiusa davvero; i quattro canali Discord del fuoco corrente sono esportati, e una fonte di prima parte ha spostato il denominatore dei marchi dalle edizioni alle specie; scadenza fra 165 giorni
+Fuoco corrente: pokedex-home-completo, su due linee parallele. La lettura del corpus non e' piu' il collo di bottiglia: il corpus e' a 405 documenti dopo il recupero di ADR-057, i quattro canali Discord del fuoco sono esportati e digeriti, e la produzione e' il passo che conta. Il sesto lotto e' CHIUSO il 2026-09-14, cioe' i 19 scambi in gioco di terza generazione conformi su 19 al quarto giudizio, primo lotto del progetto composto senza alcuna ricerca di semi. Scadenza fra 165 giorni
 ```
 
 Il 2026-08-31 il fuoco si è mosso due volte nella stessa giornata, e vale registrare entrambi i movimenti perché il primo è concluso e il secondo è quello attivo.
@@ -88,7 +88,7 @@ Nel medesimo giro è stata letta la prima parte del lotto di corpus successivo, 
 
 Il risultato che pesa di più non veniva dal cluster ma da un suo rinvio: il servizio ricostruito distribuisce ancora i doni segreti di quarta e quinta generazione alle cartucce vere, con due testimonianze indipendenti del 2026-09-07, e ciò significa che una parte dell'asse degli eventi potrebbe essere ricevuta invece che composta. È la risposta parziale al primo dei quattro passi del capitolo trenta della tesi, e apre una domanda di perimetro che sta in `pending.md`.
 
-Infine, per direttiva dell'utente, l'iniezione di sessione vive ora in `_notes/RESUME_PROMPT.md` e si riscrive alla fine di ogni giro sostanziale: è la seconda parte del presidio della regola sulla persistenza, e la divisione del lavoro con il `resume-prompt.md` tracciato è dichiarata in entrambi i file.
+Infine, per direttiva dell'utente, l'iniezione di sessione vive ora in `_notes/resume-prompt.md` e si riscrive alla fine di ogni giro sostanziale: è la seconda parte del presidio della regola sulla persistenza, e la divisione del lavoro con il `resume-prompt.md` tracciato è dichiarata in entrambi i file.
 
 cart-battery-restoration: DIAGNOSI CONCLUSA il 2026-09-01, e la conclusione è negativa. L'utente riferisce che Rosso e Argento offrono all'accensione il solo avvio di una partita nuova e non conservano il salvataggio che si crea: è la firma completa della pila esaurita, e i due salvataggi non esistono più e non sono recuperabili. Tre conseguenze. Su quelle cartucce non c'è nulla da estrarre, quindi l'ordine che imponeva l'estrazione prima della saldatura non si applica e l'operazione passa da rischio alto a rischio basso. Per la cartuccia di seconda generazione il seguito sull'orologio si riduce al primo dei tre passi, perché una partita nuova fissa da sé lo scostamento dell'ora. E la priorità si sposta: queste due possono attendere, mentre le eventuali altre cartucce di prima o seconda generazione non ancora provate sono le sole che abbiano ancora una finestra.
 
@@ -139,3 +139,9 @@ I due recuperi hanno prodotto una correzione ciascuno. Il secondo anello della c
 L'utente ha inoltre consegnato una schermata dell'avviso del deposito, che e' una fonte di prima parte e sposta il denominatore dell'asse dei marchi: le edizioni si ripetono, la cattura e' una sola per salvataggio, quindi il collezionabile e' la specie e non l'edizione, e la voce di lavoro aperta il 2026-09-12 e' stata riformulata prima di essere svolta invece che dopo. Da quella schermata nasce anche una sezione nuova di `pending.md`, cioe' le finestre che si chiudono con la loro data, perche' il 26 febbraio 2027 non e' l'unica scadenza del progetto: la prima voce scade il 17 settembre 2026.
 
 Sull'infrastruttura, i quattro canali Discord che servono al fuoco corrente sono stati esportati dall'utente con il filtro `--track` aggiunto nello stesso giro, con zero falliti. La loro riduzione a Markdown filtrato con `tools/read-chat-export.py` e' il passo seguente e non e' stata fatta.
+
+QUATTORDICESIMA AGGIUNTA del 2026-09-14, ed e' la chiusura di un lotto invece dell'apertura di una questione. Gli scambi in gioco di terza generazione sono conformi su tutte e diciannove le voci al quarto giudizio esterno, con lingua italiana, luogo di scambio in gioco e sfera confermati su tutte. E' il sesto lotto del progetto e il primo composto senza alcuna ricerca di semi, perche' la fonte ne scrive ogni campo: per queste voci l'esemplare composto e' quello storico campo per campo.
+
+I quattro giri di giudizio hanno corretto cinque campi, e la loro omogeneita' e' il risultato di metodo della giornata: lingua trascritta a memoria invece che letta dalla tabella che il progetto possiede, mosse lasciate vuote deducendo dal silenzio della fonte, amicizia e statistiche da gara lasciate al valore predefinito, e byte oltre il terminatore riempiti come fa l'encoder del ponte invece che azzerati come il verificatore pretende. Nessuno dei cinque era un errore sul dominio: erano tutte scorciatoie di scrittura.
+
+Vale registrare anche una ipotesi caduta, perche' il modo in cui e' caduta e' istruttivo. Al secondo giudizio il sesso dell'allenatore separava perfettamente conformi e non conformi, sei su sei, e sarebbe stato comodo scriverlo come causa. Non lo era: nelle tabelle di quei giochi i nomi femminili sono in media piu' corti, e la lunghezza del nome era la causa vera. Una variabile correlata separa i gruppi esattamente come la causa, e distinguerle richiede di leggere la regola invece dei dati. La norma che ne discende e' scritta in tesi al capitolo ventinove.

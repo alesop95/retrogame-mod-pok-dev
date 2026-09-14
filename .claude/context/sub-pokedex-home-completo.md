@@ -4,7 +4,7 @@ generated-from-branch: main
 generated-date: 2026-09-02
 covers-paths:
   - pokedex-home-completo/
-last-verified-commit: 4319558
+last-verified-commit: dd8d10b
 stato: attivo ed è il fuoco corrente; due linee parallele dal 2026-09-10, cioè lettura del corpus e produzione dei lotti; sei assi più le due classi nuove più i marchi di ADR-058, criterio di produzione in ADR-049 come modificato da ADR-050 e ADR-051, coda ordinata per scadenza per ADR-052
 ---
 
@@ -20,7 +20,7 @@ Il risultato che governa la pianificazione regge ed è misurato e non assunto: n
 
 Gli assi sono sei più tre. Specie, forme, esemplari da distribuzione, mosse che nessun titolo moderno insegna più, fiocchi conferiti da vie chiuse, sfide interne al deposito; dal 2026-09-09 gli scambi in gioco e gli incontri che una condizione sblocca, enumerati sulla fonte di primo livello; e dal 2026-09-12 i marchi, che sono cinquantatré in sei famiglie ed è ADR-058. I marchi non sono una sottofamiglia dei fiocchi benché il formato li tenga negli stessi byte, perché un fiocco si conferisce per un merito e un marchio per una circostanza dell'incontro, e nessuno di essi è sotto la scadenza.
 
-Il collo di bottiglia non è più la produzione ma il trasferimento: sei lotti sono prodotti, la catena ha i suoi vincoli misurati anello per anello, e la regola di ammissione del deposito è nota e non aggirabile. Il sesto, dal 2026-09-14, è quello degli scambi in gioco di terza generazione, ed è il primo che il progetto compone senza alcuna ricerca di semi, perché la fonte ne scrive ogni campo.
+Il collo di bottiglia non è più la produzione ma il trasferimento: sei lotti sono prodotti e la catena ha i suoi vincoli misurati anello per anello. Il sesto è chiuso il 2026-09-14, cioè i diciannove scambi in gioco di terza generazione conformi su diciannove al quarto giudizio esterno: è il primo lotto che il progetto compone senza alcuna ricerca di semi, perché la fonte ne scrive ogni campo, e i quattro giri di giudizio hanno corretto cinque campi tutti della stessa famiglia, cioè dati dichiarati dalla fonte e scritti a memoria o lasciati al valore predefinito.
 
 ## Prossimo passo
 
