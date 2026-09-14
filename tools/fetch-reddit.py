@@ -93,7 +93,7 @@ La radice si ricava dalla posizione del file, cioè la cartella che contiene `to
 Stato di collaudo
 -----------------
 
-Provati contro il trasporto finto, senza rete: la formazione dei lotti di identificativi, la deduplicazione delle cinque forme di indirizzo dello stesso post, la risoluzione dei collegamenti brevi, l'ordine in ampiezza e il conteggio della profondità, i tetti con i pendenti registrati, il rifiuto per eccesso di frequenza con l'attesa dichiarata dal servizio, il guasto transitorio con l'attesa raddoppiata, il budget di tentativi ridotto per le pagine esterne, la risposta di errore che arriva con un codice 200, il divieto di `robots.txt`, la distinzione fra quel divieto e il rifiuto transitorio che lascia il nodo pendente, il recupero di una corsa vecchia che aveva catalogato quel rifiuto, l'intervallo fra richieste allo stesso host, la protezione del testo di terzi che aprirebbe un'intestazione, la classificazione di un host da catalogare, il riconoscimento di uno scheletro JavaScript, la registrazione degli archi della mappa anche verso i nodi che non verranno letti, la ripresa che salta cio che è fatto, e la scrittura del marcatore che esenta la cartella della corsa dal normalizzatore di Markdown.
+Provati contro il trasporto finto, senza rete: la formazione dei lotti di identificativi, la deduplicazione delle cinque forme di indirizzo dello stesso post, la risoluzione dei collegamenti brevi, l'ordine in ampiezza e il conteggio della profondità, i tetti con i pendenti registrati, il rifiuto per eccesso di frequenza con l'attesa dichiarata dal servizio, il guasto transitorio con l'attesa raddoppiata, il budget di tentativi ridotto per le pagine esterne, la risposta di errore che arriva con un codice 200, il divieto di `robots.txt`, la distinzione fra quel divieto e il rifiuto transitorio che lascia il nodo pendente, il recupero di una corsa vecchia che aveva catalogato quel rifiuto, la lettura di una pagina sola chiesta per nome con i suoi rinvii non seminati, l'intervallo fra richieste allo stesso host, la protezione del testo di terzi che aprirebbe un'intestazione, la classificazione di un host da catalogare, il riconoscimento di uno scheletro JavaScript, la registrazione degli archi della mappa anche verso i nodi che non verranno letti, la ripresa che salta cio che è fatto, e la scrittura del marcatore che esenta la cartella della corsa dal normalizzatore di Markdown.
 
 Provati contro il servizio reale: il recupero di un post, l'albero completo dei suoi commenti, il lotto di più identificativi in una richiesta, la ricorsione su un post figlio, la forma della risposta di errore per un campo non selezionabile, e una corsa su un grafo di alcune centinaia di nodi con le pagine esterne attive.
 
@@ -271,6 +271,13 @@ RE_BREVE = re.compile(r"^https?://(?:[a-z0-9.-]*\.)?reddit\.com(/(?:r|u|user)/[^
 RE_LINK_MD = re.compile(r"\[([^\]\n]{0,200})\]\(\s*<?(https?://[^\s)>]+)>?\s*\)")
 RE_LINK_NUDO = re.compile(r"(?<![\(\]])\bhttps?://[^\s\)\]\<\>\"'`]+")
 RE_ANGOLARE = re.compile(r"<(https?://[^\s>]+)>")
+# La quarta forma, ed e' quella che l'estrattore da HTML produce da se': il testo dell'ancora
+# seguito dall'indirizzo fra parentesi tonde. Mancava, e la sua assenza non si vedeva perche' il
+# numero dei collegamenti trovati restava plausibile: su una pagina enciclopedica reale ce ne
+# sono sessanta in questa forma e l'estrazione ne trovava due, entrambi dall'intestazione che lo
+# strumento stesso scrive. L'ancora si cattura insieme all'indirizzo perche' senza di essa
+# l'indice diventa un elenco di indirizzi che nessuno legge.
+RE_LINK_TONDO = re.compile(r"([^\n(]{0,200}?)\s*\((https?://[^\s)>]+)\)")
 
 
 class Errore(Exception):
@@ -628,10 +635,23 @@ def motivo_catalogo(url):
 def estrai_link(testo):
     """I collegamenti di un testo Markdown, con l'ancora che li accompagna.
 
-    Si guardano tre forme, perché nel corpo di un post convivono tutte e tre: la sintassi con
-    le parentesi, l'indirizzo racchiuso fra parentesi angolari, e l'indirizzo nudo. L'ancora si
-    conserva perché nell'indice è cio che dice a che cosa serve quel collegamento, e un elenco
-    di indirizzi senza ancore è un elenco che nessuno legge.
+    Si guardano quattro forme, perché fra il corpo di un post e il testo estratto da una pagina
+    convivono tutte e quattro: la sintassi Markdown con le parentesi quadre, l'indirizzo
+    racchiuso fra parentesi angolari, il testo dell'ancora seguito dall'indirizzo fra parentesi
+    tonde, e l'indirizzo nudo. L'ancora si conserva perché nell'indice è cio che dice a che cosa
+    serve quel collegamento, e un elenco di indirizzi senza ancore è un elenco che nessuno legge.
+
+    La quarta forma e' stata aggiunta il 2026-09-14 e la sua assenza era un difetto di copertura
+    e non di correttezza, che e' la specie peggiore perche' non produce alcun errore. E'
+    precisamente la forma che l'estrattore da HTML di questo stesso programma produce, quindi il
+    grafo non si espandeva quasi mai attraverso una pagina esterna ma quasi solo attraverso i
+    post: su una pagina enciclopedica reale, sessanta collegamenti in quella forma davano due
+    estrazioni. Il numero dei collegamenti trovati restava plausibile, ed e' la ragione per cui
+    nessuno se ne era accorto.
+
+    L'ordine in cui le quattro si applicano conta e non e' arbitrario: ogni forma consuma dal
+    testo residuo cio' che ha riconosciuto, cosicche' la forma piu' specifica venga prima della
+    piu' generica e lo stesso indirizzo non sia contato due volte con due ancore diverse.
     """
     if not testo:
         return []
@@ -654,6 +674,9 @@ def estrai_link(testo):
     for trovato in RE_ANGOLARE.finditer(resto):
         aggiungi("", trovato.group(1))
     resto = RE_ANGOLARE.sub(" ", resto)
+    for trovato in RE_LINK_TONDO.finditer(resto):
+        aggiungi(trovato.group(1), trovato.group(2))
+    resto = RE_LINK_TONDO.sub(" ", resto)
     for trovato in RE_LINK_NUDO.finditer(resto):
         aggiungi("", trovato.group(0))
     return coppie
@@ -1445,12 +1468,13 @@ class Corsa:
     """L'attraversamento in ampiezza, con i suoi tetti, il suo stato e la sua uscita su disco."""
 
     def __init__(self, trasporto, educato, cartella, tetti, esterni=False, esclusi=None,
-                 soli=None, lotto=LOTTO_ID, riferisci=None):
+                 soli=None, lotto=LOTTO_ID, riferisci=None, espandi_esterni=False):
         self.t = trasporto
         self.educato = educato
         self.cartella = cartella
         self.tetti = tetti
         self.esterni = esterni
+        self.espandi_esterni = espandi_esterni
         self.esclusi = [d.lower().lstrip(".") for d in (esclusi or [])]
         self.soli = [d.lower().lstrip(".") for d in (soli or [])]
         self.lotto = lotto
@@ -1564,6 +1588,38 @@ class Corsa:
                 "ancora": elemento.get("ancora") or "",
                 "motivo": motivo,
             })
+
+    def una_pagina(self, indirizzo, profondita=1):
+        """Legge una pagina esterna sola, dentro questa corsa, senza espanderne i rinvii.
+
+        Esiste perché la domanda che il progetto si pone piu' spesso sul corpus non e' quella per
+        cui un crawler e' fatto. Un crawler risponde a "che cosa c'e' a partire da qui"; la
+        domanda ricorrente e' invece "manca questa pagina, che so gia' quale e'", e per quella
+        l'attraversamento e' lo strumento sbagliato due volte, perche' scarica cio' che non serve
+        e perche' per arrivare a una pagina nota bisogna passare da chi la linka.
+
+        La pagina entra nella corsa come tutte le altre, cioe' con la stessa verifica di
+        `robots.txt`, lo stesso intervallo fra richieste, lo stesso estrattore, il grezzo accanto
+        al derivato e la registrazione in `stato.json`, cosicche' il censimento la veda senza
+        sapere da dove sia arrivata. Cio' che non fa, ed e' il suo punto, e' seminare i rinvii
+        trovati: chi chiede una pagina ha chiesto una pagina.
+
+        La profondita' dichiarata serve solo alla mappa e non a un tetto, perche' qui non c'e'
+        frontiera da limitare; il valore predefinito e' uno, che e' la distanza a cui un crawler
+        l'avrebbe trovata se fosse partito dal nodo che la cita.
+        """
+        chiave = "web:" + indirizzo
+        if chiave in self.stato["visti"]:
+            scheda = self.stato["visti"][chiave]
+            return False, scheda.get("esito"), scheda.get("file")
+        # Il frontiere fittizio raccoglie i rinvii e viene buttato: gli archi che `semina`
+        # registra nella mappa restano, ed e' cio' che si vuole, perche' la mappa deve dire che
+        # cosa questa pagina cita anche se non lo leggeremo.
+        cestino = OrderedDict()
+        self.fai_web([{"chiave": chiave, "tipo": "web", "profondità": profondita,
+                       "da": ["richiesta esplicita"], "ancora": ""}], cestino)
+        scheda = self.stato["visti"].get(chiave) or {}
+        return True, scheda.get("esito"), scheda.get("file")
 
     def promuovi_transitori(self):
         """Rimette fra i pendenti i nodi catalogati per un `robots.txt` indisponibile.
@@ -1909,7 +1965,27 @@ class Corsa:
                    markdown_esterno(indirizzo, intestazioni.get("x-indirizzo-finale"),
                                     titolo, testo, scheda))
             self.registra(voce["chiave"], scheda)
-            self.semina(prossima, voce["chiave"], voce["profondità"] + 1, estrai_link(testo))
+            # I collegamenti di una pagina esterna si seminano soltanto se qualcuno lo ha
+            # chiesto, e la ragione e' misurata invece che prudenziale. Una pagina di wiki
+            # rinvia all'intera wiki piu' le proprie voci di navigazione: sulle 287 pagine gia'
+            # su disco di questa corsa, seminarle tutte produrrebbe 4016 nodi nuovi, di cui 1213
+            # verso l'archivio di immagini del medesimo sito, 950 verso un'enciclopedia
+            # generalista e centinaia verso social e negozi di applicazioni. Fino al 2026-09-14
+            # non accadeva, ma per un difetto e non per una scelta: l'estrazione non riconosceva
+            # la forma con cui l'estrattore da HTML scrive i collegamenti, quindi le pagine
+            # esterne erano foglie per caso. Ora sono foglie per scelta, e chi voglia il
+            # contrario lo dichiara.
+            if self.espandi_esterni:
+                self.semina(prossima, voce["chiave"], voce["profondità"] + 1,
+                            estrai_link(testo))
+            else:
+                # Gli archi si registrano comunque, perche' la mappa deve dire che cosa una
+                # pagina cita anche quando non la seguiremo: e' la stessa ragione per cui si
+                # registrano gli archi verso i nodi che un tetto ha escluso.
+                for ancora, indirizzo in estrai_link(testo):
+                    esito = canonica(indirizzo)
+                    if esito:
+                        self.arco(voce["chiave"], esito[0] + ":" + esito[1], ancora)
 
 
 # ---------------------------------------------------------------------------------------------
@@ -2149,6 +2225,27 @@ def collaudo():
         fallito = "permalink" in str(e)
     prova("negativo: un errore che arriva con codice duecento non passa per risposta vuota",
           fallito)
+
+
+    # -- le quattro forme di collegamento ------------------------------------------------------
+    prova("la forma Markdown si riconosce con la sua ancora",
+          ("guida", "https://a.it/x") in estrai_link("vedi [guida](https://a.it/x) qui"))
+    prova("la forma angolare si riconosce",
+          ("", "https://a.it/y") in estrai_link("vedi <https://a.it/y> qui"))
+    prova("l'indirizzo nudo si riconosce",
+          ("", "https://a.it/z") in estrai_link("vedi https://a.it/z qui"))
+    # La forma che mancava, ed e' quella che l'estrattore da HTML produce da se'. Senza di essa
+    # il grafo non si espandeva quasi mai attraverso una pagina esterna.
+    tondo = estrai_link("- YouTube (https://www.youtube.com/user/X)")
+    prova("la forma con l'ancora seguita dall'indirizzo fra tonde si riconosce",
+          ("- YouTube", "https://www.youtube.com/user/X") in tondo)
+    prova("negativo: la forma con le tonde non duplica quella Markdown, che viene prima",
+          len(estrai_link("[guida](https://a.it/x)")) == 1)
+    prova("su un testo estratto da una pagina si trovano tutti i suoi collegamenti e non due",
+          len(estrai_link("\n".join("- voce %d (https://a.it/%d)" % (i, i)
+                                    for i in range(20)))) == 20)
+    prova("negativo: un indirizzo ripetuto in due forme si conta una volta sola",
+          len(estrai_link("[a](https://a.it/x) e poi https://a.it/x")) == 1)
 
     # -- robots e intervallo fra richieste ----------------------------------------------------
     finto_web = TrasportoFinto(
@@ -2407,6 +2504,72 @@ def collaudo():
               any(v["chiave"] == "web:https://intermittente.it/a"
                   for v in vecchia.stato["pendenti"]))
 
+        # Le pagine esterne sono foglie per scelta e non per caso, ed e' la distinzione che il
+        # 2026-09-14 ha reso esplicita: fino a quel giorno lo erano per un difetto di
+        # estrazione. Si prova nei due versi, perche' una bandiera spenta che non cambia nulla
+        # quando la si accende e' peggio di nessuna bandiera.
+        cartella_f = os.path.join(temporanea, "foglie")
+        pagina_con_rinvii = ("<html><title>Con rinvii</title><body><p>" + "q" * 600 +
+                             " <a href='https://altrove.it/uno'>uno</a></p></body></html>")
+        t_f = TrasportoFinto(
+            robots={"radice.it": (200, "User-agent: *\nAllow: /\n"),
+                    "altrove.it": (200, "User-agent: *\nAllow: /\n")},
+            pagine={"https://radice.it/a": (200, pagina_con_rinvii),
+                    "https://altrove.it/uno": (200, "<html><title>Uno</title><body><p>" +
+                                               "r" * 600 + "</p></body></html>")})
+        chiusa = Corsa(t_f, Educato(t_f), cartella_f, {"max_profondita": 3}, esterni=True)
+        chiusa.esegui([{"chiave": "web:https://radice.it/a", "tipo": "web", "profondità": 0,
+                        "da": [], "ancora": "", "commenti_puntati": []}])
+        chiusa.salva()
+        prova("negativo: per difetto una pagina esterna non semina i propri collegamenti",
+              "web:https://altrove.it/uno" not in chiusa.stato["visti"])
+        prova("l'arco verso cio' che la pagina cita si registra comunque, perche' la mappa "
+              "deve dirlo",
+              any(a2.get("a") == "web:https://altrove.it/uno"
+                  for a2 in chiusa.stato["archi"]))
+        aperta = Corsa(t_f, Educato(t_f), os.path.join(temporanea, "espansa"),
+                       {"max_profondita": 3}, esterni=True, espandi_esterni=True)
+        aperta.esegui([{"chiave": "web:https://radice.it/a", "tipo": "web", "profondità": 0,
+                        "da": [], "ancora": "", "commenti_puntati": []}])
+        aperta.salva()
+        prova("con --espandi-esterni la pagina collegata viene letta davvero",
+              aperta.stato["visti"].get("web:https://altrove.it/uno",
+                                        {}).get("esito") == "scaricato")
+
+        # La lettura di una pagina sola dentro una corsa esistente. Le tre cose che vanno
+        # provate sono che la pagina entri come tutte le altre, che i suoi rinvii NON vengano
+        # seminati, che e' il punto del sottocomando, e che una pagina gia' presente non venga
+        # riscaricata, perche' altrimenti chiamarlo due volte costerebbe due richieste.
+        cartella_p = os.path.join(temporanea, "singola")
+        t_pag = TrasportoFinto(
+            robots={"mirata.it": (200, "User-agent: *\nAllow: /\n"),
+                    "vietata.it": (200, "User-agent: *\nDisallow: /\n")},
+            pagine={"https://mirata.it/a": (200, "<html><title>Mirata</title><body><p>" +
+                                            "w" * 600 + " <a href='https://mirata.it/b'>b</a>"
+                                            "</p></body></html>")})
+        corsa_p = Corsa(t_pag, Educato(t_pag), cartella_p, {}, esterni=True)
+        fatto, esito, file_ = corsa_p.una_pagina("https://mirata.it/a")
+        corsa_p.salva()
+        prova("una pagina chiesta per nome si scarica", fatto and esito == "scaricato")
+        prova("la pagina entra nella corsa con il suo file accanto al grezzo",
+              file_ and os.path.isfile(os.path.join(cartella_p, file_)) and
+              os.path.isfile(os.path.join(cartella_p, "raw", "esterni",
+                                          impronta("https://mirata.it/a") + ".html")))
+        prova("negativo: chiedere una pagina non semina i suoi rinvii",
+              "web:https://mirata.it/b" not in corsa_p.stato["visti"] and
+              not any(v.get("chiave") == "web:https://mirata.it/b"
+                      for v in corsa_p.stato["pendenti"]))
+        prova("la mappa registra comunque l'arco verso cio' che la pagina cita",
+              any(a2.get("a") == "web:https://mirata.it/b" for a2 in corsa_p.stato["archi"]))
+        quante_prima = len(t_pag.chiamate)
+        fatto2, esito2, _ = corsa_p.una_pagina("https://mirata.it/a")
+        prova("negativo: una pagina gia' presente non si riscarica",
+              fatto2 is False and esito2 == "scaricato" and
+              len(t_pag.chiamate) == quante_prima)
+        _, esito3, _ = corsa_p.una_pagina("https://vietata.it/a")
+        prova("una pagina vietata da robots.txt si cataloga anche se chiesta per nome",
+              esito3 == "catalogato")
+
         senza = Corsa(trasporto_corsa, Educato(trasporto_corsa),
                       os.path.join(temporanea, "senza"),
                       {"max_post": 1, "max_esterni": 0, "max_profondita": 0}, esterni=False)
@@ -2526,6 +2689,13 @@ def costruisci_parser():
                            help="ripetibile: se presente, si scaricano solo questi domini")
         sotto.add_argument("--lotto", type=int, default=LOTTO_ID,
                            help="quanti identificativi per richiesta, al massimo 500")
+        sotto.add_argument("--espandi-esterni", action="store_true",
+                           help="segue anche i collegamenti trovati dentro le pagine esterne. "
+                                "Spento per difetto, e non per prudenza ma per una misura: una "
+                                "pagina di wiki rinvia all'intera wiki, e sulle pagine gia' su "
+                                "disco di questa corsa seguirle tutte darebbe quattromila nodi "
+                                "nuovi, in gran parte di navigazione. Gli archi della mappa si "
+                                "registrano comunque")
         sotto.add_argument("--silenzioso", action="store_true",
                            help="non riferisce l'avanzamento")
 
@@ -2535,6 +2705,18 @@ def costruisci_parser():
                        help="legge il solo punto di partenza e riferisce la frontiera che "
                             "genererebbe, senza scrivere nulla")
     tetti(passa)
+
+    pagina = comandi.add_parser("pagina",
+                                help="legge una pagina esterna sola dentro una corsa esistente, "
+                                     "senza seguirne i rinvii")
+    radice_locale(pagina)
+    pagina.add_argument("indirizzo", nargs="+",
+                        help="uno o piu' indirizzi di pagina; ripetibile sulla stessa riga")
+    pagina.add_argument("--in", dest="corsa", required=True,
+                        help="la cartella della corsa in cui la pagina deve entrare")
+    pagina.add_argument("--profondita", type=int, default=1,
+                        help="la profondita' dichiarata nella mappa; non e' un tetto")
+    pagina.add_argument("--silenzioso", action="store_true")
 
     riprendi = comandi.add_parser("riprendi", help="prosegue una corsa dai suoi pendenti")
     radice_locale(riprendi)
@@ -2581,13 +2763,41 @@ def principale(argomenti=None):
         if not getattr(a, "silenzioso", False):
             print(messaggio)
 
+    if a.comando == "pagina":
+        cartella = os.path.abspath(a.corsa)
+        if not os.path.isdir(cartella):
+            riferisci("non esiste la cartella della corsa " + cartella + ": una pagina entra in "
+                      "una corsa e non da sola, perche' il censimento legge le corse")
+            return 2
+        corsa = Corsa(trasporto, Educato(trasporto), cartella, {}, esterni=True,
+                      riferisci=riferisci)
+        corsa.carica()
+        letti, saltati, falliti = 0, 0, 0
+        for indirizzo in a.indirizzo:
+            fatto, esito, file_ = corsa.una_pagina(indirizzo, a.profondita)
+            if not fatto:
+                saltati += 1
+                riferisci("gia' nella corsa (" + str(esito) + "): " + indirizzo)
+                continue
+            if esito == "scaricato":
+                letti += 1
+                riferisci("scaricata: " + indirizzo + " -> " + str(file_))
+            else:
+                falliti += 1
+                riferisci("non scaricata (" + str(esito) + "): " + indirizzo)
+        corsa.salva()
+        riferisci("pagine scaricate " + str(letti) + ", gia' presenti " + str(saltati) +
+                  ", non scaricate " + str(falliti))
+        return 1 if falliti else 0
+
     if a.comando == "riprendi":
         cartella = os.path.abspath(a.cartella)
         corsa = Corsa(trasporto, Educato(trasporto), cartella,
                       {"max_post": a.max_post, "max_esterni": a.max_esterni,
                        "max_profondita": a.max_profondita},
                       esterni=a.esterni, esclusi=a.dominio_escluso, soli=a.solo_domini,
-                      lotto=a.lotto, riferisci=riferisci)
+                      lotto=a.lotto, riferisci=riferisci,
+                      espandi_esterni=a.espandi_esterni)
         corsa.carica()
         trattenuti = []
         if a.riprova_transitori:
