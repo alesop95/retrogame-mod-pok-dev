@@ -61,7 +61,7 @@
 % copre: pokedex-home-completo/ID-NOTEVOLI.md
 % copre: pokedex-home-completo/ID-NOTEVOLI.md#gli-identificativi-di-allenatore-notevoli-e-quanto-ne-copriamo
 % copre: pokedex-home-completo/MARCHI.md
-% verificato-al-commit: 503a868
+% verificato-al-commit: f995fd4
 % ---------------------------------------------------------------------
 
 \chapter{Gli assi di una collezione, e come si enumerano}
@@ -252,3 +252,17 @@ Il primo tentativo di individuarla è stato confrontare tutti i campi del rappor
 Ristretto ai campi strutturali, il medesimo confronto ha dato una separazione netta: nessuno degli esemplari accettati ha un allenatore di sesso femminile, e sei degli undici respinti ce l'hanno. L'implicazione vale in un verso solo, il che è già molto: l'allenatore femminile implica il rifiuto su sei casi su sei, mentre il rifiuto non implica l'allenatore femminile, perché cinque respinti hanno l'allenatore maschile e vanno perciò trattati come una seconda causa distinta.
 
 Su quei sei una cosa è accertata e una no, e distinguerle è ciò che impedisce di proseguire per ipotesi. È accertato che non si tratti di un difetto di scrittura: il bit corrispondente risiede in una posizione nota della parola delle origini, vi viene scritto il valore che la fonte dichiara, e il verificatore lo rilegge identico, come il rapporto mostra. Non è accertato quale regola il verificatore ritenga violata, perché il rapporto sui contenuti delle scatole riporta i campi e non i rilievi, e il testo del giudizio è l'unica sede in cui la regola viene nominata. Formulare qui un'ipotesi sarebbe agevole e prematuro: la differenza fra un lavoro che progredisce e uno che gira in tondo sta precisamente nel non sostituire una lettura mancante con una congettura plausibile.
+
+\section{Una separazione perfetta che non era una spiegazione}
+
+Il terzo giudizio del lotto ha chiuso la questione in una riga, e il modo in cui vi si è arrivati vale più della riga stessa, perché contiene un errore di inferenza che si ripresenta ogni volta che si dispone di due gruppi e di una tabella.
+
+Il rifiuto riguardava i byte che stanno dentro un campo di nome dopo il terminatore, che il verificatore richiede azzerati e che l'encoder impiegato riempiva ripetendo il terminatore. Il campo del nome dell'allenatore è lungo sette byte: un nome di sette caratteri lo riempie e non porta terminatore, uno di sei ne porta uno solo e non lascia nulla dietro di sé, uno di quattro o cinque ne lascia rispettivamente tre o due. Gli esemplari accettati erano tutti e soli quelli il cui nome di allenatore misurava sei o sette caratteri, e la misura spiega diciannove voci su diciannove senza eccezioni.
+
+La parte istruttiva è che due passaggi prima una spiegazione diversa sembrava altrettanto solida. Il confronto fra i campi strutturali del gruppo accettato e di quello respinto aveva mostrato una separazione perfetta sul sesso dell'allenatore: nessun accettato lo aveva femminile, e sei respinti sì. Su un campione di diciannove una separazione completa in un verso è un indizio forte, e sarebbe stato naturale registrarla come causa.
+
+Non lo era, e la ragione è che le due variabili sono correlate fra loro per un motivo che non ha nulla a che vedere con il verificatore: nelle tabelle di quei giochi i nomi femminili sono in media più corti di quelli maschili. Una variabile correlata alla causa separa i gruppi esattamente come la causa, e nessuna analisi condotta sui soli dati può distinguerle. La distinzione richiede di leggere la regola, e la regola era disponibile in due sedi che non erano state aperte: il codice sorgente del verificatore, che elenca ciò che confronta, e il testo del suo giudizio, che nomina ciò che rifiuta.
+
+Ne discende una norma di lavoro che questo capitolo adotta per le verifiche future. Una correlazione osservata su un campione piccolo si registra come osservazione e non come causa, e si promuove a causa soltanto quando una fonte indipendente dai dati nomina il meccanismo. Il costo di non applicarla non è un ritardo ma un errore stabile: una correzione applicata alla variabile correlata anziché a quella causale può persino funzionare su quel campione, per poi fallire su ogni caso nuovo, e a quel punto la spiegazione sbagliata è già entrata nella documentazione.
+
+Una seconda norma discende dalla forma della correzione. Il riempimento incriminato è prodotto da una libreria condivisa, sulla quale poggiano duecentosei prove di un altro componente, e che in quel contesto si comporta correttamente perché quel riempimento è ciò che si osserva in molti dati reali. La correzione è stata perciò applicata nel programma che genera questa classe e non nella libreria: una regola che vale per una classe non si impone a tutto il sistema, e il criterio per scegliere dove intervenire è l'ampiezza del dominio in cui la regola vale, non la comodità del punto di intervento. Per la stessa ragione il campo del nome assegnato non è stato toccato, benché presenti lo stesso riempimento: gli esemplari accettati lo portano e sono accettati, quindi l'evidenza non lo indica, e si corregge ciò che l'evidenza indica e non ciò che le somiglia.

@@ -4,6 +4,30 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-14, decima parte. I byte spazzatura, e una misura che spiega tutte e diciannove le voci
+
+### Il riquadro del giudizio dice una cosa sola
+
+L'utente ha consegnato il testo dell'analisi di legalita' su uno dei non conformi, il Lickitung. Vi compaiono due righe di rifiuto e sono identiche: i byte spazzatura dovrebbero essere azzerati. Tutto il resto e' dichiarato valido, e vale elencarlo perche' e' la conferma di nove giri di lavoro: le quattro mosse sono valide per aumento di livello ai livelli giusti, il nome dell'allenatore e il soprannome sono validi per uno scambio in gioco, il livello non e' sotto quello di incontro, i fiocchi sono contabilizzati, l'abilita' corrisponde al proprio numero, la sfera e' corretta per il tipo di incontro, il sesso combacia con il valore di personalita' e la natura pure. Il tipo di incontro e' riconosciuto come scambio in gioco e la posizione come scambio in gioco.
+
+### Che cosa sono, e la misura che li spiega
+
+Spazzatura, nel vocabolario del verificatore, sono i byte che stanno dentro un campo di nome dopo il terminatore. Il campo del nome dell'allenatore e' lungo sette byte: un nome di sette caratteri li riempie e non porta terminatore, uno di sei ne porta uno solo e non lascia nulla dietro, uno di quattro o cinque ne lascia rispettivamente tre o due. L'encoder del pacchetto del ponte riempie quell'avanzo ripetendo il terminatore, cioe' 0xFF, e il verificatore lo vuole a zero.
+
+La misura chiude la questione senza margine: gli otto conformi sono tutti e soli quelli il cui nome di allenatore misura sei o sette caratteri, cioe' SERGINO, TURNER due volte, ELYSSA, GARETT, CLIFTON, REYLEY e LEANDRO; gli undici non conformi hanno tutti un nome di quattro o cinque. Diciannove voci su diciannove sono spiegate, e nessuna eccezione resta.
+
+### Perche' la correzione non sta nell'encoder
+
+Il riempimento a terminatori ripetuti e' cio' che si trova in molti salvataggi veri, ed e' il comportamento che le duecentosei prove del pacchetto del ponte danno per buono. Cambiarlo la' significherebbe cambiare il comportamento di tutto il pacchetto per una regola che vale su questa classe, quindi la correzione sta nel generatore: si azzerano i byte dopo il primo terminatore, e il terminatore resta.
+
+Il soprannome non si tocca, ed e' una scelta e non una dimenticanza. Gli otto conformi portano il proprio soprannome con il riempimento a terminatori ripetuti e sono conformi lo stesso, quindi per quel campo la forma attuale e' gia' accettata dal verificatore: si cambia cio' che l'evidenza indica e non cio' che le somiglia. Se il quarto giudizio contestasse ancora qualcosa su quel campo, allora lo si cambiera' con la sua prova davanti.
+
+### Le due ipotesi cadute, e vale registrare come
+
+Nell'ottava parte il sesso dell'allenatore separava perfettamente i due gruppi in un verso, sei su sei, e sarebbe stato comodo scriverlo come causa. Nella nona i controlli della fonte applicati a mano hanno mostrato che quel campo coincide con la fonte su tutte e diciannove le voci: la correlazione era vera e la causa no. La spiegazione vera, la lunghezza del nome dell'allenatore, e' correlata al sesso per una ragione che non ha nulla a che vedere con il verificatore, cioe' che i nomi femminili di quelle tabelle sono in media piu' corti.
+
+E' il caso di scuola per cui una separazione perfetta su un campione di diciannove non e' una spiegazione: due variabili correlate fra loro separano allo stesso modo, e distinguere quale sia la causa richiede di guardare la regola e non i dati. Qui la regola era leggibile in due posti, il sorgente del verificatore e il testo del suo giudizio, e nessuno dei due era stato ancora aperto quando l'ipotesi sembrava buona.
+
 ## 2026-09-14, nona parte. Il terzo giro non aggiunge nulla, e i controlli della fonte applicati a mano
 
 ### Il terzo dump e' identico al secondo

@@ -402,7 +402,7 @@ La seconda e' che l'apostrofo dritto che la fonte scrive dentro alcuni soprannom
 
 La terza e' che lo strumento riusa due cose invece di riscriverle, ed e' la ragione per cui e' corto: la risoluzione della sigla di versione e le tabelle di gioco vengono dal generatore delle distribuzioni, che le porta gia' con la disciplina di sollevare su una sigla ignota invece di cadere su un valore predefinito.
 
-Il lotto prodotto conta diciannove esemplari e attende il giudizio esterno, che e' l'unica prova che conta: si importa la cartella in un salvataggio di terza generazione e se ne esporta il rapporto sui box.
+Il lotto prodotto conta diciannove esemplari. Tre giri di giudizio esterno ne hanno corretti sette campi in tutto, e l'ultimo vale la nota perche' e' una regola di formato e non un valore: i byte che stanno dentro un campo di nome dopo il terminatore devono essere azzerati, mentre l'encoder del pacchetto del ponte riempie l'avanzo ripetendo il terminatore. La correzione sta qui e non la', perche' quel riempimento e' cio' che le duecentosei prove del ponte danno per buono e una regola che vale per una classe non si impone a tutto il sistema. Il campo del nome dell'allenatore e' lungo sette byte, quindi un nome di sei o sette caratteri non lascia spazzatura e uno piu' corto si': era la ragione per cui otto voci su diciannove passavano gia' prima della correzione.
 
 ## save-deploy.py, il cancello prima dell'hardware
 
