@@ -103,6 +103,20 @@ def luogo_scambio(pkhex):
     return int(m.group(1))
 
 
+# L'apostrofo dritto non esiste nella codifica di terza generazione, che conosce i soli apostrofi
+# tipografici. La fonte scrive pero' quello dritto dentro i soprannomi, per esempio in CH'DING, e
+# il gioco vi mostra quello destro. La sostituzione e' quindi una traduzione verso il carattere
+# vero e non una pulizia di comodo, ed e' la medesima che il censimento fa nel verso opposto
+# quando confronta i nomi delle specie con i commenti della fonte.
+APOSTROFO_DRITTO = "'"
+APOSTROFO_DESTRO = u"\u2019"
+
+
+def verso_la_codifica(testo):
+    """Un nome della fonte nella forma che la codifica di terza generazione sa scrivere."""
+    return (testo or "").replace(APOSTROFO_DRITTO, APOSTROFO_DESTRO)
+
+
 def valori_individuali(testo):
     """I sei valori individuali di una voce, nell'ordine con cui la fonte li dichiara.
 
@@ -144,13 +158,23 @@ def voci_scambio(censimento, pkhex):
         for v in t["voci"]:
             if not v.get("pid"):
                 continue
+            # La sigla della versione e' il terzo argomento della chiamata, subito dopo la
+            # tavola dei nomi e l'indice. Si legge dalla riga e non si deduce dal nome della
+            # tabella, perche' una tabella puo' contenere voci di versioni diverse.
+            args = censimento.argomenti(v.get("riga") or "")
+            v["versione"] = args[2].strip() if len(args) > 2 else ""
             fuori.append((t["tabella"], v))
     return fuori
 
 
-def componi(ace, pkhex, tabella, voce, lingua, luogo):
-    """Un esemplare di scambio, composto dai campi che la fonte dichiara."""
-    g3 = carica_g3(ace)
+def componi(ace, pkhex, tabella, voce, lingua, luogo, eventi, destinazione=None):
+    """Un esemplare di scambio, composto dai campi che la fonte dichiara.
+
+    Le tabelle di gioco, cioe' la corrispondenza fra numerazione nazionale e identificativo
+    interno, i gruppi di crescita e l'esperienza, vengono dal generatore delle distribuzioni: e'
+    il modulo che le porta, e riusarlo evita di avere due verita' sugli stessi dati.
+    """
+    g3 = eventi
     props = voce.get("proprieta") or {}
     nazionale = voce["specie"]
     livello = voce["livello"]
@@ -177,12 +201,14 @@ def componi(ace, pkhex, tabella, voce, lingua, luogo):
         return None, {"saltata": "nessun soprannome in " + lingua}
 
     tabella_caratteri = cm.Charmap.gen3_per_lingua(lingua)
-    soprannome = tabella_caratteri.encode(soprannome_testo, length=gen3.NICKNAME_LENGTH)
+    soprannome = tabella_caratteri.encode(verso_la_codifica(soprannome_testo),
+                                         length=gen3.NICKNAME_LENGTH)
 
     nome_ot_testo = (voce.get("allenatori") or {}).get(sigla)
     if not nome_ot_testo:
         return None, {"saltata": "nessun nome di allenatore in " + lingua}
-    ot = tabella_caratteri.encode(nome_ot_testo, length=gen3.OT_NAME_LENGTH)
+    ot = tabella_caratteri.encode(verso_la_codifica(nome_ot_testo),
+                                 length=gen3.OT_NAME_LENGTH)
 
     bit = ABILITA.get(props.get("Ability", "OnlyFirst"), 0)
 
@@ -205,7 +231,7 @@ def componi(ace, pkhex, tabella, voce, lingua, luogo):
             pokerus=0,
             met_location=luogo,
             met_level=livello,
-            met_game=0,
+            met_game=eventi.codice_versione(voce["versione"], destinazione),
             pokeball=4,
             ot_female=(props.get("OTGender") == "1"),
             ivs=iv,
@@ -222,13 +248,20 @@ def componi(ace, pkhex, tabella, voce, lingua, luogo):
     }
 
 
-def carica_g3(ace):
-    """Lo strato che sa leggere le tabelle di gioco, caricato come fa il resto della famiglia."""
-    percorso = os.path.join(RADICE, "tools", "genera-incontro-gen3.py")
-    spec = importlib.util.spec_from_file_location("gen3_incontri", percorso)
+def carica_eventi():
+    """Il generatore delle distribuzioni, da cui si riusa la risoluzione della versione.
+
+    La tabella delle sigle e la funzione che le traduce esistono gia' li' e portano una
+    disciplina che vale conservare: una sigla ignota solleva invece di cadere su un valore
+    predefinito, perche' un gioco di origine sbagliato produce un esemplare che il verificatore
+    rifiuta senza che nulla lo segnali. Riscriverla qui significherebbe avere due posti dove
+    sbagliarla, ed e' il difetto che questo progetto ha gia' pagato sulle sigle multiple.
+    """
+    percorso = os.path.join(RADICE, "tools", "genera-evento-gen3.py")
+    spec = importlib.util.spec_from_file_location("eventi_gen3", percorso)
     modulo = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(modulo)
-    return modulo.G3
+    return modulo
 
 
 def collaudo():
@@ -259,6 +292,21 @@ def collaudo():
 
     prova("negativo: le abilita' note sono due e non si indovina una terza",
           set(ABILITA) == {"OnlyFirst", "OnlySecond"} and ABILITA["OnlySecond"] == 1)
+
+    prova("l'apostrofo dritto della fonte diventa quello che la codifica conosce",
+          verso_la_codifica("CH'DING") == u"CH\u2019DING")
+    prova("negativo: un nome senza apostrofo non viene toccato",
+          verso_la_codifica("MIMIEN") == "MIMIEN")
+    import sys as _sys
+    _sys.path.insert(0, os.path.join(RADICE, "pokemon-gen12-gen3-bridge-original-hardware"))
+    tab_it = cm.Charmap.gen3_per_lingua("Italian")
+    prova("la codifica conosce l'apostrofo destro e non quello dritto, che e' la ragione "
+          "per cui la traduzione esiste",
+          APOSTROFO_DESTRO in tab_it.char_to_byte and
+          APOSTROFO_DRITTO not in tab_it.char_to_byte)
+    prova("un soprannome con apostrofo si scrive davvero, invece di sollevare",
+          len(tab_it.encode(verso_la_codifica("CH'DING"),
+                            length=gen3.NICKNAME_LENGTH)) == gen3.NICKNAME_LENGTH)
 
     falliti = [n for n, e in esiti if not e]
     for nome, esito in esiti:
@@ -303,19 +351,59 @@ def principale(argomenti=None):
         print("%d voci." % len(voci))
         return 0
 
-    # La scrittura degli esemplari non e' ancora attiva, e vale dire con precisione che cosa le
-    # manchi invece di lasciarlo intendere. Le stringhe ci sono dal 2026-09-14, i valori
-    # individuali e il valore di personalita' pure, il codice del luogo si legge dalla fonte. Ne
-    # manca uno solo: la versione in cui lo scambio avviene, che la tabella dichiara come terzo
-    # argomento e che va tradotta nel codice del gioco di incontro. Finche' quella traduzione non
-    # e' letta dalla fonte come tutto il resto, comporre significherebbe indovinare un campo, ed
-    # e' esattamente il genere di ipotesi che in questa giornata ha gia' prodotto tre difetti
-    # invisibili.
-    print("composizione non ancora attiva: manca la traduzione della versione di incontro, che e'")
-    print("il terzo argomento della tabella. Tutto il resto e' pronto, cioe' valore di")
-    print("personalita', valori individuali, identificativo, soprannome e allenatore per lingua,")
-    print("abilita', sesso e codice del luogo. La voce sta in pending.md.")
-    return 2
+    if not a.lotto:
+        print("nulla da fare: si passa --elenco per vedere le voci, oppure --lotto per scrivere")
+        return 2
+
+    eventi = carica_eventi()
+    luogo = luogo_scambio(a.pkhex)
+    cartella = a.lotto
+    if not os.path.isdir(cartella):
+        os.makedirs(cartella)
+
+    impronte, fatti, saltate = {}, 0, []
+    for tabella, voce in voci:
+        mon, r = componi(a.ace, a.pkhex, tabella, voce, a.lingua, luogo, eventi)
+        if mon is None:
+            saltate.append((tabella, voce["specie"], r.get("saltata")))
+            continue
+        # Il nome del file porta la tabella e la specie, che insieme identificano la voce senza
+        # dipendere dalla posizione nella tabella: un riordino a monte sposterebbe un indice ma
+        # non questi due, ed e' la fragilita' che il codice interno delle voci da evento ha.
+        nome = "%s-%04d" % (tabella.replace("TradeGift_", ""), voce["specie"])
+        eventi.scrivi(mon, os.path.join(cartella, nome))
+        canonica = mon.to_canonical_bytes(party=False)
+        impronte[nome] = {
+            "file": nome + ".pk3",
+            "sha256": __import__("hashlib").sha256(canonica).hexdigest(),
+            "personalita": r["personalita"],
+            "identificativo": r["tid"],
+            "soprannome": r["soprannome"],
+            "allenatore": r["allenatore"],
+            "lingua": r["lingua"],
+            "luogo": r["luogo"],
+            "versione": voce["versione"],
+            "iv": r["iv"],
+            "senza_ricerca_di_semi": True,
+        }
+        fatti += 1
+        print("  %-14s dex %-4s liv %-3s %-8s PID %s  IV %s"
+              % (nome, r["specie"], r["livello"], r["soprannome"], r["personalita"],
+                 "/".join(str(r["iv"][k]) for k in ORDINE_IV)))
+
+    if saltate:
+        print("")
+        print("saltate %d voci, e il motivo e' dichiarato per ciascuna:" % len(saltate))
+        for tabella, specie, motivo in saltate:
+            print("  %-18s dex %-4s  %s" % (tabella, specie, motivo))
+
+    manifesto = os.path.join(cartella, "manifesto.json")
+    io.open(manifesto, "w", encoding="utf-8").write(
+        __import__("json").dumps(impronte, indent=1, ensure_ascii=False))
+    print("")
+    print("%d esemplari scritti in %s, con il manifesto delle impronte." % (fatti, cartella))
+    print("Nessuno di essi ha richiesto una ricerca di semi: la fonte scrive ogni campo.")
+    return 0
 
 
 if __name__ == "__main__":
