@@ -30,12 +30,37 @@ e non indovinate, e ogni voce viene comunque confrontata con il commento che la 
 accanto, che nomina la specie in inglese: se il numero e il nome non concordano, il programma lo
 riferisce come discordanza invece di scrivere un censimento che sembrerebbe verificato.
 
+Il soprannome, che e' meta' dell'identita' di questi esemplari
+--------------------------------------------------------------
+Un esemplare da scambio porta un soprannome fissato dal gioco, e quel soprannome e' specifico
+della lingua: non e' un dettaglio di resa ma un campo dell'esemplare, e su cartucce italiane
+scriverne uno inglese produrrebbe un esemplare che nessuno scambio ha mai consegnato. Fino al
+2026-09-14 questo censimento portava le voci e non le stringhe, e la lacuna fu attribuita alla
+fonte: era invece del nostro clone, che e' sparso e non scaricava le risorse di testo. La
+correzione e' stata estendere il clone, non cercare le stringhe su una fonte di secondo livello,
+e le due vie sono state comunque confrontate sulle cinque voci controllabili a mano, che
+concordano.
+
+Le stringhe si leggono dagli elenchi che la fonte stessa usa, uno per lingua, e la corrispondenza
+fra una tabella e il proprio elenco non si trascrive: si legge dalle due dichiarazioni con cui il
+sorgente la stabilisce, cioe' la costante che nomina il file e la variabile che vi si lega. Una
+trascrizione di dodici righe sbaglierebbe qui in modo invisibile, perche' un indice letto
+nell'elenco sbagliato restituisce comunque un nome.
+
+Un caso va conosciuto perche' la prima stesura lo trattava come difetto e non lo e'. Gli elenchi
+occidentali di prima generazione hanno sedici voci e quello giapponese ventisei, perche' gli
+scambi del Blu giapponese e uno dei due Nidoran esistono soltanto in quel gioco: per quelle voci
+il soprannome italiano non manca, non esiste. Si dichiara difetto soltanto un indice fuori da
+ogni elenco, che vorrebbe dire tavola sbagliata o tabella cambiata a monte.
+
 Che cosa questo programma non fa
 --------------------------------
 Non produce alcun esemplare, non giudica alcuna legittimita' e non decide se una voce entri
-nell'obiettivo di collezione. Dichiara pero' un dato che serve a quella decisione, cioe' se la voce
-porti un valore di personalita' fissato nella fonte: dove c'e', l'esemplare e' riproducibile byte
-per byte senza alcuna ricerca di semi; dove manca, la fedelta' va discussa come per le altre classi.
+nell'obiettivo di collezione. Dichiara pero' due dati che servono a quella decisione. Il primo e'
+se la voce porti un valore di personalita' fissato nella fonte: dove c'e', l'esemplare e'
+riproducibile byte per byte senza alcuna ricerca di semi; dove manca, la fedelta' va discussa come
+per le altre classi. Il secondo e' il soprannome nelle lingue che servono, senza il quale un
+esemplare riproducibile byte per byte resta comunque non scrivibile.
 
 Uso
 ---
@@ -97,6 +122,50 @@ POSIZIONI = {
 # La generazione di ciascuna cartella della fonte, che e' anche l'ordine in cui il censimento
 # presenta i titoli.
 GENERAZIONI = ("Gen1", "Gen2", "Gen3", "Gen4", "Gen5", "Gen6", "Gen7", "Gen8", "Gen9")
+
+# Dove la fonte tiene i soprannomi e i nomi di allenatore di questi esemplari, una lista per
+# lingua. Il percorso e' relativo al clone e la lingua si aggiunge in coda al nome del file.
+ELENCHI = os.path.join("PKHeX.Core", "Resources", "legality")
+
+# Le due dichiarazioni con cui la fonte lega una tavola di nomi al proprio file di stringhe. La
+# prima nomina il file, la seconda lega quel nome alla variabile che le voci useranno come primo
+# argomento. Si leggono entrambe invece di trascrivere la corrispondenza, per la ragione di
+# sempre: una trascrizione di dodici righe e' un difetto che aspetta, e qui sbaglierebbe in modo
+# invisibile, perche' un indice letto nella tavola sbagliata restituisce comunque un nome.
+RE_COSTANTE = re.compile(r'private const string (\w+)\s*=\s*"([a-z0-9]+)"')
+RE_TAVOLA_NOMI = re.compile(r"(?:readonly )?string\[\]\[\] (\w+)\s*=\s*GetLanguageStrings\((\w+)")
+
+
+def tavole_dei_nomi(testo):
+    """Dalla variabile della tavola dei nomi al nome del file di stringhe, letti dal sorgente."""
+    costanti = dict(RE_COSTANTE.findall(testo))
+    fuori = {}
+    for variabile, simbolo in RE_TAVOLA_NOMI.findall(testo):
+        if simbolo in costanti:
+            fuori[variabile] = costanti[simbolo]
+    return fuori
+
+
+def elenco_nomi(pkhex, base, lingua):
+    """Una lista di nomi per una tavola e una lingua, indicizzata come la fonte la indicizza.
+
+    Il file vive sotto la cartella della generazione a cui appartiene, e quale sia non e' scritto
+    da nessuna parte in modo comodo: si cerca, perche' cercare fra dieci cartelle costa nulla e
+    indovinare costa un censimento sbagliato. Se il file manca si restituisce una lista vuota, e
+    il censimento lo dichiara invece di lasciare la colonna vuota senza spiegazione: un clone
+    sparso puo' non avere le risorse di testo, ed e' precisamente cio' che accadeva a questo
+    progetto fino al 2026-09-14.
+    """
+    nome = "text_" + base + "_" + lingua + ".txt"
+    radice = os.path.join(pkhex, ELENCHI)
+    if not os.path.isdir(radice):
+        return []
+    for cartella in sorted(os.listdir(radice)):
+        percorso = os.path.join(radice, cartella, nome)
+        if os.path.exists(percorso):
+            return [r.rstrip("\r") for r in
+                    io.open(percorso, encoding="utf-8-sig").read().split("\n")]
+    return []
 
 MAX_SPECIE = 1025
 
@@ -177,8 +246,14 @@ def tabelle(testo):
     return fuori
 
 
-def leggi_voce(tipo, riga, nomi_en):
-    """Una voce di tabella come dizionario, con la discordanza dichiarata se il commento smentisce."""
+def leggi_voce(tipo, riga, nomi_en, tavole=None, elenchi=None):
+    """Una voce di tabella come dizionario, con la discordanza dichiarata se il commento smentisce.
+
+    Le due tavole facoltative servono al soprannome. `tavole` lega la variabile che la voce passa
+    come primo argomento al nome del file di stringhe, e `elenchi` porta quelle stringhe gia'
+    lette per lingua. Sono facoltative perche' non tutte le generazioni passano una tavola di
+    nomi, e dove non la passano la colonna resta vuota invece di essere inventata.
+    """
     args = argomenti(riga)
     props = proprieta(riga)
     commento = ""
@@ -239,6 +314,39 @@ def leggi_voce(tipo, riga, nomi_en):
         # controllare che il nome atteso compaia, non che il commento sia uguale a esso.
         if atteso and piano(atteso) not in piano(commento):
             discordanza = "il commento dice %r e il numero %d vale %s" % (commento[:60], specie, atteso)
+    # Il soprannome, quando la voce lo prende da una tavola di nomi. Il primo argomento e' la
+    # variabile della tavola e il secondo l'indice dentro di essa: si leggono entrambi dalla riga
+    # invece di dedurli dal tipo, perche' una generazione che cambi costruttore non deve poter
+    # spostare in silenzio la colonna. Se l'indice esce dall'elenco non si prende il nome
+    # sbagliato: si dichiara che manca.
+    soprannomi = {}
+    mancanti = []
+    trovato = False
+    if tavole and elenchi and len(args) >= 2:
+        variabile = args[0].strip()
+        base = tavole.get(variabile)
+        indice = numero(args[1])
+        if base is not None and indice is not None:
+            for lingua, per_base in elenchi.items():
+                elenco = per_base.get(base) or []
+                if 0 <= indice < len(elenco):
+                    soprannomi[lingua] = elenco[indice]
+                    trovato = True
+                elif elenco:
+                    mancanti.append(lingua)
+            # Un indice fuori dall'elenco di una lingua e dentro quello di un'altra non e' un
+            # difetto ma un fatto sul gioco, e confonderli produrrebbe un allarme su ogni voce
+            # esclusiva di una edizione. Gli elenchi occidentali di prima generazione hanno
+            # sedici voci e quello giapponese ventisei, perche' gli scambi del Blu giapponese e
+            # uno dei due Nidoran esistono soltanto la': per quelli il soprannome italiano non
+            # manca, non esiste. Si dichiara difetto soltanto un indice fuori da ogni elenco,
+            # che vorrebbe dire tavola sbagliata o tabella cambiata a monte.
+            if mancanti and not trovato:
+                discordanza = discordanza or (
+                    "indice %d fuori da ogni elenco di %s" % (indice, base))
+            elif mancanti:
+                soprannomi["_solo"] = ",".join(sorted(soprannomi))
+
     return {
         "specie": specie,
         "livello": livello,
@@ -248,12 +356,27 @@ def leggi_voce(tipo, riga, nomi_en):
         "luogo": props.get("Location", ""),
         "commento": commento,
         "discordanza": discordanza,
+        "soprannomi": soprannomi,
     }
 
 
-def censisci(pkhex, nomi_en):
+def censisci(pkhex, nomi_en, lingue=("it", "en", "ja")):
     """Tutte le tabelle di scambio della fonte, in ordine di generazione."""
     fuori = []
+    cache = {}
+
+    def elenchi_per(testo):
+        """Gli elenchi di nomi che servono a un file, letti una volta sola per file di stringhe."""
+        tavole = tavole_dei_nomi(testo)
+        per_lingua = {}
+        for lingua in lingue:
+            per_base = {}
+            for base in set(tavole.values()):
+                if (base, lingua) not in cache:
+                    cache[(base, lingua)] = elenco_nomi(pkhex, base, lingua)
+                per_base[base] = cache[(base, lingua)]
+            per_lingua[lingua] = per_base
+        return tavole, per_lingua
     base = os.path.join(pkhex, DATI)
     if not os.path.isdir(base):
         return None
@@ -266,8 +389,9 @@ def censisci(pkhex, nomi_en):
                 continue
             testo = io.open(os.path.join(cartella, nome_file), encoding="utf-8",
                             errors="replace").read()
+            tavole, elenchi = elenchi_per(testo)
             for tipo, nome, righe in tabelle(testo):
-                voci = [leggi_voce(tipo, r, nomi_en) for r in righe]
+                voci = [leggi_voce(tipo, r, nomi_en, tavole, elenchi) for r in righe]
                 fuori.append({
                     "generazione": gen.replace("Gen", ""),
                     "file": nome_file,
@@ -321,16 +445,19 @@ def componi(tabelle_lette, nomi_it):
             r.append("")
             r.append("Tipo di voce `%s`, %d voci." % (t["tipo"], len(t["voci"])))
             r.append("")
-            r.append("| Specie | Dex | Livello | Valore di personalita | Identificativo | Nota della fonte |")
-            r.append("|---|---|---|---|---|---|")
+            r.append("| Specie | Dex | Livello | Soprannome IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |")
+            r.append("|---|---|---|---|---|---|---|---|")
             for v in t["voci"]:
                 nome = "?"
                 if v["specie"] and nomi_it and v["specie"] < len(nomi_it):
                     nome = nomi_it[v["specie"]]
-                r.append("| %s | %s | %s | %s | %s | %s |"
+                sn = v.get("soprannomi") or {}
+                r.append("| %s | %s | %s | %s | %s | %s | %s | %s |"
                          % (nome,
                             v["specie"] if v["specie"] is not None else "?",
                             v["livello"] if v["livello"] is not None else "?",
+                            (sn.get("it") or "-").replace("|", "/"),
+                            (sn.get("ja") or "-").replace("|", "/"),
                             v["pid"] or "-",
                             v["identificativo"] or "-",
                             (v["commento"] or "-").replace("|", "/")[:120]))
@@ -348,13 +475,19 @@ def componi(tabelle_lette, nomi_it):
 
 
 def normalizza(tabelle_lette, nomi_it):
-    r = ["generazione,tabella,tipo,dex,specie,livello,pid,identificativo,forma,luogo,nota"]
+    # Le due colonne dei soprannomi stanno anche qui e non solo nel documento, perche' i due file
+    # escono dallo stesso strumento e nascono per essere confrontati: una tabella che portasse
+    # meno campi del documento farebbe fallire in silenzio proprio i confronti per cui esiste.
+    r = ["generazione,tabella,tipo,dex,specie,livello,soprannome_it,soprannome_ja,"
+         "pid,identificativo,forma,luogo,nota"]
     for t in tabelle_lette:
         for v in t["voci"]:
             nome = nomi_it[v["specie"]] if (v["specie"] and nomi_it and v["specie"] < len(nomi_it)) else ""
+            sn = v.get("soprannomi") or {}
             campi = [t["generazione"], t["tabella"], t["tipo"],
                      str(v["specie"] if v["specie"] is not None else ""), nome,
                      str(v["livello"] if v["livello"] is not None else ""),
+                     sn.get("it") or "", sn.get("ja") or "",
                      v["pid"], v["identificativo"], v["forma"], v["luogo"], v["commento"]]
             r.append(",".join('"%s"' % c.replace('"', '""') if ("," in c or '"' in c) else c
                               for c in campi))
@@ -453,6 +586,40 @@ def self_test():
 
     prova("la chiave di deduplicazione", (296, 5, "49562", ""),
           chiave({"specie": 296, "livello": 5, "identificativo": "49562", "forma": ""}))
+
+
+    # -- i soprannomi per lingua, aggiunti il 2026-09-14 ---------------------------------------
+    sorgente_finta = (
+        '    private const string tradeFinto = "tradefinto";\n'
+        '    private static readonly string[][] TradeNames = GetLanguageStrings(tradeFinto, 7);\n')
+    tav = tavole_dei_nomi(sorgente_finta)
+    prova("la tavola dei nomi si lega al proprio file leggendo il sorgente",
+          {"TradeNames": "tradefinto"}, tav)
+    prova("negativo: una tavola senza costante dichiarata non si inventa",
+          {}, tavole_dei_nomi("string[][] X = GetLanguageStrings(ignoto, 7);"))
+
+    elenchi_finti = {"it": {"tradefinto": ["ALFA", "BETA"]},
+                     "ja": {"tradefinto": [u"\u30a2", u"\u30d9", u"\u30ac"]}}
+    riga = "new(TradeNames, 01, 122, RB, 06, 05), // Mr. Mime - Abra"
+    v = leggi_voce("EncounterTrade1", riga, [], tav, elenchi_finti)
+    prova("il soprannome si prende dall'indice della voce e non dalla sua posizione",
+          ("BETA", u"\u30d9"), (v["soprannomi"].get("it"), v["soprannomi"].get("ja")))
+
+    # Il caso che ha fatto sbagliare la prima stesura: un indice dentro l'elenco giapponese e
+    # fuori da quello italiano non e' un difetto, e' uno scambio che esiste solo in Giappone.
+    riga_jp = "new(TradeNames, 02, 032, BU, 02), // Nidoran - solo giapponese"
+    vj = leggi_voce("EncounterTrade1", riga_jp, [], tav, elenchi_finti)
+    prova("negativo: un indice fuori dal solo elenco italiano non e' una discordanza",
+          ("", None, u"\u30ac"),
+          (vj["discordanza"], vj["soprannomi"].get("it"), vj["soprannomi"].get("ja")))
+
+    riga_rotta = "new(TradeNames, 99, 122, RB, 06), // fuori da ogni elenco"
+    vr = leggi_voce("EncounterTrade1", riga_rotta, [], tav, elenchi_finti)
+    prova("un indice fuori da OGNI elenco si dichiara, perche' vuol dire tavola sbagliata",
+          True, "fuori da ogni elenco" in vr["discordanza"])
+
+    prova("negativo: senza le tavole la colonna resta vuota invece di essere inventata",
+          {}, leggi_voce("EncounterTrade1", riga, [])["soprannomi"])
 
     print("self-test: %d controlli falliti" % falliti)
     return 1 if falliti else 0
