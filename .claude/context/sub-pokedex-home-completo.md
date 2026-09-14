@@ -4,7 +4,7 @@ generated-from-branch: main
 generated-date: 2026-09-02
 covers-paths:
   - pokedex-home-completo/
-last-verified-commit: e26e59e
+last-verified-commit: c0e76e0
 stato: attivo ed è il fuoco corrente; due linee parallele dal 2026-09-10, cioè lettura del corpus e produzione dei lotti; sei assi più le due classi nuove più i marchi di ADR-058, criterio di produzione in ADR-049 come modificato da ADR-050 e ADR-051, coda ordinata per scadenza per ADR-052
 ---
 
@@ -24,7 +24,7 @@ Il collo di bottiglia non è più la produzione ma il trasferimento: cinque lott
 
 ## Prossimo passo
 
-Due linee in parallelo, per direttiva dell'utente del 2026-09-10: la sola lettura consumerebbe il tempo che serve alla produzione, e 2686 voci non si compongono in una settimana. La prima linea è la lettura del corpus, a venticinque cluster dichiarati su quarantadue dopo che il recupero di ADR-057 ha portato il corpus da 292 a 405 documenti; la coda dei cataloghi per generazione è letta dal 2026-09-12, e il prossimo lotto non è un cluster ma l'insieme trasversale delle fonti recuperate che il progetto attendeva per lavori già aperti, cioè l'elenco delle distribuzioni, gli scambi in gioco, le rovine di Sinjoh, il Parco Amici e otto delle undici classi a via chiusa. I quaranta documenti sulla caccia ai cromatici restano per ultimi perché servono soltanto se il profilo scelto comprende i cromatici. La seconda linea è la produzione nell'ordine per scadenza di ADR-052, cioè il lavoro che ADR-051 apre: estendere il generatore agli scambi in gioco, agli incontri condizionati e agli statici ordinari, aggiungere all'asse degli eventi il Mew ufficiale con allenatore GF e identificativo 22796, e rigenerare la lista di spunta con Alcremie a sessantatre, le centodue specie del sesso e le due classi nuove.
+Due linee in parallelo, per direttiva dell'utente del 2026-09-10: la sola lettura consumerebbe il tempo che serve alla produzione, e 2686 voci non si compongono in una settimana. La prima linea è la lettura del corpus, e il lotto trasversale delle fonti recuperate è stato letto il 2026-09-14: ne sono venute la rilettura integrale del primo anello della catena, la correzione alla procedura delle rovine di Sinjoh, la lacuna che impedisce di produrre gli scambi in gioco e il controllo all'indietro su otto delle undici classi a via chiusa. Il prossimo passo di lettura non è un lotto ma due recuperi mirati che lo strumento riparato rende possibili in una corsa sola, cioè la pagina del Trasferimento fra quarta e quinta, che chiude la correzione sulla lingua, e quella degli scambi in gioco nelle altre lingue, che è il solo ostacolo rimasto alla produzione di quella classe. I quaranta documenti sulla caccia ai cromatici restano per ultimi perché servono soltanto se il profilo scelto comprende i cromatici. La seconda linea è la produzione nell'ordine per scadenza di ADR-052, cioè il lavoro che ADR-051 apre: estendere il generatore agli scambi in gioco, agli incontri condizionati e agli statici ordinari, aggiungere all'asse degli eventi il Mew ufficiale con allenatore GF e identificativo 22796, e rigenerare la lista di spunta con Alcremie a sessantatre, le centodue specie del sesso e le due classi nuove.
 
 Sulla produzione pesa una domanda aperta dal 2026-09-10 e da risolvere prima di comporre ciò che si potrebbe ricevere: il servizio ricostruito distribuisce ancora i doni di quarta e quinta generazione alle cartucce vere, e un esemplare ricevuto è preferibile a uno composto su ogni dimensione. La voce sta in `pending.md` fra i punti tecnici aperti.
 

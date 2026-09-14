@@ -275,6 +275,24 @@ Il formato leggibile, con `-f HtmlDark` oppure `-f HtmlLight`, produce una resa 
 
 Un'ultima nota di comportamento: una esportazione lunga rallenta da sola, perché DCE rispetta i limiti di frequenza dichiarati dal servizio. È il comportamento corretto e va lasciata girare, non interrotta e rilanciata.
 
+### Scegliere i canali per track, e non per gruppo
+
+La selezione dei canali nasce con due filtri, cioè il gruppo di priorita con `--tier` e il server con `--server`, e il 2026-09-14 si e' visto che nessuno dei due risponde alla domanda che si pone davvero a inizio sessione, cioe' quali canali servano al track su cui si sta lavorando. I quattro canali che servono al fuoco corrente stanno su tre gruppi diversi, quindi chiederli per gruppo significa chiedere anche tutto il resto di quei gruppi.
+
+Il filtro `--track` prende le sigle di `SOURCES.md` e seleziona i canali che la tabella dichiara utili a quel track. Il confronto e' per appartenenza all'insieme delle sigle e non per sottostringa, perche' la colonna ne porta piu' d'una separate da virgola e una ricerca per sottostringa farebbe corrispondere una sigla contenuta in un'altra.
+
+```powershell
+python tools/export-discord.py --track EVT --dry-run
+python tools/export-discord.py --track EVT --dce "E:\tools\dce\DiscordChatExporter.Cli.exe"
+```
+
+```bash
+python tools/export-discord.py --track EVT --dry-run
+python tools/export-discord.py --track EVT --dce "$HOME/DiscordChatExporter.Cli/DiscordChatExporter.Cli.exe"
+```
+
+La prova a vuoto serve a due cose e non a una: dice quali canali verrebbero esportati, e dice quali sono gia' sul disco e verrebbero saltati, cosicche' il conto di cio' che manca si legge senza consultare la tabella dei server in `pending.md`. Sul track degli eventi al 2026-09-14 riferisce sei canali, due dei quali gia' esportati, e i quattro che restano sono esattamente quelli che quella tabella dichiara mancanti: e' una verifica incrociata gratuita fra lo strumento e la memoria del progetto.
+
 ### I server piccoli, esportati interi
 
 Dal 2026-08-31 la tabella dei canali ha una compagna, `GUILDS`, che elenca i server da esportare interi invece che canale per canale. Serve al caso in cui la selezione costerebbe più di quanto risparmi, cioè un server piccolo e monotematico di cui il progetto non conosce gli identificativi dei canali, e si appoggia al sottocomando `exportguild` dello strumento, che non richiede alcun identificativo di canale. Il primo server così trattato è quello dedicato all'esecuzione di codice arbitrario in terza generazione.
