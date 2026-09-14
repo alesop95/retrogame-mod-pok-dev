@@ -136,6 +136,42 @@ RE_COSTANTE = re.compile(r'private const string (\w+)\s*=\s*"([a-z0-9]+)"')
 RE_TAVOLA_NOMI = re.compile(r"(?:readonly )?string\[\]\[\] (\w+)\s*=\s*GetLanguageStrings\((\w+)")
 
 
+# I modelli di incontro, dove la fonte dichiara se un tipo divida il proprio elenco di nomi.
+MODELLI = os.path.join("PKHeX.Core", "Legality", "Encounters", "Templates")
+# Il segno che un tipo spezza l'elenco. La classe negata non puo' escludere la parentesi,
+# perche' la riga vera ne contiene gia' una nel cast: la prima stesura lo faceva e non
+# trovava nulla, cioe' dichiarava che nessun tipo spezza.
+RE_SPEZZA = re.compile(r"TrainerNames\s*=\s*EncounterUtil\.GetNamesForLanguage\(.*index\s*\+")
+
+
+def tipi_con_allenatore(pkhex):
+    """I tipi di incontro che ricavano il nome dell'allenatore dalla seconda meta' dell'elenco.
+
+    La regola non e' uniforme e assumerla lo e' costa un nome sbagliato su ogni voce di una
+    generazione intera. La prima generazione, per esempio, NON la segue: il suo allenatore non e'
+    un nome ma un codice di controllo che il gioco rende come la parola allenatore nella propria
+    lingua, quindi il suo elenco e' tutto di soprannomi. Applicarvi la meta' produrrebbe, per ogni
+    scambio, un soprannome preso dalla posizione sbagliata e un allenatore inventato.
+
+    Si legge percio' dai modelli della fonte quali tipi assegnino il nome dell'allenatore con lo
+    scarto, invece di elencarli qui: se un tipo nuovo lo fara', il programma se ne accorgera' da
+    se'.
+    """
+    fuori = set()
+    radice = os.path.join(pkhex, MODELLI)
+    if not os.path.isdir(radice):
+        return fuori
+    for cartella, _sub, file_ in os.walk(radice):
+        for nome in file_:
+            if not nome.endswith(".cs"):
+                continue
+            testo = io.open(os.path.join(cartella, nome), encoding="utf-8",
+                            errors="replace").read()
+            if RE_SPEZZA.search(testo):
+                fuori.add(nome[:-3])
+    return fuori
+
+
 def tavole_dei_nomi(testo):
     """Dalla variabile della tavola dei nomi al nome del file di stringhe, letti dal sorgente."""
     costanti = dict(RE_COSTANTE.findall(testo))
@@ -162,9 +198,19 @@ def elenco_nomi(pkhex, base, lingua):
         return []
     for cartella in sorted(os.listdir(radice)):
         percorso = os.path.join(radice, cartella, nome)
-        if os.path.exists(percorso):
-            return [r.rstrip("\r") for r in
-                    io.open(percorso, encoding="utf-8-sig").read().split("\n")]
+        if not os.path.exists(percorso):
+            continue
+        grezzo = io.open(percorso, encoding="utf-8-sig").read()
+        righe = [r.rstrip("\r") for r in grezzo.split("\n")]
+        # Una riga vuota in mezzo e' uno slot e non rumore: significa che quella voce non ha un
+        # nome in questa lingua, e scartarla sposterebbe di uno ogni indice successivo, cioe'
+        # darebbe il nome sbagliato a ogni voce da li' in avanti senza che nulla protesti.
+        # L'elenco giapponese di prima generazione ne ha una alla posizione uno, ed e' il caso
+        # su cui questo difetto e' stato trovato il 2026-09-14. Si toglie soltanto l'ultima, e
+        # soltanto quando e' l'artefatto di un file che termina con un a capo.
+        if grezzo.endswith("\n") and righe and righe[-1] == "":
+            righe.pop()
+        return righe
     return []
 
 MAX_SPECIE = 1025
@@ -216,12 +262,20 @@ def numero(testo):
 
 
 def proprieta(voce):
-    """Le proprieta' scritte fra graffe dopo la chiamata, come dizionario di stringhe."""
+    """Le proprieta' scritte fra graffe dopo la chiamata, come dizionario di stringhe.
+
+    La virgola separa due proprieta' soltanto fuori dalle parentesi, e la prima stesura non lo
+    distingueva: un valore come `IVs = new(20,15,17,24,23,22)` usciva troncato a `new(20`, cioe'
+    plausibile e sbagliato. Il difetto e' rimasto invisibile finche' il censimento ha usato le
+    sole proprieta' semplici; e' emerso il 2026-09-14, quando il generatore degli scambi ha
+    avuto bisogno proprio dei valori individuali. La forma con le parentesi si riconosce quindi
+    per prima, cosicche' cio' che sta dentro non venga spezzato.
+    """
     m = re.search(r"\{(.*)\}", voce, re.S)
     if not m:
         return {}
     fuori = {}
-    for coppia in re.finditer(r"(\w+)\s*=\s*([^,{}]+(?:\([^()]*\))?)", m.group(1)):
+    for coppia in re.finditer(r"(\w+)\s*=\s*(\w*\s*\([^()]*\)|[^,{}]+)", m.group(1)):
         fuori[coppia.group(1)] = coppia.group(2).strip()
     return fuori
 
@@ -246,7 +300,7 @@ def tabelle(testo):
     return fuori
 
 
-def leggi_voce(tipo, riga, nomi_en, tavole=None, elenchi=None):
+def leggi_voce(tipo, riga, nomi_en, tavole=None, elenchi=None, spezza=False, meta=None):
     """Una voce di tabella come dizionario, con la discordanza dichiarata se il commento smentisce.
 
     Le due tavole facoltative servono al soprannome. `tavole` lega la variabile che la voce passa
@@ -319,7 +373,13 @@ def leggi_voce(tipo, riga, nomi_en, tavole=None, elenchi=None):
     # invece di dedurli dal tipo, perche' una generazione che cambi costruttore non deve poter
     # spostare in silenzio la colonna. Se l'indice esce dall'elenco non si prende il nome
     # sbagliato: si dichiara che manca.
+    # Un solo elenco per lingua contiene due cose, e la fonte lo dice nel costruttore invece che
+    # in un commento: i soprannomi stanno nella prima meta' e i nomi di allenatore nella seconda,
+    # e il nome dell'allenatore di una voce sta all'indice della voce piu' meta' della lunghezza.
+    # La meta' si calcola quindi dall'elenco e non si trascrive, perche' cambia da una coppia di
+    # titoli all'altra: quattordici voci per una, ventiquattro per l'altra.
     soprannomi = {}
+    allenatori = {}
     mancanti = []
     trovato = False
     if tavole and elenchi and len(args) >= 2:
@@ -327,11 +387,22 @@ def leggi_voce(tipo, riga, nomi_en, tavole=None, elenchi=None):
         base = tavole.get(variabile)
         indice = numero(args[1])
         if base is not None and indice is not None:
+            # Lo scarto si calcola sulla lunghezza dell'elenco GIAPPONESE e non su quella di
+            # ciascuna lingua, perche' e' cosi' che la fonte lo calcola: un elenco piu' corto in
+            # una lingua darebbe altrimenti una meta' diversa e un allenatore sbagliato.
+            scarto = meta if (spezza and meta) else 0
             for lingua, per_base in elenchi.items():
                 elenco = per_base.get(base) or []
                 if 0 <= indice < len(elenco):
-                    soprannomi[lingua] = elenco[indice]
+                    # Una casella vuota e' una risposta e non un'assenza: quella voce non ha un
+                    # nome in questa lingua, e dirlo vale piu' che lasciare la colonna muta.
+                    if elenco[indice] != "":
+                        soprannomi[lingua] = elenco[indice]
                     trovato = True
+                    if scarto and indice + scarto < len(elenco):
+                        nome_ot = elenco[indice + scarto]
+                        if nome_ot != "":
+                            allenatori[lingua] = nome_ot
                 elif elenco:
                     mancanti.append(lingua)
             # Un indice fuori dall'elenco di una lingua e dentro quello di un'altra non e' un
@@ -357,6 +428,8 @@ def leggi_voce(tipo, riga, nomi_en, tavole=None, elenchi=None):
         "commento": commento,
         "discordanza": discordanza,
         "soprannomi": soprannomi,
+        "allenatori": allenatori,
+        "proprieta": props,
     }
 
 
@@ -364,6 +437,7 @@ def censisci(pkhex, nomi_en, lingue=("it", "en", "ja")):
     """Tutte le tabelle di scambio della fonte, in ordine di generazione."""
     fuori = []
     cache = {}
+    spezzano = tipi_con_allenatore(pkhex)
 
     def elenchi_per(testo):
         """Gli elenchi di nomi che servono a un file, letti una volta sola per file di stringhe."""
@@ -391,7 +465,19 @@ def censisci(pkhex, nomi_en, lingue=("it", "en", "ja")):
                             errors="replace").read()
             tavole, elenchi = elenchi_per(testo)
             for tipo, nome, righe in tabelle(testo):
-                voci = [leggi_voce(tipo, r, nomi_en, tavole, elenchi) for r in righe]
+                spezza = tipo in spezzano
+                meta = None
+                if spezza:
+                    # Il nome della variabile non e' indifferente: chiamarla `base` ombreggiava
+                    # il percorso della cartella dei dati, e dalla prima tabella che spezza in
+                    # avanti ogni generazione successiva risultava inesistente. Il censimento
+                    # scendeva da trentadue tabelle a quattro senza alcun errore.
+                    for elenco_base in set(tavole.values()):
+                        ja = (elenchi.get("ja") or {}).get(elenco_base) or []
+                        if ja:
+                            meta = len(ja) // 2
+                voci = [leggi_voce(tipo, r, nomi_en, tavole, elenchi, spezza, meta)
+                        for r in righe]
                 fuori.append({
                     "generazione": gen.replace("Gen", ""),
                     "file": nome_file,
@@ -445,18 +531,20 @@ def componi(tabelle_lette, nomi_it):
             r.append("")
             r.append("Tipo di voce `%s`, %d voci." % (t["tipo"], len(t["voci"])))
             r.append("")
-            r.append("| Specie | Dex | Livello | Soprannome IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |")
-            r.append("|---|---|---|---|---|---|---|---|")
+            r.append("| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |")
+            r.append("|---|---|---|---|---|---|---|---|---|")
             for v in t["voci"]:
                 nome = "?"
                 if v["specie"] and nomi_it and v["specie"] < len(nomi_it):
                     nome = nomi_it[v["specie"]]
                 sn = v.get("soprannomi") or {}
-                r.append("| %s | %s | %s | %s | %s | %s | %s | %s |"
+                al = v.get("allenatori") or {}
+                r.append("| %s | %s | %s | %s | %s | %s | %s | %s | %s |"
                          % (nome,
                             v["specie"] if v["specie"] is not None else "?",
                             v["livello"] if v["livello"] is not None else "?",
                             (sn.get("it") or "-").replace("|", "/"),
+                            (al.get("it") or "-").replace("|", "/"),
                             (sn.get("ja") or "-").replace("|", "/"),
                             v["pid"] or "-",
                             v["identificativo"] or "-",
@@ -478,8 +566,8 @@ def normalizza(tabelle_lette, nomi_it):
     # Le due colonne dei soprannomi stanno anche qui e non solo nel documento, perche' i due file
     # escono dallo stesso strumento e nascono per essere confrontati: una tabella che portasse
     # meno campi del documento farebbe fallire in silenzio proprio i confronti per cui esiste.
-    r = ["generazione,tabella,tipo,dex,specie,livello,soprannome_it,soprannome_ja,"
-         "pid,identificativo,forma,luogo,nota"]
+    r = ["generazione,tabella,tipo,dex,specie,livello,soprannome_it,allenatore_it,"
+         "soprannome_ja,allenatore_ja,pid,identificativo,forma,luogo,nota"]
     for t in tabelle_lette:
         for v in t["voci"]:
             nome = nomi_it[v["specie"]] if (v["specie"] and nomi_it and v["specie"] < len(nomi_it)) else ""
@@ -487,7 +575,8 @@ def normalizza(tabelle_lette, nomi_it):
             campi = [t["generazione"], t["tabella"], t["tipo"],
                      str(v["specie"] if v["specie"] is not None else ""), nome,
                      str(v["livello"] if v["livello"] is not None else ""),
-                     sn.get("it") or "", sn.get("ja") or "",
+                     sn.get("it") or "", (v.get("allenatori") or {}).get("it") or "",
+                     sn.get("ja") or "", (v.get("allenatori") or {}).get("ja") or "",
                      v["pid"], v["identificativo"], v["forma"], v["luogo"], v["commento"]]
             r.append(",".join('"%s"' % c.replace('"', '""') if ("," in c or '"' in c) else c
                               for c in campi))
@@ -507,6 +596,12 @@ def self_test():
           ["TradeNames", "00", "RS", "0x00009C40", "296", "05"],
           argomenti("new(TradeNames, 00, RS, 0x00009C40, 296, 05) { IVs = new(5,5,4,4,4,4) }"))
     prova("un numero decimale con gli zeri davanti", 5, numero("05"))
+    # Il difetto del 2026-09-14: la virgola separa due proprieta' solo fuori dalle parentesi.
+    prova("una proprieta' con le parentesi non si spezza sulla virgola interna",
+          "new(20,15,17,24,23,22)",
+          proprieta("new(x) { IVs = new(20,15,17,24,23,22), Gender = 0 }").get("IVs"))
+    prova("la proprieta' che segue quella con le parentesi si legge comunque",
+          "0", proprieta("new(x) { IVs = new(20,15,17,24,23,22), Gender = 0 }").get("Gender"))
     prova("un numero esadecimale", 0x8E, numero("0x0000008E"))
     prova("un argomento che non e' un numero", None, numero("TradeNames"))
 
@@ -597,6 +692,27 @@ def self_test():
           {"TradeNames": "tradefinto"}, tav)
     prova("negativo: una tavola senza costante dichiarata non si inventa",
           {}, tavole_dei_nomi("string[][] X = GetLanguageStrings(ignoto, 7);"))
+
+    # La regola della meta': la prima parte dell'elenco sono i soprannomi, la seconda i nomi di
+    # allenatore, e il nome della voce i sta a i piu' meta' lunghezza.
+    meta_finti = {"it": {"tf": ["NICK1", "NICK2", "OT1", "OT2"]}}
+    tav_meta = {"TradeNames": "tf"}
+    vm = leggi_voce("EncounterTrade3", "new(TradeNames, 01, 122, RB, 06)", [], tav_meta,
+                    meta_finti, spezza=True, meta=2)
+    prova("il nome dell'allenatore sta a indice piu' meta' lunghezza dell'elenco",
+          ("NICK2", "OT2"), (vm["soprannomi"].get("it"), vm["allenatori"].get("it")))
+    meta_coda = {"it": {"tf": ["NICK1", "NICK2", "OT1", "OT2", ""]}}
+    vc = leggi_voce("EncounterTrade3", "new(TradeNames, 00, 122, RB, 06)", [], tav_meta,
+                    meta_coda, spezza=True, meta=2)
+    prova("negativo: una riga vuota in coda non sposta la meta' e non falsa l'allenatore",
+          ("NICK1", "OT1"), (vc["soprannomi"].get("it"), vc["allenatori"].get("it")))
+    # Il difetto che il collaudo ha colto il 2026-09-14: la regola della meta' non e' universale.
+    # La prima generazione non la segue, perche' il suo allenatore e' un codice di controllo e
+    # non un nome, e applicargliela darebbe un allenatore inventato su ogni voce.
+    v1 = leggi_voce("EncounterTrade1", "new(TradeNames, 00, 122, RB, 06)", [], tav_meta,
+                    meta_finti, spezza=False, meta=None)
+    prova("negativo: un tipo che non spezza l'elenco non produce alcun allenatore",
+          ("NICK1", {}), (v1["soprannomi"].get("it"), v1["allenatori"]))
 
     elenchi_finti = {"it": {"tradefinto": ["ALFA", "BETA"]},
                      "ja": {"tradefinto": [u"\u30a2", u"\u30d9", u"\u30ac"]}}
