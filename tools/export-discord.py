@@ -42,6 +42,7 @@ Uso
     python tools/export-discord.py --tier 1
     python tools/export-discord.py --tier 1 --html
     python tools/export-discord.py --server insideGadgets
+    python tools/export-discord.py --track EVT --dry-run
 
 Il percorso dell'eseguibile di DiscordChatExporter si passa con `--dce` oppure si mette
 nella variabile d'ambiente DCE_PATH. Non è una dipendenza del repository e non vi entra.
@@ -296,6 +297,10 @@ def main():
     ap.add_argument("--guilds", action="store_true",
                     help="esporta interi i server della tabella GUILDS, invece dei canali")
     ap.add_argument("--server", action="append", help="limita a questi server; ripetibile")
+    ap.add_argument("--track", action="append",
+                    help="limita ai canali che servono questo track, con la sigla di SOURCES.md; "
+                         "ripetibile. Serve perche' i canali che servono un track stanno su piu' "
+                         "tier, e chiederli per tier significa chiedere anche il resto")
     ap.add_argument("--dce", help="percorso dell'eseguibile di DiscordChatExporter")
     ap.add_argument("--html", action="store_true",
                     help="esporta anche la resa leggibile, oltre al JSON")
@@ -315,9 +320,17 @@ def main():
     if a.guilds:
         return interi(a)
 
+    # Il confronto sul track e' per appartenenza all'insieme delle sigle e non per sottostringa,
+    # perche' la colonna ne porta piu' d'una separate da virgola: una ricerca per sottostringa
+    # farebbe corrispondere una sigla contenuta in un'altra, che oggi non accade e domani si'.
+    def serve(canale):
+        sigle = set(x.strip() for x in canale[4].split(","))
+        return bool(sigle & set(a.track))
+
     scelti = [c for c in CANALI
               if (not a.tier or c[0] in a.tier)
-              and (not a.server or c[1] in a.server)]
+              and (not a.server or c[1] in a.server)
+              and (not a.track or serve(c))]
     if not scelti:
         sys.exit("nessun canale corrisponde ai criteri; provare --elenco")
 
