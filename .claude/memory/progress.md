@@ -4,6 +4,44 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-14, seconda parte. Un difetto portante, il secondo anello, e una fonte di prima parte
+
+### Il sottocomando che mancava, e il difetto che il suo collaudo ha trovato
+
+I due recuperi mirati in coda al giro precedente chiedevano una cosa che lo strumento non sapeva fare, cioe' leggere una pagina di cui si conosce gia' l'indirizzo: un attraversamento risponde alla domanda su che cosa ci sia a partire da un punto, mentre la domanda ricorrente qui e' che manchi una pagina nota. Il sottocomando `pagina` la legge dentro una corsa esistente con la stessa verifica di `robots.txt`, lo stesso estrattore e il grezzo accanto al derivato, e senza seminarne i rinvii.
+
+Scrivendone il collaudo e' emerso un difetto piu' grosso di quello che il sottocomando risolveva, e non lo cercava nessuno. Una prova pretendeva che la mappa registrasse l'arco verso cio' che una pagina cita ed e' fallita: l'estrazione dei collegamenti riconosceva tre forme e non la quarta, cioe' proprio quella che l'estrattore da HTML di questo stesso programma produce, il testo dell'ancora seguito dall'indirizzo fra parentesi tonde. Su una pagina enciclopedica reale ci sono sessanta collegamenti in quella forma e l'estrazione ne trovava due, entrambi dall'intestazione che lo strumento scrive da se'. Il grafo non si e' quindi quasi mai espanso attraverso una pagina esterna ma quasi soltanto attraverso i post, il che spiega retrospettivamente perche' le nove pagine piu' utili del lotto precedente stessero tutte a profondita' due ed elencate da un post.
+
+### Perche' la correzione, da sola, avrebbe peggiorato il corpus
+
+La correzione sta in una riga e la tentazione era rilanciare la corsa. La misura ha detto di no, e non e' costata alcuna richiesta di rete perche' si conduce sui soli file gia' su disco: le duecentottantasette pagine esterne gia' scaricate rinviano a quattromilasedici nodi mai visti, di cui tremilatrecentoventuno si tenterebbe di scaricare. La provenienza decide la questione, perche' milleduecentotredici puntano all'archivio di immagini del medesimo sito, novecentocinquanta a un'enciclopedia generalista, ottocentoventuno alla stessa enciclopedia di Pokemon e settecentosei a un sito di competitivo, e a seguire centinaia verso social e negozi di applicazioni. Non e' materiale del progetto ma la navigazione di una wiki, che per costruzione rinvia a tutta se stessa.
+
+Il difetto era dunque portante: l'economia della corsa dipendeva da esso, e la proprieta' che rendeva il corpus maneggevole, cioe' che una pagina esterna fosse una foglia, non era una scelta ma un effetto collaterale di un errore. Le due cose sono state separate: le pagine esterne restano foglie per scelta dichiarata, con `--espandi-esterni` per chi voglia il contrario, e gli archi si registrano comunque, perche' la mappa deve dire che cosa una pagina cita anche quando non la si segue. Per espandere davvero non serve la bandiera ma un criterio che separi un rinvio di contenuto da uno di navigazione, e quel criterio non esiste. La lezione generale, che vale oltre il caso: quando un comportamento desiderabile discende da un errore, correggere l'errore rimuove il comportamento, e la domanda da porsi prima di correggere non e' se il codice sia giusto ma che cosa smettera' di essere vero quando lo sara'. Il collaudo passa da 94 a 110 controlli.
+
+### Il secondo anello, e un controllo che sarebbe stato applicato al contrario
+
+Il primo recupero chiude a meta' la correzione sulla lingua aperta la mattina: anche il passaggio fra quarta e quinta generazione vincola due giochi della stessa lingua, cioe' ha la medesima forma del primo anello, e non nomina eccezioni per il coreano. La correzione vale quindi per la catena intera, e cio' che resta da verificare non e' piu' una proprieta' della catena ma una del verificatore, cioe' se la marcatura come soprannominato che il primo anello impone a un esemplare giapponese lo renda non conforme. Si chiude componendo quel solo esemplare e facendolo giudicare, che costa una prova e non una stazione in emulazione.
+
+La stessa pagina corregge un controllo che avevo dichiarato il 2026-09-03 su una testimonianza di Reddit, e va registrato come errore mio: dicevo che ogni esemplare legittimamente arrivato al deposito dovesse mostrare il Trasferimento come luogo di incontro. La fonte dice il contrario, cioe' che il passaggio non legge il luogo di incontro ma soltanto il gioco di generazione, quindi un esemplare nato in quarta ottiene Sinnoh o Johto anche se veniva da Kanto o dalle rovine di Sinjoh, mentre uno nato in terza conserva Kanto, Hoenn o terra lontana con l'aggiunta della formula sul lungo viaggio nel tempo. Applicare quel controllo avrebbe dichiarato illegittima la parte piu' grossa dei nostri lotti. La fortuna e' che non era entrato in alcun documento durevole, ma la lezione resta: un criterio di verifica sbagliato non produce un dubbio, produce una certezza al contrario. Due vincoli minori si aggiungono, cioe' che il divieto sulle macchine nascoste vale anche su questo anello e che la sostituzione del livello di incontro con il livello di arrivo avviene due volte lungo la catena e non una.
+
+### Gli scambi in gioco, e la lacuna che si chiude come fonte
+
+Il secondo recupero porta su disco i nomi degli scambi in gioco nelle lingue diverse dall'inglese e dal giapponese, con il soprannome in sei lingue e il nome dell'allenatore in sette. La colonna italiana c'e' ed e' quella che serve, perche' le cartucce possedute sono italiane: lo scambio del Mr. Mime consegna un esemplare chiamato MARCELLO dove l'inglese e il francese lo chiamano MARCEL. La lacuna si chiude come fonte e resta aperta come lavoro, ed e' una distinzione da tenere: il dato e' su disco, il censimento non lo porta ancora, e l'estrazione e' deterministica e appartiene a `tools/censimento-scambi.py`.
+
+### La schermata dell'utente, che e' una fonte di prima parte
+
+L'utente ha consegnato una schermata dell'avviso che il deposito mostra nella sezione dei programmi collegati, ed e' di prima parte, quindi di livello superiore all'archivio su cui l'asse dei marchi era stato misurato due giorni prima. Annuncia un incontro a cristallo nero con Skeledirge che porta il marchio del piu' forte, aperto dall'undici al diciassette settembre 2026.
+
+Ne vengono tre fatti e nessuno era nel progetto. Le edizioni si ripetono, perche' l'archivio registra una edizione della stessa specie nel marzo 2025 e l'avviso ne annuncia il ritorno. L'esemplare si cattura una sola volta per salvataggio e chi lo avesse gia' preso non lo riprende, quindi il collezionabile e' la specie con il marchio e non l'edizione: la voce di lavoro aperta il 2026-09-12 chiedeva di contare le edizioni, ed e' stata riformulata sul denominatore giusto prima di essere svolta invece che dopo. E l'editore stesso scrive che quell'esemplare potrebbe comparire in eventi futuri o diventare ottenibile per altre vie, il che indebolisce l'equazione fra edizione chiusa e via chiusa su cui poggia parte di ADR-050.
+
+Va registrata anche una proprieta' della fonte derivata, perche' e' generale: la nostra copia dell'archivio e' dell'otto settembre e si ferma all'edizione precedente, quindi il novantuno delle edizioni e' un conteggio a una data e non un totale. Una enumerazione che cresce va riletta con una cadenza dichiarata.
+
+Ne discende infine una sezione nuova in `pending.md`, cioe' le finestre che si chiudono con la loro data, e vi entra ciò che scade prima della banca: il 26 febbraio 2027 non e' l'unica data del progetto, e trattarlo come tale fa perdere cio' che chiude prima. La prima voce scade il diciassette settembre, tre giorni dopo.
+
+### Che cosa e' stato scritto, e i controlli
+
+Tre fonti nuove nella tabella `FONTI`, che portano la mappa a centosette note e la bibliografia a centoventisei voci tutte citate; la schermata e' conservata in `_notes/media/`, che git esclude, e cio' che entra e' la sintesi con la provenienza. `CATENA-DI-TRASFERIMENTO.md` ha il secondo anello riscritto e la correzione sulla lingua portata a meta' chiusura. Il capitolo 28 della tesi ha una sezione nuova e il 31 ne ha due; la copertura resta al cento per cento su 37575 righe, il PDF conta trecentosedici pagine e zero titoli assenti. L'esportazione Discord dei quattro canali del fuoco corrente e' riuscita, zero falliti, e la loro riduzione a Markdown filtrato e' il passo seguente e non e' stata fatta in questo giro.
+
 ## 2026-09-14. Il lotto trasversale, la catena che cancella, e otto vie che non erano chiuse
 
 ### Perche' questo lotto non e' un cluster

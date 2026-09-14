@@ -79,10 +79,10 @@ Esiste per una ragione dichiarata dall'utente il 2026-09-10, ed e' la stessa che
 
 | Misura | Valore |
 |---|---|
-| fonti registrate nella tabella unica | 104 |
-| di esse, lette | 102 |
-| di esse, citate in tesi | 104 |
-| di esse, con almeno un documento del progetto che le usa | 104 |
+| fonti registrate nella tabella unica | 107 |
+| di esse, lette | 105 |
+| di esse, citate in tesi | 107 |
+| di esse, con almeno un documento del progetto che le usa | 107 |
 | voci del corpus della collezione | 171 |
 | di esse, promosse a fonte registrata | 25 |
 | cluster del corpus | 42 |
@@ -94,6 +94,7 @@ La colonna dei documenti dice dove sta la sintesi di quella fonte dentro il prog
 
 | Fonte | Liv | Track | Dove sta la sintesi | Capitoli |
 |---|---|---|---|---|
+| L'avviso del deposito sugli incontri a cristallo nero | 1 | Pokedex nel deposito | `MARCHI`, `LETTURA-DEL-CORPUS` | 31 |
 | Copetti, architettura del GBA | 1 | ponte fra generazioni | `10-multiboot-hardware` | 06, 12, 23 |
 | Pokemon, il collegamento della riedizione con il deposito in rete | 1 | esecuzione di codice, ricreazione degli eventi, scambio locale, modding della console | `CATENA-DI-TRASFERIMENTO`, `STUDIO-09-la-regola-del-tracciatore-e-le-porte-dopo-la-chiusura` | 20, 28 |
 | GBATEK, multiboot | 1 | ponte fra generazioni | `10-multiboot-hardware` | 06, 11, 12, 23 |
@@ -120,6 +121,8 @@ La colonna dei documenti dice dove sta la sintesi di quella fonte dentro il prog
 | Bulbapedia, le macchine nascoste per generazione | 2 | Pokedex nel deposito, ricreazione degli eventi | `MOSSE-MN`, `CATENA-DI-TRASFERIMENTO` | 28 |
 | I Pokemon di N, l'enciclopedia (dal corpus) | 2 | Pokedex nel deposito | `LETTURA-DEL-CORPUS` | 31 |
 | Il Parco Amici, l'enciclopedia | 2 | Pokedex nel deposito | `CATENA-DI-TRASFERIMENTO`, `LETTURA-DEL-CORPUS` | 28 |
+| Il Trasferimento fra quarta e quinta generazione, l'enciclopedia | 2 | Pokedex nel deposito | `CATENA-DI-TRASFERIMENTO`, `LETTURA-DEL-CORPUS` | 28 |
+| Gli scambi in gioco nelle altre lingue, l'enciclopedia | 2 | Pokedex nel deposito, ricreazione degli eventi | `CENSIMENTO-SCAMBI`, `LETTURA-DEL-CORPUS` | 31 |
 | Le rovine di Sinjoh, l'enciclopedia | 2 | Pokedex nel deposito | `LETTURA-DEL-CORPUS` | 31 |
 | I Pokemon totemici, l'enciclopedia (dal corpus) | 2 | Pokedex nel deposito | `LETTURA-DEL-CORPUS` | 31 |
 | Bulbapedia, la catena dei trasferimenti fra generazioni | 2 | ricreazione degli eventi, modding della console | `11-wireless-locale-e-ponte-switch` | 19, 28 |
