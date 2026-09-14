@@ -117,6 +117,37 @@ APOSTROFO_DRITTO = "'"
 APOSTROFO_DESTRO = u"\u2019"
 
 
+def azzera_dopo_il_terminatore(campo):
+    """Il campo di un nome con i byte dopo il terminatore portati a zero.
+
+    Serve a una regola del verificatore che il terzo giudizio ha reso esplicita: i byte oltre il
+    terminatore sono spazzatura e devono essere azzerati. L'encoder di `pokebridge` riempie invece
+    l'avanzo ripetendo il terminatore, che e' cio' che si trova in molti salvataggi veri e che le
+    duecentosei prove del ponte danno per buono: la correzione sta percio' qui e non la', perche'
+    cambiare l'encoder cambierebbe il comportamento di tutto il pacchetto per una regola che vale
+    su questa classe.
+
+    La misura che la giustifica e' esatta e va conservata, perche' spiega perche' otto voci su
+    diciannove passassero mentre le altre no. Il campo del nome dell'allenatore e' lungo sette
+    byte: un nome di sette caratteri non ha terminatore e uno di sei ne ha uno solo, quindi
+    nessuno dei due lascia spazzatura; un nome di quattro o cinque caratteri ne lascia due o tre.
+    Gli otto conformi erano tutti e soli quelli con il nome di sei o sette caratteri.
+
+    Il soprannome resta invece com'e'. I conformi ne portano il riempimento a terminatori ripetuti
+    e sono conformi lo stesso, quindi per quel campo la forma attuale e' gia' accettata: si cambia
+    cio' che l'evidenza indica e non cio' che le somiglia.
+    """
+    if not campo:
+        return campo
+    fuori = bytearray(campo)
+    for i, b in enumerate(fuori):
+        if b == 0xFF:
+            for j in range(i + 1, len(fuori)):
+                fuori[j] = 0x00
+            break
+    return bytes(fuori)
+
+
 def verso_la_codifica(testo):
     """Un nome della fonte nella forma che la codifica di terza generazione sa scrivere."""
     return (testo or "").replace(APOSTROFO_DRITTO, APOSTROFO_DESTRO)
@@ -249,8 +280,9 @@ def componi(ace, pkhex, tabella, voce, lingua, luogo, eventi, incontri, gara=Non
     nome_ot_testo = (voce.get("allenatori") or {}).get(sigla)
     if not nome_ot_testo:
         return None, {"saltata": "nessun nome di allenatore in " + lingua}
-    ot = tabella_caratteri.encode(verso_la_codifica(nome_ot_testo),
-                                 length=gen3.OT_NAME_LENGTH)
+    ot = azzera_dopo_il_terminatore(
+        tabella_caratteri.encode(verso_la_codifica(nome_ot_testo),
+                                 length=gen3.OT_NAME_LENGTH))
 
     bit = ABILITA.get(props.get("Ability", "OnlyFirst"), 0)
 
@@ -412,6 +444,17 @@ def collaudo():
           letto.get("TradeContest_Cool") == [30, 5, 5, 5, 5, 10])
     prova("negativo: una costante con meno di sei valori non si completa a zero",
           [int(x) for x in re.findall(r"\d+", "30, 05, 05")] != [30, 5, 5, 5, 5, 10])
+
+    # La regola che il terzo giudizio ha reso esplicita.
+    prova("i byte dopo il terminatore si azzerano, e il terminatore resta",
+          azzera_dopo_il_terminatore(bytes.fromhex("c3cdc3cdffffff"))
+          == bytes.fromhex("c3cdc3cdff0000"))
+    prova("negativo: un nome che riempie il campo non ha terminatore e non si tocca",
+          azzera_dopo_il_terminatore(bytes.fromhex("bdc6c3c0cec9c8"))
+          == bytes.fromhex("bdc6c3c0cec9c8"))
+    prova("negativo: un nome con un solo terminatore in coda resta identico",
+          azzera_dopo_il_terminatore(bytes.fromhex("ccbfd3c6bfd3ff"))
+          == bytes.fromhex("ccbfd3c6bfd3ff"))
 
     prova("un soprannome con apostrofo si scrive davvero, invece di sollevare",
           len(tab_it.encode(verso_la_codifica("CH'DING"),
