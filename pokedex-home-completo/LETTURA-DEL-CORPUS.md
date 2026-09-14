@@ -286,3 +286,39 @@ L'utente ha consegnato il 2026-09-14 una schermata dell'avviso che il deposito m
 Tre fatti ne discendono e nessuno dei tre era nel progetto. Il primo e' che le edizioni si ripetono: la stessa fonte enciclopedica registra una edizione di Skeledirge dal sette al tredici marzo 2025, e l'avviso dice che l'esemplare e' tornato. Il secondo, che e' quello che cambia il conto, e' che l'avviso dichiara che quell'esemplare si cattura una sola volta per salvataggio e che chi lo avesse gia' preso in una edizione precedente non lo riprende: il collezionabile e' dunque la specie con il marchio e non l'edizione, cosicche' contare le edizioni darebbe un numero piu' grande del vero. Il terzo e' che l'editore stesso scrive che quell'esemplare potrebbe comparire in eventi futuri o diventare ottenibile per altre vie, il che indebolisce l'idea che una edizione chiusa chiuda una via.
 
 Va infine registrato che la nostra copia della pagina enciclopedica, scaricata l'otto settembre 2026, si ferma all'edizione di Kingambit del ventotto agosto: non e' un difetto della copia ma la sua eta', e ne segue che il novantuno delle edizioni e' un conteggio a quella data e non un totale. Una enumerazione che cresce va riletta con una cadenza dichiarata invece che una volta sola.
+
+## Lotto del 2026-09-14, terza parte: i quattro canali Discord del fuoco corrente
+
+### La misura, che e' anche il risultato
+
+I quattro canali che servivano al fuoco corrente sono stati esportati dall'utente e verificati integri prima di essere letti, cioe' JSON chiuso, conteggi coerenti e ultimo messaggio del giorno stesso su tre dei quattro. Contano cinquecentotrentatremilaquattrocentoquarantanove messaggi, che e' precisamente la ragione per cui non si leggono ma si filtrano.
+
+I filtri sono stati scelti sulle voci di lavoro aperte e non su temi generici, come la regola sulle fonti prescrive quando dice che il filtro incorpora la domanda: isola miraggio e Wynaut per gli incontri condizionati che ADR-051 apre, carta misteriosa e dono segreto per l'asse degli eventi, mescolamento dei registri perche' e' il canale con cui il seme dell'isola si propaga, e Parco Amico per la catena. La resa e' di quattrocento messaggi su mezzo milione, cioe' meno di uno su mille.
+
+Quella resa e' essa stessa un risultato e va scritta invece di essere nascosta: sono canali di modifica delle ROM, e la loro utilita' a questo obiettivo e' indiretta. Il progetto li aveva catalogati sotto l'asse degli eventi per il lavoro di generazione, il che resta giusto; ma il rapporto fra volume e segnale dice che il resto dei venti canali non esportati non va esportato per completezza, e che una esportazione si giustifica per una domanda e non per un inventario.
+
+### L'isola miraggio, e una conferma che qualifica una voce aperta
+
+Due messaggi indipendenti confermano la correzione che il progetto aveva fatto il 2026-09-09 sulla fonte di primo livello, cioe' che l'isola miraggio non ha un luogo d'incontro proprio. Qui lo dicono persone che leggono il codice: alla domanda se si possa fare in modo che un esemplare catturato la' risulti catturato sull'isola invece che sulla rotta, la risposta e' che l'isola non ha alcun nome di localita' definito. La traccia di quella classe resta dunque la terna fra luogo, tipo di casella e specie, come il progetto ha scritto.
+
+Il canale aggiunge pero' la cosa che la fonte enciclopedica non diceva e che qualifica la voce di lavoro: la comparsa dell'isola e' una estrazione casuale giornaliera, e il valore estratto va confrontato con il valore di personalita' degli esemplari in squadra. Non e' quindi una condizione che si soddisfa, e' una lotteria che si aspetta. Ne segue che quella voce ricade esattamente nel caso che ADR-050 governa, cioe' una via aperta e impercorribile nel tempo residuo, e che va prodotta invece di attesa. Un partecipante stima che meno di quattrocento giocatori al mondo abbiano visto l'isola in una partita ordinaria: la stima e' di un forum e non si cita come fatto, ma l'ordine di grandezza concorda con il meccanismo.
+
+### Il contrassegno di incontro fatidico, enumerato per famiglia di evento
+
+Il messaggio di maggior valore del lotto viene da chi ha controllato le distribuzioni archiviate del 2003 e del 2004, ed enumera quali famiglie di eventi di terza generazione accendano il contrassegno di incontro fatidico e quali no. Non lo accendono le macchine di distribuzione dei negozi americani, gli esemplari del decennale nelle loro varie forme, il Jirachi del disco promozionale, quello del canale televisivo e lo Zigzagoon della correzione delle bacche. Lo accendono le uova consegnate come carta attraverso l'adattatore senza fili, e lo accendono tutti i Mew e i Deoxys. La chiusura del messaggio e' la parte che conta: tutti quegli eventi avevano comunque il luogo d'incontro chiamato incontro fatidico, indipendentemente dal fatto che il bit fosse acceso.
+
+E' la medesima distinzione che la pagina del Parco Amici aveva enunciata in astratto, cioe' che il contrassegno e il luogo omonimo sono due cose diverse e che molti esemplari portano l'uno senza l'altro, e qui diventa un elenco per famiglia. Per il progetto vale come corroborazione e non come correzione, perche' i nostri lotti sono generati dalle tavole del verificatore che quel bit lo codificano voce per voce, e il giudizio esterno li ha promossi conformi; ma vale conservarla, perche' e' la prima fonte che spieghi perche' quelle tavole siano disomogenee, cioe' che la disomogeneita' e' nei dati storici e non nella loro trascrizione.
+
+### Una affermazione del canale che la fonte di primo livello smentisce
+
+Lo stesso messaggio afferma che il Jirachi del disco promozionale e quello del canale televisivo hanno livelli d'incontro diversi e che quindi non sono lo stesso evento, come si era creduto. La prima meta' e' verificabile sul nostro materiale e risulta falsa: le tavole del verificatore danno entrambi al livello cinque, e il nostro catalogo lo riporta. La seconda meta' e' vera ma per un'altra ragione, perche' i due differiscono per identificativo, per allenatore, per generatore e per una cosa che il nostro catalogo non mostra, cioe' il luogo d'incontro, che per quello del canale televisivo la tavola fissa esplicitamente a zero mentre per l'altro resta il valore ordinario.
+
+Il caso vale come esercizio della gerarchia delle fonti che il progetto applica: dove un messaggio di canale e il sorgente del verificatore divergono, ha ragione il secondo, e la conclusione giusta si ottiene correggendo il campo di cui si parla invece di scartare l'affermazione. Ne discende anche una lacuna del nostro catalogo, ed e' registrata: le righe generate non portano il luogo d'incontro, che su questa classe e' un campo distintivo.
+
+### Il dono segreto di terza generazione, e perche' non serve a questo obiettivo
+
+Una discussione lunga ricostruisce come funzioni la consegna di una carta misteriosa in terza generazione, e la risposta e' che la carta contiene uno script eseguibile salvato in memoria con le proprie somme di controllo, che l'uomo del centro Pokemon richiama quando la carta salvata risulta valida. E' materiale pertinente al track dell'esecuzione di codice e alla costruzione di una ROM di distribuzione, e non a questo obiettivo: il progetto compone esemplari, non li distribuisce. La voce resta qui perche' il canale e' catalogato anche sotto quell'asse e perche' la prossima volta che qualcuno cerchera' quel protocollo sapra' che sta la'.
+
+### Che cosa del lotto resta non letto
+
+Restano i cinquecentotrentatremila messaggi che i filtri hanno scartato, ed e' voluto. Restano inoltre i canali non esportati, che il progetto non intende esportare per completezza: la resa misurata di questo lotto e' l'argomento per cui una esportazione si giustifica per una domanda, e la domanda va posta prima.
