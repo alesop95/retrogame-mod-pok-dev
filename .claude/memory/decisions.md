@@ -857,3 +857,13 @@ Il problema. L'asse dei marchi aperto da ADR-058 era stato pianificato sul presu
 La decisione. I marchi di nona generazione non sono voci da cogliere ma voci da produrre, e rientrano in ADR-050 come qualunque altra via non percorribile: il marchio del piu' forte con le sue specie, e il marchio del titano con i suoi sei incontri. Entrano nella coda quando la coda arrivera' alla nona generazione, e non prima, perche' ADR-052 ordina per scadenza e questi non scadono. La sezione di `pending.md` che li elencava come finestre e' stata riscritta di conseguenza.
 
 L'errore di metodo, registrato perche' e' il piu' facile da ripetere. Il possesso di un titolo o di un pezzo di hardware non si assume: si chiede. Assumerlo ha prodotto una consegna operativa inutile, cioe' istruzioni per una cattura impossibile, ed e' un costo piccolo qui soltanto perche' la scadenza era di tre giorni e non di tre mesi.
+
+## ADR-061: l'aggiornamento firmware del GBxCart RW da L14 a L15 è rimandato, non necessario per cartucce genuine
+
+Data: 2026-09-15. Stato: accettata, decisione dell'utente.
+
+Il problema. Al primo collegamento del lettore, FlashGBX ha segnalato un aggiornamento firmware disponibile, da R42+L14 (2025-05-23) a R42+L15 (2026-06-03), e ha mostrato la procedura per installarlo. L'utente ha esitato a eseguirla subito, prima ancora di aver provato la catena su una cartuccia di prova.
+
+La decisione. Si rimanda l'aggiornamento e si procede con L14. Verificato sul changelog ufficiale di FlashGBX (`CHANGES.md` della release 5.1): L14, introdotto in FlashGBX v4.4, risolve un problema di salvataggio specifico di un solo gioco giapponese ("Korokoro Puzzle - Happy Panecchu!", AGB-KHPJ-JPN) e aggiunge supporto a nuove cartucce; L15, introdotto in FlashGBX v5.0/5.0.1, non ha una nota propria oltre al numero di versione. Lo storico delle revisioni precedenti, da L8 a L14, mostra un pattern costante: compatibilità con cartucce flash di riproduzione e correzioni di casi singoli, mai una modifica al percorso base di lettura o scrittura di una cartuccia genuina. Nessuna fonte consultata lega L15 a un problema che riguardi cartucce Pokemon originali. DA VERIFICARE: non è stato letto il codice sorgente del firmware (repository `Lesserkuma/FlashGBX_LK_Firmware`, che non porta changelog proprio), solo il changelog dichiarato dall'autore in `FlashGBX`.
+
+La conseguenza. Si procede con firmware R42+L14 sia sul Rubino di prova sia, quando sarà il suo turno, su Smeraldo. L'aggiornamento a L15 resta disponibile e si può eseguire in qualunque momento successivo senza perdita, perché è un'operazione sul lettore e non tocca alcun dato di gioco.
