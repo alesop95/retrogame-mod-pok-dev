@@ -4,6 +4,56 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-15, quindicesima parte. Il secondo carico sul Rubino, dalla lettura corrotta al salvataggio pronto per la scrittura
+
+### Una lettura corrotta, e la sua causa
+
+Il primo collegamento del lettore nella sessione ha prodotto una lettura palesemente sbagliata: codice gioco AHVI-0 invece di AGB-AXVI-0, titolo ROM POKEMON REBI invece di POKEMON RUBY, intestazione di controllo marcata Invalid, logo di avvio illeggibile, nessuna voce nel database, tipo di salvataggio non rilevato. Non era un salvataggio diverso né una cartuccia diversa: era un contatto elettrico sporco, la causa più comune di questo esatto quadro di sintomi, cioè campi popolati ma incoerenti fra loro e non campi vuoti. La pulizia dei contatti dorati con alcol isopropilico e il reinserimento della cartuccia hanno riportato la lettura a coincidere esattamente con quella verificata il giorno precedente: AGB-AXVI-0, POKEMON RUBY, intestazione Valid (0x3D), ROM riconosciuta nel database (0xC18231A9), tipo di salvataggio 1M FLASH (128 KiB) rilevato in automatico.
+
+### Il doppio backup, e perché conta più della procedura
+
+La regola dell'hardware impone due letture indipendenti su due percorsi prima di qualunque scrittura, e questa sessione ne è la dimostrazione pratica invece che la sola dichiarazione: se la lettura corrotta fosse stata presa come base senza una seconda lettura di controllo, la scrittura successiva avrebbe operato su un salvataggio letto male, con conseguenze non prevedibili su una cartuccia che porta vent'anni di una partita vera. I due file di oggi, letti dopo la pulizia dei contatti, hanno hash SHA-256 identici, 131072 byte ciascuno: la lettura è verificata leggibile.
+
+### Il lotto, e la decisione di includere i giapponesi
+
+Il lotto per questo carico unisce tutto ciò che il progetto ha prodotto e giudicato conforme in formato di terza generazione e non ancora scritto su hardware: le 171 distribuzioni restanti del lotto eventi, le 14 voci degli incontri sbloccati, le 19 voci degli scambi in gioco, per 204 esemplari totali, in `_notes/lotto-rubino-prossimo-carico/`. A differenza del primo tentativo di composizione, che escludeva i 74 esemplari in lingua giapponese per il difetto di resa dei loro nomi su hardware italiano, l'utente ha deciso di includerli comunque: la scrittura non comporta alcun rischio di illegalità o di corruzione, il costo è soltanto estetico, cioè un nome storpiato finché restano su hardware di terza generazione, e la domanda su come superarlo per la catena verso Home resta aperta in pending.md senza bloccare la scrittura di oggi.
+
+### La composizione, e il giudizio del verificatore
+
+tools/carica-lotto-gen3.py ha composto il nuovo salvataggio a partire dal backup verificato, caricando tutti e 204 gli esemplari nelle posizioni da 1 a 204, cioè dalla scatola 1 alla 7, e saltando correttamente la posizione 0, già occupata dal Pikachu scritto il giorno precedente. Il rapporto sui box del verificatore esterno conta 211 righe e non 205, perché include anche i sei esemplari della squadra vera oltre alle 205 posizioni occupate del deposito: tutte e 211 sono giudicate Legal: True, squadra vera compresa, che resta quindi indisturbata. Il file è pronto per la scrittura; la scrittura vera e il read-back di verifica restano il passo successivo, non ancora eseguito a questa voce.
+
+### Una nota di metodo sul Pokédex locale, aggiunta alla referenza della catena
+
+Durante questa sessione è emersa la domanda se scrivere direttamente nel deposito, bypassando gli eventi di gioco che normalmente lo popolano, faccia registrare gli esemplari nel Pokédex della cartuccia sorgente. La risposta, verificata sul codice del progetto e non assunta, è che non lo fa: scrivi_posizione in pokebridge/save3.py tocca soltanto la regione del salvataggio a partire da OFF_RECORD, mai la sezione del Pokédex, che è altrove. Non è un problema, perché l'obiettivo del progetto è il Pokédex di Pokemon Home e non quello della cartuccia sorgente, che è un veicolo. La nota estesa è ora in pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md.
+
+### La scrittura vera, e il read-back che la chiude
+
+Il file composto è stato scritto sulla cartuccia con Write Save Data di FlashGBX, che ha dichiarato da sé la scrittura riuscita e verificata in 12 secondi. Il read-back indipendente, letto subito dopo dalla cartuccia, ha hash SHA-256 identico al file scritto: 0f5f298dfadf668568e86f092df5f6acea9c028b7b17864c296f151a8647662a su entrambi, 131072 byte. È la seconda scrittura reale su hardware di questo progetto dopo quella del Pikachu del giorno precedente, e la prima a portare un lotto intero invece di un solo esemplare: la cartuccia porta ora 205 esemplari prodotti dal progetto nel deposito, squadra vera intatta. Resta da fare il controllo in gioco a campione, previsto sulla console vera e non più uno per uno come per il primo esemplare.
+
+## 2026-09-15, diciassettesima parte. Il video del Rubino, e la convalida hardware conclusa
+
+### Il riscontro visivo
+
+Il video consegnato dall'utente è stato letto a fotogrammi con `ffmpeg` (un fotogramma al secondo, letti a campione e poi cancellati insieme al video secondo la regola sugli screenshot effimeri). I box coincidono con l'atteso: Box 1 pieno con lo Zigzagoon shiny di terza generazione visibile, Box 3 pieno con la serie del decimo anniversario, Box 5 e Box 6 pieni di icone Uovo, cioè i cinquanta esemplari della serie "con mossa" che questo progetto compone come uova non ancora schiuse, uno dei quali mostrato per intero con il testo di dono speciale corretto ("Un UOVO interessante ottenuto in un bel posto"), Box 7 parzialmente pieno con Deoxys e gli altri incontri sbloccati, Box 8 interamente vuoto, coerente con i 205 esemplari totali che terminano a metà della settima scatola. La squadra vera, un Nidorina di nome Nina fra gli altri, resta visibile e indisturbata. Il video si chiude con il gioco tornato regolare al Centro Pokemon dopo l'uscita dai box, senza blocchi né anomalie.
+
+### Che cosa chiude
+
+Con questo la convalida della catena hardware-driver-software è conclusa non su un solo esemplare ma su un lotto intero: 205 esemplari scritti, letti indietro per hash, e ora anche osservati in gioco. Il prossimo collegamento del lettore, per decisione dell'utente coerente con la sequenza già stabilita in `RUNBOOK-PRIMA-SESSIONE.md`, è per Smeraldo. Aggiornato lo stato in `sub-smeraldo-save-fix.md`.
+
+## 2026-09-15, sedicesima parte. La checklist rigenerata, e un documento quasi rotto senza che nessuno lo chiedesse
+
+### L'aggiunta riuscita
+
+`tools/checklist-pokedex.py` ha ora una fonte in più, lo scambio in gioco di terza generazione, che legge i 19 file veri del lotto chiuso il 2026-09-14 invece di una tabella a parte. Il numero della campagna resta 685 specie coperte su 1025, 340 senza fonte: identico allo storico, perché le specie della nuova fonte erano già coperte altrove. È la conferma che aggiungere una fonte non deve mai spostare un numero già coperto, non solo aggiungerne uno nuovo.
+
+### Il quasi-incidente, e la sua causa
+
+Il primo lancio della rigenerazione ha omesso il parametro che include i salvataggi esterni, e il conto delle specie coperte è crollato da 685 a 71: non un aggiornamento ma un documento rotto, perché il censimento dei salvataggi non era più su disco. La causa non era lo strumento ma un file mancante a monte, rigenerato prima di rilanciare. Vale la pena registrarlo perché è lo stesso genere di errore silenzioso che questo progetto ha già incontrato più volte: un numero che cambia senza una ragione di dominio è quasi sempre un difetto di invocazione, non una scoperta.
+
+### Che cosa resta deliberatamente fuori
+
+Alcremie a sessantatré forme e le centodue specie dell'asse del sesso restano fuori perché richiedono una decisione su quale fonte prevalga sui dati di PKHeX, non presa d'iniziativa. Gli incontri condizionati restano fuori perché nessun generatore li produce ancora: non sono una fonte disponibile finché restano un censimento e non un lotto.
+
 ## 2026-09-14, undicesima parte. Il lotto degli scambi e' chiuso, diciannove su diciannove
 
 ### L'esito

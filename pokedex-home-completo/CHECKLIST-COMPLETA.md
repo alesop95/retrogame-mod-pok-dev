@@ -10,9 +10,11 @@ La colonna della via dice se quella voce si raggiunga da un titolo che parla al 
 
 Le voci di specie sono 1025. Di queste, 685 hanno già una fonte dentro il progetto e 340 non ne hanno ancora alcuna: quest'ultimo è il numero che misura la campagna, e l'unico che scende quando si lavora.
 
-La ripartizione per fonte, che non si somma perché una specie può avere più fonti, è la seguente. Da salvataggio esterno, 685 voci. Da archivio esterno, 385 voci. Da evento Gen 3 producibile, 59 voci.
+La ripartizione per fonte, che non si somma perché una specie può avere più fonti, è la seguente. Da salvataggio esterno, 685 voci. Da archivio esterno, 385 voci. Da evento Gen 3 producibile, 59 voci. Da scambio in gioco Gen 3 (prodotto e conforme), 18 voci.
 
 Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fini del completamento è indeterminato: nessuna fonte di primo livello dichiara quali forme il deposito conti come casella separata. L'elenco le enumera e marca l'indeterminatezza invece di decidere, perché decidere sarebbe inventare.
+
+Restano fuori da questa rigenerazione due correzioni che il progetto ha in sospeso, e vanno dichiarate invece di essere fatte scivolare dentro un aggiornamento qualunque. Le sessantatré configurazioni di Alcremie e le centodue specie dell'asse del sesso, misurate rispettivamente da fonti esterne indipendenti e da `tools/enumera-differenze-sesso.py`, non sono incorporate qui perché questa tabella enumera le forme così come le porta la fonte di PKHeX letta da `tools/disponibilita-titoli.py`, e sostituire quel conteggio con uno corroborato da fonti diverse è una decisione di prodotto, cioè quale fonte faccia fede sul numero delle forme, non una correzione meccanica. Gli incontri condizionati censiti da `tools/censimento-condizionati.py`, 137 specie da un tipo di casella, 49 da un'area monospecie esclusiva e 12 da un luogo dedicato, restano fuori dalla colonna delle fonti per una ragione diversa e più semplice: nessun generatore del progetto li produce ancora, quindi non sono una fonte che il progetto "sa già fornire", che è il solo criterio di questa colonna.
 
 ## Voci di specie
 
@@ -46,11 +48,11 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-0026-00` | 26 | Raichu | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0027-00` | 27 | Sandshrew | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0028-00` | 28 | Sandslash | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0029-00` | 29 | Nidoran♀ | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0030-00` | 30 | Nidorina | diretta | salvataggio esterno, archivio esterno |
+| `PKD-0029-00` | 29 | Nidoran♀ | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
+| `PKD-0030-00` | 30 | Nidorina | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
 | `PKD-0031-00` | 31 | Nidoqueen | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0032-00` | 32 | Nidoran♂ | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0033-00` | 33 | Nidorino | diretta | salvataggio esterno, archivio esterno |
+| `PKD-0032-00` | 32 | Nidoran♂ | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
+| `PKD-0033-00` | 33 | Nidorino | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
 | `PKD-0034-00` | 34 | Nidoking | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0035-00` | 35 | Clefairy | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0036-00` | 36 | Clefable | diretta | salvataggio esterno, archivio esterno |
@@ -69,7 +71,7 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-0049-00` | 49 | Venomoth | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0050-00` | 50 | Diglett | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0051-00` | 51 | Dugtrio | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0052-00` | 52 | Meowth | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
+| `PKD-0052-00` | 52 | Meowth | diretta | evento Gen 3 producibile, scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
 | `PKD-0053-00` | 53 | Persian | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0054-00` | 54 | Psyduck | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
 | `PKD-0055-00` | 55 | Golduck | diretta | salvataggio esterno, archivio esterno |
@@ -100,10 +102,10 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-0080-00` | 80 | Slowbro | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0081-00` | 81 | Magnemite | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0082-00` | 82 | Magneton | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0083-00` | 83 | Farfetch’d | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
+| `PKD-0083-00` | 83 | Farfetch’d | diretta | evento Gen 3 producibile, scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
 | `PKD-0084-00` | 84 | Doduo | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0085-00` | 85 | Dodrio | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0086-00` | 86 | Seel | diretta | salvataggio esterno, archivio esterno |
+| `PKD-0086-00` | 86 | Seel | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
 | `PKD-0087-00` | 87 | Dewgong | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0088-00` | 88 | Grimer | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0089-00` | 89 | Muk | diretta | salvataggio esterno, archivio esterno |
@@ -118,30 +120,30 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-0098-00` | 98 | Krabby | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0099-00` | 99 | Kingler | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0100-00` | 100 | Voltorb | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0101-00` | 101 | Electrode | diretta | salvataggio esterno, archivio esterno |
+| `PKD-0101-00` | 101 | Electrode | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
 | `PKD-0102-00` | 102 | Exeggcute | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
 | `PKD-0103-00` | 103 | Exeggutor | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0104-00` | 104 | Cubone | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0105-00` | 105 | Marowak | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0106-00` | 106 | Hitmonlee | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0107-00` | 107 | Hitmonchan | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0108-00` | 108 | Lickitung | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
+| `PKD-0108-00` | 108 | Lickitung | diretta | evento Gen 3 producibile, scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
 | `PKD-0109-00` | 109 | Koffing | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0110-00` | 110 | Weezing | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0111-00` | 111 | Rhyhorn | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0112-00` | 112 | Rhydon | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0113-00` | 113 | Chansey | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0114-00` | 114 | Tangela | diretta | salvataggio esterno, archivio esterno |
+| `PKD-0114-00` | 114 | Tangela | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
 | `PKD-0115-00` | 115 | Kangaskhan | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0116-00` | 116 | Horsea | diretta | salvataggio esterno, archivio esterno |
+| `PKD-0116-00` | 116 | Horsea | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
 | `PKD-0117-00` | 117 | Seadra | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0118-00` | 118 | Goldeen | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0119-00` | 119 | Seaking | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0120-00` | 120 | Staryu | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0121-00` | 121 | Starmie | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0122-00` | 122 | Mr. Mime | diretta | salvataggio esterno, archivio esterno |
+| `PKD-0122-00` | 122 | Mr. Mime | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
 | `PKD-0123-00` | 123 | Scyther | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0124-00` | 124 | Jynx | diretta | salvataggio esterno, archivio esterno |
+| `PKD-0124-00` | 124 | Jynx | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
 | `PKD-0125-00` | 125 | Electabuzz | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0126-00` | 126 | Magmar | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0127-00` | 127 | Pinsir | diretta | salvataggio esterno, archivio esterno |
@@ -239,7 +241,7 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-0219-00` | 219 | Magcargo | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0220-00` | 220 | Swinub | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0221-00` | 221 | Piloswine | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0222-00` | 222 | Corsola | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
+| `PKD-0222-00` | 222 | Corsola | diretta | evento Gen 3 producibile, scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
 | `PKD-0223-00` | 223 | Remoraid | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0224-00` | 224 | Octillery | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0225-00` | 225 | Delibird | diretta | salvataggio esterno, archivio esterno |
@@ -290,7 +292,7 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-0270-00` | 270 | Lotad | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0271-00` | 271 | Lombre | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0272-00` | 272 | Ludicolo | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0273-00` | 273 | Seedot | diretta | salvataggio esterno, archivio esterno |
+| `PKD-0273-00` | 273 | Seedot | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
 | `PKD-0274-00` | 274 | Nuzleaf | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0275-00` | 275 | Shiftry | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0276-00` | 276 | Taillow | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
@@ -313,11 +315,11 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-0293-00` | 293 | Whismur | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
 | `PKD-0294-00` | 294 | Loudred | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0295-00` | 295 | Exploud | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0296-00` | 296 | Makuhita | diretta | salvataggio esterno, archivio esterno |
+| `PKD-0296-00` | 296 | Makuhita | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
 | `PKD-0297-00` | 297 | Hariyama | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0298-00` | 298 | Azurill | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0299-00` | 299 | Nosepass | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0300-00` | 300 | Skitty | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
+| `PKD-0300-00` | 300 | Skitty | diretta | evento Gen 3 producibile, scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
 | `PKD-0301-00` | 301 | Delcatty | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0302-00` | 302 | Sableye | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0303-00` | 303 | Mawile | diretta | salvataggio esterno, archivio esterno |
@@ -328,7 +330,7 @@ Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fi
 | `PKD-0308-00` | 308 | Medicham | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0309-00` | 309 | Electrike | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0310-00` | 310 | Manectric | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0311-00` | 311 | Plusle | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
+| `PKD-0311-00` | 311 | Plusle | diretta | evento Gen 3 producibile, scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
 | `PKD-0312-00` | 312 | Minun | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
 | `PKD-0313-00` | 313 | Volbeat | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0314-00` | 314 | Illumise | diretta | salvataggio esterno, archivio esterno |

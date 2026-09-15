@@ -21,6 +21,14 @@ Il lotto di quinta generazione è quindi il più grosso e il più economico: set
 
 ## I vincoli, uno per uno, con la loro fonte
 
+### Il deposito nella cartuccia sorgente, e perché il Pokédex locale non è un vincolo
+
+Prima di qualunque passaggio della catena descritta sotto, gli esemplari devono esistere nel deposito della cartuccia di terza generazione che li ospita, e la loro esistenza non richiede alcuno stato di gioco particolare: la struttura del deposito occupa una regione fissa del salvataggio fin dalla sua creazione, indipendentemente da quanta partita sia stata giocata, e lo strumento del progetto che vi scrive, tools/carica-lotto-gen3.py, tocca soltanto quella regione, cioè i byte a partire dall'offset OFF_RECORD di pokebridge/save3.py, senza mai toccare le altre sezioni del salvataggio. Una prova pratica di questo è la sessione del 2026-09-15, dove l'iniezione di esemplari in un salvataggio con la partita appena cominciata, prima della battaglia con Wally a Petalopoli, non ha prodotto alcuna anomalia in gioco: la squadra vera è rimasta indisturbata e legale secondo il verificatore esterno.
+
+Ne segue che l'iniezione non fa registrare gli esemplari nel Pokédex locale della cartuccia sorgente, perché quel bit vive in una sezione del salvataggio diversa da quella del deposito e nessuno strumento del progetto la tocca: è lo stesso motivo per cui qualunque editor di box, PKHeX incluso, si comporta così, e non è un difetto da correggere. Il Pokédex locale della cartuccia sorgente non è un obiettivo del progetto e non lo è mai stato: l'obiettivo dichiarato è il Pokédex di Pokemon Home, che si costruisce da ciò che arriva davvero nel deposito Home attraverso la catena descritta sotto, non da ciò che il gioco sorgente ha segnato come visto. La cartuccia sorgente è quindi un veicolo per la catena e non essa stessa una collezione da completare.
+
+Resta invece un vincolo reale e distinto, già registrato come ADR-029: il Parco Amici, descritto subito sotto, richiede il Pokédex nazionale sbloccato nella cartuccia di terza generazione, che è un traguardo di storia molto più avanzato di una partita appena cominciata. Non impedisce l'iniezione nel deposito, che resta possibile fin da subito: impedisce soltanto il passo successivo, cioè il trasferimento verso la quarta generazione, finché quel traguardo non è raggiunto o simulato.
+
 ### Il Parco Amici, dalla terza alla quarta
 
 Richiede un Nintendo DS o DS Lite, cioè una console con lo slot per le cartucce della generazione precedente, e i due giochi nella stessa lingua. Sposta sei esemplari per volta. Il limite di sei ogni ventiquattro ore vale su Diamante, Perla e Platino, mentre le riedizioni di seconda generazione lo rimuovono. Rifiuta gli esemplari che conoscano una macchina nascosta. È irreversibile. Fonte: Bulbapedia, pagina del Parco Amico, letta il 2026-08-28 e riletta per intero il 2026-09-14 sulla copia recuperata nel corpus.
