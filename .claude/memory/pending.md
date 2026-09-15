@@ -53,6 +53,10 @@ Il presupposto non andava assunto ma chiesto, e averlo assunto ha prodotto una c
 
 Ne discende una precisazione sull'asse dei marchi che il documento generato dichiara gia' e che qui si rende operativa: nessun marchio e' sotto la scadenza della banca, ma per QUESTO progetto i marchi di nona generazione non sono nemmeno ottenibili giocando, perche' il gioco non c'e'. La loro urgenza resta nulla e la loro via resta chiusa: si producono quando la coda arriva alla nona, e non prima, perche' ADR-052 ordina per scadenza e questi non scadono.
 
+## Cancellazione proposta, non ancora confermata, aperta il 2026-09-15
+
+L'utente ha chiesto se `_notes/_backup-retrogame-mod-pok-dev-pre-git-2026-08-24` (76 file, circa 28 MB) si possa cancellare, dato che era il paracadute per il collasso della storia git di ADR-014 e quel collasso è riuscito da tre settimane. Contiene `PROMPT MASTER.txt`, il file che ADR-014 registra come già cancellato dall'albero tracciato per la circostanza personale di quell'ADR: non è mai stato pubblico (sta sotto `_notes/`), ma è materiale legato a una decisione sui dati personali e non un file di sessione dell'agente, quindi la cancellazione è stata raccomandata ma non eseguita in attesa di una conferma esplicita dell'utente.
+
 ## Decisione che richiede un ADR esplicito prima di procedere, aperta il 2026-09-15
 
 L'utente ha proposto di caricare sul Rubino di prova un salvataggio italiano trovato online, più avanti nella partita, per avere accesso al PC senza giocare fino a quel punto. `hardware-and-perimeter.md` è normativo su questo caso specifico: "i salvataggi scaricati da internet non si importano su questa console... se un giorno servisse davvero importarne uno, la decisione va presa esplicitamente e registrata come ADR, non fatta scivolare dentro un altro lavoro". La proposta non è stata eseguita, in attesa di quella decisione esplicita.
