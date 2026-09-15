@@ -53,6 +53,12 @@ Il presupposto non andava assunto ma chiesto, e averlo assunto ha prodotto una c
 
 Ne discende una precisazione sull'asse dei marchi che il documento generato dichiara gia' e che qui si rende operativa: nessun marchio e' sotto la scadenza della banca, ma per QUESTO progetto i marchi di nona generazione non sono nemmeno ottenibili giocando, perche' il gioco non c'e'. La loro urgenza resta nulla e la loro via resta chiusa: si producono quando la coda arriva alla nona, e non prima, perche' ADR-052 ordina per scadenza e questi non scadono.
 
+## Decisione che richiede un ADR esplicito prima di procedere, aperta il 2026-09-15
+
+L'utente ha proposto di caricare sul Rubino di prova un salvataggio italiano trovato online, più avanti nella partita, per avere accesso al PC senza giocare fino a quel punto. `hardware-and-perimeter.md` è normativo su questo caso specifico: "i salvataggi scaricati da internet non si importano su questa console... se un giorno servisse davvero importarne uno, la decisione va presa esplicitamente e registrata come ADR, non fatta scivolare dentro un altro lavoro". La proposta non è stata eseguita, in attesa di quella decisione esplicita.
+
+La buona notizia, che rende la decisione meno urgente di quanto sembri: non serve. L'iniezione nelle scatole con `tools/carica-lotto-gen3.py` opera sui byte del file di salvataggio e non passa dal menu di gioco, quindi non richiede che il PC sia narrativamente raggiungibile: la struttura del deposito esiste nel salvataggio fin dalla sua creazione, indipendentemente da quanta partita sia stata giocata. Resta DA VERIFICARE se un flag interno del gioco condizioni la sola visibilità del PC nell'interfaccia (cosa che non impedirebbe comunque all'iniezione di riuscire a livello di file), non se i dati esistano.
+
 ## In attesa dell'utente: credenziali e abilitazioni
 
 | Cosa | Stato | Che cosa sblocca |
@@ -120,6 +126,7 @@ Questa è la tabella che l'agente deve consultare da sé: ogni riga dice quando 
 | si vuole provare il track LDN senza installare Linux | il demone `ldnd` con Zadig e l'archivio `linux-firmware` | esecuzione su Windows senza macchina virtuale, con la procedura descritta in `docs/11-wireless-locale-e-ponte-switch.md`; ricordare che dopo la riassegnazione a WinUSB quell'adattatore non fa più da scheda di rete |
 | il ponte ha prodotto il primo modulo di codice, condizione verificata il 2026-08-25 | il gate del server MCP code-context, rimandato per ADR-010 | estrazione di simboli e riferimenti da `pokebridge/` senza versare i file in contesto; la proposta va rifatta perché la condizione che la rimandava non vale più, e resta la facoltà di rimandarla ancora |
 | il ponte ha un comando di test, condizione verificata il 2026-08-25 | un `CLAUDE.md` annidato in `pokemon-gen12-gen3-bridge-original-hardware/` | dichiarazione dei soli comandi di build, lint e test di quella cartella, cioè `python tests/run_tests.py`; mai stato, che resta nella scheda del sottoprogetto |
+| si useranno cartucce di riproduzione/flash sul GBxCart RW, o si vuole chiudere il punto per pulizia | l'aggiornamento firmware da R42+L14 a R42+L15, rimandato per ADR-061 il 2026-09-15 | FlashGBX lo ripropone da sé al collegamento, o da menu Options; non è mai urgente perché non tocca dati di gioco, ed è per questo che si può rimandare senza rischio |
 
 ## Debito di lettura
 
