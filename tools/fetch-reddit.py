@@ -2737,6 +2737,9 @@ def costruisci_parser():
     riprendi.add_argument("--dominio-escluso", action="append", default=[], metavar="DOMINIO")
     riprendi.add_argument("--solo-domini", action="append", default=[], metavar="DOMINIO")
     riprendi.add_argument("--lotto", type=int, default=LOTTO_ID)
+    riprendi.add_argument("--espandi-esterni", action="store_true",
+                          help="segue anche i collegamenti trovati dentro le pagine esterne, "
+                               "spento per difetto per la stessa ragione descritta su `crawl`")
     riprendi.add_argument("--silenzioso", action="store_true")
 
     solo = comandi.add_parser("post", help="legge un solo post, senza seguire i suoi rinvii")

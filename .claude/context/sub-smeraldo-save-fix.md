@@ -5,7 +5,7 @@ generated-date: 2026-08-24
 covers-paths:
   - gba-save-extraction-smeraldo/
 last-verified-commit: 7b66def
-stato: attivo, lettore collegato e cancello dei driver superato il 2026-09-15, porta COM5, convalida hardware su cartuccia di prova in corso prima di toccare Smeraldo
+stato: attivo, convalida hardware sulla cartuccia di prova CONCLUSA il 2026-09-15 (205 esemplari scritti e confermati byte per byte e in gioco), porta COM5; il prossimo collegamento del lettore e' per Smeraldo
 ---
 
 # Sottoprogetto: correzione del bug inventario di Pokemon Smeraldo
@@ -38,7 +38,9 @@ Verificato il 2026-09-15: il Platform Mode di FlashGBX non si mantiene fra una c
 
 ## Prossimo passo concreto
 
-Il cancello dei driver è chiuso. Il passo che segue non è ancora Smeraldo: l'utente ha sottomano una cartuccia Pokemon Rubino con una partita appena iniziata (prima della cutscene di Wally con Ralts), a rischio quasi nullo, ed è la cartuccia scelta per convalidare la catena hardware-driver-software (FlashGBX su COM5, modalità terza generazione a 3,3 V verificata sul LED, estrazione in sola lettura con doppia copia e doppia lettura di conferma) prima di rischiare la cartuccia bersaglio. Solo dopo quella convalida si esegue la sequenza di `RUNBOOK-PRIMA-SESSIONE.md` su Smeraldo, che ordina le operazioni per irreversibilità e non per interesse: prima i salvataggi delle cartucce di prima e seconda generazione la cui pila tenga ancora, perché è la sola finestra che si chiude da sé, poi Smeraldo, che sta in memoria flash e non dipende da alcuna pila.
+La convalida sulla cartuccia di prova è conclusa il 2026-09-15, con un margine ben oltre il minimo previsto: non un solo esemplare di controllo ma 205 (un Pikachu il 2026-09-15 mattina, poi un lotto di 204 lo stesso pomeriggio, cioè tutto ciò che il progetto aveva prodotto e giudicato conforme in formato di terza generazione), con backup in doppia copia verificato per hash prima di ogni scrittura, read-back per hash dopo, e un controllo visivo su un video della console vera che mostra i box coerenti con l'atteso (compresi i cinquanta esemplari del gruppo "con mossa" che risultano Uova non ancora schiuse, con il testo di dono speciale corretto) e il gioco che torna regolare al menu dopo l'uscita dai box. La catena hardware-driver-software (FlashGBX su COM5, modalità terza generazione a 3,3 V verificata sul LED, backup doppio, scrittura, read-back) è quindi validata anche su un lotto grande e non solo su un singolo esemplare.
+
+Il prossimo collegamento del lettore è per Smeraldo, secondo la sequenza già stabilita in `RUNBOOK-PRIMA-SESSIONE.md`, che ordina le operazioni per irreversibilità e non per interesse: le cartucce di prima e seconda generazione la cui pila potesse ancora tenere erano l'unica finestra che si chiude da sé, e la diagnosi del 2026-09-01 le ha già escluse in negativo (nessun salvataggio recuperabile su nessuna delle due), quindi non restano passi intermedi prima di Smeraldo. Prima di intervenire, l'utente ha segnalato che la cartuccia porta danni pregressi dai tentativi con codici Action Replay: il primo passo su Smeraldo resta comunque il backup in doppia copia previsto dallo step 1 del runbook, seguito da un controllo di sola lettura con `gba-save-extraction-smeraldo/tools/emerald_bag_decode.py` prima di qualunque ipotesi sulla causa o di qualunque scrittura, esattamente come il runbook già prescriveva indipendentemente da questa segnalazione.
 
 ## Decisioni aperte
 
