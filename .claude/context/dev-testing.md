@@ -13,7 +13,7 @@ covers-paths:
   - pokedex-home-completo/
   - gba-switch-pokemon-trading/
   - poke-automation-study/
-last-verified-commit: 7b66def
+last-verified-commit: 80fac1f
 ---
 
 # Sviluppo e verifica
