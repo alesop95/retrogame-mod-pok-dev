@@ -112,8 +112,15 @@ def carica_corpus(percorso):
     return voci, None
 
 
-def carica_stato_lettura(percorso):
-    """Lo stato dichiarato di ciascun cluster, dalla tabella del registro di lettura."""
+def carica_stato_lettura(percorso, nomi_noti=()):
+    """Lo stato dichiarato di ciascun cluster, dalla tabella del registro di lettura.
+
+    Piu' cluster si separano con la virgola nella prima cella, ma il nome di un cluster puo'
+    contenerne una a sua volta: spezzare sempre renderebbe quel cluster inaccoppiabile per
+    costruzione, che e' il difetto trovato il 2026-09-16 sul cluster dei canali video. La cella
+    si confronta quindi prima per intero con i nomi noti del censimento, e solo se non corrisponde
+    la si spezza. Senza l'elenco dei nomi noti il comportamento resta quello di prima.
+    """
     if not os.path.exists(percorso):
         return {}, []
     stato, righe_non_accoppiate = {}, []
@@ -125,7 +132,8 @@ def carica_stato_lettura(percorso):
         if len(celle) < 4:
             continue
         nomi, _voci, esito, dove = celle[0], celle[1], celle[2], celle[3]
-        for nome in [n.strip() for n in nomi.split(",")]:
+        elenco = [nomi] if nomi in nomi_noti else [n.strip() for n in nomi.split(",")]
+        for nome in elenco:
             if not nome:
                 continue
             stato[nome] = (esito, dove)
@@ -313,7 +321,7 @@ def main(argv=None):
     if errore:
         print("rifiutato: " + errore)
         return 1
-    stato, _ = carica_stato_lettura(LETTURA)
+    stato, _ = carica_stato_lettura(LETTURA, {v["cluster"] for v in corpus})
     citazioni = carica_citazioni(CAPITOLI)
 
     blocco = componi(fonti, corpus, stato, citazioni)

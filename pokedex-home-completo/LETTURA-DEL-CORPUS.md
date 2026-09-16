@@ -25,6 +25,23 @@ La misura del compito, fissata all'inizio perché serve a valutare l'avanzamento
 | 1) Dex completions / Gen 8 | 2 | letto il 2026-09-12 | questa nota |
 | 1) Dex completions / Gen 9 | 5 | letto il 2026-09-12, meno la voce in forma di video e i due scheletri JavaScript | `MARCHI.md` e questa nota |
 | 1) Dex completions / Spinoffs | 4 | letto il 2026-09-12, meno il profilo che richiede autenticazione | `MARCHI.md`, questa nota e `pending.md` |
+| Preambolo | 1 | letto il 2026-09-16: e' la versione del giugno 2025 del post di raccolta, cioe' il predecessore del seme | questa nota |
+| 7) General tools | 3 | letto il 2026-09-16: sono calcolatori interattivi, senza contenuto da leggere | questa nota |
+| 8) Shiny Hunting | 1 | letto il 2026-09-16 | questa nota |
+| 8) Shiny Hunting / Gen 1 | 1 | letto il 2026-09-16 | questa nota |
+| 8) Shiny Hunting / Gen 2 | 4 | letto il 2026-09-16: l'uovo misterioso porta il vincolo del Trasferitore sulla mossa Pugnorapido | questa nota |
+| 8) Shiny Hunting / Gen 3 | 2 | letto il 2026-09-16 | questa nota |
+| 8) Shiny Hunting / Gen 4 | 4 | letto il 2026-09-16 | questa nota |
+| 8) Shiny Hunting / Gen 5 | 3 | letto il 2026-09-16 | questa nota |
+| 8) Shiny Hunting / Gen 6 | 5 | letto il 2026-09-16, meno le voci in forma di video | questa nota |
+| 8) Shiny Hunting / Gen 7 | 3 | letto il 2026-09-16 | questa nota |
+| 8) Shiny Hunting / Gen 8 | 2 | letto il 2026-09-16 | questa nota |
+| 8) Shiny Hunting / Gen 9 | 3 | letto il 2026-09-16 | questa nota |
+| 8) Shiny Hunting / Spinoffs | 9 | letto il 2026-09-16: gli esemplari oscuri sono bloccati contro la cromaticita' nel secondo titolo per console fissa e non nel primo | questa nota |
+| 8) Shiny Hunting / General tips | 3 | letto il 2026-09-16: la pagina delle forme non ottenibili e' la piu' densa del lotto | questa nota |
+| 1) Dex completions / Youtube | 5 | catalogato il 2026-09-16: tutte e cinque le voci sono video, da chiedere come trascrizione | `pending.md` |
+| Commenti al post | 5 | letto il 2026-09-16 | questa nota |
+| 10) Lastly, a shootout the YT channels I follow closely on the topic of collecting | 6 | catalogato il 2026-09-16: sono sei canali video, da chiedere come trascrizione | `pending.md` |
 
 Il nome di un cluster in questa tabella deve essere esattamente quello del censimento, e più nomi si separano con la virgola: è la chiave con cui `tools/indice-fonti-unico.py` porta lo stato di lettura dentro il registro delle fonti, e un nome che non corrisponde non produce un errore ma una riga senza stato, che il blocco generato elenca fra i buchi. I cluster che non compaiono qui sono da leggere, e il loro conto sta nel blocco generato invece che in una riga di prosa che invecchia.
 
@@ -408,3 +425,43 @@ Non sono nel lotto prodotto perche' il generatore non le produce: `tools/genera-
 ### Le uova sul Parco Amici, verificato sulla fonte di primo livello
 
 Sul secondo tema caldo, se un esemplare a forma di uovo attraversi il Parco Amici, le due pagine Bulbapedia gia' nel corpus danno una risposta parziale. La pagina del Trasferimento (Gen4 verso Gen5) esclude esplicitamente le uova: "Any Pokemon can be transferred, except Eggs and Spiky-eared Pichu", oltre agli esemplari che conoscono una macchina nascosta. La pagina del Parco Amici (Gen3 verso Gen4), letta di nuovo con questa domanda precisa, non porta una frase equivalente: descrive come si stabilisce il gioco di origine di un esemplare ottenuto come uovo ("For Pokemon obtained as Eggs, the game of origin is determined by the game it was generated in, not the game it was hatched in"), ma non dichiara le uova escluse dal passaggio stesso. Resta DA VERIFICARE se il Parco Amici accetti le uova mentre il Trasferimento le rifiuta, oppure se la fonte lo dia per implicito senza dirlo: nessuna delle due letture e' una supposizione dichiarata come fatto. Se le uova passassero il Parco Amici ma poi si bloccassero al Trasferimento, i cinquanta esemplari "con mossa" del progetto (che sono uova non schiuse) resterebbero comunque bloccati un anello piu' avanti, quindi la domanda pratica per la produzione e' la stessa gia' aperta: va composto un esemplare di prova e fatto giudicare, non dedotto dall'enciclopedia.
+
+## Lotto del 2026-09-16: la coda del corpus, cioè i diciassette cluster rimasti
+
+### Che cosa restava, e perché era rimasto per ultimo
+
+Restavano diciassette cluster su quarantadue, per sessanta voci: il preambolo, il cluster degli strumenti generali, i dodici cluster della caccia ai cromatici, il cluster dei canali video, i commenti al post di raccolta e il sottocluster dei video del primo cluster. Erano rimasti per ultimi con una motivazione dichiarata, cioè che servono soltanto se il profilo di collezione scelto comprende i cromatici, e quella motivazione era corretta come criterio di priorità ma è diventata un ostacolo quando la decisione sul profilo ha continuato a restare aperta: un corpus letto a metà costringe a tornare sulle stesse domande, e il costo di quel tornare ha superato il costo della lettura.
+
+Delle sessanta voci, trentaquattro erano scaricate e leggibili, ventiquattro erano catalogate con il proprio motivo, quasi tutte perché in forma di video su un servizio che il progetto non recupera, e due non erano nel grafo della corsa. Le trentaquattro sono state lette. Le ventiquattro restano catalogate e vanno chieste come trascrizione se un giorno serviranno, secondo la regola sulle fonti non recuperabili: la loro assenza è dichiarata e non dedotta.
+
+### Il risultato che vale più dell'intero lotto, e che non riguarda i cromatici
+
+La pagina delle forme cromatiche non ottenibili porta, in una nota a piè di pagina sul Celebi, la conferma indipendente del fatto che questa stessa giornata aveva stabilito leggendo il sorgente del verificatore: gli esemplari della Console Virtuale possono salire soltanto alla settima generazione o oltre, attraverso la banca, mentre quelli ottenuti sulle cartucce fisiche della prima e della seconda generazione non possono salire alla terza o a una successiva. È la terza prova indipendente dello stesso fatto, dopo la condizione esplicita di `EntityConverter.IsConvertibleToFormat` e la tabella delle quattro catene, e chiude definitivamente la questione: il passo che era stato dichiarato come prossimo, cioè far passare `_notes/lotto-gb/` per il Parco Amici, non esisteva.
+
+Il manuale della caccia per la prima e la seconda generazione aggiunge il secondo tempo di quella conferma, e lo fa dal lato della via che invece esiste. La sua sezione sul trasferimento verso la settima generazione descrive la stessa trasformazione che il sorgente del verificatore implementa, e ne documenta un dettaglio che il sorgente esprime come chiamata a una funzione e che qui è scritto per esteso: la natura dell'esemplare trasferito si ricava dai punti esperienza come resto della divisione per venticinque, con la tavola completa dei venticinque casi e la scorciatoia delle ultime due cifre. Ne discende una conseguenza operativa che vale registrare perché trasforma un effetto collaterale in uno strumento: la natura di un esemplare che attraversa il Trasferitore non è casuale ed è interamente determinata da un campo che il progetto compone, quindi è scegliibile. La fonte indica anche il modo di ottenerla giocando, cioè lasciare l'esemplare alla pensione e contare i passi, che per noi è irrilevante ma conferma che il campo è quello.
+
+### Il vincolo del Trasferitore che nessuna fonte del progetto aveva
+
+La pagina dell'uovo misterioso porta un vincolo puntuale e duro sulla medesima via, ed è del tipo che si scopre soltanto quando il trasferimento fallisce: il Trasferitore non porta alla banca un esemplare nato da quell'uovo se esso conosce la mossa Pugnorapido. La fonte lo dichiara una svista, e la spiega con il fatto che l'uovo misterioso non esiste nella versione giapponese per Console Virtuale di Cristallo, che è quella su cui il Trasferitore fu tarato. È lo stesso genere di vincolo delle macchine nascoste sugli anelli della catena principale, cioè una mossa che blocca un passaggio, e va nella stessa lista: se un giorno il lotto di seconda generazione passerà per quella via, le voci che portano quella mossa vanno verificate una per una prima e non dopo.
+
+La stessa pagina fissa anche i valori individuali di quell'uovo, che sono due soli insiemi possibili, 0/0/0/0 per l'esemplare normale e 2/10/10/10 per quello cromatico, con la probabilità del cinquanta per cento nella versione giapponese e del quattordici per cento nelle altre. È un caso raro in cui la fedeltà sui valori individuali di un esemplare di seconda generazione è decidibile, contro la regola generale registrata il 2026-09-03 che su quell'anello la dichiara indecidibile per difetto di informazione: qui l'informazione esiste perché il gioco non li estrae ma li sceglie in un insieme di due.
+
+### Due vincoli di ottenibilità che toccano il profilo di collezione
+
+Il primo riguarda la seconda generazione e nasce dal fatto che in essa un solo insieme di valori determina insieme la cromaticità, il sesso e la forma di Unown. Ne seguono due classi di esemplari che non possono essere cromatici in quella generazione, e non per una scelta di chi ha programmato il gioco ma per aritmetica: le femmine delle specie il cui rapporto fra i sessi è una femmina ogni sette maschi, che comprendono le tre linee iniziali di Kanto, quelle di Johto, la linea di Eevee, i fossili e altre ancora; e tutte le forme di Unown tranne le lettere I e V. Il progetto ha un asse delle forme che conta ventotto voci per Unown e un asse del sesso che ne conta centodue, quindi questo vincolo li attraversa entrambi e va conosciuto prima di scegliere un profilo che comprenda i cromatici.
+
+Il secondo riguarda gli esemplari oscuri e corregge una simmetria che sarebbe naturale assumere: nel secondo dei due titoli per console fissa quegli esemplari sono bloccati contro la cromaticità, mentre nel primo non lo sono. Chi volesse la collezione degli oscuri in versione cromatica può quindi ottenerla soltanto dal primo dei due, e la differenza non è di difficoltà ma di possibilità.
+
+### Due porte che si aprono nel deposito, e che il progetto non aveva contato
+
+La pagina delle forme cromatiche non ottenibili registra, fra le eccezioni, due casi in cui il deposito stesso consegna un esemplare cromatico come premio per il completamento di un Pokedex regionale: Keldeo per i tre Pokedex dell'ottava generazione e Meloetta per i tre della nona. È un fatto che tocca l'obiettivo dichiarato di questo progetto più di quanto tocchi l'asse dei cromatici, perché lega un premio al completamento che il progetto persegue comunque, e va verificato contro le condizioni correnti del servizio prima di contarlo. Nella stessa pagina si registra che il Manaphy cromatico, impossibile per il salvataggio che riceve l'uovo, è invece ottenibile dal deposito per il completamento del Pokedex di Sinnoh dalle riedizioni della quarta generazione a partire dal 28 gennaio 2025.
+
+### Che cosa il resto del lotto ha confermato senza aggiungere
+
+I manuali per la terza, la quarta e la quinta generazione, le due pagine dell'enciclopedia sul metodo di accoppiamento internazionale e sul talismano, e le guide per le generazioni dalla sesta alla nona descrivono meccaniche di caccia che il progetto non impiega, perché esso compone gli esemplari invece di cercarli. Confermano i due numeri che servivano, cioè la probabilità di base di una su ottomilacentonovantadue dalla seconda alla quinta generazione e di una su quattromilanovantasei dalla sesta in avanti, e il moltiplicatore per cinque del metodo di accoppiamento internazionale. Le pagine degli strumenti di calcolo sono utilità interattive senza contenuto da leggere. Il preambolo è la versione precedente, del giugno 2025, del post di raccolta che è il seme del corpus: la sua struttura in quattro sezioni è quella che la versione aggiornata ha poi portato a dieci, e l'unica cosa che aggiunge è la dichiarazione esplicita del suo autore sul confine che egli traccia, cioè che considera leciti i difetti sfruttabili e la manipolazione del generatore pseudocasuale e illecita la modifica dei dati con strumenti esterni. È la stessa distinzione fra legale e legittimo che ADR-023 registra, formulata da chi ha compilato l'elenco che questo progetto sta leggendo, e vale conoscerla perché il corpus è stato scelto da quella mano.
+
+I commenti al post di raccolta contengono un solo rinvio non già presente altrove, la base di dati degli eventi di Serebii, che è una pagina di navigazione senza dati per evento. Essa porta però una nota utile all'asse della lingua: dalla sesta generazione in avanti la lingua e il nome di un esemplare da evento non soprannominato seguono la lingua del gioco che lo riceve, quindi un evento giapponese può presentarsi con il nome inglese. È il confine generazionale della regola che questo progetto ha verificato sul sorgente per la terza e la quarta generazione, dove invece il contrassegno si confronta con la lingua che l'esemplare stesso dichiara.
+
+### Lo stato del corpus dopo questo lotto
+
+Tutti e quarantadue i cluster del censimento sono letti. Ciò che resta non letto non è più un cluster ma un insieme di voci dichiarate: le ventiquattro catalogate di questo lotto, quasi tutte video, più quelle che i lotti precedenti avevano già dichiarato con lo stesso criterio. Il debito di lettura del corpus è chiuso; il debito di trascrizione dei video resta aperto e sta in `pending.md`.

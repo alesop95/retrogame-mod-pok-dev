@@ -86,7 +86,7 @@ Esiste per una ragione dichiarata dall'utente il 2026-09-10, ed e' la stessa che
 | voci del corpus della collezione | 171 |
 | di esse, promosse a fonte registrata | 25 |
 | cluster del corpus | 42 |
-| di essi, con uno stato di lettura dichiarato | 25 |
+| di essi, con uno stato di lettura dichiarato | 42 |
 
 ### Le fonti registrate, e dove finisce ciascuna
 
@@ -208,9 +208,9 @@ Ogni riga e' un cluster del post di raccolta. Lo stato viene dal registro di let
 
 | Cluster | Voci | Promosse | Stato di lettura | Dove sta l'esito |
 |---|---|---|---|---|
-| Preambolo | 1 | 0 | da leggere | - |
+| Preambolo | 1 | 0 | letto il 2026-09-16: e' la versione del giugno 2025 del post di raccolta, cioe' il predecessore del seme | questa nota |
 | 1) Dex completions | 4 | 2 | letti il 2026-09-10, meno le due voci in forma di video e la pagina non scaricata | questa nota |
-| 1) Dex completions / Youtube | 5 | 4 | da leggere | - |
+| 1) Dex completions / Youtube | 5 | 4 | catalogato il 2026-09-16: tutte e cinque le voci sono video, da chiedere come trascrizione | `pending.md` |
 | 1) Dex completions / Reddit | 1 | 0 | letti il 2026-09-10, meno le due voci in forma di video e la pagina non scaricata | questa nota |
 | 1) Dex completions / Pokemon Collection Trackers | 7 | 1 | letto il 2026-09-10, cinque voci su sette | `CONFRONTO-LIVINGDEX-POKEPC.md` e questa nota |
 | 1) Dex completions / Gen 1 | 3 | 1 | letti il 2026-09-09, meno le tre voci in forma di video | questa nota |
@@ -229,27 +229,27 @@ Ogni riga e' un cluster del post di raccolta. Lo stato viene dal registro di let
 | 4) Ribbon Master | 3 | 0 | letto il 2026-09-09, il manuale resta da recuperare | questa nota |
 | 5) Other lists and spreadsheets | 6 | 3 | CHIUSO il 2026-09-14: le due voci dichiarate non recuperabili il 2026-09-09 sono rientrate con il recupero di ADR-057, e l'indice delle distribuzioni è letto | `ID-NOTEVOLI.md` e questa nota |
 | 6) How to still get Bank and other games/ 3DS modding | 4 | 1 | letto il 2026-09-09 | `STUDIO-09` e questa nota |
-| 7) General tools | 3 | 0 | da leggere | - |
-| 8) Shiny Hunting | 1 | 0 | da leggere | - |
-| 8) Shiny Hunting / Gen 1 | 1 | 0 | da leggere | - |
-| 8) Shiny Hunting / Gen 2 | 4 | 0 | da leggere | - |
-| 8) Shiny Hunting / Gen 3 | 2 | 0 | da leggere | - |
-| 8) Shiny Hunting / Gen 4 | 4 | 0 | da leggere | - |
-| 8) Shiny Hunting / Gen 5 | 3 | 0 | da leggere | - |
-| 8) Shiny Hunting / Gen 6 | 5 | 4 | da leggere | - |
-| 8) Shiny Hunting / Gen 7 | 3 | 1 | da leggere | - |
-| 8) Shiny Hunting / Gen 8 | 2 | 1 | da leggere | - |
-| 8) Shiny Hunting / Gen 9 | 3 | 0 | da leggere | - |
-| 8) Shiny Hunting / Spinoffs | 9 | 2 | da leggere | - |
-| 8) Shiny Hunting / General tips | 3 | 0 | da leggere | - |
+| 7) General tools | 3 | 0 | letto il 2026-09-16: sono calcolatori interattivi, senza contenuto da leggere | questa nota |
+| 8) Shiny Hunting | 1 | 0 | letto il 2026-09-16 | questa nota |
+| 8) Shiny Hunting / Gen 1 | 1 | 0 | letto il 2026-09-16 | questa nota |
+| 8) Shiny Hunting / Gen 2 | 4 | 0 | letto il 2026-09-16: l'uovo misterioso porta il vincolo del Trasferitore sulla mossa Pugnorapido | questa nota |
+| 8) Shiny Hunting / Gen 3 | 2 | 0 | letto il 2026-09-16 | questa nota |
+| 8) Shiny Hunting / Gen 4 | 4 | 0 | letto il 2026-09-16 | questa nota |
+| 8) Shiny Hunting / Gen 5 | 3 | 0 | letto il 2026-09-16 | questa nota |
+| 8) Shiny Hunting / Gen 6 | 5 | 4 | letto il 2026-09-16, meno le voci in forma di video | questa nota |
+| 8) Shiny Hunting / Gen 7 | 3 | 1 | letto il 2026-09-16 | questa nota |
+| 8) Shiny Hunting / Gen 8 | 2 | 1 | letto il 2026-09-16 | questa nota |
+| 8) Shiny Hunting / Gen 9 | 3 | 0 | letto il 2026-09-16 | questa nota |
+| 8) Shiny Hunting / Spinoffs | 9 | 2 | letto il 2026-09-16: gli esemplari oscuri sono bloccati contro la cromaticita' nel secondo titolo per console fissa e non nel primo | questa nota |
+| 8) Shiny Hunting / General tips | 3 | 0 | letto il 2026-09-16: la pagina delle forme non ottenibili e' la piu' densa del lotto | questa nota |
 | 9) RNG Manipulation and Glitches / RNG Manipulation - the best sources to start | 7 | 1 | letto il 2026-09-09 | `STUDIO-08` |
 | 9) RNG Manipulation and Glitches / Item Printer Gen 9 | 3 | 1 | letto il 2026-09-09 | `STUDIO-08` |
 | 9) RNG Manipulation and Glitches / Glitches | 1 | 0 | letto il 2026-09-09 | `STUDIO-08` |
 | 9) RNG Manipulation and Glitches / 8F for Gen 1 games | 1 | 0 | letto il 2026-09-09 | `STUDIO-08` |
 | 9) RNG Manipulation and Glitches / Coin Case Glitch for Gen 2 games | 1 | 0 | letto il 2026-09-09 | `STUDIO-08` |
 | 9) RNG Manipulation and Glitches / ACE coding in Gen 2 & Gen 3 | 4 | 1 | letto il 2026-09-09 | `STUDIO-08` |
-| 10) Lastly, a shootout the YT channels I follow closely on the topic of collecting | 6 | 0 | da leggere | - |
-| Commenti al post | 5 | 1 | da leggere | - |
+| 10) Lastly, a shootout the YT channels I follow closely on the topic of collecting | 6 | 0 | catalogato il 2026-09-16: sono sei canali video, da chiedere come trascrizione | `pending.md` |
+| Commenti al post | 5 | 1 | letto il 2026-09-16 | questa nota |
 
 ### I buchi, dichiarati invece che dedotti
 
