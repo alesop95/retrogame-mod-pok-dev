@@ -148,12 +148,11 @@ Il primo modo vale quando il contenuto nuovo è già stato portato nel capitolo,
 
 Il secondo modo vale quando il contenuto nuovo nel capitolo non c'è ancora, e allora il timbro non va toccato, perché spostarlo dichiarerebbe una rilettura che non è avvenuta e spegnerebbe l'unico strumento che segnala il debito. Va invece scritto il contenuto.
 
+I quattro capitoli del PRIMO MODO sono stati chiusi il 2026-09-16 bumpando il timbro a `397ea77`, verificato che il solo cambiamento fosse la riga del timbro e che i fine riga non si fossero mossi. Resta il solo capitolo del SECONDO MODO, che non si chiude con un bump.
+
 | Capitolo | Documento che si è mosso | Quale dei due modi, e che cosa manca |
 |---|---|---|
 | `02-supporto-e-salvataggio.tex`, fermo a `d3667cb` del 2026-09-04 | `cart-battery-restoration/STUDIO-01-batteria-e-ritenzione.md` | SECONDO MODO: il contenuto manca davvero. Lo studio ha guadagnato dodici righe il 2026-09-15 che il capitolo non porta, e riguardano il trabocchetto di tensione del lettore: la conferma di prima mano letta sul sorgente di FlashGBX (`LK_Device.py`, metodo `SetMode`) invece che su una testimonianza di canale, l'esito negativo del tentativo di verifica sui due manuali ufficiali e sulla pagina prodotto, la precisazione che il rischio catastrofico è asimmetrico e specifico dell'inserimento di una cartuccia di seconda generazione, e soprattutto la RISOLUZIONE del 2026-09-15 per esperimento a rischio zero eseguito dall'utente, cioè che il LED Mode accanto al connettore USB-C segnala la tensione selezionata, corroborata poi da pagina 4 del manuale Rev40. È il solo drift davvero preesistente e appartiene al track della pila, non a quello del deposito: per questo i giri del 2026-09-16 lo hanno lasciato fuori scopo, ma va chiuso scrivendo quelle righe nel capitolo e solo dopo bumpando il timbro |
-| `00-premessa.tex` e `23-fonti.tex`, fermi a `f995fd4` | `SOURCES.md` | PRIMO MODO: il blocco generato dentro il registro è cambiato con la chiusura del corpus del 2026-09-16, e i due capitoli non devono cambiare perché descrivono il registro e non il suo blocco. Basta il bump del timbro |
-| `28-catena-di-trasferimento.tex`, fermo a `80fac1f` | `pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md` | PRIMO MODO: il contenuto del 2026-09-16 è già nel capitolo, cioè il ritiro del passo verso la quarta generazione, la sezione sulla via che esiste davvero e la sezione sulle mutazioni del Trasferitore con la leva della natura. Basta il bump del timbro |
-| `31-corpus-e-pianificazione.tex`, fermo a `80fac1f` | `pokedex-home-completo/LETTURA-DEL-CORPUS.md` | PRIMO MODO: il contenuto del 2026-09-16 è già nel capitolo, cioè la chiusura del corpus, le tre sottosezioni tecniche e il cluster inaccoppiabile. Basta il bump del timbro |
 
 ## Debito di lettura
 
