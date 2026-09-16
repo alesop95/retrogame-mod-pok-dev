@@ -141,6 +141,40 @@ def fonti_disponibili(ace, esito_salvataggi):
                 if naz:
                     aggiungi(int(naz), "evento Gen 3 producibile")
 
+    # Gli scambi in gioco di terza generazione, dal lotto prodotto e giudicato conforme il
+    # 2026-09-14. Si legge il file scritto invece di ricalcolare la tabella della fonte, perché
+    # qui interessa che cosa il progetto ha davvero composto e fatto giudicare, non che cosa la
+    # fonte elenca: il censimento completo della classe (tools/censimento-scambi.py, 238 voci su
+    # 152 specie) resta un conto separato, perché la maggior parte di quelle voci non ha ancora un
+    # generatore che le produca. Questa classe è quindi trattata come "evento Gen 3 producibile"
+    # sopra: una fonte entra qui solo quando il progetto sa già fornirla, non quando sa contarla.
+    ponte = os.path.join(RADICE, "pokemon-gen12-gen3-bridge-original-hardware")
+    lotto_scambi = os.path.join(RADICE, "_notes", "lotto-scambi-gen3")
+    if os.path.isdir(lotto_scambi):
+        if ponte not in sys.path:
+            sys.path.insert(0, ponte)
+        try:
+            from pokebridge.gen3 import Gen3Mon
+            from pokebridge.save3 import record_da_file
+            generatore3 = carica_modulo("gen3ev2", os.path.join(RADICE, "tools",
+                                                                "genera-evento-gen3.py"))
+            i2n_scambi = {v: k for k, v in generatore3.nazionale_verso_interno(ace).items()}
+        except Exception as exc:
+            print("  nota: il lotto degli scambi Gen 3 non si e' potuto leggere (%s)" % exc)
+            i2n_scambi = None
+        if i2n_scambi:
+            for nome_file in sorted(os.listdir(lotto_scambi)):
+                if not nome_file.endswith(".pk3"):
+                    continue
+                dati = io.open(os.path.join(lotto_scambi, nome_file), "rb").read()[:80]
+                try:
+                    mon = Gen3Mon.from_bytes(record_da_file(dati))
+                except Exception:
+                    continue
+                naz = i2n_scambi.get(mon.growth.species)
+                if naz:
+                    aggiungi(naz, "scambio in gioco Gen 3 (prodotto e conforme)")
+
     # I depositi dei salvataggi esterni, dall'esito JSON dello strumento di verifica. La
     # corrispondenza fra numerazione interna e nazionale viene dal generatore, che dal 2026-09-02
     # la garantisce iniettiva.
@@ -646,6 +680,21 @@ def scrivi(percorso, righe_specie, righe_forma, per_fonte, eventi):
              "forme il deposito conti come casella separata. L'elenco le enumera e marca "
              "l'indeterminatezza invece di decidere, perché decidere sarebbe inventare."
              % len(righe_forma))
+    r.append("")
+    r.append("Restano fuori da questa rigenerazione due correzioni che il progetto ha in sospeso, "
+             "e vanno dichiarate invece di essere fatte scivolare dentro un aggiornamento "
+             "qualunque. Le sessantatré configurazioni di Alcremie e le centodue specie dell'asse "
+             "del sesso, misurate rispettivamente da fonti esterne indipendenti e da "
+             "`tools/enumera-differenze-sesso.py`, non sono incorporate qui perché questa tabella "
+             "enumera le forme così come le porta la fonte di PKHeX letta da "
+             "`tools/disponibilita-titoli.py`, e sostituire quel conteggio con uno "
+             "corroborato da fonti diverse è una decisione di prodotto, cioè quale fonte faccia "
+             "fede sul numero delle forme, non una correzione meccanica. Gli incontri "
+             "condizionati censiti da `tools/censimento-condizionati.py`, 137 specie da un tipo di "
+             "casella, 49 da un'area monospecie esclusiva e 12 da un luogo dedicato, restano fuori "
+             "dalla colonna delle fonti per una ragione diversa e più semplice: nessun generatore "
+             "del progetto li produce ancora, quindi non sono una fonte che il progetto \"sa già "
+             "fornire\", che è il solo criterio di questa colonna.")
     r.append("")
 
     r.append("## Voci di specie")
