@@ -16,7 +16,7 @@
 % copre: pokedex-home-completo/SCHEDE-EVENTI-GB.md
 % copre: generation-from-switch/README.md
 % copre: generation-from-switch/STUDIO-01-scambio-automatico-e-provenienza.md
-% verificato-al-commit: f995fd4
+% verificato-al-commit: 8bb74de
 % ---------------------------------------------------------------------
 
 \chapter{Caso di studio: la provenienza di un esemplare}
@@ -538,3 +538,13 @@ Il lavoro mantiene un registro delle fonti, in cui ogni fonte consultata è anno
 La lettura corretta di questi tre episodi non è che serva più attenzione, poiché l'attenzione non ha mai prevenuto nulla di sistematico. La lettura corretta è che un registro delle fonti è un'infrastruttura di consultazione, e un'infrastruttura di consultazione che non venga consultata prima di dichiarare aperta una domanda produce esattamente l'effetto di non esistere, con il costo aggiuntivo di essere mantenuta. Il rimedio è procedurale e verificabile: prima di dichiarare da verificare un fatto esterno, si cerca quel fatto nel registro, e la ricerca è una singola invocazione di uno strumento di ricerca testuale.
 
 Vale notare la simmetria con il difetto della sezione precedente, poiché le due lezioni sono la medesima applicata a due materiali. Là un nome nella prosa proveniva dalla memoria anziché dalla tabella accanto; qui una risposta proveniva dalla memoria anziché dal registro accanto. In entrambi i casi l'informazione corretta era a distanza di un comando, e in entrambi i casi il costo dell'omissione è stato pagato più tardi e da qualcun altro: nel primo dal lettore, che avrebbe creduto a una frase falsa; nel secondo dalla pianificazione, che ha misurato uno spazio più piccolo del reale.
+
+\section{Una fonte in più, e un quasi-incidente che ne misura il metodo}
+
+L'elenco di riferimento descritto nelle sezioni precedenti si aggiorna quando un lotto nuovo raggiunge lo stato di prodotto e giudicato conforme, e l'aggiornamento più recente riguarda gli scambi in gioco della terza generazione, chiusi diciannove su diciannove dal verificatore esterno. Lo strumento che genera l'elenco è stato esteso con una fonte in più, che legge i diciannove file reali del lotto invece di una tabella separata, ricavando la specie nazionale di ciascuno dagli stessi moduli del ponte già impiegati altrove in questo lavoro.
+
+Il numero complessivo dell'elenco non si è mosso: seicentottantacinque specie coperte su milleventicinque, trecentoquaranta senza alcuna fonte, identico allo stato precedente l'aggiunta. Non è un esito nullo ma la conferma che l'aggiunta è corretta: le specie portate dalla fonte nuova erano già coperte da fonti precedenti, e un numero che resta fermo quando si aggiunge una fonte ridondante è precisamente ciò che ci si deve aspettare. Un numero che si fosse mosso avrebbe richiesto una spiegazione prima di essere accettato.
+
+Il primo lancio della rigenerazione, però, quella spiegazione l'ha richiesta davvero, ed è il quasi-incidente che dà a questa sezione il suo secondo motivo di esistere. Il conteggio delle specie coperte è crollato da seicentottantacinque a settantuno, una variazione che nessuna aggiunta di fonte può produrre in senso diminutivo: aggiungere informazione non toglie mai una copertura già accertata. La causa non era nella fonte nuova ma in un parametro omesso nell'invocazione dello strumento, che escludeva la lettura dei salvataggi esterni della raccolta perché il file che ne conserva il censimento non era più presente su disco.
+
+Il punto che vale registrare non è l'errore, che è ordinario, ma il modo in cui è stato riconosciuto prima di essere consegnato come risultato: un numero che cambia senza una ragione di dominio è quasi sempre un difetto di invocazione e non una scoperta, criterio già enunciato altrove in questo lavoro e qui confermato per la quarta volta su un materiale diverso. Il censimento mancante è stato rigenerato e la rigenerazione della checklist ripetuta prima di accettare l'esito, e il numero tornato al proprio valore atteso ne è stato la verifica.
