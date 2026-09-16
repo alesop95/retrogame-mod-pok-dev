@@ -4,7 +4,7 @@ generated-from-branch: main
 generated-date: 2026-08-24
 covers-paths:
   - 3ds-related/
-last-verified-commit: 7b66def
+last-verified-commit: 80fac1f
 stato: attivo
 ---
 

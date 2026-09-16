@@ -4,7 +4,7 @@ generated-from-branch: main
 generated-date: 2026-08-24
 covers-paths:
   - gba-save-extraction-smeraldo/
-last-verified-commit: 7b66def
+last-verified-commit: 80fac1f
 stato: attivo, convalida hardware sulla cartuccia di prova CONCLUSA il 2026-09-15 (205 esemplari scritti e confermati byte per byte e in gioco), porta COM5; il prossimo collegamento del lettore e' per Smeraldo
 ---
 

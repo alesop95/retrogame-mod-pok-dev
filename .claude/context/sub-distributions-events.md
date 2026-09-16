@@ -4,8 +4,8 @@ generated-from-branch: main
 generated-date: 2026-08-28
 covers-paths:
   - recreate-pokemon-distributions-events/
-last-verified-commit: 7b66def
-stato: attivo; cinque lotti prodotti e giudicati dall'esterno, il lettore e' arrivato il 2026-09-09 e con esso cadono le dipendenze dall'hardware
+last-verified-commit: 80fac1f
+stato: attivo; il generatore di terza generazione copre ora 176 voci su 177 (il canale televisivo resta fuori per costruzione), il seme e' stabile per identita' di voce e non per posizione, e dal 2026-09-16 la sua uscita alimenta in software anche il passaggio alla quarta generazione
 ---
 
 # Sottoprogetto: ricreazione delle distribuzioni e degli eventi
@@ -55,6 +55,16 @@ Le trascrizioni delle quattro fonti stanno in `_notes/fonti/`, non versionate, e
 Il catalogo `EVENTI-GEN3.md` è generato da un clone di PKHeX che vive fuori dal repository: il percorso si passa sulla riga di comando a `tools/catalogo-eventi-gen3.py`, come per i disassemblati, e il comando di verifica è quello stesso strumento con `--check`.
 
 Gli esemplari con allenatore `10ANNI` vivono sulla cartuccia dell'utente e sono il primo dato autentico del progetto. Non entrano in git in nessuna forma; ciò che entra è il confronto fra i loro campi e la riga del catalogo.
+
+## Aggiunta del 2026-09-16: il generatore chiuso a 176, il seme stabilizzato, e il salto alla quarta generazione
+
+Quattro voci del catalogo di 177 non venivano mai prodotte senza che il generatore lo dichiarasse: usano il metodo `BACD_U`, che il codice confondeva con `BACD_U_AX` per un'espressione regolare troppo stretta sulla sigla di versione (la fonte scrive `Gen3` per queste quattro, con una cifra che il pattern non ammetteva). Corretto in due passi, e il catalogo prodotto sale da 172 a 176 su 177, con il solo canale televisivo escluso per costruzione (genera con un generatore pseudocasuale diverso). Le quattro voci nuove sono le "uova gemelle" del gruppo AZUSA: Zigzagoon con Estrarapido, Swablu con Falsofinale, Skitty con Giornopaga, Pichu con Surf.
+
+Inserire quelle quattro voci ha spostato l'indice con cui il generatore derivava il seme di ogni voce successiva, perché il seme dipendeva dalla posizione nell'elenco e non da un'identità propria della voce: diciotto esemplari già scritti sulla cartuccia vera del Rubino di prova hanno smesso di corrispondere a un file del lotto rigenerato. Non un dato perso, la cartuccia resta intatta, ma la riproducibilità byte per byte si era rotta. Corretto derivando il seme da un identificativo stabile (allenatore, specie, nota di distribuzione) invece che dalla posizione: verificato che le 172 voci storiche tornano a produrre esattamente i valori già sulla cartuccia, zero divergenze, controllato indipendentemente due volte.
+
+Un audit richiesto dall'utente sui livelli di tutti gli scambi in gioco già prodotti (terza, quarta e quinta generazione, 42 voci) non ha trovato alcun caso a livello variabile: ogni scambio ha un livello fisso nella tabella del verificatore, incluso il Farfetch'd di FireRed/LeafGreen che sembrava contraddire questo (il gioco vero lega il livello a quello del Pokemon consegnato, ma il verificatore giudica solo il valore che registra come canonico).
+
+Il fatto più grande della giornata è però un anello nuovo della catena: `pokemon-gen12-gen3-bridge-original-hardware/pokebridge/parco_amici.py`, che sintetizza in software il passaggio del Parco Amici verso la quarta generazione, letto dalla fonte vera del verificatore e verificato contro l'osservazione umana in `PKHeX` su due casi particolari (un esemplare da uovo, un esemplare con macchina nascosta). Applicato a tutte le 209 voci già prodotte in terza generazione (176 distribuzioni, 14 incontri sbloccati, 19 scambi in gioco), produce 203 record di quarta generazione in `_notes/lotto-parco-amici-gen4/`, sei esclusi per macchina nascosta e da decidere uno per uno. Elimina per la prima volta la necessità di hardware o emulazione DS per questo anello: dettaglio completo, con la fonte di ogni mutazione, in `pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md`.
 
 ## Aggiunta del 2026-09-01: la nota operativa, e la divisione del lavoro
 

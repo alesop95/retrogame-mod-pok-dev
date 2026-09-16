@@ -13,7 +13,7 @@ covers-paths:
   - generation-from-switch/
   - cart-battery-restoration/
   - pokedex-home-completo/
-last-verified-commit: dd8d10b
+last-verified-commit: 80fac1f
 stato: adozione conclusa; dieci track, fuoco corrente sul completamento del Pokedex nel deposito
 ---
 
@@ -25,9 +25,9 @@ La fonte di verità su cosa è fatto resta `memory/index.md`, non le spunte di q
 
 | Sottoprogetto | Stato | Prossima azione concreta | Bloccato da |
 |---|---|---|---|
-| pokedex-completo | attivo ed è il fuoco corrente; sei assi più le due classi nuove più i marchi di ADR-058, criterio di produzione fissato e coda ordinata per scadenza; il corpus è a 405 documenti e il lotto trasversale è letto dal 2026-09-14 | due recuperi mirati che chiudono altrettante domande aperte, cioè la pagina del Trasferimento fra quarta e quinta per la correzione sulla lingua e quella degli scambi in gioco nelle altre lingue per poterli produrre; in parallelo il lavoro che ADR-051 apre, cioè estendere il generatore alle classi nuove e rigenerare la lista di spunta con i tre cambi recenti | nulla di tecnico; restano due decisioni dell'utente, cioè l'ambito delle sfide e la scelta del profilo di collezione |
-| distributions-events | attivo; cinque lotti prodotti, quello di terza conforme su tutte le voci producibili e quello di quarta su 219 su 247 | il pedigree delle voci di quarta generazione e il generatore di quinta, che è l'ultimo dei tre regimi a non essere scritto | nulla su questi passi; le 28 voci coreane attendono una decisione registrata in ADR-040 |
-| gen12-gen3-bridge | attivo; le tre generazioni e lo strato del salvataggio da 128 KiB sono scritti e collaudati, 206 prove | il confronto del salvataggio sintetico con il contenitore che il verificatore genera, che è la prova che alla simmetria mancava | nulla sul lavoro comune: ADR-008 e la discovery hardware pesano solo sull'ultimo tratto |
+| pokedex-completo | attivo ed è il fuoco corrente; dal 2026-09-16 il trasferimento terza-quarta generazione si sintetizza in software (203 esemplari già prodotti, `_notes/lotto-parco-amici-gen4/`), la checklist copre 685 specie su 1025, il generatore Gen3 copre 176 voci su 177 | estendere la stessa sintesi software all'uscita di prima/seconda generazione, far giudicare dall'esterno gli scambi di quarta e quinta generazione già composti, proseguire la lettura del corpus (oltre cento post residui) | nulla di tecnico; restano le decisioni già registrate su Alcremie/asse del sesso, il profilo di collezione, e le sei voci con macchina nascosta escluse dalla sintesi Parco Amici |
+| distributions-events | attivo; sei lotti Gen3 prodotti (176 distribuzioni, 14 incontri, 19 scambi), più i primi scambi di quarta (16) e quinta (7) generazione, tutti in attesa di giudizio salvo i 19 già conformi | il pedigree delle voci di quarta generazione, e le sei voci con macchina nascosta escluse dalla sintesi del Parco Amici che attendono una decisione | nulla su questi passi; le 28 voci coreane attendono ADR-040 |
+| gen12-gen3-bridge | attivo; le tre generazioni e lo strato del salvataggio da 128 KiB sono scritti e collaudati, 206 prove; dal 2026-09-16 il pacchetto sintetizza in software anche il passaggio Parco Amici verso la quarta generazione | il confronto del salvataggio sintetico con il contenitore che il verificatore genera; estendere la sintesi del Parco Amici all'uscita di prima/seconda generazione | nulla sul lavoro comune: ADR-008 e la discovery hardware pesano solo sull'ultimo tratto |
 | smeraldo-save-fix | attivo; il lettore è arrivato il 2026-09-09 e la prima sessione è progettata nel runbook | confermare i driver CH340 e annotare la porta, poi eseguire i quattro tempi del runbook nell'ordine del rischio | il solo riscontro sulla macchina per i driver |
 | cart-battery | diagnosi conclusa e negativa su Rosso e Argento; il runbook è scritto e verificato sulle fonti | provare le eventuali altre cartucce di prima e seconda generazione, che sono le sole con una finestra ancora aperta | nulla; la saldatura si fa quando conviene, perché su quelle due non c'è più nulla da perdere |
 | 3ds-modding | attivo | dump delle cinque cartucce DS rimanenti: Diamante, Perla, Platino, Nera 2, SoulSilver | nulla |
