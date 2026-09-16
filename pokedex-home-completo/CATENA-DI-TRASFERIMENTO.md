@@ -101,6 +101,42 @@ Il Mew dell'isola lontana, aggiunto il 2026-09-07. Il biglietto della vecchia ma
 
 Le cartucce possedute sono italiane, che è la ragione per cui né la stazione coreana né quella giapponese possono essere una cartuccia vera. La conseguenza operativa è che la via in emulazione descritta sotto non serve a una sola lingua ma a tutte quelle che il lotto contiene, e che il numero delle stazioni da allestire è il numero delle lingue distinte e non il numero degli esemplari bloccati.
 
+## Il Parco Amici sintetizzato in software, senza hardware né emulazione
+
+Il 2026-09-16 due prove a mano in `PKHeX` hanno stabilito un fatto che cambia il costo del primo anello della catena: trascinare un file di terza generazione in un salvataggio di quarta applica davvero la trasformazione del Parco Amici, non un passaggio a vuoto. Un Mew normale diventa Legale con il luogo scritto come Parco Amici e il gioco di origine corretto. Un esemplare non schiuso (`_notes/lotto-eventi/123-PichuwithTeeterDance-Pichu.pk3`) diventa Legale ma con il contrassegno di uovo spento: la conversione lo fa schiudere invece di rifiutarlo, coerente con il gioco vero, dove un uovo non attraversa il Parco Amici da uovo. Un esemplare con una macchina nascosta (`010-YokohamaPikachu-Pikachu.pk3`, Surf) diventa Legale ma con la mossa tolta in silenzio: PKHeX non rifiuta il trasferimento, lo corregge.
+
+Questo terzo esito ha portato a leggere il sorgente vero della conversione, `PK3.ConvertToPK4()` in `_notes/fonti/pkhex/PKHeX.Core/PKM/PK3.cs`, e a scrivere un modulo che la rifà in software: `pokebridge/parco_amici.py`, con lo strumento che lo applica a un lotto intero, `tools/costruisci-lotto-parco-amici.py`. Il risultato pratico è che il primo anello della catena, cioè il passaggio dalla terza alla quarta generazione, non richiede più né un Nintendo DS né un emulatore: si scrive direttamente il record di quarta generazione che quel passaggio avrebbe prodotto.
+
+### Le mutazioni, dalla fonte
+
+Identificativo, valore di personalità, sfera, valori individuali, punti esperienza, valori di sforzo e statistiche da gara si copiano senza ricalcolo: la fonte li assegna direttamente dal record di partenza, senza toccarli.
+
+La cordialità si azzera a settanta, sempre, indipendentemente da quella di partenza: `OriginalTrainerFriendship = 70` nella fonte.
+
+Il livello d'incontro diventa il livello di arrivo (`MetLevel = CurrentLevel`). Il modulo assume che il livello di arrivo coincida con il livello con cui l'esemplare è stato composto, perché nessun esemplare prodotto da questo progetto viene mai fatto crescere prima del trasferimento: è una decisione dichiarata, non un'approssimazione silenziosa.
+
+Il contrassegno di uovo si spegne sempre, e un esemplare non schiuso viene fatto schiudere: specie, mosse e valori individuali non cambiano (verificato sul Pichu citato sopra), e il soprannome diventa il nome della specie nella lingua dell'esemplare.
+
+### Due correzioni a quanto questo documento affermava prima
+
+Il luogo d'incontro non varia per gioco di origine come le sezioni precedenti di questo documento affermavano ("Kanto per Rosso Fuoco e Verde Foglia, Hoenn per Rubino..."): la fonte scrive un'unica costante, `Locations.Transfer3 = 0x37`, uguale per ogni gioco di terza generazione. Ciò che varia con il gioco di origine è soltanto il campo `Version`, che resta quello originale e non viene toccato da questo passaggio. La differenza di testo che Bulbapedia descrive per regione è quindi, al più, una questione di come il gioco *mostra* il luogo a partire dalla versione, non di un campo numerico diverso: il dato che conta per la legittimità è uno solo.
+
+Il contrassegno "senza soprannome" non si rideriva confrontando il nome corrente con la lingua del gioco di arrivo, come la sezione sulla lingua affermava. La fonte (`G3PKM.IsNicknamed`, in `_notes/fonti/pkhex/PKHeX.Core/PKM/Shared/G3PKM.cs`) confronta il nome corrente con il nome della specie NELLA LINGUA CHE L'ESEMPLARE STESSO DICHIARA, e la conversione copia quel solo bit sul record di quarta generazione senza rifare il confronto. Un esemplare giapponese con il proprio nome giapponese di specie (per esempio il Mew dell'isola lontana, nomignolo ミュウ) risulta perciò "senza soprannome" anche dopo il passaggio a un gioco occidentale, verificato componendolo con questo modulo. Ciò che resta sbagliato, e resta un difetto solo cosmetico, è la resa a video del testo giapponese su un font non giapponese: il contrassegno di legittimità non ne soffre.
+
+### Le macchine nascoste: un sesto esemplare trovato, non solo i cinque noti
+
+Applicando il modulo all'intero lotto di 209 voci (176 distribuzioni, 14 incontri sbloccati, 19 scambi in gioco) sono state escluse sei voci, non le cinque già catalogate in `MOSSE-MN.md`: ai quattro Pikachu con Volo e a `010-YokohamaPikachu-Pikachu.pk3` con Surf si aggiunge `4332-PichuEggwithSurf-Pichu.pk3`, uno dei quattro esemplari `BACD_U` aggiunti nella rigenerazione del 2026-09-16, che porta Surf come propria mossa da uovo. `MOSSE-MN.md` va rigenerato per includerlo. La scelta di questo modulo resta quella già registrata sopra per gli altri cinque: si esclude la voce e si elenca, non si toglie la mossa in automatico, perché la decisione di perdere una mossa-firma spetta all'utente.
+
+### Un difetto di transcodifica trovato e normalizzato, non ancora confermato sul gioco vero
+
+Componendo `FRLG-0083.pk3` (il Farfetch'd dello scambio in gioco, soprannome `CH’DING`) la transcodifica ha fallito: la tabella dei caratteri di terza generazione di questo progetto decodifica l'apostrofo come apice destro (U+2019), ma la tabella di quarta generazione letta dal verificatore non ha quel carattere, solo l'apice sinistro (U+2018) e l'apostrofo dritto (U+0027). Il modulo normalizza U+2019 in U+2018 per non fallire la transcodifica, ma questa scelta è DA VERIFICARE: non è stata confermata contro un esemplare vero che abbia attraversato questo passaggio con un apostrofo nel nome. Fino alla verifica, ogni nome che contenga quel carattere porta questa approssimazione dichiarata.
+
+### La verifica, e cosa resta da fare
+
+Il modulo è stato verificato componendo gli stessi due esemplari osservati a mano in PKHeX (il Mew e il Pichu uovo) e confrontando l'esito: luogo, schiusa e contrassegno di soprannome coincidono con l'osservazione umana in entrambi i casi. Il lotto prodotto sta in `_notes/lotto-parco-amici-gen4/` con `manifesto.json`, in attesa del giudizio esterno come ogni altro lotto di questo progetto: la sintesi in software non sostituisce quel passo, lo precede.
+
+Resta dichiarato e non fatto, per mancanza di tempo in questo giro: se le 165 voci di prima e secondo generazione già in formato di terza generazione (`_notes/lotto-gb/`) possano entrare nella stessa pipeline senza modifiche. È il prossimo passo naturale, perché chiuderebbe l'intera catena da prima generazione a quarta in software.
+
 ## La via in emulazione, passo per passo
 
 La catena richiede due console della famiglia DS che si parlino, e per la stazione coreana richiede anche una cartuccia coreana di quarta generazione. Nessuna delle due cose è nella disponibilità del progetto, e la via praticabile è quindi l'emulazione, che non è un ripiego: il Trasferimento è una comunicazione fra due giochi e non fra due pezzi di plastica, e ciò che conta è che il salvataggio risultante sia quello che il gioco avrebbe prodotto.

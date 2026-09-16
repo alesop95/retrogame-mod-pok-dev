@@ -54,6 +54,46 @@ Il primo lancio della rigenerazione ha omesso il parametro che include i salvata
 
 Alcremie a sessantatré forme e le centodue specie dell'asse del sesso restano fuori perché richiedono una decisione su quale fonte prevalga sui dati di PKHeX, non presa d'iniziativa. Gli incontri condizionati restano fuori perché nessun generatore li produce ancora: non sono una fonte disponibile finché restano un censimento e non un lotto.
 
+## 2026-09-16, ventitreesima parte. Il Parco Amici sintetizzato in software: costruito, verificato, 203 esemplari su 209
+
+### Che cosa esiste ora
+
+`pokebridge/parco_amici.py` più `tools/costruisci-lotto-parco-amici.py` sintetizzano in software il passaggio del Parco Amici (terza a quarta generazione), leggendo la trasformazione vera da `PK3.ConvertToPK4()` nella fonte del verificatore invece di dedurla dalla sola prosa di Bulbapedia. Applicato ai 209 esemplari già prodotti e giudicati conformi in terza generazione (176 distribuzioni, 14 incontri sbloccati, 19 scambi in gioco), produce 203 voci in `_notes/lotto-parco-amici-gen4/`, "in attesa del giudizio esterno". È il primo strumento del progetto a chiudere per intero un anello della catena senza hardware né emulazione DS.
+
+### Le due decisioni di metodo sui casi particolari
+
+Le uova non si escludono: si fanno schiudere, perché è quello che il gioco vero farebbe comunque, e specie, mosse e valori individuali non cambiano nella schiusa (verificato sul Pichu `123-PichuwithTeeterDance-Pichu.pk3`, confrontato con l'osservazione umana in PKHeX dello stesso giorno). Le macchine nascoste invece non si correggono togliendo la mossa in automatico: si escludono e si elencano, perché perdere una mossa-firma è una decisione dell'utente e non dello strumento. Sono sei le voci escluse per questo motivo, non le cinque già note in `MOSSE-MN.md`: si aggiunge `4332-PichuEggwithSurf-Pichu.pk3`, uno dei quattro esemplari `BACD_U` della rigenerazione di poco prima, che porta Surf come propria mossa da uovo e non era mai stato catalogato per questo vincolo. `MOSSE-MN.md` resta da rigenerare per includerlo: lavoro aperto, non ancora fatto.
+
+### Due correzioni alla documentazione, trovate leggendo la fonte e non assunte
+
+La prima: il luogo d'incontro dopo il Parco Amici non varia per gioco di origine come `CATENA-DI-TRASFERIMENTO.md` affermava fino a oggi ("Kanto per Rosso Fuoco e Verde Foglia, Hoenn per Rubino..."). La fonte scrive un'unica costante, `Locations.Transfer3 = 0x37`, uguale per ogni gioco di terza generazione: quel che varia con l'origine è solo il campo `Version`, mai toccato da questo passaggio. La seconda, più importante perché corregge anche una voce chiusa in questa stessa memoria poche ore prima: il contrassegno "senza soprannome" non si confronta con la lingua del gioco di arrivo, come si era scritto qui il 2026-09-16 mattina, ma con la lingua che l'esemplare STESSO dichiara (`G3PKM.IsNicknamed`). Un Mew giapponese con nomignolo giapponese ミュウ risulta perciò "senza soprannome" anche dopo il Parco Amici, non nicknamed in modo permanente come si era concluso in precedenza. Resta solo il difetto cosmetico già noto della resa a video, non un ostacolo di legittimità: il risultato pratico di poche ore prima (nessuna stazione giapponese necessaria) resta valido, cambia solo il come.
+
+### Un difetto nuovo, trovato componendo il Farfetch'd, marcato DA VERIFICARE
+
+Componendo `FRLG-0083.pk3` (soprannome `CH'DING`) la transcodifica del nome ha fallito: la tabella di terza generazione usa l'apice destro (U+2019) per l'apostrofo, quella di quarta non lo conosce. Normalizzato a U+2018 nello strumento, ma non confermato contro un esemplare vero: resta un'ipotesi di correzione, non un fatto, finché qualcuno non lo verifica su un caso reale.
+
+### Che cosa resta
+
+Estendere la stessa pipeline a `_notes/lotto-gb/` (165 voci di prima e seconda generazione, già in formato di terza tramite `pokebridge`) non è stato fatto per mancanza di tempo nel giro: è il prossimo passo naturale, dichiarato e non improvvisato. La documentazione completa, con ogni mutazione e la sua fonte esatta, sta nella nuova sezione di `pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md`.
+
+## 2026-09-16, ventiduesima parte. Il seme posizionale, e la riproducibilità rotta su diciotto voci già su hardware vero
+
+Aggiungere le quattro voci `BACD_U` al catalogo (ventesima parte) ha spostato l'indice di tutto ciò che le segue nel file fonte, perché il generatore derivava il seme di ciascuna voce dalla propria posizione nell'ordine di lettura e non da un'identità propria. Verificato due volte con metodi diversi: confrontando l'insieme dei valori di personalità delle 205 posizioni occupate nel salvataggio vero della cartuccia Rubino contro l'insieme prodotto dal lotto rigenerato, diciotto posizioni reali (122-135 e 157-160, tutte nel gruppo delle uova "con mossa") non hanno più alcun file corrispondente nel lotto rigenerato.
+
+Non è un dato perso: la cartuccia resta intatta e il backup verificato pure. È la riproducibilità byte per byte a essersi rotta, cioè il pedigree che il progetto tiene a garantire su ogni esemplare prodotto. La correzione è in corso: derivare il seme da un identificativo stabile della voce (allenatore, specie, nota di distribuzione) invece che dalla posizione, così che una voce inserita altrove nella lista non sposti più quelle esistenti, e verificare che le 172 voci storiche tornino a produrre esattamente i valori già sulla cartuccia vera.
+
+## 2026-09-16, ventunesima parte. Gli scambi in gioco di quinta generazione, primo strumento sul formato pk5
+
+Composte tutte e sette le voci con valore di personalità fissato (Emolga, Rotom e Munchlax da Nero/Bianco, Petilil e un Basculin da Nero, Cottonee e l'altro Basculin da Bianco), con `tools/genera-scambio-gen5.py`, primo strumento del progetto a scrivere il formato pk5. Nessuna viene da Nero 2/Bianco 2, perché quella classe non fissa il valore di personalità nel costruttore ed è sempre casuale per costruzione, non per un vuoto del censimento.
+
+Due assunzioni ereditate dal generatore di quarta generazione erano sbagliate e sono state corrette prima di consegnare il lotto, non dopo: la tabella personale di quinta generazione non condivide gli offset con quella di quarta (dimensione del record diversa, abilità e crescita a offset diversi), e l'abilità di uno scambio di quinta generazione non si deriva dalla parità del valore di personalità come in un modello di quarta, perché il gioco scrive lo slot dichiarato dalla fonte senza guardarlo. Il presidio di parità ereditato aveva respinto per errore due voci prima di essere rimosso: lo stesso principio di sempre, un vincolo copiato da una generazione alla successiva senza verificarlo prima produce un rifiuto silenzioso.
+
+Il lotto resta doppiamente in attesa: del giudizio esterno, e di un veicolo, perché nessun salvataggio di quinta generazione esiste ancora nella raccolta del progetto.
+
+## 2026-09-16, ventesima parte. Il Zigzagoon con Estrarapido: non era un'aspettativa sbagliata, era un vuoto del generatore
+
+L'utente ha chiesto se il famoso Zigzagoon con Estrarapido (Extreme Speed) della distribuzione per il difetto delle bacche fosse fra gli esemplari prodotti: non lo è, e il lotto composto porta solo Azzannata/Ruggito/Latrato su tutte e quattro le sue varianti. La causa non è un'assunzione sbagliata dell'utente: è nel catalogo generato (`EVENTI-GEN3.md`, blocco "Pokémon Box -- Recipient", allenatore giapponese AZUSA, metodo `BACD_U`), ma `tools/genera-evento-gen3.py` non supporta quel metodo specifico (riconosce `BACD_U_AX` e non `BACD_U`) senza dichiararlo come esclusione nominata, a differenza del canale televisivo che è escluso esplicitamente. Il conto torna esatto: 177 catalogati meno 172 prodotti sono il canale televisivo più quattro uova gemelle con lo stesso difetto, cioè Swablu con Falsofinale, questo Zigzagoon, Skitty con Giornopaga e Pichu con Surf. Una frase di `EVENTI-GEN3.md` datata 2026-09-09 le dichiarava erroneamente già producibili: corretta. Resta un lavoro di produzione aperto e non ancora fatto: estendere il generatore al metodo `BACD_U` per queste quattro voci.
+
 ## 2026-09-16, diciannovesima parte. Il Mew giapponese passa il Parco Amici: la stazione dedicata non serve più
 
 ### Il test, e perché non l'ho composto a mano

@@ -598,6 +598,14 @@ GRUPPI_VERSIONE = {
     "RS": ("R", "S"),
     "FRLG": ("FR", "LG"),
     "EFL": ("E", "FR", "LG"),
+    # "Gen3" e' il valore sentinella GameVersion.Gen3 della fonte (EncounterGift3.cs, riga 177),
+    # che rappresenta "qualunque gioco di terza generazione" e non una versione specifica: e' il
+    # caso delle quattro uova AZUSA, consegnate personalmente e non per cartuccia. La fonte
+    # risolve con `GameVersion.Gen3.Contains(tr.Version) ? tr.Version : GameVersion.R`, cioe'
+    # accetta il gioco di chi riceve se e' un titolo di terza generazione qualunque, e ricade
+    # su Rubino altrimenti: R va quindi primo, perche' e' il fallback vero e non un membro
+    # scelto per convenzione come nei gruppi sopra.
+    "Gen3": ("R", "S", "E", "FR", "LG"),
 }
 
 
@@ -637,8 +645,17 @@ LINGUE_PKHEX = {"Japanese": 1, "English": 2, "French": 3, "Italian": 4, "German"
 # cinquantacinque restanti sono precisamente quelle degli insiemi giapponese e delle uova,
 # cioe' meta' del materiale che il progetto non ha altrove.
 VOCE_WC3 = re.compile(
-    r"new\(\s*(\d+)\s*,\s*(\d+)\s*,\s*([A-Za-z]+)\s*((?:,[^){]*)?)\)\s*\{(.*?)\}"
+    r"new\(\s*(\d+)\s*,\s*(\d+)\s*,\s*([A-Za-z0-9]+)\s*((?:,[^){]*)?)\)\s*\{(.*?)\}"
     r"\s*,?\s*(?://\s*(.*))?$", re.M)
+# Il terzo gruppo era [A-Za-z]+ fino al 2026-09-16, e per errore non ammetteva cifre nel nome
+# della versione. Quattro voci della fonte, le uova AZUSA, scrivono "Gen3" invece della sigla
+# di un titolo (RS, E, FR, LG): la cifra fermava il gruppo a "Gen", il carattere "3" restante
+# non trovava posto nel gruppo successivo (che deve iniziare con una virgola), e l'intera riga
+# non incontrava mai il letterale ")" che il resto del pattern richiede subito dopo. La riga
+# falliva quindi il confronto per intero, non solo il campo della versione: le quattro voci non
+# diventavano mai un elemento di `voci_wc3`, e il controllo sul metodo BACD_U più sotto non
+# veniva mai raggiunto. Verificato costruendo il pattern vecchio e nuovo su una riga vera e
+# confrontando `.search()`, non dedotto a occhio.
 
 # La mossa che nella tabella del quinto anniversario distingue le due meta' delle otto voci.
 # Il suo numero e' un dato e non una convenzione, e sta qui perche' senza di esso il metodo a
@@ -680,6 +697,10 @@ def voci_wc3(pkhex):
             "livello": int(livello),
             "versione": versione,
             "commento": (commento or "").strip(),
+            # Il testo intero della riga che la fonte dedica a questa voce, usato per derivare
+            # un seme stabile: si veda la nota accanto a "partenza" in lotto() sul perche' la
+            # posizione nell'elenco non basta.
+            "chiave_stabile": m.group(0),
             # Il quarto argomento posizionale del costruttore, quando c'e' e vale vero, dichiara
             # che la voce e' un uovo. Va letto perche' un uovo non e' un esemplare con un campo
             # in piu': ha soprannome, lingua e amicizia stabiliti dalla sua condizione.
@@ -1284,13 +1305,23 @@ def componi_da_wc3(ace, pkhex, indice, seme):
 # un algoritmo diverso ma una trasformazione del seme e un ramo di composizione, e l'una e
 # l'altro sono ora implementati e provati.
 #
+# BACD_U e' stato aggiunto il 2026-09-16, ed e' un caso di studio su come si legge un
+# nome invece di indovinarlo. La fonte (PKHeX.Core, PIDType.cs) lo descrive con lo stesso
+# commento di BACD_U_AX, "Event Reversed Order PID without Origin Seed restrictions", e il
+# controllo di legalita' in EncounterGift3.cs lo tratta esplicitamente come equivalente a
+# BACD semplice ("BACD_U => type is BACD"): la U distingue una classe di voci nella tabella
+# della fonte (qui le quattro uova AZUSA di EncountersWC3.cs), non un algoritmo diverso.
+# Poiche' nessuna di quelle quattro voci dichiara un vincolo di lucentezza, `eventi.genera`
+# le fa gia' cadere nel ramo finale, identico a quello di BACD: non e' stato necessario
+# toccare `pokebridge/eventi.py`, solo includere il nome qui.
+#
 # Resta fuori il solo metodo del canale televisivo, che impiega un generatore
 # pseudocasuale differente, cioe' quello dei titoli del cubo, e la sola derivazione del sesso
 # che la fonte stessa dichiara di non verificare con la logica ordinaria. Non si tenta, e la
 # ragione per cui non si tenta e' la medesima di sempre: un esemplare prodotto con il metodo
 # sbagliato e' indistinguibile a occhio da uno giusto.
 METODI_PRODUCIBILI = ("BACD_R", "BACD_R_A", "BACD_A", "BACD", "BACD_RBCD", "BACD_TA",
-                      "BACD_TS", "BACD_U_AX", "BACD_M", "Method_2")
+                      "BACD_TS", "BACD_U", "BACD_U_AX", "BACD_M", "Method_2")
 
 # Il metodo che resta fuori, nominato invece di essere semplicemente assente, cosicche' il
 # rapporto possa dirne la ragione al posto di un silenzio.
@@ -1349,6 +1380,40 @@ def allenatore_da_argomento(testo):
             "sesso": sesso}
 
 
+def indici_stabili(voci):
+    """L'indice di seme di ciascuna voce, stabile rispetto a chi le precede o segue in lista.
+
+    Corregge la regressione del 2026-09-16: fino ad allora l'indice era la posizione della voce
+    nell'elenco che `voci_wc3` restituisce, cioe' l'ordine di lettura del file fonte, e una voce
+    che diventava leggibile solo dopo una correzione (le quattro voci AZUSA, invisibili prima
+    della correzione della regex sul campo versione) si inseriva in mezzo all'elenco spostando
+    di quattro posizioni l'indice di ogni voce successiva. Centosettantadue esemplari gia'
+    scritti su una cartuccia vera il 2026-09-15 hanno cosi' cominciato a riprodursi con un
+    valore di personalita' diverso da quello che avevano, verificato confrontando l'insieme dei
+    valori di personalita' del salvataggio vero con quello dei file appena rigenerati: diciotto
+    posizioni della cartuccia non trovavano piu' alcun file corrispondente.
+
+    La correzione distingue due classi di voci invece di trattarle come un elenco solo. Le voci
+    il cui campo versione era leggibile dalla forma della tabella in vigore fino al 2026-09-15,
+    cioe' una sigla di sole lettere come "RS" o "FRLG" e non un valore con cifre come "Gen3",
+    mantengono l'indice che avrebbero ricevuto allora: la loro posizione contata fra le sole
+    voci di quella forma, che e' esattamente l'elenco su cui il codice storico ha sempre girato.
+    Le voci con una sigla che contiene cifre sono comparse solo dopo la correzione della regex e
+    non hanno una storia da preservare: il loro indice e' un'impronta del testo della voce
+    (le prime otto cifre esadecimali della sua somma SHA-256), spostata oltre l'intervallo
+    storico perche' non collida con esso, e stabile per costruzione perche' non dipende
+    dall'elenco ma dalla sola voce.
+    """
+    storiche = [v for v in voci if re.fullmatch(r"[A-Za-z]+", v["versione"])]
+    indici = {v["chiave_stabile"]: i for i, v in enumerate(storiche)}
+    for v in voci:
+        if v["chiave_stabile"] in indici:
+            continue
+        impronta = int(hashlib.sha256(v["chiave_stabile"].encode("utf-8")).hexdigest()[:8], 16)
+        indici[v["chiave_stabile"]] = len(storiche) + (impronta % 10000)
+    return indici
+
+
 def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None,
           destinazione="LG"):
     """Produce un esemplare per ogni voce producibile, e riferisce sulle altre.
@@ -1362,6 +1427,7 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None,
     """
     impronte = {}
     voci = voci_wc3(pkhex)
+    indici_seme = indici_stabili(voci)
     mappa = nazionale_verso_interno(ace)
     _per_nome, per_id = specie_per_nome(ace)
     gruppi = gruppo_di_crescita(ace)
@@ -1467,15 +1533,16 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None,
                             "viene dal salvataggio che riceve: si passa con --allenatore"))
             continue
 
-        # Il punto di partenza della ricerca dipende dall'indice della voce e non da quanto e'
-        # accaduto alle voci precedenti, e la ragione e' pratica: con un cursore a scorrimento
-        # una correzione su una voce spostava il seme di tutte quelle dopo di essa, quindi ogni
-        # esemplare gia' sottoposto a giudizio andava sottoposto di nuovo. Con la partenza
-        # legata all'indice, una correzione cambia i soli esemplari che quella correzione
-        # riguarda, e il lavoro di verifica fatto a mano non si perde. Resta lo scopo per cui il
-        # cursore esisteva, cioe' che due voci del medesimo evento non ricevano il medesimo
-        # valore di personalita', perche' due indici distinti partono da punti distinti.
-        partenza = (primo_seme + indice) & 0xFFFF or 1
+        # Il punto di partenza della ricerca viene da indici_stabili(), non dalla posizione
+        # della voce nell'elenco: si veda la sua docstring per la regressione del 2026-09-16 che
+        # questo sostituisce e per come preserva l'indice storico delle voci gia' prodotte.
+        # Restano validi i motivi per cui la partenza non e' un seme fisso identico per tutte le
+        # voci: due voci del medesimo evento con i medesimi vincoli devono partire da punti
+        # distinti, altrimenti otterrebbero lo stesso valore di personalita' e sarebbero un
+        # duplicato riconoscibile a occhio; l'indice stabile lo garantisce quanto il vecchio
+        # indice posizionale lo garantiva, perche' resta distinto voce per voce.
+        indice_seme = indici_seme[v["chiave_stabile"]]
+        partenza = (primo_seme + indice_seme) & 0xFFFF or 1
         semi = list(range(partenza, 0x10000)) + list(range(0, partenza))
         if metodo in ("BACD_RBCD", "BACD_M"):
             # Questi due metodi schiacciano il seme su un insieme molto piu' piccolo, quindi
@@ -1485,7 +1552,7 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None,
             # medesimo evento ripartirebbero dallo stesso punto e riceverebbero il medesimo
             # valore di personalita', cioe' un duplicato riconoscibile a occhio.
             ammessi = list(eventi.semi_ammessi(metodo, semi_mystry))
-            taglio = (primo_seme + indice) % max(1, len(ammessi))
+            taglio = (primo_seme + indice_seme) % max(1, len(ammessi))
             semi = ammessi[taglio:] + ammessi[:taglio]
         try:
             esito = eventi.esemplare_da_evento(
@@ -1557,7 +1624,11 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None,
         # meno dell'indice. La descrizione e' in latino nella tabella e distingue le voci.
         descrizione = re.sub(r"[^A-Za-z0-9]", "",
                              v.get("commento") or nome_effettivo or "ricevente")
-        nome = "%03d-%s-%s" % (indice, descrizione or "evento",
+        # Il numero nel nome del file e' indice_seme e non indice, per la stessa ragione per cui
+        # lo e' il seme: deve restare quello storico per le voci che lo avevano, cosicche' il
+        # nome di un file gia' scritto su una cartuccia vera non cambi mai sotto ai piedi di chi
+        # lo cita in un documento.
+        nome = "%03d-%s-%s" % (indice_seme, descrizione or "evento",
                                re.sub(r"[^A-Za-z0-9]", "", per_id.get(specie_id, "x")))
         scrivi(mon, os.path.join(cartella, nome))
         # L'impronta si calcola sulla forma canonica, che e' quella che il verificatore legge, e
@@ -1565,7 +1636,7 @@ def lotto(ace, pkhex, cartella, solo_ot=None, primo_seme=1, allenatore=None,
         # quali campi un esemplare abbia non dimostra che il file sul disco sia quell'esemplare,
         # mentre una impronta lo dimostra. Il manifesto non entra in git perche' vive accanto al
         # lotto, che a sua volta non vi entra.
-        impronte[str(indice)] = {
+        impronte[str(indice_seme)] = {
             "file": nome + ".pk3",
             "sha256": hashlib.sha256(mon.to_canonical_bytes(party=False)).hexdigest(),
             "seme": "0x%04X" % esito["seme"],
