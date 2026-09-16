@@ -8,38 +8,42 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: dd8d10b
-Data snapshot:         2026-09-14, chiusura di sessione
+Commit di riferimento: 80fac1f
+Data snapshot:         2026-09-16, chiusura di sessione prima di riaprirla per risparmio token
 ```
 
 ## Stato di verifica delle schede
 
 | Scheda | Sottoprogetto | last-verified | Stato |
 |---|---|---|---|
-| STACK.md | trasversale | 7b66def | riletta per intero il 2026-09-09: il lettore risulta arrivato con il suo trabocchetto di tensione, la domanda sull'adattatore wireless è chiusa in due tempi, e una sezione nuova descrive il codice del progetto, cioè il pacchetto a 206 prove con lo strato del salvataggio e le cinque famiglie dei cinquantadue strumenti |
-| design-and-security.md | trasversale | 7b66def | riletta per intero il 2026-09-09: le tensioni di perimetro passano da due a cinque, cioè l'esposizione dell'account che custodisce la collezione, la distinzione fra leggere e importare un salvataggio esterno, e il token personale di ADR-019, con la conseguenza sul materiale di terzi |
+| STACK.md | trasversale | 80fac1f | checkpoint bumpato il 2026-09-16, contenuto invariato: nessun cambio architetturale, solo produzione |
+| design-and-security.md | trasversale | 80fac1f | checkpoint bumpato il 2026-09-16, contenuto invariato |
 | deployment.md | trasversale | d08a011 | non applicabile, covers-paths vuoto per scelta |
-| dev-testing.md | trasversale | 7b66def | riverificata il 2026-09-09: dichiara 206 prove, e il covers-paths è stato esteso ai due track che gli mancavano, cioè lo scambio locale e l'automazione |
-| current-work.md | trasversale | 7b66def | riverificata il 2026-09-09: la tabella dei track è riscritta sui dieci con la prossima azione di ciascuno, e la sezione di riconciliazione dichiara quali schede restano indietro |
-| roadmap.md | trasversale | 7b66def | riletta per intero il 2026-09-09: tre affermazioni erano diventate false, cioè il blocco sull'arrivo del lettore, la tensione fra Linux e Windows superata da ADR-015 e lo strato del salvataggio come lavoro futuro, e la mappa delle dipendenze non nominava il decimo track, che è il fuoco corrente |
-| sub-3ds-modding.md | 3ds-related | 7b66def | aggiornata |
-| sub-smeraldo-save-fix.md | gba-save-extraction-smeraldo | 7b66def | riverificata il 2026-09-09: il corpo dichiara già il lettore arrivato e la prima sessione da eseguire |
-| sub-gen12-gen3-bridge.md | pokemon-gen12-gen3-bridge | 7b66def | riverificata il 2026-09-09: il prossimo passo che dichiarava è eseguito, cioè lo strato del salvataggio da 128 KiB con 206 prove, e resta il confronto del sintetico con il verificatore |
-| sub-gba-switch-trading.md | gba-switch-pokemon-trading | 7b66def | aggiornata |
-| sub-poke-automation.md | poke-automation-study | 7b66def | aggiornata |
-| sub-distributions-events.md | recreate-pokemon-distributions-events | 7b66def | riverificata il 2026-09-07: il lotto di quarta generazione è giudicato, 219 conformi su 247, e le 28 rifiutate sono le sole coreane per la barriera di lingua di ADR-040; le schede di pedigree della quarta generazione esistono e portano il giudizio |
-| sub-poke-ace.md | poke-ace | 7b66def | nuova, scritta il 2026-08-31 e aggiornata lo stesso giorno con il secondo studio |
-| sub-generation-from-switch.md | generation-from-switch | 7b66def | nuova, scritta il 2026-08-31; il track meno sviluppato dei nove |
-| sub-cart-battery.md | cart-battery-restoration | 7b66def | nuova, scritta il 2026-09-01 alla nascita del track |
-| sub-pokedex-home-completo.md | pokedex-home-completo | 7b66def | RISCRITTA il 2026-09-09: era arrivata a ventimila byte duplicando i documenti del track, ed è tornata alla forma prevista, cioè stato in cinque righe, prossimo passo, decisioni aperte e indice di dove sta la conoscenza. Il racconto per aggiunte datate resta qui in questo indice e nel work log |
+| dev-testing.md | trasversale | 80fac1f | checkpoint bumpato il 2026-09-16, verificato che "206 prove" sia ancora esatto rilanciando la suite (i nuovi strumenti hanno self-test propri, separati) |
+| current-work.md | trasversale | 80fac1f | aggiornata il 2026-09-16: le righe di pokedex-completo, distributions-events e gen12-gen3-bridge riflettono la sintesi software del Parco Amici e i numeri correnti |
+| roadmap.md | trasversale | 80fac1f | checkpoint bumpato il 2026-09-16, contenuto invariato |
+| sub-3ds-modding.md | 3ds-related | 80fac1f | checkpoint bumpato il 2026-09-16, nessun cambio |
+| sub-smeraldo-save-fix.md | gba-save-extraction-smeraldo | 80fac1f | aggiornata il 2026-09-15: convalida hardware sul Rubino di prova CONCLUSA (205 esemplari), prossimo collegamento per Smeraldo |
+| sub-gen12-gen3-bridge.md | pokemon-gen12-gen3-bridge | 80fac1f | aggiornata il 2026-09-16: nuovo modulo `parco_amici.py`, sintesi software del Parco Amici verso la quarta generazione |
+| sub-gba-switch-trading.md | gba-switch-pokemon-trading | 80fac1f | checkpoint bumpato il 2026-09-16, nessun cambio |
+| sub-poke-automation.md | poke-automation-study | 80fac1f | checkpoint bumpato il 2026-09-16, nessun cambio |
+| sub-distributions-events.md | recreate-pokemon-distributions-events | 80fac1f | aggiornata il 2026-09-16: generatore Gen3 a 176/177, seme stabilizzato dopo una regressione corretta, audit dei livelli di scambio, uscita alimenta ora il Parco Amici software |
+| sub-poke-ace.md | poke-ace | 80fac1f | checkpoint bumpato il 2026-09-16, nessun cambio |
+| sub-generation-from-switch.md | generation-from-switch | 80fac1f | checkpoint bumpato il 2026-09-16, nessun cambio |
+| sub-cart-battery.md | cart-battery-restoration | 7b66def | NON riverificata in questo giro: drift preesistente e dichiarato su `STUDIO-01-batteria-e-ritenzione.md`, fuori scopo di questa sessione |
+| sub-pokedex-home-completo.md | pokedex-home-completo | 80fac1f | aggiornata il 2026-09-16: il collo di bottiglia del trasferimento Gen3 a Gen4 si è dimezzato (sintesi software), checklist a 685/1025, dettaglio nel racconto sotto |
 
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
 
 ```
-Fuoco corrente: pokedex-home-completo, su due linee parallele. La lettura del corpus non e' piu' il collo di bottiglia: il corpus e' a 405 documenti dopo il recupero di ADR-057, i quattro canali Discord del fuoco sono esportati e digeriti, e la produzione e' il passo che conta. Il sesto lotto e' CHIUSO il 2026-09-14, cioe' i 19 scambi in gioco di terza generazione conformi su 19 al quarto giudizio, primo lotto del progetto composto senza alcuna ricerca di semi. Scadenza fra 165 giorni
+Fuoco corrente: pokedex-home-completo, su due linee parallele. Il collo di bottiglia del trasferimento si e' spezzato in due il 2026-09-16: da terza a quarta generazione non serve piu' hardware ne' emulazione DS, perche' pokebridge/parco_amici.py sintetizza in software la trasformazione del Parco Amici, verificata contro l'osservazione umana in PKHeX e applicata a tutte le 209 voci Gen3 gia' prodotte (203 riuscite). Il generatore di terza generazione copre ora 176 voci su 177. La checklist copre 685 specie su 1025. Scadenza fra 163 giorni
 ```
+
+QUINDICESIMA AGGIUNTA, dal 2026-09-15 al 2026-09-16, la piu' densa del progetto: due scritture reali sul Rubino di prova (un esemplare, poi 205 in blocco, entrambe confermate byte per byte e in gioco), la scoperta e chiusura in negativo della scappatoia del tracciatore su Spada/Scudo, la verifica positiva che gli esemplari giapponesi superano il Parco Amici senza stazione dedicata, una regressione sul seme del generatore Gen3 trovata e corretta prima che danneggiasse la produzione futura, e la costruzione dello strumento che sintetizza in software l'intero passaggio Parco Amici. Il racconto completo, giorno per passo, sta in `progress.md` dalla voce "quattordicesima parte" del 2026-09-15 in avanti: non ripetuto qui per intero perche' supererebbe la disciplina delle cinque righe che questo blocco si e' dato, ma ogni singolo fatto e' scritto la', non solo qui riassunto. Le domande ancora aperte che ne discendono, comprese le sei voci con macchina nascosta escluse dalla sintesi del Parco Amici e il difetto dell'apostrofo fra le tabelle di terza e quarta generazione marcato DA VERIFICARE, sono in `pending.md`.
+
+Chiusura di sessione decisa dall'utente il 2026-09-16 per risparmiare token, secondo la disciplina di `chat-non-e-memoria.md` e l'allineamento al template `E:\template-claude-developing`: la regola `git-commands-format.md` e' stata aggiornata per consegnare un solo blocco di comandi (quello della macchina in uso) invece di due paralleli. La ripresa e' in `_notes/resume-prompt.md`, riscritto per intero a questo stesso commit.
 
 Il 2026-08-31 il fuoco si è mosso due volte nella stessa giornata, e vale registrare entrambi i movimenti perché il primo è concluso e il secondo è quello attivo.
 

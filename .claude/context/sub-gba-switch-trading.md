@@ -4,7 +4,7 @@ generated-from-branch: main
 generated-date: 2026-08-24
 covers-paths:
   - gba-switch-pokemon-trading/
-last-verified-commit: 7b66def
+last-verified-commit: 80fac1f
 stato: in ricerca, nessun ambiente allestito
 ---
 

@@ -4,8 +4,8 @@ generated-from-branch: main
 generated-date: 2026-08-24
 covers-paths:
   - pokemon-gen12-gen3-bridge-original-hardware/
-last-verified-commit: 7b66def
-stato: decisione ADR-008 ancora aperta; le tre generazioni sono scritte e collaudate e dal 2026-09-09 esiste anche lo strato del salvataggio da 128 KiB
+last-verified-commit: 80fac1f
+stato: decisione ADR-008 ancora aperta; le tre generazioni sono scritte e collaudate, dal 2026-09-09 esiste lo strato del salvataggio da 128 KiB, e dal 2026-09-16 esiste anche il modulo che sintetizza in software il passaggio dalla terza alla quarta generazione (Parco Amici)
 ---
 
 # Sottoprogetto: ponte Pokemon da Gen 1 e 2 verso Gen 3 su hardware originale
@@ -19,6 +19,8 @@ Obiettivo: costruire un tool che trasferisca Pokemon dalle generazioni 1 e 2 all
 Il formato dei dati delle tre generazioni è documentato byte per byte e verificato sul disassemblato, non sull'enciclopedia, in `DATA-FORMATS_Gen1-Gen2-Gen3.md`. Sono chiusi undici punti che erano aperti o dubbi, fra cui l'ordine dei nibble dei DV, l'algoritmo del checksum di Gen 3, la dimensione del blocco di scambio e il modo in cui Poke Transporter GB ottiene l'esecuzione di codice, che avviene sul cavo e non richiede alcun setup lato giocatore. Due affermazioni dell'handoff di ricerca risultano corrette solo in parte: il PCCS documenta quattro metodi di conversione ma nel codice ne implementa uno, e l'impossibilità di emulare riguarda il ponte fra Game Boy e Game Boy Advance, non il collegamento fra due Game Boy, che si collauda su BGB via TCP. Esiste il codice del lato Game Boy, in `pokebridge/`: primitivi, lettori e scrittori di generazione 1 e 2 per box, squadra e liste di squadra, e transcodifica del testo sulle tabelle generate. Sessantatre prove passano, la portante essendo la simmetria fra lettura e riscrittura su buffer casuali con seme fissato. Scrivere il codice ha fatto emergere un errore in più nella referenza, cioè la dimensione della lista della squadra Gen 1, che è 404 byte e non 194: la fonte aveva letto 0x194 come decimale.
 
 Questo è l'unico dei quattro sottoprogetti destinato a diventare software vero. Quando lo diventerà si riapre il gate del server MCP code-context, e diventa sensato un `CLAUDE.md` annidato in questa cartella con le sole convenzioni di build, lint e test, senza stato.
+
+Il 2026-09-16 il pacchetto si è esteso di un anello: `pokebridge/parco_amici.py`, che sintetizza in software la trasformazione del Parco Amici (terza a quarta generazione), leggendo la conversione vera da `PK3.ConvertToPK4()` nella fonte del verificatore. Non è più solo un ponte fra prima/seconda e terza generazione: applicato ai 209 esemplari già prodotti in terza generazione produce 203 record di quarta generazione senza hardware né emulazione DS, con dettaglio completo in `pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md`. Il collegamento naturale non ancora fatto è applicare la stessa pipeline all'uscita di questo stesso pacchetto (`_notes/lotto-gb/`, 165 voci di prima e seconda generazione già in formato di terza), chiudendo una catena interamente software da prima generazione a quarta: dichiarato come prossimo passo, non eseguito per mancanza di tempo nel giro che lo ha costruito.
 
 ## Prossimo passo concreto
 
