@@ -4,6 +4,205 @@ Questo file esiste perché l'utente non deve essere il sistema di memoria del pr
 
 A differenza di `progress.md` e `decisions.md`, che sono append-only, questo file si modifica: una voce chiusa si cancella, e la sua storia resta nel work log. Va letto a inizio sessione insieme a `index.md`, e le voci pertinenti al lavoro in corso vanno ricordate all'utente senza che le chieda. Le voci marcate come da ricordare sempre si ripetono a ogni sessione anche quando non sono pertinenti, perché così è stato chiesto.
 
+## Interventi sul salvataggio reale di Smeraldo, aggiornati a fine sessione il 2026-09-17
+
+Tutto registrato per esteso, con lo stato di verifica, in `gba-save-extraction-smeraldo/STUDIO-02-box-glitch-storici-e-frontiera.md`. CHIUSI in questa sessione: il glitch di clonazione (confermato da due strumenti indipendenti, nessuna corruzione strutturale oltre la duplicazione, un'anomalia cross-specie ancora aperta); il meccanismo del gruppo "SHINY" (un codice che scrive un'identità intera, PID e ID segreto fittizio, al momento dell'incontro); il caso della Safari Ball su incontro ordinario (almeno due esemplari, Seedot e un Wurmple); i due esemplari illegali in squadra, cancellati; il simbolo della Battle Pike, riportato ad argento e SCRITTO sulla cartuccia vera con verifica indipendente.
+
+VERIFICA VISIVA, prima parte: l'utente ha consegnato screen e video della console accesa (`STUDIO-02`, sezione 9). Confermati con margine ampio: avvio con "Continua", Master Ball a 1 in testa alla tasca Palle con dodici voci totali, deposito PC ripopolato, vitamine su una sola riga ciascuna (quantità alte e plausibili, non un difetto). Chiarito anche il dubbio dell'utente sulle Bacche: il tetto vero per Smeraldo è 999 e non 99 (già nel codice di `emerald_bag_decode.py`), quindi valori come 101 non sono un'anomalia e non richiedono correzione.
+
+VERIFICA VISIVA, seconda parte: il simbolo della Battle Pike è confermato argento dalla scheda allenatore (checklist punto 7 CHIUSO, `STUDIO-01` sezione 15). La tasca Oggetti Chiave è stata dettata per intero dall'utente (19 voci) e i suoi identificativi sono stati verificati uno per uno sul sorgente e sul dump reale (`STUDIO-01` sezioni 15 e 17): Bigl. Eone e Portafarina (in realtà Powder Jar, id 372) confermati legittimi; Merce Devon (id 269) CONFERMATA da rimuovere, verificato sul sorgente `pret/pokeemerald` che lo script di consegna a Stern esegue `removeitem` sull'oggetto nello stesso momento della consegna; Sfera Rossa (id 276) e Sfera Blu (id 277) confermate anomale e da rimuovere, approvato dall'utente, perché in Smeraldo nessuna delle due si riceve mai come oggetto proprio; Biglietto Aurora (id 371) e Vecchia Mappa Marina/Mappa Stinta (id 376), che l'utente ha confermato di non aver mai ricevuto per davvero, si aggiungono comunque su sua richiesta esplicita, ADR-063, registrati come prodotti e non come restituzione di corruzione. Sul deposito PC, RITIRATA la revisione dei sette oggetti da battaglia: l'utente ha deciso di lasciarli come sono. La collezione di decorazioni per la Base Segreta resta un obiettivo separato, confermato dall'utente, da tracciare a parte quando ci si arriva.
+
+MISTERO DELLA SQUADRA RISOLTO il 2026-09-17 con un secondo dump (`Pokemon - Versione Smeraldo (Italy) - ALEX-45761-788h44m-2026-09-17.sav`, quattro copie a hash identico su due dischi): non un difetto di scrittura, ma un'assunzione sbagliata nella diagnosi di partenza (`STUDIO-01` sezione 17). La squadra originale di sei non aveva un Doduo e un Paras da rimuovere ma DUE di ciascuno, individui distinti con lo stesso allenatore sospetto `C6B4D7EF`: la correzione ne aveva tolto uno per specie, lasciando intatti gli altri due. L'utente ha confermato di rimuovere anche questi due, lasciando Linoone e Nidoran maschio soli in squadra.
+
+SECONDO GIRO COSTRUITO E VERIFICATO, non ancora scritto sulla cartuccia (`STUDIO-01` sezione 18). Lo strumento `tools/emerald_bag_fix_round2.py` ha prodotto `Pokemon - Versione Smeraldo (Italy) - ALEX-45761-788h44m-2026-09-17-CORRETTO.sav` (hash `e344f3cf…9817d`, su entrambi i dischi) da `Pokemon - Versione Smeraldo (Italy) - ALEX-45761-788h44m-2026-09-17.sav`: tasca Oggetti Chiave da 19 a 18 voci (via Merce Devon 269, Sfera Rossa 276, Sfera Blu 277; dentro Biglietto Aurora 371 e Vecchia Mappa Marina 376), squadra da 4 a 2 (via i due esemplari con personalità `4084BA91` e `81B5D401`), record della Battle Pike azzerato in entrambe le modalità (`[47, 199]` a `[0, 0]`, valori che risultano essere quelli della Pike stessa e non della Torre Lotta come ipotizzato in precedenza senza conseguenze pratiche). Il confronto byte per byte con `Pokemon - Versione Smeraldo (Italy) - ALEX-45761-788h44m-2026-09-17.sav` mostra differenze solo nelle due sezioni toccate, nessun altro byte. SCRITTO E VERIFICATO lo stesso giorno (`STUDIO-01` sezione 19): FlashGBX dichiara successo, il read-back ha hash identico al file scritto. PROSSIMO PASSO: il controllo visivo finale in gioco, checklist a quattro punti in `STUDIO-01` sezione 20 (squadra a due, tasca Oggetti Chiave a diciotto voci con i due biglietti nuovi, il resto invariato, record Pike azzerato).
+
+Convenzione di nome dei salvataggi, fissata dall'utente il 2026-09-17: sempre `Pokemon - Versione <Gioco> (Italy) - <ALLENATORE>-<ID>-<tempo di gioco>-<data>`, con `-CORRETTO` e `-READBACK` come soli suffissi ammessi. I nomi di comodo usati durante questo giro (`round2`, `round2-b`) sono stati rinominati di conseguenza sui due dischi e in ogni riferimento tracciato; le due copie di verifica ridondanti, servite solo a confermare che le due letture indipendenti coincidessero, sono state cancellate una volta constatata l'identità.
+
+NUOVA RICHIESTA del 2026-09-17: azzerare anche il contatore del record di serie di vittorie della Battle Pike, coerente con il simbolo tornato argento (`STUDIO-02`, sezione 10). Dato che l'utente ha continuato a giocare dopo la scrittura della correzione (volo al Parco Lotta, sfida alla Torre Lotta, nuovo salvataggio), questa correzione richiede un NUOVO backup in doppia copia dallo stato attuale della cartuccia, non un editing sul file già scritto: la cartuccia vera oggi è più avanti di quel file.
+
+NUOVA RICHIESTA del 2026-09-17: rivedere il deposito PC togliendo i sette oggetti da battaglia comuni (Superguardia, Supercolpo, le cinque X) per fare posto ad altri oggetti più rari acquistabili al Grande Magazzino di Slateport (`STUDIO-01` sezione 16); la selezione dei sostituti non è stata ancora fatta.
+
+APERTI, non affrontati: il censimento di legalità completo del resto del box (serve anche per la squadra del Parco Lotta); l'anomalia cross-specie del glitch di clonazione (due coppie con PID/EC identici ma specie diverse, non spiegabile con la sola clonazione); il ricordo sul video di battaglia nel pass Frontiera, troppo vago per essere azionabile.
+
+NUOVO e con la portata corretta: l'utente ha chiarito che il "controllo completo" richiesto a fine sessione non riguardava la correzione di oggi (quella è già verificata byte per byte, `STUDIO-01` sezione 14) ma se i trucchi usati da bambino quasi vent'anni fa abbiano danneggiato porzioni del salvataggio diverse da zaino e Pokémon nei box, non ancora ispezionate: Pokedex, record delle altre sei strutture della Frontiera, Casa Segreta, dati TV. Un solo controllo veloce fatto prima di chiudere: le monete della Sala Giochi, 318, plausibili. Il resto è compito vero per la prossima sessione, registrato in `STUDIO-02`, sezione 7.
+
+## La collezione completa di oggetti: CHIUSA a 63 voci, nomi verificati, script pronto
+
+`STUDIO-01`, sezioni 10-12, ha la lista finale: 63 oggetti (non più 66, tre erano duplicati di voci già presenti e sono stati tolti), tutti con nome italiano verificato su `wiki.pokemoncentral.it` per identificativo esadecimale, non a memoria (un nome usato in chat, `Focoltrice`, era inventato ed è stato corretto in `Fortunpugno`). Lo script `emerald_bag_fix.py` applica ora in un solo passaggio zaino, collezione, rimozione di Doduo e Paras dalla squadra, e flag della Battle Pike; ultima esecuzione pulita e verificata da entrambi gli strumenti di diagnosi. Resta da fare il censimento di legalità completo del resto del box, non incluso in questo giro di scrittura.
+
+## Squadra del Parco Lotta a Lv.50, aperta il 2026-09-17
+
+L'utente vuole comporre, in un box dedicato dello stesso salvataggio VERO di Smeraldo che questa sessione sta correggendo (non un salvataggio separato), una squadra di esemplari legittimi da usare al Parco Lotta a livello 50, con l'identificativo del proprio allenatore reale: ALEX, ID 45761, ID segreto 56446, letti dal dump del 2026-09-17 (vedi `STUDIO-01-diagnosi-e-correzione-inventario.md` in `gba-save-extraction-smeraldo/`). Ogni esemplare va prodotto in doppia copia, perché una delle due è destinata a uno scambio reale con una terza persona, Matteo (lo stesso Matteo Froccani che ha fornito quattro dei moveset più sotto). È ricerca futura, esplicitamente rimandata dall'utente ("poi faremo una ricerca insieme"): qui si registra solo il materiale di partenza, senza avviare alcuna produzione. Precisazione del 2026-09-17: la produzione, quando partirà, dovrà anche riorganizzare i box Pokémon del salvataggio per fare spazio alla squadra e alle sue doppie copie, e il criterio con cui restare legittimi a livello 50 va deciso insieme ai due dubbi già segnalati sotto, non assunto. Gli esemplari individuati finora, incollati in chat con moveset, EV, natura e abilità in stile Smogon:
+
+```
+Latios (M) @ Lum Berry
+Ability: Levitate
+EVs: 4 HP / 252 SpA / 252 Spe
+Timid Nature
+IVs: 0 Atk
+- Psychic
+- Thunderbolt
+- Ice Beam
+- Surf
+
+Metagross @ Choice Band
+Ability: Clear Body
+EVs: 252 HP / 252 Atk / 4 Spe
+Adamant Nature
+- Meteor Mash
+- Earthquake
+- Shadow Ball
+- Explosion
+
+Milotic @ Leftovers
+Ability: Marvel Scale
+EVs: 252 HP / 252 Def / 4 SpA
+Bold Nature
+IVs: 0 Atk
+- Surf
+- Ice Beam
+- Toxic
+- Recover
+
+Slaking @ Choice Band
+Ability: Truant
+EVs: 4 HP / 252 Atk / 252 Spe
+Jolly Nature
+- Return
+- Earthquake
+- Shadow Ball
+- Hyper Beam
+
+Starmie @ Lum Berry
+Ability: Natural Cure
+EVs: 4 HP / 252 SpA / 252 Spe
+Timid Nature
+IVs: 0 Atk
+- Psychic
+- Thunderbolt
+- Ice Beam
+- Surf
+
+Heracross @ Choice Band
+Ability: Swarm
+EVs: 4 HP / 252 Atk / 252 Spe
+Jolly Nature
+- Megahorn
+- Brick Break
+- Rock Slide
+- Earthquake
+
+--- variante alternativa di Latios e Starmie, e altri quattro esemplari ---
+
+Latios (M) @ Lum Berry
+Ability: Levitate
+EVs: 4 HP / 252 SpA / 252 Spe
+Timid Nature
+IVs: 0 Atk
+- Calm Mind
+- Dragon Claw
+- Thunderbolt
+- Ice Beam
+
+Starmie @ Lum Berry
+Ability: Natural Cure
+EVs: 4 HP / 252 SpA / 252 Spe
+Timid Nature
+IVs: 0 Atk
+- Surf
+- Thunderbolt
+- Ice Beam
+- Psychic / Recover
+
+Gengar @ Lum Berry
+Ability: Levitate
+EVs: 4 HP / 252 SpA / 252 Spe
+Timid Nature
+IVs: 0 Atk
+- Thunderbolt
+- Ice Beam
+- Fire Punch
+- Destiny Bond
+
+Salamence @ Choice Band
+Ability: Intimidate
+EVs: 4 HP / 252 Atk / 252 Spe
+Adamant Nature
+- Rock Slide
+- Earthquake
+- Hidden Power [Flying] / Aerial Ace
+- Brick Break
+
+Swampert @ Leftovers
+Ability: Torrent
+EVs: 252 HP / 212 Def / 44 SpA
+Relaxed Nature
+- Earthquake
+- Ice Beam
+- Surf
+- Protect
+
+Suicune @ Leftovers
+Ability: Pressure
+EVs: 252 HP / 252 Def / 4 SpA
+Bold Nature
+IVs: 0 Atk
+- Surf
+- Calm Mind
+- Rest
+- Substitute
+```
+
+Quattro esemplari aggiuntivi vengono da una fonte terza, un certo Matteo Froccani, citata così com'è arrivata perché la scheda `web-sources-not-fetchable.md` impone di non far sparire l'attribuzione:
+
+```
+[16/09/2026 22:12] Matteo Froccani: Snorlax (Leftovers)
+Thick Fat
+Careful Nature
+168 HP / 120 Def / 220 SpD (Evs)
+Curse
+Return
+Rest
+Earthquake
+
+[16/09/2026 22:27] Matteo Froccani: Snorlax @ Chesto Berry
+Ability: Thick Fat
+EVs: 252 HP / 252 Atk / 4 Def
+Adamant Nature
+- Curse
+- Body Slam / Return
+- Rest
+- Earthquake
+
+[16/09/2026 22:31] Matteo Froccani: Regice@Leftovers / Chesto Berry
+Serious (neutral) Nature
+252 Hp 252 Sp. Atk 4 Def
+Ability: Clear Body
+~ Thunderbolt
+~ Ice Beam
+~ Rest
+~ Thunder Wave / Explosion / Toxic
+
+[16/09/2026 22:35] Matteo Froccani: Regice@Leftovers / Chesto Berry
+Bold / Relaxed Nature
+132 Hp 252 Sp. Atk 120 Def
+Ability: Clear Body
+~ Thunderbolt
+~ Ice Beam
+~ Rest
+~ Thunder Wave / Explosion / Toxic
+```
+
+Precisazione del 2026-09-17: il Pokemon volante di cui l'utente ha bisogno per spostarsi in gioco, ora che Doduo (che conosceva Volo) è stato tolto dalla squadra, non è un membro della squadra del Parco Lotta e non c'entra con questo fronte: è un problema di gioco corrente, che l'utente risolve da sé catturando o allevando un volante qualunque. Il fronte del Parco Lotta resta separato, e l'utente ha confermato che tutti gli esemplari elencati qui sotto vanno prodotti insieme, nel prossimo giro di produzione.
+
+L'utente stesso aveva segnalato due dubbi di legittimità da verificare sulla fonte prima di produrre: entrambi CHIUSI il 2026-09-17, su Bulbapedia. Il primo, se Heracross possa imparare Megahorn per via legittima: in Smeraldo Megahorn NON è una MO, contrariamente a quanto questo studio aveva ipotizzato, ma una mossa di livello, appresa a Lv.53; ne segue che il livello reale dell'esemplare (non quello ricalcolato in combattimento) deve essere almeno 53, non 50, perché la mossa sia legittimamente conosciuta. Il secondo, come il Parco Lotta a Lv.50 tratti un esemplare di livello superiore: confermato che è un ricalcolo delle statistiche a parità di livello 50 usando natura, IV ed EV reali, mentre il livello vero, le mosse e gli EV accumulati restano quelli della squadra; un Salamence a un livello reale qualunque purché non inferiore a 50 (necessario perché Shelgon evolve esattamente a quella soglia) è quindi pienamente legittimo. Nessuna produzione è ancora partita: resta da fare insieme al nuovo dump e al resto della correzione di `STUDIO-01`.
+
+## Piano di correzione dell'inventario di Smeraldo: CHIUSO il 2026-09-17, in attesa solo della scrittura
+
+La diagnosi completa e la proposta di correzione, confermata dall'utente in ogni punto, sono in `gba-save-extraction-smeraldo/STUDIO-01-diagnosi-e-correzione-inventario.md`. Tutti gli oggetti della tasca Oggetti Chiave sono stati verificati sul sorgente, compresi i quattro che restavano incerti (Vaso Polvere: aggiunto, confermato consegnato e mai rimosso; Tè, Rubino e Zaffiro: esclusi, confermato che nessuno script del gioco li consegna mai). Il Master Ball anomalo si riporta a 1 e la Proteina superstite resta a 99, entrambi confermati dall'utente. Non resta nessuna verifica aperta su questo punto: il prossimo passo è applicare la correzione al file di backup con PKHeX, verificarla con gli strumenti di sola lettura, e solo dopo scrivere sulla cartuccia con il read-back obbligatorio.
+
+Il bug noto dell'orologio interno (RTC) di terza generazione, segnalato dall'utente, resta studiato dopo il fix dell'inventario, per sua stessa richiesta: FlashGBX riporta "Real Time Clock: Not available" su questa cartuccia, dato riferito senza ancora essere stato indagato.
+
 ## Riordino di _notes/ rimandato apposta, aperto il 2026-09-16
 
 Le nove cartelle `lotto-*` restano sparse alla radice di `_notes/` per decisione esplicita dell'utente: raggrupparle sotto `_notes/lotti/<nome>/` romperebbe i riferimenti già scritti in `progress.md`, `pending.md` e nei manifesti, quindi si rimanda a un solo giro coordinato che sposti le cartelle e aggiorni tutti i riferimenti insieme, invece di farlo a pezzi. Chiuso nello stesso giro: `_notes/media-riservati/` (vuota, placeholder di template) e `_notes/prova-abilita/` (esperimento concluso e già tracciato in `STUDIO-03-verifica-del-metodo-sul-corpus.md` sezione 16) sono stati cancellati; `_notes/prova-10anni-pikachu.ek3` e `.pk3` alla radice sono stati cancellati perché portavano un valore di personalità diverso da quello vero del lotto (bozza precedente, non un riferimento).

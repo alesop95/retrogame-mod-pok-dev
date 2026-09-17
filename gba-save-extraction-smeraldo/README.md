@@ -20,6 +20,8 @@ Ne segue una conseguenza che va tenuta presente prima di guardare il dump: una q
 
 | Cosa cerchi | Dove sta |
 |---|---|
+| la diagnosi completa del salvataggio reale e la proposta di correzione, tasca per tasca, con le fonti | `STUDIO-01-diagnosi-e-correzione-inventario.md` |
+| il censimento dei box, i glitch storici raccontati dall'utente e i simboli della Frontiera di Lotta, non ancora conclusi | `STUDIO-02-box-glitch-storici-e-frontiera.md` |
 | la procedura operativa e lo stato del setup | `handoff/HANDOFF_progetto_smeraldo.md` |
 | la sequenza della prima sessione col lettore, in ordine di irreversibilità | `RUNBOOK-PRIMA-SESSIONE.md` |
 | la struttura del salvataggio Gen 3, sezione per sezione | `pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md`, sezioni 5 e 6 |

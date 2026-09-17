@@ -5,7 +5,7 @@ generated-date: 2026-08-24
 covers-paths:
   - gba-save-extraction-smeraldo/
 last-verified-commit: 80fac1f
-stato: attivo, convalida hardware sulla cartuccia di prova CONCLUSA il 2026-09-15 (205 esemplari scritti e confermati byte per byte e in gioco), porta COM5; il prossimo collegamento del lettore e' per Smeraldo
+stato: secondo giro SCRITTO sulla cartuccia vera il 2026-09-17 e verificato in modo indipendente (hash identico fra scritto e riletto); resta solo il controllo visivo in gioco
 ---
 
 # Sottoprogetto: correzione del bug inventario di Pokemon Smeraldo
@@ -38,13 +38,13 @@ Verificato il 2026-09-15: il Platform Mode di FlashGBX non si mantiene fra una c
 
 ## Prossimo passo concreto
 
-La convalida sulla cartuccia di prova è conclusa il 2026-09-15, con un margine ben oltre il minimo previsto: non un solo esemplare di controllo ma 205 (un Pikachu il 2026-09-15 mattina, poi un lotto di 204 lo stesso pomeriggio, cioè tutto ciò che il progetto aveva prodotto e giudicato conforme in formato di terza generazione), con backup in doppia copia verificato per hash prima di ogni scrittura, read-back per hash dopo, e un controllo visivo su un video della console vera che mostra i box coerenti con l'atteso (compresi i cinquanta esemplari del gruppo "con mossa" che risultano Uova non ancora schiuse, con il testo di dono speciale corretto) e il gioco che torna regolare al menu dopo l'uscita dai box. La catena hardware-driver-software (FlashGBX su COM5, modalità terza generazione a 3,3 V verificata sul LED, backup doppio, scrittura, read-back) è quindi validata anche su un lotto grande e non solo su un singolo esemplare.
+Il salvataggio reale di Smeraldo è stato estratto il 2026-09-17: doppia lettura indipendente su due volumi distinti (`_notes/backup salvataggi pokèmon Alessio cartucce vere/` e `J:\backup salvataggi pokèmon\`), hash SHA-256 identico, quindi backup verificato secondo il vincolo non negoziabile. FlashGBX ha riconosciuto la cartuccia in automatico (`AGB-BPEI-0`, tipo di salvataggio "1M FLASH (128 KiB)", nessun campo impostato a mano), confermando anche su Smeraldo ciò che la convalida sul Rubino di prova aveva già dimostrato il 2026-09-15.
 
-Il prossimo collegamento del lettore è per Smeraldo, secondo la sequenza già stabilita in `RUNBOOK-PRIMA-SESSIONE.md`, che ordina le operazioni per irreversibilità e non per interesse: le cartucce di prima e seconda generazione la cui pila potesse ancora tenere erano l'unica finestra che si chiude da sé, e la diagnosi del 2026-09-01 le ha già escluse in negativo (nessun salvataggio recuperabile su nessuna delle due), quindi non restano passi intermedi prima di Smeraldo. Prima di intervenire, l'utente ha segnalato che la cartuccia porta danni pregressi dai tentativi con codici Action Replay: il primo passo su Smeraldo resta comunque il backup in doppia copia previsto dallo step 1 del runbook, seguito da un controllo di sola lettura con `gba-save-extraction-smeraldo/tools/emerald_bag_decode.py` prima di qualunque ipotesi sulla causa o di qualunque scrittura, esattamente come il runbook già prescriveva indipendentemente da questa segnalazione.
+La diagnosi in sola lettura (`emerald_bag_decode.py` e `verifica-salvataggi.py --censimento`) e la proposta di correzione tasca per tasca sono scritte per intero in `STUDIO-01-diagnosi-e-correzione-inventario.md`, con le fonti sul sorgente `pret/pokeemerald` per ogni oggetto chiave incluso o escluso. Il secondo giro (`tools/emerald_bag_fix_round2.py`, `STUDIO-01` sezioni 18-19) è scritto sulla cartuccia vera e verificato: resta solo il controllo visivo in gioco, checklist in `STUDIO-01` sezione 20.
 
 ## Decisioni aperte
 
-Quali slot e quali oggetti esatti della tasca Strumenti Base vadano corretti non è ancora deciso, e non è decidibile prima di aver aperto il salvataggio in sola lettura: è lo step 7 della sequenza. Resta da confermare a hardware in mano che FlashGBX riconosca in auto-detect il tipo di memoria di Smeraldo, che è Flash. Il manuale ufficiale reperibile è fermo alla revisione 1.3, quindi sono possibili micro-differenze non documentate rispetto alla 1.4.
+Dal secondo giro: scritto e verificato sulla cartuccia (`STUDIO-01` sezione 19), resta solo il controllo visivo finale, checklist in `STUDIO-01` sezione 20. Aperti da prima: il censimento di legalità completo del resto del box (`STUDIO-02`), la produzione dell'intera squadra del Parco Lotta nel prossimo giro (`pending.md`; il Pokemon volante per spostarsi in gioco dopo la rimozione di Doduo è un problema separato, a carico dell'utente), la collezione di decorazioni per la Base Segreta, e il bug noto dell'orologio interno (RTC), rimandato per richiesta dell'utente.
 
 ## Scoperta trasversale da usare nella diagnosi
 

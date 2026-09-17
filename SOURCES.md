@@ -67,6 +67,15 @@ Nascono da una ricerca che l'utente ha condotto in un'altra sessione e consegnat
 | Dalla Tempocapsula a Pokemon HOME, Pokemon Millennium | https://www.pokemonmillennium.net/rubriche/184574-dalla-tempocapsula-a-pokemon-home-la-guida-completa-ai-passaggi-tra-generazioni/ | la guida ai passaggi fra generazioni, con gli aggiramenti esistenti e la loro assenza per Surf | PKD |
 | Macchina nascosta, Bulbapedia | https://bulbapedia.bulbagarden.net/wiki/HM | quali mosse siano macchine nascoste in ciascuna generazione, che è la tavola su cui `tools/mosse-mn.py` poggia il controllo | PKD, EVT |
 
+## Le fonti sui nomi italiani degli oggetti, lette il 2026-09-17 per il caso Smeraldo
+
+Nascono dalla correzione dell'inventario reale (`gba-save-extraction-smeraldo/STUDIO-01-diagnosi-e-correzione-inventario.md`), dove l'ottenibilità di ciascun oggetto è verificata sul sorgente `pret/pokeemerald` ma il nome italiano no: per quello serve una fonte in italiano, e queste due lo sono. Citate nelle sezioni 7, 10 e 12 di quello studio.
+
+| Fonte | URL | Autorevole su | Track |
+|---|---|---|---|
+| Elenco degli strumenti base in terza generazione, Pokemon Central Wiki | https://wiki.pokemoncentral.it/Elenco_degli_strumenti_base_in_terza_generazione | quali Oggetti Chiave sono esclusivi di Rubino, Zaffiro e Smeraldo contro quelli di Rosso Fuoco e Verde Foglia, e il loro nome italiano | SME |
+| Elenco strumenti per numero d'indice (terza generazione), Pokemon Central Wiki | https://wiki.pokemoncentral.it/Elenco_strumenti_per_numero_d%27indice_(terza_generazione) | il nome italiano ufficiale di un oggetto dato il suo identificativo numerico; letta per confronto diretto sull'esadecimale e non sulla colonna decimale della pagina, che si è rivelata disallineata di un'unità rispetto all'identificativo vero verificato sul sorgente | SME |
+
 <!-- indice-fonti-unico: inizio, generato da tools/indice-fonti-unico.py -->
 
 ## Indice unico: dove sta ciascuna fonte, e dove finisce
