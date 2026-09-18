@@ -207,6 +207,10 @@ Il bug noto dell'orologio interno (RTC) di terza generazione, segnalato dall'ute
 
 Le nove cartelle `lotto-*` restano sparse alla radice di `_notes/` per decisione esplicita dell'utente: raggrupparle sotto `_notes/lotti/<nome>/` romperebbe i riferimenti già scritti in `progress.md`, `pending.md` e nei manifesti, quindi si rimanda a un solo giro coordinato che sposti le cartelle e aggiorni tutti i riferimenti insieme, invece di farlo a pezzi. Chiuso nello stesso giro: `_notes/media-riservati/` (vuota, placeholder di template) e `_notes/prova-abilita/` (esperimento concluso e già tracciato in `STUDIO-03-verifica-del-metodo-sul-corpus.md` sezione 16) sono stati cancellati; `_notes/prova-10anni-pikachu.ek3` e `.pk3` alla radice sono stati cancellati perché portavano un valore di personalità diverso da quello vero del lotto (bozza precedente, non un riferimento).
 
+## Drift residuo su cinque schede trasversali, trovato da sync-context il 2026-09-17, non chiuso
+
+Dopo il commit `d54df47`, `sync-context` ha trovato `STACK.md`, `design-and-security.md`, `dev-testing.md`, `current-work.md` e `roadmap.md` in drift su due fronti indipendenti. Il fronte Smeraldo (i file di questa sessione) è stato riconciliato nello stesso giro. Il secondo fronte, aperto da commit precedenti a questa sessione e mai chiuso, tocca `pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md` e `pokedex-home-completo/LETTURA-DEL-CORPUS.md`: resta fuori scopo, quindi il checkpoint (`last-verified-commit`) delle cinque schede non è stato bumpato a HEAD apposta, per non far sparire questo secondo fronte dal prossimo confronto di `sync-context`. Chi riprende il fuoco `pokedex-home-completo` deve eseguire `sync-context` su quelle cinque schede prima di darle per buone.
+
 ## In attesa dell'utente: materiale da procurare
 
 La consegna avviene salvando i file in `_notes/fonti/`, secondo la convenzione di `.claude/rules/web-sources-not-fetchable.md`. Ogni riga dice a quale domanda serve, perché chiedere una fonte senza dire cosa si cerca produce lavoro inutile.

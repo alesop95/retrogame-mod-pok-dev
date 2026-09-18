@@ -4,7 +4,7 @@ generated-from-branch: main
 generated-date: 2026-08-24
 covers-paths:
   - gba-save-extraction-smeraldo/
-last-verified-commit: 80fac1f
+last-verified-commit: d54df47
 stato: secondo giro SCRITTO sulla cartuccia vera il 2026-09-17 e verificato in modo indipendente (hash identico fra scritto e riletto); resta solo il controllo visivo in gioco
 ---
 
