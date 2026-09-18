@@ -16,14 +16,14 @@ Data snapshot:         2026-09-16, chiusura di sessione prima di riaprirla per r
 
 | Scheda | Sottoprogetto | last-verified | Stato |
 |---|---|---|---|
-| STACK.md | trasversale | 80fac1f | checkpoint bumpato il 2026-09-16, contenuto invariato: nessun cambio architetturale, solo produzione |
-| design-and-security.md | trasversale | 80fac1f | checkpoint bumpato il 2026-09-16, contenuto invariato |
+| STACK.md | trasversale | 80fac1f | STALE, parzialmente riconciliata il 2026-09-17: corretta la parte su PKHeX/Smeraldo, checkpoint NON bumpato perché resta drift non toccato stasera su `pokedex-home-completo/` (vedi `pending.md`) |
+| design-and-security.md | trasversale | 80fac1f | aggiornata il 2026-09-17 con una nuova istanza di dati personali di terzi (nome reale in `pending.md`), checkpoint NON bumpato per lo stesso drift residuo di `pokedex-home-completo/` |
 | deployment.md | trasversale | d08a011 | non applicabile, covers-paths vuoto per scelta |
-| dev-testing.md | trasversale | 80fac1f | checkpoint bumpato il 2026-09-16, verificato che "206 prove" sia ancora esatto rilanciando la suite (i nuovi strumenti hanno self-test propri, separati) |
-| current-work.md | trasversale | 80fac1f | aggiornata il 2026-09-16: le righe di pokedex-completo, distributions-events e gen12-gen3-bridge riflettono la sintesi software del Parco Amici e i numeri correnti |
-| roadmap.md | trasversale | 80fac1f | checkpoint bumpato il 2026-09-16, contenuto invariato |
+| dev-testing.md | trasversale | 80fac1f | STALE, riconciliata il 2026-09-17: il protocollo Smeraldo descriveva PKHeX come editor invece dello script deterministico in uso da due giri; checkpoint NON bumpato, stesso drift residuo di `pokedex-home-completo/` |
+| current-work.md | trasversale | 80fac1f | STALE, riga smeraldo-save-fix riscritta il 2026-09-17 (era ferma a prima dell'arrivo del lettore); checkpoint NON bumpato, stesso drift residuo di `pokedex-home-completo/` |
+| roadmap.md | trasversale | 80fac1f | STALE, riconciliata il 2026-09-17: la riga su Smeraldo lo dichiarava ancora bloccato sul lettore; checkpoint NON bumpato, stesso drift residuo di `pokedex-home-completo/` |
 | sub-3ds-modding.md | 3ds-related | 80fac1f | checkpoint bumpato il 2026-09-16, nessun cambio |
-| sub-smeraldo-save-fix.md | gba-save-extraction-smeraldo | 80fac1f | aggiornata il 2026-09-17: SECONDO giro scritto sulla cartuccia vera e verificato in modo indipendente (hash identico), mistero della squadra risolto, resta il controllo visivo in gioco del secondo giro |
+| sub-smeraldo-save-fix.md | gba-save-extraction-smeraldo | d54df47 | RICONCILIATA e bumpata il 2026-09-17: secondo giro scritto sulla cartuccia vera e verificato in modo indipendente (hash identico), mistero della squadra risolto, resta il controllo visivo in gioco del secondo giro |
 | sub-gen12-gen3-bridge.md | pokemon-gen12-gen3-bridge | 80fac1f | aggiornata il 2026-09-16: nuovo modulo `parco_amici.py`, sintesi software del Parco Amici verso la quarta generazione |
 | sub-gba-switch-trading.md | gba-switch-pokemon-trading | 80fac1f | checkpoint bumpato il 2026-09-16, nessun cambio |
 | sub-poke-automation.md | poke-automation-study | 80fac1f | checkpoint bumpato il 2026-09-16, nessun cambio |
