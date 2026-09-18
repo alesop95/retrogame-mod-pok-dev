@@ -5,7 +5,7 @@ generated-date: 2026-08-24
 covers-paths:
   - gba-save-extraction-smeraldo/
 last-verified-commit: d54df47
-stato: secondo giro SCRITTO sulla cartuccia vera il 2026-09-17 e verificato in modo indipendente (hash identico fra scritto e riletto); resta solo il controllo visivo in gioco
+stato: inventario CHIUSO, secondo giro scritto sulla cartuccia e confermato in gioco il 2026-09-18 su tutti e quattro i punti; aperto un fronte nuovo, cioe' i flag di abilitazione delle isole, in attesa di una decisione dell'utente
 ---
 
 # Sottoprogetto: correzione del bug inventario di Pokemon Smeraldo
@@ -40,11 +40,13 @@ Verificato il 2026-09-15: il Platform Mode di FlashGBX non si mantiene fra una c
 
 Il salvataggio reale di Smeraldo è stato estratto il 2026-09-17: doppia lettura indipendente su due volumi distinti (`_notes/backup salvataggi pokèmon Alessio cartucce vere/` e `J:\backup salvataggi pokèmon\`), hash SHA-256 identico, quindi backup verificato secondo il vincolo non negoziabile. FlashGBX ha riconosciuto la cartuccia in automatico (`AGB-BPEI-0`, tipo di salvataggio "1M FLASH (128 KiB)", nessun campo impostato a mano), confermando anche su Smeraldo ciò che la convalida sul Rubino di prova aveva già dimostrato il 2026-09-15.
 
-La diagnosi in sola lettura (`emerald_bag_decode.py` e `verifica-salvataggi.py --censimento`) e la proposta di correzione tasca per tasca sono scritte per intero in `STUDIO-01-diagnosi-e-correzione-inventario.md`, con le fonti sul sorgente `pret/pokeemerald` per ogni oggetto chiave incluso o escluso. Il secondo giro (`tools/emerald_bag_fix_round2.py`, `STUDIO-01` sezioni 18-19) è scritto sulla cartuccia vera e verificato: resta solo il controllo visivo in gioco, checklist in `STUDIO-01` sezione 20.
+La diagnosi in sola lettura (`emerald_bag_decode.py` e `verifica-salvataggi.py --censimento`) e la proposta di correzione tasca per tasca sono scritte per intero in `STUDIO-01-diagnosi-e-correzione-inventario.md`, con le fonti sul sorgente `pret/pokeemerald` per ogni oggetto chiave incluso o escluso. Il secondo giro (`tools/emerald_bag_fix_round2.py`, `STUDIO-01` sezioni 18-19) è scritto sulla cartuccia vera, verificato byte per byte, e confermato in gioco il 2026-09-18 su tutti e quattro i punti della checklist (`STUDIO-01` sezione 21). Sull'inventario non resta nulla.
+
+Il prossimo passo appartiene a un fronte aperto lo stesso giorno da una prova che la checklist non chiedeva: i biglietti delle isole sono nello zaino ma il marinaio non offre alcuna destinazione, perché il gioco richiede in congiunzione anche un flag di abilitazione che solo la consegna del Dono Segreto accende. Lo studio è `STUDIO-03-doni-segreti-e-flag-delle-isole.md`, la misura la fa `tools/emerald_event_flags_decode.py`, e il passo non è tecnico ma una decisione dell'utente fra le tre vie della sezione 9 di quello studio.
 
 ## Decisioni aperte
 
-Dal secondo giro: scritto e verificato sulla cartuccia (`STUDIO-01` sezione 19), resta solo il controllo visivo finale, checklist in `STUDIO-01` sezione 20. Aperti da prima: il censimento di legalità completo del resto del box (`STUDIO-02`), la produzione dell'intera squadra del Parco Lotta nel prossimo giro (`pending.md`; il Pokemon volante per spostarsi in gioco dopo la rimozione di Doduo è un problema separato, a carico dell'utente), la collezione di decorazioni per la Base Segreta, e il bug noto dell'orologio interno (RTC), rimandato per richiesta dell'utente.
+Dal 2026-09-18: quale via prendere sui flag di abilitazione delle isole, con un ADR necessario per le prime due (`STUDIO-03` sezione 9), e la domanda da porre all'utente su quale canale di NDSEventTool avesse tentato l'estate scorsa. Aperti da prima: il censimento di legalità completo del resto del box (`STUDIO-02`), la produzione dell'intera squadra del Parco Lotta nel prossimo giro (`pending.md`; il Pokemon volante per spostarsi in gioco dopo la rimozione di Doduo è un problema separato, a carico dell'utente), la collezione di decorazioni per la Base Segreta, e il bug noto dell'orologio interno (RTC), rimandato per richiesta dell'utente.
 
 ## Scoperta trasversale da usare nella diagnosi
 

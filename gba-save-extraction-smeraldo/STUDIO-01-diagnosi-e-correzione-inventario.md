@@ -195,3 +195,17 @@ Da controllare nell'ordine, sulla console vera, ora che la cartuccia è di nuovo
 4. Il record di serie della Battle Pike: alla struttura stessa (non dal Pass Parco, che mostra solo il simbolo), il record dovrebbe risultare azzerato in entrambe le modalità, Lv.50 e Libero, invece di 47 e 199.
 
 Un "ok" per ciascun punto, o una descrizione di cosa non torna se qualcosa è diverso.
+
+## 21. Il riscontro visivo del secondo giro, 2026-09-18: tutti e quattro i punti confermati
+
+L'utente ha consegnato dieci fotografie della console accesa, conservate in `_notes/media/gba-save-extraction-smeraldo/2026-09-18-verifica-round2-e-porti/`. Ha anche dichiarato di non aver salvato la partita durante la verifica, proprio per non far avanzare il tempo di gioco: il salvataggio di riferimento resta quindi quello a 788h44m, e il nome del file continua a tracciarlo secondo ADR-064.
+
+Il punto 1 è confermato: la schermata della squadra mostra due soli esemplari, Linoone a livello 100 e Nidoran maschio a livello 20. Nessun Doduo e nessun Paras, quindi i due superstiti trovati dal secondo dump sono stati rimossi davvero.
+
+Il punto 2 è confermato voce per voce, ed è la verifica più stringente delle quattro perché è stata fatta confrontando l'ordine delle fotografie con l'ordine degli slot nel salvataggio invece che soltanto il conteggio. La tasca Oggetti Chiave mostra diciotto voci: Amo Vecchio, Amo Buono, Super Amo, Detector, Vaso Wailmer, Bici Corsa, Occhialoni, Devonscopio, Stemma Magma, Bigl. Nave, Portapadelle, Bigl. Eone, Chiave Sott., Sacco Cenere, Tessera Gare, Portafarina, Bigl. Aurora, Mappa Stinta. Il decodificatore legge sul file, nello stesso ordine, gli identificativi 262, 263, 264, 261, 268, 259, 279, 288, 375, 265, 273, 275, 271, 270, 266, 372, 371, 376, e i quattro che si possono ancorare per identificativo noto cadono tutti al posto giusto: 288 è il Devonscopio all'ottava voce, 375 lo Stemma Magma alla nona, 275 il Biglietto Eone alla dodicesima, 371 e 376 il Biglietto Aurora e la Vecchia Mappa Marina alle ultime due. Merce Devon, Sfera Rossa e Sfera Blu non compaiono, come previsto.
+
+Il punto 3 è confermato: la tasca Palle mostra dodici voci con Master Ball a 1 in testa, e il decodificatore conferma dodici slot occupati su sedici, trenta su trenta nella tasca Oggetti e quarantasette su cinquanta nel deposito PC, tutti invariati rispetto al primo giro.
+
+Il punto 4 è confermato ed è la prova che l'offset trovato sul sorgente era quello giusto: la schermata dei risultati della Lotta Dilemma mostra, sia a Lv.50 sia a Livello Libero, "Sale superate" a zero nella riga del precedente e a zero in quella del record, mentre i totali di sfide vinte restano 43 e 73. I valori 47 e 199 letti prima dell'azzeramento non ci sono più, e i contatori che non dovevano essere toccati non lo sono stati.
+
+Con questo il secondo giro di correzione è chiuso e verificato in gioco, e il track non ha più nulla in sospeso sull'inventario. Nella stessa verifica l'utente ha però provato i due porti per vedere se i biglietti delle isole fossero riconosciuti, e la risposta è stata no: quella prova ha aperto una questione che non appartiene all'inventario ed è trattata per intero in `STUDIO-03-doni-segreti-e-flag-delle-isole.md`. In una riga, il biglietto nello zaino è necessario e non sufficiente, perché il gioco richiede in congiunzione anche un flag di abilitazione che solo la consegna del Dono Segreto accende, e che nessuno dei due giri di correzione poteva accendere perché scrivevano la tasca e non i flag.
