@@ -28,8 +28,11 @@ se un dono sia già stato consegnato dal Dono Segreto e che su questa partita so
 perché quella consegna non è mai avvenuta: accenderli dichiarerebbe un fatto falso e non
 servirebbe a nulla, perché il menu del porto non li guarda. Non tocca nemmeno i flag
 `FLAG_SHOWN_*`, che il gioco accende da sé la prima volta che il biglietto viene mostrato al
-marinaio, né `FLAG_ENABLE_SHIP_NAVEL_ROCK`, perché il Biglietto Magico non è nello zaino e
-accendere un flag senza il suo oggetto ricostruirebbe la stessa coppia rotta al contrario.
+marinaio. Fino al terzo giro non toccava nemmeno `FLAG_ENABLE_SHIP_NAVEL_ROCK`, perche' il
+Biglietto Magico non era nello zaino e accendere un flag senza il suo oggetto avrebbe
+ricostruito la stessa coppia rotta al contrario; dal 2026-09-18 a sera, con ADR-066, quel
+biglietto viene messo in tasca da `emerald_key_item_add.py` e la quarta riga del piano e'
+quindi attiva. L'ordine di esecuzione conta: prima l'oggetto, poi il flag.
 
 I tre flag e la loro aritmetica, verificati su pret/pokeemerald
 ---------------------------------------------------------------
@@ -71,9 +74,9 @@ from emerald_bag_decode import (  # noqa: E402
     GAMES, ITEM_SLOT_SIZE, SECTOR_SIZE, SECTORS_PER_SLOT, OFF_CHECKSUM,
 )
 from emerald_event_flags_decode import (  # noqa: E402
-    OFF_FLAGS, ITEM_EON_TICKET, ITEM_AURORA_TICKET, ITEM_OLD_SEA_MAP,
+    OFF_FLAGS, ITEM_EON_TICKET, ITEM_AURORA_TICKET, ITEM_OLD_SEA_MAP, ITEM_MYSTIC_TICKET,
     FLAG_ENABLE_SHIP_SOUTHERN_ISLAND, FLAG_ENABLE_SHIP_BIRTH_ISLAND,
-    FLAG_ENABLE_SHIP_FARAWAY_ISLAND,
+    FLAG_ENABLE_SHIP_FARAWAY_ISLAND, FLAG_ENABLE_SHIP_NAVEL_ROCK,
 )
 
 SECTOR_DATA_SIZE = 3968
@@ -88,6 +91,11 @@ PIANO = (
      ITEM_AURORA_TICKET, "Biglietto Aurora"),
     ("Isola Suprema", FLAG_ENABLE_SHIP_FARAWAY_ISLAND, "FLAG_ENABLE_SHIP_FARAWAY_ISLAND",
      ITEM_OLD_SEA_MAP, "Mappa Stinta"),
+    # Quarta riga aggiunta il 2026-09-18 a sera con ADR-066. Al terzo giro non c'era perche'
+    # il Biglietto Magico non era nella tasca e la precondizione lo avrebbe fermato; adesso
+    # ve lo mette `emerald_key_item_add.py`, che va eseguito prima di questo strumento.
+    ("Monte Cordone", FLAG_ENABLE_SHIP_NAVEL_ROCK, "FLAG_ENABLE_SHIP_NAVEL_ROCK",
+     ITEM_MYSTIC_TICKET, "Biglietto Magico"),
 )
 
 
