@@ -56,6 +56,8 @@ La bonifica è stata fatta prima del primo commit, che era l'unica finestra in c
 
 La politica che ne discende, registrata come ADR-005, è più ampia del singolo episodio: foto, video e screenshot non si versionano mai. Sono evidenza personale, non conoscenza tecnica, e ciò che documentano si registra in prosa nella scheda del sottoprogetto, dove diventa leggibile e diffabile.
 
+Il 2026-09-17 il nome e cognome reali di una terza persona, l'amico dell'utente con cui è previsto uno scambio di esemplari del Parco Lotta, sono entrati in `pending.md` come attribuzione di alcuni moveset incollati da una chat WhatsApp, con la stessa logica di `web-sources-not-fetchable.md` sulla conservazione dell'attribuzione. È un caso diverso da quello di Discord (una persona reale nota all'utente, non un handle di community), e diverso anche dall'episodio del 18 agosto (qui il dato è entrato deliberatamente, non per errore di quarantena): si registra qui perché la scheda deve tracciare ogni istanza di dati personali di terzi nei file tracciati, non solo quelle accidentali. Nessuna azione presa finché la repository resta privata; se un giorno si valutasse di renderla pubblica, questo nome è uno dei punti da rivedere insieme al testo dell'avvertenza già scritta più sotto.
+
 ## Perimetro etico e legale
 
 Il dump si applica soltanto a cartucce possedute. Il perimetro è dichiarato nella sezione 2 dell'handoff del sottoprogetto 3DS e vale per tutte le sessioni. Dalla stessa sezione discende un limite operativo: l'assistenza non copre l'installazione e l'uso di Pokemon Bank e Transporter su questa console, e la motivazione sta fuori dal version control, in `_notes/perimetro-bank-transporter.md`.

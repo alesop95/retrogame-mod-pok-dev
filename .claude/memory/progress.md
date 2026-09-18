@@ -4,6 +4,12 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-17, ventottesima parte. Version control e sync-context di chiusura sessione
+
+Primo commit di questa sessione, `d54df47`, con tutto il lavoro della ventisettesima parte. Subito dopo, su richiesta dell'utente di rendere la sessione chiudibile "come da template di progetto", eseguita `sync-context`: le schede toccate da questa sessione (`sub-smeraldo-save-fix.md`) sono riconciliate e bumpate a `d54df47`. Le cinque schede trasversali che coprono anche `gba-save-extraction-smeraldo/` (`STACK.md`, `design-and-security.md`, `dev-testing.md`, `current-work.md`, `roadmap.md`) risultavano in drift su due fronti indipendenti: quello di Smeraldo, riconciliato nello stesso giro (`STACK.md` e `dev-testing.md` descrivevano ancora PKHeX come lo strumento di correzione invece dello script deterministico in uso da due giri; `current-work.md` e `roadmap.md` dichiaravano il track ancora bloccato sull'arrivo del lettore; `design-and-security.md` ha ricevuto una riga sulla nuova istanza di dati personali di terzi entrata in `pending.md`), e quello di `pokedex-home-completo/`, aperto da commit precedenti a questa sessione e fuori scopo stasera: il checkpoint delle cinque schede non è stato bumpato apposta, per non far sparire questo secondo fronte, registrato in `pending.md`.
+
+Riscritto per intero `_notes/resume-prompt.md` con la domanda di ripresa esatta (checklist del secondo giro) e l'elenco dei file toccati.
+
 ## 2026-09-17, ventisettesima parte. Il riscontro visivo, il mistero della squadra, il secondo giro
 
 ### Il riscontro visivo del primo giro, per screen e video
