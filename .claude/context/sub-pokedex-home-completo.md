@@ -28,6 +28,8 @@ Due linee in parallelo, per direttiva dell'utente del 2026-09-10, restano il cri
 
 Sulla produzione pesa ancora la domanda aperta dal 2026-09-10: il servizio ricostruito distribuisce ancora i doni di quarta e quinta generazione alle cartucce vere, e un esemplare ricevuto è preferibile a uno composto su ogni dimensione. La voce sta in `pending.md`. Una seconda domanda, chiusa il 2026-09-16 in negativo, non pesa più: la scappatoia del tracciatore su Pokemon Spada/Scudo, che avrebbe permesso di saltare la catena DS del tutto, non regge al confronto col costo di una console modificata.
 
+Una porta nuova si è aperta il 2026-09-18 dal track `smeraldo-save-fix`, ed è la sola fra quelle registrate che non passa da un lotto composto: con ADR-066 la cartuccia vera di Smeraldo riapre gli incontri delle quattro isole, quindi Deoxys, Mew, Lugia e Ho-Oh diventano catturabili giocando, con il contrassegno di incontro fatidico che il gioco appone da sé. Deoxys e Mew sono le due che contano davvero, perché non stanno nel deposito di quella cartuccia e perché Deoxys è una delle quattro specie prive di qualsiasi incontro nei titoli a via diretta (ADR-032). Lugia e Ho-Oh ci sono già dalla distribuzione italiana "10ANNI" su Rubino, quindi per loro la porta è un di più e non una necessità. Il dettaglio sta in `gba-save-extraction-smeraldo/STUDIO-03-doni-segreti-e-flag-delle-isole.md` dalla sezione 14.
+
 ## Decisioni aperte
 
 Restano dell'utente l'ambito delle sfide del deposito, per cui servono le schermate delle due schede non fotografate, e la scelta del profilo di collezione fra i quindici che lo strumento della comunità distingue. Le altre sono state prese e stanno in `decisions.md` da ADR-049 a ADR-054.

@@ -4,6 +4,26 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-18, trentatreesima parte. ADR-066, il quinto giro costruito, e la riconciliazione delle schede
+
+### La decisione, più larga della proposta
+
+L'utente ha deciso la sera stessa e ha deciso più largamente di quanto la sezione 17 di `STUDIO-03` proponesse: non i due incontri raggiungibili ma tutti e quattro, Monte Cordone compreso, e con il Biglietto Magico da mettere in tasca. La motivazione va registrata perché corregge un'assunzione che l'agente aveva fatto per lui, cioè che possedere già Lugia e Ho-Oh dalla distribuzione "10ANNI" rendesse quel fronte superfluo: non è la questione, e ciò che vuole è poter rigiocare l'evento completo su questa cartuccia. È ADR-066. Va registrato anche che l'obiezione era stata esposta una volta e che, dopo la riaffermazione, non si ripete.
+
+Un difetto di comunicazione dell'agente va registrato perché ha prodotto un fraintendimento vero. La frase sulla legittimità era stata scritta come "non somiglierebbe a un esemplare legittimo, lo sarebbe per costruzione", e l'utente ne ha letto la prima metà come una negazione. La costruzione retorica di un'antitesi non regge in un contesto operativo dove la risposta attesa è un sì o un no, e la lezione è di dare prima la conclusione e poi la sfumatura.
+
+### Il quinto giro, costruito e verificato per intero
+
+Serviva uno strumento che non c'era, perché il secondo giro sapeva aggiungere oggetti chiave ma dentro un piano fisso che faceva anche rimozioni: `gba-save-extraction-smeraldo/tools/emerald_key_item_add.py` fa la sola aggiunta, prende gli identificativi da riga di comando, scrive la quantità mascherata con i sedici bit bassi della chiave di sicurezza, e rifiuta se l'oggetto è già presente o se la tasca non ha posto. Il piano di `emerald_event_flags_fix.py` è stato esteso alla quarta riga, cioè il Monte Cordone, che al terzo giro non poteva esserci perché la precondizione dello strumento l'avrebbe fermata: è la ragione per cui l'ordine dei tre passi è obbligato e non preferenziale, prima l'oggetto, poi il permesso, poi la presenza.
+
+La catena è stata percorsa per intero sul file che è oggi il contenuto della cartuccia, producendo un candidato nella cartella temporanea che non è stato conservato. Dodici byte di differenza: quattro dello slot 18 della tasca Oggetti Chiave, due del checksum della sezione 1, quattro che contengono i sei bit toccati nella sezione 2 e due del suo checksum. Le due verifiche indipendenti sono positive: il decodificatore dei flag dichiara tutte e quattro le isole nel menu del porto e tutte e cinque le righe della tabella degli incontri senza flag impedienti, e il decodificatore dello zaino differisce nelle sole due righe della voce nuova. Sulla cartuccia non è stato scritto nulla, perché per direttiva dell'utente questa scrittura si accorpa al giro della Grotta Mutevole, del Succodibacca e del deposito PC.
+
+### La riconciliazione delle schede, e i timbri di tesi
+
+`sync-context` è stato eseguito con HEAD a `47d217f`. Le schede trasversali risultavano stale per i file di Smeraldo cambiati in quel commit e per il drift residuo su `pokedex-home-completo/` che resta dal 2026-09-16. Sono state riconciliate nel merito tre schede trasversali e una verticale: `STACK.md` e `dev-testing.md` elencavano due soli script di scrittura quando adesso sono cinque, e nessuna delle due nominava i due strumenti sui flag, quindi l'inventario degli strumenti e il protocollo di verifica sono stati riscritti nel punto impattato; `current-work.md` aveva la riga di Smeraldo ferma ai due giri del 2026-09-17; e `sub-pokedex-home-completo.md` ha guadagnato una porta che non passa da un lotto composto, cioè Deoxys e Mew catturabili sulla cartuccia vera, che è la prima di questo genere per quel track. I `last-verified-commit` NON sono stati bumpati, perché il lavoro di questa sera non è committato e perché il drift su `pokedex-home-completo/` resta aperto.
+
+Sui timbri di tesi il debito è sceso da sei capitoli a uno. Cinque sono stati portati a `47d217f` perché i documenti che coprono non sono cambiati nel lavoro non committato, cioè i capitoli 00, 02, 23, 28 e 31. Resta il capitolo 14, che copre `STUDIO-03` e che quindi va bumpato soltanto dopo il commit di questa sera. Il capitolo ha in più due paragrafi nuovi sulla decisione presa e sulla catena di tre strumenti, e la tesi ricompila a 341 pagine.
+
 ## 2026-09-18, trentaduesima parte. Il riscontro positivo, due isole vuote, e una prova al posto di un'ipotesi
 
 ### Il terzo giro è verificato in gioco

@@ -301,12 +301,44 @@ Sono tre byte, perché il byte basso del checksum non cambia. Le due verifiche i
 
 Che cosa si otterrebbe, detto con precisione. Non si fabbrica alcun esemplare e non si scrive nulla nel deposito: si rimuove la dichiarazione che un incontro sia già avvenuto, e l'incontro poi si gioca. L'esemplare che ne verrebbe sarebbe generato dal gioco stesso, e vale registrare un dettaglio che conta per un progetto che distingue legale da legittimo: il comando di script `seteventmon`, che entrambe le mappe eseguono prima della lotta, porta a `CreateEnemyEventMon` e quindi a `CreateEventMon`, che in `src/pokemon.c` imposta `MON_DATA_MODERN_FATEFUL_ENCOUNTER` a vero. Il Deoxys dell'Isola Materna e il Mew dell'Isola Suprema porterebbero quindi il contrassegno di incontro fatidico che un verificatore si aspetta di trovare su quegli esemplari, cioè sarebbero esattamente ciò che una partita legittima avrebbe prodotto.
 
-Perché la decisione conta più di tre byte, e va presa e registrata. Nel verso favorevole c'è che questo giro non aggiunge nulla che il gioco non avrebbe messo, ma toglie qualcosa che il gioco non ha messo, e che Mew e Deoxys sono due delle specie che il track `pokedex-home-completo` deve procurarsi e che nel deposito di questa cartuccia non ci sono, mentre Lugia e Ho-Oh ci sono già dalla distribuzione italiana "10ANNI" su Rubino. Nel verso contrario c'è che la sezione 16 dimostra che quei bit non vengono da questa partita ma non dimostra che l'utente non abbia mai posseduto quegli esemplari altrove, e che spegnere un flag di cattura resta una scrittura su un salvataggio di vent'anni.
+Perché la decisione conta più di tre byte, e va presa e registrata. La sezione 19 racconta come è stata presa, e in che verso. Nel verso favorevole c'è che questo giro non aggiunge nulla che il gioco non avrebbe messo, ma toglie qualcosa che il gioco non ha messo, e che Mew e Deoxys sono due delle specie che il track `pokedex-home-completo` deve procurarsi e che nel deposito di questa cartuccia non ci sono, mentre Lugia e Ho-Oh ci sono già dalla distribuzione italiana "10ANNI" su Rubino. Nel verso contrario c'è che la sezione 16 dimostra che quei bit non vengono da questa partita ma non dimostra che l'utente non abbia mai posseduto quegli esemplari altrove, e che spegnere un flag di cattura resta una scrittura su un salvataggio di vent'anni.
 
 ## 18. Che cosa resta aperto dopo il quarto giro
+
+> Scritta prima che la decisione arrivasse. La sua prima e la sua terza conclusione sono state superate dalla sezione 19: il Monte Cordone non resta chiuso, e l'attribuzione non è più in discussione. Resta come storico.
 
 Il Monte Cordone resta chiuso e adesso si sa che costa due cose invece di una. Serve il Biglietto Magico nella tasca, che oggi non c'è e che nessuna delle vie percorse finora ha prodotto; serve il suo flag di abilitazione; e servirebbe comunque lo spegnimento di `FLAG_CAUGHT_LUGIA` e `FLAG_CAUGHT_HO_OH`, perché altrimenti quella mappa sarebbe raggiungibile e vuota. Poiché Lugia e Ho-Oh sono già nel deposito da una distribuzione reale, la priorità di questo fronte è la più bassa dei tre.
 
 Resta aperta la domanda della sezione 6, cioè di quale lingua sia la seconda cartuccia su cui l'utente ha già ottenuto Mew all'Isola Suprema con NDSEventTool. La sezione 16 le dà adesso un peso in più: se quella cartuccia è italiana e quell'evento è davvero avvenuto, allora l'utente ha posseduto un Mew legittimo, e ciò cambia il modo in cui si legge il flag acceso su questa.
 
 Non è più aperta l'attribuzione dei flag anomali, che la sezione 16 ha chiuso nei limiti che dichiara.
+
+## 19. La decisione presa, e il quinto giro costruito per intero
+
+L'utente ha deciso la sera stessa, e più largamente di quanto la sezione 17 proponesse: non due incontri ma tutti e quattro, Monte Cordone compreso. La motivazione che ha dato è netta e va riportata com'è, perché corregge un'assunzione che questo studio aveva fatto: il possedere già Lugia e Ho-Oh altrove non è la questione, e ciò che vuole è poter rigiocare l'evento completo su questa cartuccia. È ADR-066. L'obiezione era stata esposta una volta con i suoi termini reali, la riaffermazione è registrata, e non si ripete ai passi successivi.
+
+Ne discende che il Monte Cordone non è più un fronte chiuso ma una delle quattro destinazioni da aprire, e che al giro serve una operazione in più rispetto a quelle della sezione 17, cioè mettere in tasca il Biglietto Magico. Lo strumento per farlo non esisteva: il secondo giro sapeva aggiungere oggetti chiave ma dentro un piano fisso che faceva anche altro, e riusarlo avrebbe significato eseguirne anche le rimozioni. `tools/emerald_key_item_add.py` fa la sola aggiunta e prende gli identificativi da riga di comando. Scrive la quantità mascherata con i sedici bit bassi della chiave di sicurezza, che è la formula già verificata nel secondo giro e che serve perché `GetBagItemQuantity` applica la maschera in lettura; rifiuta se l'oggetto è già presente, perché duplicare un oggetto chiave sarebbe la firma di un errore; e rifiuta se la tasca non ha posto.
+
+L'ordine delle tre operazioni è obbligato, e la ragione è la precondizione dello strumento del terzo giro, che pretende l'oggetto in tasca prima di accendere il flag. Il piano di quello strumento è stato esteso alla quarta riga, cioè il Monte Cordone, che al terzo giro non poteva esserci proprio perché quella precondizione l'avrebbe fermata. Prima l'oggetto, poi il flag di abilitazione, poi lo spegnimento dei flag degli incontri.
+
+```
+python tools/emerald_key_item_add.py        INGRESSO.sav  passo-a.sav  --item 370
+python tools/emerald_event_flags_fix.py     passo-a.sav   passo-b.sav
+python tools/emerald_encounter_flags_fix.py passo-b.sav   USCITA.sav   --tutti
+```
+
+La catena è stata percorsa per intero il 2026-09-18 sul file che è oggi il contenuto della cartuccia, producendo un file candidato nella cartella temporanea che non è stato conservato e che nessuno ha scritto sulla cartuccia. Le differenze sono dodici byte e nessuno di più.
+
+| Indirizzi nel file | Che cosa sono |
+|---|---|
+| da 0x01620 a 0x01623 | lo slot 18 della tasca Oggetti Chiave: identificativo 370 e quantità 1 scritta mascherata come 0x5881 |
+| 0x01FF6 e 0x01FF7 | checksum della sezione 1, da 0x7E09 a 0xD7FC |
+| 0x0240C | sezione 2, offset 0x40C, bit 0: `FLAG_ENABLE_SHIP_NAVEL_ROCK` |
+| 0x02302 | sezione 2, offset 0x302, bit 1 e bit 2: `FLAG_CAUGHT_LUGIA` e `FLAG_CAUGHT_HO_OH` |
+| 0x02325 | sezione 2, offset 0x325, bit 5: `FLAG_BATTLED_DEOXYS` |
+| 0x02329 | sezione 2, offset 0x329, bit 2: `FLAG_CAUGHT_MEW` |
+| 0x02FF6 e 0x02FF7 | checksum della sezione 2, da 0x7027 a 0x4C22 |
+
+Le due verifiche indipendenti di sempre sono positive. Il decodificatore dei flag, rilanciato sul candidato, dichiara che il menu del porto costruirebbe Isola Remota, Monte Cordone, Isola Materna e Isola Suprema, e che tutte e cinque le righe della tabella degli incontri sono adesso senza flag impedienti, cioè Latios, Deoxys, Mew, Lugia e Ho-Oh. Il decodificatore dello zaino, confrontato riga per riga con quello del file di partenza, differisce in due sole righe, cioè il conteggio della tasca Oggetti Chiave che passa da diciotto a diciannove e la riga dello slot nuovo: nessun effetto su squadra, denaro, deposito e resto dello zaino.
+
+Il giro non si scrive da solo. Per direttiva dell'utente si unisce a quello che mette insieme la Grotta Mutevole con il Succodibacca e la pulizia del deposito PC, perché ogni scrittura sulla cartuccia è un rischio che non conviene ripetere, e mancano al giro due sole scelte, cioè il valore di `VAR_ALTERING_CAVE_WILD_SET` e gli oggetti rari con cui sostituire i sette comuni del deposito.
