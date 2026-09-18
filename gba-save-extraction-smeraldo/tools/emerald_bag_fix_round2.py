@@ -17,7 +17,7 @@ Che cosa fa, in ordine
    della Frontiera di Lotta, verificato su `data/event_scripts.s` di pret/pokeemerald che
    la consegna esegue `removeitem`), Sfera Rossa (276) e Sfera Blu (277, mai ottenibili in
    Smeraldo per gioco normale, verificato su Bulbapedia alla voce Monte Pyre). Aggiunge
-   Biglietto Aurora (371) e Vecchia Mappa Marina (376): l'utente ha confermato di non
+   Biglietto Aurora (371) e Mappa Stinta (376): l'utente ha confermato di non
    averli mai ottenuti per davvero, quindi sono contenuto prodotto su sua richiesta
    esplicita e non una restituzione di corruzione, per ADR-063.
 2. Nella squadra: rimuove il secondo Doduo e il secondo Paras rimasti dal primo giro
@@ -58,7 +58,7 @@ from emerald_bag_decode import (  # noqa: E402
 # --- Il piano del secondo giro, confermato dall'utente il 2026-09-17 -------------------
 
 CHIAVE_DA_RIMUOVERE = {269, 276, 277}          # Merce Devon, Sfera Rossa, Sfera Blu
-CHIAVE_DA_AGGIUNGERE = [371, 376]              # Biglietto Aurora, Vecchia Mappa Marina
+CHIAVE_DA_AGGIUNGERE = [371, 376]              # Biglietto Aurora, Mappa Stinta
 
 # I due esemplari superstiti dal primo giro, allenatore sospetto `C6B4D7EF` come i due
 # già rimossi: individui distinti (STUDIO-01, sezione 17), non un doppione da clonazione.

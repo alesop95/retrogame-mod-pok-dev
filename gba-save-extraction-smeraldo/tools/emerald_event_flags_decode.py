@@ -5,7 +5,7 @@
 Perché esiste
 --------------
 Il 2026-09-18 l'utente ha verificato in gioco che la tasca Oggetti Chiave contiene Biglietto
-Eone, Biglietto Aurora e Vecchia Mappa Marina, ma che al porto di Alghepoli il marinaio non
+Eone, Biglietto Aurora e Mappa Stinta, ma che al porto di Alghepoli il marinaio non
 offre alcuna isola: le sole voci sono Porto Selcepoli, Parco Lotta e Annulla. La diagnosi
 ingenua sarebbe che il Dono Segreto si sia corrotto, ma il sorgente dice un'altra cosa, e la
 dice in modo univoco.
@@ -110,7 +110,7 @@ VAR_DISTRIBUTE_EON_TICKET = 0x403F
 
 # Identificativi degli oggetti, ricavati numerando l'enum di include/constants/items.h, che
 # non porta valori espliciti. Coincidono con quelli gia' usati da emerald_bag_fix_round2.py
-# per il Biglietto Aurora e la Vecchia Mappa Marina, che e' la verifica incrociata.
+# per il Biglietto Aurora e la Mappa Stinta, che e' la verifica incrociata.
 ITEM_EON_TICKET = 275
 ITEM_MYSTIC_TICKET = 370
 ITEM_AURORA_TICKET = 371
@@ -121,13 +121,13 @@ ITEM_OLD_SEA_MAP = 376
 # CreateLilycoveSSTidalMultichoice le valuta, così che l'elenco prodotto qui sia lo stesso
 # elenco che il gioco mostrerebbe.
 ISOLE = (
-    ("Isola del Sud", ITEM_EON_TICKET, "Biglietto Eone", FLAG_ENABLE_SHIP_SOUTHERN_ISLAND,
+    ("Isola Remota", ITEM_EON_TICKET, "Biglietto Eone", FLAG_ENABLE_SHIP_SOUTHERN_ISLAND,
      "FLAG_ENABLE_SHIP_SOUTHERN_ISLAND", "Latias o Latios"),
-    ("Roccia Ombelico", ITEM_MYSTIC_TICKET, "Biglietto Mistico", FLAG_ENABLE_SHIP_NAVEL_ROCK,
+    ("Monte Cordone", ITEM_MYSTIC_TICKET, "Biglietto Magico", FLAG_ENABLE_SHIP_NAVEL_ROCK,
      "FLAG_ENABLE_SHIP_NAVEL_ROCK", "Lugia e Ho-Oh"),
-    ("Isola Natale", ITEM_AURORA_TICKET, "Biglietto Aurora", FLAG_ENABLE_SHIP_BIRTH_ISLAND,
+    ("Isola Materna", ITEM_AURORA_TICKET, "Biglietto Aurora", FLAG_ENABLE_SHIP_BIRTH_ISLAND,
      "FLAG_ENABLE_SHIP_BIRTH_ISLAND", "Deoxys"),
-    ("Isola Lontana", ITEM_OLD_SEA_MAP, "Vecchia Mappa Marina", FLAG_ENABLE_SHIP_FARAWAY_ISLAND,
+    ("Isola Suprema", ITEM_OLD_SEA_MAP, "Mappa Stinta", FLAG_ENABLE_SHIP_FARAWAY_ISLAND,
      "FLAG_ENABLE_SHIP_FARAWAY_ISLAND", "Mew"),
 )
 
@@ -139,25 +139,25 @@ FLAG_CONTORNO = (
      "il Mistery Event e-Reader e' abilitato"),
     (FLAG_SYS_GAME_CLEAR, "FLAG_SYS_GAME_CLEAR", "Lega battuta, la nave S.S. Tidal esiste"),
     (FLAG_LANDMARK_SOUTHERN_ISLAND, "FLAG_LANDMARK_SOUTHERN_ISLAND",
-     "l'Isola del Sud compare sulla mappa"),
+     "l'Isola Remota compare sulla mappa"),
     (FLAG_ARRIVED_ON_FARAWAY_ISLAND, "FLAG_ARRIVED_ON_FARAWAY_ISLAND",
-     "l'Isola Lontana e' gia' stata visitata"),
+     "l'Isola Suprema e' gia' stata visitata"),
     (FLAG_ARRIVED_AT_NAVEL_ROCK, "FLAG_ARRIVED_AT_NAVEL_ROCK",
-     "la Roccia Ombelico e' gia' stata visitata"),
+     "il Monte Cordone e' gia' stato visitato"),
     (0x13A, "FLAG_RECEIVED_AURORA_TICKET", "Biglietto Aurora ricevuto dal Dono Segreto"),
-    (0x13B, "FLAG_RECEIVED_MYSTIC_TICKET", "Biglietto Mistico ricevuto dal Dono Segreto"),
-    (0x13C, "FLAG_RECEIVED_OLD_SEA_MAP", "Vecchia Mappa Marina ricevuta dal Dono Segreto"),
+    (0x13B, "FLAG_RECEIVED_MYSTIC_TICKET", "Biglietto Magico ricevuto dal Dono Segreto"),
+    (0x13C, "FLAG_RECEIVED_OLD_SEA_MAP", "Mappa Stinta ricevuta dal Dono Segreto"),
     (0x1AE, "FLAG_SHOWN_EON_TICKET", "Biglietto Eone gia' mostrato al marinaio"),
     (0x1AF, "FLAG_SHOWN_AURORA_TICKET", "Biglietto Aurora gia' mostrato al marinaio"),
-    (0x1B0, "FLAG_SHOWN_OLD_SEA_MAP", "Vecchia Mappa Marina gia' mostrata al marinaio"),
-    (0x1DB, "FLAG_SHOWN_MYSTIC_TICKET", "Biglietto Mistico gia' mostrato al marinaio"),
+    (0x1B0, "FLAG_SHOWN_OLD_SEA_MAP", "Mappa Stinta gia' mostrata al marinaio"),
+    (0x1DB, "FLAG_SHOWN_MYSTIC_TICKET", "Biglietto Magico gia' mostrato al marinaio"),
     (0x1D0, "FLAG_MET_SCOTT_ON_SS_TIDAL", "Parco Lotta raggiungibile dal porto"),
     (0x1AC, "FLAG_DEFEATED_DEOXYS", "Deoxys battuto"),
     (0x1AD, "FLAG_BATTLED_DEOXYS", "Deoxys incontrato"),
     (0x1C7, "FLAG_DEFEATED_MEW", "Mew battuto"),
     (0x1CA, "FLAG_CAUGHT_MEW", "Mew catturato"),
-    (0x2FC, "FLAG_HIDE_BIRTH_ISLAND_DEOXYS_TRIANGLE", "il triangolo dell'Isola Natale e' nascosto"),
-    (0x38E, "FLAG_HIDE_SOUTHERN_ISLAND_EON_STONE", "la Sfera Eone dell'Isola del Sud e' nascosta"),
+    (0x2FC, "FLAG_HIDE_BIRTH_ISLAND_DEOXYS_TRIANGLE", "il triangolo dell'Isola Materna e' nascosto"),
+    (0x38E, "FLAG_HIDE_SOUTHERN_ISLAND_EON_STONE", "la Sfera Eone dell'Isola Remota e' nascosta"),
 )
 
 

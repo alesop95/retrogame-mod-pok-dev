@@ -160,27 +160,27 @@ def cromatico(personalita, tid, sid):
 # Fonte: PKHeX, `PKHeX.Core/Legality/Encounters/Data/Gen3/Encounters3RSE.cs` righe 109-112 e
 # `Encounters3FRLG.cs` righe 61-62, 74 e 86, lette il 2026-09-07.
 INCONTRI = [
-    ("mew-e", 151, 30, "E", 201, None, "Japanese", "Isola Lontana"),
-    ("lugia-e", 249, 70, "E", 211, None, "Italian", "Roccia Ombelico"),
-    ("hooh-e", 250, 70, "E", 211, None, "Italian", "Roccia Ombelico"),
-    ("lugia-fr", 249, 70, "FR", 174, None, "Italian", "Roccia Ombelico"),
-    ("hooh-fr", 250, 70, "FR", 174, None, "Italian", "Roccia Ombelico"),
-    ("lugia-lg", 249, 70, "LG", 174, None, "Italian", "Roccia Ombelico"),
-    ("hooh-lg", 250, 70, "LG", 174, None, "Italian", "Roccia Ombelico"),
+    ("mew-e", 151, 30, "E", 201, None, "Japanese", "Isola Suprema"),
+    ("lugia-e", 249, 70, "E", 211, None, "Italian", "Monte Cordone"),
+    ("hooh-e", 250, 70, "E", 211, None, "Italian", "Monte Cordone"),
+    ("lugia-fr", 249, 70, "FR", 174, None, "Italian", "Monte Cordone"),
+    ("hooh-fr", 250, 70, "FR", 174, None, "Italian", "Monte Cordone"),
+    ("lugia-lg", 249, 70, "LG", 174, None, "Italian", "Monte Cordone"),
+    ("hooh-lg", 250, 70, "LG", 174, None, "Italian", "Monte Cordone"),
     ("deoxys-e", 386, 30, "E", 200, 3, "Italian", "Isola della Nascita"),
     ("deoxys-fr", 386, 30, "FR", 187, 1, "Italian", "Isola della Nascita"),
     ("deoxys-lg", 386, 30, "LG", 187, 2, "Italian", "Isola della Nascita"),
-    # Il Biglietto Eone e l'Isola del Sud, aggiunti il 2026-09-08 su segnalazione dell'utente.
+    # Il Biglietto Eone e l'Isola Remota, aggiunti il 2026-09-08 su segnalazione dell'utente.
     # La loro asimmetria non e' un capriccio della tavola ed e' l'informazione piu' densa di
     # questo blocco: nelle due versioni di apertura il biglietto consegna il leggendario opposto
     # a quello che vaga per la regione, cioe' Latias in Rubino e Latios in Zaffiro, e l'incontro
     # NON e' fatidico; in Smeraldo sono disponibili entrambi e l'incontro e' fatidico. Ne segue
     # che il contrassegno fatidico qui non e' una proprieta' dell'evento ma della versione, ed e'
     # il solo caso del lotto in cui due esemplari della stessa specie differiscono su quel campo.
-    ("latias-r", 380, 50, "R", 73, None, "Italian", "Isola del Sud"),
-    ("latios-s", 381, 50, "S", 73, None, "Italian", "Isola del Sud"),
-    ("latias-e", 380, 50, "E", 73, None, "Italian", "Isola del Sud"),
-    ("latios-e", 381, 50, "E", 73, None, "Italian", "Isola del Sud"),
+    ("latias-r", 380, 50, "R", 73, None, "Italian", "Isola Remota"),
+    ("latios-s", 381, 50, "S", 73, None, "Italian", "Isola Remota"),
+    ("latias-e", 380, 50, "E", 73, None, "Italian", "Isola Remota"),
+    ("latios-e", 381, 50, "E", 73, None, "Italian", "Isola Remota"),
 ]
 
 # Il nome dell'allenatore in katakana, per la sola voce giapponese. La traslitterazione e' una
@@ -508,9 +508,9 @@ def self_test():
     prova("il campo internazionale pieno supera la regola",
           terminato_ff_zero(it, 7), it.hex(" "))
 
-    # La tavola dell'Isola del Sud, e l'asimmetria del contrassegno fatidico.
+    # La tavola dell'Isola Remota, e l'asimmetria del contrassegno fatidico.
     eone = {v[0]: v for v in INCONTRI if v[1] in (380, 381)}
-    prova("quattro voci dall'Isola del Sud", len(eone) == 4, str(sorted(eone)))
+    prova("quattro voci dall'Isola Remota", len(eone) == 4, str(sorted(eone)))
     prova("le due versioni di apertura non sono fatidiche",
           SENZA_INCONTRO_FATIDICO == frozenset(["latias-r", "latios-s"]),
           str(sorted(SENZA_INCONTRO_FATIDICO)))
