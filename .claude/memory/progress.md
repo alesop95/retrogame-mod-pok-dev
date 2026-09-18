@@ -4,6 +4,40 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-18, trentaduesima parte. Il riscontro positivo, due isole vuote, e una prova al posto di un'ipotesi
+
+### Il terzo giro è verificato in gioco
+
+Il riscontro che la sessione precedente aspettava è arrivato con ventitré fotografie dello schermo del Game Boy Advance SP, e l'ultima risponde alla domanda: il marinaio di Alghepoli offre Porto Selcepoli, Parco Lotta, Isola Remota, Isola Materna, Isola Suprema e Annulla, cioè esattamente le cinque voci attese. Le fotografie precedenti mostrano per intero le scene di prima consegna, cioè quelle che accendono i `FLAG_SHOWN_*`, che è il comportamento atteso di una partita che quei biglietti non li aveva mai mostrati e che concorda con la misura della sezione 4 di `STUDIO-03`. La catena di verifica di quella correzione è chiusa nei suoi tre anelli.
+
+### Le due isole vuote, e la famiglia di flag che nessuno aveva misurato
+
+Sbarcando, l'Isola Materna non mostra il triangolo del rompicapo e l'Isola Suprema non mostra Mew nell'erba alta, mentre sull'Isola Remota l'incontro parte e l'esemplare è catturabile. L'utente lo ha riferito a voce, perché le fotografie non lo documentano, e ha posto la domanda giusta: come possa una partita far partire le scene di prima consegna e insieme comportarsi come se gli esemplari fossero già presi.
+
+La causa è che i flag sono due famiglie distinte che non si parlano. La prima decide il viaggio ed è quella che il terzo giro ha acceso; la seconda decide se all'arrivo ci sia ancora qualcosa, e ogni mappa di destinazione la consulta nel proprio script di transizione. Su `BirthIsland_Exterior` il triangolo si nasconde quando `FLAG_BATTLED_DEOXYS` è acceso, su `FarawayIsland_Interior` Mew si mostra solo quando `FLAG_CAUGHT_MEW` è spento, e su `SouthernIsland_Interior` l'incontro parte solo se nessuno dei due flag di Latias o Latios è acceso. `emerald_event_flags_decode.py` è stato esteso per leggere anche questa seconda famiglia e per derivare, isola per isola, se l'esemplare comparirebbe: la misura riproduce l'osservazione dell'utente senza scarti su tutti e tre i punti.
+
+Due fatti nuovi vengono dalla stessa misura. Il primo è che `FLAG_CAUGHT_LUGIA` e `FLAG_CAUGHT_HO_OH` sono accesi, quindi il Monte Cordone non costa più soltanto il Biglietto Magico: anche ottenendolo, quella mappa sarebbe raggiungibile e vuota, e poiché Lugia e Ho-Oh sono già nel deposito dalla distribuzione "10ANNI" quel fronte scende all'ultima priorità. Il secondo è che `VAR_ROAMER_POKEMON` vale zero, che `include/constants/vars.h` annota come Latias vagante, e che quindi sull'Isola Remota sta Latios: l'intuizione dell'utente sul roamer opposto era esatta e adesso ha un nome nel sorgente.
+
+### Una prova al posto di un'ipotesi, che è il fatto più importante della giornata
+
+La sezione 8 di `STUDIO-03` aveva registrato tre flag anomali e aveva attribuito la loro accensione a una vecchia manipolazione, marcando l'attribuzione come ipotesi sul principio corretto che un salvataggio conserva il bit e non la sua storia. Quella prudenza è stata superata, e il modo in cui lo è stata vale come metodo: un salvataggio non conserva la storia di un bit ma conserva abbastanza bit da rendere certe combinazioni impossibili, e una combinazione impossibile è una dimostrazione.
+
+La prova generale è che nessuno script di pret/pokeemerald esegue mai un `clearflag` su un `FLAG_ENABLE_SHIP_*`. Una ricerca esaustiva sull'albero trova soltanto letture, nelle quattro congiunzioni di `src/script_menu.c` e nei quattro controlli d'ingresso di `data/maps/LilycoveCity_Harbor/scripts.inc`, e tre accensioni, negli script di consegna e nella mescolanza dei registri. Quei flag sono quindi monotoni: misurati spenti nel dump originale mai toccato, non erano mai stati accesi, quindi quelle mappe non sono mai state visitate, quindi i flag che vi si accendono non vengono da questa partita. La prova particolare su Mew è più stretta e non ha bisogno della prima: `FLAG_CAUGHT_MEW` è acceso mentre `FLAG_ARRIVED_ON_FARAWAY_ISLAND` è spento, e poiché l'unico ingresso a `FarawayIsland_Interior` passa da `FarawayIsland_Entrance`, la cui transizione accende quel flag senza condizioni e che nessuno spegne, la coppia osservata è uno stato che il gioco non può produrre.
+
+Ciò che resta ipotesi, e va tenuto tale, è soltanto l'attribuzione all'Action Replay invece che a un altro strumento, perché il salvataggio non distingue un apparecchio da un editor.
+
+### Il quarto giro costruito, provato a vuoto, e non deciso
+
+Lo strumento nuovo è `gba-save-extraction-smeraldo/tools/emerald_encounter_flags_fix.py`, che fa l'operazione opposta al terzo giro, cioè spegne i flag di testa invece di accenderne. Espone un gruppo per esemplare e senza alcun gruppo si ferma dichiarando che la scelta è dell'utente e va registrata come ADR. Porta la precondizione simmetrica a quella del terzo giro, cioè riapre un incontro soltanto dove si possa sbarcare, e sulla cartuccia di oggi rifiuta `--lugia` e `--hooh` nominando entrambe le mancanze del Monte Cordone. Non tocca i `FLAG_HIDE_*`, che li gestisce lo script di transizione, e non tocca il Pokedex, che è un'altra struttura e che questi flag non toccano.
+
+La prova a vuoto con `--deoxys --mew` produce tre byte di differenza, cioè due di flag nella sezione 2 e il solo byte alto del suo checksum, e le due verifiche indipendenti di sempre sono positive sul file di prova costruito nella cartella temporanea e non conservato. Vale registrare anche un fatto letto sul sorgente in questo giro e che conta per la distinzione fra legale e legittimo: `seteventmon`, che entrambe le mappe eseguono prima della lotta, porta a `CreateEnemyEventMon` e quindi a `CreateEventMon`, che in `src/pokemon.c` imposta `MON_DATA_MODERN_FATEFUL_ENCOUNTER` a vero. L'esemplare catturato sull'isola porterebbe quindi il contrassegno di incontro fatidico che un verificatore si aspetta.
+
+La decisione non è stata presa e attende l'utente: è in `pending.md` con i due versi dell'argomento, e nessuna scrittura è stata fatta.
+
+### I documenti aggiornati nello stesso giro
+
+`STUDIO-03` ha cinque sezioni nuove, dalla 14 alla 18, e due rimandi inseriti nelle sezioni 8 e 13 perché una versione superata non sembri corrente. Il capitolo 14 della tesi ha una sezione nuova con due sottosezioni, che copre il materiale nuovo e che porta in tesi il principio generale dei due assi di stato, cioè il permesso e la presenza, e il metodo della combinazione impossibile. La tesi ricompila a 341 pagine senza rilievi.
+
 ## 2026-09-18, trentunesima parte. Sei nomi sbagliati, la scrittura sulla cartuccia, e cinque richieste nuove
 
 ### La correzione dei nomi italiani, che è il fatto più importante della giornata
