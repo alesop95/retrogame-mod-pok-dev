@@ -5,7 +5,7 @@ generated-date: 2026-08-24
 covers-paths:
   - gba-save-extraction-smeraldo/
 last-verified-commit: d54df47
-stato: inventario CHIUSO, secondo giro scritto sulla cartuccia e confermato in gioco il 2026-09-18 su tutti e quattro i punti; aperto un fronte nuovo, cioe' i flag di abilitazione delle isole, in attesa di una decisione dell'utente
+stato: inventario CHIUSO e confermato in gioco; terzo giro (flag delle isole, ADR-065) SCRITTO sulla cartuccia il 2026-09-18 e verificato per read-back, resta il solo controllo in gioco al porto
 ---
 
 # Sottoprogetto: correzione del bug inventario di Pokemon Smeraldo
@@ -42,11 +42,11 @@ Il salvataggio reale di Smeraldo è stato estratto il 2026-09-17: doppia lettura
 
 La diagnosi in sola lettura (`emerald_bag_decode.py` e `verifica-salvataggi.py --censimento`) e la proposta di correzione tasca per tasca sono scritte per intero in `STUDIO-01-diagnosi-e-correzione-inventario.md`, con le fonti sul sorgente `pret/pokeemerald` per ogni oggetto chiave incluso o escluso. Il secondo giro (`tools/emerald_bag_fix_round2.py`, `STUDIO-01` sezioni 18-19) è scritto sulla cartuccia vera, verificato byte per byte, e confermato in gioco il 2026-09-18 su tutti e quattro i punti della checklist (`STUDIO-01` sezione 21). Sull'inventario non resta nulla.
 
-Il prossimo passo appartiene a un fronte aperto lo stesso giorno da una prova che la checklist non chiedeva: i biglietti delle isole sono nello zaino ma il marinaio non offre alcuna destinazione, perché il gioco richiede in congiunzione anche un flag di abilitazione che solo la consegna del Dono Segreto accende. Lo studio è `STUDIO-03-doni-segreti-e-flag-delle-isole.md`, la misura la fa `tools/emerald_event_flags_decode.py`, e il passo non è tecnico ma una decisione dell'utente fra le tre vie della sezione 9 di quello studio.
+Il fronte aperto lo stesso giorno è quello dei biglietti delle isole, che sono nello zaino ma non aprono alcuna destinazione perché il gioco richiede in congiunzione anche un flag di abilitazione che solo la consegna del Dono Segreto accende. Lo studio è `STUDIO-03-doni-segreti-e-flag-delle-isole.md`, la misura la fa `tools/emerald_event_flags_decode.py` e la correzione `tools/emerald_event_flags_fix.py`. L'utente ha scelto la prima delle tre vie, che è ADR-065, e il terzo giro è costruito e verificato su file con quattro byte di differenza e due verifiche indipendenti. La scrittura fisica è stata fatta e verificata il 2026-09-18, con le tre verifiche positive raccontate in `STUDIO-03` sezione 12. Il prossimo passo è il solo controllo in gioco al porto di Alghepoli, che l'utente ha eseguito a sessione chiusa e di cui riferà alla ripresa.
 
 ## Decisioni aperte
 
-Dal 2026-09-18: quale via prendere sui flag di abilitazione delle isole, con un ADR necessario per le prime due (`STUDIO-03` sezione 9), e la domanda da porre all'utente su quale canale di NDSEventTool avesse tentato l'estate scorsa. Aperti da prima: il censimento di legalità completo del resto del box (`STUDIO-02`), la produzione dell'intera squadra del Parco Lotta nel prossimo giro (`pending.md`; il Pokemon volante per spostarsi in gioco dopo la rimozione di Doduo è un problema separato, a carico dell'utente), la collezione di decorazioni per la Base Segreta, e il bug noto dell'orologio interno (RTC), rimandato per richiesta dell'utente.
+Dal 2026-09-18, dopo ADR-065: nessuna decisione aperta sui flag, resta la scrittura fisica. Resta una domanda da porre, cioè di quale lingua sia la seconda cartuccia su cui l'utente ha già raggiunto l'Isola Suprema con lo stesso strumento. Aperti da prima: il censimento di legalità completo del resto del box (`STUDIO-02`), la produzione dell'intera squadra del Parco Lotta nel prossimo giro (`pending.md`; il Pokemon volante per spostarsi in gioco dopo la rimozione di Doduo è un problema separato, a carico dell'utente), la collezione di decorazioni per la Base Segreta, e il bug noto dell'orologio interno (RTC), rimandato per richiesta dell'utente.
 
 ## Scoperta trasversale da usare nella diagnosi
 
