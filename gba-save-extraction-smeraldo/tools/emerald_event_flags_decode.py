@@ -107,6 +107,29 @@ FLAG_ARRIVED_AT_NAVEL_ROCK = SYSTEM_FLAGS + 0x81         # 0x8E1
 FLAG_SYS_GAME_CLEAR = SYSTEM_FLAGS + 0x4                 # 0x864
 
 VAR_DISTRIBUTE_EON_TICKET = 0x403F
+VAR_ROAMER_POKEMON = 0x40D5   # 0 = Latias vagante, quindi Latios sull'isola; diverso da 0 il contrario
+
+# I flag che decidono se l'esemplare compaia una volta sbarcati. Sono un'altra famiglia rispetto
+# a quelli di abilitazione della nave, e la distinzione e' il punto che questo blocco esiste per
+# rendere misurabile: il biglietto apre il viaggio, questi decidono se là ci sia ancora qualcosa.
+FLAG_CAUGHT_LUGIA = 0x91
+FLAG_CAUGHT_HO_OH = 0x92
+FLAG_ENCOUNTERED_LATIAS_OR_LATIOS = 0xCE
+FLAG_DEFEATED_DEOXYS = 0x1AC
+FLAG_BATTLED_DEOXYS = 0x1AD
+FLAG_DEFEATED_MEW = 0x1C7
+FLAG_DEFEATED_LATIAS_OR_LATIOS = 0x1C8
+FLAG_CAUGHT_LATIAS_OR_LATIOS = 0x1C9
+FLAG_CAUGHT_MEW = 0x1CA
+FLAG_DEFEATED_HO_OH = 0x1DC
+FLAG_DEFEATED_LUGIA = 0x1DD
+FLAG_HIDE_MEW = 0x2CE
+FLAG_HIDE_DEOXYS = 0x2FB
+FLAG_HIDE_BIRTH_ISLAND_DEOXYS_TRIANGLE = 0x2FC
+FLAG_HIDE_SOUTHERN_ISLAND_EON_STONE = 0x38E
+FLAG_HIDE_SOUTHERN_ISLAND_UNCHOSEN_EON_DUO_MON = 0x38F
+FLAG_MAP_SCRIPT_CHECKED_DEOXYS = SYSTEM_FLAGS + 0x73     # 0x8D3
+FLAG_DEOXYS_ROCK_COMPLETE = SYSTEM_FLAGS + 0x74          # 0x8D4
 
 # Identificativi degli oggetti, ricavati numerando l'enum di include/constants/items.h, che
 # non porta valori espliciti. Coincidono con quelli gia' usati da emerald_bag_fix_round2.py
@@ -160,6 +183,34 @@ FLAG_CONTORNO = (
     (0x38E, "FLAG_HIDE_SOUTHERN_ISLAND_EON_STONE", "la Sfera Eone dell'Isola Remota e' nascosta"),
 )
 
+# I flag di contorno degli incontri, aggiunti nel quarto giro perché la verifica in gioco del
+# 2026-09-18 ha mostrato che tre isole erano raggiungibili e due erano vuote.
+FLAG_CONTORNO_INCONTRI = (
+    (FLAG_BATTLED_DEOXYS, "FLAG_BATTLED_DEOXYS", "Deoxys gia' incontrato: nasconde il triangolo"),
+    (FLAG_DEFEATED_DEOXYS, "FLAG_DEFEATED_DEOXYS", "Deoxys battuto e non catturato"),
+    (FLAG_HIDE_DEOXYS, "FLAG_HIDE_DEOXYS", "l'oggetto Deoxys e' nascosto sulla mappa"),
+    (FLAG_HIDE_BIRTH_ISLAND_DEOXYS_TRIANGLE, "FLAG_HIDE_BIRTH_ISLAND_DEOXYS_TRIANGLE",
+     "il triangolo dell'Isola Materna e' nascosto"),
+    (FLAG_DEOXYS_ROCK_COMPLETE, "FLAG_DEOXYS_ROCK_COMPLETE", "il rompicapo della roccia e' concluso"),
+    (FLAG_MAP_SCRIPT_CHECKED_DEOXYS, "FLAG_MAP_SCRIPT_CHECKED_DEOXYS",
+     "la mappa dell'Isola Materna e' gia' stata caricata almeno una volta"),
+    (FLAG_CAUGHT_MEW, "FLAG_CAUGHT_MEW", "Mew catturato: non ricompare nell'erba alta"),
+    (FLAG_DEFEATED_MEW, "FLAG_DEFEATED_MEW", "Mew battuto e non catturato"),
+    (FLAG_HIDE_MEW, "FLAG_HIDE_MEW", "l'oggetto Mew e' nascosto sulla mappa"),
+    (FLAG_CAUGHT_LATIAS_OR_LATIOS, "FLAG_CAUGHT_LATIAS_OR_LATIOS", "Latias o Latios catturato"),
+    (FLAG_DEFEATED_LATIAS_OR_LATIOS, "FLAG_DEFEATED_LATIAS_OR_LATIOS", "Latias o Latios battuto"),
+    (FLAG_ENCOUNTERED_LATIAS_OR_LATIOS, "FLAG_ENCOUNTERED_LATIAS_OR_LATIOS",
+     "l'incontro dell'Isola Remota e' gia' partito almeno una volta"),
+    (FLAG_HIDE_SOUTHERN_ISLAND_EON_STONE, "FLAG_HIDE_SOUTHERN_ISLAND_EON_STONE",
+     "la Sfera Eone dell'Isola Remota e' nascosta"),
+    (FLAG_HIDE_SOUTHERN_ISLAND_UNCHOSEN_EON_DUO_MON, "FLAG_HIDE_SOUTHERN_ISLAND_UNCHOSEN_EON_DUO_MON",
+     "l'esemplare dell'Isola Remota e' nascosto"),
+    (FLAG_CAUGHT_LUGIA, "FLAG_CAUGHT_LUGIA", "Lugia catturato: non ricompare al Monte Cordone"),
+    (FLAG_DEFEATED_LUGIA, "FLAG_DEFEATED_LUGIA", "Lugia battuto e non catturato"),
+    (FLAG_CAUGHT_HO_OH, "FLAG_CAUGHT_HO_OH", "Ho-Oh catturato: non ricompare al Monte Cordone"),
+    (FLAG_DEFEATED_HO_OH, "FLAG_DEFEATED_HO_OH", "Ho-Oh battuto e non catturato"),
+)
+
 
 def flag_get(sb1, flag_id):
     """Replica FlagGet: byte 0x1270 + n / 8 di SaveBlock1, bit n % 8."""
@@ -193,6 +244,64 @@ def area_stato(sb1, offset, length):
     return {"offset": offset, "lunghezza": length, "byte_non_nulli": non_nulli,
             "tutta_a_zero": non_nulli == 0,
             "primi_16_byte": blocco[:16].hex()}
+
+
+def incontri(sb1):
+    """Deriva, isola per isola, se l'esemplare comparirà davvero una volta sbarcati.
+
+    La regola non è inventata qui: è la trascrizione degli script ON_TRANSITION delle quattro
+    mappe di pret/pokeemerald. Su BirthIsland_Exterior il triangolo si mostra solo se
+    FLAG_BATTLED_DEOXYS è spento e FLAG_DEFEATED_DEOXYS pure; su FarawayIsland_Interior Mew si
+    mostra solo se FLAG_CAUGHT_MEW è spento e FLAG_DEFEATED_MEW pure; su SouthernIsland_Interior
+    l'incontro parte solo se nessuno fra FLAG_DEFEATED_LATIAS_OR_LATIOS e
+    FLAG_CAUGHT_LATIAS_OR_LATIOS è acceso; su NavelRock_Bottom e NavelRock_Top valgono le coppie
+    catturato/battuto di Lugia e Ho-Oh, una per piano.
+
+    Il verso della condizione va letto con attenzione, perché è la ragione per cui una partita può
+    avere tre isole aperte e due vuote: il biglietto e il suo flag decidono il viaggio, questi
+    decidono se là ci sia ancora qualcosa da incontrare, e le due famiglie non si parlano.
+    """
+    roamer = var_get(sb1, VAR_ROAMER_POKEMON)
+    specie_lati = "Latios" if roamer == 0 else "Latias"
+
+    def blocchi(coppie):
+        return [nome for fid, nome in coppie if flag_get(sb1, fid)]
+
+    righe = []
+
+    b = blocchi(((FLAG_DEFEATED_LATIAS_OR_LATIOS, "FLAG_DEFEATED_LATIAS_OR_LATIOS"),
+                 (FLAG_CAUGHT_LATIAS_OR_LATIOS, "FLAG_CAUGHT_LATIAS_OR_LATIOS")))
+    righe.append({
+        "isola": "Isola Remota", "esemplare": specie_lati, "comparira": not b, "blocchi": b,
+        "nota": "VAR_ROAMER_POKEMON vale %d, quindi vaga %s e sull'isola sta %s"
+                % (roamer, "Latias" if roamer == 0 else "Latios", specie_lati),
+    })
+
+    b = blocchi(((FLAG_BATTLED_DEOXYS, "FLAG_BATTLED_DEOXYS"),
+                 (FLAG_DEFEATED_DEOXYS, "FLAG_DEFEATED_DEOXYS")))
+    righe.append({
+        "isola": "Isola Materna", "esemplare": "Deoxys", "comparira": not b, "blocchi": b,
+        "nota": "senza il triangolo la mappa è visitabile e vuota",
+    })
+
+    b = blocchi(((FLAG_CAUGHT_MEW, "FLAG_CAUGHT_MEW"),
+                 (FLAG_DEFEATED_MEW, "FLAG_DEFEATED_MEW")))
+    righe.append({
+        "isola": "Isola Suprema", "esemplare": "Mew", "comparira": not b, "blocchi": b,
+        "nota": "senza Mew l'erba alta resta percorribile e vuota",
+    })
+
+    for specie, coppie in (("Lugia", ((FLAG_CAUGHT_LUGIA, "FLAG_CAUGHT_LUGIA"),
+                                      (FLAG_DEFEATED_LUGIA, "FLAG_DEFEATED_LUGIA"))),
+                           ("Ho-Oh", ((FLAG_CAUGHT_HO_OH, "FLAG_CAUGHT_HO_OH"),
+                                      (FLAG_DEFEATED_HO_OH, "FLAG_DEFEATED_HO_OH")))):
+        b = blocchi(coppie)
+        righe.append({
+            "isola": "Monte Cordone", "esemplare": specie, "comparira": not b, "blocchi": b,
+            "nota": "l'isola non è raggiungibile finché manca il Biglietto Magico",
+        })
+
+    return righe
 
 
 def analizza(blob):
@@ -234,6 +343,10 @@ def analizza(blob):
     contorno = [{"flag": nome, "flag_id": fid, "acceso": flag_get(sb1, fid), "significato": desc}
                 for fid, nome, desc in FLAG_CONTORNO]
 
+    contorno_incontri = [{"flag": nome, "flag_id": fid, "acceso": flag_get(sb1, fid),
+                          "significato": desc}
+                         for fid, nome, desc in FLAG_CONTORNO_INCONTRI]
+
     aree = {
         "mysteryGift": area_stato(sb1, OFF_MYSTERY_GIFT, LEN_MYSTERY_GIFT),
         "ramScript": area_stato(sb1, OFF_RAM_SCRIPT, LEN_RAM_SCRIPT),
@@ -248,6 +361,9 @@ def analizza(blob):
         "sezioni_non_valide": slot_dati["non_valide"],
         "isole": isole,
         "flag_di_contorno": contorno,
+        "flag_di_contorno_incontri": contorno_incontri,
+        "incontri": incontri(sb1),
+        "var_roamer_pokemon": var_get(sb1, VAR_ROAMER_POKEMON),
         "var_distribute_eon_ticket": var_get(sb1, VAR_DISTRIBUTE_EON_TICKET),
         "aree": aree,
     }
@@ -283,6 +399,24 @@ def stampa(esito):
               % (r["flag"], r["flag_id"], "si" if r["acceso"] else "no", r["significato"]))
     print()
     print("VAR_DISTRIBUTE_EON_TICKET (0x403F): %d" % esito["var_distribute_eon_ticket"])
+    print("VAR_ROAMER_POKEMON (0x40D5): %d" % esito["var_roamer_pokemon"])
+    print()
+
+    print("Che cosa si troverebbe una volta sbarcati")
+    print("-" * 78)
+    print("%-16s %-10s %-12s %s" % ("Isola", "Esemplare", "compare", "flag che lo impediscono"))
+    for r in esito["incontri"]:
+        print("%-16s %-10s %-12s %s"
+              % (r["isola"], r["esemplare"],
+                 "si" if r["comparira"] else "NO",
+                 ", ".join(r["blocchi"]) if r["blocchi"] else "nessuno"))
+    print()
+
+    print("Flag di contorno degli incontri")
+    print("-" * 78)
+    for r in esito["flag_di_contorno_incontri"]:
+        print("%-48s 0x%03X  %-3s %s"
+              % (r["flag"], r["flag_id"], "si" if r["acceso"] else "no", r["significato"]))
     print()
 
     print("Aree di salvataggio legate alla distribuzione")

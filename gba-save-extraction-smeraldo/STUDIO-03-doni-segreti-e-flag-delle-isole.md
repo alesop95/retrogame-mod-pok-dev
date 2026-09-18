@@ -131,6 +131,8 @@ Leggendo i flag sono emerse tre cose che questo studio non ha chiesto e che non 
 
 Il controllo incrociato sul Pokedex non discrimina e va detto perché sarebbe facile prenderlo per una conferma: Mew, Deoxys, Lugia, Ho-Oh, Jirachi e Celebi risultano tutti visti e catturati, ma il Pokedex di questa partita è completo e un Pokedex completo è compatibile sia con una storia di catture sia con una scrittura da Action Replay. Nel deposito, per il censimento del primo giro, Mew e Deoxys non ci sono, mentre Lugia e Ho-Oh ci sono ma provengono dalla distribuzione italiana "10ANNI" su Rubino, cioè da uno scambio e non dal Monte Cordone.
 
+> Aggiornamento del 2026-09-18, a sera: la cautela di questo paragrafo è stata superata dalla sezione 16, che dimostra, e non più ipotizza, che quei flag non sono stati accesi giocando questa partita. Il paragrafo resta perché la distinzione fra ciò che allora era misurato e ciò che era supposto è parte del ragionamento.
+
 L'ipotesi più economica è che anche questi flag vengano dalla stessa origine del Biglietto Eone senza il suo flag, cioè da una manipolazione con Action Replay fatta anni fa, e che il loro effetto pratico oggi sia quello descritto alla sezione 7, cioè bloccare le consegne ufficiali di due doni su tre. Resta un'ipotesi e va marcata come tale: nessuna fonte interna al salvataggio può distinguere un flag acceso da un apparecchio da un flag acceso dal gioco, perché il salvataggio conserva il bit e non la sua storia.
 
 ## 9. Le tre vie da qui, con quello che ciascuna costa
@@ -190,6 +192,8 @@ Manca il solo controllo in gioco, cioè andare al porto di Alghepoli e vedere se
 
 ## 13. Che cosa resta aperto, e che cosa non lo è
 
+> Questa sezione fotografa lo stato del pomeriggio del 2026-09-18, prima che il riscontro in gioco arrivasse. Resta come storico: per lo stato corrente vale la sezione 18.
+
 Resta aperto il solo controllo in gioco, cioè vedere al porto di Alghepoli se il marinaio offra davvero le tre isole: la scrittura fisica è stata fatta e verificata, come racconta la sezione 12.
 
 Resta aperta una domanda che non è un ostacolo ma una chiusura di conoscenza, ed è quella della sezione 6, cioè di quale lingua sia la seconda cartuccia su cui l'utente ha ottenuto Mew con la Mappa Stinta. La risposta decide fra tre spiegazioni tutte compatibili con i fatti noti, e nessuna delle tre cambia alcuna decisione presa qui.
@@ -197,3 +201,112 @@ Resta aperta una domanda che non è un ostacolo ma una chiusura di conoscenza, e
 Restano aperte, marcate come da verificare e non azionabili adesso, le tre anomalie di contorno della sezione 8.
 
 Non è aperto nulla sul Dono Segreto, che non è rotto: la voce nel menu iniziale funziona, il canale delle Carte Meravigliose è abilitato, e la domanda che ha aperto questo studio ha una risposta negativa. Non è aperto nulla sullo zaino, che i due giri di `STUDIO-01` hanno chiuso e che il riscontro visivo del 2026-09-18 ha confermato voce per voce. E non è più aperta la scelta fra le tre vie, che la sezione 10 ha chiuso.
+
+## 14. Il riscontro in gioco del terzo giro: positivo, e come si legge nelle fotografie
+
+L'utente ha rimontato la cartuccia sul Game Boy Advance SP la mattina del 2026-09-18 ed è tornato al porto di Alghepoli, consegnando ventitré fotografie dello schermo. La domanda a cui dovevano rispondere era una sola, cioè se il marinaio offrisse cinque destinazioni invece di due, e la risposta è affermativa: l'ultima fotografia inquadra il menu con Porto Selcepoli, Parco Lotta, Isola Remota, Isola Materna, Isola Suprema e Annulla. Il terzo giro è quindi verificato in gioco oltre che per read-back, e la catena di verifica di questa correzione è chiusa in tutti e tre i suoi anelli.
+
+Le fotografie precedenti raccontano una cosa in più, che vale registrare perché conferma il meccanismo della sezione 2 dal lato del gioco invece che dal lato del sorgente. I biglietti non sono stati riconosciuti in silenzio: il gioco ha eseguito per intero le scene di prima consegna, cioè quelle che accendono i `FLAG_SHOWN_*`. Si vede il marinaio chiedere se sia il giocatore ad aver portato quegli strani biglietti, si vede la scena dedicata della Mappa Stinta con la battuta sull'isola segnata sulla mappa e il rifiuto iniziale seguito dal ripensamento, e si vede il menu ridotto alle sole due isole non ancora mostrate prima che il menu pieno compaia. È il comportamento atteso di una partita che quei biglietti non li aveva mai mostrati, ed è coerente con la misura della sezione 4, dove tutti e quattro i `FLAG_SHOWN_*` risultavano spenti.
+
+Le fotografie stanno in `_notes/media/gba-save-extraction-smeraldo/`, non tracciate, come tutto il materiale fotografico di questo sottoprogetto.
+
+## 15. Le due isole vuote, e la seconda famiglia di flag che nessuno aveva ancora misurato
+
+Sbarcando, però, due isole su tre non hanno consegnato nulla. L'utente riferisce, e questa parte non è nelle fotografie ma nella sua descrizione a voce, che sull'Isola Materna il triangolo del rompicapo non c'è, che sull'Isola Suprema Mew non compare nell'erba alta pur potendovi arrivare, e che sull'Isola Remota invece l'incontro parte regolarmente e l'esemplare è catturabile. La sua domanda è quella giusta, ed è la domanda che questa sezione esiste per chiudere: come può una partita far partire le scene di prima consegna come se i biglietti fossero nuovi e insieme comportarsi come se gli esemplari fossero già stati presi.
+
+La risposta è che i flag coinvolti sono due famiglie distinte, che non si parlano e che non si deducono l'una dall'altra. La prima è quella dei `FLAG_ENABLE_SHIP_*`, che il terzo giro ha acceso e che decide soltanto il viaggio. La seconda è quella dei flag di stato dell'incontro, che ogni mappa d'arrivo consulta nel proprio script di transizione per decidere se scoprire o nascondere l'oggetto che porta l'esemplare.
+
+```
+@ pret/pokeemerald, data/maps/BirthIsland_Exterior/scripts.inc
+BirthIsland_Exterior_OnTransition:
+	call_if_set   FLAG_BATTLED_DEOXYS, BirthIsland_Exterior_EventScript_HideDeoxysAndPuzzle
+	call_if_unset FLAG_BATTLED_DEOXYS, BirthIsland_Exterior_EventScript_TryShowDeoxysPuzzle
+
+BirthIsland_Exterior_EventScript_HideDeoxysAndPuzzle::
+	setflag FLAG_HIDE_DEOXYS
+	setflag FLAG_HIDE_BIRTH_ISLAND_DEOXYS_TRIANGLE
+	return
+
+BirthIsland_Exterior_EventScript_TryShowDeoxysPuzzle::
+	goto_if_set FLAG_DEFEATED_DEOXYS, Common_EventScript_NopReturn
+	clearflag FLAG_HIDE_BIRTH_ISLAND_DEOXYS_TRIANGLE
+	clearflag FLAG_DEOXYS_ROCK_COMPLETE
+	return
+```
+
+```
+@ pret/pokeemerald, data/maps/FarawayIsland_Interior/scripts.inc
+FarawayIsland_Interior_OnTransition:
+	setvar VAR_FARAWAY_ISLAND_STEP_COUNTER, 0
+	setvar VAR_TEMP_1, 1
+	call_if_unset FLAG_CAUGHT_MEW, FarawayIsland_Interior_EventScript_TryShowMew
+
+FarawayIsland_Interior_EventScript_TryShowMew::
+	goto_if_set FLAG_DEFEATED_MEW, Common_EventScript_NopReturn
+	clearflag FLAG_HIDE_MEW
+	setvar VAR_TEMP_1, 0
+	return
+```
+
+Sull'Isola Remota la condizione è scritta altrove, cioè dentro lo script dell'incontro invece che nella transizione, ma ha la stessa forma e legge due flag della stessa famiglia.
+
+```
+@ pret/pokeemerald, data/maps/SouthernIsland_Interior/scripts.inc
+SouthernIsland_Interior_EventScript_Lati::
+	goto_if_set FLAG_TEMP_2, SouthernIsland_Interior_EventScript_Sign
+	goto_if_set FLAG_DEFEATED_LATIAS_OR_LATIOS, SouthernIsland_Interior_EventScript_Sign
+	goto_if_set FLAG_CAUGHT_LATIAS_OR_LATIOS, SouthernIsland_Interior_EventScript_Sign
+	goto_if_unset FLAG_ENABLE_SHIP_SOUTHERN_ISLAND, SouthernIsland_Interior_EventScript_Sign
+```
+
+Lo strumento di misura è stato esteso in questo giro per leggere anche questa seconda famiglia, e la misura sul file che è oggi il contenuto della cartuccia, cioè `Pokemon - Versione Smeraldo (Italy) - ALEX-45761-788h44m-2026-09-18-CORRETTO.sav`, riproduce l'osservazione dell'utente senza scarti su tutti e tre i punti.
+
+| Isola | Esemplare | Comparirà | Flag che lo impedisce |
+|---|---|---|---|
+| Isola Remota | Latios | si | nessuno |
+| Isola Materna | Deoxys | no | `FLAG_BATTLED_DEOXYS` (0x1AD) |
+| Isola Suprema | Mew | no | `FLAG_CAUGHT_MEW` (0x1CA) |
+| Monte Cordone | Lugia | no | `FLAG_CAUGHT_LUGIA` (0x091) |
+| Monte Cordone | Ho-Oh | no | `FLAG_CAUGHT_HO_OH` (0x092) |
+
+Due righe di questa tabella sono fatti nuovi. La prima è che `FLAG_CAUGHT_LUGIA` e `FLAG_CAUGHT_HO_OH` sono accesi, il che significa che il Monte Cordone non costa più soltanto il Biglietto Magico: anche ottenuto il biglietto e acceso il suo flag di abilitazione, quella mappa sarebbe raggiungibile e vuota esattamente come le altre due. La seconda è la conferma dell'intuizione dell'utente sull'Isola Remota, che è esatta e ha un nome nel sorgente: `VAR_ROAMER_POKEMON` vale zero su questa partita, e `include/constants/vars.h` annota quel valore come Latias, cioè come l'esemplare che vaga per Hoenn; la transizione dell'Isola Remota sceglie di conseguenza l'altro, ed è il motivo per cui là si trova Latios.
+
+Vale infine dire che cosa questa famiglia di flag non è, perché il nome inganna. `FLAG_CAUGHT_MEW` e i suoi simili sono flag di evento e non hanno alcun rapporto con il Pokedex, che registra le specie viste e catturate in un'altra struttura del salvataggio: spegnerli non toglierebbe nulla dal Pokedex e non ne cambierebbe la percentuale di completamento.
+
+## 16. Perché quei flag non vengono da questa partita, e perché adesso è dimostrato invece che ipotizzato
+
+La sezione 8 aveva registrato tre di questi flag come anomalie di contorno, e aveva concluso onestamente che l'ipotesi più economica fosse una vecchia manipolazione con Action Replay, marcandola come ipotesi perché il salvataggio conserva il bit e non la sua storia. Quella prudenza era giusta allora e va superata adesso, perché la lettura delle mappe fatta in questo giro fornisce la prova che allora mancava. Il salvataggio non conserva la storia di un bit, ma conserva abbastanza bit da rendere certe combinazioni impossibili.
+
+La prova generale poggia su una proprietà dei flag di abilitazione che va enunciata perché è ciò che la rende stringente: nessuno script di pret/pokeemerald esegue mai un `clearflag` su un `FLAG_ENABLE_SHIP_*`. Una ricerca su tutto l'albero trova soltanto letture, nelle quattro congiunzioni di `src/script_menu.c` e nei quattro controlli d'ingresso di `data/maps/LilycoveCity_Harbor/scripts.inc`, e tre scritture, tutte in accensione, negli script di consegna dei doni e nella mescolanza dei registri. Ne segue che quei quattro flag sono monotoni: una volta accesi non si spengono più. Poiché tutti e quattro risultavano spenti nel dump originale mai toccato, non erano mai stati accesi; e poiché il menu del porto è l'unica via verso l'Isola Materna, l'Isola Suprema e il Monte Cordone, quelle tre mappe non sono mai state visitate da questa partita. I flag che dichiarano avvenuti gli incontri che vi si tengono non possono quindi essere stati accesi giocandola.
+
+La prova particolare su Mew è ancora più stretta e non ha bisogno dei flag di abilitazione. `FLAG_CAUGHT_MEW` è acceso mentre `FLAG_ARRIVED_ON_FARAWAY_ISLAND` è spento. L'unico punto del gioco che accende il primo sta dentro `FarawayIsland_Interior`, e l'unico modo di entrare in quella mappa è il varco che arriva da `FarawayIsland_Entrance`, la cui transizione esegue `setflag FLAG_ARRIVED_ON_FARAWAY_ISLAND` senza alcuna condizione e che nessuno script spegne mai. La coppia osservata, cioè Mew catturato senza essere mai arrivati sull'isola, è quindi uno stato che il gioco non può produrre in nessun ordine di eventi.
+
+Resta una precisazione che va fatta perché la conclusione non sconfini oltre ciò che è provato. Ciò che è dimostrato è che quei bit non sono stati accesi giocando questa partita; l'attribuzione all'Action Replay resta l'ipotesi più economica e non un fatto, perché il salvataggio non distingue un apparecchio da un editor da un altro apparecchio ancora. La distinzione non cambia nulla nelle conseguenze pratiche, e va conservata perché è la differenza fra ciò che il progetto ha misurato e ciò che il progetto suppone.
+
+## 17. Il quarto giro: lo strumento costruito, il suo perimetro, e la decisione che resta all'utente
+
+Lo strumento è `tools/emerald_encounter_flags_fix.py`, scritto in questo giro sullo stampo dei tre precedenti. Fa l'operazione opposta a quella del terzo giro, cioè spegne bit invece di accenderne, e non tocca mai il file in ingresso: produce un file nuovo e rifiuta di scrivere sull'originale. Espone un gruppo per esemplare, cioè `--deoxys`, `--mew`, `--lugia` e `--hooh`, e senza alcun gruppo si ferma dichiarando che la scelta è dell'utente e va registrata come ADR, perché la decisione su quali incontri riaprire non è tecnica.
+
+Due presidi deliberati vanno descritti perché sono ciò che distingue questo strumento da una modifica a mano. Il primo è la precondizione di raggiungibilità: un incontro si riapre soltanto dove si possa sbarcare, quindi lo strumento verifica che l'oggetto sia nella tasca Oggetti Chiave e che il suo flag di abilitazione sia acceso, e altrimenti si ferma senza toccare nulla. È la simmetrica della precondizione del terzo giro, e sulla cartuccia di oggi ha un effetto concreto e verificato: chiedere `--lugia` o `--hooh` produce un rifiuto che nomina entrambe le mancanze del Monte Cordone. Il secondo è che lo strumento spegne soltanto il flag di testa di ciascuna coppia e lascia stare i `FLAG_HIDE_*`, perché quelli li gestisce da sé lo script di transizione della mappa quando trova il flag di testa spento, come si legge nei due estratti della sezione 15.
+
+La prova a vuoto sul file corrente, con i due gruppi che la cartuccia consente, dice quanto costerebbe la scrittura.
+
+| Indirizzo nel file | Prima | Dopo | Che cos'è |
+|---|---|---|---|
+| 0x02325 | 0x23 | 0x03 | sezione 2, offset 0x325, bit 5: `FLAG_BATTLED_DEOXYS` |
+| 0x02329 | 0xB4 | 0xB0 | sezione 2, offset 0x329, bit 2: `FLAG_CAUGHT_MEW` |
+| 0x02FF7 | 0x70 | 0x4C | sezione 2, checksum, byte alto |
+
+Sono tre byte, perché il byte basso del checksum non cambia. Le due verifiche indipendenti che il progetto applica a ogni giro sono state fatte anche qui, su un file di prova costruito nella cartella temporanea e non conservato: il decodificatore dei flag, rilanciato sul prodotto, dichiara che tutte e tre le isole raggiungibili consegnerebbero il loro esemplare; e il decodificatore dello zaino produce una diagnosi identica riga per riga a quella del file di partenza, quindi nessun effetto collaterale su zaino, squadra, denaro o deposito.
+
+Che cosa si otterrebbe, detto con precisione. Non si fabbrica alcun esemplare e non si scrive nulla nel deposito: si rimuove la dichiarazione che un incontro sia già avvenuto, e l'incontro poi si gioca. L'esemplare che ne verrebbe sarebbe generato dal gioco stesso, e vale registrare un dettaglio che conta per un progetto che distingue legale da legittimo: il comando di script `seteventmon`, che entrambe le mappe eseguono prima della lotta, porta a `CreateEnemyEventMon` e quindi a `CreateEventMon`, che in `src/pokemon.c` imposta `MON_DATA_MODERN_FATEFUL_ENCOUNTER` a vero. Il Deoxys dell'Isola Materna e il Mew dell'Isola Suprema porterebbero quindi il contrassegno di incontro fatidico che un verificatore si aspetta di trovare su quegli esemplari, cioè sarebbero esattamente ciò che una partita legittima avrebbe prodotto.
+
+Perché la decisione conta più di tre byte, e va presa e registrata. Nel verso favorevole c'è che questo giro non aggiunge nulla che il gioco non avrebbe messo, ma toglie qualcosa che il gioco non ha messo, e che Mew e Deoxys sono due delle specie che il track `pokedex-home-completo` deve procurarsi e che nel deposito di questa cartuccia non ci sono, mentre Lugia e Ho-Oh ci sono già dalla distribuzione italiana "10ANNI" su Rubino. Nel verso contrario c'è che la sezione 16 dimostra che quei bit non vengono da questa partita ma non dimostra che l'utente non abbia mai posseduto quegli esemplari altrove, e che spegnere un flag di cattura resta una scrittura su un salvataggio di vent'anni.
+
+## 18. Che cosa resta aperto dopo il quarto giro
+
+Il Monte Cordone resta chiuso e adesso si sa che costa due cose invece di una. Serve il Biglietto Magico nella tasca, che oggi non c'è e che nessuna delle vie percorse finora ha prodotto; serve il suo flag di abilitazione; e servirebbe comunque lo spegnimento di `FLAG_CAUGHT_LUGIA` e `FLAG_CAUGHT_HO_OH`, perché altrimenti quella mappa sarebbe raggiungibile e vuota. Poiché Lugia e Ho-Oh sono già nel deposito da una distribuzione reale, la priorità di questo fronte è la più bassa dei tre.
+
+Resta aperta la domanda della sezione 6, cioè di quale lingua sia la seconda cartuccia su cui l'utente ha già ottenuto Mew all'Isola Suprema con NDSEventTool. La sezione 16 le dà adesso un peso in più: se quella cartuccia è italiana e quell'evento è davvero avvenuto, allora l'utente ha posseduto un Mew legittimo, e ciò cambia il modo in cui si legge il flag acceso su questa.
+
+Non è più aperta l'attribuzione dei flag anomali, che la sezione 16 ha chiuso nei limiti che dichiara.
