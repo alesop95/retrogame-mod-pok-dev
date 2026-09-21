@@ -26,6 +26,7 @@ Decompilazione di Pokemon Smeraldo in C e assembly ARM che ricompila in una ROM 
 - [[04-cifratura-gen3]], cifratura, permutazione e checksum
 - [[03-integrita-checksum]], checksum di settore
 - [[22-strumenti]], offset e chiave usati dallo strumento di diagnosi
+- [[14-caso-smeraldo]], le meccaniche del Parco Lotta: selezione dell'avversario per numero di sfida, scala dei punti individuali, calendario degli Assi, rotazione dei venti giri della Piramide
 
 ## Relazioni con altre fonti
 
