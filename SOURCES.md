@@ -127,6 +127,15 @@ Circa quaranta indirizzi consegnati insieme dall'utente per il nuovo fronte "set
 
 Sotto la sezione record del thread principale l'utente segnala inoltre "un'altra miriade di link" a squadre copiabili per ogni edificio in base ai record: non ancora individuati singolarmente, da estrarre quando si legge il thread principale per intero.
 
+## Le fonti sull'RTC dopo il cambio di pila, lette da screenshot il 2026-09-21
+
+Irraggiungibili con `curl` (HTTP 403 diretto su entrambe, nessun reindirizzamento), lette dagli screenshot che l'utente ha consegnato (`screenshot_53.png`-`screenshot_65.png`, cartella Screenpresso). Autori conservati per una eventuale richiesta di rimozione mirata, per lo stesso principio già in vigore per Discord e per l'archivio di Reddit.
+
+| Fonte | URL | Autorevole su | Track |
+|---|---|---|---|
+| Reddit, r/PokemonEmerald, "How to actually fix/reset the Emerald RTC? \| PKHex/GB Operator" (autore Ok-Acanthisitta9247, soluzione con l'assistenza di u/Jiimmb0, confermata nei commenti da mischkewitz63, Dekiam, Ok-Meringue-8476, TheReptain, MountEchoView) | https://www.reddit.com/r/PokemonEmerald/s/bftTWDmjpf | la procedura in dieci passi via PKHex per risincronizzare l'RTC di Smeraldo dopo il cambio di pila, senza perdere il salvataggio | SME |
+| Reddit, r/Gameboy, "Resetting RTC on emerald after replacing the battery" (post originale cancellato, note di Dryja123, confronto di RipperSquid sulle tre vie alternative) | https://www.reddit.com/r/Gameboy/s/iPeYLiqFr5 | l'avviso che la combinazione a quattro tasti con L è specifica di Rubino/Zaffiro e non di Smeraldo, e le tre vie alternative (PKHex, ROM DS via slot GBA, nuova partita) | SME |
+
 <!-- indice-fonti-unico: inizio, generato da tools/indice-fonti-unico.py -->
 
 ## Indice unico: dove sta ciascuna fonte, e dove finisce

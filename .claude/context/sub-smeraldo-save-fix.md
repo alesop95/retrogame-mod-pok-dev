@@ -5,7 +5,7 @@ generated-date: 2026-08-24
 covers-paths:
   - gba-save-extraction-smeraldo/
 last-verified-commit: d54df47
-stato: inventario CHIUSO; isole e Monte Cordone (ADR-065/066) costruiti e pronti; Altering Cave RIMANDATA per intero il 2026-09-21 (si riprende dentro pokedex-home-completo); resta il quinto giro su deposito PC (mappatura oggetti da fare) e RTC (contenuto in attesa dall'utente); nessuna scrittura fisica dal 2026-09-18
+stato: inventario CHIUSO; quinto giro (isole/Monte Cordone ADR-066 + deposito PC) SCRITTO E VERIFICATO IN GIOCO sulla cartuccia vera il 2026-09-21, tutti i punti positivi, un duplicato minore (Roccia di Re) da correggere nella prossima scrittura; RTC RIMANDATO (manca la pila tampone) e Altering Cave RIMANDATA (si riprende dentro pokedex-home-completo); aperto con ADR-067 il fronte Battle Frontier (pipeline sintetica + iniezione nei box), sessione chiusa prima di ingerire le fonti
 ---
 
 # Sottoprogetto: correzione del bug inventario di Pokemon Smeraldo
