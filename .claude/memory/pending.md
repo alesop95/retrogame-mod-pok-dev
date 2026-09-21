@@ -147,7 +147,16 @@ Punti dichiarati da una fonte enciclopedica e non ancora verificati sul sorgente
 
 Verifica di composizione da fare subito dopo il prossimo commit, in PRIMO MODO: `tesi/capitoli/14-caso-smeraldo.tex` porta ora anche la direttiva `copre` per `STUDIO-04` e la sezione che lo copre, ma il suo timbro `verificato-al-commit` è stato riportato a `59a6688` in questa stessa sessione, cioè prima che `STUDIO-04` esistesse. Va bumpato al commit nuovo, poi `check-thesis-coverage.py` deve tornare a zero problemi.
 
-## Squadra del Parco Lotta a Lv.50, aperta il 2026-09-17
+## Squadra del Parco Lotta a Lv.50, aperta il 2026-09-17, COMPOSTA il 2026-09-21
+
+AGGIORNAMENTO del 2026-09-21: la composizione non è più ricerca futura. Il catalogo è `gba-save-extraction-smeraldo/squadre-parco-lotta.json`, il ragionamento sta in `STUDIO-05`, la verifica meccanica la fa `tools/parco_lotta_valida_squadre.py` e il piano rigenerato è `PIANO-BOX.md`. Otto esemplari distinti, sedici slot con la doppia copia, cioè meno di un box su quattordici: la riorganizzazione dei box non è più un problema di capienza ma la scelta di quale box destinare, e resta da leggere quanto i box di questa cartuccia siano occupati oggi.
+
+DUE DECISIONI ATTENDONO L'UTENTE, e senza di esse la generazione non parte. La prima è se emendare ADR-068 sul solo punto della Piramide Lotta: la decisione dice una squadra per giro, la guida di chi ha completato l'obiettivo usa una sola squadra e dieci ordini di conduzione, e la differenza è fra novantasei slot e sedici. La sezione 2 di `STUDIO-05` espone la proposta e non la applica, perché restringe un ambito che l'utente aveva fissato. La seconda è il criterio di legittimità a livello 50, già aperto da settembre e ancora non chiuso.
+
+Una specie del catalogo non veniva dal materiale dell'utente ed è quindi da confermare: Blissey alla Serpe Lotta, scelta perché compare nelle due serie più lunghe dichiarate per quell'edificio, cinquecentosessanta e quattrocentoventi sale. Restano fuori dalle sei squadre, senza essere scartati, Milotic, Starmie, Gengar, Salamence, Suicune, Snorlax e Heracross.
+
+Il materiale di partenza che segue resta come è arrivato, perché è la fonte da cui il catalogo è stato composto.
+
 
 L'utente vuole comporre, in un box dedicato dello stesso salvataggio VERO di Smeraldo che questa sessione sta correggendo (non un salvataggio separato), una squadra di esemplari legittimi da usare al Parco Lotta a livello 50, con l'identificativo del proprio allenatore reale: ALEX, ID 45761, ID segreto 56446, letti dal dump del 2026-09-17 (vedi `STUDIO-01-diagnosi-e-correzione-inventario.md` in `gba-save-extraction-smeraldo/`). Ogni esemplare va prodotto in doppia copia, perché una delle due è destinata a uno scambio reale con una terza persona, Matteo (lo stesso Matteo Froccani che ha fornito quattro dei moveset più sotto). È ricerca futura, esplicitamente rimandata dall'utente ("poi faremo una ricerca insieme"): qui si registra solo il materiale di partenza, senza avviare alcuna produzione. Precisazione del 2026-09-17: la produzione, quando partirà, dovrà anche riorganizzare i box Pokémon del salvataggio per fare spazio alla squadra e alle sue doppie copie, e il criterio con cui restare legittimi a livello 50 va deciso insieme ai due dubbi già segnalati sotto, non assunto. Gli esemplari individuati finora, incollati in chat con moveset, EV, natura e abilità in stile Smogon:
 

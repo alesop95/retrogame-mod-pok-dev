@@ -4,6 +4,28 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-21, trentasettesima parte. Le fonti tracciate nel progetto, e le squadre composte
+
+### Il buco che l'utente ha visto, e che era reale
+
+Le fonti lette nella parte precedente erano finite in `SOURCES.md` e basta. Ma `SOURCES.md` è il registro, non la mappa: le note leggibili sotto `docs/fonti/` e le voci di bibliografia nascono dalla tabella di `tools/build-source-map.py`, e in quella tabella non erano entrate. Una fonte che sta nel registro e non nella mappa è consultabile solo da chi sa già di cercarla, ed è metà del lavoro. Aggiunte le tre voci mancanti, cioè `smogon-frontier-thread`, `pastebin-simboli-oro` e `pokemoncentral-parco-lotta`, rigenerati mappa e bibliografia a 113 fonti, e citate tutte e tre nel capitolo 14, perché `check-thesis-coverage.py` segnalava tre voci in bibliografia che nessun capitolo citava.
+
+### ADR-069, la fonte che si abbandona
+
+La discussione Smogon numero 2246 risponde quattrocentotré anche con uno user agent da browser, perché sta in un forum archiviato. L'utente ha deciso di abbandonarla. La voce resta nel registro etichettata come non letta con il proprio motivo, secondo la prescrizione che vieta di degradare in silenzio una fonte a nota a margine, e il debito di lettura del fronte si dichiara chiuso con quella sola eccezione. La ragione per cui l'abbandono è accettabile qui è di merito e va scritta: quella discussione è del 2005 ed è una richiesta di valutazione di squadra, cioè la categoria che le sei discussioni lette rappresentano in misura mille volte maggiore e più recente.
+
+### Le squadre, e il numero che ridimensiona una decisione
+
+Tre artefatti nuovi, con una divisione dei ruoli voluta. `squadre-parco-lotta.json` è il catalogo in forma di dati e tracciato; `STUDIO-05` è il ragionamento che giustifica ogni scelta con la fonte che la corrobora; `PIANO-BOX.md` è rigenerato e non scritto a mano da `gba-save-extraction-smeraldo/tools/parco_lotta_valida_squadre.py`. La separazione serve perché i vincoli del Parco si violano rileggendo senza accorgersene, e uno strumento che li controlli a ogni modifica trasforma una disciplina in un presidio.
+
+Il presidio ha prodotto il proprio primo ritrovamento appena scritto, ed è la prova che serviva: la squadra del Dojo Lotta riusava lo Swampert della Torre, che portava Protezione, e al Dojo il criterio di giudizio sottrae un punto a Protezione, Individua e Resistenza. Non sarebbe stato più debole, avrebbe perso un verdetto che avrebbe vinto. Corretto assegnandogli Contatore di base e modellando la sostituzione di mossa sulla squadra invece che sull'esemplare, perché un esemplare non cambia identità quando cambia una mossa e trattarlo come nuovo raddoppierebbe lo spazio nei box.
+
+Il numero è l'esito che conta. ADR-068 applicata alla lettera chiedeva quarantotto esemplari e novantasei slot; il fabbisogno vero è otto esemplari distinti e sedici slot, meno di un box su quattordici. La differenza sta quasi tutta nella Piramide Lotta: chi ha completato l'obiettivo affronta i dieci giri con tre esemplari soli, cambiando la conduzione e non la composizione, perché il giro è tematico e a un tema si risponde scegliendo fra i propri esemplari quello avvantaggiato. L'emendamento a ADR-068 è proposto all'utente e non applicato, perché restringe un ambito che l'utente aveva fissato.
+
+L'ordine di attacco che ne discende non viene dalle preferenze ma dai difetti: prima la Cupola Lotta, i cui avversari restano a tre punti individuali; subito dopo l'Azienda Lotta, perché la sua difficoltà si guasta appena la serie alla Torre cresce; e nessuno dei due chiede un esemplare generato, quindi due simboli su sette si possono cominciare prima che la pipeline esista.
+
+Una specie del catalogo non veniva dal materiale dell'utente e va confermata da lui: Blissey alla Serpe Lotta, scelta perché compare nelle due serie più lunghe dichiarate per quell'edificio. Restano fuori senza essere scartati Milotic, Starmie, Gengar, Salamence, Suicune, Snorlax e Heracross.
+
 ## 2026-09-21, trentaseiesima parte. Le trenta fonti Smogon lette, e tre difetti del gioco che riscrivono il piano
 
 ### L'etichetta falsa, che è la cosa da imparare

@@ -1,0 +1,304 @@
+{
+  "nota": "Catalogo delle squadre del Parco Lotta in attuazione di ADR-068. E' un file di dati tracciato e non un documento: il ragionamento che lo giustifica sta in STUDIO-05, e la verifica meccanica la fa gba-save-extraction-smeraldo/tools/parco_lotta_valida_squadre.py. I nomi di specie, strumenti e mosse sono in inglese perche' e' la forma in cui il catalogo degli avversari e le fonti li scrivono, e perche' la pipeline di generazione lavora su quelli; i nomi italiani degli edifici sono nella sezione 3 di STUDIO-04.",
+  "livello": 50,
+  "copie_per_esemplare": 2,
+  "motivo_copie": "una delle due copie di ciascun esemplare e' destinata a uno scambio reale gia' concordato con una terza persona, come registrato in pending.md",
+  "esemplari": {
+    "latios-timid": {
+      "specie": "Latios",
+      "natura": "Timid",
+      "abilita": "Levitate",
+      "punti_base": "4 HP / 252 SpA / 252 Spe",
+      "iv_attacco": 0,
+      "mosse": [
+        "Calm Mind",
+        "Psychic",
+        "Dragon Claw",
+        "Thunderbolt"
+      ],
+      "fonte": "guida al completamento dei sette simboli d'oro; corroborato da potatobagel a 268 alla Torre Lotta"
+    },
+    "latios-hasty": {
+      "specie": "Latios",
+      "natura": "Hasty",
+      "abilita": "Levitate",
+      "punti_base": "4 HP / 252 SpA / 252 Spe",
+      "mosse": [
+        "Psychic",
+        "Dragon Claw",
+        "Thunderbolt",
+        "Surf"
+      ],
+      "fonte": "squadra dichiarata a 224 al Palazzo Lotta da potatobagel, benben591 ed encampment6210"
+    },
+    "metagross-adamant": {
+      "specie": "Metagross",
+      "natura": "Adamant",
+      "abilita": "Clear Body",
+      "punti_base": "252 HP / 252 Atk / 4 Spe",
+      "mosse": [
+        "Meteor Mash",
+        "Earthquake",
+        "Shadow Ball",
+        "Explosion"
+      ],
+      "fonte": "gia' scelto dall'utente in pending.md; e' la specie piu' ricorrente in assoluto nelle squadre dichiarate"
+    },
+    "metagross-sassy": {
+      "specie": "Metagross",
+      "natura": "Sassy",
+      "abilita": "Clear Body",
+      "punti_base": "252 HP / 252 Atk / 4 Def",
+      "mosse": [
+        "Meteor Mash",
+        "Earthquake"
+      ],
+      "fonte": "squadra dichiarata a 224 al Palazzo Lotta; due sole mosse, entrambe d'attacco, per la ragione della sezione 12 di STUDIO-04"
+    },
+    "swampert-relaxed": {
+      "specie": "Swampert",
+      "natura": "Relaxed",
+      "abilita": "Torrent",
+      "punti_base": "252 HP / 212 Def / 44 SpA",
+      "mosse": [
+        "Earthquake",
+        "Surf",
+        "Ice Beam",
+        "Counter"
+      ],
+      "fonte": "gia' scelto dall'utente in pending.md; la guida gli assegna Contatore alla Torre e al Dojo e Protezione alla Piramide, che e' una sostituzione di mossa sullo stesso esemplare e non un esemplare diverso"
+    },
+    "swampert-brave": {
+      "specie": "Swampert",
+      "natura": "Brave",
+      "abilita": "Torrent",
+      "punti_base": "252 HP / 252 Atk / 4 Def",
+      "mosse": [
+        "Earthquake",
+        "Surf",
+        "Ice Beam",
+        "Rock Slide"
+      ],
+      "fonte": "squadra dichiarata a 224 al Palazzo Lotta; Brave e' la natura con la quota d'attacco piu' alta fra quelle utilizzabili, e Rock Slide serve contro Shedinja"
+    },
+    "slaking-adamant": {
+      "specie": "Slaking",
+      "natura": "Adamant",
+      "abilita": "Truant",
+      "punti_base": "4 HP / 252 Atk / 252 Spe",
+      "mosse": [
+        "Return",
+        "Earthquake",
+        "Shadow Ball",
+        "Hyper Beam"
+      ],
+      "fonte": "gia' scelto dall'utente in pending.md con natura Jolly; Adamant perche' alla Cupola Lotta gli avversari hanno tre punti individuali e la potenza vale piu' della velocita'"
+    },
+    "blissey-bold": {
+      "specie": "Blissey",
+      "natura": "Bold",
+      "abilita": "Natural Cure",
+      "punti_base": "252 HP / 252 Def / 4 SpD",
+      "mosse": [
+        "Seismic Toss",
+        "Toxic",
+        "Soft-Boiled",
+        "Sing"
+      ],
+      "fonte": "compare nelle due serie piu' lunghe dichiarate alla Serpe Lotta, 560 di Runeblade14 e 420 di wtset e iSoNkei; non era nel materiale dell'utente"
+    }
+  },
+  "squadre": [
+    {
+      "edificio": "Cupola Lotta",
+      "ordine": 1,
+      "perche": "i suoi avversari hanno tre punti individuali su ogni statistica a qualunque punto della serie, per il difetto verificato in src/battle_dome.c; si vede inoltre la squadra avversaria prima di scegliere quali due dei tre mandare in campo",
+      "esemplari": [
+        {
+          "chiave": "latios-timid",
+          "strumento": "Lum Berry"
+        },
+        {
+          "chiave": "metagross-adamant",
+          "strumento": "Leftovers"
+        },
+        {
+          "chiave": "slaking-adamant",
+          "strumento": "Choice Band"
+        }
+      ]
+    },
+    {
+      "edificio": "Azienda Lotta",
+      "ordine": 2,
+      "perche": "non si porta alcuna squadra, si combatte con esemplari in prestito; va pero' affrontata prima di costruire una serie lunga alla Torre Lotta, perche' i punti individuali dei suoi avversari dipendono da quella",
+      "esemplari": []
+    },
+    {
+      "edificio": "Torre Lotta",
+      "ordine": 3,
+      "perche": "e' il calendario piu' lungo del Parco insieme a quello della Piramide, e non aggiunge alcuna regola ai vincoli generali",
+      "esemplari": [
+        {
+          "chiave": "latios-timid",
+          "strumento": "Lum Berry"
+        },
+        {
+          "chiave": "swampert-relaxed",
+          "strumento": "Leftovers"
+        },
+        {
+          "chiave": "metagross-adamant",
+          "strumento": "Choice Band"
+        }
+      ]
+    },
+    {
+      "edificio": "Dojo Lotta",
+      "ordine": 4,
+      "perche": "stessi tre esemplari della Torre: il criterio di giudizio premia le mosse che infliggono danno e penalizza Protezione, Individua e Resistenza, che questa squadra non porta",
+      "esemplari": [
+        {
+          "chiave": "latios-timid",
+          "strumento": "Lum Berry"
+        },
+        {
+          "chiave": "metagross-adamant",
+          "strumento": "Choice Band"
+        },
+        {
+          "chiave": "swampert-relaxed",
+          "strumento": "Leftovers"
+        }
+      ],
+      "penalizza_protezione": true
+    },
+    {
+      "edificio": "Palazzo Lotta",
+      "ordine": 5,
+      "perche": "e' la sola squadra con nature diverse, perche' al Palazzo la natura sceglie le mosse; e porta sole mosse d'attacco per la ragione della sezione 12 di STUDIO-04",
+      "solo_mosse_attacco": true,
+      "esemplari": [
+        {
+          "chiave": "metagross-sassy",
+          "strumento": "Choice Band"
+        },
+        {
+          "chiave": "latios-hasty",
+          "strumento": "Lum Berry"
+        },
+        {
+          "chiave": "swampert-brave",
+          "strumento": "Leftovers"
+        }
+      ]
+    },
+    {
+      "edificio": "Serpe Lotta",
+      "ordine": 6,
+      "perche": "Metagross e' di tipo Acciaio e quindi immune all'iperavvelenamento, che e' l'alterazione piu' probabile della stanza di stato con il trentacinque per cento",
+      "esemplari": [
+        {
+          "chiave": "latios-timid",
+          "strumento": "Lum Berry"
+        },
+        {
+          "chiave": "metagross-adamant",
+          "strumento": "Choice Band"
+        },
+        {
+          "chiave": "blissey-bold",
+          "strumento": "Leftovers"
+        }
+      ]
+    },
+    {
+      "edificio": "Piramide Lotta",
+      "ordine": 7,
+      "perche": "nessun esemplare entra tenendo uno strumento, perche' il gioco glieli toglie all'ingresso; i dieci giri non richiedono dieci squadre ma dieci ordini di conduzione della stessa, secondo la guida al completamento",
+      "senza_strumenti": true,
+      "esemplari": [
+        {
+          "chiave": "latios-timid",
+          "strumento": null
+        },
+        {
+          "chiave": "swampert-relaxed",
+          "strumento": null,
+          "mosse_sostituite": {
+            "Counter": "Protect"
+          }
+        },
+        {
+          "chiave": "metagross-adamant",
+          "strumento": null,
+          "mosse_sostituite": {
+            "Explosion": "Brick Break"
+          }
+        }
+      ],
+      "ordine_per_giro": [
+        {
+          "giro": 1,
+          "tema": "mosse che paralizzano",
+          "primo": "Latios",
+          "cambio": null
+        },
+        {
+          "giro": 2,
+          "tema": "mosse che avvelenano",
+          "primo": "Latios",
+          "cambio": null
+        },
+        {
+          "giro": 3,
+          "tema": "mosse che scottano",
+          "primo": "Latios",
+          "cambio": null
+        },
+        {
+          "giro": 4,
+          "tema": "consumo dei punti potere",
+          "primo": "Metagross",
+          "cambio": null
+        },
+        {
+          "giro": 5,
+          "tema": "abilita' Levitazione",
+          "primo": "Metagross",
+          "cambio": "Latios dal quarto piano"
+        },
+        {
+          "giro": 6,
+          "tema": "abilita' che intrappolano",
+          "primo": "Metagross",
+          "cambio": "Latios dal quarto piano"
+        },
+        {
+          "giro": 7,
+          "tema": "tipo Ghiaccio",
+          "primo": "Metagross",
+          "cambio": "Latios dal quinto piano"
+        },
+        {
+          "giro": 8,
+          "tema": "Autodistruzione ed Esplosione",
+          "primo": "Latios",
+          "cambio": "Swampert dal quarto piano"
+        },
+        {
+          "giro": 9,
+          "tema": "tipo Psico",
+          "primo": "Latios",
+          "cambio": "Metagross dal secondo piano"
+        },
+        {
+          "giro": 10,
+          "tema": "tipo Roccia",
+          "primo": "Swampert",
+          "cambio": "Metagross dal terzo piano"
+        }
+      ]
+    }
+  ]
+}
