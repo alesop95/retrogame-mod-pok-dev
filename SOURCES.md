@@ -87,6 +87,46 @@ Nascono dal riscontro in gioco del 2026-09-18, dove i biglietti presenti nello z
 | pokeemerald, `include/constants/flags.h` e `include/global.h` | https://github.com/pret/pokeemerald/blob/master/include/constants/flags.h | gli identificativi dei flag, con `SYSTEM_FLAGS` a 0x860, e la posizione di `flags[]` a 0x1270 e `vars[]` a 0x139C dentro SaveBlock1 | SME |
 | NDSEventTool.nds 1.0, mrhappyasthma | https://github.com/mrhappyasthma/NDSEventTool.nds/releases/tag/1.0 | l'iniezione degli eventi Nintendo ufficiali in un salvataggio GBA da un Nintendo DS con scheda di flash; `arm9/source/poke.cpp` distingue i due canali (`wc_inject` sulla Carta Meravigliosa, `me_inject` sul Mistery Event) e dichiara quale flag ciascuno pretende, `arm9/source/me.h` porta i dati ufficiali per lingua e `arm9/source/main.cpp` mostra che per Smeraldo italiano le sole voci offerte sono Biglietto Aurora in italiano e Biglietto Magico in inglese. Vale da conferma incrociata degli offset di SaveBlock1, perché li esprime in coordinate di sezione e non di struttura | SME |
 
+## Le fonti sul Parco Lotta e i simboli d'oro, consegnate il 2026-09-21 per il caso Smeraldo, NON LETTE
+
+Circa quaranta indirizzi consegnati insieme dall'utente per il nuovo fronte "sette edifici, simboli d'oro, record mondiali", in coda al completamento della cartuccia. Nessuno di questi è stato ancora letto: sono catalogati qui come luoghi dove cercare, per `web-sources-not-fetchable.md`, non come fonti verificate. I thread Smogon con login richiedono credenziali dell'utente, che non si scrivono in alcun file di questo progetto: per leggerli si usa `claude-in-chrome` con l'utente che entra le proprie credenziali, o si chiede all'utente di incollare il contenuto pertinente.
+
+| Fonte | URL | Autorevole su (da verificare alla lettura) | Track |
+|---|---|---|---|
+| Bulbapedia, Battle Frontier (Generation III) | https://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III) | struttura generale dei sette edifici | SME |
+| Bulbapedia, Battle Arena | https://bulbapedia.bulbagarden.net/wiki/Battle_Arena | meccanica dell'Arena Lotta | SME |
+| Bulbapedia, Battle Dome | https://bulbapedia.bulbagarden.net/wiki/Battle_Dome | meccanica del Torneo Lotta e dei tabelloni | SME |
+| Bulbapedia, Battle Factory (Generation III) | https://bulbapedia.bulbagarden.net/wiki/Battle_Factory_(Generation_III) | meccanica della Fabbrica Lotta, Pokemon presi in prestito | SME |
+| Bulbapedia, Battle Palace | https://bulbapedia.bulbagarden.net/wiki/Battle_Palace | meccanica del Palazzo Lotta, nature e comportamento IA | SME |
+| Bulbapedia, Battle Pike | https://bulbapedia.bulbagarden.net/wiki/Battle_Pike | meccanica della Piccozza Lotta, già in parte nota da `STUDIO-02` | SME |
+| Bulbapedia, Battle Pyramid | https://bulbapedia.bulbagarden.net/wiki/Battle_Pyramid | meccanica della Piramide Lotta, item e visibilità | SME |
+| Bulbapedia, Battle Tower (Generation III) | https://bulbapedia.bulbagarden.net/wiki/Battle_Tower_(Generation_III) | meccanica della Torre Lotta | SME |
+| Bulbapedia, List of Battle Frontier Trainers in Generation III | https://bulbapedia.bulbagarden.net/wiki/List_of_Battle_Frontier_Trainers_in_Generation_III | elenco degli allenatori avversari, squadre note | SME |
+| Smogon, Gen III Battle Frontier discussion and records (thread principale) | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/ | indice della discussione comunitaria e dei record, punto di partenza per tutti i post citati sotto | SME |
+| Smogon, Battle Frontier Max Stats Pokemon Database | https://www.smogon.com/forums/threads/battle-frontier-max-stats-pokemon-database.15426/ (post specifico: #post-315130) | statistiche massime al livello 50 per gli esemplari del Parco Lotta | SME |
+| Dropbox, EmeraldBattleFrontierComplete.xlsx | https://www.dropbox.com/scl/fi/vd8o0yarnwpvn0dodb4bd/EmeraldBattleFrontierComplete.xlsx | database completo del Parco Lotta, complemento del post precedente | SME |
+| Smogon ingame, Battle Pyramid strategy dex | https://www.smogon.com/ingame/bc/battle_pyramid#mt20 | guida di riferimento alla Piramide Lotta | SME |
+| Pastebin, guida ai sette simboli d'oro | https://pastebin.com/c796fkZT | guida completa citata dall'utente come riferimento per l'obiettivo dichiarato | SME |
+| GitHub, taxicat1/DomeAssistantWeb | https://github.com/taxicat1/DomeAssistantWeb/ | strumento di predizione delle squadre avversarie al Torneo Lotta | SME |
+| Imgur, Gen 3 Battle Tower guide by u/porta-14 | https://imgur.com/a/gen-3-battle-tower-guide-by-u-porta-14-FuEakPo | guida specifica alla Torre Lotta | SME |
+| Smogon, thread principale, post #post-8081012 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/#post-8081012 | squadra/record citata dall'utente | SME |
+| Smogon, thread principale, pagina 18 #post-8454785 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-18#post-8454785 | squadra/record citata dall'utente | SME |
+| Smogon, thread principale, pagina 3 #post-8197535 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-3#post-8197535 | squadra dedicata alla Piramide Lotta, già segnalata in `pending.md` come scaricata e non letta | SME |
+| Smogon, thread principale, pagina 19 #post-8457065 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-19#post-8457065 | squadra/record citata dall'utente | SME |
+| Smogon, thread principale, pagina 35 #post-8744004 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-35#post-8744004 | Pokemon "sempre disponibili" da tenere pronti, secondo l'utente | SME |
+| Smogon, thread principale, pagina 44 #post-8823238 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-44#post-8823238 | squadra/record citata dall'utente | SME |
+| Smogon, thread principale, pagina 45 #post-8854987 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-45#post-8854987 | squadra/record citata dall'utente | SME |
+| Smogon, thread principale, pagina 45 #post-8859661 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-45#post-8859661 | squadra/record citata dall'utente | SME |
+| Smogon, thread principale, pagina 51 #post-9014973 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-51#post-9014973 | risorse dell'hub RBNG, da valutare se estendono lo strumento del progetto | SME |
+| Smogon, thread principale (guida alla Battle Factory di JoebertIII, citata dall'utente senza ancora, di questa sessione, un indirizzo di post distinto) | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/ | guida alla Fabbrica Lotta | SME |
+| Smogon, "lol a RMT for battle frontier though" | https://www.smogon.com/forums/threads/lol-a-rmt-for-battle-frontier-though.2246/ | squadra di riferimento, richiede login | SME |
+| Smogon, "Dan's Macabre: a record breaking Gen 3 Battle Tower singles team" | https://www.smogon.com/forums/threads/dans-macabre-a-record-breaking-gen-3-battle-tower-singles-team.3651964/ | squadra da record per la Torre Lotta, richiede login | SME |
+| Smogon, "Team Azure: a Gen 3 Battle Tower team" | https://www.smogon.com/forums/threads/team-azure-a-gen-3-battle-tower-team.3642308/ | squadra per la Torre Lotta, richiede login | SME |
+| Smogon, thread principale, pagina 40 #post-8783288 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-40#post-8783288 | squadra citata dall'utente, richiede login | SME |
+| Smogon, thread principale, pagina 43 #post-8815224 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-43#post-8815224 | squadra citata dall'utente, richiede login | SME |
+
+Sotto la sezione record del thread principale l'utente segnala inoltre "un'altra miriade di link" a squadre copiabili per ogni edificio in base ai record: non ancora individuati singolarmente, da estrarre quando si legge il thread principale per intero.
+
 <!-- indice-fonti-unico: inizio, generato da tools/indice-fonti-unico.py -->
 
 ## Indice unico: dove sta ciascuna fonte, e dove finisce
@@ -162,7 +202,7 @@ La colonna dei documenti dice dove sta la sintesi di quella fonte dentro il prog
 | Project Pokemon, Events Gallery (non letta) | 3 | ricreazione degli eventi | `24-fonti-di-community` | 19 |
 | frlg-ldn-trade | 3 | scambio locale | `06-identita-pokemon`, `11-wireless-locale-e-ponte-switch` | 13, 16 |
 | gba-link-connection | 3 | ponte fra generazioni | `10-multiboot-hardware`, `30-opzioni-implementative` | 23 |
-| gen-iii-event-patcher | 3 | ricreazione degli eventi, ponte fra generazioni | `09-esecuzione-codice`, `10-multiboot-hardware` | 19 |
+| gen-iii-event-patcher | 3 | ricreazione degli eventi, ponte fra generazioni | `09-esecuzione-codice`, `10-multiboot-hardware` | 14, 19 |
 | Gen 3 ACE Pokemon Builder (non letta) | 3 | esecuzione di codice, ricreazione degli eventi | `23-prove-eseguite` | 19, 20 |
 | Goppier/GEN3PokemonDistributions | 3 | ponte fra generazioni | `10-multiboot-hardware` | 23 |
 | Pokemon-Gen3-to-Gen-X | 3 | ponte fra generazioni | `08-cavo-link`, `30-opzioni-implementative` | 09, 11, 23 |

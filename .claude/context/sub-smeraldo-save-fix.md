@@ -5,7 +5,7 @@ generated-date: 2026-08-24
 covers-paths:
   - gba-save-extraction-smeraldo/
 last-verified-commit: d54df47
-stato: inventario CHIUSO e confermato in gioco; terzo giro (flag delle isole, ADR-065) SCRITTO sulla cartuccia e VERIFICATO IN GIOCO il 2026-09-18; aperto il fronte degli incontri, con lo strumento del quarto giro costruito e la decisione che attende l'utente
+stato: inventario CHIUSO; isole e Monte Cordone (ADR-065/066) costruiti e pronti; Altering Cave RIMANDATA per intero il 2026-09-21 (si riprende dentro pokedex-home-completo); resta il quinto giro su deposito PC (mappatura oggetti da fare) e RTC (contenuto in attesa dall'utente); nessuna scrittura fisica dal 2026-09-18
 ---
 
 # Sottoprogetto: correzione del bug inventario di Pokemon Smeraldo
