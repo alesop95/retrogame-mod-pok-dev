@@ -4,6 +4,34 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-21, trentaseiesima parte. Le trenta fonti Smogon lette, e tre difetti del gioco che riscrivono il piano
+
+### L'etichetta falsa, che è la cosa da imparare
+
+Il registro portava da settimane una trentina di voci Smogon etichettate in blocco come dietro autenticazione. L'etichetta era falsa, e nessuno l'aveva più verificata: un semplice recupero locale risponde duecento su tutte tranne una, con il corpo dei post presente nel documento. È esattamente il difetto che `web-sources-not-fetchable.md` chiama una etichetta di indisponibilità sopravvissuta alla propria causa, e il suo costo non è stato teorico: ha tenuto fuori dal progetto per settimane proprio le fonti che dicono che cosa ha funzionato, mentre il catalogo degli avversari dice solo contro che cosa si combatte. La sola indisponibilità vera è la discussione numero 2246, che risponde quattrocentotré anche con uno user agent da browser perché sta in un forum archiviato.
+
+### Che cosa è stato letto, e con quali due strumenti nuovi
+
+`tools/fetch-smogon.py` legge i thread di quel forum senza credenziali, verifica il `robots.txt` prima di cominciare, si dichiara con uno user agent descrittivo invece di fingersi un browser, attende fra due richieste, e scrive il grezzo per pagina accanto al derivato con un blocco per post e l'identificativo dell'autore, come prescrive l'ultima sezione della regola sulle fonti di terzi. Corsa completa: 2427 post su sei fonti, di cui 2187 nel solo thread principale, che ha 88 pagine.
+
+Due difetti dello strumento trovati e corretti sul campo, entrambi silenziosi. Il primo: il numero dell'ultima pagina letto dal documento intero restituisce la lunghezza della discussione più lunga fra quelle citate nelle barre laterali, non di quella che si sta leggendo, e poiché una pagina inesistente risponde comunque duecento con la prima, la prova è stata una discussione di una pagina sola dichiarata di quattro e riscaricata quattro volte. Corretto vincolando la ricerca al percorso del thread, con in più un presidio che si ferma se i post di una pagina coincidono con quelli appena letti. Il secondo: il testo che un post cita da un altro va tolto prima di cercarvi una squadra, altrimenti chi risponde a un rapporto si vede attribuire la squadra di chi lo ha scritto, e nella tabella ordinata per risultato comparivano quattro coppie di righe identiche proprio in testa.
+
+`gba-save-extraction-smeraldo/tools/parco_lotta_squadre_dai_thread.py` fa il salto dal Livello 1 al Livello 2 in modo deterministico, perché duemilaquattrocento post non si leggono: riconosce i blocchi di squadra, li associa all'autore e al post, cerca la serie dichiarata e l'edificio nominato, e ordina per risultato. Esito: 268 post con un blocco, 111 dei quali anche con una serie. La copertura parziale è dichiarata e non sottintesa, cioè 236 post contrassegnati dall'indice non hanno prodotto alcun blocco perché mettono la squadra in un'immagine o la descrivono in prosa.
+
+### I tre difetti del gioco, ciascuno verificato sul sorgente prima di essere creduto
+
+Il primo è il più grosso e cambia l'ordine di attacco. Ogni avversario della Cupola Lotta ha tre punti individuali su ogni statistica, sempre, anche al decimo torneo: `CreateDomeOpponentMon` in `src/battle_dome.c` passa alla funzione l'identificativo del concorrente nel torneo, da zero a quindici, invece di quello dell'allenatore del Parco, e la decompilazione lo dichiara difetto in un commento. Ne segue che la Cupola non è il simbolo meno caro per due lotte soltanto: è il meno caro, il solo in cui si vede la squadra avversaria prima di scegliere, e il solo in cui l'avversario resta debole fino alla fine.
+
+Il secondo è un vincolo di sequenza che non si recupera dopo. I punti individuali degli avversari dell'Azienda Lotta non dipendono dalla serie all'Azienda ma dalla serie corrente alla Torre Lotta a livello 50, per un difetto che `src/battle_tower.c` dichiara in una nota e che nel gioco pubblicato è attivo. Ne discende che l'Azienda va portata all'oro prima di costruire una serie lunga alla Torre, e che va letta sul salvataggio la serie corrente della Torre di questa cartuccia prima di decidere l'ordine.
+
+Il terzo riguarda il Palazzo Lotta e ribalta il modo ovvio di comporre la squadra. Quando la categoria estratta non ha mosse disponibili, metà della quota diventa una mossa a caso e metà un turno perso: un esemplare con sole mosse d'attacco attacca quindi più spesso di uno che porta anche mosse di stato. Uno Swampert Brave passa dal settanta all'ottantacinque per cento di turni in cui infligge danno semplicemente non portando altro. Non si sceglie una natura e poi si riempiono le mosse: si tolgono le mosse di stato.
+
+### La convergenza che valida il metodo
+
+La guida generale su Pastebin descrive la progressione della difficoltà in otto categorie di allenatore con punti individuali 3, 6, 9, 12, 15, 18, 21 e 31 e la settima lotta di ogni serie che pesca dalla categoria successiva: è esattamente la struttura ricavata in modo indipendente dalle tabelle del sorgente nella sessione precedente, senza averla letta da nessuna parte. Due vie indipendenti sugli stessi otto numeri.
+
+Sul merito, il quadro delle squadre è convergente quanto quello delle meccaniche: il nucleo Metagross, Latios e Swampert ricorre in testa alle quattro liste di edificio ricavate dai post, ed è anche la squadra della guida al completamento integrale. Non è una moda del forum ma un accordo fra persone che non si sono copiate.
+
 ## 2026-09-21, trentacinquesima parte. Il catalogo degli avversari spogliato, le meccaniche verificate sul sorgente, ADR-068
 
 ### La premessa da correggere, prima di tutto il resto
