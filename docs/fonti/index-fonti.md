@@ -73,6 +73,7 @@ graph LR
   bulbapedia-sinjoh -- corregge --> bulbapedia
   bulbapedia-poke-transfer -- corregge --> dns-eventi-gen45
   avviso-home-mightiest -- corregge --> serebii-tera-eventi
+  bulbapedia-parco-lotta -- conferma --> pokeemerald
 ```
 
 ## Le fonti, per livello
@@ -126,6 +127,7 @@ graph LR
 | [[bulbapedia-indice-distribuzioni]] | EVT, PKD | [[LETTURA-DEL-CORPUS]] |
 | [[bulbapedia-poke-transfer]] | PKD | [[CATENA-DI-TRASFERIMENTO]], [[LETTURA-DEL-CORPUS]] |
 | [[bulbapedia-scambi-lingue]] | PKD, EVT | [[CENSIMENTO-SCAMBI]], [[LETTURA-DEL-CORPUS]] |
+| [[bulbapedia-parco-lotta]] | SME | [[14-caso-smeraldo]] |
 
 ### Livello 3
 
@@ -162,6 +164,7 @@ graph LR
 | [[pkmnclassic]] | EVT, PKD | [[STUDIO-04-la-via-del-dns-e-il-servizio-rianimato]] |
 | [[pokepc-dati]] | PKD | [[CONFRONTO-LIVINGDEX-POKEPC]] |
 | [[monarium]] | PKD | [[CHECKLIST-COMPLETA]] |
+| [[domeassistant]] | SME | [[14-caso-smeraldo]] |
 
 ### Livello 4
 

@@ -87,27 +87,31 @@ Nascono dal riscontro in gioco del 2026-09-18, dove i biglietti presenti nello z
 | pokeemerald, `include/constants/flags.h` e `include/global.h` | https://github.com/pret/pokeemerald/blob/master/include/constants/flags.h | gli identificativi dei flag, con `SYSTEM_FLAGS` a 0x860, e la posizione di `flags[]` a 0x1270 e `vars[]` a 0x139C dentro SaveBlock1 | SME |
 | NDSEventTool.nds 1.0, mrhappyasthma | https://github.com/mrhappyasthma/NDSEventTool.nds/releases/tag/1.0 | l'iniezione degli eventi Nintendo ufficiali in un salvataggio GBA da un Nintendo DS con scheda di flash; `arm9/source/poke.cpp` distingue i due canali (`wc_inject` sulla Carta Meravigliosa, `me_inject` sul Mistery Event) e dichiara quale flag ciascuno pretende, `arm9/source/me.h` porta i dati ufficiali per lingua e `arm9/source/main.cpp` mostra che per Smeraldo italiano le sole voci offerte sono Biglietto Aurora in italiano e Biglietto Magico in inglese. Vale da conferma incrociata degli offset di SaveBlock1, perché li esprime in coordinate di sezione e non di struttura | SME |
 
-## Le fonti sul Parco Lotta e i simboli d'oro, consegnate il 2026-09-21 per il caso Smeraldo, NON LETTE
+## Le fonti sul Parco Lotta e i simboli d'oro, consegnate il 2026-09-21 per il caso Smeraldo, in parte lette il 2026-09-21
 
-Circa quaranta indirizzi consegnati insieme dall'utente per il nuovo fronte "sette edifici, simboli d'oro, record mondiali", in coda al completamento della cartuccia. Nessuno di questi è stato ancora letto: sono catalogati qui come luoghi dove cercare, per `web-sources-not-fetchable.md`, non come fonti verificate. I thread Smogon con login richiedono credenziali dell'utente, che non si scrivono in alcun file di questo progetto: per leggerli si usa `claude-in-chrome` con l'utente che entra le proprie credenziali, o si chiede all'utente di incollare il contenuto pertinente.
+Circa quaranta indirizzi consegnati insieme dall'utente per il nuovo fronte "sette edifici, simboli d'oro, record mondiali", in coda al completamento della cartuccia. Lo stato di lettura è cambiato nella stessa giornata in cui la sezione è nata, e va letto voce per voce nella colonna dedicata invece che nel titolo: le nove pagine Bulbapedia e il database dello strumento `DomeAssistantWeb` sono state lette, tutto il resto no. Le voci non lette restano catalogate come luoghi dove cercare, per `web-sources-not-fetchable.md`, e non come fonti verificate. I thread Smogon con login richiedono credenziali dell'utente, che non si scrivono in alcun file di questo progetto: per leggerli si usa `claude-in-chrome` con l'utente che entra le proprie credenziali, o si chiede all'utente di incollare il contenuto pertinente.
+
+Le nove pagine Bulbapedia sono state recuperate per la via dell'API MediaWiki con `tools/fetch-bulbapedia.py`, che è il canale programmatico che il servizio espone senza credenziali, e non per il recupero della pagina destinata alle persone. Stanno in `_notes/fonti/bulbapedia-parco-lotta-2026-09-21/`, 7120 righe di wikitesto, ciascuna con la propria revisione e il momento della lettura nell'intestazione, con lo scheletro di Livello 1 accanto. Il loro contenuto misurato è entrato in `gba-save-extraction-smeraldo/STUDIO-04-parco-lotta-simboli-oro.md`, e le due fonti lette sono registrate nella tabella di `tools/build-source-map.py` con gli slug `bulbapedia-parco-lotta` e `domeassistant`, quindi compaiono in bibliografia e in `docs/fonti/`.
+
+Una nota tecnica che vale per chiunque riprovi, perché il sintomo inganna: la verifica del certificato verso Bulbapedia fallisce dallo store di sistema di questa macchina Windows con `certificate has expired`, mentre passa con il paniere di radici di `certifi` e passa con `curl`, che ne usa uno proprio. Non è un blocco del servizio e non si aggira disattivando la verifica, che sarebbe un declassamento silenzioso della sicurezza per un sintomo che non c'entra: si usa un paniere aggiornato, ed è quello che lo strumento fa.
 
 | Fonte | URL | Autorevole su (da verificare alla lettura) | Track |
 |---|---|---|---|
-| Bulbapedia, Battle Frontier (Generation III) | https://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III) | struttura generale dei sette edifici | SME |
-| Bulbapedia, Battle Arena | https://bulbapedia.bulbagarden.net/wiki/Battle_Arena | meccanica dell'Arena Lotta | SME |
-| Bulbapedia, Battle Dome | https://bulbapedia.bulbagarden.net/wiki/Battle_Dome | meccanica del Torneo Lotta e dei tabelloni | SME |
-| Bulbapedia, Battle Factory (Generation III) | https://bulbapedia.bulbagarden.net/wiki/Battle_Factory_(Generation_III) | meccanica della Fabbrica Lotta, Pokemon presi in prestito | SME |
-| Bulbapedia, Battle Palace | https://bulbapedia.bulbagarden.net/wiki/Battle_Palace | meccanica del Palazzo Lotta, nature e comportamento IA | SME |
-| Bulbapedia, Battle Pike | https://bulbapedia.bulbagarden.net/wiki/Battle_Pike | meccanica della Piccozza Lotta, già in parte nota da `STUDIO-02` | SME |
-| Bulbapedia, Battle Pyramid | https://bulbapedia.bulbagarden.net/wiki/Battle_Pyramid | meccanica della Piramide Lotta, item e visibilità | SME |
-| Bulbapedia, Battle Tower (Generation III) | https://bulbapedia.bulbagarden.net/wiki/Battle_Tower_(Generation_III) | meccanica della Torre Lotta | SME |
-| Bulbapedia, List of Battle Frontier Trainers in Generation III | https://bulbapedia.bulbagarden.net/wiki/List_of_Battle_Frontier_Trainers_in_Generation_III | elenco degli allenatori avversari, squadre note | SME |
+| Bulbapedia, Battle Frontier (Generation III) | https://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III) | LETTA il 2026-09-21: i tre vincoli di iscrizione validi ovunque, l'elenco chiuso delle dieci specie escluse più l'uovo (coincidente voce per voce con `gFrontierBannedSpecies[]` del sorgente), e la tabella dei sette edifici con il proprio Asso e i propri due simboli | SME |
+| Bulbapedia, Battle Arena | https://bulbapedia.bulbagarden.net/wiki/Battle_Arena | LETTA in parte il 2026-09-21: il criterio di giudizio in tre voci, mente, tecnica e corpo, e le soglie dell'Asso. Il resto della pagina è su disco e non ancora letto | SME |
+| Bulbapedia, Battle Dome | https://bulbapedia.bulbagarden.net/wiki/Battle_Dome | NON LETTA oltre la scheda informativa: da lì vengono le soglie dell'Asso e il fatto che una serie vale quattro lotte invece di sette | SME |
+| Bulbapedia, Battle Factory (Generation III) | https://bulbapedia.bulbagarden.net/wiki/Battle_Factory_(Generation_III) | LETTA in parte il 2026-09-21: la progressione dei punti individuali degli esemplari in prestito per serie (3, 6, 9, 12, 15, 21, poi 31) e la tabella diversa dell'ultimo allenatore di ogni serie (6, 9, 12, 15, 18, poi 31). Porta inoltre due difetti dichiarati alla nona serie e sul ricaricare dopo il riposo, non ancora verificati sul sorgente e quindi DA VERIFICARE | SME |
+| Bulbapedia, Battle Palace | https://bulbapedia.bulbagarden.net/wiki/Battle_Palace | LETTA il 2026-09-21, ed è la fonte più densa delle nove: la tripartizione delle mosse in attacco, difesa e supporto, e la tabella completa con cui ciascuna delle venticinque nature sceglie la categoria sopra e sotto la metà dei punti salute. Estratta con `gba-save-extraction-smeraldo/tools/parco_lotta_estrai_tabelle.py` | SME |
+| Bulbapedia, Battle Pike | https://bulbapedia.bulbagarden.net/wiki/Battle_Pike | NON LETTA oltre la scheda informativa: da lì vengono le soglie dell'Asso, che mostrano il divario più ampio fra argento e oro dei sette edifici. Lo stato del simbolo su questa cartuccia resta materia di `STUDIO-02` | SME |
+| Bulbapedia, Battle Pyramid | https://bulbapedia.bulbagarden.net/wiki/Battle_Pyramid | NON LETTA oltre la scheda informativa: è la più lunga delle nove con 1007 righe di wikitesto, ed è su disco | SME |
+| Bulbapedia, Battle Tower (Generation III) | https://bulbapedia.bulbagarden.net/wiki/Battle_Tower_(Generation_III) | NON LETTA oltre la scheda informativa: da lì vengono le soglie dell'Asso | SME |
+| Bulbapedia, List of Battle Frontier Trainers in Generation III | https://bulbapedia.bulbagarden.net/wiki/List_of_Battle_Frontier_Trainers_in_Generation_III | NON LETTA: 3648 righe di wikitesto su disco, superata nei fatti dal database di `DomeAssistantWeb`, che porta gli stessi avversari in forma di tabella invece che di prosa | SME |
 | Smogon, Gen III Battle Frontier discussion and records (thread principale) | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/ | indice della discussione comunitaria e dei record, punto di partenza per tutti i post citati sotto | SME |
 | Smogon, Battle Frontier Max Stats Pokemon Database | https://www.smogon.com/forums/threads/battle-frontier-max-stats-pokemon-database.15426/ (post specifico: #post-315130) | statistiche massime al livello 50 per gli esemplari del Parco Lotta | SME |
-| Dropbox, EmeraldBattleFrontierComplete.xlsx | https://www.dropbox.com/scl/fi/vd8o0yarnwpvn0dodb4bd/EmeraldBattleFrontierComplete.xlsx | database completo del Parco Lotta, complemento del post precedente | SME |
+| Dropbox, EmeraldBattleFrontierComplete.xlsx | https://www.dropbox.com/scl/fi/vd8o0yarnwpvn0dodb4bd/EmeraldBattleFrontierComplete.xlsx | NON LETTA, e l'indirizzo registrato è incompleto: un collegamento di condivisione di quel servizio richiede un parametro `rlkey` che qui manca, quindi restituisce la pagina di accesso invece del file. Serve l'indirizzo completo dall'utente, oppure il file | SME |
 | Smogon ingame, Battle Pyramid strategy dex | https://www.smogon.com/ingame/bc/battle_pyramid#mt20 | guida di riferimento alla Piramide Lotta | SME |
 | Pastebin, guida ai sette simboli d'oro | https://pastebin.com/c796fkZT | guida completa citata dall'utente come riferimento per l'obiettivo dichiarato | SME |
-| GitHub, taxicat1/DomeAssistantWeb | https://github.com/taxicat1/DomeAssistantWeb/ | strumento di predizione delle squadre avversarie al Torneo Lotta | SME |
+| GitHub, taxicat1/DomeAssistantWeb | https://github.com/taxicat1/DomeAssistantWeb/ | LETTA nella sola parte dei dati il 2026-09-21, licenza MIT: 888 insiemi distinti di esemplare con natura, strumento, quattro mosse e punti base, su 376 specie, in 130 formazioni fra 302 allenatori. In `_notes/fonti/domeassistant-2026-09-21/`. Il codice dello strumento non è stato letto, i soli otto file sotto `data/` | SME |
 | Imgur, Gen 3 Battle Tower guide by u/porta-14 | https://imgur.com/a/gen-3-battle-tower-guide-by-u-porta-14-FuEakPo | guida specifica alla Torre Lotta | SME |
 | Smogon, thread principale, post #post-8081012 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/#post-8081012 | squadra/record citata dall'utente | SME |
 | Smogon, thread principale, pagina 18 #post-8454785 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-18#post-8454785 | squadra/record citata dall'utente | SME |
@@ -148,10 +152,10 @@ Esiste per una ragione dichiarata dall'utente il 2026-09-10, ed e' la stessa che
 
 | Misura | Valore |
 |---|---|
-| fonti registrate nella tabella unica | 107 |
-| di esse, lette | 105 |
-| di esse, citate in tesi | 107 |
-| di esse, con almeno un documento del progetto che le usa | 107 |
+| fonti registrate nella tabella unica | 109 |
+| di esse, lette | 107 |
+| di esse, citate in tesi | 109 |
+| di esse, con almeno un documento del progetto che le usa | 109 |
 | voci del corpus della collezione | 171 |
 | di esse, promosse a fonte registrata | 25 |
 | cluster del corpus | 42 |
@@ -190,6 +194,7 @@ La colonna dei documenti dice dove sta la sintesi di quella fonte dentro il prog
 | Bulbapedia, le macchine nascoste per generazione | 2 | Pokedex nel deposito, ricreazione degli eventi | `MOSSE-MN`, `CATENA-DI-TRASFERIMENTO` | 28 |
 | I Pokemon di N, l'enciclopedia (dal corpus) | 2 | Pokedex nel deposito | `LETTURA-DEL-CORPUS` | 31 |
 | Il Parco Amici, l'enciclopedia | 2 | Pokedex nel deposito | `CATENA-DI-TRASFERIMENTO`, `LETTURA-DEL-CORPUS` | 28 |
+| Bulbapedia, le nove pagine del Parco Lotta di terza generazione | 2 | salvataggio di Smeraldo | `14-caso-smeraldo` | 14 |
 | Il Trasferimento fra quarta e quinta generazione, l'enciclopedia | 2 | Pokedex nel deposito | `CATENA-DI-TRASFERIMENTO`, `LETTURA-DEL-CORPUS` | 28 |
 | Gli scambi in gioco nelle altre lingue, l'enciclopedia | 2 | Pokedex nel deposito, ricreazione degli eventi | `CENSIMENTO-SCAMBI`, `LETTURA-DEL-CORPUS` | 31 |
 | Le rovine di Sinjoh, l'enciclopedia | 2 | Pokedex nel deposito | `LETTURA-DEL-CORPUS` | 31 |
@@ -208,6 +213,7 @@ La colonna dei documenti dice dove sta la sintesi di quella fonte dentro il prog
 | arduino-poke-gen2 | 3 | ponte fra generazioni | `30-opzioni-implementative` | 23 |
 | CableClub/cable-link | 3 | ponte fra generazioni | `08-cavo-link`, `30-opzioni-implementative` | 10, 22 |
 | vaguilar/pokemon-red-cable-club-hack | 3 | ponte fra generazioni | `09-esecuzione-codice`, `21-collaudo` | 11 |
+| taxicat1/DomeAssistantWeb, la tabella degli avversari del Parco Lotta | 3 | salvataggio di Smeraldo | `14-caso-smeraldo` | 14 |
 | Project Pokemon, Events Gallery (non letta) | 3 | ricreazione degli eventi | `24-fonti-di-community` | 19 |
 | frlg-ldn-trade | 3 | scambio locale | `06-identita-pokemon`, `11-wireless-locale-e-ponte-switch` | 13, 16 |
 | gba-link-connection | 3 | ponte fra generazioni | `10-multiboot-hardware`, `30-opzioni-implementative` | 23 |
