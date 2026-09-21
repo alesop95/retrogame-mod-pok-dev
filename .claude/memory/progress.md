@@ -4,6 +4,40 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-21, trentacinquesima parte. Il catalogo degli avversari spogliato, le meccaniche verificate sul sorgente, ADR-068
+
+### La premessa da correggere, prima di tutto il resto
+
+L'utente ha ripreso la sessione dando per acquisito che tutte le fonti nuove fossero state ingerite e che non ne restasse nessuna. Non era così, e il resto del lavoro poggia su questa correzione: ingerito significava scaricato, non letto. Le nove pagine Bulbapedia erano su disco ma solo quattro erano state lette in profondità; il database dei 888 insiemi era su disco e non era stato spogliato affatto; il foglio Smogon era su disco e non era stato confrontato con nulla; e le circa trenta fonti Smogon della sezione dedicata di `SOURCES.md` non sono state nemmeno aperte, né lo erano prima né lo sono adesso. Il debito di lettura dichiarato in `pending.md` esisteva, e questa sessione ne ha chiuso la parte che stava già su disco.
+
+### Il confronto fra due copie indipendenti del catalogo, e il suo esito
+
+Strumento nuovo, `gba-save-extraction-smeraldo/tools/parco_lotta_spoglio_avversari.py`, che legge il database di DomeAssistantWeb, che è sorgente JavaScript e non JSON, e il foglio Smogon, che è testo a colonne con un difetto di esportazione, e li confronta insieme per insieme sulla coppia specie-istanza invece che sull'indice, perché l'indice è una convenzione di ciascuna fonte mentre la coppia è un fatto del gioco.
+
+L'esito è forte quanto un esito può esserlo: 882 insiemi condivisi, zero divergenze su natura, strumento, mosse e punti base. Le due differenze apparenti sono state spiegate e non lasciate come rumore. La prima è di grafia, sulle due sole specie il cui nome porta un simbolo di sesso, e lo strumento la normalizza prima del confronto perché due false divergenze avrebbero coperto di rumore quelle vere. La seconda è di conteggio: il database ne porta 888, e i sei in più sono le due squadre di Tucker, d'argento e d'oro, che quel programma tiene accanto al catalogo per simulare il Torneo e che nel sorgente non hanno indice. Da qui in avanti il catalogo si usa senza riserve, che è esattamente ciò che un confronto serve a stabilire.
+
+Due difetti dell'esportazione del foglio vanno registrati perché sono strutturali. Il separatore fra la colonna delle abilità e quella dei punti base manca in poco meno della metà delle righe, e le righe degli Assi hanno un campo in meno di quelle numerate perché non portano il numero di istanza: entrambi si sanano leggendo dalla testa e dalla coda insieme invece che contando le colonne, e sanarli a mano avrebbe reso la fonte non più confrontabile con se stessa.
+
+### Le meccaniche, prese dal sorgente e non dall'enciclopedia
+
+Clone superficiale di `pret/pokeemerald` al momento del bisogno, secondo l'apprendimento del 2026-08-25 registrato in `CLAUDE.md`. Quattro fatti che l'enciclopedia non dà o dà male.
+
+Il primo è come il gioco sceglie l'avversario, che è a due stadi: `sFrontierTrainerIdRanges` e `sFrontierTrainerIdRangesHard` in `src/battle_tower.c` danno l'intervallo di identificativi per numero di sfida, con la settima lotta di ogni serie che pesca dalla tabella dura, e dalla sfida otto in poi le due coincidono e il bacino smette di crescere. Il secondo è `GetFrontierTrainerFixedIvs`, che fissa i punti individuali a gradini per identificativo, da tre a trentuno, uguali su tutte e sei le statistiche. Il terzo è `FRONTIER_MONS_HIGH_TIER`, pari a 849, sopra il quale a livello 50 il gioco non pesca: sono trentadue insiemi, i più forti del catalogo, che una squadra a livello 50 non incontrerà mai. Il quarto è il calendario degli Assi in `sFrontierBrainStreakAppearances` di `src/frontier_util.c`, che ha corretto due affermazioni della sezione 4 di `STUDIO-04`: una serie della Piccozza vale quattordici stanze e non sette, perché `NUM_PIKE_ROOMS` è quattordici, e la soglia del Torneo è in tornei vinti e non in lotte. Ne segue che il simbolo meno caro in lotte assolute è quello del Torneo, trentasei lotte, e non quelli di Fabbrica e Palazzo che ne chiedono quarantadue.
+
+Sul bacino finale, cioè quello da cinquecentoquattordici insiemi che non cresce più, la distribuzione dice che il problema statisticamente più presente non è la potenza ma l'elusione, con Doppioteam a cinquantaquattro occorrenze e BrightPowder a sessantatré, e che Terremoto domina le mosse offensive con centotrentatré occorrenze, il doppio della seconda.
+
+### La Piramide, venti giri estratti dal sorgente
+
+Secondo strumento nuovo, `gba-save-extraction-smeraldo/tools/parco_lotta_piramide_giri.py`, che estrae da `src/data/battle_frontier/battle_pyramid_level_50_wild_mons.h` i venti gruppi di otto specie fra cui la Piramide ruota. Il giro è `(serie / 7) % 20`, verificato in `src/battle_pyramid.c`, e l'ordine del sorgente coincide voce per voce con quello della tabella di Bulbapedia, che è quindi confermata invece che corretta. Per il simbolo d'oro, che arriva a settanta piani, i giri da attraversare sono i primi dieci e Brandon compare all'inizio dell'undicesimo. Un'asimmetria verificata sul sorgente e non intuitiva: Brandon tiene i propri strumenti, mentre il giocatore alla Piramide non ne può portare alcuno, perché `ClearPyramidPartyHeldItems` glieli toglie all'ingresso.
+
+### La decisione dell'utente, che è ADR-068
+
+Alla domanda lasciata aperta, cioè se volesse una squadra sola per i sette edifici o una per gruppo, l'utente ha risposto con la forma più fine delle due proposte: una squadra ottimizzata per ogni edificio, e alla Piramide una per ogni giro. È ADR-068. Il fabbisogno che ne discende non è più una squadra di sei ma un catalogo, cioè cinque squadre di tre per gli edifici in cui si porta una squadra e le regole non cambiano, nessuna per la Fabbrica dove si combatte in prestito, e fino a undici per la Piramide se si vuole il solo oro. Ogni esemplare in doppia copia per lo scambio già concordato. La conseguenza pratica da fissare prima di generare è la capienza dei box, che va dimensionata su questo numero e non su sei esemplari.
+
+### Che cosa resta, dichiarato
+
+Le circa trenta fonti Smogon restano non lette, e l'etichetta che le dichiara tutte dietro autenticazione resta da verificare voce per voce, perché su una di esse è già stata smentita. I due difetti della Fabbrica letti su Bulbapedia, cioè i punti individuali casuali alla nona serie e l'effetto del riposo con salvataggio e ricarica, restano marcati DA VERIFICARE. Nessuna delle due fasi di ADR-067 è iniziata, e nulla è stato scritto sulla cartuccia in questa sessione.
+
 ## 2026-09-21, trentaquattresima parte. Il Parco Lotta aperto davvero: fonti lette, tabelle estratte, STUDIO-04
 
 ### Il debito di composizione chiuso per primo

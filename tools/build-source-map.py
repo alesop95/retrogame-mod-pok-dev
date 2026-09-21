@@ -64,7 +64,8 @@ FONTI = [
      [("[[DATA-FORMATS_Gen1-Gen2-Gen3]]", "sezioni 5 e 6, struttura cifrata e salvataggio"),
       ("[[04-cifratura-gen3]]", "cifratura, permutazione e checksum"),
       ("[[03-integrita-checksum]]", "checksum di settore"),
-      ("[[22-strumenti]]", "offset e chiave usati dallo strumento di diagnosi")],
+      ("[[22-strumenti]]", "offset e chiave usati dallo strumento di diagnosi"),
+      ("[[14-caso-smeraldo]]", "le meccaniche del Parco Lotta: selezione dell'avversario per numero di sfida, scala dei punti individuali, calendario degli Assi, rotazione dei venti giri della Piramide")],
      [("corregge", "bulbapedia")]),
 
     ("pokefirered", "pret/pokefirered", "https://github.com/pret/pokefirered", 1, True, ["BRI", "LDN", "SME"],

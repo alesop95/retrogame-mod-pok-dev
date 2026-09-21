@@ -85,7 +85,7 @@ graph LR
 |---|---|---|
 | [[pokered]] | BRI | [[DATA-FORMATS_Gen1-Gen2-Gen3]], [[08-cavo-link]], [[09-esecuzione-codice]] |
 | [[pokecrystal]] | BRI | [[DATA-FORMATS_Gen1-Gen2-Gen3]], [[06-identita-pokemon]], [[08-cavo-link]] |
-| [[pokeemerald]] | BRI, SME | [[DATA-FORMATS_Gen1-Gen2-Gen3]], [[04-cifratura-gen3]], [[03-integrita-checksum]], [[22-strumenti]] |
+| [[pokeemerald]] | BRI, SME | [[DATA-FORMATS_Gen1-Gen2-Gen3]], [[04-cifratura-gen3]], [[03-integrita-checksum]], [[22-strumenti]], [[14-caso-smeraldo]] |
 | [[pokefirered]] | BRI, LDN, SME | [[22-strumenti]], [[DATA-FORMATS_Gen1-Gen2-Gen3]] |
 | [[pokeruby]] | BRI, SME | [[22-strumenti]] |
 | [[pandocs]] | BRI | [[08-cavo-link]], [[30-opzioni-implementative]] |
