@@ -756,6 +756,12 @@ FONTI = [
      "Sta un gradino sopra la pagina enciclopedica degli allenatori per la ragione che vale sempre nella gerarchia delle fonti di questo progetto, cioe' che cosa una sorgente possa sapere per costruzione: qui i dati sono nella forma in cui il gioco li tiene, quindi una squadra si progetta contro un avversario reale invece che contro un'idea di avversario. E' il materiale su cui misurare quali specie, quali strumenti e quali mosse di stato ricorrano davvero ai livelli alti, che e' una domanda a cui nessuna guida risponde con un numero.",
      [("[[14-caso-smeraldo]]", "la tabella degli 888 insiemi avversari, contro cui la squadra si progetta")],
      []),
+
+    ("smogon-maxstats-frontiera", "Smogon, il foglio completo del Parco Lotta di Smeraldo", "https://www.dropbox.com/s/qaujn3plwdgfadc/EmeraldBattleFrontierComplete.xlsx", 3, True, ["SME"],
+     "Foglio di calcolo pubblicato nel thread Smogon del database dei massimi e scaricato il 2026-09-21. Porta le stesse 888 voci del database dello strumento `DomeAssistantWeb`, e in piu' tre colonne che quello non ha: le abilita' possibili di ciascun insieme, le statistiche gia' calcolate a livello 100 e a livello 50, e i punti individuali fissi dei soli Assi del Parco. Un secondo foglio porta le formazioni degli allenatori.",
+     "Serve come verifica incrociata prima ancora che come dato: due tabelle indipendenti sugli stessi 888 insiemi si possono confrontare l'una contro l'altra, e una squadra non si progetta su una sola sorgente quando ne esistono due. Le statistiche a livello 50 sono inoltre il numero contro cui la squadra va dimensionata, perche' quello e' il livello a cui si gioca. La sua acquisizione ha prodotto una correzione di metodo: l'indirizzo che il progetto aveva registrato non era incompleto ma inesistente, e la diagnosi giusta e' arrivata tornando al documento che lo pubblica invece di deducendo che cosa mancasse al collegamento.",
+     [("[[14-caso-smeraldo]]", "la seconda tabella, e perche' due sorgenti indipendenti valgono piu' di una")],
+     [("conferma", "domeassistant")]),
 ]
 # ---------------------------------------------------------------------------------------
 # I riferimenti teorici canonici dei concetti impiegati nell'analisi quantitativa.

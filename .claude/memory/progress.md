@@ -28,6 +28,16 @@ Lo strumento `DomeAssistantWeb` su GitHub, licenza MIT, porta sotto `data/` la t
 
 Una fonte registrata resta non leggibile e la causa non è un blocco: l'indirizzo Dropbox del foglio `EmeraldBattleFrontierComplete.xlsx` è incompleto, perché un collegamento di condivisione di quel servizio richiede un parametro `rlkey` che l'indirizzo in `SOURCES.md` non porta, e senza quello si ottiene la pagina di accesso. Serve l'indirizzo completo dall'utente.
 
+### La coda della sessione: una fonte che si credeva perduta, e una diagnosi sbagliata
+
+Dopo il commit `68c6928` l'utente ha chiesto da dove venisse l'indirizzo Dropbox che gli era stato chiesto, ed è la domanda che ha scoperto l'errore. La diagnosi data poche ore prima, cioè che all'indirizzo mancasse il parametro `rlkey` dei collegamenti recenti di quel servizio, era plausibile e falsa: risalendo al post Smogon che pubblica il foglio, che è leggibile senza credenziali con un semplice recupero locale, l'indirizzo vero è risultato di forma vecchia e con un identificativo completamente diverso. Non era un collegamento monco ma un collegamento inesistente, e nessun parametro aggiunto lo avrebbe fatto funzionare.
+
+Due lezioni, entrambe registrate anche in `SOURCES.md` e in `STUDIO-04`. La prima è di metodo sulle fonti: quando un riferimento non risponde si torna al documento che lo ospita, prima di ragionare su che cosa gli manchi. La seconda è sull'etichetta di indisponibilità applicata in blocco: la sezione delle fonti del Parco Lotta dichiarava che i thread Smogon richiedono accesso autenticato, e per questo thread è falso. È esattamente il difetto che `web-sources-not-fetchable.md` chiama una etichetta sopravvissuta alla propria causa, ed è peggio della sua assenza perché scoraggia dal riprovare. L'etichetta va ora verificata voce per voce.
+
+Il foglio vale l'insistenza perché non duplica il database dello strumento: aggiunge le abilità possibili, le statistiche già calcolate a livello 100 e a livello 50, che è il livello a cui la squadra si progetta, e i punti individuali fissi dei soli Assi. Sta in `_notes/fonti/smogon-maxstats-2026-09-21/` con la versione in testo semplice accanto, ed è entrato in bibliografia come `smogon-maxstats-frontiera`, portandola a 129 voci tutte citate.
+
+Un dettaglio operativo che costa tempo e va ricordato: l'indirizzo di un post specifico di quel forum non apre la pagina che contiene quel post, quindi le pagine del thread vanno percorse. Il foglio stava a pagina 4.
+
 ### Lo studio, la tesi e le due fonti in bibliografia
 
 `gba-save-extraction-smeraldo/STUDIO-04-parco-lotta-simboli-oro.md` è aperto e dichiara nella propria intestazione di essere incompleto, con la sezione 2 che distingue ciò che è stato letto da ciò che è soltanto su disco. La tesi lo copre con una sezione nuova in `14-caso-smeraldo.tex`, e le due fonti lette sono entrate nella tabella di `tools/build-source-map.py` con gli slug `bulbapedia-parco-lotta` e `domeassistant`, quindi la bibliografia è salita a 128 voci, tutte citate. Il PDF è stato ricompilato e `check-thesis-pdf.py` non riporta più i due titoli mancanti che riportava prima: quelli erano un PDF vecchio di tre giorni, non un difetto di composizione.

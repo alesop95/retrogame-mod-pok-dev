@@ -18,7 +18,9 @@ Le nove pagine Bulbapedia sul Parco Lotta sono state scaricate per intero il 202
 
 Il database dello strumento `DomeAssistantWeb`, licenza MIT, è stato scaricato dal suo deposito GitHub nella sola parte dei dati, cioè gli otto file sotto `data/`, in `_notes/fonti/domeassistant-2026-09-21/grezzo/`. Vale più della pagina Bulbapedia degli allenatori perché non è una descrizione degli avversari ma la loro tabella: 888 insiemi distinti di esemplare, con natura, strumento, quattro mosse e distribuzione dei punti base, su 376 specie, distribuiti in 130 formazioni fra 302 allenatori. È il materiale su cui si progetta contro un avversario reale invece che contro un'idea di avversario, e non è ancora stato spogliato.
 
-Una fonte registrata non è stata letta e va dichiarata come tale: il foglio `EmeraldBattleFrontierComplete.xlsx` su Dropbox. L'indirizzo registrato in `SOURCES.md` restituisce la pagina di accesso al servizio invece del file, perché un collegamento di condivisione di quel servizio richiede un parametro `rlkey` che l'indirizzo registrato non porta. Non è un blocco anti-automazione ma un indirizzo incompleto, e la sua correzione è materiale atteso dall'utente, registrato in `pending.md`.
+Il foglio `EmeraldBattleFrontierComplete.xlsx` è stato letto nello stesso giorno, dopo una diagnosi sbagliata che vale registrare perché è il genere di errore che manda a chiedere una cosa a una persona invece di andarsela a prendere. L'indirizzo registrato in `SOURCES.md` restituiva la pagina di accesso al servizio, e la deduzione fu che gli mancasse il parametro `rlkey` che i collegamenti recenti di quel servizio richiedono: plausibile e falsa. Risalendo al post Smogon che lo pubblica, che è leggibile senza credenziali, l'indirizzo vero è risultato di forma diversa e con un identificativo diverso, cioè un collegamento inesistente e non un collegamento monco. La regola che ne discende vale oltre il caso: quando un collegamento non risponde, prima di dedurre che cosa gli manchi si torna al documento che lo pubblica.
+
+Il foglio vale l'insistenza, perché non duplica il database dello strumento ma lo completa su tre colonne che quello non ha. Porta le abilità possibili di ciascun insieme, le statistiche già calcolate sia a livello 100 sia a livello 50, che è il livello a cui questa squadra si progetta, e i punti individuali fissi dei soli Assi del Parco. Sta in `_notes/fonti/smogon-maxstats-2026-09-21/`, con accanto la versione in testo semplice dello stesso contenuto, 1228 righe su due tabelle.
 
 ## 3. I vincoli di iscrizione, verificati due volte
 
@@ -78,11 +80,9 @@ Alla data di apertura di questo studio nessuna delle due fasi è iniziata, e la 
 
 ## 9. Il lavoro aperto, in ordine
 
-Spogliare il database dei 888 insiemi avversari e ricavarne le distribuzioni che contano, cioè quali specie ricorrono di più ai livelli alti, quali strumenti, quali mosse di stato: è il materiale contro cui la squadra va progettata, ed è già su disco.
+Spogliare il database dei 888 insiemi avversari e ricavarne le distribuzioni che contano, cioè quali specie ricorrono di più ai livelli alti, quali strumenti, quali mosse di stato: è il materiale contro cui la squadra va progettata, ed è già su disco in due forme indipendenti, il database dello strumento e il foglio Smogon, che vanno confrontate l'una contro l'altra prima di fidarsi di entrambe.
 
 Leggere in profondità le cinque pagine di edificio rimaste e scrivere la sezione 7.
-
-Chiedere all'utente l'indirizzo completo del foglio Dropbox, con il parametro che manca, oppure il file.
 
 Leggere le fonti Smogon, che richiedono accesso autenticato e vanno quindi affrontate per la via di `claude-in-chrome` con l'utente che immette le proprie credenziali, o per consegna manuale del contenuto: le credenziali non si scrivono in alcun file di questo progetto.
 

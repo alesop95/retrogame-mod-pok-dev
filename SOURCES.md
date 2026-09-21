@@ -93,6 +93,8 @@ Circa quaranta indirizzi consegnati insieme dall'utente per il nuovo fronte "set
 
 Le nove pagine Bulbapedia sono state recuperate per la via dell'API MediaWiki con `tools/fetch-bulbapedia.py`, che è il canale programmatico che il servizio espone senza credenziali, e non per il recupero della pagina destinata alle persone. Stanno in `_notes/fonti/bulbapedia-parco-lotta-2026-09-21/`, 7120 righe di wikitesto, ciascuna con la propria revisione e il momento della lettura nell'intestazione, con lo scheletro di Livello 1 accanto. Il loro contenuto misurato è entrato in `gba-save-extraction-smeraldo/STUDIO-04-parco-lotta-simboli-oro.md`, e le due fonti lette sono registrate nella tabella di `tools/build-source-map.py` con gli slug `bulbapedia-parco-lotta` e `domeassistant`, quindi compaiono in bibliografia e in `docs/fonti/`.
 
+Sul foglio Dropbox va registrata una correzione, perché la diagnosi data il 2026-09-21 in prima battuta era sbagliata e avrebbe fatto perdere tempo a chi la seguisse. L'indirizzo registrato era nella forma `dropbox.com/scl/fi/...`, che è quella dei collegamenti recenti, e restituiva la pagina di accesso al servizio: da qui la conclusione che mancasse il parametro `rlkey` che quella forma richiede. La conclusione era plausibile e falsa. L'indirizzo vero, trovato risalendo alla fonte che lo ospita, è nella forma vecchia `dropbox.com/s/...` e porta un identificativo completamente diverso: quello registrato non era un collegamento incompleto ma un collegamento inesistente, e nessun parametro aggiunto lo avrebbe fatto funzionare. La lezione è quella generale della gerarchia delle fonti applicata agli indirizzi: quando un collegamento non risponde, prima di dedurre che cosa gli manchi conviene tornare al documento che lo pubblica, che qui è il post Smogon della riga precedente, leggibile senza credenziali.
+
 Una nota tecnica che vale per chiunque riprovi, perché il sintomo inganna: la verifica del certificato verso Bulbapedia fallisce dallo store di sistema di questa macchina Windows con `certificate has expired`, mentre passa con il paniere di radici di `certifi` e passa con `curl`, che ne usa uno proprio. Non è un blocco del servizio e non si aggira disattivando la verifica, che sarebbe un declassamento silenzioso della sicurezza per un sintomo che non c'entra: si usa un paniere aggiornato, ed è quello che lo strumento fa.
 
 | Fonte | URL | Autorevole su (da verificare alla lettura) | Track |
@@ -107,8 +109,8 @@ Una nota tecnica che vale per chiunque riprovi, perché il sintomo inganna: la v
 | Bulbapedia, Battle Tower (Generation III) | https://bulbapedia.bulbagarden.net/wiki/Battle_Tower_(Generation_III) | NON LETTA oltre la scheda informativa: da lì vengono le soglie dell'Asso | SME |
 | Bulbapedia, List of Battle Frontier Trainers in Generation III | https://bulbapedia.bulbagarden.net/wiki/List_of_Battle_Frontier_Trainers_in_Generation_III | NON LETTA: 3648 righe di wikitesto su disco, superata nei fatti dal database di `DomeAssistantWeb`, che porta gli stessi avversari in forma di tabella invece che di prosa | SME |
 | Smogon, Gen III Battle Frontier discussion and records (thread principale) | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/ | indice della discussione comunitaria e dei record, punto di partenza per tutti i post citati sotto | SME |
-| Smogon, Battle Frontier Max Stats Pokemon Database | https://www.smogon.com/forums/threads/battle-frontier-max-stats-pokemon-database.15426/ (post specifico: #post-315130) | statistiche massime al livello 50 per gli esemplari del Parco Lotta | SME |
-| Dropbox, EmeraldBattleFrontierComplete.xlsx | https://www.dropbox.com/scl/fi/vd8o0yarnwpvn0dodb4bd/EmeraldBattleFrontierComplete.xlsx | NON LETTA, e l'indirizzo registrato è incompleto: un collegamento di condivisione di quel servizio richiede un parametro `rlkey` che qui manca, quindi restituisce la pagina di accesso invece del file. Serve l'indirizzo completo dall'utente, oppure il file | SME |
+| Smogon, Battle Frontier Max Stats Pokemon Database | https://www.smogon.com/forums/threads/battle-frontier-max-stats-pokemon-database.15426/ (post specifico: #post-315130) | LETTO il 2026-09-21 nella sola parte che serviva, cioè il collegamento al foglio della riga seguente. Il thread è leggibile senza credenziali, contrariamente a quanto la sezione dava per scontato per tutte le fonti Smogon: il post con il foglio sta a pagina 4 e non nella pagina che l'indirizzo del post apre | SME |
+| Dropbox, EmeraldBattleFrontierComplete.xlsx e .txt | https://www.dropbox.com/s/qaujn3plwdgfadc/EmeraldBattleFrontierComplete.xlsx | LETTA il 2026-09-21, indirizzo corretto: 888 voci con specie, esemplare, natura, strumento, quattro mosse, abilità possibili, punti base, statistiche già calcolate a livello 100 e a livello 50, e i punti individuali fissi dei soli Assi; più un secondo foglio con le formazioni degli allenatori. L'indirizzo registrato in precedenza era sbagliato e non soltanto incompleto, vedi la nota sotto la tabella | SME |
 | Smogon ingame, Battle Pyramid strategy dex | https://www.smogon.com/ingame/bc/battle_pyramid#mt20 | guida di riferimento alla Piramide Lotta | SME |
 | Pastebin, guida ai sette simboli d'oro | https://pastebin.com/c796fkZT | guida completa citata dall'utente come riferimento per l'obiettivo dichiarato | SME |
 | GitHub, taxicat1/DomeAssistantWeb | https://github.com/taxicat1/DomeAssistantWeb/ | LETTA nella sola parte dei dati il 2026-09-21, licenza MIT: 888 insiemi distinti di esemplare con natura, strumento, quattro mosse e punti base, su 376 specie, in 130 formazioni fra 302 allenatori. In `_notes/fonti/domeassistant-2026-09-21/`. Il codice dello strumento non è stato letto, i soli otto file sotto `data/` | SME |
@@ -152,10 +154,10 @@ Esiste per una ragione dichiarata dall'utente il 2026-09-10, ed e' la stessa che
 
 | Misura | Valore |
 |---|---|
-| fonti registrate nella tabella unica | 109 |
-| di esse, lette | 107 |
-| di esse, citate in tesi | 109 |
-| di esse, con almeno un documento del progetto che le usa | 109 |
+| fonti registrate nella tabella unica | 110 |
+| di esse, lette | 108 |
+| di esse, citate in tesi | 110 |
+| di esse, con almeno un documento del progetto che le usa | 110 |
 | voci del corpus della collezione | 171 |
 | di esse, promosse a fonte registrata | 25 |
 | cluster del corpus | 42 |
@@ -237,6 +239,7 @@ La colonna dei documenti dice dove sta la sintesi di quella fonte dentro il prog
 | Poke Transporter GB | 3 | ponte fra generazioni | `09-esecuzione-codice`, `30-opzioni-implementative` | 09, 11, 12, 22, 23 |
 | Progetto REON | 3 | ponte fra generazioni | `08-cavo-link` | 23 |
 | gba-link-cable-rom-sender | 3 | ponte fra generazioni | `10-multiboot-hardware` | 12 |
+| Smogon, il foglio completo del Parco Lotta di Smeraldo | 3 | salvataggio di Smeraldo | `14-caso-smeraldo` | 14 |
 | MrCheeze/pokestadium-ace | 3 | ponte fra generazioni | `08-cavo-link` | 23 |
 | switch-lan-play | 3 | scambio locale | `06-identita-pokemon` | 23 |
 | usb-gba-multiboot | 3 | ponte fra generazioni | `10-multiboot-hardware` | 12 |
