@@ -74,6 +74,7 @@ graph LR
   bulbapedia-poke-transfer -- corregge --> dns-eventi-gen45
   avviso-home-mightiest -- corregge --> serebii-tera-eventi
   bulbapedia-parco-lotta -- conferma --> pokeemerald
+  smogon-maxstats-frontiera -- conferma --> domeassistant
 ```
 
 ## Le fonti, per livello
@@ -165,6 +166,7 @@ graph LR
 | [[pokepc-dati]] | PKD | [[CONFRONTO-LIVINGDEX-POKEPC]] |
 | [[monarium]] | PKD | [[CHECKLIST-COMPLETA]] |
 | [[domeassistant]] | SME | [[14-caso-smeraldo]] |
+| [[smogon-maxstats-frontiera]] | SME | [[14-caso-smeraldo]] |
 
 ### Livello 4
 
