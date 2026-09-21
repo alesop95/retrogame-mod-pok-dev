@@ -5,7 +5,7 @@ generated-date: 2026-08-24
 covers-paths:
   - gba-save-extraction-smeraldo/
 last-verified-commit: d54df47
-stato: inventario CHIUSO; quinto giro (isole/Monte Cordone ADR-066 + deposito PC) SCRITTO E VERIFICATO IN GIOCO sulla cartuccia vera il 2026-09-21, tutti i punti positivi, un duplicato minore (Roccia di Re) da correggere nella prossima scrittura; RTC RIMANDATO (manca la pila tampone) e Altering Cave RIMANDATA (si riprende dentro pokedex-home-completo); aperto con ADR-067 il fronte Battle Frontier (pipeline sintetica + iniezione nei box), sessione chiusa prima di ingerire le fonti
+stato: inventario CHIUSO; quinto giro (isole/Monte Cordone ADR-066 + deposito PC) SCRITTO E VERIFICATO IN GIOCO sulla cartuccia vera il 2026-09-21, tutti i punti positivi, un duplicato minore (Roccia di Re) da correggere nella prossima scrittura; RTC RIMANDATO (manca la pila tampone) e Altering Cave RIMANDATA (si riprende dentro pokedex-home-completo); fronte Battle Frontier (ADR-067) APERTO DAVVERO il 2026-09-21: lette le nove pagine Bulbapedia via API MediaWiki e il database avversari di DomeAssistantWeb (888 insiemi), estratte le tabelle numeriche, scritto STUDIO-04 che dichiara di essere incompleto; le ~30 fonti Smogon con login restano non lette e il foglio Dropbox ha un indirizzo incompleto; nessun generatore costruito e nessuna scrittura sulla cartuccia
 ---
 
 # Sottoprogetto: correzione del bug inventario di Pokemon Smeraldo
@@ -13,6 +13,12 @@ stato: inventario CHIUSO; quinto giro (isole/Monte Cordone ADR-066 + deposito PC
 Lo stato canonico di questo track è questo file, insieme alla riga che lo riguarda in `memory/index.md`. La sezione 8 dell'handoff, "Come riprendere da qui", è un prompt scritto per una chat e resta come storico.
 
 Obiettivo: correggere un inventario corrotto della cartuccia di Pokemon Smeraldo, dove oggetti rari sono finiti nella tasca Strumenti Base, agendo sul salvataggio senza invalidarlo.
+
+## Il fronte Battle Frontier, aperto il 2026-09-21
+
+Il fronte non è più una sola decisione architetturale. La prima lettura ha prodotto `gba-save-extraction-smeraldo/STUDIO-04-parco-lotta-simboli-oro.md`, che dichiara in testa di essere incompleto e distingue nella sezione 2 ciò che è stato letto da ciò che è soltanto su disco. Il fatto che riorienta il lavoro è che i sette edifici non sono sette gradini della stessa scala: alla Fabbrica Lotta non si porta alcuna squadra perché si combatte in prestito, e al Palazzo Lotta si porta una squadra ma le mosse le sceglie la natura, con proporzioni che cambiano sotto la metà dei punti salute. L'unità di lavoro è quindi la coppia edificio-squadra, e la squadra già indicata in `pending.md` risulta progettata per la Torre.
+
+I due strumenti nuovi sono di lettura e non di scrittura: `tools/fetch-bulbapedia.py`, che percorre l'API MediaWiki invece della pagina HTML, e `gba-save-extraction-smeraldo/tools/parco_lotta_estrai_tabelle.py`, che estrae le due tabelle numeriche e si arresta se il conteggio delle nature non torna. Le due fasi di ADR-067, cioè la pipeline sintetica e l'iniezione nei box, non sono iniziate: nessuno strumento di questo sottoprogetto sa ancora scrivere la struttura di un esemplare, e va costruito da zero con la disciplina di `hardware-and-perimeter.md`.
 
 ## Dove siamo
 

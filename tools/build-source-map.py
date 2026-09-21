@@ -744,6 +744,18 @@ FONTI = [
      [("[[MARCHI]]", "il marchio del piu' forte, e il denominatore da contare per specie"),
       ("[[LETTURA-DEL-CORPUS]]", "il lotto del 2026-09-14, seconda parte")],
      [("corregge", "serebii-tera-eventi")]),
+
+    ("bulbapedia-parco-lotta", "Bulbapedia, le nove pagine del Parco Lotta di terza generazione", "https://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)", 2, True, ["SME"],
+     "Le nove pagine che descrivono il Parco Lotta di Smeraldo, cioe' quella generale e le otto dei singoli edifici piu' l'elenco degli allenatori, scaricate per intero il 2026-09-21 con `tools/fetch-bulbapedia.py` per la via dell'API MediaWiki, che e' il canale programmatico che il servizio espone senza credenziali. Sono 7120 righe di wikitesto, conservate con la revisione e il momento di lettura nella propria intestazione. Portano i vincoli di iscrizione validi in tutti e sette gli edifici, le soglie di serie a cui compare ciascun Asso per il simbolo d'argento e per quello d'oro, la tabella completa con cui al Palazzo Lotta ogni natura sceglie fra mosse d'attacco, di difesa e di supporto sopra e sotto la meta' dei punti salute, e la progressione dei valori individuali degli esemplari in prestito alla Fabbrica Lotta.",
+     "E' la fonte che scompone un obiettivo dichiarato come unico, i sette simboli d'oro, in sette problemi diversi. Il fatto che decide la progettazione di una squadra e' la tabella delle nature del Palazzo Lotta, perche' li' l'allenatore non sceglie le mosse: le sceglie la natura, con proporzioni che cambiano sotto la meta' dei punti salute, e una squadra pensata per la Torre puo' quindi rifiutare di attaccare. Il secondo fatto e' il calendario degli Assi, che mostra quanto diversamente costino i sette simboli, da sei serie alla Fabbrica e al Palazzo fino a dieci alla Torre, al Torneo, alla Piramide e alla Piccozza. Conferma inoltre per via indipendente l'elenco chiuso delle dieci specie escluse, gia' verificato sul sorgente del gioco, il che consente di darlo per fermo invece che per probabile.",
+     [("[[14-caso-smeraldo]]", "i sette edifici, e perche' l'unita' di lavoro e' la coppia edificio-squadra")],
+     [("conferma", "pokeemerald")]),
+
+    ("domeassistant", "taxicat1/DomeAssistantWeb, la tabella degli avversari del Parco Lotta", "https://github.com/taxicat1/DomeAssistantWeb/", 3, True, ["SME"],
+     "Strumento in licenza MIT che predice le squadre avversarie al Torneo Lotta, di cui il 2026-09-21 e' stata scaricata la sola parte dei dati, cioe' gli otto file sotto `data/`. Non e' una descrizione degli avversari ma la loro tabella: 888 insiemi distinti di esemplare, ciascuno con natura, strumento tenuto, quattro mosse e distribuzione dei punti base, su 376 specie, distribuiti in 130 formazioni fra 302 allenatori.",
+     "Sta un gradino sopra la pagina enciclopedica degli allenatori per la ragione che vale sempre nella gerarchia delle fonti di questo progetto, cioe' che cosa una sorgente possa sapere per costruzione: qui i dati sono nella forma in cui il gioco li tiene, quindi una squadra si progetta contro un avversario reale invece che contro un'idea di avversario. E' il materiale su cui misurare quali specie, quali strumenti e quali mosse di stato ricorrano davvero ai livelli alti, che e' una domanda a cui nessuna guida risponde con un numero.",
+     [("[[14-caso-smeraldo]]", "la tabella degli 888 insiemi avversari, contro cui la squadra si progetta")],
+     []),
 ]
 # ---------------------------------------------------------------------------------------
 # I riferimenti teorici canonici dei concetti impiegati nell'analisi quantitativa.
