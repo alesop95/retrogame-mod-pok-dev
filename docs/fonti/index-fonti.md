@@ -75,6 +75,9 @@ graph LR
   avviso-home-mightiest -- corregge --> serebii-tera-eventi
   bulbapedia-parco-lotta -- conferma --> pokeemerald
   smogon-maxstats-frontiera -- conferma --> domeassistant
+  smogon-frontier-thread -- conferma --> pastebin-simboli-oro
+  pastebin-simboli-oro -- conferma --> pokeemerald
+  pokemoncentral-parco-lotta -- corregge --> bulbapedia-parco-lotta
 ```
 
 ## Le fonti, per livello
@@ -129,6 +132,7 @@ graph LR
 | [[bulbapedia-poke-transfer]] | PKD | [[CATENA-DI-TRASFERIMENTO]], [[LETTURA-DEL-CORPUS]] |
 | [[bulbapedia-scambi-lingue]] | PKD, EVT | [[CENSIMENTO-SCAMBI]], [[LETTURA-DEL-CORPUS]] |
 | [[bulbapedia-parco-lotta]] | SME | [[14-caso-smeraldo]] |
+| [[pokemoncentral-parco-lotta]] | SME | [[14-caso-smeraldo]] |
 
 ### Livello 3
 
@@ -167,6 +171,8 @@ graph LR
 | [[monarium]] | PKD | [[CHECKLIST-COMPLETA]] |
 | [[domeassistant]] | SME | [[14-caso-smeraldo]] |
 | [[smogon-maxstats-frontiera]] | SME | [[14-caso-smeraldo]] |
+| [[smogon-frontier-thread]] | SME | [[14-caso-smeraldo]] |
+| [[pastebin-simboli-oro]] | SME | [[14-caso-smeraldo]] |
 
 ### Livello 4
 
