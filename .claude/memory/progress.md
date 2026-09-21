@@ -4,6 +4,36 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-21, trentaquattresima parte. Il Parco Lotta aperto davvero: fonti lette, tabelle estratte, STUDIO-04
+
+### Il debito di composizione chiuso per primo
+
+Tre capitoli di tesi erano in PRIMO MODO dopo il commit `59a6688`, cioè con il contenuto già portato e il solo timbro da aggiornare: `00-premessa.tex` e `23-fonti.tex` fermi a `47d217f` per il cambio di `SOURCES.md`, e `14-caso-smeraldo.tex` fermo a `2e65994` per le sezioni nuove di `STUDIO-01` e `STUDIO-03`. Bumpati tutti e tre a `59a6688` con `sed`, e `check-thesis-coverage.py` è tornato a zero problemi prima che questa sessione scrivesse alcunché di nuovo. Il resume-prompt ne annunciava due: il terzo era il capitolo che la sessione precedente aveva essa stessa aggiornato.
+
+### La via per Bulbapedia, che non era quella usata finora
+
+Le nove pagine del Parco Lotta erano registrate in `SOURCES.md` come non lette. La via scelta non è il recupero della pagina destinata alle persone, che questo progetto ha usato finora una pagina alla volta, ma `api.php`, cioè l'interfaccia programmatica che MediaWiki espone e che Bulbapedia lascia aperta senza credenziali: è il criterio che `web-sources-not-fetchable.md` fissa per separare una via legittima da una vietata, cioè interrogare un canale costruito dal proprietario per l'automazione invece di imitare un browser. Lo strumento nuovo è `tools/fetch-bulbapedia.py`, che chiede il wikitesto e non l'HTML, perché il wikitesto conserva le tabelle come tabelle e su queste pagine i dati stanno quasi tutti in tabelle. Nove pagine su nove lette, 7120 righe, sotto `_notes/fonti/bulbapedia-parco-lotta-2026-09-21/` con lo scheletro di Livello 1 accanto al grezzo.
+
+Un inciampo va registrato perché il sintomo porta alla diagnosi sbagliata. La verifica del certificato verso quell'host fallisce con `certificate has expired` dallo store di sistema di questa macchina Windows, mentre `curl` passa senza rilievi: sembra un blocco del servizio e non lo è, è una radice scaduta nel paniere che Python usa per difetto. La correzione non è disattivare la verifica, che sarebbe un declassamento silenzioso della sicurezza per un sintomo che non c'entra, ma usare il paniere di `certifi`, con ritorno al contesto di difetto quando manca.
+
+### La tabella delle nature, e la riga che si perdeva in silenzio
+
+`gba-save-extraction-smeraldo/tools/parco_lotta_estrai_tabelle.py` estrae dal wikitesto le due tabelle che sono dati e non descrizione: le proporzioni con cui ciascuna delle venticinque nature sceglie fra attacco, difesa e supporto al Palazzo Lotta, sopra e sotto la metà dei punti salute, e le soglie di serie a cui compare ciascun Asso. Il primo giro ne ha restituite ventiquattro, e la causa è il genere di difetto che passa una revisione a video: l'ultima riga della tabella, quella di Vivace, porta lo stile che arrotonda l'angolo del riquadro e si presenta quindi in una forma diversa dalle altre ventiquattro. Il presidio adottato non è la correzione dell'espressione regolare, che vale per questa forma, ma un'asserzione sul conteggio e sulla somma a cento, che vale per tutte le forme future.
+
+Due misure che cambiano la progettazione. La natura migliore per attaccare al Palazzo è Precipitosa, 58 per cento sopra la metà dei punti salute e 88 sotto, cioè l'unica che migliora quando le cose vanno male; Sassy ha il profilo opposto e molto peggiore, 88 sopra e 22 sotto. E la squadra che l'utente aveva già indicato in `pending.md` è una squadra per la Torre e non per il Palazzo: lo Slaking Allegro sceglie l'attacco il 35 per cento delle volte sopra la metà e il 35 sotto, con il 60 per cento speso in difesa quando è ferito. Non è debole, rifiuta di attaccare.
+
+### Il database degli avversari, che vale più della pagina che lo descrive
+
+Lo strumento `DomeAssistantWeb` su GitHub, licenza MIT, porta sotto `data/` la tabella vera degli avversari: 888 insiemi distinti di esemplare con natura, strumento, quattro mosse e punti base, su 376 specie, in 130 formazioni fra 302 allenatori. Scaricati gli otto file di dati, non il codice. Supera nei fatti la pagina Bulbapedia degli allenatori, che sono 3648 righe di prosa sugli stessi avversari: è la gerarchia delle fonti applicata ai canali, cioè che cosa una sorgente possa sapere per costruzione.
+
+Una fonte registrata resta non leggibile e la causa non è un blocco: l'indirizzo Dropbox del foglio `EmeraldBattleFrontierComplete.xlsx` è incompleto, perché un collegamento di condivisione di quel servizio richiede un parametro `rlkey` che l'indirizzo in `SOURCES.md` non porta, e senza quello si ottiene la pagina di accesso. Serve l'indirizzo completo dall'utente.
+
+### Lo studio, la tesi e le due fonti in bibliografia
+
+`gba-save-extraction-smeraldo/STUDIO-04-parco-lotta-simboli-oro.md` è aperto e dichiara nella propria intestazione di essere incompleto, con la sezione 2 che distingue ciò che è stato letto da ciò che è soltanto su disco. La tesi lo copre con una sezione nuova in `14-caso-smeraldo.tex`, e le due fonti lette sono entrate nella tabella di `tools/build-source-map.py` con gli slug `bulbapedia-parco-lotta` e `domeassistant`, quindi la bibliografia è salita a 128 voci, tutte citate. Il PDF è stato ricompilato e `check-thesis-pdf.py` non riporta più i due titoli mancanti che riportava prima: quelli erano un PDF vecchio di tre giorni, non un difetto di composizione.
+
+Nessuna scrittura sulla cartuccia in questa sessione, e nessuno strumento di generazione costruito: le due fasi di ADR-067 non sono iniziate, per la ragione dichiarata che si legge abbastanza da sapere che cosa generare prima di costruire il generatore.
+
 ## 2026-09-18, trentatreesima parte. ADR-066, il quinto giro costruito, e la riconciliazione delle schede
 
 ### La decisione, più larga della proposta
