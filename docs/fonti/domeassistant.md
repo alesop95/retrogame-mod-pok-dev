@@ -13,7 +13,7 @@ https://github.com/taxicat1/DomeAssistantWeb/
 
 ## Abstract
 
-Strumento in licenza MIT che predice le squadre avversarie al Torneo Lotta, di cui il 2026-09-21 e' stata scaricata la sola parte dei dati, cioe' gli otto file sotto `data/`. Non e' una descrizione degli avversari ma la loro tabella: 888 insiemi distinti di esemplare, ciascuno con natura, strumento tenuto, quattro mosse e distribuzione dei punti base, su 376 specie, distribuiti in 130 formazioni fra 302 allenatori.
+Strumento in licenza MIT che predice le squadre avversarie alla Cupola Lotta, di cui il 2026-09-21 e' stata scaricata la sola parte dei dati, cioe' gli otto file sotto `data/`. Non e' una descrizione degli avversari ma la loro tabella: 888 insiemi distinti di esemplare, ciascuno con natura, strumento tenuto, quattro mosse e distribuzione dei punti base, su 376 specie, distribuiti in 130 formazioni fra 302 allenatori.
 
 ## Perché è in archivio
 

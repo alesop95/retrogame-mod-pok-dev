@@ -29,10 +29,10 @@ from pathlib import Path
 CATEGORIE = ["attacco", "difesa", "supporto", "attacco_sotto50", "difesa_sotto50", "supporto_sotto50"]
 
 EDIFICI = [
-    ("battle-factory-generation-iii", "Fabbrica Lotta", "Conoscenza"),
-    ("battle-arena", "Arena Lotta", "Tenacia"),
-    ("battle-dome", "Torneo Lotta", "Tattica"),
-    ("battle-pike", "Piccozza Lotta", "Fortuna"),
+    ("battle-factory-generation-iii", "Azienda Lotta", "Conoscenza"),
+    ("battle-arena", "Dojo Lotta", "Tenacia"),
+    ("battle-dome", "Cupola Lotta", "Tattica"),
+    ("battle-pike", "Serpe Lotta", "Fortuna"),
     ("battle-palace", "Palazzo Lotta", "Spirito"),
     ("battle-pyramid", "Piramide Lotta", "Coraggio"),
     ("battle-tower-generation-iii", "Torre Lotta", "Abilita"),
