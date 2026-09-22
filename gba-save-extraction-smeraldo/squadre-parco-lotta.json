@@ -16,7 +16,16 @@
         "Dragon Claw",
         "Thunderbolt"
       ],
-      "fonte": "guida al completamento dei sette simboli d'oro; corroborato da potatobagel a 268 alla Torre Lotta"
+      "fonte": "guida al completamento dei sette simboli d'oro; corroborato da potatobagel a 268 alla Torre Lotta",
+      "origine": {
+        "tipo": "evento dell'Isola Remota",
+        "luogo": 73,
+        "nome_luogo": "Isola Remota, dove il Biglietto Aurora conduce",
+        "livello_incontro": 50,
+        "sfera": 4,
+        "fatidico": true,
+        "nota": "Latios non e' allevabile, quindi la sola provenienza compatibile con il livello 50 esatto e' l'evento dell'Isola Remota, che consegna l'esemplare proprio a quel livello. E' anche la provenienza coerente con questa cartuccia, su cui STUDIO-03 ha riaperto gli eventi delle isole."
+      }
     },
     "latios-hasty": {
       "specie": "Latios",
@@ -29,7 +38,16 @@
         "Thunderbolt",
         "Surf"
       ],
-      "fonte": "squadra dichiarata a 224 al Palazzo Lotta da potatobagel, benben591 ed encampment6210"
+      "fonte": "squadra dichiarata a 224 al Palazzo Lotta da potatobagel, benben591 ed encampment6210",
+      "origine": {
+        "tipo": "evento dell'Isola Remota",
+        "luogo": 73,
+        "nome_luogo": "Isola Remota, dove il Biglietto Aurora conduce",
+        "livello_incontro": 50,
+        "sfera": 4,
+        "fatidico": true,
+        "nota": "come sopra; i due Latios del catalogo hanno nature diverse e sono quindi due esemplari distinti, il che richiede due partite o uno scambio."
+      }
     },
     "metagross-adamant": {
       "specie": "Metagross",
@@ -42,7 +60,17 @@
         "Shadow Ball",
         "Explosion"
       ],
-      "fonte": "gia' scelto dall'utente in pending.md; e' la specie piu' ricorrente in assoluto nelle squadre dichiarate"
+      "fonte": "gia' scelto dall'utente in pending.md; e' la specie piu' ricorrente in assoluto nelle squadre dichiarate",
+      "origine": {
+        "tipo": "uovo schiuso",
+        "luogo": 32,
+        "nome_luogo": "Percorso 117, dove sta la Pensione Pokemon",
+        "livello_incontro": 0,
+        "sfera": 4,
+        "fatidico": false,
+        "nota": "un uovo schiuso porta livello di incontro zero e come luogo la mappa in cui e' schiuso, che il gioco prende da GetCurrentRegionMapSectionId in src/egg_hatch.c. Il Percorso 117 e' la scelta naturale perche' e' dove sta la Pensione, ma qualunque mappa percorribile andrebbe.",
+        "catena": "Beldum allevato con Ditto, evoluzione di Metang rimandata al livello 50 per imparare Meteor Mash"
+      }
     },
     "metagross-sassy": {
       "specie": "Metagross",
@@ -53,7 +81,17 @@
         "Meteor Mash",
         "Earthquake"
       ],
-      "fonte": "squadra dichiarata a 224 al Palazzo Lotta; due sole mosse, entrambe d'attacco, per la ragione della sezione 12 di STUDIO-04"
+      "fonte": "squadra dichiarata a 224 al Palazzo Lotta; due sole mosse, entrambe d'attacco, per la ragione della sezione 12 di STUDIO-04",
+      "origine": {
+        "tipo": "uovo schiuso",
+        "luogo": 32,
+        "nome_luogo": "Percorso 117, dove sta la Pensione Pokemon",
+        "livello_incontro": 0,
+        "sfera": 4,
+        "fatidico": false,
+        "nota": "un uovo schiuso porta livello di incontro zero e come luogo la mappa in cui e' schiuso, che il gioco prende da GetCurrentRegionMapSectionId in src/egg_hatch.c. Il Percorso 117 e' la scelta naturale perche' e' dove sta la Pensione, ma qualunque mappa percorribile andrebbe.",
+        "catena": "come sopra"
+      }
     },
     "swampert-relaxed": {
       "specie": "Swampert",
@@ -66,7 +104,17 @@
         "Ice Beam",
         "Counter"
       ],
-      "fonte": "gia' scelto dall'utente in pending.md; la guida gli assegna Contatore alla Torre e al Dojo e Protezione alla Piramide, che e' una sostituzione di mossa sullo stesso esemplare e non un esemplare diverso"
+      "fonte": "gia' scelto dall'utente in pending.md; la guida gli assegna Contatore alla Torre e al Dojo e Protezione alla Piramide, che e' una sostituzione di mossa sullo stesso esemplare e non un esemplare diverso",
+      "origine": {
+        "tipo": "uovo schiuso",
+        "luogo": 32,
+        "nome_luogo": "Percorso 117, dove sta la Pensione Pokemon",
+        "livello_incontro": 0,
+        "sfera": 4,
+        "fatidico": false,
+        "nota": "un uovo schiuso porta livello di incontro zero e come luogo la mappa in cui e' schiuso, che il gioco prende da GetCurrentRegionMapSectionId in src/egg_hatch.c. Il Percorso 117 e' la scelta naturale perche' e' dove sta la Pensione, ma qualunque mappa percorribile andrebbe.",
+        "catena": "Mudkip allevato"
+      }
     },
     "swampert-brave": {
       "specie": "Swampert",
@@ -79,7 +127,17 @@
         "Ice Beam",
         "Rock Slide"
       ],
-      "fonte": "squadra dichiarata a 224 al Palazzo Lotta; Brave e' la natura con la quota d'attacco piu' alta fra quelle utilizzabili, e Rock Slide serve contro Shedinja"
+      "fonte": "squadra dichiarata a 224 al Palazzo Lotta; Brave e' la natura con la quota d'attacco piu' alta fra quelle utilizzabili, e Rock Slide serve contro Shedinja",
+      "origine": {
+        "tipo": "uovo schiuso",
+        "luogo": 32,
+        "nome_luogo": "Percorso 117, dove sta la Pensione Pokemon",
+        "livello_incontro": 0,
+        "sfera": 4,
+        "fatidico": false,
+        "nota": "un uovo schiuso porta livello di incontro zero e come luogo la mappa in cui e' schiuso, che il gioco prende da GetCurrentRegionMapSectionId in src/egg_hatch.c. Il Percorso 117 e' la scelta naturale perche' e' dove sta la Pensione, ma qualunque mappa percorribile andrebbe.",
+        "catena": "Mudkip allevato"
+      }
     },
     "slaking-adamant": {
       "specie": "Slaking",
@@ -92,7 +150,17 @@
         "Shadow Ball",
         "Hyper Beam"
       ],
-      "fonte": "gia' scelto dall'utente in pending.md con natura Jolly; Adamant perche' alla Cupola Lotta gli avversari hanno tre punti individuali e la potenza vale piu' della velocita'"
+      "fonte": "gia' scelto dall'utente in pending.md con natura Jolly; Adamant perche' alla Cupola Lotta gli avversari hanno tre punti individuali e la potenza vale piu' della velocita'",
+      "origine": {
+        "tipo": "uovo schiuso",
+        "luogo": 32,
+        "nome_luogo": "Percorso 117, dove sta la Pensione Pokemon",
+        "livello_incontro": 0,
+        "sfera": 4,
+        "fatidico": false,
+        "nota": "un uovo schiuso porta livello di incontro zero e come luogo la mappa in cui e' schiuso, che il gioco prende da GetCurrentRegionMapSectionId in src/egg_hatch.c. Il Percorso 117 e' la scelta naturale perche' e' dove sta la Pensione, ma qualunque mappa percorribile andrebbe.",
+        "catena": "Slakoth allevato"
+      }
     },
     "blissey-bold": {
       "specie": "Blissey",
@@ -105,7 +173,17 @@
         "Soft-Boiled",
         "Sing"
       ],
-      "fonte": "compare nelle due serie piu' lunghe dichiarate alla Serpe Lotta, 560 di Runeblade14 e 420 di wtset e iSoNkei; non era nel materiale dell'utente"
+      "fonte": "compare nelle due serie piu' lunghe dichiarate alla Serpe Lotta, 560 di Runeblade14 e 420 di wtset e iSoNkei; non era nel materiale dell'utente",
+      "origine": {
+        "tipo": "uovo schiuso",
+        "luogo": 32,
+        "nome_luogo": "Percorso 117, dove sta la Pensione Pokemon",
+        "livello_incontro": 0,
+        "sfera": 4,
+        "fatidico": false,
+        "nota": "un uovo schiuso porta livello di incontro zero e come luogo la mappa in cui e' schiuso, che il gioco prende da GetCurrentRegionMapSectionId in src/egg_hatch.c. Il Percorso 117 e' la scelta naturale perche' e' dove sta la Pensione, ma qualunque mappa percorribile andrebbe.",
+        "catena": "Chansey allevata e fatta evolvere per amicizia"
+      }
     },
     "milotic-bold": {
       "specie": "Milotic",
@@ -120,7 +198,17 @@
         "Recover"
       ],
       "riserva": true,
-      "fonte": "materiale dell'utente in pending.md; compare sei volte nelle squadre da Torre Lotta estratte dai thread"
+      "fonte": "materiale dell'utente in pending.md; compare sei volte nelle squadre da Torre Lotta estratte dai thread",
+      "origine": {
+        "tipo": "uovo schiuso",
+        "luogo": 32,
+        "nome_luogo": "Percorso 117, dove sta la Pensione Pokemon",
+        "livello_incontro": 0,
+        "sfera": 4,
+        "fatidico": false,
+        "nota": "un uovo schiuso porta livello di incontro zero e come luogo la mappa in cui e' schiuso, che il gioco prende da GetCurrentRegionMapSectionId in src/egg_hatch.c. Il Percorso 117 e' la scelta naturale perche' e' dove sta la Pensione, ma qualunque mappa percorribile andrebbe.",
+        "catena": "Feebas allevato e fatto evolvere per bellezza"
+      }
     },
     "starmie-timid": {
       "specie": "Starmie",
@@ -135,7 +223,17 @@
         "Surf"
       ],
       "riserva": true,
-      "fonte": "materiale dell'utente in pending.md; nove occorrenze nelle squadre da Palazzo Lotta"
+      "fonte": "materiale dell'utente in pending.md; nove occorrenze nelle squadre da Palazzo Lotta",
+      "origine": {
+        "tipo": "uovo schiuso",
+        "luogo": 32,
+        "nome_luogo": "Percorso 117, dove sta la Pensione Pokemon",
+        "livello_incontro": 0,
+        "sfera": 4,
+        "fatidico": false,
+        "nota": "un uovo schiuso porta livello di incontro zero e come luogo la mappa in cui e' schiuso, che il gioco prende da GetCurrentRegionMapSectionId in src/egg_hatch.c. Il Percorso 117 e' la scelta naturale perche' e' dove sta la Pensione, ma qualunque mappa percorribile andrebbe.",
+        "catena": "Staryu allevato con Ditto"
+      }
     },
     "gengar-timid": {
       "specie": "Gengar",
@@ -150,7 +248,17 @@
         "Destiny Bond"
       ],
       "riserva": true,
-      "fonte": "materiale dell'utente in pending.md, CORRETTO il 2026-09-22 dal controllo sulle mosse imparabili: l'insieme di partenza portava Ice Beam e Fire Punch, ma Gengar in terza generazione non impara Ice Beam per alcuna via, mentre impara Ice Punch dall'insegnamosse. Sostituita Ice Beam con Ice Punch e tolto Fire Punch per fare posto a Psychic, che e' macchina e colpisce piu' a fondo. Compare nella serie da 281 alla Torre Lotta di potatobagel"
+      "fonte": "materiale dell'utente in pending.md, CORRETTO il 2026-09-22 dal controllo sulle mosse imparabili: l'insieme di partenza portava Ice Beam e Fire Punch, ma Gengar in terza generazione non impara Ice Beam per alcuna via, mentre impara Ice Punch dall'insegnamosse. Sostituita Ice Beam con Ice Punch e tolto Fire Punch per fare posto a Psychic, che e' macchina e colpisce piu' a fondo. Compare nella serie da 281 alla Torre Lotta di potatobagel",
+      "origine": {
+        "tipo": "uovo schiuso",
+        "luogo": 32,
+        "nome_luogo": "Percorso 117, dove sta la Pensione Pokemon",
+        "livello_incontro": 0,
+        "sfera": 4,
+        "fatidico": false,
+        "nota": "un uovo schiuso porta livello di incontro zero e come luogo la mappa in cui e' schiuso, che il gioco prende da GetCurrentRegionMapSectionId in src/egg_hatch.c. Il Percorso 117 e' la scelta naturale perche' e' dove sta la Pensione, ma qualunque mappa percorribile andrebbe.",
+        "catena": "Gastly allevato, evolve a Haunter e poi per scambio"
+      }
     },
     "salamence-adamant": {
       "specie": "Salamence",
@@ -164,7 +272,17 @@
         "Brick Break"
       ],
       "riserva": true,
-      "fonte": "materiale dell'utente in pending.md; tredici occorrenze nelle squadre da Torre Lotta e la serie da 280 di Croconaw Guy"
+      "fonte": "materiale dell'utente in pending.md; tredici occorrenze nelle squadre da Torre Lotta e la serie da 280 di Croconaw Guy",
+      "origine": {
+        "tipo": "uovo schiuso",
+        "luogo": 32,
+        "nome_luogo": "Percorso 117, dove sta la Pensione Pokemon",
+        "livello_incontro": 0,
+        "sfera": 4,
+        "fatidico": false,
+        "nota": "un uovo schiuso porta livello di incontro zero e come luogo la mappa in cui e' schiuso, che il gioco prende da GetCurrentRegionMapSectionId in src/egg_hatch.c. Il Percorso 117 e' la scelta naturale perche' e' dove sta la Pensione, ma qualunque mappa percorribile andrebbe.",
+        "catena": "Bagon allevato"
+      }
     },
     "suicune-bold": {
       "specie": "Suicune",
@@ -179,7 +297,12 @@
         "Substitute"
       ],
       "riserva": true,
-      "fonte": "materiale dell'utente in pending.md; diciassette occorrenze nelle squadre da Torre Lotta, seconda specie piu' ricorrente dopo Metagross"
+      "fonte": "materiale dell'utente in pending.md; diciassette occorrenze nelle squadre da Torre Lotta, seconda specie piu' ricorrente dopo Metagross",
+      "origine": {
+        "tipo": "DA MODELLARE",
+        "genera": false,
+        "nota": "Suicune non esiste in Smeraldo per alcuna via interna. Sotto ADR-070 la provenienza ammessa e' uno scambio da Colosseum o da XD, dove e' un esemplare Ombra da purificare, ma quella provenienza usa un gioco di origine e dei luoghi che questo progetto non ha ancora portato su disco. L'esemplare resta nel catalogo e NON viene generato finche' quei dati non ci sono: generarlo con una provenienza inventata sarebbe peggio che non averlo."
+      }
     },
     "snorlax-careful": {
       "specie": "Snorlax",
@@ -193,7 +316,17 @@
         "Earthquake"
       ],
       "riserva": true,
-      "fonte": "consegnato dall'utente da una fonte terza, Matteo Froccani, il 2026-09-16; la stessa forma compare nelle serie da 281 e da 280 alla Torre Lotta"
+      "fonte": "consegnato dall'utente da una fonte terza, Matteo Froccani, il 2026-09-16; la stessa forma compare nelle serie da 281 e da 280 alla Torre Lotta",
+      "origine": {
+        "tipo": "uovo schiuso",
+        "luogo": 32,
+        "nome_luogo": "Percorso 117, dove sta la Pensione Pokemon",
+        "livello_incontro": 0,
+        "sfera": 4,
+        "fatidico": false,
+        "nota": "un uovo schiuso porta livello di incontro zero e come luogo la mappa in cui e' schiuso, che il gioco prende da GetCurrentRegionMapSectionId in src/egg_hatch.c. Il Percorso 117 e' la scelta naturale perche' e' dove sta la Pensione, ma qualunque mappa percorribile andrebbe.",
+        "catena": "Snorlax allevato"
+      }
     },
     "heracross-jolly": {
       "specie": "Heracross",
@@ -207,7 +340,17 @@
         "Earthquake"
       ],
       "riserva": true,
-      "fonte": "materiale dell'utente in pending.md; richiede livello reale almeno 53 perche' Megahorn in Smeraldo e' mossa di livello e non macchina"
+      "fonte": "materiale dell'utente in pending.md; richiede livello reale almeno 53 perche' Megahorn in Smeraldo e' mossa di livello e non macchina",
+      "origine": {
+        "tipo": "uovo schiuso",
+        "luogo": 32,
+        "nome_luogo": "Percorso 117, dove sta la Pensione Pokemon",
+        "livello_incontro": 0,
+        "sfera": 4,
+        "fatidico": false,
+        "nota": "un uovo schiuso porta livello di incontro zero e come luogo la mappa in cui e' schiuso, che il gioco prende da GetCurrentRegionMapSectionId in src/egg_hatch.c. Il Percorso 117 e' la scelta naturale perche' e' dove sta la Pensione, ma qualunque mappa percorribile andrebbe.",
+        "catena": "Heracross allevato da due genitori che conoscono entrambi Megahorn, secondo BuildEggMoveset"
+      }
     }
   },
   "squadre": [
@@ -505,5 +648,6 @@
     }
   ],
   "nota_decisioni": "Le quattro scelte dell'utente del 2026-09-21 sono ADR-070: alla Piramide una squadra sola con un ordine per giro, esteso a tutti e venti i giri per la serie lunga; legittimita' di terza generazione, quindi ammessi gli scambi da Rosso Fuoco, Verde Foglia, Colosseum e XD; Blissey confermata alla Serpe Lotta; e i sette esemplari fuori dalle sei squadre si generano subito insieme agli altri invece di restare una riserva sulla carta.",
-  "criterio_legittimita": "ottenibili in terza generazione, ammessi gli scambi da Rosso Fuoco, Verde Foglia, Colosseum e XD"
+  "criterio_legittimita": "ottenibili in terza generazione, ammessi gli scambi da Rosso Fuoco, Verde Foglia, Colosseum e XD",
+  "nota_origini": "Ogni esemplare dichiara la propria provenienza, perche' in terza generazione il luogo e il livello di incontro non sono decorazione ma vincoli che un verificatore controlla. I valori numerici dei luoghi vengono da src/data/region_map/region_map_sections.json del sorgente."
 }

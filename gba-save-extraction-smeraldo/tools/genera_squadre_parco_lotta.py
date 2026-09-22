@@ -110,7 +110,9 @@ def cerca_seme(specie_dati, esemplare, allenatore, tolleranza_massima=6):
 
     Una prima stesura di questo programma non lo faceva ed esplorava una distribuzione sola per livello di tolleranza: falliva su nove esemplari su quindici. Il difetto non era nella teoria ma nell'ampiezza della ricerca, ed e' il genere di errore che si manifesta come una impossibilita' apparente invece che come un errore.
 
-    Fra tutti i semi che soddisfano i vincoli a una data tolleranza si tiene il migliore e non il primo, perche' il primo dipende dall'ordine in cui si percorre lo spazio e non da alcuna proprieta' dell'esemplare. Il punteggio somma i valori individuali escludendo l'attacco quando il catalogo lo vuole basso, altrimenti premierebbe proprio cio' che si e' chiesto di evitare.
+    Restituisce TUTTI i semi che soddisfano i vincoli a quella tolleranza, ordinati dal migliore, e non il solo migliore. La ragione e' un difetto che una prima stesura aveva e che soltanto un verificatore esterno ha rivelato: due esemplari con la stessa natura e lo stesso profilo di valori individuali, per esempio tre esemplari Decisi con gli stessi obiettivi, ricevevano lo STESSO seme e quindi lo stesso valore di personalita', perche' la ricerca era deterministica e si fermava al primo. Tre Pokemon distinti con la medesima personalita' non esistono, e PKHeX lo ha segnalato come condivisione del valore fra tipi di incontro diversi. Chi chiama sceglie percio' fra i candidati il primo non ancora usato, e le due copie di uno stesso esemplare ne prendono due diversi.
+
+    Il punteggio somma i valori individuali escludendo l'attacco quando il catalogo lo vuole basso, altrimenti premierebbe proprio cio' che si e' chiesto di evitare.
     """
     natura_voluta = esemplare["natura"]
     abilita = specie_dati["abilita"]
@@ -126,7 +128,7 @@ def cerca_seme(specie_dati, esemplare, allenatore, tolleranza_massima=6):
         ok_spe = set(ammessi["spe"])
         ok_spa = set(ammessi["spa"])
         ok_spd = set(ammessi["spd"])
-        migliore = None
+        candidati = []
         for hp in ammessi["hp"]:
             for atk in ammessi["atk"]:
                 for dif in ammessi["def"]:
@@ -162,17 +164,17 @@ def cerca_seme(specie_dati, esemplare, allenatore, tolleranza_massima=6):
                                       "spe": spe, "spa": spa, "spd": spd}
                             punteggio = sum(v for k, v in valori.items()
                                             if not (attacco_basso and k == "atk"))
-                            if migliore is None or punteggio > migliore[0]:
-                                migliore = (punteggio, {
-                                    "seme": indietro(s1),
-                                    "personalita": personalita,
-                                    "iv": valori,
-                                    "scarto": tolleranza,
-                                    "bit_abilita": (personalita & 1) if due_abilita else 0,
-                                })
-        if migliore is not None:
-            return migliore[1]
-    return None
+                            candidati.append((punteggio, {
+                                "seme": indietro(s1),
+                                "personalita": personalita,
+                                "iv": valori,
+                                "scarto": tolleranza,
+                                "bit_abilita": (personalita & 1) if due_abilita else 0,
+                            }))
+        if candidati:
+            candidati.sort(key=lambda c: -c[0])
+            return [c[1] for c in candidati]
+    return []
 
 
 def componi(esemplare, chiave, specie_dati, dati, allenatore, tabella, esito, strumento):
@@ -229,7 +231,7 @@ def componi(esemplare, chiave, specie_dati, dati, allenatore, tabella, esito, st
         }),
         misc=gen3.Misc(
             pokerus=0,
-            met_location=origine.get("luogo", 255),
+            met_location=origine.get("luogo", 32),
             met_level=origine.get("livello_incontro", 0),
             met_game=3,
             pokeball=origine.get("sfera", 4),
@@ -238,7 +240,7 @@ def componi(esemplare, chiave, specie_dati, dati, allenatore, tabella, esito, st
                  "spd": esito["iv"]["spe"], "satk": esito["iv"]["spa"], "sdef": esito["iv"]["spd"]},
             is_egg=False,
             ability_num=esito["bit_abilita"],
-            modern_fateful_encounter=False,
+            modern_fateful_encounter=bool(origine.get("fatidico", False)),
         ),
     )
 
@@ -262,6 +264,7 @@ def verifica(uscita, catalogo, dati, manifesto):
         info = dati["specie"][esemplare["specie"]]
         grezzo = Path(uscita).joinpath("esemplari", "%s-copia1.bin" % chiave).read_bytes()
         mon = gen3.Gen3Mon.from_bytes(grezzo)
+        prima_copia = voce["copie"][0]
         errori = []
         if mon.growth.species != info["id"]:
             errori.append("specie %d invece di %d" % (mon.growth.species, info["id"]))
@@ -273,8 +276,8 @@ def verifica(uscita, catalogo, dati, manifesto):
                           % (mon.growth.experience, attesa, dati["livello_di_gioco"]))
         letti = {"hp": mon.misc.ivs["hp"], "atk": mon.misc.ivs["atk"], "def": mon.misc.ivs["def"],
                  "spe": mon.misc.ivs["spd"], "spa": mon.misc.ivs["satk"], "spd": mon.misc.ivs["sdef"]}
-        if letti != voce["iv"]:
-            errori.append("valori individuali %s invece di %s" % (letti, voce["iv"]))
+        if letti != prima_copia["iv"]:
+            errori.append("valori individuali %s invece di %s" % (letti, prima_copia["iv"]))
         attese = [per_mossa[_chiave(m)]["id"] for m in esemplare["mosse"]]
         if list(mon.attacks.moves[:len(attese)]) != attese:
             errori.append("mosse diverse da quelle del catalogo")
@@ -316,27 +319,48 @@ def main():
     uscita = Path(args.out)
     uscita.joinpath("esemplari").mkdir(parents=True, exist_ok=True)
     manifesto = []
+    # I valori di personalita' gia' assegnati, perche' due esemplari non possono condividerlo e
+    # nemmeno le due copie dello stesso: due Pokemon con la medesima personalita' sono cloni, e un
+    # verificatore li rifiuta prima ancora di guardare qualunque altro campo.
+    usate = set()
     for chiave, esemplare in sorted(catalogo["esemplari"].items()):
+        origine = esemplare.get("origine", {})
+        if origine.get("genera") is False:
+            print("SALTATO %-19s %s" % (chiave, origine.get("nota", "provenienza non modellata")[:90]))
+            continue
         info = dati["specie"][esemplare["specie"]]
-        esito = cerca_seme(info, esemplare, allenatore)
-        if esito is None:
+        candidati = cerca_seme(info, esemplare, allenatore)
+        if not candidati:
             print("FALLITO %s: nessun seme trovato entro la tolleranza" % chiave)
             continue
         nome_strumento = strumento_per_chiave.get(chiave)
         strumento = dati["oggetti"].get(nome_strumento, 0) if nome_strumento else 0
-        mon = componi(esemplare, chiave, info, dati, allenatore, tabella, esito, strumento)
-        grezzo = mon.to_bytes()
-        for copia in (1, 2):
-            uscita.joinpath("esemplari", "%s-copia%d.bin" % (chiave, copia)).write_bytes(grezzo)
+        scelti = []
+        for esito in candidati:
+            if esito["personalita"] in usate:
+                continue
+            usate.add(esito["personalita"])
+            scelti.append(esito)
+            if len(scelti) == catalogo["copie_per_esemplare"]:
+                break
+        if len(scelti) < catalogo["copie_per_esemplare"]:
+            print("FALLITO %s: %d candidati distinti su %d richiesti"
+                  % (chiave, len(scelti), catalogo["copie_per_esemplare"]))
+            continue
+        for numero, esito in enumerate(scelti, start=1):
+            mon = componi(esemplare, chiave, info, dati, allenatore, tabella, esito, strumento)
+            uscita.joinpath("esemplari", "%s-copia%d.bin" % (chiave, numero)).write_bytes(mon.to_bytes())
         manifesto.append({
             "chiave": chiave, "specie": esemplare["specie"], "natura": esemplare["natura"],
-            "seme": "0x%08X" % esito["seme"], "personalita": "0x%08X" % esito["personalita"],
-            "iv": esito["iv"], "scarto_tollerato": esito["scarto"],
-            "strumento": nome_strumento, "copie": 2,
+            "provenienza": origine.get("tipo"), "luogo": origine.get("nome_luogo"),
+            "copie": [{"seme": "0x%08X" % e["seme"], "personalita": "0x%08X" % e["personalita"],
+                       "iv": e["iv"], "scarto_tollerato": e["scarto"]} for e in scelti],
+            "strumento": nome_strumento,
         })
-        print("%-19s %-11s %-8s iv %s  scarto %d" % (
+        print("%-19s %-11s %-8s  %s  scarto %d  personalita' %s" % (
             chiave, esemplare["specie"], esemplare["natura"],
-            "/".join(str(esito["iv"][k]) for k in ORDINE_IV), esito["scarto"]))
+            "/".join(str(scelti[0]["iv"][k]) for k in ORDINE_IV), scelti[0]["scarto"],
+            " e ".join("%08X" % e["personalita"] for e in scelti)))
 
     uscita.joinpath("manifesto.json").write_text(
         json.dumps({"allenatore": allenatore, "livello": catalogo["livello"], "esemplari": manifesto},
