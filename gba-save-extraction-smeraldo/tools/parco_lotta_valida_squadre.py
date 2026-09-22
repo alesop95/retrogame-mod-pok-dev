@@ -46,12 +46,16 @@ MOSSE_DI_STATO = {
     "Sleep Talk", "Belly Drum", "Bulk Up", "Dragon Dance", "Agility", "Iron Defense", "Screech",
 }
 
-# Le mosse che in Smeraldo si imparano per livello oltre il cinquanta, quindi impongono un livello reale
-# superiore a quello a cui si gioca. Il livello reale resta legittimo perche' il Parco ricalcola le
-# statistiche a cinquanta, come gia' verificato e registrato in `pending.md`.
-LIVELLO_MINIMO_PER_MOSSA = {
-    ("Heracross", "Megahorn"): 53,
-}
+# Il tetto di livello che il Parco impone in modalita' cinquanta, verificato su GetBattleEntryLevelCap e
+# GetBattleEntryEligibility in src/party_menu.c: un esemplare di livello superiore non e' penalizzato, e'
+# RIFIUTATO all'iscrizione. Il gioco non normalizza in alcun modo il livello del giocatore, quindi un
+# esemplare di livello inferiore combatte al proprio livello reale e non viene portato a cinquanta.
+#
+# Questa costante corregge una affermazione che il progetto aveva registrato il 2026-09-17 e creduta per
+# giorni, secondo cui la modalita' cinquanta ricalcolerebbe a cinquanta le statistiche di un esemplare piu'
+# alto. E' il funzionamento della quarta generazione e non della terza, e assumerlo qui avrebbe prodotto
+# una squadra che allo sportello viene respinta.
+TETTO_LIVELLO_MODALITA_50 = 50
 
 # Le mosse che al Dojo Lotta sottraggono un punto alla voce "mente" del giudizio, cioe' quelle che il
 # criterio penalizza esplicitamente invece di limitarsi a non premiarle. Un esemplare che le porti non e'
@@ -62,7 +66,7 @@ MOSSE_PENALIZZATE_AL_DOJO = {"Protect", "Detect", "Endure", "Fake Out"}
 CAPIENZA_BOX = 30
 
 
-def valida(catalogo):
+def valida(catalogo, imparabili=None):
     problemi = []
     avvisi = []
     esemplari = catalogo["esemplari"]
@@ -70,9 +74,8 @@ def valida(catalogo):
     for chiave, e in esemplari.items():
         if e["specie"] in SPECIE_ESCLUSE:
             problemi.append("%s: la specie %s e' esclusa da ogni struttura del Parco" % (chiave, e["specie"]))
-        minimo = LIVELLO_MINIMO_PER_MOSSA_richiesto(e)
-        if minimo:
-            avvisi.append("%s: il livello reale deve essere almeno %d perche' conosca %s, mentre il Parco lo ricalcola comunque a %d" % (chiave, minimo[1], minimo[0], catalogo["livello"]))
+        for bloccante, nota in mosse_non_legittime(e, catalogo["livello"], imparabili):
+            (problemi if bloccante else avvisi).append("%s: %s" % (chiave, nota))
 
     for squadra in catalogo["squadre"]:
         nome = squadra["edificio"]
@@ -122,11 +125,42 @@ def mosse_effettive(esemplare, voce):
     return mosse
 
 
-def LIVELLO_MINIMO_PER_MOSSA_richiesto(esemplare):
-    for (specie, mossa), livello in LIVELLO_MINIMO_PER_MOSSA.items():
-        if esemplare["specie"] == specie and mossa in esemplare["mosse"]:
-            return mossa, livello
-    return None
+def _chiave_mossa(nome):
+    """Normalizza il nome di una mossa per il confronto fra il catalogo e la tabella estratta dal sorgente.
+
+    Le due grafie divergono su trattini e apostrofi, per esempio Soft-Boiled contro Soft Boiled, e un confronto letterale dichiarerebbe non imparabile una mossa che la specie impara benissimo. Si confronta quindi sulle sole lettere e cifre.
+    """
+    return "".join(c for c in nome.lower() if c.isalnum())
+
+
+def mosse_non_legittime(esemplare, livello_di_gioco, imparabili):
+    """Verifica che ogni mossa sia imparabile dalla specie, e per una via compatibile con il livello di gioco.
+
+    Le vie non sono equivalenti e il loro esito qui non e' lo stesso. Una macchina, un insegnamosse o una mossa da uovo non impongono alcun livello, quindi passano senza rilievi. Una mossa di livello passa se il livello richiesto non supera quello a cui si gioca, tenendo conto che la specie puo' averla imparata da una forma precedente a un livello piu' basso.
+
+    Se il livello richiesto supera il tetto, la mossa non e' perduta e il rilievo non e' un errore: resta la via verificata sul sorgente, cioe' l'eredita' da due genitori che entrambi la conoscono, e l'esito e' un avviso con la catena da dichiarare. Se invece la mossa non compare affatto per quella specie, non esiste via alcuna ed e' un problema bloccante.
+    """
+    specie = esemplare["specie"]
+    tabella = imparabili.get(specie) if imparabili else None
+    if tabella is None:
+        return []
+    per_chiave = {_chiave_mossa(k): (k, v) for k, v in tabella.items()}
+    fuori = []
+    for mossa in esemplare["mosse"]:
+        voce = per_chiave.get(_chiave_mossa(mossa))
+        if voce is None:
+            fuori.append((True, "%s non e' imparabile da %s per alcuna via nota" % (mossa, specie)))
+            continue
+        vie = voce[1]
+        if vie.get("macchina") or vie.get("insegnamosse") or vie.get("uovo"):
+            continue
+        livello = vie.get("livello")
+        if livello is None or livello <= livello_di_gioco:
+            continue
+        da = vie.get("da_forma_precedente")
+        fuori.append((False, "%s si impara al livello %d%s, oltre il tetto di %d che la modalita' cinquanta impone all'ISCRIZIONE: l'esemplare va quindi ottenuto da due genitori che la conoscono entrambi, secondo la regola di BuildEggMoveset, e non alzando il proprio livello" % (
+            mossa, livello, (" su %s" % da) if da else "", TETTO_LIVELLO_MODALITA_50)))
+    return fuori
 
 
 def piano_box(catalogo):
@@ -138,18 +172,25 @@ def piano_box(catalogo):
             usati.setdefault(v["chiave"], []).append(squadra["edificio"])
     distinti = len(usati)
     slot = distinti * copie
+    riserve = sorted(k for k in esemplari if k not in usati and esemplari[k].get("riserva"))
+    orfani = sorted(k for k in esemplari if k not in usati and not esemplari[k].get("riserva"))
+    totali = distinti + len(riserve)
+    slot = totali * copie
     return {
-        "esemplari_distinti": distinti,
+        "esemplari_in_squadra": distinti,
+        "esemplari_di_riserva": len(riserve),
+        "esemplari_distinti": totali,
         "copie_per_esemplare": copie,
         "slot_necessari": slot,
         "box_interi": (slot + CAPIENZA_BOX - 1) // CAPIENZA_BOX,
         "capienza_box": CAPIENZA_BOX,
         "impiego": {k: sorted(set(v)) for k, v in sorted(usati.items())},
-        "mai_usati": sorted(set(esemplari) - set(usati)),
+        "riserve": riserve,
+        "orfani": orfani,
     }
 
 
-def scrivi(percorso, catalogo, problemi, avvisi, piano):
+def scrivi(percorso, catalogo, problemi, avvisi, piano, mosse_controllate):
     r = ["# Il piano dei box, e la verifica del catalogo delle squadre", "",
          "> Generato da `gba-save-extraction-smeraldo/tools/parco_lotta_valida_squadre.py` a partire da `gba-save-extraction-smeraldo/squadre-parco-lotta.json`. Non si modifica a mano: si modifica il catalogo e si rigenera. Il ragionamento che giustifica ogni scelta sta in `STUDIO-05`.", ""]
     r.append("## L'esito della verifica")
@@ -163,12 +204,18 @@ def scrivi(percorso, catalogo, problemi, avvisi, piano):
     if not problemi and not avvisi:
         r.append("- nessun rilievo")
     r.append("")
-    r.append("Che cosa e' stato controllato: le dieci specie escluse da ogni struttura, l'unicita' della specie e dello strumento dentro ciascuna squadra, l'assenza di strumenti alla Piramide Lotta, l'assenza di mosse di stato al Palazzo Lotta, l'esistenza di ogni chiave citata, e il livello reale minimo imposto dalle mosse che si imparano oltre il cinquanta. Che cosa non e' stato controllato, e va saputo: se ciascuna mossa sia imparabile dalla propria specie, perche' la tabella degli insiemi di mosse non e' ancora su disco in questo progetto e dichiararlo fatto sarebbe peggio che non farlo.")
+    controllato = "Che cosa e' stato controllato: le dieci specie escluse da ogni struttura, l'unicita' della specie e dello strumento dentro ciascuna squadra, l'assenza di strumenti alla Piramide Lotta, l'assenza di mosse di stato al Palazzo Lotta, il divieto delle mosse che il criterio di giudizio del Dojo Lotta penalizza, e l'esistenza di ogni chiave citata."
+    if mosse_controllate:
+        controllato += " In piu', per ogni esemplare, che ciascuna mossa sia imparabile dalla propria specie e per quale via, sulla tabella estratta dal sorgente del gioco. Una mossa che richieda un livello oltre il tetto di cinquanta non e' un errore ma una catena di riproduzione da dichiarare, e compare fra gli avvisi."
+    else:
+        controllato += " NON e' stato controllato se ciascuna mossa sia imparabile dalla propria specie, perche' la tabella non e' stata passata: si rigenera con estrai_mosse_imparabili.py e si passa con --imparabili."
+    r.append(controllato)
     r.append("")
     r.append("## Quanti esemplari servono, e quanto spazio")
     r.append("")
-    r.append("Esemplari distinti da generare: %d. Copie per esemplare: %d, perche' una delle due e' destinata a uno scambio gia' concordato. Slot dei box necessari: **%d**, cioe' %d box da %d su quattordici disponibili." % (
-        piano["esemplari_distinti"], piano["copie_per_esemplare"], piano["slot_necessari"], piano["box_interi"], piano["capienza_box"]))
+    r.append("Esemplari distinti da generare: **%d**, cioe' %d impiegati dalle squadre piu' %d di riserva, che per decisione dell'utente si generano subito insieme agli altri invece di restare sulla carta. Copie per esemplare: %d, perche' una delle due e' destinata a uno scambio gia' concordato. Slot dei box necessari: **%d**, cioe' %d box da %d su quattordici disponibili." % (
+        piano["esemplari_distinti"], piano["esemplari_in_squadra"], piano["esemplari_di_riserva"],
+        piano["copie_per_esemplare"], piano["slot_necessari"], piano["box_interi"], piano["capienza_box"]))
     r.append("")
     r.append("| Esemplare | Specie | Natura | Edifici in cui entra |")
     r.append("|---|---|---|---|")
@@ -176,8 +223,17 @@ def scrivi(percorso, catalogo, problemi, avvisi, piano):
         e = catalogo["esemplari"][chiave]
         r.append("| %s | %s | %s | %s |" % (chiave, e["specie"], e["natura"], ", ".join(edifici)))
     r.append("")
-    if piano["mai_usati"]:
-        r.append("Esemplari presenti nel catalogo e non impiegati da alcuna squadra: %s. Vanno tolti o assegnati." % ", ".join(piano["mai_usati"]))
+    if piano["riserve"]:
+        r.append("| Esemplare | Specie | Natura | Ruolo |")
+        r.append("|---|---|---|---|")
+        for chiave in piano["riserve"]:
+            e = catalogo["esemplari"][chiave]
+            r.append("| %s | %s | %s | riserva, si genera ma non entra in alcuna squadra iniziale |" % (chiave, e["specie"], e["natura"]))
+        r.append("")
+        r.append("Le riserve esistono per una ragione operativa e non per completezza: quando una squadra si rompe sul campo, la correzione e' la sostituzione di un esemplare, e averla gia' nella cartuccia significa riprovare la sera stessa invece di aprire una corsa di generazione. Il loro insieme di mosse resta pero' provvisorio, perche' e' stato deciso senza sapere contro che cosa serviranno.")
+        r.append("")
+    if piano["orfani"]:
+        r.append("PROBLEMA: esemplari nel catalogo che non entrano in alcuna squadra e non sono marcati come riserva: %s. Vanno assegnati, marcati o tolti." % ", ".join(piano["orfani"]))
         r.append("")
     r.append("## Le squadre, edificio per edificio, nell'ordine di attacco")
     r.append("")
@@ -197,12 +253,13 @@ def scrivi(percorso, catalogo, problemi, avvisi, piano):
             r.append("| %s | %s | %s | %s |" % (e["specie"], v.get("strumento") or "nessuno", e["natura"], ", ".join(mosse_effettive(e, v))))
         r.append("")
         if squadra.get("ordine_per_giro"):
-            r.append("I dieci giri non chiedono dieci squadre ma dieci ordini di conduzione della stessa.")
+            r.append(squadra.get("nota_giri", "I giri non chiedono una squadra ciascuno ma un ordine di conduzione ciascuno."))
             r.append("")
-            r.append("| Giro | Tema del bestiario | Primo in campo | Cambio |")
-            r.append("|---|---|---|---|")
+            r.append("| Giro | Tema del bestiario | Primo in campo | Cambio | Da dove viene |")
+            r.append("|---|---|---|---|---|")
             for g in squadra["ordine_per_giro"]:
-                r.append("| %d | %s | %s | %s |" % (g["giro"], g["tema"], g["primo"], g["cambio"] or "nessuno"))
+                provenienza = "guida" if g.get("fonte", "").startswith("guida") else "calcolato, da verificare sul campo"
+                r.append("| %d | %s | %s | %s | %s |" % (g["giro"], g["tema"], g["primo"], g["cambio"] or "nessuno", provenienza))
             r.append("")
     Path(percorso).write_text("\n".join(r) + "\n", encoding="utf-8")
 
@@ -210,20 +267,25 @@ def scrivi(percorso, catalogo, problemi, avvisi, piano):
 def main():
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     p.add_argument("--catalogo", required=True)
+    p.add_argument("--imparabili", help="mosse-imparabili.json estratto dal sorgente; senza di esso il controllo sulle mosse non viene fatto e l'uscita lo dichiara")
     p.add_argument("--out", required=True)
     args = p.parse_args()
 
     catalogo = json.loads(Path(args.catalogo).read_text(encoding="utf-8"))
-    problemi, avvisi = valida(catalogo)
+    imparabili = json.loads(Path(args.imparabili).read_text(encoding="utf-8")) if args.imparabili else None
+    problemi, avvisi = valida(catalogo, imparabili)
     piano = piano_box(catalogo)
-    scrivi(args.out, catalogo, problemi, avvisi, piano)
+    scrivi(args.out, catalogo, problemi, avvisi, piano, imparabili is not None)
 
     for x in problemi:
         print("PROBLEMA: %s" % x)
     for x in avvisi:
         print("avviso:   %s" % x)
-    print("esemplari distinti: %d, slot nei box: %d (%d box da %d)" % (
-        piano["esemplari_distinti"], piano["slot_necessari"], piano["box_interi"], piano["capienza_box"]))
+    for x in piano["orfani"]:
+        print("PROBLEMA: %s non entra in alcuna squadra e non e' marcato come riserva" % x)
+    print("esemplari distinti: %d (%d in squadra, %d di riserva), slot nei box: %d (%d box da %d)" % (
+        piano["esemplari_distinti"], piano["esemplari_in_squadra"], piano["esemplari_di_riserva"],
+        piano["slot_necessari"], piano["box_interi"], piano["capienza_box"]))
     print("uscita in %s" % args.out)
     if problemi:
         sys.exit("catalogo non valido: %d problemi" % len(problemi))
