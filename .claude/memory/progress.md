@@ -4,6 +4,24 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-22, quarantaduesima parte. Il secondo referto, e la differenza fra pulito e legale
+
+### La distinzione che il referto non dichiara e che cambia tutto
+
+Dopo le tre correzioni del giro precedente, il comando di PKHeX che verifica tutti gli esemplari ha risposto "Clean", ma nella vista dei box ogni esemplare portava ancora il triangolo rosso. L'utente ha segnalato la contraddizione, e la spiegazione e' che i due controlli non sono lo stesso controllo: quel comando cerca i cloni e le personalita' duplicate, non la legalita' del singolo esemplare. Il dump del box lo dice senza ambiguita', perche' porta una colonna dedicata: `Legal` valeva falso su tutti e ventotto.
+
+E' una lezione sul metodo di verifica e non su questo lotto: un esito "pulito" da un comando che non controlla cio' che ci interessa vale zero, e la colonna del dump e' la fonte da guardare. Vale anche per i lotti del progetto principale, dove lo stesso comando verra' usato.
+
+### Il difetto, uno solo e invisibile dall'interno
+
+La lingua. Il generatore scriveva due, cioe' inglese, perche' quel valore era rimasto dal generatore di eventi da cui il programma prende la forma. `LANGUAGE_ITALIAN` in `include/constants/global.h` vale quattro. Un esemplare inglese il cui allenatore di origine coincide con quello della cartuccia italiana non e' possibile: se non e' stato scambiato, deve venire dalla stessa cartuccia e quindi dalla stessa lingua. Ventotto esemplari respinti su ventotto, con ogni altro campo corretto.
+
+Corretto e rigenerato. La provenienza introdotta nel giro precedente ha invece retto: il dump riconosce Uovo per i dodici allevati e Incontro Statico per i due Latios dell'Isola Remota, che era esattamente cio' che si voleva dichiarare.
+
+### La disciplina adottata, su richiesta dell'utente
+
+Una correzione per volta e poi una verifica, invece di accumulare modifiche fra due referti. La ragione l'ha data l'utente stesso chiedendo di procedere in ordine: se si aggiungono dieci specie mentre un difetto di fondo e' ancora aperto, quel difetto si moltiplica per dieci e il referto successivo diventa illeggibile. L'ampliamento del catalogo resta quindi in attesa del referto che confermi la lingua.
+
 ## 2026-09-22, quarantunesima parte. Il primo referto di PKHeX, e i tre difetti che ha trovato
 
 ### Il ciclo che si e' chiuso per la prima volta

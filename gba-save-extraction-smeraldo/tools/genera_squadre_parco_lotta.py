@@ -61,6 +61,14 @@ ORDINE_IV = ("hp", "atk", "def", "spe", "spa", "spd")
 
 AMICIZIA = {"STANDARD_FRIENDSHIP": 70}
 
+# La lingua dell'esemplare, da `LANGUAGE_ITALIAN` in `include/constants/global.h`. Non e' un campo
+# cosmetico e non si lascia al valore piu' comune: se l'allenatore di origine coincide con quello del
+# salvataggio, come qui, un verificatore pretende che la lingua coincida con quella della cartuccia,
+# perche' un esemplare non scambiato non puo' venire da un gioco di un'altra lingua. Una prima stesura
+# scriveva due, cioe' inglese, e produceva ventotto esemplari respinti su ventotto senza che nessun
+# altro campo fosse sbagliato: il difetto era invisibile dall'interno e lo ha rivelato PKHeX.
+LINGUA_ITALIANO = 4
+
 
 def _fratello():
     """Il generatore degli incontri, per riusarne il primo metodo invece di riscriverlo."""
@@ -103,7 +111,7 @@ def valori_ammessi(esemplare, tolleranza):
     return ammessi
 
 
-def cerca_seme(specie_dati, esemplare, allenatore, tolleranza_massima=6):
+def cerca_seme(specie_dati, esemplare, allenatore, tolleranza_massima=6, escluse=(), quante=1):
     """Trova un seme del primo metodo che produca insieme natura, abilita', sesso e valori individuali accettabili.
 
     La ricerca e' rovesciata rispetto a quella ovvia, e la ragione e' di costo. Fissare una distribuzione completa di valori individuali e cercarne i semi costa sessantacinquemila passi per ogni distribuzione, e le distribuzioni accettabili sono migliaia: il conto non sta in piedi. Si fissa invece la sola prima parola, cioe' salute, attacco e difesa, che sono poche combinazioni, e si percorre una volta sola lo spazio dei sedici bit ignoti: ogni passo produce una seconda parola diversa, quindi un solo passaggio copre in un colpo tutte le distribuzioni che condividono la prima parola. Il costo scende di tre ordini di grandezza.
@@ -122,6 +130,8 @@ def cerca_seme(specie_dati, esemplare, allenatore, tolleranza_massima=6):
     sesso_voluto = esemplare.get("sesso")
     tid, sid = allenatore["id"], allenatore["segreto"]
     attacco_basso = esemplare.get("iv_attacco") == 0
+    escluse = set(escluse)
+    migliori = []
 
     for tolleranza in range(tolleranza_massima + 1):
         ammessi = valori_ammessi(esemplare, tolleranza)
@@ -173,8 +183,16 @@ def cerca_seme(specie_dati, esemplare, allenatore, tolleranza_massima=6):
                             }))
         if candidati:
             candidati.sort(key=lambda c: -c[0])
-            return [c[1] for c in candidati]
-    return []
+            liberi = [c[1] for c in candidati if c[1]["personalita"] not in escluse]
+            # Si allarga la tolleranza anche quando dei candidati ci sono, se non bastano: due specie
+            # con la stessa natura e lo stesso profilo producono la MEDESIMA lista, perche' la lista
+            # dipende dai vincoli e non dalla specie, e la seconda trova consumato cio' che la prima ha
+            # preso. Fermarsi qui faceva fallire sette esemplari su trentatre con un messaggio che
+            # parlava di candidati insufficienti invece che della causa.
+            if len(liberi) >= quante:
+                return liberi
+            migliori = liberi
+    return migliori
 
 
 def componi(esemplare, chiave, specie_dati, dati, allenatore, tabella, esito, strumento):
@@ -217,7 +235,7 @@ def componi(esemplare, chiave, specie_dati, dati, allenatore, tabella, esito, st
         personality=esito["personalita"],
         ot_id=((allenatore["segreto"] & 0xFFFF) << 16) | (allenatore["id"] & 0xFFFF),
         nickname=soprannome,
-        language=2,
+        language=LINGUA_ITALIANO,
         flags=0x02,
         ot_name=ot,
         markings=0,
@@ -233,7 +251,7 @@ def componi(esemplare, chiave, specie_dati, dati, allenatore, tabella, esito, st
             pokerus=0,
             met_location=origine.get("luogo", 32),
             met_level=origine.get("livello_incontro", 0),
-            met_game=3,
+            met_game=origine.get("gioco", 3),
             pokeball=origine.get("sfera", 4),
             ot_female=False,
             ivs={"hp": esito["iv"]["hp"], "atk": esito["iv"]["atk"], "def": esito["iv"]["def"],
@@ -329,7 +347,8 @@ def main():
             print("SALTATO %-19s %s" % (chiave, origine.get("nota", "provenienza non modellata")[:90]))
             continue
         info = dati["specie"][esemplare["specie"]]
-        candidati = cerca_seme(info, esemplare, allenatore)
+        candidati = cerca_seme(info, esemplare, allenatore,
+                               escluse=usate, quante=catalogo["copie_per_esemplare"])
         if not candidati:
             print("FALLITO %s: nessun seme trovato entro la tolleranza" % chiave)
             continue
