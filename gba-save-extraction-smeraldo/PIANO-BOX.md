@@ -4,15 +4,15 @@
 
 ## L'esito della verifica
 
-Problemi bloccanti: 0. Avvisi: 0.
+Problemi bloccanti: 0. Avvisi: 1.
 
-- nessun rilievo
+- avviso: heracross-jolly: Megahorn si impara al livello 53, oltre il tetto di 50 che la modalita' cinquanta impone all'ISCRIZIONE: l'esemplare va quindi ottenuto da due genitori che la conoscono entrambi, secondo la regola di BuildEggMoveset, e non alzando il proprio livello
 
-Che cosa e' stato controllato: le dieci specie escluse da ogni struttura, l'unicita' della specie e dello strumento dentro ciascuna squadra, l'assenza di strumenti alla Piramide Lotta, l'assenza di mosse di stato al Palazzo Lotta, l'esistenza di ogni chiave citata, e il livello reale minimo imposto dalle mosse che si imparano oltre il cinquanta. Che cosa non e' stato controllato, e va saputo: se ciascuna mossa sia imparabile dalla propria specie, perche' la tabella degli insiemi di mosse non e' ancora su disco in questo progetto e dichiararlo fatto sarebbe peggio che non farlo.
+Che cosa e' stato controllato: le dieci specie escluse da ogni struttura, l'unicita' della specie e dello strumento dentro ciascuna squadra, l'assenza di strumenti alla Piramide Lotta, l'assenza di mosse di stato al Palazzo Lotta, il divieto delle mosse che il criterio di giudizio del Dojo Lotta penalizza, e l'esistenza di ogni chiave citata. In piu', per ogni esemplare, che ciascuna mossa sia imparabile dalla propria specie e per quale via, sulla tabella estratta dal sorgente del gioco. Una mossa che richieda un livello oltre il tetto di cinquanta non e' un errore ma una catena di riproduzione da dichiarare, e compare fra gli avvisi.
 
 ## Quanti esemplari servono, e quanto spazio
 
-Esemplari distinti da generare: 8. Copie per esemplare: 2, perche' una delle due e' destinata a uno scambio gia' concordato. Slot dei box necessari: **16**, cioe' 1 box da 30 su quattordici disponibili.
+Esemplari distinti da generare: **15**, cioe' 8 impiegati dalle squadre piu' 7 di riserva, che per decisione dell'utente si generano subito insieme agli altri invece di restare sulla carta. Copie per esemplare: 2, perche' una delle due e' destinata a uno scambio gia' concordato. Slot dei box necessari: **30**, cioe' 1 box da 30 su quattordici disponibili.
 
 | Esemplare | Specie | Natura | Edifici in cui entra |
 |---|---|---|---|
@@ -24,6 +24,18 @@ Esemplari distinti da generare: 8. Copie per esemplare: 2, perche' una delle due
 | slaking-adamant | Slaking | Adamant | Cupola Lotta |
 | swampert-brave | Swampert | Brave | Palazzo Lotta |
 | swampert-relaxed | Swampert | Relaxed | Dojo Lotta, Piramide Lotta, Torre Lotta |
+
+| Esemplare | Specie | Natura | Ruolo |
+|---|---|---|---|
+| gengar-timid | Gengar | Timid | riserva, si genera ma non entra in alcuna squadra iniziale |
+| heracross-jolly | Heracross | Jolly | riserva, si genera ma non entra in alcuna squadra iniziale |
+| milotic-bold | Milotic | Bold | riserva, si genera ma non entra in alcuna squadra iniziale |
+| salamence-adamant | Salamence | Adamant | riserva, si genera ma non entra in alcuna squadra iniziale |
+| snorlax-careful | Snorlax | Careful | riserva, si genera ma non entra in alcuna squadra iniziale |
+| starmie-timid | Starmie | Timid | riserva, si genera ma non entra in alcuna squadra iniziale |
+| suicune-bold | Suicune | Bold | riserva, si genera ma non entra in alcuna squadra iniziale |
+
+Le riserve esistono per una ragione operativa e non per completezza: quando una squadra si rompe sul campo, la correzione e' la sostituzione di un esemplare, e averla gia' nella cartuccia significa riprovare la sera stessa invece di aprire una corsa di generazione. Il loro insieme di mosse resta pero' provvisorio, perche' e' stato deciso senza sapere contro che cosa serviranno.
 
 ## Le squadre, edificio per edificio, nell'ordine di attacco
 
@@ -93,18 +105,28 @@ nessun esemplare entra tenendo uno strumento, perche' il gioco glieli toglie all
 | Swampert | nessuno | Relaxed | Earthquake, Surf, Ice Beam, Protect |
 | Metagross | nessuno | Adamant | Meteor Mash, Earthquake, Shadow Ball, Brick Break |
 
-I dieci giri non chiedono dieci squadre ma dieci ordini di conduzione della stessa.
+I primi dieci giri bastano al simbolo d'oro e vengono dalla guida. Gli altri dieci servono solo a chi punta a una serie lunga oltre i settanta piani, nessuna fonte li copre, e sono calcolati: sui dieci noti il calcolo indica un esemplare che la guida impiega davvero in sette casi su dieci e il conduttore esatto in quattro su dieci.
 
-| Giro | Tema del bestiario | Primo in campo | Cambio |
-|---|---|---|---|
-| 1 | mosse che paralizzano | Latios | nessuno |
-| 2 | mosse che avvelenano | Latios | nessuno |
-| 3 | mosse che scottano | Latios | nessuno |
-| 4 | consumo dei punti potere | Metagross | nessuno |
-| 5 | abilita' Levitazione | Metagross | Latios dal quarto piano |
-| 6 | abilita' che intrappolano | Metagross | Latios dal quarto piano |
-| 7 | tipo Ghiaccio | Metagross | Latios dal quinto piano |
-| 8 | Autodistruzione ed Esplosione | Latios | Swampert dal quarto piano |
-| 9 | tipo Psico | Latios | Metagross dal secondo piano |
-| 10 | tipo Roccia | Swampert | Metagross dal terzo piano |
+| Giro | Tema del bestiario | Primo in campo | Cambio | Da dove viene |
+|---|---|---|---|---|
+| 1 | mosse che paralizzano | Latios | nessuno | guida |
+| 2 | mosse che avvelenano | Latios | nessuno | guida |
+| 3 | mosse che scottano | Latios | nessuno | guida |
+| 4 | consumo dei punti potere | Metagross | nessuno | guida |
+| 5 | abilita' Levitazione | Metagross | Latios dal quarto piano | guida |
+| 6 | abilita' che intrappolano | Metagross | Latios dal quarto piano | guida |
+| 7 | tipo Ghiaccio | Metagross | Latios dal quinto piano | guida |
+| 8 | Autodistruzione ed Esplosione | Latios | Swampert dal quarto piano | guida |
+| 9 | tipo Psico | Latios | Metagross dal secondo piano | guida |
+| 10 | tipo Roccia | Swampert | Metagross dal terzo piano | guida |
+| 11 | tipo Lotta | Latios | nessuno | calcolato, da verificare sul campo |
+| 12 | mosse che cambiano il tempo | Latios | nessuno | calcolato, da verificare sul campo |
+| 13 | tipo Coleottero | Metagross | nessuno | calcolato, da verificare sul campo |
+| 14 | tipo Buio | Metagross | nessuno | calcolato, da verificare sul campo |
+| 15 | tipo Acqua | Latios | nessuno | calcolato, da verificare sul campo |
+| 16 | tipo Spettro | Metagross | nessuno | calcolato, da verificare sul campo |
+| 17 | tipo Acciaio | Swampert | nessuno | calcolato, da verificare sul campo |
+| 18 | tipi Volante e Drago | Latios | nessuno | calcolato, da verificare sul campo |
+| 19 | evoluzioni da pietra, con fuoco acqua ed elettricita' | Swampert | nessuno | calcolato, da verificare sul campo |
+| 20 | tipo Normale che conosce Iper Raggio | Metagross | nessuno | calcolato, da verificare sul campo |
 

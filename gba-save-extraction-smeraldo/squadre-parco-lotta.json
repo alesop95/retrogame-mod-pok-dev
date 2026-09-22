@@ -106,6 +106,108 @@
         "Sing"
       ],
       "fonte": "compare nelle due serie piu' lunghe dichiarate alla Serpe Lotta, 560 di Runeblade14 e 420 di wtset e iSoNkei; non era nel materiale dell'utente"
+    },
+    "milotic-bold": {
+      "specie": "Milotic",
+      "natura": "Bold",
+      "abilita": "Marvel Scale",
+      "punti_base": "252 HP / 252 Def / 4 SpA",
+      "iv_attacco": 0,
+      "mosse": [
+        "Surf",
+        "Ice Beam",
+        "Toxic",
+        "Recover"
+      ],
+      "riserva": true,
+      "fonte": "materiale dell'utente in pending.md; compare sei volte nelle squadre da Torre Lotta estratte dai thread"
+    },
+    "starmie-timid": {
+      "specie": "Starmie",
+      "natura": "Timid",
+      "abilita": "Natural Cure",
+      "punti_base": "4 HP / 252 SpA / 252 Spe",
+      "iv_attacco": 0,
+      "mosse": [
+        "Psychic",
+        "Thunderbolt",
+        "Ice Beam",
+        "Surf"
+      ],
+      "riserva": true,
+      "fonte": "materiale dell'utente in pending.md; nove occorrenze nelle squadre da Palazzo Lotta"
+    },
+    "gengar-timid": {
+      "specie": "Gengar",
+      "natura": "Timid",
+      "abilita": "Levitate",
+      "punti_base": "4 HP / 252 SpA / 252 Spe",
+      "iv_attacco": 0,
+      "mosse": [
+        "Thunderbolt",
+        "Ice Punch",
+        "Psychic",
+        "Destiny Bond"
+      ],
+      "riserva": true,
+      "fonte": "materiale dell'utente in pending.md, CORRETTO il 2026-09-22 dal controllo sulle mosse imparabili: l'insieme di partenza portava Ice Beam e Fire Punch, ma Gengar in terza generazione non impara Ice Beam per alcuna via, mentre impara Ice Punch dall'insegnamosse. Sostituita Ice Beam con Ice Punch e tolto Fire Punch per fare posto a Psychic, che e' macchina e colpisce piu' a fondo. Compare nella serie da 281 alla Torre Lotta di potatobagel"
+    },
+    "salamence-adamant": {
+      "specie": "Salamence",
+      "natura": "Adamant",
+      "abilita": "Intimidate",
+      "punti_base": "4 HP / 252 Atk / 252 Spe",
+      "mosse": [
+        "Rock Slide",
+        "Earthquake",
+        "Aerial Ace",
+        "Brick Break"
+      ],
+      "riserva": true,
+      "fonte": "materiale dell'utente in pending.md; tredici occorrenze nelle squadre da Torre Lotta e la serie da 280 di Croconaw Guy"
+    },
+    "suicune-bold": {
+      "specie": "Suicune",
+      "natura": "Bold",
+      "abilita": "Pressure",
+      "punti_base": "252 HP / 252 Def / 4 SpA",
+      "iv_attacco": 0,
+      "mosse": [
+        "Surf",
+        "Calm Mind",
+        "Rest",
+        "Substitute"
+      ],
+      "riserva": true,
+      "fonte": "materiale dell'utente in pending.md; diciassette occorrenze nelle squadre da Torre Lotta, seconda specie piu' ricorrente dopo Metagross"
+    },
+    "snorlax-careful": {
+      "specie": "Snorlax",
+      "natura": "Careful",
+      "abilita": "Thick Fat",
+      "punti_base": "168 HP / 120 Def / 220 SpD",
+      "mosse": [
+        "Curse",
+        "Return",
+        "Rest",
+        "Earthquake"
+      ],
+      "riserva": true,
+      "fonte": "consegnato dall'utente da una fonte terza, Matteo Froccani, il 2026-09-16; la stessa forma compare nelle serie da 281 e da 280 alla Torre Lotta"
+    },
+    "heracross-jolly": {
+      "specie": "Heracross",
+      "natura": "Jolly",
+      "abilita": "Swarm",
+      "punti_base": "4 HP / 252 Atk / 252 Spe",
+      "mosse": [
+        "Megahorn",
+        "Brick Break",
+        "Rock Slide",
+        "Earthquake"
+      ],
+      "riserva": true,
+      "fonte": "materiale dell'utente in pending.md; richiede livello reale almeno 53 perche' Megahorn in Smeraldo e' mossa di livello e non macchina"
     }
   },
   "squadre": [
@@ -242,63 +344,166 @@
           "giro": 1,
           "tema": "mosse che paralizzano",
           "primo": "Latios",
-          "cambio": null
+          "cambio": null,
+          "fonte": "guida al completamento dei sette simboli d'oro",
+          "calcolato": "Latios"
         },
         {
           "giro": 2,
           "tema": "mosse che avvelenano",
           "primo": "Latios",
-          "cambio": null
+          "cambio": null,
+          "fonte": "guida al completamento dei sette simboli d'oro",
+          "calcolato": "Latios"
         },
         {
           "giro": 3,
           "tema": "mosse che scottano",
           "primo": "Latios",
-          "cambio": null
+          "cambio": null,
+          "fonte": "guida al completamento dei sette simboli d'oro",
+          "calcolato": "Metagross"
         },
         {
           "giro": 4,
           "tema": "consumo dei punti potere",
           "primo": "Metagross",
-          "cambio": null
+          "cambio": null,
+          "fonte": "guida al completamento dei sette simboli d'oro",
+          "calcolato": "Metagross"
         },
         {
           "giro": 5,
           "tema": "abilita' Levitazione",
           "primo": "Metagross",
-          "cambio": "Latios dal quarto piano"
+          "cambio": "Latios dal quarto piano",
+          "fonte": "guida al completamento dei sette simboli d'oro",
+          "calcolato": "Swampert"
         },
         {
           "giro": 6,
           "tema": "abilita' che intrappolano",
           "primo": "Metagross",
-          "cambio": "Latios dal quarto piano"
+          "cambio": "Latios dal quarto piano",
+          "fonte": "guida al completamento dei sette simboli d'oro",
+          "calcolato": "Latios"
         },
         {
           "giro": 7,
           "tema": "tipo Ghiaccio",
           "primo": "Metagross",
-          "cambio": "Latios dal quinto piano"
+          "cambio": "Latios dal quinto piano",
+          "fonte": "guida al completamento dei sette simboli d'oro",
+          "calcolato": "Metagross"
         },
         {
           "giro": 8,
           "tema": "Autodistruzione ed Esplosione",
           "primo": "Latios",
-          "cambio": "Swampert dal quarto piano"
+          "cambio": "Swampert dal quarto piano",
+          "fonte": "guida al completamento dei sette simboli d'oro",
+          "calcolato": "Metagross"
         },
         {
           "giro": 9,
           "tema": "tipo Psico",
           "primo": "Latios",
-          "cambio": "Metagross dal secondo piano"
+          "cambio": "Metagross dal secondo piano",
+          "fonte": "guida al completamento dei sette simboli d'oro",
+          "calcolato": "Metagross"
         },
         {
           "giro": 10,
           "tema": "tipo Roccia",
           "primo": "Swampert",
-          "cambio": "Metagross dal terzo piano"
+          "cambio": "Metagross dal terzo piano",
+          "fonte": "guida al completamento dei sette simboli d'oro",
+          "calcolato": "Metagross"
+        },
+        {
+          "giro": 11,
+          "tema": "tipo Lotta",
+          "primo": "Latios",
+          "cambio": null,
+          "fonte": "CALCOLATO da parco_lotta_piramide_ordine.py, nessuna fonte lo dichiara; preferenza motivata e non prescrizione",
+          "calcolato": "Latios"
+        },
+        {
+          "giro": 12,
+          "tema": "mosse che cambiano il tempo",
+          "primo": "Latios",
+          "cambio": null,
+          "fonte": "CALCOLATO da parco_lotta_piramide_ordine.py, nessuna fonte lo dichiara; preferenza motivata e non prescrizione",
+          "calcolato": "Latios"
+        },
+        {
+          "giro": 13,
+          "tema": "tipo Coleottero",
+          "primo": "Metagross",
+          "cambio": null,
+          "fonte": "CALCOLATO da parco_lotta_piramide_ordine.py, nessuna fonte lo dichiara; preferenza motivata e non prescrizione",
+          "calcolato": "Metagross"
+        },
+        {
+          "giro": 14,
+          "tema": "tipo Buio",
+          "primo": "Metagross",
+          "cambio": null,
+          "fonte": "CALCOLATO da parco_lotta_piramide_ordine.py, nessuna fonte lo dichiara; preferenza motivata e non prescrizione",
+          "calcolato": "Metagross"
+        },
+        {
+          "giro": 15,
+          "tema": "tipo Acqua",
+          "primo": "Latios",
+          "cambio": null,
+          "fonte": "CALCOLATO da parco_lotta_piramide_ordine.py, nessuna fonte lo dichiara; preferenza motivata e non prescrizione",
+          "calcolato": "Latios"
+        },
+        {
+          "giro": 16,
+          "tema": "tipo Spettro",
+          "primo": "Metagross",
+          "cambio": null,
+          "fonte": "CALCOLATO da parco_lotta_piramide_ordine.py, nessuna fonte lo dichiara; preferenza motivata e non prescrizione",
+          "calcolato": "Metagross"
+        },
+        {
+          "giro": 17,
+          "tema": "tipo Acciaio",
+          "primo": "Swampert",
+          "cambio": null,
+          "fonte": "CALCOLATO da parco_lotta_piramide_ordine.py, nessuna fonte lo dichiara; preferenza motivata e non prescrizione",
+          "calcolato": "Swampert"
+        },
+        {
+          "giro": 18,
+          "tema": "tipi Volante e Drago",
+          "primo": "Latios",
+          "cambio": null,
+          "fonte": "CALCOLATO da parco_lotta_piramide_ordine.py, nessuna fonte lo dichiara; preferenza motivata e non prescrizione",
+          "calcolato": "Latios"
+        },
+        {
+          "giro": 19,
+          "tema": "evoluzioni da pietra, con fuoco acqua ed elettricita'",
+          "primo": "Swampert",
+          "cambio": null,
+          "fonte": "CALCOLATO da parco_lotta_piramide_ordine.py, nessuna fonte lo dichiara; preferenza motivata e non prescrizione",
+          "calcolato": "Swampert"
+        },
+        {
+          "giro": 20,
+          "tema": "tipo Normale che conosce Iper Raggio",
+          "primo": "Metagross",
+          "cambio": null,
+          "fonte": "CALCOLATO da parco_lotta_piramide_ordine.py, nessuna fonte lo dichiara; preferenza motivata e non prescrizione",
+          "calcolato": "Metagross"
         }
-      ]
+      ],
+      "nota_giri": "I primi dieci giri bastano al simbolo d'oro e vengono dalla guida. Gli altri dieci servono solo a chi punta a una serie lunga oltre i settanta piani, nessuna fonte li copre, e sono calcolati: sui dieci noti il calcolo indica un esemplare che la guida impiega davvero in sette casi su dieci e il conduttore esatto in quattro su dieci."
     }
-  ]
+  ],
+  "nota_decisioni": "Le quattro scelte dell'utente del 2026-09-21 sono ADR-070: alla Piramide una squadra sola con un ordine per giro, esteso a tutti e venti i giri per la serie lunga; legittimita' di terza generazione, quindi ammessi gli scambi da Rosso Fuoco, Verde Foglia, Colosseum e XD; Blissey confermata alla Serpe Lotta; e i sette esemplari fuori dalle sei squadre si generano subito insieme agli altri invece di restare una riserva sulla carta.",
+  "criterio_legittimita": "ottenibili in terza generazione, ammessi gli scambi da Rosso Fuoco, Verde Foglia, Colosseum e XD"
 }

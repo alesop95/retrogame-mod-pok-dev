@@ -4,6 +4,60 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-22, trentanovesima parte. Il tetto di livello capito al contrario, le mosse verificate, e il deposito misurato
+
+### La domanda dell'utente, che ha rovesciato un'affermazione di settembre
+
+L'utente ha chiesto se un Heracross di livello 53 giocato con due esemplari di livello 50 facesse salire di livello anche gli avversari, ricordando che da bambino era successo qualcosa del genere. Il ricordo e' esatto e riguarda il Livello Aperto, dove `GetFrontierEnemyMonLevel` restituisce il livello piu' alto della squadra del giocatore con un pavimento a sessanta: un solo esemplare cresciuto tira su tutti gli avversari mentre i compagni restano dove sono. In modalita' Livello 50 la stessa funzione restituisce cinquanta fisso e non guarda la squadra.
+
+Ma la domanda non si pone nemmeno, e questo e' il fatto che rovescia il registro: `GetBattleEntryEligibility` in `src/party_menu.c` RIFIUTA all'iscrizione ogni esemplare il cui livello superi il tetto, e `GetBattleEntryLevelCap` restituisce cinquanta in quella modalita'. L'affermazione registrata in `pending.md` il 2026-09-17, secondo cui la modalita' cinquanta ricalcolerebbe a cinquanta le statistiche di un esemplare piu' alto, e' sbagliata: e' il funzionamento della quarta generazione. Crederla avrebbe prodotto una squadra generata con cura e respinta allo sportello. Corretta nel registro con la citazione al sorgente. Vale anche il verso opposto e nessuno lo aveva chiesto: il gioco non alza un esemplare piu' basso, quindi chi entra a quarantacinque combatte a quarantacinque, e ogni esemplare del catalogo deve essere esattamente al cinquanta.
+
+Il problema di Megahorn resta ma cambia soluzione: non si alza il livello, si cambia via. `BuildEggMoveset` in `src/daycare.c` da' a un nato le mosse di livello che ENTRAMBI i genitori conoscono, e non il solo padre come la formulazione diffusa dice: due Heracross portati al 53 producono un figlio che conosce Megahorn dalla nascita, cresciuto poi a cinquanta esatti. Sotto ADR-070 quella catena e' legittima.
+
+### Le mosse imparabili, che non andavano cercate perche' erano nel sorgente
+
+Il verificatore dichiarava di non saper controllare se una mossa fosse imparabile dalla specie, e rimandava la tabella a una ricerca futura. Non andava cercata: sta in quattro file del sorgente, ed e' ora su disco come `gba-save-extraction-smeraldo/mosse-imparabili.json`, 412 specie e 18731 coppie, con le vie tenute distinte perche' solo quella per livello si scontra con il tetto d'iscrizione. Accanto, `specie-gen3.json` mappa l'indice interno di specie al nome, che non e' il numero del Pokedex nazionale: le specie di Hoenn cominciano al 277, e confonderli darebbe a ognuna il nome di un'altra senza produrre alcun errore.
+
+Una raffinatezza si e' rivelata necessaria e senza di essa il controllo avrebbe sbagliato proprio su un esemplare del catalogo: le vie vanno cercate anche nelle forme precedenti della catena evolutiva. Metagross impara Meteor Mash al 55, oltre il tetto, ma Metang la impara al 50 e basta rimandare l'evoluzione.
+
+Collegato al verificatore, il controllo ha prodotto due rilievi alla prima corsa. Uno era l'avviso atteso su Megahorn. L'altro era un errore vero, ereditato dal materiale di partenza e sopravvissuto dal 17 settembre: il Gengar del catalogo portava Ice Beam, che Gengar in terza generazione non impara per alcuna via. Corretto con Ice Punch dall'insegnamosse, e Fire Punch sostituito da Psychic che e' macchina e colpisce piu' a fondo.
+
+### Il deposito misurato, e due risposte migliori di quella attesa
+
+`gba-save-extraction-smeraldo/tools/emerald_box_censimento.py` legge i quattordici box in sola lettura riusando il decifratore di `pokebridge.gen3` invece di scriverne un secondo. Sul salvataggio del 2026-09-21: 252 posizioni occupate su 420. La domanda utile non era pero' quante ne siano libere ma se esista un box gia' vuoto, perche' una scrittura che vi atterri non sposta nulla.
+
+Due risposte, entrambe migliori dell'attesa. Il box 5 e' interamente vuoto, con esattamente le trenta posizioni che servono. E il box 10 si chiama X MATTEO e contiene un solo esemplare, un Feebas il cui allenatore di origine e' appunto MATTEO: era gia' destinato allo scambio dall'utente, anni prima e senza relazione con questo lavoro. La disposizione piu' sensata e' quindi quindici nel box 5 per se' e quindici nel box 10 per lo scambio, separate secondo la ragione per cui esistono, invece di trenta in un box solo.
+
+La stessa lettura ha mostrato qualcosa che nessuno aveva chiesto: tre box si chiamano gia' PARKLOTT, il primo, il tredicesimo e il quattordicesimo, e contengono 49 esemplari, molti della specie giusta, cioe' tre Latios, due Metagross, tre Swampert, un Heracross, un Salamence, uno Starmie, un Gengar, tre Alakazam, due Tyranitar e un Dragonite. Parecchi provengono da scambi, il che e' normale; ma ALESSIO compare con due identificativi diversi, 23324 e 34278, il che e' possibile con due partite distinte e merita una verifica nel censimento di legalita' gia' aperto in `STUDIO-02`.
+
+### Le etichette di lettura, risanate su richiesta dell'utente
+
+L'utente ha chiesto di non dover piu' ricordare che nessuna fonte resti non letta. L'audit del registro ha trovato sei voci del Parco Lotta ancora marcate non lette che erano state lette in sessione senza che la riga venisse aggiornata, cioe' le pagine Bulbapedia di Cupola, Serpe, Piramide e Torre, l'elenco degli allenatori e un post del thread principale. Corrette tutte e sei con cio' che ciascuna ha effettivamente dato. Nella sezione del Parco Lotta restano due voci non lette ed entrambe sono dichiarate: l'elenco degli allenatori, superato per scelta dalle due tabelle di dati gia' confrontate fra loro, e la discussione 2246, abbandonata per decisione dell'utente con ADR-069. Fuori da quella sezione restano voci non lette che appartengono ad altri track, cioe' poke-ace, la ricreazione degli eventi, il trading LDN e il completamento del Pokedex: non sono state toccate in questo giro perche' non appartengono al fronte attivo, e la cosa e' dichiarata qui invece di essere taciuta.
+
+## 2026-09-21, trentottesima parte. Le quattro decisioni chiuse, e i dieci giri che nessuna fonte copre
+
+### Le domande, poste come domande
+
+L'utente ha fatto notare che i tre punti lasciati aperti dalla parte precedente non erano formulati come domande e non erano rispondibili. È una critica giusta e vale registrarla come difetto di comunicazione e non come incidente: un punto aperto che non si chiude con un punto interrogativo, e che non porta accanto le alternative con il loro costo, non è una domanda ma un promemoria per chi lo ha scritto. Riposti come quattro domande a scelta multipla, con il costo di ciascuna alternativa dichiarato, hanno avuto risposta immediata.
+
+Le quattro risposte sono ADR-070. Alla Piramide una squadra sola con un ordine di conduzione per giro, e non una squadra per giro come ADR-068 diceva alla lettera; criterio di legittimità esteso all'ottenibilità in terza generazione, quindi ammessi gli scambi da Rosso Fuoco, Verde Foglia, Colosseum e XD, il che chiude una pendenza aperta dal 2026-09-17; Blissey confermata alla Serpe Lotta; e i sette esemplari fuori dalle sei squadre generati subito insieme agli altri invece di restare una riserva sulla carta.
+
+Sulla prima risposta l'utente ha aggiunto una condizione che allarga l'ambito invece di restringerlo, ed è la ragione per cui questa parte esiste: coprire anche i giri oltre il decimo, quelli che servono a una serie da record e non al solo simbolo d'oro.
+
+### Il calcolo che è stato rifatto perché il primo non reggeva la prova
+
+I giri della Piramide sono venti e la guida ne copre dieci. Per i dieci successivi non esiste fonte, quindi si calcolano, e il presidio adottato è quello che rende il calcolo utilizzabile: lo strumento calcola anche i dieci noti e confronta con la guida, così chi legge sa quanto fidarsi delle righe che nessuno può verificare.
+
+La prima versione confrontava i soli tipi e ricostruiva la scelta della guida in due giri su dieci, cioè peggio del caso. La causa non era un difetto di implementazione ma una domanda sbagliata: la guida dichiara di scegliere chi abbatte in un colpo, e un colpo efficace ma debole non abbatte mentre una mossa neutra e potente abbatte. Sostituita con un calcolo di danno della terza generazione, con la divisione fisico-speciale per tipo della mossa e non per mossa, che è la regola di quella generazione e il primo errore che commette chi porta qui un calcolatore scritto per un gioco più recente.
+
+La seconda versione ha portato la concordanza a quattro su dieci, ancora sotto soglia. A quel punto è emerso che il confronto era ingiusto e non il calcolo: la guida non nomina un esemplare per giro ma due, cioè chi conduce e chi lo sostituisce, in sei giri su dieci, e contare come divergenza il caso in cui il calcolo indica il secondo dei due significava punire una risposta che la guida dà essa stessa. Corretto il confronto, la concordanza è di sette su dieci sull'esemplare impiegato e resta di quattro su dieci sul conduttore esatto. Entrambi i numeri restano nell'uscita, perché misurano cose diverse e il più severo è il più onesto: il primo basta a sapere su chi appoggiarsi in un giro, il secondo dice che l'ordine fra i due membri impiegati resta materia di campo.
+
+### I numeri finali, e il presidio che ha trovato il secondo difetto
+
+Quindici esemplari distinti, otto in squadra e sette di riserva, trenta slot con la doppia copia, cioè esattamente la capienza di un box. Lo strumento di verifica ha imparato a distinguere una riserva dichiarata da un esemplare orfano, perché la prima è una scelta e il secondo è un errore, e stampa il conto a ogni corsa proprio perché aggiungere un solo esemplare al catalogo sconfina nel secondo box e non deve avvenire in silenzio.
+
+Resta un solo avviso aperto sul catalogo, ed è corretto che resti: Heracross richiede un livello reale di almeno cinquantatre perché conosca Megahorn, che in Smeraldo è mossa di livello e non macchina, mentre il Parco ricalcola comunque le statistiche a cinquanta.
+
 ## 2026-09-21, trentasettesima parte. Le fonti tracciate nel progetto, e le squadre composte
 
 ### Il buco che l'utente ha visto, e che era reale
