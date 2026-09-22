@@ -22,6 +22,36 @@ Corretto e rigenerato. La provenienza introdotta nel giro precedente ha invece r
 
 Una correzione per volta e poi una verifica, invece di accumulare modifiche fra due referti. La ragione l'ha data l'utente stesso chiedendo di procedere in ordine: se si aggiungono dieci specie mentre un difetto di fondo e' ancora aperto, quel difetto si moltiplica per dieci e il referto successivo diventa illeggibile. L'ampliamento del catalogo resta quindi in attesa del referto che confermi la lingua.
 
+## 2026-09-22, quarantaduesima parte. Il terzo referto, tre cause trovate nel dump e due da chiedere
+
+### Il risultato, e perche' la sua distribuzione dice piu' del conteggio
+
+Sei righe conformi su sessantasei, e le sei sono le due copie di ciascuno dei tre Regi, cioe' i soli incontri statici nativi di Smeraldo. La correzione della lingua del giro precedente ha quindi funzionato, perche' prima non passava nulla e ora passa una famiglia intera; e le famiglie restanti falliscono per cause proprie, non per un difetto comune. La verifica di questa seconda affermazione non e' un'impressione: nessun campo del formato separa i tre Regi dalle uova, dall'evento dell'Isola Remota, dalle statiche di Rosso Fuoco e dai vaganti, perche' il gioco di origine, il livello di incontro, il luogo e il contrassegno di evento li dividono in modi diversi fra loro. Se una sola causa comune ci fosse, un campo comune dovrebbe esserci.
+
+### Tre cause lette dentro il dump, senza alcun referto
+
+Il dump porta ottantatre colonne, e chi lo guarda per la sola colonna della conformita' ne butta via ottantadue. Due esemplari non sono nemmeno classificati, cioe' il loro tipo di incontro e' dichiarato non valido invece di uovo o statico, e sono Milotic e Tyranitar: il sorgente spiega entrambi in una riga. Il file delle evoluzioni dichiara per Feebas una evoluzione EVO_BEAUTY con soglia 170, e il dump mostra bellezza zero, quindi quel Milotic descrive una evoluzione che non puo' essere avvenuta; e dichiara per Pupitar una evoluzione a livello 55, mentre il Tyranitar del lotto e' di livello 50, quindi non e' un esemplare difficile da giustificare ma un esemplare che non puo' esistere.
+
+La seconda ha una conseguenza che eccede l'esemplare e cambia la lettura di una fonte: le nove squadre dei thread che portano Tyranitar sono squadre della divisione a livello aperto e non del livello 50. Leggerle come squadre da livello 50 significa importare esemplari che a quel tetto non sono giocabili, ed e' un errore che il controllo sulle mosse non avrebbe mai preso perche' non riguarda le mosse. Larvitar resta comunque ottenibile in terza generazione, selvatico al Sevault Canyon della Settima Isola in Rosso Fuoco fra il livello 15 e il 20, verificato nei dati degli incontri selvatici: il problema e' aritmetico, non di provenienza.
+
+La terza e' un difetto della pipeline. Il Metagross del Palazzo porta due mosse per scelta, perche' un insieme di sole mosse d'attacco alza la frequenza con cui l'intelligenza artificiale attacca; il generatore pero' scriveva il campo dei bonus dei punti potenza al valore pieno, cioe' dichiarava un PP Max anche sulle due mosse assenti, che e' una combinazione che il gioco non produce. Corretto calcolando il campo dal numero di mosse effettive.
+
+### Le due famiglie che restano, e perche' non si indovinano
+
+Le uova, che il verificatore riconosce come tali e respinge, e le statiche di livello 50, cioe' l'evento dell'Isola Remota e i quattro esemplari di Rosso Fuoco. Il dump porta il verdetto e non la motivazione, e nessuna delle ottantatre colonne la contiene; il referto per singolo esemplare la contiene. La regola che si applica e' quella gia' scritta per le fonti: quando un oracolo esterno da' un verdetto senza una ragione, la ragione si chiede nella forma in cui l'oracolo la espone, invece di essere ricostruita per ipotesi.
+
+### I set, e un equivoco che era di lettura e non di generazione
+
+Il proprietario ha chiesto dove fossero gli insiemi competitivi che aveva consegnato, portando a esempio Starmie, Gengar e Salamence. Due dei tre erano gia' esatti nel lotto: Starmie porta Psichico, Fulmine, Geloraggio e Surf, e Salamence porta Frana, Terremoto, Aeroassalto e Breccia, che sono esattamente Psychic, Thunderbolt, Ice Beam, Surf e Rock Slide, Earthquake, Aerial Ace, Brick Break. L'equivoco era di lettura, perche' il dump e il gioco mostrano i nomi italiani e il catalogo li dichiara in inglese, e Frana non somiglia a Rock Slide in nessun modo.
+
+Da qui e' nato `tools/parco_lotta_glossario_mosse.py`, che non traduce: accoppia le due liste di mosse dello stesso esemplare nella stessa posizione e ricava quarantacinque corrispondenze piu' quelle delle nature. L'accoppiamento e' passato per due versioni sbagliate prima di essere giusto, e vale registrarle perche' sono lo stesso errore in due forme: accoppiare su specie e natura non funziona perche' la natura nel dump e' gia' tradotta, cioe' e' il dato da misurare e non una chiave; e accoppiare su specie e punti base non funziona perche' i due Latios li hanno identici. La chiave giusta e' l'ordine, che il generatore fissa scrivendo in ordine di chiave, verificato a ogni passo sulla specie. Un terzo presidio e' emerso subito dopo: il glossario va calcolato sul catalogo dello stesso giro del dump, e non su quello corrente, altrimenti una mossa cambiata nel frattempo entra con il nome di quella che ha sostituito.
+
+Il solo scostamento vero fra gli insiemi chiesti e quelli generati e' Gengar, ed e' di una mossa: l'insieme chiede Geloraggio, che Gengar in terza generazione non impara, verificato due volte, sulla tabella dei tecnici del sorgente e sulla tabella delle mosse imparabili del progetto. Al suo posto va Gelopugno, che l'insegnamosse concede. Le altre tre, cioe' Fulmine, Pugnofuoco e Destinobbligato, sono state riportate esatte: il lotto precedente aveva Psichico al posto di Pugnofuoco, ed e' stato corretto.
+
+### La cartella dei report di milestone, e la proposta di rimuoverla
+
+Il proprietario ha chiesto se `reports/` si possa cancellare o inglobare. L'esame dice che si puo', e la ragione e' che il suo unico contenuto e' stato assorbito: il report di milestone uno tratta i formati e il lato Game Boy, e quella materia oggi sta nel capitolo sul cavo link e nell'appendice sui codici della tesi, con una trattazione piu' estesa. La cartella tiene quattro file tracciati, cioe' il report, il preambolo, la configurazione di compilazione e il README, piu' una dozzina di derivati non tracciati. Il preambolo e' l'unica dipendenza dichiarata altrove, perche' `tesi/preambolo.tex` dice di derivarne, ma quella derivazione e' gia' avvenuta ed e' storica, non viva. La proposta e' quindi la rimozione piena con una riga nel registro delle decisioni che dica dove il contenuto e' finito, invece di un reindirizzamento che lascerebbe una cartella vuota con un rimando.
+
 ## 2026-09-22, quarantunesima parte. Il primo referto di PKHeX, e i tre difetti che ha trovato
 
 ### Il ciclo che si e' chiuso per la prima volta

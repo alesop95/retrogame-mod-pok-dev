@@ -217,6 +217,13 @@ def componi(esemplare, chiave, specie_dati, dati, allenatore, tabella, esito, st
         # dei bonus porta due bit per mossa, quindi tre per tutte e quattro.
         pp.append(min(99, voce["pp"] + (voce["pp"] * 3) // 5))
 
+    # Il campo dei bonus porta due bit per slot e va acceso SOLTANTO sugli slot occupati: un PP Max
+    # applicato a una mossa che non c'e' e' una combinazione che il gioco non puo' produrre, ed e'
+    # il difetto che rendeva irregolare il Metagross del Palazzo, che porta due mosse per scelta.
+    bonus_pp = 0
+    for i in range(len(mosse)):
+        bonus_pp |= 3 << (2 * i)
+
     punti_base = {"hp": 0, "atk": 0, "def": 0, "spa": 0, "spd": 0, "spe": 0}
     etichette = {"hp": "hp", "atk": "atk", "def": "def", "spa": "spa", "spd": "spd", "spe": "spe"}
     for pezzo in esemplare["punti_base"].split("/"):
@@ -225,6 +232,13 @@ def componi(esemplare, chiave, specie_dati, dati, allenatore, tabella, esito, st
             chiave_ev = etichette.get(parti[1].lower())
             if chiave_ev:
                 punti_base[chiave_ev] = int(parti[0])
+
+    # Le cinque statistiche da gara non sono decorazione: l'evoluzione di Feebas in Milotic e'
+    # EVO_BEAUTY con soglia 170 in src/data/pokemon/evolution.h, quindi un Milotic con bellezza zero
+    # descrive una evoluzione che non puo' essere avvenuta. Il catalogo le dichiara dove servono.
+    condizione = {n: 0 for n in ("cool", "beauty", "cute", "smart", "tough")}
+    for nome, valore in esemplare.get("condizione", {}).items():
+        condizione[nome] = valore
 
     nome_visibile = specie.upper()
     soprannome = tabella.encode(nome_visibile, length=gen3.NICKNAME_LENGTH)
@@ -241,12 +255,12 @@ def componi(esemplare, chiave, specie_dati, dati, allenatore, tabella, esito, st
         markings=0,
         growth=gen3.Growth(species=info["id"], held_item=strumento,
                            experience=dati["esperienza"][gruppo][livello],
-                           pp_bonuses=0xFF, friendship=AMICIZIA.get(info["amicizia"], 70)),
+                           pp_bonuses=bonus_pp, friendship=AMICIZIA.get(info["amicizia"], 70)),
         attacks=gen3.Attacks(moves=(mosse + [0, 0, 0, 0])[:4], pp=(pp + [0, 0, 0, 0])[:4]),
         evs=gen3.EvsCondition(evs={
             "hp": punti_base["hp"], "atk": punti_base["atk"], "def": punti_base["def"],
             "spd": punti_base["spe"], "satk": punti_base["spa"], "sdef": punti_base["spd"],
-        }),
+        }, contest=condizione, sheen=esemplare.get("lucentezza", 0)),
         misc=gen3.Misc(
             pokerus=0,
             met_location=origine.get("luogo", 32),
@@ -343,8 +357,9 @@ def main():
     usate = set()
     for chiave, esemplare in sorted(catalogo["esemplari"].items()):
         origine = esemplare.get("origine", {})
-        if origine.get("genera") is False:
-            print("SALTATO %-19s %s" % (chiave, origine.get("nota", "provenienza non modellata")[:90]))
+        if origine.get("genera") is False or esemplare.get("genera") is False:
+            motivo = esemplare.get("nota_esclusione") or origine.get("nota", "provenienza non modellata")
+            print("SALTATO %-19s %s" % (chiave, motivo[:90]))
             continue
         info = dati["specie"][esemplare["specie"]]
         candidati = cerca_seme(info, esemplare, allenatore,
