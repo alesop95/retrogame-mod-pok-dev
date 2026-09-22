@@ -12,7 +12,7 @@ Che cosa è stato controllato: le dieci specie escluse da ogni struttura, l'unic
 
 ## Quanti esemplari servono, e quanto spazio
 
-Esemplari distinti da generare: **15**, cioè 8 impiegati dalle squadre più 7 di riserva, che per decisione dell'utente si generano subito insieme agli altri invece di restare sulla carta. Copie per esemplare: 2, perché una delle due è destinata a uno scambio già concordato. Slot dei box necessari: **30**, cioè 1 box da 30 su quattordici disponibili.
+Esemplari distinti da generare: **33**, cioè 8 impiegati dalle squadre più 25 di riserva, che per decisione dell'utente si generano subito insieme agli altri invece di restare sulla carta. Copie per esemplare: 2, perché una delle due è destinata a uno scambio già concordato. Slot dei box necessari: **66**, cioè 3 box da 30 su quattordici disponibili.
 
 | Esemplare | Specie | Natura | Edifici in cui entra |
 |---|---|---|---|
@@ -27,13 +27,31 @@ Esemplari distinti da generare: **15**, cioè 8 impiegati dalle squadre più 7 d
 
 | Esemplare | Specie | Natura | Ruolo |
 |---|---|---|---|
+| aerodactyl-adamant | Aerodactyl | Adamant | riserva, si genera ma non entra in alcuna squadra iniziale |
+| articuno-calm | Articuno | Calm | riserva, si genera ma non entra in alcuna squadra iniziale |
+| dusclops-bold | Dusclops | Bold | riserva, si genera ma non entra in alcuna squadra iniziale |
+| flygon-jolly | Flygon | Jolly | riserva, si genera ma non entra in alcuna squadra iniziale |
 | gengar-timid | Gengar | Timid | riserva, si genera ma non entra in alcuna squadra iniziale |
+| gyarados-adamant | Gyarados | Adamant | riserva, si genera ma non entra in alcuna squadra iniziale |
 | heracross-jolly | Heracross | Jolly | riserva, si genera ma non entra in alcuna squadra iniziale |
+| latias-calm | Latias | Calm | riserva, si genera ma non entra in alcuna squadra iniziale |
+| magneton-modest | Magneton | Modest | riserva, si genera ma non entra in alcuna squadra iniziale |
+| marowak-jolly | Marowak | Jolly | riserva, si genera ma non entra in alcuna squadra iniziale |
 | milotic-bold | Milotic | Bold | riserva, si genera ma non entra in alcuna squadra iniziale |
+| moltres-timid | Moltres | Timid | riserva, si genera ma non entra in alcuna squadra iniziale |
+| raikou-timid | Raikou | Timid | riserva, si genera ma non entra in alcuna squadra iniziale |
+| regice-modest | Regice | Modest | riserva, si genera ma non entra in alcuna squadra iniziale |
+| regirock-adamant | Regirock | Adamant | riserva, si genera ma non entra in alcuna squadra iniziale |
+| registeel-careful | Registeel | Careful | riserva, si genera ma non entra in alcuna squadra iniziale |
 | salamence-adamant | Salamence | Adamant | riserva, si genera ma non entra in alcuna squadra iniziale |
+| scizor-adamant | Scizor | Adamant | riserva, si genera ma non entra in alcuna squadra iniziale |
 | snorlax-careful | Snorlax | Careful | riserva, si genera ma non entra in alcuna squadra iniziale |
 | starmie-timid | Starmie | Timid | riserva, si genera ma non entra in alcuna squadra iniziale |
+| steelix-adamant | Steelix | Adamant | riserva, si genera ma non entra in alcuna squadra iniziale |
 | suicune-bold | Suicune | Bold | riserva, si genera ma non entra in alcuna squadra iniziale |
+| tauros-jolly | Tauros | Jolly | riserva, si genera ma non entra in alcuna squadra iniziale |
+| tyranitar-jolly | Tyranitar | Jolly | riserva, si genera ma non entra in alcuna squadra iniziale |
+| zapdos-modest | Zapdos | Modest | riserva, si genera ma non entra in alcuna squadra iniziale |
 
 Le riserve esistono per una ragione operativa e non per completezza: quando una squadra si rompe sul campo, la correzione è la sostituzione di un esemplare, e averla già nella cartuccia significa riprovare la sera stessa invece di aprire una corsa di generazione. Il loro insieme di mosse resta però provvisorio, perché è stato deciso senza sapere contro che cosa serviranno.
 
