@@ -27,6 +27,7 @@ Uso
 """
 
 import argparse
+import re
 import json
 import sys
 from pathlib import Path
@@ -64,6 +65,43 @@ TETTO_LIVELLO_MODALITA_50 = 50
 MOSSE_PENALIZZATE_AL_DOJO = {"Protect", "Detect", "Endure", "Fake Out"}
 
 CAPIENZA_BOX = 30
+
+# I sorgenti di questo progetto restano in ASCII puro e scrivono le vocali accentate con
+# l'apostrofo, mentre i documenti Markdown versionati vogliono la lettera accentata: e' la
+# convenzione tipografica del progetto, e `tools/fix-accents.py` la verifica. La conversione
+# avviene percio' al momento della scrittura e non nelle stringhe, cosi' il sorgente resta
+# leggibile su qualunque terminale e l'uscita resta conforme senza che nessuno debba ricordarsene.
+#
+# La conversione e' per regola e non per elenco, ed e' una correzione a una prima stesura che usava
+# un dizionario di trentaquattro voci: quel dizionario andava esteso ogni volta che una parola nuova
+# entrava in una stringa, e ogni estensione si scopriva solo facendo fallire il controllo. La regola
+# copre invece l'intera classe, cioe' una vocale finale seguita da apostrofo.
+#
+# Due cautele la rendono sicura su un testo che contiene anche nomi inglesi. La prima e' che si
+# converte solo quando la lettera prima dell'apostrofo e' una vocale, il che lascia intatti i nomi
+# di strumento come King's Rock. La seconda e' che non si converte se dopo l'apostrofo segue una
+# esse, il che lascia intatto un possessivo inglese come Greta's. Restano poi i composti in che,
+# dove l'accento italiano e' acuto e non grave, cioe' perche' e poiche' e non perche con accento
+# grave: sono l'unica eccezione e si trattano per primi.
+ACCENTO_GRAVE = {"a": "\u00e0", "e": "\u00e8", "i": "\u00ec", "o": "\u00f2", "u": "\u00f9"}
+PAROLA_CON_APOSTROFO = re.compile(r"\b([A-Za-z]*)([aeiou])'(?!s)")
+
+
+def accenta(testo):
+    """Converte le vocali finali scritte con l'apostrofo nella lettera accentata corrispondente."""
+    def sostituisci(m):
+        radice, vocale = m.group(1), m.group(2)
+        # L'accento acuto spetta ai composti di che, ne e se, cioe' perche', poiche', benche',
+        # ne' e se'. Si guarda la RADICE e non la parola intera, perche' la vocale finale e' gia'
+        # stata separata dal gruppo precedente: una prima stesura guardava la parola e mancava
+        # tutti e cinque i casi senza dirlo, producendo perche con l'accento grave.
+        radice_bassa = radice.lower()
+        if vocale == "e" and (radice_bassa.endswith("ch") or radice_bassa in ("n", "s")):
+            return radice + "\u00e9"
+        return radice + ACCENTO_GRAVE[vocale]
+    return PAROLA_CON_APOSTROFO.sub(sostituisci, testo)
+
+
 
 
 def valida(catalogo, imparabili=None):
@@ -261,7 +299,7 @@ def scrivi(percorso, catalogo, problemi, avvisi, piano, mosse_controllate):
                 provenienza = "guida" if g.get("fonte", "").startswith("guida") else "calcolato, da verificare sul campo"
                 r.append("| %d | %s | %s | %s | %s |" % (g["giro"], g["tema"], g["primo"], g["cambio"] or "nessuno", provenienza))
             r.append("")
-    Path(percorso).write_text("\n".join(r) + "\n", encoding="utf-8")
+    Path(percorso).write_text(accenta("\n".join(r)) + "\n", encoding="utf-8")
 
 
 def main():

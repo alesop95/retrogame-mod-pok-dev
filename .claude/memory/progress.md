@@ -4,6 +4,36 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-22, quarantesima parte. La prima fase di ADR-067: i quindici esemplari generati e verificati
+
+### Il problema vero, che non era comporre i campi
+
+La pipeline sintetica esiste ed e' `gba-save-extraction-smeraldo/tools/genera_squadre_parco_lotta.py`. Non tocca alcun salvataggio: legge il catalogo e i dati di riferimento e scrive trenta file sotto `_notes/lotto-parco-lotta/`. La seconda fase, cioe' la scrittura nei box della cartuccia vera, resta separata e non e' avvenuta.
+
+La difficolta' non era riempire i campi ma renderli coerenti fra loro. In terza generazione il valore di personalita' e i sei valori individuali non sono indipendenti: nascono da quattro estrazioni consecutive dello stesso generatore congruenziale a partire da un seme. Scegliere la personalita' per la natura voluta e poi scrivere valori individuali a piacere produce un esemplare i cui campi sono tutti plausibili uno per uno e la cui relazione reciproca non esiste in natura, ed e' esattamente cio' che un verificatore cerca. ADR-070, chiedendo l'ottenibilita' in terza generazione, chiede quindi molto piu' di quanto sembri.
+
+### La ricerca rovesciata, e il fallimento che l'ha imposta
+
+Poiche' il seme decide sia la personalita' sia i valori individuali, il problema e' trovare un seme che produca insieme natura, abilita', sesso e valori alti. In avanti su quattro miliardi non e' praticabile, quindi si inverte: i due valori a quindici bit sono la terza e la quarta estrazione, quindi fissare i primi tre valori individuali fissa i sedici bit alti di uno stato, dei sedici bassi si provano tutti e sessantaseimila, e da ogni candidato si risale di tre passi all'indietro perche' il moltiplicatore e' dispari e quindi invertibile modulo due alla trentaduesima.
+
+La prima stesura fissava una distribuzione completa per volta e falliva su nove esemplari su quindici. Il difetto non era nella teoria ma nell'ampiezza della ricerca, e si presentava come una impossibilita' invece che come un errore: e' il genere di cosa che porta a concludere che il metodo non funzioni. Fissando la sola prima terna e lasciando che un solo passaggio copra tutte le seconde terne, il costo scende di tre ordini di grandezza e tutti e quindici passano.
+
+Esito: quindici su quindici con un seme reale, valori individuali a trentuno o trenta sulle statistiche che contano e a zero o uno sull'attacco dove il catalogo lo vuole basso. Lo scarto di un punto e' dichiarato nel manifesto esemplare per esemplare, perche' un trenta invece di un trentuno e' accettabile mentre una provenienza inesistente non lo e'.
+
+### Il presidio, che e' la rilettura
+
+Il programma riapre i trenta file, decifra, ricompone le sottostrutture e confronta con il catalogo: specie, natura, esperienza corrispondente al livello cinquanta esatto, valori individuali, mosse, abilita', somma dei punti base sotto il tetto. E verifica la simmetria, cioe' che ricifrare cio' che si e' decifrato restituisca gli stessi byte: se non li restituisse, una delle trasformazioni non sarebbe invertibile come si crede e l'esemplare che il gioco leggera' non sarebbe quello composto. Quindici su quindici conformi e simmetrici.
+
+### I dati di riferimento, e una duplicazione dichiarata
+
+Il generatore di eventi che il progetto ha gia' porta con se' esperienza, abilita' e punti potenza, ma li legge da due cloni esterni che su questa macchina non ci sono, come `pending.md` registra dal 2026-09-16. Si e' quindi estratto il necessario dal sorgente del gioco in `gba-save-extraction-smeraldo/dati-gen3.json`, con `estrai_dati_gen3.py`: 385 specie, 355 mosse, 377 oggetti e le sei tabelle dell'esperienza calcolate con le formule invece che copiate. La duplicazione va dichiarata invece di essere taciuta: gli stessi dati stanno ora in due posti, e il confronto e' un lavoro di minuti da fare quando i cloni torneranno.
+
+Un difetto dell'estrattore vale la riga perche' e' silenzioso: gli oggetti nel sorgente sono un enum e non delle direttive, quindi non portano i numeri e il valore di ciascuna voce e' la sua posizione. Cercarvi delle direttive, come si fa per specie e mosse, restituisce zero voci senza alcun errore. Corretto contando le posizioni, con un ancoraggio che verifica che la Poke Ball valga quattro: se quel valore cambiasse, tutto il resto sarebbe spostato e nessun campo lo direbbe.
+
+### Un difetto di forma, trovato e chiuso alla radice
+
+I documenti Markdown versionati vogliono la lettera accentata mentre i sorgenti restano in ASCII puro con l'apostrofo, quindi i due strumenti che generano Markdown convertono al momento della scrittura. La prima versione usava un dizionario di trentaquattro voci e andava estesa a ogni parola nuova, scoprendolo solo facendo fallire il controllo; e' stata sostituita da una regola sulla classe, cioe' vocale finale piu' apostrofo, con due cautele che la rendono sicura su un testo che contiene nomi inglesi: si converte solo dopo una vocale, il che lascia intatto King's Rock, e non si converte se segue una esse, il che lascia intatto un possessivo. I composti di che, ne e se prendono l'accento acuto e sono l'unica eccezione.
+
 ## 2026-09-22, trentanovesima parte. Il tetto di livello capito al contrario, le mosse verificate, e il deposito misurato
 
 ### La domanda dell'utente, che ha rovesciato un'affermazione di settembre
