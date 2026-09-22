@@ -4,6 +4,14 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-22, quarantatreesima parte. La cartella dei report rimossa, e una cartella di uscita annidata per errore
+
+La cartella `reports/` e' stata rimossa dall'utente dopo l'esame che ne aveva accertato l'assorbimento: il suo unico report, quello sui formati e sul lato Game Boy, ha oggi la propria materia nel capitolo sul cavo link e nell'appendice sui codici della tesi, piu' estesa di com'era la'. E' ADR-071. Le tre tracce che il resto del repository ne portava sono state tolte nello stesso giro, cioe' la riga dell'indice dei satelliti nel `CLAUDE.md` e il rimando in testa a `tesi/preambolo.tex`, che dichiarava di derivare da un file ora inesistente; il vincolo tecnico che quel commento spiegava, cioe' la TinyTeX minimale di questa macchina, resta scritto dov'era.
+
+Nello stesso giro e' emerso un difetto di mia esecuzione che vale registrare perche' la sua forma e' istruttiva. Avevo lanciato il generatore del lotto passando come cartella di uscita quella degli esemplari invece di quella del lotto, e il programma, che crea lui la sottocartella, ne ha prodotta una seconda dentro la prima: due cartelle omonime annidate, la vecchia con i file del terzo giro e la nuova con quelli del quarto. Il proprietario se n'e' accorto non potendo piu' dire quale caricare nel verificatore, ed e' esattamente il difetto peggiore di questa classe, perche' non produce alcun errore e il lotto sbagliato si carica benissimo.
+
+La correzione non e' stata cancellare a mano ma chiudere il difetto nel programma, in due presidi. Il primo rifiuta un percorso di uscita il cui ultimo elemento sia gia' la cartella degli esemplari, dicendo quale passare. Il secondo rifiuta di scrivere in una cartella che contiene gia' i file di un lotto precedente, a meno che non si chieda esplicitamente di sostituirli, e la ragione e' piu' seria dell'ordine: scrivendo sopra, i file di un esemplare uscito dal catalogo nel frattempo restano dov'erano, e il lotto caricato diventa la somma di due giri diversi. E' proprio il caso che si stava per verificare, perche' Tyranitar e' uscito dal catalogo in questo giro e le sue due copie del terzo giro sarebbero rimaste nel mucchio. La cartella ora contiene sessantaquattro file e nient'altro.
+
 ## 2026-09-22, quarantaduesima parte. Il secondo referto, e la differenza fra pulito e legale
 
 ### La distinzione che il referto non dichiara e che cambia tutto
