@@ -4,6 +4,40 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-22, quarantunesima parte. Il primo referto di PKHeX, e i tre difetti che ha trovato
+
+### Il ciclo che si e' chiuso per la prima volta
+
+L'utente ha caricato in PKHeX i trenta file del lotto e ha eseguito la verifica su tutti, salvando il referto e il dump del box. E' la prima volta che questo progetto fa giudicare a un programma indipendente cio' che ha generato, e il valore sta proprio in quello: la generazione garantiva la coerenza interna e la simmetria, cioe' che il gioco leggesse cio' che si era scritto, e non poteva dire nulla su cio' che un verificatore pensa della provenienza. Tre difetti sono emersi, e nessuno dei tre era visibile dall'interno.
+
+### Primo difetto: valori di personalita' condivisi fra esemplari diversi
+
+Il referto segnala una condivisione del valore di personalita' fra tipi di incontro diversi, e il dump lo mostra per intero: `20690B46` compariva su Metagross, Salamence e Slaking, `77DC683E` su Gengar e Latios, `FCB10ED9` su Milotic e Suicune. La causa e' che la ricerca del seme era deterministica e si fermava al primo candidato: due esemplari con la stessa natura e lo stesso profilo di valori individuali ricevevano percio' lo stesso seme, e quindi la stessa personalita'. Tre Pokemon distinti con la medesima personalita' non esistono.
+
+Corretto facendo restituire alla ricerca tutti i candidati ordinati per punteggio invece del solo migliore, e facendo scegliere a chi chiama il primo non ancora usato. E' un difetto che nessuna verifica interna avrebbe potuto trovare, perche' ogni esemplare preso da solo era ineccepibile.
+
+### Secondo difetto: le due copie erano cloni
+
+Ogni pagina del referto si apre con "Clone rilevato", quindici volte, una per coppia. Le due copie di ciascun esemplare erano lo stesso file duplicato, quindi con la stessa personalita': dal punto di vista del gioco sono due cloni, ed e' esattamente cio' che il glitch di clonazione produce, cioe' la cosa da cui questo progetto si e' tenuto lontano fin da `STUDIO-02`. Poiche' una delle due copie e' destinata a uno scambio con una terza persona, due esemplari identici sarebbero stati riconoscibili come tali da chiunque. Corretto assegnando a ciascuna copia un candidato diverso: ventotto copie, ventotto valori di personalita' distinti.
+
+### Terzo difetto: la provenienza diceva evento invece che allevamento
+
+Tutti e trenta portavano luogo di incontro 255, che avevo scelto come valore neutro. Non e' neutro: `region_map_sections.constants.json.txt` dichiara `METLOC_FATEFUL_ENCOUNTER` pari a 0xFF, cioe' proprio 255, ed e' la provenienza dei doni ufficiali. PKHeX lo mostrava infatti come occasione speciale, e su un esemplare allevato e' falso. Il referto per esemplare aggiungeva il seguito, cioe' che un uovo non puo' schiudersi in quel luogo.
+
+Corretto dichiarando la provenienza esemplare per esemplare nel catalogo, con i valori presi dal sorgente. Dodici sono uova schiuse, con livello di incontro zero e luogo il Percorso 117, dove sta la Pensione, che e' il valore 32 nella tabella delle sezioni di mappa. I due Latios non sono allevabili e prendono l'evento dell'Isola Remota, valore 73, a livello cinquanta esatto e con il contrassegno di incontro fatidico, che e' anche la provenienza coerente con questa cartuccia dopo il lavoro di `STUDIO-03`.
+
+Suicune non e' stato generato, e la ragione e' dichiarata nel catalogo invece di essere aggirata: non esiste in Smeraldo per alcuna via interna, la sola provenienza ammessa sotto ADR-070 e' uno scambio da Colosseum o da XD, e i dati di quella provenienza non sono su disco. Generarlo con una provenienza inventata sarebbe peggio che non averlo. Il lotto e' quindi di quattordici esemplari e ventotto file.
+
+### Una lezione di metodo sui nomi, e un mio errore
+
+Dal referto e' nata una discussione sul nome italiano di una mossa. PKHeX mostrava Contrattacco, il documento del progetto diceva Contatore, e io ho corretto il documento sulla scorta di PKHeX. Era sbagliato: `wiki.pokemoncentral.it` dichiara testualmente che il nome italiano fu tradotto erroneamente come Contatore e che la correzione in Contrattacco arrivo' soltanto nei giochi di sesta generazione o successive. In Smeraldo il nome sullo schermo e' Contatore, e il documento era gia' giusto.
+
+La regola generale che ne discende e' registrata in `pending.md` perche' tornera' utile: PKHeX mostra i nomi nella localizzazione corrente e non in quella della generazione, quindi non e' una fonte sui nomi d'epoca. La fonte resta la wiki italiana, che documenta i cambi di nome nella sezione delle curiosita' di ciascuna mossa. E' lo stesso errore dei nomi degli edifici, commesso una seconda volta e in direzione opposta, cioe' correggendo una cosa giusta.
+
+### Che cosa il referto NON ha segnalato, e vale quanto il resto
+
+Fuori dai tre difetti sopra, nessun esemplare e' stato contestato su natura, valori individuali, mosse, abilita', livello, punti base o relazione fra personalita' e valori individuali. Il dump dichiara per ciascuno il tipo di generazione riconosciuto, cioe' Method_1, che e' quello che la pipeline costruisce apposta. La parte difficile, cioe' la coerenza fra personalita' e valori individuali, ha retto al primo colpo.
+
 ## 2026-09-22, quarantesima parte. La prima fase di ADR-067: i quindici esemplari generati e verificati
 
 ### Il problema vero, che non era comporre i campi
