@@ -208,7 +208,12 @@
         "fatidico": false,
         "nota": "un uovo schiuso porta livello di incontro zero e come luogo la mappa in cui e' schiuso, che il gioco prende da GetCurrentRegionMapSectionId in src/egg_hatch.c. Il Percorso 117 e' la scelta naturale perche' e' dove sta la Pensione, ma qualunque mappa percorribile andrebbe.",
         "catena": "Feebas allevato e fatto evolvere per bellezza"
-      }
+      },
+      "condizione": {
+        "beauty": 200
+      },
+      "lucentezza": 255,
+      "nota_condizione": "Feebas evolve in Milotic per EVO_BEAUTY con soglia 170, verificato in src/data/pokemon/evolution.h del sorgente di Smeraldo: un Milotic con bellezza zero dichiara una evoluzione impossibile, ed e' la ragione per cui il terzo giro lo riportava come incontro non riconosciuto. La bellezza si porta a 200 e la lucentezza al massimo, che e' lo stato di un Feebas nutrito con i Pokeblocchi fino alla soglia."
     },
     "starmie-timid": {
       "specie": "Starmie",
@@ -244,11 +249,11 @@
       "mosse": [
         "Thunderbolt",
         "Ice Punch",
-        "Psychic",
+        "Fire Punch",
         "Destiny Bond"
       ],
       "riserva": true,
-      "fonte": "materiale dell'utente in pending.md, CORRETTO il 2026-09-22 dal controllo sulle mosse imparabili: l'insieme di partenza portava Ice Beam e Fire Punch, ma Gengar in terza generazione non impara Ice Beam per alcuna via, mentre impara Ice Punch dall'insegnamosse. Sostituita Ice Beam con Ice Punch e tolto Fire Punch per fare posto a Psychic, che e' macchina e colpisce piu' a fondo. Compare nella serie da 281 alla Torre Lotta di potatobagel",
+      "fonte": "insieme dell'utente, allineato il 2026-09-22 con una sola sostituzione dichiarata. L'insieme chiesto e' Fulmine, Geloraggio, Pugnofuoco e Destinobbligato: le altre tre sono esatte, mentre Geloraggio non e' fra le mosse che Gengar puo' imparare in terza generazione, verificato due volte, sulla tabella dei tecnici in src/data/pokemon/tmhm_learnsets.h e sulla tabella delle mosse imparabili del progetto. La sostituzione e' Gelopugno, che l'insegnamosse di Smeraldo concede e che copre lo stesso bersaglio con la stessa categoria fisica del Pugnofuoco.",
       "origine": {
         "tipo": "uovo schiuso",
         "luogo": 32,
@@ -596,7 +601,9 @@
         "catena": "Larvitar allevato"
       },
       "fonte": "nove occorrenze nei thread; presente nella serie da 461 alla Torre Lotta",
-      "riserva": true
+      "riserva": true,
+      "genera": false,
+      "nota_esclusione": "ESCLUSO dal lotto del livello 50, e la ragione e' aritmetica e non di gusto: Pupitar evolve in Tyranitar a livello 55, verificato in src/data/pokemon/evolution.h, quindi un Tyranitar di livello 50 non puo' esistere. E' anche la spiegazione del perche' il terzo giro lo riportava come incontro non riconosciuto. La conseguenza eccede l'esemplare: le squadre dei thread che portano Tyranitar sono squadre della divisione a livello aperto e non del livello 50, e vanno lette come tali. Larvitar e' comunque ottenibile in terza generazione, selvatico al Sevault Canyon della Settima Isola in Rosso Fuoco fra il livello 15 e il 20, quindi l'esemplare resta nel catalogo per il giorno in cui si giochera' a livello aperto."
     },
     "scizor-adamant": {
       "specie": "Scizor",
