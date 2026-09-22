@@ -6,13 +6,13 @@
 
 Problemi bloccanti: 0. Avvisi: 1.
 
-- avviso: heracross-jolly: Megahorn si impara al livello 53, oltre il tetto di 50 che la modalita' cinquanta impone all'ISCRIZIONE: l'esemplare va quindi ottenuto da due genitori che la conoscono entrambi, secondo la regola di BuildEggMoveset, e non alzando il proprio livello
+- avviso: heracross-jolly: Megahorn si impara al livello 53, oltre il tetto di 50 che la modalità cinquanta impone all'ISCRIZIONE: l'esemplare va quindi ottenuto da due genitori che la conoscono entrambi, secondo la regola di BuildEggMoveset, e non alzando il proprio livello
 
-Che cosa e' stato controllato: le dieci specie escluse da ogni struttura, l'unicita' della specie e dello strumento dentro ciascuna squadra, l'assenza di strumenti alla Piramide Lotta, l'assenza di mosse di stato al Palazzo Lotta, il divieto delle mosse che il criterio di giudizio del Dojo Lotta penalizza, e l'esistenza di ogni chiave citata. In piu', per ogni esemplare, che ciascuna mossa sia imparabile dalla propria specie e per quale via, sulla tabella estratta dal sorgente del gioco. Una mossa che richieda un livello oltre il tetto di cinquanta non e' un errore ma una catena di riproduzione da dichiarare, e compare fra gli avvisi.
+Che cosa è stato controllato: le dieci specie escluse da ogni struttura, l'unicità della specie e dello strumento dentro ciascuna squadra, l'assenza di strumenti alla Piramide Lotta, l'assenza di mosse di stato al Palazzo Lotta, il divieto delle mosse che il criterio di giudizio del Dojo Lotta penalizza, e l'esistenza di ogni chiave citata. In più, per ogni esemplare, che ciascuna mossa sia imparabile dalla propria specie e per quale via, sulla tabella estratta dal sorgente del gioco. Una mossa che richieda un livello oltre il tetto di cinquanta non è un errore ma una catena di riproduzione da dichiarare, e compare fra gli avvisi.
 
 ## Quanti esemplari servono, e quanto spazio
 
-Esemplari distinti da generare: **15**, cioe' 8 impiegati dalle squadre piu' 7 di riserva, che per decisione dell'utente si generano subito insieme agli altri invece di restare sulla carta. Copie per esemplare: 2, perche' una delle due e' destinata a uno scambio gia' concordato. Slot dei box necessari: **30**, cioe' 1 box da 30 su quattordici disponibili.
+Esemplari distinti da generare: **15**, cioè 8 impiegati dalle squadre più 7 di riserva, che per decisione dell'utente si generano subito insieme agli altri invece di restare sulla carta. Copie per esemplare: 2, perché una delle due è destinata a uno scambio già concordato. Slot dei box necessari: **30**, cioè 1 box da 30 su quattordici disponibili.
 
 | Esemplare | Specie | Natura | Edifici in cui entra |
 |---|---|---|---|
@@ -35,7 +35,7 @@ Esemplari distinti da generare: **15**, cioe' 8 impiegati dalle squadre piu' 7 d
 | starmie-timid | Starmie | Timid | riserva, si genera ma non entra in alcuna squadra iniziale |
 | suicune-bold | Suicune | Bold | riserva, si genera ma non entra in alcuna squadra iniziale |
 
-Le riserve esistono per una ragione operativa e non per completezza: quando una squadra si rompe sul campo, la correzione e' la sostituzione di un esemplare, e averla gia' nella cartuccia significa riprovare la sera stessa invece di aprire una corsa di generazione. Il loro insieme di mosse resta pero' provvisorio, perche' e' stato deciso senza sapere contro che cosa serviranno.
+Le riserve esistono per una ragione operativa e non per completezza: quando una squadra si rompe sul campo, la correzione è la sostituzione di un esemplare, e averla già nella cartuccia significa riprovare la sera stessa invece di aprire una corsa di generazione. Il loro insieme di mosse resta però provvisorio, perché è stato deciso senza sapere contro che cosa serviranno.
 
 ## Le squadre, edificio per edificio, nell'ordine di attacco
 
@@ -51,13 +51,13 @@ i suoi avversari hanno tre punti individuali su ogni statistica a qualunque punt
 
 ### 2. Azienda Lotta
 
-non si porta alcuna squadra, si combatte con esemplari in prestito; va pero' affrontata prima di costruire una serie lunga alla Torre Lotta, perche' i punti individuali dei suoi avversari dipendono da quella
+non si porta alcuna squadra, si combatte con esemplari in prestito; va però affrontata prima di costruire una serie lunga alla Torre Lotta, perché i punti individuali dei suoi avversari dipendono da quella
 
 Nessuna squadra da iscrivere.
 
 ### 3. Torre Lotta
 
-e' il calendario piu' lungo del Parco insieme a quello della Piramide, e non aggiunge alcuna regola ai vincoli generali
+è il calendario più lungo del Parco insieme a quello della Piramide, e non aggiunge alcuna regola ai vincoli generali
 
 | Esemplare | Strumento | Natura | Mosse |
 |---|---|---|---|
@@ -77,7 +77,7 @@ stessi tre esemplari della Torre: il criterio di giudizio premia le mosse che in
 
 ### 5. Palazzo Lotta
 
-e' la sola squadra con nature diverse, perche' al Palazzo la natura sceglie le mosse; e porta sole mosse d'attacco per la ragione della sezione 12 di STUDIO-04
+è la sola squadra con nature diverse, perché al Palazzo la natura sceglie le mosse; e porta sole mosse d'attacco per la ragione della sezione 12 di STUDIO-04
 
 | Esemplare | Strumento | Natura | Mosse |
 |---|---|---|---|
@@ -87,7 +87,7 @@ e' la sola squadra con nature diverse, perche' al Palazzo la natura sceglie le m
 
 ### 6. Serpe Lotta
 
-Metagross e' di tipo Acciaio e quindi immune all'iperavvelenamento, che e' l'alterazione piu' probabile della stanza di stato con il trentacinque per cento
+Metagross è di tipo Acciaio e quindi immune all'iperavvelenamento, che è l'alterazione più probabile della stanza di stato con il trentacinque per cento
 
 | Esemplare | Strumento | Natura | Mosse |
 |---|---|---|---|
@@ -97,7 +97,7 @@ Metagross e' di tipo Acciaio e quindi immune all'iperavvelenamento, che e' l'alt
 
 ### 7. Piramide Lotta
 
-nessun esemplare entra tenendo uno strumento, perche' il gioco glieli toglie all'ingresso; i dieci giri non richiedono dieci squadre ma dieci ordini di conduzione della stessa, secondo la guida al completamento
+nessun esemplare entra tenendo uno strumento, perché il gioco glieli toglie all'ingresso; i dieci giri non richiedono dieci squadre ma dieci ordini di conduzione della stessa, secondo la guida al completamento
 
 | Esemplare | Strumento | Natura | Mosse |
 |---|---|---|---|
@@ -113,8 +113,8 @@ I primi dieci giri bastano al simbolo d'oro e vengono dalla guida. Gli altri die
 | 2 | mosse che avvelenano | Latios | nessuno | guida |
 | 3 | mosse che scottano | Latios | nessuno | guida |
 | 4 | consumo dei punti potere | Metagross | nessuno | guida |
-| 5 | abilita' Levitazione | Metagross | Latios dal quarto piano | guida |
-| 6 | abilita' che intrappolano | Metagross | Latios dal quarto piano | guida |
+| 5 | abilità Levitazione | Metagross | Latios dal quarto piano | guida |
+| 6 | abilità che intrappolano | Metagross | Latios dal quarto piano | guida |
 | 7 | tipo Ghiaccio | Metagross | Latios dal quinto piano | guida |
 | 8 | Autodistruzione ed Esplosione | Latios | Swampert dal quarto piano | guida |
 | 9 | tipo Psico | Latios | Metagross dal secondo piano | guida |
@@ -127,6 +127,6 @@ I primi dieci giri bastano al simbolo d'oro e vengono dalla guida. Gli altri die
 | 16 | tipo Spettro | Metagross | nessuno | calcolato, da verificare sul campo |
 | 17 | tipo Acciaio | Swampert | nessuno | calcolato, da verificare sul campo |
 | 18 | tipi Volante e Drago | Latios | nessuno | calcolato, da verificare sul campo |
-| 19 | evoluzioni da pietra, con fuoco acqua ed elettricita' | Swampert | nessuno | calcolato, da verificare sul campo |
+| 19 | evoluzioni da pietra, con fuoco acqua ed elettricità | Swampert | nessuno | calcolato, da verificare sul campo |
 | 20 | tipo Normale che conosce Iper Raggio | Metagross | nessuno | calcolato, da verificare sul campo |
 
