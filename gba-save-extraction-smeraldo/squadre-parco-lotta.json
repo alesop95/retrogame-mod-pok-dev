@@ -296,13 +296,18 @@
         "Rest",
         "Substitute"
       ],
-      "riserva": true,
-      "fonte": "materiale dell'utente in pending.md; diciassette occorrenze nelle squadre da Torre Lotta, seconda specie piu' ricorrente dopo Metagross",
       "origine": {
-        "tipo": "DA MODELLARE",
-        "genera": false,
-        "nota": "Suicune non esiste in Smeraldo per alcuna via interna. Sotto ADR-070 la provenienza ammessa e' uno scambio da Colosseum o da XD, dove e' un esemplare Ombra da purificare, ma quella provenienza usa un gioco di origine e dei luoghi che questo progetto non ha ancora portato su disco. L'esemplare resta nel catalogo e NON viene generato finche' quei dati non ci sono: generarlo con una provenienza inventata sarebbe peggio che non averlo."
-      }
+        "tipo": "vagante di Rosso Fuoco",
+        "luogo": 104,
+        "nome_luogo": "Percorso 4",
+        "livello_incontro": 50,
+        "sfera": 4,
+        "fatidico": false,
+        "gioco": 4,
+        "nota": "in Rosso Fuoco e Verde Foglia uno dei tre cani vaga dopo la Lega a seconda dello starter, verificato su GetRoamerSpecies in src/roamer.c: Suicune con Charmander. CreateInitialRoamerMon lo crea a livello 50 esatto, che e' il livello a cui si gioca, e il Percorso 4 e' uno dei luoghi della sua rotta."
+      },
+      "fonte": "gia' nel materiale dell'utente; trentasei occorrenze nei thread, quarta specie piu' usata in assoluto",
+      "riserva": true
     },
     "snorlax-careful": {
       "specie": "Snorlax",
@@ -351,6 +356,441 @@
         "nota": "un uovo schiuso porta livello di incontro zero e come luogo la mappa in cui e' schiuso, che il gioco prende da GetCurrentRegionMapSectionId in src/egg_hatch.c. Il Percorso 117 e' la scelta naturale perche' e' dove sta la Pensione, ma qualunque mappa percorribile andrebbe.",
         "catena": "Heracross allevato da due genitori che conoscono entrambi Megahorn, secondo BuildEggMoveset"
       }
+    },
+    "latias-calm": {
+      "specie": "Latias",
+      "natura": "Calm",
+      "abilita": "Levitate",
+      "punti_base": "252 HP / 60 Def / 12 SpD / 180 Spe",
+      "iv_attacco": 0,
+      "mosse": [
+        "Light Screen",
+        "Reflect",
+        "Toxic",
+        "Psychic"
+      ],
+      "origine": {
+        "tipo": "evento dell'Isola Remota",
+        "luogo": 73,
+        "nome_luogo": "Isola Remota",
+        "livello_incontro": 50,
+        "sfera": 4,
+        "fatidico": true,
+        "gioco": 3
+      },
+      "fonte": "venti occorrenze nei thread; insieme dichiarato piu' volte, di sostegno invece che offensivo",
+      "riserva": true
+    },
+    "registeel-careful": {
+      "specie": "Registeel",
+      "natura": "Careful",
+      "abilita": "Clear Body",
+      "punti_base": "252 HP / 244 Atk / 4 Def",
+      "mosse": [
+        "Metal Claw",
+        "Substitute",
+        "Curse",
+        "Amnesia"
+      ],
+      "origine": {
+        "tipo": "incontro statico di Smeraldo",
+        "luogo": 83,
+        "nome_luogo": "Cava Millenaria",
+        "livello_incontro": 40,
+        "sfera": 4,
+        "fatidico": false,
+        "gioco": 3
+      },
+      "fonte": "dodici occorrenze nei thread e presente nella serie da 343 alla Torre Lotta",
+      "riserva": true
+    },
+    "regice-modest": {
+      "specie": "Regice",
+      "natura": "Modest",
+      "abilita": "Clear Body",
+      "punti_base": "168 HP / 148 Def / 100 SpA / 92 SpD",
+      "iv_attacco": 0,
+      "mosse": [
+        "Ice Beam",
+        "Thunderbolt",
+        "Rest",
+        "Sleep Talk"
+      ],
+      "origine": {
+        "tipo": "incontro statico di Smeraldo",
+        "luogo": 81,
+        "nome_luogo": "Grotta Insulare",
+        "livello_incontro": 40,
+        "sfera": 4,
+        "fatidico": false,
+        "gioco": 3
+      },
+      "fonte": "sei occorrenze nei thread",
+      "riserva": true
+    },
+    "regirock-adamant": {
+      "specie": "Regirock",
+      "natura": "Adamant",
+      "abilita": "Clear Body",
+      "punti_base": "252 HP / 252 Atk / 4 Def",
+      "mosse": [
+        "Rock Slide",
+        "Earthquake",
+        "Curse",
+        "Explosion"
+      ],
+      "origine": {
+        "tipo": "incontro statico di Smeraldo",
+        "luogo": 82,
+        "nome_luogo": "Rovine Deserte",
+        "livello_incontro": 40,
+        "sfera": 4,
+        "fatidico": false,
+        "gioco": 3
+      },
+      "fonte": "aggiunto per simmetria con gli altri due Regi, che sono nei thread; insieme di uso comune",
+      "riserva": true
+    },
+    "zapdos-modest": {
+      "specie": "Zapdos",
+      "natura": "Modest",
+      "abilita": "Pressure",
+      "punti_base": "252 HP / 252 SpA / 4 SpD",
+      "iv_attacco": 0,
+      "mosse": [
+        "Thunderbolt",
+        "Drill Peck",
+        "Rest",
+        "Sleep Talk"
+      ],
+      "origine": {
+        "tipo": "incontro statico di Rosso Fuoco",
+        "luogo": 142,
+        "nome_luogo": "Centrale Energetica",
+        "livello_incontro": 50,
+        "sfera": 4,
+        "fatidico": false,
+        "gioco": 4,
+        "nota": "ammesso da ADR-070, che consente gli scambi dagli altri titoli della terza generazione"
+      },
+      "fonte": "tredici occorrenze nei thread; l'insieme dichiarato piu' spesso porta Riposo e Sonnolalia",
+      "riserva": true
+    },
+    "moltres-timid": {
+      "specie": "Moltres",
+      "natura": "Timid",
+      "abilita": "Pressure",
+      "punti_base": "220 HP / 52 Def / 236 Spe",
+      "iv_attacco": 0,
+      "mosse": [
+        "Flamethrower",
+        "Toxic",
+        "Substitute",
+        "Protect"
+      ],
+      "origine": {
+        "tipo": "incontro statico di Rosso Fuoco",
+        "luogo": 175,
+        "nome_luogo": "Monte Brace",
+        "livello_incontro": 50,
+        "sfera": 4,
+        "fatidico": false,
+        "gioco": 4,
+        "nota": "ammesso da ADR-070, che consente gli scambi dagli altri titoli della terza generazione"
+      },
+      "fonte": "otto occorrenze nei thread; l'insieme dichiarato usa Fuocofatuo e Sostituto per logorare. CORRETTO dal controllo sulle mosse imparabili: l'insieme dichiarato nei thread porta Lucidalba e Fuocofatuo, che Moltres in terza generazione non impara per alcuna via: sono mosse di quarta. Sostituite con Lanciafiamme e Tossina, entrambe verificate sulla tabella estratta dal sorgente. E' la prova che un insieme letto su un forum va verificato anche quando il forum parla del gioco giusto",
+      "riserva": true
+    },
+    "articuno-calm": {
+      "specie": "Articuno",
+      "natura": "Calm",
+      "abilita": "Pressure",
+      "punti_base": "220 HP / 60 SpD / 228 Spe",
+      "iv_attacco": 0,
+      "mosse": [
+        "Ice Beam",
+        "Toxic",
+        "Substitute",
+        "Protect"
+      ],
+      "origine": {
+        "tipo": "incontro statico di Rosso Fuoco",
+        "luogo": 139,
+        "nome_luogo": "Isole Spumarine",
+        "livello_incontro": 50,
+        "sfera": 4,
+        "fatidico": false,
+        "gioco": 4,
+        "nota": "ammesso da ADR-070, che consente gli scambi dagli altri titoli della terza generazione"
+      },
+      "fonte": "sei occorrenze nei thread. CORRETTO dal controllo sulle mosse imparabili: l'insieme dichiarato porta Nube, che Articuno non impara in terza generazione. Sostituita con Geloraggio, che e' macchina",
+      "riserva": true
+    },
+    "raikou-timid": {
+      "specie": "Raikou",
+      "natura": "Timid",
+      "abilita": "Pressure",
+      "punti_base": "4 HP / 252 SpA / 252 Spe",
+      "iv_attacco": 0,
+      "mosse": [
+        "Thunderbolt",
+        "Calm Mind",
+        "Substitute",
+        "Rest"
+      ],
+      "origine": {
+        "tipo": "vagante di Rosso Fuoco",
+        "luogo": 104,
+        "nome_luogo": "Percorso 4",
+        "livello_incontro": 50,
+        "sfera": 4,
+        "fatidico": false,
+        "gioco": 4,
+        "nota": "in Rosso Fuoco e Verde Foglia uno dei tre cani vaga dopo la Lega a seconda dello starter, verificato su GetRoamerSpecies in src/roamer.c: Raikou con Squirtle o qualunque altro starter. CreateInitialRoamerMon lo crea a livello 50 esatto, che e' il livello a cui si gioca, e il Percorso 4 e' uno dei luoghi della sua rotta."
+      },
+      "fonte": "dieci occorrenze nei thread",
+      "riserva": true
+    },
+    "tauros-jolly": {
+      "specie": "Tauros",
+      "natura": "Jolly",
+      "abilita": "Intimidate",
+      "punti_base": "4 HP / 252 Atk / 252 Spe",
+      "mosse": [
+        "Return",
+        "Earthquake",
+        "Double-Edge",
+        "Iron Tail"
+      ],
+      "origine": {
+        "tipo": "uovo schiuso",
+        "luogo": 32,
+        "nome_luogo": "Percorso 117, dove sta la Pensione",
+        "livello_incontro": 0,
+        "sfera": 4,
+        "fatidico": false,
+        "gioco": 3
+      },
+      "fonte": "undici occorrenze nei thread",
+      "riserva": true
+    },
+    "tyranitar-jolly": {
+      "specie": "Tyranitar",
+      "natura": "Jolly",
+      "abilita": "Sand Stream",
+      "punti_base": "4 HP / 252 Atk / 252 Spe",
+      "mosse": [
+        "Rock Slide",
+        "Earthquake",
+        "Dragon Dance",
+        "Taunt"
+      ],
+      "origine": {
+        "tipo": "uovo schiuso",
+        "luogo": 32,
+        "nome_luogo": "Percorso 117, dove sta la Pensione",
+        "livello_incontro": 0,
+        "sfera": 4,
+        "fatidico": false,
+        "gioco": 3,
+        "catena": "Larvitar allevato"
+      },
+      "fonte": "nove occorrenze nei thread; presente nella serie da 461 alla Torre Lotta",
+      "riserva": true
+    },
+    "scizor-adamant": {
+      "specie": "Scizor",
+      "natura": "Adamant",
+      "abilita": "Swarm",
+      "punti_base": "20 HP / 236 Atk / 252 Spe",
+      "mosse": [
+        "Steel Wing",
+        "Aerial Ace",
+        "Swords Dance",
+        "Substitute"
+      ],
+      "origine": {
+        "tipo": "uovo schiuso",
+        "luogo": 32,
+        "nome_luogo": "Percorso 117, dove sta la Pensione",
+        "livello_incontro": 0,
+        "sfera": 4,
+        "fatidico": false,
+        "gioco": 3,
+        "catena": "Scyther allevato, evolve per scambio con il Metalcoperta"
+      },
+      "fonte": "sei occorrenze nei thread. CORRETTO dal controllo sulle mosse imparabili: l'insieme dichiarato porta Ventargento, che Scizor non impara in terza generazione. Sostituita con Alacciaio, che e' macchina",
+      "riserva": true
+    },
+    "flygon-jolly": {
+      "specie": "Flygon",
+      "natura": "Jolly",
+      "abilita": "Levitate",
+      "punti_base": "4 HP / 252 Atk / 252 Spe",
+      "mosse": [
+        "Earthquake",
+        "Rock Slide",
+        "Dragon Claw",
+        "Protect"
+      ],
+      "origine": {
+        "tipo": "uovo schiuso",
+        "luogo": 32,
+        "nome_luogo": "Percorso 117, dove sta la Pensione",
+        "livello_incontro": 0,
+        "sfera": 4,
+        "fatidico": false,
+        "gioco": 3,
+        "catena": "Trapinch allevato"
+      },
+      "fonte": "dieci occorrenze nei thread",
+      "riserva": true
+    },
+    "marowak-jolly": {
+      "specie": "Marowak",
+      "natura": "Jolly",
+      "abilita": "Rock Head",
+      "punti_base": "4 HP / 252 Atk / 252 Spe",
+      "mosse": [
+        "Earthquake",
+        "Rock Slide",
+        "Double-Edge",
+        "Swords Dance"
+      ],
+      "origine": {
+        "tipo": "uovo schiuso",
+        "luogo": 32,
+        "nome_luogo": "Percorso 117, dove sta la Pensione",
+        "livello_incontro": 0,
+        "sfera": 4,
+        "fatidico": false,
+        "gioco": 3,
+        "catena": "Cubone allevato"
+      },
+      "fonte": "tre occorrenze nei thread; con l'Ossospesso raddoppia l'attacco",
+      "riserva": true
+    },
+    "aerodactyl-adamant": {
+      "specie": "Aerodactyl",
+      "natura": "Adamant",
+      "abilita": "Rock Head",
+      "punti_base": "4 HP / 252 Atk / 252 Spe",
+      "mosse": [
+        "Rock Slide",
+        "Earthquake",
+        "Aerial Ace",
+        "Double-Edge"
+      ],
+      "origine": {
+        "tipo": "uovo schiuso",
+        "luogo": 32,
+        "nome_luogo": "Percorso 117, dove sta la Pensione",
+        "livello_incontro": 0,
+        "sfera": 4,
+        "fatidico": false,
+        "gioco": 3,
+        "catena": "Aerodactyl allevato dopo essere stato rianimato dall'Ambra Antica"
+      },
+      "fonte": "otto occorrenze nei thread",
+      "riserva": true
+    },
+    "gyarados-adamant": {
+      "specie": "Gyarados",
+      "natura": "Adamant",
+      "abilita": "Intimidate",
+      "punti_base": "4 HP / 252 Atk / 252 Spe",
+      "mosse": [
+        "Return",
+        "Earthquake",
+        "Dragon Dance",
+        "Rest"
+      ],
+      "origine": {
+        "tipo": "uovo schiuso",
+        "luogo": 32,
+        "nome_luogo": "Percorso 117, dove sta la Pensione",
+        "livello_incontro": 0,
+        "sfera": 4,
+        "fatidico": false,
+        "gioco": 3,
+        "catena": "Magikarp allevato"
+      },
+      "fonte": "nove occorrenze nei thread",
+      "riserva": true
+    },
+    "magneton-modest": {
+      "specie": "Magneton",
+      "natura": "Modest",
+      "abilita": "Magnet Pull",
+      "punti_base": "80 Def / 252 SpA / 176 Spe",
+      "iv_attacco": 0,
+      "mosse": [
+        "Thunderbolt",
+        "Endure",
+        "Metal Sound",
+        "Hidden Power"
+      ],
+      "origine": {
+        "tipo": "uovo schiuso",
+        "luogo": 32,
+        "nome_luogo": "Percorso 117, dove sta la Pensione",
+        "livello_incontro": 0,
+        "sfera": 4,
+        "fatidico": false,
+        "gioco": 3,
+        "catena": "Magnemite allevato con Ditto"
+      },
+      "fonte": "sei occorrenze nei thread",
+      "riserva": true
+    },
+    "steelix-adamant": {
+      "specie": "Steelix",
+      "natura": "Adamant",
+      "abilita": "Rock Head",
+      "punti_base": "132 HP / 252 Atk / 120 SpD / 4 Spe",
+      "mosse": [
+        "Earthquake",
+        "Explosion",
+        "Toxic",
+        "Rock Slide"
+      ],
+      "origine": {
+        "tipo": "uovo schiuso",
+        "luogo": 32,
+        "nome_luogo": "Percorso 117, dove sta la Pensione",
+        "livello_incontro": 0,
+        "sfera": 4,
+        "fatidico": false,
+        "gioco": 3,
+        "catena": "Onix allevato, evolve per scambio con il Metalcoperta"
+      },
+      "fonte": "cinque occorrenze nei thread; presente nella serie da 560 alla Serpe Lotta",
+      "riserva": true
+    },
+    "dusclops-bold": {
+      "specie": "Dusclops",
+      "natura": "Bold",
+      "abilita": "Pressure",
+      "punti_base": "252 HP / 252 Def / 4 SpD",
+      "iv_attacco": 0,
+      "mosse": [
+        "Curse",
+        "Substitute",
+        "Protect",
+        "Pain Split"
+      ],
+      "origine": {
+        "tipo": "uovo schiuso",
+        "luogo": 32,
+        "nome_luogo": "Percorso 117, dove sta la Pensione",
+        "livello_incontro": 0,
+        "sfera": 4,
+        "fatidico": false,
+        "gioco": 3,
+        "catena": "Duskull allevato"
+      },
+      "fonte": "cinque occorrenze nei thread",
+      "riserva": true
     }
   },
   "squadre": [
