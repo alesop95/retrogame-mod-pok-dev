@@ -331,7 +331,12 @@ def main():
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     p.add_argument("--catalogo", required=True)
     p.add_argument("--dati", required=True)
-    p.add_argument("--out", required=True)
+    p.add_argument("--out", required=True,
+                   help="la cartella DEL LOTTO, non quella degli esemplari: il programma crea "
+                        "lui la sottocartella esemplari e vi scrive accanto il manifesto")
+    p.add_argument("--pulisci", action="store_true",
+                   help="rimuove dalla cartella degli esemplari i file di un lotto precedente "
+                        "prima di scrivere il nuovo, invece di lasciarli mescolati a questo")
     p.add_argument("--allenatore", default="ALEX:45761:56446")
     args = p.parse_args()
 
@@ -349,7 +354,30 @@ def main():
                 strumento_per_chiave.setdefault(v["chiave"], v["strumento"])
 
     uscita = Path(args.out)
-    uscita.joinpath("esemplari").mkdir(parents=True, exist_ok=True)
+
+    # Due difetti di uso sono possibili su questo argomento e nessuno dei due si manifesta come un
+    # errore, il che li rende peggiori di un errore. Il primo e' passare gia' la cartella degli
+    # esemplari: il programma ne creerebbe una dentro, e chi poi carica il lotto nel verificatore si
+    # trova due cartelle omonime annidate senza sapere quale sia quella buona. Il secondo e' scrivere
+    # un lotto nuovo sopra uno vecchio: i file di un esemplare che nel frattempo e' uscito dal
+    # catalogo restano dov'erano, e il lotto caricato e' la somma di due giri diversi, che e' proprio
+    # cio' che ogni verifica su questo materiale esiste per escludere.
+    if uscita.name == "esemplari":
+        raise SystemExit("--out vuole la cartella DEL LOTTO e non quella degli esemplari: questo "
+                         "programma crea lui la sottocartella. Passa %s." % uscita.parent)
+
+    cartella = uscita.joinpath("esemplari")
+    cartella.mkdir(parents=True, exist_ok=True)
+    vecchi = sorted(cartella.glob("*.bin"))
+    if vecchi and not args.pulisci:
+        raise SystemExit("la cartella %s contiene gia' %d file di un lotto precedente. Rilancia con "
+                         "--pulisci per sostituirli, oppure indica una cartella di lotto diversa: "
+                         "scrivere sopra lascerebbe in giro gli esemplari usciti dal catalogo, e il "
+                         "lotto caricato sarebbe la somma di due giri." % (cartella, len(vecchi)))
+    for v in vecchi:
+        v.unlink()
+    if vecchi:
+        print("rimossi %d file del lotto precedente da %s" % (len(vecchi), cartella))
     manifesto = []
     # I valori di personalita' gia' assegnati, perche' due esemplari non possono condividerlo e
     # nemmeno le due copie dello stesso: due Pokemon con la medesima personalita' sono cloni, e un

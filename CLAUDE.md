@@ -68,7 +68,6 @@ SOURCES.md                                    registro delle fonti, con il sotto
 docs/index.md                                 indice del percorso di studio tecnico, leggibile come vault Obsidian
 docs/fonti/index-fonti.md                     mappa relazionale delle fonti, con abstract e grafo
 tesi/                                         il documento composto, che copre ogni riga dei .md del progetto
-reports/README.md                             report di milestone in LaTeX, uno per traguardo chiuso
 tools/                                        gli strumenti deterministici, uno per misura riproducibile
 pokemon-gen12-gen3-bridge-original-hardware/  referenza byte per byte, il pacchetto pokebridge e la sua suite
 pokedex-home-completo/                        la catena, la roadmap, i censimenti e gli studi del fuoco corrente
