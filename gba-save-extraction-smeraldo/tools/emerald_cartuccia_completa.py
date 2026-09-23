@@ -47,6 +47,9 @@ LOTTO = NOTE.joinpath("lotto-parco-lotta", "esemplari")
 AGGIUNTE = [("evento", NOTE.joinpath("lotto-eventi")), ("biglietto", NOTE.joinpath("lotto-incontri-gen3")),
             ("scambio", NOTE.joinpath("lotto-scambi-gen3"))]
 GIGANTI = NOTE.joinpath("lotto-giganti")
+# Il Wynaut catturato all'Isola Miraggio, chiesto dal proprietario il 2026-09-23 al posto di un esemplare
+# qualunque della collezione: lo produce `emerald_selvatico_gigante.py --isola-miraggio`.
+SELVATICI = NOTE.joinpath("lotto-wynaut")
 SENZA_COPIA_DUE = ["marowak-jolly", "regirock-adamant", "steelix-adamant", "dusclops-bold", "scizor-adamant"]
 PER_BOX = 30
 VUOTO = bytes(save3.RECORD)
@@ -207,6 +210,8 @@ def main():
             aggiunte.append((tipo, f.stem, cifrato))
     for f in sorted(GIGANTI.glob("*-gigante.bin")):
         aggiunte.append(("gigante", f.stem, f.read_bytes()))
+    for f in sorted(SELVATICI.glob("*.bin")):
+        aggiunte.append(("selvatico", f.stem, f.read_bytes()))
     rapporto.update(t for t, _, _ in aggiunte)
 
     # 6. la disposizione: collezione dall'inizio, poi le aggiunte in ogni posizione libera fuori dal lotto

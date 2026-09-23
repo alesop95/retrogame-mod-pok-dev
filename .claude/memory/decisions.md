@@ -963,6 +963,16 @@ Il problema. La lettura integrale delle fonti del Parco Lotta ha lasciato fuori 
 La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti etichettata come non letta con il proprio motivo, secondo la prescrizione che vieta di degradare in silenzio una fonte a nota a margine, e non si tenta alcuna via ulteriore. Il debito di lettura del fronte Parco Lotta si dichiara quindi chiuso con questa sola eccezione dichiarata, e nessuna sessione futura deve riaprirlo credendo che qualcosa sia stato dimenticato.
 
 La ragione per cui l'abbandono e' accettabile qui, e non lo sarebbe altrove. Quella discussione e' del 2005 ed e' una richiesta di valutazione di squadra, cioe' la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e piu' recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano e' quindi basso, e la decisione si fonda su questo e non sulla sola difficolta' di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
+## ADR-079: un Wynaut dell'Isola Miraggio al posto del Sentret, e il formato di stampa della mappa
+
+Data: 2026-09-23. Stato: accettata, attuazione in corso. Modifica ADR-077 per un solo esemplare e fissa il formato della mappa di ADR-078.
+
+Decisione del proprietario, in due parti. Nel deposito entra un Wynaut catturato legittimamente all'Isola Miraggio, sacrificando un esemplare qualunque della collezione; l'agente ha scelto il Sentret di livello 10, che era rientrato soltanto come sostituto del Seedot in ADR-077. La mappa stampabile ha, per ogni box, una pagina orizzontale con la figura e una con la tabella, mai di più; testo sempre nero, caratteri non quelli predefiniti di matplotlib, legenda una volta sola prima del riepilogo, nessun titolo né preambolo, nessuna colonna di legalità; la categoria dei giganti si chiama «Seedot e Lotad più grandi possibili»; le righe degli eventi portano la storia completa della distribuzione.
+
+Attuazione. Il Wynaut è un selvatico di Smeraldo del Percorso 130, dove l'isola compare, riquadro 0, livello 30, Ultra Ball, allenatore ALEX, personalità `ABAB9E37`, prodotto da `emerald_selvatico_gigante.py --isola-miraggio`, con le mosse nell'ordine della tabella di apprendimento del gioco. Il file è `giro12/…-CORRETTO.sav`, SHA-256 `88a3d5760709164fa70f6ae3d1745e72157d7ac7a01af34299fa546cc0bb22e6`. La stampa è `MAPPA-BOX-SMERALDO.docx` e `.pdf`, 29 pagine, impaginata da Word e verificata pagina per pagina.
+
+Conseguenze. Il Wynaut è l'unico record non ancora giudicato da PKHeX: serve il dump `round 6` del file di `giro12` prima di scrivere. Il file di `giro11` è superato.
+
 ## ADR-078: il lotto del Parco Lotta chiude il deposito, e ogni posizione ha una mappa stampabile
 
 Data: 2026-09-23. Stato: accettata, attuazione in corso. Supera ADR-074 per la sola collocazione del lotto, e ADR-075 per lo sfondo del box 12.

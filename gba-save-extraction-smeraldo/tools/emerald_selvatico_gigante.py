@@ -16,10 +16,16 @@ Il vincolo che rende la ricerca non banale e' che l'esemplare deve essere un sel
 
 Gli incontri, da `src/data/wild_encounters.json`: Lotad al Percorso 114, riquadro 1, livello 16; Seedot al Percorso 120, riquadro 11, livello 25. Fra tutti i semi validi si tiene quello con la somma di valori individuali piu' alta.
 
+Il Wynaut dell'Isola Miraggio
+-----------------------------
+
+Dal 2026-09-23, su richiesta del proprietario, lo stesso generatore produce anche un Wynaut catturato all'Isola Miraggio, con `--isola-miraggio`. L'isola compare sul Percorso 130, e la sua erba e' la tabella `gRoute130` di `wild_encounters.json`, dodici riquadri tutti di Wynaut; la mappa `Route130` ha come sezione `MAPSEC_ROUTE_130`, quindi il luogo d'incontro che il gioco scrive, e che PKHeX mostra, e' il Percorso 130 e non un luogo chiamato Isola Miraggio. Si usa il riquadro 0, il piu' frequente, livello 30. Non c'e' alcun vincolo di taglia: e' una cattura qualunque, quindi non si sceglie il seme con i valori individuali migliori ma il primo valido nell'ordine di ricerca, che da' valori ordinari come quelli di chi ha catturato davvero il primo Wynaut incontrato. La sfera e' una Ultra Ball.
+
 Uso
 ---
 
     python gba-save-extraction-smeraldo/tools/emerald_selvatico_gigante.py --out _notes/lotto-giganti
+    python gba-save-extraction-smeraldo/tools/emerald_selvatico_gigante.py --out _notes/lotto-wynaut --isola-miraggio
 """
 
 import argparse
@@ -43,6 +49,16 @@ TID, SID = 45761, 56446
 # Le soglie cumulative dei dodici riquadri d'erba, da `ENCOUNTER_CHANCE_LAND_MONS_SLOT_*`.
 SOGLIE_ERBA = [20, 40, 50, 60, 70, 80, 85, 90, 94, 98, 99, 100]
 
+ULTRA_BALL = 2
+# Le quattro mosse di Wynaut al livello 30 si scrivono nell'ordine della tabella del gioco e non si
+# ricavano da `mosse-imparabili.json`: quattro mosse si imparano tutte al livello 15, e a pari livello
+# `GiveMonInitialMoveset` segue l'ordine di `sWynautLevelUpLearnset` in
+# `src/data/pokemon/level_up_learnsets.h`, righe 4835-4838, che il dizionario non conserva. La ricerca
+# parte da uno stato arbitrario e non da zero, perche' dallo zero il primo seme valido ha la meta'
+# bassa della personalita' nulla, che e' legale ma non e' cio' che una cattura qualunque produce.
+MIRAGGIO = {"Wynaut": {"luogo": 0x10 + 130 - 101, "nome_luogo": "Percorso 130, Isola Miraggio", "riquadro": 0, "livello": 30,
+                       "mosse": ["Counter", "Mirror Coat", "Safeguard", "Destiny Bond"], "partenza": 0x9E3779B9}}
+
 INCONTRI = {
     "Lotad": {"luogo": 0x10 + 114 - 101, "nome_luogo": "Percorso 114", "riquadro": 1, "livello": 16},
     "Seedot": {"luogo": 0x10 + 120 - 101, "nome_luogo": "Percorso 120", "riquadro": 11, "livello": 25},
@@ -57,12 +73,12 @@ def indietro(x):
     return ((x - np.uint64(A)) * np.uint64(MI)) & MASK
 
 
-def cerca(riquadro, soglia_femmina=None, blocco=1 << 24):
+def cerca(riquadro, soglia_femmina=None, blocco=1 << 24, taglia=True, primo=False, partenza=0):
     lo = 0 if riquadro == 0 else SOGLIE_ERBA[riquadro - 1]
     hi = SOGLIE_ERBA[riquadro]
     migliori = []
     for inizio in range(0, 1 << 32, blocco):
-        x = np.arange(inizio, inizio + blocco, dtype=np.uint64)          # stato della meta' bassa
+        x = (np.arange(inizio, inizio + blocco, dtype=np.uint64) + np.uint64(partenza)) & MASK  # stato della meta' bassa
         s_nat = indietro(x)
         s_liv = indietro(s_nat)
         s_riq = indietro(s_liv)
@@ -80,17 +96,20 @@ def cerca(riquadro, soglia_femmina=None, blocco=1 << 24):
         n = np.uint64(15)
         alto = (((at & n) ^ (de & n)) * (hp & n)) ^ (pid & np.uint64(0xFF))
         basso = (((sa & n) ^ (sd & n)) * (ve & n)) ^ ((pid >> np.uint64(8)) & np.uint64(0xFF))
-        ok &= (alto == 255) & (basso == 255)
+        if taglia:
+            ok &= (alto == 255) & (basso == 255)
         # non cromatico, per non consegnare per sbaglio un cromatico che nessuno ha chiesto
         ok &= ((pid >> np.uint64(16)) ^ (pid & np.uint64(0xFFFF)) ^ np.uint64(TID) ^ np.uint64(SID)) >= 8
         for i in np.nonzero(ok)[0]:
             iv = {"hp": int(hp[i]), "atk": int(at[i]), "def": int(de[i]), "spe": int(ve[i]), "spa": int(sa[i]), "spd": int(sd[i])}
             migliori.append((sum(iv.values()), int(pid[i]), int(s_riq[i]), iv))
+            if primo:
+                return migliori
     migliori.sort(key=lambda t: -t[0])
     return migliori
 
 
-def componi(nome, info, dati, pid, iv, incontro, esperienza_tab):
+def componi(nome, info, dati, pid, iv, incontro, esperienza_tab, sfera=4):
     tabella = charmap.Charmap.gen3()
     gruppo = info["gruppo_crescita"]
     abilita = info["abilita"]
@@ -106,7 +125,7 @@ def componi(nome, info, dati, pid, iv, incontro, esperienza_tab):
         evs=gen3.EvsCondition(evs={"hp": 0, "atk": 0, "def": 0, "spd": 0, "satk": 0, "sdef": 0},
                               contest={n: 0 for n in ("cool", "beauty", "cute", "smart", "tough")}, sheen=0),
         misc=gen3.Misc(pokerus=0, met_location=incontro["luogo"], met_level=incontro["livello"], met_game=3,
-                       pokeball=4, ot_female=False,
+                       pokeball=sfera, ot_female=False,
                        ivs={"hp": iv["hp"], "atk": iv["atk"], "def": iv["def"], "spd": iv["spe"], "satk": iv["spa"], "sdef": iv["spd"]},
                        is_egg=False, ability_num=bit, modern_fateful_encounter=False),
     )
@@ -115,15 +134,16 @@ def componi(nome, info, dati, pid, iv, incontro, esperienza_tab):
 def main():
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     p.add_argument("--out", required=True)
+    p.add_argument("--isola-miraggio", action="store_true", help="il Wynaut dell'Isola Miraggio invece dei due giganti")
     args = p.parse_args()
     dati = json.loads(CARTELLA.joinpath("dati-gen3.json").read_text(encoding="utf-8"))
     imparabili = json.loads(CARTELLA.joinpath("mosse-imparabili.json").read_text(encoding="utf-8"))
     uscita = Path(args.out)
     uscita.mkdir(parents=True, exist_ok=True)
     riepilogo = {}
-    for nome, incontro in INCONTRI.items():
+    for nome, incontro in (MIRAGGIO if args.isola_miraggio else INCONTRI).items():
         info = dati["specie"][nome]
-        trovati = cerca(incontro["riquadro"])
+        trovati = cerca(incontro["riquadro"], taglia=False, primo=True, partenza=incontro["partenza"]) if args.isola_miraggio else cerca(incontro["riquadro"])
         if not trovati:
             sys.exit("nessun seme per %s" % nome)
         somma, pid, seme, iv = trovati[0]
@@ -136,12 +156,12 @@ def main():
             if mossa in nomi_mosse:
                 nomi_mosse.remove(mossa)
             nomi_mosse.append(mossa)
-        nomi_mosse = nomi_mosse[-4:]
+        nomi_mosse = incontro.get("mosse") or nomi_mosse[-4:]
         per_chiave = {"".join(c for c in k.lower() if c.isalnum()): v for k, v in dati["mosse"].items()}
         voci = [per_chiave["".join(c for c in m.lower() if c.isalnum())] for m in nomi_mosse]
         incontro = dict(incontro, mosse=[v["id"] for v in voci], pp=[(v["id"], v["pp"]) for v in voci])
-        mon = componi(nome, info, dati, pid, iv, incontro, dati["esperienza"])
-        uscita.joinpath("%s-gigante.bin" % nome.lower()).write_bytes(mon.to_bytes())
+        mon = componi(nome, info, dati, pid, iv, incontro, dati["esperienza"], ULTRA_BALL if args.isola_miraggio else 4)
+        uscita.joinpath("%s-%s.bin" % (nome.lower(), "isola-miraggio" if args.isola_miraggio else "gigante")).write_bytes(mon.to_bytes())
         riepilogo[nome] = {"candidati": len(trovati), "personalita": "%08X" % pid, "seme_del_riquadro": "%08X" % seme,
                            "iv": iv, "mosse": nomi_mosse, "luogo": incontro["nome_luogo"], "livello": incontro["livello"]}
         print("%s: %d semi validi, scelto personalita' %08X, IV %s, mosse %s" % (nome, len(trovati), pid, iv, nomi_mosse))
