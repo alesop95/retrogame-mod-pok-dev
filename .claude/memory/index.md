@@ -37,6 +37,8 @@ Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo q
 
 ## Punto di ripresa
 
+AGGIUNTA DEL 2026-09-23, terza parte. ADR-074: il proprietario ha deciso il riordino dell'intero deposito, esistenti compattati nei primi box e i 64 del lotto nei box 12-14, nomi da BOX 1 a BOX 14, risanamento di tutti gli esemplari irregolari fatto dall'agente, e sfondi personalizzati compreso lo sfondo Amici di Walda. Il primo passo e' una estrazione nuova della cartuccia con il dump dei box in PKHeX. Avviata la mappatura delle riserve: la misura e' in `MAPPA-RISERVE.md`.
+
 AGGIUNTA DEL 2026-09-23, seconda parte. Sesto giro: 64 righe conformi su 64, il primo giro senza respinti, con Suicune e Raikou riconosciuti come incontro Ombra di Colosseum. La prima fase di ADR-067 e' chiusa. Restano, prima della scrittura sulla cartuccia, la mappatura delle riserve agli edifici e il piano dello spazio, che con 64 file non entra piu' in due box.
 
 AGGIUNTA DEL 2026-09-23. Il quinto giro del lotto del Parco Lotta ha dato 59 righe conformi su 60: le uova scorrelate e l'esperienza al massimo dell'intervallo hanno chiuso entrambe le famiglie respinte. La sola irregolare era la prima copia di Flygon, respinta perche' il bit dell'abilita' non seguiva la personalita': il gioco copia quel bit quando il secondo slot d'abilita' e' pieno, anche se e' uguale al primo, e Flygon, Vibrava e Granbull sono le sole specie con i due slot uguali. Nello stesso giro e' stato implementato ADR-073: Suicune e Raikou sono nel lotto come esemplari Ombra di Colosseum, allenatore WES. Il lotto e' ora di 32 esemplari e 64 file, verificati dall'interno. Prossimo passo: il dump del sesto giro. Dettaglio in STUDIO-05 sezione 15 e nel work log.
