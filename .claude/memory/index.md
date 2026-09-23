@@ -37,6 +37,8 @@ Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo q
 
 ## Punto di ripresa
 
+AGGIUNTA DEL 2026-09-23, decima parte. ADR-077: 27 catture vere rientrano al posto delle 27 copie di scambio del Parco Lotta. Il file da scrivere è ora quello di `giro10`, `de5ba7cb…df3d`, che attende il giudizio di PKHeX nel dump `round 4`. Il file di `giro9` è superato.
+
 AGGIUNTA DEL 2026-09-23, nona parte e chiusura della sessione. Preparata e verificata dall'interno la cartuccia completa di terza generazione di ADR-076, file di `giro9`, non ancora scritta: attende il giudizio di PKHeX e una domanda al proprietario sullo spazio, perche' ha chiesto di rimettere alcune sue catture vere e il deposito e' pieno. Il punto di ripresa dettagliato e' in `_notes/resume-prompt.md`.
 
 AGGIUNTA DEL 2026-09-23, ottava parte. Il proprietario ha trovato in gioco copie non gemelle e un Raikou senza abilita': causa nel generatore, non nel gioco, spiegata con il codice in STUDIO-05 sezione 16 e nel capitolo 14 della tesi, ora riallineato con copertura completa. Settimo giro rigenerato con copie gemelle; per chiudere Smeraldo servono il dump del settimo giro, un'estrazione nuova e la sostituzione del lotto.

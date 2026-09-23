@@ -6,6 +6,8 @@ Perche' esiste
 
 ADR-076 chiede una scrittura sola che porti il deposito da quello che e' oggi a quello deciso dal proprietario il 2026-09-23. Dalla collezione escono le undici copie del noleggio dell'Azienda Lotta e i ventisette cromatici del codice Action Replay, perche' nessuno dei due gruppi e' stato catturato da una persona; delle catture vere resta per ogni specie la piu' vecchia, cioe' la prima nel deposito; i cloni del glitch di clonazione che sopravvivono a questa selezione diventano incontri distinti; Seedot e Wurmple ricevono la Poke Ball. Entrano i 176 eventi di terza generazione in tutte le lingue, i 19 scambi in gioco, i 14 incontri da biglietto dell'allenatore Alessio, e il Lotad e il Seedot con la taglia massima. Il lotto del Parco Lotta passa all'ottavo giro, senza la copia 2 delle cinque riserve meno usate. Il deposito arriva a 420 su 420.
 
+Due opzioni aggiunte il 2026-09-23 dopo la seconda decisione del proprietario: `--senza-copie-di-scambio` toglie dal lotto tutte le copie 2, e `--rientrano` fa restare nella collezione i doppioni indicati per posizione, purche' siano catture distinte e non cloni di un esemplare tenuto. Cosi' i posti delle copie di scambio passano a catture vere.
+
 Riusa le funzioni gia' verificate di `emerald_risana_deposito.py` invece di riscriverle: la classificazione degli irregolari dal dump di PKHeX, la ricerca di una personalita' del primo metodo con natura, sesso e allenatore dati, e la generazione di un esemplare distinto dell'evento 10ANNI.
 
 La disposizione
@@ -21,7 +23,7 @@ Una sola eccezione alla regola che nessuna personalita' si ripeta, e va dichiara
 Uso
 ---
 
-    python gba-save-extraction-smeraldo/tools/emerald_cartuccia_completa.py INGRESSO.sav USCITA.sav --dump "... round 3.csv" --lotto-precedente _notes/lotto-parco-lotta/esemplari-round7
+    python gba-save-extraction-smeraldo/tools/emerald_cartuccia_completa.py INGRESSO.sav USCITA.sav --dump "... round 3.csv" --lotto-precedente _notes/lotto-parco-lotta/esemplari-round7 [--senza-copie-di-scambio] [--rientrano B1-26,B9-5]
 """
 
 import argparse
@@ -69,6 +71,10 @@ def main():
     p.add_argument("uscita")
     p.add_argument("--dump", required=True)
     p.add_argument("--lotto-precedente", required=True)
+    p.add_argument("--senza-copie-di-scambio", action="store_true",
+                   help="toglie dal lotto tutte le copie 2, non solo le cinque di SENZA_COPIA_DUE")
+    p.add_argument("--rientrano", default="",
+                   help="posizioni del deposito d'ingresso, nella forma B7-2,B9-5, di doppioni da tenere perche' catture distinte")
     args = p.parse_args()
     ingresso, uscita = Path(args.ingresso), Path(args.uscita)
     if uscita.exists() or uscita.resolve() == ingresso.resolve():
@@ -95,7 +101,7 @@ def main():
         indice = (box - 1) * PER_BOX + n - 1
         if posti[indice] != Path(args.lotto_precedente).joinpath("%s-copia%d.bin" % (chiave, copia)).read_bytes():
             sys.exit("il box %d, posizione %d, non contiene il giro precedente del lotto" % (box, n))
-        if copia == 2 and chiave in SENZA_COPIA_DUE:
+        if copia == 2 and (args.senza_copie_di_scambio or chiave in SENZA_COPIA_DUE):
             continue
         lotto[indice] = LOTTO.joinpath("%s-copia%d.bin" % (chiave, copia)).read_bytes()
     posti_lotto = {(box - 1) * PER_BOX + n - 1 for (box, n) in posizioni.values()}
@@ -123,14 +129,28 @@ def main():
         collezione.append((indice, record))
 
     # 3. i doppioni: per ogni specie resta la cattura piu' vecchia, cioe' la prima nel deposito
+    # tranne quelli che il proprietario fa rientrare: devono essere catture distinte, non cloni di un esemplare tenuto
+    rientrano = set()
+    for voce in filter(None, (v.strip() for v in args.rientrano.split(","))):
+        box, n = voce.upper().lstrip("B").split("-")
+        rientrano.add((int(box) - 1) * PER_BOX + int(n) - 1)
+    trovati = {indice for indice, _ in collezione} & rientrano
+    if trovati != rientrano:
+        sys.exit("posizioni da far rientrare assenti dalla collezione: %s" % sorted(rientrano - trovati))
     viste = set()
+    pid_visti = set()
     tenuti = []
     for indice, record in collezione:
         specie = gen3.Gen3Mon.from_bytes(record).growth.species
-        if specie in viste:
+        if specie in viste and indice in rientrano:
+            if personalita(record) in pid_visti:
+                sys.exit("la posizione %d e' un clone di un esemplare tenuto e non puo' rientrare" % indice)
+            rapporto["doppione rientrato"] += 1
+        elif specie in viste:
             rapporto["tolti, doppione"] += 1
             continue
         viste.add(specie)
+        pid_visti.add(personalita(record))
         tenuti.append((indice, record))
 
     # 4. i cloni superstiti: in ogni gruppo con la stessa personalita' il primo resta, gli altri diventano distinti
