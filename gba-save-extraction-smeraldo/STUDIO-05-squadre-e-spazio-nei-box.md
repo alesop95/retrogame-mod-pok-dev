@@ -172,7 +172,50 @@ Il lotto rigenerato ha trentadue esemplari e sessantaquattro file, tutti conform
 
 Il sesto giro, salvato dal proprietario come `_notes/lotto-parco-lotta/Box Data Dump round6.csv`, ha dato sessantaquattro righe conformi su sessantaquattro, ed è il primo giro senza alcun esemplare respinto. Le due copie di Flygon passano entrambe, e Suicune e Raikou sono riconosciuti come incontro Ombra di Colosseum numero ventitré e trentaquattro, cioè le righe dell'Admin Venus e dell'Admin Ein nelle tabelle del verificatore, con luogo 110 e 113, allenatore WES con identificativo 26243 e segreto 55008, e fatidico spento. Nell'interfaccia italiana di PKHeX i due luoghi si leggono come Cupola Torre, che è il nome italiano della Torre Realgam. La prima fase di ADR-067 è quindi chiusa: il lotto è giudicato legale da un verificatore indipendente, e ciò che resta prima della scrittura sulla cartuccia è la mappatura delle riserve agli edifici e il piano dello spazio, che con sessantaquattro file non entra più nei due box previsti dalla sezione 9.
 
-## 16. Che cosa resta aperto, e che cosa questo documento non verifica
+## 16. Le copie che non erano gemelle, e un'abilità che il verificatore non poteva vedere
+
+Il 2026-09-23, con il lotto già sulla cartuccia, il proprietario ha notato in gioco che undici esemplari hanno le due copie diverse di un punto su una o due statistiche, pur essendo dichiarate uguali: il primo Latios Timida ha 182 di Attacco Speciale e 178 di Velocità, il secondo 181 e 177; il Moltres ha 192 di salute e 154 di Velocità contro 193 e 152; e così Suicune, Latias, Zapdos, Raikou, Articuno, Regice e Regirock. Ha notato anche che il primo Raikou non ha alcuna abilità, e che il gioco lo mostra con i trattini e la dicitura che non ha abilità speciali. La domanda che ha posto era se esistesse nel codice del gioco un arrotondamento nascosto che nessuno aveva descritto.
+
+La risposta è no, e la causa sta nel generatore di questo progetto. Ricalcolando dai sessantaquattro file le statistiche con la formula del gioco, ogni numero osservato torna esatto, compresi i due Latios Lesta che il proprietario ha trovato identici. La formula è quella di `CALC_STAT` in `src/pokemon.c`, con la natura applicata da `ModifyStatByNature`.
+
+```c
+#define CALC_STAT(base, iv, ev, statIndex, field)               \
+{                                                               \
+    u8 baseStat = gSpeciesInfo[species].base;                   \
+    s32 n = (((2 * baseStat + iv + ev / 4) * level) / 100) + 5; \
+    u8 nature = GetNature(mon);                                 \
+    n = ModifyStatByNature(nature, n, statIndex);               \
+    SetMonData(mon, field, &n);                                 \
+}
+```
+
+Le copie differivano perché avevano valori individuali diversi, e li avevano perché un incontro statico nasce da un seme: il seme decide insieme la personalità e i valori individuali, due esemplari non possono condividere la personalità, e la prima stesura prendeva per ciascuna copia il miglior seme ancora libero entro la tolleranza, che dà quasi sempre valori diversi di un punto. Le uova non ne soffrivano, e infatti nessuna compare fra gli undici, perché su un uovo la personalità e i valori individuali sono indipendenti e i valori si scrivono esatti.
+
+Che un punto di differenza si veda soltanto a volte discende dalla stessa formula, ed è la parte che rispondeva all'intuizione del proprietario sul livello 50. Il valore individuale entra moltiplicato per il livello e diviso per cento, quindi al livello 50 vale mezzo punto di statistica, e mezzo punto si vede solo quando completa un intero: due valori che differiscono di uno danno la stessa statistica se la somma che li contiene è pari da una parte e dispari dall'altra nel verso giusto, e una statistica diversa altrimenti. È il motivo per cui i due Latios Lesta, che pure avevano valori individuali diversi su Difesa e Difesa Speciale, mostravano le stesse statistiche. I punti base entrano divisi per quattro e poi dimezzati allo stesso modo, quindi al livello 50 ne servono otto per un punto di statistica, e non quattro come al livello 100. Infine la natura moltiplica per centodieci o novanta centesimi e tronca, e per questo sul Moltres, Timida quindi con la Velocità aumentata, un solo punto di valore individuale ha prodotto due punti di Velocità, 154 contro 152.
+
+Il Raikou senza abilità è un difetto diverso e più serio, ed è un secondo caso della distinzione fra pulito e legale della sezione 11. Un esemplare di Colosseum porta il bit dell'abilità da una chiamata propria del generatore, e il verificatore su quei giochi accetta qualunque bit senza confrontarlo con la personalità, come registrato nella sezione 15. Ma Smeraldo legge l'abilità con `GetAbilityBySpecies`, che non ha alcun ripiego.
+
+```c
+u8 GetAbilityBySpecies(u16 species, u8 abilityNum)
+{
+    if (abilityNum)
+        gLastUsedAbility = gSpeciesInfo[species].abilities[1];
+    else
+        gLastUsedAbility = gSpeciesInfo[species].abilities[0];
+
+    return gLastUsedAbility;
+}
+```
+
+Raikou ha il secondo slot vuoto, quindi con il bit a uno il gioco restituisce nessuna abilità: il primo Raikou era legale per PKHeX, che per l'interfaccia ripiega sulla prima abilità e non segnala nulla, e senza abilità in lotta. Il difetto era invisibile a qualunque verificatore che giudichi la conformità a un modello invece di leggere l'esemplare come lo legge il gioco, ed è emerso soltanto guardando la schermata.
+
+Le correzioni sono due e stanno in `genera_squadre_parco_lotta.py`. La prima impone il bit a zero su ogni esemplare di Colosseum la cui specie abbia il secondo slot vuoto, e la verifica interna lo controlla su tutti. La seconda rende gemelle le due copie, e il criterio è stato scelto misurando. Pretendere valori individuali identici costava punti veri, fino a due su una statistica che conta, per un'uguaglianza che in lotta non si vede; il criterio adottato è che le due copie abbiano le stesse statistiche calcolate con la formula del gioco, tranne per un esemplare che porti Introforza, il cui tipo dipende dai valori individuali e non dalle statistiche. La ricerca non si ferma alla prima tolleranza che offre una coppia gemella ma prosegue di due gradini, e fra le coppie tiene quella con la somma di tutte le statistiche più alta, con quelle investite come spareggio; un primo tentativo che dava la precedenza alle statistiche investite aveva sacrificato l'Attacco Speciale del Moltres, che non ha punti base ma è quello di Lanciafiamme.
+
+L'esito, confrontato con la copia migliore del sesto giro: le undici coppie sono gemelle, il Latios Timida torna a 182 e 178 su entrambe le copie, il Moltres a 192 e 154, e le statistiche che scendono di un punto sono tre scambi che alzano il totale altrove, cioè la Velocità di Suicune e di Zapdos e la Difesa di Raikou. Il Raikou ha ora Pressione su entrambe le copie. Dove l'attacco è voluto basso la ricerca lo tollera fino al valore dello scarto, e alcune coppie hanno un punto d'Attacco in più di prima, che conta soltanto per il danno inflitto a sé stessi quando confusi.
+
+Per portare il lotto corretto sulla cartuccia, `emerald_riordino_deposito.py` ha una modalità nuova, `--sostituisci-lotto`, che rimpiazza soltanto le sessantaquattro posizioni dei box 12-14 dopo aver verificato che contengano esattamente i file del sesto giro, conservati in `_notes/lotto-parco-lotta/esemplari-round6/`, e che lascia identico byte per byte tutto il resto. Restano da fare, in ordine, il settimo giro di verifica in PKHeX, un'estrazione nuova della cartuccia, la sostituzione e la rilettura.
+
+## 17. Che cosa resta aperto, e che cosa questo documento non verifica
 
 Lo strumento di verifica controlla i vincoli del Parco e non la legalità del gioco: non sa se una mossa sia imparabile dalla specie a cui è attribuita, perché la tabella degli insiemi di mosse per specie non è ancora su disco in questo progetto. Dichiararlo fatto sarebbe peggio che non farlo, quindi il controllo si lascia alla fase di generazione, dove quella tabella serve comunque. L'unico caso già noto è registrato come eccezione esplicita nello strumento, cioè Megahorn su Heracross, che in Smeraldo non è una macchina ma una mossa di livello appresa al cinquantatre; Heracross non entra in nessuna delle sei squadre qui proposte, quindi il vincolo oggi non morde, ma resta scritto per quando lo farà.
 
