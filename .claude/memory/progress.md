@@ -4,6 +4,10 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-23, sessantunesima parte. ADR-077, ventisette catture vere tornano nel deposito
+
+Dei 64 doppioni tolti dal file di `giro9`, 31 sono risultati cloni e 33 catture distinte; la lista sta in `giro9/doppioni-giro9.md` della cartella dei backup. Il proprietario ha scelto di togliere tutte le 27 copie di scambio del Parco Lotta per far rientrare 27 catture, lasciando fuori le sei più basse. `emerald_cartuccia_completa.py` ha ora le opzioni `--senza-copie-di-scambio` e `--rientrano`, che rifiuta un doppione con la personalità di un esemplare tenuto. Un primo tentativo con il Seedot B2-13 riscriveva la personalità del Delcatty B6-16, che ha la stessa: il Seedot è stato sostituito con il Sentret L10. Il file di `giro10` ha collezione 177, aggiunte 211, lotto 32, 420 su 420, nessun clone da rendere distinto, SHA-256 `de5ba7cb…df3d`.
+
 ## 2026-09-23, sessantesima parte. La cartuccia completa di terza generazione, preparata e non ancora scritta
 
 ADR-076, deciso dal proprietario in piu' domande: via i 27 cromatici forzati e le 11 copie del noleggio, una cattura vera per specie, la piu' vecchia, tutti gli eventi di terza generazione in tutte le lingue, gli scambi in gioco, gli incontri da biglietto dell'allenatore Alessio e i Lotad e Seedot piu' grandi possibili; gli ultimi cinque posti presi dalla copia di scambio delle cinque riserve meno usate. Gli esemplari di prima e seconda generazione restano fuori perche' non possono salire alla terza.
