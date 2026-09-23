@@ -85,7 +85,6 @@ FORME_DEOXYS = {"1": "Attack", "2": "Defense", "3": "Speed"}
 # tiene soltanto la storia: una frase che nomina uno di questi termini resta nel catalogo degli eventi
 # e non entra qui. Per la stessa ragione non entrano le divergenze fra le fonti.
 DI_LAVORO = re.compile(r"verificator|progett|tabella|PKHeX|enciclopedi|fonte|fonti|strumento|campo", re.IGNORECASE)
-UOVA_POKEMON_BOX = {"Swablu": 333, "Zigzagoon": 263, "Skitty": 300, "Pichu": 172}
 
 
 def tinta(esadecimale, quota=0.42):
@@ -105,21 +104,43 @@ def _modulo(percorso, nome):
 
 
 def storie_degli_eventi():
-    """{record cifrato: chiave dell'evento} e le provenienze storiche per chiave."""
+    """{record cifrato: chiave dell'evento} e le provenienze storiche per chiave.
+
+    Il numero nel nome del file non e' sempre l'indice della tabella di PKHeX: il generatore ha
+    numerato a parte, con quattro cifre, le quattro uova di Pokemon Box, che nella tabella sono le voci
+    123-126, e i file da 123 in poi sono quindi spostati di quattro. L'abbinamento non si fida percio'
+    del numero ma lo verifica sul contenuto: una voce e' candidata solo se specie, livello e mosse del
+    file coincidono con le sue, e fra le candidate si sceglie quella al numero del file, oppure a quel
+    numero piu' quattro; per le quattro uova, l'unica candidata dell'allenatore del blocco di Pokemon Box.
+    Se nessuna regola da' una sola voce, lo strumento si ferma invece di attribuire una storia a caso.
+    """
     catalogo = _modulo(RADICE.joinpath("tools", "catalogo-eventi.py"), "catalogo_eventi")
-    voci = catalogo.carica_generatore().voci_wc3(str(PKHEX))
+    generatore = catalogo.carica_generatore()
+    voci = generatore.voci_wc3(str(PKHEX))
+    interno = {v: k for k, v in generatore.nazionale_verso_interno(str(NOTE.joinpath("fonti", "ace-builder"))).items()}
     provenienze = json.loads(Path(catalogo.PROVENIENZE).read_text(encoding="utf-8"))
     per_record = {}
     for f in sorted(NOTE.joinpath("lotto-eventi").glob("*.pk3")):
-        indice = int(f.stem.split("-")[0])
-        # Le quattro uova di Pokemon Box hanno nel nome un numero che non e' l'indice della tabella:
-        # si ritrovano per specie fra le voci dell'allenatore del blocco "Pokemon Box -- Recipient".
-        if indice >= len(voci):
-            specie = UOVA_POKEMON_BOX[f.stem.split("-")[-1]]
-            indice = next(i for i, v in enumerate(voci) if "ＡＺＵＳＡ" in v["ot"] and v["nazionale"] == specie)
+        numero = int(f.stem.split("-")[0])
         cifrato = NOTE.joinpath("lotto-eventi", "forma-cifrata", f.stem + ".ek3").read_bytes()
-        per_record[cifrato] = catalogo.chiave(voci[indice])
+        mon = gen3.Gen3Mon.from_bytes(cifrato)
+        mosse = sorted(m for m in mon.attacks.moves if m)
+        candidate = [i for i, v in enumerate(voci) if v["nazionale"] == interno[mon.growth.species]
+                     and sorted(m for m in v.get("mosse", []) if m) == mosse]
+        scelte = [i for i in (numero, numero + 4) if i in candidate][:1] or                  [i for i in candidate if "ＡＺＵＳＡ" in voci[i]["ot"]]
+        if len(scelte) != 1:
+            sys.exit("il file %s non si abbina a una sola voce della tabella: candidate %s" % (f.name, candidate))
+        per_record[cifrato] = (catalogo.chiave(voci[scelte[0]]), voci[scelte[0]]["commento"])
     return per_record, provenienze["gruppi"]
+
+
+def provenienza_evento(chiave, commento, provenienze):
+    """La voce storica dell'evento e la sua identita' per il raggruppamento nel box: la chiave, oppure il sottogruppo quando la chiave ne copre piu' d'uno."""
+    p = provenienze.get(chiave)
+    for sotto in (p or {}).get("sottogruppi", []):
+        if commento in sotto["voci"]:
+            return sotto, chiave + "#" + sotto["nome"]
+    return p, chiave
 
 
 def origini():
@@ -241,22 +262,21 @@ def figura(box, voci, indice, forme, cache, uscita):
             ax.imshow(miniatura(percorso, cache), extent=(c + 0.5 - largo / 2, c + 0.5 + largo / 2, y0 + 0.08 + lato, y0 + 0.08),
                       zorder=3, aspect="auto")
         ax.text(c + 0.5, y0 + 0.63, v["specie"], fontsize=9, color=NERO, ha="center", va="center", fontweight="bold")
-        ax.text(c + 0.5, y0 + 0.74, "Liv. %s   %s" % (v["livello"], v["allenatore"]), fontsize=7.4, color=NERO,
+        ax.text(c + 0.5, y0 + 0.74, ("Uovo   %s" if v["uovo"] else "Liv. %s   %%s" % v["livello"]) % v["allenatore"], fontsize=7.4, color=NERO,
                 ha="center", va="center")
     fig.savefig(uscita, dpi=170, facecolor=SUPERFICIE, metadata={"Software": None})
     plt.close(fig)
 
 
-def racconto(chiave, riga, provenienze):
+def racconto(chiave, p, riga):
     """La storia dell'evento come testo continuo: nome, allenatore, lingua, quando, dove, come e perche' conta."""
-    p = provenienze.get(chiave)
     ot, ident = chiave.rsplit("|", 1)
-    testa = "allenatore %s, identificativo %s, lingua %s" % (riga["OT"] or ot, ident, riga["OTLang"])
+    # per le uova l'identificativo della tabella e' zero, perche' e' quello di chi riceve: si scrive quello vero
+    testa = "allenatore %s, identificativo %s, lingua %s" % (riga["OT"] or ot, riga.get("TID16") or ident, riga["OTLang"])
     if p is None:
-        return ("Uovo del blocco «Pokémon Box -- Recipient» della tabella di PKHeX, consegnato con una mossa "
-                "che la specie non impara, e schiuso dal ricevente; %s. Il catalogo non ne registra ancora data, "
-                "luogo e modo: la tradizione lo lega al programma Pokémon Box Rubino e Zaffiro per GameCube, "
-                "da verificare su una fonte." % testa)
+        # ogni evento del deposito ha una voce in provenienze-eventi.json dal 2026-09-23: se ne manca una,
+        # e' una lacuna del catalogo da colmare, non un testo da inventare qui
+        sys.exit("l'evento %s non ha una voce in provenienze-eventi.json" % chiave)
     parti = ["%s: %s." % (p["nome"], testa), "Quando: %s." % p["date"], "Dove: %s." % p["luogo"], "Come: %s." % p["come"]]
     if p.get("oggetto_tenuto"):
         parti.append("Oggetto tenuto: %s." % p["oggetto_tenuto"].rstrip("."))
@@ -290,7 +310,7 @@ def main():
         if riga is None:
             riga = riga_dai_byte(r, nature)
             print("posizione %d: nessun dump contiene questo record, descritto dai byte" % i)
-        chiave = eventi.get(r)
+        chiave, commento = eventi.get(r, (None, None))
         provenienza, dettaglio = ("evento", None) if chiave else noti.get(r, ("collezione", None))
         nazionale = int(re.search(r": (\d{4})\b", riga["Position"]).group(1))
         banda = BANDA[provenienza]
@@ -300,10 +320,11 @@ def main():
                 dettaglio += ", seconda cattura della specie"
             specie_viste.add(nazionale)
         elif provenienza == "evento":
-            prov = provenienze.get(chiave)
-            banda = prov["nome"] if prov else "Pokémon Box"
+            prov, identita = provenienza_evento(chiave, commento, provenienze)
+            banda = prov["nome"] if prov else "Evento"
             banda = banda if len(banda) <= 26 else banda[:25].rstrip(" ,") + "…"
-            dettaglio = racconto(chiave, riga, provenienze)
+            dettaglio = racconto(chiave, prov, riga)
+            chiave = identita
         elif provenienza == "biglietto":
             dettaglio = "%s, %s, catturato da un amico con il biglietto dell'evento e ricevuto in scambio" % (
                 riga["MetLoc"], riga["Version"])
@@ -313,7 +334,9 @@ def main():
             banda = "Parco Lotta, %s" % dettaglio
             dettaglio = "%s, natura %s" % (dettaglio, riga["Nature"])
         voci.append({"specie": riga["Species"], "nazionale": nazionale, "forma": riga["Form"],
-                     "soprannome": riga["Nickname"] if riga["IsNicknamed"] == "True" else "",
+                     "soprannome": "uovo da schiudere" if riga.get("IsEgg") == "True" else
+                     (riga["Nickname"] if riga["IsNicknamed"] == "True" else ""),
+                     "uovo": riga.get("IsEgg") == "True",
                      "livello": riga["Level"], "allenatore": riga["OT"], "lingua": riga["OTLang"],
                      "provenienza": provenienza, "dettaglio": dettaglio, "banda": banda, "chiave": chiave})
 
@@ -480,7 +503,7 @@ def componi_docx(per_box, conteggio, riepilogo, corpi, uscita):
                 righe.append((rc, "vuoto", "", "", "", "", ""))
                 colori.append(None)
                 continue
-            righe.append((rc, v["specie"], v["soprannome"], v["livello"], v["allenatore"], ETICHETTA[v["provenienza"]], v["dettaglio"]))
+            righe.append((rc, v["specie"], v["soprannome"], "uovo" if v["uovo"] else v["livello"], v["allenatore"], ETICHETTA[v["provenienza"]], v["dettaglio"]))
             colori.append((5, TINTA[v["provenienza"]]))
         tabella(["Posto (riga-colonna)", "Pokémon", "Soprannome", "Liv.", "Allenatore", "Provenienza", "Dettaglio"],
                 righe, [1.4, 1.7, 1.5, 0.6, 1.7, 1.9, 19.1], corpi[b], colori)

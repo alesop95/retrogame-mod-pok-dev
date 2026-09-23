@@ -179,10 +179,20 @@ def blocco_gruppo(prov, fonti, nomi, mappa, k, elementi):
         else:
             attribuzione = ("Fonte: nessuna ancora letta per questo gruppo, quindi ciò che "
                             "segue è dichiarato come non documentato e non va citato.")
-        fuori.append("Quando: %s. Dove: %s. Come: %s." % (p["date"], p["luogo"], p["come"]))
-        fuori.append("")
-        fuori.append(attribuzione)
-        fuori.append("")
+        if p.get("sottogruppi"):
+            # Una chiave sola puo' coprire piu' distribuzioni: le uova con l'allenatore vuoto hanno
+            # tutte la stessa chiave. I sottogruppi le separano per nome della voce nella tabella.
+            for sotto in p["sottogruppi"]:
+                f = fonti[sotto["fonte"]]
+                fuori.append("Sottogruppo %s, voci %s. Quando: %s. Dove: %s. Come: %s. %s Fonte: [%s](%s), letta il %s."
+                             % (sotto["nome"], ", ".join(sotto["voci"]), sotto["date"], sotto["luogo"],
+                                sotto["come"], sotto.get("note", ""), f["titolo"], f["url"], f["letta"]))
+                fuori.append("")
+        else:
+            fuori.append("Quando: %s. Dove: %s. Come: %s." % (p["date"], p["luogo"], p["come"]))
+            fuori.append("")
+            fuori.append(attribuzione)
+            fuori.append("")
         if p.get("oggetto_tenuto"):
             fuori.append("Oggetto tenuto: %s" % p["oggetto_tenuto"])
             fuori.append("")
