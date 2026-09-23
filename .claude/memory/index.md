@@ -37,9 +37,13 @@ Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo q
 
 ## Punto di ripresa
 
-AGGIUNTA DEL 2026-09-23, quarta parte. Prodotto `PERCORSO-SIMBOLI-ORO.md`: il percorso ai sette simboli d'oro con le posizioni nei box 12-14 di dopo il riordino. Il proprietario sta giocando l'Azienda Lotta, primo giro, settima sfida, a livello 50; l'estrazione nuova della cartuccia viene dopo.
+AGGIUNTA DEL 2026-09-23, sesta parte. Su richiesta del proprietario i tre documenti d'uso del Parco Lotta sono diventati uno, `GUIDA-PARCO-LOTTA.md`, e i due file generati `MAPPA-RISERVE.md` e `PERCORSO-SIMBOLI-ORO.md` sono stati cancellati dopo aver verificato che ogni riga delle loro tabelle sta nella guida.
 
-AGGIUNTA DEL 2026-09-23, terza parte. ADR-074: il proprietario ha deciso il riordino dell'intero deposito, esistenti compattati nei primi box e i 64 del lotto nei box 12-14, nomi da BOX 1 a BOX 14, risanamento di tutti gli esemplari irregolari fatto dall'agente, e sfondi personalizzati compreso lo sfondo Amici di Walda. Il primo passo e' una estrazione nuova della cartuccia con il dump dei box in PKHeX. Avviata la mappatura delle riserve: la misura e' in `MAPPA-RISERVE.md`.
+AGGIUNTA DEL 2026-09-23, quinta parte. Il fuoco torna sull'obiettivo principale, il Pokedex completo in HOME, per decisione del proprietario; il risanamento dei 40 irregolari di Smeraldo e gli sfondi dei box sono rimandati a dopo. Chiusa la parte d'uso del Parco Lotta con `GUIDA-PARCO-LOTTA.md`. Registrate sei fonti nuove sulla completezza del deposito, e le sette verifiche che aprono sono in `pending.md`, prima fra tutte il disaccordo sul Vivillon Motivo Poke Ball.
+
+AGGIUNTA DEL 2026-09-23, quarta parte. Prodotto il percorso ai sette simboli d'oro con le posizioni nei box 12-14, confluito il giorno stesso in `GUIDA-PARCO-LOTTA.md`. Il proprietario sta giocando l'Azienda Lotta, primo giro, settima sfida, a livello 50; l'estrazione nuova della cartuccia viene dopo.
+
+AGGIUNTA DEL 2026-09-23, terza parte. ADR-074: il proprietario ha deciso il riordino dell'intero deposito, esistenti compattati nei primi box e i 64 del lotto nei box 12-14, nomi da BOX 1 a BOX 14, risanamento di tutti gli esemplari irregolari fatto dall'agente, e sfondi personalizzati compreso lo sfondo Amici di Walda. Il primo passo e' una estrazione nuova della cartuccia con il dump dei box in PKHeX. Avviata la mappatura delle riserve: la misura sta nella sezione 12 di `GUIDA-PARCO-LOTTA.md`.
 
 AGGIUNTA DEL 2026-09-23, seconda parte. Sesto giro: 64 righe conformi su 64, il primo giro senza respinti, con Suicune e Raikou riconosciuti come incontro Ombra di Colosseum. La prima fase di ADR-067 e' chiusa. Restano, prima della scrittura sulla cartuccia, la mappatura delle riserve agli edifici e il piano dello spazio, che con 64 file non entra piu' in due box.
 
