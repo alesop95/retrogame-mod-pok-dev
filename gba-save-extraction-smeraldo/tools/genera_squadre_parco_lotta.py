@@ -195,6 +195,85 @@ def cerca_seme(specie_dati, esemplare, allenatore, tolleranza_massima=6, escluse
     return migliori
 
 
+
+def personalita_di_metodo_uno(iv):
+    """Restituisce l'insieme dei valori di personalita' che, accanto a QUESTI valori individuali, formerebbero una coppia del primo metodo.
+
+    Serve a una verifica al contrario. Su un esemplare allevato la personalita' deve essere scorrelata dai valori individuali, e il modo di dimostrarlo non e' affermarlo ma escludere l'insieme delle personalita' che una correlazione la produrrebbero. L'insieme e' piccolo e si calcola in un passaggio solo: fissati i valori individuali, la prima parola fissa i sedici bit alti dello stato che li genera, a meno del bit di riempimento, e i sedici bit bassi si percorrono tutti; ogni stato che riproduce anche la seconda parola determina i due tiri precedenti, e quindi una personalita'.
+    """
+    parola1 = iv["hp"] | (iv["atk"] << 5) | (iv["def"] << 10)
+    parola2 = iv["spe"] | (iv["spa"] << 5) | (iv["spd"] << 10)
+    fuori = set()
+    for alto in (parola1, parola1 | 0x8000):
+        base = alto << 16
+        for basso in range(1 << 16):
+            s3 = base | basso
+            if ((((s3 * MOLT + SOMMA) & 0xFFFFFFFF) >> 16) & 0x7FFF) != parola2:
+                continue
+            s2 = indietro(s3)
+            s1 = indietro(s2)
+            fuori.add((((s2 >> 16) & 0xFFFF) << 16) | ((s1 >> 16) & 0xFFFF))
+    return fuori
+
+
+def cerca_personalita_libera(specie_dati, esemplare, allenatore, chiave, escluse=(), quante=1):
+    """Sceglie la personalita' di un esemplare ALLEVATO, dove la correlazione con i valori individuali non deve esistere.
+
+    Un uovo della terza generazione non nasce dal primo metodo, e il verificatore lo pretende: nel suo sorgente la forma di correlazione suggerita per l'incontro da uovo e' nessuna, e una coppia riconosciuta come primo metodo viene respinta. E' la causa per cui quarantadue righe su sessantaquattro venivano rifiutate pur avendo luogo, livello e gioco corretti, e non si sarebbe potuta trovare guardando i campi: nessun campo la contiene, perche' e' una relazione fra due campi.
+
+    Il vincolo capovolge la convenienza. Sulle statiche il seme decide insieme personalita' e valori individuali, e si prende cio' che passa, con lo scarto di uno o due punti che il catalogo registra; qui i due sono indipendenti, quindi i valori individuali si scrivono esatti come il catalogo li vuole e la ricerca lavora sulla sola personalita'. Gli esemplari allevati escono percio' migliori di quelli statici, non peggiori.
+
+    I vincoli sulla personalita' sono quattro e vengono tutti dal sorgente del verificatore: natura, che e' il resto della divisione per venticinque; abilita', che per una specie a due abilita' e' il bit meno significativo, perche' il verificatore ricalcola l'abilita' da quel bit; sesso, dalla soglia della specie sugli otto bit bassi; e assenza di cromaticita', per non consegnare per sbaglio un esemplare cromatico dove non lo si e' chiesto. Il valore zero e' escluso, perche' la generazione di un uovo non lo produce mai.
+
+    La sequenza dei candidati e' deterministica e dipende dalla chiave dell'esemplare, cosi' che due corse dello stesso catalogo diano lo stesso lotto e due esemplari diversi non partano dallo stesso punto.
+    """
+    natura_voluta = esemplare["natura"]
+    abilita = specie_dati["abilita"]
+    due_abilita = len(abilita) == 2 and abilita[1] not in ("None", abilita[0])
+    indice_abilita = abilita.index(esemplare["abilita"]) if esemplare["abilita"] in abilita else 0
+    soglia = specie_dati.get("soglia_femmina")
+    sesso_voluto = esemplare.get("sesso")
+    tid, sid = allenatore["id"], allenatore["segreto"]
+
+    iv = {}
+    for stat in ORDINE_IV:
+        if stat == "atk" and esemplare.get("iv_attacco") == 0:
+            iv[stat] = 0
+        else:
+            iv[stat] = 31
+    vietate = personalita_di_metodo_uno(iv)
+
+    escluse = set(escluse)
+    stato = (sum(ord(c) * (i + 1) for i, c in enumerate(chiave)) * 2654435761) & 0xFFFFFFFF
+    trovate = []
+    for _ in range(1 << 22):
+        stato = avanti(stato)
+        personalita = (((stato >> 16) & 0xFFFF) << 16) | ((avanti(stato) >> 16) & 0xFFFF)
+        stato = avanti(stato)
+        if personalita == 0 or personalita in escluse or personalita in vietate:
+            continue
+        if NATURE[personalita % 25] != natura_voluta:
+            continue
+        if due_abilita and (personalita & 1) != indice_abilita:
+            continue
+        if soglia is not None and sesso_voluto:
+            femmina = (personalita & 0xFF) < soglia
+            if femmina != (sesso_voluto == "femmina"):
+                continue
+        if ((personalita >> 16) ^ (personalita & 0xFFFF) ^ tid ^ sid) < 8:
+            continue
+        trovate.append({
+            "seme": None,
+            "personalita": personalita,
+            "iv": dict(iv),
+            "scarto": 0,
+            "bit_abilita": (personalita & 1) if due_abilita else 0,
+        })
+        if len(trovate) >= quante:
+            return trovate
+    return trovate
+
+
 def componi(esemplare, chiave, specie_dati, dati, allenatore, tabella, esito, strumento):
     specie = esemplare["specie"]
     info = dati["specie"][specie]
@@ -245,6 +324,32 @@ def componi(esemplare, chiave, specie_dati, dati, allenatore, tabella, esito, st
     ot = tabella.encode(allenatore["nome"], length=gen3.OT_NAME_LENGTH)
 
     origine = esemplare.get("origine", {})
+
+    # L'esperienza non e' il minimo del livello per tutti, e la ragione e' un vincolo del
+    # verificatore che vale la pena enunciare perche' la prima correzione lo aveva frainteso. Il
+    # verificatore ragiona cosi': se l'esperienza dell'esemplare e' esattamente quella del suo livello
+    # di incontro, allora non ha mai combattuto, e senza combattere i soli punti base ottenibili sono
+    # quelli delle vitamine, cioe' al piu' cento per statistica; altrimenti calcola quanta esperienza
+    # serviva a guadagnare i punti base dichiarati e la confronta con quella guadagnata davvero.
+    #
+    # La prima correzione ne aveva dedotto che un esemplare incontrato al livello di gioco fosse
+    # condannato ai punti base da vitamine, e la deduzione era sbagliata perche' confondeva il livello
+    # con l'esperienza. Il livello si RICAVA dall'esperienza, quindi fra la soglia del livello di
+    # gioco e quella del livello successivo c'e' un intervallo intero di valori che lasciano
+    # l'esemplare al livello di gioco pur essendo esperienza guadagnata. Su un gruppo di crescita
+    # lento quell'intervallo vale novemilacinquecentosessantadue punti al livello cinquanta, mentre i
+    # punti base piu' cari del catalogo ne costano qualche centinaio: la finestra e' larga due ordini
+    # di grandezza piu' del necessario.
+    #
+    # Si scrive percio' il massimo dell'intervallo, cioe' un punto sotto la soglia del livello
+    # successivo. E' il valore che giustifica il maggior numero di punti base restando al livello di
+    # gioco, e descrive un esemplare allenato fin quasi al livello successivo, che e' esattamente cio'
+    # che e' avvenuto. Per chi si incontra a un livello piu' basso non serve, perche' i livelli
+    # guadagnati portano gia' esperienza in abbondanza.
+    esperienza = dati["esperienza"][gruppo][livello]
+    if origine.get("livello_incontro", 0) >= livello:
+        esperienza = dati["esperienza"][gruppo][livello + 1] - 1
+
     return gen3.Gen3Mon(
         personality=esito["personalita"],
         ot_id=((allenatore["segreto"] & 0xFFFF) << 16) | (allenatore["id"] & 0xFFFF),
@@ -254,7 +359,7 @@ def componi(esemplare, chiave, specie_dati, dati, allenatore, tabella, esito, st
         ot_name=ot,
         markings=0,
         growth=gen3.Growth(species=info["id"], held_item=strumento,
-                           experience=dati["esperienza"][gruppo][livello],
+                           experience=esperienza,
                            pp_bonuses=bonus_pp, friendship=AMICIZIA.get(info["amicizia"], 70)),
         attacks=gen3.Attacks(moves=(mosse + [0, 0, 0, 0])[:4], pp=(pp + [0, 0, 0, 0])[:4]),
         evs=gen3.EvsCondition(evs={
@@ -302,10 +407,16 @@ def verifica(uscita, catalogo, dati, manifesto):
             errori.append("specie %d invece di %d" % (mon.growth.species, info["id"]))
         if NATURE[mon.personality % 25] != esemplare["natura"]:
             errori.append("natura %s invece di %s" % (NATURE[mon.personality % 25], esemplare["natura"]))
-        attesa = dati["esperienza"][info["gruppo_crescita"]][dati["livello_di_gioco"]]
-        if mon.growth.experience != attesa:
-            errori.append("esperienza %d invece di %d, cioe' un livello diverso da %d"
-                          % (mon.growth.experience, attesa, dati["livello_di_gioco"]))
+        # L'esperienza si verifica come intervallo e non come valore, perche' il livello si ricava
+        # dall'esperienza e non viceversa: qualunque valore fra la soglia del livello di gioco e quella
+        # del livello successivo descrive un esemplare a quel livello. Chi si incontra al livello di
+        # gioco porta il massimo dell'intervallo, per giustificare i punti base guadagnati combattendo.
+        tabella = dati["esperienza"][info["gruppo_crescita"]]
+        minima = tabella[dati["livello_di_gioco"]]
+        massima = tabella[dati["livello_di_gioco"] + 1] - 1
+        if not minima <= mon.growth.experience <= massima:
+            errori.append("esperienza %d fuori dall'intervallo del livello %d, che va da %d a %d"
+                          % (mon.growth.experience, dati["livello_di_gioco"], minima, massima))
         letti = {"hp": mon.misc.ivs["hp"], "atk": mon.misc.ivs["atk"], "def": mon.misc.ivs["def"],
                  "spe": mon.misc.ivs["spd"], "spa": mon.misc.ivs["satk"], "spd": mon.misc.ivs["sdef"]}
         if letti != prima_copia["iv"]:
@@ -390,8 +501,17 @@ def main():
             print("SALTATO %-19s %s" % (chiave, motivo[:90]))
             continue
         info = dati["specie"][esemplare["specie"]]
-        candidati = cerca_seme(info, esemplare, allenatore,
-                               escluse=usate, quante=catalogo["copie_per_esemplare"])
+        # Le due vie sono incompatibili per costruzione e la scelta la detta la provenienza. Un
+        # incontro statico DEVE portare una coppia del primo metodo, un esemplare allevato NON deve
+        # portarla: sono due regole opposte, e applicare la prima a tutti e' cio' che rendeva
+        # irregolare ogni uovo del lotto pur avendone corretti luogo, livello e gioco.
+        if origine.get("tipo", "").startswith("uovo"):
+            candidati = cerca_personalita_libera(info, esemplare, allenatore, chiave,
+                                                 escluse=usate,
+                                                 quante=catalogo["copie_per_esemplare"])
+        else:
+            candidati = cerca_seme(info, esemplare, allenatore,
+                                   escluse=usate, quante=catalogo["copie_per_esemplare"])
         if not candidati:
             print("FALLITO %s: nessun seme trovato entro la tolleranza" % chiave)
             continue
@@ -415,7 +535,7 @@ def main():
         manifesto.append({
             "chiave": chiave, "specie": esemplare["specie"], "natura": esemplare["natura"],
             "provenienza": origine.get("tipo"), "luogo": origine.get("nome_luogo"),
-            "copie": [{"seme": "0x%08X" % e["seme"], "personalita": "0x%08X" % e["personalita"],
+            "copie": [{"seme": ("0x%08X" % e["seme"]) if e["seme"] is not None else "nessuno, esemplare allevato", "personalita": "0x%08X" % e["personalita"],
                        "iv": e["iv"], "scarto_tollerato": e["scarto"]} for e in scelti],
             "strumento": nome_strumento,
         })
