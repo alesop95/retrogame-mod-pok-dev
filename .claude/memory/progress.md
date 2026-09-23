@@ -4,6 +4,52 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-22, quarantacinquesima parte. La sovracorrezione sull'esperienza, rientrata dal proprietario, e la scelta di Colosseum
+
+### L'errore, che era mio e di ragionamento e non di lettura
+
+Poche ore prima avevo letto correttamente nel sorgente del verificatore che un esemplare la cui esperienza e' esattamente quella del suo livello di incontro non ha mai combattuto, e che senza combattere i punti base possibili sono solo quelli da vitamine. Da li' avevo concluso che un esemplare incontrato al livello di gioco fosse condannato per sempre a cento punti base per statistica, e avevo agito di conseguenza: Latios e Latias spostati dall'Isola Remota al vagante di Smeraldo, e i tre uccelli di Kanto accettati con una perdita di circa diciannove punti sulla statistica che conta.
+
+Il proprietario ha rimesso in piedi la cosa in una riga: si generi l'esemplare con l'esperienza necessaria a renderlo legittimo. La conclusione sbagliata confondeva il livello con l'esperienza. Il livello si RICAVA dall'esperienza e non viceversa, quindi fra la soglia del livello cinquanta e quella del cinquantuno c'e' un intervallo intero di valori che lasciano l'esemplare al livello cinquanta pur essendo esperienza guadagnata combattendo, e su un gruppo di crescita lento quell'intervallo vale 9562 punti.
+
+### Il conto, fatto sul sorgente e non a stima
+
+Il verificatore modella l'allenamento come una scelta fra donatori di punti base con la propria resa e il proprio costo, e risolve il minimo con una programmazione dinamica. Per la terza generazione i donatori piu' economici rendono due punti base per un punto di esperienza su salute, attacco e velocita', due per tre sull'attacco speciale, due per due sulla difesa speciale e quattro per tre sulla difesa. Centocinquantadue punti base di attacco speciale, cioe' il pezzo piu' caro di un insieme da 252 dopo aver tolto i cento che le vitamine spiegano da sole, costano 228 punti di esperienza. La finestra ne offre 9562: due ordini di grandezza di margine.
+
+### La correzione, e il presidio che cambia di conseguenza
+
+Un esemplare il cui livello di incontro coincide con il livello di gioco riceve ora l'esperienza massima dell'intervallo del proprio livello, cioe' un punto sotto la soglia del successivo. Gli uccelli tornano ai punti base pieni dei thread, e Latios e Latias tornano all'evento dell'Isola Remota, che e' la provenienza coerente con questa cartuccia e che le tabelle del verificatore confermano campo per campo. La verifica interna del generatore e' cambiata insieme: l'esperienza si controlla come intervallo del livello e non piu' come valore esatto, perche' controllarla come valore esatto era precisamente l'assunzione che aveva prodotto l'errore.
+
+### Colosseum, scelto dal proprietario, e molto piu' facile del previsto
+
+Restano Suicune e Raikou, per i quali il livello non era il problema principale: il vagante di Rosso Fuoco porta anche i valori individuali troncati a otto bit. Il proprietario ha scelto di insegnare al generatore la provenienza di Colosseum, che li incontra a livello 40 e non ha nessuno dei due difetti. La lettura del sorgente ha poi ridotto molto il costo previsto: gli esemplari Ombra portano in generale un vincolo sulla squadra dell'avversario, che si verifica con una ricerca in profondita' all'indietro sui fotogrammi ed e' cio' che rendeva la via cara, ma Suicune e Raikou usano la squadra dichiarata VUOTA, e il controllo esce subito con esito positivo quando la squadra e' vuota. Resta la sola correlazione di Colosseum e XD: un generatore lineare con costanti diverse, che dal seme produce nell'ordine la prima parola dei valori individuali, la seconda, la meta' alta della personalita' e la meta' bassa. E' la stessa struttura di ricerca rovesciata che il progetto ha gia' per il primo metodo. E' ADR-073.
+
+### Lo stato del lotto alla chiusura della sessione
+
+Trenta esemplari e sessanta file, rigenerati e riletti dal disco, tutti conformi al catalogo e tutti simmetrici. Tyranitar resta fuori perche' evolve a livello 55. Suicune e Raikou restano sospesi in attesa dell'implementazione di Colosseum. Il dump del quinto giro non e' ancora stato chiesto: e' il primo passo della sessione successiva, e l'attesa e' che di irregolare non resti nulla fuori dai due sospesi.
+
+## 2026-09-22, quarantaquattresima parte. Le due cause restanti, trovate nel sorgente di PKHeX invece che chieste
+
+### Il cambio di metodo, che e' la cosa che vale piu' del risultato
+
+Il quarto giro ha confermato le tre correzioni del terzo e ha lasciato il conteggio a sei conformi su sessantaquattro. Le due famiglie restanti non avevano causa in alcuna colonna, e il piano era chiedere al proprietario tre schermate del referto per singolo esemplare. Il piano era sbagliato per una ragione che vale oltre il caso: PKHeX e' un programma libero, il suo sorgente e' pubblico, e le regole che applica stanno nel codice prima che nell'interfaccia. Leggerle e' costato due richieste di rete e ha chiuso entrambe le famiglie in una sessione. E' ADR-072.
+
+### Le uova: una correlazione che NON deve esistere
+
+`EncounterEgg3.cs` dichiara che la correlazione attesa fra personalita' e valori individuali per un uovo di terza generazione e' nessuna, e che una coppia riconosciuta come primo metodo viene respinta. La pipeline costruiva ogni esemplare con il primo metodo, perche' e' cio' che una statica pretende, e applicava la stessa regola a tutti: sono due regole opposte. Quarantadue righe su sessantaquattro cadevano per questo, ed e' una relazione fra due campi e non il valore di un campo, il che spiega perche' nessuna colonna la contenesse.
+
+La correzione migliora il lotto invece di peggiorarlo. Su un uovo i due sono indipendenti, quindi i valori individuali si scrivono ESATTI come il catalogo li vuole, trentuno dappertutto e zero nell'attacco dove serve, e la ricerca lavora sulla sola personalita' per centrare natura, abilita', sesso e assenza di cromaticita'. Lo scarto di uno o due punti, che il catalogo registrava da sempre, sugli allevati sparisce. Il presidio e' l'inverso di quello di prima: prima di accettare una personalita' si calcola l'insieme delle personalita' che accanto a quei valori individuali formerebbero una coppia del primo metodo, e le si esclude, cosi' la scorrelazione e' dimostrata e non affermata.
+
+### Le statiche: chi nasce al tetto non puo' allenarsi
+
+`EffortValueVerifier.cs` ragiona cosi': se l'esperienza dell'esemplare e' esattamente quella del suo livello di incontro, allora non ha mai combattuto, e senza combattere i soli punti base ottenibili sono quelli delle vitamine, cioe' al piu' cento per statistica e in multipli di dieci. Questo spiega esattamente la divisione che il dump mostrava senza spiegarla: i tre Regi si incontrano a quaranta e si giocano a cinquanta, quindi hanno dieci livelli di esperienza e possono portare duecentocinquantadue punti; tutti gli altri si incontrano a cinquanta, che e' il tetto del Parco Lotta, quindi non salgono di livello, quindi non guadagnano esperienza, quindi non si allenano. Corregge anche una convinzione del progetto, cioe' che un esemplare consegnato dal gioco al livello di gioco fosse la provenienza piu' pulita: e' la piu' vincolata.
+
+Le tre conseguenze sono di natura diversa. Latios e Latias passano dall'evento dell'Isola Remota, che li consegna a cinquanta, al vagante di Smeraldo, che li incontra a quaranta: due dettagli verificati nello stesso sorgente lo rendono possibile, cioe' che i valori individuali dei vaganti sono troncati a otto bit in tutti i giochi TRANNE Smeraldo, e che il luogo ammesso per un vagante di Hoenn e' una qualunque sezione fra sedici e quarantanove. I tre uccelli di Kanto non hanno alcuna provenienza sotto il cinquanta in tutta la terza generazione e restano con punti base da vitamine: la perdita e' di circa diciannove punti di statistica al livello cinquanta sulla statistica che conta, ed e' il prezzo di una specie che sotto il tetto non esiste. Suicune e Raikou hanno entrambi i difetti insieme, perche' il vagante di Rosso Fuoco porta anche i valori individuali troncati, e restano sospesi in attesa di una decisione del proprietario.
+
+### Il presidio, e il lotto
+
+Prima di comporre un esemplare si confronta il livello di incontro con il livello di gioco, e se coincidono si rifiuta un catalogo che chieda punti base fuori dal tetto delle vitamine, dicendo quale statistica e proponendo una provenienza a livello piu' basso. Il lotto e' ora di trenta esemplari e sessanta file: Tyranitar escluso per il livello di evoluzione, Suicune e Raikou sospesi.
+
 ## 2026-09-22, quarantatreesima parte. La cartella dei report rimossa, e una cartella di uscita annidata per errore
 
 La cartella `reports/` e' stata rimossa dall'utente dopo l'esame che ne aveva accertato l'assorbimento: il suo unico report, quello sui formati e sul lato Game Boy, ha oggi la propria materia nel capitolo sul cavo link e nell'appendice sui codici della tesi, piu' estesa di com'era la'. E' ADR-071. Le tre tracce che il resto del repository ne portava sono state tolte nello stesso giro, cioe' la riga dell'indice dei satelliti nel `CLAUDE.md` e il rimando in testa a `tesi/preambolo.tex`, che dichiarava di derivare da un file ora inesistente; il vincolo tecnico che quel commento spiegava, cioe' la TinyTeX minimale di questa macchina, resta scritto dov'era.
