@@ -170,7 +170,7 @@ def main():
     percorso = _modulo(CARTELLA.joinpath("tools", "parco_lotta_percorso_oro.py"), "percorso")
     catalogo = json.loads(CATALOGO.read_text(encoding="utf-8"))
     thread = json.loads(percorso._mappa().THREAD.read_text(encoding="utf-8"))
-    _, posizioni, _, _ = percorso.disposizione(catalogo, thread)
+    _, posizioni, _, _ = percorso.disposizione(catalogo, thread, storica=True)
 
     posti = [vecchio.leggi_posizione(i) for i in range(save3.POSIZIONI)]
 

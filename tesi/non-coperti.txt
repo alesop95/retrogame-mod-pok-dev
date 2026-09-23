@@ -321,3 +321,18 @@ pokedex-home-completo/INDICE-FOGLI-ESTERNI.md#pokémon-master-dex-and-retro-dex-
 pokedex-home-completo/INDICE-FOGLI-ESTERNI.md#2026-09-08-foglio-ingame-events-chaboijish-xlsx # scheletro generato di Livello 1, non prosa da rendere
 pokedex-home-completo/INDICE-FOGLI-ESTERNI.md#2026-09-08-foglio-scambi-e-doni-greenpangolin17-xlsx # scheletro generato di Livello 1, non prosa da rendere
 
+## La mappa dei box di Smeraldo è generata dal salvataggio: la tesi ne rende il metodo, non le 420 righe.
+gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md#box-1 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md#box-2 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md#box-3 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md#box-4 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md#box-5 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md#box-6 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md#box-7 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md#box-8 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md#box-9 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md#box-10 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md#box-11 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md#box-12 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md#box-13 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md#box-14 # inventario generato di posizioni, non prosa da rendere

@@ -4,19 +4,19 @@
 Perche' esiste
 --------------
 
-Il catalogo dice quali squadre portare e STUDIO-04 dice quante lotte servono, ma chi gioca ha davanti il PC del gioco e non un file: gli serve sapere che per la Torre Lotta il Latios da prendere e' quello del box 12 in prima riga e prima colonna, con quale strumento, in quale ordine di squadra, e a quale lotta arrivera' l'Asso. La guida `GUIDA-PARCO-LOTTA.md` e' un solo documento, per scelta del proprietario del 2026-09-23 che ha fuso in esso tre file separati: la prosa vi e' scritta a mano, e le tabelle che discendono dal catalogo vi stanno fra coppie di marcatori che questo strumento riscrive. Le tabelle si generano con codice perche' la disposizione nei box discende da una regola, e una regola applicata a mano a sessantaquattro posizioni sbaglia; stanno dentro la guida perche' chi gioca deve trovare tutto in un posto solo.
+Il catalogo dice quali squadre portare e STUDIO-04 dice quante lotte servono, ma chi gioca ha davanti il PC del gioco e non un file: gli serve sapere che per la Torre Lotta il Latios da prendere e' quello del box 14 in prima riga e prima colonna, con quale strumento, in quale ordine di squadra, e a quale lotta arrivera' l'Asso. La guida `GUIDA-PARCO-LOTTA.md` e' un solo documento, per scelta del proprietario del 2026-09-23 che ha fuso in esso tre file separati: la prosa vi e' scritta a mano, e le tabelle che discendono dal catalogo vi stanno fra coppie di marcatori che questo strumento riscrive. Le tabelle si generano con codice perche' la disposizione nei box discende da una regola, e una regola applicata a mano a sessantaquattro posizioni sbaglia; stanno dentro la guida perche' chi gioca deve trovare tutto in un posto solo.
 
-La disposizione, che e' ADR-074
+La disposizione, che e' ADR-078
 -------------------------------
 
-I sessantaquattro file del lotto vanno nei box 12, 13 e 14, con le due copie di ciascun esemplare affiancate: la copia 1 si usa, la copia 2 e' quella destinata allo scambio. Prima gli otto titolari, nell'ordine in cui compaiono per la prima volta nelle squadre del catalogo; poi le ventiquattro riserve, in ordine di frequenza nelle squadre dei thread come la misura della sezione 10 della guida, cosi' che le riserve piu' probabili stiano piu' vicine ai titolari. La funzione `disposizione` e' la sola fonte di questa regola: lo strumento di riordino del deposito la importa invece di riscriverla, perche' due copie della stessa regola possono divergere.
+Dal 2026-09-23 il lotto e' in copia unica, trentadue esemplari, e chiude il deposito: l'ultimo sta nell'ultima posizione del box 14, e i due che non entrano nel box 14 occupano le ultime due posizioni del box 13. Le copie 2 per lo scambio sono uscite dal deposito per ADR-077 e restano soltanto come file. La disposizione di ADR-074, in due copie affiancate nei box 12, 13 e 14, resta disponibile con `storica=True` perche' e' quella dei giri scritti fino al settimo. Prima gli otto titolari, nell'ordine in cui compaiono per la prima volta nelle squadre del catalogo; poi le ventiquattro riserve, in ordine di frequenza nelle squadre dei thread come la misura della sezione 10 della guida, cosi' che le riserve piu' probabili stiano piu' vicine ai titolari e le due meno usate finiscano nel box 13. La funzione `disposizione` e' la sola fonte di questa regola: lo strumento di riordino del deposito la importa invece di riscriverla, perche' due copie della stessa regola possono divergere.
 
 Il box ha trenta posizioni in cinque righe da sei. La posizione si scrive come box, riga e colonna, contando dall'alto a sinistra, perche' e' cosi' che la si trova sullo schermo.
 
 Che cosa non e' ancora vero
 ---------------------------
 
-Nulla, sulle posizioni: il riordino di ADR-074 e' stato scritto sulla cartuccia il 2026-09-23 con queste stesse posizioni, perche' `emerald_riordino_deposito.py` importa `disposizione` da qui. Resta non verificato in partita l'effetto delle squadre, che e' materia della guida e non dello strumento.
+La disposizione di ADR-078 e' quella del file di `giro11`, prodotto da `emerald_cartuccia_completa.py` che importa `disposizione` da qui; finche' quel file non e' scritto sulla cartuccia, sulla cartuccia c'e' ancora la disposizione storica del settimo giro. Resta non verificato in partita l'effetto delle squadre, che e' materia della guida e non dello strumento.
 
 Uso
 ---
@@ -41,15 +41,20 @@ CATALOGO = CARTELLA.joinpath("squadre-parco-lotta.json")
 GLOSSARIO = CARTELLA.joinpath("GLOSSARIO-MOSSE.md")
 GUIDA = CARTELLA.joinpath("GUIDA-PARCO-LOTTA.md")
 LOTTO = RADICE.joinpath("_notes", "lotto-parco-lotta")
-DUMP = LOTTO.joinpath("Box Data Dump round7.csv")
+# Dal 2026-09-23 il dump e' quello del deposito intero, `round 4`, che contiene l'ottavo giro del lotto
+# in copia unica; si accoppia al manifesto corrente per personalita'.
+DUMP = RADICE.joinpath("_notes", "backup salvataggi pokèmon Alessio cartucce vere", "Box Data Dump smeraldo vero ALEX-45761 - round 4.csv")
 # Il manifesto del giro a cui il dump appartiene, e non quello corrente: il dump si accoppia al lotto
 # per personalita', e la personalita' degli esemplari statici cambia a ogni rigenerazione. I nomi
 # italiani, l'esperienza e i luoghi non cambiano fra un giro e l'altro, quindi il dump del sesto giro
 # resta valido per la guida finche' non ne arriva uno nuovo, purche' lo si legga con il suo manifesto.
-MANIFESTO_DUMP = LOTTO.joinpath("manifesto-round7.json")
+MANIFESTO_DUMP = LOTTO.joinpath("manifesto.json")
 
 BOX_DEL_LOTTO = (12, 13, 14)
 POSIZIONI = 30
+# ADR-078: il lotto in copia unica chiude il deposito, e l'ultimo esemplare sta nell'ultima posizione
+# del box 14. I primi trenta dell'ordine riempiono il box 14, gli altri risalgono in coda al box 13.
+BOX_FINALE = 14
 COLONNE = 6
 
 # Il calendario degli Assi, da `sFrontierBrainStreakAppearances` in `src/frontier_util.c`, come
@@ -73,8 +78,15 @@ def _mappa():
     return modulo
 
 
-def disposizione(catalogo, thread):
-    """Restituisce l'elenco ordinato delle chiavi del lotto e la posizione di ciascuna copia: {(chiave, copia): (box, posizione)}."""
+def disposizione(catalogo, thread, storica=False):
+    """Restituisce l'elenco ordinato delle chiavi del lotto e la posizione di ciascuna copia: {(chiave, copia): (box, posizione)}.
+
+    Senza argomenti e' la disposizione di ADR-078, in copia unica: i primi trenta esemplari dell'ordine
+    occupano il box 14 dalla prima all'ultima posizione, cosi' che i titolari stiano tutti in un box
+    solo, e i restanti, cioe' le riserve meno usate, occupano le ultime posizioni del box 13. Con
+    `storica=True` e' la disposizione di ADR-074 in due copie dal box 12, che e' quella dei giri
+    scritti fino al settimo e che gli strumenti di lavoro sul salvataggio verificano in ingresso.
+    """
     generati, titolari, per_specie, righe, _ = _mappa().misura(catalogo, thread)
     ordine = []
     for squadra in catalogo["squadre"]:
@@ -84,8 +96,15 @@ def disposizione(catalogo, thread):
     riserve = [k for k in generati if k not in titolari]
     riserve.sort(key=lambda k: (-sum(righe[generati[k]["specie"]]["edifici"].values()), k))
     ordine += riserve
-    copie = catalogo["copie_per_esemplare"]
     posizioni = {}
+    if not storica:
+        for i, chiave in enumerate(ordine):
+            if i < POSIZIONI:
+                posizioni[(chiave, 1)] = (BOX_FINALE, i + 1)
+            else:
+                posizioni[(chiave, 1)] = (BOX_FINALE - 1, POSIZIONI - (len(ordine) - POSIZIONI) + (i - POSIZIONI) + 1)
+        return ordine, posizioni, generati, titolari
+    copie = catalogo["copie_per_esemplare"]
     indice = 0
     for chiave in ordine:
         for copia in range(1, copie + 1):
@@ -264,10 +283,10 @@ def blocchi(catalogo, thread):
             ("%d, ATTENZIONE" % margine if margine == 1 else "%d" % margine) if margine is not None else "?"))
     fuori["schede"] = "\n".join(out)
 
-    out = ["| Box | Riga | Colonna | Esemplare | Copia | Ruolo |", "|---|---|---|---|---|---|"]
+    out = ["| Box | Riga | Colonna | Esemplare | Ruolo |", "|---|---|---|---|---|"]
     for (chiave, copia), (box, n) in sorted(posizioni.items(), key=lambda x: x[1]):
         e = generati[chiave]
-        out.append("| %d | %d | %d | %s %s | %d | %s |" % (box, (n - 1) // COLONNE + 1, (n - 1) % COLONNE + 1, e["specie"], nat_it.get(e["natura"], e["natura"]), copia, "titolare" if chiave in titolari else "riserva"))
+        out.append("| %d | %d | %d | %s %s | %s |" % (box, (n - 1) // COLONNE + 1, (n - 1) % COLONNE + 1, e["specie"], nat_it.get(e["natura"], e["natura"]), "titolare" if chiave in titolari else "riserva"))
     fuori["disposizione"] = "\n".join(out)
     return fuori
 
