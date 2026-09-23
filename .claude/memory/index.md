@@ -37,6 +37,8 @@ Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo q
 
 ## Punto di ripresa
 
+AGGIUNTA DEL 2026-09-23, ottava parte. Il proprietario ha trovato in gioco copie non gemelle e un Raikou senza abilita': causa nel generatore, non nel gioco, spiegata con il codice in STUDIO-05 sezione 16 e nel capitolo 14 della tesi, ora riallineato con copertura completa. Settimo giro rigenerato con copie gemelle; per chiudere Smeraldo servono il dump del settimo giro, un'estrazione nuova e la sostituzione del lotto.
+
 AGGIUNTA DEL 2026-09-23, settima parte. La guida del Parco Lotta e' ora operativa, con otto figure e una copia .docx deterministica rigenerata dallo stesso comando. Per HOME e' stato proposto al proprietario un ordine di tre passi suoi, in `pending.md`, mentre l'agente verifica il Vivillon Motivo Poke Ball.
 
 AGGIUNTA DEL 2026-09-23, sesta parte. Su richiesta del proprietario i tre documenti d'uso del Parco Lotta sono diventati uno, `GUIDA-PARCO-LOTTA.md`, e i due file generati `MAPPA-RISERVE.md` e `PERCORSO-SIMBOLI-ORO.md` sono stati cancellati dopo aver verificato che ogni riga delle loro tabelle sta nella guida.

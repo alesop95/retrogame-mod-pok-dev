@@ -141,6 +141,83 @@ def valori_ammessi(esemplare, tolleranza):
     return ammessi
 
 
+def punti_base_di(esemplare):
+    """I punti base dichiarati dal catalogo nella forma "252 HP / 252 SpA / 4 Spe", come dizionario."""
+    punti = {"hp": 0, "atk": 0, "def": 0, "spa": 0, "spd": 0, "spe": 0}
+    for pezzo in esemplare["punti_base"].split("/"):
+        parti = pezzo.strip().split()
+        if len(parti) == 2 and parti[0].isdigit() and parti[1].lower() in punti:
+            punti[parti[1].lower()] = int(parti[0])
+    return punti
+
+
+def statistiche(specie_dati, natura, iv, punti, livello=50):
+    """Le sei statistiche come le calcola il gioco, da `CALC_STAT` e `ModifyStatByNature` in `src/pokemon.c`.
+
+    Ogni divisione e' intera, ed e' la ragione per cui al livello 50 un punto di valore individuale sposta la statistica soltanto meta' delle volte: il valore entra moltiplicato per il livello e diviso per cento, quindi conta per mezzo punto, e mezzo punto si vede solo quando completa un intero. I punti base entrano divisi per quattro e poi dimezzati allo stesso modo, quindi al livello 50 ne servono otto per un punto di statistica, e non quattro come al livello 100.
+    """
+    base = specie_dati["base"]
+    indice = NATURE.index(natura)
+    aumenta, riduce = indice // 5, indice % 5
+    fuori = {"hp": (2 * base["hp"] + iv["hp"] + punti["hp"] // 4) * livello // 100 + livello + 10}
+    for posto, stat in enumerate(("atk", "def", "spe", "spa", "spd")):
+        n = (2 * base[stat] + iv[stat] + punti[stat] // 4) * livello // 100 + 5
+        if aumenta != riduce:
+            if posto == aumenta:
+                n = n * 110 // 100
+            elif posto == riduce:
+                n = n * 90 // 100
+        fuori[stat] = n
+    return fuori
+
+
+def chiave_gemelle(specie_dati, esemplare):
+    """Che cosa devono condividere due copie per essere gemelle: le statistiche, oppure i valori individuali quando l'esemplare usa Introforza, il cui tipo e la cui potenza dipendono dai valori individuali e non dalle statistiche."""
+    if any(m.lower().replace(" ", "") == "hiddenpower" for m in esemplare["mosse"]):
+        return lambda c: tuple(sorted(c["iv"].items()))
+    punti = punti_base_di(esemplare)
+    return lambda c: tuple(sorted(statistiche(specie_dati, esemplare["natura"], c["iv"], punti).items()))
+
+
+def valore_gemelle(specie_dati, esemplare):
+    """Quanto vale un gruppo di gemelle: prima la somma di tutte le statistiche, poi quella delle statistiche su cui il catalogo investe punti base, sempre senza l'attacco quando il catalogo lo vuole basso."""
+    punti = punti_base_di(esemplare)
+    basso = esemplare.get("iv_attacco") == 0
+
+    def valore(c):
+        st = statistiche(specie_dati, esemplare["natura"], c["iv"], punti)
+        contate = {k: v for k, v in st.items() if not (basso and k == "atk")}
+        # Prima tutte le statistiche e poi quelle investite, e non il contrario: una statistica senza
+        # punti base puo' essere quella che l'esemplare usa per attaccare, come l'attacco speciale di un
+        # Moltres che porta Lanciafiamme con i punti base su salute, difesa e velocita'.
+        return (sum(contate.values()), sum(v for k, v in contate.items() if punti[k] > 0))
+    return valore
+
+
+def gruppo_gemelle(liberi, quante, chiave=None, valore=None):
+    """Fra i candidati gia' ordinati dal migliore, il primo gruppo di almeno `quante` che condividono gli stessi valori individuali.
+
+    Le copie di un esemplare devono essere gemelle, cioe' avere le stesse statistiche, e non soltanto la stessa natura e gli stessi obiettivi. Il criterio e' la chiave passata da chi chiama, di solito le statistiche calcolate con la formula del gioco, perche' pretendere valori individuali identici costa punti veri per un'uguaglianza che in lotta non si vede. La prima stesura prendeva per ciascuna copia il miglior seme ancora libero, e su un incontro statico due semi diversi danno quasi sempre valori individuali diversi di un punto: il proprietario lo ha visto in gioco il 2026-09-23 come statistiche che differivano di uno fra due copie dichiarate uguali. Due semi con gli stessi valori individuali e personalita' diverse esistono, perche' la personalita' viene dalle due estrazioni che precedono i valori individuali e un valore individuale si ottiene da piu' stati; ma sono rari, e vanno cercati apposta invece di sperare che capitino.
+
+    Restituisce la lista del gruppo, oppure None se a questa tolleranza nessun gruppo e' abbastanza grande: chi chiama allarga allora la tolleranza.
+    """
+    chiave = chiave or (lambda c: tuple(sorted(c["iv"].items())))
+    gruppi = {}
+    ordine = []
+    for c in liberi:
+        k = chiave(c)
+        if k not in gruppi:
+            gruppi[k] = []
+            ordine.append(k)
+        gruppi[k].append(c)
+    pieni = [gruppi[k] for k in ordine if len(gruppi[k]) >= quante]
+    if not pieni:
+        return None
+    if valore is None:
+        return pieni[0]
+    return max(pieni, key=lambda g: valore(g[0]))
+
+
 def cerca_seme(specie_dati, esemplare, allenatore, tolleranza_massima=6, escluse=(), quante=1):
     """Trova un seme del primo metodo che produca insieme natura, abilita', sesso e valori individuali accettabili.
 
@@ -162,6 +239,8 @@ def cerca_seme(specie_dati, esemplare, allenatore, tolleranza_massima=6, escluse
     attacco_basso = esemplare.get("iv_attacco") == 0
     escluse = set(escluse)
     migliori = []
+    scelte = None
+    trovata = None
 
     for tolleranza in range(tolleranza_massima + 1):
         ammessi = valori_ammessi(esemplare, tolleranza)
@@ -219,10 +298,22 @@ def cerca_seme(specie_dati, esemplare, allenatore, tolleranza_massima=6, escluse
             # dipende dai vincoli e non dalla specie, e la seconda trova consumato cio' che la prima ha
             # preso. Fermarsi qui faceva fallire sette esemplari su trentatre con un messaggio che
             # parlava di candidati insufficienti invece che della causa.
-            if len(liberi) >= quante:
-                return liberi
+            # Non ci si ferma alla prima tolleranza che offre una coppia di gemelle: una tolleranza piu'
+            # larga contiene tutti i candidati della precedente e altri ancora, e fra questi puo' esserci
+            # una coppia con le statistiche che contano piu' alte, perche' lo scarto cade su una
+            # statistica che non si usa. Si proseguono due gradini e si tiene la coppia migliore.
+            gemelle = gruppo_gemelle(liberi, quante, chiave_gemelle(specie_dati, esemplare),
+                                     valore_gemelle(specie_dati, esemplare))
+            if gemelle and (scelte is None or valore_gemelle(specie_dati, esemplare)(gemelle[0])
+                            > valore_gemelle(specie_dati, esemplare)(scelte[0])):
+                scelte = gemelle
+            if scelte is not None:
+                if trovata is None:
+                    trovata = tolleranza
+                if tolleranza >= trovata + 2:
+                    return scelte
             migliori = liberi
-    return migliori
+    return scelte if scelte is not None else migliori
 
 
 
@@ -380,6 +471,7 @@ def cerca_seme_cxd(specie_dati, esemplare, allenatore_origine, tolleranza_massim
     natura_voluta = esemplare["natura"]
     abilita = specie_dati["abilita"]
     due_abilita = len(abilita) == 2 and abilita[1] not in ("None", abilita[0])
+    slot_pieno = len(abilita) == 2 and abilita[1] != "None"
     indice_abilita = abilita.index(esemplare["abilita"]) if esemplare["abilita"] in abilita else 0
     soglia = specie_dati.get("soglia_femmina")
     sesso_voluto = esemplare.get("sesso")
@@ -387,6 +479,8 @@ def cerca_seme_cxd(specie_dati, esemplare, allenatore_origine, tolleranza_massim
     attacco_basso = esemplare.get("iv_attacco") == 0
     escluse = set(escluse)
     migliori = []
+    scelte = None
+    trovata = None
 
     for tolleranza in range(tolleranza_massima + 1):
         ammessi = valori_ammessi(esemplare, tolleranza)
@@ -422,6 +516,13 @@ def cerca_seme_cxd(specie_dati, esemplare, allenatore_origine, tolleranza_massim
                             bit = (s3 >> 16) & 1
                             if due_abilita and bit != indice_abilita:
                                 continue
+                            # Su una specie con il secondo slot vuoto il bit deve essere zero. Smeraldo
+                            # legge l'abilita' con `GetAbilityBySpecies`, che non ha alcun ripiego: con
+                            # il bit a uno restituisce il secondo slot, cioe' nessuna abilita', e il
+                            # primo Raikou del sesto giro e' apparso cosi' in gioco pur essendo legale
+                            # per il verificatore, che su Colosseum accetta qualunque bit.
+                            if not slot_pieno and bit:
+                                continue
                             if soglia is not None and sesso_voluto:
                                 femmina = (personalita & 0xFF) < soglia
                                 if femmina != (sesso_voluto == "femmina"):
@@ -442,10 +543,22 @@ def cerca_seme_cxd(specie_dati, esemplare, allenatore_origine, tolleranza_massim
         if candidati:
             candidati.sort(key=lambda c: -c[0])
             liberi = [c[1] for c in candidati if c[1]["personalita"] not in escluse]
-            if len(liberi) >= quante:
-                return liberi
+            # Non ci si ferma alla prima tolleranza che offre una coppia di gemelle: una tolleranza piu'
+            # larga contiene tutti i candidati della precedente e altri ancora, e fra questi puo' esserci
+            # una coppia con le statistiche che contano piu' alte, perche' lo scarto cade su una
+            # statistica che non si usa. Si proseguono due gradini e si tiene la coppia migliore.
+            gemelle = gruppo_gemelle(liberi, quante, chiave_gemelle(specie_dati, esemplare),
+                                     valore_gemelle(specie_dati, esemplare))
+            if gemelle and (scelte is None or valore_gemelle(specie_dati, esemplare)(gemelle[0])
+                            > valore_gemelle(specie_dati, esemplare)(scelte[0])):
+                scelte = gemelle
+            if scelte is not None:
+                if trovata is None:
+                    trovata = tolleranza
+                if tolleranza >= trovata + 2:
+                    return scelte
             migliori = liberi
-    return migliori
+    return scelte if scelte is not None else migliori
 
 
 def correlazione_cxd(personalita, iv):
@@ -650,6 +763,12 @@ def verifica(uscita, catalogo, dati, manifesto):
         elif mon.misc.ability_num != bit_abilita_di(info["abilita"], mon.personality):
             errori.append("bit dell'abilita' %d, la personalita' ne vuole %d"
                           % (mon.misc.ability_num, bit_abilita_di(info["abilita"], mon.personality)))
+        if len(abilita) == 2 and abilita[1] == "None" and mon.misc.ability_num:
+            errori.append("bit dell'abilita' a uno su una specie con il secondo slot vuoto: in gioco non avrebbe abilita'")
+        chiave = chiave_gemelle(info, esemplare)
+        for altra in voce["copie"][1:]:
+            if chiave(altra) != chiave(prima_copia):
+                errori.append("le copie non sono gemelle: valori individuali %s contro %s" % (prima_copia["iv"], altra["iv"]))
         totale = sum(mon.evs.evs.values())
         if totale > 510:
             errori.append("punti base %d, oltre il tetto di 510" % totale)

@@ -22,6 +22,9 @@ Uso
 ---
 
     python gba-save-extraction-smeraldo/tools/emerald_riordino_deposito.py INGRESSO.sav USCITA.sav
+    python gba-save-extraction-smeraldo/tools/emerald_riordino_deposito.py INGRESSO.sav USCITA.sav --sostituisci-lotto _notes/lotto-parco-lotta/esemplari-round6
+
+La seconda forma serve quando il deposito e' gia' riordinato e cambia soltanto il lotto: rimpiazza le sessantaquattro posizioni dei box 12-14 dopo aver verificato che contengano esattamente i file del giro precedente.
 """
 
 import argparse
@@ -68,11 +71,72 @@ def personalita(record):
     return int.from_bytes(record[0:4], "little")
 
 
+def sostituisci_lotto(ingresso, uscita, precedente):
+    """Rimpiazza nei box 12-14 il lotto gia' scritto con il lotto rigenerato, senza toccare nient'altro.
+
+    Serve quando il deposito e' gia' stato riordinato e cambia soltanto il lotto, come il 2026-09-23 per le copie gemelle: rilanciare il riordino tratterebbe il lotto vecchio come deposito da compattare. Prima di scrivere si pretende che ogni posizione del lotto contenga esattamente il file del giro precedente previsto per quella posizione, byte per byte: se la partita nel frattempo ha spostato, liberato o sostituito anche un solo esemplare del lotto, lo strumento si ferma invece di sovrascrivere qualcosa che non conosce.
+    """
+    grezzo = ingresso.read_bytes()
+    vecchio = save3.Save3(grezzo)
+    if not vecchio.integro():
+        sys.exit("lo slot attivo dell'ingresso non e' integro")
+    percorso = _percorso()
+    catalogo = json.loads(CATALOGO.read_text(encoding="utf-8"))
+    thread = json.loads(percorso._mappa().THREAD.read_text(encoding="utf-8"))
+    _, posizioni, _, _ = percorso.disposizione(catalogo, thread)
+    nuovo = save3.Save3(grezzo)
+    fuori_lotto = set(range(save3.POSIZIONI))
+    for (chiave, copia), (box, n) in posizioni.items():
+        indice = (box - 1) * PER_BOX + (n - 1)
+        fuori_lotto.discard(indice)
+        atteso = precedente.joinpath("%s-copia%d.bin" % (chiave, copia)).read_bytes()
+        if vecchio.leggi_posizione(indice) != atteso:
+            sys.exit("la posizione del box %d, %d, non contiene il file del giro precedente %s-copia%d: "
+                     "la partita l'ha cambiata, e non si sovrascrive cio' che non si conosce" % (box, n, chiave, copia))
+        nuovo.scrivi_posizione(indice, LOTTO.joinpath("%s-copia%d.bin" % (chiave, copia)).read_bytes())
+    prodotto = nuovo.to_bytes()
+    riletto = save3.Save3(prodotto)
+    errori = []
+    if not riletto.integro():
+        errori.append("lo slot attivo del file prodotto non e' integro")
+    for i in fuori_lotto:
+        if riletto.leggi_posizione(i) != vecchio.leggi_posizione(i):
+            errori.append("la posizione %d, fuori dal lotto, e' cambiata" % i)
+    for (chiave, copia), (box, n) in posizioni.items():
+        indice = (box - 1) * PER_BOX + (n - 1)
+        if riletto.leggi_posizione(indice) != LOTTO.joinpath("%s-copia%d.bin" % (chiave, copia)).read_bytes():
+            errori.append("la posizione del box %d, %d, non contiene il file nuovo" % (box, n))
+    if riletto.small() != vecchio.small() or riletto.large() != vecchio.large():
+        errori.append("i dati fuori dal deposito sono cambiati")
+    base = (1 - vecchio.attivo) * save3.SLOT
+    if prodotto[base:base + save3.SLOT] != grezzo[base:base + save3.SLOT]:
+        errori.append("lo slot inattivo e' cambiato")
+    coda = save3.OFF_NOMI_BOX
+    if riletto.storage()[coda:] != vecchio.storage()[coda:]:
+        errori.append("nomi dei box, sfondi o coda del deposito cambiati")
+    if errori:
+        for e in errori:
+            print("VERIFICA FALLITA: %s" % e)
+        sys.exit("il file non e' stato scritto")
+    uscita.write_bytes(prodotto)
+    print("lotto sostituito: %d posizioni nei box 12-14, ciascuna verificata prima e dopo" % len(posizioni))
+    print("verifica: slot integro, le altre %d posizioni identiche, nomi e sfondi identici, resto identico" % len(fuori_lotto))
+    print("scritto %s" % uscita)
+    print("SHA-256 %s" % hashlib.sha256(prodotto).hexdigest())
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     p.add_argument("ingresso")
     p.add_argument("uscita")
+    p.add_argument("--sostituisci-lotto", metavar="CARTELLA_PRECEDENTE",
+                   help="sostituisce soltanto il lotto nei box 12-14, pretendendo che vi stiano i file di questa cartella")
     args = p.parse_args()
+    if args.sostituisci_lotto:
+        ingresso, uscita = Path(args.ingresso), Path(args.uscita)
+        if uscita.resolve() == ingresso.resolve() or uscita.exists():
+            sys.exit("l'uscita coincide con l'ingresso o esiste gia': questo strumento non sovrascrive")
+        return sostituisci_lotto(ingresso, uscita, Path(args.sostituisci_lotto))
     ingresso, uscita = Path(args.ingresso), Path(args.uscita)
     if uscita.resolve() == ingresso.resolve():
         sys.exit("l'uscita coincide con l'ingresso: questo strumento non sovrascrive mai il salvataggio letto")
