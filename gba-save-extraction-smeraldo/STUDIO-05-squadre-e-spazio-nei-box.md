@@ -215,6 +215,17 @@ L'esito, confrontato con la copia migliore del sesto giro: le undici coppie sono
 
 Per portare il lotto corretto sulla cartuccia, `emerald_riordino_deposito.py` ha una modalità nuova, `--sostituisci-lotto`, che rimpiazza soltanto le sessantaquattro posizioni dei box 12-14 dopo aver verificato che contengano esattamente i file del sesto giro, conservati in `_notes/lotto-parco-lotta/esemplari-round6/`, e che lascia identico byte per byte tutto il resto. Restano da fare, in ordine, il settimo giro di verifica in PKHeX, un'estrazione nuova della cartuccia, la sostituzione e la rilettura.
 
+Un terzo difetto dello stesso genere lo ha trovato il proprietario poco dopo, e ha la stessa forma dei due precedenti: un campo che nessun verificatore contesta perche' il suo valore e' legittimo, e che tuttavia rende l'esemplare peggiore di come e' stato progettato. Ritorno non ha una potenza fissa; la calcola `Cmd_happinesstodamagecalculation` in `src/battle_script_commands.c`, riga 8606, come dieci volte l'amicizia divisa per venticinque.
+
+```c
+if (gBattleMoves[gCurrentMove].effect == EFFECT_RETURN)
+    gDynamicBasePower = 10 * (gBattleMons[gBattlerAttacker].friendship) / 25;
+else // EFFECT_FRUSTRATION
+    gDynamicBasePower = 10 * (MAX_FRIENDSHIP - gBattleMons[gBattlerAttacker].friendship) / 25;
+```
+
+Il generatore scriveva a ogni esemplare l'amicizia di base della specie, settanta, quindi i quattro esemplari del catalogo che portano Ritorno, cioe' Gyarados, Slaking, Snorlax e Tauros, lo usavano a ventotto di potenza invece che a centodue, e lo Slaking e' il titolare della Cupola. L'amicizia massima e' legittima, perche' in terza generazione si raggiunge giocando e il verificatore non la vincola su un esemplare che non sia un uovo; il generatore la scrive ora per chi porta Ritorno, e zero per chi porta Frustrazione, e la verifica interna lo controlla. E' l'ottavo giro del lotto: cambiano soltanto quegli otto file, e le personalita' restano le stesse.
+
 ## 17. Che cosa resta aperto, e che cosa questo documento non verifica
 
 Lo strumento di verifica controlla i vincoli del Parco e non la legalità del gioco: non sa se una mossa sia imparabile dalla specie a cui è attribuita, perché la tabella degli insiemi di mosse per specie non è ancora su disco in questo progetto. Dichiararlo fatto sarebbe peggio che non farlo, quindi il controllo si lascia alla fase di generazione, dove quella tabella serve comunque. L'unico caso già noto è registrato come eccezione esplicita nello strumento, cioè Megahorn su Heracross, che in Smeraldo non è una macchina ma una mossa di livello appresa al cinquantatre; Heracross non entra in nessuna delle sei squadre qui proposte, quindi il vincolo oggi non morde, ma resta scritto per quando lo farà.
