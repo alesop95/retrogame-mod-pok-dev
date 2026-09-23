@@ -963,6 +963,16 @@ Il problema. La lettura integrale delle fonti del Parco Lotta ha lasciato fuori 
 La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti etichettata come non letta con il proprio motivo, secondo la prescrizione che vieta di degradare in silenzio una fonte a nota a margine, e non si tenta alcuna via ulteriore. Il debito di lettura del fronte Parco Lotta si dichiara quindi chiuso con questa sola eccezione dichiarata, e nessuna sessione futura deve riaprirlo credendo che qualcosa sia stato dimenticato.
 
 La ragione per cui l'abbandono e' accettabile qui, e non lo sarebbe altrove. Quella discussione e' del 2005 ed e' una richiesta di valutazione di squadra, cioe' la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e piu' recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano e' quindi basso, e la decisione si fonda su questo e non sulla sola difficolta' di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
+## ADR-077: ventisette catture vere rientrano al posto delle copie di scambio del Parco Lotta
+
+Data: 2026-09-23. Stato: accettata, attuazione in corso. Modifica ADR-076 sulla selezione dei doppioni e sulle copie di scambio.
+
+Contesto. ADR-076 teneva per ogni specie la sola cattura più vecchia e toglieva 64 doppioni. Riletti sul dump `round 3`, 31 di quei 64 sono cloni, cioè hanno la personalità di un esemplare che resta nel deposito, e 33 sono catture distinte. Il deposito del file di `giro9` è pieno, 420 su 420, quindi ogni cattura che rientra chiede un posto liberato altrove.
+
+Decisione del proprietario. Lo spazio si ricava dalle copie di scambio del Parco Lotta, tutte e 27 quelle rimaste, e rientrano 27 catture distinte; restano fuori le sei di livello più basso. Nell'attuazione l'agente ha sostituito il Seedot B2-13 con il Sentret L10, perché quel Seedot ha la stessa personalità del Delcatty B6-16 già tenuto, e farlo rientrare avrebbe riscritto la personalità di una cattura vera. Restano quindi fuori Lotad L4, Jigglypuff L3 e L9, Rattata L3, Magikarp L5 e Seedot L25.
+
+Conseguenze. Il lotto del Parco Lotta scende a 32 esemplari in copia unica, senza seconde copie di scambio; i file delle copie 2 restano su disco. La guida del Parco Lotta va riscritta sulle posizioni nuove. Il file è `giro10/…-CORRETTO.sav`, SHA-256 `de5ba7cb5799d7a6ce362f4aac2f38cad2f9b1b7dc8dd4d0ccc115b3ca5cdf3d`, e il file di `giro9` è superato.
+
 ## ADR-076: la cartuccia di Smeraldo come collezione completa di terza generazione
 
 Data: 2026-09-23. Stato: accettata, attuazione in corso. Supera ADR-075 sui cromatici forzati, che non si risanano piu' ma si cancellano, e lo estende.
