@@ -24,7 +24,8 @@
         "livello_incontro": 50,
         "sfera": 4,
         "fatidico": true,
-        "nota": "Latios non e' allevabile, quindi la sola provenienza compatibile con il livello 50 esatto e' l'evento dell'Isola Remota, che consegna l'esemplare proprio a quel livello. E' anche la provenienza coerente con questa cartuccia, su cui STUDIO-03 ha riaperto gli eventi delle isole."
+        "gioco": 3,
+        "nota": "Provenienza verificata sulle tabelle del verificatore, che per Smeraldo dichiara l'esemplare dell'Isola Remota a livello cinquanta, luogo settantatre e contrassegno di evento acceso: i tre campi coincidono con quelli scritti qui. E' anche la provenienza coerente con questa cartuccia, su cui STUDIO-03 ha riaperto gli eventi delle isole. Il livello di incontro pari al livello di gioco non e' piu' un ostacolo da quando l'esperienza si scrive al massimo dell'intervallo del livello."
       }
     },
     "latios-hasty": {
@@ -46,7 +47,8 @@
         "livello_incontro": 50,
         "sfera": 4,
         "fatidico": true,
-        "nota": "come sopra; i due Latios del catalogo hanno nature diverse e sono quindi due esemplari distinti, il che richiede due partite o uno scambio."
+        "gioco": 3,
+        "nota": "Provenienza verificata sulle tabelle del verificatore, che per Smeraldo dichiara l'esemplare dell'Isola Remota a livello cinquanta, luogo settantatre e contrassegno di evento acceso: i tre campi coincidono con quelli scritti qui. E' anche la provenienza coerente con questa cartuccia, su cui STUDIO-03 ha riaperto gli eventi delle isole. Il livello di incontro pari al livello di gioco non e' piu' un ostacolo da quando l'esperienza si scrive al massimo dell'intervallo del livello."
       }
     },
     "metagross-adamant": {
@@ -312,7 +314,9 @@
         "nota": "in Rosso Fuoco e Verde Foglia uno dei tre cani vaga dopo la Lega a seconda dello starter, verificato su GetRoamerSpecies in src/roamer.c: Suicune con Charmander. CreateInitialRoamerMon lo crea a livello 50 esatto, che e' il livello a cui si gioca, e il Percorso 4 e' uno dei luoghi della sua rotta."
       },
       "fonte": "gia' nel materiale dell'utente; trentasei occorrenze nei thread, quarta specie piu' usata in assoluto",
-      "riserva": true
+      "riserva": true,
+      "genera": false,
+      "nota_esclusione": "SOSPESO in attesa di una decisione del proprietario, e non escluso per sempre. Il vagante di Rosso Fuoco, che era la provenienza dichiarata, ha due difetti indipendenti e ciascuno da solo basta a renderlo irregolare. Il primo e' che si incontra a livello cinquanta, che e' il tetto del Parco Lotta, quindi non puo' guadagnare esperienza e non puo' portare piu' di cento punti base per statistica. Il secondo e' che i valori individuali di un vagante sono conservati su otto soli bit in tutti i giochi tranne Smeraldo, cioe' cinque bit per la salute e tre per l'attacco, e tutti gli altri valgono zero: e' il difetto di programmazione della terza generazione, e il verificatore lo pretende invece di ignorarlo. Un Suicune vagante legittimo ha quindi difesa, attacco speciale, difesa speciale e velocita' a zero. La sola provenienza di terza generazione a livello quaranta e' l'esemplare Ombra di Colosseum, che pero' porta un vincolo sul valore di personalita' legato alla squadra dell'avversario da cui lo si sottrae, e questo generatore non lo sa ancora soddisfare."
     },
     "snorlax-careful": {
       "specie": "Snorlax",
@@ -377,11 +381,12 @@
       "origine": {
         "tipo": "evento dell'Isola Remota",
         "luogo": 73,
-        "nome_luogo": "Isola Remota",
+        "nome_luogo": "Isola Remota, dove il Biglietto Aurora conduce",
         "livello_incontro": 50,
         "sfera": 4,
         "fatidico": true,
-        "gioco": 3
+        "gioco": 3,
+        "nota": "Provenienza verificata sulle tabelle del verificatore, che per Smeraldo dichiara l'esemplare dell'Isola Remota a livello cinquanta, luogo settantatre e contrassegno di evento acceso: i tre campi coincidono con quelli scritti qui. E' anche la provenienza coerente con questa cartuccia, su cui STUDIO-03 ha riaperto gli eventi delle isole. Il livello di incontro pari al livello di gioco non e' piu' un ostacolo da quando l'esperienza si scrive al massimo dell'intervallo del livello."
       },
       "fonte": "venti occorrenze nei thread; insieme dichiarato piu' volte, di sostegno invece che offensivo",
       "riserva": true
@@ -479,7 +484,8 @@
         "nota": "ammesso da ADR-070, che consente gli scambi dagli altri titoli della terza generazione"
       },
       "fonte": "tredici occorrenze nei thread; l'insieme dichiarato piu' spesso porta Riposo e Sonnolalia",
-      "riserva": true
+      "riserva": true,
+      "nota_punti_base": "I punti base sono quelli pieni dei thread. Il tetto da vitamine che una prima correzione aveva imposto era una sovracorrezione: l'esemplare si incontra a livello cinquanta e non puo' salire oltre, ma puo' guadagnare esperienza fino a un punto sotto la soglia del livello cinquantuno restando al cinquanta, perche' il livello si ricava dall'esperienza. Quella finestra vale novemilacinquecentosessantadue punti su un gruppo di crescita lento, e i punti base piu' cari ne costano qualche centinaio."
     },
     "moltres-timid": {
       "specie": "Moltres",
@@ -504,7 +510,8 @@
         "nota": "ammesso da ADR-070, che consente gli scambi dagli altri titoli della terza generazione"
       },
       "fonte": "otto occorrenze nei thread; l'insieme dichiarato usa Fuocofatuo e Sostituto per logorare. CORRETTO dal controllo sulle mosse imparabili: l'insieme dichiarato nei thread porta Lucidalba e Fuocofatuo, che Moltres in terza generazione non impara per alcuna via: sono mosse di quarta. Sostituite con Lanciafiamme e Tossina, entrambe verificate sulla tabella estratta dal sorgente. E' la prova che un insieme letto su un forum va verificato anche quando il forum parla del gioco giusto",
-      "riserva": true
+      "riserva": true,
+      "nota_punti_base": "I punti base sono quelli pieni dei thread. Il tetto da vitamine che una prima correzione aveva imposto era una sovracorrezione: l'esemplare si incontra a livello cinquanta e non puo' salire oltre, ma puo' guadagnare esperienza fino a un punto sotto la soglia del livello cinquantuno restando al cinquanta, perche' il livello si ricava dall'esperienza. Quella finestra vale novemilacinquecentosessantadue punti su un gruppo di crescita lento, e i punti base piu' cari ne costano qualche centinaio."
     },
     "articuno-calm": {
       "specie": "Articuno",
@@ -529,7 +536,8 @@
         "nota": "ammesso da ADR-070, che consente gli scambi dagli altri titoli della terza generazione"
       },
       "fonte": "sei occorrenze nei thread. CORRETTO dal controllo sulle mosse imparabili: l'insieme dichiarato porta Nube, che Articuno non impara in terza generazione. Sostituita con Geloraggio, che e' macchina",
-      "riserva": true
+      "riserva": true,
+      "nota_punti_base": "I punti base sono quelli pieni dei thread. Il tetto da vitamine che una prima correzione aveva imposto era una sovracorrezione: l'esemplare si incontra a livello cinquanta e non puo' salire oltre, ma puo' guadagnare esperienza fino a un punto sotto la soglia del livello cinquantuno restando al cinquanta, perche' il livello si ricava dall'esperienza. Quella finestra vale novemilacinquecentosessantadue punti su un gruppo di crescita lento, e i punti base piu' cari ne costano qualche centinaio."
     },
     "raikou-timid": {
       "specie": "Raikou",
@@ -554,7 +562,9 @@
         "nota": "in Rosso Fuoco e Verde Foglia uno dei tre cani vaga dopo la Lega a seconda dello starter, verificato su GetRoamerSpecies in src/roamer.c: Raikou con Squirtle o qualunque altro starter. CreateInitialRoamerMon lo crea a livello 50 esatto, che e' il livello a cui si gioca, e il Percorso 4 e' uno dei luoghi della sua rotta."
       },
       "fonte": "dieci occorrenze nei thread",
-      "riserva": true
+      "riserva": true,
+      "genera": false,
+      "nota_esclusione": "SOSPESO in attesa di una decisione del proprietario, e non escluso per sempre. Il vagante di Rosso Fuoco, che era la provenienza dichiarata, ha due difetti indipendenti e ciascuno da solo basta a renderlo irregolare. Il primo e' che si incontra a livello cinquanta, che e' il tetto del Parco Lotta, quindi non puo' guadagnare esperienza e non puo' portare piu' di cento punti base per statistica. Il secondo e' che i valori individuali di un vagante sono conservati su otto soli bit in tutti i giochi tranne Smeraldo, cioe' cinque bit per la salute e tre per l'attacco, e tutti gli altri valgono zero: e' il difetto di programmazione della terza generazione, e il verificatore lo pretende invece di ignorarlo. Un Suicune vagante legittimo ha quindi difesa, attacco speciale, difesa speciale e velocita' a zero. La sola provenienza di terza generazione a livello quaranta e' l'esemplare Ombra di Colosseum, che pero' porta un vincolo sul valore di personalita' legato alla squadra dell'avversario da cui lo si sottrae, e questo generatore non lo sa ancora soddisfare."
     },
     "tauros-jolly": {
       "specie": "Tauros",
