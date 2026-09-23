@@ -4,6 +4,18 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-23, cinquantaduesima parte. Il lotto del Parco Lotta e' sulla cartuccia
+
+Il proprietario ha verificato in PKHeX il file riordinato, con 279 legali su 319 e gli stessi 40 irregolari, poi lo ha scritto con FlashGBX e lo ha riletto. Il SHA-256 della rilettura coincide con quello del file preparato, `f5dd6cd5...3435`, quindi la scrittura e' verificata byte per byte come `hardware-and-perimeter.md` prescrive. La seconda fase di ADR-067 e' fatta nella forma che ADR-074 le ha dato: i 64 esemplari sono nei box 12-14 della cartuccia, gli esistenti compattati nei box 1-9, i box rinominati. Il risanamento dei 40 irregolari resta al giro successivo.
+
+## 2026-09-23, cinquantunesima parte. Il riordino del deposito e l'inserimento del lotto, preparati su una copia
+
+Il dump del salvataggio nuovo conta 255 esemplari e 40 irregolari, cioe' gli stessi gruppi del 2026-09-17 meno Doduo e Paras. Il proprietario ha chiesto di inserire subito il lotto con un solo giro di scrittura, lasciando il risanamento a un giro successivo. `tools/emerald_riordino_deposito.py` fa le tre cose di ADR-074 in una trasformazione sola: copia i record esistenti senza decifrarli nei box 1-9, inserisce i 64 file del lotto nelle posizioni di `parco_lotta_percorso_oro.disposizione`, e rinomina i box. Prima di scrivere rilegge il prodotto e verifica integrita', multinsieme dei record, posizione per posizione, invarianza di squadra, zaino, sfondi e slot inattivo, e assenza di personalita' condivise fra lotto ed esistenti. I file del lotto sono gia' nella forma cifrata da ottanta byte che il salvataggio usa, verificato decodificando e ricifrando entrambi, quindi si inseriscono tali e quali. Sugli sfondi e' emerso un fatto: i box 1, 13 e 14 usano gia' lo sfondo 16, cioe' lo sfondo Amici, quindi questa partita ne ha gia' uno. Il file prodotto ha SHA-256 `f5dd6cd5...3435`.
+
+## 2026-09-23, cinquantesima parte. Estrazione nuova della cartuccia, backup verificato
+
+Il proprietario ha eseguito la procedura a micro passi, la stessa del 2026-09-17. FlashGBX 5.1 ha riconosciuto `AGB-BPEI-0` e 1M FLASH da 128 KiB senza impostazioni manuali, e l'orologio risulta non disponibile, come atteso con la pila esaurita. Due letture indipendenti, su E: e su J:, hanno dato lo stesso SHA-256, `d0281f2f...ae5c`, quindi il backup e' verificato secondo `hardware-and-perimeter.md`. Il salvataggio e' integro, porta l'identificativo 45761 e 800 ore e 2 minuti di gioco, letti dal file perche' il proprietario non li aveva annotati, ed e' diverso da quello del 2026-09-21, come deve essere dopo le partite al Parco. Le due copie sono state rinominate con lo schema abituale: `Pokemon - Versione Smeraldo (Italy) - ALEX-45761-800h02m-2026-09-23.sav`.
+
 ## 2026-09-23, quarantanovesima parte. Il percorso ai simboli d'oro, posizione per posizione
 
 Il proprietario ha chiesto la mappatura nella forma in cui la usa: per ogni edificio, fino al simbolo d'oro, quale esemplare prendere da quale posizione di quale box. E' `PERCORSO-SIMBOLI-ORO.md`, generato da `tools/parco_lotta_percorso_oro.py`, che fissa l'ordine nei box 12-14 di ADR-074 in una funzione sola: gli otto titolari nell'ordine della loro prima comparsa nelle squadre, poi le ventiquattro riserve per frequenza nei thread, con copia 1 e copia 2 affiancate; il box 14 resta occupato nelle sole prime quattro posizioni.
