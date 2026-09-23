@@ -4,6 +4,24 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-23, quarantaseiesima parte. Il quinto giro a 59 su 60, il bit dell'abilita' di Flygon, e Colosseum implementato
+
+### Il quinto giro
+
+Il proprietario ha ricaricato in PKHeX i sessanta file e salvato `_notes/lotto-parco-lotta/Box Data Dump round5.csv`: 59 righe conformi su 60, contro le 6 su 64 dei due giri precedenti. Le due correzioni del 2026-09-22 hanno quindi chiuso entrambe le famiglie respinte, cioe' le uova e le statiche di livello cinquanta. La sola irregolare e' `flygon-jolly-copia1`, personalita' `9039216D`, con il referto "l'Abilita' non corrisponde al PID" (schermata `screenshot_213.png` di Screenpresso, non versionata).
+
+### La causa, letta nel sorgente
+
+In `AbilityVerifier.cs` il verificatore pretende che il bit dell'abilita' segua il bit basso della personalita' quando il secondo slot della specie e' pieno, anche se contiene la stessa abilita' del primo, e che resti spento quando lo slot e' vuoto; Flygon, Vibrava e Granbull, le sole specie con i due slot uguali, sono nominate come eccezione esplicita. Il generatore legava il bit alla diversita' delle due abilita' e su Flygon scriveva sempre zero: la copia con personalita' pari passava, quella dispari no. La correzione e' `bit_abilita_di` nel generatore, e la verifica interna controlla ora il bit su ogni esemplare. Le personalita' non cambiano, perche' la ricerca e' deterministica: cambia solo il bit della prima copia di Flygon, da zero a uno.
+
+### Colosseum, implementato
+
+ADR-073 e' fatto. Il generatore ha una terza via accanto al primo metodo e alle uova, `cerca_seme_cxd`, con il generatore di Colosseum e XD e l'ordine di chiamate di `MethodCXD.SetFromIVs`, e una porta indipendente di `GetXDRNGMatch` nella verifica interna. L'allenatore d'origine e' WES, scelto dal proprietario, con identificativo 26243 e segreto 55008 costruiti da `allenatore_colosseum` e rivalidati da `id_colosseum_valido`, porta per forza bruta di `TryGetSeedTrainerID`; l'identificativo del salvataggio di Smeraldo viene respinto, che e' il controllo negativo. Suicune viene dalla Torre Realgam, luogo 110, e Raikou dalla Torre Realgam, luogo 113, entrambi a livello quaranta, gioco quindici, Poke Ball, fatidico spento e Nastro Nazionale acceso, ciascun requisito con il file del sorgente che lo impone in STUDIO-05 sezione 15. Il registro diceva per Raikou i luoghi di Suicune e ometteva la chiamata dell'abilita': entrambe le cose sono state corrette in `pending.md`.
+
+### Lo stato del lotto
+
+Trentadue esemplari e sessantaquattro file, rigenerati e riletti dal disco, tutti conformi al catalogo, tutti simmetrici, i due cani con la correlazione di Colosseum ritrovata all'indietro. Tyranitar resta fuori. Il prossimo passo e' il dump del sesto giro, e l'attesa e' 64 su 64.
+
 ## 2026-09-22, quarantacinquesima parte. La sovracorrezione sull'esperienza, rientrata dal proprietario, e la scelta di Colosseum
 
 ### L'errore, che era mio e di ragionamento e non di lettura

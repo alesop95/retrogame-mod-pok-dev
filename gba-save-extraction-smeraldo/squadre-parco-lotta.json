@@ -304,19 +304,22 @@
         "Substitute"
       ],
       "origine": {
-        "tipo": "vagante di Rosso Fuoco",
-        "luogo": 104,
-        "nome_luogo": "Percorso 4",
-        "livello_incontro": 50,
+        "tipo": "ombra di Colosseum",
+        "luogo": 110,
+        "nome_luogo": "Torre Realgam",
+        "livello_incontro": 40,
         "sfera": 4,
         "fatidico": false,
-        "gioco": 4,
-        "nota": "in Rosso Fuoco e Verde Foglia uno dei tre cani vaga dopo la Lega a seconda dello starter, verificato su GetRoamerSpecies in src/roamer.c: Suicune con Charmander. CreateInitialRoamerMon lo crea a livello 50 esatto, che e' il livello a cui si gioca, e il Percorso 4 e' uno dei luoghi della sua rotta."
+        "gioco": 15,
+        "allenatore": {
+          "nome": "WES",
+          "id": 26243,
+          "segreto": 55008
+        },
+        "nota": "esemplare Ombra sottratto all'Admin Venus alla Torre Realgam a livello 40, dalla riga 74 di Encounters3Colo.cs, che fissa luogo 110 e livello 40. Requisiti letti nel sorgente di PKHeX, ADR-073. Correlazione di Colosseum e XD, cioe' valori individuali, valori individuali, abilita' e le due meta' della personalita' dal generatore con moltiplicatore 0x343FD, da MethodCXD.SetFromIVs; squadra dell'avversario dichiarata vuota, quindi nessun vincolo di squadra; incontro fatidico spento, perche' IsMatchPartial in EncounterShadow3Colo lo degrada a corrispondenza parziale; Nastro Nazionale acceso, che GetValidRibbonStateNational pretende su un esemplare Ombra purificato; Poke Ball; allenatore WES maschio, con identificativo e segreto che MethodCXD.TryGetSeedTrainerID ritrova all'uscita della schermata del nome, calcolati da allenatore_colosseum e rivalidati a ogni corsa. Arriva in Smeraldo per scambio, che e' la via ammessa da ADR-070."
       },
       "fonte": "gia' nel materiale dell'utente; trentasei occorrenze nei thread, quarta specie piu' usata in assoluto",
-      "riserva": true,
-      "genera": false,
-      "nota_esclusione": "SOSPESO in attesa di una decisione del proprietario, e non escluso per sempre. Il vagante di Rosso Fuoco, che era la provenienza dichiarata, ha due difetti indipendenti e ciascuno da solo basta a renderlo irregolare. Il primo e' che si incontra a livello cinquanta, che e' il tetto del Parco Lotta, quindi non puo' guadagnare esperienza e non puo' portare piu' di cento punti base per statistica. Il secondo e' che i valori individuali di un vagante sono conservati su otto soli bit in tutti i giochi tranne Smeraldo, cioe' cinque bit per la salute e tre per l'attacco, e tutti gli altri valgono zero: e' il difetto di programmazione della terza generazione, e il verificatore lo pretende invece di ignorarlo. Un Suicune vagante legittimo ha quindi difesa, attacco speciale, difesa speciale e velocita' a zero. La sola provenienza di terza generazione a livello quaranta e' l'esemplare Ombra di Colosseum, che pero' porta un vincolo sul valore di personalita' legato alla squadra dell'avversario da cui lo si sottrae, e questo generatore non lo sa ancora soddisfare."
+      "riserva": true
     },
     "snorlax-careful": {
       "specie": "Snorlax",
@@ -552,19 +555,22 @@
         "Rest"
       ],
       "origine": {
-        "tipo": "vagante di Rosso Fuoco",
-        "luogo": 104,
-        "nome_luogo": "Percorso 4",
-        "livello_incontro": 50,
+        "tipo": "ombra di Colosseum",
+        "luogo": 113,
+        "nome_luogo": "Torre Realgam",
+        "livello_incontro": 40,
         "sfera": 4,
         "fatidico": false,
-        "gioco": 4,
-        "nota": "in Rosso Fuoco e Verde Foglia uno dei tre cani vaga dopo la Lega a seconda dello starter, verificato su GetRoamerSpecies in src/roamer.c: Raikou con Squirtle o qualunque altro starter. CreateInitialRoamerMon lo crea a livello 50 esatto, che e' il livello a cui si gioca, e il Percorso 4 e' uno dei luoghi della sua rotta."
+        "gioco": 15,
+        "allenatore": {
+          "nome": "WES",
+          "id": 26243,
+          "segreto": 55008
+        },
+        "nota": "esemplare Ombra sottratto all'Admin Ein alla Torre Realgam a livello 40, dalla riga 93 di Encounters3Colo.cs, che fissa luogo 113 e livello 40. Requisiti letti nel sorgente di PKHeX, ADR-073. Correlazione di Colosseum e XD, cioe' valori individuali, valori individuali, abilita' e le due meta' della personalita' dal generatore con moltiplicatore 0x343FD, da MethodCXD.SetFromIVs; squadra dell'avversario dichiarata vuota, quindi nessun vincolo di squadra; incontro fatidico spento, perche' IsMatchPartial in EncounterShadow3Colo lo degrada a corrispondenza parziale; Nastro Nazionale acceso, che GetValidRibbonStateNational pretende su un esemplare Ombra purificato; Poke Ball; allenatore WES maschio, con identificativo e segreto che MethodCXD.TryGetSeedTrainerID ritrova all'uscita della schermata del nome, calcolati da allenatore_colosseum e rivalidati a ogni corsa. Arriva in Smeraldo per scambio, che e' la via ammessa da ADR-070."
       },
       "fonte": "dieci occorrenze nei thread",
-      "riserva": true,
-      "genera": false,
-      "nota_esclusione": "SOSPESO in attesa di una decisione del proprietario, e non escluso per sempre. Il vagante di Rosso Fuoco, che era la provenienza dichiarata, ha due difetti indipendenti e ciascuno da solo basta a renderlo irregolare. Il primo e' che si incontra a livello cinquanta, che e' il tetto del Parco Lotta, quindi non puo' guadagnare esperienza e non puo' portare piu' di cento punti base per statistica. Il secondo e' che i valori individuali di un vagante sono conservati su otto soli bit in tutti i giochi tranne Smeraldo, cioe' cinque bit per la salute e tre per l'attacco, e tutti gli altri valgono zero: e' il difetto di programmazione della terza generazione, e il verificatore lo pretende invece di ignorarlo. Un Suicune vagante legittimo ha quindi difesa, attacco speciale, difesa speciale e velocita' a zero. La sola provenienza di terza generazione a livello quaranta e' l'esemplare Ombra di Colosseum, che pero' porta un vincolo sul valore di personalita' legato alla squadra dell'avversario da cui lo si sottrae, e questo generatore non lo sa ancora soddisfare."
+      "riserva": true
     },
     "tauros-jolly": {
       "specie": "Tauros",

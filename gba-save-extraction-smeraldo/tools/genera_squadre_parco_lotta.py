@@ -49,6 +49,20 @@ SOMMA = 0x00006073
 # dispari, ed e' cio' che rende il generatore percorribile all'indietro.
 MOLT_INV = pow(MOLT, -1, 1 << 32)
 
+# Il generatore di Colosseum e XD, che non e' quello delle cartucce: stessa forma, costanti diverse,
+# da `XDRNG.cs` del verificatore. Un esemplare che viene da quei giochi porta una correlazione fra
+# personalita' e valori individuali costruita con QUESTE costanti, e una coppia del primo metodo accanto
+# al gioco di origine quindici sarebbe tanto irregolare quanto una coppia assente.
+XD_MOLT = 0x000343FD
+XD_SOMMA = 0x00269EC3
+XD_MOLT_INV = pow(XD_MOLT, -1, 1 << 32)
+# La soglia della schermata del nome, da `IsValidNameScreenEndSeed` in `MethodCXD.cs`: a ogni fotogramma
+# il gioco fa comparire una palla con probabilita' di un decimo, cioe' quando i sedici bit alti del
+# generatore non superano questo valore.
+SOGLIA_SCHERMATA_NOME = 0x1999
+# Le due coppie di identificativi che il verificatore considera sospette per costruzione.
+ID_SOSPETTI = {(12345, 54321), (15040, 18831)}
+
 NATURE = ["Hardy", "Lonely", "Brave", "Adamant", "Naughty", "Bold", "Docile", "Relaxed", "Impish",
           "Lax", "Timid", "Hasty", "Serious", "Jolly", "Naive", "Modest", "Mild", "Quiet",
           "Bashful", "Rash", "Calm", "Gentle", "Sassy", "Careful", "Quirky"]
@@ -87,11 +101,27 @@ def avanti(stato):
     return (stato * MOLT + SOMMA) & 0xFFFFFFFF
 
 
+def xd_avanti(stato):
+    return (stato * XD_MOLT + XD_SOMMA) & 0xFFFFFFFF
+
+
+def xd_indietro(stato):
+    return ((stato - XD_SOMMA) * XD_MOLT_INV) & 0xFFFFFFFF
+
+
 def parole_iv(valori):
     """Le due parole a quindici bit che corrispondono a una distribuzione di valori individuali."""
     uno = (valori["hp"] & 31) | ((valori["atk"] & 31) << 5) | ((valori["def"] & 31) << 10)
     due = (valori["spe"] & 31) | ((valori["spa"] & 31) << 5) | ((valori["spd"] & 31) << 10)
     return uno, due
+
+
+def bit_abilita_di(abilita, personalita):
+    """Il bit dell'abilita' che una cartuccia scrive accanto a questa personalita'.
+
+    La regola non e' quella che il nome del campo suggerisce, cioe' avere due abilita' diverse, ma avere il secondo slot pieno. In `CreateBoxMon` il gioco copia il bit basso della personalita' quando il secondo slot della specie non e' vuoto, anche se contiene la stessa abilita' del primo, e lascia il bit a zero quando lo slot e' vuoto. Flygon, Vibrava e Granbull hanno i due slot uguali, e il verificatore li nomina come eccezione in `AbilityVerifier.cs`: su di essi il bit deve seguire la personalita', sulle specie a slot unico deve restare spento. Una prima stesura lo legava invece alla diversita' delle due abilita', e il Flygon con personalita' dispari del quinto giro e' stato l'unico esemplare respinto su sessanta.
+    """
+    return (personalita & 1) if len(abilita) == 2 and abilita[1] != "None" else 0
 
 
 def valori_ammessi(esemplare, tolleranza):
@@ -179,7 +209,7 @@ def cerca_seme(specie_dati, esemplare, allenatore, tolleranza_massima=6, escluse
                                 "personalita": personalita,
                                 "iv": valori,
                                 "scarto": tolleranza,
-                                "bit_abilita": (personalita & 1) if due_abilita else 0,
+                                "bit_abilita": bit_abilita_di(abilita, personalita),
                             }))
         if candidati:
             candidati.sort(key=lambda c: -c[0])
@@ -267,11 +297,177 @@ def cerca_personalita_libera(specie_dati, esemplare, allenatore, chiave, escluse
             "personalita": personalita,
             "iv": dict(iv),
             "scarto": 0,
-            "bit_abilita": (personalita & 1) if due_abilita else 0,
+            "bit_abilita": bit_abilita_di(abilita, personalita),
         })
         if len(trovate) >= quante:
             return trovate
     return trovate
+
+
+def schermata_nome_valida(stato):
+    """Porta di `IsValidNameScreenEndSeed`: dice se il gioco puo' uscire dalla schermata del nome su questo stato.
+
+    Lo stato e' accettabile in due modi, e il verificatore li prova entrambi. Il primo e' arrivarci senza palle, cioe' con quattro fotogrammi consecutivi i cui sedici bit alti superano la soglia. Il secondo e' esserci catapultati da una palla comparsa poco prima, che consuma quattro chiamate del generatore: allora si risale oltre la palla e si ripete la domanda su uno stato piu' vecchio. La ricorsione e' quella del sorgente, riga per riga.
+    """
+    p1 = (stato >> 16) > SOGLIA_SCHERMATA_NOME
+    stato = xd_indietro(stato)
+    p2 = (stato >> 16) > SOGLIA_SCHERMATA_NOME
+    stato = xd_indietro(stato)
+    p3 = (stato >> 16) > SOGLIA_SCHERMATA_NOME
+    stato = xd_indietro(stato)
+    p4 = (stato >> 16) > SOGLIA_SCHERMATA_NOME
+    if p1 and p2 and p3 and p4:
+        return True
+    for richiesti in ((), (p1,), (p1, p2), (p1, p2, p3)):
+        stato = xd_indietro(stato)
+        if (stato >> 16) <= SOGLIA_SCHERMATA_NOME and all(richiesti) \
+                and schermata_nome_valida(xd_indietro(stato)):
+            return True
+    return False
+
+
+def indietro_di_mille(stato):
+    for _ in range(1000):
+        stato = xd_indietro(stato)
+    return stato
+
+
+def id_colosseum_valido(tid, sid):
+    """Porta per forza bruta di `TryGetSeedTrainerID`: esiste uno stato che produca questo identificativo e questo segreto uscendo dalla schermata del nome?
+
+    Non condivide la direzione con `allenatore_colosseum`, che costruisce l'identificativo in avanti, ed e' voluto: questa lo rifa' all'indietro come fa il verificatore, percorrendo i sedici bit ignoti dello stato che ha prodotto l'identificativo, quindi un errore di direzione o di conteggio in una delle due non puo' compensarsi con lo stesso errore nell'altra.
+    """
+    if tid == sid or tid == 0 or sid == 0 or (tid, sid) in ID_SOSPETTI:
+        return False
+    for basso in range(1 << 16):
+        t = (tid << 16) | basso
+        if (xd_avanti(t) >> 16) != sid:
+            continue
+        if schermata_nome_valida(indietro_di_mille(xd_indietro(t))):
+            return True
+    return False
+
+
+def allenatore_colosseum(nome):
+    """Costruisce l'identificativo e il segreto di un allenatore di Colosseum che il verificatore accetta.
+
+    In Colosseum e XD l'identificativo non e' libero: il gioco lo estrae dal proprio generatore mille chiamate dopo l'uscita dalla schermata del nome, e il verificatore lo rifiuta se non trova un'uscita plausibile. Si parte quindi da uno stato fisso derivato dal nome, si cerca in avanti uno stato di uscita con quattro fotogrammi senza palle, si avanza di mille, e le due chiamate successive danno identificativo e segreto. Il risultato e' deterministico e si scrive nel catalogo, cosi' che il catalogo lo dichiari invece di lasciarlo implicito nel programma.
+    """
+    stato = (sum(ord(c) * (i + 1) for i, c in enumerate(nome)) * 2654435761) & 0xFFFFFFFF
+    while True:
+        stato = xd_avanti(stato)
+        precedenti = [stato]
+        for _ in range(3):
+            precedenti.append(xd_indietro(precedenti[-1]))
+        if not all((x >> 16) > SOGLIA_SCHERMATA_NOME for x in precedenti):
+            continue
+        s = stato
+        for _ in range(1000):
+            s = xd_avanti(s)
+        tid = xd_avanti(s) >> 16
+        sid = xd_avanti(xd_avanti(s)) >> 16
+        if id_colosseum_valido(tid, sid):
+            return {"nome": nome, "id": tid, "segreto": sid}
+
+
+def cerca_seme_cxd(specie_dati, esemplare, allenatore_origine, tolleranza_massima=6, escluse=(), quante=1):
+    """La ricerca di `cerca_seme`, rifatta sulla correlazione di Colosseum e XD.
+
+    L'ordine delle chiamate viene da `MethodCXD.SetFromIVs`, che lo annota come valori individuali, valori individuali, abilita', personalita', personalita': dallo stato della prima parola, la seconda parola e' la chiamata successiva, poi una chiamata per l'abilita', poi la meta' alta e la meta' bassa della personalita'. Due differenze rispetto al primo metodo contano. La personalita' viene DOPO i valori individuali e non prima, e l'abilita' ha una chiamata propria invece di leggersi dal bit basso della personalita': il verificatore infatti accetta per questi giochi qualunque bit senza confrontarlo con la personalita'.
+
+    La cromaticita' si esclude rispetto all'allenatore di origine e non rispetto al salvataggio, perche' e' contro di lui che il gioco la controlla: un esemplare Ombra cromatico viene rifatto dal gioco, e la personalita' risultante appartiene a una variante della correlazione che questo programma non produce.
+    """
+    natura_voluta = esemplare["natura"]
+    abilita = specie_dati["abilita"]
+    due_abilita = len(abilita) == 2 and abilita[1] not in ("None", abilita[0])
+    indice_abilita = abilita.index(esemplare["abilita"]) if esemplare["abilita"] in abilita else 0
+    soglia = specie_dati.get("soglia_femmina")
+    sesso_voluto = esemplare.get("sesso")
+    tid, sid = allenatore_origine["id"], allenatore_origine["segreto"]
+    attacco_basso = esemplare.get("iv_attacco") == 0
+    escluse = set(escluse)
+    migliori = []
+
+    for tolleranza in range(tolleranza_massima + 1):
+        ammessi = valori_ammessi(esemplare, tolleranza)
+        ok_spe = set(ammessi["spe"])
+        ok_spa = set(ammessi["spa"])
+        ok_spd = set(ammessi["spd"])
+        candidati = []
+        for hp in ammessi["hp"]:
+            for atk in ammessi["atk"]:
+                for dif in ammessi["def"]:
+                    iv1 = hp | (atk << 5) | (dif << 10)
+                    for alto in (iv1, iv1 | 0x8000):
+                        base = alto << 16
+                        for basso in range(1 << 16):
+                            s1 = base | basso
+                            s2 = xd_avanti(s1)
+                            iv2 = (s2 >> 16) & 0x7FFF
+                            spe = iv2 & 31
+                            if spe not in ok_spe:
+                                continue
+                            spa = (iv2 >> 5) & 31
+                            if spa not in ok_spa:
+                                continue
+                            spd = (iv2 >> 10) & 31
+                            if spd not in ok_spd:
+                                continue
+                            s3 = xd_avanti(s2)
+                            s4 = xd_avanti(s3)
+                            s5 = xd_avanti(s4)
+                            personalita = (s4 & 0xFFFF0000) | (s5 >> 16)
+                            if NATURE[personalita % 25] != natura_voluta:
+                                continue
+                            bit = (s3 >> 16) & 1
+                            if due_abilita and bit != indice_abilita:
+                                continue
+                            if soglia is not None and sesso_voluto:
+                                femmina = (personalita & 0xFF) < soglia
+                                if femmina != (sesso_voluto == "femmina"):
+                                    continue
+                            if ((personalita >> 16) ^ (personalita & 0xFFFF) ^ tid ^ sid) < 8:
+                                continue
+                            valori = {"hp": hp, "atk": atk, "def": dif,
+                                      "spe": spe, "spa": spa, "spd": spd}
+                            punteggio = sum(v for k, v in valori.items()
+                                            if not (attacco_basso and k == "atk"))
+                            candidati.append((punteggio, {
+                                "seme": xd_indietro(s1),
+                                "personalita": personalita,
+                                "iv": valori,
+                                "scarto": tolleranza,
+                                "bit_abilita": bit,
+                            }))
+        if candidati:
+            candidati.sort(key=lambda c: -c[0])
+            liberi = [c[1] for c in candidati if c[1]["personalita"] not in escluse]
+            if len(liberi) >= quante:
+                return liberi
+            migliori = liberi
+    return migliori
+
+
+def correlazione_cxd(personalita, iv):
+    """Porta di `GetXDRNGMatch`, senza il ramo della cromaticita' rifatta: questi valori individuali stanno accanto a questa personalita' in Colosseum e XD?
+
+    Si parte dalla personalita', come fa il verificatore, e non dal seme che il generatore ha usato: si percorrono i sedici bit ignoti dello stato della meta' alta, si tengono quelli che producono la meta' bassa, e si risale di tre chiamate per rileggere le due parole dei valori individuali.
+    """
+    parola1, parola2 = parole_iv(iv)
+    alta, bassa = personalita >> 16, personalita & 0xFFFF
+    for basso in range(1 << 16):
+        t = (alta << 16) | basso
+        if (xd_avanti(t) >> 16) != bassa:
+            continue
+        b = xd_indietro(xd_indietro(t))
+        a = xd_indietro(b)
+        if ((a >> 16) & 0x7FFF) == parola1 and ((b >> 16) & 0x7FFF) == parola2:
+            return True
+    return False
+
+
+def e_di_colosseum(origine):
+    return origine.get("tipo", "").lower().startswith("ombra di colosseum")
 
 
 def componi(esemplare, chiave, specie_dati, dati, allenatore, tabella, esito, strumento):
@@ -321,9 +517,18 @@ def componi(esemplare, chiave, specie_dati, dati, allenatore, tabella, esito, st
 
     nome_visibile = specie.upper()
     soprannome = tabella.encode(nome_visibile, length=gen3.NICKNAME_LENGTH)
+    origine = esemplare.get("origine", {})
+    # Un esemplare che viene da un altro gioco porta l'allenatore di quel gioco, non quello del
+    # salvataggio: e' lo scambio dichiarato, e l'identificativo e' quello che il catalogo registra.
+    allenatore = origine.get("allenatore", allenatore)
     ot = tabella.encode(allenatore["nome"], length=gen3.OT_NAME_LENGTH)
 
-    origine = esemplare.get("origine", {})
+    # Il Nastro Nazionale non e' un premio facoltativo per un esemplare Ombra: il gioco lo assegna alla
+    # purificazione, e il verificatore in `GetValidRibbonStateNational` lo pretende su ogni esemplare di
+    # Colosseum o XD che non sia piu' Ombra, e lo vieta su tutti gli altri.
+    nastri_merito = 0
+    if e_di_colosseum(origine):
+        nastri_merito = 1 << gen3.Misc.MERIT_RIBBON_NAMES.index("national")
 
     # L'esperienza non e' il minimo del livello per tutti, e la ragione e' un vincolo del
     # verificatore che vale la pena enunciare perche' la prima correzione lo aveva frainteso. Il
@@ -378,6 +583,7 @@ def componi(esemplare, chiave, specie_dati, dati, allenatore, tabella, esito, st
             is_egg=False,
             ability_num=esito["bit_abilita"],
             modern_fateful_encounter=bool(origine.get("fatidico", False)),
+            merit_ribbons=nastri_merito,
         ),
     )
 
@@ -428,6 +634,22 @@ def verifica(uscita, catalogo, dati, manifesto):
         if len(abilita) == 2 and abilita[1] not in ("None", abilita[0]):
             if abilita[mon.misc.ability_num] != esemplare["abilita"]:
                 errori.append("abilita' %s invece di %s" % (abilita[mon.misc.ability_num], esemplare["abilita"]))
+        origine = esemplare.get("origine", {})
+        if e_di_colosseum(origine):
+            if not correlazione_cxd(mon.personality, letti):
+                errori.append("personalita' e valori individuali non formano una coppia di Colosseum e XD")
+            if not mon.misc.has_merit_ribbon("national"):
+                errori.append("manca il Nastro Nazionale, obbligatorio per un esemplare Ombra purificato")
+            if mon.misc.met_game != 15:
+                errori.append("gioco di origine %d invece di 15" % mon.misc.met_game)
+            if mon.misc.modern_fateful_encounter:
+                errori.append("incontro fatidico acceso, che il verificatore degrada a corrispondenza parziale")
+            dichiarato = origine["allenatore"]
+            if mon.ot_id != ((dichiarato["segreto"] << 16) | dichiarato["id"]):
+                errori.append("identificativo dell'allenatore diverso da quello dichiarato nel catalogo")
+        elif mon.misc.ability_num != bit_abilita_di(info["abilita"], mon.personality):
+            errori.append("bit dell'abilita' %d, la personalita' ne vuole %d"
+                          % (mon.misc.ability_num, bit_abilita_di(info["abilita"], mon.personality)))
         totale = sum(mon.evs.evs.values())
         if totale > 510:
             errori.append("punti base %d, oltre il tetto di 510" % totale)
@@ -505,7 +727,15 @@ def main():
         # incontro statico DEVE portare una coppia del primo metodo, un esemplare allevato NON deve
         # portarla: sono due regole opposte, e applicare la prima a tutti e' cio' che rendeva
         # irregolare ogni uovo del lotto pur avendone corretti luogo, livello e gioco.
-        if origine.get("tipo", "").startswith("uovo"):
+        if e_di_colosseum(origine):
+            dichiarato = origine.get("allenatore")
+            if not dichiarato or not id_colosseum_valido(dichiarato["id"], dichiarato["segreto"]):
+                print("FALLITO %s: l'allenatore di Colosseum dichiarato nel catalogo manca o ha un "
+                      "identificativo che la schermata del nome non puo' produrre" % chiave)
+                continue
+            candidati = cerca_seme_cxd(info, esemplare, dichiarato, escluse=usate,
+                                       quante=catalogo["copie_per_esemplare"])
+        elif origine.get("tipo", "").startswith("uovo"):
             candidati = cerca_personalita_libera(info, esemplare, allenatore, chiave,
                                                  escluse=usate,
                                                  quante=catalogo["copie_per_esemplare"])
