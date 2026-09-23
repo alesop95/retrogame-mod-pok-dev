@@ -6,12 +6,12 @@
 
 ## Avvio rapido
 
-![I box 12, 13 e 14 dopo il riordino del 2026-09-23](figure/box-12-14.png)
+![Il lotto nel box 14 e nelle ultime due posizioni del box 13, disposizione di ADR-078](figure/box-13-14.png)
 
 | Passo | Che cosa fare | Perché |
 |---|---|---|
 | 1 | Scegli l'edificio seguendo l'ordine della sezione 2 | due passi dell'ordine sono vincoli, non preferenze |
-| 2 | Apri il PC, box 12, e preleva i tre esemplari della figura dell'edificio, sempre la copia 1, quella a sinistra | la copia 2 è quella per lo scambio |
+| 2 | Apri il PC, box 14, e preleva i tre esemplari della figura dell'edificio | gli otto titolari stanno tutti nella prima riga e mezza del box 14 |
 | 3 | Mettili in squadra nell'ordine del numero sulla figura | il primo della squadra è il primo a scendere in campo |
 | 4 | Controlla lo strumento di ciascuno con la tabella dell'edificio, e scambia dove la tabella dice "scambiarlo in gioco" | ogni file porta lo strumento della prima squadra in cui l'esemplare compare |
 | 5 | Al banco scegli Livello 50 e formato singolo | le squadre sono composte per quella modalità; al Livello Aperto gli avversari e il loro catalogo cambiano |
@@ -23,9 +23,9 @@
 |---|---|
 | Questi 32 esemplari non combattono mai fuori dal Parco, non stanno in squadra mentre esplori, non ricevono Caramelle Rare | sei di loro, cioè i due Latios, Latias, Zapdos, Moltres e Articuno, sono a un solo punto di esperienza dal livello 51, perché per essere legali portano il massimo che il livello 50 consente: una lotta qualsiasi fuori dal Parco li porta al 51, e al 51 non si iscrivono più alla modalità Livello 50, per sempre, perché il livello non si abbassa. Gli altri hanno migliaia di punti di margine, che non sono infiniti. Nel Parco le lotte non danno esperienza, quindi lì il margine non si consuma |
 | Le mosse non si toccano, tranne i due cambi della Piramide | in terza generazione una MT si consuma all'uso e la mossa sovrascritta non torna gratis |
-| Si scambia la copia 2, mai la copia 1 | senza la copia 1 l'edificio resta senza titolare, e rigenerarla vuol dire rifare verifica e scrittura sulla cartuccia |
+| Questi esemplari non si scambiano | ognuno è in copia unica: le copie per lo scambio sono uscite dal deposito con ADR-077, e un esemplare scambiato lascia l'edificio senza titolare finché non lo si rigenera e riscrive sulla cartuccia |
 
-Che cosa c'è nei box: 32 esemplari in doppia copia, affiancate, tutti al livello 50 e tutti legali per PKHeX, 64 su 64 al settimo giro, scritto sulla cartuccia il 2026-09-23 e verificato byte per byte. Le due copie sono gemelle, cioè hanno le stesse statistiche e la stessa abilità: il sesto giro, rimasto sulla cartuccia per qualche ora, aveva undici esemplari con le copie diverse di un punto e un Raikou senza abilità, e la causa e la correzione sono in `STUDIO-05` sezione 16. I 16 posti blu del box 12 sono gli 8 titolari; dalla terza riga, quinta colonna, cominciano le 24 riserve, in ordine di frequenza nelle squadre dei thread, fino alle prime quattro posizioni del box 14. I box da 1 a 9 contengono il resto del deposito, compattato; il 10 e l'11 sono vuoti. Quasi tutti hanno come allenatore ALEX, perché nascono da uova o da incontri di Smeraldo e di Rosso Fuoco; Suicune e Raikou hanno WES, perché vengono da Colosseum come esemplari Ombra purificati, e per il gioco sono scambiati, ma con tutte le medaglie obbediscono a qualunque livello. Nomi di nature, abilità, mosse e strumenti sono quelli del gioco italiano, letti dal dump di PKHeX e non tradotti a memoria: Hasty è Lesta, Fire Punch è Fuocopugno.
+Che cosa c'è nei box: 32 esemplari in copia unica, tutti al livello 50 e tutti legali per PKHeX, giudicati nel dump `round 4` del deposito intero il 2026-09-23. Chiudono il deposito, per ADR-078: il box 14 è tutto del lotto, dalla prima all'ultima posizione, e le due riserve meno usate, Marowak e Regirock, stanno nelle ultime due posizioni del box 13. I posti blu del box 14 sono gli 8 titolari, dalla prima riga fino alla seconda colonna della seconda riga; da lì cominciano le 24 riserve, in ordine di frequenza nelle squadre dei thread. Fino al settimo giro il lotto era in doppia copia nei box 12, 13 e 14: questa disposizione è quella del file di `giro11`, e vale sulla cartuccia da quando quel file vi è scritto. Il resto del deposito, cioè la collezione, gli eventi, gli incontri da biglietto, gli scambi in gioco e i due giganti, occupa i box da 1 a 13 senza buchi, e `MAPPA-BOX-SMERALDO.md` dice che cosa c'è in ciascuna delle 420 posizioni. Le copie di ciascun esemplare, finché erano due, erano gemelle, cioè con le stesse statistiche e la stessa abilità, e la causa delle differenze del sesto giro con la correzione è in `STUDIO-05` sezione 16. Quasi tutti hanno come allenatore ALEX, perché nascono da uova o da incontri di Smeraldo e di Rosso Fuoco; Suicune e Raikou hanno WES, perché vengono da Colosseum come esemplari Ombra purificati, e per il gioco sono scambiati, ma con tutte le medaglie obbediscono a qualunque livello. Nomi di nature, abilità, mosse e strumenti sono quelli del gioco italiano, letti dal dump di PKHeX e non tradotti a memoria: Hasty è Lesta, Fire Punch è Fuocopugno.
 
 ## 2. Ordine degli edifici e calendario
 
@@ -57,11 +57,11 @@ Vincoli di iscrizione, validi ovunque: nessuna specie ripetuta, nessuno strument
 
 | Posto in squadra | Esemplare | Da prendere nel PC | Strumento | Mosse |
 |---|---|---|---|---|
-| 1 | Latios Timida | box 12, riga 1, colonna 1 | Baccaprugna | Calmamente, Psichico, Dragartigli, Fulmine |
-| 2 | Metagross Decisa | box 12, riga 1, colonna 3 | Avanzi | Meteorpugno, Terremoto, Palla Ombra, Esplosione |
-| 3 | Slaking Decisa | box 12, riga 1, colonna 5 | Bendascelta | Ritorno, Terremoto, Palla Ombra, Iper Raggio |
+| 1 | Latios Timida | box 14, riga 1, colonna 1 | Baccaprugna | Calmamente, Psichico, Dragartigli, Fulmine |
+| 2 | Metagross Decisa | box 14, riga 1, colonna 2 | Avanzi | Meteorpugno, Terremoto, Palla Ombra, Esplosione |
+| 3 | Slaking Decisa | box 14, riga 1, colonna 3 | Bendascelta | Ritorno, Terremoto, Palla Ombra, Iper Raggio |
 
-Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Metagross, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Slaking, Starmie (box 12, riga 4, colonna 3), Gengar (box 12, riga 5, colonna 5).
+Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Metagross, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Slaking, Starmie (box 14, riga 2, colonna 5), Gengar (box 14, riga 3, colonna 3).
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Cupola Lotta, fine -->
 
@@ -90,11 +90,11 @@ Non si porta nulla dal PC: si combatte con esemplari in prestito, e dopo ogni vi
 
 | Posto in squadra | Esemplare | Da prendere nel PC | Strumento | Mosse |
 |---|---|---|---|---|
-| 1 | Latios Timida | box 12, riga 1, colonna 1 | Baccaprugna | Calmamente, Psichico, Dragartigli, Fulmine |
-| 2 | Swampert Placida | box 12, riga 2, colonna 1 | Avanzi | Terremoto, Surf, Geloraggio, Contrattacco |
-| 3 | Metagross Decisa | box 12, riga 1, colonna 3 | Bendascelta (il file porta Avanzi: scambiarlo in gioco) | Meteorpugno, Terremoto, Palla Ombra, Esplosione |
+| 1 | Latios Timida | box 14, riga 1, colonna 1 | Baccaprugna | Calmamente, Psichico, Dragartigli, Fulmine |
+| 2 | Swampert Placida | box 14, riga 1, colonna 4 | Avanzi | Terremoto, Surf, Geloraggio, Contrattacco |
+| 3 | Metagross Decisa | box 14, riga 1, colonna 2 | Bendascelta (il file porta Avanzi: scambiarlo in gioco) | Meteorpugno, Terremoto, Palla Ombra, Esplosione |
 
-Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Swampert, Starmie (box 12, riga 4, colonna 3), Gengar (box 12, riga 5, colonna 5); al posto di Metagross, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3).
+Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Swampert, Starmie (box 14, riga 2, colonna 5), Gengar (box 14, riga 3, colonna 3); al posto di Metagross, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5).
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Torre Lotta, fine -->
 
@@ -115,11 +115,11 @@ Prima di entrare: dai al Metagross Decisa la Bendascelta presa allo Slaking e la
 
 | Posto in squadra | Esemplare | Da prendere nel PC | Strumento | Mosse |
 |---|---|---|---|---|
-| 1 | Latios Timida | box 12, riga 1, colonna 1 | Baccaprugna | Calmamente, Psichico, Dragartigli, Fulmine |
-| 2 | Metagross Decisa | box 12, riga 1, colonna 3 | Bendascelta (il file porta Avanzi: scambiarlo in gioco) | Meteorpugno, Terremoto, Palla Ombra, Esplosione |
-| 3 | Swampert Placida | box 12, riga 2, colonna 1 | Avanzi | Terremoto, Surf, Geloraggio, Contrattacco |
+| 1 | Latios Timida | box 14, riga 1, colonna 1 | Baccaprugna | Calmamente, Psichico, Dragartigli, Fulmine |
+| 2 | Metagross Decisa | box 14, riga 1, colonna 2 | Bendascelta (il file porta Avanzi: scambiarlo in gioco) | Meteorpugno, Terremoto, Palla Ombra, Esplosione |
+| 3 | Swampert Placida | box 14, riga 1, colonna 4 | Avanzi | Terremoto, Surf, Geloraggio, Contrattacco |
 
-Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Metagross, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Swampert, Starmie (box 12, riga 4, colonna 3), Gengar (box 12, riga 5, colonna 5).
+Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Metagross, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Swampert, Starmie (box 14, riga 2, colonna 5), Gengar (box 14, riga 3, colonna 3).
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Dojo Lotta, fine -->
 
@@ -141,11 +141,11 @@ Deduzione, non regola scritta: al Dojo conviene attaccare a ogni turno. Calmamen
 
 | Posto in squadra | Esemplare | Da prendere nel PC | Strumento | Mosse |
 |---|---|---|---|---|
-| 1 | Metagross Vivace | box 12, riga 2, colonna 3 | Bendascelta | Meteorpugno, Terremoto |
-| 2 | Latios Lesta | box 12, riga 2, colonna 5 | Baccaprugna | Psichico, Dragartigli, Fulmine, Surf |
-| 3 | Swampert Audace | box 12, riga 3, colonna 1 | Avanzi | Terremoto, Surf, Geloraggio, Frana |
+| 1 | Metagross Vivace | box 14, riga 1, colonna 5 | Bendascelta | Meteorpugno, Terremoto |
+| 2 | Latios Lesta | box 14, riga 1, colonna 6 | Baccaprugna | Psichico, Dragartigli, Fulmine, Surf |
+| 3 | Swampert Audace | box 14, riga 2, colonna 1 | Avanzi | Terremoto, Surf, Geloraggio, Frana |
 
-Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Metagross, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Latios, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Swampert, Starmie (box 12, riga 4, colonna 3), Gengar (box 12, riga 5, colonna 5).
+Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Metagross, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Latios, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Swampert, Starmie (box 14, riga 2, colonna 5), Gengar (box 14, riga 3, colonna 3).
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Palazzo Lotta, fine -->
 
@@ -167,11 +167,11 @@ Il Metagross porta due sole mosse, Meteorpugno e Terremoto, apposta: quando la c
 
 | Posto in squadra | Esemplare | Da prendere nel PC | Strumento | Mosse |
 |---|---|---|---|---|
-| 1 | Latios Timida | box 12, riga 1, colonna 1 | Baccaprugna | Calmamente, Psichico, Dragartigli, Fulmine |
-| 2 | Metagross Decisa | box 12, riga 1, colonna 3 | Bendascelta (il file porta Avanzi: scambiarlo in gioco) | Meteorpugno, Terremoto, Palla Ombra, Esplosione |
-| 3 | Blissey Sicura | box 12, riga 3, colonna 3 | Avanzi | Movim. Sismico, Tossina, Covauova, Canto |
+| 1 | Latios Timida | box 14, riga 1, colonna 1 | Baccaprugna | Calmamente, Psichico, Dragartigli, Fulmine |
+| 2 | Metagross Decisa | box 14, riga 1, colonna 2 | Bendascelta (il file porta Avanzi: scambiarlo in gioco) | Meteorpugno, Terremoto, Palla Ombra, Esplosione |
+| 3 | Blissey Sicura | box 14, riga 2, colonna 2 | Avanzi | Movim. Sismico, Tossina, Covauova, Canto |
 
-Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Metagross, Latias (box 12, riga 5, colonna 1), Tauros (box 13, riga 1, colonna 5); al posto di Blissey, Starmie (box 12, riga 4, colonna 3), Gengar (box 12, riga 5, colonna 5).
+Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Metagross, Latias (box 14, riga 3, colonna 1), Tauros (box 14, riga 3, colonna 6); al posto di Blissey, Starmie (box 14, riga 2, colonna 5), Gengar (box 14, riga 3, colonna 3).
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Serpe Lotta, fine -->
 
@@ -201,9 +201,9 @@ Le due serie più lunghe dichiarate nei thread per questo edificio, 560 e 420 sa
 
 | Posto in squadra | Esemplare | Da prendere nel PC | Strumento | Mosse |
 |---|---|---|---|---|
-| 1 | Latios Timida | box 12, riga 1, colonna 1 | nessuno (il file porta Baccaprugna: toglierlo) | Calmamente, Psichico, Dragartigli, Fulmine |
-| 2 | Swampert Placida | box 12, riga 2, colonna 1 | nessuno (il file porta Avanzi: toglierlo) | Terremoto, Surf, Geloraggio, Protezione (cambiata per la Piramide: Protezione al posto di Contrattacco) |
-| 3 | Metagross Decisa | box 12, riga 1, colonna 3 | nessuno (il file porta Avanzi: toglierlo) | Meteorpugno, Terremoto, Palla Ombra, Breccia (cambiata per la Piramide: Breccia al posto di Esplosione) |
+| 1 | Latios Timida | box 14, riga 1, colonna 1 | nessuno (il file porta Baccaprugna: toglierlo) | Calmamente, Psichico, Dragartigli, Fulmine |
+| 2 | Swampert Placida | box 14, riga 1, colonna 4 | nessuno (il file porta Avanzi: toglierlo) | Terremoto, Surf, Geloraggio, Protezione (cambiata per la Piramide: Protezione al posto di Contrattacco) |
+| 3 | Metagross Decisa | box 14, riga 1, colonna 2 | nessuno (il file porta Avanzi: toglierlo) | Meteorpugno, Terremoto, Palla Ombra, Breccia (cambiata per la Piramide: Breccia al posto di Esplosione) |
 
 Chi conduce, serie per serie. Le prime dieci serie bastano all'oro e vengono dalla guida al completamento; la colonna del calcolo e' il controllo di `parco_lotta_piramide_ordine.py`, che concorda con la guida in sette casi su dieci sul membro impiegato.
 
@@ -220,7 +220,7 @@ Chi conduce, serie per serie. Le prime dieci serie bastano all'oro e vengono dal
 | 9 | 57-63 | tipo Psico | Latios | Metagross dal secondo piano | Metagross |
 | 10 | 64-70 | tipo Roccia | Swampert | Metagross dal terzo piano | Metagross |
 
-Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Swampert, Starmie (box 12, riga 4, colonna 3), Gengar (box 12, riga 5, colonna 5); al posto di Metagross, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3).
+Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Swampert, Starmie (box 14, riga 2, colonna 5), Gengar (box 14, riga 3, colonna 3); al posto di Metagross, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5).
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Piramide Lotta, fine -->
 
@@ -309,119 +309,87 @@ Per ogni squadra e per ogni posto, le riserve del lotto che nei thread compaiono
 
 ## 11. Le schede dei trentadue esemplari
 
-Nell'ordine dei box. Abilità, luogo e gioco d'incontro sono letti dal dump di PKHeX del settimo giro; i punti base usano le sigle del gioco; il margine è quanti punti di esperienza mancano al livello 51, e dove vale uno vale la prima regola della sezione 1. Lo strumento nel file è quello con cui l'esemplare esce dal PC, e per le riserve è nessuno.
+Nell'ordine del lotto, titolari prima. Abilità, luogo e gioco d'incontro sono letti dal dump di PKHeX `round 4` del deposito intero; i punti base usano le sigle del gioco; il margine è quanti punti di esperienza mancano al livello 51, e dove vale uno vale la prima regola della sezione 1. Lo strumento nel file è quello con cui l'esemplare esce dal PC, e per le riserve è nessuno.
 
 <!-- generato da parco_lotta_percorso_oro.py: schede, inizio -->
 
 | Posizione | Esemplare | Abilita' | Punti base | Mosse | Strumento nel file | Incontro | Margine al 51 |
 |---|---|---|---|---|---|---|---|
-| box 12, riga 1, colonna 1 | Latios Timida | Levitazione | 4 PS / 252 AttSp / 252 Vel | Calmamente, Psichico, Dragartigli, Fulmine | Baccaprugna | Isola Remota, Smeraldo, livello 50 | 1, ATTENZIONE |
-| box 12, riga 1, colonna 3 | Metagross Decisa | Corpochiaro | 252 PS / 252 Att / 4 Vel | Meteorpugno, Terremoto, Palla Ombra, Esplosione | Avanzi | Percorso 117, Smeraldo, livello uovo | 9563 |
-| box 12, riga 1, colonna 5 | Slaking Decisa | Pigrone | 4 PS / 252 Att / 252 Vel | Ritorno, Terremoto, Palla Ombra, Iper Raggio | Bendascelta | Percorso 117, Smeraldo, livello uovo | 9563 |
-| box 12, riga 2, colonna 1 | Swampert Placida | Acquaiuto | 252 PS / 212 Dif / 44 AttSp | Terremoto, Surf, Geloraggio, Contrattacco | Avanzi | Percorso 117, Smeraldo, livello uovo | 7766 |
-| box 12, riga 2, colonna 3 | Metagross Vivace | Corpochiaro | 252 PS / 252 Att / 4 Dif | Meteorpugno, Terremoto | Bendascelta | Percorso 117, Smeraldo, livello uovo | 9563 |
-| box 12, riga 2, colonna 5 | Latios Lesta | Levitazione | 4 PS / 252 AttSp / 252 Vel | Psichico, Dragartigli, Fulmine, Surf | Baccaprugna | Isola Remota, Smeraldo, livello 50 | 1, ATTENZIONE |
-| box 12, riga 3, colonna 1 | Swampert Audace | Acquaiuto | 252 PS / 252 Att / 4 Dif | Terremoto, Surf, Geloraggio, Frana | Avanzi | Percorso 117, Smeraldo, livello uovo | 7766 |
-| box 12, riga 3, colonna 3 | Blissey Sicura | Alternacura | 252 PS / 252 Dif / 4 DifSp | Movim. Sismico, Tossina, Covauova, Canto | Avanzi | Percorso 117, Smeraldo, livello uovo | 6120 |
-| box 12, riga 3, colonna 5 | Salamence Decisa | Prepotenza | 4 PS / 252 Att / 252 Vel | Frana, Terremoto, Aeroassalto, Breccia | nessuno | Percorso 117, Smeraldo, livello uovo | 9563 |
-| box 12, riga 4, colonna 1 | Suicune Sicura | Pressione | 252 PS / 252 Dif / 4 AttSp | Surf, Calmamente, Riposo, Sostituto | nessuno | Cupola Torre (C) / Sulfuria (XD) [110], Colosseum/XD, livello 40 | 9563 |
-| box 12, riga 4, colonna 3 | Starmie Timida | Alternacura | 4 PS / 252 AttSp / 252 Vel | Psichico, Fulmine, Geloraggio, Surf | nessuno | Percorso 117, Smeraldo, livello uovo | 9563 |
-| box 12, riga 4, colonna 5 | Milotic Sicura | Pelledura | 252 PS / 252 Dif / 4 AttSp | Surf, Geloraggio, Tossina, Ripresa | nessuno | Percorso 117, Smeraldo, livello uovo | 6324 |
-| box 12, riga 5, colonna 1 | Latias Calma | Levitazione | 252 PS / 60 Dif / 12 DifSp / 180 Vel | Schermoluce, Riflesso, Tossina, Psichico | nessuno | Isola Remota, Smeraldo, livello 50 | 1, ATTENZIONE |
-| box 12, riga 5, colonna 3 | Snorlax Cauta | Grassospesso | 168 PS / 120 Dif / 220 DifSp | Maledizione, Ritorno, Riposo, Terremoto | nessuno | Percorso 117, Smeraldo, livello uovo | 9563 |
-| box 12, riga 5, colonna 5 | Gengar Timida | Levitazione | 4 PS / 252 AttSp / 252 Vel | Fulmine, Gelopugno, Fuocopugno, Destinobbligato | nessuno | Percorso 117, Smeraldo, livello uovo | 7766 |
-| box 13, riga 1, colonna 1 | Zapdos Modesta | Pressione | 252 PS / 252 AttSp / 4 DifSp | Fulmine, Perforbecco, Riposo, Sonnolalia | nessuno | Centrale Elett., Rosso Fuoco, livello 50 | 1, ATTENZIONE |
-| box 13, riga 1, colonna 3 | Registeel Cauta | Corpochiaro | 252 PS / 244 Att / 4 Dif | Ferrartigli, Sostituto, Maledizione, Amnesia | nessuno | Tomba Antica, Smeraldo, livello 40 | 9563 |
-| box 13, riga 1, colonna 5 | Tauros Allegra | Prepotenza | 4 PS / 252 Att / 252 Vel | Ritorno, Terremoto, Sdoppiatore, Codacciaio | nessuno | Percorso 117, Smeraldo, livello uovo | 9563 |
-| box 13, riga 2, colonna 1 | Flygon Allegra | Levitazione | 4 PS / 252 Att / 252 Vel | Terremoto, Frana, Dragartigli, Protezione | nessuno | Percorso 117, Smeraldo, livello uovo | 7766 |
-| box 13, riga 2, colonna 3 | Raikou Timida | Pressione | 4 PS / 252 AttSp / 252 Vel | Fulmine, Calmamente, Sostituto, Riposo | nessuno | Cupola Torre (C) / Sulfuria (XD) [113], Colosseum/XD, livello 40 | 9563 |
-| box 13, riga 2, colonna 5 | Gyarados Decisa | Prepotenza | 4 PS / 252 Att / 252 Vel | Ritorno, Terremoto, Dragodanza, Riposo | nessuno | Percorso 117, Smeraldo, livello uovo | 9563 |
-| box 13, riga 3, colonna 1 | Heracross Allegra | Aiutinsetto | 4 PS / 252 Att / 252 Vel | Megacorno, Breccia, Frana, Terremoto | nessuno | Percorso 117, Smeraldo, livello uovo | 9563 |
-| box 13, riga 3, colonna 3 | Aerodactyl Decisa | Testadura | 4 PS / 252 Att / 252 Vel | Frana, Terremoto, Aeroassalto, Sdoppiatore | nessuno | Percorso 117, Smeraldo, livello uovo | 9563 |
-| box 13, riga 3, colonna 5 | Moltres Timida | Pressione | 220 PS / 52 Dif / 236 Vel | Lanciafiamme, Tossina, Sostituto, Protezione | nessuno | Monte Brace, Rosso Fuoco, livello 50 | 1, ATTENZIONE |
-| box 13, riga 4, colonna 1 | Articuno Calma | Pressione | 220 PS / 60 DifSp / 228 Vel | Geloraggio, Tossina, Sostituto, Protezione | nessuno | Isole Spumarine, Rosso Fuoco, livello 50 | 1, ATTENZIONE |
-| box 13, riga 4, colonna 3 | Magneton Modesta | Magnetismo | 80 Dif / 252 AttSp / 176 Vel | Fulmine, Resistenza, Ferrostrido, Introforza | nessuno | Percorso 117, Smeraldo, livello uovo | 7651 |
-| box 13, riga 4, colonna 5 | Regice Modesta | Corpochiaro | 168 PS / 148 Dif / 100 AttSp / 92 DifSp | Geloraggio, Fulmine, Riposo, Sonnolalia | nessuno | Grotta Insulare, Smeraldo, livello 40 | 9563 |
-| box 13, riga 5, colonna 1 | Scizor Decisa | Aiutinsetto | 20 PS / 236 Att / 252 Vel | Alacciaio, Aeroassalto, Danzaspada, Sostituto | nessuno | Percorso 117, Smeraldo, livello uovo | 7651 |
-| box 13, riga 5, colonna 3 | Dusclops Sicura | Pressione | 252 PS / 252 Dif / 4 DifSp | Maledizione, Sostituto, Protezione, Malcomune | nessuno | Percorso 117, Smeraldo, livello uovo | 6120 |
-| box 13, riga 5, colonna 5 | Steelix Decisa | Testadura | 132 PS / 252 Att / 120 DifSp / 4 Vel | Terremoto, Esplosione, Tossina, Frana | nessuno | Percorso 117, Smeraldo, livello uovo | 7651 |
-| box 14, riga 1, colonna 1 | Marowak Allegra | Testadura | 4 PS / 252 Att / 252 Vel | Terremoto, Frana, Sdoppiatore, Danzaspada | nessuno | Percorso 117, Smeraldo, livello uovo | 7651 |
-| box 14, riga 1, colonna 3 | Regirock Decisa | Corpochiaro | 252 PS / 252 Att / 4 Dif | Frana, Terremoto, Maledizione, Esplosione | nessuno | Rovine Sabbiose, Smeraldo, livello 40 | 9563 |
+| box 14, riga 1, colonna 1 | Latios Timida | Levitazione | 4 PS / 252 AttSp / 252 Vel | Calmamente, Psichico, Dragartigli, Fulmine | Baccaprugna | Isola Remota, Smeraldo, livello 50 | 1, ATTENZIONE |
+| box 14, riga 1, colonna 2 | Metagross Decisa | Corpochiaro | 252 PS / 252 Att / 4 Vel | Meteorpugno, Terremoto, Palla Ombra, Esplosione | Avanzi | Percorso 117, Smeraldo, livello uovo | 9563 |
+| box 14, riga 1, colonna 3 | Slaking Decisa | Pigrone | 4 PS / 252 Att / 252 Vel | Ritorno, Terremoto, Palla Ombra, Iper Raggio | Bendascelta | Percorso 117, Smeraldo, livello uovo | 9563 |
+| box 14, riga 1, colonna 4 | Swampert Placida | Acquaiuto | 252 PS / 212 Dif / 44 AttSp | Terremoto, Surf, Geloraggio, Contrattacco | Avanzi | Percorso 117, Smeraldo, livello uovo | 7766 |
+| box 14, riga 1, colonna 5 | Metagross Vivace | Corpochiaro | 252 PS / 252 Att / 4 Dif | Meteorpugno, Terremoto | Bendascelta | Percorso 117, Smeraldo, livello uovo | 9563 |
+| box 14, riga 1, colonna 6 | Latios Lesta | Levitazione | 4 PS / 252 AttSp / 252 Vel | Psichico, Dragartigli, Fulmine, Surf | Baccaprugna | Isola Remota, Smeraldo, livello 50 | 1, ATTENZIONE |
+| box 14, riga 2, colonna 1 | Swampert Audace | Acquaiuto | 252 PS / 252 Att / 4 Dif | Terremoto, Surf, Geloraggio, Frana | Avanzi | Percorso 117, Smeraldo, livello uovo | 7766 |
+| box 14, riga 2, colonna 2 | Blissey Sicura | Alternacura | 252 PS / 252 Dif / 4 DifSp | Movim. Sismico, Tossina, Covauova, Canto | Avanzi | Percorso 117, Smeraldo, livello uovo | 6120 |
+| box 14, riga 2, colonna 3 | Salamence Decisa | Prepotenza | 4 PS / 252 Att / 252 Vel | Frana, Terremoto, Aeroassalto, Breccia | nessuno | Percorso 117, Smeraldo, livello uovo | 9563 |
+| box 14, riga 2, colonna 4 | Suicune Sicura | Pressione | 252 PS / 252 Dif / 4 AttSp | Surf, Calmamente, Riposo, Sostituto | nessuno | Cupola Torre (C) / Sulfuria (XD) [110], Colosseum/XD, livello 40 | 9563 |
+| box 14, riga 2, colonna 5 | Starmie Timida | Alternacura | 4 PS / 252 AttSp / 252 Vel | Psichico, Fulmine, Geloraggio, Surf | nessuno | Percorso 117, Smeraldo, livello uovo | 9563 |
+| box 14, riga 2, colonna 6 | Milotic Sicura | Pelledura | 252 PS / 252 Dif / 4 AttSp | Surf, Geloraggio, Tossina, Ripresa | nessuno | Percorso 117, Smeraldo, livello uovo | 6324 |
+| box 14, riga 3, colonna 1 | Latias Calma | Levitazione | 252 PS / 60 Dif / 12 DifSp / 180 Vel | Schermoluce, Riflesso, Tossina, Psichico | nessuno | Isola Remota, Smeraldo, livello 50 | 1, ATTENZIONE |
+| box 14, riga 3, colonna 2 | Snorlax Cauta | Grassospesso | 168 PS / 120 Dif / 220 DifSp | Maledizione, Ritorno, Riposo, Terremoto | nessuno | Percorso 117, Smeraldo, livello uovo | 9563 |
+| box 14, riga 3, colonna 3 | Gengar Timida | Levitazione | 4 PS / 252 AttSp / 252 Vel | Fulmine, Gelopugno, Fuocopugno, Destinobbligato | nessuno | Percorso 117, Smeraldo, livello uovo | 7766 |
+| box 14, riga 3, colonna 4 | Zapdos Modesta | Pressione | 252 PS / 252 AttSp / 4 DifSp | Fulmine, Perforbecco, Riposo, Sonnolalia | nessuno | Centrale Elett., Rosso Fuoco, livello 50 | 1, ATTENZIONE |
+| box 14, riga 3, colonna 5 | Registeel Cauta | Corpochiaro | 252 PS / 244 Att / 4 Dif | Ferrartigli, Sostituto, Maledizione, Amnesia | nessuno | Tomba Antica, Smeraldo, livello 40 | 9563 |
+| box 14, riga 3, colonna 6 | Tauros Allegra | Prepotenza | 4 PS / 252 Att / 252 Vel | Ritorno, Terremoto, Sdoppiatore, Codacciaio | nessuno | Percorso 117, Smeraldo, livello uovo | 9563 |
+| box 14, riga 4, colonna 1 | Flygon Allegra | Levitazione | 4 PS / 252 Att / 252 Vel | Terremoto, Frana, Dragartigli, Protezione | nessuno | Percorso 117, Smeraldo, livello uovo | 7766 |
+| box 14, riga 4, colonna 2 | Raikou Timida | Pressione | 4 PS / 252 AttSp / 252 Vel | Fulmine, Calmamente, Sostituto, Riposo | nessuno | Cupola Torre (C) / Sulfuria (XD) [113], Colosseum/XD, livello 40 | 9563 |
+| box 14, riga 4, colonna 3 | Gyarados Decisa | Prepotenza | 4 PS / 252 Att / 252 Vel | Ritorno, Terremoto, Dragodanza, Riposo | nessuno | Percorso 117, Smeraldo, livello uovo | 9563 |
+| box 14, riga 4, colonna 4 | Heracross Allegra | Aiutinsetto | 4 PS / 252 Att / 252 Vel | Megacorno, Breccia, Frana, Terremoto | nessuno | Percorso 117, Smeraldo, livello uovo | 9563 |
+| box 14, riga 4, colonna 5 | Aerodactyl Decisa | Testadura | 4 PS / 252 Att / 252 Vel | Frana, Terremoto, Aeroassalto, Sdoppiatore | nessuno | Percorso 117, Smeraldo, livello uovo | 9563 |
+| box 14, riga 4, colonna 6 | Moltres Timida | Pressione | 220 PS / 52 Dif / 236 Vel | Lanciafiamme, Tossina, Sostituto, Protezione | nessuno | Monte Brace, Rosso Fuoco, livello 50 | 1, ATTENZIONE |
+| box 14, riga 5, colonna 1 | Articuno Calma | Pressione | 220 PS / 60 DifSp / 228 Vel | Geloraggio, Tossina, Sostituto, Protezione | nessuno | Isole Spumarine, Rosso Fuoco, livello 50 | 1, ATTENZIONE |
+| box 14, riga 5, colonna 2 | Magneton Modesta | Magnetismo | 80 Dif / 252 AttSp / 176 Vel | Fulmine, Resistenza, Ferrostrido, Introforza | nessuno | Percorso 117, Smeraldo, livello uovo | 7651 |
+| box 14, riga 5, colonna 3 | Regice Modesta | Corpochiaro | 168 PS / 148 Dif / 100 AttSp / 92 DifSp | Geloraggio, Fulmine, Riposo, Sonnolalia | nessuno | Grotta Insulare, Smeraldo, livello 40 | 9563 |
+| box 14, riga 5, colonna 4 | Scizor Decisa | Aiutinsetto | 20 PS / 236 Att / 252 Vel | Alacciaio, Aeroassalto, Danzaspada, Sostituto | nessuno | Percorso 117, Smeraldo, livello uovo | 7651 |
+| box 14, riga 5, colonna 5 | Dusclops Sicura | Pressione | 252 PS / 252 Dif / 4 DifSp | Maledizione, Sostituto, Protezione, Malcomune | nessuno | Percorso 117, Smeraldo, livello uovo | 6120 |
+| box 14, riga 5, colonna 6 | Steelix Decisa | Testadura | 132 PS / 252 Att / 120 DifSp / 4 Vel | Terremoto, Esplosione, Tossina, Frana | nessuno | Percorso 117, Smeraldo, livello uovo | 7651 |
+| box 13, riga 5, colonna 5 | Marowak Allegra | Testadura | 4 PS / 252 Att / 252 Vel | Terremoto, Frana, Sdoppiatore, Danzaspada | nessuno | Percorso 117, Smeraldo, livello uovo | 7651 |
+| box 13, riga 5, colonna 6 | Regirock Decisa | Corpochiaro | 252 PS / 252 Att / 4 Dif | Frana, Terremoto, Maledizione, Esplosione | nessuno | Rovine Sabbiose, Smeraldo, livello 40 | 9563 |
 
 <!-- generato da parco_lotta_percorso_oro.py: schede, fine -->
 
-## 12. La disposizione completa dei box 12, 13 e 14
+## 12. La disposizione completa del lotto nei box 13 e 14
 
-Riga per riga, contando dall'alto a sinistra. La copia 1 si usa, la copia 2 è per lo scambio.
+Riga per riga, contando dall'alto a sinistra. Una copia per esemplare; le altre posizioni del box 13 e tutti i box precedenti sono nella mappa `MAPPA-BOX-SMERALDO.md`.
 
 <!-- generato da parco_lotta_percorso_oro.py: disposizione, inizio -->
 
-| Box | Riga | Colonna | Esemplare | Copia | Ruolo |
-|---|---|---|---|---|---|
-| 12 | 1 | 1 | Latios Timida | 1 | titolare |
-| 12 | 1 | 2 | Latios Timida | 2 | titolare |
-| 12 | 1 | 3 | Metagross Decisa | 1 | titolare |
-| 12 | 1 | 4 | Metagross Decisa | 2 | titolare |
-| 12 | 1 | 5 | Slaking Decisa | 1 | titolare |
-| 12 | 1 | 6 | Slaking Decisa | 2 | titolare |
-| 12 | 2 | 1 | Swampert Placida | 1 | titolare |
-| 12 | 2 | 2 | Swampert Placida | 2 | titolare |
-| 12 | 2 | 3 | Metagross Vivace | 1 | titolare |
-| 12 | 2 | 4 | Metagross Vivace | 2 | titolare |
-| 12 | 2 | 5 | Latios Lesta | 1 | titolare |
-| 12 | 2 | 6 | Latios Lesta | 2 | titolare |
-| 12 | 3 | 1 | Swampert Audace | 1 | titolare |
-| 12 | 3 | 2 | Swampert Audace | 2 | titolare |
-| 12 | 3 | 3 | Blissey Sicura | 1 | titolare |
-| 12 | 3 | 4 | Blissey Sicura | 2 | titolare |
-| 12 | 3 | 5 | Salamence Decisa | 1 | riserva |
-| 12 | 3 | 6 | Salamence Decisa | 2 | riserva |
-| 12 | 4 | 1 | Suicune Sicura | 1 | riserva |
-| 12 | 4 | 2 | Suicune Sicura | 2 | riserva |
-| 12 | 4 | 3 | Starmie Timida | 1 | riserva |
-| 12 | 4 | 4 | Starmie Timida | 2 | riserva |
-| 12 | 4 | 5 | Milotic Sicura | 1 | riserva |
-| 12 | 4 | 6 | Milotic Sicura | 2 | riserva |
-| 12 | 5 | 1 | Latias Calma | 1 | riserva |
-| 12 | 5 | 2 | Latias Calma | 2 | riserva |
-| 12 | 5 | 3 | Snorlax Cauta | 1 | riserva |
-| 12 | 5 | 4 | Snorlax Cauta | 2 | riserva |
-| 12 | 5 | 5 | Gengar Timida | 1 | riserva |
-| 12 | 5 | 6 | Gengar Timida | 2 | riserva |
-| 13 | 1 | 1 | Zapdos Modesta | 1 | riserva |
-| 13 | 1 | 2 | Zapdos Modesta | 2 | riserva |
-| 13 | 1 | 3 | Registeel Cauta | 1 | riserva |
-| 13 | 1 | 4 | Registeel Cauta | 2 | riserva |
-| 13 | 1 | 5 | Tauros Allegra | 1 | riserva |
-| 13 | 1 | 6 | Tauros Allegra | 2 | riserva |
-| 13 | 2 | 1 | Flygon Allegra | 1 | riserva |
-| 13 | 2 | 2 | Flygon Allegra | 2 | riserva |
-| 13 | 2 | 3 | Raikou Timida | 1 | riserva |
-| 13 | 2 | 4 | Raikou Timida | 2 | riserva |
-| 13 | 2 | 5 | Gyarados Decisa | 1 | riserva |
-| 13 | 2 | 6 | Gyarados Decisa | 2 | riserva |
-| 13 | 3 | 1 | Heracross Allegra | 1 | riserva |
-| 13 | 3 | 2 | Heracross Allegra | 2 | riserva |
-| 13 | 3 | 3 | Aerodactyl Decisa | 1 | riserva |
-| 13 | 3 | 4 | Aerodactyl Decisa | 2 | riserva |
-| 13 | 3 | 5 | Moltres Timida | 1 | riserva |
-| 13 | 3 | 6 | Moltres Timida | 2 | riserva |
-| 13 | 4 | 1 | Articuno Calma | 1 | riserva |
-| 13 | 4 | 2 | Articuno Calma | 2 | riserva |
-| 13 | 4 | 3 | Magneton Modesta | 1 | riserva |
-| 13 | 4 | 4 | Magneton Modesta | 2 | riserva |
-| 13 | 4 | 5 | Regice Modesta | 1 | riserva |
-| 13 | 4 | 6 | Regice Modesta | 2 | riserva |
-| 13 | 5 | 1 | Scizor Decisa | 1 | riserva |
-| 13 | 5 | 2 | Scizor Decisa | 2 | riserva |
-| 13 | 5 | 3 | Dusclops Sicura | 1 | riserva |
-| 13 | 5 | 4 | Dusclops Sicura | 2 | riserva |
-| 13 | 5 | 5 | Steelix Decisa | 1 | riserva |
-| 13 | 5 | 6 | Steelix Decisa | 2 | riserva |
-| 14 | 1 | 1 | Marowak Allegra | 1 | riserva |
-| 14 | 1 | 2 | Marowak Allegra | 2 | riserva |
-| 14 | 1 | 3 | Regirock Decisa | 1 | riserva |
-| 14 | 1 | 4 | Regirock Decisa | 2 | riserva |
+| Box | Riga | Colonna | Esemplare | Ruolo |
+|---|---|---|---|---|
+| 13 | 5 | 5 | Marowak Allegra | riserva |
+| 13 | 5 | 6 | Regirock Decisa | riserva |
+| 14 | 1 | 1 | Latios Timida | titolare |
+| 14 | 1 | 2 | Metagross Decisa | titolare |
+| 14 | 1 | 3 | Slaking Decisa | titolare |
+| 14 | 1 | 4 | Swampert Placida | titolare |
+| 14 | 1 | 5 | Metagross Vivace | titolare |
+| 14 | 1 | 6 | Latios Lesta | titolare |
+| 14 | 2 | 1 | Swampert Audace | titolare |
+| 14 | 2 | 2 | Blissey Sicura | titolare |
+| 14 | 2 | 3 | Salamence Decisa | riserva |
+| 14 | 2 | 4 | Suicune Sicura | riserva |
+| 14 | 2 | 5 | Starmie Timida | riserva |
+| 14 | 2 | 6 | Milotic Sicura | riserva |
+| 14 | 3 | 1 | Latias Calma | riserva |
+| 14 | 3 | 2 | Snorlax Cauta | riserva |
+| 14 | 3 | 3 | Gengar Timida | riserva |
+| 14 | 3 | 4 | Zapdos Modesta | riserva |
+| 14 | 3 | 5 | Registeel Cauta | riserva |
+| 14 | 3 | 6 | Tauros Allegra | riserva |
+| 14 | 4 | 1 | Flygon Allegra | riserva |
+| 14 | 4 | 2 | Raikou Timida | riserva |
+| 14 | 4 | 3 | Gyarados Decisa | riserva |
+| 14 | 4 | 4 | Heracross Allegra | riserva |
+| 14 | 4 | 5 | Aerodactyl Decisa | riserva |
+| 14 | 4 | 6 | Moltres Timida | riserva |
+| 14 | 5 | 1 | Articuno Calma | riserva |
+| 14 | 5 | 2 | Magneton Modesta | riserva |
+| 14 | 5 | 3 | Regice Modesta | riserva |
+| 14 | 5 | 4 | Scizor Decisa | riserva |
+| 14 | 5 | 5 | Dusclops Sicura | riserva |
+| 14 | 5 | 6 | Steelix Decisa | riserva |
 
 <!-- generato da parco_lotta_percorso_oro.py: disposizione, fine -->
 

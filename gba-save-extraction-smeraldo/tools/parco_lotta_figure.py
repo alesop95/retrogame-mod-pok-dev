@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Disegna le figure della guida al Parco Lotta: la mappa dei box 12-14, il calendario degli Assi, e una mappa per squadra con i tre esemplari da prelevare.
+"""Disegna le figure della guida al Parco Lotta: la mappa dei box 13 e 14, il calendario degli Assi, e una mappa per squadra con i tre esemplari da prelevare.
 
 Perche' esiste
 --------------
 
-Chi prepara una sfida ha davanti il PC del gioco, cioe' una griglia di sei colonne per cinque righe, e una griglia si legge prima come figura che come tabella: una casella evidenziata con il numero dell'ordine di squadra dice dove cliccare piu' in fretta di "box 12, riga 2, colonna 1". Le figure si generano dalla stessa funzione `disposizione` che ha scritto la cartuccia, quindi non possono divergere da cio' che c'e' nei box.
+Chi prepara una sfida ha davanti il PC del gioco, cioe' una griglia di sei colonne per cinque righe, e una griglia si legge prima come figura che come tabella: una casella evidenziata con il numero dell'ordine di squadra dice dove cliccare piu' in fretta di "box 14, riga 2, colonna 1". Dal 2026-09-23, per ADR-078, il lotto e' in copia unica e chiude il deposito: il box 14 e' tutto del lotto, e del box 13 lo sono soltanto le ultime due posizioni, che la figura mostra mentre lascia vuote le altre, dove stanno esemplari che non sono del lotto. Le figure si generano dalla stessa funzione `disposizione` che ha scritto la cartuccia, quindi non possono divergere da cio' che c'e' nei box.
 
 I colori seguono la tavolozza di riferimento della skill di visualizzazione: blu per i titolari, grigio neutro per le riserve, e il giallo di stato per l'avvertimento sul livello 51, che non compare mai da solo ma sempre con la scritta, perche' il giallo su fondo chiaro non ha contrasto sufficiente per reggersi senza testo.
 
@@ -95,26 +95,26 @@ def main():
     dati = json.loads(CARTELLA.joinpath("dati-gen3.json").read_text(encoding="utf-8"))
     FIGURE.mkdir(exist_ok=True)
 
-    per_box = {12: {}, 13: {}, 14: {}}
+    per_box = {13: {}, 14: {}}
     for (chiave, copia), (box, n) in posizioni.items():
         e = generati[chiave]
         riga = dump.get(chiave) or {}
         soglia = dati["esperienza"][dati["specie"][e["specie"]]["gruppo_crescita"]][catalogo["livello"] + 1]
         margine_uno = riga and soglia - int(riga.get("EXP", 0)) == 1
-        testo = "%s\n%s  copia %d" % (e["specie"], nat_it.get(e["natura"], e["natura"]), copia)
+        testo = "%s\n%s" % (e["specie"], nat_it.get(e["natura"], e["natura"]))
         if margine_uno:
             testo += "\na 1 PE dal 51"
         per_box[box][n] = (testo, "titolare" if chiave in titolari else "riserva")
 
     scritte = []
-    fig, assi = plt.subplots(1, 3, figsize=(15, 4.4), facecolor=SUPERFICIE)
-    for ax, box in zip(assi, (12, 13, 14)):
-        griglia(ax, box, per_box[box], "Box %d" % box)
-    fig.text(0.01, 0.01, "Blu: titolari delle squadre. Grigio: riserve. Copia 1 da usare, copia 2 per lo scambio. "
+    fig, assi = plt.subplots(1, 2, figsize=(10.4, 4.6), facecolor=SUPERFICIE)
+    for ax, box in zip(assi, (13, 14)):
+        griglia(ax, box, per_box[box], "Box %d" % box + (": del lotto solo le ultime due posizioni" if box == 13 else ""))
+    fig.text(0.01, 0.01, "Blu: titolari delle squadre. Grigio: riserve. Una copia per esemplare. "
              "Etichetta gialla: esperienza a un punto dal livello 51, mai usare fuori dal Parco.",
              fontsize=8.5, color=SECONDARIO)
     fig.tight_layout(rect=(0, 0.04, 1, 1))
-    uscita = FIGURE.joinpath("box-12-14.png")
+    uscita = FIGURE.joinpath("box-13-14.png")
     fig.savefig(uscita, dpi=160, facecolor=SUPERFICIE, metadata=METADATI)
     plt.close(fig)
     scritte.append(uscita)
@@ -127,7 +127,9 @@ def main():
             box, n = posizioni[(v["chiave"], 1)]
             evidenzia[n] = i
         fig, ax = plt.subplots(figsize=(5.4, 4.3), facecolor=SUPERFICIE)
-        griglia(ax, 12, per_box[12], "%s: i tre da prelevare dal box 12, nell'ordine" % squadra["edificio"], evidenzia)
+        # i titolari sono i primi otto dell'ordine, quindi stanno tutti nel box 14
+        assert all(posizioni[(v["chiave"], 1)][0] == 14 for v in squadra["esemplari"])
+        griglia(ax, 14, per_box[14], "%s: i tre da prelevare dal box 14, nell'ordine" % squadra["edificio"], evidenzia)
         fig.tight_layout()
         uscita = FIGURE.joinpath("squadra-%s.png" % squadra["edificio"].split()[0].lower())
         fig.savefig(uscita, dpi=160, facecolor=SUPERFICIE, metadata=METADATI)
