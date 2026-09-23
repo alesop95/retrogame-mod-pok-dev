@@ -37,6 +37,8 @@ Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo q
 
 ## Punto di ripresa
 
+AGGIUNTA DEL 2026-09-23, tredicesima parte. Il dump `round 6` promuove il `giro12`, 423 legali su 423. Tutti i 176 eventi del deposito hanno una storia attribuita nel catalogo e nella mappa. Resta soltanto la scrittura sulla cartuccia, che chiude Smeraldo.
+
 AGGIUNTA DEL 2026-09-23, dodicesima parte. ADR-079: un Wynaut dell'Isola Miraggio al posto del Sentret, file di `giro12`, `88a3d576…22e6`; la mappa da stampare è `MAPPA-BOX-SMERALDO.pdf`, 29 pagine. Serve il dump `round 6` di PKHeX per il solo Wynaut, poi la scrittura.
 
 AGGIUNTA DEL 2026-09-23, undicesima parte. ADR-078: il lotto del Parco Lotta chiude il deposito nel box 14, e `MAPPA-BOX-SMERALDO.md` dice che cosa c'è in ogni posizione. Il file da scrivere è ora quello di `giro11`, `7bdb71b9…5d99`, stessi record del `giro10` giudicato legale 420 su 420; attende soltanto la scrittura con lettura di controllo e rilettura.

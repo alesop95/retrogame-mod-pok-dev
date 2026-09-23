@@ -5,19 +5,55 @@
     "bulba-jp": {
       "url": "https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III",
       "titolo": "List of Japanese event Pokémon distributions in Generation III",
-      "letta": "2026-09-02",
+      "letta": "2026-09-02, e per sezioni il 2026-09-23 attraverso l'interfaccia di lettura del sito",
       "rango": "livello 2, enciclopedia collaborativa: buona sulle date e sui luoghi, che nessuna fonte di primo livello registra, e da non preferire alla tabella del verificatore sui fatti meccanici"
     },
     "bulba-en": {
       "url": "https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III",
       "titolo": "List of English event Pokémon distributions in Generation III",
-      "letta": "2026-09-02",
+      "letta": "2026-09-02, e per sezioni il 2026-09-23 attraverso l'interfaccia di lettura del sito",
       "rango": "livello 2, enciclopedia collaborativa: buona sulle date e sui luoghi, che nessuna fonte di primo livello registra, e da non preferire alla tabella del verificatore sui fatti meccanici"
     },
     "bulba-it": {
       "url": "https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III",
       "titolo": "List of Italian event Pokémon distributions in Generation III",
       "letta": "2026-09-02",
+      "rango": "livello 2, enciclopedia collaborativa: buona sulle date e sui luoghi, che nessuna fonte di primo livello registra, e da non preferire alla tabella del verificatore sui fatti meccanici"
+    },
+    "bulba-de": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/List_of_German_event_Pok%C3%A9mon_distributions_in_Generation_III",
+      "titolo": "List of German event Pokémon distributions in Generation III",
+      "letta": "2026-09-23",
+      "rango": "livello 2, enciclopedia collaborativa: buona sulle date e sui luoghi, che nessuna fonte di primo livello registra, e da non preferire alla tabella del verificatore sui fatti meccanici"
+    },
+    "bulba-es": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/List_of_Spanish_event_Pok%C3%A9mon_distributions_in_Generation_III",
+      "titolo": "List of Spanish event Pokémon distributions in Generation III",
+      "letta": "2026-09-23",
+      "rango": "livello 2, enciclopedia collaborativa: buona sulle date e sui luoghi, che nessuna fonte di primo livello registra, e da non preferire alla tabella del verificatore sui fatti meccanici"
+    },
+    "bulba-pcny": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/List_of_PCNY_event_Pok%C3%A9mon_distributions_in_Generation_III",
+      "titolo": "List of PCNY event Pokémon distributions in Generation III",
+      "letta": "2026-09-23",
+      "rango": "livello 2, enciclopedia collaborativa: buona sulle date e sui luoghi, che nessuna fonte di primo livello registra, e da non preferire alla tabella del verificatore sui fatti meccanici"
+    },
+    "bulba-box": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Box_Ruby_%26_Sapphire",
+      "titolo": "Pokémon Box Ruby & Sapphire",
+      "letta": "2026-09-23",
+      "rango": "livello 2, enciclopedia collaborativa: buona sulle date e sui luoghi, che nessuna fonte di primo livello registra, e da non preferire alla tabella del verificatore sui fatti meccanici"
+    },
+    "bulba-jaa": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Journey_Across_America",
+      "titolo": "Pokémon Journey Across America",
+      "letta": "2026-09-23",
+      "rango": "livello 2, enciclopedia collaborativa: buona sulle date e sui luoghi, che nessuna fonte di primo livello registra, e da non preferire alla tabella del verificatore sui fatti meccanici"
+    },
+    "bulba-channel": {
+      "url": "https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Channel",
+      "titolo": "Pokémon Channel",
+      "letta": "2026-09-23",
       "rango": "livello 2, enciclopedia collaborativa: buona sulle date e sui luoghi, che nessuna fonte di primo livello registra, e da non preferire alla tabella del verificatore sui fatti meccanici"
     }
   },
@@ -63,19 +99,19 @@
     },
     "10JAHRE|6227": {
       "nome": "Top 10 Distribution Pokémon, edizione tedesca",
-      "date": "non ancora documentate",
-      "luogo": "non ancora documentato",
-      "come": "distribuzione senza fili",
-      "fonte": null,
-      "note": "Stessa campagna del decennale, con il nome dell'allenatore nella forma tedesca e il medesimo identificativo. La pagina tedesca dell'enciclopedia non è ancora stata letta."
+      "date": "24 settembre - 5 novembre 2006",
+      "luogo": "ristoranti McDonald's delle tappe del Pokémon Day in Germania: Coblenza, Monaco, Stoccarda, Francoforte, Colonia, Berlino, Amburgo e Norimberga",
+      "come": "distribuzione alle tappe, tre esemplari a testa sui dieci della campagna",
+      "fonte": "bulba-de",
+      "note": "È l'edizione tedesca della campagna europea del decennale, i cui dieci esemplari furono scelti con un sondaggio."
     },
     "10ANIV|6227": {
       "nome": "Top 10 Distribution Pokémon, edizione spagnola",
-      "date": "non ancora documentate",
-      "luogo": "non ancora documentato",
-      "come": "distribuzione senza fili",
-      "fonte": null,
-      "note": "Stessa campagna del decennale, con il nome dell'allenatore nella forma spagnola e il medesimo identificativo. La pagina spagnola dell'enciclopedia non è ancora stata letta."
+      "date": "27 giugno - 27 agosto 2006",
+      "luogo": "spiagge spagnole di A Coruña, Pontevedra, Málaga, Huelva, Girona, Valencia, Cantabria, Alicante, Almería e Castellón",
+      "come": "evento itinerante sulle spiagge, un solo esemplare a testa sui dieci della campagna",
+      "fonte": "bulba-es",
+      "note": "È l'edizione spagnola della campagna europea del decennale: l'estate del 2006 in spiaggia."
     },
     "DOEL|28606": {
       "nome": "Doel Deoxys",
@@ -118,30 +154,29 @@
       "note": "Variante con il nome dell'allenatore troncato a sette caratteri. Vedi la voce dell'allenatore RUBY per il resto."
     },
     "WISHMKR|20043": {
-      "nome": "Jirachi della stella dei desideri, edizione occidentale",
-      "date": "non ancora documentate con certezza",
-      "luogo": "non ancora documentato con certezza",
-      "come": "disco allegato al titolo per la console domestica, secondo la conoscenza comune, da verificare",
-      "fonte": null,
-      "divergenze": "La pagina inglese dell'enciclopedia, letta il 2026-09-02, associa il nome di allenatore WISHMKR a una distribuzione tenuta alla Electronic Game Show 2004 di Città del Messico. La conoscenza comune associa invece quel nome al disco allegato al titolo per la console domestica. Le due cose non si escludono, perché il medesimo dono può essere stato distribuito per due vie, ma la voce non va scritta finché non è letta una pagina dedicata: qui si dichiara l'incertezza invece di sceglierne una.",
-      "note": "È l'unico evento di tutto il catalogo il cui esemplare porta un oggetto tenuto derivato dal generatore pseudocasuale, cioè una delle due bacche Salac o Ganlon scelta dal bit meno significativo del quoziente per tre della quinta estrazione."
+      "nome": "Jirachi del Club Nintendo all'Electronic Game Show 2004",
+      "date": "22-24 ottobre 2004",
+      "luogo": "Electronic Game Show 2004, World Trade Center di Città del Messico, stand della rivista Club Nintendo",
+      "come": "il personale collegava il Game Boy Advance del visitatore, con Rubino o Zaffiro, a un GameCube con il disco bonus di Pokémon Colosseum",
+      "fonte": "bulba-en",
+      "note": "Ne furono consegnati 156 in tutta la fiera, con il soprannome JIRACHI. Chi aveva Rosso Fuoco o Verde Foglia non poteva riceverlo, perché il disco bonus non era compatibile con quei giochi, e allo stand Pokémon riceveva invece il Biglietto Aurora e Deoxys. È l'unico evento il cui esemplare porta una bacca scelta dal generatore, Salac o Ganlon."
     },
     "ネガイボシ|30719": {
       "nome": "Jirachi della stella dei desideri, edizione giapponese",
-      "date": "durante il Pokémon Festa 2003, giorno preciso non ancora documentato",
-      "luogo": "sedi del Pokémon Festa 2003, Giappone",
-      "come": "distribuzione senza fili alla manifestazione",
+      "date": "26 aprile - 31 luglio 2003, con la manifestazione del Pokémon Festa 2003 dal 19 luglio al 24 agosto 2003",
+      "luogo": "Pokémon Center, Ito-Yokado, JUSCO, Toys \"R\" Us, Daimaru e Hello Mac per i biglietti, e le sedi del Pokémon Festa 2003 in nove prefetture, da Sapporo a Fukuoka",
+      "come": "consegnato ai primi 200.000 che avevano comprato il biglietto in prevendita del film Jirachi: Wish Maker, poi con estrazioni: 10.000 al World Hobby Fair del 21-22 giugno 2003, 70.000 al Pokémon Festa 2003 e 500 con il numero di settembre 2003 di CoroCoro",
       "fonte": "bulba-jp",
       "divergenze": "La pagina dell'enciclopedia, letta attraverso uno strumento di sintesi, riporta per questa voce un identificativo di allenatore diverso da quello che la tabella del verificatore dichiara. Vale la tabella, e vi è un argomento interno a favore: gli identificativi di questo catalogo codificano la data nella forma anno, mese e giorno, e il valore della tabella si legge come il 19 luglio 2003, coerente con il Pokémon Festa di quell'anno, mentre l'altro no.",
-      "note": "Il catalogo ne porta due voci, che differiscono per il modo in cui è determinato il sesso dell'allenatore: una lo fissa e l'altra lo copia da chi riceve, cioè dal salvataggio di destinazione."
+      "note": "È il Jirachi del film: il nome dell'allenatore significa stella dei desideri. Porta una bacca Salac o Ganlon."
     },
     "タナバタ|40707": {
       "nome": "Jirachi della festa delle stelle, edizione 2004",
-      "date": "luglio 2004, giorni precisi non ancora documentati",
-      "luogo": "Pokémon Center giapponesi",
-      "come": "distribuzione senza fili nei negozi",
+      "date": "1 luglio - 15 agosto 2004",
+      "luogo": "Pokémon Center giapponesi, le undici tappe del Pokémon Festa 2004 da Nagoya a Makuhari, e il Taipei Underground Market a Taiwan",
+      "come": "estrazione a premi: «Wish on Jirachi» nei Pokémon Center dal 1 al 7 luglio, 1.500 vincitori al giorno al Pokémon Festa 2004 per un totale di 25.500, e a Taipei il 14-15 agosto 2004",
       "fonte": "bulba-jp",
-      "note": "Il nome dell'allenatore è quello della festa delle stelle, che cade il sette luglio, e l'identificativo lo ripete nella forma anno, mese e giorno. Il catalogo porta tre edizioni di questa distribuzione, una per anno dal 2004 al 2006."
+      "note": "Il nome dell'allenatore è quello della festa delle stelle, che cade il sette luglio, e l'identificativo lo ripete nella forma anno, mese e giorno. La distribuzione di Taiwan fu sostenuta dal rappresentante locale di Nintendo."
     },
     "タナバタ|50707": {
       "nome": "Jirachi della festa delle stelle, edizione 2005",
@@ -161,27 +196,27 @@
     },
     "ＡＮＡ|41205": {
       "nome": "Pikachu della compagnia aerea",
-      "date": "non ancora documentate",
-      "luogo": "non ancora documentato",
-      "come": "non ancora documentato",
-      "fonte": null,
-      "note": "Il nome dell'allenatore è la sigla della compagnia aerea giapponese, scritta con i caratteri latini a larghezza intera che la tabella giapponese dei caratteri contiene e quella internazionale no: è uno degli esemplari che il progetto non riusciva a comporre prima dell'estrazione di quella tabella. L'identificativo si legge come il 5 dicembre 2004. È anche l'esemplare sul quale il verificatore ha scoperto la regola del bit dell'abilità."
+      "date": "5-25 dicembre 2004",
+      "luogo": "nuovo terminal dell'aeroporto di Haneda, Tokyo, atrio del primo piano",
+      "come": "distribuzione di persona all'aeroporto",
+      "fonte": "bulba-jp",
+      "note": "È il Pikachu della compagnia aerea All Nippon Airways, che aveva gli aerei decorati con i Pokémon: conosce Volo, una mossa che Pikachu non impara, e tiene una Elettropalla."
     },
     "ルビー|21121": {
       "nome": "Berry Program Update Zigzagoon, edizione giapponese con allenatore Rubino",
-      "date": "non ancora documentate",
-      "luogo": "non ancora documentato",
-      "come": "non ancora documentato",
-      "fonte": null,
-      "note": "Corrisponde alla campagna di correzione dell'orologio delle bacche descritta nella voce dell'allenatore RUBY, nella sua edizione giapponese e con identificativo distinto. È uno dei quattro esemplari del catalogo con lucentezza garantita, cioè quelli che il ramo dell'algoritmo scrive cromatici per costruzione invece di cercarli."
+      "date": "29 dicembre 2003 - 31 marzo 2004",
+      "luogo": "Pokémon Center di Tokyo, Osaka, Nagoya e Fukuoka, e negozi aderenti in Giappone",
+      "come": "GameCube collegato al Game Boy Advance con il cavo, e i dischi dimostrativi Monthly Nintendo Store Demo di gennaio, febbraio e marzo 2004",
+      "fonte": "bulba-jp",
+      "note": "È il dono che accompagnava la correzione dell'orologio interno difettoso delle prime cartucce di Rubino e Zaffiro, un difetto che dopo un anno smetteva di far crescere le bacche. Il nome dell'allenatore, Rubino, è scelto a caso fra i due possibili; poiché il seme nasce dalla somma delle cifre di ore, minuti e secondi dell'orologio, esistono soltanto 214 Zigzagoon distinti."
     },
     "サファイア|21121": {
       "nome": "Berry Program Update Zigzagoon, edizione giapponese con allenatore Zaffiro",
-      "date": "non ancora documentate",
-      "luogo": "non ancora documentato",
-      "come": "non ancora documentato",
-      "fonte": null,
-      "note": "Come la voce dell'allenatore Rubino, con l'altro nome. A differenza delle edizioni inglesi, il nome giapponese non è troncato, perché la scrittura sillabica sta nei sette caratteri."
+      "date": "29 dicembre 2003 - 31 marzo 2004",
+      "luogo": "Pokémon Center di Tokyo, Osaka, Nagoya e Fukuoka, e negozi aderenti in Giappone",
+      "come": "GameCube collegato al Game Boy Advance con il cavo, e i dischi dimostrativi Monthly Nintendo Store Demo di gennaio, febbraio e marzo 2004",
+      "fonte": "bulba-jp",
+      "note": "È il dono che accompagnava la correzione dell'orologio interno difettoso delle prime cartucce di Rubino e Zaffiro, un difetto che dopo un anno smetteva di far crescere le bacche. Il nome dell'allenatore, Zaffiro, è scelto a caso fra i due possibili; poiché il seme nasce dalla somma delle cifre di ore, minuti e secondi dell'orologio, esistono soltanto 214 Zigzagoon distinti."
     },
     "ポケパーク|50318": {
       "nome": "PokéPark Meowth e le uova del PokéPark",
@@ -189,8 +224,7 @@
       "luogo": "PokéPark, Giappone, e un cinema nelle vicinanze",
       "come": "distribuzione senza fili sul posto, oppure attraverso i punti di accesso pubblici",
       "fonte": "bulba-jp",
-      "divergenze": "La pagina dell'enciclopedia attribuisce alle uova del PokéPark un nome di allenatore che coincide con quello di chi le fa schiudere, mentre la tabella del verificatore dichiara per esse il nome PokéPark con questo identificativo. La differenza è sostanziale e non ancora spiegata: un uovo può portare il nome di chi lo consegna oppure di chi lo cova, e le due fonti dicono cose diverse. Vale la tabella per la composizione, e la questione resta aperta.",
-      "note": "È il gruppo più numeroso del catalogo dopo quelli del decennale, con sedici voci di cui quindici sono uova."
+      "note": "È il gruppo più numeroso dopo quelli del decennale, con sedici voci di cui quindici sono uova. Le uova arrivavano per due vie: con il DS Download Play da tre punti del parco, per tutti i giochi di terza generazione, e questo gruppo è quello, con il nome del PokéPark; oppure come Dono Segreto al JOYSPOT di Market Fantasia, per Rosso Fuoco, Verde Foglia e Smeraldo, e quelle prendono il nome di chi le schiude. Ogni esemplare conosce una mossa che altrimenti non potrebbe avere."
     },
     "ヨコハマ|50319": {
       "nome": "Pikachu di Yokohama",
@@ -289,44 +323,109 @@
       "note": "Il nome dell'allenatore è quello della foresta fitta che dà il nome al luogo del film di quell'anno."
     },
     "10 ANIV|6808": {
-      "nome": "Festa del decennale, prima serie",
-      "date": "non ancora documentate",
-      "luogo": "non ancora documentato",
-      "come": "non ancora documentato",
-      "fonte": null,
-      "note": "Il corpus del costruttore chiama questa campagna la festa del decennale e il nome dell'allenatore porta uno spazio che le altre edizioni non hanno. È la campagna su cui il progetto ha trovato la mutazione antilucente, perché il suo unico vettore apparentemente deviante appartiene a essa."
+      "nome": "Party of the Decade",
+      "date": "8 agosto 2006",
+      "luogo": "Bryant Park, New York",
+      "come": "distribuzione alla finale nazionale del torneo per Game Boy Advance del tour Journey Across America",
+      "fonte": "bulba-jaa",
+      "note": "La festa che chiudeva il tour del decennale negli Stati Uniti, riservata a chi aveva vinto i tornei locali. Il nome dell'allenatore porta uno spazio che le edizioni europee non hanno."
     },
     "10 ANIV|10": {
-      "nome": "Festa del decennale, seconda serie",
-      "date": "non ancora documentate",
-      "luogo": "non ancora documentato",
-      "come": "non ancora documentato",
-      "fonte": null,
-      "note": "Ventuno voci, la più numerosa del catalogo, e condivide l'identificativo dieci con il Deoxys del centro spaziale, dal quale si distingue per il nome dell'allenatore."
+      "nome": "Pokémon Journey Across America",
+      "date": "25 febbraio - 22 luglio 2006",
+      "luogo": "ventidue città degli Stati Uniti, fra cui Miami, Tampa, Atlanta, Houston, Dallas, Los Angeles, San Francisco, Seattle, Denver, Chicago, Detroit, Pittsburgh e New York",
+      "come": "scaricamento alle tappe del tour, più di venti esemplari del decennale per i giochi di terza generazione",
+      "fonte": "bulba-jaa",
+      "note": "Il tour del decimo anniversario negli Stati Uniti; condivide l'identificativo dieci con il Deoxys del centro spaziale, dal quale si distingue per il nome dell'allenatore."
     },
     "CHANNEL|0": {
       "nome": "Jirachi del canale televisivo",
-      "date": "non ancora documentate",
-      "luogo": "non ancora documentato",
-      "come": "attraverso il servizio televisivo per la console domestica",
-      "fonte": null,
-      "note": "È l'unica voce del catalogo che questo progetto non sa produrre, e non per una lacuna colmabile: impiega un generatore pseudocasuale differente da quello della terza generazione su cartuccia, cioè quello dei titoli per la console domestica."
+      "date": "1 aprile 2004 in Europa, 2004 in Australia",
+      "luogo": "a casa, dal gioco per GameCube Pokémon Channel, nelle sole edizioni europea e australiana",
+      "come": "sbloccato il minigioco dei fratelli Pichu, Jirachi compare al falò e il menu delle opzioni permette di inviarlo al Game Boy Advance",
+      "fonte": "bulba-channel",
+      "note": "Il salvataggio che lo riceve deve avere il Pokédex, essere entrato nella Sala d'Onore e avere un posto libero in squadra. Il Giappone non ebbe questa distribuzione."
     },
     "オヤＮＡＭＥ|0": {
       "nome": "Uova del quinto anniversario del centro Pokémon giapponese",
-      "date": "non ancora documentate",
-      "luogo": "centri Pokémon giapponesi",
-      "come": "non ancora documentato",
-      "fonte": null,
-      "note": "Dieci voci, tutte uova, e il nome dell'allenatore è letteralmente la dicitura giapponese per nome del genitore, cioè un segnaposto. Sono le voci che impiegano la tabella aritmetica di otto doni descritta nello studio: una sola estrazione decide insieme la specie, l'insieme di mosse e la lucentezza, e soltanto il Pichu di quella tabella può risultare cromatico."
+      "date": "25 aprile - 18 maggio 2003",
+      "luogo": "Pokémon Center di Tokyo, Nagoya e Osaka",
+      "come": "GameCube collegato al Game Boy Advance con il cavo; l'uovo ricevuto era casuale",
+      "fonte": "bulba-jp",
+      "note": "Le uova del quinto anniversario dei Pokémon Center: ogni esemplare conosce Desiderio oppure un'altra mossa speciale, e il Pichu, a differenza di quasi tutti gli eventi, ha il cinque per cento di probabilità di essere cromatico. Allenatore e identificativo sono di chi fa schiudere l'uovo."
     },
     "|0": {
-      "nome": "Uova del desiderio del centro Pokémon di New York",
-      "date": "non ancora documentate",
-      "luogo": "Pokémon Center di New York",
-      "come": "non ancora documentato",
-      "fonte": null,
-      "note": "Venticinque voci, tutte uova, e il nome dell'allenatore è vuoto nella tabella. Il vuoto non è una lacuna ma una istruzione: quelle uova prendono nome e identificativo dal salvataggio in cui vengono riscattate, quindi un esemplare ricreato porterebbe legittimamente il nome di chi lo ricrea. Sono le sole voci del catalogo che impiegano il metodo delle uova, cioè la composizione ordinaria del valore di personalità seguita da una estrazione consumata e non usata."
+      "nome": "Uova con l'allenatore di chi le schiude",
+      "date": "vedi i sottogruppi",
+      "luogo": "vedi i sottogruppi",
+      "come": "vedi i sottogruppi",
+      "fonte": "bulba-jp",
+      "note": "Venticinque voci, tutte uova, con il nome dell'allenatore vuoto: prendono nome e identificativo dal salvataggio che le schiude. La chiave dell'allenatore le mette insieme, ma sono tre distribuzioni diverse, riconosciute dal nome della voce nella tabella.",
+      "sottogruppi": [
+        {
+          "voci": [
+            "Oddish with Leech Seed",
+            "Meowth with Petal Dance",
+            "Poliwag with Sweet Kiss",
+            "Bellsprout with Teeter Dance"
+          ],
+          "nome": "Egg Pokémon Present dei Pokémon Center",
+          "date": "21 marzo - 4 aprile 2004",
+          "luogo": "Pokémon Center di Tokyo, Osaka, Nagoya e Fukuoka, e le tappe del Pokémon ★ Battle Tour da Osaka a Sendai",
+          "come": "Dono Segreto via JOYSPOT: una carta meraviglia decideva a caso l'uovo, che si ritirava dal fattorino al secondo piano del Pokémon Center",
+          "fonte": "bulba-jp",
+          "note": "Ogni esemplare conosce una mossa speciale."
+        },
+        {
+          "voci": [
+            "Farfetch'd with Wish & Yawn",
+            "Drowzee with Wish & Belly Drum",
+            "Exeggcute with Wish & Sweet Scent",
+            "Lickitung with Wish & Heal Bell",
+            "Chansey with Wish & Sweet Scent",
+            "Kangaskhan with Wish & Yawn"
+          ],
+          "nome": "Uova del desiderio del Pokémon Center di New York",
+          "date": "16 dicembre 2004 - 2 gennaio 2005",
+          "luogo": "Pokémon Center di New York",
+          "come": "carta meraviglia senza fili con il Dono Segreto di Rosso Fuoco e Verde Foglia",
+          "fonte": "bulba-pcny",
+          "note": "Sei uova, ciascuna con Desiderio e una seconda mossa speciale; a differenza di quasi tutti i doni di quella macchina di distribuzione, potevano schiudersi cromatiche."
+        },
+        {
+          "voci": [
+            "Psyduck with Mud Sport",
+            "Pichu with Follow me",
+            "Igglybuff with Tickle",
+            "Corsola with Mud Sport",
+            "Taillow with Feather Dance",
+            "Surskit with Mud Sport",
+            "Whismur with Teeter Dance",
+            "Skitty with Rollout",
+            "Plusle with Water Sport",
+            "Minun with Mud Sport",
+            "Spoink with Uproar",
+            "Spinda with Sing",
+            "Cacnea with Encore",
+            "Corphish with Water Sport",
+            "Wynaut with Tickle"
+          ],
+          "nome": "Uova del PokéPark per Dono Segreto",
+          "date": "12 marzo - 8 maggio 2005",
+          "luogo": "PokéPark, Giappone, al JOYSPOT di Market Fantasia",
+          "come": "Dono Segreto per Rosso Fuoco, Verde Foglia e Smeraldo, con la carta «ポケモンのタマゴ　プレゼント　カード»",
+          "fonte": "bulba-jp",
+          "note": "Ogni esemplare conosce una mossa che altrimenti non potrebbe avere. È l'altra via, rispetto al DS Download Play, delle stesse quindici uova."
+        }
+      ]
+    },
+    "ＡＺＵＳＡ|0": {
+      "nome": "Uova di Pokémon Box Rubino e Zaffiro",
+      "date": "dal 30 maggio 2003 in Giappone, 14 maggio 2004 in Europa, 11 luglio 2004 in America del Nord",
+      "luogo": "a casa, dal programma per GameCube Pokémon Box Rubino e Zaffiro",
+      "come": "premio del programma per il numero di Pokémon depositati: Swablu all'inizio, Zigzagoon a 100, Skitty a 500, Pichu a 1499",
+      "fonte": "bulba-box",
+      "note": "Ogni uovo porta una mossa speciale: Falsofinale per Swablu, Extrarapido per Zigzagoon, Giornopaga per Skitty e Surf per Pichu. Allenatore e identificativo sono di chi fa schiudere l'uovo. Per il Pichu servono 1499 Pokémon depositati, quindi è il dono più faticoso di tutta la terza generazione."
     }
   }
 }
