@@ -4,6 +4,10 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-23, sessantasettesima parte. ADR-080 fissato, e la fase F0 chiusa
+
+ADR-080: collezione completa di terza generazione su due cartucce, con i fiocchi. Smeraldo resta com'è con le catture vere; il Rubino di prova riceve circa 320 esemplari nelle scatole; la sua partita resta all'inizio con la squadra legittima che ha; l'allenatore è Alessio con un identificativo per gioco. Dal conto: 626 esemplari minimi, 658 con il Parco Lotta, e dei 32 fiocchi di terza generazione 27 sono legali. Per la fase F0 il proprietario ha installato l'SDK di .NET 10. Il clone di PKHeX era parziale e i 1030 errori di compilazione erano tipi mancanti: completato sullo stesso commit, compila. `tools/pkhex-genera` genera legali l'Ho-Oh del Monte Lotta, il Lugia Ombra di XD e il Jirachi di Channel. Aggiornati anche `docs/09_TOOLCHAIN_DA_ALTRI_PROGETTI.md` e il changelog della mappa in `E:\windows-status`. `bin/` e `obj/` sono ora esclusi da git.
+
 ## 2026-09-23, sessantaseiesima parte. Verifica profonda della terza generazione sul deposito vero
 
 Il proprietario ha chiesto se nella collezione fosse rimasto indietro qualcosa di davvero speciale, con un controllo su tutte le fonti e non a pezzi. `tools/verifica-terza-generazione.py` misura sul deposito della cartuccia dodici assi presi dalle tabelle di PKHeX e dai censimenti del progetto, e scrive `pokedex-home-completo/VERIFICA-TERZA-GENERAZIONE.md`. Il criterio per gli statici è famiglia evolutiva più gioco più luogo d'incontro, con i vaganti senza luogo; le famiglie vengono da `evolution.h` di pokeemerald.
