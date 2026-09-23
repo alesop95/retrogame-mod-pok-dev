@@ -4,6 +4,10 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-23, quarantasettesima parte. Il sesto giro a 64 su 64, e la prima fase di ADR-067 chiusa
+
+Il proprietario ha salvato `_notes/lotto-parco-lotta/Box Data Dump round6.csv`: 64 righe conformi su 64, il primo giro del lotto senza alcun respinto. Le due copie di Flygon passano, e Suicune e Raikou sono riconosciuti da PKHeX come "COLO Shadow Encounter" 23 e 34, luogo 110 e 113 (nell'interfaccia italiana Cupola Torre, cioe' la Torre Realgam), allenatore WES 26243/55008, fatidico spento. Tutte le correzioni del 2026-09-22 e del 2026-09-23 sono quindi confermate da un verificatore indipendente, e la prima fase di ADR-067 e' chiusa. Emerge un punto nuovo per la seconda fase: 64 file non entrano nei due box da trenta previsti, ed e' registrato in `pending.md`.
+
 ## 2026-09-23, quarantaseiesima parte. Il quinto giro a 59 su 60, il bit dell'abilita' di Flygon, e Colosseum implementato
 
 ### Il quinto giro
