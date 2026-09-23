@@ -180,3 +180,7 @@ reports/*.log
 # tracciate le tabelle caratteri di data/: il derivato si versiona insieme al suo
 # generatore, cosi' che un clone compili senza dover prima rigenerare.
 tesi/*.log
+
+# Uscite di compilazione dei programmi .NET del progetto (tools/pkhex-genera): si rigenerano con dotnet build.
+bin/
+obj/
