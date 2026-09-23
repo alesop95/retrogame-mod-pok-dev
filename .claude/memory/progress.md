@@ -4,6 +4,14 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-23, quarantottesima parte. ADR-074 sul riordino del deposito, la misura delle riserve, e lo sfondo Amici letto nel sorgente
+
+Il proprietario ha deciso come collocare i 64 file del lotto, ed e' piu' largo della domanda posta: si riordina l'intero deposito. Terzo box e non meno copie; esistenti compattati nei primi box, lotto nei box 12-14 con i titolari primi e le coppie affiancate; nomi da BOX 1 a BOX 14; risanamento di tutti gli esemplari con il triangolo rosso, che fara' l'agente; sfondi personalizzati. E' ADR-074.
+
+Sugli sfondi il sorgente di Smeraldo ha fissato due fatti prima di progettarli. Il salvataggio conserva un solo sfondo Amici, `struct WaldaPhrase` in `SaveBlock1`, quindi i box che lo usano mostrano tutti lo stesso disegno, e non esistono altri sfondi da evento oltre ai sedici ordinari. La frase di Walda e' calcolabile qui, perche' l'algoritmo che la valida e' tutto in `src/walda_phrase.c` e dipende solo dall'identificativo dell'allenatore; e la casa e' davvero a Ferrugipoli, `RustboroCity_Flat1_2F`, come diceva il testo incollato dal proprietario.
+
+La mappatura delle riserve e' avviata come misura. `tools/parco_lotta_mappa_riserve.py` conta sulle 268 squadre dei thread in quali edifici compare ciascuna specie del lotto, con la serie piu' lunga dichiarata, e per ogni posto di ogni squadra quali riserve hanno giocato accanto ai due titolari che restano; l'esito e' `MAPPA-RISERVE.md`. Tre risultati da tenere: Salamence e Starmie sono i candidati piu' ricorrenti per quasi ogni posto, perche' sono le specie che nei thread giocano piu' spesso con Metagross e Latios; Latias e' la sostituta naturale di Latios, dieci squadre alla Torre con serie fino a 378; e al Palazzo le riserve piu' presenti sono Starmie 9, Salamence 8, Flygon e Scizor 4, cioe' la squadra da attacco puro che quell'edificio chiede. La parte autorata, cioe' la scelta, resta da scrivere.
+
 ## 2026-09-23, quarantasettesima parte. Il sesto giro a 64 su 64, e la prima fase di ADR-067 chiusa
 
 Il proprietario ha salvato `_notes/lotto-parco-lotta/Box Data Dump round6.csv`: 64 righe conformi su 64, il primo giro del lotto senza alcun respinto. Le due copie di Flygon passano, e Suicune e Raikou sono riconosciuti da PKHeX come "COLO Shadow Encounter" 23 e 34, luogo 110 e 113 (nell'interfaccia italiana Cupola Torre, cioe' la Torre Realgam), allenatore WES 26243/55008, fatidico spento. Tutte le correzioni del 2026-09-22 e del 2026-09-23 sono quindi confermate da un verificatore indipendente, e la prima fase di ADR-067 e' chiusa. Emerge un punto nuovo per la seconda fase: 64 file non entrano nei due box da trenta previsti, ed e' registrato in `pending.md`.
