@@ -86,8 +86,10 @@ Il presidio che vale citare perché è il difetto tipico di un attraversamento c
 Resta un limite che va conosciuto prima di lanciare una corsa, perché altrimenti sembra un guasto. L'archivio non sa risolvere i collegamenti brevi di condivisione, cioè quelli nella forma `/r/<sub>/s/<codice>`, perché quel codice non è un identificativo di post ma un rimando che vive dentro Reddit. La tecnica è in due passi e sfrutta ciò che la sottosezione precedente aveva già registrato: si segue il collegamento breve con `curl` in modalità di inseguimento dei reindirizzamenti, chiedendo il solo indirizzo finale e non il corpo, e da quell'indirizzo si legge l'identificativo del post; poi si passa quell'identificativo allo strumento. Il primo passo funziona perché non chiede contenuto ma soltanto un reindirizzamento, che è esattamente ciò che Reddit continua a concedere.
 
 ```bash
-curl -s -o /dev/null -w "%{url_effective}\n" -L -A "Mozilla/5.0" "https://www.reddit.com/r/<sub>/s/<codice>"
+curl -s -o /dev/null -w "%{url_effective}\n" -L -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" "https://www.reddit.com/r/<sub>/s/<codice>"
 ```
+
+Lo user agent va scritto per intero, e la ragione è una verifica del 2026-09-23: con il solo `Mozilla/5.0`, che bastava fino ad allora, Reddit risponde 403 con un corpo di blocco invece del reindirizzamento, e il comando restituisce come indirizzo finale il collegamento breve stesso, cioè un esito che sembra riuscito e non lo è. Con uno user agent completo da browser la stessa richiesta riceve il 301 con l'indirizzo canonico. Se un giorno anche questo smettesse, il segno è lo stesso: l'indirizzo restituito non contiene `/comments/`.
 
 Prima di una corsa piena conviene sempre una prova a vuoto, che costa una sola richiesta e riferisce la frontiera del primo livello con i motivi di catalogazione per host: su un post di raccolta la crescita è rapida, e il numero di nodi che una corsa senza tetto produrrebbe non si conosce senza chiedere.
 

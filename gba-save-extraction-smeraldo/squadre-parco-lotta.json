@@ -255,7 +255,7 @@
         "Destiny Bond"
       ],
       "riserva": true,
-      "fonte": "insieme dell'utente, allineato il 2026-09-22 con una sola sostituzione dichiarata. L'insieme chiesto e' Fulmine, Geloraggio, Pugnofuoco e Destinobbligato: le altre tre sono esatte, mentre Geloraggio non e' fra le mosse che Gengar puo' imparare in terza generazione, verificato due volte, sulla tabella dei tecnici in src/data/pokemon/tmhm_learnsets.h e sulla tabella delle mosse imparabili del progetto. La sostituzione e' Gelopugno, che l'insegnamosse di Smeraldo concede e che copre lo stesso bersaglio con la stessa categoria fisica del Pugnofuoco.",
+      "fonte": "insieme dell'utente, allineato il 2026-09-22 con una sola sostituzione dichiarata. L'insieme chiesto e' Fulmine, Geloraggio, Fuocopugno e Destinobbligato: le altre tre sono esatte, mentre Geloraggio non e' fra le mosse che Gengar puo' imparare in terza generazione, verificato due volte, sulla tabella dei tecnici in src/data/pokemon/tmhm_learnsets.h e sulla tabella delle mosse imparabili del progetto. La sostituzione e' Gelopugno, che l'insegnamosse di Smeraldo concede e che copre lo stesso bersaglio con la stessa categoria fisica del Fuocopugno.",
       "origine": {
         "tipo": "uovo schiuso",
         "luogo": 32,
