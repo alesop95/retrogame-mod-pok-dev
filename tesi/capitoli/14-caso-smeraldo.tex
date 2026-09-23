@@ -19,7 +19,8 @@
 % copre: gba-save-extraction-smeraldo/PIANO-BOX.md
 % copre: gba-save-extraction-smeraldo/CENSIMENTO-BOX.md
 % copre: gba-save-extraction-smeraldo/GLOSSARIO-MOSSE.md
-% verificato-al-commit: a147206
+% copre: gba-save-extraction-smeraldo/GUIDA-PARCO-LOTTA.md
+% verificato-al-commit: 4acd327
 % ---------------------------------------------------------------------
 
 \chapter{Caso di studio: riparare un inventario corrotto}
@@ -347,3 +348,74 @@ Il percorso dei tre giri di verifica mostra perché ciascun presidio sia necessa
 Resta un livello che nessuno dei due controlli esterni copre, ed è quello che la pipeline si dà da sé. Un esemplare può essere perfettamente possibile e insieme sbagliato: la rilettura che confronta i byte scritti con la specifica di partenza verifica che l'esemplare sia \emph{quello che si voleva}, mentre il verificatore esterno verifica che sia \emph{un esemplare che potrebbe esistere}. Una natura scambiata produce un esemplare irreprensibile e inservibile. I tre presidi rispondono quindi a tre domande distinte, e vale la pena enunciarle nell'ordine in cui vanno poste: la simmetria della cifratura dice che il gioco leggerà ciò che si è scritto, il confronto con la specifica dice che è ciò che si voleva, e la valutazione esterna dice che qualcuno avrebbe potuto ottenerlo giocando.
 
 La conseguenza metodologica eccede il caso. Un progetto che generi contenuto destinato a un sistema chiuso ha bisogno di un oracolo esterno e indipendente, perché la coerenza interna è una proprietà che si può avere per intero mentre si viola una regola del sistema che nessuno ha modellato; ma ha bisogno anche di sapere che cosa quell'oracolo misuri davvero, perché un oracolo interrogato sulla domanda sbagliata risponde con sicurezza una cosa vera e inutile.
+
+\section{Sei giri di giudizio esterno, e le cause che nessun campo conteneva}
+
+Il lotto destinato al Parco è stato generato e sottoposto a un verificatore indipendente sei volte prima di essere scritto, e l'andamento dei conteggi racconta il metodo meglio di qualunque enunciato: sei esemplari conformi su sessantaquattro al terzo e al quarto giro, cinquantanove su sessanta al quinto, sessantaquattro su sessantaquattro al sesto. Fra il quarto e il quinto giro nessuna colonna dell'esportazione del verificatore conteneva la causa dei rifiuti, e la conclusione registrata in quel momento era che la motivazione andasse chiesta allo strumento nella forma in cui esso la espone, cioè una schermata per esemplare. Era giusta a metà. Il verificatore è un programma libero, e le regole che applica stanno anche nel suo codice: leggerle costa due richieste di rete e non costa il tempo di nessuno. La regola che ne discende è stata registrata come decisione di progetto e vale oltre il caso: quando l'oracolo è software libero, la sua fonte precede la sua interfaccia.
+
+La prima causa riguardava tutte le uova, cioè quarantadue righe su sessantaquattro, ed è una relazione fra due campi invece che il valore di un campo, il che spiega perché nessuna colonna la mostrasse. Un incontro statico nasce da un seme del generatore del gioco, e le quattro estrazioni consecutive che ne seguono producono insieme il valore di personalità e i valori individuali: è la correlazione che il verificatore chiama primo metodo, e un esemplare statico deve portarla. Un uovo invece riceve valori individuali ereditati e casuali, indipendenti dalla personalità, e il verificatore respinge un uovo che porti quella correlazione. La pipeline applicava a tutti la regola degli statici. La correzione ha capovolto la convenienza: su un uovo i due aspetti si scelgono separatamente, quindi i valori individuali si scrivono esatti e la ricerca lavora sulla sola personalità, escludendo in un passaggio l'insieme delle personalità che accanto a quei valori formerebbero una coppia del primo metodo, così che la scorrelazione sia dimostrata invece che affermata.
+
+La seconda causa riguardava gli esemplari incontrati al livello di gioco, ed è la più istruttiva perché la prima lettura ne aveva tratto una conseguenza sbagliata, poi rientrata su indicazione del proprietario. Il verificatore ragiona così: se l'esperienza è esattamente quella del livello d'incontro, l'esemplare non ha mai combattuto, e senza combattere i soli punti base ottenibili sono quelli delle vitamine. Ma il livello si ricava dall'esperienza e non viceversa, e fra la soglia del cinquanta e quella del cinquantuno esiste un intervallo che su un gruppo di crescita lento vale novemilacinquecentosessantadue punti; il verificatore stesso modella l'allenamento come una scelta di donatori di punti base con il loro costo in esperienza, e i punti base più cari del catalogo ne costano duecentoventotto. La correzione scrive l'esperienza massima dell'intervallo, un punto sotto la soglia del livello successivo. Ha una conseguenza d'uso che la guida operativa mette in cima: quei sei esemplari salgono al cinquantuno con un solo punto d'esperienza guadagnato fuori dal Parco, e al cinquantuno non si iscrivono più.
+
+La terza causa è emersa al quinto giro su un solo esemplare, la prima copia di un Flygon, e il sorgente del gioco la enuncia con una precisione che il nome del campo non suggerisce. Una cartuccia copia il bit basso della personalità nel bit dell'abilità quando il secondo slot d'abilità della specie non è vuoto, anche se contiene la stessa abilità del primo.
+
+\begin{lstlisting}[style=c,caption={Da \texttt{CreateBoxMon} in \texttt{src/pokemon.c}, riga 2296: il bit dell'abilità segue la personalità se il secondo slot esiste, non se le due abilità differiscono.}]
+if (gSpeciesInfo[species].abilities[1])
+{
+    value = personality & 1;
+    SetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, &value);
+}
+\end{lstlisting}
+
+Tre specie hanno i due slot uguali, e il verificatore le nomina come eccezione esplicita; il generatore legava il bit alla diversità delle abilità, quindi su quelle tre scriveva sempre zero, e l'errore appariva solo sulla copia con personalità dispari \cite{pokeemerald}.
+
+\section{Una provenienza da un altro gioco: la correlazione di Colosseum}
+
+Due esemplari del catalogo non esistono in Smeraldo per alcuna via interna, e la sola provenienza di terza generazione compatibile con il livello di gioco è quella di esemplare Ombra sottratto in Colosseum a livello quaranta. Il proprietario l'ha scelta al posto dell'alternativa, cioè i vaganti del remake di prima generazione, che conservano i valori individuali su otto soli bit per un difetto di quei giochi. La lettura del sorgente del verificatore ha ridotto molto il costo previsto: gli esemplari Ombra portano in generale un vincolo sulla squadra dell'avversario da cui li si sottrae, da verificare con una ricerca all'indietro sui fotogrammi del generatore, ma per queste due specie la squadra dichiarata è vuota e il vincolo decade. Resta la correlazione propria di quei giochi, che usa un generatore congruenziale con costanti diverse da quello delle cartucce e un ordine di chiamate diverso: dallo stato della prima parola dei valori individuali seguono la seconda parola, una chiamata dedicata all'abilità, e le due metà della personalità.
+
+Quattro requisiti ulteriori sono stati letti nello stesso sorgente e nessuno era nel registro. Il contrassegno di incontro fatidico va spento, perché acceso degrada il riconoscimento a corrispondenza parziale. Il nastro assegnato alla purificazione va acceso, perché il verificatore lo pretende su ogni esemplare Ombra che non lo sia più. L'allenatore d'origine è quello di Colosseum e il suo identificativo non è libero: il gioco lo estrae dal proprio generatore mille chiamate dopo l'uscita dalla schermata del nome, e il verificatore lo rifiuta se non ritrova un'uscita plausibile. Il progetto lo costruisce in avanti e lo rivalida all'indietro con una seconda funzione indipendente, che respinge come controllo negativo l'identificativo della cartuccia di Smeraldo. E la cromaticità si esclude rispetto a quell'allenatore, perché è contro di lui che il gioco la controlla.
+
+\section{Scrivere il lotto e riordinare il deposito in una sola operazione}
+
+Il lotto è cresciuto a trentadue esemplari in doppia copia, sessantaquattro posizioni, e non entrava più nei due contenitori previsti. Il proprietario ha deciso di riordinare l'intero deposito: i duecentocinquantadue esemplari esistenti compattati nei primi nove contenitori, il lotto negli ultimi tre, i quattordici contenitori rinominati con il nome predefinito del gioco. Farlo a mano nel verificatore sarebbero stati trecentosedici trascinamenti su un deposito di vent'anni.
+
+Lo strumento costruito per farlo non decifra mai un esemplare esistente per riscriverlo: ne copia gli ottanta byte tali e quali, quindi nulla di ciò che portava può cambiare, nemmeno un difetto, e il risanamento degli irregolari resta un lavoro separato perché mescolarlo a uno spostamento renderebbe impossibile attribuire un eventuale errore. Prima di scrivere il file rilegge il prodotto e ne verifica l'integrità, il multinsieme dei record rispetto a quello di partenza più il lotto, la posizione di ogni record, l'invarianza di squadra, zaino, sfondi e slot inattivo, e l'assenza di personalità condivise fra lotto ed esistenti. Il verificatore esterno ha poi confermato duecentosettantanove esemplari conformi su trecentodiciannove, cioè gli stessi quaranta irregolari di prima e nessuno nuovo, e la rilettura della cartuccia dopo la scrittura ha dato un'impronta crittografica identica a quella del file preparato.
+
+\section{Due copie che non erano gemelle, e la formula delle statistiche}
+
+Con il lotto già sulla cartuccia il proprietario ha notato in gioco che undici esemplari avevano le due copie diverse di un punto su una o due statistiche, e che una delle due copie di un esemplare di Colosseum non aveva alcuna abilità. La domanda era se il gioco nascondesse un arrotondamento mai descritto. La risposta è no, e si ottiene ricalcolando dai file le statistiche con la formula del gioco: ogni valore osservato torna esatto.
+
+\begin{lstlisting}[style=c,caption={Da \texttt{src/pokemon.c}, riga 2814: ogni divisione è intera, e la natura moltiplica il risultato già troncato.}]
+#define CALC_STAT(base, iv, ev, statIndex, field)               \
+{                                                               \
+    u8 baseStat = gSpeciesInfo[species].base;                   \
+    s32 n = (((2 * baseStat + iv + ev / 4) * level) / 100) + 5; \
+    u8 nature = GetNature(mon);                                 \
+    n = ModifyStatByNature(nature, n, statIndex);               \
+    SetMonData(mon, field, &n);                                 \
+}
+\end{lstlisting}
+
+Le copie differivano perché avevano valori individuali diversi. Un incontro statico nasce da un seme, due esemplari non possono condividere la personalità, e la prima stesura prendeva per ciascuna copia il miglior seme ancora libero entro la tolleranza, che dà quasi sempre valori diversi di un punto; le uova non ne soffrivano, perché su di esse i valori sono indipendenti e si scrivono esatti. Che un punto di differenza si veda soltanto a volte discende dalla formula. Al livello cinquanta il valore individuale entra moltiplicato per cinquanta e diviso per cento, quindi vale mezzo punto di statistica, e mezzo punto si vede solo quando completa un intero: due valori che differiscono di uno danno la stessa statistica o due statistiche diverse secondo la parità della somma che li contiene. I punti base entrano divisi per quattro e poi dimezzati allo stesso modo, quindi a quel livello ne servono otto per un punto e non quattro come al livello cento. E la natura moltiplica per centodieci centesimi un valore già troncato e tronca di nuovo, per cui su un esemplare con la velocità aumentata un solo punto di valore individuale ha prodotto due punti di velocità.
+
+L'abilità mancante è un difetto diverso, e più serio, perché non si vede da nessun verificatore.
+
+\begin{lstlisting}[style=c,caption={Da \texttt{src/pokemon.c}, riga 4546: nessun ripiego sul primo slot quando il secondo è vuoto.}]
+u8 GetAbilityBySpecies(u16 species, u8 abilityNum)
+{
+    if (abilityNum)
+        gLastUsedAbility = gSpeciesInfo[species].abilities[1];
+    else
+        gLastUsedAbility = gSpeciesInfo[species].abilities[0];
+
+    return gLastUsedAbility;
+}
+\end{lstlisting}
+
+Un esemplare di Colosseum porta il bit dell'abilità da una chiamata propria del generatore, e il verificatore su quei giochi accetta qualunque bit e nella propria interfaccia ripiega sulla prima abilità. Smeraldo non ripiega: con il bit a uno su una specie il cui secondo slot è vuoto restituisce l'abilità nulla, e l'esemplare combatte senza abilità pur essendo giudicato legale. È la stessa lezione della sezione sui tre presidi, portata un gradino più in là: un esemplare può essere possibile, cioè legale, e sbagliato nel modo in cui il gioco lo legge, e l'unico modo di vederlo è leggerlo come lo legge il gioco \cite{pokeemerald}.
+
+Le correzioni sono due. Il bit dell'abilità degli esemplari di Colosseum è ora nullo su ogni specie a slot unico, e la verifica interna lo controlla su tutti. Le copie sono ora gemelle, e il criterio è stato scelto misurando: pretendere valori individuali identici costava fino a due punti su una statistica che conta per un'uguaglianza che in lotta non si vede, quindi il criterio è l'uguaglianza delle statistiche calcolate con la formula del gioco, tranne per chi porti una mossa il cui tipo dipende dai valori individuali. La ricerca prosegue due gradini di tolleranza oltre il primo che offre una coppia e tiene quella con la somma di statistiche più alta. Confrontate con la copia migliore del giro precedente, le coppie gemelle hanno le statistiche che contano uguali o più alte, con tre scambi di un punto che alzano il totale altrove.
+
+\section{Una guida che si rigenera}
+
+L'ultimo artefatto di questo fronte non è una misura né una scelta ma uno strumento d'uso, e vale una riga per come è costruito. Il proprietario ha chiesto che tutto ciò che serve per giocare stesse in un documento solo, operativo e illustrato, e che ne esistesse una copia in un formato da ufficio tenuta allineata. La prosa è scritta a mano; le tabelle che discendono dal catalogo, cioè calendario, squadre posizione per posizione, misura delle riserve, schede e disposizione nei contenitori, stanno fra marcatori e le riscrive uno strumento; le figure disegnano le griglie del deposito con i tre esemplari da prelevare numerati nell'ordine di squadra, dalla stessa funzione di disposizione che ha scritto la cartuccia, quindi non possono divergere da ciò che vi sta. Due presidi rendono la rigenerazione affidabile: il controllo che dice se la guida è rimasta indietro rispetto al catalogo ha senso solo se due corse sullo stesso ingresso danno lo stesso file, e un ordinamento che dipendeva dall'ordine di un insieme di stringhe, rimescolato a ogni avvio dell'interprete, è stato reso stabile per questo; e la copia nel formato da ufficio fissa le date interne e l'ordine dell'archivio, così che cambi soltanto quando cambia il contenuto.
