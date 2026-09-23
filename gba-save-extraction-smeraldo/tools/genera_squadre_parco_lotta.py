@@ -583,6 +583,22 @@ def e_di_colosseum(origine):
     return origine.get("tipo", "").lower().startswith("ombra di colosseum")
 
 
+AMICIZIA_MASSIMA = 255
+
+
+def amicizia_di(esemplare, info):
+    """L'amicizia con cui l'esemplare esce dal PC: il massimo per chi porta Ritorno, la base della specie per gli altri.
+
+    Ritorno non ha una potenza fissa: `Cmd_happinesstodamagecalculation` in `src/battle_script_commands.c`, riga 8606, la calcola come dieci volte l'amicizia divisa per venticinque. Con l'amicizia di base, settanta, vale ventotto; al massimo, duecentocinquantacinque, vale centodue. La prima stesura scriveva a tutti la base della specie, e quattro esemplari del catalogo, fra cui lo Slaking titolare della Cupola, portavano quindi Ritorno a un terzo della potenza: lo ha notato il proprietario il 2026-09-23. L'amicizia massima e' legittima, perche' in terza generazione si raggiunge giocando, e il verificatore non la vincola su un esemplare che non sia un uovo. Frustrazione vorrebbe il contrario, amicizia zero, e nessun esemplare del catalogo la porta.
+    """
+    mosse = {"".join(ch for ch in m.lower() if ch.isalnum()) for m in esemplare["mosse"]}
+    if "return" in mosse:
+        return AMICIZIA_MASSIMA
+    if "frustration" in mosse:
+        return 0
+    return AMICIZIA.get(info["amicizia"], 70)
+
+
 def componi(esemplare, chiave, specie_dati, dati, allenatore, tabella, esito, strumento):
     specie = esemplare["specie"]
     info = dati["specie"][specie]
@@ -678,7 +694,7 @@ def componi(esemplare, chiave, specie_dati, dati, allenatore, tabella, esito, st
         markings=0,
         growth=gen3.Growth(species=info["id"], held_item=strumento,
                            experience=esperienza,
-                           pp_bonuses=bonus_pp, friendship=AMICIZIA.get(info["amicizia"], 70)),
+                           pp_bonuses=bonus_pp, friendship=amicizia_di(esemplare, info)),
         attacks=gen3.Attacks(moves=(mosse + [0, 0, 0, 0])[:4], pp=(pp + [0, 0, 0, 0])[:4]),
         evs=gen3.EvsCondition(evs={
             "hp": punti_base["hp"], "atk": punti_base["atk"], "def": punti_base["def"],
@@ -763,6 +779,9 @@ def verifica(uscita, catalogo, dati, manifesto):
         elif mon.misc.ability_num != bit_abilita_di(info["abilita"], mon.personality):
             errori.append("bit dell'abilita' %d, la personalita' ne vuole %d"
                           % (mon.misc.ability_num, bit_abilita_di(info["abilita"], mon.personality)))
+        if mon.growth.friendship != amicizia_di(esemplare, info):
+            errori.append("amicizia %d invece di %d, che serve alla potenza di Ritorno o Frustrazione"
+                          % (mon.growth.friendship, amicizia_di(esemplare, info)))
         if len(abilita) == 2 and abilita[1] == "None" and mon.misc.ability_num:
             errori.append("bit dell'abilita' a uno su una specie con il secondo slot vuoto: in gioco non avrebbe abilita'")
         chiave = chiave_gemelle(info, esemplare)

@@ -41,12 +41,12 @@ CATALOGO = CARTELLA.joinpath("squadre-parco-lotta.json")
 GLOSSARIO = CARTELLA.joinpath("GLOSSARIO-MOSSE.md")
 GUIDA = CARTELLA.joinpath("GUIDA-PARCO-LOTTA.md")
 LOTTO = RADICE.joinpath("_notes", "lotto-parco-lotta")
-DUMP = LOTTO.joinpath("Box Data Dump round6.csv")
+DUMP = LOTTO.joinpath("Box Data Dump round7.csv")
 # Il manifesto del giro a cui il dump appartiene, e non quello corrente: il dump si accoppia al lotto
 # per personalita', e la personalita' degli esemplari statici cambia a ogni rigenerazione. I nomi
 # italiani, l'esperienza e i luoghi non cambiano fra un giro e l'altro, quindi il dump del sesto giro
 # resta valido per la guida finche' non ne arriva uno nuovo, purche' lo si legga con il suo manifesto.
-MANIFESTO_DUMP = LOTTO.joinpath("manifesto-round6.json")
+MANIFESTO_DUMP = LOTTO.joinpath("manifesto-round7.json")
 
 BOX_DEL_LOTTO = (12, 13, 14)
 POSIZIONI = 30
@@ -117,7 +117,7 @@ def glossario():
 
 
 def nature_italiane():
-    """Il nome italiano di ciascuna natura, letto dal dump di PKHeX del sesto giro come per gli strumenti."""
+    """Il nome italiano di ciascuna natura, letto dal dump di PKHeX del settimo giro come per gli strumenti."""
     manifesto = json.loads(MANIFESTO_DUMP.read_text(encoding="utf-8"))
     per_pid = {}
     with DUMP.open(encoding="utf-8-sig") as f:
@@ -138,7 +138,7 @@ def righe_dump():
 
 
 def strumenti_italiani():
-    """Il nome italiano di ciascuno strumento, letto dove il gioco lo scrive e non tradotto: dal dump di PKHeX del sesto giro, accoppiato alla personalita' registrata nel manifesto."""
+    """Il nome italiano di ciascuno strumento, letto dove il gioco lo scrive e non tradotto: dal dump di PKHeX del settimo giro, accoppiato alla personalita' registrata nel manifesto."""
     manifesto = json.loads(MANIFESTO_DUMP.read_text(encoding="utf-8"))
     per_pid = {}
     with DUMP.open(encoding="utf-8-sig") as f:

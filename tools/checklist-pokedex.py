@@ -479,6 +479,21 @@ def ordina_per_specie(eventi):
     return eventi
 
 
+# Le forme che l'insieme `diretta` segna perche' esistono nei dati di un titolo collegato al deposito,
+# ma che nessun incontro di quel titolo consegna: l'unica origine e' una distribuzione chiusa di una
+# generazione che arriva al deposito solo per la banca. Ogni voce porta la prova, perche' un'eccezione
+# a una tabella generata senza la sua ragione e' un dato inventato.
+SOLO_DA_EVENTI_CHIUSI = {
+    # Vivillon motivo Poke Ball, verificato il 2026-09-23 sul verificatore al commit e15d246.
+    # `Legality/Verifiers/FormVerifier.cs` righe 90-99 rifiuta in nona generazione una forma oltre la 18
+    # se l'incontro non la fissa, e righe 106-111 ammettono Fancy e Poke Ball solo da un dono; nessuna
+    # carta di Scarlatto e Violetto, Leggende Z-A, Spada e Scudo o dei remake di Sinnoh porta Vivillon,
+    # la tabella dei trasferimenti da GO si ferma alla forma 17, e le sole due carte con forma 19 sono
+    # distribuzioni giapponesi di X e Y del 2014. Il carosello di clorogaming del 2026-09-19 lo diceva.
+    (666, 19),
+}
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--pkhex", required=True, help="clone del verificatore")
@@ -533,6 +548,11 @@ def main(argv=None):
         if f == 0 or not (1 <= s <= disp.DEX_MASSIMO):
             continue
         via = "diretta" if (s, f) in diretta else "banca"
+        if (s, f) in SOLO_DA_EVENTI_CHIUSI:
+            # Una forma presente nei dati di un titolo a via diretta non e' per questo ottenibile
+            # su quel titolo: l'insieme `diretta` misura i dati, e qui il verificatore stesso dice che
+            # nessun incontro di quel titolo la produce. La prova sta nel commento della tabella.
+            via = "banca"
         if s in battaglia:
             natura = "forma di sola battaglia: non puo stare in una scatola"
         elif disp.e_totemica(s, f, totemiche, per_nome):

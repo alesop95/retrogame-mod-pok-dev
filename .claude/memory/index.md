@@ -37,6 +37,8 @@ Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo q
 
 ## Punto di ripresa
 
+AGGIUNTA DEL 2026-09-23, nona parte e chiusura della sessione. Preparata e verificata dall'interno la cartuccia completa di terza generazione di ADR-076, file di `giro9`, non ancora scritta: attende il giudizio di PKHeX e una domanda al proprietario sullo spazio, perche' ha chiesto di rimettere alcune sue catture vere e il deposito e' pieno. Il punto di ripresa dettagliato e' in `_notes/resume-prompt.md`.
+
 AGGIUNTA DEL 2026-09-23, ottava parte. Il proprietario ha trovato in gioco copie non gemelle e un Raikou senza abilita': causa nel generatore, non nel gioco, spiegata con il codice in STUDIO-05 sezione 16 e nel capitolo 14 della tesi, ora riallineato con copertura completa. Settimo giro rigenerato con copie gemelle; per chiudere Smeraldo servono il dump del settimo giro, un'estrazione nuova e la sostituzione del lotto.
 
 AGGIUNTA DEL 2026-09-23, settima parte. La guida del Parco Lotta e' ora operativa, con otto figure e una copia .docx deterministica rigenerata dallo stesso comando. Per HOME e' stato proposto al proprietario un ordine di tre passi suoi, in `pending.md`, mentre l'agente verifica il Vivillon Motivo Poke Ball.
