@@ -963,6 +963,36 @@ Il problema. La lettura integrale delle fonti del Parco Lotta ha lasciato fuori 
 La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti etichettata come non letta con il proprio motivo, secondo la prescrizione che vieta di degradare in silenzio una fonte a nota a margine, e non si tenta alcuna via ulteriore. Il debito di lettura del fronte Parco Lotta si dichiara quindi chiuso con questa sola eccezione dichiarata, e nessuna sessione futura deve riaprirlo credendo che qualcosa sia stato dimenticato.
 
 La ragione per cui l'abbandono e' accettabile qui, e non lo sarebbe altrove. Quella discussione e' del 2005 ed e' una richiesta di valutazione di squadra, cioe' la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e piu' recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano e' quindi basso, e la decisione si fonda su questo e non sulla sola difficolta' di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
+## ADR-080: la collezione completa di terza generazione, generata, su due cartucce e con i fiocchi
+
+Data: 2026-09-23. Stato: accettata, da attuare. Estende ADR-076 oltre la capienza di una cartuccia.
+
+Contesto. La verifica profonda di `pokedex-home-completo/VERIFICA-TERZA-GENERAZIONE.md` ha mostrato che cosa manca al deposito di Smeraldo. Nessuna specie è vincolata dalla chiusura, ma mancano:
+- fiocchi;
+- nove mosse perdute;
+- tre sfide del deposito;
+- Colosseum e XD;
+- il Mew in una sfera diversa dalla Poké Ball;
+- 36 incontri statici e doni;
+- 184 specie che nessuna voce speciale copre.
+
+La collezione completa conta almeno 626 esemplari, 658 con il lotto del Parco Lotta, e una cartuccia ne tiene 420.
+
+Decisione del proprietario. Si produce la collezione completa di terza generazione, generata e non giocata, su due cartucce, e con i fiocchi. Le due cartucce sono Smeraldo e una seconda. L'agente ha esposto una volta i due fatti che la decisione accetta:
+- **Fiocchi:** quelli di gara, Winning, Victory e Artist, su esemplari generati, sono legali per il verificatore ma non guadagnati; Paese, Mondo e i tre di campionato non si possono avere perché nessun evento della tabella li porta.
+- **Trasferimento:** il viaggio verso HOME passa dal Parco Amici a sei esemplari per spettacolo di cattura, quindi circa 110 spettacoli prima del 26 febbraio 2027.
+
+Da decidere prima di produrre:
+- quale sia la seconda cartuccia;
+- con quale allenatore, e con quale identificativo per gioco, nascano le catture generate;
+- dove stiano le 176 catture vere del proprietario.
+
+Decise il 2026-09-23 subito dopo:
+- **Seconda cartuccia:** il Rubino di prova. I suoi 205 esemplari di oggi, doppioni del lotto eventi, lasciano il posto al complemento.
+- **Smeraldo:** resta com'è, con le catture vere; il Rubino riceve soltanto ciò che Smeraldo non ha, circa 320 esemplari, cioè Colosseum e XD 140, doni di Colosseum 3, il Jirachi di Channel, 36 statici e doni con le tre sfide, 112 specie scoperte e le 28 forme di Unown, con le mosse perdute e i fiocchi portati da questi stessi esemplari.
+- **Allenatore:** Alessio, con un identificativo diverso per ciascun gioco d'origine.
+- **Partita del Rubino:** resta all'inizio con la squadra legittima di inizio partita che ha già, non toccata; nessun salvataggio di terzi e nessuna squadra generata. Precisato dal proprietario il 2026-09-23.
+
 ## ADR-079: un Wynaut dell'Isola Miraggio al posto del Sentret, e il formato di stampa della mappa
 
 Data: 2026-09-23. Stato: accettata, attuazione in corso. Modifica ADR-077 per un solo esemplare e fissa il formato della mappa di ADR-078.

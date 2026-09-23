@@ -43,7 +43,7 @@ GUIDA = CARTELLA.joinpath("GUIDA-PARCO-LOTTA.md")
 LOTTO = RADICE.joinpath("_notes", "lotto-parco-lotta")
 # Dal 2026-09-23 il dump e' quello del deposito intero, `round 4`, che contiene l'ottavo giro del lotto
 # in copia unica; si accoppia al manifesto corrente per personalita'.
-DUMP = RADICE.joinpath("_notes", "backup salvataggi pokèmon Alessio cartucce vere", "Box Data Dump smeraldo vero ALEX-45761 - round 4.csv")
+DUMP = RADICE.joinpath("_notes", "backup salvataggi pokèmon Alessio cartucce vere", "smeraldo", "dump-pkhex", "Box Data Dump smeraldo vero ALEX-45761 - round 6.csv")
 # Il manifesto del giro a cui il dump appartiene, e non quello corrente: il dump si accoppia al lotto
 # per personalita', e la personalita' degli esemplari statici cambia a ogni rigenerazione. I nomi
 # italiani, l'esperienza e i luoghi non cambiano fra un giro e l'altro, quindi il dump del sesto giro

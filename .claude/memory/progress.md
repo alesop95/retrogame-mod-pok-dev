@@ -4,6 +4,25 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-23, sessantaseiesima parte. Verifica profonda della terza generazione sul deposito vero
+
+Il proprietario ha chiesto se nella collezione fosse rimasto indietro qualcosa di davvero speciale, con un controllo su tutte le fonti e non a pezzi. `tools/verifica-terza-generazione.py` misura sul deposito della cartuccia dodici assi presi dalle tabelle di PKHeX e dai censimenti del progetto, e scrive `pokedex-home-completo/VERIFICA-TERZA-GENERAZIONE.md`. Il criterio per gli statici è famiglia evolutiva più gioco più luogo d'incontro, con i vaganti senza luogo; le famiglie vengono da `evolution.h` di pokeemerald.
+- Le specie assenti dal deposito sono 191 su 386, ma nessuna è vincolata dalla chiusura, per `OTTENIBILITA-TITOLI.md`.
+- Fiocchi: su 32 ne compaiono 7, cioè Campione 44, Impegno 2, Nazionale 4 e i quattro di gara della Robustezza; mancano gli altri 16 di gara, Winning, Victory, Artist e i fiocchi da evento.
+- Mosse perdute di terza generazione assenti: 9, cioè Ragnatela, Incubo, Preveggenza, Frustrazione, Maniereforti, Assistente, Pugnospine, Meloderba e Segnoraggio.
+- Sfide del deposito aperte: 3, cioè Groudon da Rubino, Zaffiro o Smeraldo, e Venusaur e Charizard da Rosso Fuoco o Verde Foglia.
+- Statici e doni senza esemplare dal loro gioco: 36.
+- Doni di Colosseum verso i portatili: tutti e 3 assenti, cioè Pikachu e Celebi del disco bonus giapponese e l'Ho-Oh del Monte Lotta.
+- Colosseum e XD: delle specie per classe mancano 140; ci sono soltanto Suicune e Raikou.
+- Sfera: tutti i Mew sono in Poké Ball.
+- Eventi: manca soltanto il Jirachi di Pokémon Channel.
+
+Accertato su `EncounterStatic3.cs` che la regola del giapponese per il Mew dell'Isola Suprema vale solo per la generazione dello stampo e non per il giudizio.
+
+## 2026-09-23, sessantacinquesima parte. La cartuccia completa è sulla cartuccia, e Smeraldo è concluso
+
+Lettura di controllo in `giro12` alle 17:07, 131.072 byte, impronta `cf471a10…642b`, identica al READBACK del giro 7: sulla cartuccia c'era ciò che ci si aspettava. Prima di scrivere, lo stato attuale della cartuccia mancava sul secondo disco, e in J: esistevano file con lo stesso nome della mattina: la lettura è stata copiata in `J:ackup salvataggi pokèmon\giro12\` e verificata, così che il backup fosse in doppia copia su due dischi. Scrittura del file CORRETTO, rilettura alle 17:09, impronta `88a3d576…22e6`, identica byte per byte al file preparato, copiata anch'essa su J: e verificata. Poi, su richiesta del proprietario, la cartella dei backup è stata riordinata in `smeraldo/` con una sottocartella per ogni scrittura, da `01-2026-09-17-zaino-primo-giro` a `06-2026-09-23-cartuccia-completa`, più `smeraldo/dump-pkhex/` e `rubino/`. `LEGGIMI.md` porta l'impronta di ogni file e il percorso di prima, perché il work log e gli ADR restano con i percorsi storici. Aggiornati i riferimenti vivi: pending, resume, STUDIO-01, STUDIO-02 e `parco_lotta_percorso_oro.py`, che legge ora il dump `round 6` e lascia la guida identica.
+
 ## 2026-09-23, sessantaquattresima parte. Il Wynaut promosso, e le storie di tutti gli eventi
 
 Dump `round 6` del file di `giro12`: 423 legali su 423, il Wynaut riconosciuto come Wild Encounter (E) Grass al Percorso 130, natura Calma. Il proprietario ha chiesto perché alcune storie dicessero «non ancora documentato». Ne sono emersi due errori: la mappa abbinava i file evento alla tabella per numero, e i file da 123 in poi sono spostati di quattro perché le uova di Pokémon Box erano numerate a parte; e il catalogo univa sotto la chiave vuota tre distribuzioni di uova. Corretti entrambi, e lette per sezioni le pagine di Bulbapedia, perché `curl` riceve 403 e la lettura intera si ferma all'indice. `provenienze-eventi.json` ha ora 38 gruppi, compreso Pokémon Box, i sottogruppi della chiave vuota e le date di WISHMKR, dei Jirachi del film e della festa delle stelle 2004, di ANA, degli Zigzagoon giapponesi, dei decennali tedesco e spagnolo, di Party of the Decade, di Journey Across America, di Pokémon Channel e delle uova del quinto anniversario. Otto fonti nuove sono in `SOURCES.md`. Il catalogo e la mappa sono rigenerati, e la mappa ha 29 pagine con le 54 uova segnate come da schiudere.

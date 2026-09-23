@@ -76,6 +76,7 @@ Sono i pi√π grossi del progetto e la causa principale del senso di ingestibilit√
 | `pokedex-home-completo/FIOCCHI.md` | 16k | `tools/fiocchi.py` |
 | `pokedex-home-completo/MARCHI.md` | 9k | `tools/marchi.py` |
 | `pokedex-home-completo/DIFFERENZE-DI-SESSO.md` | 12k | `tools/enumera-differenze-sesso.py` |
+| `pokedex-home-completo/VERIFICA-TERZA-GENERAZIONE.md` | 23k | `tools/verifica-terza-generazione.py` |
 | `pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md` | 24k | `tools/censimento-condizionati.py` |
 | `pokedex-home-completo/CENSIMENTO-SCAMBI.md` | 20k | `tools/censimento-scambi.py` |
 | `pokedex-home-completo/ID-NOTEVOLI.md` | 49k | `tools/censimento-id-notevoli.py` |
