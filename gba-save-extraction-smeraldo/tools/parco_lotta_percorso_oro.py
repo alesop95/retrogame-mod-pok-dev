@@ -9,7 +9,7 @@ Il catalogo dice quali squadre portare e STUDIO-04 dice quante lotte servono, ma
 La disposizione, che e' ADR-074
 -------------------------------
 
-I sessantaquattro file del lotto vanno nei box 12, 13 e 14, con le due copie di ciascun esemplare affiancate: la copia 1 si usa, la copia 2 e' quella destinata allo scambio. Prima gli otto titolari, nell'ordine in cui compaiono per la prima volta nelle squadre del catalogo; poi le ventiquattro riserve, in ordine di frequenza nelle squadre dei thread come la misura della sezione 12 della guida, cosi' che le riserve piu' probabili stiano piu' vicine ai titolari. La funzione `disposizione` e' la sola fonte di questa regola: lo strumento di riordino del deposito la importa invece di riscriverla, perche' due copie della stessa regola possono divergere.
+I sessantaquattro file del lotto vanno nei box 12, 13 e 14, con le due copie di ciascun esemplare affiancate: la copia 1 si usa, la copia 2 e' quella destinata allo scambio. Prima gli otto titolari, nell'ordine in cui compaiono per la prima volta nelle squadre del catalogo; poi le ventiquattro riserve, in ordine di frequenza nelle squadre dei thread come la misura della sezione 10 della guida, cosi' che le riserve piu' probabili stiano piu' vicine ai titolari. La funzione `disposizione` e' la sola fonte di questa regola: lo strumento di riordino del deposito la importa invece di riscriverla, perche' due copie della stessa regola possono divergere.
 
 Il box ha trenta posizioni in cinque righe da sei. La posizione si scrive come box, riga e colonna, contando dall'alto a sinistra, perche' e' cosi' che la si trova sullo schermo.
 
@@ -23,6 +23,8 @@ Uso
 
     python gba-save-extraction-smeraldo/tools/parco_lotta_percorso_oro.py
     python gba-save-extraction-smeraldo/tools/parco_lotta_percorso_oro.py --check
+
+La prima forma aggiorna le tabelle della guida e rigenera ogni volta le figure, con `parco_lotta_figure.py`, e la copia `GUIDA-PARCO-LOTTA.docx`, con `tools/md-to-docx.py`. La seconda non scrive nulla e controlla soltanto le tabelle.
 """
 
 import argparse
@@ -228,11 +230,11 @@ def blocchi(catalogo, thread):
                 "%s (%s)" % (sp, dove(posizioni[(next(k for k in ordine if generati[k]["specie"] == sp), 1)])) for _, _, _, sp in c[:2]))
                 for u, c in candidati)
             out.append("")
-            out.append("Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 12 e quindi non ancora una scelta: %s." % testo)
+            out.append("Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: %s." % testo)
         fuori["squadra " + edificio] = "\n".join(out)
 
     # La misura delle riserve, cioe' le due tabelle dello strumento gemello senza la sua testata: i
-    # titoli scendono di un livello perche' qui sono sottosezioni della sezione 12 della guida.
+    # titoli scendono di un livello perche' qui sono sottosezioni della sezione 10 della guida.
     misura = mappa.scrivi(*mappa.misura(catalogo, thread), thread).split("\n")
     inizio = next(i for i, r in enumerate(misura) if r.startswith("Squadre per edificio nel campione"))
     fuori["misura delle riserve"] = "\n".join("#" + r if r.startswith("## ") else r for r in misura[inizio:]).rstrip()
@@ -302,6 +304,18 @@ def main():
         print("aggiornata %s" % guida)
     else:
         print("nessun cambiamento in %s" % guida)
+    # Le figure e la copia .docx si rifanno sempre, perche' dipendono anche dalla prosa, che si scrive
+    # a mano: un .docx rigenerato solo quando cambiano le tabelle resterebbe indietro sulla prosa.
+    _modulo(Path(__file__).resolve().parent.joinpath("parco_lotta_figure.py"), "figure").main()
+    _modulo(RADICE.joinpath("tools", "md-to-docx.py"), "md_to_docx").converti(guida, guida.with_suffix(".docx"))
+    print("rigenerate le figure e %s" % guida.with_suffix(".docx"))
+
+
+def _modulo(percorso, nome):
+    spec = importlib.util.spec_from_file_location(nome, percorso)
+    modulo = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(modulo)
+    return modulo
 
 
 if __name__ == "__main__":

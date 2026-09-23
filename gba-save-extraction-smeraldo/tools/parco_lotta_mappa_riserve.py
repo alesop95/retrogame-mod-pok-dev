@@ -16,7 +16,7 @@ Uso
 
     python gba-save-extraction-smeraldo/tools/parco_lotta_mappa_riserve.py
 
-Dal 2026-09-23 la misura non ha piu' un file proprio: le due tabelle entrano nella sezione 12 di `GUIDA-PARCO-LOTTA.md` attraverso `parco_lotta_percorso_oro.py`, che importa `misura` e `scrivi` da qui. Lanciato da solo, lo strumento stampa la misura a schermo.
+Dal 2026-09-23 la misura non ha piu' un file proprio: le due tabelle entrano nella sezione 10 di `GUIDA-PARCO-LOTTA.md` attraverso `parco_lotta_percorso_oro.py`, che importa `misura` e `scrivi` da qui. Lanciato da solo, lo strumento stampa la misura a schermo.
 """
 
 import argparse

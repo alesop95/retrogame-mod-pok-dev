@@ -37,6 +37,8 @@ Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo q
 
 ## Punto di ripresa
 
+AGGIUNTA DEL 2026-09-23, settima parte. La guida del Parco Lotta e' ora operativa, con otto figure e una copia .docx deterministica rigenerata dallo stesso comando. Per HOME e' stato proposto al proprietario un ordine di tre passi suoi, in `pending.md`, mentre l'agente verifica il Vivillon Motivo Poke Ball.
+
 AGGIUNTA DEL 2026-09-23, sesta parte. Su richiesta del proprietario i tre documenti d'uso del Parco Lotta sono diventati uno, `GUIDA-PARCO-LOTTA.md`, e i due file generati `MAPPA-RISERVE.md` e `PERCORSO-SIMBOLI-ORO.md` sono stati cancellati dopo aver verificato che ogni riga delle loro tabelle sta nella guida.
 
 AGGIUNTA DEL 2026-09-23, quinta parte. Il fuoco torna sull'obiettivo principale, il Pokedex completo in HOME, per decisione del proprietario; il risanamento dei 40 irregolari di Smeraldo e gli sfondi dei box sono rimandati a dopo. Chiusa la parte d'uso del Parco Lotta con `GUIDA-PARCO-LOTTA.md`. Registrate sei fonti nuove sulla completezza del deposito, e le sette verifiche che aprono sono in `pending.md`, prima fra tutte il disaccordo sul Vivillon Motivo Poke Ball.

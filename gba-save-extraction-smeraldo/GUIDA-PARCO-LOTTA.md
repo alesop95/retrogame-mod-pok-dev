@@ -1,38 +1,39 @@
-# Guida all'uso degli esemplari generati per il Parco Lotta di Smeraldo
+# Guida operativa agli esemplari del Parco Lotta di Smeraldo
 
-> Scritta il 2026-09-23, dopo che i sessantaquattro esemplari del lotto sono stati scritti sulla cartuccia vera e verificati byte per byte. È la guida da tenere accanto al gioco, ed è un documento solo per scelta: dice che cosa c'è nei box, che cosa non fare fuori dal Parco, come preparare ogni sfida, come giocarla fino al simbolo d'oro, quali riserve tirare fuori e dove si trova ciascun esemplare. Le meccaniche vengono da `STUDIO-04`, verificate sul sorgente di `pret/pokeemerald`, e le scelte di squadra da `STUDIO-05`. Dove un consiglio è una deduzione e non un fatto verificato, il testo lo dice.
+> Da tenere accanto al gioco. Dice dove sta ogni esemplare, come si prepara una sfida e come la si gioca fino al simbolo d'oro. Le meccaniche sono verificate sul sorgente di `pret/pokeemerald` e spiegate per esteso in `STUDIO-04`; le scelte di squadra sono motivate in `STUDIO-05`. Dove un consiglio è una deduzione e non un fatto verificato, lo dice.
 >
-> La prosa è scritta a mano. Le tabelle che discendono dal catalogo, cioè il calendario, le squadre posizione per posizione, la misura delle riserve, le schede dei trentadue esemplari e la disposizione nei box, stanno fra coppie di marcatori e le riscrive `tools/parco_lotta_percorso_oro.py`: dentro i marcatori non si scrive a mano, fuori sì. Dopo una modifica al catalogo si rilancia lo strumento, e `--check` dice se la guida è rimasta indietro.
+> Manutenzione: la prosa è scritta a mano; le tabelle fra i marcatori `generato da`, le figure sotto `figure/` e la copia `GUIDA-PARCO-LOTTA.docx` le rigenera `tools/parco_lotta_percorso_oro.py`. Dentro i marcatori non si scrive a mano; `--check` dice se la guida è rimasta indietro rispetto al catalogo. Figure e `.docx` non entrano in git, perché il `.gitignore` esclude i media per ADR-005: su un clone nuovo compaiono al primo lancio dello strumento.
 
-## 1. Che cosa c'è nella cartuccia
+## Avvio rapido
 
-I sessantaquattro esemplari stanno nei box 12, 13 e 14, e sono trentadue esemplari distinti in doppia copia. Le due copie di ciascuno sono affiancate: quella a sinistra, la copia 1, è quella da usare, e quella a destra, la copia 2, è la copia destinata allo scambio. I primi sedici posti del box 12 sono gli otto titolari delle squadre, cioè le tre righe in alto più le prime due posizioni della terza; dalla terza riga, quinta colonna, cominciano le ventiquattro riserve, in ordine di frequenza nelle squadre di chi ha giocato, e proseguono nel box 13 fino alle prime quattro posizioni del box 14. I box 10 e 11 sono vuoti, e i box da 1 a 9 contengono il resto del deposito, compattato.
+![I box 12, 13 e 14 dopo il riordino del 2026-09-23](figure/box-12-14.png)
 
-Tutti gli esemplari sono al livello 50, e tutti sono stati giudicati legali da PKHeX al sesto giro di verifica, sessantaquattro su sessantaquattro. Quasi tutti portano come allenatore d'origine ALEX con il tuo identificativo, perché nascono da uova, da incontri di Smeraldo o da incontri di Rosso Fuoco; Suicune e Raikou portano invece WES, cioè il giocatore di Colosseum, perché vengono da là come esemplari Ombra purificati, e per il gioco sono esemplari ricevuti in scambio. Con tutte le medaglie un esemplare scambiato obbedisce a qualunque livello, quindi la differenza non si vede in lotta.
+| Passo | Che cosa fare | Perché |
+|---|---|---|
+| 1 | Scegli l'edificio seguendo l'ordine della sezione 2 | due passi dell'ordine sono vincoli, non preferenze |
+| 2 | Apri il PC, box 12, e preleva i tre esemplari della figura dell'edificio, sempre la copia 1, quella a sinistra | la copia 2 è quella per lo scambio |
+| 3 | Mettili in squadra nell'ordine del numero sulla figura | il primo della squadra è il primo a scendere in campo |
+| 4 | Controlla lo strumento di ciascuno con la tabella dell'edificio, e scambia dove la tabella dice "scambiarlo in gioco" | ogni file porta lo strumento della prima squadra in cui l'esemplare compare |
+| 5 | Al banco scegli Livello 50 e formato singolo | le squadre sono composte per quella modalità; al Livello Aperto gli avversari e il loro catalogo cambiano |
+| 6 | Vinci di fila le serie che dice il calendario | una sconfitta azzera la serie |
 
-I nomi di nature, abilità, mosse e strumenti in questa guida sono quelli che il gioco italiano mostra, letti dal dump di PKHeX e non tradotti a memoria. Due nomi che i documenti di studio scrivevano in un altro modo sono stati corretti il 2026-09-23: la natura Hasty si chiama Lesta, e la mossa Fire Punch si chiama Fuocopugno.
+## 1. Tre regole che non si violano
 
-## 2. Tre regole che valgono fuori dal Parco, prima di tutto il resto
+| Regola | Perché |
+|---|---|
+| Questi 32 esemplari non combattono mai fuori dal Parco, non stanno in squadra mentre esplori, non ricevono Caramelle Rare | sei di loro, cioè i due Latios, Latias, Zapdos, Moltres e Articuno, sono a un solo punto di esperienza dal livello 51, perché per essere legali portano il massimo che il livello 50 consente: una lotta qualsiasi fuori dal Parco li porta al 51, e al 51 non si iscrivono più alla modalità Livello 50, per sempre, perché il livello non si abbassa. Gli altri hanno migliaia di punti di margine, che non sono infiniti. Nel Parco le lotte non danno esperienza, quindi lì il margine non si consuma |
+| Le mosse non si toccano, tranne i due cambi della Piramide | in terza generazione una MT si consuma all'uso e la mossa sovrascritta non torna gratis |
+| Si scambia la copia 2, mai la copia 1 | senza la copia 1 l'edificio resta senza titolare, e rigenerarla vuol dire rifare verifica e scrittura sulla cartuccia |
 
-La prima regola è la più importante di tutta la guida, e la sua ragione è aritmetica. Sei esemplari si incontrano in gioco già al livello 50, cioè i due Latios, Latias, Zapdos, Moltres e Articuno, e per essere legali portano l'esperienza massima che il livello 50 consente, cioè un punto sotto la soglia del 51. Basta quindi un solo punto di esperienza per portarli al livello 51, e un esemplare al 51 non si può più iscrivere alla modalità Livello 50, per sempre, perché il livello non si abbassa. Nel Parco le lotte non danno esperienza, quindi lì non c'è rischio; fuori, invece, qualunque lotta a cui l'esemplare partecipi basta. Gli altri ventisei hanno un margine di diverse migliaia di punti, che non è infinito, e la conclusione vale per tutti e trentadue: questi esemplari non si usano mai fuori dal Parco, non si portano in squadra mentre si esplora, e non ricevono mai una Caramella Rara. La colonna del margine nelle schede della sezione 13 dice il numero esatto per ciascuno.
+Che cosa c'è nei box: 32 esemplari in doppia copia, affiancate, tutti al livello 50 e tutti legali per PKHeX, 64 su 64 al sesto giro. I 16 posti blu del box 12 sono gli 8 titolari; dalla terza riga, quinta colonna, cominciano le 24 riserve, in ordine di frequenza nelle squadre dei thread, fino alle prime quattro posizioni del box 14. I box da 1 a 9 contengono il resto del deposito, compattato; il 10 e l'11 sono vuoti. Quasi tutti hanno come allenatore ALEX, perché nascono da uova o da incontri di Smeraldo e di Rosso Fuoco; Suicune e Raikou hanno WES, perché vengono da Colosseum come esemplari Ombra purificati, e per il gioco sono scambiati, ma con tutte le medaglie obbediscono a qualunque livello. Nomi di nature, abilità, mosse e strumenti sono quelli del gioco italiano, letti dal dump di PKHeX e non tradotti a memoria: Hasty è Lesta, Fire Punch è Fuocopugno.
 
-La seconda regola riguarda le mosse. In terza generazione una MT si consuma all'uso, e una mossa sovrascritta non torna gratis: gli insiemi di mosse sono stati scelti per edificio, e l'unico cambio previsto è quello della Piramide, descritto nella sezione 10. Fuori da quel caso le mosse non si toccano.
+## 2. Ordine degli edifici e calendario
 
-La terza regola riguarda gli scambi. La copia 2 esiste per essere scambiata, la copia 1 per essere usata: scambiare la copia 1 lascia l'edificio senza il suo titolare, e rigenerarlo vuol dire rifare l'intero ciclo di verifica e di scrittura sulla cartuccia.
+![Serie di fila che servono all'argento e all'oro, per edificio](figure/calendario.png)
 
-## 3. Come si prepara ogni sfida
+L'ordine è Cupola, Azienda, Torre, Dojo, Palazzo, Serpe, Piramide, e tre passi sono vincoli. La Cupola va per prima: è il simbolo più economico e i suoi avversari restano deboli fino alla fine. L'Azienda va chiusa prima di allungare la serie alla Torre a livello 50, perché per un difetto del gioco i punti individuali degli avversari dell'Azienda dipendono dalla serie corrente della Torre. La Piramide va per ultima, perché chiede di cambiare due mosse con le MT. Torre, Dojo, Palazzo e Serpe si possono permutare. L'Asso compare due volte, e la seconda dà l'oro.
 
-Tutte le sfide si giocano in modalità Livello 50 e in formato singolo, cioè uno contro uno, che è il formato per cui le squadre sono state composte. Nella prima scelta al banco di ogni edificio va quindi selezionato il Livello 50, e non il Livello Aperto, dove gli avversari salgono di livello con la squadra e il catalogo degli avversari cambia.
-
-Prima di entrare si prelevano dal PC i tre esemplari della squadra, sempre la copia 1, e si mettono in squadra nell'ordine indicato, perché il primo della squadra è il primo a scendere in campo. Valgono per tutti gli edifici tre vincoli di iscrizione verificati due volte: nessuna specie ripetuta, nessuno strumento ripetuto, e nessuna delle dieci specie escluse, cioè Mewtwo, Mew, Lugia, Ho-Oh, Celebi, Kyogre, Groudon, Rayquaza, Jirachi e Deoxys. Latios, Latias, i tre cani e i tre Regi sono ammessi. Gli strumenti dello zaino non si usano durante le lotte, tranne alla Piramide, che ha una borsa propria.
-
-Gli strumenti meritano una parola, perché un esemplare ne tiene uno solo e ogni file porta lo strumento della prima squadra in cui l'esemplare compare. Alla Cupola il Metagross Decisa tiene gli Avanzi e lo Slaking la Bendascelta; alla Torre, al Dojo e alla Serpe lo stesso Metagross vuole invece la Bendascelta, e gli Avanzi li tiene già un altro membro della squadra. Il modo più semplice è uno scambio fra i due: prima di quei tre edifici si dà al Metagross Decisa la Bendascelta presa dallo Slaking e si lasciano allo Slaking gli Avanzi del Metagross, e prima di tornare alla Cupola si rifà lo scambio al contrario. La squadra del Palazzo e quella della Serpe, per il resto, escono già dal PC con gli strumenti giusti.
-
-## 4. L'ordine degli edifici, e perché non è indifferente
-
-L'ordine consigliato è Cupola, Azienda, Torre, Dojo, Palazzo, Serpe e Piramide, e due dei suoi passi sono vincoli e non preferenze. La Cupola va per prima perché è il simbolo più economico e perché i suoi avversari restano deboli fino alla fine, per un difetto del gioco descritto nella sezione 5. L'Azienda va chiusa prima di costruire una serie lunga alla Torre a livello 50, perché i punti individuali degli avversari dell'Azienda dipendono, per un secondo difetto del gioco, dalla serie corrente della Torre: finché quella resta bassa, all'Azienda si affrontano avversari al primo gradino. La Piramide va per ultima perché chiede di cambiare due mosse con le MT, e le mosse sovrascritte non si recuperano gratis. Gli altri tre si possono permutare.
-
-L'Asso di ogni edificio compare due volte, e la seconda dà il simbolo d'oro. Una sconfitta azzera la serie, quindi le serie che servono vanno vinte tutte di fila. Il calendario, dal sorgente e con il conteggio corretto, è questo.
+Vincoli di iscrizione, validi ovunque: nessuna specie ripetuta, nessuno strumento ripetuto, e nessuna delle dieci specie escluse, cioè Mewtwo, Mew, Lugia, Ho-Oh, Celebi, Kyogre, Groudon, Rayquaza, Jirachi e Deoxys. Latios, Latias, i tre cani e i tre Regi sono ammessi. Lo zaino non si usa in lotta, tranne la borsa propria della Piramide.
 
 <!-- generato da parco_lotta_percorso_oro.py: calendario, inizio -->
 
@@ -48,15 +49,9 @@ L'Asso di ogni edificio compare due volte, e la seconda dà il simbolo d'oro. Un
 
 <!-- generato da parco_lotta_percorso_oro.py: calendario, fine -->
 
-## 5. Cupola Lotta, Simbolo Tattica
+## 3. Cupola Lotta, Simbolo Tattica
 
-Si iscrivono Latios Timida, dal box 12 in prima riga e prima colonna, con la Baccaprugna; Metagross Decisa, prima riga e terza colonna, con gli Avanzi; e Slaking Decisa, prima riga e quinta colonna, con la Bendascelta. Il torneo è a eliminazione fra sedici concorrenti, quattro incontri per torneo, e ogni incontro è due contro due: prima di ciascuno si vede la squadra avversaria e si scelgono due dei tre iscritti.
-
-La ragione per cui questo edificio viene per primo è un difetto verificato nel sorgente: la funzione che crea gli avversari della Cupola passa al calcolo dei punti individuali un identificativo sbagliato, e il risultato è che tutti gli avversari hanno tre punti individuali su ogni statistica, fino al decimo torneo compreso. È anche la ragione per cui Slaking entra qui e in nessun altro edificio: contro avversari così deboli la sua potenza chiude l'incontro prima che il turno perso dall'abilità Pigrone si paghi.
-
-Due regole del torneo cambiano il modo di giocare. La prima è il pareggio: se gli ultimi due esemplari cadono nello stesso turno, per esempio con l'Esplosione del Metagross, alla Cupola non si perde, ma avanza la testa di serie migliore, e il piazzamento si calcola sui totali delle statistiche base, per cui questa squadra si piazza quasi sempre prima. È una condizione e non una certezza, quindi l'Esplosione conviene quando si è certi di essere piazzati meglio. La seconda è che l'avversario sceglie i suoi due esemplari guardando i tuoi tre, con un criterio offensivo o difensivo estratto a sorte, quindi la squadra iscritta è anche un'informazione che gli dai.
-
-La squadra, posizione per posizione, con strumenti e mosse come il gioco li mostra.
+![Cupola Lotta: i tre da prelevare](figure/squadra-cupola.png)
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Cupola Lotta, inizio -->
 
@@ -66,23 +61,30 @@ La squadra, posizione per posizione, con strumenti e mosse come il gioco li most
 | 2 | Metagross Decisa | box 12, riga 1, colonna 3 | Avanzi | Meteorpugno, Terremoto, Palla Ombra, Esplosione |
 | 3 | Slaking Decisa | box 12, riga 1, colonna 5 | Bendascelta | Ritorno, Terremoto, Palla Ombra, Iper Raggio |
 
-Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 12 e quindi non ancora una scelta: al posto di Latios, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Metagross, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Slaking, Starmie (box 12, riga 4, colonna 3), Gengar (box 12, riga 5, colonna 5).
+Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Metagross, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Slaking, Starmie (box 12, riga 4, colonna 3), Gengar (box 12, riga 5, colonna 5).
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Cupola Lotta, fine -->
 
-## 6. Azienda Lotta, Simbolo Sapienza
+| Situazione | Che cosa fare |
+|---|---|
+| Prima di ogni incontro vedi la squadra avversaria | scegli due dei tre: ogni incontro è due contro due, quattro incontri per torneo, sedici concorrenti |
+| Avversari deboli per tutti e dieci i tornei | è un difetto del gioco verificato nel sorgente, per cui hanno tre punti individuali su ogni statistica. È la ragione per cui Slaking gioca qui e solo qui: chiude l'incontro prima che il turno perso da Pigrone si paghi |
+| Stai per usare Esplosione con il Metagross | alla Cupola un pareggio non è una sconfitta: avanza la testa di serie migliore, calcolata sui totali delle statistiche base, e questa squadra si piazza quasi sempre prima. Usala se sei certo di essere piazzato meglio, perché è una condizione e non una certezza |
+| Scegli chi iscrivere | l'avversario sceglie i suoi due guardando i tuoi tre, con un criterio offensivo o difensivo estratto a sorte: la squadra iscritta è anche un'informazione che gli dai |
 
-Qui non si porta nulla dal PC: si combatte con esemplari in prestito, e dopo ogni vittoria si può scambiarne uno con uno dell'avversario appena battuto. È l'unico simbolo d'oro che non dipende in alcun modo dai box. I punti individuali degli esemplari in prestito crescono con la serie, da tre alla prima serie fino a trentuno dalla settima, mentre quelli degli avversari restano al gradino basso finché la serie corrente alla Torre a livello 50 resta bassa, che è il motivo dell'ordine.
+## 4. Azienda Lotta, Simbolo Sapienza
 
-Due avvertenze vengono dalle fonti. La prima: all'Azienda la mossa che nel catalogo compare come Ritorno è in realtà Frustrazione, quindi un avversario con quella mossa colpisce più forte quanto meno è affezionato. La seconda: circola un effetto per cui riposare, salvare e ricaricare porterebbe tutti i punti individuali al valore di quello di attacco; è letto su un'enciclopedia e non verificato sul sorgente, e questa guida non lo consiglia.
+Non si porta nulla dal PC: si combatte con esemplari in prestito, e dopo ogni vittoria se ne può scambiare uno con uno dell'avversario appena battuto. È l'unico simbolo che non dipende dai box.
 
-## 7. Torre Lotta, Simbolo Abilità
+| Situazione | Che cosa fare |
+|---|---|
+| Prima di cominciare | tieni bassa la serie corrente alla Torre a livello 50 finché l'Azienda non è all'oro: così gli avversari dell'Azienda restano al gradino più basso, mentre i tuoi esemplari in prestito crescono con la serie, da tre punti individuali alla prima fino a trentuno dalla settima |
+| Un avversario ha "Ritorno" | all'Azienda è in realtà Frustrazione, che colpisce più forte quanto meno l'esemplare è affezionato |
+| Qualcuno ti suggerisce di riposare, salvare e ricaricare per migliorare i punti individuali | non farlo: è un effetto letto su un'enciclopedia e non verificato sul sorgente |
 
-In squadra, nell'ordine: Latios Timida con la Baccaprugna, Swampert Placida dal box 12 in seconda riga e prima colonna con gli Avanzi, e Metagross Decisa con la Bendascelta. È la squadra della guida di chi ha completato tutti e sette i simboli, e il nucleo che ricorre in testa alle squadre dei thread per ogni edificio.
+## 5. Torre Lotta, Simbolo Abilità
 
-La Torre non aggiunge regole, ma il suo catalogo degli avversari dice tre cose utili. La settima lotta di ogni serie pesca da una tabella più dura delle prime sei, quindi il salto di difficoltà all'ultimo avversario è voluto dal gioco. Il punto dove una serie si perde più facilmente è la sesta sfida, cioè fra la quarantatreesima e la quarantanovesima vittoria, dove gli avversari hanno già trentuno punti individuali e il bacino da cui vengono pescati più che raddoppia; dalla cinquantasettesima vittoria in poi il bacino non cambia più. E fra le mosse avversarie Terremoto domina, con il doppio delle occorrenze della seconda: Latios, con Levitazione, ne è immune, ed è una delle ragioni per cui conduce. Fra gli strumenti avversari più frequenti ci sono Rapidartigli, Baccaprugna, Avanzi e Luminpolvere, e fra le mosse di stato l'elusione è la seconda categoria per frequenza: una serie lunga si perde più spesso per un colpo mancato che per un colpo subito.
-
-La squadra, posizione per posizione, con strumenti e mosse come il gioco li mostra.
+![Torre Lotta: i tre da prelevare](figure/squadra-torre.png)
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Torre Lotta, inizio -->
 
@@ -92,17 +94,22 @@ La squadra, posizione per posizione, con strumenti e mosse come il gioco li most
 | 2 | Swampert Placida | box 12, riga 2, colonna 1 | Avanzi | Terremoto, Surf, Geloraggio, Contrattacco |
 | 3 | Metagross Decisa | box 12, riga 1, colonna 3 | Bendascelta (il file porta Avanzi: scambiarlo in gioco) | Meteorpugno, Terremoto, Palla Ombra, Esplosione |
 
-Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 12 e quindi non ancora una scelta: al posto di Latios, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Swampert, Starmie (box 12, riga 4, colonna 3), Gengar (box 12, riga 5, colonna 5); al posto di Metagross, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3).
+Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Swampert, Starmie (box 12, riga 4, colonna 3), Gengar (box 12, riga 5, colonna 5); al posto di Metagross, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3).
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Torre Lotta, fine -->
 
-## 8. Dojo Lotta, Simbolo Valore
+Prima di entrare: dai al Metagross Decisa la Bendascelta presa allo Slaking e lascia allo Slaking gli Avanzi del Metagross. Prima di tornare alla Cupola rifai lo scambio al contrario. È la squadra della guida di chi ha completato tutti e sette i simboli.
 
-Gli stessi tre della Torre, con gli stessi strumenti, ma in un ordine diverso: Latios Timida, Metagross Decisa, Swampert Placida. Al Dojo gli esemplari si affrontano uno contro uno in sequenza, e se entrambi sopravvivono a tre turni l'incontro si decide a punti.
+| Situazione | Che cosa fare |
+|---|---|
+| L'ultima lotta di ogni serie è più dura | è voluto: la settima lotta pesca da una tabella di avversari più forti |
+| Sei fra la 43ª e la 49ª vittoria | è il tratto dove una serie si perde più spesso: gli avversari hanno già trentuno punti individuali e il bacino da cui vengono pescati più che raddoppia. Dalla 57ª in poi non cambia più |
+| L'avversario usa Terremoto | è la mossa più frequente del catalogo, il doppio della seconda: Latios, con Levitazione, ne è immune, ed è una ragione per cui conduce |
+| Colpi mancati in fila | Luminpolvere, Rapidartigli, Baccaprugna e Avanzi sono gli strumenti avversari più frequenti, e l'elusione è la seconda categoria di mosse di stato: una serie si perde più spesso per un colpo mancato che per uno subito |
 
-Il giudizio ha tre voci da due punti. La mente premia la scelta di una mossa che infligge danno, dà zero a Contrattacco, Specchiovelen e Pazienza, e toglie un punto a Protezione, Individua e Resistenza; conta la scelta e non l'esito, quindi anche una mossa impedita dalla paralisi assegna il suo punto. La tecnica premia ogni mossa andata a segno, di più se superefficace, e penalizza quelle mancate. Il corpo confronta i punti salute residui con quelli iniziali. Ne segue, come deduzione e non come regola scritta, che al Dojo conviene attaccare a ogni turno: il Calmamente del Latios e il Contrattacco dello Swampert non danno punti di mente, quindi si usano solo quando la lotta si può chiudere prima del giudizio.
+## 6. Dojo Lotta, Simbolo Valore
 
-La squadra, posizione per posizione, con strumenti e mosse come il gioco li mostra.
+![Dojo Lotta: i tre da prelevare](figure/squadra-dojo.png)
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Dojo Lotta, inizio -->
 
@@ -112,17 +119,23 @@ La squadra, posizione per posizione, con strumenti e mosse come il gioco li most
 | 2 | Metagross Decisa | box 12, riga 1, colonna 3 | Bendascelta (il file porta Avanzi: scambiarlo in gioco) | Meteorpugno, Terremoto, Palla Ombra, Esplosione |
 | 3 | Swampert Placida | box 12, riga 2, colonna 1 | Avanzi | Terremoto, Surf, Geloraggio, Contrattacco |
 
-Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 12 e quindi non ancora una scelta: al posto di Latios, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Metagross, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Swampert, Starmie (box 12, riga 4, colonna 3), Gengar (box 12, riga 5, colonna 5).
+Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Metagross, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Swampert, Starmie (box 12, riga 4, colonna 3), Gengar (box 12, riga 5, colonna 5).
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Dojo Lotta, fine -->
 
-## 9. Palazzo Lotta, Simbolo Spirito
+Stessi tre della Torre, in un altro ordine, con lo stesso scambio di strumenti. Gli esemplari si affrontano uno contro uno in sequenza; se entrambi sopravvivono a tre turni decide un giudizio in tre voci da due punti.
 
-La squadra è la sola che non condivide esemplari con le altre: Metagross Vivace dal box 12 in seconda riga e terza colonna, con la Bendascelta; Latios Lesta, seconda riga e quinta colonna, con la Baccaprugna; e Swampert Audace, terza riga e prima colonna, con gli Avanzi. Al Palazzo non si danno ordini: ogni turno l'esemplare sceglie da sé prima una categoria fra attacco, difesa e supporto, con proporzioni che dipendono dalla natura e cambiano sotto la metà dei punti salute, e poi una mossa dentro quella categoria.
+| Voce del giudizio | Che cosa premia |
+|---|---|
+| Mente | la scelta di una mossa che fa danno, anche se poi la paralisi la impedisce; zero a Contrattacco, Specchiovelen e Pazienza; un punto in meno a Protezione, Individua e Resistenza |
+| Tecnica | ogni mossa andata a segno, di più se superefficace; in meno le mosse mancate o fallite |
+| Corpo | i punti salute rimasti rispetto a quelli iniziali |
 
-Le nature sono state scelte per le quote d'attacco, e i loro profili sono diversi. Il Metagross Vivace attacca l'ottantotto per cento delle volte sopra la metà dei punti salute e crolla al ventidue sotto; il Latios Lesta fa il contrario, cinquantotto sopra e ottantotto sotto, cioè migliora quando le cose vanno male; lo Swampert Audace sta al settanta sopra la metà. Il Metagross porta due mosse sole, Meteorpugno e Terremoto, e non è una dimenticanza: quando la categoria estratta non ha mosse, metà di quella quota torna come attacco scelto a caso, quindi togliere le mosse di stato aumenta la frequenza con cui si infligge danno. L'unica decisione che resta al giocatore è l'ordine di squadra, e il primo in campo è il Metagross.
+Deduzione, non regola scritta: al Dojo conviene attaccare a ogni turno. Calmamente del Latios e Contrattacco dello Swampert non danno punti di mente, quindi usali solo se l'incontro si chiude prima del giudizio.
 
-La squadra, posizione per posizione, con strumenti e mosse come il gioco li mostra.
+## 7. Palazzo Lotta, Simbolo Spirito
+
+![Palazzo Lotta: i tre da prelevare](figure/squadra-palazzo.png)
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Palazzo Lotta, inizio -->
 
@@ -132,17 +145,23 @@ La squadra, posizione per posizione, con strumenti e mosse come il gioco li most
 | 2 | Latios Lesta | box 12, riga 2, colonna 5 | Baccaprugna | Psichico, Dragartigli, Fulmine, Surf |
 | 3 | Swampert Audace | box 12, riga 3, colonna 1 | Avanzi | Terremoto, Surf, Geloraggio, Frana |
 
-Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 12 e quindi non ancora una scelta: al posto di Metagross, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Latios, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Swampert, Starmie (box 12, riga 4, colonna 3), Gengar (box 12, riga 5, colonna 5).
+Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Metagross, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Latios, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Swampert, Starmie (box 12, riga 4, colonna 3), Gengar (box 12, riga 5, colonna 5).
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Palazzo Lotta, fine -->
 
-## 10. Serpe Lotta, Simbolo Fortuna
+Qui non si danno ordini: ogni turno l'esemplare sceglie da sé una categoria fra attacco, difesa e supporto, con proporzioni che dipendono dalla natura e cambiano sotto la metà dei punti salute, e poi una mossa in quella categoria. La squadra esce dal PC con gli strumenti giusti e non condivide esemplari con le altre. L'unica scelta che ti resta è l'ordine, e il primo è il Metagross.
 
-In squadra: Latios Timida con la Baccaprugna, Metagross Decisa con la Bendascelta, e Blissey Sicura dal box 12 in terza riga e terza colonna con gli Avanzi. La Serpe non è un edificio di lotte ma di sale, quattordici per serie, e in ogni sala si sceglie fra tre porte con un indizio che ne nomina una sola: gli esiti sono lotte, cure, incontri selvatici, nessun evento, e la sala delle alterazioni di stato, che è quella che decide se una serie lunga sopravvive.
+| Esemplare | Quota d'attacco sopra metà PS | Sotto metà PS |
+|---|---|---|
+| Metagross Vivace | 88% | 22% |
+| Latios Lesta | 58% | 88% |
+| Swampert Audace | 70%, con 15 di difesa e 15 di supporto, senza distinzione di metà in STUDIO-04 | vedi a sinistra |
 
-In quella sala un Kirlia o un Dusclops tenta di alterare un esemplare che non lo è, e le probabilità dichiarate sono iperavvelenamento il trentacinque per cento, congelamento il venticinque, paralisi il venti, sonno il dieci e scottatura il dieci. La squadra è composta su queste immunità: il Metagross è di tipo Acciaio e non può essere avvelenato, che è l'esito più probabile; la Blissey ha Alternacura, che cura l'alterazione quando esce dal campo; e la Baccaprugna del Latios ne cura una a sua volta. Le due serie più lunghe dichiarate nei thread per questo edificio, cinquecentosessanta e quattrocentoventi sale, avevano entrambe una Blissey.
+Il Metagross porta due sole mosse, Meteorpugno e Terremoto, apposta: quando la categoria estratta non ha mosse, metà di quella quota torna come attacco a caso, quindi togliere le mosse di stato fa attaccare più spesso.
 
-La squadra, posizione per posizione, con strumenti e mosse come il gioco li mostra.
+## 8. Serpe Lotta, Simbolo Fortuna
+
+![Serpe Lotta: i tre da prelevare](figure/squadra-serpe.png)
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Serpe Lotta, inizio -->
 
@@ -152,17 +171,31 @@ La squadra, posizione per posizione, con strumenti e mosse come il gioco li most
 | 2 | Metagross Decisa | box 12, riga 1, colonna 3 | Bendascelta (il file porta Avanzi: scambiarlo in gioco) | Meteorpugno, Terremoto, Palla Ombra, Esplosione |
 | 3 | Blissey Sicura | box 12, riga 3, colonna 3 | Avanzi | Movim. Sismico, Tossina, Covauova, Canto |
 
-Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 12 e quindi non ancora una scelta: al posto di Latios, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Metagross, Latias (box 12, riga 5, colonna 1), Tauros (box 13, riga 1, colonna 5); al posto di Blissey, Starmie (box 12, riga 4, colonna 3), Gengar (box 12, riga 5, colonna 5).
+Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Metagross, Latias (box 12, riga 5, colonna 1), Tauros (box 13, riga 1, colonna 5); al posto di Blissey, Starmie (box 12, riga 4, colonna 3), Gengar (box 12, riga 5, colonna 5).
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Serpe Lotta, fine -->
 
-## 11. Piramide Lotta, Simbolo Audacia
+Prima di entrare: al Metagross la Bendascelta dello Slaking, come per la Torre. Quattordici sale per serie; in ciascuna tre porte e un indizio che ne nomina una. Gli esiti sono lotte, cure, incontri selvatici, nessun evento e la sala delle alterazioni di stato, che è quella che decide le serie lunghe: un Kirlia o un Dusclops ne tenta una su un esemplare che non ne ha.
 
-Gli stessi tre della Torre, senza strumenti: il gioco li toglie all'ingresso, e conviene toglierli prima di entrare e tenerli nello zaino, così che non ci sia alcun dubbio su dove finiscano. Prima di entrare vanno insegnate due mosse con le MT: Protezione, MT17, allo Swampert Placida al posto di Contrattacco, e Breccia, MT31, al Metagross Decisa al posto di Esplosione, perché in un edificio dove i punti salute non si ripristinano fra un piano e l'altro l'Esplosione si usa una volta sola. È la ragione per cui la Piramide viene per ultima.
+| Alterazione | Probabilità | Chi la regge |
+|---|---|---|
+| Iperavvelenamento | 35% | Metagross, di tipo Acciaio, è immune |
+| Congelamento | 25% | la Baccaprugna del Latios la cura; l'Alternacura della Blissey la toglie quando esce dal campo |
+| Paralisi | 20% | come sopra |
+| Sonno | 10% | come sopra |
+| Scottatura | 10% | come sopra |
 
-Ogni serie di sette piani ha un bestiario a tema, e il gioco lo sostituisce per intero a ogni serie. Le squadre non cambiano, cambia chi conduce: la tabella delle prime dieci serie, con il tema, il primo in campo e il piano da cui cambiare, sta subito sotto la squadra e viene dalla guida di chi ha completato i sette simboli. Due fatti restano da sapere. Gli oggetti si raccolgono dentro, in una borsa di dieci scomparti che si conserva da una sfida all'altra solo se la sfida si completa. E Baldo, a differenza del giocatore, tiene i propri strumenti.
+Le due serie più lunghe dichiarate nei thread per questo edificio, 560 e 420 sale, avevano entrambe una Blissey.
 
-La squadra, posizione per posizione, con strumenti e mosse come il gioco li mostra.
+## 9. Piramide Lotta, Simbolo Audacia
+
+![Piramide Lotta: i tre da prelevare](figure/squadra-piramide.png)
+
+| Passo | Prima di entrare |
+|---|---|
+| 1 | Togli gli strumenti a tutti e tre e lasciali nello zaino: il gioco li toglie comunque all'ingresso |
+| 2 | Insegna Protezione (MT17) allo Swampert Placida al posto di Contrattacco |
+| 3 | Insegna Breccia (MT31) al Metagross Decisa al posto di Esplosione, che qui si userebbe una volta sola perché i punti salute non si ripristinano fra un piano e l'altro |
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Piramide Lotta, inizio -->
 
@@ -187,17 +220,25 @@ Chi conduce, serie per serie. Le prime dieci serie bastano all'oro e vengono dal
 | 9 | 57-63 | tipo Psico | Latios | Metagross dal secondo piano | Metagross |
 | 10 | 64-70 | tipo Roccia | Swampert | Metagross dal terzo piano | Metagross |
 
-Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 12 e quindi non ancora una scelta: al posto di Latios, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Swampert, Starmie (box 12, riga 4, colonna 3), Gengar (box 12, riga 5, colonna 5); al posto di Metagross, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3).
+Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3); al posto di Swampert, Starmie (box 12, riga 4, colonna 3), Gengar (box 12, riga 5, colonna 5); al posto di Metagross, Salamence (box 12, riga 3, colonna 5), Starmie (box 12, riga 4, colonna 3).
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Piramide Lotta, fine -->
 
-## 12. Le riserve, e come si usano
+Ogni serie di sette piani ha un bestiario a tema, sostituito per intero a ogni serie: la squadra resta, cambia chi conduce, come dice la tabella qui sopra, presa dalla guida di chi ha completato i sette simboli. Gli oggetti si raccolgono dentro, in una borsa di dieci scomparti che si conserva da una sfida all'altra solo se la sfida si completa. Baldo, a differenza tua, tiene i suoi strumenti.
 
-Le ventiquattro riserve servono a una cosa sola: sostituire un titolare quando in un edificio non rende, oppure quando si vuole provare una variante. Le due tabelle in fondo a questa sezione le misurano sulle 268 squadre estratte dai thread: la prima dice in quali edifici ciascuna specie del lotto è stata portata e con quale serie più lunga, la seconda conta, per ogni posto di ogni squadra, quali riserve hanno giocato più spesso accanto agli altri due titolari; sotto ogni squadra delle sezioni precedenti ci sono le due con più riscontri e la loro posizione nel PC. È una misura e non ancora una scelta: dice che cosa hanno fatto altri, non che cosa convenga fare qui, e va letta con tre avvertenze. I thread nominano la specie e quasi mai la natura, quindi un conteggio su Latios vale per entrambi i Latios del lotto. Un thread registra chi ha voluto scrivere, di solito chi ha fatto una serie buona, quindi il campione è sbilanciato verso i successi. E la Torre pesa quanto quasi tutti gli altri edifici insieme, quindi un numero alto alla Torre significa meno di un numero alto al Palazzo. I tre risultati più solidi sono che Salamence e Starmie sono i candidati più frequenti per quasi ogni posto, che Latias è la sostituta naturale di Latios, e che al Palazzo le riserve più presenti sono quelle da attacco puro, cioè Starmie, Salamence, Flygon e Scizor.
+## 10. Le riserve
 
-Una sostituzione rispetta gli stessi vincoli della squadra, e due di essi si dimenticano facilmente. Le riserve escono dal PC senza strumento, quindi lo strumento va dato prima di entrare, senza ripeterne uno già tenuto da un altro membro. E al Palazzo una riserva con mosse di stato peggiora la squadra per la ragione della sezione 9, anche se altrove sarebbe migliore.
+Servono a sostituire un titolare che in un edificio non rende, o a provare una variante. Sotto ogni squadra ci sono le due riserve con più riscontri accanto agli altri due titolari; le tabelle in fondo a questa sezione sono la misura completa sulle 268 squadre dei thread: la prima dice in quali edifici ciascuna specie è stata portata e con quale serie più lunga, la seconda conta per ogni posto di ogni squadra chi ha giocato accanto agli altri due. È una misura, non ancora una scelta, e va letta con tre avvertenze: i thread nominano la specie e quasi mai la natura, quindi un conteggio su Latios vale per entrambi i Latios; scrive soprattutto chi ha fatto una serie buona; la Torre pesa quanto quasi tutti gli altri edifici insieme.
 
-Tyranitar non è fra le riserve: evolve da Pupitar solo al livello 55, quindi un Tyranitar di livello 50 non può esistere e le squadre dei thread che lo portano sono squadre del Livello Aperto.
+I risultati più solidi: Salamence e Starmie sono i candidati più frequenti per quasi ogni posto; Latias è la sostituta naturale di Latios; al Palazzo le riserve più presenti sono quelle da attacco puro, Starmie, Salamence, Flygon e Scizor.
+
+| Quando sostituisci | Ricorda |
+|---|---|
+| sempre | le riserve escono dal PC senza strumento: dagliene uno che nessun altro membro tiene |
+| al Palazzo | una riserva con mosse di stato peggiora la squadra, per la ragione della sezione 7 |
+| sempre | resta valida la prima regola della sezione 1 |
+
+Tyranitar non c'è: evolve da Pupitar solo al livello 55, quindi al livello 50 non può esistere, e le squadre dei thread che lo portano sono del Livello Aperto.
 
 <!-- generato da parco_lotta_percorso_oro.py: misura delle riserve, inizio -->
 
@@ -266,9 +307,9 @@ Per ogni squadra e per ogni posto, le riserve del lotto che nei thread compaiono
 
 <!-- generato da parco_lotta_percorso_oro.py: misura delle riserve, fine -->
 
-## 13. Le schede dei trentadue esemplari
+## 11. Le schede dei trentadue esemplari
 
-Una riga per esemplare, nell'ordine dei box. Abilità, luogo e gioco d'incontro sono letti dal dump di PKHeX del sesto giro, quindi nella grafia che il gioco mostra; i punti base usano le sigle del gioco. La colonna del margine dice quanti punti di esperienza mancano al livello 51: dove vale uno vale la prima regola della sezione 2, e nel Parco il margine non si consuma perché le lotte non danno esperienza. Lo strumento nel file è quello con cui l'esemplare esce dal PC, che per le riserve è nessuno.
+Nell'ordine dei box. Abilità, luogo e gioco d'incontro sono letti dal dump di PKHeX del sesto giro; i punti base usano le sigle del gioco; il margine è quanti punti di esperienza mancano al livello 51, e dove vale uno vale la prima regola della sezione 1. Lo strumento nel file è quello con cui l'esemplare esce dal PC, e per le riserve è nessuno.
 
 <!-- generato da parco_lotta_percorso_oro.py: schede, inizio -->
 
@@ -309,9 +350,9 @@ Una riga per esemplare, nell'ordine dei box. Abilità, luogo e gioco d'incontro 
 
 <!-- generato da parco_lotta_percorso_oro.py: schede, fine -->
 
-## 14. La disposizione completa dei box 12, 13 e 14
+## 12. La disposizione completa dei box 12, 13 e 14
 
-Tutte le sessantaquattro posizioni, riga per riga, contando dall'alto a sinistra. La copia 1 si usa, la copia 2 è quella per lo scambio.
+Riga per riga, contando dall'alto a sinistra. La copia 1 si usa, la copia 2 è per lo scambio.
 
 <!-- generato da parco_lotta_percorso_oro.py: disposizione, inizio -->
 
@@ -384,6 +425,6 @@ Tutte le sessantaquattro posizioni, riga per riga, contando dall'alto a sinistra
 
 <!-- generato da parco_lotta_percorso_oro.py: disposizione, fine -->
 
-## 15. Che cosa questa guida non sa
+## 13. Che cosa questa guida non sa
 
-Nessuna di queste squadre è stata ancora provata in partita su questa cartuccia. Sono composte su ciò che ha funzionato ad altri e su vincoli verificati nel sorgente, che è il massimo che si possa fare prima di giocare. La scelta delle riserve per edificio è ancora da scrivere, sopra la misura che esiste. Gli ordini di conduzione della Piramide oltre la decima serie sono calcolati e non tratti da una fonte, e servono solo oltre il simbolo d'oro. Quando una serie si perde, il punto in cui si è persa e contro chi è l'informazione che serve per correggere la squadra, e vale la pena annotarla.
+Nessuna squadra è ancora stata provata in partita su questa cartuccia: sono composte su ciò che ha funzionato ad altri e su vincoli verificati nel sorgente, che è il massimo che si possa fare prima di giocare. La scelta delle riserve per edificio è ancora da scrivere sopra la misura. Gli ordini di conduzione della Piramide oltre la decima serie sono calcolati e non presi da una fonte, e servono solo oltre il simbolo d'oro. Quando perdi una serie, annota dove e contro chi: è l'informazione che serve per correggere la squadra.
