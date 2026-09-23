@@ -4,6 +4,12 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-23, quarantanovesima parte. Il percorso ai simboli d'oro, posizione per posizione
+
+Il proprietario ha chiesto la mappatura nella forma in cui la usa: per ogni edificio, fino al simbolo d'oro, quale esemplare prendere da quale posizione di quale box. E' `PERCORSO-SIMBOLI-ORO.md`, generato da `tools/parco_lotta_percorso_oro.py`, che fissa l'ordine nei box 12-14 di ADR-074 in una funzione sola: gli otto titolari nell'ordine della loro prima comparsa nelle squadre, poi le ventiquattro riserve per frequenza nei thread, con copia 1 e copia 2 affiancate; il box 14 resta occupato nelle sole prime quattro posizioni.
+
+Il calendario applicato e' quello di STUDIO-04 sezione 5, con lo scarto: sei serie di fila all'Azienda e al Palazzo, otto al Dojo, dieci alla Torre e alla Serpe, dieci tornei alla Cupola, e undici serie alla Piramide, perche' Baldo sta sul piano 71. Due cose che il catalogo non diceva e che il documento ora dice. La prima e' che un file porta lo strumento della prima squadra in cui l'esemplare compare: il Metagross Deciso esce con Avanzi dalla Cupola, e alla Torre, al Dojo e alla Serpe gli va data la Bendascelta in gioco. La seconda e' che le due mosse cambiate per la Piramide si insegnano con le MT, che in terza generazione si consumano, ed e' una ragione in piu' per giocarla per ultima. Nature, mosse e strumenti sono in italiano, letti dal dump di PKHeX e dal glossario invece che tradotti.
+
 ## 2026-09-23, quarantottesima parte. ADR-074 sul riordino del deposito, la misura delle riserve, e lo sfondo Amici letto nel sorgente
 
 Il proprietario ha deciso come collocare i 64 file del lotto, ed e' piu' largo della domanda posta: si riordina l'intero deposito. Terzo box e non meno copie; esistenti compattati nei primi box, lotto nei box 12-14 con i titolari primi e le coppie affiancate; nomi da BOX 1 a BOX 14; risanamento di tutti gli esemplari con il triangolo rosso, che fara' l'agente; sfondi personalizzati. E' ADR-074.
