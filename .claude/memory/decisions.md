@@ -963,6 +963,18 @@ Il problema. La lettura integrale delle fonti del Parco Lotta ha lasciato fuori 
 La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti etichettata come non letta con il proprio motivo, secondo la prescrizione che vieta di degradare in silenzio una fonte a nota a margine, e non si tenta alcuna via ulteriore. Il debito di lettura del fronte Parco Lotta si dichiara quindi chiuso con questa sola eccezione dichiarata, e nessuna sessione futura deve riaprirlo credendo che qualcosa sia stato dimenticato.
 
 La ragione per cui l'abbandono e' accettabile qui, e non lo sarebbe altrove. Quella discussione e' del 2005 ed e' una richiesta di valutazione di squadra, cioe' la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e piu' recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano e' quindi basso, e la decisione si fonda su questo e non sulla sola difficolta' di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
+## ADR-078: il lotto del Parco Lotta chiude il deposito, e ogni posizione ha una mappa stampabile
+
+Data: 2026-09-23. Stato: accettata, attuazione in corso. Supera ADR-074 per la sola collocazione del lotto, e ADR-075 per lo sfondo del box 12.
+
+Contesto. Nel file di `giro10` il lotto in copia unica restava nelle posizioni di ADR-074 dei box 12, 13 e 14, e le posizioni liberate dalle copie di scambio si riempivano di eventi, quindi nel box 14, finito il lotto, ricominciavano gli eventi. Il proprietario, guardando il dump `round 4`, non riusciva a capire come fossero organizzati i box.
+
+Decisione del proprietario. Tutti gli eventi e le altre aggiunte vengono prima, e il lotto finisce esattamente nell'ultima posizione del box 14. Serve una lista stampabile di ogni posizione, con le illustrazioni di Sugimori della sua raccolta locale, e la documentazione che dice dove stanno gli esemplari va aggiornata tutta.
+
+Attuazione. La funzione `disposizione` di `parco_lotta_percorso_oro.py` mette i primi trenta del lotto, cioè gli otto titolari e le ventidue riserve più usate, nel box 14 dalla posizione 1 alla 30, e le due riserve meno usate, Marowak e Regirock, nelle posizioni 29 e 30 del box 13; la disposizione di ADR-074 resta con `storica=True`. Il box 12, che contiene ora soltanto eventi e incontri da biglietto, prende lo sfondo Sky invece di Amici. Il file è `giro11/…-CORRETTO.sav`, SHA-256 `7bdb71b912c84f51f6c3267e041e1237445f2cc9661b1726ddadcf1fffbc5d99`, e contiene gli stessi 420 record di `giro10` in altro ordine, quindi il giudizio di PKHeX del dump `round 4`, 420 legali su 420, vale anche per esso. La mappa è `gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md`, generata da `emerald_mappa_box.py` con quattordici figure e una copia `.docx`.
+
+Conseguenze. Ogni squadra si preleva dal solo box 14. Il file di `giro10` è superato. La guida, le sue figure, STUDIO-05 sezione 17 e il capitolo 14 della tesi descrivono la disposizione nuova.
+
 ## ADR-077: ventisette catture vere rientrano al posto delle copie di scambio del Parco Lotta
 
 Data: 2026-09-23. Stato: accettata, attuazione in corso. Modifica ADR-076 sulla selezione dei doppioni e sulle copie di scambio.

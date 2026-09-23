@@ -83,7 +83,7 @@ def sostituisci_lotto(ingresso, uscita, precedente):
     percorso = _percorso()
     catalogo = json.loads(CATALOGO.read_text(encoding="utf-8"))
     thread = json.loads(percorso._mappa().THREAD.read_text(encoding="utf-8"))
-    _, posizioni, _, _ = percorso.disposizione(catalogo, thread)
+    _, posizioni, _, _ = percorso.disposizione(catalogo, thread, storica=True)
     nuovo = save3.Save3(grezzo)
     fuori_lotto = set(range(save3.POSIZIONI))
     for (chiave, copia), (box, n) in posizioni.items():
@@ -156,7 +156,7 @@ def main():
     percorso = _percorso()
     catalogo = json.loads(CATALOGO.read_text(encoding="utf-8"))
     thread = json.loads(percorso._mappa().THREAD.read_text(encoding="utf-8"))
-    _, posizioni, _, _ = percorso.disposizione(catalogo, thread)
+    _, posizioni, _, _ = percorso.disposizione(catalogo, thread, storica=True)
     lotto = {}
     for (chiave, copia), (box, n) in posizioni.items():
         indice = (box - 1) * PER_BOX + (n - 1)

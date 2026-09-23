@@ -8,6 +8,8 @@ ADR-076 chiede una scrittura sola che porti il deposito da quello che e' oggi a 
 
 Due opzioni aggiunte il 2026-09-23 dopo la seconda decisione del proprietario: `--senza-copie-di-scambio` toglie dal lotto tutte le copie 2, e `--rientrano` fa restare nella collezione i doppioni indicati per posizione, purche' siano catture distinte e non cloni di un esemplare tenuto. Cosi' i posti delle copie di scambio passano a catture vere.
 
+Dal 2026-09-23, per ADR-078, con `--senza-copie-di-scambio` il lotto non resta dove l'ha messo il settimo giro ma passa alla disposizione finale di `parco_lotta_percorso_oro.disposizione`, in coda al deposito: la collezione e le aggiunte occupano senza buchi i box dal primo in poi, e l'ultimo esemplare del lotto sta nell'ultima posizione del box 14.
+
 Riusa le funzioni gia' verificate di `emerald_risana_deposito.py` invece di riscriverle: la classificazione degli irregolari dal dump di PKHeX, la ricerca di una personalita' del primo metodo con natura, sesso e allenatore dati, e la generazione di un esemplare distinto dell'evento 10ANNI.
 
 La disposizione
@@ -49,6 +51,8 @@ SENZA_COPIA_DUE = ["marowak-jolly", "regirock-adamant", "steelix-adamant", "dusc
 PER_BOX = 30
 VUOTO = bytes(save3.RECORD)
 SFONDI = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 16, 16, 16]
+# ADR-078: con il lotto in coda il box 12 contiene soltanto eventi, e prende uno sfondo ordinario
+SFONDI_FINALI = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 16, 16]
 NOMI_SFONDI = ["Forest", "City", "Desert", "Savanna", "Crag", "Volcano", "Snow", "Cave", "Beach",
                "Seafloor", "River", "Sky", "Polkadot", "Pokecenter", "Machine", "Plain", "Friends"]
 
@@ -87,7 +91,10 @@ def main():
     per_id = {v["id"]: (nome, v) for nome, v in dati["specie"].items()}
     catalogo = json.loads(CARTELLA.joinpath("squadre-parco-lotta.json").read_text(encoding="utf-8"))
     thread = json.loads(percorso._mappa().THREAD.read_text(encoding="utf-8"))
-    _, posizioni, _, _ = percorso.disposizione(catalogo, thread)
+    # l'ingresso e' il READBACK del settimo giro, quindi si verifica sulla disposizione storica; l'uscita
+    # usa quella di ADR-078 quando le copie di scambio escono tutte, cioe' il lotto in coda al box 14
+    _, posizioni, _, _ = percorso.disposizione(catalogo, thread, storica=True)
+    _, finale, _, _ = percorso.disposizione(catalogo, thread)
 
     grezzo = ingresso.read_bytes()
     vecchio = save3.Save3(grezzo)
@@ -103,7 +110,12 @@ def main():
             sys.exit("il box %d, posizione %d, non contiene il giro precedente del lotto" % (box, n))
         if copia == 2 and (args.senza_copie_di_scambio or chiave in SENZA_COPIA_DUE):
             continue
-        lotto[indice] = LOTTO.joinpath("%s-copia%d.bin" % (chiave, copia)).read_bytes()
+        if args.senza_copie_di_scambio:
+            box, n = finale[(chiave, 1)]
+            destinazione = (box - 1) * PER_BOX + n - 1
+        else:
+            destinazione = indice
+        lotto[destinazione] = LOTTO.joinpath("%s-copia%d.bin" % (chiave, copia)).read_bytes()
     posti_lotto = {(box - 1) * PER_BOX + n - 1 for (box, n) in posizioni.values()}
 
     # 2. la collezione: via noleggio e cromatici forzati, Poke Ball a Seedot e Wurmple
@@ -211,7 +223,8 @@ def main():
     nuovo = save3.Save3(grezzo)
     for i, r in enumerate(previsto):
         nuovo.scrivi_posizione(i, r)
-    nuovo._scrivi_in_buffer(save3.SEZIONI_STORAGE, save3.OFF_SFONDI, bytes(SFONDI))
+    sfondi = SFONDI_FINALI if args.senza_copie_di_scambio else SFONDI
+    nuovo._scrivi_in_buffer(save3.SEZIONI_STORAGE, save3.OFF_SFONDI, bytes(sfondi))
     prodotto = nuovo.to_bytes()
 
     # 7. la verifica, dai byte prodotti
@@ -242,7 +255,7 @@ def main():
     if prodotto[base:base + save3.SLOT] != grezzo[base:base + save3.SLOT]:
         errori.append("lo slot inattivo e' cambiato")
     st = riletto.storage()
-    if list(st[save3.OFF_SFONDI:save3.OFF_SFONDI + 14]) != SFONDI:
+    if list(st[save3.OFF_SFONDI:save3.OFF_SFONDI + 14]) != sfondi:
         errori.append("sfondi non scritti")
     if st[save3.OFF_NOMI_BOX:save3.OFF_SFONDI] != vecchio.storage()[save3.OFF_NOMI_BOX:save3.OFF_SFONDI]:
         errori.append("nomi dei box cambiati")
@@ -258,7 +271,7 @@ def main():
     print("collezione %d, aggiunte %d, lotto %d: %d posizioni occupate su %d" % (
         len(tenuti), len(aggiunte), len(lotto), occupati, save3.POSIZIONI))
     print("personalita' condivise ammesse, scambi a personalita' fissa: %d" % len(condivise))
-    print("sfondi: " + ", ".join("BOX %d %s" % (i + 1, NOMI_SFONDI[s]) for i, s in enumerate(SFONDI)))
+    print("sfondi: " + ", ".join("BOX %d %s" % (i + 1, NOMI_SFONDI[s]) for i, s in enumerate(sfondi)))
     print("scritto %s" % uscita)
     print("SHA-256 %s" % hashlib.sha256(prodotto).hexdigest())
 
