@@ -37,6 +37,10 @@ Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo q
 
 ## Punto di ripresa
 
+AGGIUNTA DEL 2026-09-23, quindicesima parte. Verifica profonda della terza generazione, in `pokedex-home-completo/VERIFICA-TERZA-GENERAZIONE.md`: nessuna specie è vincolata dalla chiusura, mentre restano irripetibili fiocchi, nove mosse perdute, tre sfide del deposito, Colosseum e XD e il Mew in una sfera diversa dalla Poké Ball. Serve una decisione del proprietario su che cosa inseguire prima della chiusura di Bank, ed è la voce DA DECIDERE del 2026-09-23 sera in `pending.md`.
+
+AGGIUNTA DEL 2026-09-23, quattordicesima parte. SMERALDO CONCLUSO: il file di `giro12` è sulla cartuccia, rilettura `88a3d576…22e6` identica byte per byte, in doppia copia su E: e J:. La cartella dei backup è riordinata per scrittura, con `LEGGIMI.md`. Il fuoco torna al completamento del Pokédex in HOME: il Vivillon Motivo Poké Ball e i tre passi del proprietario della voce ORDINE PROPOSTO di `pending.md`.
+
 AGGIUNTA DEL 2026-09-23, tredicesima parte. Il dump `round 6` promuove il `giro12`, 423 legali su 423. Tutti i 176 eventi del deposito hanno una storia attribuita nel catalogo e nella mappa. Resta soltanto la scrittura sulla cartuccia, che chiude Smeraldo.
 
 AGGIUNTA DEL 2026-09-23, dodicesima parte. ADR-079: un Wynaut dell'Isola Miraggio al posto del Sentret, file di `giro12`, `88a3d576…22e6`; la mappa da stampare è `MAPPA-BOX-SMERALDO.pdf`, 29 pagine. Serve il dump `round 6` di PKHeX per il solo Wynaut, poi la scrittura.
