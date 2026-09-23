@@ -9,13 +9,14 @@ Il lotto ha otto titolari, che stanno nelle sei squadre di STUDIO-05, e ventiqua
 Che cosa questo strumento non fa
 --------------------------------
 
-Non sceglie. Un conteggio dice che cosa hanno fatto altri, non che cosa convenga fare con questi esemplari, e la differenza pesa per tre ragioni che il documento generato ripete. I thread nominano la specie e quasi mai la natura, quindi un conteggio su Latios vale per entrambi i Latios del lotto. Un thread registra chi ha voluto scrivere, di solito chi ha fatto una serie buona, quindi il campione e' sbilanciato verso i successi. E la Torre Lotta pesa quanto tutti gli altri edifici insieme, quindi un numero alto alla Torre significa meno di un numero alto al Palazzo. La scelta resta nella parte autorata del documento, che si scrive sopra queste tabelle.
+Non sceglie. Un conteggio dice che cosa hanno fatto altri, non che cosa convenga fare con questi esemplari, e la differenza pesa per tre ragioni che il documento generato ripete. I thread nominano la specie e quasi mai la natura, quindi un conteggio su Latios vale per entrambi i Latios del lotto. Un thread registra chi ha voluto scrivere, di solito chi ha fatto una serie buona, quindi il campione e' sbilanciato verso i successi. E la Torre Lotta pesa quanto tutti gli altri edifici insieme, quindi un numero alto alla Torre significa meno di un numero alto al Palazzo. La scelta resta nella parte autorata della guida, che si scrive sopra queste tabelle.
 
 Uso
 ---
 
     python gba-save-extraction-smeraldo/tools/parco_lotta_mappa_riserve.py
-    python gba-save-extraction-smeraldo/tools/parco_lotta_mappa_riserve.py --out gba-save-extraction-smeraldo/MAPPA-RISERVE.md
+
+Dal 2026-09-23 la misura non ha piu' un file proprio: le due tabelle entrano nella sezione 12 di `GUIDA-PARCO-LOTTA.md` attraverso `parco_lotta_percorso_oro.py`, che importa `misura` e `scrivi` da qui. Lanciato da solo, lo strumento stampa la misura a schermo.
 """
 
 import argparse
@@ -118,7 +119,10 @@ def scrivi(generati, titolari, per_specie, righe, sostituzioni, thread):
             n = r["edifici"].get(e, 0)
             s = r["serie"].get(e, 0)
             celle.append("" if n == 0 else ("%d (%d)" % (n, s) if s else "%d" % n))
-        compagni = ", ".join("%s %d" % c for c in r["compagni"].most_common(3)) or "nessuno"
+        # A parita' di conteggio si ordina per nome: most_common conserva l'ordine di inserimento, che qui
+        # viene da un insieme di stringhe e cambia a ogni avvio, e una tabella generata deve essere identica
+        # fra due corse per poter dire se e' aggiornata.
+        compagni = ", ".join("%s %d" % c for c in sorted(r["compagni"].items(), key=lambda c: (-c[1], c[0]))[:3]) or "nessuno"
         out.append("| %s | %s | %s | %s |" % (", ".join(sorted(per_specie[specie])), ruolo, " | ".join(celle), compagni))
     out.append("")
     out.append("## Per sostituzione: chi ha giocato accanto agli altri due")

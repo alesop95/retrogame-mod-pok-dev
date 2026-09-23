@@ -1,27 +1,28 @@
 #!/usr/bin/env python3
-"""Compone il percorso ai sette simboli d'oro: per ogni edificio le serie da giocare, dove compare l'Asso, e quale esemplare prendere da quale posizione di quale box.
+"""Aggiorna le parti generate della guida al Parco Lotta: calendario, squadre posizione per posizione, misura delle riserve, schede e disposizione nei box.
 
 Perche' esiste
 --------------
 
-Il catalogo dice quali squadre portare e STUDIO-04 dice quante lotte servono, ma chi gioca ha davanti il PC del gioco e non un file: gli serve sapere che per la Torre Lotta il Latios da prendere e' quello del box 12 in prima riga e prima colonna, con quale strumento, in quale ordine di squadra, e a quale lotta arrivera' l'Asso. Questo documento ricompone quelle tre fonti in una sola lista, e lo fa con codice perche' la disposizione nei box discende da una regola, e una regola applicata a mano a sessantaquattro posizioni sbaglia.
+Il catalogo dice quali squadre portare e STUDIO-04 dice quante lotte servono, ma chi gioca ha davanti il PC del gioco e non un file: gli serve sapere che per la Torre Lotta il Latios da prendere e' quello del box 12 in prima riga e prima colonna, con quale strumento, in quale ordine di squadra, e a quale lotta arrivera' l'Asso. La guida `GUIDA-PARCO-LOTTA.md` e' un solo documento, per scelta del proprietario del 2026-09-23 che ha fuso in esso tre file separati: la prosa vi e' scritta a mano, e le tabelle che discendono dal catalogo vi stanno fra coppie di marcatori che questo strumento riscrive. Le tabelle si generano con codice perche' la disposizione nei box discende da una regola, e una regola applicata a mano a sessantaquattro posizioni sbaglia; stanno dentro la guida perche' chi gioca deve trovare tutto in un posto solo.
 
 La disposizione, che e' ADR-074
 -------------------------------
 
-I sessantaquattro file del lotto vanno nei box 12, 13 e 14, con le due copie di ciascun esemplare affiancate: la copia 1 si usa, la copia 2 e' quella destinata allo scambio. Prima gli otto titolari, nell'ordine in cui compaiono per la prima volta nelle squadre del catalogo; poi le ventiquattro riserve, in ordine di frequenza nelle squadre dei thread come la misura `MAPPA-RISERVE.md`, cosi' che le riserve piu' probabili stiano piu' vicine ai titolari. La funzione `disposizione` e' la sola fonte di questa regola: lo strumento di riordino del deposito la importera' invece di riscriverla, perche' due copie della stessa regola possono divergere.
+I sessantaquattro file del lotto vanno nei box 12, 13 e 14, con le due copie di ciascun esemplare affiancate: la copia 1 si usa, la copia 2 e' quella destinata allo scambio. Prima gli otto titolari, nell'ordine in cui compaiono per la prima volta nelle squadre del catalogo; poi le ventiquattro riserve, in ordine di frequenza nelle squadre dei thread come la misura della sezione 12 della guida, cosi' che le riserve piu' probabili stiano piu' vicine ai titolari. La funzione `disposizione` e' la sola fonte di questa regola: lo strumento di riordino del deposito la importa invece di riscriverla, perche' due copie della stessa regola possono divergere.
 
 Il box ha trenta posizioni in cinque righe da sei. La posizione si scrive come box, riga e colonna, contando dall'alto a sinistra, perche' e' cosi' che la si trova sullo schermo.
 
 Che cosa non e' ancora vero
 ---------------------------
 
-Le posizioni sono quelle di DOPO il riordino di ADR-074, che non e' ancora avvenuto: oggi i sessantaquattro esemplari esistono soltanto come file sotto `_notes/lotto-parco-lotta/esemplari`. Il documento generato lo ripete in testa.
+Nulla, sulle posizioni: il riordino di ADR-074 e' stato scritto sulla cartuccia il 2026-09-23 con queste stesse posizioni, perche' `emerald_riordino_deposito.py` importa `disposizione` da qui. Resta non verificato in partita l'effetto delle squadre, che e' materia della guida e non dello strumento.
 
 Uso
 ---
 
-    python gba-save-extraction-smeraldo/tools/parco_lotta_percorso_oro.py --out gba-save-extraction-smeraldo/PERCORSO-SIMBOLI-ORO.md
+    python gba-save-extraction-smeraldo/tools/parco_lotta_percorso_oro.py
+    python gba-save-extraction-smeraldo/tools/parco_lotta_percorso_oro.py --check
 """
 
 import argparse
@@ -29,12 +30,14 @@ import csv
 import importlib.util
 import json
 import re
+import sys
 from pathlib import Path
 
 CARTELLA = Path(__file__).resolve().parents[1]
 RADICE = CARTELLA.parent
 CATALOGO = CARTELLA.joinpath("squadre-parco-lotta.json")
 GLOSSARIO = CARTELLA.joinpath("GLOSSARIO-MOSSE.md")
+GUIDA = CARTELLA.joinpath("GUIDA-PARCO-LOTTA.md")
 LOTTO = RADICE.joinpath("_notes", "lotto-parco-lotta")
 DUMP = LOTTO.joinpath("Box Data Dump round6.csv")
 
@@ -54,17 +57,6 @@ CALENDARIO = {
     "Serpe Lotta": ("sale", 28, 140, 14, "Regina Serpe Fortunata", "Fortuna", 1),
     "Piramide Lotta": ("piani", 21, 70, 7, "Re Piramide Baldo", "Audacia", 0),
 }
-
-NOTE_EDIFICIO = {
-    "Cupola Lotta": "Torneo a eliminazione di sedici, quattro incontri per torneo, due contro due: si iscrivono tre esemplari e prima di ogni incontro, vista la squadra avversaria, se ne scelgono due. Gli avversari hanno tre punti individuali su ogni statistica fino alla fine, per il difetto di `CreateDomeOpponentMon`. Un pareggio, per esempio con Esplosione, lo vince la testa di serie migliore, e questa squadra si piazza quasi sempre prima.",
-    "Azienda Lotta": "Non si porta nulla dal PC: si combatte con esemplari in prestito, e dopo ogni vittoria si puo' scambiarne uno con uno dell'avversario battuto. Va portata all'oro PRIMA di costruire una serie lunga alla Torre Lotta a livello 50, perche' i punti individuali dei suoi avversari dipendono dalla serie corrente della Torre, per il difetto in `src/battle_tower.c`.",
-    "Torre Lotta": "Tre contro tre, nessuna regola in piu'. Il primo della squadra e' il primo a scendere in campo.",
-    "Dojo Lotta": "Tre turni per incontro, poi giudizio a punti: premia le mosse che fanno danno e quelle che vanno a segno, toglie un punto a Protezione, Individua e Resistenza, che questa squadra non porta. Il primo della squadra scende per primo, e l'ordine conta perche' gli esemplari si affrontano uno contro uno in sequenza.",
-    "Palazzo Lotta": "Non si comanda: ogni esemplare sceglie da se' secondo la propria natura. E' la ragione per cui questa squadra ha nature proprie e solo mosse d'attacco, spiegata in STUDIO-04 sezione 12.",
-    "Serpe Lotta": "Quattordici sale per serie, tre porte per sala, e solo alcune sale sono lotte. Metagross e' immune all'iperavvelenamento della sala delle alterazioni di stato, che e' la piu' probabile al trentacinque per cento.",
-    "Piramide Lotta": "Gli strumenti vengono tolti all'ingresso, quindi si entra senza. Ogni serie di sette piani ha un bestiario a tema, il giro, e cambia chi conduce. Gli oggetti si raccolgono dentro.",
-}
-
 
 def _mappa():
     percorso = Path(__file__).resolve().parent.joinpath("parco_lotta_mappa_riserve.py")
@@ -96,6 +88,13 @@ def disposizione(catalogo, thread):
     return ordine, posizioni, generati, titolari
 
 
+SIGLE_PUNTI_BASE = {"HP": "PS", "Atk": "Att", "Def": "Dif", "SpA": "AttSp", "SpD": "DifSp", "Spe": "Vel"}
+
+
+def punti_base_it(testo):
+    return " / ".join(" ".join([p.split()[0], SIGLE_PUNTI_BASE.get(p.split()[1], p.split()[1])]) for p in testo.split(" / "))
+
+
 def dove(posizione):
     box, n = posizione
     return "box %d, riga %d, colonna %d" % (box, (n - 1) // COLONNE + 1, (n - 1) % COLONNE + 1)
@@ -119,6 +118,16 @@ def nature_italiane():
             per_pid[riga["PID"].upper()] = riga["Nature"]
     return {voce["natura"]: per_pid[voce["copie"][0]["personalita"][2:].upper()]
             for voce in manifesto["esemplari"] if voce["copie"][0]["personalita"][2:].upper() in per_pid}
+
+
+def righe_dump():
+    """Le righe del dump di PKHeX del sesto giro, per personalita' della copia 1 di ciascun esemplare del manifesto."""
+    manifesto = json.loads(LOTTO.joinpath("manifesto.json").read_text(encoding="utf-8"))
+    per_pid = {}
+    with DUMP.open(encoding="utf-8-sig") as f:
+        for riga in csv.DictReader(f):
+            per_pid[riga["PID"].upper()] = riga
+    return {voce["chiave"]: per_pid.get(voce["copie"][0]["personalita"][2:].upper()) for voce in manifesto["esemplari"]}
 
 
 def strumenti_italiani():
@@ -149,42 +158,42 @@ def dove_cade(edificio, soglia):
     return "%s %s %d, cioe' serie %d, %s %d di %d" % (articolo, parola, numero, serie, parola, posto, per_serie)
 
 
-def scrivi(catalogo, thread):
+def blocchi(catalogo, thread):
+    """I blocchi generati della guida, per nome: il calendario, una squadra per edificio, la misura delle riserve, le schede e la disposizione."""
     ordine, posizioni, generati, titolari = disposizione(catalogo, thread)
     mosse_it = glossario()
+    # Il glossario e' generato su un giro vecchio del catalogo, quindi una mossa entrata dopo non vi
+    # compare. Il dump del sesto giro porta le mosse di ogni esemplare nell'ordine del catalogo, e
+    # l'accoppiamento per posizione le completa senza tradurre nulla.
+    for chiave, riga in righe_dump().items():
+        if riga:
+            for inglese, italiano in zip(catalogo["esemplari"][chiave]["mosse"],
+                                         [riga["Move%d" % i] for i in range(1, 5)]):
+                mosse_it.setdefault(inglese, italiano)
     strum_it = strumenti_italiani()
     nat_it = nature_italiane()
-    sostituzioni = _mappa().misura(catalogo, thread)[4]
+    mappa = _mappa()
+    sostituzioni = mappa.misura(catalogo, thread)[4]
     manifesto = json.loads(LOTTO.joinpath("manifesto.json").read_text(encoding="utf-8"))
     nel_file = {v["chiave"]: v.get("strumento") for v in manifesto["esemplari"]}
-    out = []
-    out.append("# Il percorso ai sette simboli d'oro, edificio per edificio e posizione per posizione")
-    out.append("")
-    out.append("> Generato da `gba-save-extraction-smeraldo/tools/parco_lotta_percorso_oro.py` dal catalogo `squadre-parco-lotta.json`, dal calendario di `src/frontier_util.c` registrato in STUDIO-04 sezione 5, dal glossario delle mosse e dal dump di PKHeX del sesto giro per i nomi italiani degli strumenti. Non si modifica a mano: si rigenera.")
-    out.append(">")
-    out.append("> Le posizioni nei box sono quelle di DOPO il riordino di ADR-074, che non e' ancora avvenuto: oggi i sessantaquattro esemplari esistono soltanto come file. Tutte le sfide sono nella modalita' Livello 50. La copia 1 di ogni esemplare si usa, la copia 2 accanto e' quella per lo scambio.")
-    out.append("")
-    out.append("## L'ordine degli edifici")
-    out.append("")
-    out.append("L'ordine viene dai difetti del gioco e non dal gusto, ed e' spiegato in STUDIO-05 sezione 1: prima la Cupola, poi l'Azienda, che va chiusa prima di allungare la serie alla Torre, poi Torre, Dojo, Palazzo, Serpe e Piramide. L'Azienda si puo' giocare subito, perche' non chiede nulla dal PC.")
-    out.append("")
+    fuori = {}
+
+    righe = ["| Edificio | Asso | Argento | Oro | Serie di fila per l'oro |", "|---|---|---|---|---|"]
     for squadra in sorted(catalogo["squadre"], key=lambda s: int(s["ordine"])):
         edificio = squadra["edificio"]
-        unita, argento, oro, per_serie, asso, simbolo, _ = CALENDARIO[edificio]
-        out.append("## %s. %s, Simbolo %s" % (squadra["ordine"], edificio, simbolo))
-        out.append("")
-        out.append(NOTE_EDIFICIO[edificio])
-        out.append("")
+        unita, argento, oro, per_serie, asso, simbolo, scarto = CALENDARIO[edificio]
         if edificio == "Cupola Lotta":
-            out.append("Si gioca torneo dopo torneo, senza perderne uno. %s compare la prima volta nella %s e da' il simbolo d'argento; la seconda volta nella %s e da' il simbolo d'oro. In tutto sono dieci tornei e quaranta incontri." % (asso, dove_cade(edificio, argento), dove_cade(edificio, oro)))
+            serie = "10 tornei da 4 incontri"
         else:
-            serie_oro = -(-(oro if CALENDARIO[edificio][6] == 1 else oro + 1) // per_serie)
-            out.append("Si gioca una serie dopo l'altra senza interruzioni, perche' una sconfitta azzera la serie. %s compare la prima volta %s, per l'argento, e la seconda %s, per l'oro: servono %d serie di fila." % (asso, dove_cade(edificio, argento), dove_cade(edificio, oro), serie_oro))
-        out.append("")
+            serie = "%d serie da %d %s" % (-(-(oro if scarto == 1 else oro + 1) // per_serie), per_serie, unita)
+        righe.append("| %s | %s | %s | %s | %s |" % (edificio, asso, dove_cade(edificio, argento), dove_cade(edificio, oro), serie))
+    fuori["calendario"] = "\n".join(righe)
+
+    for squadra in catalogo["squadre"]:
+        edificio = squadra["edificio"]
         if not squadra["esemplari"]:
             continue
-        out.append("| Posto in squadra | Esemplare | Da prendere nel PC | Strumento | Mosse |")
-        out.append("|---|---|---|---|---|")
+        out = ["| Posto in squadra | Esemplare | Da prendere nel PC | Strumento | Mosse |", "|---|---|---|---|---|"]
         for n, v in enumerate(squadra["esemplari"], start=1):
             e = generati[v["chiave"]]
             mosse = list(e["mosse"])
@@ -204,11 +213,8 @@ def scrivi(catalogo, thread):
                     strum_it.get(gia, gia) if gia else "nessuno strumento",
                     "toglierlo" if not strumento else "scambiarlo in gioco")
             out.append("| %d | %s %s | %s | %s | %s |" % (n, e["specie"], nat_it.get(e["natura"], e["natura"]), dove(posizioni[(v["chiave"], 1)]), strumento_testo, mosse_testo))
-        out.append("")
-        if any(v.get("mosse_sostituite") for v in squadra["esemplari"]):
-            out.append("Le mosse cambiate per questo edificio si insegnano in gioco con le MT prima di entrare. In terza generazione una MT si consuma all'uso, e la mossa sovrascritta non torna gratis: e' una delle ragioni per cui questo edificio viene per ultimo.")
-            out.append("")
         if squadra.get("ordine_per_giro"):
+            out.append("")
             out.append("Chi conduce, serie per serie. Le prime dieci serie bastano all'oro e vengono dalla guida al completamento; la colonna del calcolo e' il controllo di `parco_lotta_piramide_ordine.py`, che concorda con la guida in sette casi su dieci sul membro impiegato.")
             out.append("")
             out.append("| Serie | Piani | Tema del giro | Primo in campo | Cambio | Calcolo |")
@@ -216,37 +222,86 @@ def scrivi(catalogo, thread):
             for g in squadra["ordine_per_giro"][:10]:
                 a = (g["giro"] - 1) * 7 + 1
                 out.append("| %d | %d-%d | %s | %s | %s | %s |" % (g["giro"], a, a + 6, g["tema"], g["primo"], g["cambio"] or "nessuno", g["calcolato"]))
-            out.append("")
         candidati = [(u, c) for e_, u, _, c in sostituzioni if e_ == edificio]
         if candidati:
             testo = "; ".join("al posto di %s, %s" % (generati[u]["specie"], ", ".join(
                 "%s (%s)" % (sp, dove(posizioni[(next(k for k in ordine if generati[k]["specie"] == sp), 1)])) for _, _, _, sp in c[:2]))
                 for u, c in candidati)
-            out.append("Riserve con piu' riscontri accanto agli altri due, dalla misura di `MAPPA-RISERVE.md` e quindi non ancora una scelta: %s." % testo)
             out.append("")
-    out.append("## La disposizione completa dei box 12, 13 e 14")
-    out.append("")
-    out.append("| Box | Riga | Colonna | Esemplare | Copia | Ruolo |")
-    out.append("|---|---|---|---|---|---|")
+            out.append("Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 12 e quindi non ancora una scelta: %s." % testo)
+        fuori["squadra " + edificio] = "\n".join(out)
+
+    # La misura delle riserve, cioe' le due tabelle dello strumento gemello senza la sua testata: i
+    # titoli scendono di un livello perche' qui sono sottosezioni della sezione 12 della guida.
+    misura = mappa.scrivi(*mappa.misura(catalogo, thread), thread).split("\n")
+    inizio = next(i for i, r in enumerate(misura) if r.startswith("Squadre per edificio nel campione"))
+    fuori["misura delle riserve"] = "\n".join("#" + r if r.startswith("## ") else r for r in misura[inizio:]).rstrip()
+
+    out = ["| Posizione | Esemplare | Abilita' | Punti base | Mosse | Strumento nel file | Incontro | Margine al 51 |",
+           "|---|---|---|---|---|---|---|---|"]
+    dump = righe_dump()
+    dati = json.loads(CARTELLA.joinpath("dati-gen3.json").read_text(encoding="utf-8"))
+    for chiave in ordine:
+        e = generati[chiave]
+        riga = dump.get(chiave) or {}
+        gruppo = dati["specie"][e["specie"]]["gruppo_crescita"]
+        soglia = dati["esperienza"][gruppo][catalogo["livello"] + 1]
+        margine = soglia - int(riga.get("EXP", 0) or 0) if riga else None
+        incontro = "%s, %s, livello %s" % (riga.get("MetLoc", "?"), riga.get("Version", "?"),
+                                          riga.get("MetLevel", "?") if riga.get("MetLevel") not in ("0", None) else "uovo")
+        gia = nel_file.get(chiave)
+        out.append("| %s | %s %s | %s | %s | %s | %s | %s | %s |" % (
+            dove(posizioni[(chiave, 1)]), e["specie"], nat_it.get(e["natura"], e["natura"]), riga.get("Ability", e["abilita"]),
+            punti_base_it(e["punti_base"]), ", ".join(mosse_it.get(m, m) for m in e["mosse"]),
+            strum_it.get(gia, gia) if gia else "nessuno", incontro,
+            ("%d, ATTENZIONE" % margine if margine == 1 else "%d" % margine) if margine is not None else "?"))
+    fuori["schede"] = "\n".join(out)
+
+    out = ["| Box | Riga | Colonna | Esemplare | Copia | Ruolo |", "|---|---|---|---|---|---|"]
     for (chiave, copia), (box, n) in sorted(posizioni.items(), key=lambda x: x[1]):
         e = generati[chiave]
         out.append("| %d | %d | %d | %s %s | %d | %s |" % (box, (n - 1) // COLONNE + 1, (n - 1) % COLONNE + 1, e["specie"], nat_it.get(e["natura"], e["natura"]), copia, "titolare" if chiave in titolari else "riserva"))
-    out.append("")
-    return "\n".join(out)
+    fuori["disposizione"] = "\n".join(out)
+    return fuori
+
+
+def marcatori(nome):
+    return ("<!-- generato da parco_lotta_percorso_oro.py: %s, inizio -->" % nome,
+            "<!-- generato da parco_lotta_percorso_oro.py: %s, fine -->" % nome)
+
+
+def inserisci(testo, generati):
+    """Sostituisce il contenuto fra i marcatori di ciascun blocco; un marcatore mancante o doppio ferma tutto, perche' scrivere a meta' una guida e' peggio che non scriverla."""
+    for nome, blocco in generati.items():
+        apri, chiudi = marcatori(nome)
+        if testo.count(apri) != 1 or testo.count(chiudi) != 1:
+            raise SystemExit("la guida non ha una e una sola coppia di marcatori per il blocco %r" % nome)
+        a = testo.index(apri) + len(apri)
+        b = testo.index(chiudi)
+        testo = testo[:a] + "\n\n" + blocco + "\n\n" + testo[b:]
+    return testo
 
 
 def main():
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    p.add_argument("--out")
+    p.add_argument("--guida", default=str(GUIDA))
+    p.add_argument("--check", action="store_true", help="non scrive: esce con codice 1 se la guida non e' aggiornata")
     args = p.parse_args()
     catalogo = json.loads(CATALOGO.read_text(encoding="utf-8"))
     thread = json.loads(_mappa().THREAD.read_text(encoding="utf-8"))
-    testo = scrivi(catalogo, thread)
-    if args.out:
-        Path(args.out).write_bytes((testo + "\n").encode("utf-8"))
-        print("scritto %s" % args.out)
+    guida = Path(args.guida)
+    prima = guida.read_bytes().decode("utf-8")
+    dopo = inserisci(prima, blocchi(catalogo, thread))
+    if args.check:
+        if dopo != prima:
+            sys.exit("la guida non e' aggiornata: rilancia senza --check")
+        print("la guida e' aggiornata")
+        return
+    if dopo != prima:
+        guida.write_bytes(dopo.encode("utf-8"))
+        print("aggiornata %s" % guida)
     else:
-        print(testo)
+        print("nessun cambiamento in %s" % guida)
 
 
 if __name__ == "__main__":
