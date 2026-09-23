@@ -37,6 +37,8 @@ Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo q
 
 ## Punto di ripresa
 
+AGGIUNTA DEL 2026-09-23, dodicesima parte. ADR-079: un Wynaut dell'Isola Miraggio al posto del Sentret, file di `giro12`, `88a3d576…22e6`; la mappa da stampare è `MAPPA-BOX-SMERALDO.pdf`, 29 pagine. Serve il dump `round 6` di PKHeX per il solo Wynaut, poi la scrittura.
+
 AGGIUNTA DEL 2026-09-23, undicesima parte. ADR-078: il lotto del Parco Lotta chiude il deposito nel box 14, e `MAPPA-BOX-SMERALDO.md` dice che cosa c'è in ogni posizione. Il file da scrivere è ora quello di `giro11`, `7bdb71b9…5d99`, stessi record del `giro10` giudicato legale 420 su 420; attende soltanto la scrittura con lettura di controllo e rilettura.
 
 AGGIUNTA DEL 2026-09-23, decima parte. ADR-077: 27 catture vere rientrano al posto delle 27 copie di scambio del Parco Lotta. Il file da scrivere è ora quello di `giro10`, `de5ba7cb…df3d`, che attende il giudizio di PKHeX nel dump `round 4`. Il file di `giro9` è superato.
