@@ -16,7 +16,7 @@
 // salvataggio attivo: senza salvataggio applica quelle della Virtual Console, e rifiuta per esempio le mosse
 // degli eventi dell'epoca delle cartucce Game Boy. Il giudice riproduce quindi cio' che l'interfaccia fa
 // quando riceve un file all'avvio, cioe' StartupArguments.GetBlank: un salvataggio vuoto del gioco
-// predefinito per il contesto dell'esemplare, con il suo allenatore e la sua lingua, attivato con
+// predefinito per il contesto dell'esemplare, intestato a chi lo detiene e con la sua lingua, attivato con
 // ParseSettings.InitFromSaveFileData. E' la procedura con cui sono stati scritti i giudizi di
 // giudizi-esterni.json. Una cartella scritta come CARTELLA=VERSIONE usa invece un salvataggio vuoto di
 // quella versione, per esempio lotto=B2 per un lotto di quinta generazione destinato a Nero 2.
@@ -110,5 +110,11 @@ static SaveFile SalvataggioVuoto(PKM pk, GameVersion? imposta)
     var versione = imposta ?? pk.Context.GetSingleGameVersion();
     if (imposta is null && pk is { Format: 1, Japanese: true })
         versione = GameVersion.BU;
-    return BlankSaveFile.Get(versione, pk.OriginalTrainerName, (LanguageID)pk.Language);
+    // Il salvataggio attivo e' quello del gioco che contiene l'esemplare, quindi il suo allenatore e' chi lo
+    // detiene: l'allenatore originale se l'esemplare non ha cambiato mano, altrimenti l'ultimo detentore. Un
+    // dono di sesta generazione ha come allenatore originale la sigla dell'evento e come detentore chi lo ha
+    // ricevuto, e un salvataggio vuoto intestato alla sigla fa contestare a ogni dono il detentore.
+    var nome = pk is { Format: >= 6, CurrentHandler: 1 } && !string.IsNullOrEmpty(pk.HandlingTrainerName)
+        ? pk.HandlingTrainerName : pk.OriginalTrainerName;
+    return BlankSaveFile.Get(versione, nome, (LanguageID)pk.Language);
 }
