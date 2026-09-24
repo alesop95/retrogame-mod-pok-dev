@@ -69,8 +69,8 @@ RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CACHE = os.path.join(RADICE, "_notes", "fonti", "serebii")
 MAPPA = os.path.join(CACHE, "mappa.json")
 USCITA = os.path.join(RADICE, "pokedex-home-completo", "CENSIMENTO-SEREBII.md")
-TABELLA = os.path.join(RADICE, "pokedex-home-completo", "serebii-eventi.csv")
-SOLO_INDICE = os.path.join(RADICE, "pokedex-home-completo", "serebii-eventi-senza-specie.csv")
+TABELLA = os.path.join(RADICE, "pokedex-home-completo", "data", "serebii-eventi.csv")
+SOLO_INDICE = os.path.join(RADICE, "pokedex-home-completo", "data", "serebii-eventi-senza-specie.csv")
 
 BASE = "https://www.serebii.net"
 INDICE = "/events/"

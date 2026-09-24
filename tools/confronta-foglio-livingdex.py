@@ -41,7 +41,7 @@ FOGLIO = os.path.join(RADICE, "_notes", "spreadsheets e passaggi home",
                       "LivingDex Spreadsheet.xlsx")
 NOSTRA = os.path.join(RADICE, "pokedex-home-completo", "CHECKLIST-COMPLETA.md")
 USCITA = os.path.join(RADICE, "pokedex-home-completo", "CONFRONTO-FOGLIO-LIVINGDEX.md")
-NORMALIZZATO = os.path.join(RADICE, "pokedex-home-completo", "foglio-livingdex.csv")
+NORMALIZZATO = os.path.join(RADICE, "pokedex-home-completo", "data", "foglio-livingdex.csv")
 
 SCHEDA = "Living Dex"
 PRIMA_RIGA = 3          # le prime due righe sono intestazione a due livelli

@@ -2,7 +2,7 @@
 
 Scambio di Pokemon fra un PC Linux e una Nintendo Switch attraverso LDN, il protocollo wireless locale proprietario di Nintendo, con una copia di FireRed o LeafGreen in esecuzione sulla console. Il PC simula la seconda console. È un proof of concept dimostrativo e non un tool finito.
 
-Il documento di riferimento è `HANDOFF_frlg-ldn-trade.md`, in questa cartella: contiene contesto, glossario, architettura, i due repository su cui il lavoro si appoggia, la procedura operativa in sei fasi, i comandi annotati, i rischi e un elenco onesto delle lacune ancora aperte.
+Il documento di riferimento è `handoff/HANDOFF_frlg-ldn-trade.md`: contiene contesto, glossario, architettura, i due repository su cui il lavoro si appoggia, la procedura operativa in sei fasi, i comandi annotati, i rischi e un elenco onesto delle lacune ancora aperte.
 
 Lo stato canonico del track vive in `.claude/context/sub-gba-switch-trading.md`, e il quadro d'insieme di tutti i sottoprogetti in `.claude/memory/index.md`. Questo file dice cos'è il sottoprogetto; quelli dicono a che punto è.
 
@@ -10,7 +10,7 @@ Lo stato canonico del track vive in `.claude/context/sub-gba-switch-trading.md`,
 
 | Cosa cerchi | Dove sta |
 |---|---|
-| contesto, architettura, procedura in sei fasi | `HANDOFF_frlg-ldn-trade.md`, in questa cartella |
+| contesto, architettura, procedura in sei fasi | `handoff/HANDOFF_frlg-ldn-trade.md` |
 | il formato dei dati Pokemon che viaggiano nello scambio | `pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md`, sezioni 5 e 6 |
 | perché quei dati sono cifrati e come si leggono | `docs/04-cifratura-gen3.md` e `docs/06-identita-pokemon.md` |
 | il protocollo LDN, i due repository e gli strumenti | `SOURCES.md` alla radice, colonna LDN |

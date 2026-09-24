@@ -12,7 +12,7 @@ Da qui segue il fatto operativo che governa tutto il track: qualunque esemplare 
 
 ## Che cosa c'è in questa cartella
 
-La cartella contiene tre documenti e uno di essi è generato. `STUDIO-01-distribuzioni-gen3-e-ricreazione.md` è il primo studio tecnico: descrive che cosa erano le distribuzioni, come è fatta una ROM di distribuzione, quali sono le quattro ROM preservate e le tre categorie di evento, che cosa la comunità ha ricreato e con quale metodo, quali sono le quattro vie per far entrare un evento in una cartuccia vera, e quali punti restano aperti. È scritto dalle quattro fonti video registrate in `SOURCES.md` con la sigla EVT, lette per trascrizione il 2026-08-28.
+La cartella contiene studi autorati, cataloghi e schede generate. `STUDIO-01-distribuzioni-gen3-e-ricreazione.md` è il primo studio tecnico: descrive che cosa erano le distribuzioni, come è fatta una ROM di distribuzione, quali sono le quattro ROM preservate e le tre categorie di evento, che cosa la comunità ha ricreato e con quale metodo, quali sono le quattro vie per far entrare un evento in una cartuccia vera, e quali punti restano aperti. È scritto dalle quattro fonti video registrate in `SOURCES.md` con la sigla EVT, lette per trascrizione il 2026-08-28.
 
 `STUDIO-02-metodi-di-generazione.md` è il secondo studio, scritto il 2026-08-29 su fonti di livello superiore, ed è quello da leggere per primo su qualunque questione di dato: spiega che cosa sia la sigla BACD e perché l'ordine invertito delle estrazioni del generatore sia la firma di un esemplare da evento, conferma quattro affermazioni del primo studio nominandone i metodi, chiude il punto che il primo lasciava aperto sulla derivazione del sesso dell'allenatore, distingue i due canali di distribuzione che il primo confondeva, e riporta il fatto più notevole della ricerca, cioè che il metodo di generazione dipende da un'interruzione hardware e non soltanto dal codice.
 
@@ -50,7 +50,10 @@ Sulla legittimità degli esemplari ricreati questo progetto non fa finta di nien
 |---|---|
 | lo studio tecnico delle distribuzioni e delle vie di iniezione | `STUDIO-01-distribuzioni-gen3-e-ricreazione.md`, in questa cartella |
 | i metodi di generazione, i due canali e la firma di un esemplare da evento | `STUDIO-02-metodi-di-generazione.md`, in questa cartella |
+| la verifica del metodo sui casi del corpus | `STUDIO-03-verifica-del-metodo-sul-corpus.md`, in questa cartella |
+| la campagna di trasferimento e il tracciatore del deposito | `STUDIO-04-campagna-di-trasferimento-e-il-tracciatore.md`, in questa cartella |
 | l'inventario dei 177 eventi con il metodo di ciascuno | `EVENTI-GEN3.md`, generato, in questa cartella |
+| il conteggio dei doni nei titoli moderni | `CONTEGGIO-DONI-MODERNI.md`, generato, in questa cartella |
 | la struttura di un Pokemon di generazione 3, byte per byte | `pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md`, sezioni 5 e 6 |
 | perché esistono cifratura e checksum, spiegato | `docs/04-cifratura-gen3.md` e `docs/03-integrita-checksum.md` |
 | il multiboot, cioè il canale su cui viaggia una distribuzione | `docs/10-multiboot-hardware.md` |

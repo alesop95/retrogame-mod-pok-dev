@@ -2,6 +2,8 @@
 
 > Generato in sola lettura da `gba-save-extraction-smeraldo/tools/emerald_box_censimento.py` su `Pokemon - Versione Smeraldo (Italy) - ALEX-45761-793h41m-2026-09-21-CORRETTO.sav`. Nessun byte è stato scritto. Si rigenera a ogni nuovo dump, e va letto accanto a `PIANO-BOX.md`, che dice quante posizioni servono.
 
+`<AMICO>` maschera il nome di una terza persona nel titolo di un box; il salvataggio non è stato modificato.
+
 ## La risposta in una riga
 
 Servono **30** posizioni. Box completamente vuoti: **1**, cioè il numero 5. Una scrittura che atterri in uno di questi non sposta nulla, ed è la collocazione da preferire.

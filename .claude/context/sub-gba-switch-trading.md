@@ -76,7 +76,7 @@ Le `prod.keys` della console sono materiale di chiave proprietario, si estraggon
 
 ## Evidenze e materiale locale
 
-L'handoff `HANDOFF_frlg-ldn-trade.md` sta nella cartella del sottoprogetto ed è l'unico materiale esistente. Non ci sono media. Il codice dei due repository di riferimento non è ancora presente in locale.
+L'handoff `handoff/HANDOFF_frlg-ldn-trade.md` sta nella cartella del sottoprogetto ed è l'unico materiale esistente. Non ci sono media. Il codice dei due repository di riferimento non è ancora presente in locale.
 
 ## Aggiunta del 2026-09-01: il track è riconosciuto dall'esterno, e siamo più aggiornati della fonte
 

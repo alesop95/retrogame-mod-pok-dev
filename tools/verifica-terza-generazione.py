@@ -214,7 +214,7 @@ def mosse_perdute():
 
 def sfide():
     fuori = []
-    with open(RADICE.joinpath("pokedex-home-completo", "foglio-sfide-deposito.csv"), encoding="utf-8") as f:
+    with open(RADICE.joinpath("pokedex-home-completo", "data", "foglio-sfide-deposito.csv"), encoding="utf-8") as f:
         for r in csv.DictReader(f):
             g = r["Games"].strip().upper()
             if g in ("RSE", "FRLG", "RS", "E", "FR", "LG", "CXD", "COLO", "XD"):

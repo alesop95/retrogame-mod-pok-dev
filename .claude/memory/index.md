@@ -37,6 +37,8 @@ Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo q
 
 ## Punto di ripresa
 
+AGGIUNTA DEL 2026-09-24, terza parte. I file tracciati sono stati riordinati: le dodici tabelle del track Home stanno in `pokedex-home-completo/data/` e l'handoff LDN in `gba-switch-pokemon-trading/handoff/`, con byte verificati identici a HEAD. Un `README.md` pubblico porta ai risultati tecnici e alle fonti; il suo indice dei sottoprogetti si rigenera con `python tools/aggiorna-readme.py`. Nessuna cancellazione e nessuna modifica a `_notes/`. La consegna Git resta manuale secondo le regole di macchina; dettagli nel work log.
+
 AGGIUNTA DEL 2026-09-24, seconda parte. Il complemento del Rubino è di 376 esemplari: sono corretti gli Unown, prima tutti A, e sono entrati 22 incontri speciali. Gli sfondi del Rubino sono assegnati, senza Amici perché Rubino non lo ha. Il Jirachi di Channel andrà su Smeraldo con la prossima scrittura che si farà per altro.
 
 AGGIUNTA DEL 2026-09-24. SI RIPARTE DA HOME. La collezione di terza generazione è chiusa sul piano del lavoro: Smeraldo è scritto, il complemento del Rubino è generato e aspetta la cartuccia, e questa attesa è da ricordare a ogni sessione. Il PDF da stampare della collezione intera è `gba-save-extraction-smeraldo/MAPPA-BOX-COLLEZIONE.pdf`. Chi riprende trova cartelle e file riorganizzati:

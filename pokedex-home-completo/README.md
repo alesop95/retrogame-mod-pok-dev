@@ -20,13 +20,13 @@ ROADMAP.md                         l'ordine in cui le cose vanno fatte, con le d
 RICERCA-UTENTE-2026-09-01.md       la ricerca consegnata dall'utente, verbatim e con provenienza
 STUDIO-01-che-cosa-vincola-la-scadenza.md   la verifica indipendente e il suo esito
 CONFRONTO-FOGLIO-LIVINGDEX.md               il confronto con il foglio comunitario, e le divergenze
-foglio-livingdex.csv                        il foglio comunitario normalizzato, per il diff
-serebii-eventi.csv                          le 1880 distribuzioni delle pagine di specie
-serebii-eventi-senza-specie.csv             i 236 record che nessuna specie indicizza
+data/foglio-livingdex.csv                   il foglio comunitario normalizzato, per il diff
+data/serebii-eventi.csv                     le 1880 distribuzioni delle pagine di specie
+data/serebii-eventi-senza-specie.csv        i 236 record che nessuna specie indicizza
 EVENTI-SENZA-CARTA.md                       la coda delle consegne che non lasciano una carta
 CATENA-DI-TRASFERIMENTO.md                  i vincoli di ogni passaggio e la via in emulazione
 CENSIMENTO-FONTI-COLLEZIONE.md              le 171 fonti del corpus, per cluster e con l'esito della corsa
-fonti-collezione.csv                        le stesse, come tabella per il confronto
+data/fonti-collezione.csv                   le stesse, come tabella per il confronto
 STUDIO-04-la-via-del-dns-e-il-servizio-rianimato.md   i servizi in rete ricostruiti da terzi, e le due decisioni che rimettono in gioco
 STUDIO-05-gli-assi-che-non-contavamo.md     mosse, fiocchi, sfere e sfide: i tre assi nuovi e la misura sulle mosse
 MOSSE-PERDUTE.md                   le mosse perdute derivate dai dati, e il confronto con la testimonianza
@@ -35,23 +35,35 @@ MARCHI.md                          l'asse dei marchi: 53 voci in sei famiglie, e
 SPOGLIO-CORPUS.md                  che cosa le fonti del corpus nominano e i nostri lotti non hanno
 STUDIO-06-le-enumerazioni-trasversali.md    il cluster delle liste trasversali letto, e le vie chiuse che riapre
 DIFFERENZE-DI-SESSO.md                      le 102 specie con differenze di sesso, enumerate e concordi con il foglio
-differenze-di-sesso.csv                     le stesse, come tabella per il confronto
+data/differenze-di-sesso.csv                le stesse, come tabella per il confronto
 INDICE-FOGLI-ESTERNI.md                     lo scheletro di Livello 1 delle quattro cartelle di calcolo della comunita
-foglio-sfide-deposito.csv                   la scheda delle sfide sotto scadenza, normalizzata
-foglio-spinoff-greenpangolin17.csv          i doni dei giochi derivati, che sono vie chiuse
-foglio-storage-greenpangolin17.csv          i doni dei giochi di deposito, compresi quelli del deposito stesso
+data/foglio-sfide-deposito.csv              la scheda delle sfide sotto scadenza, normalizzata
+data/foglio-spinoff-greenpangolin17.csv     i doni dei giochi derivati, che sono vie chiuse
+data/foglio-storage-greenpangolin17.csv     i doni dei giochi di deposito, compresi quelli del deposito stesso
 STUDIO-07-scambi-in-gioco-e-incontri-condizionati.md   le due classi aperte dall'utente, contate sulla fonte di primo livello
 CENSIMENTO-SCAMBI.md                        i 238 scambi in gioco di tutte le generazioni, con il valore di personalita
-scambi.csv                                  gli stessi, come tabella per il confronto
+data/scambi.csv                             gli stessi, come tabella per il confronto
 CENSIMENTO-CONDIZIONATI.md                  gli incontri che una condizione sblocca, con i tre criteri
-condizionati.csv                            gli stessi, come tabella per il confronto
+data/condizionati.csv                       gli stessi, come tabella per il confronto
 STUDIO-08-esecuzione-di-codice-e-manipolazione-del-generatore.md   la via interna al gioco, e la manipolazione come alternativa
 STUDIO-09-la-regola-del-tracciatore-e-le-porte-dopo-la-chiusura.md   che cosa il deposito accetta, e le porte che restano
 LETTURA-DEL-CORPUS.md                       il registro della lettura integrale, cluster per cluster
 ID-NOTEVOLI.md                              gli 896 identificativi notevoli, e quanto ne copriamo
-id-notevoli.csv                             gli stessi, come tabella per il confronto
+data/id-notevoli.csv                        gli stessi, come tabella per il confronto
 MOSSE-MN.md                                 le voci che una macchina nascosta blocca al Parco Amico
-mosse-mn.csv                                le stesse, come tabella per il confronto
+data/mosse-mn.csv                           le stesse, come tabella per il confronto
+CENSIMENTO-EVENTI-FUORI-DONI.md            le distribuzioni che nessuna pagina di specie indicizza
+CENSIMENTO-SALVATAGGI.md                   il censimento dei salvataggi locali, senza i file privati
+CHECKLIST-COMPLETA.md                      la lista di spunta generata delle specie e delle forme
+CODA-PRIMO-TEMPO.md                        la coda di produzione ordinata per specie
+COMPLEMENTO-RUBINO.md                      il rapporto del complemento destinato al Rubino
+CONFRONTO-LIVINGDEX-POKEPC.md              il confronto con una seconda enumerazione indipendente
+OTTENIBILITA-TITOLI.md                     la raggiungibilità delle specie per titolo
+SCHEDE-EVENTI-GB.md                        le schede degli eventi delle prime due generazioni
+STUDIO-02-salvataggi-esterni-e-che-cosa-provano.md  l'uso dei salvataggi esterni come evidenza
+STUDIO-03-la-catena-e-viva-e-la-lista-di-spunta.md  la catena di trasferimento e la prima checklist
+STUDIO-10-la-libreria-del-verificatore-come-generatore.md  la generazione tramite la libreria del verificatore
+VERIFICA-TERZA-GENERAZIONE.md              i vincoli della collezione di terza generazione
 ```
 
 Lo strumento che produce il conto sta fra quelli comuni, in `tools/disponibilita-titoli.py`, perché serve a più di un track: la sua risposta governa la pianificazione del tempo di tutto il progetto e non soltanto di questo sottoprogetto.

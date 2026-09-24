@@ -32,6 +32,7 @@ import collections
 import csv
 import importlib.util
 import json
+import os
 import re
 import subprocess
 import textwrap
@@ -58,11 +59,20 @@ NOTE = RADICE.joinpath("_notes")
 FIGURE = CARTELLA.joinpath("figure")
 USCITA = CARTELLA.joinpath("MAPPA-BOX-SMERALDO.md")
 PKHEX = NOTE.joinpath("fonti", "pkhex")
-SUGIMORI = Path.home().joinpath("Proton Drive", "alesop95", "My files", "Sugimori Pokémon Gen1-9 DLC3 Organized",
-                                "Sugimori Pokémon Gen1-9 DLC3 Organized", "Pokémon By Generation")
+_SUGIMORI_RELATIVO = Path("My files", "Sugimori Pokémon Gen1-9 DLC3 Organized",
+                          "Sugimori Pokémon Gen1-9 DLC3 Organized", "Pokémon By Generation")
+_SUGIMORI_TROVATI = sorted(Path.home().joinpath("Proton Drive").glob("*/" + _SUGIMORI_RELATIVO.as_posix()))
+SUGIMORI = Path(os.environ["SUGIMORI_ROOT"]) if "SUGIMORI_ROOT" in os.environ else (
+    _SUGIMORI_TROVATI[0] if len(_SUGIMORI_TROVATI) == 1 else Path.home().joinpath("Proton Drive", _SUGIMORI_RELATIVO))
 PER_BOX = 30
 COLONNE = 6
 VUOTO = bytes(save3.RECORD)
+# Nomi di gioco gia' presenti nella mappa pubblica; ogni nuovo OT della collezione
+# richiede una verifica prima di entrare nella mappa, per non esporre persone terze.
+OT_COLLEZIONE_PUBBLICI = {
+    "ALEX", "ALESSIO", "AXEL", "CICCIO", "10ANNI", "Al Paci",
+    "DANIELE", "DONTAE", "MARCO", "MATT", "Gian",
+}
 
 # Sette provenienze, sette slot categoriali nell'ordine fisso della tavolozza di riferimento della
 # skill di visualizzazione. Il testo e' sempre nero, per scelta del proprietario, quindi le caselle
@@ -434,7 +444,7 @@ def main():
                      "soprannome": "uovo da schiudere" if riga.get("IsEgg") == "True" else
                      (riga["Nickname"] if riga["IsNicknamed"] == "True" else ""),
                      "uovo": riga.get("IsEgg") == "True",
-                     "livello": riga["Level"], "allenatore": riga["OT"], "lingua": riga["OTLang"],
+                     "livello": riga["Level"], "allenatore": ("<AMICO>" if provenienza == "collezione" and riga["OT"] not in OT_COLLEZIONE_PUBBLICI else riga["OT"]), "lingua": riga["OTLang"],
                      "provenienza": provenienza, "dettaglio": dettaglio, "banda": banda, "chiave": chiave})
 
     # la storia di un evento si scrive alla prima posizione del box che lo contiene, le altre vi rimandano
@@ -490,6 +500,8 @@ def main():
 
 def scrivi_markdown(per_box, conteggio, riepilogo, provenienze, uscita, nota):
     md = ["<!-- generato da gba-save-extraction-smeraldo/tools/emerald_mappa_box.py: non si modifica a mano -->", ""]
+    if uscita == USCITA:
+        md += ["`<AMICO>` maschera il nome di un allenatore terzo nella mappa pubblica; i record del salvataggio non sono cambiati.", ""]
     if nota:
         md += [nota, ""]
     md += ["## Legenda e riepilogo", "", "| Colore | Provenienza | Esemplari |", "|---|---|---|"]
