@@ -349,3 +349,16 @@ pokedex-home-completo/COMPLEMENTO-RUBINO.md#scambi-di-xd # inventario generato d
 pokedex-home-completo/COMPLEMENTO-RUBINO.md#starter-di-colosseum # inventario generato di esemplari, non prosa da rendere
 pokedex-home-completo/COMPLEMENTO-RUBINO.md#evento # inventario generato di esemplari, non prosa da rendere
 pokedex-home-completo/COMPLEMENTO-RUBINO.md#portatore-dei-fiocchi # inventario generato di esemplari, non prosa da rendere
+## La mappa prevista del Rubino è generata come quella di Smeraldo.
+gba-save-extraction-smeraldo/MAPPA-BOX-RUBINO.md#box-1 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-RUBINO.md#box-2 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-RUBINO.md#box-3 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-RUBINO.md#box-4 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-RUBINO.md#box-5 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-RUBINO.md#box-6 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-RUBINO.md#box-7 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-RUBINO.md#box-8 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-RUBINO.md#box-9 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-RUBINO.md#box-10 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-RUBINO.md#box-11 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-RUBINO.md#box-12 # inventario generato di posizioni, non prosa da rendere

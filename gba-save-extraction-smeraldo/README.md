@@ -22,7 +22,9 @@ Ne segue una conseguenza che va tenuta presente prima di guardare il dump: una q
 |---|---|
 | la diagnosi completa del salvataggio reale e la proposta di correzione, tasca per tasca, con le fonti | `STUDIO-01-diagnosi-e-correzione-inventario.md` |
 | il censimento dei box, i glitch storici raccontati dall'utente e i simboli della Frontiera di Lotta, non ancora conclusi | `STUDIO-02-box-glitch-storici-e-frontiera.md` |
-| che cosa c'è in ciascuna delle 420 posizioni dei box, con l'illustrazione di ogni esemplare e una copia da stampare | `MAPPA-BOX-SMERALDO.md`, generata da `tools/emerald_mappa_box.py` |
+| che cosa c'è in ciascuna delle 420 posizioni dei box, con l'illustrazione di ogni esemplare | `MAPPA-BOX-SMERALDO.md`, generata da `tools/emerald_mappa_box.py` |
+| la disposizione prevista del complemento sul Rubino di prova | `MAPPA-BOX-RUBINO.md`, dallo stesso strumento |
+| la collezione intera da stampare, Smeraldo e Rubino | `MAPPA-BOX-COLLEZIONE.pdf`, fuori da git, dallo stesso strumento |
 | dove sono gli esemplari del Parco Lotta e come si usano, edificio per edificio | `GUIDA-PARCO-LOTTA.md` |
 | la procedura operativa e lo stato del setup | `handoff/HANDOFF_progetto_smeraldo.md` |
 | la sequenza della prima sessione col lettore, in ordine di irreversibilità | `RUNBOOK-PRIMA-SESSIONE.md` |
