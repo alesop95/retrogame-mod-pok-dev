@@ -37,6 +37,8 @@ Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo q
 
 ## Punto di ripresa
 
+AGGIUNTA DEL 2026-09-24, seconda parte. Il complemento del Rubino è di 376 esemplari: sono corretti gli Unown, prima tutti A, e sono entrati 22 incontri speciali. Gli sfondi del Rubino sono assegnati, senza Amici perché Rubino non lo ha. Il Jirachi di Channel andrà su Smeraldo con la prossima scrittura che si farà per altro.
+
 AGGIUNTA DEL 2026-09-24. SI RIPARTE DA HOME. La collezione di terza generazione è chiusa sul piano del lavoro: Smeraldo è scritto, il complemento del Rubino è generato e aspetta la cartuccia, e questa attesa è da ricordare a ogni sessione. Il PDF da stampare della collezione intera è `gba-save-extraction-smeraldo/MAPPA-BOX-COLLEZIONE.pdf`. Chi riprende trova cartelle e file riorganizzati:
 - i backup di Smeraldo per scrittura, con il loro `LEGGIMI.md`;
 - il clone di PKHeX completo e compilato;

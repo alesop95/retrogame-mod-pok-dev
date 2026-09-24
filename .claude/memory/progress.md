@@ -4,6 +4,20 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-24, seconda parte. Unown veri, incontri speciali, sfondi del Rubino ed etichette intere
+
+Il controllo finale chiesto dal proprietario ha trovato due difetti del complemento, entrambi passati dal verificatore e dal primo controllo indipendente.
+- **Unown:** i 28 erano tutti A. La libreria restituisce le voci di tutte le forme e il generatore prendeva la Sala A-loe; il controllo contava le etichette invece della lettera calcolata dalla personalità. Ora il generatore pretende la forma sulla voce e il manifesto manda ogni lettera nella sua sala, alternando Rosso Fuoco e Verde Foglia. Risultato: 28 lettere su 28 dalla personalità, ogni sala dei due giochi coperta.
+- **Incontri speciali:** 37 incontri speciali dei selvatici, dal censimento dei condizionati, non avevano esemplare dal loro gioco e luogo. 15 erano gli Unown; gli altri 22 sono entrati come richieste con luogo e tipo di casella, fra cui il Wynaut dell'Isola Miraggio di Rubino e di Zaffiro. Dopo, zero mancanti.
+
+Il complemento conta ora 376 esemplari legali su 376: simmetrici, senza cromatici, senza personalità ripetute, nessuna in comune con Smeraldo.
+
+Gli sfondi del Rubino sono assegnati per contenuto. Lo sfondo Amici in Rubino non esiste, verificato su `gWallpaperTable` di pokeruby, clonato in modo parziale in `%TEMP%/pokeruby-sparse`. Il box 13, con il Jirachi, ha lo sfondo Sky.
+
+Nel PDF le etichette delle caselle vanno a capo invece di essere troncate, e il PDF ha 56 pagine.
+
+L'allenatore Alessio di ciascun gioco è dichiarato valido e non reale. Il Jirachi di Channel su Smeraldo è una voce «tutt'uno», per la prossima scrittura su Smeraldo.
+
 ## 2026-09-24. Il PDF della collezione esteso al Rubino, e la sessione si chiude verso HOME
 
 Su richiesta del proprietario la stampa della collezione è diventata una sola per le due cartucce: `gba-save-extraction-smeraldo/MAPPA-BOX-COLLEZIONE.pdf`, con il `.docx`, 54 pagine. Per Smeraldo e per il Rubino c'è una pagina di legenda e due per box, con il Rubino nella disposizione prevista del complemento. La disposizione sta in `disposizione_rubino` di `emerald_mappa_box.py`, che la scrittura dovrà usare: per gruppi e dentro il gruppo per numero del Pokédex, in 12 box, con 5 posti vuoti nel dodicesimo. Il Rubino ha una legenda propria con otto provenienze: statici 36, esclusivi 40, specie 98, portatori 9, Unown 28, Colosseum 52, XD 91, evento 1. I vecchi `MAPPA-BOX-SMERALDO.pdf` e `.docx`, generati e superati, sono stati tolti; `MAPPA-BOX-SMERALDO.md` resta, e si aggiunge `MAPPA-BOX-RUBINO.md`. La cartuccia di Rubino non è con il proprietario: la scrittura aspetta, ed è una voce da ricordare a ogni sessione. La sessione si chiude con il resume riscritto per ripartire da HOME.
