@@ -963,6 +963,16 @@ Il problema. La lettura integrale delle fonti del Parco Lotta ha lasciato fuori 
 La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti etichettata come non letta con il proprio motivo, secondo la prescrizione che vieta di degradare in silenzio una fonte a nota a margine, e non si tenta alcuna via ulteriore. Il debito di lettura del fronte Parco Lotta si dichiara quindi chiuso con questa sola eccezione dichiarata, e nessuna sessione futura deve riaprirlo credendo che qualcosa sia stato dimenticato.
 
 La ragione per cui l'abbandono e' accettabile qui, e non lo sarebbe altrove. Quella discussione e' del 2005 ed e' una richiesta di valutazione di squadra, cioe' la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e piu' recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano e' quindi basso, e la decisione si fonda su questo e non sulla sola difficolta' di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
+## ADR-083: gli incontri di Mew e Deoxys su Smeraldo restano giocabili, e non si catturano
+
+Data: 2026-09-24. Stato: accettata. Decisione del proprietario.
+
+Contesto. L'ordine proposto del 2026-09-23 chiedeva al proprietario di catturare Mew all'Isola Suprema e Deoxys all'Isola Materna sulla cartuccia di Smeraldo, dove quegli incontri sono attivi dal 2026-09-21. La richiesta non aveva uno scopo di verifica. Mew e Deoxys di Smeraldo esistono già generati e conformi, in `_notes/lotti/lotto-incontri-gen3/mew-e.pk3` e `deoxys-e.pk3`, e la collezione di terza generazione è chiusa per ADR-082.
+
+Decisione. Non si catturano. Il salvataggio di Smeraldo resta com'è, con gli incontri da evento ancora da giocare, e il proprietario lo conserva così a tempo indeterminato. La possibilità di azzerare gli incontri non cambia la decisione, perché non c'è nulla da misurare che una cattura aggiungerebbe.
+
+Conseguenze. La voce dell'ordine proposto che chiedeva le due catture è superata. Nessuna sessione futura propone di catturare Mew, Deoxys o gli altri esemplari degli incontri da evento su quella cartuccia, né di spegnere i contrassegni che li rendono giocabili. L'esemplare da portare verso HOME è quello generato.
+
 ## ADR-082: il Parco Amici si genera con la libreria, e la collezione di terza generazione non si riapre
 
 Data: 2026-09-24. Stato: accettata. Proposta dell'agente, approvata dal proprietario, che ha aggiunto il vincolo sulla collezione.
