@@ -63,7 +63,7 @@ USCITA = os.path.join(RADICE, "recreate-pokemon-distributions-events",
 GIUDIZI = os.path.join(RADICE, "recreate-pokemon-distributions-events", "giudizi-esterni.json")
 PROVENIENZE = os.path.join(RADICE, "recreate-pokemon-distributions-events",
                            "provenienze-eventi-gen4.json")
-MANIFESTO = os.path.join(RADICE, "_notes", "lotti", "lotto-gen4", "impronte.json")
+MANIFESTO = os.path.join(RADICE, "_notes", "lotti", "lotto-eventi-gen4", "impronte.json")
 TESTI = os.path.join("PKHeX.Core", "Resources", "text", "other", "it")
 CONVERTITORE = os.path.join("PKHeX.Core", "PKM", "Strings", "StringConverter4Util.cs")
 
@@ -401,7 +401,7 @@ def scheda(v, provenienze, giudizi, impronte):
     imp = impronte.get(v["nome_file"])
     if imp:
         r.append("| impronta del file prodotto | `%s` | SHA-256 della forma di scatola scritta in "
-                 "`_notes/lotti/lotto-gen4/`, presa dal manifesto che il generatore scrive accanto al "
+                 "`_notes/lotti/lotto-eventi-gen4/`, presa dal manifesto che il generatore scrive accanto al "
                  "lotto. Le schede ricalcolano i campi dalle sorgenti e non leggono i file, quindi "
                  "questa riga è la sola che venga dal disco: è la prova che il file esiste ed è "
                  "quell'esemplare, non una sua descrizione |" % imp["sha256"])

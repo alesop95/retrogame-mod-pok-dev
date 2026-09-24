@@ -96,7 +96,7 @@ La via che invece funziona, provata e adottata, non tocca l'audio affatto, perch
 
 ```
 python -m yt_dlp --skip-download --write-auto-subs --sub-langs "en.*" -o "%(id)s" URL
-python tools/vtt-to-text.py ID.en.vtt --wrap 6 --out _notes/fonti/data-fonte.txt
+python tools/vtt-to-text.py ID.en.vtt --wrap 6 --out _notes/fonti/consegne/data-fonte.txt
 ```
 
 Il secondo comando serve perché i sottotitoli automatici arrivano in forma scorrevole, dove ogni blocco ripete quasi interamente il precedente: convertiti ingenuamente producono un file tre o quattro volte più lungo del parlato. Lo strumento ricostruisce il testo una volta sola cercando la sovrapposizione fra blocchi consecutivi. Sul primo video provato, centosedici kilobyte di sottotitoli sono diventati dodici kilobyte di testo, cioè 2294 parole per dodici minuti di parlato.

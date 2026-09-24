@@ -186,7 +186,7 @@ import urllib.parse
 import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CURSORI = os.path.join(ROOT, "_notes", ".discord-cursori.json")
+CURSORI = os.path.join(ROOT, "_notes", "lavoro", "stato", ".discord-cursori.json")
 BASE = "https://discord.com/api/v10"
 
 # Il numero massimo di messaggi che l'API restituisce in una sola richiesta. Non è una

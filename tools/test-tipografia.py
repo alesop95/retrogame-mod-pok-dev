@@ -112,7 +112,7 @@ def prova_strumento(nome):
 
     # Il file di prova sta dentro il repository perché gli strumenti calcolano un percorso
     # relativo alla radice, e su Windows un percorso su un altro volume non è relativizzabile.
-    cartella = os.path.join(ROOT, "_notes", "tmp")
+    cartella = os.path.join(ROOT, "_notes", "lavoro", "tmp")
     os.makedirs(cartella, exist_ok=True)
     handle, percorso = tempfile.mkstemp(suffix=".tex", dir=cartella)
     with os.fdopen(handle, "wb") as f:
@@ -153,7 +153,7 @@ def prova_front_matter(nome):
         "La " + _INTEGRITA + " e la " + _QUALITA + APO + " contano.",
         "",
     ))
-    cartella = os.path.join(ROOT, "_notes", "tmp")
+    cartella = os.path.join(ROOT, "_notes", "lavoro", "tmp")
     os.makedirs(cartella, exist_ok=True)
     handle, percorso = tempfile.mkstemp(suffix=".md", dir=cartella)
     with os.fdopen(handle, "wb") as f:
@@ -188,7 +188,7 @@ def prova_residuo_apostrofo():
     residuo = "Serve perch" + E_ACUTA + AP + " conta, ed e' gi" + A_GRAVE + AP + " scritto."
     atteso = "perch" + E_ACUTA
     falliti = 0
-    cartella = os.path.join(ROOT, "_notes", "tmp")
+    cartella = os.path.join(ROOT, "_notes", "lavoro", "tmp")
     os.makedirs(cartella, exist_ok=True)
 
     def gira(nome, contenuto):
@@ -241,7 +241,7 @@ def main():
 
     # La prosa deve essere stata corretta dalla catena dei tre, non da uno solo: si
     # verifica applicandoli in sequenza al medesimo file.
-    cartella = os.path.join(ROOT, "_notes", "tmp")
+    cartella = os.path.join(ROOT, "_notes", "lavoro", "tmp")
     os.makedirs(cartella, exist_ok=True)
     handle, percorso = tempfile.mkstemp(suffix=".tex", dir=cartella)
     with os.fdopen(handle, "wb") as f:

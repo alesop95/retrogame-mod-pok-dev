@@ -227,8 +227,8 @@ def rapporto(pkhex):
     umani = nomi_umani(pkhex)
 
     lotti = {
-        "gen4": sorted(glob.glob(os.path.join(RADICE, "_notes", "lotti", "lotto-gen4", "*.pk4"))),
-        "gen5": sorted(glob.glob(os.path.join(RADICE, "_notes", "lotti", "lotto-gen5", "*.pk5"))),
+        "gen4": sorted(glob.glob(os.path.join(RADICE, "_notes", "lotti", "lotto-eventi-gen4", "*.pk4"))),
+        "gen5": sorted(glob.glob(os.path.join(RADICE, "_notes", "lotti", "lotto-eventi-gen5", "*.pk5"))),
     }
     conti = {}
     for et, percorsi in lotti.items():
