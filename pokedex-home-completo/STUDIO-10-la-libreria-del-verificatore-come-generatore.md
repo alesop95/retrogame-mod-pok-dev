@@ -78,6 +78,8 @@ Il proprietario ha chiesto uno sfondo Amici per il Rubino e una selezione per gl
 - Machine, Seafloor e Cave per XD;
 - Sky per l'ultimo box, dove sta il Jirachi di Channel.
 
+Nella stampa gli Unown avevano tutti la stessa illustrazione, la F, perché la raccolta di Sugimori ne ha una sola. Ora ciascuno ha l'artwork della propria lettera fra quelli che PKHeX porta con sé, un file per forma, scelto dalla lettera che il gioco ricava dalla personalità e non dall'etichetta della richiesta.
+
 ## Che cosa resta aperto
 
 Resta aperta la scrittura sul Rubino, cioè la fase F5 di ADR-080. Il Rubino di prova contiene oggi 205 esemplari scritti il 2026-09-16, e il primo passo è una lettura nuova della cartuccia con il backup in doppia copia. Poi lo strumento di caricamento sostituisce le scatole con il complemento e lascia intatta la squadra di inizio partita. Prima della scrittura serve anche il giudizio della versione grafica di PKHeX sul file lavorato, cioè un dump dei box come per Smeraldo, perché è il controllo che il proprietario vede e perché il generatore giudica gli esemplari uno per uno e non il salvataggio intero.

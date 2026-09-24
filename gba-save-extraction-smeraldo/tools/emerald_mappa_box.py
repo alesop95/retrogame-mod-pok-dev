@@ -125,6 +125,10 @@ NERO = "#000000"
 SUPERFICIE = "#ffffff"
 BORDO = "#bdbcb6"
 FORME_DEOXYS = {"1": "Attack", "2": "Defense", "3": "Speed"}
+# La raccolta di Sugimori ha una sola illustrazione di Unown, la F, e con quella tutte le 28 caselle sembravano
+# la stessa lettera. Per Unown si usa l'artwork per forma che PKHeX porta con se', un file per lettera: la A e'
+# `a_201.png`, le altre `a_201-N.png` con N la forma, da 1 per la B a 27 per il punto interrogativo.
+ARTWORK_PKHEX = RADICE.joinpath("_notes", "fonti", "pkhex", "PKHeX.Drawing.PokeSprite", "Resources", "img", "Artwork Pokemon Sprites")
 # Le note delle provenienze mescolano la storia della distribuzione con osservazioni sul lavoro del
 # progetto, cioe' su tabelle, verificatore e fonti. La stampa e' per chi guarda la collezione e ne
 # tiene soltanto la storia: una frase che nomina uno di questi termini resta nel catalogo degli eventi
@@ -269,6 +273,10 @@ def illustrazioni():
 def miniatura(percorso, cache):
     if percorso not in cache:
         im = Image.open(percorso).convert("RGBA")
+        # l'artwork di PKHeX e' piccolo, 68 per 56: si ingrandisce con un filtro morbido invece di lasciarlo sgranato
+        if max(im.size) < 200:
+            fattore = 220 / max(im.size)
+            im = im.resize((round(im.width * fattore), round(im.height * fattore)), Image.LANCZOS)
         im.thumbnail((260, 260))
         cache[percorso] = im
     return cache[percorso]
@@ -301,6 +309,9 @@ def figura(titolo, voci, indice, forme, cache, uscita):
         ax.text(c + 0.5, y0 + 0.86, "\n".join(righe_banda[:3]), fontsize=corpo_banda, color=NERO, ha="center", va="center",
                 linespacing=1.05)
         percorso = indice.get(v["nazionale"])
+        if v["nazionale"] == 201:
+            f = int(v["forma"] or 0)
+            percorso = ARTWORK_PKHEX.joinpath("a_201.png" if f == 0 else "a_201-%d.png" % f)
         if v["nazionale"] == 386 and v["forma"] in FORME_DEOXYS:
             alternativa = forme.joinpath("0386 Deoxys %s.png" % FORME_DEOXYS[v["forma"]])
             percorso = alternativa if alternativa.exists() else percorso
