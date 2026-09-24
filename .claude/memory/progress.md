@@ -14,7 +14,7 @@ Il complemento conta ora 376 esemplari legali su 376: simmetrici, senza cromatic
 
 Gli sfondi del Rubino sono assegnati per contenuto. Lo sfondo Amici in Rubino non esiste, verificato su `gWallpaperTable` di pokeruby, clonato in modo parziale in `%TEMP%/pokeruby-sparse`. Il box 13, con il Jirachi, ha lo sfondo Sky.
 
-Nel PDF le etichette delle caselle vanno a capo invece di essere troncate, e il PDF ha 56 pagine.
+Nel PDF le etichette delle caselle vanno a capo invece di essere troncate, e il PDF ha 56 pagine. Su segnalazione del proprietario gli Unown avevano tutti l'illustrazione della F, l'unica della raccolta di Sugimori: ora ogni casella usa l'artwork per lettera di PKHeX, `PKHeX.Drawing.PokeSprite/Resources/img/Artwork Pokemon Sprites/a_201-N.png`, scelto dalla lettera ricavata dalla personalità.
 
 L'allenatore Alessio di ciascun gioco è dichiarato valido e non reale. Il Jirachi di Channel su Smeraldo è una voce «tutt'uno», per la prossima scrittura su Smeraldo.
 
