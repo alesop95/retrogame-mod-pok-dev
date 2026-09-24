@@ -336,3 +336,16 @@ gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md#box-11 # inventario generato 
 gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md#box-12 # inventario generato di posizioni, non prosa da rendere
 gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md#box-13 # inventario generato di posizioni, non prosa da rendere
 gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md#box-14 # inventario generato di posizioni, non prosa da rendere
+## Il complemento del Rubino è generato dal rapporto del generatore: la tesi ne rende il metodo, non le sue righe.
+pokedex-home-completo/COMPLEMENTO-RUBINO.md#specie-che-nessuna-voce-speciale-copriva # inventario generato di esemplari, non prosa da rendere
+pokedex-home-completo/COMPLEMENTO-RUBINO.md#ombra-di-xd # inventario generato di esemplari, non prosa da rendere
+pokedex-home-completo/COMPLEMENTO-RUBINO.md#ombra-di-colosseum # inventario generato di esemplari, non prosa da rendere
+pokedex-home-completo/COMPLEMENTO-RUBINO.md#esclusivi-di-versione # inventario generato di esemplari, non prosa da rendere
+pokedex-home-completo/COMPLEMENTO-RUBINO.md#incontri-statici-doni-e-uova-dei-portatili # inventario generato di esemplari, non prosa da rendere
+pokedex-home-completo/COMPLEMENTO-RUBINO.md#forme-di-unown # inventario generato di esemplari, non prosa da rendere
+pokedex-home-completo/COMPLEMENTO-RUBINO.md#doni-di-colosseum-e-di-xd # inventario generato di esemplari, non prosa da rendere
+pokedex-home-completo/COMPLEMENTO-RUBINO.md#portatori-di-mosse-perdute # inventario generato di esemplari, non prosa da rendere
+pokedex-home-completo/COMPLEMENTO-RUBINO.md#scambi-di-xd # inventario generato di esemplari, non prosa da rendere
+pokedex-home-completo/COMPLEMENTO-RUBINO.md#starter-di-colosseum # inventario generato di esemplari, non prosa da rendere
+pokedex-home-completo/COMPLEMENTO-RUBINO.md#evento # inventario generato di esemplari, non prosa da rendere
+pokedex-home-completo/COMPLEMENTO-RUBINO.md#portatore-dei-fiocchi # inventario generato di esemplari, non prosa da rendere
