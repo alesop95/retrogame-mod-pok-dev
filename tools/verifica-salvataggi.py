@@ -35,9 +35,9 @@ ciascuno porta accanto il riferimento: un predicato inventato che per caso funzi
 
 Uso
 ---
-    python tools/verifica-salvataggi.py _notes/salvataggi
-    python tools/verifica-salvataggi.py _notes/salvataggi --censimento --ace <clone> --pkhex <clone>
-    python tools/verifica-salvataggi.py _notes/salvataggi --json esito.json
+    python tools/verifica-salvataggi.py _notes/salvataggi/terzi
+    python tools/verifica-salvataggi.py _notes/salvataggi/terzi --censimento --ace <clone> --pkhex <clone>
+    python tools/verifica-salvataggi.py _notes/salvataggi/terzi --json esito.json
     python tools/verifica-salvataggi.py --self-test
 """
 
