@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 """Applica la sintesi del Parco Amici (`pokebridge.parco_amici`) ai tre lotti Gen3 gia' prodotti.
 
-Legge `_notes/lotto-eventi/`, `_notes/lotto-incontri-gen3/` e `_notes/lotto-scambi-gen3/`, converte
+Legge `_notes/lotti/lotto-eventi/`, `_notes/lotti/lotto-incontri-gen3/` e `_notes/lotti/lotto-scambi-gen3/`, converte
 ogni voce nel record di scatola di quarta generazione equivalente a un vero passaggio dal Parco
 Amici, ed esclude (senza correggere) le voci che portano una macchina nascosta di terza
 generazione: la mossa e' spesso la ragione per cui l'esemplare e' un collezionabile, quindi
 togliergliela e' una decisione dell'utente e non dello strumento. Scrive il lotto in
-`_notes/lotto-parco-amici-gen4/` con un manifesto.
+`_notes/lotti/lotto-parco-amici-gen4/` con un manifesto.
 
 Uso
 ---
@@ -25,8 +25,8 @@ sys.stdout.reconfigure(encoding="utf-8")
 from pokebridge.gen3 import Gen3Mon
 from pokebridge import parco_amici as PA
 
-CARTELLE = ["_notes/lotto-eventi", "_notes/lotto-incontri-gen3", "_notes/lotto-scambi-gen3"]
-DESTINAZIONE = "_notes/lotto-parco-amici-gen4"
+CARTELLE = ["_notes/lotti/lotto-eventi", "_notes/lotti/lotto-incontri-gen3", "_notes/lotti/lotto-scambi-gen3"]
+DESTINAZIONE = "_notes/lotti/lotto-parco-amici-gen4"
 os.makedirs(DESTINAZIONE, exist_ok=True)
 
 scritti, esclusi, errori = [], [], []
@@ -63,7 +63,7 @@ for cartella in CARTELLE:
 
 io.open(os.path.join(DESTINAZIONE, "manifesto.json"), "w", encoding="utf-8").write(
     json.dumps({
-        "fonte": "PK3.ConvertToPK4 in _notes/fonti/pkhex/PKHeX.Core/PKM/PK3.cs, letto il 2026-09-16",
+        "fonte": "PK3.ConvertToPK4 in _notes/fonti/cloni/pkhex/PKHeX.Core/PKM/PK3.cs, letto il 2026-09-16",
         "stato": "prodotto, in attesa del giudizio esterno",
         "escluse_macchina_nascosta": esclusi,
         "errori": errori,

@@ -69,7 +69,7 @@ MAPPA-DOCUMENTI.md                            che cosa e' ciascun file Markdown,
 README.md                                    ingresso pubblico ai risultati tecnici, ai track e alle fonti
 SOURCES.md                                    registro delle fonti, con il sottoprogetto servito da ciascuna
 docs/index.md                                 indice del percorso di studio tecnico, leggibile come vault Obsidian
-docs/fonti/index-fonti.md                     mappa relazionale delle fonti, con abstract e grafo
+docs/mappa-fonti/index-fonti.md                     mappa relazionale delle fonti, con abstract e grafo
 tesi/                                         documento composto locale, escluso da Git; non disponibile in un clone
 tools/                                        gli strumenti deterministici, uno per misura riproducibile
 pokemon-gen12-gen3-bridge-original-hardware/  referenza byte per byte, il pacchetto pokebridge e la sua suite

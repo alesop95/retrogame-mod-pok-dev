@@ -37,7 +37,7 @@ import os
 import sys
 
 RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-FOGLIO = os.path.join(RADICE, "_notes", "spreadsheets e passaggi home",
+FOGLIO = os.path.join(RADICE, "_notes", "fonti", "consegne", "spreadsheets-home",
                       "LivingDex Spreadsheet.xlsx")
 NOSTRA = os.path.join(RADICE, "pokedex-home-completo", "CHECKLIST-COMPLETA.md")
 USCITA = os.path.join(RADICE, "pokedex-home-completo", "CONFRONTO-FOGLIO-LIVINGDEX.md")

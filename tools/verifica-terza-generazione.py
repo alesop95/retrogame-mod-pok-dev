@@ -49,7 +49,7 @@ RADICE = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(RADICE.joinpath("pokemon-gen12-gen3-bridge-original-hardware")))
 from pokebridge import gen3, save3  # noqa: E402
 
-PKHEX = RADICE.joinpath("_notes", "fonti", "pkhex")
+PKHEX = RADICE.joinpath("_notes", "fonti", "cloni", "pkhex")
 DATI3 = PKHEX.joinpath("PKHeX.Core", "Legality", "Encounters", "Data", "Gen3")
 TESTI = PKHEX.joinpath("PKHeX.Core", "Resources", "text", "other", "it")
 USCITA = RADICE.joinpath("pokedex-home-completo", "VERIFICA-TERZA-GENERAZIONE.md")

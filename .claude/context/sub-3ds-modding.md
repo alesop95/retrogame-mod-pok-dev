@@ -32,7 +32,7 @@ La sezione 7 dell'handoff colloca l'arrivo di Rosso Fuoco e Verde Foglia su Swit
 
 ## Perimetro
 
-L'handoff dichiara alla sezione 2 e ribadisce alla 5.8 che l'assistenza tecnica non copre installazione e uso di Pokemon Bank e Transporter su questa console. Il limite vale anche per le sessioni future e non va riaperto implicitamente; la motivazione sta in `_notes/perimetro-bank-transporter.md`, fuori dal version control.
+L'handoff dichiara alla sezione 2 e ribadisce alla 5.8 che l'assistenza tecnica non copre installazione e uso di Pokemon Bank e Transporter su questa console. Il limite vale anche per le sessioni future e non va riaperto implicitamente; la motivazione sta in `_notes/lavoro/riservato/perimetro-bank-transporter.md`, fuori dal version control.
 
 ## Evidenze e materiale locale
 

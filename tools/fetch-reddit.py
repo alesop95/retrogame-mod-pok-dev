@@ -51,7 +51,7 @@ Quel divieto prudente, però, non è della stessa natura di quello scritto, e la
 L'uscita su disco
 -----------------
 
-Tutto vive sotto `_notes/fonti/reddit-<sub>-<id>-<data>/`, che il `.gitignore` del sistema esclude, perché è materiale grezzo di terzi e non entra nel version control. Cio che entra è la sintesi con l'attribuzione, nel registro delle fonti del progetto.
+Tutto vive sotto `_notes/fonti/reddit/reddit-<sub>-<id>-<data>/`, che il `.gitignore` del sistema esclude, perché è materiale grezzo di terzi e non entra nel version control. Cio che entra è la sintesi con l'attribuzione, nel registro delle fonti del progetto.
 
     _INDEX.md                        lo scheletro: che cosa c'è, dove, e che cosa manca
     MAPPA.md                         la mappa dei rinvii: chi linka che cosa, ad albero
@@ -88,7 +88,7 @@ Istanziazione
 
 Il file si copia in `tools/` del progetto ospite e funziona da solo: non dipende dagli altri strumenti del pacchetto, non porta alcuna tabella di configurazione da sostituire, perché il punto di partenza è un argomento di riga di comando e i filtri sono opzioni, e non richiede nulla in `.env`, perché la via scelta non usa credenziali. L'unico segnaposto da sostituire è lo user agent qui sotto, che va portato al nome del progetto ospite.
 
-La radice si ricava dalla posizione del file, cioè la cartella che contiene `tools/`, quindi copiato in `<progetto>/tools/` scrive sotto `<progetto>/_notes/fonti/` senza configurazione. Eseguito dove vive nel template quel calcolo cadrebbe dentro il pacchetto e lo sporcherebbe: per quel caso, e solo per quello, esiste `--radice`.
+La radice si ricava dalla posizione del file, cioè la cartella che contiene `tools/`, quindi copiato in `<progetto>/tools/` scrive sotto `<progetto>/_notes/fonti/reddit/` senza configurazione. Eseguito dove vive nel template quel calcolo cadrebbe dentro il pacchetto e lo sporcherebbe: per quel caso, e solo per quello, esiste `--radice`.
 
 Stato di collaudo
 -----------------
@@ -2012,7 +2012,7 @@ def seme_di(argomento):
 def cartella_di(radice, record, identificativo):
     nome = ("reddit-" + sigla(record.get("subreddit") if record else "", 24) + "-" +
             identificativo + "-" + datetime.datetime.now().strftime("%Y-%m-%d"))
-    return os.path.join(radice, "_notes", "fonti", nome)
+    return os.path.join(radice, "_notes", "fonti", "reddit", nome)
 
 
 def prova_a_vuoto(trasporto, tipo, chiave, riferisci):

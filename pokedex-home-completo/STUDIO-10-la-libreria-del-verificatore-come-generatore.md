@@ -8,7 +8,7 @@ L'osservazione che ha cambiato il metodo è semplice, ed è del proprietario: la
 
 ## Come è fatto
 
-Gli strumenti sono due, uno per ciascun lato del confine fra deterministico e linguistico che `token-economy.md` prescrive. `tools/manifesto-complemento-rubino.py` decide che cosa generare. Legge il deposito di Smeraldo dai byte della cartuccia e dal dump di PKHeX, usa le funzioni di `tools/verifica-terza-generazione.py` perché le due misure non possano divergere, e scrive una richiesta per ogni cosa che manca, con specie, giochi ammessi, classe d'incontro, luogo, mosse, fiocchi e livello. `tools/pkhex-genera` esegue le richieste. È un programma .NET che usa `PKHeX.Core` compilato dal clone in `_notes/fonti/pkhex`, cioè esattamente il codice del verificatore che si usa per il giudizio.
+Gli strumenti sono due, uno per ciascun lato del confine fra deterministico e linguistico che `token-economy.md` prescrive. `tools/manifesto-complemento-rubino.py` decide che cosa generare. Legge il deposito di Smeraldo dai byte della cartuccia e dal dump di PKHeX, usa le funzioni di `tools/verifica-terza-generazione.py` perché le due misure non possano divergere, e scrive una richiesta per ogni cosa che manca, con specie, giochi ammessi, classe d'incontro, luogo, mosse, fiocchi e livello. `tools/pkhex-genera` esegue le richieste. È un programma .NET che usa `PKHeX.Core` compilato dal clone in `_notes/fonti/cloni/pkhex`, cioè esattamente il codice del verificatore che si usa per il giudizio.
 
 Il cuore del generatore è una chiamata della libreria, `EncounterMovesetGenerator.GenerateEncounters`, che dato un modello di esemplare, un allenatore, le mosse volute e un gioco elenca le voci delle tabelle da cui quell'esemplare può nascere. Per ciascuna voce che rispetta classe e luogo il generatore chiama `ConvertToPKM`, rifinisce l'esemplare (evoluzione, mosse, fiocchi, livello) e lo accetta soltanto se `LegalityAnalysis` lo giudica legale.
 
@@ -51,7 +51,7 @@ L'allenatore Alessio di ciascun gioco non corrisponde a una partita reale. È un
 
 ## Che cosa ne è uscito
 
-Il lotto è in `_notes/lotto-complemento-rubino/esemplari/`, e il documento generato `COMPLEMENTO-RUBINO.md` ne è la forma leggibile.
+Il lotto è in `_notes/lotti/lotto-complemento-rubino/esemplari/`, e il documento generato `COMPLEMENTO-RUBINO.md` ne è la forma leggibile.
 - **Legalità:** 376 esemplari su 376 richieste, tutti legali per la libreria del verificatore, dopo le correzioni del 2026-09-24.
 - **Controllo indipendente:** tutti simmetrici per la libreria del progetto, nessuno cromatico, nessuna personalità ripetuta né nel lotto né rispetto a Smeraldo.
 - **Copertura:** con Smeraldo coprono tutte le 386 specie, le 28 forme di Unown dalle loro sale e tutti gli incontri speciali dei selvatici.
@@ -65,7 +65,7 @@ La riproducibilità ha un limite dichiarato. La libreria estrae i numeri casuali
 
 La libreria copre tutte le generazioni, non soltanto la terza, e il generatore non sa nulla della terza generazione: la sua conoscenza sta tutta nelle richieste e nella libreria. Lo stesso programma può quindi generare esemplari legali per i giochi di quarta, quinta, sesta e settima generazione, cioè per i salvataggi da cui la catena porta al deposito. È la ragione di ADR-081.
 
-Due confini vanno detti con la stessa chiarezza. Il primo è di perimetro. L'installazione e l'uso di Pokémon Bank e Pokémon Transporter su questa console restano fuori dall'assistenza, per la ragione registrata in `_notes/perimetro-bank-transporter.md`: il progetto prepara gli esemplari e i salvataggi, e quel tratto resta del proprietario. Il secondo è di sostanza. Un esemplare generato è legale per il verificatore, e il progetto ha sempre distinto il legale dal legittimo. Vale in particolare per i fiocchi di gara e di vittoria sull'Absol, che raccontano concorsi e serie mai giocati, come ADR-080 ha registrato dopo averlo esposto al proprietario.
+Due confini vanno detti con la stessa chiarezza. Il primo è di perimetro. L'installazione e l'uso di Pokémon Bank e Pokémon Transporter su questa console restano fuori dall'assistenza, per la ragione registrata in `_notes/lavoro/riservato/perimetro-bank-transporter.md`: il progetto prepara gli esemplari e i salvataggi, e quel tratto resta del proprietario. Il secondo è di sostanza. Un esemplare generato è legale per il verificatore, e il progetto ha sempre distinto il legale dal legittimo. Vale in particolare per i fiocchi di gara e di vittoria sull'Absol, che raccontano concorsi e serie mai giocati, come ADR-080 ha registrato dopo averlo esposto al proprietario.
 
 ## Gli sfondi del Rubino
 

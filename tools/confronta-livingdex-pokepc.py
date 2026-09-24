@@ -34,12 +34,12 @@ un indizio.
 Da dove vengono i dati
 ----------------------
 Dal deposito pubblico `pokepc/classic.pokepc.net`, file `legacy-pokemon.min.json` e
-`legacy-boxpresets.min.json` sotto `src/lib/data-client`, scaricati in `_notes/fonti/pokepc/`, che
+`legacy-boxpresets.min.json` sotto `src/lib/data-client`, scaricati in `_notes/fonti/raccolte/pokepc/`, che
 e' materiale di terzi e non entra nel version control: cio' che entra e' questo confronto. I due
 file si riprendono con le due righe seguenti, che sono l'unica dipendenza esterna del programma.
 
-    curl -sL -o _notes/fonti/pokepc/pokemon.min.json https://raw.githubusercontent.com/pokepc/classic.pokepc.net/main/src/lib/data-client/pokemon/legacy-pokemon.min.json
-    curl -sL -o _notes/fonti/pokepc/boxpresets.min.json https://raw.githubusercontent.com/pokepc/classic.pokepc.net/main/src/lib/data-client/box-presets/legacy-boxpresets.min.json
+    curl -sL -o _notes/fonti/raccolte/pokepc/pokemon.min.json https://raw.githubusercontent.com/pokepc/classic.pokepc.net/main/src/lib/data-client/pokemon/legacy-pokemon.min.json
+    curl -sL -o _notes/fonti/raccolte/pokepc/boxpresets.min.json https://raw.githubusercontent.com/pokepc/classic.pokepc.net/main/src/lib/data-client/box-presets/legacy-boxpresets.min.json
 
 Uso
 ---
@@ -57,7 +57,7 @@ import sys
 RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(RADICE, "tools"))
 
-DATI = os.path.join(RADICE, "_notes", "fonti", "pokepc")
+DATI = os.path.join(RADICE, "_notes", "fonti", "raccolte", "pokepc")
 SPECIE = os.path.join(DATI, "pokemon.min.json")
 SCATOLE = os.path.join(DATI, "boxpresets.min.json")
 NOSTRA = os.path.join(RADICE, "pokedex-home-completo", "CHECKLIST-COMPLETA.md")

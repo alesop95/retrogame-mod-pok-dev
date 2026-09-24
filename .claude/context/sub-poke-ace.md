@@ -42,6 +42,6 @@ Quale profilo di collezione sia l'obiettivo. È una decisione nuova, aperta dal 
 
 ## Evidenze e materiale locale
 
-Nessun salvataggio, nessun dump e nessuna ROM entra nel repository. La trascrizione del video sta in `_notes/fonti/`, non versionata, ed è sacrificabile per ADR-016 ora che il suo contenuto è nello studio e nel registro delle fonti.
+Nessun salvataggio, nessun dump e nessuna ROM entra nel repository. La trascrizione del video sta in `_notes/fonti/consegne/`, non versionata, ed è sacrificabile per ADR-016 ora che il suo contenuto è nello studio e nel registro delle fonti.
 
 Il server di community da cui viene l'inventario degli strumenti va aggiunto alla tabella dei canali di `tools/export-discord.py`: il suo canale `ace-links` è la fonte, e l'inventario è stato consegnato a mano dall'utente.

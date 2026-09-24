@@ -50,7 +50,7 @@ Resta da decidere quali eventi ricreare e in quale ordine, perché il corpus è 
 
 ## Evidenze e materiale locale
 
-Le trascrizioni delle quattro fonti stanno in `_notes/fonti/`, non versionate, e sono sacrificabili una volta che ADR-016 è soddisfatto, cioè ora. Nessun dump, nessun salvataggio e nessuna ROM entra nel repository.
+Le trascrizioni delle quattro fonti stanno nell'area locale `_notes/fonti/`, non versionata, e sono sacrificabili una volta che ADR-016 è soddisfatto, cioè ora. Nessun dump, nessun salvataggio e nessuna ROM entra nel repository.
 
 Il catalogo `EVENTI-GEN3.md` è generato da un clone di PKHeX che vive fuori dal repository: il percorso si passa sulla riga di comando a `tools/catalogo-eventi-gen3.py`, come per i disassemblati, e il comando di verifica è quello stesso strumento con `--check`.
 
@@ -64,7 +64,7 @@ Inserire quelle quattro voci ha spostato l'indice con cui il generatore derivava
 
 Un audit richiesto dall'utente sui livelli di tutti gli scambi in gioco già prodotti (terza, quarta e quinta generazione, 42 voci) non ha trovato alcun caso a livello variabile: ogni scambio ha un livello fisso nella tabella del verificatore, incluso il Farfetch'd di FireRed/LeafGreen che sembrava contraddire questo (il gioco vero lega il livello a quello del Pokemon consegnato, ma il verificatore giudica solo il valore che registra come canonico).
 
-Il fatto più grande della giornata è però un anello nuovo della catena: `pokemon-gen12-gen3-bridge-original-hardware/pokebridge/parco_amici.py`, che sintetizza in software il passaggio del Parco Amici verso la quarta generazione, letto dalla fonte vera del verificatore e verificato contro l'osservazione umana in `PKHeX` su due casi particolari (un esemplare da uovo, un esemplare con macchina nascosta). Applicato a tutte le 209 voci già prodotte in terza generazione (176 distribuzioni, 14 incontri sbloccati, 19 scambi in gioco), produce 203 record di quarta generazione in `_notes/lotto-parco-amici-gen4/`, sei esclusi per macchina nascosta e da decidere uno per uno. Elimina per la prima volta la necessità di hardware o emulazione DS per questo anello: dettaglio completo, con la fonte di ogni mutazione, in `pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md`.
+Il fatto più grande della giornata è però un anello nuovo della catena: `pokemon-gen12-gen3-bridge-original-hardware/pokebridge/parco_amici.py`, che sintetizza in software il passaggio del Parco Amici verso la quarta generazione, letto dalla fonte vera del verificatore e verificato contro l'osservazione umana in `PKHeX` su due casi particolari (un esemplare da uovo, un esemplare con macchina nascosta). Applicato a tutte le 209 voci già prodotte in terza generazione (176 distribuzioni, 14 incontri sbloccati, 19 scambi in gioco), produce 203 record di quarta generazione in `_notes/lotti/lotto-parco-amici-gen4/`, sei esclusi per macchina nascosta e da decidere uno per uno. Elimina per la prima volta la necessità di hardware o emulazione DS per questo anello: dettaglio completo, con la fonte di ogni mutazione, in `pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md`.
 
 ## Aggiunta del 2026-09-01: la nota operativa, e la divisione del lavoro
 

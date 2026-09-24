@@ -24,8 +24,8 @@ Dal 2026-09-23, su richiesta del proprietario, lo stesso generatore produce anch
 Uso
 ---
 
-    python gba-save-extraction-smeraldo/tools/emerald_selvatico_gigante.py --out _notes/lotto-giganti
-    python gba-save-extraction-smeraldo/tools/emerald_selvatico_gigante.py --out _notes/lotto-wynaut --isola-miraggio
+    python gba-save-extraction-smeraldo/tools/emerald_selvatico_gigante.py --out _notes/lotti/lotto-giganti
+    python gba-save-extraction-smeraldo/tools/emerald_selvatico_gigante.py --out _notes/lotti/lotto-wynaut --isola-miraggio
 """
 
 import argparse

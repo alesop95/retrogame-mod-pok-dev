@@ -42,7 +42,7 @@ programma lo verifica comunque a ogni corsa, invece di fidarsi della coincidenza
 Uso
 ---
     python tools/genera-scambio-gen3.py --elenco --pkhex <clone>
-    python tools/genera-scambio-gen3.py --pkhex <clone> --ace <clone> --lotto _notes/lotto-scambi-gen3
+    python tools/genera-scambio-gen3.py --pkhex <clone> --ace <clone> --lotto _notes/lotti/lotto-scambi-gen3
     python tools/genera-scambio-gen3.py --self-test
 """
 
@@ -470,8 +470,8 @@ def collaudo():
 
 def principale(argomenti=None):
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    p.add_argument("--pkhex", default=os.path.join(RADICE, "_notes", "fonti", "pkhex"))
-    p.add_argument("--ace", default=os.path.join(RADICE, "_notes", "fonti", "ace-builder"))
+    p.add_argument("--pkhex", default=os.path.join(RADICE, "_notes", "fonti", "cloni", "pkhex"))
+    p.add_argument("--ace", default=os.path.join(RADICE, "_notes", "fonti", "cloni", "ace-builder"))
     p.add_argument("--lingua", default="Italian", choices=sorted(LINGUE))
     p.add_argument("--elenco", action="store_true",
                    help="stampa le voci che la fonte descrive per intero, senza comporre nulla")

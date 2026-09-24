@@ -347,7 +347,7 @@ def collaudo():
 
 def principale(argomenti=None):
     p = argparse.ArgumentParser(description="Enumera l'asse dei marchi dal formato del deposito.")
-    p.add_argument("--pkhex", default=os.path.join(RADICE, "_notes", "fonti", "pkhex"))
+    p.add_argument("--pkhex", default=os.path.join(RADICE, "_notes", "fonti", "cloni", "pkhex"))
     p.add_argument("--lotti", nargs="*", default=None,
                    help="cartelle dei lotti su cui misurare la copertura")
     p.add_argument("--out", default=None)

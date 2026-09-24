@@ -62,7 +62,7 @@ import subprocess
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-USCITA = os.path.join(ROOT, "_notes", "fonti", "dce")
+USCITA = os.path.join(ROOT, "_notes", "fonti", "discord", "dce")
 
 # ---------------------------------------------------------------------------------------
 # La scelta dei canali, decisa il 2026-08-31 leggendo gli elenchi dei nove server

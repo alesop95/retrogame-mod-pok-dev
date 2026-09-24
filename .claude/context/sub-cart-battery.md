@@ -48,4 +48,4 @@ Resta aperto un solo punto subordinato, e non è una decisione ma una verifica: 
 
 Nessun salvataggio entra nel repository, per ADR-005. Le due copie di backup prescritte dalla regola dell'hardware stanno su due percorsi distinti del disco locale.
 
-Le testimonianze su cui il runbook poggia vengono dall'esportazione del canale di assistenza del produttore del lettore, che sta in `_notes/fonti/dce/` con i suoi estratti filtrati per parola chiave, non versionata e sacrificabile per ADR-016 ora che la sintesi con l'attribuzione è nel runbook.
+Le testimonianze su cui il runbook poggia vengono dall'esportazione del canale di assistenza del produttore del lettore, che sta in `_notes/fonti/discord/dce/` con i suoi estratti filtrati per parola chiave, non versionata e sacrificabile per ADR-016 ora che la sintesi con l'attribuzione è nel runbook.

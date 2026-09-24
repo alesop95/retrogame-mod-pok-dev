@@ -41,7 +41,7 @@ RADICE = CARTELLA.parent
 CATALOGO = CARTELLA.joinpath("squadre-parco-lotta.json")
 GLOSSARIO = CARTELLA.joinpath("GLOSSARIO-MOSSE.md")
 GUIDA = CARTELLA.joinpath("GUIDA-PARCO-LOTTA.md")
-LOTTO = RADICE.joinpath("_notes", "lotto-parco-lotta")
+LOTTO = RADICE.joinpath("_notes", "lotti", "lotto-parco-lotta")
 # Dal 2026-09-23 il dump e' quello del deposito intero, `round 4`, che contiene l'ottavo giro del lotto
 # in copia unica; si accoppia al manifesto corrente per personalita'.
 _DUMP_TROVATI = sorted(RADICE.joinpath("_notes").glob("backup salvataggi pok* cartucce vere/smeraldo/dump-pkhex/Box Data Dump smeraldo vero ALEX-45761 - round 6.csv"))

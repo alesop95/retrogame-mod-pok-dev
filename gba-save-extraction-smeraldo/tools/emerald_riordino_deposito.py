@@ -22,7 +22,7 @@ Uso
 ---
 
     python gba-save-extraction-smeraldo/tools/emerald_riordino_deposito.py INGRESSO.sav USCITA.sav
-    python gba-save-extraction-smeraldo/tools/emerald_riordino_deposito.py INGRESSO.sav USCITA.sav --sostituisci-lotto _notes/lotto-parco-lotta/esemplari-round6
+    python gba-save-extraction-smeraldo/tools/emerald_riordino_deposito.py INGRESSO.sav USCITA.sav --sostituisci-lotto _notes/lotti/lotto-parco-lotta/esemplari-round6
 
 La seconda forma serve quando il deposito e' gia' riordinato e cambia soltanto il lotto: rimpiazza le sessantaquattro posizioni dei box 12-14 dopo aver verificato che contengano esattamente i file del giro precedente.
 """
@@ -41,7 +41,7 @@ sys.path.insert(0, str(RADICE.joinpath("pokemon-gen12-gen3-bridge-original-hardw
 
 from pokebridge import charmap, gen3, save3  # noqa: E402
 
-LOTTO = RADICE.joinpath("_notes", "lotto-parco-lotta", "esemplari")
+LOTTO = RADICE.joinpath("_notes", "lotti", "lotto-parco-lotta", "esemplari")
 CATALOGO = CARTELLA.joinpath("squadre-parco-lotta.json")
 BOX = 14
 PER_BOX = 30

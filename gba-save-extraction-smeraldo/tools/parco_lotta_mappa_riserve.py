@@ -27,7 +27,7 @@ from pathlib import Path
 CARTELLA = Path(__file__).resolve().parents[1]
 RADICE = CARTELLA.parent
 CATALOGO = CARTELLA.joinpath("squadre-parco-lotta.json")
-THREAD = RADICE.joinpath("_notes", "fonti", "smogon-parco-lotta-2026-09-21", "squadre.json")
+THREAD = RADICE.joinpath("_notes", "fonti", "raccolte", "smogon-parco-lotta-2026-09-21", "squadre.json")
 
 EDIFICI = ["Cupola Lotta", "Torre Lotta", "Dojo Lotta", "Palazzo Lotta", "Serpe Lotta", "Piramide Lotta",
            "Azienda Lotta"]
@@ -98,7 +98,7 @@ def scrivi(generati, titolari, per_specie, righe, sostituzioni, thread):
     out = []
     out.append("# Mappa delle riserve agli edifici, la misura")
     out.append("")
-    out.append("> Generato da `gba-save-extraction-smeraldo/tools/parco_lotta_mappa_riserve.py` sul catalogo `squadre-parco-lotta.json` e sulle %d squadre estratte dai thread in `_notes/fonti/smogon-parco-lotta-2026-09-21/squadre.json`. Non si modifica a mano: si rigenera. E' la misura su cui si scrive la scelta, non la scelta, e le tre avvertenze del docstring dello strumento valgono per ogni numero qui sotto: i thread nominano la specie e non la natura, registrano soprattutto chi ha fatto una serie buona, e la Torre Lotta pesa quanto tutti gli altri edifici insieme." % len(thread))
+    out.append("> Generato da `gba-save-extraction-smeraldo/tools/parco_lotta_mappa_riserve.py` sul catalogo `squadre-parco-lotta.json` e sulle %d squadre estratte dai thread in `_notes/fonti/raccolte/smogon-parco-lotta-2026-09-21/squadre.json`. Non si modifica a mano: si rigenera. E' la misura su cui si scrive la scelta, non la scelta, e le tre avvertenze del docstring dello strumento valgono per ogni numero qui sotto: i thread nominano la specie e non la natura, registrano soprattutto chi ha fatto una serie buona, e la Torre Lotta pesa quanto tutti gli altri edifici insieme." % len(thread))
     out.append("")
     out.append("Squadre per edificio nel campione: " + ", ".join(
         "%s %d" % (e if e else "edificio non dichiarato", conteggio[e]) for e in EDIFICI + [None]) + ".")

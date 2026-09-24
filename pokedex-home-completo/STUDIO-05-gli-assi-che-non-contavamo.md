@@ -36,7 +36,7 @@ Le sfide del deposito sono un registro interno al servizio, separato dal catalog
 
 Non è un asse di collezione ma di completamento del servizio, e va tenuto separato per una ragione pratica: una sfida si soddisfa con un esemplare che spesso serve già a un altro asse, quindi non aggiunge caselle ma vincola la provenienza di caselle che avremmo riempito comunque. Registrare un Groudon non basta: deve venire da Rubino, Zaffiro o Smeraldo per quella sfida, e da Rubino Omega o Zaffiro Alpha per un'altra.
 
-L'utente ha già raccolto le schermate delle sfide in `_notes/spreadsheets e passaggi home/challenge-home`, quindi il confronto fra la nostra raccolta e questo elenco è possibile subito ed è la prima cosa da fare su questo asse.
+L'utente ha già raccolto le schermate delle sfide in `_notes/fonti/consegne/spreadsheets-home/challenge-home`, quindi il confronto fra la nostra raccolta e questo elenco è possibile subito ed è la prima cosa da fare su questo asse.
 
 ## La misura: quante delle mosse perdute i nostri lotti già portano
 

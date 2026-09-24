@@ -21,7 +21,7 @@ Ogni esemplare da toccare si individua sul dump di PKHeX del file riordinato, `r
 Uso
 ---
 
-    python gba-save-extraction-smeraldo/tools/emerald_risana_deposito.py INGRESSO.sav USCITA.sav --dump "BOX DATA DUMP round 3.csv" --lotto-precedente _notes/lotto-parco-lotta/esemplari-round7
+    python gba-save-extraction-smeraldo/tools/emerald_risana_deposito.py INGRESSO.sav USCITA.sav --dump "BOX DATA DUMP round 3.csv" --lotto-precedente _notes/lotti/lotto-parco-lotta/esemplari-round7
 """
 
 import argparse
@@ -40,7 +40,7 @@ sys.path.insert(0, str(RADICE.joinpath("pokemon-gen12-gen3-bridge-original-hardw
 
 from pokebridge import gen3, save3  # noqa: E402
 
-LOTTO = RADICE.joinpath("_notes", "lotto-parco-lotta", "esemplari")
+LOTTO = RADICE.joinpath("_notes", "lotti", "lotto-parco-lotta", "esemplari")
 CATALOGO = CARTELLA.joinpath("squadre-parco-lotta.json")
 DATI = CARTELLA.joinpath("dati-gen3.json")
 PER_BOX = 30

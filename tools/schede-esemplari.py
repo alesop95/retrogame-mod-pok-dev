@@ -28,7 +28,7 @@ chi lo userà.
 
 Uso
 ---
-    python tools/schede-esemplari.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex
+    python tools/schede-esemplari.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex
     python tools/schede-esemplari.py --ace ... --pkhex ... --check
 """
 
@@ -154,7 +154,7 @@ def riga_provenienza(prov, fonti, nome_ot, ident):
     return [" ".join(parti), ""]
 
 
-MANIFESTO_LOTTO = os.path.join("_notes", "lotto-eventi", "impronte.json")
+MANIFESTO_LOTTO = os.path.join("_notes", "lotti", "lotto-eventi", "impronte.json")
 
 
 def impronte_del_lotto():
@@ -291,7 +291,7 @@ def scheda(g, voci, indice, contesto):
     imp = (impronte or {}).get(str(indice))
     if imp:
         fuori.append("| impronta del file prodotto | `%s` | SHA-256 della forma canonica scritta "
-                     "in `_notes/lotto-eventi/`, presa dal manifesto che il generatore scrive "
+                     "in `_notes/lotti/lotto-eventi/`, presa dal manifesto che il generatore scrive "
                      "accanto al lotto. Le schede ricalcolano i campi dalle sorgenti e non "
                      "leggono i file, quindi questa riga è la sola che venga dal disco: è la "
                      "prova che il file esiste ed è quell'esemplare, non una sua descrizione |"

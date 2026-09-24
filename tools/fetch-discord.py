@@ -95,7 +95,7 @@ Uso
     python tools/fetch-discord.py fetch <id del canale> --limit 500
     python tools/fetch-discord.py fetch <id del canale> --limit 0 --nuovi
     python tools/fetch-discord.py fetch <id del canale> --grep "link cable" --grep checksum
-    python tools/fetch-discord.py fetch <id> --append --out _notes/fonti/2026-08-31-pret.md
+    python tools/fetch-discord.py fetch <id> --append --out _notes/fonti/discord/2026-08-31-pret.md
     python tools/fetch-discord.py leave <id del server> --conferma
     python tools/fetch-discord.py --self-test
 
@@ -104,7 +104,7 @@ scaricherebbe la cronologia intera di un canale, che su un canale attivo sono de
 migliaia di messaggi e altrettante decine di richieste.
 
 `--nuovi` legge soltanto ciò che è arrivato dopo l'ultima lettura riuscita di quel canale,
-usando il cursore conservato in `_notes/.discord-cursori.json`, che sta sotto `_notes/` e
+usando il cursore conservato in `_notes/lavoro/stato/.discord-cursori.json`, che sta sotto `_notes/` e
 quindi fuori dal version control. Il cursore avanza fino all'ultimo messaggio letto e non
 all'ultimo scritto, cosicché un filtro restrittivo non faccia rileggere ogni volta i
 messaggi che ha scartato.
@@ -952,7 +952,7 @@ def main():
                      help="leggi solo ciò che è arrivato dopo l'ultima lettura di questo canale")
     p_f.add_argument("--append", action="store_true",
                      help="aggiungi in coda al file invece di sovrascriverlo")
-    p_f.add_argument("--out", help="dove scrivere; per difetto sotto _notes/fonti/")
+    p_f.add_argument("--out", help="dove scrivere; per difetto sotto _notes/fonti/discord/")
 
     a = ap.parse_args()
 
@@ -1026,7 +1026,7 @@ def main():
             letti = len(messaggi)
             messaggi = filtra(messaggi, a.grep, a.min_length, da)
             destinazione = a.out or os.path.join(
-                ROOT, "_notes", "fonti",
+                ROOT, "_notes", "fonti", "discord",
                 time.strftime("%Y-%m-%d") + "-discord-" + canale + ".md")
             os.makedirs(os.path.dirname(destinazione), exist_ok=True)
             esisteva = os.path.exists(destinazione)

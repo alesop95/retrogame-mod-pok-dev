@@ -14,7 +14,7 @@ Dopo aver scritto su una cartuccia si rilegge il contenuto e si confronta con qu
 
 Il dump di cartucce e il modding di console si applicano soltanto a esemplari di proprietà. Il perimetro è dichiarato nella sezione 2 dell'handoff del sottoprogetto 3DS ed è vincolante per tutte le sessioni, non solo per quella in cui è stato scritto.
 
-Da quello stesso perimetro discende un limite operativo che resta valido e non va riaperto implicitamente: l'assistenza tecnica non copre l'installazione e l'uso di Pokemon Bank e Pokemon Transporter su questa console. La motivazione è una circostanza personale e sta fuori dal version control, in `_notes/perimetro-bank-transporter.md`, perché un repository pubblico non è il posto dove registrarla. Se una sessione futura si trova a toccare quell'area, il limite va ricordato e la nota locale consultata, invece di ricostruire da capo il perché.
+Da quello stesso perimetro discende un limite operativo che resta valido e non va riaperto implicitamente: l'assistenza tecnica non copre l'installazione e l'uso di Pokemon Bank e Pokemon Transporter su questa console. La motivazione è una circostanza personale e sta fuori dal version control, in `_notes/lavoro/riservato/perimetro-bank-transporter.md`, perché un repository pubblico non è il posto dove registrarla. Se una sessione futura si trova a toccare quell'area, il limite va ricordato e la nota locale consultata, invece di ricostruire da capo il perché.
 
 ## Salvataggi di terze parti
 

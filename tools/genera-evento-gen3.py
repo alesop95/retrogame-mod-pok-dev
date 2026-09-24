@@ -49,8 +49,8 @@ personalità e cifrata. Contengono gli stessi dati e la conversione è esatta ne
 
 Uso
 ---
-    python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --elenco
-    python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --evento 10ANNI --specie Pikachu --seme 0x9DF6 --lingua ITA --out _notes/prova
+    python tools/genera-evento-gen3.py --ace _notes/fonti/cloni/ace-builder --elenco
+    python tools/genera-evento-gen3.py --ace _notes/fonti/cloni/ace-builder --evento 10ANNI --specie Pikachu --seme 0x9DF6 --lingua ITA --out _notes/prova
     python tools/genera-evento-gen3.py --self-test
 
 Il sorgente del costruttore della comunità, da cui vengono i metadati, non è una dipendenza

@@ -19,7 +19,7 @@ Uso
 ---
 
     git clone --depth 1 --filter=blob:none --sparse https://github.com/pret/pokeemerald.git <cartella>
-    python gba-save-extraction-smeraldo/tools/parco_lotta_piramide_giri.py --sorgente <cartella> --out _notes/fonti/parco-lotta-spoglio-2026-09-21
+    python gba-save-extraction-smeraldo/tools/parco_lotta_piramide_giri.py --sorgente <cartella> --out _notes/fonti/raccolte/parco-lotta-spoglio-2026-09-21
 """
 
 import argparse

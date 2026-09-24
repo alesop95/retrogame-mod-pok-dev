@@ -5,7 +5,7 @@
 Perché esiste
 --------------
 La tesi deve citare una fonte per ogni affermazione, e quelle fonti sono le stesse che
-`SOURCES.md` registra e che `docs/fonti/` descrive. Scriverle a mano una terza volta
+`SOURCES.md` registra e che `docs/mappa-fonti/` descrive. Scriverle a mano una terza volta
 significherebbe garantire che le tre copie divergano: è la ragione per cui questo
 strumento legge la tabella `FONTI` di `build-source-map.py` e ne produce la bibliografia,
 esattamente come quello ne produce le note. La tabella resta la fonte unica.
@@ -23,7 +23,7 @@ farebbe, cioè segnalare le citazioni senza voce e le voci senza citazione, lo f
 documenti sorgente.
 
 La chiave di citazione è lo slug della fonte, quindi `\\cite{pokered}` nella tesi e
-`docs/fonti/pokered.md` nel vault sono la stessa cosa vista da due parti.
+`docs/mappa-fonti/pokered.md` nel vault sono la stessa cosa vista da due parti.
 
 Uso
 ---
@@ -105,11 +105,11 @@ def genera(fonti, teorici):
     righe.append("% " + "=" * 69)
     righe.append("% Prodotto da tools/build-bibliography.py dalla tabella FONTI di")
     righe.append("% tools/build-source-map.py, che è la stessa da cui nascono le note di")
-    righe.append("% docs/fonti/. Modificare quella tabella e rigenerare: una correzione fatta")
+    righe.append("% docs/mappa-fonti/. Modificare quella tabella e rigenerare: una correzione fatta")
     righe.append("% qui sparisce alla corsa successiva.")
     righe.append("%")
     righe.append("% La chiave di ogni voce è lo slug della fonte, quindi \\cite{pokered} qui e")
-    righe.append("% docs/fonti/pokered.md nel vault sono la stessa fonte vista da due parti.")
+    righe.append("% docs/mappa-fonti/pokered.md nel vault sono la stessa fonte vista da due parti.")
     righe.append("")
 
     # L'argomento di thebibliography dimensiona il rientro dell'elenco sulla larghezza

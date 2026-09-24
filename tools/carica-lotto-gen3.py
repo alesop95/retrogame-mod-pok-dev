@@ -31,8 +31,8 @@ caricarlo significherebbe perdere la posizione e il file.
 
 Uso
 ---
-    python tools/carica-lotto-gen3.py --lotto _notes/lotto-eventi --uscita /tmp/prova.sav
-    python tools/carica-lotto-gen3.py --lotto _notes/lotto-eventi --salvataggio dump.sav --uscita nuovo.sav
+    python tools/carica-lotto-gen3.py --lotto _notes/lotti/lotto-eventi --uscita /tmp/prova.sav
+    python tools/carica-lotto-gen3.py --lotto _notes/lotti/lotto-eventi --salvataggio dump.sav --uscita nuovo.sav
     python tools/carica-lotto-gen3.py --self-test
 """
 

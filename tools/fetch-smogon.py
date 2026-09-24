@@ -23,7 +23,7 @@ Il numero dell'ultima pagina non si indovina e non si passa da riga di comando: 
 Uso
 ---
 
-    python tools/fetch-smogon.py --thread https://www.smogon.com/forums/threads/<slug>.<id>/ --out _notes/fonti/smogon-parco-lotta-2026-09-21
+    python tools/fetch-smogon.py --thread https://www.smogon.com/forums/threads/<slug>.<id>/ --out _notes/fonti/raccolte/smogon-parco-lotta-2026-09-21
     python tools/fetch-smogon.py --elenco <file con un indirizzo per riga> --out <cartella>
 """
 

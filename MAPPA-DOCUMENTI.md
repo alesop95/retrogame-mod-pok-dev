@@ -53,7 +53,7 @@ Sono conoscenza tecnica autorata, numerati per ordine di lettura e non per impor
 
 Due sono molto più grossi degli altri e vale sapere perché prima di aprirli: `docs/22-strumenti.md` è il catalogo di tutti gli strumenti con le loro procedure, e `docs/40-appendice-matematica.md` raccoglie le dispense che finiscono in appendice alla tesi. Si consultano per punti, non si leggono in sequenza.
 
-Sotto `docs/fonti/` stanno le schede Markdown tracciate e generate per navigare le fonti come grafo in Obsidian; `collezione/` raccoglie la vista del corpus. Il confine fra registro, schede e materiale grezzo locale è definito una sola volta in `SOURCES.md`, sezione "Dove stanno le fonti".
+Sotto `docs/mappa-fonti/` stanno le schede Markdown tracciate e generate per navigare le fonti come grafo in Obsidian; `collezione/` raccoglie la vista del corpus. Il confine fra registro, schede e materiale grezzo locale è definito una sola volta in `SOURCES.md`, sezione "Dove stanno le fonti".
 
 ## I file generati, che nessuno scrive
 
@@ -97,6 +97,10 @@ Sommano oltre tre megabyte, cioè la quasi totalità del peso testuale del proge
 
 `SOURCES.md` è il registro unico versionato: dichiara ruolo e versionamento dei tre percorsi delle fonti, distingue i livelli di affidabilità e contiene l'indice generato da `tools/indice-fonti-unico.py`. L'indice conserva anche la fotografia delle citazioni nella tesi locale, che si può aggiornare solo dove `tesi/` è presente.
 
+## L'area locale fuori da Git
+
+`_notes/` contiene solo materiale locale: `fonti/` per il grezzo distinto nel registro, `lotti/` per gli esemplari e i rapporti prodotti, `salvataggi/` per le copie da cartuccia, i salvataggi di terzi e le prove, `media/` per foto e video, `lavoro/` per appunti, handoff, stato e file temporanei, e `archivio/` per la copia antecedente al primo Git. Alla radice restano `README.md`, che rimanda a questa mappa, e `resume-prompt.md`, usato dalla procedura di ripresa. Il dettaglio delle fonti sta in `SOURCES.md`, senza ripeterlo qui.
+
 ## Gli studi e le referenze autorate, che sono i file da leggere
 
 Sono i documenti dove sta il ragionamento, e sono pochi. Per il track del deposito: la catena di trasferimento, la roadmap cronologica, il registro della lettura del corpus, che è autorato e cresce a lotti invece di essere generato, e dieci studi numerati. Per le distribuzioni: quattro studi. Per l'esecuzione di codice: tre studi. Per il ponte fra generazioni: la referenza dei formati, che è il documento tecnico più denso del progetto. Più uno studio a testa per la batteria, per la generazione da console corrente e per l'automazione.
@@ -115,7 +119,7 @@ La decisione su una rimozione spetta all'utente. Le voci sotto registrano anche 
 
 **`.claude/context/deployment.md`**, milleduecento byte. Dichiara di non essere applicabile allo stato attuale e ha il campo dei percorsi coperti vuoto. È parte del pacchetto di schede del template e la sua assenza cambierebbe il conto delle schede: va tenuto, ma sapendo che è un segnaposto e non un documento.
 
-**Le note generate sotto `docs/fonti/`** non vanno cancellate una a una ma rigenerate: se una di esse non corrisponde più alla tabella che la produce, il rimedio è rilanciare lo strumento.
+**Le note generate sotto `docs/mappa-fonti/`** non vanno cancellate una a una ma rigenerate: se una di esse non corrisponde più alla tabella che la produce, il rimedio è rilanciare lo strumento.
 
 L'audit del 2026-09-24 ha trovato sette gruppi di file byte per byte identici fra file tracciati. Cinque sono copie istanziate di strumenti del template accanto alle loro sorgenti, uno è la configurazione LaTeX istanziata e uno è una coppia di fixture di prova: l'identità dei byte non li rende superflui, perché hanno ruoli e percorsi diversi. Non è emerso un file da cancellare senza perdere una funzione o una prova; nessuna cancellazione è stata eseguita.
 

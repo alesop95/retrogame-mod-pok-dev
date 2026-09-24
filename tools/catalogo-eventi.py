@@ -28,7 +28,7 @@ documento incompleto, perché toglie a chi lo legge la possibilità di colmarle.
 
 Uso
 ---
-    python tools/catalogo-eventi.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex
+    python tools/catalogo-eventi.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex
     python tools/catalogo-eventi.py --ace ... --pkhex ... --check
 
 Il secondo modo non scrive nulla e riferisce se il documento in repository sia allineato alle

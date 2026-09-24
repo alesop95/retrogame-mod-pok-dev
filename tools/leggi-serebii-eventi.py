@@ -66,7 +66,7 @@ import urllib.request
 from html import unescape
 
 RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CACHE = os.path.join(RADICE, "_notes", "fonti", "serebii")
+CACHE = os.path.join(RADICE, "_notes", "fonti", "raccolte", "serebii")
 MAPPA = os.path.join(CACHE, "mappa.json")
 USCITA = os.path.join(RADICE, "pokedex-home-completo", "CENSIMENTO-SEREBII.md")
 TABELLA = os.path.join(RADICE, "pokedex-home-completo", "data", "serebii-eventi.csv")
@@ -585,7 +585,7 @@ def main(argv=None):
         # Le specie che l'archivio conosce e la nostra enumerazione no, misurate il 2026-09-07.
         bersaglio = {23, 252, 258, 270, 292, 332, 336, 353, 358, 367, 368, 396, 513, 515}
         nomi = {}
-        percorso = os.path.join(RADICE, "_notes", "fonti", "pkhex", "PKHeX.Core", "Resources",
+        percorso = os.path.join(RADICE, "_notes", "fonti", "cloni", "pkhex", "PKHeX.Core", "Resources",
                                 "text", "other", "it", "text_Species_it.txt")
         if os.path.exists(percorso):
             nomi = dict(enumerate(io.open(percorso, encoding="utf-8").read().splitlines()))

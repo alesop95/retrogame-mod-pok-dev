@@ -8,7 +8,7 @@ generazione in un salvataggio di quarta applica davvero la trasformazione del Pa
 passaggio a vuoto: un Mew normale diventa Legale con il luogo scritto come Parco Amici, un
 esemplare non schiuso si schiude, un esemplare con una macchina nascosta perde la mossa invece di
 essere rifiutato. Questo modulo rifa' la stessa trasformazione leggendo il sorgente vero del
-verificatore, `PK3.ConvertToPK4()` in `_notes/fonti/pkhex/PKHeX.Core/PKM/PK3.cs`, cosi' da
+verificatore, `PK3.ConvertToPK4()` in `_notes/fonti/cloni/pkhex/PKHeX.Core/PKM/PK3.cs`, cosi' da
 produrre l'esemplare di quarta generazione senza passare da alcuna console o emulatore.
 
 Le mutazioni, una per una, con la loro fonte
@@ -33,7 +33,7 @@ e' il campo `Version`, che resta quello originale e non viene toccato da questa 
 
 Il contrassegno di uovo si spegne sempre. Un esemplare non schiuso viene fatto schiudere: la specie,
 le mosse e i valori individuali non cambiano (verificato il 2026-09-16 trascinando
-`_notes/lotto-eventi/127-PichuwithTeeterDance-Pichu.pk3`, che dopo la conversione resta un Pichu
+`_notes/lotti/lotto-eventi/127-PichuwithTeeterDance-Pichu.pk3`, che dopo la conversione resta un Pichu
 con le stesse mosse e lo stesso livello, con la sola casella "Da un Uovo" spuntata prima e vuota
 dopo), e il soprannome diventa il nome della specie nella lingua dell'esemplare, da
 `SpeciesName.GetSpeciesNameGeneration`.
@@ -81,7 +81,7 @@ from . import charmap as charmap_mod
 from .gen3 import Gen3Mon
 
 RADICE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-PKHEX_DEFAULT = os.path.join(RADICE, "_notes", "fonti", "pkhex")
+PKHEX_DEFAULT = os.path.join(RADICE, "_notes", "fonti", "cloni", "pkhex")
 
 # Da PersonalInfo3.MachineMovesHidden, letto il 2026-09-16.
 MACCHINE_NASCOSTE_GEN3 = frozenset({15, 19, 57, 70, 148, 249, 127, 291})

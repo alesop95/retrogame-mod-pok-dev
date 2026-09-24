@@ -23,7 +23,7 @@ Non calcola il piano a cui sostituire chi conduce, perche' quello dipende dai pu
 Uso
 ---
 
-    python gba-save-extraction-smeraldo/tools/parco_lotta_piramide_ordine.py --sorgente <clone di pret/pokeemerald> --giri _notes/fonti/parco-lotta-spoglio-2026-09-21/piramide-giri.json --catalogo gba-save-extraction-smeraldo/squadre-parco-lotta.json --out _notes/fonti/parco-lotta-spoglio-2026-09-21/PIRAMIDE-ORDINE.md
+    python gba-save-extraction-smeraldo/tools/parco_lotta_piramide_ordine.py --sorgente <clone di pret/pokeemerald> --giri _notes/fonti/raccolte/parco-lotta-spoglio-2026-09-21/piramide-giri.json --catalogo gba-save-extraction-smeraldo/squadre-parco-lotta.json --out _notes/fonti/raccolte/parco-lotta-spoglio-2026-09-21/PIRAMIDE-ORDINE.md
 """
 
 import argparse

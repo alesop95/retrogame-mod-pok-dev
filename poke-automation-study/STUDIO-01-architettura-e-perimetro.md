@@ -42,7 +42,7 @@ Le pagine per sviluppatori su confronto di immagini e riconoscimento ottico dei 
 
 | Cosa cerchi | Dove sta |
 |---|---|
-| la fonte, con abstract e relazioni | `docs/fonti/pokemon-automation.md` |
+| la fonte, con abstract e relazioni | `docs/mappa-fonti/pokemon-automation.md` |
 | lo stato del track e le tre letture possibili | `.claude/context/sub-poke-automation.md` |
 | le domande aperte e le pendenze | `.claude/memory/pending.md` |
 | il confronto fra le opzioni del ponte, dove il microcontrollore è l'opzione D | `docs/30-opzioni-implementative.md` |

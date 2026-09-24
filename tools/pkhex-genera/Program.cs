@@ -1,4 +1,4 @@
-// Generatore del progetto sulla libreria del verificatore, compilata dal clone in _notes/fonti/pkhex.
+// Generatore del progetto sulla libreria del verificatore, compilata dal clone in _notes/fonti/cloni/pkhex.
 //
 // Perche' esiste. ADR-080 chiede circa trecentocinquanta esemplari di terza generazione da sette giochi,
 // Ombra di XD compresi, e riscrivere in Python la generazione di ciascuna classe d'incontro vorrebbe dire

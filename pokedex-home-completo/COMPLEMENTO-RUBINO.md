@@ -1,6 +1,6 @@
 # Il complemento di terza generazione per il Rubino di prova
 
-> Documento generato da `tools/complemento-rubino-md.py` dal rapporto di `tools/pkhex-genera`. Non si modifica a mano: si rigenera. I file stanno in `_notes/lotto-complemento-rubino/esemplari/`, fuori da git; le richieste da cui nascono le scrive `tools/manifesto-complemento-rubino.py`, e il ragionamento sta in `STUDIO-10-la-libreria-del-verificatore-come-generatore.md`.
+> Documento generato da `tools/complemento-rubino-md.py` dal rapporto di `tools/pkhex-genera`. Non si modifica a mano: si rigenera. I file stanno in `_notes/lotti/lotto-complemento-rubino/esemplari/`, fuori da git; le richieste da cui nascono le scrive `tools/manifesto-complemento-rubino.py`, e il ragionamento sta in `STUDIO-10-la-libreria-del-verificatore-come-generatore.md`.
 
 Esemplari generati e giudicati legali dalla libreria del verificatore: 376 su 376 richieste.
 

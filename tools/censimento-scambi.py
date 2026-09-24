@@ -64,8 +64,8 @@ esemplare riproducibile byte per byte resta comunque non scrivibile.
 
 Uso
 ---
-    python tools/censimento-scambi.py --pkhex _notes/fonti/pkhex
-    python tools/censimento-scambi.py --pkhex _notes/fonti/pkhex --check
+    python tools/censimento-scambi.py --pkhex _notes/fonti/cloni/pkhex
+    python tools/censimento-scambi.py --pkhex _notes/fonti/cloni/pkhex --check
     python tools/censimento-scambi.py --self-test
 """
 
@@ -751,7 +751,7 @@ def main(argv=None):
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--pkhex", default=os.path.join("_notes", "fonti", "pkhex"),
+    ap.add_argument("--pkhex", default=os.path.join("_notes", "fonti", "cloni", "pkhex"),
                     help="il clone del verificatore da cui leggere le tabelle")
     ap.add_argument("--check", action="store_true",
                     help="non scrive: dice soltanto se i documenti sul disco siano allineati")

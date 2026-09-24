@@ -66,15 +66,15 @@ USCITA = os.path.join(RADICE, "pokedex-home-completo", "INDICE-FOGLI-ESTERNI.md"
 # alla radice del repository, perche' le prime due sono arrivate come consegna dell'utente e le
 # altre due sono state scaricate dai collegamenti del corpus e stanno quindi fra le fonti.
 FOGLI = [
-    (os.path.join("_notes", "spreadsheets e passaggi home",
+    (os.path.join("_notes", "fonti", "consegne", "spreadsheets-home",
                   "Bank Closing all possible things checklist V0.5.xlsx"),
      "le sfide del deposito e gli assi della collezione, dal cluster della chiusura della banca"),
-    (os.path.join("_notes", "spreadsheets e passaggi home",
+    (os.path.join("_notes", "fonti", "consegne", "spreadsheets-home",
                   "Pokémon Master Dex and Retro Dex Challenges.xlsx"),
      "le due sfide del catalogo, con la scheda dei rimandi"),
-    (os.path.join("_notes", "fonti", "2026-09-08-foglio-ingame-events-chaboijish.xlsx"),
+    (os.path.join("_notes", "fonti", "consegne", "2026-09-08-foglio-ingame-events-chaboijish.xlsx"),
      "gli esemplari da evento interno al gioco, di ChaBoiJish, dal cluster delle enumerazioni trasversali"),
-    (os.path.join("_notes", "fonti", "2026-09-08-foglio-scambi-e-doni-greenpangolin17.xlsx"),
+    (os.path.join("_notes", "fonti", "consegne", "2026-09-08-foglio-scambi-e-doni-greenpangolin17.xlsx"),
      "gli scambi in gioco, i doni e gli esemplari interagibili, di greenpangolin17, dal medesimo cluster"),
 ]
 
@@ -183,7 +183,7 @@ def scheletro(percorso):
 def componi(inventario):
     """Il documento di Livello 1, che e' cio' che entra in git al posto dei file binari."""
     r = ["# Indice delle cartelle di calcolo esterne della collezione", ""]
-    r.append("> Documento generato da `tools/leggi-foglio-google.py`. Non si modifica a mano: si rigenera. E' lo scheletro di Livello 1 delle cartelle di calcolo che il corpus della collezione porta e che stanno in `_notes/spreadsheets e passaggi home/`, cioe' fuori dal version control perche' sono file di terzi. Serve a decidere quale scheda valga la lettura, non a sostituirla.")
+    r.append("> Documento generato da `tools/leggi-foglio-google.py`. Non si modifica a mano: si rigenera. E' lo scheletro di Livello 1 delle cartelle di calcolo che il corpus della collezione porta e che stanno in `_notes/fonti/consegne/spreadsheets-home/`, cioe' fuori dal version control perche' sono file di terzi. Serve a decidere quale scheda valga la lettura, non a sostituirla.")
     r.append("")
     r.append("Il riempimento e' la frazione di celle piene sulla griglia effettiva, e va letto come indizio della forma di una scheda: un valore basso indica una tabella sparsa o una scheda di sola prosa, un valore alto una enumerazione densa. Le caselle di spunta sono contate a parte perche' distinguono una enumerazione da leggere dallo stato di avanzamento di chi ha compilato il foglio, che a noi non serve. Un titolo dichiarato troncato ha esattamente trentuno caratteri, che e' il tetto del formato e non la fine del nome.")
     r.append("")

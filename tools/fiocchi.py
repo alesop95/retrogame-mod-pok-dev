@@ -227,15 +227,15 @@ def rapporto(pkhex):
     umani = nomi_umani(pkhex)
 
     lotti = {
-        "gen4": sorted(glob.glob(os.path.join(RADICE, "_notes", "lotto-gen4", "*.pk4"))),
-        "gen5": sorted(glob.glob(os.path.join(RADICE, "_notes", "lotto-gen5", "*.pk5"))),
+        "gen4": sorted(glob.glob(os.path.join(RADICE, "_notes", "lotti", "lotto-gen4", "*.pk4"))),
+        "gen5": sorted(glob.glob(os.path.join(RADICE, "_notes", "lotti", "lotto-gen5", "*.pk5"))),
     }
     conti = {}
     for et, percorsi in lotti.items():
         conti[et] = portati(percorsi, pos4)
 
-    g3 = sorted(glob.glob(os.path.join(RADICE, "_notes", "lotto-eventi", "*.pk3"))
-                + glob.glob(os.path.join(RADICE, "_notes", "lotto-incontri-gen3", "*.pk3")))
+    g3 = sorted(glob.glob(os.path.join(RADICE, "_notes", "lotti", "lotto-eventi", "*.pk3"))
+                + glob.glob(os.path.join(RADICE, "_notes", "lotti", "lotto-incontri-gen3", "*.pk3")))
     conto3, quanti3, ordine3 = portati_gen3(g3, pkhex)
 
     r = ["# L'asse dei fiocchi: enumerazione e copertura", ""]
@@ -431,7 +431,7 @@ def self_test():
 
 def main():
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    p.add_argument("--pkhex", default=os.path.join("_notes", "fonti", "pkhex"))
+    p.add_argument("--pkhex", default=os.path.join("_notes", "fonti", "cloni", "pkhex"))
     p.add_argument("--out", default=os.path.join("pokedex-home-completo", "FIOCCHI.md"))
     p.add_argument("--self-test", action="store_true")
     a = p.parse_args()

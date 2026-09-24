@@ -58,7 +58,7 @@ from pokebridge import charmap, gen3, save3  # noqa: E402
 NOTE = RADICE.joinpath("_notes")
 FIGURE = CARTELLA.joinpath("figure")
 USCITA = CARTELLA.joinpath("MAPPA-BOX-SMERALDO.md")
-PKHEX = NOTE.joinpath("fonti", "pkhex")
+PKHEX = NOTE.joinpath("fonti", "cloni", "pkhex")
 _SUGIMORI_RELATIVO = Path("My files", "Sugimori Pokémon Gen1-9 DLC3 Organized",
                           "Sugimori Pokémon Gen1-9 DLC3 Organized", "Pokémon By Generation")
 _SUGIMORI_TROVATI = sorted(Path.home().joinpath("Proton Drive").glob("*/" + _SUGIMORI_RELATIVO.as_posix()))
@@ -102,7 +102,7 @@ PROVENIENZE_RUBINO = [
 ETICHETTA = {k: e for k, e, _, _ in PROVENIENZE + PROVENIENZE_RUBINO}
 BANDA = {k: b for k, _, b, _ in PROVENIENZE + PROVENIENZE_RUBINO}
 LETTERE_UNOWN = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!?"
-RUBINO = RADICE.joinpath("_notes", "lotto-complemento-rubino", "esemplari")
+RUBINO = RADICE.joinpath("_notes", "lotti", "lotto-complemento-rubino", "esemplari")
 # Gli sfondi di Rubino sono sedici, nello stesso ordine di Smeraldo, e lo sfondo Amici non c'e': e' un'aggiunta
 # di Smeraldo, legata alla frase di Walda, e `gWallpaperTable` in `src/pokemon_storage_system_4.c` di pokeruby
 # elenca soltanto Forest, City, Desert, Savanna, Crag, Volcano, Snow, Cave, Beach, Seafloor, River, Sky,
@@ -138,7 +138,7 @@ FORME_DEOXYS = {"1": "Attack", "2": "Defense", "3": "Speed"}
 # La raccolta di Sugimori ha una sola illustrazione di Unown, la F, e con quella tutte le 28 caselle sembravano
 # la stessa lettera. Per Unown si usa l'artwork per forma che PKHeX porta con se', un file per lettera: la A e'
 # `a_201.png`, le altre `a_201-N.png` con N la forma, da 1 per la B a 27 per il punto interrogativo.
-ARTWORK_PKHEX = RADICE.joinpath("_notes", "fonti", "pkhex", "PKHeX.Drawing.PokeSprite", "Resources", "img", "Artwork Pokemon Sprites")
+ARTWORK_PKHEX = RADICE.joinpath("_notes", "fonti", "cloni", "pkhex", "PKHeX.Drawing.PokeSprite", "Resources", "img", "Artwork Pokemon Sprites")
 # Le note delle provenienze mescolano la storia della distribuzione con osservazioni sul lavoro del
 # progetto, cioe' su tabelle, verificatore e fonti. La stampa e' per chi guarda la collezione e ne
 # tiene soltanto la storia: una frase che nomina uno di questi termini resta nel catalogo degli eventi
@@ -176,7 +176,7 @@ def storie_degli_eventi():
     catalogo = _modulo(RADICE.joinpath("tools", "catalogo-eventi.py"), "catalogo_eventi")
     generatore = catalogo.carica_generatore()
     voci = generatore.voci_wc3(str(PKHEX))
-    interno = {v: k for k, v in generatore.nazionale_verso_interno(str(NOTE.joinpath("fonti", "ace-builder"))).items()}
+    interno = {v: k for k, v in generatore.nazionale_verso_interno(str(NOTE.joinpath("fonti", "cloni", "ace-builder"))).items()}
     provenienze = json.loads(Path(catalogo.PROVENIENZE).read_text(encoding="utf-8"))
     per_record = {}
     for f in sorted(NOTE.joinpath("lotto-eventi").glob("*.pk3")):
