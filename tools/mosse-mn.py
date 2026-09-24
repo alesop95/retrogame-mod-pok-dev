@@ -55,7 +55,7 @@ from pokebridge.gen3 import Gen3Mon             # noqa: E402
 from pokebridge.save3 import record_da_file     # noqa: E402
 
 USCITA = os.path.join(RADICE, "pokedex-home-completo", "MOSSE-MN.md")
-NORMALIZZATO = os.path.join(RADICE, "pokedex-home-completo", "mosse-mn.csv")
+NORMALIZZATO = os.path.join(RADICE, "pokedex-home-completo", "data", "mosse-mn.csv")
 
 # Le macchine nascoste per generazione, con il numero della mossa. I nomi vengono dalla pagina
 # enciclopedica dedicata alle macchine nascoste, letta il 2026-09-09; i numeri sono quelli della

@@ -103,7 +103,7 @@ ALTRI_DOCUMENTI = (
     "pokemon-gen12-gen3-bridge-original-hardware/README.md",
     "3ds-related/handoff/HANDOFF_progetto_3DS.md",
     "gba-save-extraction-smeraldo/handoff/HANDOFF_progetto_smeraldo.md",
-    "gba-switch-pokemon-trading/HANDOFF_frlg-ldn-trade.md",
+    "gba-switch-pokemon-trading/handoff/HANDOFF_frlg-ldn-trade.md",
 )
 
 

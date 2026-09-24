@@ -1,10 +1,10 @@
 # Mappa dei documenti del progetto
 
-> Documento autorato del 2026-09-08, aggiornato due volte il 2026-09-09. Nasce da una constatazione dell'utente, cioè che i file di testo sono diventati troppi per orientarsi. Non aggiunge contenuto: dice che cosa è ciascun file, chi lo scrive, e se qualcuno lo debba ancora aprire. È l'unico documento del progetto il cui scopo sia parlare degli altri documenti.
+> Documento autorato del 2026-09-08, aggiornato due volte il 2026-09-09 e ricontrollato il 2026-09-24. Nasce da una constatazione dell'utente, cioè che i file di testo sono diventati troppi per orientarsi. Non aggiunge contenuto: dice che cosa è ciascun file, chi lo scrive, e se qualcuno lo debba ancora aprire. È l'unico documento del progetto il cui scopo sia parlare degli altri documenti.
 
 ## Il criterio che governa tutto, e che spiega la maggior parte della confusione
 
-I quattrocentoquattro file Markdown del repository non sono quattrocentoquattro cose da leggere, e la ragione è che appartengono a cinque categorie che si comportano in modo opposto. Confonderle è ciò che rende il progetto illeggibile, perché induce ad aprire un file di novecentomila byte credendo che qualcuno lo abbia scritto.
+I quattrocentoquaranta file Markdown del repository, incluso il nuovo README pubblico, non sono quattrocentoquaranta cose da leggere, e la ragione è che appartengono a cinque categorie che si comportano in modo opposto. Confonderle è ciò che rende il progetto illeggibile, perché induce ad aprire un file di novecentomila byte credendo che qualcuno lo abbia scritto.
 
 I file **generati** si rigenerano con un comando e non si modificano mai a mano: contengono un elenco, e il loro valore è di essere completi e coerenti con la fonte, non di essere letti dall'inizio alla fine. Sono i più grossi del progetto e sono la ragione per cui la cartella sembra ingestibile. Ciascuno dichiara nella propria seconda riga da quale strumento nasce.
 
@@ -14,7 +14,7 @@ I file **normativi** vincolano il comportamento e vanno letti prima di agire nel
 
 I file **di stato** dicono a che punto è il progetto e si leggono a inizio sessione.
 
-I file **del template** stanno sotto `.claude/templates/` e non sono contenuto di questo progetto: sono il pacchetto di sistema da cui il progetto è istanziato. Sono centoquarantacinque, cioè più di un terzo del totale, e sono cresciuti di undici il 2026-09-09 quando la copia locale è stata riallineata al template con i quattro pacchetti che le mancavano, e nessuno di essi va aperto lavorando ai Pokémon.
+I file **del template** stanno sotto `.claude/templates/` e non sono contenuto di questo progetto: sono il pacchetto di sistema da cui il progetto è istanziato. Sono ora duecentosei file tracciati, di cui centoquaranta Markdown; erano cresciuti di undici il 2026-09-09 quando la copia locale è stata riallineata al template con i quattro pacchetti che le mancavano, e nessuno di essi va aperto lavorando ai Pokémon.
 
 ## Da dove si comincia, se si è persi
 
@@ -39,13 +39,13 @@ I due append-only sono grossi per costruzione e continueranno a crescere: non è
 
 Stanno tutte in `.claude/rules/` e si leggono prima di agire nell'area che governano, non a inizio sessione. Sono nove: la disciplina dell'hardware e il perimetro, che è la sola specifica di questo progetto ed è normativa su ogni operazione fisica; lo stile di interazione e di documentazione; le fonti web non recuperabili; il formato dei comandi git; l'identità git e il bootstrap del repository; gli screenshot per i passi manuali; la sicurezza e i permessi; l'economia dei token; e dal 2026-09-09 la regola che la chat non è memoria, cioè che nessun contenuto sostanziale resti nella sola conversazione e che i file si aggiornino nello stesso giro di lavoro in cui il contenuto nasce.
 
-`CLAUDE.md` alla radice le indicizza e descrive il progetto; `CLAUDE.local.md` non è tracciato.
+`CLAUDE.md` alla radice le indicizza e descrive il progetto; `CLAUDE.local.md` non è tracciato. Il `README.md` pubblico presenta i risultati tecnici e collega il registro e la mappa delle fonti; l'indice dei sottoprogetti al suo interno è generato da `tools/aggiorna-readme.py`.
 
 ## Le schede di contesto
 
 Sedici file sotto `.claude/context/`, di cui sei trasversali e dieci verticali, una per sottoprogetto. Una scheda verticale sta sotto le trenta righe e contiene stato, prossimo passo e decisioni aperte: è il terzo file da aprire e quasi sempre l'ultimo che serve.
 
-Va detto che una di esse non lo rispetta più: `sub-pokedex-home-completo.md` è arrivata a diciottomila byte, cioè sei volte il previsto, perché quel track è cresciuto molto in una settimana. Va potata riportando la conoscenza nei documenti del track e lasciando nella scheda il solo stato.
+`sub-pokedex-home-completo.md` era arrivata a diciottomila byte perché quel track era cresciuto molto in una settimana; è stata potata il 2026-09-09 trasferendo la conoscenza nei documenti del track. Resta più lunga delle altre e va consultata per sezioni, senza ripetere il racconto nei nuovi aggiornamenti.
 
 ## Il percorso di studio, ventuno file sotto `docs/`
 
@@ -53,7 +53,7 @@ Sono conoscenza tecnica autorata, numerati per ordine di lettura e non per impor
 
 Due sono molto più grossi degli altri e vale sapere perché prima di aprirli: `docs/22-strumenti.md` è il catalogo di tutti gli strumenti con le loro procedure, e `docs/40-appendice-matematica.md` raccoglie le dispense che finiscono in appendice alla tesi. Si consultano per punti, non si leggono in sequenza.
 
-Sotto `docs/fonti/` stanno centotrentuno note, di cui la stragrande maggioranza generata: `index-fonti.md` è la mappa relazionale generata dalla tabella delle fonti, e `collezione/` sono le quarantatre note del corpus della collezione, generate da `tools/censimento-fonti-reddit.py`. Aprendo la radice come vault Obsidian diventano un grafo.
+Sotto `docs/fonti/` stanno centocinquantasette note Markdown tracciate, di cui la stragrande maggioranza generata: `index-fonti.md` è la mappa relazionale generata dalla tabella delle fonti, e `collezione/` sono le quarantatre note del corpus della collezione, generate da `tools/censimento-fonti-reddit.py`. Aprendo la radice come vault Obsidian diventano un grafo.
 
 ## I file generati, che nessuno scrive
 
@@ -95,7 +95,7 @@ Sommano oltre tre megabyte, cioè la quasi totalità del peso testuale del proge
 
 ## Il registro delle fonti
 
-`SOURCES.md` è uno solo, alla radice, e vale la pena dire che cosa è diventato: duemilasettecentottantadue righe, di cui milleduecentonovantanove voci dal corpus della collezione. Dal 2026-09-09 dichiara la propria struttura in una sezione apposita, che distingue i cinque livelli di affidabilità dalle quattro sezioni che sono un taglio diverso dello stesso materiale. La sua struttura è descritta dentro di esso, nella sezione apposita, e non si riassume qui per non avere due descrizioni della stessa cosa. Dal 2026-09-10 porta in testa un blocco generato da `tools/indice-fonti-unico.py`, delimitato da due commenti HTML e da non modificare a mano, che mette ogni fonte registrata accanto al documento del progetto che la usa e al capitolo di tesi che la cita, e ogni cluster del corpus accanto al proprio stato di lettura: risolve la domanda che nessun file risolveva, cioè dove sia finito ciò che una fonte ha dato.
+`SOURCES.md` è uno solo, alla radice, e vale la pena dire che cosa è diventato: oltre tremila righe alla ricognizione del 2026-09-24, di cui milleduecentonovantanove voci dal corpus della collezione. Dal 2026-09-09 dichiara la propria struttura in una sezione apposita, che distingue i cinque livelli di affidabilità dalle quattro sezioni che sono un taglio diverso dello stesso materiale. La sua struttura è descritta dentro di esso, nella sezione apposita, e non si riassume qui per non avere due descrizioni della stessa cosa. Dal 2026-09-10 porta in testa un blocco generato da `tools/indice-fonti-unico.py`, delimitato da due commenti HTML e da non modificare a mano, che mette ogni fonte registrata accanto al documento del progetto che la usa e al capitolo di tesi che la cita, e ogni cluster del corpus accanto al proprio stato di lettura: risolve la domanda che nessun file risolveva, cioè dove sia finito ciò che una fonte ha dato.
 
 ## Gli studi e le referenze autorate, che sono i file da leggere
 
@@ -105,11 +105,11 @@ Ciascun sottoprogetto ha un `README.md` che elenca i propri file: è quello il p
 
 ## Gli handoff, che sono storia e non stato
 
-Quattro file sotto `3ds-related/handoff/` e `gba-save-extraction-smeraldo/handoff/`, più quello del track dello scambio locale. Contengono procedure e troubleshooting, non stato, e si aprono soltanto quando serve la procedura. Il track del ponte non ne ha più uno perché la sua conoscenza è stata assorbita nella referenza dei formati, come registrato in ADR-013.
+Quattro file sotto `3ds-related/handoff/` e `gba-save-extraction-smeraldo/handoff/`, più quello in `gba-switch-pokemon-trading/handoff/`. Contengono procedure e troubleshooting, non stato, e si aprono soltanto quando serve la procedura. Il track del ponte non ne ha più uno perché la sua conoscenza è stata assorbita nella referenza dei formati, come registrato in ADR-013.
 
 ## I candidati alla rimozione, con il loro perché
 
-Nessuno di questi è stato cancellato: la decisione è dell'utente e questa sezione esiste per prenderla con i fatti davanti. Tutti restano comunque nella storia del repository.
+La decisione su una rimozione spetta all'utente. Le voci sotto registrano anche i casi già decisi, così che non si ricreino per errore.
 
 **`resume-prompt.md`**, alla radice: RIMOSSO il 2026-09-14 su decisione dell'utente, che lo ha cancellato perche' due file di ripresa creano confusione. La fonte di verita' unica della ripresa e' `_notes/resume-prompt.md`, che git esclude e che si riscrive alla fine di ogni giro sostanziale; le due parti del file rimosso che non erano duplicate, cioe' le quattro discipline e i vincoli che non si negoziano, sono state fuse dentro di esso prima della rimozione. La voce resta qui e non sparisce perche' la mappa deve dire anche che cosa non c'e' piu' e perche': un documento cancellato in silenzio e' indistinguibile da uno dimenticato, e la sessione successiva lo ricrearebbe.
 
@@ -117,6 +117,8 @@ Nessuno di questi è stato cancellato: la decisione è dell'utente e questa sezi
 
 **Le note generate sotto `docs/fonti/`** non vanno cancellate una a una ma rigenerate: se una di esse non corrisponde più alla tabella che la produce, il rimedio è rilanciare lo strumento.
 
+L'audit del 2026-09-24 ha trovato sette gruppi di file byte per byte identici fra file tracciati. Cinque sono copie istanziate di strumenti del template accanto alle loro sorgenti, uno è la configurazione LaTeX istanziata e uno è una coppia di fixture di prova: l'identità dei byte non li rende superflui, perché hanno ruoli e percorsi diversi. Non è emerso un file da cancellare senza perdere una funzione o una prova; nessuna cancellazione è stata eseguita.
+
 ## Che cosa manca a questa mappa, dichiarato
 
-Non copre `.claude/templates/`, che è il pacchetto di sistema e ha un proprio indice in `.claude/templates/PACKAGES.md`. Non copre i file non tracciati sotto `_notes/`, che sono materiale grezzo e locale per costruzione. E non è generata: va aggiornata a mano quando un documento nasce o muore, il che la espone allo stesso invecchiamento che essa imputa al prompt di ripresa. Se un giorno i documenti crescono ancora, la si genera da uno strumento che legga le intestazioni.
+Non copre `.claude/templates/`, che è il pacchetto di sistema e ha un proprio indice in `.claude/templates/PACKAGES.md`. Non copre i file non tracciati sotto `_notes/`, che sono materiale grezzo e locale per costruzione. Le dodici tabelle CSV del track Home stanno ora in `pokedex-home-completo/data/` e restano elencate nel README del track. Questa mappa non è generata: va aggiornata a mano quando un documento nasce o muore, il che la espone allo stesso invecchiamento che essa imputa al prompt di ripresa. Se un giorno i documenti crescono ancora, la si genera da uno strumento che legga le intestazioni.

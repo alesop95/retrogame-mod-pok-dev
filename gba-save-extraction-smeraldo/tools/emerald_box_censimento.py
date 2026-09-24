@@ -141,6 +141,7 @@ def scrivi(percorso, sorgente, box, servono):
 
     r = ["# Censimento dell'occupazione dei box del deposito", "",
          "> Generato in sola lettura da `gba-save-extraction-smeraldo/tools/emerald_box_censimento.py` su `%s`. Nessun byte e' stato scritto. Si rigenera a ogni nuovo dump, e va letto accanto a `PIANO-BOX.md`, che dice quante posizioni servono." % Path(sorgente).name, "",
+         "`<AMICO>` maschera il nome di una terza persona nel titolo di un box; il salvataggio non e' stato modificato.", "",
          "## La risposta in una riga", ""]
     if vuoti:
         r.append("Servono **%d** posizioni. Box completamente vuoti: **%d**, cioe' %s. Una scrittura che atterri in uno di questi non sposta nulla, ed e' la collocazione da preferire." % (
@@ -158,7 +159,8 @@ def scrivi(percorso, sorgente, box, servono):
     r.append("| Box | Nome | Occupate | Libere |")
     r.append("|---|---|---|---|")
     for b in box:
-        r.append("| %d | %s | %d | %d |" % (b["indice"] + 1, b["nome"] or "(senza nome)", b["occupate"], b["libere"]))
+        nome_pubblico = "X <AMICO>" if b["nome"].startswith("X ") else (b["nome"] or "(senza nome)")
+        r.append("| %d | %s | %d | %d |" % (b["indice"] + 1, nome_pubblico, b["occupate"], b["libere"]))
     r.append("")
     Path(percorso).write_text(accenta("\n".join(r)) + "\n", encoding="utf-8")
 

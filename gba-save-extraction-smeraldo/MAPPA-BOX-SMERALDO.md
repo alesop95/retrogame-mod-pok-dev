@@ -1,5 +1,7 @@
 <!-- generato da gba-save-extraction-smeraldo/tools/emerald_mappa_box.py: non si modifica a mano -->
 
+`<AMICO>` maschera il nome di un allenatore terzo nella mappa pubblica; i record del salvataggio non sono cambiati.
+
 ## Legenda e riepilogo
 
 | Colore | Provenienza | Esemplari |
