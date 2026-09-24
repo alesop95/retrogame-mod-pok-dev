@@ -78,7 +78,7 @@ costante dichiarata quando non la dichiara.
 Uso
 ---
     python tools/genera-evento-gen5.py --pkhex _notes/fonti/cloni/pkhex
-    python tools/genera-evento-gen5.py --pkhex <clone> --lotto _notes/lotti/lotto-gen5
+    python tools/genera-evento-gen5.py --pkhex <clone> --lotto _notes/lotti/lotto-eventi-gen5
     python tools/genera-evento-gen5.py --self-test
 """
 

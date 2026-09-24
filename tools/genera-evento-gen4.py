@@ -65,7 +65,7 @@ stesso allenatore riscrive file identici, ed e' il requisito che il pedigree imp
 Uso
 ---
     python tools/genera-evento-gen4.py --pkhex _notes/fonti/cloni/pkhex
-    python tools/genera-evento-gen4.py --pkhex <clone> --lotto _notes/lotti/lotto-gen4
+    python tools/genera-evento-gen4.py --pkhex <clone> --lotto _notes/lotti/lotto-eventi-gen4
     python tools/genera-evento-gen4.py --self-test
 """
 

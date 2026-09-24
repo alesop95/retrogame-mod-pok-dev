@@ -44,7 +44,7 @@ GUIDA = CARTELLA.joinpath("GUIDA-PARCO-LOTTA.md")
 LOTTO = RADICE.joinpath("_notes", "lotti", "lotto-parco-lotta")
 # Dal 2026-09-23 il dump e' quello del deposito intero, `round 4`, che contiene l'ottavo giro del lotto
 # in copia unica; si accoppia al manifesto corrente per personalita'.
-_DUMP_TROVATI = sorted(RADICE.joinpath("_notes").glob("backup salvataggi pok* cartucce vere/smeraldo/dump-pkhex/Box Data Dump smeraldo vero ALEX-45761 - round 6.csv"))
+_DUMP_TROVATI = sorted(RADICE.joinpath("_notes").glob("salvataggi/cartucce/smeraldo/dump-pkhex/Box Data Dump smeraldo vero ALEX-45761 - round 6.csv"))
 DUMP = Path(os.environ["SMERALDO_DUMP_CSV"]) if "SMERALDO_DUMP_CSV" in os.environ else (
     _DUMP_TROVATI[0] if len(_DUMP_TROVATI) == 1 else RADICE.joinpath("_notes", "ARCHIVIO_PRIVATO_NON_TROVATO"))
 # Il manifesto del giro a cui il dump appartiene, e non quello corrente: il dump si accoppia al lotto
