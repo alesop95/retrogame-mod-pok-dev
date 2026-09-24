@@ -34,6 +34,7 @@ import importlib.util
 import json
 import re
 import subprocess
+import textwrap
 import sys
 from pathlib import Path
 
@@ -79,7 +80,7 @@ PROVENIENZE = [
 # Il Rubino di prova riceve il complemento di ADR-080, e le sue provenienze sono altre; hanno una legenda
 # propria, quindi riusano gli otto colori della tavolozza nello stesso ordine fisso.
 PROVENIENZE_RUBINO = [
-    ("r-statico", "Incontri statici, doni e uova", "Statico o dono", "#2a78d6"),
+    ("r-statico", "Incontri statici, doni, uova e incontri speciali", "Statico, dono o speciale", "#2a78d6"),
     ("r-esclusivo", "Esclusivi di versione", "Esclusivo", "#eb6834"),
     ("r-specie", "Specie che completano il Pokédex", "Pokédex", "#1baf7a"),
     ("r-portatore", "Mosse perdute e fiocchi", "Mossa o fiocchi", "#eda100"),
@@ -92,6 +93,32 @@ ETICHETTA = {k: e for k, e, _, _ in PROVENIENZE + PROVENIENZE_RUBINO}
 BANDA = {k: b for k, _, b, _ in PROVENIENZE + PROVENIENZE_RUBINO}
 LETTERE_UNOWN = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!?"
 RUBINO = RADICE.joinpath("_notes", "lotto-complemento-rubino", "esemplari")
+# Gli sfondi di Rubino sono sedici, nello stesso ordine di Smeraldo, e lo sfondo Amici non c'e': e' un'aggiunta
+# di Smeraldo, legata alla frase di Walda, e `gWallpaperTable` in `src/pokemon_storage_system_4.c` di pokeruby
+# elenca soltanto Forest, City, Desert, Savanna, Crag, Volcano, Snow, Cave, Beach, Seafloor, River, Sky,
+# Polkadot, Pokecenter, Machine e Plain. Ogni box prende il primo sfondo libero fra quelli pensati per il
+# gruppo che vi prevale: citta' e centro per gli statici, savana per gli esclusivi, i paesaggi per il
+# Pokedex, il pois per gli Unown, il deserto e il vulcano per Colosseum, che si gioca nel deserto di Orre,
+# la macchina e il fondale per XD, il cielo per l'evento.
+NOMI_SFONDI_RUBINO = ["Forest", "City", "Desert", "Savanna", "Crag", "Volcano", "Snow", "Cave", "Beach", "Seafloor", "River",
+                      "Sky", "Polkadot", "Pokecenter", "Machine", "Plain"]
+SFONDI_PER_GRUPPO = {"r-statico": [1, 13], "r-esclusivo": [3, 4], "r-specie": [0, 10, 8, 6], "r-portatore": [15, 7],
+                     "r-unown": [12, 4], "r-colosseum": [2, 5], "r-xd": [14, 9, 7], "r-evento": [11]}
+
+
+def sfondi_rubino(per_box):
+    """Lo sfondo di ciascun box del Rubino, dal gruppo che vi prevale, senza ripetere uno sfondo gia' usato."""
+    usati, fuori = set(), []
+    for contenuto in per_box:
+        conti = collections.Counter(v["provenienza"] for v in contenuto if v)
+        # prima gli sfondi del gruppo che prevale, poi quelli degli altri gruppi presenti nel box
+        candidati = [x for g, _ in conti.most_common() for x in SFONDI_PER_GRUPPO[g]]
+        scelta = next((x for x in candidati if x not in usati), None)
+        if scelta is None:
+            scelta = next(x for x in range(16) if x not in usati)
+        usati.add(scelta)
+        fuori.append(scelta)
+    return fuori
 USCITA_RUBINO = CARTELLA.joinpath("MAPPA-BOX-RUBINO.md")
 STAMPA = CARTELLA.joinpath("MAPPA-BOX-COLLEZIONE")
 NERO = "#000000"
@@ -265,9 +292,14 @@ def figura(titolo, voci, indice, forme, cache, uscita):
         ax.text(c + 0.1, y0 + 0.13, str(n), fontsize=8, color=NERO, va="center")
         if not v:
             continue
-        ax.add_patch(FancyBboxPatch((c + 0.04, y0 + 0.82), 0.92, 0.14, boxstyle="round,pad=0,rounding_size=0.04",
+        # L'etichetta porta il nome intero dell'evento: va a capo su due righe, e su tre con un corpo piu'
+        # piccolo, invece di essere troncata con i puntini, che era il difetto della prima stampa.
+        righe_banda = textwrap.wrap(v["banda"], 34) or [""]
+        corpo_banda = 6.4 if len(righe_banda) <= 2 else 5.4
+        ax.add_patch(FancyBboxPatch((c + 0.04, y0 + 0.76), 0.92, 0.20, boxstyle="round,pad=0,rounding_size=0.04",
                                     facecolor=TINTA[v["provenienza"]], edgecolor="none"))
-        ax.text(c + 0.5, y0 + 0.89, v["banda"], fontsize=6.8, color=NERO, ha="center", va="center")
+        ax.text(c + 0.5, y0 + 0.86, "\n".join(righe_banda[:3]), fontsize=corpo_banda, color=NERO, ha="center", va="center",
+                linespacing=1.05)
         percorso = indice.get(v["nazionale"])
         if v["nazionale"] == 386 and v["forma"] in FORME_DEOXYS:
             alternativa = forme.joinpath("0386 Deoxys %s.png" % FORME_DEOXYS[v["forma"]])
@@ -275,12 +307,12 @@ def figura(titolo, voci, indice, forme, cache, uscita):
         if percorso:
             # la griglia riempie il foglio, quindi un'unita' orizzontale e una verticale non hanno la stessa
             # lunghezza: il lato orizzontale dell'immagine si corregge perche' l'illustrazione resti in proporzione
-            lato = 0.46
+            lato = 0.42
             largo = lato * (8.27 * 0.96 / 5.3) / (11.69 * 0.96 / COLONNE)
-            ax.imshow(miniatura(percorso, cache), extent=(c + 0.5 - largo / 2, c + 0.5 + largo / 2, y0 + 0.08 + lato, y0 + 0.08),
+            ax.imshow(miniatura(percorso, cache), extent=(c + 0.5 - largo / 2, c + 0.5 + largo / 2, y0 + 0.07 + lato, y0 + 0.07),
                       zorder=3, aspect="auto")
-        ax.text(c + 0.5, y0 + 0.63, v["specie"], fontsize=9, color=NERO, ha="center", va="center", fontweight="bold")
-        ax.text(c + 0.5, y0 + 0.74, ("Uovo   %s" if v["uovo"] else "Liv. %s   %%s" % v["livello"]) % v["allenatore"], fontsize=7.4, color=NERO,
+        ax.text(c + 0.5, y0 + 0.58, v["specie"], fontsize=9, color=NERO, ha="center", va="center", fontweight="bold")
+        ax.text(c + 0.5, y0 + 0.68, ("Uovo   %s" if v["uovo"] else "Liv. %s   %%s" % v["livello"]) % v["allenatore"], fontsize=7.4, color=NERO,
                 ha="center", va="center")
     fig.savefig(uscita, dpi=170, facecolor=SUPERFICIE, metadata={"Software": None})
     plt.close(fig)
@@ -288,7 +320,7 @@ def figura(titolo, voci, indice, forme, cache, uscita):
 
 def gruppo_rubino(motivo):
     """La provenienza di una richiesta del complemento, dal motivo che il manifesto le ha scritto."""
-    for prefisso, chiave in (("statico", "r-statico"), ("esclusivo", "r-esclusivo"), ("specie", "r-specie"), ("mossa", "r-portatore"),
+    for prefisso, chiave in (("statico", "r-statico"), ("incontro speciale", "r-statico"), ("esclusivo", "r-esclusivo"), ("specie", "r-specie"), ("mossa", "r-portatore"),
                              ("fiocchi", "r-portatore"), ("forma di Unown", "r-unown"), ("evento", "r-evento")):
         if motivo.startswith(prefisso):
             return chiave
@@ -307,7 +339,12 @@ def disposizione_rubino():
     voci = []
     for e in rapporto["esiti"]:
         chiave = gruppo_rubino(e["motivo"])
-        forma = int(e["motivo"].rsplit(" ", 1)[1]) if chiave == "r-unown" else 0
+        # la lettera di Unown si ricava dalla personalita' del file, come fa il gioco, e non dall'etichetta della
+        # richiesta: il primo lotto aveva etichette da A a ? su 28 esemplari che erano tutti A
+        forma = 0
+        if chiave == "r-unown":
+            pid = gen3.Gen3Mon.from_bytes(save3.record_da_file(RUBINO.joinpath(e["file"]).read_bytes())).personality
+            forma = (((pid >> 24) & 3) << 6 | ((pid >> 16) & 3) << 4 | ((pid >> 8) & 3) << 2 | (pid & 3)) % 28
         dettaglio = e["motivo"].split(",", 1)[1].strip() if "," in e["motivo"] else e["motivo"]
         voci.append({"specie": nomi[e["specie"]] + (" " + LETTERE_UNOWN[forma] if chiave == "r-unown" else ""),
                      "nazionale": e["specie"], "forma": str(forma), "soprannome": "", "uovo": False,
@@ -372,7 +409,6 @@ def main():
         elif provenienza == "evento":
             prov, identita = provenienza_evento(chiave, commento, provenienze)
             banda = prov["nome"] if prov else "Evento"
-            banda = banda if len(banda) <= 26 else banda[:25].rstrip(" ,") + "…"
             dettaglio = racconto(chiave, prov, riga)
             chiave = identita
         elif provenienza == "biglietto":
@@ -426,8 +462,10 @@ def main():
     for b, contenuto in enumerate(per_box_r, start=1):
         figura("Rubino, box %d (previsto)" % b, contenuto, indice, forme, cache, FIGURE.joinpath("mappa-rubino-box-%02d.png" % b))
     conteggio_r = collections.Counter(v["provenienza"] for v in voci_r)
+    sfondi_r = sfondi_rubino(per_box_r)
     riepilogo_r = [(b, "; ".join("%s %d" % (ETICHETTA[k], collections.Counter(v["provenienza"] for v in c if v)[k])
-                                 for k, _, _, _ in PROVENIENZE_RUBINO if collections.Counter(v["provenienza"] for v in c if v)[k]), "da decidere")
+                                 for k, _, _, _ in PROVENIENZE_RUBINO if collections.Counter(v["provenienza"] for v in c if v)[k]),
+                    NOMI_SFONDI_RUBINO[sfondi_r[b - 1]])
                    for b, c in enumerate(per_box_r, start=1)]
     nota_r = ("Disposizione prevista del complemento di ADR-080, non ancora scritta: il Rubino di prova non è a portata di mano. "
               "La squadra di inizio partita resta quella che la cartuccia ha, e le scatole oltre queste restano vuote.")
