@@ -67,7 +67,7 @@ il lotto resta quindi in attesa non solo del giudizio ma anche del veicolo su cu
 
 Uso
 ---
-    python tools/genera-scambio-gen5.py --pkhex _notes/fonti/pkhex --lotto _notes/lotto-scambi-gen5
+    python tools/genera-scambio-gen5.py --pkhex _notes/fonti/cloni/pkhex --lotto _notes/lotti/lotto-scambi-gen5
     python tools/genera-scambio-gen5.py --self-test
 """
 
@@ -367,7 +367,7 @@ def self_test():
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--pkhex", default=os.path.join("_notes", "fonti", "pkhex"))
+    ap.add_argument("--pkhex", default=os.path.join("_notes", "fonti", "cloni", "pkhex"))
     ap.add_argument("--lotto", help="cartella in cui scrivere gli esemplari")
     ap.add_argument("--self-test", action="store_true", dest="self_test")
     a = ap.parse_args()

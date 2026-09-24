@@ -46,7 +46,7 @@ import re
 import sys
 
 RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-FONTE = os.path.join(RADICE, "_notes", "fonti", "2026-09-09-bulbapedia-id-notevoli.html")
+FONTE = os.path.join(RADICE, "_notes", "fonti", "consegne", "2026-09-09-bulbapedia-id-notevoli.html")
 NOSTRI_EVENTI = os.path.join(RADICE, "pokedex-home-completo", "data", "serebii-eventi.csv")
 NOSTRI_SCAMBI = os.path.join(RADICE, "pokedex-home-completo", "data", "scambi.csv")
 USCITA = os.path.join(RADICE, "pokedex-home-completo", "ID-NOTEVOLI.md")

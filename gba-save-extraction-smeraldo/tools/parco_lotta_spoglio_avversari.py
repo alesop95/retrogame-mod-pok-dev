@@ -27,7 +27,7 @@ Le tabelle degli intervalli non sono un'ipotesi ma una lettura del sorgente, e l
 Uso
 ---
 
-    python gba-save-extraction-smeraldo/tools/parco_lotta_spoglio_avversari.py --domeassistant _notes/fonti/domeassistant-2026-09-21/grezzo --smogon _notes/fonti/smogon-maxstats-2026-09-21/EmeraldBattleFrontierComplete.txt --out _notes/fonti/parco-lotta-spoglio-2026-09-21
+    python gba-save-extraction-smeraldo/tools/parco_lotta_spoglio_avversari.py --domeassistant _notes/fonti/raccolte/domeassistant-2026-09-21/grezzo --smogon _notes/fonti/raccolte/smogon-maxstats-2026-09-21/EmeraldBattleFrontierComplete.txt --out _notes/fonti/raccolte/parco-lotta-spoglio-2026-09-21
 """
 
 import argparse

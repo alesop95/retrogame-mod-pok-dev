@@ -18,7 +18,7 @@ Le soglie degli Assi vengono invece dalle schede informative in testa a ogni pag
 Uso
 ---
 
-    python gba-save-extraction-smeraldo/tools/parco_lotta_estrai_tabelle.py --grezzo _notes/fonti/bulbapedia-parco-lotta-2026-09-21/grezzo --out <cartella>
+    python gba-save-extraction-smeraldo/tools/parco_lotta_estrai_tabelle.py --grezzo _notes/fonti/raccolte/bulbapedia-parco-lotta-2026-09-21/grezzo --out <cartella>
 """
 
 import argparse

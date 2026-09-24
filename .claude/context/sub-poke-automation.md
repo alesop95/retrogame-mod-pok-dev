@@ -38,4 +38,4 @@ L'automazione dei giochi in rete tocca i termini di servizio dei servizi online,
 
 ## Fonti
 
-Nel registro `SOURCES.md` con la sigla AUT, e la nota di dettaglio è `docs/fonti/pokemon-automation.md`.
+Nel registro `SOURCES.md` con la sigla AUT, e la nota di dettaglio è `docs/mappa-fonti/pokemon-automation.md`.

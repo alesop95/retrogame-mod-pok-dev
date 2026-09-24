@@ -331,7 +331,7 @@ def self_test():
 
 def main():
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    p.add_argument("--pkhex", default=os.path.join("_notes", "fonti", "pkhex"))
+    p.add_argument("--pkhex", default=os.path.join("_notes", "fonti", "cloni", "pkhex"))
     p.add_argument("--out", default=os.path.join("pokedex-home-completo", "MOSSE-PERDUTE.md"))
     p.add_argument("--self-test", action="store_true")
     a = p.parse_args()

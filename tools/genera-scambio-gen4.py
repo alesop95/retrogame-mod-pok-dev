@@ -55,7 +55,7 @@ si cambia con `--dppt` e `--hgss`.
 
 Uso
 ---
-    python tools/genera-scambio-gen4.py --pkhex _notes/fonti/pkhex --lotto _notes/lotto-scambi-gen4
+    python tools/genera-scambio-gen4.py --pkhex _notes/fonti/cloni/pkhex --lotto _notes/lotti/lotto-scambi-gen4
     python tools/genera-scambio-gen4.py --self-test
 """
 
@@ -355,7 +355,7 @@ def self_test():
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--pkhex", default=os.path.join("_notes", "fonti", "pkhex"))
+    ap.add_argument("--pkhex", default=os.path.join("_notes", "fonti", "cloni", "pkhex"))
     ap.add_argument("--lotto", help="cartella in cui scrivere gli esemplari")
     ap.add_argument("--dppt", default="pt", choices=sorted(k for k in VERSIONE_CODICE if k in
                                                             ("d", "p", "pt")),

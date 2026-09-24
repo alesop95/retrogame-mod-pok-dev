@@ -37,7 +37,7 @@ Si presentano all'utente i settori riconosciuti, ciascuno con il fatto da cui lo
 Settori riconosciuti per questo progetto
 
   Fondamenta e igiene          la storia git ha 180 commit e piu' di un autore
-  Fonti e corpus documentali   esiste docs/fonti/ con 40 file, e SOURCES.md
+  Fonti e corpus documentali   esistono docs/mappa-fonti/ e SOURCES.md
   Scrittura e documentazione   il progetto produce prosa, 60 file .md tracciati
 
 Settori esclusi
@@ -58,7 +58,7 @@ Per ciascun settore riconosciuto si apre la sezione corrispondente del catalogo,
 
 Poi, per ogni pacchetto del settore che il trigger della colonna "quando offrirlo" rende pertinente a questo progetto, si presenta la voce in tre frasi e nessuna di meno.
 
-La prima dice che cosa fa il pacchetto, in linguaggio di chi lo userà e non in quello di chi lo ha scritto. La seconda dice perché a questo progetto potrebbe servire, e va legata a un fatto raccolto al Passo 1 invece che al trigger generico: non "utile ai progetti con molti documenti" ma "qui ci sono quaranta file sotto `docs/fonti/`". La terza dice che cosa costa, e il costo comprende le dipendenze esterne da installare, i token che un server MCP occupa a ogni turno anche quando non viene usato, il lavoro di istanziazione dove ci sono tabelle da sostituire, e soprattutto le capacità che il pacchetto duplicherebbe.
+La prima dice che cosa fa il pacchetto, in linguaggio di chi lo userà e non in quello di chi lo ha scritto. La seconda dice perché a questo progetto potrebbe servire, e va legata a un fatto raccolto al Passo 1 invece che al trigger generico: non "utile ai progetti con molti documenti" ma "qui esiste una mappa generata sotto `docs/mappa-fonti/`". La terza dice che cosa costa, e il costo comprende le dipendenze esterne da installare, i token che un server MCP occupa a ogni turno anche quando non viene usato, il lavoro di istanziazione dove ci sono tabelle da sostituire, e soprattutto le capacità che il pacchetto duplicherebbe.
 
 Quest'ultimo punto è quello che si dimentica e che fa danni. Dove il progetto abbia già quella capacità, in proprio o tramite un altro pacchetto, il pacchetto non si propone come aggiunta: si dice che il terreno è già coperto e si propone semmai di allineare ciò che c'è. Dove due pacchetti del catalogo coprano lo stesso terreno, si presentano insieme come una scelta fra due, mai come due domande separate, perché due sì consecutivi producono una duplicazione che nessuno ha deciso.
 

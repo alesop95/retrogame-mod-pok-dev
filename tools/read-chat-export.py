@@ -29,7 +29,7 @@ Il formato viene riconosciuto dalla forma del file, non dall'estensione.
 
 Uso
 ---
-    python tools/read-chat-export.py export.json --out _notes/fonti/2026-08-26-canale.md
+    python tools/read-chat-export.py export.json --out _notes/fonti/discord/2026-08-26-canale.md
     python tools/read-chat-export.py export.json --grep "link cable" --grep checksum
     python tools/read-chat-export.py export.json --since 2024-01-01 --min-length 40
 

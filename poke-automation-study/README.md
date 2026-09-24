@@ -4,7 +4,7 @@ Studiare il progetto Pokemon Automation, che automatizza le parti ripetitive dei
 
 ## Che cosa c'è in questa cartella
 
-Un collegamento a `https://pokemonautomation.github.io/`, che è il punto di ingresso della documentazione del progetto. La sua sintesi, letta il 2026-08-26, sta nella nota `docs/fonti/pokemon-automation.md`, con il motivo per cui è in archivio e i punti del progetto che tocca.
+Un collegamento a `https://pokemonautomation.github.io/`, che è il punto di ingresso della documentazione del progetto. La sua sintesi, letta il 2026-08-26, sta nella nota `docs/mappa-fonti/pokemon-automation.md`, con il motivo per cui è in archivio e i punti del progetto che tocca.
 
 ## Che cosa è quel progetto, in breve
 
@@ -15,7 +15,7 @@ Automatizza oltre cento operazioni sui giochi Pokemon per Nintendo Switch, dalle
 | Cosa cerchi | Dove sta |
 |---|---|
 | lo studio dell'architettura, degli strati e del perimetro | `STUDIO-01-architettura-e-perimetro.md`, in questa cartella |
-| la sintesi della fonte e perché è in archivio | `docs/fonti/pokemon-automation.md` |
+| la sintesi della fonte e perché è in archivio | `docs/mappa-fonti/pokemon-automation.md` |
 | a che punto è il track e quali sono le tre letture possibili | `.claude/context/sub-poke-automation.md` |
 | le fonti, con il livello di affidabilità di ciascuna | `SOURCES.md` alla radice, colonna AUT |
 

@@ -91,16 +91,16 @@ La parte che discende dal seme non è scelta ed è quella su cui il grado di fid
 
 ```powershell
 python tools/genera-evento-gen3.py --self-test
-python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --elenco
-python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --evento 10ANNI --specie Pikachu --seme 0x9DF6 --lingua ITA --gioco rossofuoco --out _notes/prova
-python tools/genera-evento-gen3.py --derivazione --seme 0x9DF6 --soglia-sesso 127 --ace _notes/fonti/ace-builder --evento 10ANNI
+python tools/genera-evento-gen3.py --ace _notes/fonti/cloni/ace-builder --elenco
+python tools/genera-evento-gen3.py --ace _notes/fonti/cloni/ace-builder --evento 10ANNI --specie Pikachu --seme 0x9DF6 --lingua ITA --gioco rossofuoco --out _notes/prova
+python tools/genera-evento-gen3.py --derivazione --seme 0x9DF6 --soglia-sesso 127 --ace _notes/fonti/cloni/ace-builder --evento 10ANNI
 ```
 
 ```bash
 python tools/genera-evento-gen3.py --self-test
-python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --elenco
-python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --evento 10ANNI --specie Pikachu --seme 0x9DF6 --lingua ITA --gioco rossofuoco --out _notes/prova
-python tools/genera-evento-gen3.py --derivazione --seme 0x9DF6 --soglia-sesso 127 --ace _notes/fonti/ace-builder --evento 10ANNI
+python tools/genera-evento-gen3.py --ace _notes/fonti/cloni/ace-builder --elenco
+python tools/genera-evento-gen3.py --ace _notes/fonti/cloni/ace-builder --evento 10ANNI --specie Pikachu --seme 0x9DF6 --lingua ITA --gioco rossofuoco --out _notes/prova
+python tools/genera-evento-gen3.py --derivazione --seme 0x9DF6 --soglia-sesso 127 --ace _notes/fonti/cloni/ace-builder --evento 10ANNI
 ```
 
 I due file prodotti hanno estensione `.pk3` e `.ek3`. Il primo è la forma decifrata a ordine fisso, che è quella che gli strumenti della comunità accettano in ingresso; il secondo è la forma che il salvataggio contiene, cioè permutata secondo il valore di personalità e cifrata. Contengono gli stessi dati e la conversione fra le due è esatta nei due versi, ed è stata aggiunta a `pokebridge.gen3` come `to_canonical_bytes` e `from_canonical_bytes`, con sei prove nella suite fra cui il controllo negativo che verifica che le due forme differiscano davvero nei quarantotto byte centrali.
@@ -108,25 +108,25 @@ I due file prodotti hanno estensione `.pk3` e `.ek3`. Il primo è la forma decif
 Dal 2026-09-01 il programma legge anche la tabella del verificatore invece del solo corpus del costruttore, e la differenza è di copertura: diciassette eventi contro centosettantatre voci su centosettantasette. Le quattro che restano fuori impiegano una forma del costruttore che il lettore non copre, e appartengono all'insieme giapponese, dove serve comunque una codifica dei caratteri che il progetto non ha ancora estratto.
 
 ```powershell
-python tools/genera-evento-gen3.py --elenco --pkhex _notes/fonti/pkhex
-python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --indice 59 --seme 0x9DF6 --out _notes/prova
+python tools/genera-evento-gen3.py --elenco --pkhex _notes/fonti/cloni/pkhex
+python tools/genera-evento-gen3.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex --indice 59 --seme 0x9DF6 --out _notes/prova
 ```
 
 ```bash
-python tools/genera-evento-gen3.py --elenco --pkhex _notes/fonti/pkhex
-python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --indice 59 --seme 0x9DF6 --out _notes/prova
+python tools/genera-evento-gen3.py --elenco --pkhex _notes/fonti/cloni/pkhex
+python tools/genera-evento-gen3.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex --indice 59 --seme 0x9DF6 --out _notes/prova
 ```
 
 Dal medesimo giorno esiste il modo a lotto, che produce in una corsa tutti gli esemplari producibili e dichiara con la ragione quelli che non lo sono. Il seme non si passa più: si cerca fra i sessantacinquemilacinquecentotrentasei ammessi verificando i vincoli che la tabella dichiara, cioè la lucentezza e, dove la derivazione è implementata, il sesso dell'allenatore; e la ricerca riparte da dove si era fermata, cosicché due esemplari del medesimo evento non ricevano il medesimo valore di personalità.
 
 ```powershell
-python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --lotto _notes/lotto-eventi
-python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --lotto _notes/lotto-eventi --solo-ot 10ANNI
+python tools/genera-evento-gen3.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex --lotto _notes/lotti/lotto-eventi
+python tools/genera-evento-gen3.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex --lotto _notes/lotti/lotto-eventi --solo-ot 10ANNI
 ```
 
 ```bash
-python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --lotto _notes/lotto-eventi
-python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --lotto _notes/lotto-eventi --solo-ot 10ANNI
+python tools/genera-evento-gen3.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex --lotto _notes/lotti/lotto-eventi
+python tools/genera-evento-gen3.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex --lotto _notes/lotti/lotto-eventi --solo-ot 10ANNI
 ```
 
 Dal 2026-09-02 il seme di partenza della ricerca dipende dall'indice della voce e non da quanto è accaduto alle voci precedenti, e la ragione è pratica prima che estetica. Con il cursore a scorrimento che il programma usava prima, una correzione su una voce spostava il seme di tutte quelle che venivano dopo di essa, quindi ogni esemplare già sottoposto a giudizio andava sottoposto di nuovo: il lavoro di verifica fatto a mano si perdeva a ogni correzione. Con la partenza legata all'indice una correzione cambia i soli esemplari che quella correzione riguarda. Lo scopo per cui il cursore esisteva resta soddisfatto, cioè che due voci del medesimo evento non ricevano il medesimo valore di personalità, perché due indici distinti partono da punti distinti, e il controllo che nessuno dei centoventidue esemplari condivida il valore di personalità con un altro è stato eseguito.
@@ -136,11 +136,11 @@ Sulla tabella intera l'esito al 2026-09-01, dopo la chiusura dei metodi, è di c
 Alcune voci non fissano il nome dell'allenatore, l'identificativo o il sesso, e quella non è una lacuna della tabella ma una istruzione: quegli eventi prendono i tre campi dal salvataggio in cui vengono riscattati. Si passano quindi al programma con `--allenatore`, nella forma `nome:identificativo:segreto:sesso`, e senza di esso quelle voci vengono dichiarate non producibili invece di ricevere un valore inventato. La ragione non è formale: un esemplare con un allenatore inventato porterebbe per sempre il nome di uno sconosciuto dentro la collezione.
 
 ```powershell
-python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --lotto _notes/lotto-eventi --allenatore "MARIO:31121:5432:maschio"
+python tools/genera-evento-gen3.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex --lotto _notes/lotti/lotto-eventi --allenatore "MARIO:31121:5432:maschio"
 ```
 
 ```bash
-python tools/genera-evento-gen3.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --lotto _notes/lotto-eventi --allenatore "MARIO:31121:5432:maschio"
+python tools/genera-evento-gen3.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex --lotto _notes/lotti/lotto-eventi --allenatore "MARIO:31121:5432:maschio"
 ```
 
 Due dati che il programma legge dalla fonte meritano una nota, perché sono i soli che non discendono da una formula e perché la loro lettura porta un controllo del conteggio. Il primo è l'elenco degli ottantasei semi dell'unico evento distribuito per semi noti, dal quale se ne esclude uno che la fonte dichiara distribuito in una sola delle sue cinque varianti. Il secondo è la tabella dei caratteri giapponese, che il progetto ha estratto lo stesso giorno da `PKHeX.Core/PKM/Strings/StringConverter3.cs` e che vive in `data/charmap-gen3-jp.json`. Su entrambi il controllo del conteggio non è una formalità: una lettura che perdesse una parte dell'elenco non produrrebbe un errore ma un insieme più povero dal quale si continuerebbe a generare esemplari validi, e una tabella letta con uno scostamento di una posizione produrrebbe nomi plausibili e sbagliati. Per questo l'estrazione della tabella verifica anche tre byte di cui si conosce il valore atteso, scelti fra quelli su cui la tabella internazionale dice altro.
@@ -184,15 +184,15 @@ Confronta il costruttore di esemplari della comunità con ciò che questo proget
 I primi quattro mettono a paragone due dichiarazioni scritte in codice: la tabella delle ventiquattro permutazioni delle sottostrutture, la tabella dei caratteri della terza generazione sull'intersezione dei caratteri che entrambe dichiarano, il vocabolario dei metodi come confronto fra insiemi, e l'inventario delle distribuzioni congiunto sulla coppia formata dal nome dell'allenatore e dall'identificativo. Il quinto esegue il nostro `pokebridge.eventi` sul corpus di esemplari conservati che il costruttore porta con sé, e verifica che riproduca valore di personalità, valori individuali e sesso dell'allenatore a partire dal solo seme.
 
 ```powershell
-python tools/confronta-ace-builder.py --scarica _notes/fonti/ace-builder
-python tools/confronta-ace-builder.py --ace _notes/fonti/ace-builder
-python tools/confronta-ace-builder.py --ace _notes/fonti/ace-builder --verbose
+python tools/confronta-ace-builder.py --scarica _notes/fonti/cloni/ace-builder
+python tools/confronta-ace-builder.py --ace _notes/fonti/cloni/ace-builder
+python tools/confronta-ace-builder.py --ace _notes/fonti/cloni/ace-builder --verbose
 ```
 
 ```bash
-python tools/confronta-ace-builder.py --scarica _notes/fonti/ace-builder
-python tools/confronta-ace-builder.py --ace _notes/fonti/ace-builder
-python tools/confronta-ace-builder.py --ace _notes/fonti/ace-builder --verbose
+python tools/confronta-ace-builder.py --scarica _notes/fonti/cloni/ace-builder
+python tools/confronta-ace-builder.py --ace _notes/fonti/cloni/ace-builder
+python tools/confronta-ace-builder.py --ace _notes/fonti/cloni/ace-builder --verbose
 ```
 
 Il primo comando scarica il sorgente seguendo il grafo degli import a partire dal modulo di ingresso, e prende a parte il corpus, che il costruttore carica a tempo di esecuzione e che quindi il grafo non raggiunge. Il sorgente non è una dipendenza di questo repository e non vi entra: vive sotto `_notes/`, come i disassemblati e gli export delle chat.
@@ -231,7 +231,7 @@ Il ponte fra i due esiste già e non va costruito: `tools/read-chat-export.py` e
 
 ### Dove vivono i file
 
-Il programma non entra nel repository e va nella cartella condivisa fuori da esso, secondo la convenzione enunciata in apertura di questo documento: per esempio `E:\tools\dce` per la riga di comando e `E:\tools\dce-gui` per l'interfaccia grafica. Va notato che tenerlo nella cartella dei download del sistema, come è accaduto durante il primo allestimento, è la collocazione peggiore di tutte fra quelle fuori dal repository, perché quella cartella si svuota per abitudine o per strumento di pulizia e il percorso che si è scritto nei comandi smette di esistere senza preavviso. Gli export vanno sotto `_notes/fonti/dce/`, che il `.gitignore` esclude in blocco: restano locali per costruzione, e questo è voluto perché sono contenuto di terzi.
+Il programma non entra nel repository e va nella cartella condivisa fuori da esso, secondo la convenzione enunciata in apertura di questo documento: per esempio `E:\tools\dce` per la riga di comando e `E:\tools\dce-gui` per l'interfaccia grafica. Va notato che tenerlo nella cartella dei download del sistema, come è accaduto durante il primo allestimento, è la collocazione peggiore di tutte fra quelle fuori dal repository, perché quella cartella si svuota per abitudine o per strumento di pulizia e il percorso che si è scritto nei comandi smette di esistere senza preavviso. Gli export vanno sotto `_notes/fonti/discord/dce/`, che il `.gitignore` esclude in blocco: restano locali per costruzione, e questo è voluto perché sono contenuto di terzi.
 
 ### Il rilascio e i file da scaricare
 
@@ -309,7 +309,7 @@ python tools/export-discord.py --guilds --dry-run
 python tools/export-discord.py --guilds --dce "$HOME/DiscordChatExporter.Cli/DiscordChatExporter.Cli.exe"
 ```
 
-L'uscita non è un file ma una cartella per server sotto `_notes/fonti/dce/`, perché i nomi dei canali si conoscono soltanto a esportazione avvenuta: lo strumento nomina da sé i file quando riceve una cartella come destinazione. La protezione contro la sovrascrittura è la stessa dell'altra via, cioè una cartella che esiste e non è vuota viene saltata a meno di `--forza`.
+L'uscita non è un file ma una cartella per server sotto `_notes/fonti/discord/dce/`, perché i nomi dei canali si conoscono soltanto a esportazione avvenuta: lo strumento nomina da sé i file quando riceve una cartella come destinazione. La protezione contro la sovrascrittura è la stessa dell'altra via, cioè una cartella che esiste e non è vuota viene saltata a meno di `--forza`.
 
 ### La catena verso il progetto
 
@@ -359,8 +359,8 @@ Il secondo, `lint-md-commands.py`, verifica che i comandi di shell dentro i bloc
 Enumera i marchi leggendo le loro posizioni dal formato che il deposito conserva, cioè da `PKHeX.Core/PKM/HOME/GameDataCore.cs`, e non da quello di un gioco: la collezione che il progetto persegue vive nel deposito, quindi la domanda su che cosa sia un marchio va posta a chi lo conserva. La scelta di leggere invece di trascrivere è la stessa di `fiocchi.py` e per la stessa ragione, cioè che un bit letto nella posizione sbagliata restituisce comunque un booleano plausibile e nessun controllo interno se ne accorge.
 
 ```
-python tools/marchi.py --pkhex _notes/fonti/pkhex --out pokedex-home-completo/MARCHI.md
-python tools/marchi.py --pkhex _notes/fonti/pkhex --out pokedex-home-completo/MARCHI.md --check
+python tools/marchi.py --pkhex _notes/fonti/cloni/pkhex --out pokedex-home-completo/MARCHI.md
+python tools/marchi.py --pkhex _notes/fonti/cloni/pkhex --out pokedex-home-completo/MARCHI.md --check
 python tools/marchi.py --self-test
 ```
 
@@ -438,13 +438,13 @@ Lo strumento `tools/catalogo-eventi.py` produce `recreate-pokemon-distributions-
 La struttura del documento riflette una distinzione che vale enunciare perché è il motivo per cui esistono due file invece di uno. I fatti meccanici, cioè specie, livello, mosse, lingua, metodo di generazione, lucentezza e derivazione del sesso dell'allenatore, vengono dalla tabella del verificatore di conformità, che è codice eseguito, e si rigenerano a ogni corsa: se la tabella cambia, il documento cambia da sé. I fatti storici non stanno in nessuna fonte di primo livello, perché nessun disassemblato sa in quali negozi un dono venne distribuito, e sono quindi autorati in `provenienze-eventi.json` con il collegamento alla fonte e la data di lettura accanto a ciascuna voce.
 
 ```powershell
-python tools/catalogo-eventi.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex
-python tools/catalogo-eventi.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --check
+python tools/catalogo-eventi.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex
+python tools/catalogo-eventi.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex --check
 ```
 
 ```bash
-python tools/catalogo-eventi.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex
-python tools/catalogo-eventi.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --check
+python tools/catalogo-eventi.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex
+python tools/catalogo-eventi.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex --check
 ```
 
 Il secondo modo non scrive nulla e riferisce se il documento in repository sia allineato alle fonti, cosicché una modifica alla tabella o alle provenienze che non sia stata rigenerata risulti visibile prima di un commit invece che dopo.
@@ -457,11 +457,11 @@ Il file delle provenienze porta anche l'unico campo meccanico che gli appartiene
 Lo strumento `tools/copertura-verifica.py` risponde a una domanda che il rapporto fra due numeri non sa affrontare: sapere che sette esemplari su centoventidue sono stati giudicati non dice dove stia il rischio residuo, perché gli esemplari non sono intercambiabili. Esso legge il registro dei giudizi in `recreate-pokemon-distributions-events/giudizi-esterni.json`, che è autorato perché ciascuna voce è il resoconto di una prova eseguita da una persona, e lo confronta con la tabella del verificatore per calcolare la copertura lungo ciascuna dimensione in cui gli esemplari differiscono.
 
 ```powershell
-python tools/copertura-verifica.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex
+python tools/copertura-verifica.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex
 ```
 
 ```bash
-python tools/copertura-verifica.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex
+python tools/copertura-verifica.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex
 ```
 
 La distinzione che il programma applica va conosciuta perché cambia come si legge l'esito. Le dimensioni strutturali, cioè metodo di generazione, ramo della lucentezza, derivazione del sesso dell'allenatore e lingua, sono rami di codice: provarne uno lo prova per ogni esemplare che vi passi, quindi la loro copertura si può chiudere e va chiusa. Le dimensioni di dato, cioè specie e livello, sono righe di tabella: provarne una prova quella riga e nessun'altra, quindi la loro copertura resta parziale per costruzione e il rischio si riduce per un'altra via, cioè generando i dati da una fonte invece di trascriverli. Fra le due sta il gruppo di crescita, che è una formula scelta da un dato: le formule sono sei e provarle tutte è fattibile.
@@ -471,11 +471,11 @@ Per ciascun valore non ancora provato il programma nomina la voce che lo esercit
 Dal medesimo giorno lo strumento risponde anche alla domanda su quante prove servano, e la risponde in modo esatto invece di stimarla. Il modo `--minimo` formula la questione come problema di copertura di insiemi: l'universo sono le coppie fra dimensione e valore, ciascun esemplare copre esattamente una coppia per dimensione, e si cerca la sottofamiglia di cardinalità minima che copra tutto.
 
 ```powershell
-python tools/copertura-verifica.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --minimo
+python tools/copertura-verifica.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex --minimo
 ```
 
 ```bash
-python tools/copertura-verifica.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --minimo
+python tools/copertura-verifica.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex --minimo
 ```
 
 Due cose vanno conosciute per leggerne l'uscita. La prima è che il massimo delle cardinalità delle dimensioni è un limite inferiore e non il minimo: su una dimensione con nove valori servono almeno nove esemplari perché ciascuno ne copre uno solo, ma che nove bastino richiederebbe che quei nove coprano simultaneamente anche tutti i valori delle altre dimensioni, cioè una condizione di ortogonalità che un catalogo di eventi storici non ha ragione di soddisfare. Al 2026-09-02 il limite inferiore vale nove e il minimo esatto quattordici. La seconda è che il numero utile non è il minimo assoluto ma il minimo residuo, cioè quanti esemplari restino dato ciò che è già stato provato, e non si ottiene sottraendo: i giudizi già eseguiti sono stati scelti per esercitare rami sospetti e non per minimizzare le prove, quindi non formano un sottoinsieme di una soluzione ottima. Il programma risolve quindi una seconda istanza sulle sole coppie residue, e ne stampa gli esemplari da aprire.
@@ -492,13 +492,13 @@ Il verificatore offre di caricare una cartella intera dentro le scatole di un sa
 Lo strumento `tools/schede-esemplari.py` produce `recreate-pokemon-distributions-events/SCHEDE-ESEMPLARI.md`, che per ciascuna voce producibile porta ogni campo derivato con la propria provenienza, e accanto al titolo lo stato del suo giudizio esterno.
 
 ```powershell
-python tools/schede-esemplari.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex
-python tools/schede-esemplari.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --check
+python tools/schede-esemplari.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex
+python tools/schede-esemplari.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex --check
 ```
 
 ```bash
-python tools/schede-esemplari.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex
-python tools/schede-esemplari.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex --check
+python tools/schede-esemplari.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex
+python tools/schede-esemplari.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex --check
 ```
 
 La ragione per cui il documento esiste è che un giudizio di conformità riguarda una configurazione precisa di byte e non una categoria: registrare soltanto che un esemplare è conforme perde l'informazione su che cosa esattamente sia stato dichiarato tale, e senza quella non si può né riprodurre il caso né riconoscere che una modifica successiva lo ha cambiato.

@@ -57,9 +57,9 @@ provato su hardware, ed entrambi stanno molto sopra qualunque lettura di prosa.
 
 Uso
 ---
-    python tools/confronta-ace-builder.py --scarica _notes/fonti/ace-builder
-    python tools/confronta-ace-builder.py --ace _notes/fonti/ace-builder
-    python tools/confronta-ace-builder.py --ace _notes/fonti/ace-builder --verbose
+    python tools/confronta-ace-builder.py --scarica _notes/fonti/cloni/ace-builder
+    python tools/confronta-ace-builder.py --ace _notes/fonti/cloni/ace-builder
+    python tools/confronta-ace-builder.py --ace _notes/fonti/cloni/ace-builder --verbose
 
 Il sorgente del costruttore non è una dipendenza di questo repository e non vi entra: si
 scarica sotto `_notes/`, che il `.gitignore` esclude, come per i disassemblati e per gli

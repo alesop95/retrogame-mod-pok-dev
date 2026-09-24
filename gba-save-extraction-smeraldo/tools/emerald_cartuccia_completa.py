@@ -25,7 +25,7 @@ Una sola eccezione alla regola che nessuna personalita' si ripeta, e va dichiara
 Uso
 ---
 
-    python gba-save-extraction-smeraldo/tools/emerald_cartuccia_completa.py INGRESSO.sav USCITA.sav --dump "... round 3.csv" --lotto-precedente _notes/lotto-parco-lotta/esemplari-round7 [--senza-copie-di-scambio] [--rientrano B1-26,B9-5]
+    python gba-save-extraction-smeraldo/tools/emerald_cartuccia_completa.py INGRESSO.sav USCITA.sav --dump "... round 3.csv" --lotto-precedente _notes/lotti/lotto-parco-lotta/esemplari-round7 [--senza-copie-di-scambio] [--rientrano B1-26,B9-5]
 """
 
 import argparse

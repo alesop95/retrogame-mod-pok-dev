@@ -2,7 +2,7 @@
 
 Documento generato da `tools/parco_lotta_glossario_mosse.py`, che non traduce nulla: accoppia le due liste di mosse dello stesso esemplare nella stessa posizione, prendendo l'inglese dal catalogo e l'italiano dal dump dei box di PKHeX. Serve a una domanda sola, cioe' riconoscere sulla cartuccia italiana l'insieme che il catalogo dichiara in inglese, perche' la distanza fra le due grafie e' la ragione per cui un insieme giusto puo' sembrare irriconoscibile: Frana e Rock Slide sono la stessa mossa, e Breccia e Brick Break anche.
 
-Le due fonti di questa corsa sono il catalogo C:/Users/Utente/AppData/Local/Temp/claude/E--retrogame-mod-pok-dev/86bbe1e8-a214-4b30-805b-1b776de846c8/scratchpad/catalogo-round3.json e il dump E:/retrogame-mod-pok-dev/_notes/lotto-parco-lotta/Box Data Dump round3.csv. La coppia conta, perche' un dump esportato prima di una modifica del catalogo produrrebbe corrispondenze sfasate di una mossa: quando il catalogo cambia, il glossario si rigenera sul dump corrispondente, e per un giro gia' archiviato lo si rigenera sul catalogo di quel giro preso dalla storia del repository.
+Le due fonti di questa corsa sono il catalogo C:/Users/Utente/AppData/Local/Temp/claude/E--retrogame-mod-pok-dev/86bbe1e8-a214-4b30-805b-1b776de846c8/scratchpad/catalogo-round3.json e il dump E:/retrogame-mod-pok-dev/_notes/lotti/lotto-parco-lotta/Box Data Dump round3.csv. La coppia conta, perche' un dump esportato prima di una modifica del catalogo produrrebbe corrispondenze sfasate di una mossa: quando il catalogo cambia, il glossario si rigenera sul dump corrispondente, e per un giro gia' archiviato lo si rigenera sul catalogo di quel giro preso dalla storia del repository.
 
 | Nome nel catalogo | Nome sullo schermo in italiano |
 |---|---|

@@ -18,7 +18,7 @@ Non riconosce nemmeno tutte le forme in cui una squadra si puo' scrivere. Alcuni
 Uso
 ---
 
-    python gba-save-extraction-smeraldo/tools/parco_lotta_squadre_dai_thread.py --derivato _notes/fonti/smogon-parco-lotta-2026-09-21/derivato --out _notes/fonti/smogon-parco-lotta-2026-09-21
+    python gba-save-extraction-smeraldo/tools/parco_lotta_squadre_dai_thread.py --derivato _notes/fonti/raccolte/smogon-parco-lotta-2026-09-21/derivato --out _notes/fonti/raccolte/smogon-parco-lotta-2026-09-21
 """
 
 import argparse

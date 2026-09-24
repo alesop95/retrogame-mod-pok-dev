@@ -149,7 +149,7 @@ def fonti_disponibili(ace, esito_salvataggi):
     # generatore che le produca. Questa classe è quindi trattata come "evento Gen 3 producibile"
     # sopra: una fonte entra qui solo quando il progetto sa già fornirla, non quando sa contarla.
     ponte = os.path.join(RADICE, "pokemon-gen12-gen3-bridge-original-hardware")
-    lotto_scambi = os.path.join(RADICE, "_notes", "lotto-scambi-gen3")
+    lotto_scambi = os.path.join(RADICE, "_notes", "lotti", "lotto-scambi-gen3")
     if os.path.isdir(lotto_scambi):
         if ponte not in sys.path:
             sys.path.insert(0, ponte)

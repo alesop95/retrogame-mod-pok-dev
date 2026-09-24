@@ -207,7 +207,7 @@ def self_test():
             falliti += 1
             print("  FALLITO %s: atteso %r, ottenuto %r" % (nome, atteso, ottenuto))
 
-    pkhex = os.path.join(RADICE, "_notes", "fonti", "pkhex")
+    pkhex = os.path.join(RADICE, "_notes", "fonti", "cloni", "pkhex")
     tavola, errore = numeri_delle_mn(pkhex)
     if errore:
         print("  self-test parziale: " + errore)
@@ -232,7 +232,7 @@ def main(argv=None):
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--pkhex", default=os.path.join("_notes", "fonti", "pkhex"))
+    ap.add_argument("--pkhex", default=os.path.join("_notes", "fonti", "cloni", "pkhex"))
     ap.add_argument("--notes", default="_notes")
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--self-test", action="store_true", dest="self_test")

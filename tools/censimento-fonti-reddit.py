@@ -39,7 +39,7 @@ si ragiona.
 
 Uso
 ---
-    python tools/censimento-fonti-reddit.py --corsa _notes/fonti/reddit-pokemonhome-1vtj5hf-2026-09-08
+    python tools/censimento-fonti-reddit.py --corsa _notes/fonti/reddit/reddit-pokemonhome-1vtj5hf-2026-09-08
     python tools/censimento-fonti-reddit.py --corsa <cartella> --out pokedex-home-completo/CENSIMENTO-FONTI-COLLEZIONE.md
     python tools/censimento-fonti-reddit.py --self-test
 """
@@ -448,7 +448,7 @@ def scrivi_vault(c, cartella_note, sorgente):
 
     Il registro dice che una fonte esiste e su che cosa la si puo' citare; questo dice come le
     fonti si tengono, ed e' il taglio che una tabella non produce. La forma e' quella che il
-    progetto usa gia' sotto `docs/fonti/`, cioe' note che si rimandano con i collegamenti a
+    progetto usa gia' sotto `docs/mappa-fonti/`, cioe' note che si rimandano con i collegamenti a
     doppia quadra, cosicche' aprendo la radice come vault il grafo si navighi invece di leggerlo.
 
     Il grafo che si disegna non e' quello dei rinvii fra i post, che ha migliaia di archi ed e'

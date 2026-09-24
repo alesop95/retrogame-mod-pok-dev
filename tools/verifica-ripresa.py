@@ -16,7 +16,7 @@ Uso
     python tools/verifica-ripresa.py             legge l'impronta e la confronta con HEAD
     python tools/verifica-ripresa.py --registra  scrive l'impronta corrente
 
-L'impronta vive in `_notes/impronta-sessione.json`, non tracciato: e' un presidio
+L'impronta vive in `_notes/lavoro/stato/impronta-sessione.json`, non tracciato: e' un presidio
 locale di macchina, non uno stato condiviso da versionare.
 """
 

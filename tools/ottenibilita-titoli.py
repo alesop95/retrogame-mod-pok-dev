@@ -58,7 +58,7 @@ possa stringere aggiungendone.
 
 Uso
 ---
-    python tools/ottenibilita-titoli.py --pkhex _notes/fonti/pkhex
+    python tools/ottenibilita-titoli.py --pkhex _notes/fonti/cloni/pkhex
     python tools/ottenibilita-titoli.py --pkhex <clone> --markdown <file.md>
     python tools/ottenibilita-titoli.py --self-test
 """

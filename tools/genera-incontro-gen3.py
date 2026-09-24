@@ -50,7 +50,7 @@ con quattro corpi, che questo programma produce come tre piu' uno, e non con qua
 Uso
 ---
     python tools/genera-incontro-gen3.py --elenco
-    python tools/genera-incontro-gen3.py --lotto _notes/lotto-incontri-gen3
+    python tools/genera-incontro-gen3.py --lotto _notes/lotti/lotto-incontri-gen3
     python tools/genera-incontro-gen3.py --self-test
 """
 
@@ -540,8 +540,8 @@ def self_test():
 def main():
     global G3
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    p.add_argument("--ace", default=os.path.join("_notes", "fonti", "ace-builder"))
-    p.add_argument("--pkhex", default=os.path.join("_notes", "fonti", "pkhex"))
+    p.add_argument("--ace", default=os.path.join("_notes", "fonti", "cloni", "ace-builder"))
+    p.add_argument("--pkhex", default=os.path.join("_notes", "fonti", "cloni", "pkhex"))
     p.add_argument("--lotto")
     p.add_argument("--elenco", action="store_true")
     p.add_argument("--self-test", action="store_true")

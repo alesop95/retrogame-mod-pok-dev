@@ -7,7 +7,7 @@ Perché esiste
 `SOURCES.md` è un registro: dice che una fonte esiste, a cosa serve e a quale
 sottoprogetto. Non dice perché è stata salvata, né come si lega alle altre, e una
 tabella non produce un grafo. Questo strumento genera una nota per fonte sotto
-`docs/fonti/`, ciascuna con un abstract, il motivo per cui è in archivio, il punto
+`docs/mappa-fonti/`, ciascuna con un abstract, il motivo per cui è in archivio, il punto
 esatto del progetto che serve, e le relazioni verso le altre fonti. Aprendo la radice
 del repository come vault Obsidian, quelle relazioni diventano il grafo.
 
@@ -27,7 +27,7 @@ import os
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT = os.path.join(ROOT, "docs", "fonti")
+OUT = os.path.join(ROOT, "docs", "mappa-fonti")
 
 # Vocabolario delle relazioni, tenuto piccolo perché un grafo con venti tipi di arco
 # non si legge. Ogni arco dice cosa una fonte fa a un'altra.

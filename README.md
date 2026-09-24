@@ -16,7 +16,7 @@ Il [percorso di studio](docs/index.md) spiega i meccanismi in ordine didattico. 
 
 ## Fonti e tracciabilità
 
-Il [registro unico delle fonti](SOURCES.md) indica per ciascuna fonte che cosa documenta, il livello di affidabilità e i sottoprogetti che la usano; spiega anche quali materiali sono versionati. Il suo indice generato collega fonti e documenti e conserva una fotografia delle citazioni nella tesi locale. La [mappa relazionale](docs/fonti/index-fonti.md) rende navigabili abstract e collegamenti; il [registro delle prove](docs/23-prove-eseguite.md) dice quali verifiche sono state eseguite davvero. Per i formati, le note sui disassemblati di [Rosso](docs/fonti/pokered.md), [Cristallo](docs/fonti/pokecrystal.md) e [Smeraldo](docs/fonti/pokeemerald.md) sono punti di ingresso concreti.
+Il [registro unico delle fonti](SOURCES.md) indica per ciascuna fonte che cosa documenta, il livello di affidabilità e i sottoprogetti che la usano; spiega anche quali materiali sono versionati. Il suo indice generato collega fonti e documenti e conserva una fotografia delle citazioni nella tesi locale. La [mappa relazionale](docs/mappa-fonti/index-fonti.md) rende navigabili abstract e collegamenti; il [registro delle prove](docs/23-prove-eseguite.md) dice quali verifiche sono state eseguite davvero. Per i formati, le note sui disassemblati di [Rosso](docs/mappa-fonti/pokered.md), [Cristallo](docs/mappa-fonti/pokecrystal.md) e [Smeraldo](docs/mappa-fonti/pokeemerald.md) sono punti di ingresso concreti.
 
 Una fonte catalogata e una fonte letta sono stati diversi. Le note indicano la differenza e le affermazioni di formato vengono confrontate con codice o documentazione primaria prima di entrare nella referenza.
 

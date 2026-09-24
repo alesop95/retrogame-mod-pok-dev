@@ -38,7 +38,7 @@ questo strumento, che lavora sui nomi inglesi perché il corpus è in inglese.
 
 Uso
 ---
-    python tools/spoglio-corpus.py --corsa _notes/fonti/reddit-pokemonhome-1vtj5hf-2026-09-08
+    python tools/spoglio-corpus.py --corsa _notes/fonti/reddit/reddit-pokemonhome-1vtj5hf-2026-09-08
     python tools/spoglio-corpus.py --corsa <cartella> --out pokedex-home-completo/SPOGLIO-CORPUS.md
     python tools/spoglio-corpus.py --self-test
 """
@@ -148,9 +148,9 @@ def nostre_specie(pkhex):
     """Le specie che i nostri lotti contengono, come insieme di numeri nazionali."""
     from pokebridge import gen3  # noqa: E402
     fuori = set()
-    for f in glob.glob(os.path.join(RADICE, "_notes", "lotto-gen5", "*.pk5")):
+    for f in glob.glob(os.path.join(RADICE, "_notes", "lotti", "lotto-gen5", "*.pk5")):
         fuori.add(struct.unpack_from("<H", open(f, "rb").read(), 0x08)[0])
-    for f in glob.glob(os.path.join(RADICE, "_notes", "lotto-gen4", "*.pk4")):
+    for f in glob.glob(os.path.join(RADICE, "_notes", "lotti", "lotto-gen4", "*.pk4")):
         fuori.add(struct.unpack_from("<H", open(f, "rb").read(), 0x08)[0])
     interne = set()
     for pat in ("lotto-eventi/*.pk3", "lotto-incontri-gen3/*.pk3"):
@@ -356,7 +356,7 @@ def self_test():
 def main():
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     p.add_argument("--corsa")
-    p.add_argument("--pkhex", default=os.path.join("_notes", "fonti", "pkhex"))
+    p.add_argument("--pkhex", default=os.path.join("_notes", "fonti", "cloni", "pkhex"))
     p.add_argument("--out", default=os.path.join("pokedex-home-completo", "SPOGLIO-CORPUS.md"))
     p.add_argument("--self-test", action="store_true")
     a = p.parse_args()

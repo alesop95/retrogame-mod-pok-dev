@@ -18,7 +18,7 @@ Stabilito fin dall'inizio e rispettato per tutta la conversazione:
 - ✅ **Dentro perimetro**: dump di cartucce fisiche possedute dall'utente, CFW sulla propria console, emulazione locale dei propri dump, backup/trasferimento dei propri salvataggi
 - ❌ **Fuori perimetro**: ROM/software scaricati da fonti terze non autorizzate, condivisione di link a materiale piratato, installazione di software Nintendo protetto da copyright ottenuto senza licenza legittima
 
-**Limite dichiarato**: l'assistenza tecnica di questo progetto non copre Pokémon Bank e Pokémon Transporter su questa console, né alcun file `.cia` di provenienza non chiarita: nessuna guida, nessun troubleshooting, nessuna documentazione. Il limite vale anche per le sessioni future e non va riaperto implicitamente. La circostanza che lo ha originato è personale e sta fuori dal version control, in `_notes/perimetro-bank-transporter.md`.
+**Limite dichiarato**: l'assistenza tecnica di questo progetto non copre Pokémon Bank e Pokémon Transporter su questa console, né alcun file `.cia` di provenienza non chiarita: nessuna guida, nessun troubleshooting, nessuna documentazione. Il limite vale anche per le sessioni future e non va riaperto implicitamente. La circostanza che lo ha originato è personale e sta fuori dal version control, in `_notes/lavoro/riservato/perimetro-bank-transporter.md`.
 
 ## 3. Hardware identificato
 
