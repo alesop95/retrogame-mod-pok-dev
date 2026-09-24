@@ -13,7 +13,7 @@ sola, e mantiene facoltativamente le marcature temporali.
 Il percorso completo per una fonte video, registrato in STACK.md, è questo:
 
     python -m yt_dlp --skip-download --write-auto-subs --sub-langs "en.*" -o "%(id)s" URL
-    python tools/vtt-to-text.py ID.en.vtt --out _notes/fonti/data-fonte.txt
+    python tools/vtt-to-text.py ID.en.vtt --out _notes/fonti/consegne/data-fonte.txt
 
 Il download dell'audio non serve: i sottotitoli automatici sono già il risultato del
 riconoscimento vocale fatto da YouTube. Serve solo quando i sottotitoli non esistono, e

@@ -28,7 +28,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-IMPRONTA_PATH = REPO_ROOT / "_notes" / "impronta-sessione.json"
+IMPRONTA_PATH = REPO_ROOT / "_notes" / "lavoro" / "stato" / "impronta-sessione.json"
 
 
 def git(*args):

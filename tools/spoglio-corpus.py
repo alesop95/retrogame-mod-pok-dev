@@ -148,9 +148,9 @@ def nostre_specie(pkhex):
     """Le specie che i nostri lotti contengono, come insieme di numeri nazionali."""
     from pokebridge import gen3  # noqa: E402
     fuori = set()
-    for f in glob.glob(os.path.join(RADICE, "_notes", "lotti", "lotto-gen5", "*.pk5")):
+    for f in glob.glob(os.path.join(RADICE, "_notes", "lotti", "lotto-eventi-gen5", "*.pk5")):
         fuori.add(struct.unpack_from("<H", open(f, "rb").read(), 0x08)[0])
-    for f in glob.glob(os.path.join(RADICE, "_notes", "lotti", "lotto-gen4", "*.pk4")):
+    for f in glob.glob(os.path.join(RADICE, "_notes", "lotti", "lotto-eventi-gen4", "*.pk4")):
         fuori.add(struct.unpack_from("<H", open(f, "rb").read(), 0x08)[0])
     interne = set()
     for pat in ("lotto-eventi/*.pk3", "lotto-incontri-gen3/*.pk3"):
