@@ -199,6 +199,15 @@ cd "E:/retrogame-mod-pok-dev/tools/pkhex-parco-amici"
 dotnet run -c Release -- "../../_notes/lotti/lotto-parco-amici-gen4" "../../_notes/lotti/lotto-eventi" "../../_notes/lotti/lotto-incontri-gen3" "../../_notes/lotti/lotto-scambi-gen3"
 ```
 
+## pkhex-dono
+
+Genera un dono segreto di sesta o settima generazione dalle carte ufficiali contenute nella libreria, cioè `EncounterEvent.MGDB_G6` e `MGDB_G7`, come lo riceverebbe il gioco di un salvataggio dato. Carica il salvataggio, che fornisce allenatore, lingua e contesto di giudizio. Prende le carte con la specie, ed eventualmente la forma, richiesta. Genera ciascun esemplare con `ConvertToPKM`, lo giudica con quel salvataggio attivo e lo scrive con un rapporto. Una stessa carta esiste in più lingue con lo stesso numero, e il nome del file porta anche la posizione per non sovrascriverle. Con `--copia-salvataggio` scrive il primo esemplare conforme nel primo posto libero di una copia del salvataggio, ricarica la copia e confronta byte per byte il posto riletto; il salvataggio di partenza non viene mai modificato. La prima prova, il 2026-09-24, è quella del Vivillon Motivo Poké Ball su un Y preso online, e resta sul PC per `rules/hardware-and-perimeter.md`.
+
+```powershell
+cd "E:/retrogame-mod-pok-dev/tools/pkhex-dono"
+dotnet run -c Release -- "../../_notes/salvataggi/terzi/pronti-3ds/y-projectpokemon/main" "../../_notes/salvataggi/prove/prova-vivillon-y-2" 666/19 --copia-salvataggio "../../_notes/salvataggi/prove/prova-vivillon-y-2/main-con-vivillon"
+```
+
 ## confronta-ace-builder.py
 
 Confronta il costruttore di esemplari della comunità con ciò che questo progetto ha verificato, e serve a una domanda che era aperta: se ricreare la distribuzione originale e scrivere direttamente i byte producano lo stesso esemplare. Esegue cinque confronti, in ordine di durezza decrescente per i primi quattro e con il quinto di natura diversa.

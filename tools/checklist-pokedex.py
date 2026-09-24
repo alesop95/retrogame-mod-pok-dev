@@ -287,6 +287,7 @@ def voci_da_evento(pkhex, ace):
                 "forma": v["forma"],
                 "descrizione": r["titoli"],
                 "metodo": v["file"],
+                "indice_record": v["indice"],
                 "sotto_scadenza": r["sotto_scadenza"],
                 "resa": "letta, non ancora producibile",
             })
@@ -389,8 +390,9 @@ def scrivi_coda(percorso, eventi, nomi):
     per_resa = {}
     for x in coda:
         per_resa[x["resa"]] = per_resa.get(x["resa"], 0) + 1
-    r.append("Lo stato di partenza è questo, e separa il lavoro fatto da quello che aspetta uno "
-             "strumento che non esiste ancora: "
+    r.append("Lo stato di partenza è questo, e separa il lavoro fatto, cioè le voci prodotte e "
+             "giudicate conformi dalla libreria del verificatore o producibili e verificate, da "
+             "quello che aspetta ancora di essere prodotto: "
              + ", ".join("%s %d" % (k, n) for k, n in sorted(per_resa.items(), key=lambda y: -y[1]))
              + ".")
     r.append("")
@@ -446,6 +448,105 @@ def codici_duplicati(eventi):
     return doppi
 
 
+# I lotti gia' prodotti, e come una voce del catalogo si riconosce in uno dei loro file. Aggiunto il
+# 2026-09-24: fino ad allora la lista contava come non producibili anche le voci che stavano gia' su
+# disco in un lotto giudicato conforme, perche' leggeva i cataloghi e non i lotti. I lotti di prima e
+# seconda generazione portano nel nome del file il codice della voce. Quelli di quarta e quinta
+# portano un numero che sembra il codice e non lo e': e' l'indice grezzo del record nel file dei
+# doni, mentre il codice numera i soli record che sono esemplari, e i due divergono dal primo record
+# che porta un oggetto. La prima versione di questa funzione abbinava per codice e ha segnato 832
+# voci con la specie sbagliata, che e' il modo in cui la differenza si e' vista; ora abbina per indice
+# del record. Il complemento del Rubino non porta alcun numero, e le sue voci di Colosseum e XD si
+# riconoscono per gioco, classe d'incontro e specie.
+LOTTI_PER_CODICE = ["lotto-eventi-gen4", "lotto-eventi-gen5", "lotto-gb"]
+GIUDIZI_LIBRERIA = os.path.join(RADICE, "recreate-pokemon-distributions-events", "giudizi-pkhex-core.json")
+COMPLEMENTO = os.path.join(RADICE, "_notes", "lotti", "lotto-complemento-rubino", "esemplari")
+# Dal gruppo del censimento alla classe d'incontro della libreria che lo produce nel complemento.
+SPINOFF_A_CLASSE = {
+    "Colosseum, ombra": {"EncounterShadow3Colo"},
+    "Colosseum, doni": {"EncounterGift3Colo"},
+    "Colosseum, premio del Monte Lotta": {"EncounterGift3Colo"},
+    "Colosseum, iniziali": {"EncounterStarter3Colo"},
+    "XD, ombra": {"EncounterShadow3XD"},
+    "XD, doni": {"EncounterStatic3XD", "EncounterGift3XD"},
+    "XD, scambi": {"EncounterTrade3XD"},
+}
+PRODOTTA = "prodotta e conforme"
+
+
+def riconcilia_con_i_lotti(eventi):
+    """Porta nella resa di ciascuna voce il lotto che la contiene e il giudizio della libreria.
+
+    Il giudizio vale soltanto se l'impronta del file che sta oggi sul disco coincide con quella
+    giudicata: un file cambiato dopo il giudizio e' una voce prodotta da rigiudicare, non una voce
+    conforme. Senza l'uscita di `tools/pkhex-giudica` la funzione non cambia nulla e lo dice,
+    perche' dare per conforme un file che nessuno ha giudicato sarebbe l'errore che il giudice
+    esiste per evitare. Restituisce il conteggio per esito, che finisce nel documento.
+    """
+    import hashlib
+    esiti = {}
+    if not os.path.exists(GIUDIZI_LIBRERIA):
+        print("  nota: manca %s, i lotti non sono stati riconciliati" % GIUDIZI_LIBRERIA)
+        return esiti
+    with io.open(GIUDIZI_LIBRERIA, encoding="utf-8") as f:
+        giudizi = json.load(f)["voci"]
+
+    def stato_del_file(cartella, nome):
+        percorso = os.path.join(cartella, nome)
+        giudizio = giudizi.get("%s/%s" % (os.path.basename(cartella), nome))
+        with io.open(percorso, "rb") as f:
+            impronta = hashlib.sha256(f.read()).hexdigest()
+        if not giudizio or giudizio.get("sha256") != impronta:
+            return "prodotta, giudizio da rifare", giudizio
+        if giudizio.get("esito") == "conforme":
+            return PRODOTTA, giudizio
+        return "prodotta, contestata", giudizio
+
+    per_codice = {e["codice"]: e for e in eventi}
+    per_record = {(e["generazione"], e["indice_record"]): e for e in eventi if "indice_record" in e}
+    for lotto in LOTTI_PER_CODICE:
+        cartella = os.path.join(RADICE, "_notes", "lotti", lotto)
+        if not os.path.isdir(cartella):
+            continue
+        for nome in sorted(os.listdir(cartella)):
+            if not nome.startswith("EVT-") or "." not in nome:
+                continue
+            parti = nome.split("-")
+            if parti[1] in ("4", "5"):
+                voce = per_record.get((int(parti[1]), int(parti[2])))
+            else:
+                voce = per_codice.get("-".join(parti[:3]))
+            if voce is None:
+                esiti["file senza voce nel catalogo"] = esiti.get("file senza voce nel catalogo", 0) + 1
+                continue
+            resa, giudizio = stato_del_file(cartella, nome)
+            if giudizio and giudizio.get("specie") not in (None, voce["nazionale"]):
+                resa = "prodotta, specie diversa dal catalogo"
+            voce["resa"], voce["lotto"] = resa, lotto
+            esiti[resa] = esiti.get(resa, 0) + 1
+
+    rapporto = os.path.join(COMPLEMENTO, "rapporto.json")
+    if os.path.exists(rapporto):
+        with io.open(rapporto, encoding="utf-8") as f:
+            complemento = json.load(f)["esiti"]
+        disponibili = {}
+        for c in complemento:
+            classe = c["voce"].split(" ")[0]
+            disponibili.setdefault((classe, c["specie"]), []).append(c["file"])
+        for e in eventi:
+            if e.get("classe") != "spinoff":
+                continue
+            gruppo = e["descrizione"].split(":")[0].strip()
+            for classe in SPINOFF_A_CLASSE.get(gruppo, ()):
+                file_ = disponibili.get((classe, e["nazionale"]))
+                if file_:
+                    resa, _g = stato_del_file(COMPLEMENTO, file_[0])
+                    e["resa"], e["lotto"] = resa, "lotto-complemento-rubino"
+                    esiti[resa] = esiti.get(resa, 0) + 1
+                    break
+    return esiti
+
+
 def ordina_per_specie(eventi):
     """Marca la prima voce di ciascuna specie e porta tutte le prime in testa alla coda.
 
@@ -465,14 +566,21 @@ def ordina_per_specie(eventi):
     resta l'informazione utile a chi produce: si sposta il confine fra i due tempi, non l'ordine
     interno di ciascuno.
     """
-    viste = set()
-    for e in eventi:
+    # Dal 2026-09-24, fra le voci di una stessa specie, la prima e' di preferenza una gia' prodotta e
+    # conforme, o producibile e verificata: il primo tempo chiede una voce per specie, e sceglierne una
+    # ancora da fare quando un'altra e' gia' pronta farebbe sembrare aperta una specie coperta.
+    pronte = (PRODOTTA, "producibile e verificata")
+    scelte = {}
+    for indice, e in enumerate(eventi):
         naz = e.get("nazionale")
-        if e.get("sotto_scadenza") and naz and naz not in viste:
-            viste.add(naz)
-            e["primo_della_specie"] = True
-        else:
-            e["primo_della_specie"] = False
+        if not (e.get("sotto_scadenza") and naz):
+            continue
+        attuale = scelte.get(naz)
+        if attuale is None or (eventi[attuale]["resa"] not in pronte and e["resa"] in pronte):
+            scelte[naz] = indice
+    prime = set(scelte.values())
+    for indice, e in enumerate(eventi):
+        e["primo_della_specie"] = indice in prime
     for indice, e in enumerate(eventi):
         e["ordine_di_catalogo"] = indice
     eventi.sort(key=lambda e: (0 if e["primo_della_specie"] else 1, e["ordine_di_catalogo"]))
@@ -488,8 +596,9 @@ SOLO_DA_EVENTI_CHIUSI = {
     # `Legality/Verifiers/FormVerifier.cs` righe 90-99 rifiuta in nona generazione una forma oltre la 18
     # se l'incontro non la fissa, e righe 106-111 ammettono Fancy e Poke Ball solo da un dono; nessuna
     # carta di Scarlatto e Violetto, Leggende Z-A, Spada e Scudo o dei remake di Sinnoh porta Vivillon,
-    # la tabella dei trasferimenti da GO si ferma alla forma 17, e le sole due carte con forma 19 sono
-    # distribuzioni giapponesi di X e Y del 2014. Il carosello di clorogaming del 2026-09-19 lo diceva.
+    # la tabella dei trasferimenti da GO si ferma alla forma 17. Le carte con forma 19 sono tutte di sesta
+    # generazione: le giapponesi 36 e 143, e la 511 in otto lingue compreso l'italiano, trovata il 2026-09-24
+    # da tools/pkhex-dono nella base dei doni della libreria. Il carosello di clorogaming del 2026-09-19 lo diceva.
     (666, 19),
 }
 
@@ -570,6 +679,7 @@ def main(argv=None):
         })
 
     eventi = voci_da_evento(a.pkhex, a.ace)
+    riconciliazione = riconcilia_con_i_lotti(eventi)
     ordina_per_specie(eventi)
     duplicati = codici_duplicati(eventi)
 
@@ -789,10 +899,25 @@ def scrivi(percorso, righe_specie, righe_forma, per_fonte, eventi):
              "prima della propria specie porta dunque in testa le %d voci del primo tempo, e "
              "lascia in coda le %d del secondo; dentro ciascuno dei due blocchi l'ordine per "
              "evento è conservato, perché è l'informazione utile a chi produce. La prima voce "
-             "di una specie è scelta nell'ordine della fonte e non per merito: dove più voci "
-             "portano la medesima specie, la marcatura non dice quale sia la più desiderabile "
-             "ma soltanto quale basti a coprire la specie."
+             "di una specie è una già prodotta e conforme, o producibile e verificata, se ne "
+             "esiste una; altrimenti è la prima nell'ordine della fonte. Non è scelta per "
+             "merito: dove più voci portano la medesima specie, la marcatura non dice quale sia "
+             "la più desiderabile ma soltanto quale basti a coprire la specie."
              % (len(primi), len(scad_ev) - len(primi)))
+    r.append("")
+    prodotte = [x for x in eventi if str(x.get("resa", "")).startswith("prodotta")]
+    per_lotto = {}
+    for x in prodotte:
+        per_lotto[x.get("lotto", "?")] = per_lotto.get(x.get("lotto", "?"), 0) + 1
+    r.append("Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce è "
+             "prodotta e conforme se un file di un lotto la contiene e se "
+             "`recreate-pokemon-distributions-events/giudizi-pkhex-core.json`, scritto da "
+             "`tools/pkhex-giudica`, la giudica conforme con la stessa impronta del file di oggi; "
+             "un file cambiato dopo il giudizio risulta da rigiudicare. Le voci riconosciute in un "
+             "lotto sono %d, così ripartite: %s. Le voci di terza generazione della tabella degli "
+             "eventi conservano la resa del generatore, perché il loro lotto non porta il codice "
+             "nel nome del file."
+             % (len(prodotte), ", ".join("%s %d" % (k, n) for k, n in sorted(per_lotto.items()))))
     r.append("")
     r.append("| Codice | Gen | Classe | Dex | Forma | Provenienza | Sotto scadenza | Primo della specie | Resa |")
     r.append("|---|---|---|---|---|---|---|---|---|")

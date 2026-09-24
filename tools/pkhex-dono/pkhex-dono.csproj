@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Doni del progetto: genera con la libreria del verificatore, compilata dal clone
+       in _notes/fonti/cloni/pkhex, gli esemplari dalle carte della base dei doni. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PKHeX.Core">
+      <HintPath>..\..\_notes\fonti\cloni\pkhex\PKHeX.Core\bin\Release\net10.0\PKHeX.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
