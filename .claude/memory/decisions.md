@@ -963,6 +963,19 @@ Il problema. La lettura integrale delle fonti del Parco Lotta ha lasciato fuori 
 La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti etichettata come non letta con il proprio motivo, secondo la prescrizione che vieta di degradare in silenzio una fonte a nota a margine, e non si tenta alcuna via ulteriore. Il debito di lettura del fronte Parco Lotta si dichiara quindi chiuso con questa sola eccezione dichiarata, e nessuna sessione futura deve riaprirlo credendo che qualcosa sia stato dimenticato.
 
 La ragione per cui l'abbandono e' accettabile qui, e non lo sarebbe altrove. Quella discussione e' del 2005 ed e' una richiesta di valutazione di squadra, cioe' la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e piu' recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano e' quindi basso, e la decisione si fonda su questo e non sulla sola difficolta' di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
+## ADR-081: la libreria del verificatore diventa il generatore del progetto, anche per l'obiettivo primario
+
+Data: 2026-09-23. Stato: accettata. Proposta del proprietario, che ha chiesto di documentarla per intero.
+
+Contesto. Per la terza generazione il progetto ha scritto in Python un generatore per ciascuna classe d'incontro, e ogni giro di giudizio di PKHeX ha rivelato qualcosa che quei generatori ignoravano. Il 2026-09-23 `tools/pkhex-genera` ha generato con `PKHeX.Core`, compilato dal clone del sorgente, 355 esemplari legali su 355 richieste per il complemento di ADR-080, compresi gli Ombra di XD e il Jirachi di Pokémon Channel.
+
+Decisione. `tools/pkhex-genera` è il generatore del progetto: le richieste le decide uno strumento Python deterministico dai dati del progetto, la libreria costruisce e giudica. Si usa anche per l'obiettivo primario, cioè per generare esemplari legali per i giochi di quarta, quinta, sesta e settima generazione, i salvataggi da cui la catena porta al deposito. I generatori Python esistenti restano come referenza e come controllo indipendente, non si cancellano.
+
+Conseguenze.
+- **Controllo indipendente:** ogni lotto si rilegge con la libreria del progetto dopo il giudizio, perché il caso dei formati CK3 e XK3 di Colosseum e XD, raccontato in `pokedex-home-completo/STUDIO-10-la-libreria-del-verificatore-come-generatore.md`, ha mostrato che un giudizio positivo riguarda l'oggetto giudicato e non quello scritto.
+- **Riproducibilità:** è affidata ai file e alle loro impronte, perché la libreria usa un generatore casuale che non si può fissare.
+- **Perimetro:** resta intatto. L'installazione e l'uso di Pokémon Bank e Pokémon Transporter su questa console restano fuori dall'assistenza, per `rules/hardware-and-perimeter.md` e la nota locale `_notes/perimetro-bank-transporter.md`: il progetto prepara esemplari e salvataggi, e quel tratto resta del proprietario.
+
 ## ADR-080: la collezione completa di terza generazione, generata, su due cartucce e con i fiocchi
 
 Data: 2026-09-23. Stato: accettata, da attuare. Estende ADR-076 oltre la capienza di una cartuccia.

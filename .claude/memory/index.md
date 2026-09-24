@@ -37,6 +37,8 @@ Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo q
 
 ## Punto di ripresa
 
+AGGIUNTA DEL 2026-09-23, sedicesima parte. ADR-080 e ADR-081: il complemento del Rubino è generato con la libreria del verificatore, 355 esemplari legali su 355, e con Smeraldo copre 386 specie su 386, 28 forme di Unown e i 27 fiocchi legali. Resta la scrittura sul Rubino, fase F5: prima una lettura nuova della cartuccia con backup in doppia copia, poi il file lavorato, il dump di PKHeX, e la scrittura con rilettura.
+
 AGGIUNTA DEL 2026-09-23, quindicesima parte. Verifica profonda della terza generazione, in `pokedex-home-completo/VERIFICA-TERZA-GENERAZIONE.md`: nessuna specie è vincolata dalla chiusura, mentre restano irripetibili fiocchi, nove mosse perdute, tre sfide del deposito, Colosseum e XD e il Mew in una sfera diversa dalla Poké Ball. Serve una decisione del proprietario su che cosa inseguire prima della chiusura di Bank, ed è la voce DA DECIDERE del 2026-09-23 sera in `pending.md`.
 
 AGGIUNTA DEL 2026-09-23, quattordicesima parte. SMERALDO CONCLUSO: il file di `giro12` è sulla cartuccia, rilettura `88a3d576…22e6` identica byte per byte, in doppia copia su E: e J:. La cartella dei backup è riordinata per scrittura, con `LEGGIMI.md`. Il fuoco torna al completamento del Pokédex in HOME: il Vivillon Motivo Poké Ball e i tre passi del proprietario della voce ORDINE PROPOSTO di `pending.md`.
