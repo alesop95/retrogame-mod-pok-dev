@@ -6,8 +6,8 @@
     "versione": "26.8.26.0"
   },
   "conteggi": {
-    "conformi": 1754,
-    "contestati": 172,
+    "conformi": 1902,
+    "contestati": 24,
     "illeggibili": 0
   },
   "voci": {
@@ -14991,112 +14991,70 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/000-Mew-Mew.pk4": {
-      "sha256": "0d9952181e9a92c5e5d96c1bdfdc66d6ab47a1b4a33fc57392af2e29416bf38c",
+      "sha256": "55cd6df73ccdd24f77ad7c33d8db431d3b41d8b430888d3be464f3648f1d7342",
       "specie": 151,
       "nome": "Mew",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/001-WISHMKR-Jirachi.pk4": {
-      "sha256": "62f1cc116de2c6076a212a23a7ed3e2cc9ef08c1383c5c0d1a8b385c5a1aef95",
-      "specie": 409,
-      "nome": "Rampardos",
+      "sha256": "fa245f91fced6c9cace08828412c90b70cb4a2633110c48b924eefb5c21c3b40",
+      "specie": 385,
+      "nome": "Jirachi",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Trainer ID is not obtainable from any RNG seed.",
-        "Invalid: Current level is below met level."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/003-BerryFixRuby-Zigzagoon.pk4": {
-      "sha256": "655f2fb26543c67069a9802f02ce6d53576f83a8fc685b506a69a8b230e92279",
-      "specie": 288,
-      "nome": "Vigoroth",
+      "sha256": "12e015b96f62b4b1b4a8bd3926ccd013f90ad5fedac5cc702db69cb8242f76c7",
+      "specie": 263,
+      "nome": "Zigzagoon",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Current level is below met level."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/004-BerryFixSapphire-Zigzagoon.pk4": {
-      "sha256": "0ecbd51e25300c20ac0b2b0e8ce11dc7936cfb302ecc70ece002d889380f9c20",
-      "specie": 288,
-      "nome": "Vigoroth",
+      "sha256": "91236892b94851d3e5fe59bb32c204cd16eb4314df7a9e07b9ce0c879e25b680",
+      "specie": 263,
+      "nome": "Zigzagoon",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Current level is below met level."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/005-NegaiBoshiJirachi-Jirachi.pk4": {
-      "sha256": "295d04fe4c9c275e4096f6eae216f83d8641ee6dc6f90857f3707c4e3a6cbf79",
-      "specie": 409,
-      "nome": "Rampardos",
+      "sha256": "1cde49f1189c4d5b2482ba4d550bec85e35283621c350a27dc7dadbfde1052bc",
+      "specie": 385,
+      "nome": "Jirachi",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Current level is below met level."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/006-NegaiBoshiJirachiMatchRecipient-Jirachi.pk4": {
-      "sha256": "0d858b1e03f4f24d6edca5128ff07c11091fa9befe179e317e289a2759018d6c",
-      "specie": 409,
-      "nome": "Rampardos",
+      "sha256": "28399bfacf2896c4830fe7cfdb8dfce0cca58dda3fd129c0de38cafc8379fbe2",
+      "specie": 385,
+      "nome": "Jirachi",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Current level is below met level."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/007-TanabataJirachi2004-Jirachi.pk4": {
-      "sha256": "4771c745bf0fd970209aaf80b51f85f2090e266f87f249bbdde208b909a926ff",
-      "specie": 409,
-      "nome": "Rampardos",
+      "sha256": "96002a7d5e84f0a882b8c9744bbac84baf6843f9beb5aa7650ef072e4ea15113",
+      "specie": 385,
+      "nome": "Jirachi",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Current level is below met level."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/009-PokParkMeowth-Meowth.pk4": {
-      "sha256": "0d21d25e6b3654a65cdddfa8759ff2212e6df80c08ffd563b34e70c67e819221",
+      "sha256": "029a43d43a7520872ba443c60af352a3db37c01dfe848f68cd1a20b23276cb6e",
       "specie": 52,
       "nome": "Meowth",
       "forma": 0,
@@ -15105,231 +15063,142 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/011-HadouMew-Mew.pk4": {
-      "sha256": "c3745cefff0db60fed5fcab002dc981805d691d2a3b784ae395c6a4a19762f51",
+      "sha256": "29d46ba331937878af9e5e05394d1516a8263e093ee5989ac80a2e129b8e9cce",
       "specie": 151,
       "nome": "Mew",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/014-TanabataJirachi2005-Jirachi.pk4": {
-      "sha256": "76b6262c34ca3761fa5d4a9256b31336e136c9c57225b121520edd1b963e7935",
-      "specie": 409,
-      "nome": "Rampardos",
+      "sha256": "ef60737fdf2672573d5068a5adf6c696dcf77b3b19d2a62b73db00e8f1735b86",
+      "specie": 385,
+      "nome": "Jirachi",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Trainer ID is not obtainable from any RNG seed.",
-        "Invalid: Current level is below met level."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/015-FestaMetang-Metang.pk4": {
-      "sha256": "d1f589b3d13c7b9fe464d4e5ece4fe61707ba54d5e15e4e848f75e23b1975589",
-      "specie": 399,
-      "nome": "Bidoof",
+      "sha256": "2fb11e744e753ad95c9546955a2c62a33c16282892a41648d7305f56985d645f",
+      "specie": 375,
+      "nome": "Metang",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/016-SundayWobbuffet-Wobbuffet.pk4": {
-      "sha256": "c5c395cb15f533855e991ee2d56ab154ea05b15656c8413d2a92f1f720198bba",
+      "sha256": "9dad492ac31df26f2d1b7bdc1a7672db579e78602d5d7b7b4b14b9e8506e6758",
       "specie": 202,
       "nome": "Wobbuffet",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/017-Regirock-Regirock.pk4": {
-      "sha256": "ba16a40283f82dbaf18fce952ce4e6c9b837cc2b7e8b326aae8edc5223d923d7",
-      "specie": 401,
-      "nome": "Kricketot",
+      "sha256": "0d4c01dc56c8a3351308633c4f31dc2be3393a6878aab426eeb12b0577049d0b",
+      "specie": 377,
+      "nome": "Regirock",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Trainer ID is not obtainable from any RNG seed."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/018-Regice-Regice.pk4": {
-      "sha256": "1a11e7a6d58168ff116e479adba26b9bf5c46ef8d642ce4e3824424a506e0907",
-      "specie": 402,
-      "nome": "Kricketune",
+      "sha256": "882c948fba514355202e94e6b639482222d98cdeeea7f4e7e19f68d99f447c30",
+      "specie": 378,
+      "nome": "Regice",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Trainer ID is not obtainable from any RNG seed."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/019-Registeel-Registeel.pk4": {
-      "sha256": "c55c0e8e23a179ac0658655a9a308488c89775b14139899de367cb4ceeee0af8",
-      "specie": 403,
-      "nome": "Shinx",
+      "sha256": "2d959fc9f8b605124383c204b9a980482f1de90edd2ca959122a1e96b072e575",
+      "specie": 379,
+      "nome": "Registeel",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Trainer ID is not obtainable from any RNG seed."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/020-PokParkMew-Mew.pk4": {
-      "sha256": "f8e02c086c6ea06c21a60c5122c3655427bf593e2d0b1723ab2bbb938c19cfa3",
+      "sha256": "23ecb1a080626f8805f27edcc1078141b5cbbb5e494f29edb30aa93b54d73708",
       "specie": 151,
       "nome": "Mew",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/021-PokParkCelebi-Celebi.pk4": {
-      "sha256": "27d9cb7b5d49ee874eb9a988e45a71fcd424afdc91d19ddaa226bd9580c190e9",
+      "sha256": "77f4284e36736fd51135ea7e618da75e9397d309c8ab06e0e93dad43d752a6a9",
       "specie": 251,
       "nome": "Celebi",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type.",
-        "Invalid: In-game Trade OT has been altered."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/022-TanabataJirachi2006-Jirachi.pk4": {
-      "sha256": "b291e58b125ae31f0802a96564399d5bd1d45b2881abe344f8c668866394bb76",
-      "specie": 409,
-      "nome": "Rampardos",
+      "sha256": "64bba4556cc7adb84c30f49c0e505c910c6880dc4f0e846cb874128a8cc03b4c",
+      "specie": 385,
+      "nome": "Jirachi",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Current level is below met level."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/023-MitsurinCelebi2006-Celebi.pk4": {
-      "sha256": "7a565aaddab892893fe2c1f8d992883412f9f15ce8dd76e07824b66362fda2b1",
+      "sha256": "f1cf7f18d6ae401c217c8023d7d105bbbbf3e9cbcfab68c498cb2e63f30fc85e",
       "specie": 251,
       "nome": "Celebi",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type.",
-        "Invalid: In-game Trade OT has been altered.",
-        "Invalid: Move 2 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/024-PokParkJirachi2006-Jirachi.pk4": {
-      "sha256": "346c8e83586614554b1c636ae697cf63cfe902e94190acc91dadb3fae7879be2",
-      "specie": 409,
-      "nome": "Rampardos",
+      "sha256": "ba660c1f56bbd036ca96fdfe2e3586ba8a1d4a9f6286de861972575dd7c5019f",
+      "specie": 385,
+      "nome": "Jirachi",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Current level is below met level."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/025-PokParkJirachi2006-Jirachi.pk4": {
-      "sha256": "500aa591a910f53fddd457cf3ba43b35594051e23bc716b4235513cf56c1e460",
-      "specie": 409,
-      "nome": "Rampardos",
+      "sha256": "d1eaf525eef15653e95103c539178ccc53c2d8d3a015d4121d4bb3cb523a9523",
+      "specie": 385,
+      "nome": "Jirachi",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Current level is below met level."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/026-BerryFixRuby-Zigzagoon.pk4": {
-      "sha256": "2a110c5bb88c9ebeb05ee8af256fb02e21dc78b7761c5cccf46f5d72bd02ac72",
-      "specie": 288,
-      "nome": "Vigoroth",
+      "sha256": "f965806d4a7a09929d574879f6e9c38de458dc75d2d5887283b27111e29a09e7",
+      "specie": 263,
+      "nome": "Zigzagoon",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Current level is below met level."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/027-BerryFixSapphire-Zigzagoon.pk4": {
-      "sha256": "a6541cfa7131654a7f85b8c1954fea62f71390beb6f9f1bb32c54d399ac8f104",
-      "specie": 288,
-      "nome": "Vigoroth",
+      "sha256": "23ecfa8ab7f86d0aecba245718f870fd05aea0e2377fa6b603a8f28126857d8c",
+      "specie": 263,
+      "nome": "Zigzagoon",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Current level is below met level."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/028-Charizard-Charizard.pk4": {
-      "sha256": "776c7a4b7b1b5e1c3d5b70a887ba97f50146ffe8eb0488352fae50f27177e3cf",
+      "sha256": "751ef0dd39d447036011ceb8a8388360e55b838801e2cd50b11082c2b4699dcc",
       "specie": 6,
       "nome": "Charizard",
       "forma": 0,
@@ -15338,7 +15207,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/029-Pikachu-Pikachu.pk4": {
-      "sha256": "9ca7d07a0b8e39a839708d5ba412052375413e30f891f0832f1b898bb74cdd20",
+      "sha256": "cf82258bc7901f452a252693f662a6957a454d04333bfa933822a2083c8dafa6",
       "specie": 25,
       "nome": "Pikachu",
       "forma": 0,
@@ -15347,7 +15216,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/030-Articuno-Articuno.pk4": {
-      "sha256": "f24e4b8b7db8f4817e8a7fdc780677b825b4602bf095932ad0acc5c4a222d2e2",
+      "sha256": "6c51f96f625fc59de0b0d59c95252671ef8d7c410fb4c379b3295ef99bb11079",
       "specie": 144,
       "nome": "Articuno",
       "forma": 0,
@@ -15356,31 +15225,25 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/031-Raikou-Raikou.pk4": {
-      "sha256": "f10bc970d0dc9a4c4e516c5b7eda96288c34266d073f578e65f77429de7260f7",
+      "sha256": "145103b8a8dda6a4edab70d131efee3887c6bd44105b038bd005dcd24df80ea7",
       "specie": 243,
       "nome": "Raikou",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/032-Entei-Entei.pk4": {
-      "sha256": "17c6b512c41742325616869db4c09f639aa2e718d5e874ae5aa09594924d7655",
+      "sha256": "af61846becfcdfcc9a316351f34a390d50111bfe1f4dcff2a35c28dc1e610856",
       "specie": 244,
       "nome": "Entei",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/033-Suicune-Suicune.pk4": {
-      "sha256": "6b75558fb867ae0afdd1e0f181361215045f5302353cacbd3f1940ba0ce5fd0a",
+      "sha256": "6cf3dc881f8226c439a5c98f9cae5169197050a85b1aaa9fea22f6474974b73e",
       "specie": 245,
       "nome": "Suicune",
       "forma": 0,
@@ -15389,66 +15252,43 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/034-Lugia-Lugia.pk4": {
-      "sha256": "ae09c6c319cd7d555882a33cf2fd06fbfcee38b72f08a33e8ce9c9920a1c0405",
+      "sha256": "3309150ef54f08e42bed5cb7276a360734affdc206d0eecea0ebd8000a0c1b82",
       "specie": 249,
       "nome": "Lugia",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type.",
-        "Invalid: Move 1 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/035-HoOh-HoOh.pk4": {
-      "sha256": "170c291f5277268623779812550ae4495ecf27f96f41b69157f89e85e3950867",
+      "sha256": "736b18da2b9d7d6c931797f0ff3d55607513803a959b04ac34d004ee7dfb9486",
       "specie": 250,
       "nome": "Ho-Oh",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: Move 1 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/036-Latias-Latias.pk4": {
-      "sha256": "a24a92c9912e9d715e02efcbbe0132aaf840735f8422ac927c42fe93a8b2c7cd",
-      "specie": 407,
-      "nome": "Roserade",
+      "sha256": "88b4e012074e8051843b7db03b67e0c3e3880219aacea51f411875e9f1ea4930",
+      "specie": 380,
+      "nome": "Latias",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type.",
-        "Invalid: Move 3 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/037-Latios-Latios.pk4": {
-      "sha256": "23bccaf4ffe85440caa20c9e7d721f251da4ecc97af350e0c44e2f2ab30eb0f5",
-      "specie": 408,
-      "nome": "Cranidos",
+      "sha256": "41f3404bb0ce9d6dffdddc34cc89f7b3eb27695434685cf5dbb4204e69776771",
+      "specie": 381,
+      "nome": "Latios",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Move 3 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/038-Charizard-Charizard.pk4": {
-      "sha256": "50aebda7430e9b868a297dc8fd7354b0e12c9b4cf8a53a787a3c4c31066c75fd",
+      "sha256": "a0c94b3829a8369551bbfb9597ac4c5eca1b803cca6b116924e57ecfbb6bc04f",
       "specie": 6,
       "nome": "Charizard",
       "forma": 0,
@@ -15457,7 +15297,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/039-Pikachu-Pikachu.pk4": {
-      "sha256": "2b7021aebc347640a28e74f0e6a2a5329ffd584e609a6654079a1bbe528142fd",
+      "sha256": "52ac5bb502fa2cf2ffc28019ebe716e76d763311edf85353e06830a6aee53fe3",
       "specie": 25,
       "nome": "Pikachu",
       "forma": 0,
@@ -15466,19 +15306,16 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/040-Articuno-Articuno.pk4": {
-      "sha256": "35d18215f27d7cbbc07ea12c9956ae56874d1bf21fdca7df2c00795c7cfa9001",
+      "sha256": "c3e8fa5ef5f3b52ed7502ca48e66c07041bcfb9fe2b11f36c51e9d3f3f924ef6",
       "specie": 144,
       "nome": "Articuno",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS French",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/041-Raikou-Raikou.pk4": {
-      "sha256": "97c8e89a7482959e8481e0be61e58246f9737fc85e4fceb23a60127d258a7a8b",
+      "sha256": "2ccc6406e9f72f2e332a114a210efedde63b248b2a7a9d54578c0f8a68b23c63",
       "specie": 243,
       "nome": "Raikou",
       "forma": 0,
@@ -15487,19 +15324,16 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/042-Entei-Entei.pk4": {
-      "sha256": "786fbd2afe2fc667995777d7cd9c543654c1a1cb1a91b96adc8c6ac5d787afee",
+      "sha256": "c233539a4f2c6e00151c2a2da215bea9820d94e15f12d84d0c0c9b10269a17b6",
       "specie": 244,
       "nome": "Entei",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS French",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/043-Suicune-Suicune.pk4": {
-      "sha256": "eba3b783e1f78ec93c926d5e1a7eb1d60d9dc4114a237c5d0e341dab538eb0fb",
+      "sha256": "4aafccd1aa16fa443cd45ada3a92b77363cc515aad108901875820f1ada0300d",
       "specie": 245,
       "nome": "Suicune",
       "forma": 0,
@@ -15508,78 +15342,52 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/044-Lugia-Lugia.pk4": {
-      "sha256": "815168274c4ca61907c991ad5533cea271ca3a04e37de757b6bac7932f4003a5",
+      "sha256": "30585b77c01225c227c187d1b7f81e10ac4a8ca01b17c565bf5211b55e28b43b",
       "specie": 249,
       "nome": "Lugia",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS French",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: Move 1 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/045-HoOh-HoOh.pk4": {
-      "sha256": "822e91ecbc535078e50deeb81a9724ce6ff052773ee12bf4162f23134a3f0290",
+      "sha256": "f0813b71b48a700a5e81878547b95d5fc45ab7e472dcbafdf7b9f69cd9eb38a4",
       "specie": 250,
       "nome": "Ho-Oh",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS French",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type.",
-        "Invalid: Move 1 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/046-Latias-Latias.pk4": {
-      "sha256": "e185d42f44baf05e38bb237ce740257c27942e0590cd353b1760ee6950288998",
-      "specie": 407,
-      "nome": "Roserade",
+      "sha256": "d4234c59fdd6a8324837ce41bbb3f07cacdc8a878d3b504e2819a9450bb87f90",
+      "specie": 380,
+      "nome": "Latias",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS French",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type.",
-        "Invalid: Move 3 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/047-Latios-Latios.pk4": {
-      "sha256": "dc68aba5522b13950309b67d8ffc56794e536eb28989305856d22a1c8cfc5937",
-      "specie": 408,
-      "nome": "Cranidos",
+      "sha256": "761c8323b856476403f0280485fefc5db74ef8a0331420e45ca0d670b580d456",
+      "specie": 381,
+      "nome": "Latios",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS French",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Move 3 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/048-Charizard-Charizard.pk4": {
-      "sha256": "10ebe667f65ab6bc7962d3f3f1089621f1f44757e3c401e9deaaedb1c04a5f0d",
+      "sha256": "0e76a3ab7001d9323b52394a93ba0a114978e80f48d5a3613164ff67ab7f6a34",
       "specie": 6,
       "nome": "Charizard",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS German",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/049-Pikachu-Pikachu.pk4": {
-      "sha256": "09f04bdd7f22168057a00910749949b9fd3f841193585bc27b42ef61eb49409d",
+      "sha256": "d380e952ac53489f1d22eb18f5e3a0973a31da7673410536385b35c5dfd237cc",
       "specie": 25,
       "nome": "Pikachu",
       "forma": 0,
@@ -15588,31 +15396,25 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/050-Articuno-Articuno.pk4": {
-      "sha256": "9da2a1e3fc65593824fe6e694cc164f59c2b4d6e7231f535bffa30e245d1012e",
+      "sha256": "7f755c81adf59b58437ff4a9a100ce875e63e4a1ac8a10bf55e57a3c51c93707",
       "specie": 144,
       "nome": "Articuno",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS German",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/051-Raikou-Raikou.pk4": {
-      "sha256": "9e6e8268fe14db430186fae28786440b81c13b29af77a92ddb53e3030c149f37",
+      "sha256": "9fc2126a365a5402b4e522b7b9e9f3bd88925b88d8eec36bbf913e1ddb142cfc",
       "specie": 243,
       "nome": "Raikou",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS German",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/052-Entei-Entei.pk4": {
-      "sha256": "fd81539ba9a2be0f48f80fa6a2a217b4ea9318d231050fc7914c0d1932de9912",
+      "sha256": "2f8a12a5bb28f130cf1c99d6cf8e049b9db661005aad51b5edc06bee1b7b8b89",
       "specie": 244,
       "nome": "Entei",
       "forma": 0,
@@ -15621,89 +15423,61 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/053-Suicune-Suicune.pk4": {
-      "sha256": "8674e8867b91c086d86d50ec1f401f308672b425c3e230b81c1715ef6ed02cf3",
+      "sha256": "6b715a6e6afa29b570c84467699a55e50aaa73d1b07d28801b9d5e3541885ee0",
       "specie": 245,
       "nome": "Suicune",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS German",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/054-Lugia-Lugia.pk4": {
-      "sha256": "1b1222a9a3121f087d7cbc3eb7121361fca179ec70ced0b560ee6a846e776cac",
+      "sha256": "13d1e3ab15756a8f28d14376e9e8dff2b2d7bec6eca74d38bb95668b09933094",
       "specie": 249,
       "nome": "Lugia",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS German",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: Move 1 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/055-HoOh-HoOh.pk4": {
-      "sha256": "a15a9e35aac006b985479a0bd938884fea3c66fc3bb59ad91d73f0a2190f0b7b",
+      "sha256": "40aa4a92a555eaac4f7cec3fbd3272966c9dde17785a4b60a44a4974bb432c2b",
       "specie": 250,
       "nome": "Ho-Oh",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS German",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: Move 1 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/056-Latias-Latias.pk4": {
-      "sha256": "49f833e951f32baacd55db5d44b408d1e3ab42a8c58fdf4fe65c8289ffe5830b",
-      "specie": 407,
-      "nome": "Roserade",
+      "sha256": "532ad8101750055aa3d964dbc5990f75a5a59394c9e7503072087f6581051634",
+      "specie": 380,
+      "nome": "Latias",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS German",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type.",
-        "Invalid: Move 3 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/057-Latios-Latios.pk4": {
-      "sha256": "4ab012d7976f3942f65f9b019a97f1fe0e02e28e979a3b0093e84d25a1319e80",
-      "specie": 408,
-      "nome": "Cranidos",
+      "sha256": "833418fdc5088b44ffbd036223c238641901ab4d268ff05b00c6986bb058336d",
+      "specie": 381,
+      "nome": "Latios",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS German",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Move 3 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/058-Charizard-Charizard.pk4": {
-      "sha256": "5df0cc333cdf498abd7ed787e2ee7e6dad7c0923fbfdf36d522e91db1084805d",
+      "sha256": "457bf59909f9bb68c9942ad116bf9f2c6d7daef5783dce0f2b66cab8cc867b13",
       "specie": 6,
       "nome": "Charizard",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/059-Pikachu-Pikachu.pk4": {
-      "sha256": "52f7f35361bd7d8f63b7dc01cf16f6c9f219d688a7cb7b226939819588d7b466",
+      "sha256": "b85c3df1957382d206be874c79f8be913a580fe5b272b38585a40c93b4deb03d",
       "specie": 25,
       "nome": "Pikachu",
       "forma": 0,
@@ -15712,7 +15486,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/060-Articuno-Articuno.pk4": {
-      "sha256": "387bc553b495de2cd8458dc972d897fc881043eca34eaec4ba272787b4a2d6c2",
+      "sha256": "f0986e6d9dc4fd17f0de41cb08b3ab68db108217d59b83c23a9d87aee1f88368",
       "specie": 144,
       "nome": "Articuno",
       "forma": 0,
@@ -15721,19 +15495,16 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/061-Raikou-Raikou.pk4": {
-      "sha256": "c8b15e4ed391cd5464304bfffa4390da32f386c6a18bdfae33c320f212a3fc22",
+      "sha256": "718871a0284bb0dd834890eb4257c9a985013f3eca6b8539eb07cab6f2c73a1a",
       "specie": 243,
       "nome": "Raikou",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/062-Entei-Entei.pk4": {
-      "sha256": "35997a7e17fdcc07157bcd8b7fc79d3b8279b924d2629298d76b1a9d9abd98f3",
+      "sha256": "9a6770fdaadc94f87e625f1e966de531a6f9065887a6489b592c04efde0382d2",
       "specie": 244,
       "nome": "Entei",
       "forma": 0,
@@ -15742,7 +15513,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/063-Suicune-Suicune.pk4": {
-      "sha256": "400d820ebb4976a9341409ed1104f203612436c10075a71a997c4f5b84a9d5c7",
+      "sha256": "b62c271630ac37cc39bb23fb7b049798695620cf38627e698dd920399ee19910",
       "specie": 245,
       "nome": "Suicune",
       "forma": 0,
@@ -15751,66 +15522,43 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/064-Lugia-Lugia.pk4": {
-      "sha256": "0fbb83afa8a374f5fa68edc1f6cb7b91f256d88322b6c08f569708dccf38acd3",
+      "sha256": "cd2f234bb488cbf6141812518e39c95b16c7fdf6f102d45da59463c90a39a540",
       "specie": 249,
       "nome": "Lugia",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type.",
-        "Invalid: Move 1 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/065-HoOh-HoOh.pk4": {
-      "sha256": "4798da6e3e2f375b9c9744490c3a4522a990225708beba50197db587e42b69d9",
+      "sha256": "e85fd1ed7b6301195db006628acf8d5d3da77fb980e8e112d51cc91b9c0d472a",
       "specie": 250,
       "nome": "Ho-Oh",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: Move 1 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/066-Latias-Latias.pk4": {
-      "sha256": "274d99e76fd36b328d6d3b101f91ba0c7099e475aa387798c90c707b484c97fa",
-      "specie": 407,
-      "nome": "Roserade",
+      "sha256": "6d8b44fa83f13659ffdc1bc1731c6cb9471fa108ea6e17d594b1e96e407af5c7",
+      "specie": 380,
+      "nome": "Latias",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type.",
-        "Invalid: Move 3 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/067-Latios-Latios.pk4": {
-      "sha256": "15aeeca74b4b6ac7e6cee2e0c5f02332e0d20a7081621dddecfdf8b5dbf11c49",
-      "specie": 408,
-      "nome": "Cranidos",
+      "sha256": "f0ca702221bf3370d93cf07d463f8b24c1405ab036a14c033e11ea5425995b80",
+      "specie": 381,
+      "nome": "Latios",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Move 3 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/068-Charizard-Charizard.pk4": {
-      "sha256": "0238db3560017595b571808ddf0b3d651b3291156a8fa8e5a08b2cdf085617d6",
+      "sha256": "8b88334bc4e17ab169ad6b93ae271f56f57806d6f23aaca9036bb8891e307fe8",
       "specie": 6,
       "nome": "Charizard",
       "forma": 0,
@@ -15819,7 +15567,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/069-Pikachu-Pikachu.pk4": {
-      "sha256": "ba8b3c6ccdbbac70f7cdfc550c8bb0e4ac15067138cfce9d6f2a102b4b7cb1e9",
+      "sha256": "97b6ffec40a2a4afda7667115cd945979eb7f09bf8a1d2ebc52feef91c2c9587",
       "specie": 25,
       "nome": "Pikachu",
       "forma": 0,
@@ -15828,7 +15576,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/070-Articuno-Articuno.pk4": {
-      "sha256": "001159038e08a035e3fd2f03a216baf19b667403e8e4912f19da5559fd50d9cc",
+      "sha256": "dfdf73075640bbe1623f326fd2cc466f5c196d5ee798505426dabf13763d7515",
       "specie": 144,
       "nome": "Articuno",
       "forma": 0,
@@ -15837,7 +15585,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/071-Raikou-Raikou.pk4": {
-      "sha256": "678ff1f9ca828f76dd6e50c1cf2a135bf1e6ab210d7066c4770166631cf9f283",
+      "sha256": "7caa60a62b9d5678e26130e3c61d6e694f8eafa0ede4febab0fcea0486fef495",
       "specie": 243,
       "nome": "Raikou",
       "forma": 0,
@@ -15846,19 +15594,16 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/072-Entei-Entei.pk4": {
-      "sha256": "2be9a61b410dd4fb4893cc4e5662abf8b1b204afda1d1568fb0e036d9494ade1",
+      "sha256": "6b5d05ec38f79140e5d2e885f60eb81900fdbf6bba88e224ab3b0334fee2c9cb",
       "specie": 244,
       "nome": "Entei",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Spanish",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/073-Suicune-Suicune.pk4": {
-      "sha256": "41631017f4abd6d345e661d7e4838e946e4a4ba7f217e0644394575ef6d0ae9c",
+      "sha256": "0310fb1f65625f8e6043d7b5427765da737ae18c3fd6441ba436f9f1b7bc5283",
       "specie": 245,
       "nome": "Suicune",
       "forma": 0,
@@ -15867,131 +15612,79 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/074-Lugia-Lugia.pk4": {
-      "sha256": "3b5a3dad655934f815b947a9476f1b89905bb8e9cc2f9bab8877c36de3e3b1c5",
+      "sha256": "5aaf5fe9634f83b3f052352e57a976e5d93ca8db40c4f08c39e6f5149beef659",
       "specie": 249,
       "nome": "Lugia",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Spanish",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: Move 1 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/075-HoOh-HoOh.pk4": {
-      "sha256": "4fdc07b650518576eb5eb65aa063ec5b394ea75891561adc5198f4c2a3326387",
+      "sha256": "35cc42a03cc060eaf18a4659ca51a4e63b31aff39261099278ad5690e2c61f22",
       "specie": 250,
       "nome": "Ho-Oh",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Spanish",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type.",
-        "Invalid: Move 1 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/076-Latias-Latias.pk4": {
-      "sha256": "85d2470118f3222ff657750509bfe1a2feee6e1e842dd97b0cfa1d2d0c716f6f",
-      "specie": 407,
-      "nome": "Roserade",
+      "sha256": "5b80d8fa2e78e3f1ac19cc5b4c6754302680a903603d411773b578d55119c4e4",
+      "specie": 380,
+      "nome": "Latias",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Spanish",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type.",
-        "Invalid: Move 3 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/077-Latios-Latios.pk4": {
-      "sha256": "23260d747b96cdcd94feccd1a2b6f10799915dcdf8094960ee7be5e39b954500",
-      "specie": 408,
-      "nome": "Cranidos",
+      "sha256": "e7897a37c95fcbba43347e4cf611a7dad819bf307e128175a68e6c740d11338e",
+      "specie": 381,
+      "nome": "Latios",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Spanish",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Move 3 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/078-Mew-Mew.pk4": {
-      "sha256": "3f4071dc9eb9e4850edc31798e6a5c3f42249a3eb9b323276cd2e3acbf0a90cf",
+      "sha256": "49c98d43eb27b1d1226c4b8c1e4c8c0c9fea781d581a4e71e8f88ae49a694e10",
       "specie": 151,
       "nome": "Mew",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/079-Metang-Metang.pk4": {
-      "sha256": "0e2ddabb575c8b1322ac9cbac14cad1d24369374c19b22024205600c9146e141",
-      "specie": 399,
-      "nome": "Bidoof",
+      "sha256": "eb610789f34fea97a3f5b60c050853a2f6ecd0d3e87831c1f77d8d87c6d0fbec",
+      "specie": 375,
+      "nome": "Metang",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/080-Deoxys-Deoxys.pk4": {
-      "sha256": "36bdacc7f55112e1c42425fde48284893f5c753a09404df71e54aacfbbfb5b5f",
-      "specie": 410,
-      "nome": "Shieldon",
+      "sha256": "93c8064b5b908a86813384f66097c20904baebc526bc37e8792dfd203794355f",
+      "specie": 386,
+      "nome": "Deoxys",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: Trainer ID is not obtainable from any RNG seed.",
-        "Invalid: Fateful Encounter should not be checked.",
-        "Invalid: Move 2 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/081-Deoxys-Deoxys.pk4": {
-      "sha256": "ebd3bb92a6b0d36c41a3ed06b09895ba2534d817f15081c11c97b8580b9402e3",
-      "specie": 410,
-      "nome": "Shieldon",
+      "sha256": "a9b261a689239212bf6b0981e16600dbe2f5380251c9b19374e81a03375f2733",
+      "specie": 386,
+      "nome": "Deoxys",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: Fateful Encounter should not be checked.",
-        "Invalid: Move 2 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/082-Bulbasaur-Bulbasaur.pk4": {
-      "sha256": "0e4b7c65cab5e72c1e715185cf202561cebf014eaf93479e43d6bdcd1f1e060b",
+      "sha256": "d10051bb9719dcb3505b9e5859e55da2e9c2014cf0489d8f402a01049aadf8e0",
       "specie": 1,
       "nome": "Bulbasaur",
       "forma": 0,
@@ -16000,19 +15693,16 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/083-Charizard-Charizard.pk4": {
-      "sha256": "f651cb032d93274ef38a870e9109c338c4def5384b869d7faea11db439877c21",
+      "sha256": "f4128a365d97d03fc0a4112803e2d37a98528ddcbf5fd2c37cc3ce602a3d9571",
       "specie": 6,
       "nome": "Charizard",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/084-Blastoise-Blastoise.pk4": {
-      "sha256": "549f0a419343e8c9e0b0c0b920abb2877bcdbaa9ab60df6338f73f5d1595410b",
+      "sha256": "72a40bf498aff41594c32be093b063a7ca8634897072b04c0fd9a7ed41896ae2",
       "specie": 9,
       "nome": "Blastoise",
       "forma": 0,
@@ -16021,19 +15711,16 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/086-Alakazam-Alakazam.pk4": {
-      "sha256": "a447bbab99e334a600d0d115c4d5d447214b8c1c36c74c2cfca9d070c0c2cce9",
+      "sha256": "1800f1f141134864d81dc2bc08e8705c6f2ead9c41aedee1b54f6ebf3087cd74",
       "specie": 65,
       "nome": "Alakazam",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/087-Articuno-Articuno.pk4": {
-      "sha256": "dcf84c5255db47987ea35bf429f3ecf1e3c77797da6de850101bf78f96713b06",
+      "sha256": "5cab9c842ca5a5db43ff3d92e4fd491765134f68a66ce494fc352f48c2a99cea",
       "specie": 144,
       "nome": "Articuno",
       "forma": 0,
@@ -16042,19 +15729,16 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/088-Zapdos-Zapdos.pk4": {
-      "sha256": "8d001efa07cf960b634bd65bb096a0f4a7932ab67bb7a433d7981851639c1c0f",
+      "sha256": "c1383145e4791f28cc9f87f2ae8a876f81dd2b4c0f64fdb9a4f742969e325521",
       "specie": 145,
       "nome": "Zapdos",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/089-Moltres-Moltres.pk4": {
-      "sha256": "0bca30378769f15e74a12efdcb8c30b5edd1cce92dde1632eeca4b5ef029ab84",
+      "sha256": "e42b4e7dd902bdbbb3f2f03c3a36280db5c08dcb5a726eed01a0b44aae5c5fe0",
       "specie": 146,
       "nome": "Moltres",
       "forma": 0,
@@ -16063,7 +15747,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/090-Dragonite-Dragonite.pk4": {
-      "sha256": "c059695cb62032548106236908597b199df60648a3a4d10d9fc014e4e82810cf",
+      "sha256": "aeda9e0e3dab832fef5197a3ad2db7e1de7a73a02376a6eba7e9309a345c5da9",
       "specie": 149,
       "nome": "Dragonite",
       "forma": 0,
@@ -16072,19 +15756,16 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/091-Typhlosion-Typhlosion.pk4": {
-      "sha256": "db38b14de96f304690e95d6282497372030cc21c77603e0ec8f307bfcb9fceff",
+      "sha256": "9dd7c429df9f17137e55cc16798acad6620fae725f5e2b445dd36c30878a4d6d",
       "specie": 157,
       "nome": "Typhlosion",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/092-Espeon-Espeon.pk4": {
-      "sha256": "ab9295aaeab3051989a0e664e232591c4ca06738fc53cdfa43cd402b06c3cd74",
+      "sha256": "486a68349b163e41616c54ce574022a6772e89ee40d223cb4c6d1f115ca99fca",
       "specie": 196,
       "nome": "Espeon",
       "forma": 0,
@@ -16093,31 +15774,25 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/093-Umbreon-Umbreon.pk4": {
-      "sha256": "1432de1d96f5bc0f58c52efdec147e11b8d943f74dc0bee2c3ad15343a7f9628",
+      "sha256": "68329c6a1543e0cb8d97dff9df4f9bbb964f6348cb9d6d5ac719ff8e0d05bb8b",
       "specie": 197,
       "nome": "Umbreon",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/094-Raikou-Raikou.pk4": {
-      "sha256": "a210f2e28f425e8bfd4b67cf282ecba378046df6b38cf8e20cb29dbc10eacbe6",
+      "sha256": "8ffc837e00f949da599a0b69d36da34fa215b1dc059fe073e9735e93bc557a1b",
       "specie": 243,
       "nome": "Raikou",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/095-Entei-Entei.pk4": {
-      "sha256": "0aa01cc42044fdf35c26b63ca160831f81656c80000a526bf204bc5e7f0e5ef0",
+      "sha256": "bf3ac955bed30fe16dca786313724dac608657129a49eb511bd0b026512608c6",
       "specie": 244,
       "nome": "Entei",
       "forma": 0,
@@ -16126,19 +15801,16 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/096-Suicune-Suicune.pk4": {
-      "sha256": "02fd963df45ba5a4c7df376e5ba9474b6bd22fcbe58f9a3dd25a6cf4bba126c6",
+      "sha256": "59198bb2adc07e733fa82adc9926c91b124e170569659cafaafcdbaccff2d86b",
       "specie": 245,
       "nome": "Suicune",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/097-Tyranitar-Tyranitar.pk4": {
-      "sha256": "6fca8c32af9d932be702cb1aa98785c7d0f19d72983929de77da91ec96286d30",
+      "sha256": "73ce623c85680464366b38a6a6f3a5ab26a881eabe4c9049db372075bc48f373",
       "specie": 248,
       "nome": "Tyranitar",
       "forma": 0,
@@ -16147,87 +15819,52 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/098-Blaziken-Blaziken.pk4": {
-      "sha256": "3318b7e54eb6c9e3e99c2ba8bd6a05a8ef9035301f4793c1c3b76b19f8a0012d",
-      "specie": 282,
-      "nome": "Gardevoir",
+      "sha256": "bbf548f206e926341ba248e1ed7dfd4673c052a2b1fe388326c96140f224dd86",
+      "specie": 257,
+      "nome": "Blaziken",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type.",
-        "Invalid: Current level is below met level."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/099-Absol-Absol.pk4": {
-      "sha256": "6a099d94a205b4e9ca29df8f3a7123b15a580680d69c7ae69fa183cc50c01cc9",
-      "specie": 376,
-      "nome": "Metagross",
+      "sha256": "15e1784c10090bc15810bba2cfadafdfbe64b0f6bdd9c17953d631b02108a709",
+      "specie": 359,
+      "nome": "Absol",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type.",
-        "Invalid: Current level is below met level."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/100-Latias-Latias.pk4": {
-      "sha256": "01ef0541a405d4f5ada6687c93dfb8b3f22379d8bfeadd90b0b4547b5dc7f851",
-      "specie": 407,
-      "nome": "Roserade",
+      "sha256": "27228b7c5ebca9f6dba1f7f9a626105ba9509be2de88ddc447de7a74d8911df3",
+      "specie": 380,
+      "nome": "Latias",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type.",
-        "Invalid: Ability does not match PID.",
-        "Invalid: Move 3 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/101-Latios-Latios.pk4": {
-      "sha256": "15e1f6481f42e5fdc68dd4d4275abe6883a917b0033739132fa078e431bff5b0",
-      "specie": 408,
-      "nome": "Cranidos",
+      "sha256": "bb2bb0b07fe620e731fb5b43976ce307654d302fbdb4a270498d418fd9b88aec",
+      "specie": 381,
+      "nome": "Latios",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Move 3 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/102-Bulbasaur-Bulbasaur.pk4": {
-      "sha256": "32714613f47fa3e14079470a56269fc09210ace06af7f2c8e0293baefc5346b7",
+      "sha256": "4e7153436cf1b8dae862fc202c892725cb0bb376ce34660305cf0399ac996bd8",
       "specie": 1,
       "nome": "Bulbasaur",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/103-Charizard-Charizard.pk4": {
-      "sha256": "7faeb2a71ea8dbef1e4bf172dfb076009c56c7dc7b99c62e19c15e5a847b6796",
+      "sha256": "a95f31c8d8df0811f65c26e301011080b1c6095998942d466c208a1100b05b63",
       "specie": 6,
       "nome": "Charizard",
       "forma": 0,
@@ -16236,19 +15873,16 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/104-Blastoise-Blastoise.pk4": {
-      "sha256": "11711b048811b60bee74c5b2fb1ce8623101c71cdab95ca683bbadce7ea7d071",
+      "sha256": "a4919dc7d66976551764f428241f585f54a1b818598d4a5a3e76dbcde8aa9abe",
       "specie": 9,
       "nome": "Blastoise",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/105-PikachuNoFly-Pikachu.pk4": {
-      "sha256": "90160238c08889845d7ccb4813d31b737837e4b55daa1eba5692efa660539560",
+      "sha256": "aa4ab52e8d4e1d75f91358df478177ef8279aca529e4482787456a7ed422c64f",
       "specie": 25,
       "nome": "Pikachu",
       "forma": 0,
@@ -16257,7 +15891,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/106-Alakazam-Alakazam.pk4": {
-      "sha256": "84e9366317bc8f6b92a047cf1d7c5b0fa22037b67b5593a21dd4a9b51629c84d",
+      "sha256": "9d0c70d87f4553f84841355f4861cee9f90dfe0df11b9d872b95ab9820acf52c",
       "specie": 65,
       "nome": "Alakazam",
       "forma": 0,
@@ -16266,19 +15900,16 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/107-Articuno-Articuno.pk4": {
-      "sha256": "228bc6041c3f69a85907bbeef669fa8ec7a2e07ac41d51e2973b0c02e9513cfd",
+      "sha256": "9a925331f5cba0ceb5d90414ab506778462bc728d3f8e1673737e41d1d1f5714",
       "specie": 144,
       "nome": "Articuno",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/108-Zapdos-Zapdos.pk4": {
-      "sha256": "25f775090c6339fa109d017ba6ab1fb053d0f79a58869133536ac6511ab17218",
+      "sha256": "10900fc12d89a4555ccee06de2681d565613123bd6ca13c520900287ac6cd898",
       "specie": 145,
       "nome": "Zapdos",
       "forma": 0,
@@ -16287,7 +15918,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/109-Moltres-Moltres.pk4": {
-      "sha256": "0049d879cdb30418d0735094a135bf7af2bdf590c43124245377bf1a84f2b1d3",
+      "sha256": "6c0fdcd39f66a5ad58aa3758506caa07836b0aca52674602e951d289936c7b47",
       "specie": 146,
       "nome": "Moltres",
       "forma": 0,
@@ -16296,19 +15927,16 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/110-Dragonite-Dragonite.pk4": {
-      "sha256": "0755f1eaf27ad5640503856e6682b471cbeda5d3aa118cd13479e939c2565956",
+      "sha256": "c5000d6c8b9ca90121c232c4c9037f3c1bec0595b80fc5946f4b02f6665529a9",
       "specie": 149,
       "nome": "Dragonite",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/111-Typhlosion-Typhlosion.pk4": {
-      "sha256": "610fba4879cd46e0ba9c837fa38e38ad38044dff0b0700cda247f6f7f3221b09",
+      "sha256": "681d975dca0dd9907da1f90bbb1fb36efdfbe35057c2bd6c4fc9b01ee45d3408",
       "specie": 157,
       "nome": "Typhlosion",
       "forma": 0,
@@ -16317,31 +15945,25 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/112-Espeon-Espeon.pk4": {
-      "sha256": "34b9b40e3f3c52e4de4aa4e808e8132985dfbe8a7e7e80decd139ae03edc4a5e",
+      "sha256": "b5483e5916e5411732aaedb92ba0ec24bf99074c30a2489310f713ba2bb7b7c9",
       "specie": 196,
       "nome": "Espeon",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/113-Umbreon-Umbreon.pk4": {
-      "sha256": "96925d0880c37bfd659a525c48ca59842164ee78811ee439f2b39ab8fedfe644",
+      "sha256": "49529a47523106d0be539d379cea91e5a406f062c3b7390c1aedb1008e1d9306",
       "specie": 197,
       "nome": "Umbreon",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/114-Raikou-Raikou.pk4": {
-      "sha256": "85b003aa5b0b2bec93c4232af231ce957895b0b2bb946ff8d364712bc95a434b",
+      "sha256": "43b69f50768f35cdcdb5c3e66b81565c08e0d8c33119d3b84bf50fee1fbc52a6",
       "specie": 243,
       "nome": "Raikou",
       "forma": 0,
@@ -16350,19 +15972,16 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/115-Entei-Entei.pk4": {
-      "sha256": "2982d13b7873792728085a680cd5a065348c29a8b35dbba4edc8673c1c7fc1d4",
+      "sha256": "41ea98bd29c4a8bde11dbeb498c2b95803eca887e6112e93bd9d48204b136cec",
       "specie": 244,
       "nome": "Entei",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/116-Suicune-Suicune.pk4": {
-      "sha256": "588dff05fb4ddf66d88db90f99ceaac49d6fd2f24eada22c9e39c52f72701fd8",
+      "sha256": "a05d639911e24227666566cb7b2f8465f51cb26b346fae9a8e9f29bdba472d0a",
       "specie": 245,
       "nome": "Suicune",
       "forma": 0,
@@ -16371,7 +15990,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/117-Tyranitar-Tyranitar.pk4": {
-      "sha256": "81d877d39f6e2cc8813a3a7beedbd39204b0c2b8f63a20b2732deb328f2d4506",
+      "sha256": "1a38f49c1cca3b1d0011417c40eef5b50efe83ec4bae7104759831170b9fe8c6",
       "specie": 248,
       "nome": "Tyranitar",
       "forma": 0,
@@ -16380,627 +15999,367 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/118-Celebi-Celebi.pk4": {
-      "sha256": "ee3eb5bcd9ff8fdd97b6c27fc825f4c58100ee5cc9c4446f4eecf179fbcd68c2",
+      "sha256": "ae997dec79b4c13b87f76a9f4e7870ea823463d03e5f871b5f29b2e1b0bd0067",
       "specie": 251,
       "nome": "Celebi",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/119-Blaziken-Blaziken.pk4": {
-      "sha256": "bc24147e020136f612e50ee7dd621fb19af303406883db14145108e8d53cba70",
-      "specie": 282,
-      "nome": "Gardevoir",
+      "sha256": "9083e3ce0a0763e23f6f8f3bf9175e2c019f87b1f878dabc8cbd7a6be1b51d57",
+      "specie": 257,
+      "nome": "Blaziken",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type.",
-        "Invalid: Current level is below met level."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/120-Absol-Absol.pk4": {
-      "sha256": "cf811b4aa737bf67325d912adb29eef8dc029839d7e44ae286c80545286a9a8b",
-      "specie": 376,
-      "nome": "Metagross",
+      "sha256": "755e1729c577f74e0ad71b3567f3d2727814a67e004cc34ad85a2cf5cbfd423b",
+      "specie": 359,
+      "nome": "Absol",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type.",
-        "Invalid: Current level is below met level."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/121-Latias-Latias.pk4": {
-      "sha256": "9415922f979881d24c244f683e94756045dce83f07fc7165f0461cc90e7a5f49",
-      "specie": 407,
-      "nome": "Roserade",
+      "sha256": "0dc3737199bc7cbd12e26924986ffedac37ed267b3536f6d9bef83a3fe9e6015",
+      "specie": 380,
+      "nome": "Latias",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type.",
-        "Invalid: Move 3 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/122-Latios-Latios.pk4": {
-      "sha256": "e04d4d12b95b04bcb2c9e627227ba034891c6bdfc0254d55f2343950f13d894a",
-      "specie": 408,
-      "nome": "Cranidos",
+      "sha256": "07c8a71b840ba18ee03552c2f4379abbf583737351126344dd2ef8de9c5c3100",
+      "specie": 381,
+      "nome": "Latios",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS English",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Move 3 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/123-PichuwithTeeterDance-Pichu.pk4": {
-      "sha256": "bb7d7f2583abd1980ee00a22aa0f1c09c1aebcc870a899c29a7cb5ab6b7c3e23",
+      "sha256": "b719813a3b7153d50e4966cfaa9f1f33fbb58787f346e7c6f4db59ce25352068",
       "specie": 172,
       "nome": "Pichu",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/124-PichuwithWish-Pichu.pk4": {
-      "sha256": "7265bbb4400cc7e969a97364ae887b7cdc101dbc9f9678a1f08f47fda3f93b74",
+      "sha256": "a65c610a725be07d85205f6333059ea95d540283370e68c3aa51ff10e3e6ef35",
       "specie": 172,
       "nome": "Pichu",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/125-PichuwithTeeterDance-Pichu.pk4": {
-      "sha256": "c8e1d5d81955c68d1e82ab2fd65986d1c80b59a4273c72a23880df9b3800d600",
+      "sha256": "ed807815722368645ee07523702d43c85481a110cf16bff137925a8986f4b6b9",
       "specie": 172,
       "nome": "Pichu",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/126-PichuwithWish-Pichu.pk4": {
-      "sha256": "b3b83fd944e829ec51dd8abd46c281e5f67cb4230770ab126ccd7ccc3a039359",
+      "sha256": "240ee1771006a1b6a87124aa7f78179b62227694319e89bbe811a7ef936beb1b",
       "specie": 172,
       "nome": "Pichu",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/127-RaltswithCharm-Ralts.pk4": {
-      "sha256": "b6706996b288bf76f867f56ba2917cf44abe6d0582d8401bcf913eda37e64228",
-      "specie": 392,
-      "nome": "Infernape",
+      "sha256": "c0001952175c353a9d7de6b9dcc42dff238f558ed4dc9d51fc887476bf9ea831",
+      "specie": 280,
+      "nome": "Ralts",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/128-RaltswithWish-Ralts.pk4": {
-      "sha256": "2a025877ac5cae98634c66b232add8c1f7059e9376d7828f5427285ec8709450",
-      "specie": 392,
-      "nome": "Infernape",
+      "sha256": "a98646de5a99ce3984c2376d25d62a92d94889f1e3276e504905b642cdf0886f",
+      "specie": 280,
+      "nome": "Ralts",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/129-AbsolwithSpite-Absol.pk4": {
-      "sha256": "6b4058e5e6c0d2af9bd23eca7935ef83c850af39c6850efd432eeb3bebd33c10",
-      "specie": 376,
-      "nome": "Metagross",
+      "sha256": "a22b124b7d488c50d9026b6a4701ab52effed77898b26b02ebdb50bf862ceff7",
+      "specie": 359,
+      "nome": "Absol",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/130-AbsolwithWish-Absol.pk4": {
-      "sha256": "1cd5cc19f9e9e25c78569fd137cf15c4f09a4c27945d1fc068293c7af77843a3",
-      "specie": 376,
-      "nome": "Metagross",
+      "sha256": "99b2a443992109bf2f190f62d100ce8057914aa8ebe0d5653315dfcf5e4ac944",
+      "specie": 359,
+      "nome": "Absol",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/131-BagonwithIronDefense-Bagon.pk4": {
-      "sha256": "aad300a201d7cb0c8778ac1c8721598013e2ecc3e29dfed19ffa0cdeebfe8be2",
-      "specie": 395,
-      "nome": "Empoleon",
+      "sha256": "72578cb2c9d0b479386a3a4bc0a41a32957a92e5097a37600d475dacf9cc43df",
+      "specie": 371,
+      "nome": "Bagon",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/132-BagonwithWish-Bagon.pk4": {
-      "sha256": "a5cbdf04a6d3bd5bf93bf58eb3515e6f15c164f7d6e415acecc8c13b71956819",
-      "specie": 395,
-      "nome": "Empoleon",
+      "sha256": "05a9bfecc2d788fea092b4dc824eb0f7959e2553e61a78e2af13cf8c0f574955",
+      "specie": 371,
+      "nome": "Bagon",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/133-OddishwithLeechSeed-Oddish.pk4": {
-      "sha256": "e7569b7b35cf7aa07572d6a6ab14b600b212006f5e267d74669a8741df606935",
+      "sha256": "026efe320f917569eed69680ca3ab503e8fd759e5c13294e9155a205c483fd26",
       "specie": 43,
       "nome": "Oddish",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/134-MeowthwithPetalDance-Meowth.pk4": {
-      "sha256": "678edef3464e524374a3ac610b3948a9bdcd2b44930429b321b994a93dd345b0",
+      "sha256": "0b1521fdc14ef4d5741584e945b9c83353e753b7b238e630c7c2b56be50ee8c4",
       "specie": 52,
       "nome": "Meowth",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Ability does not match PID.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/135-PoliwagwithSweetKiss-Poliwag.pk4": {
-      "sha256": "fa0a4c17c2f7a67ce060b367be739e19a5e82d67cc595f71a618f1db1e4f611c",
+      "sha256": "55ead37e819b724fd051441663322740d4e26fffb3575dc05c6fa29efae113d1",
       "specie": 60,
       "nome": "Poliwag",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/136-BellsproutwithTeeterDance-Bellsprout.pk4": {
-      "sha256": "14199bc8c2c6dc2010e23b90634569fa46c1ea3012c0cb9f675f2e35ce5c084d",
+      "sha256": "cec957665a617a4283d025851967febda82ea7a7887165593d9678ca00cefdcf",
       "specie": 69,
       "nome": "Bellsprout",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/137-FarfetchdwithWishYawn-Farfetchd.pk4": {
-      "sha256": "90adf42a4bf3ae01427e91fc7a9fe4666349f45d65ff780ac5e9a54c1f6073a7",
+      "sha256": "11bdf0aa7d248e77ea10d058d0b7f686d0c41a337081facb29fecfe0178f0977",
       "specie": 83,
       "nome": "Farfetch\u2019d",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/138-DrowzeewithWishBellyDrum-Drowzee.pk4": {
-      "sha256": "097381a8f5e667184da3e69a321fe42211610effe19fa14dd498885c92bcc88e",
+      "sha256": "e6b4838467ab919416383d894e9d57d808eefa2da65795ad752e5710b1d811bd",
       "specie": 96,
       "nome": "Drowzee",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/139-ExeggcutewithWishSweetScent-Exeggcute.pk4": {
-      "sha256": "620ce0a6183189d97a60703b8240b2336e6ffd78e2e0db0a7f6bbe9b63890d43",
+      "sha256": "8bc503eeeb4bdb9f6c6f7f6a53eed3325b497dee15ee48279f072741cfb31ce3",
       "specie": 102,
       "nome": "Exeggcute",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/140-LickitungwithWishHealBell-Lickitung.pk4": {
-      "sha256": "c21dddf44ecef14214f3f568e8e88d20aa6b064e528ab23fecdeca088a7660df",
+      "sha256": "0cd655eb48b67c8a595c2b9fa9d308c15660de60d7bad61ba200b1c86cc8af4d",
       "specie": 108,
       "nome": "Lickitung",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/141-ChanseywithWishSweetScent-Chansey.pk4": {
-      "sha256": "595fb7367eb9d959ed32f80b39c5bf4e12f02e813c6bf6f6d47bd764ae62364e",
+      "sha256": "0220082c0191cc6a4bf73e8ab24422988e89ae18ec5528e74e94bd8131f512d7",
       "specie": 113,
       "nome": "Chansey",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/142-KangaskhanwithWishYawn-Kangaskhan.pk4": {
-      "sha256": "4facd8e61614577b0d446387d18d750e3ab1b00fe8be72ddcce3a6c792363ba5",
+      "sha256": "1d30f565c79392c059b44b2e3a4f97ccc505b064bf814650a405cf6b7dc0e2e8",
       "specie": 115,
       "nome": "Kangaskhan",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/143-PsyduckwithMudSport-Psyduck.pk4": {
-      "sha256": "c0d988e458d009377e0a436f71871f911b29133089ca9147801710a5b7b3140d",
+      "sha256": "3a17c6f69ae6cb8d7f11a7e3a7c95a241e7089d81c64685823f55fc15cdbf061",
       "specie": 54,
       "nome": "Psyduck",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/144-PichuwithFollowme-Pichu.pk4": {
-      "sha256": "5a700750da8f75b0d5214b0a3b27248f3c89176d3f303fa12cf7b08324f36583",
+      "sha256": "a5dcd11c3da4b3d299c9e3426aa6a5a97489b017526a7268844ddafea516420b",
       "specie": 172,
       "nome": "Pichu",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/145-IgglybuffwithTickle-Igglybuff.pk4": {
-      "sha256": "56814df61b4c22babce23db335226b886bd00fb1c362c487bc331580a6348f12",
+      "sha256": "7fb211d2328871952cad07ed24f5e1606734dc63f1fe65fa452ffe4d69489918",
       "specie": 174,
       "nome": "Igglybuff",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/146-CorsolawithMudSport-Corsola.pk4": {
-      "sha256": "5d1207e7e2601770439ecd1ba63f8adab98f4057bae867b70faf890c30adb3b3",
+      "sha256": "196b9a5c668b4e044ee2b58eb12542f52250b5e7eb2024abdcdddc4c297d0704",
       "specie": 222,
       "nome": "Corsola",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/147-TaillowwithFeatherDance-Taillow.pk4": {
-      "sha256": "e2ef9153a81724a30397d61539d16551a4e456a0f7714d2c101f13860721e080",
-      "specie": 304,
-      "nome": "Aron",
+      "sha256": "79c5eb425c87c2c712b97b7cfed0aa058f410a0c98a46568977d92ad7a747161",
+      "specie": 276,
+      "nome": "Taillow",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Ability does not match PID.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/148-SurskitwithMudSport-Surskit.pk4": {
-      "sha256": "29d6baddaccd4c7876936a11902e86621c48c9a19903f9552b7862db1bee6ef9",
+      "sha256": "68c71c55958c88f683715c3291790761c04a1717f7032a8e2843cbed1472a14d",
+      "specie": 283,
+      "nome": "Surskit",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Japanese",
+      "esito": "conforme"
+    },
+    "lotto-parco-amici-gen4/149-WhismurwithTeeterDance-Whismur.pk4": {
+      "sha256": "d964892b25caf7298d54be8805284d239e7d65dbe134a83ed0724ff8c842453c",
+      "specie": 293,
+      "nome": "Whismur",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Japanese",
+      "esito": "conforme"
+    },
+    "lotto-parco-amici-gen4/150-SkittywithRollout-Skitty.pk4": {
+      "sha256": "ba0ca4dd72e8a3decf54b5264f78fc265b982dbb6e6094f1bdb8f2357f52f4dd",
+      "specie": 300,
+      "nome": "Skitty",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Japanese",
+      "esito": "conforme"
+    },
+    "lotto-parco-amici-gen4/151-PluslewithWaterSport-Plusle.pk4": {
+      "sha256": "dcfb7f4dbabb1a279cf995a17443a1a2023ecc93f66f087e96610dd16ed29043",
       "specie": 311,
       "nome": "Plusle",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
-    },
-    "lotto-parco-amici-gen4/149-WhismurwithTeeterDance-Whismur.pk4": {
-      "sha256": "a63efdb98d7c7abc2366a531465bfad24715339d1bf56acbc21da9904a9eb79b",
-      "specie": 370,
-      "nome": "Luvdisc",
-      "forma": 0,
-      "formato": "PK4",
-      "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
-    },
-    "lotto-parco-amici-gen4/150-SkittywithRollout-Skitty.pk4": {
-      "sha256": "2f6611611a7c1b8515d046a560476b6c8640b829b6145a868809892c1bc1e5cd",
-      "specie": 315,
-      "nome": "Roselia",
-      "forma": 0,
-      "formato": "PK4",
-      "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
-    },
-    "lotto-parco-amici-gen4/151-PluslewithWaterSport-Plusle.pk4": {
-      "sha256": "163c3297344f5a958ba60594432c2d79be36e3e75e24c39c8486dce10c9cd5d2",
-      "specie": 353,
-      "nome": "Shuppet",
-      "forma": 0,
-      "formato": "PK4",
-      "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/152-MinunwithMudSport-Minun.pk4": {
-      "sha256": "455d6a41eb1307b7bf30f80182663876c5d3dace92482e227d5463862744972f",
-      "specie": 354,
-      "nome": "Banette",
+      "sha256": "564f45ed3c04f264b19d1bf816351b7c9a1ef9e76348bf09ab544511e4f03714",
+      "specie": 312,
+      "nome": "Minun",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Ability does not match PID.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/153-SpoinkwithUproar-Spoink.pk4": {
-      "sha256": "3a8498ce1ae44b88e7f4473fee79efd9923511a57a45d192dbce392bad756529",
-      "specie": 351,
-      "nome": "Castform",
+      "sha256": "411bba41af0795a2df8c7a41b195bcba43e685bfacccd36ba9ac4952814ca400",
+      "specie": 325,
+      "nome": "Spoink",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/154-SpindawithSing-Spinda.pk4": {
-      "sha256": "257ffb9aeef74e9e40cb1d775290ba715306e2f6ac3d088e1a80ad8a1da1b913",
-      "specie": 308,
-      "nome": "Medicham",
+      "sha256": "f642e877ecd09575666eefc3a7b1212dffd8508d31c693dee70bbcc33d7ba91b",
+      "specie": 327,
+      "nome": "Spinda",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/155-CacneawithEncore-Cacnea.pk4": {
-      "sha256": "51b4461b903e40188c471e1cd5709c5bcdd3a8e92b3c6215230257ef93d2305e",
-      "specie": 344,
-      "nome": "Claydol",
+      "sha256": "9fe7987089a2957883a821283e366d091402090b0b7554a021bdf19e904a696a",
+      "specie": 331,
+      "nome": "Cacnea",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/156-CorphishwithWaterSport-Corphish.pk4": {
-      "sha256": "e637465b3bff82fae8b91af031f73fe3fe8fd9a54b616f755a29a9a5c89e93b2",
-      "specie": 326,
-      "nome": "Grumpig",
+      "sha256": "f52a6fce840d0fb7fde350ad9ef69ffe15b83d99cf73ca8cc282c50e42916a3a",
+      "specie": 341,
+      "nome": "Corphish",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/157-WynautwithTickle-Wynaut.pk4": {
-      "sha256": "c66796e825cac48258c7bb9d29a894ae0808ca35ccfc62ed21e412a82d08cca9",
+      "sha256": "846fd2175c61d52b0fef92787d1c8fba14eff6c911366740f8c76eb1469a9794",
       "specie": 360,
       "nome": "Wynaut",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: OT Name too long.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/158-PsyduckwithMudSport-Psyduck.pk4": {
-      "sha256": "f8a358e39c403ad7535e19d046dd7bcf131365e84cbc90372549dd1d62f1c6d4",
+      "sha256": "0e82d92d91056641e7ac26cb68f4a60929e20e2165c3292c784872d5acc73d8a",
       "specie": 54,
       "nome": "Psyduck",
       "forma": 0,
@@ -17009,7 +16368,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/159-PichuwithFollowMe-Pichu.pk4": {
-      "sha256": "b71fef85f8ad1102fc13a9d5476b132e0996395c3bd13bd76acd70b969cb0745",
+      "sha256": "cc7c56f7f893e6f9f8d2c32ecce20cbd1389fda4a3d469e3431588e66703b4d3",
       "specie": 172,
       "nome": "Pichu",
       "forma": 0,
@@ -17018,7 +16377,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/160-IgglybuffwithTickle-Igglybuff.pk4": {
-      "sha256": "1df5ffb58125d0a9d78cf198697d4a383d70506b7b96b0566a1d3f8a824e58e2",
+      "sha256": "5896faa21c09198df971ab16fb3dbe24789902446ba90aefd98488f83f4f9f45",
       "specie": 174,
       "nome": "Igglybuff",
       "forma": 0,
@@ -17027,7 +16386,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/161-CorsolawithMudSport-Corsola.pk4": {
-      "sha256": "5a3400f43fd268e280cb21735cdb544f3f0a74d356aabe08e086cf5d52b02bfb",
+      "sha256": "ec2e5ed535fcd93f7cb17b0743e080ae58774949f2c8ea520c8a28407f098f16",
       "specie": 222,
       "nome": "Corsola",
       "forma": 0,
@@ -17036,175 +16395,106 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/162-TaillowwithFeatherDance-Taillow.pk4": {
-      "sha256": "e42c4cdce80e2c19ac6a12486d26e826bb2d9d890ee14f583de9080d8889c79b",
-      "specie": 304,
-      "nome": "Aron",
+      "sha256": "508182b9d7e861a526c2692c96a804e8b6cba9fde96f47130dba84fbd10b5afb",
+      "specie": 276,
+      "nome": "Taillow",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Current level is below met level."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/163-SurskitwithMudSport-Surskit.pk4": {
-      "sha256": "1314645ed5d5f4c6e8c0817682e9fe58ef1dfc011fda783d83f5a8ef131ec410",
+      "sha256": "336f55270ff3b9c582186e594bac07dfe6e6cd9e38ecd438b9ca727f017644d8",
+      "specie": 283,
+      "nome": "Surskit",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Japanese",
+      "esito": "conforme"
+    },
+    "lotto-parco-amici-gen4/164-WhismurwithTeeterDance-Whismur.pk4": {
+      "sha256": "99817f89a595cd3b0021a5123adfed49600c42a48942c354733ea5f9ea636b8d",
+      "specie": 293,
+      "nome": "Whismur",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Japanese",
+      "esito": "conforme"
+    },
+    "lotto-parco-amici-gen4/165-SkittywithRollout-Skitty.pk4": {
+      "sha256": "503c57c1b7ef5d41ee6080ae36b720073acce37cc2fede0c7792aa1dc17cc09a",
+      "specie": 300,
+      "nome": "Skitty",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Japanese",
+      "esito": "conforme"
+    },
+    "lotto-parco-amici-gen4/1658-SwabluEggwithFalseSwipe-Swablu.pk4": {
+      "sha256": "ac713646ff405352b2fb7160d41e2db1e09e51b03fe635b01e7d18ebaa94afd9",
+      "specie": 333,
+      "nome": "Swablu",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Japanese",
+      "esito": "conforme"
+    },
+    "lotto-parco-amici-gen4/166-PluslewithWaterSport-Plusle.pk4": {
+      "sha256": "0bb7d02d5854294a3b1cd397ede5d16409d227b8acfa15cf296bb9b7aeb81f31",
       "specie": 311,
       "nome": "Plusle",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
-    },
-    "lotto-parco-amici-gen4/164-WhismurwithTeeterDance-Whismur.pk4": {
-      "sha256": "b914b7429522725d77aae319f97c8f43e393b6d90004eb4d04665a82774ef562",
-      "specie": 370,
-      "nome": "Luvdisc",
-      "forma": 0,
-      "formato": "PK4",
-      "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
-    },
-    "lotto-parco-amici-gen4/165-SkittywithRollout-Skitty.pk4": {
-      "sha256": "923cd47472c35b78ecc4faa1cdb5ceebc37b8d7ae4e23778ea0d167fa88656ee",
-      "specie": 315,
-      "nome": "Roselia",
-      "forma": 0,
-      "formato": "PK4",
-      "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Current level is below met level."
-      ]
-    },
-    "lotto-parco-amici-gen4/1658-SwabluEggwithFalseSwipe-Swablu.pk4": {
-      "sha256": "fe360adc36622ae154ab2870e70f3e552e8392af99a3732e95a7a331db03a9c4",
-      "specie": 358,
-      "nome": "Chimecho",
-      "forma": 0,
-      "formato": "PK4",
-      "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game."
-      ]
-    },
-    "lotto-parco-amici-gen4/166-PluslewithWaterSport-Plusle.pk4": {
-      "sha256": "5aa0863b1345229be2f819d75c950d2e9f518fa5987b48e84abad125cf99e3e3",
-      "specie": 353,
-      "nome": "Shuppet",
-      "forma": 0,
-      "formato": "PK4",
-      "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/167-MinunwithMudSport-Minun.pk4": {
-      "sha256": "ad21903d9a9f9d9da1c41ce40eb756b450f483f22fd44adce3e9921d2298687c",
-      "specie": 354,
-      "nome": "Banette",
+      "sha256": "d67bd08885ccac1dad4fe5f8c25a507dd8dd4728961f0da797431f597273a6cd",
+      "specie": 312,
+      "nome": "Minun",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Ability does not match PID."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/168-SpoinkwithUproar-Spoink.pk4": {
-      "sha256": "af6256f96b88c7c9bcd1f1470ed7f56003269cee2dfdd4abe5ee6f07379b81f7",
-      "specie": 351,
-      "nome": "Castform",
+      "sha256": "bd52394193c2c43cb35fbcc1cce9fa0d34642457602a6f1f40237e339fb324f6",
+      "specie": 325,
+      "nome": "Spoink",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Current level is below met level."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/169-SpindawithSing-Spinda.pk4": {
-      "sha256": "fff89052eb4f005350b7acd1bc7e9e1db70d248cad32c4efdfdac2a3f6c5c8db",
-      "specie": 308,
-      "nome": "Medicham",
+      "sha256": "6b6e85077157a825bf12747168b07ad5e92c2dae2269e775f774eeaf4718581c",
+      "specie": 327,
+      "nome": "Spinda",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Current level is below met level."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/170-CacneawithEncore-Cacnea.pk4": {
-      "sha256": "07a7883c67147f58c8e39f1c5bf0a7f0006ebc486ae25f42c282b10da598e9d7",
-      "specie": 344,
-      "nome": "Claydol",
+      "sha256": "6d252a9be7f669e053226c594678cf894968e816b3f4b73263bca54ca9a772be",
+      "specie": 331,
+      "nome": "Cacnea",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/171-CorphishwithWaterSport-Corphish.pk4": {
-      "sha256": "481aa9ef9ae88fc590ba895c14f6ef0dbbe105ee9deae7cd963e4089bc986626",
-      "specie": 326,
-      "nome": "Grumpig",
+      "sha256": "bfaada143d33d72715ea4d9d462e172021a0d4beabe0af255a0d6cb07cf3c221",
+      "specie": 341,
+      "nome": "Corphish",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Current level is below met level."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/172-WynautwithTickle-Wynaut.pk4": {
-      "sha256": "53cccd792f2c44256f4e81de55a910107a2f876e5ce39f5b6a5516066c7e1fdf",
+      "sha256": "dd94abe2421c1dafd975539446cb2c08ea7441ab89296ed5b436491e3904c8f9",
       "specie": 360,
       "nome": "Wynaut",
       "forma": 0,
@@ -17213,54 +16503,34 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/6370-ZigzagoonEggwithExtremeSpeed-Zigzagoon.pk4": {
-      "sha256": "dfb2c9afeb761e220fb2aaf1e60f209f908b4755db34ff57197c94e6281060bd",
-      "specie": 288,
-      "nome": "Vigoroth",
+      "sha256": "a77582e04b22746a8f8f02c3fcf4604dcc807131c9696f1a09877b7fe27fedd2",
+      "specie": 263,
+      "nome": "Zigzagoon",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/7661-SkittyEggwithPayDay-Skitty.pk4": {
-      "sha256": "6b23eae72aa8d62aecb2528e95c3f3af4705fee2643a65c1b18035089915b309",
-      "specie": 315,
-      "nome": "Roselia",
+      "sha256": "a8edd1d3a24399017c06ec1d03b1350f50196a35a49d485fbbe41735fb76445f",
+      "specie": 300,
+      "nome": "Skitty",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Japanese",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Ability does not match PID."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/E-0052.pk4": {
-      "sha256": "99aaea67f9a398bfb28eb8ecb1e35fa784794fa4288bcc213f1e2c2cf875da07",
+      "sha256": "1735eac8cef04ad1b8ebc82c2238932f82d9a63ac3d276b26de43c5c97b571d0",
       "specie": 52,
       "nome": "Meowth",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Word Filter (NintendoSwitch): Flagged pattern \u0027^isis$\u0027.",
-        "Invalid: Ability does not match PID."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/E-0116.pk4": {
-      "sha256": "40b5800575c5db697fddab7f0bcb902407b240838bde72382d13c25054eb2a78",
+      "sha256": "ea3c92fdb4b10110803f1f800064f0d66d3afec157aa0182535fac8386d1e5ce",
       "specie": 116,
       "nome": "Horsea",
       "forma": 0,
@@ -17269,34 +16539,25 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/E-0273.pk4": {
-      "sha256": "508677c115c730efc7b94acb7f56c450acdc0d6523f3889cbe1caba3326b33f6",
-      "specie": 298,
-      "nome": "Azurill",
+      "sha256": "0c007a9ca837ad1c9c8b3bdb17c0f732ddb7405082bf87ea12faa1e6a4eed067",
+      "specie": 273,
+      "nome": "Seedot",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Ability does not match PID."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/E-0311.pk4": {
-      "sha256": "6eeb89a1f76ac63d11bd15632708d1baf2ad349890328c0eb2efbdefedb180f8",
-      "specie": 353,
-      "nome": "Shuppet",
+      "sha256": "2ce62dff335d8875f4c8c257248ecc2e787e3dbd183839ed6733af15bc465749",
+      "specie": 311,
+      "nome": "Plusle",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/FR-0029.pk4": {
-      "sha256": "82b57ea6fe483df4b61eff666e125d296b8684362da8681aa1324ad16932db72",
+      "sha256": "f520822de78e507fc2ec0e7f525a247d0e652dd56a66ead72278691020038e61",
       "specie": 29,
       "nome": "Nidoran\u2640",
       "forma": 0,
@@ -17305,7 +16566,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/FR-0030.pk4": {
-      "sha256": "54e9170055cd95f22f6e6450dd7dd9be7bd5ce1482922ff71f047b729dfc692b",
+      "sha256": "a3165b4fe3828f43931363af42c203485cf2193295e0af5bb179ed2f2beaa8ab",
       "specie": 30,
       "nome": "Nidorina",
       "forma": 0,
@@ -17314,7 +16575,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/FR-0108.pk4": {
-      "sha256": "7b4477d0ae0f4843ff49455f90259e2f6319d45893f45cc272378829389a0330",
+      "sha256": "a8a5f17f6b602b363474393a7aab6f4f3f046e4716b21a11a0de439b9049e1be",
       "specie": 108,
       "nome": "Lickitung",
       "forma": 0,
@@ -17323,19 +16584,16 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/FRLG-0083.pk4": {
-      "sha256": "e361c19fd5faadd4aa373a78fd4253448ca4082be4d59e25a5ac16d182c3e450",
+      "sha256": "94fb614f04df3f29aadded68ed53d0bdb84fc530247378d58b91cf4a8685a339",
       "specie": 83,
       "nome": "Farfetch\u2019d",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: In-game Trade Nickname has been altered."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/FRLG-0086.pk4": {
-      "sha256": "12d813e9e79f1ffc53772222ff7a5b82f95a883a49bedcae0ebbbf1482b1d405",
+      "sha256": "ee7efcbdbd277a5efdec2364cdb57ebb3ecdfb2b76dd66d0151ff8f594976b5c",
       "specie": 86,
       "nome": "Seel",
       "forma": 0,
@@ -17344,7 +16602,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/FRLG-0101.pk4": {
-      "sha256": "882a96b675acb5a5972b21972fccb3d9358e1585f9bd99cf21a0e5b9d94878e4",
+      "sha256": "b993862ca82e7371917608d253c7812c3bf0e7dc3aadb818e3f5a74c7757d337",
       "specie": 101,
       "nome": "Electrode",
       "forma": 0,
@@ -17353,7 +16611,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/FRLG-0114.pk4": {
-      "sha256": "a47b1ee44f15f5cbe54a5e39cb0c86c513cef53a5f40b130e36c9965655623be",
+      "sha256": "39364d48b10900201c7f40d53b12ac64ecf96c0ee8fc5e69bfd9de8b22ed781a",
       "specie": 114,
       "nome": "Tangela",
       "forma": 0,
@@ -17362,7 +16620,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/FRLG-0122.pk4": {
-      "sha256": "301c705079214f2fbff0acebce8ea4651bab78699879d21b83f69b1b40f59b66",
+      "sha256": "74cf127b4c3f7425f835a8fff462d3f4bd84063766af0305d13c0b4a8f60b308",
       "specie": 122,
       "nome": "Mr. Mime",
       "forma": 0,
@@ -17371,7 +16629,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/FRLG-0124.pk4": {
-      "sha256": "d131cdd8a7096ff5f930ddffba715aa8fedceb928de7e097f7a99b004894c530",
+      "sha256": "4cffc722ffb7a5141b4dad3d36e277f4e8cff9a5731917eec4ff2b813ebb87cd",
       "specie": 124,
       "nome": "Jynx",
       "forma": 0,
@@ -17380,7 +16638,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/LG-0032.pk4": {
-      "sha256": "2d5a3edd5d0312c10f8d3d964d91bd2b9dddd50f8050028a9b4493fa23dbc4be",
+      "sha256": "3f188bfda44cf30d9ee8f771eb3ba219e91e9e88593944c467ef6f614fcc591e",
       "specie": 32,
       "nome": "Nidoran\u2642",
       "forma": 0,
@@ -17389,7 +16647,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/LG-0033.pk4": {
-      "sha256": "987738a0e239d8e5595b93fc84bef238b9b2dc37363118bd2303dd9d4ac71075",
+      "sha256": "3e4488ba350202d537ffcde1a004682fcc3975b7a216e4670d30ede0b23328ec",
       "specie": 33,
       "nome": "Nidorino",
       "forma": 0,
@@ -17398,7 +16656,7 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/LG-0108.pk4": {
-      "sha256": "5dcf925709bd62697ccfd3b556eb747dffa88471f7ba57e7ba8ba49e0c6164bb",
+      "sha256": "302625e6898dbae40fb46e8dfea5a037a9cf447a17f07a3c72821d95fb9df8cd",
       "specie": 108,
       "nome": "Lickitung",
       "forma": 0,
@@ -17407,248 +16665,151 @@
       "esito": "conforme"
     },
     "lotto-parco-amici-gen4/RS-0222.pk4": {
-      "sha256": "24c396c72cab3966aee49ce50372db3d143c8d2fe1afcbbaa53cb75dbec808d4",
+      "sha256": "0ee04e3b6b486c5dda3143fc94f9a722efafb2c390e61b8d7f2d6cbf442118a9",
       "specie": 222,
       "nome": "Corsola",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: Move 3 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/RS-0296.pk4": {
-      "sha256": "b566bf9d77999cd757582f02d723d6fd6097e3f7e2234fb0bdd20f006715b4eb",
-      "specie": 335,
-      "nome": "Zangoose",
+      "sha256": "a0be6819cbb7c9636a95fad4cbd33b36a5f3d3a7dc4c03e58a2f1523d11bb6cc",
+      "specie": 296,
+      "nome": "Makuhita",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Trainer ID is not obtainable from any RNG seed.",
-        "Invalid: Current level is below met level."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/RS-0300.pk4": {
-      "sha256": "8a14a28dbe45a0ea8268e8fda525fc149d9ea319756201659d944e63837c44cd",
-      "specie": 315,
-      "nome": "Roselia",
+      "sha256": "7b2f857b44d0a85d77fb0053f761db05f6eb1884b1e266cd3635ffe6d8f1f637",
+      "specie": 300,
+      "nome": "Skitty",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Current level is below met level.",
-        "Invalid: Ability does not match PID."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/deoxys-e.pk4": {
-      "sha256": "046a10da9fe416cc2ad33374bc0bb476e206a574ecb34dfd2ca7f7ac4850da76",
-      "specie": 410,
-      "nome": "Shieldon",
+      "sha256": "e309052d911dad2dfb03f1539044be758da229140bd7e661de8449605e13ddd2",
+      "specie": 386,
+      "nome": "Deoxys",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: Current level is below met level.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/deoxys-fr.pk4": {
-      "sha256": "46e23270979dded1eb5248ed9b98151c8c59179c4308b0ae54ebd770d76d72e7",
-      "specie": 410,
-      "nome": "Shieldon",
+      "sha256": "37e9969c5bf809f319394b6b035eebbee430a986a1a40044b6073b3636994d2b",
+      "specie": 386,
+      "nome": "Deoxys",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: Current level is below met level.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/deoxys-lg.pk4": {
-      "sha256": "516165e9adc525b34df03697fe1cc2ab5c630ca6a9a12ea08ea8dc4f7f151b40",
-      "specie": 410,
-      "nome": "Shieldon",
+      "sha256": "f098341291f85a352621339fc3a32ff199eef0a3cb00cd8dd1238e6cd337e984",
+      "specie": 386,
+      "nome": "Deoxys",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: Current level is below met level.",
-        "Invalid: Fateful Encounter should not be checked."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/hooh-e.pk4": {
-      "sha256": "1e61e2df72dd740279512d014c64afe8da34ae60a8cb35d3bb583a61f86f0724",
+      "sha256": "58f53a66b6a67723931cdac11917ba40b84ef5db3ab07a86674edb8b9f3a7ffb",
       "specie": 250,
       "nome": "Ho-Oh",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: Move 1 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/hooh-fr.pk4": {
-      "sha256": "b76677cd46dfc7dcae0500479366e731d9064cad445329c1afb9fd23cac56864",
+      "sha256": "7fef9e097c8938a722cd38593ca686a3654568103ee49707eaa9b1f83f98264b",
       "specie": 250,
       "nome": "Ho-Oh",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: Move 1 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/hooh-lg.pk4": {
-      "sha256": "79040f8a23c9bd247ad760da223c28a202de3abaa8a8d3ae779212493a2b71c2",
+      "sha256": "ab8de9243c44515bd3a51ddcdf4c9b11a3b18e08d3ad36e08751519292fd1430",
       "specie": 250,
       "nome": "Ho-Oh",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: Move 1 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/latias-e.pk4": {
-      "sha256": "7a6f4661b547549a0ee6b38f3b9561c7e22afdc695235e9b3d83dfabd47ff45e",
-      "specie": 407,
-      "nome": "Roserade",
+      "sha256": "b8a6c6957c2ca317449827581815e53562cacc7bfebe19279fdb1600c0b573da",
+      "specie": 380,
+      "nome": "Latias",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: PID\u002B correlation does not match what was expected for the Encounter\u0027s type.",
-        "Invalid: Ability does not match PID.",
-        "Invalid: Fateful Encounter should not be checked.",
-        "Invalid: Move 3 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/latias-r.pk4": {
-      "sha256": "cad45cf4efc216de313c48cf8d1d7fb62eb48c081b728417fd0be04742cc6dbd",
-      "specie": 407,
-      "nome": "Roserade",
+      "sha256": "acb2dca1b66f701ad73a4f42e4481b5ada306cdda2c73404188bf32c4a84c4b0",
+      "specie": 380,
+      "nome": "Latias",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Move 3 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/latios-e.pk4": {
-      "sha256": "00d6a21e45ea59b39d3b8b22d6a109f1ef2b132df2dfd4b6e6da329a83408611",
-      "specie": 408,
-      "nome": "Cranidos",
+      "sha256": "1c58ccbe77133296e59e4966cbb60d80899a886d36d78b68128e699edb19cf63",
+      "specie": 381,
+      "nome": "Latios",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match to a Mystery Gift in the database.",
-        "Invalid: Fateful Encounter should not be checked.",
-        "Invalid: Move 3 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/latios-s.pk4": {
-      "sha256": "a753a0294bd53ef543ee6031ed516cb99d4c882aa6d3afdc74e0d97124a45c80",
-      "specie": 408,
-      "nome": "Cranidos",
+      "sha256": "7b7035143ecda1f2dcd84277e03bc67c3244d0783f8bd7457d8f69acb63472bc",
+      "specie": 381,
+      "nome": "Latios",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid Move 1: Invalid Move.",
-        "Invalid Move 2: Invalid Move.",
-        "Invalid Move 3: Invalid Move.",
-        "Invalid Move 4: Invalid Move.",
-        "Invalid: Unable to match an encounter from origin game.",
-        "Invalid: Move 3 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/lugia-e.pk4": {
-      "sha256": "5f81c2f8ba1aaa5e36b6acefd10a38a88a2e362f56da097789c9c9c7f239bc83",
+      "sha256": "30a0853bca47bf6d25c6ccab10fe83f271798efe18b965edcba2e6b6bb23b880",
       "specie": 249,
       "nome": "Lugia",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: Move 1 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/lugia-fr.pk4": {
-      "sha256": "2dc5db36265949fee6b66ecbc477b36d9d6d202b62e672116d251eb7785c6342",
+      "sha256": "7596101985f4f0c7d849452badf0d5dc7a8fdd5e429a615aa21dc8464375c67a",
       "specie": 249,
       "nome": "Lugia",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: Move 1 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/lugia-lg.pk4": {
-      "sha256": "d6a2b0d63ece33a03c97b49646733ada65d6b4612ee5f230b1b5677f2eefb05d",
+      "sha256": "39093a5ca7b47c67aa67c60c92be885aa0a514605875010d727bb6901145e7a4",
       "specie": 249,
       "nome": "Lugia",
       "forma": 0,
       "formato": "PK4",
       "contesto": "SS Italian",
-      "esito": "contestato",
-      "rilievi": [
-        "Invalid: Move 1 PP is above the amount allowed (20)."
-      ]
+      "esito": "conforme"
     },
     "lotto-parco-amici-gen4/mew-e.pk4": {
-      "sha256": "ab15f8e70c8c775882c35d080d9314c4b330a175af12259e0ec629131ae6b901",
+      "sha256": "067784f18aa0af227a2267fac28fcc7c1e2fb7493580639fcd3cdc16a5c47f23",
       "specie": 151,
       "nome": "Mew",
       "forma": 0,

@@ -190,6 +190,15 @@ dotnet run -c Release -- "../../recreate-pokemon-distributions-events/giudizi-pk
 
 L'uscita tracciata è `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`, generata e non autorata; il registro dei giudizi umani resta accanto e non si fonde con essa, perché le due cose misurano oggetti diversi, cioè un file oggi e una prova di allora.
 
+## pkhex-parco-amici
+
+È il primo anello della catena verso HOME eseguito dalla libreria invece che da una sua imitazione, per ADR-082. Legge in sola lettura i lotti di terza generazione già conformi ed esclude le voci con una macchina nascosta, che il Parco Amici rifiuterebbe e che restano una decisione del proprietario. Fa schiudere le uova in terza generazione, converte con `PK3.ConvertToPK4()`, giudica ogni risultato in un salvataggio vuoto di SoulSilver con la lingua dell'esemplare, e scrive il `.pk4` in chiaro con un manifesto. Rifiuta una destinazione che contenga già file `.pk4`, quindi un lotto precedente va spostato prima. La data di incontro viene dall'orologio, quindi due corse in giorni diversi danno file diversi e ugualmente conformi.
+
+```powershell
+cd "E:/retrogame-mod-pok-dev/tools/pkhex-parco-amici"
+dotnet run -c Release -- "../../_notes/lotti/lotto-parco-amici-gen4" "../../_notes/lotti/lotto-eventi" "../../_notes/lotti/lotto-incontri-gen3" "../../_notes/lotti/lotto-scambi-gen3"
+```
+
 ## confronta-ace-builder.py
 
 Confronta il costruttore di esemplari della comunità con ciò che questo progetto ha verificato, e serve a una domanda che era aperta: se ricreare la distribuzione originale e scrivere direttamente i byte producano lo stesso esemplare. Esegue cinque confronti, in ordine di durezza decrescente per i primi quattro e con il quinto di natura diversa.
