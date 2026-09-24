@@ -4,7 +4,7 @@
 
 Perche' esiste
 --------------
-Il complemento di ADR-080 vive in `_notes/lotto-complemento-rubino/`, che git ignora come tutti i lotti,
+Il complemento di ADR-080 vive in `_notes/lotti/lotto-complemento-rubino/`, che git ignora come tutti i lotti,
 e il rapporto che `tools/pkhex-genera` scrive accanto ai file e' un JSON per programmi. Questo documento
 e' la sua forma leggibile e versionata: che cosa c'e', perche', da quale voce della libreria, con quale
 allenatore, e l'impronta di ciascun file, cosi' che un clone sappia che cosa il lotto contiene senza
@@ -26,9 +26,9 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 RADICE = Path(__file__).resolve().parents[1]
-LOTTO = RADICE.joinpath("_notes", "lotto-complemento-rubino")
+LOTTO = RADICE.joinpath("_notes", "lotti", "lotto-complemento-rubino")
 USCITA = RADICE.joinpath("pokedex-home-completo", "COMPLEMENTO-RUBINO.md")
-NOMI = RADICE.joinpath("_notes", "fonti", "pkhex", "PKHeX.Core", "Resources", "text", "other", "it", "text_Species_it.txt")
+NOMI = RADICE.joinpath("_notes", "fonti", "cloni", "pkhex", "PKHeX.Core", "Resources", "text", "other", "it", "text_Species_it.txt")
 GRUPPI = [("statico", "Incontri statici, doni e uova dei portatili"), ("incontro speciale", "Incontri speciali dei selvatici"), ("dono", "Doni di Colosseum e di XD"),
           ("evento", "Evento"), ("starter", "Starter di Colosseum"), ("Ombra di Colosseum", "Ombra di Colosseum"),
           ("Ombra di XD", "Ombra di XD"), ("scambio", "Scambi di XD"), ("forma", "Forme di Unown"),
@@ -50,7 +50,7 @@ def main():
     for e in rapporto["esiti"]:
         per_gruppo.setdefault(gruppo(e["motivo"]), []).append(e)
     md = ["# Il complemento di terza generazione per il Rubino di prova", "",
-          "> Documento generato da `tools/complemento-rubino-md.py` dal rapporto di `tools/pkhex-genera`. Non si modifica a mano: si rigenera. I file stanno in `_notes/lotto-complemento-rubino/esemplari/`, fuori da git; le richieste da cui nascono le scrive `tools/manifesto-complemento-rubino.py`, e il ragionamento sta in `STUDIO-10-la-libreria-del-verificatore-come-generatore.md`.", "",
+          "> Documento generato da `tools/complemento-rubino-md.py` dal rapporto di `tools/pkhex-genera`. Non si modifica a mano: si rigenera. I file stanno in `_notes/lotti/lotto-complemento-rubino/esemplari/`, fuori da git; le richieste da cui nascono le scrive `tools/manifesto-complemento-rubino.py`, e il ragionamento sta in `STUDIO-10-la-libreria-del-verificatore-come-generatore.md`.", "",
           "Esemplari generati e giudicati legali dalla libreria del verificatore: %d su %d richieste." % (rapporto["riuscite"], rapporto["richieste"]), "",
           "## Gli allenatori", "", "| Gioco | Allenatore | Identificativo | Segreto |", "|---|---|---|---|"]
     for sigla, a in rapporto["allenatori"].items():

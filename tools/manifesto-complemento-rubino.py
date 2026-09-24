@@ -30,7 +30,7 @@ Uso
 ---
     python tools/manifesto-complemento-rubino.py SALVATAGGIO_SMERALDO.sav --dump DUMP.csv
 
-Scrive `_notes/lotto-complemento-rubino/richieste.json`.
+Scrive `_notes/lotti/lotto-complemento-rubino/richieste.json`.
 """
 
 import argparse
@@ -45,7 +45,7 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 RADICE = Path(__file__).resolve().parents[1]
-USCITA = RADICE.joinpath("_notes", "lotto-complemento-rubino", "richieste.json")
+USCITA = RADICE.joinpath("_notes", "lotti", "lotto-complemento-rubino", "richieste.json")
 
 # I giochi nella sigla di PKHeX, e i due gruppi che il generatore conosce.
 GIOCHI = {"R": ["R"], "S": ["S"], "E": ["E"], "FR": ["FR"], "LG": ["LG"], "RSE": ["E", "R", "S"], "RS": ["R", "S"],

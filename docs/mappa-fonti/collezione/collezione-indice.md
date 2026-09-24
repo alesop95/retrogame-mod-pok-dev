@@ -2,7 +2,7 @@
 
 > Nota generata. È il taglio relazionale del censimento che sta in `pokedex-home-completo/CENSIMENTO-FONTI-COLLEZIONE.md`: là c'è l'elenco, qui c'è come le fonti si tengono. Aprendo la radice del repository come vault Obsidian, i collegamenti qui sotto diventano un grafo navigabile.
 
-La sorgente è la corsa in `_notes/fonti/reddit-pokemonhome-1vtj5hf-2026-09-08`, e il post di partenza è https://www.reddit.com/r/PokemonHome/comments/1vtj5hf/.
+La sorgente è la corsa in `_notes/fonti/reddit/reddit-pokemonhome-1vtj5hf-2026-09-08`, e il post di partenza è https://www.reddit.com/r/PokemonHome/comments/1vtj5hf/.
 
 Il grafo disegnato qui non è quello dei rinvii fra i post, che ha oltre millecinquecento archi ed è illeggibile a occhio: è quello fra i cluster e gli host più citati, che ha una lettura sola e la dice subito, cioè quali argomenti poggino su quali sorgenti. Il grafo completo resta in `mappa.json` accanto alla corsa.
 

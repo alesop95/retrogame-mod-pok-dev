@@ -4,7 +4,7 @@ Questo documento nasce dalla prima lettura reale del salvataggio di Pokemon Smer
 
 ## 1. Il salvataggio letto
 
-Il dump è stato estratto con FlashGBX in doppia copia indipendente, su due volumi distinti, con hash SHA-256 identico fra le due letture. Le due copie verificate stanno in `_notes/backup salvataggi pokèmon <PROPRIETARIO> cartucce vere/smeraldo/01-2026-09-17-zaino-primo-giro/Pokemon - Versione Smeraldo (Italy) - ALEX-45761-788h36m-2026-09-17.sav` e sul volume `J:`, con lo stesso nome. Il nome codifica allenatore, ID allenatore e tempo di gioco al momento del backup, per la convenzione scelta dall'utente in sessione.
+Il dump è stato estratto con FlashGBX in doppia copia indipendente, su due volumi distinti, con hash SHA-256 identico fra le due letture. Le due copie verificate stanno in `_notes/salvataggi/cartucce/smeraldo/01-2026-09-17-zaino-primo-giro/Pokemon - Versione Smeraldo (Italy) - ALEX-45761-788h36m-2026-09-17.sav` e sul volume `J:`, con lo stesso nome. Il nome codifica allenatore, ID allenatore e tempo di gioco al momento del backup, per la convenzione scelta dall'utente in sessione.
 
 `tools/verifica-salvataggi.py` identifica il file come Smeraldo, slot attivo B, contatore di salvataggio 3597, allenatore ALEX (maschio), ID allenatore 45761, ID segreto 56446, 788 ore e 36 minuti di gioco. Il deposito PC contiene 253 posizioni occupate, 172 specie distinte, 33 esemplari cromatici, zero uova, zero strutture rifiutate dal verificatore: i Pokemon nei box sono strutturalmente integri. Questo non è un giudizio di legittimità, che spetta a PKHeX, ma di integrità dei dati.
 

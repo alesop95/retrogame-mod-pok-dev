@@ -26,7 +26,7 @@ Una pagina che non si riesce a leggere non diventa una pagina vuota: finisce nel
 Uso
 ---
 
-    python tools/fetch-bulbapedia.py --out _notes/fonti/bulbapedia-parco-lotta-2026-09-21 "Battle Arena" "Battle Dome"
+    python tools/fetch-bulbapedia.py --out _notes/fonti/raccolte/bulbapedia-parco-lotta-2026-09-21 "Battle Arena" "Battle Dome"
     python tools/fetch-bulbapedia.py --out <cartella> --da-file <elenco.txt>
 """
 

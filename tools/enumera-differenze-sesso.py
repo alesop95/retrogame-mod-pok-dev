@@ -48,7 +48,7 @@ import re
 import sys
 
 RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-FONTE = os.path.join(RADICE, "_notes", "fonti", "2026-09-08-bulbapedia-differenze-di-sesso.html")
+FONTE = os.path.join(RADICE, "_notes", "fonti", "consegne", "2026-09-08-bulbapedia-differenze-di-sesso.html")
 USCITA = os.path.join(RADICE, "pokedex-home-completo", "DIFFERENZE-DI-SESSO.md")
 NORMALIZZATO = os.path.join(RADICE, "pokedex-home-completo", "data", "differenze-di-sesso.csv")
 

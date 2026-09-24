@@ -71,7 +71,7 @@ ESENZIONI = os.path.join(TESI, "non-coperti.txt")
 # I documenti il cui contenuto deve finire nel PDF. Le schede di .claude/context/ e i file
 # di .claude/memory/ non entrano: sono stato del lavoro e non conoscenza, e il loro posto è
 # il repository, non un documento che si legge dall'inizio alla fine. Le note di
-# docs/fonti/ non entrano perché sono generate dalla stessa tabella da cui nasce la
+# docs/mappa-fonti/ non entrano perché sono generate dalla stessa tabella da cui nasce la
 # bibliografia del PDF, quindi vi sono già dentro per costruzione.
 ALTRI_DOCUMENTI = (
     "pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md",

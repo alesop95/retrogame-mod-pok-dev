@@ -70,4 +70,4 @@ Lo strumento che produce il conto sta fra quelli comuni, in `tools/disponibilita
 
 ## Materiale locale, fuori dal version control
 
-La consegna che ha aperto questo sottoprogetto sta in `_notes/fonti/2026-09-01-consegna-pokedex-e-collezione-theslayer.txt`, che è locale come tutto `_notes/`. Contiene i collegamenti alla collezione di riferimento mantenuta da terzi, le regole operative dichiarate dal suo autore, e le due lacune che quella collezione dichiara.
+La consegna che ha aperto questo sottoprogetto sta in `_notes/fonti/consegne/2026-09-01-consegna-pokedex-e-collezione-theslayer.txt`, che è locale come tutto `_notes/`. Contiene i collegamenti alla collezione di riferimento mantenuta da terzi, le regole operative dichiarate dal suo autore, e le due lacune che quella collezione dichiara.

@@ -36,7 +36,7 @@ non trascrive tabelle.
 
 Uso
 ---
-    python tools/copertura-verifica.py --ace _notes/fonti/ace-builder --pkhex _notes/fonti/pkhex
+    python tools/copertura-verifica.py --ace _notes/fonti/cloni/ace-builder --pkhex _notes/fonti/cloni/pkhex
 """
 
 import argparse

@@ -36,7 +36,7 @@ fonte li fissa, cioè per gli esemplari dei tour, dove sono parte dell'evento.
 Uso
 ---
     python tools/genera-evento-gb.py --pkhex <clone> --elenca
-    python tools/genera-evento-gb.py --pkhex <clone> --lotto --destinazione _notes/lotto-gb
+    python tools/genera-evento-gb.py --pkhex <clone> --lotto --destinazione _notes/lotti/lotto-gb
     python tools/genera-evento-gb.py --pkhex <clone> --schede pokedex-home-completo/SCHEDE-EVENTI-GB.md
     python tools/genera-evento-gb.py --self-test
 """
@@ -593,7 +593,7 @@ def main(argv=None):
     ap.add_argument("--pkhex", help="clone del verificatore")
     ap.add_argument("--elenca", action="store_true", help="elenca le voci con i loro campi")
     ap.add_argument("--lotto", action="store_true", help="scrive gli esemplari su disco")
-    ap.add_argument("--destinazione", default=os.path.join("_notes", "lotto-gb"))
+    ap.add_argument("--destinazione", default=os.path.join("_notes", "lotti", "lotto-gb"))
     ap.add_argument("--schede", help="scrive le schede tecniche come documento tracciato")
     ap.add_argument("--self-test", action="store_true")
     a = ap.parse_args(argv)
@@ -995,7 +995,7 @@ def scrivi_schede(percorso, prodotti, nomi, mosse, prov):
             impronta = x.get("impronta")
             if impronta:
                 r.append("| impronta del file prodotto | `%s` | SHA-256 dei byte scritti in "
-                         "`_notes/lotto-gb/`, calcolata alla generazione: rigenerare il lotto "
+                         "`_notes/lotti/lotto-gb/`, calcolata alla generazione: rigenerare il lotto "
                          "dalle medesime tabelle deve riprodurla identica, e una differenza "
                          "segnala che qualcosa è cambiato nelle tabelle o nel programma |"
                          % impronta)

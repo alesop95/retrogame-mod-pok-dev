@@ -39,7 +39,7 @@ trascritto di questo programma, ed è piccolo e verificabile a occhio.
 
 Uso
 ---
-    python tools/disponibilita-titoli.py --pkhex _notes/fonti/pkhex
+    python tools/disponibilita-titoli.py --pkhex _notes/fonti/cloni/pkhex
 """
 
 import argparse

@@ -33,7 +33,7 @@ sappiamo leggere il formato sono dichiarate non lette e non contate a zero.
 
 Uso
 ---
-    python tools/censimento-eventi-tabelle.py --pkhex _notes/fonti/pkhex
+    python tools/censimento-eventi-tabelle.py --pkhex _notes/fonti/cloni/pkhex
     python tools/censimento-eventi-tabelle.py --pkhex <clone> --markdown <file.md>
     python tools/censimento-eventi-tabelle.py --self-test
 """

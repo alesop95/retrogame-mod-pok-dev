@@ -165,7 +165,7 @@
     "ne segue che il lotto va sottoposto di nuovo al verificatore per intero, e non a campione: un verdetto verde su un campione non autorizza a concludere sul gruppo, che è una lezione già pagata da questo progetto"
    ],
    "conferme": [
-    "le impronte del lotto nuovo sono nel manifesto `_notes/lotto-eventi/impronte.json` e compaiono nelle schede: chi rifarà il giudizio potrà dichiarare esattamente su quali byte lo ha fatto, che è ciò che mancava alla prova precedente"
+    "le impronte del lotto nuovo sono nel manifesto `_notes/lotti/lotto-eventi/impronte.json` e compaiono nelle schede: chi rifarà il giudizio potrà dichiarare esattamente su quali byte lo ha fatto, che è ciò che mancava alla prova precedente"
    ],
    "lotto": "gen3",
    "copre": "tutti"

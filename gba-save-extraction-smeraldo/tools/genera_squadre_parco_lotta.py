@@ -27,7 +27,7 @@ Cio' che il programma dichiara quando non ci riesce, e non e' un dettaglio: se n
 Uso
 ---
 
-    python gba-save-extraction-smeraldo/tools/genera_squadre_parco_lotta.py --catalogo gba-save-extraction-smeraldo/squadre-parco-lotta.json --dati gba-save-extraction-smeraldo/dati-gen3.json --out _notes/lotto-parco-lotta
+    python gba-save-extraction-smeraldo/tools/genera_squadre_parco_lotta.py --catalogo gba-save-extraction-smeraldo/squadre-parco-lotta.json --dati gba-save-extraction-smeraldo/dati-gen3.json --out _notes/lotti/lotto-parco-lotta
 """
 
 import argparse
