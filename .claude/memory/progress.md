@@ -4,6 +4,10 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-24. Il PDF della collezione esteso al Rubino, e la sessione si chiude verso HOME
+
+Su richiesta del proprietario la stampa della collezione è diventata una sola per le due cartucce: `gba-save-extraction-smeraldo/MAPPA-BOX-COLLEZIONE.pdf`, con il `.docx`, 54 pagine. Per Smeraldo e per il Rubino c'è una pagina di legenda e due per box, con il Rubino nella disposizione prevista del complemento. La disposizione sta in `disposizione_rubino` di `emerald_mappa_box.py`, che la scrittura dovrà usare: per gruppi e dentro il gruppo per numero del Pokédex, in 12 box, con 5 posti vuoti nel dodicesimo. Il Rubino ha una legenda propria con otto provenienze: statici 36, esclusivi 40, specie 98, portatori 9, Unown 28, Colosseum 52, XD 91, evento 1. I vecchi `MAPPA-BOX-SMERALDO.pdf` e `.docx`, generati e superati, sono stati tolti; `MAPPA-BOX-SMERALDO.md` resta, e si aggiunge `MAPPA-BOX-RUBINO.md`. La cartuccia di Rubino non è con il proprietario: la scrittura aspetta, ed è una voce da ricordare a ogni sessione. La sessione si chiude con il resume riscritto per ripartire da HOME.
+
 ## 2026-09-23, sessantottesima parte. Il complemento del Rubino generato, 355 su 355, e ADR-081
 
 `tools/manifesto-complemento-rubino.py` ha scritto 355 richieste dal deposito di Smeraldo:

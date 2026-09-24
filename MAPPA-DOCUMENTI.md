@@ -68,7 +68,8 @@ Sono i più grossi del progetto e la causa principale del senso di ingestibilit�
 | `pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md` | 294k | `tools/censimento-eventi-tabelle.py` |
 | `pokedex-home-completo/CENSIMENTO-FONTI-COLLEZIONE.md` | 219k | `tools/censimento-fonti-reddit.py` |
 | `recreate-pokemon-distributions-events/CATALOGO-EVENTI.md` | 58k | `tools/catalogo-eventi.py` |
-| `gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md` | 44k | `gba-save-extraction-smeraldo/tools/emerald_mappa_box.py`, con quattordici figure e le copie `.docx` e `.pdf` da stampare, fuori da git |
+| `gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md` | 44k | `gba-save-extraction-smeraldo/tools/emerald_mappa_box.py`, che scrive anche `MAPPA-BOX-RUBINO.md`, le figure e la copia da stampare della collezione intera `MAPPA-BOX-COLLEZIONE.docx` e `.pdf`, fuori da git |
+| `gba-save-extraction-smeraldo/MAPPA-BOX-RUBINO.md` | 60k | lo stesso strumento: la disposizione prevista del complemento sul Rubino di prova, finché la cartuccia non è scritta |
 | `pokedex-home-completo/CODA-PRIMO-TEMPO.md` | 42k | `tools/checklist-pokedex.py --coda` |
 | `pokedex-home-completo/CONFRONTO-FOGLIO-LIVINGDEX.md` | 33k | `tools/confronta-foglio-livingdex.py` |
 | `recreate-pokemon-distributions-events/EVENTI-GEN3.md` | 23k | `tools/genera-evento-gen3.py` |

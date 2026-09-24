@@ -22,7 +22,9 @@ Uso
 
     python gba-save-extraction-smeraldo/tools/emerald_mappa_box.py SALVATAGGIO.sav --dump DUMP.csv FILE_DEL_DUMP.sav [--dump ...]
 
-Scrive `gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md`, le figure `figure/mappa-box-NN.png`, e le copie `MAPPA-BOX-SMERALDO.docx` e `MAPPA-BOX-SMERALDO.pdf`.
+Scrive `gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md` e `MAPPA-BOX-RUBINO.md`, le figure `figure/mappa-box-NN.png` e `figure/mappa-rubino-box-NN.png`, e la copia da stampare della collezione intera, `MAPPA-BOX-COLLEZIONE.docx` e `MAPPA-BOX-COLLEZIONE.pdf`: prima Smeraldo, poi il Rubino. Dal 2026-09-24 il Rubino entra nella stampa con la disposizione prevista del complemento di ADR-080, presa da `disposizione_rubino`, finche' la cartuccia non e' scritta.
+
+La disposizione del Rubino segue i gruppi della sua legenda, cioè statici, esclusivi, specie, portatori di mosse e fiocchi, Unown, Colosseum, XD ed evento, e dentro ciascun gruppo il numero del Pokédex. È la disposizione che la scrittura dovrà usare.
 """
 
 import argparse
@@ -74,8 +76,24 @@ PROVENIENZE = [
     ("selvatico", "Wynaut dell'Isola Miraggio", "Isola Miraggio", "#4a3aa7"),
     ("lotto", "Parco Lotta", "Parco Lotta", "#008300"),
 ]
-ETICHETTA = {k: e for k, e, _, _ in PROVENIENZE}
-BANDA = {k: b for k, _, b, _ in PROVENIENZE}
+# Il Rubino di prova riceve il complemento di ADR-080, e le sue provenienze sono altre; hanno una legenda
+# propria, quindi riusano gli otto colori della tavolozza nello stesso ordine fisso.
+PROVENIENZE_RUBINO = [
+    ("r-statico", "Incontri statici, doni e uova", "Statico o dono", "#2a78d6"),
+    ("r-esclusivo", "Esclusivi di versione", "Esclusivo", "#eb6834"),
+    ("r-specie", "Specie che completano il Pokédex", "Pokédex", "#1baf7a"),
+    ("r-portatore", "Mosse perdute e fiocchi", "Mossa o fiocchi", "#eda100"),
+    ("r-unown", "Forme di Unown", "Unown", "#e87ba4"),
+    ("r-colosseum", "Colosseum", "Colosseum", "#4a3aa7"),
+    ("r-xd", "XD", "XD", "#008300"),
+    ("r-evento", "Evento", "Evento", "#e34948"),
+]
+ETICHETTA = {k: e for k, e, _, _ in PROVENIENZE + PROVENIENZE_RUBINO}
+BANDA = {k: b for k, _, b, _ in PROVENIENZE + PROVENIENZE_RUBINO}
+LETTERE_UNOWN = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!?"
+RUBINO = RADICE.joinpath("_notes", "lotto-complemento-rubino", "esemplari")
+USCITA_RUBINO = CARTELLA.joinpath("MAPPA-BOX-RUBINO.md")
+STAMPA = CARTELLA.joinpath("MAPPA-BOX-COLLEZIONE")
 NERO = "#000000"
 SUPERFICIE = "#ffffff"
 BORDO = "#bdbcb6"
@@ -93,7 +111,7 @@ def tinta(esadecimale, quota=0.42):
     return "#%02x%02x%02x" % tuple(round(255 - (255 - c) * quota) for c in (r, g, b))
 
 
-TINTA = {k: tinta(c) for k, _, _, c in PROVENIENZE}
+TINTA = {k: tinta(c) for k, _, _, c in PROVENIENZE + PROVENIENZE_RUBINO}
 
 
 def _modulo(percorso, nome):
@@ -229,7 +247,7 @@ def miniatura(percorso, cache):
     return cache[percorso]
 
 
-def figura(box, voci, indice, forme, cache, uscita):
+def figura(titolo, voci, indice, forme, cache, uscita):
     """La griglia del box in proporzione A4 orizzontale, testo nero, senza legenda."""
     fig, ax = plt.subplots(figsize=(11.69, 8.27), facecolor=SUPERFICIE)
     fig.subplots_adjust(left=0.02, right=0.98, top=0.98, bottom=0.02)
@@ -238,7 +256,7 @@ def figura(box, voci, indice, forme, cache, uscita):
     ax.invert_yaxis()
     ax.set_aspect("auto")
     ax.axis("off")
-    ax.text(0.04, 0.15, "Box %d" % box, fontsize=17, color=NERO, fontweight="bold", va="center")
+    ax.text(0.04, 0.15, titolo, fontsize=17, color=NERO, fontweight="bold", va="center")
     for n, v in enumerate(voci, start=1):
         r, c = (n - 1) // COLONNE, (n - 1) % COLONNE
         y0 = r + 0.3
@@ -266,6 +284,38 @@ def figura(box, voci, indice, forme, cache, uscita):
                 ha="center", va="center")
     fig.savefig(uscita, dpi=170, facecolor=SUPERFICIE, metadata={"Software": None})
     plt.close(fig)
+
+
+def gruppo_rubino(motivo):
+    """La provenienza di una richiesta del complemento, dal motivo che il manifesto le ha scritto."""
+    for prefisso, chiave in (("statico", "r-statico"), ("esclusivo", "r-esclusivo"), ("specie", "r-specie"), ("mossa", "r-portatore"),
+                             ("fiocchi", "r-portatore"), ("forma di Unown", "r-unown"), ("evento", "r-evento")):
+        if motivo.startswith(prefisso):
+            return chiave
+    return "r-xd" if "XD" in motivo.split(",")[0] else "r-colosseum"
+
+
+def disposizione_rubino():
+    """Le voci del Rubino nell'ordine delle scatole: per gruppo, e dentro il gruppo per numero del Pokédex.
+
+    E' la disposizione che la scrittura sulla cartuccia dovra' usare, e sta qui, in una funzione sola, perche'
+    la mappa e la scrittura non possano divergere.
+    """
+    rapporto = json.loads(RUBINO.joinpath("rapporto.json").read_text(encoding="utf-8"))
+    nomi = [n.strip() for n in PKHEX.joinpath("PKHeX.Core", "Resources", "text", "other", "it", "text_Species_it.txt").read_text(encoding="utf-8").split("\n")]
+    ordine = [k for k, _, _, _ in PROVENIENZE_RUBINO]
+    voci = []
+    for e in rapporto["esiti"]:
+        chiave = gruppo_rubino(e["motivo"])
+        forma = int(e["motivo"].rsplit(" ", 1)[1]) if chiave == "r-unown" else 0
+        dettaglio = e["motivo"].split(",", 1)[1].strip() if "," in e["motivo"] else e["motivo"]
+        voci.append({"specie": nomi[e["specie"]] + (" " + LETTERE_UNOWN[forma] if chiave == "r-unown" else ""),
+                     "nazionale": e["specie"], "forma": str(forma), "soprannome": "", "uovo": False,
+                     "livello": str(e["livello"]), "allenatore": e["allenatore"].rsplit(" ", 1)[0], "lingua": "",
+                     "provenienza": chiave, "banda": BANDA[chiave], "chiave": None, "file": e["file"],
+                     "dettaglio": "%s; %s, allenatore %s" % (dettaglio, e["voce"], e["allenatore"])})
+    voci.sort(key=lambda v: (ordine.index(v["provenienza"]), v["nazionale"], int(v["forma"])))
+    return voci
 
 
 def racconto(chiave, p, riga):
@@ -355,7 +405,7 @@ def main():
     FIGURE.mkdir(exist_ok=True)
     cache = {}
     for b, contenuto in enumerate(per_box, start=1):
-        figura(b, contenuto, indice, forme, cache, FIGURE.joinpath("mappa-box-%02d.png" % b))
+        figura("Smeraldo, box %d" % b, contenuto, indice, forme, cache, FIGURE.joinpath("mappa-box-%02d.png" % b))
 
     completa = _modulo(CARTELLA.joinpath("tools", "emerald_cartuccia_completa.py"), "cartuccia_completa")
     sfondi = list(salvataggio.storage()[save3.OFF_SFONDI:save3.OFF_SFONDI + 14])
@@ -365,22 +415,42 @@ def main():
         parti = collections.Counter(v["provenienza"] for v in contenuto if v)
         riepilogo.append((b, "; ".join("%s %d" % (ETICHETTA[k], parti[k]) for k, _, _, _ in PROVENIENZE if parti[k]),
                           completa.NOMI_SFONDI[sfondi[b - 1]]))
-    scrivi_markdown(per_box, conteggio, riepilogo)
-    scrivi_stampa(per_box, conteggio, riepilogo)
-    for k, e, _, _ in PROVENIENZE:
-        print("  %-38s %d" % (e, conteggio[k]))
+    scrivi_markdown(per_box, conteggio, riepilogo, PROVENIENZE, USCITA, None)
+    sezioni = [{"nome": "Smeraldo", "per_box": per_box, "conteggio": conteggio, "riepilogo": riepilogo, "provenienze": PROVENIENZE,
+                "figura": "mappa-box-%02d.png", "nota": None}]
+
+    # il Rubino: disposizione prevista del complemento, finche' la cartuccia non e' scritta
+    voci_r = disposizione_rubino()
+    per_box_r = [voci_r[b * PER_BOX:(b + 1) * PER_BOX] + [None] * max(0, PER_BOX - len(voci_r[b * PER_BOX:(b + 1) * PER_BOX]))
+                 for b in range(-(-len(voci_r) // PER_BOX))]
+    for b, contenuto in enumerate(per_box_r, start=1):
+        figura("Rubino, box %d (previsto)" % b, contenuto, indice, forme, cache, FIGURE.joinpath("mappa-rubino-box-%02d.png" % b))
+    conteggio_r = collections.Counter(v["provenienza"] for v in voci_r)
+    riepilogo_r = [(b, "; ".join("%s %d" % (ETICHETTA[k], collections.Counter(v["provenienza"] for v in c if v)[k])
+                                 for k, _, _, _ in PROVENIENZE_RUBINO if collections.Counter(v["provenienza"] for v in c if v)[k]), "da decidere")
+                   for b, c in enumerate(per_box_r, start=1)]
+    nota_r = ("Disposizione prevista del complemento di ADR-080, non ancora scritta: il Rubino di prova non è a portata di mano. "
+              "La squadra di inizio partita resta quella che la cartuccia ha, e le scatole oltre queste restano vuote.")
+    scrivi_markdown(per_box_r, conteggio_r, riepilogo_r, PROVENIENZE_RUBINO, USCITA_RUBINO, nota_r)
+    sezioni.append({"nome": "Rubino", "per_box": per_box_r, "conteggio": conteggio_r, "riepilogo": riepilogo_r,
+                    "provenienze": PROVENIENZE_RUBINO, "figura": "mappa-rubino-box-%02d.png", "nota": nota_r})
+    scrivi_stampa(sezioni)
+    for k, e, _, _ in PROVENIENZE + PROVENIENZE_RUBINO:
+        print("  %-38s %d" % (e, (conteggio + conteggio_r)[k]))
 
 
-def scrivi_markdown(per_box, conteggio, riepilogo):
-    md = ["<!-- generato da gba-save-extraction-smeraldo/tools/emerald_mappa_box.py: non si modifica a mano -->", "",
-          "## Legenda e riepilogo", "", "| Colore | Provenienza | Esemplari |", "|---|---|---|"]
-    for k, e, _, _ in PROVENIENZE:
+def scrivi_markdown(per_box, conteggio, riepilogo, provenienze, uscita, nota):
+    md = ["<!-- generato da gba-save-extraction-smeraldo/tools/emerald_mappa_box.py: non si modifica a mano -->", ""]
+    if nota:
+        md += [nota, ""]
+    md += ["## Legenda e riepilogo", "", "| Colore | Provenienza | Esemplari |", "|---|---|---|"]
+    for k, e, _, _ in provenienze:
         md.append("| %s | %s | %d |" % (TINTA[k], e, conteggio[k]))
     md.append("|  | Totale | %d su %d |" % (sum(conteggio.values()), save3.POSIZIONI))
     md += ["", "| Box | Contenuto | Sfondo |", "|---|---|---|"]
     md += ["| %d | %s | %s |" % t for t in riepilogo]
     for b, contenuto in enumerate(per_box, start=1):
-        md += ["", "## Box %d" % b, "", "![Box %d](figure/mappa-box-%02d.png)" % (b, b), "",
+        md += ["", "## Box %d" % b, "", "![Box %d](figure/%s)" % (b, ("mappa-rubino-box-%02d.png" if uscita == USCITA_RUBINO else "mappa-box-%02d.png") % b), "",
                "| Posizione | Riga | Colonna | Pokémon | Soprannome | Livello | Allenatore | Provenienza | Dettaglio |",
                "|---|---|---|---|---|---|---|---|---|"]
         for n, v in enumerate(contenuto, start=1):
@@ -391,30 +461,30 @@ def scrivi_markdown(per_box, conteggio, riepilogo):
             md.append("| %d | %d | %d | %s | %s | %s | %s | %s | %s |" % (
                 n, r, c, v["specie"], v["soprannome"], v["livello"], v["allenatore"], ETICHETTA[v["provenienza"]],
                 v["dettaglio"].replace("|", "/")))
-    USCITA.write_text("\n".join(md) + "\n", encoding="utf-8", newline="\n")
+    uscita.write_text("\n".join(md) + "\n", encoding="utf-8", newline="\n")
 
 
-def scrivi_stampa(per_box, conteggio, riepilogo):
+def scrivi_stampa(sezioni):
     """La copia da stampare: .docx orizzontale costruito qui, esportato in PDF da Word, con il controllo delle pagine."""
-    corpi = {b: 7.0 for b in range(1, 15)}
+    corpi = {(s["nome"], b): 7.0 for s in sezioni for b in range(1, len(s["per_box"]) + 1)}
     passo = 0.25
-    docx_out, pdf_out = USCITA.with_suffix(".docx"), USCITA.with_suffix(".pdf")
+    docx_out, pdf_out = STAMPA.with_suffix(".docx"), STAMPA.with_suffix(".pdf")
     for tentativo in range(8):
-        componi_docx(per_box, conteggio, riepilogo, corpi, docx_out)
+        componi_docx(sezioni, corpi, docx_out)
         esporta_pdf(docx_out, pdf_out)
-        sforano, pagine = pagine_che_sforano(pdf_out)
+        sforano, pagine = pagine_che_sforano(pdf_out, sezioni)
         if not sforano:
-            print("stampa: %s e %s, %d pagine: una di legenda e due per box" % (docx_out.name, pdf_out.name, pagine))
+            print("stampa: %s e %s, %d pagine: per cartuccia una di legenda e due per box" % (docx_out.name, pdf_out.name, pagine))
             return
         for b in sforano:
             corpi[b] -= passo
             if corpi[b] < 4.5:
-                sys.exit("la tabella del box %d non entra in una pagina neppure a 4,5 punti" % b)
+                sys.exit("la tabella del box %s non entra in una pagina neppure a 4,5 punti" % (b,))
         print("tentativo %d: sforano i box %s, riduco il carattere" % (tentativo + 1, sforano))
     sys.exit("impaginazione non riuscita")
 
 
-def componi_docx(per_box, conteggio, riepilogo, corpi, uscita):
+def componi_docx(sezioni, corpi, uscita):
     from docx import Document
     from docx.enum.section import WD_ORIENT
     from docx.enum.text import WD_BREAK
@@ -483,30 +553,35 @@ def componi_docx(per_box, conteggio, riepilogo, corpi, uscita):
     def a_capo_pagina():
         doc.add_paragraph().add_run().add_break(WD_BREAK.PAGE)
 
-    testo(doc.add_paragraph(), "Legenda e riepilogo", 12, grassetto=True, font="Arial")
-    testo(doc.add_paragraph(), " ", 8)
-    tabella(["Colore", "Provenienza", "Esemplari"],
-            [("", e, str(conteggio[k])) for k, e, _, _ in PROVENIENZE] + [("", "Totale", "%d su %d" % (sum(conteggio.values()), save3.POSIZIONI))],
-            [1.5, 8.0, 3.0], 9, colori=[(0, TINTA[k]) for k, _, _, _ in PROVENIENZE] + [None])
-    testo(doc.add_paragraph(), " ", 8)
-    tabella(["Box", "Contenuto", "Sfondo"], [(str(b), c, s) for b, c, s in riepilogo], [1.5, 20.0, 3.0], 9)
-
-    for b, contenuto in enumerate(per_box, start=1):
-        a_capo_pagina()
-        doc.add_paragraph().add_run().add_picture(str(FIGURE.joinpath("mappa-box-%02d.png" % b)), height=Cm(18.4))
-        a_capo_pagina()
-        testo(doc.add_paragraph(), "Box %d, posizione per posizione" % b, 10, grassetto=True, font="Arial")
-        righe, colori = [], []
-        for n, v in enumerate(contenuto, start=1):
-            rc = "%d (%d-%d)" % (n, (n - 1) // COLONNE + 1, (n - 1) % COLONNE + 1)
-            if not v:
-                righe.append((rc, "vuoto", "", "", "", "", ""))
-                colori.append(None)
-                continue
-            righe.append((rc, v["specie"], v["soprannome"], "uovo" if v["uovo"] else v["livello"], v["allenatore"], ETICHETTA[v["provenienza"]], v["dettaglio"]))
-            colori.append((5, TINTA[v["provenienza"]]))
-        tabella(["Posto (riga-colonna)", "Pokémon", "Soprannome", "Liv.", "Allenatore", "Provenienza", "Dettaglio"],
-                righe, [1.4, 1.7, 1.5, 0.6, 1.7, 1.9, 19.1], corpi[b], colori)
+    for i, sezione in enumerate(sezioni):
+        if i:
+            a_capo_pagina()
+        conteggio, provenienze = sezione["conteggio"], sezione["provenienze"]
+        testo(doc.add_paragraph(), "%s: legenda e riepilogo" % sezione["nome"], 12, grassetto=True, font="Arial")
+        if sezione["nota"]:
+            testo(doc.add_paragraph(), sezione["nota"], 9, font="Arial")
+        testo(doc.add_paragraph(), " ", 8)
+        tabella(["Colore", "Provenienza", "Esemplari"],
+                [("", e, str(conteggio[k])) for k, e, _, _ in provenienze] + [("", "Totale", "%d su %d" % (sum(conteggio.values()), save3.POSIZIONI))],
+                [1.5, 8.0, 3.0], 9, colori=[(0, TINTA[k]) for k, _, _, _ in provenienze] + [None])
+        testo(doc.add_paragraph(), " ", 8)
+        tabella(["Box", "Contenuto", "Sfondo"], [(str(b), c, sf) for b, c, sf in sezione["riepilogo"]], [1.5, 20.0, 3.0], 9)
+        for b, contenuto in enumerate(sezione["per_box"], start=1):
+            a_capo_pagina()
+            doc.add_paragraph().add_run().add_picture(str(FIGURE.joinpath(sezione["figura"] % b)), height=Cm(18.4))
+            a_capo_pagina()
+            testo(doc.add_paragraph(), "%s, box %d, posizione per posizione" % (sezione["nome"], b), 10, grassetto=True, font="Arial")
+            righe, colori = [], []
+            for n, v in enumerate(contenuto, start=1):
+                rc = "%d (%d-%d)" % (n, (n - 1) // COLONNE + 1, (n - 1) % COLONNE + 1)
+                if not v:
+                    righe.append((rc, "vuoto", "", "", "", "", ""))
+                    colori.append(None)
+                    continue
+                righe.append((rc, v["specie"], v["soprannome"], "uovo" if v["uovo"] else v["livello"], v["allenatore"], ETICHETTA[v["provenienza"]], v["dettaglio"]))
+                colori.append((5, TINTA[v["provenienza"]]))
+            tabella(["Posto (riga-colonna)", "Pokémon", "Soprannome", "Liv.", "Allenatore", "Provenienza", "Dettaglio"],
+                    righe, [1.4, 1.7, 1.5, 0.6, 1.7, 1.9, 19.1], corpi[(sezione["nome"], b)], colori)
     doc.save(str(uscita))
 
 
@@ -526,20 +601,26 @@ def esporta_pdf(docx_in, pdf_out):
     sys.exit("Word non ha esportato %s" % pdf_out)
 
 
-def pagine_che_sforano(pdf):
+def pagine_che_sforano(pdf, sezioni):
     """I box la cui tabella occupa piu' di una pagina: dopo la pagina con il titolo della tabella deve venire la figura del box seguente."""
     import fitz
     documento = fitz.open(str(pdf))
-    titoli = {}
+    titoli = []
     for i, pagina in enumerate(documento):
-        m = re.search(r"Box (\d+), posizione per posizione", pagina.get_text())
+        m = re.search(r"(\w+), box (\d+), posizione per posizione", pagina.get_text())
         if m:
-            titoli[int(m.group(1))] = i
+            titoli.append(((m.group(1), int(m.group(2))), i))
+    # la pagina di legenda della cartuccia seguente sta fra l'ultima tabella di una cartuccia e la figura del primo box
+    fine_sezione = {s["nome"]: len(s["per_box"]) for s in sezioni}
     sforano = []
-    for b in range(1, 15):
-        fine = titoli[b + 1] - 1 if b < 14 else len(documento)
-        if fine - titoli[b] > 1:
-            sforano.append(b)
+    for j, ((nome, b), inizio) in enumerate(titoli):
+        dopo = titoli[j + 1][1] if j + 1 < len(titoli) else len(documento) + 1
+        attese = 2 if b < fine_sezione[nome] else 3
+        if j + 1 == len(titoli):
+            attese = 1
+            dopo = len(documento)
+        if dopo - inizio > attese:
+            sforano.append((nome, b))
     pagine = len(documento)
     documento.close()
     return sforano, pagine
