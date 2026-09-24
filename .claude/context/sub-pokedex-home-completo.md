@@ -5,7 +5,7 @@ generated-date: 2026-09-02
 covers-paths:
   - pokedex-home-completo/
 last-verified-commit: 80fac1f
-stato: attivo ed è il fuoco corrente; dal 2026-09-16 il trasferimento verso la quarta generazione si può sintetizzare in software (203 esemplari già prodotti in `_notes/lotti/lotto-parco-amici-gen4/`), la checklist copre 685 specie su 1025, e restano aperte solo le decisioni di profilo già registrate
+stato: attivo ed è il fuoco corrente; dal 2026-09-16 il trasferimento verso la quarta generazione si fa in software, e dal 2026-09-24 con la libreria del verificatore per ADR-082 (203 esemplari conformi su 203 in `_notes/lotti/lotto-parco-amici-gen4/`), la checklist copre 685 specie su 1025, e restano aperte solo le decisioni di profilo già registrate
 ---
 
 # Sottoprogetto: Pokedex completo in Pokemon Home

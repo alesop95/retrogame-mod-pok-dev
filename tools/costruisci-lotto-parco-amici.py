@@ -9,9 +9,15 @@ generazione: la mossa e' spesso la ragione per cui l'esemplare e' un collezionab
 togliergliela e' una decisione dell'utente e non dello strumento. Scrive il lotto in
 `_notes/lotti/lotto-parco-amici-gen4/` con un manifesto.
 
+Superato il 2026-09-24 da ADR-082. Al primo giudizio con la libreria del verificatore, il lotto prodotto da
+questa sintesi aveva 148 esemplari contestati su 203, mentre la conversione della libreria sugli stessi
+esemplari ne dava 203 su 203. Il lotto si genera ora con `tools/pkhex-parco-amici`, e questo programma
+resta soltanto come riferimento della sintesi di `pokebridge.parco_amici`: scrive in una cartella di prova
+e rifiuta la destinazione del lotto.
+
 Uso
 ---
-    python tools/costruisci-lotto-parco-amici.py
+    python tools/costruisci-lotto-parco-amici.py <cartella di prova>
 """
 import hashlib
 import io
@@ -26,7 +32,11 @@ from pokebridge.gen3 import Gen3Mon
 from pokebridge import parco_amici as PA
 
 CARTELLE = ["_notes/lotti/lotto-eventi", "_notes/lotti/lotto-incontri-gen3", "_notes/lotti/lotto-scambi-gen3"]
-DESTINAZIONE = "_notes/lotti/lotto-parco-amici-gen4"
+# Per ADR-082 il lotto vero lo scrive tools/pkhex-parco-amici: qui si accetta solo una cartella di prova.
+if len(sys.argv) != 2 or os.path.abspath(sys.argv[1]) == os.path.abspath("_notes/lotti/lotto-parco-amici-gen4"):
+    sys.exit("uso: python tools/costruisci-lotto-parco-amici.py <cartella di prova>; "
+             "il lotto del Parco Amici si genera con tools/pkhex-parco-amici (ADR-082)")
+DESTINAZIONE = sys.argv[1]
 os.makedirs(DESTINAZIONE, exist_ok=True)
 
 scritti, esclusi, errori = [], [], []
