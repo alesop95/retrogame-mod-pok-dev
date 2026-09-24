@@ -10,7 +10,7 @@ La colonna della via dice se quella voce si raggiunga da un titolo che parla al 
 
 Le voci di specie sono 1025. Di queste, 685 hanno già una fonte dentro il progetto e 340 non ne hanno ancora alcuna: quest'ultimo è il numero che misura la campagna, e l'unico che scende quando si lavora.
 
-La ripartizione per fonte, che non si somma perché una specie può avere più fonti, è la seguente. Da salvataggio esterno, 685 voci. Da archivio esterno, 385 voci. Da evento Gen 3 producibile, 59 voci. Da scambio in gioco Gen 3 (prodotto e conforme), 18 voci.
+La ripartizione per fonte, che non si somma perché una specie può avere più fonti, è la seguente. Da salvataggio esterno, 685 voci. Da archivio esterno, 385 voci. Da evento Gen 3 producibile, 60 voci. Da scambio in gioco Gen 3 (prodotto e conforme), 18 voci.
 
 Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fini del completamento è indeterminato: nessuna fonte di primo livello dichiara quali forme il deposito conti come casella separata. L'elenco le enumera e marca l'indeterminatezza invece di decidere, perché decidere sarebbe inventare.
 
@@ -352,7 +352,7 @@ Restano fuori da questa rigenerazione due correzioni che il progetto ha in sospe
 | `PKD-0330-00` | 330 | Flygon | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0331-00` | 331 | Cacnea | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
 | `PKD-0332-00` | 332 | Cacturne | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0333-00` | 333 | Swablu | diretta | salvataggio esterno, archivio esterno |
+| `PKD-0333-00` | 333 | Swablu | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
 | `PKD-0334-00` | 334 | Altaria | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0335-00` | 335 | Zangoose | diretta | salvataggio esterno, archivio esterno |
 | `PKD-0336-00` | 336 | Seviper | diretta | salvataggio esterno, archivio esterno |
@@ -1052,13 +1052,15 @@ L'asse degli eventi nasce da tre fonti e non da una, e la distinzione va letta p
 
 Una classe del censimento resta fuori da questo asse per scelta, ed è quella dei trasferimenti da Pokemon GO. Non sono esemplari da distribuzione ma una porta di ingresso permanente: dire che una specie è ottenibile da quel gioco è un'affermazione sulla sua reperibilità, cioè la materia dell'asse delle specie, e non un collezionabile in più con un allenatore e una data propri. Metterli qui aggiungerebbe milleduecento voci che ripeterebbero specie già presenti altrove e falserebbe il solo numero che questo asse serve a produrre, cioè quante voci il primo tempo della coda debba coprire. Restano contate e visibili nel censimento `CENSIMENTO-EVENTI-FUORI-DONI.md`, dove la loro classe dice che cosa sono.
 
-La ripartizione per classe è la seguente: incursione 2866, dono segreto 2615, periferica 210, spinoff 182, carta meraviglia 173, tabella di incontro 168, oggetto-distribuito 15, condizionato 13, disco-bonus 2.
+La ripartizione per classe è la seguente: incursione 2866, dono segreto 2615, periferica 210, spinoff 182, carta meraviglia 177, tabella di incontro 168, oggetto-distribuito 15, condizionato 13, disco-bonus 2.
 
 Una voce da evento è un collezionabile distinto anche quando la sua specie è già coperta altrove, e la ragione è che porta un nome di allenatore, un identificativo e una data che nessun incontro selvatico produce: chi possiede il secondo non possiede il primo. La colonna della resa dice a che punto siamo su quella voce, e tiene distinte tre condizioni che non vanno confuse, cioè una voce che il progetto sa produrre e ha fatto verificare, una che sa soltanto leggere, e una la cui struttura è alla portata di codice che già esiste.
 
-Le voci enumerate sono 6244, di cui 3095 sotto scadenza, e queste ultime portano 433 specie distinte. Sono il solo insieme di questa lista che il 26 febbraio 2027 chiude davvero: le voci di specie e di forma sono tutte raggiungibili per via diretta, mentre un esemplare da distribuzione di una generazione anteriore all'ottava non ha altra strada che la banca.
+Le voci enumerate sono 6248, di cui 3099 sotto scadenza, e queste ultime portano 433 specie distinte. Sono il solo insieme di questa lista che il 26 febbraio 2027 chiude davvero: le voci di specie e di forma sono tutte raggiungibili per via diretta, mentre un esemplare da distribuzione di una generazione anteriore all'ottava non ha altra strada che la banca.
 
-L'ordine della tabella non è quello della fonte, ed è una scelta che va dichiarata perché cambia che cosa si legge per primo. La fonte raggruppa le voci per evento, cioè nell'ordine in cui le distribuzioni avvennero; la decisione di ambito è invece la collezione completa in due tempi, con prima una voce per ciascuna specie distinta e poi i gemelli. La colonna che dice se una voce sia la prima della propria specie porta dunque in testa le 433 voci del primo tempo, e lascia in coda le 2662 del secondo; dentro ciascuno dei due blocchi l'ordine per evento è conservato, perché è l'informazione utile a chi produce. La prima voce di una specie è scelta nell'ordine della fonte e non per merito: dove più voci portano la medesima specie, la marcatura non dice quale sia la più desiderabile ma soltanto quale basti a coprire la specie.
+L'ordine della tabella non è quello della fonte, ed è una scelta che va dichiarata perché cambia che cosa si legge per primo. La fonte raggruppa le voci per evento, cioè nell'ordine in cui le distribuzioni avvennero; la decisione di ambito è invece la collezione completa in due tempi, con prima una voce per ciascuna specie distinta e poi i gemelli. La colonna che dice se una voce sia la prima della propria specie porta dunque in testa le 433 voci del primo tempo, e lascia in coda le 2666 del secondo; dentro ciascuno dei due blocchi l'ordine per evento è conservato, perché è l'informazione utile a chi produce. La prima voce di una specie è una già prodotta e conforme, o producibile e verificata, se ne esiste una; altrimenti è la prima nell'ordine della fonte. Non è scelta per merito: dove più voci portano la medesima specie, la marcatura non dice quale sia la più desiderabile ma soltanto quale basti a coprire la specie.
+
+Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce è prodotta e conforme se un file di un lotto la contiene e se `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`, scritto da `tools/pkhex-giudica`, la giudica conforme con la stessa impronta del file di oggi; un file cambiato dopo il giudizio risulta da rigiudicare. Le voci riconosciute in un lotto sono 1288, così ripartite: lotto-complemento-rubino 176, lotto-eventi-gen4 247, lotto-eventi-gen5 700, lotto-gb 165. Le voci di terza generazione della tabella degli eventi conservano la resa del generatore, perché il loro lotto non porta il codice nel nome del file.
 
 | Codice | Gen | Classe | Dex | Forma | Provenienza | Sotto scadenza | Primo della specie | Resa |
 |---|---|---|---|---|---|---|---|---|
@@ -1095,141 +1097,141 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-3-0097` | 3 | carta meraviglia | 248 | 0 | Tyranitar | sì | sì | producibile e verificata |
 | `EVT-3-0098` | 3 | carta meraviglia | 257 | 0 | Blaziken | sì | sì | producibile e verificata |
 | `EVT-3-0099` | 3 | carta meraviglia | 359 | 0 | Absol | sì | sì | producibile e verificata |
-| `EVT-3-0123` | 3 | carta meraviglia | 172 | 0 | Pichu with Teeter Dance | sì | sì | producibile e verificata |
-| `EVT-3-0127` | 3 | carta meraviglia | 280 | 0 | Ralts with Charm | sì | sì | producibile e verificata |
-| `EVT-3-0131` | 3 | carta meraviglia | 371 | 0 | Bagon with Iron Defense | sì | sì | producibile e verificata |
-| `EVT-3-0133` | 3 | carta meraviglia | 43 | 0 | Oddish with Leech Seed | sì | sì | producibile e verificata |
-| `EVT-3-0135` | 3 | carta meraviglia | 60 | 0 | Poliwag with Sweet Kiss | sì | sì | producibile e verificata |
-| `EVT-3-0136` | 3 | carta meraviglia | 69 | 0 | Bellsprout with Teeter Dance | sì | sì | producibile e verificata |
-| `EVT-3-0137` | 3 | carta meraviglia | 83 | 0 | Farfetch'd with Wish & Yawn | sì | sì | producibile e verificata |
-| `EVT-3-0138` | 3 | carta meraviglia | 96 | 0 | Drowzee with Wish & Belly Drum | sì | sì | producibile e verificata |
-| `EVT-3-0139` | 3 | carta meraviglia | 102 | 0 | Exeggcute with Wish & Sweet Scent | sì | sì | producibile e verificata |
-| `EVT-3-0140` | 3 | carta meraviglia | 108 | 0 | Lickitung with Wish & Heal Bell | sì | sì | producibile e verificata |
-| `EVT-3-0141` | 3 | carta meraviglia | 113 | 0 | Chansey with Wish & Sweet Scent | sì | sì | producibile e verificata |
-| `EVT-3-0142` | 3 | carta meraviglia | 115 | 0 | Kangaskhan with Wish & Yawn | sì | sì | producibile e verificata |
-| `EVT-3-0143` | 3 | carta meraviglia | 54 | 0 | Psyduck with Mud Sport | sì | sì | producibile e verificata |
-| `EVT-3-0145` | 3 | carta meraviglia | 174 | 0 | Igglybuff with Tickle | sì | sì | producibile e verificata |
-| `EVT-3-0146` | 3 | carta meraviglia | 222 | 0 | Corsola with Mud Sport | sì | sì | producibile e verificata |
-| `EVT-3-0147` | 3 | carta meraviglia | 276 | 0 | Taillow with Feather Dance | sì | sì | producibile e verificata |
-| `EVT-3-0148` | 3 | carta meraviglia | 283 | 0 | Surskit with Mud Sport | sì | sì | producibile e verificata |
-| `EVT-3-0149` | 3 | carta meraviglia | 293 | 0 | Whismur with Teeter Dance | sì | sì | producibile e verificata |
-| `EVT-3-0150` | 3 | carta meraviglia | 300 | 0 | Skitty with Rollout | sì | sì | producibile e verificata |
-| `EVT-3-0151` | 3 | carta meraviglia | 311 | 0 | Plusle with Water Sport | sì | sì | producibile e verificata |
-| `EVT-3-0152` | 3 | carta meraviglia | 312 | 0 | Minun with Mud Sport | sì | sì | producibile e verificata |
-| `EVT-3-0153` | 3 | carta meraviglia | 325 | 0 | Spoink with Uproar | sì | sì | producibile e verificata |
-| `EVT-3-0154` | 3 | carta meraviglia | 327 | 0 | Spinda with Sing | sì | sì | producibile e verificata |
-| `EVT-3-0155` | 3 | carta meraviglia | 331 | 0 | Cacnea with Encore | sì | sì | producibile e verificata |
-| `EVT-3-0156` | 3 | carta meraviglia | 341 | 0 | Corphish with Water Sport | sì | sì | producibile e verificata |
-| `EVT-3-0157` | 3 | carta meraviglia | 360 | 0 | Wynaut with Tickle | sì | sì | producibile e verificata |
-| `EVT-4-0001` | 4 | dono segreto | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0005` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0012` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0013` | 4 | dono segreto | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0015` | 4 | dono segreto | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0021` | 4 | dono segreto | 447 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0026` | 4 | dono segreto | 133 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0038` | 4 | dono segreto | 169 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0040` | 4 | dono segreto | 466 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0041` | 4 | dono segreto | 467 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0042` | 4 | dono segreto | 448 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0043` | 4 | dono segreto | 350 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0046` | 4 | dono segreto | 461 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0051` | 4 | dono segreto | 485 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0124` | 4 | dono segreto | 289 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0125` | 4 | dono segreto | 224 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0126` | 4 | dono segreto | 330 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0128` | 4 | dono segreto | 376 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0129` | 4 | dono segreto | 441 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0130` | 4 | dono segreto | 125 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0131` | 4 | dono segreto | 126 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0133` | 4 | dono segreto | 357 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0135` | 4 | dono segreto | 340 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0148` | 4 | dono segreto | 4 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0154` | 4 | dono segreto | 373 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0172` | 4 | dono segreto | 390 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0183` | 4 | dono segreto | 212 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0199` | 4 | dono segreto | 384 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0202` | 4 | dono segreto | 465 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0204` | 4 | dono segreto | 59 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0206` | 4 | dono segreto | 446 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-4-0207` | 4 | dono segreto | 349 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | letta, non ancora producibile |
-| `EVT-5-0000` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0001` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0004` | 5 | dono segreto | 610 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0005` | 5 | dono segreto | 511 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0006` | 5 | dono segreto | 519 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0007` | 5 | dono segreto | 571 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0009` | 5 | dono segreto | 494 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0010` | 5 | dono segreto | 644 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0012` | 5 | dono segreto | 643 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0014` | 5 | dono segreto | 560 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0015` | 5 | dono segreto | 150 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0016` | 5 | dono segreto | 246 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0017` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0020` | 5 | dono segreto | 649 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0023` | 5 | dono segreto | 648 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0024` | 5 | dono segreto | 91 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0025` | 5 | dono segreto | 272 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0029` | 5 | dono segreto | 483 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0031` | 5 | dono segreto | 484 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0033` | 5 | dono segreto | 487 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0035` | 5 | dono segreto | 235 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0104` | 5 | dono segreto | 613 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0106` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0108` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0110` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0112` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0113` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0317` | 5 | dono segreto | 559 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0322` | 5 | dono segreto | 635 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0323` | 5 | dono segreto | 623 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0334` | 5 | dono segreto | 495 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0342` | 5 | dono segreto | 642 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0343` | 5 | dono segreto | 641 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0346` | 5 | dono segreto | 633 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0347` | 5 | dono segreto | 621 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0348` | 5 | dono segreto | 116 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0349` | 5 | dono segreto | 333 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0350` | 5 | dono segreto | 328 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0372` | 5 | dono segreto | 254 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0373` | 5 | dono segreto | 260 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0376` | 5 | dono segreto | 365 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0377` | 5 | dono segreto | 282 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0380` | 5 | dono segreto | 383 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0381` | 5 | dono segreto | 382 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0449` | 5 | dono segreto | 393 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0452` | 5 | dono segreto | 7 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0455` | 5 | dono segreto | 142 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0456` | 5 | dono segreto | 347 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0457` | 5 | dono segreto | 566 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0458` | 5 | dono segreto | 408 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0459` | 5 | dono segreto | 140 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0460` | 5 | dono segreto | 345 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0461` | 5 | dono segreto | 138 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0462` | 5 | dono segreto | 410 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0463` | 5 | dono segreto | 564 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0465` | 5 | dono segreto | 38 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0466` | 5 | dono segreto | 609 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0467` | 5 | dono segreto | 547 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0470` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0518` | 5 | dono segreto | 129 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0523` | 5 | dono segreto | 395 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0524` | 5 | dono segreto | 497 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0526` | 5 | dono segreto | 389 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0527` | 5 | dono segreto | 392 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0528` | 5 | dono segreto | 500 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0529` | 5 | dono segreto | 503 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0540` | 5 | dono segreto | 612 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0541` | 5 | dono segreto | 637 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0542` | 5 | dono segreto | 18 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0543` | 5 | dono segreto | 442 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0555` | 5 | dono segreto | 479 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0570` | 5 | dono segreto | 302 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0571` | 5 | dono segreto | 186 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0572` | 5 | dono segreto | 230 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0674` | 5 | dono segreto | 237 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0675` | 5 | dono segreto | 488 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
-| `EVT-5-0676` | 5 | dono segreto | 510 | 0 | Bianco, Nero e i loro seguiti | sì | sì | letta, non ancora producibile |
+| `EVT-3-0123` | 3 | carta meraviglia | 333 | 0 | Swablu Egg with False Swipe | sì | sì | producibile e verificata |
+| `EVT-3-0125` | 3 | carta meraviglia | 300 | 0 | Skitty Egg with Pay Day | sì | sì | producibile e verificata |
+| `EVT-3-0126` | 3 | carta meraviglia | 172 | 0 | Pichu Egg with Surf | sì | sì | producibile e verificata |
+| `EVT-3-0131` | 3 | carta meraviglia | 280 | 0 | Ralts with Charm | sì | sì | producibile e verificata |
+| `EVT-3-0135` | 3 | carta meraviglia | 371 | 0 | Bagon with Iron Defense | sì | sì | producibile e verificata |
+| `EVT-3-0137` | 3 | carta meraviglia | 43 | 0 | Oddish with Leech Seed | sì | sì | producibile e verificata |
+| `EVT-3-0139` | 3 | carta meraviglia | 60 | 0 | Poliwag with Sweet Kiss | sì | sì | producibile e verificata |
+| `EVT-3-0140` | 3 | carta meraviglia | 69 | 0 | Bellsprout with Teeter Dance | sì | sì | producibile e verificata |
+| `EVT-3-0141` | 3 | carta meraviglia | 83 | 0 | Farfetch'd with Wish & Yawn | sì | sì | producibile e verificata |
+| `EVT-3-0142` | 3 | carta meraviglia | 96 | 0 | Drowzee with Wish & Belly Drum | sì | sì | producibile e verificata |
+| `EVT-3-0143` | 3 | carta meraviglia | 102 | 0 | Exeggcute with Wish & Sweet Scent | sì | sì | producibile e verificata |
+| `EVT-3-0144` | 3 | carta meraviglia | 108 | 0 | Lickitung with Wish & Heal Bell | sì | sì | producibile e verificata |
+| `EVT-3-0145` | 3 | carta meraviglia | 113 | 0 | Chansey with Wish & Sweet Scent | sì | sì | producibile e verificata |
+| `EVT-3-0146` | 3 | carta meraviglia | 115 | 0 | Kangaskhan with Wish & Yawn | sì | sì | producibile e verificata |
+| `EVT-3-0147` | 3 | carta meraviglia | 54 | 0 | Psyduck with Mud Sport | sì | sì | producibile e verificata |
+| `EVT-3-0149` | 3 | carta meraviglia | 174 | 0 | Igglybuff with Tickle | sì | sì | producibile e verificata |
+| `EVT-3-0150` | 3 | carta meraviglia | 222 | 0 | Corsola with Mud Sport | sì | sì | producibile e verificata |
+| `EVT-3-0151` | 3 | carta meraviglia | 276 | 0 | Taillow with Feather Dance | sì | sì | producibile e verificata |
+| `EVT-3-0152` | 3 | carta meraviglia | 283 | 0 | Surskit with Mud Sport | sì | sì | producibile e verificata |
+| `EVT-3-0153` | 3 | carta meraviglia | 293 | 0 | Whismur with Teeter Dance | sì | sì | producibile e verificata |
+| `EVT-3-0155` | 3 | carta meraviglia | 311 | 0 | Plusle with Water Sport | sì | sì | producibile e verificata |
+| `EVT-3-0156` | 3 | carta meraviglia | 312 | 0 | Minun with Mud Sport | sì | sì | producibile e verificata |
+| `EVT-3-0157` | 3 | carta meraviglia | 325 | 0 | Spoink with Uproar | sì | sì | producibile e verificata |
+| `EVT-3-0158` | 3 | carta meraviglia | 327 | 0 | Spinda with Sing | sì | sì | producibile e verificata |
+| `EVT-3-0159` | 3 | carta meraviglia | 331 | 0 | Cacnea with Encore | sì | sì | producibile e verificata |
+| `EVT-3-0160` | 3 | carta meraviglia | 341 | 0 | Corphish with Water Sport | sì | sì | producibile e verificata |
+| `EVT-3-0161` | 3 | carta meraviglia | 360 | 0 | Wynaut with Tickle | sì | sì | producibile e verificata |
+| `EVT-4-0001` | 4 | dono segreto | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0005` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0012` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0013` | 4 | dono segreto | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0015` | 4 | dono segreto | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0021` | 4 | dono segreto | 447 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0026` | 4 | dono segreto | 133 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0038` | 4 | dono segreto | 169 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0040` | 4 | dono segreto | 466 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0041` | 4 | dono segreto | 467 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0042` | 4 | dono segreto | 448 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0043` | 4 | dono segreto | 350 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0046` | 4 | dono segreto | 461 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0051` | 4 | dono segreto | 485 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0124` | 4 | dono segreto | 289 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0125` | 4 | dono segreto | 224 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0126` | 4 | dono segreto | 330 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0128` | 4 | dono segreto | 376 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0129` | 4 | dono segreto | 441 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0130` | 4 | dono segreto | 125 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0131` | 4 | dono segreto | 126 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0133` | 4 | dono segreto | 357 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0135` | 4 | dono segreto | 340 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0148` | 4 | dono segreto | 4 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0154` | 4 | dono segreto | 373 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0172` | 4 | dono segreto | 390 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0183` | 4 | dono segreto | 212 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0199` | 4 | dono segreto | 384 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0202` | 4 | dono segreto | 465 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0204` | 4 | dono segreto | 59 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0206` | 4 | dono segreto | 446 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-4-0207` | 4 | dono segreto | 349 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | sì | prodotta e conforme |
+| `EVT-5-0000` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0001` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0004` | 5 | dono segreto | 610 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0005` | 5 | dono segreto | 511 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0006` | 5 | dono segreto | 519 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0007` | 5 | dono segreto | 571 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0009` | 5 | dono segreto | 494 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0010` | 5 | dono segreto | 644 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0012` | 5 | dono segreto | 643 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0014` | 5 | dono segreto | 560 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0015` | 5 | dono segreto | 150 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0016` | 5 | dono segreto | 246 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0017` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0020` | 5 | dono segreto | 649 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0023` | 5 | dono segreto | 648 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0024` | 5 | dono segreto | 91 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0025` | 5 | dono segreto | 272 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0029` | 5 | dono segreto | 483 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0031` | 5 | dono segreto | 484 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0033` | 5 | dono segreto | 487 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0035` | 5 | dono segreto | 235 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0104` | 5 | dono segreto | 613 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0106` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0108` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0110` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0112` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0113` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0317` | 5 | dono segreto | 559 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0322` | 5 | dono segreto | 635 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0323` | 5 | dono segreto | 623 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0334` | 5 | dono segreto | 495 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0342` | 5 | dono segreto | 642 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0343` | 5 | dono segreto | 641 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0346` | 5 | dono segreto | 633 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0347` | 5 | dono segreto | 621 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0348` | 5 | dono segreto | 116 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0350` | 5 | dono segreto | 328 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0372` | 5 | dono segreto | 254 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0373` | 5 | dono segreto | 260 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0376` | 5 | dono segreto | 365 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0377` | 5 | dono segreto | 282 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0380` | 5 | dono segreto | 383 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0381` | 5 | dono segreto | 382 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0449` | 5 | dono segreto | 393 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0452` | 5 | dono segreto | 7 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0455` | 5 | dono segreto | 142 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0456` | 5 | dono segreto | 347 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0457` | 5 | dono segreto | 566 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0458` | 5 | dono segreto | 408 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0459` | 5 | dono segreto | 140 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0460` | 5 | dono segreto | 345 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0461` | 5 | dono segreto | 138 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0462` | 5 | dono segreto | 410 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0463` | 5 | dono segreto | 564 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0465` | 5 | dono segreto | 38 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0466` | 5 | dono segreto | 609 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0467` | 5 | dono segreto | 547 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0470` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0518` | 5 | dono segreto | 129 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0523` | 5 | dono segreto | 395 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0524` | 5 | dono segreto | 497 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0526` | 5 | dono segreto | 389 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0527` | 5 | dono segreto | 392 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0528` | 5 | dono segreto | 500 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0529` | 5 | dono segreto | 503 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0540` | 5 | dono segreto | 612 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0541` | 5 | dono segreto | 637 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0542` | 5 | dono segreto | 18 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0543` | 5 | dono segreto | 442 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0555` | 5 | dono segreto | 479 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0570` | 5 | dono segreto | 302 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0571` | 5 | dono segreto | 186 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0572` | 5 | dono segreto | 230 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0674` | 5 | dono segreto | 237 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0675` | 5 | dono segreto | 488 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
+| `EVT-5-0676` | 5 | dono segreto | 510 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
 | `EVT-6-0001` | 6 | dono segreto | 700 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0002` | 6 | dono segreto | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0008` | 6 | dono segreto | 721 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
@@ -1248,8 +1250,6 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-6-0049` | 6 | dono segreto | 68 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0056` | 6 | dono segreto | 696 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0057` | 6 | dono segreto | 698 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0059` | 6 | dono segreto | 225 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0061` | 6 | dono segreto | 241 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0063` | 6 | dono segreto | 555 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0186` | 6 | dono segreto | 136 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0187` | 6 | dono segreto | 471 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
@@ -1258,46 +1258,30 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-6-0193` | 6 | dono segreto | 134 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0195` | 6 | dono segreto | 686 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0207` | 6 | dono segreto | 130 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0212` | 6 | dono segreto | 303 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0221` | 6 | dono segreto | 666 | 19 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0241` | 6 | dono segreto | 264 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0263` | 6 | dono segreto | 152 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0264` | 6 | dono segreto | 155 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0265` | 6 | dono segreto | 158 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0273` | 6 | dono segreto | 3 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0278` | 6 | dono segreto | 658 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0283` | 6 | dono segreto | 645 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0289` | 6 | dono segreto | 514 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0290` | 6 | dono segreto | 31 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0291` | 6 | dono segreto | 323 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0295` | 6 | dono segreto | 668 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0321` | 6 | dono segreto | 179 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0347` | 6 | dono segreto | 362 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0349` | 6 | dono segreto | 208 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0352` | 6 | dono segreto | 160 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0353` | 6 | dono segreto | 154 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0424` | 6 | dono segreto | 214 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0425` | 6 | dono segreto | 127 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0428` | 6 | dono segreto | 710 | 3 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0437` | 6 | dono segreto | 255 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0440` | 6 | dono segreto | 374 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0527` | 6 | dono segreto | 656 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0535` | 6 | dono segreto | 318 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0537` | 6 | dono segreto | 322 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0617` | 6 | dono segreto | 646 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0620` | 6 | dono segreto | 653 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0627` | 6 | dono segreto | 674 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0644` | 6 | dono segreto | 334 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0652` | 6 | dono segreto | 80 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0721` | 6 | dono segreto | 310 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0727` | 6 | dono segreto | 229 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-6-0729` | 6 | dono segreto | 306 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
 | `EVT-7-0001` | 7 | dono segreto | 785 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0002` | 7 | dono segreto | 773 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0004` | 7 | dono segreto | 802 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0008` | 7 | dono segreto | 745 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0009` | 7 | dono segreto | 758 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0013` | 7 | dono segreto | 103 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0062` | 7 | dono segreto | 553 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0063` | 7 | dono segreto | 803 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0064` | 7 | dono segreto | 807 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
@@ -1311,7 +1295,6 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-7-0081` | 7 | dono segreto | 788 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0083` | 7 | dono segreto | 517 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0290` | 7 | dono segreto | 764 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0293` | 7 | dono segreto | 37 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0296` | 7 | dono segreto | 780 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0297` | 7 | dono segreto | 704 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0298` | 7 | dono segreto | 747 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
@@ -1320,112 +1303,127 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-7-0301` | 7 | dono segreto | 776 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0302` | 7 | dono segreto | 760 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0323` | 7 | dono segreto | 762 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0332` | 7 | dono segreto | 337 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0333` | 7 | dono segreto | 338 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0344` | 7 | dono segreto | 132 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0360` | 7 | dono segreto | 34 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0362` | 7 | dono segreto | 262 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0363` | 7 | dono segreto | 430 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0364` | 7 | dono segreto | 563 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0365` | 7 | dono segreto | 620 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0367` | 7 | dono segreto | 143 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0373` | 7 | dono segreto | 55 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0381` | 7 | dono segreto | 800 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0395` | 7 | dono segreto | 27 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0396` | 7 | dono segreto | 50 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0397` | 7 | dono segreto | 88 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0539` | 7 | dono segreto | 801 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0541` | 7 | dono segreto | 724 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0542` | 7 | dono segreto | 727 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0545` | 7 | dono segreto | 730 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-T-0021` | 3 | spinoff | 296 | 0 | Colosseum, ombra: Makuhita: Miror B.Peon Trudly @ Phenac City | sì | sì | censita, non ancora producibile |
-| `EVT-T-0022` | 3 | spinoff | 153 | 0 | Colosseum, ombra: Bayleef: Cipher Peon Verde @ Phenac City | sì | sì | censita, non ancora producibile |
-| `EVT-T-0026` | 3 | spinoff | 156 | 0 | Colosseum, ombra: Quilava: Cipher Peon Rosso @ Phenac City | sì | sì | censita, non ancora producibile |
-| `EVT-T-0030` | 3 | spinoff | 159 | 0 | Colosseum, ombra: Croconaw: Cipher Peon Bluno @ Phenac City | sì | sì | censita, non ancora producibile |
-| `EVT-T-0034` | 3 | spinoff | 164 | 0 | Colosseum, ombra: Noctowl: Rider Nover @ Pyrite Town | sì | sì | censita, non ancora producibile |
-| `EVT-T-0035` | 3 | spinoff | 180 | 0 | Colosseum, ombra: Flaaffy: St.Performer Diogo @ Pyrite Town | sì | sì | censita, non ancora producibile |
-| `EVT-T-0036` | 3 | spinoff | 188 | 0 | Colosseum, ombra: Skiploom: Rider Leba @ Pyrite Town | sì | sì | censita, non ancora producibile |
-| `EVT-T-0037` | 3 | spinoff | 195 | 0 | Colosseum, ombra: Quagsire: Bandana Guy Divel @ Pyrite Town | sì | sì | censita, non ancora producibile |
-| `EVT-T-0038` | 3 | spinoff | 200 | 0 | Colosseum, ombra: Misdreavus: Rider Vant @ Pyrite Town | sì | sì | censita, non ancora producibile |
-| `EVT-T-0039` | 3 | spinoff | 193 | 0 | Colosseum, ombra: Yanma: Cipher Peon Nore @ Pyrite Bldg | sì | sì | censita, non ancora producibile |
-| `EVT-T-0041` | 3 | spinoff | 162 | 0 | Colosseum, ombra: Furret: Rogue Cail @ Pyrite Town | sì | sì | censita, non ancora producibile |
-| `EVT-T-0042` | 3 | spinoff | 218 | 0 | Colosseum, ombra: Slugma: Roller Boy Lon @ Pyrite Town | sì | sì | censita, non ancora producibile |
-| `EVT-T-0043` | 3 | spinoff | 223 | 0 | Colosseum, ombra: Remoraid: Miror B.Peon Reath @ Pyrite Bldg | sì | sì | censita, non ancora producibile |
-| `EVT-T-0045` | 3 | spinoff | 226 | 0 | Colosseum, ombra: Mantine: Miror B.Peon Ferma @ Pyrite Bldg | sì | sì | censita, non ancora producibile |
-| `EVT-T-0047` | 3 | spinoff | 211 | 0 | Colosseum, ombra: Qwilfish: Hunter Doken @ Pyrite Bldg | sì | sì | censita, non ancora producibile |
-| `EVT-T-0048` | 3 | spinoff | 307 | 0 | Colosseum, ombra: Meditite: Rider Twan @ Pyrite Cave | sì | sì | censita, non ancora producibile |
-| `EVT-T-0049` | 3 | spinoff | 206 | 0 | Colosseum, ombra: Dunsparce: Rider Sosh @ Pyrite Cave | sì | sì | censita, non ancora producibile |
-| `EVT-T-0051` | 3 | spinoff | 185 | 0 | Colosseum, ombra: Sudowoodo: Cipher Admin Miror B. @ Realgam Tower | sì | sì | censita, non ancora producibile |
-| `EVT-T-0060` | 3 | spinoff | 166 | 0 | Colosseum, ombra: Ledian: Cipher Peon Kloak @ The Under | sì | sì | censita, non ancora producibile |
-| `EVT-T-0065` | 3 | spinoff | 207 | 0 | Colosseum, ombra: Gligar: Hunter Frena @ The Under Subway | sì | sì | censita, non ancora producibile |
-| `EVT-T-0067` | 3 | spinoff | 234 | 0 | Colosseum, ombra: Stantler: Chaser Liaks @ The Under Subway | sì | sì | censita, non ancora producibile |
-| `EVT-T-0069` | 3 | spinoff | 221 | 0 | Colosseum, ombra: Piloswine: Bodybuilder Lonia @ The Under Subway | sì | sì | censita, non ancora producibile |
-| `EVT-T-0071` | 3 | spinoff | 215 | 0 | Colosseum, ombra: Sneasel: Rider Nelis @ The Under Subway | sì | sì | censita, non ancora producibile |
-| `EVT-T-0073` | 3 | spinoff | 190 | 0 | Colosseum, ombra: Aipom: Cipher Peon Cole @ Shadow PKMN Lab | sì | sì | censita, non ancora producibile |
-| `EVT-T-0074` | 3 | spinoff | 198 | 0 | Colosseum, ombra: Murkrow: Cipher Peon Lare @ Shadow PKMN Lab | sì | sì | censita, non ancora producibile |
-| `EVT-T-0076` | 3 | spinoff | 205 | 0 | Colosseum, ombra: Forretress: Cipher Peon Vana @ Shadow PKMN Lab | sì | sì | censita, non ancora producibile |
-| `EVT-T-0077` | 3 | spinoff | 210 | 0 | Colosseum, ombra: Granbull: Cipher Peon Tanie @ Shadow PKMN Lab | sì | sì | censita, non ancora producibile |
-| `EVT-T-0078` | 3 | spinoff | 329 | 0 | Colosseum, ombra: Vibrava: Cipher Peon Remil @ Shadow PKMN Lab | sì | sì | censita, non ancora producibile |
-| `EVT-T-0079` | 3 | spinoff | 168 | 0 | Colosseum, ombra: Ariados: Cipher Peon Lesar @ Shadow PKMN Lab | sì | sì | censita, non ancora producibile |
-| `EVT-T-0083` | 3 | spinoff | 192 | 0 | Colosseum, ombra: Sunflora: Cipher Peon Baila @ Realgam Tower | sì | sì | censita, non ancora producibile |
-| `EVT-T-0089` | 3 | spinoff | 227 | 0 | Colosseum, ombra: Skarmory: Snagem Head Gonzap @ Realgam Tower | sì | sì | censita, non ancora producibile |
-| `EVT-T-0098` | 3 | spinoff | 217 | 0 | Colosseum, ombra: Ursaring: Team Snagem Agrev @ Snagem Hideout | sì | sì | censita, non ancora producibile |
-| `EVT-T-0099` | 3 | spinoff | 213 | 0 | Colosseum, ombra: Shuckle: Deep King Agnol @ Deep Colosseum | sì | sì | censita, non ancora producibile |
-| `EVT-T-0100` | 3 | spinoff | 176 | 0 | Colosseum, ombra: Togetic: Cipher Peon Fein @ Outskirt Stand | sì | sì | censita, non ancora producibile |
-| `EVT-T-0105` | 3 | spinoff | 239 | 0 | XD, scambi: Elekid @ Snagem Hideout | sì | sì | censita, non ancora producibile |
-| `EVT-T-0109` | 3 | spinoff | 216 | 0 | XD, ombra: Teddiursa: Cipher Peon Naps @ Pokémon HQ Lab -- treat as Gift as it can only be captured in a Poké Ball | sì | sì | censita, non ancora producibile |
-| `EVT-T-0111` | 3 | spinoff | 363 | 0 | XD, ombra: Spheal: Cipher Peon Blusix @ Cipher Lab | sì | sì | censita, non ancora producibile |
-| `EVT-T-0113` | 3 | spinoff | 343 | 0 | XD, ombra: Baltoy: Cipher Peon Browsix @ Cipher Lab | sì | sì | censita, non ancora producibile |
-| `EVT-T-0117` | 3 | spinoff | 316 | 0 | XD, ombra: Gulpin: Cipher Peon Purpsix @ Cipher Lab | sì | sì | censita, non ancora producibile |
-| `EVT-T-0119` | 3 | spinoff | 273 | 0 | XD, ombra: Seedot: Cipher Peon Greesix @ Cipher Lab | sì | sì | censita, non ancora producibile |
-| `EVT-T-0121` | 3 | spinoff | 167 | 0 | XD, ombra: Spinarak: Cipher Peon Nexir @ Cipher Lab | sì | sì | censita, non ancora producibile |
-| `EVT-T-0124` | 3 | spinoff | 315 | 0 | XD, ombra: Roselia: Cipher Peon Fasin @ Phenac City | sì | sì | censita, non ancora producibile |
-| `EVT-T-0125` | 3 | spinoff | 301 | 0 | XD, ombra: Delcatty: Cipher Admin Lovrina @ Cipher Lab | sì | sì | censita, non ancora producibile |
-| `EVT-T-0126` | 3 | spinoff | 299 | 0 | XD, ombra: Nosepass: Wanderer Miror B. @ Poké Spots | sì | sì | censita, non ancora producibile |
-| `EVT-T-0127` | 3 | spinoff | 228 | 0 | XD, ombra: Houndour: Cipher Peon Resix  @ Phenac City | sì | sì | censita, non ancora producibile |
-| `EVT-T-0130` | 3 | spinoff | 355 | 0 | XD, ombra: Duskull: Cipher Peon Lobar @ ONBS Building | sì | sì | censita, non ancora producibile |
-| `EVT-T-0133` | 3 | spinoff | 361 | 0 | XD, ombra: Snorunt: Cipher Peon Exinn @ Phenac City | sì | sì | censita, non ancora producibile |
-| `EVT-T-0134` | 3 | spinoff | 204 | 0 | XD, ombra: Pineco: Cipher Peon Gonrap @ Phenac City | sì | sì | censita, non ancora producibile |
-| `EVT-T-0135` | 3 | spinoff | 220 | 0 | XD, ombra: Swinub: Cipher Peon Greck @ Phenac City | sì | sì | censita, non ancora producibile |
-| `EVT-T-0136` | 3 | spinoff | 177 | 0 | XD, ombra: Natu: Cipher Peon Eloin @ Phenac City | sì | sì | censita, non ancora producibile |
-| `EVT-T-0137` | 3 | spinoff | 285 | 0 | XD, ombra: Shroomish: Cipher R&D Klots @ Cipher Lab | sì | sì | censita, non ancora producibile |
-| `EVT-T-0139` | 3 | spinoff | 21 | 0 | XD, ombra: Spearow: Cipher Peon Ezin @ Phenac Stadium | sì | sì | censita, non ancora producibile |
-| `EVT-T-0141` | 3 | spinoff | 86 | 0 | XD, ombra: Seel: Cipher Peon Egrog @ Phenac Stadium | sì | sì | censita, non ancora producibile |
-| `EVT-T-0143` | 3 | spinoff | 100 | 0 | XD, ombra: Voltorb: Wanderer Miror B. @ Cave Poké Spot | sì | sì | censita, non ancora producibile |
-| `EVT-T-0144` | 3 | spinoff | 335 | 0 | XD, ombra: Zangoose: Thug Zook @ Cipher Key Lair | sì | sì | censita, non ancora producibile |
-| `EVT-T-0145` | 3 | spinoff | 58 | 0 | XD, ombra: Growlithe: Cipher Peon Humah @ Cipher Key Lair | sì | sì | censita, non ancora producibile |
-| `EVT-T-0146` | 3 | spinoff | 46 | 0 | XD, ombra: Paras: Cipher Peon Humah @ Cipher Key Lair | sì | sì | censita, non ancora producibile |
-| `EVT-T-0147` | 3 | spinoff | 90 | 0 | XD, ombra: Shellder: Cipher Peon Gorog @ Cipher Key Lair | sì | sì | censita, non ancora producibile |
-| `EVT-T-0148` | 3 | spinoff | 15 | 0 | XD, ombra: Beedrill: Cipher Peon Lok @ Cipher Key Lair | sì | sì | censita, non ancora producibile |
-| `EVT-T-0149` | 3 | spinoff | 17 | 0 | XD, ombra: Pidgeotto: Cipher Peon Lok @ Cipher Key Lair | sì | sì | censita, non ancora producibile |
-| `EVT-T-0150` | 3 | spinoff | 12 | 0 | XD, ombra: Butterfree: Cipher Peon Targ @ Cipher Key Lair | sì | sì | censita, non ancora producibile |
-| `EVT-T-0151` | 3 | spinoff | 114 | 0 | XD, ombra: Tangela: Cipher Peon Targ @ Cipher Key Lair | sì | sì | censita, non ancora producibile |
-| `EVT-T-0152` | 3 | spinoff | 20 | 0 | XD, ombra: Raticate: Chaser Furgy @ Citadark Isle | sì | sì | censita, non ancora producibile |
-| `EVT-T-0153` | 3 | spinoff | 49 | 0 | XD, ombra: Venomoth: Cipher Peon Angic @ Cipher Key Lair | sì | sì | censita, non ancora producibile |
-| `EVT-T-0154` | 3 | spinoff | 70 | 0 | XD, ombra: Weepinbell: Cipher Peon Angic @ Cipher Key Lair | sì | sì | censita, non ancora producibile |
-| `EVT-T-0155` | 3 | spinoff | 24 | 0 | XD, ombra: Arbok: Cipher Peon Smarton @ Cipher Key Lair | sì | sì | censita, non ancora producibile |
-| `EVT-T-0156` | 3 | spinoff | 57 | 0 | XD, ombra: Primeape: Cipher Admin Gorigan @ Cipher Key Lair | sì | sì | censita, non ancora producibile |
-| `EVT-T-0157` | 3 | spinoff | 97 | 0 | XD, ombra: Hypno: Cipher Admin Gorigan @ Cipher Key Lair | sì | sì | censita, non ancora producibile |
-| `EVT-T-0160` | 3 | spinoff | 82 | 0 | XD, ombra: Magneton: Cipher Peon Snidle @ Cipher Key Lair | sì | sì | censita, non ancora producibile |
-| `EVT-T-0161` | 3 | spinoff | 85 | 0 | XD, ombra: Dodrio: Chaser Furgy @ Citadark Isle | sì | sì | censita, non ancora producibile |
-| `EVT-T-0165` | 3 | spinoff | 354 | 0 | XD, ombra: Banette: Cipher Peon Litnar @ Citadark Isle | sì | sì | censita, non ancora producibile |
-| `EVT-T-0168` | 3 | spinoff | 219 | 0 | XD, ombra: Magcargo: Cipher Peon Kolest @ Citadark Isle | sì | sì | censita, non ancora producibile |
-| `EVT-T-0169` | 3 | spinoff | 78 | 0 | XD, ombra: Rapidash: Cipher Peon Kolest @ Citadark Isle | sì | sì | censita, non ancora producibile |
-| `EVT-T-0170` | 3 | spinoff | 107 | 0 | XD, ombra: Hitmonchan: Cipher Peon Karbon @ Citadark Isle | sì | sì | censita, non ancora producibile |
-| `EVT-T-0171` | 3 | spinoff | 106 | 0 | XD, ombra: Hitmonlee: Cipher Peon Petro @ Citadark Isle | sì | sì | censita, non ancora producibile |
-| `EVT-T-0177` | 3 | spinoff | 121 | 0 | XD, ombra: Starmie: Cipher Admin Snattle @ Citadark Isle | sì | sì | censita, non ancora producibile |
-| `EVT-T-0179` | 3 | spinoff | 277 | 0 | XD, ombra: Swellow: Cipher Admin Ardos @ Citadark Isle | sì | sì | censita, non ancora producibile |
-| `EVT-T-0181` | 3 | spinoff | 62 | 0 | XD, ombra: Poliwrath: Cipher Admin Gorigan @ Citadark Isle | sì | sì | censita, non ancora producibile |
-| `EVT-T-0182` | 3 | spinoff | 122 | 0 | XD, ombra: Mr. Mime: Cipher Admin Gorigan @ Citadark Isle | sì | sì | censita, non ancora producibile |
-| `EVT-T-0183` | 3 | spinoff | 51 | 0 | XD, ombra: Dugtrio: Cipher Peon Kolax @ Citadark Isle | sì | sì | censita, non ancora producibile |
-| `EVT-T-0186` | 3 | spinoff | 105 | 0 | XD, ombra: Marowak: Cipher Admin Eldes @ Citadark Isle | sì | sì | censita, non ancora producibile |
-| `EVT-T-0187` | 3 | spinoff | 131 | 0 | XD, ombra: Lapras: Cipher Admin Eldes @ Citadark Isle | sì | sì | censita, non ancora producibile |
-| `EVT-T-0192` | 3 | spinoff | 128 | 0 | XD, ombra: Tauros: Grand Master Greevil @ Citadark Isle | sì | sì | censita, non ancora producibile |
-| `EVT-T-0193` | 3 | spinoff | 112 | 0 | XD, ombra: Rhydon: Grand Master Greevil @ Citadark Isle | sì | sì | censita, non ancora producibile |
-| `EVT-T-0196` | 3 | spinoff | 175 | 0 | XD, ombra: Togepi: Pokémon Trainer Hordel @ Outskirt Stand | sì | sì | censita, non ancora producibile |
-| `EVT-T-0197` | 3 | spinoff | 261 | 0 | XD, ombra: Poochyena: Bodybuilder Kilen @ Gateon Port | sì | sì | censita, non ancora producibile |
-| `EVT-T-0198` | 3 | spinoff | 165 | 0 | XD, ombra: Ledyba: Casual Guy Cyle @ Gateon Port | sì | sì | censita, non ancora producibile |
-| `EVT-T-0201` | 4 | periferica | 77 | 0 | My Pokemon Ranch: Ponyta | sì | sì | censita, non ancora producibile |
+| `EVT-T-0021` | 3 | spinoff | 296 | 0 | Colosseum, ombra: Makuhita: Miror B.Peon Trudly @ Phenac City | sì | sì | prodotta e conforme |
+| `EVT-T-0022` | 3 | spinoff | 153 | 0 | Colosseum, ombra: Bayleef: Cipher Peon Verde @ Phenac City | sì | sì | prodotta e conforme |
+| `EVT-T-0026` | 3 | spinoff | 156 | 0 | Colosseum, ombra: Quilava: Cipher Peon Rosso @ Phenac City | sì | sì | prodotta e conforme |
+| `EVT-T-0030` | 3 | spinoff | 159 | 0 | Colosseum, ombra: Croconaw: Cipher Peon Bluno @ Phenac City | sì | sì | prodotta e conforme |
+| `EVT-T-0034` | 3 | spinoff | 164 | 0 | Colosseum, ombra: Noctowl: Rider Nover @ Pyrite Town | sì | sì | prodotta e conforme |
+| `EVT-T-0035` | 3 | spinoff | 180 | 0 | Colosseum, ombra: Flaaffy: St.Performer Diogo @ Pyrite Town | sì | sì | prodotta e conforme |
+| `EVT-T-0036` | 3 | spinoff | 188 | 0 | Colosseum, ombra: Skiploom: Rider Leba @ Pyrite Town | sì | sì | prodotta e conforme |
+| `EVT-T-0037` | 3 | spinoff | 195 | 0 | Colosseum, ombra: Quagsire: Bandana Guy Divel @ Pyrite Town | sì | sì | prodotta e conforme |
+| `EVT-T-0038` | 3 | spinoff | 200 | 0 | Colosseum, ombra: Misdreavus: Rider Vant @ Pyrite Town | sì | sì | prodotta e conforme |
+| `EVT-T-0039` | 3 | spinoff | 193 | 0 | Colosseum, ombra: Yanma: Cipher Peon Nore @ Pyrite Bldg | sì | sì | prodotta e conforme |
+| `EVT-T-0041` | 3 | spinoff | 162 | 0 | Colosseum, ombra: Furret: Rogue Cail @ Pyrite Town | sì | sì | prodotta e conforme |
+| `EVT-T-0042` | 3 | spinoff | 218 | 0 | Colosseum, ombra: Slugma: Roller Boy Lon @ Pyrite Town | sì | sì | prodotta e conforme |
+| `EVT-T-0043` | 3 | spinoff | 223 | 0 | Colosseum, ombra: Remoraid: Miror B.Peon Reath @ Pyrite Bldg | sì | sì | prodotta e conforme |
+| `EVT-T-0045` | 3 | spinoff | 226 | 0 | Colosseum, ombra: Mantine: Miror B.Peon Ferma @ Pyrite Bldg | sì | sì | prodotta e conforme |
+| `EVT-T-0047` | 3 | spinoff | 211 | 0 | Colosseum, ombra: Qwilfish: Hunter Doken @ Pyrite Bldg | sì | sì | prodotta e conforme |
+| `EVT-T-0048` | 3 | spinoff | 307 | 0 | Colosseum, ombra: Meditite: Rider Twan @ Pyrite Cave | sì | sì | prodotta e conforme |
+| `EVT-T-0049` | 3 | spinoff | 206 | 0 | Colosseum, ombra: Dunsparce: Rider Sosh @ Pyrite Cave | sì | sì | prodotta e conforme |
+| `EVT-T-0051` | 3 | spinoff | 185 | 0 | Colosseum, ombra: Sudowoodo: Cipher Admin Miror B. @ Realgam Tower | sì | sì | prodotta e conforme |
+| `EVT-T-0060` | 3 | spinoff | 166 | 0 | Colosseum, ombra: Ledian: Cipher Peon Kloak @ The Under | sì | sì | prodotta e conforme |
+| `EVT-T-0065` | 3 | spinoff | 207 | 0 | Colosseum, ombra: Gligar: Hunter Frena @ The Under Subway | sì | sì | prodotta e conforme |
+| `EVT-T-0067` | 3 | spinoff | 234 | 0 | Colosseum, ombra: Stantler: Chaser Liaks @ The Under Subway | sì | sì | prodotta e conforme |
+| `EVT-T-0069` | 3 | spinoff | 221 | 0 | Colosseum, ombra: Piloswine: Bodybuilder Lonia @ The Under Subway | sì | sì | prodotta e conforme |
+| `EVT-T-0071` | 3 | spinoff | 215 | 0 | Colosseum, ombra: Sneasel: Rider Nelis @ The Under Subway | sì | sì | prodotta e conforme |
+| `EVT-T-0073` | 3 | spinoff | 190 | 0 | Colosseum, ombra: Aipom: Cipher Peon Cole @ Shadow PKMN Lab | sì | sì | prodotta e conforme |
+| `EVT-T-0074` | 3 | spinoff | 198 | 0 | Colosseum, ombra: Murkrow: Cipher Peon Lare @ Shadow PKMN Lab | sì | sì | prodotta e conforme |
+| `EVT-T-0076` | 3 | spinoff | 205 | 0 | Colosseum, ombra: Forretress: Cipher Peon Vana @ Shadow PKMN Lab | sì | sì | prodotta e conforme |
+| `EVT-T-0077` | 3 | spinoff | 210 | 0 | Colosseum, ombra: Granbull: Cipher Peon Tanie @ Shadow PKMN Lab | sì | sì | prodotta e conforme |
+| `EVT-T-0078` | 3 | spinoff | 329 | 0 | Colosseum, ombra: Vibrava: Cipher Peon Remil @ Shadow PKMN Lab | sì | sì | prodotta e conforme |
+| `EVT-T-0079` | 3 | spinoff | 168 | 0 | Colosseum, ombra: Ariados: Cipher Peon Lesar @ Shadow PKMN Lab | sì | sì | prodotta e conforme |
+| `EVT-T-0083` | 3 | spinoff | 192 | 0 | Colosseum, ombra: Sunflora: Cipher Peon Baila @ Realgam Tower | sì | sì | prodotta e conforme |
+| `EVT-T-0085` | 3 | spinoff | 225 | 0 | Colosseum, ombra: Delibird: Cipher Peon Arton @ Realgam Tower | sì | sì | prodotta e conforme |
+| `EVT-T-0087` | 3 | spinoff | 214 | 0 | Colosseum, ombra: Heracross: Cipher Peon Dioge @ Realgam Tower | sì | sì | prodotta e conforme |
+| `EVT-T-0089` | 3 | spinoff | 227 | 0 | Colosseum, ombra: Skarmory: Snagem Head Gonzap @ Realgam Tower | sì | sì | prodotta e conforme |
+| `EVT-T-0091` | 3 | spinoff | 241 | 0 | Colosseum, ombra: Miltank: Bodybuilder Jomas @ Tower Colosseum | sì | sì | prodotta e conforme |
+| `EVT-T-0093` | 3 | spinoff | 229 | 0 | Colosseum, ombra: Houndoom: Cipher Peon Nella @ Tower Colosseum | sì | sì | prodotta e conforme |
+| `EVT-T-0098` | 3 | spinoff | 217 | 0 | Colosseum, ombra: Ursaring: Team Snagem Agrev @ Snagem Hideout | sì | sì | prodotta e conforme |
+| `EVT-T-0099` | 3 | spinoff | 213 | 0 | Colosseum, ombra: Shuckle: Deep King Agnol @ Deep Colosseum | sì | sì | prodotta e conforme |
+| `EVT-T-0100` | 3 | spinoff | 176 | 0 | Colosseum, ombra: Togetic: Cipher Peon Fein @ Outskirt Stand | sì | sì | prodotta e conforme |
+| `EVT-T-0102` | 3 | spinoff | 152 | 0 | XD, doni: Chikorita | sì | sì | prodotta e conforme |
+| `EVT-T-0103` | 3 | spinoff | 155 | 0 | XD, doni: Cyndaquil | sì | sì | prodotta e conforme |
+| `EVT-T-0104` | 3 | spinoff | 158 | 0 | XD, doni: Totodile | sì | sì | prodotta e conforme |
+| `EVT-T-0105` | 3 | spinoff | 239 | 0 | XD, scambi: Elekid @ Snagem Hideout | sì | sì | prodotta e conforme |
+| `EVT-T-0109` | 3 | spinoff | 216 | 0 | XD, ombra: Teddiursa: Cipher Peon Naps @ Pokémon HQ Lab -- treat as Gift as it can only be captured in a Poké Ball | sì | sì | prodotta e conforme |
+| `EVT-T-0110` | 3 | spinoff | 37 | 0 | XD, ombra: Vulpix: Cipher Peon Mesin @ ONBS Building | sì | sì | prodotta e conforme |
+| `EVT-T-0111` | 3 | spinoff | 363 | 0 | XD, ombra: Spheal: Cipher Peon Blusix @ Cipher Lab | sì | sì | prodotta e conforme |
+| `EVT-T-0113` | 3 | spinoff | 343 | 0 | XD, ombra: Baltoy: Cipher Peon Browsix @ Cipher Lab | sì | sì | prodotta e conforme |
+| `EVT-T-0115` | 3 | spinoff | 179 | 0 | XD, ombra: Mareep: Cipher Peon Yellosix @ Cipher Lab | sì | sì | prodotta e conforme |
+| `EVT-T-0117` | 3 | spinoff | 316 | 0 | XD, ombra: Gulpin: Cipher Peon Purpsix @ Cipher Lab | sì | sì | prodotta e conforme |
+| `EVT-T-0119` | 3 | spinoff | 273 | 0 | XD, ombra: Seedot: Cipher Peon Greesix @ Cipher Lab | sì | sì | prodotta e conforme |
+| `EVT-T-0121` | 3 | spinoff | 167 | 0 | XD, ombra: Spinarak: Cipher Peon Nexir @ Cipher Lab | sì | sì | prodotta e conforme |
+| `EVT-T-0122` | 3 | spinoff | 322 | 0 | XD, ombra: Numel: Cipher Peon Solox @ Cipher Lab | sì | sì | prodotta e conforme |
+| `EVT-T-0123` | 3 | spinoff | 318 | 0 | XD, ombra: Carvanha: Cipher Peon Cabol @ Cipher Lab | sì | sì | prodotta e conforme |
+| `EVT-T-0124` | 3 | spinoff | 315 | 0 | XD, ombra: Roselia: Cipher Peon Fasin @ Phenac City | sì | sì | prodotta e conforme |
+| `EVT-T-0125` | 3 | spinoff | 301 | 0 | XD, ombra: Delcatty: Cipher Admin Lovrina @ Cipher Lab | sì | sì | prodotta e conforme |
+| `EVT-T-0126` | 3 | spinoff | 299 | 0 | XD, ombra: Nosepass: Wanderer Miror B. @ Poké Spots | sì | sì | prodotta e conforme |
+| `EVT-T-0127` | 3 | spinoff | 228 | 0 | XD, ombra: Houndour: Cipher Peon Resix  @ Phenac City | sì | sì | prodotta e conforme |
+| `EVT-T-0130` | 3 | spinoff | 355 | 0 | XD, ombra: Duskull: Cipher Peon Lobar @ ONBS Building | sì | sì | prodotta e conforme |
+| `EVT-T-0132` | 3 | spinoff | 303 | 0 | XD, ombra: Mawile: Cipher Cmdr Exol @ ONBS Building | sì | sì | prodotta e conforme |
+| `EVT-T-0133` | 3 | spinoff | 361 | 0 | XD, ombra: Snorunt: Cipher Peon Exinn @ Phenac City | sì | sì | prodotta e conforme |
+| `EVT-T-0134` | 3 | spinoff | 204 | 0 | XD, ombra: Pineco: Cipher Peon Gonrap @ Phenac City | sì | sì | prodotta e conforme |
+| `EVT-T-0135` | 3 | spinoff | 220 | 0 | XD, ombra: Swinub: Cipher Peon Greck @ Phenac City | sì | sì | prodotta e conforme |
+| `EVT-T-0136` | 3 | spinoff | 177 | 0 | XD, ombra: Natu: Cipher Peon Eloin @ Phenac City | sì | sì | prodotta e conforme |
+| `EVT-T-0137` | 3 | spinoff | 285 | 0 | XD, ombra: Shroomish: Cipher R&D Klots @ Cipher Lab | sì | sì | prodotta e conforme |
+| `EVT-T-0139` | 3 | spinoff | 21 | 0 | XD, ombra: Spearow: Cipher Peon Ezin @ Phenac Stadium | sì | sì | prodotta e conforme |
+| `EVT-T-0140` | 3 | spinoff | 88 | 0 | XD, ombra: Grimer: Cipher Peon Faltly @ Phenac Stadium | sì | sì | prodotta e conforme |
+| `EVT-T-0141` | 3 | spinoff | 86 | 0 | XD, ombra: Seel: Cipher Peon Egrog @ Phenac Stadium | sì | sì | prodotta e conforme |
+| `EVT-T-0142` | 3 | spinoff | 337 | 0 | XD, ombra: Lunatone: Cipher Admin Snattle @ Phenac Stadium | sì | sì | prodotta e conforme |
+| `EVT-T-0143` | 3 | spinoff | 100 | 0 | XD, ombra: Voltorb: Wanderer Miror B. @ Cave Poké Spot | sì | sì | prodotta e conforme |
+| `EVT-T-0144` | 3 | spinoff | 335 | 0 | XD, ombra: Zangoose: Thug Zook @ Cipher Key Lair | sì | sì | prodotta e conforme |
+| `EVT-T-0145` | 3 | spinoff | 58 | 0 | XD, ombra: Growlithe: Cipher Peon Humah @ Cipher Key Lair | sì | sì | prodotta e conforme |
+| `EVT-T-0146` | 3 | spinoff | 46 | 0 | XD, ombra: Paras: Cipher Peon Humah @ Cipher Key Lair | sì | sì | prodotta e conforme |
+| `EVT-T-0147` | 3 | spinoff | 90 | 0 | XD, ombra: Shellder: Cipher Peon Gorog @ Cipher Key Lair | sì | sì | prodotta e conforme |
+| `EVT-T-0148` | 3 | spinoff | 15 | 0 | XD, ombra: Beedrill: Cipher Peon Lok @ Cipher Key Lair | sì | sì | prodotta e conforme |
+| `EVT-T-0149` | 3 | spinoff | 17 | 0 | XD, ombra: Pidgeotto: Cipher Peon Lok @ Cipher Key Lair | sì | sì | prodotta e conforme |
+| `EVT-T-0150` | 3 | spinoff | 12 | 0 | XD, ombra: Butterfree: Cipher Peon Targ @ Cipher Key Lair | sì | sì | prodotta e conforme |
+| `EVT-T-0151` | 3 | spinoff | 114 | 0 | XD, ombra: Tangela: Cipher Peon Targ @ Cipher Key Lair | sì | sì | prodotta e conforme |
+| `EVT-T-0152` | 3 | spinoff | 20 | 0 | XD, ombra: Raticate: Chaser Furgy @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0153` | 3 | spinoff | 49 | 0 | XD, ombra: Venomoth: Cipher Peon Angic @ Cipher Key Lair | sì | sì | prodotta e conforme |
+| `EVT-T-0154` | 3 | spinoff | 70 | 0 | XD, ombra: Weepinbell: Cipher Peon Angic @ Cipher Key Lair | sì | sì | prodotta e conforme |
+| `EVT-T-0155` | 3 | spinoff | 24 | 0 | XD, ombra: Arbok: Cipher Peon Smarton @ Cipher Key Lair | sì | sì | prodotta e conforme |
+| `EVT-T-0156` | 3 | spinoff | 57 | 0 | XD, ombra: Primeape: Cipher Admin Gorigan @ Cipher Key Lair | sì | sì | prodotta e conforme |
+| `EVT-T-0157` | 3 | spinoff | 97 | 0 | XD, ombra: Hypno: Cipher Admin Gorigan @ Cipher Key Lair | sì | sì | prodotta e conforme |
+| `EVT-T-0158` | 3 | spinoff | 55 | 0 | XD, ombra: Golduck: Navigator Abson @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0160` | 3 | spinoff | 82 | 0 | XD, ombra: Magneton: Cipher Peon Snidle @ Cipher Key Lair | sì | sì | prodotta e conforme |
+| `EVT-T-0161` | 3 | spinoff | 85 | 0 | XD, ombra: Dodrio: Chaser Furgy @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0163` | 3 | spinoff | 334 | 0 | XD, ombra: Altaria: Cipher Admin Lovrina @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0165` | 3 | spinoff | 354 | 0 | XD, ombra: Banette: Cipher Peon Litnar @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0167` | 3 | spinoff | 127 | 0 | XD, ombra: Pinsir: Cipher Peon Grupel @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0168` | 3 | spinoff | 219 | 0 | XD, ombra: Magcargo: Cipher Peon Kolest @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0169` | 3 | spinoff | 78 | 0 | XD, ombra: Rapidash: Cipher Peon Kolest @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0170` | 3 | spinoff | 107 | 0 | XD, ombra: Hitmonchan: Cipher Peon Karbon @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0171` | 3 | spinoff | 106 | 0 | XD, ombra: Hitmonlee: Cipher Peon Petro @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0176` | 3 | spinoff | 338 | 0 | XD, ombra: Solrock: Cipher Admin Snattle @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0177` | 3 | spinoff | 121 | 0 | XD, ombra: Starmie: Cipher Admin Snattle @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0179` | 3 | spinoff | 277 | 0 | XD, ombra: Swellow: Cipher Admin Ardos @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0180` | 3 | spinoff | 143 | 0 | XD, ombra: Snorlax: Cipher Admin Ardos @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0181` | 3 | spinoff | 62 | 0 | XD, ombra: Poliwrath: Cipher Admin Gorigan @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0182` | 3 | spinoff | 122 | 0 | XD, ombra: Mr. Mime: Cipher Admin Gorigan @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0183` | 3 | spinoff | 51 | 0 | XD, ombra: Dugtrio: Cipher Peon Kolax @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0184` | 3 | spinoff | 310 | 0 | XD, ombra: Manectric: Cipher Admin Eldes @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0186` | 3 | spinoff | 105 | 0 | XD, ombra: Marowak: Cipher Admin Eldes @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0187` | 3 | spinoff | 131 | 0 | XD, ombra: Lapras: Cipher Admin Eldes @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0192` | 3 | spinoff | 128 | 0 | XD, ombra: Tauros: Grand Master Greevil @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0193` | 3 | spinoff | 112 | 0 | XD, ombra: Rhydon: Grand Master Greevil @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0194` | 3 | spinoff | 103 | 0 | XD, ombra: Exeggutor: Grand Master Greevil @ Citadark Isle | sì | sì | prodotta e conforme |
+| `EVT-T-0196` | 3 | spinoff | 175 | 0 | XD, ombra: Togepi: Pokémon Trainer Hordel @ Outskirt Stand | sì | sì | prodotta e conforme |
+| `EVT-T-0197` | 3 | spinoff | 261 | 0 | XD, ombra: Poochyena: Bodybuilder Kilen @ Gateon Port | sì | sì | prodotta e conforme |
+| `EVT-T-0198` | 3 | spinoff | 165 | 0 | XD, ombra: Ledyba: Casual Guy Cyle @ Gateon Port | sì | sì | prodotta e conforme |
 | `EVT-T-0209` | 4 | periferica | 320 | 0 | My Pokemon Ranch: Wailmer | sì | sì | censita, non ancora producibile |
 | `EVT-T-0211` | 4 | periferica | 397 | 0 | My Pokemon Ranch: Staravia | sì | sì | censita, non ancora producibile |
 | `EVT-T-0212` | 4 | periferica | 415 | 0 | My Pokemon Ranch: Combee | sì | sì | censita, non ancora producibile |
@@ -1434,34 +1432,13 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-T-0216` | 4 | periferica | 453 | 0 | My Pokemon Ranch: Croagunk | sì | sì | censita, non ancora producibile |
 | `EVT-T-0217` | 4 | periferica | 456 | 0 | My Pokemon Ranch: Finneon | sì | sì | censita, non ancora producibile |
 | `EVT-T-0218` | 4 | periferica | 459 | 0 | My Pokemon Ranch: Snover | sì | sì | censita, non ancora producibile |
-| `EVT-T-0222` | 5 | periferica | 120 | 0 | Dream Radar: Staryu | sì | sì | censita, non ancora producibile |
-| `EVT-T-0223` | 5 | periferica | 137 | 0 | Dream Radar: Porygon | sì | sì | censita, non ancora producibile |
-| `EVT-T-0224` | 5 | periferica | 163 | 0 | Dream Radar: Hoothoot | sì | sì | censita, non ancora producibile |
-| `EVT-T-0228` | 5 | periferica | 238 | 0 | Dream Radar: Smoochum | sì | sì | censita, non ancora producibile |
 | `EVT-T-0234` | 5 | periferica | 425 | 0 | Dream Radar: Drifloon | sì | sì | censita, non ancora producibile |
 | `EVT-T-0235` | 5 | periferica | 436 | 0 | Dream Radar: Bronzor | sì | sì | censita, non ancora producibile |
 | `EVT-T-0243` | 5 | periferica | 561 | 0 | Dream Radar: Sigilyph | sì | sì | censita, non ancora producibile |
-| `EVT-T-0274` | 4 | periferica | 84 | 0 | Pokewalker: corso Prato Ristoro, livello 8, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0275` | 4 | periferica | 29 | 0 | Pokewalker: corso Prato Ristoro, livello 5, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0276` | 4 | periferica | 32 | 0 | Pokewalker: corso Prato Ristoro, livello 5, corso in dotazione | sì | sì | censita, non ancora producibile |
 | `EVT-T-0277` | 4 | periferica | 16 | 0 | Pokewalker: corso Prato Ristoro, livello 5, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0278` | 4 | periferica | 161 | 0 | Pokewalker: corso Prato Ristoro, livello 5, corso in dotazione | sì | sì | censita, non ancora producibile |
 | `EVT-T-0281` | 4 | periferica | 48 | 0 | Pokewalker: corso Bosco Rumoroso, livello 6, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0285` | 4 | periferica | 240 | 0 | Pokewalker: corso Strada Sconnessa, livello 9, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0286` | 4 | periferica | 95 | 0 | Pokewalker: corso Strada Sconnessa, livello 9, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0287` | 4 | periferica | 66 | 0 | Pokewalker: corso Strada Sconnessa, livello 7, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0290` | 4 | periferica | 74 | 0 | Pokewalker: corso Strada Sconnessa, livello 8, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0295` | 4 | periferica | 191 | 0 | Pokewalker: corso Bella Spiaggia, livello 6, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0296` | 4 | periferica | 194 | 0 | Pokewalker: corso Bella Spiaggia, livello 6, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0298` | 4 | periferica | 81 | 0 | Pokewalker: corso Zona Suburbana, livello 11, corso in dotazione | sì | sì | censita, non ancora producibile |
 | `EVT-T-0302` | 4 | periferica | 19 | 0 | Pokewalker: corso Zona Suburbana, livello 7, corso in dotazione | sì | sì | censita, non ancora producibile |
 | `EVT-T-0304` | 4 | periferica | 92 | 0 | Pokewalker: corso Grotta Buia, livello 15, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0307` | 4 | periferica | 41 | 0 | Pokewalker: corso Grotta Buia, livello 8, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0309` | 4 | periferica | 147 | 0 | Pokewalker: corso Lago Blu, livello 10, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0311` | 4 | periferica | 98 | 0 | Pokewalker: corso Lago Blu, livello 12, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0313` | 4 | periferica | 118 | 0 | Pokewalker: corso Lago Blu, livello 9, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0314` | 4 | periferica | 72 | 0 | Pokewalker: corso Lago Blu, livello 9, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0315` | 4 | periferica | 63 | 0 | Pokewalker: corso Periferia, livello 15, corso in dotazione | sì | sì | censita, non ancora producibile |
 | `EVT-T-0317` | 4 | periferica | 109 | 0 | Pokewalker: corso Periferia, livello 13, corso in dotazione | sì | sì | censita, non ancora producibile |
 | `EVT-T-0323` | 4 | periferica | 314 | 0 | Pokewalker: corso Prato di Hoenn, livello 25, corso in dotazione | sì | sì | censita, non ancora producibile |
 | `EVT-T-0324` | 4 | periferica | 313 | 0 | Pokewalker: corso Prato di Hoenn, livello 25, corso in dotazione | sì | sì | censita, non ancora producibile |
@@ -1482,19 +1459,44 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-T-0366` | 4 | periferica | 400 | 0 | Pokewalker: corso Grande Foresta, livello 30, corso in dotazione | sì | sì | censita, non ancora producibile |
 | `EVT-T-0369` | 4 | periferica | 433 | 0 | Pokewalker: corso Lago Bianco, livello 22, corso in dotazione | sì | sì | censita, non ancora producibile |
 | `EVT-T-0372` | 4 | periferica | 418 | 0 | Pokewalker: corso Lago Bianco, livello 28, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0374` | 4 | periferica | 170 | 0 | Pokewalker: corso Lago Bianco, livello 17, corso in dotazione | sì | sì | censita, non ancora producibile |
 | `EVT-T-0383` | 4 | periferica | 39 | 0 | Pokewalker: corso Villaggio Turistico, livello 30, corso in dotazione | sì | sì | censita, non ancora producibile |
 | `EVT-T-0384` | 4 | periferica | 35 | 0 | Pokewalker: corso Villaggio Turistico, livello 31, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0385` | 4 | periferica | 183 | 0 | Pokewalker: corso Villaggio Turistico, livello 25, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0386` | 4 | periferica | 187 | 0 | Pokewalker: corso Villaggio Turistico, livello 25, corso in dotazione | sì | sì | censita, non ancora producibile |
 | `EVT-T-0419` | 4 | periferica | 279 | 0 | Pokewalker: corso Gita, livello 15, corso distribuito | sì | sì | censita, non ancora producibile |
 | `EVT-T-0420` | 4 | periferica | 61 | 0 | Pokewalker: corso Gita, livello 15, corso distribuito | sì | sì | censita, non ancora producibile |
 | `EVT-T-0432` | 4 | periferica | 440 | 0 | Pokewalker: corso Prato Amicizia, livello 5, corso distribuito | sì | sì | censita, non ancora producibile |
-| `EVT-T-0434` | 4 | periferica | 173 | 0 | Pokewalker: corso Prato Amicizia, livello 5, corso distribuito | sì | sì | censita, non ancora producibile |
-| `EVT-2-0039` | 2 | tabella di incontro | 209 | 0 | tabella di incontro da evento | sì | sì | letta, struttura alla portata di pokebridge |
-| `EVT-2-0102` | 2 | tabella di incontro | 104 | 0 | tabella di incontro da evento | sì | sì | letta, struttura alla portata di pokebridge |
-| `EVT-2-0120` | 2 | tabella di incontro | 236 | 0 | tabella di incontro da evento | sì | sì | letta, struttura alla portata di pokebridge |
-| `EVT-2-0123` | 2 | tabella di incontro | 231 | 0 | tabella di incontro da evento | sì | sì | letta, struttura alla portata di pokebridge |
+| `EVT-2-0014` | 2 | tabella di incontro | 3 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0020` | 2 | tabella di incontro | 154 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0022` | 2 | tabella di incontro | 160 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0030` | 2 | tabella di incontro | 29 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0032` | 2 | tabella di incontro | 32 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0036` | 2 | tabella di incontro | 183 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0039` | 2 | tabella di incontro | 209 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0043` | 2 | tabella di incontro | 173 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0045` | 2 | tabella di incontro | 238 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0047` | 2 | tabella di incontro | 240 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0054` | 2 | tabella di incontro | 194 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0057` | 2 | tabella di incontro | 118 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0061` | 2 | tabella di incontro | 72 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0063` | 2 | tabella di incontro | 170 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0071` | 2 | tabella di incontro | 147 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0074` | 2 | tabella di incontro | 84 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0079` | 2 | tabella di incontro | 81 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0088` | 2 | tabella di incontro | 77 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0091` | 2 | tabella di incontro | 120 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0092` | 2 | tabella di incontro | 98 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0093` | 2 | tabella di incontro | 95 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0095` | 2 | tabella di incontro | 63 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0099` | 2 | tabella di incontro | 74 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0100` | 2 | tabella di incontro | 41 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0101` | 2 | tabella di incontro | 66 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0102` | 2 | tabella di incontro | 104 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0106` | 2 | tabella di incontro | 163 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0108` | 2 | tabella di incontro | 191 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0110` | 2 | tabella di incontro | 187 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0112` | 2 | tabella di incontro | 161 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0120` | 2 | tabella di incontro | 236 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0123` | 2 | tabella di incontro | 231 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
+| `EVT-2-0132` | 2 | tabella di incontro | 137 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
 | `EVT-3-0002` | 3 | carta meraviglia | 385 | 0 | CHANNEL | sì | no | non producibile |
 | `EVT-3-0004` | 3 | carta meraviglia | 263 | 0 | Berry Fix Sapphire | sì | no | producibile e verificata |
 | `EVT-3-0005` | 3 | carta meraviglia | 385 | 0 | Negai Boshi Jirachi | sì | no | producibile e verificata |
@@ -1585,868 +1587,872 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-3-0120` | 3 | carta meraviglia | 359 | 0 | Absol | sì | no | producibile e verificata |
 | `EVT-3-0121` | 3 | carta meraviglia | 380 | 0 | Latias | sì | no | producibile e verificata |
 | `EVT-3-0122` | 3 | carta meraviglia | 381 | 0 | Latios | sì | no | producibile e verificata |
-| `EVT-3-0124` | 3 | carta meraviglia | 172 | 0 | Pichu with Wish | sì | no | producibile e verificata |
-| `EVT-3-0125` | 3 | carta meraviglia | 172 | 0 | Pichu with Teeter Dance | sì | no | producibile e verificata |
-| `EVT-3-0126` | 3 | carta meraviglia | 172 | 0 | Pichu with Wish | sì | no | producibile e verificata |
-| `EVT-3-0128` | 3 | carta meraviglia | 280 | 0 | Ralts with Wish | sì | no | producibile e verificata |
-| `EVT-3-0129` | 3 | carta meraviglia | 359 | 0 | Absol with Spite | sì | no | producibile e verificata |
-| `EVT-3-0130` | 3 | carta meraviglia | 359 | 0 | Absol with Wish | sì | no | producibile e verificata |
-| `EVT-3-0132` | 3 | carta meraviglia | 371 | 0 | Bagon with Wish | sì | no | producibile e verificata |
-| `EVT-3-0134` | 3 | carta meraviglia | 52 | 0 | Meowth with Petal Dance | sì | no | producibile e verificata |
-| `EVT-3-0144` | 3 | carta meraviglia | 172 | 0 | Pichu with Follow me | sì | no | producibile e verificata |
-| `EVT-3-0158` | 3 | carta meraviglia | 54 | 0 | Psyduck with Mud Sport | sì | no | producibile e verificata |
-| `EVT-3-0159` | 3 | carta meraviglia | 172 | 0 | Pichu with Follow Me | sì | no | producibile e verificata |
-| `EVT-3-0160` | 3 | carta meraviglia | 174 | 0 | Igglybuff with Tickle | sì | no | producibile e verificata |
-| `EVT-3-0161` | 3 | carta meraviglia | 222 | 0 | Corsola with Mud Sport | sì | no | producibile e verificata |
-| `EVT-3-0162` | 3 | carta meraviglia | 276 | 0 | Taillow with Feather Dance | sì | no | producibile e verificata |
-| `EVT-3-0163` | 3 | carta meraviglia | 283 | 0 | Surskit with Mud Sport | sì | no | producibile e verificata |
-| `EVT-3-0164` | 3 | carta meraviglia | 293 | 0 | Whismur with Teeter Dance | sì | no | producibile e verificata |
-| `EVT-3-0165` | 3 | carta meraviglia | 300 | 0 | Skitty with Rollout | sì | no | producibile e verificata |
-| `EVT-3-0166` | 3 | carta meraviglia | 311 | 0 | Plusle with Water Sport | sì | no | producibile e verificata |
-| `EVT-3-0167` | 3 | carta meraviglia | 312 | 0 | Minun with Mud Sport | sì | no | producibile e verificata |
-| `EVT-3-0168` | 3 | carta meraviglia | 325 | 0 | Spoink with Uproar | sì | no | producibile e verificata |
-| `EVT-3-0169` | 3 | carta meraviglia | 327 | 0 | Spinda with Sing | sì | no | producibile e verificata |
-| `EVT-3-0170` | 3 | carta meraviglia | 331 | 0 | Cacnea with Encore | sì | no | producibile e verificata |
-| `EVT-3-0171` | 3 | carta meraviglia | 341 | 0 | Corphish with Water Sport | sì | no | producibile e verificata |
-| `EVT-3-0172` | 3 | carta meraviglia | 360 | 0 | Wynaut with Tickle | sì | no | producibile e verificata |
-| `EVT-4-0000` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0002` | 4 | dono segreto | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0003` | 4 | dono segreto | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0004` | 4 | dono segreto | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0006` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0007` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0008` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0009` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0010` | 4 | dono segreto | 149 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0011` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0014` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0016` | 4 | dono segreto | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0017` | 4 | dono segreto | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0018` | 4 | dono segreto | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0019` | 4 | dono segreto | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0020` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0022` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0023` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0024` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0025` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0027` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0028` | 4 | dono segreto | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0029` | 4 | dono segreto | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0030` | 4 | dono segreto | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0031` | 4 | dono segreto | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0032` | 4 | dono segreto | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0033` | 4 | dono segreto | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0034` | 4 | dono segreto | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0035` | 4 | dono segreto | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0036` | 4 | dono segreto | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0037` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0039` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0044` | 4 | dono segreto | 350 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0045` | 4 | dono segreto | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0047` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0048` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0049` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0050` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0052` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0053` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0054` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0055` | 4 | dono segreto | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0056` | 4 | dono segreto | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0057` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0058` | 4 | dono segreto | 447 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0059` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0060` | 4 | dono segreto | 133 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0061` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0062` | 4 | dono segreto | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0063` | 4 | dono segreto | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0064` | 4 | dono segreto | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0065` | 4 | dono segreto | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0066` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0067` | 4 | dono segreto | 466 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0068` | 4 | dono segreto | 467 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0069` | 4 | dono segreto | 350 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0070` | 4 | dono segreto | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0071` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0072` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0073` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0074` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0075` | 4 | dono segreto | 485 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0076` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0077` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0078` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0079` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0080` | 4 | dono segreto | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0081` | 4 | dono segreto | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0082` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0083` | 4 | dono segreto | 447 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0084` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0085` | 4 | dono segreto | 133 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0086` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0087` | 4 | dono segreto | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0088` | 4 | dono segreto | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0089` | 4 | dono segreto | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0090` | 4 | dono segreto | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0091` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0092` | 4 | dono segreto | 466 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0093` | 4 | dono segreto | 467 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0094` | 4 | dono segreto | 350 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0095` | 4 | dono segreto | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0096` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0097` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0098` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0099` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0100` | 4 | dono segreto | 485 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0101` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0102` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0103` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0104` | 4 | dono segreto | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0105` | 4 | dono segreto | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0106` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0107` | 4 | dono segreto | 447 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0108` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0109` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0110` | 4 | dono segreto | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0111` | 4 | dono segreto | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0112` | 4 | dono segreto | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0113` | 4 | dono segreto | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0114` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0115` | 4 | dono segreto | 466 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0116` | 4 | dono segreto | 467 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0117` | 4 | dono segreto | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0118` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0119` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0120` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0121` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0122` | 4 | dono segreto | 485 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0123` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0127` | 4 | dono segreto | 52 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0132` | 4 | dono segreto | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0134` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0136` | 4 | dono segreto | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0137` | 4 | dono segreto | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0138` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0139` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0140` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0141` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0142` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0143` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0144` | 4 | dono segreto | 448 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0145` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0146` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0147` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0149` | 4 | dono segreto | 224 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0150` | 4 | dono segreto | 466 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0151` | 4 | dono segreto | 467 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0152` | 4 | dono segreto | 350 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0153` | 4 | dono segreto | 149 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0155` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0156` | 4 | dono segreto | 447 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0157` | 4 | dono segreto | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0158` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0159` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0160` | 4 | dono segreto | 4 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0161` | 4 | dono segreto | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0162` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0163` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0164` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0165` | 4 | dono segreto | 350 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0166` | 4 | dono segreto | 133 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0167` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0168` | 4 | dono segreto | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0169` | 4 | dono segreto | 52 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0170` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0171` | 4 | dono segreto | 4 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0173` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0174` | 4 | dono segreto | 133 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0175` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0176` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0177` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0178` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0179` | 4 | dono segreto | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0180` | 4 | dono segreto | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0181` | 4 | dono segreto | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0182` | 4 | dono segreto | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0184` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0185` | 4 | dono segreto | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0186` | 4 | dono segreto | 4 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0187` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0188` | 4 | dono segreto | 390 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0189` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0190` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0191` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0192` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0193` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0194` | 4 | dono segreto | 485 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0195` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0196` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0197` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0198` | 4 | dono segreto | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0200` | 4 | dono segreto | 466 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0201` | 4 | dono segreto | 467 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0203` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0205` | 4 | dono segreto | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0208` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0209` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0210` | 4 | dono segreto | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0211` | 4 | dono segreto | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0212` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0213` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0214` | 4 | dono segreto | 350 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0215` | 4 | dono segreto | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0216` | 4 | dono segreto | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0217` | 4 | dono segreto | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0218` | 4 | dono segreto | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0219` | 4 | dono segreto | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0220` | 4 | dono segreto | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0221` | 4 | dono segreto | 212 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0222` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0223` | 4 | dono segreto | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0224` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0225` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0226` | 4 | dono segreto | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0227` | 4 | dono segreto | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0228` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0229` | 4 | dono segreto | 447 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0230` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0231` | 4 | dono segreto | 133 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0232` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0233` | 4 | dono segreto | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0234` | 4 | dono segreto | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0235` | 4 | dono segreto | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0236` | 4 | dono segreto | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0237` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0238` | 4 | dono segreto | 466 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0239` | 4 | dono segreto | 467 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0240` | 4 | dono segreto | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0241` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0242` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0243` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0244` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0245` | 4 | dono segreto | 485 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-4-0246` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | letta, non ancora producibile |
-| `EVT-5-0002` | 5 | dono segreto | 491 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0003` | 5 | dono segreto | 491 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0008` | 5 | dono segreto | 571 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0011` | 5 | dono segreto | 644 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0013` | 5 | dono segreto | 643 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0018` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0019` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0021` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0022` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0026` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0027` | 5 | dono segreto | 386 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0028` | 5 | dono segreto | 150 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0030` | 5 | dono segreto | 483 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0032` | 5 | dono segreto | 484 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0034` | 5 | dono segreto | 487 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0036` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0037` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0038` | 5 | dono segreto | 491 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0039` | 5 | dono segreto | 571 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0040` | 5 | dono segreto | 571 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0041` | 5 | dono segreto | 494 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0042` | 5 | dono segreto | 644 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0043` | 5 | dono segreto | 643 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0044` | 5 | dono segreto | 560 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0045` | 5 | dono segreto | 150 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0046` | 5 | dono segreto | 246 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0047` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0048` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0049` | 5 | dono segreto | 649 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0050` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0051` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0052` | 5 | dono segreto | 648 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0053` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0054` | 5 | dono segreto | 386 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0055` | 5 | dono segreto | 483 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0056` | 5 | dono segreto | 484 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0057` | 5 | dono segreto | 487 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0058` | 5 | dono segreto | 235 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0059` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0060` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0061` | 5 | dono segreto | 491 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0062` | 5 | dono segreto | 571 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0063` | 5 | dono segreto | 494 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0064` | 5 | dono segreto | 644 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0065` | 5 | dono segreto | 643 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0066` | 5 | dono segreto | 560 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0067` | 5 | dono segreto | 150 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0068` | 5 | dono segreto | 246 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0069` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0070` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0071` | 5 | dono segreto | 649 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0072` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0073` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0074` | 5 | dono segreto | 648 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0075` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0076` | 5 | dono segreto | 386 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0077` | 5 | dono segreto | 483 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0078` | 5 | dono segreto | 484 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0079` | 5 | dono segreto | 487 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0080` | 5 | dono segreto | 235 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0081` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0082` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0083` | 5 | dono segreto | 491 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0084` | 5 | dono segreto | 571 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0085` | 5 | dono segreto | 494 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0086` | 5 | dono segreto | 644 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0087` | 5 | dono segreto | 643 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0088` | 5 | dono segreto | 560 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0089` | 5 | dono segreto | 150 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0090` | 5 | dono segreto | 246 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0091` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0092` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0093` | 5 | dono segreto | 649 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0094` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0095` | 5 | dono segreto | 52 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0096` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0097` | 5 | dono segreto | 648 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0098` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0099` | 5 | dono segreto | 386 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0100` | 5 | dono segreto | 483 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0101` | 5 | dono segreto | 484 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0102` | 5 | dono segreto | 487 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0103` | 5 | dono segreto | 235 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0105` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0107` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0109` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0111` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0114` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0115` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0116` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0117` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0118` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0119` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0120` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0121` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0122` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0123` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0124` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0125` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0126` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0127` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0128` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0129` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0130` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0131` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0132` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0133` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0134` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0135` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0136` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0137` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0138` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0139` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0140` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0141` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0142` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0143` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0144` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0145` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0146` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0147` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0148` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0149` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0150` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0151` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0152` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0153` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0154` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0155` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0156` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0157` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0158` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0159` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0160` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0161` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0162` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0163` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0164` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0165` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0166` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0167` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0168` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0169` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0170` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0171` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0172` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0173` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0174` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0175` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0176` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0177` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0178` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0179` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0180` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0181` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0182` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0183` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0184` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0185` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0186` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0187` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0188` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0189` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0190` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0191` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0192` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0193` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0194` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0195` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0196` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0197` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0198` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0199` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0200` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0201` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0202` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0203` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0204` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0205` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0206` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0207` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0208` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0209` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0210` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0211` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0212` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0213` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0214` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0215` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0216` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0217` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0218` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0219` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0220` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0221` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0222` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0223` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0224` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0225` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0226` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0227` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0228` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0229` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0230` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0231` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0232` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0233` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0234` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0235` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0236` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0237` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0238` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0239` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0240` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0241` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0242` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0243` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0244` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0245` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0246` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0247` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0248` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0249` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0250` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0251` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0252` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0253` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0254` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0255` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0256` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0257` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0258` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0259` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0260` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0261` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0262` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0263` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0264` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0265` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0266` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0267` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0268` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0269` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0270` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0271` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0272` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0273` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0274` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0275` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0276` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0277` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0278` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0279` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0280` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0281` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0282` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0283` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0284` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0285` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0286` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0287` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0288` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0289` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0290` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0291` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0292` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0293` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0294` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0295` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0296` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0297` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0298` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0299` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0300` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0301` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0302` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0303` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0304` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0305` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0306` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0307` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0308` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0309` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0310` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0311` | 5 | dono segreto | 491 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0312` | 5 | dono segreto | 491 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0313` | 5 | dono segreto | 610 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0314` | 5 | dono segreto | 511 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0315` | 5 | dono segreto | 519 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0316` | 5 | dono segreto | 571 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0318` | 5 | dono segreto | 494 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0319` | 5 | dono segreto | 644 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0320` | 5 | dono segreto | 643 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0321` | 5 | dono segreto | 610 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0324` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0325` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0326` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0327` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0328` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0329` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0330` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0331` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0332` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0333` | 5 | dono segreto | 150 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0335` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0336` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0337` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0338` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0339` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0340` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0341` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0344` | 5 | dono segreto | 492 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0345` | 5 | dono segreto | 371 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0351` | 5 | dono segreto | 371 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0352` | 5 | dono segreto | 633 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0353` | 5 | dono segreto | 621 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0354` | 5 | dono segreto | 116 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0355` | 5 | dono segreto | 333 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0356` | 5 | dono segreto | 328 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0357` | 5 | dono segreto | 371 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0358` | 5 | dono segreto | 633 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0359` | 5 | dono segreto | 621 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0360` | 5 | dono segreto | 116 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0361` | 5 | dono segreto | 333 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0362` | 5 | dono segreto | 328 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0363` | 5 | dono segreto | 371 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0364` | 5 | dono segreto | 633 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0365` | 5 | dono segreto | 621 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0366` | 5 | dono segreto | 116 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0367` | 5 | dono segreto | 333 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0368` | 5 | dono segreto | 328 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0369` | 5 | dono segreto | 384 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0370` | 5 | dono segreto | 384 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0371` | 5 | dono segreto | 257 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0374` | 5 | dono segreto | 272 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0375` | 5 | dono segreto | 350 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0378` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0379` | 5 | dono segreto | 373 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0382` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0383` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0384` | 5 | dono segreto | 648 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0385` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0386` | 5 | dono segreto | 257 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0387` | 5 | dono segreto | 254 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0388` | 5 | dono segreto | 260 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0389` | 5 | dono segreto | 272 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0390` | 5 | dono segreto | 350 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0391` | 5 | dono segreto | 365 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0392` | 5 | dono segreto | 282 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0393` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0394` | 5 | dono segreto | 373 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0395` | 5 | dono segreto | 257 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0396` | 5 | dono segreto | 254 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0397` | 5 | dono segreto | 260 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0398` | 5 | dono segreto | 272 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0399` | 5 | dono segreto | 350 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0400` | 5 | dono segreto | 365 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0401` | 5 | dono segreto | 282 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0402` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0403` | 5 | dono segreto | 373 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0404` | 5 | dono segreto | 257 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0405` | 5 | dono segreto | 254 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0406` | 5 | dono segreto | 260 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0407` | 5 | dono segreto | 272 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0408` | 5 | dono segreto | 350 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0409` | 5 | dono segreto | 365 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0410` | 5 | dono segreto | 282 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0411` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0412` | 5 | dono segreto | 373 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0413` | 5 | dono segreto | 257 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0414` | 5 | dono segreto | 254 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0415` | 5 | dono segreto | 260 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0416` | 5 | dono segreto | 272 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0417` | 5 | dono segreto | 350 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0418` | 5 | dono segreto | 365 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0419` | 5 | dono segreto | 282 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0420` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0421` | 5 | dono segreto | 373 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0422` | 5 | dono segreto | 257 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0423` | 5 | dono segreto | 254 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0424` | 5 | dono segreto | 260 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0425` | 5 | dono segreto | 272 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0426` | 5 | dono segreto | 350 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0427` | 5 | dono segreto | 365 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0428` | 5 | dono segreto | 282 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0429` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0430` | 5 | dono segreto | 373 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0431` | 5 | dono segreto | 257 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0432` | 5 | dono segreto | 254 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0433` | 5 | dono segreto | 260 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0434` | 5 | dono segreto | 272 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0435` | 5 | dono segreto | 350 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0436` | 5 | dono segreto | 365 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0437` | 5 | dono segreto | 282 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0438` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0439` | 5 | dono segreto | 373 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0440` | 5 | dono segreto | 257 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0441` | 5 | dono segreto | 254 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0442` | 5 | dono segreto | 260 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0443` | 5 | dono segreto | 272 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0444` | 5 | dono segreto | 350 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0445` | 5 | dono segreto | 365 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0446` | 5 | dono segreto | 282 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0447` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0448` | 5 | dono segreto | 373 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0450` | 5 | dono segreto | 1 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0451` | 5 | dono segreto | 4 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0453` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0454` | 5 | dono segreto | 393 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0464` | 5 | dono segreto | 649 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0468` | 5 | dono segreto | 448 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0469` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0471` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0472` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0473` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0474` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0475` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0476` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0477` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0478` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0479` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0480` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0481` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0482` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0483` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0484` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0485` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0486` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0487` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0488` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0489` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0490` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0491` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0492` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0493` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0494` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0495` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0496` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0497` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0498` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0499` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0500` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0501` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0502` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0503` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0504` | 5 | dono segreto | 383 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0505` | 5 | dono segreto | 382 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0506` | 5 | dono segreto | 52 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0507` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0508` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0509` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0510` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0511` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0512` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0513` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0514` | 5 | dono segreto | 494 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0515` | 5 | dono segreto | 386 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0516` | 5 | dono segreto | 649 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0517` | 5 | dono segreto | 386 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0519` | 5 | dono segreto | 150 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0520` | 5 | dono segreto | 649 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0521` | 5 | dono segreto | 385 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0522` | 5 | dono segreto | 133 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0525` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0530` | 5 | dono segreto | 503 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0531` | 5 | dono segreto | 392 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0532` | 5 | dono segreto | 500 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0533` | 5 | dono segreto | 395 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0534` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0535` | 5 | dono segreto | 497 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0536` | 5 | dono segreto | 389 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0537` | 5 | dono segreto | 133 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0538` | 5 | dono segreto | 385 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0539` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0544` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0545` | 5 | dono segreto | 350 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0546` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0547` | 5 | dono segreto | 612 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0548` | 5 | dono segreto | 637 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0549` | 5 | dono segreto | 18 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0550` | 5 | dono segreto | 442 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0551` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0552` | 5 | dono segreto | 350 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0553` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0554` | 5 | dono segreto | 610 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0556` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0557` | 5 | dono segreto | 511 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0558` | 5 | dono segreto | 610 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0559` | 5 | dono segreto | 479 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0560` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0561` | 5 | dono segreto | 511 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0562` | 5 | dono segreto | 610 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0563` | 5 | dono segreto | 479 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0564` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0565` | 5 | dono segreto | 511 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0566` | 5 | dono segreto | 610 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0567` | 5 | dono segreto | 479 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0568` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0569` | 5 | dono segreto | 511 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0573` | 5 | dono segreto | 491 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0574` | 5 | dono segreto | 610 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0575` | 5 | dono segreto | 511 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0576` | 5 | dono segreto | 519 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0577` | 5 | dono segreto | 571 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0578` | 5 | dono segreto | 559 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0579` | 5 | dono segreto | 494 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0580` | 5 | dono segreto | 644 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0581` | 5 | dono segreto | 643 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0582` | 5 | dono segreto | 635 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0583` | 5 | dono segreto | 623 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0584` | 5 | dono segreto | 150 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0585` | 5 | dono segreto | 642 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0586` | 5 | dono segreto | 641 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0587` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0588` | 5 | dono segreto | 648 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0589` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0590` | 5 | dono segreto | 637 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0591` | 5 | dono segreto | 1 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0592` | 5 | dono segreto | 4 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0593` | 5 | dono segreto | 7 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0594` | 5 | dono segreto | 393 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0595` | 5 | dono segreto | 649 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0596` | 5 | dono segreto | 371 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0597` | 5 | dono segreto | 633 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0598` | 5 | dono segreto | 621 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0599` | 5 | dono segreto | 116 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0600` | 5 | dono segreto | 333 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0601` | 5 | dono segreto | 328 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0602` | 5 | dono segreto | 371 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0603` | 5 | dono segreto | 633 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0604` | 5 | dono segreto | 621 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0605` | 5 | dono segreto | 116 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0606` | 5 | dono segreto | 333 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0607` | 5 | dono segreto | 328 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0608` | 5 | dono segreto | 371 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0609` | 5 | dono segreto | 633 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0610` | 5 | dono segreto | 621 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0611` | 5 | dono segreto | 116 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0612` | 5 | dono segreto | 333 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0613` | 5 | dono segreto | 328 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0614` | 5 | dono segreto | 371 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0615` | 5 | dono segreto | 633 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0616` | 5 | dono segreto | 621 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0617` | 5 | dono segreto | 116 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0618` | 5 | dono segreto | 333 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0619` | 5 | dono segreto | 328 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0620` | 5 | dono segreto | 371 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0621` | 5 | dono segreto | 633 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0622` | 5 | dono segreto | 621 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0623` | 5 | dono segreto | 116 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0624` | 5 | dono segreto | 333 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0625` | 5 | dono segreto | 328 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0626` | 5 | dono segreto | 371 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0627` | 5 | dono segreto | 633 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0628` | 5 | dono segreto | 621 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0629` | 5 | dono segreto | 116 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0630` | 5 | dono segreto | 333 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0631` | 5 | dono segreto | 328 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0632` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0633` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0634` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0635` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0636` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0637` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0638` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0639` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0640` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0641` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0642` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0643` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0644` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0645` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0646` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0647` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0648` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0649` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0650` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0651` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0652` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0653` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0654` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0655` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0656` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0657` | 5 | dono segreto | 52 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0658` | 5 | dono segreto | 1 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0659` | 5 | dono segreto | 4 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0660` | 5 | dono segreto | 7 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0661` | 5 | dono segreto | 1 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0662` | 5 | dono segreto | 4 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0663` | 5 | dono segreto | 7 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0664` | 5 | dono segreto | 1 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0665` | 5 | dono segreto | 4 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0666` | 5 | dono segreto | 7 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0667` | 5 | dono segreto | 386 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0668` | 5 | dono segreto | 649 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0669` | 5 | dono segreto | 483 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0670` | 5 | dono segreto | 484 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0671` | 5 | dono segreto | 487 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0672` | 5 | dono segreto | 385 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0673` | 5 | dono segreto | 385 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0677` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0678` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0679` | 5 | dono segreto | 491 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0680` | 5 | dono segreto | 571 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0681` | 5 | dono segreto | 494 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0682` | 5 | dono segreto | 644 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0683` | 5 | dono segreto | 643 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0684` | 5 | dono segreto | 560 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0685` | 5 | dono segreto | 150 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0686` | 5 | dono segreto | 246 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0687` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0688` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0689` | 5 | dono segreto | 649 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0690` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0691` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0692` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0693` | 5 | dono segreto | 648 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0694` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0695` | 5 | dono segreto | 386 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0696` | 5 | dono segreto | 483 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0697` | 5 | dono segreto | 484 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0698` | 5 | dono segreto | 487 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
-| `EVT-5-0699` | 5 | dono segreto | 235 | 0 | Bianco, Nero e i loro seguiti | sì | no | letta, non ancora producibile |
+| `EVT-3-0124` | 3 | carta meraviglia | 263 | 0 | Zigzagoon Egg with Extreme Speed | sì | no | producibile e verificata |
+| `EVT-3-0127` | 3 | carta meraviglia | 172 | 0 | Pichu with Teeter Dance | sì | no | producibile e verificata |
+| `EVT-3-0128` | 3 | carta meraviglia | 172 | 0 | Pichu with Wish | sì | no | producibile e verificata |
+| `EVT-3-0129` | 3 | carta meraviglia | 172 | 0 | Pichu with Teeter Dance | sì | no | producibile e verificata |
+| `EVT-3-0130` | 3 | carta meraviglia | 172 | 0 | Pichu with Wish | sì | no | producibile e verificata |
+| `EVT-3-0132` | 3 | carta meraviglia | 280 | 0 | Ralts with Wish | sì | no | producibile e verificata |
+| `EVT-3-0133` | 3 | carta meraviglia | 359 | 0 | Absol with Spite | sì | no | producibile e verificata |
+| `EVT-3-0134` | 3 | carta meraviglia | 359 | 0 | Absol with Wish | sì | no | producibile e verificata |
+| `EVT-3-0136` | 3 | carta meraviglia | 371 | 0 | Bagon with Wish | sì | no | producibile e verificata |
+| `EVT-3-0138` | 3 | carta meraviglia | 52 | 0 | Meowth with Petal Dance | sì | no | producibile e verificata |
+| `EVT-3-0148` | 3 | carta meraviglia | 172 | 0 | Pichu with Follow me | sì | no | producibile e verificata |
+| `EVT-3-0154` | 3 | carta meraviglia | 300 | 0 | Skitty with Rollout | sì | no | producibile e verificata |
+| `EVT-3-0162` | 3 | carta meraviglia | 54 | 0 | Psyduck with Mud Sport | sì | no | producibile e verificata |
+| `EVT-3-0163` | 3 | carta meraviglia | 172 | 0 | Pichu with Follow Me | sì | no | producibile e verificata |
+| `EVT-3-0164` | 3 | carta meraviglia | 174 | 0 | Igglybuff with Tickle | sì | no | producibile e verificata |
+| `EVT-3-0165` | 3 | carta meraviglia | 222 | 0 | Corsola with Mud Sport | sì | no | producibile e verificata |
+| `EVT-3-0166` | 3 | carta meraviglia | 276 | 0 | Taillow with Feather Dance | sì | no | producibile e verificata |
+| `EVT-3-0167` | 3 | carta meraviglia | 283 | 0 | Surskit with Mud Sport | sì | no | producibile e verificata |
+| `EVT-3-0168` | 3 | carta meraviglia | 293 | 0 | Whismur with Teeter Dance | sì | no | producibile e verificata |
+| `EVT-3-0169` | 3 | carta meraviglia | 300 | 0 | Skitty with Rollout | sì | no | producibile e verificata |
+| `EVT-3-0170` | 3 | carta meraviglia | 311 | 0 | Plusle with Water Sport | sì | no | producibile e verificata |
+| `EVT-3-0171` | 3 | carta meraviglia | 312 | 0 | Minun with Mud Sport | sì | no | producibile e verificata |
+| `EVT-3-0172` | 3 | carta meraviglia | 325 | 0 | Spoink with Uproar | sì | no | producibile e verificata |
+| `EVT-3-0173` | 3 | carta meraviglia | 327 | 0 | Spinda with Sing | sì | no | producibile e verificata |
+| `EVT-3-0174` | 3 | carta meraviglia | 331 | 0 | Cacnea with Encore | sì | no | producibile e verificata |
+| `EVT-3-0175` | 3 | carta meraviglia | 341 | 0 | Corphish with Water Sport | sì | no | producibile e verificata |
+| `EVT-3-0176` | 3 | carta meraviglia | 360 | 0 | Wynaut with Tickle | sì | no | producibile e verificata |
+| `EVT-4-0000` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0002` | 4 | dono segreto | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0003` | 4 | dono segreto | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0004` | 4 | dono segreto | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0006` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0007` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0008` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0009` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0010` | 4 | dono segreto | 149 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0011` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0014` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0016` | 4 | dono segreto | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0017` | 4 | dono segreto | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0018` | 4 | dono segreto | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0019` | 4 | dono segreto | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0020` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0022` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0023` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0024` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0025` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0027` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0028` | 4 | dono segreto | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0029` | 4 | dono segreto | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0030` | 4 | dono segreto | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0031` | 4 | dono segreto | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0032` | 4 | dono segreto | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0033` | 4 | dono segreto | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0034` | 4 | dono segreto | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0035` | 4 | dono segreto | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0036` | 4 | dono segreto | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0037` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0039` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0044` | 4 | dono segreto | 350 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0045` | 4 | dono segreto | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0047` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0048` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0049` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0050` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0052` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0053` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0054` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0055` | 4 | dono segreto | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0056` | 4 | dono segreto | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0057` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0058` | 4 | dono segreto | 447 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0059` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0060` | 4 | dono segreto | 133 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0061` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0062` | 4 | dono segreto | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0063` | 4 | dono segreto | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0064` | 4 | dono segreto | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0065` | 4 | dono segreto | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0066` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0067` | 4 | dono segreto | 466 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0068` | 4 | dono segreto | 467 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0069` | 4 | dono segreto | 350 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0070` | 4 | dono segreto | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0071` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0072` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0073` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0074` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0075` | 4 | dono segreto | 485 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0076` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0077` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0078` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0079` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0080` | 4 | dono segreto | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0081` | 4 | dono segreto | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0082` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0083` | 4 | dono segreto | 447 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0084` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0085` | 4 | dono segreto | 133 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0086` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0087` | 4 | dono segreto | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0088` | 4 | dono segreto | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0089` | 4 | dono segreto | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0090` | 4 | dono segreto | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0091` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0092` | 4 | dono segreto | 466 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0093` | 4 | dono segreto | 467 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0094` | 4 | dono segreto | 350 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0095` | 4 | dono segreto | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0096` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0097` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0098` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0099` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0100` | 4 | dono segreto | 485 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0101` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0102` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0103` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0104` | 4 | dono segreto | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0105` | 4 | dono segreto | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0106` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0107` | 4 | dono segreto | 447 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0108` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0109` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0110` | 4 | dono segreto | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0111` | 4 | dono segreto | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0112` | 4 | dono segreto | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0113` | 4 | dono segreto | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0114` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0115` | 4 | dono segreto | 466 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0116` | 4 | dono segreto | 467 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0117` | 4 | dono segreto | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0118` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0119` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0120` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0121` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0122` | 4 | dono segreto | 485 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0123` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0127` | 4 | dono segreto | 52 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0132` | 4 | dono segreto | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0134` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0136` | 4 | dono segreto | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0137` | 4 | dono segreto | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0138` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0139` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0140` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0141` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0142` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0143` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0144` | 4 | dono segreto | 448 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0145` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0146` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0147` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0149` | 4 | dono segreto | 224 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0150` | 4 | dono segreto | 466 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0151` | 4 | dono segreto | 467 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0152` | 4 | dono segreto | 350 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0153` | 4 | dono segreto | 149 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0155` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0156` | 4 | dono segreto | 447 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0157` | 4 | dono segreto | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0158` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0159` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0160` | 4 | dono segreto | 4 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0161` | 4 | dono segreto | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0162` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0163` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0164` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0165` | 4 | dono segreto | 350 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0166` | 4 | dono segreto | 133 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0167` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0168` | 4 | dono segreto | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0169` | 4 | dono segreto | 52 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0170` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0171` | 4 | dono segreto | 4 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0173` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0174` | 4 | dono segreto | 133 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0175` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0176` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0177` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0178` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0179` | 4 | dono segreto | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0180` | 4 | dono segreto | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0181` | 4 | dono segreto | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0182` | 4 | dono segreto | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0184` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0185` | 4 | dono segreto | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0186` | 4 | dono segreto | 4 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0187` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0188` | 4 | dono segreto | 390 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0189` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0190` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0191` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0192` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0193` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0194` | 4 | dono segreto | 485 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0195` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0196` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0197` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0198` | 4 | dono segreto | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0200` | 4 | dono segreto | 466 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0201` | 4 | dono segreto | 467 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0203` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0205` | 4 | dono segreto | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0208` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0209` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0210` | 4 | dono segreto | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0211` | 4 | dono segreto | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0212` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0213` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0214` | 4 | dono segreto | 350 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0215` | 4 | dono segreto | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0216` | 4 | dono segreto | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0217` | 4 | dono segreto | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0218` | 4 | dono segreto | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0219` | 4 | dono segreto | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0220` | 4 | dono segreto | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0221` | 4 | dono segreto | 212 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0222` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0223` | 4 | dono segreto | 490 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0224` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0225` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0226` | 4 | dono segreto | 493 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0227` | 4 | dono segreto | 172 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0228` | 4 | dono segreto | 491 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0229` | 4 | dono segreto | 447 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0230` | 4 | dono segreto | 385 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0231` | 4 | dono segreto | 133 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0232` | 4 | dono segreto | 151 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0233` | 4 | dono segreto | 243 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0234` | 4 | dono segreto | 244 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0235` | 4 | dono segreto | 245 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0236` | 4 | dono segreto | 251 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0237` | 4 | dono segreto | 25 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0238` | 4 | dono segreto | 466 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0239` | 4 | dono segreto | 467 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0240` | 4 | dono segreto | 486 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0241` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0242` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0243` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0244` | 4 | dono segreto | 386 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0245` | 4 | dono segreto | 485 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-4-0246` | 4 | dono segreto | 492 | 0 | Diamante, Perla, Platino, HeartGold e SoulSilver | sì | no | prodotta e conforme |
+| `EVT-5-0002` | 5 | dono segreto | 491 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0003` | 5 | dono segreto | 491 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0008` | 5 | dono segreto | 571 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0011` | 5 | dono segreto | 644 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0013` | 5 | dono segreto | 643 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0018` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0019` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0021` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0022` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0026` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0027` | 5 | dono segreto | 386 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0028` | 5 | dono segreto | 150 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0030` | 5 | dono segreto | 483 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0032` | 5 | dono segreto | 484 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0034` | 5 | dono segreto | 487 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0036` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0037` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0038` | 5 | dono segreto | 491 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0039` | 5 | dono segreto | 571 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0040` | 5 | dono segreto | 571 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0041` | 5 | dono segreto | 494 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0042` | 5 | dono segreto | 644 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0043` | 5 | dono segreto | 643 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0044` | 5 | dono segreto | 560 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0045` | 5 | dono segreto | 150 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0046` | 5 | dono segreto | 246 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0047` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0048` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0049` | 5 | dono segreto | 649 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0050` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0051` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0052` | 5 | dono segreto | 648 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0053` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0054` | 5 | dono segreto | 386 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0055` | 5 | dono segreto | 483 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0056` | 5 | dono segreto | 484 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0057` | 5 | dono segreto | 487 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0058` | 5 | dono segreto | 235 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0059` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0060` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0061` | 5 | dono segreto | 491 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0062` | 5 | dono segreto | 571 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0063` | 5 | dono segreto | 494 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0064` | 5 | dono segreto | 644 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0065` | 5 | dono segreto | 643 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0066` | 5 | dono segreto | 560 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0067` | 5 | dono segreto | 150 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0068` | 5 | dono segreto | 246 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0069` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0070` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0071` | 5 | dono segreto | 649 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0072` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0073` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0074` | 5 | dono segreto | 648 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0075` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0076` | 5 | dono segreto | 386 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0077` | 5 | dono segreto | 483 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0078` | 5 | dono segreto | 484 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0079` | 5 | dono segreto | 487 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0080` | 5 | dono segreto | 235 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0081` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0082` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0083` | 5 | dono segreto | 491 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0084` | 5 | dono segreto | 571 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0085` | 5 | dono segreto | 494 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0086` | 5 | dono segreto | 644 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0087` | 5 | dono segreto | 643 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0088` | 5 | dono segreto | 560 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0089` | 5 | dono segreto | 150 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0090` | 5 | dono segreto | 246 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0091` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0092` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0093` | 5 | dono segreto | 649 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0094` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0095` | 5 | dono segreto | 52 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0096` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0097` | 5 | dono segreto | 648 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0098` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0099` | 5 | dono segreto | 386 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0100` | 5 | dono segreto | 483 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0101` | 5 | dono segreto | 484 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0102` | 5 | dono segreto | 487 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0103` | 5 | dono segreto | 235 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0105` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0107` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0109` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0111` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0114` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0115` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0116` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0117` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0118` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0119` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0120` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0121` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0122` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0123` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0124` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0125` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0126` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0127` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0128` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0129` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0130` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0131` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0132` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0133` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0134` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0135` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0136` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0137` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0138` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0139` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0140` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0141` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0142` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0143` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0144` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0145` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0146` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0147` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0148` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0149` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0150` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0151` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0152` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0153` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0154` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0155` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0156` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0157` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0158` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0159` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0160` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0161` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0162` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0163` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0164` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0165` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0166` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0167` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0168` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0169` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0170` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0171` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0172` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0173` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0174` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0175` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0176` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0177` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0178` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0179` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0180` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0181` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0182` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0183` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0184` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0185` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0186` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0187` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0188` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0189` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0190` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0191` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0192` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0193` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0194` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0195` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0196` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0197` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0198` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0199` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0200` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0201` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0202` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0203` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0204` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0205` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0206` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0207` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0208` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0209` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0210` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0211` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0212` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0213` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0214` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0215` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0216` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0217` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0218` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0219` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0220` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0221` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0222` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0223` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0224` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0225` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0226` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0227` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0228` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0229` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0230` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0231` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0232` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0233` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0234` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0235` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0236` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0237` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0238` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0239` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0240` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0241` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0242` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0243` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0244` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0245` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0246` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0247` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0248` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0249` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0250` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0251` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0252` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0253` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0254` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0255` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0256` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0257` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0258` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0259` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0260` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0261` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0262` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0263` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0264` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0265` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0266` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0267` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0268` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0269` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0270` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0271` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0272` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0273` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0274` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0275` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0276` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0277` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0278` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0279` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0280` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0281` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0282` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0283` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0284` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0285` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0286` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0287` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0288` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0289` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0290` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0291` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0292` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0293` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0294` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0295` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0296` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0297` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0298` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0299` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0300` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0301` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0302` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0303` | 5 | dono segreto | 125 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0304` | 5 | dono segreto | 93 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0305` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0306` | 5 | dono segreto | 67 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0307` | 5 | dono segreto | 126 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0308` | 5 | dono segreto | 123 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0309` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0310` | 5 | dono segreto | 79 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0311` | 5 | dono segreto | 491 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0312` | 5 | dono segreto | 491 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0313` | 5 | dono segreto | 610 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0314` | 5 | dono segreto | 511 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0315` | 5 | dono segreto | 519 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0316` | 5 | dono segreto | 571 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0318` | 5 | dono segreto | 494 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0319` | 5 | dono segreto | 644 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0320` | 5 | dono segreto | 643 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0321` | 5 | dono segreto | 610 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0324` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0325` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0326` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0327` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0328` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0329` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0330` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0331` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0332` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0333` | 5 | dono segreto | 150 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0335` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0336` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0337` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0338` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0339` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0340` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0341` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0344` | 5 | dono segreto | 492 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0345` | 5 | dono segreto | 371 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0349` | 5 | dono segreto | 333 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0351` | 5 | dono segreto | 371 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0352` | 5 | dono segreto | 633 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0353` | 5 | dono segreto | 621 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0354` | 5 | dono segreto | 116 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0355` | 5 | dono segreto | 333 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0356` | 5 | dono segreto | 328 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0357` | 5 | dono segreto | 371 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0358` | 5 | dono segreto | 633 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0359` | 5 | dono segreto | 621 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0360` | 5 | dono segreto | 116 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0361` | 5 | dono segreto | 333 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0362` | 5 | dono segreto | 328 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0363` | 5 | dono segreto | 371 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0364` | 5 | dono segreto | 633 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0365` | 5 | dono segreto | 621 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0366` | 5 | dono segreto | 116 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0367` | 5 | dono segreto | 333 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0368` | 5 | dono segreto | 328 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0369` | 5 | dono segreto | 384 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0370` | 5 | dono segreto | 384 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0371` | 5 | dono segreto | 257 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0374` | 5 | dono segreto | 272 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0375` | 5 | dono segreto | 350 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0378` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0379` | 5 | dono segreto | 373 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0382` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0383` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0384` | 5 | dono segreto | 648 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0385` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0386` | 5 | dono segreto | 257 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0387` | 5 | dono segreto | 254 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0388` | 5 | dono segreto | 260 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0389` | 5 | dono segreto | 272 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0390` | 5 | dono segreto | 350 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0391` | 5 | dono segreto | 365 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0392` | 5 | dono segreto | 282 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0393` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0394` | 5 | dono segreto | 373 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0395` | 5 | dono segreto | 257 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0396` | 5 | dono segreto | 254 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0397` | 5 | dono segreto | 260 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0398` | 5 | dono segreto | 272 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0399` | 5 | dono segreto | 350 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0400` | 5 | dono segreto | 365 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0401` | 5 | dono segreto | 282 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0402` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0403` | 5 | dono segreto | 373 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0404` | 5 | dono segreto | 257 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0405` | 5 | dono segreto | 254 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0406` | 5 | dono segreto | 260 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0407` | 5 | dono segreto | 272 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0408` | 5 | dono segreto | 350 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0409` | 5 | dono segreto | 365 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0410` | 5 | dono segreto | 282 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0411` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0412` | 5 | dono segreto | 373 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0413` | 5 | dono segreto | 257 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0414` | 5 | dono segreto | 254 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0415` | 5 | dono segreto | 260 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0416` | 5 | dono segreto | 272 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0417` | 5 | dono segreto | 350 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0418` | 5 | dono segreto | 365 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0419` | 5 | dono segreto | 282 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0420` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0421` | 5 | dono segreto | 373 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0422` | 5 | dono segreto | 257 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0423` | 5 | dono segreto | 254 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0424` | 5 | dono segreto | 260 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0425` | 5 | dono segreto | 272 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0426` | 5 | dono segreto | 350 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0427` | 5 | dono segreto | 365 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0428` | 5 | dono segreto | 282 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0429` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0430` | 5 | dono segreto | 373 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0431` | 5 | dono segreto | 257 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0432` | 5 | dono segreto | 254 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0433` | 5 | dono segreto | 260 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0434` | 5 | dono segreto | 272 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0435` | 5 | dono segreto | 350 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0436` | 5 | dono segreto | 365 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0437` | 5 | dono segreto | 282 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0438` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0439` | 5 | dono segreto | 373 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0440` | 5 | dono segreto | 257 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0441` | 5 | dono segreto | 254 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0442` | 5 | dono segreto | 260 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0443` | 5 | dono segreto | 272 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0444` | 5 | dono segreto | 350 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0445` | 5 | dono segreto | 365 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0446` | 5 | dono segreto | 282 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0447` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0448` | 5 | dono segreto | 373 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0450` | 5 | dono segreto | 1 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0451` | 5 | dono segreto | 4 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0453` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0454` | 5 | dono segreto | 393 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0464` | 5 | dono segreto | 649 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0468` | 5 | dono segreto | 448 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0469` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0471` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0472` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0473` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0474` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0475` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0476` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0477` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0478` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0479` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0480` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0481` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0482` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0483` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0484` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0485` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0486` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0487` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0488` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0489` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0490` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0491` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0492` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0493` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0494` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0495` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0496` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0497` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0498` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0499` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0500` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0501` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0502` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0503` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0504` | 5 | dono segreto | 383 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0505` | 5 | dono segreto | 382 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0506` | 5 | dono segreto | 52 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0507` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0508` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0509` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0510` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0511` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0512` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0513` | 5 | dono segreto | 531 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0514` | 5 | dono segreto | 494 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0515` | 5 | dono segreto | 386 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0516` | 5 | dono segreto | 649 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0517` | 5 | dono segreto | 386 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0519` | 5 | dono segreto | 150 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0520` | 5 | dono segreto | 649 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0521` | 5 | dono segreto | 385 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0522` | 5 | dono segreto | 133 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0525` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0530` | 5 | dono segreto | 503 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0531` | 5 | dono segreto | 392 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0532` | 5 | dono segreto | 500 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0533` | 5 | dono segreto | 395 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0534` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0535` | 5 | dono segreto | 497 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0536` | 5 | dono segreto | 389 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0537` | 5 | dono segreto | 133 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0538` | 5 | dono segreto | 385 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0539` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0544` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0545` | 5 | dono segreto | 350 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0546` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0547` | 5 | dono segreto | 612 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0548` | 5 | dono segreto | 637 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0549` | 5 | dono segreto | 18 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0550` | 5 | dono segreto | 442 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0551` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0552` | 5 | dono segreto | 350 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0553` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0554` | 5 | dono segreto | 610 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0556` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0557` | 5 | dono segreto | 511 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0558` | 5 | dono segreto | 610 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0559` | 5 | dono segreto | 479 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0560` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0561` | 5 | dono segreto | 511 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0562` | 5 | dono segreto | 610 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0563` | 5 | dono segreto | 479 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0564` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0565` | 5 | dono segreto | 511 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0566` | 5 | dono segreto | 610 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0567` | 5 | dono segreto | 479 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0568` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0569` | 5 | dono segreto | 511 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0573` | 5 | dono segreto | 491 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0574` | 5 | dono segreto | 610 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0575` | 5 | dono segreto | 511 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0576` | 5 | dono segreto | 519 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0577` | 5 | dono segreto | 571 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0578` | 5 | dono segreto | 559 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0579` | 5 | dono segreto | 494 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0580` | 5 | dono segreto | 644 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0581` | 5 | dono segreto | 643 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0582` | 5 | dono segreto | 635 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0583` | 5 | dono segreto | 623 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0584` | 5 | dono segreto | 150 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0585` | 5 | dono segreto | 642 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0586` | 5 | dono segreto | 641 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0587` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0588` | 5 | dono segreto | 648 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0589` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0590` | 5 | dono segreto | 637 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0591` | 5 | dono segreto | 1 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0592` | 5 | dono segreto | 4 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0593` | 5 | dono segreto | 7 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0594` | 5 | dono segreto | 393 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0595` | 5 | dono segreto | 649 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0596` | 5 | dono segreto | 371 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0597` | 5 | dono segreto | 633 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0598` | 5 | dono segreto | 621 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0599` | 5 | dono segreto | 116 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0600` | 5 | dono segreto | 333 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0601` | 5 | dono segreto | 328 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0602` | 5 | dono segreto | 371 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0603` | 5 | dono segreto | 633 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0604` | 5 | dono segreto | 621 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0605` | 5 | dono segreto | 116 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0606` | 5 | dono segreto | 333 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0607` | 5 | dono segreto | 328 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0608` | 5 | dono segreto | 371 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0609` | 5 | dono segreto | 633 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0610` | 5 | dono segreto | 621 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0611` | 5 | dono segreto | 116 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0612` | 5 | dono segreto | 333 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0613` | 5 | dono segreto | 328 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0614` | 5 | dono segreto | 371 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0615` | 5 | dono segreto | 633 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0616` | 5 | dono segreto | 621 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0617` | 5 | dono segreto | 116 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0618` | 5 | dono segreto | 333 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0619` | 5 | dono segreto | 328 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0620` | 5 | dono segreto | 371 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0621` | 5 | dono segreto | 633 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0622` | 5 | dono segreto | 621 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0623` | 5 | dono segreto | 116 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0624` | 5 | dono segreto | 333 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0625` | 5 | dono segreto | 328 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0626` | 5 | dono segreto | 371 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0627` | 5 | dono segreto | 633 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0628` | 5 | dono segreto | 621 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0629` | 5 | dono segreto | 116 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0630` | 5 | dono segreto | 333 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0631` | 5 | dono segreto | 328 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0632` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0633` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0634` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0635` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0636` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0637` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0638` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0639` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0640` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0641` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0642` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0643` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0644` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0645` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0646` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0647` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0648` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0649` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0650` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0651` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0652` | 5 | dono segreto | 149 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0653` | 5 | dono segreto | 445 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0654` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0655` | 5 | dono segreto | 212 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0656` | 5 | dono segreto | 248 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0657` | 5 | dono segreto | 52 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0658` | 5 | dono segreto | 1 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0659` | 5 | dono segreto | 4 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0660` | 5 | dono segreto | 7 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0661` | 5 | dono segreto | 1 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0662` | 5 | dono segreto | 4 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0663` | 5 | dono segreto | 7 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0664` | 5 | dono segreto | 1 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0665` | 5 | dono segreto | 4 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0666` | 5 | dono segreto | 7 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0667` | 5 | dono segreto | 386 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0668` | 5 | dono segreto | 649 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0669` | 5 | dono segreto | 483 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0670` | 5 | dono segreto | 484 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0671` | 5 | dono segreto | 487 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0672` | 5 | dono segreto | 385 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0673` | 5 | dono segreto | 385 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0677` | 5 | dono segreto | 588 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0678` | 5 | dono segreto | 616 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0679` | 5 | dono segreto | 491 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0680` | 5 | dono segreto | 571 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0681` | 5 | dono segreto | 494 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0682` | 5 | dono segreto | 644 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0683` | 5 | dono segreto | 643 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0684` | 5 | dono segreto | 560 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0685` | 5 | dono segreto | 150 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0686` | 5 | dono segreto | 246 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0687` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0688` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0689` | 5 | dono segreto | 649 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0690` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0691` | 5 | dono segreto | 25 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0692` | 5 | dono segreto | 647 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0693` | 5 | dono segreto | 648 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0694` | 5 | dono segreto | 376 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0695` | 5 | dono segreto | 386 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0696` | 5 | dono segreto | 483 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0697` | 5 | dono segreto | 484 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0698` | 5 | dono segreto | 487 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
+| `EVT-5-0699` | 5 | dono segreto | 235 | 0 | Bianco, Nero e i loro seguiti | sì | no | prodotta e conforme |
 | `EVT-6-0000` | 6 | dono segreto | 445 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0003` | 6 | dono segreto | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0004` | 6 | dono segreto | 392 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
@@ -2488,7 +2494,9 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-6-0054` | 6 | dono segreto | 7 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0055` | 6 | dono segreto | 720 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0058` | 6 | dono segreto | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
+| `EVT-6-0059` | 6 | dono segreto | 225 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0060` | 6 | dono segreto | 149 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
+| `EVT-6-0061` | 6 | dono segreto | 241 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0062` | 6 | dono segreto | 445 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0064` | 6 | dono segreto | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0065` | 6 | dono segreto | 384 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
@@ -2631,6 +2639,7 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-6-0209` | 6 | dono segreto | 115 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0210` | 6 | dono segreto | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0211` | 6 | dono segreto | 248 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
+| `EVT-6-0212` | 6 | dono segreto | 303 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0213` | 6 | dono segreto | 130 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0214` | 6 | dono segreto | 115 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0215` | 6 | dono segreto | 212 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
@@ -2679,6 +2688,9 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-6-0260` | 6 | dono segreto | 700 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0261` | 6 | dono segreto | 197 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0262` | 6 | dono segreto | 134 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
+| `EVT-6-0263` | 6 | dono segreto | 152 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
+| `EVT-6-0264` | 6 | dono segreto | 155 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
+| `EVT-6-0265` | 6 | dono segreto | 158 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0266` | 6 | dono segreto | 151 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0267` | 6 | dono segreto | 666 | 19 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0268` | 6 | dono segreto | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
@@ -2686,6 +2698,7 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-6-0270` | 6 | dono segreto | 144 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0271` | 6 | dono segreto | 145 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0272` | 6 | dono segreto | 146 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
+| `EVT-6-0273` | 6 | dono segreto | 3 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0274` | 6 | dono segreto | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0275` | 6 | dono segreto | 9 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0276` | 6 | dono segreto | 150 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
@@ -2727,6 +2740,7 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-6-0318` | 6 | dono segreto | 93 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0319` | 6 | dono segreto | 123 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0320` | 6 | dono segreto | 445 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
+| `EVT-6-0321` | 6 | dono segreto | 179 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0322` | 6 | dono segreto | 716 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0323` | 6 | dono segreto | 717 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0324` | 6 | dono segreto | 718 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
@@ -2755,6 +2769,8 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-6-0348` | 6 | dono segreto | 362 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0350` | 6 | dono segreto | 362 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0351` | 6 | dono segreto | 251 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
+| `EVT-6-0352` | 6 | dono segreto | 160 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
+| `EVT-6-0353` | 6 | dono segreto | 154 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0354` | 6 | dono segreto | 157 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0355` | 6 | dono segreto | 378 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0356` | 6 | dono segreto | 377 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
@@ -2825,6 +2841,8 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-6-0421` | 6 | dono segreto | 125 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0422` | 6 | dono segreto | 666 | 19 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0423` | 6 | dono segreto | 666 | 19 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
+| `EVT-6-0424` | 6 | dono segreto | 214 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
+| `EVT-6-0425` | 6 | dono segreto | 127 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0426` | 6 | dono segreto | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0427` | 6 | dono segreto | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0429` | 6 | dono segreto | 710 | 3 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
@@ -2930,7 +2948,9 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-6-0532` | 6 | dono segreto | 25 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0533` | 6 | dono segreto | 371 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0534` | 6 | dono segreto | 371 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
+| `EVT-6-0535` | 6 | dono segreto | 318 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0536` | 6 | dono segreto | 318 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
+| `EVT-6-0537` | 6 | dono segreto | 322 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0538` | 6 | dono segreto | 322 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0539` | 6 | dono segreto | 280 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0540` | 6 | dono segreto | 280 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
@@ -3034,6 +3054,7 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-6-0641` | 6 | dono segreto | 720 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0642` | 6 | dono segreto | 248 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0643` | 6 | dono segreto | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
+| `EVT-6-0644` | 6 | dono segreto | 334 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0645` | 6 | dono segreto | 334 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0646` | 6 | dono segreto | 531 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0647` | 6 | dono segreto | 531 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
@@ -3109,11 +3130,13 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-6-0718` | 6 | dono segreto | 6 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0719` | 6 | dono segreto | 214 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0720` | 6 | dono segreto | 214 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
+| `EVT-6-0721` | 6 | dono segreto | 310 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0722` | 6 | dono segreto | 310 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0723` | 6 | dono segreto | 248 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0724` | 6 | dono segreto | 248 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0725` | 6 | dono segreto | 127 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0726` | 6 | dono segreto | 127 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
+| `EVT-6-0727` | 6 | dono segreto | 229 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0728` | 6 | dono segreto | 229 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0730` | 6 | dono segreto | 306 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
 | `EVT-6-0731` | 6 | dono segreto | 385 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | no | letta, non ancora producibile |
@@ -3180,6 +3203,7 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-7-0010` | 7 | dono segreto | 785 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0011` | 7 | dono segreto | 6 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0012` | 7 | dono segreto | 59 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
+| `EVT-7-0013` | 7 | dono segreto | 103 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0014` | 7 | dono segreto | 802 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0015` | 7 | dono segreto | 25 | 6 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0016` | 7 | dono segreto | 25 | 2 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
@@ -3446,6 +3470,7 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-7-0289` | 7 | dono segreto | 517 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0291` | 7 | dono segreto | 133 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0292` | 7 | dono segreto | 25 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
+| `EVT-7-0293` | 7 | dono segreto | 37 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0294` | 7 | dono segreto | 68 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0295` | 7 | dono segreto | 785 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0303` | 7 | dono segreto | 25 | 6 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
@@ -3476,6 +3501,8 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-7-0329` | 7 | dono segreto | 393 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0330` | 7 | dono segreto | 448 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0331` | 7 | dono segreto | 773 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
+| `EVT-7-0332` | 7 | dono segreto | 337 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
+| `EVT-7-0333` | 7 | dono segreto | 338 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0334` | 7 | dono segreto | 776 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0335` | 7 | dono segreto | 762 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0336` | 7 | dono segreto | 37 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
@@ -3503,11 +3530,13 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-7-0359` | 7 | dono segreto | 803 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0361` | 7 | dono segreto | 169 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0366` | 7 | dono segreto | 222 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
+| `EVT-7-0367` | 7 | dono segreto | 143 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0368` | 7 | dono segreto | 25 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0369` | 7 | dono segreto | 249 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0370` | 7 | dono segreto | 492 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0371` | 7 | dono segreto | 25 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0372` | 7 | dono segreto | 807 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
+| `EVT-7-0373` | 7 | dono segreto | 55 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0374` | 7 | dono segreto | 385 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0375` | 7 | dono segreto | 249 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0376` | 7 | dono segreto | 807 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
@@ -3528,6 +3557,7 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-7-0392` | 7 | dono segreto | 517 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0393` | 7 | dono segreto | 785 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0394` | 7 | dono segreto | 37 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
+| `EVT-7-0397` | 7 | dono segreto | 88 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0398` | 7 | dono segreto | 780 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0399` | 7 | dono segreto | 704 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
 | `EVT-7-0400` | 7 | dono segreto | 747 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | no | letta, non ancora producibile |
@@ -4007,120 +4037,100 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-9-0118` | 9 | dono segreto | 498 | 0 | Leggende Z-A | no | no | letta, non ancora producibile |
 | `EVT-9-0119` | 9 | dono segreto | 158 | 0 | Leggende Z-A | no | no | letta, non ancora producibile |
 | `EVT-9-0120` | 9 | dono segreto | 721 | 0 | Leggende Z-A | no | no | letta, non ancora producibile |
-| `EVT-T-0000` | 3 | oggetto-distribuito | 380 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Eone, Isola del Sud, Rubino, livello 50 | sì | no | censita, non ancora producibile |
-| `EVT-T-0001` | 3 | oggetto-distribuito | 381 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Eone, Isola del Sud, Zaffiro, livello 50 | sì | no | censita, non ancora producibile |
-| `EVT-T-0002` | 3 | oggetto-distribuito | 380 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Eone, Isola del Sud, Smeraldo, livello 50 | sì | no | censita, non ancora producibile |
-| `EVT-T-0003` | 3 | oggetto-distribuito | 381 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Eone, Isola del Sud, Smeraldo, livello 50 | sì | no | censita, non ancora producibile |
-| `EVT-T-0004` | 3 | oggetto-distribuito | 151 | 0 | Distribuzioni in cui il dono era un oggetto: Carta Mare Antica, Isola Lontana, Smeraldo, livello 30 | sì | no | censita, non ancora producibile |
-| `EVT-T-0005` | 3 | oggetto-distribuito | 249 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Mistico, Rocca Ombelico, Smeraldo, livello 70 | sì | no | censita, non ancora producibile |
-| `EVT-T-0006` | 3 | oggetto-distribuito | 250 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Mistico, Rocca Ombelico, Smeraldo, livello 70 | sì | no | censita, non ancora producibile |
-| `EVT-T-0007` | 3 | oggetto-distribuito | 386 | 3 | Distribuzioni in cui il dono era un oggetto: Biglietto Aurora, Isola Nascita, Smeraldo, livello 30 | sì | no | censita, non ancora producibile |
-| `EVT-T-0008` | 3 | oggetto-distribuito | 249 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Mistico, Rocca Ombelico, Rosso Fuoco e Verde Foglia, livello 70 | sì | no | censita, non ancora producibile |
-| `EVT-T-0009` | 3 | oggetto-distribuito | 250 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Mistico, Rocca Ombelico, Rosso Fuoco e Verde Foglia, livello 70 | sì | no | censita, non ancora producibile |
-| `EVT-T-0010` | 3 | oggetto-distribuito | 386 | 1 | Distribuzioni in cui il dono era un oggetto: Biglietto Aurora, Isola Nascita, Rosso Fuoco, livello 30 | sì | no | censita, non ancora producibile |
-| `EVT-T-0011` | 3 | oggetto-distribuito | 386 | 2 | Distribuzioni in cui il dono era un oggetto: Biglietto Aurora, Isola Nascita, Verde Foglia, livello 30 | sì | no | censita, non ancora producibile |
+| `EVT-T-0000` | 3 | oggetto-distribuito | 380 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Eone, Isola Remota, Rubino, livello 50 | sì | no | censita, non ancora producibile |
+| `EVT-T-0001` | 3 | oggetto-distribuito | 381 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Eone, Isola Remota, Zaffiro, livello 50 | sì | no | censita, non ancora producibile |
+| `EVT-T-0002` | 3 | oggetto-distribuito | 380 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Eone, Isola Remota, Smeraldo, livello 50 | sì | no | censita, non ancora producibile |
+| `EVT-T-0003` | 3 | oggetto-distribuito | 381 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Eone, Isola Remota, Smeraldo, livello 50 | sì | no | censita, non ancora producibile |
+| `EVT-T-0004` | 3 | oggetto-distribuito | 151 | 0 | Distribuzioni in cui il dono era un oggetto: Carta Mare Antica, Isola Suprema, Smeraldo, livello 30 | sì | no | censita, non ancora producibile |
+| `EVT-T-0005` | 3 | oggetto-distribuito | 249 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Magico, Rocca Ombelico, Smeraldo, livello 70 | sì | no | censita, non ancora producibile |
+| `EVT-T-0006` | 3 | oggetto-distribuito | 250 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Magico, Rocca Ombelico, Smeraldo, livello 70 | sì | no | censita, non ancora producibile |
+| `EVT-T-0007` | 3 | oggetto-distribuito | 386 | 3 | Distribuzioni in cui il dono era un oggetto: Biglietto Aurora, Isola Materna, Smeraldo, livello 30 | sì | no | censita, non ancora producibile |
+| `EVT-T-0008` | 3 | oggetto-distribuito | 249 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Magico, Rocca Ombelico, Rosso Fuoco e Verde Foglia, livello 70 | sì | no | censita, non ancora producibile |
+| `EVT-T-0009` | 3 | oggetto-distribuito | 250 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Magico, Rocca Ombelico, Rosso Fuoco e Verde Foglia, livello 70 | sì | no | censita, non ancora producibile |
+| `EVT-T-0010` | 3 | oggetto-distribuito | 386 | 1 | Distribuzioni in cui il dono era un oggetto: Biglietto Aurora, Isola Materna, Rosso Fuoco, livello 30 | sì | no | censita, non ancora producibile |
+| `EVT-T-0011` | 3 | oggetto-distribuito | 386 | 2 | Distribuzioni in cui il dono era un oggetto: Biglietto Aurora, Isola Materna, Verde Foglia, livello 30 | sì | no | censita, non ancora producibile |
 | `EVT-T-0012` | 4 | oggetto-distribuito | 491 | 0 | Distribuzioni in cui il dono era un oggetto: Tessera Membro, Isola Lunanova, Platino, livello 50 | sì | no | censita, non ancora producibile |
 | `EVT-T-0013` | 4 | oggetto-distribuito | 492 | 0 | Distribuzioni in cui il dono era un oggetto: Lettera di Oak, Giardino Floreale, Platino, livello 30 | sì | no | censita, non ancora producibile |
 | `EVT-T-0014` | 5 | oggetto-distribuito | 494 | 0 | Distribuzioni in cui il dono era un oggetto: Passo Libertà, Giardino Libertà, Nero e Bianco, livello 15 | sì | no | censita, non ancora producibile |
 | `EVT-T-0015` | 3 | disco-bonus | 25 | 0 | Colosseum, disco bonus, solo Giappone: Colosseum Pikachu bonus gift | sì | no | censita, non ancora producibile |
 | `EVT-T-0016` | 3 | disco-bonus | 251 | 0 | Colosseum, disco bonus, solo Giappone: Ageto Celebi bonus gift | sì | no | censita, non ancora producibile |
-| `EVT-T-0017` | 3 | spinoff | 250 | 0 | Colosseum, premio del Monte Lotta: Ho-oh @ Mt. Battle | sì | no | censita, non ancora producibile |
-| `EVT-T-0018` | 3 | spinoff | 196 | 0 | Colosseum, iniziali: Espeon | sì | no | censita, non ancora producibile |
-| `EVT-T-0019` | 3 | spinoff | 197 | 0 | Colosseum, iniziali: Umbreon (Bite) | sì | no | censita, non ancora producibile |
-| `EVT-T-0020` | 3 | spinoff | 311 | 0 | Colosseum, doni: Plusle @ In-game Trade | sì | no | censita, non ancora producibile |
-| `EVT-T-0023` | 3 | spinoff | 153 | 0 | Colosseum, ombra: Bayleef: Cipher Peon Verde @ Shadow PKMN Lab | sì | no | censita, non ancora producibile |
-| `EVT-T-0024` | 3 | spinoff | 153 | 0 | Colosseum, ombra: Bayleef: Cipher Peon Verde @ Realgam Tower | sì | no | censita, non ancora producibile |
-| `EVT-T-0025` | 3 | spinoff | 153 | 0 | Colosseum, ombra: Bayleef: Cipher Peon Verde @ Snagem Hideout | sì | no | censita, non ancora producibile |
-| `EVT-T-0027` | 3 | spinoff | 156 | 0 | Colosseum, ombra: Quilava: Cipher Peon Rosso @ Shadow PKMN Lab | sì | no | censita, non ancora producibile |
-| `EVT-T-0028` | 3 | spinoff | 156 | 0 | Colosseum, ombra: Quilava: Cipher Peon Rosso @ Realgam Tower | sì | no | censita, non ancora producibile |
-| `EVT-T-0029` | 3 | spinoff | 156 | 0 | Colosseum, ombra: Quilava: Cipher Peon Rosso @ Snagem Hideout | sì | no | censita, non ancora producibile |
-| `EVT-T-0031` | 3 | spinoff | 159 | 0 | Colosseum, ombra: Croconaw: Cipher Peon Bluno @ Shadow PKMN Lab | sì | no | censita, non ancora producibile |
-| `EVT-T-0032` | 3 | spinoff | 159 | 0 | Colosseum, ombra: Croconaw: Cipher Peon Bluno @ Realgam Tower | sì | no | censita, non ancora producibile |
-| `EVT-T-0033` | 3 | spinoff | 159 | 0 | Colosseum, ombra: Croconaw: Cipher Peon Bluno @ Snagem Hideout | sì | no | censita, non ancora producibile |
-| `EVT-T-0040` | 3 | spinoff | 193 | 0 | Colosseum, ombra: Yanma: Cipher Peon Nore @ Snagem Hideout | sì | no | censita, non ancora producibile |
-| `EVT-T-0044` | 3 | spinoff | 223 | 0 | Colosseum, ombra: Remoraid: Miror B.Peon Reath @ Pyrite Cave | sì | no | censita, non ancora producibile |
-| `EVT-T-0046` | 3 | spinoff | 226 | 0 | Colosseum, ombra: Mantine: Miror B.Peon Ferma @ Pyrite Cave | sì | no | censita, non ancora producibile |
-| `EVT-T-0050` | 3 | spinoff | 333 | 0 | Colosseum, ombra: Swablu: Hunter Zalo @ Pyrite Cave | sì | no | censita, non ancora producibile |
-| `EVT-T-0052` | 3 | spinoff | 185 | 0 | Colosseum, ombra: Sudowoodo: Cipher Admin Miror B. @ Deep Colosseum | sì | no | censita, non ancora producibile |
-| `EVT-T-0053` | 3 | spinoff | 185 | 0 | Colosseum, ombra: Sudowoodo: Cipher Admin Miror B. @ Pyrite Cave | sì | no | censita, non ancora producibile |
-| `EVT-T-0054` | 3 | spinoff | 237 | 0 | Colosseum, ombra: Hitmontop: Cipher Peon Skrub @ Agate Village | sì | no | censita, non ancora producibile |
-| `EVT-T-0055` | 3 | spinoff | 237 | 0 | Colosseum, ombra: Hitmontop: Cipher Peon Skrub @ Snagem Hideout | sì | no | censita, non ancora producibile |
-| `EVT-T-0056` | 3 | spinoff | 237 | 0 | Colosseum, ombra: Hitmontop: Cipher Peon Skrub @ Shadow PKMN Lab | sì | no | censita, non ancora producibile |
-| `EVT-T-0057` | 3 | spinoff | 244 | 0 | Colosseum, ombra: Entei: Cipher Admin Dakim @ Realgam Tower | sì | no | censita, non ancora producibile |
-| `EVT-T-0058` | 3 | spinoff | 244 | 0 | Colosseum, ombra: Entei: Cipher Admin Dakim @ Deep Colosseum | sì | no | censita, non ancora producibile |
-| `EVT-T-0059` | 3 | spinoff | 244 | 0 | Colosseum, ombra: Entei: Cipher Admin Dakim @ Mt. Battle | sì | no | censita, non ancora producibile |
-| `EVT-T-0061` | 3 | spinoff | 166 | 0 | Colosseum, ombra: Ledian: Cipher Peon Kloak @ Snagem Hideout | sì | no | censita, non ancora producibile |
+| `EVT-T-0017` | 3 | spinoff | 250 | 0 | Colosseum, premio del Monte Lotta: Ho-oh @ Mt. Battle | sì | no | prodotta e conforme |
+| `EVT-T-0018` | 3 | spinoff | 196 | 0 | Colosseum, iniziali: Espeon | sì | no | prodotta e conforme |
+| `EVT-T-0019` | 3 | spinoff | 197 | 0 | Colosseum, iniziali: Umbreon (Bite) | sì | no | prodotta e conforme |
+| `EVT-T-0020` | 3 | spinoff | 311 | 0 | Colosseum, doni: Plusle @ In-game Trade | sì | no | prodotta e conforme |
+| `EVT-T-0023` | 3 | spinoff | 153 | 0 | Colosseum, ombra: Bayleef: Cipher Peon Verde @ Shadow PKMN Lab | sì | no | prodotta e conforme |
+| `EVT-T-0024` | 3 | spinoff | 153 | 0 | Colosseum, ombra: Bayleef: Cipher Peon Verde @ Realgam Tower | sì | no | prodotta e conforme |
+| `EVT-T-0025` | 3 | spinoff | 153 | 0 | Colosseum, ombra: Bayleef: Cipher Peon Verde @ Snagem Hideout | sì | no | prodotta e conforme |
+| `EVT-T-0027` | 3 | spinoff | 156 | 0 | Colosseum, ombra: Quilava: Cipher Peon Rosso @ Shadow PKMN Lab | sì | no | prodotta e conforme |
+| `EVT-T-0028` | 3 | spinoff | 156 | 0 | Colosseum, ombra: Quilava: Cipher Peon Rosso @ Realgam Tower | sì | no | prodotta e conforme |
+| `EVT-T-0029` | 3 | spinoff | 156 | 0 | Colosseum, ombra: Quilava: Cipher Peon Rosso @ Snagem Hideout | sì | no | prodotta e conforme |
+| `EVT-T-0031` | 3 | spinoff | 159 | 0 | Colosseum, ombra: Croconaw: Cipher Peon Bluno @ Shadow PKMN Lab | sì | no | prodotta e conforme |
+| `EVT-T-0032` | 3 | spinoff | 159 | 0 | Colosseum, ombra: Croconaw: Cipher Peon Bluno @ Realgam Tower | sì | no | prodotta e conforme |
+| `EVT-T-0033` | 3 | spinoff | 159 | 0 | Colosseum, ombra: Croconaw: Cipher Peon Bluno @ Snagem Hideout | sì | no | prodotta e conforme |
+| `EVT-T-0040` | 3 | spinoff | 193 | 0 | Colosseum, ombra: Yanma: Cipher Peon Nore @ Snagem Hideout | sì | no | prodotta e conforme |
+| `EVT-T-0044` | 3 | spinoff | 223 | 0 | Colosseum, ombra: Remoraid: Miror B.Peon Reath @ Pyrite Cave | sì | no | prodotta e conforme |
+| `EVT-T-0046` | 3 | spinoff | 226 | 0 | Colosseum, ombra: Mantine: Miror B.Peon Ferma @ Pyrite Cave | sì | no | prodotta e conforme |
+| `EVT-T-0050` | 3 | spinoff | 333 | 0 | Colosseum, ombra: Swablu: Hunter Zalo @ Pyrite Cave | sì | no | prodotta e conforme |
+| `EVT-T-0052` | 3 | spinoff | 185 | 0 | Colosseum, ombra: Sudowoodo: Cipher Admin Miror B. @ Deep Colosseum | sì | no | prodotta e conforme |
+| `EVT-T-0053` | 3 | spinoff | 185 | 0 | Colosseum, ombra: Sudowoodo: Cipher Admin Miror B. @ Pyrite Cave | sì | no | prodotta e conforme |
+| `EVT-T-0054` | 3 | spinoff | 237 | 0 | Colosseum, ombra: Hitmontop: Cipher Peon Skrub @ Agate Village | sì | no | prodotta e conforme |
+| `EVT-T-0055` | 3 | spinoff | 237 | 0 | Colosseum, ombra: Hitmontop: Cipher Peon Skrub @ Snagem Hideout | sì | no | prodotta e conforme |
+| `EVT-T-0056` | 3 | spinoff | 237 | 0 | Colosseum, ombra: Hitmontop: Cipher Peon Skrub @ Shadow PKMN Lab | sì | no | prodotta e conforme |
+| `EVT-T-0057` | 3 | spinoff | 244 | 0 | Colosseum, ombra: Entei: Cipher Admin Dakim @ Realgam Tower | sì | no | prodotta e conforme |
+| `EVT-T-0058` | 3 | spinoff | 244 | 0 | Colosseum, ombra: Entei: Cipher Admin Dakim @ Deep Colosseum | sì | no | prodotta e conforme |
+| `EVT-T-0059` | 3 | spinoff | 244 | 0 | Colosseum, ombra: Entei: Cipher Admin Dakim @ Mt. Battle | sì | no | prodotta e conforme |
+| `EVT-T-0061` | 3 | spinoff | 166 | 0 | Colosseum, ombra: Ledian: Cipher Peon Kloak @ Snagem Hideout | sì | no | prodotta e conforme |
 | `EVT-T-0062` | 3 | spinoff | 245 | 0 | Colosseum, ombra: Suicune (Surf): Cipher Admin Venus @ Realgam Tower | sì | no | censita, non ancora producibile |
 | `EVT-T-0063` | 3 | spinoff | 245 | 0 | Colosseum, ombra: Suicune (Hydro Pump): Cipher Admin Venus @ Deep Colosseum | sì | no | censita, non ancora producibile |
 | `EVT-T-0064` | 3 | spinoff | 245 | 0 | Colosseum, ombra: Suicune (Surf): Cipher Admin Venus @ The Under | sì | no | censita, non ancora producibile |
-| `EVT-T-0066` | 3 | spinoff | 207 | 0 | Colosseum, ombra: Gligar: Hunter Frena @ Snagem Hideout | sì | no | censita, non ancora producibile |
-| `EVT-T-0068` | 3 | spinoff | 234 | 0 | Colosseum, ombra: Stantler: Chaser Liaks @ Snagem Hideout | sì | no | censita, non ancora producibile |
-| `EVT-T-0070` | 3 | spinoff | 221 | 0 | Colosseum, ombra: Piloswine: Bodybuilder Lonia @ Snagem Hideout | sì | no | censita, non ancora producibile |
-| `EVT-T-0072` | 3 | spinoff | 215 | 0 | Colosseum, ombra: Sneasel: Rider Nelis @ Snagem Hideout | sì | no | censita, non ancora producibile |
-| `EVT-T-0075` | 3 | spinoff | 198 | 0 | Colosseum, ombra: Murkrow: Cipher Peon Lare @ Shadow PKMN Lab (Trainer drops from ceiling: can lose during play-through, rematch later) | sì | no | censita, non ancora producibile |
+| `EVT-T-0066` | 3 | spinoff | 207 | 0 | Colosseum, ombra: Gligar: Hunter Frena @ Snagem Hideout | sì | no | prodotta e conforme |
+| `EVT-T-0068` | 3 | spinoff | 234 | 0 | Colosseum, ombra: Stantler: Chaser Liaks @ Snagem Hideout | sì | no | prodotta e conforme |
+| `EVT-T-0070` | 3 | spinoff | 221 | 0 | Colosseum, ombra: Piloswine: Bodybuilder Lonia @ Snagem Hideout | sì | no | prodotta e conforme |
+| `EVT-T-0072` | 3 | spinoff | 215 | 0 | Colosseum, ombra: Sneasel: Rider Nelis @ Snagem Hideout | sì | no | prodotta e conforme |
+| `EVT-T-0075` | 3 | spinoff | 198 | 0 | Colosseum, ombra: Murkrow: Cipher Peon Lare @ Shadow PKMN Lab (Trainer drops from ceiling: can lose during play-through, rematch later) | sì | no | prodotta e conforme |
 | `EVT-T-0080` | 3 | spinoff | 243 | 0 | Colosseum, ombra: Raikou: Cipher Admin Ein @ Realgam Tower | sì | no | censita, non ancora producibile |
 | `EVT-T-0081` | 3 | spinoff | 243 | 0 | Colosseum, ombra: Raikou: Cipher Admin Ein @ Deep Colosseum | sì | no | censita, non ancora producibile |
 | `EVT-T-0082` | 3 | spinoff | 243 | 0 | Colosseum, ombra: Raikou: Cipher Admin Ein @ Shadow PKMN Lab | sì | no | censita, non ancora producibile |
-| `EVT-T-0084` | 3 | spinoff | 192 | 0 | Colosseum, ombra: Sunflora: Cipher Peon Baila @ Snagem Hideout | sì | no | censita, non ancora producibile |
-| `EVT-T-0085` | 3 | spinoff | 225 | 0 | Colosseum, ombra: Delibird: Cipher Peon Arton @ Realgam Tower | sì | no | censita, non ancora producibile |
-| `EVT-T-0086` | 3 | spinoff | 225 | 0 | Colosseum, ombra: Delibird: Cipher Peon Arton @ Snagem Hideout | sì | no | censita, non ancora producibile |
-| `EVT-T-0087` | 3 | spinoff | 214 | 0 | Colosseum, ombra: Heracross: Cipher Peon Dioge @ Realgam Tower | sì | no | censita, non ancora producibile |
-| `EVT-T-0088` | 3 | spinoff | 214 | 0 | Colosseum, ombra: Heracross: Cipher Peon Dioge @ Snagem Hideout (Trainer drops from ceiling: can lose during play-through, rematch later) | sì | no | censita, non ancora producibile |
-| `EVT-T-0090` | 3 | spinoff | 227 | 0 | Colosseum, ombra: Skarmory: Snagem Head Gonzap @ Snagem Hideout | sì | no | censita, non ancora producibile |
-| `EVT-T-0091` | 3 | spinoff | 241 | 0 | Colosseum, ombra: Miltank: Bodybuilder Jomas @ Tower Colosseum | sì | no | censita, non ancora producibile |
-| `EVT-T-0092` | 3 | spinoff | 359 | 0 | Colosseum, ombra: Absol: Rider Delan @ Tower Colosseum | sì | no | censita, non ancora producibile |
-| `EVT-T-0093` | 3 | spinoff | 229 | 0 | Colosseum, ombra: Houndoom: Cipher Peon Nella @ Tower Colosseum | sì | no | censita, non ancora producibile |
-| `EVT-T-0094` | 3 | spinoff | 357 | 0 | Colosseum, ombra: Tropius: Cipher Peon Ston @ Tower Colosseum | sì | no | censita, non ancora producibile |
-| `EVT-T-0095` | 3 | spinoff | 376 | 0 | Colosseum, ombra: Metagross: Cipher Nascour @ Tower Colosseum | sì | no | censita, non ancora producibile |
-| `EVT-T-0096` | 3 | spinoff | 248 | 0 | Colosseum, ombra: Tyranitar: Cipher Head Evice @ Tower Colosseum | sì | no | censita, non ancora producibile |
-| `EVT-T-0097` | 3 | spinoff | 235 | 0 | Colosseum, ombra: Smeargle: Team Snagem Biden @ Snagem Hideout | sì | no | censita, non ancora producibile |
-| `EVT-T-0101` | 3 | spinoff | 133 | 0 | XD, doni: Eevee (Bite) | sì | no | censita, non ancora producibile |
-| `EVT-T-0102` | 3 | spinoff | 152 | 0 | XD, doni: Chikorita | sì | no | censita, non ancora producibile |
-| `EVT-T-0103` | 3 | spinoff | 155 | 0 | XD, doni: Cyndaquil | sì | no | censita, non ancora producibile |
-| `EVT-T-0104` | 3 | spinoff | 158 | 0 | XD, doni: Totodile | sì | no | censita, non ancora producibile |
-| `EVT-T-0106` | 3 | spinoff | 307 | 0 | XD, scambi: Meditite @ Pyrite Town | sì | no | censita, non ancora producibile |
-| `EVT-T-0107` | 3 | spinoff | 213 | 0 | XD, scambi: Shuckle @ Pyrite Town | sì | no | censita, non ancora producibile |
-| `EVT-T-0108` | 3 | spinoff | 246 | 0 | XD, scambi: Larvitar @ Pyrite Town | sì | no | censita, non ancora producibile |
-| `EVT-T-0110` | 3 | spinoff | 37 | 0 | XD, ombra: Vulpix: Cipher Peon Mesin @ ONBS Building | sì | no | censita, non ancora producibile |
-| `EVT-T-0112` | 3 | spinoff | 363 | 0 | XD, ombra: Spheal: Cipher Peon Blusix  @ Phenac City | sì | no | censita, non ancora producibile |
-| `EVT-T-0114` | 3 | spinoff | 343 | 0 | XD, ombra: Baltoy: Cipher Peon Browsix  @ Phenac City | sì | no | censita, non ancora producibile |
-| `EVT-T-0115` | 3 | spinoff | 179 | 0 | XD, ombra: Mareep: Cipher Peon Yellosix @ Cipher Lab | sì | no | censita, non ancora producibile |
-| `EVT-T-0116` | 3 | spinoff | 179 | 0 | XD, ombra: Mareep: Cipher Peon Yellosix @ Phenac City | sì | no | censita, non ancora producibile |
-| `EVT-T-0118` | 3 | spinoff | 316 | 0 | XD, ombra: Gulpin: Cipher Peon Purpsix @ Phenac City | sì | no | censita, non ancora producibile |
-| `EVT-T-0120` | 3 | spinoff | 273 | 0 | XD, ombra: Seedot: Cipher Peon Greesix @ Phenac City | sì | no | censita, non ancora producibile |
-| `EVT-T-0122` | 3 | spinoff | 322 | 0 | XD, ombra: Numel: Cipher Peon Solox @ Cipher Lab | sì | no | censita, non ancora producibile |
-| `EVT-T-0123` | 3 | spinoff | 318 | 0 | XD, ombra: Carvanha: Cipher Peon Cabol @ Cipher Lab | sì | no | censita, non ancora producibile |
-| `EVT-T-0128` | 3 | spinoff | 228 | 0 | XD, ombra: Houndour: Cipher Peon Resix @ Cipher Lab | sì | no | censita, non ancora producibile |
-| `EVT-T-0129` | 3 | spinoff | 296 | 0 | XD, ombra: Makuhita: Cipher Peon Torkin @ ONBS Building | sì | no | censita, non ancora producibile |
-| `EVT-T-0131` | 3 | spinoff | 280 | 0 | XD, ombra: Ralts: Cipher Peon Feldas @ ONBS Building | sì | no | censita, non ancora producibile |
-| `EVT-T-0132` | 3 | spinoff | 303 | 0 | XD, ombra: Mawile: Cipher Cmdr Exol @ ONBS Building | sì | no | censita, non ancora producibile |
-| `EVT-T-0138` | 3 | spinoff | 52 | 0 | XD, ombra: Meowth: Cipher Peon Fostin @ Phenac City | sì | no | censita, non ancora producibile |
-| `EVT-T-0140` | 3 | spinoff | 88 | 0 | XD, ombra: Grimer: Cipher Peon Faltly @ Phenac Stadium | sì | no | censita, non ancora producibile |
-| `EVT-T-0142` | 3 | spinoff | 337 | 0 | XD, ombra: Lunatone: Cipher Admin Snattle @ Phenac Stadium | sì | no | censita, non ancora producibile |
-| `EVT-T-0158` | 3 | spinoff | 55 | 0 | XD, ombra: Golduck: Navigator Abson @ Citadark Isle | sì | no | censita, non ancora producibile |
-| `EVT-T-0159` | 3 | spinoff | 302 | 0 | XD, ombra: Sableye: Navigator Abson @ Citadark Isle | sì | no | censita, non ancora producibile |
-| `EVT-T-0162` | 3 | spinoff | 83 | 0 | XD, ombra: Farfetch'd: Cipher Admin Lovrina @ Citadark Isle | sì | no | censita, non ancora producibile |
-| `EVT-T-0163` | 3 | spinoff | 334 | 0 | XD, ombra: Altaria: Cipher Admin Lovrina @ Citadark Isle | sì | no | censita, non ancora producibile |
-| `EVT-T-0164` | 3 | spinoff | 115 | 0 | XD, ombra: Kangaskhan: Cipher Peon Litnar @ Citadark Isle | sì | no | censita, non ancora producibile |
-| `EVT-T-0166` | 3 | spinoff | 126 | 0 | XD, ombra: Magmar: Cipher Peon Grupel @ Citadark Isle | sì | no | censita, non ancora producibile |
-| `EVT-T-0167` | 3 | spinoff | 127 | 0 | XD, ombra: Pinsir: Cipher Peon Grupel @ Citadark Isle | sì | no | censita, non ancora producibile |
-| `EVT-T-0172` | 3 | spinoff | 108 | 0 | XD, ombra: Lickitung: Cipher Peon Geftal @ Citadark Isle | sì | no | censita, non ancora producibile |
-| `EVT-T-0173` | 3 | spinoff | 123 | 0 | XD, ombra: Scyther: Cipher Peon Leden @ Citadark Isle | sì | no | censita, non ancora producibile |
-| `EVT-T-0174` | 3 | spinoff | 113 | 0 | XD, ombra: Chansey: Cipher Peon Leden @ Citadark Isle | sì | no | censita, non ancora producibile |
-| `EVT-T-0175` | 3 | spinoff | 113 | 0 | XD, ombra: Chansey: Cipher Peon Leden @ Citadark Isle | sì | no | censita, non ancora producibile |
-| `EVT-T-0176` | 3 | spinoff | 338 | 0 | XD, ombra: Solrock: Cipher Admin Snattle @ Citadark Isle | sì | no | censita, non ancora producibile |
-| `EVT-T-0178` | 3 | spinoff | 125 | 0 | XD, ombra: Electabuzz: Cipher Admin Ardos @ Citadark Isle | sì | no | censita, non ancora producibile |
-| `EVT-T-0180` | 3 | spinoff | 143 | 0 | XD, ombra: Snorlax: Cipher Admin Ardos @ Citadark Isle | sì | no | censita, non ancora producibile |
-| `EVT-T-0184` | 3 | spinoff | 310 | 0 | XD, ombra: Manectric: Cipher Admin Eldes @ Citadark Isle | sì | no | censita, non ancora producibile |
-| `EVT-T-0185` | 3 | spinoff | 373 | 0 | XD, ombra: Salamence: Cipher Admin Eldes @ Citadark Isle | sì | no | censita, non ancora producibile |
-| `EVT-T-0188` | 3 | spinoff | 249 | 0 | XD, ombra: Lugia: Grand Master Greevil @ Citadark Isle | sì | no | censita, non ancora producibile |
-| `EVT-T-0189` | 3 | spinoff | 145 | 0 | XD, ombra: Zapdos: Grand Master Greevil @ Citadark Isle | sì | no | censita, non ancora producibile |
-| `EVT-T-0190` | 3 | spinoff | 146 | 0 | XD, ombra: Moltres: Grand Master Greevil @ Citadark Isle | sì | no | censita, non ancora producibile |
-| `EVT-T-0191` | 3 | spinoff | 144 | 0 | XD, ombra: Articuno: Grand Master Greevil @ Citadark Isle | sì | no | censita, non ancora producibile |
-| `EVT-T-0194` | 3 | spinoff | 103 | 0 | XD, ombra: Exeggutor: Grand Master Greevil @ Citadark Isle | sì | no | censita, non ancora producibile |
-| `EVT-T-0195` | 3 | spinoff | 149 | 0 | XD, ombra: Dragonite: Wanderer Miror B. @ Gateon Port | sì | no | censita, non ancora producibile |
+| `EVT-T-0084` | 3 | spinoff | 192 | 0 | Colosseum, ombra: Sunflora: Cipher Peon Baila @ Snagem Hideout | sì | no | prodotta e conforme |
+| `EVT-T-0086` | 3 | spinoff | 225 | 0 | Colosseum, ombra: Delibird: Cipher Peon Arton @ Snagem Hideout | sì | no | prodotta e conforme |
+| `EVT-T-0088` | 3 | spinoff | 214 | 0 | Colosseum, ombra: Heracross: Cipher Peon Dioge @ Snagem Hideout (Trainer drops from ceiling: can lose during play-through, rematch later) | sì | no | prodotta e conforme |
+| `EVT-T-0090` | 3 | spinoff | 227 | 0 | Colosseum, ombra: Skarmory: Snagem Head Gonzap @ Snagem Hideout | sì | no | prodotta e conforme |
+| `EVT-T-0092` | 3 | spinoff | 359 | 0 | Colosseum, ombra: Absol: Rider Delan @ Tower Colosseum | sì | no | prodotta e conforme |
+| `EVT-T-0094` | 3 | spinoff | 357 | 0 | Colosseum, ombra: Tropius: Cipher Peon Ston @ Tower Colosseum | sì | no | prodotta e conforme |
+| `EVT-T-0095` | 3 | spinoff | 376 | 0 | Colosseum, ombra: Metagross: Cipher Nascour @ Tower Colosseum | sì | no | prodotta e conforme |
+| `EVT-T-0096` | 3 | spinoff | 248 | 0 | Colosseum, ombra: Tyranitar: Cipher Head Evice @ Tower Colosseum | sì | no | prodotta e conforme |
+| `EVT-T-0097` | 3 | spinoff | 235 | 0 | Colosseum, ombra: Smeargle: Team Snagem Biden @ Snagem Hideout | sì | no | prodotta e conforme |
+| `EVT-T-0101` | 3 | spinoff | 133 | 0 | XD, doni: Eevee (Bite) | sì | no | prodotta e conforme |
+| `EVT-T-0106` | 3 | spinoff | 307 | 0 | XD, scambi: Meditite @ Pyrite Town | sì | no | prodotta e conforme |
+| `EVT-T-0107` | 3 | spinoff | 213 | 0 | XD, scambi: Shuckle @ Pyrite Town | sì | no | prodotta e conforme |
+| `EVT-T-0108` | 3 | spinoff | 246 | 0 | XD, scambi: Larvitar @ Pyrite Town | sì | no | prodotta e conforme |
+| `EVT-T-0112` | 3 | spinoff | 363 | 0 | XD, ombra: Spheal: Cipher Peon Blusix  @ Phenac City | sì | no | prodotta e conforme |
+| `EVT-T-0114` | 3 | spinoff | 343 | 0 | XD, ombra: Baltoy: Cipher Peon Browsix  @ Phenac City | sì | no | prodotta e conforme |
+| `EVT-T-0116` | 3 | spinoff | 179 | 0 | XD, ombra: Mareep: Cipher Peon Yellosix @ Phenac City | sì | no | prodotta e conforme |
+| `EVT-T-0118` | 3 | spinoff | 316 | 0 | XD, ombra: Gulpin: Cipher Peon Purpsix @ Phenac City | sì | no | prodotta e conforme |
+| `EVT-T-0120` | 3 | spinoff | 273 | 0 | XD, ombra: Seedot: Cipher Peon Greesix @ Phenac City | sì | no | prodotta e conforme |
+| `EVT-T-0128` | 3 | spinoff | 228 | 0 | XD, ombra: Houndour: Cipher Peon Resix @ Cipher Lab | sì | no | prodotta e conforme |
+| `EVT-T-0129` | 3 | spinoff | 296 | 0 | XD, ombra: Makuhita: Cipher Peon Torkin @ ONBS Building | sì | no | prodotta e conforme |
+| `EVT-T-0131` | 3 | spinoff | 280 | 0 | XD, ombra: Ralts: Cipher Peon Feldas @ ONBS Building | sì | no | prodotta e conforme |
+| `EVT-T-0138` | 3 | spinoff | 52 | 0 | XD, ombra: Meowth: Cipher Peon Fostin @ Phenac City | sì | no | prodotta e conforme |
+| `EVT-T-0159` | 3 | spinoff | 302 | 0 | XD, ombra: Sableye: Navigator Abson @ Citadark Isle | sì | no | prodotta e conforme |
+| `EVT-T-0162` | 3 | spinoff | 83 | 0 | XD, ombra: Farfetch'd: Cipher Admin Lovrina @ Citadark Isle | sì | no | prodotta e conforme |
+| `EVT-T-0164` | 3 | spinoff | 115 | 0 | XD, ombra: Kangaskhan: Cipher Peon Litnar @ Citadark Isle | sì | no | prodotta e conforme |
+| `EVT-T-0166` | 3 | spinoff | 126 | 0 | XD, ombra: Magmar: Cipher Peon Grupel @ Citadark Isle | sì | no | prodotta e conforme |
+| `EVT-T-0172` | 3 | spinoff | 108 | 0 | XD, ombra: Lickitung: Cipher Peon Geftal @ Citadark Isle | sì | no | prodotta e conforme |
+| `EVT-T-0173` | 3 | spinoff | 123 | 0 | XD, ombra: Scyther: Cipher Peon Leden @ Citadark Isle | sì | no | prodotta e conforme |
+| `EVT-T-0174` | 3 | spinoff | 113 | 0 | XD, ombra: Chansey: Cipher Peon Leden @ Citadark Isle | sì | no | prodotta e conforme |
+| `EVT-T-0175` | 3 | spinoff | 113 | 0 | XD, ombra: Chansey: Cipher Peon Leden @ Citadark Isle | sì | no | prodotta e conforme |
+| `EVT-T-0178` | 3 | spinoff | 125 | 0 | XD, ombra: Electabuzz: Cipher Admin Ardos @ Citadark Isle | sì | no | prodotta e conforme |
+| `EVT-T-0185` | 3 | spinoff | 373 | 0 | XD, ombra: Salamence: Cipher Admin Eldes @ Citadark Isle | sì | no | prodotta e conforme |
+| `EVT-T-0188` | 3 | spinoff | 249 | 0 | XD, ombra: Lugia: Grand Master Greevil @ Citadark Isle | sì | no | prodotta e conforme |
+| `EVT-T-0189` | 3 | spinoff | 145 | 0 | XD, ombra: Zapdos: Grand Master Greevil @ Citadark Isle | sì | no | prodotta e conforme |
+| `EVT-T-0190` | 3 | spinoff | 146 | 0 | XD, ombra: Moltres: Grand Master Greevil @ Citadark Isle | sì | no | prodotta e conforme |
+| `EVT-T-0191` | 3 | spinoff | 144 | 0 | XD, ombra: Articuno: Grand Master Greevil @ Citadark Isle | sì | no | prodotta e conforme |
+| `EVT-T-0195` | 3 | spinoff | 149 | 0 | XD, ombra: Dragonite: Wanderer Miror B. @ Gateon Port | sì | no | prodotta e conforme |
 | `EVT-T-0199` | 4 | periferica | 25 | 0 | My Pokemon Ranch: Pikachu | sì | no | censita, non ancora producibile |
 | `EVT-T-0200` | 4 | periferica | 37 | 0 | My Pokemon Ranch: Vulpix | sì | no | censita, non ancora producibile |
+| `EVT-T-0201` | 4 | periferica | 77 | 0 | My Pokemon Ranch: Ponyta | sì | no | censita, non ancora producibile |
 | `EVT-T-0202` | 4 | periferica | 108 | 0 | My Pokemon Ranch: Lickitung | sì | no | censita, non ancora producibile |
 | `EVT-T-0203` | 4 | periferica | 114 | 0 | My Pokemon Ranch: Tangela | sì | no | censita, non ancora producibile |
 | `EVT-T-0204` | 4 | periferica | 133 | 0 | My Pokemon Ranch: Eevee | sì | no | censita, non ancora producibile |
@@ -4133,9 +4143,13 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-T-0219` | 4 | periferica | 50 | 0 | My Pokemon Ranch: Mew | sì | no | censita, non ancora producibile |
 | `EVT-T-0220` | 4 | periferica | 1 | 0 | My Pokemon Ranch: Phione | sì | no | censita, non ancora producibile |
 | `EVT-T-0221` | 5 | periferica | 79 | 0 | Dream Radar: Slowpoke | sì | no | censita, non ancora producibile |
+| `EVT-T-0222` | 5 | periferica | 120 | 0 | Dream Radar: Staryu | sì | no | censita, non ancora producibile |
+| `EVT-T-0223` | 5 | periferica | 137 | 0 | Dream Radar: Porygon | sì | no | censita, non ancora producibile |
+| `EVT-T-0224` | 5 | periferica | 163 | 0 | Dream Radar: Hoothoot | sì | no | censita, non ancora producibile |
 | `EVT-T-0225` | 5 | periferica | 174 | 0 | Dream Radar: Igglybuff | sì | no | censita, non ancora producibile |
 | `EVT-T-0226` | 5 | periferica | 175 | 0 | Dream Radar: Togepi | sì | no | censita, non ancora producibile |
 | `EVT-T-0227` | 5 | periferica | 213 | 0 | Dream Radar: Shuckle | sì | no | censita, non ancora producibile |
+| `EVT-T-0228` | 5 | periferica | 238 | 0 | Dream Radar: Smoochum | sì | no | censita, non ancora producibile |
 | `EVT-T-0229` | 5 | periferica | 249 | 0 | Dream Radar: Lugia (SoulSilver cart) | sì | no | censita, non ancora producibile |
 | `EVT-T-0230` | 5 | periferica | 250 | 0 | Dream Radar: Ho-Oh (HeartGold cart) | sì | no | censita, non ancora producibile |
 | `EVT-T-0231` | 5 | periferica | 280 | 0 | Dream Radar: Ralts | sì | no | censita, non ancora producibile |
@@ -4178,27 +4192,44 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-T-0271` | 8 | condizionato | 493 | 0 | Diamante Lucente e Perla Splendente, doni fatidici: Arceus (Shining Pearl) | no | no | censita, non ancora producibile |
 | `EVT-T-0272` | 8 | condizionato | 647 | 1 | Spada e Scudo, doni fatidici: Keldeo-1 at Ballimere Lake | no | no | censita, non ancora producibile |
 | `EVT-T-0273` | 4 | periferica | 115 | 0 | Pokewalker: corso Prato Ristoro, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0274` | 4 | periferica | 84 | 0 | Pokewalker: corso Prato Ristoro, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0275` | 4 | periferica | 29 | 0 | Pokewalker: corso Prato Ristoro, livello 5, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0276` | 4 | periferica | 32 | 0 | Pokewalker: corso Prato Ristoro, livello 5, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0278` | 4 | periferica | 161 | 0 | Pokewalker: corso Prato Ristoro, livello 5, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0279` | 4 | periferica | 202 | 0 | Pokewalker: corso Bosco Rumoroso, livello 15, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0280` | 4 | periferica | 69 | 0 | Pokewalker: corso Bosco Rumoroso, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0282` | 4 | periferica | 46 | 0 | Pokewalker: corso Bosco Rumoroso, livello 6, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0283` | 4 | periferica | 43 | 0 | Pokewalker: corso Bosco Rumoroso, livello 5, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0284` | 4 | periferica | 21 | 0 | Pokewalker: corso Bosco Rumoroso, livello 5, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0285` | 4 | periferica | 240 | 0 | Pokewalker: corso Strada Sconnessa, livello 9, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0286` | 4 | periferica | 95 | 0 | Pokewalker: corso Strada Sconnessa, livello 9, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0287` | 4 | periferica | 66 | 0 | Pokewalker: corso Strada Sconnessa, livello 7, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0288` | 4 | periferica | 77 | 0 | Pokewalker: corso Strada Sconnessa, livello 7, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0289` | 4 | periferica | 163 | 0 | Pokewalker: corso Strada Sconnessa, livello 6, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0290` | 4 | periferica | 74 | 0 | Pokewalker: corso Strada Sconnessa, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0291` | 4 | periferica | 54 | 0 | Pokewalker: corso Bella Spiaggia, livello 10, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0292` | 4 | periferica | 120 | 0 | Pokewalker: corso Bella Spiaggia, livello 10, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0293` | 4 | periferica | 79 | 0 | Pokewalker: corso Bella Spiaggia, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0294` | 4 | periferica | 60 | 0 | Pokewalker: corso Bella Spiaggia, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0295` | 4 | periferica | 191 | 0 | Pokewalker: corso Bella Spiaggia, livello 6, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0296` | 4 | periferica | 194 | 0 | Pokewalker: corso Bella Spiaggia, livello 6, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0297` | 4 | periferica | 239 | 0 | Pokewalker: corso Zona Suburbana, livello 11, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0298` | 4 | periferica | 81 | 0 | Pokewalker: corso Zona Suburbana, livello 11, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0299` | 4 | periferica | 81 | 0 | Pokewalker: corso Zona Suburbana, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0300` | 4 | periferica | 198 | 0 | Pokewalker: corso Zona Suburbana, livello 11, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0301` | 4 | periferica | 163 | 0 | Pokewalker: corso Zona Suburbana, livello 7, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0303` | 4 | periferica | 238 | 0 | Pokewalker: corso Grotta Buia, livello 12, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0305` | 4 | periferica | 92 | 0 | Pokewalker: corso Grotta Buia, livello 10, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0306` | 4 | periferica | 95 | 0 | Pokewalker: corso Grotta Buia, livello 10, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0307` | 4 | periferica | 41 | 0 | Pokewalker: corso Grotta Buia, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0308` | 4 | periferica | 66 | 0 | Pokewalker: corso Grotta Buia, livello 8, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0309` | 4 | periferica | 147 | 0 | Pokewalker: corso Lago Blu, livello 10, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0310` | 4 | periferica | 60 | 0 | Pokewalker: corso Lago Blu, livello 15, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0311` | 4 | periferica | 98 | 0 | Pokewalker: corso Lago Blu, livello 12, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0312` | 4 | periferica | 90 | 0 | Pokewalker: corso Lago Blu, livello 12, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0313` | 4 | periferica | 118 | 0 | Pokewalker: corso Lago Blu, livello 9, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0314` | 4 | periferica | 72 | 0 | Pokewalker: corso Lago Blu, livello 9, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0315` | 4 | periferica | 63 | 0 | Pokewalker: corso Periferia, livello 15, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0316` | 4 | periferica | 100 | 0 | Pokewalker: corso Periferia, livello 15, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0318` | 4 | periferica | 88 | 0 | Pokewalker: corso Periferia, livello 13, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0319` | 4 | periferica | 19 | 0 | Pokewalker: corso Periferia, livello 16, corso in dotazione | sì | no | censita, non ancora producibile |
@@ -4237,6 +4268,7 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-T-0370` | 4 | periferica | 200 | 0 | Pokewalker: corso Lago Bianco, livello 32, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0371` | 4 | periferica | 93 | 0 | Pokewalker: corso Lago Bianco, livello 25, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0373` | 4 | periferica | 223 | 0 | Pokewalker: corso Lago Bianco, livello 19, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0374` | 4 | periferica | 170 | 0 | Pokewalker: corso Lago Bianco, livello 17, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0375` | 4 | periferica | 456 | 0 | Pokewalker: corso Spiaggia Tempestosa, livello 26, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0376` | 4 | periferica | 422 | 0 | Pokewalker: corso Spiaggia Tempestosa, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0377` | 4 | periferica | 129 | 0 | Pokewalker: corso Spiaggia Tempestosa, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
@@ -4245,6 +4277,8 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-T-0380` | 4 | periferica | 90 | 0 | Pokewalker: corso Spiaggia Tempestosa, livello 20, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0381` | 4 | periferica | 417 | 0 | Pokewalker: corso Villaggio Turistico, livello 33, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0382` | 4 | periferica | 25 | 0 | Pokewalker: corso Villaggio Turistico, livello 30, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0385` | 4 | periferica | 183 | 0 | Pokewalker: corso Villaggio Turistico, livello 25, corso in dotazione | sì | no | censita, non ancora producibile |
+| `EVT-T-0386` | 4 | periferica | 187 | 0 | Pokewalker: corso Villaggio Turistico, livello 25, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0387` | 4 | periferica | 442 | 0 | Pokewalker: corso Grotta Silente, livello 31, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0388` | 4 | periferica | 446 | 0 | Pokewalker: corso Grotta Silente, livello 33, corso in dotazione | sì | no | censita, non ancora producibile |
 | `EVT-T-0389` | 4 | periferica | 433 | 0 | Pokewalker: corso Grotta Silente, livello 26, corso in dotazione | sì | no | censita, non ancora producibile |
@@ -4289,6 +4323,7 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-T-0430` | 4 | periferica | 240 | 0 | Pokewalker: corso Prato Amicizia, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
 | `EVT-T-0431` | 4 | periferica | 238 | 0 | Pokewalker: corso Prato Amicizia, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
 | `EVT-T-0433` | 4 | periferica | 174 | 0 | Pokewalker: corso Prato Amicizia, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
+| `EVT-T-0434` | 4 | periferica | 173 | 0 | Pokewalker: corso Prato Amicizia, livello 5, corso distribuito | sì | no | censita, non ancora producibile |
 | `EVT-T-0435` | 8 | incursione | 1 | 0 | Spada, incursioni da distribuzione: livello 17 | no | no | censita, non ancora producibile |
 | `EVT-T-0436` | 8 | incursione | 1 | 0 | Spada, incursioni da distribuzione: livello 30 | no | no | censita, non ancora producibile |
 | `EVT-T-0437` | 8 | incursione | 1 | 0 | Spada, incursioni da distribuzione: livello 40 | no | no | censita, non ancora producibile |
@@ -7142,170 +7177,141 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `EVT-T-3285` | 9 | incursione | 1005 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
 | `EVT-T-3286` | 9 | incursione | 1006 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
 | `EVT-T-3287` | 9 | incursione | 1006 | 0 | Scarlatto e Violetto, esemplari di potere: livello 100 | no | no | censita, non ancora producibile |
-| `EVT-1-0000` | 1 | tabella di incontro | 1 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-1-0001` | 1 | tabella di incontro | 4 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-1-0002` | 1 | tabella di incontro | 7 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-1-0003` | 1 | tabella di incontro | 54 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-1-0004` | 1 | tabella di incontro | 106 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-1-0005` | 1 | tabella di incontro | 107 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-1-0006` | 1 | tabella di incontro | 133 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-1-0007` | 1 | tabella di incontro | 138 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-1-0008` | 1 | tabella di incontro | 140 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-1-0009` | 1 | tabella di incontro | 151 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
+| `EVT-1-0000` | 1 | tabella di incontro | 1 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-1-0001` | 1 | tabella di incontro | 4 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-1-0002` | 1 | tabella di incontro | 7 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-1-0003` | 1 | tabella di incontro | 54 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-1-0004` | 1 | tabella di incontro | 106 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-1-0005` | 1 | tabella di incontro | 107 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-1-0006` | 1 | tabella di incontro | 133 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-1-0007` | 1 | tabella di incontro | 138 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-1-0008` | 1 | tabella di incontro | 140 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-1-0009` | 1 | tabella di incontro | 151 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
 | `EVT-1-0010` | 1 | tabella di incontro | 151 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
 | `EVT-2-0000` | 2 | tabella di incontro | 83 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
 | `EVT-2-0001` | 2 | tabella di incontro | 207 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0002` | 2 | tabella di incontro | 83 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0003` | 2 | tabella di incontro | 207 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0004` | 2 | tabella di incontro | 83 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0005` | 2 | tabella di incontro | 207 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0006` | 2 | tabella di incontro | 151 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0007` | 2 | tabella di incontro | 251 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0008` | 2 | tabella di incontro | 243 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0009` | 2 | tabella di incontro | 244 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0010` | 2 | tabella di incontro | 245 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0011` | 2 | tabella di incontro | 144 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0012` | 2 | tabella di incontro | 145 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0013` | 2 | tabella di incontro | 146 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0014` | 2 | tabella di incontro | 3 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0015` | 2 | tabella di incontro | 6 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0016` | 2 | tabella di incontro | 9 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0017` | 2 | tabella di incontro | 150 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0018` | 2 | tabella di incontro | 250 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0019` | 2 | tabella di incontro | 249 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0020` | 2 | tabella di incontro | 154 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0021` | 2 | tabella di incontro | 157 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0022` | 2 | tabella di incontro | 160 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0023` | 2 | tabella di incontro | 225 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0024` | 2 | tabella di incontro | 1 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0025` | 2 | tabella di incontro | 4 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0026` | 2 | tabella di incontro | 7 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0027` | 2 | tabella di incontro | 152 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0028` | 2 | tabella di incontro | 155 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0029` | 2 | tabella di incontro | 158 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0030` | 2 | tabella di incontro | 29 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0031` | 2 | tabella di incontro | 29 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0032` | 2 | tabella di incontro | 32 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0033` | 2 | tabella di incontro | 32 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0034` | 2 | tabella di incontro | 69 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0035` | 2 | tabella di incontro | 69 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0036` | 2 | tabella di incontro | 183 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0037` | 2 | tabella di incontro | 193 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0038` | 2 | tabella di incontro | 206 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0040` | 2 | tabella di incontro | 211 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0041` | 2 | tabella di incontro | 223 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0042` | 2 | tabella di incontro | 172 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0043` | 2 | tabella di incontro | 173 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0044` | 2 | tabella di incontro | 174 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0045` | 2 | tabella di incontro | 238 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0046` | 2 | tabella di incontro | 239 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0047` | 2 | tabella di incontro | 240 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0048` | 2 | tabella di incontro | 54 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0049` | 2 | tabella di incontro | 152 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0050` | 2 | tabella di incontro | 172 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0051` | 2 | tabella di incontro | 173 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0052` | 2 | tabella di incontro | 174 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0053` | 2 | tabella di incontro | 238 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0054` | 2 | tabella di incontro | 194 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0055` | 2 | tabella di incontro | 60 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0056` | 2 | tabella di incontro | 116 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0057` | 2 | tabella di incontro | 118 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0058` | 2 | tabella di incontro | 129 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0059` | 2 | tabella di incontro | 183 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0060` | 2 | tabella di incontro | 54 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0061` | 2 | tabella di incontro | 72 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0062` | 2 | tabella di incontro | 131 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0063` | 2 | tabella di incontro | 170 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0064` | 2 | tabella di incontro | 223 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0065` | 2 | tabella di incontro | 226 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0066` | 2 | tabella di incontro | 29 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0067` | 2 | tabella di incontro | 32 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0068` | 2 | tabella di incontro | 113 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0069` | 2 | tabella di incontro | 115 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0070` | 2 | tabella di incontro | 128 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0071` | 2 | tabella di incontro | 147 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0072` | 2 | tabella di incontro | 21 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0073` | 2 | tabella di incontro | 83 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0074` | 2 | tabella di incontro | 84 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0075` | 2 | tabella di incontro | 177 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0076` | 2 | tabella di incontro | 198 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0077` | 2 | tabella di incontro | 227 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0078` | 2 | tabella di incontro | 172 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0079` | 2 | tabella di incontro | 81 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0080` | 2 | tabella di incontro | 239 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0081` | 2 | tabella di incontro | 100 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0082` | 2 | tabella di incontro | 173 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0083` | 2 | tabella di incontro | 174 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0084` | 2 | tabella di incontro | 183 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0085` | 2 | tabella di incontro | 172 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0086` | 2 | tabella di incontro | 194 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0087` | 2 | tabella di incontro | 114 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0088` | 2 | tabella di incontro | 77 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0089` | 2 | tabella di incontro | 200 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0090` | 2 | tabella di incontro | 246 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0091` | 2 | tabella di incontro | 120 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0092` | 2 | tabella di incontro | 98 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0093` | 2 | tabella di incontro | 95 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0094` | 2 | tabella di incontro | 131 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0095` | 2 | tabella di incontro | 63 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0096` | 2 | tabella di incontro | 96 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0097` | 2 | tabella di incontro | 102 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0098` | 2 | tabella di incontro | 122 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0099` | 2 | tabella di incontro | 74 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0100` | 2 | tabella di incontro | 41 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0101` | 2 | tabella di incontro | 66 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0103` | 2 | tabella di incontro | 225 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0104` | 2 | tabella di incontro | 86 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0105` | 2 | tabella di incontro | 220 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0106` | 2 | tabella di incontro | 163 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0107` | 2 | tabella di incontro | 215 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0108` | 2 | tabella di incontro | 191 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0109` | 2 | tabella di incontro | 46 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0110` | 2 | tabella di incontro | 187 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0111` | 2 | tabella di incontro | 43 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0112` | 2 | tabella di incontro | 161 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0113` | 2 | tabella di incontro | 234 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0114` | 2 | tabella di incontro | 241 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0115` | 2 | tabella di incontro | 190 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0116` | 2 | tabella di incontro | 108 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0117` | 2 | tabella di incontro | 143 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0118` | 2 | tabella di incontro | 66 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0119` | 2 | tabella di incontro | 129 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0121` | 2 | tabella di incontro | 206 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0122` | 2 | tabella di incontro | 202 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0124` | 2 | tabella di incontro | 216 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0125` | 2 | tabella di incontro | 60 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0126` | 2 | tabella di incontro | 60 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0127` | 2 | tabella di incontro | 143 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0128` | 2 | tabella di incontro | 143 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0129` | 2 | tabella di incontro | 140 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0130` | 2 | tabella di incontro | 138 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0131` | 2 | tabella di incontro | 142 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0132` | 2 | tabella di incontro | 137 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0133` | 2 | tabella di incontro | 133 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0134` | 2 | tabella di incontro | 185 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0135` | 2 | tabella di incontro | 123 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0136` | 2 | tabella di incontro | 214 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0137` | 2 | tabella di incontro | 127 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0138` | 2 | tabella di incontro | 165 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0139` | 2 | tabella di incontro | 167 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0140` | 2 | tabella di incontro | 193 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0141` | 2 | tabella di incontro | 204 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0142` | 2 | tabella di incontro | 152 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0143` | 2 | tabella di incontro | 172 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0144` | 2 | tabella di incontro | 173 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0145` | 2 | tabella di incontro | 194 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0146` | 2 | tabella di incontro | 231 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0147` | 2 | tabella di incontro | 238 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0148` | 2 | tabella di incontro | 54 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0149` | 2 | tabella di incontro | 172 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0150` | 2 | tabella di incontro | 173 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0151` | 2 | tabella di incontro | 174 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0152` | 2 | tabella di incontro | 238 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0153` | 2 | tabella di incontro | 1 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0154` | 2 | tabella di incontro | 4 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0155` | 2 | tabella di incontro | 158 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0156` | 2 | tabella di incontro | 163 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
+| `EVT-2-0002` | 2 | tabella di incontro | 83 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0003` | 2 | tabella di incontro | 207 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0004` | 2 | tabella di incontro | 83 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0005` | 2 | tabella di incontro | 207 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0006` | 2 | tabella di incontro | 151 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0007` | 2 | tabella di incontro | 251 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0008` | 2 | tabella di incontro | 243 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0009` | 2 | tabella di incontro | 244 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0010` | 2 | tabella di incontro | 245 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0011` | 2 | tabella di incontro | 144 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0012` | 2 | tabella di incontro | 145 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0013` | 2 | tabella di incontro | 146 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0015` | 2 | tabella di incontro | 6 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0016` | 2 | tabella di incontro | 9 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0017` | 2 | tabella di incontro | 150 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0018` | 2 | tabella di incontro | 250 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0019` | 2 | tabella di incontro | 249 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0021` | 2 | tabella di incontro | 157 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0023` | 2 | tabella di incontro | 225 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0024` | 2 | tabella di incontro | 1 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0025` | 2 | tabella di incontro | 4 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0026` | 2 | tabella di incontro | 7 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0027` | 2 | tabella di incontro | 152 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0028` | 2 | tabella di incontro | 155 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0029` | 2 | tabella di incontro | 158 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0031` | 2 | tabella di incontro | 29 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0033` | 2 | tabella di incontro | 32 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0034` | 2 | tabella di incontro | 69 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0035` | 2 | tabella di incontro | 69 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0037` | 2 | tabella di incontro | 193 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0038` | 2 | tabella di incontro | 206 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0040` | 2 | tabella di incontro | 211 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0041` | 2 | tabella di incontro | 223 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0042` | 2 | tabella di incontro | 172 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0044` | 2 | tabella di incontro | 174 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0046` | 2 | tabella di incontro | 239 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0048` | 2 | tabella di incontro | 54 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0049` | 2 | tabella di incontro | 152 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0050` | 2 | tabella di incontro | 172 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0051` | 2 | tabella di incontro | 173 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0052` | 2 | tabella di incontro | 174 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0053` | 2 | tabella di incontro | 238 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0055` | 2 | tabella di incontro | 60 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0056` | 2 | tabella di incontro | 116 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0058` | 2 | tabella di incontro | 129 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0059` | 2 | tabella di incontro | 183 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0060` | 2 | tabella di incontro | 54 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0062` | 2 | tabella di incontro | 131 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0064` | 2 | tabella di incontro | 223 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0065` | 2 | tabella di incontro | 226 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0066` | 2 | tabella di incontro | 29 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0067` | 2 | tabella di incontro | 32 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0068` | 2 | tabella di incontro | 113 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0069` | 2 | tabella di incontro | 115 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0070` | 2 | tabella di incontro | 128 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0072` | 2 | tabella di incontro | 21 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0073` | 2 | tabella di incontro | 83 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0075` | 2 | tabella di incontro | 177 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0076` | 2 | tabella di incontro | 198 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0077` | 2 | tabella di incontro | 227 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0078` | 2 | tabella di incontro | 172 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0080` | 2 | tabella di incontro | 239 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0081` | 2 | tabella di incontro | 100 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0082` | 2 | tabella di incontro | 173 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0083` | 2 | tabella di incontro | 174 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0084` | 2 | tabella di incontro | 183 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0085` | 2 | tabella di incontro | 172 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0086` | 2 | tabella di incontro | 194 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0087` | 2 | tabella di incontro | 114 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0089` | 2 | tabella di incontro | 200 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0090` | 2 | tabella di incontro | 246 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0094` | 2 | tabella di incontro | 131 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0096` | 2 | tabella di incontro | 96 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0097` | 2 | tabella di incontro | 102 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0098` | 2 | tabella di incontro | 122 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0103` | 2 | tabella di incontro | 225 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0104` | 2 | tabella di incontro | 86 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0105` | 2 | tabella di incontro | 220 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0107` | 2 | tabella di incontro | 215 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0109` | 2 | tabella di incontro | 46 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0111` | 2 | tabella di incontro | 43 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0113` | 2 | tabella di incontro | 234 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0114` | 2 | tabella di incontro | 241 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0115` | 2 | tabella di incontro | 190 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0116` | 2 | tabella di incontro | 108 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0117` | 2 | tabella di incontro | 143 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0118` | 2 | tabella di incontro | 66 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0119` | 2 | tabella di incontro | 129 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0121` | 2 | tabella di incontro | 206 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0122` | 2 | tabella di incontro | 202 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0124` | 2 | tabella di incontro | 216 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0125` | 2 | tabella di incontro | 60 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0126` | 2 | tabella di incontro | 60 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0127` | 2 | tabella di incontro | 143 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0128` | 2 | tabella di incontro | 143 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0129` | 2 | tabella di incontro | 140 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0130` | 2 | tabella di incontro | 138 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0131` | 2 | tabella di incontro | 142 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0133` | 2 | tabella di incontro | 133 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0134` | 2 | tabella di incontro | 185 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0135` | 2 | tabella di incontro | 123 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0136` | 2 | tabella di incontro | 214 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0137` | 2 | tabella di incontro | 127 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0138` | 2 | tabella di incontro | 165 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0139` | 2 | tabella di incontro | 167 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0140` | 2 | tabella di incontro | 193 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0141` | 2 | tabella di incontro | 204 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0142` | 2 | tabella di incontro | 152 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0143` | 2 | tabella di incontro | 172 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0144` | 2 | tabella di incontro | 173 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0145` | 2 | tabella di incontro | 194 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0146` | 2 | tabella di incontro | 231 | 0 | tabella di incontro da evento | sì | no | prodotta, contestata |
+| `EVT-2-0147` | 2 | tabella di incontro | 238 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0148` | 2 | tabella di incontro | 54 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0149` | 2 | tabella di incontro | 172 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0150` | 2 | tabella di incontro | 173 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0151` | 2 | tabella di incontro | 174 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0152` | 2 | tabella di incontro | 238 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0153` | 2 | tabella di incontro | 1 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0154` | 2 | tabella di incontro | 4 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0155` | 2 | tabella di incontro | 158 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0156` | 2 | tabella di incontro | 163 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
 
 ## Voci di forma
 
@@ -7603,7 +7609,7 @@ L'ordine della tabella non è quello della fonte, ed è una scelta che va dichia
 | `PKD-0666-16` | 666 | Vivillon | 16 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0666-17` | 666 | Vivillon | 17 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0666-18` | 666 | Vivillon | 18 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
-| `PKD-0666-19` | 666 | Vivillon | 19 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
+| `PKD-0666-19` | 666 | Vivillon | 19 | banca | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0668-01` | 668 | Pyroar | 1 | diretta | forma di sola battaglia: non puo stare in una scatola |
 | `PKD-0669-01` | 669 | Flabébé | 1 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0669-02` | 669 | Flabébé | 2 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
