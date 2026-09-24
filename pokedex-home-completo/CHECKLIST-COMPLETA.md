@@ -1060,7 +1060,7 @@ Le voci enumerate sono 6248, di cui 3099 sotto scadenza, e queste ultime portano
 
 L'ordine della tabella non è quello della fonte, ed è una scelta che va dichiarata perché cambia che cosa si legge per primo. La fonte raggruppa le voci per evento, cioè nell'ordine in cui le distribuzioni avvennero; la decisione di ambito è invece la collezione completa in due tempi, con prima una voce per ciascuna specie distinta e poi i gemelli. La colonna che dice se una voce sia la prima della propria specie porta dunque in testa le 433 voci del primo tempo, e lascia in coda le 2666 del secondo; dentro ciascuno dei due blocchi l'ordine per evento è conservato, perché è l'informazione utile a chi produce. La prima voce di una specie è una già prodotta e conforme, o producibile e verificata, se ne esiste una; altrimenti è la prima nell'ordine della fonte. Non è scelta per merito: dove più voci portano la medesima specie, la marcatura non dice quale sia la più desiderabile ma soltanto quale basti a coprire la specie.
 
-Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce è prodotta e conforme se un file di un lotto la contiene e se `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`, scritto da `tools/pkhex-giudica`, la giudica conforme con la stessa impronta del file di oggi; un file cambiato dopo il giudizio risulta da rigiudicare. Le voci riconosciute in un lotto sono 1288, così ripartite: lotto-complemento-rubino 176, lotto-eventi-gen4 247, lotto-eventi-gen5 700, lotto-gb 165. Le voci di terza generazione della tabella degli eventi conservano la resa del generatore, perché il loro lotto non porta il codice nel nome del file.
+Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce è prodotta e conforme se un file di un lotto la contiene e se `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`, scritto da `tools/pkhex-giudica`, la giudica conforme con la stessa impronta del file di oggi; un file cambiato dopo il giudizio risulta da rigiudicare. Le voci riconosciute in un lotto sono 1366, così ripartite: lotto-complemento-rubino 176, lotto-doni-gen67 78, lotto-eventi-gen4 247, lotto-eventi-gen5 700, lotto-gb 165. Le voci di terza generazione della tabella degli eventi conservano la resa del generatore, perché il loro lotto non porta il codice nel nome del file.
 
 | Codice | Gen | Classe | Dex | Forma | Provenienza | Sotto scadenza | Primo della specie | Resa |
 |---|---|---|---|---|---|---|---|---|
@@ -1232,90 +1232,90 @@ Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce
 | `EVT-5-0674` | 5 | dono segreto | 237 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
 | `EVT-5-0675` | 5 | dono segreto | 488 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
 | `EVT-5-0676` | 5 | dono segreto | 510 | 0 | Bianco, Nero e i loro seguiti | sì | sì | prodotta e conforme |
-| `EVT-6-0001` | 6 | dono segreto | 700 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0002` | 6 | dono segreto | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0008` | 6 | dono segreto | 721 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0009` | 6 | dono segreto | 473 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0010` | 6 | dono segreto | 681 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0011` | 6 | dono segreto | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0012` | 6 | dono segreto | 417 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0014` | 6 | dono segreto | 319 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0017` | 6 | dono segreto | 683 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0018` | 6 | dono segreto | 626 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0019` | 6 | dono segreto | 687 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0020` | 6 | dono segreto | 720 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0043` | 6 | dono segreto | 716 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0045` | 6 | dono segreto | 717 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0047` | 6 | dono segreto | 718 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0049` | 6 | dono segreto | 68 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0056` | 6 | dono segreto | 696 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0057` | 6 | dono segreto | 698 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0063` | 6 | dono segreto | 555 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0186` | 6 | dono segreto | 136 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0187` | 6 | dono segreto | 471 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0188` | 6 | dono segreto | 135 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0189` | 6 | dono segreto | 470 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0193` | 6 | dono segreto | 134 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0195` | 6 | dono segreto | 686 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0207` | 6 | dono segreto | 130 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0221` | 6 | dono segreto | 666 | 19 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0241` | 6 | dono segreto | 264 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0278` | 6 | dono segreto | 658 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0283` | 6 | dono segreto | 645 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0289` | 6 | dono segreto | 514 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0290` | 6 | dono segreto | 31 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0291` | 6 | dono segreto | 323 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0295` | 6 | dono segreto | 668 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0347` | 6 | dono segreto | 362 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0349` | 6 | dono segreto | 208 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0428` | 6 | dono segreto | 710 | 3 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0437` | 6 | dono segreto | 255 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0440` | 6 | dono segreto | 374 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0527` | 6 | dono segreto | 656 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0617` | 6 | dono segreto | 646 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0620` | 6 | dono segreto | 653 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0627` | 6 | dono segreto | 674 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0652` | 6 | dono segreto | 80 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-6-0729` | 6 | dono segreto | 306 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | letta, non ancora producibile |
-| `EVT-7-0001` | 7 | dono segreto | 785 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0002` | 7 | dono segreto | 773 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0004` | 7 | dono segreto | 802 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0008` | 7 | dono segreto | 745 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0009` | 7 | dono segreto | 758 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0062` | 7 | dono segreto | 553 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0063` | 7 | dono segreto | 803 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0064` | 7 | dono segreto | 807 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0066` | 7 | dono segreto | 423 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0068` | 7 | dono segreto | 791 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0069` | 7 | dono segreto | 792 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0071` | 7 | dono segreto | 744 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0073` | 7 | dono segreto | 778 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0079` | 7 | dono segreto | 786 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0080` | 7 | dono segreto | 787 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0081` | 7 | dono segreto | 788 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0083` | 7 | dono segreto | 517 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0290` | 7 | dono segreto | 764 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
+| `EVT-6-0001` | 6 | dono segreto | 700 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0002` | 6 | dono segreto | 94 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0008` | 6 | dono segreto | 721 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0009` | 6 | dono segreto | 473 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0010` | 6 | dono segreto | 681 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0011` | 6 | dono segreto | 719 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0012` | 6 | dono segreto | 417 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0014` | 6 | dono segreto | 319 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0017` | 6 | dono segreto | 683 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0018` | 6 | dono segreto | 626 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0019` | 6 | dono segreto | 687 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0020` | 6 | dono segreto | 720 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0043` | 6 | dono segreto | 716 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0045` | 6 | dono segreto | 717 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0047` | 6 | dono segreto | 718 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0049` | 6 | dono segreto | 68 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0056` | 6 | dono segreto | 696 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0057` | 6 | dono segreto | 698 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0063` | 6 | dono segreto | 555 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0186` | 6 | dono segreto | 136 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0187` | 6 | dono segreto | 471 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0188` | 6 | dono segreto | 135 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0189` | 6 | dono segreto | 470 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0193` | 6 | dono segreto | 134 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0195` | 6 | dono segreto | 686 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0207` | 6 | dono segreto | 130 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0221` | 6 | dono segreto | 666 | 19 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0241` | 6 | dono segreto | 264 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0278` | 6 | dono segreto | 658 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0283` | 6 | dono segreto | 645 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0289` | 6 | dono segreto | 514 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0290` | 6 | dono segreto | 31 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0291` | 6 | dono segreto | 323 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0295` | 6 | dono segreto | 668 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0347` | 6 | dono segreto | 362 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0349` | 6 | dono segreto | 208 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0428` | 6 | dono segreto | 710 | 3 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0437` | 6 | dono segreto | 255 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0440` | 6 | dono segreto | 374 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0527` | 6 | dono segreto | 656 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0617` | 6 | dono segreto | 646 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0620` | 6 | dono segreto | 653 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0627` | 6 | dono segreto | 674 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0652` | 6 | dono segreto | 80 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-6-0729` | 6 | dono segreto | 306 | 0 | X, Y, Rubino Omega e Zaffiro Alpha | sì | sì | prodotta e conforme |
+| `EVT-7-0001` | 7 | dono segreto | 785 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0002` | 7 | dono segreto | 773 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0004` | 7 | dono segreto | 802 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0008` | 7 | dono segreto | 745 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0009` | 7 | dono segreto | 758 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0062` | 7 | dono segreto | 553 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0063` | 7 | dono segreto | 803 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0064` | 7 | dono segreto | 807 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0066` | 7 | dono segreto | 423 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0068` | 7 | dono segreto | 791 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0069` | 7 | dono segreto | 792 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0071` | 7 | dono segreto | 744 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0073` | 7 | dono segreto | 778 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0079` | 7 | dono segreto | 786 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0080` | 7 | dono segreto | 787 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0081` | 7 | dono segreto | 788 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0083` | 7 | dono segreto | 517 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0290` | 7 | dono segreto | 764 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
 | `EVT-7-0296` | 7 | dono segreto | 780 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0297` | 7 | dono segreto | 704 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0298` | 7 | dono segreto | 747 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0299` | 7 | dono segreto | 765 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0300` | 7 | dono segreto | 766 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
 | `EVT-7-0301` | 7 | dono segreto | 776 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0302` | 7 | dono segreto | 760 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0323` | 7 | dono segreto | 762 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0344` | 7 | dono segreto | 132 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0360` | 7 | dono segreto | 34 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0362` | 7 | dono segreto | 262 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0363` | 7 | dono segreto | 430 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0364` | 7 | dono segreto | 563 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0365` | 7 | dono segreto | 620 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0381` | 7 | dono segreto | 800 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0395` | 7 | dono segreto | 27 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0396` | 7 | dono segreto | 50 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0539` | 7 | dono segreto | 801 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0541` | 7 | dono segreto | 724 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0542` | 7 | dono segreto | 727 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0545` | 7 | dono segreto | 730 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
+| `EVT-7-0302` | 7 | dono segreto | 760 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0323` | 7 | dono segreto | 762 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0344` | 7 | dono segreto | 132 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0360` | 7 | dono segreto | 34 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0362` | 7 | dono segreto | 262 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0363` | 7 | dono segreto | 430 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0364` | 7 | dono segreto | 563 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0365` | 7 | dono segreto | 620 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0381` | 7 | dono segreto | 800 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0395` | 7 | dono segreto | 27 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0396` | 7 | dono segreto | 50 | 1 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0539` | 7 | dono segreto | 801 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0541` | 7 | dono segreto | 724 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0542` | 7 | dono segreto | 727 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0545` | 7 | dono segreto | 730 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
 | `EVT-T-0021` | 3 | spinoff | 296 | 0 | Colosseum, ombra: Makuhita: Miror B.Peon Trudly @ Phenac City | sì | sì | prodotta e conforme |
 | `EVT-T-0022` | 3 | spinoff | 153 | 0 | Colosseum, ombra: Bayleef: Cipher Peon Verde @ Phenac City | sì | sì | prodotta e conforme |
 | `EVT-T-0026` | 3 | spinoff | 156 | 0 | Colosseum, ombra: Quilava: Cipher Peon Rosso @ Phenac City | sì | sì | prodotta e conforme |

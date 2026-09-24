@@ -4,7 +4,7 @@
 
 Il primo tempo è la decisione di ambito del 2026-09-03: prima una voce per ciascuna specie distinta fra quelle da distribuzione sotto scadenza, poi i gemelli. Questo documento è quel primo tempo, cioè 433 voci, ed è l'ordine in cui produrle e trasferirle.
 
-Lo stato di partenza è questo, e separa il lavoro fatto, cioè le voci prodotte e giudicate conformi dalla libreria del verificatore o producibili e verificate, da quello che aspetta ancora di essere prodotto: prodotta e conforme 249, letta, non ancora producibile 84, producibile e verificata 60, censita, non ancora producibile 40.
+Lo stato di partenza è questo, e separa il lavoro fatto, cioè le voci prodotte e giudicate conformi dalla libreria del verificatore o producibili e verificate, da quello che aspetta ancora di essere prodotto: prodotta e conforme 327, producibile e verificata 60, censita, non ancora producibile 40, letta, non ancora producibile 6.
 
 ## Il vincolo delle macchine nascoste
 
@@ -187,90 +187,90 @@ Il primo anello della catena rifiuta un esemplare che conosca una macchina nasco
 | 166 | `EVT-5-0674` | 237 | Hitmontop | 5 | dono segreto | prodotta e conforme | - |
 | 167 | `EVT-5-0675` | 488 | Cresselia | 5 | dono segreto | prodotta e conforme | - |
 | 168 | `EVT-5-0676` | 510 | Liepard | 5 | dono segreto | prodotta e conforme | - |
-| 169 | `EVT-6-0001` | 700 | Sylveon | 6 | dono segreto | letta, non ancora producibile | - |
-| 170 | `EVT-6-0002` | 94 | Gengar | 6 | dono segreto | letta, non ancora producibile | - |
-| 171 | `EVT-6-0008` | 721 | Volcanion | 6 | dono segreto | letta, non ancora producibile | - |
-| 172 | `EVT-6-0009` | 473 | Mamoswine | 6 | dono segreto | letta, non ancora producibile | - |
-| 173 | `EVT-6-0010` | 681 | Aegislash | 6 | dono segreto | letta, non ancora producibile | - |
-| 174 | `EVT-6-0011` | 719 | Diancie | 6 | dono segreto | letta, non ancora producibile | - |
-| 175 | `EVT-6-0012` | 417 | Pachirisu | 6 | dono segreto | letta, non ancora producibile | - |
-| 176 | `EVT-6-0014` | 319 | Sharpedo | 6 | dono segreto | letta, non ancora producibile | - |
-| 177 | `EVT-6-0017` | 683 | Aromatisse | 6 | dono segreto | letta, non ancora producibile | - |
-| 178 | `EVT-6-0018` | 626 | Bouffalant | 6 | dono segreto | letta, non ancora producibile | - |
-| 179 | `EVT-6-0019` | 687 | Malamar | 6 | dono segreto | letta, non ancora producibile | - |
-| 180 | `EVT-6-0020` | 720 | Hoopa | 6 | dono segreto | letta, non ancora producibile | - |
-| 181 | `EVT-6-0043` | 716 | Xerneas | 6 | dono segreto | letta, non ancora producibile | - |
-| 182 | `EVT-6-0045` | 717 | Yveltal | 6 | dono segreto | letta, non ancora producibile | - |
-| 183 | `EVT-6-0047` | 718 | Zygarde | 6 | dono segreto | letta, non ancora producibile | - |
-| 184 | `EVT-6-0049` | 68 | Machamp | 6 | dono segreto | letta, non ancora producibile | - |
-| 185 | `EVT-6-0056` | 696 | Tyrunt | 6 | dono segreto | letta, non ancora producibile | - |
-| 186 | `EVT-6-0057` | 698 | Amaura | 6 | dono segreto | letta, non ancora producibile | - |
-| 187 | `EVT-6-0063` | 555 | Darmanitan | 6 | dono segreto | letta, non ancora producibile | - |
-| 188 | `EVT-6-0186` | 136 | Flareon | 6 | dono segreto | letta, non ancora producibile | - |
-| 189 | `EVT-6-0187` | 471 | Glaceon | 6 | dono segreto | letta, non ancora producibile | - |
-| 190 | `EVT-6-0188` | 135 | Jolteon | 6 | dono segreto | letta, non ancora producibile | - |
-| 191 | `EVT-6-0189` | 470 | Leafeon | 6 | dono segreto | letta, non ancora producibile | - |
-| 192 | `EVT-6-0193` | 134 | Vaporeon | 6 | dono segreto | letta, non ancora producibile | - |
-| 193 | `EVT-6-0195` | 686 | Inkay | 6 | dono segreto | letta, non ancora producibile | - |
-| 194 | `EVT-6-0207` | 130 | Gyarados | 6 | dono segreto | letta, non ancora producibile | - |
-| 195 | `EVT-6-0221` | 666 | Vivillon | 6 | dono segreto | letta, non ancora producibile | - |
-| 196 | `EVT-6-0241` | 264 | Linoone | 6 | dono segreto | letta, non ancora producibile | - |
-| 197 | `EVT-6-0278` | 658 | Greninja | 6 | dono segreto | letta, non ancora producibile | - |
-| 198 | `EVT-6-0283` | 645 | Landorus | 6 | dono segreto | letta, non ancora producibile | - |
-| 199 | `EVT-6-0289` | 514 | Simisear | 6 | dono segreto | letta, non ancora producibile | - |
-| 200 | `EVT-6-0290` | 31 | Nidoqueen | 6 | dono segreto | letta, non ancora producibile | - |
-| 201 | `EVT-6-0291` | 323 | Camerupt | 6 | dono segreto | letta, non ancora producibile | - |
-| 202 | `EVT-6-0295` | 668 | Pyroar | 6 | dono segreto | letta, non ancora producibile | - |
-| 203 | `EVT-6-0347` | 362 | Glalie | 6 | dono segreto | letta, non ancora producibile | - |
-| 204 | `EVT-6-0349` | 208 | Steelix | 6 | dono segreto | letta, non ancora producibile | - |
-| 205 | `EVT-6-0428` | 710 | Pumpkaboo | 6 | dono segreto | letta, non ancora producibile | - |
-| 206 | `EVT-6-0437` | 255 | Torchic | 6 | dono segreto | letta, non ancora producibile | - |
-| 207 | `EVT-6-0440` | 374 | Beldum | 6 | dono segreto | letta, non ancora producibile | - |
-| 208 | `EVT-6-0527` | 656 | Froakie | 6 | dono segreto | letta, non ancora producibile | - |
-| 209 | `EVT-6-0617` | 646 | Kyurem | 6 | dono segreto | letta, non ancora producibile | - |
-| 210 | `EVT-6-0620` | 653 | Fennekin | 6 | dono segreto | letta, non ancora producibile | - |
-| 211 | `EVT-6-0627` | 674 | Pancham | 6 | dono segreto | letta, non ancora producibile | - |
-| 212 | `EVT-6-0652` | 80 | Slowbro | 6 | dono segreto | letta, non ancora producibile | - |
-| 213 | `EVT-6-0729` | 306 | Aggron | 6 | dono segreto | letta, non ancora producibile | - |
-| 214 | `EVT-7-0001` | 785 | Tapu Koko | 7 | dono segreto | letta, non ancora producibile | - |
-| 215 | `EVT-7-0002` | 773 | Silvally | 7 | dono segreto | letta, non ancora producibile | - |
-| 216 | `EVT-7-0004` | 802 | Marshadow | 7 | dono segreto | letta, non ancora producibile | - |
-| 217 | `EVT-7-0008` | 745 | Lycanroc | 7 | dono segreto | letta, non ancora producibile | - |
-| 218 | `EVT-7-0009` | 758 | Salazzle | 7 | dono segreto | letta, non ancora producibile | - |
-| 219 | `EVT-7-0062` | 553 | Krookodile | 7 | dono segreto | letta, non ancora producibile | - |
-| 220 | `EVT-7-0063` | 803 | Poipole | 7 | dono segreto | letta, non ancora producibile | - |
-| 221 | `EVT-7-0064` | 807 | Zeraora | 7 | dono segreto | letta, non ancora producibile | - |
-| 222 | `EVT-7-0066` | 423 | Gastrodon | 7 | dono segreto | letta, non ancora producibile | - |
-| 223 | `EVT-7-0068` | 791 | Solgaleo | 7 | dono segreto | letta, non ancora producibile | - |
-| 224 | `EVT-7-0069` | 792 | Lunala | 7 | dono segreto | letta, non ancora producibile | - |
-| 225 | `EVT-7-0071` | 744 | Rockruff | 7 | dono segreto | letta, non ancora producibile | - |
-| 226 | `EVT-7-0073` | 778 | Mimikyu | 7 | dono segreto | letta, non ancora producibile | - |
-| 227 | `EVT-7-0079` | 786 | Tapu Lele | 7 | dono segreto | letta, non ancora producibile | - |
-| 228 | `EVT-7-0080` | 787 | Tapu Bulu | 7 | dono segreto | letta, non ancora producibile | - |
-| 229 | `EVT-7-0081` | 788 | Tapu Fini | 7 | dono segreto | letta, non ancora producibile | - |
-| 230 | `EVT-7-0083` | 517 | Munna | 7 | dono segreto | letta, non ancora producibile | - |
-| 231 | `EVT-7-0290` | 764 | Comfey | 7 | dono segreto | letta, non ancora producibile | - |
+| 169 | `EVT-6-0001` | 700 | Sylveon | 6 | dono segreto | prodotta e conforme | - |
+| 170 | `EVT-6-0002` | 94 | Gengar | 6 | dono segreto | prodotta e conforme | - |
+| 171 | `EVT-6-0008` | 721 | Volcanion | 6 | dono segreto | prodotta e conforme | - |
+| 172 | `EVT-6-0009` | 473 | Mamoswine | 6 | dono segreto | prodotta e conforme | - |
+| 173 | `EVT-6-0010` | 681 | Aegislash | 6 | dono segreto | prodotta e conforme | - |
+| 174 | `EVT-6-0011` | 719 | Diancie | 6 | dono segreto | prodotta e conforme | - |
+| 175 | `EVT-6-0012` | 417 | Pachirisu | 6 | dono segreto | prodotta e conforme | - |
+| 176 | `EVT-6-0014` | 319 | Sharpedo | 6 | dono segreto | prodotta e conforme | - |
+| 177 | `EVT-6-0017` | 683 | Aromatisse | 6 | dono segreto | prodotta e conforme | - |
+| 178 | `EVT-6-0018` | 626 | Bouffalant | 6 | dono segreto | prodotta e conforme | - |
+| 179 | `EVT-6-0019` | 687 | Malamar | 6 | dono segreto | prodotta e conforme | - |
+| 180 | `EVT-6-0020` | 720 | Hoopa | 6 | dono segreto | prodotta e conforme | - |
+| 181 | `EVT-6-0043` | 716 | Xerneas | 6 | dono segreto | prodotta e conforme | - |
+| 182 | `EVT-6-0045` | 717 | Yveltal | 6 | dono segreto | prodotta e conforme | - |
+| 183 | `EVT-6-0047` | 718 | Zygarde | 6 | dono segreto | prodotta e conforme | - |
+| 184 | `EVT-6-0049` | 68 | Machamp | 6 | dono segreto | prodotta e conforme | - |
+| 185 | `EVT-6-0056` | 696 | Tyrunt | 6 | dono segreto | prodotta e conforme | - |
+| 186 | `EVT-6-0057` | 698 | Amaura | 6 | dono segreto | prodotta e conforme | - |
+| 187 | `EVT-6-0063` | 555 | Darmanitan | 6 | dono segreto | prodotta e conforme | - |
+| 188 | `EVT-6-0186` | 136 | Flareon | 6 | dono segreto | prodotta e conforme | - |
+| 189 | `EVT-6-0187` | 471 | Glaceon | 6 | dono segreto | prodotta e conforme | - |
+| 190 | `EVT-6-0188` | 135 | Jolteon | 6 | dono segreto | prodotta e conforme | - |
+| 191 | `EVT-6-0189` | 470 | Leafeon | 6 | dono segreto | prodotta e conforme | - |
+| 192 | `EVT-6-0193` | 134 | Vaporeon | 6 | dono segreto | prodotta e conforme | - |
+| 193 | `EVT-6-0195` | 686 | Inkay | 6 | dono segreto | prodotta e conforme | - |
+| 194 | `EVT-6-0207` | 130 | Gyarados | 6 | dono segreto | prodotta e conforme | - |
+| 195 | `EVT-6-0221` | 666 | Vivillon | 6 | dono segreto | prodotta e conforme | - |
+| 196 | `EVT-6-0241` | 264 | Linoone | 6 | dono segreto | prodotta e conforme | - |
+| 197 | `EVT-6-0278` | 658 | Greninja | 6 | dono segreto | prodotta e conforme | - |
+| 198 | `EVT-6-0283` | 645 | Landorus | 6 | dono segreto | prodotta e conforme | - |
+| 199 | `EVT-6-0289` | 514 | Simisear | 6 | dono segreto | prodotta e conforme | - |
+| 200 | `EVT-6-0290` | 31 | Nidoqueen | 6 | dono segreto | prodotta e conforme | - |
+| 201 | `EVT-6-0291` | 323 | Camerupt | 6 | dono segreto | prodotta e conforme | - |
+| 202 | `EVT-6-0295` | 668 | Pyroar | 6 | dono segreto | prodotta e conforme | - |
+| 203 | `EVT-6-0347` | 362 | Glalie | 6 | dono segreto | prodotta e conforme | - |
+| 204 | `EVT-6-0349` | 208 | Steelix | 6 | dono segreto | prodotta e conforme | - |
+| 205 | `EVT-6-0428` | 710 | Pumpkaboo | 6 | dono segreto | prodotta e conforme | - |
+| 206 | `EVT-6-0437` | 255 | Torchic | 6 | dono segreto | prodotta e conforme | - |
+| 207 | `EVT-6-0440` | 374 | Beldum | 6 | dono segreto | prodotta e conforme | - |
+| 208 | `EVT-6-0527` | 656 | Froakie | 6 | dono segreto | prodotta e conforme | - |
+| 209 | `EVT-6-0617` | 646 | Kyurem | 6 | dono segreto | prodotta e conforme | - |
+| 210 | `EVT-6-0620` | 653 | Fennekin | 6 | dono segreto | prodotta e conforme | - |
+| 211 | `EVT-6-0627` | 674 | Pancham | 6 | dono segreto | prodotta e conforme | - |
+| 212 | `EVT-6-0652` | 80 | Slowbro | 6 | dono segreto | prodotta e conforme | - |
+| 213 | `EVT-6-0729` | 306 | Aggron | 6 | dono segreto | prodotta e conforme | - |
+| 214 | `EVT-7-0001` | 785 | Tapu Koko | 7 | dono segreto | prodotta e conforme | - |
+| 215 | `EVT-7-0002` | 773 | Silvally | 7 | dono segreto | prodotta e conforme | - |
+| 216 | `EVT-7-0004` | 802 | Marshadow | 7 | dono segreto | prodotta e conforme | - |
+| 217 | `EVT-7-0008` | 745 | Lycanroc | 7 | dono segreto | prodotta e conforme | - |
+| 218 | `EVT-7-0009` | 758 | Salazzle | 7 | dono segreto | prodotta e conforme | - |
+| 219 | `EVT-7-0062` | 553 | Krookodile | 7 | dono segreto | prodotta e conforme | - |
+| 220 | `EVT-7-0063` | 803 | Poipole | 7 | dono segreto | prodotta e conforme | - |
+| 221 | `EVT-7-0064` | 807 | Zeraora | 7 | dono segreto | prodotta e conforme | - |
+| 222 | `EVT-7-0066` | 423 | Gastrodon | 7 | dono segreto | prodotta e conforme | - |
+| 223 | `EVT-7-0068` | 791 | Solgaleo | 7 | dono segreto | prodotta e conforme | - |
+| 224 | `EVT-7-0069` | 792 | Lunala | 7 | dono segreto | prodotta e conforme | - |
+| 225 | `EVT-7-0071` | 744 | Rockruff | 7 | dono segreto | prodotta e conforme | - |
+| 226 | `EVT-7-0073` | 778 | Mimikyu | 7 | dono segreto | prodotta e conforme | - |
+| 227 | `EVT-7-0079` | 786 | Tapu Lele | 7 | dono segreto | prodotta e conforme | - |
+| 228 | `EVT-7-0080` | 787 | Tapu Bulu | 7 | dono segreto | prodotta e conforme | - |
+| 229 | `EVT-7-0081` | 788 | Tapu Fini | 7 | dono segreto | prodotta e conforme | - |
+| 230 | `EVT-7-0083` | 517 | Munna | 7 | dono segreto | prodotta e conforme | - |
+| 231 | `EVT-7-0290` | 764 | Comfey | 7 | dono segreto | prodotta e conforme | - |
 | 232 | `EVT-7-0296` | 780 | Drampa | 7 | dono segreto | letta, non ancora producibile | - |
 | 233 | `EVT-7-0297` | 704 | Goomy | 7 | dono segreto | letta, non ancora producibile | - |
 | 234 | `EVT-7-0298` | 747 | Mareanie | 7 | dono segreto | letta, non ancora producibile | - |
 | 235 | `EVT-7-0299` | 765 | Oranguru | 7 | dono segreto | letta, non ancora producibile | - |
 | 236 | `EVT-7-0300` | 766 | Passimian | 7 | dono segreto | letta, non ancora producibile | - |
 | 237 | `EVT-7-0301` | 776 | Turtonator | 7 | dono segreto | letta, non ancora producibile | - |
-| 238 | `EVT-7-0302` | 760 | Bewear | 7 | dono segreto | letta, non ancora producibile | - |
-| 239 | `EVT-7-0323` | 762 | Steenee | 7 | dono segreto | letta, non ancora producibile | - |
-| 240 | `EVT-7-0344` | 132 | Ditto | 7 | dono segreto | letta, non ancora producibile | - |
-| 241 | `EVT-7-0360` | 34 | Nidoking | 7 | dono segreto | letta, non ancora producibile | - |
-| 242 | `EVT-7-0362` | 262 | Mightyena | 7 | dono segreto | letta, non ancora producibile | - |
-| 243 | `EVT-7-0363` | 430 | Honchkrow | 7 | dono segreto | letta, non ancora producibile | - |
-| 244 | `EVT-7-0364` | 563 | Cofagrigus | 7 | dono segreto | letta, non ancora producibile | - |
-| 245 | `EVT-7-0365` | 620 | Mienshao | 7 | dono segreto | letta, non ancora producibile | - |
-| 246 | `EVT-7-0381` | 800 | Necrozma | 7 | dono segreto | letta, non ancora producibile | - |
-| 247 | `EVT-7-0395` | 27 | Sandshrew | 7 | dono segreto | letta, non ancora producibile | - |
-| 248 | `EVT-7-0396` | 50 | Diglett | 7 | dono segreto | letta, non ancora producibile | - |
-| 249 | `EVT-7-0539` | 801 | Magearna | 7 | dono segreto | letta, non ancora producibile | - |
-| 250 | `EVT-7-0541` | 724 | Decidueye | 7 | dono segreto | letta, non ancora producibile | - |
-| 251 | `EVT-7-0542` | 727 | Incineroar | 7 | dono segreto | letta, non ancora producibile | - |
-| 252 | `EVT-7-0545` | 730 | Primarina | 7 | dono segreto | letta, non ancora producibile | - |
+| 238 | `EVT-7-0302` | 760 | Bewear | 7 | dono segreto | prodotta e conforme | - |
+| 239 | `EVT-7-0323` | 762 | Steenee | 7 | dono segreto | prodotta e conforme | - |
+| 240 | `EVT-7-0344` | 132 | Ditto | 7 | dono segreto | prodotta e conforme | - |
+| 241 | `EVT-7-0360` | 34 | Nidoking | 7 | dono segreto | prodotta e conforme | - |
+| 242 | `EVT-7-0362` | 262 | Mightyena | 7 | dono segreto | prodotta e conforme | - |
+| 243 | `EVT-7-0363` | 430 | Honchkrow | 7 | dono segreto | prodotta e conforme | - |
+| 244 | `EVT-7-0364` | 563 | Cofagrigus | 7 | dono segreto | prodotta e conforme | - |
+| 245 | `EVT-7-0365` | 620 | Mienshao | 7 | dono segreto | prodotta e conforme | - |
+| 246 | `EVT-7-0381` | 800 | Necrozma | 7 | dono segreto | prodotta e conforme | - |
+| 247 | `EVT-7-0395` | 27 | Sandshrew | 7 | dono segreto | prodotta e conforme | - |
+| 248 | `EVT-7-0396` | 50 | Diglett | 7 | dono segreto | prodotta e conforme | - |
+| 249 | `EVT-7-0539` | 801 | Magearna | 7 | dono segreto | prodotta e conforme | - |
+| 250 | `EVT-7-0541` | 724 | Decidueye | 7 | dono segreto | prodotta e conforme | - |
+| 251 | `EVT-7-0542` | 727 | Incineroar | 7 | dono segreto | prodotta e conforme | - |
+| 252 | `EVT-7-0545` | 730 | Primarina | 7 | dono segreto | prodotta e conforme | - |
 | 253 | `EVT-T-0021` | 296 | Makuhita | 3 | spinoff | prodotta e conforme | - |
 | 254 | `EVT-T-0022` | 153 | Bayleef | 3 | spinoff | prodotta e conforme | - |
 | 255 | `EVT-T-0026` | 156 | Quilava | 3 | spinoff | prodotta e conforme | - |
