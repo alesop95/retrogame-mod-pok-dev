@@ -109,7 +109,7 @@ Da qui la console boota di default in Luma3DS (aspetto identico alla Home normal
 
 ### 2026-08-21 - Download pacchetto MSET9
 - Scaricato da `https://github.com/hacks-guide/MSET9/releases/latest` (release MSET9-v2.1)
-- Estratto in: `C:\Users\alesop95\Desktop\MSET9-v2.1`
+- Estratto in: `C:\Users\<PROPRIETARIO>\Desktop\MSET9-v2.1`
 - Contenuto verificato (10 elementi, corrispondente alle attese):
   - `mset9.py` - lo script Python principale, motore dell'exploit
   - `MSET9-Windows.bat` - wrapper batch che richiama lo script con l'interprete corretto
@@ -154,7 +154,7 @@ CFW (boot9strap + Luma3DS v13.4) installato con successo su Old 3DS XL, firmware
 - [x] Sezione II completata (versione firmware confermata: 11.17.0-50E)
 - [x] Metodo scelto: MSET9, dispositivo di supporto: **PC Windows**
 - [x] Python 3.x da python.org installato (Python Install Manager → runtime 3.14.7, comandi `py` e `python` entrambi verificati)
-- [x] MSET9 scaricato ed estratto sul PC (`C:\Users\alesop95\Desktop\MSET9-v2.1`)
+- [x] MSET9 scaricato ed estratto sul PC (`C:\Users\<PROPRIETARIO>\Desktop\MSET9-v2.1`)
 - [x] SD 32GB formattata FAT32 e collegata al PC
 - [x] Contenuto MSET9 copiato alla radice della SD
 - [x] Sezione I (script - creazione ID1 modificato) completata

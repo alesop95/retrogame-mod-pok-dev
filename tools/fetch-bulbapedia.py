@@ -42,7 +42,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 API = "https://bulbapedia.bulbagarden.net/w/api.php"
-UA = "retrogame-mod-pok-dev/1.0 (ricerca personale su retrogaming; repository GitHub alesop95)"
+UA = "retrogame-mod-pok-dev/1.0 (ricerca personale su retrogaming; repository del progetto)"
 ATTESA = 1.5          # secondi fra due richieste, non disattivabile
 LOTTO = 20            # titoli per richiesta; l'API ne accetta 50, si resta larghi
 

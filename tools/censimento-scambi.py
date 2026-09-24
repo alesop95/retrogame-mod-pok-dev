@@ -80,7 +80,7 @@ DATI = os.path.join("PKHeX.Core", "Legality", "Encounters", "Data")
 NOMI_EN = os.path.join("PKHeX.Core", "Resources", "text", "other", "en", "text_Species_en.txt")
 NOMI_IT = os.path.join("PKHeX.Core", "Resources", "text", "other", "it", "text_Species_it.txt")
 USCITA = os.path.join(RADICE, "pokedex-home-completo", "CENSIMENTO-SCAMBI.md")
-NORMALIZZATO = os.path.join(RADICE, "pokedex-home-completo", "scambi.csv")
+NORMALIZZATO = os.path.join(RADICE, "pokedex-home-completo", "data", "scambi.csv")
 
 # Le posizioni della specie e del livello dentro la chiamata, per tipo di voce, ricavate dalle
 # firme dei costruttori sotto `Legality/Encounters/Templates`. Il valore None dice che il dato non

@@ -65,7 +65,7 @@ RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 WILD = os.path.join("PKHeX.Core", "Resources", "legality", "wild")
 NOMI_IT = os.path.join("PKHeX.Core", "Resources", "text", "other", "it", "text_Species_it.txt")
 USCITA = os.path.join(RADICE, "pokedex-home-completo", "CENSIMENTO-CONDIZIONATI.md")
-NORMALIZZATO = os.path.join(RADICE, "pokedex-home-completo", "condizionati.csv")
+NORMALIZZATO = os.path.join(RADICE, "pokedex-home-completo", "data", "condizionati.csv")
 
 # I tipi di casella che sono essi stessi una condizione, per generazione, con la famiglia a cui
 # appartengono. I numeri vengono dalle enumerazioni `SlotType1` a `SlotType5` della fonte, lette

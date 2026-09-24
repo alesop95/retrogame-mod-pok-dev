@@ -50,7 +50,7 @@ Sfrutta un difetto nel modo in cui System Settings interpreta il nome di una car
   - Nota tecnica: python.org è passato al nuovo **Python Install Manager** (sostituisce il vecchio installer `.exe` con checkbox "Add to PATH"). Il manager si autoregistra nel PATH sia come comando `py` che come alias `python`.
   - Versione runtime installata: **Python 3.14.7**
   - Verificato con `py -V` e `python -V` da Prompt dei comandi Windows - entrambi funzionanti
-- **Pacchetto MSET9-v2.1** scaricato ed estratto in `C:\Users\alesop95\Desktop\MSET9-v2.1`
+- **Pacchetto MSET9-v2.1** scaricato ed estratto in `C:\Users\<PROPRIETARIO>\Desktop\MSET9-v2.1`
   - Contenuto: `mset9.py` (script principale), `MSET9-Windows.bat` (wrapper), cartelle `boot9strap/` e `config/`, `boot.firm`/`boot.3dsx` (componenti Luma3DS), `SafeB9S.bin` (installer CFW lato console), `b9`, `_INSTRUCTIONS`
 
 ### 4.3 Preparazione SD

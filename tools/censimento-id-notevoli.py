@@ -47,10 +47,10 @@ import sys
 
 RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FONTE = os.path.join(RADICE, "_notes", "fonti", "2026-09-09-bulbapedia-id-notevoli.html")
-NOSTRI_EVENTI = os.path.join(RADICE, "pokedex-home-completo", "serebii-eventi.csv")
-NOSTRI_SCAMBI = os.path.join(RADICE, "pokedex-home-completo", "scambi.csv")
+NOSTRI_EVENTI = os.path.join(RADICE, "pokedex-home-completo", "data", "serebii-eventi.csv")
+NOSTRI_SCAMBI = os.path.join(RADICE, "pokedex-home-completo", "data", "scambi.csv")
 USCITA = os.path.join(RADICE, "pokedex-home-completo", "ID-NOTEVOLI.md")
-NORMALIZZATO = os.path.join(RADICE, "pokedex-home-completo", "id-notevoli.csv")
+NORMALIZZATO = os.path.join(RADICE, "pokedex-home-completo", "data", "id-notevoli.csv")
 
 # Le diciture con cui la fonte marca righe che non appartengono ad alcun esemplare da collezione:
 # servono a spiegare la parte non coperta invece di contarla come cecita' nostra.

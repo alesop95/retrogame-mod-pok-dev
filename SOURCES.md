@@ -185,10 +185,10 @@ Esiste per una ragione dichiarata dall'utente il 2026-09-10, ed e' la stessa che
 
 | Misura | Valore |
 |---|---|
-| fonti registrate nella tabella unica | 110 |
-| di esse, lette | 108 |
-| di esse, citate in tesi | 110 |
-| di esse, con almeno un documento del progetto che le usa | 110 |
+| fonti registrate nella tabella unica | 113 |
+| di esse, lette | 111 |
+| di esse, citate in tesi | 113 |
+| di esse, con almeno un documento del progetto che le usa | 113 |
 | voci del corpus della collezione | 171 |
 | di esse, promosse a fonte registrata | 25 |
 | cluster del corpus | 42 |
@@ -208,7 +208,7 @@ La colonna dei documenti dice dove sta la sintesi di quella fonte dentro il prog
 | unlimitedcoder2/ldnd | 1 | scambio locale | `11-wireless-locale-e-ponte-switch` | 13 |
 | Pan Docs, trasferimento seriale | 1 | ponte fra generazioni | `08-cavo-link`, `30-opzioni-implementative` | 03, 06, 10, 11, 23 |
 | pret/pokecrystal | 1 | ponte fra generazioni | `DATA-FORMATS_Gen1-Gen2-Gen3`, `06-identita-pokemon`, `08-cavo-link` | 01, 03, 05, 06, 07, 10, 23 |
-| pret/pokeemerald | 1 | ponte fra generazioni, salvataggio di Smeraldo | `DATA-FORMATS_Gen1-Gen2-Gen3`, `04-cifratura-gen3`, `03-integrita-checksum`, `22-strumenti` | 01, 03, 04, 05, 06, 08, 09, 14, 23 |
+| pret/pokeemerald | 1 | ponte fra generazioni, salvataggio di Smeraldo | `DATA-FORMATS_Gen1-Gen2-Gen3`, `04-cifratura-gen3`, `03-integrita-checksum`, `22-strumenti`, `14-caso-smeraldo` | 01, 03, 04, 05, 06, 08, 09, 14, 23 |
 | pret/pokefirered | 1 | ponte fra generazioni, scambio locale, salvataggio di Smeraldo | `22-strumenti`, `DATA-FORMATS_Gen1-Gen2-Gen3` | 02, 03, 10, 14, 16, 23 |
 | pret/pokegold | 1 | ponte fra generazioni | `DATA-FORMATS_Gen1-Gen2-Gen3` | 23 |
 | pret/pokered | 1 | ponte fra generazioni | `DATA-FORMATS_Gen1-Gen2-Gen3`, `08-cavo-link`, `09-esecuzione-codice` | 01, 03, 04, 05, 06, 10, 23 |
@@ -236,6 +236,7 @@ La colonna dei documenti dice dove sta la sintesi di quella fonte dentro il prog
 | Le otto pagine delle classi a via chiusa, l'enciclopedia | 2 | Pokedex nel deposito, ricreazione degli eventi | `STUDIO-06-le-enumerazioni-trasversali`, `LETTURA-DEL-CORPUS` | 31 |
 | Glitch City Wiki | 2 | ponte fra generazioni | `09-esecuzione-codice` | 11, 23 |
 | Glitch City, i codici del programma di scrittura | 2 | esecuzione di codice, Pokedex nel deposito | `STUDIO-08-esecuzione-di-codice-e-manipolazione-del-generatore` | 30 |
+| Pokemon Central Wiki, il Parco Lotta e i suoi sette edifici in italiano | 2 | salvataggio di Smeraldo | `14-caso-smeraldo` | 14 |
 | I titoli di Pokemon Champions (dal corpus) | 2 | Pokedex nel deposito, GFS | `MARCHI` | 29 |
 | Gli incontri a cristallo nero (dal corpus) | 2 | Pokedex nel deposito | `MARCHI` | 29 |
 | I Pokemon titanici (dal corpus) | 2 | Pokedex nel deposito | `MARCHI` | 29 |
@@ -258,6 +259,7 @@ La colonna dei documenti dice dove sta la sintesi di quella fonte dentro il prog
 | ldn_mitm | 3 | scambio locale | `06-identita-pokemon` | 23 |
 | Phasip/PokemonLinkHack | 3 | ponte fra generazioni | `09-esecuzione-codice` | 11 |
 | Monarium, generatore di disposizioni del deposito con marchi | 3 | Pokedex nel deposito | `CHECKLIST-COMPLETA` | 29 |
+| La guida al completamento dei sette simboli d'oro, con le sette schede per edificio | 3 | salvataggio di Smeraldo | `14-caso-smeraldo` | 14 |
 | PCCS | 3 | ponte fra generazioni | `07-conversione-vincoli`, `DATA-FORMATS_Gen1-Gen2-Gen3` | 06, 07, 08, 09, 23 |
 | PKHeX, tabella degli eventi Gen 3 e vocabolario dei metodi | 3 | ricreazione degli eventi, ponte fra generazioni, salvataggio di Smeraldo | `06-identita-pokemon`, `12-analisi-quantitativa`, `23-prove-eseguite` | 19 |
 | Rete ricostruita dei servizi in rete di quarta e quinta generazione (dal corpus) | 3 | ricreazione degli eventi, Pokedex nel deposito | `STUDIO-04-la-via-del-dns-e-il-servizio-rianimato` | 30 |
@@ -270,6 +272,7 @@ La colonna dei documenti dice dove sta la sintesi di quella fonte dentro il prog
 | Poke Transporter GB | 3 | ponte fra generazioni | `09-esecuzione-codice`, `30-opzioni-implementative` | 09, 11, 12, 22, 23 |
 | Progetto REON | 3 | ponte fra generazioni | `08-cavo-link` | 23 |
 | gba-link-cable-rom-sender | 3 | ponte fra generazioni | `10-multiboot-hardware` | 12 |
+| Smogon, le sei discussioni del Parco Lotta di terza generazione | 3 | salvataggio di Smeraldo | `14-caso-smeraldo` | 14 |
 | Smogon, il foglio completo del Parco Lotta di Smeraldo | 3 | salvataggio di Smeraldo | `14-caso-smeraldo` | 14 |
 | MrCheeze/pokestadium-ace | 3 | ponte fra generazioni | `08-cavo-link` | 23 |
 | switch-lan-play | 3 | scambio locale | `06-identita-pokemon` | 23 |
@@ -733,7 +736,7 @@ Questa sezione ha una forma diversa dalle precedenti e la ragione va detta prima
 
 La provenienza. È il post `https://www.reddit.com/r/PokemonHome/comments/1vtj5hf/`, seconda versione di una guida alle collezioni nel deposito scritta da El_Boosty il 2026-08-20, che l'utente ha consegnato il 2026-09-08 come radice da spogliare. Il post dichiara esso stesso di essere una raccolta di collegamenti e non un testo, il che lo rende il caso ideale per il lettore ricorsivo: leggere il solo nodo di partenza significherebbe leggere l'indice credendo di aver letto il libro. La corsa ha attraversato in ampiezza il grafo dei rinvii fino alla profondità uno, producendo ottocentodiciassette nodi e novecentosessantadue archi, di cui sessantacinque post scaricati e trentasei pagine esterne ridotte a testo; trecentoquarantasette elementi restano non raggiunti perché oltre il tetto di profondità, dichiarati come tali e ripresi da un rilancio senza rifare il resto.
 
-Il censimento completo, con la corsa da cui viene e l'esito di ciascun collegamento, sta in `pokedex-home-completo/CENSIMENTO-FONTI-COLLEZIONE.md` e nella sua tabella `fonti-collezione.csv`, ed è generato da `tools/censimento-fonti-reddit.py`. Quel documento e questa sezione non sono ridondanti e vale dire in che cosa differiscono: là ogni riga porta l'esito tecnico della corsa, cioè se la fonte sia stata scaricata, catalogata con un motivo o non raggiunta; qui ogni riga porta il livello di affidabilità, che è un giudizio nostro e non un dato della corsa. Il primo si rigenera, il secondo si cura.
+Il censimento completo, con la corsa da cui viene e l'esito di ciascun collegamento, sta in `pokedex-home-completo/CENSIMENTO-FONTI-COLLEZIONE.md` e nella sua tabella `pokedex-home-completo/data/fonti-collezione.csv`, ed è generato da `tools/censimento-fonti-reddit.py`. Quel documento e questa sezione non sono ridondanti e vale dire in che cosa differiscono: là ogni riga porta l'esito tecnico della corsa, cioè se la fonte sia stata scaricata, catalogata con un motivo o non raggiunta; qui ogni riga porta il livello di affidabilità, che è un giudizio nostro e non un dato della corsa. Il primo si rigenera, il secondo si cura.
 
 Il livello è assegnato per host da una tabella dichiarata dentro lo strumento invece che a mano riga per riga, e la scelta è deliberata: una classificazione fatta a mano su centosettantuno voci è incoerente per costruzione, perché la stessa fonte riceve livelli diversi a venti righe di distanza. Scritta in un posto solo la si può contestare, e una riga sbagliata si corregge una volta e il censimento si rigenera. Resta un limite dichiarato: il livello è una proprietà della fonte e non del suo contenuto, quindi un host che ospiti cose di natura diversa riceve il livello più prudente fra quelli plausibili e la sua voce va guardata a mano prima di essere citata.
 

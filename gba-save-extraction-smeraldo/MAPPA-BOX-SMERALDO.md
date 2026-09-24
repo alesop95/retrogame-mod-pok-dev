@@ -1,5 +1,7 @@
 <!-- generato da gba-save-extraction-smeraldo/tools/emerald_mappa_box.py: non si modifica a mano -->
 
+`<AMICO>` maschera il nome di un allenatore terzo nella mappa pubblica; i record del salvataggio non sono cambiati.
+
 ## Legenda e riepilogo
 
 | Colore | Provenienza | Esemplari |
@@ -37,7 +39,7 @@
 | Posizione | Riga | Colonna | Pokémon | Soprannome | Livello | Allenatore | Provenienza | Dettaglio |
 |---|---|---|---|---|---|---|---|---|
 | 1 | 1 | 1 | Salamence |  | 100 | ALESSIO | Collezione | Aranciopoli, Verde Foglia |
-| 2 | 1 | 2 | Breloom |  | 100 | MATTEO | Collezione | Bosco Petalo, Smeraldo |
+| 2 | 1 | 2 | Breloom |  | 100 | <AMICO> | Collezione | Bosco Petalo, Smeraldo |
 | 3 | 1 | 3 | Kangaskhan |  | 5 | ALEX | Collezione | Percorso 117, Smeraldo |
 | 4 | 1 | 4 | Blaziken |  | 100 | ALESSIO | Collezione | Quartisola, Verde Foglia |
 | 5 | 1 | 5 | Tyranitar |  | 100 | ALESSIO | Collezione | Canyon Seption, Verde Foglia |
@@ -47,7 +49,7 @@
 | 9 | 2 | 3 | Machamp |  | 100 | ALESSIO | Collezione | Monte Brace, Verde Foglia |
 | 10 | 2 | 4 | Alakazam |  | 100 | AXEL | Collezione | Grotta Celeste, Rosso Fuoco |
 | 11 | 2 | 5 | Gengar |  | 100 | ALESSIO | Collezione | Torre Pokémon, Verde Foglia |
-| 12 | 2 | 6 | Pinsir |  | 100 | MATTEO | Collezione | Zona Safari (RZS), Smeraldo |
+| 12 | 2 | 6 | Pinsir |  | 100 | <AMICO> | Collezione | Zona Safari (RZS), Smeraldo |
 | 13 | 3 | 1 | Rayquaza |  | 100 | ALESSIO | Collezione | Torre dei Cieli, Zaffiro |
 | 14 | 3 | 2 | Tyranitar |  | 100 | AXEL | Collezione | Canyon Seption, Rosso Fuoco, seconda cattura della specie |
 | 15 | 3 | 3 | Latios |  | 100 | 10ANNI | Collezione | (occasione speciale), Rubino |
@@ -194,7 +196,7 @@
 | 8 | 2 | 2 | Pichu |  | 5 | ALEX | Collezione | Percorso 117, Smeraldo |
 | 9 | 2 | 3 | Pikachu |  | 27 | ALEX | Collezione | Zona Safari (RZS), Smeraldo, seconda cattura della specie |
 | 10 | 2 | 4 | Raichu |  | 27 | ALEX | Collezione | Zona Safari (RZS), Smeraldo |
-| 11 | 2 | 5 | Feebas |  | 34 | MATTEO | Collezione | Percorso 119, Smeraldo |
+| 11 | 2 | 5 | Feebas |  | 34 | <AMICO> | Collezione | Percorso 119, Smeraldo |
 | 12 | 2 | 6 | Zigzagoon |  | 3 | ALEX | Collezione | Percorso 102, Smeraldo |
 | 13 | 3 | 1 | Noctowl |  | 36 | ALEX | Collezione | Zona Safari (RZS), Smeraldo |
 | 14 | 3 | 2 | Magnemite |  | 23 | Gian | Collezione | Ciclanova, Smeraldo |
@@ -212,7 +214,7 @@
 | 26 | 5 | 2 | Seviper |  | 36 | ALEX | Collezione | Percorso 114, Smeraldo |
 | 27 | 5 | 3 | Absol |  | 37 | ALEX | Collezione | Percorso 120, Smeraldo, seconda cattura della specie |
 | 28 | 5 | 4 | Golem |  | 73 | AXEL | Collezione | Grotta Celeste, Rosso Fuoco |
-| 29 | 5 | 5 | Mareep |  | 34 | MATTEO | Collezione | Zona Safari (RZS), Smeraldo |
+| 29 | 5 | 5 | Mareep |  | 34 | <AMICO> | Collezione | Zona Safari (RZS), Smeraldo |
 | 30 | 5 | 6 | Tentacruel |  | 31 | ALESSIO | Collezione | Via Vulcanica, Verde Foglia, seconda cattura della specie |
 
 ## Box 6
@@ -231,20 +233,20 @@
 | 8 | 2 | 2 | Gardevoir |  | 50 | ALEX | Collezione | Percorso 102, Smeraldo |
 | 9 | 2 | 3 | Alakazam |  | 61 | ALEX | Collezione | Grotta Pietrosa, Smeraldo, seconda cattura della specie |
 | 10 | 2 | 4 | Crobat |  | 50 | ALEX | Collezione | Grotta Mutevole (S), Smeraldo |
-| 11 | 2 | 5 | Houndoom |  | 50 | MATTEO | Collezione | Zona Safari (RZS), Smeraldo |
+| 11 | 2 | 5 | Houndoom |  | 50 | <AMICO> | Collezione | Zona Safari (RZS), Smeraldo |
 | 12 | 2 | 6 | Heracross |  | 100 | ALEX | Collezione | Zona Safari (RZS), Smeraldo |
 | 13 | 3 | 1 | Swampert |  | 100 | CICCIO | Collezione | Percorso 101, Rubino |
 | 14 | 3 | 2 | Venusaur |  | 60 | ALEX | Collezione | Torre Lotta (RZ) / Parco Lotta (S), Smeraldo |
 | 15 | 3 | 3 | Ludicolo |  | 50 | ALEX | Collezione | Percorso 114, Smeraldo |
 | 16 | 3 | 4 | Aggron |  | 50 | ALESSIO | Collezione | Grotta Pietrosa, Zaffiro |
 | 17 | 3 | 5 | Swampert |  | 60 | ALESSIO | Collezione | Quartisola, Verde Foglia, seconda cattura della specie |
-| 18 | 3 | 6 | Shroomish |  | 6 | MATTEO | Collezione | Bosco Petalo, Smeraldo |
+| 18 | 3 | 6 | Shroomish |  | 6 | <AMICO> | Collezione | Bosco Petalo, Smeraldo |
 | 19 | 4 | 1 | Taillow |  | 4 | ALEX | Collezione | Percorso 104, Smeraldo |
 | 20 | 4 | 2 | Swampert |  | 60 | AXEL | Collezione | Altopiano Blu, Rosso Fuoco, seconda cattura della specie |
 | 21 | 4 | 3 | Latios |  | 100 | CICCIO | Collezione | Percorso 110, Rubino, seconda cattura della specie |
 | 22 | 4 | 4 | Latios |  | 73 | 10ANNI | Collezione | (occasione speciale), Rubino, seconda cattura della specie |
-| 23 | 4 | 5 | Latios |  | 57 | MATTEO | Collezione | Percorso 110, Smeraldo, seconda cattura della specie |
-| 24 | 4 | 6 | Breloom |  | 80 | MATTEO | Collezione | Bosco Petalo, Smeraldo, seconda cattura della specie |
+| 23 | 4 | 5 | Latios |  | 57 | <AMICO> | Collezione | Percorso 110, Smeraldo, seconda cattura della specie |
+| 24 | 4 | 6 | Breloom |  | 80 | <AMICO> | Collezione | Bosco Petalo, Smeraldo, seconda cattura della specie |
 | 25 | 5 | 1 | Larvitar |  | 15 | AXEL | Collezione | Canyon Seption, Rosso Fuoco |
 | 26 | 5 | 2 | Dragonite |  | 55 | AXEL | Collezione | Azzurropoli, Rosso Fuoco |
 | 27 | 5 | 3 | Mew |  | 10 | MYSTRY | Evento | Mystery Mew: allenatore MYSTRY, identificativo 6930, lingua English. Quando: 30 settembre 2006. Dove: negozi Toys "R" Us degli Stati Uniti. Come: distribuzione senza fili in un'unica finestra di tre ore, dalle dodici alle quindici. È l'evento con il quale il Mew tornò disponibile nel mercato statunitense. La brevità della finestra, tre ore in un solo giorno, è la ragione per cui questo esemplare è fra i più difficili da trovare in forma autentica. |

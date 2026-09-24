@@ -47,7 +47,7 @@ import sys
 
 RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REGISTRO = os.path.join(RADICE, "SOURCES.md")
-CORPUS = os.path.join(RADICE, "pokedex-home-completo", "fonti-collezione.csv")
+CORPUS = os.path.join(RADICE, "pokedex-home-completo", "data", "fonti-collezione.csv")
 LETTURA = os.path.join(RADICE, "pokedex-home-completo", "LETTURA-DEL-CORPUS.md")
 CAPITOLI = os.path.join(RADICE, "tesi", "capitoli")
 

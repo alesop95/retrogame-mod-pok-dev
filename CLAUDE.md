@@ -22,6 +22,8 @@ Se il lavoro tocca più track o l'infrastruttura, leggi `.claude/context/current
 
 `MAPPA-DOCUMENTI.md` alla radice dice che cosa è ciascun file Markdown del progetto, chi lo scrive e se qualcuno lo debba ancora aprire. Serve a una domanda sola e la risolve in una lettura: distinguere i file generati, che sono i più grossi e che nessuno legge in sequenza, da quelli autorati, che sono pochi e sono dove sta il ragionamento. Porta anche i candidati alla rimozione con il loro perché.
 
+`README.md` alla radice è l'ingresso pubblico: presenta i risultati tecnici senza duplicare lo stato delle schede e collega il registro e la mappa delle fonti. Quando cambia un risultato tecnico, si aggiorna la sua prosa nello stesso giro; quando nasce o cambia un sottoprogetto, si esegue `python tools/aggiorna-readme.py` per rigenerare l'indice dei track. Prima di consegnare i comandi Git si eseguono `python tools/aggiorna-readme.py --check`, `python tools/indice-fonti-unico.py --check` e `python tools/build-source-map.py --check`, così gli indici pubblici e le note delle fonti non invecchiano in silenzio.
+
 ## Indice dei file satellite tracciati
 
 Memoria e stato:
@@ -64,6 +66,7 @@ Fuori da `.claude/`, alla radice e nelle cartelle dei sottoprogetti, stanno la c
 ```
 <slug>/README.md                              punto di ingresso di ciascun sottoprogetto, con l'instradamento
 MAPPA-DOCUMENTI.md                            che cosa e' ciascun file Markdown, chi lo scrive, se va aperto
+README.md                                    ingresso pubblico ai risultati tecnici, ai track e alle fonti
 SOURCES.md                                    registro delle fonti, con il sottoprogetto servito da ciascuna
 docs/index.md                                 indice del percorso di studio tecnico, leggibile come vault Obsidian
 docs/fonti/index-fonti.md                     mappa relazionale delle fonti, con abstract e grafo
@@ -77,7 +80,7 @@ gba-save-extraction-smeraldo/tools/           diagnostica dello zaino su un salv
 
 Le regole normative stanno sotto `.claude/rules/` e le skill del motore sotto `.claude/skills/`. Sono nove, e tre vanno conosciute prima delle altre. `hardware-and-perimeter.md` è specifica di questo progetto e va letta prima di qualsiasi operazione su hardware. `web-sources-not-fetchable.md` dice cosa fare quando una fonte esiste ma non si riesce a recuperarla, ed è generale abbastanza da valere fuori da questo progetto. `chat-non-e-memoria.md`, aggiunta il 2026-09-09 su direttiva dell'utente, dice che nessun contenuto sostanziale resta nella sola conversazione e che i file si aggiornano nello stesso giro di lavoro in cui il contenuto nasce, con il presidio della riga finale che dichiara quali file sono stati scritti.
 
-Gli handoff restano nelle cartelle dei rispettivi sottoprogetti, che è voluto e motivato in ADR-003: `3ds-related/handoff/`, `gba-save-extraction-smeraldo/handoff/` e quello del track dello scambio locale, che sta nella radice della sua cartella. Il sottoprogetto del ponte non ha più un handoff, perché la sua conoscenza è stata verificata sul sorgente e assorbita nella referenza `pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md` e nel percorso di studio sotto `docs/`, come registrato in ADR-013.
+Gli handoff restano nelle cartelle dei rispettivi sottoprogetti, che è voluto e motivato in ADR-003: `3ds-related/handoff/`, `gba-save-extraction-smeraldo/handoff/` e `gba-switch-pokemon-trading/handoff/`. Il sottoprogetto del ponte non ha più un handoff, perché la sua conoscenza è stata verificata sul sorgente e assorbita nella referenza `pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md` e nel percorso di studio sotto `docs/`, come registrato in ADR-013.
 
 ## Come si aggiunge un sottoprogetto
 

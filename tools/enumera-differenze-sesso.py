@@ -50,7 +50,7 @@ import sys
 RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FONTE = os.path.join(RADICE, "_notes", "fonti", "2026-09-08-bulbapedia-differenze-di-sesso.html")
 USCITA = os.path.join(RADICE, "pokedex-home-completo", "DIFFERENZE-DI-SESSO.md")
-NORMALIZZATO = os.path.join(RADICE, "pokedex-home-completo", "differenze-di-sesso.csv")
+NORMALIZZATO = os.path.join(RADICE, "pokedex-home-completo", "data", "differenze-di-sesso.csv")
 
 # I numerali che la pagina scrive in parola invece che in cifra sulle generazioni con poche voci.
 NUMERALI = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7,
