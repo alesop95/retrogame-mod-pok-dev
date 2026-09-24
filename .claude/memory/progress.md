@@ -4,6 +4,32 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-23, sessantottesima parte. Il complemento del Rubino generato, 355 su 355, e ADR-081
+
+`tools/manifesto-complemento-rubino.py` ha scritto 355 richieste dal deposito di Smeraldo:
+- 36 statici, doni e uova, con Venusaur e Charizard evoluti dai rispettivi starter per le due sfide;
+- 8 doni di Colosseum e XD, 2 starter e 4 scambi;
+- 129 Ombra;
+- il Jirachi di Channel;
+- 28 forme di Unown;
+- 40 esclusivi di versione;
+- 8 portatori di mosse perdute;
+- il portatore dei fiocchi;
+- 98 specie scoperte.
+
+`tools/pkhex-genera` le ha eseguite, e dopo quattro correzioni l'esito è 355 legali su 355.
+- **Identificativi:** quelli di Rubino, Zaffiro, Colosseum e XD si cercano validi per `MethodH` e `MethodCXD`.
+- **Formato:** conversione di CK3 e XK3 in PK3 prima del giudizio.
+- **Unicità:** personalità uniche, anche rispetto a Smeraldo, e natura a caso dal secondo tentativo.
+- **Portatore dei fiocchi:** un Absol al posto del Milotic, la cui evoluzione il verificatore non ricollega all'incontro.
+
+Il controllo indipendente con la libreria del progetto dà:
+- file simmetrici, nessun cromatico, nessuna personalità ripetuta;
+- 386 specie su 386 fra le due cartucce e 28 forme di Unown;
+- fiocchi: Nazionale su 129 esemplari e gli altri 26 legali sull'Absol.
+
+Gli identificativi di Alessio: Rubino 17735/10629, Zaffiro 34010/11870, Smeraldo 42317/0, Rosso Fuoco 64821/38858, Verde Foglia 46517/44697, Colosseum 57517/42859, XD 13578/49302. Documenti: `pokedex-home-completo/COMPLEMENTO-RUBINO.md`, generato da `tools/complemento-rubino-md.py`, e `STUDIO-10-la-libreria-del-verificatore-come-generatore.md`. Il capitolo 29 della tesi ha un paragrafo nuovo.
+
 ## 2026-09-23, sessantasettesima parte. ADR-080 fissato, e la fase F0 chiusa
 
 ADR-080: collezione completa di terza generazione su due cartucce, con i fiocchi. Smeraldo resta com'è con le catture vere; il Rubino di prova riceve circa 320 esemplari nelle scatole; la sua partita resta all'inizio con la squadra legittima che ha; l'allenatore è Alessio con un identificativo per gioco. Dal conto: 626 esemplari minimi, 658 con il Parco Lotta, e dei 32 fiocchi di terza generazione 27 sono legali. Per la fase F0 il proprietario ha installato l'SDK di .NET 10. Il clone di PKHeX era parziale e i 1030 errori di compilazione erano tipi mancanti: completato sullo stesso commit, compila. `tools/pkhex-genera` genera legali l'Ho-Oh del Monte Lotta, il Lugia Ombra di XD e il Jirachi di Channel. Aggiornati anche `docs/09_TOOLCHAIN_DA_ALTRI_PROGETTI.md` e il changelog della mappa in `E:\windows-status`. `bin/` e `obj/` sono ora esclusi da git.
