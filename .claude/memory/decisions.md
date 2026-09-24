@@ -963,6 +963,20 @@ Il problema. La lettura integrale delle fonti del Parco Lotta ha lasciato fuori 
 La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti etichettata come non letta con il proprio motivo, secondo la prescrizione che vieta di degradare in silenzio una fonte a nota a margine, e non si tenta alcuna via ulteriore. Il debito di lettura del fronte Parco Lotta si dichiara quindi chiuso con questa sola eccezione dichiarata, e nessuna sessione futura deve riaprirlo credendo che qualcosa sia stato dimenticato.
 
 La ragione per cui l'abbandono e' accettabile qui, e non lo sarebbe altrove. Quella discussione e' del 2005 ed e' una richiesta di valutazione di squadra, cioe' la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e piu' recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano e' quindi basso, e la decisione si fonda su questo e non sulla sola difficolta' di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
+## ADR-082: il Parco Amici si genera con la libreria, e la collezione di terza generazione non si riapre
+
+Data: 2026-09-24. Stato: accettata. Proposta dell'agente, approvata dal proprietario, che ha aggiunto il vincolo sulla collezione.
+
+Contesto. Il 2026-09-24 `tools/pkhex-giudica` ha dato il primo giudizio al lotto `_notes/lotti/lotto-parco-amici-gen4/`, prodotto il 2026-09-16 dalla sintesi di `pokebridge/parco_amici.py`: 148 esemplari contestati su 203. Gli stessi 203 esemplari di terza generazione, convertiti con `PK3.ConvertToPK4()` di PKHeX.Core, erano 203 conformi su 203, e nessun file coincideva byte per byte con quello della sintesi.
+
+Decisione. Il lotto del Parco Amici si genera con la libreria, tramite `tools/pkhex-parco-amici`, come ADR-081 aveva già deciso per la generazione. Lo strumento legge in sola lettura i tre lotti di terza generazione già conformi. Esclude le sei voci con macchina nascosta, che restano una decisione del proprietario. Fa schiudere le uova in terza generazione prima del passaggio, giudica ogni file e rifiuta di scrivere su un lotto esistente. Il lotto rigenerato ha 203 esemplari conformi su 203, con gli stessi nomi, le stesse 53 uova e le stesse sei esclusioni, confermati da una rilettura indipendente con `pkhex-giudica`. Il lotto della sintesi è conservato in `_notes/archivio/lotto-parco-amici-gen4-sintesi-2026-09-16/`, e `tools/costruisci-lotto-parco-amici.py` scrive ormai solo in una cartella di prova.
+
+Il vincolo, del proprietario. La collezione di terza generazione di ADR-080 non si rimette in discussione. Ne fanno parte Smeraldo scritto e verificato, il complemento del Rubino con i suoi 376 esemplari e i lotti di terza generazione da cui dipende. È la base che sarà portata anche su HOME. Nessuna sessione futura la riapre per ragioni di metodo, a meno che non emerga un difetto concreto e misurato su un esemplare preciso; e anche in quel caso si corregge quell'esemplare, non la collezione. Il 2026-09-24 il giudizio con la libreria conferma 376 conformi su 376 per il complemento e 176, 14 e 19 per i lotti di eventi, incontri e scambi. Il Parco Amici è a valle di quei lotti, li legge e non li modifica.
+
+Conseguenze.
+- **Il modulo della sintesi:** `pokebridge/parco_amici.py` resta nel pacchetto con la sua suite, come descrizione della trasformazione; non produce più lotti. Se correggerlo o dichiararlo superato è una decisione aperta in `pending.md`, e non blocca nulla.
+- **Stesso metodo per gli altri lotti contestati:** gli scambi in gioco di quarta e quinta generazione, contestati per intero, si rigenerano dalle voci di scambio della libreria.
+
 ## ADR-081: la libreria del verificatore diventa il generatore del progetto, anche per l'obiettivo primario
 
 Data: 2026-09-23. Stato: accettata. Proposta del proprietario, che ha chiesto di documentarla per intero.
