@@ -362,3 +362,5 @@ gba-save-extraction-smeraldo/MAPPA-BOX-RUBINO.md#box-9 # inventario generato di 
 gba-save-extraction-smeraldo/MAPPA-BOX-RUBINO.md#box-10 # inventario generato di posizioni, non prosa da rendere
 gba-save-extraction-smeraldo/MAPPA-BOX-RUBINO.md#box-11 # inventario generato di posizioni, non prosa da rendere
 gba-save-extraction-smeraldo/MAPPA-BOX-RUBINO.md#box-12 # inventario generato di posizioni, non prosa da rendere
+gba-save-extraction-smeraldo/MAPPA-BOX-RUBINO.md#box-13 # inventario generato di posizioni, non prosa da rendere
+pokedex-home-completo/COMPLEMENTO-RUBINO.md#incontri-speciali-dei-selvatici # inventario generato di esemplari, non prosa da rendere

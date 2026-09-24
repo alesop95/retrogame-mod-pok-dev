@@ -103,6 +103,14 @@ foreach (var r in richieste["richieste"]!.AsArray())
                 continue;
             if (eventoOT is not null && !(enc is EncounterGift3 g3 && g3.OriginalTrainerName == eventoOT))
                 continue;
+            // La libreria restituisce le voci selvatiche di tutte le forme, non solo di quella chiesta: senza
+            // questo filtro i 28 Unown del primo lotto erano nati tutti nella Sala A-loe, cioe' tutti A. La
+            // forma richiesta e il tipo di casella, come Spaccaroccia o i riquadri di Feebas, si pretendono
+            // qui sulla voce stessa.
+            if (r["forma"] is not null && !(enc is EncounterSlot3 sf && sf.Form == forma))
+                continue;
+            if (r["tipo_casella"] is { } tc && !(enc is EncounterSlot3 st && (int)st.Type == (int)tc))
+                continue;
             // per un'evoluzione si provano livelli crescenti, perche' ogni specie ha la propria soglia
             byte[] livelli = bersaglio != enc.Species && livello is null ? [30, 40, 50, 60, 100] : [0];
             for (int tentativo = 0; tentativo < 6 * livelli.Length && accettato is null; tentativo++)

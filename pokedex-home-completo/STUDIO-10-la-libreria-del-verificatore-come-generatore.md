@@ -36,12 +36,25 @@ Il quarto inciampo riguarda l'unicità. La libreria costruiva tre leggendari vag
 
 L'ultimo inciampo è stato il portatore dei fiocchi. Il primo candidato era un Milotic, per il legame con i concorsi. Il verificatore però non ricollega l'evoluzione da un Feebas generato a un incontro d'origine, mentre accetta tutti e 26 i fiocchi su un Feebas o su un Absol che non si evolvono. Il portatore è diventato l'Absol del Percorso 120 di Smeraldo. La prova è stata fatta con richieste separate, cioè una variante senza fiocchi, una senza evoluzione e una su un'altra specie, così che la causa fosse isolata invece che intuita.
 
+Due inciampi sono arrivati il giorno dopo, dal controllo finale che il proprietario ha chiesto, e sono i più istruttivi di tutti perché entrambi erano passati sia dal verificatore sia dal primo controllo indipendente.
+
+Il primo: i 28 Unown erano tutti A. La libreria, interrogata per una specie con una forma, restituisce le voci selvatiche di tutte le forme, e il generatore prendeva la prima, cioè la Sala A-loe, che nel gioco dà soltanto A e il punto interrogativo. Il verificatore li ha giudicati legali perché la lettera si ricava dalla personalità, e quella era coerente con la voce. Il controllo indipendente non se n'è accorto perché contava le etichette delle richieste, da A a ?, invece della lettera che il gioco calcola dalla personalità con la formula `(((p >> 24) & 3) << 6 | ((p >> 16) & 3) << 4 | ((p >> 8) & 3) << 2 | (p & 3)) % 28`. Ora il generatore pretende sulla voce la forma richiesta, il manifesto manda ogni lettera nella sala che la ospita (la mappa fra sale e lettere l'ha data la libreria stessa), e i due giochi si alternano dentro ogni sala. Il controllo calcola la lettera dalla personalità: 28 lettere su 28, ciascuna nella propria sala, e ogni sala di Rosso Fuoco e di Verde Foglia ha almeno un esemplare. La lezione è la stessa del caso dei formati, un passo più in là: anche un controllo indipendente sbaglia se legge un'etichetta scritta dallo stesso processo che controlla, invece di ricalcolare il dato dall'oggetto.
+
+Il secondo: gli incontri speciali dei selvatici. Il censimento dei condizionati riconosce tre tipi di incontro speciale:
+- una specie che viene solo da una condizione, come Spaccaroccia o i riquadri di Feebas;
+- un luogo che ospita una specie sola, come la Grotta Artistica di Smeargle o il Porto Terzisola di Dunsparce;
+- un'area con una specie sola che altrove non c'è, come l'erba dell'Isola Miraggio.
+
+Confrontati per gioco e luogo con le due cartucce, ne mancavano 37, di cui 15 erano gli Unown delle sale. Le altre 22 sono entrate nel lotto come richieste con il loro luogo e, dove serve, con il tipo di casella, che il generatore ora pretende sulla voce: fra queste il Wynaut dell'Isola Miraggio di Rubino e di Zaffiro. Dopo, nessun incontro speciale resta senza esemplare.
+
+L'allenatore Alessio di ciascun gioco non corrisponde a una partita reale. È un allenatore valido, con un identificativo che quel gioco può produrre, che avrebbe potuto giocare un'ipotetica partita di quel gioco; dove la voce impone un allenatore fisso, l'esemplare porta quello.
+
 ## Che cosa ne è uscito
 
 Il lotto è in `_notes/lotto-complemento-rubino/esemplari/`, e il documento generato `COMPLEMENTO-RUBINO.md` ne è la forma leggibile.
-- **Legalità:** 355 esemplari su 355 richieste, tutti legali per la libreria del verificatore.
+- **Legalità:** 376 esemplari su 376 richieste, tutti legali per la libreria del verificatore, dopo le correzioni del 2026-09-24.
 - **Controllo indipendente:** tutti simmetrici per la libreria del progetto, nessuno cromatico, nessuna personalità ripetuta né nel lotto né rispetto a Smeraldo.
-- **Copertura:** con Smeraldo coprono tutte le 386 specie e le 28 forme di Unown.
+- **Copertura:** con Smeraldo coprono tutte le 386 specie, le 28 forme di Unown dalle loro sale e tutti gli incontri speciali dei selvatici.
 - **Fiocchi:** portano tutti e 27 i fiocchi di terza generazione che il verificatore accetta. Il Nazionale è su tutti i 129 Pokémon Ombra purificati; i 20 di gara al rango massimo, Campione, Winning, Victory, Artist, Impegno e Terra sono sull'Absol.
 - **Mosse perdute:** otto su nove. Incubo non ha portatore perché in terza generazione nessuna specie la impara.
 - **Eventi:** entra il Jirachi di Pokémon Channel, che il progetto finora non sapeva produrre perché usa il generatore dei giochi da tavolo.
@@ -53,6 +66,17 @@ La riproducibilità ha un limite dichiarato. La libreria estrae i numeri casuali
 La libreria copre tutte le generazioni, non soltanto la terza, e il generatore non sa nulla della terza generazione: la sua conoscenza sta tutta nelle richieste e nella libreria. Lo stesso programma può quindi generare esemplari legali per i giochi di quarta, quinta, sesta e settima generazione, cioè per i salvataggi da cui la catena porta al deposito. È la ragione di ADR-081.
 
 Due confini vanno detti con la stessa chiarezza. Il primo è di perimetro. L'installazione e l'uso di Pokémon Bank e Pokémon Transporter su questa console restano fuori dall'assistenza, per la ragione registrata in `_notes/perimetro-bank-transporter.md`: il progetto prepara gli esemplari e i salvataggi, e quel tratto resta del proprietario. Il secondo è di sostanza. Un esemplare generato è legale per il verificatore, e il progetto ha sempre distinto il legale dal legittimo. Vale in particolare per i fiocchi di gara e di vittoria sull'Absol, che raccontano concorsi e serie mai giocati, come ADR-080 ha registrato dopo averlo esposto al proprietario.
+
+## Gli sfondi del Rubino
+
+Il proprietario ha chiesto uno sfondo Amici per il Rubino e una selezione per gli altri box. Lo sfondo Amici però in Rubino non esiste. Il controllo è stato fatto sul sorgente, perché il verificatore elenca sedici sfondi per tutta la terza generazione e quindi non distingue: `gWallpaperTable` in `src/pokemon_storage_system_4.c` di pokeruby elenca Forest, City, Desert, Savanna, Crag, Volcano, Snow, Cave, Beach, Seafloor, River, Sky, Polkadot, Pokecenter, Machine e Plain, nello stesso ordine di Smeraldo. Lo sfondo Amici è un'aggiunta di Smeraldo, legata alla frase di Walda. `sfondi_rubino` in `emerald_mappa_box.py` assegna a ogni box il primo sfondo libero fra quelli del gruppo che vi prevale:
+- City e Pokecenter per gli statici;
+- Savanna per gli esclusivi;
+- Forest, River e Snow per il Pokédex;
+- Polkadot per gli Unown, lo sfondo più giocoso dei sedici;
+- Desert per Colosseum, che si gioca nel deserto di Orre;
+- Machine, Seafloor e Cave per XD;
+- Sky per l'ultimo box, dove sta il Jirachi di Channel.
 
 ## Che cosa resta aperto
 

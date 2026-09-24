@@ -29,7 +29,7 @@ RADICE = Path(__file__).resolve().parents[1]
 LOTTO = RADICE.joinpath("_notes", "lotto-complemento-rubino")
 USCITA = RADICE.joinpath("pokedex-home-completo", "COMPLEMENTO-RUBINO.md")
 NOMI = RADICE.joinpath("_notes", "fonti", "pkhex", "PKHeX.Core", "Resources", "text", "other", "it", "text_Species_it.txt")
-GRUPPI = [("statico", "Incontri statici, doni e uova dei portatili"), ("dono", "Doni di Colosseum e di XD"),
+GRUPPI = [("statico", "Incontri statici, doni e uova dei portatili"), ("incontro speciale", "Incontri speciali dei selvatici"), ("dono", "Doni di Colosseum e di XD"),
           ("evento", "Evento"), ("starter", "Starter di Colosseum"), ("Ombra di Colosseum", "Ombra di Colosseum"),
           ("Ombra di XD", "Ombra di XD"), ("scambio", "Scambi di XD"), ("forma", "Forme di Unown"),
           ("esclusivo", "Esclusivi di versione"), ("mossa", "Portatori di mosse perdute"), ("fiocchi", "Portatore dei fiocchi"),
@@ -55,7 +55,7 @@ def main():
           "## Gli allenatori", "", "| Gioco | Allenatore | Identificativo | Segreto |", "|---|---|---|---|"]
     for sigla, a in rapporto["allenatori"].items():
         md.append("| %s | %s | %d | %d |" % (sigla, a["OT"], a["TID16"], a["SID16"]))
-    md += ["", "Gli esemplari con allenatore fisso, cioè i doni di Colosseum, gli scambi di XD e il Jirachi di Pokémon Channel, portano l'allenatore che la voce della tabella impone.", "",
+    md += ["", "L'allenatore Alessio di ciascun gioco non corrisponde a una partita reale: è un allenatore valido, cioè con un identificativo che quel gioco può produrre, che avrebbe potuto giocare un'ipotetica partita di quel gioco. Gli esemplari con allenatore fisso, cioè i doni di Colosseum, gli scambi di XD e il Jirachi di Pokémon Channel, portano l'allenatore che la voce della tabella impone.", "",
            "## Riepilogo", "", "| Gruppo | Esemplari |", "|---|---|"]
     md += ["| %s | %d |" % (t, len(v)) for t, v in per_gruppo.items() if v]
     for titolo, voci in per_gruppo.items():

@@ -59,6 +59,11 @@ CLASSI_GC = {"starter di Colosseum": "EncounterStarter3Colo", "dono di Colosseum
 # la impara, quindi non ha portatore e lo si dichiara invece di inventarlo.
 MOSSE_PERDUTE = [(169, "Ragnatela", 167), (193, "Preveggenza", 355), (218, "Frustrazione", 359), (265, "Maniereforti", 296),
                  (274, "Assistente", 52), (302, "Pugnospine", 331), (320, "Meloderba", 1), (324, "Segnoraggio", 313)]
+# Le lettere di Unown per sala delle Rovine Tanoby, come la libreria del verificatore le dichiara nelle voci
+# selvatiche di Rosso Fuoco e Verde Foglia, lette il 2026-09-24: luogo, forme. Ogni lettera nasce solo nella
+# sua sala, e il primo lotto, che non lo sapeva, aveva generato 28 Unown A nella prima.
+SALE_UNOWN = {188: [0, 27], 189: [2, 3, 7, 14, 20], 190: [4, 8, 13, 18], 191: [9, 11, 15, 16, 17],
+              192: [5, 6, 10, 19, 24], 193: [1, 12, 21, 22, 23], 194: [25, 26]}
 # I 26 fiocchi legali su un esemplare che non sia Ombra: i venti di gara al rango massimo, e sei di merito.
 FIOCCHI = ["RibbonCountG3Cool=4", "RibbonCountG3Beauty=4", "RibbonCountG3Cute=4", "RibbonCountG3Smart=4", "RibbonCountG3Tough=4",
            "RibbonChampionG3", "RibbonWinning", "RibbonVictory", "RibbonArtist", "RibbonEffort", "RibbonEarth"]
@@ -132,11 +137,14 @@ def main():
             continue
         aggiungi(specie=g["specie"], giochi=["COLO" if "Colosseum" in g["classe"] else "XD"], classi=[CLASSI_GC[g["classe"]]], luogo=None, motivo="%s, %s" % (g["classe"], g["commento"] or g["specie"]))
 
-    # 4. le 28 forme di Unown, dalle Rovine Tanoby
+    # 4. le 28 forme di Unown, ciascuna dalla sua sala, alternando i due giochi dentro la sala cosi' che ogni
+    # sala di Rosso Fuoco e di Verde Foglia abbia almeno un esemplare
     forme = {d["forma"] for d in dep if d["naz"] == 201}
-    for f in range(28):
-        if f not in forme:
-            aggiungi(specie=201, forma=f, giochi=["FR", "LG"], classi=["EncounterSlot3"], luogo=None, motivo="forma di Unown %d" % f)
+    for sala, lettere in SALE_UNOWN.items():
+        for k, f in enumerate(lettere):
+            if f not in forme:
+                aggiungi(specie=201, forma=f, giochi=["FR" if k % 2 == 0 else "LG"], classi=["EncounterSlot3"], luogo=sala,
+                         motivo="forma di Unown %d" % f)
 
     # 5. gli esclusivi di versione, ciascuno dal proprio gioco
     selv = v.selvatici()
@@ -144,6 +152,36 @@ def main():
         for n in sorted(selv[a] - selv[b]):
             if not [d for d in dep if d["naz"] == n and d["gioco"] == a] and not [r for r in richieste if r["specie"] == n and r["giochi"] == [NOME_GIOCO[a]]]:
                 aggiungi(specie=n, giochi=[NOME_GIOCO[a]], classi=["EncounterSlot3"], luogo=None, motivo="esclusivo di %s" % a)
+
+    # 5b. gli incontri speciali dei selvatici, cioe' quelli che il censimento dei condizionati riconosce: una
+    # specie che viene solo da una condizione, come Spaccaroccia o i riquadri di Feebas, un luogo che ospita una
+    # specie sola, come la Grotta Artistica, o un'area con una specie sola che altrove non c'e', come l'erba
+    # dell'Isola Miraggio. Ogni gioco li ha propri, quindi si chiedono dal loro gioco e dal loro luogo.
+    cond = _modulo(RADICE.joinpath("tools", "censimento-condizionati.py"), "condizionati")
+    tipo_di = {etichetta: t for t, (_, etichetta) in cond.CONDIZIONI["3"].items()}
+    for gioco, nome_file in v.SELVATICI:
+        if gioco == "sciami di Hoenn":
+            continue
+        a = cond.analizza(cond.leggi_titolo(str(v.PKHEX.joinpath(cond.WILD, "Gen3", nome_file)), "3", "Gen3/" + nome_file), "3")
+        voci = collections.OrderedDict()
+        for sp, etichette in a["solo_condizione"].items():
+            voci.setdefault(sp, {})["tipo"] = tipo_di[sorted(e for _, e in etichette)[0]]
+        for l, sp in a["dedicati"].items():
+            voci.setdefault(sp, {}).setdefault("luogo", l)
+        for x in a["monospecie"]:
+            if not x["altrove"]:
+                voci.setdefault(x["specie"], {}).setdefault("luogo", x["luogo"])
+        for sp, dove in voci.items():
+            if sp == 201:
+                continue
+            nome_l = nomi_luoghi[dove["luogo"]] if "luogo" in dove else None
+            if [d for d in dep if d["naz"] in fam[sp] and d["gioco"] == gioco and (nome_l is None or d["luogo"] == nome_l)]:
+                continue
+            r = dict(specie=sp, giochi=[NOME_GIOCO[gioco]], classi=["EncounterSlot3"], luogo=dove.get("luogo"),
+                     motivo="incontro speciale, %s%s" % (nome_l or "da condizione", ", con tipo di casella %d" % dove["tipo"] if "tipo" in dove else ""))
+            if "tipo" in dove:
+                r["tipo_casella"] = dove["tipo"]
+            aggiungi(**r)
 
     # 6. le mosse perdute, ciascuna su una specie che la impara
     for mossa, nome, specie in MOSSE_PERDUTE:
