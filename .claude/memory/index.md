@@ -37,6 +37,12 @@ Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo q
 
 ## Punto di ripresa
 
+AGGIUNTA DEL 2026-09-24. SI RIPARTE DA HOME. La collezione di terza generazione è chiusa sul piano del lavoro: Smeraldo è scritto, il complemento del Rubino è generato e aspetta la cartuccia, e questa attesa è da ricordare a ogni sessione. Il PDF da stampare della collezione intera è `gba-save-extraction-smeraldo/MAPPA-BOX-COLLEZIONE.pdf`. Chi riprende trova cartelle e file riorganizzati:
+- i backup di Smeraldo per scrittura, con il loro `LEGGIMI.md`;
+- il clone di PKHeX completo e compilato;
+- il generatore `tools/pkhex-genera`;
+- le mappe dei box per le due cartucce.
+
 AGGIUNTA DEL 2026-09-23, sedicesima parte. ADR-080 e ADR-081: il complemento del Rubino è generato con la libreria del verificatore, 355 esemplari legali su 355, e con Smeraldo copre 386 specie su 386, 28 forme di Unown e i 27 fiocchi legali. Resta la scrittura sul Rubino, fase F5: prima una lettura nuova della cartuccia con backup in doppia copia, poi il file lavorato, il dump di PKHeX, e la scrittura con rilettura.
 
 AGGIUNTA DEL 2026-09-23, quindicesima parte. Verifica profonda della terza generazione, in `pokedex-home-completo/VERIFICA-TERZA-GENERAZIONE.md`: nessuna specie è vincolata dalla chiusura, mentre restano irripetibili fiocchi, nove mosse perdute, tre sfide del deposito, Colosseum e XD e il Mew in una sfera diversa dalla Poké Ball. Serve una decisione del proprietario su che cosa inseguire prima della chiusura di Bank, ed è la voce DA DECIDERE del 2026-09-23 sera in `pending.md`.
