@@ -53,7 +53,7 @@ Sono conoscenza tecnica autorata, numerati per ordine di lettura e non per impor
 
 Due sono molto più grossi degli altri e vale sapere perché prima di aprirli: `docs/22-strumenti.md` è il catalogo di tutti gli strumenti con le loro procedure, e `docs/40-appendice-matematica.md` raccoglie le dispense che finiscono in appendice alla tesi. Si consultano per punti, non si leggono in sequenza.
 
-Sotto `docs/fonti/` stanno centocinquantasette note Markdown tracciate, di cui la stragrande maggioranza generata: `index-fonti.md` è la mappa relazionale generata dalla tabella delle fonti, e `collezione/` sono le quarantatre note del corpus della collezione, generate da `tools/censimento-fonti-reddit.py`. Aprendo la radice come vault Obsidian diventano un grafo.
+Sotto `docs/fonti/` stanno le schede Markdown tracciate e generate per navigare le fonti come grafo in Obsidian; `collezione/` raccoglie la vista del corpus. Il confine fra registro, schede e materiale grezzo locale è definito una sola volta in `SOURCES.md`, sezione "Dove stanno le fonti".
 
 ## I file generati, che nessuno scrive
 
@@ -95,7 +95,7 @@ Sommano oltre tre megabyte, cioè la quasi totalità del peso testuale del proge
 
 ## Il registro delle fonti
 
-`SOURCES.md` è uno solo, alla radice, e vale la pena dire che cosa è diventato: oltre tremila righe alla ricognizione del 2026-09-24, di cui milleduecentonovantanove voci dal corpus della collezione. Dal 2026-09-09 dichiara la propria struttura in una sezione apposita, che distingue i cinque livelli di affidabilità dalle quattro sezioni che sono un taglio diverso dello stesso materiale. La sua struttura è descritta dentro di esso, nella sezione apposita, e non si riassume qui per non avere due descrizioni della stessa cosa. Dal 2026-09-10 porta in testa un blocco generato da `tools/indice-fonti-unico.py`, delimitato da due commenti HTML e da non modificare a mano, che mette ogni fonte registrata accanto al documento del progetto che la usa e al capitolo di tesi che la cita, e ogni cluster del corpus accanto al proprio stato di lettura: risolve la domanda che nessun file risolveva, cioè dove sia finito ciò che una fonte ha dato.
+`SOURCES.md` è il registro unico versionato: dichiara ruolo e versionamento dei tre percorsi delle fonti, distingue i livelli di affidabilità e contiene l'indice generato da `tools/indice-fonti-unico.py`. L'indice conserva anche la fotografia delle citazioni nella tesi locale, che si può aggiornare solo dove `tesi/` è presente.
 
 ## Gli studi e le referenze autorate, che sono i file da leggere
 
