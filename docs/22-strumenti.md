@@ -177,6 +177,19 @@ L'esportazione ha però un valore che non era il suo scopo, ed è maggiore di qu
 
 Il giudizio si legge dall'indicatore di conformità che il programma mostra accanto all'immagine dell'esemplare, in alto a sinistra: cliccandolo si apre il rapporto. Quel rapporto è il risultato dell'esperimento, e va confrontato voce per voce con la colonna delle provenienze che `genera-evento-gen3.py` stampa, perché è quella a dire se un difetto contestato sia nostro o dei dati di terzi da cui i metadati provengono.
 
+## pkhex-giudica
+
+Il giudizio di conformità con l'interfaccia di PKHeX descritto sopra è una prova fatta da una persona, e il suo resoconto in `recreate-pokemon-distributions-events/giudizi-esterni.json` dice che cosa è stato visto un certo giorno, non se i file che stanno oggi sul disco siano gli stessi. Dal 2026-09-24 la stessa prova è ripetibile senza interfaccia: `tools/pkhex-giudica` è un programma C# sulla libreria PKHeX.Core compilata dal clone in `_notes/fonti/cloni/pkhex`, la stessa usata da `tools/pkhex-genera`, e applica `LegalityAnalysis` a ogni file di esemplare delle cartelle ricevute, scrivendo un JSON con l'impronta SHA-256, la specie, il contesto, l'esito e, per i contestati, le righe del rapporto in inglese.
+
+Il punto che decide l'esito è il contesto. La libreria giudica alcune regole in funzione del salvataggio attivo, e senza salvataggio applica le regole della Virtual Console: la prima corsa, fatta così, contestava 159 dei 165 esemplari del lotto di Game Boy per le mosse degli eventi dell'epoca delle cartucce, che quelle regole non ammettono. Il programma riproduce quindi ciò che l'interfaccia fa quando riceve un file all'avvio, cioè `StartupArguments.GetBlank`: un salvataggio vuoto del gioco predefinito per il contesto dell'esemplare, con allenatore e lingua dell'esemplare, attivato con `ParseSettings.InitFromSaveFileData`. Con quel contesto lo stesso lotto passa 164 su 165. Una cartella scritta come `CARTELLA=VERSIONE` usa un salvataggio vuoto di quella versione, e resta vero che un salvataggio vuoto non è il salvataggio reale che riceverà l'esemplare: la barriera coreana di ADR-040 si vede solo giudicando con la versione e la lingua del gioco di destinazione.
+
+```powershell
+cd "E:/retrogame-mod-pok-dev/tools/pkhex-giudica"
+dotnet run -c Release -- "../../recreate-pokemon-distributions-events/giudizi-pkhex-core.json" "../../_notes/lotti/lotto-eventi" "../../_notes/lotti/lotto-eventi-gen4" "../../_notes/lotti/lotto-eventi-gen5"
+```
+
+L'uscita tracciata è `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`, generata e non autorata; il registro dei giudizi umani resta accanto e non si fonde con essa, perché le due cose misurano oggetti diversi, cioè un file oggi e una prova di allora.
+
 ## confronta-ace-builder.py
 
 Confronta il costruttore di esemplari della comunità con ciò che questo progetto ha verificato, e serve a una domanda che era aperta: se ricreare la distribuzione originale e scrivere direttamente i byte producano lo stesso esemplare. Esegue cinque confronti, in ordine di durezza decrescente per i primi quattro e con il quinto di natura diversa.
