@@ -2,13 +2,15 @@
 
 Questo file è il registro unico delle fonti tecniche del progetto, condiviso da tutti i sottoprogetti. Nasce dal lavoro sul ponte fra generazioni, che è il track che ha richiesto la ricerca più profonda, ma non gli appartiene: i disassemblati dei giochi, la documentazione dell'hardware, i formati di salvataggio e gli editor servono anche alla correzione dell'inventario di Smeraldo, al modding del 3DS e allo scambio con la Switch, e tenerli in un posto solo evita che ogni handoff riscopra le stesse cose.
 
-## Due file, due scopi
+## Dove stanno le fonti
 
-Questo è il registro: elenca, dice a cosa serve ciascuna voce e a quale sottoprogetto, e vale come inventario. Non dice perché una fonte è stata salvata né come si lega alle altre, perché una tabella non produce un grafo.
+| Percorso | Ruolo | In Git | Come si aggiorna |
+|---|---|---|---|
+| `SOURCES.md` | Registro di tutte le fonti, del loro uso e della loro affidabilità; riferimento per le citazioni del progetto | Sì | Si aggiungono qui le fonti nuove; il blocco dell'indice unico si rigenera con `tools/indice-fonti-unico.py` |
+| `docs/fonti/` | Schede navigabili delle fonti tecniche e mappa del corpus; aggiungono abstract, relazioni e rinvii ai documenti che usano la fonte | Sì | Le schede si rigenerano da `tools/build-source-map.py`; `collezione/` si rigenera con `tools/censimento-fonti-reddit.py` |
+| `_notes/fonti/` | Copie grezze locali di pagine, trascrizioni, cloni e dati di lavoro di terzi | No | Si conservano solo finché servono a verificare o rigenerare una sintesi |
 
-Quella parte sta in `docs/fonti/`, dove ogni fonte che porta peso tecnico ha una nota con il suo abstract, il motivo per cui è in archivio, il punto esatto del progetto che serve e le relazioni verso le altre fonti. L'indice è `docs/fonti/index-fonti.md`, e aprendo la radice del repository come vault Obsidian quelle relazioni diventano un grafo navigabile. Le note sono generate da `tools/build-source-map.py` a partire da una tabella unica: si modifica la tabella, non le note.
-
-Da qui discende una regola che vale come vincolo e non come preferenza: questo file è l'unica fonte di verità sulle fonti, e nessuna informazione su una fonte vive soltanto altrove. La cartella locale `_notes/fonti/`, che git ignora, è una cache di materiale grezzo e non un archivio: contiene i collegamenti che l'utente salva mentre naviga e i testi che procura quando il recupero automatico non funziona, cioè trascrizioni di video, pagine salvate, porzioni di discussione copiate a mano. Ciò che quel materiale documenta viene letto e trasferito qui in prosa, con la profondità necessaria a poterlo citare senza riaprirlo, e da quel momento il file grezzo è sacrificabile. Non si cancella per igiene, si cancella perché non porta più informazione che non sia scritta qui. Il materiale grezzo resta comunque fuori dal repository, per volume e perché è contenuto di terzi: ciò che entra nel version control è la sintesi con l'attribuzione, non la copia.
+Una fonte nuova entra nel registro con attribuzione e contenuto utile; il file grezzo non è una seconda voce del registro. Le schede in `docs/fonti/` servono alla navigazione, non sostituiscono il registro e non si correggono a mano: per modificarle si cambia il dato nello strumento che le genera. L'indice `docs/fonti/index-fonti.md` apre il grafo in Obsidian. La colonna dei capitoli nell'indice unico è una fotografia generata dalla tesi locale: dopo la rimozione di `tesi/` da Git, si aggiorna soltanto su una macchina che possiede quei sorgenti.
 
 ## Come si usa
 

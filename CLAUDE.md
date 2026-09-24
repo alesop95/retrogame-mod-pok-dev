@@ -22,7 +22,7 @@ Se il lavoro tocca più track o l'infrastruttura, leggi `.claude/context/current
 
 `MAPPA-DOCUMENTI.md` alla radice dice che cosa è ciascun file Markdown del progetto, chi lo scrive e se qualcuno lo debba ancora aprire. Serve a una domanda sola e la risolve in una lettura: distinguere i file generati, che sono i più grossi e che nessuno legge in sequenza, da quelli autorati, che sono pochi e sono dove sta il ragionamento. Porta anche i candidati alla rimozione con il loro perché.
 
-`README.md` alla radice è l'ingresso pubblico: presenta i risultati tecnici senza duplicare lo stato delle schede e collega il registro e la mappa delle fonti. Quando cambia un risultato tecnico, si aggiorna la sua prosa nello stesso giro; quando nasce o cambia un sottoprogetto, si esegue `python tools/aggiorna-readme.py` per rigenerare l'indice dei track. Prima di consegnare i comandi Git si eseguono `python tools/aggiorna-readme.py --check`, `python tools/indice-fonti-unico.py --check` e `python tools/build-source-map.py --check`, così gli indici pubblici e le note delle fonti non invecchiano in silenzio.
+`README.md` alla radice è l'ingresso pubblico: presenta i risultati tecnici senza duplicare lo stato delle schede e collega il registro e la mappa delle fonti. Quando cambia un risultato tecnico, si aggiorna la sua prosa nello stesso giro; quando nasce o cambia un sottoprogetto, si esegue `python tools/aggiorna-readme.py` per rigenerare l'indice dei track. Prima di consegnare i comandi Git si eseguono `python tools/aggiorna-readme.py --check` e `python tools/build-source-map.py --check`; `python tools/indice-fonti-unico.py --check` si esegue quando la tesi locale è disponibile, perché senza i suoi capitoli non si può ricostruire la colonna delle citazioni.
 
 ## Indice dei file satellite tracciati
 
@@ -70,7 +70,7 @@ README.md                                    ingresso pubblico ai risultati tecn
 SOURCES.md                                    registro delle fonti, con il sottoprogetto servito da ciascuna
 docs/index.md                                 indice del percorso di studio tecnico, leggibile come vault Obsidian
 docs/fonti/index-fonti.md                     mappa relazionale delle fonti, con abstract e grafo
-tesi/                                         il documento composto, che copre ogni riga dei .md del progetto
+tesi/                                         documento composto locale, escluso da Git; non disponibile in un clone
 tools/                                        gli strumenti deterministici, uno per misura riproducibile
 pokemon-gen12-gen3-bridge-original-hardware/  referenza byte per byte, il pacchetto pokebridge e la sua suite
 pokedex-home-completo/                        la catena, la roadmap, i censimenti e gli studi del fuoco corrente

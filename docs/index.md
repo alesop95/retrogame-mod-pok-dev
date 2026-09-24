@@ -81,7 +81,7 @@ Il formato dei dati Gen 3 è quindi la conoscenza più trasversale del progetto:
 
 ## La mappa delle fonti
 
-Le fonti che portano peso tecnico hanno una nota propria sotto `docs/fonti/`, con abstract, motivo per cui sono in archivio, punto esatto del progetto che servono e relazioni verso le altre fonti. L'indice è [[index-fonti]], e da là il grafo di Obsidian mostra chi conferma chi, chi corregge chi e chi discende da chi. Il registro completo, comprese le voci minori e quelle non lette, resta [[SOURCES]].
+Per trovare una fonte si parte dal registro [[SOURCES]], che spiega anche quali materiali entrano in Git. La vista navigabile delle fonti tecniche è [[index-fonti]]; contiene collegamenti fra le schede generate, senza aggiungere un secondo registro.
 
 ## Ancoraggi fuori da questa cartella
 

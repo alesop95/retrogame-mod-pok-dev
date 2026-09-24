@@ -313,6 +313,12 @@ def main(argv=None):
     if a.self_test:
         return self_test()
 
+    # La tesi e' locale: senza i capitoli il controllo non puo' ricostruire la
+    # colonna delle citazioni. Fermarsi evita di cancellarla dal blocco tracciato.
+    if not os.path.isdir(CAPITOLI):
+        print("rifiutato: tesi/capitoli non e' disponibile; l'indice richiede la tesi locale")
+        return 1
+
     fonti, errore = carica_fonti()
     if errore:
         print("rifiutato: " + errore)

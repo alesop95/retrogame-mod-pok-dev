@@ -12,11 +12,11 @@ Questo repository raccoglie ricerca tecnica, codice e procedure per leggere, ver
 | Distribuzioni ed eventi | Il [track degli eventi](recreate-pokemon-distributions-events/README.md) separa il dato meccanico della distribuzione dalla sua provenienza storica. Cataloghi e schede sono generati da strumenti riproducibili e confrontati con un verificatore indipendente. |
 | Catena verso Home | Il [track della collezione](pokedex-home-completo/README.md) collega ottenibilità, forme, eventi, vincoli di trasferimento e lotti prodotti. Le tabelle CSV sono in [`data/`](pokedex-home-completo/data/) e i documenti generati dichiarano il programma che li produce. |
 
-Il [percorso di studio](docs/index.md) spiega i meccanismi in ordine didattico; la [tesi](tesi/README.md) li compone in un documento unico. Il [catalogo dei documenti](MAPPA-DOCUMENTI.md) distingue materiale autorato, generato, normativo e di stato.
+Il [percorso di studio](docs/index.md) spiega i meccanismi in ordine didattico. La tesi che li compone in un documento unico vive nella cartella locale `tesi/`, esclusa da Git. Il [catalogo dei documenti](MAPPA-DOCUMENTI.md) distingue materiale autorato, generato, normativo e di stato.
 
 ## Fonti e tracciabilità
 
-Il [registro unico delle fonti](SOURCES.md) indica per ciascuna fonte che cosa documenta, il livello di affidabilità e i sottoprogetti che la usano. Il suo indice generato collega fonti, documenti e capitoli della tesi. La [mappa relazionale](docs/fonti/index-fonti.md) rende navigabili abstract e collegamenti; il [registro delle prove](docs/23-prove-eseguite.md) dice quali verifiche sono state eseguite davvero. Per i formati, le note sui disassemblati di [Rosso](docs/fonti/pokered.md), [Cristallo](docs/fonti/pokecrystal.md) e [Smeraldo](docs/fonti/pokeemerald.md) sono punti di ingresso concreti.
+Il [registro unico delle fonti](SOURCES.md) indica per ciascuna fonte che cosa documenta, il livello di affidabilità e i sottoprogetti che la usano; spiega anche quali materiali sono versionati. Il suo indice generato collega fonti e documenti e conserva una fotografia delle citazioni nella tesi locale. La [mappa relazionale](docs/fonti/index-fonti.md) rende navigabili abstract e collegamenti; il [registro delle prove](docs/23-prove-eseguite.md) dice quali verifiche sono state eseguite davvero. Per i formati, le note sui disassemblati di [Rosso](docs/fonti/pokered.md), [Cristallo](docs/fonti/pokecrystal.md) e [Smeraldo](docs/fonti/pokeemerald.md) sono punti di ingresso concreti.
 
 Una fonte catalogata e una fonte letta sono stati diversi. Le note indicano la differenza e le affermazioni di formato vengono confrontate con codice o documentazione primaria prima di entrare nella referenza.
 
