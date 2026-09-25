@@ -8,8 +8,8 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: 80fac1f
-Data snapshot:         2026-09-16, chiusura di sessione prima di riaprirla per risparmio token
+Commit di riferimento: 503edb7, piu' le modifiche della chiusura del 2026-09-25 da committare
+Data snapshot:         2026-09-25, chiusura di sessione dopo l'allineamento al template f67d5d9
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,8 @@ Data snapshot:         2026-09-16, chiusura di sessione prima di riaprirla per r
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-09-25, chiusura di sessione. Due blocchi di lavoro. Il primo è la produzione verso HOME con la libreria PKHeX.Core compilata dal clone, cioè ADR-081 applicato per intero. Sono nati `tools/pkhex-giudica`, `tools/pkhex-parco-amici`, `tools/pkhex-dono` (con `--lotto` e `--descrivi`) e `tools/pkhex-rigenera`, descritti in `docs/22-strumenti.md`. Tutti i lotti su disco risultano conformi, 2010 su 2010 in `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`. Il Parco Amici di quarta generazione è rigenerato con la libreria (ADR-082); i doni di sesta e settima generazione del primo tempo sono prodotti, 84 su 84; scambi di quarta e quinta e Phanpy sono corretti. La checklist conosce i lotti: delle 433 specie del primo tempo restano da produrre le 40 da periferiche, cioè 29 dal Pokewalker, 8 dal Ranch e 3 dal Dream Radar. `pokedex-home-completo/SCHEDE-ESCLUSIVI.md`, generato da `tools/schede-esclusivi.py`, descrive ogni voce speciale. Le decisioni del proprietario sono ADR-082, cioè la collezione di terza generazione non si riapre; ADR-083, cioè Mew e Deoxys su Smeraldo non si catturano e gli incontri restano giocabili; ADR-084, la pulizia dei salvataggi di terzi con il motivo di ogni scarto. Il secondo blocco è l'allineamento al template al commit `f67d5d9` (ADR-085): tre regole nuove, la skill `separazione-ambienti`, i modelli nuovi, e la memoria che da ora si aggiorna da sola a ogni giro. Restano da eseguire, dalla procedura di allineamento, i gate e le verifiche elencati in `pending.md`. Le schede di `context/` non sono state riverificate in questa sessione e conservano lo stato della tabella sopra.
 
 AGGIUNTA DEL 2026-09-24, terza parte. I file tracciati sono stati riordinati: le dodici tabelle del track Home stanno in `pokedex-home-completo/data/` e l'handoff LDN in `gba-switch-pokemon-trading/handoff/`, con byte verificati identici a HEAD. Un `README.md` pubblico porta ai risultati tecnici e alle fonti; il suo indice dei sottoprogetti si rigenera con `python tools/aggiorna-readme.py`. Nessuna cancellazione e nessuna modifica a `_notes/`. La consegna Git resta manuale secondo le regole di macchina; dettagli nel work log.
 

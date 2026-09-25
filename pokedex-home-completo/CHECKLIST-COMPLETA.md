@@ -1060,7 +1060,7 @@ Le voci enumerate sono 6248, di cui 3099 sotto scadenza, e queste ultime portano
 
 L'ordine della tabella non è quello della fonte, ed è una scelta che va dichiarata perché cambia che cosa si legge per primo. La fonte raggruppa le voci per evento, cioè nell'ordine in cui le distribuzioni avvennero; la decisione di ambito è invece la collezione completa in due tempi, con prima una voce per ciascuna specie distinta e poi i gemelli. La colonna che dice se una voce sia la prima della propria specie porta dunque in testa le 433 voci del primo tempo, e lascia in coda le 2666 del secondo; dentro ciascuno dei due blocchi l'ordine per evento è conservato, perché è l'informazione utile a chi produce. La prima voce di una specie è una già prodotta e conforme, o producibile e verificata, se ne esiste una; altrimenti è la prima nell'ordine della fonte. Non è scelta per merito: dove più voci portano la medesima specie, la marcatura non dice quale sia la più desiderabile ma soltanto quale basti a coprire la specie.
 
-Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce è prodotta e conforme se un file di un lotto la contiene e se `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`, scritto da `tools/pkhex-giudica`, la giudica conforme con la stessa impronta del file di oggi; un file cambiato dopo il giudizio risulta da rigiudicare. Le voci riconosciute in un lotto sono 1366, così ripartite: lotto-complemento-rubino 176, lotto-doni-gen67 78, lotto-eventi-gen4 247, lotto-eventi-gen5 700, lotto-gb 165. Le voci di terza generazione della tabella degli eventi conservano la resa del generatore, perché il loro lotto non porta il codice nel nome del file.
+Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce è prodotta e conforme se un file di un lotto la contiene e se `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`, scritto da `tools/pkhex-giudica`, la giudica conforme con la stessa impronta del file di oggi; un file cambiato dopo il giudizio risulta da rigiudicare. Le voci riconosciute in un lotto sono 1372, così ripartite: lotto-complemento-rubino 176, lotto-doni-gen67 84, lotto-eventi-gen4 247, lotto-eventi-gen5 700, lotto-gb 165. Le voci di terza generazione della tabella degli eventi conservano la resa del generatore, perché il loro lotto non porta il codice nel nome del file.
 
 | Codice | Gen | Classe | Dex | Forma | Provenienza | Sotto scadenza | Primo della specie | Resa |
 |---|---|---|---|---|---|---|---|---|
@@ -1295,12 +1295,12 @@ Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce
 | `EVT-7-0081` | 7 | dono segreto | 788 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
 | `EVT-7-0083` | 7 | dono segreto | 517 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
 | `EVT-7-0290` | 7 | dono segreto | 764 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
-| `EVT-7-0296` | 7 | dono segreto | 780 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0297` | 7 | dono segreto | 704 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0298` | 7 | dono segreto | 747 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0299` | 7 | dono segreto | 765 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0300` | 7 | dono segreto | 766 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
-| `EVT-7-0301` | 7 | dono segreto | 776 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | letta, non ancora producibile |
+| `EVT-7-0296` | 7 | dono segreto | 780 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0297` | 7 | dono segreto | 704 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0298` | 7 | dono segreto | 747 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0299` | 7 | dono segreto | 765 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0300` | 7 | dono segreto | 766 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
+| `EVT-7-0301` | 7 | dono segreto | 776 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
 | `EVT-7-0302` | 7 | dono segreto | 760 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
 | `EVT-7-0323` | 7 | dono segreto | 762 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
 | `EVT-7-0344` | 7 | dono segreto | 132 | 0 | Sole, Luna, UltraSole e UltraLuna | sì | sì | prodotta e conforme |
@@ -7301,7 +7301,7 @@ Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce
 | `EVT-2-0143` | 2 | tabella di incontro | 172 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
 | `EVT-2-0144` | 2 | tabella di incontro | 173 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
 | `EVT-2-0145` | 2 | tabella di incontro | 194 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
-| `EVT-2-0146` | 2 | tabella di incontro | 231 | 0 | tabella di incontro da evento | sì | no | prodotta, contestata |
+| `EVT-2-0146` | 2 | tabella di incontro | 231 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
 | `EVT-2-0147` | 2 | tabella di incontro | 238 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
 | `EVT-2-0148` | 2 | tabella di incontro | 54 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
 | `EVT-2-0149` | 2 | tabella di incontro | 172 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |

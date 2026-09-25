@@ -201,11 +201,29 @@ dotnet run -c Release -- "../../_notes/lotti/lotto-parco-amici-gen4" "../../_not
 
 ## pkhex-dono
 
-Genera un dono segreto di sesta o settima generazione dalle carte ufficiali contenute nella libreria, cioè `EncounterEvent.MGDB_G6` e `MGDB_G7`, come lo riceverebbe il gioco di un salvataggio dato. Carica il salvataggio, che fornisce allenatore, lingua e contesto di giudizio. Prende le carte con la specie, ed eventualmente la forma, richiesta. Genera ciascun esemplare con `ConvertToPKM`, lo giudica con quel salvataggio attivo e lo scrive con un rapporto. Una stessa carta esiste in più lingue con lo stesso numero, e il nome del file porta anche la posizione per non sovrascriverle. Con `--copia-salvataggio` scrive il primo esemplare conforme nel primo posto libero di una copia del salvataggio, ricarica la copia e confronta byte per byte il posto riletto; il salvataggio di partenza non viene mai modificato. La prima prova, il 2026-09-24, è quella del Vivillon Motivo Poké Ball su un Y preso online, e resta sul PC per `rules/hardware-and-perimeter.md`. Con `--lotto` lo strumento legge le richieste di `tools/checklist-pokedex.py --richieste-doni` e scrive un lotto. Per ogni richiesta prende la carta nella posizione indicata fra i soli esemplari della base, e la rifiuta se specie o forma non coincidono. Genera con il salvataggio reale di sesta o settima generazione e, se l'esito è contestato, con salvataggi vuoti delle altre versioni intestati allo stesso allenatore. Il primo lotto, il 2026-09-24, ha dato 78 conformi su 84.
+Genera un dono segreto di sesta o settima generazione dalle carte ufficiali contenute nella libreria, cioè `EncounterEvent.MGDB_G6` e `MGDB_G7`, come lo riceverebbe il gioco di un salvataggio dato. Carica il salvataggio, che fornisce allenatore, lingua e contesto di giudizio. Prende le carte con la specie, ed eventualmente la forma, richiesta. Genera ciascun esemplare con `ConvertToPKM`, lo giudica con quel salvataggio attivo e lo scrive con un rapporto. Una stessa carta esiste in più lingue con lo stesso numero, e il nome del file porta anche la posizione per non sovrascriverle. Con `--descrivi` scrive i campi delle carte richieste senza generare nulla, e per le uova prova la conversione e ne riporta le date. Con `--copia-salvataggio` scrive il primo esemplare conforme nel primo posto libero di una copia del salvataggio, ricarica la copia e confronta byte per byte il posto riletto; il salvataggio di partenza non viene mai modificato. La prima prova, il 2026-09-24, è quella del Vivillon Motivo Poké Ball su un Y preso online, e resta sul PC per `rules/hardware-and-perimeter.md`. Con `--lotto` lo strumento legge le richieste di `tools/checklist-pokedex.py --richieste-doni` e scrive un lotto. Per ogni richiesta prende la carta nella posizione indicata fra i soli esemplari della base, e la rifiuta se specie o forma non coincidono. Genera con il salvataggio reale di sesta o settima generazione e, se l'esito è contestato, con salvataggi vuoti delle altre versioni intestati allo stesso allenatore. Il primo lotto, il 2026-09-24, ha dato 78 conformi su 84. Le 6 contestate erano uova non schiuse, e il 2026-09-25 lo strumento le fa schiudere quando la versione non schiusa è contestata, come farebbe il gioco prima del trasferimento: il lotto è a 84 su 84.
 
 ```powershell
 cd "E:/retrogame-mod-pok-dev/tools/pkhex-dono"
 dotnet run -c Release -- "../../_notes/salvataggi/terzi/main(7)" "../../_notes/salvataggi/prove/prova-vivillon-y-2" 666/19 --copia-salvataggio "../../_notes/salvataggi/prove/prova-vivillon-y-2/main-con-vivillon"
+```
+
+## pkhex-rigenera
+
+Ricostruisce un lotto dall'incontro che la libreria riconosce in ciascun file. Per ogni esemplare chiede a `LegalityAnalysis` l'incontro. Se non ne trova uno, cerca fra gli incontri della libreria per quella specie e quella versione uno scambio in gioco, che è la sola classe di cui lo strumento si occupa oggi. Poi lo ricostruisce con `ConvertToPKM` per un salvataggio vuoto della stessa versione, intestato all'allenatore e alla lingua dati. È nato il 2026-09-25 per gli scambi di quarta e quinta generazione del 2026-09-15, contestati per intero, e li ha portati a 23 conformi su 23. Due correzioni dicono che cosa il generatore scritto a mano sbagliava. Il soprannome era tutto maiuscolo («SPARVY» invece di «Sparvy»). La sfera estesa di HeartGold e SoulSilver restava a zero, e lo strumento la scrive uguale alla sfera normale, come fa il gioco e come pretende `MiscVerifierG4.IsValidBallHGSS`. Rifiuta una destinazione che contenga già file di esemplare.
+
+```powershell
+cd "E:/retrogame-mod-pok-dev/tools/pkhex-rigenera"
+dotnet run -c Release -- "../../_notes/archivio/lotto-scambi-gen4-generatore-2026-09-15" "../../_notes/lotti/lotto-scambi-gen4" Alessio Italian
+```
+
+## schede-esclusivi.py
+
+Genera `pokedex-home-completo/SCHEDE-ESCLUSIVI.md`, cioè le schede delle voci speciali che non avevano un documento proprio. Sono il Pokewalker, My Pokemon Ranch, il Dream Radar, i doni di sesta e settima generazione del primo tempo, gli scambi in gioco di quarta e quinta e il Phanpy di seconda. Per ogni voce dice da dove viene, perché è esclusiva e a che punto è. Legge la checklist come modulo, la pagina archiviata di Bulbapedia sul Pokewalker, `giudizi-pkhex-core.json` con le descrizioni scritte da `pkhex-giudica` e le carte descritte da `pkhex-dono --descrivi`. Abbina il corso del Pokewalker per indice, specie e livello, e controlla che ogni nome inglese di corso compaia nella pagina. Così ha trovato i due nomi che nella pagina si scrivono diversamente. Con `--check` non scrive e dice se il documento è allineato.
+
+```powershell
+cd "E:/retrogame-mod-pok-dev"
+python tools/schede-esclusivi.py --pkhex _notes/fonti/cloni/pkhex --ace _notes/fonti/cloni/ace-builder
 ```
 
 ## confronta-ace-builder.py

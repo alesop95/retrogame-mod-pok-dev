@@ -65,6 +65,7 @@ Sono i pi√π grossi del progetto e la causa principale del senso di ingestibilit√
 | `recreate-pokemon-distributions-events/SCHEDE-ESEMPLARI-GEN4.md` | 849k | `tools/schede-esemplari-gen4.py` |
 | `pokedex-home-completo/SCHEDE-EVENTI-GB.md` | 433k | `tools/genera-evento-gb.py` |
 | `recreate-pokemon-distributions-events/SCHEDE-ESEMPLARI.md` | 340k | `tools/schede-esemplari.py` |
+| `pokedex-home-completo/SCHEDE-ESCLUSIVI.md` | 148k | `tools/schede-esclusivi.py` |
 | `pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md` | 294k | `tools/censimento-eventi-tabelle.py` |
 | `pokedex-home-completo/CENSIMENTO-FONTI-COLLEZIONE.md` | 219k | `tools/censimento-fonti-reddit.py` |
 | `recreate-pokemon-distributions-events/CATALOGO-EVENTI.md` | 58k | `tools/catalogo-eventi.py` |

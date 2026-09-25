@@ -43,6 +43,8 @@ var estensioni = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
     ".ck3", ".xk3", ".bk4", ".rk4", ".pb7", ".pb8", ".pa8", ".pa9",
 };
 var nomiSpecie = GameInfo.GetStrings("en").Species;
+// I nomi di luoghi, sfere, giochi e mosse in italiano, per le schede che descrivono gli esemplari.
+var testi = GameInfo.GetStrings("it");
 var voci = new JsonObject();
 int conformi = 0, contestati = 0, illeggibili = 0;
 
@@ -75,6 +77,21 @@ foreach (var argomento in args.Skip(1))
         voce["forma"] = pk.Form;
         voce["formato"] = pk.GetType().Name;
         voce["contesto"] = $"{salvataggio.Version} {(LanguageID)salvataggio.Language}";
+        voce["descrizione"] = new JsonObject
+        {
+            ["specie_it"] = testi.Species[pk.Species],
+            ["livello"] = pk.CurrentLevel,
+            ["soprannome"] = pk.IsNicknamed ? pk.Nickname : null,
+            ["allenatore"] = pk.OriginalTrainerName,
+            ["id_allenatore"] = pk.DisplayTID,
+            ["lingua"] = ((LanguageID)pk.Language).ToString(),
+            ["gioco_di_origine"] = pk.Version.ToString(),
+            ["luogo"] = testi.GetLocationName(false, pk.MetLocation, pk.Format, pk.Generation, pk.Version),
+            ["luogo_uovo"] = pk.EggLocation != 0 ? testi.GetLocationName(true, pk.EggLocation, pk.Format, pk.Generation, pk.Version) : null,
+            ["sfera"] = pk.Ball < testi.balllist.Length ? testi.balllist[pk.Ball] : pk.Ball.ToString(),
+            ["mosse"] = new JsonArray(pk.Moves.Where(m => m != 0).Select(m => (JsonNode)testi.Move[m]).ToArray()),
+            ["incontro"] = la.EncounterMatch.LongName,
+        };
         voce["esito"] = la.Valid ? "conforme" : "contestato";
         if (la.Valid)
             conformi++;
