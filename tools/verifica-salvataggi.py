@@ -927,7 +927,7 @@ def scrivi_markdown(percorso, esiti, interno_verso_nazionale, per_id, cartella, 
         if censimento:
             esemplari = str(censimento.get("occupate", censimento.get("esemplari", 0)))
             specie = str(len(censimento["specie"]))
-            cromatici = str(censimento["cromatici"])
+            cromatici = str(censimento.get("cromatici", "-"))
         else:
             esemplari = specie = cromatici = "-"
         r.append("| `%s` | %s | %s | %s | %s | %s | %s | %s |"

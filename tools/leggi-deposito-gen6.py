@@ -41,7 +41,7 @@ Gli offset dei campi vengono da PK6 e la permutazione da PokeCrypto, letti il 20
 
 Uso
 ---
-    python tools/leggi-deposito-gen6.py "_notes/salvataggi/terzi/pronti-3ds/omega-ruby-A-projectpokemon/main"
+    python tools/leggi-deposito-gen6.py "_notes/salvataggi/terzi/main(6)"
     python tools/leggi-deposito-gen6.py <file> --dettaglio
     python tools/leggi-deposito-gen6.py --self-test
 """

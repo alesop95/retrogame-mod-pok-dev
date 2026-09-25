@@ -205,7 +205,7 @@ Genera un dono segreto di sesta o settima generazione dalle carte ufficiali cont
 
 ```powershell
 cd "E:/retrogame-mod-pok-dev/tools/pkhex-dono"
-dotnet run -c Release -- "../../_notes/salvataggi/terzi/pronti-3ds/y-projectpokemon/main" "../../_notes/salvataggi/prove/prova-vivillon-y-2" 666/19 --copia-salvataggio "../../_notes/salvataggi/prove/prova-vivillon-y-2/main-con-vivillon"
+dotnet run -c Release -- "../../_notes/salvataggi/terzi/main(7)" "../../_notes/salvataggi/prove/prova-vivillon-y-2" 666/19 --copia-salvataggio "../../_notes/salvataggi/prove/prova-vivillon-y-2/main-con-vivillon"
 ```
 
 ## confronta-ace-builder.py

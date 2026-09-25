@@ -10,7 +10,7 @@ La colonna della via dice se quella voce si raggiunga da un titolo che parla al 
 
 Le voci di specie sono 1025. Di queste, 685 hanno già una fonte dentro il progetto e 340 non ne hanno ancora alcuna: quest'ultimo è il numero che misura la campagna, e l'unico che scende quando si lavora.
 
-La ripartizione per fonte, che non si somma perché una specie può avere più fonti, è la seguente. Da salvataggio esterno, 685 voci. Da archivio esterno, 385 voci. Da evento Gen 3 producibile, 60 voci. Da scambio in gioco Gen 3 (prodotto e conforme), 18 voci.
+La ripartizione per fonte, che non si somma perché una specie può avere più fonti, è la seguente. Da salvataggio esterno, 685 voci. Da evento Gen 3 producibile, 60 voci. Da scambio in gioco Gen 3 (prodotto e conforme), 18 voci.
 
 Le voci di forma enumerate sono 522, e per la maggior parte il loro valore ai fini del completamento è indeterminato: nessuna fonte di primo livello dichiara quali forme il deposito conti come casella separata. L'elenco le enumera e marca l'indeterminatezza invece di decidere, perché decidere sarebbe inventare.
 
@@ -20,392 +20,392 @@ Restano fuori da questa rigenerazione due correzioni che il progetto ha in sospe
 
 | Codice | Dex | Specie | Via | Fonti nel progetto |
 |---|---|---|---|---|
-| `PKD-0001-00` | 1 | Bulbasaur | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0002-00` | 2 | Ivysaur | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0003-00` | 3 | Venusaur | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0004-00` | 4 | Charmander | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0005-00` | 5 | Charmeleon | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0006-00` | 6 | Charizard | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0007-00` | 7 | Squirtle | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0008-00` | 8 | Wartortle | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0009-00` | 9 | Blastoise | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0010-00` | 10 | Caterpie | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0011-00` | 11 | Metapod | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0012-00` | 12 | Butterfree | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0013-00` | 13 | Weedle | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0014-00` | 14 | Kakuna | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0015-00` | 15 | Beedrill | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0016-00` | 16 | Pidgey | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0017-00` | 17 | Pidgeotto | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0018-00` | 18 | Pidgeot | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0019-00` | 19 | Rattata | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0020-00` | 20 | Raticate | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0021-00` | 21 | Spearow | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0022-00` | 22 | Fearow | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0023-00` | 23 | Ekans | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0024-00` | 24 | Arbok | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0025-00` | 25 | Pikachu | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0026-00` | 26 | Raichu | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0027-00` | 27 | Sandshrew | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0028-00` | 28 | Sandslash | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0029-00` | 29 | Nidoran♀ | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
-| `PKD-0030-00` | 30 | Nidorina | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
-| `PKD-0031-00` | 31 | Nidoqueen | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0032-00` | 32 | Nidoran♂ | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
-| `PKD-0033-00` | 33 | Nidorino | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
-| `PKD-0034-00` | 34 | Nidoking | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0035-00` | 35 | Clefairy | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0036-00` | 36 | Clefable | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0037-00` | 37 | Vulpix | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0038-00` | 38 | Ninetales | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0039-00` | 39 | Jigglypuff | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0040-00` | 40 | Wigglytuff | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0041-00` | 41 | Zubat | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0042-00` | 42 | Golbat | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0043-00` | 43 | Oddish | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0044-00` | 44 | Gloom | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0045-00` | 45 | Vileplume | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0046-00` | 46 | Paras | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0047-00` | 47 | Parasect | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0048-00` | 48 | Venonat | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0049-00` | 49 | Venomoth | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0050-00` | 50 | Diglett | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0051-00` | 51 | Dugtrio | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0052-00` | 52 | Meowth | diretta | evento Gen 3 producibile, scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
-| `PKD-0053-00` | 53 | Persian | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0054-00` | 54 | Psyduck | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0055-00` | 55 | Golduck | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0056-00` | 56 | Mankey | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0057-00` | 57 | Primeape | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0058-00` | 58 | Growlithe | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0059-00` | 59 | Arcanine | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0060-00` | 60 | Poliwag | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0061-00` | 61 | Poliwhirl | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0062-00` | 62 | Poliwrath | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0063-00` | 63 | Abra | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0064-00` | 64 | Kadabra | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0065-00` | 65 | Alakazam | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0066-00` | 66 | Machop | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0067-00` | 67 | Machoke | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0068-00` | 68 | Machamp | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0069-00` | 69 | Bellsprout | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0070-00` | 70 | Weepinbell | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0071-00` | 71 | Victreebel | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0072-00` | 72 | Tentacool | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0073-00` | 73 | Tentacruel | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0074-00` | 74 | Geodude | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0075-00` | 75 | Graveler | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0076-00` | 76 | Golem | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0077-00` | 77 | Ponyta | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0078-00` | 78 | Rapidash | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0079-00` | 79 | Slowpoke | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0080-00` | 80 | Slowbro | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0081-00` | 81 | Magnemite | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0082-00` | 82 | Magneton | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0083-00` | 83 | Farfetch’d | diretta | evento Gen 3 producibile, scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
-| `PKD-0084-00` | 84 | Doduo | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0085-00` | 85 | Dodrio | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0086-00` | 86 | Seel | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
-| `PKD-0087-00` | 87 | Dewgong | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0088-00` | 88 | Grimer | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0089-00` | 89 | Muk | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0090-00` | 90 | Shellder | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0091-00` | 91 | Cloyster | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0092-00` | 92 | Gastly | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0093-00` | 93 | Haunter | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0094-00` | 94 | Gengar | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0095-00` | 95 | Onix | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0096-00` | 96 | Drowzee | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0097-00` | 97 | Hypno | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0098-00` | 98 | Krabby | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0099-00` | 99 | Kingler | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0100-00` | 100 | Voltorb | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0101-00` | 101 | Electrode | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
-| `PKD-0102-00` | 102 | Exeggcute | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0103-00` | 103 | Exeggutor | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0104-00` | 104 | Cubone | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0105-00` | 105 | Marowak | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0106-00` | 106 | Hitmonlee | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0107-00` | 107 | Hitmonchan | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0108-00` | 108 | Lickitung | diretta | evento Gen 3 producibile, scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
-| `PKD-0109-00` | 109 | Koffing | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0110-00` | 110 | Weezing | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0111-00` | 111 | Rhyhorn | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0112-00` | 112 | Rhydon | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0113-00` | 113 | Chansey | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0114-00` | 114 | Tangela | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
-| `PKD-0115-00` | 115 | Kangaskhan | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0116-00` | 116 | Horsea | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
-| `PKD-0117-00` | 117 | Seadra | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0118-00` | 118 | Goldeen | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0119-00` | 119 | Seaking | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0120-00` | 120 | Staryu | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0121-00` | 121 | Starmie | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0122-00` | 122 | Mr. Mime | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
-| `PKD-0123-00` | 123 | Scyther | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0124-00` | 124 | Jynx | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
-| `PKD-0125-00` | 125 | Electabuzz | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0126-00` | 126 | Magmar | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0127-00` | 127 | Pinsir | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0128-00` | 128 | Tauros | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0129-00` | 129 | Magikarp | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0130-00` | 130 | Gyarados | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0131-00` | 131 | Lapras | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0132-00` | 132 | Ditto | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0133-00` | 133 | Eevee | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0134-00` | 134 | Vaporeon | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0135-00` | 135 | Jolteon | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0136-00` | 136 | Flareon | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0137-00` | 137 | Porygon | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0138-00` | 138 | Omanyte | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0139-00` | 139 | Omastar | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0140-00` | 140 | Kabuto | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0141-00` | 141 | Kabutops | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0142-00` | 142 | Aerodactyl | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0143-00` | 143 | Snorlax | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0144-00` | 144 | Articuno | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0145-00` | 145 | Zapdos | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0146-00` | 146 | Moltres | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0147-00` | 147 | Dratini | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0148-00` | 148 | Dragonair | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0149-00` | 149 | Dragonite | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0150-00` | 150 | Mewtwo | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0151-00` | 151 | Mew | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0152-00` | 152 | Chikorita | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0153-00` | 153 | Bayleef | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0154-00` | 154 | Meganium | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0155-00` | 155 | Cyndaquil | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0156-00` | 156 | Quilava | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0157-00` | 157 | Typhlosion | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0158-00` | 158 | Totodile | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0159-00` | 159 | Croconaw | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0160-00` | 160 | Feraligatr | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0161-00` | 161 | Sentret | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0162-00` | 162 | Furret | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0163-00` | 163 | Hoothoot | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0164-00` | 164 | Noctowl | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0165-00` | 165 | Ledyba | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0166-00` | 166 | Ledian | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0167-00` | 167 | Spinarak | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0168-00` | 168 | Ariados | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0169-00` | 169 | Crobat | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0170-00` | 170 | Chinchou | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0171-00` | 171 | Lanturn | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0172-00` | 172 | Pichu | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0173-00` | 173 | Cleffa | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0174-00` | 174 | Igglybuff | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0175-00` | 175 | Togepi | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0176-00` | 176 | Togetic | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0177-00` | 177 | Natu | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0178-00` | 178 | Xatu | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0179-00` | 179 | Mareep | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0180-00` | 180 | Flaaffy | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0181-00` | 181 | Ampharos | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0182-00` | 182 | Bellossom | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0183-00` | 183 | Marill | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0184-00` | 184 | Azumarill | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0185-00` | 185 | Sudowoodo | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0186-00` | 186 | Politoed | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0187-00` | 187 | Hoppip | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0188-00` | 188 | Skiploom | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0189-00` | 189 | Jumpluff | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0190-00` | 190 | Aipom | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0191-00` | 191 | Sunkern | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0192-00` | 192 | Sunflora | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0193-00` | 193 | Yanma | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0194-00` | 194 | Wooper | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0195-00` | 195 | Quagsire | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0196-00` | 196 | Espeon | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0197-00` | 197 | Umbreon | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0198-00` | 198 | Murkrow | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0199-00` | 199 | Slowking | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0200-00` | 200 | Misdreavus | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0201-00` | 201 | Unown | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0202-00` | 202 | Wobbuffet | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0203-00` | 203 | Girafarig | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0204-00` | 204 | Pineco | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0205-00` | 205 | Forretress | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0206-00` | 206 | Dunsparce | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0207-00` | 207 | Gligar | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0208-00` | 208 | Steelix | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0209-00` | 209 | Snubbull | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0210-00` | 210 | Granbull | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0211-00` | 211 | Qwilfish | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0212-00` | 212 | Scizor | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0213-00` | 213 | Shuckle | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0214-00` | 214 | Heracross | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0215-00` | 215 | Sneasel | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0216-00` | 216 | Teddiursa | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0217-00` | 217 | Ursaring | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0218-00` | 218 | Slugma | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0219-00` | 219 | Magcargo | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0220-00` | 220 | Swinub | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0221-00` | 221 | Piloswine | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0222-00` | 222 | Corsola | diretta | evento Gen 3 producibile, scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
-| `PKD-0223-00` | 223 | Remoraid | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0224-00` | 224 | Octillery | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0225-00` | 225 | Delibird | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0226-00` | 226 | Mantine | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0227-00` | 227 | Skarmory | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0228-00` | 228 | Houndour | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0229-00` | 229 | Houndoom | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0230-00` | 230 | Kingdra | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0231-00` | 231 | Phanpy | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0232-00` | 232 | Donphan | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0233-00` | 233 | Porygon2 | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0234-00` | 234 | Stantler | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0235-00` | 235 | Smeargle | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0236-00` | 236 | Tyrogue | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0237-00` | 237 | Hitmontop | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0238-00` | 238 | Smoochum | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0239-00` | 239 | Elekid | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0240-00` | 240 | Magby | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0241-00` | 241 | Miltank | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0242-00` | 242 | Blissey | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0243-00` | 243 | Raikou | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0244-00` | 244 | Entei | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0245-00` | 245 | Suicune | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0246-00` | 246 | Larvitar | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0247-00` | 247 | Pupitar | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0248-00` | 248 | Tyranitar | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0249-00` | 249 | Lugia | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0250-00` | 250 | Ho-Oh | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0251-00` | 251 | Celebi | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0252-00` | 252 | Treecko | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0253-00` | 253 | Grovyle | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0254-00` | 254 | Sceptile | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0255-00` | 255 | Torchic | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0256-00` | 256 | Combusken | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0257-00` | 257 | Blaziken | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0258-00` | 258 | Mudkip | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0259-00` | 259 | Marshtomp | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0260-00` | 260 | Swampert | diretta | salvataggio esterno, archivio esterno |
+| `PKD-0001-00` | 1 | Bulbasaur | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0002-00` | 2 | Ivysaur | diretta | salvataggio esterno |
+| `PKD-0003-00` | 3 | Venusaur | diretta | salvataggio esterno |
+| `PKD-0004-00` | 4 | Charmander | diretta | salvataggio esterno |
+| `PKD-0005-00` | 5 | Charmeleon | diretta | salvataggio esterno |
+| `PKD-0006-00` | 6 | Charizard | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0007-00` | 7 | Squirtle | diretta | salvataggio esterno |
+| `PKD-0008-00` | 8 | Wartortle | diretta | salvataggio esterno |
+| `PKD-0009-00` | 9 | Blastoise | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0010-00` | 10 | Caterpie | diretta | salvataggio esterno |
+| `PKD-0011-00` | 11 | Metapod | diretta | salvataggio esterno |
+| `PKD-0012-00` | 12 | Butterfree | diretta | salvataggio esterno |
+| `PKD-0013-00` | 13 | Weedle | diretta | salvataggio esterno |
+| `PKD-0014-00` | 14 | Kakuna | diretta | salvataggio esterno |
+| `PKD-0015-00` | 15 | Beedrill | diretta | salvataggio esterno |
+| `PKD-0016-00` | 16 | Pidgey | diretta | salvataggio esterno |
+| `PKD-0017-00` | 17 | Pidgeotto | diretta | salvataggio esterno |
+| `PKD-0018-00` | 18 | Pidgeot | diretta | salvataggio esterno |
+| `PKD-0019-00` | 19 | Rattata | diretta | salvataggio esterno |
+| `PKD-0020-00` | 20 | Raticate | diretta | salvataggio esterno |
+| `PKD-0021-00` | 21 | Spearow | diretta | salvataggio esterno |
+| `PKD-0022-00` | 22 | Fearow | diretta | salvataggio esterno |
+| `PKD-0023-00` | 23 | Ekans | diretta | salvataggio esterno |
+| `PKD-0024-00` | 24 | Arbok | diretta | salvataggio esterno |
+| `PKD-0025-00` | 25 | Pikachu | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0026-00` | 26 | Raichu | diretta | salvataggio esterno |
+| `PKD-0027-00` | 27 | Sandshrew | diretta | salvataggio esterno |
+| `PKD-0028-00` | 28 | Sandslash | diretta | salvataggio esterno |
+| `PKD-0029-00` | 29 | Nidoran♀ | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno |
+| `PKD-0030-00` | 30 | Nidorina | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno |
+| `PKD-0031-00` | 31 | Nidoqueen | diretta | salvataggio esterno |
+| `PKD-0032-00` | 32 | Nidoran♂ | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno |
+| `PKD-0033-00` | 33 | Nidorino | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno |
+| `PKD-0034-00` | 34 | Nidoking | diretta | salvataggio esterno |
+| `PKD-0035-00` | 35 | Clefairy | diretta | salvataggio esterno |
+| `PKD-0036-00` | 36 | Clefable | diretta | salvataggio esterno |
+| `PKD-0037-00` | 37 | Vulpix | diretta | salvataggio esterno |
+| `PKD-0038-00` | 38 | Ninetales | diretta | salvataggio esterno |
+| `PKD-0039-00` | 39 | Jigglypuff | diretta | salvataggio esterno |
+| `PKD-0040-00` | 40 | Wigglytuff | diretta | salvataggio esterno |
+| `PKD-0041-00` | 41 | Zubat | diretta | salvataggio esterno |
+| `PKD-0042-00` | 42 | Golbat | diretta | salvataggio esterno |
+| `PKD-0043-00` | 43 | Oddish | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0044-00` | 44 | Gloom | diretta | salvataggio esterno |
+| `PKD-0045-00` | 45 | Vileplume | diretta | salvataggio esterno |
+| `PKD-0046-00` | 46 | Paras | diretta | salvataggio esterno |
+| `PKD-0047-00` | 47 | Parasect | diretta | salvataggio esterno |
+| `PKD-0048-00` | 48 | Venonat | diretta | salvataggio esterno |
+| `PKD-0049-00` | 49 | Venomoth | diretta | salvataggio esterno |
+| `PKD-0050-00` | 50 | Diglett | diretta | salvataggio esterno |
+| `PKD-0051-00` | 51 | Dugtrio | diretta | salvataggio esterno |
+| `PKD-0052-00` | 52 | Meowth | diretta | evento Gen 3 producibile, scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno |
+| `PKD-0053-00` | 53 | Persian | diretta | salvataggio esterno |
+| `PKD-0054-00` | 54 | Psyduck | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0055-00` | 55 | Golduck | diretta | salvataggio esterno |
+| `PKD-0056-00` | 56 | Mankey | diretta | salvataggio esterno |
+| `PKD-0057-00` | 57 | Primeape | diretta | salvataggio esterno |
+| `PKD-0058-00` | 58 | Growlithe | diretta | salvataggio esterno |
+| `PKD-0059-00` | 59 | Arcanine | diretta | salvataggio esterno |
+| `PKD-0060-00` | 60 | Poliwag | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0061-00` | 61 | Poliwhirl | diretta | salvataggio esterno |
+| `PKD-0062-00` | 62 | Poliwrath | diretta | salvataggio esterno |
+| `PKD-0063-00` | 63 | Abra | diretta | salvataggio esterno |
+| `PKD-0064-00` | 64 | Kadabra | diretta | salvataggio esterno |
+| `PKD-0065-00` | 65 | Alakazam | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0066-00` | 66 | Machop | diretta | salvataggio esterno |
+| `PKD-0067-00` | 67 | Machoke | diretta | salvataggio esterno |
+| `PKD-0068-00` | 68 | Machamp | diretta | salvataggio esterno |
+| `PKD-0069-00` | 69 | Bellsprout | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0070-00` | 70 | Weepinbell | diretta | salvataggio esterno |
+| `PKD-0071-00` | 71 | Victreebel | diretta | salvataggio esterno |
+| `PKD-0072-00` | 72 | Tentacool | diretta | salvataggio esterno |
+| `PKD-0073-00` | 73 | Tentacruel | diretta | salvataggio esterno |
+| `PKD-0074-00` | 74 | Geodude | diretta | salvataggio esterno |
+| `PKD-0075-00` | 75 | Graveler | diretta | salvataggio esterno |
+| `PKD-0076-00` | 76 | Golem | diretta | salvataggio esterno |
+| `PKD-0077-00` | 77 | Ponyta | diretta | salvataggio esterno |
+| `PKD-0078-00` | 78 | Rapidash | diretta | salvataggio esterno |
+| `PKD-0079-00` | 79 | Slowpoke | diretta | salvataggio esterno |
+| `PKD-0080-00` | 80 | Slowbro | diretta | salvataggio esterno |
+| `PKD-0081-00` | 81 | Magnemite | diretta | salvataggio esterno |
+| `PKD-0082-00` | 82 | Magneton | diretta | salvataggio esterno |
+| `PKD-0083-00` | 83 | Farfetch’d | diretta | evento Gen 3 producibile, scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno |
+| `PKD-0084-00` | 84 | Doduo | diretta | salvataggio esterno |
+| `PKD-0085-00` | 85 | Dodrio | diretta | salvataggio esterno |
+| `PKD-0086-00` | 86 | Seel | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno |
+| `PKD-0087-00` | 87 | Dewgong | diretta | salvataggio esterno |
+| `PKD-0088-00` | 88 | Grimer | diretta | salvataggio esterno |
+| `PKD-0089-00` | 89 | Muk | diretta | salvataggio esterno |
+| `PKD-0090-00` | 90 | Shellder | diretta | salvataggio esterno |
+| `PKD-0091-00` | 91 | Cloyster | diretta | salvataggio esterno |
+| `PKD-0092-00` | 92 | Gastly | diretta | salvataggio esterno |
+| `PKD-0093-00` | 93 | Haunter | diretta | salvataggio esterno |
+| `PKD-0094-00` | 94 | Gengar | diretta | salvataggio esterno |
+| `PKD-0095-00` | 95 | Onix | diretta | salvataggio esterno |
+| `PKD-0096-00` | 96 | Drowzee | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0097-00` | 97 | Hypno | diretta | salvataggio esterno |
+| `PKD-0098-00` | 98 | Krabby | diretta | salvataggio esterno |
+| `PKD-0099-00` | 99 | Kingler | diretta | salvataggio esterno |
+| `PKD-0100-00` | 100 | Voltorb | diretta | salvataggio esterno |
+| `PKD-0101-00` | 101 | Electrode | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno |
+| `PKD-0102-00` | 102 | Exeggcute | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0103-00` | 103 | Exeggutor | diretta | salvataggio esterno |
+| `PKD-0104-00` | 104 | Cubone | diretta | salvataggio esterno |
+| `PKD-0105-00` | 105 | Marowak | diretta | salvataggio esterno |
+| `PKD-0106-00` | 106 | Hitmonlee | diretta | salvataggio esterno |
+| `PKD-0107-00` | 107 | Hitmonchan | diretta | salvataggio esterno |
+| `PKD-0108-00` | 108 | Lickitung | diretta | evento Gen 3 producibile, scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno |
+| `PKD-0109-00` | 109 | Koffing | diretta | salvataggio esterno |
+| `PKD-0110-00` | 110 | Weezing | diretta | salvataggio esterno |
+| `PKD-0111-00` | 111 | Rhyhorn | diretta | salvataggio esterno |
+| `PKD-0112-00` | 112 | Rhydon | diretta | salvataggio esterno |
+| `PKD-0113-00` | 113 | Chansey | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0114-00` | 114 | Tangela | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno |
+| `PKD-0115-00` | 115 | Kangaskhan | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0116-00` | 116 | Horsea | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno |
+| `PKD-0117-00` | 117 | Seadra | diretta | salvataggio esterno |
+| `PKD-0118-00` | 118 | Goldeen | diretta | salvataggio esterno |
+| `PKD-0119-00` | 119 | Seaking | diretta | salvataggio esterno |
+| `PKD-0120-00` | 120 | Staryu | diretta | salvataggio esterno |
+| `PKD-0121-00` | 121 | Starmie | diretta | salvataggio esterno |
+| `PKD-0122-00` | 122 | Mr. Mime | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno |
+| `PKD-0123-00` | 123 | Scyther | diretta | salvataggio esterno |
+| `PKD-0124-00` | 124 | Jynx | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno |
+| `PKD-0125-00` | 125 | Electabuzz | diretta | salvataggio esterno |
+| `PKD-0126-00` | 126 | Magmar | diretta | salvataggio esterno |
+| `PKD-0127-00` | 127 | Pinsir | diretta | salvataggio esterno |
+| `PKD-0128-00` | 128 | Tauros | diretta | salvataggio esterno |
+| `PKD-0129-00` | 129 | Magikarp | diretta | salvataggio esterno |
+| `PKD-0130-00` | 130 | Gyarados | diretta | salvataggio esterno |
+| `PKD-0131-00` | 131 | Lapras | diretta | salvataggio esterno |
+| `PKD-0132-00` | 132 | Ditto | diretta | salvataggio esterno |
+| `PKD-0133-00` | 133 | Eevee | diretta | salvataggio esterno |
+| `PKD-0134-00` | 134 | Vaporeon | diretta | salvataggio esterno |
+| `PKD-0135-00` | 135 | Jolteon | diretta | salvataggio esterno |
+| `PKD-0136-00` | 136 | Flareon | diretta | salvataggio esterno |
+| `PKD-0137-00` | 137 | Porygon | diretta | salvataggio esterno |
+| `PKD-0138-00` | 138 | Omanyte | diretta | salvataggio esterno |
+| `PKD-0139-00` | 139 | Omastar | diretta | salvataggio esterno |
+| `PKD-0140-00` | 140 | Kabuto | diretta | salvataggio esterno |
+| `PKD-0141-00` | 141 | Kabutops | diretta | salvataggio esterno |
+| `PKD-0142-00` | 142 | Aerodactyl | diretta | salvataggio esterno |
+| `PKD-0143-00` | 143 | Snorlax | diretta | salvataggio esterno |
+| `PKD-0144-00` | 144 | Articuno | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0145-00` | 145 | Zapdos | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0146-00` | 146 | Moltres | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0147-00` | 147 | Dratini | diretta | salvataggio esterno |
+| `PKD-0148-00` | 148 | Dragonair | diretta | salvataggio esterno |
+| `PKD-0149-00` | 149 | Dragonite | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0150-00` | 150 | Mewtwo | diretta | salvataggio esterno |
+| `PKD-0151-00` | 151 | Mew | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0152-00` | 152 | Chikorita | diretta | salvataggio esterno |
+| `PKD-0153-00` | 153 | Bayleef | diretta | salvataggio esterno |
+| `PKD-0154-00` | 154 | Meganium | diretta | salvataggio esterno |
+| `PKD-0155-00` | 155 | Cyndaquil | diretta | salvataggio esterno |
+| `PKD-0156-00` | 156 | Quilava | diretta | salvataggio esterno |
+| `PKD-0157-00` | 157 | Typhlosion | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0158-00` | 158 | Totodile | diretta | salvataggio esterno |
+| `PKD-0159-00` | 159 | Croconaw | diretta | salvataggio esterno |
+| `PKD-0160-00` | 160 | Feraligatr | diretta | salvataggio esterno |
+| `PKD-0161-00` | 161 | Sentret | diretta | salvataggio esterno |
+| `PKD-0162-00` | 162 | Furret | diretta | salvataggio esterno |
+| `PKD-0163-00` | 163 | Hoothoot | diretta | salvataggio esterno |
+| `PKD-0164-00` | 164 | Noctowl | diretta | salvataggio esterno |
+| `PKD-0165-00` | 165 | Ledyba | diretta | salvataggio esterno |
+| `PKD-0166-00` | 166 | Ledian | diretta | salvataggio esterno |
+| `PKD-0167-00` | 167 | Spinarak | diretta | salvataggio esterno |
+| `PKD-0168-00` | 168 | Ariados | diretta | salvataggio esterno |
+| `PKD-0169-00` | 169 | Crobat | diretta | salvataggio esterno |
+| `PKD-0170-00` | 170 | Chinchou | diretta | salvataggio esterno |
+| `PKD-0171-00` | 171 | Lanturn | diretta | salvataggio esterno |
+| `PKD-0172-00` | 172 | Pichu | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0173-00` | 173 | Cleffa | diretta | salvataggio esterno |
+| `PKD-0174-00` | 174 | Igglybuff | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0175-00` | 175 | Togepi | diretta | salvataggio esterno |
+| `PKD-0176-00` | 176 | Togetic | diretta | salvataggio esterno |
+| `PKD-0177-00` | 177 | Natu | diretta | salvataggio esterno |
+| `PKD-0178-00` | 178 | Xatu | diretta | salvataggio esterno |
+| `PKD-0179-00` | 179 | Mareep | diretta | salvataggio esterno |
+| `PKD-0180-00` | 180 | Flaaffy | diretta | salvataggio esterno |
+| `PKD-0181-00` | 181 | Ampharos | diretta | salvataggio esterno |
+| `PKD-0182-00` | 182 | Bellossom | diretta | salvataggio esterno |
+| `PKD-0183-00` | 183 | Marill | diretta | salvataggio esterno |
+| `PKD-0184-00` | 184 | Azumarill | diretta | salvataggio esterno |
+| `PKD-0185-00` | 185 | Sudowoodo | diretta | salvataggio esterno |
+| `PKD-0186-00` | 186 | Politoed | diretta | salvataggio esterno |
+| `PKD-0187-00` | 187 | Hoppip | diretta | salvataggio esterno |
+| `PKD-0188-00` | 188 | Skiploom | diretta | salvataggio esterno |
+| `PKD-0189-00` | 189 | Jumpluff | diretta | salvataggio esterno |
+| `PKD-0190-00` | 190 | Aipom | diretta | salvataggio esterno |
+| `PKD-0191-00` | 191 | Sunkern | diretta | salvataggio esterno |
+| `PKD-0192-00` | 192 | Sunflora | diretta | salvataggio esterno |
+| `PKD-0193-00` | 193 | Yanma | diretta | salvataggio esterno |
+| `PKD-0194-00` | 194 | Wooper | diretta | salvataggio esterno |
+| `PKD-0195-00` | 195 | Quagsire | diretta | salvataggio esterno |
+| `PKD-0196-00` | 196 | Espeon | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0197-00` | 197 | Umbreon | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0198-00` | 198 | Murkrow | diretta | salvataggio esterno |
+| `PKD-0199-00` | 199 | Slowking | diretta | salvataggio esterno |
+| `PKD-0200-00` | 200 | Misdreavus | diretta | salvataggio esterno |
+| `PKD-0201-00` | 201 | Unown | diretta | salvataggio esterno |
+| `PKD-0202-00` | 202 | Wobbuffet | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0203-00` | 203 | Girafarig | diretta | salvataggio esterno |
+| `PKD-0204-00` | 204 | Pineco | diretta | salvataggio esterno |
+| `PKD-0205-00` | 205 | Forretress | diretta | salvataggio esterno |
+| `PKD-0206-00` | 206 | Dunsparce | diretta | salvataggio esterno |
+| `PKD-0207-00` | 207 | Gligar | diretta | salvataggio esterno |
+| `PKD-0208-00` | 208 | Steelix | diretta | salvataggio esterno |
+| `PKD-0209-00` | 209 | Snubbull | diretta | salvataggio esterno |
+| `PKD-0210-00` | 210 | Granbull | diretta | salvataggio esterno |
+| `PKD-0211-00` | 211 | Qwilfish | diretta | salvataggio esterno |
+| `PKD-0212-00` | 212 | Scizor | diretta | salvataggio esterno |
+| `PKD-0213-00` | 213 | Shuckle | diretta | salvataggio esterno |
+| `PKD-0214-00` | 214 | Heracross | diretta | salvataggio esterno |
+| `PKD-0215-00` | 215 | Sneasel | diretta | salvataggio esterno |
+| `PKD-0216-00` | 216 | Teddiursa | diretta | salvataggio esterno |
+| `PKD-0217-00` | 217 | Ursaring | diretta | salvataggio esterno |
+| `PKD-0218-00` | 218 | Slugma | diretta | salvataggio esterno |
+| `PKD-0219-00` | 219 | Magcargo | diretta | salvataggio esterno |
+| `PKD-0220-00` | 220 | Swinub | diretta | salvataggio esterno |
+| `PKD-0221-00` | 221 | Piloswine | diretta | salvataggio esterno |
+| `PKD-0222-00` | 222 | Corsola | diretta | evento Gen 3 producibile, scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno |
+| `PKD-0223-00` | 223 | Remoraid | diretta | salvataggio esterno |
+| `PKD-0224-00` | 224 | Octillery | diretta | salvataggio esterno |
+| `PKD-0225-00` | 225 | Delibird | diretta | salvataggio esterno |
+| `PKD-0226-00` | 226 | Mantine | diretta | salvataggio esterno |
+| `PKD-0227-00` | 227 | Skarmory | diretta | salvataggio esterno |
+| `PKD-0228-00` | 228 | Houndour | diretta | salvataggio esterno |
+| `PKD-0229-00` | 229 | Houndoom | diretta | salvataggio esterno |
+| `PKD-0230-00` | 230 | Kingdra | diretta | salvataggio esterno |
+| `PKD-0231-00` | 231 | Phanpy | diretta | salvataggio esterno |
+| `PKD-0232-00` | 232 | Donphan | diretta | salvataggio esterno |
+| `PKD-0233-00` | 233 | Porygon2 | diretta | salvataggio esterno |
+| `PKD-0234-00` | 234 | Stantler | diretta | salvataggio esterno |
+| `PKD-0235-00` | 235 | Smeargle | diretta | salvataggio esterno |
+| `PKD-0236-00` | 236 | Tyrogue | diretta | salvataggio esterno |
+| `PKD-0237-00` | 237 | Hitmontop | diretta | salvataggio esterno |
+| `PKD-0238-00` | 238 | Smoochum | diretta | salvataggio esterno |
+| `PKD-0239-00` | 239 | Elekid | diretta | salvataggio esterno |
+| `PKD-0240-00` | 240 | Magby | diretta | salvataggio esterno |
+| `PKD-0241-00` | 241 | Miltank | diretta | salvataggio esterno |
+| `PKD-0242-00` | 242 | Blissey | diretta | salvataggio esterno |
+| `PKD-0243-00` | 243 | Raikou | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0244-00` | 244 | Entei | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0245-00` | 245 | Suicune | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0246-00` | 246 | Larvitar | diretta | salvataggio esterno |
+| `PKD-0247-00` | 247 | Pupitar | diretta | salvataggio esterno |
+| `PKD-0248-00` | 248 | Tyranitar | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0249-00` | 249 | Lugia | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0250-00` | 250 | Ho-Oh | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0251-00` | 251 | Celebi | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0252-00` | 252 | Treecko | diretta | salvataggio esterno |
+| `PKD-0253-00` | 253 | Grovyle | diretta | salvataggio esterno |
+| `PKD-0254-00` | 254 | Sceptile | diretta | salvataggio esterno |
+| `PKD-0255-00` | 255 | Torchic | diretta | salvataggio esterno |
+| `PKD-0256-00` | 256 | Combusken | diretta | salvataggio esterno |
+| `PKD-0257-00` | 257 | Blaziken | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0258-00` | 258 | Mudkip | diretta | salvataggio esterno |
+| `PKD-0259-00` | 259 | Marshtomp | diretta | salvataggio esterno |
+| `PKD-0260-00` | 260 | Swampert | diretta | salvataggio esterno |
 | `PKD-0261-00` | 261 | Poochyena | diretta | salvataggio esterno |
-| `PKD-0262-00` | 262 | Mightyena | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0263-00` | 263 | Zigzagoon | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0264-00` | 264 | Linoone | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0265-00` | 265 | Wurmple | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0266-00` | 266 | Silcoon | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0267-00` | 267 | Beautifly | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0268-00` | 268 | Cascoon | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0269-00` | 269 | Dustox | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0270-00` | 270 | Lotad | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0271-00` | 271 | Lombre | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0272-00` | 272 | Ludicolo | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0273-00` | 273 | Seedot | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
-| `PKD-0274-00` | 274 | Nuzleaf | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0275-00` | 275 | Shiftry | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0276-00` | 276 | Taillow | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0277-00` | 277 | Swellow | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0278-00` | 278 | Wingull | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0279-00` | 279 | Pelipper | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0280-00` | 280 | Ralts | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0281-00` | 281 | Kirlia | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0282-00` | 282 | Gardevoir | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0283-00` | 283 | Surskit | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0284-00` | 284 | Masquerain | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0285-00` | 285 | Shroomish | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0286-00` | 286 | Breloom | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0287-00` | 287 | Slakoth | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0288-00` | 288 | Vigoroth | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0289-00` | 289 | Slaking | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0290-00` | 290 | Nincada | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0291-00` | 291 | Ninjask | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0292-00` | 292 | Shedinja | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0293-00` | 293 | Whismur | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0294-00` | 294 | Loudred | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0295-00` | 295 | Exploud | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0296-00` | 296 | Makuhita | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
-| `PKD-0297-00` | 297 | Hariyama | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0298-00` | 298 | Azurill | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0299-00` | 299 | Nosepass | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0300-00` | 300 | Skitty | diretta | evento Gen 3 producibile, scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
-| `PKD-0301-00` | 301 | Delcatty | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0302-00` | 302 | Sableye | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0303-00` | 303 | Mawile | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0304-00` | 304 | Aron | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0305-00` | 305 | Lairon | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0306-00` | 306 | Aggron | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0307-00` | 307 | Meditite | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0308-00` | 308 | Medicham | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0309-00` | 309 | Electrike | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0310-00` | 310 | Manectric | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0311-00` | 311 | Plusle | diretta | evento Gen 3 producibile, scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno, archivio esterno |
-| `PKD-0312-00` | 312 | Minun | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0313-00` | 313 | Volbeat | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0314-00` | 314 | Illumise | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0315-00` | 315 | Roselia | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0316-00` | 316 | Gulpin | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0317-00` | 317 | Swalot | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0318-00` | 318 | Carvanha | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0319-00` | 319 | Sharpedo | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0320-00` | 320 | Wailmer | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0321-00` | 321 | Wailord | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0322-00` | 322 | Numel | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0323-00` | 323 | Camerupt | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0324-00` | 324 | Torkoal | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0325-00` | 325 | Spoink | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0326-00` | 326 | Grumpig | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0327-00` | 327 | Spinda | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0328-00` | 328 | Trapinch | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0329-00` | 329 | Vibrava | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0330-00` | 330 | Flygon | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0331-00` | 331 | Cacnea | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0332-00` | 332 | Cacturne | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0333-00` | 333 | Swablu | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0334-00` | 334 | Altaria | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0335-00` | 335 | Zangoose | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0336-00` | 336 | Seviper | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0337-00` | 337 | Lunatone | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0338-00` | 338 | Solrock | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0339-00` | 339 | Barboach | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0340-00` | 340 | Whiscash | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0341-00` | 341 | Corphish | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0342-00` | 342 | Crawdaunt | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0343-00` | 343 | Baltoy | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0344-00` | 344 | Claydol | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0345-00` | 345 | Lileep | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0346-00` | 346 | Cradily | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0347-00` | 347 | Anorith | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0348-00` | 348 | Armaldo | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0349-00` | 349 | Feebas | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0350-00` | 350 | Milotic | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0351-00` | 351 | Castform | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0352-00` | 352 | Kecleon | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0353-00` | 353 | Shuppet | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0354-00` | 354 | Banette | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0355-00` | 355 | Duskull | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0356-00` | 356 | Dusclops | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0357-00` | 357 | Tropius | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0358-00` | 358 | Chimecho | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0359-00` | 359 | Absol | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0360-00` | 360 | Wynaut | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0361-00` | 361 | Snorunt | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0362-00` | 362 | Glalie | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0363-00` | 363 | Spheal | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0364-00` | 364 | Sealeo | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0365-00` | 365 | Walrein | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0366-00` | 366 | Clamperl | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0367-00` | 367 | Huntail | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0368-00` | 368 | Gorebyss | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0369-00` | 369 | Relicanth | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0370-00` | 370 | Luvdisc | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0371-00` | 371 | Bagon | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0372-00` | 372 | Shelgon | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0373-00` | 373 | Salamence | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0374-00` | 374 | Beldum | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0375-00` | 375 | Metang | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0376-00` | 376 | Metagross | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0377-00` | 377 | Regirock | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0378-00` | 378 | Regice | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0379-00` | 379 | Registeel | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0380-00` | 380 | Latias | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0381-00` | 381 | Latios | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0382-00` | 382 | Kyogre | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0383-00` | 383 | Groudon | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0384-00` | 384 | Rayquaza | diretta | salvataggio esterno, archivio esterno |
-| `PKD-0385-00` | 385 | Jirachi | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
-| `PKD-0386-00` | 386 | Deoxys | diretta | evento Gen 3 producibile, salvataggio esterno, archivio esterno |
+| `PKD-0262-00` | 262 | Mightyena | diretta | salvataggio esterno |
+| `PKD-0263-00` | 263 | Zigzagoon | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0264-00` | 264 | Linoone | diretta | salvataggio esterno |
+| `PKD-0265-00` | 265 | Wurmple | diretta | salvataggio esterno |
+| `PKD-0266-00` | 266 | Silcoon | diretta | salvataggio esterno |
+| `PKD-0267-00` | 267 | Beautifly | diretta | salvataggio esterno |
+| `PKD-0268-00` | 268 | Cascoon | diretta | salvataggio esterno |
+| `PKD-0269-00` | 269 | Dustox | diretta | salvataggio esterno |
+| `PKD-0270-00` | 270 | Lotad | diretta | salvataggio esterno |
+| `PKD-0271-00` | 271 | Lombre | diretta | salvataggio esterno |
+| `PKD-0272-00` | 272 | Ludicolo | diretta | salvataggio esterno |
+| `PKD-0273-00` | 273 | Seedot | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno |
+| `PKD-0274-00` | 274 | Nuzleaf | diretta | salvataggio esterno |
+| `PKD-0275-00` | 275 | Shiftry | diretta | salvataggio esterno |
+| `PKD-0276-00` | 276 | Taillow | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0277-00` | 277 | Swellow | diretta | salvataggio esterno |
+| `PKD-0278-00` | 278 | Wingull | diretta | salvataggio esterno |
+| `PKD-0279-00` | 279 | Pelipper | diretta | salvataggio esterno |
+| `PKD-0280-00` | 280 | Ralts | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0281-00` | 281 | Kirlia | diretta | salvataggio esterno |
+| `PKD-0282-00` | 282 | Gardevoir | diretta | salvataggio esterno |
+| `PKD-0283-00` | 283 | Surskit | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0284-00` | 284 | Masquerain | diretta | salvataggio esterno |
+| `PKD-0285-00` | 285 | Shroomish | diretta | salvataggio esterno |
+| `PKD-0286-00` | 286 | Breloom | diretta | salvataggio esterno |
+| `PKD-0287-00` | 287 | Slakoth | diretta | salvataggio esterno |
+| `PKD-0288-00` | 288 | Vigoroth | diretta | salvataggio esterno |
+| `PKD-0289-00` | 289 | Slaking | diretta | salvataggio esterno |
+| `PKD-0290-00` | 290 | Nincada | diretta | salvataggio esterno |
+| `PKD-0291-00` | 291 | Ninjask | diretta | salvataggio esterno |
+| `PKD-0292-00` | 292 | Shedinja | diretta | salvataggio esterno |
+| `PKD-0293-00` | 293 | Whismur | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0294-00` | 294 | Loudred | diretta | salvataggio esterno |
+| `PKD-0295-00` | 295 | Exploud | diretta | salvataggio esterno |
+| `PKD-0296-00` | 296 | Makuhita | diretta | scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno |
+| `PKD-0297-00` | 297 | Hariyama | diretta | salvataggio esterno |
+| `PKD-0298-00` | 298 | Azurill | diretta | salvataggio esterno |
+| `PKD-0299-00` | 299 | Nosepass | diretta | salvataggio esterno |
+| `PKD-0300-00` | 300 | Skitty | diretta | evento Gen 3 producibile, scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno |
+| `PKD-0301-00` | 301 | Delcatty | diretta | salvataggio esterno |
+| `PKD-0302-00` | 302 | Sableye | diretta | salvataggio esterno |
+| `PKD-0303-00` | 303 | Mawile | diretta | salvataggio esterno |
+| `PKD-0304-00` | 304 | Aron | diretta | salvataggio esterno |
+| `PKD-0305-00` | 305 | Lairon | diretta | salvataggio esterno |
+| `PKD-0306-00` | 306 | Aggron | diretta | salvataggio esterno |
+| `PKD-0307-00` | 307 | Meditite | diretta | salvataggio esterno |
+| `PKD-0308-00` | 308 | Medicham | diretta | salvataggio esterno |
+| `PKD-0309-00` | 309 | Electrike | diretta | salvataggio esterno |
+| `PKD-0310-00` | 310 | Manectric | diretta | salvataggio esterno |
+| `PKD-0311-00` | 311 | Plusle | diretta | evento Gen 3 producibile, scambio in gioco Gen 3 (prodotto e conforme), salvataggio esterno |
+| `PKD-0312-00` | 312 | Minun | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0313-00` | 313 | Volbeat | diretta | salvataggio esterno |
+| `PKD-0314-00` | 314 | Illumise | diretta | salvataggio esterno |
+| `PKD-0315-00` | 315 | Roselia | diretta | salvataggio esterno |
+| `PKD-0316-00` | 316 | Gulpin | diretta | salvataggio esterno |
+| `PKD-0317-00` | 317 | Swalot | diretta | salvataggio esterno |
+| `PKD-0318-00` | 318 | Carvanha | diretta | salvataggio esterno |
+| `PKD-0319-00` | 319 | Sharpedo | diretta | salvataggio esterno |
+| `PKD-0320-00` | 320 | Wailmer | diretta | salvataggio esterno |
+| `PKD-0321-00` | 321 | Wailord | diretta | salvataggio esterno |
+| `PKD-0322-00` | 322 | Numel | diretta | salvataggio esterno |
+| `PKD-0323-00` | 323 | Camerupt | diretta | salvataggio esterno |
+| `PKD-0324-00` | 324 | Torkoal | diretta | salvataggio esterno |
+| `PKD-0325-00` | 325 | Spoink | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0326-00` | 326 | Grumpig | diretta | salvataggio esterno |
+| `PKD-0327-00` | 327 | Spinda | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0328-00` | 328 | Trapinch | diretta | salvataggio esterno |
+| `PKD-0329-00` | 329 | Vibrava | diretta | salvataggio esterno |
+| `PKD-0330-00` | 330 | Flygon | diretta | salvataggio esterno |
+| `PKD-0331-00` | 331 | Cacnea | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0332-00` | 332 | Cacturne | diretta | salvataggio esterno |
+| `PKD-0333-00` | 333 | Swablu | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0334-00` | 334 | Altaria | diretta | salvataggio esterno |
+| `PKD-0335-00` | 335 | Zangoose | diretta | salvataggio esterno |
+| `PKD-0336-00` | 336 | Seviper | diretta | salvataggio esterno |
+| `PKD-0337-00` | 337 | Lunatone | diretta | salvataggio esterno |
+| `PKD-0338-00` | 338 | Solrock | diretta | salvataggio esterno |
+| `PKD-0339-00` | 339 | Barboach | diretta | salvataggio esterno |
+| `PKD-0340-00` | 340 | Whiscash | diretta | salvataggio esterno |
+| `PKD-0341-00` | 341 | Corphish | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0342-00` | 342 | Crawdaunt | diretta | salvataggio esterno |
+| `PKD-0343-00` | 343 | Baltoy | diretta | salvataggio esterno |
+| `PKD-0344-00` | 344 | Claydol | diretta | salvataggio esterno |
+| `PKD-0345-00` | 345 | Lileep | diretta | salvataggio esterno |
+| `PKD-0346-00` | 346 | Cradily | diretta | salvataggio esterno |
+| `PKD-0347-00` | 347 | Anorith | diretta | salvataggio esterno |
+| `PKD-0348-00` | 348 | Armaldo | diretta | salvataggio esterno |
+| `PKD-0349-00` | 349 | Feebas | diretta | salvataggio esterno |
+| `PKD-0350-00` | 350 | Milotic | diretta | salvataggio esterno |
+| `PKD-0351-00` | 351 | Castform | diretta | salvataggio esterno |
+| `PKD-0352-00` | 352 | Kecleon | diretta | salvataggio esterno |
+| `PKD-0353-00` | 353 | Shuppet | diretta | salvataggio esterno |
+| `PKD-0354-00` | 354 | Banette | diretta | salvataggio esterno |
+| `PKD-0355-00` | 355 | Duskull | diretta | salvataggio esterno |
+| `PKD-0356-00` | 356 | Dusclops | diretta | salvataggio esterno |
+| `PKD-0357-00` | 357 | Tropius | diretta | salvataggio esterno |
+| `PKD-0358-00` | 358 | Chimecho | diretta | salvataggio esterno |
+| `PKD-0359-00` | 359 | Absol | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0360-00` | 360 | Wynaut | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0361-00` | 361 | Snorunt | diretta | salvataggio esterno |
+| `PKD-0362-00` | 362 | Glalie | diretta | salvataggio esterno |
+| `PKD-0363-00` | 363 | Spheal | diretta | salvataggio esterno |
+| `PKD-0364-00` | 364 | Sealeo | diretta | salvataggio esterno |
+| `PKD-0365-00` | 365 | Walrein | diretta | salvataggio esterno |
+| `PKD-0366-00` | 366 | Clamperl | diretta | salvataggio esterno |
+| `PKD-0367-00` | 367 | Huntail | diretta | salvataggio esterno |
+| `PKD-0368-00` | 368 | Gorebyss | diretta | salvataggio esterno |
+| `PKD-0369-00` | 369 | Relicanth | diretta | salvataggio esterno |
+| `PKD-0370-00` | 370 | Luvdisc | diretta | salvataggio esterno |
+| `PKD-0371-00` | 371 | Bagon | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0372-00` | 372 | Shelgon | diretta | salvataggio esterno |
+| `PKD-0373-00` | 373 | Salamence | diretta | salvataggio esterno |
+| `PKD-0374-00` | 374 | Beldum | diretta | salvataggio esterno |
+| `PKD-0375-00` | 375 | Metang | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0376-00` | 376 | Metagross | diretta | salvataggio esterno |
+| `PKD-0377-00` | 377 | Regirock | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0378-00` | 378 | Regice | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0379-00` | 379 | Registeel | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0380-00` | 380 | Latias | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0381-00` | 381 | Latios | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0382-00` | 382 | Kyogre | diretta | salvataggio esterno |
+| `PKD-0383-00` | 383 | Groudon | diretta | salvataggio esterno |
+| `PKD-0384-00` | 384 | Rayquaza | diretta | salvataggio esterno |
+| `PKD-0385-00` | 385 | Jirachi | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0386-00` | 386 | Deoxys | diretta | evento Gen 3 producibile, salvataggio esterno |
 | `PKD-0387-00` | 387 | Turtwig | diretta | nessuna |
 | `PKD-0388-00` | 388 | Grotle | diretta | salvataggio esterno |
 | `PKD-0389-00` | 389 | Torterra | diretta | salvataggio esterno |
