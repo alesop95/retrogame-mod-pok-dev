@@ -40,7 +40,7 @@ Per i commit comparsi dopo la registrazione si guarda che cosa hanno toccato, co
 
 Per i file rimasti nell'albero di lavoro si chiede, non si decide. Un file a metà può essere un lavoro da riprendere o uno da buttare, e la differenza non si legge dal contenuto.
 
-Per i documenti di memoria arretrati (`index.md`, `pending.md`, le schede di `context/`) si propone il delta e lo si applica quando l'utente lo chiede, come vuole il vincolo di team su chi aggiorna quei file: la skill non li riscrive di propria iniziativa.
+I documenti di memoria arretrati si aggiornano subito, nello stesso giro, come vuole `rules/chat-non-e-memoria.md`, e si dichiara quali file sono stati scritti così che l'utente li rilegga nel diff prima del commit.
 
 E per ciò che si sospetta perduto ma non si vede, cioè una decisione presa a voce nella sessione caduta, si dice chiaramente che non è ricostruibile da qui e si chiede se ce ne fosse una.
 
@@ -63,5 +63,7 @@ python tools/verifica-ripresa.py --registra
 ```
 
 Va fatto insieme alla riscrittura di `_notes/resume-prompt.md`, cioè dopo aver scritto lo stato raggiunto e il prossimo passo, e dopo che l'utente ha fatto i propri commit, perché l'impronta fotografa lo stato in quel momento. Se si registra prima dei commit, la sessione successiva troverà una divergenza che non è una caduta ma una registrazione fatta troppo presto, e quel falso positivo insegna a ignorare il controllo, che è il modo in cui un presidio muore.
+
+Il modo ordinario di farlo è `tools/chiudi-sessione.ps1`, che l'utente lancia dopo aver chiuso la sessione e che registra solo dopo aver verificato che il commit sia arrivato al remoto; all'agente resta di aggiornare il file di ripresa e di scrivere in `_notes/COMMIT-MSG.txt` il messaggio di commit proposto.
 
 Una sessione che finisce senza registrare non produce un danno: produce esattamente la situazione che questa skill sa riconoscere, cioè un file di ripresa che non descrive il presente. È il comportamento voluto, ed è la ragione per cui l'impronta si registra e non si deduce.

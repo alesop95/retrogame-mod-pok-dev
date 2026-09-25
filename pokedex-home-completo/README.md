@@ -58,6 +58,7 @@ CHECKLIST-COMPLETA.md                      la lista di spunta generata delle spe
 CODA-PRIMO-TEMPO.md                        la coda di produzione ordinata per specie
 COMPLEMENTO-RUBINO.md                      il rapporto del complemento destinato al Rubino
 CONFRONTO-LIVINGDEX-POKEPC.md              il confronto con una seconda enumerazione indipendente
+SCHEDE-ESCLUSIVI.md                        le schede di Pokewalker, Ranch, Dream Radar, doni gen 6-7, scambi e Phanpy
 OTTENIBILITA-TITOLI.md                     la raggiungibilità delle specie per titolo
 SCHEDE-EVENTI-GB.md                        le schede degli eventi delle prime due generazioni
 STUDIO-02-salvataggi-esterni-e-che-cosa-provano.md  l'uso dei salvataggi esterni come evidenza

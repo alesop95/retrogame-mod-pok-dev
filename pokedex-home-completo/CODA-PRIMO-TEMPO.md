@@ -4,7 +4,7 @@
 
 Il primo tempo è la decisione di ambito del 2026-09-03: prima una voce per ciascuna specie distinta fra quelle da distribuzione sotto scadenza, poi i gemelli. Questo documento è quel primo tempo, cioè 433 voci, ed è l'ordine in cui produrle e trasferirle.
 
-Lo stato di partenza è questo, e separa il lavoro fatto, cioè le voci prodotte e giudicate conformi dalla libreria del verificatore o producibili e verificate, da quello che aspetta ancora di essere prodotto: prodotta e conforme 327, producibile e verificata 60, censita, non ancora producibile 40, letta, non ancora producibile 6.
+Lo stato di partenza è questo, e separa il lavoro fatto, cioè le voci prodotte e giudicate conformi dalla libreria del verificatore o producibili e verificate, da quello che aspetta ancora di essere prodotto: prodotta e conforme 333, producibile e verificata 60, censita, non ancora producibile 40.
 
 ## Il vincolo delle macchine nascoste
 
@@ -250,12 +250,12 @@ Il primo anello della catena rifiuta un esemplare che conosca una macchina nasco
 | 229 | `EVT-7-0081` | 788 | Tapu Fini | 7 | dono segreto | prodotta e conforme | - |
 | 230 | `EVT-7-0083` | 517 | Munna | 7 | dono segreto | prodotta e conforme | - |
 | 231 | `EVT-7-0290` | 764 | Comfey | 7 | dono segreto | prodotta e conforme | - |
-| 232 | `EVT-7-0296` | 780 | Drampa | 7 | dono segreto | letta, non ancora producibile | - |
-| 233 | `EVT-7-0297` | 704 | Goomy | 7 | dono segreto | letta, non ancora producibile | - |
-| 234 | `EVT-7-0298` | 747 | Mareanie | 7 | dono segreto | letta, non ancora producibile | - |
-| 235 | `EVT-7-0299` | 765 | Oranguru | 7 | dono segreto | letta, non ancora producibile | - |
-| 236 | `EVT-7-0300` | 766 | Passimian | 7 | dono segreto | letta, non ancora producibile | - |
-| 237 | `EVT-7-0301` | 776 | Turtonator | 7 | dono segreto | letta, non ancora producibile | - |
+| 232 | `EVT-7-0296` | 780 | Drampa | 7 | dono segreto | prodotta e conforme | - |
+| 233 | `EVT-7-0297` | 704 | Goomy | 7 | dono segreto | prodotta e conforme | - |
+| 234 | `EVT-7-0298` | 747 | Mareanie | 7 | dono segreto | prodotta e conforme | - |
+| 235 | `EVT-7-0299` | 765 | Oranguru | 7 | dono segreto | prodotta e conforme | - |
+| 236 | `EVT-7-0300` | 766 | Passimian | 7 | dono segreto | prodotta e conforme | - |
+| 237 | `EVT-7-0301` | 776 | Turtonator | 7 | dono segreto | prodotta e conforme | - |
 | 238 | `EVT-7-0302` | 760 | Bewear | 7 | dono segreto | prodotta e conforme | - |
 | 239 | `EVT-7-0323` | 762 | Steenee | 7 | dono segreto | prodotta e conforme | - |
 | 240 | `EVT-7-0344` | 132 | Ditto | 7 | dono segreto | prodotta e conforme | - |

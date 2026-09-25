@@ -477,6 +477,10 @@ def converti_python(testo, statistiche, residui, ambigui):
     return "\n".join(righe)
 
 
+# Se falso, i file sotto .claude/templates/ non si riscrivono: vedi la guardia in raccolta.
+MODELLI_AMMESSI = False
+
+
 def raccogli(percorsi, estensioni):
     # Uno strumento che riscrive testo italiano non deve riscrivere il proprio sorgente:
     # i suoi casi di prova contengono di proposito le sequenze che cerca, e una corsa su
@@ -485,12 +489,89 @@ def raccogli(percorsi, estensioni):
     # Gli strumenti tipografici della stessa famiglia si escludono a vicenda, non solo se
     # stessi: i loro casi di prova contengono di proposito le sequenze che cercano, e una
     # corsa incrociata li altera. E' accaduto tre volte durante lo sviluppo.
-    FAMIGLIA = {"fix-accents.py", "fix-missing-accents.py", "fix-dashes.py"}
+    # Le copie dei modelli sotto .claude/templates/ non si correggono dentro il progetto
+    # che le ospita: sono copie di questo template, e riscriverle la' allarga la divergenza
+    # che la loro ri-propagazione esiste per chiudere. Il divieto viveva nella sola prosa di
+    # CLAUDE.md ed e' stato violato due volte nella stessa sessione, la seconda meno di un'ora
+    # dopo averlo scritto come regola: una convenzione che un comando puo' violare per
+    # distrazione va difesa dal comando, non dalla memoria di chi lo lancia. La difesa e'
+    # quindi strutturale, come l'auto-esclusione qui sopra, e parla invece di tacere.
+    def sotto_templates(percorso):
+        parti = os.path.abspath(percorso).replace("\\", "/").split("/")
+        for i in range(len(parti) - 1):
+            if parti[i] == ".claude" and parti[i + 1] == "templates":
+                return True
+        return False
+
+    # La famiglia non sono soltanto i tre convertitori: sono anche il banco di prova che li
+    # esercita e l'elenco delle esclusioni, perche' entrambi contengono di proposito le forme
+    # che gli strumenti cercano. Una corsa che li riscrivesse romperebbe le prove invece di
+    # correggere un testo, ed e' lo stesso genere di ricorsione che l'auto-esclusione previene.
+    FAMIGLIA = {"fix-accents.py", "fix-missing-accents.py", "fix-dashes.py",
+                "test-tipografia.py", "dashes-exclude.txt", "accents-exclude.txt"}
     IO_STESSO = os.path.abspath(__file__)
+
+    # Esclusioni per singolo file, con lo stesso formato e la stessa regola di fix-dashes.py:
+    # una voce senza motivo viene rifiutata. Aggiunte il 2026-09-23 (voce C-46) per una ragione
+    # che vale la pena scrivere qui, perche' e' il difetto che questo meccanismo chiude.
+    # Il 2026-09-01 una passata di questo strumento rovino' `refactor-53`, che contiene le
+    # grafie sbagliate COME DATO, cioe' come esempi di cio' che lo strumento corregge. La
+    # scheda `refactor-54` racconto' l'errore, ne trasse la conclusione giusta - una nota in
+    # prosa non e' una guardia - e mostro' un frammento di codice come rimedio. Quel codice
+    # non e' mai atterrato: verificato sull'intera storia del repository, zero occorrenze.
+    # Per ventidue giorni il rimedio e' esistito solo nella scheda che lo mostrava, ed e' una
+    # condizione peggiore dell'assenza dichiarata, perche' chi legge smette di cercare.
+    esclusi, malformate = leggi_esclusioni()
+    if malformate:
+        print("esclusioni senza motivo, rifiutate:", file=sys.stderr)
+        for r in malformate:
+            print("  %s" % r, file=sys.stderr)
+        raise SystemExit(1)
+
+    def relativo(percorso):
+        """Il percorso relativo alla radice del repository, oppure None se sta fuori.
+
+        Su Windows `relpath` solleva quando i due percorsi stanno su unita' diverse, e non e'
+        un caso di scuola: lo strumento puo' legittimamente essere puntato su una cartella
+        altrove, per esempio su una copia di prova. Le esclusioni sono dichiarate relative alla
+        radice, quindi un file fuori dalla radice non puo' essere escluso: si risponde None e
+        chi chiama lo tratta come non escluso, invece di interrompere il programma.
+        """
+        try:
+            return os.path.normpath(os.path.relpath(os.path.abspath(percorso), ROOT))
+        except ValueError:
+            return None
+
+    def escluso(percorso):
+        rel = relativo(percorso)
+        return rel is not None and rel in esclusi
+
     file = []
     for p in percorsi:
         ap = p if os.path.isabs(p) else os.path.join(ROOT, p)
+        if not os.path.exists(ap):
+            # C-52: un percorso relativo si cercava soltanto dalla radice del progetto, e se non
+            # esisteva os.walk non produceva niente e lo strumento rispondeva "0 file esaminati, 0
+            # da modificare", cioe' un successo vuoto. Lanciato da un'altra cartella, anche un file
+            # vero spariva cosi'. Ora si cerca anche dalla cartella corrente, e se non esiste in
+            # nessuno dei due posti lo strumento si ferma invece di dichiarare che va tutto bene.
+            dal_cwd = os.path.abspath(p)
+            if os.path.exists(dal_cwd):
+                ap = dal_cwd
+            else:
+                print("percorso inesistente: {} (cercato dalla radice del progetto e dalla "
+                      "cartella corrente)".format(p), file=sys.stderr)
+                sys.exit(2)
         if os.path.isfile(ap):
+            if sotto_templates(ap) and not MODELLI_AMMESSI:
+                print(f"rifiutato, sta sotto .claude/templates/: {p}", file=sys.stderr)
+                continue
+            if escluso(ap):
+                # Il salto si dichiara invece di tacere: una protezione silenziosa sembra una
+                # svista a chi guarda l'uscita, ed e' cosi' che una guardia smette di esistere.
+                rel = relativo(ap)
+                print(f"escluso ({esclusi[rel]}): {rel}", file=sys.stderr)
+                continue
             if os.path.abspath(ap) != IO_STESSO and os.path.basename(ap) not in FAMIGLIA:
                 file.append(ap)
             continue
@@ -498,12 +579,65 @@ def raccogli(percorsi, estensioni):
             cartelle[:] = [c for c in cartelle
                            if c not in (".git", "__pycache__", "node_modules",
                                         ".venv", "_notes")]
+            # Una cartella marcata .md-unwrap-ignore contiene materiale di confronto byte per
+            # byte, e riscriverne anche una lettera lo invalida. Il marcatore lo rispettavano
+            # md-unwrap e il controllo dei comandi, non i tre strumenti tipografici: una
+            # protezione dichiarata che due strumenti su cinque non vedevano, cioe' nessuna
+            # protezione. Qui il ramo si pota invece di filtrare i singoli file, perche' il
+            # marcatore parla della cartella.
+            if ".md-unwrap-ignore" in nomi:
+                cartelle[:] = []
+                continue
             for n in sorted(nomi):
                 if os.path.splitext(n)[1].lower() in estensioni:
                     completo = os.path.join(radice, n)
+                    if sotto_templates(completo) and not MODELLI_AMMESSI:
+                        continue
+                    if escluso(completo):
+                        rel = relativo(completo)
+                        print(f"escluso ({esclusi[rel]}): {rel}", file=sys.stderr)
+                        continue
                     if os.path.abspath(completo) != IO_STESSO and n not in FAMIGLIA:
                         file.append(completo)
     return file
+
+
+def leggi_esclusioni():
+    """Le esclusioni per singolo file, con il motivo obbligatorio.
+
+    Stesso formato e stessa regola di `tools/dashes-exclude.txt`: una riga per percorso, il
+    motivo dopo un cancelletto, e una voce senza motivo viene rifiutata invece di essere
+    applicata in silenzio. Il senso di quella severita' e' costringere a dichiarare la ragione
+    nel momento in cui si esclude, perche' un'esclusione senza motivo e' indistinguibile da una
+    dimenticanza il giorno in cui qualcuno la rilegge.
+
+    I due elenchi restano separati e non condivisi, ed e' una scelta dosata: le esclusioni dei
+    trattini sono specifiche dei trattini (una tabella di sostituzione, un documento copiato
+    verbatim) e non valgono per gli accenti. La duplicazione del LETTORE, invece, e' la terza
+    occorrenza della stessa forma in questa famiglia di strumenti, quindi e' il momento in cui
+    la regola del tre direbbe di estrarre: non e' stato fatto qui perche' toccare tutti e tre
+    gli strumenti per un'estrazione va fatto come passo dichiarato e non dentro la chiusura di
+    un'altra voce. Annotato come debito invece che nascosto.
+    """
+    percorso = os.path.join(ROOT, "tools", "accents-exclude.txt")
+    esclusi, malformate = {}, []
+    if not os.path.exists(percorso):
+        return esclusi, malformate
+    with open(percorso, "rb") as f:
+        for riga in f.read().decode("utf-8").splitlines():
+            riga = riga.strip()
+            if not riga or riga.startswith("##"):
+                continue
+            if "#" not in riga:
+                malformate.append(riga)
+                continue
+            p, motivo = riga.split("#", 1)
+            p, motivo = p.strip(), motivo.strip()
+            if not p or not motivo:
+                malformate.append(riga)
+                continue
+            esclusi[os.path.normpath(p)] = motivo
+    return esclusi, malformate
 
 
 def autotest():
@@ -611,12 +745,22 @@ def main():
     ap.add_argument("--da-indicativo", action="store_true",
                     help="converte dà nella forma con accento grave. Da usare solo dopo aver letto i contesti e accertato che nessuno sia un imperativo, perché l'imperativo di dare si scrive con l'apostrofo")
     ap.add_argument("percorsi", nargs="*", default=["."])
+    # L'interruttore esiste perche' la guardia ha due lati. Dentro un progetto che ospita
+    # le copie dei modelli il divieto e' giusto e va imposto. Dentro questo template quei
+    # file sono invece gli originali, ed e' proprio li' che vanno corretti: una guardia
+    # senza scappatoia avrebbe trasformato una protezione in un difetto nuovo. Il difetto
+    # e' stato visto durante la prova della guardia stessa, non dopo.
+    ap.add_argument("--includi-modelli", action="store_true",
+                    help="permette di scrivere anche sotto .claude/templates/, "
+                         "che serve nel template dove quei file sono gli originali")
     ap.add_argument("--check", action="store_true", help="non scrive, riporta")
     ap.add_argument("--residui", action="store_true",
                     help="elenca solo le forme non in lista bianca")
     ap.add_argument("--ext", default=".md,.tex,.txt",
                     help="estensioni da trattare, separate da virgola")
     args = ap.parse_args()
+    global MODELLI_AMMESSI
+    MODELLI_AMMESSI = args.includi_modelli
 
     if args.autotest:
         return autotest()
@@ -626,6 +770,37 @@ def main():
 
     estensioni = set(e if e.startswith(".") else "." + e
                      for e in args.ext.split(","))
+
+    # Guardia sui sorgenti, aggiunta il 2026-09-17 dopo un danno reale.
+    #
+    # Lanciato con `--ext .ts --ext .tsx` su un progetto React, questo strumento ha prodotto
+    # settecentotrentasei sostituzioni e **rotto la compilazione**. La causa non e' un caso limite
+    # esotico: in un linguaggio con le stringhe fra apici singoli, un letterale come `'che'`
+    # termina con la sequenza `e'`, che e' esattamente il bersaglio piu' frequente della tabella.
+    # La sostituzione produce `'che` senza chiusura, cioe' `Unterminated string literal`.
+    #
+    # La lezione, che vale oltre questo strumento: **una regola di prosa applicata a un file che
+    # contiene due linguaggi va applicata solo al linguaggio giusto.** E' lo stesso problema gia'
+    # risolto per i file di composizione tipografica, dove gli identificatori vengono mascherati
+    # prima di operare; qui la soluzione corretta sarebbe distinguere commenti da codice, che
+    # richiede un analizzatore sintattico per ogni linguaggio. Finche' non esiste, lo strumento
+    # **si rifiuta** invece di fare un lavoro che non sa fare.
+    #
+    # L'errore era prevedibile e infatti e' stato previsto: chi lo ha lanciato aveva nominato il
+    # rischio prima di eseguire e ha verificato subito con il compilatore. Il danno e' stato nullo
+    # perche' il codice era committato, ma il presidio non puo' essere la prudenza di chi lancia.
+    SORGENTI = {".ts", ".tsx", ".js", ".jsx", ".py", ".java", ".c", ".h", ".cpp", ".cs",
+                ".go", ".rb", ".php", ".rs", ".swift", ".kt", ".sql", ".sh", ".ps1"}
+    pericolose = sorted(estensioni & SORGENTI)
+    if pericolose and not args.check:
+        print("rifiutato: estensioni di codice sorgente richieste (%s)."
+              % ", ".join(pericolose))
+        print("In un linguaggio con stringhe fra apici singoli, un letterale come 'che' finisce")
+        print("con la sequenza e', che questo strumento convertirebbe rompendo la stringa.")
+        print("Per ispezionare senza scrivere si puo' usare --check; per correggere i commenti")
+        print("serve uno strumento che sappia distinguere commenti da codice, che questo non e'.")
+        return 2
+
     file = raccogli(args.percorsi or ["."], estensioni)
 
     statistiche, residui, ambigui = {}, {}, {}
@@ -638,7 +813,17 @@ def main():
             print("saltato, non è UTF-8: %s" % percorso)
             continue
         if cambia:
-            rel = os.path.relpath(percorso, ROOT)
+            # Difetto preesistente, corretto il 2026-09-23 insieme all'aggiunta delle
+            # esclusioni: su Windows `relpath` solleva quando i due percorsi stanno su unita'
+            # diverse, quindi lo strumento non poteva essere puntato su una cartella fuori dal
+            # repository. Non e' un caso di scuola su questa macchina, dove il repository sta
+            # su un'unita' e la cartella temporanea su un'altra, ed e' il modo naturale di
+            # provare lo strumento su una copia senza rischiare l'originale. Fuori dalla radice
+            # si stampa il percorso assoluto, che e' l'unica cosa sensata da mostrare.
+            try:
+                rel = os.path.relpath(percorso, ROOT)
+            except ValueError:
+                rel = os.path.abspath(percorso)
             cambiati.append(rel)
             if not args.check and not args.residui:
                 with open(percorso, "wb") as f:
@@ -681,7 +866,16 @@ def main():
     if residui:
         print("\n%d forme non riconosciute, rilanciare con --residui per l'elenco"
               % len(residui))
-    return 0
+    # In modalita' di verifica l'esito e' anche un codice di uscita, non solo un rapporto. Senza
+    # questa riga lo strumento usciva zero pure elencando i file da correggere, e chiunque lo
+    # usasse come controllo, l'hook pre-commit o una persona che concatena i comandi, otteneva un
+    # via libera indistinguibile da quello vero: il difetto che `prove-che-misurano.md` chiama
+    # vacuita', qui non in una prova ma nel controllo stesso. Fa fede `cambiati`, cioe' cio' che
+    # lo strumento sa correggere da se'; le forme ambigue e i residui restano un avviso, perche'
+    # nessuno puo' deciderli meccanicamente e farne cadere il controllo lo bloccherebbe per
+    # sempre. In modalita' di scrittura l'uscita resta zero: li' correggere e' il lavoro, non un
+    # difetto trovato.
+    return 1 if (args.check and cambiati) else 0
 
 
 if __name__ == "__main__":
