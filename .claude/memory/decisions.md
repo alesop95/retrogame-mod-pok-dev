@@ -963,6 +963,53 @@ Il problema. La lettura integrale delle fonti del Parco Lotta ha lasciato fuori 
 La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti etichettata come non letta con il proprio motivo, secondo la prescrizione che vieta di degradare in silenzio una fonte a nota a margine, e non si tenta alcuna via ulteriore. Il debito di lettura del fronte Parco Lotta si dichiara quindi chiuso con questa sola eccezione dichiarata, e nessuna sessione futura deve riaprirlo credendo che qualcosa sia stato dimenticato.
 
 La ragione per cui l'abbandono e' accettabile qui, e non lo sarebbe altrove. Quella discussione e' del 2005 ed e' una richiesta di valutazione di squadra, cioe' la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e piu' recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano e' quindi basso, e la decisione si fonda su questo e non sulla sola difficolta' di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
+## ADR-084: pulizia dei salvataggi di terzi, con il motivo di ogni scarto
+
+Data: 2026-09-24. Stato: accettata. Decisione del proprietario sulla proposta dell'agente.
+
+Contesto. Il proprietario ha chiesto quali file di `_notes/salvataggi/terzi/` servano ancora al progetto, leggendo la sua `lista.txt`, e ha deciso di scartare tutti quelli indicati come scartabili, tenendo traccia del motivo. Le categorie sono tre. Ci sono le copie esatte, verificate con SHA-256, e i derivati che si rigenerano. Ci sono poi i file che servivano alla terza generazione, chiusa da ADR-082. Infine i file che i loro stessi autori dichiarano modificati. La tabella conserva, per ciascun file, i primi sedici caratteri dell'impronta, la dimensione e la provenienza, così che un file scartato si possa riconoscere o riscaricare. Le provenienze sono quelle di `lista.txt`.
+
+| File scartato | Impronta | Byte | Provenienza | Motivo |
+|---|---|---|---|---|
+| `pronti-ds/nero2-A-Nate-762/POKEMON B2.sav` | `c999ca7da7922549` | 524288 | copia di `Pok_mon_Nero_2.sav`, che resta | duplicato esatto |
+| `pronti-ds/nero2-B-KRA-138/POKEMON B2.sav` | `e47b2ee9835edf24` | 524288 | copia di `nero2 sav.sav` | duplicato esatto di un file scartato anch'esso |
+| `pronti-ds/nero2-B-KRA-138/Box Data Dump nero2-B-KRA-138-round1.csv` | `fee5de10ac2a567c` | 45220 | esportazione di PKHeX dal file precedente | derivato, e il suo salvataggio è scartato |
+| `pronti-ds/nero2-C-Jack-1216/POKEMON B2.sav` | `c563a52fbf531661` | 524288 | copia di `Pokemon Nero 2 Fix.sav`, che resta | duplicato esatto |
+| `pronti-ds/nero2-C-Jack-1216/Box Data Dump nero2-C-Jack-1216-round1.csv` | `19f6508b907ec70f` | 395341 | esportazione di PKHeX da `Pokemon Nero 2 Fix.sav` | derivato, si rigenera |
+| `pronti-ds/soulsilver-italiano-A-projectpokemon/POKEMON SS.sav` | `e143c7f8f344a15e` | 524288 | copia di `POKEMON SS.0.sav`, che resta | duplicato esatto |
+| `pronti-ds/soulsilver-italiano-B-forumcommunity/POKEMON SS.sav` | `9f0c34b55ff0b9ae` | 524288 | copia di `POKEMON SS(2).sav`, che resta | duplicato esatto |
+| `pronti-3ds/omega-ruby-A-projectpokemon/main` | `6a82dd48a52483c2` | 483328 | copia di `main(6)`, che resta | duplicato esatto |
+| `pronti-3ds/omega-ruby-B-forumcommunity/main` | `7b32d069bc6ff030` | 483328 | copia di `main (1)`, che resta | duplicato esatto |
+| `pronti-3ds/ultrasole-forumcommunity/main` | `08789ebf8394767f` | 445440 | copia di `main (2)`, che resta | duplicato esatto |
+| `pronti-3ds/x-forumcommunity/main` | `bb6803aded00c71d` | 415232 | copia di `main`, che resta | duplicato esatto |
+| `pronti-3ds/y-projectpokemon/main` | `b792af2c7a732ebc` | 415232 | copia di `main(7)`, che resta | duplicato esatto |
+| `pronti-3ds/omega-ruby-A-riparato/main` | `cfebd28edff5197d` | 483328 | `tools/ripara-deposito-gen6.py` su `main(6)` | derivato, si rigenera |
+| `pronti-3ds/omega-ruby-B-riparato/main` | `05504643d2a8c64e` | 483328 | `tools/ripara-deposito-gen6.py` su `main (1)` | derivato, si rigenera |
+| `Shiny Dex Gen 1-3.zip` | `fbb6376de40a523f` | 129706 | https://projectpokemon.org/home/files/file/5954-shiny-gen-3-1-3-dex/ | collezione cromatica di terza generazione ottenuta con manipolazione in emulatore; la terza generazione è chiusa |
+| `Unown.zip` | `25933b044d239a7e` | 8572 | https://projectpokemon.org/home/files/file/5954-shiny-gen-3-1-3-dex/ | Unown cromatici; le 28 forme del progetto sono generate e verificate |
+| `Pocket Monsters - Emerald (Japan).sav` | `d6e1c5fa14c379e8` | 131072 | https://projectpokemon.org/home/files/file/5954-shiny-gen-3-1-3-dex/ | stessa collezione cromatica, terza generazione chiusa |
+| `Pokemon - LeafGreen.sav` | `db6a6348d5ff6a61` | 131072 | https://projectpokemon.org/home/files/file/5954-shiny-gen-3-1-3-dex/ | stessa collezione cromatica, terza generazione chiusa |
+| `Pokemon - Sapphire.sav` | `7bf4fe5587730ac4` | 131072 | https://projectpokemon.org/home/files/file/5954-shiny-gen-3-1-3-dex/ | stessa collezione cromatica, terza generazione chiusa |
+| `ROCKS Metang x426 Emerald.sav` | `a3f91835f295d036` | 131072 | https://projectpokemon.org/home/files/file/4216-426-unique-rocks-metang-emerald-save-file/ | serviva al doppio controllo dell'evento di terza generazione, chiuso |
+| `172 - PICHU - 0377DA486937.pk3` | `31d90bfbdd097920` | 100 | https://projectpokemon.org/home/files/file/5895-surf-pichu-modest-6ivs-31-gen-iii-event/ | serviva al confronto del Pichu del 2026-09-02, fatto |
+| `Pokemon - Versione Smeraldo (Italy) - Copia.sav` | `1a305ee9ad19f5b7` | 131088 | https://projectpokemon.org/home/files/file/5599-pok%C3%A9mon-emerald-five-star-save-file-italian/ | Smeraldo completo di terzi; la terza generazione è chiusa e il nostro Smeraldo è scritto |
+| `Pok_mon_Rosso_Fuoco.sav` | `9b358f42cc5848cb` | 131072 | https://pokemon.forumcommunity.net/?t=63088833 | l'autore dichiara IV ed EV al massimo su tutto: non legittimo |
+| `Pok_mon_Smeraldo.sav` | `eb98b8667fe1ee22` | 131072 | https://pokemon.forumcommunity.net/?t=63088833 | stessa dichiarazione: non legittimo |
+| `POKEMON_FIRE_BPRI00.SAV` | `8be52eb73159ae5d` | 131072 | https://pokemonchat.forumcommunity.net/?t=56987893 | l'autore dichiara un Latias modificato e trucchi |
+| `nero2 sav.sav` | `e47b2ee9835edf24` | 524288 | https://pokeworldwifi.forumfree.it/?t=64753881 | l'autore dichiara trucchi di cattura e di moltiplicazione |
+
+Decisione. I file della tabella si eliminano dal disco. Restano in `_notes/salvataggi/terzi/`:
+- **Contesti per la generazione di sesta e settima generazione:** `main(7)` (Y italiano) e `main (2)` (UltraSole), e come alternative `main` (X), `main (1)` e `main(6)` (Rubino Omega).
+- **Confronto di completezza:** `01-GPXP-pokemon_rs_memory_box.gci`, per il confronto di terza generazione che `lista.txt` chiede. Per ADR-082 quel confronto può solo aggiungere voci, non riaprire la collezione.
+- **Quarta e quinta generazione:** `POKEMON SS.0.sav`, `POKEMON SS(2).sav`, `Pok_mon_Argento_SoulSilver.sav`, `Pok_mon_Platino.sav`, `Save Pokemon Diamante.sav`, `Pokemon - Versione Perla.sav`, `Pok_mon_Nero_2.sav` e `Pokemon Nero 2 Fix.sav`.
+- **Piano personale del proprietario:** i quattro salvataggi giapponesi di prima generazione.
+
+Resta anche `lista.txt`, che porta in coda il rimando a questo ADR.
+
+Conseguenze.
+- **Riferimenti:** si aggiornano quelli dei file attivi che citavano `pronti-3ds/`, cioè `pending.md`, `docs/22-strumenti.md` e `tools/leggi-deposito-gen6.py`. I registri storici conservano i nomi dell'epoca.
+- **Documenti rigenerati:** `CENSIMENTO-SALVATAGGI.md` e la checklist, la cui colonna «salvataggio esterno» è informativa e cambia di conseguenza.
+
 ## ADR-083: gli incontri di Mew e Deoxys su Smeraldo restano giocabili, e non si catturano
 
 Data: 2026-09-24. Stato: accettata. Decisione del proprietario.

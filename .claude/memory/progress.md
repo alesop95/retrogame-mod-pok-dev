@@ -4,6 +4,12 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-24, nona parte. La pulizia dei salvataggi di terzi
+
+Il proprietario ha approvato lo scarto di tutti i file proposti in `_notes/salvataggi/terzi/`, chiedendo di tracciarne il motivo. Prima della cancellazione è stato scritto ADR-084, con file, impronta, dimensione, provenienza e motivo di ciascuno dei 26 file, e una nota in coda a `lista.txt` vi rimanda. I file sono stati cancellati uno per uno, senza rimozioni ricorsive, e le sottocartelle `pronti-ds/` e `pronti-3ds/`, rimaste vuote, sono state tolte. Restano 18 salvataggi. Aggiornati i riferimenti in `pending.md`, `docs/22-strumenti.md` e `tools/leggi-deposito-gen6.py`.
+
+La rigenerazione di `CENSIMENTO-SALVATAGGI.md` ha fatto emergere un difetto preesistente di `tools/verifica-salvataggi.py`. La scrittura del documento si interrompeva sui depositi di sesta generazione, che non portano il conteggio dei cromatici, e con essa si perdeva l'uscita JSON. Il documento non era più stato rigenerato dal 2026-09-04, cioè da prima che quei depositi venissero letti. Una prima rigenerazione della checklist, partita senza censimento per questa ragione, aveva dato 72 specie con una fonte invece di 685, e il numero è stato riconosciuto come sbagliato prima di essere usato. Corretto lo strumento, la checklist torna a 685. Scompare soltanto la fonte «archivio esterno», cioè lo zip della collezione cromatica, le cui specie erano già tutte coperte. La coda del primo tempo non cambia: 327 prodotte e conformi, 60 producibili e verificate, 46 da fare.
+
 ## 2026-09-24, ottava parte. Mew e Deoxys non si catturano, il lotto dei doni di sesta e settima, e i salvataggi di terzi
 
 Il proprietario ha chiarito tre cose. Il salvataggio di Smeraldo resta con gli incontri da evento giocabili, e Mew e Deoxys non si catturano, perché esistono già generati e conformi: è ADR-083. Il salvataggio di Y per le prove è `_notes/salvataggi/terzi/main(7)`, che è byte per byte lo stesso file di `pronti-3ds/y-projectpokemon/main` usato per il Vivillon. La cartuccia del Rubino non è urgente, ma va ricordata.
