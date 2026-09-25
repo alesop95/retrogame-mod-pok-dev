@@ -28,11 +28,14 @@
 //
 // Uso:  dotnet run -c Release -- SALVATAGGIO CARTELLA_USCITA SPECIE[/FORMA] [--copia-salvataggio PERCORSO]
 //       dotnet run -c Release -- --lotto RICHIESTE.json CARTELLA_USCITA SALVATAGGIO_G6 SALVATAGGIO_G7
+//       dotnet run -c Release -- --descrivi RICHIESTE.json USCITA.json SALVATAGGIO_G6 SALVATAGGIO_G7
 using System.Security.Cryptography;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using PKHeX.Core;
 
+if (args.Length == 5 && args[0] == "--descrivi")
+    return Descrivi.Esegui(args[1], args[2], args[3], args[4]);
 if (args.Length == 5 && args[0] == "--lotto")
     return Lotto.Esegui(args[1], args[2], args[3], args[4]);
 if (args.Length < 3)
@@ -201,6 +204,14 @@ static class Lotto
                     try { pk = carta.ConvertToPKM(contesto); }
                     catch (Exception e) { tentati.Add($"{contesto.Version}: errore {e.Message}"); continue; }
                     var la = new LegalityAnalysis(pk);
+                    // Un uovo ricevuto da un dono si fa schiudere prima di trasferirlo, come farebbe il gioco;
+                    // la libreria contesta alle uova non schiuse la data d'incontro, e la schiusa la assegna.
+                    if (!la.Valid && pk.IsEgg)
+                    {
+                        pk.ForceHatchPKM(contesto);
+                        la = new LegalityAnalysis(pk);
+                        voce["schiuso"] = true;
+                    }
                     if (!la.Valid)
                     {
                         var prima = la.Report("en").Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).FirstOrDefault(x => x.Contains("Invalid")) ?? "contestato";

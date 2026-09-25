@@ -175,6 +175,14 @@ Cinque consegnate dal proprietario come collegamenti e una come schermate. Le qu
 | Instagram, clorogaming, carosello sui Pokemon da trasferire prima della chiusura della Banca (circa 2026-09-19) | https://www.instagram.com/clorogaming/ | nulla in modo autorevole; sette voci da controllare, di cui una IN DISACCORDO con la checklist, cioe' il Vivillon Motivo Poke Ball che il carosello dice ottenibile solo dalla Banca e la checklist per via diretta, disaccordo RISOLTO il 2026-09-23 a favore del carosello sul verificatore e su Serebii, come registrato in `pending.md`, e una nuova, cioe' le distribuzioni della Banca con il Classic Ribbon | PKD |
 | PokePC, living dex in linea, riletto il 2026-09-23 | https://pokepc.net/livingdex | aggiornamento della voce gia' registrata: e' ora un'applicazione nuova con i dati incorporati nell'HTML e leggibili da programma, le sette disposizioni sono le stesse e quella usata dal confronto conta ancora 1387 voci; il tracciatore classico ha chiuso le iscrizioni il 2026-09-22 con la release v3.20.0, e i dati vivi vengono verosimilmente da `pokepc/dataset`, aggiornato lo stesso giorno, quindi il confronto sul classico puo' invecchiare. Copie della pagina viva in `_notes/fonti/raccolte/pokepc/2026-09-23-livingdex-live-*.html` | PKD |
 
+## Le fonti sulle voci speciali, consegnate il 2026-09-25
+
+La pagina è stata indicata dal proprietario per le schede delle voci del Pokewalker. La pagina viva risponde a `curl` con la verifica anti-bot di Cloudflare, sia sull'indirizzo normale sia sul testo grezzo, quindi è stata letta, per la seconda via di `web-sources-not-fetchable.md`, da un archivio pubblico. La copia usata è quella della Wayback Machine del 2026-08-22, ed è salvata in `_notes/fonti/consegne/2026-09-25-bulbapedia-pokewalker-wayback-20260822000650.html`. Ciò che se ne ricava va citato come tratto dall'archivio a quella data.
+
+| Fonte | URL | Autorevole su | Track |
+|---|---|---|---|
+| Bulbapedia, List of Pokémon found through the Pokéwalker, copia della Wayback Machine del 2026-08-22 | https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_found_through_the_Pok%C3%A9walker | per ciascuna posizione del Pokewalker: area, gruppo, sesso, condizione di sblocco, livello, passi, rarità e strumento tenuto. Le 162 voci della tabella del verificatore vi trovano tutte la loro riga per specie, corso e livello, e alimentano `pokedex-home-completo/SCHEDE-ESCLUSIVI.md`. Per i nomi inglesi due corsi si scrivono «Icy Mountain Rd.» e «Winner's Path» | PKD, EVT |
+
 <!-- indice-fonti-unico: inizio, generato da tools/indice-fonti-unico.py -->
 
 ## Indice unico: dove sta ciascuna fonte, e dove finisce

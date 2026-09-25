@@ -963,6 +963,35 @@ Il problema. La lettura integrale delle fonti del Parco Lotta ha lasciato fuori 
 La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti etichettata come non letta con il proprio motivo, secondo la prescrizione che vieta di degradare in silenzio una fonte a nota a margine, e non si tenta alcuna via ulteriore. Il debito di lettura del fronte Parco Lotta si dichiara quindi chiuso con questa sola eccezione dichiarata, e nessuna sessione futura deve riaprirlo credendo che qualcosa sia stato dimenticato.
 
 La ragione per cui l'abbandono e' accettabile qui, e non lo sarebbe altrove. Quella discussione e' del 2005 ed e' una richiesta di valutazione di squadra, cioe' la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e piu' recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano e' quindi basso, e la decisione si fonda su questo e non sulla sola difficolta' di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
+## ADR-085: allineamento al template al commit f67d5d9, e la memoria che si aggiorna da sola
+
+Data: 2026-09-25. Stato: accettata. Richiesta del proprietario; la scelta sulla memoria è sua.
+
+Contesto. L'ultimo allineamento a `E:\template-claude-developing` risaliva al 2026-09-16 e non aveva registrato il commit del template di riferimento. Da allora il template era avanzato di molte tornate. Il confronto file per file fra ciò che il template distribuisce e il progetto ha dato 176 file uguali, 58 diversi e 94 assenti nel progetto.
+
+Il metodo. Per ciascun file diverso si è cercata nella storia del template la versione da cui era partita la copia del progetto. I 44 file che coincidevano con una vecchia versione del template non erano mai stati personalizzati, e sono stati aggiornati alla versione nuova senza perdite. Per i file personalizzati si è fatta una fusione a tre vie, con base l'ultima versione del template anteriore alla modifica del progetto, oppure la prima versione del template quando la regola era nata qui e vi era stata portata dopo. Una prima tornata aveva scelto la base per somiglianza, e su `chat-non-e-memoria.md` aveva tenuto il testo del progetto perdendo la modifica del template del 2026-09-24; il criterio per data l'ha ripresa. Si è usata sempre la versione committata del template e mai il suo albero di lavoro, che aveva lavoro in corso non committato.
+
+Esito.
+- **Aggiornati o fusi:** 58 file.
+- **Importati dal template:** 89 file, cioè le regole `alberi-di-lavoro.md`, `prove-che-misurano.md` e `separazione-ambienti.md`, la skill `separazione-ambienti` e i modelli nuovi sotto `.claude/templates/`.
+- **Non importati:** la skill `sync-readme`, che appartiene al pacchetto opzionale `readme-sync` e si adotta dal gate dei pacchetti. Quattro file di `academic-researcher`, non tracciati durante la prima tornata, sono entrati dopo il commit `f67d5d9` del template, che ha integrato OpenAlex, PaperQA2 e Feynman nel gate di ricerca; con lo stesso commit sono stati aggiornati la skill `init-project-system`, il catalogo, il README dei modelli e la skill `gate-pacchetti`, quest'ultima con una fusione a tre vie sulla base `b023ed6`.
+- **Invariato:** `.claude/settings.json`, perché nel template quel file non è un modello distribuito.
+
+I conflitti sono stati risolti così:
+- **Modelli sotto `.claude/templates/`:** prendono la versione del template, perché le differenze erano derive e non personalizzazioni.
+- **`tools/test-tipografia.py`:** è quello del template, con la sola cartella temporanea del progetto, `_notes/lavoro/tmp`. Lo stesso vale per `tools/fix-missing-accents.py`, a cui la fusione aveva tolto la correzione delle forme composte con apostrofo che la prova nuova misura.
+- **`tools/dashes-exclude.txt`:** unisce le esclusioni dei due lati.
+- **La skill `riprendi`:** segue il template con i percorsi del progetto.
+
+Le prove tipografiche passano tutte, e i fine riga dei file modificati sono quelli del commit precedente.
+
+La decisione sulla memoria. Il template dal 2026-09-24 prescrive che `memory/` e `context/` si aggiornino da soli a ogni giro sostanziale, con il controllo umano spostato sul diff e sul commit. Il progetto diceva che li aggiornava l'agente solo su richiesta, anche se dal 2026-09-09 valeva un'autorizzazione generale. Il proprietario ha scelto la versione del template, e la regola, la skill `riprendi` e il vincolo di team in `CLAUDE.md` sono stati aggiornati di conseguenza.
+
+Conseguenze e cose non fatte in questa tornata.
+- **Gate rimandati:** la procedura di allineamento prevede anche la riesecuzione completa di `gate-pacchetti`, il gate `separazione-ambienti` con l'esito in `context/deployment.md`, la domanda sul server MCP, il controllo di igiene dell'account e `sync-context` sulle schede. Non sono stati eseguiti e stanno in `pending.md`.
+- **Nessun effetto immediato di due novità:** la regola `git-commands-format.md` descrive ora la consegna dei commit con lo strumento `chiudi-sessione` e l'hook `commit-msg` che rifiuta le attribuzioni. Nel progetto nessuno dei due è istanziato, quindi la consegna resta quella dei comandi scritti per esteso.
+- **Prossimo allineamento:** il commit del template di riferimento è `f67d5d9`, e il prossimo parte da lì con `git diff f67d5d9 HEAD` nel template. A quel commit, rispetto al template, restano diversi soltanto gli otto file con personalizzazioni del progetto fuse di proposito: `chat-non-e-memoria.md`, `git-commands-format.md`, `interaction-style.md`, `web-sources-not-fetchable.md`, le skill `gate-pacchetti` e `riprendi`, `tools/dashes-exclude.txt` e `tools/test-tipografia.py`.
+
 ## ADR-084: pulizia dei salvataggi di terzi, con il motivo di ogni scarto
 
 Data: 2026-09-24. Stato: accettata. Decisione del proprietario sulla proposta dell'agente.

@@ -78,7 +78,7 @@ recreate-pokemon-distributions-events/        i cataloghi degli eventi, le sched
 gba-save-extraction-smeraldo/tools/           diagnostica dello zaino su un salvataggio Gen 3
 ```
 
-Le regole normative stanno sotto `.claude/rules/` e le skill del motore sotto `.claude/skills/`. Sono nove, e tre vanno conosciute prima delle altre. `hardware-and-perimeter.md` è specifica di questo progetto e va letta prima di qualsiasi operazione su hardware. `web-sources-not-fetchable.md` dice cosa fare quando una fonte esiste ma non si riesce a recuperarla, ed è generale abbastanza da valere fuori da questo progetto. `chat-non-e-memoria.md`, aggiunta il 2026-09-09 su direttiva dell'utente, dice che nessun contenuto sostanziale resta nella sola conversazione e che i file si aggiornano nello stesso giro di lavoro in cui il contenuto nasce, con il presidio della riga finale che dichiara quali file sono stati scritti.
+Le regole normative stanno sotto `.claude/rules/` e le skill del motore sotto `.claude/skills/`. Sono dodici dal 2026-09-25, quando l'allineamento al template ha portato `alberi-di-lavoro.md`, `prove-che-misurano.md` e `separazione-ambienti.md`, e tre vanno conosciute prima delle altre. `hardware-and-perimeter.md` è specifica di questo progetto e va letta prima di qualsiasi operazione su hardware. `web-sources-not-fetchable.md` dice cosa fare quando una fonte esiste ma non si riesce a recuperarla, ed è generale abbastanza da valere fuori da questo progetto. `chat-non-e-memoria.md`, aggiunta il 2026-09-09 su direttiva dell'utente, dice che nessun contenuto sostanziale resta nella sola conversazione e che i file si aggiornano nello stesso giro di lavoro in cui il contenuto nasce, con il presidio della riga finale che dichiara quali file sono stati scritti.
 
 Gli handoff restano nelle cartelle dei rispettivi sottoprogetti, che è voluto e motivato in ADR-003: `3ds-related/handoff/`, `gba-save-extraction-smeraldo/handoff/` e `gba-switch-pokemon-trading/handoff/`. Il sottoprogetto del ponte non ha più un handoff, perché la sua conoscenza è stata verificata sul sorgente e assorbita nella referenza `pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md` e nel percorso di studio sotto `docs/`, come registrato in ADR-013.
 
@@ -104,6 +104,6 @@ Le operazioni di `git add`, commit e push restano sempre manuali. L'agente prepa
 
 Ogni paragrafo di prosa nei file Markdown si scrive come una riga sorgente unica, per quanto lunga: l'a capo separa due paragrafi, mai due frasi. Si verifica con `python tools/md-unwrap.py --check .`
 
-Le schede di `context/` e i file di `memory/` non si aggiornano da soli: li aggiorna l'utente, o l'agente su richiesta esplicita, così che il versionamento resti sotto controllo umano.
+Le schede di `context/` e i file di `memory/` li aggiorna l'agente a ogni giro di lavoro sostanziale, senza attendere una richiesta, come vuole `chat-non-e-memoria.md` dal 2026-09-25 (ADR-085). Il controllo umano sta sul diff e sul commit: l'utente rilegge con `git diff` e decide che cosa versionare.
 
 Nessun dump di cartuccia, nessun backup di salvataggio, nessun materiale di chiave console-unica e nessun media entra in git. Vedi ADR-005 e il blocco di dominio del `.gitignore`.
