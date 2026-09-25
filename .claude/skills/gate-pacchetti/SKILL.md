@@ -37,7 +37,7 @@ Si presentano all'utente i settori riconosciuti, ciascuno con il fatto da cui lo
 Settori riconosciuti per questo progetto
 
   Fondamenta e igiene          la storia git ha 180 commit e piu' di un autore
-  Fonti e corpus documentali   esistono docs/mappa-fonti/ e SOURCES.md
+  Fonti e corpus documentali   esiste docs/fonti/ con 40 file, e SOURCES.md
   Scrittura e documentazione   il progetto produce prosa, 60 file .md tracciati
 
 Settori esclusi
@@ -58,7 +58,7 @@ Per ciascun settore riconosciuto si apre la sezione corrispondente del catalogo,
 
 Poi, per ogni pacchetto del settore che il trigger della colonna "quando offrirlo" rende pertinente a questo progetto, si presenta la voce in tre frasi e nessuna di meno.
 
-La prima dice che cosa fa il pacchetto, in linguaggio di chi lo userà e non in quello di chi lo ha scritto. La seconda dice perché a questo progetto potrebbe servire, e va legata a un fatto raccolto al Passo 1 invece che al trigger generico: non "utile ai progetti con molti documenti" ma "qui esiste una mappa generata sotto `docs/mappa-fonti/`". La terza dice che cosa costa, e il costo comprende le dipendenze esterne da installare, i token che un server MCP occupa a ogni turno anche quando non viene usato, il lavoro di istanziazione dove ci sono tabelle da sostituire, e soprattutto le capacità che il pacchetto duplicherebbe.
+La prima dice che cosa fa il pacchetto, in linguaggio di chi lo userà e non in quello di chi lo ha scritto. La seconda dice perché a questo progetto potrebbe servire, e va legata a un fatto raccolto al Passo 1 invece che al trigger generico: non "utile ai progetti con molti documenti" ma "qui ci sono quaranta file sotto `docs/fonti/`". La terza dice che cosa costa, e il costo comprende le dipendenze esterne da installare, i token che un server MCP occupa a ogni turno anche quando non viene usato, il lavoro di istanziazione dove ci sono tabelle da sostituire, e soprattutto le capacità che il pacchetto duplicherebbe.
 
 Quest'ultimo punto è quello che si dimentica e che fa danni. Dove il progetto abbia già quella capacità, in proprio o tramite un altro pacchetto, il pacchetto non si propone come aggiunta: si dice che il terreno è già coperto e si propone semmai di allineare ciò che c'è. Dove due pacchetti del catalogo coprano lo stesso terreno, si presentano insieme come una scelta fra due, mai come due domande separate, perché due sì consecutivi producono una duplicazione che nessuno ha deciso.
 
@@ -68,7 +68,7 @@ Quando il progetto richiede stato dell'arte, bibliografia scientifica, lettura d
 
 ## Passo 4 - Che cosa fare della risposta
 
-Su un sì si istanzia seguendo il `README.md` del pacchetto quando è a cartella, mai ricostruendo il contenuto a memoria. Se un file di destinazione esiste già, si mostra la differenza invece di sovrascrivere. Subito dopo si mostra il recap d'uso, cioè i comandi e il flusso essenziali presi da quel README: un pacchetto installato di cui non si conoscono i comandi è un pacchetto che non verrà usato, e il recap costa tre righe.
+Su un sì si istanzia seguendo il `README.md` del pacchetto quando è a cartella, mai ricostruendo il contenuto a memoria. Se un file di destinazione esiste già, si mostra la differenza invece di sovrascrivere. Se il pacchetto aggiunge o modifica una skill sotto `.claude/skills/` e il progetto ha `tools/sync-codex-skills.py`, si rigenerano i wrapper Codex e si verifica l'allineamento con `python tools/sync-codex-skills.py --check`; il wrapper non si scrive a mano. Subito dopo si mostra il recap d'uso, cioè i comandi e il flusso essenziali presi da quel README: un pacchetto installato di cui non si conoscono i comandi è un pacchetto che non verrà usato, e il recap costa tre righe.
 
 Per `openalex`, `paperqa2` e `feynman`, un sì attiva il percorso pertinente del runbook: prepara la configurazione nel progetto, verifica la disponibilità del tool e annota versione, ambito del corpus e scelte di modello/provider nella memoria del progetto. Le credenziali e i token OAuth restano nel livello privato o nello store del client. Un sì a `academic-researcher` non vale come sì implicito a nessuno dei tre tool.
 
@@ -84,7 +84,7 @@ Ne segue una conseguenza operativa per questa skill: il conteggio si tiene attra
 
 ## Passo 6 - Chiudere dichiarando che cosa è cambiato
 
-Alla fine si consegna un riepilogo in quattro righe: quali settori sono stati attraversati, quali pacchetti sono stati attivati con che cosa hanno istanziato, quali sono stati rifiutati o rimandati, e quali file il gate ha scritto. L'ultima riga non è formalità: è il presidio della regola per cui ciò che si dice in sessione si scrive anche su disco, e se manca vuol dire che il gate è rimasto in chat.
+Alla fine si consegna un riepilogo in quattro righe: quali settori sono stati attraversati, quali pacchetti sono stati attivati con che cosa hanno istanziato, quali sono stati rifiutati o rimandati, e quali file il gate ha scritto. L'ultima riga è il presidio della regola per cui ciò che si dice in sessione si scrive anche su disco, e se manca vuol dire che il gate è rimasto in chat.
 
 I comandi git restano manuali dell'utente: il gate prepara i file e non committa.
 

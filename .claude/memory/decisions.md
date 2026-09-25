@@ -963,6 +963,34 @@ Il problema. La lettura integrale delle fonti del Parco Lotta ha lasciato fuori 
 La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti etichettata come non letta con il proprio motivo, secondo la prescrizione che vieta di degradare in silenzio una fonte a nota a margine, e non si tenta alcuna via ulteriore. Il debito di lettura del fronte Parco Lotta si dichiara quindi chiuso con questa sola eccezione dichiarata, e nessuna sessione futura deve riaprirlo credendo che qualcosa sia stato dimenticato.
 
 La ragione per cui l'abbandono e' accettabile qui, e non lo sarebbe altrove. Quella discussione e' del 2005 ed e' una richiesta di valutazione di squadra, cioe' la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e piu' recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano e' quindi basso, e la decisione si fonda su questo e non sulla sola difficolta' di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
+## ADR-086: allineamento bidirezionale, chiudere con chiudi, e il debito tipografico che lo blocca
+
+Data: 2026-09-25. Stato: accettata. Richiesta del proprietario.
+
+Contesto. Il proprietario ha chiesto quali fossero gli otto file rimasti diversi dal template dopo ADR-085, e di portare nel template ciò che lo migliora. Ha chiesto anche perché la chiusura non passasse da `chiudi` in PowerShell. La verifica ha trovato che la prima fusione aveva perso contenuto nuovo del template in `git-commands-format.md`, `gate-pacchetti` e `riprendi`. Il confronto finale aveva contato quelle perdite come personalizzazioni.
+
+Decisione, verso il progetto. I file personalizzati sono stati ricostruiti come versione del template più le sole aggiunte del progetto:
+- **`chat-non-e-memoria.md`:** il paragrafo sulla riscrittura del file di ripresa a ogni giro;
+- **`git-commands-format.md`:** la frase sulla cartella e sul ramo di riferimento;
+- **`interaction-style.md`:** il paragrafo sulle tabelle;
+- **`riprendi`:** il nome `_notes/resume-prompt.md`;
+- **`web-sources-not-fetchable.md`:** conserva i casi dettagliati di Reddit e Discord, di cui il template ha la versione generalizzata;
+- **`tools/dashes-exclude.txt` e `tools/test-tipografia.py`:** restano specifici del progetto;
+- **`gate-pacchetti`:** è ora identica al template.
+
+Il progetto adotta dal template `tools/verifica-ripresa.py`, che scrive l'impronta dentro il file di ripresa e sostituisce la versione che la scriveva in un file JSON a parte, e `tools/chiudi-sessione.ps1`. La funzione `chiudi` era già nel profilo PowerShell del proprietario.
+
+Decisione, verso il template. Sono state scritte nell'albero di lavoro del template, senza commit, cinque migliorie nate qui:
+- **Tabelle:** il paragrafo sulle tabelle in `interaction-style.md`, con lo strumento `lint-md-tables.py` sotto `.claude/templates/tools/` e la sua voce nel README degli strumenti.
+- **File di ripresa:** la seconda parte del presidio in `chat-non-e-memoria.md`, in forma generale.
+- **Wayback Machine:** la tecnica di recupero dalla Wayback Machine in `web-sources-not-fetchable.md`, portata anche nella regola del progetto.
+- **Riconoscimento del template:** una correzione di `chiudi-sessione.ps1` e `.sh`, che si riconoscevano come template per la sola presenza di `.claude/templates/PACKAGES.md`. La procedura di allineamento importa quella cartella in ogni progetto, quindi ogni progetto allineato veniva preso per il template, con controlli e opzioni che su un progetto falliscono. Ora il template si riconosce anche da `.claude/PROMPT-nuovo-progetto.md`, che non si importa mai.
+- **Ricerca dei controlli:** fuori dal template i controlli si cercano solo in `tools/`.
+
+I controlli propri del template passano. `lint-doc-references` conta un riferimento in più, della stessa forma di quelli già presenti nella stessa regola.
+
+Conseguenza, il blocco che resta. Con la correzione, `chiudi -SoloControlli` sul progetto passa `md-unwrap` e `lint-md-commands` ma si ferma sui tre correttori tipografici. Il debito è preesistente, cioè accenti scritti con l'apostrofo in circa cinquanta file, per lo più in `docs/` e in `pokedex-home-completo/`, e in parte in documenti generati da strumenti che scrivono l'apostrofo. Va sanato insieme ai generatori, altrimenti la rigenerazione lo riporta. Finché non è sanato, `chiudi` non committa e la chiusura usa i comandi scritti per esteso. È il primo passo della sessione successiva, in `pending.md`.
+
 ## ADR-085: allineamento al template al commit f67d5d9, e la memoria che si aggiorna da sola
 
 Data: 2026-09-25. Stato: accettata. Richiesta del proprietario; la scelta sulla memoria è sua.
