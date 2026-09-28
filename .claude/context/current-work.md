@@ -13,7 +13,7 @@ covers-paths:
   - generation-from-switch/
   - cart-battery-restoration/
   - pokedex-home-completo/
-last-verified-commit: 80fac1f
+last-verified-commit: f5108f3
 stato: adozione conclusa; dieci track, fuoco corrente sul completamento del Pokedex nel deposito
 ---
 
@@ -56,6 +56,6 @@ Il PDF che documenta il bug dell'inventario è escluso dal version control per l
 
 ## Riconciliazione
 
-Ultima verifica: 2026-09-09 al commit ee0f52b, limitata alle schede che questa sezione nomina; le schede trasversali `STACK.md`, `design-and-security.md` e `roadmap.md` restano al 2026-08-26 e vanno rilette, perché i loro percorsi coperti hanno centoquattro file cambiati da allora. La corsa del 2026-09-09 ha riscritto la scheda del fuoco corrente, che era arrivata a ventimila byte duplicando i documenti del track, ha aggiornato quella del ponte, dove lo strato del salvataggio era dichiarato come prossimo passo ed è invece scritto e collaudato, e ha esteso il `covers-paths` di `dev-testing.md` ai due track che gli mancavano, cioè lo scambio locale e l'automazione: è di nuovo il difetto strutturale che la riga seguente descrive, ricomparso su due track invece che su uno.
+Ultima verifica: 2026-09-09 al commit 0b38120, limitata alle schede che questa sezione nomina; le schede trasversali `STACK.md`, `design-and-security.md` e `roadmap.md` restano al 2026-08-26 e vanno rilette, perché i loro percorsi coperti hanno centoquattro file cambiati da allora. La corsa del 2026-09-09 ha riscritto la scheda del fuoco corrente, che era arrivata a ventimila byte duplicando i documenti del track, ha aggiornato quella del ponte, dove lo strato del salvataggio era dichiarato come prossimo passo ed è invece scritto e collaudato, e ha esteso il `covers-paths` di `dev-testing.md` ai due track che gli mancavano, cioè lo scambio locale e l'automazione: è di nuovo il difetto strutturale che la riga seguente descrive, ricomparso su due track invece che su uno.
 
 Verifica precedente: 2026-08-26 al commit 7696c46. La corsa di `sync-context` di quella data ha trovato un drift quasi tutto contabile, perché le schede erano state aggiornate a mano nei commit successivi senza che nessuno bumpasse il loro `last-verified-commit`, e tre difetti sostanziali: `dev-testing.md` dichiarava che non esistono test automatici mentre 63 prove passano, l'apertura di `STACK.md` negava l'esistenza del codice che la sua stessa sezione delle dipendenze descriveva, e il conteggio dei track era fermo a quattro. Il difetto strutturale che li rendeva possibili era il `covers-paths` delle schede trasversali, che non seguiva l'aggiunta di un sottoprogetto: è stato esteso, e la procedura di aggiunta ha ora un quarto passo che lo impone.

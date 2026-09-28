@@ -1,10 +1,10 @@
 ---
-generated-from-commit: 0529162
+generated-from-commit: 9f07a30
 generated-from-branch: main
 generated-date: 2026-08-28
 covers-paths:
   - recreate-pokemon-distributions-events/
-last-verified-commit: 80fac1f
+last-verified-commit: f5108f3
 stato: attivo; il generatore di terza generazione copre ora 176 voci su 177 (il canale televisivo resta fuori per costruzione), il seme e' stabile per identita' di voce e non per posizione, e dal 2026-09-16 la sua uscita alimenta in software anche il passaggio alla quarta generazione
 ---
 

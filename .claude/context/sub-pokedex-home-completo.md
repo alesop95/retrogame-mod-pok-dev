@@ -1,10 +1,10 @@
 ---
-generated-from-commit: e692a02b8a46ab119e0389449d61327384841236
+generated-from-commit: 168cc59442a16e1f4ff5b7c0fdee6b40e85e2ad8
 generated-from-branch: main
 generated-date: 2026-09-02
 covers-paths:
   - pokedex-home-completo/
-last-verified-commit: 80fac1f
+last-verified-commit: f5108f3
 stato: attivo ed è il fuoco corrente; dal 2026-09-16 il trasferimento verso la quarta generazione si fa in software, e dal 2026-09-24 con la libreria del verificatore per ADR-082 (203 esemplari conformi su 203 in `_notes/lotti/lotto-parco-amici-gen4/`), la checklist copre 685 specie su 1025, e restano aperte solo le decisioni di profilo già registrate
 ---
 

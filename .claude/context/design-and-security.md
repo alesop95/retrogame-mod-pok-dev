@@ -13,7 +13,7 @@ covers-paths:
   - generation-from-switch/
   - cart-battery-restoration/
   - pokedex-home-completo/
-last-verified-commit: 80fac1f
+last-verified-commit: f5108f3
 ---
 
 # Design e sicurezza
