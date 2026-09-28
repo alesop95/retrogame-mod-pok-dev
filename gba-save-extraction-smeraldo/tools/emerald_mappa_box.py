@@ -56,6 +56,8 @@ sys.path.insert(0, str(RADICE.joinpath("pokemon-gen12-gen3-bridge-original-hardw
 from pokebridge import charmap, gen3, save3  # noqa: E402
 
 NOTE = RADICE.joinpath("_notes")
+# dal riordino di `_notes/` i lotti stanno tutti sotto `_notes/lotti/`
+LOTTI = NOTE.joinpath("lotti")
 FIGURE = CARTELLA.joinpath("figure")
 USCITA = CARTELLA.joinpath("MAPPA-BOX-SMERALDO.md")
 PKHEX = NOTE.joinpath("fonti", "cloni", "pkhex")
@@ -131,6 +133,17 @@ def sfondi_rubino(per_box):
     return fuori
 USCITA_RUBINO = CARTELLA.joinpath("MAPPA-BOX-RUBINO.md")
 STAMPA = CARTELLA.joinpath("MAPPA-BOX-COLLEZIONE")
+# Il 2026-09-28 il proprietario ha chiesto la stampa per un quaderno ad anelli, con una copertina. La
+# foratura e' quella a quattro fori del passo di 80 mm, i centri a 12 mm dal bordo e a 28,5, 108,5, 188,5
+# e 268,5 mm lungo il lato lungo di 297 mm. Sulle pagine orizzontali il lato lungo che va negli anelli e'
+# quello in alto, cosi' che girando il quaderno si leggano dritte; sulla copertina verticale e' il sinistro.
+# Il margine di rilegatura e' largo abbastanza da lasciare fuori dai fori testo e figure. La copertina e'
+# un'immagine locale, non versionata come le altre figure.
+COPERTINA = FIGURE.joinpath("copertina-collezione.png")
+RILEGATURA_CM = 2.5
+FORI_MM = (28.5, 108.5, 188.5, 268.5)
+FORO_BORDO_MM = 12.0
+FORO_DIAMETRO_MM = 5.5
 NERO = "#000000"
 SUPERFICIE = "#ffffff"
 BORDO = "#bdbcb6"
@@ -179,9 +192,9 @@ def storie_degli_eventi():
     interno = {v: k for k, v in generatore.nazionale_verso_interno(str(NOTE.joinpath("fonti", "cloni", "ace-builder"))).items()}
     provenienze = json.loads(Path(catalogo.PROVENIENZE).read_text(encoding="utf-8"))
     per_record = {}
-    for f in sorted(NOTE.joinpath("lotto-eventi").glob("*.pk3")):
+    for f in sorted(LOTTI.joinpath("lotto-eventi").glob("*.pk3")):
         numero = int(f.stem.split("-")[0])
-        cifrato = NOTE.joinpath("lotto-eventi", "forma-cifrata", f.stem + ".ek3").read_bytes()
+        cifrato = LOTTI.joinpath("lotto-eventi", "forma-cifrata", f.stem + ".ek3").read_bytes()
         mon = gen3.Gen3Mon.from_bytes(cifrato)
         mosse = sorted(m for m in mon.attacks.moves if m)
         candidate = [i for i, v in enumerate(voci) if v["nazionale"] == interno[mon.growth.species]
@@ -206,12 +219,12 @@ def origini():
     """Ogni record dei lotti, nella forma che il salvataggio contiene, con provenienza e dettaglio grezzo."""
     noti = {}
     for tipo, cartella in (("biglietto", "lotto-incontri-gen3"), ("scambio", "lotto-scambi-gen3")):
-        for f in sorted(NOTE.joinpath(cartella).glob("*.pk3")):
-            noti[NOTE.joinpath(cartella, "forma-cifrata", f.stem + ".ek3").read_bytes()] = (tipo, f.stem)
-    for f in sorted(NOTE.joinpath("lotto-giganti").glob("*-gigante.bin")):
+        for f in sorted(LOTTI.joinpath(cartella).glob("*.pk3")):
+            noti[LOTTI.joinpath(cartella, "forma-cifrata", f.stem + ".ek3").read_bytes()] = (tipo, f.stem)
+    for f in sorted(LOTTI.joinpath("lotto-giganti").glob("*-gigante.bin")):
         noti[f.read_bytes()] = ("gigante", "86,2 cm, il massimo per la specie, da mostrare ai fratelli di Ceneride")
-    manifesto = json.loads(NOTE.joinpath("lotto-wynaut", "manifesto.json").read_text(encoding="utf-8"))
-    for f in sorted(NOTE.joinpath("lotto-wynaut").glob("*.bin")):
+    manifesto = json.loads(LOTTI.joinpath("lotto-wynaut", "manifesto.json").read_text(encoding="utf-8"))
+    for f in sorted(LOTTI.joinpath("lotto-wynaut").glob("*.bin")):
         voce = manifesto[f.stem.split("-")[0].capitalize()]
         noti[f.read_bytes()] = ("selvatico", "%s, livello %d, Ultra Ball: l'isola compare sul Percorso 130 e il gioco "
                                 "registra quel percorso come luogo d'incontro" % (voce["luogo"], voce["livello"]))
@@ -219,7 +232,7 @@ def origini():
     catalogo = json.loads(percorso.CATALOGO.read_text(encoding="utf-8"))
     thread = json.loads(percorso._mappa().THREAD.read_text(encoding="utf-8"))
     _, _, _, titolari = percorso.disposizione(catalogo, thread)
-    for f in sorted(NOTE.joinpath("lotto-parco-lotta", "esemplari").glob("*-copia1.bin")):
+    for f in sorted(LOTTI.joinpath("lotto-parco-lotta", "esemplari").glob("*-copia1.bin")):
         chiave = f.stem[:-len("-copia1")]
         noti[f.read_bytes()] = ("lotto", "titolare" if chiave in titolari else "riserva")
     return noti
@@ -397,6 +410,9 @@ def main():
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     p.add_argument("salvataggio")
     p.add_argument("--dump", nargs=2, action="append", required=True, metavar=("DUMP", "FILE_DEL_DUMP"))
+    p.add_argument("--rubino", metavar="SALVATAGGIO",
+                   help="il salvataggio letto dalla cartuccia del Rubino: se ogni posizione coincide con la "
+                        "disposizione del complemento, la stampa lo dichiara scritto invece che previsto")
     args = p.parse_args()
     salvataggio = save3.Save3(Path(args.salvataggio).read_bytes())
     if not salvataggio.integro():
@@ -481,14 +497,17 @@ def main():
     per_box_r = [voci_r[b * PER_BOX:(b + 1) * PER_BOX] + [None] * max(0, PER_BOX - len(voci_r[b * PER_BOX:(b + 1) * PER_BOX]))
                  for b in range(-(-len(voci_r) // PER_BOX))]
     for b, contenuto in enumerate(per_box_r, start=1):
-        figura("Rubino, box %d (previsto)" % b, contenuto, indice, forme, cache, FIGURE.joinpath("mappa-rubino-box-%02d.png" % b))
+        figura(("Rubino, box %d" if args.rubino else "Rubino, box %d (previsto)") % b, contenuto, indice, forme, cache, FIGURE.joinpath("mappa-rubino-box-%02d.png" % b))
     conteggio_r = collections.Counter(v["provenienza"] for v in voci_r)
     sfondi_r = sfondi_rubino(per_box_r)
     riepilogo_r = [(b, "; ".join("%s %d" % (ETICHETTA[k], collections.Counter(v["provenienza"] for v in c if v)[k])
                                  for k, _, _, _ in PROVENIENZE_RUBINO if collections.Counter(v["provenienza"] for v in c if v)[k]),
                     NOMI_SFONDI_RUBINO[sfondi_r[b - 1]])
                    for b, c in enumerate(per_box_r, start=1)]
-    nota_r = ("Disposizione prevista del complemento di ADR-080, non ancora scritta: il Rubino di prova non è a portata di mano. "
+    nota_r = None
+    if args.rubino:
+        nota_r = rubino_verificato(Path(args.rubino), voci_r)
+    nota_r = nota_r or ("Disposizione prevista del complemento di ADR-080, non ancora scritta: il Rubino di prova non è a portata di mano. "
               "La squadra di inizio partita resta quella che la cartuccia ha, e le scatole oltre queste restano vuote.")
     scrivi_markdown(per_box_r, conteggio_r, riepilogo_r, PROVENIENZE_RUBINO, USCITA_RUBINO, nota_r)
     sezioni.append({"nome": "Rubino", "per_box": per_box_r, "conteggio": conteggio_r, "riepilogo": riepilogo_r,
@@ -535,7 +554,9 @@ def scrivi_stampa(sezioni):
         esporta_pdf(docx_out, pdf_out)
         sforano, pagine = pagine_che_sforano(pdf_out, sezioni)
         if not sforano:
-            print("stampa: %s e %s, %d pagine: per cartuccia una di legenda e due per box" % (docx_out.name, pdf_out.name, pagine))
+            copertina_e_fori(pdf_out)
+            print("stampa: %s e %s, %d pagine: copertina, poi per cartuccia una di legenda e due per box, con i segni dei quattro fori"
+                  % (docx_out.name, pdf_out.name, pagine + (1 if COPERTINA.exists() else 0)))
             return
         for b in sforano:
             corpi[b] -= passo
@@ -543,6 +564,45 @@ def scrivi_stampa(sezioni):
                 sys.exit("la tabella del box %s non entra in una pagina neppure a 4,5 punti" % (b,))
         print("tentativo %d: sforano i box %s, riduco il carattere" % (tentativo + 1, sforano))
     sys.exit("impaginazione non riuscita")
+
+
+def rubino_verificato(percorso, voci):
+    """La nota della stampa se la cartuccia riletta porta esattamente il complemento, altrimenti si ferma."""
+    letto = save3.Save3(percorso.read_bytes())
+    if not letto.integro():
+        sys.exit("lo slot attivo di %s non e' integro" % percorso.name)
+    for i in range(save3.POSIZIONI):
+        atteso = save3.record_da_file(RUBINO.joinpath(voci[i]["file"]).read_bytes()) if i < len(voci) else bytes(save3.RECORD)
+        if letto.leggi_posizione(i) != atteso:
+            sys.exit("la posizione %d di %s non e' quella del complemento: la stampa resterebbe falsa" % (i, percorso.name))
+    return ("Complemento di ADR-080 e ADR-087 scritto sulla cartuccia del Rubino di prova e verificato posizione per posizione "
+            "sulla rilettura %s. La squadra di inizio partita resta quella che la cartuccia ha, e il box 14 resta vuoto." % percorso.name)
+
+
+def copertina_e_fori(pdf):
+    """Aggiunge la copertina in testa e disegna su ogni pagina i segni dei quattro fori per gli anelli."""
+    import fitz
+    mm = 72 / 25.4
+    documento = fitz.open(str(pdf))
+    if COPERTINA.exists():
+        pagina = documento.new_page(0, width=210 * mm, height=297 * mm)
+        # l'immagine sta dentro i margini di stampa, con il margine di rilegatura a sinistra
+        area = fitz.Rect(RILEGATURA_CM * 10 * mm, 9 * mm, (210 - 9) * mm, (297 - 9) * mm)
+        pagina.insert_image(area, filename=str(COPERTINA), keep_proportion=True)
+    else:
+        print("copertina: %s non c'e', la stampa esce senza" % COPERTINA)
+    for pagina in documento:
+        r = pagina.rect
+        orizzontale = r.width > r.height
+        for pos in FORI_MM:
+            centro = fitz.Point(pos * mm, FORO_BORDO_MM * mm) if orizzontale else fitz.Point(FORO_BORDO_MM * mm, pos * mm)
+            pagina.draw_circle(centro, FORO_DIAMETRO_MM / 2 * mm, color=(0.55, 0.55, 0.55), width=0.4)
+            pagina.draw_line(centro - (1 * mm, 0), centro + (1 * mm, 0), color=(0.55, 0.55, 0.55), width=0.3)
+            pagina.draw_line(centro - (0, 1 * mm), centro + (0, 1 * mm), color=(0.55, 0.55, 0.55), width=0.3)
+    temporaneo = pdf.with_suffix(".tmp.pdf")
+    documento.save(str(temporaneo), garbage=3, deflate=True)
+    documento.close()
+    temporaneo.replace(pdf)
 
 
 def componi_docx(sezioni, corpi, uscita):
@@ -559,6 +619,7 @@ def componi_docx(sezioni, corpi, uscita):
     sezione.page_width, sezione.page_height = Cm(29.7), Cm(21.0)
     for lato in ("left_margin", "right_margin", "top_margin", "bottom_margin"):
         setattr(sezione, lato, Cm(0.9))
+    sezione.top_margin = Cm(RILEGATURA_CM)
     stile = doc.styles["Normal"]
     stile.font.name = "Arial"
     stile.font.size = Pt(2)
@@ -629,7 +690,7 @@ def componi_docx(sezioni, corpi, uscita):
         tabella(["Box", "Contenuto", "Sfondo"], [(str(b), c, sf) for b, c, sf in sezione["riepilogo"]], [1.5, 20.0, 3.0], 9)
         for b, contenuto in enumerate(sezione["per_box"], start=1):
             a_capo_pagina()
-            doc.add_paragraph().add_run().add_picture(str(FIGURE.joinpath(sezione["figura"] % b)), height=Cm(18.4))
+            doc.add_paragraph().add_run().add_picture(str(FIGURE.joinpath(sezione["figura"] % b)), height=Cm(21.0 - RILEGATURA_CM - 0.9 - 0.8))
             a_capo_pagina()
             testo(doc.add_paragraph(), "%s, box %d, posizione per posizione" % (sezione["nome"], b), 10, grassetto=True, font="Arial")
             righe, colori = [], []
