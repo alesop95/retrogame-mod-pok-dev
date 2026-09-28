@@ -8,7 +8,7 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: 7b5fd38, piu' la terza parte del 2026-09-25 (ADR-086) da committare
+Commit di riferimento: 103a228, che contiene la terza parte del 2026-09-25 (ADR-086)
 Data snapshot:         2026-09-25, chiusura di sessione dopo l'allineamento al template f67d5d9
 ```
 
