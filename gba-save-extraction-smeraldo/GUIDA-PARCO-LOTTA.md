@@ -78,9 +78,12 @@ Non si porta nulla dal PC: si combatte con esemplari in prestito, e dopo ogni vi
 
 | Situazione | Che cosa fare |
 |---|---|
-| Prima di cominciare | tieni bassa la serie corrente alla Torre a livello 50 finché l'Azienda non è all'oro: così gli avversari dell'Azienda restano al gradino più basso, mentre i tuoi esemplari in prestito crescono con la serie, da tre punti individuali alla prima fino a trentuno dalla settima |
+| Prima di cominciare | porta a zero la serie corrente della Torre Lotta a livello 50, nella stessa modalità, singola o doppia, che giocherai all'Azienda: gli avversari ordinari dell'Azienda leggono per errore quel numero, diviso per sette, e con zero hanno sempre tre punti individuali, sei il settimo della serie. Conta la serie corrente e non il record, e la Torre a livello libero non conta mai. Il numero non si azzera perdendo o ritirandosi, che lasciano il valore com'era: si azzera cominciando una sfida nuova alla Torre quando non c'è una serie attiva. Se la finestra dei risultati della Torre mostra zero, sei già a posto |
+| I tuoi esemplari in prestito | crescono con la serie dell'Azienda: 3, 6, 9, 12, 15 e 21 punti individuali dalla prima alla sesta serie, 31 dalla settima |
+| Gli scambi | il prelievo iniziale conta come uno scambio, e ogni scambio conta solo se vinci la lotta che lo segue, quindi al massimo sette per serie. Con 15 scambi totali il primo esemplare offerto è della serie successiva, con i suoi set e i suoi punti; con 22 i primi due, con 29 i primi tre, con 36 quattro, con 43 cinque. Scambiare conviene soprattutto nelle prime serie, perché dall'avversario si prende un esemplare a tre punti |
+| Savino, il capo dell'Azienda | non è toccato dall'errore della Torre: alla lotta 21 ha 15 punti individuali, alla lotta 42 ne ha 31. Arrivando alla sesta serie con almeno 29 scambi, anche i tuoi tre migliori in prestito hanno 31 punti |
 | Un avversario ha "Ritorno" | all'Azienda è in realtà Frustrazione, che colpisce più forte quanto meno l'esemplare è affezionato |
-| Qualcuno ti suggerisce di riposare, salvare e ricaricare per migliorare i punti individuali | non farlo: è un effetto letto su un'enciclopedia e non verificato sul sorgente |
+| Qualcuno ti suggerisce di riposare, salvare e ricaricare | non farlo: il riposo ricrea gli esemplari in prestito usando per tutte le statistiche il solo punto individuale dell'Attacco, verificato sul sorgente, e può soltanto peggiorarli. C'è anche un difetto del gioco per cui ricevono punti individuali casuali i prestiti migliori dell'ottava serie e quelli ordinari della nona |
 
 ## 5. Torre Lotta, Simbolo Abilità
 
