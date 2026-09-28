@@ -4,6 +4,10 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-28, dopo la chiusura. Pokédex del Rubino e canale di LRXC
+
+Il proprietario ha scritto a LRXC su Discord con l'errata e ha indicato un canale Discord nuovo. Giocando sul Rubino ha visto che gli esemplari dei box non risultano catturati nel Pokédex della cartuccia. È il comportamento atteso della scrittura diretta nel deposito, già registrato il 2026-09-15; per HOME non conta. L'eventuale scrittura dei contrassegni del Pokédex è in `pending.md` come decisione del proprietario.
+
 ## 2026-09-28, chiusura di sessione. Rubino scritto, errata di LRXC, stampa definitiva
 
 La rilettura del Rubino è identica byte per byte al file CORRETTO, SHA-256 `10b0495d…e69b93698`, e sta in doppia copia su E: e su J:. La terza generazione è chiusa (ADR-088). La stampa `MAPPA-BOX-COLLEZIONE.pdf` è rigenerata con `--rubino` sulla rilettura: 57 pagine, copertina, segni dei fori, Rubino dichiarato scritto dopo la verifica di ogni posizione. `MAPPA-BOX-RUBINO.md` è cambiato di conseguenza. Il proprietario verificherà il passo dei fori sulla prima pagina stampata.
