@@ -6,7 +6,7 @@ Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e 
 
 ## 2026-09-28, dopo la chiusura. Pokédex del Rubino e canale di LRXC
 
-Il proprietario ha scritto a LRXC su Discord con l'errata e ha indicato un canale Discord nuovo. Giocando sul Rubino ha visto che gli esemplari dei box non risultano catturati nel Pokédex della cartuccia. È il comportamento atteso della scrittura diretta nel deposito, già registrato il 2026-09-15; per HOME non conta. L'eventuale scrittura dei contrassegni del Pokédex è in `pending.md` come decisione del proprietario.
+Il proprietario ha scritto a LRXC su Discord con l'errata e ha indicato un canale Discord nuovo. Giocando sul Rubino ha visto che gli esemplari dei box non risultano catturati nel Pokédex della cartuccia. È il comportamento atteso della scrittura diretta nel deposito, già registrato il 2026-09-15; per HOME non conta. Il proprietario ha poi deciso che il Pokédex di una cartuccia si allinea alle specie che contiene (ADR-089). La misura sulle riletture dà per il Rubino 286 specie presenti, 6 catturate e 8 viste; per Smeraldo 386 catturate e viste contro 182 presenti, quindi Smeraldo è già allineato. Il piano, con i tre punti da verificare su pokeruby, è in `pending.md`.
 
 ## 2026-09-28, chiusura di sessione. Rubino scritto, errata di LRXC, stampa definitiva
 

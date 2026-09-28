@@ -963,6 +963,16 @@ Il problema. La lettura integrale delle fonti del Parco Lotta ha lasciato fuori 
 La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti etichettata come non letta con il proprio motivo, secondo la prescrizione che vieta di degradare in silenzio una fonte a nota a margine, e non si tenta alcuna via ulteriore. Il debito di lettura del fronte Parco Lotta si dichiara quindi chiuso con questa sola eccezione dichiarata, e nessuna sessione futura deve riaprirlo credendo che qualcosa sia stato dimenticato.
 
 La ragione per cui l'abbandono e' accettabile qui, e non lo sarebbe altrove. Quella discussione e' del 2005 ed e' una richiesta di valutazione di squadra, cioe' la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e piu' recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano e' quindi basso, e la decisione si fonda su questo e non sulla sola difficolta' di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
+## ADR-089: il Pokédex di una cartuccia si allinea alle specie che contiene
+
+Data: 2026-09-28. Decisione del proprietario.
+
+Contesto. La scrittura diretta nel deposito non tocca il Pokédex della cartuccia. Sul Rubino, con la partita all'inizio, i 376 esemplari del complemento non risultano catturati: 280 specie presenti non sono registrate. Su Smeraldo il problema non si vedeva perché il Pokédex era già completo.
+
+Decisione. Il Pokédex di una cartuccia deve registrare come viste e catturate tutte le specie presenti nella squadra e nei box. Ogni scrittura futura di esemplari su una cartuccia accende anche i loro contrassegni, e il Rubino si allinea con una scrittura dedicata.
+
+Conseguenze. Serve uno strumento che scriva i contrassegni con le copie che il gioco confronta, verificate sul sorgente di ciascun gioco. Lo sblocco del Pokédex nazionale sul Rubino cambia la progressione della partita, quindi resta una scelta a parte del proprietario. Piano in `pending.md`.
+
 ## ADR-088: il carico di prova sul Rubino lascia il posto al complemento
 
 Data: 2026-09-28. Proposta dall'agente sui fatti misurati, eseguita dal proprietario con la scrittura.
