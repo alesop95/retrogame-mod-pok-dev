@@ -4,6 +4,18 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-28, chiusura di sessione. Rubino scritto, errata di LRXC, stampa definitiva
+
+La rilettura del Rubino è identica byte per byte al file CORRETTO, SHA-256 `10b0495d…e69b93698`, e sta in doppia copia su E: e su J:. La terza generazione è chiusa (ADR-088). La stampa `MAPPA-BOX-COLLEZIONE.pdf` è rigenerata con `--rubino` sulla rilettura: 57 pagine, copertina, segni dei fori, Rubino dichiarato scritto dopo la verifica di ogni posizione. `MAPPA-BOX-RUBINO.md` è cambiato di conseguenza. Il proprietario verificherà il passo dei fori sulla prima pagina stampata.
+
+Correzione a una misura della settima parte: le due righe del foglio di LRXC date senza numero di set portano `X`, cioè 10 in numero romano, per scelta dell'autore. Non sono errori, e le celle da correggere sono 11 e non 13: due tipi, sei stili e tre velocità. La copia corretta, `…-CORRETTO.xlsx`, è stata scritta controllando prima il valore vecchio di ogni cella, e l'errata in inglese per l'autore è in `_notes/fonti/consegne/2026-09-28-LRXC-errata-for-author.md`. Il gruppo "Specie che completano il Pokédex" del Rubino, 97 esemplari, riunisce le specie da 1 a 386 non coperte né da Smeraldo né dagli altri gruppi, generate da un incontro selvatico o da un uovo; il proprietario non lo trovava chiaro, e la risposta è data qui.
+
+I 10 ANNI originali del proprietario, ricordo della distribuzione di Mirabilandia del 2006, sono stati controllati su sua domanda. Nella prima estrazione di Smeraldo del 2026-09-17 i record con allenatore 10 ANNI e ID 6227 sono dieci. Nove sono sulla cartuccia oggi identici byte per byte nella rilettura del giro12: un Latias, due Latios, tre Suicune, Entei, Lugia e Ho-Oh. Il decimo, alla posizione 417 della prima estrazione, personalità `FA3CED30`, soprannome LATIAS, non era un Pokémon visibile. Il campo della specie decifrato vale zero, e il gioco e PKHeX trattano una posizione così come vuota: infatti non compare in nessuno dei rapporti di PKHeX. Il riordino del deposito di ADR-074 e ADR-076 lo ha sovrascritto. I suoi byte restano nell'estrazione del 2026-09-17, in `smeraldo/01-2026-09-17-zaino-primo-giro/`. Da dove venga non è ricostruito da qui.
+
+Il proprietario ha indicato il backup del 3DS, `J:\3DS - 03092026\`, con il salvataggio di Y di Checkpoint del 2026-08-23, da usare quando si riprende il Pokédex di HOME; registrato nella voce del Vivillon di `pending.md`.
+
+Alla ripresa il primo passo è l'allineamento al template, per direttiva del proprietario: da `f67d5d9` a `9c54063`, con il prompt fisso del template. È la voce ZERO di `pending.md`.
+
 ## 2026-09-28, settima parte. Il foglio di LRXC confrontato con il sorgente, e l'allenatore che all'Azienda non conta
 
 Nuovo strumento `gba-save-extraction-smeraldo/tools/parco_lotta_confronta_lrxc.py`, sola lettura e deterministico, scritto da un agente. Il rapporto è in `_notes/fonti/consegne/2026-09-28-LRXC-confronto-sorgente.txt`. Il foglio porta i set 372-881, il bacino del livello libero. Al livello 50 copre dunque la lotta 22 in poi e include 32 set che lì non escono mai, cioè Dragonite, Tyranitar e le versioni 5 e 6 dei leggendari (`FRONTIER_MONS_HIGH_TIER` = 849). I set concordano in 508 casi su 510, e ai due restanti manca il numero 10; lo stile per mossa in 504 su 510, con sei errori; la velocità, calcolata con 31 IV, in 505 su 508. La scheda degli allenatori coincide per tutti i 300.

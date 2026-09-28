@@ -963,6 +963,16 @@ Il problema. La lettura integrale delle fonti del Parco Lotta ha lasciato fuori 
 La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti etichettata come non letta con il proprio motivo, secondo la prescrizione che vieta di degradare in silenzio una fonte a nota a margine, e non si tenta alcuna via ulteriore. Il debito di lettura del fronte Parco Lotta si dichiara quindi chiuso con questa sola eccezione dichiarata, e nessuna sessione futura deve riaprirlo credendo che qualcosa sia stato dimenticato.
 
 La ragione per cui l'abbandono e' accettabile qui, e non lo sarebbe altrove. Quella discussione e' del 2005 ed e' una richiesta di valutazione di squadra, cioe' la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e piu' recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano e' quindi basso, e la decisione si fonda su questo e non sulla sola difficolta' di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
+## ADR-088: il carico di prova sul Rubino lascia il posto al complemento
+
+Data: 2026-09-28. Proposta dall'agente sui fatti misurati, eseguita dal proprietario con la scrittura.
+
+Contesto. ADR-080 presupponeva il deposito del Rubino vuoto, e invece portava nei box 1-7 il carico di prova scritto il 2026-09-15, 205 esemplari. Il confronto con la rilettura di Smeraldo del giro12 li ha trovati tutti copie byte per byte di esemplari che Smeraldo porta dal 2026-09-23, senza alcun esemplare unico.
+
+Decisione. Il complemento occupa i box 1-13 al posto del carico di prova. Lo strumento `rubino_complemento.py` toglie un esemplare solo se la copia è dimostrata sulla posizione, e rifiuta la composizione se anche una posizione occupata non lo è.
+
+Conseguenze. Nessun esemplare sta su due cartucce, e la collezione di terza generazione è chiusa: Smeraldo con le catture vere e i lotti, il Rubino con il complemento, 386 specie. Il carico di prova resta nelle estrazioni del 2026-09-15 e del 2026-09-28, che non si cancellano.
+
 ## ADR-087: il Jirachi di Pokémon Channel resta sul Rubino, e la cronologia pubblicata si riscrive
 
 Data: 2026-09-28. Decisione del proprietario.

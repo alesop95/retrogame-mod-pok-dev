@@ -1,6 +1,6 @@
 <!-- generato da gba-save-extraction-smeraldo/tools/emerald_mappa_box.py: non si modifica a mano -->
 
-Disposizione prevista del complemento di ADR-080, non ancora scritta: il Rubino di prova non è a portata di mano. La squadra di inizio partita resta quella che la cartuccia ha, e le scatole oltre queste restano vuote.
+Complemento di ADR-080 e ADR-087 scritto sulla cartuccia del Rubino di prova e verificato posizione per posizione sulla rilettura Pokemon - Versione Rubino (Italy) - ALESSIO-49107-6h14m-2026-09-28-READBACK.sav. La squadra di inizio partita resta quella che la cartuccia ha, e il box 14 resta vuoto.
 
 ## Legenda e riepilogo
 

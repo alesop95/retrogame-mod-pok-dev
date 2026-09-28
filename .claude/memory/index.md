@@ -8,8 +8,8 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: 71ee4cd, dopo la riscrittura della storia del 2026-09-28 (ADR-087)
-Data snapshot:         2026-09-28, riscrittura della storia e riancoratura degli hash
+Commit di riferimento: dc487eb, più la chiusura del 2026-09-28 da committare
+Data snapshot:         2026-09-28, chiusura di sessione: terza generazione chiusa, allineamento al template come primo passo
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,8 @@ Data snapshot:         2026-09-28, riscrittura della storia e riancoratura degli
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-09-28, chiusura di sessione. La terza generazione è chiusa: il Rubino porta il complemento di 376 esemplari, Jirachi di Channel compreso, scritto e riletto identico (ADR-087, ADR-088), e la stampa della collezione è pronta per un quaderno ad anelli. La storia pubblica è stata riscritta senza i nomi reali e gli hash riancorati (ADR-087). Le fonti dell'Azienda Lotta sono verificate sul sorgente e la guida del Parco Lotta è aggiornata. Il video Rosso Fuoco e Switch 2 apre una via per la terza generazione verso HOME, con una verifica aperta sulle `prod.keys`. PRIMO PASSO della sessione successiva: l'allineamento al template da `f67d5d9` a `9c54063`, voce ZERO di `pending.md`. Poi il debito tipografico che blocca `chiudi`, poi le 40 voci da periferiche. Il fuoco corrente torna `pokedex-home-completo`.
 
 AGGIUNTA DEL 2026-09-25, terza parte. L'allineamento è ora bidirezionale (ADR-086): i file personalizzati sono il template più le sole aggiunte del progetto, e cinque migliorie nate qui aspettano il commit del proprietario nel repository del template. Il progetto ha `tools/chiudi-sessione.ps1` e il `verifica-ripresa.py` del template, che scrive l'impronta dentro `_notes/resume-prompt.md`. PRIMO PASSO della sessione successiva: sanare il debito tipografico che blocca `chiudi`, voce in testa a `pending.md`. Poi la produzione delle 40 voci da periferiche.
 
