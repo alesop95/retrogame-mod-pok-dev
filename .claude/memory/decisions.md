@@ -963,6 +963,16 @@ Il problema. La lettura integrale delle fonti del Parco Lotta ha lasciato fuori 
 La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti etichettata come non letta con il proprio motivo, secondo la prescrizione che vieta di degradare in silenzio una fonte a nota a margine, e non si tenta alcuna via ulteriore. Il debito di lettura del fronte Parco Lotta si dichiara quindi chiuso con questa sola eccezione dichiarata, e nessuna sessione futura deve riaprirlo credendo che qualcosa sia stato dimenticato.
 
 La ragione per cui l'abbandono e' accettabile qui, e non lo sarebbe altrove. Quella discussione e' del 2005 ed e' una richiesta di valutazione di squadra, cioe' la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e piu' recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano e' quindi basso, e la decisione si fonda su questo e non sulla sola difficolta' di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
+## ADR-087: il Jirachi di Pokémon Channel resta sul Rubino, e la cronologia pubblicata si riscrive
+
+Data: 2026-09-28. Decisione del proprietario.
+
+Contesto. Il 2026-09-24 il proprietario aveva chiesto che il Jirachi di Pokémon Channel stesse su Smeraldo con gli altri eventi, da scrivere insieme alla prossima scrittura su Smeraldo fatta per un'altra ragione. Il 2026-09-28 ha chiesto di farne un'iniezione sola sul Rubino, che ha con sé. Il file era già nel complemento del Rubino, box 16, ed è un incontro `EncounterGift3` di origine Rubino, quindi entra su quella cartuccia senza alcun lavoro in più. Lo stesso giorno ha deciso che la cronologia del remoto pubblico, che contiene identificativi reali dell'autore e di un terzo nei commit precedenti alla bonifica del 2026-09-24, va riscritta.
+
+Decisione. Il Jirachi di Channel resta nel complemento del Rubino e si scrive con esso, in una scrittura sola; la voce che lo rimandava a Smeraldo è chiusa. Le mappe e la copia da stampare `MAPPA-BOX-COLLEZIONE.pdf` lo mostrano già sul Rubino e si rigenerano dalla cartuccia scritta dopo la rilettura. La cronologia si riscrive con `git-filter-repo` sostituendo i termini identificanti in tutti i commit, con nome e identificativo dell'allenatore nei dati di gioco esclusi dalla sostituzione come già deciso. Il piano si conferma con il proprietario prima dell'esecuzione, e il push forzato resta suo.
+
+Conseguenze. Tutti gli hash cambiano, quindi gli ancoraggi `last-verified-commit` delle schede, lo snapshot `index.md`, l'impronta di ripresa e ogni hash citato nella prosa vanno riancorati dopo la riscrittura. GitHub conserva i commit orfani raggiungibili per hash fino alla propria garbage collection, e fork o cache di terzi non si riscrivono: è lo stesso residuo dichiarato per ADR-014.
+
 ## ADR-086: allineamento bidirezionale, chiudere con chiudi, e il debito tipografico che lo blocca
 
 Data: 2026-09-25. Stato: accettata. Richiesta del proprietario.

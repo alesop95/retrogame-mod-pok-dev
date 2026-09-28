@@ -4,6 +4,10 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-28. Ripresa, Jirachi sul Rubino, decisione sulla storia
+
+La verifica di ripresa ha trovato una sola divergenza, prevista: l'ancora di `index.md` era a `7b5fd38` con la terza parte del 2026-09-25 dichiarata da committare, ed è entrata in `103a228`. L'ancora è stata portata a `103a228`. Il commit delle migliorie di ADR-086 nel template risulta fatto, è `c2b4e23`, e la voce attesa è stata chiusa; il template è oggi a `3077625` con lavoro del proprietario non committato, lo spostamento di quattro regole in skill con file di riferimento, quindi un nuovo allineamento va fatto dopo quel commit e non prima. Il proprietario ha il Rubino con sé e vuole scrivere il complemento; ha deciso che il Jirachi di Pokémon Channel resti sul Rubino, dove il complemento lo aveva già nel box 16, e che la cronologia pubblicata si riscriva. Entrambe le decisioni sono in ADR-087.
+
 ## 2026-09-25, terza parte. Allineamento bidirezionale, chiudi, e la prova di ripresa
 
 Il proprietario ha chiesto quali fossero gli otto file diversi dal template e di portare lassù ciò che lo migliora. La verifica ha trovato che tre di essi avevano perso contenuto nuovo del template nella fusione. Sono stati ricostruiti come template più le sole aggiunte del progetto, e ora differiscono dal template di due o quattro righe. Nel template, nell'albero di lavoro e senza commit, sono andate cinque migliorie nate qui, elencate in ADR-086, fra cui la correzione di `chiudi-sessione`, che scambiava ogni progetto allineato per il template.
