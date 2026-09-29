@@ -13,7 +13,7 @@ covers-paths:
   - generation-from-switch/
   - cart-battery-restoration/
   - pokedex-home-completo/
-last-verified-commit: f5108f3
+last-verified-commit: ff2cab5
 ---
 
 # Direzione
@@ -81,6 +81,22 @@ La regola di priorità che questa scheda contiene resta una sola e non cambia: i
 Questa sezione registrava dal 2026-09-09 che il lettore di cartucce arrivato "blocca la prova da un capo all'altro su dati reali". Il 2026-09-15 quel blocco è stato rimosso per intero, non solo annunciato: il GBxCart RW v1.4 Pro è collegato, i driver CH340/CH341 sono risolti (da Windows Update, non dal download manuale previsto), FlashGBX 5.1 è installato e riconosce il dispositivo, e la catena è stata provata su una cartuccia di Pokemon Rubino italiana posseduta dall'utente, usata come cavia a basso rischio prima di toccare Smeraldo. Il salvataggio è stato letto due volte in modo indipendente e le due copie coincidono byte per byte sull'hash SHA-256: la catena hardware-driver-software-verifica funziona da un capo all'altro, su dati reali, per la prima volta nel progetto.
 
 Ne segue una possibilità che la sezione "Cosa sblocca cosa" aveva solo previsto in astratto: usare questa stessa cartuccia, che non ha nulla da perdere perché la partita è appena iniziata, per una prova di scrittura reale del sottoprogetto delle distribuzioni, cioè iniettare uno degli esemplari da evento che `pokebridge` sa già generare e verificare se il gioco e un verificatore esterno lo accettino. È esattamente la prova che roadmap.md auspicava senza poterla ancora fare, e completarla darebbe al track delle distribuzioni la sua prima conferma su hardware reale invece che sul solo salvataggio sintetico. Non è stata ancora eseguita: la scrittura su cartuccia, anche su un esemplare di scarso valore, è un'operazione diversa dalla sola lettura appena completata e merita un proprio allestimento, con la scelta dello strumento di iniezione (`Gen3-WCTool` di Project Pokemon, già in `pending.md`, oppure una via propria via `pokebridge`) e i medesimi presidi di backup e read-back già rispettati oggi.
+
+## Aggiornamento del 2026-09-29, e le affermazioni che erano diventate false
+
+Come le due correzioni precedenti, anche questa si scrive qui invece di riscrivere sopra, perché il modo in cui la scheda invecchia è esso stesso un dato. La scheda era ferma al 2026-09-15 e le sue aree coperte hanno accumulato novanta file cambiati.
+
+La prima affermazione falsa è che al track di Smeraldo resti il controllo visivo del secondo giro, il censimento di legalità e la squadra del Parco Lotta. Sono fatti tutti e tre, e il track è andato molto oltre: dal 2026-09-23 la cartuccia porta la collezione completa di terza generazione, giudicata 423 legale su 423 da PKHeX e riletta identica, e dal 2026-09-28 il Rubino porta il complemento di 376 esemplari (ADR-076-080, ADR-088). La collezione di terza generazione è chiusa e non si riapre per ragioni di metodo (ADR-082).
+
+La seconda è che la prova di scrittura reale sul Rubino non sia stata eseguita. È stata fatta il 2026-09-15 con un carico di prova, e il 2026-09-28 quel carico, che risultò fatto di 205 copie di esemplari di Smeraldo, ha lasciato il posto al complemento.
+
+La terza, nella sezione sull'infrastruttura qui sotto, è che il lettore di cartucce blocchi la prova da un capo all'altro: non la blocca più dal 2026-09-15, come dice già la sezione precedente, e la frase era rimasta.
+
+La quarta riguarda il track del Pokedex, che la scheda dava bloccato dalla lettura del corpus a circa un terzo. La lettura è chiusa dal 2026-09-16, e la produzione ha cambiato strumento: dal 2026-09-23 la libreria del verificatore PKHeX.Core genera e giudica gli esemplari (ADR-081), e i lotti su disco sono 2010 conformi su 2010. Ciò che resta sotto la scadenza di Bank sono le 40 voci da periferiche della coda del primo tempo, cioè 29 dal Pokewalker, 8 dal Ranch e 3 dal Dream Radar.
+
+La quinta riguarda il server MCP code-context, che la sezione sull'infrastruttura dà da riproporre: è stato riproposto al gate dei pacchetti del 2026-09-29 e rifiutato (ADR-091). Resta invece aperta la condizione del `CLAUDE.md` annidato nella cartella del ponte, che non esiste ancora.
+
+Si aggiungono due fatti che cambiano la mappa. Il primo è un difetto nuovo da sanare, trasversale ai due track che scrivono su cartuccia: gli esemplari scritti direttamente nel deposito non risultano catturati nel Pokédex del gioco, e il proprietario ha deciso che ogni cartuccia registri le specie che contiene (ADR-089). Tocca i soli contrassegni del Pokédex e non gli esemplari, quindi non riapre la collezione, e va studiato sul sorgente prima della scrittura dedicata. Il secondo riguarda la porta di ottobre 2026 per la terza generazione: un video del 2026-09-24 mostra uno scambio fra Rosso Fuoco su GBA reale e su Switch 2 attraverso GB-Link e una scheda ESP32, che richiede le `prod.keys`. La via va chiusa sul piano del perimetro prima di usarla, verificando che le chiavi non partano verso un server, ed è in `pending.md` e in `sub-gba-switch-trading.md`.
 
 ## Conseguenze sull'infrastruttura
 

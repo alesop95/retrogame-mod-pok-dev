@@ -4,7 +4,7 @@ generated-from-branch: main
 generated-date: 2026-08-24
 covers-paths:
   - 3ds-related/
-last-verified-commit: f342853
+last-verified-commit: ff2cab5
 stato: attivo
 ---
 
@@ -21,6 +21,8 @@ Lo step 02, installazione del custom firmware boot9strap più Luma3DS v13.4 tram
 ## Prossimo passo concreto
 
 Dumpare le cinque cartucce DS rimanenti, cioè Diamante, Perla, Platino, Nera 2 e SoulSilver, seguendo la procedura della sezione 5.3 dell'handoff, e poi trasferire sistematicamente i file da `/gm9/out/` sulla SD verso il disco del PC.
+
+Registrato il 2026-09-29 da un fatto detto dal proprietario il 2026-09-28, che sta nella voce del Vivillon di `pending.md`: la copia della scheda SD della console del 2026-09-03 è in `J:\3DS - 03092026\`, ed è la seconda copia di ciò che il proprietario usa sul 3DS. Contiene il salvataggio di Pokemon Y fatto con Checkpoint il 2026-08-23, in `3ds\Checkpoint\saves\0x0055E Pokémon Y\20260823-backsicY\`, che serve alla produzione del Vivillon Motivo Poke Ball; se Y è stato giocato dopo quella data serve un backup nuovo. La cartella `Nintendo 3DS` di quella copia dipende da `movable.sed` e non si copia altrove, per la regola sul materiale di chiave console-unica.
 
 ## Decisioni aperte
 

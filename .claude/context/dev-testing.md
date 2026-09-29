@@ -13,7 +13,9 @@ covers-paths:
   - pokedex-home-completo/
   - gba-switch-pokemon-trading/
   - poke-automation-study/
-last-verified-commit: f5108f3
+  - tools/
+  - scripts/
+last-verified-commit: ff2cab5
 ---
 
 # Sviluppo e verifica
@@ -26,7 +28,7 @@ Una operazione su hardware si considera riuscita solo quando è stata riletta, n
 
 ## Verifica automatica del codice del ponte
 
-Le prove del pacchetto `pokebridge` si lanciano con `python tests/run_tests.py` dalla cartella `pokemon-gen12-gen3-bridge-original-hardware/`, non richiedono nulla di installato oltre la libreria standard e girano in una frazione di secondo. Alla verifica del 2026-09-09 sono 206 e passano tutte, cresciute da 114 con i moduli degli eventi e dello strato del salvataggio. Il numero va riletto dall'esecuzione e non copiato da qui: una scheda che dichiara un conteggio più alto di quello reale nasconde esattamente ciò che dovrebbe segnalare.
+Le prove del pacchetto `pokebridge` si lanciano con `python tests/run_tests.py` dalla cartella `pokemon-gen12-gen3-bridge-original-hardware/`, non richiedono nulla di installato oltre la libreria standard e girano in una frazione di secondo. Alla verifica del 2026-09-09 sono 206 e passano tutte, cresciute da 114 con i moduli degli eventi e dello strato del salvataggio. Il numero va riletto dall'esecuzione e non copiato da qui: una scheda che dichiara un conteggio più alto di quello reale nasconde esattamente ciò che dovrebbe segnalare. Riletto il 2026-09-29 con `python -m unittest discover -s tests`: 206 prove, tutte verdi, in 0,6 secondi.
 
 La prova portante è la simmetria fra lettura e riscrittura, verificata su cinquecento buffer casuali con seme fissato per ciascuna delle sei forme di struttura, cioè box, squadra e lista di squadra per entrambe le generazioni. È una sola proprietà e cattura un intero genere di errori, perché un offset sbagliato, un ordine di byte invertito, un nibble letto dalla metà sbagliata o un campo dimenticato la rompono tutti. Il ragionamento sta in `docs/21-collaudo.md`.
 
@@ -40,9 +42,15 @@ Prima di qualunque scrittura si fa il backup del salvataggio in doppia copia su 
 
 Verificato su due giri completi, entrambi scritti e riletti con hash identico il 2026-09-17: il metodo tiene, e i soli difetti trovati sono stati assunzioni sbagliate nella diagnosi (un ordine di enumerazione copiato da un'enciclopedia invece che dal sorgente, una specie duplicata contata come singola), mai un errore dello script o della scrittura fisica.
 
+Aggiornato il 2026-09-29. Il protocollo ha retto su tutte le scritture successive, registrate con impronte e percorsi in `_notes/salvataggi/cartucce/LEGGIMI.md`: i flag degli eventi il 2026-09-18, biglietti e isole il 2026-09-21, il riordino del deposito e la cartuccia completa il 2026-09-23, con il giro12 come stato attuale, e il complemento del Rubino il 2026-09-28. Gli script sotto `gba-save-extraction-smeraldo/tools/` sono ora trenta, elencati per famiglia in `STACK.md`, e la disciplina di sopra vale per ognuno. Fra la rilettura del file prodotto e la scrittura si è aggiunto un passo, nato dai difetti che solo un giudice esterno vedeva: il file si apre in PKHeX, se ne esporta il dump dei box, e si scrive solo se il rapporto di legittimità è pulito. I dump sono in `_notes/salvataggi/cartucce/smeraldo/dump-pkhex/`, dal `round 1` al `round 6`, e l'ultimo ha dato 423 legali su 423 sul giro12; il Rubino ha avuto lo stesso passo, 382 legali su 382. Il giudizio dei lotti prima della loro composizione si fa invece senza interfaccia con `tools/pkhex-giudica` sulla libreria PKHeX.Core, che scrive `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`: al 2026-09-25 dà 2010 conformi su 2010, con la riserva, dichiarata nel file, che il giudizio si fa su un salvataggio vuoto e non contiene i controlli che dipendono dal salvataggio ricevente. Dopo ogni giudizio positivo il lotto si rilegge con la libreria del progetto, perché il caso dei formati di Colosseum e XD in `pokedex-home-completo/STUDIO-10` ha mostrato che un giudizio riguarda l'oggetto giudicato e non quello scritto (ADR-081).
+
 ## Protocollo per la ricreazione delle distribuzioni
 
 Vale il protocollo dello Smeraldo, perché l'operazione è la stessa, cioè scrivere sul salvataggio di una cartuccia originale, e vi si aggiungono due passi propri di questo track. Il primo precede ogni scrittura e viene da una fonte: se il salvataggio contiene già una carta meraviglia, quella va esportata e conservata prima di sovrascrivere qualunque cosa, perché può essere un evento che la comunità non ha ancora preservato, e in quel caso la sovrascrittura distrugge un dato unico invece di un dato ricostruibile. Il secondo segue la scrittura e riguarda la fedeltà: un esemplare ricreato si verifica confrontandone i campi con quelli documentati per l'evento originale, e la verifica utile è quella di un verificatore di legittimità indipendente, perché è l'unico controllo capace di dire se il metodo di generazione sia stato riprodotto e non soltanto il risultato.
+
+## Controlli automatici della documentazione e della memoria
+
+Aggiunta del 2026-09-29. Oltre alla suite del ponte, il progetto ha controlli deterministici sulla documentazione, e `tools/chiudi-sessione.ps1`, cioè `chiudi`, li esegue tutti prima di un commit e si ferma se uno fallisce. Qui, dove `chiudi` cerca soltanto in `tools/`, sono nove: `md-unwrap.py --check --only-tracked`, `lint-md-commands.py`, `misura-istruzioni.py`, i tre correttori tipografici in `--check`, e dal 2026-09-29 `lint-memoria.py`, `lint-didattica.py` e `Test-Anonymization.py` (ADR-091). Altri due si lanciano a mano prima dei comandi git, come dice il `CLAUDE.md`: `aggiorna-readme.py --check` e `build-source-map.py --check`; `lint-prosa.py` segnala sui file di prosa cambiati senza bloccare. Al 2026-09-29 i tre tipografici falliscono sul debito della voce PRIMO di `pending.md`, e per questo `chiudi` è ancora bloccato. `tools/test-tipografia.py` è la prova che i correttori non tocchino gli identificatori di un file composto.
 
 ## Protocollo per il sottoprogetto 3DS
 

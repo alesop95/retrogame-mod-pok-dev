@@ -8,23 +8,23 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: 7a8bdae, più il giro del 2026-09-29 da committare
-Data snapshot:         2026-09-29, passi interattivi dell'allineamento al template fatti, resta sync-context
+Commit di riferimento: ff2cab5, più il blocco 5 di sync-context da committare
+Data snapshot:         2026-09-29, allineamento al template concluso, schede tutte riverificate
 ```
 
 ## Stato di verifica delle schede
 
 | Scheda | Sottoprogetto | last-verified | Stato |
 |---|---|---|---|
-| STACK.md | trasversale | f5108f3 | STALE, parzialmente riconciliata il 2026-09-17: corretta la parte su PKHeX/Smeraldo, checkpoint NON bumpato perché resta drift non toccato stasera su `pokedex-home-completo/` (vedi `pending.md`) |
-| design-and-security.md | trasversale | f5108f3 | aggiornata il 2026-09-17 con una nuova istanza di dati personali di terzi (nome reale in `pending.md`), checkpoint NON bumpato per lo stesso drift residuo di `pokedex-home-completo/` |
+| STACK.md | trasversale | ff2cab5 | riconciliata il 2026-09-29 con sync-context: strumenti riconteggiati (75 in `tools/`, 30 di Smeraldo, cinque C#), dipendenze esterne da due a cinque, libreria PKHeX.Core, LED del lettore e orologio di Smeraldo; `covers-paths` esteso a `tools/` e `scripts/` |
+| design-and-security.md | trasversale | ff2cab5 | riconciliata il 2026-09-29 con sync-context: storia pubblica bonificata (ADR-087) e presidio di anonimizzazione (ADR-091), salvataggi di terzi a diciotto, divisione del lavoro sul tratto di Bank (ADR-081), verifica aperta sulle `prod.keys` della via GB-Link |
 | deployment.md | trasversale | d08a011 | non applicabile, covers-paths vuoto per scelta |
-| dev-testing.md | trasversale | f5108f3 | STALE, riconciliata il 2026-09-17: il protocollo Smeraldo descriveva PKHeX come editor invece dello script deterministico in uso da due giri; checkpoint NON bumpato, stesso drift residuo di `pokedex-home-completo/` |
-| current-work.md | trasversale | f5108f3 | STALE, riga smeraldo-save-fix riscritta il 2026-09-17 (era ferma a prima dell'arrivo del lettore); checkpoint NON bumpato, stesso drift residuo di `pokedex-home-completo/` |
-| roadmap.md | trasversale | f5108f3 | STALE, riconciliata il 2026-09-17: la riga su Smeraldo lo dichiarava ancora bloccato sul lettore; checkpoint NON bumpato, stesso drift residuo di `pokedex-home-completo/` |
-| sub-3ds-modding.md | 3ds-related | f342853 | verificata il 2026-09-29 con sync-context: i due cambi nell'area sono il nome utente mascherato in un percorso, nessun cambio alla scheda |
+| dev-testing.md | trasversale | ff2cab5 | riconciliata il 2026-09-29 con sync-context: suite del ponte riletta a 206, protocollo di Smeraldo esteso alle scritture fino al Rubino con il passo del giudizio di PKHeX, giudizio dei lotti con la libreria, sezione nuova sui controlli di `chiudi`; `covers-paths` esteso a `tools/` e `scripts/` |
+| current-work.md | trasversale | ff2cab5 | riconciliata il 2026-09-29 con sync-context: righe di Pokedex, distribuzioni, ponte, Smeraldo e 3DS riscritte, paragrafo di riconciliazione nuovo |
+| roadmap.md | trasversale | ff2cab5 | riconciliata il 2026-09-29 con sync-context: sezione di aggiornamento con cinque affermazioni diventate false e due fatti nuovi, cioè il Pokédex delle cartucce (ADR-089) e la via GB-Link |
+| sub-3ds-modding.md | 3ds-related | ff2cab5 | riconciliata il 2026-09-29: al blocco 1 era cambiata solo nella forma, e al blocco 5 ha ricevuto il backup della SD in `J:\3DS - 03092026\` detto dal proprietario il 2026-09-28 |
 | sub-smeraldo-save-fix.md | gba-save-extraction-smeraldo | 732163f | riconciliata il 2026-09-29 con sync-context: sezione di stato in testa (Smeraldo concluso, Rubino scritto, Parco Lotta, vincoli, quattro punti aperti), tre frasi superate marcate, prossimo passo e decisioni aperte aggiornati, stato vecchio conservato come storico |
-| sub-gen12-gen3-bridge.md | pokemon-gen12-gen3-bridge | f342853 | verificata il 2026-09-29 con sync-context: percorsi di `_notes/` riordinati nel codice e nella referenza, nessun cambio alla scheda |
+| sub-gen12-gen3-bridge.md | pokemon-gen12-gen3-bridge | ff2cab5 | riconciliata il 2026-09-29: al blocco 1 di sync-context era stata data per cambiata solo nella forma, ma diceva ancora che `parco_amici.py` produce 203 record, smentito da ADR-082; corretta nel blocco 5 |
 | sub-gba-switch-trading.md | gba-switch-pokemon-trading | f342853 | verificata il 2026-09-29 con sync-context: handoff spostato in `handoff/`, la scheda non lo cita per percorso, nessun cambio |
 | sub-poke-automation.md | poke-automation-study | f342853 | verificata il 2026-09-29 con sync-context: `docs/fonti/` rinominata in `docs/mappa-fonti/`, nessun cambio alla scheda |
 | sub-distributions-events.md | recreate-pokemon-distributions-events | 19fca78 | riconciliata il 2026-09-29 con sync-context: aggiunta la sezione sulla libreria che produce e giudica (ADR-081, 2010 su 2010), segnato superato il lotto della sintesi del Parco Amici (ADR-082), riscritto il prossimo passo |
@@ -36,6 +36,8 @@ Data snapshot:         2026-09-29, passi interattivi dell'allineamento al templa
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-09-29, seconda parte. L'allineamento al template è concluso: `sync-context` ha riconciliato in cinque blocchi tutte le diciassette schede, due delle quali non applicabili, e la tabella sopra è verificata per intero al 2026-09-29. Su domanda del proprietario è stato verificato che la ristrutturazione non ha perso contenuto, riga per riga su 777 file (work log, quarta e sesta parte). PROSSIMO PASSO: il debito tipografico della voce PRIMO di `pending.md`, che blocca `chiudi`; poi le 40 voci da periferiche, voce SECONDO. Da ricordare a ogni sessione: il Pokédex delle cartucce non registra gli esemplari scritti nel deposito, e va studiato e sanato (ADR-089).
 
 AGGIUNTA DEL 2026-09-29. L'allineamento al template `065d0b5` è fatto salvo `sync-context`. Il commit `7a8bdae` ha portato le norme su richiesta come skill e tolto le quattro regole vecchie; il carico degli instruction file è 88.639 caratteri contro la soglia di 100.000. In questo giro: igiene dell'account tutta PASS, separazione degli ambienti decisa come R0, P1 degenere, D3, L1 (ADR-090), gate dei pacchetti eseguito per intero per la prima volta con sette pacchetti adottati (ADR-091), fra cui il controllo di anonimizzazione, che non trova nomi reali nel perimetro pubblicabile, e l'ambiente LaTeX della tesi, provato con una build da 357 pagine. No al server MCP. PROSSIMO PASSO: `sync-context` sulle schede, voce QUARTO di `pending.md`; poi il debito tipografico della voce PRIMO, che blocca `chiudi`, e le 40 voci da periferiche. Il fuoco corrente resta `pokedex-home-completo`.
 
