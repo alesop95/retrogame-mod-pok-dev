@@ -27,7 +27,7 @@ Data snapshot:         2026-09-29, passi interattivi dell'allineamento al templa
 | sub-gen12-gen3-bridge.md | pokemon-gen12-gen3-bridge | f342853 | verificata il 2026-09-29 con sync-context: percorsi di `_notes/` riordinati nel codice e nella referenza, nessun cambio alla scheda |
 | sub-gba-switch-trading.md | gba-switch-pokemon-trading | f342853 | verificata il 2026-09-29 con sync-context: handoff spostato in `handoff/`, la scheda non lo cita per percorso, nessun cambio |
 | sub-poke-automation.md | poke-automation-study | f342853 | verificata il 2026-09-29 con sync-context: `docs/fonti/` rinominata in `docs/mappa-fonti/`, nessun cambio alla scheda |
-| sub-distributions-events.md | recreate-pokemon-distributions-events | f5108f3 | aggiornata il 2026-09-16: generatore Gen3 a 176/177, seme stabilizzato dopo una regressione corretta, audit dei livelli di scambio, uscita alimenta ora il Parco Amici software |
+| sub-distributions-events.md | recreate-pokemon-distributions-events | 19fca78 | riconciliata il 2026-09-29 con sync-context: aggiunta la sezione sulla libreria che produce e giudica (ADR-081, 2010 su 2010), segnato superato il lotto della sintesi del Parco Amici (ADR-082), riscritto il prossimo passo |
 | sub-poke-ace.md | poke-ace | f342853 | verificata il 2026-09-29 con sync-context: nessun file cambiato nell'area |
 | sub-generation-from-switch.md | generation-from-switch | f342853 | verificata il 2026-09-29 con sync-context: nessun file cambiato nell'area |
 | sub-cart-battery.md | cart-battery-restoration | f342853 | riconciliata il 2026-09-29 con sync-context: rischio di tensione chiuso il 2026-09-15 (LED blu 3,3 V, rosso 5 V) e lettore validato, due delta nella scheda |
