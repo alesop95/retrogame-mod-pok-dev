@@ -4,8 +4,8 @@ generated-from-branch: main
 generated-date: 2026-08-24
 covers-paths:
   - pokemon-gen12-gen3-bridge-original-hardware/
-last-verified-commit: f342853
-stato: decisione ADR-008 ancora aperta; le tre generazioni sono scritte e collaudate, dal 2026-09-09 esiste lo strato del salvataggio da 128 KiB, e dal 2026-09-16 esiste anche il modulo che sintetizza in software il passaggio dalla terza alla quarta generazione (Parco Amici)
+last-verified-commit: ff2cab5
+stato: decisione ADR-008 ancora aperta; le tre generazioni sono scritte e collaudate, dal 2026-09-09 esiste lo strato del salvataggio da 128 KiB, e dal 2026-09-16 esiste anche il modulo che sintetizza in software il passaggio dalla terza alla quarta generazione (Parco Amici); dal 2026-09-24 quel modulo non produce piu' lotti, sostituito dalla libreria per ADR-082
 ---
 
 # Sottoprogetto: ponte Pokemon da Gen 1 e 2 verso Gen 3 su hardware originale
@@ -21,6 +21,8 @@ Il formato dei dati delle tre generazioni è documentato byte per byte e verific
 Questo è l'unico dei quattro sottoprogetti destinato a diventare software vero. Quando lo diventerà si riapre il gate del server MCP code-context, e diventa sensato un `CLAUDE.md` annidato in questa cartella con le sole convenzioni di build, lint e test, senza stato.
 
 Il 2026-09-16 il pacchetto si è esteso di un anello: `pokebridge/parco_amici.py`, che sintetizza in software la trasformazione del Parco Amici (terza a quarta generazione), leggendo la conversione vera da `PK3.ConvertToPK4()` nella fonte del verificatore. Non è più solo un ponte fra prima/seconda e terza generazione: applicato ai 209 esemplari già prodotti in terza generazione produce 203 record di quarta generazione senza hardware né emulazione DS, con dettaglio completo in `pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md`. Il collegamento che sembrava naturale, cioè applicare la stessa pipeline all'uscita di questo pacchetto per chiudere una catena software da prima a quarta generazione, è stato RITIRATO il 2026-09-16 dopo verifica sulla fonte: non esiste alcuna conversione dai formati di prima e seconda generazione a quello di terza, perché `EntityConverter.IsConvertibleToFormat` la rifiuta esplicitamente (un pk1/pk2 può salire solo al formato 7 o superiore) e nessun `ConvertToPK3` esiste su quei tipi. La premessa era per di più sbagliata due volte, perché le 165 voci di `_notes/lotti/lotto-gb/` sono nei formati nativi `.pk1` e `.pk2` e non in formato di terza. La via vera per quell'anello è il Trasferitore (`PK1.ConvertToPK7`/`PK2.ConvertToPK7`), sintetizzabile con lo stesso metodo ma bloccata dalla decisione aperta sul perimetro di Bank: dettaglio in `pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md`, ultima sezione.
+
+Correzione del 2026-09-29, che supera la frase sui 203 record. Il 2026-09-24 il giudizio con la libreria PKHeX.Core ha trovato 148 esemplari contestati su 203 nel lotto prodotto da `parco_amici.py`, mentre gli stessi 203 esemplari convertiti con `PK3.ConvertToPK4()` della libreria erano 203 conformi su 203, e nessun file coincideva byte per byte con quello della sintesi. Da ADR-082 il lotto del Parco Amici si genera con `tools/pkhex-parco-amici`, e il lotto della sintesi è in `_notes/archivio/`. Il modulo `parco_amici.py` resta nel pacchetto con la sua suite, come descrizione della trasformazione, e non produce più lotti; se correggerlo o dichiararlo superato è una decisione aperta in `pending.md`, che non blocca nulla. La discrepanza è rimasta invisibile a `sync-context` fino a oggi perché la decisione sta fuori dalla cartella coperta da questa scheda.
 
 ## Prossimo passo concreto
 
