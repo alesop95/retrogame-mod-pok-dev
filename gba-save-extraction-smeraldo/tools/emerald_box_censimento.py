@@ -53,7 +53,7 @@ POSIZIONI_PER_BOX = 30
 # converte solo quando la lettera prima dell'apostrofo e' una vocale, il che lascia intatti i nomi
 # di strumento come King's Rock. La seconda e' che non si converte se dopo l'apostrofo segue una
 # esse, il che lascia intatto un possessivo inglese come Greta's. Restano poi i composti in che,
-# dove l'accento italiano e' acuto e non grave, cioe' perche' e poiche' e non perche con accento
+# dove l'accento italiano e' acuto e non grave, cioe' perche' e poiche' e non perché con accento
 # grave: sono l'unica eccezione e si trattano per primi.
 ACCENTO_GRAVE = {"a": "\u00e0", "e": "\u00e8", "i": "\u00ec", "o": "\u00f2", "u": "\u00f9"}
 PAROLA_CON_APOSTROFO = re.compile(r"\b([A-Za-z]*)([aeiou])'(?!s)")
@@ -66,7 +66,7 @@ def accenta(testo):
         # L'accento acuto spetta ai composti di che, ne e se, cioe' perche', poiche', benche',
         # ne' e se'. Si guarda la RADICE e non la parola intera, perche' la vocale finale e' gia'
         # stata separata dal gruppo precedente: una prima stesura guardava la parola e mancava
-        # tutti e cinque i casi senza dirlo, producendo perche con l'accento grave.
+        # tutti e cinque i casi senza dirlo, producendo perché con l'accento grave.
         radice_bassa = radice.lower()
         if vocale == "e" and (radice_bassa.endswith("ch") or radice_bassa in ("n", "s")):
             return radice + "\u00e9"

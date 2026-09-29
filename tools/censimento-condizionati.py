@@ -4,39 +4,39 @@
 
 La classe, e il criterio che la rende misurabile
 -----------------------------------------------
-Un esemplare puo' portare nel proprio dato la traccia di una circostanza che non si ripete: non la
-rarita', che e' soltanto tempo speso, ma una condizione che il gioco deve avere soddisfatto perche'
-quell'incontro esistesse. Il caso che ha aperto questo lavoro e' il Wynaut dell'Isola Miraggio in
+Un esemplare può portare nel proprio dato la traccia di una circostanza che non si ripete: non la
+rarità, che è soltanto tempo speso, ma una condizione che il gioco deve avere soddisfatto perché
+quell'incontro esistesse. Il caso che ha aperto questo lavoro è il Wynaut dell'Isola Miraggio in
 terza generazione.
 
-Su quel caso va scritta subito una correzione, perche' la premessa naturale e' sbagliata e sarebbe
-finita nei documenti. L'isola non ha un luogo d'incontro proprio: nella fonte e' l'area d'erba del
-luogo quarantacinque, cioe' della rotta che l'isola affaccia, e quel medesimo luogo porta accanto le
+Su quel caso va scritta subito una correzione, perché la premessa naturale è sbagliata e sarebbe
+finita nei documenti. L'isola non ha un luogo d'incontro proprio: nella fonte è l'area d'erba del
+luogo quarantacinque, cioè della rotta che l'isola affaccia, e quel medesimo luogo porta accanto le
 proprie aree d'acqua e di pesca con Tentacool, Wingull, Pelipper, Magikarp e Sharpedo. Un Wynaut
-catturato la' registra dunque la rotta e non l'isola, e la traccia non e' il nome del luogo ma la
+catturato là registra dunque la rotta e non l'isola, e la traccia non è il nome del luogo ma la
 terna fra luogo, tipo di casella e specie: in quel luogo l'erba esiste soltanto quando l'isola
 compare, e ospita quella specie sola.
 
-Dire "condizione" a parole non basta, perche' senza un criterio meccanico l'elenco diventa una
-raccolta di impressioni. Questo programma ne usa tre, e li tiene separati perche' rispondono a
+Dire "condizione" a parole non basta, perché senza un criterio meccanico l'elenco diventa una
+raccolta di impressioni. Questo programma ne usa tre, e li tiene separati perché rispondono a
 domande diverse.
 
-Il primo criterio e' il tipo di casella. La fonte classifica ogni area con un tipo, e alcuni tipi
+Il primo criterio è il tipo di casella. La fonte classifica ogni area con un tipo, e alcuni tipi
 sono essi stessi una condizione: lo sciame annunciato alla televisione in terza e quinta
 generazione, la grotta nascosta di quinta, la gara di scarabei e l'albero del miele di quarta, le
 aree della zona safari. Sono dichiarati in una tabella dentro questo programma, divisi fra
-condizione di evento, cioe' qualcosa che accade nel mondo, e condizione di metodo, cioe' un modo di
-cercare che il giocatore deve avere a disposizione. La divisione non e' un dettaglio: la prima
+condizione di evento, cioè qualcosa che accade nel mondo, e condizione di metodo, cioè un modo di
+cercare che il giocatore deve avere a disposizione. La divisione non è un dettaglio: la prima
 famiglia produce esemplari che nessun altro incontro produce, la seconda spesso no.
 
-Il secondo criterio e' l'area monospecie esclusiva, ed e' quello che coglie il caso dell'isola: una
+Il secondo criterio è l'area monospecie esclusiva, ed è quello che coglie il caso dell'isola: una
 singola area che ospita una specie sola, la quale non compare in nessun'altra area del titolo. Non
 serve sapere come si chiami il luogo quarantacinque per accorgersi che la sua erba ospita soltanto
 Wynaut e che nel resto del gioco quella specie non si incontra.
 
-Il terzo criterio e' il luogo dedicato, cioe' un luogo che ospita una sola specie contando tutte le
-sue aree. E' piu' stretto del secondo e non lo sostituisce: e' la traccia piu' forte quando c'e',
-perche' non richiede di guardare il tipo di casella, ma esclude proprio i casi come l'isola, dove
+Il terzo criterio è il luogo dedicato, cioè un luogo che ospita una sola specie contando tutte le
+sue aree. È più stretto del secondo e non lo sostituisce: è la traccia più forte quando c'e',
+perché non richiede di guardare il tipo di casella, ma esclude proprio i casi come l'isola, dove
 il luogo porta accanto le aree ordinarie della rotta.
 
 Che cosa questo programma non fa, e va letto prima dei numeri
@@ -45,7 +45,7 @@ Legge le sole tabelle degli incontri selvatici. Gli incontri fissi, i doni e gli
 altrove, nei file di codice della fonte, quindi la frase "unica via nel gioco" che questo programma
 calcola vale sulle vie selvatiche e non su tutte: una specie che qui risulta ottenibile solo da una
 condizione potrebbe essere anche un dono altrove, e il censimento lo dichiara invece di tacerlo.
-Non copre inoltre la sesta generazione in avanti, dove il formato delle aree e' un altro e dove la
+Non copre inoltre la sesta generazione in avanti, dove il formato delle aree è un altro e dove la
 questione della scadenza non si pone.
 
 Uso
@@ -71,7 +71,7 @@ NORMALIZZATO = os.path.join(RADICE, "pokedex-home-completo", "data", "condiziona
 # appartengono. I numeri vengono dalle enumerazioni `SlotType1` a `SlotType5` della fonte, lette
 # una per una sotto `Legality/Encounters/Templates`: la prima generazione non ne ha alcuno.
 #
-#   evento: qualcosa e' accaduto nel mondo di gioco, e senza di esso la casella non esiste
+#   evento: qualcosa è accaduto nel mondo di gioco, e senza di esso la casella non esiste
 #   metodo: il giocatore deve avere un modo di cercare, e la casella esiste sempre
 CONDIZIONI = {
     "1": {},
@@ -101,7 +101,7 @@ FORMATI = {
 }
 
 # I file di ciascun titolo, in ordine di generazione. I due che la fonte tiene a parte sono
-# dichiarati per quello che sono: lo sciame di terza generazione, che e' una condizione a tutti gli
+# dichiarati per quello che sono: lo sciame di terza generazione, che è una condizione a tutti gli
 # effetti, e le caselle della distribuzione del negozio di New York, che sono un evento e non una
 # condizione, quindi si nominano e non si contano qui.
 TITOLI = (
@@ -128,7 +128,7 @@ TITOLI = (
     ("5", "Bianco 2", "Gen5/encounter_w2.pkl"),
 )
 
-# Il file degli sciami di terza generazione non porta il tipo dentro l'area, perche' la fonte lo
+# Il file degli sciami di terza generazione non porta il tipo dentro l'area, perché la fonte lo
 # impone da fuori chiamando un costruttore diverso: tutte le sue aree sono uno sciame.
 TIPO_IMPOSTO = {"Gen3/encounter_rse_swarm.pkl": 6}
 
@@ -145,8 +145,8 @@ def aree(dati):
     """Le aree di un archivio indicizzato, con la tabella delle posizioni a trentadue bit.
 
     La fine di un'area coincide con l'inizio della successiva, quindi la coppia si legge come un
-    intero doppio: e' la stessa lettura che `tools/ottenibilita-titoli.py` fa sugli archivi
-    moderni, e sta qui in forma ridotta invece di essere importata perche' i due programmi non
+    intero doppio: è la stessa lettura che `tools/ottenibilita-titoli.py` fa sugli archivi
+    moderni, e sta qui in forma ridotta invece di essere importata perché i due programmi non
     devono dipendere l'uno dall'altro.
     """
     if len(dati) < 4:
@@ -174,8 +174,8 @@ def leggi_area(area, formato, tipo_imposto=None):
     corpo = area[formato["intestazione"]:]
     if formato.get("tariffe") and tipo > 1:
         # In seconda generazione le aree che non sono erba o acqua portano davanti alle caselle
-        # una tariffa per casella, quindi la regione delle caselle comincia piu' avanti. Ignorare
-        # questo scostamento non produce un errore ma specie inventate, ed e' il genere di difetto
+        # una tariffa per casella, quindi la regione delle caselle comincia più avanti. Ignorare
+        # questo scostamento non produce un errore ma specie inventate, ed è il genere di difetto
         # che si vede solo confrontando con una fonte umana.
         quante = len(corpo) // (formato["casella"] + 1)
         corpo = corpo[quante:]
@@ -232,11 +232,11 @@ def analizza(titolo_aree, generazione):
     solo_condizione = {sp: v for sp, v in da_condizione.items() if sp not in da_ordinario}
     dedicati = {l: sorted(s)[0] for l, s in per_luogo.items() if len(s) == 1}
 
-    # Il terzo criterio, che e' quello che coglie il caso dell'Isola Miraggio, e la ragione per cui
-    # esiste va scritta perche' e' una correzione a come la classe era stata immaginata. Il luogo
-    # dell'isola non e' un luogo proprio: la fonte la tiene come l'area d'erba del luogo
-    # quarantacinque, cioe' la rotta che l'isola affaccia, e quel luogo porta accanto le sue aree
-    # d'acqua ordinarie. Cercare un luogo dedicato non la trova quindi mai. Ciò che la distingue e'
+    # Il terzo criterio, che è quello che coglie il caso dell'Isola Miraggio, e la ragione per cui
+    # esiste va scritta perché è una correzione a come la classe era stata immaginata. Il luogo
+    # dell'isola non è un luogo proprio: la fonte la tiene come l'area d'erba del luogo
+    # quarantacinque, cioè la rotta che l'isola affaccia, e quel luogo porta accanto le sue aree
+    # d'acqua ordinarie. Cercare un luogo dedicato non la trova quindi mai. Ciò che la distingue è
     # che la sua area ospita una specie sola, cosa che nel resto del gioco quasi non accade, e che
     # quella specie non compare in nessun'altra area del titolo.
     monospecie = []
@@ -262,11 +262,11 @@ def componi(risultati, nomi):
         return nomi[sp] if nomi and 0 < sp < len(nomi) else str(sp)
 
     r = ["# Censimento degli incontri che una condizione sblocca", ""]
-    r.append("> Documento generato da `tools/censimento-condizionati.py` dalle tabelle degli incontri selvatici del verificatore. Non si modifica a mano: si rigenera. Copre dalla prima alla quinta generazione, cioe' i titoli la cui via verso il deposito passa dalla banca.")
+    r.append("> Documento generato da `tools/censimento-condizionati.py` dalle tabelle degli incontri selvatici del verificatore. Non si modifica a mano: si rigenera. Copre dalla prima alla quinta generazione, cioè i titoli la cui via verso il deposito passa dalla banca.")
     r.append("")
-    r.append("I due criteri sono dichiarati nel docstring del programma e vanno letti prima dei numeri. Il primo e' il tipo di casella, dove alcuni tipi sono essi stessi una condizione, divisi fra condizione di evento e condizione di metodo. Il secondo e' il luogo dedicato, cioe' un luogo che in tutto il titolo ospita una sola specie: la sua presenza sul dato di un esemplare identifica quell'incontro e nessun altro.")
+    r.append("I due criteri sono dichiarati nel docstring del programma e vanno letti prima dei numeri. Il primo è il tipo di casella, dove alcuni tipi sono essi stessi una condizione, divisi fra condizione di evento e condizione di metodo. Il secondo è il luogo dedicato, cioè un luogo che in tutto il titolo ospita una sola specie: la sua presenza sul dato di un esemplare identifica quell'incontro e nessun altro.")
     r.append("")
-    r.append("Il limite da tenere presente e' che qui stanno le sole vie selvatiche: incontri fissi, doni e scambi stanno in altre tabelle, quindi una specie che risulti ottenibile solo da una condizione lo e' fra le vie selvatiche e non necessariamente in assoluto.")
+    r.append("Il limite da tenere presente è che qui stanno le sole vie selvatiche: incontri fissi, doni e scambi stanno in altre tabelle, quindi una specie che risulti ottenibile solo da una condizione lo è fra le vie selvatiche e non necessariamente in assoluto.")
     r.append("")
 
     r.append("## Quadro d'insieme")
@@ -288,7 +288,7 @@ def componi(risultati, nomi):
 
     r.append("## Le specie che fra le vie selvatiche vengono solo da una condizione")
     r.append("")
-    r.append("E' la parte che pesa per la collezione, perche' un esemplare di queste specie porta necessariamente la traccia della condizione che lo ha prodotto.")
+    r.append("È la parte che pesa per la collezione, perché un esemplare di queste specie porta necessariamente la traccia della condizione che lo ha prodotto.")
     r.append("")
     for t in risultati:
         if t["errore"] or not t["analisi"]["solo_condizione"]:
@@ -304,12 +304,12 @@ def componi(risultati, nomi):
 
     r.append("## Le aree che ospitano una specie sola, e non compare altrove nel titolo")
     r.append("")
-    r.append("E' il criterio che coglie il caso da cui questo lavoro e' nato, e la sua formulazione e' una correzione a come la classe era stata immaginata. L'Isola Miraggio non ha un luogo proprio: la fonte la tiene come l'area d'erba del luogo che la rotta affaccia, e quel medesimo luogo porta accanto le proprie aree d'acqua ordinarie, quindi cercare un luogo dedicato non la trova mai. Cio' che la distingue e' che la sua area ospita una specie sola e che quella specie non compare in nessun'altra area del titolo: la traccia sul dato e' allora la terna fra luogo, tipo di casella e specie, non il nome del luogo.")
+    r.append("È il criterio che coglie il caso da cui questo lavoro è nato, e la sua formulazione è una correzione a come la classe era stata immaginata. L'Isola Miraggio non ha un luogo proprio: la fonte la tiene come l'area d'erba del luogo che la rotta affaccia, e quel medesimo luogo porta accanto le proprie aree d'acqua ordinarie, quindi cercare un luogo dedicato non la trova mai. Ciò che la distingue è che la sua area ospita una specie sola e che quella specie non compare in nessun'altra area del titolo: la traccia sul dato è allora la terna fra luogo, tipo di casella e specie, non il nome del luogo.")
     r.append("")
     for t in risultati:
         if t["errore"]:
             continue
-        # Piu' aree dello stesso luogo e dello stesso tipo, che la fonte tiene separate per
+        # Più aree dello stesso luogo e dello stesso tipo, che la fonte tiene separate per
         # fascia oraria o per stanza, sono la medesima traccia: si contano una volta.
         viste, sole = set(), []
         for v in t["analisi"]["monospecie"]:
@@ -334,7 +334,7 @@ def componi(risultati, nomi):
 
     r.append("## I luoghi dedicati a una sola specie")
     r.append("")
-    r.append("Un luogo dedicato e' il criterio piu' stretto: se in tutto il titolo quel numero di luogo ospita una specie sola, contando tutte le sue aree, allora un esemplare che lo porti viene da la' e da nessun altro posto. E' piu' stretto del criterio precedente e non lo sostituisce, perche' un luogo che ospiti anche una sola area d'acqua ordinaria esce da questo elenco pur restando una traccia valida nel precedente.")
+    r.append("Un luogo dedicato è il criterio più stretto: se in tutto il titolo quel numero di luogo ospita una specie sola, contando tutte le sue aree, allora un esemplare che lo porti viene da là e da nessun altro posto. È più stretto del criterio precedente e non lo sostituisce, perché un luogo che ospiti anche una sola area d'acqua ordinaria esce da questo elenco pur restando una traccia valida nel precedente.")
     r.append("")
     for t in risultati:
         if t["errore"] or not t["analisi"]["dedicati"]:
@@ -394,7 +394,7 @@ def self_test():
     area = bytes([45, 0, 0, 20]) + struct.pack("<H", 360) + bytes([0, 0, 25, 30, 0, 0, 0, 0])
     prova("l'area di terza generazione", (45, 0, {360}), leggi_area(area, FORMATI["3"]))
 
-    # Il tipo imposto dall'esterno, che e' il caso dell'archivio degli sciami.
+    # Il tipo imposto dall'esterno, che è il caso dell'archivio degli sciami.
     prova("il tipo imposto vince su quello scritto", 6, leggi_area(area, FORMATI["3"], 6)[1])
 
     # La prima generazione: specie su un byte e casella da quattro.
@@ -413,7 +413,7 @@ def self_test():
     prova("l'area di seconda generazione salta le tariffe", (2, 8, {16, 19}),
           leggi_area(area, FORMATI["2"]))
 
-    # Controllo negativo: senza lo scostamento le specie sarebbero altre, e questa e' la prova che
+    # Controllo negativo: senza lo scostamento le specie sarebbero altre, e questa è la prova che
     # il presidio serva.
     senza = leggi_area(bytes([2, 0, 0, 20]) + corpo, FORMATI["2"])
     prova("e senza lo scostamento sarebbero diverse", True, senza[2] != {16, 19})
@@ -427,7 +427,7 @@ def self_test():
     ]
     a = analizza(finto, "3")
     prova("le aree contate", 3, a["aree"])
-    prova("il luogo dedicato e' quello di Wynaut", {45: 360}, a["dedicati"])
+    prova("il luogo dedicato è quello di Wynaut", {45: 360}, a["dedicati"])
     prova("la specie solo da sciame", [265], sorted(a["solo_condizione"]))
     prova("e quella che viene anche da un'area ordinaria non entra", False, 263 in a["solo_condizione"])
     prova("la famiglia della condizione", {("evento", "sciame nell'erba")},

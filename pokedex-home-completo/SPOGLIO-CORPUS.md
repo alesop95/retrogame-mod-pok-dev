@@ -2,13 +2,13 @@
 
 > Documento generato da `tools/spoglio-corpus.py`. Non si modifica a mano: si rigenera. Nasce dalla richiesta di leggere tutte le fonti del corpus come controllo incrociato, eseguita con il metodo del predicato invece che con la lettura in sequenza.
 
-Sono stati spogliati 292 documenti scaricati. Il riconoscimento e' sui vocabolari chiusi del dominio, cioe' i nomi inglesi di specie, mosse e fiocchi letti dalle tabelle del verificatore. Due limiti vanno dichiarati perche' si vedono nell'esito: i nomi corti o ambigui sono esclusi per non produrre falsi positivi, e un nome scritto in una lingua diversa dall'inglese non viene riconosciuto affatto.
+Sono stati spogliati 292 documenti scaricati. Il riconoscimento è sui vocabolari chiusi del dominio, cioè i nomi inglesi di specie, mosse e fiocchi letti dalle tabelle del verificatore. Due limiti vanno dichiarati perché si vedono nell'esito: i nomi corti o ambigui sono esclusi per non produrre falsi positivi, e un nome scritto in una lingua diversa dall'inglese non viene riconosciuto affatto.
 
-La direzione che interessa e' una sola, cioe' cio' che il corpus nomina e i nostri lotti non contengono. La direzione opposta non e' un difetto e non si riferisce, perche' il corpus non pretende di essere completo.
+La direzione che interessa è una sola, cioè ciò che il corpus nomina e i nostri lotti non contengono. La direzione opposta non è un difetto e non si riferisce, perché il corpus non pretende di essere completo.
 
 ## Specie
 
-Il corpus nomina 1000 specie distinte. I nostri lotti ne contengono 166, e 835 delle nominate non vi compaiono. L'assenza non e' di per se' una lacuna, perche' un lotto di distribuzioni non ha ragione di contenere ogni specie del gioco: e' una lista di controllo, e le voci che pesano sono quelle che compaiono in molti documenti.
+Il corpus nomina 1000 specie distinte. I nostri lotti ne contengono 166, e 835 delle nominate non vi compaiono. L'assenza non è di per sé una lacuna, perché un lotto di distribuzioni non ha ragione di contenere ogni specie del gioco: è una lista di controllo, e le voci che pesano sono quelle che compaiono in molti documenti.
 
 | Specie | Documenti che la nominano | Uno dei documenti |
 |---|---|---|
@@ -222,7 +222,7 @@ Il corpus nomina 397 mosse distinte fra quelle riconoscibili. I nostri lotti ne 
 
 ## Fiocchi
 
-Il corpus nomina 30 fiocchi distinti. Il progetto non ha ancora un'enumerazione dell'asse dei fiocchi, quindi qui non c'e' un confronto ma un elenco, ed e' il materiale di partenza per costruirla.
+Il corpus nomina 30 fiocchi distinti. Il progetto non ha ancora un'enumerazione dell'asse dei fiocchi, quindi qui non c'è un confronto ma un elenco, ed è il materiale di partenza per costruirla.
 
 | Fiocco | Documenti | Uno dei documenti |
 |---|---|---|

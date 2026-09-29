@@ -2,40 +2,40 @@
 # -*- coding: utf-8 -*-
 """Confronta l'enumerazione del progetto con quella di PokePC Classic, terza misura indipendente.
 
-Perche' una terza enumerazione
+Perché una terza enumerazione
 ------------------------------
 Il progetto aveva due enumerazioni del living dex, la propria e quella del foglio comunitario, e
 `tools/confronta-foglio-livingdex.py` le mette una accanto all'altra. Due misure che divergono
-dicono che una delle due sbaglia e non quale: e' il caso classico in cui la terza misura vale piu'
-della somma delle prime due, perche' rompe la parita'. PokePC Classic, gia' SuperEffective.gg, e'
+dicono che una delle due sbaglia e non quale: è il caso classico in cui la terza misura vale più
+della somma delle prime due, perché rompe la parità. PokePC Classic, già SuperEffective.gg, è
 un tracciatore di living dex che pubblica i propri dati come JSON sotto licenza MIT, quindi la sua
 enumerazione si legge dal dato e non dall'interfaccia, il che la rende confrontabile riga per riga
 invece che a occhio.
 
-Che cosa e' la sua enumerazione, esattamente
+Che cosa è la sua enumerazione, esattamente
 --------------------------------------------
-Non e' una lista di specie ma una disposizione in scatole, cioe' l'elenco delle caselle che quel
-tracciatore ritiene si debbano riempire per dire completo un deposito. E' precisamente la domanda
-che la nostra lista di spunta dichiara indeterminata, cioe' quali forme il deposito conti come
+Non è una lista di specie ma una disposizione in scatole, cioè l'elenco delle caselle che quel
+tracciatore ritiene si debbano riempire per dire completo un deposito. È precisamente la domanda
+che la nostra lista di spunta dichiara indeterminata, cioè quali forme il deposito conti come
 casella separata, quindi vale come risposta di terzo livello a una domanda su cui nessuna fonte di
 primo livello si pronuncia. Le disposizioni disponibili per il deposito sono sette, e la prima
-stesura di questo programma assumeva che differissero per il solo ordinamento: non e' vero, perche'
+stesura di questo programma assumeva che differissero per il solo ordinamento: non è vero, perché
 due di esse danno una casella propria alla forma gigamax e due si dichiarano minime. Il programma
 quindi non lo assume ma lo misura, le raggruppa per insieme di voci collocate e dichiara nel
 documento quale delle sette usa e che cosa quella scelta cambi nel totale.
 
 Il programma non fonde e non decide, per la stessa ragione del suo fratello maggiore: due misure
-indipendenti valgono in quanto indipendenti. Classifica pero' le divergenze, e qui la
-classificazione e' migliore di quella sul foglio, perche' i dati di PokePC portano per ogni voce i
-contrassegni che dicono che cosa essa sia, cioe' forma femminile, forma cosmetica, forma di sola
-battaglia, megaevoluzione o gigamax. Una divergenza classificata per contrassegno e' un fatto e non
+indipendenti valgono in quanto indipendenti. Classifica però le divergenze, e qui la
+classificazione è migliore di quella sul foglio, perché i dati di PokePC portano per ogni voce i
+contrassegni che dicono che cosa essa sia, cioè forma femminile, forma cosmetica, forma di sola
+battaglia, megaevoluzione o gigamax. Una divergenza classificata per contrassegno è un fatto e non
 un indizio.
 
 Da dove vengono i dati
 ----------------------
 Dal deposito pubblico `pokepc/classic.pokepc.net`, file `legacy-pokemon.min.json` e
 `legacy-boxpresets.min.json` sotto `src/lib/data-client`, scaricati in `_notes/fonti/raccolte/pokepc/`, che
-e' materiale di terzi e non entra nel version control: cio' che entra e' questo confronto. I due
+è materiale di terzi e non entra nel version control: ciò che entra è questo confronto. I due
 file si riprendono con le due righe seguenti, che sono l'unica dipendenza esterna del programma.
 
     curl -sL -o _notes/fonti/raccolte/pokepc/pokemon.min.json https://raw.githubusercontent.com/pokepc/classic.pokepc.net/main/src/lib/data-client/pokemon/legacy-pokemon.min.json
@@ -68,14 +68,14 @@ DISPOSIZIONE = "fully-sorted"
 MAX_SPECIE = 1025
 
 # I contrassegni che il dato porta per ogni voce, nell'ordine in cui il programma li prova: la
-# prima corrispondenza vince, cosicche' una voce cada in una classe sola e le classi si sommino
+# prima corrispondenza vince, cosicché una voce cada in una classe sola e le classi si sommino
 # al totale senza doppi conteggi.
 CLASSI = (
-    ("isFemaleForm", "forma femminile, cioe' una differenza di sesso resa come voce propria"),
+    ("isFemaleForm", "forma femminile, cioè una differenza di sesso resa come voce propria"),
     ("isMega", "megaevoluzione"),
     ("isGmax", "forma gigamax"),
     ("isBattleOnlyForm", "forma di sola battaglia"),
-    ("isCosmeticForm", "forma cosmetica, cioe' una variante che il campo della forma non separa"),
+    ("isCosmeticForm", "forma cosmetica, cioè una variante che il campo della forma non separa"),
 )
 
 
@@ -83,19 +83,19 @@ def carica_fratello():
     """Il lettore della nostra lista di spunta, preso dal programma che lo possiede invece di ricopiarlo.
 
     La regola che il progetto applica altrove vale anche qui: chi ha bisogno di una tavola o di un
-    lettore che vive gia' in un altro programma lo carica come modulo, cosicche' una correzione la'
-    valga anche qui. Il nome del file porta trattini e non e' un identificativo Python valido,
+    lettore che vive già in un altro programma lo carica come modulo, cosicché una correzione là
+    valga anche qui. Il nome del file porta trattini e non è un identificativo Python valido,
     quindi il caricamento passa dalla via esplicita invece che da un import.
     """
     import importlib.util
     percorso = os.path.join(RADICE, "tools", "confronta-foglio-livingdex.py")
     if not os.path.exists(percorso):
-        return None, "manca il programma che legge la nostra lista, cioe' " + percorso
+        return None, "manca il programma che legge la nostra lista, cioè " + percorso
     spec = importlib.util.spec_from_file_location("confronta_foglio_livingdex", percorso)
     modulo = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(modulo)
     if not hasattr(modulo, "leggi_nostra"):
-        return None, "il programma fratello non espone piu' il lettore della nostra lista"
+        return None, "il programma fratello non espone più il lettore della nostra lista"
     return modulo, None
 
 
@@ -126,9 +126,9 @@ def carica_disposizione(percorso, insieme=INSIEME, quale=DISPOSIZIONE):
     def identificativi(voce):
         """Le caselle piene di una disposizione, come coppia fra identificativo e contrassegno gigamax.
 
-        Una cella e' di norma un identificativo, ma puo' essere una casella vuota, che si salta, o un
+        Una cella è di norma un identificativo, ma può essere una casella vuota, che si salta, o un
         oggetto con un contrassegno gigamax: in quel caso la casella chiede la forma gigamax della
-        medesima specie, quindi e' un collezionabile distinto e va contata a parte. Identificare una
+        medesima specie, quindi è un collezionabile distinto e va contata a parte. Identificare una
         cella con il solo identificativo, come il programma faceva alla prima stesura, confonde le due
         e fa sparire trentotto caselle nelle disposizioni che le usano.
         """
@@ -155,13 +155,13 @@ def classe_di(voce):
     for campo, etichetta in CLASSI:
         if voce.get(campo):
             return etichetta
-    return "altra forma, cioe' una variante che il campo della forma separa"
+    return "altra forma, cioè una variante che il campo della forma separa"
 
 
 def conta_per_dex(scelti, per_id):
     """Il conto delle caselle per numero di catalogo, e le voci sconosciute all'anagrafica.
 
-    Una casella con il contrassegno gigamax non e' la voce che il suo identificativo nomina ma la
+    Una casella con il contrassegno gigamax non è la voce che il suo identificativo nomina ma la
     forma gigamax di quella specie, quindi entra nel conto con una classe propria invece di
     duplicare la voce base.
     """
@@ -180,7 +180,7 @@ def conta_per_dex(scelti, per_id):
 
 
 def indizio_loro(voci):
-    """Che cosa PokePC conti in piu' su una specie, per classe e non per congettura."""
+    """Che cosa PokePC conti in più su una specie, per classe e non per congettura."""
     classi = {}
     for voce in voci:
         if voce.get("isDefault") and not voce.get("isForm"):
@@ -231,9 +231,9 @@ def componi(conto_loro, dettaglio, nostro, escluse, ignote, sorelle):
     r.append("")
     r.append("> Documento generato da `tools/confronta-livingdex-pokepc.py`. Non si modifica a mano: si rigenera. Non fonde le due enumerazioni e non decide chi abbia ragione; le mette una accanto all'altra e classifica le divergenze per contrassegno.")
     r.append("")
-    r.append("PokePC Classic, gia' SuperEffective.gg, e' un tracciatore di living dex che pubblica i propri dati come JSON sotto licenza MIT. E' la terza enumerazione indipendente che il progetto possiede, dopo la propria e quella del foglio comunitario, e serve a rompere la parita' fra le prime due: due misure che divergono dicono che una sbaglia e non quale. Resta una fonte di terzo livello, cioe' l'implementazione di un autore, e vale come controprova e non come autorita'.")
+    r.append("PokePC Classic, già SuperEffective.gg, è un tracciatore di living dex che pubblica i propri dati come JSON sotto licenza MIT. È la terza enumerazione indipendente che il progetto possiede, dopo la propria e quella del foglio comunitario, e serve a rompere la parità fra le prime due: due misure che divergono dicono che una sbaglia e non quale. Resta una fonte di terzo livello, cioè l'implementazione di un autore, e vale come controprova e non come autorità.")
     r.append("")
-    r.append("Cio' che si confronta non e' una lista di specie ma una disposizione in scatole, cioe' l'elenco delle caselle che quel tracciatore ritiene si debbano riempire perche' un deposito sia completo. E' esattamente la domanda che la nostra lista di spunta dichiara indeterminata, cioe' quali forme il deposito conti come casella separata.")
+    r.append("Ciò che si confronta non è una lista di specie ma una disposizione in scatole, cioè l'elenco delle caselle che quel tracciatore ritiene si debbano riempire perché un deposito sia completo. È esattamente la domanda che la nostra lista di spunta dichiara indeterminata, cioè quali forme il deposito conti come casella separata.")
     r.append("")
     r.append("## Il conto delle due enumerazioni")
     r.append("")
@@ -244,7 +244,7 @@ def componi(conto_loro, dettaglio, nostro, escluse, ignote, sorelle):
     r.append("| voci oltre la specie base | %d | %d |" % (loro_totale - dex_loro, nostro_totale - MAX_SPECIE))
     r.append("| specie su cui le due concordano | %d | %d |" % (accordo, accordo))
     r.append("")
-    r.append("Lo scarto complessivo e' di %d voci, e come nel confronto con il foglio va letto nelle due direzioni separatamente, perche' sono scarti di natura diversa che si compensano in parte. PokePC conta piu' di noi su %d specie, per %d voci in eccesso; noi contiamo piu' di PokePC su %d specie, per %d voci."
+    r.append("Lo scarto complessivo è di %d voci, e come nel confronto con il foglio va letto nelle due direzioni separatamente, perché sono scarti di natura diversa che si compensano in parte. PokePC conta più di noi su %d specie, per %d voci in eccesso; noi contiamo più di PokePC su %d specie, per %d voci."
              % (abs(loro_totale - nostro_totale), len(piu_loro),
                 sum(l - n for _, _, l, n, _ in piu_loro), len(piu_nostre),
                 sum(n - l for _, _, l, n, _ in piu_nostre)))
@@ -260,7 +260,7 @@ def componi(conto_loro, dettaglio, nostro, escluse, ignote, sorelle):
     r.append("")
     r.append("## Le disposizioni sorelle, che non concordano fra loro")
     r.append("")
-    r.append("Le disposizioni del deposito sono %d, e la prima stesura di questo programma assumeva che differissero per il solo ordinamento. Non e' vero, e la verifica lo dice: si raggruppano per insieme di voci collocate in %d insiemi distinti. La differenza non e' un difetto del dato ma una scelta di chi lo ha scritto, cioe' se dare una casella propria alla forma gigamax di una specie che ne ha una."
+    r.append("Le disposizioni del deposito sono %d, e la prima stesura di questo programma assumeva che differissero per il solo ordinamento. Non è vero, e la verifica lo dice: si raggruppano per insieme di voci collocate in %d insiemi distinti. La differenza non è un difetto del dato ma una scelta di chi lo ha scritto, cioè se dare una casella propria alla forma gigamax di una specie che ne ha una."
              % (len(sorelle), len(gruppi)))
     r.append("")
     r.append("| Voci collocate | Disposizioni |")
@@ -268,27 +268,27 @@ def componi(conto_loro, dettaglio, nostro, escluse, ignote, sorelle):
     for insieme, nomi in sorted(gruppi.items(), key=lambda x: -len(x[0])):
         r.append("| %d | %s |" % (len(insieme), ", ".join(sorted(nomi))))
     r.append("")
-    r.append("Il confronto usa `%s`, che appartiene al gruppo intermedio: conta le forme regionali e le differenze di sesso, non duplica una specie per la sua forma gigamax, e non applica la compattazione delle due dichiarate minime. La scelta va dichiarata perche' cambia il totale di trentotto voci in un verso e di quattordici nell'altro."
+    r.append("Il confronto usa `%s`, che appartiene al gruppo intermedio: conta le forme regionali e le differenze di sesso, non duplica una specie per la sua forma gigamax, e non applica la compattazione delle due dichiarate minime. La scelta va dichiarata perché cambia il totale di trentotto voci in un verso e di quattordici nell'altro."
              % DISPOSIZIONE)
     if ignote:
         r.append("")
-        r.append("Voci collocate in una casella e ignote all'anagrafica: %d, cioe' %s. Sono escluse dal confronto e la loro presenza va spiegata prima di fidarsi del totale."
+        r.append("Voci collocate in una casella e ignote all'anagrafica: %d, cioè %s. Sono escluse dal confronto e la loro presenza va spiegata prima di fidarsi del totale."
                  % (len(ignote), ", ".join(sorted(set(ignote))[:10])))
     r.append("")
-    r.append("## Dove PokePC conta piu' di noi")
+    r.append("## Dove PokePC conta più di noi")
     r.append("")
-    r.append("Sono %d specie. La classe prevalente dice la natura della nostra cecita': cio' che il campo della forma non separa, come le differenze di sesso e le varianti cosmetiche, non entra nella nostra enumerazione perche' la leggiamo dalla struttura del dato e non da un catalogo di collezionabili." % len(piu_loro))
+    r.append("Sono %d specie. La classe prevalente dice la natura della nostra cecità: ciò che il campo della forma non separa, come le differenze di sesso e le varianti cosmetiche, non entra nella nostra enumerazione perché la leggiamo dalla struttura del dato e non da un catalogo di collezionabili." % len(piu_loro))
     r.append("")
-    r.append("| Dex | Specie | PokePC | Nostra | Che cosa conta in piu' |")
+    r.append("| Dex | Specie | PokePC | Nostra | Che cosa conta in più |")
     r.append("|---|---|---|---|---|")
     for n, nome, loro, noi, indizio in piu_loro:
         r.append("| %d | %s | %d | %d | %s |" % (n, nome, loro, noi, indizio))
     r.append("")
-    r.append("## Dove contiamo piu' di PokePC")
+    r.append("## Dove contiamo più di PokePC")
     r.append("")
     r.append("Sono %d specie. Qui la lettura si rovescia: la nostra enumerazione legge le posizioni di forma dalla tabella del gioco, e quel numero comprende posizioni che non sono oggetti distinti da possedere." % len(piu_nostre))
     r.append("")
-    r.append("| Dex | Specie | PokePC | Nostra | Perche' |")
+    r.append("| Dex | Specie | PokePC | Nostra | Perché |")
     r.append("|---|---|---|---|---|")
     for n, nome, loro, noi, motivo in piu_nostre:
         r.append("| %d | %s | %d | %d | %s |" % (n, nome, loro, noi, motivo))
@@ -306,10 +306,10 @@ def self_test():
             print("  FALLITO %s: atteso %r, ottenuto %r" % (nome, atteso, ottenuto))
 
     prova("il tetto delle specie", 1025, MAX_SPECIE)
-    prova("l'insieme confrontato e' il deposito", "home", INSIEME)
+    prova("l'insieme confrontato è il deposito", "home", INSIEME)
 
-    # La classificazione per contrassegno, che e' la sola cosa che il programma decide da se'.
-    prova("una forma femminile e' una differenza di sesso", True,
+    # La classificazione per contrassegno, che è la sola cosa che il programma decide da sé.
+    prova("una forma femminile è una differenza di sesso", True,
           "differenza di sesso" in classe_di({"isFemaleForm": True}))
     prova("una megaevoluzione ha classe propria", "megaevoluzione", classe_di({"isMega": True}))
     prova("il primo contrassegno vince sul secondo", True,
@@ -317,7 +317,7 @@ def self_test():
     prova("una forma senza contrassegni cade nella classe residua", True,
           "altra forma" in classe_di({}))
 
-    # Il conto per numero di catalogo, e il rifiuto dichiarato di cio' che l'anagrafica non conosce.
+    # Il conto per numero di catalogo, e il rifiuto dichiarato di ciò che l'anagrafica non conosce.
     per_id = {"a": {"id": "a", "dexNum": 1, "name": "Uno", "isDefault": True, "isForm": False},
               "a-f": {"id": "a-f", "dexNum": 1, "name": "Uno", "isForm": True, "isFemaleForm": True}}
     conto, dettaglio, ignote = conta_per_dex([("a", False), ("a-f", False), ("ignoto", False)], per_id)

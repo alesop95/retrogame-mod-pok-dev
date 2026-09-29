@@ -13,11 +13,11 @@ https://bulbapedia.bulbagarden.net/wiki/QR_Scanner
 
 ## Abstract
 
-Pagina enciclopedica letta il 2026-09-12. Descrive il meccanismo che, accumulati cento punti, rende disponibile per un'ora una specie non nativa della regione, diversa per isola e per giorno della settimana, e ne enumera quarantasette fra le due coppie di titoli della settima generazione. Dichiara che ciascuna conosce una mossa che a quel livello non avrebbe, e che natura, abilita' e dati si rigenerano a ogni incontro se si fugge.
+Pagina enciclopedica letta il 2026-09-12. Descrive il meccanismo che, accumulati cento punti, rende disponibile per un'ora una specie non nativa della regione, diversa per isola e per giorno della settimana, e ne enumera quarantasette fra le due coppie di titoli della settima generazione. Dichiara che ciascuna conosce una mossa che a quel livello non avrebbe, e che natura, abilità e dati si rigenerano a ogni incontro se si fugge.
 
 ## Perché è in archivio
 
-Da' al progetto un insieme che non aveva, e che contiene i capostipiti di ogni regione precedente: e' quindi una via alla loro cattura dentro la settima generazione invece che un trasferimento. La mossa che l'esemplare porta e' la traccia che lo rende distinguibile da una cattura ordinaria.
+Da' al progetto un insieme che non aveva, e che contiene i capostipiti di ogni regione precedente: è quindi una via alla loro cattura dentro la settima generazione invece che un trasferimento. La mossa che l'esemplare porta è la traccia che lo rende distinguibile da una cattura ordinaria.
 
 ## A quale punto del progetto serve
 

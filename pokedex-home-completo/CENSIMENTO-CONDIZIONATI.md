@@ -1,10 +1,10 @@
 # Censimento degli incontri che una condizione sblocca
 
-> Documento generato da `tools/censimento-condizionati.py` dalle tabelle degli incontri selvatici del verificatore. Non si modifica a mano: si rigenera. Copre dalla prima alla quinta generazione, cioe' i titoli la cui via verso il deposito passa dalla banca.
+> Documento generato da `tools/censimento-condizionati.py` dalle tabelle degli incontri selvatici del verificatore. Non si modifica a mano: si rigenera. Copre dalla prima alla quinta generazione, cioè i titoli la cui via verso il deposito passa dalla banca.
 
-I due criteri sono dichiarati nel docstring del programma e vanno letti prima dei numeri. Il primo e' il tipo di casella, dove alcuni tipi sono essi stessi una condizione, divisi fra condizione di evento e condizione di metodo. Il secondo e' il luogo dedicato, cioe' un luogo che in tutto il titolo ospita una sola specie: la sua presenza sul dato di un esemplare identifica quell'incontro e nessun altro.
+I due criteri sono dichiarati nel docstring del programma e vanno letti prima dei numeri. Il primo è il tipo di casella, dove alcuni tipi sono essi stessi una condizione, divisi fra condizione di evento e condizione di metodo. Il secondo è il luogo dedicato, cioè un luogo che in tutto il titolo ospita una sola specie: la sua presenza sul dato di un esemplare identifica quell'incontro e nessun altro.
 
-Il limite da tenere presente e' che qui stanno le sole vie selvatiche: incontri fissi, doni e scambi stanno in altre tabelle, quindi una specie che risulti ottenibile solo da una condizione lo e' fra le vie selvatiche e non necessariamente in assoluto.
+Il limite da tenere presente è che qui stanno le sole vie selvatiche: incontri fissi, doni e scambi stanno in altre tabelle, quindi una specie che risulti ottenibile solo da una condizione lo è fra le vie selvatiche e non necessariamente in assoluto.
 
 ## Quadro d'insieme
 
@@ -34,7 +34,7 @@ Il limite da tenere presente e' che qui stanno le sole vie selvatiche: incontri 
 
 ## Le specie che fra le vie selvatiche vengono solo da una condizione
 
-E' la parte che pesa per la collezione, perche' un esemplare di queste specie porta necessariamente la traccia della condizione che lo ha prodotto.
+È la parte che pesa per la collezione, perché un esemplare di queste specie porta necessariamente la traccia della condizione che lo ha prodotto.
 
 ### Oro
 
@@ -479,7 +479,7 @@ E' la parte che pesa per la collezione, perche' un esemplare di queste specie po
 
 ## Le aree che ospitano una specie sola, e non compare altrove nel titolo
 
-E' il criterio che coglie il caso da cui questo lavoro e' nato, e la sua formulazione e' una correzione a come la classe era stata immaginata. L'Isola Miraggio non ha un luogo proprio: la fonte la tiene come l'area d'erba del luogo che la rotta affaccia, e quel medesimo luogo porta accanto le proprie aree d'acqua ordinarie, quindi cercare un luogo dedicato non la trova mai. Cio' che la distingue e' che la sua area ospita una specie sola e che quella specie non compare in nessun'altra area del titolo: la traccia sul dato e' allora la terna fra luogo, tipo di casella e specie, non il nome del luogo.
+È il criterio che coglie il caso da cui questo lavoro è nato, e la sua formulazione è una correzione a come la classe era stata immaginata. L'Isola Miraggio non ha un luogo proprio: la fonte la tiene come l'area d'erba del luogo che la rotta affaccia, e quel medesimo luogo porta accanto le proprie aree d'acqua ordinarie, quindi cercare un luogo dedicato non la trova mai. Ciò che la distingue è che la sua area ospita una specie sola e che quella specie non compare in nessun'altra area del titolo: la traccia sul dato è allora la terna fra luogo, tipo di casella e specie, non il nome del luogo.
 
 ### Oro
 
@@ -683,7 +683,7 @@ E' il criterio che coglie il caso da cui questo lavoro e' nato, e la sua formula
 
 ## I luoghi dedicati a una sola specie
 
-Un luogo dedicato e' il criterio piu' stretto: se in tutto il titolo quel numero di luogo ospita una specie sola, contando tutte le sue aree, allora un esemplare che lo porti viene da la' e da nessun altro posto. E' piu' stretto del criterio precedente e non lo sostituisce, perche' un luogo che ospiti anche una sola area d'acqua ordinaria esce da questo elenco pur restando una traccia valida nel precedente.
+Un luogo dedicato è il criterio più stretto: se in tutto il titolo quel numero di luogo ospita una specie sola, contando tutte le sue aree, allora un esemplare che lo porti viene da là e da nessun altro posto. È più stretto del criterio precedente e non lo sostituisce, perché un luogo che ospiti anche una sola area d'acqua ordinaria esce da questo elenco pur restando una traccia valida nel precedente.
 
 ### Giallo
 

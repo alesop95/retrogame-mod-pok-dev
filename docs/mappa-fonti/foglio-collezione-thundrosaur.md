@@ -14,11 +14,11 @@ https://www.reddit.com/r/PokemonHome/comments/xp1ise/
 
 ## Abstract
 
-Foglio comunitario del 2022, letto il 2026-09-10, che l'autore dichiara composto prendendo gli elementi migliori da piu' strumenti precedenti. Tiene insieme sei tracciatori distinti: il catalogo vivente, il catalogo degli esemplari di taglia massima, i marchi di origine, i marchi ordinari, i fiocchi e le sfere di cattura.
+Foglio comunitario del 2022, letto il 2026-09-10, che l'autore dichiara composto prendendo gli elementi migliori da più strumenti precedenti. Tiene insieme sei tracciatori distinti: il catalogo vivente, il catalogo degli esemplari di taglia massima, i marchi di origine, i marchi ordinari, i fiocchi e le sfere di cattura.
 
 ## Perché è in archivio
 
-E' la prima fonte che enumeri gli assi della collezione nella stessa forma in cui il progetto li ha ricostruiti per conto proprio, e li enumera quattro anni prima: la coincidenza fra i suoi sei tracciatori e i nostri sei assi e' una conferma indipendente che l'insieme degli assi sia quello e non un altro.
+È la prima fonte che enumeri gli assi della collezione nella stessa forma in cui il progetto li ha ricostruiti per conto proprio, e li enumera quattro anni prima: la coincidenza fra i suoi sei tracciatori e i nostri sei assi è una conferma indipendente che l'insieme degli assi sia quello e non un altro.
 
 ## A quale punto del progetto serve
 

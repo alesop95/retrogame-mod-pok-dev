@@ -1,12 +1,12 @@
 # Le specie con differenze di sesso visibili
 
-> Documento generato da `tools/enumera-differenze-sesso.py` dalla pagina di Bulbapedia salvata in `_notes/fonti/`. Non si modifica a mano: si rigenera. La fonte e' di secondo livello e serve a enumerare, non a decidere: il conto che il progetto adotta resta quello del foglio comunitario, e questo documento dice quali siano le specie che quel conto conta.
+> Documento generato da `tools/enumera-differenze-sesso.py` dalla pagina di Bulbapedia salvata in `_notes/fonti/`. Non si modifica a mano: si rigenera. La fonte è di secondo livello e serve a enumerare, non a decidere: il conto che il progetto adotta resta quello del foglio comunitario, e questo documento dice quali siano le specie che quel conto conta.
 
 Le specie estratte sono 102 e la pagina ne dichiara 102 nella prosa delle sue sezioni. I due numeri concordano su tutte le generazioni.
 
-La pagina aggiunge fuori tabella una differenza, che non e' una specie in piu' ma una voce sull'asse delle forme: Sneasel nella sua Hisuian form.
+La pagina aggiunge fuori tabella una differenza, che non è una specie in più ma una voce sull'asse delle forme: Sneasel nella sua Hisuian form.
 
-Dentro le tabelle ci sono inoltre 1 righe che ripetono un numero di catalogo gia' presente: sono forme regionali e non specie, e vanno sull'asse delle forme come la precedente. Sono 0215 nella generazione II.
+Dentro le tabelle ci sono inoltre 1 righe che ripetono un numero di catalogo già presente: sono forme regionali e non specie, e vanno sull'asse delle forme come la precedente. Sono 0215 nella generazione II.
 
 ## Generazione I
 

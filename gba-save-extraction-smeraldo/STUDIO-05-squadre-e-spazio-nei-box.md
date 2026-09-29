@@ -215,7 +215,7 @@ L'esito, confrontato con la copia migliore del sesto giro: le undici coppie sono
 
 Per portare il lotto corretto sulla cartuccia, `emerald_riordino_deposito.py` ha una modalità nuova, `--sostituisci-lotto`, che rimpiazza soltanto le sessantaquattro posizioni dei box 12-14 dopo aver verificato che contengano esattamente i file del sesto giro, conservati in `_notes/lotti/lotto-parco-lotta/esemplari-round6/`, e che lascia identico byte per byte tutto il resto. Restano da fare, in ordine, il settimo giro di verifica in PKHeX, un'estrazione nuova della cartuccia, la sostituzione e la rilettura.
 
-Un terzo difetto dello stesso genere lo ha trovato il proprietario poco dopo, e ha la stessa forma dei due precedenti: un campo che nessun verificatore contesta perche' il suo valore e' legittimo, e che tuttavia rende l'esemplare peggiore di come e' stato progettato. Ritorno non ha una potenza fissa; la calcola `Cmd_happinesstodamagecalculation` in `src/battle_script_commands.c`, riga 8606, come dieci volte l'amicizia divisa per venticinque.
+Un terzo difetto dello stesso genere lo ha trovato il proprietario poco dopo, e ha la stessa forma dei due precedenti: un campo che nessun verificatore contesta perché il suo valore è legittimo, e che tuttavia rende l'esemplare peggiore di come è stato progettato. Ritorno non ha una potenza fissa; la calcola `Cmd_happinesstodamagecalculation` in `src/battle_script_commands.c`, riga 8606, come dieci volte l'amicizia divisa per venticinque.
 
 ```c
 if (gBattleMoves[gCurrentMove].effect == EFFECT_RETURN)
@@ -224,7 +224,7 @@ else // EFFECT_FRUSTRATION
     gDynamicBasePower = 10 * (MAX_FRIENDSHIP - gBattleMons[gBattlerAttacker].friendship) / 25;
 ```
 
-Il generatore scriveva a ogni esemplare l'amicizia di base della specie, settanta, quindi i quattro esemplari del catalogo che portano Ritorno, cioe' Gyarados, Slaking, Snorlax e Tauros, lo usavano a ventotto di potenza invece che a centodue, e lo Slaking e' il titolare della Cupola. L'amicizia massima e' legittima, perche' in terza generazione si raggiunge giocando e il verificatore non la vincola su un esemplare che non sia un uovo; il generatore la scrive ora per chi porta Ritorno, e zero per chi porta Frustrazione, e la verifica interna lo controlla. E' l'ottavo giro del lotto: cambiano soltanto quegli otto file, e le personalita' restano le stesse.
+Il generatore scriveva a ogni esemplare l'amicizia di base della specie, settanta, quindi i quattro esemplari del catalogo che portano Ritorno, cioè Gyarados, Slaking, Snorlax e Tauros, lo usavano a ventotto di potenza invece che a centodue, e lo Slaking è il titolare della Cupola. L'amicizia massima è legittima, perché in terza generazione si raggiunge giocando e il verificatore non la vincola su un esemplare che non sia un uovo; il generatore la scrive ora per chi porta Ritorno, e zero per chi porta Frustrazione, e la verifica interna lo controlla. È l'ottavo giro del lotto: cambiano soltanto quegli otto file, e le personalità restano le stesse.
 
 ## 17. Il deposito pieno: catture che tornano, il lotto in coda, e una mappa di ogni posizione
 

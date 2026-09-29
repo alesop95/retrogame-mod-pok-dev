@@ -168,12 +168,12 @@ Cinque consegnate dal proprietario come collegamenti e una come schermate. Le qu
 
 | Fonte | URL | Autorevole su | Track |
 |---|---|---|---|
-| Reddit, r/PokemonHome, "Guys im so close!" (Party-Comfort1166, 2026-09-17, 58 commenti letti) | https://www.reddit.com/r/PokemonHome/comments/1wiexvz/ | testimonianza concorde di almeno sette utenti che Spinda da Diamante Lucente e Perla Splendente e da Pokemon GO non entra in HOME e va portato dalla Banca, seconda conferma indipendente di cio' che il progetto registrava; vie citate per Celebi, Deoxys, Victini e Zarude, con Zarude oggi ottenibile solo per scambio da evento e Victini per la via del DNS nella quinta generazione. DA VERIFICARE: le affermazioni su Rosso Fuoco e Verde Foglia per Switch e su un Celebi premio di completamento a ottobre, e Victini in GO, su cui due commentatori si contraddicono | PKD, EVT |
+| Reddit, r/PokemonHome, "Guys im so close!" (Party-Comfort1166, 2026-09-17, 58 commenti letti) | https://www.reddit.com/r/PokemonHome/comments/1wiexvz/ | testimonianza concorde di almeno sette utenti che Spinda da Diamante Lucente e Perla Splendente e da Pokemon GO non entra in HOME e va portato dalla Banca, seconda conferma indipendente di ciò che il progetto registrava; vie citate per Celebi, Deoxys, Victini e Zarude, con Zarude oggi ottenibile solo per scambio da evento e Victini per la via del DNS nella quinta generazione. DA VERIFICARE: le affermazioni su Rosso Fuoco e Verde Foglia per Switch e su un Celebi premio di completamento a ottobre, e Victini in GO, su cui due commentatori si contraddicono | PKD, EVT |
 | Reddit, r/PokemonHome, "What are the rarest pokemon you can have in Pokemon home?" (Creeper_1706, 2026-09-16, 134 nodi letti) | https://www.reddit.com/r/PokemonHome/comments/1whsivx/ | lista di doppio controllo delle classi rare che la checklist potrebbe non enumerare: combinazioni di palla esclusive di HeartGold e SoulSilver, evoluti sottolivellati da scambi in gioco, esemplari di XD e di e-Reader con il Nastro Nazionale, Magearna beta, il contrassegno Game Boy, Vivillon Motivo Poke Ball. Non letti: un Google Doc sui sottolivellati, che andrebbe esportato dal proprietario. Porta anche citazioni di salvataggi scaricati, fuori perimetro | PKD |
 | Reddit, r/PokemonBlackandWhite, "Mystery Gift pokemon in 2026!" (lamperouge01, 2026-09-14) | https://www.reddit.com/r/PokemonBlackandWhite/comments/1wgfaqy/ | testimonianza che la ricezione dei vecchi doni segreti di Nero e Bianco via server di replica funziona al settembre 2026 in quinta generazione, con esito incerto in quarta; il contenuto dei doni e i DNS sono in un video di Kevdog Plays non visto | EVT, PKD |
-| Reddit, r/PokemonHome, "Pokémon HOME full Living Form Dex as of September 2026" (Kawaii_Desu-Chan, 2026-09-17) | https://www.reddit.com/r/PokemonHome/comments/1wikysp/ | solo le categorie di un catalogo completo di forme al 2026, cioè scatole degli Alpha per gioco e i cosiddetti Legacy Alphas, da confrontare con la checklist; la sostanza e' in un video del canale Blinky non visto | PKD |
-| Instagram, clorogaming, carosello sui Pokemon da trasferire prima della chiusura della Banca (circa 2026-09-19) | https://www.instagram.com/clorogaming/ | nulla in modo autorevole; sette voci da controllare, di cui una IN DISACCORDO con la checklist, cioe' il Vivillon Motivo Poke Ball che il carosello dice ottenibile solo dalla Banca e la checklist per via diretta, disaccordo RISOLTO il 2026-09-23 a favore del carosello sul verificatore e su Serebii, come registrato in `pending.md`, e una nuova, cioe' le distribuzioni della Banca con il Classic Ribbon | PKD |
-| PokePC, living dex in linea, riletto il 2026-09-23 | https://pokepc.net/livingdex | aggiornamento della voce gia' registrata: e' ora un'applicazione nuova con i dati incorporati nell'HTML e leggibili da programma, le sette disposizioni sono le stesse e quella usata dal confronto conta ancora 1387 voci; il tracciatore classico ha chiuso le iscrizioni il 2026-09-22 con la release v3.20.0, e i dati vivi vengono verosimilmente da `pokepc/dataset`, aggiornato lo stesso giorno, quindi il confronto sul classico puo' invecchiare. Copie della pagina viva in `_notes/fonti/raccolte/pokepc/2026-09-23-livingdex-live-*.html` | PKD |
+| Reddit, r/PokemonHome, "Pokémon HOME full Living Form Dex as of September 2026" (Kawaii_Desu-Chan, 2026-09-17) | https://www.reddit.com/r/PokemonHome/comments/1wikysp/ | solo le categorie di un catalogo completo di forme al 2026, cioè scatole degli Alpha per gioco e i cosiddetti Legacy Alphas, da confrontare con la checklist; la sostanza è in un video del canale Blinky non visto | PKD |
+| Instagram, clorogaming, carosello sui Pokemon da trasferire prima della chiusura della Banca (circa 2026-09-19) | https://www.instagram.com/clorogaming/ | nulla in modo autorevole; sette voci da controllare, di cui una IN DISACCORDO con la checklist, cioè il Vivillon Motivo Poke Ball che il carosello dice ottenibile solo dalla Banca e la checklist per via diretta, disaccordo RISOLTO il 2026-09-23 a favore del carosello sul verificatore e su Serebii, come registrato in `pending.md`, e una nuova, cioè le distribuzioni della Banca con il Classic Ribbon | PKD |
+| PokePC, living dex in linea, riletto il 2026-09-23 | https://pokepc.net/livingdex | aggiornamento della voce già registrata: è ora un'applicazione nuova con i dati incorporati nell'HTML e leggibili da programma, le sette disposizioni sono le stesse e quella usata dal confronto conta ancora 1387 voci; il tracciatore classico ha chiuso le iscrizioni il 2026-09-22 con la release v3.20.0, e i dati vivi vengono verosimilmente da `pokepc/dataset`, aggiornato lo stesso giorno, quindi il confronto sul classico può invecchiare. Copie della pagina viva in `_notes/fonti/raccolte/pokepc/2026-09-23-livingdex-live-*.html` | PKD |
 
 ## Le fonti sulle voci speciali, consegnate il 2026-09-25
 
@@ -208,9 +208,9 @@ Il proprietario ha consegnato le fonti che usa per l'Azienda Lotta di Smeraldo i
 
 ## Indice unico: dove sta ciascuna fonte, e dove finisce
 
-> Blocco generato da `tools/indice-fonti-unico.py`. Non si modifica a mano: si rigenera. Non aggiunge e non toglie fonti, perche' non e' un registro ma una vista: mette in corrispondenza le tre liste che il progetto gia' possiede, cioe' le fonti registrate, le voci del corpus e le citazioni della tesi.
+> Blocco generato da `tools/indice-fonti-unico.py`. Non si modifica a mano: si rigenera. Non aggiunge e non toglie fonti, perché non è un registro ma una vista: mette in corrispondenza le tre liste che il progetto già possiede, cioè le fonti registrate, le voci del corpus e le citazioni della tesi.
 
-Esiste per una ragione dichiarata dall'utente il 2026-09-10, ed e' la stessa che giustifica `MAPPA-DOCUMENTI.md`: un progetto che produce documenti generati a partire da fonti perde in fretta la relazione fra i due, e la domanda utile non e' quali fonti esistano ma dove sia scritto cio' che ciascuna ha dato. Le tre liste non si vedono fra loro: chi legge il registro vede le fonti registrate, chi legge il censimento vede il corpus, e le citazioni della tesi si vedono soltanto compilando.
+Esiste per una ragione dichiarata dall'utente il 2026-09-10, ed è la stessa che giustifica `MAPPA-DOCUMENTI.md`: un progetto che produce documenti generati a partire da fonti perde in fretta la relazione fra i due, e la domanda utile non è quali fonti esistano ma dove sia scritto ciò che ciascuna ha dato. Le tre liste non si vedono fra loro: chi legge il registro vede le fonti registrate, chi legge il censimento vede il corpus, e le citazioni della tesi si vedono soltanto compilando.
 
 ### Il conto
 
@@ -227,7 +227,7 @@ Esiste per una ragione dichiarata dall'utente il 2026-09-10, ed e' la stessa che
 
 ### Le fonti registrate, e dove finisce ciascuna
 
-La colonna dei documenti dice dove sta la sintesi di quella fonte dentro il progetto, cioe' quale nota, referenza o censimento la usa; la colonna dei capitoli dice dove la tesi la cita. Una riga senza documenti e' una fonte registrata e non ancora sfruttata; una riga senza capitoli e' una fonte che il documento composto non ha ancora assorbito.
+La colonna dei documenti dice dove sta la sintesi di quella fonte dentro il progetto, cioè quale nota, referenza o censimento la usa; la colonna dei capitoli dice dove la tesi la cita. Una riga senza documenti è una fonte registrata e non ancora sfruttata; una riga senza capitoli è una fonte che il documento composto non ha ancora assorbito.
 
 | Fonte | Liv | Track | Dove sta la sintesi | Capitoli |
 |---|---|---|---|---|
@@ -347,11 +347,11 @@ La colonna dei documenti dice dove sta la sintesi di quella fonte dentro il prog
 
 ### Il corpus della collezione, cluster per cluster
 
-Ogni riga e' un cluster del post di raccolta. Lo stato viene dal registro di lettura e non da questa vista, che si limita a metterlo accanto al conto delle voci e a quante di esse siano diventate fonti registrate. Un cluster letto le cui voci non abbiano prodotto alcuna fonte registrata non e' un difetto: significa che il cluster ha confermato cose gia' note, e il registro di lettura lo dice.
+Ogni riga è un cluster del post di raccolta. Lo stato viene dal registro di lettura e non da questa vista, che si limita a metterlo accanto al conto delle voci e a quante di esse siano diventate fonti registrate. Un cluster letto le cui voci non abbiano prodotto alcuna fonte registrata non è un difetto: significa che il cluster ha confermato cose già note, e il registro di lettura lo dice.
 
 | Cluster | Voci | Promosse | Stato di lettura | Dove sta l'esito |
 |---|---|---|---|---|
-| Preambolo | 1 | 0 | letto il 2026-09-16: e' la versione del giugno 2025 del post di raccolta, cioe' il predecessore del seme | questa nota |
+| Preambolo | 1 | 0 | letto il 2026-09-16: è la versione del giugno 2025 del post di raccolta, cioè il predecessore del seme | questa nota |
 | 1) Dex completions | 4 | 2 | letti il 2026-09-10, meno le due voci in forma di video e la pagina non scaricata | questa nota |
 | 1) Dex completions / Youtube | 5 | 4 | catalogato il 2026-09-16: tutte e cinque le voci sono video, da chiedere come trascrizione | `pending.md` |
 | 1) Dex completions / Reddit | 1 | 0 | letti il 2026-09-10, meno le due voci in forma di video e la pagina non scaricata | questa nota |
@@ -383,8 +383,8 @@ Ogni riga e' un cluster del post di raccolta. Lo stato viene dal registro di let
 | 8) Shiny Hunting / Gen 7 | 3 | 1 | letto il 2026-09-16 | questa nota |
 | 8) Shiny Hunting / Gen 8 | 2 | 1 | letto il 2026-09-16 | questa nota |
 | 8) Shiny Hunting / Gen 9 | 3 | 0 | letto il 2026-09-16 | questa nota |
-| 8) Shiny Hunting / Spinoffs | 9 | 2 | letto il 2026-09-16: gli esemplari oscuri sono bloccati contro la cromaticita' nel secondo titolo per console fissa e non nel primo | questa nota |
-| 8) Shiny Hunting / General tips | 3 | 0 | letto il 2026-09-16: la pagina delle forme non ottenibili e' la piu' densa del lotto | questa nota |
+| 8) Shiny Hunting / Spinoffs | 9 | 2 | letto il 2026-09-16: gli esemplari oscuri sono bloccati contro la cromaticità nel secondo titolo per console fissa e non nel primo | questa nota |
+| 8) Shiny Hunting / General tips | 3 | 0 | letto il 2026-09-16: la pagina delle forme non ottenibili è la più densa del lotto | questa nota |
 | 9) RNG Manipulation and Glitches / RNG Manipulation - the best sources to start | 7 | 1 | letto il 2026-09-09 | `STUDIO-08` |
 | 9) RNG Manipulation and Glitches / Item Printer Gen 9 | 3 | 1 | letto il 2026-09-09 | `STUDIO-08` |
 | 9) RNG Manipulation and Glitches / Glitches | 1 | 0 | letto il 2026-09-09 | `STUDIO-08` |
@@ -787,7 +787,7 @@ Due voci vanno segnalate a parte perché l'utente le aveva già procurate a mano
 | 1) Dex completions / Pokemon Collection Trackers | 5 | Pokemon Home living dex list. Titolo della fonte: Pokemon Home COMPLETE Living Dex List, di rquinain | https://www.reddit.com/r/PokemonHome/comments/f3uaxj/pokemon_home_complete_living_dex_list/ |
 | 1) Dex completions / Pokemon Collection Trackers | 3 | Suppereffective now different URL. Titolo della fonte: SuperEffective - Pokédex Tracker, News & more | https://classic.pokepc.net/ |
 | 1) Dex completions / Pokemon Collection Trackers | 3 | Pokedextracker | https://pokedextracker.com/ |
-| 1) Dex completions / Pokemon Collection Trackers | 4 | Austin John's tracker. Titolo della fonte: Pokemon Home Organizer — Austin John Plays | https://www.austinjohnplays.com/pokemonhome |
+| 1) Dex completions / Pokemon Collection Trackers | 4 | Austin John's tracker. Titolo della fonte: Pokemon Home Organizer - Austin John Plays | https://www.austinjohnplays.com/pokemonhome |
 | 1) Dex completions / Pokemon Collection Trackers | 5 | Reddit user xtokri's customizable tracker. Titolo della fonte: Got frustrated with existing living-dex trackers, so I built one, di xtokri | https://www.reddit.com/r/PokemonHome/comments/1st10p1/got_frustrated_with_existing_livingdex_trackers/ |
 | 1) Dex completions / Pokemon Collection Trackers | 5 | Reddit user Thundrosaur's Pokemon collection spreadsheet. Titolo della fonte: Pokémon Collection Spreadsheet, di Thundrosaur | https://www.reddit.com/r/PokemonHome/comments/xp1ise/pok%C3%A9mon_collection_spreadsheet/ |
 | 1) Dex completions / Pokemon Collection Trackers | 3 | Up to date GO Dex tracker | https://godex.site/collection/90977 |
@@ -2137,8 +2137,8 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | 1.1.1.1 — The free app that makes your Internet faster. | scaricato | http://1.1.1.1/ |
-| 2 | 1.1.1.1 — The free app that makes your Internet faster. | scaricato | https://1.1.1.1/ |
+| 2 | 1.1.1.1 - The free app that makes your Internet faster. | scaricato | http://1.1.1.1/ |
+| 2 | 1.1.1.1 - The free app that makes your Internet faster. | scaricato | https://1.1.1.1/ |
 
 ### 164.132.44.106 (2)
 
@@ -2395,7 +2395,7 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | Mentioned Videos for Reddit – Get this Extension for 🦊 Firefox (en-US) | scaricato | https://addons.mozilla.org/en-US/firefox/addon/mentioned-videos-for-reddit |
+| 2 | Mentioned Videos for Reddit - Get this Extension for 🦊 Firefox (en-US) | scaricato | https://addons.mozilla.org/en-US/firefox/addon/mentioned-videos-for-reddit |
 
 ### amiibo.life (1)
 

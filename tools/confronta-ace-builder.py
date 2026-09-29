@@ -393,7 +393,7 @@ def confronta(ace, verbose):
                 print("    %r: costruttore 0x%02X, sorgente 0x%02X; a 0x%02X il sorgente"
                       " tiene %r" % (c, a, b, a, occupato))
             # La prova che non dipende dalla nostra fonte: una tabella che assegna due
-            # caratteri allo stesso byte e sbagliata per conto proprio, perche non puo
+            # caratteri allo stesso byte e sbagliata per conto proprio, perché non può
             # essere invertita. Se la si trova, e l'argomento decisivo.
             per_byte = {}
             for carattere, byte in loro.items():
@@ -533,7 +533,7 @@ def confronta(ace, verbose):
             id_xor = ((tid or 0) & 0xFFFF) ^ ((sid or 0) & 0xFFFF)
             lucentezza = "Never" if ev.get("shinyLocked") else None
             metodo = ev.get("pidMethod") or "BACD_R_A"
-            # Il seme del corpus e quello da cui si genera, cioe quello gia trasformato: la
+            # Il seme del corpus e quello da cui si genera, cioè quello già trasformato: la
             # trasformazione non si applica di nuovo, altrimenti si genererebbe da uno stato
             # avanzato di due passi rispetto a quello che l'esemplare dichiara.
             personalita, valori, stato = motore.genera(metodo, seme, lucentezza, id_xor)

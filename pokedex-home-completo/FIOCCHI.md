@@ -1,14 +1,14 @@
 # L'asse dei fiocchi: enumerazione e copertura
 
-> Documento generato da `tools/fiocchi.py`. Non si modifica a mano: si rigenera. Le posizioni dei bit sono lette dal sorgente del verificatore e non trascritte, per la ragione gia' pagata due volte da questo progetto su tabelle lunghe.
+> Documento generato da `tools/fiocchi.py`. Non si modifica a mano: si rigenera. Le posizioni dei bit sono lette dal sorgente del verificatore e non trascritte, per la ragione già pagata due volte da questo progetto su tabelle lunghe.
 
 Il formato di quarta e quinta generazione dichiara 76 fiocchi distinti, distribuiti in 10 byte dell'esemplare. La terza generazione ne tiene trentadue in una parola sola dentro la propria sottostruttura varia.
 
-Va detto subito cio' che questa misura non dice, perche' e' la domanda che verra' subito dopo: dice quali fiocchi i nostri lotti portano, non quali siano ancora ottenibili oggi. Un fiocco assente dai lotti puo' essere ancora conferito da un gioco corrente oppure essere perduto con la chiusura, e distinguere i due casi richiede le regole di conferimento e non le posizioni dei bit.
+Va detto subito ciò che questa misura non dice, perché è la domanda che verrà subito dopo: dice quali fiocchi i nostri lotti portano, non quali siano ancora ottenibili oggi. Un fiocco assente dai lotti può essere ancora conferito da un gioco corrente oppure essere perduto con la chiusura, e distinguere i due casi richiede le regole di conferimento e non le posizioni dei bit.
 
 ## Terza generazione, i trentadue della parola dei meriti
 
-Sui 186 esemplari dei due lotti di terza generazione.
+Sui 190 esemplari dei due lotti di terza generazione.
 
 | Fiocco | Esemplari che lo portano |
 |---|---|
@@ -32,7 +32,7 @@ Sui 186 esemplari dei due lotti di terza generazione.
 
 ## Quarta e quinta generazione
 
-Sui 247 esemplari di quarta e 700 di quinta. La colonna del nome umano viene dalla tabella dei testi, unita alle posizioni sulla chiave e mai sulla posizione, perche' le due tabelle non hanno lo stesso ordine ne' la stessa cardinalita'.
+Sui 247 esemplari di quarta e 700 di quinta. La colonna del nome umano viene dalla tabella dei testi, unita alle posizioni sulla chiave e mai sulla posizione, perché le due tabelle non hanno lo stesso ordine né la stessa cardinalità.
 
 | Fiocco | Nome umano | Byte | Bit | Quarta | Quinta |
 |---|---|---|---|---|---|
@@ -115,33 +115,33 @@ Sui 247 esemplari di quarta e 700 di quinta. La colonna del nome umano viene dal
 
 ## L'asse intero, e la parte che i nostri formati sanno rappresentare
 
-La tabella dei nomi del verificatore elenca 164 fiocchi, ed e' l'asse. Il formato di quarta e quinta generazione ne rappresenta 76, cioe' quelli che esistevano fino alla quinta: gli altri vivono nei formati successivi e nessun nostro lotto puo' portarli, perche' i nostri lotti arrivano alla quinta. Enumerare l'asse dal formato invece che dalla tabella dei nomi e' l'errore che questa sezione esiste per non far commettere: il conto torna e il denominatore e' sbagliato.
+La tabella dei nomi del verificatore elenca 164 fiocchi, ed è l'asse. Il formato di quarta e quinta generazione ne rappresenta 76, cioè quelli che esistevano fino alla quinta: gli altri vivono nei formati successivi e nessun nostro lotto può portarli, perché i nostri lotti arrivano alla quinta. Enumerare l'asse dal formato invece che dalla tabella dei nomi è l'errore che questa sezione esiste per non far commettere: il conto torna e il denominatore è sbagliato.
 
 ## Quelli rappresentabili che nessun nostro esemplare porta (69 su 76)
 
-E' la lista di lavoro dell'asse, e comprende cose di natura molto diversa: fiocchi di gara che si conquistano giocando, fiocchi di ricordo che un gioco assegna una volta sola, e fiocchi che soltanto una distribuzione conferiva. La classificazione per via di conferimento e' quella che decide quali siano perduti con la chiusura, ed e' qui sotto.
+È la lista di lavoro dell'asse, e comprende cose di natura molto diversa: fiocchi di gara che si conquistano giocando, fiocchi di ricordo che un gioco assegna una volta sola, e fiocchi che soltanto una distribuzione conferiva. La classificazione per via di conferimento è quella che decide quali siano perduti con la chiusura, ed è qui sotto.
 
-La classificazione che segue viene dal raggruppamento che il verificatore stesso fa dei fiocchi in insiemi, uno per generazione: quel raggruppamento e' letto dal sorgente, mentre l'attribuzione di ciascun insieme alla propria generazione e la conseguenza sulla scadenza sono un nostro giudizio, dichiarato dentro il programma. Il criterio e' che un fiocco si perde con la chiusura quando il solo gioco che lo conferisce raggiunge il deposito attraverso la banca; basta invece un solo insieme di console corrente perche' resti conquistabile.
+La classificazione che segue viene dal raggruppamento che il verificatore stesso fa dei fiocchi in insiemi, uno per generazione: quel raggruppamento è letto dal sorgente, mentre l'attribuzione di ciascun insieme alla propria generazione e la conseguenza sulla scadenza sono un nostro giudizio, dichiarato dentro il programma. Il criterio è che un fiocco si perde con la chiusura quando il solo gioco che lo conferisce raggiunge il deposito attraverso la banca; basta invece un solo insieme di console corrente perché resti conquistabile.
 
-Va dichiarata una approssimazione, perche' rende questo conto un limite superiore e non un numero esatto. Le riedizioni della quarta generazione per console corrente riconferiscono una parte dei fiocchi di quarta, e il verificatore lo esprime dentro condizioni che questo programma non interpreta: alcune voci contate qui come perdute sono quindi riconquistabili la'. Distinguerle richiede di leggere quelle condizioni una per una, ed e' il passo successivo.
+Va dichiarata una approssimazione, perché rende questo conto un limite superiore e non un numero esatto. Le riedizioni della quarta generazione per console corrente riconferiscono una parte dei fiocchi di quarta, e il verificatore lo esprime dentro condizioni che questo programma non interpreta: alcune voci contate qui come perdute sono quindi riconquistabili là. Distinguerle richiede di leggere quelle condizioni una per una, ed è il passo successivo.
 
 | Esito | Quanti |
 |---|---|
-| perduti con la chiusura, al piu' | 69 |
+| perduti con la chiusura, al più | 69 |
 | conquistabili su console corrente | 0 |
 | non trattati da alcun insieme | 0 |
 
-### Perduti con la chiusura, al piu' (69)
+### Perduti con la chiusura, al più (69)
 
 | Fiocco | Nome umano | Insiemi che lo trattano |
 |---|---|---|
 | RibbonChampionSinnoh | Sinnoh Champion | comuni di quarta generazione |
-| RibbonAbility | Ability | gara e abilita' di quarta generazione |
-| RibbonAbilityGreat | Great Ability | gara e abilita' di quarta generazione |
-| RibbonAbilityDouble | Double Ability | gara e abilita' di quarta generazione |
-| RibbonAbilityMulti | Multi Ability | gara e abilita' di quarta generazione |
-| RibbonAbilityPair | Pair Ability | gara e abilita' di quarta generazione |
-| RibbonAbilityWorld | World Ability | gara e abilita' di quarta generazione |
+| RibbonAbility | Ability | gara e abilità di quarta generazione |
+| RibbonAbilityGreat | Great Ability | gara e abilità di quarta generazione |
+| RibbonAbilityDouble | Double Ability | gara e abilità di quarta generazione |
+| RibbonAbilityMulti | Multi Ability | gara e abilità di quarta generazione |
+| RibbonAbilityPair | Pair Ability | gara e abilità di quarta generazione |
+| RibbonAbilityWorld | World Ability | gara e abilità di quarta generazione |
 | RibbonAlert | Alert | comuni di quarta generazione |
 | RibbonShock | Shock | comuni di quarta generazione |
 | RibbonDowncast | Downcast | comuni di quarta generazione |
@@ -157,26 +157,26 @@ Va dichiarata una approssimazione, perche' rende questo conto un limite superior
 | RibbonLegend | Legend | comuni di quarta generazione |
 | RibbonChampionWorld | World Champion | conferiti da distribuzioni di quarta generazione |
 | RibbonSpecial | Special | conferiti da distribuzioni di quarta generazione |
-| RibbonG3Cool | Cool (G3) | gara e abilita' di quarta generazione |
-| RibbonG3CoolSuper | Cool Super | gara e abilita' di quarta generazione |
-| RibbonG3CoolHyper | Cool Hyper | gara e abilita' di quarta generazione |
-| RibbonG3CoolMaster | Cool Master | gara e abilita' di quarta generazione |
-| RibbonG3Beauty | Beauty (G3) | gara e abilita' di quarta generazione |
-| RibbonG3BeautySuper | Beauty Super | gara e abilita' di quarta generazione |
-| RibbonG3BeautyHyper | Beauty Hyper | gara e abilita' di quarta generazione |
-| RibbonG3BeautyMaster | Beauty Master | gara e abilita' di quarta generazione |
-| RibbonG3Cute | Cute (G3) | gara e abilita' di quarta generazione |
-| RibbonG3CuteSuper | Cute Super | gara e abilita' di quarta generazione |
-| RibbonG3CuteHyper | Cute Hyper | gara e abilita' di quarta generazione |
-| RibbonG3CuteMaster | Cute Master | gara e abilita' di quarta generazione |
-| RibbonG3Smart | Smart (G3) | gara e abilita' di quarta generazione |
-| RibbonG3SmartSuper | Smart Super | gara e abilita' di quarta generazione |
-| RibbonG3SmartHyper | Smart Hyper | gara e abilita' di quarta generazione |
-| RibbonG3SmartMaster | Smart Master | gara e abilita' di quarta generazione |
-| RibbonG3Tough | Tough (G3) | gara e abilita' di quarta generazione |
-| RibbonG3ToughSuper | Tough Super | gara e abilita' di quarta generazione |
-| RibbonG3ToughHyper | Tough Hyper | gara e abilita' di quarta generazione |
-| RibbonG3ToughMaster | Tough Master | gara e abilita' di quarta generazione |
+| RibbonG3Cool | Cool (G3) | gara e abilità di quarta generazione |
+| RibbonG3CoolSuper | Cool Super | gara e abilità di quarta generazione |
+| RibbonG3CoolHyper | Cool Hyper | gara e abilità di quarta generazione |
+| RibbonG3CoolMaster | Cool Master | gara e abilità di quarta generazione |
+| RibbonG3Beauty | Beauty (G3) | gara e abilità di quarta generazione |
+| RibbonG3BeautySuper | Beauty Super | gara e abilità di quarta generazione |
+| RibbonG3BeautyHyper | Beauty Hyper | gara e abilità di quarta generazione |
+| RibbonG3BeautyMaster | Beauty Master | gara e abilità di quarta generazione |
+| RibbonG3Cute | Cute (G3) | gara e abilità di quarta generazione |
+| RibbonG3CuteSuper | Cute Super | gara e abilità di quarta generazione |
+| RibbonG3CuteHyper | Cute Hyper | gara e abilità di quarta generazione |
+| RibbonG3CuteMaster | Cute Master | gara e abilità di quarta generazione |
+| RibbonG3Smart | Smart (G3) | gara e abilità di quarta generazione |
+| RibbonG3SmartSuper | Smart Super | gara e abilità di quarta generazione |
+| RibbonG3SmartHyper | Smart Hyper | gara e abilità di quarta generazione |
+| RibbonG3SmartMaster | Smart Master | gara e abilità di quarta generazione |
+| RibbonG3Tough | Tough (G3) | gara e abilità di quarta generazione |
+| RibbonG3ToughSuper | Tough Super | gara e abilità di quarta generazione |
+| RibbonG3ToughHyper | Tough Hyper | gara e abilità di quarta generazione |
+| RibbonG3ToughMaster | Tough Master | gara e abilità di quarta generazione |
 | RibbonChampionG3 | Champion (Gen3) | gara e campione di terza generazione |
 | RibbonWinning | Winning | unici della terza generazione |
 | RibbonVictory | Victory | unici della terza generazione |
@@ -188,22 +188,22 @@ Va dichiarata una approssimazione, perche' rende questo conto un limite superior
 | RibbonNational | National | conferiti da distribuzioni di terza generazione |
 | RibbonEarth | Earth | conferiti da distribuzioni di terza generazione |
 | RibbonWorld | World | esclusivi della terza generazione; conferiti da distribuzioni di quarta generazione |
-| RibbonG4Cool | Cool (G4) | gara e abilita' di quarta generazione |
-| RibbonG4CoolGreat | Cool Great | gara e abilita' di quarta generazione |
-| RibbonG4CoolUltra | Cool Ultra | gara e abilita' di quarta generazione |
-| RibbonG4CoolMaster | Cool Master | gara e abilita' di quarta generazione |
-| RibbonG4Beauty | Beauty (G4) | gara e abilita' di quarta generazione |
-| RibbonG4BeautyGreat | Beauty Great | gara e abilita' di quarta generazione |
-| RibbonG4BeautyUltra | Beauty Ultra | gara e abilita' di quarta generazione |
-| RibbonG4BeautyMaster | Beauty Master | gara e abilita' di quarta generazione |
-| RibbonG4Cute | Cute (G4) | gara e abilita' di quarta generazione |
-| RibbonG4CuteGreat | Cute Great | gara e abilita' di quarta generazione |
-| RibbonG4CuteUltra | Cute Ultra | gara e abilita' di quarta generazione |
-| RibbonG4CuteMaster | Cute Master | gara e abilita' di quarta generazione |
-| RibbonG4Smart | Smart (G4) | gara e abilita' di quarta generazione |
-| RibbonG4SmartGreat | Smart Great | gara e abilita' di quarta generazione |
-| RibbonG4SmartUltra | Smart Ultra | gara e abilita' di quarta generazione |
-| RibbonG4SmartMaster | Smart Master | gara e abilita' di quarta generazione |
+| RibbonG4Cool | Cool (G4) | gara e abilità di quarta generazione |
+| RibbonG4CoolGreat | Cool Great | gara e abilità di quarta generazione |
+| RibbonG4CoolUltra | Cool Ultra | gara e abilità di quarta generazione |
+| RibbonG4CoolMaster | Cool Master | gara e abilità di quarta generazione |
+| RibbonG4Beauty | Beauty (G4) | gara e abilità di quarta generazione |
+| RibbonG4BeautyGreat | Beauty Great | gara e abilità di quarta generazione |
+| RibbonG4BeautyUltra | Beauty Ultra | gara e abilità di quarta generazione |
+| RibbonG4BeautyMaster | Beauty Master | gara e abilità di quarta generazione |
+| RibbonG4Cute | Cute (G4) | gara e abilità di quarta generazione |
+| RibbonG4CuteGreat | Cute Great | gara e abilità di quarta generazione |
+| RibbonG4CuteUltra | Cute Ultra | gara e abilità di quarta generazione |
+| RibbonG4CuteMaster | Cute Master | gara e abilità di quarta generazione |
+| RibbonG4Smart | Smart (G4) | gara e abilità di quarta generazione |
+| RibbonG4SmartGreat | Smart Great | gara e abilità di quarta generazione |
+| RibbonG4SmartUltra | Smart Ultra | gara e abilità di quarta generazione |
+| RibbonG4SmartMaster | Smart Master | gara e abilità di quarta generazione |
 
 ### Conquistabili su console corrente (0)
 
@@ -217,7 +217,7 @@ Va dichiarata una approssimazione, perche' rende questo conto un limite superior
 
 ## La parte dell'asse fuori dai nostri formati (88)
 
-Sono i fiocchi introdotti dalla sesta generazione in avanti, piu' i contrassegni della nona. Nessun esemplare dei nostri lotti puo' portarli, e non e' una lacuna della produzione ma una proprieta' del perimetro: i lotti arrivano alla quinta generazione. Si ottengono giocando i titoli che li conferiscono, e per quelli di ottava e nona generazione la chiusura non li tocca.
+Sono i fiocchi introdotti dalla sesta generazione in avanti, più i contrassegni della nona. Nessun esemplare dei nostri lotti può portarli, e non è una lacuna della produzione ma una proprietà del perimetro: i lotti arrivano alla quinta generazione. Si ottengono giocando i titoli che li conferiscono, e per quelli di ottava e nona generazione la chiusura non li tocca.
 
 | Insieme che li tratta | Quanti |
 |---|---|
@@ -227,5 +227,5 @@ Sono i fiocchi introdotti dalla sesta generazione in avanti, piu' i contrassegni
 | comuni di ottava generazione, su console corrente | 5 |
 | esclusivi della terza generazione | 5 |
 | comuni di settima generazione | 4 |
-| gara e abilita' di quarta generazione | 4 |
+| gara e abilità di quarta generazione | 4 |
 | comuni di nona generazione, su console corrente | 3 |
