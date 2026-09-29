@@ -8,6 +8,28 @@ Ogni passo dichiara tre cose che di solito restano implicite e che, restando imp
 
 L'ordine non è quello dell'importanza ma quello del rendimento. Un passo che costa poco e che, comunque vada, elimina un'incertezza su cui altri passi poggiano, viene prima di un passo importante e isolato.
 
+## La roadmap al 2026-09-29, che prevale sulle sezioni sotto
+
+Le sezioni che seguono sono la roadmap del 2026-09-08 e restano come storico: dove dicono che un passo è da fare, vale lo stato scritto qui. Alla chiusura di Pokemon Bank, il 26 febbraio 2027 alle 12:00 del fuso giapponese, mancano 150 giorni contati dal 2026-09-29.
+
+Il quadro è cambiato in un punto che decide tutto: la produzione è quasi chiusa e il trasferimento, per quanto il progetto sa, non è cominciato. I lotti su disco sono 2010, tutti conformi al giudizio della libreria del verificatore (ADR-081); la coda del primo tempo, `CODA-PRIMO-TEMPO.md`, conta 433 voci, di cui 333 prodotte e conformi, 60 producibili e verificate, e 40 da periferiche non ancora producibili. La collezione di terza generazione è chiusa su due cartucce (ADR-082, ADR-088). Nella memoria del progetto non risulta alcun esemplare trasferito verso il deposito, cosa da confermare con il proprietario, e il tratto finale, cioè il Trasferitore e la banca su questa console, resta del proprietario e fuori dall'assistenza (ADR-081).
+
+Dei passi del 2026-09-08 sono chiusi A1, perché gli incontri da biglietto sono giudicati conformi, A2 e A3, perché la lettura del corpus è chiusa dal 2026-09-16. Restano aperti B1 e B2 sul servizio ricostruito e sulla barriera coreana, C1 e C3, che sono la stessa coda delle 19 distribuzioni senza carta e delle 14 specie che solo l'archivio conosce (`EVENTI-SENZA-CARTA.md`), C2 sul confronto fra un esemplare ricevuto e il suo gemello, e tutta la fase D del trasferimento.
+
+L'ordine di oggi, per rendimento e per scadenza:
+
+**Passo 0. Le fonti nuove del proprietario.** Annunciate il 2026-09-29. Si ricevono, si registrano in `SOURCES.md` e si passano con gli strumenti del progetto prima di qualunque produzione nuova, perché possono cambiare la strada. Lo eseguono entrambi.
+
+**Passo 1. Le 40 voci da periferiche.** Le eseguo io: 29 dal Pokewalker, 8 da My Pokemon Ranch e 3 dal Dream Radar, con la libreria se i loro incontri sanno costruire un esemplare, poi il giudizio, i lotti in `LOTTI_PER_CODICE` di `tools/checklist-pokedex.py` e la rigenerazione di censimento, checklist, coda e schede. Prima, le pagine del Ranch e del Dream Radar per via d'archivio. Con questo passo la coda del primo tempo è prodotta per intero, salvo ciò che il passo 0 aggiunga.
+
+**Passo 2. Il calendario del trasferimento.** Lo eseguo io, ed è il passo che manca a questa roadmap da quando il collo di bottiglia è diventato il trasferimento. Dai lotti e dai vincoli di `CATENA-DI-TRASFERIMENTO.md` si ricava quante sessioni servono per ciascuna catena, cioè nessuna per la quinta generazione, che si sposta a scatole intere, una ogni sei esemplari per la quarta, due ogni sei per la terza, e quanti giorni costano con i 150 disponibili. Due misure del proprietario lo rendono affidabile: la conferma del Pokédex nazionale sui tre salvataggi di quinta generazione (D1) e il cronometraggio di una sessione del Parco Amici (D2).
+
+**Passo 3. Il trasferimento, nell'ordine della catena più economica.** Lo esegue il proprietario, e io preparo i salvataggi: prima il lotto di quinta generazione, 700 esemplari, poi la quarta, poi la terza. Il tratto dal Trasferitore in poi resta suo.
+
+**Passo 4. Le decisioni che restano, da prendere prima che il calendario le renda impossibili.** Sono del proprietario: le 28 voci coreane (ADR-040), le sei voci bloccate da una macchina nascosta (ADR-046), il Vivillon Motivo Poke Ball dal salvataggio di Y, il profilo di collezione e l'ambito delle sfide del deposito, e la rigenerazione di `SPOGLIO-CORPUS.md` sul corpus cresciuto.
+
+Due fatti di contorno, che non sono passi ma possono cambiarli. La porta di ottobre 2026, cioè Rosso Fuoco e Verde Foglia per Switch collegati al deposito, apre alla terza generazione una via che non dipende dalla banca, e la variante con GB-Link resta da chiudere sul perimetro delle `prod.keys` (`pending.md`). E il Pokédex delle cartucce, che non registra gli esemplari scritti nel deposito, va sanato secondo ADR-089, ma non tocca il deposito di HOME.
+
 ## Il quadro: dove siamo il 2026-09-08
 
 Cinque lotti sono prodotti, e il loro stato di giudizio è diverso. La prima e la seconda generazione contano centosessantacinque esemplari con tre difetti corretti dopo il giudizio esterno. La terza generazione conta centosettantadue voci tutte conformi. La quarta conta duecentoquarantasette esemplari, di cui duecentodiciannove conformi e ventotto rifiutati per la barriera di lingua coreana, che non è un difetto dei byte. La quinta conta settecento esemplari tutti conformi. Gli incontri sbloccati dai biglietti contano dieci esemplari prodotti il 2026-09-07 e non ancora giudicati.

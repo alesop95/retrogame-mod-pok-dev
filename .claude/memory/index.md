@@ -37,6 +37,8 @@ Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo q
 
 ## Punto di ripresa
 
+AGGIUNTA DEL 2026-09-29, quarta parte. La roadmap del fuoco corrente è riscritta a oggi in testa a `pokedex-home-completo/ROADMAP.md`: passo 0 le fonti nuove del proprietario, passo 1 le 40 voci da periferiche, passo 2 il calendario del trasferimento, passo 3 il trasferimento, passo 4 le decisioni che restano. 150 giorni alla chiusura di Bank.
+
 AGGIUNTA DEL 2026-09-29, terza parte. Il debito tipografico è sanato e `chiudi -SoloControlli` è verde: da qui ogni milestone si chiude con `chiudi`. Per strada sono stati trovati e corretti tre strumenti che il riordino di `_notes/` aveva rotto in silenzio (`mosse-mn.py`, `mosse-perdute.py`, `spoglio-corpus.py`). PROSSIMO PASSO, per direttiva del proprietario: il fuoco corrente, cioè il Pokédex più completo prima della chiusura di Bank; il proprietario ha altre fonti da far assorbire e da passare con gli strumenti del progetto prima di proseguire la produzione, e quello viene per primo. Poi le 40 voci da periferiche.
 
 AGGIUNTA DEL 2026-09-29, seconda parte. L'allineamento al template è concluso: `sync-context` ha riconciliato in cinque blocchi tutte le diciassette schede, due delle quali non applicabili, e la tabella sopra è verificata per intero al 2026-09-29. Su domanda del proprietario è stato verificato che la ristrutturazione non ha perso contenuto, riga per riga su 777 file (work log, quarta e sesta parte). PROSSIMO PASSO: il debito tipografico della voce PRIMO di `pending.md`, che blocca `chiudi`; poi le 40 voci da periferiche, voce SECONDO. Da ricordare a ogni sessione: il Pokédex delle cartucce non registra gli esemplari scritti nel deposito, e va studiato e sanato (ADR-089).

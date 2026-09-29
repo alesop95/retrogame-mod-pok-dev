@@ -4,6 +4,14 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-29, undicesima parte. La roadmap del Pokédex riscritta a oggi
+
+Il proprietario ha chiesto quale sia la roadmap del fuoco corrente. `pokedex-home-completo/ROADMAP.md` era del 2026-09-08, e metà dei suoi passi sono chiusi. Le è stata aggiunta in testa una sezione «La roadmap al 2026-09-29», che prevale sulle sezioni storiche e dichiara quali passi vecchi sono chiusi (A1, A2, A3) e quali restano (B1, B2, C1, C2, C3 e la fase D). L'ordine nuovo ha cinque passi: le fonti nuove annunciate dal proprietario, le 40 voci da periferiche, il calendario del trasferimento, il trasferimento nell'ordine della catena più economica, e le decisioni che restano. Il calendario del trasferimento è il passo che mancava alla roadmap da quando il collo di bottiglia è diventato il trasferimento. I giorni alla chiusura di Bank, contati dal 2026-09-29 al 2027-02-26, sono 150. I numeri della coda vengono da `CODA-PRIMO-TEMPO.md` (60 carte meraviglia e 40 periferiche fra le voci non ancora prodotte, contate nella colonna della classe), quelli dei lotti da `giudizi-pkhex-core.json`. Nella memoria del progetto non risulta alcun trasferimento eseguito verso il deposito: cercato in `progress.md` e `pending.md`, e da confermare con il proprietario, perché il tratto finale è suo e fuori dall'assistenza.
+
+File toccati: `pokedex-home-completo/ROADMAP.md`, `.claude/memory/progress.md`, `.claude/memory/index.md`.
+
+**Didattica:** nessuna, documento di pianificazione.
+
 ## 2026-09-29, decima parte. Il debito tipografico sanato, e tre strumenti che leggevano cartelle vuote
 
 La voce PRIMO di `pending.md`, cioè ADR-086, è chiusa: `powershell -NoProfile -ExecutionPolicy Bypass -File tools/chiudi-sessione.ps1 -SoloControlli` dice «Controlli verdi», con tutti e nove i controlli a posto, e da qui la chiusura ordinaria è `chiudi`.
