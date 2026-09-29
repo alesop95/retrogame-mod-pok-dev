@@ -8,8 +8,8 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: dc487eb, più la chiusura del 2026-09-28 da committare
-Data snapshot:         2026-09-28, chiusura di sessione: terza generazione chiusa, allineamento al template come primo passo
+Commit di riferimento: 7a8bdae, più il giro del 2026-09-29 da committare
+Data snapshot:         2026-09-29, passi interattivi dell'allineamento al template fatti, resta sync-context
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,8 @@ Data snapshot:         2026-09-28, chiusura di sessione: terza generazione chius
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-09-29. L'allineamento al template `065d0b5` è fatto salvo `sync-context`. Il commit `7a8bdae` ha portato le norme su richiesta come skill e tolto le quattro regole vecchie; il carico degli instruction file è 88.639 caratteri contro la soglia di 100.000. In questo giro: igiene dell'account tutta PASS, separazione degli ambienti decisa come R0, P1 degenere, D3, L1 (ADR-090), gate dei pacchetti eseguito per intero per la prima volta con sette pacchetti adottati (ADR-091), fra cui il controllo di anonimizzazione, che non trova nomi reali nel perimetro pubblicabile, e l'ambiente LaTeX della tesi, provato con una build da 357 pagine. No al server MCP. PROSSIMO PASSO: `sync-context` sulle schede, voce QUARTO di `pending.md`; poi il debito tipografico della voce PRIMO, che blocca `chiudi`, e le 40 voci da periferiche. Il fuoco corrente resta `pokedex-home-completo`.
 
 AGGIUNTA DEL 2026-09-28, chiusura di sessione. La terza generazione è chiusa: il Rubino porta il complemento di 376 esemplari, Jirachi di Channel compreso, scritto e riletto identico (ADR-087, ADR-088), e la stampa della collezione è pronta per un quaderno ad anelli. La storia pubblica è stata riscritta senza i nomi reali e gli hash riancorati (ADR-087). Le fonti dell'Azienda Lotta sono verificate sul sorgente e la guida del Parco Lotta è aggiornata. Il video Rosso Fuoco e Switch 2 apre una via per la terza generazione verso HOME, con una verifica aperta sulle `prod.keys`. PRIMO PASSO della sessione successiva: l'allineamento al template da `f67d5d9` a `9c54063`, voce ZERO di `pending.md`. Poi il debito tipografico che blocca `chiudi`, poi le 40 voci da periferiche. Il fuoco corrente torna `pokedex-home-completo`.
 

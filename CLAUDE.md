@@ -22,7 +22,7 @@ Se il lavoro tocca più track o l'infrastruttura, leggi `.claude/context/current
 
 `MAPPA-DOCUMENTI.md` alla radice dice che cosa è ciascun file Markdown del progetto, chi lo scrive e se qualcuno lo debba ancora aprire. Serve a una domanda sola e la risolve in una lettura: distinguere i file generati, che sono i più grossi e che nessuno legge in sequenza, da quelli autorati, che sono pochi e sono dove sta il ragionamento. Porta anche i candidati alla rimozione con il loro perché.
 
-`README.md` alla radice è l'ingresso pubblico: presenta i risultati tecnici senza duplicare lo stato delle schede e collega il registro e la mappa delle fonti. Quando cambia un risultato tecnico, si aggiorna la sua prosa nello stesso giro; quando nasce o cambia un sottoprogetto, si esegue `python tools/aggiorna-readme.py` per rigenerare l'indice dei track. Prima di consegnare i comandi Git si eseguono `python tools/aggiorna-readme.py --check` e `python tools/build-source-map.py --check`; `python tools/indice-fonti-unico.py --check` si esegue quando la tesi locale è disponibile, perché senza i suoi capitoli non si può ricostruire la colonna delle citazioni.
+`README.md` alla radice è l'ingresso pubblico: presenta i risultati tecnici senza duplicare lo stato delle schede e collega il registro e la mappa delle fonti. Quando cambia un risultato tecnico, si aggiorna la sua prosa nello stesso giro; quando nasce o cambia un sottoprogetto, si esegue `python tools/aggiorna-readme.py` per rigenerare l'indice dei track. Prima di consegnare i comandi Git si eseguono `python tools/aggiorna-readme.py --check`, `python tools/build-source-map.py --check`, `python tools/Test-Anonymization.py`, `python tools/lint-memoria.py` e `python tools/lint-didattica.py`, e sui file di prosa cambiati `python tools/lint-prosa.py`, che segnala senza bloccare; `python tools/indice-fonti-unico.py --check` si esegue quando la tesi locale è disponibile, perché senza i suoi capitoli non si può ricostruire la colonna delle citazioni.
 
 ## Indice dei file satellite tracciati
 
@@ -44,6 +44,7 @@ Schede trasversali, cioè ciò che vale per tutto il progetto:
 .claude/context/deployment.md           non applicabile allo stato attuale, covers-paths vuoto
 .claude/context/current-work.md         tabella dei track paralleli e feature in corso
 .claude/context/roadmap.md              cosa sblocca cosa, e come si aggiunge un sottoprogetto
+.claude/context/studio-didattico-master.md  racconto evolutivo del perché, dal 2026-09-29, con le schede refactor-NN
 ```
 
 Schede verticali, una per sottoprogetto:
@@ -69,8 +70,11 @@ MAPPA-DOCUMENTI.md                            che cosa e' ciascun file Markdown,
 README.md                                    ingresso pubblico ai risultati tecnici, ai track e alle fonti
 SOURCES.md                                    registro delle fonti, con il sottoprogetto servito da ciascuna
 docs/index.md                                 indice del percorso di studio tecnico, leggibile come vault Obsidian
+docs/separazione-ambienti/, docs/anti-slop/     guide e fonti dei pacchetti omonimi, copiate intere dal template
+knowledge/                                    wiki di conoscenza trasversale: fonti in sources/, pagine in wiki/, skill wiki-digest
 docs/mappa-fonti/index-fonti.md                     mappa relazionale delle fonti, con abstract e grafo
 tesi/                                         documento composto locale, escluso da Git; non disponibile in un clone
+scripts/, tex-packages.txt, .latexmkrc          ambiente LaTeX riproducibile della tesi, skill latex-build
 tools/                                        gli strumenti deterministici, uno per misura riproducibile
 pokemon-gen12-gen3-bridge-original-hardware/  referenza byte per byte, il pacchetto pokebridge e la sua suite
 pokedex-home-completo/                        la catena, la roadmap, i censimenti e gli studi del fuoco corrente
@@ -86,6 +90,7 @@ Norme caricate su richiesta, una riga per situazione con le parole con cui si pr
 - Un recupero web fallisce con 403 o con una pagina di verifica anti-bot, la fonte sta su Reddit, su Discord, su Smogon o su Bulbapedia, serve la trascrizione di un video, si sta per annotare in `SOURCES.md` una fonte non letta: skill `fonti-non-recuperabili`.
 - `git worktree list` mostra più di un albero, se ne crea o se ne rimuove uno, si deve decidere da dove leggere la memoria versionata: skill `alberi-di-lavoro`.
 - Si inizializza o si allinea il progetto, oppure cambia il modo in cui si prova e si rilascia, e va deciso come separare test e produzione: skill `separazione-ambienti`.
+- Si sta per scrivere in un file tracciato un nome reale, una casella personale o l'indirizzo di una macchina vera, si salva una chat incollata, si prepara un commit che tocca documentazione: skill `anonimizzazione`.
 
 Gli handoff restano nelle cartelle dei rispettivi sottoprogetti, che è voluto e motivato in ADR-003: `3ds-related/handoff/`, `gba-save-extraction-smeraldo/handoff/` e `gba-switch-pokemon-trading/handoff/`. Il sottoprogetto del ponte non ha più un handoff, perché la sua conoscenza è stata verificata sul sorgente e assorbita nella referenza `pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md` e nel percorso di studio sotto `docs/`, come registrato in ADR-013.
 
