@@ -4,6 +4,16 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-29, terza parte. sync-context, primo blocco: le schede verticali leggere
+
+Rapporto a HEAD `f342853`, albero pulito e un solo albero di lavoro, quindi senza cecità da dichiarare. Il drift è stato misurato con `git diff --name-status <last-verified>..HEAD -- <covers-paths>` su tutte le 17 schede di `.claude/context/`. Due non applicabili (`deployment.md` e `studio-didattico-master.md`, `covers-paths` vuoto), due aggiornate (`sub-poke-ace.md`, `sub-generation-from-switch.md`), quattro stale solo nella forma, cioè percorsi riordinati e un nome utente mascherato, che le schede non citano (`sub-3ds-modding.md`, `sub-gba-switch-trading.md`, `sub-gen12-gen3-bridge.md`, `sub-poke-automation.md`), e stale nel contenuto `sub-cart-battery.md` (1 file), `sub-distributions-events.md` (9), `sub-pokedex-home-completo.md` (28), `sub-smeraldo-save-fix.md` (44) e le cinque trasversali (90 file ciascuna, sommati sulle cartelle dei track). Un controllo in più ha estratto ogni percorso citato fra backtick nelle schede e ne ha verificato l'esistenza: `dev-testing.md` e `sub-smeraldo-save-fix.md` citavano gli strumenti di Smeraldo e `extract_charmaps.py` come se stessero in `tools/` alla radice, e sono stati qualificati con la cartella del sottoprogetto, 14 occorrenze. Trovato anche un punto cieco: nessuna scheda copre `tools/` né `scripts/`, benché `STACK.md` e `dev-testing.md` li descrivano; il proprietario ha deciso di estenderne i `covers-paths` al blocco delle trasversali.
+
+In questo blocco `sub-cart-battery.md` ha ricevuto due delta presi da `STUDIO-01`: la domanda sulla tensione chiusa il 2026-09-15 sul sorgente di FlashGBX e con l'esperimento del LED, e il lettore validato, che toglie il «attende il lettore» dal prossimo passo. Sette schede portate a `f342853`. Restano, in blocchi separati e in quest'ordine: `sub-distributions-events.md`, `sub-pokedex-home-completo.md`, `sub-smeraldo-save-fix.md`, le cinque trasversali.
+
+File toccati: `.claude/context/sub-cart-battery.md`, `.claude/context/dev-testing.md`, `.claude/context/sub-smeraldo-save-fix.md`, il frontmatter di `sub-poke-ace.md`, `sub-generation-from-switch.md`, `sub-3ds-modding.md`, `sub-gba-switch-trading.md`, `sub-gen12-gen3-bridge.md`, `sub-poke-automation.md`, `.claude/memory/index.md`, `.claude/memory/progress.md`, `.claude/memory/pending.md`.
+
+**Didattica:** nessuna, riconciliazione di schede senza scelte di codice.
+
 ## 2026-09-29, seconda parte. I passi interattivi dell'allineamento: igiene, separazione, gate dei pacchetti
 
 La ripresa ha trovato il commit `7a8bdae` dell'allineamento strutturale non ancora raccontato dal file di ripresa, com'era atteso: le quattro regole vecchie sono uscite da `rules/` con quel commit. La misura di `python tools/misura-istruzioni.py --root .` dà 88.352 caratteri di progetto dopo la rimozione e 88.639 alla fine di questo giro, contro la soglia di 100.000; 91.385 con la parte utente, contro il limite di 150.000.
