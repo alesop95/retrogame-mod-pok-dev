@@ -14,11 +14,11 @@ https://github.com/kristopheles/monarium
 
 ## Abstract
 
-Tracciatore pubblicato nel 2026 e letto il 2026-09-10 nella presentazione del suo autore, che va installato per conto proprio perche' non esiste un'istanza pubblica. Genera la disposizione delle scatole a partire da piu' di quindici opzioni, fra cui le sole evoluzioni finali, le varianti regionali accanto alla forma di partenza, i cromatici in scatole dedicate e l'esclusione delle forme da evento; sopra la disposizione tiene cinque contrassegni per esemplare, cioe' se porti l'allenatore di chi colleziona, se sia stato catturato nel titolo o nella regione di origine, se sia cromatico, se stia nella sfera giusta e se venga dall'applicazione per telefono.
+Tracciatore pubblicato nel 2026 e letto il 2026-09-10 nella presentazione del suo autore, che va installato per conto proprio perché non esiste un'istanza pubblica. Genera la disposizione delle scatole a partire da più di quindici opzioni, fra cui le sole evoluzioni finali, le varianti regionali accanto alla forma di partenza, i cromatici in scatole dedicate e l'esclusione delle forme da evento; sopra la disposizione tiene cinque contrassegni per esemplare, cioè se porti l'allenatore di chi colleziona, se sia stato catturato nel titolo o nella regione di origine, se sia cromatico, se stia nella sfera giusta e se venga dall'applicazione per telefono.
 
 ## Perché è in archivio
 
-Corrobora per via indipendente che un catalogo vivente non e' una lista ma un insieme parametrico, che e' la ragione per cui questo progetto ha una decisione aperta sul profilo da perseguire. I suoi cinque contrassegni sono inoltre la stessa famiglia di assi che il progetto ha enumerato per proprio conto, e il quarto di essi coincide con l'asse delle combinazioni fra specie e sfera.
+Corrobora per via indipendente che un catalogo vivente non è una lista ma un insieme parametrico, che è la ragione per cui questo progetto ha una decisione aperta sul profilo da perseguire. I suoi cinque contrassegni sono inoltre la stessa famiglia di assi che il progetto ha enumerato per proprio conto, e il quarto di essi coincide con l'asse delle combinazioni fra specie e sfera.
 
 ## A quale punto del progetto serve
 

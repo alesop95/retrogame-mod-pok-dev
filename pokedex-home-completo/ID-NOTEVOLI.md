@@ -1,10 +1,10 @@
 # Gli identificativi di allenatore notevoli, e quanto ne copriamo
 
-> Documento generato da `tools/censimento-id-notevoli.py` dalla pagina di Bulbapedia salvata in `_notes/fonti/`. Non si modifica a mano: si rigenera. La fonte e' di secondo livello e serve a misurare la nostra copertura, non a decidere: dove una riga contraddice le tabelle del verificatore, ha ragione il verificatore.
+> Documento generato da `tools/censimento-id-notevoli.py` dalla pagina di Bulbapedia salvata in `_notes/fonti/`. Non si modifica a mano: si rigenera. La fonte è di secondo livello e serve a misurare la nostra copertura, non a decidere: dove una riga contraddice le tabelle del verificatore, ha ragione il verificatore.
 
-La fonte porta 896 righe utili. Di queste, 473 trovano corrispondenza nelle nostre liste sulla coppia fra allenatore e identificativo, 301 sul solo identificativo, 3 sono dichiarate dalla fonte stessa come non appartenenti a un esemplare da collezione, e 119 restano non coperte: quest'ultimo numero e' la nostra cecita' e va guardato riga per riga.
+La fonte porta 896 righe utili. Di queste, 473 trovano corrispondenza nelle nostre liste sulla coppia fra allenatore e identificativo, 301 sul solo identificativo, 3 sono dichiarate dalla fonte stessa come non appartenenti a un esemplare da collezione, e 119 restano non coperte: quest'ultimo numero è la nostra cecità e va guardato riga per riga.
 
-Il confronto sul solo identificativo e' dichiarato debole e tenuto in una colonna a parte, perche' due eventi diversi possono condividere un numero e perche' la fonte scrive gli identificativi con un numero di cifre variabile: cinque cifre sono la parte visibile, sei l'identificativo completo.
+Il confronto sul solo identificativo è dichiarato debole e tenuto in una colonna a parte, perché due eventi diversi possono condividere un numero e perché la fonte scrive gli identificativi con un numero di cifre variabile: cinque cifre sono la parte visibile, sei l'identificativo completo.
 
 ## Non coperta: 119 righe
 

@@ -160,7 +160,7 @@ def fonti_disponibili(ace, esito_salvataggi):
                                                                 "genera-evento-gen3.py"))
             i2n_scambi = {v: k for k, v in generatore3.nazionale_verso_interno(ace).items()}
         except Exception as exc:
-            print("  nota: il lotto degli scambi Gen 3 non si e' potuto leggere (%s)" % exc)
+            print("  nota: il lotto degli scambi Gen 3 non si è potuto leggere (%s)" % exc)
             i2n_scambi = None
         if i2n_scambi:
             for nome_file in sorted(os.listdir(lotto_scambi)):
@@ -186,7 +186,7 @@ def fonti_disponibili(ace, esito_salvataggi):
             n2i = generatore.nazionale_verso_interno(ace)
             i2n = {v: k for k, v in n2i.items()}
         except Exception as exc:
-            print("  nota: la corrispondenza fra le numerazioni non si e' caricata (%s), quindi "
+            print("  nota: la corrispondenza fra le numerazioni non si è caricata (%s), quindi "
                   "i depositi non entrano nel conto" % exc)
             i2n = {}
         for nome, e in dati.items():
@@ -196,7 +196,7 @@ def fonti_disponibili(ace, esito_salvataggi):
             etichetta = ("archivio esterno" if nome.lower().endswith(".zip")
                          else "salvataggio esterno")
             # I censimenti di terza generazione numerano le specie con l'identificativo interno
-            # e vanno tradotti; quelli di sesta portano gia' il numero nazionale e dichiararlo
+            # e vanno tradotti; quelli di sesta portano già il numero nazionale e dichiararlo
             # con il campo `nazionali` evita di tradurre due volte, che darebbe specie
             # sbagliate senza alcun segnale.
             if censimento.get("nazionali"):
@@ -231,7 +231,7 @@ def voci_da_evento(pkhex, ace):
                                                           "genera-evento-gen3.py"))
         voci = generatore.voci_wc3(pkhex)
     except Exception as exc:
-        print("  nota: il catalogo di terza generazione non si e' caricato (%s)" % exc)
+        print("  nota: il catalogo di terza generazione non si è caricato (%s)" % exc)
         voci = []
     for indice, v in enumerate(voci):
         producibile = (v.get("metodo") in generatore.METODI_PRODUCIBILI
@@ -256,20 +256,20 @@ def voci_da_evento(pkhex, ace):
                                                             "conteggio-doni-moderni.py"))
         righe, antichi, _difetti = conteggio.conta(pkhex)
     except Exception as exc:
-        print("  nota: il conteggio dei doni non si e' caricato (%s)" % exc)
+        print("  nota: il conteggio dei doni non si è caricato (%s)" % exc)
         return fuori
 
     # La corrispondenza serve soltanto alla terza generazione, che numera per numero nazionale;
-    # dalla quarta in avanti le tabelle dei doni usano gia' la numerazione nazionale.
-    # L'indice del codice scorre sulla generazione e non sul file, e la ragione va scritta perche'
-    # la scelta opposta era gia' stata fatta e produceva un difetto silenzioso. Una generazione
-    # puo' avere piu' di un file di doni, e la sesta, la settima, l'ottava e la nona ne hanno due o
+    # dalla quarta in avanti le tabelle dei doni usano già la numerazione nazionale.
+    # L'indice del codice scorre sulla generazione e non sul file, e la ragione va scritta perché
+    # la scelta opposta era già stata fatta e produceva un difetto silenzioso. Una generazione
+    # può avere più di un file di doni, e la sesta, la settima, l'ottava e la nona ne hanno due o
     # tre: numerando da zero dentro ciascun file, la voce zero di `wc8.pkl` e quella di `wa8.pkl`
-    # ricevevano il medesimo codice. Il difetto e' stato trovato il 2026-09-04 da un controllo di
-    # unicita', non da un errore: novecentosette voci condividevano un codice con un'altra, e
-    # nulla lo segnalava perche' un codice duplicato non rompe niente finche' nessuno lo usa per
+    # ricevevano il medesimo codice. Il difetto è stato trovato il 2026-09-04 da un controllo di
+    # unicità, non da un errore: novecentosette voci condividevano un codice con un'altra, e
+    # nulla lo segnalava perché un codice duplicato non rompe niente finché nessuno lo usa per
     # spuntare. Le generazioni dalla prima alla quinta hanno un file solo per generazione e i loro
-    # codici non si sono mossi, il che conta perche' i lotti gia' prodotti li portano nel nome dei
+    # codici non si sono mossi, il che conta perché i lotti già prodotti li portano nel nome dei
     # file.
     contatore_per_generazione = {}
     for r in righe:
@@ -293,29 +293,29 @@ def voci_da_evento(pkhex, ace):
             })
     # ------------------------------------------------- le tabelle fuori dalla base dei doni
     # Il terzo troncone dell'asse, aggiunto il 2026-09-04. Le due fonti sopra coprono le
-    # distribuzioni fatte come dono e sono cieche su tutto il resto, cioe' le distribuzioni in cui
+    # distribuzioni fatte come dono e sono cieche su tutto il resto, cioè le distribuzioni in cui
     # il dono era un oggetto, le periferiche, i giochi da console fissa e i doni interni
     # condizionati. Erano 422 voci per 256 specie distinte, nessuna delle quali compariva in
     # questa lista: il difetto era di copertura e non di lettura, quindi non produceva alcun
     # errore e la lista sembrava completa.
     #
-    # La lettura appartiene a un solo programma e questo la invoca, che e' la regola che il
-    # progetto si e' dato dopo il difetto della lettura dei titoli riscritta invece che chiamata.
+    # La lettura appartiene a un solo programma e questo la invoca, che è la regola che il
+    # progetto si è dato dopo il difetto della lettura dei titoli riscritta invece che chiamata.
     try:
         censimento = carica_modulo("censtab", os.path.join(RADICE, "tools",
                                                            "censimento-eventi-tabelle.py"))
         gruppi, _difetti_cens = censimento.censisci(pkhex)
     except Exception as exc:
-        print("  nota: il censimento delle tabelle non si e' caricato (%s)" % exc)
+        print("  nota: il censimento delle tabelle non si è caricato (%s)" % exc)
         gruppi = []
-    # Una classe del censimento non entra in questo asse, e la scelta va motivata perche' e' il
+    # Una classe del censimento non entra in questo asse, e la scelta va motivata perché è il
     # contrario di quella che l'obiettivo dichiarato suggerirebbe. I trasferimenti da Pokemon GO
     # non sono esemplari da distribuzione ma una porta di ingresso permanente: dire che una
-    # specie e' ottenibile da GO e' un'affermazione sulla sua reperibilita', cioe' la materia
-    # dell'asse delle specie, non un collezionabile in piu' con un allenatore e una data propri.
+    # specie è ottenibile da GO è un'affermazione sulla sua reperibilità, cioè la materia
+    # dell'asse delle specie, non un collezionabile in più con un allenatore e una data propri.
     # Metterli qui gonfierebbe l'asse degli eventi di millecentosessantaquattro voci che
-    # ripeterebbero specie gia' presenti altrove, e falserebbe il solo numero che questo asse
-    # serve a produrre, cioe' quante voci il primo tempo della coda debba coprire. Restano contate
+    # ripeterebbero specie già presenti altrove, e falserebbe il solo numero che questo asse
+    # serve a produrre, cioè quante voci il primo tempo della coda debba coprire. Restano contate
     # e visibili nel censimento, dove la loro classe dice che cosa sono.
     FUORI_DALL_ASSE = {"porta-permanente"}
     indice_tabelle = 0
@@ -353,10 +353,10 @@ def voci_da_evento(pkhex, ace):
     return fuori
 
 
-# Le macchine nascoste di terza generazione, per numero di mossa. Contano perche' il primo anello
-# della catena, cioe' il Parco Amici, rifiuta un esemplare che ne conosca una: la voce va quindi
-# prodotta sapendo che prima di trasferirla una mossa andra' tolta, e su alcune voci quella mossa
-# e' l'identita' stessa dell'esemplare.
+# Le macchine nascoste di terza generazione, per numero di mossa. Contano perché il primo anello
+# della catena, cioè il Parco Amici, rifiuta un esemplare che ne conosca una: la voce va quindi
+# prodotta sapendo che prima di trasferirla una mossa andrà tolta, e su alcune voci quella mossa
+# è l'identita' stessa dell'esemplare.
 MN_TERZA = {15: "Taglio", 19: "Volo", 57: "Surf", 70: "Forza", 127: "Cascata",
             148: "Flash", 249: "Spaccaroccia", 291: "Sub"}
 
@@ -364,13 +364,13 @@ MN_TERZA = {15: "Taglio", 19: "Volo", 57: "Surf", 70: "Forza", 127: "Cascata",
 def scrivi_coda(percorso, eventi, nomi):
     """La coda del primo tempo: una voce per ciascuna specie distinta, nell'ordine di produzione.
 
-    E' il documento operativo che manca fra la lista di spunta e il lavoro: la lista dice che cosa
+    È il documento operativo che manca fra la lista di spunta e il lavoro: la lista dice che cosa
     esiste, questa dice che cosa fare adesso e in che ordine. Contiene le sole voci marcate come
     prime della propria specie e sotto scadenza, che sono la definizione stessa del primo tempo
     deciso il 2026-09-03.
 
-    Ogni riga porta lo stato di produzione, perche' e' l'informazione che decide se una voce sia
-    lavoro nostro o attesa: una voce producibile e verificata e' pronta, una letta e non ancora
+    Ogni riga porta lo stato di produzione, perché è l'informazione che decide se una voce sia
+    lavoro nostro o attesa: una voce producibile e verificata è pronta, una letta e non ancora
     producibile aspetta un generatore che non esiste, e le due non vanno confuse in un unico
     elenco di cose da fare.
     """
@@ -430,12 +430,12 @@ def scrivi_coda(percorso, eventi, nomi):
 
 
 def codici_duplicati(eventi):
-    """I codici che due o piu' voci si contendono, che devono essere nessuno.
+    """I codici che due o più voci si contendono, che devono essere nessuno.
 
-    Il controllo esiste perche' il difetto che chiude e' stato trovato per caso e non da un
-    errore: un codice duplicato non rompe nulla finche' nessuno lo usa per spuntare, e si
+    Il controllo esiste perché il difetto che chiude è stato trovato per caso e non da un
+    errore: un codice duplicato non rompe nulla finché nessuno lo usa per spuntare, e si
     manifesta soltanto il giorno in cui due collezionabili diversi risultano lo stesso. Vale la
-    regola generale che questo progetto ha gia' pagato altrove, cioe' che un difetto invisibile
+    regola generale che questo progetto ha già pagato altrove, cioè che un difetto invisibile
     va reso visibile da un controllo e non dalla prudenza di chi legge.
     """
     visti, doppi = {}, {}
@@ -448,16 +448,16 @@ def codici_duplicati(eventi):
     return doppi
 
 
-# I lotti gia' prodotti, e come una voce del catalogo si riconosce in uno dei loro file. Aggiunto il
-# 2026-09-24: fino ad allora la lista contava come non producibili anche le voci che stavano gia' su
-# disco in un lotto giudicato conforme, perche' leggeva i cataloghi e non i lotti. I lotti di prima e
+# I lotti già prodotti, e come una voce del catalogo si riconosce in uno dei loro file. Aggiunto il
+# 2026-09-24: fino ad allora la lista contava come non producibili anche le voci che stavano già su
+# disco in un lotto giudicato conforme, perché leggeva i cataloghi e non i lotti. I lotti di prima e
 # seconda generazione portano nel nome del file il codice della voce. Quelli di quarta e quinta
-# portano un numero che sembra il codice e non lo e': e' l'indice grezzo del record nel file dei
+# portano un numero che sembra il codice e non lo è: è l'indice grezzo del record nel file dei
 # doni, mentre il codice numera i soli record che sono esemplari, e i due divergono dal primo record
 # che porta un oggetto. La prima versione di questa funzione abbinava per codice e ha segnato 832
-# voci con la specie sbagliata, che e' il modo in cui la differenza si e' vista; ora abbina per indice
+# voci con la specie sbagliata, che è il modo in cui la differenza si è vista; ora abbina per indice
 # del record. Il lotto dei doni di sesta e settima generazione, scritto da `tools/pkhex-dono --lotto`, porta
-# invece il codice vero, perche' nasce dalle richieste di questa lista. Il complemento del Rubino non porta alcun numero, e le sue voci di Colosseum e XD si
+# invece il codice vero, perché nasce dalle richieste di questa lista. Il complemento del Rubino non porta alcun numero, e le sue voci di Colosseum e XD si
 # riconoscono per gioco, classe d'incontro e specie.
 LOTTI_PER_CODICE = ["lotto-eventi-gen4", "lotto-eventi-gen5", "lotto-gb", "lotto-doni-gen67"]
 GIUDIZI_LIBRERIA = os.path.join(RADICE, "recreate-pokemon-distributions-events", "giudizi-pkhex-core.json")
@@ -479,9 +479,9 @@ def riconcilia_con_i_lotti(eventi):
     """Porta nella resa di ciascuna voce il lotto che la contiene e il giudizio della libreria.
 
     Il giudizio vale soltanto se l'impronta del file che sta oggi sul disco coincide con quella
-    giudicata: un file cambiato dopo il giudizio e' una voce prodotta da rigiudicare, non una voce
+    giudicata: un file cambiato dopo il giudizio è una voce prodotta da rigiudicare, non una voce
     conforme. Senza l'uscita di `tools/pkhex-giudica` la funzione non cambia nulla e lo dice,
-    perche' dare per conforme un file che nessuno ha giudicato sarebbe l'errore che il giudice
+    perché dare per conforme un file che nessuno ha giudicato sarebbe l'errore che il giudice
     esiste per evitare. Restituisce il conteggio per esito, che finisce nel documento.
     """
     import hashlib
@@ -551,9 +551,9 @@ def riconcilia_con_i_lotti(eventi):
 def scrivi_richieste_doni(percorso, eventi):
     """Le voci del primo tempo da produrre con `tools/pkhex-dono`, in JSON.
 
-    Il numero del codice di una voce da dono segreto e' la sua posizione fra i soli record che sono
-    esemplari, nell'ordine in cui il conteggio legge i file della generazione, cioe' prima le carte
-    complete e poi le semplici; e' lo stesso ordine in cui la libreria costruisce la propria base dei
+    Il numero del codice di una voce da dono segreto è la sua posizione fra i soli record che sono
+    esemplari, nell'ordine in cui il conteggio legge i file della generazione, cioè prima le carte
+    complete e poi le semplici; è lo stesso ordine in cui la libreria costruisce la propria base dei
     doni. Lo strumento che riceve le richieste non si fida di questa corrispondenza: confronta specie e
     forma di ogni voce con quelle della carta e rifiuta quelle che non coincidono.
     """
@@ -590,9 +590,9 @@ def ordina_per_specie(eventi):
     resta l'informazione utile a chi produce: si sposta il confine fra i due tempi, non l'ordine
     interno di ciascuno.
     """
-    # Dal 2026-09-24, fra le voci di una stessa specie, la prima e' di preferenza una gia' prodotta e
+    # Dal 2026-09-24, fra le voci di una stessa specie, la prima è di preferenza una già prodotta e
     # conforme, o producibile e verificata: il primo tempo chiede una voce per specie, e sceglierne una
-    # ancora da fare quando un'altra e' gia' pronta farebbe sembrare aperta una specie coperta.
+    # ancora da fare quando un'altra è già pronta farebbe sembrare aperta una specie coperta.
     pronte = (PRODOTTA, "producibile e verificata")
     scelte = {}
     for indice, e in enumerate(eventi):
@@ -611,10 +611,10 @@ def ordina_per_specie(eventi):
     return eventi
 
 
-# Le forme che l'insieme `diretta` segna perche' esistono nei dati di un titolo collegato al deposito,
-# ma che nessun incontro di quel titolo consegna: l'unica origine e' una distribuzione chiusa di una
-# generazione che arriva al deposito solo per la banca. Ogni voce porta la prova, perche' un'eccezione
-# a una tabella generata senza la sua ragione e' un dato inventato.
+# Le forme che l'insieme `diretta` segna perché esistono nei dati di un titolo collegato al deposito,
+# ma che nessun incontro di quel titolo consegna: l'unica origine è una distribuzione chiusa di una
+# generazione che arriva al deposito solo per la banca. Ogni voce porta la prova, perché un'eccezione
+# a una tabella generata senza la sua ragione è un dato inventato.
 SOLO_DA_EVENTI_CHIUSI = {
     # Vivillon motivo Poke Ball, verificato il 2026-09-23 sul verificatore al commit e15d246.
     # `Legality/Verifiers/FormVerifier.cs` righe 90-99 rifiuta in nona generazione una forma oltre la 18
@@ -684,12 +684,12 @@ def main(argv=None):
             continue
         via = "diretta" if (s, f) in diretta else "banca"
         if (s, f) in SOLO_DA_EVENTI_CHIUSI:
-            # Una forma presente nei dati di un titolo a via diretta non e' per questo ottenibile
+            # Una forma presente nei dati di un titolo a via diretta non è per questo ottenibile
             # su quel titolo: l'insieme `diretta` misura i dati, e qui il verificatore stesso dice che
             # nessun incontro di quel titolo la produce. La prova sta nel commento della tabella.
             via = "banca"
         if s in battaglia:
-            natura = "forma di sola battaglia: non puo stare in una scatola"
+            natura = "forma di sola battaglia: non può stare in una scatola"
         elif disp.e_totemica(s, f, totemiche, per_nome):
             natura = "forma totemica: al trasferimento torna alla forma base"
         else:
@@ -745,14 +745,14 @@ def main(argv=None):
     print("")
     print("  voci da evento enumerate           %d" % len(eventi))
     if duplicati:
-        print("  ATTENZIONE: %d codici sono condivisi da piu' voci, per un totale di %d voci. "
+        print("  ATTENZIONE: %d codici sono condivisi da più voci, per un totale di %d voci. "
               "Un codice" % (len(duplicati), sum(len(g) for g in duplicati.values())))
-        print("  duplicato non rompe nulla finche' nessuno lo usa per spuntare, e proprio per "
+        print("  duplicato non rompe nulla finché nessuno lo usa per spuntare, e proprio per "
               "questo va corretto ora.")
         for doppio in sorted(duplicati)[:5]:
             print("    %s: %s" % (doppio, [e["metodo"] for e in duplicati[doppio]]))
     else:
-        print("  codici distinti                    %d, cioe' uno per voce" % len(eventi))
+        print("  codici distinti                    %d, cioè uno per voce" % len(eventi))
     per_gen = {}
     for e in eventi:
         chiave = (e["generazione"], e["sotto_scadenza"])
@@ -775,7 +775,7 @@ def main(argv=None):
     print("  di questa lista che il 26 febbraio 2027 chiude davvero.")
     primi = [e for e in eventi if e.get("primo_della_specie")]
     print("")
-    print("  Il primo tempo della coda, cioe' una voce per specie, e' di %d voci; i gemelli "
+    print("  Il primo tempo della coda, cioè una voce per specie, è di %d voci; i gemelli "
           "del secondo tempo" % len(primi))
     print("  sono %d. La coda scritta porta i primi in testa." % (len(scad_ev) - len(primi)))
 

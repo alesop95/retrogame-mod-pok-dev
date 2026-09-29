@@ -2,43 +2,43 @@
 # -*- coding: utf-8 -*-
 """Legge una cartella di calcolo esportata da Google Fogli, per livelli crescenti di dettaglio.
 
-Perche' uno strumento e non una lettura diretta
+Perché uno strumento e non una lettura diretta
 -----------------------------------------------
-Le cartelle di calcolo che la comunita' mantiene su Google Fogli sono documenti voluminosi: quella
+Le cartelle di calcolo che la comunità mantiene su Google Fogli sono documenti voluminosi: quella
 delle sfide del deposito ha quattordici schede e quella delle due sfide del catalogo ne ha sei, con
 decine di migliaia di celle in tutto. Caricarle in conversazione per capire che cosa contengano
-sarebbe il modo piu' caro possibile di rispondere a una domanda che e' quasi sempre soltanto quale
+sarebbe il modo più caro possibile di rispondere a una domanda che è quasi sempre soltanto quale
 scheda guardare. Questo programma applica quindi la disclosure progressiva della regola
 sull'economia dei token: al Livello 1 riferisce lo scheletro di tutte le schede in poche righe, al
 Livello 2 l'intestazione e le prime e ultime righe di una scheda sola, al Livello 3 esporta una
-scheda intera in CSV perche' la si possa confrontare con le nostre enumerazioni.
+scheda intera in CSV perché la si possa confrontare con le nostre enumerazioni.
 
 Le tre insidie del formato, che il programma tratta e dichiara
 -------------------------------------------------------------
-La prima e' l'estensione dichiarata. Un foglio esportato da Google porta di norma righe e colonne
-vuote in coda, perche' l'estensione che il file dichiara e' quella della griglia dell'applicazione e
+La prima è l'estensione dichiarata. Un foglio esportato da Google porta di norma righe e colonne
+vuote in coda, perché l'estensione che il file dichiara è quella della griglia dell'applicazione e
 non quella del dato: leggere l'estensione dichiarata significa quindi leggere un numero che non
 misura nulla. Il programma calcola l'estensione effettiva scandendo le celle e cercando l'ultima
 riga e l'ultima colonna che portino contenuto.
 
-La seconda e' il nome delle schede. Il formato di Excel tronca il titolo di una scheda a trentuno
-caratteri, quindi il nome che il file dichiara puo' non essere quello che si vede nel documento in
-rete: la scheda "Standard Living origin that can" finisce a meta' frase, e non e' un difetto
-dell'esportazione. Il programma riferisce il troncamento cosicche' si riconosca invece di essere
+La seconda è il nome delle schede. Il formato di Excel tronca il titolo di una scheda a trentuno
+caratteri, quindi il nome che il file dichiara può non essere quello che si vede nel documento in
+rete: la scheda "Standard Living origin that can" finisce a metà frase, e non è un difetto
+dell'esportazione. Il programma riferisce il troncamento cosicché si riconosca invece di essere
 preso per il nome vero.
 
-La terza e' la natura di lista di controllo. In questi documenti le colonne che contano sono spesso
-caselle di spunta, che il formato conserva come valori booleani: contarle e' l'unico modo di sapere
+La terza è la natura di lista di controllo. In questi documenti le colonne che contano sono spesso
+caselle di spunta, che il formato conserva come valori booleani: contarle è l'unico modo di sapere
 se una scheda sia una enumerazione da leggere oppure lo stato di avanzamento di chi l'ha compilata,
 che a noi non serve. Il programma le conta a parte.
 
 Che cosa questo programma non fa
 --------------------------------
 Non interpreta il contenuto e non lo confronta con le nostre liste. Riconoscere che una scheda
-enumeri le mosse perdute invece dei fiocchi e' lavoro semantico, e sta a chi legge; qui c'e' la sola
-parte deterministica, cioe' portare il dato fuori dal formato binario in una forma ispezionabile.
-Il riconoscimento della riga di intestazione e' l'unica euristica presente, ed e' dichiarata: si
-prende, fra le prime dodici righe con contenuto, quella con piu' celle piene, e a parita' vince la
+enumeri le mosse perdute invece dei fiocchi è lavoro semantico, e sta a chi legge; qui c'e' la sola
+parte deterministica, cioè portare il dato fuori dal formato binario in una forma ispezionabile.
+Il riconoscimento della riga di intestazione è l'unica euristica presente, ed è dichiarata: si
+prende, fra le prime dodici righe con contenuto, quella con più celle piene, e a parità vince la
 prima.
 
 Uso
@@ -61,9 +61,9 @@ RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 USCITA = os.path.join(RADICE, "pokedex-home-completo", "INDICE-FOGLI-ESTERNI.md")
 
 # Le cartelle di calcolo che il corpus della collezione porta e che il progetto tiene su disco. Non
-# sono versionate, perche' `_notes/` e' escluso e perche' sono file di terzi: ne entra in git il solo
-# scheletro generato, che e' il livello che serve a decidere dove guardare. Il percorso e' relativo
-# alla radice del repository, perche' le prime due sono arrivate come consegna dell'utente e le
+# sono versionate, perché `_notes/` è escluso e perché sono file di terzi: ne entra in git il solo
+# scheletro generato, che è il livello che serve a decidere dove guardare. Il percorso è relativo
+# alla radice del repository, perché le prime due sono arrivate come consegna dell'utente e le
 # altre due sono state scaricate dai collegamenti del corpus e stanno quindi fra le fonti.
 FOGLI = [
     (os.path.join("_notes", "fonti", "consegne", "spreadsheets-home",
@@ -96,10 +96,10 @@ def testo_cella(v):
 
 
 def scandisci(ws):
-    """Una sola passata sulla scheda, da cui si ricava tutto cio' che i tre livelli richiedono.
+    """Una sola passata sulla scheda, da cui si ricava tutto ciò che i tre livelli richiedono.
 
-    La passata e' una perche' su una cartella da dieci megabyte riaprire la scheda per ogni misura
-    costerebbe piu' del resto del programma. Ne escono l'estensione effettiva, il riempimento, il
+    La passata è una perché su una cartella da dieci megabyte riaprire la scheda per ogni misura
+    costerebbe più del resto del programma. Ne escono l'estensione effettiva, il riempimento, il
     conto delle caselle di spunta, le prime righe per il riconoscimento dell'intestazione e le
     ultime per l'anteprima.
     """
@@ -137,7 +137,7 @@ def scandisci(ws):
 
 
 def riconosci_intestazione(teste):
-    """La riga di intestazione secondo l'euristica dichiarata: piu' celle piene, a parita' la prima.
+    """La riga di intestazione secondo l'euristica dichiarata: più celle piene, a parità la prima.
 
     Restituisce la coppia fra il numero di riga e le sue celle, oppure la coppia fra zero e la lista
     vuota se la scheda non porta alcuna riga con contenuto. L'euristica sbaglia sui fogli che aprono
@@ -181,11 +181,11 @@ def scheletro(percorso):
 
 
 def componi(inventario):
-    """Il documento di Livello 1, che e' cio' che entra in git al posto dei file binari."""
+    """Il documento di Livello 1, che è ciò che entra in git al posto dei file binari."""
     r = ["# Indice delle cartelle di calcolo esterne della collezione", ""]
-    r.append("> Documento generato da `tools/leggi-foglio-google.py`. Non si modifica a mano: si rigenera. E' lo scheletro di Livello 1 delle cartelle di calcolo che il corpus della collezione porta e che stanno in `_notes/fonti/consegne/spreadsheets-home/`, cioe' fuori dal version control perche' sono file di terzi. Serve a decidere quale scheda valga la lettura, non a sostituirla.")
+    r.append("> Documento generato da `tools/leggi-foglio-google.py`. Non si modifica a mano: si rigenera. È lo scheletro di Livello 1 delle cartelle di calcolo che il corpus della collezione porta e che stanno in `_notes/fonti/consegne/spreadsheets-home/`, cioè fuori dal version control perché sono file di terzi. Serve a decidere quale scheda valga la lettura, non a sostituirla.")
     r.append("")
-    r.append("Il riempimento e' la frazione di celle piene sulla griglia effettiva, e va letto come indizio della forma di una scheda: un valore basso indica una tabella sparsa o una scheda di sola prosa, un valore alto una enumerazione densa. Le caselle di spunta sono contate a parte perche' distinguono una enumerazione da leggere dallo stato di avanzamento di chi ha compilato il foglio, che a noi non serve. Un titolo dichiarato troncato ha esattamente trentuno caratteri, che e' il tetto del formato e non la fine del nome.")
+    r.append("Il riempimento è la frazione di celle piene sulla griglia effettiva, e va letto come indizio della forma di una scheda: un valore basso indica una tabella sparsa o una scheda di sola prosa, un valore alto una enumerazione densa. Le caselle di spunta sono contate a parte perché distinguono una enumerazione da leggere dallo stato di avanzamento di chi ha compilato il foglio, che a noi non serve. Un titolo dichiarato troncato ha esattamente trentuno caratteri, che è il tetto del formato e non la fine del nome.")
     r.append("")
     for nome, che_cosa, schede, errore in inventario:
         r.append("## %s" % nome)
@@ -209,7 +209,7 @@ def componi(inventario):
                         if etichette else "nessuna"))
         r.append("")
         totale = sum(s["piene"] for s in schede)
-        r.append("Il totale delle celle piene di questa cartella e' %d su %d schede."
+        r.append("Il totale delle celle piene di questa cartella è %d su %d schede."
                  % (totale, len(schede)))
         r.append("")
     return "\n".join(r) + "\n"
@@ -250,7 +250,7 @@ def mostra_anteprima(percorso, nome_scheda):
 
 
 def esporta(percorso, nome_scheda, destinazione):
-    """Il Livello 3: una scheda intera in CSV, che e' la forma su cui si fa un confronto."""
+    """Il Livello 3: una scheda intera in CSV, che è la forma su cui si fa un confronto."""
     libro, errore = apri(percorso)
     if errore:
         print("rifiutato: " + errore)
@@ -280,8 +280,8 @@ def esporta(percorso, nome_scheda, destinazione):
 def quale_cartella(nome_scheda):
     """In quale delle cartelle registrate esista una scheda con questo nome.
 
-    Serve perche' con piu' cartelle registrate il solo nome della scheda e' ambiguo, e indovinare
-    sarebbe il genere di comodita' che poi fa leggere il foglio sbagliato senza dirlo.
+    Serve perché con più cartelle registrate il solo nome della scheda è ambiguo, e indovinare
+    sarebbe il genere di comodità che poi fa leggere il foglio sbagliato senza dirlo.
     """
     trovate = []
     for percorso, _ in FOGLI:
@@ -308,11 +308,11 @@ def self_test():
     prova("una spunta vera", "TRUE", testo_cella(True))
     prova("una spunta falsa", "FALSE", testo_cella(False))
     prova("una cella vuota", "", testo_cella(None))
-    prova("uno spazio non e' contenuto", "", testo_cella("   "))
+    prova("uno spazio non è contenuto", "", testo_cella("   "))
     prova("un numero diventa testo", "12", testo_cella(12))
 
     class SchedaFinta(object):
-        """Il minimo che `scandisci` richiede, cosicche' il self-test non dipenda da alcun file."""
+        """Il minimo che `scandisci` richiede, cosicché il self-test non dipenda da alcun file."""
 
         title = "finta"
 
@@ -323,7 +323,7 @@ def self_test():
             for r in self.righe:
                 yield tuple(r)
 
-    # L'estensione effettiva e' il presidio contro la griglia di Google: la scheda finta qui sotto
+    # L'estensione effettiva è il presidio contro la griglia di Google: la scheda finta qui sotto
     # dichiara quattro righe per cinque colonne e ne porta due per tre.
     finta = SchedaFinta([
         ["Dex", "Nome", "Preso", None, None],
@@ -335,11 +335,11 @@ def self_test():
     prova("le righe vuote in coda non contano", 2, s["righe"])
     prova("le colonne vuote in coda non contano", 3, s["colonne"])
     prova("le celle piene sono contate", 6, s["piene"])
-    prova("la spunta e' contata a parte", 1, s["booleane"])
-    prova("il riempimento e' pieno", 100, int(round(s["riempimento"])))
-    # Controllo negativo: senza il calcolo dell'estensione la scheda direbbe quattro righe, ed e'
+    prova("la spunta è contata a parte", 1, s["booleane"])
+    prova("il riempimento è pieno", 100, int(round(s["riempimento"])))
+    # Controllo negativo: senza il calcolo dell'estensione la scheda direbbe quattro righe, ed è
     # esattamente il numero che non va riferito.
-    prova("l'estensione dichiarata non e' quella effettiva", True, s["righe"] != len(finta.righe))
+    prova("l'estensione dichiarata non è quella effettiva", True, s["righe"] != len(finta.righe))
 
     # Una riga vuota in mezzo non chiude la scheda, altrimenti una tabella con uno stacco fra due
     # blocchi verrebbe misurata al solo primo blocco.
@@ -350,7 +350,7 @@ def self_test():
     ])
     prova("una riga vuota in mezzo non chiude la scheda", 3, scandisci(finta)["righe"])
 
-    # Il riconoscimento dell'intestazione: vince la riga con piu' celle piene, non la prima.
+    # Il riconoscimento dell'intestazione: vince la riga con più celle piene, non la prima.
     finta = SchedaFinta([
         ["Titolo del foglio", None, None],
         [None, None, None],
@@ -358,18 +358,18 @@ def self_test():
         [1, "Bulbasaur", "-"],
     ])
     numero, celle = riconosci_intestazione(scandisci(finta)["teste"])
-    prova("l'intestazione non e' il titolo", 3, numero)
+    prova("l'intestazione non è il titolo", 3, numero)
     prova("e porta le sue etichette", ["Dex", "Nome", "Nota"], celle)
     prova("una scheda vuota non ha intestazione", (0, []), riconosci_intestazione([]))
 
-    # Il CSV protegge cio' che spezzerebbe una riga o un campo.
+    # Il CSV protegge ciò che spezzerebbe una riga o un campo.
     prova("la virgola viene protetta", '"uno, due"', campo_csv("uno, due"))
     prova("l'apice viene raddoppiato", '"lui ""disse"""', campo_csv('lui "disse"'))
     prova("l'a capo viene protetto", '"uno\ndue"', campo_csv("uno\ndue"))
     prova("un campo semplice resta nudo", "Bulbasaur", campo_csv("Bulbasaur"))
 
     # La riga di tabella del documento non deve poter essere spezzata da una barra verticale che
-    # arrivi da una etichetta del foglio, perche' romperebbe la griglia Markdown senza errore.
+    # arrivi da una etichetta del foglio, perché romperebbe la griglia Markdown senza errore.
     inventario = [("finta.xlsx", "prova", [{
         "titolo": "s", "righe": 1, "colonne": 2, "piene": 2, "booleane": 0,
         "riempimento": 100.0, "teste": [(1, ["a|b", "c"])], "code": [],
@@ -400,7 +400,7 @@ def main(argv=None):
         if not percorso:
             trovate = quale_cartella(a.scheda)
             if len(trovate) > 1:
-                print("rifiutato: la scheda %r esiste in piu' cartelle, serve --file" % a.scheda)
+                print("rifiutato: la scheda %r esiste in più cartelle, serve --file" % a.scheda)
                 for n in trovate:
                     print("  " + n)
                 return 1

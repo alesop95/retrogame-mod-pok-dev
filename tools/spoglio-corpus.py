@@ -61,13 +61,13 @@ sys.path.insert(0, os.path.join(RADICE, "pokemon-gen12-gen3-bridge-original-hard
 TESTI = os.path.join("PKHeX.Core", "Resources", "text", "other", "en")
 
 # I nomi troppo corti o troppo comuni per essere riconosciuti dentro una frase senza produrre
-# falsi positivi. Non e' una lista di eccezioni ma un criterio: sotto questa soglia un nome
+# falsi positivi. Non è una lista di eccezioni ma un criterio: sotto questa soglia un nome
 # inglese di una parola sola coincide quasi sempre con una parola comune.
 LUNGHEZZA_MINIMA = 7
 
-# I nomi che superano la soglia e restano comunque ambigui, esclusi uno per uno perche' ciascuno
-# ha una ragione propria. Vanno tenuti pochi: una lista che cresce e' il segno che il criterio
-# sopra e' sbagliato e va cambiato, non allungata.
+# I nomi che superano la soglia e restano comunque ambigui, esclusi uno per uno perché ciascuno
+# ha una ragione propria. Vanno tenuti pochi: una lista che cresce è il segno che il criterio
+# sopra è sbagliato e va cambiato, non allungata.
 AMBIGUI = frozenset([
     "Transform", "Nightmare", "Frustration", "Recover", "Present", "Confide", "Celebrate",
     "Sketch", "Splash", "Rollout", "Bestow", "Captivate", "Foresight", "Refresh", "Snatch",
@@ -81,7 +81,7 @@ def carica_nomi(pkhex, file_):
     Due formati convivono in quella cartella e confonderli produce un vocabolario che non
     riconosce nulla senza dirlo: gli elenchi indicizzati per numero, come le specie e le mosse,
     hanno un nome per riga; quelli indicizzati per chiave, come i fiocchi, hanno la chiave e il
-    nome separati da una tabulazione. Nel secondo caso il nome e' il secondo campo, e prendere la
+    nome separati da una tabulazione. Nel secondo caso il nome è il secondo campo, e prendere la
     riga intera significa cercare nel testo una stringa che nel testo non compare mai.
     """
     percorso = os.path.join(pkhex, TESTI, file_)
@@ -92,8 +92,8 @@ def carica_nomi(pkhex, file_):
 def vocabolario(nomi, minima=0, escludi=frozenset()):
     """Il vocabolario riconoscibile, con l'espressione che lo cerca.
 
-    Si scarta il vuoto, i segnaposto e cio' che e' troppo corto o ambiguo. L'espressione richiede
-    un confine di parola ai due estremi, cosicche' un nome non venga riconosciuto dentro un altro.
+    Si scarta il vuoto, i segnaposto e ciò che è troppo corto o ambiguo. L'espressione richiede
+    un confine di parola ai due estremi, cosicché un nome non venga riconosciuto dentro un altro.
     """
     buoni = {}
     for i, n in enumerate(nomi):
@@ -104,7 +104,7 @@ def vocabolario(nomi, minima=0, escludi=frozenset()):
         buoni[n] = i
     if not buoni:
         return {}, None
-    # L'ordine per lunghezza decrescente conta: cosi' il nome piu' lungo vince quando due si
+    # L'ordine per lunghezza decrescente conta: così il nome più lungo vince quando due si
     # sovrappongono, per esempio la forma regionale rispetto alla specie che la contiene.
     schema = "|".join(re.escape(n) for n in sorted(buoni, key=len, reverse=True))
     return buoni, re.compile(r"(?<![A-Za-z])(" + schema + r")(?![A-Za-z])")
@@ -113,10 +113,10 @@ def vocabolario(nomi, minima=0, escludi=frozenset()):
 def vocabolario_fiocchi(nomi):
     """Il vocabolario dei fiocchi, che si cerca in coppia con la parola che lo qualifica.
 
-    Restituisce la stessa forma di `vocabolario`, cioe' il dizionario dal nome all'indice e
+    Restituisce la stessa forma di `vocabolario`, cioè il dizionario dal nome all'indice e
     l'espressione, ma l'espressione cattura il solo nome dentro una coppia. Le due forme che il
     testo inglese usa sono il nome seguito dalla parola e la parola seguita dal nome, e vanno
-    accettate entrambe perche' convivono nella stessa pagina.
+    accettate entrambe perché convivono nella stessa pagina.
     """
     buoni = {}
     for i, n in enumerate(nomi):
@@ -154,7 +154,7 @@ def nostre_specie(pkhex):
         fuori.add(struct.unpack_from("<H", open(f, "rb").read(), 0x08)[0])
     interne = set()
     for pat in ("lotto-eventi/*.pk3", "lotto-incontri-gen3/*.pk3"):
-        for f in glob.glob(os.path.join(RADICE, "_notes", pat)):
+        for f in glob.glob(os.path.join(RADICE, "_notes", "lotti", pat)):
             m = gen3.Gen3Mon.from_canonical_bytes(open(f, "rb").read(), party=False)
             interne.add(m.growth.species)
     return fuori, interne
@@ -164,13 +164,13 @@ def nostre_mosse():
     """Le mosse che i nostri lotti contengono, come insieme di identificativi."""
     from pokebridge import gen3  # noqa: E402
     fuori = set()
-    for pat, off in (("lotto-gen5/*.pk5", 0x28), ("lotto-gen4/*.pk4", 0x28)):
-        for f in glob.glob(os.path.join(RADICE, "_notes", pat)):
+    for pat, off in (("lotto-eventi-gen5/*.pk5", 0x28), ("lotto-eventi-gen4/*.pk4", 0x28)):
+        for f in glob.glob(os.path.join(RADICE, "_notes", "lotti", pat)):
             d = open(f, "rb").read()
             for i in range(4):
                 fuori.add(struct.unpack_from("<H", d, off + 2 * i)[0])
     for pat in ("lotto-eventi/*.pk3", "lotto-incontri-gen3/*.pk3"):
-        for f in glob.glob(os.path.join(RADICE, "_notes", pat)):
+        for f in glob.glob(os.path.join(RADICE, "_notes", "lotti", pat)):
             m = gen3.Gen3Mon.from_canonical_bytes(open(f, "rb").read(), party=False)
             fuori.update(m.attacks.moves)
     fuori.discard(0)
@@ -184,10 +184,10 @@ def spoglia(cartella, pkhex):
 
     voc_specie, re_specie = vocabolario(specie_nomi, minima=4)
     voc_mosse, re_mosse = vocabolario(mosse_nomi, minima=LUNGHEZZA_MINIMA, escludi=AMBIGUI)
-    # I fiocchi hanno nomi che sono parole comuni, come Speciale, Abilita' o Vittoria, e cercarli
-    # nudi produce quasi solo falsi positivi: nel primo giro le quattro voci piu' citate erano
-    # tutte occorrenze di quelle parole in frasi che di fiocchi non parlavano. Il rimedio non e'
-    # allungare la lista degli ambigui ma cambiare cio' che si cerca: nel testo un fiocco compare
+    # I fiocchi hanno nomi che sono parole comuni, come Speciale, Abilità o Vittoria, e cercarli
+    # nudi produce quasi solo falsi positivi: nel primo giro le quattro voci più citate erano
+    # tutte occorrenze di quelle parole in frasi che di fiocchi non parlavano. Il rimedio non è
+    # allungare la lista degli ambigui ma cambiare ciò che si cerca: nel testo un fiocco compare
     # sempre accanto alla parola che lo qualifica, quindi si cerca la coppia e non il nome.
     voc_fiocchi, re_fiocchi = vocabolario_fiocchi(fiocchi_nomi)
 
@@ -196,7 +196,7 @@ def spoglia(cartella, pkhex):
                "fiocchi": collections.defaultdict(set)}
     docs = documenti(cartella)
     for rel, testo in docs:
-        # L'intestazione che il lettore scrive in cima a ogni file non e' contenuto della fonte e
+        # L'intestazione che il lettore scrive in cima a ogni file non è contenuto della fonte e
         # nomina cose nostre: si taglia, altrimenti ogni documento sembrerebbe nominarle.
         i = testo.find("\n## ")
         corpo = testo[i:] if i > 0 else testo
@@ -206,15 +206,15 @@ def spoglia(cartella, pkhex):
             if espr is None:
                 continue
             for m in set(espr.findall(corpo)):
-                # Un'espressione con piu' gruppi rende tuple: il nome e' il solo gruppo non
-                # vuoto, e appiattirlo qui evita di avere due rami di lettura piu' sotto.
+                # Un'espressione con più gruppi rende tuple: il nome è il solo gruppo non
+                # vuoto, e appiattirlo qui evita di avere due rami di lettura più sotto.
                 if isinstance(m, tuple):
                     m = next((x for x in m if x), "")
                 if not m:
                     continue
                 if m not in voc:
                     # La ricerca dei fiocchi non distingue le maiuscole, quindi il nome catturato
-                    # puo' differire per grafia da quello della tabella: si riporta alla tabella.
+                    # può differire per grafia da quello della tabella: si riporta alla tabella.
                     per_minuscolo = {k.lower(): k for k in voc}
                     m = per_minuscolo.get(m.lower())
                     if m is None:
@@ -236,16 +236,16 @@ def rapporto(s, pkhex):
              "incrociato, eseguita con il metodo del predicato invece che con la lettura in "
              "sequenza.")
     r.append("")
-    r.append("Sono stati spogliati %d documenti scaricati. Il riconoscimento e' sui vocabolari "
-             "chiusi del dominio, cioe' i nomi inglesi di specie, mosse e fiocchi letti dalle "
-             "tabelle del verificatore. Due limiti vanno dichiarati perche' si vedono nell'esito: "
+    r.append("Sono stati spogliati %d documenti scaricati. Il riconoscimento è sui vocabolari "
+             "chiusi del dominio, cioè i nomi inglesi di specie, mosse e fiocchi letti dalle "
+             "tabelle del verificatore. Due limiti vanno dichiarati perché si vedono nell'esito: "
              "i nomi corti o ambigui sono esclusi per non produrre falsi positivi, e un nome "
              "scritto in una lingua diversa dall'inglese non viene riconosciuto affatto."
              % s["documenti"])
     r.append("")
-    r.append("La direzione che interessa e' una sola, cioe' cio' che il corpus nomina e i nostri "
-             "lotti non contengono. La direzione opposta non e' un difetto e non si riferisce, "
-             "perche' il corpus non pretende di essere completo.")
+    r.append("La direzione che interessa è una sola, cioè ciò che il corpus nomina e i nostri "
+             "lotti non contengono. La direzione opposta non è un difetto e non si riferisce, "
+             "perché il corpus non pretende di essere completo.")
     r.append("")
 
     # Specie.
@@ -254,8 +254,8 @@ def rapporto(s, pkhex):
     r.append("## Specie")
     r.append("")
     r.append("Il corpus nomina %d specie distinte. I nostri lotti ne contengono %d, e %d delle "
-             "nominate non vi compaiono. L'assenza non e' di per se' una lacuna, perche' un lotto "
-             "di distribuzioni non ha ragione di contenere ogni specie del gioco: e' una lista di "
+             "nominate non vi compaiono. L'assenza non è di per sé una lacuna, perché un lotto "
+             "di distribuzioni non ha ragione di contenere ogni specie del gioco: è una lista di "
              "controllo, e le voci che pesano sono quelle che compaiono in molti documenti."
              % (len(citate), len(fuori_nostre | interne), len(assenti)))
     r.append("")
@@ -286,7 +286,7 @@ def rapporto(s, pkhex):
     r.append("## Fiocchi")
     r.append("")
     r.append("Il corpus nomina %d fiocchi distinti. Il progetto non ha ancora un'enumerazione "
-             "dell'asse dei fiocchi, quindi qui non c'e' un confronto ma un elenco, ed e' il "
+             "dell'asse dei fiocchi, quindi qui non c'e' un confronto ma un elenco, ed è il "
              "materiale di partenza per costruirla." % len(t["fiocchi"]))
     r.append("")
     r.append("| Fiocco | Documenti | Uno dei documenti |")
@@ -315,13 +315,13 @@ def self_test():
     prova("negativo: non lo trova dentro un'altra parola",
           espr.findall("Bulbasaurus") == [], str(espr.findall("Bulbasaurus")))
 
-    # Il nome piu' lungo vince quando due si sovrappongono.
+    # Il nome più lungo vince quando due si sovrappongono.
     voc2, espr2 = vocabolario(["Charizard", "Charizard-Mega-X"], minima=4)
-    prova("fra due nomi sovrapposti vince il piu' lungo",
+    prova("fra due nomi sovrapposti vince il più lungo",
           espr2.findall("a Charizard-Mega-X here") == ["Charizard-Mega-X"],
           str(espr2.findall("a Charizard-Mega-X here")))
 
-    # Il taglio dell'intestazione, che e' il presidio contro l'autoriconoscimento.
+    # Il taglio dell'intestazione, che è il presidio contro l'autoriconoscimento.
     testo = "riga di intestazione con Bulbasaur dentro\n## Corpo\nqui c'e' Charizard\n"
     i = testo.find("\n## ")
     prova("l'intestazione del lettore si taglia prima di spogliare",

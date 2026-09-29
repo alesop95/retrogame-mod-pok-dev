@@ -1,8 +1,8 @@
 # Indice delle cartelle di calcolo esterne della collezione
 
-> Documento generato da `tools/leggi-foglio-google.py`. Non si modifica a mano: si rigenera. E' lo scheletro di Livello 1 delle cartelle di calcolo che il corpus della collezione porta e che stanno in `_notes/fonti/consegne/spreadsheets-home/`, cioe' fuori dal version control perche' sono file di terzi. Serve a decidere quale scheda valga la lettura, non a sostituirla.
+> Documento generato da `tools/leggi-foglio-google.py`. Non si modifica a mano: si rigenera. È lo scheletro di Livello 1 delle cartelle di calcolo che il corpus della collezione porta e che stanno in `_notes/fonti/consegne/spreadsheets-home/`, cioè fuori dal version control perché sono file di terzi. Serve a decidere quale scheda valga la lettura, non a sostituirla.
 
-Il riempimento e' la frazione di celle piene sulla griglia effettiva, e va letto come indizio della forma di una scheda: un valore basso indica una tabella sparsa o una scheda di sola prosa, un valore alto una enumerazione densa. Le caselle di spunta sono contate a parte perche' distinguono una enumerazione da leggere dallo stato di avanzamento di chi ha compilato il foglio, che a noi non serve. Un titolo dichiarato troncato ha esattamente trentuno caratteri, che e' il tetto del formato e non la fine del nome.
+Il riempimento è la frazione di celle piene sulla griglia effettiva, e va letto come indizio della forma di una scheda: un valore basso indica una tabella sparsa o una scheda di sola prosa, un valore alto una enumerazione densa. Le caselle di spunta sono contate a parte perché distinguono una enumerazione da leggere dallo stato di avanzamento di chi ha compilato il foglio, che a noi non serve. Un titolo dichiarato troncato ha esattamente trentuno caratteri, che è il tetto del formato e non la fine del nome.
 
 ## Bank Closing all possible things checklist V0.5.xlsx
 
@@ -25,7 +25,7 @@ Che cosa porta: le sfide del deposito e gli assi della collezione, dal cluster d
 | Locked Shinies | 9 | 9 | 46 | 57% | 16 | riga 1: #; Pokémon; Games; Notes; Current Game; Completed |
 | Other Unique Pokemon | 203 | 14 | 1024 | 36% | 404 | riga 1: #; Pokémon; Column 1; Column 2; Games; Notes |
 
-Il totale delle celle piene di questa cartella e' 17092 su 14 schede.
+Il totale delle celle piene di questa cartella è 17092 su 14 schede.
 
 ## Pokémon Master Dex and Retro Dex Challenges.xlsx
 
@@ -40,7 +40,7 @@ Che cosa porta: le due sfide del catalogo, con la scheda dei rimandi.
 | Bingo Card | 15 | 14 | 50 | 24% | 0 | riga 2: Kricketune; Iron Valiant; Unfezant; Sandile; Aegislash |
 | Hyperlinks | 447 | 22 | 1188 | 12% | 0 | riga 12: Main Challenge Living Dex; 1.0; 2; Kanto; AAsokaa077; Ace1016 |
 
-Il totale delle celle piene di questa cartella e' 425797 su 6 schede.
+Il totale delle celle piene di questa cartella è 425797 su 6 schede.
 
 ## 2026-09-08-foglio-ingame-events-chaboijish.xlsx
 
@@ -53,7 +53,7 @@ Che cosa porta: gli esemplari da evento interno al gioco, di ChaBoiJish, dal clu
 | In-Game Trades (And others with (troncato) | 239 | 13 | 2038 | 66% | 238 | riga 1: Gen; Game; Pokemon; ★; Nickname; Yours |
 | DBPokemon | 1439 | 42 | 28181 | 47% | 0 | riga 1: Pokémon; Dex Number; Icons; Shiny Icons; Icons; Shiny Icons |
 
-Il totale delle celle piene di questa cartella e' 40753 su 4 schede.
+Il totale delle celle piene di questa cartella è 40753 su 4 schede.
 
 ## 2026-09-08-foglio-scambi-e-doni-greenpangolin17.xlsx
 
@@ -67,5 +67,5 @@ Che cosa porta: gli scambi in gioco, i doni e gli esemplari interagibili, di gre
 | Spin-offs | 75 | 8 | 411 | 68% | 74 | riga 1: Game; Pokémon; Nickname; OT/ID; Trainer requests; Category |
 | Storage games | 57 | 8 | 351 | 77% | 56 | riga 1: Game; Pokémon; Nickname; OT/ID; Trainer requests; Category |
 
-Il totale delle celle piene di questa cartella e' 5361 su 5 schede.
+Il totale delle celle piene di questa cartella è 5361 su 5 schede.
 

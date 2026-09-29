@@ -13,11 +13,11 @@ https://bulbapedia.bulbagarden.net/wiki/N%27s_Pok%C3%A9mon
 
 ## Abstract
 
-Pagina enciclopedica letta il 2026-09-12. Elenca quindici esemplari e ne dichiara i tratti: identificativo 00002 con allenatore N, trenta in ogni valore individuale, natura fissata, amicizia al massimo alla cattura, impossibilita' di ricevere un soprannome e cromaticita' bloccata nel codice. Dichiara inoltre che la sfera non e' fissata ma e' quella che il giocatore usa per catturarli.
+Pagina enciclopedica letta il 2026-09-12. Elenca quindici esemplari e ne dichiara i tratti: identificativo 00002 con allenatore N, trenta in ogni valore individuale, natura fissata, amicizia al massimo alla cattura, impossibilità di ricevere un soprannome e cromaticità bloccata nel codice. Dichiara inoltre che la sfera non è fissata ma è quella che il giocatore usa per catturarli.
 
 ## Perché è in archivio
 
-Conferma per via indipendente il quindici che il progetto aveva misurato sulle tavole del verificatore il 2026-09-08, correggendo il trentasei che portava in memoria. Toglie inoltre un tratto che si sarebbe potuto assumere, cioe' che la sfera fosse parte dell'identita' dell'esemplare.
+Conferma per via indipendente il quindici che il progetto aveva misurato sulle tavole del verificatore il 2026-09-08, correggendo il trentasei che portava in memoria. Toglie inoltre un tratto che si sarebbe potuto assumere, cioè che la sfera fosse parte dell'identità dell'esemplare.
 
 ## A quale punto del progetto serve
 

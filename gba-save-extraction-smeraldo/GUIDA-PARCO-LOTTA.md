@@ -40,12 +40,12 @@ Vincoli di iscrizione, validi ovunque: nessuna specie ripetuta, nessuno strument
 | Edificio | Asso | Argento | Oro | Serie di fila per l'oro |
 |---|---|---|---|---|
 | Cupola Lotta | Astro Cupola Tolomeo | finale del torneo 5 | finale del torneo 10 | 10 tornei da 4 incontri |
-| Azienda Lotta | Boss Azienda Savino | alla lotta 21, cioe' serie 3, lotta 7 di 7 | alla lotta 42, cioe' serie 6, lotta 7 di 7 | 6 serie da 7 lotte |
-| Torre Lotta | Dama Torre Alberta | alla lotta 35, cioe' serie 5, lotta 7 di 7 | alla lotta 70, cioe' serie 10, lotta 7 di 7 | 10 serie da 7 lotte |
-| Dojo Lotta | Maestra Dojo Valentina | alla lotta 28, cioe' serie 4, lotta 7 di 7 | alla lotta 56, cioe' serie 8, lotta 7 di 7 | 8 serie da 7 lotte |
-| Palazzo Lotta | Sire Palazzo Spartaco | alla lotta 21, cioe' serie 3, lotta 7 di 7 | alla lotta 42, cioe' serie 6, lotta 7 di 7 | 6 serie da 7 lotte |
-| Serpe Lotta | Regina Serpe Fortunata | alla sala 28, cioe' serie 2, sala 14 di 14 | alla sala 140, cioe' serie 10, sala 14 di 14 | 10 serie da 14 sale |
-| Piramide Lotta | Re Piramide Baldo | al piano 22, cioe' serie 4, piano 1 di 7 | al piano 71, cioe' serie 11, piano 1 di 7 | 11 serie da 7 piani |
+| Azienda Lotta | Boss Azienda Savino | alla lotta 21, cioè serie 3, lotta 7 di 7 | alla lotta 42, cioè serie 6, lotta 7 di 7 | 6 serie da 7 lotte |
+| Torre Lotta | Dama Torre Alberta | alla lotta 35, cioè serie 5, lotta 7 di 7 | alla lotta 70, cioè serie 10, lotta 7 di 7 | 10 serie da 7 lotte |
+| Dojo Lotta | Maestra Dojo Valentina | alla lotta 28, cioè serie 4, lotta 7 di 7 | alla lotta 56, cioè serie 8, lotta 7 di 7 | 8 serie da 7 lotte |
+| Palazzo Lotta | Sire Palazzo Spartaco | alla lotta 21, cioè serie 3, lotta 7 di 7 | alla lotta 42, cioè serie 6, lotta 7 di 7 | 6 serie da 7 lotte |
+| Serpe Lotta | Regina Serpe Fortunata | alla sala 28, cioè serie 2, sala 14 di 14 | alla sala 140, cioè serie 10, sala 14 di 14 | 10 serie da 14 sale |
+| Piramide Lotta | Re Piramide Baldo | al piano 22, cioè serie 4, piano 1 di 7 | al piano 71, cioè serie 11, piano 1 di 7 | 11 serie da 7 piani |
 
 <!-- generato da parco_lotta_percorso_oro.py: calendario, fine -->
 
@@ -61,7 +61,7 @@ Vincoli di iscrizione, validi ovunque: nessuna specie ripetuta, nessuno strument
 | 2 | Metagross Decisa | box 14, riga 1, colonna 2 | Avanzi | Meteorpugno, Terremoto, Palla Ombra, Esplosione |
 | 3 | Slaking Decisa | box 14, riga 1, colonna 3 | Bendascelta | Ritorno, Terremoto, Palla Ombra, Iper Raggio |
 
-Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Metagross, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Slaking, Starmie (box 14, riga 2, colonna 5), Gengar (box 14, riga 3, colonna 3).
+Riserve con più riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Metagross, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Slaking, Starmie (box 14, riga 2, colonna 5), Gengar (box 14, riga 3, colonna 3).
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Cupola Lotta, fine -->
 
@@ -100,7 +100,7 @@ Non si porta nulla dal PC: si combatte con esemplari in prestito, e dopo ogni vi
 | 2 | Swampert Placida | box 14, riga 1, colonna 4 | Avanzi | Terremoto, Surf, Geloraggio, Contrattacco |
 | 3 | Metagross Decisa | box 14, riga 1, colonna 2 | Bendascelta (il file porta Avanzi: scambiarlo in gioco) | Meteorpugno, Terremoto, Palla Ombra, Esplosione |
 
-Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Swampert, Starmie (box 14, riga 2, colonna 5), Gengar (box 14, riga 3, colonna 3); al posto di Metagross, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5).
+Riserve con più riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Swampert, Starmie (box 14, riga 2, colonna 5), Gengar (box 14, riga 3, colonna 3); al posto di Metagross, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5).
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Torre Lotta, fine -->
 
@@ -125,7 +125,7 @@ Prima di entrare: dai al Metagross Decisa la Bendascelta presa allo Slaking e la
 | 2 | Metagross Decisa | box 14, riga 1, colonna 2 | Bendascelta (il file porta Avanzi: scambiarlo in gioco) | Meteorpugno, Terremoto, Palla Ombra, Esplosione |
 | 3 | Swampert Placida | box 14, riga 1, colonna 4 | Avanzi | Terremoto, Surf, Geloraggio, Contrattacco |
 
-Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Metagross, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Swampert, Starmie (box 14, riga 2, colonna 5), Gengar (box 14, riga 3, colonna 3).
+Riserve con più riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Metagross, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Swampert, Starmie (box 14, riga 2, colonna 5), Gengar (box 14, riga 3, colonna 3).
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Dojo Lotta, fine -->
 
@@ -151,7 +151,7 @@ Deduzione, non regola scritta: al Dojo conviene attaccare a ogni turno. Calmamen
 | 2 | Latios Lesta | box 14, riga 1, colonna 6 | Baccaprugna | Psichico, Dragartigli, Fulmine, Surf |
 | 3 | Swampert Audace | box 14, riga 2, colonna 1 | Avanzi | Terremoto, Surf, Geloraggio, Frana |
 
-Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Metagross, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Latios, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Swampert, Starmie (box 14, riga 2, colonna 5), Gengar (box 14, riga 3, colonna 3).
+Riserve con più riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Metagross, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Latios, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Swampert, Starmie (box 14, riga 2, colonna 5), Gengar (box 14, riga 3, colonna 3).
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Palazzo Lotta, fine -->
 
@@ -177,7 +177,7 @@ Il Metagross porta due sole mosse, Meteorpugno e Terremoto, apposta: quando la c
 | 2 | Metagross Decisa | box 14, riga 1, colonna 2 | Bendascelta (il file porta Avanzi: scambiarlo in gioco) | Meteorpugno, Terremoto, Palla Ombra, Esplosione |
 | 3 | Blissey Sicura | box 14, riga 2, colonna 2 | Avanzi | Movim. Sismico, Tossina, Covauova, Canto |
 
-Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Metagross, Latias (box 14, riga 3, colonna 1), Tauros (box 14, riga 3, colonna 6); al posto di Blissey, Starmie (box 14, riga 2, colonna 5), Gengar (box 14, riga 3, colonna 3).
+Riserve con più riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Metagross, Latias (box 14, riga 3, colonna 1), Tauros (box 14, riga 3, colonna 6); al posto di Blissey, Starmie (box 14, riga 2, colonna 5), Gengar (box 14, riga 3, colonna 3).
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Serpe Lotta, fine -->
 
@@ -211,7 +211,7 @@ Le due serie più lunghe dichiarate nei thread per questo edificio, 560 e 420 sa
 | 2 | Swampert Placida | box 14, riga 1, colonna 4 | nessuno (il file porta Avanzi: toglierlo) | Terremoto, Surf, Geloraggio, Protezione (cambiata per la Piramide: Protezione al posto di Contrattacco) |
 | 3 | Metagross Decisa | box 14, riga 1, colonna 2 | nessuno (il file porta Avanzi: toglierlo) | Meteorpugno, Terremoto, Palla Ombra, Breccia (cambiata per la Piramide: Breccia al posto di Esplosione) |
 
-Chi conduce, serie per serie. Le prime dieci serie bastano all'oro e vengono dalla guida al completamento; la colonna del calcolo e' il controllo di `parco_lotta_piramide_ordine.py`, che concorda con la guida in sette casi su dieci sul membro impiegato.
+Chi conduce, serie per serie. Le prime dieci serie bastano all'oro e vengono dalla guida al completamento; la colonna del calcolo è il controllo di `parco_lotta_piramide_ordine.py`, che concorda con la guida in sette casi su dieci sul membro impiegato.
 
 | Serie | Piani | Tema del giro | Primo in campo | Cambio | Calcolo |
 |---|---|---|---|---|---|
@@ -219,14 +219,14 @@ Chi conduce, serie per serie. Le prime dieci serie bastano all'oro e vengono dal
 | 2 | 8-14 | mosse che avvelenano | Latios | nessuno | Latios |
 | 3 | 15-21 | mosse che scottano | Latios | nessuno | Metagross |
 | 4 | 22-28 | consumo dei punti potere | Metagross | nessuno | Metagross |
-| 5 | 29-35 | abilita' Levitazione | Metagross | Latios dal quarto piano | Swampert |
-| 6 | 36-42 | abilita' che intrappolano | Metagross | Latios dal quarto piano | Latios |
+| 5 | 29-35 | abilità Levitazione | Metagross | Latios dal quarto piano | Swampert |
+| 6 | 36-42 | abilità che intrappolano | Metagross | Latios dal quarto piano | Latios |
 | 7 | 43-49 | tipo Ghiaccio | Metagross | Latios dal quinto piano | Metagross |
 | 8 | 50-56 | Autodistruzione ed Esplosione | Latios | Swampert dal quarto piano | Metagross |
 | 9 | 57-63 | tipo Psico | Latios | Metagross dal secondo piano | Metagross |
 | 10 | 64-70 | tipo Roccia | Swampert | Metagross dal terzo piano | Metagross |
 
-Riserve con piu' riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Swampert, Starmie (box 14, riga 2, colonna 5), Gengar (box 14, riga 3, colonna 3); al posto di Metagross, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5).
+Riserve con più riscontri accanto agli altri due, dalla misura della sezione 10 e quindi non ancora una scelta: al posto di Latios, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5); al posto di Swampert, Starmie (box 14, riga 2, colonna 5), Gengar (box 14, riga 3, colonna 3); al posto di Metagross, Salamence (box 14, riga 2, colonna 3), Starmie (box 14, riga 2, colonna 5).
 
 <!-- generato da parco_lotta_percorso_oro.py: squadra Piramide Lotta, fine -->
 
@@ -252,9 +252,9 @@ Squadre per edificio nel campione: Cupola Lotta 19, Torre Lotta 97, Dojo Lotta 2
 
 ### Per esemplare: in quali edifici e con quale serie
 
-Ogni cella dice in quante squadre dei thread la specie compare in quell'edificio, e fra parentesi la serie piu' lunga dichiarata. Le specie con due esemplari nel lotto, cioe' Latios, Metagross e Swampert, condividono la riga.
+Ogni cella dice in quante squadre dei thread la specie compare in quell'edificio, e fra parentesi la serie più lunga dichiarata. Le specie con due esemplari nel lotto, cioè Latios, Metagross e Swampert, condividono la riga.
 
-| Esemplari | Ruolo | Cup | Tor | Doj | Pal | Ser | Pir | Azi | n.d. | Compagni piu' frequenti |
+| Esemplari | Ruolo | Cup | Tor | Doj | Pal | Ser | Pir | Azi | n.d. | Compagni più frequenti |
 |---|---|---|---|---|---|---|---|---|---|---|
 | metagross-adamant, metagross-sassy | titolare | 8 (100) | 22 (378) | 4 (186) | 11 (224) | 9 (560) | 2 (70) |  | 3 | Latios 21, Swampert 13, Salamence 12 |
 | latios-hasty, latios-timid | titolare | 7 (133) | 15 (268) | 8 (143) | 10 (224) | 5 (420) | 2 (70) | 3 (62) | 6 (63) | Metagross 21, Swampert 10, Suicune 7 |
@@ -288,7 +288,7 @@ Ogni cella dice in quante squadre dei thread la specie compare in quell'edificio
 
 ### Per sostituzione: chi ha giocato accanto agli altri due
 
-Per ogni squadra e per ogni posto, le riserve del lotto che nei thread compaiono accanto ai due titolari che restano. La prima cifra conta le squadre con entrambi, la seconda quelle con almeno uno, la terza quelle con almeno uno nello stesso edificio. L'Azienda Lotta non compare perche' vi si combatte con esemplari in prestito.
+Per ogni squadra e per ogni posto, le riserve del lotto che nei thread compaiono accanto ai due titolari che restano. La prima cifra conta le squadre con entrambi, la seconda quelle con almeno uno, la terza quelle con almeno uno nello stesso edificio. L'Azienda Lotta non compare perché vi si combatte con esemplari in prestito.
 
 | Edificio | Esce | Restano | Candidati: entrambi / almeno uno / stesso edificio |
 |---|---|---|---|
@@ -319,7 +319,7 @@ Nell'ordine del lotto, titolari prima. Abilità, luogo e gioco d'incontro sono l
 
 <!-- generato da parco_lotta_percorso_oro.py: schede, inizio -->
 
-| Posizione | Esemplare | Abilita' | Punti base | Mosse | Strumento nel file | Incontro | Margine al 51 |
+| Posizione | Esemplare | Abilità | Punti base | Mosse | Strumento nel file | Incontro | Margine al 51 |
 |---|---|---|---|---|---|---|---|
 | box 14, riga 1, colonna 1 | Latios Timida | Levitazione | 4 PS / 252 AttSp / 252 Vel | Calmamente, Psichico, Dragartigli, Fulmine | Baccaprugna | Isola Remota, Smeraldo, livello 50 | 1, ATTENZIONE |
 | box 14, riga 1, colonna 2 | Metagross Decisa | Corpochiaro | 252 PS / 252 Att / 4 Vel | Meteorpugno, Terremoto, Palla Ombra, Esplosione | Avanzi | Percorso 117, Smeraldo, livello uovo | 9563 |

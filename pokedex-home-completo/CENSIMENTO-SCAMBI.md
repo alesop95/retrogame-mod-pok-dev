@@ -2,9 +2,9 @@
 
 > Documento generato da `tools/censimento-scambi.py` dalle tabelle del verificatore. Non si modifica a mano: si rigenera. Enumera la classe degli esemplari consegnati da un personaggio in cambio di un altro, che portano allenatore e soprannome altrui e non sono riproducibili da una cattura propria.
 
-Le voci di tabella sono 238 e quelle distinte 233, su 152 specie diverse. I due numeri differiscono perche' le tabelle di una coppia di titoli si sovrappongono per costruzione: c'e' una tabella comune e accanto una tabella per versione, e la stessa voce compare in entrambe. Due voci sono contate come una quando concordano su specie, livello, identificativo dell'allenatore e forma.
+Le voci di tabella sono 238 e quelle distinte 233, su 152 specie diverse. I due numeri differiscono perché le tabelle di una coppia di titoli si sovrappongono per costruzione: c'è una tabella comune e accanto una tabella per versione, e la stessa voce compare in entrambe. Due voci sono contate come una quando concordano su specie, livello, identificativo dell'allenatore e forma.
 
-Di 46 voci la fonte scrive il valore di personalita', quindi quegli esemplari sono riproducibili byte per byte senza alcuna ricerca di semi. Sulle altre la fedelta' va discussa come per le altre classi, perche' il valore lo genera il gioco al momento della consegna.
+Di 46 voci la fonte scrive il valore di personalità, quindi quegli esemplari sono riproducibili byte per byte senza alcuna ricerca di semi. Sulle altre la fedeltà va discussa come per le altre classi, perché il valore lo genera il gioco al momento della consegna.
 
 Controlli: nessuna voce discorda dal commento che la fonte le scrive accanto. Tutti i tipi di voce hanno le posizioni dichiarate.
 
@@ -14,7 +14,7 @@ Controlli: nessuna voce discorda dal commento che la fonte le scrive accanto. Tu
 
 Tipo di voce `EncounterTrade1`, 10 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Mr. Mime | 122 | 6 | MARCELLO | - | バリバリ | - | - | Mr. Mime - Abra |
 | Nidoran♀ | 29 | 2 | SPOT | - | - | - | - | Nidoran♀ - Nidoran♂ (International) |
@@ -31,7 +31,7 @@ Tipo di voce `EncounterTrade1`, 10 voci.
 
 Tipo di voce `EncounterTrade1`, 7 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Mr. Mime | 122 | 8 | MILES | - | マイム | - | - | Mr. Mime - Clefairy |
 | Machoke | 67 | 16 | RICKY | - | リッキー | - | - | Machoke - Cubone |
@@ -45,7 +45,7 @@ Tipo di voce `EncounterTrade1`, 7 voci.
 
 Tipo di voce `EncounterTrade1`, 9 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Mr. Mime | 122 | 3 | - | - | まさる | - | - | Mr. Mime - Jigglypuff |
 | Poliwag | 60 | 2 | - | - | ロモたん | - | - | Poliwag - Rattata |
@@ -63,7 +63,7 @@ Tipo di voce `EncounterTrade1`, 9 voci.
 
 Tipo di voce `EncounterTrade2`, 11 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Onix | 95 | 3 | NIXY | GIBI | ブルブル | - | - | Onix @ Violet City for Bellsprout [wild] |
 | Machop | 66 | 5 | MACHY | MIKI | きんにく | - | - | Machop @ Goldenrod City for Drowzee [wild 9, hatched egg 5] |
@@ -83,7 +83,7 @@ Tipo di voce `EncounterTrade2`, 11 voci.
 
 Tipo di voce `EncounterTrade3`, 6 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Mr. Mime | 122 | 5 | MIMIEN | REYLEY | バリヤン | 0x00009CAE | 01985 | Abra (Level 5 Breeding) -> Mr. Mime |
 | Jynx | 124 | 20 | ZYNX | RINO | コリンダ | 0x498A2E1D | 36728 | Poliwhirl (Level 20) -> Jynx |
@@ -96,7 +96,7 @@ Tipo di voce `EncounterTrade3`, 6 voci.
 
 Tipo di voce `EncounterTrade3`, 3 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Nidoran♀ | 29 | 5 | MS. NIDO | SAIGE | ニドちゃん | 0x4C970B89 | 63184 | Nidoran♀ |
 | Nidorina | 30 | 16 | NINA | TURNER | ニーナ | 0x00EECA15 | 13637 | Nidorina * |
@@ -106,7 +106,7 @@ Tipo di voce `EncounterTrade3`, 3 voci.
 
 Tipo di voce `EncounterTrade3`, 3 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Nidoran♂ | 32 | 5 | MR. NIDO | SAIGE | ニドくん | 0x4C970B9E | 63184 | Nidoran♂ * |
 | Nidorino | 33 | 16 | NINO | TURNER | ニーノ | 0x00EECA19 | 13637 | Nidorino  * |
@@ -116,7 +116,7 @@ Tipo di voce `EncounterTrade3`, 3 voci.
 
 Tipo di voce `EncounterTrade3`, 3 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Makuhita | 296 | 5 | AGATA | LEANDRO | ポテマル | 0x00009C40 | 49562 | Slakoth (Level 5 Breeding) -> Makuhita |
 | Skitty | 300 | 3 | SKITIT | LOLA | ベル | 0x498A2E17 | 02259 | Pikachu (Level 3 Viridian Forest) -> Skitty |
@@ -126,7 +126,7 @@ Tipo di voce `EncounterTrade3`, 3 voci.
 
 Tipo di voce `EncounterTrade3`, 4 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Seedot | 273 | 4 | DOTS | KIKO | セブン | 0x00000084 | 38726 | Ralts (Level 4 Route 102) -> Seedot |
 | Plusle | 311 | 5 | PLUSES | ROMAN | プラプラ | 0x0000006F | 08460 | Volbeat (Level 5 Breeding) -> Plusle |
@@ -137,7 +137,7 @@ Tipo di voce `EncounterTrade3`, 4 voci.
 
 Tipo di voce `EncounterTrade3XD`, 4 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Elekid | 239 | 20 | - | - | - | - | 41400 | Elekid @ Snagem Hideout |
 | Meditite | 307 | 20 | - | - | - | - | 37149 | Meditite @ Pyrite Town |
@@ -150,7 +150,7 @@ Tipo di voce `EncounterTrade3XD`, 4 voci.
 
 Tipo di voce `EncounterTrade4RanchGift`, 22 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Pikachu | 25 | 20 | - | - | - | - | - | Pikachu |
 | Vulpix | 37 | 30 | - | - | - | - | - | Vulpix |
@@ -179,7 +179,7 @@ Tipo di voce `EncounterTrade4RanchGift`, 22 voci.
 
 Tipo di voce `EncounterTrade4PID`, 4 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Abra | 63 | 1 | Keikei | Hilary | ケーケー | 0x0000008E | 25643 | Machop -> Abra |
 | Chatot | 441 | 1 | Charap | Norton | ペッチャラ | 0x00000867 | 44142 | Buizel -> Chatot |
@@ -190,7 +190,7 @@ Tipo di voce `EncounterTrade4PID`, 4 voci.
 
 Tipo di voce `EncounterTrade4PID`, 12 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Onix | 95 | 1 | Roccio | Quentin | ブルブル | 0x000025EF | 48926 | Bellsprout -> Onix |
 | Machop | 66 | 1 | Muscol | Arnaldo | きんにく | 0x00002310 | 37460 | Drowzee -> Machop |
@@ -211,7 +211,7 @@ Tipo di voce `EncounterTrade4PID`, 12 voci.
 
 Tipo di voce `EncounterTrade5B2W2`, 31 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Petilil | 548 | 20 | Petillin | Tulippa | チュりっぺ | - | 65217 | Petilil |
 | Cottonee | 546 | 20 | Scoscò | Scotty | メンメン | - | 71256 | Cottonee |
@@ -249,7 +249,7 @@ Tipo di voce `EncounterTrade5B2W2`, 31 voci.
 
 Tipo di voce `EncounterTrade5B2W2`, 1 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Cottonee | 546 | 20 | Scoscò | Scotty | メンメン | - | 71256 | Cottonee |
 
@@ -257,7 +257,7 @@ Tipo di voce `EncounterTrade5B2W2`, 1 voci.
 
 Tipo di voce `EncounterTrade5B2W2`, 1 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Petilil | 548 | 20 | Petillin | Tulippa | チュりっぺ | - | 65217 | Petilil |
 
@@ -265,7 +265,7 @@ Tipo di voce `EncounterTrade5B2W2`, 1 voci.
 
 Tipo di voce `EncounterTrade5BW`, 3 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Emolga | 587 | 30 | Ufino | Urano | トビマル | 0xD400007F | 11195 | Emolga |
 | Rotom | 479 | 60 | Cric | Luna | ドッキー | 0x2A000000 | 54673 | Rotom |
@@ -275,7 +275,7 @@ Tipo di voce `EncounterTrade5BW`, 3 voci.
 
 Tipo di voce `EncounterTrade5BW`, 2 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Petilil | 548 | 15 | Flò | Bettina | チュりん | 0x64000000 | 39922 | Petilil |
 | Basculin | 550 | 25 | Rossino | Aldo | アカメ | 0x9400007F | 27646 | Basculin-Red |
@@ -284,7 +284,7 @@ Tipo di voce `EncounterTrade5BW`, 2 voci.
 
 Tipo di voce `EncounterTrade5BW`, 2 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Cottonee | 546 | 15 | Fiocco | Bettina | モンモン | 0x6400007E | 39922 | Cottonee |
 | Basculin | 550 | 25 | Bluetto | Aldo | アオメ | 0x9400007F | 27646 | Basculin-Blue |
@@ -295,7 +295,7 @@ Tipo di voce `EncounterTrade5BW`, 2 voci.
 
 Tipo di voce `EncounterTrade6`, 3 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Makuhita | 296 | 9 | Maku | Marchetto | ポテマル | - | 30724 | Makuhita |
 | Skitty | 300 | 30 | Pucci | Ele | ベルベル | - | 03239 | Skitty |
@@ -305,7 +305,7 @@ Tipo di voce `EncounterTrade6`, 3 voci.
 
 Tipo di voce `EncounterTrade6`, 9 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Magikarp | 129 | 5 | Karkarp | Mr. Karp | こいこい | - | 44285 | Magikarp |
 | Eevee | 133 | 5 | Ottolnarg | Helen | アマヤル | - | 29294 | Eevee |
@@ -323,7 +323,7 @@ Tipo di voce `EncounterTrade6`, 9 voci.
 
 Tipo di voce `EncounterTrade7b`, 6 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Rattata | 19 | 12 | - | - | - | - | 121106 | Rattata @ Cerulean City, AV rand [0-5) |
 | Diglett | 50 | 25 | - | - | - | - | 520159 | Diglett @ Lavender Town, AV rand [0-5) |
@@ -336,7 +336,7 @@ Tipo di voce `EncounterTrade7b`, 6 voci.
 
 Tipo di voce `EncounterTrade7b`, 2 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Sandshrew | 27 | 27 | - | - | - | - | 703019 | Sandshrew @ Celadon City, AV rand [0-5) |
 | Grimer | 88 | 44 | - | - | - | - | 000219 | Grimer @ Cinnabar Island, AV rand [0-10) |
@@ -345,7 +345,7 @@ Tipo di voce `EncounterTrade7b`, 2 voci.
 
 Tipo di voce `EncounterTrade7b`, 2 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Vulpix | 37 | 27 | - | - | - | - | 703019 | Vulpix @ Celadon City, AV rand [0-5) |
 | Meowth | 52 | 44 | - | - | - | - | 000219 | Meowth @ Cinnabar Island, AV rand [0-10) |
@@ -354,7 +354,7 @@ Tipo di voce `EncounterTrade7b`, 2 voci.
 
 Tipo di voce `EncounterTrade7`, 7 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Machop | 66 | 9 | Chops | Hilahila | シトサン | - | 000410 | Machop |
 | Bounsweet | 761 | 16 | Par | Kihe | タリーヨ | - | 610507 | Bounsweet |
@@ -368,7 +368,7 @@ Tipo di voce `EncounterTrade7`, 7 voci.
 
 Tipo di voce `EncounterTrade7`, 7 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Hawlucha | 701 | 8 | Luchano | Hilahila | オーガー | - | 000410 | Hawlucha |
 | Noibat | 714 | 19 | Tabion | Kihe | りくひさ | - | 610507 | Noibat |
@@ -384,7 +384,7 @@ Tipo di voce `EncounterTrade7`, 7 voci.
 
 Tipo di voce `EncounterTrade8`, 14 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Meowth | 52 | 18 | Monetino | Giovannino | コバン | - | 263455 | Meowth |
 | Skwovet | 819 | 10 | Guanciotte | Felicia | ほっぺ | - | 648753 | Skwovet |
@@ -405,7 +405,7 @@ Tipo di voce `EncounterTrade8`, 14 voci.
 
 Tipo di voce `EncounterTrade8`, 4 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Hatenna | 856 | 30 | Frangetta | Romeo | まえがみ | - | 101101 | Hatenna |
 | Throh | 538 | 37 | Rossiccio | Ermanno | あかなげ | - | 768945 | Throh |
@@ -416,7 +416,7 @@ Tipo di voce `EncounterTrade8`, 4 voci.
 
 Tipo di voce `EncounterTrade8`, 4 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Impidimp | 859 | 30 | Occhibelli | Romeo | ギョロギョロ | - | 256081 | Impidimp |
 | Sawk | 539 | 37 | Bluastro | Ermanno | あおぱん | - | 881426 | Sawk |
@@ -427,7 +427,7 @@ Tipo di voce `EncounterTrade8`, 4 voci.
 
 Tipo di voce `EncounterTrade8b`, 4 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Abra | 63 | 9 | Keikei | Hilary | ケーケー | 0xFF50A8F5 | 25643 | Abra |
 | Chatot | 441 | 15 | Charap | Norton | ペッチャラ | 0x17DAAB19 | 44142 | Chatot |
@@ -440,7 +440,7 @@ Tipo di voce `EncounterTrade8b`, 4 voci.
 
 Tipo di voce `EncounterTrade9`, 33 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Wooper | 194 | 18 | Celestino | Woopy | マサオ | - | 033081 | Wooper |
 | Haunter | 93 | 25 | Babau | Harriet | ちみちゃん | - | 016519 | Haunter |
@@ -480,7 +480,7 @@ Tipo di voce `EncounterTrade9`, 33 voci.
 
 Tipo di voce `EncounterTrade9a`, 5 voci.
 
-| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalita | Identificativo | Nota della fonte |
+| Specie | Dex | Livello | Soprannome IT | Allenatore IT | Soprannome JA | Valore di personalità | Identificativo | Nota della fonte |
 |---|---|---|---|---|---|---|---|---|
 | Heracross | 214 | 12 | Cornì | Echan | ボワ | - | 797394 | Heracross (sub_tradepoke_heracros) |
 | Riolu | 447 | 25 | Rioletto | Balzac | リオぼう | - | 348226 | Riolu (sub_tradepoke_riolu) |

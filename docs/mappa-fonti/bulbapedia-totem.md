@@ -17,7 +17,7 @@ Pagina enciclopedica letta il 2026-09-12. Dichiara che gli esemplari di taglia t
 
 ## Perché è in archivio
 
-E' la conferma indipendente della conclusione che il progetto aveva raggiunto il 2026-09-02 sulle proprie tavole, cioe' che quelle voci non sono irrecuperabili dopo la scadenza ma irraggiungibili sempre. Una fonte che non conosce il nostro ragionamento e vi arriva per un'altra strada e' esattamente cio' che serve a promuovere una conclusione a fatto.
+È la conferma indipendente della conclusione che il progetto aveva raggiunto il 2026-09-02 sulle proprie tavole, cioè che quelle voci non sono irrecuperabili dopo la scadenza ma irraggiungibili sempre. Una fonte che non conosce il nostro ragionamento e vi arriva per un'altra strada è esattamente ciò che serve a promuovere una conclusione a fatto.
 
 ## A quale punto del progetto serve
 

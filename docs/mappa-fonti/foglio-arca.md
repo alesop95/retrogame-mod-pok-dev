@@ -14,7 +14,7 @@ https://www.reddit.com/r/PokemonHome/comments/1djbdm0/
 
 ## Abstract
 
-Foglio comunitario del 2024, letto il 2026-09-10, che definisce operativamente il profilo detto dell'arca: un esemplare per ciascuno dei due sessi di ogni specie e di ogni forma, uno solo per le specie senza sesso o con un sesso solo, e la variante cromatica di ciascuno per chi voglia il caso estremo. L'autore dichiara di escludere gli esemplari a distribuzione limitatissima e di comprendere le sessanta e piu' configurazioni della specie il cui dolcetto non e' un campo della forma.
+Foglio comunitario del 2024, letto il 2026-09-10, che definisce operativamente il profilo detto dell'arca: un esemplare per ciascuno dei due sessi di ogni specie e di ogni forma, uno solo per le specie senza sesso o con un sesso solo, e la variante cromatica di ciascuno per chi voglia il caso estremo. L'autore dichiara di escludere gli esemplari a distribuzione limitatissima e di comprendere le sessanta e più configurazioni della specie il cui dolcetto non è un campo della forma.
 
 ## Perché è in archivio
 

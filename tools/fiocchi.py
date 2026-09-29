@@ -100,15 +100,15 @@ def portati(percorsi, pos):
 
 # La terza generazione non impacchetta i propri fiocchi come le successive, e la differenza va
 # letta dal sorgente e non supposta. I cinque fiocchi di gara non sono bit ma contatori a tre bit
-# ciascuno, perche' ognuno porta un livello da zero a quattro invece di un si' o un no; soltanto
+# ciascuno, perché ognuno porta un livello da zero a quattro invece di un sì o un no; soltanto
 # dal sedicesimo bit in avanti cominciano i fiocchi veri e propri, uno per bit.
 #
 # Va registrato che alla prima stesura questo programma aveva l'ordine scritto a mano, supponendo
 # venti bit di gara al posto di quindici, e il risultato non era un errore ma qualcosa di
 # peggiore: un conteggio plausibile e sbagliato, che dichiarava due esemplari con un fiocco che
-# nessuno di essi porta. E' esattamente il difetto contro cui il resto di questo programma era
-# stato scritto, cioe' la trascrizione di una tabella lunga, e averlo commesso qui mentre lo si
-# evitava altrove e' la ragione per cui questo commento e' lungo.
+# nessuno di essi porta. È esattamente il difetto contro cui il resto di questo programma era
+# stato scritto, cioè la trascrizione di una tabella lunga, e averlo commesso qui mentre lo si
+# evitava altrove è la ragione per cui questo commento è lungo.
 
 # Il primo bit assoluto che non appartiene ai fiocchi di gara, e quindi l'origine della
 # numerazione del campo dei meriti come il pacchetto del ponte lo espone.
@@ -131,7 +131,7 @@ def posizioni_gen3(pkhex):
 def portati_gen3(percorsi, pkhex):
     """I fiocchi di terza generazione accesi nei nostri file, per nome.
 
-    La parola dei meriti si legge dal pacchetto del ponte, che la espone gia' estratta dalla
+    La parola dei meriti si legge dal pacchetto del ponte, che la espone già estratta dalla
     sottostruttura varia; le posizioni dentro quella parola si leggono invece dal sorgente del
     verificatore, per la ragione scritta sopra.
     """
@@ -143,19 +143,19 @@ def portati_gen3(percorsi, pkhex):
     for f in percorsi:
         m = gen3.Gen3Mon.from_canonical_bytes(open(f, "rb").read(), party=False)
         quanti += 1
-        # Il pacchetto del ponte espone i due gruppi separati e non la parola intera, e questa e'
+        # Il pacchetto del ponte espone i due gruppi separati e non la parola intera, e questa è
         # la seconda trappola di questa funzione dopo quella dei contatori a tre bit. I fiocchi
-        # di gara stanno in un dizionario, i fiocchi di merito in un intero il cui bit zero e' il
-        # quindicesimo bit assoluto, cioe' il primo che non appartiene alle gare. Leggere quel
+        # di gara stanno in un dizionario, i fiocchi di merito in un intero il cui bit zero è il
+        # quindicesimo bit assoluto, cioè il primo che non appartiene alle gare. Leggere quel
         # campo come se fosse la parola assoluta sposta ogni fiocco di quindici posizioni e
         # produce un conteggio plausibile: alla prima corsa questo programma dichiarava due
         # esemplari con il fiocco di gara raffinata, mentre quei due portano il fiocco nazionale,
-        # che e' precisamente quello che la tabella del verificatore dichiara per loro. Il
+        # che è precisamente quello che la tabella del verificatore dichiara per loro. Il
         # generatore era corretto e questo lettore no.
         gare = m.misc.contest_ribbons or {}
         for nome, spostamento in contatori:
-            # Il nome del contatore nella fonte e' del tipo RibbonCountG3Cool: la chiave del
-            # dizionario e' la sola categoria in minuscolo.
+            # Il nome del contatore nella fonte è del tipo RibbonCountG3Cool: la chiave del
+            # dizionario è la sola categoria in minuscolo.
             categoria = nome.replace("RibbonCountG3", "").lower()
             if gare.get(categoria, 0):
                 conto[nome] += 1
@@ -168,10 +168,10 @@ def portati_gen3(percorsi, pkhex):
 
 # La cartella dei verificatori raggruppa i fiocchi per insieme, e ciascun insieme appartiene a una
 # generazione. Il raggruppamento si legge dal sorgente; l'attribuzione dell'insieme alla
-# generazione e la conseguenza sulla scadenza sono invece nostre e stanno qui dichiarate, perche'
+# generazione e la conseguenza sulla scadenza sono invece nostre e stanno qui dichiarate, perché
 # sono un giudizio e non un dato.
 #
-# Il criterio della scadenza e' questo: un fiocco si perde con la chiusura quando il solo gioco
+# Il criterio della scadenza è questo: un fiocco si perde con la chiusura quando il solo gioco
 # che lo conferisce raggiunge il deposito attraverso la banca. I titoli per console corrente non
 # hanno quel problema, quindi i loro fiocchi restano conquistabili dopo la chiusura.
 INSIEMI = [
@@ -180,7 +180,7 @@ INSIEMI = [
     ("Unique3", 3, True, "unici della terza generazione"),
     ("Event3", 3, True, "conferiti da distribuzioni di terza generazione"),
     ("Common4", 4, True, "comuni di quarta generazione"),
-    ("Unique4", 4, True, "gara e abilita' di quarta generazione"),
+    ("Unique4", 4, True, "gara e abilità di quarta generazione"),
     ("Event4", 4, True, "conferiti da distribuzioni di quarta generazione"),
     ("Common6", 6, True, "comuni di sesta generazione"),
     ("Common7", 7, True, "comuni di settima generazione"),
@@ -190,7 +190,7 @@ INSIEMI = [
 ]
 
 RE_USO = re.compile(r"r\.(Ribbon[A-Za-z0-9]+)")
-# Il verificatore nomina un fiocco in due modi dentro lo stesso file: come proprieta' letta
+# Il verificatore nomina un fiocco in due modi dentro lo stesso file: come proprietà letta
 # dall'esemplare, con il prefisso, e come voce dell'elenco dei rilievi, senza. Cercare soltanto la
 # prima forma lascia fuori i fiocchi che quel file segnala e non legge, che nella sesta e settima
 # generazione sono la maggioranza. Le due forme si uniscono ricomponendo il prefisso.
@@ -200,8 +200,8 @@ RE_SEGNALATO = re.compile(r"list\.Add\(([A-Z][A-Za-z0-9]*)\)")
 def insiemi_di_appartenenza(pkhex, chiavi=frozenset()):
     """Per ciascun fiocco, gli insiemi del verificatore che lo trattano.
 
-    Un fiocco puo' appartenere a piu' insiemi, e non e' un difetto della lettura: significa che
-    piu' generazioni lo conferiscono, ed e' precisamente l'informazione che decide se si perda
+    Un fiocco può appartenere a più insiemi, e non è un difetto della lettura: significa che
+    più generazioni lo conferiscono, ed è precisamente l'informazione che decide se si perda
     con la chiusura. Un fiocco trattato da un insieme di ottava o nona generazione resta
     conquistabile su console corrente, qualunque altro insieme lo tratti.
     """
@@ -241,15 +241,15 @@ def rapporto(pkhex):
     r = ["# L'asse dei fiocchi: enumerazione e copertura", ""]
     r.append("> Documento generato da `tools/fiocchi.py`. Non si modifica a mano: si rigenera. Le "
              "posizioni dei bit sono lette dal sorgente del verificatore e non trascritte, per la "
-             "ragione gia' pagata due volte da questo progetto su tabelle lunghe.")
+             "ragione già pagata due volte da questo progetto su tabelle lunghe.")
     r.append("")
     r.append("Il formato di quarta e quinta generazione dichiara %d fiocchi distinti, distribuiti "
              "in %d byte dell'esemplare. La terza generazione ne tiene trentadue in una parola "
              "sola dentro la propria sottostruttura varia." % (len(pos4), len(gruppi4)))
     r.append("")
-    r.append("Va detto subito cio' che questa misura non dice, perche' e' la domanda che verra' "
+    r.append("Va detto subito ciò che questa misura non dice, perché è la domanda che verrà "
              "subito dopo: dice quali fiocchi i nostri lotti portano, non quali siano ancora "
-             "ottenibili oggi. Un fiocco assente dai lotti puo' essere ancora conferito da un "
+             "ottenibili oggi. Un fiocco assente dai lotti può essere ancora conferito da un "
              "gioco corrente oppure essere perduto con la chiusura, e distinguere i due casi "
              "richiede le regole di conferimento e non le posizioni dei bit.")
     r.append("")
@@ -267,8 +267,8 @@ def rapporto(pkhex):
     r.append("## Quarta e quinta generazione")
     r.append("")
     r.append("Sui %d esemplari di quarta e %d di quinta. La colonna del nome umano viene dalla "
-             "tabella dei testi, unita alle posizioni sulla chiave e mai sulla posizione, perche' "
-             "le due tabelle non hanno lo stesso ordine ne' la stessa cardinalita'."
+             "tabella dei testi, unita alle posizioni sulla chiave e mai sulla posizione, perché "
+             "le due tabelle non hanno lo stesso ordine né la stessa cardinalità."
              % (conti["gen4"][1], conti["gen5"][1]))
     r.append("")
     r.append("| Fiocco | Nome umano | Byte | Bit | Quarta | Quinta |")
@@ -280,20 +280,20 @@ def rapporto(pkhex):
                     conti["gen4"][0].get(nome, 0), conti["gen5"][0].get(nome, 0)))
     r.append("")
 
-    # L'asse non e' quello che il formato di quarta generazione sa rappresentare, ed e' un errore
+    # L'asse non è quello che il formato di quarta generazione sa rappresentare, ed è un errore
     # che questo programma ha fatto alla prima stesura: quel formato porta i soli fiocchi che
-    # esistevano fino alla quinta generazione, quindi enumerare da la' significa dichiarare come
-    # asse completo un suo sottoinsieme, e per giunta senza accorgersene, perche' il conto torna.
-    # L'asse vero e' la tabella dei nomi, che li elenca tutti fino alla nona generazione.
+    # esistevano fino alla quinta generazione, quindi enumerare da là significa dichiarare come
+    # asse completo un suo sottoinsieme, e per giunta senza accorgersene, perché il conto torna.
+    # L'asse vero è la tabella dei nomi, che li elenca tutti fino alla nona generazione.
     tutti = sorted(umani)
     r.append("## L'asse intero, e la parte che i nostri formati sanno rappresentare")
     r.append("")
-    r.append("La tabella dei nomi del verificatore elenca %d fiocchi, ed e' l'asse. Il formato di "
-             "quarta e quinta generazione ne rappresenta %d, cioe' quelli che esistevano fino "
-             "alla quinta: gli altri vivono nei formati successivi e nessun nostro lotto puo' "
-             "portarli, perche' i nostri lotti arrivano alla quinta. Enumerare l'asse dal formato "
-             "invece che dalla tabella dei nomi e' l'errore che questa sezione esiste per non far "
-             "commettere: il conto torna e il denominatore e' sbagliato."
+    r.append("La tabella dei nomi del verificatore elenca %d fiocchi, ed è l'asse. Il formato di "
+             "quarta e quinta generazione ne rappresenta %d, cioè quelli che esistevano fino "
+             "alla quinta: gli altri vivono nei formati successivi e nessun nostro lotto può "
+             "portarli, perché i nostri lotti arrivano alla quinta. Enumerare l'asse dal formato "
+             "invece che dalla tabella dei nomi è l'errore che questa sezione esiste per non far "
+             "commettere: il conto torna e il denominatore è sbagliato."
              % (len(tutti), len(pos4)))
     r.append("")
 
@@ -301,11 +301,11 @@ def rapporto(pkhex):
     r.append("## Quelli rappresentabili che nessun nostro esemplare porta (%d su %d)"
              % (len(assenti), len(pos4)))
     r.append("")
-    r.append("E' la lista di lavoro dell'asse, e comprende cose di natura molto diversa: fiocchi "
+    r.append("È la lista di lavoro dell'asse, e comprende cose di natura molto diversa: fiocchi "
              "di gara che si conquistano giocando, fiocchi di ricordo che un gioco assegna una "
              "volta sola, e fiocchi che soltanto una distribuzione conferiva. La classificazione "
-             "per via di conferimento e' quella che decide quali siano perduti con la chiusura, "
-             "ed e' qui sotto.")
+             "per via di conferimento è quella che decide quali siano perduti con la chiusura, "
+             "ed è qui sotto.")
     r.append("")
     appartenenza = insiemi_di_appartenenza(pkhex, frozenset(umani))
 
@@ -313,7 +313,7 @@ def rapporto(pkhex):
         gruppi = appartenenza.get(nome, [])
         if not gruppi:
             return None, "nessun insieme del verificatore lo tratta"
-        # Basta un insieme di console corrente perche' il fiocco non si perda.
+        # Basta un insieme di console corrente perché il fiocco non si perda.
         if any(not scade for _, _, scade, _ in gruppi):
             return False, "; ".join(u for _, _, _, u in gruppi)
         return True, "; ".join(u for _, _, _, u in gruppi)
@@ -324,27 +324,27 @@ def rapporto(pkhex):
         (perduti if scade else (salvi if scade is False else ignoti)).append((nome, perche))
 
     r.append("La classificazione che segue viene dal raggruppamento che il verificatore stesso fa "
-             "dei fiocchi in insiemi, uno per generazione: quel raggruppamento e' letto dal "
+             "dei fiocchi in insiemi, uno per generazione: quel raggruppamento è letto dal "
              "sorgente, mentre l'attribuzione di ciascun insieme alla propria generazione e la "
              "conseguenza sulla scadenza sono un nostro giudizio, dichiarato dentro il programma. "
-             "Il criterio e' che un fiocco si perde con la chiusura quando il solo gioco che lo "
+             "Il criterio è che un fiocco si perde con la chiusura quando il solo gioco che lo "
              "conferisce raggiunge il deposito attraverso la banca; basta invece un solo insieme "
-             "di console corrente perche' resti conquistabile.")
+             "di console corrente perché resti conquistabile.")
     r.append("")
-    r.append("Va dichiarata una approssimazione, perche' rende questo conto un limite superiore e "
+    r.append("Va dichiarata una approssimazione, perché rende questo conto un limite superiore e "
              "non un numero esatto. Le riedizioni della quarta generazione per console corrente "
              "riconferiscono una parte dei fiocchi di quarta, e il verificatore lo esprime dentro "
              "condizioni che questo programma non interpreta: alcune voci contate qui come "
-             "perdute sono quindi riconquistabili la'. Distinguerle richiede di leggere quelle "
-             "condizioni una per una, ed e' il passo successivo.")
+             "perdute sono quindi riconquistabili là. Distinguerle richiede di leggere quelle "
+             "condizioni una per una, ed è il passo successivo.")
     r.append("")
     r.append("| Esito | Quanti |")
     r.append("|---|---|")
-    r.append("| perduti con la chiusura, al piu' | %d |" % len(perduti))
+    r.append("| perduti con la chiusura, al più | %d |" % len(perduti))
     r.append("| conquistabili su console corrente | %d |" % len(salvi))
     r.append("| non trattati da alcun insieme | %d |" % len(ignoti))
     r.append("")
-    for titolo, gruppo in (("Perduti con la chiusura, al piu'", perduti),
+    for titolo, gruppo in (("Perduti con la chiusura, al più", perduti),
                            ("Conquistabili su console corrente", salvi),
                            ("Non trattati da alcun insieme del verificatore", ignoti)):
         r.append("### %s (%d)" % (titolo, len(gruppo)))
@@ -356,7 +356,7 @@ def rapporto(pkhex):
         r.append("")
 
     # La parte dell'asse che i nostri formati non rappresentano affatto, e che va dichiarata
-    # perche' altrimenti sembra assente per scelta invece che per struttura.
+    # perché altrimenti sembra assente per scelta invece che per struttura.
     fuori_formato = [n for n in tutti if n not in pos4]
     per_gruppo = collections.Counter()
     for nome in fuori_formato:
@@ -364,9 +364,9 @@ def rapporto(pkhex):
         per_gruppo[gruppi[0][3] if gruppi else "nessun insieme lo tratta"] += 1
     r.append("## La parte dell'asse fuori dai nostri formati (%d)" % len(fuori_formato))
     r.append("")
-    r.append("Sono i fiocchi introdotti dalla sesta generazione in avanti, piu' i contrassegni "
-             "della nona. Nessun esemplare dei nostri lotti puo' portarli, e non e' una lacuna "
-             "della produzione ma una proprieta' del perimetro: i lotti arrivano alla quinta "
+    r.append("Sono i fiocchi introdotti dalla sesta generazione in avanti, più i contrassegni "
+             "della nona. Nessun esemplare dei nostri lotti può portarli, e non è una lacuna "
+             "della produzione ma una proprietà del perimetro: i lotti arrivano alla quinta "
              "generazione. Si ottengono giocando i titoli che li conferiscono, e per quelli di "
              "ottava e nona generazione la chiusura non li tocca.")
     r.append("")
@@ -396,8 +396,8 @@ def self_test():
     prova("ogni fiocco prende byte e bit dal proprio gruppo",
           fio == {"RibbonChampionSinnoh": (0x24, 0), "RibbonAlert": (0x24, 7),
                   "RibbonG3Cool": (0x3C, 0)}, str(fio))
-    # Il controllo negativo: un fiocco il cui gruppo non e' dichiarato non deve entrare con un
-    # byte inventato, perche' un byte sbagliato produce un valore booleano plausibile.
+    # Il controllo negativo: un fiocco il cui gruppo non è dichiarato non deve entrare con un
+    # byte inventato, perché un byte sbagliato produce un valore booleano plausibile.
     orfano = "    public override bool RibbonX { get => (RIB9 & (1 << 2)) == 1 << 2; }\n"
     trovati = [n for n, g, _ in RE_FIOCCO.findall(sorgente + orfano) if g in gruppi]
     prova("negativo: un fiocco senza gruppo dichiarato resta fuori",
@@ -440,7 +440,7 @@ def main():
     testo, quanti, assenti, perduti = rapporto(a.pkhex)
     io.open(a.out, "w", encoding="utf-8", newline="\n").write(testo)
     print("%d fiocchi nell'asse, %d rappresentabili e non portati da alcun nostro esemplare, "
-          "di cui al piu' %d perduti con la chiusura; rapporto in %s"
+          "di cui al più %d perduti con la chiusura; rapporto in %s"
           % (quanti, assenti, perduti, a.out))
     return 0
 

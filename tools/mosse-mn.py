@@ -3,34 +3,34 @@
 """Trova nei lotti prodotti gli esemplari che conoscono una macchina nascosta, e che quindi il
 trasferimento rifiuta.
 
-Perche' questo controllo, e da dove nasce
+Perché questo controllo, e da dove nasce
 ----------------------------------------
-Il Parco Amico, che e' il solo passaggio dalla terza alla quarta generazione, rifiuta qualunque
-esemplare che conosca una mossa che nel gioco d'origine sia una macchina nascosta, e il rifiuto e'
+Il Parco Amico, che è il solo passaggio dalla terza alla quarta generazione, rifiuta qualunque
+esemplare che conosca una mossa che nel gioco d'origine sia una macchina nascosta, e il rifiuto è
 categorico: non esiste alcuna eccezione in gioco per Surf, mentre Mulinello e Scacciabruma in alcuni
-titoli non sono macchine nascoste e quindi hanno un aggiramento naturale. Il Trasferitore, che e' il
+titoli non sono macchine nascoste e quindi hanno un aggiramento naturale. Il Trasferitore, che è il
 passaggio dalla quinta generazione e dalle riedizioni per Console Virtuale verso la banca, porta la
 medesima restrizione insieme a quelle sull'oggetto tenuto e sull'uovo.
 
 Ne segue che una parte dei nostri lotti non passa la catena, e la cosa non si vede guardando i file:
 si vede solo contando le mosse. Questo programma conta.
 
-La conseguenza che rende il controllo urgente e' che la mossa non si puo' semplicemente cancellare.
-Il caso studiato e' il Pikachu surfista dei premi di Stadium: Surf non sta nel suo insieme di mosse
+La conseguenza che rende il controllo urgente è che la mossa non si può semplicemente cancellare.
+Il caso studiato è il Pikachu surfista dei premi di Stadium: Surf non sta nel suo insieme di mosse
 apprendibili in alcun gioco successivo, quindi togliergliela per far passare il controllo la
-perderebbe per sempre, e con essa la ragione per cui quell'esemplare e' un collezionabile. La via
-che resta e' scrivere il dato direttamente nel formato di destinazione, cioe' saltare il passaggio
-invece di soddisfarlo, che e' esattamente cio' che `tools/carica-lotto-gen3.py` fa un anello piu'
+perderebbe per sempre, e con essa la ragione per cui quell'esemplare è un collezionabile. La via
+che resta è scrivere il dato direttamente nel formato di destinazione, cioè saltare il passaggio
+invece di soddisfarlo, che è esattamente ciò che `tools/carica-lotto-gen3.py` fa un anello più
 sotto.
 
 L'elenco delle macchine nascoste, e il limite dichiarato
 --------------------------------------------------------
 Le mosse sono dichiarate per generazione nella tabella qui sotto, ricavate dalla pagina
-enciclopedica dedicata e non dalla memoria. Il limite e' che l'elenco e' l'unione dei titoli di
+enciclopedica dedicata e non dalla memoria. Il limite è che l'elenco è l'unione dei titoli di
 ciascuna generazione, mentre il controllo del Parco Amico guarda il gioco d'origine: una mossa che
 sia macchina nascosta in un titolo e non nell'altro fa quindi scattare la segnalazione anche dove
-non servirebbe. E' il verso prudente dell'errore, e la riga segnalata dice quale mossa l'ha fatta
-scattare cosicche' un umano possa raffinare.
+non servirebbe. È il verso prudente dell'errore, e la riga segnalata dice quale mossa l'ha fatta
+scattare cosicché un umano possa raffinare.
 
 Uso
 ---
@@ -81,7 +81,7 @@ def numeri_delle_mn(pkhex):
     """La tavola dei numeri delle macchine nascoste, ricavata dai nomi e non assunta.
 
     Se un nome non compare nella tavola delle mosse il programma lo dichiara invece di ignorarlo:
-    un nome che non si risolve significherebbe un controllo che passa sempre, cioe' il difetto
+    un nome che non si risolve significherebbe un controllo che passa sempre, cioè il difetto
     peggiore per un controllo di questo tipo.
     """
     percorso = os.path.join(pkhex, NOMI_MOSSE)
@@ -108,8 +108,8 @@ def numeri_delle_mn(pkhex):
 
 GB_INTESTAZIONE = 3      # conteggio, marcatore di specie, terminatore
 # La struttura di squadra misura quarantaquattro byte in prima generazione e quarantotto in
-# seconda, e la differenza non e' un dettaglio: prendere quarantaquattro byte da un file di seconda
-# generazione produce un buffer che il lettore rifiuta, ed e' il difetto che questo controllo ha
+# seconda, e la differenza non è un dettaglio: prendere quarantaquattro byte da un file di seconda
+# generazione produce un buffer che il lettore rifiuta, ed è il difetto che questo controllo ha
 # incontrato al secondo lancio dopo averne corretto un altro al primo.
 GB_STRUTTURA = {1: 44, 2: 48}
 
@@ -118,9 +118,9 @@ def mosse_del_file(percorso, generazione):
     """Le quattro mosse di un file di lotto, secondo il formato della sua generazione.
 
     I file di prima e seconda generazione del nostro lotto non sono la struttura nuda: sono la
-    forma di lista con cui il gioco tiene una squadra, cioe' tre byte di intestazione, la struttura
+    forma di lista con cui il gioco tiene una squadra, cioè tre byte di intestazione, la struttura
     di squadra, il nome dell'allenatore e il soprannome. Leggerli come struttura nuda fallisce sulla
-    lunghezza, ed e' il difetto che questo controllo ha incontrato al primo lancio: sessantacinque
+    lunghezza, ed è il difetto che questo controllo ha incontrato al primo lancio: sessantacinque
     voci dichiarate illeggibili mentre erano soltanto incartate.
     """
     dati = io.open(percorso, "rb").read()
@@ -130,7 +130,7 @@ def mosse_del_file(percorso, generazione):
             dati = dati[GB_INTESTAZIONE:GB_INTESTAZIONE + quanti]
         lettore = Gen1Mon if generazione == 1 else Gen2Mon
         return lettore.from_bytes(dati).moves
-    # In terza generazione il file dell'editor e' in chiaro e non permutato: si converte nella
+    # In terza generazione il file dell'editor è in chiaro e non permutato: si converte nella
     # forma del salvataggio prima di leggerlo, altrimenti le mosse escono dal blocco sbagliato.
     return Gen3Mon.from_bytes(record_da_file(dati[:80])).attacks.moves
 
@@ -166,13 +166,13 @@ def esamina(cartella_notes, tavola):
 def componi(voci, difetti):
     bloccate = [v for v in voci if v["mn"]]
     r = ["# Le voci dei lotti che una macchina nascosta blocca", ""]
-    r.append("> Documento generato da `tools/mosse-mn.py`. Non si modifica a mano: si rigenera. Elenca gli esemplari prodotti che conoscono una mossa che nel gioco d'origine e' una macchina nascosta, e che quindi il passaggio fra generazioni rifiuta.")
+    r.append("> Documento generato da `tools/mosse-mn.py`. Non si modifica a mano: si rigenera. Elenca gli esemplari prodotti che conoscono una mossa che nel gioco d'origine è una macchina nascosta, e che quindi il passaggio fra generazioni rifiuta.")
     r.append("")
-    r.append("Esaminate %d voci su quattro lotti, e %d sono bloccate. Il rifiuto non e' negoziabile e non si risolve cancellando la mossa, perche' su alcune specie quella mossa non e' piu' apprendibile in alcun gioco successivo: la via che resta e' scrivere il dato direttamente nel formato di destinazione, cioe' saltare il passaggio invece di soddisfarlo."
+    r.append("Esaminate %d voci su quattro lotti, e %d sono bloccate. Il rifiuto non è negoziabile e non si risolve cancellando la mossa, perché su alcune specie quella mossa non è più apprendibile in alcun gioco successivo: la via che resta è scrivere il dato direttamente nel formato di destinazione, cioè saltare il passaggio invece di soddisfarlo."
              % (len(voci), len(bloccate)))
     r.append("")
     if difetti:
-        r.append("Difetti di lettura da guardare, perche' una voce non letta non e' una voce senza macchine nascoste: %s." % "; ".join(difetti[:8]))
+        r.append("Difetti di lettura da guardare, perché una voce non letta non è una voce senza macchine nascoste: %s." % "; ".join(difetti[:8]))
         r.append("")
     if bloccate:
         r.append("| Lotto | File | Gen | Macchine nascoste | Passaggio che rifiuta |")
@@ -214,15 +214,15 @@ def self_test():
     else:
         # I numeri che la tavola del verificatore assegna: sono il dato su cui il controllo
         # poggia, quindi vanno visti almeno una volta invece di essere assunti.
-        prova("Surf e' la mossa 57", "Surf", tavola[1].get(57))
-        prova("Cut e' la mossa 15", "Cut", tavola[1].get(15))
+        prova("Surf è la mossa 57", "Surf", tavola[1].get(57))
+        prova("Cut è la mossa 15", "Cut", tavola[1].get(15))
         prova("in prima generazione le MN sono cinque", 5, len(tavola[1]))
         prova("in seconda sono sette", 7, len(tavola[2]))
         prova("in terza sono otto", 8, len(tavola[3]))
         # Controllo negativo: una mossa qualunque non deve risultare macchina nascosta.
-        prova("Placcaggio non e' una MN", None, tavola[1].get(33))
-        prova("Mulinello non e' MN in prima generazione", None, tavola[1].get(250))
-        prova("ma lo e' in seconda", "Whirlpool", tavola[2].get(250))
+        prova("Placcaggio non è una MN", None, tavola[1].get(33))
+        prova("Mulinello non è MN in prima generazione", None, tavola[1].get(250))
+        prova("ma lo è in seconda", "Whirlpool", tavola[2].get(250))
 
     print("self-test: %d controlli falliti" % falliti)
     return 1 if falliti else 0
@@ -233,7 +233,7 @@ def main(argv=None):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--pkhex", default=os.path.join("_notes", "fonti", "cloni", "pkhex"))
-    ap.add_argument("--notes", default="_notes")
+    ap.add_argument("--notes", default=os.path.join("_notes", "lotti"))  # i lotti stanno in _notes/lotti dal riordino del 2026-09-24
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--self-test", action="store_true", dest="self_test")
     a = ap.parse_args(argv)
