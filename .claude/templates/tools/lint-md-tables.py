@@ -4,7 +4,7 @@
 
 Perché esiste
 -------------
-La convenzione di scrittura di questo progetto vuole ogni paragrafo di prosa su una riga
+La convenzione di scrittura del sistema vuole ogni paragrafo di prosa su una riga
 sorgente unica, e lo strumento che la attua è `md-unwrap`. Quello strumento però ha per
 contratto di non toccare le tabelle, che conserva riga per riga e senza riallineare, e la
 ragione è giusta: in una tabella l'a capo è strutturale. Ne segue però un punto cieco, e

@@ -64,12 +64,19 @@ function Nota([string]$t) { Write-Host "   $t" -ForegroundColor DarkGray }
 if (-not $Radice) { $Radice = (& git -C $PSScriptRoot rev-parse --show-toplevel 2>$null) }
 if (-not $Radice) { Write-Host "Non trovo il repository: passare -Radice." -ForegroundColor Red; exit 2 }
 Set-Location $Radice
-$bundle = Test-Path ".claude\templates\PACKAGES.md"
+# Il bundle si riconosce da due file insieme. PACKAGES.md da solo non basta: la procedura di
+# allineamento importa l'intera cartella .claude\templates\ in ogni progetto, e un progetto
+# allineato veniva preso per il bundle, con i controlli e le opzioni riservati al template che
+# su un progetto falliscono. PROMPT-nuovo-progetto.md vive solo nel bundle e non si importa mai.
+$bundle = (Test-Path ".claude\templates\PACKAGES.md") -and (Test-Path ".claude\PROMPT-nuovo-progetto.md")
 
 # Stessa ricerca a cascata degli hook di sessione: nel progetto gli strumenti stanno in tools\,
 # nel template sotto .claude\templates\.
-$cartelle = @("tools", ".claude\templates\tools", ".claude\templates\md-unwrap\tools",
-              ".claude\templates\readme-sync\tools", ".claude\templates\fix-typography\tools")
+# In un progetto si eseguono soltanto i controlli istanziati in tools\: le copie dei modelli sotto
+# .claude\templates\ sono pacchetti non ancora adottati, e lanciarli come controlli del progetto
+# fermerebbe il commit per strumenti che nessuno ha scelto.
+$cartelle = if ($bundle) { @("tools", ".claude\templates\tools", ".claude\templates\md-unwrap\tools",
+              ".claude\templates\readme-sync\tools", ".claude\templates\fix-typography\tools") } else { @("tools") }
 function Trova([string]$nome) {
     foreach ($c in $cartelle) { $p = Join-Path $c $nome; if (Test-Path $p) { return $p } }
     return $null
@@ -124,6 +131,7 @@ $controlli = @(
     @{ n = "lint-md-commands.py";     a = @(".") },
     @{ n = "lint-doc-references.py";  a = @("--solo-vivi") + $b },
     @{ n = "check-eol.py";            a = @(".") },
+    @{ n = "misura-istruzioni.py";    a = @() },
     @{ n = "fix-accents.py";          a = @("--check") + $m + @(".") },
     @{ n = "fix-dashes.py";           a = @("--check") + $m + @(".") },
     @{ n = "fix-missing-accents.py";  a = @("--check") + $m + @(".") },
@@ -187,6 +195,7 @@ if ($cambi.Count -gt 0) {
     }
 
     & git add -A
+    if ($LASTEXITCODE -ne 0) { Write-Host "Stage fallito: niente e' stato committato." -ForegroundColor Red; exit 1 }
     & git commit -m $Messaggio
     if ($LASTEXITCODE -ne 0) { Write-Host "Commit rifiutato (hook o errore): correggere e rilanciare." -ForegroundColor Red; exit 1 }
     if (Test-Path $fileMsg) { Remove-Item $fileMsg -Force }
@@ -199,13 +208,13 @@ if (-not $haOrigin) {
 } elseif (-not (& git rev-parse -q --verify HEAD)) {
     Nota "nessun commit sul ramo: niente da pushare"
 } else {
-    # Un ramo nuovo non ha ancora un ramo remoto collegato: lo si crea e lo si collega.
-    $upstream = (& git rev-parse --abbrev-ref --symbolic-full-name "@{u}" 2>$null)
-    if (-not $upstream) { & git push -u origin $ramo } else { & git push }
+    # Destinazione esplicita: un upstream diverso da origin non deve deviare la chiusura.
+    & git push -u origin "HEAD:refs/heads/$ramo"
     if ($LASTEXITCODE -ne 0) { Write-Host "Push fallito: l'impronta non si registra finche' il remoto non e' allineato." -ForegroundColor Red; exit 1 }
-    & git fetch -q
     $locale = (& git rev-parse HEAD)
-    $suRemoto = (& git rev-parse "@{u}" 2>$null)
+    $refRemota = (& git ls-remote --exit-code origin "refs/heads/$ramo")
+    if ($LASTEXITCODE -ne 0 -or -not $refRemota) { Ko "verifica del ramo remoto fallita"; exit 1 }
+    $suRemoto = ($refRemota -split '\s+')[0]
     if ($locale -ne $suRemoto) { Ko "HEAD $locale diverso dal remoto $suRemoto"; exit 1 }
     Ok "HEAD e remoto coincidono su '$ramo' ($($locale.Substring(0,7)))"
 }

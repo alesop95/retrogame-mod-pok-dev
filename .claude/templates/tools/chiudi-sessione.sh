@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# chiudi-sessione.sh - Chiusura di sessione in un comando solo (variante POSIX).
+# chiudi-sessione.sh - Chiusura di sessione in un comando solo (Bash su Linux/macOS).
 #
 # Stessa sequenza e stesse ragioni di chiudi-sessione.ps1, a cui si rimanda per il commento
 # esteso: stato, controlli istanziati (si ferma se uno fallisce), commit con conferma, push
@@ -19,12 +19,17 @@ set -u
 messaggio=""; si=0; solo=0; nowipe=0; account=""; radice=""
 while [ $# -gt 0 ]; do
     case "$1" in
-        -m|--messaggio) messaggio="$2"; shift 2 ;;
+        -m|--messaggio|--account|--radice)
+            [ $# -ge 2 ] && [ -n "$2" ] || { echo "Valore mancante per $1" >&2; exit 2; }
+            case "$1" in
+                -m|--messaggio) messaggio="$2" ;;
+                --account) account="$2" ;;
+                --radice) radice="$2" ;;
+            esac
+            shift 2 ;;
         --si) si=1; shift ;;
         --solo-controlli) solo=1; shift ;;
         --no-wipe) nowipe=1; shift ;;
-        --account) account="$2"; shift 2 ;;
-        --radice) radice="$2"; shift 2 ;;
         *) echo "opzione sconosciuta: $1" >&2; exit 2 ;;
     esac
 done
@@ -39,9 +44,15 @@ dir_script="$(cd "$(dirname "$0")" && pwd)"
 [ -n "$radice" ] || radice="$(git -C "$dir_script" rev-parse --show-toplevel 2>/dev/null)"
 [ -n "$radice" ] || { echo "Non trovo il repository: passare --radice." >&2; exit 2; }
 cd "$radice" || exit 2
-bundle=0; [ -f .claude/templates/PACKAGES.md ] && bundle=1
+# Il bundle si riconosce da due file insieme: PACKAGES.md da solo compare anche in ogni progetto
+# allineato, perche' la procedura importa l'intera cartella dei modelli; PROMPT-nuovo-progetto.md
+# vive solo nel bundle e non si importa mai.
+bundle=0; [ -f .claude/templates/PACKAGES.md ] && [ -f .claude/PROMPT-nuovo-progetto.md ] && bundle=1
 
 cartelle="tools .claude/templates/tools .claude/templates/md-unwrap/tools .claude/templates/readme-sync/tools .claude/templates/fix-typography/tools"
+# In un progetto si eseguono soltanto i controlli istanziati in tools/: le copie dei modelli sono
+# pacchetti non ancora adottati, e lanciarli fermerebbe il commit per strumenti che nessuno ha scelto.
+[ $bundle = 0 ] && cartelle="tools"
 trova() { for c in $cartelle; do [ -f "$c/$1" ] && { echo "$c/$1"; return; }; done; }
 
 python=""
@@ -73,6 +84,7 @@ sync-readme.py|--check $b|README.md|0
 lint-md-commands.py|.||0
 lint-doc-references.py|--solo-vivi $b||0
 check-eol.py|.||0
+misura-istruzioni.py|||0
 fix-accents.py|--check $m .||0
 fix-dashes.py|--check $m .||0
 fix-missing-accents.py|--check $m .||0
@@ -107,7 +119,9 @@ if [ "$ncambi" != 0 ]; then
         messaggio="$(grep -m1 -v '^[[:space:]]*$' "$filemsg")"
         [ -n "$messaggio" ] && nota "messaggio preparato dall'agente in $filemsg"
     fi
-    [ -n "$messaggio" ] || read -r -p "   Messaggio di commit: " messaggio
+    if [ -z "$messaggio" ]; then
+        read -r -p "   Messaggio di commit: " messaggio || { echo "Input non disponibile: mi fermo."; exit 1; }
+    fi
     [ -n "$messaggio" ] || { echo "Messaggio vuoto: mi fermo."; exit 1; }
     # git-identity-and-repo.md: si firma solo con l'identita' locale del repository.
     nome="$(git config --local user.name)"; email="$(git config --local user.email)"
@@ -115,10 +129,10 @@ if [ "$ncambi" != 0 ]; then
     nota "$ncambi file  ->  \"$messaggio\""
     nota "autore: $nome <$email>"
     if [ $si = 0 ]; then
-        read -r -p "   Committo tutto e pusho su '$ramo'? [s/N] " r
+        read -r -p "   Committo tutto e pusho su '$ramo'? [s/N] " r || { echo "Input non disponibile: niente e' stato committato."; exit 1; }
         case "$r" in s|si|y|yes) ;; *) echo "Annullato: niente e' stato committato."; exit 1 ;; esac
     fi
-    git add -A
+    git add -A || { echo "Stage fallito: niente e' stato committato."; exit 1; }
     git commit -m "$messaggio" || { echo "Commit rifiutato (hook o errore): correggere e rilanciare."; exit 1; }
     rm -f "$filemsg"
 fi
@@ -127,10 +141,11 @@ titolo "Push"
 if [ $haorigin = 0 ]; then nota "nessun remoto 'origin': push saltato, il commit resta locale"
 elif ! git rev-parse -q --verify HEAD >/dev/null; then nota "nessun commit sul ramo: niente da pushare"
 else
-    # Un ramo nuovo non ha ancora un ramo remoto collegato: lo si crea e lo si collega.
-    if git rev-parse --abbrev-ref --symbolic-full-name '@{u}' >/dev/null 2>&1; then git push; else git push -u origin "$ramo"; fi         || { echo "Push fallito: l'impronta non si registra finche' il remoto non e' allineato."; exit 1; }
-    git fetch -q
-    locale="$(git rev-parse HEAD)"; remoto="$(git rev-parse '@{u}' 2>/dev/null)"
+    # Destinazione esplicita: un upstream diverso da origin non deve deviare la chiusura.
+    git push -u origin "HEAD:refs/heads/$ramo" || { echo "Push fallito: l'impronta non si registra finche' il remoto non e' allineato."; exit 1; }
+    locale="$(git rev-parse HEAD)"
+    remoto="$(git ls-remote --exit-code origin "refs/heads/$ramo")" || { ko "verifica del ramo remoto fallita"; exit 1; }
+    remoto="${remoto%%[[:space:]]*}"
     [ "$locale" = "$remoto" ] || { ko "HEAD $locale diverso dal remoto $remoto"; exit 1; }
     ok "HEAD e remoto coincidono su '$ramo' (${locale:0:7})"
 fi
@@ -148,18 +163,18 @@ fine() {
 }
 [ $nowipe = 1 ] && fine ", wipe saltato su richiesta"
 titolo "Wipe del magazzino nascosto"
-script=""
+scripts=()
 for d in "$HOME"/.claude*; do
     [ -d "$d" ] || continue
     n="$(basename "$d")"
     [ -z "$account" ] || [ "$n" = ".claude-$account" ] || [ "$n" = "$account" ] || continue
-    [ -f "$d/hooks/session-end-wipe.sh" ] && script="$script $d/hooks/session-end-wipe.sh"
+    [ -f "$d/hooks/session-end-wipe.sh" ] && scripts+=("$d/hooks/session-end-wipe.sh")
 done
-if [ -z "$script" ]; then nota "nessuno script di wipe installato negli account: passo saltato"
+if [ ${#scripts[@]} -eq 0 ]; then nota "nessuno script di wipe installato negli account: passo saltato"
 elif pgrep -x claude >/dev/null 2>&1; then
     nota "processi Claude Code ancora aperti: wipe rimandato. Chiuderli e lanciare:"
-    for s in $script; do nota "bash \"$s\""; done
+    for s in "${scripts[@]}"; do nota "bash \"$s\""; done
 else
-    for s in $script; do bash "$s" && ok "$s" || ko "$s"; done
+    for s in "${scripts[@]}"; do bash "$s" && ok "$s" || ko "$s"; done
 fi
 fine ""

@@ -5,7 +5,7 @@
 Perché esiste, e che problema risolve davvero
 ---------------------------------------------
 Le community su Discord sono, per alcune tecniche di questo dominio, la sola
-documentazione esistente: la regola `.claude/rules/web-sources-not-fetchable.md` le
+documentazione esistente: la norma `.claude/skills/fonti-non-recuperabili/RIFERIMENTO.md` le
 registra fra le fonti che nessuno strumento di sessione raggiunge. Fino al 2026-08-29 il
 progetto conosceva due sole vie, e le aveva valutate entrambe: il token del proprio
 account, chiuso con un no il 2026-08-26 perché automatizzare un account personale è
