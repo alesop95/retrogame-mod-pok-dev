@@ -4,7 +4,7 @@ generated-from-branch: main
 generated-date: 2026-08-31
 covers-paths:
   - poke-ace/
-last-verified-commit: f5108f3
+last-verified-commit: f342853
 stato: tre studi scritti; bloccato su una decisione dell'utente, e la verifica pratica resta impossibile prima di ottobre 2026
 ---
 

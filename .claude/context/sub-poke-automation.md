@@ -4,7 +4,7 @@ generated-from-branch: main
 generated-date: 2026-08-26
 covers-paths:
   - poke-automation-study/
-last-verified-commit: f5108f3
+last-verified-commit: f342853
 stato: studio cominciato, scopo del track da decidere
 ---
 

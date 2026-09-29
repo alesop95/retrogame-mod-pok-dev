@@ -4,7 +4,7 @@ generated-from-branch: main
 generated-date: 2026-08-24
 covers-paths:
   - pokemon-gen12-gen3-bridge-original-hardware/
-last-verified-commit: f5108f3
+last-verified-commit: f342853
 stato: decisione ADR-008 ancora aperta; le tre generazioni sono scritte e collaudate, dal 2026-09-09 esiste lo strato del salvataggio da 128 KiB, e dal 2026-09-16 esiste anche il modulo che sintetizza in software il passaggio dalla terza alla quarta generazione (Parco Amici)
 ---
 

@@ -4,7 +4,7 @@ generated-from-branch: main
 generated-date: 2026-09-01
 covers-paths:
   - cart-battery-restoration/
-last-verified-commit: b437d7f
+last-verified-commit: f342853
 stato: runbook scritto; diagnosi conclusa il 2026-09-01, i due salvataggi sono perduti e l'operazione diventa di rischio basso
 ---
 
@@ -22,6 +22,8 @@ La risposta alla domanda che ha aperto il track è no, e non è negoziabile: un 
 
 Il risultato più importante della giornata è però un altro, e riguarda il rischio invece della procedura. Il lettore impiegato da questo progetto, nella revisione in cui la tensione è controllata dal software, parte in modalità a tre virgola tre volt, e una testimonianza del canale del produttore riferisce che inserire una cartuccia di seconda generazione in quella condizione cancella il salvataggio, anche senza premere il pulsante di connessione. È un modo di perdere il dato prima di avere fatto alcun backup, il rimedio è una sequenza documentata, e va conosciuto prima di collegare qualunque cosa.
 
+Il 2026-09-15 la domanda sulla tensione è stata chiusa, e il dettaglio sta nella sezione del trabocchetto di `STUDIO-01`. Sul sorgente di FlashGBX, metodo `SetMode` di `LK_Device.py`, scegliere la modalità Game Boy Advance fa scrivere al dispositivo `SET_VOLTAGE_3_3V` e scegliere Game Boy fa scrivere `SET_VOLTAGE_5V`. Un esperimento del proprietario a lettore vuoto ha mostrato che il LED «Mode» accanto al connettore è blu a 3,3 V e rosso a 5 V, quindi la modalità si legge a vista prima di inserire la cartuccia. Il rischio resta quello asimmetrico descritto sopra, cioè una cartuccia di seconda generazione a 3,3 V. Lo stesso giorno il lettore è stato collegato e validato su una cartuccia di prova.
+
 ## La diagnosi, arrivata il 2026-09-01
 
 L'utente riferisce che entrambe le cartucce, all'accensione, offrono soltanto la voce per una partita nuova e non conservano il salvataggio che si crea. È la firma completa della pila esaurita: l'assenza della voce di continuazione dice che il gioco non trova un salvataggio valido, e la mancata sopravvivenza di un salvataggio nuovo è la prova di ritenzione già eseguita con esito negativo. I due salvataggi non esistono più e non sono recuperabili.
@@ -30,7 +32,7 @@ La diagnosi chiude due delle domande aperte del track e sposta la priorità. Su 
 
 ## Prossimo passo concreto
 
-Applicare la prova di ritenzione della sezione 4 del runbook a ogni altra cartuccia di prima o seconda generazione che esista, se ne esistono, perché quelle sono le sole che abbiano ancora una finestra e non si sa quanto sia larga. Su una cartuccia il cui salvataggio interessi, la prima operazione non è la prova ma l'estrazione, e attende il lettore.
+Applicare la prova di ritenzione della sezione 4 del runbook a ogni altra cartuccia di prima o seconda generazione che esista, se ne esistono, perché quelle sono le sole che abbiano ancora una finestra e non si sa quanto sia larga. Su una cartuccia il cui salvataggio interessi, la prima operazione non è la prova ma l'estrazione, che dal 2026-09-15 è possibile perché il lettore è disponibile e validato; su una cartuccia di seconda generazione si controlla prima che il LED «Mode» sia rosso.
 
 Su Rosso e Argento resta la sostituzione, che non ha più fretta e può essere fatta quando conviene. Prima conviene leggere il valore stampato sulla pila dentro ciascuna, che va letto e non dedotto da una guida.
 

@@ -22,15 +22,15 @@ Data snapshot:         2026-09-29, passi interattivi dell'allineamento al templa
 | dev-testing.md | trasversale | f5108f3 | STALE, riconciliata il 2026-09-17: il protocollo Smeraldo descriveva PKHeX come editor invece dello script deterministico in uso da due giri; checkpoint NON bumpato, stesso drift residuo di `pokedex-home-completo/` |
 | current-work.md | trasversale | f5108f3 | STALE, riga smeraldo-save-fix riscritta il 2026-09-17 (era ferma a prima dell'arrivo del lettore); checkpoint NON bumpato, stesso drift residuo di `pokedex-home-completo/` |
 | roadmap.md | trasversale | f5108f3 | STALE, riconciliata il 2026-09-17: la riga su Smeraldo lo dichiarava ancora bloccato sul lettore; checkpoint NON bumpato, stesso drift residuo di `pokedex-home-completo/` |
-| sub-3ds-modding.md | 3ds-related | f5108f3 | checkpoint bumpato il 2026-09-16, nessun cambio |
+| sub-3ds-modding.md | 3ds-related | f342853 | verificata il 2026-09-29 con sync-context: i due cambi nell'area sono il nome utente mascherato in un percorso, nessun cambio alla scheda |
 | sub-smeraldo-save-fix.md | gba-save-extraction-smeraldo | 41df58a | riscritta piu' volte il 2026-09-21: STUDIO-04 da 9 a 15 sezioni, catalogo avversari spogliato e confrontato, meccaniche verificate sul sorgente, TUTTE le fonti lette tranne una discussione archiviata, sei strumenti di lettura, ADR-068, nomi italiani corretti; checkpoint ancora NON bumpato perché la scheda è cambiata dopo l'ultimo commit e il commit di questa sessione non esiste ancora |
-| sub-gen12-gen3-bridge.md | pokemon-gen12-gen3-bridge | f5108f3 | aggiornata il 2026-09-16: nuovo modulo `parco_amici.py`, sintesi software del Parco Amici verso la quarta generazione |
-| sub-gba-switch-trading.md | gba-switch-pokemon-trading | f5108f3 | checkpoint bumpato il 2026-09-16, nessun cambio |
-| sub-poke-automation.md | poke-automation-study | f5108f3 | checkpoint bumpato il 2026-09-16, nessun cambio |
+| sub-gen12-gen3-bridge.md | pokemon-gen12-gen3-bridge | f342853 | verificata il 2026-09-29 con sync-context: percorsi di `_notes/` riordinati nel codice e nella referenza, nessun cambio alla scheda |
+| sub-gba-switch-trading.md | gba-switch-pokemon-trading | f342853 | verificata il 2026-09-29 con sync-context: handoff spostato in `handoff/`, la scheda non lo cita per percorso, nessun cambio |
+| sub-poke-automation.md | poke-automation-study | f342853 | verificata il 2026-09-29 con sync-context: `docs/fonti/` rinominata in `docs/mappa-fonti/`, nessun cambio alla scheda |
 | sub-distributions-events.md | recreate-pokemon-distributions-events | f5108f3 | aggiornata il 2026-09-16: generatore Gen3 a 176/177, seme stabilizzato dopo una regressione corretta, audit dei livelli di scambio, uscita alimenta ora il Parco Amici software |
-| sub-poke-ace.md | poke-ace | f5108f3 | checkpoint bumpato il 2026-09-16, nessun cambio |
-| sub-generation-from-switch.md | generation-from-switch | f5108f3 | checkpoint bumpato il 2026-09-16, nessun cambio |
-| sub-cart-battery.md | cart-battery-restoration | b437d7f | NON riverificata in questo giro: drift preesistente e dichiarato su `STUDIO-01-batteria-e-ritenzione.md`, fuori scopo di questa sessione |
+| sub-poke-ace.md | poke-ace | f342853 | verificata il 2026-09-29 con sync-context: nessun file cambiato nell'area |
+| sub-generation-from-switch.md | generation-from-switch | f342853 | verificata il 2026-09-29 con sync-context: nessun file cambiato nell'area |
+| sub-cart-battery.md | cart-battery-restoration | f342853 | riconciliata il 2026-09-29 con sync-context: rischio di tensione chiuso il 2026-09-15 (LED blu 3,3 V, rosso 5 V) e lettore validato, due delta nella scheda |
 | sub-pokedex-home-completo.md | pokedex-home-completo | f5108f3 | aggiornata il 2026-09-16: il collo di bottiglia del trasferimento Gen3 a Gen4 si è dimezzato (sintesi software), checklist a 685/1025, dettaglio nel racconto sotto |
 
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
