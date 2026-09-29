@@ -78,7 +78,7 @@ Le due dipendenze implicite restano il Python di sistema, oggi 3.13, e `git`. Il
 
 ## Macchina con GPU raggiungibile in rete locale
 
-Esiste un secondo computer con GPU che espone Ollama all'indirizzo `http://192.168.20.58:11500`, raggiungibile direttamente in HTTP dalla rete locale senza tunnel. I modelli presenti alla verifica del 2026-08-25 sono `qwen3:14b`, `llama3.1:8b-instruct-q4_K_M`, `llama3.2:latest` e `bge-m3:latest`.
+Esiste un secondo computer con GPU che espone Ollama all'indirizzo `http://<IP-GPU-LAN>:11500`, raggiungibile direttamente in HTTP dalla rete locale senza tunnel. I modelli presenti alla verifica del 2026-08-25 sono `qwen3:14b`, `llama3.1:8b-instruct-q4_K_M`, `llama3.2:latest` e `bge-m3:latest`.
 
 Va detto con precisione cosa quella macchina può e non può fare, perché il malinteso è facile. Non può trascrivere audio: nessuno dei modelli presenti è un riconoscitore vocale, e Ollama serve modelli di linguaggio, non modelli acustici. La trascrizione dei video resta compito di `yt-dlp`, che scarica i sottotitoli che YouTube ha già generato, e servirebbe un modello di famiglia Whisper soltanto per un audio senza sottotitoli.
 
@@ -103,7 +103,7 @@ Il secondo comando serve perché i sottotitoli automatici arrivano in forma scor
 
 Il progetto locale di trascrizione resta necessario per i video che non hanno sottotitoli automatici, e in quel caso fa il lavoro vero con il riconoscimento vocale sulla GPU.
 
-Per la sintesi si punta l'endpoint alla macchina con GPU descritta sopra, configurando `TRANSCRIBE_LLM_BASE_URL` a `http://192.168.20.58:11500/v1` e `TRANSCRIBE_LLM_MODEL` a uno dei modelli presenti, per esempio `qwen3:14b`. In questo modo la trascrizione e la sua sintesi avvengono interamente in rete locale, e in conversazione entra la sintesi invece della trascrizione grezza: è l'applicazione diretta del principio di disclosure progressiva della regola di token economy.
+Per la sintesi si punta l'endpoint alla macchina con GPU descritta sopra, configurando `TRANSCRIBE_LLM_BASE_URL` a `http://<IP-GPU-LAN>:11500/v1` e `TRANSCRIBE_LLM_MODEL` a uno dei modelli presenti, per esempio `qwen3:14b`. In questo modo la trascrizione e la sua sintesi avvengono interamente in rete locale, e in conversazione entra la sintesi invece della trascrizione grezza: è l'applicazione diretta del principio di disclosure progressiva della regola di token economy.
 
 Resta vero quanto scritto sopra sui limiti di Ollama, e questa pipeline lo conferma dividendo i compiti: il riconoscimento vocale lo fa WhisperX o YouTube a monte, la sintesi la fa il modello di linguaggio, e sono due mestieri diversi.
 

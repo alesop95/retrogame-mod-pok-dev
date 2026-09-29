@@ -1,0 +1,28 @@
+# Manifesto dei pacchetti LaTeX del progetto, istanziato dal pacchetto `latex` il 2026-09-29 e
+# adattato al preambolo reale di tesi/preambolo.tex. Una voce per riga col nome del pacchetto
+# tlmgr; righe vuote e con # ignorate. tlmgr risolve da solo le dipendenze.
+
+# Strumento di build
+latexmk
+
+# Pacchetti delle \usepackage di tesi/preambolo.tex
+amsmath
+amsfonts
+geometry
+caption
+booktabs
+hyperref
+listings
+xcolor
+microtype
+url
+tools
+graphics
+
+# Font T1 e lmodern
+lm
+cm-super
+
+# Lingua italiana, con i pattern di sillabazione per pdflatex
+babel-italian
+hyphen-italian
