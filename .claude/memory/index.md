@@ -31,7 +31,7 @@ Data snapshot:         2026-09-29, passi interattivi dell'allineamento al templa
 | sub-poke-ace.md | poke-ace | f342853 | verificata il 2026-09-29 con sync-context: nessun file cambiato nell'area |
 | sub-generation-from-switch.md | generation-from-switch | f342853 | verificata il 2026-09-29 con sync-context: nessun file cambiato nell'area |
 | sub-cart-battery.md | cart-battery-restoration | f342853 | riconciliata il 2026-09-29 con sync-context: rischio di tensione chiuso il 2026-09-15 (LED blu 3,3 V, rosso 5 V) e lettore validato, due delta nella scheda |
-| sub-pokedex-home-completo.md | pokedex-home-completo | f5108f3 | aggiornata il 2026-09-16: il collo di bottiglia del trasferimento Gen3 a Gen4 si è dimezzato (sintesi software), checklist a 685/1025, dettaglio nel racconto sotto |
+| sub-pokedex-home-completo.md | pokedex-home-completo | 19fca78 | riconciliata il 2026-09-29 con sync-context: aggiornamento su libreria, scambi, collezione chiusa e coda (333, 60, 40 su 433), prossimo passo sulle 40 voci da periferiche, ADR-083 sulla porta di Smeraldo, indice dei documenti e salvataggi di terzi a diciotto |
 
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
