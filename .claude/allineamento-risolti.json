@@ -11,6 +11,18 @@
     "testa": "277ab6b9d0d9d539ed67e41cda3930c038eea8f9",
     "il": "2026-09-29"
   },
+  "tools/lint-didattica.py": {
+    "testa": "15cc401f8630fbd9e6a73bbf1c915b9cbe1a36e0",
+    "il": "2026-09-29"
+  },
+  "tools/lint-memoria.py": {
+    "testa": "01128d88d66bc3b2b55cff7ed282238d1d6d89ff",
+    "il": "2026-09-29"
+  },
+  "tools/proponi-covers-paths.py": {
+    "testa": "fedb1b046451d6816e9fec01e446febd49e5c6ee",
+    "il": "2026-09-29"
+  },
   "tools/read-chat-export.py": {
     "testa": "371ad3f2ca00abe2cad45d7d82b4859094897438",
     "il": "2026-09-29"
