@@ -49,7 +49,7 @@ Da qui vengono tutte le affermazioni di [[DATA-FORMATS_Gen1-Gen2-Gen3]]. La tabe
 
 Accanto ai cloni sono stati recuperati documenti dal web, e la loro affidabilità è stratificata nel registro [[SOURCES]]. Le pagine enciclopediche sono servite a orientarsi e in quattro casi si sono rivelate sbagliate; i blog tecnici sono serviti a capire il perché; i risultati di ricerca sono serviti a scoprire l'esistenza di progetti come `PkSploit` e la possibilità di collaudo su BGB.
 
-Due limiti dichiarati sul recupero web, già registrati in [[SOURCES]] ma che vale ripetere qui perché riguardano l'onestà delle fonti. YouTube restituisce una pagina di consenso invece del contenuto, quindi nessuno dei video è stato guardato: i canali sono identificati, non consultati. Reddit non è stato letto, e la ragione è stata indagata invece che assunta: cinque vie tentate e tutte fallite, per un blocco che sta a monte e non nel progetto, con le due vie praticabili e lo strumento che le implementa descritti in `.claude/rules/web-sources-not-fetchable.md`.
+Due limiti dichiarati sul recupero web, già registrati in [[SOURCES]] ma che vale ripetere qui perché riguardano l'onestà delle fonti. YouTube restituisce una pagina di consenso invece del contenuto, quindi nessuno dei video è stato guardato: i canali sono identificati, non consultati. Reddit non è stato letto, e la ragione è stata indagata invece che assunta: cinque vie tentate e tutte fallite, per un blocco che sta a monte e non nel progetto, con le due vie praticabili e lo strumento che le implementa descritti in `.claude/skills/fonti-non-recuperabili/RIFERIMENTO.md`.
 
 ## Il secondo tipo: prove di programma
 

@@ -676,7 +676,14 @@ def main():
         except UnicodeDecodeError:
             continue
         if cambia:
-            cambiati.append(os.path.relpath(percorso, ROOT))
+            # Stessa guardia di `fix-dashes.py` e `fix-accents.py`: `relpath` solleva su unita'
+            # diverse, e questo ramo e' quello della scrittura, quindi il difetto non si vedeva
+            # con `--check`. Corretto il 2026-09-28 cercando la famiglia invece del singolo.
+            try:
+                rel = os.path.relpath(percorso, ROOT)
+            except ValueError:
+                rel = os.path.abspath(percorso)
+            cambiati.append(rel)
             if not args.check and not args.ambigue:
                 with open(percorso, "wb") as f:
                     f.write(dati)
@@ -707,7 +714,7 @@ def main():
     # In modalita' di verifica l'esito e' anche un codice di uscita, non solo un rapporto. Senza
     # questa riga lo strumento usciva zero pure elencando i file da correggere, e chiunque lo
     # usasse come controllo, l'hook pre-commit o una persona che concatena i comandi, otteneva un
-    # via libera indistinguibile da quello vero: il difetto che `prove-che-misurano.md` chiama
+    # via libera indistinguibile da quello vero: il difetto che `skills/prove-che-misurano/RIFERIMENTO.md` chiama
     # vacuita', qui non in una prova ma nel controllo stesso. Fa fede `cambiati`, cioe' cio' che
     # lo strumento sa correggere da se'; le forme ambigue e i residui restano un avviso, perche'
     # nessuno puo' deciderli meccanicamente e farne cadere il controllo lo bloccherebbe per

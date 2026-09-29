@@ -4,14 +4,14 @@
 Perche' esiste
 --------------
 
-Il registro delle fonti di questo progetto ha portato per settimane una trentina di voci Smogon etichettate in blocco come "dietro autenticazione". L'etichetta era falsa, ed e' precisamente il difetto che `web-sources-not-fetchable.md` chiama una etichetta di indisponibilita' sopravvissuta alla propria causa: scoraggia dal riprovare, e cosi' la fonte resta non letta per una ragione che nessuno ha piu' verificato. Il 2026-09-21 il recupero locale ha risposto duecento su tutte quelle provate, con il corpo dei post presente nel documento: non serve alcuna credenziale, serviva soltanto chiedere.
+Il registro delle fonti di questo progetto ha portato per settimane una trentina di voci Smogon etichettate in blocco come "dietro autenticazione". L'etichetta era falsa, ed e' precisamente il difetto che `fonti-non-recuperabili/RIFERIMENTO.md` chiama una etichetta di indisponibilita' sopravvissuta alla propria causa: scoraggia dal riprovare, e cosi' la fonte resta non letta per una ragione che nessuno ha piu' verificato. Il 2026-09-21 il recupero locale ha risposto duecento su tutte quelle provate, con il corpo dei post presente nel documento: non serve alcuna credenziale, serviva soltanto chiedere.
 
 Sul perche' quelle fonti valgano la fatica, la ragione e' di merito e non di completezza. Il catalogo degli avversari dice contro che cosa si combatte, ma non dice che cosa ha funzionato: quello lo dicono le persone che hanno tenuto una serie per centinaia di lotte e hanno poi scritto la squadra con cui l'hanno tenuta, e quelle squadre stanno in questi thread, discusse e corrette da altri che le hanno riprovate. E' la differenza fra un avversario misurato e una strategia collaudata, e nessuna delle due sostituisce l'altra.
 
 Il criterio di legittimita' della via
 -------------------------------------
 
-Vale il criterio di `web-sources-not-fetchable.md`, e va enunciato perche' qui non c'e' un canale programmatico dichiarato dal fornitore come ce n'era uno per Bulbapedia. Il servizio pubblica queste pagine senza credenziali e senza muro di accesso, il suo `robots.txt` non porta alcuna direttiva restrittiva per gli agenti generici, e lo strumento si dichiara con uno user agent descrittivo invece di fingersi un browser, attende fra due richieste e non tenta alcun accesso a contenuto riservato. Cio' che si legge e' scritto da altre persone, quindi vale per intero l'ultima sezione di quella regola: l'identificativo dell'autore si conserva accanto al contenuto, l'archivio sta in un posto solo sotto `_notes/fonti/`, e il grezzo e' sacrificabile una volta che la sintesi con l'attribuzione e' entrata nel registro.
+Vale il criterio di `fonti-non-recuperabili/RIFERIMENTO.md`, e va enunciato perche' qui non c'e' un canale programmatico dichiarato dal fornitore come ce n'era uno per Bulbapedia. Il servizio pubblica queste pagine senza credenziali e senza muro di accesso, il suo `robots.txt` non porta alcuna direttiva restrittiva per gli agenti generici, e lo strumento si dichiara con uno user agent descrittivo invece di fingersi un browser, attende fra due richieste e non tenta alcun accesso a contenuto riservato. Cio' che si legge e' scritto da altre persone, quindi vale per intero l'ultima sezione di quella regola: l'identificativo dell'autore si conserva accanto al contenuto, l'archivio sta in un posto solo sotto `_notes/fonti/`, e il grezzo e' sacrificabile una volta che la sintesi con l'attribuzione e' entrata nel registro.
 
 Che cosa produce
 ----------------
@@ -226,7 +226,7 @@ def corsa(indirizzi, uscita, tetto_pagine):
             tutti.extend(voci)
             print("thread %-42s pagina %3d/%3d  %3d post" % (slug[:42], n, pagine, len(voci)))
 
-        righe = ["# %s" % slug, "", "> Fonte: %s, %d pagine lette il %s con `tools/fetch-smogon.py`. Ogni post porta l'identificativo del proprio autore, come prescrive l'ultima sezione di `web-sources-not-fetchable.md`." % (base, pagine, time.strftime("%Y-%m-%d")), ""]
+        righe = ["# %s" % slug, "", "> Fonte: %s, %d pagine lette il %s con `tools/fetch-smogon.py`. Ogni post porta l'identificativo del proprio autore, come prescrive l'ultima sezione di `fonti-non-recuperabili/RIFERIMENTO.md`." % (base, pagine, time.strftime("%Y-%m-%d")), ""]
         for v in tutti:
             righe.append("## %s, pagina %d, di %s, %s%s" % (v["id"], v["pagina"], v["autore"] or "autore ignoto", v["data"] or "data ignota", "  [SQUADRA PROBABILE]" if v["squadra_probabile"] else ""))
             righe.append("")

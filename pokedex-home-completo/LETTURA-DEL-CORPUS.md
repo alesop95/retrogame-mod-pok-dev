@@ -154,7 +154,7 @@ Il lotto dichiarato dalla sessione precedente contava ventiquattro voci e ne era
 
 La causa vera è locale e non remota, ed è misurata: l'archivio delle radici di sistema di questa macchina contiene nove certificati scaduti, e fra essi una copia di ISRG Root X2 scaduta il 15 settembre 2025. I siti che si appoggiano a quell'autorità servono una catena che termina in ISRG Root X2 firmata da ISRG Root X1, valida fino al 2035; la verifica, trovando X2 fra le radici di cui si fida, si ferma là e la dichiara scaduta invece di proseguire sul ramo firmato che è valido. Il browser e il recupero da riga di comando non se ne accorgono perché non usano quell'archivio; il lettore del corpus sì, perché è un programma in Python e usa quello del sistema.
 
-Ne segue una prescrizione generale che vale oltre il caso, ed è la medesima che la settima via di `web-sources-not-fetchable.md` aveva già enunciato in un'altra forma: quando più vie falliscono con lo stesso esito, prima di cercarne una in più conviene chiedersi che cosa abbiano in comune. Qui il capo comune non era il sito, che è ciò che il messaggio suggeriva, ma la macchina che chiedeva.
+Ne segue una prescrizione generale che vale oltre il caso, ed è la medesima che la settima via di `fonti-non-recuperabili/RIFERIMENTO.md` aveva già enunciato in un'altra forma: quando più vie falliscono con lo stesso esito, prima di cercarne una in più conviene chiedersi che cosa abbiano in comune. Qui il capo comune non era il sito, che è ciò che il messaggio suggeriva, ma la macchina che chiedeva.
 
 ### Che cosa è stato riparato, e che cosa ha restituito
 

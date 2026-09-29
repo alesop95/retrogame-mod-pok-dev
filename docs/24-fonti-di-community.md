@@ -2,7 +2,7 @@
 
 Alcune informazioni di cui questo progetto ha bisogno esistono documentate in un solo posto al mondo, e quel posto è una chat. Non un articolo, non un wiki, non un repository con un README: un canale Discord dove qualcuno, in un pomeriggio di due anni fa, ha scritto tre messaggi che spiegano perché un approccio funziona e un altro no. Il caso concreto che ha reso necessaria questa nota è la testimonianza sulle schede Wi-Fi capaci di modalità monitor per il track dello scambio con la Switch: la lista ufficiale del progetto di riferimento indica tre modelli, il canale di supporto di una community ne indica un quarto che costa una frazione, e quell'informazione non è scritta in nessun altro luogo.
 
-Ne nasce un problema di metodo, perché una chat non è raggiungibile né dal crawler del modello né da una richiesta HTTP. Le pagine di Discord sono un'applicazione a pagina singola dietro autenticazione e il contenuto non è indicizzato, quindi non esiste la via del recupero diretto e nemmeno quella dell'archivio pubblico. L'unica via è un export prodotto da chi è membro del server, cioè dall'utente, ed è la stessa struttura di consegna che `.claude/rules/web-sources-not-fetchable.md` descrive per Reddit e per i forum che rispondono 403.
+Ne nasce un problema di metodo, perché una chat non è raggiungibile né dal crawler del modello né da una richiesta HTTP. Le pagine di Discord sono un'applicazione a pagina singola dietro autenticazione e il contenuto non è indicizzato, quindi non esiste la via del recupero diretto e nemmeno quella dell'archivio pubblico. L'unica via è un export prodotto da chi è membro del server, cioè dall'utente, ed è la stessa struttura di consegna che `.claude/skills/fonti-non-recuperabili/RIFERIMENTO.md` descrive per Reddit e per i forum che rispondono 403.
 
 ## Il costo di quella via, dichiarato prima di tutto il resto
 
@@ -48,7 +48,7 @@ Il lettore non sa nulla di Pokemon, di Game Boy e di salvataggi: legge un format
 
 | Cosa cerchi | Dove sta |
 |---|---|
-| la scala di escalation per una fonte non raggiungibile | `.claude/rules/web-sources-not-fetchable.md` |
+| la scala di escalation per una fonte non raggiungibile | `.claude/skills/fonti-non-recuperabili/RIFERIMENTO.md` |
 | i cinque server e cosa ci si cerca | `SOURCES.md`, sezione delle community |
 | la testimonianza sulle schede Wi-Fi | `.claude/context/sub-gba-switch-trading.md` |
 | lo stato dello strumento e la decisione aperta sul token | `.claude/memory/pending.md` |

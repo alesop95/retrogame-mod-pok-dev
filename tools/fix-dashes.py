@@ -330,7 +330,12 @@ def main():
 
     conteggio, cambiati, saltati = {}, [], []
     for percorso in file:
-        rel = os.path.normpath(os.path.relpath(percorso, ROOT))
+        try:
+            rel = os.path.normpath(os.path.relpath(percorso, ROOT))
+        except ValueError:
+            # unita' diversa dalla radice, tipicamente una copia di prova in una cartella
+            # temporanea: le esclusioni sono relative alla radice, quindi non la riguardano
+            rel = os.path.abspath(percorso)
         if (os.path.abspath(percorso) == io_stesso
                 or os.path.basename(percorso) in FAMIGLIA or rel in esclusi
                 or (sotto_templates(percorso) and not args.includi_modelli)):
@@ -371,7 +376,7 @@ def main():
     # In modalita' di verifica l'esito e' anche un codice di uscita, non solo un rapporto. Senza
     # questa riga lo strumento usciva zero pure elencando i file da correggere, e chiunque lo
     # usasse come controllo, l'hook pre-commit o una persona che concatena i comandi, otteneva un
-    # via libera indistinguibile da quello vero: il difetto che `prove-che-misurano.md` chiama
+    # via libera indistinguibile da quello vero: il difetto che `skills/prove-che-misurano/RIFERIMENTO.md` chiama
     # vacuita', qui non in una prova ma nel controllo stesso. Fa fede `cambiati`, cioe' cio' che
     # lo strumento sa correggere da se'; le forme ambigue e i residui restano un avviso, perche'
     # nessuno puo' deciderli meccanicamente e farne cadere il controllo lo bloccherebbe per
