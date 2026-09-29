@@ -4,8 +4,8 @@ generated-from-branch: main
 generated-date: 2026-08-28
 covers-paths:
   - recreate-pokemon-distributions-events/
-last-verified-commit: f5108f3
-stato: attivo; il generatore di terza generazione copre ora 176 voci su 177 (il canale televisivo resta fuori per costruzione), il seme e' stabile per identita' di voce e non per posizione, e dal 2026-09-16 la sua uscita alimenta in software anche il passaggio alla quarta generazione
+last-verified-commit: 19fca78
+stato: attivo; dal 2026-09-25 la libreria PKHeX.Core produce e giudica i lotti (ADR-081), 2010 conformi su 2010, il Parco Amici di quarta e' rigenerato con la libreria (ADR-082); la produzione che resta, le 40 voci da periferiche, si governa dalla coda del primo tempo, e qui resta aperta ADR-040
 ---
 
 # Sottoprogetto: ricreazione delle distribuzioni e degli eventi
@@ -38,7 +38,7 @@ Il lavoro che resta su questo track è quindi di altra natura. Le ventotto voci 
 
 ## Prossimo passo concreto
 
-Il generatore di terza generazione non ha più un passo che dipenda da noi: ciò che resta su questo track dipende dall'hardware, cioè dal lettore di cartucce, e sta in `pending.md`. Il prossimo passo che non dipende dall'hardware è fuori da questa generazione, ed è contare e catalogare gli eventi di quarta, quinta, sesta e settima generazione con lo stesso metodo usato qui, cosicché quando l'hardware arriverà la produzione sia pronta e non da studiare. Per la quarta e la quinta la base di dati dei doni segreti del verificatore contiene i file, quindi il lavoro è di conteggio e di campagna e non di ricostruzione di un algoritmo.
+Aggiornato il 2026-09-29. Il lettore è arrivato e gli eventi dalla quarta alla settima generazione sono contati, catalogati e prodotti, quindi il passo che questa sezione indicava fino al 2026-09-16 è fatto. La produzione che resta sotto la scadenza di Bank è quella delle voci da periferiche, cioè 29 dal Pokewalker, 8 da My Pokemon Ranch e 3 dal Dream Radar, e la si governa dalla coda del primo tempo del track del Pokedex, `pokedex-home-completo/CODA-PRIMO-TEMPO.md`, voce SECONDO di `pending.md`. Qui resta la decisione di ADR-040 sulle 28 voci coreane.
 
 Esiste un secondo passo che non richiede hardware e che la ricerca ha reso possibile: leggere l'archivio degli eventi di Project Pokemon per stabilire se i campioni degli eventi dichiarati non chiusi manchino davvero, cioè se il progetto possa contribuire alla conservazione invece di consumarla soltanto.
 
@@ -65,6 +65,18 @@ Inserire quelle quattro voci ha spostato l'indice con cui il generatore derivava
 Un audit richiesto dall'utente sui livelli di tutti gli scambi in gioco già prodotti (terza, quarta e quinta generazione, 42 voci) non ha trovato alcun caso a livello variabile: ogni scambio ha un livello fisso nella tabella del verificatore, incluso il Farfetch'd di FireRed/LeafGreen che sembrava contraddire questo (il gioco vero lega il livello a quello del Pokemon consegnato, ma il verificatore giudica solo il valore che registra come canonico).
 
 Il fatto più grande della giornata è però un anello nuovo della catena: `pokemon-gen12-gen3-bridge-original-hardware/pokebridge/parco_amici.py`, che sintetizza in software il passaggio del Parco Amici verso la quarta generazione, letto dalla fonte vera del verificatore e verificato contro l'osservazione umana in `PKHeX` su due casi particolari (un esemplare da uovo, un esemplare con macchina nascosta). Applicato a tutte le 209 voci già prodotte in terza generazione (176 distribuzioni, 14 incontri sbloccati, 19 scambi in gioco), produce 203 record di quarta generazione in `_notes/lotti/lotto-parco-amici-gen4/`, sei esclusi per macchina nascosta e da decidere uno per uno. Elimina per la prima volta la necessità di hardware o emulazione DS per questo anello: dettaglio completo, con la fonte di ogni mutazione, in `pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md`.
+
+Il lotto della sintesi è superato dal 2026-09-24, vedi la sezione seguente: giudicato con la libreria del verificatore aveva 148 esemplari contestati su 203, ed è conservato in `_notes/archivio/`. Il modulo `parco_amici.py` resta nel pacchetto con la sua suite come descrizione della trasformazione e non produce più lotti (ADR-082).
+
+## Aggiunta del 2026-09-25: la libreria del verificatore produce e giudica
+
+Da ADR-081 la libreria PKHeX.Core, compilata dal clone `_notes/fonti/cloni/pkhex`, è il generatore del progetto: le richieste le decide uno strumento deterministico dai dati del progetto, la libreria costruisce l'esemplare e lo giudica, e i generatori Python di questo track restano come referenza e controllo indipendente. Gli strumenti sono cinque programmi C# sotto `tools/`, descritti in `docs/22-strumenti.md`: `pkhex-genera`, `pkhex-giudica`, `pkhex-parco-amici`, `pkhex-dono` e `pkhex-rigenera`.
+
+`tools/pkhex-giudica` applica l'analisi di legittimità a ogni file di un lotto e scrive `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`, con impronta, specie, contesto, esito e una descrizione in italiano. Alla rigenerazione del 2026-09-25 i conteggi sono 2010 conformi, nessun contestato e nessun illeggibile, su tutti i lotti di `_notes/lotti/`. Il giudizio si fa con un salvataggio vuoto attivo e non contiene i controlli che dipendono dal salvataggio reale che riceverà l'esemplare, come il file stesso dichiara in testa. Le 28 voci coreane di quarta generazione restano la decisione aperta di ADR-040, che quel giudizio non chiude.
+
+Tre lotti sono stati prodotti o rifatti con la libreria. Il Parco Amici di quarta generazione, con `pkhex-parco-amici`, è a 203 conformi su 203, con le stesse sei esclusioni per macchina nascosta (ADR-082). I doni di sesta e settima generazione del primo tempo, con `pkhex-dono`, sono 84 su 84, comprese le sei uova della festa di primavera giapponese, che lo strumento ora fa schiudere. I 23 scambi di quarta e quinta generazione, ricostruiti con `pkhex-rigenera`, sono 23 su 23. Il Phanpy della tabella di seconda generazione, un evento riservato alla lingua giapponese, è rigenerato in giapponese ed è conforme. Il 2026-09-23 `CATALOGO-EVENTI.md` ha ricevuto la storia attribuita di tutti i 176 eventi di terza generazione presenti nel deposito di Smeraldo.
+
+La collezione di terza generazione, cioè Smeraldo, il complemento del Rubino e i lotti di terza da cui dipende, non si riapre per ragioni di metodo, e si corregge solo un difetto misurato su un esemplare preciso (ADR-082). Mew e Deoxys su Smeraldo non si catturano, e gli incontri restano giocabili (ADR-083). Le schede di ogni voce speciale, cioè doni, scambi e periferiche, sono generate in `pokedex-home-completo/SCHEDE-ESCLUSIVI.md`.
 
 ## Aggiunta del 2026-09-01: la nota operativa, e la divisione del lavoro
 
