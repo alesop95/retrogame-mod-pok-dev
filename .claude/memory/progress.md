@@ -4,6 +4,18 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-30, sesta parte. Il passo 2 rifatto sulle decisioni del proprietario: Rubino Omega europeo con le macchine nascoste, e Luna
+
+Il proprietario ha deciso tre cose. Vuole una provenienza europea per Rubino Omega. Le 31 voci con macchina nascosta si scrivono, e ha chiesto che gli si spieghi che cosa si è fatto. Gli esemplari originali dei salvataggi presi dalla rete non gli servono nel deposito. Ha indicato la copia della scheda SD della sua console, `J:\3DS - 03092026`, per cercare un salvataggio giapponese. Ha chiesto infine che ogni passaggio sulla console gli sia spiegato passo per passo, e che ci si attenga alla roadmap.
+
+La copia della scheda, letta senza scriverci, contiene Checkpoint con le copie di Rubino Omega, Y e Luna del proprietario, fatte il 21 e il 23 agosto. Tutte sono di console europea registrata in Italia e in lingua inglese, e hanno i box vuoti. Non c'è alcun salvataggio di console giapponese, quindi i 14 esemplari giapponesi di Game Boy restano in attesa. La scoperta che ha cambiato il piano è che sulla console c'è Luna e non Ultrasole: la copia fatta su `main (2)` sarebbe stata inutilizzabile, ed è stata sostituita da una su Luna del proprietario.
+
+Esiti. Rubino Omega da `main (1)`, con `--svuota` e `--includi-mn`: 930 e 713 esemplari, 1643 in tutto; i 39 esclusi del secondo giro sono doni di settima generazione. Luna: 270 esemplari con l'epoca delle cartucce, più il Mew GF internazionale con l'epoca della Console Virtuale, 271 in tutto. Zero differenze e zero contestati alla rilettura, per tutte le copie.
+
+File toccati: `.claude/memory/pending.md`, `.claude/memory/progress.md`, `pokedex-home-completo/ROADMAP.md`; fuori da git le copie in `_notes/salvataggi/prove/scrittura-oras/` e `scrittura-luna/`.
+
+**Didattica:** nessuna voce nuova.
+
 ## 2026-09-30, quinta parte. Il passo 2 fatto: i lotti scritti in due copie di Rubino Omega e una di Ultrasole
 
 Il proprietario ha fatto il commit `b1013d2`, ha scelto `main(6)` come salvataggio di Rubino Omega e ha chiesto di procedere con lo strumento. È nato `tools/pkhex-scrivi-salvataggio`, sul modello di `pkhex-dono --copia-salvataggio`: converte, adatta, giudica, scrive in una copia, ricarica, confronta byte per byte e rigiudica. `main(6)` aveva 769 dei 930 posti occupati, quindi i giri usano `--svuota` sulla copia.
