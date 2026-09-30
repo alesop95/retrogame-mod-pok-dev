@@ -18,7 +18,7 @@
 // Per `rules/hardware-and-perimeter.md` la copia si porta sulla console solo dopo una copia di riserva del salvataggio
 // che la console ha, e dopo la scrittura si rilegge.
 //
-// Uso:  dotnet run -c Release -- SALVATAGGIO COPIA_DI_USCITA DA [--svuota] [--epoca-cartucce] [--includi-mn] LOTTO [LOTTO ...]
+// Uso:  dotnet run -c Release -- SALVATAGGIO COPIA_DI_USCITA DA [--svuota] [--epoca-cartucce] [--includi-mn] [--solo-mn] [--solo-epoca-cartucce] LOTTO [LOTTO ...]
 using System.Security.Cryptography;
 using System.Text.Json;
 using System.Text.Json.Nodes;
@@ -28,7 +28,7 @@ var opzioni = args.Where(a => a.StartsWith("--")).ToHashSet();
 var posizionali = args.Where(a => !a.StartsWith("--")).ToArray();
 if (posizionali.Length < 4)
 {
-    Console.Error.WriteLine("uso: dotnet run -c Release -- SALVATAGGIO COPIA_DI_USCITA DA [--svuota] [--epoca-cartucce] [--includi-mn] LOTTO [LOTTO ...]");
+    Console.Error.WriteLine("uso: dotnet run -c Release -- SALVATAGGIO COPIA_DI_USCITA DA [--svuota] [--epoca-cartucce] [--includi-mn] [--solo-mn] [--solo-epoca-cartucce] LOTTO [LOTTO ...]");
     return 2;
 }
 var partenza = posizionali[0];
@@ -50,7 +50,7 @@ void Contesto(SaveFile s)
     ParseSettings.InitFromSaveFileData(s);
     // Gli eventi da cartuccia di prima e seconda generazione la libreria li ammette solo nell'epoca delle cartucce,
     // che e' il caso di un salvataggio di cartuccia portato sulla Console Virtuale (ADR-092).
-    if (opzioni.Contains("--epoca-cartucce"))
+    if (opzioni.Contains("--epoca-cartucce") || opzioni.Contains("--solo-epoca-cartucce"))
         ParseSettings.AllowEraCartGB = true;
 }
 Contesto(sav);
@@ -91,18 +91,22 @@ var liberi = Enumerable.Range(0, sav.SlotCount).Where(i => sav.GetBoxSlotAtIndex
 
 var scritti = new List<(int Posto, PKM Pk, byte[] Dati, string Origine)>();
 var esclusi = new JsonArray();
-int indice = 0;
+int indice = 0, considerati = da;
 foreach (var (lotto, percorso) in file)
 {
     if (indice++ < da) continue;
-    if (scritti.Count >= liberi.Count) break;
+    if (scritti.Count >= liberi.Count) { indice--; break; }
+    considerati = indice;
     var origine = lotto + "/" + Path.GetFileName(percorso);
     if (!FileUtil.TryGetPKM(File.ReadAllBytes(percorso), out var pk, Path.GetExtension(percorso)))
     {
         esclusi.Add(new JsonObject { ["file"] = origine, ["motivo"] = "illeggibile" });
         continue;
     }
-    if (!opzioni.Contains("--includi-mn") && Bloccato(pk) is { } passaggio)
+    // --solo-mn scrive soltanto le voci con macchina nascosta, per il caricamento a parte deciso il 2026-09-30.
+    if (opzioni.Contains("--solo-mn") && Bloccato(pk) is null)
+        continue;
+    if (!opzioni.Contains("--includi-mn") && !opzioni.Contains("--solo-mn") && Bloccato(pk) is { } passaggio)
     {
         esclusi.Add(new JsonObject { ["file"] = origine, ["motivo"] = "macchina nascosta, ADR-046", ["passaggio"] = passaggio });
         continue;
@@ -122,6 +126,17 @@ foreach (var (lotto, percorso) in file)
         continue;
     }
     sav.AdaptToSaveFile(convertito, false);
+    // --solo-epoca-cartucce scrive soltanto gli esemplari di Game Boy che sono legali nell'epoca delle cartucce e non
+    // in quella della Console Virtuale, cioe' gli eventi da cartuccia: PKHeX, aprendo un salvataggio di settima
+    // generazione, li giudica nella seconda e li segna come non legali. Sono il secondo caricamento a parte.
+    if (opzioni.Contains("--solo-epoca-cartucce"))
+    {
+        ParseSettings.AllowEraCartGB = false;
+        bool legaleInVc = new LegalityAnalysis(convertito).Valid;
+        ParseSettings.AllowEraCartGB = true;
+        if (legaleInVc)
+            continue;
+    }
     var la = new LegalityAnalysis(convertito);
     if (!la.Valid)
     {
@@ -160,7 +175,7 @@ foreach (var (posto, _, dati, origine) in scritti)
         ["sha256"] = Convert.ToHexStringLower(SHA256.HashData(byteLetti)), ["riletto_uguale"] = uguali, ["conforme"] = valido,
     });
 }
-int prossimo = da + scritti.Count + esclusi.Count;
+int prossimo = considerati;
 var rapporto = new JsonObject
 {
     ["fonte"] = "PKHeX.Core tramite tools/pkhex-scrivi-salvataggio (ADR-092)",

@@ -4,6 +4,26 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-30, nona parte. Un solo gruppo per la decisione finale, il riepilogo delle copie, Ultraluna e la playlist a oggi
+
+Il proprietario ha confermato la lettura dei 122 non legali di Luna. Ha deciso che vanno con le 31 voci con macchina nascosta in un solo gruppo, su cui si decide alla fine insieme dopo aver chiesto alla community. Vuole a ogni giro il riepilogo delle copie per gruppo, con lo stato del trasferimento e con ciò che le fonti aggiungono: è nato `pokedex-home-completo/COPIE-PER-HOME.md`, autorato. Ha ritrovato una copia di Ultraluna, e ha deciso di usare per i tre esemplari che Luna non conosce un salvataggio della rete adattato. Sulle fonti: la playlist si aggiorna a oggi, e il video nuovo, `_xmsvXvI878`, non porta nulla; l'elenco della lista di controllo di HOME non serve più; Discord si fa in parallelo, guidato e con poca spesa di token. La sostituzione delle copie sulla console si fa alla fine e non si ripete.
+
+File toccati: `pokedex-home-completo/COPIE-PER-HOME.md`, `SOURCES.md`, `.claude/memory/pending.md`, `.claude/memory/progress.md`.
+
+**Didattica:** nessuna.
+
+## 2026-09-30, ottava parte. Quattro gruppi: che cosa va in HOME adesso e che cosa a parte
+
+Il proprietario ha deciso di togliere le 31 voci con macchina nascosta dai giri per HOME e di farne un caricamento unico a parte, da fare dopo aver chiesto alla community. Ha mandato i dump di PKHeX delle copie. Quelli di Rubino Omega hanno tutti i box legali, e i 6 non legali sono la squadra del salvataggio d'appoggio. Quello di Luna ha 122 non legali su 276: sono gli eventi di Game Boy da cartuccia, che PKHeX giudica nell'epoca della Console Virtuale e lo strumento aveva giudicato con `--epoca-cartucce`. È lo stesso genere di rischio delle macchine nascoste, e segue la stessa decisione. Lo strumento ha due opzioni nuove, `--solo-mn` e `--solo-epoca-cartucce`. Il punto di ripartenza di un giro ora si conta sui file considerati, e non più su scritti più esclusi, perché le voci saltate da quelle opzioni non sono esclusioni.
+
+Le copie nuove stanno in `per-home/` e `a-parte/`, senza toccare le vecchie che contengono i dump del proprietario. Per HOME: 930 e 682 esemplari di Rubino Omega, 147 di Luna. A parte: le 31 con macchina nascosta e 121 eventi da cartuccia. I giapponesi di Game Boy da provare a parte sono 13, non 14 come detto prima al proprietario: il quattordicesimo escluso era il Mew `EVT-2-0006`, per cromaticità. Il proprietario ha anche chiesto perché i testi del gioco siano in inglese, e la risposta è che la sua partita di Luna è in inglese. Ha chiesto che cosa sia il simbolo del Game Boy sul Mew GF: è il marchio d'origine della Console Virtuale, con il testo del Trasferitore.
+
+Il proprietario ha chiesto se le fonti siano state lette tutte. Per il Pokédex, alla data, restano: gli 11 canali di Discord, che aspettano il suo token; la playlist quotidiana, da rileggere sui video nuovi; l'elenco specie per specie della lista di controllo di HOME, che il debito di lettura porta ancora come non letto. Il resto del debito di lettura riguarda altri track.
+
+File toccati: `tools/pkhex-scrivi-salvataggio/Program.cs`, `.claude/memory/pending.md`, `.claude/memory/progress.md`; fuori da git le copie in `_notes/salvataggi/prove/per-home/` e `a-parte/`.
+
+**Didattica:** conferma della voce da scrivere dopo la settima parte: un giudizio conforme dato in un contesto diverso da quello in cui verrà letto. Qui il contesto è l'epoca della Console Virtuale, che PKHeX adotta all'apertura di un salvataggio di settima generazione.
+
 ## 2026-09-30, settima parte. Il primo caricamento sulla console, e il difetto di Luna
 
 Il proprietario ha eseguito i passi sulla console. Per Rubino Omega ha fatto la copia di riserva con Checkpoint, chiamata `20260930-bef-giro1` perché il nome proposto era troppo lungo, e ha ripristinato il primo giro: partita di Brendon a Petalipoli, box pieni, uova degli eventi schiuse con gli esemplari giusti. Ha fatto lo stesso con Luna. Checkpoint sulla sua console si avvia dal menu HOME. In Luna ha visto un'anomalia nel Box 2, posti 22 e 23, e ne ha mandato le schermate, gli screenshot da 57 a 64: un uovo che si dice Poipole di livello 43, e uno Zeraora con l'immagine di Bulbasaur e il nome che cambia.

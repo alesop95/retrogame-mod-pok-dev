@@ -25,6 +25,7 @@ data/serebii-eventi.csv                     le 1880 distribuzioni delle pagine d
 data/serebii-eventi-senza-specie.csv        i 236 record che nessuna specie indicizza
 EVENTI-SENZA-CARTA.md                       la coda delle consegne che non lasciano una carta
 CATENA-DI-TRASFERIMENTO.md                  i vincoli di ogni passaggio e la via in emulazione
+COPIE-PER-HOME.md                           le copie dei salvataggi per HOME per gruppo, e che cosa è trasferito
 CENSIMENTO-FONTI-COLLEZIONE.md              le 171 fonti del corpus, per cluster e con l'esito della corsa
 data/fonti-collezione.csv                   le stesse, come tabella per il confronto
 STUDIO-04-la-via-del-dns-e-il-servizio-rianimato.md   i servizi in rete ricostruiti da terzi, e le due decisioni che rimettono in gioco
