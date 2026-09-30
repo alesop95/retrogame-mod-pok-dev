@@ -34,6 +34,8 @@ var giochi = new Dictionary<string, (GameVersion[] Versioni, SimpleTrainerInfo T
     ["pokewalker"] = ([GameVersion.HG, GameVersion.SS], Allenatore(GameVersion.HG, 4, EntityContext.Gen4)),
     ["ranch"] = ([GameVersion.D, GameVersion.P, GameVersion.Pt], Allenatore(GameVersion.Pt, 4, EntityContext.Gen4)),
     ["radar"] = ([GameVersion.B2, GameVersion.W2], Allenatore(GameVersion.B2, 5, EntityContext.Gen5)),
+    // Gli incontri sbloccati da un oggetto distribuito, come il Victini del Passo Liberta', dal 2026-09-30.
+    ["statico5"] = ([GameVersion.B, GameVersion.W], Allenatore(GameVersion.B, 5, EntityContext.Gen5)),
 };
 
 var esiti = new JsonArray();
@@ -51,7 +53,7 @@ foreach (var r in richieste)
     // l'esemplare si genera con un allenatore giapponese.
     if (corso is "Rally" or "Sightseeing" or "AmityMeadow")
         tr = new SimpleTrainerInfo(GameVersion.HG) { OT = "アレシオ", TID16 = 42317, SID16 = 5147, Gender = 0, Language = (int)LanguageID.Japanese, Generation = 4, Context = EntityContext.Gen4 };
-    PKM modello = dispositivo == "radar" ? new PK5() : new PK4();
+    PKM modello = dispositivo is "radar" or "statico5" ? new PK5() : new PK4();
     modello.Species = specie;
     modello.Language = tr.Language;
 
@@ -64,6 +66,7 @@ foreach (var r in richieste)
                             && (corso is null || w.Course.ToString() == corso),
             "ranch" => enc is EncounterTrade4RanchGift,
             "radar" => enc is EncounterStatic5Radar,
+            "statico5" => enc is EncounterStatic5 st5 && (r["luogo"] is null || st5.Location == (ushort)(int)r["luogo"]!),
             _ => false,
         };
         if (classe) { scelto = enc; break; }

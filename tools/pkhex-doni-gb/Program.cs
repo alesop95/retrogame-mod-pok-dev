@@ -57,6 +57,9 @@ for (ushort s = 1; s <= 251; s++)
         foreach (var enc in EncounterMovesetGenerator.GenerateEncounters(m1, giapponese1, ReadOnlyMemory<ushort>.Empty, GameVersion.RD, GameVersion.GN, GameVersion.BU, GameVersion.YW))
             if (enc is EncounterGift1 { Trainer: EncounterGift1.TrainerType.Stadium })
                 Scrivi(enc, giapponese1, "stadium-jp");
+            // Il Mew delle manifestazioni giapponesi, EVT-1-0010, allenatore マクハリ: aggiunto il 2026-09-30 dal secondo tempo.
+            else if (enc is EncounterGift1 { Trainer: EncounterGift1.TrainerType.JapanTour })
+                Scrivi(enc, giapponese1, "tour-jp");
     }
     var m2 = new PK2 { Species = s, Language = (int)LanguageID.Japanese };
     foreach (var enc in EncounterMovesetGenerator.GenerateEncounters(m2, giapponese2, ReadOnlyMemory<ushort>.Empty, GameVersion.GD, GameVersion.SI, GameVersion.C))
