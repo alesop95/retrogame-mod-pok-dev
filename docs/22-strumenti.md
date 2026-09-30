@@ -244,6 +244,17 @@ cd "E:/retrogame-mod-pok-dev/tools/pkhex-periferiche"
 dotnet run -c Release -- "../../_notes/lotti/lotto-periferiche/richieste.json" "../../_notes/lotti/lotto-periferiche"
 ```
 
+## pkhex-scrivi-salvataggio
+
+È lo strumento del passo 2 della roadmap dopo ADR-092. Scrive gli esemplari dei lotti nei box di una copia di un salvataggio di sesta o settima generazione, da cui il proprietario li porta nella banca e nel deposito. Per ogni file converte l'esemplare nel formato del salvataggio con `EntityConverter.ConvertToType`, lo rende proprio del salvataggio con `SaveFile.AdaptToSaveFile` e lo giudica. Esclude, e mette a rapporto, chi è contestato, chi non si converte, per esempio un esemplare di settima generazione verso la sesta, e chi conosce una macchina nascosta sul passaggio che avrebbe dovuto attraversare. Il criterio di quest'ultimo punto è quello di `CATENA-DI-TRASFERIMENTO.md` e di `mosse-mn.py`, e l'opzione `--includi-mn` lo scavalca quando il proprietario deciderà su ADR-046. Poi scrive i conformi in ordine, salva la copia, la ricarica, confronta ogni posto byte per byte e rigiudica ogni esemplare riletto.
+
+Il salvataggio di partenza non si modifica mai, e la copia non si sovrascrive. `--svuota` svuota i box della copia prima di scrivere, e gli esemplari del salvataggio di partenza restano soltanto nel file di partenza. `--epoca-cartucce` giudica prima e seconda generazione nell'epoca delle cartucce, dove la libreria ammette gli eventi da cartuccia. Il terzo argomento dice da quale file dei lotti partire, e il rapporto scritto accanto alla copia, `<copia>.rapporto.json`, dà il punto di ripartenza del giro successivo, box e posto di ogni esemplare, l'impronta SHA-256 e gli esclusi con il motivo. Una copia già scritta può fare da partenza di un'altra, senza `--svuota`, per aggiungere esemplari giudicati in un contesto diverso, come il Mew GF nell'epoca della Console Virtuale.
+
+```powershell
+cd "E:/retrogame-mod-pok-dev/tools/pkhex-scrivi-salvataggio"
+dotnet run -c Release -- "../../_notes/salvataggi/terzi/main(6)" "../../_notes/salvataggi/prove/scrittura-oras/giro-1/main" 0 --svuota "../../_notes/lotti/lotto-eventi" "../../_notes/lotti/lotto-eventi-gen4"
+```
+
 ## pkhex-rigenera
 
 Ricostruisce un lotto dall'incontro che la libreria riconosce in ciascun file. Per ogni esemplare chiede a `LegalityAnalysis` l'incontro. Se non ne trova uno, cerca fra gli incontri della libreria per quella specie e quella versione uno scambio in gioco, che è la sola classe di cui lo strumento si occupa oggi. Poi lo ricostruisce con `ConvertToPKM` per un salvataggio vuoto della stessa versione, intestato all'allenatore e alla lingua dati. È nato il 2026-09-25 per gli scambi di quarta e quinta generazione del 2026-09-15, contestati per intero, e li ha portati a 23 conformi su 23. Due correzioni dicono che cosa il generatore scritto a mano sbagliava. Il soprannome era tutto maiuscolo («SPARVY» invece di «Sparvy»). La sfera estesa di HeartGold e SoulSilver restava a zero, e lo strumento la scrive uguale alla sfera normale, come fa il gioco e come pretende `MiscVerifierG4.IsValidBallHGSS`. Rifiuta una destinazione che contenga già file di esemplare.
