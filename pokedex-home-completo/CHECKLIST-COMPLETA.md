@@ -1060,7 +1060,7 @@ Le voci enumerate sono 6248, di cui 3099 sotto scadenza, e queste ultime portano
 
 L'ordine della tabella non è quello della fonte, ed è una scelta che va dichiarata perché cambia che cosa si legge per primo. La fonte raggruppa le voci per evento, cioè nell'ordine in cui le distribuzioni avvennero; la decisione di ambito è invece la collezione completa in due tempi, con prima una voce per ciascuna specie distinta e poi i gemelli. La colonna che dice se una voce sia la prima della propria specie porta dunque in testa le 434 voci del primo tempo, e lascia in coda le 2665 del secondo; dentro ciascuno dei due blocchi l'ordine per evento è conservato, perché è l'informazione utile a chi produce. La prima voce di una specie è una già prodotta e conforme, o producibile e verificata, se ne esiste una; altrimenti è la prima nell'ordine della fonte. Non è scelta per merito: dove più voci portano la medesima specie, la marcatura non dice quale sia la più desiderabile ma soltanto quale basti a coprire la specie.
 
-Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce è prodotta e conforme se un file di un lotto la contiene e se `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`, scritto da `tools/pkhex-giudica`, la giudica conforme con la stessa impronta del file di oggi; un file cambiato dopo il giudizio risulta da rigiudicare. Le voci riconosciute in un lotto sono 2896, così ripartite: lotto-complemento-rubino 176, lotto-doni-gen67 84, lotto-doni-gen67-secondo-tempo 1314, lotto-eventi-gen4 247, lotto-eventi-gen5 700, lotto-gb 165, lotto-periferiche 40, lotto-periferiche-secondo-tempo 170. Le voci di terza generazione della tabella degli eventi conservano la resa del generatore, perché il loro lotto non porta il codice nel nome del file.
+Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce è prodotta e conforme se un file di un lotto la contiene e se `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`, scritto da `tools/pkhex-giudica`, la giudica conforme con la stessa impronta del file di oggi; un file cambiato dopo il giudizio risulta da rigiudicare. Le voci riconosciute in un lotto sono 2922, così ripartite: lotto-complemento-rubino 176, lotto-complemento-rubino/esemplari 2, lotto-doni-gb 3, lotto-doni-gen67 84, lotto-doni-gen67-secondo-tempo 1314, lotto-eventi-gen4 247, lotto-eventi-gen5 700, lotto-gb 165, lotto-incontri-gen3 12, lotto-incontri-gen4 2, lotto-oggetti-gen5 1, lotto-ombre-colosseum 6, lotto-periferiche 40, lotto-periferiche-secondo-tempo 170. Le voci di terza generazione della tabella degli eventi conservano la resa del generatore, perché il loro lotto non porta il codice nel nome del file.
 
 | Codice | Gen | Classe | Dex | Forma | Provenienza | Sotto scadenza | Primo della specie | Resa |
 |---|---|---|---|---|---|---|---|---|
@@ -4014,23 +4014,23 @@ Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce
 | `EVT-9-0118` | 9 | dono segreto | 498 | 0 | Leggende Z-A | no | no | letta, non ancora producibile |
 | `EVT-9-0119` | 9 | dono segreto | 158 | 0 | Leggende Z-A | no | no | letta, non ancora producibile |
 | `EVT-9-0120` | 9 | dono segreto | 721 | 0 | Leggende Z-A | no | no | letta, non ancora producibile |
-| `EVT-T-0000` | 3 | oggetto-distribuito | 380 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Eone, Isola Remota, Rubino, livello 50 | sì | no | censita, non ancora producibile |
-| `EVT-T-0001` | 3 | oggetto-distribuito | 381 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Eone, Isola Remota, Zaffiro, livello 50 | sì | no | censita, non ancora producibile |
-| `EVT-T-0002` | 3 | oggetto-distribuito | 380 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Eone, Isola Remota, Smeraldo, livello 50 | sì | no | censita, non ancora producibile |
-| `EVT-T-0003` | 3 | oggetto-distribuito | 381 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Eone, Isola Remota, Smeraldo, livello 50 | sì | no | censita, non ancora producibile |
-| `EVT-T-0004` | 3 | oggetto-distribuito | 151 | 0 | Distribuzioni in cui il dono era un oggetto: Carta Mare Antica, Isola Suprema, Smeraldo, livello 30 | sì | no | censita, non ancora producibile |
-| `EVT-T-0005` | 3 | oggetto-distribuito | 249 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Magico, Rocca Ombelico, Smeraldo, livello 70 | sì | no | censita, non ancora producibile |
-| `EVT-T-0006` | 3 | oggetto-distribuito | 250 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Magico, Rocca Ombelico, Smeraldo, livello 70 | sì | no | censita, non ancora producibile |
-| `EVT-T-0007` | 3 | oggetto-distribuito | 386 | 3 | Distribuzioni in cui il dono era un oggetto: Biglietto Aurora, Isola Materna, Smeraldo, livello 30 | sì | no | censita, non ancora producibile |
-| `EVT-T-0008` | 3 | oggetto-distribuito | 249 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Magico, Rocca Ombelico, Rosso Fuoco e Verde Foglia, livello 70 | sì | no | censita, non ancora producibile |
-| `EVT-T-0009` | 3 | oggetto-distribuito | 250 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Magico, Rocca Ombelico, Rosso Fuoco e Verde Foglia, livello 70 | sì | no | censita, non ancora producibile |
-| `EVT-T-0010` | 3 | oggetto-distribuito | 386 | 1 | Distribuzioni in cui il dono era un oggetto: Biglietto Aurora, Isola Materna, Rosso Fuoco, livello 30 | sì | no | censita, non ancora producibile |
-| `EVT-T-0011` | 3 | oggetto-distribuito | 386 | 2 | Distribuzioni in cui il dono era un oggetto: Biglietto Aurora, Isola Materna, Verde Foglia, livello 30 | sì | no | censita, non ancora producibile |
-| `EVT-T-0012` | 4 | oggetto-distribuito | 491 | 0 | Distribuzioni in cui il dono era un oggetto: Tessera Membro, Isola Lunanova, Platino, livello 50 | sì | no | censita, non ancora producibile |
-| `EVT-T-0013` | 4 | oggetto-distribuito | 492 | 0 | Distribuzioni in cui il dono era un oggetto: Lettera di Oak, Giardino Floreale, Platino, livello 30 | sì | no | censita, non ancora producibile |
-| `EVT-T-0014` | 5 | oggetto-distribuito | 494 | 0 | Distribuzioni in cui il dono era un oggetto: Passo Libertà, Giardino Libertà, Nero e Bianco, livello 15 | sì | no | censita, non ancora producibile |
-| `EVT-T-0015` | 3 | disco-bonus | 25 | 0 | Colosseum, disco bonus, solo Giappone: Colosseum Pikachu bonus gift | sì | no | censita, non ancora producibile |
-| `EVT-T-0016` | 3 | disco-bonus | 251 | 0 | Colosseum, disco bonus, solo Giappone: Ageto Celebi bonus gift | sì | no | censita, non ancora producibile |
+| `EVT-T-0000` | 3 | oggetto-distribuito | 380 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Eone, Isola Remota, Rubino, livello 50 | sì | no | prodotta e conforme |
+| `EVT-T-0001` | 3 | oggetto-distribuito | 381 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Eone, Isola Remota, Zaffiro, livello 50 | sì | no | prodotta e conforme |
+| `EVT-T-0002` | 3 | oggetto-distribuito | 380 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Eone, Isola Remota, Smeraldo, livello 50 | sì | no | prodotta e conforme |
+| `EVT-T-0003` | 3 | oggetto-distribuito | 381 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Eone, Isola Remota, Smeraldo, livello 50 | sì | no | prodotta e conforme |
+| `EVT-T-0004` | 3 | oggetto-distribuito | 151 | 0 | Distribuzioni in cui il dono era un oggetto: Carta Mare Antica, Isola Suprema, Smeraldo, livello 30 | sì | no | prodotta e conforme |
+| `EVT-T-0005` | 3 | oggetto-distribuito | 249 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Magico, Rocca Ombelico, Smeraldo, livello 70 | sì | no | prodotta e conforme |
+| `EVT-T-0006` | 3 | oggetto-distribuito | 250 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Magico, Rocca Ombelico, Smeraldo, livello 70 | sì | no | prodotta e conforme |
+| `EVT-T-0007` | 3 | oggetto-distribuito | 386 | 3 | Distribuzioni in cui il dono era un oggetto: Biglietto Aurora, Isola Materna, Smeraldo, livello 30 | sì | no | prodotta e conforme |
+| `EVT-T-0008` | 3 | oggetto-distribuito | 249 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Magico, Rocca Ombelico, Rosso Fuoco e Verde Foglia, livello 70 | sì | no | prodotta e conforme |
+| `EVT-T-0009` | 3 | oggetto-distribuito | 250 | 0 | Distribuzioni in cui il dono era un oggetto: Biglietto Magico, Rocca Ombelico, Rosso Fuoco e Verde Foglia, livello 70 | sì | no | prodotta e conforme |
+| `EVT-T-0010` | 3 | oggetto-distribuito | 386 | 1 | Distribuzioni in cui il dono era un oggetto: Biglietto Aurora, Isola Materna, Rosso Fuoco, livello 30 | sì | no | prodotta e conforme |
+| `EVT-T-0011` | 3 | oggetto-distribuito | 386 | 2 | Distribuzioni in cui il dono era un oggetto: Biglietto Aurora, Isola Materna, Verde Foglia, livello 30 | sì | no | prodotta e conforme |
+| `EVT-T-0012` | 4 | oggetto-distribuito | 491 | 0 | Distribuzioni in cui il dono era un oggetto: Tessera Membro, Isola Lunanova, Platino, livello 50 | sì | no | prodotta e conforme |
+| `EVT-T-0013` | 4 | oggetto-distribuito | 492 | 0 | Distribuzioni in cui il dono era un oggetto: Lettera di Oak, Giardino Floreale, Platino, livello 30 | sì | no | prodotta e conforme |
+| `EVT-T-0014` | 5 | oggetto-distribuito | 494 | 0 | Distribuzioni in cui il dono era un oggetto: Passo Libertà, Giardino Libertà, Nero e Bianco, livello 15 | sì | no | prodotta e conforme |
+| `EVT-T-0015` | 3 | disco-bonus | 25 | 0 | Colosseum, disco bonus, solo Giappone: Colosseum Pikachu bonus gift | sì | no | prodotta e conforme |
+| `EVT-T-0016` | 3 | disco-bonus | 251 | 0 | Colosseum, disco bonus, solo Giappone: Ageto Celebi bonus gift | sì | no | prodotta e conforme |
 | `EVT-T-0017` | 3 | spinoff | 250 | 0 | Colosseum, premio del Monte Lotta: Ho-oh @ Mt. Battle | sì | no | prodotta e conforme |
 | `EVT-T-0018` | 3 | spinoff | 196 | 0 | Colosseum, iniziali: Espeon | sì | no | prodotta e conforme |
 | `EVT-T-0019` | 3 | spinoff | 197 | 0 | Colosseum, iniziali: Umbreon (Bite) | sì | no | prodotta e conforme |
@@ -4057,17 +4057,17 @@ Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce
 | `EVT-T-0058` | 3 | spinoff | 244 | 0 | Colosseum, ombra: Entei: Cipher Admin Dakim @ Deep Colosseum | sì | no | prodotta e conforme |
 | `EVT-T-0059` | 3 | spinoff | 244 | 0 | Colosseum, ombra: Entei: Cipher Admin Dakim @ Mt. Battle | sì | no | prodotta e conforme |
 | `EVT-T-0061` | 3 | spinoff | 166 | 0 | Colosseum, ombra: Ledian: Cipher Peon Kloak @ Snagem Hideout | sì | no | prodotta e conforme |
-| `EVT-T-0062` | 3 | spinoff | 245 | 0 | Colosseum, ombra: Suicune (Surf): Cipher Admin Venus @ Realgam Tower | sì | no | censita, non ancora producibile |
-| `EVT-T-0063` | 3 | spinoff | 245 | 0 | Colosseum, ombra: Suicune (Hydro Pump): Cipher Admin Venus @ Deep Colosseum | sì | no | censita, non ancora producibile |
-| `EVT-T-0064` | 3 | spinoff | 245 | 0 | Colosseum, ombra: Suicune (Surf): Cipher Admin Venus @ The Under | sì | no | censita, non ancora producibile |
+| `EVT-T-0062` | 3 | spinoff | 245 | 0 | Colosseum, ombra: Suicune (Surf): Cipher Admin Venus @ Realgam Tower | sì | no | prodotta e conforme |
+| `EVT-T-0063` | 3 | spinoff | 245 | 0 | Colosseum, ombra: Suicune (Hydro Pump): Cipher Admin Venus @ Deep Colosseum | sì | no | prodotta e conforme |
+| `EVT-T-0064` | 3 | spinoff | 245 | 0 | Colosseum, ombra: Suicune (Surf): Cipher Admin Venus @ The Under | sì | no | prodotta e conforme |
 | `EVT-T-0066` | 3 | spinoff | 207 | 0 | Colosseum, ombra: Gligar: Hunter Frena @ Snagem Hideout | sì | no | prodotta e conforme |
 | `EVT-T-0068` | 3 | spinoff | 234 | 0 | Colosseum, ombra: Stantler: Chaser Liaks @ Snagem Hideout | sì | no | prodotta e conforme |
 | `EVT-T-0070` | 3 | spinoff | 221 | 0 | Colosseum, ombra: Piloswine: Bodybuilder Lonia @ Snagem Hideout | sì | no | prodotta e conforme |
 | `EVT-T-0072` | 3 | spinoff | 215 | 0 | Colosseum, ombra: Sneasel: Rider Nelis @ Snagem Hideout | sì | no | prodotta e conforme |
 | `EVT-T-0075` | 3 | spinoff | 198 | 0 | Colosseum, ombra: Murkrow: Cipher Peon Lare @ Shadow PKMN Lab (Trainer drops from ceiling: can lose during play-through, rematch later) | sì | no | prodotta e conforme |
-| `EVT-T-0080` | 3 | spinoff | 243 | 0 | Colosseum, ombra: Raikou: Cipher Admin Ein @ Realgam Tower | sì | no | censita, non ancora producibile |
-| `EVT-T-0081` | 3 | spinoff | 243 | 0 | Colosseum, ombra: Raikou: Cipher Admin Ein @ Deep Colosseum | sì | no | censita, non ancora producibile |
-| `EVT-T-0082` | 3 | spinoff | 243 | 0 | Colosseum, ombra: Raikou: Cipher Admin Ein @ Shadow PKMN Lab | sì | no | censita, non ancora producibile |
+| `EVT-T-0080` | 3 | spinoff | 243 | 0 | Colosseum, ombra: Raikou: Cipher Admin Ein @ Realgam Tower | sì | no | prodotta e conforme |
+| `EVT-T-0081` | 3 | spinoff | 243 | 0 | Colosseum, ombra: Raikou: Cipher Admin Ein @ Deep Colosseum | sì | no | prodotta e conforme |
+| `EVT-T-0082` | 3 | spinoff | 243 | 0 | Colosseum, ombra: Raikou: Cipher Admin Ein @ Shadow PKMN Lab | sì | no | prodotta e conforme |
 | `EVT-T-0084` | 3 | spinoff | 192 | 0 | Colosseum, ombra: Sunflora: Cipher Peon Baila @ Snagem Hideout | sì | no | prodotta e conforme |
 | `EVT-T-0085` | 3 | spinoff | 225 | 0 | Colosseum, ombra: Delibird: Cipher Peon Arton @ Realgam Tower | sì | no | prodotta e conforme |
 | `EVT-T-0086` | 3 | spinoff | 225 | 0 | Colosseum, ombra: Delibird: Cipher Peon Arton @ Snagem Hideout | sì | no | prodotta e conforme |
@@ -7158,9 +7158,9 @@ Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce
 | `EVT-1-0007` | 1 | tabella di incontro | 138 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
 | `EVT-1-0008` | 1 | tabella di incontro | 140 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
 | `EVT-1-0009` | 1 | tabella di incontro | 151 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
-| `EVT-1-0010` | 1 | tabella di incontro | 151 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0000` | 2 | tabella di incontro | 83 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
-| `EVT-2-0001` | 2 | tabella di incontro | 207 | 0 | tabella di incontro da evento | sì | no | letta, struttura alla portata di pokebridge |
+| `EVT-1-0010` | 1 | tabella di incontro | 151 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0000` | 2 | tabella di incontro | 83 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
+| `EVT-2-0001` | 2 | tabella di incontro | 207 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
 | `EVT-2-0002` | 2 | tabella di incontro | 83 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
 | `EVT-2-0003` | 2 | tabella di incontro | 207 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |
 | `EVT-2-0004` | 2 | tabella di incontro | 83 | 0 | tabella di incontro da evento | sì | no | prodotta e conforme |

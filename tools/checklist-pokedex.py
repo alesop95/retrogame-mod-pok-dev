@@ -462,7 +462,34 @@ def codici_duplicati(eventi):
 # lotto-periferiche dal 2026-09-30: le 40 voci da Pokewalker, Ranch e Dream Radar, da tools/pkhex-periferiche.
 # I due lotti del secondo tempo dal 2026-09-30, da tools/pkhex-dono --lotto e tools/pkhex-periferiche.
 LOTTI_PER_CODICE = ["lotto-eventi-gen4", "lotto-eventi-gen5", "lotto-gb", "lotto-doni-gen67", "lotto-periferiche",
-                    "lotto-doni-gen67-secondo-tempo", "lotto-periferiche-secondo-tempo"]
+                    "lotto-doni-gen67-secondo-tempo", "lotto-periferiche-secondo-tempo", "lotto-oggetti-gen5",
+                    "lotto-ombre-colosseum"]
+# Voci prodotte in lotti che non portano il codice della checklist nel nome del file, collegate il 2026-09-30 dal secondo
+# tempo. Gli incontri sbloccati dagli oggetti distribuiti sono i lotti del 2026-09-07; il disco bonus giapponese di
+# Colosseum sta nel complemento del Rubino, con allenatore giapponese; il Farfetch'd e il Gligar di Stadium 2 giapponese e
+# il Mew delle manifestazioni giapponesi sono di tools/pkhex-doni-gb. Il collegamento si verifica come per gli altri file:
+# giudizio del registro, impronta e specie.
+FILE_PER_CODICE = {
+    "EVT-T-0000": ("lotto-incontri-gen3", "latias-r.pk3"),
+    "EVT-T-0001": ("lotto-incontri-gen3", "latios-s.pk3"),
+    "EVT-T-0002": ("lotto-incontri-gen3", "latias-e.pk3"),
+    "EVT-T-0003": ("lotto-incontri-gen3", "latios-e.pk3"),
+    "EVT-T-0004": ("lotto-incontri-gen3", "mew-e.pk3"),
+    "EVT-T-0005": ("lotto-incontri-gen3", "lugia-e.pk3"),
+    "EVT-T-0006": ("lotto-incontri-gen3", "hooh-e.pk3"),
+    "EVT-T-0007": ("lotto-incontri-gen3", "deoxys-e.pk3"),
+    "EVT-T-0008": ("lotto-incontri-gen3", "lugia-fr.pk3"),
+    "EVT-T-0009": ("lotto-incontri-gen3", "hooh-fr.pk3"),
+    "EVT-T-0010": ("lotto-incontri-gen3", "deoxys-fr.pk3"),
+    "EVT-T-0011": ("lotto-incontri-gen3", "deoxys-lg.pk3"),
+    "EVT-T-0012": ("lotto-incontri-gen4", "darkrai-pt.pk4"),
+    "EVT-T-0013": ("lotto-incontri-gen4", "shaymin-pt.pk4"),
+    "EVT-T-0015": ("lotto-complemento-rubino/esemplari", "037-dono-di-Colosseum.pk3"),
+    "EVT-T-0016": ("lotto-complemento-rubino/esemplari", "038-dono-di-Colosseum.pk3"),
+    "EVT-2-0000": ("lotto-doni-gb", "GB-stadium2-jp-083-Farfetch’d-04.pk2"),
+    "EVT-2-0001": ("lotto-doni-gb", "GB-stadium2-jp-207-Gligar-10.pk2"),
+    "EVT-1-0010": ("lotto-doni-gb", "GB-tour-jp-151-Mew.pk1"),
+}
 GIUDIZI_LIBRERIA = os.path.join(RADICE, "recreate-pokemon-distributions-events", "giudizi-pkhex-core.json")
 COMPLEMENTO = os.path.join(RADICE, "_notes", "lotti", "lotto-complemento-rubino", "esemplari")
 # Dal gruppo del censimento alla classe d'incontro della libreria che lo produce nel complemento.
@@ -528,6 +555,17 @@ def riconcilia_con_i_lotti(eventi):
                 resa = "prodotta, specie diversa dal catalogo"
             voce["resa"], voce["lotto"] = resa, lotto
             esiti[resa] = esiti.get(resa, 0) + 1
+
+    for codice_voce, (lotto, nome) in FILE_PER_CODICE.items():
+        voce = per_codice.get(codice_voce)
+        cartella = os.path.join(RADICE, "_notes", "lotti", lotto)
+        if voce is None or not os.path.exists(os.path.join(cartella, nome)):
+            continue
+        resa, giudizio = stato_del_file(cartella, nome)
+        if giudizio and giudizio.get("specie") not in (None, voce["nazionale"]):
+            resa = "prodotta, specie diversa dal catalogo"
+        voce["resa"], voce["lotto"] = resa, lotto
+        esiti[resa] = esiti.get(resa, 0) + 1
 
     rapporto = os.path.join(COMPLEMENTO, "rapporto.json")
     if os.path.exists(rapporto):

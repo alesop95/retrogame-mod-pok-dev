@@ -6,7 +6,7 @@
     "versione": "26.8.26.0"
   },
   "conteggi": {
-    "conformi": 3570,
+    "conformi": 3578,
     "contestati": 0,
     "illeggibili": 0
   },
@@ -98649,6 +98649,227 @@
           "Metronomo"
         ],
         "incontro": "Pok\u00E9walker Encounter (AmityMeadow)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-oggetti-gen5/EVT-T-0014-494.pk5": {
+      "sha256": "b42b0c10d45519fc032aeb82c20b2b45b5c34710cf2d42ab6513253234c0a8cc",
+      "specie": 494,
+      "nome": "Victini",
+      "forma": 0,
+      "formato": "PK5",
+      "contesto": "W2 Italian",
+      "descrizione": {
+        "specie_it": "Victini",
+        "livello": 15,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "B",
+        "luogo": "Isola Libert\u00E0",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Confusione",
+          "Bruciatutto",
+          "Attacco Rapido",
+          "Resistenza"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-ombre-colosseum/EVT-T-0062-245.pk3": {
+      "sha256": "664738ad7d31be848f9b7123e2d5182e2b051252c8f685440faeb6493331c6b0",
+      "specie": 245,
+      "nome": "Suicune",
+      "forma": 0,
+      "formato": "PK3",
+      "contesto": "E Italian",
+      "descrizione": {
+        "specie_it": "Suicune",
+        "livello": 40,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 57517,
+        "lingua": "Italian",
+        "gioco_di_origine": "CXD",
+        "luogo": "Cupola Torre (C) / Sulfuria (XD) [110]",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Pioggiadanza",
+          "Fulmisguardo",
+          "Raffica",
+          "Surf"
+        ],
+        "incontro": "COLO Shadow Encounter 23"
+      },
+      "esito": "conforme"
+    },
+    "lotto-ombre-colosseum/EVT-T-0063-245.pk3": {
+      "sha256": "02ab72d83656d6e18d85fb22bc733692eff500dfbe1d16a27f2b269994bc5ec3",
+      "specie": 245,
+      "nome": "Suicune",
+      "forma": 0,
+      "formato": "PK3",
+      "contesto": "E Italian",
+      "descrizione": {
+        "specie_it": "Suicune",
+        "livello": 40,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 57517,
+        "lingua": "Italian",
+        "gioco_di_origine": "CXD",
+        "luogo": "Arena Abissale (C) / Villaggio Sofo (XD) [125]",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Pioggiadanza",
+          "Fulmisguardo",
+          "Raffica",
+          "Idropompa"
+        ],
+        "incontro": "COLO Shadow Encounter 23"
+      },
+      "esito": "conforme"
+    },
+    "lotto-ombre-colosseum/EVT-T-0064-245.pk3": {
+      "sha256": "fdaf87d377b9d00ee7d527775db19f71c444131ea09735d1481892eec4c09597",
+      "specie": 245,
+      "nome": "Suicune",
+      "forma": 0,
+      "formato": "PK3",
+      "contesto": "E Italian",
+      "descrizione": {
+        "specie_it": "Suicune",
+        "livello": 40,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 57517,
+        "lingua": "Italian",
+        "gioco_di_origine": "CXD",
+        "luogo": "Ipogea (C) [055]",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Pioggiadanza",
+          "Fulmisguardo",
+          "Raffica",
+          "Surf"
+        ],
+        "incontro": "COLO Shadow Encounter 23"
+      },
+      "esito": "conforme"
+    },
+    "lotto-ombre-colosseum/EVT-T-0080-243.pk3": {
+      "sha256": "5878446778a5532b54bba857a5106a5821838d68f6d50588043b03344da5c155",
+      "specie": 243,
+      "nome": "Raikou",
+      "forma": 0,
+      "formato": "PK3",
+      "contesto": "E Italian",
+      "descrizione": {
+        "specie_it": "Raikou",
+        "livello": 40,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 57517,
+        "lingua": "Italian",
+        "gioco_di_origine": "CXD",
+        "luogo": "Cupola Torre (C) / Sulfuria (XD) [113]",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Pioggiadanza",
+          "Fulmisguardo",
+          "Attacco Rapido",
+          "Tuono"
+        ],
+        "incontro": "COLO Shadow Encounter 34"
+      },
+      "esito": "conforme"
+    },
+    "lotto-ombre-colosseum/EVT-T-0081-243.pk3": {
+      "sha256": "47994f10d65247621c5235334a5c66db755c30049c3d6d4627c6d0da938e13cd",
+      "specie": 243,
+      "nome": "Raikou",
+      "forma": 0,
+      "formato": "PK3",
+      "contesto": "E Italian",
+      "descrizione": {
+        "specie_it": "Raikou",
+        "livello": 40,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 57517,
+        "lingua": "Italian",
+        "gioco_di_origine": "CXD",
+        "luogo": "Arena Abissale (C) / Villaggio Sofo (XD) [125]",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Pioggiadanza",
+          "Fulmisguardo",
+          "Attacco Rapido",
+          "Tuono"
+        ],
+        "incontro": "COLO Shadow Encounter 34"
+      },
+      "esito": "conforme"
+    },
+    "lotto-ombre-colosseum/EVT-T-0082-243.pk3": {
+      "sha256": "45ba4ef96b23b3f39989b0c978eec25b05337eaf08cee40883d596422452430e",
+      "specie": 243,
+      "nome": "Raikou",
+      "forma": 0,
+      "formato": "PK3",
+      "contesto": "E Italian",
+      "descrizione": {
+        "specie_it": "Raikou",
+        "livello": 40,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 57517,
+        "lingua": "Italian",
+        "gioco_di_origine": "CXD",
+        "luogo": "Laboratorio (C) / Covo di Cripto (XD) [069]",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Pioggiadanza",
+          "Fulmisguardo",
+          "Attacco Rapido",
+          "Tuono"
+        ],
+        "incontro": "COLO Shadow Encounter 34"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-tour-jp-151-Mew.pk1": {
+      "sha256": "9b6ea5d4279f48ee02662ea82d289cadd2b6d83167bde08d8cedcd6b6a2f4af0",
+      "specie": 151,
+      "nome": "Mew",
+      "forma": 0,
+      "formato": "PK1",
+      "contesto": "BU Japanese",
+      "descrizione": {
+        "specie_it": "Mew",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "\u30DE\u30AF\u30CF\u30EA",
+        "id_allenatore": 116,
+        "lingua": "Japanese",
+        "gioco_di_origine": "RBY",
+        "luogo": "",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Botta"
+        ],
+        "incontro": "Event Gift"
       },
       "esito": "conforme"
     }
