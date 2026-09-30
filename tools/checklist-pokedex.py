@@ -460,7 +460,9 @@ def codici_duplicati(eventi):
 # invece il codice vero, perché nasce dalle richieste di questa lista. Il complemento del Rubino non porta alcun numero, e le sue voci di Colosseum e XD si
 # riconoscono per gioco, classe d'incontro e specie.
 # lotto-periferiche dal 2026-09-30: le 40 voci da Pokewalker, Ranch e Dream Radar, da tools/pkhex-periferiche.
-LOTTI_PER_CODICE = ["lotto-eventi-gen4", "lotto-eventi-gen5", "lotto-gb", "lotto-doni-gen67", "lotto-periferiche"]
+# I due lotti del secondo tempo dal 2026-09-30, da tools/pkhex-dono --lotto e tools/pkhex-periferiche.
+LOTTI_PER_CODICE = ["lotto-eventi-gen4", "lotto-eventi-gen5", "lotto-gb", "lotto-doni-gen67", "lotto-periferiche",
+                    "lotto-doni-gen67-secondo-tempo", "lotto-periferiche-secondo-tempo"]
 GIUDIZI_LIBRERIA = os.path.join(RADICE, "recreate-pokemon-distributions-events", "giudizi-pkhex-core.json")
 COMPLEMENTO = os.path.join(RADICE, "_notes", "lotti", "lotto-complemento-rubino", "esemplari")
 # Dal gruppo del censimento alla classe d'incontro della libreria che lo produce nel complemento.
@@ -549,8 +551,11 @@ def riconcilia_con_i_lotti(eventi):
     return esiti
 
 
-def scrivi_richieste_doni(percorso, eventi):
-    """Le voci del primo tempo da produrre con `tools/pkhex-dono`, in JSON.
+def scrivi_richieste_doni(percorso, eventi, secondo_tempo=False):
+    """Le voci del primo tempo da produrre con `tools/pkhex-dono`, in JSON; con `secondo_tempo` anche i gemelli.
+
+    Il secondo tempo è la seconda metà della decisione del 2026-09-03: dopo una voce per specie, tutte le altre voci
+    sotto scadenza. Si chiede con `--secondo-tempo` insieme a `--richieste-doni`, dal 2026-09-30.
 
     Il numero del codice di una voce da dono segreto è la sua posizione fra i soli record che sono
     esemplari, nell'ordine in cui il conteggio legge i file della generazione, cioè prima le carte
@@ -563,7 +568,8 @@ def scrivi_richieste_doni(percorso, eventi):
              "ordinale": int(e["codice"].split("-")[2]), "specie": e["nazionale"],
              "forma": e["forma"], "file": e["metodo"], "indice_record": e.get("indice_record")}
             for e in eventi
-            if e.get("primo_della_specie") and e.get("classe") == "dono segreto"
+            if (e.get("primo_della_specie") or (secondo_tempo and e.get("sotto_scadenza")))
+            and e.get("classe") == "dono segreto"
             and e["generazione"] in (6, 7) and e["resa"] not in pronte]
     with io.open(percorso, "w", encoding="utf-8") as f:
         json.dump({"nota": "Generato da tools/checklist-pokedex.py --richieste-doni.", "voci": voci},
@@ -649,6 +655,8 @@ def main(argv=None):
     ap.add_argument("--coda", help="scrive la coda di produzione del primo tempo")
     ap.add_argument("--forme-battaglia", default=os.path.join(RADICE, "_notes", "forme-di-battaglia.json"),
                     help="JSON di tools/pkhex-forme-battaglia con le coppie specie e forma di sola battaglia")
+    ap.add_argument("--secondo-tempo", action="store_true",
+                    help="con --richieste-doni, anche le voci sotto scadenza che non sono le prime della specie")
     ap.add_argument("--richieste-doni", help="scrive in JSON le voci del primo tempo da doni segreti "
                     "di sesta e settima generazione non ancora pronte, per tools/pkhex-dono")
     a = ap.parse_args(argv)
@@ -806,7 +814,7 @@ def main(argv=None):
         print("  scritta la coda del primo tempo in %s: %d voci, di cui %d con una macchina "
               "nascosta da togliere prima del trasferimento" % (a.coda, quante, con_mn))
     if a.richieste_doni:
-        scrivi_richieste_doni(a.richieste_doni, eventi)
+        scrivi_richieste_doni(a.richieste_doni, eventi, a.secondo_tempo)
     if a.markdown:
         scrivi(a.markdown, righe_specie, righe_forma, per_fonte, eventi)
         print("")

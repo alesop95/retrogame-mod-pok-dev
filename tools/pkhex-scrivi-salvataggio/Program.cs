@@ -18,7 +18,7 @@
 // Per `rules/hardware-and-perimeter.md` la copia si porta sulla console solo dopo una copia di riserva del salvataggio
 // che la console ha, e dopo la scrittura si rilegge.
 //
-// Uso:  dotnet run -c Release -- SALVATAGGIO COPIA_DI_USCITA DA [--svuota] [--epoca-cartucce] [--includi-mn] [--solo-mn] [--solo-epoca-cartucce] LOTTO [LOTTO ...]
+// Uso:  dotnet run -c Release -- SALVATAGGIO COPIA_DI_USCITA DA [--svuota] [--epoca-cartucce] [--includi-mn] [--solo-mn] [--solo-epoca-cartucce] [--solo-stesso-formato] LOTTO [LOTTO ...]
 using System.Security.Cryptography;
 using System.Text.Json;
 using System.Text.Json.Nodes;
@@ -28,7 +28,7 @@ var opzioni = args.Where(a => a.StartsWith("--")).ToHashSet();
 var posizionali = args.Where(a => !a.StartsWith("--")).ToArray();
 if (posizionali.Length < 4)
 {
-    Console.Error.WriteLine("uso: dotnet run -c Release -- SALVATAGGIO COPIA_DI_USCITA DA [--svuota] [--epoca-cartucce] [--includi-mn] [--solo-mn] [--solo-epoca-cartucce] LOTTO [LOTTO ...]");
+    Console.Error.WriteLine("uso: dotnet run -c Release -- SALVATAGGIO COPIA_DI_USCITA DA [--svuota] [--epoca-cartucce] [--includi-mn] [--solo-mn] [--solo-epoca-cartucce] [--solo-stesso-formato] LOTTO [LOTTO ...]");
     return 2;
 }
 var partenza = posizionali[0];
@@ -103,6 +103,11 @@ foreach (var (lotto, percorso) in file)
         esclusi.Add(new JsonObject { ["file"] = origine, ["motivo"] = "illeggibile" });
         continue;
     }
+    // --solo-stesso-formato scrive soltanto gli esemplari gia' nel formato del salvataggio: un lotto che mescola doni di
+    // sesta e settima generazione va in due giochi, e senza questo filtro i doni di sesta sarebbero finiti, convertiti,
+    // anche nella copia di settima, doppioni di quelli di Rubino Omega.
+    if (opzioni.Contains("--solo-stesso-formato") && pk.GetType() != formato)
+        continue;
     // --solo-mn scrive soltanto le voci con macchina nascosta, per il caricamento a parte deciso il 2026-09-30.
     if (opzioni.Contains("--solo-mn") && Bloccato(pk) is null)
         continue;
@@ -138,6 +143,15 @@ foreach (var (lotto, percorso) in file)
             continue;
     }
     var la = new LegalityAnalysis(convertito);
+    // Un uovo contestato si fa schiudere nel salvataggio che lo riceve, come farebbe il gioco, con la stessa regola di
+    // `tools/pkhex-dono`: il 2026-09-30 sessanta doni in uovo di sesta generazione erano contestati in Rubino Omega
+    // per il detentore, perche' un uovo non schiuso non ha ancora l'allenatore del salvataggio.
+    if (!la.Valid && convertito.IsEgg)
+    {
+        convertito.ForceHatchPKM(sav);
+        sav.AdaptToSaveFile(convertito, false);
+        la = new LegalityAnalysis(convertito);
+    }
     if (!la.Valid)
     {
         esclusi.Add(new JsonObject { ["file"] = origine, ["motivo"] = "contestato", ["rapporto"] = la.Report() });
