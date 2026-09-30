@@ -55,7 +55,7 @@ def main():
             continue
         testo = open(os.path.join(a.testi, vid + ".txt"), encoding="utf-8").read()
         corpo = json.dumps({"model": modello, "prompt": ISTRUZIONE + testo + "\n/no_think", "stream": False,
-                            "options": {"num_ctx": 16384, "temperature": 0}}).encode()
+                            "options": {"num_ctx": 16384, "temperature": 0, "num_predict": 2000, "repeat_penalty": 1.15}}).encode()
         richiesta = urllib.request.Request(url.rstrip("/") + "/api/generate", corpo, {"Content-Type": "application/json"})
         risposta = json.loads(urllib.request.urlopen(richiesta, timeout=1800).read())["response"]
         risposta = risposta.split("</think>")[-1].strip()

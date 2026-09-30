@@ -4,7 +4,7 @@
 
 Il primo tempo è la decisione di ambito del 2026-09-03: prima una voce per ciascuna specie distinta fra quelle da distribuzione sotto scadenza, poi i gemelli. Questo documento è quel primo tempo, cioè 433 voci, ed è l'ordine in cui produrle e trasferirle.
 
-Lo stato di partenza è questo, e separa il lavoro fatto, cioè le voci prodotte e giudicate conformi dalla libreria del verificatore o producibili e verificate, da quello che aspetta ancora di essere prodotto: prodotta e conforme 333, producibile e verificata 60, censita, non ancora producibile 40.
+Lo stato di partenza è questo, e separa il lavoro fatto, cioè le voci prodotte e giudicate conformi dalla libreria del verificatore o producibili e verificate, da quello che aspetta ancora di essere prodotto: prodotta e conforme 373, producibile e verificata 60.
 
 ## Il vincolo delle macchine nascoste
 
@@ -379,46 +379,46 @@ Il primo anello della catena rifiuta un esemplare che conosca una macchina nasco
 | 358 | `EVT-T-0196` | 175 | Togepi | 3 | spinoff | prodotta e conforme | - |
 | 359 | `EVT-T-0197` | 261 | Poochyena | 3 | spinoff | prodotta e conforme | - |
 | 360 | `EVT-T-0198` | 165 | Ledyba | 3 | spinoff | prodotta e conforme | - |
-| 361 | `EVT-T-0209` | 320 | Wailmer | 4 | periferica | censita, non ancora producibile | - |
-| 362 | `EVT-T-0211` | 397 | Staravia | 4 | periferica | censita, non ancora producibile | - |
-| 363 | `EVT-T-0212` | 415 | Combee | 4 | periferica | censita, non ancora producibile | - |
-| 364 | `EVT-T-0214` | 422 | Shellos | 4 | periferica | censita, non ancora producibile | - |
-| 365 | `EVT-T-0215` | 427 | Buneary | 4 | periferica | censita, non ancora producibile | - |
-| 366 | `EVT-T-0216` | 453 | Croagunk | 4 | periferica | censita, non ancora producibile | - |
-| 367 | `EVT-T-0217` | 456 | Finneon | 4 | periferica | censita, non ancora producibile | - |
-| 368 | `EVT-T-0218` | 459 | Snover | 4 | periferica | censita, non ancora producibile | - |
-| 369 | `EVT-T-0234` | 425 | Drifloon | 5 | periferica | censita, non ancora producibile | - |
-| 370 | `EVT-T-0235` | 436 | Bronzor | 5 | periferica | censita, non ancora producibile | - |
-| 371 | `EVT-T-0243` | 561 | Sigilyph | 5 | periferica | censita, non ancora producibile | - |
-| 372 | `EVT-T-0277` | 16 | Pidgey | 4 | periferica | censita, non ancora producibile | - |
-| 373 | `EVT-T-0281` | 48 | Venonat | 4 | periferica | censita, non ancora producibile | - |
-| 374 | `EVT-T-0302` | 19 | Rattata | 4 | periferica | censita, non ancora producibile | - |
-| 375 | `EVT-T-0304` | 92 | Gastly | 4 | periferica | censita, non ancora producibile | - |
-| 376 | `EVT-T-0317` | 109 | Koffing | 4 | periferica | censita, non ancora producibile | - |
-| 377 | `EVT-T-0323` | 314 | Illumise | 4 | periferica | censita, non ancora producibile | - |
-| 378 | `EVT-T-0324` | 313 | Volbeat | 4 | periferica | censita, non ancora producibile | - |
-| 379 | `EVT-T-0326` | 265 | Wurmple | 4 | periferica | censita, non ancora producibile | - |
-| 380 | `EVT-T-0328` | 298 | Azurill | 4 | periferica | censita, non ancora producibile | - |
-| 381 | `EVT-T-0336` | 111 | Rhyhorn | 4 | periferica | censita, non ancora producibile | - |
-| 382 | `EVT-T-0339` | 352 | Kecleon | 4 | periferica | censita, non ancora producibile | - |
-| 383 | `EVT-T-0340` | 351 | Castform | 4 | periferica | censita, non ancora producibile | - |
-| 384 | `EVT-T-0341` | 203 | Girafarig | 4 | periferica | censita, non ancora producibile | - |
-| 385 | `EVT-T-0343` | 44 | Gloom | 4 | periferica | censita, non ancora producibile | - |
-| 386 | `EVT-T-0347` | 42 | Golbat | 4 | periferica | censita, non ancora producibile | - |
-| 387 | `EVT-T-0351` | 439 | Mime Jr. | 4 | periferica | censita, non ancora producibile | - |
-| 388 | `EVT-T-0353` | 403 | Shinx | 4 | periferica | censita, non ancora producibile | - |
-| 389 | `EVT-T-0354` | 406 | Budew | 4 | periferica | censita, non ancora producibile | - |
-| 390 | `EVT-T-0355` | 399 | Bidoof | 4 | periferica | censita, non ancora producibile | - |
-| 391 | `EVT-T-0356` | 401 | Kricketot | 4 | periferica | censita, non ancora producibile | - |
-| 392 | `EVT-T-0364` | 438 | Bonsly | 4 | periferica | censita, non ancora producibile | - |
-| 393 | `EVT-T-0366` | 400 | Bibarel | 4 | periferica | censita, non ancora producibile | - |
-| 394 | `EVT-T-0369` | 433 | Chingling | 4 | periferica | censita, non ancora producibile | - |
-| 395 | `EVT-T-0372` | 418 | Buizel | 4 | periferica | censita, non ancora producibile | - |
-| 396 | `EVT-T-0383` | 39 | Jigglypuff | 4 | periferica | censita, non ancora producibile | - |
-| 397 | `EVT-T-0384` | 35 | Clefairy | 4 | periferica | censita, non ancora producibile | - |
-| 398 | `EVT-T-0419` | 279 | Pelipper | 4 | periferica | censita, non ancora producibile | - |
-| 399 | `EVT-T-0420` | 61 | Poliwhirl | 4 | periferica | censita, non ancora producibile | - |
-| 400 | `EVT-T-0432` | 440 | Happiny | 4 | periferica | censita, non ancora producibile | - |
+| 361 | `EVT-T-0209` | 320 | Wailmer | 4 | periferica | prodotta e conforme | - |
+| 362 | `EVT-T-0211` | 397 | Staravia | 4 | periferica | prodotta e conforme | - |
+| 363 | `EVT-T-0212` | 415 | Combee | 4 | periferica | prodotta e conforme | - |
+| 364 | `EVT-T-0214` | 422 | Shellos | 4 | periferica | prodotta e conforme | - |
+| 365 | `EVT-T-0215` | 427 | Buneary | 4 | periferica | prodotta e conforme | - |
+| 366 | `EVT-T-0216` | 453 | Croagunk | 4 | periferica | prodotta e conforme | - |
+| 367 | `EVT-T-0217` | 456 | Finneon | 4 | periferica | prodotta e conforme | - |
+| 368 | `EVT-T-0218` | 459 | Snover | 4 | periferica | prodotta e conforme | - |
+| 369 | `EVT-T-0234` | 425 | Drifloon | 5 | periferica | prodotta e conforme | - |
+| 370 | `EVT-T-0235` | 436 | Bronzor | 5 | periferica | prodotta e conforme | - |
+| 371 | `EVT-T-0243` | 561 | Sigilyph | 5 | periferica | prodotta e conforme | - |
+| 372 | `EVT-T-0277` | 16 | Pidgey | 4 | periferica | prodotta e conforme | - |
+| 373 | `EVT-T-0281` | 48 | Venonat | 4 | periferica | prodotta e conforme | - |
+| 374 | `EVT-T-0302` | 19 | Rattata | 4 | periferica | prodotta e conforme | - |
+| 375 | `EVT-T-0304` | 92 | Gastly | 4 | periferica | prodotta e conforme | - |
+| 376 | `EVT-T-0317` | 109 | Koffing | 4 | periferica | prodotta e conforme | - |
+| 377 | `EVT-T-0323` | 314 | Illumise | 4 | periferica | prodotta e conforme | - |
+| 378 | `EVT-T-0324` | 313 | Volbeat | 4 | periferica | prodotta e conforme | - |
+| 379 | `EVT-T-0326` | 265 | Wurmple | 4 | periferica | prodotta e conforme | - |
+| 380 | `EVT-T-0328` | 298 | Azurill | 4 | periferica | prodotta e conforme | - |
+| 381 | `EVT-T-0336` | 111 | Rhyhorn | 4 | periferica | prodotta e conforme | - |
+| 382 | `EVT-T-0339` | 352 | Kecleon | 4 | periferica | prodotta e conforme | - |
+| 383 | `EVT-T-0340` | 351 | Castform | 4 | periferica | prodotta e conforme | - |
+| 384 | `EVT-T-0341` | 203 | Girafarig | 4 | periferica | prodotta e conforme | - |
+| 385 | `EVT-T-0343` | 44 | Gloom | 4 | periferica | prodotta e conforme | - |
+| 386 | `EVT-T-0347` | 42 | Golbat | 4 | periferica | prodotta e conforme | - |
+| 387 | `EVT-T-0351` | 439 | Mime Jr. | 4 | periferica | prodotta e conforme | - |
+| 388 | `EVT-T-0353` | 403 | Shinx | 4 | periferica | prodotta e conforme | - |
+| 389 | `EVT-T-0354` | 406 | Budew | 4 | periferica | prodotta e conforme | - |
+| 390 | `EVT-T-0355` | 399 | Bidoof | 4 | periferica | prodotta e conforme | - |
+| 391 | `EVT-T-0356` | 401 | Kricketot | 4 | periferica | prodotta e conforme | - |
+| 392 | `EVT-T-0364` | 438 | Bonsly | 4 | periferica | prodotta e conforme | - |
+| 393 | `EVT-T-0366` | 400 | Bibarel | 4 | periferica | prodotta e conforme | - |
+| 394 | `EVT-T-0369` | 433 | Chingling | 4 | periferica | prodotta e conforme | - |
+| 395 | `EVT-T-0372` | 418 | Buizel | 4 | periferica | prodotta e conforme | - |
+| 396 | `EVT-T-0383` | 39 | Jigglypuff | 4 | periferica | prodotta e conforme | - |
+| 397 | `EVT-T-0384` | 35 | Clefairy | 4 | periferica | prodotta e conforme | - |
+| 398 | `EVT-T-0419` | 279 | Pelipper | 4 | periferica | prodotta e conforme | - |
+| 399 | `EVT-T-0420` | 61 | Poliwhirl | 4 | periferica | prodotta e conforme | - |
+| 400 | `EVT-T-0432` | 440 | Happiny | 4 | periferica | prodotta e conforme | - |
 | 401 | `EVT-2-0014` | 3 | Venusaur | 2 | tabella di incontro | prodotta e conforme | - |
 | 402 | `EVT-2-0020` | 154 | Meganium | 2 | tabella di incontro | prodotta e conforme | - |
 | 403 | `EVT-2-0022` | 160 | Feraligatr | 2 | tabella di incontro | prodotta e conforme | - |

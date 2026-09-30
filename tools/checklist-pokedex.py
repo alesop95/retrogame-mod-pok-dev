@@ -459,7 +459,8 @@ def codici_duplicati(eventi):
 # del record. Il lotto dei doni di sesta e settima generazione, scritto da `tools/pkhex-dono --lotto`, porta
 # invece il codice vero, perché nasce dalle richieste di questa lista. Il complemento del Rubino non porta alcun numero, e le sue voci di Colosseum e XD si
 # riconoscono per gioco, classe d'incontro e specie.
-LOTTI_PER_CODICE = ["lotto-eventi-gen4", "lotto-eventi-gen5", "lotto-gb", "lotto-doni-gen67"]
+# lotto-periferiche dal 2026-09-30: le 40 voci da Pokewalker, Ranch e Dream Radar, da tools/pkhex-periferiche.
+LOTTI_PER_CODICE = ["lotto-eventi-gen4", "lotto-eventi-gen5", "lotto-gb", "lotto-doni-gen67", "lotto-periferiche"]
 GIUDIZI_LIBRERIA = os.path.join(RADICE, "recreate-pokemon-distributions-events", "giudizi-pkhex-core.json")
 COMPLEMENTO = os.path.join(RADICE, "_notes", "lotti", "lotto-complemento-rubino", "esemplari")
 # Dal gruppo del censimento alla classe d'incontro della libreria che lo produce nel complemento.
