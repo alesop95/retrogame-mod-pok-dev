@@ -489,6 +489,8 @@ FILE_PER_CODICE = {
     "EVT-2-0000": ("lotto-doni-gb", "GB-stadium2-jp-083-Farfetch’d-04.pk2"),
     "EVT-2-0001": ("lotto-doni-gb", "GB-stadium2-jp-207-Gligar-10.pk2"),
     "EVT-1-0010": ("lotto-doni-gb", "GB-tour-jp-151-Mew.pk1"),
+    # Il Jirachi di Pokemon Channel, che il catalogo delle carte segna non producibile: sta nel complemento, ADR-087.
+    "EVT-3-0002": ("lotto-complemento-rubino/esemplari", "040-evento.pk3"),
 }
 GIUDIZI_LIBRERIA = os.path.join(RADICE, "recreate-pokemon-distributions-events", "giudizi-pkhex-core.json")
 COMPLEMENTO = os.path.join(RADICE, "_notes", "lotti", "lotto-complemento-rubino", "esemplari")
