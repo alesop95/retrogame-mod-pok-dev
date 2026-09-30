@@ -4,6 +4,14 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-30, undicesima parte. Il secondo tempo chiuso
+
+Il proprietario ha chiesto di finire il secondo tempo, lasciando girare durante la notte l'esportazione di Discord, che non consuma token dell'agente. Delle 26 voci rimaste, 19 erano già prodotte in lotti che non portano il codice della checklist nel nome del file, e la checklist ora le collega con `FILE_PER_CODICE`. Il Jirachi di Pokémon Channel, segnato non producibile dal catalogo delle carte, è anch'esso collegato al complemento. Le altre sette sono state prodotte: il Victini del Passo Libertà, sei Ombre di Colosseum gemelle di Suicune e Raikou in altri luoghi, e il Mew delle manifestazioni giapponesi. Due dei Suicune conoscono Surf e passano al gruppo delle macchine nascoste, e il Mew giapponese passa al gruppo da provare a parte con la regione giapponese. La coda del primo tempo conta 434 specie, una in più dopo la correzione del censimento del Ranch, tutte prodotte.
+
+File toccati: `tools/checklist-pokedex.py`, `tools/pkhex-periferiche/Program.cs`, `tools/pkhex-doni-gb/Program.cs`, `pokedex-home-completo/CHECKLIST-COMPLETA.md`, `pokedex-home-completo/CODA-PRIMO-TEMPO.md`, `pokedex-home-completo/COPIE-PER-HOME.md`, `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`, `.claude/memory/pending.md`, `.claude/memory/progress.md`; fuori da git i lotti e le copie.
+
+**Didattica:** nessuna.
+
 ## 2026-09-30, decima parte. Il secondo tempo per le vie collaudate, e Ultraluna
 
 Il proprietario ha fornito un salvataggio di Ultraluna trovato in rete, di console europea con 959 posti liberi, e ha avviato l'esportazione di Discord; nel messaggio ha incollato anche il token del suo account, che l'agente non ha usato né scritto, raccomandando di cambiare la password a esportazione finita. La copia di Ultraluna ha ricevuto Poipole, Zeraora e il Rockruff con Mentelocale.
