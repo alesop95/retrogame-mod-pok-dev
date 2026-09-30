@@ -113,6 +113,14 @@ foreach (var (lotto, percorso) in file)
         esclusi.Add(new JsonObject { ["file"] = origine, ["motivo"] = "conversione rifiutata" });
         continue;
     }
+    // La libreria giudica l'esemplare e non il gioco che lo riceve: il 2026-09-30 Poipole e Zeraora, specie di
+    // Ultrasole e Ultraluna, scritti in una copia di Luna, sono apparsi in gioco come un uovo di livello 43 e uno
+    // Zeraora con l'immagine di Bulbasaur. Una specie o una forma che il gioco di destinazione non conosce si esclude.
+    if (!sav.Personal.IsPresentInGame(convertito.Species, convertito.Form))
+    {
+        esclusi.Add(new JsonObject { ["file"] = origine, ["motivo"] = "specie o forma assente nel gioco di destinazione" });
+        continue;
+    }
     sav.AdaptToSaveFile(convertito, false);
     var la = new LegalityAnalysis(convertito);
     if (!la.Valid)
