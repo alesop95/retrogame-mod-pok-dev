@@ -6,7 +6,7 @@
     "versione": "26.8.26.0"
   },
   "conteggi": {
-    "conformi": 2021,
+    "conformi": 2086,
     "contestati": 0,
     "illeggibili": 0
   },
@@ -55599,6 +55599,1781 @@
           "Botta"
         ],
         "incontro": "Event Gift"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-stadium-jp-001-Bulbasaur-00.pk1": {
+      "sha256": "d1db071817f7140574cc9fecbdab49a432cdf7176ca7e0d679ac1103761b7568",
+      "specie": 1,
+      "nome": "Bulbasaur",
+      "forma": 0,
+      "formato": "PK1",
+      "contesto": "BU Japanese",
+      "descrizione": {
+        "specie_it": "Bulbasaur",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "\u30B9\u30BF\u30B8\u30A2\u30E0",
+        "id_allenatore": 1999,
+        "lingua": "Japanese",
+        "gioco_di_origine": "RBY",
+        "luogo": "",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Azione",
+          "Ruggito"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-stadium-jp-004-Charmander-01.pk1": {
+      "sha256": "cf9dfb39f9f6101b524167952a9e8e345a2126eee3125b3c2904cd2eaba5f51d",
+      "specie": 4,
+      "nome": "Charmander",
+      "forma": 0,
+      "formato": "PK1",
+      "contesto": "BU Japanese",
+      "descrizione": {
+        "specie_it": "Charmander",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "\u30B9\u30BF\u30B8\u30A2\u30E0",
+        "id_allenatore": 1999,
+        "lingua": "Japanese",
+        "gioco_di_origine": "RBY",
+        "luogo": "",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Graffio",
+          "Ruggito"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-stadium-jp-007-Squirtle-02.pk1": {
+      "sha256": "113a8e09afeb9de946719e5f702969e59868667fc2ab7201a2aa59dc1a93022b",
+      "specie": 7,
+      "nome": "Squirtle",
+      "forma": 0,
+      "formato": "PK1",
+      "contesto": "BU Japanese",
+      "descrizione": {
+        "specie_it": "Squirtle",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "\u30B9\u30BF\u30B8\u30A2\u30E0",
+        "id_allenatore": 1999,
+        "lingua": "Japanese",
+        "gioco_di_origine": "RBY",
+        "luogo": "",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Azione",
+          "Colpocoda"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-stadium-jp-054-Psyduck-03.pk1": {
+      "sha256": "181a7fea62132941c34f4d137fa2ba9cff6be27d30ba199770086e45554dfe43",
+      "specie": 54,
+      "nome": "Psyduck",
+      "forma": 0,
+      "formato": "PK1",
+      "contesto": "BU Japanese",
+      "descrizione": {
+        "specie_it": "Psyduck",
+        "livello": 15,
+        "soprannome": null,
+        "allenatore": "\u30B9\u30BF\u30B8\u30A2\u30E0",
+        "id_allenatore": 1999,
+        "lingua": "Japanese",
+        "gioco_di_origine": "RBY",
+        "luogo": "",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Graffio",
+          "Amnesia"
+        ],
+        "incontro": "Event Gift"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-stadium-jp-106-Hitmonlee-05.pk1": {
+      "sha256": "93e55399c5613b4867ee25bb88c17f33bd8d76a1b11aa606e61f49eac1067c52",
+      "specie": 106,
+      "nome": "Hitmonlee",
+      "forma": 0,
+      "formato": "PK1",
+      "contesto": "BU Japanese",
+      "descrizione": {
+        "specie_it": "Hitmonlee",
+        "livello": 20,
+        "soprannome": null,
+        "allenatore": "\u30B9\u30BF\u30B8\u30A2\u30E0",
+        "id_allenatore": 1999,
+        "lingua": "Japanese",
+        "gioco_di_origine": "RBY",
+        "luogo": "",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Doppiocalcio",
+          "Meditazione"
+        ],
+        "incontro": "Event Gift"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-stadium-jp-107-Hitmonchan-06.pk1": {
+      "sha256": "dabdbc4c2fd050f56d309af075e03a6617822693e2d9fecca4b157d986f19e07",
+      "specie": 107,
+      "nome": "Hitmonchan",
+      "forma": 0,
+      "formato": "PK1",
+      "contesto": "BU Japanese",
+      "descrizione": {
+        "specie_it": "Hitmonchan",
+        "livello": 20,
+        "soprannome": null,
+        "allenatore": "\u30B9\u30BF\u30B8\u30A2\u30E0",
+        "id_allenatore": 1999,
+        "lingua": "Japanese",
+        "gioco_di_origine": "RBY",
+        "luogo": "",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Cometapugno",
+          "Agilit\u00E0"
+        ],
+        "incontro": "Event Gift"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-stadium-jp-133-Eevee-07.pk1": {
+      "sha256": "04412203de5663871e693573a1ab3ccc25d0bde2c4402fa17788521824473aed",
+      "specie": 133,
+      "nome": "Eevee",
+      "forma": 0,
+      "formato": "PK1",
+      "contesto": "BU Japanese",
+      "descrizione": {
+        "specie_it": "Eevee",
+        "livello": 25,
+        "soprannome": null,
+        "allenatore": "\u30B9\u30BF\u30B8\u30A2\u30E0",
+        "id_allenatore": 1999,
+        "lingua": "Japanese",
+        "gioco_di_origine": "RBY",
+        "luogo": "",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Azione",
+          "Colpocoda"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-stadium-jp-138-Omanyte-08.pk1": {
+      "sha256": "8c749c3f480fd7381cbd2b56b1cbd2a8b3762a27c3f3feebe0355cc3c85ac475",
+      "specie": 138,
+      "nome": "Omanyte",
+      "forma": 0,
+      "formato": "PK1",
+      "contesto": "BU Japanese",
+      "descrizione": {
+        "specie_it": "Omanyte",
+        "livello": 20,
+        "soprannome": null,
+        "allenatore": "\u30B9\u30BF\u30B8\u30A2\u30E0",
+        "id_allenatore": 1999,
+        "lingua": "Japanese",
+        "gioco_di_origine": "RBY",
+        "luogo": "",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Pistolacqua",
+          "Ritirata"
+        ],
+        "incontro": "Event Gift"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-stadium-jp-140-Kabuto-09.pk1": {
+      "sha256": "f9c7d5b8b8a06bb2379a9a3366981b80cc04bc9a5e6a092e3dea570f9c0aa976",
+      "specie": 140,
+      "nome": "Kabuto",
+      "forma": 0,
+      "formato": "PK1",
+      "contesto": "BU Japanese",
+      "descrizione": {
+        "specie_it": "Kabuto",
+        "livello": 20,
+        "soprannome": null,
+        "allenatore": "\u30B9\u30BF\u30B8\u30A2\u30E0",
+        "id_allenatore": 1999,
+        "lingua": "Japanese",
+        "gioco_di_origine": "RBY",
+        "luogo": "",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Graffio",
+          "Rafforzatore"
+        ],
+        "incontro": "Event Gift"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-stadium2-jp-083-Farfetch\u2019d-04.pk2": {
+      "sha256": "5ccf46575f1b58f191ea1cf8451a6f7429b174d3ba503ba5a851301f742bf894",
+      "specie": 83,
+      "nome": "Farfetch\u2019d",
+      "forma": 0,
+      "formato": "PK2",
+      "contesto": "C Japanese",
+      "descrizione": {
+        "specie_it": "Farfetch\u2019d",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "\u30B9\u30BF\u30B8\u30A2\u30E0",
+        "id_allenatore": 2000,
+        "lingua": "Japanese",
+        "gioco_di_origine": "GSC",
+        "luogo": "(Evento)",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Staffetta",
+          "Danzaspada",
+          "Agilit\u00E0",
+          "Lacerazione"
+        ],
+        "incontro": "GB Era Event Gift"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-stadium2-jp-207-Gligar-10.pk2": {
+      "sha256": "4576d16644e18385e7088516fc23c2ce9e349e5de6522275bfc33ab4fe26ff2d",
+      "specie": 207,
+      "nome": "Gligar",
+      "forma": 0,
+      "formato": "PK2",
+      "contesto": "C Japanese",
+      "descrizione": {
+        "specie_it": "Gligar",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "\u30B9\u30BF\u30B8\u30A2\u30E0",
+        "id_allenatore": 2000,
+        "lingua": "Japanese",
+        "gioco_di_origine": "GSC",
+        "luogo": "(Evento)",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Terremoto",
+          "Contrattacco",
+          "Attacco d\u2019Ala"
+        ],
+        "incontro": "GB Era Event Gift"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-uovo-strano-172-Pichu-11.pk2": {
+      "sha256": "9ea7c5faabb70b166a64b3ef7aba6eac547653e05b8dfd3f9ab0c1e88072b934",
+      "specie": 172,
+      "nome": "Pichu",
+      "forma": 0,
+      "formato": "PK2",
+      "contesto": "C English",
+      "descrizione": {
+        "specie_it": "Pichu",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "English",
+        "gioco_di_origine": "GSC",
+        "luogo": "(Niente)",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Tuonoshock",
+          "Fascino",
+          "Stordipugno"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-uovo-strano-172-Pichu-cromatico-12.pk2": {
+      "sha256": "c9b913777e4b7f32a5e3b9c357951690cfc4febeb4137e2a27658407d1d59a15",
+      "specie": 172,
+      "nome": "Pichu",
+      "forma": 0,
+      "formato": "PK2",
+      "contesto": "C English",
+      "descrizione": {
+        "specie_it": "Pichu",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "English",
+        "gioco_di_origine": "GSC",
+        "luogo": "(Niente)",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Tuonoshock",
+          "Fascino",
+          "Stordipugno"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-uovo-strano-173-Cleffa-13.pk2": {
+      "sha256": "99512155e27d589eca81ce09fb950771623dafec93a93e4dbf5e1472e99bef42",
+      "specie": 173,
+      "nome": "Cleffa",
+      "forma": 0,
+      "formato": "PK2",
+      "contesto": "C English",
+      "descrizione": {
+        "specie_it": "Cleffa",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "English",
+        "gioco_di_origine": "GSC",
+        "luogo": "(Niente)",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Botta",
+          "Fascino",
+          "Stordipugno"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-uovo-strano-173-Cleffa-cromatico-14.pk2": {
+      "sha256": "377cfd2df42deafb9e731f41a6294c2d597c23e208fa7260b6581016b525ca90",
+      "specie": 173,
+      "nome": "Cleffa",
+      "forma": 0,
+      "formato": "PK2",
+      "contesto": "C English",
+      "descrizione": {
+        "specie_it": "Cleffa",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "English",
+        "gioco_di_origine": "GSC",
+        "luogo": "(Niente)",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Botta",
+          "Fascino",
+          "Stordipugno"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-uovo-strano-174-Igglybuff-15.pk2": {
+      "sha256": "9bb8aecd71ebe6a7e658c6aeca5a70a9677ef762e027c33121bba18f89f579ee",
+      "specie": 174,
+      "nome": "Igglybuff",
+      "forma": 0,
+      "formato": "PK2",
+      "contesto": "C English",
+      "descrizione": {
+        "specie_it": "Igglybuff",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "English",
+        "gioco_di_origine": "GSC",
+        "luogo": "(Niente)",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Canto",
+          "Fascino",
+          "Stordipugno"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-uovo-strano-174-Igglybuff-cromatico-16.pk2": {
+      "sha256": "f361d6421d02d78c394eeada3567a8a51e4aeefde0273c4fe1b6e3b67999b554",
+      "specie": 174,
+      "nome": "Igglybuff",
+      "forma": 0,
+      "formato": "PK2",
+      "contesto": "C English",
+      "descrizione": {
+        "specie_it": "Igglybuff",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "English",
+        "gioco_di_origine": "GSC",
+        "luogo": "(Niente)",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Canto",
+          "Fascino",
+          "Stordipugno"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-uovo-strano-236-Tyrogue-17.pk2": {
+      "sha256": "d654efdfb9dfd000e6360e2f457a07254d2fb8a5e6a9c6fa58655d8431f7e72f",
+      "specie": 236,
+      "nome": "Tyrogue",
+      "forma": 0,
+      "formato": "PK2",
+      "contesto": "C English",
+      "descrizione": {
+        "specie_it": "Tyrogue",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "English",
+        "gioco_di_origine": "GSC",
+        "luogo": "(Niente)",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Azione",
+          "Stordipugno"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-uovo-strano-236-Tyrogue-cromatico-18.pk2": {
+      "sha256": "b8b68183e5d5ab533259dcf2dd6e03eda91acf818dd3e680975d05d68b724004",
+      "specie": 236,
+      "nome": "Tyrogue",
+      "forma": 0,
+      "formato": "PK2",
+      "contesto": "C English",
+      "descrizione": {
+        "specie_it": "Tyrogue",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "English",
+        "gioco_di_origine": "GSC",
+        "luogo": "(Niente)",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Azione",
+          "Stordipugno"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-uovo-strano-238-Smoochum-19.pk2": {
+      "sha256": "51b5446232a4edcadc8d1ac5a80150749490083648351b99658cd69dc1e652b7",
+      "specie": 238,
+      "nome": "Smoochum",
+      "forma": 0,
+      "formato": "PK2",
+      "contesto": "C English",
+      "descrizione": {
+        "specie_it": "Smoochum",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "English",
+        "gioco_di_origine": "GSC",
+        "luogo": "(Niente)",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Botta",
+          "Leccata",
+          "Stordipugno"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-uovo-strano-238-Smoochum-cromatico-20.pk2": {
+      "sha256": "32b22dcde59b37e8e06c060e7eb071f3f16fe3a4cbb639eff28940a26d0d70e1",
+      "specie": 238,
+      "nome": "Smoochum",
+      "forma": 0,
+      "formato": "PK2",
+      "contesto": "C English",
+      "descrizione": {
+        "specie_it": "Smoochum",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "English",
+        "gioco_di_origine": "GSC",
+        "luogo": "(Niente)",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Botta",
+          "Leccata",
+          "Stordipugno"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-uovo-strano-239-Elekid-21.pk2": {
+      "sha256": "071d5fbbedefb2467dd8beab714effa5c853663b1f1d9c0ee7619adca0ad5fc4",
+      "specie": 239,
+      "nome": "Elekid",
+      "forma": 0,
+      "formato": "PK2",
+      "contesto": "C English",
+      "descrizione": {
+        "specie_it": "Elekid",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "English",
+        "gioco_di_origine": "GSC",
+        "luogo": "(Niente)",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Attacco Rapido",
+          "Fulmisguardo",
+          "Stordipugno"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-uovo-strano-239-Elekid-cromatico-22.pk2": {
+      "sha256": "05b0dee48a3378eecd64f395395db9a1b8324f9532f919c2ebcdb285ae3cd723",
+      "specie": 239,
+      "nome": "Elekid",
+      "forma": 0,
+      "formato": "PK2",
+      "contesto": "C English",
+      "descrizione": {
+        "specie_it": "Elekid",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "English",
+        "gioco_di_origine": "GSC",
+        "luogo": "(Niente)",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Attacco Rapido",
+          "Fulmisguardo",
+          "Stordipugno"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-uovo-strano-240-Magby-23.pk2": {
+      "sha256": "6bb7fa6775f450c46f7656e58e6e2700878f85b4b31971dbacb2b21357f6ccf8",
+      "specie": 240,
+      "nome": "Magby",
+      "forma": 0,
+      "formato": "PK2",
+      "contesto": "C English",
+      "descrizione": {
+        "specie_it": "Magby",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "English",
+        "gioco_di_origine": "GSC",
+        "luogo": "(Niente)",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Braciere",
+          "Stordipugno"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-doni-gb/GB-uovo-strano-240-Magby-cromatico-24.pk2": {
+      "sha256": "b9e121e850c8cfa34687057fc3fa613d219a0b543323614edfd9631ec6856ea9",
+      "specie": 240,
+      "nome": "Magby",
+      "forma": 0,
+      "formato": "PK2",
+      "contesto": "C English",
+      "descrizione": {
+        "specie_it": "Magby",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "English",
+        "gioco_di_origine": "GSC",
+        "luogo": "(Niente)",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Braciere",
+          "Stordipugno"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0209-320.pk4": {
+      "sha256": "6727ab06000cc230824aa8424c3d3e80f12ffad234bd8875ee8e6e90fa3835b9",
+      "specie": 320,
+      "nome": "Wailmer",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Wailmer",
+        "livello": 45,
+        "soprannome": null,
+        "allenatore": "GIULIA",
+        "id_allenatore": 1000,
+        "lingua": "Italian",
+        "gioco_di_origine": "D",
+        "luogo": "Percorso 223",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Riposo",
+          "Zampillo",
+          "Amnesia",
+          "Geloraggio"
+        ],
+        "incontro": "My Pok\u00E9mon Ranch - Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0211-397.pk4": {
+      "sha256": "e65542a248788a78659476e215f24e4df0cea0a5c948d6099ce2ac78fb499cab",
+      "specie": 397,
+      "nome": "Staravia",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Staravia",
+        "livello": 23,
+        "soprannome": null,
+        "allenatore": "GIULIA",
+        "id_allenatore": 1000,
+        "lingua": "Italian",
+        "gioco_di_origine": "D",
+        "luogo": "Percorso 201",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Trespolo",
+          "Attacco d\u2019Ala",
+          "Rimonta",
+          "Turbine"
+        ],
+        "incontro": "My Pok\u00E9mon Ranch - Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0212-415.pk4": {
+      "sha256": "0516cbdb6d3d89be0f7d0bae543abbeaaf71d9ce48f70177fb8ad073932f0b32",
+      "specie": 415,
+      "nome": "Combee",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Combee",
+        "livello": 20,
+        "soprannome": null,
+        "allenatore": "GIULIA",
+        "id_allenatore": 1000,
+        "lingua": "Italian",
+        "gioco_di_origine": "D",
+        "luogo": "Percorso 205",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Profumino",
+          "Raffica"
+        ],
+        "incontro": "My Pok\u00E9mon Ranch - Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0214-422.pk4": {
+      "sha256": "6abf6f878b18d062908a0c3787565ef969eff5c82fa9ece9d64614eb8747a67f",
+      "specie": 422,
+      "nome": "Shellos",
+      "forma": 1,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Shellos",
+        "livello": 25,
+        "soprannome": null,
+        "allenatore": "GIULIA",
+        "id_allenatore": 1000,
+        "lingua": "Italian",
+        "gioco_di_origine": "D",
+        "luogo": "Percorso 213",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Dononaturale",
+          "Idropulsar",
+          "Pantanobomba",
+          "Doppioteam"
+        ],
+        "incontro": "My Pok\u00E9mon Ranch - Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0215-427.pk4": {
+      "sha256": "6ebeca6f7ee1915c713befec97f3110f41f120bf3c3cf822394c2a0a6a09b297",
+      "specie": 427,
+      "nome": "Buneary",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Buneary",
+        "livello": 16,
+        "soprannome": null,
+        "allenatore": "GIULIA",
+        "id_allenatore": 1000,
+        "lingua": "Italian",
+        "gioco_di_origine": "D",
+        "luogo": "Luogo grazioso",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Fascino",
+          "Preveggenza",
+          "Assorbipugno",
+          "Attacco Rapido"
+        ],
+        "incontro": "My Pok\u00E9mon Ranch - Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0216-453.pk4": {
+      "sha256": "d50572ca3ddca184d7228aaf640e66655fa046285ae71c890ef1490d8c8d7544",
+      "specie": 453,
+      "nome": "Croagunk",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Croagunk",
+        "livello": 31,
+        "soprannome": null,
+        "allenatore": "GIULIA",
+        "id_allenatore": 1000,
+        "lingua": "Italian",
+        "gioco_di_origine": "D",
+        "luogo": "Gran Palude",
+        "luogo_uovo": null,
+        "sfera": "Safari Ball",
+        "mosse": [
+          "Sgomento",
+          "Bullo",
+          "Pantanobomba",
+          "Sbigoattacco"
+        ],
+        "incontro": "My Pok\u00E9mon Ranch - Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0217-456.pk4": {
+      "sha256": "d361cc70f57d9a3e59334ee8b8d7a2f8daca3d94e7752a90eddb46b336e12328",
+      "specie": 456,
+      "nome": "Finneon",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Finneon",
+        "livello": 35,
+        "soprannome": null,
+        "allenatore": "GIULIA",
+        "id_allenatore": 1000,
+        "lingua": "Italian",
+        "gioco_di_origine": "D",
+        "luogo": "Percorso 205",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Attrazione",
+          "Idropulsar",
+          "Salvaguardia",
+          "Acquanello"
+        ],
+        "incontro": "My Pok\u00E9mon Ranch - Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0218-459.pk4": {
+      "sha256": "915e591c5a2be72388d750bfd1bb963e612dac96f010a1747a5dc4679884ebe8",
+      "specie": 459,
+      "nome": "Snover",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Snover",
+        "livello": 41,
+        "soprannome": null,
+        "allenatore": "GIULIA",
+        "id_allenatore": 1000,
+        "lingua": "Italian",
+        "gioco_di_origine": "D",
+        "luogo": "Percorso 216",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Mazzuolegno",
+          "Geloscheggia",
+          "Radicamento",
+          "Bora"
+        ],
+        "incontro": "My Pok\u00E9mon Ranch - Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0234-425.pk5": {
+      "sha256": "5f346e787daea9c70ac3745b492069e3181f1e0716784db89030e0a99171bf79",
+      "specie": 425,
+      "nome": "Drifloon",
+      "forma": 0,
+      "formato": "PK5",
+      "contesto": "W2 Italian",
+      "descrizione": {
+        "specie_it": "Drifloon",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "B2",
+        "luogo": "RAdar Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Dream Ball",
+        "mosse": [
+          "Limitazione",
+          "Minimizzato",
+          "Sgomento"
+        ],
+        "incontro": "Dream Radar Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0235-436.pk5": {
+      "sha256": "1594e3b2dfc0696b18ed687fd3d74508877adfa76728a5102892328d362965f1",
+      "specie": 436,
+      "nome": "Bronzor",
+      "forma": 0,
+      "formato": "PK5",
+      "contesto": "W2 Italian",
+      "descrizione": {
+        "specie_it": "Bronzor",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "B2",
+        "luogo": "RAdar Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Dream Ball",
+        "mosse": [
+          "Azione",
+          "Confusione",
+          "Ipnosi"
+        ],
+        "incontro": "Dream Radar Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0243-561.pk5": {
+      "sha256": "c16b882afa9ddaefc5195a8b2b5ca7c4d4357a4e915d15194da86b85388c4fad",
+      "specie": 561,
+      "nome": "Sigilyph",
+      "forma": 0,
+      "formato": "PK5",
+      "contesto": "W2 Italian",
+      "descrizione": {
+        "specie_it": "Sigilyph",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "B2",
+        "luogo": "RAdar Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Dream Ball",
+        "mosse": [
+          "Raffica",
+          "Miracolvista",
+          "Ipnosi"
+        ],
+        "incontro": "Dream Radar Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0277-016.pk4": {
+      "sha256": "b3a87560e01d2470298c9d4e0d334d72a307ebc97de9192b67e1ac1b161e72eb",
+      "specie": 16,
+      "nome": "Pidgey",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Pidgey",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Azione",
+          "Turbosabbia"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (RefreshingField)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0281-048.pk4": {
+      "sha256": "da124064265ad71b23222d03ec0986b7173f2799460f35595b9debe88b73216b",
+      "specie": 48,
+      "nome": "Venonat",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Venonat",
+        "livello": 6,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Azione",
+          "Inibitore",
+          "Preveggenza",
+          "Supersuono"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (NoisyForest)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0302-019.pk4": {
+      "sha256": "d1ca2263507cbd71056bc7c8c5dd544e32c0ea1e9c571fd1e7c6483a360c96cb",
+      "specie": 19,
+      "nome": "Rattata",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Rattata",
+        "livello": 7,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Azione",
+          "Colpocoda",
+          "Attacco Rapido",
+          "Focalenergia"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (SuburbanArea)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0304-092.pk4": {
+      "sha256": "80a62c7f20ed62b5cce37ab9fc660c0a3b46081b5ad141b5a2450b72f3a775db",
+      "specie": 92,
+      "nome": "Gastly",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Gastly",
+        "livello": 15,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Ipnosi",
+          "Dispetto",
+          "Maledizione",
+          "Destinobbligato"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (DimCave)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0317-109.pk4": {
+      "sha256": "78f135b1c333e5fdf9b787988234b6c05dc354ee45ddf2e9367bec44bf71cb68",
+      "specie": 109,
+      "nome": "Koffing",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Koffing",
+        "livello": 13,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Azione",
+          "Smog",
+          "Muro di Fumo",
+          "Autodistruzione"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (TownOutskirts)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0323-314.pk4": {
+      "sha256": "853559472e082253ccb3269b87576e1497cfa519c0a1a6c16d2a1ae15bcf4da8",
+      "specie": 314,
+      "nome": "Illumise",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Illumise",
+        "livello": 25,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Fascino",
+          "Lucelunare",
+          "Desiderio",
+          "Ripeti"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (HoennField)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0324-313.pk4": {
+      "sha256": "ecd2b65dfdde404f24fae24086f5c9ac1b6b4b9f34989c6786cb0526e5a8962b",
+      "specie": 313,
+      "nome": "Volbeat",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Volbeat",
+        "livello": 25,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Lucelunare",
+          "Attacco Rapido",
+          "Codadiluce",
+          "Segnoraggio"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (HoennField)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0326-265.pk4": {
+      "sha256": "20611118802bfefe3b136877016c4ff1cc01213879d1951a01fceabb6fa10925",
+      "specie": 265,
+      "nome": "Wurmple",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Wurmple",
+        "livello": 15,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Azione",
+          "Millebave",
+          "Velenospina",
+          "Coleomorso"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (HoennField)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0328-298.pk4": {
+      "sha256": "59671a49e13bd1b8175b4ff41070caada322927c0254ccb27c8fcca6c3596ce0",
+      "specie": 298,
+      "nome": "Azurill",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Azurill",
+        "livello": 20,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Colpocoda",
+          "Bolla",
+          "Schianto",
+          "Pistolacqua"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (WarmBeach)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0336-111.pk4": {
+      "sha256": "4328467720cc2f5be5ac04dbc48e1fed61f1edda52efdb2be99018a826cf5835",
+      "specie": 111,
+      "nome": "Rhyhorn",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Rhyhorn",
+        "livello": 25,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Pestone",
+          "Furia",
+          "Visotruce",
+          "Cadutamassi"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (VolcanoPath)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0339-352.pk4": {
+      "sha256": "4aee4cb1826efbf80e90b1f4de44e0472549211d20642bf6f3ea2af6b8120d46",
+      "specie": 352,
+      "nome": "Kecleon",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Kecleon",
+        "livello": 30,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Fintoattacco",
+          "Psicoraggio",
+          "Furtivombra",
+          "Lacerazione"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (Treehouse)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0340-351.pk4": {
+      "sha256": "363087d3a1d8dc7c4a16fb3819057080594c905a151a5791c1b9f358680e5651",
+      "specie": 351,
+      "nome": "Castform",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Castform",
+        "livello": 30,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Pioggiadanza",
+          "Giornodisole",
+          "Grandine",
+          "Palla Clima"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (Treehouse)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0341-203.pk4": {
+      "sha256": "906ea6b1dc00909dcad0e6e0ccdd5e28327b2c611cc7e51b91ebf57b3af54e4f",
+      "specie": 203,
+      "nome": "Girafarig",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Girafarig",
+        "livello": 28,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Agilit\u00E0",
+          "Psicoraggio",
+          "Staffetta",
+          "Garanzia"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (Treehouse)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0343-044.pk4": {
+      "sha256": "8f14cdc8203c9733eb0bb56bbc5040acc8bfcaeb9d67d04ca772ecc294380272",
+      "specie": 44,
+      "nome": "Gloom",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Gloom",
+        "livello": 14,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Assorbimento",
+          "Profumino",
+          "Acido",
+          "Velenpolvere"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (Treehouse)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0347-042.pk4": {
+      "sha256": "e33d2baf244b363b82fa2a653deaa1cfef2a405f869a2459b5db4fe99593a18a",
+      "specie": 42,
+      "nome": "Golbat",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Golbat",
+        "livello": 33,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Attacco d\u2019Ala",
+          "Stordiraggio",
+          "Aerasoio",
+          "Malosguardo"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (ScaryCave)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0351-439.pk4": {
+      "sha256": "4bc6fefbc11b1f7019718df3c7a68880a3f95a5c281cc0ee798d4be9ca61a552",
+      "specie": 439,
+      "nome": "Mime Jr.",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Mime Jr.",
+        "livello": 29,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Schermoluce",
+          "Riflesso",
+          "Psicoraggio",
+          "Sostituto"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (SinnohField)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0353-403.pk4": {
+      "sha256": "88651b41321f82e2e3c4c33a7f60f04b5988223b559ed76dd458f6fc45a71b6d",
+      "specie": 403,
+      "nome": "Shinx",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Shinx",
+        "livello": 33,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Boato",
+          "Bullo",
+          "Fulmindenti",
+          "Sgranocchio"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (SinnohField)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0354-406.pk4": {
+      "sha256": "05d85dc16375044513a395d54d897bcdb6643173ad72635abd1a4291beb1b92b",
+      "specie": 406,
+      "nome": "Budew",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Budew",
+        "livello": 30,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Docciascudo",
+          "Paralizzante",
+          "Megassorbimento",
+          "Affannoseme"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (SinnohField)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0355-399.pk4": {
+      "sha256": "ce5163a3087e74c254c62f7f697090bb0da730926d347d5e2111bd940b39127d",
+      "specie": 399,
+      "nome": "Bidoof",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Bidoof",
+        "livello": 13,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Azione",
+          "Ruggito",
+          "Ricciolscudo",
+          "Rotolamento"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (SinnohField)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0356-401.pk4": {
+      "sha256": "dadb81aa41da817df5d6122152b8382588fa36a23b4489603731d124677a98a3",
+      "specie": 401,
+      "nome": "Kricketot",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Kricketot",
+        "livello": 15,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Ruggito",
+          "Pazienza",
+          "Coleomorso"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (SinnohField)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0364-438.pk4": {
+      "sha256": "c2b689fb72e19e6836c7f81bd2da10ebd199092e56d9bc3f051b18d91d6df9fe",
+      "specie": 438,
+      "nome": "Bonsly",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Bonsly",
+        "livello": 30,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Mimica",
+          "Blocco",
+          "Finta",
+          "Rocciotomba"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (BigForest)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0366-400.pk4": {
+      "sha256": "971520bdae63863917d1797a6d1577d288dfd1e1c7c582c5667e7e0779cbd141",
+      "specie": 400,
+      "nome": "Bibarel",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Bibarel",
+        "livello": 30,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Pistolacqua",
+          "Bottintesta",
+          "Iperzanna",
+          "Sbadiglio"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (BigForest)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0369-433.pk4": {
+      "sha256": "fab88b2ed5234bface74a0a4b99d17c541cb6815a1ee237e377bfbad55299e3d",
+      "specie": 433,
+      "nome": "Chingling",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Chingling",
+        "livello": 22,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Sgomento",
+          "Ripresa",
+          "Baraonda",
+          "Ultimascelta"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (WhiteLake)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0372-418.pk4": {
+      "sha256": "535cb8533f8fa3e6fd6db25f15c7b0882b30a759af15e3f4c08f5d5fa5f73321",
+      "specie": 418,
+      "nome": "Buizel",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Buizel",
+        "livello": 28,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Inseguimento",
+          "Comete",
+          "Acquagetto",
+          "Staffetta"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (WhiteLake)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0383-039.pk4": {
+      "sha256": "0bce096caed83c17b16974f4d2423dc8c58fdf7c786cf09a3f3a669541f5efd3",
+      "specie": 39,
+      "nome": "Jigglypuff",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Jigglypuff",
+        "livello": 30,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Rotolamento",
+          "Doppiasberla",
+          "Riposo",
+          "Corposcontro"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (Resort)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0384-035.pk4": {
+      "sha256": "1f77ada332d45cafbed792a5fa3f1fa95e36dc6afebd5cf07c5d60a74532b6c4",
+      "specie": 35,
+      "nome": "Clefairy",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Clefairy",
+        "livello": 31,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Svegliopacca",
+          "Cosmoforza",
+          "Fortuncanto",
+          "Metronomo"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (Resort)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0419-279.pk4": {
+      "sha256": "b15f2f8adbe2f20967de71ffd7f15ed0bcd4e3f385fe55e65d1d5359bea4d633",
+      "specie": 279,
+      "nome": "Pelipper",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Japanese",
+      "descrizione": {
+        "specie_it": "Pelipper",
+        "livello": 15,
+        "soprannome": null,
+        "allenatore": "\u30A2\u30EC\u30B7\u30AA",
+        "id_allenatore": 42317,
+        "lingua": "Japanese",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Docciascudo",
+          "Attacco d\u2019Ala",
+          "Supersuono",
+          "Pistolacqua"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (Sightseeing)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0420-061.pk4": {
+      "sha256": "ddb68843168cd1f5074212d43a095057f14a3d2cd8b05ca3dd5b34534ea75f6f",
+      "specie": 61,
+      "nome": "Poliwhirl",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Japanese",
+      "descrizione": {
+        "specie_it": "Poliwhirl",
+        "livello": 15,
+        "soprannome": null,
+        "allenatore": "\u30A2\u30EC\u30B7\u30AA",
+        "id_allenatore": 42317,
+        "lingua": "Japanese",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Bolla",
+          "Ipnosi",
+          "Pistolacqua",
+          "Doppiasberla"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (Sightseeing)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-periferiche/EVT-T-0432-440.pk4": {
+      "sha256": "b1d911a97a21fc2564f7d9b6d136bce4813af6024c226fa8ab10d4d64af7d618",
+      "specie": 440,
+      "nome": "Happiny",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Japanese",
+      "descrizione": {
+        "specie_it": "Happiny",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "\u30A2\u30EC\u30B7\u30AA",
+        "id_allenatore": 42317,
+        "lingua": "Japanese",
+        "gioco_di_origine": "HG",
+        "luogo": "Pok\u00E9walker",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Botta",
+          "Fascino",
+          "Copione",
+          "Rintoccasana"
+        ],
+        "incontro": "Pok\u00E9walker Encounter (AmityMeadow)"
       },
       "esito": "conforme"
     }

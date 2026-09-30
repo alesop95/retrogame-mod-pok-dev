@@ -226,6 +226,24 @@ cd "E:/retrogame-mod-pok-dev/tools/pkhex-mew-vc"
 dotnet run -c Release -- "../../_notes/lotti/lotto-mew-vc"
 ```
 
+## pkhex-doni-gb
+
+Genera dalla libreria i doni di Game Boy che il lotto di prima e seconda generazione, nato da `genera-evento-gb.py` prima di ADR-081, non copriva: i doni di Pokémon Stadium e Stadium 2 nella variante giapponese, allenatore スタジアム con identificativo 1999 per il primo, e le quattordici uova dell'Uovo Strano di Cristallo. Chiede alla libreria, nell'epoca delle cartucce, gli incontri di ogni specie da 1 a 251 e tiene gli `EncounterGift1` con tipo di allenatore `Stadium`, gli `EncounterGift2` con `GiftStadiumJPN` e gli incontri statici di Cristallo che sono uova e portano Stordipugno, perché l'elenco dell'Uovo Strano è interno alla libreria e si raggiunge così. Il giudizio di controllo si fa con `pkhex-giudica` senza contesto aggiuntivo.
+
+```powershell
+cd "E:/retrogame-mod-pok-dev/tools/pkhex-doni-gb"
+dotnet run -c Release -- "../../_notes/lotti/lotto-doni-gb"
+```
+
+## pkhex-periferiche
+
+Genera dalla libreria gli esemplari che le periferiche consegnavano: il Pokéwalker di Oro HeartGold e Argento SoulSilver, gli scambi di Hayley, Giulia in italiano, in My Pokémon Ranch, e il Dream Radar di Nero 2 e Bianco 2. Legge `_notes/lotti/lotto-periferiche/richieste.json`, scritto dalle voci periferiche della coda con i dettagli della checklist, e per ciascuna tiene l'incontro della classe giusta, `EncounterStatic4Pokewalker`, `EncounterTrade4RanchGift` o `EncounterStatic5Radar`, con il livello e il corso richiesti per il Pokéwalker, perché la stessa specie compare in corsi diversi allo stesso livello. I corsi Rally, Gita e Prato Amicizia erano distribuiti solo in Giappone, e il Gita anche in Corea: la libreria non lo impone, ma lo strumento li genera con un allenatore giapponese. Scrive `EVT-T-<numero>-<specie>.pkN`, che la checklist collega alle proprie voci attraverso `LOTTI_PER_CODICE`.
+
+```powershell
+cd "E:/retrogame-mod-pok-dev/tools/pkhex-periferiche"
+dotnet run -c Release -- "../../_notes/lotti/lotto-periferiche/richieste.json" "../../_notes/lotti/lotto-periferiche"
+```
+
 ## pkhex-rigenera
 
 Ricostruisce un lotto dall'incontro che la libreria riconosce in ciascun file. Per ogni esemplare chiede a `LegalityAnalysis` l'incontro. Se non ne trova uno, cerca fra gli incontri della libreria per quella specie e quella versione uno scambio in gioco, che è la sola classe di cui lo strumento si occupa oggi. Poi lo ricostruisce con `ConvertToPKM` per un salvataggio vuoto della stessa versione, intestato all'allenatore e alla lingua dati. È nato il 2026-09-25 per gli scambi di quarta e quinta generazione del 2026-09-15, contestati per intero, e li ha portati a 23 conformi su 23. Due correzioni dicono che cosa il generatore scritto a mano sbagliava. Il soprannome era tutto maiuscolo («SPARVY» invece di «Sparvy»). La sfera estesa di HeartGold e SoulSilver restava a zero, e lo strumento la scrive uguale alla sfera normale, come fa il gioco e come pretende `MiscVerifierG4.IsValidBallHGSS`. Rifiuta una destinazione che contenga già file di esemplare.

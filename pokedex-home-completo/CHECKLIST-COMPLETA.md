@@ -1060,7 +1060,7 @@ Le voci enumerate sono 6248, di cui 3099 sotto scadenza, e queste ultime portano
 
 L'ordine della tabella non è quello della fonte, ed è una scelta che va dichiarata perché cambia che cosa si legge per primo. La fonte raggruppa le voci per evento, cioè nell'ordine in cui le distribuzioni avvennero; la decisione di ambito è invece la collezione completa in due tempi, con prima una voce per ciascuna specie distinta e poi i gemelli. La colonna che dice se una voce sia la prima della propria specie porta dunque in testa le 433 voci del primo tempo, e lascia in coda le 2666 del secondo; dentro ciascuno dei due blocchi l'ordine per evento è conservato, perché è l'informazione utile a chi produce. La prima voce di una specie è una già prodotta e conforme, o producibile e verificata, se ne esiste una; altrimenti è la prima nell'ordine della fonte. Non è scelta per merito: dove più voci portano la medesima specie, la marcatura non dice quale sia la più desiderabile ma soltanto quale basti a coprire la specie.
 
-Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce è prodotta e conforme se un file di un lotto la contiene e se `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`, scritto da `tools/pkhex-giudica`, la giudica conforme con la stessa impronta del file di oggi; un file cambiato dopo il giudizio risulta da rigiudicare. Le voci riconosciute in un lotto sono 1372, così ripartite: lotto-complemento-rubino 176, lotto-doni-gen67 84, lotto-eventi-gen4 247, lotto-eventi-gen5 700, lotto-gb 165. Le voci di terza generazione della tabella degli eventi conservano la resa del generatore, perché il loro lotto non porta il codice nel nome del file.
+Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce è prodotta e conforme se un file di un lotto la contiene e se `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`, scritto da `tools/pkhex-giudica`, la giudica conforme con la stessa impronta del file di oggi; un file cambiato dopo il giudizio risulta da rigiudicare. Le voci riconosciute in un lotto sono 1412, così ripartite: lotto-complemento-rubino 176, lotto-doni-gen67 84, lotto-eventi-gen4 247, lotto-eventi-gen5 700, lotto-gb 165, lotto-periferiche 40. Le voci di terza generazione della tabella degli eventi conservano la resa del generatore, perché il loro lotto non porta il codice nel nome del file.
 
 | Codice | Gen | Classe | Dex | Forma | Provenienza | Sotto scadenza | Primo della specie | Resa |
 |---|---|---|---|---|---|---|---|---|
@@ -1424,46 +1424,46 @@ Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce
 | `EVT-T-0196` | 3 | spinoff | 175 | 0 | XD, ombra: Togepi: Pokémon Trainer Hordel @ Outskirt Stand | sì | sì | prodotta e conforme |
 | `EVT-T-0197` | 3 | spinoff | 261 | 0 | XD, ombra: Poochyena: Bodybuilder Kilen @ Gateon Port | sì | sì | prodotta e conforme |
 | `EVT-T-0198` | 3 | spinoff | 165 | 0 | XD, ombra: Ledyba: Casual Guy Cyle @ Gateon Port | sì | sì | prodotta e conforme |
-| `EVT-T-0209` | 4 | periferica | 320 | 0 | My Pokemon Ranch: Wailmer | sì | sì | censita, non ancora producibile |
-| `EVT-T-0211` | 4 | periferica | 397 | 0 | My Pokemon Ranch: Staravia | sì | sì | censita, non ancora producibile |
-| `EVT-T-0212` | 4 | periferica | 415 | 0 | My Pokemon Ranch: Combee | sì | sì | censita, non ancora producibile |
-| `EVT-T-0214` | 4 | periferica | 422 | 1 | My Pokemon Ranch: Shellos | sì | sì | censita, non ancora producibile |
-| `EVT-T-0215` | 4 | periferica | 427 | 0 | My Pokemon Ranch: Buneary | sì | sì | censita, non ancora producibile |
-| `EVT-T-0216` | 4 | periferica | 453 | 0 | My Pokemon Ranch: Croagunk | sì | sì | censita, non ancora producibile |
-| `EVT-T-0217` | 4 | periferica | 456 | 0 | My Pokemon Ranch: Finneon | sì | sì | censita, non ancora producibile |
-| `EVT-T-0218` | 4 | periferica | 459 | 0 | My Pokemon Ranch: Snover | sì | sì | censita, non ancora producibile |
-| `EVT-T-0234` | 5 | periferica | 425 | 0 | Dream Radar: Drifloon | sì | sì | censita, non ancora producibile |
-| `EVT-T-0235` | 5 | periferica | 436 | 0 | Dream Radar: Bronzor | sì | sì | censita, non ancora producibile |
-| `EVT-T-0243` | 5 | periferica | 561 | 0 | Dream Radar: Sigilyph | sì | sì | censita, non ancora producibile |
-| `EVT-T-0277` | 4 | periferica | 16 | 0 | Pokewalker: corso Prato Ristoro, livello 5, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0281` | 4 | periferica | 48 | 0 | Pokewalker: corso Bosco Rumoroso, livello 6, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0302` | 4 | periferica | 19 | 0 | Pokewalker: corso Zona Suburbana, livello 7, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0304` | 4 | periferica | 92 | 0 | Pokewalker: corso Grotta Buia, livello 15, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0317` | 4 | periferica | 109 | 0 | Pokewalker: corso Periferia, livello 13, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0323` | 4 | periferica | 314 | 0 | Pokewalker: corso Prato di Hoenn, livello 25, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0324` | 4 | periferica | 313 | 0 | Pokewalker: corso Prato di Hoenn, livello 25, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0326` | 4 | periferica | 265 | 0 | Pokewalker: corso Prato di Hoenn, livello 15, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0328` | 4 | periferica | 298 | 0 | Pokewalker: corso Spiaggia Calda, livello 20, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0336` | 4 | periferica | 111 | 0 | Pokewalker: corso Via del Vulcano, livello 25, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0339` | 4 | periferica | 352 | 0 | Pokewalker: corso Casa sull Albero, livello 30, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0340` | 4 | periferica | 351 | 0 | Pokewalker: corso Casa sull Albero, livello 30, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0341` | 4 | periferica | 203 | 0 | Pokewalker: corso Casa sull Albero, livello 28, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0343` | 4 | periferica | 44 | 0 | Pokewalker: corso Casa sull Albero, livello 14, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0347` | 4 | periferica | 42 | 0 | Pokewalker: corso Grotta Spaventosa, livello 33, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0351` | 4 | periferica | 439 | 0 | Pokewalker: corso Prato di Sinnoh, livello 29, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0353` | 4 | periferica | 403 | 0 | Pokewalker: corso Prato di Sinnoh, livello 33, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0354` | 4 | periferica | 406 | 0 | Pokewalker: corso Prato di Sinnoh, livello 30, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0355` | 4 | periferica | 399 | 0 | Pokewalker: corso Prato di Sinnoh, livello 13, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0356` | 4 | periferica | 401 | 0 | Pokewalker: corso Prato di Sinnoh, livello 15, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0364` | 4 | periferica | 438 | 0 | Pokewalker: corso Grande Foresta, livello 30, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0366` | 4 | periferica | 400 | 0 | Pokewalker: corso Grande Foresta, livello 30, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0369` | 4 | periferica | 433 | 0 | Pokewalker: corso Lago Bianco, livello 22, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0372` | 4 | periferica | 418 | 0 | Pokewalker: corso Lago Bianco, livello 28, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0383` | 4 | periferica | 39 | 0 | Pokewalker: corso Villaggio Turistico, livello 30, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0384` | 4 | periferica | 35 | 0 | Pokewalker: corso Villaggio Turistico, livello 31, corso in dotazione | sì | sì | censita, non ancora producibile |
-| `EVT-T-0419` | 4 | periferica | 279 | 0 | Pokewalker: corso Gita, livello 15, corso distribuito | sì | sì | censita, non ancora producibile |
-| `EVT-T-0420` | 4 | periferica | 61 | 0 | Pokewalker: corso Gita, livello 15, corso distribuito | sì | sì | censita, non ancora producibile |
-| `EVT-T-0432` | 4 | periferica | 440 | 0 | Pokewalker: corso Prato Amicizia, livello 5, corso distribuito | sì | sì | censita, non ancora producibile |
+| `EVT-T-0209` | 4 | periferica | 320 | 0 | My Pokemon Ranch: Wailmer | sì | sì | prodotta e conforme |
+| `EVT-T-0211` | 4 | periferica | 397 | 0 | My Pokemon Ranch: Staravia | sì | sì | prodotta e conforme |
+| `EVT-T-0212` | 4 | periferica | 415 | 0 | My Pokemon Ranch: Combee | sì | sì | prodotta e conforme |
+| `EVT-T-0214` | 4 | periferica | 422 | 1 | My Pokemon Ranch: Shellos | sì | sì | prodotta e conforme |
+| `EVT-T-0215` | 4 | periferica | 427 | 0 | My Pokemon Ranch: Buneary | sì | sì | prodotta e conforme |
+| `EVT-T-0216` | 4 | periferica | 453 | 0 | My Pokemon Ranch: Croagunk | sì | sì | prodotta e conforme |
+| `EVT-T-0217` | 4 | periferica | 456 | 0 | My Pokemon Ranch: Finneon | sì | sì | prodotta e conforme |
+| `EVT-T-0218` | 4 | periferica | 459 | 0 | My Pokemon Ranch: Snover | sì | sì | prodotta e conforme |
+| `EVT-T-0234` | 5 | periferica | 425 | 0 | Dream Radar: Drifloon | sì | sì | prodotta e conforme |
+| `EVT-T-0235` | 5 | periferica | 436 | 0 | Dream Radar: Bronzor | sì | sì | prodotta e conforme |
+| `EVT-T-0243` | 5 | periferica | 561 | 0 | Dream Radar: Sigilyph | sì | sì | prodotta e conforme |
+| `EVT-T-0277` | 4 | periferica | 16 | 0 | Pokewalker: corso Prato Ristoro, livello 5, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0281` | 4 | periferica | 48 | 0 | Pokewalker: corso Bosco Rumoroso, livello 6, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0302` | 4 | periferica | 19 | 0 | Pokewalker: corso Zona Suburbana, livello 7, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0304` | 4 | periferica | 92 | 0 | Pokewalker: corso Grotta Buia, livello 15, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0317` | 4 | periferica | 109 | 0 | Pokewalker: corso Periferia, livello 13, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0323` | 4 | periferica | 314 | 0 | Pokewalker: corso Prato di Hoenn, livello 25, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0324` | 4 | periferica | 313 | 0 | Pokewalker: corso Prato di Hoenn, livello 25, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0326` | 4 | periferica | 265 | 0 | Pokewalker: corso Prato di Hoenn, livello 15, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0328` | 4 | periferica | 298 | 0 | Pokewalker: corso Spiaggia Calda, livello 20, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0336` | 4 | periferica | 111 | 0 | Pokewalker: corso Via del Vulcano, livello 25, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0339` | 4 | periferica | 352 | 0 | Pokewalker: corso Casa sull Albero, livello 30, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0340` | 4 | periferica | 351 | 0 | Pokewalker: corso Casa sull Albero, livello 30, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0341` | 4 | periferica | 203 | 0 | Pokewalker: corso Casa sull Albero, livello 28, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0343` | 4 | periferica | 44 | 0 | Pokewalker: corso Casa sull Albero, livello 14, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0347` | 4 | periferica | 42 | 0 | Pokewalker: corso Grotta Spaventosa, livello 33, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0351` | 4 | periferica | 439 | 0 | Pokewalker: corso Prato di Sinnoh, livello 29, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0353` | 4 | periferica | 403 | 0 | Pokewalker: corso Prato di Sinnoh, livello 33, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0354` | 4 | periferica | 406 | 0 | Pokewalker: corso Prato di Sinnoh, livello 30, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0355` | 4 | periferica | 399 | 0 | Pokewalker: corso Prato di Sinnoh, livello 13, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0356` | 4 | periferica | 401 | 0 | Pokewalker: corso Prato di Sinnoh, livello 15, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0364` | 4 | periferica | 438 | 0 | Pokewalker: corso Grande Foresta, livello 30, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0366` | 4 | periferica | 400 | 0 | Pokewalker: corso Grande Foresta, livello 30, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0369` | 4 | periferica | 433 | 0 | Pokewalker: corso Lago Bianco, livello 22, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0372` | 4 | periferica | 418 | 0 | Pokewalker: corso Lago Bianco, livello 28, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0383` | 4 | periferica | 39 | 0 | Pokewalker: corso Villaggio Turistico, livello 30, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0384` | 4 | periferica | 35 | 0 | Pokewalker: corso Villaggio Turistico, livello 31, corso in dotazione | sì | sì | prodotta e conforme |
+| `EVT-T-0419` | 4 | periferica | 279 | 0 | Pokewalker: corso Gita, livello 15, corso distribuito | sì | sì | prodotta e conforme |
+| `EVT-T-0420` | 4 | periferica | 61 | 0 | Pokewalker: corso Gita, livello 15, corso distribuito | sì | sì | prodotta e conforme |
+| `EVT-T-0432` | 4 | periferica | 440 | 0 | Pokewalker: corso Prato Amicizia, livello 5, corso distribuito | sì | sì | prodotta e conforme |
 | `EVT-2-0014` | 2 | tabella di incontro | 3 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
 | `EVT-2-0020` | 2 | tabella di incontro | 154 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
 | `EVT-2-0022` | 2 | tabella di incontro | 160 | 0 | tabella di incontro da evento | sì | sì | prodotta e conforme |
