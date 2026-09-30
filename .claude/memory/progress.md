@@ -4,6 +4,18 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-30, settima parte. Il primo caricamento sulla console, e il difetto di Luna
+
+Il proprietario ha eseguito i passi sulla console. Per Rubino Omega ha fatto la copia di riserva con Checkpoint, chiamata `20260930-bef-giro1` perché il nome proposto era troppo lungo, e ha ripristinato il primo giro: partita di Brendon a Petalipoli, box pieni, uova degli eventi schiuse con gli esemplari giusti. Ha fatto lo stesso con Luna. Checkpoint sulla sua console si avvia dal menu HOME. In Luna ha visto un'anomalia nel Box 2, posti 22 e 23, e ne ha mandato le schermate, gli screenshot da 57 a 64: un uovo che si dice Poipole di livello 43, e uno Zeraora con l'immagine di Bulbasaur e il nome che cambia.
+
+La causa: Poipole e Zeraora, e con loro il Rockruff con Mentelocale al posto 27, esistono solo in Ultrasole e Ultraluna. La libreria li giudicava conformi perché giudica l'esemplare, non il gioco che lo riceve. `tools/pkhex-scrivi-salvataggio` ora esclude le specie e forme che il gioco di destinazione non ha (`sav.Personal.IsPresentInGame`). La copia di Luna rigenerata ha 268 esemplari e nessuna specie assente; le copie di Rubino Omega, ricontrollate con un programma di prova in `_notes/prove/regione-salvataggi/`, non ne hanno.
+
+Il proprietario ha chiesto se le 31 voci con macchina nascosta espongano a un'azione su HOME, se altri lo abbiano già fatto, e se per i 14 giapponesi serva davvero un salvataggio giapponese. Ha stabilito che i passaggi alla banca si fanno insieme e non ora, che si scrive una roadmap dei passaggi, che alla fine si produce un PDF stampabile della collezione, e che si continua sulle fonti. Tutto è in `pending.md`.
+
+File toccati: `tools/pkhex-scrivi-salvataggio/Program.cs`, `.claude/memory/pending.md`, `.claude/memory/progress.md`; fuori da git la copia in `_notes/salvataggi/prove/scrittura-luna/`.
+
+**Didattica:** caso da scheda, e il secondo dello stesso genere dopo la voce 1: un giudizio conforme su un perimetro più stretto della domanda. La libreria risponde se l'esemplare è legale, non se il gioco che lo riceve lo sa mostrare. Da scrivere come voce 2 quando si chiude il ciclo della console.
+
 ## 2026-09-30, sesta parte. Il passo 2 rifatto sulle decisioni del proprietario: Rubino Omega europeo con le macchine nascoste, e Luna
 
 Il proprietario ha deciso tre cose. Vuole una provenienza europea per Rubino Omega. Le 31 voci con macchina nascosta si scrivono, e ha chiesto che gli si spieghi che cosa si è fatto. Gli esemplari originali dei salvataggi presi dalla rete non gli servono nel deposito. Ha indicato la copia della scheda SD della sua console, `J:\3DS - 03092026`, per cercare un salvataggio giapponese. Ha chiesto infine che ogni passaggio sulla console gli sia spiegato passo per passo, e che ci si attenga alla roadmap.
