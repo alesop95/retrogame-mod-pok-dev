@@ -43,7 +43,7 @@ Stanno tutte in `.claude/rules/` e si leggono prima di agire nell'area che gover
 
 ## Le schede di contesto
 
-Sedici file sotto `.claude/context/`, di cui sei trasversali e dieci verticali, una per sottoprogetto. Una scheda verticale sta sotto le trenta righe e contiene stato, prossimo passo e decisioni aperte: è il terzo file da aprire e quasi sempre l'ultimo che serve.
+Sedici file sotto `.claude/context/`, di cui sei trasversali e dieci verticali, una per sottoprogetto. Una scheda verticale sta sotto le trenta righe e contiene stato, prossimo passo e decisioni aperte: è il terzo file da aprire e quasi sempre l'ultimo che serve. Accanto alle schede sta, dal 2026-09-29, il livello didattico: `studio-didattico-master.md` è il racconto evolutivo del perché di una scelta, e ogni sua voce rimanda a una scheda `refactor-NN-<slug>.md` che entra nel codice; la prima è `refactor-01-forme-di-battaglia.md`, del 2026-09-30. Non sono stato e non si leggono a inizio sessione.
 
 `sub-pokedex-home-completo.md` era arrivata a diciottomila byte perché quel track era cresciuto molto in una settimana; è stata potata il 2026-09-09 trasferendo la conoscenza nei documenti del track. Resta più lunga delle altre e va consultata per sezioni, senza ripetere il racconto nei nuovi aggiornamenti.
 

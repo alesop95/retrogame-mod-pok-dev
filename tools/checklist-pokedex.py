@@ -624,7 +624,19 @@ SOLO_DA_EVENTI_CHIUSI = {
     # generazione: le giapponesi 36 e 143, e la 511 in otto lingue compreso l'italiano, trovata il 2026-09-24
     # da tools/pkhex-dono nella base dei doni della libreria. Il carosello di clorogaming del 2026-09-19 lo diceva.
     (666, 19),
+    # Greninja con Morfosi, verificato il 2026-09-29 sul verificatore al commit e15d246. Nasce soltanto dalla carta
+    # 2046 della demo speciale di Sole e Luna (`WC7.IsAshGreninja`, in `EncounterEvent.MGDB_G7` in nove lingue), e
+    # `Legality/Breeding.cs` riga 141 esclude che si allevi. La fonte che l'ha fatto notare sono tre dei video del
+    # 2026-09-29 in `SOURCES.md`, Hh4GdQsZVEY, YiSsHpkg4rE e PY0p0zWsRt4.
+    (658, 1),
 }
+
+# Le specie la cui via di specie la presenza nei dati non vede. Spinda, verificato il 2026-09-29 al commit e15d246:
+# fra i titoli collegati al deposito compare nei soli dati di Diamante Lucente e Perla Splendente, ma
+# `Legality/Evolutions/EvolutionGroup/EvolutionGroupHOME.cs` righe 152-165 dice che Spinda e Nincada non possono
+# lasciare quei titoli né entrarvi, e `Legality/Verifiers/Ball/BallVerifier.cs` riga 142 che Spinda non passa per il
+# deposito. Nincada è anche in Spada e Scudo e resta diretta. È la sola eccezione che STUDIO-01 prevedeva.
+SPECIE_SOLO_DA_BANCA = {327}
 
 
 def main(argv=None):
@@ -634,6 +646,8 @@ def main(argv=None):
     ap.add_argument("--salvataggi", help="esito JSON di tools/verifica-salvataggi.py")
     ap.add_argument("--markdown", help="scrive la lista come documento tracciato")
     ap.add_argument("--coda", help="scrive la coda di produzione del primo tempo")
+    ap.add_argument("--forme-battaglia", default=os.path.join(RADICE, "_notes", "forme-di-battaglia.json"),
+                    help="JSON di tools/pkhex-forme-battaglia con le coppie specie e forma di sola battaglia")
     ap.add_argument("--richieste-doni", help="scrive in JSON le voci del primo tempo da doni segreti "
                     "di sesta e settima generazione non ancora pronte, per tools/pkhex-dono")
     a = ap.parse_args(argv)
@@ -648,8 +662,12 @@ def main(argv=None):
     # e delle forme non si riscrive qui: viene dallo strumento che l'ha già verificata.
     per_nome = disp.specie_per_nome(a.pkhex)
     forme_src = disp.leggi(a.pkhex, disp.SORGENTE_FORME)
-    battaglia = (disp.elenco_specie(forme_src, "BattleMegas", per_nome)
-                 | disp.elenco_specie(forme_src, "BattleForms", per_nome))
+    # Le forme di sola battaglia si decidono per forma e non per specie. Fino al 2026-09-29 qui si leggevano i due
+    # elenchi di specie `BattleMegas` e `BattleForms`, e ogni forma non base di quelle specie risultava di sola
+    # battaglia: 29 delle 170 forme così marcate si depositano, e una di esse, il Greninja con Morfosi, scade con
+    # la banca. La regola per forma è codice C# e la valuta la libreria, con tools/pkhex-forme-battaglia.
+    with open(a.forme_battaglia, encoding="utf-8") as fb:
+        battaglia = {(c[0], c[1]) for c in json.load(fb)["coppie"]}
     totemiche = disp.specie_con_forma_totemica(forme_src, per_nome)
 
     # I due insiemi non si ricalcolano qui: li restituisce lo strumento che li ha già verificati.
@@ -668,6 +686,8 @@ def main(argv=None):
     righe_specie = []
     for s in range(1, disp.DEX_MASSIMO + 1):
         via = "diretta" if (s, 0) in diretta else ("banca" if (s, 0) in indiretta else "ignota")
+        if s in SPECIE_SOLO_DA_BANCA:
+            via = "banca"
         righe_specie.append({
             "codice": codice(s, 0),
             "numero": s,
@@ -688,7 +708,7 @@ def main(argv=None):
             # su quel titolo: l'insieme `diretta` misura i dati, e qui il verificatore stesso dice che
             # nessun incontro di quel titolo la produce. La prova sta nel commento della tabella.
             via = "banca"
-        if s in battaglia:
+        if (s, f) in battaglia:
             natura = "forma di sola battaglia: non può stare in una scatola"
         elif disp.e_totemica(s, f, totemiche, per_nome):
             natura = "forma totemica: al trasferimento torna alla forma base"

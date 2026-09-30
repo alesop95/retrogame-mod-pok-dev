@@ -346,7 +346,7 @@ Restano fuori da questa rigenerazione due correzioni che il progetto ha in sospe
 | `PKD-0324-00` | 324 | Torkoal | diretta | salvataggio esterno |
 | `PKD-0325-00` | 325 | Spoink | diretta | evento Gen 3 producibile, salvataggio esterno |
 | `PKD-0326-00` | 326 | Grumpig | diretta | salvataggio esterno |
-| `PKD-0327-00` | 327 | Spinda | diretta | evento Gen 3 producibile, salvataggio esterno |
+| `PKD-0327-00` | 327 | Spinda | banca | evento Gen 3 producibile, salvataggio esterno |
 | `PKD-0328-00` | 328 | Trapinch | diretta | salvataggio esterno |
 | `PKD-0329-00` | 329 | Vibrava | diretta | salvataggio esterno |
 | `PKD-0330-00` | 330 | Flygon | diretta | salvataggio esterno |
@@ -7335,7 +7335,7 @@ Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce
 | `PKD-0025-07` | 25 | Pikachu | 7 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0025-08` | 25 | Pikachu | 8 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0025-09` | 25 | Pikachu | 9 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
-| `PKD-0026-01` | 26 | Raichu | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
+| `PKD-0026-01` | 26 | Raichu | 1 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0026-02` | 26 | Raichu | 2 | diretta | forma di sola battaglia: non può stare in una scatola |
 | `PKD-0026-03` | 26 | Raichu | 3 | diretta | forma di sola battaglia: non può stare in una scatola |
 | `PKD-0027-01` | 27 | Sandshrew | 1 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
@@ -7360,7 +7360,7 @@ Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce
 | `PKD-0078-01` | 78 | Rapidash | 1 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0079-01` | 79 | Slowpoke | 1 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0080-01` | 80 | Slowbro | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-0080-02` | 80 | Slowbro | 2 | diretta | forma di sola battaglia: non può stare in una scatola |
+| `PKD-0080-02` | 80 | Slowbro | 2 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0083-01` | 83 | Farfetch’d | 1 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0088-01` | 88 | Grimer | 1 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0089-01` | 89 | Muk | 1 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
@@ -7520,7 +7520,7 @@ Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce
 | `PKD-0550-02` | 550 | Basculin | 2 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0554-01` | 554 | Darumaka | 1 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0555-01` | 555 | Darmanitan | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-0555-02` | 555 | Darmanitan | 2 | diretta | forma di sola battaglia: non può stare in una scatola |
+| `PKD-0555-02` | 555 | Darmanitan | 2 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0555-03` | 555 | Darmanitan | 3 | diretta | forma di sola battaglia: non può stare in una scatola |
 | `PKD-0560-01` | 560 | Scrafty | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
 | `PKD-0562-01` | 562 | Yamask | 1 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
@@ -7550,7 +7550,7 @@ Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce
 | `PKD-0649-04` | 649 | Genesect | 4 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0652-01` | 652 | Chesnaught | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
 | `PKD-0655-01` | 655 | Delphox | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-0658-01` | 658 | Greninja | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
+| `PKD-0658-01` | 658 | Greninja | 1 | banca | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0658-02` | 658 | Greninja | 2 | banca | forma di sola battaglia: non può stare in una scatola |
 | `PKD-0658-03` | 658 | Greninja | 3 | diretta | forma di sola battaglia: non può stare in una scatola |
 | `PKD-0664-01` | 664 | Scatterbug | 1 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
@@ -7615,11 +7615,11 @@ Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce
 | `PKD-0669-02` | 669 | Flabébé | 2 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0669-03` | 669 | Flabébé | 3 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0669-04` | 669 | Flabébé | 4 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
-| `PKD-0670-01` | 670 | Floette | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-0670-02` | 670 | Floette | 2 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-0670-03` | 670 | Floette | 3 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-0670-04` | 670 | Floette | 4 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-0670-05` | 670 | Floette | 5 | diretta | forma di sola battaglia: non può stare in una scatola |
+| `PKD-0670-01` | 670 | Floette | 1 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
+| `PKD-0670-02` | 670 | Floette | 2 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
+| `PKD-0670-03` | 670 | Floette | 3 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
+| `PKD-0670-04` | 670 | Floette | 4 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
+| `PKD-0670-05` | 670 | Floette | 5 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0670-06` | 670 | Floette | 6 | diretta | forma di sola battaglia: non può stare in una scatola |
 | `PKD-0671-01` | 671 | Florges | 1 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0671-02` | 671 | Florges | 2 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
@@ -7634,7 +7634,7 @@ Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce
 | `PKD-0676-07` | 676 | Furfrou | 7 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0676-08` | 676 | Furfrou | 8 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0676-09` | 676 | Furfrou | 9 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
-| `PKD-0678-01` | 678 | Meowstic | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
+| `PKD-0678-01` | 678 | Meowstic | 1 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0678-02` | 678 | Meowstic | 2 | diretta | forma di sola battaglia: non può stare in una scatola |
 | `PKD-0678-03` | 678 | Meowstic | 3 | diretta | forma di sola battaglia: non può stare in una scatola |
 | `PKD-0681-01` | 681 | Aegislash | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
@@ -7653,9 +7653,9 @@ Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce
 | `PKD-0713-01` | 713 | Avalugg | 1 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0713-02` | 713 | Avalugg | 2 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0716-01` | 716 | Xerneas | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-0718-01` | 718 | Zygarde | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-0718-02` | 718 | Zygarde | 2 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-0718-03` | 718 | Zygarde | 3 | diretta | forma di sola battaglia: non può stare in una scatola |
+| `PKD-0718-01` | 718 | Zygarde | 1 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
+| `PKD-0718-02` | 718 | Zygarde | 2 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
+| `PKD-0718-03` | 718 | Zygarde | 3 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0718-04` | 718 | Zygarde | 4 | diretta | forma di sola battaglia: non può stare in una scatola |
 | `PKD-0718-05` | 718 | Zygarde | 5 | diretta | forma di sola battaglia: non può stare in una scatola |
 | `PKD-0719-01` | 719 | Diancie | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
@@ -7699,23 +7699,23 @@ Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce
 | `PKD-0774-04` | 774 | Minior | 4 | diretta | forma di sola battaglia: non può stare in una scatola |
 | `PKD-0774-05` | 774 | Minior | 5 | diretta | forma di sola battaglia: non può stare in una scatola |
 | `PKD-0774-06` | 774 | Minior | 6 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-0774-07` | 774 | Minior | 7 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-0774-08` | 774 | Minior | 8 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-0774-09` | 774 | Minior | 9 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-0774-10` | 774 | Minior | 10 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-0774-11` | 774 | Minior | 11 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-0774-12` | 774 | Minior | 12 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-0774-13` | 774 | Minior | 13 | diretta | forma di sola battaglia: non può stare in una scatola |
+| `PKD-0774-07` | 774 | Minior | 7 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
+| `PKD-0774-08` | 774 | Minior | 8 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
+| `PKD-0774-09` | 774 | Minior | 9 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
+| `PKD-0774-10` | 774 | Minior | 10 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
+| `PKD-0774-11` | 774 | Minior | 11 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
+| `PKD-0774-12` | 774 | Minior | 12 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
+| `PKD-0774-13` | 774 | Minior | 13 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0777-01` | 777 | Togedemaru | 1 | banca | forma totemica: al trasferimento torna alla forma base |
 | `PKD-0778-01` | 778 | Mimikyu | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-0778-02` | 778 | Mimikyu | 2 | banca | forma di sola battaglia: non può stare in una scatola |
+| `PKD-0778-02` | 778 | Mimikyu | 2 | banca | forma totemica: al trasferimento torna alla forma base |
 | `PKD-0778-03` | 778 | Mimikyu | 3 | banca | forma di sola battaglia: non può stare in una scatola |
 | `PKD-0780-01` | 780 | Drampa | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
 | `PKD-0784-01` | 784 | Kommo-o | 1 | banca | forma totemica: al trasferimento torna alla forma base |
-| `PKD-0800-01` | 800 | Necrozma | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-0800-02` | 800 | Necrozma | 2 | diretta | forma di sola battaglia: non può stare in una scatola |
+| `PKD-0800-01` | 800 | Necrozma | 1 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
+| `PKD-0800-02` | 800 | Necrozma | 2 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0800-03` | 800 | Necrozma | 3 | banca | forma di sola battaglia: non può stare in una scatola |
-| `PKD-0801-01` | 801 | Magearna | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
+| `PKD-0801-01` | 801 | Magearna | 1 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0801-02` | 801 | Magearna | 2 | diretta | forma di sola battaglia: non può stare in una scatola |
 | `PKD-0801-03` | 801 | Magearna | 3 | diretta | forma di sola battaglia: non può stare in una scatola |
 | `PKD-0807-01` | 807 | Zeraora | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
@@ -7755,8 +7755,8 @@ Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce
 | `PKD-0952-01` | 952 | Scovillain | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
 | `PKD-0964-01` | 964 | Palafin | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
 | `PKD-0970-01` | 970 | Glimmora | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-0978-01` | 978 | Tatsugiri | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-0978-02` | 978 | Tatsugiri | 2 | diretta | forma di sola battaglia: non può stare in una scatola |
+| `PKD-0978-01` | 978 | Tatsugiri | 1 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
+| `PKD-0978-02` | 978 | Tatsugiri | 2 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-0978-03` | 978 | Tatsugiri | 3 | diretta | forma di sola battaglia: non può stare in una scatola |
 | `PKD-0978-04` | 978 | Tatsugiri | 4 | diretta | forma di sola battaglia: non può stare in una scatola |
 | `PKD-0978-05` | 978 | Tatsugiri | 5 | diretta | forma di sola battaglia: non può stare in una scatola |
@@ -7775,9 +7775,9 @@ Dal 2026-09-24 la resa tiene conto dei lotti che stanno già sul disco. Una voce
 | `PKD-1012-02` | 1012 | Poltchageist | 2 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-1013-01` | 1013 | Sinistcha | 1 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-1013-02` | 1013 | Sinistcha | 2 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
-| `PKD-1017-01` | 1017 | Ogerpon | 1 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-1017-02` | 1017 | Ogerpon | 2 | diretta | forma di sola battaglia: non può stare in una scatola |
-| `PKD-1017-03` | 1017 | Ogerpon | 3 | diretta | forma di sola battaglia: non può stare in una scatola |
+| `PKD-1017-01` | 1017 | Ogerpon | 1 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
+| `PKD-1017-02` | 1017 | Ogerpon | 2 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
+| `PKD-1017-03` | 1017 | Ogerpon | 3 | diretta | indeterminato: nessuna fonte di primo livello dice se il deposito la conti |
 | `PKD-1017-04` | 1017 | Ogerpon | 4 | diretta | forma di sola battaglia: non può stare in una scatola |
 | `PKD-1017-05` | 1017 | Ogerpon | 5 | diretta | forma di sola battaglia: non può stare in una scatola |
 | `PKD-1017-06` | 1017 | Ogerpon | 6 | diretta | forma di sola battaglia: non può stare in una scatola |
