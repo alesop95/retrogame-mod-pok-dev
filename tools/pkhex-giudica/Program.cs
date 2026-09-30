@@ -25,7 +25,10 @@
 // dal gioco reale, come la barriera fra giochi coreani e internazionali di quarta generazione (ADR-040),
 // valgono per quel gioco e vanno giudicati con quella versione e quella lingua.
 //
-// Uso:  dotnet run -c Release -- USCITA.json CARTELLA[=VERSIONE] [CARTELLA[=VERSIONE] ...]
+// Una cartella scritta come CARTELLA=VC giudica esemplari di prima e seconda generazione nel contesto della
+// Console Virtuale del 3DS invece che in quello delle cartucce.
+//
+// Uso:  dotnet run -c Release -- USCITA.json CARTELLA[=VERSIONE|=VC] [CARTELLA[=VERSIONE|=VC] ...]
 using System.Security.Cryptography;
 using System.Text.Json;
 using System.Text.Json.Nodes;
@@ -51,7 +54,11 @@ int conformi = 0, contestati = 0, illeggibili = 0;
 foreach (var argomento in args.Skip(1))
 {
     var parti = argomento.Split('=', 2);
-    GameVersion? versioneImposta = parti.Length == 2 ? Enum.Parse<GameVersion>(parti[1], true) : null;
+    // CARTELLA=VC giudica esemplari di prima e seconda generazione nel contesto della Console Virtuale del 3DS,
+    // che e' il gioco da cui partono verso la banca: la libreria ammette i suoi doni, come il Mew GF 22796, solo
+    // fuori dall'epoca delle cartucce, e un salvataggio vuoto di Game Boy e' sempre dell'epoca delle cartucce.
+    bool consoleVirtuale = parti.Length == 2 && parti[1].Equals("VC", StringComparison.OrdinalIgnoreCase);
+    GameVersion? versioneImposta = parti.Length == 2 && !consoleVirtuale ? Enum.Parse<GameVersion>(parti[1], true) : null;
     var radice = Path.GetFullPath(parti[0]);
     var nomeCartella = Path.GetFileName(radice.TrimEnd(Path.DirectorySeparatorChar));
     foreach (var percorso in Directory.EnumerateFiles(radice).Order(StringComparer.Ordinal))
@@ -71,6 +78,8 @@ foreach (var argomento in args.Skip(1))
         }
         var salvataggio = SalvataggioVuoto(pk, versioneImposta);
         ParseSettings.InitFromSaveFileData(salvataggio);
+        if (consoleVirtuale)
+            ParseSettings.AllowEraCartGB = false;
         var la = new LegalityAnalysis(pk);
         voce["specie"] = pk.Species;
         voce["nome"] = pk.Species < nomiSpecie.Count ? nomiSpecie[pk.Species] : "?";

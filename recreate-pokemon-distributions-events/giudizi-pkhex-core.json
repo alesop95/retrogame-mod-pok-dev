@@ -6,7 +6,7 @@
     "versione": "26.8.26.0"
   },
   "conteggi": {
-    "conformi": 2010,
+    "conformi": 2021,
     "contestati": 0,
     "illeggibili": 0
   },
@@ -55297,6 +55297,308 @@
           "Ultimocanto"
         ],
         "incontro": "Event Gift (WC7)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-greninja-morfosi/DONO-7-2046-00-658-01.pk7": {
+      "sha256": "a4bd526fa05a58c36225d79ab78e4be90b884f3343517901878cf51a35ca4c83",
+      "specie": 658,
+      "nome": "Greninja",
+      "forma": 1,
+      "formato": "PK7",
+      "contesto": "UM ChineseS",
+      "descrizione": {
+        "specie_it": "Greninja",
+        "livello": 36,
+        "soprannome": null,
+        "allenatore": "Satoshi",
+        "id_allenatore": 131017,
+        "lingua": "ChineseS",
+        "gioco_di_origine": "SN",
+        "luogo": "Kalos",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Acqualame",
+          "Aeroassalto",
+          "Doppioteam",
+          "Nottesferza"
+        ],
+        "incontro": "Event Gift (WC7)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-greninja-morfosi/DONO-7-2046-01-658-01.pk7": {
+      "sha256": "3eb2109100d045b1ae74bdcfb1578c24ffe7f2b99eec678217029692917dc4b6",
+      "specie": 658,
+      "nome": "Greninja",
+      "forma": 1,
+      "formato": "PK7",
+      "contesto": "UM ChineseT",
+      "descrizione": {
+        "specie_it": "Greninja",
+        "livello": 36,
+        "soprannome": null,
+        "allenatore": "Satoshi",
+        "id_allenatore": 131017,
+        "lingua": "ChineseT",
+        "gioco_di_origine": "SN",
+        "luogo": "Kalos",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Acqualame",
+          "Aeroassalto",
+          "Doppioteam",
+          "Nottesferza"
+        ],
+        "incontro": "Event Gift (WC7)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-greninja-morfosi/DONO-7-2046-02-658-01.pk7": {
+      "sha256": "ed73a7692a32df21bab5b81f4daba91ae156824b45fd08d7c4a9960eedf5b346",
+      "specie": 658,
+      "nome": "Greninja",
+      "forma": 1,
+      "formato": "PK7",
+      "contesto": "UM English",
+      "descrizione": {
+        "specie_it": "Greninja",
+        "livello": 36,
+        "soprannome": null,
+        "allenatore": "Ash",
+        "id_allenatore": 131017,
+        "lingua": "English",
+        "gioco_di_origine": "SN",
+        "luogo": "Kalos",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Acqualame",
+          "Aeroassalto",
+          "Doppioteam",
+          "Nottesferza"
+        ],
+        "incontro": "Event Gift (WC7)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-greninja-morfosi/DONO-7-2046-03-658-01.pk7": {
+      "sha256": "9062a060549483315c67f8f2c39d7974d0373ba79e8674d0204f2f53fea526f0",
+      "specie": 658,
+      "nome": "Greninja",
+      "forma": 1,
+      "formato": "PK7",
+      "contesto": "UM French",
+      "descrizione": {
+        "specie_it": "Greninja",
+        "livello": 36,
+        "soprannome": null,
+        "allenatore": "Sacha",
+        "id_allenatore": 131017,
+        "lingua": "French",
+        "gioco_di_origine": "MN",
+        "luogo": "Kalos",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Acqualame",
+          "Aeroassalto",
+          "Doppioteam",
+          "Nottesferza"
+        ],
+        "incontro": "Event Gift (WC7)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-greninja-morfosi/DONO-7-2046-04-658-01.pk7": {
+      "sha256": "5ab0c52920bd3a3e78b1615e9cc1f1c980b457b2c0e74711b4ef63d8a5898f11",
+      "specie": 658,
+      "nome": "Greninja",
+      "forma": 1,
+      "formato": "PK7",
+      "contesto": "UM German",
+      "descrizione": {
+        "specie_it": "Greninja",
+        "livello": 36,
+        "soprannome": null,
+        "allenatore": "Ash",
+        "id_allenatore": 131017,
+        "lingua": "German",
+        "gioco_di_origine": "SN",
+        "luogo": "Kalos",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Acqualame",
+          "Aeroassalto",
+          "Doppioteam",
+          "Nottesferza"
+        ],
+        "incontro": "Event Gift (WC7)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-greninja-morfosi/DONO-7-2046-05-658-01.pk7": {
+      "sha256": "274392693309c4819310a91662d83740e4c50e1f100abddd85383d047421b74c",
+      "specie": 658,
+      "nome": "Greninja",
+      "forma": 1,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Greninja",
+        "livello": 36,
+        "soprannome": null,
+        "allenatore": "Ash",
+        "id_allenatore": 131017,
+        "lingua": "Italian",
+        "gioco_di_origine": "SN",
+        "luogo": "Kalos",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Acqualame",
+          "Aeroassalto",
+          "Doppioteam",
+          "Nottesferza"
+        ],
+        "incontro": "Event Gift (WC7)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-greninja-morfosi/DONO-7-2046-06-658-01.pk7": {
+      "sha256": "b649ed4574ec20f276ad6fac283b7ab2a5d7cf4d13ef706dbeadb3b9ae38c666",
+      "specie": 658,
+      "nome": "Greninja",
+      "forma": 1,
+      "formato": "PK7",
+      "contesto": "UM Japanese",
+      "descrizione": {
+        "specie_it": "Greninja",
+        "livello": 36,
+        "soprannome": null,
+        "allenatore": "\u30B5\u30C8\u30B7",
+        "id_allenatore": 131017,
+        "lingua": "Japanese",
+        "gioco_di_origine": "SN",
+        "luogo": "Kalos",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Acqualame",
+          "Aeroassalto",
+          "Doppioteam",
+          "Nottesferza"
+        ],
+        "incontro": "Event Gift (WC7)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-greninja-morfosi/DONO-7-2046-07-658-01.pk7": {
+      "sha256": "64f473ae7f5559170bf2c20bde926b8ad7794b7d588c65b69ccc765e47ffad73",
+      "specie": 658,
+      "nome": "Greninja",
+      "forma": 1,
+      "formato": "PK7",
+      "contesto": "UM Korean",
+      "descrizione": {
+        "specie_it": "Greninja",
+        "livello": 36,
+        "soprannome": null,
+        "allenatore": "\uC9C0\uC6B0",
+        "id_allenatore": 131017,
+        "lingua": "Korean",
+        "gioco_di_origine": "MN",
+        "luogo": "Kalos",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Acqualame",
+          "Aeroassalto",
+          "Doppioteam",
+          "Nottesferza"
+        ],
+        "incontro": "Event Gift (WC7)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-greninja-morfosi/DONO-7-2046-08-658-01.pk7": {
+      "sha256": "486b16992fab60a1026f0b6af39b67975bb4ab1606336932443f9c17e5a12a74",
+      "specie": 658,
+      "nome": "Greninja",
+      "forma": 1,
+      "formato": "PK7",
+      "contesto": "UM Spanish",
+      "descrizione": {
+        "specie_it": "Greninja",
+        "livello": 36,
+        "soprannome": null,
+        "allenatore": "Ash",
+        "id_allenatore": 131017,
+        "lingua": "Spanish",
+        "gioco_di_origine": "SN",
+        "luogo": "Kalos",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Acqualame",
+          "Aeroassalto",
+          "Doppioteam",
+          "Nottesferza"
+        ],
+        "incontro": "Event Gift (WC7)"
+      },
+      "esito": "conforme"
+    },
+    "lotto-mew-vc/MEW-VC-GF-Giapponese.pk1": {
+      "sha256": "e9c6f84c3c45fbcacb82701668ad34d5d7edba723c019ad8d7e270b71a89623d",
+      "specie": 151,
+      "nome": "Mew",
+      "forma": 0,
+      "formato": "PK1",
+      "contesto": "BU Japanese",
+      "descrizione": {
+        "specie_it": "Mew",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "\u30B2\u30FC\u30D5\u30EA",
+        "id_allenatore": 22796,
+        "lingua": "Japanese",
+        "gioco_di_origine": "RBY",
+        "luogo": "",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Botta"
+        ],
+        "incontro": "Event Gift"
+      },
+      "esito": "conforme"
+    },
+    "lotto-mew-vc/MEW-VC-GF-Internazionale.pk1": {
+      "sha256": "9f354e11628a873c1d961a27a50f7b699cef7953c6d8899cb70c390a8475e2b8",
+      "specie": 151,
+      "nome": "Mew",
+      "forma": 0,
+      "formato": "PK1",
+      "contesto": "RD English",
+      "descrizione": {
+        "specie_it": "Mew",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "GF",
+        "id_allenatore": 22796,
+        "lingua": "English",
+        "gioco_di_origine": "RBY",
+        "luogo": "",
+        "luogo_uovo": null,
+        "sfera": "Niente",
+        "mosse": [
+          "Botta"
+        ],
+        "incontro": "Event Gift"
       },
       "esito": "conforme"
     }

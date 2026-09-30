@@ -181,7 +181,7 @@ Il giudizio si legge dall'indicatore di conformità che il programma mostra acca
 
 Il giudizio di conformità con l'interfaccia di PKHeX descritto sopra è una prova fatta da una persona, e il suo resoconto in `recreate-pokemon-distributions-events/giudizi-esterni.json` dice che cosa è stato visto un certo giorno, non se i file che stanno oggi sul disco siano gli stessi. Dal 2026-09-24 la stessa prova è ripetibile senza interfaccia: `tools/pkhex-giudica` è un programma C# sulla libreria PKHeX.Core compilata dal clone in `_notes/fonti/cloni/pkhex`, la stessa usata da `tools/pkhex-genera`, e applica `LegalityAnalysis` a ogni file di esemplare delle cartelle ricevute, scrivendo un JSON con l'impronta SHA-256, la specie, il contesto, l'esito e, per i contestati, le righe del rapporto in inglese.
 
-Il punto che decide l'esito è il contesto. La libreria giudica alcune regole in funzione del salvataggio attivo, e senza salvataggio applica le regole della Virtual Console: la prima corsa, fatta così, contestava 159 dei 165 esemplari del lotto di Game Boy per le mosse degli eventi dell'epoca delle cartucce, che quelle regole non ammettono. Il programma riproduce quindi ciò che l'interfaccia fa quando riceve un file all'avvio, cioè `StartupArguments.GetBlank`: un salvataggio vuoto del gioco predefinito per il contesto dell'esemplare, con allenatore e lingua dell'esemplare, attivato con `ParseSettings.InitFromSaveFileData`. Con quel contesto lo stesso lotto passa 164 su 165. Il salvataggio vuoto è intestato a chi detiene l'esemplare, non all'allenatore originale. Per un dono di sesta generazione l'allenatore originale è la sigla dell'evento, e la prima versione, che usava quel nome, contestava a 73 doni su 78 il detentore. Una cartella scritta come `CARTELLA=VERSIONE` usa un salvataggio vuoto di quella versione, e resta vero che un salvataggio vuoto non è il salvataggio reale che riceverà l'esemplare: la barriera coreana di ADR-040 si vede solo giudicando con la versione e la lingua del gioco di destinazione.
+Il punto che decide l'esito è il contesto. La libreria giudica alcune regole in funzione del salvataggio attivo, e senza salvataggio applica le regole della Virtual Console: la prima corsa, fatta così, contestava 159 dei 165 esemplari del lotto di Game Boy per le mosse degli eventi dell'epoca delle cartucce, che quelle regole non ammettono. Il programma riproduce quindi ciò che l'interfaccia fa quando riceve un file all'avvio, cioè `StartupArguments.GetBlank`: un salvataggio vuoto del gioco predefinito per il contesto dell'esemplare, con allenatore e lingua dell'esemplare, attivato con `ParseSettings.InitFromSaveFileData`. Con quel contesto lo stesso lotto passa 164 su 165. Il salvataggio vuoto è intestato a chi detiene l'esemplare, non all'allenatore originale. Per un dono di sesta generazione l'allenatore originale è la sigla dell'evento, e la prima versione, che usava quel nome, contestava a 73 doni su 78 il detentore. Una cartella scritta come `CARTELLA=VERSIONE` usa un salvataggio vuoto di quella versione, e resta vero che un salvataggio vuoto non è il salvataggio reale che riceverà l'esemplare: la barriera coreana di ADR-040 si vede solo giudicando con la versione e la lingua del gioco di destinazione. Dal 2026-09-30 una cartella scritta come `CARTELLA=VC` si giudica nel contesto della Console Virtuale anche per il formato di Game Boy, che è il contesto giusto per ciò che parte verso la banca da quelle edizioni: la prima occorrenza è il Mew GF di `pkhex-mew-vc`, che nel contesto delle cartucce risulta senza incontro.
 
 ```powershell
 cd "E:/retrogame-mod-pok-dev/tools/pkhex-giudica"
@@ -206,6 +206,24 @@ Genera un dono segreto di sesta o settima generazione dalle carte ufficiali cont
 ```powershell
 cd "E:/retrogame-mod-pok-dev/tools/pkhex-dono"
 dotnet run -c Release -- "../../_notes/salvataggi/terzi/main(7)" "../../_notes/salvataggi/prove/prova-vivillon-y-2" 666/19 --copia-salvataggio "../../_notes/salvataggi/prove/prova-vivillon-y-2/main-con-vivillon"
+```
+
+## pkhex-forme-battaglia
+
+Scrive in JSON le coppie specie e forma che la libreria dichiara di sola battaglia, interrogando `FormInfo.IsBattleOnlyForm` su ogni specie del Dex Nazionale e su ogni indice di forma da 1 a 31, con il commit del clone da cui la risposta viene. Esiste perché fino al 2026-09-29 `checklist-pokedex.py` leggeva dal sorgente i due elenchi di specie `BattleMegas` e `BattleForms` e marcava di sola battaglia ogni forma non base di quelle specie: interrogata la regola sulle 170 forme così marcate, 29 si depositano, fra cui il Greninja con Morfosi, che scade con la banca. La regola per forma è un'espressione C# e non una tabella, quindi non la legge Python ma la valuta la libreria. La checklist legge l'uscita da `_notes/forme-di-battaglia.json`, oppure dal percorso passato con `--forme-battaglia`, e va rigenerata dopo ogni aggiornamento del clone.
+
+```powershell
+cd "E:/retrogame-mod-pok-dev/tools/pkhex-forme-battaglia"
+dotnet run -c Release -- "../../_notes/forme-di-battaglia.json"
+```
+
+## pkhex-mew-vc
+
+Genera il Mew GF della Console Virtuale, allenatore GF e identificativo 22796, che è il solo Mew di prima generazione che il deposito accetti. La libreria lo conosce come `Encounters1VC.Gift` e lo ammette soltanto fuori dall'epoca delle cartucce, quindi lo strumento imposta `ParseSettings.AllowEraCartGB` a falso, chiede l'incontro, genera un esemplare giapponese e uno internazionale, che è tutto ciò che il formato PK1 distingue, e li giudica. Il giudizio di controllo si fa con `pkhex-giudica` passando la cartella come `CARTELLA=VC`, perché un salvataggio vuoto di Game Boy è sempre dell'epoca delle cartucce e vi il Mew risulterebbe senza incontro.
+
+```powershell
+cd "E:/retrogame-mod-pok-dev/tools/pkhex-mew-vc"
+dotnet run -c Release -- "../../_notes/lotti/lotto-mew-vc"
 ```
 
 ## pkhex-rigenera
