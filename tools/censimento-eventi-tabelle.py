@@ -240,6 +240,11 @@ def voci_array(testo, nome, modo):
             m = re.search(r"new\(\s*(\d+)\s*,\s*(\d+)", riga)
             if m:
                 specie = int(m.group(1) if modo == "primo" else m.group(2))
+                # Gli scambi di Hayley portano come primo argomento il valore di personalita', salvo il Mew e il
+                # Phione, che usano un costruttore senza di esso: la specie e' allora il primo argomento, e il
+                # secondo e' il livello d'incontro. Il 2026-09-30 il censimento li registrava come specie 50 e 1.
+                if modo == "secondo" and int(m.group(1)) <= 1025:
+                    specie = int(m.group(1))
         if specie is None:
             continue
         forma = 0

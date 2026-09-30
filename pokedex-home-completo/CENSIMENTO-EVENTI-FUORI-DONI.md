@@ -34,7 +34,7 @@ Le classi restano separate, e non è una precauzione formale. Una distribuzione 
 | porta-permanente | 8 | Pokemon GO verso il deposito | 1164 | 948 | no |
 | porta-permanente | 7 | Pokemon GO verso Let's Go | 170 | 152 | no |
 
-Le voci censite sono 4622 e portano 980 specie distinte; quelle sotto scadenza sono 409 e portano 251 specie distinte. Fino al 2026-09-04 nessuna di esse compariva nella lista di spunta, che le ignorava tutte: da quella data `tools/checklist-pokedex.py` invoca questo programma e le voci entrano nel suo asse degli eventi con la classe dichiarata e il codice `EVT-T-`. Il numero da guardare per misurare quanto pesassero è quello delle specie distinte sotto scadenza, perché è la parte che il primo tempo della coda deve coprire e che prima non sapeva di dover coprire.
+Le voci censite sono 4622 e portano 980 specie distinte; quelle sotto scadenza sono 409 e portano 250 specie distinte. Fino al 2026-09-04 nessuna di esse compariva nella lista di spunta, che le ignorava tutte: da quella data `tools/checklist-pokedex.py` invoca questo programma e le voci entrano nel suo asse degli eventi con la classe dichiarata e il codice `EVT-T-`. Il numero da guardare per misurare quanto pesassero è quello delle specie distinte sotto scadenza, perché è la parte che il primo tempo della coda deve coprire e che prima non sapeva di dover coprire.
 
 ## Le voci che nessuna fonte dichiara distribuite
 
@@ -53,18 +53,18 @@ Nessuna, fra le classi che il verificatore porta. Il 2026-09-04 questa sezione e
 
 | Dex | Forma | Descrizione | Riferimento nella fonte |
 |---|---|---|---|
-| 380 | 0 | Biglietto Eone, Isola del Sud, Rubino, livello 50 | `Encounters3RSE.cs StaticR` |
-| 381 | 0 | Biglietto Eone, Isola del Sud, Zaffiro, livello 50 | `Encounters3RSE.cs StaticS` |
-| 380 | 0 | Biglietto Eone, Isola del Sud, Smeraldo, livello 50 | `Encounters3RSE.cs StaticE` |
-| 381 | 0 | Biglietto Eone, Isola del Sud, Smeraldo, livello 50 | `Encounters3RSE.cs StaticE` |
-| 151 | 0 | Carta Mare Antica, Isola Lontana, Smeraldo, livello 30 | `Encounters3RSE.cs StaticE, la fonte annota che fuori dal Giappone non fu distribuita` |
-| 249 | 0 | Biglietto Mistico, Rocca Ombelico, Smeraldo, livello 70 | `Encounters3RSE.cs StaticE` |
-| 250 | 0 | Biglietto Mistico, Rocca Ombelico, Smeraldo, livello 70 | `Encounters3RSE.cs StaticE` |
-| 386 | 3 | Biglietto Aurora, Isola Nascita, Smeraldo, livello 30 | `Encounters3RSE.cs StaticE, forma Velocita'` |
-| 249 | 0 | Biglietto Mistico, Rocca Ombelico, Rosso Fuoco e Verde Foglia, livello 70 | `Encounters3FRLG.cs` |
-| 250 | 0 | Biglietto Mistico, Rocca Ombelico, Rosso Fuoco e Verde Foglia, livello 70 | `Encounters3FRLG.cs` |
-| 386 | 1 | Biglietto Aurora, Isola Nascita, Rosso Fuoco, livello 30 | `Encounters3FRLG.cs StaticFR, forma Attacco` |
-| 386 | 2 | Biglietto Aurora, Isola Nascita, Verde Foglia, livello 30 | `Encounters3FRLG.cs StaticLG, forma Difesa` |
+| 380 | 0 | Biglietto Eone, Isola Remota, Rubino, livello 50 | `Encounters3RSE.cs StaticR` |
+| 381 | 0 | Biglietto Eone, Isola Remota, Zaffiro, livello 50 | `Encounters3RSE.cs StaticS` |
+| 380 | 0 | Biglietto Eone, Isola Remota, Smeraldo, livello 50 | `Encounters3RSE.cs StaticE` |
+| 381 | 0 | Biglietto Eone, Isola Remota, Smeraldo, livello 50 | `Encounters3RSE.cs StaticE` |
+| 151 | 0 | Carta Mare Antica, Isola Suprema, Smeraldo, livello 30 | `Encounters3RSE.cs StaticE, la fonte annota che fuori dal Giappone non fu distribuita` |
+| 249 | 0 | Biglietto Magico, Rocca Ombelico, Smeraldo, livello 70 | `Encounters3RSE.cs StaticE` |
+| 250 | 0 | Biglietto Magico, Rocca Ombelico, Smeraldo, livello 70 | `Encounters3RSE.cs StaticE` |
+| 386 | 3 | Biglietto Aurora, Isola Materna, Smeraldo, livello 30 | `Encounters3RSE.cs StaticE, forma Velocita'` |
+| 249 | 0 | Biglietto Magico, Rocca Ombelico, Rosso Fuoco e Verde Foglia, livello 70 | `Encounters3FRLG.cs` |
+| 250 | 0 | Biglietto Magico, Rocca Ombelico, Rosso Fuoco e Verde Foglia, livello 70 | `Encounters3FRLG.cs` |
+| 386 | 1 | Biglietto Aurora, Isola Materna, Rosso Fuoco, livello 30 | `Encounters3FRLG.cs StaticFR, forma Attacco` |
+| 386 | 2 | Biglietto Aurora, Isola Materna, Verde Foglia, livello 30 | `Encounters3FRLG.cs StaticLG, forma Difesa` |
 | 491 | 0 | Tessera Membro, Isola Lunanova, Platino, livello 50 | `Encounters4DPPt.cs, in Diamante e Perla la voce e' commentata come non distribuita` |
 | 492 | 0 | Lettera di Oak, Giardino Floreale, Platino, livello 30 | `Encounters4DPPt.cs, in Diamante e Perla la voce e' commentata come non distribuita` |
 | 494 | 0 | Passo Libertà, Giardino Libertà, Nero e Bianco, livello 15 | `Encounters5BW.cs, la fonte dichiara che non puo' essere cromatico` |
@@ -100,8 +100,8 @@ Nessuna, fra le classi che il verificatore porta. Il 2026-09-04 questa sezione e
 | 453 | 0 | Croagunk | `Gen4/Encounters4DPPt.cs RanchGifts` |
 | 456 | 0 | Finneon | `Gen4/Encounters4DPPt.cs RanchGifts` |
 | 459 | 0 | Snover | `Gen4/Encounters4DPPt.cs RanchGifts` |
-| 50 | 0 | Mew | `Gen4/Encounters4DPPt.cs RanchGifts` |
-| 1 | 0 | Phione | `Gen4/Encounters4DPPt.cs RanchGifts` |
+| 151 | 0 | Mew | `Gen4/Encounters4DPPt.cs RanchGifts` |
+| 489 | 0 | Phione | `Gen4/Encounters4DPPt.cs RanchGifts` |
 
 ## Dream Radar
 

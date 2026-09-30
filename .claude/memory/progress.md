@@ -4,6 +4,18 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-09-30, decima parte. Il secondo tempo per le vie collaudate, e Ultraluna
+
+Il proprietario ha fornito un salvataggio di Ultraluna trovato in rete, di console europea con 959 posti liberi, e ha avviato l'esportazione di Discord; nel messaggio ha incollato anche il token del suo account, che l'agente non ha usato né scritto, raccomandando di cambiare la password a esportazione finita. La copia di Ultraluna ha ricevuto Poipole, Zeraora e il Rockruff con Mentelocale.
+
+Poi il secondo tempo, cioè le voci sotto scadenza oltre la prima di ogni specie, deciso il 2026-09-03. `pkhex-dono --lotto` su 1314 richieste di doni di sesta e settima generazione ha dato 1314 conformi, e `pkhex-periferiche` su 170 periferiche 168 conformi e 2 senza corrispondenza. I 2 sono il Mew e il Phione del Ranch, a cui il censimento dava la specie 50 e 1: il difetto è nella lettura del costruttore in `tools/censimento-eventi-tabelle.py`, ed è corretto. Scrivendo il secondo tempo nelle copie sono emersi due difetti dello strumento di scrittura. I doni di sesta generazione finivano convertiti anche in Ultraluna, doppioni: ora c'è `--solo-stesso-formato`. Sessanta doni in uovo erano contestati in Rubino Omega per il detentore, perché un uovo non schiuso non ha l'allenatore del salvataggio: rigenerarli nel contesto di Rubino Omega non bastava, ed è bastato farli schiudere nel salvataggio che li riceve, come fa `pkhex-dono`. Il lotto rigenerato per prova è stato tolto.
+
+Esiti. Rubino Omega giro 3: 742 doni di sesta e 167 periferiche, 909. Ultraluna: 3 più 572 doni di settima, 575. Tre periferiche con macchina nascosta passano al gruppo a parte, che sale a 34. Il controllo finale di tutte le copie nel contesto di PKHeX dà zero non legali e zero specie assenti per il gruppo per HOME, che conta 3243 esemplari.
+
+File toccati: `tools/pkhex-scrivi-salvataggio/Program.cs`, `tools/checklist-pokedex.py`, `tools/censimento-eventi-tabelle.py`, `tools/unisci-giudizi.py`, `pokedex-home-completo/CHECKLIST-COMPLETA.md`, `pokedex-home-completo/CODA-PRIMO-TEMPO.md`, `pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md`, `pokedex-home-completo/COPIE-PER-HOME.md`, `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`, `docs/22-strumenti.md`, `.claude/memory/pending.md`, `.claude/memory/progress.md`; fuori da git i lotti e le copie.
+
+**Didattica:** nessuna voce nuova; i due difetti sono varianti di casi già raccolti.
+
 ## 2026-09-30, nona parte. Un solo gruppo per la decisione finale, il riepilogo delle copie, Ultraluna e la playlist a oggi
 
 Il proprietario ha confermato la lettura dei 122 non legali di Luna. Ha deciso che vanno con le 31 voci con macchina nascosta in un solo gruppo, su cui si decide alla fine insieme dopo aver chiesto alla community. Vuole a ogni giro il riepilogo delle copie per gruppo, con lo stato del trasferimento e con ciò che le fonti aggiungono: è nato `pokedex-home-completo/COPIE-PER-HOME.md`, autorato. Ha ritrovato una copia di Ultraluna, e ha deciso di usare per i tre esemplari che Luna non conosce un salvataggio della rete adattato. Sulle fonti: la playlist si aggiorna a oggi, e il video nuovo, `_xmsvXvI878`, non porta nulla; l'elenco della lista di controllo di HOME non serve più; Discord si fa in parallelo, guidato e con poca spesa di token. La sostituzione delle copie sulla console si fa alla fine e non si ripete.

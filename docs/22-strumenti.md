@@ -255,6 +255,17 @@ cd "E:/retrogame-mod-pok-dev/tools/pkhex-scrivi-salvataggio"
 dotnet run -c Release -- "../../_notes/salvataggi/terzi/main(6)" "../../_notes/salvataggi/prove/scrittura-oras/giro-1/main" 0 --svuota "../../_notes/lotti/lotto-eventi" "../../_notes/lotti/lotto-eventi-gen4"
 ```
 
+Dal 2026-09-30, sera, tre regole in più. `--solo-stesso-formato` scrive soltanto gli esemplari già nel formato del salvataggio, perché un lotto che mescola doni di sesta e settima generazione va in due giochi. Un uovo contestato si fa schiudere nel salvataggio che lo riceve e si rigiudica, con la regola di `pkhex-dono`. Il punto di ripartenza si conta sui file considerati. Le opzioni `--solo-mn` e `--solo-epoca-cartucce` preparano le copie dei due caricamenti a parte.
+
+## unisci-giudizi.py
+
+Aggiunge al registro unico `recreate-pokemon-distributions-events/giudizi-pkhex-core.json` le voci dei file di giudizio che `pkhex-giudica` scrive per un lotto, inserendole sul testo per non cambiare la formattazione .NET del registro, e aggiorna il conteggio dei conformi. Rifiuta una voce già presente e una non conforme.
+
+```powershell
+cd "E:/retrogame-mod-pok-dev"
+python tools/unisci-giudizi.py "_notes/lotti/lotto-periferiche-secondo-tempo/giudizio.json"
+```
+
 ## pkhex-rigenera
 
 Ricostruisce un lotto dall'incontro che la libreria riconosce in ciascun file. Per ogni esemplare chiede a `LegalityAnalysis` l'incontro. Se non ne trova uno, cerca fra gli incontri della libreria per quella specie e quella versione uno scambio in gioco, che è la sola classe di cui lo strumento si occupa oggi. Poi lo ricostruisce con `ConvertToPKM` per un salvataggio vuoto della stessa versione, intestato all'allenatore e alla lingua dati. È nato il 2026-09-25 per gli scambi di quarta e quinta generazione del 2026-09-15, contestati per intero, e li ha portati a 23 conformi su 23. Due correzioni dicono che cosa il generatore scritto a mano sbagliava. Il soprannome era tutto maiuscolo («SPARVY» invece di «Sparvy»). La sfera estesa di HeartGold e SoulSilver restava a zero, e lo strumento la scrive uguale alla sfera normale, come fa il gioco e come pretende `MiscVerifierG4.IsValidBallHGSS`. Rifiuta una destinazione che contenga già file di esemplare.
