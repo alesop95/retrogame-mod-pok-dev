@@ -4,6 +4,14 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-10-01, seconda parte. Correzione sulle isole di Smeraldo, e il recap dei prossimi passi
+
+Correzione, su obiezione del proprietario. L'agente aveva scritto che il Mew dell'Isola Suprema del progetto è giapponese «come richiede la regola, perché l'isola era raggiungibile solo dai giochi giapponesi», perdendo il contesto: sulla cartuccia di Smeraldo del proprietario le isole da evento sono sbloccate dal 2026-09-21, e per ADR-083 i loro incontri restano giocabili e non si catturano. La forma corretta è che il Mew generato `lotto-incontri-gen3/mew-e.pk3` è in lingua giapponese perché la libreria accetta il Mew dell'Isola Suprema soltanto in quella lingua, essendo l'evento della Carta Mare Antica distribuito solo in Giappone (`EncounterVerifier.cs` riga 145); l'accesso all'isola sulla cartuccia del proprietario c'è, ed è stato il progetto a darlo. Il proprietario ha chiesto anche di non ripetergli il promemoria sulla password di Discord, e l'elenco preciso dei prossimi passi con il recap della roadmap.
+
+File toccati: `.claude/memory/progress.md`.
+
+**Didattica:** nessuna.
+
 ## 2026-10-01, prima parte. Discord letto: non manca niente, e la capienza della banca verificata
 
 L'esportazione di Discord è finita: 10 canali su 11, circa 1,05 GB; non è riuscito `insideGadgets/faq`, che non riguarda la collezione. I canali, ridotti con `tools/read-chat-export.py` a 1144 messaggi su 982.000, sono stati filtrati con Ollama: `tools/estrai-affermazioni-ollama.py` ha ora `--chat`, con un'istruzione per le chat e la divisione dei testi lunghi in pezzi. Un primo lancio era fallito perché la modifica allo strumento non era entrata: lo script di modifica si era fermato su una sostituzione che non corrispondeva, ed è stata rifatta con lo strumento di modifica sul file vero. Gli estratti non portano distribuzioni mancanti; l'affermazione sui duplicati in HOME, letta nel messaggio originale, riguarda i doni di HOME e non i trasferimenti. Nessuna copia contiene uova non schiuse. La capienza della banca è verificata su Bulbapedia, nella copia della Wayback Machine del 2026-09-08: 3000 esemplari in 100 box da 30. Il proprietario ha anche Ultraluna sul 3DS.
