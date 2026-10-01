@@ -43,6 +43,12 @@ Output one line per claim, format: - <claim in English> (author, date if present
 If there are no such claims, output: - NONE
 Messages:
 """
+ISTRUZIONE_PAGINE = """You are extracting facts from a web page, a Reddit thread with its comments, a spreadsheet or the OCR text of an image, collected from a community guide about completing a Pokemon HOME living dex before Pokemon Bank closes (Feb 2027).
+List EVERY concrete claim relevant to a complete collection: a species or form (female, cosmetic, regional, event-only) and how it is obtained; a specific event, distribution, gift, in-game trade or special trainer/OT/ID; a Pokemon or form that can reach HOME only through Bank, or cannot reach HOME at all; a legality rule or a known bug; a method (DNS exploit, QR code, demo, Virtual Console, Pokewalker, Ranch, Dream Radar, Ranger, Colosseum/XD, Stadium, glitch, RNG). Skip navigation text, greetings, shiny-hunting odds, team building and anything not about obtaining or transferring.
+Output one line per claim, format: - <claim in English> (author if present)
+If there are no such claims, output: - NONE
+Text:
+"""
 PEZZO = 20000
 
 
@@ -52,6 +58,8 @@ def main():
     ap.add_argument("--elenco", required=True, help="file con un identificativo di video per riga")
     ap.add_argument("--chat", action="store_true",
                     help="i testi sono chat ridotte in Markdown, <nome>.md: istruzione per le chat e testi divisi in pezzi")
+    ap.add_argument("--pagine", action="store_true",
+                    help="i testi sono pagine, thread o testo di immagini, <nome>.md: istruzione per le pagine e testi divisi in pezzi")
     a = ap.parse_args()
     url = os.environ.get("OLLAMA_URL")
     if not url:
@@ -64,19 +72,19 @@ def main():
         dest = os.path.join(uscita, vid + ".txt")
         if os.path.exists(dest):
             continue
-        estensione = ".md" if a.chat else ".txt"
+        estensione = ".md" if (a.chat or a.pagine) else ".txt"
         testo = open(os.path.join(a.testi, vid + estensione), encoding="utf-8").read()
         # Le chat filtrate possono superare la finestra del modello: si dividono in pezzi a confine di riga.
         pezzi, corrente = [], ""
         for riga in testo.splitlines(keepends=True):
-            if a.chat and corrente and len(corrente) + len(riga) > PEZZO:
+            if (a.chat or a.pagine) and corrente and len(corrente) + len(riga) > PEZZO:
                 pezzi.append(corrente)
                 corrente = ""
             corrente += riga
         pezzi.append(corrente)
         risposte = []
         for pezzo in pezzi:
-            corpo = json.dumps({"model": modello, "prompt": (ISTRUZIONE_CHAT if a.chat else ISTRUZIONE) + pezzo + "\n/no_think",
+            corpo = json.dumps({"model": modello, "prompt": (ISTRUZIONE_PAGINE if a.pagine else ISTRUZIONE_CHAT if a.chat else ISTRUZIONE) + pezzo + "\n/no_think",
                                 "stream": False,
                                 "options": {"num_ctx": 16384, "temperature": 0, "num_predict": 2000, "repeat_penalty": 1.15}}).encode()
             richiesta = urllib.request.Request(url.rstrip("/") + "/api/generate", corpo, {"Content-Type": "application/json"})
