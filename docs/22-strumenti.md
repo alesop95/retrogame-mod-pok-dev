@@ -270,6 +270,29 @@ python tools/unisci-giudizi.py "_notes/lotti/lotto-periferiche-secondo-tempo/giu
 
 Il catalogo stampabile della collezione. `pkhex-elenco-copie` legge i box delle copie dei salvataggi, date come `GRUPPO=PERCORSO`, e ne scrive in JSON ogni esemplare con i nomi in italiano e l'origine presa dal rapporto accanto alla copia; legge le copie e non il registro dei giudizi, perché nelle copie le uova sono schiuse e il detentore è l'allenatore del salvataggio. `stampa-collezione.py` ne compone un documento LaTeX, dal 2026-10-01 con una riga per esemplare, una miniatura dalla raccolta delle illustrazioni di Sugimori e il dettaglio dell'evento al posto del box, raggruppato per generazione d'origine, e con `--pdf` lo compila con LuaLaTeX; il margine sinistro è largo per i fori di un quaderno ad anelli, e un carattere di ripiego stampa i nomi giapponesi, coreani e cinesi.
 
+## Il residuo del corpus: leggi-residuo-corpus.py, leggi-immagini-corpus.py, confronta-fogli-corpus.py, verifica-affermazioni-corpus.py
+
+Quattro strumenti nati il 2026-10-01 per leggere i 2582 indirizzi del corpus che il censimento aveva soltanto catalogato. `leggi-residuo-corpus.py` li legge per tipo (Reddit da Arctic Shift, fogli e documenti Google, Drive, Imgur, Bulbapedia dalla Wayback Machine, pagine dirette con ripiego sulla Wayback Machine) e scrive gli esiti in `_notes/fonti/corpus-residuo/esiti.json`, riprendibile; decomprime il gzip che alcuni server mandano anche a chi chiede `identity`, il difetto che aveva reso illeggibili 104 testi. `leggi-immagini-corpus.py` estrae il testo delle immagini con RapidOCR. `confronta-fogli-corpus.py` confronta riga per riga le forme dei fogli di calcolo con il dataset di PokePC. `verifica-affermazioni-corpus.py` cerca nelle copie ogni distribuzione che gli estratti nominano con allenatore e ID.
+
+```powershell
+cd "E:/retrogame-mod-pok-dev"
+python tools/leggi-residuo-corpus.py --thread 2
+python tools/leggi-immagini-corpus.py
+python tools/confronta-fogli-corpus.py
+python tools/verifica-affermazioni-corpus.py
+```
+
+## pkhex-incontri-switch e studio-switch.py
+
+Il primo chiede alla libreria, per ogni specie e forma presente nei dieci giochi per Switch, gli incontri con versione, metodo, luogo e livello, e li giudica rigenerando l'esemplare con la specie e la forma cercate; scrive `_notes/incontri-switch.json`. Il secondo collega gli incontri alle voci di `LISTA-COMPLETA.md`, scarta quelli a tempo, attribuisce i DLC dal luogo, calcola l'ordine di acquisto a partire dai giochi posseduti e scrive `pokedex-home-completo/STUDIO-SWITCH.md`. I giochi posseduti stanno nella costante `POSSEDUTI`.
+
+```powershell
+cd "E:/retrogame-mod-pok-dev/tools/pkhex-incontri-switch"
+dotnet run -c Release -- "../../_notes/incontri-switch.json"
+cd "E:/retrogame-mod-pok-dev"
+python tools/studio-switch.py
+```
+
 ## pkhex-esclusivi-cxd
 
 Risponde alla domanda se esistano specie di terza generazione ottenibili soltanto da Colosseum e XD, o soltanto dai giochi portatili. Per ogni specie da 1 a 386 chiede alla libreria gli incontri che la producono, evoluzioni comprese, in Rubino, Zaffiro, Smeraldo, Rosso Fuoco e Verde Foglia e in Colosseum e XD, e scrive in JSON le specie con incontri da una parte sola. Al 2026-10-01: nessuna solo in Colosseum e XD.
