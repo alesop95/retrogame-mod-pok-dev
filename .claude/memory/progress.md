@@ -4,6 +4,30 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-10-01, prima parte. Discord letto: non manca niente, e la capienza della banca verificata
+
+L'esportazione di Discord è finita: 10 canali su 11, circa 1,05 GB; non è riuscito `insideGadgets/faq`, che non riguarda la collezione. I canali, ridotti con `tools/read-chat-export.py` a 1144 messaggi su 982.000, sono stati filtrati con Ollama: `tools/estrai-affermazioni-ollama.py` ha ora `--chat`, con un'istruzione per le chat e la divisione dei testi lunghi in pezzi. Un primo lancio era fallito perché la modifica allo strumento non era entrata: lo script di modifica si era fermato su una sostituzione che non corrispondeva, ed è stata rifatta con lo strumento di modifica sul file vero. Gli estratti non portano distribuzioni mancanti; l'affermazione sui duplicati in HOME, letta nel messaggio originale, riguarda i doni di HOME e non i trasferimenti. Nessuna copia contiene uova non schiuse. La capienza della banca è verificata su Bulbapedia, nella copia della Wayback Machine del 2026-09-08: 3000 esemplari in 100 box da 30. Il proprietario ha anche Ultraluna sul 3DS.
+
+File toccati: `tools/estrai-affermazioni-ollama.py`, `SOURCES.md`, `pokedex-home-completo/COPIE-PER-HOME.md`, `.claude/memory/pending.md`, `.claude/memory/progress.md`; fuori da git i filtrati e gli estratti di Discord.
+
+**Didattica:** nessuna.
+
+## 2026-09-30, tredicesima parte. I doppioni fra le copie, trovati dal catalogo
+
+Componendo il catalogo stampabile, un controllo delle voci del Pokédex che passano solo dalla banca, cioè Spinda, il Greninja con Morfosi e il Vivillon Motivo Poké Ball, ha mostrato il Greninja con Morfosi due volte, in Luna e in Ultraluna. Un controllo di tutte le copie per file d'origine ha trovato di più: Luna portava convertiti i 45 doni di sesta generazione del primo tempo già in Rubino Omega, e il giro 3 e Ultraluna non avevano origine per gli esemplari della prima passata. Le cause sono due: Luna era stata scritta prima di `--solo-stesso-formato`, e il rapporto di una seconda passata non ereditava quello della prima. Corretto lo strumento, rifatte le tre copie, e il controllo dà 3194 esemplari per HOME, 0 ripetuti, 0 senza origine, 0 non conformi. Il catalogo ha 119 pagine.
+
+File toccati: `tools/pkhex-scrivi-salvataggio/Program.cs`, `pokedex-home-completo/COPIE-PER-HOME.md`, `.claude/memory/pending.md`, `.claude/memory/progress.md`; fuori da git le copie e `_notes/stampa/`.
+
+**Didattica:** caso da scheda, la voce 2 annunciata: un controllo sull'insieme, cioè i file d'origine di tutte le copie insieme, ha trovato ciò che i controlli su ogni copia presa da sola non potevano vedere, perché ogni copia era corretta in sé e l'errore stava nella somma.
+
+## 2026-09-30, dodicesima parte. La roadmap dei passaggi a HOME, il catalogo stampabile e le pendenze
+
+Il proprietario ha chiesto la roadmap dei passaggi a HOME, se si sia pronti, di cominciare il PDF e la lista totale delle pendenze. La roadmap sta in `pokedex-home-completo/COPIE-PER-HOME.md`: prova pilota con il giro 1 di Rubino Omega, poi gli altri due giri, poi Luna e Ultraluna, poi la prova giapponese e alla fine il gruppo della decisione finale. La capienza del deposito non è un vincolo, 6000 esemplari e 9000 da ottobre; quella della banca, 3000, lo è e va verificata con una fonte. Il catalogo stampabile nasce da due strumenti nuovi, `tools/pkhex-elenco-copie`, che legge le copie invece del registro perché nelle copie le uova sono schiuse e il detentore è quello del salvataggio, e `tools/stampa-collezione.py`, che compone il LaTeX e lo compila con LuaLaTeX; i nomi coreani mancavano al primo giro, e il carattere di ripiego ora copre giapponese, coreano e cinese. Il PDF ha 120 pagine. Tre pendenze superate dal lavoro del giorno sono state chiuse.
+
+File toccati: `tools/pkhex-elenco-copie/`, `tools/stampa-collezione.py`, `pokedex-home-completo/COPIE-PER-HOME.md`, `.claude/memory/pending.md`, `.claude/memory/progress.md`; fuori da git `_notes/stampa/`.
+
+**Didattica:** nessuna.
+
 ## 2026-09-30, undicesima parte. Il secondo tempo chiuso
 
 Il proprietario ha chiesto di finire il secondo tempo, lasciando girare durante la notte l'esportazione di Discord, che non consuma token dell'agente. Delle 26 voci rimaste, 19 erano già prodotte in lotti che non portano il codice della checklist nel nome del file, e la checklist ora le collega con `FILE_PER_CODICE`. Il Jirachi di Pokémon Channel, segnato non producibile dal catalogo delle carte, è anch'esso collegato al complemento. Le altre sette sono state prodotte: il Victini del Passo Libertà, sei Ombre di Colosseum gemelle di Suicune e Raikou in altri luoghi, e il Mew delle manifestazioni giapponesi. Due dei Suicune conoscono Surf e passano al gruppo delle macchine nascoste, e il Mew giapponese passa al gruppo da provare a parte con la regione giapponese. La coda del primo tempo conta 434 specie, una in più dopo la correzione del censimento del Ranch, tutte prodotte.

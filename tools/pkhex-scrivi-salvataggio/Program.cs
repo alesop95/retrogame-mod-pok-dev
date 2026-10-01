@@ -172,6 +172,12 @@ File.WriteAllBytes(copia, sav.Write().ToArray());
 SaveUtil.TryGetSaveFile(copia, out var riletto);
 Contesto(riletto!);
 var voci = new JsonArray();
+// Una copia che parte da un'altra copia ne eredita le voci del rapporto, se non si svuota: senza questo, il 2026-09-30
+// il rapporto della seconda passata perdeva l'origine degli esemplari della prima, e il catalogo li stampava senza codice.
+var rapportoPartenza = partenza + ".rapporto.json";
+if (!opzioni.Contains("--svuota") && File.Exists(rapportoPartenza))
+    foreach (var v in JsonNode.Parse(File.ReadAllText(rapportoPartenza))!["voci"]!.AsArray())
+        voci.Add(v!.DeepClone());
 int differenti = 0, contestatiRiletti = 0;
 foreach (var (posto, _, dati, origine) in scritti)
 {
