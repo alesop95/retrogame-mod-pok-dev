@@ -22,6 +22,7 @@ if (args.Length < 2)
     return 2;
 }
 var testi = GameInfo.GetStrings("it");
+var inglese = GameInfo.GetStrings("en");
 var copie = new JsonArray();
 foreach (var arg in args.Skip(1))
 {
@@ -47,6 +48,14 @@ foreach (var arg in args.Skip(1))
             continue;
         int box = i / sav.BoxSlotCount + 1, posto = i % sav.BoxSlotCount + 1;
         var forme = FormConverter.GetFormList(pk.Species, testi.Types, testi.forms, GameInfo.GenderSymbolASCII, pk.Context);
+        var formeEn = FormConverter.GetFormList(pk.Species, inglese.Types, inglese.forms, GameInfo.GenderSymbolASCII, pk.Context);
+        // L'evento come lo riconosce la libreria: il titolo e il numero della carta per un dono segreto, altrimenti il nome
+        // dell'incontro. Dal 2026-10-01, per il catalogo, che il proprietario vuole ordinato per tipo di evento.
+        var la = new LegalityAnalysis(pk);
+        var enc = la.EncounterMatch;
+        string evento = enc is MysteryGift mg && mg.CardID > 0
+            ? $"{mg.CardTitle.Replace('　', ' ').Trim()} (carta {mg.CardID})"
+            : enc.LongName;
         voci.Add(new JsonObject
         {
             ["box"] = box, ["posto"] = posto,
@@ -59,7 +68,10 @@ foreach (var arg in args.Skip(1))
             ["gioco"] = pk.Version.ToString(),
             ["luogo"] = testi.GetLocationName(false, pk.MetLocation, pk.Format, pk.Generation, pk.Version),
             ["sfera"] = testi.balllist[pk.Ball],
-            ["conforme"] = new LegalityAnalysis(pk).Valid,
+            ["conforme"] = la.Valid,
+            ["forma_en"] = pk.Form > 0 && pk.Form < formeEn.Length ? formeEn[pk.Form] : "",
+            ["generazione"] = pk.Generation,
+            ["evento"] = evento,
             ["origine"] = origini.TryGetValue((box, posto), out var o) ? o : "",
         });
     }

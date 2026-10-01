@@ -1,5 +1,7 @@
 # Confronto fra la nostra enumerazione e quella di PokePC Classic
 
+> I dati vengono dal deposito `pokepc/dataset`, che dal 2026-09-22 alimenta il servizio dopo la chiusura del tracciatore classico, al commit 5fd44c1 2026-09-30, disposizione `modern/home/fully-sorted`.
+
 > Documento generato da `tools/confronta-livingdex-pokepc.py`. Non si modifica a mano: si rigenera. Non fonde le due enumerazioni e non decide chi abbia ragione; le mette una accanto all'altra e classifica le divergenze per contrassegno.
 
 PokePC Classic, già SuperEffective.gg, è un tracciatore di living dex che pubblica i propri dati come JSON sotto licenza MIT. È la terza enumerazione indipendente che il progetto possiede, dopo la propria e quella del foglio comunitario, e serve a rompere la parità fra le prime due: due misure che divergono dicono che una sbaglia e non quale. Resta una fonte di terzo livello, cioè l'implementazione di un autore, e vale come controprova e non come autorità.
@@ -10,12 +12,12 @@ Ciò che si confronta non è una lista di specie ma una disposizione in scatole,
 
 | Misura | PokePC | Nostra |
 |---|---|---|
-| voci totali da possedere | 1387 | 1367 |
+| voci totali da possedere | 1387 | 1395 |
 | numeri di catalogo distinti | 1025 | 1025 |
-| voci oltre la specie base | 362 | 342 |
-| specie su cui le due concordano | 893 | 893 |
+| voci oltre la specie base | 362 | 370 |
+| specie su cui le due concordano | 896 | 896 |
 
-Lo scarto complessivo è di 20 voci, e come nel confronto con il foglio va letto nelle due direzioni separatamente, perché sono scarti di natura diversa che si compensano in parte. PokePC conta più di noi su 105 specie, per 170 voci in eccesso; noi contiamo più di PokePC su 27 specie, per 150 voci.
+Lo scarto complessivo è di 8 voci, e come nel confronto con il foglio va letto nelle due direzioni separatamente, perché sono scarti di natura diversa che si compensano in parte. PokePC conta più di noi su 97 specie, per 151 voci in eccesso; noi contiamo più di PokePC su 32 specie, per 159 voci.
 
 ## Che cosa PokePC colloca in una casella, per classe
 
@@ -25,7 +27,7 @@ Il conto seguente riguarda le sole voci oltre la specie base, e le classi vengon
 |---|---|
 | forma cosmetica, cioè una variante che il campo della forma non separa | 157 |
 | forma femminile, cioè una differenza di sesso resa come voce propria | 103 |
-| altra forma, cioè una variante che il campo della forma separa | 103 |
+| altra forma, cioè una variante che il campo della forma separa | 102 |
 
 ## Le disposizioni sorelle, che non concordano fra loro
 
@@ -33,7 +35,7 @@ Le disposizioni del deposito sono 7, e la prima stesura di questo programma assu
 
 | Voci collocate | Disposizioni |
 |---|---|
-| 1425 | grouped-region, species-first |
+| 1388 | grouped-region, species-first |
 | 1387 | fully-sorted, grouped-balanced, sorted-species |
 | 1373 | fully-sorted-minimal, sorted-species-minimal |
 
@@ -41,7 +43,7 @@ Il confronto usa `fully-sorted`, che appartiene al gruppo intermedio: conta le f
 
 ## Dove PokePC conta più di noi
 
-Sono 105 specie. La classe prevalente dice la natura della nostra cecità: ciò che il campo della forma non separa, come le differenze di sesso e le varianti cosmetiche, non entra nella nostra enumerazione perché la leggiamo dalla struttura del dato e non da un catalogo di collezionabili.
+Sono 97 specie. La classe prevalente dice la natura della nostra cecità: ciò che il campo della forma non separa, come le differenze di sesso e le varianti cosmetiche, non entra nella nostra enumerazione perché la leggiamo dalla struttura del dato e non da un catalogo di collezionabili.
 
 | Dex | Specie | PokePC | Nostra | Che cosa conta in più |
 |---|---|---|---|---|
@@ -49,14 +51,13 @@ Sono 105 specie. La classe prevalente dice la natura della nostra cecità: ciò 
 | 12 | Butterfree | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
 | 19 | Rattata | 3 | 2 | 1 forma femminile, cioè una differenza di sesso resa come voce propria; 1 altra forma, cioè una variante che il campo della forma separa |
 | 20 | Raticate | 3 | 2 | 1 forma femminile, cioè una differenza di sesso resa come voce propria; 1 altra forma, cioè una variante che il campo della forma separa |
-| 26 | Raichu | 3 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria; 1 altra forma, cioè una variante che il campo della forma separa |
+| 26 | Raichu | 3 | 2 | 1 forma femminile, cioè una differenza di sesso resa come voce propria; 1 altra forma, cioè una variante che il campo della forma separa |
 | 41 | Zubat | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
 | 42 | Golbat | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
 | 44 | Gloom | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
 | 45 | Vileplume | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
 | 64 | Kadabra | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
 | 65 | Alakazam | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 80 | Slowbro | 2 | 1 | 1 altra forma, cioè una variante che il campo della forma separa |
 | 84 | Doduo | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
 | 85 | Dodrio | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
 | 97 | Hypno | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
@@ -139,21 +140,14 @@ Sono 105 specie. La classe prevalente dice la natura della nostra cecità: ciò 
 | 465 | Tangrowth | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
 | 473 | Mamoswine | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
 | 521 | Unfezant | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 555 | Darmanitan | 2 | 1 | 1 altra forma, cioè una variante che il campo della forma separa |
 | 592 | Frillish | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
 | 593 | Jellicent | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
 | 668 | Pyroar | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 670 | Floette | 6 | 1 | 4 forma cosmetica, cioè una variante che il campo della forma non separa; 1 altra forma, cioè una variante che il campo della forma separa |
-| 678 | Meowstic | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 718 | Zygarde | 2 | 1 | 1 altra forma, cioè una variante che il campo della forma separa |
-| 774 | Minior (Red Core) | 7 | 1 | 6 forma cosmetica, cioè una variante che il campo della forma non separa; 1 altra forma, cioè una variante che il campo della forma separa |
-| 801 | Magearna | 2 | 1 | 1 forma cosmetica, cioè una variante che il campo della forma non separa |
 | 869 | Alcremie | 63 | 9 | 62 forma cosmetica, cioè una variante che il campo della forma non separa |
-| 978 | Tatsugiri | 3 | 1 | 2 forma cosmetica, cioè una variante che il campo della forma non separa |
 
 ## Dove contiamo più di PokePC
 
-Sono 27 specie. Qui la lettura si rovescia: la nostra enumerazione legge le posizioni di forma dalla tabella del gioco, e quel numero comprende posizioni che non sono oggetti distinti da possedere.
+Sono 32 specie. Qui la lettura si rovescia: la nostra enumerazione legge le posizioni di forma dalla tabella del gioco, e quel numero comprende posizioni che non sono oggetti distinti da possedere.
 
 | Dex | Specie | PokePC | Nostra | Perché |
 |---|---|---|---|---|
@@ -167,17 +161,22 @@ Sono 27 specie. Qui la lettura si rovescia: la nostra enumerazione legge le posi
 | 549 | Lilligant | 2 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
 | 646 | Kyurem | 1 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
 | 649 | Genesect | 1 | 5 | la nostra lista conta 4 posizioni di forma che PokePC non colloca in una casella |
+| 658 | Greninja | 1 | 2 | la nostra lista scarta 2 posizioni con la dicitura: forma di sola battaglia: non può stare in una scatola |
 | 664 | Scatterbug | 1 | 20 | la nostra lista conta 19 posizioni di forma che PokePC non colloca in una casella |
 | 665 | Spewpa | 1 | 20 | la nostra lista conta 19 posizioni di forma che PokePC non colloca in una casella |
 | 713 | Avalugg | 2 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
+| 718 | Zygarde | 2 | 4 | la nostra lista scarta 2 posizioni con la dicitura: forma di sola battaglia: non può stare in una scatola |
 | 744 | Rockruff | 1 | 2 | la nostra lista conta 1 posizioni di forma che PokePC non colloca in una casella |
 | 773 | Silvally | 1 | 18 | la nostra lista conta 17 posizioni di forma che PokePC non colloca in una casella |
+| 774 | Minior (Red Core) | 7 | 8 | la nostra lista scarta 6 posizioni con la dicitura: forma di sola battaglia: non può stare in una scatola |
+| 800 | Necrozma | 1 | 3 | la nostra lista scarta 1 posizioni con la dicitura: forma di sola battaglia: non può stare in una scatola |
 | 898 | Calyrex | 1 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
 | 900 | Kleavor | 1 | 2 | la nostra lista conta 1 posizioni di forma che PokePC non colloca in una casella |
 | 1007 | Koraidon | 1 | 5 | la nostra lista conta 4 posizioni di forma che PokePC non colloca in una casella |
 | 1008 | Miraidon | 1 | 5 | la nostra lista conta 4 posizioni di forma che PokePC non colloca in una casella |
 | 1012 | Poltchageist | 2 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
 | 1013 | Sinistcha | 2 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
+| 1017 | Ogerpon | 1 | 4 | la nostra lista scarta 4 posizioni con la dicitura: forma di sola battaglia: non può stare in una scatola |
 | 1019 | Hydrapple | 1 | 9 | la nostra lista conta 8 posizioni di forma che PokePC non colloca in una casella |
 | 1020 | Gouging Fire | 1 | 9 | la nostra lista conta 8 posizioni di forma che PokePC non colloca in una casella |
 | 1021 | Raging Bolt | 1 | 9 | la nostra lista conta 8 posizioni di forma che PokePC non colloca in una casella |

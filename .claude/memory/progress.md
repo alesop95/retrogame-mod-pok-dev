@@ -4,6 +4,14 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-10-01, terza parte. Le specie solo di Colosseum e XD, il confronto con PokePC, il catalogo con le immagini
+
+Il proprietario ha chiesto di andare avanti, prima dei passaggi a HOME, su due pendenze e sul catalogo, e di ripetergli a ogni giro i prossimi passi e le pendenze. Prima pendenza, la domanda del 2026-09-22: con il nuovo `tools/pkhex-esclusivi-cxd`, nessuna specie si ottiene soltanto da Colosseum e XD. Seconda: il confronto con PokePC è rigenerato dai dati vivi di `pokepc/dataset`, che dal 2026-09-22 sostituisce il tracciatore classico, con l'opzione `--dataset` di `tools/confronta-livingdex-pokepc.py`; PokePC resta a 1387 caselle e le differenze vengono dalla nostra correzione delle forme di battaglia. Il catalogo è rifatto come chiesto: dettaglio dell'evento al posto del box, niente spiegazione iniziale, una miniatura per esemplare dalla raccolta di Sugimori del proprietario. Un primo tentativo di riscrivere `tools/stampa-collezione.py` è stato respinto perché il file risultava modificato dopo l'ultima lettura, e il PDF compilato subito dopo era ancora quello vecchio: riletto e riscritto, poi ricompilato.
+
+File toccati: `tools/pkhex-esclusivi-cxd/`, `tools/confronta-livingdex-pokepc.py`, `tools/pkhex-elenco-copie/Program.cs`, `tools/stampa-collezione.py`, `pokedex-home-completo/CONFRONTO-LIVINGDEX-POKEPC.md`, `docs/22-strumenti.md`, `.claude/memory/pending.md`, `.claude/memory/progress.md`; fuori da git il clone di PokePC, `_notes/esclusivi-cxd.json` e `_notes/stampa/`.
+
+**Didattica:** nessuna.
+
 ## 2026-10-01, seconda parte. Correzione sulle isole di Smeraldo, e il recap dei prossimi passi
 
 Correzione, su obiezione del proprietario. L'agente aveva scritto che il Mew dell'Isola Suprema del progetto è giapponese «come richiede la regola, perché l'isola era raggiungibile solo dai giochi giapponesi», perdendo il contesto: sulla cartuccia di Smeraldo del proprietario le isole da evento sono sbloccate dal 2026-09-21, e per ADR-083 i loro incontri restano giocabili e non si catturano. La forma corretta è che il Mew generato `lotto-incontri-gen3/mew-e.pk3` è in lingua giapponese perché la libreria accetta il Mew dell'Isola Suprema soltanto in quella lingua, essendo l'evento della Carta Mare Antica distribuito solo in Giappone (`EncounterVerifier.cs` riga 145); l'accesso all'isola sulla cartuccia del proprietario c'è, ed è stato il progetto a darlo. Il proprietario ha chiesto anche di non ripetergli il promemoria sulla password di Discord, e l'elenco preciso dei prossimi passi con il recap della roadmap.
