@@ -66,6 +66,7 @@ USCITA = os.path.join(RADICE, "pokedex-home-completo", "CONFRONTO-LIVINGDEX-POKE
 INSIEME = "home"
 DISPOSIZIONE = "fully-sorted"
 MAX_SPECIE = 1025
+FONTE = ""
 
 # I contrassegni che il dato porta per ogni voce, nell'ordine in cui il programma li prova: la
 # prima corrispondenza vince, cosicché una voce cada in una classe sola e le classi si sommino
@@ -150,6 +151,37 @@ def carica_disposizione(percorso, insieme=INSIEME, quale=DISPOSIZIONE):
     return scelti, sorelle, None
 
 
+def carica_dataset(clone, insieme=INSIEME, quale=DISPOSIZIONE):
+    """Specie e disposizioni dal deposito `pokepc/dataset`, che dal 2026-09-22 sostituisce il tracciatore classico.
+
+    Il tracciatore classico ha chiuso le iscrizioni il 2026-09-22 e i dati vivi del servizio vengono da questo
+    deposito, che li tiene in un file per voce sotto `data/pokemon/` e in un file per disposizione sotto
+    `data/boxpresets/modern/<insieme>/`, con le caselle in `slots` invece che in `pokemon`. La lettura li riporta
+    alla forma che il resto del programma conosce, cosicché la logica del confronto resti una sola.
+    """
+    cartella_specie = os.path.join(clone, "data", "pokemon")
+    cartella_scatole = os.path.join(clone, "data", "boxpresets", "modern", insieme)
+    if not os.path.isdir(cartella_specie) or not os.path.isdir(cartella_scatole):
+        return None, None, None, "il clone non ha data/pokemon o data/boxpresets/modern/" + insieme
+    per_id = {}
+    for nome in os.listdir(cartella_specie):
+        if not nome.endswith(".json"):
+            continue
+        voce = json.load(io.open(os.path.join(cartella_specie, nome), encoding="utf-8"))
+        nomi = voce.get("names") or {}
+        voce.setdefault("name", nomi.get("eng") or nomi.get("en") or voce["id"])
+        per_id[voce["id"]] = voce
+    gruppo = {}
+    for nome in os.listdir(cartella_scatole):
+        if nome.endswith(".json"):
+            dati = json.load(io.open(os.path.join(cartella_scatole, nome), encoding="utf-8"))
+            gruppo[dati["id"]] = {"boxes": [{"pokemon": b.get("slots", [])} for b in dati.get("boxes", [])]}
+    percorso = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "_notes", "pokepc-dataset-disposizioni.json")
+    json.dump({insieme: gruppo}, io.open(percorso, "w", encoding="utf-8"), ensure_ascii=False)
+    scelti, sorelle, errore = carica_disposizione(percorso, insieme, quale)
+    return per_id, scelti, sorelle, errore
+
+
 def classe_di(voce):
     """La classe di una voce che non sia la specie base, letta dai suoi contrassegni."""
     for campo, etichetta in CLASSI:
@@ -229,6 +261,9 @@ def componi(conto_loro, dettaglio, nostro, escluse, ignote, sorelle):
     r = []
     r.append("# Confronto fra la nostra enumerazione e quella di PokePC Classic")
     r.append("")
+    if FONTE:
+        r.append("> " + FONTE)
+        r.append("")
     r.append("> Documento generato da `tools/confronta-livingdex-pokepc.py`. Non si modifica a mano: si rigenera. Non fonde le due enumerazioni e non decide chi abbia ragione; le mette una accanto all'altra e classifica le divergenze per contrassegno.")
     r.append("")
     r.append("PokePC Classic, già SuperEffective.gg, è un tracciatore di living dex che pubblica i propri dati come JSON sotto licenza MIT. È la terza enumerazione indipendente che il progetto possiede, dopo la propria e quella del foglio comunitario, e serve a rompere la parità fra le prime due: due misure che divergono dicono che una sbaglia e non quale. Resta una fonte di terzo livello, cioè l'implementazione di un autore, e vale come controprova e non come autorità.")
@@ -339,18 +374,34 @@ def main(argv=None):
     ap.add_argument("--check", action="store_true",
                     help="non scrive: dice soltanto se il documento sul disco sia allineato")
     ap.add_argument("--self-test", action="store_true", dest="self_test")
+    ap.add_argument("--dataset", help="clone di pokepc/dataset, la fonte dei dati vivi dal 2026-09-22")
     a = ap.parse_args(argv)
     if a.self_test:
         return self_test()
 
-    per_id, errore = carica_specie(SPECIE)
-    if errore:
-        print("rifiutato: " + errore)
-        return 1
-    scelti, sorelle, errore = carica_disposizione(SCATOLE)
-    if errore:
-        print("rifiutato: " + errore)
-        return 1
+    global FONTE
+    if a.dataset:
+        per_id, scelti, sorelle, errore = carica_dataset(a.dataset)
+        if errore:
+            print("rifiutato: " + errore)
+            return 1
+        try:
+            import subprocess
+            commit = subprocess.run(["git", "-C", a.dataset, "log", "-1", "--format=%h %ad", "--date=short"],
+                                    capture_output=True, text=True).stdout.strip()
+        except OSError:
+            commit = "?"
+        FONTE = ("I dati vengono dal deposito `pokepc/dataset`, che dal 2026-09-22 alimenta il servizio dopo la chiusura del "
+                 "tracciatore classico, al commit %s, disposizione `modern/home/%s`." % (commit, DISPOSIZIONE))
+    else:
+        per_id, errore = carica_specie(SPECIE)
+        if errore:
+            print("rifiutato: " + errore)
+            return 1
+        scelti, sorelle, errore = carica_disposizione(SCATOLE)
+        if errore:
+            print("rifiutato: " + errore)
+            return 1
 
     fratello, errore = carica_fratello()
     if errore:

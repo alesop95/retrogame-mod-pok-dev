@@ -268,7 +268,16 @@ python tools/unisci-giudizi.py "_notes/lotti/lotto-periferiche-secondo-tempo/giu
 
 ## pkhex-elenco-copie e stampa-collezione.py
 
-Il catalogo stampabile della collezione. `pkhex-elenco-copie` legge i box delle copie dei salvataggi, date come `GRUPPO=PERCORSO`, e ne scrive in JSON ogni esemplare con i nomi in italiano e l'origine presa dal rapporto accanto alla copia; legge le copie e non il registro dei giudizi, perché nelle copie le uova sono schiuse e il detentore è l'allenatore del salvataggio. `stampa-collezione.py` ne compone un documento LaTeX, con il riepilogo per gruppi e una tabella per box, e con `--pdf` lo compila con LuaLaTeX; il margine sinistro è largo per i fori di un quaderno ad anelli, e un carattere di ripiego stampa i nomi giapponesi, coreani e cinesi.
+Il catalogo stampabile della collezione. `pkhex-elenco-copie` legge i box delle copie dei salvataggi, date come `GRUPPO=PERCORSO`, e ne scrive in JSON ogni esemplare con i nomi in italiano e l'origine presa dal rapporto accanto alla copia; legge le copie e non il registro dei giudizi, perché nelle copie le uova sono schiuse e il detentore è l'allenatore del salvataggio. `stampa-collezione.py` ne compone un documento LaTeX, dal 2026-10-01 con una riga per esemplare, una miniatura dalla raccolta delle illustrazioni di Sugimori e il dettaglio dell'evento al posto del box, raggruppato per generazione d'origine, e con `--pdf` lo compila con LuaLaTeX; il margine sinistro è largo per i fori di un quaderno ad anelli, e un carattere di ripiego stampa i nomi giapponesi, coreani e cinesi.
+
+## pkhex-esclusivi-cxd
+
+Risponde alla domanda se esistano specie di terza generazione ottenibili soltanto da Colosseum e XD, o soltanto dai giochi portatili. Per ogni specie da 1 a 386 chiede alla libreria gli incontri che la producono, evoluzioni comprese, in Rubino, Zaffiro, Smeraldo, Rosso Fuoco e Verde Foglia e in Colosseum e XD, e scrive in JSON le specie con incontri da una parte sola. Al 2026-10-01: nessuna solo in Colosseum e XD.
+
+```powershell
+cd "E:/retrogame-mod-pok-dev/tools/pkhex-esclusivi-cxd"
+dotnet run -c Release -- "../../_notes/esclusivi-cxd.json"
+```
 
 ## pkhex-rigenera
 
