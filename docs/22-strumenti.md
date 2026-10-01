@@ -266,6 +266,10 @@ cd "E:/retrogame-mod-pok-dev"
 python tools/unisci-giudizi.py "_notes/lotti/lotto-periferiche-secondo-tempo/giudizio.json"
 ```
 
+## pkhex-elenco-copie e stampa-collezione.py
+
+Il catalogo stampabile della collezione. `pkhex-elenco-copie` legge i box delle copie dei salvataggi, date come `GRUPPO=PERCORSO`, e ne scrive in JSON ogni esemplare con i nomi in italiano e l'origine presa dal rapporto accanto alla copia; legge le copie e non il registro dei giudizi, perché nelle copie le uova sono schiuse e il detentore è l'allenatore del salvataggio. `stampa-collezione.py` ne compone un documento LaTeX, con il riepilogo per gruppi e una tabella per box, e con `--pdf` lo compila con LuaLaTeX; il margine sinistro è largo per i fori di un quaderno ad anelli, e un carattere di ripiego stampa i nomi giapponesi, coreani e cinesi.
+
 ## pkhex-rigenera
 
 Ricostruisce un lotto dall'incontro che la libreria riconosce in ciascun file. Per ogni esemplare chiede a `LegalityAnalysis` l'incontro. Se non ne trova uno, cerca fra gli incontri della libreria per quella specie e quella versione uno scambio in gioco, che è la sola classe di cui lo strumento si occupa oggi. Poi lo ricostruisce con `ConvertToPKM` per un salvataggio vuoto della stessa versione, intestato all'allenatore e alla lingua dati. È nato il 2026-09-25 per gli scambi di quarta e quinta generazione del 2026-09-15, contestati per intero, e li ha portati a 23 conformi su 23. Due correzioni dicono che cosa il generatore scritto a mano sbagliava. Il soprannome era tutto maiuscolo («SPARVY» invece di «Sparvy»). La sfera estesa di HeartGold e SoulSilver restava a zero, e lo strumento la scrive uguale alla sfera normale, come fa il gioco e come pretende `MiscVerifierG4.IsValidBallHGSS`. Rifiuta una destinazione che contenga già file di esemplare.
