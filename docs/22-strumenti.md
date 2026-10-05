@@ -244,6 +244,17 @@ cd "E:/retrogame-mod-pok-dev/tools/pkhex-periferiche"
 dotnet run -c Release -- "../../_notes/lotti/lotto-periferiche/richieste.json" "../../_notes/lotti/lotto-periferiche"
 ```
 
+## pkhex-scambi-gen67
+
+Genera dalla libreria gli scambi in gioco di X e Y, Rubino Omega e Zaffiro Alpha, Sole e Luna, Ultrasole e Ultraluna, che per decisione del proprietario del 2026-10-05 entrano nella collezione perché arrivano al deposito soltanto attraverso la banca, che chiude il 2027-02-26. Gli scambi di Let's Go restano fuori, perché quei giochi si collegano al deposito direttamente. Lo strumento legge per riflessione le quattro tabelle interne `TradeGift_XY`, `TradeGift_AO`, `TradeGift_SM` e `TradeGift_USUM`, che sono le stesse da cui `CENSIMENTO-SCAMBI.md` è generato, e per ogni voce genera un esemplare con `ConvertToPKM` e un allenatore italiano della prima versione del gruppo, cioè X, Rubino Omega, Sole e Ultrasole, mai cromatico. Lo giudica con un salvataggio vuoto di quella versione intestato all'allenatore che lo riceve, come fa `pkhex-giudica`, e scrive soltanto i conformi, come `SCB-<generazione>-<gruppo>-<nn>-<numero>.pkN`, con un `rapporto.json` che porta gioco, specie, forma, soprannome, allenatore, identificativo, contesto di giudizio e impronta SHA-256. Rifiuta una cartella che contenga già esemplari.
+
+Due voci di settima generazione evolvono durante lo scambio, il Graveler di Alola in Golem di Alola e il Phantump in Trevenant: la libreria consegna la specie evoluta, e il nome del file e il campo `specie` del rapporto portano quella, con la specie della tabella accanto. Le tabelle non hanno voci esclusive di una sola versione, quindi le voci sono 26 e gli esemplari 26: 9 di X e Y, 3 di Rubino Omega e Zaffiro Alpha, 7 di Sole e Luna, 7 di Ultrasole e Ultraluna, tutti con soprannome e allenatore in italiano. La prima corsa, il 2026-10-05, ha dato 26 conformi su 26, e `pkhex-giudica` sulla cartella dà 26 su 26 nel contesto predefinito, Zaffiro Alpha e Ultraluna, e in quelli imposti di X, Rubino Omega, Sole e Ultrasole. Le specie e gli identificativi coincidono con il censimento e con l'elenco di comunità del foglio `Pre-Switch era` in `_notes/fonti/corpus-residuo/recuperati-2026-10-05/foglio-b.xlsx`.
+
+```powershell
+cd "E:/retrogame-mod-pok-dev/tools/pkhex-scambi-gen67"
+dotnet run -c Release -- "../../_notes/lotti/lotto-scambi-gen67"
+```
+
 ## pkhex-scrivi-salvataggio
 
 È lo strumento del passo 2 della roadmap dopo ADR-092. Scrive gli esemplari dei lotti nei box di una copia di un salvataggio di sesta o settima generazione, da cui il proprietario li porta nella banca e nel deposito. Per ogni file converte l'esemplare nel formato del salvataggio con `EntityConverter.ConvertToType`, lo rende proprio del salvataggio con `SaveFile.AdaptToSaveFile` e lo giudica. Esclude, e mette a rapporto, chi è contestato, chi non si converte, per esempio un esemplare di settima generazione verso la sesta, e chi conosce una macchina nascosta sul passaggio che avrebbe dovuto attraversare. Il criterio di quest'ultimo punto è quello di `CATENA-DI-TRASFERIMENTO.md` e di `mosse-mn.py`, e l'opzione `--includi-mn` lo scavalca quando il proprietario deciderà su ADR-046. Poi scrive i conformi in ordine, salva la copia, la ricarica, confronta ogni posto byte per byte e rigiudica ogni esemplare riletto.
@@ -256,6 +267,18 @@ dotnet run -c Release -- "../../_notes/salvataggi/terzi/main(6)" "../../_notes/s
 ```
 
 Dal 2026-09-30, sera, tre regole in più. `--solo-stesso-formato` scrive soltanto gli esemplari già nel formato del salvataggio, perché un lotto che mescola doni di sesta e settima generazione va in due giochi. Un uovo contestato si fa schiudere nel salvataggio che lo riceve e si rigiudica, con la regola di `pkhex-dono`. Il punto di ripartenza si conta sui file considerati. Le opzioni `--solo-mn` e `--solo-epoca-cartucce` preparano le copie dei due caricamenti a parte.
+
+Dal 2026-10-05 l'opzione `--regione-giappone` rende la copia di console giapponese, con regione 0, paese 1 e area 2, cioè Tokyo, nel profilo dell'allenatore, e fa di quell'allenatore il riferimento della conversione con `RecentTrainerCache.SetRecentTrainer`. Serve agli esemplari di Game Boy in lingua giapponese, che il verificatore ammette dalla Console Virtuale solo in una console giapponese, in `VerifyVCGeolocation` di `Legality/Verifiers/TransferVerifier.cs` con la tabella `IsRegionLockedLanguageValidVC` di `Legality/Restrictions/Locale/Locale3DS.cs`. La causa del rifiuto non era il salvataggio: la conversione legge regione e paese da `RecentTrainerCache`, che senza un allenatore impostato ripiega su uno americano, e per la lingua giapponese `PK7.SetTransferLocale` scrive regione 1 con paese 1, una coppia che il verificatore rifiuta per la lingua e per il paese. Senza l'opzione il comportamento non cambia, così le copie già fatte restano riproducibili. Dallo stesso giorno un lotto può essere anche un singolo file di esemplare, e l'origine nel rapporto resta `cartella/file`; il rapporto porta il campo `regione_giappone`.
+
+La copia del passo 4 della roadmap, `per-home/luna-giappone/main`, si fa in due passate dalla Luna del proprietario, la copia di Checkpoint `20260823-backsicMoo` sulla copia della scheda SD: la prima nell'epoca delle cartucce, perché il Farfetch'd di Stadium 2 e il Phanpy `EVT-2-0146` lo chiedono, la seconda nell'epoca della Console Virtuale per il Mew GF giapponese, che nell'epoca delle cartucce non si riconosce.
+
+```powershell
+cd "E:/retrogame-mod-pok-dev/tools/pkhex-scrivi-salvataggio"
+dotnet run -c Release -- "J:/3DS - 03092026/3ds/Checkpoint/saves/0x0175E Pokémon Moon/20260823-backsicMoo/main" "../../_notes/salvataggi/prove/intermedi/luna-giappone-a/main" 0 --svuota --epoca-cartucce --regione-giappone "../../_notes/lotti/lotto-doni-gb/GB-stadium-jp-001-Bulbasaur-00.pk1" "../../_notes/lotti/lotto-doni-gb/GB-stadium-jp-004-Charmander-01.pk1" "../../_notes/lotti/lotto-doni-gb/GB-stadium-jp-007-Squirtle-02.pk1" "../../_notes/lotti/lotto-doni-gb/GB-stadium-jp-054-Psyduck-03.pk1" "../../_notes/lotti/lotto-doni-gb/GB-stadium-jp-106-Hitmonlee-05.pk1" "../../_notes/lotti/lotto-doni-gb/GB-stadium-jp-107-Hitmonchan-06.pk1" "../../_notes/lotti/lotto-doni-gb/GB-stadium-jp-133-Eevee-07.pk1" "../../_notes/lotti/lotto-doni-gb/GB-stadium-jp-138-Omanyte-08.pk1" "../../_notes/lotti/lotto-doni-gb/GB-stadium-jp-140-Kabuto-09.pk1" "../../_notes/lotti/lotto-doni-gb/GB-stadium2-jp-083-Farfetch’d-04.pk2" "../../_notes/lotti/lotto-doni-gb/GB-stadium2-jp-207-Gligar-10.pk2" "../../_notes/lotti/lotto-gb/EVT-2-0146-Phanpy.pk2"
+dotnet run -c Release -- "../../_notes/salvataggi/prove/intermedi/luna-giappone-a/main" "../../_notes/salvataggi/prove/per-home/luna-giappone/main" 0 --regione-giappone "../../_notes/lotti/lotto-mew-vc/MEW-VC-GF-Giapponese.pk1"
+```
+
+La prima corsa, il 2026-10-05, ha dato 12 scritti e poi 1, zero esclusi, zero differenze e zero contestati alla rilettura. Come per la copia degli eventi da cartuccia, il Farfetch'd e il Phanpy sono legali solo nell'epoca delle cartucce, e PKHeX, che apre un salvataggio di settima generazione in quella della Console Virtuale, li segnerà come non legali.
 
 ## unisci-giudizi.py
 

@@ -1,12 +1,6 @@
 # Registro delle fonti
 
-Pulizia del 2026-10-05: 1662 collegamenti del residuo del corpus che non sono fonti (promemoria del bot RemindMe, calcoli di WolframAlpha, profili, inviti, indirizzi locali, segnaposto, pagine fuori tema o fuori perimetro) e 91 irrecuperabili dopo i tentativi documentati sono tolti dalle tabelle; restano, con il motivo e la prova, in `pokedex-home-completo/data/residuo-corpus.csv`.
-
-Pulizia del 2026-10-05: 1662 collegamenti del residuo del corpus che non sono fonti (promemoria del bot RemindMe, calcoli di WolframAlpha, profili, inviti, indirizzi locali, segnaposto, pagine fuori tema o fuori perimetro) sono tolti dalle tabelle; restano, con il motivo, in `pokedex-home-completo/data/residuo-corpus.csv`.
-
-Pulizia del 2026-10-05: 1662 collegamenti del residuo del corpus che non sono fonti (promemoria del bot RemindMe, calcoli di WolframAlpha, profili, inviti, indirizzi locali, segnaposto, pagine fuori tema o fuori perimetro) sono tolti dalle tabelle; restano, con il motivo, in `pokedex-home-completo/data/residuo-corpus.csv`.
-
-Pulizia del 2026-10-05: 1662 collegamenti del residuo del corpus che non sono fonti (promemoria del bot RemindMe, calcoli di WolframAlpha, profili, inviti, indirizzi locali, segnaposto, pagine fuori tema o fuori perimetro) sono tolti dalle tabelle; restano, con il motivo, in `pokedex-home-completo/data/residuo-corpus.csv`.
+Pulizia del 2026-10-05: 1756 collegamenti del residuo del corpus che non sono fonti o che non si possono più leggere sono dimenticati su direttiva del proprietario e tolti dalle tabelle; 2 irrecuperabili restano aperti come richiesta al proprietario. L'elenco dei dimenticati, con il motivo, sta fuori da git in `_notes/fonti/corpus-residuo/dimenticati.json`.
 
 Questo file è il registro unico delle fonti tecniche del progetto, condiviso da tutti i sottoprogetti. Nasce dal lavoro sul ponte fra generazioni, che è il track che ha richiesto la ricerca più profonda, ma non gli appartiene: i disassemblati dei giochi, la documentazione dell'hardware, i formati di salvataggio e gli editor servono anche alla correzione dell'inventario di Smeraldo, al modding del 3DS e allo scambio con la Switch, e tenerli in un posto solo evita che ogni handoff riscopra le stesse cose.
 
@@ -257,6 +251,13 @@ Consegnate dal proprietario il 2026-09-29 con uno scopo dichiarato: controllare 
 | Discord, Glitch City, `glitch-general`, esportato dal proprietario il 2026-09-30 | `_notes/fonti/discord/dce/GlitchCity-glitch-general.json` | FILTRATA il 2026-10-01: ridotto con `tools/read-chat-export.py` alle parole su banca, deposito, trasferimenti e distribuzioni, in `_notes/fonti/discord/filtrati-2026-10-01/GlitchCity-glitch-general.md`, e filtrato con `tools/estrai-affermazioni-ollama.py --chat`, estratto in `_notes/fonti/discord/estratti/`. Nessuna distribuzione mancante; conferme di ciò che il progetto sa. Livello 5 | PKD |
 | Bulbapedia, Pokémon Bank, copia della Wayback Machine del 2026-09-08 | https://web.archive.org/web/20260908201948/https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Bank | LETTA il 2026-10-01 per la capienza: la banca tiene fino a 3000 esemplari in 100 box da 30. È il vincolo che fa svuotare la banca verso il deposito a metà della roadmap di `COPIE-PER-HOME.md`. Livello 2 | PKD |
 | YouTube, «Pokémon Bank Countdown - 150 days left» | https://www.youtube.com/watch?v=_xmsvXvI878 | LETTA per intero il 2026-09-30, aggiornamento della playlist a quel giorno: diario di caccia a Heatran cromatico, nessuna affermazione pertinente. Livello 4 | PKD |
+| YouTube, «Pokémon Bank Countdown - 176 days left» | https://www.youtube.com/watch?v=1iSlRr5AGug | LETTA per intero il 2026-10-05 dai sottotitoli (`_notes/fonti/consegne/2026-10-05-countdown/testo/`), aggiornamento della playlist a quel giorno: diario di caccia a Lugia cromatico in Oro della Virtual Console, nessuna affermazione pertinente. Livello 4 | PKD |
+| YouTube, «Pokémon Bank Countdown - 156 days left» | https://www.youtube.com/watch?v=pOOr_h9vxUI | LETTA per intero il 2026-10-05 dai sottotitoli (`_notes/fonti/consegne/2026-10-05-countdown/testo/`), aggiornamento della playlist a quel giorno: catena SOS per Elgyem cromatico, nessuna affermazione pertinente. Livello 4 | PKD |
+| YouTube, «Pokémon Bank Countdown - 149 days left» | https://www.youtube.com/watch?v=PLEtCZNyXFE | LETTA per intero il 2026-10-05 dai sottotitoli (`_notes/fonti/consegne/2026-10-05-countdown/testo/`), aggiornamento della playlist a quel giorno: caccia a Heatran cromatico, nessuna affermazione pertinente. Livello 4 | PKD |
+| YouTube, «Pokémon Bank Countdown - 148 days left» | https://www.youtube.com/watch?v=S8i_zfy-hNc | LETTA per intero il 2026-10-05 dai sottotitoli (`_notes/fonti/consegne/2026-10-05-countdown/testo/`), aggiornamento della playlist a quel giorno: caccia a Heatran cromatico, nessuna affermazione pertinente. Livello 4 | PKD |
+| YouTube, «Pokémon Bank Countdown - 147 days left» | https://www.youtube.com/watch?v=LOnVPtymU_U | LETTA per intero il 2026-10-05 dai sottotitoli (`_notes/fonti/consegne/2026-10-05-countdown/testo/`), aggiornamento della playlist a quel giorno: orde di Whismur in Rubino Omega; ribadisce che Spinda entra in HOME solo da un gioco di settima generazione o precedente, già verificato sulla libreria e coperto dai lotti. Livello 4 | PKD |
+| YouTube, «Pokémon Bank Countdown - 146 days left» | https://www.youtube.com/watch?v=A87svCVON24 | LETTA per intero il 2026-10-05 dai sottotitoli (`_notes/fonti/consegne/2026-10-05-countdown/testo/`), aggiornamento della playlist a quel giorno: orde di Spinda cromatico in Rubino Omega, nessuna affermazione nuova. Livello 4 | PKD |
+| YouTube, «Pokémon Bank Countdown - 145 days left» | https://www.youtube.com/watch?v=5ERkLBuLcB4 | LETTA per intero il 2026-10-05 dai sottotitoli (`_notes/fonti/consegne/2026-10-05-countdown/testo/`), aggiornamento della playlist a quel giorno: orde di Spinda cromatico in Rubino Omega, nessuna affermazione pertinente. Livello 4 | PKD |
 | YouTube, «Pokémon Bank Countdown - 151 days left» | https://www.youtube.com/watch?v=S7TgAkeowwg | FILTRATA il 2026-09-30 con `tools/estrai-affermazioni-ollama.py`, estratto in `estratti/`, e le affermazioni che cambiano lo stato verificate sulla trascrizione e sulla libreria: nessuna affermazione pertinente nell'estratto. Livello 4 | PKD |
 | YouTube, «Pokémon Bank Countdown - 171 days left» | https://www.youtube.com/watch?v=U-lIHaBGw7w | FILTRATA il 2026-09-30 con `tools/estrai-affermazioni-ollama.py`, estratto in `estratti/`, e le affermazioni che cambiano lo stato verificate sulla trascrizione e sulla libreria: nessuna affermazione pertinente nell'estratto. Livello 4 | PKD |
 | YouTube, «How to easily RNG Manipulate Shadow Shiny Pokémon for Ribbon Master in Pokémon Colosseum (per la sfida dei fiocchi)» | https://www.youtube.com/watch?v=VoPHz3aVwr0 | FILTRATA il 2026-09-30 con `tools/estrai-affermazioni-ollama.py`, estratto in `estratti/`, e le affermazioni che cambiano lo stato verificate sulla trascrizione e sulla libreria: Manipolazione del generatore in Colosseum per Ombre cromatiche, per la sfida dei fiocchi; metodo, nessuna voce nuova. Livello 4 | PKD |
@@ -1516,7 +1517,6 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 | 2 | GitHub - yuhasem/FeebasFinder: A tool to find which tiles you can get Feebas from · GitHub | scaricato | https://github.com/yuhasem/FeebasFinder |
 | 2 | poc_utils/tas/notes.md at master · yuhasem/poc_utils · GitHub | scaricato | https://github.com/yuhasem/poc_utils/blob/master/tas/notes.md |
 | 2 | GitHub - zaksabeast/DreamRadarCartRedirect: A patch for dream radar redirecting nds cart reading/writing to a file on the SD · GitHub | scaricato | https://github.com/zaksabeast/DreamRadarCartRedirect |
-| 3 | NTR Launcher | non raggiunto | https://github.com/ApacheThunder/NTR_Launcher/releases/download/1.9.9/NTR_Launcher.cia |
 | 3 | second menu | non raggiunto | https://github.com/DS-Homebrew/TWiLightMenu |
 | 3 | here | non raggiunto | https://github.com/DS-Homebrew/TWiLightMenu/releases |
 | 3 | nds-bootstrap | non raggiunto | https://github.com/DS-Homebrew/nds-bootstrap |
@@ -1926,7 +1926,6 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 | 3 | senza descrizione | non raggiunto | https://mtheall.com/~mtheall/ftpd-classic.nro |
 | 3 | senza descrizione | non raggiunto | https://mtheall.com/~mtheall/ftpd.3dsx |
 | 3 | senza descrizione | non raggiunto | https://mtheall.com/~mtheall/ftpd.cia |
-| 3 | senza descrizione | non raggiunto | https://mtheall.com/~mtheall/ftpd.nds |
 | 3 | senza descrizione | non raggiunto | https://mtheall.com/~mtheall/ftpd.nro |
 
 ### twitter.com (7)
@@ -2105,7 +2104,6 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
 | 2 | the VOD itself | trascritto: estratto con 63 affermazioni, verificate | https://www.twitch.tv/videos/117651897 |
-| 3 | Twitch | non raggiunto | https://twitch.tv/Pokemon |
 | 3 | starting from 17:05 in the video | non raggiunto | https://www.twitch.tv/videos/117651897?t=17m05s |
 
 ### wiki.gbatemp.net (3)
@@ -2479,7 +2477,6 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | Chrome | saltato: applicazione interattiva senza testo statico: è uno strumento da usare, non una fonte da leggere; tentato il 2026-10-01 diretto, co | https://chrome.google.com/webstore/detail/mentioned-videos-for-redd/fiimkmdalmgffhibfdjnhljpnigcmohf |
 
 ### classic.pokepc.net (1)
 
@@ -2635,7 +2632,6 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 3 | Ghost eShop | non raggiunto | https://ghosteshop.com/ |
 
 ### global3.memecdn.com (1)
 

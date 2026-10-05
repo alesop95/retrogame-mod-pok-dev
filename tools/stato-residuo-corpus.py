@@ -38,6 +38,10 @@ import sys
 RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 R = os.path.join(RADICE, "_notes", "fonti", "corpus-residuo")
 ELENCO = os.path.join(RADICE, "_notes", "fonti", "da-leggere-corpus.json")
+# Dal 2026-10-05, su direttiva del proprietario («tutti quelli dove hai scritto no dimentichiamole e pulisci tutto»):
+# gli indirizzi che non sono fonti e quelli irrecuperabili escono dal CSV, dai conteggi e dai registri. Restano
+# soltanto in questo elenco, fuori da git, con il motivo, perché un censimento rigenerato non li riporti dentro.
+DIMENTICATI = os.path.join(RADICE, "_notes", "fonti", "corpus-residuo", "dimenticati.json")
 USCITA = os.path.join(RADICE, "pokedex-home-completo", "data", "residuo-corpus.csv")
 REGISTRI = [os.path.join(RADICE, "SOURCES.md"), os.path.join(RADICE, "pokedex-home-completo", "CENSIMENTO-FONTI-COLLEZIONE.md")]
 VIDEO_TESTO = [os.path.join(R, "video", "testo"), os.path.join(R, "canali", "testo"),
@@ -81,10 +85,10 @@ def chiave(url):
 # Lo stesso giorno, sempre su sua direttiva («pulizia, non perdere tempo»), escono dalle tabelle anche gli irrecuperabili.
 SCARTI = ("bot RemindMe", "WolframAlpha", "pagina di profilo", "invito a un server Discord", "indirizzo numerico",
           "segnaposto, accorciatore", "pagina senza contenuto", "documentazione di sicurezza", "pirateria", ".cia")
-NOTA_SCARTI = ("Pulizia del 2026-10-05: %d collegamenti del residuo del corpus che non sono fonti (promemoria del bot "
-               "RemindMe, calcoli di WolframAlpha, profili, inviti, indirizzi locali, segnaposto, pagine fuori tema o "
-               "fuori perimetro) e %d irrecuperabili dopo i tentativi documentati sono tolti dalle tabelle; restano, con "
-               "il motivo e la prova, in `pokedex-home-completo/data/residuo-corpus.csv`.")
+NOTA_SCARTI = ("Pulizia del 2026-10-05: %d collegamenti del residuo del corpus che non sono fonti o che non si possono "
+               "più leggere sono dimenticati su direttiva del proprietario e tolti dalle tabelle; %d irrecuperabili "
+               "restano aperti come richiesta al proprietario. L'elenco dei dimenticati, con il motivo, sta fuori da git "
+               "in `_notes/fonti/corpus-residuo/dimenticati.json`.")
 
 
 def classifica_saltato(motivo):
@@ -109,8 +113,11 @@ def calcola():
             m = re.search(r"\[youtube\] ([A-Za-z0-9_-]{11}): (.*)", r)
             if m and "ERROR" in r:
                 meta_errori[m.group(1)] = m.group(2).strip()[:120]
+    dimenticati = leggi_json(DIMENTICATI, {})
     stati = collections.OrderedDict()
     for url in json.load(io.open(ELENCO, encoding="utf-8")):
+        if url in dimenticati:
+            continue
         e = esiti.get(url, {"esito": "non letto", "motivo": "non ancora tentato"})
         stato, dettaglio = "", ""
         if e["esito"] == "letto":
@@ -193,6 +200,7 @@ def main():
     print("scritto", USCITA, dict(conto))
     if a.registro:
         per_chiave = {chiave(u): s for u, s in stati.items()}
+        per_chiave.update({chiave(u): ("dimenticato", "") for u in leggi_json(DIMENTICATI, {})})
         for p in REGISTRI:
             righe = io.open(p, encoding="utf-8", newline="").read().split("\n")
             cambiate = 0
@@ -200,7 +208,7 @@ def main():
             for i, r in enumerate(righe):
                 if r.startswith("|"):
                     u = next((c.strip() for c in r.split("|") if c.strip().startswith("http")), None)
-                    if u and per_chiave.get(chiave(u), ("",))[0] in ("scartato", "irrecuperabile"):
+                    if u and per_chiave.get(chiave(u), ("",))[0] in ("scartato", "irrecuperabile", "dimenticato"):
                         righe[i] = None
                         tolte += 1
                         continue
@@ -217,7 +225,7 @@ def main():
                 cambiate += 1
             righe = [r for r in righe if r is not None and not r.startswith(NOTA_SCARTI[:30])]
             k = next((i for i, r in enumerate(righe) if r.startswith("# ")), 0)
-            righe[k + 1:k + 1] = ["", NOTA_SCARTI % (conto["scartato"], conto["irrecuperabile"])]
+            righe[k + 1:k + 1] = ["", NOTA_SCARTI % (len(leggi_json(DIMENTICATI, {})), conto["irrecuperabile"])]
             io.open(p, "w", encoding="utf-8", newline="").write("\n".join(righe))
             print(os.path.basename(p), cambiate, "righe aggiornate,", tolte, "righe di scarti tolte")
     if aperti:

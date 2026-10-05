@@ -963,6 +963,22 @@ Il problema. La lettura integrale delle fonti del Parco Lotta ha lasciato fuori 
 La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti etichettata come non letta con il proprio motivo, secondo la prescrizione che vieta di degradare in silenzio una fonte a nota a margine, e non si tenta alcuna via ulteriore. Il debito di lettura del fronte Parco Lotta si dichiara quindi chiuso con questa sola eccezione dichiarata, e nessuna sessione futura deve riaprirlo credendo che qualcosa sia stato dimenticato.
 
 La ragione per cui l'abbandono è accettabile qui, e non lo sarebbe altrove. Quella discussione è del 2005 ed è una richiesta di valutazione di squadra, cioè la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e più recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano è quindi basso, e la decisione si fonda su questo e non sulla sola difficoltà di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
+## ADR-096: le risposte del proprietario del 2026-10-05 su fonti, scambi in gioco, copie e profilo di collezione
+
+Data: 2026-10-05. Stato: accettata, decisa dal proprietario; due punti con l'interpretazione dell'agente da confermare, marcati.
+
+Fonti. Gli indirizzi del residuo del corpus che non sono fonti o che non si possono più leggere si dimenticano: 1751, tolti dal CSV, dai conteggi e dai registri, e conservati con il motivo solo in `_notes/fonti/corpus-residuo/dimenticati.json`, fuori da git, perché un censimento rigenerato non li riporti dentro (`tools/stato-residuo-corpus.py`). Restano aperti due irrecuperabili che il proprietario può procurare, un video con verifica dell'età e un foglio Drive privato, e i 14 indirizzi di applicazioni interattive, che non si leggono ma si studiano per potenziare gli strumenti di generazione e di comprensione dei dati e per ampliare tesi e documentazione. Discord resta fuori per ora. Gli indirizzi di rete privati non stanno in nessun file tracciato; quello di una macchina del progetto e quelli dei testi di terzi in `_notes/` sono sostituiti da segnaposto.
+
+Scambi in gioco di sesta e settima generazione, passo 3b: si generano, perché è la via più completa e veloce. Fatto lo stesso giorno, 26 conformi, nella copia `per-home/ultraluna-giro-1-scambi/main`.
+
+Copia di Luna sulla console: sostituzione approvata. Copia di Luna con regione giapponese per i 13 esemplari giapponesi: da preparare, affidata lo stesso giorno a un agente.
+
+Voci coreane di quarta generazione (ADR-040): il proprietario chiedeva di cercare una via con un gioco coreano. La verifica sulle copie mostra che non serve: con la scrittura diretta di ADR-092 la barriera, che il verificatore applica solo a un esemplare di quarta in un salvataggio di quarta, non scatta, e 27 delle 28 voci sono già nelle copie per HOME; la ventottesima, Rayquaza `EVT-4-0235`, è esclusa solo per una macchina nascosta e sta con la decisione finale. ADR-040 è chiusa da questa verifica.
+
+Server di replica dei doni di quinta generazione: legittimo se HOME e Nintendo lo considerano legittimo. Nintendo non riconosce i server non ufficiali, quindi con quel criterio non si usa; non serve comunque, perché il Victini del Passo Libertà è già generato con la libreria (`_notes/lotti/lotto-oggetti-gen5/`).
+
+Profilo di collezione, DA CONFERMARE perché la risposta è arrivata troncata: una casella per specie e forma, e in più, come caselle a sé, gli esemplari peculiari di un titolo, cioè gli incontri statici tipici di quel gioco e gli scambi in gioco.
+
 ## ADR-095: il recap di fine giro a campi fissi, nella regola e nel template
 
 Data: 2026-10-05. Stato: accettata, decisa dal proprietario.

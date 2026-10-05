@@ -15,10 +15,18 @@
 // copia non si scrive se esiste gia'. Con --svuota i box della copia si svuotano prima: gli esemplari che il
 // salvataggio di partenza conteneva restano soltanto nel file di partenza.
 //
+// Con --regione-giappone la copia diventa di console giapponese: regione 0, paese 1 (Giappone) e area 2 (Tokyo) nel
+// profilo dell'allenatore, e quell'allenatore diventa il riferimento della conversione. Serve agli esemplari di Game Boy
+// in lingua giapponese, che la libreria ammette dalla Console Virtuale solo in una console giapponese
+// (`Legality/Verifiers/TransferVerifier.cs`, `VerifyVCGeolocation`). Senza l'opzione la conversione prende regione e
+// paese non dal salvataggio ma dall'allenatore di riserva della libreria, americano, e per la lingua giapponese
+// `PK7.SetTransferLocale` scrive regione 1 con paese 1, una coppia che il verificatore rifiuta due volte.
+// Un LOTTO puo' essere anche un singolo file di esemplare: l'origine resta "cartella/file".
+//
 // Per `rules/hardware-and-perimeter.md` la copia si porta sulla console solo dopo una copia di riserva del salvataggio
 // che la console ha, e dopo la scrittura si rilegge.
 //
-// Uso:  dotnet run -c Release -- SALVATAGGIO COPIA_DI_USCITA DA [--svuota] [--epoca-cartucce] [--includi-mn] [--solo-mn] [--solo-epoca-cartucce] [--solo-stesso-formato] LOTTO [LOTTO ...]
+// Uso:  dotnet run -c Release -- SALVATAGGIO COPIA_DI_USCITA DA [--svuota] [--epoca-cartucce] [--includi-mn] [--solo-mn] [--solo-epoca-cartucce] [--solo-stesso-formato] [--regione-giappone] LOTTO [LOTTO ...]
 using System.Security.Cryptography;
 using System.Text.Json;
 using System.Text.Json.Nodes;
@@ -28,7 +36,7 @@ var opzioni = args.Where(a => a.StartsWith("--")).ToHashSet();
 var posizionali = args.Where(a => !a.StartsWith("--")).ToArray();
 if (posizionali.Length < 4)
 {
-    Console.Error.WriteLine("uso: dotnet run -c Release -- SALVATAGGIO COPIA_DI_USCITA DA [--svuota] [--epoca-cartucce] [--includi-mn] [--solo-mn] [--solo-epoca-cartucce] [--solo-stesso-formato] LOTTO [LOTTO ...]");
+    Console.Error.WriteLine("uso: dotnet run -c Release -- SALVATAGGIO COPIA_DI_USCITA DA [--svuota] [--epoca-cartucce] [--includi-mn] [--solo-mn] [--solo-epoca-cartucce] [--solo-stesso-formato] [--regione-giappone] LOTTO [LOTTO ...]");
     return 2;
 }
 var partenza = posizionali[0];
@@ -45,9 +53,25 @@ if (!SaveUtil.TryGetSaveFile(partenza, out var sav))
     Console.Error.WriteLine($"salvataggio non riconosciuto: {partenza}");
     return 2;
 }
+bool giappone = opzioni.Contains("--regione-giappone");
+if (giappone)
+{
+    if (sav is not IRegionOrigin geo)
+    {
+        Console.Error.WriteLine("--regione-giappone vale solo per i salvataggi di sesta e settima generazione");
+        return 2;
+    }
+    geo.ConsoleRegion = 0; // Giappone
+    geo.Country = 1; // Giappone
+    geo.Region = 2; // Tokyo, `Resources/text/locale3DS/subregions/sr_001.txt`
+}
 void Contesto(SaveFile s)
 {
     ParseSettings.InitFromSaveFileData(s);
+    // La conversione dalla Console Virtuale legge regione e paese da `RecentTrainerCache`, non dal salvataggio: lo si
+    // imposta qui, e solo con l'opzione, perche' le copie gia' fatte restino riproducibili.
+    if (giappone)
+        RecentTrainerCache.SetRecentTrainer(s);
     // Gli eventi da cartuccia di prima e seconda generazione la libreria li ammette solo nell'epoca delle cartucce,
     // che e' il caso di un salvataggio di cartuccia portato sulla Console Virtuale (ADR-092).
     if (opzioni.Contains("--epoca-cartucce") || opzioni.Contains("--solo-epoca-cartucce"))
@@ -80,8 +104,10 @@ string? Bloccato(PKM pk)
     };
 }
 var estensioni = new[] { ".pk1", ".pk2", ".pk3", ".pk4", ".pk5", ".pk6", ".pk7", ".ck3", ".xk3" };
-var file = lotti.SelectMany(l => Directory.EnumerateFiles(l).Where(f => estensioni.Contains(Path.GetExtension(f).ToLowerInvariant()))
-        .Order(StringComparer.Ordinal).Select(f => (Lotto: Path.GetFileName(l.TrimEnd('/', '\\')), File: f)))
+var file = lotti.SelectMany(l => File.Exists(l)
+        ? [(Lotto: Path.GetFileName(Path.GetDirectoryName(Path.GetFullPath(l)))!, File: l)]
+        : Directory.EnumerateFiles(l).Where(f => estensioni.Contains(Path.GetExtension(f).ToLowerInvariant()))
+            .Order(StringComparer.Ordinal).Select(f => (Lotto: Path.GetFileName(l.TrimEnd('/', '\\')), File: f)))
     .ToList();
 
 if (opzioni.Contains("--svuota"))
@@ -201,6 +227,7 @@ var rapporto = new JsonObject
     ["fonte"] = "PKHeX.Core tramite tools/pkhex-scrivi-salvataggio (ADR-092)",
     ["partenza"] = Path.GetFileName(partenza), ["versione"] = sav.Version.ToString(), ["formato"] = formato.Name,
     ["svuotato"] = opzioni.Contains("--svuota"), ["incluse_mn"] = opzioni.Contains("--includi-mn"), ["epoca_cartucce"] = opzioni.Contains("--epoca-cartucce"),
+    ["regione_giappone"] = giappone,
     ["lotti"] = new JsonArray(lotti.Select(l => (JsonNode)Path.GetFileName(l.TrimEnd('/', '\\'))).ToArray()),
     ["da"] = da, ["file_totali"] = file.Count, ["prossimo_da"] = prossimo < file.Count ? prossimo : null,
     ["scritti"] = scritti.Count, ["riletti_diversi"] = differenti, ["riletti_contestati"] = contestatiRiletti,

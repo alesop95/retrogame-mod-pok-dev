@@ -1,12 +1,6 @@
 # Censimento delle fonti del post di raccolta sulle collezioni
 
-Pulizia del 2026-10-05: 1662 collegamenti del residuo del corpus che non sono fonti (promemoria del bot RemindMe, calcoli di WolframAlpha, profili, inviti, indirizzi locali, segnaposto, pagine fuori tema o fuori perimetro) e 91 irrecuperabili dopo i tentativi documentati sono tolti dalle tabelle; restano, con il motivo e la prova, in `pokedex-home-completo/data/residuo-corpus.csv`.
-
-Pulizia del 2026-10-05: 1662 collegamenti del residuo del corpus che non sono fonti (promemoria del bot RemindMe, calcoli di WolframAlpha, profili, inviti, indirizzi locali, segnaposto, pagine fuori tema o fuori perimetro) sono tolti dalle tabelle; restano, con il motivo, in `pokedex-home-completo/data/residuo-corpus.csv`.
-
-Pulizia del 2026-10-05: 1662 collegamenti del residuo del corpus che non sono fonti (promemoria del bot RemindMe, calcoli di WolframAlpha, profili, inviti, indirizzi locali, segnaposto, pagine fuori tema o fuori perimetro) sono tolti dalle tabelle; restano, con il motivo, in `pokedex-home-completo/data/residuo-corpus.csv`.
-
-Pulizia del 2026-10-05: 1662 collegamenti del residuo del corpus che non sono fonti (promemoria del bot RemindMe, calcoli di WolframAlpha, profili, inviti, indirizzi locali, segnaposto, pagine fuori tema o fuori perimetro) sono tolti dalle tabelle; restano, con il motivo, in `pokedex-home-completo/data/residuo-corpus.csv`.
+Pulizia del 2026-10-05: 1756 collegamenti del residuo del corpus che non sono fonti o che non si possono più leggere sono dimenticati su direttiva del proprietario e tolti dalle tabelle; 2 irrecuperabili restano aperti come richiesta al proprietario. L'elenco dei dimenticati, con il motivo, sta fuori da git in `_notes/fonti/corpus-residuo/dimenticati.json`.
 
 > Documento generato da `tools/censimento-fonti-reddit.py` a partire dalla corsa di `tools/fetch-reddit.py` in `_notes/fonti/reddit/reddit-pokemonhome-1vtj5hf-2026-09-08`, che non entra in git perché è materiale grezzo di terzi. Si rigenera invece di modificarlo a mano.
 
@@ -719,7 +713,6 @@ Nodi per esito: catalogato con 1566, non raggiunto con 916, scaricato con 670, f
 | 2 | web | 事実無根の中傷については、即、警察に通報します。 | bystrousky.blogspot.com | scaricato | 3 | http://bystrousky.blogspot.com/2019/07/blog-post.html |
 | 2 | web | Completely the same as the OG | cdn.discordapp.com | letto: estratto con 3 affermazioni, verificate | 1 | https://cdn.discordapp.com/attachments/907741323757506590/908875821769449472/2021111219280400-7DCC42E2AF4C1BBE54BB71700F7161B6.jpg |
 | 2 | web | 3DS Game Cheats with Checkpoint (Sharkive) - CFWaifu | cfwaifu.com | scaricato | 3 | https://www.cfwaifu.com/3ds-cheats |
-| 2 | web | Chrome | chrome.google.com | saltato: applicazione interattiva senza testo statico: è uno strumento da usare, non una fonte da leggere; tentato il 2026-10-01 diretto, co | 1 | https://chrome.google.com/webstore/detail/mentioned-videos-for-redd/fiimkmdalmgffhibfdjnhljpnigcmohf |
 | 2 | web | - | classic.pokepc.net | saltato: applicazione interattiva senza testo statico: è uno strumento da usare, non una fonte da leggere; tentato il 2026-10-01 diretto, co | 1 | https://classic.pokepc.net/apps/livingdex |
 | 2 | web | - | degraiver.deviantart.com | letto: estratto senza affermazioni pertinenti | 1 | http://degraiver.deviantart.com/art/Pkmn-RBY-Stat-Calculator-V-0-9-82964356 |
 | 2 | web | 3DS GBA Save Backup and Restore with GodMode9 / Digiex | digiex.net | scaricato | 3 | https://digiex.net/threads/3ds-gba-save-backup-and-restore-with-godmode9.15395 |
@@ -1385,11 +1378,9 @@ Nodi per esito: catalogato con 1566, non raggiunto con 916, scaricato con 670, f
 | 3 | web | - | gbatemp.net | fallito | 1 | https://gbatemp.net/threads/release-godmode9-scripts-megathread.482150/page-10 |
 | 3 | web | Source 1 | gbatemp.net | fallito | 1 | https://gbatemp.net/threads/trading-in-gba-pokemon-games-on-ds.599309 |
 | 3 | web | - | gbatemp.net | fallito | 1 | https://gbatemp.net/threads/xy-oras-sm-custom-3d-models-textures-sharing-thread.392711/page-108 |
-| 3 | web | Ghost eShop | ghosteshop.com | saltato: file eseguibile o archivio (intestazione «<!do»), non una fonte | 1 | https://ghosteshop.com/ |
 | 3 | web | List of Pokémon titles for Nintendo 3DS · GitHub | gist.github.com | scaricato | 1 | https://gist.github.com/Bl4ckSh4rk/256ed3b857c9677310837d5180121f35 |
 | 3 | web | Pokémon XY Poké Radar Disassembly.md · GitHub | gist.github.com | scaricato | 2 | https://gist.github.com/Lusamine/5408c25a59422e701de932c3941fa255 |
 | 3 | web | 3DS Romhack installation · GitHub | gist.github.com | scaricato | 1 | https://gist.github.com/figgyc/0d31b77fc6e4e8f9a49399d392740d46 |
-| 3 | web | NTR Launcher | github.com | saltato: file eseguibile o archivio (b'  \x00\x00'), non una fonte | 1 | https://github.com/ApacheThunder/NTR_Launcher/releases/download/1.9.9/NTR_Launcher.cia |
 | 3 | web | GitHub - DS-Homebrew/TWiLightMenu: DSi Menu replacement for DS/DSi/3DS/2DS · GitHub | github.com | scaricato | 2 | https://github.com/DS-Homebrew/TWiLightMenu |
 | 3 | web | Releases · DS-Homebrew/TWiLightMenu · GitHub | github.com | scaricato | 1 | https://github.com/DS-Homebrew/TWiLightMenu/releases |
 | 3 | web | GitHub - DS-Homebrew/nds-bootstrap: Boot an nds file · GitHub | github.com | scaricato | 1 | https://github.com/DS-Homebrew/nds-bootstrap |
@@ -1522,7 +1513,6 @@ Nodi per esito: catalogato con 1566, non raggiunto con 916, scaricato con 670, f
 | 3 | web | - | mtheall.com | scaricato | 1 | https://mtheall.com/~mtheall/ftpd-classic.nro |
 | 3 | web | - | mtheall.com | scaricato | 1 | https://mtheall.com/~mtheall/ftpd.3dsx |
 | 3 | web | - | mtheall.com | scaricato | 1 | https://mtheall.com/~mtheall/ftpd.cia |
-| 3 | web | - | mtheall.com | saltato: file eseguibile o archivio (b'HOME'), non una fonte | 1 | https://mtheall.com/~mtheall/ftpd.nds |
 | 3 | web | - | mtheall.com | scaricato | 1 | https://mtheall.com/~mtheall/ftpd.nro |
 | 3 | web | - | net-security.org | letto: documentazione tecnica o pagina generica fuori tema, conservata senza estrazione | 1 | http://www.net-security.org/dl/articles/unicodebo.pdf |
 | 3 | web | - | neworder.box.sk | non raggiunto | 1 | http://www.neworder.box.sk/newsread.php?newsid=12476 |
@@ -1720,7 +1710,6 @@ Nodi per esito: catalogato con 1566, non raggiunto con 916, scaricato con 670, f
 | 3 | web | - | syngress.com | letto: documentazione tecnica o pagina generica fuori tema, conservata senza estrazione | 1 | https://www.syngress.com/book_catalog/327_SSPC/sample.pdf |
 | 3 | web | 10 Nintendo Flops That Should Have Been Hits | thegamer.com | scaricato | 2 | https://www.thegamer.com/best-nintendo-video-games-sold-poorly |
 | 3 | web | Blacklist / SV | tswann89.github.io | scaricato | 1 | https://tswann89.github.io/PokemonSV/blacklist |
-| 3 | web | Twitch | twitch.tv | saltato: pagina del canale Twitch di Pokémon: dirette senza archivio, nessun contenuto statico da leggere | 1 | https://twitch.tv/Pokemon |
 | 3 | web | starting from 17:05 in the video | twitch.tv | trascritto: estratto con 63 affermazioni, verificate | 1 | https://www.twitch.tv/videos/117651897?t=17m05s |
 | 3 | web | - ↑ https://twitter.com/SciresM/status/1197055570290700288 | twitter.com | letto: estratto senza affermazioni pertinenti | 2 | https://twitter.com/SciresM/status/1197055570290700288 |
 | 3 | web | - | twitter.com | letto: estratto senza affermazioni pertinenti | 1 | https://twitter.com/Sibuna_Switch/status/1483795417288564743 |
@@ -1801,7 +1790,6 @@ Nodi per esito: catalogato con 1566, non raggiunto con 916, scaricato con 670, f
 | 3 | web | Randomizing PKMN LGP | zetadesigns.github.io | scaricato | 2 | https://zetadesigns.github.io/randomizing-layeredfs.html |
 | 4 | web | Basic guide for SD card testing | 3ds.eiphax.tech | non raggiunto | 1 | https://3ds.eiphax.tech/sd.html |
 | 4 | web | Reference | 3ds.eiphax.tech | non raggiunto | 1 | https://3ds.eiphax.tech/tips.html |
-| 4 | web | alternate exploits | 3ds.hacks.guide | non raggiunto | 1 | https://3ds.hacks.guide/alternate-exploits |
 | 4 | web | update Luma | 3ds.hacks.guide | non raggiunto | 1 | https://3ds.hacks.guide/checking-for-cfw |
 | 4 | web | - | 3ds.hacks.guide | non raggiunto | 1 | https://3ds.hacks.guide/checking-for-cfw.html |
 | 4 | web | Follow the “Finalizing Setup” portion of the guide | 3ds.hacks.guide | non raggiunto | 1 | https://3ds.hacks.guide/finalizing-setup.html |
@@ -1810,8 +1798,6 @@ Nodi per esito: catalogato con 1566, non raggiunto con 916, scaricato con 670, f
 | 4 | web | Formatting Guide for Windows Computers | 3ds.hacks.guide | non raggiunto | 1 | https://3ds.hacks.guide/formatting-sd-(windows |
 | 4 | web | Godmode9 | 3ds.hacks.guide | non raggiunto | 1 | https://3ds.hacks.guide/godmode9-usage.html |
 | 4 | web | h2testw | 3ds.hacks.guide | non raggiunto | 1 | https://3ds.hacks.guide/h2testw-(windows |
-| 4 | web | ninjhax | 3ds.hacks.guide | non raggiunto | 1 | https://3ds.hacks.guide/homebrew-launcher-(ninjhax2-dx |
-| 4 | web | free software method | 3ds.hacks.guide | non raggiunto | 1 | https://3ds.hacks.guide/homebrew-launcher-(super-skaterhax\ |
 | 4 | web | ntrboot | 3ds.hacks.guide | non raggiunto | 1 | https://3ds.hacks.guide/ntrboot |
 | 4 | web | Region Change | 3ds.hacks.guide | non raggiunto | 1 | https://3ds.hacks.guide/region-changing.html |
 | 4 | web | - | 3ds.hacks.guide | non raggiunto | 1 | https://3ds.hacks.guide/restoring-updating-cfw |
@@ -1883,7 +1869,6 @@ Nodi per esito: catalogato con 1566, non raggiunto con 916, scaricato con 670, f
 | 4 | web | It's already been done. | kotaku.com | non raggiunto | 1 | https://kotaku.com/players-try-bringing-missingno-into-pokemon-sun-and-moo-1791621674 |
 | 4 | web | ck, White, Black 2, and White 2 can utilize the camera when using the Xtransceiver, and they and Pokémon Conquest can connect to WPA and WPA2 protected wireless | m.bulbapedia.bulbagarden.net | non raggiunto | 1 | https://m.bulbapedia.bulbagarden.net/wiki/Nintendo_DSi |
 | 4 | web | This | m.youtube.com | trascritto: estratto senza affermazioni pertinenti | 1 | https://m.youtube.com/watch?v=vN7l4gE0qgI |
-| 4 | web | - | matrix.to | non raggiunto | 1 | https://matrix.to/ |
 | 4 | web | Minitool Partition Wizard | partitionwizard.com | non raggiunto | 1 | https://www.partitionwizard.com/ |
 | 4 | web | - | pastebin.com | non raggiunto | 1 | https://pastebin.com/tBY6RHh4 |
 | 4 | web | - | pastelink.net | non raggiunto | 1 | https://pastelink.net/ |

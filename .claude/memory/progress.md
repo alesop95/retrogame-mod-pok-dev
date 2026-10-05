@@ -4,6 +4,30 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-10-05, undicesima parte. Fonti dimenticate, scambi in gioco, copia giapponese, playlist
+
+Su direttiva del proprietario (ADR-096): 1756 indirizzi del residuo del corpus dimenticati (non fonti e irrecuperabili), fuori da CSV, conteggi e registri, elenco in `_notes/fonti/corpus-residuo/dimenticati.json`; `tools/stato-residuo-corpus.py` lo legge. Correzione a quanto detto prima: delle «sette recuperate» cinque erano doppioni di pagine già lette con testo in coda all'indirizzo; nuove davvero quattro (Wild Area News 2021, GBAtemp sui database di trucchi, note ACE di Smeraldo, articolo giapponese sulle uova di Sole e Luna), più il foglio comunitario degli ottenibili; nessuna lacuna. Un errore del filtro aveva dimenticato anche 14 pagine lette di `3ds.hacks.guide`: corretto, e i due registri ripristinati da HEAD prima di riscriverli. Indirizzi di rete: nessuno vero nei file tracciati; quello della macchina con GPU in `_notes/resume-prompt.md` e 272 di testi di terzi in `_notes/fonti/` sostituiti da segnaposto. Passo 3b: `tools/pkhex-scambi-gen67` (nuovo, di un agente) genera 26 scambi in gioco, tutti conformi, scritti in `per-home/ultraluna-giro-1-scambi/main` (601, i 575 di prima identici). Voci coreane: 27 su 28 già nelle copie, ADR-040 chiusa. Copia giapponese: `tools/pkhex-scrivi-salvataggio` ha l'opzione `--regione-giappone` (la causa era la regione presa dall'allenatore di riserva americano della libreria, `RecentTrainerCache`; effetto collaterale: le copie già fatte hanno regione e paese americani, legali per la libreria); copia `per-home/luna-giappone-14/main` con 14 esemplari, SHA-256 `65fd5f88…c5d2`. Playlist «Pokémon Bank Countdown»: lette le sette puntate mancanti (176, 156, da 149 a 145), nessuna lacuna. Le altre 20 fonti video consegnate oggi erano già lette.
+
+File toccati: `tools/stato-residuo-corpus.py`, `tools/pkhex-scambi-gen67/`, `tools/pkhex-scrivi-salvataggio/Program.cs`, `docs/22-strumenti.md`, `SOURCES.md`, `pokedex-home-completo/CENSIMENTO-FONTI-COLLEZIONE.md`, `pokedex-home-completo/data/residuo-corpus.csv`, `pokedex-home-completo/COPIE-PER-HOME.md`, `pokedex-home-completo/ROADMAP.md`, `.claude/memory/decisions.md`, `.claude/memory/pending.md`, `.claude/memory/progress.md`, `_notes/resume-prompt.md`, `_notes/COMMIT-MSG.txt`.
+
+**Didattica:** candidata una voce: un filtro per prefisso d'indirizzo deve guardare anche lo stato, oppure dimentica ciò che è letto.
+
+## 2026-10-05, decima parte. Che cosa manca davvero delle fonti, e sette recuperate
+
+Il proprietario ha contestato «fonti chiuse» accanto a «residuo del corpus». Il residuo è il nome dell'insieme dei 2582 indirizzi del 2026-10-01 mai aperti; oggi ognuno ha uno stato finale, e mancano davvero 91 irrecuperabili e 18 saltati. Riprovati quelli con indirizzo sospetto: sette erano indirizzi scritti male e si sono aperti (voce TROVATO in `pending.md`), letti da un agente senza lacune (`_notes/fonti/corpus-residuo/recuperati-2026-10-05/ESITO.md`). Gli altri restano per cause vere: immagini cancellate da Reddit (19), fogli Google rimossi (11), siti spenti, tweet cancellati, video privati, un video con verifica d'età, un foglio Drive privato, indirizzi di rete locale citati come esempio. Verificato sulle copie che Vivillon Motivo Poké Ball e Greninja di Ash sono già nei lotti per HOME: la voce su Y e la carta 511 è superata.
+
+File toccati: `.claude/memory/pending.md`, `.claude/memory/progress.md`, `_notes/fonti/corpus-residuo/recuperati-2026-10-05/`, `_notes/resume-prompt.md`, `_notes/COMMIT-MSG.txt`.
+
+**Didattica:** candidata una voce: «irrecuperabile» va dato a un contenuto, non a una stringa; un indirizzo estratto da un testo porta con sé la sintassi del testo che lo conteneva.
+
+## 2026-10-05, nona parte. Il quadro completo, e il punto di ripresa fermo al 2026-09-29
+
+Il proprietario ha fatto il commit `f38e2ae` e ha chiesto la vista completa di roadmap, lotti e pendenze, e se le fonti siano finite. Fonti: `stato-residuo-corpus.py --check` esce con zero (letto 469, trascritto 125, letto con OCR 185, letto a vista 79, catalogo letto 18, saltato 18, irrecuperabile 91, scartato 1662). Trovato e corretto: il punto di ripresa di `index.md` era fermo al 2026-09-29, e lo stato dal 2026-10-01 stava solo in `progress.md` e nel file di ripresa; aggiunta in testa l'aggiunta del 2026-10-05. Il registro delle pendenze, letto per intero da un agente: 134 voci aperte e 35 superate ma non marcate, quadro in `_notes/quadro-pendenze-2026-10-05.md` e sezione nuova in testa a `pending.md`. Il recap ha ora un campo per la roadmap passo per passo, e il campo delle pendenze è la vista completa (`CLAUDE.md`).
+
+File toccati: `.claude/memory/index.md`, `.claude/memory/pending.md`, `.claude/memory/progress.md`, `CLAUDE.md`, `_notes/quadro-pendenze-2026-10-05.md`, `_notes/resume-prompt.md`, `_notes/COMMIT-MSG.txt`.
+
+**Didattica:** nessuna.
+
 ## 2026-10-05, ottava parte. Il recap di fine giro diventa regola, anche nel template
 
 Ripresa con `/riprendi`: unico rilievo l'ancora di `index.md`, corretta a `9e56342`. Poi il proprietario ha chiesto che il recap di ogni giro (fatto, che cosa spetta a lui, pendenze) sia sempre presente e che il template lo propaghi. Il template non lo aveva; aggiunta la sezione «Il recap di fine giro» a `.claude/rules/chat-non-e-memoria.md` in entrambi i repository, campi di dominio di questo progetto nel `CLAUDE.md`, ADR-095. Poi il passo 0 della roadmap, in sola lettura: la copia del giro 1 per HOME è presente e integra (`per-home/oras-giro-1/main`, 483328 byte, 930 scritti, 0 diversi), ma la console ha ripristinata dal 2026-09-30 la copia superata `scrittura-oras/giro-1/main`, con impronta diversa; registrato in `pending.md`, e il passo 1 comincia dal ripristino della copia giusta.

@@ -8,7 +8,7 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: 9e56342, roadmap del 2026-10-05 committata
+Commit di riferimento: f38e2ae, recap a regola (ADR-095) e passo 0 committati
 Data snapshot:         2026-10-05, fonti chiuse, roadmap del 2026-10-05 scritta; prossimo: passo 0 e prova pilota Rubino Omega giro 1
 ```
 
@@ -36,6 +36,8 @@ Data snapshot:         2026-10-05, fonti chiuse, roadmap del 2026-10-05 scritta;
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-10-05, che prevale su tutte le aggiunte sotto e sulla riga «Fuoco corrente» del 2026-09-25 per lo stato. Il punto di ripresa non era stato aggiornato dal 2026-09-29: lo stato dal 2026-10-01 al 2026-10-05 stava solo in `progress.md` e in `_notes/resume-prompt.md`, corretto qui. Fuoco corrente: pokedex-home-completo. Fonti CHIUSE (ADR-094, `stato-residuo-corpus.py --check` a zero, Discord escluso). Produzione sotto scadenza chiusa: 3194 esemplari per HOME in cinque copie scritte e rilette (Rubino Omega 930, 682, 914, Luna 93, Ultraluna 575), 158 per la decisione finale, 14 giapponesi senza copia, 701 eventi per Switch generati. Trasferimento NON cominciato. La roadmap che vale è la sezione del 2026-10-05 in testa a `pokedex-home-completo/ROADMAP.md`, passi da 0 a 6 più l'asse senza scadenza. Prossimo: passo 1, Rubino Omega giro 1, che comincia ripristinando con Checkpoint `per-home/oras-giro-1/main`, perché sulla console c'è la copia superata `scrittura-oras/giro-1/main` (voce TROVATO del 2026-10-05 in `pending.md`). Il recap di fine giro è regola dal 2026-10-05 (ADR-095).
 
 AGGIUNTA DEL 2026-09-29, quarta parte. La roadmap del fuoco corrente è riscritta a oggi in testa a `pokedex-home-completo/ROADMAP.md`: passo 0 le fonti nuove del proprietario, passo 1 le 40 voci da periferiche, passo 2 il calendario del trasferimento, passo 3 il trasferimento, passo 4 le decisioni che restano. 150 giorni alla chiusura di Bank.
 
