@@ -28,7 +28,7 @@ Scritta il 2026-09-30 con il proprietario, che vuole fare i passaggi insieme all
 
 Due vincoli di capienza la governano. Il deposito con il piano a pagamento tiene 6000 esemplari, 9000 dalla versione 4.1.0 di ottobre 2026, e il gruppo per HOME più quello della decisione finale e i giapponesi fanno 3366: il deposito non è un vincolo. La banca tiene 100 box da 30, cioè 3000 esemplari, meno dei 3194 del gruppo per HOME, quindi la banca va svuotata verso il deposito almeno una volta a metà; il dato è verificato il 2026-10-01 su Bulbapedia, nella copia della Wayback Machine dell'8 settembre 2026, registrata in `SOURCES.md`.
 
-Prima di cominciare, tre condizioni: l'esportazione di Discord letta, senza che smentisca nulla; il piano a pagamento del deposito attivo; la copia di riserva con Checkpoint delle partite vere del proprietario, che per Rubino Omega esiste già, `20260930-bef-giro1`.
+Prima di cominciare, tre condizioni, di cui la prima caduta il 2026-10-05 con ADR-094, perché Discord resta escluso per decisione del proprietario: l'esportazione di Discord letta, senza che smentisca nulla; il piano a pagamento del deposito attivo; la copia di riserva con Checkpoint delle partite vere del proprietario, che per Rubino Omega esiste già, `20260930-bef-giro1`.
 
 Il passo 1 è la prova pilota con un solo giro, Rubino Omega giro 1, 930 esemplari: ripristino della copia, controllo dei box in gioco, passaggio alla banca, controllo in banca, passaggio al deposito, controllo nel deposito. Se il deposito rifiuta o segnala qualcosa ci si ferma, e si capisce prima di continuare. È il solo passo che mette alla prova tutta la catena con esemplari del progetto.
 
@@ -37,6 +37,8 @@ Il passo 2 sono i giri 2 e 3 di Rubino Omega, 682 e 914 esemplari, uno dopo l'al
 Il passo 3 sono Luna, 93 esemplari, e Ultraluna, 575: ognuna con il proprio ripristino, poi la banca, poi il deposito. Dopo questo passo il gruppo per HOME, 3194 esemplari, è tutto nel deposito.
 
 Dentro il passo 3, deciso dal proprietario il 2026-10-02, ci sono i codici QR del Pokédex: dopo il ripristino della copia di Ultraluna e prima del suo passaggio alla banca, lo Scanner QR del gioco registra come viste le forme cromatiche dei Pokémon bloccati, la banca le copia nel proprio Pokédex e il deposito le riceve al passaggio successivo. Non sono esemplari e non cambiano i conti di questa pagina. I codici e la procedura passo per passo stanno nella pagina locale `_notes/qr-pokedex/index.html`, che si apre nel browser: 10 codici indispensabili il primo giorno, poi la verifica nel Pokédex del deposito con il filtro dei cromatici, poi, se la verifica riesce, circa 83 consigliati a 10 al giorno.
+
+Aggiornamento del 2026-10-05: fra il passo 3 e il passo 4 entra il passo 3b, gli scambi in gioco di sesta e settima generazione, che passano dalla banca e non hanno ancora un lotto, da decidere prima del passo 3; e dopo il passo 3 comincia l'asse senza scadenza di Rosso Fuoco e Verde Foglia per Switch. L'ordine con le sue ragioni sta nella sezione del 2026-10-05 di `ROADMAP.md`.
 
 Il passo 4 è la prova dei 14 esemplari giapponesi di Game Boy, con una copia di Luna a regione giapponese, da preparare, e da provare prima con un solo esemplare.
 
@@ -61,3 +63,4 @@ Il Mew `EVT-2-0006` è contestato per cromaticità in ogni contesto, e resta da 
 - 2026-09-30, notte: chiuso il secondo tempo; nel giro 3 il Victini del Passo Libertà e quattro Ombre di Colosseum, fra le macchine nascoste due Suicune con Surf, fra i giapponesi il Mew delle manifestazioni.
 - 2026-09-30, notte: aggiunta la roadmap dei passaggi a HOME e il catalogo stampabile.
 - 2026-09-30, notte: tolti i doppioni. Luna scende da 147 a 93: portava, convertiti, i 45 doni di sesta generazione già in Rubino Omega e i 9 Greninja con Morfosi già in Ultraluna.
+- 2026-10-05: copie ricontate dai rapporti (3194 per HOME, 158 a parte), condizione su Discord caduta (ADR-094), passo 3b e asse senza scadenza rimandati a `ROADMAP.md`.
