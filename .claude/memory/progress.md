@@ -4,6 +4,14 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-10-05, ottava parte. Il recap di fine giro diventa regola, anche nel template
+
+Ripresa con `/riprendi`: unico rilievo l'ancora di `index.md`, corretta a `9e56342`. Poi il proprietario ha chiesto che il recap di ogni giro (fatto, che cosa spetta a lui, pendenze) sia sempre presente e che il template lo propaghi. Il template non lo aveva; aggiunta la sezione «Il recap di fine giro» a `.claude/rules/chat-non-e-memoria.md` in entrambi i repository, campi di dominio di questo progetto nel `CLAUDE.md`, ADR-095. Poi il passo 0 della roadmap, in sola lettura: la copia del giro 1 per HOME è presente e integra (`per-home/oras-giro-1/main`, 483328 byte, 930 scritti, 0 diversi), ma la console ha ripristinata dal 2026-09-30 la copia superata `scrittura-oras/giro-1/main`, con impronta diversa; registrato in `pending.md`, e il passo 1 comincia dal ripristino della copia giusta.
+
+File toccati: `.claude/rules/chat-non-e-memoria.md`, `CLAUDE.md`, `.claude/memory/index.md`, `.claude/memory/decisions.md`, `.claude/memory/pending.md`, `.claude/memory/progress.md`, `_notes/resume-prompt.md`, `_notes/COMMIT-MSG.txt`; nel template `.claude/rules/chat-non-e-memoria.md`.
+
+**Didattica:** nessuna.
+
 ## 2026-10-05, quinta parte. La roadmap riscritta, e gli strumenti ripresi dal web inventariati
 
 Il proprietario ha fatto il commit `06fc89a` e ha chiesto di aggiornare la roadmap, compresi gli strumenti presi dal web e riscritti in locale, con il loro sviluppo tecnico. `pokedex-home-completo/ROADMAP.md` ha una sezione nuova del 2026-10-05 che prevale sulle altre: 144 giorni alla chiusura della banca, copie ricontate dai `main.rapporto.json` (930, 682, 914, 93, 575 per HOME, cioè 3194; 36 e 121 a parte, più il Mew, cioè 158; zero differenze alla rilettura in tutte), passo 0 con la condizione su Discord caduta e la manutenzione di HOME del 2026-10-07, passi 1-6 invariati, un passo 3b nuovo per gli scambi in gioco di sesta e settima generazione senza lotto, l'asse senza scadenza di Rosso Fuoco e Verde Foglia per Switch (Deoxys, Celebi, GB-Link, RetroSync) da cominciare dopo il passo 3, e un paragrafo sulle quattro famiglie di strumenti ripresi dal web. L'inventario completo, 39 strumenti, è in `docs/strumenti-dal-web.md`, ricavato da un agente dalle intestazioni degli strumenti; il trascrittore su processore usato il giorno stesso è entrato nel progetto come `tools/trascrivi-video-cpu.py`, perché viveva solo nella cartella temporanea della sessione. `COPIE-PER-HOME.md` è allineato. Verificato prima di scrivere che le copie da salvataggi di terzi sono coperte da ADR-024 e ADR-092.

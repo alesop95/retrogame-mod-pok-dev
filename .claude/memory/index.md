@@ -8,7 +8,7 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: 06fc89a, più la roadmap del 2026-10-05 da committare
+Commit di riferimento: 9e56342, roadmap del 2026-10-05 committata
 Data snapshot:         2026-10-05, fonti chiuse, roadmap del 2026-10-05 scritta; prossimo: passo 0 e prova pilota Rubino Omega giro 1
 ```
 

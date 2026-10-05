@@ -963,6 +963,12 @@ Il problema. La lettura integrale delle fonti del Parco Lotta ha lasciato fuori 
 La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti etichettata come non letta con il proprio motivo, secondo la prescrizione che vieta di degradare in silenzio una fonte a nota a margine, e non si tenta alcuna via ulteriore. Il debito di lettura del fronte Parco Lotta si dichiara quindi chiuso con questa sola eccezione dichiarata, e nessuna sessione futura deve riaprirlo credendo che qualcosa sia stato dimenticato.
 
 La ragione per cui l'abbandono è accettabile qui, e non lo sarebbe altrove. Quella discussione è del 2005 ed è una richiesta di valutazione di squadra, cioè la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e più recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano è quindi basso, e la decisione si fonda su questo e non sulla sola difficoltà di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
+## ADR-095: il recap di fine giro a campi fissi, nella regola e nel template
+
+Data: 2026-10-05. Stato: accettata, decisa dal proprietario.
+
+Il proprietario ha detto che di questo progetto gli piace che a ogni giro di chat sia spiegato che cosa è in sospeso, che cosa spetta a lui e che cosa è stato fatto, e ha chiesto che sia così a ogni giro e che il template `E:	emplate-claude-developing` lo faccia ereditare ai progetti che genera o allinea. Il controllo ha trovato che il template non lo prevedeva: il presidio di `chat-non-e-memoria.md` chiedeva solo la riga dei file scritti, e in questo progetto il recap stava soltanto in `_notes/resume-prompt.md`, non versionato. Decisione: una sezione nuova «Il recap di fine giro» in `chat-non-e-memoria.md`, identica nel template e qui, con cinque campi fissi (Fatto, Spetta a te, In sospeso, Prossimo passo, File scritti) e campi di dominio dichiarati nel `CLAUDE.md` di ciascun progetto. Qui i campi di dominio sono quattro: lotti per HOME, decisione finale, giapponesi, eventi per Switch.
+
 ## ADR-094: le fonti su Discord restano escluse, e la pulizia del registro dai collegamenti che non sono fonti
 
 Data: 2026-10-05. Stato: accettata, decisa dal proprietario. Completa ADR-093.

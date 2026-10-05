@@ -118,4 +118,6 @@ Ogni paragrafo di prosa nei file Markdown si scrive come una riga sorgente unica
 
 Le schede di `context/` e i file di `memory/` li aggiorna l'agente a ogni giro di lavoro sostanziale, senza attendere una richiesta, come vuole `chat-non-e-memoria.md` dal 2026-09-25 (ADR-085). Il controllo umano sta sul diff e sul commit: l'utente rilegge con `git diff` e decide che cosa versionare.
 
+Il recap di fine giro di `chat-non-e-memoria.md` porta in questo progetto quattro campi di dominio, fra «In sospeso» e «Prossimo passo»: lotti per HOME, decisione finale, esemplari giapponesi, eventi per Switch (ADR-095).
+
 Nessun dump di cartuccia, nessun backup di salvataggio, nessun materiale di chiave console-unica e nessun media entra in git. Vedi ADR-005 e il blocco di dominio del `.gitignore`.
