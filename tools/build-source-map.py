@@ -658,7 +658,7 @@ FONTI = [
 
     ("bulbapedia-n-pokemon", "I Pokemon di N, l'enciclopedia", "https://bulbapedia.bulbagarden.net/wiki/N%27s_Pok%C3%A9mon", 2, True, ["PKD"],
      "Pagina enciclopedica letta il 2026-09-12. Elenca quindici esemplari e ne dichiara i tratti: identificativo 00002 con allenatore N, trenta in ogni valore individuale, natura fissata, amicizia al massimo alla cattura, impossibilità di ricevere un soprannome e cromaticità bloccata nel codice. Dichiara inoltre che la sfera non è fissata ma è quella che il giocatore usa per catturarli.",
-     "Conferma per via indipendente il quindici che il progetto aveva misurato sulle tavole del verificatore il 2026-09-08, correggendo il trentasei che portava in memoria. Toglie inoltre un tratto che si sarebbe potuto assumere, cioè che la sfera fosse parte dell'identita' dell'esemplare.",
+     "Conferma per via indipendente il quindici che il progetto aveva misurato sulle tavole del verificatore il 2026-09-08, correggendo il trentasei che portava in memoria. Toglie inoltre un tratto che si sarebbe potuto assumere, cioè che la sfera fosse parte dell'identità dell'esemplare.",
      [("[[LETTURA-DEL-CORPUS]]", "il lotto del 2026-09-12, quinta generazione")],
      []),
 
@@ -749,7 +749,7 @@ FONTI = [
     ("bulbapedia-parco-lotta", "Bulbapedia, le nove pagine del Parco Lotta di terza generazione", "https://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)", 2, True, ["SME"],
      "Le nove pagine che descrivono il Parco Lotta di Smeraldo, cioè quella generale e le otto dei singoli edifici più l'elenco degli allenatori, scaricate per intero il 2026-09-21 con `tools/fetch-bulbapedia.py` per la via dell'API MediaWiki, che è il canale programmatico che il servizio espone senza credenziali. Sono 7120 righe di wikitesto, conservate con la revisione e il momento di lettura nella propria intestazione. Portano i vincoli di iscrizione validi in tutti e sette gli edifici, le soglie di serie a cui compare ciascun Asso per il simbolo d'argento e per quello d'oro, la tabella completa con cui al Palazzo Lotta ogni natura sceglie fra mosse d'attacco, di difesa e di supporto sopra e sotto la metà dei punti salute, e la progressione dei valori individuali degli esemplari in prestito all'Azienda Lotta.",
      "È la fonte che scompone un obiettivo dichiarato come unico, i sette simboli d'oro, in sette problemi diversi. Il fatto che decide la progettazione di una squadra è la tabella delle nature del Palazzo Lotta, perché lì l'allenatore non sceglie le mosse: le sceglie la natura, con proporzioni che cambiano sotto la metà dei punti salute, e una squadra pensata per la Torre può quindi rifiutare di attaccare. Il secondo fatto è il calendario degli Assi, che mostra quanto diversamente costino i sette simboli, da sei serie all'Azienda Lotta e al Palazzo fino a dieci alla Torre, alla Cupola Lotta, alla Piramide e alla Serpe Lotta. Conferma inoltre per via indipendente l'elenco chiuso delle dieci specie escluse, già verificato sul sorgente del gioco, il che consente di darlo per fermo invece che per probabile.",
-     [("[[14-caso-smeraldo]]", "i sette edifici, e perché l'unita' di lavoro è la coppia edificio-squadra")],
+     [("[[14-caso-smeraldo]]", "i sette edifici, e perché l'unità di lavoro è la coppia edificio-squadra")],
      [("conferma", "pokeemerald")]),
 
     ("domeassistant", "taxicat1/DomeAssistantWeb, la tabella degli avversari del Parco Lotta", "https://github.com/taxicat1/DomeAssistantWeb/", 3, True, ["SME"],

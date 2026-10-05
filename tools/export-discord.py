@@ -170,7 +170,41 @@ GUILDS = [
      "canale dei collegamenti è la fonte dell'inventario degli strumenti registrato in "
      "SOURCES.md, e il resto del server è la sola testimonianza di campo che il progetto "
      "possa avere sull'accettazione degli esemplari così prodotti"),
+    # Due server di cui il proprietario è membro e il progetto non ha mai registrato gli identificativi: aggiunti il
+    # 2026-10-01, quando si è deciso che nessuna fonte resta non letta. L'identificativo si ricava dal nome al momento
+    # dell'esportazione, con il comando `guilds` dello strumento, invece di chiederlo a mano.
+    ("Pokemon Multiplayer Research", None, "LDN, BRI",
+     "la ricerca sul gioco in rete locale e sugli scambi fra console, dove sta la testimonianza "
+     "di campo sugli adattatori Wi-Fi registrata nella scheda dello scambio GBA-Switch"),
+    ("Open Source Cartridge Reader", None, "SME, 3DS",
+     "il lettore di cartucce alternativo al GBxCart RW, per i dump delle cartucce possedute"),
 ]
+
+
+def risolvi_guild(exe, t, nome):
+    """L'identificativo di un server dal suo nome, leggendo l'elenco dei server dell'account."""
+    esito = subprocess.run([exe, "guilds", "-t", t], capture_output=True, text=True,
+                           encoding="utf-8", errors="replace")
+    uscita = esito.stdout
+    # Con un token non valido l'elenco esce vuoto: va detto, perché altrimenti il server sembra non esistere, ed è
+    # l'errore che il 2026-10-01 ha fatto leggere «nessun server con questo nome» dopo un token invalidato.
+    if esito.returncode != 0 or "invalid" in (esito.stderr + uscita).lower():
+        sys.exit("l'elenco dei server non si legge: " + (esito.stderr or uscita).strip().splitlines()[-1][:200]
+                 + "\nil token non è valido o è scaduto; se ne prende uno nuovo e si rilancia")
+    import unicodedata
+
+    def piano(s):
+        return "".join(c for c in unicodedata.normalize("NFKD", s.lower()) if not unicodedata.combining(c))
+
+    for riga in uscita.splitlines():
+        parti = riga.split("|", 1)
+        if len(parti) == 2 and piano(nome) in piano(parti[1].strip()):
+            return parti[0].strip()
+    print("   i server dell'account sono questi, e nessuno contiene «" + nome + "»:")
+    for riga in uscita.splitlines():
+        if "|" in riga:
+            print("     " + riga.split("|", 1)[1].strip())
+    return None
 
 # I server esclusi, con il motivo, perché una esclusione senza motivo è indistinguibile da
 # una dimenticanza e verrà riaperta dalla prossima sessione.
@@ -191,6 +225,15 @@ def token():
     comandi in un file in chiaro, quindi un token passato come argomento finisce su disco
     senza che nessuno lo abbia scritto lì.
     """
+    # BLOCCATO il 2026-10-01. Esportare con il token di un account personale è l'automazione di un account utente,
+    # che i termini di Discord vietano («self-bot»): quel giorno, a metà dell'esportazione di un canale, Discord ha
+    # disattivato l'account del proprietario per attività sospetta, gli ha imposto il cambio della password e gli ha
+    # registrato una violazione per «platform manipulation», con l'avviso che la prossima porta alla sospensione
+    # permanente. Lo strumento non chiede più un token personale; la via lecita è un account bot ufficiale aggiunto
+    # da chi amministra il server, con `tools/fetch-discord.py`, oppure la lettura a mano nel client.
+    sys.exit("esportazione con token personale BLOCCATA il 2026-10-01: viola i termini di Discord e ha già causato "
+             "una violazione sull'account del proprietario. Si usa un bot ufficiale invitato dagli amministratori "
+             "(tools/fetch-discord.py) o la lettura a mano nel client. Il perché è in docs/22-strumenti.md.")
     t = os.environ.get("DISCORD_USER_TOKEN")
     if t:
         return t.strip()
@@ -228,7 +271,7 @@ def elenco():
     for srv, gid, track, perche in GUILDS:
         print("")
         print("  " + srv + "  [" + track + "]")
-        print("  id " + gid)
+        print("  id " + (gid or "ricavato dal nome al momento dell'esportazione"))
         print("  " + perche)
     print("")
     print("=== Server esclusi")
@@ -258,8 +301,14 @@ def interi(a):
             print(etichetta + ": la cartella esiste e non è vuota, salto; "
                   "con --forza si riesporta")
             continue
+        if gid is None and not a.dry_run:
+            gid = risolvi_guild(exe, t, srv)
+            if not gid:
+                print(etichetta + ": nessun server con questo nome fra quelli dell'account, salto")
+                falliti += 1
+                continue
         comando = [exe, "exportguild", "-t", "<token>" if a.dry_run else t,
-                   "-g", gid, "-f", "Json", "-o", cartella + os.sep]
+                   "-g", gid or "<dal nome>", "-f", "Json", "-o", cartella + os.sep]
         if a.after:
             comando += ["--after", a.after]
         if a.media:
@@ -349,8 +398,12 @@ def main():
                       ", esiste già; con --forza si riesporta")
                 saltati += 1
                 continue
+            # Si scrive su un nome provvisorio e si rinomina soltanto a esportazione riuscita. Il 2026-10-01 un token
+            # invalidato a metà ha lasciato un JSON valido con il 18% dei messaggi, che la corsa successiva avrebbe
+            # saltato credendolo completo: un file chiuso bene non prova che l'esportazione sia finita.
+            provvisorio = destinazione + ".parziale"
             comando = [exe, "export", "-t", "<token>" if a.dry_run else t,
-                       "-c", cid, "-f", formato, "-o", destinazione]
+                       "-c", cid, "-f", formato, "-o", provvisorio]
             if a.after:
                 comando += ["--after", a.after]
             if a.media:
@@ -362,7 +415,8 @@ def main():
             print("[" + str(i) + "/" + str(len(scelti)) + "] " + srv + "/" + can +
                   " -> " + nome)
             esito = subprocess.run(comando)
-            if esito.returncode == 0:
+            if esito.returncode == 0 and os.path.exists(provvisorio):
+                os.replace(provvisorio, destinazione)
                 fatti += 1
             else:
                 # Un canale può fallire perché l'account non lo vede più, perché è stato

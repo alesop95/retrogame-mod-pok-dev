@@ -1,5 +1,13 @@
 # Registro delle fonti
 
+Pulizia del 2026-10-05: 1662 collegamenti del residuo del corpus che non sono fonti (promemoria del bot RemindMe, calcoli di WolframAlpha, profili, inviti, indirizzi locali, segnaposto, pagine fuori tema o fuori perimetro) e 91 irrecuperabili dopo i tentativi documentati sono tolti dalle tabelle; restano, con il motivo e la prova, in `pokedex-home-completo/data/residuo-corpus.csv`.
+
+Pulizia del 2026-10-05: 1662 collegamenti del residuo del corpus che non sono fonti (promemoria del bot RemindMe, calcoli di WolframAlpha, profili, inviti, indirizzi locali, segnaposto, pagine fuori tema o fuori perimetro) sono tolti dalle tabelle; restano, con il motivo, in `pokedex-home-completo/data/residuo-corpus.csv`.
+
+Pulizia del 2026-10-05: 1662 collegamenti del residuo del corpus che non sono fonti (promemoria del bot RemindMe, calcoli di WolframAlpha, profili, inviti, indirizzi locali, segnaposto, pagine fuori tema o fuori perimetro) sono tolti dalle tabelle; restano, con il motivo, in `pokedex-home-completo/data/residuo-corpus.csv`.
+
+Pulizia del 2026-10-05: 1662 collegamenti del residuo del corpus che non sono fonti (promemoria del bot RemindMe, calcoli di WolframAlpha, profili, inviti, indirizzi locali, segnaposto, pagine fuori tema o fuori perimetro) sono tolti dalle tabelle; restano, con il motivo, in `pokedex-home-completo/data/residuo-corpus.csv`.
+
 Questo file è il registro unico delle fonti tecniche del progetto, condiviso da tutti i sottoprogetti. Nasce dal lavoro sul ponte fra generazioni, che è il track che ha richiesto la ricerca più profonda, ma non gli appartiene: i disassemblati dei giochi, la documentazione dell'hardware, i formati di salvataggio e gli editor servono anche alla correzione dell'inventario di Smeraldo, al modding del 3DS e allo scambio con la Switch, e tenerli in un posto solo evita che ogni handoff riscopra le stesse cose.
 
 ## Dove stanno le fonti
@@ -60,14 +68,14 @@ Nascono da una ricerca che l'utente ha condotto in un'altra sessione e consegnat
 
 | Fonte | URL | Autorevole su | Track |
 |---|---|---|---|
-| Parco Amico, Pokemon Central Wiki | https://wiki.pokemoncentral.it/Parco_Amici | il rifiuto categorico degli esemplari che conoscono una macchina nascosta nel gioco d'origine; corrobora in italiano ciò che Bulbapedia dava dal 2026-08-28 | PKD, EVT |
-| Scambio, Pokemon Central Wiki | https://wiki.pokemoncentral.it/Scambio | il Parco Amico come unico mezzo fra terza e quarta generazione | PKD |
-| Trasferimento, Pokemon Central Wiki | https://wiki.pokemoncentral.it/Trasferimento | come il deposito tratta gli insiemi di mosse fra ambienti di gioco diversi | PKD |
-| Pokemon HOME, Pokemon Central Wiki | https://m.wiki.pokemoncentral.it/Pok%C3%A9mon_HOME | i passaggi dalla banca e dal gioco per telefono verso il deposito | PKD |
-| Pocket Monsters Stadium, Wikipedia | https://en.wikipedia.org/wiki/Pocket_Monsters_Stadium | che Surf su Pikachu è un premio di torneo di Stadium e che la specie non lo apprende altrimenti | EVT |
-| Waxing Nostalgic About Surfing Pikachu, pokemon.com | https://www.pokemon.com/us/pokemon-news/waxing-nostalgic-about-surfing-pikachu | la storia del Pikachu surfista, dal titolare della serie | EVT |
-| Dalla Tempocapsula a Pokemon HOME, Pokemon Millennium | https://www.pokemonmillennium.net/rubriche/184574-dalla-tempocapsula-a-pokemon-home-la-guida-completa-ai-passaggi-tra-generazioni/ | la guida ai passaggi fra generazioni, con gli aggiramenti esistenti e la loro assenza per Surf | PKD |
-| Macchina nascosta, Bulbapedia | https://bulbapedia.bulbagarden.net/wiki/HM | quali mosse siano macchine nascoste in ciascuna generazione, che è la tavola su cui `tools/mosse-mn.py` poggia il controllo | PKD, EVT |
+| Parco Amico, Pokemon Central Wiki | https://wiki.pokemoncentral.it/Parco_Amici | il rifiuto categorico degli esemplari che conoscono una macchina nascosta nel gioco d'origine; corrobora in italiano ciò che Bulbapedia dava dal 2026-08-28 Stato al 2026-10-05, letta ora: Parco Amici: i Pokémon che conoscono una mossa che è MN nel gioco d'origine non possono essere trasferiti; si aggira scambiandoli su Rosso Fuoco e Verde Foglia, dove Sub non è MN. Anche gli strumenti tenuti passano. | PKD, EVT |
+| Scambio, Pokemon Central Wiki | https://wiki.pokemoncentral.it/Scambio | il Parco Amico come unico mezzo fra terza e quarta generazione Stato al 2026-10-05, letta ora: Scambio: solo i giochi di prima e seconda generazione scambiano fra generazioni diverse; da Gen 3 in poi serve il trasferimento (Parco Amici), e la Gen 3 non riceve da quella precedente. | PKD |
+| Trasferimento, Pokemon Central Wiki | https://wiki.pokemoncentral.it/Trasferimento | come il deposito tratta gli insiemi di mosse fra ambienti di gioco diversi Stato al 2026-10-05, letta ora: Trasferimento: HOME conserva i dati specifici per ambiente di gioco e assegna un moveset di 4 mosse recenti per aumento di livello quando il Pokémon entra in un ambiente nuovo; il trasferimento è a senso unico. | PKD |
+| Pokemon HOME, Pokemon Central Wiki | https://m.wiki.pokemoncentral.it/Pok%C3%A9mon_HOME | i passaggi dalla banca e dal gioco per telefono verso il deposito Stato al 2026-10-05, letta ora: Pokémon HOME: i Pokémon da Banca o Trasferitore GO sono convertiti nel formato di Spada e Scudo e non rientrano in Let's Go; HOME gestisce trasferimenti con tutti i giochi della ottava generazione. | PKD |
+| Pocket Monsters Stadium, Wikipedia | https://en.wikipedia.org/wiki/Pocket_Monsters_Stadium | che Surf su Pikachu è un premio di torneo di Stadium e che la specie non lo apprende altrimenti Stato al 2026-10-05, letta ora: Wikipedia: in Pocket Monsters Stadium un Pikachu trasferito dal Game Boy può imparare Surf, mossa non apprendibile altrimenti, e sblocca un minigioco in Giallo. Il premio di torneo non è esplicito nel testo letto. | EVT |
+| Waxing Nostalgic About Surfing Pikachu, pokemon.com | https://www.pokemon.com/us/pokemon-news/waxing-nostalgic-about-surfing-pikachu | la storia del Pikachu surfista, dal titolare della serie Stato al 2026-10-05, già letta: Docs: docs/mappa-fonti/surfing-pikachu.md (letto: si, livello 2). | EVT |
+| Dalla Tempocapsula a Pokemon HOME, Pokemon Millennium | https://www.pokemonmillennium.net/rubriche/184574-dalla-tempocapsula-a-pokemon-home-la-guida-completa-ai-passaggi-tra-generazioni/ | la guida ai passaggi fra generazioni, con gli aggiramenti esistenti e la loro assenza per Surf Stato al 2026-10-05, letta ora: Guida ai passaggi fra generazioni: condizioni Gen 1 verso Gen 2 (nessuna mossa di Gen 2, nessun strumento), Eliminamosse, Glitch della guardia di Johto. Non ho trovato una menzione esplicita di Surf nel testo estratto. | PKD |
+| Macchina nascosta, Bulbapedia | https://bulbapedia.bulbagarden.net/wiki/HM | quali mosse siano macchine nascoste in ciascuna generazione, che è la tavola su cui `tools/mosse-mn.py` poggia il controllo Stato al 2026-10-05, già letta: Docs: docs/mappa-fonti/bulbapedia-macchine-nascoste.md (letto: si). | PKD, EVT |
 
 ## Le fonti sui nomi italiani degli oggetti, lette il 2026-09-17 per il caso Smeraldo
 
@@ -75,7 +83,7 @@ Nascono dalla correzione dell'inventario reale (`gba-save-extraction-smeraldo/ST
 
 | Fonte | URL | Autorevole su | Track |
 |---|---|---|---|
-| Elenco degli strumenti base in terza generazione, Pokemon Central Wiki | https://wiki.pokemoncentral.it/Elenco_degli_strumenti_base_in_terza_generazione | quali Oggetti Chiave sono esclusivi di Rubino, Zaffiro e Smeraldo contro quelli di Rosso Fuoco e Verde Foglia, e il loro nome italiano | SME |
+| Elenco degli strumenti base in terza generazione, Pokemon Central Wiki | https://wiki.pokemoncentral.it/Elenco_degli_strumenti_base_in_terza_generazione | quali Oggetti Chiave sono esclusivi di Rubino, Zaffiro e Smeraldo contro quelli di Rosso Fuoco e Verde Foglia, e il loro nome italiano Stato al 2026-10-05, letta ora: Strumenti base di Gen 3: Biglietto Aurora, Eone, Magico e Mappa Stinta sono solo di terza generazione e ottenibili via evento Nintendo; con i nomi italiani, utili per i doni di Smeraldo. | SME |
 | Elenco strumenti per numero d'indice (terza generazione), Pokemon Central Wiki | https://wiki.pokemoncentral.it/Elenco_strumenti_per_numero_d%27indice_(terza_generazione) | il nome italiano ufficiale di un oggetto dato il suo identificativo numerico; letta per confronto diretto sull'esadecimale e non sulla colonna decimale della pagina, che si è rivelata disallineata di un'unità rispetto all'identificativo vero verificato sul sorgente | SME |
 
 ## Le fonti sui doni segreti e sui flag delle isole, lette il 2026-09-18 per il caso Smeraldo
@@ -84,10 +92,10 @@ Nascono dal riscontro in gioco del 2026-09-18, dove i biglietti presenti nello z
 
 | Fonte | URL | Autorevole su | Track |
 |---|---|---|---|
-| pokeemerald, `src/script_menu.c` | https://github.com/pret/pokeemerald/blob/master/src/script_menu.c | la congiunzione fra oggetto nello zaino e flag di abilitazione in `CreateLilycoveSSTidalMultichoice`, che è la regola per cui un biglietto senza il suo flag non apre nulla | SME |
-| pokeemerald, gli script di consegna dei doni | https://github.com/pret/pokeemerald/tree/master/data/scripts | `gift_aurora_ticket.inc`, `gift_old_sea_map.inc`, `gift_mystic_ticket.inc` e `cable_club.inc` accoppiano `giveitem` e `setflag` nello stesso punto, e i loro controlli d'ingresso saltano la consegna se l'oggetto è già in tasca o se il leggendario risulta già incontrato; `questionnaire.inc` mostra che i due canali si abilitano dal questionario del negozio | SME |
-| pokeemerald, `include/constants/flags.h` e `include/global.h` | https://github.com/pret/pokeemerald/blob/master/include/constants/flags.h | gli identificativi dei flag, con `SYSTEM_FLAGS` a 0x860, e la posizione di `flags[]` a 0x1270 e `vars[]` a 0x139C dentro SaveBlock1 | SME |
-| NDSEventTool.nds 1.0, mrhappyasthma | https://github.com/mrhappyasthma/NDSEventTool.nds/releases/tag/1.0 | l'iniezione degli eventi Nintendo ufficiali in un salvataggio GBA da un Nintendo DS con scheda di flash; `arm9/source/poke.cpp` distingue i due canali (`wc_inject` sulla Carta Meravigliosa, `me_inject` sul Mistery Event) e dichiara quale flag ciascuno pretende, `arm9/source/me.h` porta i dati ufficiali per lingua e `arm9/source/main.cpp` mostra che per Smeraldo italiano le sole voci offerte sono Biglietto Aurora in italiano e Biglietto Magico in inglese. Vale da conferma incrociata degli offset di SaveBlock1, perché li esprime in coordinate di sezione e non di struttura | SME |
+| pokeemerald, `src/script_menu.c` | https://github.com/pret/pokeemerald/blob/master/src/script_menu.c | la congiunzione fra oggetto nello zaino e flag di abilitazione in `CreateLilycoveSSTidalMultichoice`, che è la regola per cui un biglietto senza il suo flag non apre nulla Stato al 2026-10-05, già letta: Letta: gba-save-extraction-smeraldo/STUDIO-03-doni-segreti-e-flag-delle-isole.md e .claude/memory/progress.md (regola oggetto più flag in CreateLilycoveSSTidalMultichoice). | SME |
+| pokeemerald, gli script di consegna dei doni | https://github.com/pret/pokeemerald/tree/master/data/scripts | `gift_aurora_ticket.inc`, `gift_old_sea_map.inc`, `gift_mystic_ticket.inc` e `cable_club.inc` accoppiano `giveitem` e `setflag` nello stesso punto, e i loro controlli d'ingresso saltano la consegna se l'oggetto è già in tasca o se il leggendario risulta già incontrato; `questionnaire.inc` mostra che i due canali si abilitano dal questionario del negozio Stato al 2026-10-05, già letta: Letta: gba-save-extraction-smeraldo/STUDIO-03-doni-segreti-e-flag-delle-isole.md; la cartella data/scripts è nel clone _notes/fonti/cloni/pokeemerald. | SME |
+| pokeemerald, `include/constants/flags.h` e `include/global.h` | https://github.com/pret/pokeemerald/blob/master/include/constants/flags.h | gli identificativi dei flag, con `SYSTEM_FLAGS` a 0x860, e la posizione di `flags[]` a 0x1270 e `vars[]` a 0x139C dentro SaveBlock1 Stato al 2026-10-05, già letta: Letta: gba-save-extraction-smeraldo/STUDIO-02-box-glitch-storici-e-frontiera.md e STUDIO-03; clone _notes/fonti/cloni/pokeemerald. | SME |
+| NDSEventTool.nds 1.0, mrhappyasthma | https://github.com/mrhappyasthma/NDSEventTool.nds/releases/tag/1.0 | l'iniezione degli eventi Nintendo ufficiali in un salvataggio GBA da un Nintendo DS con scheda di flash; `arm9/source/poke.cpp` distingue i due canali (`wc_inject` sulla Carta Meravigliosa, `me_inject` sul Mistery Event) e dichiara quale flag ciascuno pretende, `arm9/source/me.h` porta i dati ufficiali per lingua e `arm9/source/main.cpp` mostra che per Smeraldo italiano le sole voci offerte sono Biglietto Aurora in italiano e Biglietto Magico in inglese. Vale da conferma incrociata degli offset di SaveBlock1, perché li esprime in coordinate di sezione e non di struttura Stato al 2026-10-05, già letta: Clone _notes/fonti/cloni/2026-09-18-ndseventtool/source-1.0; citato in STUDIO-03-doni-segreti-e-flag-delle-isole.md e in .claude/memory/decisions.md. | SME |
 
 ## Le fonti sul Parco Lotta e i simboli d'oro, consegnate il 2026-09-21 per il caso Smeraldo, in parte lette il 2026-09-21
 
@@ -110,22 +118,22 @@ Una nota tecnica che vale per chiunque riprovi, perché il sintomo inganna: la v
 | Fonte | URL | Autorevole su (da verificare alla lettura) | Track |
 |---|---|---|---|
 | Bulbapedia, Battle Frontier (Generation III) | https://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III) | LETTA il 2026-09-21: i tre vincoli di iscrizione validi ovunque, l'elenco chiuso delle dieci specie escluse più l'uovo (coincidente voce per voce con `gFrontierBannedSpecies[]` del sorgente), e la tabella dei sette edifici con il proprio Asso e i propri due simboli | SME |
-| Bulbapedia, Battle Arena | https://bulbapedia.bulbagarden.net/wiki/Battle_Arena | LETTA in parte il 2026-09-21: il criterio di giudizio in tre voci, mente, tecnica e corpo, e le soglie dell'Asso. Il resto della pagina è su disco e non ancora letto | SME |
+| Bulbapedia, Battle Arena | https://bulbapedia.bulbagarden.net/wiki/Battle_Arena | LETTA per intero il 2026-10-05 dalla copia su disco (201 righe): giudizio in mente, tecnica e corpo con le soglie dell'Asso, punti battaglia per round da 1 a 15 che arrivano a 25, Greta dopo 28 e 56 vittorie con il simbolo Coraggio (argento: Heracross, Umbreon, Shedinja; oro: Umbreon, Gengar, Breloom); nulla di pertinente alla collezione | SME |
 | Bulbapedia, Battle Dome | https://bulbapedia.bulbagarden.net/wiki/Battle_Dome | LETTA il 2026-09-21 nelle sezioni di meccanica: il piazzamento dei sedici concorrenti, calcolato sulla somma dei totali di statistiche base più un ventesimo del prodotto fra numero di tipi e livello massimo; il fatto che le lotte fra due avversari controllati dal calcolatore non si simulano ma si decidono a punteggio; e il criterio con cui l'avversario sceglie quali due dei propri tre mandare in campo contro la squadra iscritta, che rende la squadra in parte informazione data all'avversario | SME |
 | Bulbapedia, Battle Factory (Generation III) | https://bulbapedia.bulbagarden.net/wiki/Battle_Factory_(Generation_III) | LETTA in parte il 2026-09-21: la progressione dei punti individuali degli esemplari in prestito per serie (3, 6, 9, 12, 15, 21, poi 31) e la tabella diversa dell'ultimo allenatore di ogni serie (6, 9, 12, 15, 18, poi 31). Porta inoltre due difetti dichiarati alla nona serie e sul ricaricare dopo il riposo, non ancora verificati sul sorgente e quindi DA VERIFICARE | SME |
 | Bulbapedia, Battle Palace | https://bulbapedia.bulbagarden.net/wiki/Battle_Palace | LETTA il 2026-09-21, ed è la fonte più densa delle nove: la tripartizione delle mosse in attacco, difesa e supporto, e la tabella completa con cui ciascuna delle venticinque nature sceglie la categoria sopra e sotto la metà dei punti salute. Estratta con `gba-save-extraction-smeraldo/tools/parco_lotta_estrai_tabelle.py` | SME |
 | Bulbapedia, Battle Pike | https://bulbapedia.bulbagarden.net/wiki/Battle_Pike | LETTA il 2026-09-21 nelle sezioni di meccanica: gli otto eventi equiprobabili delle sale, di cui solo quattro sono lotte, e soprattutto la tabella della stanza delle alterazioni di stato con le probabilità dichiarate, cioè iperavvelenamento 35, congelamento 25, paralisi 20, sonno 10 e scottatura 10, con le immunità di tipo e di abilità voce per voce. Chiarisce inoltre che le sale sono quattordici per serie ma che solo sette ospitano un evento, il che riconcilia la sua prosa con il contatore del sorgente. Lo stato del simbolo su questa cartuccia resta materia di `STUDIO-02` | SME |
 | Bulbapedia, Battle Pyramid | https://bulbapedia.bulbagarden.net/wiki/Battle_Pyramid | LETTA il 2026-09-21 nelle sezioni di meccanica, ed è la più lunga delle nove con 1007 righe: la spoliazione degli strumenti all'ingresso, la borsa dedicata che si raccoglie dentro e sopravvive alla sfida, e la tabella dei venti giri tematici del bestiario selvatico, che il sorgente ha poi confermato voce per voce | SME |
 | Bulbapedia, Battle Tower (Generation III) | https://bulbapedia.bulbagarden.net/wiki/Battle_Tower_(Generation_III) | LETTA il 2026-09-21: è il solo edificio che non aggiunge alcuna regola ai vincoli generali, il che spiega perché quasi tutte le squadre pubblicate sui forum siano squadre da Torre. Porta inoltre il vincolo di livello della modalità cinquanta, che il sorgente ha poi confermato essere un rifiuto all'iscrizione e non una penalizzazione | SME |
-| Bulbapedia, List of Battle Frontier Trainers in Generation III | https://bulbapedia.bulbagarden.net/wiki/List_of_Battle_Frontier_Trainers_in_Generation_III | SUPERATA e non letta in prosa, per scelta e non per debito: le sue 3648 righe descrivono gli stessi avversari che `DomeAssistantWeb` e il foglio Smogon portano in forma di tabella, e quelle due sono state lette per intero e confrontate l'una contro l'altra con zero divergenze su 882 insiemi. Leggere la prosa di ciò che si possiede come dato non aggiungerebbe nulla e introdurrebbe una terza trascrizione da cui potrebbe nascere un errore. Resta su disco | SME |
+| Bulbapedia, List of Battle Frontier Trainers in Generation III | https://bulbapedia.bulbagarden.net/wiki/List_of_Battle_Frontier_Trainers_in_Generation_III | letta il 2026-10-05, introduzione e regole (copia su disco del 2026-09-21, revisione 4605618, 3651 righe di wikitesto): i 300 allenatori standard del Parco Lotta di Smeraldo usano tre Pokemon nei singoli, quattro nei doppi e due nei multi, con IV fissi per fascia (1-100: 3, 101-120: 6, 121-140: 9, 141-160: 12, 161-180: 15, 181-200: 18, 201-220: 21, 221-300: 31). Le tabelle degli insiemi restano consultate tramite `DomeAssistantWeb` e il foglio Smogon, che le portano in forma di tabella e concordano con zero divergenze su 882 insiemi, quindi la prosa non aggiunge una terza trascrizione. Resta su disco in `_notes/fonti/raccolte/bulbapedia-parco-lotta-2026-09-21/` | SME |
 | Smogon, Gen III Battle Frontier discussion and records (thread principale) | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/ | indice della discussione comunitaria e dei record, punto di partenza per tutti i post citati sotto | SME |
 | Smogon, Battle Frontier Max Stats Pokemon Database | https://www.smogon.com/forums/threads/battle-frontier-max-stats-pokemon-database.15426/ (post specifico: #post-315130) | LETTO il 2026-09-21 nella sola parte che serviva, cioè il collegamento al foglio della riga seguente. Il thread è leggibile senza credenziali, contrariamente a quanto la sezione dava per scontato per tutte le fonti Smogon: il post con il foglio sta a pagina 4 e non nella pagina che l'indirizzo del post apre | SME |
 | Dropbox, EmeraldBattleFrontierComplete.xlsx e .txt | https://www.dropbox.com/s/qaujn3plwdgfadc/EmeraldBattleFrontierComplete.xlsx | LETTA il 2026-09-21, indirizzo corretto: 888 voci con specie, esemplare, natura, strumento, quattro mosse, abilità possibili, punti base, statistiche già calcolate a livello 100 e a livello 50, e i punti individuali fissi dei soli Assi; più un secondo foglio con le formazioni degli allenatori. L'indirizzo registrato in precedenza era sbagliato e non soltanto incompleto, vedi la nota sotto la tabella | SME |
-| Smogon ingame, Battle Pyramid strategy dex | https://www.smogon.com/ingame/bc/battle_pyramid#mt20 | guida di riferimento alla Piramide Lotta | SME |
-| Pastebin, guida ai sette simboli d'oro | https://pastebin.com/c796fkZT | guida completa citata dall'utente come riferimento per l'obiettivo dichiarato | SME |
+| Smogon ingame, Battle Pyramid strategy dex | https://www.smogon.com/ingame/bc/battle_pyramid#mt20 | guida di riferimento alla Piramide Lotta Stato al 2026-10-05, già letta: Letta: _notes/fonti/raccolte/smogon-parco-lotta-2026-09-21/derivato/battle_pyramid.md; usata in gba-save-extraction-smeraldo/STUDIO-04-parco-lotta-simboli-oro.md. | SME |
+| Pastebin, guida ai sette simboli d'oro | https://pastebin.com/c796fkZT | guida completa citata dall'utente come riferimento per l'obiettivo dichiarato Stato al 2026-10-05, già letta: Docs: docs/mappa-fonti/pastebin-simboli-oro.md (letto: si, livello 3); copia in _notes/fonti/reddit/reddit-pokemonemerald-16xbd0g-2026-09-28/esterni/pastebin.com/. | SME |
 | Pokemon Central Wiki, Parco Lotta (terza generazione) e le sette pagine di edificio | https://wiki.pokemoncentral.it/Parco_Lotta_(terza_generazione) | LETTA il 2026-09-21, ed è la sola fonte autorevole sui nomi italiani: i sette edifici sono Torre Lotta, Palazzo Lotta, Azienda Lotta, Piramide Lotta, Cupola Lotta, Dojo Lotta e Serpe Lotta, con i rispettivi Assi del Parco e Simboli. Porta inoltre due vincoli generali che le pagine inglesi non danno, cioè che la Cuorugiada è priva di efficacia in tutto il Parco e che lo stile di lotta è forzato su Fisso, e chiarisce che le sale della Serpe Lotta sono quattordici per serie ma solo sette ospitano un evento. Le otto pagine sono in `_notes/fonti/raccolte/pokemoncentral-parco-lotta-2026-09-21/` | SME |
 | Smogon, i sei thread del Parco Lotta, letti per intero | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/ | LETTI il 2026-09-21 con `tools/fetch-smogon.py`, senza credenziali: 2427 post su sei fonti, di cui 2187 nel solo thread principale su 88 pagine. Sono autorevoli su che cosa ha funzionato nella pratica, che il catalogo degli avversari non dice: 268 post portano una squadra dichiarata e 111 di questi anche la serie con cui è stata provata. Il derivato, l'indice di Livello 1 e la tabella delle squadre ordinate per serie stanno in `_notes/fonti/raccolte/smogon-parco-lotta-2026-09-21/`. La lunghezza di una serie è una dichiarazione di chi la scrive e non una misura, e il thread stesso lo avverte nel proprio post di apertura | SME |
-| Smogon, "lol a RMT for battle frontier though" | https://www.smogon.com/forums/threads/lol-a-rmt-for-battle-frontier-though.2246/ | NON LETTA, ed è la sola dell'insieme: HTTP 403 anche con uno user agent da browser, perché la discussione sta in un forum archiviato. Non è un muro di credenziali e non si risolve con `claude-in-chrome` a meno che l'utente non abbia accesso a quell'archivio. Resta catalogata come luogo dove cercare | SME |
+| Smogon, "lol a RMT for battle frontier though" | https://www.smogon.com/forums/threads/lol-a-rmt-for-battle-frontier-though.2246/ | letta il 2026-10-05 dalla copia della Wayback Machine del 2015-09-12 (HTTP 200); dal vivo risponde ancora 403, anche a `tools/fetch-smogon.py`. È una richiesta di valutazione del 2005 di una squadra per il Parco Lotta di Smeraldo con Salamence, Suicune e Snorlax, EV dichiarati a mano e circa cento Bagon allevati per le statistiche: opinione di forum e contesto storico, nessun dato tecnico per la collezione | SME |
 | Pastebin, la guida ai sette simboli d'oro e le sue sette FAQ per edificio | https://pastebin.com/c796fkZT | LETTA il 2026-09-21 insieme alle FAQ collegate, che il registro non conosceva perché sono citate solo dentro la guida: generale, Azienda, Piramide, Cupola, Torre, Dojo e Palazzo. È la fonte da cui vengono i tre difetti del gioco della sezione 12 di `STUDIO-04`, cioè i punti individuali fermi a tre alla Cupola Lotta, i punti individuali dell'Azienda Lotta legati alla serie della Torre, e la convenienza di portare al Palazzo solo mosse d'attacco. Porta anche la squadra Latios-Swampert-Metagross con gli insiemi di mosse per edificio e l'ordine di conduzione per i dieci giri della Piramide. La FAQ della Serpe Lotta è stata cancellata dal servizio. In `_notes/fonti/raccolte/guide-parco-lotta-2026-09-21/` | SME |
 | pokeemerald, `src/battle_dome.c` | https://github.com/pret/pokeemerald/blob/master/src/battle_dome.c | LETTA il 2026-09-21, e conferma sul sorgente il difetto più azionabile di tutto il fronte: `CreateDomeOpponentMon` passa alla funzione dei punti individuali l'identificativo del concorrente nel torneo invece di quello dell'allenatore del Parco, quindi ogni avversario della Cupola Lotta ha tre punti individuali su ogni statistica, a qualunque punto della serie. La decompilazione lo dichiara difetto in un commento accanto alla riga. `IncrementDomeStreaks` conferma inoltre che il contatore di quell'edificio conta tornei vinti e non lotte | SME |
 | pokeemerald, `src/battle_tower.c` | https://github.com/pret/pokeemerald/blob/master/src/battle_tower.c | LETTA il 2026-09-21: `sFrontierTrainerIdRanges` e `sFrontierTrainerIdRangesHard` danno l'intervallo di allenatori per numero di sfida, con la settima lotta di ogni serie che pesca dalla tabella dura; `GetFrontierTrainerFixedIvs` dà la scala dei punti individuali da 3 a 31; il confronto `monId > FRONTIER_MONS_HIGH_TIER` esclude a livello 50 i trentadue insiemi più forti; e `FillFactoryTrainerParty` usa per l'Azienda Lotta la serie di vittorie della TORRE invece di quella dell'Azienda, difetto dichiarato in un commento e attivo nel gioco pubblicato, da cui discende un vincolo di sequenza sull'ordine in cui affrontare i due edifici | SME |
@@ -134,22 +142,22 @@ Una nota tecnica che vale per chiunque riprovi, perché il sintomo inganna: la v
 | pokeemerald, `src/data/battle_frontier/battle_pyramid_level_50_wild_mons.h` | https://github.com/pret/pokeemerald/blob/master/src/data/battle_frontier/battle_pyramid_level_50_wild_mons.h | LETTA il 2026-09-21: i venti gruppi di otto specie selvatiche fra cui la Piramide ruota, con livello e mosse; l'ordine coincide voce per voce con la tabella di Bulbapedia, che risulta quindi confermata | SME |
 | pokeemerald, `include/constants/battle_pike.h` | https://github.com/pret/pokeemerald/blob/master/include/constants/battle_pike.h | LETTA il 2026-09-21: `NUM_PIKE_ROOMS` è quattordici, e corregge la sezione delle sfide della pagina Bulbapedia della Serpe Lotta, che ne dichiara sette; è la correzione che riconcilia le centoquaranta stanze del simbolo d'oro con le dieci serie della scheda informativa | SME |
 | GitHub, taxicat1/DomeAssistantWeb | https://github.com/taxicat1/DomeAssistantWeb/ | LETTA nella sola parte dei dati il 2026-09-21, licenza MIT: 888 insiemi distinti di esemplare con natura, strumento, quattro mosse e punti base, su 376 specie, in 130 formazioni fra 302 allenatori. In `_notes/fonti/raccolte/domeassistant-2026-09-21/`. Il codice dello strumento non è stato letto, i soli otto file sotto `data/` | SME |
-| Imgur, Gen 3 Battle Tower guide by u/porta-14 | https://imgur.com/a/gen-3-battle-tower-guide-by-u-porta-14-FuEakPo | guida specifica alla Torre Lotta | SME |
-| Smogon, thread principale, post #post-8081012 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/#post-8081012 | squadra/record citata dall'utente | SME |
-| Smogon, thread principale, pagina 18 #post-8454785 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-18#post-8454785 | squadra/record citata dall'utente | SME |
+| Imgur, Gen 3 Battle Tower guide by u/porta-14 | https://imgur.com/a/gen-3-battle-tower-guide-by-u-porta-14-FuEakPo | guida specifica alla Torre Lotta Stato al 2026-10-05, letta ora con l'API pubblica di Imgur: album di immagini, lette in `_notes/fonti/consegne/2026-10-05-imgur-battle-tower/lettura.md` | SME |
+| Smogon, thread principale, post #post-8081012 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/#post-8081012 | squadra/record citata dall'utente Stato al 2026-10-05, già letta: Thread principale Smogon letto per intero (88 pagine, 2187 post) il 2026-09-21: _notes/fonti/raccolte/smogon-parco-lotta-2026-09-21/derivato/ e docs/mappa-fonti/smogon-frontier-thread.md. | SME |
+| Smogon, thread principale, pagina 18 #post-8454785 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-18#post-8454785 | squadra/record citata dall'utente Stato al 2026-10-05, già letta: Thread principale Smogon letto per intero (88 pagine, 2187 post) il 2026-09-21: _notes/fonti/raccolte/smogon-parco-lotta-2026-09-21/derivato/ e docs/mappa-fonti/smogon-frontier-thread.md. | SME |
 | Smogon, thread principale, pagina 3 #post-8197535 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-3#post-8197535 | LETTA il 2026-09-21 insieme a tutte le 88 pagine del thread: è di Golden Blissey e sta nel derivato con il proprio autore accanto | SME |
-| Smogon, thread principale, pagina 19 #post-8457065 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-19#post-8457065 | squadra/record citata dall'utente | SME |
-| Smogon, thread principale, pagina 35 #post-8744004 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-35#post-8744004 | Pokemon "sempre disponibili" da tenere pronti, secondo l'utente | SME |
-| Smogon, thread principale, pagina 44 #post-8823238 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-44#post-8823238 | squadra/record citata dall'utente | SME |
-| Smogon, thread principale, pagina 45 #post-8854987 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-45#post-8854987 | squadra/record citata dall'utente | SME |
-| Smogon, thread principale, pagina 45 #post-8859661 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-45#post-8859661 | squadra/record citata dall'utente | SME |
-| Smogon, thread principale, pagina 51 #post-9014973 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-51#post-9014973 | risorse dell'hub RBNG, da valutare se estendono lo strumento del progetto | SME |
+| Smogon, thread principale, pagina 19 #post-8457065 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-19#post-8457065 | squadra/record citata dall'utente Stato al 2026-10-05, già letta: Thread principale Smogon letto per intero (88 pagine, 2187 post) il 2026-09-21: _notes/fonti/raccolte/smogon-parco-lotta-2026-09-21/derivato/ e docs/mappa-fonti/smogon-frontier-thread.md. | SME |
+| Smogon, thread principale, pagina 35 #post-8744004 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-35#post-8744004 | Pokemon "sempre disponibili" da tenere pronti, secondo l'utente Stato al 2026-10-05, già letta: Thread principale Smogon letto per intero (88 pagine, 2187 post) il 2026-09-21: _notes/fonti/raccolte/smogon-parco-lotta-2026-09-21/derivato/ e docs/mappa-fonti/smogon-frontier-thread.md. | SME |
+| Smogon, thread principale, pagina 44 #post-8823238 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-44#post-8823238 | squadra/record citata dall'utente Stato al 2026-10-05, già letta: Thread principale Smogon letto per intero (88 pagine, 2187 post) il 2026-09-21: _notes/fonti/raccolte/smogon-parco-lotta-2026-09-21/derivato/ e docs/mappa-fonti/smogon-frontier-thread.md. | SME |
+| Smogon, thread principale, pagina 45 #post-8854987 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-45#post-8854987 | squadra/record citata dall'utente Stato al 2026-10-05, già letta: Thread principale Smogon letto per intero (88 pagine, 2187 post) il 2026-09-21: _notes/fonti/raccolte/smogon-parco-lotta-2026-09-21/derivato/ e docs/mappa-fonti/smogon-frontier-thread.md. | SME |
+| Smogon, thread principale, pagina 45 #post-8859661 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-45#post-8859661 | squadra/record citata dall'utente Stato al 2026-10-05, già letta: Thread principale Smogon letto per intero (88 pagine, 2187 post) il 2026-09-21: _notes/fonti/raccolte/smogon-parco-lotta-2026-09-21/derivato/ e docs/mappa-fonti/smogon-frontier-thread.md. | SME |
+| Smogon, thread principale, pagina 51 #post-9014973 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-51#post-9014973 | risorse dell'hub RBNG, da valutare se estendono lo strumento del progetto Stato al 2026-10-05, già letta: Thread principale Smogon letto per intero (88 pagine, 2187 post) il 2026-09-21: _notes/fonti/raccolte/smogon-parco-lotta-2026-09-21/derivato/ e docs/mappa-fonti/smogon-frontier-thread.md. | SME |
 | Smogon, thread principale (guida alla Battle Factory di JoebertIII, citata dall'utente senza ancora, di questa sessione, un indirizzo di post distinto) | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/ | guida all'Azienda Lotta | SME |
-| Smogon, "lol a RMT for battle frontier though" | https://www.smogon.com/forums/threads/lol-a-rmt-for-battle-frontier-though.2246/ | squadra di riferimento, richiede login | SME |
+| Smogon, "lol a RMT for battle frontier though" | https://www.smogon.com/forums/threads/lol-a-rmt-for-battle-frontier-though.2246/ | squadra di riferimento, richiede login Stato al 2026-10-05, già letta: è lo stesso thread della riga del registro di Smogon letta il 2026-10-05 dalla copia Wayback del 2015 | SME |
 | Smogon, "Dan's Macabre: a record breaking Gen 3 Battle Tower singles team" | https://www.smogon.com/forums/threads/dans-macabre-a-record-breaking-gen-3-battle-tower-singles-team.3651964/ | squadra da record per la Torre Lotta, richiede login | SME |
-| Smogon, "Team Azure: a Gen 3 Battle Tower team" | https://www.smogon.com/forums/threads/team-azure-a-gen-3-battle-tower-team.3642308/ | squadra per la Torre Lotta, richiede login | SME |
-| Smogon, thread principale, pagina 40 #post-8783288 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-40#post-8783288 | squadra citata dall'utente, richiede login | SME |
-| Smogon, thread principale, pagina 43 #post-8815224 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-43#post-8815224 | squadra citata dall'utente, richiede login | SME |
+| Smogon, "Team Azure: a Gen 3 Battle Tower team" | https://www.smogon.com/forums/threads/team-azure-a-gen-3-battle-tower-team.3642308/ | squadra per la Torre Lotta, richiede login Stato al 2026-10-05, già letta: Letta: _notes/fonti/raccolte/smogon-parco-lotta-2026-09-21/derivato/team-azure-a-gen-3-battle-tower-team.3642308.md (13 post, letti il 2026-09-21). | SME |
+| Smogon, thread principale, pagina 40 #post-8783288 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-40#post-8783288 | squadra citata dall'utente, richiede login Stato al 2026-10-05, già letta: Thread principale Smogon letto per intero (88 pagine, 2187 post) il 2026-09-21: _notes/fonti/raccolte/smogon-parco-lotta-2026-09-21/derivato/ e docs/mappa-fonti/smogon-frontier-thread.md. | SME |
+| Smogon, thread principale, pagina 43 #post-8815224 | https://www.smogon.com/forums/threads/gen-iii-battle-frontier-discussion-and-records.3648697/page-43#post-8815224 | squadra citata dall'utente, richiede login Stato al 2026-10-05, già letta: Thread principale Smogon letto per intero (88 pagine, 2187 post) il 2026-09-21: _notes/fonti/raccolte/smogon-parco-lotta-2026-09-21/derivato/ e docs/mappa-fonti/smogon-frontier-thread.md. | SME |
 
 Sotto la sezione record del thread principale l'utente segnala inoltre "un'altra miriade di link" a squadre copiabili per ogni edificio in base ai record: non ancora individuati singolarmente, da estrarre quando si legge il thread principale per intero.
 
@@ -159,8 +167,8 @@ Irraggiungibili con `curl` (HTTP 403 diretto su entrambe, nessun reindirizzament
 
 | Fonte | URL | Autorevole su | Track |
 |---|---|---|---|
-| Reddit, r/PokemonEmerald, "How to actually fix/reset the Emerald RTC? \| PKHex/GB Operator" (autore Ok-Acanthisitta9247, soluzione con l'assistenza di u/Jiimmb0, confermata nei commenti da mischkewitz63, Dekiam, Ok-Meringue-8476, TheReptain, MountEchoView) | https://www.reddit.com/r/PokemonEmerald/s/bftTWDmjpf | la procedura in dieci passi via PKHex per risincronizzare l'RTC di Smeraldo dopo il cambio di pila, senza perdere il salvataggio | SME |
-| Reddit, r/Gameboy, "Resetting RTC on emerald after replacing the battery" (post originale cancellato, note di Dryja123, confronto di RipperSquid sulle tre vie alternative) | https://www.reddit.com/r/Gameboy/s/iPeYLiqFr5 | l'avviso che la combinazione a quattro tasti con L è specifica di Rubino/Zaffiro e non di Smeraldo, e le tre vie alternative (PKHex, ROM DS via slot GBA, nuova partita) | SME |
+| Reddit, r/PokemonEmerald, "How to actually fix/reset the Emerald RTC? \| PKHex/GB Operator" (autore Ok-Acanthisitta9247, soluzione con l'assistenza di u/Jiimmb0, confermata nei commenti da mischkewitz63, Dekiam, Ok-Meringue-8476, TheReptain, MountEchoView) | https://www.reddit.com/r/PokemonEmerald/s/bftTWDmjpf Stato al 2026-10-05, già letta: Letta dagli screenshot consegnati dall'utente (screenshot_53-65); registrato in .claude/memory/pending.md. Il collegamento Reddit /s/ risponde 403 diretto. | la procedura in dieci passi via PKHex per risincronizzare l'RTC di Smeraldo dopo il cambio di pila, senza perdere il salvataggio | SME |
+| Reddit, r/Gameboy, "Resetting RTC on emerald after replacing the battery" (post originale cancellato, note di Dryja123, confronto di RipperSquid sulle tre vie alternative) | https://www.reddit.com/r/Gameboy/s/iPeYLiqFr5 | l'avviso che la combinazione a quattro tasti con L è specifica di Rubino/Zaffiro e non di Smeraldo, e le tre vie alternative (PKHex, ROM DS via slot GBA, nuova partita) Stato al 2026-10-05, già letta: Letta dagli screenshot consegnati dall'utente (screenshot_53-65); registrato in .claude/memory/pending.md. | SME |
 
 ## Le fonti sulla completezza del deposito, consegnate e lette il 2026-09-23
 
@@ -170,8 +178,8 @@ Cinque consegnate dal proprietario come collegamenti e una come schermate. Le qu
 |---|---|---|---|
 | Reddit, r/PokemonHome, "Guys im so close!" (Party-Comfort1166, 2026-09-17, 58 commenti letti) | https://www.reddit.com/r/PokemonHome/comments/1wiexvz/ | testimonianza concorde di almeno sette utenti che Spinda da Diamante Lucente e Perla Splendente e da Pokemon GO non entra in HOME e va portato dalla Banca, seconda conferma indipendente di ciò che il progetto registrava; vie citate per Celebi, Deoxys, Victini e Zarude, con Zarude oggi ottenibile solo per scambio da evento e Victini per la via del DNS nella quinta generazione. DA VERIFICARE: le affermazioni su Rosso Fuoco e Verde Foglia per Switch e su un Celebi premio di completamento a ottobre, e Victini in GO, su cui due commentatori si contraddicono | PKD, EVT |
 | Reddit, r/PokemonHome, "What are the rarest pokemon you can have in Pokemon home?" (Creeper_1706, 2026-09-16, 134 nodi letti) | https://www.reddit.com/r/PokemonHome/comments/1whsivx/ | lista di doppio controllo delle classi rare che la checklist potrebbe non enumerare: combinazioni di palla esclusive di HeartGold e SoulSilver, evoluti sottolivellati da scambi in gioco, esemplari di XD e di e-Reader con il Nastro Nazionale, Magearna beta, il contrassegno Game Boy, Vivillon Motivo Poke Ball. Non letti: un Google Doc sui sottolivellati, che andrebbe esportato dal proprietario. Porta anche citazioni di salvataggi scaricati, fuori perimetro | PKD |
-| Reddit, r/PokemonBlackandWhite, "Mystery Gift pokemon in 2026!" (lamperouge01, 2026-09-14) | https://www.reddit.com/r/PokemonBlackandWhite/comments/1wgfaqy/ | testimonianza che la ricezione dei vecchi doni segreti di Nero e Bianco via server di replica funziona al settembre 2026 in quinta generazione, con esito incerto in quarta; il contenuto dei doni e i DNS sono in un video di Kevdog Plays non visto | EVT, PKD |
-| Reddit, r/PokemonHome, "Pokémon HOME full Living Form Dex as of September 2026" (Kawaii_Desu-Chan, 2026-09-17) | https://www.reddit.com/r/PokemonHome/comments/1wikysp/ | solo le categorie di un catalogo completo di forme al 2026, cioè scatole degli Alpha per gioco e i cosiddetti Legacy Alphas, da confrontare con la checklist; la sostanza è in un video del canale Blinky non visto | PKD |
+| Reddit, r/PokemonBlackandWhite, "Mystery Gift pokemon in 2026!" (lamperouge01, 2026-09-14) | https://www.reddit.com/r/PokemonBlackandWhite/comments/1wgfaqy/ | testimonianza che la ricezione dei vecchi doni segreti di Nero e Bianco via server di replica funziona al settembre 2026 in quinta generazione, con esito incerto in quarta; il contenuto dei doni e i DNS sono in un video di Kevdog Plays non visto Stato al 2026-10-05, già letta: Scaricata e letta: _notes/fonti/reddit/reddit-pokemonblackandwhite-1wgfaqy-2026-09-23/ (post e MAPPA.md). | EVT, PKD |
+| Reddit, r/PokemonHome, "Pokémon HOME full Living Form Dex as of September 2026" (Kawaii_Desu-Chan, 2026-09-17) | https://www.reddit.com/r/PokemonHome/comments/1wikysp/ | solo le categorie di un catalogo completo di forme al 2026, cioè scatole degli Alpha per gioco e i cosiddetti Legacy Alphas, da confrontare con la checklist; la sostanza è in un video del canale Blinky non visto Stato al 2026-10-05, già letta: Scaricata e letta: _notes/fonti/reddit/reddit-pokemonhome-1wikysp-2026-09-23/ (post e MAPPA.md). | PKD |
 | Instagram, clorogaming, carosello sui Pokemon da trasferire prima della chiusura della Banca (circa 2026-09-19) | https://www.instagram.com/clorogaming/ | nulla in modo autorevole; sette voci da controllare, di cui una IN DISACCORDO con la checklist, cioè il Vivillon Motivo Poke Ball che il carosello dice ottenibile solo dalla Banca e la checklist per via diretta, disaccordo RISOLTO il 2026-09-23 a favore del carosello sul verificatore e su Serebii, come registrato in `pending.md`, e una nuova, cioè le distribuzioni della Banca con il Classic Ribbon | PKD |
 | PokePC, living dex in linea, riletto il 2026-09-23 | https://pokepc.net/livingdex | aggiornamento della voce già registrata: è ora un'applicazione nuova con i dati incorporati nell'HTML e leggibili da programma, le sette disposizioni sono le stesse e quella usata dal confronto conta ancora 1387 voci; il tracciatore classico ha chiuso le iscrizioni il 2026-09-22 con la release v3.20.0, e i dati vivi vengono verosimilmente da `pokepc/dataset`, aggiornato lo stesso giorno, quindi il confronto sul classico può invecchiare. Copie della pagina viva in `_notes/fonti/raccolte/pokepc/2026-09-23-livingdex-live-*.html` | PKD |
 
@@ -280,7 +288,15 @@ Consegnate dal proprietario il 2026-09-29 con uno scopo dichiarato: controllare 
 
 Il residuo del corpus della collezione, cioè i 2582 indirizzi che il censimento aveva soltanto catalogato, è letto con `tools/leggi-residuo-corpus.py`; gli esiti per indirizzo, con il motivo di ogni indirizzo non letto o saltato, stanno in `_notes/fonti/corpus-residuo/esiti.json`, e il riepilogo misurato è nel work log del 2026-10-01, quarta parte. Le affermazioni estratte dalla prosa sono verificate in `_notes/fonti/corpus-residuo/verifica-ot-id.md` e `affermazioni-prosa.md`, i fogli di calcolo in `fogli-forme-ignote.md`. Esito della prosa: nessuna lacuna nella collezione.
 
+Le fonti del vecchio debito di lettura tecnico, cioè le mappe RAM di Data Crystal, i disassemblati `pokeyellow`, `pokegold`, `pokered` e `pokecrystal`, la pagina di Bulbapedia sull'esecuzione di codice, le pagine di 3dbrew sui salvataggi delle cartucce, il wiki di pokeemerald, `gameboy-spoof` e il blog del suo autore, `REONTeam/trade-corner` e `libmobile`, il riferimento di `ldn.readthedocs.io` e le guide di pomeg-letterbombers, sono lette il 2026-10-01: indirizzi, commit, istantanee della Wayback Machine e stato di ciascuna in `knowledge/sources/notes/debito-tecnico-2026-10-01.md`.
+
+Le fonti sui regali di HOME ancora riscattabili, lette nell'estratto della ricerca del 2026-10-01, sono Serebii, https://www.serebii.net/pokemonhome/giftpokemon.shtml, e Pokémon.com, https://www.pokemon.com/us/pokemon-news/complete-pokedexes-to-earn-shiny-keldeo-and-shiny-meltan-in-pokemon-home: Livello 2 e Livello 1 per le condizioni ufficiali. Gli eventi dei giochi per Switch vengono dalla base della libreria PKHeX, Livello 3.
+
+La raccolta dei codici QR cromatici del Pokédex di settima generazione, letta il 2026-10-02 per la pagina `_notes/qr-pokedex/index.html`: il post Reddit r/pokemon `78w0cb`, «Shiny Pokemon QR Codes for 784 Pokemon Bank Pokedex Entries», letto da Arctic Shift, che spiega come la banca componga il proprio Pokédex da quelli dei giochi collegati e rimanda a sette album Imgur con 1124 codici generati da Project Pokémon (https://projectpokemon.org/home/gallery/category/9-generation-7-qr-codes/); il video di Salted Neos `IdlKn5oJyxI`, trascritto, per la procedura dalla banca a HOME e l'elenco dei Pokémon senza alternativa. Livello 5 per il meccanismo dalla banca a HOME, che nessuna fonte primaria conferma e che la pagina fa verificare dopo il primo giorno.
+
 Per lo studio Switch, `pokedex-home-completo/STRATEGIA-SWITCH.md`, le fonti sono le seguenti. Gli incontri dei giochi per Switch vengono dalla libreria PKHeX, clone `e15d246`, tramite `tools/pkhex-incontri-switch`: Livello 3, autorevole sugli incontri legali. Le disponibilità in Pokémon GO e nei regali di HOME vengono da `pokepc/dataset`, commit `5fd44c1`: Livello 3. Lo stato della modifica della Switch 2 al 2026-10 viene da Notebookcheck, «Switch 2: Developer unveils a universal exploit that works entirely offline», https://www.notebookcheck.net/Switch-2-Developer-unveils-a-universal-exploit-that-works-entirely-offline.1347373.0.html, e da wayayeo.org, «Can You Mod a Switch 2 Yet?», https://wayayeo.org/nintendo-switch-2-modding-early-homebrew-and-hack-news/: Livello 4, lette nell'estratto della ricerca e da rileggere per intero prima di una decisione. Il collegamento di Rosso Fuoco e Verde Foglia per Switch a HOME il 7 ottobre 2026, con la versione 4.1.0 e la capienza a 9000, viene da Nintendo Life, https://www.nintendolife.com/news/2026/09/pokemon-home-firered-and-leafgreen-compatibility-update-arrives-next-week, e da Nintendo Soup, https://nintendosoup.com/pokemon-home-support-for-pokemon-firered-leafgreen-switch-version-coming-october-7th-2026/: Livello 4, lette nell'estratto.
+
+I video dei canali che la trascrizione sulla macchina con GPU non aveva raggiunto prima della dismissione, 89 su 517 scelti per tema, sono letti dal 2026-10-02 al 2026-10-05 attraverso i sottotitoli automatici di YouTube, scaricati con `yt-dlp` su questa macchina e convertiti con `tools/vtt-to-text.py`, e letti direttamente senza modello locale; gli estratti stanno accanto agli altri in `_notes/fonti/corpus-residuo/canali/estratti/`, e i video che non hanno un testo ricavabile, con il motivo di ciascuno, in `canali/senza-testo.json`. Lo stato per canale lo calcola `tools/stato-residuo-corpus.py`, che dal 2026-10-02 verifica davvero che ogni video scelto abbia un testo letto, invece di darlo per trascritto: la versione precedente scriveva «scelti per tema e trascritti» anche per i video senza testo. Due affermazioni nuove per la collezione sono entrate in `pokedex-home-completo/STRATEGIA-SWITCH.md`: ogni regalo di HOME si riscatta una volta per account, quindi la seconda forma di Keldeo, Enamorus e Meloetta cromatici come esemplare distinto chiede un secondo account HOME (video `NieP8AEj3qM`, `zYlgvxnpd4M`, `JdfXvfXBsBY`, Livello 4 come testimonianza di chi l'ha eseguito). Il resto conferma vie già nel censimento.
 
 ## Indice unico: dove sta ciascuna fonte, e dove finisce
 
@@ -355,11 +371,11 @@ La colonna dei documenti dice dove sta la sintesi di quella fonte dentro il prog
 | CableClub/cable-link | 3 | ponte fra generazioni | `08-cavo-link`, `30-opzioni-implementative` | 10, 22 |
 | vaguilar/pokemon-red-cable-club-hack | 3 | ponte fra generazioni | `09-esecuzione-codice`, `21-collaudo` | 11 |
 | taxicat1/DomeAssistantWeb, la tabella degli avversari del Parco Lotta | 3 | salvataggio di Smeraldo | `14-caso-smeraldo` | 14 |
-| Project Pokemon, Events Gallery (non letta) | 3 | ricreazione degli eventi | `24-fonti-di-community` | 19 |
+| Project Pokemon, Events Gallery (letta il 2026-10-05) | 3 | ricreazione degli eventi | `24-fonti-di-community` | 19 |
 | frlg-ldn-trade | 3 | scambio locale | `06-identita-pokemon`, `11-wireless-locale-e-ponte-switch` | 13, 16 |
 | gba-link-connection | 3 | ponte fra generazioni | `10-multiboot-hardware`, `30-opzioni-implementative` | 23 |
 | gen-iii-event-patcher | 3 | ricreazione degli eventi, ponte fra generazioni | `09-esecuzione-codice`, `10-multiboot-hardware` | 14, 19 |
-| Gen 3 ACE Pokemon Builder (non letta) | 3 | esecuzione di codice, ricreazione degli eventi | `23-prove-eseguite` | 19, 20 |
+| Gen 3 ACE Pokemon Builder (letta il 2026-10-05) | 3 | esecuzione di codice, ricreazione degli eventi | `23-prove-eseguite` | 19, 20 |
 | Goppier/GEN3PokemonDistributions | 3 | ponte fra generazioni | `10-multiboot-hardware` | 23 |
 | Pokemon-Gen3-to-Gen-X | 3 | ponte fra generazioni | `08-cavo-link`, `30-opzioni-implementative` | 09, 11, 23 |
 | Pokemon HOME Checklist, inventario vivente e marchi di origine | 3 | esecuzione di codice, generazione da console corrente, ricreazione degli eventi | `CHECKLIST-COMPLETA` | 20 |
@@ -429,7 +445,7 @@ Ogni riga è un cluster del post di raccolta. Lo stato viene dal registro di let
 |---|---|---|---|---|
 | Preambolo | 1 | 0 | letto il 2026-09-16: è la versione del giugno 2025 del post di raccolta, cioè il predecessore del seme | questa nota |
 | 1) Dex completions | 4 | 2 | letti il 2026-09-10, meno le due voci in forma di video e la pagina non scaricata | questa nota |
-| 1) Dex completions / Youtube | 5 | 4 | catalogato il 2026-09-16: tutte e cinque le voci sono video, da chiedere come trascrizione | `pending.md` |
+| 1) Dex completions / Youtube | 5 | 4 | letti nel residuo del corpus il 2026-10-05: i cinque video NByMz7VUCr4, nhPcPZR9JRk, ni5DpLjidK8, -QhFxVzxc-0 e ISPbxFiZkNg sono `trascritto` in `pokedex-home-completo/data/residuo-corpus.csv` con 83, 23, 40, 18 e 70 affermazioni estratte e verificate | `pending.md` |
 | 1) Dex completions / Reddit | 1 | 0 | letti il 2026-09-10, meno le due voci in forma di video e la pagina non scaricata | questa nota |
 | 1) Dex completions / Pokemon Collection Trackers | 7 | 1 | letto il 2026-09-10, cinque voci su sette | `CONFRONTO-LIVINGDEX-POKEPC.md` e questa nota |
 | 1) Dex completions / Gen 1 | 3 | 1 | letti il 2026-09-09, meno le tre voci in forma di video | questa nota |
@@ -448,7 +464,7 @@ Ogni riga è un cluster del post di raccolta. Lo stato viene dal registro di let
 | 4) Ribbon Master | 3 | 0 | letto il 2026-09-09, il manuale resta da recuperare | questa nota |
 | 5) Other lists and spreadsheets | 6 | 3 | CHIUSO il 2026-09-14: le due voci dichiarate non recuperabili il 2026-09-09 sono rientrate con il recupero di ADR-057, e l'indice delle distribuzioni è letto | `ID-NOTEVOLI.md` e questa nota |
 | 6) How to still get Bank and other games/ 3DS modding | 4 | 1 | letto il 2026-09-09 | `STUDIO-09` e questa nota |
-| 7) General tools | 3 | 0 | letto il 2026-09-16: sono calcolatori interattivi, senza contenuto da leggere | questa nota |
+| 7) General tools | 3 | 0 | letto il 2026-09-16 e riverificato il 2026-10-05: sono calcolatori interattivi, senza contenuto da leggere (blisy.net è BlisyDex, un Pokédex interattivo costruito su PokeAPI, smistato in `docs/strumenti-interattivi.md`, dragonflycave.com/calculators è un elenco di calcolatori di tasso di cattura, rotomlabs.net non risponde da questa macchina) | questa nota |
 | 8) Shiny Hunting | 1 | 0 | letto il 2026-09-16 | questa nota |
 | 8) Shiny Hunting / Gen 1 | 1 | 0 | letto il 2026-09-16 | questa nota |
 | 8) Shiny Hunting / Gen 2 | 4 | 0 | letto il 2026-09-16: l'uovo misterioso porta il vincolo del Trasferitore sulla mossa Pugnorapido | questa nota |
@@ -467,7 +483,7 @@ Ogni riga è un cluster del post di raccolta. Lo stato viene dal registro di let
 | 9) RNG Manipulation and Glitches / 8F for Gen 1 games | 1 | 0 | letto il 2026-09-09 | `STUDIO-08` |
 | 9) RNG Manipulation and Glitches / Coin Case Glitch for Gen 2 games | 1 | 0 | letto il 2026-09-09 | `STUDIO-08` |
 | 9) RNG Manipulation and Glitches / ACE coding in Gen 2 & Gen 3 | 4 | 1 | letto il 2026-09-09 | `STUDIO-08` |
-| 10) Lastly, a shootout the YT channels I follow closely on the topic of collecting | 6 | 0 | catalogato il 2026-09-16: sono sei canali video, da chiedere come trascrizione | `pending.md` |
+| 10) Lastly, a shootout the YT channels I follow closely on the topic of collecting | 6 | 0 | letti nel residuo del corpus il 2026-10-05: i sei canali AustinJohnPlays, JohnstoneYT, LEOsMINDgames, PapaJefeYT, ThedomiNATION e trailspokemon sono `catalogo letto` in `pokedex-home-completo/data/residuo-corpus.csv`, con 79, 38, 37, 6, 160 e 4 video scelti per tema letti dalla trascrizione (quattro di ThedomiNATION senza testo ricavabile) | `pending.md` |
 | Commenti al post | 5 | 1 | letto il 2026-09-16 | questa nota |
 
 ### I buchi, dichiarati invece che dedotti
@@ -490,21 +506,21 @@ Sono la fonte autorevole su ogni offset, ogni campo di bit, ogni formula e ogni 
 | pret/pokered | https://github.com/pret/pokered | strutture, salvataggio, protocollo di scambio e costanti seriali di Rosso e Blu; `macros/ram.asm`, `ram/wram.asm`, `constants/serial_constants.asm`, `engine/link/cable_club.asm` | BRI |
 | pret/pokeyellow | https://github.com/pret/pokeyellow | clonato e confrontato il 2026-08-25: la macro `box_struct` e le costanti di lunghezza sono identiche a quelle di Rosso e Blu, quindi il parser di generazione 1 copre Giallo senza modifiche. Risultato negativo e utile | BRI |
 | pret/pokegold | https://github.com/pret/pokegold | clonato e confrontato il 2026-08-25: la macro `party_struct` è identica a quella di Cristallo, quindi il parser di generazione 2 copre Oro e Argento senza modifiche. Restano diversi gli offset del salvataggio, che erano già registrati | BRI |
-| pret/pokecrystal | https://github.com/pret/pokecrystal | ordine dei nibble dei DV in `engine/pokemon/move_mon.asm`, tabella caratteri in `constants/charmap.asm`, strutture di invio native e Time Capsule in `ram/wram.asm` | BRI |
+| pret/pokecrystal | https://github.com/pret/pokecrystal | ordine dei nibble dei DV in `engine/pokemon/move_mon.asm`, tabella caratteri in `constants/charmap.asm`, strutture di invio native e Time Capsule in `ram/wram.asm` Stato al 2026-10-05, già letta: Clone _notes/fonti/cloni/pokecrystal; docs/mappa-fonti/pokecrystal.md (letto: si), docs/23-prove-eseguite.md. | BRI |
 | pret/pokeruby | https://github.com/pret/pokeruby | clonato e letto: nessuna chiave di cifratura, quindi nessuna maschera sulle quantità; conteggio squadra a 0x234, denaro a 0x490, tasche a 0x498, 0x560, 0x5B0, 0x600, 0x640 e 0x740 con capienze 50, 20, 20, 16, 64 e 46, e 349 oggetti. Tutti i valori che il nostro strumento già usava sono confermati | BRI, SME |
-| pret/pokeemerald | https://github.com/pret/pokeemerald | struttura cifrata Gen 3 e checksum in `src/pokemon.c`, chiave di cifratura e offset dello zaino in `include/global.h`, maschera delle quantità in `src/item.c`, settori del salvataggio in `include/save.h` e `src/save.c` | BRI, SME |
+| pret/pokeemerald | https://github.com/pret/pokeemerald | struttura cifrata Gen 3 e checksum in `src/pokemon.c`, chiave di cifratura e offset dello zaino in `include/global.h`, maschera delle quantità in `src/item.c`, settori del salvataggio in `include/save.h` e `src/save.c` Stato al 2026-10-05, già letta: Clone _notes/fonti/cloni/pokeemerald; docs/mappa-fonti/pokeemerald.md (letto: si). | BRI, SME |
 | pret/pokefirered | https://github.com/pret/pokefirered | clonato e letto: chiave di cifratura a 0xF20 dentro un SaveBlock2 che misura 0xF24, e non a 0x0AF8 come riporta una fonte secondaria; conteggio squadra a 0x34, denaro a 0x290, tasche a 0x298, 0x310, 0x3B8, 0x430, 0x464 e 0x54C con capienze 30, 42, 30, 13, 58 e 43, e 375 oggetti in tutto | BRI, LDN, SME |
-| Documentazione pokeemerald | https://pret-pokeemerald.mintlify.app/ | guida navigabile alla decompilazione di Smeraldo, comoda per orientarsi prima di aprire il sorgente | BRI, SME |
-| Pan Docs | https://gbdev.io/pandocs/ | riferimento tecnico completo dell'hardware Game Boy, compreso il trasferimento seriale via cavo Link | BRI |
-| Pan Docs, sorgente | https://github.com/gbdev/pandocs | la stessa cosa in Markdown, diffabile e citabile per revisione | BRI |
+| Documentazione pokeemerald | https://pret-pokeemerald.mintlify.app/ | guida navigabile alla decompilazione di Smeraldo, comoda per orientarsi prima di aprire il sorgente Stato al 2026-10-05, letta ora: Documentazione navigabile di pokeemerald (installazione, build che riproduce il ROM byte per byte, struttura dei sorgenti, sistema di battaglia). Indice di orientamento: la sostanza resta nel clone. | BRI, SME |
+| Pan Docs | https://gbdev.io/pandocs/ | riferimento tecnico completo dell'hardware Game Boy, compreso il trasferimento seriale via cavo Link Stato al 2026-10-05, già letta: Docs: docs/mappa-fonti/pandocs.md (letto: si, trasferimento seriale); citata in DATA-FORMATS_Gen1-Gen2-Gen3.md. | BRI |
+| Pan Docs, sorgente | https://github.com/gbdev/pandocs | la stessa cosa in Markdown, diffabile e citabile per revisione Stato al 2026-10-05, già letta: Sorgente Markdown della stessa documentazione; vedi docs/mappa-fonti/pandocs.md (letto: si). | BRI |
 | GBATEK | https://problemkaputt.de/gbatek.htm | riferimento tecnico dell'hardware Game Boy Advance | BRI, SME, LDN |
-| GBATEK, multiboot | https://problemkaputt.de/gbatek-bios-multi-boot-single-game-pak.htm | protocollo di avvio di un programma in RAM ricevuto dal cavo, cioè il meccanismo su cui poggia il ponte | BRI |
-| GBATEK, porte di comunicazione | https://problemkaputt.de/gbatek-gba-communication-ports.htm | modalità normale, multiplayer, UART e JOY Bus della porta seriale GBA | BRI, LDN |
+| GBATEK, multiboot | https://problemkaputt.de/gbatek-bios-multi-boot-single-game-pak.htm | protocollo di avvio di un programma in RAM ricevuto dal cavo, cioè il meccanismo su cui poggia il ponte Stato al 2026-10-05, già letta: Docs: docs/mappa-fonti/gbatek.md (letto: si, multiboot). | BRI |
+| GBATEK, porte di comunicazione | https://problemkaputt.de/gbatek-gba-communication-ports.htm | modalità normale, multiplayer, UART e JOY Bus della porta seriale GBA Stato al 2026-10-05, letta ora: GBATEK, porte di comunicazione: la porta seriale GBA ha modalità Normal (due GBA), Multi-player (fino a quattro), UART, JOY Bus e General Purpose; il DS non ha porta seriale. Base per ponte e scambio LDN. | BRI, LDN |
 | Pan Docs, trasferimento seriale | https://gbdev.io/pandocs/Serial_Data_Transfer_(Link_Cable).html | letto: registri SB a 0xFF01 e SC a 0xFF02 con i loro bit, clock interno 8192 Hz su Game Boy e fino a 524288 Hz su Color, clock esterno accettato fino a 500 kHz e senza limite inferiore, necessità di un timeout perché con clock esterno il trasferimento non termina mai da solo. Blocca il crawler del modello, si scarica con `curl` locale | BRI |
 | GBATEK, multiboot | https://problemkaputt.de/gbatek-bios-multi-boot-single-game-pak.htm | letto: sequenza di handshake con 0x6200 e risposta 0x0000, poi 0x610y e 0x720x; lunghezza del trasferimento multipla di 0x10 fra 0x100 e 0x3FF40; intestazione a 0x2000000 e programma da 0x20000C0 a 0x203FFFF; indirizzi assoluti da riferire a 0x2000000 e non a 0x8000000; XOR e checksum CRC a 16 bit; attesa del bit di start e ritardo di 36 microsecondi dopo ogni trasferimento | BRI |
 | Copetti, architettura del Game Boy Advance | https://www.copetti.org/writings/consoles/game-boy-advance/ | letto: IWRAM 32 KB a 32 bit e EWRAM 256 KB a 16 bit fino a sei volte più lenta, bus cartuccia a 16 bit con 24 linee di indirizzo, buffer di prefetch da otto parole, retrocompatibilità Game Boy con rilevamento della forma della cartuccia e commutazione di tensione | BRI |
-| rgbds | https://github.com/gbdev/rgbds | assemblatore necessario per compilare i disassemblati Game Boy | BRI |
-| devkitPro e libtonc | https://github.com/devkitPro/libtonc | toolchain e libreria C per compilare homebrew GBA | BRI |
+| rgbds | https://github.com/gbdev/rgbds | assemblatore necessario per compilare i disassemblati Game Boy Stato al 2026-10-05, strumento o sito generico: Assemblatore RGBDS per compilare i disassemblati Game Boy; usato per costruire pokecrystal, pokered e pokeyellow (vedi INSTALL.md nei cloni). | BRI |
+| devkitPro e libtonc | https://github.com/devkitPro/libtonc | toolchain e libreria C per compilare homebrew GBA Stato al 2026-10-05, strumento o sito generico: Libreria C per homebrew GBA nel toolchain devkitPro; strumento del ponte lato GBA (menzione nell'handoff archiviato), nessun testo da leggere come fonte. | BRI |
 | Bulbapedia, distribuzioni italiane Gen 3 | https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III | letta il 2026-08-29: luogo, date e campi delle distribuzioni italiane. La manifestazione del 2006 in un parco di divertimenti, dal 23 al 25 giugno, ha allenatore di provenienza `10ANNI`, identificativo 06227, dieci specie al livello 70, e il partecipante poteva scegliere tre esemplari; quella del 2007 nel medesimo luogo distribuiva un Mew di allenatore `Aura` e identificativo 20078. È la fonte che identifica con precisione gli esemplari che l'utente possiede da quell'evento | EVT |
 | Pokemon, collegamento di Rosso Fuoco e Verde Foglia con Home | https://www.pokemon.com/us/news/pokemon-firered-version-and-pokemon-leafgreen-version-link-with-pokemon-home | annuncio ufficiale del 13 agosto 2026, letto il 2026-08-31 attraverso la sintesi dei risultati di ricerca: le versioni per console moderna di quei due giochi si collegheranno a Pokemon Home a ottobre 2026, con l'aggiornamento 4.1.0 del servizio, e da quel momento un esemplare potrà entrare in Home direttamente senza passare da Bank. Il trasferimento è a senso unico, cioè un esemplare che lascia quei giochi non può rientrarvi e nessun esemplare di altri giochi può visitarli; la capienza del piano a pagamento sale da seimila a novemila; chi completa il registro riceve un Celebi. È la fonte che corregge la scadenza del progetto: per la terza generazione il 26 febbraio 2027 cessa di essere l'ultima porta, mentre resta l'ultima per prima, seconda, quarta e quinta generazione | ACE, EVT, LDN, 3DS |
 | Pokemon, gestione dei dati alterati | https://support.pokemon.com/hc/en-us/articles/360055828671-Addressing-the-use-of-data-altered-via-unauthorized-means | politica ufficiale, letta il 2026-08-31 attraverso la sintesi dei risultati di ricerca. È l'unico elemento non congetturale sul rischio dei track che producono esemplari: chi risulti impiegare dati alterati può subire la restrizione del gioco in linea, la restrizione delle funzioni di scambio nella versione mobile e la sospensione di Pokemon Home nelle versioni per console e mobile, in forma temporanea o indefinita a discrezione del titolare e senza rimborso. Dichiara una eccezione che delimita il rischio e che non va letta come una assoluzione: non vi sono restrizioni per chi possieda dati alterati senza intenzione, per esempio ricevendoli in uno scambio senza saperlo | ACE, GEN, EVT |
@@ -519,9 +535,9 @@ Sono la fonte autorevole su ogni offset, ogni campo di bit, ogni formula e ogni 
 | Bulbapedia, distribuzioni giapponesi in seconda generazione | https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_(Generation_II) | letta il 2026-09-03, ed è la fonte che ha chiuso l'ultimo gruppo di prima e seconda generazione senza provenienza. Le quindici voci che la tabella tecnica classifica come consegnate al destinatario, senza nome né data né luogo, sono le uova misteriose distribuite nei negozi Pokemon Center di Tokyo e Osaka in tre campagne, cioè dal 15 dicembre 2001 al 14 gennaio 2002, dal 16 marzo al 7 aprile 2002 e dal 27 aprile al 12 maggio 2002. La conferma non poggia sul nome ma sul conto e sulle mosse, che coincidono voce per voce, e il marcatore che separa le campagne è Petalodanza, assegnata dalla seconda a quasi tutte le proprie uova. Due voci coprono due consegne storiche ciascuna, perché coincidono nei byte | EVT, PKD |
 | Bulbapedia, Parco Amico | https://bulbapedia.bulbagarden.net/wiki/Pal_Park | letta il 2026-08-28: il passaggio dalla terza alla quarta generazione richiede un Nintendo DS o DS Lite, cioè una console con lo slot per le cartucce Game Boy Advance, con i due giochi nella stessa lingua; sei esemplari per volta, non più di sei ogni ventiquattro ore in Diamante, Perla e Platino mentre HeartGold e SoulSilver rimuovono il limite, e nessun esemplare che conosca una mossa macchina nascosta | EVT, 3DS |
 | Bulbapedia, Trasferitore | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Transfer | letta il 2026-08-28: il passaggio dalla quarta alla quinta generazione usa la comunicazione fra due console della famiglia DS, richiede il Pokedex nazionale e la storia completata sul gioco di destinazione, sposta sei esemplari per volta senza limite giornaliero, rifiuta uova e mosse macchina nascoste, e lascia indietro gli oggetti tenuti. Come il Parco Amico è irreversibile | EVT, 3DS |
-| Discord, account automatizzati e self-bot | https://support.discord.com/hc/en-us/articles/115002192352-Automated-User-Accounts-Self-Bots | non aperta in sessione: il suo contenuto è riportato dalla consegna letta il 2026-08-31 e coincide con la decisione che il progetto aveva già preso il 2026-08-26. Distingue i bot account, descritti come dedicati all'automazione e autenticati con un token proprio, dai self-bot, cioè l'automazione di un account utente normale, dichiarata vietata con rischio di terminazione dell'account. È la fonte del criterio di ADR-018 e va aperta prima di citarla su un dettaglio | TUTTI |
+| Discord, account automatizzati e self-bot | https://support.discord.com/hc/en-us/articles/115002192352-Automated-User-Accounts-Self-Bots | letta il 2026-10-05 dall'API del centro assistenza (HTTP 200; la pagina dal vivo risponde 403 anti-bot) e dalla Wayback Machine: i bot account sono dedicati all'automazione e si autenticano con un token, mentre l'automazione di un normale account utente (self-bot) fuori dall'API OAuth2 e bot è vietata e può portare alla terminazione dell'account; conferma il criterio di ADR-018 | TUTTI |
 | Discord, Channel Following FAQ | https://support.discord.com/hc/en-us/articles/360028384531-Channel-Following-FAQ | letta il 2026-08-31 attraverso la sintesi dei risultati di ricerca sulla pagina ufficiale, non aprendo la pagina. Documenta la sola via che non richiede il consenso del server di origine: i canali di annunci di un server community si possono seguire da un altro server, con replica dei messaggi pubblicati, e il permesso necessario è quello di gestire i webhook nel server di destinazione. Il limite è che riguarda i soli canali di annunci e non le discussioni, dove sta la conoscenza tecnica | TUTTI |
-| 3dbrew | https://www.3dbrew.org | documentazione tecnica dell'hardware e del software di sistema del 3DS, compreso il formato dei salvataggi | 3DS |
+| 3dbrew | https://www.3dbrew.org | documentazione tecnica dell'hardware e del software di sistema del 3DS, compreso il formato dei salvataggi Stato al 2026-10-05, già letta: Sito generico, ma lette le pagine Savegames e DISA_and_DIFF via Wayback il 2026-10-01: knowledge/sources/notes/debito-tecnico-2026-10-01.md. | 3DS |
 
 ## Livello 2: wiki e riferimenti di dominio
 
@@ -529,42 +545,42 @@ Vale la pena elencare le pagine singole e non solo i domini, perché una wiki gr
 
 | Fonte | URL | Autorevole su | Track |
 |---|---|---|---|
-| Bulbapedia, struttura dati Gen 1 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_data_structure_(Generation_I) | offset dei 44 e 33 byte, impaccamento dei PP | BRI |
-| Bulbapedia, struttura dati Gen 2 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_data_structure_(Generation_II) | offset dei 48 e 32 byte, dati di cattura di Cristallo, Pokerus | BRI |
-| Bulbapedia, struttura dati Gen 3 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_data_structure_(Generation_III) | intestazione in chiaro ed estensione di squadra | BRI, SME, LDN |
-| Bulbapedia, sottostrutture Gen 3 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_data_substructures_(Generation_III) | tabella delle 24 permutazioni e campi di bit delle quattro sottostrutture | BRI, SME, LDN |
-| Bulbapedia, salvataggio Gen 1 | https://bulbapedia.bulbagarden.net/wiki/Save_data_structure_(Generation_I) | banchi, offset di squadra e box, checksum | BRI |
-| Bulbapedia, salvataggio Gen 2 | https://bulbapedia.bulbagarden.net/wiki/Save_data_structure_(Generation_II) | offset per gioco e lingua, doppio checksum, copia di backup | BRI |
-| Bulbapedia, salvataggio Gen 3 | https://bulbapedia.bulbagarden.net/wiki/Save_data_structure_(Generation_III) | sezioni da 4096 byte, firma, scelta dello slot | SME, BRI, LDN |
+| Bulbapedia, struttura dati Gen 1 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_data_structure_(Generation_I) | offset dei 44 e 33 byte, impaccamento dei PP Stato al 2026-10-05, già letta: Docs: docs/mappa-fonti/bulbapedia.md (letto: si); SOURCES.md «Che cosa è stato usato davvero» (sedici pagine enciclopediche); errori verificati in docs/23-prove-eseguite.md. | BRI |
+| Bulbapedia, struttura dati Gen 2 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_data_structure_(Generation_II) | offset dei 48 e 32 byte, dati di cattura di Cristallo, Pokerus Stato al 2026-10-05, già letta: Docs: docs/mappa-fonti/bulbapedia.md (letto: si); SOURCES.md «Che cosa è stato usato davvero» (sedici pagine enciclopediche); errori verificati in docs/23-prove-eseguite.md. | BRI |
+| Bulbapedia, struttura dati Gen 3 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_data_structure_(Generation_III) | intestazione in chiaro ed estensione di squadra Stato al 2026-10-05, già letta: Docs: docs/mappa-fonti/bulbapedia.md (letto: si); SOURCES.md «Che cosa è stato usato davvero» (sedici pagine enciclopediche); errori verificati in docs/23-prove-eseguite.md. | BRI, SME, LDN |
+| Bulbapedia, sottostrutture Gen 3 | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_data_substructures_(Generation_III) | tabella delle 24 permutazioni e campi di bit delle quattro sottostrutture Stato al 2026-10-05, già letta: Docs: docs/mappa-fonti/bulbapedia.md (letto: si); SOURCES.md «Che cosa è stato usato davvero» (sedici pagine enciclopediche); errori verificati in docs/23-prove-eseguite.md. | BRI, SME, LDN |
+| Bulbapedia, salvataggio Gen 1 | https://bulbapedia.bulbagarden.net/wiki/Save_data_structure_(Generation_I) | banchi, offset di squadra e box, checksum Stato al 2026-10-05, già letta: Docs: docs/mappa-fonti/bulbapedia.md (letto: si); SOURCES.md «Che cosa è stato usato davvero» (sedici pagine enciclopediche); errori verificati in docs/23-prove-eseguite.md. | BRI |
+| Bulbapedia, salvataggio Gen 2 | https://bulbapedia.bulbagarden.net/wiki/Save_data_structure_(Generation_II) | offset per gioco e lingua, doppio checksum, copia di backup Stato al 2026-10-05, già letta: Docs: docs/mappa-fonti/bulbapedia.md (letto: si); SOURCES.md «Che cosa è stato usato davvero» (sedici pagine enciclopediche); errori verificati in docs/23-prove-eseguite.md. | BRI |
+| Bulbapedia, salvataggio Gen 3 | https://bulbapedia.bulbagarden.net/wiki/Save_data_structure_(Generation_III) | sezioni da 4096 byte, firma, scelta dello slot Stato al 2026-10-05, già letta: Docs: docs/mappa-fonti/bulbapedia.md (letto: si); SOURCES.md «Che cosa è stato usato davvero» (sedici pagine enciclopediche); errori verificati in docs/23-prove-eseguite.md. | SME, BRI, LDN |
 | Bulbapedia, valore di personalità | https://bulbapedia.bulbagarden.net/wiki/Personality_value | formule di natura, sesso, abilità, lucentezza, lettera di Unown | BRI |
-| Bulbapedia, valori individuali | https://bulbapedia.bulbagarden.net/wiki/Individual_values | derivazione del DV dei punti salute, lucentezza da DV in Gen 2 | BRI |
-| Bulbapedia, codifica caratteri Gen 1 | https://bulbapedia.bulbagarden.net/wiki/Character_encoding_(Generation_I) | tabella caratteri; sbagliata sulle cifre, usare il charmap del disassemblato | BRI |
-| Bulbapedia, codifica caratteri Gen 3 | https://bulbapedia.bulbagarden.net/wiki/Character_encoding_(Generation_III) | codici di controllo 0xFC, 0xFD e 0xFE; sbagliata sulle maiuscole | BRI, SME |
-| Bulbapedia, indici Gen 1 | https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_index_number_(Generation_I) | mappatura da indice interno a numero nazionale e posizioni di MissingNo | BRI |
-| Bulbapedia, indici Gen 3 | https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_index_number_(Generation_III) | numerazione interna e ordinamento delle specie di Hoenn | BRI |
-| Bulbapedia, esecuzione di codice arbitrario | https://bulbapedia.bulbagarden.net/wiki/Arbitrary_code_execution | inquadramento enciclopedico della tecnica e della sua storia | BRI |
-| Glitch City Wiki | https://glitchcity.wiki | catalogo dell'esecuzione di codice arbitrario e dei glitch di Gen 1 e 2; respinge il recupero automatico | BRI |
-| Glitch City, mirror statico | https://nintyconservation.github.io/glitchcity.wiki/glitchcity.wiki/Arbitrary_code_execution.html | la stessa conoscenza in forma recuperabile automaticamente | BRI |
-| Glitch City, esecuzione remota | https://glitchcity.wiki/wiki/Remote_code_execution | il vettore che passa dal cavo Link, cioè quello che usa il ponte | BRI |
-| Glitch City, cart-swap | https://glitchcity.wiki/wiki/Cart-swap_arbitrary_code_execution | esecuzione di codice sfruttando ciò che resta in RAM dopo uno scambio di cartuccia | BRI |
-| Data Crystal, Gen 3 | https://datacrystal.tcrf.net/wiki/Pok%C3%A9mon_3rd_Generation | mappe di RAM e ROM dei giochi Gen 3, utili nella diagnosi di un salvataggio corrotto | SME, BRI |
-| Data Crystal, mappa RAM di Cristallo | https://datacrystal.tcrf.net/wiki/Pok%C3%A9mon_Crystal/RAM_map | indirizzi in RAM di Gen 2, complementari al disassemblato | BRI |
-| Data Crystal, mappa RAM di Rosso e Blu | https://datacrystal.tcrf.net/wiki/Pok%C3%A9mon_Red_and_Blue/RAM_map | indirizzi in RAM di Gen 1, utili per capire dove cade un payload | BRI |
-| Hacks Guide Wiki, 3DS | https://wiki.hacks.guide/wiki/3DS:Dump_titles_and_game_cartridges | procedura di dump di titoli e cartucce, versione wiki e aggiornata della guida | 3DS |
-| Hacks Guide Wiki, esportazione salvataggi | https://wiki.hacks.guide/wiki/3DS:Export_saves | estrazione dei salvataggi dalla console | 3DS |
-| ConsoleMods Wiki, backup di gioco | https://consolemods.org/wiki/3DS:Creating_Game_Backups | seconda fonte indipendente sulla procedura di dump | 3DS |
-| ConsoleMods Wiki, backup dei salvataggi | https://consolemods.org/wiki/3DS:Creating_Game_Save_Backups | seconda fonte indipendente sui backup dei salvataggi | 3DS |
-| DS-Homebrew Wiki | https://wiki.ds-homebrew.com/godmode9i/ | GodMode9i, il gestore di file di basso livello del lato DS | 3DS |
-| dumping.guide | https://dumping.guide/carts/nintendo/ds | procedura di dump delle cartucce DS orientata alla conservazione | 3DS |
-| GameBrew | https://www.gamebrew.org/wiki/3DS_Save_File_Extraction_Tools | censimento degli strumenti di estrazione dei salvataggi 3DS | 3DS |
-| PokeAPI | https://pokeapi.co | dati di specie, mosse e abilità via API, alternativa alla lettura da ROM per un tool su PC | BRI |
-| Serebii | https://www.serebii.net | dati di gioco enciclopedici, utile come controprova rapida | TUTTI |
+| Bulbapedia, valori individuali | https://bulbapedia.bulbagarden.net/wiki/Individual_values | derivazione del DV dei punti salute, lucentezza da DV in Gen 2 Stato al 2026-10-05, già letta: Docs: docs/mappa-fonti/bulbapedia.md (letto: si); SOURCES.md «Che cosa è stato usato davvero» (sedici pagine enciclopediche); errori verificati in docs/23-prove-eseguite.md. | BRI |
+| Bulbapedia, codifica caratteri Gen 1 | https://bulbapedia.bulbagarden.net/wiki/Character_encoding_(Generation_I) | tabella caratteri; sbagliata sulle cifre, usare il charmap del disassemblato Stato al 2026-10-05, già letta: Docs: docs/mappa-fonti/bulbapedia.md; la tabella delle cifre risulta sbagliata, corretta con il charmap del disassemblato (docs/23-prove-eseguite.md). | BRI |
+| Bulbapedia, codifica caratteri Gen 3 | https://bulbapedia.bulbagarden.net/wiki/Character_encoding_(Generation_III) | codici di controllo 0xFC, 0xFD e 0xFE; sbagliata sulle maiuscole Stato al 2026-10-05, già letta: Docs: docs/mappa-fonti/bulbapedia.md; la tabella delle maiuscole di Gen 3 risulta sbagliata, corretta con il disassemblato (docs/23-prove-eseguite.md). | BRI, SME |
+| Bulbapedia, indici Gen 1 | https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_index_number_(Generation_I) | mappatura da indice interno a numero nazionale e posizioni di MissingNo Stato al 2026-10-05, già letta: Docs: docs/mappa-fonti/bulbapedia.md (letto: si); SOURCES.md «Che cosa è stato usato davvero» (sedici pagine enciclopediche); errori verificati in docs/23-prove-eseguite.md. | BRI |
+| Bulbapedia, indici Gen 3 | https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_index_number_(Generation_III) | numerazione interna e ordinamento delle specie di Hoenn Stato al 2026-10-05, già letta: Docs: docs/mappa-fonti/bulbapedia.md (letto: si); SOURCES.md «Che cosa è stato usato davvero» (sedici pagine enciclopediche); errori verificati in docs/23-prove-eseguite.md. | BRI |
+| Bulbapedia, esecuzione di codice arbitrario | https://bulbapedia.bulbagarden.net/wiki/Arbitrary_code_execution | inquadramento enciclopedico della tecnica e della sua storia Stato al 2026-10-05, già letta: Letta via Wayback il 2026-10-01: knowledge/sources/notes/debito-tecnico-2026-10-01.md, sezione 3. | BRI |
+| Glitch City Wiki | https://glitchcity.wiki | catalogo dell'esecuzione di codice arbitrario e dei glitch di Gen 1 e 2; respinge il recupero automatico Stato al 2026-10-05, strumento o sito generico: Pagina principale di Glitch City Wiki, catalogo generale; la lettura utile sta nelle pagine specifiche (docs/mappa-fonti/glitchcity.md). | BRI |
+| Glitch City, mirror statico | https://nintyconservation.github.io/glitchcity.wiki/glitchcity.wiki/Arbitrary_code_execution.html | la stessa conoscenza in forma recuperabile automaticamente Stato al 2026-10-05, già letta: Docs: docs/mappa-fonti/glitchcity.md (letto: si, dal mirror statico); copie in _notes/fonti/reddit/reddit-pokemonhome-1vtj5hf-2026-09-08/esterni/glitchcity.info/. | BRI |
+| Glitch City, esecuzione remota | https://glitchcity.wiki/wiki/Remote_code_execution | il vettore che passa dal cavo Link, cioè quello che usa il ponte Stato al 2026-10-05, letta ora: Esecuzione remota di codice (mirror statico): tecnica fra due giochi o gioco e dispositivo, usata in Gen 1, 2 e 3; in Gen 1 e 2 passa da una squadra corrotta via cavo Link. È il vettore del ponte. | BRI |
+| Glitch City, cart-swap | https://glitchcity.wiki/wiki/Cart-swap_arbitrary_code_execution | esecuzione di codice sfruttando ciò che resta in RAM dopo uno scambio di cartuccia Stato al 2026-10-05, letta ora: Cart-swap ACE (mirror statico): esecuzione di codice sfruttando i dati rimasti in RAM dopo lo scambio di cartuccia; elencata fra le tecniche ACE della serie. Pertinente al ponte Gen 1/2 verso Gen 3. | BRI |
+| Data Crystal, Gen 3 | https://datacrystal.tcrf.net/wiki/Pok%C3%A9mon_3rd_Generation | mappe di RAM e ROM dei giochi Gen 3, utili nella diagnosi di un salvataggio corrotto Stato al 2026-10-05, letta ora: Data Crystal Gen 3 (da Wayback, gzip): RSE, FRLG condividono le strutture dati e si trattano come un solo gioco con le differenze di offset; pagina da riorganizzare, con sottopagine e offset ROM. | SME, BRI |
+| Data Crystal, mappa RAM di Cristallo | https://datacrystal.tcrf.net/wiki/Pok%C3%A9mon_Crystal/RAM_map | indirizzi in RAM di Gen 2, complementari al disassemblato Stato al 2026-10-05, già letta: Letta via Wayback il 2026-10-01: knowledge/sources/notes/debito-tecnico-2026-10-01.md (RAM map di Cristallo). | BRI |
+| Data Crystal, mappa RAM di Rosso e Blu | https://datacrystal.tcrf.net/wiki/Pok%C3%A9mon_Red_and_Blue/RAM_map | indirizzi in RAM di Gen 1, utili per capire dove cade un payload Stato al 2026-10-05, già letta: Letta via Wayback il 2026-10-01: knowledge/sources/notes/debito-tecnico-2026-10-01.md (RAM map di Rosso e Blu). | BRI |
+| Hacks Guide Wiki, 3DS | https://wiki.hacks.guide/wiki/3DS:Dump_titles_and_game_cartridges | procedura di dump di titoli e cartucce, versione wiki e aggiornata della guida Stato al 2026-10-05, letta ora: GodMode9 scarica titoli installati in .cia, i dati della cartuccia in .3ds, e installa direttamente la cartuccia; richiede v2.0.0 o successiva. Procedura di dump del sottoprogetto 3DS. | 3DS |
+| Hacks Guide Wiki, esportazione salvataggi | https://wiki.hacks.guide/wiki/3DS:Export_saves | estrazione dei salvataggi dalla console Stato al 2026-10-05, letta ora: Esportazione salvataggi 3DS: i salvataggi di cartuccia stanno sulla cartuccia, altri come extdata; la pagina è in lavorazione e descrive backup e ripristino. Supporta il track 3DS. | 3DS |
+| ConsoleMods Wiki, backup di gioco | https://consolemods.org/wiki/3DS:Creating_Game_Backups | seconda fonte indipendente sulla procedura di dump Stato al 2026-10-05, letta ora dalla Wayback Machine (copia 2026, HTTP 200): con CFW e GodMode9 si estrae una cartuccia 3DS o DS per la console o per un emulatore, e un titolo installato; coerente con Hacks Guide | 3DS |
+| ConsoleMods Wiki, backup dei salvataggi | https://consolemods.org/wiki/3DS:Creating_Game_Save_Backups | seconda fonte indipendente sui backup dei salvataggi Stato al 2026-10-05, letta ora dalla Wayback Machine (copia 2026, HTTP 200): con CFW e Checkpoint si salva il salvataggio di una cartuccia 3DS o DS in /3ds/Checkpoint/saves, la procedura che il progetto usa | 3DS |
+| DS-Homebrew Wiki | https://wiki.ds-homebrew.com/godmode9i/ | GodMode9i, il gestore di file di basso livello del lato DS Stato al 2026-10-05, letta ora: GodMode9i è un gestore di file open source per DS: dump dei giochi, SD, NitroFS, SHA1, editor esadecimale. Strumento del lato DS per il dump delle cartucce. | 3DS |
+| dumping.guide | https://dumping.guide/carts/nintendo/ds | procedura di dump delle cartucce DS orientata alla conservazione Stato al 2026-10-05, letta ora: dumping.guide per Nintendo DS: dump da console 3DS, DSi, DS via Wi-Fi e DS via flashcart slot-2 GBA, con strumenti e un esempio di output wooddumper. | 3DS |
+| GameBrew | https://www.gamebrew.org/wiki/3DS_Save_File_Extraction_Tools | censimento degli strumenti di estrazione dei salvataggi 3DS Stato al 2026-10-05, letta ora: Censimento di strumenti di estrazione dei salvataggi 3DS: 3ds-save-tool di wwylele (alpha, 2020) analizza file DISA e DIFF ed estrae i file; funziona su file decifrati, e cifrati con le chiavi. | 3DS |
+| PokeAPI | https://pokeapi.co | dati di specie, mosse e abilità via API, alternativa alla lettura da ROM per un tool su PC Stato al 2026-10-05, strumento o sito generico: Servizio API di dati su specie, mosse e abilità; alternativa citata alla lettura da ROM, nessun testo da leggere come fonte. | BRI |
+| Serebii | https://www.serebii.net | dati di gioco enciclopedici, utile come controprova rapida Stato al 2026-10-05, strumento o sito generico: Sito enciclopedico generale usato come controprova rapida; pagine specifiche lette nel corpus (docs/mappa-fonti/serebii-*.md). | TUTTI |
 | Smogon, guide RNG | https://www.smogon.com/ingame/rng/ | comportamento del generatore pseudocasuale dei giochi | BRI |
-| Bulbapedia, elenco dei Pokemon con differenze di forma | https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_with_form_differences | l'inventario enciclopedico delle differenze di forma, che distingue le categorie che il campo della forma non separa: forme regionali, forme di sesso, forme di sola battaglia, forme cosmetiche. È la fonte di controprova dell'asse delle forme, e serve in particolare sulle differenze di sesso, che il nostro censimento non vede perché non stanno nel campo della forma | PKD |
-| Pokemon Fandom in italiano, forme regionali | https://pokemon.fandom.com/it/wiki/Forme_Regionali | l'elenco delle sole forme regionali con la nomenclatura italiana, utile come controprova mirata e come sorgente dei nomi da usare nei nostri documenti | PKD |
-| Pokemon NJ Wiki, guida di Pokemon Home | https://pokemonnj.fandom.com/wiki/Pok%C3%A9mon_HOME/Features/Guidebook | trascrizione della guida interna del deposito, che è il punto in cui il servizio stesso dichiara quali specie abbiano forme alternative e quali no. Vale come indice della fonte primaria, non come sostituto | PKD |
+| Bulbapedia, elenco dei Pokemon con differenze di forma | https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_with_form_differences | l'inventario enciclopedico delle differenze di forma, che distingue le categorie che il campo della forma non separa: forme regionali, forme di sesso, forme di sola battaglia, forme cosmetiche. È la fonte di controprova dell'asse delle forme, e serve in particolare sulle differenze di sesso, che il nostro censimento non vede perché non stanno nel campo della forma Stato al 2026-10-05, letta ora dalla Wayback Machine (copia 2025, la copia 2026 risponde 403), salvata in `_notes/fonti/consegne/`: 63 specie con forme, tutte presenti in `LISTA-COMPLETA.md` (Paldean Tauros vi sta con il nome italiano) | PKD |
+| Pokemon Fandom in italiano, forme regionali | https://pokemon.fandom.com/it/wiki/Forme_Regionali | l'elenco delle sole forme regionali con la nomenclatura italiana, utile come controprova mirata e come sorgente dei nomi da usare nei nostri documenti Stato al 2026-10-05, letta ora: Forme regionali, Pokemon Fandom italiano (via API MediaWiki): forme di Alola, Galar, Hisui e Paldea, con la nomenclatura (es. Vulpix di Alola, già Keokeo). Fonte dei nomi italiani. WebFetch 402, curl 403. | PKD |
+| Pokemon NJ Wiki, guida di Pokemon Home | https://pokemonnj.fandom.com/wiki/Pok%C3%A9mon_HOME/Features/Guidebook | trascrizione della guida interna del deposito, che è il punto in cui il servizio stesso dichiara quali specie abbiano forme alternative e quali no. Vale come indice della fonte primaria, non come sostituto Stato al 2026-10-05, letta ora: Guida di HOME mobile (v3.2.2), via API MediaWiki: una scheda per Pokémon con sezioni Forms (forme alternative), Appears In (giochi Switch) e video; senza abilità e statistiche. | PKD |
 | Serebii, archivio delle distribuzioni di eventi | https://www.serebii.net/events/ | l'archivio storico delle distribuzioni per generazione e per regione, tenuto dal 1999 e con la copertura più lunga di qualsiasi altra fonte. È il controllo indipendente da fare sulla base dei doni del verificatore, che conosce le carte e non gli eventi che non hanno lasciato una carta | EVT, PKD |
-| Pokemon Showdown, vetrina dei dati | https://dex.pokemonshowdown.com/ | l'interfaccia di consultazione della medesima base dati già registrata al livello 3 come file JSON; è l'indirizzo che gli aggregati di terzi citano come propria sorgente, quindi va tenuto perché la catena delle derivazioni resti ricostruibile | PKD |
+| Pokemon Showdown, vetrina dei dati | https://dex.pokemonshowdown.com/ | l'interfaccia di consultazione della medesima base dati già registrata al livello 3 come file JSON; è l'indirizzo che gli aggregati di terzi citano come propria sorgente, quindi va tenuto perché la catena delle derivazioni resti ricostruibile Stato al 2026-10-05, strumento o sito generico: Interfaccia di consultazione di Pokemon Showdown; i dati JSON della stessa base sono usati al livello 3 e questa vetrina è solo l'indirizzo che gli aggregati citano. | PKD |
 | Serebii, i Pokemon cromatici | https://www.serebii.net/games/shiny.shtml | la pagina di riferimento sui cromatici, con le probabilità, i metodi e l'elenco delle specie a cui il gioco impedisce di esserlo. È la fonte da confrontare con la misura che ricaveremo dagli archivi degli incontri, perché un elenco enciclopedico e una misura sul dato sono due cose diverse e la seconda va verificata contro la prima | PKD |
 
 ## Livello 3: implementazioni di riferimento
@@ -573,76 +589,76 @@ Codice che funziona sul campo. Va letto come prova di fattibilità e come repert
 
 | Fonte | URL | Che cosa offre | Track |
 |---|---|---|---|
-| Poke Transporter GB | https://github.com/Striaton-Lab-Team/Poke_Transporter_GB | il ponte di riferimento: homebrew GBA in multiboot, cavo GBC, licenza MIT; `source/gameboy_colour.cpp` mostra che il payload Z80 viaggia sul cavo al posto della squadra, e `tools/payload-generator` lo costruisce per lingua e variante di ROM | BRI |
-| PCCS | https://github.com/Striaton-Lab-Team/Pokemon-Community-Conversion-Standard | specifica dei quattro metodi di conversione nel README e implementazione del solo ORIGINAL nel codice; `source/GBPokemon.cpp` contiene il campionamento con rifiuto del valore di personalità e l'uso dell'ID segreto per la lucentezza | BRI |
+| Poke Transporter GB | https://github.com/Striaton-Lab-Team/Poke_Transporter_GB | il ponte di riferimento: homebrew GBA in multiboot, cavo GBC, licenza MIT; `source/gameboy_colour.cpp` mostra che il payload Z80 viaggia sul cavo al posto della squadra, e `tools/payload-generator` lo costruisce per lingua e variante di ROM Stato al 2026-10-05, già letta: Nota docs/mappa-fonti/ptgb.md (letto: si); repository clonato e cercato nel codice, citato in docs/23-prove-eseguite.md. | BRI |
+| PCCS | https://github.com/Striaton-Lab-Team/Pokemon-Community-Conversion-Standard | specifica dei quattro metodi di conversione nel README e implementazione del solo ORIGINAL nel codice; `source/GBPokemon.cpp` contiene il campionamento con rifiuto del valore di personalità e l'uso dell'ID segreto per la lucentezza Stato al 2026-10-05, già letta: Nota docs/mappa-fonti/pccs.md (letto: si); clonato e cercato nel codice, citato in docs/23-prove-eseguite.md. | BRI |
 | Pokemon Automation | https://pokemonautomation.github.io/ | letto il 2026-08-26 nelle pagine principale, controller, domande frequenti e programma di base, e studiato in `poke-automation-study/STUDIO-01-architettura-e-perimetro.md`. È un anello di controllo chiuso su un sistema che non espone stato: la percezione è il fotogramma video più in alcuni titoli l'audio, l'attuazione è un controller emulato da un microcontrollore, la decisione è uno di oltre cento programmi. La tabella dei controller dichiara costo e difficoltà di ciascuna combinazione, dal Raspberry Pi Pico W in modalità USB a circa otto dollari e difficoltà uno, all'ESP32-S3 cablato a quindici dollari indicato come la scelta migliore per l'uso continuativo, fino alle famiglie RP2040 e RP2350 in modalità UART a difficoltà dieci e dichiarate vulnerabili al power glitching; le schede storiche sono dismesse. Il perimetro dichiarato è compatibile con le regole di questo progetto, perché è pensato per console non modificate, non accede alla memoria di gioco o di sistema e non risultano casi di sospensione per l'uso di schede di acquisizione e controller di terze parti; su console modificata l'attuatore diventa `sys-botbase`. Due limiti registrati: Linux non è ufficialmente supportato per lo sfarfallio dell'acquisizione video, e un Raspberry Pi o un tablet al posto del computer sono esclusi per il costo dell'inferenza. Il fatto più rilevante per gli altri track è che fra i titoli automatizzati compaiono Rosso Fuoco e Verde Foglia su Nintendo Switch | AUT, LDN |
 | Gambatte con GameLink su TCP | https://gbatemp.net/threads/mission-wireless-trading-on-gen1-and-gen2-pokemon-games.632492/ | letto dagli screenshot dell'utente: un membro ha compilato una versione di Gambatte con il collegamento seriale emulato su TCP, funzionante in modalità client e server, e ha scambiato e combattuto con successo nei giochi di generazione 1 e 2 fra dispositivi diversi, Switch compreso. Non è specifico dei Pokemon: è un cavo seriale Game Boy generico su rete, quindi copre anche altri giochi multigiocatore. È la seconda via di collaudo del protocollo oltre a BGB | BRI |
-| Pokemon-Gen3-to-Gen-X | https://github.com/Lorenzooone/Pokemon-Gen3-to-Gen-X | homebrew GBA che scambia fra Gen 3 e Gen 1 e 2 usando il protocollo normale e non exploit, più gestione dell'orologio di Rubino, Zaffiro e Smeraldo | BRI |
-| PokemonGB_Online_Trades | https://github.com/Lorenzooone/PokemonGB_Online_Trades | implementazione in Python del protocollo di scambio Gen 1, 2 e 3 su adattatore USB o su BGB, con multiboot per il lato Gen 3; è la dimostrazione che il lato Game Boy si collauda su emulatore | BRI, LDN |
+| Pokemon-Gen3-to-Gen-X | https://github.com/Lorenzooone/Pokemon-Gen3-to-Gen-X | homebrew GBA che scambia fra Gen 3 e Gen 1 e 2 usando il protocollo normale e non exploit, più gestione dell'orologio di Rubino, Zaffiro e Smeraldo Stato al 2026-10-05, già letta: Nota docs/mappa-fonti/gen3togenx.md (letto: si); clonato e cercato, citato in docs/23-prove-eseguite.md e in DATA-FORMATS_Gen1-Gen2-Gen3.md. | BRI |
+| PokemonGB_Online_Trades | https://github.com/Lorenzooone/PokemonGB_Online_Trades | implementazione in Python del protocollo di scambio Gen 1, 2 e 3 su adattatore USB o su BGB, con multiboot per il lato Gen 3; è la dimostrazione che il lato Game Boy si collauda su emulatore Stato al 2026-10-05, già letta: Nota docs/mappa-fonti/pokemongb-online.md (letto: si); citato in docs/08-cavo-link.md, 20-architettura-codice.md e 21-collaudo.md. | BRI, LDN |
 | PkSploit | https://github.com/binarycounter/PkSploit | letto, e il repository dichiara più della sua pagina: dumpa ROM e salvataggio e riscrive il salvataggio di qualunque cartuccia Game Boy e Game Boy Color, usando soltanto una cartuccia Gen 1 come vettore, un cavo Link e un microcontrollore compatibile Arduino. Contiene le cartelle `arduino`, `gb_asm` e `python`. L'autore avverte che è in sviluppo pesante e che la riscrittura su cartucce contraffatte è poco provata | BRI, SME |
-| vaguilar/pokemon-red-cable-club-hack | https://github.com/vaguilar/pokemon-red-cable-club-hack | base dell'exploit e di parte del codice Arduino di PkSploit; non aperto | BRI |
+| vaguilar/pokemon-red-cable-club-hack | https://github.com/vaguilar/pokemon-red-cable-club-hack | letto il 2026-10-05 (già in `docs/mappa-fonti/cableclubhack.md`): prova di concetto di un buffer overflow nel Centro Scambi di Rosso, con cablaggio Arduino (clock pin 2, ingresso pin 3, uscita pin 6, massa), un ponte verso l'emulatore BGB sulla porta 8765 e la procedura per compilare un proprio programma da inviare; base dell'exploit e di parte del codice Arduino di PkSploit | BRI |
 | Phasip/PokemonLinkHack | https://github.com/Phasip/PokemonLinkHack | letto ed è la catena di exploit più completa documentata: sfrutta il buffer overflow del cavo per leggere e scrivere memoria arbitraria, aggiunge l'oggetto 0x7A allo zaino, fa eseguire dall'uso di quell'oggetto il nome dell'allenatore del Pokemon all'asilo, che salta ai dati del primo box, dove viene messo un programma che elenca ed esegue altri programmi nei box successivi. Per poter salvare lo stato avvelena la squadra. È una strategia di payload persistente, opposta a quella transitoria del ponte | BRI |
-| Blog di Phasip | https://www.sn1.se/posts/pokemon/ | introduzione alla catena qui sopra; non letto | BRI |
+| Blog di Phasip | https://www.sn1.se/posts/pokemon/ | letto il 2026-10-05 (già in `docs/mappa-fonti/blog-phasip.md`): introduzione alla catena qui sopra con payload utile di 198 byte, programmi che risiedono come Pokemon nel deposito (nome di 11 byte per il titolo, 32 byte di statistiche per il codice) ed esecuzione tramite l'oggetto glitch 0x7A che salta ai dati del Pokemon in custodia, provata su Game Boy reale | BRI |
 | pokerom-trader | https://github.com/savaughn/pokerom-trader | clonato e letto nella struttura: scambio fra due file di salvataggio Gen 1 e Gen 2 su PC, in C con la libreria PKSav e interfaccia Raylib, con ricalcolo dei checksum e regole di evoluzione da scambio | BRI |
-| CableClub | https://github.com/CableClub | quattro repository; l'organizzazione viene da un gruppo che ha completato scambi fra Game Boy reali attraverso internet | BRI |
+| CableClub | https://github.com/CableClub | quattro repository; l'organizzazione viene da un gruppo che ha completato scambi fra Game Boy reali attraverso internet Stato al 2026-10-05, già letta: Organizzazione GitHub di cui il repository cable-link è letto: docs/mappa-fonti/cable-link.md (letto: si), citata in docs/08-cavo-link.md e 30-opzioni-implementative.md. | BRI |
 | CableClub/cable-link | https://github.com/CableClub/cable-link | letto ed è il riferimento più importante per l'opzione D: PCB KiCad completo con gerber, firmware su Raspberry Pi Pico che apre SPI a 500 kHz, e `src/pokemon_gen1_link_protocol.h` con la macchina a stati e tutte le costanti del protocollo Gen 1. Licenza Apache 2.0, 2021 | BRI |
 | kinnay/NintendoClients, wiki LDN | https://github.com/kinnay/NintendoClients/wiki/LDN-Protocol | letto ed è la specifica del protocollo LDN: action frame vendor-specific ogni 100 ms, OUI 00:22:AA, canali 1, 6 e 11 in banda 2.4 GHz, struttura dell'advertisement con i suoi offset, tre livelli di cifratura, derivazione delle chiavi dalle chiavi di console, sequenza di connessione e assegnazione degli indirizzi 169.254.X.Y | LDN |
 | unlimitedcoder2/ldnd | https://github.com/unlimitedcoder2/ldnd | letto il 2026-08-26 nel sorgente: demone in C, GPL-2.0, che porta lo stack wireless di Linux su Windows collegando il kernel come libreria statica tramite LKL dentro un eseguibile MinGW, ricevendo l'adattatore via WinUSB e facendogli caricare i driver e i file di `linux-firmware`. La riga di comando del kernel incorporato è `mem=128M mac80211_hwsim.radios=0 rtw88_usb.switch_usb_mode=0`, e quell'ultimo parametro disabilita il passaggio a USB 3 che fa ri-enumerare il dispositivo e annulla la riassegnazione fatta con Zadig. Funziona solo con adattatori USB, e ha una compatibilità hardware diversa dalla via Linux perché scavalca gestore di rete e driver di sistema | LDN |
-| ldn.readthedocs.io | https://ldn.readthedocs.io | documentazione delle classi e delle funzioni della libreria Python di kinnay; non letta | LDN |
+| ldn.readthedocs.io | https://ldn.readthedocs.io | letta il 2026-10-05 (già letta il 2026-10-01, `knowledge/sources/notes/debito-tecnico-2026-10-01.md` sezione 8): libreria Python di kinnay che implementa LDN, il protocollo wireless locale della Switch, solo su Linux e con il gestore di rete fermato; il sito ha due pagine e senza `prod.keys` la libreria non scandisce né crea reti | LDN |
 | arduino-poke-gen2 | https://github.com/stevenchaulk/arduino-poke-gen2 | letto: adatta a Gen 2 la macchina a stati di `pepijndevos/arduino-boy`, e porta un fatto architetturale utile, cioè che in Gen 2 non serve memorizzare nulla perché rimandando indietro i byte ricevuti si ottiene la copia della squadra. Provato dall'autore su Cristallo, con schema di cablaggio incluso | BRI |
-| pepijndevos/arduino-boy | https://github.com/pepijndevos/arduino-boy | origine di quella macchina a stati, per Gen 1; non aperto | BRI |
+| pepijndevos/arduino-boy | https://github.com/pepijndevos/arduino-boy | letto il 2026-10-05 (già in `docs/mappa-fonti/arduino-boy.md`): origine di quella macchina a stati, per Gen 1; memorizza un solo Pokemon in EEPROM e lo scambia con un Game Boy, con codice preso da gameboy-spoof | BRI |
 | MrCheeze/pokestadium-ace | https://github.com/MrCheeze/pokestadium-ace | letto: l'exploit sta nel sistema di scambio di Stadium, richiede due controller con Transfer Pak e presuppone di avere già l'esecuzione di codice su Rosso, Blu o Giallo. Documenta gli indirizzi in memoria N64 dove i box vengono convertiti dal formato Gen 1 al formato Stadium, che è un terzo esempio documentato di conversione fra formati oltre al Time Capsule | BRI |
 | Goppier/GEN3PokemonDistributions | https://github.com/Goppier/GEN3PokemonDistributions | letto: non è un ponte ma una raccolta di cartucce di distribuzione per eventi Gen 3, e dà la procedura utente del multiboot che al progetto mancava, cioè accendere la console ricevente tenendo premuti start e select finché il logo Nintendo scompare, con il lato master del cavo, quello viola e più piccolo, inserito nella console che invia | BRI |
 | Gen 3 ACE Pokemon Builder, sorgente e corpus | https://mankeymite.github.io/Gen3ACEPokemonBuilder/ | letto per intero il 2026-09-01, e il modo va dichiarato perché ne qualifica la portata: il sito non è impacchettato ma è un albero di sessantotto moduli serviti come file separati, quindi il codice arriva con i nomi originali, e insieme al codice porta un corpus di duecentodieci esemplari conservati con seme di origine, valore di personalità, valori individuali e sesso dell'allenatore. Quel corpus è il banco di prova su cui il progetto ha verificato le formule di generazione, con l'esito registrato in `recreate-pokemon-distributions-events/STUDIO-03-verifica-del-metodo-sul-corpus.md`: valori individuali riprodotti su duecentonove vettori su duecentonove, valore di personalità su duecentotto, sesso dell'allenatore su cento su cento per la derivazione a scorrimento di sette. Sono stati trovati due difetti, di cui uno con conseguenza operativa: la tabella dei caratteri colloca gli accentati nella fascia dei sillabari giapponesi e delle cifre, dichiarando di derivare dalla documentazione di dominio contro il sorgente del gioco, e la sua stessa tabella assegna due caratteri al medesimo byte; e una voce del corpus porta un valore di personalità che il proprio seme non produce. Lo strumento che esegue il confronto è `tools/confronta-ace-builder.py` | ACE, EVT, BRI |
 | Gen 3 ACE Pokemon Builder, funzione dichiarata | https://mankeymite.github.io/Gen3ACEPokemonBuilder/ | la funzione dichiarata dal suo autore nel video del 26 agosto 2026, registrata prima che il sorgente fosse letto: la funzione dichiarata dal suo autore nel video del 26 agosto 2026 è costruire il dato completo di un esemplare di terza generazione, comprese le vecchie distribuzioni di evento, con informazioni dell'allenatore, statistiche e lucentezza a scelta, restituendo un codice da digitare nei nomi delle scatole ed eseguire con il glitch. L'autore dichiara le opzioni di generazione legale attive per difetto e dichiara di non poter garantire l'accettazione da parte di Pokemon Home. È il punto di convergenza con il track delle distribuzioni, perché produce lo stesso esemplare per una via opposta: quella scrive il risultato, l'altra fa rifare al gioco ciò che faceva allora | ACE, EVT |
-| Sleipnir17, quattro elenchi di codici per Smeraldo | https://pastebin.com/kYfBzVE3 | non aperti, catalogati il 2026-09-01 dal canale dei collegamenti del server della comunità: sono i quattro elenchi storici di codici per l'esecuzione tramite i nomi delle scatole su Smeraldo, e gli altri tre stanno a `dFLaf2TB`, `7S63EDyL` e, il terzo, soltanto in una copia d'archivio su `web.archive.org` perché l'originale non è più raggiungibile. Quest'ultimo dato va registrato perché è un fatto sul dominio e non su un collegamento: in questa comunità la conoscenza vive su servizi di incollaggio che scompaiono, e una fonte catalogata senza copia è una fonte che si perderà | ACE |
-| Mettrich, codici per Smeraldo e scrittore in base 64 | https://gist.github.com/claydolwithexplosion/017f1784deebcd118b61d3ad917edb3c | non aperto, catalogato il 2026-09-01. Codici per Smeraldo modificati o creati da Mettrich, che è l'autore dello scrittore in base sessantaquattro su cui poggia la costruzione di un esemplare completo in quattordici nomi di scatola. Accanto ad esso il canale elenca un ulteriore incollaggio dedicato ai valori individuali perfetti e alla lucentezza ottenuti con quello scrittore, a `Tgin3hvf` | ACE, EVT |
-| ACE Code Generator | https://e-sh4rk.github.io/CodeGenerator/ | non eseguito. Genera la sequenza da digitare per ottenere l'esecuzione di codice, a partire da ciò che si vuole ottenere; esiste in variante generale e in variante per Rosso Fuoco e Verde Foglia all'indirizzo `index_frlg.html`. È il primo strumento della catena e quello che rende la tecnica accessibile senza scrivere assembly a mano | ACE |
-| Hex to Base64 per Gen 3 | https://mankeymite.github.io/HexToBase64/ | non eseguito. Converte dati esadecimali nella forma digitabile che lo scrittore in base 64 accetta; serve al passo in cui i byte composti vanno immessi nel gioco | ACE |
-| Gen3ItemToBoxNames | https://mankeymite.github.io/Gen3ItemToBoxNames/ | non eseguito. Converte la richiesta di un oggetto su Smeraldo in nomi di scatola da digitare, ed è il caso semplice della medesima tecnica: utile per capirla prima di applicarla a un esemplare | ACE |
-| PokeGlitzer | https://github.com/E-Sh4rk/PokeGlitzer | non aperto. Editor di salvataggi dichiarato pensato per chi impiega i glitch, dello stesso autore dei generatori di codice; complementare a PKHeX, che resta il riferimento sulle regole di legittimità | ACE, SME |
+| Sleipnir17, quattro elenchi di codici per Smeraldo | https://pastebin.com/kYfBzVE3 | letti il 2026-10-05 tre dei quattro elenchi (`kYfBzVE3` 8466 righe e 61 codici, `dFLaf2TB` 8791 righe e 69 codici, `7S63EDyL` 2643 righe e 18 codici, HTTP 200 su pastebin raw); il quarto, che il canale dava solo in copia d'archivio, non è stato ritrovato in questa corsa. Sono codici per Smeraldo da scrivere nei nomi delle scatole con l'esecuzione di codice, che richiedono le scatole 12, 13, 14 e l'ultima riga della 11 vuote. Per la collezione contano la riapparizione di Groudon, Kyogre, Regirock, Regice, Registeel, Rayquaza, Mew, Latios o Latias del sud, Deoxys, Ho-Oh e Lugia, la ripetizione dei regali (starter di Johto e Hoenn, Beldum, uovo di Wynaut, Castform), le isole di evento tramite Mystery Gift, un codice che rinvia a un altro incollaggio per completare il Pokedex (`6aciivBN`, non letto) e uno per incontrare un Pokemon arbitrario (`yCqdn6jF`, non letto); il terzo elenco contiene soprattutto effetti collaterali di gioco. Il dato che questa comunità vive su servizi di incollaggio che scompaiono resta valido | ACE |
+| Mettrich, codici per Smeraldo e scrittore in base 64 | https://gist.github.com/claydolwithexplosion/017f1784deebcd118b61d3ad917edb3c | letto il 2026-10-05 (gist di 2329 righe, HTTP 200, e `Tgin3hvf` di 1662 righe): il gist elenca le specie ACE stabili (inglese 0x410E, tedesco 0x4130, giapponese 0x079D e 0x6789) e metastabili (inglese 0x4167, italiano 0x415E, spagnolo 0x0599, giapponese 0x0615 e 0x0A62, nessuna ARM per il francese), quelle Thumb per ogni lingua e i codici per creare la specie stabile in Box 10 Slot 19, che sblocca anche il biglietto Eon. `Tgin3hvf` (aggiornato il 2026-06-03) dà codici Base64 per 67 voci tra Jirachi WISHMKR, Celebi Ageto e JAA, Ditto e i leggendari di Kanto, Johto e Hoenn con quelli di Colosseum, tutti dichiarati legali e trasferibili a HOME ma di fatto esemplari costruiti, e rinvia al generatore `mankeymite.github.io/Gen3ACEPokemonBuilder` | ACE, EVT |
+| ACE Code Generator | https://e-sh4rk.github.io/CodeGenerator/ | non eseguito. Genera la sequenza da digitare per ottenere l'esecuzione di codice, a partire da ciò che si vuole ottenere; esiste in variante generale e in variante per Rosso Fuoco e Verde Foglia all'indirizzo `index_frlg.html`. È il primo strumento della catena e quello che rende la tecnica accessibile senza scrivere assembly a mano Stato al 2026-10-05, strumento o sito generico: Generatore web di sequenze ACE per Gen 3 (variante FRLG in index_frlg.html); strumento non eseguito dal progetto, citato nel debito tecnico del 2026-10-01. | ACE |
+| Hex to Base64 per Gen 3 | https://mankeymite.github.io/HexToBase64/ | non eseguito. Converte dati esadecimali nella forma digitabile che lo scrittore in base 64 accetta; serve al passo in cui i byte composti vanno immessi nel gioco Stato al 2026-10-05, strumento o sito generico: Convertitore web da esadecimale a base 64 per lo scrittore ACE di Gen 3; strumento non eseguito, nessun testo da leggere. | ACE |
+| Gen3ItemToBoxNames | https://mankeymite.github.io/Gen3ItemToBoxNames/ | non eseguito. Converte la richiesta di un oggetto su Smeraldo in nomi di scatola da digitare, ed è il caso semplice della medesima tecnica: utile per capirla prima di applicarla a un esemplare Stato al 2026-10-05, strumento o sito generico: Convertitore web da oggetto a nomi di scatola per Smeraldo, caso semplice della tecnica ACE; strumento non eseguito. | ACE |
+| PokeGlitzer | https://github.com/E-Sh4rk/PokeGlitzer | letto il 2026-10-05: editor di salvataggi per Smeraldo, Rubino e Zaffiro, Rosso Fuoco e Verde Foglia in qualsiasi lingua (.NET 8), che modifica squadra, scatole e nomi delle scatole, si sincronizza in diretta con BizHawk 2.7 o successivo (solo Windows, script Lua per Smeraldo US e JP) e simula il Glitzer Popping; il README rinvia a PKHeX per l'editing normale e chiede il backup del salvataggio. Complementare a PKHeX, che resta il riferimento sulle regole di legittimità | ACE, SME |
 | Gen 3 ACE Archive | https://mankeymite.github.io/gen3-ace-archive/ | letto il 2026-08-31. Raccoglie codici cercabili per gioco, lingua e piattaforma, guide video, generatori e documentazione di allestimento. Va registrata una assenza perché è significativa: non contiene alcuna dichiarazione sulla legittimità degli esemplari prodotti, sulla loro accettazione da parte dei verificatori né sui rischi per l'account, e tratta la tecnica come problema di implementazione e non di conseguenze | ACE |
 | ACE3, guida scritta | https://e-sh4rk.github.io/ACE3/ | letta il 2026-08-31 e risultata un indice di rimandi e non un testo: contiene i collegamenti alle guide per Smeraldo e per Rosso Fuoco e Verde Foglia, al generatore di codice e a un editor, senza spiegare la tecnica né dire nulla sulla legittimità. Le guide vere sono le due pagine collegate, non ancora aperte | ACE |
-| Guida ACE per FR/LG | https://pomeg-letterbombers.github.io/pokemon-ace-notes/frlg-non-jpn-pre-e4-route/ | non aperta. Procedura di allestimento per le versioni non giapponesi prima dei capi dei Quattro, che è il percorso dichiarato più accessibile | ACE |
-| Guida ACE per R/S | https://claydolwithexplosion.github.io/doguu-codex/getting-ace-rs/index.html | non aperta. Procedura per Rubino e Zaffiro, che sono i due giochi Gen 3 dove il progetto ha già documentato l'esistenza del difetto sfruttabile nel motore di testo | ACE |
+| Guida ACE per FR/LG | https://pomeg-letterbombers.github.io/pokemon-ace-notes/frlg-non-jpn-pre-e4-route/ | letta il 2026-10-05 (HTTP 200): la posta con il punto di domanda trasforma uno slot vuoto del PC (Box 3 Slot 1) nella specie glitch 0x0200 (HOCK), che con 8 HP Up, un EV di Pv e uno di Attacco e un secondo messaggio con due parole scambiate diventa 0x0351, la specie ACE standard di FireRed e LeafGreen non giapponesi; messaggi dati per inglese, francese, italiano, tedesco e spagnolo. È il percorso dichiarato più accessibile prima dei capi dei Quattro | ACE |
+| Guida ACE per R/S | https://claydolwithexplosion.github.io/doguu-codex/getting-ace-rs/index.html | letta il 2026-10-05 (HTTP 200): ACE nativo senza scambio in Rubino e Zaffiro, che funziona sul 60 per cento dei salvataggi, cioè quelli il cui TID termina per 0, 1, 2, 3, 8 o 9, e richiede una manipolazione dell'RNG con finestre di uno e due frame, almeno 10 oggetti posta, un Pokemon con Ladro o Covet, un Pikachu del Safari e il Celebi finale con la configurazione dei nomi delle scatole. L'autore non conosce una via senza manipolazione per tutti i TID | ACE |
 | DiscordChatExporter | https://github.com/Tyrrrz/DiscordChatExporter | letto il 2026-08-31 nel README e nelle pagine su token e riga di comando. Esporta la cronologia di un canale in HTML, testo, JSON o CSV, scarica gli allegati con `--media`, e ha comandi per un canale, un server intero o tutto ciò che è accessibile. Accetta entrambi i tipi di token, e la distinzione è il punto: con un bot token vede i soli canali in cui il bot è stato invitato, quindi ha la medesima portata di `tools/fetch-discord.py` e non aggira il consenso di chi amministra; con un token utente vede tutto ciò che vede l'account, ed è la via che l'autore stesso sconsiglia in due punti del proprio repository, scrivendo nel README che automatizzare un account utente è contro le condizioni d'uso e può portare al ban, e che se possibile si usi un bot. Il progetto lo adotta, e con quale token è deciso da ADR-019 il 2026-08-31: l'utente ha scelto il token personale sui server dove il bot non può essere invitato, accettando esplicitamente il rischio dopo che gli era stato esposto tre volte, con la cadenza di poche esportazioni all'anno. La catena è già in parte costruita perché `tools/read-chat-export.py` era stato scritto per digerire il suo JSON. Complementare e non alternativo al lettore proprio: DCE per l'esportazione grossa e i media, il lettore proprio per gli aggiornamenti incrementali con cursore dove il bot è dentro. La procedura d'uso completa, dai file da scaricare ai comandi, sta in `docs/22-strumenti.md` | BRI, LDN, EVT |
 | PKHeX | https://github.com/kwsch/PKHeX | riferimento di fatto sul formato di salvataggio di tutte le generazioni e sulle regole di legalità | TUTTI |
-| PKHeX web | https://pkhex-web.github.io/ | la stessa cosa nel browser, comoda per un'ispezione rapida senza installare | SME, 3DS |
-| PKSav | https://github.com/ncorgan/pksav | libreria C per leggere e scrivere salvataggi Gen 1, 2 e 3, base di pokerom-trader; archiviata in sola lettura dal 2023, quindi da leggere e non da cui dipendere | BRI, SME |
-| HexManiacAdvance | https://github.com/haven1433/HexManiacAdvance | editor esadecimale con le mappe dei dati delle ROM GBA | BRI, SME |
-| rgen3 | https://github.com/crumblingstatue/rgen3 | libreria e utilità Rust per i salvataggi Gen 3, inclusa la codifica delle stringhe | BRI, SME |
-| ads04r/Gen3Save | https://github.com/ads04r/Gen3Save | parser Python di un salvataggio Gen 3 | BRI, SME |
-| aarant/gen3tools | https://github.com/aarant/gen3tools | strutture dati Python ed editor grafico per Gen 3 | BRI, SME |
-| RNGReporter | https://github.com/Admiral-Fish/RNGReporter | analisi del generatore pseudocasuale | BRI |
-| Gen3-WCTool | https://github.com/projectpokemon/Gen3-WCTool | strumenti per le Wonder Card e gli eventi Gen 3 | BRI |
+| PKHeX web | https://pkhex-web.github.io/ | la stessa cosa nel browser, comoda per un'ispezione rapida senza installare Stato al 2026-10-05, strumento o sito generico: Versione in browser di PKHeX per ispezioni rapide; strumento, non una fonte. Citata nell'handoff HANDOFF_frlg-ldn-trade.md. | SME, 3DS |
+| PKSav | https://github.com/ncorgan/pksav | letta il 2026-10-05: libreria C pura senza dipendenze, licenza MIT, solo salvataggi americani, con Gen 1, Gen 2 e GBA complete e Gen 4-7 in corso al README del 2018-03-25; base di pokerom-trader, archiviata in sola lettura dal 2023, quindi da leggere e non da cui dipendere | BRI, SME |
+| HexManiacAdvance | https://github.com/haven1433/HexManiacAdvance | editor esadecimale con le mappe dei dati delle ROM GBA Stato al 2026-10-05, strumento o sito generico: Editor esadecimale per ROM GBA (Ruby, Sapphire, FireRed, LeafGreen, Emerald in inglese) con editor di mappe, pokedex e codice; README letto ora. Strumento catalogato, mai lanciato. | BRI, SME |
+| rgen3 | https://github.com/crumblingstatue/rgen3 | libreria e utilità Rust per i salvataggi Gen 3, inclusa la codifica delle stringhe Stato al 2026-10-05, letta ora: README letto via API GitHub: suite Rust per Gen 3 con rgen3-save (libreria dei salvataggi) e rgen3-string (codifica delle stringhe proprietarie). Utile come terzo riscontro per la codifica dei testi. | BRI, SME |
+| ads04r/Gen3Save | https://github.com/ads04r/Gen3Save | parser Python di un salvataggio Gen 3 Stato al 2026-10-05, letta ora: README letto via API GitHub: libreria Python che analizza un salvataggio Gen 3 da riga di comando o da codice; rinvia a una guida per copiare i salvataggi dalle cartucce GBA. Riscontro per la struttura del salvataggio. | BRI, SME |
+| aarant/gen3tools | https://github.com/aarant/gen3tools | strutture dati Python ed editor grafico per Gen 3 Stato al 2026-10-05, letta ora: README letto via API GitHub: strumenti per TAS e analisi dati Gen 3, con editor grafico, libreria RNG in seed.py, strutture Python dei Pokemon e codici ACE per Smeraldo giapponese e inglese (us.md). | BRI, SME |
+| RNGReporter | https://github.com/Admiral-Fish/RNGReporter | analisi del generatore pseudocasuale Stato al 2026-10-05, letta ora: README letto via API GitHub: l'autore dichiara che non lo mantiene più (ultimo push 2018-09) e rinvia a PokeFinder; offre conversioni PID-IV, seed 16 bit e frame IV per Gen 3. | BRI |
+| Gen3-WCTool | https://github.com/projectpokemon/Gen3-WCTool | strumenti per le Wonder Card e gli eventi Gen 3 Stato al 2026-10-05, letta ora: Repository projectpokemon/Gen3-WCTool: il README non esiste (404); descrizione API 'Suloku's Gen 3 Wondercard Editor (Updated)', C#, solo la soluzione WC3Tool, ultimo push 2019-03-22. | BRI |
 | gba-link-connection | https://github.com/afska/gba-link-connection | letto ed è molto più di quanto il nome suggerisca: libreria C++ con moduli separati per la modalità multiplayer a 16 bit, l'invio di software multiboot ad altre console, l'adattatore wireless, il protocollo Joybus verso Wii e GameCube, le carte e-Reader, il Mobile Adapter GB, e soprattutto `LinkSPI.hpp`, che collega la GBA a un PC o a un Raspberry Pi con il cavo del Game Boy Color fino a 2 Mbit al secondo | BRI |
 | progetto REON | https://github.com/REONTeam | letto: ricostruisce l'infrastruttura di rete del Mobile Adapter GB, con libreria del protocollo, server, emulatore per BGB, adattatore su Arduino e una utilità per lo scambio nel Trade Corner | BRI |
 | REONTeam/libmobile | https://github.com/REONTeam/libmobile | letto: implementazione in C del protocollo dell'adattatore, dichiarata la più completa esistente, basata sulla ricerca pubblicata su Dan Docs | BRI |
 | REONTeam/trade-corner | https://github.com/REONTeam/trade-corner | letto: script in C# che esegue scambi in Pokemon Cristallo attraverso il Trade Corner del PokeCom Center, da eseguire come lavoro pianificato non più di una volta l'ora perché il gioco stesso non permette controlli più frequenti. Basato su una scoperta pubblicata sui forum di Glitch City. È un canale di scambio alternativo al cavo per la generazione 2 | BRI |
-| Dan Docs | https://shonumi.github.io/dandocs.html | raccolta di documenti tecnici sui protocolli delle periferiche di Game Boy e Game Boy Advance, compresi il Mobile Adapter GB e l'adattatore a quattro giocatori DMG-07; è la fonte su cui `libmobile` dichiara di basarsi | BRI |
+| Dan Docs | https://shonumi.github.io/dandocs.html | raccolta di documenti tecnici sui protocolli delle periferiche di Game Boy e Game Boy Advance, compresi il Mobile Adapter GB e l'adattatore a quattro giocatori DMG-07; è la fonte su cui `libmobile` dichiara di basarsi Stato al 2026-10-05, letta ora: Pagina unica Dan Docs letta ora: indice di hardware e accessori DMG, GBC e GBA, con sezioni sul Mobile Adapter GB (65 occorrenze), sul DMG-07 (40) e sul cavo Link. Fonte da cui dichiara di partire libmobile. | BRI |
 | gba-link-cable-rom-sender | https://github.com/FIX94/gba-link-cable-rom-sender | letto: homebrew per GameCube e Wii, vuole una cartella `gba` sulla scheda con i file multiboot da 256 KB o meno, e li trasferisce alla console collegata alla porta 2 | BRI |
 | usb-gba-multiboot | https://github.com/tangrs/usb-gba-multiboot | letto: firmware per Teensy più software su PC per caricare fino a 256 KB via USB, e spiega la scelta della modalità seriale normale perché è a 32 bit, riceve mentre invia ed è la più semplice da implementare, al prezzo di poter avviare una sola console per volta | BRI |
-| BGB | https://bgb.bircd.org/ | emulatore Game Boy con cavo Link esposto su TCP e protocollo documentato, cioè il banco di collaudo del lato Game Boy | BRI |
-| mGBA | https://mgba.io/ | emulatore con supporto multiplayer locale, seconda via per il collaudo del lato Game Boy | BRI |
+| BGB | https://bgb.bircd.org/ | emulatore Game Boy con cavo Link esposto su TCP e protocollo documentato, cioè il banco di collaudo del lato Game Boy Stato al 2026-10-05, strumento o sito generico: Emulatore Game Boy con cavo Link su TCP; banco di collaudo del lato Game Boy citato in docs/21-collaudo.md. Non lanciato. | BRI |
+| mGBA | https://mgba.io/ | emulatore con supporto multiplayer locale, seconda via per il collaudo del lato Game Boy Stato al 2026-10-05, strumento o sito generico: Emulatore GBA e Game Boy con multiplayer locale, seconda via di collaudo; sito di uno strumento, non lanciato. | BRI |
 | FlashGBX | https://github.com/lesserkuma/FlashGBX | lettura e scrittura di cartucce e salvataggi con il lettore GBxCart RW | SME, BRI |
-| Checkpoint | https://github.com/BernardoGiordano/Checkpoint | gestore di backup dei salvataggi per 3DS e Switch, quello installato su questa console | 3DS |
-| MSET9 | https://github.com/hacks-guide/MSET9/releases/latest | exploit di ingresso usato per l'installazione del custom firmware | 3DS |
-| Luma3DS | https://wiki.hacks.guide/wiki/3DS:Luma3DS | firmware personalizzato installato sulla console | 3DS |
-| SEEDconv | https://github.com/d0k3/SEEDconv/releases | conversione dei seed; produce materiale console-unico da trattare come segreto | 3DS |
-| Azahar | https://azahar-emu.org/ | emulatore 3DS, per la verifica dei dump fuori dalla console | 3DS |
-| kinnay/LDN | https://github.com/kinnay/LDN | documentazione del protocollo di rete locale della Switch | LDN |
+| Checkpoint | https://github.com/BernardoGiordano/Checkpoint | gestore di backup dei salvataggi per 3DS e Switch, quello installato su questa console Stato al 2026-10-05, strumento o sito generico: Gestore di backup dei salvataggi per 3DS e Switch, installato sulla console del proprietario; usato nel track 3DS (STACK.md, sub-3ds-modding.md). | 3DS |
+| MSET9 | https://github.com/hacks-guide/MSET9/releases/latest | exploit di ingresso usato per l'installazione del custom firmware Stato al 2026-10-05, strumento o sito generico: Pagina delle release di MSET9, exploit di ingresso usato per installare il custom firmware; vedi HANDOFF_progetto_3DS.md e step02_cfw_mset9.md. | 3DS |
+| Luma3DS | https://wiki.hacks.guide/wiki/3DS:Luma3DS | firmware personalizzato installato sulla console Stato al 2026-10-05, strumento o sito generico: Pagina wiki di Luma3DS, firmware personalizzato installato sulla console; usato nel track 3DS (STACK.md, step02_cfw_mset9.md). | 3DS |
+| SEEDconv | https://github.com/d0k3/SEEDconv/releases | conversione dei seed; produce materiale console-unico da trattare come segreto Stato al 2026-10-05, strumento o sito generico: Release di SEEDconv, strumento che produce materiale console-unico (segreto); usato nel track 3DS (step03_dump_cartucce.md). | 3DS |
+| Azahar | https://azahar-emu.org/ | emulatore 3DS, per la verifica dei dump fuori dalla console Stato al 2026-10-05, strumento o sito generico: Sito dell'emulatore 3DS Azahar, per verificare i dump fuori dalla console; presente come collegamento in 3ds-related/azahar/. | 3DS |
+| kinnay/LDN | https://github.com/kinnay/LDN | documentazione del protocollo di rete locale della Switch Stato al 2026-10-05, letta ora: README letto ora: pacchetto Python (pip install ldn) per scansionare, unirsi e ospitare reti LDN della Switch; richiede Linux e Python 3.12. Il protocollo è già letto in docs/mappa-fonti/kinnay-ldn.md. | LDN |
 | frlg-ldn-trade | https://github.com/unlimitedcoder2/frlg-ldn-trade | letto il 2026-08-26: proof of concept dello scambio fra PC e Rosso Fuoco o Verde Foglia su Switch e Switch 2, AGPLv3. Richiede Linux, Python 3.12 o successivo, le chiavi della console, almeno due `.pk3` e il gioco portato fino allo sbloccio della sala degli scambi, stimato in venti o quaranta minuti. La tabella di compatibilità dichiara affidabili ALFA AWUS036ACHM su `mt76x0u` e Realtek RTL8821CE su `rtw88_8821ce`, inaffidabile AMD RZ616 su `mt7921e`, e problematiche Intel AX200 su `iwlwifi` e Atheros AR9271 su `ath9k_htc`, entrambe incapaci di ottenere un indirizzo. Nella procedura la console fa da capo sessione, si approva la richiesta di ingresso di EMU, e il secondo membro simulato è quello che viene consegnato | LDN |
-| tornadus/frlg-ldn-trade | https://github.com/tornadus/frlg-ldn-trade | scambio fra Rosso Fuoco e Verde Foglia su Switch e un PC via LDN | LDN |
+| tornadus/frlg-ldn-trade | https://github.com/tornadus/frlg-ldn-trade | scambio fra Rosso Fuoco e Verde Foglia su Switch e un PC via LDN Stato al 2026-10-05, già letta: Stesso repository di docs/mappa-fonti/frlg-ldn-trade.md (letto: si), oggi sotto l'utente tornadus; README riletto: proof of concept Linux che scambia con FRLG su Switch via LDN e richiede prod.keys. | LDN |
 | ldn_mitm | https://github.com/spacemeowx2/ldn_mitm | letto: sostituisce il servizio di rete locale del sistema ed emula la scansione delle console vicine usando UDP sulla rete locale, quindi si usa insieme a `switch-lan-play` | LDN |
-| switch-lan-play | https://github.com/spacemeowx2/switch-lan-play | la controparte di `ldn_mitm` sul lato rete; non aperto | LDN |
+| switch-lan-play | https://github.com/spacemeowx2/switch-lan-play | letto il 2026-10-05 (già in `docs/mappa-fonti/switch-lan-play.md`, letto il 2026-08-25): la controparte di `ldn_mitm` sul lato rete; un client su PC fa da ponte ARP e IPv4 fra la Switch e un server UDP, con proxy SOCKS5 opzionale, e PC e Switch devono stare sullo stesso router | LDN |
 | ryu_ldn_nx | https://github.com/Ethiquema/ryu_ldn_nx | letto: sysmodule per Switch che porta il multiplayer sui server LDN di Ryujinx senza configurazione di rete, licenza GPL v2. L'autore dichiara che il progetto è in sviluppo e non pronto al rilascio | LDN |
 | PKHeX, tabelle delle statistiche di base per titolo | https://github.com/kwsch/PKHeX | lette il 2026-09-02 in `PKHeX.Core/Resources/byte/personal`, con `PKHeX.Core/PersonalInfo/Info/` per il formato dei record, `PKHeX.Core/Legality/Tables/FormInfo.cs` per le forme di sola battaglia e quelle totemiche, `PKHeX.Core/Game/Enums/Species.cs` per i numeri, e `PKHeX.Core/Legality/Verifiers/TransferVerifier.cs` per la regola dei trasferimenti. Sono la fonte che ha risposto alla domanda su che cosa la chiusura della banca vincoli, e la risposta è zero specie e zero voci-forma: l'unione dei titoli a via diretta copre tutte e milleventicinque le specie, e le dodici voci che soltanto la via indiretta dichiara sono dieci forme totemiche e due di sola battaglia. La regola dei trasferimenti è il pezzo decisivo e non era nella ricerca consegnata: una forma totemica deve arrivare all'ottava generazione già riportata alla forma base, e quattro specie non si trasferiscono affatto, quindi quelle voci non sono in attesa di scadenza ma irraggiungibili per costruzione. Un limite va dichiarato: il contrassegno di presenza dice che una voce esiste nei dati, non che sia ottenibile né che la via che parte da quel titolo funzioni | PKD |
 | Pokemon Showdown, base dati delle specie | https://play.pokemonshowdown.com/data/pokedex.json | letta il 2026-09-02 come controllo incrociato, ed è la terza ricostruzione indipendente che concorda sul numero delle specie: milleventicinque voci base con numero da uno a milleventicinque, nessuno mancante. Sulle forme non è confrontabile con le tabelle del verificatore, e la ragione va conosciuta perché altrimenti la discrepanza sembra un errore: questa base dati serve il gioco competitivo, quindi enumera le forme che contano in una battaglia e omette quelle puramente estetiche, mentre le tabelle del verificatore enumerano tutto ciò che esiste nei dati. Le sue trecentocinquantacinque forme non base, di cui centoquarantatre senza marca di non standard, non sono dunque un conteggio alternativo delle millecinquecentotrentacinque voci-forma ma il conteggio di un'altra cosa. Porta inoltre centotrentasette voci inventate dalla comunità competitiva, con numero non positivo, che vanno filtrate | PKD |
-| Project Pokemon, collezione di riferimento di theSLAYER | https://projectpokemon.org/home/files/file/4968-home-compatible-living-dex-regular-and-shiny/ | catalogata il 2026-09-02 dalla consegna dell'utente e non aperta: sono file che contengono l'intero contenuto delle scatole di un salvataggio, da sovrapporre a un salvataggio proprio della medesima coppia di versioni. La consegna riporta tre regole dell'autore che vanno tenute perché coincidono con quanto il progetto ha stabilito per altra via, cioè non modificare i valori immutabili, non toccare il codice di tracciamento del deposito, e non impiegarli in un gioco competitivo. Riporta anche due lacune dichiarate dall'autore, e la prima è l'unico punto che potrebbe dare una scadenza a una specie: Spinda esiste nel titolo che sarebbe la sua via diretta ma non vi si potrebbe depositare per un difetto di quella implementazione. Il progetto non ha verificato quella affermazione e non ha scaricato i file | PKD |
-| PKHeX-Plugins, generazione automatica di esemplari legali | https://github.com/architdate/PKHeX-Plugins | catalogato il 2026-09-02 su segnalazione dell'utente e non letto. Il suo scopo dichiarato è produrre un esemplare legale a partire da una descrizione competitiva, cercando fra gli incontri conosciuti uno che la soddisfi. Il rapporto con il lavoro di questo progetto va detto perché non è di sostituzione: quello strumento risolve il problema di ottenere un esemplare qualunque che sia legittimo, mentre il generatore di questo progetto risolve il problema di riprodurre un esemplare determinato, cioè quello che una distribuzione consegnò, con il suo seme e i suoi campi. Il primo problema ammette molte soluzioni e il secondo una sola. Resta interessante come controllo incrociato e come strumento per la parte del Pokedex che non ha vincoli di identità | PKD, EVT |
+| Project Pokemon, collezione di riferimento di theSLAYER | https://projectpokemon.org/home/files/file/4968-home-compatible-living-dex-regular-and-shiny/ | letta il 2026-10-05 (HTTP 200, versione 3.1.3-0 del 25 maggio, aggiornata il 14 agosto, 53000 scaricamenti): file `pcdata.bin` con tutte le specie nelle scatole per Let's Go, Sword e Shield, BDSP, Legends Arceus, Scarlet e Violet e Legends Z-A, in versione regolare e cromatica, compatibili con HOME finché non si cambiano le statistiche; la versione regolare completa il Pokedex di origine per i regali Meltan, Keldeo, Manaphy, Enamorus, Meloetta e Volcanion cromatici (quest'ultimo richiede anche il Pokedex Mega Evoluzione, da completare con PKHeX). Regole dell'autore: non cambiare i valori immutabili, non toccare il tracciatore HOME, non usarli in Champions. Lacune dichiarate: Spinda manca perché in BDSP non si deposita in HOME per un difetto dell'implementazione, e i regali e reclutati di Champions non escono dal gioco; con tutti i set più uno Spinda ottenuto altrove si ottiene Magearna. FireRed e LeafGreen della Virtual Console sono pianificati e non inclusi. Il disclaimer del sito esclude responsabilità per ban e la legittimità è affermazione dell'autore, non verificata dal progetto | PKD |
+| PKHeX-Plugins, generazione automatica di esemplari legali | https://github.com/architdate/PKHeX-Plugins | letto il 2026-10-05 nel README: è il plugin AutoLegality Mod di PKHeX, costruito su `PKHeX.Core` con .NET 8 e caricato dalla cartella `plugins` accanto all'eseguibile, con LiveHeX che scrive gli esemplari direttamente nella memoria di una Switch modificata attraverso sys-botbase o USB-Botbase, e con la galleria degli eventi di Project Pokémon come base. Il progetto usa lo stesso motore in `tools/pkhex-incontri-switch` e `tools/pkhex-eventi-switch`, quindi il plugin non aggiunge esemplari ma una via di consegna, LiveHeX, che vale solo per la Switch modificata tenuta fuori linea. Il suo scopo dichiarato è produrre un esemplare legale a partire da una descrizione competitiva, cercando fra gli incontri conosciuti uno che la soddisfi. Il rapporto con il lavoro di questo progetto va detto perché non è di sostituzione: quello strumento risolve il problema di ottenere un esemplare qualunque che sia legittimo, mentre il generatore di questo progetto risolve il problema di riprodurre un esemplare determinato, cioè quello che una distribuzione consegnò, con il suo seme e i suoi campi. Il primo problema ammette molte soluzioni e il secondo una sola. Resta interessante come controllo incrociato e come strumento per la parte del Pokedex che non ha vincoli di identità | PKD, EVT |
 | Reddit, dex vivente completo con forme alternative | https://www.reddit.com/r/PokemonBDSP/comments/1hm21he/ | letta dagli screenshot dell'utente il 2026-09-02, ed è una testimonianza e non un dato. Vale come prova di esistenza dell'obiettivo, cioè che una collezione vivente completa con forme alternative sia stata effettivamente portata a termine, e la sua data di inizio è luglio 2018. Non vale come dato sulla necessità della via indiretta, e la ragione va scritta perché l'elenco dei giochi impiegati induce in errore: quell'elenco comprende titoli anteriori all'ottava generazione perché nel 2018 quella era la via naturale, non perché fosse necessaria. Il conto sulle tabelle dei dati è più forte di questa testimonianza e la contraddice sul punto | PKD |
-| Reddit, come trattare le forme regionali in un dex vivente | https://www.reddit.com/r/pokemon/comments/1kd2k17/ | catalogata il 2026-09-02 e non letta oltre il titolo, che dichiara la natura della discussione: è una questione di preferenza su come organizzare una collezione e non una questione di fatto. Resta pertinente a una decisione aperta del sottoprogetto, cioè che cosa significhi completo, e per quella una discussione di preferenze è materiale legittimo purché sia trattata come tale | PKD |
-| Pokemon Millennium e Pokedex ufficiale, esplorazione delle specie | https://pokemonmillennium.net/pokedex/dex | catalogati il 2026-09-02 su segnalazione dell'utente e non letti. Sono strumenti di consultazione per esplorare specie e varianti, utili a chi guarda e non a chi conta: la domanda quantitativa del sottoprogetto è già risolta da tre ricostruzioni indipendenti concordi, e una pagina di consultazione non aggiunge nulla a quelle. Restano il posto giusto dove verificare a occhio una voce sospetta | PKD |
+| Reddit, come trattare le forme regionali in un dex vivente | https://www.reddit.com/r/pokemon/comments/1kd2k17/ | letta il 2026-10-05 con Arctic Shift (post e dieci commenti, HTTP 200; reddit.com risponde 403): il titolo reale è «Living dex enjoyers, what to do with regional forms?» e le risposte sono preferenze di ordinamento, in maggioranza forme in scatole proprie perché inserirle dopo l'originale obbliga a spostare tutto a ogni nuova ondata di forme regionali. Un commento ricorda che HOME controlla l'origine, con achievement per gioco e per espansione (trio Reshiram, Zekrom e Kyurem da Black 2 e White 2, Diancie da X e Y nascosto) e suggerisce un living dex per gioco oltre a quello generale | PKD |
+| Pokemon Millennium e Pokedex ufficiale, esplorazione delle specie | https://pokemonmillennium.net/pokedex/dex | letti il 2026-10-05 (HTTP 200): sito italiano che elenca 1025 Pokemon, 24 serie e 18 tipi, con filtri per generazione e tipo e sezioni per mosse, abilità, strumenti, cromatici, natura e classifica VGC di Champions; conferma il conteggio di 1025 specie ma è consultazione, senza forme alternative né origine | PKD |
 | Bulbapedia, distribuzioni di evento giapponesi di Gen 3 | https://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pok%C3%A9mon_distributions_in_Generation_III | letta il 2026-09-02 ed è la fonte della provenienza storica di quattordici gruppi di evento su trentasette. Documenta ciò che nessuna fonte di primo livello registra, cioè date, luoghi e modo di consegna: sono i tre fatti che spiegano la rarità di un esemplare, e nessun disassemblato sa in quali negozi un dono venne distribuito. Concorda con la tabella del verificatore su tutti gli identificativi di allenatore che è stato possibile confrontare, il che è una convalida incrociata fra due fonti indipendenti. Su una voce diverge, cioè il Jirachi della stella dei desideri, e la divergenza è registrata nella voce corrispondente di `recreate-pokemon-distributions-events/provenienze-eventi.json` con l'argomento per cui vale la tabella: gli identificativi di questo catalogo codificano la data, e il valore della tabella si legge come una data coerente con la manifestazione mentre l'altro no. Diverge anche sul nome dell'allenatore delle uova del PokéPark, e quella questione resta aperta | EVT |
 | Bulbapedia, distribuzioni di evento inglesi di Gen 3 | https://bulbapedia.bulbagarden.net/wiki/List_of_English_event_Pok%C3%A9mon_distributions_in_Generation_III | letta il 2026-09-02, fonte della provenienza di nove gruppi. Fra i fatti che porta e che il progetto non aveva, il più utile alla pianificazione è la durata delle finestre di distribuzione, che va dalle tre ore di un solo giorno per il Mew del mistero ai tre anni della correzione dell'orologio delle bacche: la rarità di un esemplare autentico è una funzione di quella durata, e conoscerla dice quali esemplari valga la pena cercare invece di ricreare. Tutti gli identificativi che dichiara concordano con la tabella del verificatore. Su un punto va usata con cautela e la cautela è registrata: associa il nome di allenatore del Jirachi occidentale a una manifestazione messicana, mentre la conoscenza comune lo associa al disco allegato al titolo per la console domestica, e finché una pagina dedicata non è letta la voce resta dichiarata incerta | EVT |
 | Bulbapedia, distribuzioni di evento italiane di Gen 3 | https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III | letta il 2026-09-02, ed è la fonte che riguarda più direttamente questo progetto, perché documenta la distribuzione che l'utente possiede su cartuccia: la campagna del decennale in edizione italiana, tenuta dal 23 al 25 giugno 2006 al parco di Mirabilandia. Porta anche un dato che nessuna fonte di primo livello contiene e che ha cambiato ciò che il generatore scrive: il Pikachu di quella distribuzione teneva una Sfera Luminosa. La tabella del verificatore non lo dichiara, e non lo pretende, perché un oggetto tenuto si può togliere o scambiare e non è un vincolo di legittimità; resta un tratto dell'esemplare originale, quindi la distinzione fra un esemplare accettato e uno fedele passa per fatti di questo genere | EVT |
@@ -659,18 +675,18 @@ Codice che funziona sul campo. Va letto come prova di fattibilità e come repert
 | PKHeX, tabella eventi Gen 3 e vocabolario dei metodi | https://github.com/kwsch/PKHeX | letta il 2026-08-29 in `PKHeX.Core/Legality/Encounters/Data/Gen3/EncountersWC3.cs` e `PKHeX.Core/Legality/RNG/PIDType.cs`, ed è la fonte che ha spostato il track degli eventi dalla congettura al dato. La tabella porta 177 voci, ciascuna con il proprio metodo di generazione dichiarato, e vive nel codice perché, come dice il suo commento, i dati di quella generazione non sono mai stati conservati in forma binaria uniforme. La sigla BACD nomina l'ordine invertito con cui le quattro estrazioni compongono valore di personalità e valori individuali, e quell'inversione è la firma di un esemplare da evento: 114 voci usano `BACD_R_A`, cioè seme di origine ristretto a 16 bit più codice anti-lucentezza additivo. Conferma per via indipendente quattro affermazioni dei video, cioè il seme a 16 bit, il codice anti-lucentezza, i 214 semi della correzione delle bacche, che documenta come somma delle cifre di ore, minuti e secondi in decimale binario letta dall'orologio, e la selezione a pesi che costa due estrazioni; conferma anche che la distribuzione da console domestica usa un generatore diverso, `XDRNG` invece di `LCRNG`. Chiude un punto che i video dichiaravano aperto: la derivazione del sesso dell'allenatore dei tre leggendari del film è uno scorrimento di 15 bit dopo l'oggetto tenuto, con due avanzamenti, e non la divisione per 0xCC0 congetturata. Porta infine il fatto più notevole, cioè che il gioco riceve un'interruzione di sincronismo verticale fra la generazione della personalità e quella dei valori individuali, e che rimuoverla con una modifica alla ROM produce la correlazione ordinaria: il metodo dipende da un'interruzione hardware e non soltanto dal codice | EVT, BRI, SME |
 | gen-iii-event-patcher | https://github.com/superguideguy/gen-iii-event-patcher | letto il 2026-08-29: strumento Java che trasforma la ROM di un gioco Gen 3 in ROM di distribuzione e applica uno script di evento a un salvataggio, con un compilatore elementare per gli script e un costruttore di checksum. Documenta il secondo canale di distribuzione, che il primo studio del track confondeva con il multiboot: il Dono Segreto non attiva una bandiera ma scarica nel salvataggio uno script di un kilobyte eseguito più tardi, capace di qualunque istruzione valida compresa quella che porta all'esecuzione di codice arbitrario. È il medesimo meccanismo che il dev log dello strumento di trasferimento descrive dall'altro capo, scoperto in modo indipendente da due progetti con scopi opposti. Dichiara che Rubino e Zaffiro hanno il precedente Evento Mistero, cosa diversa, e che la carta meraviglia passa dall'adattatore senza fili e non dal cavo | EVT, BRI |
 | Project Wonder, distribuzioni per differenze | https://github.com/Goppier/Gen3DistributionRoms | letto il 2026-08-29: dieci differenze da applicare a una ROM di distribuzione preservata, che producono distribuzioni degli oggetti di evento, cioè i biglietti, la mappa marina e la grotta alterna, più due eventi costruiti dalla comunità e tre distribuzioni di uova, con supporto dichiarato a sei lingue fra cui l'italiano. È la via più pronta all'uso per gli oggetti di evento, che sbloccano gli unici incontri legittimi di alcune specie. Il fabbisogno dichiarato è di due Game Boy Advance, due adattatori senza fili e una scheda riprogrammabile | EVT |
-| Project Pokemon, Events Gallery | https://github.com/projectpokemon/EventsGallery | non aperto: archivio collettivo della conservazione delle informazioni sugli eventi, per tutte le generazioni, ed è la controparte documentale del catalogo che questo repository genera. Serve a rispondere se i campioni degli eventi dichiarati non chiusi manchino davvero, cioè se il progetto possa contribuire alla conservazione invece di consumarla | EVT |
-| awesome-gbadev | https://github.com/gbadev-org/awesome-gbadev | elenco curato di risorse per lo sviluppo GBA | BRI |
-| awesome-gbdev | https://github.com/gbdev/awesome-gbdev | l'equivalente per il Game Boy, punto di ingresso a strumenti e documentazione | BRI |
-| PokePC, dati statici | https://github.com/pokepc/dataset | dati in JSON su specie, giochi, Pokedex, preimpostazioni delle scatole e metadati del servizio. Dichiara di derivare da Pokemon Showdown, PokeAPI, Project Pokemon, Serebii e Bulbapedia, quindi è un aggregato e non una fonte primaria: va usato per confrontare la nostra enumerazione, mai per fondarla | PKD |
-| PokePC, tracciatore classico | https://github.com/pokepc/classic.pokepc.net | applicazione web di tracciamento del Pokedex e organizzazione delle scatole di un living dex; rimanda per i dati a supereffective, quindi la catena delle versioni va risolta prima di fidarsi di una delle due | PKD |
-| SuperEffective, cliente dei dati | https://github.com/itsjavi/supereffective/tree/main/src/lib/data-client | la sorgente dei dati che PokePC dichiara di usare, ed è il punto in cui verificare quale delle due sia la versione aggiornata | PKD |
+| Project Pokemon, Events Gallery | https://github.com/projectpokemon/EventsGallery | letto il 2026-10-05 (README e albero via API GitHub, 16397 file): archivio collettivo della conservazione delle informazioni sugli eventi, per tutte le generazioni. File in `Released` per generazione: Gen 1 432, Gen 2 79, Gen 3 3739, Gen 4 777, Gen 5 1476, Gen 6 884, Gen 7 3253, Gen 8 1626, Gen 9 2346; in `Unreleased`: 41, 252, 221, 1156, 26, 23, 50, 5, 2 (conteggi di file, non di eventi). Per Gen 8 e 9 gli eventi assenti dal salvataggio si esportano dai dati BCAT con JKSV; per Gen 4 mancano alcune carte meraviglia, sostituite da PGT convertiti con dati segnaposto, e i singoli Pokemon Gen 4 o successive non si accettano come contributi. Contribuire si può con issue, pull request o post sul forum. È la controparte documentale del catalogo che questo repository genera | EVT |
+| awesome-gbadev | https://github.com/gbadev-org/awesome-gbadev | elenco curato di risorse per lo sviluppo GBA Stato al 2026-10-05, strumento o sito generico: Elenco curato di risorse per lo sviluppo GBA: indice di link, nessun testo da leggere come fonte. | BRI |
+| awesome-gbdev | https://github.com/gbdev/awesome-gbdev | l'equivalente per il Game Boy, punto di ingresso a strumenti e documentazione Stato al 2026-10-05, strumento o sito generico: Elenco curato di risorse per lo sviluppo Game Boy: indice di link, nessun testo da leggere come fonte. | BRI |
+| PokePC, dati statici | https://github.com/pokepc/dataset | dati in JSON su specie, giochi, Pokedex, preimpostazioni delle scatole e metadati del servizio. Dichiara di derivare da Pokemon Showdown, PokeAPI, Project Pokemon, Serebii e Bulbapedia, quindi è un aggregato e non una fonte primaria: va usato per confrontare la nostra enumerazione, mai per fondarla Stato al 2026-10-05, già letta: Letto: pokedex-home-completo/CONFRONTO-LIVINGDEX-POKEPC.md e docs/mappa-fonti/pokepc-dati.md; aggregato usato per confrontare l'enumerazione, mai per fondarla. | PKD |
+| PokePC, tracciatore classico | https://github.com/pokepc/classic.pokepc.net | applicazione web di tracciamento del Pokedex e organizzazione delle scatole di un living dex; rimanda per i dati a supereffective, quindi la catena delle versioni va risolta prima di fidarsi di una delle due Stato al 2026-10-05, già letta: Nota docs/mappa-fonti/pokepc-dati.md (letto: si), con i dati del tracciatore confrontati in CONFRONTO-LIVINGDEX-POKEPC.md. | PKD |
+| SuperEffective, cliente dei dati | https://github.com/itsjavi/supereffective/tree/main/src/lib/data-client | la sorgente dei dati che PokePC dichiara di usare, ed è il punto in cui verificare quale delle due sia la versione aggiornata Stato al 2026-10-05, letta ora: Pagina GitHub letta ora: sotto src/lib/data-client di pokepc/classic.pokepc.net stanno box-presets, game-sets, games, metadata, pokemon e migrations.ts. L'indirizzo itsjavi/supereffective rinvia ora al repository pokepc. | PKD |
 | Monarium | https://github.com/kristopheles/monarium | applicazione di gestione di un living dex, indicata dalla community come la più completa; da valutare come strumento da ospitare in proprio dopo il confronto con la conoscenza costruita da questo progetto, non prima | PKD |
-| PokePC, living dex in linea | https://pokepc.net/livingdex | l'istanza pubblica del tracciatore, utile per vedere che cosa uno strumento maturo consideri una voce da possedere | PKD |
-| PokePC, radice dell'organizzazione | https://github.com/pokepc | il contenitore da cui pendono il dataset e il tracciatore; si registra la radice e non i soli repository perché è il punto da cui accorgersi di un repository nuovo | PKD |
-| Project Pokemon, radice dell'organizzazione | https://github.com/projectpokemon | il contenitore dei repository di conservazione già registrati singolarmente, fra cui la galleria degli eventi e gli strumenti per le Wonder Card di terza generazione | EVT, PKD |
-| PokeOS, generatore di Spinda | https://www.pokeos.com/it/tools/spinda-generator | strumento in linea che visualizza la configurazione delle macchie a partire dal valore di personalità; serve come controprova visiva del nostro generatore quando lo scriveremo, non come sua sorgente | PKD |
-| PokePC Classic, dati del tracciatore di catalogo vivente | https://github.com/pokepc/classic.pokepc.net | l'anagrafica di 1599 voci con i contrassegni che dicono che cosa ciascuna sia, e sette disposizioni in scatole per il deposito, sotto licenza MIT: è la terza enumerazione indipendente del catalogo vivente e l'unica leggibile dal dato invece che dall'interfaccia. Il confronto con la nostra sta in `pokedex-home-completo/CONFRONTO-LIVINGDEX-POKEPC.md` | PKD |
+| PokePC, living dex in linea | https://pokepc.net/livingdex | l'istanza pubblica del tracciatore, utile per vedere che cosa uno strumento maturo consideri una voce da possedere Stato al 2026-10-05, strumento o sito generico: Applicazione interattiva senza testo statico; già tentata il 2026-10-01 (residuo-corpus.csv, «saltato»). Strumento da usare, non fonte da leggere. | PKD |
+| PokePC, radice dell'organizzazione | https://github.com/pokepc | il contenitore da cui pendono il dataset e il tracciatore; si registra la radice e non i soli repository perché è il punto da cui accorgersi di un repository nuovo Stato al 2026-10-05, strumento o sito generico: Radice dell'organizzazione pokepc su GitHub; il contenuto utile (dataset e classic.pokepc.net) è già letto in docs/mappa-fonti/pokepc-dati.md. | PKD |
+| Project Pokemon, radice dell'organizzazione | https://github.com/projectpokemon | il contenitore dei repository di conservazione già registrati singolarmente, fra cui la galleria degli eventi e gli strumenti per le Wonder Card di terza generazione Stato al 2026-10-05, strumento o sito generico: Radice dell'organizzazione projectpokemon su GitHub; i repository utili sono registrati e letti singolarmente (EventsGallery, Gen3-WCTool ora). | EVT, PKD |
+| PokeOS, generatore di Spinda | https://www.pokeos.com/it/tools/spinda-generator | strumento in linea che visualizza la configurazione delle macchie a partire dal valore di personalità; serve come controprova visiva del nostro generatore quando lo scriveremo, non come sua sorgente Stato al 2026-10-05, strumento o sito generico: Generatore in linea di Spinda dal valore di personalità; strumento di controprova, nessun testo da leggere. | PKD |
+| PokePC Classic, dati del tracciatore di catalogo vivente | https://github.com/pokepc/classic.pokepc.net | l'anagrafica di 1599 voci con i contrassegni che dicono che cosa ciascuna sia, e sette disposizioni in scatole per il deposito, sotto licenza MIT: è la terza enumerazione indipendente del catalogo vivente e l'unica leggibile dal dato invece che dall'interfaccia. Il confronto con la nostra sta in `pokedex-home-completo/CONFRONTO-LIVINGDEX-POKEPC.md` Stato al 2026-10-05, già letta: Nota docs/mappa-fonti/pokepc-dati.md (letto: si), repository classic.pokepc.net; confronto in pokedex-home-completo/CONFRONTO-LIVINGDEX-POKEPC.md. | PKD |
 | Monarium, generatore di disposizioni con marchi | https://github.com/kristopheles/monarium | tracciatore da installare per conto proprio, con oltre quindici opzioni di disposizione e cinque contrassegni per esemplare, cioè allenatore proprio, cattura nel titolo o nella regione di origine, cromaticità, sfera giusta e provenienza dall'applicazione per telefono | PKD |
 
 ### Nota sulla categoria degli strumenti
@@ -697,24 +713,24 @@ Ottimi per capire il ragionamento e il contesto, non citabili per un offset.
 | Dev log, parte 7, The Main Event | https://www.austinthomasweber.com/poke-transporter-gb/part-7 | letto ed è la scoperta architetturale più importante: il Pokemon entra in generazione 3 iniettando un evento Dono Segreto nella sezione RAM Script del salvataggio, con 2 byte di checksum, 2 di riempimento e 1000 byte di script che usa CallASM per chiamare il codice del gioco. Quarantotto versioni fra release e lingue, gestite con un compilatore assembly scritto per l'occasione | BRI |
 | Dev log, sprite e animazione | https://www.austinthomasweber.com/poke-transporter-gb/blog-post-title-three-r2cs2-y9gym-c5pxe | letto: sprite dei menu di generazione 1 e 2, gestione delle palette e uno script Python di conversione. È la parte titolata A Day-Long Detour, e non tratta l'orologio interno come un vecchio handoff aveva ipotizzato | BRI |
 | Dev log, scoperta dell'esecuzione di codice | https://www.austinthomasweber.com/poke-transporter-gb/blog-post-title-three-r2cs2-y9gym-tx7bl | letto ed è la fonte della specifica esatta dell'exploit: una squadra di 352 Pokemon con ID interno 0xE3 seguita da un Pokemon con ID interno 0xFC corrompe lo stack e dirotta l'esecuzione. È la parte titolata The Power of a REALLY Big Party, dove la squadra grande è l'exploit | BRI |
-| GBPlay, emulare uno scambio | https://blog.gbplay.io/2021/05/11/Emulating-a-Pokemon-Trade-with-Generated-Link-Cable-Data.html | negoziazione dei ruoli, selezione della modalità e sequenza dello scambio Gen 1 | BRI |
-| nitwhiz, falsificare uno scambio | https://blog.nitwhiz.dev/posts/002-pokemon-red-trade/ | i tre blocchi dello scambio e il preambolo 0xFD; da leggere sapendo che sulle dimensioni non concorda con il disassemblato | BRI |
-| vaguilar, ACE in Pokemon Rosso | https://vaguilar.com/2015/05/26/arbitrary-code-execution-in-pokemon-red/ | come una lista di specie senza terminatore porta all'esecuzione di codice, con indirizzi concreti | BRI |
-| vaguilar, Mew su hardware reale | https://vaguilar.com/2026/02/18/how-i-obtained-mew-in-pokemon-red-on-a-real-game-boy/ | la stessa tecnica portata a termine su console vera con un microcontrollore | BRI |
+| GBPlay, emulare uno scambio | https://blog.gbplay.io/2021/05/11/Emulating-a-Pokemon-Trade-with-Generated-Link-Cable-Data.html | negoziazione dei ruoli, selezione della modalità e sequenza dello scambio Gen 1 Stato al 2026-10-05, letta ora: Letto: post GBPlay del 2021-05-11 su come emulare uno scambio Gen 1 con dati generati. Il protocollo è simmetrico dopo pochi byte iniziali, quindi basta inoltrare i byte fra i due giochi; utile al ponte Gen 1/2. | BRI |
+| nitwhiz, falsificare uno scambio | https://blog.nitwhiz.dev/posts/002-pokemon-red-trade/ | letto il 2026-10-05 (post del 2025-04-06, solo Pokemon Rosso, con SameBoy e un socket unix): i tre blocchi dello scambio e il preambolo 0xFD; seguace o guida dopo 90 frame, semi RNG con 10 byte 0xDF, blocco di scambio di 415 byte, due liste di patch da 190 byte che sostituiscono 0xFE con 0xFF, selezione con 0x60, rifiuto 0x61, accettazione 0x62. L'autore stesso non è sicuro dei dati fra il quarto e il quinto passo e giudica strani i byte 0xFD; sulle dimensioni non concorda con il disassemblato | BRI |
+| vaguilar, ACE in Pokemon Rosso | https://vaguilar.com/2015/05/26/arbitrary-code-execution-in-pokemon-red/ | come una lista di specie senza terminatore porta all'esecuzione di codice, con indirizzi concreti Stato al 2026-10-05, letta ora: Letto: post del 2015 sul Cable Club di Pokemon Rosso. Una lista di specie senza terminatore (0xFF) scrive oltre il buffer video 0xC4A0 e permette l'esecuzione di codice, con indirizzi 0xD89C e 0xD98D. Base del ponte e di ACE. | BRI |
+| vaguilar, Mew su hardware reale | https://vaguilar.com/2026/02/18/how-i-obtained-mew-in-pokemon-red-on-a-real-game-boy/ | la stessa tecnica portata a termine su console vera con un microcontrollore Stato al 2026-10-05, letta ora: Letto: post del 2026-02-18. Un dispositivo USB emula un Game Boy sul cavo Link e inietta un Mew valido in Rosso su hardware reale; scambio Gen 1 in tre blocchi (seme 10 byte, party 418 byte, patch list). | BRI |
 | RetroReversing, Game Boy | https://www.retroreversing.com/gameboy | letto: da qui vengono `gbtoolsid` per identificare la toolchain di una ROM, `gb-save-states` per gli stati di salvataggio su hardware originale, gli schemi ricreati da Gekkio, e il protocollo della Game Boy Printer con i byte magici 0x88 e 0x33 | BRI |
 | Hackaday, il ponte impossibile | https://hackaday.com/2021/12/07/bridging-game-worlds-with-the-impossible-pokemon-trade/ | letto: il ponte di Goppier è un PCB semplice con le porte per i due tipi di cavo e un microcontrollore ARM Cortex in mezzo che traduce le strutture; l'articolo non pubblica né schemi né sorgenti | BRI |
-| RetroReversing, GBA | https://www.retroreversing.com/gba | hub di risorse di reverse engineering per Game Boy Advance | BRI, SME |
-| RetroReversing, Rosso e Blu | https://www.retroreversing.com/pokemonredblue | raccolta di strumenti e materiali su Gen 1 | BRI |
-| Helix Chamber | https://helixchamber.com/2019/02/16/what-dreams-may-come/ | materiale di prototipazione di Gen 1, contesto storico sui dati interni | BRI |
-| Reverse engineering di FireRed | https://betterprogramming.pub/low-level-explorations-reverse-engineering-pokemon-firered-through-rom-hacking-54edfb4426 | racconto didattico di un primo approccio al ROM hacking su Gen 3 | BRI, LDN |
-| Guida al trading locale su Switch | https://www.dtgre.com/2026/03/fire-red-leafgreen-switch-local-wireless-guide.html | come funziona lo scambio locale nella versione Switch di Rosso Fuoco e Verde Foglia | LDN |
-| Pokemon Rescue | https://pokemonrescue.com/ | servizio di recupero di salvataggi e cartucce dell'autore contattato per posta settimane prima; pertinente al track della batteria e a quello dello scambio fra GBA e Switch | BAT, LDN |
-| Drew Works | https://www.drewworks.dev/ | sito dell'autore che lavora sull'adattatore fra GBA e console moderna; da tenere sotto osservazione perché il progetto è in evoluzione e non ancora documentato | LDN |
-| ahenley17, profilo | https://x.com/ahenley17 | l'autore dell'adattatore che collega un Game Boy Advance originale all'emulatore ufficiale su console moderna, dimostrato con uno scambio riuscito su Rosso Fuoco e Verde Foglia | LDN |
-| ahenley17, dimostrazione dell'adattatore | https://x.com/ahenley17/status/2095628437457088727 | il messaggio originale con la dimostrazione dello scambio fra hardware originale e emulatore ufficiale; dispositivo e software di interfaccia dichiarati ancora in sviluppo | LDN |
-| Light_88, ripresa della dimostrazione | https://x.com/Light_88_/status/2095742903649816937 | ripresa della dimostrazione da parte di un account noto della community, con il dettaglio dei giochi coinvolti | LDN |
-| Charmi, ripresa della dimostrazione | https://x.com/Charmi/status/2095775258489798852 | seconda ripresa indipendente della medesima dimostrazione | LDN |
-| Nintendo Everything, l'elenco dei blocchi cromatici | https://nintendoeverything.com/every-shiny-locked-pokemon-in-2024/ | elenco divulgativo delle specie a cui il gioco impedisce di essere cromatiche, aggiornato al 2024; utile per il perché e per il contesto storico dei blocchi rimossi da distribuzioni successive, non citabile per una decisione senza il riscontro sul dato | PKD |
+| RetroReversing, GBA | https://www.retroreversing.com/gba | hub di risorse di reverse engineering per Game Boy Advance Stato al 2026-10-05, strumento o sito generico: Hub di RetroReversing sul GBA: indice di articoli (leak Nintendo, netcard GBA cancellata, risorse di sviluppo); nessuna affermazione puntuale per il progetto. | BRI, SME |
+| RetroReversing, Rosso e Blu | https://www.retroreversing.com/pokemonredblue | raccolta di strumenti e materiali su Gen 1 Stato al 2026-10-05, letta ora: Letta ora: pagina RetroReversing su Pokemon Rosso e Blu, aggiornata il 2026-08-09; presenta il disassemblato PRET (pokered), che si ricompila in una ROM identica. Già clonato dal progetto. | BRI |
+| Helix Chamber | https://helixchamber.com/2019/02/16/what-dreams-may-come/ | materiale di prototipazione di Gen 1, contesto storico sui dati interni Stato al 2026-10-05, letta ora: Letta ora: articolo Helix Chamber del 2019-02-16 sui dati di prototipo di Rosso e Verde Gen 1 (Pokethon); contesto storico sui dati interni, nessun impatto su collezione o ponte. | BRI |
+| Reverse engineering di FireRed | https://betterprogramming.pub/low-level-explorations-reverse-engineering-pokemon-firered-through-rom-hacking-54edfb4426 | racconto didattico di un primo approccio al ROM hacking su Gen 3 Stato al 2026-10-05, letta ora: Letto via Wayback (live 403): racconto didattico del 2022 di un primo ROM hacking su FireRed con VisualBoyAdvance, sulla formula della cromaticità Gen 3 (XOR). Nessun dato nuovo per il progetto. | BRI, LDN |
+| Guida al trading locale su Switch | https://www.dtgre.com/2026/03/fire-red-leafgreen-switch-local-wireless-guide.html | come funziona lo scambio locale nella versione Switch di Rosso Fuoco e Verde Foglia Stato al 2026-10-05, letta ora: Letta ora: guida del 2026-03-02 allo scambio locale di FRLG su Switch, via Union Room e Link Corner nel Centro Pokemon, senza internet né HOME. Testo generico, da non citare senza riscontro. | LDN |
+| Pokemon Rescue | https://pokemonrescue.com/ | servizio di recupero di salvataggi e cartucce dell'autore contattato per posta settimane prima; pertinente al track della batteria e a quello dello scambio fra GBA e Switch Stato al 2026-10-05, letta ora: Letta ora: progetto di fan che aiuta a portare Pokemon da generazioni vecchie a HOME e raccoglie eventi mancati; dichiara la chiusura di Bank il 25 febbraio 2027 (il progetto usa il 26). | BAT, LDN |
+| Drew Works | https://www.drewworks.dev/ | sito dell'autore che lavora sull'adattatore fra GBA e console moderna; da tenere sotto osservazione perché il progetto è in evoluzione e non ancora documentato Stato al 2026-10-05, letta ora: Letta ora: sito di Drewworks con l'adattatore RetroSync, che collega un GBA originale in wireless a Switch per FireRed, LeafGreen ed Emerald; vende anche GC Force Multi Adapter. Prodotto, non ancora dettagliato. | LDN |
+| ahenley17, profilo | https://x.com/ahenley17 | l'autore dell'adattatore che collega un Game Boy Advance originale all'emulatore ufficiale su console moderna, dimostrato con uno scambio riuscito su Rosso Fuoco e Verde Foglia Stato al 2026-10-05, letta ora: Letto via fxtwitter: account Drewworks (ahenley17, 2577 follower), sviluppatore di Launcher Heroes; è l'autore dell'adattatore GBA verso Switch. | LDN |
+| ahenley17, dimostrazione dell'adattatore | https://x.com/ahenley17/status/2095628437457088727 | il messaggio originale con la dimostrazione dello scambio fra hardware originale e emulatore ufficiale; dispositivo e software di interfaccia dichiarati ancora in sviluppo Stato al 2026-10-05, letta ora: Letto via fxtwitter: dimostrazione di scambio fra GBA originale e Switch 2 con l'adattatore dell'autore; dichiara molto lavoro ancora da fare. Prova che la via GBA-Switch esiste su hardware reale. | LDN |
+| Light_88, ripresa della dimostrazione | https://x.com/Light_88_/status/2095742903649816937 | ripresa della dimostrazione da parte di un account noto della community, con il dettaglio dei giochi coinvolti Stato al 2026-10-05, letta ora: Letto via fxtwitter: ripresa di Light_88 (53104 follower): GBA originale e Switch 2 scambiano in FRLG; adattatore ancora in sviluppo. | LDN |
+| Charmi, ripresa della dimostrazione | https://x.com/Charmi/status/2095775258489798852 | seconda ripresa indipendente della medesima dimostrazione Stato al 2026-10-05, letta ora: Letto via fxtwitter: ripresa in spagnolo di Charmi: GBA originale scambia con Switch 2 tramite adattatore casero, ancora in sviluppo; seconda ripresa indipendente. | LDN |
+| Nintendo Everything, l'elenco dei blocchi cromatici | https://nintendoeverything.com/every-shiny-locked-pokemon-in-2024/ | elenco divulgativo delle specie a cui il gioco impedisce di essere cromatiche, aggiornato al 2024; utile per il perché e per il contesto storico dei blocchi rimossi da distribuzioni successive, non citabile per una decisione senza il riscontro sul dato Stato al 2026-10-05, letta ora: Letta ora: elenco del 2024-04-20 dei Pokemon cromatici bloccati (Victini, Keldeo, Vivillon Poke Ball, Hoopa, Volcanion, Cosmog, Magearna, Marshadow e altri). Contesto, da riscontrare sul dato prima di citare. | PKD |
 
 ## Canali e video
 
@@ -726,20 +742,20 @@ Dieci video sono stati trascritti e letti per intero, sei il 2026-08-25 e quattr
 
 | Canale o video | URL | Perché conta | Track |
 |---|---|---|---|
-| Goppier | https://www.youtube.com/@Goppier | primo a realizzare il ponte fra Gen 2 e Gen 3, con documentazione sulle due versioni del cavo Link | BRI |
+| Goppier | https://www.youtube.com/@Goppier | primo a realizzare il ponte fra Gen 2 e Gen 3, con documentazione sulle due versioni del cavo Link Stato al 2026-10-05, strumento o sito generico: Canale YouTube di Goppier senza video specifico; il catalogo è in _notes/fonti/corpus-residuo/canali/@Goppier.json e il video del ponte in docs/mappa-fonti/video-goppier.md. | BRI |
 | Goppier, aggiornamento di sviluppo | https://www.youtube.com/watch?v=Qcp4vxyaUJc | trascritto e letto per intero il 2026-08-25, ed è la sola documentazione esistente del suo ponte, oltre a essere la fonte più densa di tutto il livello 4. Documenta sette cose che nessun'altra fonte dice. La prima è il vincolo di sincronizzazione, che è il problema architetturale del ponte: Gen 3 invia la squadra a blocchi di 200 byte, due Pokemon per volta, tre volte, e non consegna i successivi finché non riceve i propri, mentre Gen 2 invia in tre sezioni separate, cioè i dati principali di tutti e sei, poi i nomi degli allenatori originali, poi i soprannomi. Ne segue uno stallo: il ponte non conosce la squadra Gen 3 completa quando Gen 2 gli chiede la propria, e Gen 2 una volta finito di inviare smette anche di ricevere. La sua soluzione è dichiaratamente imperfetta e va conosciuta perché è istruttiva, cioè inviare dati di riempimento che costringono il giocatore ad annullare e ripetere lo scambio, perché al secondo passaggio il dispositivo conosce entrambe le squadre. La seconda è il valore di personalità generato in modo pseudocasuale con i DV come seme, così che lo stesso Pokemon trasferito due volte ottenga lo stesso valore. La terza è il gioco di origine forzato a Rosso Fuoco, perché il valore personalizzato usato prima compariva in Gen 4 come una sequenza di punti di domanda. La quarta è la conferma sul campo che in direzione Gen 3 verso Gen 2 le due proprietà non si possono conservare insieme, perché entrambe derivano dai DV, e la scelta è esposta come una politica commutabile con un pulsante, verde per le statistiche e giallo per l'aspetto, cioè genere, lettera di Unown e lucentezza. La quinta è che le specie introdotte in Gen 3 vengono mostrate come Ditto, perché altrimenti l'indice va in overflow e Gen 2 mostra una specie arbitraria; mosse di Gen 3 e oggetti non convertibili vengono eliminati. La sesta è la verifica della catena completa, cioè Gen 2 verso Gen 3, poi Pal Park verso Gen 4 dopo aver cancellato le MN, poi il laboratorio di trasferimento sulla Via 15 in Gen 5 con il gioco in download play, e infine Bank e Home: tutti accettati tranne uno. La settima, e la più importante per le nostre opzioni implementative, è che ha scritto una ROM GBA personalizzata che parla direttamente con i giochi Gen 2 sul cavo originale, dimostrando che il protocollo si può rispettare da un GBA senza hardware in mezzo | BRI |
-| Goppier, primo video del ponte | https://www.youtube.com/watch?v=inMbtwmVlKQ | è l'altra metà del materiale di Goppier, cioè il video che presenta il dispositivo prima dell'aggiornamento. Verificato il 2026-08-26 che non ha sottotitoli, automatici o manuali, quindi richiede riconoscimento vocale locale e resta da trascrivere: è il più importante dei due arretrati, perché il video successivo si riferisce più volte a cose spiegate qui, fra cui la struttura del circuito e la questione se il protocollo del cavo Gen 2 possa essere rispettato direttamente da un GBA | BRI |
-| Lorenzooone | https://www.youtube.com/@Lorenzooone | autore di Pokemon-Gen3-to-Gen-X e di PokemonGB_Online_Trades | BRI |
-| im a blisy | https://www.youtube.com/c/imablisy | contributi comunitari citati dal progetto di riferimento | BRI |
-| RETIRE | https://www.youtube.com/@RETIREglitch | ricerca sui glitch di Gen 1 e 2 | BRI |
-| TheZZAZZGlitch | https://www.youtube.com/@TheZZAZZGlitch | primo a rendere affidabile l'esecuzione di codice arbitrario in Gen 1 e 2, dal 2013 | BRI |
-| Retro Game Mechanics Explained | https://www.youtube.com/@RGMechEx | spiegazioni al livello del bit di meccaniche interne di console e giochi | BRI, TUTTI |
-| Displaced Gamers | https://www.youtube.com/channel/UCWoSKWs8h6lFdiEDAjuIfpA | la serie Behind the Code, analisi del codice originale dei giochi classici | BRI, TUTTI |
+| Goppier, primo video del ponte | https://www.youtube.com/watch?v=inMbtwmVlKQ | TRASCRITTO IN LOCALE e letto per intero il 2026-10-05 (faster-whisper su CPU, `_notes/fonti/consegne/2026-10-05-video-locali/`): protocollo di scambio di seconda generazione in 458 byte e cinque sezioni, controllo di gioco e avanzamento di terza aggirato fingendosi un Rosso Fuoco con le due gemme, conversione IV = DV per 2 ed EV = radice della Stat Experience, luogo «scambio in gioco», e un gioco di origine nuovo «Oro, Argento o Cristallo» che nessun gioco ufficiale scrive, quindi, da verificare, esemplari non legali per Parco Amici, banca e HOME | BRI |
+| Lorenzooone | https://www.youtube.com/@Lorenzooone | autore di Pokemon-Gen3-to-Gen-X e di PokemonGB_Online_Trades Stato al 2026-10-05, strumento o sito generico: Canale YouTube di Lorenzooone senza video specifico; catalogo in _notes/fonti/corpus-residuo/canali/@Lorenzooone.json; i suoi repository sono letti (gen3togenx, pokemongb-online). | BRI |
+| im a blisy | https://www.youtube.com/c/imablisy | contributi comunitari citati dal progetto di riferimento Stato al 2026-10-05, strumento o sito generico: Canale YouTube di imablisy senza video specifico; residuo-corpus.csv lo dà «catalogo letto»: 434 video, 47 scelti e letti dalla trascrizione. | BRI |
+| RETIRE | https://www.youtube.com/@RETIREglitch | ricerca sui glitch di Gen 1 e 2 Stato al 2026-10-05, strumento o sito generico: Canale YouTube RETIRE senza video specifico e senza catalogo scaricato; nessun testo da leggere come fonte. | BRI |
+| TheZZAZZGlitch | https://www.youtube.com/@TheZZAZZGlitch | primo a rendere affidabile l'esecuzione di codice arbitrario in Gen 1 e 2, dal 2013 Stato al 2026-10-05, strumento o sito generico: Canale YouTube di TheZZAZZGlitch senza video specifico; catalogo in _notes/fonti/corpus-residuo/canali/@TheZZAZZGlitch.json. | BRI |
+| Retro Game Mechanics Explained | https://www.youtube.com/@RGMechEx | spiegazioni al livello del bit di meccaniche interne di console e giochi Stato al 2026-10-05, strumento o sito generico: Canale YouTube Retro Game Mechanics Explained senza video specifico; catalogo in _notes/fonti/corpus-residuo/canali/@RGMechEx.json. | BRI, TUTTI |
+| Displaced Gamers | https://www.youtube.com/channel/UCWoSKWs8h6lFdiEDAjuIfpA | la serie Behind the Code, analisi del codice originale dei giochi classici Stato al 2026-10-05, strumento o sito generico: Canale YouTube Displaced Gamers senza video specifico; catalogo in _notes/fonti/corpus-residuo/canali/@DisplacedGamers.json. | BRI, TUTTI |
 | Poke Transporter GB, dimostrazione | https://www.youtube.com/watch?v=47A6p2hH2gU | trascritto con riconoscimento vocale il 2026-08-25 e risultato senza parlato: è una dimostrazione muta, quindi la fonte è visiva e non testuale | BRI |
 | Poke Transporter GB, sviluppo | https://www.youtube.com/watch?v=9mSkGhEYBkg | trascritto e letto per intero il 2026-08-25, ed è il racconto in prima persona di come è stato costruito il ponte che oggi funziona meglio. Conferma dall'esterno la scelta del Dono Segreto invece della scrittura diretta del salvataggio, e ne spiega la meccanica: il codice assembly personalizzato viene scritto in una sezione non usata del salvataggio, che l'autore identifica come la sezione 30, e da là viene eseguito con il comando che chiama codice arbitrario, così che l'evento possa depositare fino a trenta Pokemon nel PC del giocatore. Aggiunge quattro dettagli operativi che valgono per il nostro codice. Il primo è un calcolatore che determina automaticamente quale lista di squadra e quali nomi servono a sovrascrivere lo stack, invece di trascrivere valori magici. Il secondo è che l'exploit è stato verificato su tutte le lingue con uno script Python appoggiato alla libreria gen-one-utils, e in ogni lingua è possibile in un modo o nell'altro. Il terzo è la differenza fra le generazioni: in Gen 1 l'exploit sfrutta l'assenza di un limite al numero di Pokemon in squadra, in Giallo è possibile ma più sporco perché manca un Pokemon glitch dal nome vuoto, e in Gen 2 il disegno dei nomi oltre il sesto è stato corretto ma non c'è alcun limite alla lunghezza del nome dell'allenatore, il che rende l'exploit più facile perché il contenuto è sotto controllo diretto. Il quarto è che ha scritto due compilatori dedicati, uno per gli eventi che copre le dodici versioni inglesi di Gen 3 e uno per l'assembly Z80, perché il payload cambia a seconda del gioco con cui si sta parlando. Da qui viene anche la genealogia del problema: Goppier per primo su hardware fisico ma senza schemi pubblicati, poi Lorenzooone con il solo hardware ufficiale via multiboot, e questo progetto nato per risolvere i due limiti di quello, cioè il trasferimento di grandi quantità e la sensazione di ufficialità | BRI |
 | Dissezione di un salvataggio di Rosso | https://www.youtube.com/watch?v=VVbRe7wr3G4 | trascritto e letto per intero il 2026-08-25, ed è la conferma indipendente che serviva sul lato Gen 1, ottenuta per una via diversa dalla nostra, cioè il confronto fra due salvataggi che differiscono per un solo campo dentro un editor esadecimale. Conferma per differenza che il nome del giocatore è lungo sette byte e che la codifica non è ASCII, perché la lettera A vale 0x80 e la B vale 0x81, che è esattamente la tabella che il nostro generatore produce dal disassemblato. Conferma il checksum di generazione 1 nella forma che usiamo: si parte da 0xFF e si sottrae il valore di ogni byte da 0x2598 a 0x3522 compresi, e il risultato si scrive a 0x3523; se non torna il gioco dichiara il file distrutto. Documenta poi tre fatti sull'hardware che il progetto non aveva scritto da nessuna parte: la RAM della cartuccia è mappata da 0xA000 a 0xBFFF, cioè otto kilobyte per volta, e i giochi Pokemon ne usano quattro banchi commutati scrivendo due bit nell'area da 0x4000 a 0x5FFF, che appartiene alla ROM e viene riusata come registro di configurazione perché scrivere su una memoria di sola lettura non avrebbe altro significato; la RAM esterna si abilita e si disabilita scrivendo 0x0A oppure zero nell'area da 0x0000 a 0x1FFF, e il gioco la tiene abilitata solo il tempo del salvataggio, il che spiega perché in un debugger a volte appare vuota; il file `.sav` di un emulatore è esattamente un'immagine di quella RAM, quindi lavorare sul file e lavorare sulla cartuccia sono la stessa operazione su due supporti | BRI |
 | Cavo Link negli emulatori | https://www.youtube.com/watch?v=jzLISDGrOWo | trascritto e letto il 2026-08-25, e ha reso poco perché mostra più di quanto spieghi: ottocento caratteri in tutto. Quel poco è comunque pertinente al collaudo e va registrato invece di essere buttato, cioè che su Game Boy Advance il cavo emulato funziona con un clic su mGBA e con qualche configurazione in più su VisualBoyAdvance, che entrambi permettono la connessione via rete con risultati variabili, e che sui giochi Game Boy il supporto di quei due è difettoso o assente, tanto che l'autore per quelli usa BGB. È una conferma per esperienza di terzi della scelta di collaudo che avevamo già fatto, cioè BGB per il lato Game Boy | BRI |
-| Scambio locale su Switch in FRLG | https://www.youtube.com/watch?v=epCf87MTLnk | la funzione di scambio locale nella versione Switch vista dal lato utente, che è il presupposto del track LDN. Verificato il 2026-08-26 che non ha sottotitoli di alcun tipo, quindi richiede riconoscimento vocale locale e resta da trascrivere | LDN |
+| Scambio locale su Switch in FRLG | https://www.youtube.com/watch?v=epCf87MTLnk | TRASCRITTO IN LOCALE il 2026-10-05: il video non ha parlato, letti titolo e descrizione: scambio solo locale fra due console nella stessa stanza, sbloccato nella Sala Unione di Smeraldopoli, salvataggi non trasferibili fra Switch e Switch 2 | LDN |
 | Sostituzione della batteria di cartuccia | https://www.youtube.com/watch?v=vz05ZT63Jqc | trascritto e letto per intero il 2026-08-25, e documenta la tecnica che permette di sostituire la batteria di una cartuccia senza perdere il salvataggio, che è l'unico modo di farlo quando il salvataggio conta. Il principio è che la RAM della cartuccia è volatile e vive solo perché la batteria la alimenta, quindi la sostituzione si esegue a cartuccia inserita in una console accesa, che fornisce corrente al posto della batteria durante lo stacco: l'autore usa un Game Boy Advance perché lascia più spazio attorno alla cartuccia rispetto a un Game Boy Color, e la console resta accesa dal primo al secondo punto di saldatura. Servono un cacciavite a testa triangolare, una batteria di ricambio, per Giallo una CR2025, un saldatore e una pinzetta. Due avvertenze sono esplicite: la polarità va verificata sulla scheda perché non tutte le batterie di ricambio hanno la linguetta positiva sullo stesso lato, e le linguette nuove sono più grandi delle originali, quindi serve più stagno di quanto la piazzola ne porti. La verifica finale è un ciclo di alimentazione completo, cioè spegnere, estrarre, attendere e riaccendere: se la connessione non è buona il salvataggio si perde in quel momento e non prima. Da qui viene anche la distinzione che il track Smeraldo deve tenere presente: su Gen 1 e 2 il rischio è la batteria esaurita, su Gen 3 il salvataggio sta in memoria flash che non dipende dalla batteria, e la batteria serve solo all'orologio interno | SME |
 | MankeyMite, non trasferire in Home prima di aver visto questo | https://www.youtube.com/watch?v=KtJGkd0Qvvg | trascritto e letto per intero il 2026-08-31, ed è la fonte più importante dei due track nuovi oltre che una correzione alla pianificazione dell'intero progetto. Tre cose. La prima è la catena ufficiale descritta passo per passo, che conferma quanto il progetto aveva già stabilito e aggiunge tre dettagli operativi: il Parco Amico richiede di avere battuto i capi dei Quattro e ottenuto il registro nazionale, sta sulla Via 221 nei primi tre giochi di quarta generazione e a Fucsiapoli negli altri due, e il passaggio verso la quinta generazione richiede il laboratorio sulla Via 15 dopo essere diventati campione. La seconda, che il progetto non aveva registrato, è che il trasferimento da Bank a Home richiede il piano a pagamento di Home, mentre Bank è gratuito, e che il piano gratuito di Home conserva trenta esemplari. La terza, e la più rilevante, è la risposta alla domanda sulla legittimità: Home conserva sul proprio lato l'informazione di quale via un esemplare abbia usato per entrare, quindi a parità di dati sottostanti non è garantito che un esemplare entrato dalla versione su console sia indistinguibile da uno passato per Bank, e i controlli che il servizio applicherà non sono noti perché la compatibilità non è ancora in funzione. Chiude con la raccomandazione che il progetto adotta: ciò che si può trasferire ora per la via ufficiale si trasferisce ora, senza attendere alcun aggiramento | ACE, EVT, 3DS, LDN |
 | MankeyMite, un anno per il costruttore di esemplari Gen 3 | https://youtu.be/KvcmsxyHIX8 | trascritto e letto per intero il 2026-09-04, ed è la presentazione fatta dall'autore dello strumento che il progetto aveva già letto nel sorgente il 2026-09-01: non aggiunge nulla sul metodo di generazione, che avevamo verificato sul corpus, e aggiunge invece cinque fatti che il sorgente non dichiara. Il primo, e il più utile all'ambito, è che il costruttore non si limita alle distribuzioni ma espone anche gli incontri di Colosseum e XD, quelli selvatici e quelli da uovo, e che le mosse esclusive di XD sono selezionabili soltanto passando per quell'insieme: la portata dello strumento è dunque più larga della tabella delle carte meraviglia su cui il nostro asse degli eventi è costruito. Il secondo è che il giudizio di legittimità è reso da PKHeX Core eseguito nel browser e viene dato separatamente per la cartuccia e per la riedizione su console, e che sulla seconda cadono i nastri impossibili, gli incontri non scambiabili e gli oggetti non distribuiti: è la conferma pratica, su un caso mostrato, del marchio di origine che il track ACE aveva dedotto dal codice. Il terzo è la raccomandazione dell'autore, che coincide con il piano di questo progetto, cioè produrre sulla cartuccia e percorrere la catena, perché il deposito tratta l'esemplare come un trasferimento da Game Boy Advance. Il quarto è l'allestimento dello scrittore in base 64 attribuito a Mettrich, chiamato Weldr, con la specie stabile 0x410E, i tre codici in sequenza, le scatole da 11 a 14 come ambiente di esecuzione e un carico aggiuntivo che registra nel Pokedex l'esemplare creato. Il quinto è una dichiarazione dell'autore che vale come avvertenza sul corpus e non come critica: le centinaia di voci da evento sono nel costruttore ma non sono state provate tutte, quindi la concordanza che il nostro confronto ha misurato resta la misura migliore che abbiamo e non è garantita dall'autore | ACE, EVT |
@@ -750,7 +766,7 @@ Dieci video sono stati trascritti e letti per intero, sei il 2026-08-25 e quattr
 | Hard4Games, la macchina del Pokemon Center di New York | https://www.youtube.com/watch?v=AVhqlol6k9o | trascritto e letto per intero il 2026-08-28, ed è la fonte storica su un apparecchio che si credeva distrutto. Il negozio aprì il 16 novembre 2001 e chiuse per ristrutturazione nel gennaio 2005, con divieto di fotografie che spiega la scarsità della documentazione; le campagne di seconda generazione andarono dal 22 novembre 2001 al 7 marzo 2003 e quelle di terza dal 30 agosto 2003 al 16 dicembre 2004. Ciò che è stato preservato sono due dischi in un formato proprietario di sviluppo leggibile solo da lettori dedicati, quattro schede di campagna che dichiarano gli esemplari e la finestra temporale, e due schede che fanno da chiave. Due dettagli contano per la ricreazione: l'orologio interno del GameCube deve cadere dentro la finestra della campagna, e il trasferimento passa da uno scrittore dedicato collegato alla console, mentre il Game Boy Advance sul cavo è scenografico, cosa che la fonte dichiara di aver verificato. Gli esemplari portano il nome del negozio con la postazione come allenatore originale e un identificativo incrementato a ogni distribuzione | EVT |
 | SuperrSonic, contenuti bonus dal Game Boy Player | https://www.youtube.com/watch?v=GBEMP2kEpPw | trascritto e letto per intero il 2026-08-28, e apre una via che nessuna delle altre fonti del track nomina: l'interfaccia alternativa del Game Boy Player invia un programma multiboot senza alcun cavo, perché il collegamento fra console e periferica è interno, ed estrae BIOS, ROM e salvataggio potendo poi ripristinare quest'ultimo. L'intero ciclo di modifica avviene quindi sulla console, senza calcolatore né lettore esterno. Il programma dell'autore trasferisce il Jirachi del disco bonus, il Celebi non utilizzato della versione giapponese, un Pikachu, il Mew dell'evento e le uova di Pokemon Box. Il contributo più utile all'obiettivo di collezione non è però un esemplare ma un oggetto, perché il quiz del disco bonus consegnava i biglietti degli eventi e, su un salvataggio di Smeraldo, la mappa marina che porta all'incontro con Mew. L'autore dichiara di aver implementato i checksum leggendo Bulbapedia, che è la fonte su cui questo registro documenta già un errore in quella materia | EVT |
 | Checkpoint su 3DS | https://www.youtube.com/watch?v=aZMVFBRp1xI | trascritto e letto per intero il 2026-08-25, ed è la fonte operativa sul backup dei salvataggi per il track 3DS, con un confronto diretto fra i due gestori. Documenta il flusso che ci interessa da vicino: Checkpoint distingue nella schermata se il salvataggio viene dalla cartuccia o dalla scheda SD, permette il backup con un nome scelto sul momento e la selezione multipla per salvare più titoli in un colpo, e consente di ripristinare in una copia digitale il salvataggio letto dalla cartuccia, così che la cartuccia possa restare nella custodia. La sequenza completa che mostra è quella che il nostro track userebbe, cioè dump della cartuccia con GodMode9, installazione della copia con FBI, primo avvio per far creare il salvataggio, e poi ripristino del backup della cartuccia dentro la copia installata. Due limiti vanno registrati perché cambiano la scelta dello strumento: Checkpoint richiede il custom firmware e non basta l'homebrew, mentre JKSM funziona anche su una console con solo homebrew, ed è quindi l'unica via su un dispositivo non modificato del tutto. I percorsi sulla scheda SD sono `3ds/Checkpoint/saves/` per uno e `JKSV/saves/` per l'altro, e da là i file si copiano via FTP oppure estraendo la scheda. Documenta infine che esiste anche il backup dei dati extra, che sono quelli creati al primo avvio di un titolo e servono per alcuni exploit | 3DS |
-| Gavin, That Wolf Wizard, eventi Gen 3 su hardware reale senza glitch | https://www.youtube.com/watch?v=aQWsNIWu3FQ | consegnato dall'utente il 2026-09-18 come il video da cui era partito il tentativo dell'estate precedente di ottenere i biglietti delle isole. Pubblicato il 2026-01-06, dura tre minuti e quaranta, e mostra l'uso di NDSEventTool.nds da una scheda di flash su Nintendo DS per iniettare gli eventi Nintendo ufficiali in una cartuccia di terza generazione. NON TRASCRITTO: il tentativo di scaricarne i sottotitoli con `yt-dlp` il 2026-09-18 ha restituito HTTP 429, cioè troppe richieste, e va ripetuto più tardi; la traccia italiana esiste, insieme a quella inglese originale e a quella tradotta, quindi la trascrizione è ottenibile e non richiede riconoscimento vocale. Ciò che serviva davvero da questo video, cioè il funzionamento dello strumento, è stato ottenuto leggendo il sorgente della sua release, che è una fonte migliore | SME, EVT |
+| Gavin, That Wolf Wizard, eventi Gen 3 su hardware reale senza glitch | https://www.youtube.com/watch?v=aQWsNIWu3FQ | TRASCRITTO IN LOCALE e letto per intero il 2026-10-05: NDS Mystery Gift Tool 1.0 da una R4 su DS inietta l'evento nella cartuccia nello slot GBA, dopo lo sblocco del Dono Segreto («LINK TOGETHER WITH ALL») o dell'Evento Misterioso; mai su cartucce giapponesi; l'autore dichiara gli esemplari legittimi fino a HOME. Per Smeraldo vale ADR-083 | SME, EVT |
 
 ### Reddit, ricerche del 2026-08-26
 
@@ -758,8 +774,8 @@ Reddit non è raggiungibile né dal crawler del modello né da alcun motore alte
 
 | Fonte | Link | Cosa documenta in modo autorevole | Track |
 |---|---|---|---|
-| Reddit, sintesi con fonti su Poke Transporter GB | https://www.reddit.com/r/pokemon/ | l'unico blocco di questa passata con resa alta, prodotto dalla funzione di sintesi di Reddit su otto post di r/Games, r/pokemon, r/AnaloguePocket, r/PokemonHome e r/3dspiracy. Documenta che il tool modifica entrambi i salvataggi e lo dichiara all'utente, che va usato il file `.gba` della release e non il sorgente compilato, e che i dispositivi a FPGA come Analogue Pocket probabilmente non lo supportano perché la procedura richiede lo scambio a caldo della cartuccia mentre il programma gira. Sulla compatibilità conferma che gli offset di ROM e salvataggio vanno determinati per tipo, versione e lingua, che è l'origine delle quarantotto combinazioni. Il fatto più rilevante è che la rimozione del Pokemon dal salvataggio di partenza non c'era nelle prime versioni e vi è stata aggiunta proprio grazie all'esecuzione di codice arbitrario: è la risposta al perché quella tecnica serva, ed era la lamentela più comune. Sulla conversione delle statistiche la domanda è stata posta pubblicamente e non ha ricevuto risposta | BRI |
-| Reddit, r/Gameboy, ricerche sui salvataggi | https://www.reddit.com/r/Gameboy/ | filtri `save write failed` e `Flashrom Type not supported`. Il secondo riguarda le cartucce EZ Flash e non i giochi originali, quindi non serve. Il primo individua tre discussioni pertinenti al track Smeraldo, non ancora aperte: una sui salvataggi che GBxCart non scrive, una sul recupero di un salvataggio di vent'anni da una cartuccia contraffatta di Rosso Fuoco, e una su un backup di Pokemon Blu che non funziona negli emulatori | SME |
+| Reddit, sintesi con fonti su Poke Transporter GB | https://www.reddit.com/r/pokemon/ | l'unico blocco di questa passata con resa alta, prodotto dalla funzione di sintesi di Reddit su otto post di r/Games, r/pokemon, r/AnaloguePocket, r/PokemonHome e r/3dspiracy. Documenta che il tool modifica entrambi i salvataggi e lo dichiara all'utente, che va usato il file `.gba` della release e non il sorgente compilato, e che i dispositivi a FPGA come Analogue Pocket probabilmente non lo supportano perché la procedura richiede lo scambio a caldo della cartuccia mentre il programma gira. Sulla compatibilità conferma che gli offset di ROM e salvataggio vanno determinati per tipo, versione e lingua, che è l'origine delle quarantotto combinazioni. Il fatto più rilevante è che la rimozione del Pokemon dal salvataggio di partenza non c'era nelle prime versioni e vi è stata aggiunta proprio grazie all'esecuzione di codice arbitrario: è la risposta al perché quella tecnica serva, ed era la lamentela più comune. Sulla conversione delle statistiche la domanda è stata posta pubblicamente e non ha ricevuto risposta Stato al 2026-10-05, strumento o sito generico: Pagina principale della sottocomunità r/pokemon; il contenuto citato dalla riga (sintesi su Poke Transporter GB) è già riportato in SOURCES.md. | BRI |
+| Reddit, r/Gameboy, ricerche sui salvataggi | https://www.reddit.com/r/Gameboy/ | filtri `save write failed` e `Flashrom Type not supported`. Il secondo riguarda le cartucce EZ Flash e non i giochi originali, quindi non serve. Il primo individua tre discussioni pertinenti al track Smeraldo, non ancora aperte: una sui salvataggi che GBxCart non scrive, una sul recupero di un salvataggio di vent'anni da una cartuccia contraffatta di Rosso Fuoco, e una su un backup di Pokemon Blu che non funziona negli emulatori Stato al 2026-10-05, strumento o sito generico: Pagina principale di r/Gameboy; le ricerche sui salvataggi sono descritte nella riga e i thread pertinenti restano voci a parte. | SME |
 
 ### Canali di community letti il 2026-08-26
 
@@ -767,13 +783,29 @@ Queste due voci sono state lette per la prima volta il 2026-08-26, con la ricerc
 
 | Fonte | Link | Cosa documenta in modo autorevole | Track |
 |---|---|---|---|
-| Pokemon Multiplayer Research, canali di supporto e generale | https://discord.gg/nBnTrv3UMn | letto con i filtri `monitor mode`, `adapter`, `AC600`, `T2U` e `8811`. Ha corretto tre cose che il progetto dava per certe: il chip degli adattatori AC600 provati con successo è un RTL8821CU servito dal driver in albero `rtw88`, dichiarato da un utente come `driver: rtw_8821cu`, e non un RTL8811AU; il Wireless Adapter del Game Boy Advance non è 802.11 ma un progetto proprietario, quindi nessuna scheda Wi-Fi può parlargli e la via è un microcontrollore che lo emula, che è l'opzione D di ADR-008 confermata da fonte indipendente; l'emulatore sulla console riproduce quel dispositivo in emulazione di alto livello, dove risulta sempre collegato, e non riproduce il cavo Link. Documenta inoltre che su Windows funzionano solo adattatori USB e su Linux anche interni, che le schede Intel non fanno modalità monitor, che il giocatore simulato senza Pokedex nazionale fa rifiutare molte specie e si corregge imponendo `0x0F` alle sue flag di progressione, che gli oggetti tenuti non passano nello scambio, e che il GBxCart RW o il GB Operator servono a produrre i `.pk3` di partenza da cartucce proprie. Il filtro `8811` non ha dato alcun risultato, quindi sul chip dell'adattatore in mano all'utente non esiste testimonianza | LDN, BRI |
 | Glitch City Research Institute, canali per generazione | https://discord.com/invite/EA7jxJ6 | letto con i filtri `TRAINER 4`, `0xFC` e `party overflow`. Ha portato tutto ciò che il progetto sa sull'esecuzione di codice in generazione 3, che prima non copriva: 0xFC introduce un codice di controllo e 0xFD la sostituzione di una variabile nel motore di stampa del testo, e in Rubino e Zaffiro quelle funzioni sono prelevate da una tabella di puntatori senza controllo dei limiti mentre nelle altre tre versioni passano da un costrutto di scelta multipla che rende inerte un indice fuori intervallo, quindi la via esiste solo in Rubino e Zaffiro. La catena documentata su Smeraldo parte da una posta rimossa fuori da un edificio, che lascia una stringa non terminata, e attraversa la struttura secondaria e le tendenze di una città fino ai dati della squadra, dove l'ordine dei campi letti conferma dall'esterno il layout della sezione 5 della referenza. Dal lato generazione 2 documenta che un identificativo dell'allenatore contenente il byte 0xFF impedisce il traboccamento della squadra, perché introduce un terminatore dove non era previsto, e che il traboccamento sfruttato dal cosiddetto virus è proprio la stampa dei nomi delle specie della squadra avversaria nella schermata di scambio | BRI |
 | GBAtemp, correzione dei salvataggi in Virtual Console | https://gbatemp.net/threads/tutorial-fix-all-save-problems-for-pokemon-games-vc-gba.433266/ | letto il 2026-08-26 nella prima delle tre pagine. Va registrato per ciò che è: riguarda i giochi iniettati come Virtual Console su Nintendo 3DS e non le cartucce fisiche, quindi non risponde alla domanda del sottoprogetto Smeraldo per cui era stato cercato, e serve al track 3DS se un giorno si iniettassero ROM proprie. La prima parte modifica la ROM cercando la sequenza `D0 88 8D 83 42` e azzerando due byte fra quella e `24 10 49 10 68`; la seconda rimuove il messaggio di salvataggio corrotto con offset dichiarati per Rubino e Zaffiro americani e francesi e per Smeraldo. Il thread stesso ne mostra i limiti, perché un utente riporta che quella sequenza non esiste in Rubino e Zaffiro americani, dove al suo posto c'è `6C 08 83 42 00 00 00 00 24 10 49 10 68` a 0x1DFB5E e 0x1DFAEE con i byte da azzerare già nulli, e perché gli offset della seconda parte per Rosso Fuoco e Verde Foglia non sono mai stati trovati in undici mesi di richieste | 3DS |
 | Le configurazioni delle macchie di Spinda | https://www.youtube.com/watch?v=g5nZTDaGH64&t=23 | non recuperabile dagli strumenti di sessione, che su questo dominio ricevono una pagina di consenso: è un luogo dove cercare e non una fonte letta. Documenta che la posizione delle quattro macchie discende dai quattro byte del valore di personalità, quindi lo spazio ha cardinalità due alla trentaduesima | PKD |
 | I blocchi cromatici, panoramica | https://www.youtube.com/watch?v=v6Lq1Cac_jM&t=20 | non recuperabile, stessa ragione; nominata dall'utente come sorgente dell'elenco dei blocchi | PKD |
 | I blocchi cromatici, sintesi breve | https://www.youtube.com/shorts/efoQSb4haOo | non recuperabile, stessa ragione | PKD |
 | I blocchi cromatici, sintesi su TikTok | https://www.tiktok.com/@yokevdog/video/7342262356958825774 | non recuperabile dagli strumenti di sessione; nominata dall'utente accanto alle precedenti | PKD |
+
+### Fonti consegnate dal proprietario il 2026-10-05
+
+Due video consegnati dal proprietario, di cui ha salvato a mano la trascrizione dal browser perché YouTube rispondeva 429 ai sottotitoli, e le fonti citate nelle loro descrizioni. Le affermazioni estratte stanno in `_notes/fonti/corpus-residuo/canali/estratti/` e in `_notes/fonti/corpus-residuo/fonti-descrizioni-2026-10-05.md`, fuori da Git.
+
+| Fonte | Link | Cosa documenta in modo autorevole | Track |
+|---|---|---|---|
+| Kolash, novità di HOME 4.1.0 (in spagnolo) | https://www.youtube.com/watch?v=AI1ZdVQ6DfU | letto per intero il 2026-10-05 dalla trascrizione: HOME 4.1.0 il 2026-10-07 con Rosso Fuoco e Verde Foglia per Switch, capienza da 6000 a 9000, Safari Ball di GO, manutenzione dalle 9 del 2026-10-07; un Celebi da evento legato al Pokédex di HOME e a Rosso Fuoco e Verde Foglia, da verificare sulla pagina ufficiale; una voce non confermata su porte di Rubino e Zaffiro per Switch l'8 ottobre | PKD |
+| Papa Jefé, terza generazione online da qualsiasi dispositivo | https://www.youtube.com/watch?v=HumbRODFZyI | letto per intero il 2026-10-05 dalla trascrizione: GB-Link con Celio e una scheda ESP32 scambiano fra GBA, emulatori e Switch o Switch 2; per la Switch servono le `prod.keys`, che il conduttore estrae con Lockpick_RCM da una Switch modificata; scambio da Rubino su GBA verso Switch 2 riuscito, battaglia fra due Switch in crash | LDN, PKD |
+| switch.gblink.io | https://switch.gblink.io | letto il 2026-10-05 con curl, HTTP 200: scambio e lotta con Rosso Fuoco e Verde Foglia per Switch da un GBA reale o da file `.pk3`, invio di carte di dono segreto al gioco per Switch, aggiramento del requisito del Pokédex Nazionale, quattro chiavi da `prod.keys` alla scheda via USB senza caricamento in rete | LDN, PKD, EVT |
+| gblink.io e la pagina CrowdSupply | https://gblink.io | letti il 2026-10-05 (sintesi di WebFetch, non testo integrale): adattatore GB-Link USB V2 in prevendita su CrowdSupply, firmware aperto su GitHub, ponte verso il netplay di RetroArch; le sottopagine di CrowdSupply provate rispondono 404 | LDN |
+| SuperPokeMaster | https://superpokemasteroficial.es/ | letto il 2026-10-05 (sintesi di WebFetch): venditore di esemplari generati per HOME, Pokédex complete, pacchetti di eventi e account; non dichiara né consegna né strumenti né elenco degli eventi, quindi non serve da catalogo | PKD |
+| PkDexTrade | https://www.pkdextrade.com/ | letto il 2026-10-05 (sintesi di WebFetch), sottopagine non aperte: strumento di scambio con creazione di esemplari e consegna automatica, e un Pokédex di Leggende Z-A con gli incontri legali per specie, possibile riscontro per `STUDIO-SWITCH.md` | PKD |
+| switch.hacks.guide | https://switch.hacks.guide | letta la sola pagina iniziale il 2026-10-05: tratta le Switch di prima generazione non corrette e con modchip fino ad Atmosphère; la Switch 2 non c'è | LDN |
+| RetroArch | https://www.retroarch.com | letta la pagina iniziale il 2026-10-05: niente sul cavo link del GBA né sulla Switch | LDN |
+
+Esclusi per scelta: i collegamenti di Etsy e Amazon nella descrizione del video di Papa Jefé, che sono acquisti, e il server Discord di GBLink, per ADR-093.
 
 ## Livello 5: forum e community
 
@@ -784,11 +816,10 @@ Rispondono a domande che non hanno una risposta scritta altrove. Una risposta in
 | MankeyMite, Discord | https://discord.com/invite/rjQGPhG7e3 | esportato il 2026-09-01 con ventiquattro canali e centounomilaottocentodiciassette messaggi, e interrogato per le domande che il progetto aveva dichiarato aperte invece di essere letto: la sintesi con le attribuzioni sta in `poke-ace/STUDIO-03-la-risposta-della-comunita-e-le-due-severita.md`. È la fonte che corregge la parte più importante dello Studio 01, perché stabilisce che i verificatori sono tre con severità decrescente, cioè lo strumento della comunità che pretende la corrispondenza fra valore di personalità e identificativi, il servizio che rileva i soli errori clamorosi come un luogo di incontro impossibile, e il gioco competitivo che squalifica. Porta inoltre quattro fatti che il progetto non aveva: il tracciatore univoco che il servizio assegna a ogni esemplare in ingresso, che rende l'esame permanente invece che istantaneo; la via composta per la terza generazione, che era un'inferenza marcata come tale e ora è attribuita al suo autore, e che non richiede lo scambio in rete perché l'esemplare si ricostruisce dentro la riedizione; il fatto che l'esecuzione di codice funzioni sulla riedizione per console moderna, con codici diversi da quelli su cartuccia per via del filtro sulle parole vietate; e la cifra di quattrocento esemplari da distribuzione, con la dichiarazione che non si finisce prima della chiusura del servizio. L'utente ne fa parte. È il server dedicato all'esecuzione di codice arbitrario in terza generazione, e il suo canale `ace-links` è la fonte dell'inventario degli strumenti registrato ai livelli superiori: l'elenco è stato consegnato dall'utente il 2026-08-31. Va corretta una valutazione mia del medesimo giorno: nell'inventario dei server accessibili avevo marcato questo come non valutato e presumibilmente personale, sulla base del solo nome, e non lo è. Il server è pertinente e va aggiunto alla tabella dei canali di `tools/export-discord.py` | ACE, EVT |
 | berichandev, canale di trasmissione | https://www.twitch.tv/berichandev | letto il 2026-09-01 su consegna dell'utente come schermata del canale in diretta, che è la quarta via della regola sulle fonti non recuperabili ed è bastata perché i pannelli descrittivi contengono per esteso le quattro cose che si cercavano. Il servizio è attivo. Opera su cinque titoli, cioè i due dell'ottava generazione, le riedizioni della quarta, il primo titolo a mondo aperto, i due della nona e il titolo più recente, ciascuno con un comando di richiesta proprio e un'attesa dichiarata nell'ordine dei decimi di minuto. Dichiara di soddisfare gratuitamente qualunque richiesta di esemplare cromatico, e mostra fra i propri programmi automatici uno dedicato ai leggendari della nona generazione qualificati come conformi al deposito in rete. Il canale ospita insieme una seconda attività distinta, cioè incontri di gruppo a lucentezza forzata, dove l'esemplare lo si cattura da sé e la provenienza è quindi diversa. Due esiti vanno registrati come tali. Il primo è una correzione alla fonte di quarto livello che descriveva questo servizio al settembre 2025: il nome dell'allenatore non è più fisso, e i pannelli dichiarano che l'esemplare viene inviato con l'identificativo e il nome di allenatore del richiedente dove ciò sia possibile. Cade quindi il criterio di riconoscimento più economico che esistesse, mentre non cade nulla di ciò che riguarda la storia dell'esemplare. Il secondo è una tensione con la medesima fonte che il progetto non può risolvere leggendo: il servizio dichiara ogni richiesta conforme, mentre quella fonte afferma che un esemplare che non possa esistere senza essere passato dal deposito viene atteso con una storia di tracciatore che non c'è. Le due affermazioni non sono compatibili nel caso dei leggendari, e si risolvono con una misura e non con una terza fonte, cioè aprendo un esemplare ricevuto con il verificatore di conformità. La descrizione precedente, del 2026-08-31, resta qui per memoria di come la fonte era catalogata prima di essere letta. La fonte di quarto livello letta quel giorno lo identifica come il servizio di generazione gratuito più diffuso, e dichiara che non consente di scegliere il nome dell'allenatore di provenienza, il quale resta il proprio: ne segue che ogni esemplare così ottenuto è riconoscibile come costruito, e la fonte lo scrive senza attenuazioni. Quella descrizione è però al settembre 2025 e in questo dominio un anno è molto: ciò che manca e che soltanto la fonte diretta può dare è lo stato corrente, cioè se il servizio sia ancora attivo, su quali titoli operi oggi, se il nome dell'allenatore sia ancora fisso, e quali specie e forme copra. L'ultima delle quattro è la domanda che dice se il track serva all'obiettivo o soltanto lo tocchi | GEN |
 | Pokemon HOME Checklist, Living Dex e marchi di origine | https://jacs720.github.io/Home-Checklist/ | letta il 2026-08-31, e il modo va dichiarato perché qualifica il grado di fiducia. La pagina è una applicazione a pagina singola e una richiesta HTTP ne restituisce il solo involucro: il contenuto è stato ricavato sondando per costanti il fascio JavaScript compilato, da cui enumerazioni, valori di configurazione ed etichette di interfaccia sono leggibili in chiaro anche dopo la minimizzazione. Ne è venuto il modello dei dati completo, cioè undici marchi di origine fra cui uno dedicato alla terza generazione e trattato nel codice come non ancora ottenibile, undici collezioni di provenienza speciale, quindici profili di collezione predefiniti, quattro livelli di reperibilità di cui uno esplicitamente ipotetico, e l'insieme dei ventitré mitici da evento. Il catalogo delle singole specie non è stato enumerato, perché non compare in chiaro e nessun servizio di dati esterno lo fornisce. La sintesi sta in `poke-ace/STUDIO-02-marchi-di-origine-e-che-cosa-conta-una-collezione.md` | ACE, GEN, EVT |
-| Pokemon Multiplayer Research, Discord | https://discord.gg/nBnTrv3UMn | 377 membri, l'utente ne fa parte dal 2026-08-26 su segnalazione di uno degli autori dei video. È il più utile dei cinque per il track LDN, e ha già prodotto la sola testimonianza di campo che il progetto possiede sulle schede Wi-Fi capaci di modalità monitor, cioè che un TP-Link AC600 funziona mentre una Intel Pro Wireless 5100 AGN integrata non funziona. Il canale da guardare è quello di supporto, dove si allestisce il gioco in rete locale fra emulatore e console | LDN, BRI |
-| PRET, Discord | https://discordapp.com/invite/vdTW48Q | la community dei disassemblati e delle decompilazioni, cioè gli autori delle fonti di livello 1 di questo progetto. La struttura dei canali, vista il 2026-08-26, ha una sezione per ciascun disassemblato, cioè pokered, pokecrystal, pokeruby, pokefirered, pokeemerald e i quattro di quarta generazione, più i canali di contribuzione asm2c e git e uno di risorse: ne segue che una domanda sui formati va nel canale del gioco pertinente e non in uno generico. La domanda che il progetto ha in sospeso per loro è la formula esatta di conversione da Stat Experience a Effort Value, che nessuna implementazione pubblica pubblica | BRI, SME |
+| PRET, Discord | https://discordapp.com/invite/vdTW48Q | la community dei disassemblati e delle decompilazioni, cioè gli autori delle fonti di livello 1 di questo progetto. La struttura dei canali, vista il 2026-08-26, ha una sezione per ciascun disassemblato, cioè pokered, pokecrystal, pokeruby, pokefirered, pokeemerald e i quattro di quarta generazione, più i canali di contribuzione asm2c e git e uno di risorse: ne segue che una domanda sui formati va nel canale del gioco pertinente e non in uno generico. La domanda che il progetto ha in sospeso per loro è la formula esatta di conversione da Stat Experience a Effort Value, che nessuna implementazione pubblica pubblica Stato al 2026-10-05, fuori perimetro: Discord fermo per decisione del proprietario: Invito al Discord PRET. | BRI, SME |
 | Glitch City Research Institute, Discord | https://discord.com/invite/EA7jxJ6 | la community che studia i glitch e l'esecuzione di codice arbitrario in generazione 1 e 2, cioè esattamente la tecnica su cui poggia il trasferimento vero invece della clonazione. La domanda in sospeso per loro è se il vettore che PokeTransporter GB usa, cioè l'identificativo interno 0xFC in coda a una squadra di 352 Pokemon, coincida con il punto di ingresso noto come TRAINER 4: è una congettura del progetto e non è verificata | BRI |
-| GBAdev, Discord | https://discord.gg/ctGSNxRkg2 | la community dello sviluppo homebrew su Game Boy Advance e della sua toolchain, citata dall'autore di PokeTransporter GB come una delle due risorse che gli hanno permesso di partire senza esperienza sulla piattaforma. La domanda in sospeso per loro è se qualcuno abbia già collaudato il protocollo del cavo contro BGB via TCP, perché è il collaudo che il progetto intende fare e vale sapere in anticipo dove si rompe | BRI |
-| Hex Maniac Advance, Discord | https://discord.com/invite/x9eQuBg | la community dell'editing di ROM di terza generazione, che serve ai due track che toccano Gen 3, cioè la correzione dello zaino di Smeraldo e il lato di destinazione del ponte | BRI, SME |
+| GBAdev, Discord | https://discord.gg/ctGSNxRkg2 | la community dello sviluppo homebrew su Game Boy Advance e della sua toolchain, citata dall'autore di PokeTransporter GB come una delle due risorse che gli hanno permesso di partire senza esperienza sulla piattaforma. La domanda in sospeso per loro è se qualcuno abbia già collaudato il protocollo del cavo contro BGB via TCP, perché è il collaudo che il progetto intende fare e vale sapere in anticipo dove si rompe Stato al 2026-10-05, fuori perimetro: Discord fermo per decisione del proprietario: Invito al Discord GBAdev. | BRI |
+| Hex Maniac Advance, Discord | https://discord.com/invite/x9eQuBg | la community dell'editing di ROM di terza generazione, che serve ai due track che toccano Gen 3, cioè la correzione dello zaino di Smeraldo e il lato di destinazione del ponte Stato al 2026-10-05, fuori perimetro: Discord fermo per decisione del proprietario: Invito al Discord Hex Maniac Advance. | BRI, SME |
 | Project Pokemon, protocollo Link Gen 1 | https://projectpokemon.org/home/forums/topic/58858-generation-1-link-protocol/ | letto: un gruppo ha costruito un dispositivo che fa da sorgente di clock per il protocollo, ha collaudato su BGB e ha completato scambi via internet fra due Game Boy reali nel 2021; da qui viene la scoperta dell'organizzazione CableClub | BRI |
 | Project Pokemon, salvataggio Smeraldo corrotto | https://projectpokemon.org/home/forums/topic/61118-pok%C3%A9mon-emerald-gba-corrupt-save-file/ | letto: su cartuccia contraffatta entrambi gli slot contenevano un salvataggio d'inizio partita e i dati non erano corrotti ma assenti; insegna a distinguere corruzione da perdita, e che la dimensione dichiarata al software di dump cambia ciò che si legge | SME |
 | Project Pokemon, algoritmo di generazione degli eventi Gen 3 | https://projectpokemon.org/home/forums/topic/39517-gen-3-event-generation-algorithm-research-10anniv-etc/ | letta il 2026-08-29 e utile per una cosa sola: dice come la conoscenza dei metodi è stata ottenuta, cioè per reverse engineering a partire da campioni raccolti e non da una specifica, il che spiega perché alcuni eventi restino non chiusi e perché la richiesta pubblica di campioni sia il modo in cui quella ricerca avanza. Riporta che il metodo di uno degli eventi dei negozi è stato risolto come variante a semi non ristretti in cui la metà alta del valore di personalità è in or esclusivo con la metà bassa, con l'identificativo dell'allenatore e con quello segreto. Sul dettaglio non è citabile: la forma consolidata della medesima conoscenza è la tabella di PKHeX | EVT |
@@ -797,18 +828,17 @@ Rispondono a domande che non hanno una risposta scritta altrove. Una risposta in
 | GBAtemp, salvataggio Smeraldo non scrivibile | https://gbatemp.net/threads/save-failed-on-real-pokemon-emerald.645336/ | letto dagli screenshot dell'utente ed è il thread più importante per il track Smeraldo: su cartuccia genuina il messaggio di salvataggio fallito indica che la memoria di salvataggio sta cedendo, perché quella schermata compare quando vengono rilevati blocchi difettosi sul chip flash. Il consiglio dei rispondenti è dumpare subito il salvataggio finché si carica ancora, con un lettore USB o con l'homebrew GBA Backup Tool su Nintendo DS con flashcart, e ricostruirlo poi da un salvataggio funzionante | SME |
 | GBAtemp, scrittura su cartuccia senza batteria | https://gbatemp.net/threads/gba-unlicensed-batteryless-sram-cart-pokemon-emerald-save-writing-issues.681601/ | letto dagli screenshot dell'utente: su una cartuccia di riproduzione senza batteria il salvataggio vive in SRAM da 64 KiB a 0xFC0000, e scriverci un salvataggio da 128 KiB fallisce sempre. La diagnosi che l'autore raggiunge da solo in due giorni è che la firma attesa 0x08012025 non compare nel dump, che è esattamente il controllo che il nostro strumento fa in una riga; PKHeX rifiuta quel dump per dimensione non supportata. Il rimedio indicato è usare una ROM con patch da 64 KiB e un salvataggio da 64 KiB coerente | SME |
 | GBAtemp, LDN3 su console modificata | https://gbatemp.net/threads/ryujinx-adds-ldn3-feature-allowing-emulator-users-to-play-online-with-cfw-switch-consoles.622169/ | letto dagli screenshot dell'utente e ha reso poco: è il thread di commento a una notizia del novembre 2022, e la discussione riguarda il confronto fra emulatore e console originale, non l'allestimento. Nessuna testimonianza tecnica sulle schede Wi-Fi, che invece è arrivata dal Discord Pokemon Multiplayer Research | LDN |
-| GBAtemp, tutorial sui problemi di salvataggio | https://gbatemp.net/threads/tutorial-fix-all-save-problems-for-pokemon-games-vc-gba.433266/ | scoperto dentro il thread sul salvataggio fallito, dove viene indicato come la guida da seguire quando compare il messaggio di salvataggio corrotto. Non letto: GBAtemp risponde 403 al recupero automatico, e serve uno screenshot o un salvataggio della pagina | SME |
+| GBAtemp, tutorial sui problemi di salvataggio | https://gbatemp.net/threads/tutorial-fix-all-save-problems-for-pokemon-games-vc-gba.433266/ | letto il 2026-10-05 dalla copia della Wayback Machine (HTTP 200; il sito dal vivo risponde 403) e già in `docs/mappa-fonti/gbatemp-vc-save.md`: la prima parte modifica la ROM .gba per poter salvare nei CIA (stringa `D0 88 8D 83 42`), la seconda toglie il messaggio di salvataggio corrotto con offset per Rubino, Zaffiro e Smeraldo in inglese e francese; nei commenti si chiedono gli offset per Rosso Fuoco e Verde Foglia senza ricevere risposta | SME |
 | insideGadgets | https://shop.insidegadgets.com/product/gbxcart-rw/ | il produttore del lettore usato dal track Smeraldo, con la documentazione del prodotto | SME, BRI, BAT |
 | insideGadgets, canale di assistenza su Discord | https://discord.gg/YQ5Bkzy | esportato il 2026-08-31 e letto per filtri il 2026-09-01: cinquantaquattromilasettecentocinquantuno messaggi, dai quali sono state estratte le testimonianze su cui poggia il runbook della batteria. È la fonte di ciò che nessuna documentazione di prodotto scrive, perché nessun produttore documenta i modi in cui il proprio strumento distrugge un dato. Quattro risultati vanno nominati. Il trabocchetto di tensione: nella revisione in cui la tensione è controllata dal software l'interfaccia parte a tre virgola tre volt, e inserire una cartuccia di seconda generazione in quella condizione cancella il salvataggio anche senza premere il pulsante di connessione, con un rimedio che è una sequenza e non un'impostazione. La soglia di ritenzione della memoria, fra uno virgola otto e due volt, che trasforma la diagnosi da nozione in misura. La prova per sapere se la pila tenga ancora, cioè salvataggio nuovo, spegnimento, cinque minuti di attesa e riaccensione. E la sequenza in tre passi per rimettere in ordine l'orologio della seconda generazione dopo la sostituzione. Sul track Smeraldo risponde inoltre alla domanda aperta sui driver del convertitore seriale: su Windows sono inclusi soltanto in alcune versioni, e la firma del problema è il punto esclamativo giallo nella gestione dispositivi | BAT, SME, BRI |
 | reddit r/Gameboy | https://www.reddit.com/r/Gameboy/ | hardware, riparazioni, lettori di cartucce; non leggibile automaticamente | SME, BRI |
-| reddit r/3dshacks | https://www.reddit.com/r/3dshacks/ | modding del 3DS e problemi di installazione; non leggibile automaticamente | 3DS |
-| reddit r/PokemonROMhacks | https://www.reddit.com/r/PokemonROMhacks/ | ROM hacking e strumenti su Gen 3; non leggibile automaticamente | BRI, SME |
+| reddit r/3dshacks | https://www.reddit.com/r/3dshacks/ | modding del 3DS e problemi di installazione; non leggibile automaticamente Stato al 2026-10-05, strumento o sito generico: Pagina principale della sottocomunità r/3dshacks, nessun testo da leggere come fonte. | 3DS |
+| reddit r/PokemonROMhacks | https://www.reddit.com/r/PokemonROMhacks/ | ROM hacking e strumenti su Gen 3; non leggibile automaticamente Stato al 2026-10-05, strumento o sito generico: Pagina principale della sottocomunità r/PokemonROMhacks, nessun testo da leggere come fonte. | BRI, SME |
 | reddit r/PokemonHome, thread indicato dall'utente | https://www.reddit.com/r/PokemonHome/s/DrfatG6MJW | LETTO il 2026-09-07 con `tools/fetch-reddit.py`, dopo aver risolto il collegamento breve con un inseguimento dei reindirizzamenti che restituisce l'identificativo `1vynvjy`. Indicato il 2026-08-28 come contesto dell'obiettivo di collezione, e il contenuto lo conferma senza aggiungere tecnica: è l'annuncio di un utente che dichiara di avere portato tutte e milleventicinque le specie nel deposito, con ventotto commenti quasi tutti di congratulazioni. La sola cosa operativa che porta è il meccanismo con cui la comunità risolve una specie che non si può ottenere, cioè il prestito con restituzione fra due depositi, mostrato su Zarude: non riempie una casella in modo stabile e non sostituisce una via di produzione, ma è un canale che il progetto non aveva registrato. Il valore vero della corsa sta nei due post che questo rinvia, registrati nelle due righe seguenti | EVT |
 | reddit r/PokemonHome, come si riconosce un esemplare costruito | https://www.reddit.com/r/PokemonHome/comments/12vvhbk/ | letto il 2026-09-07, raggiunto in due passi di rinvio dal thread precedente attraverso le regole del canale. È la fonte più utile della corsa e tocca direttamente il perimetro di questo progetto, perché descrive dal di fuori i criteri con cui la comunità giudica un esemplare. Quattro cose vanno registrate. La prima è che l'unica prova positiva di legittimità è il contrassegno del gioco in realtà aumentata o quello di provenienza recente dal deposito, mentre il marchio di origine non prova nulla: ne segue che nessun esemplare prodotto da noi potrà mai essere dimostrato legittimo, e che la domanda corretta non è se sembri legittimo ma se sia conforme. La seconda è un rilevatore che l'utente possiede già e non sapeva di avere: se il deposito rifiuta di far scambiare un esemplare, il deposito lo ha già classificato come costruito, quindi la scambiabilità è una misura gratuita e ripetibile. La terza è la caratterizzazione del rischio, che differisce da quella della politica ufficiale già registrata: secondo l'autore l'esito più probabile non è la sospensione ma la trasformazione in uovo guasto. La quarta è l'elenco dei segnali di allarme, che è una lista di spunta applicabile ai nostri lotti: sei valori individuali perfetti, identificativo nullo o nome di allenatore sospetto, fiocchi in eccesso o mancanti rispetto al gioco di origine, lucentezza dove era vietata, mosse o abilità impossibili, e luogo di primo incontro uguale al primo luogo indicizzato nei file del gioco | EVT, ACE, GEN |
 | reddit r/PokemonHome, regole del canale | https://www.reddit.com/r/PokemonHome/comments/15o0lv6/ | letto il 2026-09-07 come nodo intermedio della corsa. Non porta contenuto tecnico ma è il raccoglitore che rinvia alla guida della riga precedente, ed è la prova sul campo della premessa dello strumento: il nodo di partenza non conteneva nulla di utile e il valore stava a due passi di distanza nel grafo dei rinvii | EVT |
 | Arctic Shift, archivio pubblico di Reddit | https://arctic-shift.photon-reddit.com | la settima via della regola sulle fonti non recuperabili, adottata il 2026-09-07 e provata contro il servizio reale. Successore di Pushshift, conserva una copia dei contenuti pubblici di Reddit e ne espone di propria iniziativa un'interfaccia programmatica documentata, senza credenziali. Sblocca da sola tutte le voci Reddit di questo registro, che dal 2026-08-25 erano catalogate e non lette. Le due debolezze sono strutturali e dichiarate: ha latenza, quindi un post recente può mancare e la sua assenza non prova che non esista; e conserva ciò che su Reddit è stato cancellato, quindi l'identificativo dell'autore viaggia accanto al contenuto perché una richiesta di cancellazione mirata resti eseguibile. Lo strumento che la percorre è `tools/fetch-reddit.py` | tutti |
-| tswann89, elenco dei produttori noti di esemplari costruiti | https://tswann89.github.io/PokemonSV/blacklist | catalogata e non letta, trovata il 2026-09-07 fra i rinvii della guida sul riconoscimento. È un elenco di nomi di allenatore associati alla produzione di esemplari, mantenuto dalla comunità. Serve a una domanda sola e va letta soltanto quando quella domanda si pone: se la coppia di identificativi scelta per l'allenatore del progetto collida con una di quelle. Il criterio che guidò la scelta il 2026-09-04 escludeva gli identificativi delle distribuzioni storiche e le forme riconoscibili come costruite, e non conosceva questo elenco | EVT |
-| reddit r/pokemonrng | https://www.reddit.com/r/pokemonrng/ | generatore pseudocasuale, valore di personalità e legalità; non leggibile automaticamente | BRI |
+| tswann89, elenco dei produttori noti di esemplari costruiti | https://tswann89.github.io/PokemonSV/blacklist | letta il 2026-10-05: la pagina carica un foglio Google pubblico che esportato in CSV (HTTP 200) dà 2136 righe con nome dell'allenatore, identificativo e motivo (Hacking 1591, Cloning 293, Scammer 197, Illegitimate 52, Injected Raid 3) e un nome utente Discord, che non va copiato nel repository. Resta da fare il confronto con la coppia di identificativi scelta il 2026-09-04, che questa lettura non ha eseguito | EVT |
 
 ### Archivi di salvataggi contribuiti, letti il 2026-09-02
 
@@ -822,7 +852,7 @@ Ciò che rende questi archivi utilizzabili non è la loro autorevolezza ma la ve
 | Forum Community, salvataggi della serie principale | https://pokemon.forumcommunity.net/?t=63088833 | otto salvataggi in lingua italiana, da Rosso Fuoco a UltraSole, dichiarati con storia completata, Pokedex completo e valori massimizzati. Verificato il 2026-09-02 che tutti e otto sono integri e del gioco dichiarato; la dichiarazione sui valori massimizzati è coerente con esemplari costruiti e non ottenuti giocando, quindi questi salvataggi valgono come banco di prova dei formati e non come sorgente di esemplari | PKD |
 | PokeWorld WiFi, salvataggi di quarta e quinta generazione | https://pokeworldwifi.forumfree.it/?t=64753881 | tre salvataggi italiani, due di Sinnoh e uno di Unima, con la descrizione di ciò che resta da catturare in ciascuno. Il salvataggio di Diamante dichiara Manaphy e il Jirachi del canale televisivo nella seconda scatola, che è interessante perché quel Jirachi è la sola voce del catalogo degli eventi che il nostro generatore dichiara fuori portata. Verificato il 2026-09-02 che i tre file sono integri e riconosciuti come Diamante o Perla i primi due e come i seguiti di Unima il terzo | PKD, EVT |
 | Pokemon Chat, salvataggio di Rosso Fuoco | https://pokemonchat.forumcommunity.net/?t=56987893 | un solo salvataggio, dichiarato iniziato nel 2010 e completato senza trucchi tranne alcune eccezioni che il suo autore elenca, fra cui un esemplare con statistiche impossibili. Verificato il 2026-09-02: integro, Rosso Fuoco, allenatore con centosettantotto ore di gioco, duecentottantatre esemplari nel deposito di cui centonove cromatici e tredici uova. È il salvataggio della raccolta che più somiglia a una partita vera, e l'autore dichiara i propri interventi invece di tacerli, che è la ragione per cui è citabile | PKD |
-| r/PokemonHome, il foglio del living dex | https://www.reddit.com/r/PokemonHome/s/1BqkNHm7xT | la discussione che indica il foglio di calcolo comunitario del living dex, ed è il livello di dettaglio che questo progetto vuole raggiungere fino alla specie 1025 | PKD |
+| r/PokemonHome, il foglio del living dex | https://www.reddit.com/r/PokemonHome/s/1BqkNHm7xT | la discussione che indica il foglio di calcolo comunitario del living dex, ed è il livello di dettaglio che questo progetto vuole raggiungere fino alla specie 1025 Stato al 2026-10-05, letta ora: Il link breve porta al post 1eqm84y (Arctic Shift): guida con foglio Google del living dex di tutte le forme, revisione di quello di u/paperninja-, per regione, con colonne Box, Bank e Home; aggiornamenti futuri annunciati per versioni esclusive. | PKD |
 | Foglio del living dex, in sola lettura | https://docs.google.com/spreadsheets/u/0/d/1fW_BE208ziLMgFlvS-k2XyLulo_GztxcznAfgElGSQ4/htmlview?pli=1 | il foglio comunitario che elenca le voci da possedere; scaricato in locale come `_notes/fonti/consegne/spreadsheets-home/LivingDex Spreadsheet.xlsx` | PKD |
 | r/PokemonHome, discussione sul foglio | https://www.reddit.com/r/PokemonHome/s/A5mNdvHcE4 | la discussione da cui il foglio è stato raggiunto, consegnata come schermate dalla 43 alla 47 | PKD |
 | r/PokemonHome, i Pokemon di N | https://www.reddit.com/r/PokemonHome/s/YDb38ZFGLJ | l'elenco dei Pokemon del personaggio N di quinta generazione, che sono una categoria a sé con identificativi propri; consegnata come schermate dalla 71 alla 75 | PKD, EVT |
@@ -830,7 +860,7 @@ Ciò che rende questi archivi utilizzabili non è la loro autorevolezza ma la ve
 | r/PokemonHome, informazioni tecniche | https://www.reddit.com/r/PokemonHome/s/00gpFvJHo4 | discussione tecnica sul deposito, consegnata come schermate dalla 76 alla 101, ancora da spogliare | PKD |
 | r/PokemonHome, la chiusura della banca | https://www.reddit.com/r/PokemonHome/s/5KIb8SiyWK | discussione sulla chiusura del servizio con altri collegamenti nei commenti, consegnata come schermate dalla 102 alla 111; da spogliare, e i collegamenti nei commenti sono debito di lettura dichiarato | PKD, 3DS |
 | Lista di controllo per la chiusura della banca, versione 0.5 | https://docs.google.com/spreadsheets/d/14QTf2q3rRFlaIqHxigfFyKiKZdL9o6uc_bQE-OtOTwk/edit?gid=1932480820 | foglio comunitario che elenca tutto ciò che va fatto prima della chiusura del servizio; scaricato in locale come `_notes/fonti/consegne/spreadsheets-home/Bank Closing all possible things checklist V0.5.xlsx` | PKD, 3DS |
-| Foglio del living dex, scheda di lavoro | https://docs.google.com/spreadsheets/d/1fW_BE208ziLMgFlvS-k2XyLulo_GztxcznAfgElGSQ4/edit?gid=673849431 | la stessa cartella già registrata in sola lettura, aperta però su una scheda precisa; l'identificativo della scheda fa parte dell'indirizzo e va conservato, perché una cartella di calcolo con più schede non è un documento solo | PKD |
+| Foglio del living dex, scheda di lavoro | https://docs.google.com/spreadsheets/d/1fW_BE208ziLMgFlvS-k2XyLulo_GztxcznAfgElGSQ4/edit?gid=673849431 | la stessa cartella già registrata in sola lettura, aperta però su una scheda precisa; l'identificativo della scheda fa parte dell'indirizzo e va conservato, perché una cartella di calcolo con più schede non è un documento solo Stato al 2026-10-05, letta ora: Esportato in CSV il foglio con gid 673849431: è la scheda di Paldea, 135 righe (Dex 906-1025 più forme paldee), scatole 46-50, con colonne Sesso, GMax, Esclusiva, Bank, Home, Forma. | PKD |
 | r/PokemonHome, dai giochi derivati a quelli principali | https://www.reddit.com/r/PokemonHome/s/2mcgR0kgev | consegnata come schermate dalla 122 alla 132 il 2026-09-07, e tocca precisamente la categoria su cui il censimento del medesimo giorno ci ha trovati ciechi, cioè le consegne che non lasciano una carta. Nomina come canali verso i giochi principali il Mondo dei Sogni, chiuso nel 2014, la serie Ranger con l'uovo di Manaphy, Colosseum e XD con il fiocco che si ottiene soltanto purificando un esemplare ombra, il cercatore in realtà aumentata, Battle Revolution con tre esemplari in omaggio, e i due programmi di deposito su console domestica. È materiale di community e vale come indicazione di dove guardare, non come fonte verificata: ciascun canale va poi confermato sul censimento o sulla base dei doni | EVT, PKD |
 | r/PokemonHome, elenco degli eventi ancora disponibili | https://www.reddit.com/r/PokemonHome/comments/1i3ikns/list_of_still_available_event_and_unique_pok%C3%A9mon/ | consegnata come schermate dalla 136 alla 147 il 2026-09-07 e non ancora presente nel registro. È un elenco compilato dalla community degli eventi e degli esemplari unici tuttora ottenibili, quindi una fonte sulla ottenibilità e non sulla esistenza: serve al controllo incrociato opposto a quello di Serebii, che dice che cosa è esistito, perché questa dice che cosa è ancora raggiungibile. Da spogliare e confrontare con la partizione fra ciò che scade e ciò che non scade | EVT, PKD |
 | Foglio del catalogo per coppia di sessi | https://www.reddit.com/r/PokemonHome/comments/1djbdm0/ | definisce operativamente il profilo detto dell'arca, cioè un esemplare per ciascuno dei due sessi di ogni specie e di ogni forma, e conferma per via indipendente le 63 configurazioni della specie il cui dolcetto non è un campo della forma | PKD |
@@ -974,7 +1004,6 @@ Due voci vanno segnalate a parte perché l'utente le aveva già procurate a mano
 | 8) Shiny Hunting / General tips | 2 | Shiny locked encounters | https://bulbapedia.bulbagarden.net/wiki/List_of_unobtainable_Shiny_Pok%C3%A9mon |
 | 9) RNG Manipulation and Glitches / RNG Manipulation - the best sources to start | 3 | Pokemonrng.com. Titolo della fonte: Retail Emerald Egg RNG | https://www.pokemonrng.com/retail-emerald-egg/ |
 | 9) RNG Manipulation and Glitches / RNG Manipulation - the best sources to start | 3 | RNG on retail overview. Titolo della fonte: Retail Pokémon RNG / Tutorials for Pokémon RNG Manipulation | https://retailrng.com/ |
-| 9) RNG Manipulation and Glitches / RNG Manipulation - the best sources to start | 5 | Reddit RNG manip | https://www.reddit.com/r/pokemonrng/ |
 | 9) RNG Manipulation and Glitches / RNG Manipulation - the best sources to start | 3 | Smogon RNG overview. Titolo della fonte: RNG Mechanics - Smogon University | https://www.smogon.com/ingame/rng/ |
 | 9) RNG Manipulation and Glitches / Item Printer Gen 9 | 5 | Apriball RNG manip SV. Titolo della fonte: The Item Printer Trick: A Guide to Apriball Hoarding, di MaryHadALittleDog | https://www.reddit.com/r/PokePortal/comments/1c3c0n8/the_item_printer_trick_a_guide_to_apriball/ |
 | 9) RNG Manipulation and Glitches / Item Printer Gen 9 | 5 | Pokeball RNG manip SV. Titolo della fonte: Item Printer Cheatsheet: Pokeball Edition, di Gimikyu_ | https://www.reddit.com/r/PokePortal/comments/1e3ga7e/item_printer_cheatsheet_pokeball_edition/ |
@@ -983,9 +1012,9 @@ Due voci vanno segnalate a parte perché l'utente le aveva già procurate a mano
 | 9) RNG Manipulation and Glitches / ACE coding in Gen 2 & Gen 3 | 5 | ACE whole Thread + comments. Titolo della fonte: Step by step guides on using ACE to break Gold, Silver and Crystal, applicable for all language releases, di TimoVM | https://www.reddit.com/r/pokemon/comments/17ldkt1/step_by_step_guides_on_using_ace_to_break_gold/ |
 | 9) RNG Manipulation and Glitches / ACE coding in Gen 2 & Gen 3 | 5 | ACE Gen 2. Titolo della fonte: 8F + Coincase = Shiny Mew and Shiny Celebi - First Time Using a Pokemon Glitch outside Missingno!, di Hour_Training_832 | https://www.reddit.com/r/PokemonGlitches/comments/1cutdr9/comment/l4lckny/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1 |
 | 9) RNG Manipulation and Glitches / ACE coding in Gen 2 & Gen 3 | 3 | ACE Gen 3. Titolo della fonte: ACE3 / Tutorial for gen3 ACE | https://e-sh4rk.github.io/ACE3/ |
-| Commenti al post | 5 | here | https://www.reddit.com/r/PokemonHome/s/eAV1QP76Dh |
+| Commenti al post | 5 | here Stato al 2026-10-05, già letta: Il link breve porta al post 15o0lv6 (regole di r/PokemonHome), già letto: SOURCES.md riga 835 e copia in _notes/fonti/reddit/reddit-pokemonhome-1vtj5hf-2026-09-08/. | https://www.reddit.com/r/PokemonHome/s/eAV1QP76Dh |
 | Commenti al post | 2 | Serebii.net Event Database | https://www.serebii.net/events/ |
-| Commenti al post | 5 | senza descrizione | https://www.reddit.com/r/PokemonHome/s/EluL4buXeT |
+| Commenti al post | 5 | senza descrizione Stato al 2026-10-05, già letta: Il link breve porta al post 1siu40m (tabella di connettività aggiornata di Muddy0258), già letto: pokedex-home-completo/LETTURA-DEL-CORPUS.md riga 365. | https://www.reddit.com/r/PokemonHome/s/EluL4buXeT |
 
 ### Le fonti che un livello non lo hanno
 
@@ -1012,7 +1041,7 @@ Non sono di qualità inferiore: sono di natura tale che il criterio dei livelli 
 | 1) Dex completions / Gen 9 | canale o video: la fonte citabile è la trascrizione, non la pagina | How to get all 19 Vivillon patterns in Pokemon Scarlet and Violet | https://www.youtube.com/watch?v=L27WJgiAfAE |
 | 1) Dex completions / Spinoffs | richiede autenticazione: non recuperabile dagli strumenti di sessione | Current GO Home dex | https://x.com/gohomedex |
 | 3) Collections of one Pokemon species | richiede autenticazione: non recuperabile dagli strumenti di sessione | Misty mark in SV | https://x.com/Sibun4a_Switch/status/1930459094202163632 |
-| 5) Other lists and spreadsheets | canale o video: la fonte citabile è la trascrizione, non la pagina | Cherish ball dex | https://www.youtube.com/watch?app=desktop&v=mGM_nNGAEgU |
+| 5) Other lists and spreadsheets | canale o video: la fonte citabile è la trascrizione, non la pagina | Cherish ball dex Stato al 2026-10-05, già letta: Video mGM_nNGAEgU (Cherish ball dex) già trascritto: residuo-corpus.csv lo dà «trascritto», estratto con 13 affermazioni verificate. | https://www.youtube.com/watch?app=desktop&v=mGM_nNGAEgU |
 | 8) Shiny Hunting / Gen 4 | canale o video: la fonte citabile è la trascrizione, non la pagina | Gen 4 Pokeradar | https://youtu.be/AIslziEvNIU?si=ztdU_rYWgxwSsQuH |
 | 8) Shiny Hunting / Gen 6 | canale o video: la fonte citabile è la trascrizione, non la pagina | Horde Hunting | https://www.youtube.com/watch?v=fMf-n-MbkuU |
 | 8) Shiny Hunting / Gen 6 | canale o video: la fonte citabile è la trascrizione, non la pagina | Chain Fishing | https://www.youtube.com/watch?v=JgvW8fha7k4 |
@@ -1023,7 +1052,6 @@ Non sono di qualità inferiore: sono di natura tale che il criterio dei livelli 
 | 8) Shiny Hunting / Spinoffs | canale o video: la fonte citabile è la trascrizione, non la pagina | Grand underground shiny hunting BDSP | https://www.youtube.com/watch?v=Ab7CrjKRdco |
 | 8) Shiny Hunting / Spinoffs | canale o video: la fonte citabile è la trascrizione, non la pagina | Shiny hunting with donuts in Mega Dimensions in PLZA | https://www.youtube.com/watch?v=P1fxsWWvX6c |
 | 9) RNG Manipulation and Glitches / RNG Manipulation - the best sources to start | canale o video: la fonte citabile è la trascrizione, non la pagina | YT I'm a blisy | https://www.youtube.com/@imablisy |
-| 9) RNG Manipulation and Glitches / RNG Manipulation - the best sources to start | canale o video: la fonte citabile è la trascrizione, non la pagina | YT Lazyhunter | https://www.youtube.com/@ItsLazyHunter |
 | 9) RNG Manipulation and Glitches / RNG Manipulation - the best sources to start | canale o video: la fonte citabile è la trascrizione, non la pagina | Cute Charm Glitch | https://www.youtube.com/watch?v=os0AOt1VMi0 |
 | 9) RNG Manipulation and Glitches / Item Printer Gen 9 | canale o video: la fonte citabile è la trascrizione, non la pagina | Item RNG manip SV | https://www.youtube.com/watch?v=RvCZ_tHfsMA&list=LL&index=91&t=288s&pp=gAQBiAQB0gcJCd4JAYcqIYzv |
 | 9) RNG Manipulation and Glitches / Glitches | canale o video: la fonte citabile è la trascrizione, non la pagina | YT Pape Jefe | https://www.youtube.com/@PapaJefeYT/videos |
@@ -1116,31 +1144,14 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 | 1 | My guide on the Ribbon Master Challenge, di Athis_891 | scaricato | https://www.reddit.com/r/pokemonribbons/comments/pzzqt4/ |
 | 1 | New checklist for Collectors! Every In-Game Event Pokemon! Finish before pokebank goes away forever, di ChaBoiJish | scaricato | https://www.reddit.com/r/pokemontrades/comments/18y648l/ |
 | 1 | [DNS] Gen IV & V events (list inside), di JoseGamer33 | scaricato | https://www.reddit.com/r/wiimmfi/comments/fugd8l/ |
-| 2 | Video courtesy of u\/Gimikyu\_ | catalogato | https://reddit.com/link/1c3c0n8/video/f8gdakfb27uc1/player |
-| 2 | Video courtesy of u\/Gimikyu\_ | catalogato | https://reddit.com/link/1c3c0n8/video/ye30qbit17uc1/player |
-| 2 | shoot us a modmail and we'll restore your post | catalogato | https://reddit.com/message/compose?to=%2Fr%2FPokemonLetsGo |
-| 2 | Delete | catalogato | https://reddit.com/message/compose?to=xkcd_transcriber&subject=delete&message=delete+t1_dcwjpb8 |
-| 2 | Stop Replying | catalogato | https://reddit.com/message/compose?to=xkcd_transcriber&subject=ignore+me&message=ignore+me |
-| 2 | collegamento del post | catalogato | https://www.reddit.com/gallery/145ylee |
-| 2 | Nearly 13 years ago, I bred a Porygon2 for competitive use in BW during college. Now this digital duck has become one of my most treasured partners in every game since then up to this point. | catalogato | https://www.reddit.com/gallery/18n6upy |
-| 2 | collegamento del post | catalogato | https://www.reddit.com/gallery/1hy3b12 |
-| 2 | collegamento del post | catalogato | https://www.reddit.com/gallery/1p06clm |
-| 2 | ^(delete this message to hide from others.) | catalogato | https://www.reddit.com/message/compose?to=RemindMeBot&subject=Delete+Comment&message=Delete%21+175qgyy |
-| 2 | ^(delete this message to hide from others.) | catalogato | https://www.reddit.com/message/compose?to=RemindMeBot&subject=Delete+Comment&message=Delete%21+1apiuee |
-| 2 | ^(Your Reminders) | catalogato | https://www.reddit.com/message/compose?to=RemindMeBot&subject=List+Of+Reminders&message=MyReminders%21 |
-| 2 | ^(Custom) | catalogato | https://www.reddit.com/message/compose?to=RemindMeBot&subject=Reminder&message=%5BLink+or+message+inside+square+brackets%5D%0A%0ARemindMe%21+Time+period+here |
-| 2 | **CLICK THIS LINK** | catalogato | https://www.reddit.com/message/compose?to=RemindMeBot&subject=Reminder&message=%5Bhttps%3A%2F%2Fwww.reddit.com%2Fr%2FPokemonHome%2Fcomments%2F175qgyy%2Fpokemon_to_transfer_before_bank_shuts_down%2Fk4mk9vw%2F%5D%0A%0ARemindMe%21+2023-10-19+22%3A25%3A31+UTC |
-| 2 | **CLICK THIS LINK** | catalogato | https://www.reddit.com/message/compose?to=RemindMeBot&subject=Reminder&message=%5Bhttps%3A%2F%2Fwww.reddit.com%2Fr%2FPokemonHome%2Fcomments%2F1apiuee%2Fpok%C3%A9mon_bank_exclusives_masterpost%2Fkqavj9n%2F%5D%0A%0ARemindMe%21+2024-02-20+22%3A35%3A28+UTC |
-| 2 | ^(Feedback) | catalogato | https://www.reddit.com/message/compose?to=Watchful1&subject=RemindMeBot+Feedback |
-| 2 | Contact | catalogato | https://www.reddit.com/message/compose?to=sneakpeekbot |
+| 2 | collegamento del post | letto: estratto con 12 affermazioni, verificate | https://www.reddit.com/gallery/145ylee |
+| 2 | Nearly 13 years ago, I bred a Porygon2 for competitive use in BW during college. Now this digital duck has become one of my most treasured partners in every game since then up to this point. | letto: estratto senza affermazioni pertinenti | https://www.reddit.com/gallery/18n6upy |
+| 2 | collegamento del post | letto: estratto con 35 affermazioni, verificate | https://www.reddit.com/gallery/1hy3b12 |
+| 2 | collegamento del post | letto: estratto con 15 affermazioni, verificate | https://www.reddit.com/gallery/1p06clm |
 | 2 | On a retro Pokémans trip atm and was surprised to find that outside of Zaksabeast’s VC patch, I haven’t been able to find any means of increasing emulator speeds / using Turbo similar to VBA or other  | scaricato | https://www.reddit.com/r/3dshacks/comments/8od01i/ |
 | 2 | Creating the Ultimate Pokémon Machine, and more! (v2.0), di SteveW_MC | scaricato | https://www.reddit.com/r/3dspiracy/comments/143tqdv/ |
 | 2 | Updated my overview: Transfer Pokémon from 2002 to 2024, di CengizMan | scaricato | https://www.reddit.com/r/NintendoSwitch/comments/1997g3p/ |
 | 2 | Clip of Poke Radar Shiny Patch, di Ephenia | scaricato | https://www.reddit.com/r/PokeLeaks/comments/qspevp/ |
-| 2 | r/PokePortal | catalogato | https://www.reddit.com/r/PokePortal |
-| 2 | Poké Portal Hub | catalogato | https://www.reddit.com/r/PokePortal/channel/b72/Pok%C3%A9_Portal_Hub?entrypoint=chat_share&r=%21fK_JtrSAROOHch1_CB4IbQ%3Areddit.com |
-| 2 | Dialga & Palkia Tera Raid Event | catalogato | https://www.reddit.com/r/PokePortal/channel/b73/Dialga_and_Palkia_Raids?entrypoint=chat_share&r=%214ttZggXySmWZ-ng7emYWZQ%3Areddit.com |
-| 2 | Ogre Oustin' | catalogato | https://www.reddit.com/r/PokePortal/channel/bcl/Ogre_Oustin?entrypoint=chat_share&r=%21yIi_nXHGQu6__0xWYaRnbg%3Areddit.com |
 | 2 | START HERE - YOUR NEW POKÉMON JOURNEY NOW BEGINS!, di madebypeppers | scaricato | https://www.reddit.com/r/PokePortal/comments/14a0wdd/ |
 | 2 | User Flair Guide, di ChrisReturns | scaricato | https://www.reddit.com/r/PokePortal/comments/16mtka4/ |
 | 2 | Trading Megathread, di AutoModerator | scaricato | https://www.reddit.com/r/PokePortal/comments/182zyzt/ |
@@ -1184,321 +1195,275 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 | 2 | Any advice for the battle tree I'm about to give up, di LadyCiel97 | scaricato | https://www.reddit.com/r/pokemonribbons/comments/18sbp6k/ |
 | 2 | Updated my overview: Transfer Pokémon from 2002 to 2024, di CengizMan | scaricato | https://www.reddit.com/r/pokemonribbons/comments/1997e0q/ |
 | 2 | Poké Pelago: Shiny Hunting on Isle Abeens, di Asura_Ronin | scaricato | https://www.reddit.com/r/pokemontrades/comments/5o4skp/ |
-| 2 | Rule 10B | catalogato | https://www.reddit.com/r/pokemontrades/wiki/rules |
+| 2 | Rule 10B | letto: estratto senza affermazioni pertinenti | https://www.reddit.com/r/pokemontrades/wiki/rules |
 | 2 | blacklist IX, di sneakpeekbot | scaricato | https://www.reddit.com/r/sneakpeekbot/comments/o8wk1r/ |
 | 2 | Pokemon Diamond and Pearl mystery gifts not working?, di DazzlingExcitement | scaricato | https://www.reddit.com/r/wiimmfi/comments/ezoj8f/ |
 | 2 | HGSS Mystery Gift, di Euphoric_Dealer_4841 | scaricato | https://www.reddit.com/r/wiimmfi/comments/skwg3j/ |
 | 2 | Pokemon BW2 Mystery Gift Dates, di _TanMan | scaricato | https://www.reddit.com/r/wiimmfi/comments/wv6nsp/ |
-| 2 | xkcd sub | catalogato | https://www.reddit.com/r/xkcd |
-| 2 | Problems/Bugs? | catalogato | https://www.reddit.com/r/xkcd_transcriber |
-| 2 | u/adamlutz | catalogato | https://www.reddit.com/u/adamlutz |
-| 2 | u/AzuriteLeopard | catalogato | https://www.reddit.com/user/AzuriteLeopard |
-| 2 | u/ChocoHammy | catalogato | https://www.reddit.com/user/ChocoHammy |
-| 2 | u/ChrisReturns | catalogato | https://www.reddit.com/user/ChrisReturns |
-| 2 | u/Gimikyu\_ | catalogato | https://www.reddit.com/user/Gimikyu_ |
-| 2 | u/MaryHadALittleDog | catalogato | https://www.reddit.com/user/MaryHadALittleDog |
-| 2 | u/TLBidoof | catalogato | https://www.reddit.com/user/TLBidoof |
-| 2 | u/TheAstrogoth | catalogato | https://www.reddit.com/user/TheAstrogoth |
-| 2 | u/greenpangolin17 | catalogato | https://www.reddit.com/user/greenpangolin17 |
-| 2 | u/iriomote14 | catalogato | https://www.reddit.com/user/iriomote14 |
-| 2 | u/madebypeppers | catalogato | https://www.reddit.com/user/madebypeppers |
-| 3 | rNintendoSwitch Rules | catalogato | http://www.reddit.com/r/NintendoSwitch/about/rules |
-| 3 | collegamento del post | catalogato | https://www.reddit.com/gallery/1n7627e |
-| 3 | collegamento del post | catalogato | https://www.reddit.com/gallery/irslpt |
-| 3 | reach out to us in modmail | catalogato | https://www.reddit.com/message/compose?to=%2Fr%2FNintendoSwitch |
-| 3 | contact our mod team | catalogato | https://www.reddit.com/message/compose?to=%2Fr%2FPokePortal |
-| 3 | here. | catalogato | https://www.reddit.com/message/compose?to=%2Fr%2Fpokemon |
-| 3 | ^(delete this message to hide from others.) | catalogato | https://www.reddit.com/message/compose?to=RemindMeBot&subject=Delete+Comment&message=Delete%21+143tqdv |
-| 3 | messages to the bot | catalogato | https://www.reddit.com/message/compose?to=RemindMeBot&subject=RemindMe |
-| 3 | **CLICK THIS LINK** | catalogato | https://www.reddit.com/message/compose?to=RemindMeBot&subject=Reminder&message=%5Bhttps%3A%2F%2Fwww.reddit.com%2Fr%2F3dspiracy%2Fcomments%2F143tqdv%2Fcreating_the_ultimate_pok%C3%A9mon_machine_and_more_v20%2Fp7q2y57%2F%5D%0A%0ARemindMe%21+2026-09-05+05%3A33%3A38+UTC |
-| 3 | this one | catalogato | https://www.reddit.com/message/compose?to=RemindMeBot&subject=Test&message=Test |
-| 3 | Errors & Issues Wiki Page | catalogato | https://www.reddit.com/r/3dspiracy/wiki/err |
-| 3 | What Games & Apps Can 3DS Play and How do I Get Them? | catalogato | https://www.reddit.com/r/3dspiracy/wiki/games |
-| 3 | Common Issues Wiki Page | catalogato | https://www.reddit.com/r/3dspiracy/wiki/issues |
-| 3 | 3DS SD Card Wiki Page | catalogato | https://www.reddit.com/r/3dspiracy/wiki/sd_cards |
-| 3 | New to Reddit? | catalogato | https://www.reddit.com/r/NewToReddit |
-| 3 | r/NintendoSwitch | catalogato | https://www.reddit.com/r/NintendoSwitch |
-| 3 | rules | catalogato | https://www.reddit.com/r/PokePortal/wiki/index/rules |
-| 3 | Quick Start Guide | catalogato | https://www.reddit.com/r/pokemontrades/wiki/quickstart |
+| 3 | collegamento del post | letto: estratto con 2 affermazioni, verificate | https://www.reddit.com/gallery/1n7627e |
+| 3 | collegamento del post | letto: estratto con 2 affermazioni, verificate | https://www.reddit.com/gallery/irslpt |
+| 3 | rules | letto: estratto con 1 affermazioni, verificate | https://www.reddit.com/r/PokePortal/wiki/index/rules |
+| 3 | Quick Start Guide | letto: estratto senza affermazioni pertinenti | https://www.reddit.com/r/pokemontrades/wiki/quickstart |
 
 ### preview.redd.it (125)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | senza descrizione | catalogato | https://preview.redd.it/0fnjmxsnhhmf1.png?width=6912&format=png&auto=webp&s=b5c31b811cc5b6830ca5b6294c13c472b05a5242 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/0qlsadv2mkcd1.png?width=2100&format=png&auto=webp&s=54da3f6f2975392777e4cbcf7f68eb605a2269f6 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/13bpdgsj7buc1.png?width=1137&format=png&auto=webp&s=fafbf21a41e2fc884059f3b2874ca54e2f8b6a1d |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/1he5x8nftxre1.jpeg?width=1284&format=pjpg&auto=webp&s=06030d3126d4c5750ef666dda5b9b9e9f884dfff |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/1j339kogz9uc1.png?width=1920&format=png&auto=webp&s=fa705f284a58be96df17bd82e155d818a520575c |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/1v4zx2q2nxre1.png?width=1080&format=png&auto=webp&s=febec097ea6e4acc6dac9f0868980ca3abf3a42d |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/2qhl43sfwauc1.png?width=1855&format=png&auto=webp&s=07e65c8eaa04c2cf90be882470a8c64ee24d4fff |
-| 2 | Image credit to u\/MaryHadALittleDog and u\/Gimikyu\_ | catalogato | https://preview.redd.it/2y458ygw57uc1.png?width=1137&format=png&auto=webp&s=28962b87d70e88ffb9a06231f44bbed64f7b020e |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/3378nifdtxre1.jpeg?width=1284&format=pjpg&auto=webp&s=867aca36b663a9e9fdcfa66b07cbb067beab896f |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/34jwf022skre1.jpeg?width=1179&format=pjpg&auto=webp&s=394e2e36839a0304bc99255d97627f7c850ea8dd |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/3b60vobwt3se1.jpeg?width=1284&format=pjpg&auto=webp&s=27e9e882d0d1e66c3b2ba44edd9bd590d0837ee6 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/3s6fqzn81v1c1.jpeg?width=1170&format=pjpg&auto=webp&s=b91d128d66651813227517f6bd8c7355e1aa3eea |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/48tg1cz70edd1.jpeg?width=1170&format=pjpg&auto=webp&s=13e9469d448ecb33276230d1432b4089a5b2ce8a |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/4bpuyofgo0tg1.png?width=4800&format=png&auto=webp&s=2a7d802f4d06b60d444db212eb67c6d9a6b22987 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/4ebywpxvdase1.jpeg?width=931&format=pjpg&auto=webp&s=becc385fe48ca916192598a92b85045487f6158a |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/4hmzwmyofwre1.png?width=1080&format=png&auto=webp&s=c793286c11ca75c9d176b964dc58baa342969440 |
-| 2 | Image credit to u\/MaryHadALittleDog and u\/Gimikyu\_ | catalogato | https://preview.redd.it/5p5xjjlqsauc1.png?width=938&format=png&auto=webp&s=c1943b60bb7680e882eb80a2cd77ac003303d5c9 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/647jcdzdauce1.jpeg?width=3024&format=pjpg&auto=webp&s=a0faa7797bd6b2b2ca6444d1e86be9a7d90445bf |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/67d3fhvm67uc1.png?width=1128&format=png&auto=webp&s=0a5acab3f22b878b2bc03978ecb413e5c8a68f9c |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/6keotrncuxjh1.jpeg?width=1080&format=pjpg&auto=webp&s=c8dd757a922794ca1fcdb2eae5ad1d31f034c7a2 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/6s67ltsbiihg1.jpeg?width=1170&format=pjpg&auto=webp&s=56a75c4181764ef9449097ba9f1ad0b85cf109fc |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/7iaikg5z27uc1.png?width=855&format=png&auto=webp&s=c5653a78d2c50d695962ab1eb498b7be8e96da37 |
-| 2 | Image credit to u\/MaryHadALittleDog | catalogato | https://preview.redd.it/7o7oyvgv7buc1.png?width=1920&format=png&auto=webp&s=0955ed6fabe258f865364fad65edee12b8014147 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/89n2j4udcwre1.jpeg?width=1080&format=pjpg&auto=webp&s=4a0466749e8a2fc5b2a97deff042da88871f5a46 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/8ph5hib8bz1g1.jpeg?width=4032&format=pjpg&auto=webp&s=931bc98c319e5e90d211d8be4c4ce320d067f658 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/a0s6uftttxre1.jpeg?width=1179&format=pjpg&auto=webp&s=d63aa0d5f3b235778138db4c71ac60198d78c389 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/bkuemaqbdase1.jpeg?width=931&format=pjpg&auto=webp&s=43c0a6d062028da9ad6ef108c61ab8e0e6ce6cfe |
-| 2 | Image credit to u\/MaryHadALittleDog and u\/Gimikyu\_ | catalogato | https://preview.redd.it/blb1dsfd67uc1.png?width=1126&format=png&auto=webp&s=f9b33de169d69b1fa78ee94aa7f33a616d962fa5 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/boy0wfpl3o8c1.png?width=1168&format=png&auto=webp&s=fc5b495977dc421e6c747a694c0df2fb630361d2 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/bzpd5bgqourg1.jpeg?width=2160&format=pjpg&auto=webp&s=b3abe958cade57264edc09b42308f148d258564f |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/cswslruf90qd1.jpeg?width=1170&format=pjpg&auto=webp&s=de82c2a0f79ffea04c36fc1d0d7f4b408ffda093 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/d5wo9clksj8d1.jpeg?width=1066&format=pjpg&auto=webp&s=19bbbd5d25e5afb564d3bb088700353e4ae04194 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/dadfqc6hkn2g1.jpeg?width=1080&format=pjpg&auto=webp&s=0df4deeb36b7b50bfc5bc83ee2512bb4716673fa |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/e2hzc17kbxjh1.jpeg?width=1228&format=pjpg&auto=webp&s=c1b8f6e575f77434f1cae8bad983d459752e3220 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/ehpi5i4hagtc1.jpeg?width=1170&format=pjpg&auto=webp&s=1186e79995853b53dc1b91c00218521b7a3067d5 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/f7uz6qpphkzb1.jpeg?width=1170&format=pjpg&auto=webp&s=cf685c0b4da20cf34fe2fdcc3675d8cad73f57fa |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/f8qiq56cn0tg1.png?width=9600&format=png&auto=webp&s=2d532960dbec74530c85a96402b76da961ff4a6c |
-| 2 | Image credit to u\/MaryHadALittleDog and u\/Gimikyu\_ | catalogato | https://preview.redd.it/iarrgyop67uc1.png?width=1126&format=png&auto=webp&s=ee639852fca1dee425601d63eebca7598739f965 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/ivsm9yz75lcd1.png?width=842&format=png&auto=webp&s=5fbfd4fa859d79b8665e5d19782b0416f71d86db |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/kepgsj98wxre1.jpeg?width=1200&format=pjpg&auto=webp&s=308ae6a93565bf9b3f6f4c16e2aeec3aad965425 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/kiuku56nz9uc1.png?width=1920&format=png&auto=webp&s=776e099d90293fb8d0825902cf168db590d5faa6 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/klo8eykgm0se1.jpeg?width=1284&format=pjpg&auto=webp&s=c85a877fcfe058e4bc0fd284bcf3e4cfb887a4f5 |
-| 2 | They look like this and they really stand out well | catalogato | https://preview.redd.it/l33l6z6oz6z71.png?width=1280&format=png&auto=webp&s=b10c04f546a000eec3a462b7aaa7f160bd7eb71f |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/le65449qo4qd1.jpeg?width=1125&format=pjpg&auto=webp&s=59549e9ccf7dd42de3766e03716bbdf8ad3d6c63 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/lehsgj0hrxwg1.png?width=1080&format=png&auto=webp&s=7625aaa182e302ccde84720bde2e80a79bb80c4e |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/lynmpk1wq5qe1.jpeg?width=1284&format=pjpg&auto=webp&s=4383c8ee86154a59e577c30e9e253c1d7fcd1ad3 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/m814c6xhcz1g1.png?width=1822&format=png&auto=webp&s=dad2b1a8fba3d92f8a25e2a619b897d4b9ddda31 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/mxmfnoesjwre1.png?width=1080&format=png&auto=webp&s=7cd5f015f69edf6414945eeeda2562f2b064d335 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/mxtgktc647uc1.png?width=1137&format=png&auto=webp&s=250512917b6947f60f1fb9790d46032b2085cde2 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/nx482vcs0xre1.jpeg?width=1080&format=pjpg&auto=webp&s=217a4cb73403d9d365cb6b1436b5307646e123a5 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/o5saweh9yc5b1.jpeg?width=1124&format=pjpg&auto=webp&v=enabled&s=ad81c1f09d9586d49cca2eb161d681c5ac70c2de |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/ojd7oo3vtxre1.jpeg?width=1178&format=pjpg&auto=webp&s=4f012221753d3a382cb8758fe5f773d32b3bbdc8 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/ossm8jdri0qd1.png?width=1080&format=pjpg&auto=webp&s=0e5b77eb746f17b1d6586fbe8cd4abb6af108904 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/pv7t5lw9gyjh1.jpeg?width=1125&format=pjpg&auto=webp&s=16764fba108f3caf9412bfb516db9f9ac58d8619 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/q2k9m6epn0se1.jpeg?width=1284&format=pjpg&auto=webp&s=e98283436c0c2e4416aa334c5c01d3a4252f814b |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/ql9lmusiuxuc1.jpeg?width=1280&format=pjpg&auto=webp&s=b7ecdabcb1f29984036e45e00d51f2e6a1b1faf3 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/qn0u9pk8f85b1.jpeg?width=556&format=pjpg&auto=webp&v=enabled&s=0755b4f24b3241b871848bf9f9ca407adc833cdd |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/r1lkhh4tq8mh1.png?width=700&format=png&auto=webp&s=5f78f8c4748a8551826933975a71cb864eab1991 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/r5cvteio67uc1.png?width=1128&format=png&auto=webp&s=1770e0b9b2f313a1b97ca156ffe0eb78a0e36708 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/rfide9mu57uc1.png?width=1138&format=png&auto=webp&s=fa2b6cdad5bea0503822323fba89302b800be237 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/ru5912x9jxbe1.png?width=1080&format=pjpg&auto=webp&s=4ee91cf1befd530afd0a1834e3caa8bac144e862 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/t8wb1hihz9uc1.png?width=1920&format=png&auto=webp&s=b00e7167e2ef8939b7487f71a73acefbb48a1d6a |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/tapf38lep0qd1.jpeg?width=828&format=pjpg&auto=webp&s=856c4e0d3ec5907d5b7affb24094e3829d675c5a |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/tk48jp7komje1.png?width=726&format=png&auto=webp&s=635ad7d5ede1bf28cbffc70526657d8bad4d1739 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/tzc70ywpvxre1.jpeg?width=1080&format=pjpg&auto=webp&s=cbd6ae14860f9776c3dc181404a8e1021de1b407 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/uaj39cuudywg1.png?width=1074&format=png&auto=webp&s=d52740ab5de1c02745484e416cd56d12cf7ec2f2 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/ug7qbcp9ndmf1.png?width=6912&format=png&auto=webp&s=be7013ee4315862007d46fe45be6aa006c9ce7e4 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/ulqlelparpre1.jpeg?width=1284&format=pjpg&auto=webp&s=d4dbeab70e1d38cb23a865402b068a8a7a599432 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/uztq02p8wauc1.png?width=1885&format=png&auto=webp&s=6906a462565fbacddaf71bf771e300fce1345ebe |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/vzyv7yxcp0se1.jpeg?width=1284&format=pjpg&auto=webp&s=69c93802b5823217b5257a0c8cee34770f3f25cd |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/w3n4tpysqhjh1.jpeg?width=1920&format=pjpg&auto=webp&s=e356229bae933ba04f8c9b8e5207133ffbfcfc7b |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/wqwppuahpxre1.png?width=1080&format=png&auto=webp&s=f0385fec7b5e7459cc20d131002475a1adb63b2d |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/x1rvwuxbp0se1.jpeg?width=1284&format=pjpg&auto=webp&s=f99f465058b96bda49609a815d39311029c8f97b |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/x8wru35hvauc1.png?width=1487&format=png&auto=webp&s=e03c18b975b235cee1801e786e795ef3ece7ff26 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/xiyliezrzt6f1.png?width=1440&format=png&auto=webp&s=5303f0e58aca8ed5d204555bed3bad3efe415aa5 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/xy062jdv8buc1.png?width=1920&format=png&auto=webp&s=59760fdfb92d1c3a918e00829b1d5f911e8f01ea |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/ydu58lg1l2qd1.jpeg?width=3468&format=pjpg&auto=webp&s=277958d83bff24bab568d90dde378ab0eca47418 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/yfv9bzvbcwre1.jpeg?width=1080&format=pjpg&auto=webp&s=95603efaa2e7c9d7b10d5f1932dbb418fea35d0e |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/yj09gqatdrlb1.jpeg?width=4032&format=pjpg&auto=webp&s=9044e06e72dad0ec9bc77cabfa2ffe25b4a45156 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/ymngby1w05bg1.jpg?width=1867&format=pjpg&auto=webp&s=6aed42649cf0af96bb23950ad4f576103075302d |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/ypn1gsalz9uc1.png?width=1920&format=png&auto=webp&s=5a2f8511cba290c6045c6e6a91c598f38677d1b2 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/yt5puzzco12g1.png?width=1080&format=png&auto=webp&s=91b9035a160566ef3e8719e5f0fa95c870214af6 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/yvghw1ulc9od1.png?width=995&format=png&auto=webp&s=4e19cb2541ab33b507428bb263c726162e19ae6d |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/zazewpl611qd1.jpeg?width=552&format=pjpg&auto=webp&s=73593f3c5e2bb6c2869660ede0032b65a6d81b83 |
-| 2 | senza descrizione | catalogato | https://preview.redd.it/zq52r8bjz9uc1.png?width=1920&format=png&auto=webp&s=017e5037961e9c8ae757adc4c6970fd9ee748fc1 |
-| 3 | Poke Portal Menu in Pokemon Scarlet \/ Violet | catalogato | https://preview.redd.it/2ze550pgb66b1.jpg?width=1280&format=pjpg&auto=webp&s=e733298a2f4b6ea6234dd9880f43d92ae550fff7 |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/37fwjuc9hgkg1.jpeg?width=3000&format=pjpg&auto=webp&s=c74ca0103fc3e87bb9891209e1ba061c06c65345 |
-| 3 | DNS Exploited Larvitar from VGE 2012 Event | catalogato | https://preview.redd.it/431czr856kva1.png?width=1080&format=png&auto=webp&s=f3f972fcb3cbba2774e2b4875f81f063f9db4810 |
-| 3 | Megathread Sidebar Widget located on the right side of r\/PokePortal page | catalogato | https://preview.redd.it/4tnw0w65c2hb1.png?width=331&format=png&auto=webp&s=d9718dcec855d00acea42a47430de42c9d2583ba |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/4zfj0fz6hgjg1.jpeg?width=1080&format=pjpg&auto=webp&s=51daf319ce7f423ac9c4dd7ab63833909ac08ab0 |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/5tq8ukwc6j6g1.jpeg?width=1179&format=pjpg&auto=webp&s=62e1cff17b05a88ebed239090ef349e188e72fb2 |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/66p7ztgcsova1.png?width=2300&format=png&auto=webp&v=enabled&s=d8d16c0d2ca024702e2f9d48b1a2055b7f5dc8ae |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/6eow3crcvsmg1.jpeg?width=3024&format=pjpg&auto=webp&s=0860c0773426e61342bdbbcf49b05410e7a975c3 |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/72oyhufvp01d1.png?width=2100&format=png&auto=webp&s=f532b82f90302ca8fdec0fc3ce4f07e0f0013124 |
-| 3 | We choose YOU! | catalogato | https://preview.redd.it/7gm1jy8a15g91.png?width=1800&format=png&auto=webp&s=4dfac5eed2824f36b105d6d2ae195a92969f5cb8 |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/8938p2z71i3f1.jpeg?width=3072&format=pjpg&auto=webp&s=2cf9f0f220b035a72df983323bfa4cca67e3357e |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/9yokzoynfmug1.png?width=9600&format=png&auto=webp&s=7fe7a48aaca35e569a9d1f7393977ca3e7018970 |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/b2e86br8nhq91.jpg?width=4032&format=pjpg&auto=webp&s=cae260fad4fb2e4870189c52af093f73c9671113 |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/bfd0iqminskd1.jpeg?width=1235&format=pjpg&auto=webp&s=96f649c8ec54377bd3a3f6ae7f77bb84f34a8ede |
-| 3 | Ditto Blocks Map + Tips | catalogato | https://preview.redd.it/cgk1hulrm7uc1.png?width=2048&format=png&auto=webp&s=3c9bfd54df3aaafc9a3e116ede12c0fc0cf01a1e |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/cyxggbukdxyf1.jpeg?width=3024&format=pjpg&auto=webp&s=a3c15ed64488a80ed410abf1d78d49f4a18fb3a5 |
-| 3 | Courtesy of u\/Gimikyu\_ | catalogato | https://preview.redd.it/e7y5vrf2kkzb1.png?width=1800&format=png&auto=webp&s=0176f17405efad3e27438dccdac3738dcba3dca8 |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/et3i2y4evsmg1.jpeg?width=3024&format=pjpg&auto=webp&s=c89b93d5f2b721c2bded02afa36dfc5df78957f0 |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/g07hbmoh98pb1.png?width=4420&format=png&auto=webp&s=a2683118c5dc3f20a0d04b3fa4d6c0f3bcffe5c7 |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/g9sh9br8nhq91.jpg?width=4032&format=pjpg&auto=webp&s=de5cf5d49cfeff82c81cff6115a952df98bf4ca2 |
-| 3 | BBQs Cheatsheet: 4-Star Sandwich, Wild Tera Pokemon, Locations, and Tips | catalogato | https://preview.redd.it/gdzyj0zlm7uc1.png?width=2048&format=png&auto=webp&s=1355d40d2877da70a880de71a3cc33f331a7d8c4 |
-| 3 | This Phanpy has a natural IV distribution and looks good at first, until you notice that the OTID is 00000, which means it's very likely fake. | catalogato | https://preview.redd.it/gxyiazrr2kva1.jpg?width=1080&format=pjpg&auto=webp&s=a1d8890abfbc95e99596004a3e048d9899d2fa02 |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/hehwq0dfupmf1.png?width=941&format=png&auto=webp&s=6daa9b5974178fe30546ed1ba925143aaa8927c9 |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/iik81i3rrede1.png?width=1080&format=png&auto=webp&s=395c9522485fb3b121169ddde36af85375525ff2 |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/ipeiqvefvsmg1.jpeg?width=3024&format=pjpg&auto=webp&s=277b0a73d1dd048f3a98427ccca4260e2ff7c416 |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/j13lpz9259mg1.jpeg?width=1440&format=pjpg&auto=webp&s=98272860b2a122699e3cb75e2257667ffe5220ef |
-| 3 | This Bulbasaur is obviously fake because it has 6 perfect IVs and the OT is BlainesYT, a youtuber and known genner. | catalogato | https://preview.redd.it/jnmwa86c2kva1.jpg?width=1080&format=pjpg&auto=webp&s=bf8df85c3d982d665ac3ab3320bbd2245bbb1f22 |
-| 3 | Infographic by u\/MaryHadALittleDog | catalogato | https://preview.redd.it/knyo9yde98pb1.png?width=960&format=png&auto=webp&s=23514c3f9eff0d0a63cb25b1d9fed5474bf30cae |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/o0zs38z8tvpd1.jpeg?width=710&format=pjpg&auto=webp&s=fdc568d13e3c8f4d2e84addcf2aec6325c67e7e7 |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/po955zpgvsmg1.jpeg?width=3024&format=pjpg&auto=webp&s=2ec04da33bbc89c4140ed823185f4819c82d161e |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/pwrs9gti0cqb1.png?width=1080&format=pjpg&auto=webp&s=1cbfd7d7a85510f41758b85d05c31fd529803d21 |
-| 3 | Top Menu Bar, clicking the down arrow shows each individual Live Megathread | catalogato | https://preview.redd.it/q9bh6zrwe66b1.png?width=365&format=png&auto=webp&s=c0725a748ddd1a5e265f0b06e77822e94ae7dbfd |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/sl3kspdcz30c1.png?width=3024&format=png&auto=webp&s=9d9023919693770caab400bcea52a439b2afa7eb |
-| 3 | Do you have a Link Code? | catalogato | https://preview.redd.it/slqj5o6xjkzb1.jpg?width=1280&format=pjpg&auto=webp&s=ff251068f225aaff557045d54e44800b4283291f |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/ucfxhdphvsmg1.jpeg?width=3024&format=pjpg&auto=webp&s=3c46be2315277bb2cc086f3373f34324b6ce42e7 |
-| 3 | Live Megathreads located at the left side of this post as a list | catalogato | https://preview.redd.it/v6iy6hf1c2hb1.png?width=1260&format=png&auto=webp&s=df9484c2a53fce413e2d757ee40afdcb59cb9c75 |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/v888sbhatvpd1.jpeg?width=788&format=pjpg&auto=webp&s=53369d55213d182394d18003bdf0c94ac0bd85d7 |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/vvcinxvjzjva1.jpg?width=1080&format=pjpg&auto=webp&s=27c8cf33670cf3555efebfc0720b5231f4e06ee2 |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/wb5auf4ubvne1.jpeg?width=3000&format=pjpg&auto=webp&s=a9fc970120eeb24539c67ef2f926dc3b3d88a918 |
-| 3 | senza descrizione | catalogato | https://preview.redd.it/x4xm1u9vrede1.png?width=1080&format=png&auto=webp&s=a593a072d5be70017735931a9b1eca85d61a18f9 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/0qlsadv2mkcd1.png?width=2100&format=png&auto=webp&s=54da3f6f2975392777e4cbcf7f68eb605a2269f6 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/13bpdgsj7buc1.png?width=1137&format=png&auto=webp&s=fafbf21a41e2fc884059f3b2874ca54e2f8b6a1d |
+| 2 | senza descrizione | letto a vista: divisore di pagina o icona: nessun contenuto | https://preview.redd.it/1j339kogz9uc1.png?width=1920&format=png&auto=webp&s=fa705f284a58be96df17bd82e155d818a520575c |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/1v4zx2q2nxre1.png?width=1080&format=png&auto=webp&s=febec097ea6e4acc6dac9f0868980ca3abf3a42d |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/2qhl43sfwauc1.png?width=1855&format=png&auto=webp&s=07e65c8eaa04c2cf90be882470a8c64ee24d4fff |
+| 2 | Image credit to u\/MaryHadALittleDog and u\/Gimikyu\_ | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/2y458ygw57uc1.png?width=1137&format=png&auto=webp&s=28962b87d70e88ffb9a06231f44bbed64f7b020e |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/3378nifdtxre1.jpeg?width=1284&format=pjpg&auto=webp&s=867aca36b663a9e9fdcfa66b07cbb067beab896f |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/34jwf022skre1.jpeg?width=1179&format=pjpg&auto=webp&s=394e2e36839a0304bc99255d97627f7c850ea8dd |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/3b60vobwt3se1.jpeg?width=1284&format=pjpg&auto=webp&s=27e9e882d0d1e66c3b2ba44edd9bd590d0837ee6 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/3s6fqzn81v1c1.jpeg?width=1170&format=pjpg&auto=webp&s=b91d128d66651813227517f6bd8c7355e1aa3eea |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/48tg1cz70edd1.jpeg?width=1170&format=pjpg&auto=webp&s=13e9469d448ecb33276230d1432b4089a5b2ce8a |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/4ebywpxvdase1.jpeg?width=931&format=pjpg&auto=webp&s=becc385fe48ca916192598a92b85045487f6158a |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/4hmzwmyofwre1.png?width=1080&format=png&auto=webp&s=c793286c11ca75c9d176b964dc58baa342969440 |
+| 2 | Image credit to u\/MaryHadALittleDog and u\/Gimikyu\_ | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/5p5xjjlqsauc1.png?width=938&format=png&auto=webp&s=c1943b60bb7680e882eb80a2cd77ac003303d5c9 |
+| 2 | senza descrizione | letto a vista: schermata di gioco (Heracross dalla capocciata in Console Virtuale, erba di Diamante Lucente): incontro già noto | https://preview.redd.it/647jcdzdauce1.jpeg?width=3024&format=pjpg&auto=webp&s=a0faa7797bd6b2b2ca6444d1e86be9a7d90445bf |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/67d3fhvm67uc1.png?width=1128&format=png&auto=webp&s=0a5acab3f22b878b2bc03978ecb413e5c8a68f9c |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/6keotrncuxjh1.jpeg?width=1080&format=pjpg&auto=webp&s=c8dd757a922794ca1fcdb2eae5ad1d31f034c7a2 |
+| 2 | senza descrizione | letto con OCR: estratto con 1 affermazioni, verificate | https://preview.redd.it/6s67ltsbiihg1.jpeg?width=1170&format=pjpg&auto=webp&s=56a75c4181764ef9449097ba9f1ad0b85cf109fc |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/7iaikg5z27uc1.png?width=855&format=png&auto=webp&s=c5653a78d2c50d695962ab1eb498b7be8e96da37 |
+| 2 | Image credit to u\/MaryHadALittleDog | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/7o7oyvgv7buc1.png?width=1920&format=png&auto=webp&s=0955ed6fabe258f865364fad65edee12b8014147 |
+| 2 | senza descrizione | letto a vista: frammento d'interfaccia (Reddit, profilo di HOME, FBI sul 3DS, menu del 3DS): nessun contenuto sulla collezione | https://preview.redd.it/89n2j4udcwre1.jpeg?width=1080&format=pjpg&auto=webp&s=4a0466749e8a2fc5b2a97deff042da88871f5a46 |
+| 2 | senza descrizione | letto a vista: schermata di un deposito di Pokémon: nessuna voce nuova | https://preview.redd.it/8ph5hib8bz1g1.jpeg?width=4032&format=pjpg&auto=webp&s=931bc98c319e5e90d211d8be4c4ce320d067f658 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/a0s6uftttxre1.jpeg?width=1179&format=pjpg&auto=webp&s=d63aa0d5f3b235778138db4c71ac60198d78c389 |
+| 2 | Image credit to u\/MaryHadALittleDog and u\/Gimikyu\_ | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/blb1dsfd67uc1.png?width=1126&format=png&auto=webp&s=f9b33de169d69b1fa78ee94aa7f33a616d962fa5 |
+| 2 | senza descrizione | letto con OCR: estratto con 3 affermazioni, verificate | https://preview.redd.it/bzpd5bgqourg1.jpeg?width=2160&format=pjpg&auto=webp&s=b3abe958cade57264edc09b42308f148d258564f |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/cswslruf90qd1.jpeg?width=1170&format=pjpg&auto=webp&s=de82c2a0f79ffea04c36fc1d0d7f4b408ffda093 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/dadfqc6hkn2g1.jpeg?width=1080&format=pjpg&auto=webp&s=0df4deeb36b7b50bfc5bc83ee2512bb4716673fa |
+| 2 | senza descrizione | letto con OCR: estratto con 10 affermazioni, verificate | https://preview.redd.it/e2hzc17kbxjh1.jpeg?width=1228&format=pjpg&auto=webp&s=c1b8f6e575f77434f1cae8bad983d459752e3220 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/ehpi5i4hagtc1.jpeg?width=1170&format=pjpg&auto=webp&s=1186e79995853b53dc1b91c00218521b7a3067d5 |
+| 2 | senza descrizione | letto con OCR: estratto con 9 affermazioni, verificate | https://preview.redd.it/f8qiq56cn0tg1.png?width=9600&format=png&auto=webp&s=2d532960dbec74530c85a96402b76da961ff4a6c |
+| 2 | Image credit to u\/MaryHadALittleDog and u\/Gimikyu\_ | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/iarrgyop67uc1.png?width=1126&format=png&auto=webp&s=ee639852fca1dee425601d63eebca7598739f965 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/ivsm9yz75lcd1.png?width=842&format=png&auto=webp&s=5fbfd4fa859d79b8665e5d19782b0416f71d86db |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/kepgsj98wxre1.jpeg?width=1200&format=pjpg&auto=webp&s=308ae6a93565bf9b3f6f4c16e2aeec3aad965425 |
+| 2 | senza descrizione | letto a vista: divisore di pagina o icona: nessun contenuto | https://preview.redd.it/kiuku56nz9uc1.png?width=1920&format=png&auto=webp&s=776e099d90293fb8d0825902cf168db590d5faa6 |
+| 2 | senza descrizione | letto a vista: foto di console o schermata del titolo: nessun contenuto sulla collezione | https://preview.redd.it/klo8eykgm0se1.jpeg?width=1284&format=pjpg&auto=webp&s=c85a877fcfe058e4bc0fd284bcf3e4cfb887a4f5 |
+| 2 | They look like this and they really stand out well | letto a vista: schermata di gioco (Heracross dalla capocciata in Console Virtuale, erba di Diamante Lucente): incontro già noto | https://preview.redd.it/l33l6z6oz6z71.png?width=1280&format=png&auto=webp&s=b10c04f546a000eec3a462b7aaa7f160bd7eb71f |
+| 2 | senza descrizione | letto con OCR: estratto con 1 affermazioni, verificate | https://preview.redd.it/le65449qo4qd1.jpeg?width=1125&format=pjpg&auto=webp&s=59549e9ccf7dd42de3766e03716bbdf8ad3d6c63 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/lehsgj0hrxwg1.png?width=1080&format=png&auto=webp&s=7625aaa182e302ccde84720bde2e80a79bb80c4e |
+| 2 | senza descrizione | letto con OCR: estratto con 3 affermazioni, verificate | https://preview.redd.it/lynmpk1wq5qe1.jpeg?width=1284&format=pjpg&auto=webp&s=4383c8ee86154a59e577c30e9e253c1d7fcd1ad3 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/m814c6xhcz1g1.png?width=1822&format=png&auto=webp&s=dad2b1a8fba3d92f8a25e2a619b897d4b9ddda31 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/mxmfnoesjwre1.png?width=1080&format=png&auto=webp&s=7cd5f015f69edf6414945eeeda2562f2b064d335 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/mxtgktc647uc1.png?width=1137&format=png&auto=webp&s=250512917b6947f60f1fb9790d46032b2085cde2 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/nx482vcs0xre1.jpeg?width=1080&format=pjpg&auto=webp&s=217a4cb73403d9d365cb6b1436b5307646e123a5 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/o5saweh9yc5b1.jpeg?width=1124&format=pjpg&auto=webp&v=enabled&s=ad81c1f09d9586d49cca2eb161d681c5ac70c2de |
+| 2 | senza descrizione | letto a vista: frammento d'interfaccia (Reddit, profilo di HOME, FBI sul 3DS, menu del 3DS): nessun contenuto sulla collezione | https://preview.redd.it/ojd7oo3vtxre1.jpeg?width=1178&format=pjpg&auto=webp&s=4f012221753d3a382cb8758fe5f773d32b3bbdc8 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/ossm8jdri0qd1.png?width=1080&format=pjpg&auto=webp&s=0e5b77eb746f17b1d6586fbe8cd4abb6af108904 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/pv7t5lw9gyjh1.jpeg?width=1125&format=pjpg&auto=webp&s=16764fba108f3caf9412bfb516db9f9ac58d8619 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/q2k9m6epn0se1.jpeg?width=1284&format=pjpg&auto=webp&s=e98283436c0c2e4416aa334c5c01d3a4252f814b |
+| 2 | senza descrizione | letto a vista: meme: nessun contenuto | https://preview.redd.it/ql9lmusiuxuc1.jpeg?width=1280&format=pjpg&auto=webp&s=b7ecdabcb1f29984036e45e00d51f2e6a1b1faf3 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/qn0u9pk8f85b1.jpeg?width=556&format=pjpg&auto=webp&v=enabled&s=0755b4f24b3241b871848bf9f9ca407adc833cdd |
+| 2 | senza descrizione | letto con OCR: estratto con 3 affermazioni, verificate | https://preview.redd.it/r1lkhh4tq8mh1.png?width=700&format=png&auto=webp&s=5f78f8c4748a8551826933975a71cb864eab1991 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/r5cvteio67uc1.png?width=1128&format=png&auto=webp&s=1770e0b9b2f313a1b97ca156ffe0eb78a0e36708 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/rfide9mu57uc1.png?width=1138&format=png&auto=webp&s=fa2b6cdad5bea0503822323fba89302b800be237 |
+| 2 | senza descrizione | letto a vista: divisore di pagina o icona: nessun contenuto | https://preview.redd.it/t8wb1hihz9uc1.png?width=1920&format=png&auto=webp&s=b00e7167e2ef8939b7487f71a73acefbb48a1d6a |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/tapf38lep0qd1.jpeg?width=828&format=pjpg&auto=webp&s=856c4e0d3ec5907d5b7affb24094e3829d675c5a |
+| 2 | senza descrizione | letto a vista: riga di tabella delle catene SOS (Toucannon): contenuto già nella guida ai sottolivellati letta | https://preview.redd.it/tk48jp7komje1.png?width=726&format=png&auto=webp&s=635ad7d5ede1bf28cbffc70526657d8bad4d1739 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/tzc70ywpvxre1.jpeg?width=1080&format=pjpg&auto=webp&s=cbd6ae14860f9776c3dc181404a8e1021de1b407 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/uaj39cuudywg1.png?width=1074&format=png&auto=webp&s=d52740ab5de1c02745484e416cd56d12cf7ec2f2 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/ulqlelparpre1.jpeg?width=1284&format=pjpg&auto=webp&s=d4dbeab70e1d38cb23a865402b068a8a7a599432 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/uztq02p8wauc1.png?width=1885&format=png&auto=webp&s=6906a462565fbacddaf71bf771e300fce1345ebe |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/vzyv7yxcp0se1.jpeg?width=1284&format=pjpg&auto=webp&s=69c93802b5823217b5257a0c8cee34770f3f25cd |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/w3n4tpysqhjh1.jpeg?width=1920&format=pjpg&auto=webp&s=e356229bae933ba04f8c9b8e5207133ffbfcfc7b |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/wqwppuahpxre1.png?width=1080&format=png&auto=webp&s=f0385fec7b5e7459cc20d131002475a1adb63b2d |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/x1rvwuxbp0se1.jpeg?width=1284&format=pjpg&auto=webp&s=f99f465058b96bda49609a815d39311029c8f97b |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/x8wru35hvauc1.png?width=1487&format=png&auto=webp&s=e03c18b975b235cee1801e786e795ef3ece7ff26 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/xiyliezrzt6f1.png?width=1440&format=png&auto=webp&s=5303f0e58aca8ed5d204555bed3bad3efe415aa5 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/xy062jdv8buc1.png?width=1920&format=png&auto=webp&s=59760fdfb92d1c3a918e00829b1d5f911e8f01ea |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/ydu58lg1l2qd1.jpeg?width=3468&format=pjpg&auto=webp&s=277958d83bff24bab568d90dde378ab0eca47418 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/yj09gqatdrlb1.jpeg?width=4032&format=pjpg&auto=webp&s=9044e06e72dad0ec9bc77cabfa2ffe25b4a45156 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/ymngby1w05bg1.jpg?width=1867&format=pjpg&auto=webp&s=6aed42649cf0af96bb23950ad4f576103075302d |
+| 2 | senza descrizione | letto a vista: divisore di pagina o icona: nessun contenuto | https://preview.redd.it/ypn1gsalz9uc1.png?width=1920&format=png&auto=webp&s=5a2f8511cba290c6045c6e6a91c598f38677d1b2 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/yt5puzzco12g1.png?width=1080&format=png&auto=webp&s=91b9035a160566ef3e8719e5f0fa95c870214af6 |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/zazewpl611qd1.jpeg?width=552&format=pjpg&auto=webp&s=73593f3c5e2bb6c2869660ede0032b65a6d81b83 |
+| 2 | senza descrizione | letto a vista: divisore di pagina o icona: nessun contenuto | https://preview.redd.it/zq52r8bjz9uc1.png?width=1920&format=png&auto=webp&s=017e5037961e9c8ae757adc4c6970fd9ee748fc1 |
+| 3 | Poke Portal Menu in Pokemon Scarlet \/ Violet | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/2ze550pgb66b1.jpg?width=1280&format=pjpg&auto=webp&s=e733298a2f4b6ea6234dd9880f43d92ae550fff7 |
+| 3 | senza descrizione | letto a vista: foto di console o schermata del titolo: nessun contenuto sulla collezione | https://preview.redd.it/37fwjuc9hgkg1.jpeg?width=3000&format=pjpg&auto=webp&s=c74ca0103fc3e87bb9891209e1ba061c06c65345 |
+| 3 | DNS Exploited Larvitar from VGE 2012 Event | letto con OCR: estratto con 1 affermazioni, verificate | https://preview.redd.it/431czr856kva1.png?width=1080&format=png&auto=webp&s=f3f972fcb3cbba2774e2b4875f81f063f9db4810 |
+| 3 | Megathread Sidebar Widget located on the right side of r\/PokePortal page | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/4tnw0w65c2hb1.png?width=331&format=png&auto=webp&s=d9718dcec855d00acea42a47430de42c9d2583ba |
+| 3 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/4zfj0fz6hgjg1.jpeg?width=1080&format=pjpg&auto=webp&s=51daf319ce7f423ac9c4dd7ab63833909ac08ab0 |
+| 3 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/5tq8ukwc6j6g1.jpeg?width=1179&format=pjpg&auto=webp&s=62e1cff17b05a88ebed239090ef349e188e72fb2 |
+| 3 | senza descrizione | letto con OCR: estratto con 1 affermazioni, verificate | https://preview.redd.it/66p7ztgcsova1.png?width=2300&format=png&auto=webp&v=enabled&s=d8d16c0d2ca024702e2f9d48b1a2055b7f5dc8ae |
+| 3 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/6eow3crcvsmg1.jpeg?width=3024&format=pjpg&auto=webp&s=0860c0773426e61342bdbbcf49b05410e7a975c3 |
+| 3 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/72oyhufvp01d1.png?width=2100&format=png&auto=webp&s=f532b82f90302ca8fdec0fc3ce4f07e0f0013124 |
+| 3 | We choose YOU! | letto a vista: meme: nessun contenuto | https://preview.redd.it/7gm1jy8a15g91.png?width=1800&format=png&auto=webp&s=4dfac5eed2824f36b105d6d2ae195a92969f5cb8 |
+| 3 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/8938p2z71i3f1.jpeg?width=3072&format=pjpg&auto=webp&s=2cf9f0f220b035a72df983323bfa4cca67e3357e |
+| 3 | senza descrizione | letto con OCR: estratto con 11 affermazioni, verificate | https://preview.redd.it/9yokzoynfmug1.png?width=9600&format=png&auto=webp&s=7fe7a48aaca35e569a9d1f7393977ca3e7018970 |
+| 3 | senza descrizione | letto a vista: fotogramma del codice nel nome del box in Oro, Argento e Cristallo, con l'uovo che schiude Umbreon: procedura già in STUDIO-0 | https://preview.redd.it/b2e86br8nhq91.jpg?width=4032&format=pjpg&auto=webp&s=cae260fad4fb2e4870189c52af093f73c9671113 |
+| 3 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/bfd0iqminskd1.jpeg?width=1235&format=pjpg&auto=webp&s=96f649c8ec54377bd3a3f6ae7f77bb84f34a8ede |
+| 3 | Ditto Blocks Map + Tips | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/cgk1hulrm7uc1.png?width=2048&format=png&auto=webp&s=3c9bfd54df3aaafc9a3e116ede12c0fc0cf01a1e |
+| 3 | senza descrizione | letto a vista: frammento d'interfaccia (Reddit, profilo di HOME, FBI sul 3DS, menu del 3DS): nessun contenuto sulla collezione | https://preview.redd.it/cyxggbukdxyf1.jpeg?width=3024&format=pjpg&auto=webp&s=a3c15ed64488a80ed410abf1d78d49f4a18fb3a5 |
+| 3 | Courtesy of u\/Gimikyu\_ | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/e7y5vrf2kkzb1.png?width=1800&format=png&auto=webp&s=0176f17405efad3e27438dccdac3738dcba3dca8 |
+| 3 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/et3i2y4evsmg1.jpeg?width=3024&format=pjpg&auto=webp&s=c89b93d5f2b721c2bded02afa36dfc5df78957f0 |
+| 3 | senza descrizione | letto a vista: fotogramma del codice nel nome del box in Oro, Argento e Cristallo, con l'uovo che schiude Umbreon: procedura già in STUDIO-0 | https://preview.redd.it/g9sh9br8nhq91.jpg?width=4032&format=pjpg&auto=webp&s=de5cf5d49cfeff82c81cff6115a952df98bf4ca2 |
+| 3 | BBQs Cheatsheet: 4-Star Sandwich, Wild Tera Pokemon, Locations, and Tips | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/gdzyj0zlm7uc1.png?width=2048&format=png&auto=webp&s=1355d40d2877da70a880de71a3cc33f331a7d8c4 |
+| 3 | This Phanpy has a natural IV distribution and looks good at first, until you notice that the OTID is 00000, which means it's very likely fake. | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/gxyiazrr2kva1.jpg?width=1080&format=pjpg&auto=webp&s=a1d8890abfbc95e99596004a3e048d9899d2fa02 |
+| 3 | senza descrizione | letto a vista: fotogramma o tabella del glitch di Mew in Rosso, Blu e Giallo (allenatori lontani, camion della M/N Anna): procedura già in S | https://preview.redd.it/hehwq0dfupmf1.png?width=941&format=png&auto=webp&s=6daa9b5974178fe30546ed1ba925143aaa8927c9 |
+| 3 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/ipeiqvefvsmg1.jpeg?width=3024&format=pjpg&auto=webp&s=277b0a73d1dd048f3a98427ccca4260e2ff7c416 |
+| 3 | senza descrizione | letto a vista: foto di console o schermata del titolo: nessun contenuto sulla collezione | https://preview.redd.it/j13lpz9259mg1.jpeg?width=1440&format=pjpg&auto=webp&s=98272860b2a122699e3cb75e2257667ffe5220ef |
+| 3 | This Bulbasaur is obviously fake because it has 6 perfect IVs and the OT is BlainesYT, a youtuber and known genner. | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/jnmwa86c2kva1.jpg?width=1080&format=pjpg&auto=webp&s=bf8df85c3d982d665ac3ab3320bbd2245bbb1f22 |
+| 3 | Infographic by u\/MaryHadALittleDog | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/knyo9yde98pb1.png?width=960&format=png&auto=webp&s=23514c3f9eff0d0a63cb25b1d9fed5474bf30cae |
+| 3 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/o0zs38z8tvpd1.jpeg?width=710&format=pjpg&auto=webp&s=fdc568d13e3c8f4d2e84addcf2aec6325c67e7e7 |
+| 3 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/po955zpgvsmg1.jpeg?width=3024&format=pjpg&auto=webp&s=2ec04da33bbc89c4140ed823185f4819c82d161e |
+| 3 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/pwrs9gti0cqb1.png?width=1080&format=pjpg&auto=webp&s=1cbfd7d7a85510f41758b85d05c31fd529803d21 |
+| 3 | Top Menu Bar, clicking the down arrow shows each individual Live Megathread | letto a vista: frammento d'interfaccia (Reddit, profilo di HOME, FBI sul 3DS, menu del 3DS): nessun contenuto sulla collezione | https://preview.redd.it/q9bh6zrwe66b1.png?width=365&format=png&auto=webp&s=c0725a748ddd1a5e265f0b06e77822e94ae7dbfd |
+| 3 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/sl3kspdcz30c1.png?width=3024&format=png&auto=webp&s=9d9023919693770caab400bcea52a439b2afa7eb |
+| 3 | Do you have a Link Code? | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/slqj5o6xjkzb1.jpg?width=1280&format=pjpg&auto=webp&s=ff251068f225aaff557045d54e44800b4283291f |
+| 3 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/ucfxhdphvsmg1.jpeg?width=3024&format=pjpg&auto=webp&s=3c46be2315277bb2cc086f3373f34324b6ce42e7 |
+| 3 | Live Megathreads located at the left side of this post as a list | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/v6iy6hf1c2hb1.png?width=1260&format=png&auto=webp&s=df9484c2a53fce413e2d757ee40afdcb59cb9c75 |
+| 3 | senza descrizione | letto con OCR: estratto con 2 affermazioni, verificate | https://preview.redd.it/v888sbhatvpd1.jpeg?width=788&format=pjpg&auto=webp&s=53369d55213d182394d18003bdf0c94ac0bd85d7 |
+| 3 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/vvcinxvjzjva1.jpg?width=1080&format=pjpg&auto=webp&s=27c8cf33670cf3555efebfc0720b5231f4e06ee2 |
+| 3 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://preview.redd.it/wb5auf4ubvne1.jpeg?width=3000&format=pjpg&auto=webp&s=a9fc970120eeb24539c67ef2f926dc3b3d88a918 |
 
 ### youtube.com (81)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 1 | Cherish ball dex | catalogato | https://www.youtube.com/watch?v=mGM_nNGAEgU |
-| 2 | Super Mario World -- Credits Warp in 5:59.6 (First Time Ever on Console) | catalogato | http://www.youtube.com/watch?v=14wqBA5Q1yc |
-| 2 | Pokemon Sun and Moon PokeBank: How to transfer shiny Pokemon from Gen 1 (100% WORKS!!!) | catalogato | http://www.youtube.com/watch?v=5uDQLUi0ZEo |
-| 2 | vegeta throws dog bones at guildo | catalogato | http://www.youtube.com/watch?v=6XX5nIQqjrQ |
-| 2 | TasBlock at AGDQ 2017: TASBot | catalogato | http://www.youtube.com/watch?v=7CgXvIuZR40&t=2s |
-| 2 | Pokemon Blue: "Jailbreaking" the Gameboy with 8F (no TASing needed) | catalogato | http://www.youtube.com/watch?v=D3EvpRHL_vk |
-| 2 | File Select - Super Mario 64 Music Extended | catalogato | http://www.youtube.com/watch?v=DdDI53VeGAc |
-| 2 | TFS Cell - I HAVE SO MANY QUESTIONS | catalogato | http://www.youtube.com/watch?v=NsEIu6-lciA |
-| 2 | Tasbot does Tasblock - Awesome Games Done Quick 2017 - Part 170 | catalogato | http://www.youtube.com/watch?v=Ukq29ePnTqI&t=1740s |
-| 2 | Using 8F to turn Pallet Town into "Twinleaf Town", 'permanently' (Red/Blue) | catalogato | http://www.youtube.com/watch?v=ddSHGg4-qSY |
-| 2 | SNES Code Injection -- Flappy Bird in SMW | catalogato | http://www.youtube.com/watch?v=hB6eY73sLV0 |
-| 2 | *^BrawlBRSTMs3 ^X* | catalogato | https://www.youtube.com/channel/UCN2hyYKiVMH4Ka-TCuO_obw |
-| 2 | senza descrizione | catalogato | https://www.youtube.com/watch?v=14wqBA5Q1yc |
-| 2 | Pomeg Glitch | catalogato | https://www.youtube.com/watch?v=1cEm84fUmE4&t=0s |
-| 2 | Professor Oak | catalogato | https://www.youtube.com/watch?v=1nC7gAAdSPo&list=PLWQDwiGdrVjkPMnCe9P73FPzeDWUrgT6V&pp=iAQB |
-| 2 | Here's | catalogato | https://www.youtube.com/watch?v=5CtLqTc8IaM |
-| 2 | senza descrizione | catalogato | https://www.youtube.com/watch?v=5uDQLUi0ZEo&lc= |
-| 2 | Have a biscuit! | catalogato | https://www.youtube.com/watch?v=6XX5nIQqjrQ |
-| 2 | Catch 'em All | catalogato | https://www.youtube.com/watch?v=7dcg_XMBUTI&list=PLWQDwiGdrVjnvvVbFq9bM4nGc4mCx3_5-&pp=iAQB |
-| 2 | here | catalogato | https://www.youtube.com/watch?v=CL3xn_Miai0 |
-| 2 | here | catalogato | https://www.youtube.com/watch?v=Csq0y-npQhI |
-| 2 | https://www.youtube.com/watch?v=Es6Lg0yCEZ4 | catalogato | https://www.youtube.com/watch?v=Es6Lg0yCEZ4 |
-| 2 | senza descrizione | catalogato | https://www.youtube.com/watch?v=EvFSPUr6GFY |
-| 2 | senza descrizione | catalogato | https://www.youtube.com/watch?v=H8AgGp5cqPI |
-| 2 | here | catalogato | https://www.youtube.com/watch?v=ISPbxFiZkNg |
-| 2 | This video details it out and has the QR Codes. | catalogato | https://www.youtube.com/watch?v=IdlKn5oJyxI |
-| 2 | https://www.youtube.com/watch?v=Ld2YphF-HVI&t=1s | catalogato | https://www.youtube.com/watch?v=Ld2YphF-HVI&t=1s |
-| 2 | The domiNATION's Origin Dex Challenge | catalogato | https://www.youtube.com/watch?v=NByMz7VUCr4 |
-| 2 | here | catalogato | https://www.youtube.com/watch?v=NeJeWOcWS5Y |
-| 2 | Semi-Perfect Cell is that you? | catalogato | https://www.youtube.com/watch?v=NsEIu6-lciA |
-| 2 | this TAS | catalogato | https://www.youtube.com/watch?v=OPcV9uIY5i4 |
-| 2 | original video | catalogato | https://www.youtube.com/watch?v=Om0Wljzq5Oc |
-| 2 | senza descrizione | catalogato | https://www.youtube.com/watch?v=P28kp66XMw4 |
-| 2 | here | catalogato | https://www.youtube.com/watch?v=PRq7rJ7E7hU |
-| 2 | CandyEvie's "How to Clone Pokemon & Items WITHOUT a Cheating Device!" Guide | catalogato | https://www.youtube.com/watch?v=PRq7rJ7E7hU&pp=ygUUZW1lcmFsZCBjbG9uZSBnbGl0Y2g%3D |
-| 2 | Youtube link | catalogato | https://www.youtube.com/watch?v=PsIb3OZaYAs |
-| 2 | The domiNATION's Gen 2 Origin Dex Challenge | catalogato | https://www.youtube.com/watch?v=QyK6gKosVnk |
-| 2 | Reshiram's Trainer's Switch-only HOME Dex Guide | catalogato | https://www.youtube.com/watch?v=RHybpfl1Cgo |
-| 2 | The domiNATION's Gen 3 Origin Dex Challenge | catalogato | https://www.youtube.com/watch?v=UPgq1is8MNg |
-| 2 | what they did this year | catalogato | https://www.youtube.com/watch?v=Ukq29ePnTqI&t=29m |
-| 2 | here | catalogato | https://www.youtube.com/watch?v=XV2k8nhdIhQ |
-| 2 | Cute Charm Glitch | catalogato | https://www.youtube.com/watch?v=XjBAf0E8Zv8 |
-| 2 | lv23 Kingambits | catalogato | https://www.youtube.com/watch?v=alqy1Truez8 |
-| 2 | this | catalogato | https://www.youtube.com/watch?v=ddSHGg4-qSY |
-| 2 | here | catalogato | https://www.youtube.com/watch?v=g9rq5c8Lh7k |
-| 2 | All Three Starters | catalogato | https://www.youtube.com/watch?v=g9rq5c8Lh7k&pp=ygUUc3RhcnRlcnMgZ2VuIDIgY2xvbmU%3D |
-| 2 | Additional Video Guide | catalogato | https://www.youtube.com/watch?v=grQLseuc4YE |
-| 2 | this guy | catalogato | https://www.youtube.com/watch?v=hB6eY73sLV0 |
-| 2 | here | catalogato | https://www.youtube.com/watch?v=p9IhBTcTw9w |
-| 2 | 8F Mew Guide | catalogato | https://www.youtube.com/watch?v=rvhuJsS4EhE |
-| 2 | here | catalogato | https://www.youtube.com/watch?v=rvhuJsS4EhE&t=2259s&pp=ygUVYXVzdGluIGpvaG4gcGxheXMgbWV3 |
-| 2 | here | catalogato | https://www.youtube.com/watch?v=ubPS74aiMRo |
-| 2 | one | catalogato | https://www.youtube.com/watch?v=wQ39NwjFwfE |
-| 2 | follow up | catalogato | https://www.youtube.com/watch?v=yyIa9611uZk |
-| 2 | senza descrizione | catalogato | https://youtube.com/shorts/MC8UcAATaE4 |
-| 3 | senza descrizione | catalogato | http://www.youtube.com/watch?v=Sw0h7ImFsAs |
-| 3 | *^jelome1989* | catalogato | https://www.youtube.com/channel/UCJ6244ZF0wybrxZxUNS--AA |
-| 3 | *^TheZZAZZGlitch* | catalogato | https://www.youtube.com/channel/UCKlA7qF9XKwu79ULYmVu28w |
-| 3 | ReneaCollects | catalogato | https://www.youtube.com/channel/UCNOJh-R1C9OBC4TqNwEAMMg |
-| 3 | *^Crystal_* | catalogato | https://www.youtube.com/channel/UCQcizw_rc-q55lmwU3w6-wA |
-| 3 | senza descrizione | catalogato | https://www.youtube.com/watch?v=98_azamLeh4 |
-| 3 | Video Proof of Isle Abeens Shiny Hunting | catalogato | https://www.youtube.com/watch?v=9EKfcIpYS2w&t=1s%2F |
-| 3 | Youtube | catalogato | https://www.youtube.com/watch?v=Dh2WcRJOVPU |
-| 3 | senza descrizione | catalogato | https://www.youtube.com/watch?v=E757YbGVWoo |
-| 3 | collegamento del post | catalogato | https://www.youtube.com/watch?v=GWWCicAWpNY |
-| 3 | senza descrizione | catalogato | https://www.youtube.com/watch?v=H8AgGp5cqPI&t=32s |
-| 3 | senza descrizione | catalogato | https://www.youtube.com/watch?v=H8AgGp5cqPI&t=9m47s |
-| 3 | https://www.youtube.com/watch?v=KlxO\_Ge\_BdI&t=72s | catalogato | https://www.youtube.com/watch?v=KlxO_Ge_BdI&t=72s |
-| 3 | https://www.youtube.com/watch?v=NeJeWOcWS5Y&t=52s | catalogato | https://www.youtube.com/watch?v=NeJeWOcWS5Y&t=52s |
-| 3 | https://www.youtube.com/watch?v=Qcp4vxyaUJc | catalogato | https://www.youtube.com/watch?v=Qcp4vxyaUJc |
-| 3 | senza descrizione | catalogato | https://www.youtube.com/watch?v=WD_GVaQwn8o |
-| 3 | link | catalogato | https://www.youtube.com/watch?v=fKiRIMDNj4A |
-| 3 | Here's | catalogato | https://www.youtube.com/watch?v=jR5rov2e6PU |
-| 3 | https://www.youtube.com/watch?v=k0HFRpqvSk4&t=3s&ab\_channel=Voltzo%28Manectric77%29 | catalogato | https://www.youtube.com/watch?v=k0HFRpqvSk4&t=3s&ab_channel=Voltzo%28Manectric77%29 |
-| 3 | link | catalogato | https://www.youtube.com/watch?v=mQLkeK3ETP4 |
-| 3 | Glitzer Popping | catalogato | https://www.youtube.com/watch?v=nOEwPnv2TFM |
-| 3 | Odd Tinkering | catalogato | https://youtube.com/@OddTinkering |
-| 3 | Retro Game Corps | catalogato | https://youtube.com/@RetroGameCorps |
-| 3 | Scott the Woz | catalogato | https://youtube.com/@ScottTheWoz |
-| 3 | The Retro Future | catalogato | https://youtube.com/@TheRetroFuture |
-| 3 | Wulff Den | catalogato | https://youtube.com/@WulffDen |
+| 1 | Cherish ball dex | trascritto: estratto con 13 affermazioni, verificate | https://www.youtube.com/watch?v=mGM_nNGAEgU |
+| 2 | Super Mario World -- Credits Warp in 5:59.6 (First Time Ever on Console) | trascritto: estratto senza affermazioni pertinenti | http://www.youtube.com/watch?v=14wqBA5Q1yc |
+| 2 | Pokemon Sun and Moon PokeBank: How to transfer shiny Pokemon from Gen 1 (100% WORKS!!!) | trascritto: estratto senza affermazioni pertinenti | http://www.youtube.com/watch?v=5uDQLUi0ZEo |
+| 2 | vegeta throws dog bones at guildo | trascritto: estratto senza affermazioni pertinenti | http://www.youtube.com/watch?v=6XX5nIQqjrQ |
+| 2 | TasBlock at AGDQ 2017: TASBot | trascritto: estratto senza affermazioni pertinenti | http://www.youtube.com/watch?v=7CgXvIuZR40&t=2s |
+| 2 | Pokemon Blue: "Jailbreaking" the Gameboy with 8F (no TASing needed) | letto: video senza parlato, letti titolo e descrizione: estratto senza affermazioni pertinenti | http://www.youtube.com/watch?v=D3EvpRHL_vk |
+| 2 | TFS Cell - I HAVE SO MANY QUESTIONS | letto: video senza parlato, letti titolo e descrizione: estratto senza affermazioni pertinenti | http://www.youtube.com/watch?v=NsEIu6-lciA |
+| 2 | Tasbot does Tasblock - Awesome Games Done Quick 2017 - Part 170 | trascritto: estratto senza affermazioni pertinenti | http://www.youtube.com/watch?v=Ukq29ePnTqI&t=1740s |
+| 2 | Using 8F to turn Pallet Town into "Twinleaf Town", 'permanently' (Red/Blue) | letto: video senza parlato, letti titolo e descrizione: estratto senza affermazioni pertinenti | http://www.youtube.com/watch?v=ddSHGg4-qSY |
+| 2 | SNES Code Injection -- Flappy Bird in SMW | trascritto: estratto senza affermazioni pertinenti | http://www.youtube.com/watch?v=hB6eY73sLV0 |
+| 2 | senza descrizione | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=14wqBA5Q1yc |
+| 2 | Pomeg Glitch | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=1cEm84fUmE4&t=0s |
+| 2 | Professor Oak | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=1nC7gAAdSPo&list=PLWQDwiGdrVjkPMnCe9P73FPzeDWUrgT6V&pp=iAQB |
+| 2 | Here's | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=5CtLqTc8IaM |
+| 2 | senza descrizione | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=5uDQLUi0ZEo&lc= |
+| 2 | Have a biscuit! | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=6XX5nIQqjrQ |
+| 2 | Catch 'em All | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=7dcg_XMBUTI&list=PLWQDwiGdrVjnvvVbFq9bM4nGc4mCx3_5-&pp=iAQB |
+| 2 | here | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=CL3xn_Miai0 |
+| 2 | here | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=Csq0y-npQhI |
+| 2 | https://www.youtube.com/watch?v=Es6Lg0yCEZ4 | trascritto: estratto con 57 affermazioni, verificate | https://www.youtube.com/watch?v=Es6Lg0yCEZ4 |
+| 2 | senza descrizione | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=EvFSPUr6GFY |
+| 2 | senza descrizione | letto: video senza parlato, letti titolo e descrizione: estratto con 13 affermazioni, verificate | https://www.youtube.com/watch?v=H8AgGp5cqPI |
+| 2 | here | trascritto: estratto con 70 affermazioni, verificate | https://www.youtube.com/watch?v=ISPbxFiZkNg |
+| 2 | This video details it out and has the QR Codes. | trascritto: estratto con 12 affermazioni, verificate | https://www.youtube.com/watch?v=IdlKn5oJyxI |
+| 2 | https://www.youtube.com/watch?v=Ld2YphF-HVI&t=1s | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=Ld2YphF-HVI&t=1s |
+| 2 | The domiNATION's Origin Dex Challenge | trascritto: estratto con 83 affermazioni, verificate | https://www.youtube.com/watch?v=NByMz7VUCr4 |
+| 2 | here | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=NeJeWOcWS5Y |
+| 2 | Semi-Perfect Cell is that you? | letto: video senza parlato, letti titolo e descrizione: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=NsEIu6-lciA |
+| 2 | this TAS | letto: video senza parlato, letti titolo e descrizione: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=OPcV9uIY5i4 |
+| 2 | original video | trascritto: estratto con 17 affermazioni, verificate | https://www.youtube.com/watch?v=Om0Wljzq5Oc |
+| 2 | senza descrizione | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=P28kp66XMw4 |
+| 2 | here | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=PRq7rJ7E7hU |
+| 2 | CandyEvie's "How to Clone Pokemon & Items WITHOUT a Cheating Device!" Guide | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=PRq7rJ7E7hU&pp=ygUUZW1lcmFsZCBjbG9uZSBnbGl0Y2g%3D |
+| 2 | Youtube link | letto: video senza parlato, letti titolo e descrizione: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=PsIb3OZaYAs |
+| 2 | The domiNATION's Gen 2 Origin Dex Challenge | trascritto: estratto con 49 affermazioni, verificate | https://www.youtube.com/watch?v=QyK6gKosVnk |
+| 2 | Reshiram's Trainer's Switch-only HOME Dex Guide | trascritto: estratto con 13 affermazioni, verificate | https://www.youtube.com/watch?v=RHybpfl1Cgo |
+| 2 | The domiNATION's Gen 3 Origin Dex Challenge | trascritto: estratto con 73 affermazioni, verificate | https://www.youtube.com/watch?v=UPgq1is8MNg |
+| 2 | what they did this year | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=Ukq29ePnTqI&t=29m |
+| 2 | Cute Charm Glitch | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=XjBAf0E8Zv8 |
+| 2 | lv23 Kingambits | letto: video senza parlato, letti titolo e descrizione: estratto con 1 affermazioni, verificate | https://www.youtube.com/watch?v=alqy1Truez8 |
+| 2 | this | letto: video senza parlato, letti titolo e descrizione: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=ddSHGg4-qSY |
+| 2 | here | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=g9rq5c8Lh7k |
+| 2 | All Three Starters | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=g9rq5c8Lh7k&pp=ygUUc3RhcnRlcnMgZ2VuIDIgY2xvbmU%3D |
+| 2 | Additional Video Guide | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=grQLseuc4YE |
+| 2 | this guy | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=hB6eY73sLV0 |
+| 2 | here | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=p9IhBTcTw9w |
+| 2 | 8F Mew Guide | trascritto: estratto con 19 affermazioni, verificate | https://www.youtube.com/watch?v=rvhuJsS4EhE |
+| 2 | here | trascritto: estratto con 19 affermazioni, verificate | https://www.youtube.com/watch?v=rvhuJsS4EhE&t=2259s&pp=ygUVYXVzdGluIGpvaG4gcGxheXMgbWV3 |
+| 2 | here | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=ubPS74aiMRo |
+| 2 | one | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=wQ39NwjFwfE |
+| 2 | follow up | trascritto: estratto con 29 affermazioni, verificate | https://www.youtube.com/watch?v=yyIa9611uZk |
+| 2 | senza descrizione | trascritto: estratto senza affermazioni pertinenti | https://youtube.com/shorts/MC8UcAATaE4 |
+| 3 | senza descrizione | letto: video senza parlato, letti titolo e descrizione: estratto senza affermazioni pertinenti | http://www.youtube.com/watch?v=Sw0h7ImFsAs |
+| 3 | *^jelome1989* | catalogo letto: 110 video in catalogo, 5 scelti per tema: 5 letti dalla trascrizione, 0 senza testo ricavabile (canali/senza-testo.json) | https://www.youtube.com/channel/UCJ6244ZF0wybrxZxUNS--AA |
+| 3 | *^TheZZAZZGlitch* | catalogo letto: 143 video in catalogo, 12 scelti per tema: 12 letti dalla trascrizione, 0 senza testo ricavabile (canali/senza-testo.json) | https://www.youtube.com/channel/UCKlA7qF9XKwu79ULYmVu28w |
+| 3 | ReneaCollects | catalogo letto: 526 video in catalogo, 77 scelti per tema: 75 letti dalla trascrizione, 2 senza testo ricavabile (canali/senza-testo.json) | https://www.youtube.com/channel/UCNOJh-R1C9OBC4TqNwEAMMg |
+| 3 | *^Crystal_* | catalogo letto: 150 video in catalogo, 13 scelti per tema: 13 letti dalla trascrizione, 0 senza testo ricavabile (canali/senza-testo.json) | https://www.youtube.com/channel/UCQcizw_rc-q55lmwU3w6-wA |
+| 3 | senza descrizione | letto: video senza parlato, letti titolo e descrizione: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=98_azamLeh4 |
+| 3 | Video Proof of Isle Abeens Shiny Hunting | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=9EKfcIpYS2w&t=1s%2F |
+| 3 | Youtube | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=Dh2WcRJOVPU |
+| 3 | collegamento del post | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=GWWCicAWpNY |
+| 3 | senza descrizione | letto: video senza parlato, letti titolo e descrizione: estratto con 13 affermazioni, verificate | https://www.youtube.com/watch?v=H8AgGp5cqPI&t=32s |
+| 3 | senza descrizione | letto: video senza parlato, letti titolo e descrizione: estratto con 13 affermazioni, verificate | https://www.youtube.com/watch?v=H8AgGp5cqPI&t=9m47s |
+| 3 | https://www.youtube.com/watch?v=KlxO\_Ge\_BdI&t=72s | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=KlxO_Ge_BdI&t=72s |
+| 3 | https://www.youtube.com/watch?v=NeJeWOcWS5Y&t=52s | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=NeJeWOcWS5Y&t=52s |
+| 3 | https://www.youtube.com/watch?v=Qcp4vxyaUJc | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=Qcp4vxyaUJc |
+| 3 | senza descrizione | letto: video senza parlato, letti titolo e descrizione: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=WD_GVaQwn8o |
+| 3 | link | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=fKiRIMDNj4A |
+| 3 | Here's | letto: video senza parlato, letti titolo e descrizione: estratto con 7 affermazioni, verificate | https://www.youtube.com/watch?v=jR5rov2e6PU |
+| 3 | https://www.youtube.com/watch?v=k0HFRpqvSk4&t=3s&ab\_channel=Voltzo%28Manectric77%29 | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=k0HFRpqvSk4&t=3s&ab_channel=Voltzo%28Manectric77%29 |
+| 3 | link | trascritto: estratto senza affermazioni pertinenti | https://www.youtube.com/watch?v=mQLkeK3ETP4 |
+| 3 | Glitzer Popping | trascritto: estratto con 6 affermazioni, verificate | https://www.youtube.com/watch?v=nOEwPnv2TFM |
+| 3 | Odd Tinkering | catalogo letto: 164 video in catalogo, 3 scelti per tema: 3 letti dalla trascrizione, 0 senza testo ricavabile (canali/senza-testo.json) | https://youtube.com/@OddTinkering |
+| 3 | Retro Game Corps | catalogo letto: 946 video in catalogo, 2 scelti per tema: 2 letti dalla trascrizione, 0 senza testo ricavabile (canali/senza-testo.json) | https://youtube.com/@RetroGameCorps |
+| 3 | Scott the Woz | catalogo letto: 292 video in catalogo, 0 scelti per tema: 0 letti dalla trascrizione, 0 senza testo ricavabile (canali/senza-testo.json) | https://youtube.com/@ScottTheWoz |
+| 3 | The Retro Future | catalogo letto: 628 video in catalogo, 1 scelti per tema: 1 letti dalla trascrizione, 0 senza testo ricavabile (canali/senza-testo.json) | https://youtube.com/@TheRetroFuture |
+| 3 | Wulff Den | catalogo letto: 1300 video in catalogo, 10 scelti per tema: 9 letti dalla trascrizione, 1 senza testo ricavabile (canali/senza-testo.json) | https://youtube.com/@WulffDen |
 
 ### bulbapedia.bulbagarden.net (77)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | experience underflow glitch, enabling it to jump to level 100 immediately | catalogato | http://bulbapedia.bulbagarden.net/wiki/Experience |
-| 2 | This list | catalogato | http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_index_number_%28Generation_I%29 |
-| 2 | looked up here | catalogato | http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_index_number_(Generation_I\ |
-| 2 | Bulbapedia article | catalogato | http://bulbapedia.bulbagarden.net/wiki/Mew_glitch |
-| 2 | Alpha Pokemon | catalogato | https://bulbapedia.bulbagarden.net/wiki/Alpha_Pok%C3%A9mon |
-| 2 | Birth Island | catalogato | https://bulbapedia.bulbagarden.net/wiki/Birth_Island |
-| 2 | senza descrizione | catalogato | https://bulbapedia.bulbagarden.net/wiki/Catch_Combo |
-| 2 | Celebi and Bellsprout are in the same group | catalogato | https://bulbapedia.bulbagarden.net/wiki/Category:Pok%C3%A9mon_in_the_Medium_Slow_experience_group |
-| 2 | Coin Case Glitch | catalogato | https://bulbapedia.bulbagarden.net/wiki/Coin_Case_glitches |
-| 2 | Curtis | catalogato | https://bulbapedia.bulbagarden.net/wiki/Curtis |
-| 2 | Cute Charm Glitch | catalogato | https://bulbapedia.bulbagarden.net/wiki/Cute_Charm_(Ability |
-| 2 | https://bulbapedia.bulbagarden.net/wiki/DexNav#Calculated\_rates | catalogato | https://bulbapedia.bulbagarden.net/wiki/DexNav |
-| 2 | Dongle Method | catalogato | https://bulbapedia.bulbagarden.net/wiki/Dual-slot_mode |
-| 2 | GBA eReader | catalogato | https://bulbapedia.bulbagarden.net/wiki/E-Reader |
-| 2 | here | catalogato | https://bulbapedia.bulbagarden.net/wiki/Fight_Safari_Zone_Pok%C3%A9mon_trick |
-| 2 | https://bulbapedia.bulbagarden.net/wiki/Gender#Generation\_I | catalogato | https://bulbapedia.bulbagarden.net/wiki/Gender |
-| 2 | GTS | catalogato | https://bulbapedia.bulbagarden.net/wiki/Global_Trade_System |
-| 2 | Hayley ones | catalogato | https://bulbapedia.bulbagarden.net/wiki/Hayley |
-| 2 | Hayley's Trades from | catalogato | https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades |
-| 2 | here | catalogato | https://bulbapedia.bulbagarden.net/wiki/Headbutt_tree |
-| 2 | here | catalogato | https://bulbapedia.bulbagarden.net/wiki/In-game_trade |
-| 2 | here | catalogato | https://bulbapedia.bulbagarden.net/wiki/Item_duplication_glitch |
-| 2 | trade with Jasmine in HeartGold/SoulSilver. | catalogato | https://bulbapedia.bulbagarden.net/wiki/Jasmine%27s_Steelix |
-| 2 | senza descrizione | catalogato | https://bulbapedia.bulbagarden.net/wiki/List\_of\_Wi-Fi\_English\_event\_Pok%C3%A9mon\_distributions\_(Generation\_V |
-| 2 | senza descrizione | catalogato | https://bulbapedia.bulbagarden.net/wiki/List\_of\_local\_English\_event\_Pok%C3%A9mon\_distributions\_(Generation\_IV |
-| 2 | senza descrizione | catalogato | https://bulbapedia.bulbagarden.net/wiki/List\_of\_local\_English\_event\_Pok%C3%A9mon\_distributions\_(Generation\_V |
-| 2 | This bulbapedia list | catalogato | https://bulbapedia.bulbagarden.net/wiki/List_of_local_Japanese_event_Pokémon_distributions_in_Generation_IV |
-| 2 | senza descrizione | catalogato | https://bulbapedia.bulbagarden.net/wiki/Mew\_glitch |
-| 2 | You can also get Mew from My Pokemon Ranch | catalogato | https://bulbapedia.bulbagarden.net/wiki/My_Pok%C3%A9mon_Ranch |
-| 2 | My Pokémon Ranch | catalogato | https://bulbapedia.bulbagarden.net/wiki/My_Pokémon_Ranch |
-| 2 | Pal Park | catalogato | https://bulbapedia.bulbagarden.net/wiki/Pal_Park |
-| 2 | Gen VIII | catalogato | https://bulbapedia.bulbagarden.net/wiki/Pikachu_in_a_cap |
-| 2 | Poké Radar Shiny Odds | catalogato | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9_Radar |
-| 2 | *Pokémon Battle Revolution* | catalogato | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Battle_Revolution |
-| 2 | *Pokémon Box Ruby & Sapphire* | catalogato | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Box_Ruby_%26_Sapphire |
-| 2 | *Pokémon Channel* | catalogato | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Channel |
-| 2 | *Pokémon Colosseum* | catalogato | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Colosseum |
-| 2 | WISHMKR Jirachi | catalogato | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Colosseum_Bonus_Disc |
-| 2 | *XD: Gale of Darkness* | catalogato | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_XD:_Gale_of_Darkness |
-| 2 | Poke-Transfer | catalogato | https://bulbapedia.bulbagarden.net/wiki/Poké_Transfer |
-| 2 | Pokémon Battle Revolution | catalogato | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Battle_Revolution |
-| 2 | Pokémon Box: Ruby & Sapphire | catalogato | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Box_Ruby_%26_Sapphire |
-| 2 | Pokémon Channel | catalogato | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Channel |
-| 2 | Pokémon Colosseum | catalogato | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Colosseum |
-| 2 | Pokémon Dream RADAR | catalogato | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Dream_Radar |
-| 2 | Pokémon Dream World | catalogato | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Dream_World |
-| 2 | Pokémon Global Link | catalogato | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Global_Link |
-| 2 | Pokémon Ranger | catalogato | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Ranger_series |
-| 2 | Pokémon Gale of Darkness XD | catalogato | https://bulbapedia.bulbagarden.net/wiki/Pokémon_XD:_Gale_of_Darkness |
-| 2 | You can get Darkrai by loading a save file with Darkrai (or the mission) in Shadows of Almia | catalogato | https://bulbapedia.bulbagarden.net/wiki/Ranger_Net |
-| 2 | https://bulbapedia.bulbagarden.net/wiki/Record\_mixing#Feebas\_factor | catalogato | https://bulbapedia.bulbagarden.net/wiki/Record_mixing |
-| 2 | Bulbapedia | catalogato | https://bulbapedia.bulbagarden.net/wiki/Roaming_Pok%C3%A9mon |
-| 2 | More details on Bulbapedia. | catalogato | https://bulbapedia.bulbagarden.net/wiki/Sinjoh_Ruins |
-| 2 | Time Capsule Exploit | catalogato | https://bulbapedia.bulbagarden.net/wiki/Time_Capsule_exploit |
-| 2 | https://bulbapedia.bulbagarden.net/wiki/Turnback\_Cave#Before\_encountering\_a\_pillar | catalogato | https://bulbapedia.bulbagarden.net/wiki/Turnback_Cave |
-| 2 | level 63 in Sw/Sh | catalogato | https://bulbapedia.bulbagarden.net/wiki/Victini_(Pok%C3%A9mon |
-| 2 | https://bulbapedia.bulbagarden.net/wiki/Wild\_Area\_News/2021#February\_4\_to\_8.2C\_2021 | catalogato | https://bulbapedia.bulbagarden.net/wiki/Wild_Area_News/2021 |
-| 2 | Yancy | catalogato | https://bulbapedia.bulbagarden.net/wiki/Yancy |
+| 2 | experience underflow glitch, enabling it to jump to level 100 immediately | letto: estratto con 2 affermazioni, verificate | http://bulbapedia.bulbagarden.net/wiki/Experience |
+| 2 | This list | letto: estratto con 2 affermazioni, verificate | http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_index_number_%28Generation_I%29 |
+| 2 | looked up here | letto: estratto senza affermazioni pertinenti | http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_index_number_(Generation_I\ |
+| 2 | Bulbapedia article | letto il 2026-10-05 dalla Wayback Machine (il sito risponde 403): il glitch dell'allenatore a lunga portata (2002) cattura Mew e quasi ogni altro Pokemon in Gen 1, funziona sulla Virtual Console ma un Mew così ottenuto passa Poke Transporter solo con OT GF e TID 22796 | http://bulbapedia.bulbagarden.net/wiki/Mew_glitch |
+| 2 | Alpha Pokemon | letto: estratto con 5 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Alpha_Pok%C3%A9mon |
+| 2 | Birth Island | letto: estratto con 4 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Birth_Island |
+| 2 | senza descrizione | letto: estratto con 1 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Catch_Combo |
+| 2 | Celebi and Bellsprout are in the same group | letto: estratto senza affermazioni pertinenti | https://bulbapedia.bulbagarden.net/wiki/Category:Pok%C3%A9mon_in_the_Medium_Slow_experience_group |
+| 2 | Coin Case Glitch | letto: estratto con 4 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Coin_Case_glitches |
+| 2 | Curtis | letto: estratto con 3 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Curtis |
+| 2 | Cute Charm Glitch | letto: documentazione tecnica o pagina generica fuori tema, conservata senza estrazione | https://bulbapedia.bulbagarden.net/wiki/Cute_Charm_(Ability |
+| 2 | https://bulbapedia.bulbagarden.net/wiki/DexNav#Calculated\_rates | letto: estratto con 3 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/DexNav |
+| 2 | Dongle Method | letto: estratto con 8 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Dual-slot_mode |
+| 2 | GBA eReader | letto: estratto con 3 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/E-Reader |
+| 2 | here | letto: estratto con 3 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Fight_Safari_Zone_Pok%C3%A9mon_trick |
+| 2 | https://bulbapedia.bulbagarden.net/wiki/Gender#Generation\_I | letto: estratto con 5 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Gender |
+| 2 | GTS | letto: estratto con 9 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Global_Trade_System |
+| 2 | Hayley ones | letto: estratto con 3 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Hayley |
+| 2 | Hayley's Trades from | letto: estratto con 6 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades |
+| 2 | here | letto: estratto con 3 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Headbutt_tree |
+| 2 | here | letto: estratto con 27 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/In-game_trade |
+| 2 | here | letto: estratto con 4 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Item_duplication_glitch |
+| 2 | trade with Jasmine in HeartGold/SoulSilver. | letto: estratto con 3 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Jasmine%27s_Steelix |
+| 2 | senza descrizione | letto: estratto con 10 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/List\_of\_Wi-Fi\_English\_event\_Pok%C3%A9mon\_distributions\_(Generation\_V |
+| 2 | senza descrizione | letto: estratto con 86 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/List\_of\_local\_English\_event\_Pok%C3%A9mon\_distributions\_(Generation\_IV |
+| 2 | senza descrizione | letto: estratto con 106 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/List\_of\_local\_English\_event\_Pok%C3%A9mon\_distributions\_(Generation\_V |
+| 2 | This bulbapedia list | letto: estratto con 51 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/List_of_local_Japanese_event_Pokémon_distributions_in_Generation_IV |
+| 2 | senza descrizione | letto: documentazione tecnica o pagina generica fuori tema, conservata senza estrazione | https://bulbapedia.bulbagarden.net/wiki/Mew\_glitch |
+| 2 | You can also get Mew from My Pokemon Ranch | letto: estratto con 6 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/My_Pok%C3%A9mon_Ranch |
+| 2 | My Pokémon Ranch | letto: documentazione tecnica o pagina generica fuori tema, conservata senza estrazione | https://bulbapedia.bulbagarden.net/wiki/My_Pokémon_Ranch |
+| 2 | Pal Park | letto: estratto con 11 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Pal_Park |
+| 2 | Gen VIII | letto: estratto con 7 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Pikachu_in_a_cap |
+| 2 | Poké Radar Shiny Odds | letto: estratto con 5 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9_Radar |
+| 2 | *Pokémon Battle Revolution* | letto: estratto con 8 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Battle_Revolution |
+| 2 | *Pokémon Box Ruby & Sapphire* | letto: estratto con 4 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Box_Ruby_%26_Sapphire |
+| 2 | *Pokémon Channel* | letto: estratto con 9 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Channel |
+| 2 | *Pokémon Colosseum* | letto: estratto con 14 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Colosseum |
+| 2 | WISHMKR Jirachi | letto: estratto con 9 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Colosseum_Bonus_Disc |
+| 2 | *XD: Gale of Darkness* | letto: estratto con 11 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_XD:_Gale_of_Darkness |
+| 2 | Poke-Transfer | letto: documentazione tecnica o pagina generica fuori tema, conservata senza estrazione | https://bulbapedia.bulbagarden.net/wiki/Poké_Transfer |
+| 2 | Pokémon Battle Revolution | letto: documentazione tecnica o pagina generica fuori tema, conservata senza estrazione | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Battle_Revolution |
+| 2 | Pokémon Box: Ruby & Sapphire | letto: documentazione tecnica o pagina generica fuori tema, conservata senza estrazione | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Box_Ruby_%26_Sapphire |
+| 2 | Pokémon Channel | letto: documentazione tecnica o pagina generica fuori tema, conservata senza estrazione | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Channel |
+| 2 | Pokémon Colosseum | letto: estratto con 12 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Colosseum |
+| 2 | Pokémon Dream RADAR | letto: documentazione tecnica o pagina generica fuori tema, conservata senza estrazione | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Dream_Radar |
+| 2 | Pokémon Dream World | letto: documentazione tecnica o pagina generica fuori tema, conservata senza estrazione | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Dream_World |
+| 2 | Pokémon Global Link | letto: documentazione tecnica o pagina generica fuori tema, conservata senza estrazione | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Global_Link |
+| 2 | Pokémon Ranger | letto: documentazione tecnica o pagina generica fuori tema, conservata senza estrazione | https://bulbapedia.bulbagarden.net/wiki/Pokémon_Ranger_series |
+| 2 | Pokémon Gale of Darkness XD | letto: documentazione tecnica o pagina generica fuori tema, conservata senza estrazione | https://bulbapedia.bulbagarden.net/wiki/Pokémon_XD:_Gale_of_Darkness |
+| 2 | You can get Darkrai by loading a save file with Darkrai (or the mission) in Shadows of Almia | letto: estratto con 21 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Ranger_Net |
+| 2 | https://bulbapedia.bulbagarden.net/wiki/Record\_mixing#Feebas\_factor | letto: estratto con 12 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Record_mixing |
+| 2 | Bulbapedia | letto: estratto con 15 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Roaming_Pok%C3%A9mon |
+| 2 | More details on Bulbapedia. | letto: estratto con 8 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Sinjoh_Ruins |
+| 2 | Time Capsule Exploit | letto: estratto con 8 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Time_Capsule_exploit |
+| 2 | https://bulbapedia.bulbagarden.net/wiki/Turnback\_Cave#Before\_encountering\_a\_pillar | letto: estratto con 10 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Turnback_Cave |
+| 2 | level 63 in Sw/Sh | letto: documentazione tecnica o pagina generica fuori tema, conservata senza estrazione | https://bulbapedia.bulbagarden.net/wiki/Victini_(Pok%C3%A9mon |
+| 2 | Yancy | letto: estratto con 9 affermazioni, verificate | https://bulbapedia.bulbagarden.net/wiki/Yancy |
 | 3 | senza descrizione | non raggiunto | http://bulbapedia.bulbagarden.net/wiki/List_of_Japanese_event_Pokémon_distributions_in_Generation_I |
 | 3 | This list of Pokémon by index number | non raggiunto | http://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_index_number_%28Generation_II%29 |
 | 3 | see here | non raggiunto | http://bulbapedia.bulbagarden.net/wiki/List_of_items_by_index_number_%28Generation_II%29 |
@@ -1594,60 +1559,60 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | In this example, I’ve raised a Kadabra to 188 Special | catalogato | http://i.imgur.com/110bWGX.png?1= |
-| 2 | senza descrizione | catalogato | http://i.imgur.com/54YGQqv.png |
-| 2 | senza descrizione | catalogato | http://i.imgur.com/6wT4Pks.png |
-| 2 | fight a trainer | catalogato | http://i.imgur.com/7KUidYJ.png?1= |
-| 2 | there is the Pokémon you were looking for | catalogato | http://i.imgur.com/7cg3AYx.png?1= |
-| 2 | senza descrizione | catalogato | http://i.imgur.com/8LMkJ0T.jpg |
-| 2 | you should see the exclamation mark on the LD trainer | catalogato | http://i.imgur.com/B2UYqLi.png?1= |
-| 2 | re-access SS. Anne and the truck | catalogato | http://i.imgur.com/DNIUIRu.png?1= |
-| 2 | right before you fly off | catalogato | http://i.imgur.com/FnbFZNl.png?1= |
-| 2 | Stand here | catalogato | http://i.imgur.com/LUTduWI.png?1= |
-| 2 | gambler outside of underground path house west of Saffron City | catalogato | http://i.imgur.com/RdtPdUl.png?1= |
-| 2 | senza descrizione | catalogato | http://i.imgur.com/Yf2aV9B.png |
-| 2 | you should be facing west when you return to your game | catalogato | http://i.imgur.com/Z7ReGcr.png?1= |
-| 2 | nugget bridge one | catalogato | http://i.imgur.com/fbgacRf.png?1= |
-| 2 | Here | catalogato | http://i.imgur.com/ktn2bK3.jpg |
-| 2 | senza descrizione | catalogato | http://i.imgur.com/oIMT53Q.png |
-| 2 | Walk towards them, pressing start right before the step finishes | catalogato | http://i.imgur.com/rc3KeV7.png?1= |
-| 2 | You’ll surf over the sailor | catalogato | http://i.imgur.com/uVn8uay.png?1= |
-| 2 | the START menu will pop up | catalogato | http://i.imgur.com/vCWPwmK.png?1= |
-| 2 | go to any of the long-distance trainers and stand just out of their reach | catalogato | http://i.imgur.com/xFrHYnj.png?1= |
-| 2 | transform into Kadabra (or whatever Pokémon you've used | catalogato | http://i.imgur.com/ykmcESd.png?1= |
-| 2 | Pokéball | catalogato | https://i.imgur.com/XgAhEXa.png |
-| 3 | nature | catalogato | http://i.imgur.com/17PlyDA.jpg |
-| 3 | the path shown in this image | catalogato | http://i.imgur.com/3o7klcA.png |
-| 3 | this is the final state | catalogato | http://i.imgur.com/7grgOoS.png?1= |
-| 3 | Hatch the egg | catalogato | http://i.imgur.com/8LDE3wO.png?1= |
-| 3 | senza descrizione | catalogato | http://i.imgur.com/9zS2Nsv.jpg |
-| 3 | Listen to the cry of either Machop, Machoke, Bellsprout, Omanyte or Celebi in the Pokédex | catalogato | http://i.imgur.com/AX0lYmk.png?1= |
-| 3 | but it only knows Splash | catalogato | http://i.imgur.com/AkdJS3r.png?1= |
-| 3 | it's beautiful | catalogato | http://i.imgur.com/CNxQwf6.jpg |
-| 3 | This is what it looks like after I execute the first code | catalogato | http://i.imgur.com/DEs0AXG.png?1= |
-| 3 | This is my initial item list | catalogato | http://i.imgur.com/EEjqFe7.png?1= |
-| 3 | Open our Pokédex | catalogato | http://i.imgur.com/GkakEW8.png?1= |
-| 3 | “Use” the coin case | catalogato | http://i.imgur.com/JMrUhTJ.png?1= |
-| 3 | boss called RICK | catalogato | http://i.imgur.com/KMrQpaV.png?1= |
-| 3 | Quagsire with Protein and 4 moves with the first being Sleep Talk | catalogato | http://i.imgur.com/KuQsNWD.png?1= |
-| 3 | senza descrizione | catalogato | http://i.imgur.com/OJQJYN6.png |
-| 3 | we fly to Cherrygrove City | catalogato | http://i.imgur.com/P9RfMJv.png?1= |
-| 3 | an UMBREON should come out | catalogato | http://i.imgur.com/RzE7Bf1.png?1= |
-| 3 | We give it a Rare Candy to level 1 and POOF, Umbreon will relearn all its default moves | catalogato | http://i.imgur.com/UwQI59C.png?1= |
-| 3 | senza descrizione | catalogato | http://i.imgur.com/X75kwOi.jpg |
-| 3 | senza descrizione | catalogato | http://i.imgur.com/YAGpXPd.png |
-| 3 | MRW after getting excited for getting Mew, and then seeing how long and complex this and the 8F item methods are. | catalogato | http://i.imgur.com/YO9YFgc.mp4 |
-| 3 | senza descrizione | catalogato | http://i.imgur.com/ZNn7K6j.png |
-| 3 | We name Box 9 **!/RZ’v♂** | catalogato | http://i.imgur.com/ZXgSGNa.png?1= |
-| 3 | little green guy | catalogato | http://i.imgur.com/eZqV6b6.jpg |
-| 3 | IVs | catalogato | http://i.imgur.com/fo5WNjO.jpg |
-| 3 | my Umbreon is now level 0 | catalogato | http://i.imgur.com/j3yeMjZ.png?1= |
-| 3 | Step exactly 4 tiles to the right | catalogato | http://i.imgur.com/jKxEVTN.png?1= |
-| 3 | go out | catalogato | http://i.imgur.com/kqmBl63.png?1= |
-| 3 | I got a shiny | catalogato | http://i.imgur.com/mBznNBB.jpg |
-| 3 | Go inside the Mart | catalogato | http://i.imgur.com/oaA4AXS.png?1= |
-| 3 | lvl 254 Blissey with Tail Whip (which I defeat with Toxic) | catalogato | http://i.imgur.com/vOMd5Yq.png?1= |
-| 3 | senza descrizione | catalogato | http://i.imgur.com/yefMuNy.jpg |
+| 2 | In this example, I’ve raised a Kadabra to 188 Special | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/110bWGX.png?1= |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/54YGQqv.png |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/6wT4Pks.png |
+| 2 | fight a trainer | letto a vista: fotogramma o tabella del glitch di Mew in Rosso, Blu e Giallo (allenatori lontani, camion della M/N Anna): procedura già in S | http://i.imgur.com/7KUidYJ.png?1= |
+| 2 | there is the Pokémon you were looking for | letto a vista: fotogramma o tabella del glitch di Mew in Rosso, Blu e Giallo (allenatori lontani, camion della M/N Anna): procedura già in S | http://i.imgur.com/7cg3AYx.png?1= |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/8LMkJ0T.jpg |
+| 2 | you should see the exclamation mark on the LD trainer | letto a vista: fotogramma o tabella del glitch di Mew in Rosso, Blu e Giallo (allenatori lontani, camion della M/N Anna): procedura già in S | http://i.imgur.com/B2UYqLi.png?1= |
+| 2 | re-access SS. Anne and the truck | letto a vista: fotogramma o tabella del glitch di Mew in Rosso, Blu e Giallo (allenatori lontani, camion della M/N Anna): procedura già in S | http://i.imgur.com/DNIUIRu.png?1= |
+| 2 | right before you fly off | letto a vista: fotogramma o tabella del glitch di Mew in Rosso, Blu e Giallo (allenatori lontani, camion della M/N Anna): procedura già in S | http://i.imgur.com/FnbFZNl.png?1= |
+| 2 | Stand here | letto a vista: fotogramma o tabella del glitch di Mew in Rosso, Blu e Giallo (allenatori lontani, camion della M/N Anna): procedura già in S | http://i.imgur.com/LUTduWI.png?1= |
+| 2 | gambler outside of underground path house west of Saffron City | letto a vista: fotogramma o tabella del glitch di Mew in Rosso, Blu e Giallo (allenatori lontani, camion della M/N Anna): procedura già in S | http://i.imgur.com/RdtPdUl.png?1= |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/Yf2aV9B.png |
+| 2 | you should be facing west when you return to your game | letto a vista: fotogramma o tabella del glitch di Mew in Rosso, Blu e Giallo (allenatori lontani, camion della M/N Anna): procedura già in S | http://i.imgur.com/Z7ReGcr.png?1= |
+| 2 | nugget bridge one | letto a vista: fotogramma o tabella del glitch di Mew in Rosso, Blu e Giallo (allenatori lontani, camion della M/N Anna): procedura già in S | http://i.imgur.com/fbgacRf.png?1= |
+| 2 | Here | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/ktn2bK3.jpg |
+| 2 | senza descrizione | letto a vista: meme: nessun contenuto | http://i.imgur.com/oIMT53Q.png |
+| 2 | Walk towards them, pressing start right before the step finishes | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/rc3KeV7.png?1= |
+| 2 | You’ll surf over the sailor | letto a vista: fotogramma o tabella del glitch di Mew in Rosso, Blu e Giallo (allenatori lontani, camion della M/N Anna): procedura già in S | http://i.imgur.com/uVn8uay.png?1= |
+| 2 | the START menu will pop up | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/vCWPwmK.png?1= |
+| 2 | go to any of the long-distance trainers and stand just out of their reach | letto a vista: fotogramma o tabella del glitch di Mew in Rosso, Blu e Giallo (allenatori lontani, camion della M/N Anna): procedura già in S | http://i.imgur.com/xFrHYnj.png?1= |
+| 2 | transform into Kadabra (or whatever Pokémon you've used | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/ykmcESd.png?1= |
+| 2 | Pokéball | letto a vista: divisore di pagina o icona: nessun contenuto | https://i.imgur.com/XgAhEXa.png |
+| 3 | nature | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/17PlyDA.jpg |
+| 3 | the path shown in this image | letto a vista: fotogramma o tabella del glitch di Mew in Rosso, Blu e Giallo (allenatori lontani, camion della M/N Anna): procedura già in S | http://i.imgur.com/3o7klcA.png |
+| 3 | this is the final state | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/7grgOoS.png?1= |
+| 3 | Hatch the egg | letto a vista: fotogramma del codice nel nome del box in Oro, Argento e Cristallo, con l'uovo che schiude Umbreon: procedura già in STUDIO-0 | http://i.imgur.com/8LDE3wO.png?1= |
+| 3 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/9zS2Nsv.jpg |
+| 3 | Listen to the cry of either Machop, Machoke, Bellsprout, Omanyte or Celebi in the Pokédex | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/AX0lYmk.png?1= |
+| 3 | but it only knows Splash | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/AkdJS3r.png?1= |
+| 3 | it's beautiful | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/CNxQwf6.jpg |
+| 3 | This is what it looks like after I execute the first code | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/DEs0AXG.png?1= |
+| 3 | This is my initial item list | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/EEjqFe7.png?1= |
+| 3 | Open our Pokédex | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/GkakEW8.png?1= |
+| 3 | “Use” the coin case | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/JMrUhTJ.png?1= |
+| 3 | boss called RICK | letto a vista: fotogramma del codice nel nome del box in Oro, Argento e Cristallo, con l'uovo che schiude Umbreon: procedura già in STUDIO-0 | http://i.imgur.com/KMrQpaV.png?1= |
+| 3 | Quagsire with Protein and 4 moves with the first being Sleep Talk | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/KuQsNWD.png?1= |
+| 3 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/OJQJYN6.png |
+| 3 | we fly to Cherrygrove City | letto a vista: fotogramma del codice nel nome del box in Oro, Argento e Cristallo, con l'uovo che schiude Umbreon: procedura già in STUDIO-0 | http://i.imgur.com/P9RfMJv.png?1= |
+| 3 | an UMBREON should come out | letto a vista: fotogramma del codice nel nome del box in Oro, Argento e Cristallo, con l'uovo che schiude Umbreon: procedura già in STUDIO-0 | http://i.imgur.com/RzE7Bf1.png?1= |
+| 3 | We give it a Rare Candy to level 1 and POOF, Umbreon will relearn all its default moves | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/UwQI59C.png?1= |
+| 3 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/X75kwOi.jpg |
+| 3 | senza descrizione | letto a vista: meme: nessun contenuto | http://i.imgur.com/YAGpXPd.png |
+| 3 | MRW after getting excited for getting Mew, and then seeing how long and complex this and the 8F item methods are. | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/YO9YFgc.mp4 |
+| 3 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/ZNn7K6j.png |
+| 3 | We name Box 9 **!/RZ’v♂** | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/ZXgSGNa.png?1= |
+| 3 | little green guy | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/eZqV6b6.jpg |
+| 3 | IVs | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/fo5WNjO.jpg |
+| 3 | my Umbreon is now level 0 | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/j3yeMjZ.png?1= |
+| 3 | Step exactly 4 tiles to the right | letto a vista: fotogramma del codice nel nome del box in Oro, Argento e Cristallo, con l'uovo che schiude Umbreon: procedura già in STUDIO-0 | http://i.imgur.com/jKxEVTN.png?1= |
+| 3 | go out | letto a vista: fotogramma del codice nel nome del box in Oro, Argento e Cristallo, con l'uovo che schiude Umbreon: procedura già in STUDIO-0 | http://i.imgur.com/kqmBl63.png?1= |
+| 3 | I got a shiny | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/mBznNBB.jpg |
+| 3 | Go inside the Mart | letto a vista: fotogramma del codice nel nome del box in Oro, Argento e Cristallo, con l'uovo che schiude Umbreon: procedura già in STUDIO-0 | http://i.imgur.com/oaA4AXS.png?1= |
+| 3 | lvl 254 Blissey with Tail Whip (which I defeat with Toxic) | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/vOMd5Yq.png?1= |
+| 3 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | http://i.imgur.com/yefMuNy.jpg |
 
 ### serebii.net (50)
 
@@ -1708,147 +1673,134 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | complete (I think) list | catalogato | https://docs.google.com/document/d/1hkdRJFgZOEzhKMHH0opOv0E2Qs8EecjpulPGFJefZ8c/edit?usp=sharing |
-| 2 | senza descrizione | catalogato | https://docs.google.com/document/d/1lbcUDFVjqDQLn0INCJBrJvMTzzlQ-cpmzQCzp9rAQTs/edit?usp=drivesdk |
-| 2 | a guide to collecting every possible underleveled Pokemon. | catalogato | https://docs.google.com/document/d/e/2PACX-1vSZHF4sdFUmF0ttnVfgwFrKzfa99gm1OEy0UJ9KkFWvBA4fFKPyNcwWyfqaGS5CbFGtuk0M67cKEWI8/pub |
-| 2 | https://docs.google.com/spreadsheets/d/11lZYY9qUE3I1d7\_Kc3M3q03KIuYGFBaWvWqN2X\_qSOk/edit?usp=sharing | catalogato | https://docs.google.com/spreadsheets/d/11lZYY9qUE3I1d7_Kc3M3q03KIuYGFBaWvWqN2X_qSOk/edit?usp=sharing |
-| 2 | Bank Closing all possible things checklist V0.5 | catalogato | https://docs.google.com/spreadsheets/d/14QTf2q3rRFlaIqHxigfFyKiKZdL9o6uc_bQE-OtOTwk/edit?gid=1932480820 |
-| 2 | spreadsheet | catalogato | https://docs.google.com/spreadsheets/d/14QTf2q3rRFlaIqHxigfFyKiKZdL9o6uc_bQE-OtOTwk/edit?usp=sharing |
-| 2 | https://docs.google.com/spreadsheets/d/160\_C7klF\_MFGlZJnnfmYe1cjW-uFAto9CB3yLSe8Tv0/edit?usp=sharing | catalogato | https://docs.google.com/spreadsheets/d/160_C7klF_MFGlZJnnfmYe1cjW-uFAto9CB3yLSe8Tv0/edit?usp=sharing |
-| 2 | https://docs.google.com/spreadsheets/d/17K4aF5H3ALbvdi65IN5npJ4L7LxmUjgVUNS9-orS\_G8/edit?usp=sharing | catalogato | https://docs.google.com/spreadsheets/d/17K4aF5H3ALbvdi65IN5npJ4L7LxmUjgVUNS9-orS_G8/edit?usp=sharing |
-| 2 | senza descrizione | catalogato | https://docs.google.com/spreadsheets/d/1ClSTolvZmTHeI4uItfKIVsSHfUxws7BnzlUTVV9zEYs/edit?usp=sharing |
-| 2 | https://docs.google.com/spreadsheets/d/1JOdD5FECYkZqWuLoc6vV1mhbBl\_4AuvE/edit?gid=179090297#gid=179090297 | catalogato | https://docs.google.com/spreadsheets/d/1JOdD5FECYkZqWuLoc6vV1mhbBl_4AuvE/edit?gid=179090297 |
-| 2 | 3DS Home Challenge\ | catalogato | https://docs.google.com/spreadsheets/d/1K8-2rWbMiVcV3RaW0uMmHF5Yeo7j-iUfjoBFqzzaJ2s/edit?usp=sharing |
-| 2 | Kipter's Edition of Austin John's Shiny Dex Organizer with Extension to LGPE | catalogato | https://docs.google.com/spreadsheets/d/1LHYu6VQru7snvshafOvBItlVr_LTLf4WH4TYiQyO6GY/edit?usp=sharing |
-| 2 | senza descrizione | catalogato | https://docs.google.com/spreadsheets/d/1Np71tQe_CLWfVEHNY6158twKeGSq3lUdAJTxlRjuRAw/edit?usp=sharing |
-| 2 | https://docs.google.com/spreadsheets/d/1PO8Jj-xHmQXrQel-Xpaopgty1ozgEynv/edit?usp=sharing&ouid=105928561876625854556&rtpof=true&sd=true | catalogato | https://docs.google.com/spreadsheets/d/1PO8Jj-xHmQXrQel-Xpaopgty1ozgEynv/edit?usp=sharing&ouid=105928561876625854556&rtpof=true&sd=true |
-| 2 | https://docs.google.com/spreadsheets/d/1S5LkoD502R9H2rbAkKsbnqrjckhlMqRP6ooG2iGyL5Q/edit?usp=sharing | catalogato | https://docs.google.com/spreadsheets/d/1S5LkoD502R9H2rbAkKsbnqrjckhlMqRP6ooG2iGyL5Q/edit?usp=sharing |
-| 2 | **Legal Matching Pokéballs 2.0** | catalogato | https://docs.google.com/spreadsheets/d/1T5RMu189-uMrknJlAPNp3QbQAyp8t0N5/edit?usp=sharing&ouid=103067789524497045001&rtpof=true&sd=true |
-| 2 | https://docs.google.com/spreadsheets/d/1TLEbEeXsaCsJgPNN-ehrVqTvNbP8KM9f3U5FLKNS6TI/edit?usp=sharing | catalogato | https://docs.google.com/spreadsheets/d/1TLEbEeXsaCsJgPNN-ehrVqTvNbP8KM9f3U5FLKNS6TI/edit?usp=sharing |
-| 2 | senza descrizione | catalogato | https://docs.google.com/spreadsheets/d/1U_X4rB3LIAI66HpFE8lDIsCHkZbOiQ7rZAxmahUZ_Z4/edit?usp=sharing |
-| 2 | senza descrizione | catalogato | https://docs.google.com/spreadsheets/d/1X4HlOobLKhBNfxMy3yUbXe015Sr_nZybKlQD7GuR8LU/edit |
-| 2 | https://docs.google.com/spreadsheets/d/1asxeqWirsimzhBaFChP7Yavf5RdEFu9gHJ4tpmD6N5o/edit?usp=sharing | catalogato | https://docs.google.com/spreadsheets/d/1asxeqWirsimzhBaFChP7Yavf5RdEFu9gHJ4tpmD6N5o/edit?usp=sharing |
-| 2 | hisuian voltorb/electrode | catalogato | https://docs.google.com/spreadsheets/d/1bvIx7Q2Lxp7efHRrUh48WkuwirNlKardwSHVz_R8kA0/edit |
-| 2 | collegamento del post | catalogato | https://docs.google.com/spreadsheets/d/1nE47IB6uY81f8ESsg05iCuA34QmoCJNqYb3qNyUOm_A/edit |
-| 2 | https://docs.google.com/spreadsheets/d/1uv3jgQw\_1yJeNZucT-DPzWWhHEwitx6-1qAzh9FQ6ZA/edit?gid=459916946#gid=459916946 | catalogato | https://docs.google.com/spreadsheets/d/1uv3jgQw_1yJeNZucT-DPzWWhHEwitx6-1qAzh9FQ6ZA/edit?gid=459916946 |
-| 2 | https://docs.google.com/spreadsheets/d/1xvCQs2JprtSVOf47omRvoaMwTO7EXtRLKbdZyAnRc4U/edit?gid=1179485747#gid=1179485747 | catalogato | https://docs.google.com/spreadsheets/d/1xvCQs2JprtSVOf47omRvoaMwTO7EXtRLKbdZyAnRc4U/edit?gid=1179485747 |
-| 2 | senza descrizione | catalogato | https://docs.google.com/spreadsheets/d/e/2PACX-1vTVVOEZbXLVQvjIdzGACpZ_IrOWgVDBr_Wa-xULK3191BP9lf1tep-z-PsmcAfaH_aE56j3GHDX_9UO/pubhtml |
-| 2 | spreadsheet/checklist | catalogato | https://docs.google.com/spreadsheets/d/e/2PACX-1vTusrkjjQVxfqANVboZbw-VplOUBioFRDcHi5yEz4tXupmNvs9s2MHDBPA0jBzS38Ic9UT6Xulr0Sko/pubhtml |
-| 2 | senza descrizione | catalogato | https://docs.google.com/spreadsheets/u/0/d/1bvIx7Q2Lxp7efHRrUh48WkuwirNlKardwSHVz_R8kA0/htmlview |
-| 3 | senza descrizione | catalogato | https://docs.google.com/document/d/1Q733nUB-q_1Ao3qTMN_0pjFkwW2NyRXdsZtW9r795SU/edit |
-| 3 | Click here to apply! | catalogato | https://docs.google.com/forms/u/0/d/e/1FAIpQLScQPusfkDX9P2IWBKo8KIdBitvjMXn43TFt2DEzHCTTtmHXSw/formResponse |
-| 3 | Pokemon Home COMPLETE Living Dex List, Spreadsheet Edition | catalogato | https://docs.google.com/spreadsheets/d/11ov5BCgmdjftGcgtZ49TFglPXJdLBC05OZSLWwSxUMY/edit?usp=sharing |
-| 3 | Updated Spreadsheet | catalogato | https://docs.google.com/spreadsheets/d/14W8CAS9SBq3jDuZAl0YncFrrtr8z6RWUGZoqtrKMxFc/edit?usp=sharing |
-| 3 | https://docs.google.com/spreadsheets/d/17DXQplJ78ZsBbpMUWVTQSvtsL\_ivug1\_Iv4QBlitq8A/edit?usp=sharing | catalogato | https://docs.google.com/spreadsheets/d/17DXQplJ78ZsBbpMUWVTQSvtsL_ivug1_Iv4QBlitq8A/edit?usp=sharing |
-| 3 | https://docs.google.com/spreadsheets/d/1R0H24zZ3MaxQY6IBnsPttUMD4MK4fXeOmcqPNrZJaKM/copy | catalogato | https://docs.google.com/spreadsheets/d/1R0H24zZ3MaxQY6IBnsPttUMD4MK4fXeOmcqPNrZJaKM/copy |
-| 3 | completed spreadsheet of Matching Pokéballs | catalogato | https://docs.google.com/spreadsheets/d/1SQYaFkQlNjEhGaJpdpiMT331g2EAqeTojq1xGm-lajs/edit?usp=sharing |
-| 3 | senza descrizione | catalogato | https://docs.google.com/spreadsheets/d/1T5RMu189-uMrknJlAPNp3QbQAyp8t0N5/edit?usp=drivesdk&ouid=103067789524497045001&rtpof=true&sd=true |
-| 3 | Link to spreadsheet | catalogato | https://docs.google.com/spreadsheets/d/1uV8xqVUqPhyz52aKNzY3VkCg8MG7Lzsdy-FAKVZJzqw/edit |
-| 3 | . | catalogato | https://docs.google.com/spreadsheets/u/0/d/1dItpqk-koxZJ3s5mGArWPHo2OGPj3R-Wc_q3bOrTMqg/htmlview |
+| 2 | complete (I think) list | letto: estratto senza affermazioni pertinenti | https://docs.google.com/document/d/1hkdRJFgZOEzhKMHH0opOv0E2Qs8EecjpulPGFJefZ8c/edit?usp=sharing |
+| 2 | senza descrizione | letto: estratto con 55 affermazioni, verificate | https://docs.google.com/document/d/1lbcUDFVjqDQLn0INCJBrJvMTzzlQ-cpmzQCzp9rAQTs/edit?usp=drivesdk |
+| 2 | a guide to collecting every possible underleveled Pokemon. | letto: estratto con 93 affermazioni, verificate | https://docs.google.com/document/d/e/2PACX-1vSZHF4sdFUmF0ttnVfgwFrKzfa99gm1OEy0UJ9KkFWvBA4fFKPyNcwWyfqaGS5CbFGtuk0M67cKEWI8/pub |
+| 2 | https://docs.google.com/spreadsheets/d/11lZYY9qUE3I1d7\_Kc3M3q03KIuYGFBaWvWqN2X\_qSOk/edit?usp=sharing | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/d/11lZYY9qUE3I1d7_Kc3M3q03KIuYGFBaWvWqN2X_qSOk/edit?usp=sharing |
+| 2 | Bank Closing all possible things checklist V0.5 | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/d/14QTf2q3rRFlaIqHxigfFyKiKZdL9o6uc_bQE-OtOTwk/edit?gid=1932480820 |
+| 2 | spreadsheet | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/d/14QTf2q3rRFlaIqHxigfFyKiKZdL9o6uc_bQE-OtOTwk/edit?usp=sharing |
+| 2 | https://docs.google.com/spreadsheets/d/160\_C7klF\_MFGlZJnnfmYe1cjW-uFAto9CB3yLSe8Tv0/edit?usp=sharing | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/d/160_C7klF_MFGlZJnnfmYe1cjW-uFAto9CB3yLSe8Tv0/edit?usp=sharing |
+| 2 | https://docs.google.com/spreadsheets/d/17K4aF5H3ALbvdi65IN5npJ4L7LxmUjgVUNS9-orS\_G8/edit?usp=sharing | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/d/17K4aF5H3ALbvdi65IN5npJ4L7LxmUjgVUNS9-orS_G8/edit?usp=sharing |
+| 2 | senza descrizione | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/d/1ClSTolvZmTHeI4uItfKIVsSHfUxws7BnzlUTVV9zEYs/edit?usp=sharing |
+| 2 | https://docs.google.com/spreadsheets/d/1JOdD5FECYkZqWuLoc6vV1mhbBl\_4AuvE/edit?gid=179090297#gid=179090297 | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/d/1JOdD5FECYkZqWuLoc6vV1mhbBl_4AuvE/edit?gid=179090297 |
+| 2 | Kipter's Edition of Austin John's Shiny Dex Organizer with Extension to LGPE | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/d/1LHYu6VQru7snvshafOvBItlVr_LTLf4WH4TYiQyO6GY/edit?usp=sharing |
+| 2 | senza descrizione | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/d/1Np71tQe_CLWfVEHNY6158twKeGSq3lUdAJTxlRjuRAw/edit?usp=sharing |
+| 2 | https://docs.google.com/spreadsheets/d/1S5LkoD502R9H2rbAkKsbnqrjckhlMqRP6ooG2iGyL5Q/edit?usp=sharing | letto: estratto con 1 affermazioni, verificate | https://docs.google.com/spreadsheets/d/1S5LkoD502R9H2rbAkKsbnqrjckhlMqRP6ooG2iGyL5Q/edit?usp=sharing |
+| 2 | **Legal Matching Pokéballs 2.0** | letto: estratto senza affermazioni pertinenti | https://docs.google.com/spreadsheets/d/1T5RMu189-uMrknJlAPNp3QbQAyp8t0N5/edit?usp=sharing&ouid=103067789524497045001&rtpof=true&sd=true |
+| 2 | https://docs.google.com/spreadsheets/d/1TLEbEeXsaCsJgPNN-ehrVqTvNbP8KM9f3U5FLKNS6TI/edit?usp=sharing | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/d/1TLEbEeXsaCsJgPNN-ehrVqTvNbP8KM9f3U5FLKNS6TI/edit?usp=sharing |
+| 2 | senza descrizione | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/d/1U_X4rB3LIAI66HpFE8lDIsCHkZbOiQ7rZAxmahUZ_Z4/edit?usp=sharing |
+| 2 | senza descrizione | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/d/1X4HlOobLKhBNfxMy3yUbXe015Sr_nZybKlQD7GuR8LU/edit |
+| 2 | https://docs.google.com/spreadsheets/d/1asxeqWirsimzhBaFChP7Yavf5RdEFu9gHJ4tpmD6N5o/edit?usp=sharing | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/d/1asxeqWirsimzhBaFChP7Yavf5RdEFu9gHJ4tpmD6N5o/edit?usp=sharing |
+| 2 | hisuian voltorb/electrode | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/d/1bvIx7Q2Lxp7efHRrUh48WkuwirNlKardwSHVz_R8kA0/edit |
+| 2 | collegamento del post | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/d/1nE47IB6uY81f8ESsg05iCuA34QmoCJNqYb3qNyUOm_A/edit |
+| 2 | https://docs.google.com/spreadsheets/d/1uv3jgQw\_1yJeNZucT-DPzWWhHEwitx6-1qAzh9FQ6ZA/edit?gid=459916946#gid=459916946 | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/d/1uv3jgQw_1yJeNZucT-DPzWWhHEwitx6-1qAzh9FQ6ZA/edit?gid=459916946 |
+| 2 | https://docs.google.com/spreadsheets/d/1xvCQs2JprtSVOf47omRvoaMwTO7EXtRLKbdZyAnRc4U/edit?gid=1179485747#gid=1179485747 | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/d/1xvCQs2JprtSVOf47omRvoaMwTO7EXtRLKbdZyAnRc4U/edit?gid=1179485747 |
+| 2 | spreadsheet/checklist | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/d/e/2PACX-1vTusrkjjQVxfqANVboZbw-VplOUBioFRDcHi5yEz4tXupmNvs9s2MHDBPA0jBzS38Ic9UT6Xulr0Sko/pubhtml |
+| 2 | senza descrizione | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/u/0/d/1bvIx7Q2Lxp7efHRrUh48WkuwirNlKardwSHVz_R8kA0/htmlview |
+| 3 | senza descrizione | letto: estratto senza affermazioni pertinenti | https://docs.google.com/document/d/1Q733nUB-q_1Ao3qTMN_0pjFkwW2NyRXdsZtW9r795SU/edit |
+| 3 | Click here to apply! | letto: estratto senza affermazioni pertinenti | https://docs.google.com/forms/u/0/d/e/1FAIpQLScQPusfkDX9P2IWBKo8KIdBitvjMXn43TFt2DEzHCTTtmHXSw/formResponse |
+| 3 | Updated Spreadsheet | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/d/14W8CAS9SBq3jDuZAl0YncFrrtr8z6RWUGZoqtrKMxFc/edit?usp=sharing |
+| 3 | https://docs.google.com/spreadsheets/d/17DXQplJ78ZsBbpMUWVTQSvtsL\_ivug1\_Iv4QBlitq8A/edit?usp=sharing | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/d/17DXQplJ78ZsBbpMUWVTQSvtsL_ivug1_Iv4QBlitq8A/edit?usp=sharing |
+| 3 | https://docs.google.com/spreadsheets/d/1R0H24zZ3MaxQY6IBnsPttUMD4MK4fXeOmcqPNrZJaKM/copy | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/d/1R0H24zZ3MaxQY6IBnsPttUMD4MK4fXeOmcqPNrZJaKM/copy |
+| 3 | Link to spreadsheet | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/d/1uV8xqVUqPhyz52aKNzY3VkCg8MG7Lzsdy-FAKVZJzqw/edit |
+| 3 | . | letto: foglio di calcolo confrontato riga per riga con la lista completa (fogli-forme-ignote.md) | https://docs.google.com/spreadsheets/u/0/d/1dItpqk-koxZJ3s5mGArWPHo2OGPj3R-Wc_q3bOrTMqg/htmlview |
 
 ### youtu.be (37)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | seconds | catalogato | https://youtu.be/1GF_LFPz34U?t=2647 |
-| 2 | this video | catalogato | https://youtu.be/63LN2N2usbg |
-| 2 | Mario 64 | catalogato | https://youtu.be/7CgXvIuZR40?t=2 |
-| 2 | Wishmaker Jirachi | catalogato | https://youtu.be/8neWF6tQBRc |
-| 2 | senza descrizione | catalogato | https://youtu.be/9EEnvrmy3vk |
-| 2 | this video. | catalogato | https://youtu.be/Bfze_tFEzM4 |
-| 2 | https://youtu.be/CmawneiP9L8?si=HVBLQnLEOssLTUlC | catalogato | https://youtu.be/CmawneiP9L8 |
-| 2 | this guide | catalogato | https://youtu.be/CzNA5enSzOY |
-| 2 | senza descrizione | catalogato | https://youtu.be/D3EvpRHL_vk |
-| 2 | senza descrizione | catalogato | https://youtu.be/DdDI53VeGAc |
-| 2 | senza descrizione | catalogato | https://youtu.be/HSYtttS0nWI |
-| 2 | this video | catalogato | https://youtu.be/IdlKn5oJyxI |
-| 2 | here | catalogato | https://youtu.be/PNHZ4xuJH7M |
-| 2 | See video guide | catalogato | https://youtu.be/SrZAiR38e6E |
-| 2 | Analogue Pocket | catalogato | https://youtu.be/e3SllwKRgMc |
-| 2 | 3 beasts | catalogato | https://youtu.be/gjcrMzTGuwk |
-| 2 | senza descrizione | catalogato | https://youtu.be/h5Igc18hc2Q |
-| 2 | this video guide | catalogato | https://youtu.be/k0HFRpqvSk4 |
-| 2 | This might help | catalogato | https://youtu.be/m42a5W7bUYI |
-| 2 | senza descrizione | catalogato | https://youtu.be/tIwwBKTLFXw |
-| 2 | More info here | catalogato | https://youtu.be/tPFUMRIYT08 |
-| 2 | senza descrizione | catalogato | https://youtu.be/yesVqZcnIy0 |
-| 3 | senza descrizione | catalogato | https://youtu.be/5uDQLUi0ZEo |
-| 3 | Shiny Ditto Trick | catalogato | https://youtu.be/8Lb5pq0y6h8 |
-| 3 | it sucks | catalogato | https://youtu.be/BNbXfuTocvU |
-| 3 | senza descrizione | catalogato | https://youtu.be/G19RMhvOzbI |
-| 3 | This video | catalogato | https://youtu.be/G_D3IIXaoTw |
-| 3 | senza descrizione | catalogato | https://youtu.be/JBjSym_lfEs |
-| 3 | collegamento del post | catalogato | https://youtu.be/Ld2YphF-HVI |
-| 3 | 2 | catalogato | https://youtu.be/TzRL_opOvVM |
-| 3 | this video | catalogato | https://youtu.be/UJTneOSkCcg |
-| 3 | Video about it | catalogato | https://youtu.be/XyKTeQkzqys?t=115 |
-| 3 | How to install | catalogato | https://youtu.be/XyKTeQkzqys?t=629 |
-| 3 | Youtube of Crystal_ performing this glitch | catalogato | https://youtu.be/ffZjCabeNr4 |
-| 3 | senza descrizione | catalogato | https://youtu.be/iL1PtXHDzFU |
-| 3 | It’s even been used to a 43m47s speedrun in Pokémon Gold | catalogato | https://youtu.be/oklw2swIT4w |
-| 3 | https://youtu.be/xxyQFPqltiM | catalogato | https://youtu.be/xxyQFPqltiM |
+| 2 | seconds | trascritto: estratto senza affermazioni pertinenti | https://youtu.be/1GF_LFPz34U?t=2647 |
+| 2 | this video | letto: video senza parlato, letti titolo e descrizione: estratto senza affermazioni pertinenti | https://youtu.be/63LN2N2usbg |
+| 2 | Mario 64 | trascritto: estratto senza affermazioni pertinenti | https://youtu.be/7CgXvIuZR40?t=2 |
+| 2 | Wishmaker Jirachi | trascritto: estratto senza affermazioni pertinenti | https://youtu.be/8neWF6tQBRc |
+| 2 | this video. | trascritto: estratto senza affermazioni pertinenti | https://youtu.be/Bfze_tFEzM4 |
+| 2 | this guide | trascritto: estratto con 15 affermazioni, verificate | https://youtu.be/CzNA5enSzOY |
+| 2 | senza descrizione | letto: video senza parlato, letti titolo e descrizione: estratto senza affermazioni pertinenti | https://youtu.be/D3EvpRHL_vk |
+| 2 | senza descrizione | trascritto: estratto con 10 affermazioni, verificate | https://youtu.be/HSYtttS0nWI |
+| 2 | this video | trascritto: estratto con 12 affermazioni, verificate | https://youtu.be/IdlKn5oJyxI |
+| 2 | here | trascritto: estratto con 8 affermazioni, verificate | https://youtu.be/PNHZ4xuJH7M |
+| 2 | See video guide | trascritto: estratto con 22 affermazioni, verificate | https://youtu.be/SrZAiR38e6E |
+| 2 | Analogue Pocket | trascritto: estratto senza affermazioni pertinenti | https://youtu.be/e3SllwKRgMc |
+| 2 | 3 beasts | trascritto: estratto senza affermazioni pertinenti | https://youtu.be/gjcrMzTGuwk |
+| 2 | senza descrizione | letto: video senza parlato, letti titolo e descrizione: estratto senza affermazioni pertinenti | https://youtu.be/h5Igc18hc2Q |
+| 2 | this video guide | trascritto: estratto senza affermazioni pertinenti | https://youtu.be/k0HFRpqvSk4 |
+| 2 | This might help | trascritto: estratto senza affermazioni pertinenti | https://youtu.be/m42a5W7bUYI |
+| 2 | More info here | trascritto: estratto senza affermazioni pertinenti | https://youtu.be/tPFUMRIYT08 |
+| 2 | senza descrizione | trascritto: estratto senza affermazioni pertinenti | https://youtu.be/yesVqZcnIy0 |
+| 3 | senza descrizione | trascritto: estratto senza affermazioni pertinenti | https://youtu.be/5uDQLUi0ZEo |
+| 3 | Shiny Ditto Trick | letto: video senza parlato, letti titolo e descrizione: estratto con 2 affermazioni, verificate | https://youtu.be/8Lb5pq0y6h8 |
+| 3 | it sucks | trascritto: estratto senza affermazioni pertinenti | https://youtu.be/BNbXfuTocvU |
+| 3 | senza descrizione | trascritto: estratto senza affermazioni pertinenti | https://youtu.be/G19RMhvOzbI |
+| 3 | This video | trascritto: estratto con 4 affermazioni, verificate | https://youtu.be/G_D3IIXaoTw |
+| 3 | collegamento del post | trascritto: estratto senza affermazioni pertinenti | https://youtu.be/Ld2YphF-HVI |
+| 3 | 2 | letto: video senza parlato, letti titolo e descrizione: estratto senza affermazioni pertinenti | https://youtu.be/TzRL_opOvVM |
+| 3 | Video about it | trascritto: estratto senza affermazioni pertinenti | https://youtu.be/XyKTeQkzqys?t=115 |
+| 3 | How to install | trascritto: estratto senza affermazioni pertinenti | https://youtu.be/XyKTeQkzqys?t=629 |
+| 3 | Youtube of Crystal_ performing this glitch | letto: video senza parlato, letti titolo e descrizione: estratto senza affermazioni pertinenti | https://youtu.be/ffZjCabeNr4 |
+| 3 | senza descrizione | trascritto: estratto senza affermazioni pertinenti | https://youtu.be/iL1PtXHDzFU |
+| 3 | It’s even been used to a 43m47s speedrun in Pokémon Gold | trascritto: estratto senza affermazioni pertinenti | https://youtu.be/oklw2swIT4w |
+| 3 | https://youtu.be/xxyQFPqltiM | trascritto: estratto senza affermazioni pertinenti | https://youtu.be/xxyQFPqltiM |
 
 ### imgur.com (29)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | You are the fucking man! | catalogato | http://imgur.com/CQlmBLe |
-| 2 | IMGUR GUIDE HERE | catalogato | http://imgur.com/a/fzn0c |
-| 2 | possible | catalogato | https://imgur.com/HeULTiq |
-| 2 | [B | catalogato | https://imgur.com/MU4vusD |
-| 2 | senza descrizione | catalogato | https://imgur.com/a/1YAfQGC |
-| 2 | result | catalogato | https://imgur.com/a/5mbVq |
-| 2 | used | catalogato | https://imgur.com/a/9S6J5 |
-| 2 | senza descrizione | catalogato | https://imgur.com/a/F9FMS |
-| 2 | https://imgur.com/a/JLwZFcW | catalogato | https://imgur.com/a/JLwZFcW |
-| 2 | this image | catalogato | https://imgur.com/a/aT4oB4u |
-| 2 | senza descrizione | catalogato | https://imgur.com/a/cuyXcl2 |
-| 2 | collegamento del post | catalogato | https://imgur.com/a/jCZjo |
-| 3 | legit shiny magikarp | catalogato | http://imgur.com/A6zfset |
-| 3 | IMGUR GUIDE HERE | catalogato | http://imgur.com/a/RWaHc |
-| 3 | the pride of my pokémon collection | catalogato | http://imgur.com/a/YGFwA |
-| 3 | senza descrizione | catalogato | http://imgur.com/a/ZLcpv |
-| 3 | senza descrizione | catalogato | http://imgur.com/gallery/8G4fJ |
-| 3 | here | catalogato | https://imgur.com/a/3ypWcfh |
-| 3 | senza descrizione | catalogato | https://imgur.com/a/F0ra5H7 |
-| 3 | senza descrizione | catalogato | https://imgur.com/a/Ons79Zw |
-| 3 | I made a quick diagram in paint to show the process | catalogato | https://imgur.com/a/TTubbHF |
-| 3 | Imgur mirror in case it gets taken down | catalogato | https://imgur.com/a/YNabu |
-| 3 | https://imgur.com/a/bCu6DyK | catalogato | https://imgur.com/a/bCu6DyK |
-| 3 | Here | catalogato | https://imgur.com/a/gen-i-map-of-pok-mon-spawnable-with-trainer-fly-glitch-yAZgdND |
-| 3 | https://imgur.com/a/tPk8I8n | catalogato | https://imgur.com/a/tPk8I8n |
-| 3 | senza descrizione | catalogato | https://imgur.com/gallery/Yk2xt |
-| 3 | proof I hatched it tonight | catalogato | https://imgur.com/gallery/bZrGU |
-| 3 | here | catalogato | https://imgur.com/gallery/gen-i-chart-of-trainer-fly-glitch-information-OPQlqAE |
-| 3 | Daily activities checklist in Pokemon Black 2 & White 2 - Imgur | catalogato | https://imgur.com/jyza4r9 |
+| 2 | You are the fucking man! | letto: estratto senza affermazioni pertinenti | http://imgur.com/CQlmBLe |
+| 2 | IMGUR GUIDE HERE | letto: estratto con 5 affermazioni, verificate | http://imgur.com/a/fzn0c |
+| 2 | possible | letto: estratto senza affermazioni pertinenti | https://imgur.com/HeULTiq |
+| 2 | [B | letto: estratto senza affermazioni pertinenti | https://imgur.com/MU4vusD |
+| 2 | senza descrizione | letto: estratto senza affermazioni pertinenti | https://imgur.com/a/1YAfQGC |
+| 2 | result | letto: estratto senza affermazioni pertinenti | https://imgur.com/a/5mbVq |
+| 2 | used | letto: estratto senza affermazioni pertinenti | https://imgur.com/a/9S6J5 |
+| 2 | senza descrizione | letto: estratto senza affermazioni pertinenti | https://imgur.com/a/F9FMS |
+| 2 | https://imgur.com/a/JLwZFcW | letto: estratto senza affermazioni pertinenti | https://imgur.com/a/JLwZFcW |
+| 2 | this image | letto: estratto senza affermazioni pertinenti | https://imgur.com/a/aT4oB4u |
+| 2 | senza descrizione | letto: estratto senza affermazioni pertinenti | https://imgur.com/a/cuyXcl2 |
+| 2 | collegamento del post | letto: estratto con 1 affermazioni, verificate | https://imgur.com/a/jCZjo |
+| 3 | legit shiny magikarp | letto: estratto senza affermazioni pertinenti | http://imgur.com/A6zfset |
+| 3 | IMGUR GUIDE HERE | letto: estratto con 1 affermazioni, verificate | http://imgur.com/a/RWaHc |
+| 3 | the pride of my pokémon collection | letto: estratto senza affermazioni pertinenti | http://imgur.com/a/YGFwA |
+| 3 | senza descrizione | letto: estratto senza affermazioni pertinenti | http://imgur.com/a/ZLcpv |
+| 3 | senza descrizione | letto: estratto senza affermazioni pertinenti | http://imgur.com/gallery/8G4fJ |
+| 3 | here | letto: estratto senza affermazioni pertinenti | https://imgur.com/a/3ypWcfh |
+| 3 | senza descrizione | letto: estratto senza affermazioni pertinenti | https://imgur.com/a/F0ra5H7 |
+| 3 | senza descrizione | letto: estratto senza affermazioni pertinenti | https://imgur.com/a/Ons79Zw |
+| 3 | I made a quick diagram in paint to show the process | letto: estratto senza affermazioni pertinenti | https://imgur.com/a/TTubbHF |
+| 3 | Imgur mirror in case it gets taken down | letto: estratto senza affermazioni pertinenti | https://imgur.com/a/YNabu |
+| 3 | https://imgur.com/a/bCu6DyK | letto: estratto senza affermazioni pertinenti | https://imgur.com/a/bCu6DyK |
+| 3 | Here | letto: estratto senza affermazioni pertinenti | https://imgur.com/a/gen-i-map-of-pok-mon-spawnable-with-trainer-fly-glitch-yAZgdND |
+| 3 | https://imgur.com/a/tPk8I8n | letto: estratto senza affermazioni pertinenti | https://imgur.com/a/tPk8I8n |
+| 3 | proof I hatched it tonight | letto: estratto senza affermazioni pertinenti | https://imgur.com/gallery/bZrGU |
+| 3 | here | letto: estratto senza affermazioni pertinenti | https://imgur.com/gallery/gen-i-chart-of-trainer-fly-glitch-information-OPQlqAE |
+| 3 | Daily activities checklist in Pokemon Black 2 & White 2 - Imgur | letto: estratto senza affermazioni pertinenti | https://imgur.com/jyza4r9 |
 
 ### i.redd.it (23)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | collegamento del post | catalogato | https://i.redd.it/06z1325nkkcd1.png |
-| 2 | collegamento del post | catalogato | https://i.redd.it/1z8tzc1ks7c61.png |
-| 2 | collegamento del post | catalogato | https://i.redd.it/3rmu9k40o6xz.png |
-| 2 | Any advice for the battle tree I'm about to give up | catalogato | https://i.redd.it/44lcsdbtnw8c1.jpeg |
-| 2 | Updated my overview: Transfer Pokémon from 2002 to 2024 | catalogato | https://i.redd.it/9zh9ucz7c2dc1.png |
-| 2 | collegamento del post | catalogato | https://i.redd.it/buu3s1tf1ejh1.png |
-| 2 | collegamento del post | catalogato | https://i.redd.it/geqw2xyamtwg1.png |
-| 2 | collegamento del post | catalogato | https://i.redd.it/j1gifqqtm05g1.png |
-| 2 | collegamento del post | catalogato | https://i.redd.it/n329gxohj08c1.jpeg |
-| 2 | collegamento del post | catalogato | https://i.redd.it/n6p7j7u3y7wz.png |
-| 2 | collegamento del post | catalogato | https://i.redd.it/soq68t11ovsg1.png |
-| 2 | collegamento del post | catalogato | https://i.redd.it/tashtuju1x711.png |
-| 2 | collegamento del post | catalogato | https://i.redd.it/zm5mkt70ke7a1.png |
-| 3 | collegamento del post | catalogato | https://i.redd.it/3j5vegztr1c91.jpg |
-| 3 | collegamento del post | catalogato | https://i.redd.it/4vbh98sq1x711.png |
-| 3 | collegamento del post | catalogato | https://i.redd.it/60blf9m4c2dc1.png |
-| 3 | collegamento del post | catalogato | https://i.redd.it/6d4rk2bzebkg1.jpeg |
-| 3 | collegamento del post | catalogato | https://i.redd.it/7w2t0lz8ahlf1.png |
-| 3 | collegamento del post | catalogato | https://i.redd.it/93oog27zod9f1.jpeg |
-| 3 | collegamento del post | catalogato | https://i.redd.it/9i3pw569nw0d1.png |
-| 3 | collegamento del post | catalogato | https://i.redd.it/9v8cvm83k96f1.png |
-| 3 | collegamento del post | catalogato | https://i.redd.it/ge39d5p4m4tc1.jpeg |
-| 3 | collegamento del post | catalogato | https://i.redd.it/pd1oktdho4ef1.jpeg |
+| 2 | collegamento del post | letto con OCR: estratto senza affermazioni pertinenti | https://i.redd.it/06z1325nkkcd1.png |
+| 2 | collegamento del post | letto con OCR: estratto senza affermazioni pertinenti | https://i.redd.it/1z8tzc1ks7c61.png |
+| 2 | collegamento del post | letto con OCR: estratto con 9 affermazioni, verificate | https://i.redd.it/3rmu9k40o6xz.png |
+| 2 | Any advice for the battle tree I'm about to give up | letto con OCR: estratto senza affermazioni pertinenti | https://i.redd.it/44lcsdbtnw8c1.jpeg |
+| 2 | Updated my overview: Transfer Pokémon from 2002 to 2024 | letto con OCR: estratto senza affermazioni pertinenti | https://i.redd.it/9zh9ucz7c2dc1.png |
+| 2 | collegamento del post | letto con OCR: estratto con 68 affermazioni, verificate | https://i.redd.it/buu3s1tf1ejh1.png |
+| 2 | collegamento del post | letto con OCR: estratto senza affermazioni pertinenti | https://i.redd.it/geqw2xyamtwg1.png |
+| 2 | collegamento del post | letto con OCR: estratto con 11 affermazioni, verificate | https://i.redd.it/j1gifqqtm05g1.png |
+| 2 | collegamento del post | letto con OCR: estratto senza affermazioni pertinenti | https://i.redd.it/n329gxohj08c1.jpeg |
+| 2 | collegamento del post | letto con OCR: estratto con 13 affermazioni, verificate | https://i.redd.it/n6p7j7u3y7wz.png |
+| 2 | collegamento del post | letto con OCR: estratto con 8 affermazioni, verificate | https://i.redd.it/soq68t11ovsg1.png |
+| 2 | collegamento del post | letto con OCR: estratto senza affermazioni pertinenti | https://i.redd.it/tashtuju1x711.png |
+| 2 | collegamento del post | letto con OCR: estratto senza affermazioni pertinenti | https://i.redd.it/zm5mkt70ke7a1.png |
+| 3 | collegamento del post | letto con OCR: estratto senza affermazioni pertinenti | https://i.redd.it/3j5vegztr1c91.jpg |
+| 3 | collegamento del post | letto con OCR: estratto con 8 affermazioni, verificate | https://i.redd.it/4vbh98sq1x711.png |
+| 3 | collegamento del post | letto con OCR: estratto senza affermazioni pertinenti | https://i.redd.it/60blf9m4c2dc1.png |
+| 3 | collegamento del post | letto a vista: foto di console o schermata del titolo: nessun contenuto sulla collezione | https://i.redd.it/6d4rk2bzebkg1.jpeg |
+| 3 | collegamento del post | letto con OCR: estratto con 32 affermazioni, verificate | https://i.redd.it/7w2t0lz8ahlf1.png |
+| 3 | collegamento del post | letto con OCR: estratto senza affermazioni pertinenti | https://i.redd.it/93oog27zod9f1.jpeg |
+| 3 | collegamento del post | letto con OCR: estratto senza affermazioni pertinenti | https://i.redd.it/9i3pw569nw0d1.png |
+| 3 | collegamento del post | letto con OCR: estratto senza affermazioni pertinenti | https://i.redd.it/9v8cvm83k96f1.png |
+| 3 | collegamento del post | letto con OCR: estratto senza affermazioni pertinenti | https://i.redd.it/ge39d5p4m4tc1.jpeg |
+| 3 | collegamento del post | letto con OCR: estratto senza affermazioni pertinenti | https://i.redd.it/pd1oktdho4ef1.jpeg |
 
 ### gbatemp.net (18)
 
@@ -1862,9 +1814,7 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 | 3 | senza descrizione | non raggiunto | https://gbatemp.net/threads/3dshell-multi-purpose-file-manager-for-the-3ds.471503 |
 | 3 | senza descrizione | non raggiunto | https://gbatemp.net/threads/426174 |
 | 3 | senza descrizione | non raggiunto | https://gbatemp.net/threads/609242 |
-| 3 | senza descrizione | non raggiunto | https://gbatemp.net/threads/deadskullzjrs-flashcart-cheat-databases.488711/post-7673924 |
 | 3 | senza descrizione | non raggiunto | https://gbatemp.net/threads/discussion-new-super-ultimate-injector-nsui.500376 |
-| 3 | senza descrizione | non raggiunto | https://gbatemp.net/threads/discussion-new-super-ultimate-injector-nsui.500376/post-9174080 |
 | 3 | GameYob DS | non raggiunto | https://gbatemp.net/threads/gameyob-a-gameboy-emulator-for-ds.343407 |
 | 3 | senza descrizione | non raggiunto | https://gbatemp.net/threads/nds-forwarder-cias-for-your-home-menu.426174 |
 | 3 | https://gbatemp.net/threads/pokemon-virtual-console-patches-debug-menu-speed-up-full-screen.498833 | non raggiunto | https://gbatemp.net/threads/pokemon-virtual-console-patches-debug-menu-speed-up-full-screen.498833 |
@@ -1877,14 +1827,14 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | senza descrizione | catalogato | https://projectpokemon.org/forums/forums/topic/39841-pokemon-bank-update?page=2 |
-| 2 | program on this projectpokemon post | catalogato | https://projectpokemon.org/home/files/file/647-feebas-fishing-spot-finder |
-| 2 | senza descrizione | catalogato | https://projectpokemon.org/home/forums/topic/37192-feebas-fishing-spot-value-rusaem |
-| 2 | There is an effort to recover | catalogato | https://projectpokemon.org/home/index/announcements/help-awaken-the-pokémon-dream-world-r162 |
-| 2 | Add borders to .GB games | catalogato | https://projectpokemon.org/home/tutorials/rom/3ds-pokemon-games-hacking-tutorials/injecting-a-custom-virtual-console-frame-into-an-official-virtual-console-release-r120 |
-| 2 | Use Checkpoint | catalogato | https://projectpokemon.org/home/tutorials/save-editing/managing-nds-saves/using-checkpoint-r70 |
-| 2 | More Info Here | catalogato | https://projectpokemon.org/home/tutorials/save-editing/using-pkhex/how-to-use-the-batch-editor-in-pkhex-r77 |
-| 2 | Legality checking and fixing with PKHeX and RNGReporter | catalogato | https://projectpokemon.org/home/tutorials/save-editing/using-pkhex/pid-mismatch-origin-game-rsefrlg-dppthgss-rngreporter-r31 |
+| 2 | senza descrizione | letto: estratto senza affermazioni pertinenti | https://projectpokemon.org/forums/forums/topic/39841-pokemon-bank-update?page=2 |
+| 2 | program on this projectpokemon post | letto: estratto con 2 affermazioni, verificate | https://projectpokemon.org/home/files/file/647-feebas-fishing-spot-finder |
+| 2 | senza descrizione | letto: estratto senza affermazioni pertinenti | https://projectpokemon.org/home/forums/topic/37192-feebas-fishing-spot-value-rusaem |
+| 2 | There is an effort to recover | letto: estratto senza affermazioni pertinenti | https://projectpokemon.org/home/index/announcements/help-awaken-the-pokémon-dream-world-r162 |
+| 2 | Add borders to .GB games | letto: estratto senza affermazioni pertinenti | https://projectpokemon.org/home/tutorials/rom/3ds-pokemon-games-hacking-tutorials/injecting-a-custom-virtual-console-frame-into-an-official-virtual-console-release-r120 |
+| 2 | Use Checkpoint | letto: estratto con 2 affermazioni, verificate | https://projectpokemon.org/home/tutorials/save-editing/managing-nds-saves/using-checkpoint-r70 |
+| 2 | More Info Here | letto: estratto con 4 affermazioni, verificate | https://projectpokemon.org/home/tutorials/save-editing/using-pkhex/how-to-use-the-batch-editor-in-pkhex-r77 |
+| 2 | Legality checking and fixing with PKHeX and RNGReporter | letto: estratto con 6 affermazioni, verificate | https://projectpokemon.org/home/tutorials/save-editing/using-pkhex/pid-mismatch-origin-game-rsefrlg-dppthgss-rngreporter-r31 |
 | 3 | senza descrizione | non raggiunto | https://projectpokemon.org/ |
 | 3 | PKHeX | non raggiunto | https://projectpokemon.org/home/files/file/1-pkhex |
 | 3 | senza descrizione | non raggiunto | https://projectpokemon.org/home/files/file/2107-ohana3ds |
@@ -1898,7 +1848,7 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
 | 2 | Time Capsule exploit - Glitch City Wiki | scaricato | https://glitchcity.wiki/Time_Capsule_exploit |
-| 2 | senza descrizione | catalogato | https://glitchcity.wiki/wiki/Coin_Case_glitches?oldid=51753 |
+| 2 | senza descrizione | letto: estratto senza affermazioni pertinenti | https://glitchcity.wiki/wiki/Coin_Case_glitches?oldid=51753 |
 | 2 | GlitchDex/GS/255 - Glitch City Wiki | scaricato | https://glitchcity.wiki/wiki/GlitchDex/GS:255 |
 | 2 | Guides:Mail Writer Codes - Glitch City Wiki | scaricato | https://glitchcity.wiki/wiki/Guides:Mail_Writer_Codes |
 | 2 | Guides:RAM Writer - Glitch City Wiki | scaricato | https://glitchcity.wiki/wiki/Guides:RAM_Writer |
@@ -1929,29 +1879,16 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | **Discord** | catalogato | https://discord.gg//legendsza |
-| 2 | Pokémon Wiimmfi Club | catalogato | https://discord.gg/3D7YvjBrFD |
-| 2 | r/PokemonLetsGo Discord | catalogato | https://discord.gg/dErW9Wm |
-| 2 | Official Discord Server | catalogato | https://discord.gg/h8ykeMgV3z |
-| 2 | Discord link | catalogato | https://discord.gg/t2QeKahNtK |
-| 3 | senza descrizione | catalogato | http://discord.gg/JxMZBXy |
-| 3 | https://discord.gg/FK3a6DZ | catalogato | https://discord.gg/FK3a6DZ |
-| 3 | senza descrizione | catalogato | https://discord.gg/nBnTrv3UMn |
-| 3 | senza descrizione | catalogato | https://discord.gg/pMs38vWAx3 |
 
 ### drive.google.com (9)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | https://drive.google.com/drive/folders/159W-2Wlo5sPA5DSqHwijdVWuA9z4-qfe | catalogato | https://drive.google.com/drive/folders/159W-2Wlo5sPA5DSqHwijdVWuA9z4-qfe |
-| 2 | Battle Pyramid Glitch | catalogato | https://drive.google.com/drive/folders/15RNkGdAzbalwlzwijt1E8SnnMX9lHM8i |
-| 2 | https://drive.google.com/drive/u/0/folders/1aBDkBWJbZj-3AYjDCd7K5NG9zCSFP9WT | catalogato | https://drive.google.com/drive/u/0/folders/1aBDkBWJbZj-3AYjDCd7K5NG9zCSFP9WT |
-| 2 | https://drive.google.com/file/d/1e3YfLJkwYRn6UYjGAZ-gygqd27DrJyGP/view?usp=sharing | catalogato | https://drive.google.com/file/d/1e3YfLJkwYRn6UYjGAZ-gygqd27DrJyGP/view?usp=sharing |
-| 2 | https://drive.google.com/file/d/1gX85mbFEIi7DrQSweJpX\_xWFNtCVwIJR/view?usp=sharing | catalogato | https://drive.google.com/file/d/1gX85mbFEIi7DrQSweJpX_xWFNtCVwIJR/view?usp=sharing |
-| 3 | https://drive.google.com/file/d/1-IosLxZV1cVYWU9dyWV0qPTverNZmTk6/view?usp=sharing | catalogato | https://drive.google.com/file/d/1-IosLxZV1cVYWU9dyWV0qPTverNZmTk6/view?usp=sharing |
-| 3 | . | catalogato | https://drive.google.com/open?id=16lH2ruXI6sR5w5jmm4vqcPIrYTcpSuhG |
-| 3 | . | catalogato | https://drive.google.com/open?id=1LAGxOjbAPv6ppUq5giiRY17ybsUmPyzw |
-| 3 | , | catalogato | https://drive.google.com/open?id=1zb60PTOoYWRjnHdmvTYEbNQlbktK_y4v |
+| 2 | https://drive.google.com/drive/folders/159W-2Wlo5sPA5DSqHwijdVWuA9z4-qfe | letto: estratto senza affermazioni pertinenti | https://drive.google.com/drive/folders/159W-2Wlo5sPA5DSqHwijdVWuA9z4-qfe |
+| 2 | Battle Pyramid Glitch | letto: estratto senza affermazioni pertinenti | https://drive.google.com/drive/folders/15RNkGdAzbalwlzwijt1E8SnnMX9lHM8i |
+| 2 | https://drive.google.com/drive/u/0/folders/1aBDkBWJbZj-3AYjDCd7K5NG9zCSFP9WT | letto: estratto senza affermazioni pertinenti | https://drive.google.com/drive/u/0/folders/1aBDkBWJbZj-3AYjDCd7K5NG9zCSFP9WT |
+| 2 | https://drive.google.com/file/d/1gX85mbFEIi7DrQSweJpX\_xWFNtCVwIJR/view?usp=sharing | letto a vista: mappa di Paldea: nessun contenuto sulla collezione | https://drive.google.com/file/d/1gX85mbFEIi7DrQSweJpX_xWFNtCVwIJR/view?usp=sharing |
+| 3 | https://drive.google.com/file/d/1-IosLxZV1cVYWU9dyWV0qPTverNZmTk6/view?usp=sharing | letto con OCR: estratto con 16 affermazioni, verificate | https://drive.google.com/file/d/1-IosLxZV1cVYWU9dyWV0qPTverNZmTk6/view?usp=sharing |
 
 ### smogon.com (9)
 
@@ -1996,33 +1933,30 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | https://twitter.com/JoeMerrick/status/1228055915573710849 | catalogato | https://twitter.com/JoeMerrick/status/1228055915573710849 |
-| 2 | https://twitter.com/JoeMerrick/status/1664958038657187842 | catalogato | https://twitter.com/JoeMerrick/status/1664958038657187842 |
-| 2 | Link | catalogato | https://twitter.com/REVERSALx7/status/1463350315579842563?t=qbnAE0Mh82ztKbZ1hz8uQQ&s=19 |
-| 2 | senza descrizione | catalogato | https://twitter.com/riiconnect24/status/1583996519325147137?s=46&t=zixZJ1jNdh4EIWdujbBRGg |
-| 3 | determined by the experience it has | catalogato | https://twitter.com/TheMantyke/status/824138136129339392 |
-| 3 | the RNG abuse method is released | catalogato | https://twitter.com/pokemon_PhD/status/809313886117695488 |
-| 3 | RNG Reporter | catalogato | https://twitter.com/pokemon_PhD/status/809906064649048065 |
+| 2 | https://twitter.com/JoeMerrick/status/1228055915573710849 | letto: estratto con 2 affermazioni, verificate | https://twitter.com/JoeMerrick/status/1228055915573710849 |
+| 2 | https://twitter.com/JoeMerrick/status/1664958038657187842 | letto: estratto con 1 affermazioni, verificate | https://twitter.com/JoeMerrick/status/1664958038657187842 |
+| 2 | Link | letto: estratto con 1 affermazioni, verificate | https://twitter.com/REVERSALx7/status/1463350315579842563?t=qbnAE0Mh82ztKbZ1hz8uQQ&s=19 |
+| 2 | senza descrizione | letto: estratto senza affermazioni pertinenti | https://twitter.com/riiconnect24/status/1583996519325147137?s=46&t=zixZJ1jNdh4EIWdujbBRGg |
 
 ### x.com (7)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | https://x.com/Sibuna\_Switch/status/1462473371917111303 | catalogato | https://x.com/Sibuna_Switch/status/1462473371917111303 |
-| 2 | this | catalogato | https://x.com/Sibuna_Switch/status/1492970750264979456 |
-| 2 | senza descrizione | catalogato | https://x.com/Sibuna_Switch/status/1495426743343194117 |
-| 2 | here | catalogato | https://x.com/Sibuna_Switch/status/1538721002645073920 |
-| 2 | https://x.com/Sibuna\_Switch/status/1768100276399968414?lang=en | catalogato | https://x.com/Sibuna_Switch/status/1768100276399968414?lang=en |
-| 2 | Misty mark in SV | catalogato | https://x.com/Sibuna_Switch/status/1930459094202163632 |
-| 3 | senza descrizione | catalogato | https://x.com/lewchube/status/1510382980132442113 |
+| 2 | https://x.com/Sibuna\_Switch/status/1462473371917111303 | letto: estratto senza affermazioni pertinenti | https://x.com/Sibuna_Switch/status/1462473371917111303 |
+| 2 | this | letto: estratto senza affermazioni pertinenti | https://x.com/Sibuna_Switch/status/1492970750264979456 |
+| 2 | senza descrizione | letto: estratto senza affermazioni pertinenti | https://x.com/Sibuna_Switch/status/1495426743343194117 |
+| 2 | here | letto: estratto senza affermazioni pertinenti | https://x.com/Sibuna_Switch/status/1538721002645073920 |
+| 2 | https://x.com/Sibuna\_Switch/status/1768100276399968414?lang=en | letto: estratto senza affermazioni pertinenti | https://x.com/Sibuna_Switch/status/1768100276399968414?lang=en |
+| 2 | Misty mark in SV | letto: estratto senza affermazioni pertinenti | https://x.com/Sibuna_Switch/status/1930459094202163632 |
+| 3 | senza descrizione | letto: estratto senza affermazioni pertinenti | https://x.com/lewchube/status/1510382980132442113 |
 
 ### en.wikipedia.org (6)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | buffer overflow | catalogato | https://en.wikipedia.org/wiki/Buffer_overflow |
-| 2 | game cart with IR | catalogato | https://en.wikipedia.org/wiki/Nintendo_Game_Card |
-| 2 | program counter | catalogato | https://en.wikipedia.org/wiki/Program_counter |
+| 2 | buffer overflow | letto: estratto senza affermazioni pertinenti | https://en.wikipedia.org/wiki/Buffer_overflow |
+| 2 | game cart with IR | letto: estratto con 4 affermazioni, verificate | https://en.wikipedia.org/wiki/Nintendo_Game_Card |
+| 2 | program counter | letto: estratto senza affermazioni pertinenti | https://en.wikipedia.org/wiki/Program_counter |
 | 3 | list | non raggiunto | https://en.wikipedia.org/wiki/Game_Boy_Advance_Wireless_Adapter |
 | 3 | gaming the system | non raggiunto | https://en.wikipedia.org/wiki/Gaming_the_system |
 | 3 | Here is the list of NA VC games | non raggiunto | https://en.wikipedia.org/wiki/List_of_Virtual_Console_games_for_Nintendo_3DS_(North_America |
@@ -2031,10 +1965,10 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | senza descrizione | catalogato | http://forums.glitchcity.info/index.php?board=11.0 |
-| 2 | senza descrizione | catalogato | http://forums.glitchcity.info/index.php?topic=6638.0 |
-| 2 | Link to Code Post | catalogato | http://forums.glitchcity.info/index.php?topic=6638.15 |
-| 2 | Link to Code Post | catalogato | http://forums.glitchcity.info/index.php?topic=6638.msg200226.html |
+| 2 | senza descrizione | letto: estratto con 2 affermazioni, verificate | http://forums.glitchcity.info/index.php?board=11.0 |
+| 2 | senza descrizione | letto: estratto senza affermazioni pertinenti | http://forums.glitchcity.info/index.php?topic=6638.0 |
+| 2 | Link to Code Post | letto: estratto senza affermazioni pertinenti | http://forums.glitchcity.info/index.php?topic=6638.15 |
+| 2 | Link to Code Post | letto: estratto senza affermazioni pertinenti | http://forums.glitchcity.info/index.php?topic=6638.msg200226.html |
 | 3 | Glitchcity research thread | non raggiunto | http://forums.glitchcity.info/index.php/topic,6716.0.html |
 | 3 | this guide | non raggiunto | http://forums.glitchcity.info/index.php?topic=6638.msg198625.html |
 
@@ -2062,17 +1996,17 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | Experience Group | catalogato | https://m.bulbapedia.bulbagarden.net/wiki/Category:Pok%C3%A9mon_in_the_Medium_Slow_experience_group |
-| 2 | Diamond Storm | catalogato | https://m.bulbapedia.bulbagarden.net/wiki/Diamond_Storm_(move |
-| 2 | senza descrizione | catalogato | https://m.bulbapedia.bulbagarden.net/wiki/Distribution_device |
-| 2 | senza descrizione | catalogato | https://m.bulbapedia.bulbagarden.net/wiki/List_of_Wi-Fi_English_event_Pok%C3%A9mon_distributions_(Generation_IV |
+| 2 | Experience Group | letto: estratto senza affermazioni pertinenti | https://m.bulbapedia.bulbagarden.net/wiki/Category:Pok%C3%A9mon_in_the_Medium_Slow_experience_group |
+| 2 | Diamond Storm | letto: estratto senza affermazioni pertinenti | https://m.bulbapedia.bulbagarden.net/wiki/Diamond_Storm_(move |
+| 2 | senza descrizione | letto: estratto con 10 affermazioni, verificate | https://m.bulbapedia.bulbagarden.net/wiki/Distribution_device |
+| 2 | senza descrizione | letto: estratto con 12 affermazioni, verificate | https://m.bulbapedia.bulbagarden.net/wiki/List_of_Wi-Fi_English_event_Pok%C3%A9mon_distributions_(Generation_IV |
 | 3 | Bulbapedia | non raggiunto | https://m.bulbapedia.bulbagarden.net/wiki/List_of_Battle_Maison_Trainers |
 
 ### pokepast.es (5)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | this | catalogato | https://pokepast.es/e98bb534818c8ec3 |
+| 2 | this | letto: estratto senza affermazioni pertinenti | https://pokepast.es/e98bb534818c8ec3 |
 | 3 | senza descrizione | non raggiunto | https://pokepast.es/1dd2ea15178a1758 |
 | 3 | senza descrizione | non raggiunto | https://pokepast.es/219b988b78930fea |
 | 3 | senza descrizione | non raggiunto | https://pokepast.es/74628316023deccd |
@@ -2134,7 +2068,6 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | senza descrizione | fallito | https://gist.github.com/claydolwithexplosion/017f1784deebcd118b61d3ad917edb3c.js&quot;&gt;&lt;/script&gt |
 | 3 | https://gist.github.com/Bl4ckSh4rk/256ed3b857c9677310837d5180121f35 | non raggiunto | https://gist.github.com/Bl4ckSh4rk/256ed3b857c9677310837d5180121f35 |
 | 3 | How to add rom hacks to 3DS games | non raggiunto | https://gist.github.com/figgyc/0d31b77fc6e4e8f9a49399d392740d46 |
 
@@ -2142,39 +2075,36 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | senza descrizione | catalogato | https://ibb.co/LNWjPMT |
-| 2 | senza descrizione | catalogato | https://ibb.co/mJRnpz2 |
-| 2 | senza descrizione | catalogato | https://ibb.co/v4q9nFL |
+| 2 | senza descrizione | letto: estratto con 1 affermazioni, verificate | https://ibb.co/mJRnpz2 |
+| 2 | senza descrizione | letto: estratto con 1 affermazioni, verificate | https://ibb.co/v4q9nFL |
 
 ### imgs.xkcd.com (3)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | Image | catalogato | http://imgs.xkcd.com/comics/exploits_of_a_mom.png |
-| 3 | senza descrizione | catalogato | https://imgs.xkcd.com/comics/exploits_of_a_mom.png |
-| 3 | senza descrizione | catalogato | https://imgs.xkcd.com/comics/semaphore.png |
+| 2 | Image | letto con OCR: estratto senza affermazioni pertinenti | http://imgs.xkcd.com/comics/exploits_of_a_mom.png |
+| 3 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://imgs.xkcd.com/comics/exploits_of_a_mom.png |
+| 3 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | https://imgs.xkcd.com/comics/semaphore.png |
 
 ### lyra-made-a.website (3)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | Lyra's Living Dex Guide | catalogato | https://lyra-made-a.website/pokemon_gen1/full_guide |
-| 2 | Lyra's Gen 2 Living Dex Guide | catalogato | https://lyra-made-a.website/pokemon_gen2/full_guide |
-| 2 | Lyra's Gen 3 Living Dex Guide | catalogato | https://lyra-made-a.website/pokemon_gen3/full_guide |
+| 2 | Lyra's Living Dex Guide | letto: estratto con 5 affermazioni, verificate | https://lyra-made-a.website/pokemon_gen1/full_guide |
+| 2 | Lyra's Gen 2 Living Dex Guide | letto: estratto con 5 affermazioni, verificate | https://lyra-made-a.website/pokemon_gen2/full_guide |
+| 2 | Lyra's Gen 3 Living Dex Guide | letto: estratto con 7 affermazioni, verificate | https://lyra-made-a.website/pokemon_gen3/full_guide |
 
 ### np.reddit.com (3)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | Info | catalogato | https://np.reddit.com/r/SubtleTV/wiki/mentioned_videos |
-| 2 | top posts | catalogato | https://np.reddit.com/r/pokemonribbons/top?sort=top&t=year |
-| 2 | Info | catalogato | https://np.reddit.com/r/sneakpeekbot |
+| 2 | Info | letto: estratto senza affermazioni pertinenti | https://np.reddit.com/r/SubtleTV/wiki/mentioned_videos |
 
 ### twitch.tv (3)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | the VOD itself | catalogato | https://www.twitch.tv/videos/117651897 |
+| 2 | the VOD itself | trascritto: estratto con 63 affermazioni, verificate | https://www.twitch.tv/videos/117651897 |
 | 3 | Twitch | non raggiunto | https://twitch.tv/Pokemon |
 | 3 | starting from 17:05 in the video | non raggiunto | https://www.twitch.tv/videos/117651897?t=17m05s |
 
@@ -2190,9 +2120,6 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | **2023-10-19 22:25:31 UTC** | catalogato | http://www.wolframalpha.com/input?i=2023-10-19+22%3A25%3A31+UTC+To+Local+Time |
-| 2 | **2024-02-20 22:35:28 UTC** | catalogato | http://www.wolframalpha.com/input?i=2024-02-20+22%3A35%3A28+UTC+To+Local+Time |
-| 3 | **2026-09-05 05:33:38 UTC** | non raggiunto | http://www.wolframalpha.com/input?i=2026-09-05+05%3A33%3A38+UTC+To+Local+Time |
 
 ### xkcd.com (3)
 
@@ -2206,8 +2133,6 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | 0.0.0.0 | catalogato | http://0.0.0.0/ |
-| 2 | 0.0.0.0 | catalogato | https://0.0.0.0/ |
 
 ### 1.1.1.1 (2)
 
@@ -2220,36 +2145,26 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | 164.132.44.106 | catalogato | http://164.132.44.106/ |
-| 2 | 164.132.44.106 | catalogato | https://164.132.44.106/ |
 
 ### 167.86.108.126 (2)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | 167.86.108.126 | catalogato | http://167.86.108.126/ |
-| 2 | 167.86.108.126 | catalogato | https://167.86.108.126/ |
 
 ### 172.104.88.237 (2)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | 172.104.88.237 | catalogato | http://172.104.88.237/ |
-| 2 | 172.104.88.237 | catalogato | https://172.104.88.237/ |
 
 ### 178.62.43.212 (2)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | **178.62.43.212** | catalogato | http://178.62.43.212/ |
-| 2 | 178.62.43.212 | catalogato | https://178.62.43.212/ |
 
 ### 8.8.8.8 (2)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | 8.8.8.8 | fallito | http://8.8.8.8/ |
-| 2 | `8.8.8.8` | catalogato | https://8.8.8.8/ |
 
 ### altissimo1.github.io (2)
 
@@ -2262,7 +2177,7 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | Battle Tower Glitch | catalogato | https://archives.glitchcity.info/forums/board-109/thread-7016/page-0.html |
+| 2 | Battle Tower Glitch | letto: estratto con 8 affermazioni, verificate | https://archives.glitchcity.info/forums/board-109/thread-7016/page-0.html |
 | 3 | here's the archived ID list. | non raggiunto | https://archives.glitchcity.info/wiki/The_Big_HEX_List.html |
 
 ### bepis.io (2)
@@ -2276,8 +2191,7 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | Completely the same as the OG | catalogato | https://cdn.discordapp.com/attachments/907741323757506590/908875821769449472/2021111219280400-7DCC42E2AF4C1BBE54BB71700F7161B6.jpg |
-| 3 | shiny Starly | catalogato | https://cdn.discordapp.com/attachments/907741323757506590/908898581681950720/2021111220582900-7DCC42E2AF4C1BBE54BB71700F7161B6.jpg |
+| 2 | Completely the same as the OG | letto: estratto con 3 affermazioni, verificate | https://cdn.discordapp.com/attachments/907741323757506590/908875821769449472/2021111219280400-7DCC42E2AF4C1BBE54BB71700F7161B6.jpg |
 
 ### digiex.net (2)
 
@@ -2311,15 +2225,13 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | convert .SAV files to VC save files here | catalogato | https://inject.sigkill.tech/converter/3dsvc |
+| 2 | convert .SAV files to VC save files here | saltato: applicazione interattiva senza testo statico: è uno strumento da usare, non una fonte da leggere; tentato il 2026-10-01 diretto, co | https://inject.sigkill.tech/converter/3dsvc |
 | 3 | convert .SAV files to VC save files | non raggiunto | https://inject.sigkill.tech/vc-save |
 
 ### mega.nz (2)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 3 | Mega | non raggiunto | https://mega.nz/file/5YZE0b5T |
-| 3 | senza descrizione | non raggiunto | https://mega.nz/folder/UNwxET6K |
 
 ### mgba.io (2)
 
@@ -2346,8 +2258,8 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | Meaning there's more space for you to fail and break your chain even if you are following the rules, unlike before | catalogato | https://pbs.twimg.com/media/FEHhugrVkAA93od?format=png&name=360x360 |
-| 2 | Papa Jefe’s 3-ingredient sandwiches | catalogato | https://pbs.twimg.com/media/FiigD-DWIAQViNI?format=jpg&name=medium |
+| 2 | Meaning there's more space for you to fail and break your chain even if you are following the rules, unlike before | letto con OCR: estratto senza affermazioni pertinenti | https://pbs.twimg.com/media/FEHhugrVkAA93od?format=png&name=360x360 |
+| 2 | Papa Jefe’s 3-ingredient sandwiches | letto con OCR: estratto senza affermazioni pertinenti | https://pbs.twimg.com/media/FiigD-DWIAQViNI?format=jpg&name=medium |
 
 ### pokemon.com (2)
 
@@ -2381,22 +2293,17 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 3 | senza descrizione | catalogato | https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/15940978_1883267241904863_4393868519816564903_n.jpg?oh=fe6b4c9bc9db5d56d37980e2d5136287&oe=58DD9CB9 |
-| 3 | senza descrizione | catalogato | https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/16002849_1590518517630714_1630673376565328564_n.jpg?oh=c85275692d72c09026c831b70eabf57b&oe=59244C20 |
 
 ### stratospherix.com (2)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
 | 3 | senza descrizione | non raggiunto | https://www.stratospherix.com/products/filebrowser |
-| 3 | senza descrizione | non raggiunto | https://www.stratospherix.com/setupvpn |
 
 ### subtletv.com (2)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | Play All | catalogato | http://subtletv.com/_r5q4meg?ftrlnk=1 |
-| 2 | Watch Playlist &#9654; | catalogato | http://subtletv.com/_r5q4meg?nline=1 |
 
 ### support.nintendo.com (2)
 
@@ -2409,8 +2316,8 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 3 | collegamento del post | catalogato | https://v.redd.it/lg0upuoiil191 |
-| 3 | collegamento del post | catalogato | https://v.redd.it/mvbczpu4g9z71 |
+| 3 | collegamento del post | letto: video senza parlato, letti titolo e descrizione: estratto con 1 affermazioni, verificate | https://v.redd.it/lg0upuoiil191 |
+| 3 | collegamento del post | letto: video senza parlato, letti titolo e descrizione: estratto con 1 affermazioni, verificate | https://v.redd.it/mvbczpu4g9z71 |
 
 ### wiki.hacks.guide (2)
 
@@ -2423,31 +2330,27 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | 001.001.001.001 | catalogato | http://001.001.001.001/ |
 
 ### 167.235.229.36 (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | 167.235.229.36 | catalogato | http://167.235.229.36/ |
 
 ### 178.062.043.212 (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | 178.062.043.212 | catalogato | http://178.062.043.212/ |
 
 ### 37.97.147.73 (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | LINK | catalogato | http://37.97.147.73/Headbutt%20Grid.htm |
 
 ### 3ds.eiphax.tech (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | PKHeX Desktop App | catalogato | https://3ds.eiphax.tech/pkhex |
+| 2 | PKHeX Desktop App | letto: estratto con 4 affermazioni, verificate | https://3ds.eiphax.tech/pkhex |
 
 ### 3ds.guide (1)
 
@@ -2465,7 +2368,6 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | `8.8.4.4` | catalogato | https://8.8.4.4/ |
 
 ### addons.mozilla.org (1)
 
@@ -2483,7 +2385,7 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | DV Method | catalogato | https://www.angelfire.com/pokemon2/dv-info/shinies.html |
+| 2 | DV Method | letto: estratto senza affermazioni pertinenti | https://www.angelfire.com/pokemon2/dv-info/shinies.html |
 
 ### apps.apple.com (1)
 
@@ -2507,7 +2409,7 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | nightmare fuel | catalogato | https://archives.bulbagarden.net/wiki/Category:Red_and_Green_sprites |
+| 2 | nightmare fuel | letto: estratto senza affermazioni pertinenti | https://archives.bulbagarden.net/wiki/Category:Red_and_Green_sprites |
 
 ### base64.guru (1)
 
@@ -2519,7 +2421,7 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 3 | senza descrizione | catalogato | http://bear.ces.cwru.edu/eecs_382/ARM7-TDMI-manual-pt3.pdf |
+| 3 | senza descrizione | letto: documentazione tecnica o pagina generica fuori tema, conservata senza estrazione | http://bear.ces.cwru.edu/eecs_382/ARM7-TDMI-manual-pt3.pdf |
 
 ### billspc.com (1)
 
@@ -2531,7 +2433,6 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 3 | senza descrizione | non raggiunto | https://www.binance.bh/futures/ref?code=IHJUI7TF |
 
 ### binaryhexconverter.com (1)
 
@@ -2567,7 +2468,6 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | this instead | catalogato | https://cdn.bulbagarden.net/upload/archive/7/70/20140517072647%21Ilex_Forest_GSC.png |
 
 ### cfwaifu.com (1)
 
@@ -2579,19 +2479,18 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | Chrome | catalogato | https://chrome.google.com/webstore/detail/mentioned-videos-for-redd/fiimkmdalmgffhibfdjnhljpnigcmohf |
+| 2 | Chrome | saltato: applicazione interattiva senza testo statico: è uno strumento da usare, non una fonte da leggere; tentato il 2026-10-01 diretto, co | https://chrome.google.com/webstore/detail/mentioned-videos-for-redd/fiimkmdalmgffhibfdjnhljpnigcmohf |
 
 ### classic.pokepc.net (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | senza descrizione | catalogato | https://classic.pokepc.net/apps/livingdex |
+| 2 | senza descrizione | saltato: applicazione interattiva senza testo statico: è uno strumento da usare, non una fonte da leggere; tentato il 2026-10-01 diretto, co | https://classic.pokepc.net/apps/livingdex |
 
 ### code.google.com (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | IR-GTS | catalogato | https://code.google.com/archive/p/ir-gts |
 
 ### cultivatenation.com (1)
 
@@ -2609,7 +2508,7 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | senza descrizione | catalogato | http://degraiver.deviantart.com/art/Pkmn-RBY-Stat-Calculator-V-0-9-82964356 |
+| 2 | senza descrizione | letto: estratto senza affermazioni pertinenti | http://degraiver.deviantart.com/art/Pkmn-RBY-Stat-Calculator-V-0-9-82964356 |
 
 ### devkitpro.org (1)
 
@@ -2633,25 +2532,23 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | draw.io | catalogato | http://draw.io/ |
+| 2 | draw.io | letto: estratto senza affermazioni pertinenti | http://draw.io/ |
 
 ### dropbox.com (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 3 | this file | non raggiunto | https://www.dropbox.com/s/rzwr0ycdml3akk9/ntr_launcher.ini?dl=1 |
 
 ### ecs.csun.edu (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 3 | senza descrizione | catalogato | https://www.ecs.csun.edu/~smirzaei/docs/ece425/arm7tdmi_instruction_set_reference.pdf |
+| 3 | senza descrizione | letto: estratto con 15 affermazioni, verificate | https://www.ecs.csun.edu/~smirzaei/docs/ece425/arm7tdmi_instruction_set_reference.pdf |
 
 ### eduatec-my.sharepoint.com (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 3 | https://eduatec-my.sharepoint.com/:x:/g/personal/tiago\_cristo\_t0104843\_edu\_atec\_pt/EeQCiXq1X-hMkf8Bt\_y8HiIBWYD7J-ZChc2xjPx-IlS4VQ?e=69O49b | non raggiunto | https://eduatec-my.sharepoint.com/:x:/g/personal/tiago_cristo_t0104843_edu_atec_pt/EeQCiXq1X-hMkf8Bt_y8HiIBWYD7J-ZChc2xjPx-IlS4VQ?e=69O49b |
 
 ### emulation.gametechwiki.com (1)
 
@@ -2675,13 +2572,12 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | patched/converted | catalogato | https://exelotl.github.io/gba-eeprom-save-fix |
 
 ### feuniverse.us (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | Rip a ROM from a cartridge via a DS, DS Lite, or GameCube | catalogato | https://feuniverse.us/t/dumping-roms-from-gba-cartridges-a-primer/3667 |
+| 2 | Rip a ROM from a cartridge via a DS, DS Lite, or GameCube | letto: estratto con 2 affermazioni, verificate | https://feuniverse.us/t/dumping-roms-from-gba-cartridges-a-primer/3667 |
 
 ### filecenter.com (1)
 
@@ -2705,13 +2601,11 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | https://forums.serenesforest.net/topic/63781-gen-1-to-gen-2-gender-mechanics-regarding-trading/ | fallito | https://forums.serenesforest.net/topic/63781-gen-1-to-gen-2-gender-mechanics-regarding-trading |
 
 ### foryourinebriation.com (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 3 | And delicious | catalogato | http://www.foryourinebriation.com/uploads/1/5/5/3/15536798/220954881.png?356= |
 
 ### gamerbymistake.com (1)
 
@@ -2729,7 +2623,7 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | https://gaming.stackexchange.com/questions/294147/what-determines-the-gender-of-a-gen-1-pokemon | catalogato | https://gaming.stackexchange.com/questions/294147/what-determines-the-gender-of-a-gen-1-pokemon |
+| 2 | https://gaming.stackexchange.com/questions/294147/what-determines-the-gender-of-a-gen-1-pokemon | letto: estratto senza affermazioni pertinenti | https://gaming.stackexchange.com/questions/294147/what-determines-the-gender-of-a-gen-1-pokemon |
 
 ### gamingintel.com (1)
 
@@ -2747,19 +2641,16 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 3 | senza descrizione | catalogato | http://global3.memecdn.com/i-have-no-idea-what-im-doing_gp_865021.jpg |
 
 ### goo.gl (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | senza descrizione | fallito | https://goo.gl/sPjdLp |
 
 ### gyazo.com (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 3 | senza descrizione | non raggiunto | https://gyazo.com/7fc291f31533729c2b82cc7e66e37d52 |
 
 ### houssemamor.github.io (1)
 
@@ -2783,19 +2674,17 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | Lyra's Living Dex Guide | catalogato | https://i-made-a.website/ |
 
 ### i1.kym-cdn.com (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | senza descrizione | catalogato | http://i1.kym-cdn.com/photos/images/original/001/070/953/1da.jpeg |
+| 2 | senza descrizione | letto con OCR: estratto senza affermazioni pertinenti | http://i1.kym-cdn.com/photos/images/original/001/070/953/1da.jpeg |
 
 ### is.4chan.org (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 3 | senza descrizione | catalogato | http://is.4chan.org/vp/1481893195109.png |
 
 ### kaeru.world (1)
 
@@ -2825,13 +2714,13 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | senza descrizione | catalogato | https://linksharing.samsungcloud.com/czNRSK1nNfFI |
+| 2 | senza descrizione | letto: estratto senza affermazioni pertinenti | https://linksharing.samsungcloud.com/czNRSK1nNfFI |
 
 ### m.imgur.com (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 3 | senza descrizione | catalogato | http://m.imgur.com/HBb2Zzd,hFCCRWd,FS7VYSA,IzvZClq,a0cl6AS,4gbkU6e,JNAv85o |
+| 3 | senza descrizione | letto: estratto senza affermazioni pertinenti | http://m.imgur.com/HBb2Zzd,hFCCRWd,FS7VYSA,IzvZClq,a0cl6AS,4gbkU6e,JNAv85o |
 
 ### m.xkcd.com (1)
 
@@ -2855,7 +2744,7 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | No thanks😂 ive netted up to 3-4 shinies per sandwich with this method | catalogato | https://mobile.twitter.com/SilentDestroySR/status/1596430687091167235/photo/1 |
+| 2 | No thanks😂 ive netted up to 3-4 shinies per sandwich with this method | letto: estratto senza affermazioni pertinenti | https://mobile.twitter.com/SilentDestroySR/status/1596430687091167235/photo/1 |
 
 ### mrnbayoh.github.io (1)
 
@@ -2879,19 +2768,17 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | Picnic Breeding | catalogato | https://www.nintendolife.com/guides/pokemon-scarlet-and-violet-how-to-breed-pokemon |
+| 2 | Picnic Breeding | letto: estratto con 4 affermazioni, verificate | https://www.nintendolife.com/guides/pokemon-scarlet-and-violet-how-to-breed-pokemon |
 
 ### olmectron.github.io (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 3 | senza descrizione | non raggiunto | http://olmectron.github.io/forwarders/sdcard.(fwd%7Cnds |
 
 ### pages.citebite.com (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 3 | senza descrizione | non raggiunto | http://pages.citebite.com/v5l6v8x9t1sph |
 
 ### plailect.github.io (1)
 
@@ -2933,13 +2820,12 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | senza descrizione | catalogato | https://pokepal.rpintosh.eu/ |
 
 ### pokewiki.de (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | Follow this link | catalogato | https://www.pokewiki.de/Spezial:Geheimcode-Generator |
+| 2 | Follow this link | letto: estratto con 2 affermazioni, verificate | https://www.pokewiki.de/Spezial:Geheimcode-Generator |
 
 ### prama-initiative.com (1)
 
@@ -2963,7 +2849,7 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | collegamento del post | catalogato | http://puu.sh/257S |
+| 2 | collegamento del post | letto a vista: mappa completa di Kanto del glitch dell'allenatore e del volo (Ryumaster, dati da glitchcity.info): quale Pokemon si incontra | http://puu.sh/257S |
 
 ### pycosites.com (1)
 
@@ -2999,7 +2885,6 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | here | fallito | https://repl.it/@flipflipshift/FeebasMethod |
 
 ### retrohandhelds.gg (1)
 
@@ -3041,7 +2926,6 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | senza descrizione | catalogato | https://smoda.elpais.com/wp-content/uploads/2016/12/cover43.jpg |
 
 ### ssbwiki.com (1)
 
@@ -3071,7 +2955,6 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 3 | senza descrizione | non raggiunto | http://tellu.wpblog.jp/rng-abuse/7thgen-rng-abuse/guide-for-breeding-abuse-on-sunmoon |
 
 ### thonky.com (1)
 
@@ -3089,13 +2972,12 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 3 | google translate version | non raggiunto | https://translate.googleusercontent.com/translate_c?depth=1&hl=de&ie=UTF8&prev=_t&rurl=translate.google.com&sl=ja&tl=en&u=http%3A%2F%2Fblastoise-x.hatenablog.com%2Fentry%2FSM-breed&usg=ALkJrhiRnklaS0fZrdeVutgQ4qLI56h3QQ |
 
 ### tshadowknight.com (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | here | catalogato | http://tshadowknight.com/Headbutt%20Grid.htm |
+| 2 | here | letto: estratto senza affermazioni pertinenti | http://tshadowknight.com/Headbutt%20Grid.htm |
 
 ### tswann89.github.io (1)
 
@@ -3143,25 +3025,23 @@ La colonna della profondità è il solo indizio di pertinenza che questa sottose
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | obtain the flair | catalogato | https://wk.reddit.com/r/pokemontrades/wiki/flair |
+| 2 | obtain the flair | letto: estratto senza affermazioni pertinenti | https://wk.reddit.com/r/pokemontrades/wiki/flair |
 
 ### ww1.microchip.com (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 3 | senza descrizione | catalogato | http://ww1.microchip.com/downloads/en/DeviceDoc/DDI0029G_7TDMI_R3_trm.pdf |
+| 3 | senza descrizione | letto: documentazione tecnica o pagina generica fuori tema, conservata senza estrazione | http://ww1.microchip.com/downloads/en/DeviceDoc/DDI0029G_7TDMI_R3_trm.pdf |
 
 ### xkcdref.info (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 2 | Statistics | catalogato | http://xkcdref.info/statistics |
 
 ### your-domain.com (1)
 
 | Prof | Che cosa documenta | Esito nella corsa | URL |
 |---|---|---|---|
-| 3 | senza descrizione | non raggiunto | https://your-domain.com/ |
 
 ### yuhasem.github.io (1)
 
@@ -3188,9 +3068,9 @@ Queste erano già citate dentro i rispettivi handoff e le riporto qui nella part
 | Driver CH340 | https://www.wch-ic.com/downloads/CH341SER_EXE.html | driver seriale necessario al lettore su Windows | SME |
 | Chiusura di Pokemon Bank | https://www.nintendolife.com/news/2026/08/pokemon-bank-is-shutting-down-in-february-2027 | vincolo temporale esterno che tocca le decisioni di trasferimento | 3DS |
 | Annuncio ufficiale, Rosso Fuoco e Verde Foglia si collegano a Home | https://www.pokemon.com/us/news/pokemon-firered-version-and-pokemon-leafgreen-version-link-with-pokemon-home-this-october | letto per intero il 2026-09-07 ed è la fonte primaria su cinque fatti che nessuna fonte secondaria riportava con precisione: l'istante esatto della chiusura della banca, cioè giovedi 25 febbraio 2027 alle 19 del fuso del Pacifico; il regalo di Celebi nel deposito a chi completi il catalogo dei due titoli, senza obbligo di trasferire; i due biglietti consegnati automaticamente dopo la Sala d'Onore, che danno Lugia, Ho-Oh e Deoxys; l'aumento della capienza del piano a pagamento da seimila a novemila con la versione 4.1.0 di ottobre 2026; e il trasferimento, per la prima volta, degli esemplari catturati con la Safari Ball nell'applicazione per telefono, la cui palla diventa una Palla Strana. Dichiara inoltre che la banca non è attualmente scaricabile, il che spiega perché due voci restino fuori portata per chi non l'avesse già | PKD, 3DS, EVT |
-| Pagina ufficiale del servizio, in italiano | https://www.pokemon.com/it/app/pokemon-home | la pagina che l'editore aggiorna con i limiti e i prezzi correnti dei due piani; è la fonte da riconsultare quando un numero di capienza va confermato, perché una notizia invecchia e una pagina di servizio no | PKD |
-| Assistenza Nintendo Italia, domande frequenti sul deposito | https://www.nintendo.com/it-it/Assistenza/Nintendo-Switch/FAQ-Pokemon-HOME-1728294.html | il confronto fra piano base e piano a pagamento, con rimando alla pagina dell'editore per i limiti aggiornati | PKD |
-| Servizio clienti dell'editore | https://support.pokemon.com/hc/it | la sezione di assistenza sul deposito, dove stanno le condizioni di servizio e le risposte operative | PKD |
+| Pagina ufficiale del servizio, in italiano | https://www.pokemon.com/it/app/pokemon-home | la pagina che l'editore aggiorna con i limiti e i prezzi correnti dei due piani; è la fonte da riconsultare quando un numero di capienza va confermato, perché una notizia invecchia e una pagina di servizio no Stato al 2026-10-05, letta ora: Letta ora: pagina italiana di Pokemon HOME; elenca i giochi supportati, scambio con Box prodigioso, GTS e gruppi fino a 20 persone. Non riporta limiti o prezzi dei piani, che stanno altrove. | PKD |
+| Assistenza Nintendo Italia, domande frequenti sul deposito | https://www.nintendo.com/it-it/Assistenza/Nintendo-Switch/FAQ-Pokemon-HOME-1728294.html | il confronto fra piano base e piano a pagamento, con rimando alla pagina dell'editore per i limiti aggiornati Stato al 2026-10-05, letta ora: Letta ora: FAQ Nintendo su HOME. Piano base gratuito con Box da 30 Pokemon; senza premium restano visibili solo i 30 depositati o scambiati più di recente. Il premium è per account Nintendo e rinvia ai prezzi correnti. | PKD |
+| Servizio clienti dell'editore | https://support.pokemon.com/hc/it | la sezione di assistenza sul deposito, dove stanno le condizioni di servizio e le risposte operative Stato al 2026-10-05, letta ora: Letta via Wayback (live 403): portale del servizio clienti Pokemon, solo menu di prodotti, tra cui HOME e Champions. Nessun contenuto specifico: serve come punto di ingresso alle condizioni. | PKD |
 
 ## Che cosa è stato usato davvero
 

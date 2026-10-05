@@ -84,14 +84,14 @@ def scp(sorgente, destinazione_file):
     return r.returncode == 0
 
 
-def scarica_audio(vid, cartella):
+def scarica_audio(vid, cartella, url=None):
     """Il solo audio, con tre tentativi: il rifiuto 403 di YouTube sui formati è intermittente."""
     for tentativo in range(3):
         trovati = [x for x in glob.glob(os.path.join(cartella, vid + ".*")) if not x.endswith(".json")]
         if trovati:
             break
         r = subprocess.run([sys.executable, "-m", "yt_dlp", "-f", "ba[ext=m4a]/ba", "--write-info-json",
-                            "-o", os.path.join(cartella, "%(id)s.%(ext)s"), "https://www.youtube.com/watch?v=" + vid],
+                            "-o", os.path.join(cartella, vid + ".%(ext)s"), url or ("https://www.youtube.com/watch?v=" + vid)],
                            capture_output=True, text=True, encoding="utf-8", errors="replace")
         if r.returncode != 0:
             time.sleep(30)
@@ -111,8 +111,13 @@ def main():
     ap.add_argument("--id", action="append", default=[], help="identificativo di un video")
     a = ap.parse_args()
     ids = list(a.id)
+    indirizzi = {}
     if a.elenco:
-        ids += [l.split()[0] for l in open(a.elenco, encoding="utf-8") if l.strip()]
+        # Una riga porta l'identificativo e, facoltativo, l'indirizzo: senza indirizzo è un video di YouTube, con
+        # l'indirizzo può essere un video di Twitch o di Reddit, che yt-dlp legge allo stesso modo.
+        righe = [l.split() for l in open(a.elenco, encoding="utf-8") if l.strip()]
+        ids += [r[0] for r in righe]
+        indirizzi.update({r[0]: r[1] for r in righe if len(r) > 1})
     os.makedirs(a.uscita, exist_ok=True)
     dest = destinazione()
     rc, out = ssh(dest, "mkdir -p %s && ls %s/bin/python" % (LAVORO, AMBIENTE))
@@ -131,7 +136,7 @@ def main():
             if os.path.exists(finale):
                 print(vid, "gia trascritto", flush=True)
                 continue
-            locale, titolo = scarica_audio(vid, temporanea)
+            locale, titolo = scarica_audio(vid, temporanea, indirizzi.get(vid))
             if not locale:
                 print(vid, "AUDIO NON SCARICATO", flush=True)
                 falliti += 1
@@ -156,10 +161,10 @@ def main():
             meta = json.load(open(meta_locale, encoding="utf-8"))
             os.remove(meta_locale)
             testo = " ".join(s["testo"] for s in meta["segmenti"])
-            testata = ("Trascrizione per riconoscimento vocale, NON riletta. Video https://www.youtube.com/watch?v=%s, \"%s\". "
+            testata = ("Trascrizione per riconoscimento vocale, NON riletta. Video %s, \"%s\". "
                        "Modello faster-whisper %s su GPU, lingua %s, durata %.0f secondi, trascritto il %s. "
                        "I nomi propri e i numeri sono ciò che il riconoscimento sbaglia: si verificano sulla fonte prima di citarli.\n\n"
-                       % (vid, titolo, meta["modello"], meta["lingua"], meta["durata"], datetime.date.today().isoformat()))
+                       % (indirizzi.get(vid, "https://www.youtube.com/watch?v=" + vid), titolo, meta["modello"], meta["lingua"], meta["durata"], datetime.date.today().isoformat()))
             open(finale, "w", encoding="utf-8").write(testata + testo + "\n")
             json.dump(meta, open(os.path.join(a.uscita, vid + ".segmenti.json"), "w", encoding="utf-8"), ensure_ascii=False)
             fatti += 1

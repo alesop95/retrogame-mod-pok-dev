@@ -8,8 +8,8 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: 61b8a8d, più il debito tipografico da committare
-Data snapshot:         2026-09-29, allineamento concluso e debito tipografico sanato, chiudi sbloccato
+Commit di riferimento: f588608, più il lavoro del 2026-10-01/02/05 non committato (17 modificati, 4 nuovi)
+Data snapshot:         2026-10-05, ogni riga di SOURCES.md con un esito, pulizia ADR-094; prossimo: roadmap
 ```
 
 ## Stato di verifica delle schede

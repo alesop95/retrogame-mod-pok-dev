@@ -54,13 +54,21 @@ DLC_SWSH = re.compile(r"Fields of Honor|Soothing Wetlands|Forest of Focus|Challe
                       r"Insular Sea|Honeycalm|Master Dojo|Tower of|Isle of Armor|Slippery Slope|Freezington|Frostpoint|"
                       r"Giant's Bed|Old Cemetery|Snowslide|Tunnel to the Top|Path to the Peak|Crown Shrine|Giant's Foot|"
                       r"Roaring-Sea|Frigid Sea|Three-Point|Ballimere|Lakeside Cave|Dyna Tree|Max Lair|Crown Tundra")
+# Il DLC Mega Dimension di Leggende Z-A si riconosce dai luoghi dell'iperspazio e di Quasartico Inc., verificato il
+# 2026-10-01 sul dono di Magearna (missione «Restarting Magearna», Game8 e Dexerto).
+DLC_ZA = re.compile(r"Hyperspace|Quasartico")
+NOMI_EN = os.path.join(RADICE, "_notes", "fonti", "cloni", "pkhex", "PKHeX.Core", "Resources", "text", "other", "en",
+                       "text_Species_en.txt")
 BASE = {"ZA": "Leggende Pokémon Z-A", "SL": "Scarlatto", "VL": "Violetto", "SW": "Spada", "SH": "Scudo",
         "BD": "Diamante Lucente", "SP": "Perla Splendente", "PLA": "Leggende Pokémon Arceus", "GP": "Let's Go Pikachu",
         "GE": "Let's Go Eevee"}
-DLC = {"SL": "DLC di Scarlatto (Il tesoro dell'Area Zero)", "VL": "DLC di Violetto (Il tesoro dell'Area Zero)",
+DLC = {"ZA": "DLC di Leggende Z-A (Mega Dimension)", "SL": "DLC di Scarlatto (Il tesoro dell'Area Zero)", "VL": "DLC di Violetto (Il tesoro dell'Area Zero)",
        "SW": "DLC di Spada (L'isola solitaria dell'armatura e Le terre innevate della corona)",
        "SH": "DLC di Scudo (L'isola solitaria dell'armatura e Le terre innevate della corona)"}
 POSSEDUTI = {"ZA"}
+# Il rifiuto per «Memory» è un artefatto della ricostruzione: doni e scambi in gioco portano un ricordo che il gioco
+# assegna e che l'esemplare costruito fuori contesto non ha. Il caso che lo ha mostrato è Floette Fiore Eterno, dono
+# di trama di Leggende Z-A a Lumiose, scartato il 2026-10-01 e riammesso lo stesso giorno.
 # Le evoluzioni con una condizione che la simulazione del giudizio non riproduce: la libreria trova l'incontro della
 # pre-evoluzione, ma l'esemplare evoluto costruito cambiando la specie non passa. Si accettano con la condizione scritta.
 EVOLUZIONI_SPECIALI = {(367, 0): "scambio con Dente Abissale", (368, 0): "scambio con Squama Abissale",
@@ -90,14 +98,24 @@ def norma(s):
 
 def main():
     nomi = [r.rstrip("\r") for r in io.open(lista.NOMI_IT, encoding="utf-8").read().split("\n")]
+    # Il nome inglese accanto all'italiano quando differiscono: per le specie recenti il solo nome italiano non si
+    # riconosce a colpo d'occhio, e il 2026-10-01 ha fatto credere inventati Acquecrespe e Fogliaferrea.
+    inglesi = [r.rstrip("\r") for r in io.open(NOMI_EN, encoding="utf-8").read().split("\n")]
+
+    def doppio(n):
+        return nomi[n] if nomi[n] == inglesi[n] else "%s (%s)" % (nomi[n], inglesi[n])
     incontri = [x for x in json.load(io.open(INCONTRI, encoding="utf-8"))["incontri"]
                 if not x["evento"] and x["classe"] not in A_TEMPO
-                and (x.get("legale", True) or (x["numero"], x["forma"]) in EVOLUZIONI_SPECIALI and x["da_specie"])]
+                and (x.get("legale", True) or x.get("motivo") == "Memory"
+                     # In Let's Go l'evoluzione costruita cambiando la specie non ricalcola i valori risveglio
+                     # (AV): è lo stesso artefatto, e la pre-evoluzione dello stesso incontro è giudicata legale.
+                     or x.get("motivo") == "AVs" and x["da_specie"] and x["versione"] in ("GP", "GE")
+                     or (x["numero"], x["forma"]) in EVOLUZIONI_SPECIALI and x["da_specie"])]
     per_forma = collections.defaultdict(list)
     forme_en = collections.defaultdict(dict)
     for x in incontri:
         x["prodotto"] = x["versione"]
-        if x["versione"] in ("SL", "VL") and DLC_SV.search(x["luogo"]) or x["versione"] in ("SW", "SH") and DLC_SWSH.search(x["luogo"]):
+        if x["versione"] == "ZA" and DLC_ZA.search(x["luogo"]) or x["versione"] in ("SL", "VL") and DLC_SV.search(x["luogo"]) or x["versione"] in ("SW", "SH") and DLC_SWSH.search(x["luogo"]):
             x["prodotto"] = x["versione"] + "+DLC"
         x["metodo"] = metodo_di(x["classe"])
         if x["da_specie"]:
@@ -137,7 +155,7 @@ def main():
             if v["dexNum"] == 869:  # Alcremie: la forma della libreria è la crema, la decorazione segue
                 trovato = [i for i, nome in candidati.items() if norma(nome) and norma(nome) in norma(v["id"])]
             indice = trovato[0] if trovato else None
-        voci.append({"id": v["id"], "dex": v["dexNum"], "specie": nomi[v["dexNum"]], "forma": forma_it if c != "specie" else "",
+        voci.append({"id": v["id"], "dex": v["dexNum"], "specie": doppio(v["dexNum"]), "forma": forma_it if c != "specie" else "",
                      "classe": c, "indice": indice,
                      "gratis": sorted(set(v.get("obtainableIn") or []) & {"go", "home"} | set(v.get("eventOnlyIn") or []) & {"home"})})
     for v in voci:

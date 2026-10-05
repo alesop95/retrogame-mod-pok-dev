@@ -16,6 +16,7 @@ Nessun esemplare è ancora passato alla banca o al deposito. Ogni copia è stata
 | decisione finale, con la community | `a-parte/oras-macchine-nascoste/main` | Rubino Omega | 36 | pronta, in attesa di decisione |
 | decisione finale, con la community | `a-parte/luna-eventi-da-cartuccia/main` | Luna del proprietario | 121 | pronta, in attesa di decisione |
 | da provare a parte | Luna con regione giapponese | Luna | 14 | da preparare |
+| generati, senza copia | `_notes/lotti/lotto-eventi-switch-scelta/` | formati Switch: una carta di dono per carta, una distribuzione per tipo, specie e forma | 701 | generati il 2026-10-01 e conformi; entrano in un gioco solo con una console Switch modificata, poi in HOME, che non ha scadenza. L'archivio completo di 29449 righe d'incontro sta in `lotto-eventi-switch-completo/` e non va in HOME |
 
 Il gruppo per HOME conta 3194 esemplari, 0 non legali nel contesto di PKHeX, 0 specie che il gioco non conosca e 0 file ripetuti fra una copia e l'altra. Il gruppo della decisione finale conta 158 esemplari: le 36 voci con macchina nascosta, cioè le 31 di prima, il Phione del Ranch con Surf, due Pokéwalker del secondo tempo e due Suicune Ombra di Colosseum con Surf; e i 122 eventi di Game Boy da cartuccia, cioè i 121 della copia più il Mew `EVT-2-0006`. Il proprietario ha deciso che per entrambi si decide alla fine, dopo aver chiesto alla community.
 
@@ -34,6 +35,8 @@ Il passo 1 è la prova pilota con un solo giro, Rubino Omega giro 1, 930 esempla
 Il passo 2 sono i giri 2 e 3 di Rubino Omega, 682 e 914 esemplari, uno dopo l'altro, con la banca che resta sotto i 3000; poi il passaggio al deposito.
 
 Il passo 3 sono Luna, 93 esemplari, e Ultraluna, 575: ognuna con il proprio ripristino, poi la banca, poi il deposito. Dopo questo passo il gruppo per HOME, 3194 esemplari, è tutto nel deposito.
+
+Dentro il passo 3, deciso dal proprietario il 2026-10-02, ci sono i codici QR del Pokédex: dopo il ripristino della copia di Ultraluna e prima del suo passaggio alla banca, lo Scanner QR del gioco registra come viste le forme cromatiche dei Pokémon bloccati, la banca le copia nel proprio Pokédex e il deposito le riceve al passaggio successivo. Non sono esemplari e non cambiano i conti di questa pagina. I codici e la procedura passo per passo stanno nella pagina locale `_notes/qr-pokedex/index.html`, che si apre nel browser: 10 codici indispensabili il primo giorno, poi la verifica nel Pokédex del deposito con il filtro dei cromatici, poi, se la verifica riesce, circa 83 consigliati a 10 al giorno.
 
 Il passo 4 è la prova dei 14 esemplari giapponesi di Game Boy, con una copia di Luna a regione giapponese, da preparare, e da provare prima con un solo esemplare.
 

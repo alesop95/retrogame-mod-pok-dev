@@ -84,13 +84,33 @@ def get(url, binario=False):
 
 def wayback(url):
     """La copia più recente nella Wayback Machine, con la forma id_ che restituisce il documento originale."""
-    q = urllib.parse.quote(url, safe="")
-    dati = json.loads(get("https://archive.org/wayback/available?url=" + q)[0].decode("utf-8"))
-    vicina = (dati.get("archived_snapshots") or {}).get("closest") or {}
-    if not vicina.get("available"):
-        return None
-    ts = vicina["timestamp"]
-    return get("https://web.archive.org/web/%sid_/%s" % (ts, url))
+    # L'interfaccia «available» risponde vuota anche per pagine con decine di copie, e quando l'archivio è
+    # temporaneamente fuori linea restituisce una pagina HTML: il 2026-10-05 diciannove pagine di Bulbapedia
+    # risultavano «senza copia» per questo. Si chiede quindi l'elenco CDX delle copie valide, riprovando.
+    q = urllib.parse.quote(url.split("#")[0], safe="")
+    ts = None
+    for tentativo in range(4):
+        try:
+            righe = get("https://web.archive.org/cdx/search/cdx?url=%s&filter=statuscode:200&fl=timestamp&limit=-1" % q)[0].decode("utf-8", "replace").split()
+        except (urllib.error.URLError, OSError):
+            righe = []
+        if righe and righe[-1].isdigit():
+            ts = righe[-1]
+            break
+        if righe == [] and tentativo >= 1:
+            # Una risposta CDX vuota, ripetuta, vuol dire davvero nessuna copia.
+            break
+        time.sleep(20 * (tentativo + 1))
+    if not ts:
+        dati = json.loads(get("https://archive.org/wayback/available?url=" + q)[0].decode("utf-8"))
+        vicina = (dati.get("archived_snapshots") or {}).get("closest") or {}
+        if not vicina.get("available"):
+            return None
+        ts = vicina["timestamp"]
+    copia = get("https://web.archive.org/web/%sid_/%s" % (ts, url.split("#")[0]))
+    if b"Temporarily Offline" in copia[0][:3000]:
+        raise OSError("Internet Archive temporaneamente fuori linea")
+    return copia
 
 
 def tipo_di(url):
@@ -233,7 +253,35 @@ def leggi_imgur(url):
     return "\n".join(righe), ""
 
 
+BROWSER = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36",
+           "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language": "en-US,en;q=0.9",
+           "Accept-Encoding": "gzip"}
+
+
+def come_browser(url):
+    """La pagina chiesta come la chiede un browser. Il 2026-10-01 Glitch City e GameBrew rispondevano 403 al lettore e
+    200 a queste intestazioni; un collegamento a una revisione, con «?oldid=», si riporta alla pagina corrente."""
+    m = re.match(r"(https?://[^/]+)/(?:w/)?index\.php\?title=([^&]+)", url)
+    if m:
+        url = m.group(1) + "/wiki/" + m.group(2)
+    url = re.sub(r"[?&]oldid=\d+", "", url)
+    r = urllib.request.Request(urllib.parse.quote(url, safe=":/?&=%#@+!$,;~*'()[]"), headers=BROWSER)
+    with urllib.request.urlopen(r, timeout=40, context=fr.contesto_tls()) as risposta:
+        corpo = risposta.read(30_000_000)
+        if corpo[:2] == b"\x1f\x8b":
+            corpo = gzip.decompress(corpo)
+        return corpo, {k: v for k, v in dict(risposta.headers).items() if k.lower() != "content-encoding"}
+
+
 def leggi_web(url, prima_wayback=False):
+    if not prima_wayback:
+        try:
+            corpo, intest = come_browser(url)
+            titolo, testo, motivo = fr.html_a_testo(corpo, {k.lower(): v for k, v in intest.items()})
+            if not motivo:
+                return "# %s\n\n%s" % (titolo, testo), ""
+        except Exception:
+            pass
     if prima_wayback:
         corpo, intest = wayback(url) or (None, None)
     else:
@@ -332,6 +380,11 @@ def main():
 
     def registra(url, esito):
         with blocco:
+            # Una riprova fallita non cancella il motivo già scritto, che è spesso una diagnosi a mano più
+            # precisa del codice d'errore: il 2026-10-05 una riprova aveva ridotto settanta motivi a «404».
+            prima = esiti.get(url, {})
+            if esito.get("esito") == "non letto" and prima.get("esito") == "non letto" and prima.get("motivo"):
+                esito = dict(prima, riprova="%s il %s" % (esito.get("motivo", ""), time.strftime("%Y-%m-%d")))
             esiti[url] = esito
             fatti[0] += 1
             n = fatti[0]

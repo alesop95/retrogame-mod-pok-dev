@@ -43,7 +43,7 @@ def main():
     for c in json.load(io.open(COPIE, encoding="utf-8"))["copie"]:
         for e in c["esemplari"]:
             nostre[(e["numero"], str(e["allenatore"]).lower(), int(e["id"]))].append(c["gruppo"] + " / " + c["copia"])
-    estratti = glob.glob(os.path.join(CARTELLA, "estratti", "*.txt")) + glob.glob(os.path.join(CARTELLA, "video*", "estratti", "*.txt"))
+    estratti = glob.glob(os.path.join(CARTELLA, "estratti", "*.txt")) + glob.glob(os.path.join(CARTELLA, "video*", "estratti", "*.txt")) + glob.glob(os.path.join(CARTELLA, "canali", "estratti", "*.txt"))
     trovate, mancanti = {}, {}
     for f in estratti:
         for riga in io.open(f, encoding="utf-8").read().splitlines():

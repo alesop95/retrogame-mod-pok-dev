@@ -68,6 +68,9 @@ foreach (var (v, nome, nuovo, pt, ctx, gen) in giochi)
                         g.RefreshAbility(g.AbilityNumber >> 1);
                         g.SetDefaultNickname();
                     }
+                    // Let's Go conserva altezza, peso e PL nell'esemplare, e la conversione di uno scambio in gioco li
+                    // lascia da calcolare: senza il ricalcolo tutti e 28 gli scambi di Let's Go risultavano illegali.
+                    if (g is PB7 pb) pb.ResetCalculatedValues();
                     g.RefreshChecksum();
                     var la = new LegalityAnalysis(g);
                     legale = la.Valid;

@@ -282,6 +282,15 @@ python tools/confronta-fogli-corpus.py
 python tools/verifica-affermazioni-corpus.py
 ```
 
+## pkhex-eventi-switch
+
+Genera tutti gli eventi dei giochi per Switch dalla base della libreria: ogni carta di dono che porta un Pokémon (WB7, WC8, WB8, WA8, WC9, WA9), provata nei giochi della sua famiglia fino al primo esito conforme, e ogni incontro distinto di distribuzione (tane di Spada e Scudo, raid Teracristal, raid a sette stelle, focolai distribuiti). Usa l'allenatore del progetto per i soli campi che l'evento lasciava a chi riceveva. Al 2026-10-01: 29449 esemplari conformi; le carte dei regali di HOME, dal numero 9000 in su, non sono generabili fuori dal servizio e si riscattano in HOME.
+
+```powershell
+cd "E:/retrogame-mod-pok-dev/tools/pkhex-eventi-switch"
+dotnet run -c Release -- "../../recreate-pokemon-distributions-events/allenatore.json" "../../_notes/lotti/lotto-eventi-switch-completo"
+```
+
 ## pkhex-incontri-switch e studio-switch.py
 
 Il primo chiede alla libreria, per ogni specie e forma presente nei dieci giochi per Switch, gli incontri con versione, metodo, luogo e livello, e li giudica rigenerando l'esemplare con la specie e la forma cercate; scrive `_notes/incontri-switch.json`. Il secondo collega gli incontri alle voci di `LISTA-COMPLETA.md`, scarta quelli a tempo, attribuisce i DLC dal luogo, calcola l'ordine di acquisto a partire dai giochi posseduti e scrive `pokedex-home-completo/STUDIO-SWITCH.md`. I giochi posseduti stanno nella costante `POSSEDUTI`.
@@ -361,6 +370,8 @@ Due osservazioni vengono da quella corsa e valgono per chi la ripeterà. Fra i m
 Una scelta di progetto va motivata perché il materiale di partenza suggeriva altro, cioè un server MCP dedicato. In un agente residente che deve poter chiamare quel tool durante una conversazione quella è la scelta giusta; qui il lavoro è deterministico, cioè leggere una fonte e trasferirla nel registro, e la regola sull'economia dei token prescrive di tenerlo su codice invece che su modello. Un programma sulla sola libreria standard fa quel lavoro senza aggiungere una dipendenza su Node, un pacchetto di terze parti da fidare con un token, e uno strato di protocollo fra noi e una richiesta HTTP.
 
 ## DiscordChatExporter, e la procedura di esportazione dei canali
+
+> BLOCCATO dal 2026-10-02, ADR-093. L'esportazione con il token personale ha causato il 2026-10-01 la disattivazione dell'account del proprietario e una violazione per «platform manipulation». `tools/export-discord.py` si arresta prima di chiedere il token. La procedura qui sotto resta come documentazione di ciò che è stato fatto, non come istruzione; la via lecita è `tools/fetch-discord.py` con un bot invitato dagli amministratori, oppure la lettura a mano nel client.
 
 Non è uno strumento del progetto ma di terze parti, e sta qui perché la procedura d'uso è parte della conoscenza operativa: una procedura che vive in una conversazione è una procedura perduta alla sessione successiva. La fonte è registrata in `SOURCES.md` al livello 3, la decisione che ne autorizza l'uso in questo progetto è ADR-019, e il criterio che distingue le vie di accesso a un canale sta nella norma `.claude/skills/fonti-non-recuperabili/RIFERIMENTO.md`.
 
@@ -647,3 +658,7 @@ python tools/schede-esemplari.py --ace _notes/fonti/cloni/ace-builder --pkhex _n
 La ragione per cui il documento esiste è che un giudizio di conformità riguarda una configurazione precisa di byte e non una categoria: registrare soltanto che un esemplare è conforme perde l'informazione su che cosa esattamente sia stato dichiarato tale, e senza quella non si può né riprodurre il caso né riconoscere che una modifica successiva lo ha cambiato.
 
 Una scelta del programma va conosciuta perché è controintuitiva: esso non legge i file prodotti ma li ricalcola dalle sorgenti con il medesimo codice che li scrive. Un documento che leggesse i file descriverebbe il disco di una macchina, che non è versionato; questo descrive ciò che il progetto produce e resta vero in un clone dove i file non esistono ancora. L'effetto collaterale è una verifica del determinismo: se due corse dessero schede diverse, la scelta del seme non sarebbe riproducibile e il difetto si vedrebbe come una modifica del documento che nessuno ha fatto.
+
+## Il convertitore dei salvataggi di Virtual Console, ereditato da uno strumento interattivo
+
+`tools/converti-salvataggio-vc.py` porta nel progetto la logica del convertitore web dell'iniettore Crystal Clear, che il residuo del corpus citava come applicazione interattiva e che lo smistamento del 2026-10-05 in [[strumenti-interattivi]] ha giudicato l'unico da ereditare. Converte un salvataggio di Game Boy o Game Boy Color fra il formato grezzo di 0x8000 byte e il `sav.dat` della Virtual Console del 3DS di 0x8010 byte, accodando o togliendo 16 byte finali, come fa la pagina; non ricalcola somme di controllo, rifiuta un file della dimensione sbagliata invece di troncarlo, non scrive mai sul file di partenza e rilegge ciò che ha scritto. Il significato di quei 16 byte non è verificato dal progetto: PKHeX li tratta come coda di orologio e la scarta alla lettura (`SaveHandlerFooterRTC.cs`), e prima di portare su una console un file prodotto qui vale `rules/hardware-and-perimeter.md`. Le prove interne si lanciano con `python tools/converti-salvataggio-vc.py --autotest`.
