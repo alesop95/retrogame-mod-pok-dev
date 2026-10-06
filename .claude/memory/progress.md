@@ -4,6 +4,14 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-10-06, prima parte. Riscrittura della storia provata, numero di serie mascherato, decisioni
+
+Il proprietario ha fatto `chiudi` (`0300c26`) e ha deciso: riscrivere la storia per gli identificativi della SD, contare le incursioni di evento di Spada e Scudo (ADR-097), fare tutte le azioni con il 3DS alla fine, approvare le cancellazioni della mappa una per una. Il numero di serie del volume non era stato mascherato il 2026-10-05 perché ha la forma `XXXXXXXX-XXXX:XXXX`: mascherato ora. Installato `git-filter-repo`; prova su un clone nello scratchpad: 224 commit riscritti, zero occorrenze dei tre valori. Link e messaggio per la community e per la richiesta di accesso al foglio scritti in `_notes/`.
+
+File toccati: `3ds-related/DOVE SI TROVA IL SALVATAGGIO REALE E DIFFERENZA CON CHECKPOINT.txt`, `.claude/memory/decisions.md`, `.claude/memory/pending.md`, `.claude/memory/progress.md`, `_notes/community-158/MESSAGGIO.md`, `_notes/fonti/consegne/2026-10-05-foglio-drive-richiesta.txt`, `_notes/resume-prompt.md`, `_notes/COMMIT-MSG.txt`.
+
+**Didattica:** nessuna.
+
 ## 2026-10-05, dodicesima parte. Copie definitive, lotti nuovi, mappa, identificativi della SD
 
 Il proprietario ha fatto `chiudi`, ha confermato il profilo di collezione, ha approvato la mappa di riorganizzazione con pulizia e ha chiesto che ogni azione con il 3DS in mano gli sia ricordata a ogni giro e che lo sviluppo venga prima (campo nuovo del recap nel `CLAUDE.md`). Il video con verifica dell'età era un video politico citato fuori tema: dimenticato. Il foglio Drive privato è la tabella dei fiocchi per gioco di Athis_891. Messaggio per la community sui 158 in `_notes/community-158/MESSAGGIO.md`. Agenti: lotti nuovi conformi (3 Ombre e-Reader giapponesi con il campo `lingua` di `pkhex-genera`, 12 statici di Ohana con il dispositivo `statico7` di `pkhex-periferiche`); opzioni `--regione-dal-salvataggio` e `--regione-del-ricevente` di `pkhex-scrivi-salvataggio`, dal sorgente della libreria (`WC6.cs`, `WC7.cs`, `EncounterTrade6.cs`, `EncounterTrade7.cs`); copie `-eu` e poi `-fin`, queste ultime da portare sulla console, 3235 per HOME; mappa di riorganizzazione in `_notes/riorganizzazione/MAPPA.md`. La mappa ha trovato in un file tracciato del 3DS i veri ID0 e ID1 della SD: mascherati, decisione sulla storia al proprietario.

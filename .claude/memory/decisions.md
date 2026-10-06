@@ -963,6 +963,14 @@ Il problema. La lettura integrale delle fonti del Parco Lotta ha lasciato fuori 
 La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti etichettata come non letta con il proprio motivo, secondo la prescrizione che vieta di degradare in silenzio una fonte a nota a margine, e non si tenta alcuna via ulteriore. Il debito di lettura del fronte Parco Lotta si dichiara quindi chiuso con questa sola eccezione dichiarata, e nessuna sessione futura deve riaprirlo credendo che qualcosa sia stato dimenticato.
 
 La ragione per cui l'abbandono è accettabile qui, e non lo sarebbe altrove. Quella discussione è del 2005 ed è una richiesta di valutazione di squadra, cioè la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e più recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano è quindi basso, e la decisione si fonda su questo e non sulla sola difficoltà di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
+## ADR-097: la storia pubblicata si riscrive per gli identificativi della SD, e le incursioni di evento di Spada e Scudo entrano nella collezione
+
+Data: 2026-10-06. Stato: accettata, decisa dal proprietario.
+
+Identificativi. ID0 e ID1 della scheda SD e il numero di serie del volume stavano in `3ds-related/DOVE SI TROVA IL SALVATAGGIO REALE E DIFFERENZA CON CHECKPOINT.txt` dal primo commit, e sono stati mascherati nel file il 2026-10-05 (ID) e il 2026-10-06 (numero di serie, che il primo mascheramento non aveva riconosciuto per il formato). Il proprietario ha deciso di toglierli anche dalla storia. Metodo, come ADR-087: `git-filter-repo --replace-text` su un clone fresco, con l'elenco delle sostituzioni fuori dal progetto; prova eseguita il 2026-10-06 su un clone nello scratchpad, 224 commit riscritti, zero occorrenze residue dei tre valori. Ordine: prima un commit dello stato corrente, poi la riscrittura su un clone di quello stato, il push forzato dal clone fatto dal proprietario, l'allineamento del repository di lavoro, e il riancoraggio degli hash citati nella memoria con la mappa dei commit che lo strumento scrive.
+
+Incursioni. Gli esemplari delle incursioni di evento di Spada e Scudo (cromatici e Gigantamax delle Wild Area News) contano come esemplari da distribuzione. Non scadono con la banca, perché Spada e Scudo parlano con HOME direttamente; si censiscono dalla libreria e si generano per la via di `STRATEGIA-SWITCH.md`.
+
 ## ADR-096: le risposte del proprietario del 2026-10-05 su fonti, scambi in gioco, copie e profilo di collezione
 
 Data: 2026-10-05. Stato: accettata, decisa dal proprietario; il profilo di collezione è confermato il 2026-10-05.
