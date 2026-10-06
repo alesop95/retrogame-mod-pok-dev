@@ -138,6 +138,7 @@ $controlli = @(
     @{ n = "fix-accents.py";          a = @("--check") + $m + @(".") },
     @{ n = "fix-dashes.py";           a = @("--check") + $m + @(".") },
     @{ n = "fix-missing-accents.py";  a = @("--check") + $m + @(".") },
+    @{ n = "verifica-link-progetto.py"; a = @("--check", "--senza-rete") },
     @{ n = "sync-codex-skills.py";    a = @("--project-root", ".", "--check"); serve = ".claude\skills" },
     @{ n = "check-copie-modelli.py";  a = @(); solobundle = $true },
     @{ n = "check-catalogo.py";       a = @(); solobundle = $true },

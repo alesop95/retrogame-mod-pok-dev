@@ -6,7 +6,7 @@
     "versione": "26.8.26.0"
   },
   "conteggi": {
-    "conformi": 3619,
+    "conformi": 3680,
     "contestati": 0,
     "illeggibili": 0
   },
@@ -100009,6 +100009,1713 @@
           "Schianto"
         ],
         "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-001-SW-0012-0.pk8": {
+      "sha256": "871f601523e55320fd9c1b9e346f61b922ccf1c72e5038d729a4d07bcf606205",
+      "specie": 12,
+      "nome": "Butterfree",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Butterfree",
+        "livello": 40,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Sferapolline",
+          "Eterelama",
+          "Gigassorbimento",
+          "Elettrotela"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 006"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-001-SW-0844-0.pk8": {
+      "sha256": "c971246e2bec083681f94b83631def143353da24da753e0247ef65b504f9f735",
+      "specie": 844,
+      "nome": "Sandaconda",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Sandaconda",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Vorticolpo",
+          "Giravvita",
+          "Velenocoda",
+          "Sabbiotomba"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 117"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-008-SW-0839-0.pk8": {
+      "sha256": "d067f53993ba57cb35a8051a86140fba94718b21d2ebd4e74f394fcc6c9fe7ba",
+      "specie": 839,
+      "nome": "Coalossal",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Coalossal",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Forzantica",
+          "Lanciafiamme",
+          "Frana",
+          "Battiterra"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 117"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-008-SW-0841-0.pk8": {
+      "sha256": "c4fbaa651408d8571d6e6527ce06e7da7d7d291d1cae8762346d72ed0b0d4556",
+      "specie": 841,
+      "nome": "Flapple",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Flapple",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Dragofuria",
+          "Forza G",
+          "Acrobazia",
+          "Dragodanza"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 117"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-011-SW-0849-0.pk8": {
+      "sha256": "6a571a283397a472b5920bd260e983a1a809fca7433784776d584d67cfa82971",
+      "specie": 849,
+      "nome": "Toxtricity",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Toxtricity",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Overdrive",
+          "Ondaboato",
+          "Fangobomba",
+          "Sciagura"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 012"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-014-SW-0068-0.pk8": {
+      "sha256": "7217dc134edacfa2de84cee236480072dee0c1e8472dd7a48bb9880f82236d80",
+      "specie": 68,
+      "nome": "Machamp",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Machamp",
+        "livello": 50,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Breccia",
+          "Pietrataglio",
+          "Rivincita",
+          "Battiterra"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 015"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-014-SW-0143-0.pk8": {
+      "sha256": "70f97db95a6bd1c79246a7f0ce4730e309b9f5b62b88123779bccb3cc85b30ec",
+      "specie": 143,
+      "nome": "Snorlax",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Snorlax",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Corposcontro",
+          "Metaltestata",
+          "Sgranocchio",
+          "Cozzata Zen"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 117"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-017-SW-0884-0.pk8": {
+      "sha256": "1dee312a1c08608513d95e997cee518122dd40086afd27c9897b21765a372662",
+      "specie": 884,
+      "nome": "Duraludon",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Duraludon",
+        "livello": 30,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Unghiaguzze",
+          "Spaccaroccia",
+          "Vastoimpatto",
+          "Ferrartigli"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 048"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-031-SW-0099-0.pk8": {
+      "sha256": "a2363204db722dfe1afbdfdb28373b47df092c0bfa5a4a045cda4c807bca9da4",
+      "specie": 99,
+      "nome": "Kingler",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Kingler",
+        "livello": 40,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Conchilama",
+          "Colpodifango",
+          "Schianto",
+          "Danzaspada"
+        ],
+        "incontro": "Stock Raid Den Encounter [041] 3-4\u2605"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-031-SW-0321-0-S.pk8": {
+      "sha256": "46780c0ce89cb4e31b37619329d18238d2d2c6f4937d1b1f35559d7fd31036bb",
+      "specie": 321,
+      "nome": "Wailord",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Wailord",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Idrovampata",
+          "Corposcontro",
+          "Rimbalzo",
+          "Amnesia"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 031"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-034-SW-0025-0-S.pk8": {
+      "sha256": "f00e233e350b3687881e2df8e93b6b7065d70fa253caf2b99309fe9c4bcb71c2",
+      "specie": 25,
+      "nome": "Pikachu",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Pikachu",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Locomovolt",
+          "Codacciaio",
+          "Carineria",
+          "Tuononda"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 058"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-034-SW-0025-0.pk8": {
+      "sha256": "2e9f7ae1b97ae217b0b852c41c746524b5aa731d326aaf6d71c82f5cd6c8c972",
+      "specie": 25,
+      "nome": "Pikachu",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Pikachu",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Locomovolt",
+          "Codacciaio",
+          "Carineria",
+          "Tuononda"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 058"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-037-SW-0036-0-S.pk8": {
+      "sha256": "5d769ade318b4ac9611048af1c23276d9b93deaad403778278db93a2843a0338",
+      "specie": 36,
+      "nome": "Clefable",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Clefable",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Forza Lunare",
+          "Meteorpugno",
+          "Lucelunare",
+          "Fogliamagica"
+        ],
+        "incontro": "Stock Raid Den Encounter [032] 3-5\u2605"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-041-SW-0711-1-S.pk8": {
+      "sha256": "33b19a747199c1bdd4a555a443a98fa7bc93adc81b65984b689da361d91fc0eb",
+      "specie": 711,
+      "nome": "Gourgeist",
+      "forma": 1,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Gourgeist",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Halloween",
+          "Palla Ombra",
+          "Distortozona",
+          "Semebomba"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 041"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-041-SW-0711-3-S.pk8": {
+      "sha256": "7820c44f9f7312b53b75c7bd78abb82f4d695888da6bf687dc4e32b8f8efefea",
+      "specie": 711,
+      "nome": "Gourgeist",
+      "forma": 3,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Gourgeist",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Halloween",
+          "Palla Ombra",
+          "Distortozona",
+          "Semebomba"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 041"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-046-SW-0037-1-S.pk8": {
+      "sha256": "9007ed236b88977b03a07cd1a17e91143bb5e1aefaa0fddb33be0b824ea0bf24",
+      "specie": 37,
+      "nome": "Vulpix",
+      "forma": 1,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Vulpix",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Velaurora",
+          "Bora",
+          "Extrasenso",
+          "Assorbibacio"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 046"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-049-SW-0819-0-S.pk8": {
+      "sha256": "bcd140831f6c63b1087e7a6854ae9ac1ea2d2b1f68c5f4d0228a8caf9fa16e22",
+      "specie": 819,
+      "nome": "Skwovet",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Skwovet",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Riempiguance",
+          "Vortexpalla",
+          "Rivincita",
+          "Corposcontro"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 049"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-049-SW-0820-0-S.pk8": {
+      "sha256": "0b024ecf8a21b4c7afc8e98e0bcb25d247e06a7585e504913da99f0f0b5d74ec",
+      "specie": 820,
+      "nome": "Greedent",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Greedent",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Riempiguance",
+          "Vortexpalla",
+          "Rivincita",
+          "Terremoto"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 049"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-051-SW-0128-0-S.pk8": {
+      "sha256": "e6fe8fc9a81d2604157830e051c5ce299cf4a317ca72759e3303ed04299a0140",
+      "specie": 128,
+      "nome": "Tauros",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Tauros",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Corposcontro",
+          "Frana",
+          "Garanzia",
+          "Zuffa"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 051"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-054-SW-0845-0-S.pk8": {
+      "sha256": "7bfd0a5e42a23afb52d57f9b005416b6a555bdfb3d0ef18632cb9e0c6fd015a1",
+      "specie": 845,
+      "nome": "Cramorant",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Cramorant",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Surf",
+          "Idropompa",
+          "Idrovampata"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 054"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-056-SW-0868-0-G-S.pk8": {
+      "sha256": "fe321760cd2e3ed59c259fa50a280194087121d4d152e293aa4a3cf34226acba",
+      "specie": 868,
+      "nome": "Milcery",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Milcery",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Assorbibacio",
+          "Magibrillio",
+          "Coro",
+          "Veicolaforza"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 056"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-056-SW-0868-0-G.pk8": {
+      "sha256": "5bd89d1703b04ec53dab0ee850c07f2d2a6ddb7d0d6935e74197208c8649d4f7",
+      "specie": 868,
+      "nome": "Milcery",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Milcery",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Assorbibacio",
+          "Magibrillio",
+          "Coro",
+          "Veicolaforza"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 056"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-058-SW-0025-0-G-S.pk8": {
+      "sha256": "78abccc0332f4098d9128d88884d05ceb016f11c2d86599822bf1e121bb31343",
+      "specie": 25,
+      "nome": "Pikachu",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Pikachu",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Elettroimpennata",
+          "Scarica",
+          "Surf",
+          "Incantavoce"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 058"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-060-SW-0549-0-S.pk8": {
+      "sha256": "c6857004ff268a3f87b91a1fd65a613e3844cbc37d98e6489b97f2f4fb1e1cff",
+      "specie": 549,
+      "nome": "Lilligant",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Lilligant",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Petalodanza",
+          "Strampadanza",
+          "Giornodisole",
+          "Sferapolline"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 060"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-063-SW-0184-0-S.pk8": {
+      "sha256": "d98cd9f6ca996787c30909605cbd59338177c69d68916531cf5797bb016e0b5c",
+      "specie": 184,
+      "nome": "Azumarill",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Azumarill",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Idrobreccia",
+          "Carineria",
+          "Troppoforte",
+          "Battiterra"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 063"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-064-SW-0834-0.pk8": {
+      "sha256": "9d4c82947510bcb9e28b44262c97ea264b40a5660c92806d961ae886632c9dc3",
+      "specie": 834,
+      "nome": "Drednaw",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Drednaw",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Frana",
+          "Idrobreccia",
+          "Rocciotomba",
+          "Ferroscudo"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 117"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-064-SW-0851-0.pk8": {
+      "sha256": "f2b7ce15a71b44949e2ec649ba2c71446c65ceb5a42ca913711fc1e7a07c998b",
+      "specie": 851,
+      "nome": "Centiskorch",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Centiskorch",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Frusta di Fuoco",
+          "Assalto",
+          "Fulmindenti",
+          "Morso"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 117"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-065-SW-0875-0-S.pk8": {
+      "sha256": "1f21d7cf915fb0ac6f7f189658473a1bb7af2b3cc01005a8f5779df51201053a",
+      "specie": 875,
+      "nome": "Eiscue",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Eiscue",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Gelolancia",
+          "Idrobreccia",
+          "Metaltestata",
+          "Bottintesta"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 065"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-067-SW-0052-0-G.pk8": {
+      "sha256": "a7f77171598e79a0fb6e8acdaeb95a04214301eb1366873e2747e860d4f2e6db",
+      "specie": 52,
+      "nome": "Meowth",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Meowth",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Giornopaga",
+          "Carineria",
+          "Ombrartigli",
+          "Corposcontro"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 067"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-067-SW-0052-2-S.pk8": {
+      "sha256": "cc36d8348ffbc1e5dfcb067e3b5e1675181c76225017cee0ae6e37952cadafd5",
+      "specie": 52,
+      "nome": "Meowth",
+      "forma": 2,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Meowth",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Giornopaga",
+          "Ferrartigli",
+          "Metaltestata",
+          "Carineria"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 067"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-069-SW-0831-0-S.pk8": {
+      "sha256": "08d9f915bf1ecd7e043da731da1aa9f89dd932a9b7e3c025c6595145230a7168",
+      "specie": 831,
+      "nome": "Wooloo",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Wooloo",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Sdoppiatore",
+          "Contropiede",
+          "Tuononda",
+          "Rivincita"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 069"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-071-SW-0003-0.pk8": {
+      "sha256": "0c46a42e3e618b4ac4844bd7ea833274fbb119d79d194c7b13d7cf47cc253534",
+      "specie": 3,
+      "nome": "Venusaur",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Venusaur",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Vigorcolpo",
+          "Fangobomba",
+          "Geoforza",
+          "Corposcontro"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 071"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-071-SW-0186-0-S.pk8": {
+      "sha256": "09628d76ffad79e36193d50cc2c239e1d599e6a85617b1e11783116e82d18d5a",
+      "specie": 186,
+      "nome": "Politoed",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Politoed",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Idropompa",
+          "Palla Clima",
+          "Corposcontro",
+          "Geoforza"
+        ],
+        "incontro": "Stock Raid Den Encounter [132] 5\u2605"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-073-SW-0853-0-S.pk8": {
+      "sha256": "9aeb3f51a01ea690dd74f46b489d39aa604f354e606c0bdc255ed82c3424c281",
+      "specie": 853,
+      "nome": "Grapploct",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Grapploct",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Sottosopra",
+          "Troppoforte",
+          "Gelopugno",
+          "Battipiedi"
+        ],
+        "incontro": "Stock Raid Den Encounter [009] 5\u2605"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-075-SW-0879-0-G-S.pk8": {
+      "sha256": "c5bdece719f472a65542b5c1a271b267eff2a9c9a698f2d7735399fb58d20344",
+      "specie": 879,
+      "nome": "Copperajah",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Copperajah",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Pesobomba",
+          "Carineria",
+          "Terremoto",
+          "Vigorcolpo"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 117"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-077-SW-0138-0-S.pk8": {
+      "sha256": "84c1da2367d6c86c1a1aafffa1c814e6526091e15f4a5f00f4f490b034dfeddc",
+      "specie": 138,
+      "nome": "Omanyte",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Omanyte",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Idropompa",
+          "Geoforza",
+          "Forzantica",
+          "Geloraggio"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 077"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-079-SW-0584-0-S.pk8": {
+      "sha256": "33e36b2c61184b35ae926f96ec7520bc2d7d90206f83ad495d3d3725ae163648",
+      "specie": 584,
+      "nome": "Vanilluxe",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Vanilluxe",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Liofilizzazione",
+          "Cannonflash",
+          "Granvoce",
+          "Bora"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 079"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-081-SW-0094-0.pk8": {
+      "sha256": "fb66965afd1ab23001c791f1e3542b332e79c66e19e45eb15bc60a42f1686ee3",
+      "specie": 94,
+      "nome": "Gengar",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Gengar",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Palla Ombra",
+          "Magibrillio",
+          "Fangonda",
+          "Fuocofatuo"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 081"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-081-SW-0609-0-S.pk8": {
+      "sha256": "38a6a51627e6213d44a7107e20bfa4c5f844a2df01a3179bedea04441240affb",
+      "specie": 609,
+      "nome": "Chandelure",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Chandelure",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Vampata",
+          "Palla Ombra",
+          "Neropulsar",
+          "Psichico"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 081"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-083-SW-0573-0-S.pk8": {
+      "sha256": "41bdde0de9519d1c55e3139199d12a2aec354cf4b27c4e28115bbb32d135d47e",
+      "specie": 573,
+      "nome": "Cinccino",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Cinccino",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Cadutamassi",
+          "Spazzasberla",
+          "Semitraglia",
+          "Triplo Axel"
+        ],
+        "incontro": "Stock Raid Den Encounter [038] 5\u2605"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-085-SW-0337-0-S.pk8": {
+      "sha256": "ceaeb9eb17fad43ea3eb9a5d3976c0edc590698edf10b84ef5d1d45cf46f5fc4",
+      "specie": 337,
+      "nome": "Lunatone",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Lunatone",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Forza Lunare",
+          "Geloraggio",
+          "Psichico",
+          "Pietrataglio"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 085"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-085-SW-0338-0-S.pk8": {
+      "sha256": "2baf9b9e3c6a4d4554ae96c8c97bd26f2b9d82ef8fe38793e45eb393dd9a1f14",
+      "specie": 338,
+      "nome": "Solrock",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Solrock",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Fuococarica",
+          "Solarraggio",
+          "Psichico",
+          "Pietrataglio"
+        ],
+        "incontro": "Stock Raid Den Encounter [001] 5\u2605"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-089-SW-0571-0-S.pk8": {
+      "sha256": "0f86076445a284607171f3604d914aaf72547f48996e3305340ee42a0696f52e",
+      "specie": 571,
+      "nome": "Zoroark",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Zoroark",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Urtoscuro",
+          "Palla Ombra",
+          "Focalcolpo",
+          "Ripicca"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 089"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-091-SW-0133-0-G.pk8": {
+      "sha256": "164ce2c0b8aa92d591575a8c2201b34c3d5c94ff1b4dea7a660ed3af76e216d9",
+      "specie": 133,
+      "nome": "Eevee",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Eevee",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Ultimascelta",
+          "Veicolaforza",
+          "Codacciaio",
+          "Fascino"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 091"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-091-SW-0133-0-S.pk8": {
+      "sha256": "8177cf6c2206c51dc50a66f34f1a53041c992920fcec5620a426ec3952819d43",
+      "specie": 133,
+      "nome": "Eevee",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Eevee",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Ultimascelta",
+          "Veicolaforza",
+          "Codacciaio",
+          "Fascino"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 091"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-093-SW-0225-0-S.pk8": {
+      "sha256": "9099d2844691b7750770327004c440bb11f6b4aed7337c7f5f096efbc388a55d",
+      "specie": 225,
+      "nome": "Delibird",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Delibird",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Regalino",
+          "Bora",
+          "Perforbecco",
+          "Breccia"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 093"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-095-SW-0129-0-S.pk8": {
+      "sha256": "676106a52b36b4832318083a868fdbf24a7b04737f64054f02ed9170354c59be",
+      "specie": 129,
+      "nome": "Magikarp",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Magikarp",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Splash",
+          "Azione",
+          "Flagello",
+          "Rimbalzo"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 095"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-100-SW-0697-0-S.pk8": {
+      "sha256": "d7617290c230c5b0e35f5bd02d91685206ed81daf29a0995dcd8352cd94bef54",
+      "specie": 697,
+      "nome": "Tyrantrum",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Tyrantrum",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Zuccata",
+          "Terremoto",
+          "Dragopulsar",
+          "Codacciaio"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 100"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-102-SW-0185-0-S.pk8": {
+      "sha256": "a150ac409a170def958561a5f5c1d032ec071a2162faf799c17bec38bb9ea533",
+      "specie": 185,
+      "nome": "Sudowoodo",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Sudowoodo",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Mazzuolegno",
+          "Pietrataglio",
+          "Sdoppiatore",
+          "Sbigoattacco"
+        ],
+        "incontro": "Stock Raid Den Encounter [002] 3-5\u2605"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-104-SW-0090-0-S.pk8": {
+      "sha256": "a90d8fdb90a0a369d2474fe9f5535d9909ca1bb86cbaaca4ca68efb7befbaa37",
+      "specie": 90,
+      "nome": "Shellder",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Shellder",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Geloraggio",
+          "Surf",
+          "Gettaguscio",
+          "Conchilama"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 104"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-109-SW-0183-0-S.pk8": {
+      "sha256": "47bd0ea6cfd56fbd34c04bc21b2cfe4a841df45044c439c85fd1e6d6d43964cd",
+      "specie": 183,
+      "nome": "Marill",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Marill",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Carineria",
+          "Idropompa",
+          "Troppoforte",
+          "Bora"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 109"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-111-SW-0861-0-S.pk8": {
+      "sha256": "3314d5f42ebc2664236194c462e00e60f64aed3f9b8a7283395bdc07e19c5c18",
+      "specie": 861,
+      "nome": "Grimmsnarl",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Grimmsnarl",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Frantumanima",
+          "Braccioteso",
+          "Martelpugno",
+          "Megacalcio"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 111"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-111-SW-0861-0.pk8": {
+      "sha256": "dab808bd6a1a177665c9d02acda7690c58e2bf5d2d1e1210929c94abb84a2330",
+      "specie": 861,
+      "nome": "Grimmsnarl",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Grimmsnarl",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Frantumanima",
+          "Braccioteso",
+          "Martelpugno",
+          "Megacalcio"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 111"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-113-SW-0872-0-S.pk8": {
+      "sha256": "38fb17e67f451d394cdd61ba916809a35054e7adda1c929aaf361d80bcde1050",
+      "specie": 872,
+      "nome": "Snom",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Snom",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Ronzio",
+          "Ventogelato",
+          "Facciata",
+          "Entomoblocco"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 113"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-117-SW-0823-0-G.pk8": {
+      "sha256": "de72d3910c64e39ec8cc6dcf4034b0fe7da892cf94563a2e46f4f16252b0d72a",
+      "specie": 823,
+      "nome": "Corviknight",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Corviknight",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Baldeali",
+          "Metaltestata",
+          "Provocazione",
+          "Stridio"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 117"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SW/Static8ND-117-SW-0826-0-G.pk8": {
+      "sha256": "763cb60fec2fc89fd234364a61de6a47a27a998046394877919231d22b3db44b",
+      "specie": 826,
+      "nome": "Orbeetle",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SW Italian",
+      "descrizione": {
+        "specie_it": "Orbeetle",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SW",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Ronzio",
+          "Psichico",
+          "Gigassorbimento",
+          "Palla Ombra"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 117"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SH/Static8ND-008-SH-0131-0.pk8": {
+      "sha256": "3deba1f328f9bc104fcbf5d31aaa268777a06f775f5343f0fe503a373d4c1527",
+      "specie": 131,
+      "nome": "Lapras",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SH Italian",
+      "descrizione": {
+        "specie_it": "Lapras",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SH",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Surf",
+          "Ventogelato",
+          "Liofilizzazione",
+          "Purogelo"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 117"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SH/Static8ND-008-SH-0842-0.pk8": {
+      "sha256": "b868467dc7ef3d9abbfb46d6bee3e55a49d2aed50d1b9e657bd717b4fbc5f8db",
+      "specie": 842,
+      "nome": "Appletun",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SH Italian",
+      "descrizione": {
+        "specie_it": "Appletun",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SH",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Acido Malico",
+          "Dragopulsar",
+          "Energipalla",
+          "Terremoto"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 009"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SH/Static8ND-011-SH-0849-1.pk8": {
+      "sha256": "821007ea6811a06d075f89bf2f52cedb17770b4b90db6a25c638b05077d85da5",
+      "specie": 849,
+      "nome": "Toxtricity",
+      "forma": 1,
+      "formato": "PK8",
+      "contesto": "SH Italian",
+      "descrizione": {
+        "specie_it": "Toxtricity",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SH",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Overdrive",
+          "Ondaboato",
+          "Fangobomba",
+          "Sciagura"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 012"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SH/Static8ND-011-SH-0858-0.pk8": {
+      "sha256": "352d7b50849667a48f03ae64e9ec2c5a9e0413567dbc4835526cebfa1f3bf056",
+      "specie": 858,
+      "nome": "Hatterene",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SH Italian",
+      "descrizione": {
+        "specie_it": "Hatterene",
+        "livello": 60,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SH",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Magibrillio",
+          "Psichico",
+          "Magifiamma",
+          "Veicolaforza"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 012"
+      },
+      "esito": "conforme"
+    },
+    "lotto-incursioni-evento-swsh-SH/Static8ND-012-SH-0857-0.pk8": {
+      "sha256": "a65c9ac53252006628bd76fc6e45ee7d07b307d59870a4dd7ee5b6839b6b820a",
+      "specie": 857,
+      "nome": "Hattrem",
+      "forma": 0,
+      "formato": "PK8",
+      "contesto": "SH Italian",
+      "descrizione": {
+        "specie_it": "Hattrem",
+        "livello": 40,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 878221,
+        "lingua": "Italian",
+        "gioco_di_origine": "SH",
+        "luogo": "Tana di Pok\u00E9mon",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Magibrillio",
+          "Fogliamagica",
+          "Neropulsar",
+          "Veicolaforza"
+        ],
+        "incontro": "Distribution Raid Den Encounter - 012"
       },
       "esito": "conforme"
     }

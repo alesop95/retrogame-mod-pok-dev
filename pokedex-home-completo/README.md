@@ -66,6 +66,7 @@ STUDIO-02-salvataggi-esterni-e-che-cosa-provano.md  l'uso dei salvataggi esterni
 STUDIO-03-la-catena-e-viva-e-la-lista-di-spunta.md  la catena di trasferimento e la prima checklist
 STUDIO-10-la-libreria-del-verificatore-come-generatore.md  la generazione tramite la libreria del verificatore
 VERIFICA-TERZA-GENERAZIONE.md              i vincoli della collezione di terza generazione
+CENSIMENTO-INCURSIONI-SWSH.md              le 359 chiavi delle incursioni di evento di Spada e Scudo, e i 61 generati
 ```
 
 Lo strumento che produce il conto sta fra quelli comuni, in `tools/disponibilita-titoli.py`, perché serve a più di un track: la sua risposta governa la pianificazione del tempo di tutto il progetto e non soltanto di questo sottoprogetto.

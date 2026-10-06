@@ -8,8 +8,8 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: 021688e, recap a regola (ADR-095) e passo 0 committati
-Data snapshot:         2026-10-05, fonti chiuse, roadmap del 2026-10-05 scritta; prossimo: passo 0 e prova pilota Rubino Omega giro 1
+Commit di riferimento: 4cf8b06, lavoro parziale di tre agenti committato da chiudi prima dello spegnimento del PC
+Data snapshot:         2026-10-06, ripresa dopo lo spegnimento; tre agenti rilanciati (link, incursioni, giudizi)
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,8 @@ Data snapshot:         2026-10-05, fonti chiuse, roadmap del 2026-10-05 scritta;
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-10-06, sesta parte, che prevale sulle aggiunte sotto. Il PC si è spento a metà della sessione; `chiudi` del proprietario aveva già committato e pubblicato il lavoro parziale di tre agenti in `4cf8b06`, repository integro (work log, sesta parte). Rilanciati e CHIUSI i tre agenti: link non registrati a zero con 54 fonti nuove e il controllo in `chiudi`; incursioni di Spada e Scudo censite, 61 generate e conformi (`CENSIMENTO-INCURSIONI-SWSH.md`); giudizi, schede GB e Ranger verificati. Decisioni aperte del proprietario in testa a `pending.md`: Phanpy `EVT-2-0146`, uovo di Manaphy di Ranger, i 61 verso HOME, le 13 lacune delle fonti. Fuoco corrente invariato: pokedex-home-completo, 3271 esemplari per HOME, trasferimento non cominciato.
 
 AGGIUNTA DEL 2026-10-05, che prevale su tutte le aggiunte sotto e sulla riga «Fuoco corrente» del 2026-09-25 per lo stato. Il punto di ripresa non era stato aggiornato dal 2026-09-29: lo stato dal 2026-10-01 al 2026-10-05 stava solo in `progress.md` e in `_notes/resume-prompt.md`, corretto qui. Fuoco corrente: pokedex-home-completo. Fonti CHIUSE (ADR-094, `stato-residuo-corpus.py --check` a zero, Discord escluso). Produzione sotto scadenza chiusa: 3194 esemplari per HOME in cinque copie scritte e rilette (Rubino Omega 930, 682, 914, Luna 93, Ultraluna 575), 158 per la decisione finale, 14 giapponesi senza copia, 701 eventi per Switch generati. Trasferimento NON cominciato. La roadmap che vale è la sezione del 2026-10-05 in testa a `pokedex-home-completo/ROADMAP.md`, passi da 0 a 6 più l'asse senza scadenza. Prossimo: passo 1, Rubino Omega giro 1, che comincia ripristinando con Checkpoint `per-home/oras-giro-1/main`, perché sulla console c'è la copia superata `scrittura-oras/giro-1/main` (voce TROVATO del 2026-10-05 in `pending.md`). Il recap di fine giro è regola dal 2026-10-05 (ADR-095).
 

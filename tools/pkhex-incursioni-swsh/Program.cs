@@ -1,14 +1,14 @@
-// Le incursioni di evento di Spada e Scudo, cioe' le tane di distribuzione delle Wild Area News, censite dalla libreria del
+// Le incursioni di evento di Spada e Scudo, cioè le tane di distribuzione delle Wild Area News, censite dalla libreria del
 // verificatore compilata dal clone in _notes/fonti/cloni/pkhex, confrontate con la pagina Bulbapedia del 2021 e con i lotti
-// gia' prodotti, e generate dove mancano.
+// già prodotti, e generate dove mancano.
 //
-// Perche' esiste. ADR-097 (2026-10-06): il proprietario ha stabilito che gli esemplari delle incursioni di evento di Spada e
+// Perché esiste. ADR-097 (2026-10-06): il proprietario ha stabilito che gli esemplari delle incursioni di evento di Spada e
 // Scudo, cromatici e Gigantamax compresi, contano come esemplari da distribuzione. Il lotto lotto-eventi-switch-scelta ne
-// teneva uno per specie e forma, e quindi non distingueva il Gigantamax ne' il cromatico garantito, che sono proprio cio'
+// teneva uno per specie e forma, e quindi non distingueva il Gigantamax né il cromatico garantito, che sono proprio ciò
 // che rende peculiare un'incursione di evento.
 //
 // Che cosa legge. Le tabelle Dist_SW e Dist_SH di Encounters8Nest (classe EncounterStatic8ND), interne alla libreria e
-// raggiunte per riflessione: ogni riga porta l'indice dell'evento, specie, forma, abilita', livello, livello Dynamax,
+// raggiunte per riflessione: ogni riga porta l'indice dell'evento, specie, forma, abilità, livello, livello Dynamax,
 // fattore Gigantamax, blocco o garanzia del cromatico, IV perfetti e mosse. Le grotte di cristallo (EncounterStatic8NC)
 // sono incursioni permanenti e stanno nel dump solo come riferimento. Per dire se una voce esiste anche fuori dagli eventi
 // legge per riflessione tutte le altre tabelle di Encounters8 e Encounters8Nest: tane ordinarie, statici, cristallo,
@@ -16,11 +16,13 @@
 //
 // Che cosa fa. Scrive il dump in JSON con ogni riga distinta e le versioni in cui compare. Raggruppa le righe per chiave di
 // collezione, specie, forma, Gigantamax e cromatico garantito. Se riceve la pagina della Wild Area News del 2021 ne
-// estrae gli eventi e le voci e le confronta con la libreria, indicando per ogni evento l'indice della libreria con piu'
+// estrae gli eventi e le voci e le confronta con la libreria, indicando per ogni evento l'indice della libreria con più
 // specie in comune. Se riceve la cartella dei lotti giudica ogni .pk8 che vi trova (salvo l'uscita) e, se l'incontro
-// riconosciuto e' una tana di distribuzione, segna la chiave come coperta da quel lotto. Se riceve la cartella di uscita
+// riconosciuto è una tana di distribuzione, segna la chiave come coperta da quel lotto. Se riceve la cartella di uscita
 // genera un esemplare per ogni chiave non coperta da lotto-eventi-switch-scelta, con l'allenatore del progetto, e tiene il
-// primo conforme, in una sottocartella per versione cosi' che il giudice lo giudichi con il salvataggio vuoto giusto.
+// primo conforme, in una sottocartella per versione così che il giudice lo giudichi con il salvataggio vuoto giusto. La
+// sottocartella porta il nome del lotto seguito dalla versione, perché pkhex-giudica chiama ogni voce del registro con la
+// cartella che contiene il file, e un nome nudo come SW si confonderebbe con quello di qualunque altro lotto.
 //
 // Uso:  dotnet run -c Release -- ALLENATORE.json DUMP.json [WAN2021.txt] [CARTELLA_LOTTI] [CARTELLA_USCITA]
 using System.Reflection;
@@ -60,10 +62,17 @@ var crystal = (EncounterStatic8NC[])nestType.GetField("Crystal_SWSH", Tutti)!.Ge
 
 string FormaIt(ushort s, byte f) => FormConverter.GetStringFromForm(s, f, it, EntityContext.Gen8);
 string Chiave(ushort s, byte f, bool g, bool c) => $"{s:0000}-{f}{(g ? "-G" : "")}{(c ? "-S" : "")}";
-// Una riga a cromatico garantito si genera chiedendo il cromatico: la libreria non lo forza da se', perche' nelle tane
-// la lucentezza viene dal seme, e un esemplare non cromatico nato da quella riga non vi si accorda (la libreria lo
-// attribuisce a un'altra riga dello stesso evento o lo rifiuta).
-EncounterCriteria Criterio(EncounterStatic8ND e) => e.Shiny == Shiny.Always ? EncounterCriteria.Unrestricted with { Shiny = Shiny.Always } : EncounterCriteria.Unrestricted;
+// Una riga a cromatico garantito si genera chiedendo il cromatico: la libreria non lo forza da sé, perché nelle tane
+// la lucentezza viene dal seme (RaidRNG.TryApply non tocca il PID quando la riga dice Always), e un esemplare non
+// cromatico nato da quella riga non vi si accorda (la libreria lo attribuisce a un'altra riga dello stesso evento o lo
+// rifiuta). SetPINGA ritenta i semi finché l'esemplare non è cromatico, fino a centomila tentativi.
+// All'opposto, ogni altra riga si genera chiedendo il non cromatico. Per una riga con il blocco (Never) la libreria lo
+// impone da sé, perché RaidRNG.TryApply spegne la lucentezza riscrivendo il PID; per una riga libera (Random) un seme
+// cromatico capita una volta su 4096, e un esemplare così porterebbe la chiave sbagliata nella collezione, che separa il
+// cromatico garantito dal resto. Lo stato ottenuto si confronta comunque con quello atteso dopo la generazione, con
+// AccordoCromatico, e un esemplare che non vi corrisponde non si scrive.
+EncounterCriteria Criterio(EncounterStatic8ND e) => EncounterCriteria.Unrestricted with { Shiny = e.Shiny == Shiny.Always ? Shiny.Always : Shiny.Never };
+bool AccordoCromatico(EncounterStatic8ND e, PKM g) => g.IsShiny == (e.Shiny == Shiny.Always);
 string Firma(EncounterStatic8ND e) => $"{e.Index}|{e.Species}|{e.Form}|{e.Level}|{e.DynamaxLevel}|{e.CanGigantamax}|{e.Shiny}|{e.Ability}|{e.FlawlessIVCount}|{e.Moves.Move1},{e.Moves.Move2},{e.Moves.Move3},{e.Moves.Move4}";
 
 // Le altre fonti di Spada e Scudo, per dire se una chiave esiste anche fuori dagli eventi.
@@ -91,7 +100,7 @@ foreach (var tipo in new[] { gen8Type, nestType })
         if (campo.GetValue(null) is not Array arr) continue;
         foreach (var o in arr) if (o is not null && o.GetType().Namespace == "PKHeX.Core") AggiungiFonte(o, campo.Name);
     }
-// I doni WC8 con il fattore, solo informativi: un dono non e' un'incursione.
+// I doni WC8 con il fattore, solo informativi: un dono non è un'incursione.
 var doniG = new HashSet<string>();
 foreach (var c in EncounterEvent.MGDB_G8) if (c is WC8 w && w.IsEntity && w.CanGigantamax) doniG.Add($"{w.Species}-{w.Form}");
 
@@ -114,13 +123,13 @@ foreach (var r in righe.Values)
     l.Add(r);
 }
 
-// La copertura dei lotti: un .pk8 il cui incontro riconosciuto e' una tana di distribuzione copre la sua chiave.
+// La copertura dei lotti: un .pk8 il cui incontro riconosciuto è una tana di distribuzione copre la sua chiave.
 var copertura = new Dictionary<string, SortedSet<string>>();
 var indistinti = new List<string>();
 
 // La prova di ogni riga: si genera l'esemplare e si guarda se la libreria lo riconosce come tana di distribuzione o se lo
 // attribuisce a un altro incontro, tipicamente una tana ordinaria con gli stessi parametri. Nel secondo caso l'esemplare
-// e' legale ma non porta nulla che lo distingua come evento.
+// è legale ma non porta nulla che lo distingua come evento.
 var prova = new Dictionary<string, (bool valido, bool distinto, string motivo)>();
 foreach (var (k0, (e, versioni)) in righe)
 {
@@ -130,6 +139,7 @@ foreach (var (k0, (e, versioni)) in righe)
         ParseSettings.InitFromSaveFileData(new SAV8SWSH { Version = v, Language = (int)all["lingua"]! });
         var g = e.ConvertToPKM(Allenatore(v), Criterio(e));
         var la = new LegalityAnalysis(g);
+        if (!AccordoCromatico(e, g)) { prova[k0] = (false, false, "CromaticoNonAccordato"); continue; }
         prova[k0] = la.Valid ? (true, la.EncounterMatch is EncounterStatic8ND m && (m.Shiny == Shiny.Always) == (e.Shiny == Shiny.Always), la.EncounterMatch.LongName) : (false, false, la.Results.First(r => !r.Valid).Identifier.ToString());
     }
     catch (Exception ex) { prova[k0] = (false, false, ex.GetType().Name); }
@@ -151,6 +161,8 @@ foreach (var (e, versioni) in righe.Values.OrderBy(r => r.e.Index).ThenBy(r => r
 }
 
 int pk8Letti = 0;
+string NomeSottocartella(GameVersion v) => Path.GetFileName(uscitaPath!.TrimEnd(Path.DirectorySeparatorChar)) + "-" + v;
+const string PrefissoUscite = "lotto-incursioni-";
 if (lottiPath is not null)
 {
     var vuoto = new SAV8SWSH { Language = (int)all["lingua"]! };
@@ -159,17 +171,20 @@ if (lottiPath is not null)
     {
         var full = Path.GetFullPath(p);
         if (uscitaPath is not null && full.StartsWith(uscitaPath, StringComparison.OrdinalIgnoreCase)) continue;
+        // Anche le uscite delle corse precedenti di questo strumento non contano come copertura: sono ciò che il censimento
+        // produce, non ciò che trova, e contarle farebbe sembrare coperta una chiave dalla sola corsa che la generava.
+        if (Path.GetRelativePath(lottiPath, full).StartsWith(PrefissoUscite, StringComparison.OrdinalIgnoreCase)) continue;
         var dati = File.ReadAllBytes(p);
         if (!FileUtil.TryGetPKM(dati, out var pk, ".pk8")) continue;
         pk8Letti++;
         var la = new LegalityAnalysis(pk);
         if (!la.Valid) continue;
         string k;
-        // La chiave e' quella dell'esemplare, non dell'incontro: un Alcremie Gigantamax nato da un Milcery di evento con il
-        // fattore e' un esemplare di incursione di evento nella forma che ha.
+        // La chiave è quella dell'esemplare, non dell'incontro: un Alcremie Gigantamax nato da un Milcery di evento con il
+        // fattore è un esemplare di incursione di evento nella forma che ha.
         if (la.EncounterMatch is EncounterStatic8ND nd && pk is PK8 q) k = Chiave(pk.Species, pk.Form, q.CanGigantamax, nd.Shiny == Shiny.Always);
         // Un file nato da una tana di distribuzione che la libreria attribuisce a una tana ordinaria copre comunque la sua
-        // chiave: e' stato generato da quella riga, ma non se ne distingue.
+        // chiave: è stato generato da quella riga, ma non se ne distingue.
         else if (Path.GetFileName(p).StartsWith("Static8ND") && pk is PK8 p8)
         {
             k = Chiave(pk.Species, pk.Form, p8.CanGigantamax, pk.IsShiny && chiavi.ContainsKey(Chiave(pk.Species, pk.Form, p8.CanGigantamax, true)));
@@ -190,10 +205,18 @@ var esito = new Dictionary<string, string>();
 if (uscitaPath is not null && lottiPath is not null)
 {
     Directory.CreateDirectory(uscitaPath);
+    // Come gli altri generatori, non si scrive sopra un lotto: file rimasti da una corsa precedente si mescolerebbero ai
+    // nuovi e il rapporto non li elencherebbe.
+    if (Directory.EnumerateFiles(uscitaPath, "*.pk8", SearchOption.AllDirectories).Any())
+    {
+        Console.Error.WriteLine($"la cartella di uscita contiene già esemplari: {uscitaPath}");
+        return 1;
+    }
     foreach (var (k, lista) in chiavi)
     {
         if (copertura.TryGetValue(k, out var c) && c.Contains(LottoScelta)) continue;
-        // Si preferisce la riga presente in entrambe le versioni, poi Spada, poi il livello piu' alto.
+        // Si preferisce la riga che la prova riconosce come distribuzione, poi quella presente in entrambe le versioni, poi
+        // Spada, poi il livello più alto.
         var candidati = lista.OrderByDescending(r => prova[Firma(r.e)].distinto).ThenByDescending(r => r.versioni.Count).ThenBy(r => r.versioni[0] == "SW" ? 0 : 1).ThenByDescending(r => r.e.Level).ToList();
         string motivo = "";
         bool fatto = false;
@@ -206,18 +229,19 @@ if (uscitaPath is not null && lottiPath is not null)
                 ParseSettings.InitFromSaveFileData(vuoto);
                 var g = e.ConvertToPKM(Allenatore(v), Criterio(e));
                 var la = new LegalityAnalysis(g);
+                if (!AccordoCromatico(e, g)) { motivo = $"cromatico {(g.IsShiny ? "ottenuto" : "mancato")} su una riga {e.Shiny}"; continue; }
                 if (!la.Valid) { motivo = la.Results.First(r => !r.Valid).Identifier.ToString(); continue; }
                 bool distinto = la.EncounterMatch is EncounterStatic8ND m && (m.Shiny == Shiny.Always) == (e.Shiny == Shiny.Always);
                 var dati = new byte[g.SIZE_STORED]; g.WriteDecryptedDataStored(dati);
                 var nome = $"Static8ND-{e.Index:000}-{v}-{e.Species:0000}-{e.Form}{(e.CanGigantamax ? "-G" : "")}{(e.Shiny == Shiny.Always ? "-S" : "")}.pk8";
-                var cartella = Directory.CreateDirectory(Path.Combine(uscitaPath, v.ToString())).FullName;
+                var cartella = Directory.CreateDirectory(Path.Combine(uscitaPath, NomeSottocartella(v))).FullName;
                 File.WriteAllBytes(Path.Combine(cartella, nome), dati);
                 rapporto.Add(new JsonObject
                 {
                     ["chiave"] = k, ["numero"] = e.Species, ["specie"] = it.Species[e.Species], ["forma"] = e.Form,
                     ["nome_forma"] = FormaIt(e.Species, e.Form), ["gigantamax"] = e.CanGigantamax, ["cromatico"] = g.IsShiny,
                     ["indice_evento"] = e.Index, ["versione"] = v.ToString(), ["livello"] = g.CurrentLevel, ["abilita"] = it.Ability[g.Ability],
-                    ["allenatore"] = g.OriginalTrainerName, ["conforme"] = true, ["riconosciuto_come_distribuzione"] = distinto, ["incontro_riconosciuto"] = la.EncounterMatch.LongName, ["file"] = v + "/" + nome,
+                    ["allenatore"] = g.OriginalTrainerName, ["conforme"] = true, ["riconosciuto_come_distribuzione"] = distinto, ["incontro_riconosciuto"] = la.EncounterMatch.LongName, ["file"] = NomeSottocartella(v) + "/" + nome,
                     ["sha256"] = Convert.ToHexStringLower(SHA256.HashData(dati)),
                 });
                 generati++; fatto = true; esito[k] = "generato";
@@ -234,7 +258,7 @@ if (uscitaPath is not null && lottiPath is not null)
     File.WriteAllText(Path.Combine(uscitaPath, "rapporto.json"), new JsonObject
     {
         ["fonte"] = "PKHeX.Core tramite tools/pkhex-incursioni-swsh",
-        ["criterio"] = "un esemplare per chiave di collezione (specie, forma, Gigantamax, cromatico garantito) delle tane di distribuzione di Spada e Scudo non coperta da lotto-eventi-switch-scelta; riga preferita: presente in entrambe le versioni, poi Spada, poi il livello piu' alto",
+        ["criterio"] = "un esemplare per chiave di collezione (specie, forma, Gigantamax, cromatico garantito) delle tane di distribuzione di Spada e Scudo non coperta da lotto-eventi-switch-scelta; riga preferita: riconosciuta come distribuzione dalla prova, poi presente in entrambe le versioni, poi Spada, poi il livello più alto; cromatico solo e sempre sulle righe a cromatico garantito",
         ["esemplari"] = rapporto,
     }.ToJsonString(new JsonSerializerOptions { WriteIndented = true, Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping }) + "\n");
 }
@@ -247,7 +271,7 @@ foreach (var (k, lista) in chiavi)
     var fk = $"{e0.Species}-{e0.Form}-{(e0.CanGigantamax ? "G" : "")}";
     var fonti = altreFonti.TryGetValue(fk, out var fs) ? fs.ToList() : [];
     bool tane = fonti.Any(x => x.StartsWith("Nest_"));
-    string disponibilita = tane ? "anche da tane ordinarie" : fonti.Count > 0 ? "anche da altri incontri" : "solo da incursioni di evento";
+    string disponibilità = tane ? "anche da tane ordinarie" : fonti.Count > 0 ? "anche da altri incontri" : "solo da incursioni di evento";
     if (tane) ancheTane++; else if (fonti.Count > 0) ancheAltro++; else soloEventi++;
     var versioni = lista.SelectMany(r => r.versioni).Distinct().Order().ToList();
     dumpChiavi.Add(new JsonObject
@@ -258,7 +282,7 @@ foreach (var (k, lista) in chiavi)
         ["versioni"] = new JsonArray(versioni.Select(x => (JsonNode)x).ToArray()),
         ["indici_evento"] = new JsonArray(lista.Select(r => (int)r.e.Index).Distinct().Order().Select(x => (JsonNode)x).ToArray()),
         ["livelli"] = new JsonArray(lista.Select(r => (int)r.e.Level).Distinct().Order().Select(x => (JsonNode)x).ToArray()),
-        ["righe"] = lista.Count, ["disponibilita"] = disponibilita,
+        ["righe"] = lista.Count, ["disponibilità"] = disponibilità,
         ["distinguibile_da_tana_ordinaria"] = lista.Any(r => prova[Firma(r.e)].distinto),
         ["righe_legali"] = lista.Count(r => prova[Firma(r.e)].valido),
         ["altre_fonti"] = new JsonArray(fonti.Select(x => (JsonNode)x).ToArray()),
@@ -345,7 +369,7 @@ if (wanPath is not null)
 var dump = new JsonObject
 {
     ["fonte"] = "PKHeX.Core, Encounters8Nest.Dist_SW e Dist_SH (EncounterStatic8ND), tramite tools/pkhex-incursioni-swsh",
-    ["nota"] = "Generato. Una riga e' un incontro distinto delle tabelle di distribuzione, con le versioni in cui compare. Una chiave e' specie, forma, Gigantamax (G) e cromatico garantito (S). Il livello e' quello della tana; la libreria ammette anche i livelli ribassati da 20 a 55 a passi di 5 nelle tane condivise.",
+    ["nota"] = "Generato. Una riga è un incontro distinto delle tabelle di distribuzione, con le versioni in cui compare. Una chiave è specie, forma, Gigantamax (G) e cromatico garantito (S). Il livello è quello della tana; la libreria ammette anche i livelli ribassati da 20 a 55 a passi di 5 nelle tane condivise.",
     ["conteggi"] = new JsonObject
     {
         ["righe_spada"] = distSW.Length, ["righe_scudo"] = distSH.Length, ["righe_distinte"] = righe.Count,

@@ -11,7 +11,9 @@ Che cosa fa
 
 Estrae ogni indirizzo dai file tracciati e dal materiale scritto dal proprietario o dal progetto sotto `_notes/`, escludendo i testi di terzi scaricati sotto `_notes/fonti/` (salvo le consegne del proprietario in `_notes/fonti/consegne/`, nei soli `.md`, `.txt` e `.url` fuori dalle cartelle di trascrizioni), i lotti, i salvataggi, i cloni, l'output compilato, i modelli del template e le guide copiate intere dal template. Normalizza ogni indirizzo: toglie gli escape con la barra rovescia, la punteggiatura finale, il punto e virgola dei CSV, i parametri di tracciamento, i prefissi `www.`, `old.`, `np.` e `m.`, il frammento, e abbassa l'host. Riduce un post di Reddit al suo identificativo e un video di YouTube al suo, così che due forme dello stesso contenuto contino come una. Risolve i collegamenti brevi di Reddit seguendo il reindirizzamento, con l'archivio Arctic Shift come seconda via, e tiene i risultati in `_notes/fonti/link-brevi.json` per non chiederli due volte.
 
-Poi confronta con le fonti conosciute: `SOURCES.md`, `pokedex-home-completo/CENSIMENTO-FONTI-COLLEZIONE.md`, gli esiti e i dimenticati del residuo del corpus, la lista di lettura del corpus, e l'elenco `_notes/fonti/link-non-fonti.json` degli indirizzi che non sono fonti, ciascuno con il proprio motivo (endpoint di strumenti, pagine di scaricamento di programmi, il repository stesso, stringhe d'esempio). Un indirizzo che non sta in nessuno di questi è non classificato.
+Non sono indirizzi, e non si contano, tre forme che uno strumento scrive senza che indichino una pagina: un modello di formato che lo strumento completa a runtime (un `%` che non introduce una codifica valida, una graffa, un parametro finale vuoto come `?url=`), un nome riservato alla documentazione dalla RFC 2606 e dalla RFC 6761 (`example.org`, `.example`, `.test`, `.invalid`), e un video di YouTube il cui identificativo non ha undici caratteri. Un collegamento breve di Reddit ha un codice di dieci caratteri: un codice di altra lunghezza è un segnaposto. La pagina d'ingresso di un sito, senza percorso, è classificata quando il registro ha già fonti di quel sito.
+
+Poi confronta con le fonti conosciute: `SOURCES.md`, `pokedex-home-completo/CENSIMENTO-FONTI-COLLEZIONE.md`, gli esiti e i dimenticati del residuo del corpus, la lista di lettura del corpus, e l'elenco `_notes/fonti/link-non-fonti.json` degli indirizzi che non sono fonti, ciascuno con il proprio motivo (endpoint di strumenti, pagine di scaricamento di programmi, il repository stesso, stringhe d'esempio). Una voce di quell'elenco può dichiarare `solo_in`, cioè i file in cui vale: gli indirizzi fittizi delle prove di uno strumento si escludono solo dentro quello strumento, e lo stesso indirizzo scritto in un documento resta non classificato. La chiave `file_dati` elenca i manifesti scaricati che enumerano il contenuto di una fonte già registrata. Un indirizzo che non sta in nessuno di questi è non classificato.
 
 Uso
 ---
@@ -20,9 +22,11 @@ Uso
     python tools/verifica-link-progetto.py --check         esce con 1 se c'è un indirizzo non classificato
     python tools/verifica-link-progetto.py --json FILE     scrive i non classificati con i file che li citano
     python tools/verifica-link-progetto.py --senza-rete    non risolve i collegamenti brevi nuovi
+    python tools/verifica-link-progetto.py --prova         esegue le prove interne
 """
 
 import argparse
+import base64
 import collections
 import io
 import json
@@ -60,7 +64,15 @@ TRACCIAMENTO_SOLO = {"s": ("twitter.com", "x.com"), "t": ("twitter.com", "x.com"
 PREFISSI_HOST = ("www.", "old.", "np.", "new.", "m.")
 
 RE_URL = re.compile(r"https?://(?:\\[_*()\[\]#~.\-]|[^\s<>\"'`|;\]\}\\])+")
-RE_BREVE = re.compile(r"^https?://(?:[a-z0-9.-]*\.)?reddit\.com/(r|u|user)/([^/]+)/s/([A-Za-z0-9]+)", re.I)
+# Il codice di un collegamento breve di Reddit ha dieci caratteri: lo dicono tutte le diciassette
+# risoluzioni in cache al 2026-10-06. Un codice di altra lunghezza è un segnaposto, non un breve.
+RE_BREVE = re.compile(r"^https?://(?:[a-z0-9.-]*\.)?reddit\.com/(r|u|user)/([^/]+)/s/([A-Za-z0-9]{10})(?![A-Za-z0-9])", re.I)
+# Un video di YouTube ha un identificativo di undici caratteri; un indirizzo di video con un
+# identificativo di altra lunghezza, o vuoto, non porta a nessun video.
+RE_YT_FORMA = re.compile(r"(?:youtube\.com/(?:watch\?(?:[^#]*&)?v=|shorts/|embed/|live/)|youtu\.be/)([^&?/#]*)")
+# Un % che non introduce una codifica valida, o una graffa, è il segnaposto di un modello di formato
+# (%s, %d, {id}) in uno strumento che costruisce l'indirizzo a runtime: non è una pagina.
+RE_MODELLO = re.compile(r"%(?![0-9A-Fa-f]{2})|[{}]")
 RE_POST = re.compile(r"/comments/([a-z0-9]{3,10})(?:/|$)", re.I)
 RE_REDD_IT = re.compile(r"^https?://(?:www\.)?redd\.it/([a-z0-9]{3,10})/?$", re.I)
 RE_YT = re.compile(r"(?:youtube\.com/(?:watch\?(?:.*&)?v=|shorts/|embed/|live/)|youtu\.be/)([A-Za-z0-9_-]{11})")
@@ -79,6 +91,33 @@ def pulisci(url):
             return url
 
 
+def modello(url):
+    """Vero se l'indirizzo è un modello che uno strumento completa a runtime, non una pagina.
+
+    Due forme: un segnaposto di formato (un % che non è una codifica valida, o una graffa), e una
+    interrogazione che finisce con un parametro senza valore (`?url=`, `?v=`), a cui lo strumento
+    accoda l'indirizzo o l'identificativo vero.
+    """
+    if RE_MODELLO.search(url):
+        return True
+    if "?" not in url:
+        return False
+    ultimo = url.split("?", 1)[1].split("#")[0].split("&")[-1]
+    # "id=abc==" è un valore con il riempimento base64, non un parametro vuoto.
+    return ultimo.endswith("=") and ultimo.count("=") == 1
+
+
+# Nomi riservati alla documentazione e alle prove dalla RFC 2606 e dalla RFC 6761: non indicano
+# nessuna pagina reale, ed è la forma in cui le prove degli strumenti dovrebbero scrivere i loro esempi.
+RISERVATI_TLD = (".example", ".test", ".invalid", ".localhost")
+RISERVATI_HOST = ("example.com", "example.org", "example.net", "localhost")
+
+
+def riservato(host):
+    return host.endswith(RISERVATI_TLD) or host in RISERVATI_HOST or host.endswith(
+        tuple("." + h for h in RISERVATI_HOST))
+
+
 def host_breve(host):
     host = host.lower().split("@")[-1].split(":")[0]
     for p in PREFISSI_HOST:
@@ -90,19 +129,35 @@ def host_breve(host):
 def chiave(url):
     """La chiave di confronto: post di Reddit e video di YouTube per identificativo, il resto normalizzato."""
     url = pulisci(url)
+    if modello(url):
+        return None
     m = RE_REDD_IT.match(url)
     if m:
         return "reddit:" + m.group(1).lower()
     m = RE_YT.search(url)
     if m:
         return "youtube:" + m.group(1)
+    m = RE_YT_FORMA.search(url)
+    if m and len(m.group(1)) != 11:
+        return None
     try:
         p = urllib.parse.urlsplit(url)
     except ValueError:
         return None
     host = host_breve(p.netloc)
-    if not host or "." not in host:
+    if not host or "." not in host or riservato(host):
         return None
+    if host == "onedrive.live.com":
+        # Un collegamento di condivisione aperto nel browser porta in `redeem` il collegamento breve
+        # 1drv.ms da cui è nato, codificato in base64: sono lo stesso documento, e la chiave è quella.
+        r = dict(urllib.parse.parse_qsl(p.query)).get("redeem")
+        if r:
+            try:
+                dec = base64.urlsafe_b64decode(r + "=" * (-len(r) % 4)).decode("ascii")
+                if dec.startswith("https://1drv.ms/"):
+                    return chiave(dec)
+            except (ValueError, UnicodeDecodeError):
+                pass
     percorso = urllib.parse.unquote(p.path)
     if host.endswith("reddit.com"):
         m = RE_POST.search(percorso)
@@ -215,15 +270,110 @@ def chiave_breve(url):
     return ("breve:/%s/%s/s/%s" % (m.group(1).lower(), m.group(2).lower(), m.group(3))) if m else None
 
 
+def radice_di_sito_noto(k, host_noti):
+    """La pagina d'ingresso di un sito, senza percorso né interrogazione, cita il sito e non una pagina:
+    è classificata quando il registro ha già fonti di quel sito."""
+    return "/" not in k and "?" not in k and ":" not in k and k.lower() in host_noti
+
+
+class NonFonti:
+    """Gli indirizzi che non sono fonti, da `link-non-fonti.json`, ciascuno con il proprio motivo.
+
+    Una voce è un indirizzo esatto (`voci`) o un prefisso di chiave (`prefissi`); il valore è il motivo,
+    oppure un oggetto con `motivo` e `solo_in`, l'elenco dei file in cui la voce vale. `solo_in` serve
+    agli indirizzi fittizi delle prove degli strumenti: lo stesso indirizzo scritto in un documento
+    resta non classificato, così che un'esclusione pensata per un file non nasconda un collegamento
+    vero altrove.
+    """
+
+    def __init__(self, nf, chiavi_di):
+        self.voci = []
+        for u, v in (nf.get("voci") or {}).items():
+            self.voci.append((chiavi_di(u) or {u}, None, self._ambito(v)))
+        for p, v in (nf.get("prefissi") or {}).items():
+            self.voci.append((None, p.lower(), self._ambito(v)))
+
+    @staticmethod
+    def _ambito(v):
+        if isinstance(v, dict) and v.get("solo_in"):
+            return set(v["solo_in"])
+        return None
+
+    def copre(self, ks, f):
+        for chiavi, prefisso, ambito in self.voci:
+            if ambito is not None and f is not None and f not in ambito:
+                continue
+            for k in ks:
+                if chiavi is not None and k in chiavi:
+                    return True
+                if prefisso is not None and k.lower().startswith(prefisso):
+                    return True
+        return False
+
+
+def prova():
+    """Prove interne: ciascuna fallisce sulla versione dello strumento precedente la correzione del 2026-10-06."""
+    esiti = []
+
+    def p(nome, cond):
+        esiti.append(cond)
+        print("%s %s" % ("ok  " if cond else "FALL", nome))
+
+    p("un segnaposto %s è un modello, non un indirizzo", chiave("https://web.archive.org/web/%sid_/%s") is None)
+    p("un segnaposto %d è un modello", chiave("https://a.it/%d") is None)
+    p("una graffa è un modello", chiave("https://api.example.org/v1/{id}/x") is None)
+    p("un parametro finale vuoto è un modello", chiave("https://archive.org/wayback/available?url=") is None)
+    p("una codifica valida non è un modello", not modello("https://example.org/5599-pok%C3%A9mon"))
+    p("un dominio riservato alla documentazione non è una pagina", chiave("https://pokemon.example/a") is None
+      and chiave("https://example.org/a") is None and chiave("https://sito.test/a") is None)
+    p("il riempimento base64 non è un parametro vuoto", not modello("https://example.org/p?id=abc=="))
+    p("youtu.be con identificativo corto non è un video", chiave("https://youtu.be/xyz") is None)
+    p("watch?v= vuoto non è un video", chiave("https://www.youtube.com/watch?v=") is None)
+    p("watch?v=x non è un video", chiave("https://www.youtube.com/watch?v=x") is None)
+    p("?si= di condivisione si toglie", chiave("https://youtu.be/7TCf0a04I4U?si=jemqHA6AT1k_Y3bs") == "youtube:7TCf0a04I4U")
+    p("?is= di condivisione si toglie", chiave("https://youtu.be/MWwTGl6IK_Q?is=Wz659sDKgT2g-Uei") == "youtube:MWwTGl6IK_Q")
+    BREVE_OD = "/x/c/0/ABC"  # separato dall'host perché la scansione non lo legga come un indirizzo
+    p("il redeem di OneDrive si riduce al collegamento 1drv.ms",
+      chiave("https://onedrive.live.com/:x:/g/personal/0/X?rtime=1&redeem=" +
+             base64.urlsafe_b64encode(("https://1drv.ms" + BREVE_OD).encode()).decode().rstrip("="))
+      == chiave("https://1drv.ms" + BREVE_OD))
+    p("watch e youtu.be danno la stessa chiave",
+      chiave("https://www.youtube.com/watch?v=AI1ZdVQ6DfU&t=30") == chiave("https://youtu.be/AI1ZdVQ6DfU"))
+    p("un breve ha un codice di dieci caratteri", chiave_breve("https://www.reddit.com/r/s/s/CODICE1") is None)
+    p("un breve vero si riconosce",
+      chiave_breve("https://www.reddit.com/r/PokemonHome/s/00gpFvJHo4") == "breve:/r/pokemonhome/s/00gpFvJHo4")
+    p("un post di Reddit si riduce al suo identificativo",
+      chiave("https://old.reddit.com/r/X/comments/AbC123/titolo/?utm_source=share") == "reddit:abc123")
+    p("la punteggiatura finale si toglie", list(estrai("vedi [x](https://example.org/p).")) == ["https://example.org/p"])
+    p("la parentesi di Wikipedia resta", pulisci("https://example.org/wiki/A_(b)") == "https://example.org/wiki/A_(b)")
+    nf = NonFonti({"prefissi": {"esempio.it": {"motivo": "prova", "solo_in": ["tools/a.py"]}},
+                   "voci": {"https://example.com/o/r": "il repository stesso"}}, lambda u: {u.split("://")[1]})
+    p("una voce con ambito vale nel suo file", nf.copre({"esempio.it/x"}, "tools/a.py"))
+    p("una voce con ambito non vale in un documento", not nf.copre({"esempio.it/x"}, "docs/b.md"))
+    p("una voce senza ambito vale ovunque", nf.copre({"example.com/o/r"}, "docs/b.md"))
+    p("la radice di un sito registrato è classificata", radice_di_sito_noto("smogon.com", {"smogon.com"}))
+    p("una pagina di un sito registrato no", not radice_di_sito_noto("smogon.com/forums", {"smogon.com"}))
+    p("la radice di un sito non registrato no", not radice_di_sito_noto("rotomlabs.net", {"smogon.com"}))
+    print("%d prove, %d fallite" % (len(esiti), esiti.count(False)))
+    return 0 if all(esiti) else 1
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--json")
     ap.add_argument("--senza-rete", action="store_true")
+    ap.add_argument("--prova", action="store_true", help="esegue le prove interne e termina")
     a = ap.parse_args()
 
+    if a.prova:
+        return prova()
     brevi = carica_json(CACHE_BREVI, {})
-    brevi_cambiati = False
+    # Una voce che non ha più la forma di un breve, per esempio un segnaposto entrato in cache
+    # prima che il codice di dieci caratteri fosse richiesto, non è più un breve da risolvere.
+    validi = {k: v for k, v in brevi.items() if chiave_breve("https://www.reddit.com" + k[len("breve:"):])}
+    brevi_cambiati = len(validi) != len(brevi)
+    brevi = validi
 
     def chiavi_di(url):
         nonlocal brevi_cambiati
@@ -252,23 +402,26 @@ def main():
             if isinstance(u, str):
                 noti |= chiavi_di(u)
     nf = carica_json(NON_FONTI, {})
-    non_fonti = set()
-    for u in (nf.get("voci") or {}):
-        non_fonti |= chiavi_di(u) or {u}
-    prefissi = [p.lower() for p in (nf.get("prefissi") or {})]
+    non_fonti = NonFonti(nf, chiavi_di)
     noti_min = {k.lower() for k in noti}
+    host_noti = {k.split("/")[0].split("?")[0] for k in noti_min if ":" not in k.split("/")[0]}
+    file_dati = set(nf.get("file_dati") or {})
 
     citati = collections.defaultdict(set)
     for f in file_da_scandire():
+        if f in file_dati:
+            continue
         for u in estrai(leggi(f)):
             ks = chiavi_di(u)
             if not ks:
                 continue
-            if any(k in noti or k.lower() in noti_min or k in non_fonti for k in ks):
+            if any(k in noti or k.lower() in noti_min for k in ks):
+                continue
+            if any(radice_di_sito_noto(k, host_noti) for k in ks):
+                continue
+            if non_fonti.copre(ks, f):
                 continue
             k0 = sorted(ks)[-1]
-            if any(k0.lower().startswith(p) for p in prefissi):
-                continue
             citati[(k0, u)].add(f)
 
     if brevi_cambiati:
@@ -285,17 +438,17 @@ def main():
         with io.open(a.json, "w", encoding="utf-8") as f:
             json.dump({k: {"url": v[0], "file": sorted(v[1])} for k, v in sorted(per_chiave.items())},
                       f, ensure_ascii=False, indent=1)
-    irrisolti = sorted(k for k, v in brevi.items() if not v and k not in non_fonti)
+    irrisolti = sorted(k for k, v in brevi.items() if not v and not non_fonti.copre({k}, None))
     if a.check:
         for k, (u, fs) in sorted(per_chiave.items()):
             print("%s\n    citato in: %s" % (u, ", ".join(sorted(fs))))
         for k in irrisolti:
             print("collegamento breve non risolto: %s" % k)
-        if per_chiave:
-            print("%d indirizzi non classificati." % len(per_chiave))
-        else:
-            print("Tutti gli indirizzi citati sono classificati.")
-        return 1 if per_chiave else 0
+        if per_chiave or irrisolti:
+            print("%d indirizzi non classificati, %d brevi non risolti." % (len(per_chiave), len(irrisolti)))
+            return 1
+        print("Tutti gli indirizzi citati sono classificati.")
+        return 0
     host = collections.Counter(k.split("/")[0] for k in per_chiave)
     print("%d indirizzi non classificati, %d brevi non risolti" % (len(per_chiave), len(irrisolti)))
     for h, c in host.most_common():

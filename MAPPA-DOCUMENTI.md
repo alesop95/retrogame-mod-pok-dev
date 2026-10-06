@@ -84,6 +84,7 @@ Sono i pi√π grossi del progetto e la causa principale del senso di ingestibilit√
 | `pokedex-home-completo/VERIFICA-TERZA-GENERAZIONE.md` | 23k | `tools/verifica-terza-generazione.py` |
 | `pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md` | 24k | `tools/censimento-condizionati.py` |
 | `pokedex-home-completo/CENSIMENTO-SCAMBI.md` | 20k | `tools/censimento-scambi.py` |
+| `pokedex-home-completo/CENSIMENTO-INCURSIONI-SWSH.md` | 63k | `tools/censimento-incursioni-swsh.py`, dal dump e dal lotto di `tools/pkhex-incursioni-swsh` |
 | `pokedex-home-completo/ID-NOTEVOLI.md` | 49k | `tools/censimento-id-notevoli.py` |
 | `pokedex-home-completo/EVENTI-SENZA-CARTA.md` | 15k | `tools/leggi-serebii-eventi.py --senza-carta` |
 | `pokedex-home-completo/MOSSE-PERDUTE.md` | 8k | `tools/mosse-perdute.py` |
