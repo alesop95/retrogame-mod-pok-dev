@@ -12,7 +12,8 @@ modulo. Le posizioni del Pokewalker dalla pagina di Bulbapedia salvata in `_note
 una copia d'archivio e va dichiarata come tale. I giudizi e le descrizioni degli esemplari prodotti da
 `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`, scritto da `tools/pkhex-giudica`. I campi
 delle carte dei doni da `_notes/lotti/lotto-doni-gen67/carte-descritte.json`, scritto da
-`tools/pkhex-dono --descrivi`. La provenienza del Phanpy da `provenienze-eventi-gb.json`.
+`tools/pkhex-dono --descrivi`. La provenienza del Phanpy da `provenienze-eventi-gb.json`. L'uovo di Manaphy di
+Pokémon Ranger, dal 2026-10-06, dalle voci del lotto `lotto-manaphy-ranger` nello stesso registro dei giudizi.
 
 Che cosa non fa. Non inventa provenienze: dove una classe non ha ancora una fonte letta voce per voce, la
 scheda lo dice. Le frasi sul perche' una classe sia esclusiva sono autorate qui sotto e poggiano sulle fonti
@@ -86,6 +87,15 @@ PERCHE = {
         "salvataggio, con soprannome, allenatore e identificativo fissati dal gioco. Nessun'altra via produce "
         "quella combinazione, e per questo il collezionista lo conta come un esemplare a sé. Il soprannome "
         "dipende dalla lingua del gioco, e qui è quello italiano."),
+    "ranger": (
+        "Pokémon Ranger, per Nintendo DS, consegnava al gioco di quarta generazione, a cominciare da Diamante e Perla, "
+        "a missione speciale completata, un uovo di Manaphy: è l'unico uovo fra i doni di quarta generazione, e il solo Manaphy che porti Pokémon Ranger come "
+        "luogo dell'uovo. Nelle edizioni localizzate la missione è inclusa nella cartuccia e si sblocca con una "
+        "parola d'ordine resa pubblica all'epoca, come dice `LETTURA-DEL-CORPUS.md`, ma per il deposito l'esemplare "
+        "passa dalla banca e quindi scade il 26 febbraio 2027. La libreria del verificatore non lo tiene fra le "
+        "carte della base dei doni: lo riconosce a parte, come `EncounterGenerator4.RangerManaphy`, dalla specie, "
+        "dalla lingua non coreana e dal luogo dell'uovo, e per questo nessuna delle voci di Manaphy della tabella "
+        "degli eventi lo copre."),
 }
 
 
@@ -283,6 +293,33 @@ def main(argv=None):
         r.append("**Stato.** Rigenerato il 2026-09-25 con la libreria, giudizio: %s." % g.get("esito"))
         r.append("")
 
+    # ------------------------------------------------------------------ l'uovo di Manaphy di Pokémon Ranger
+    # Voce a sé della collezione per decisione del proprietario del 2026-10-06, generata da `tools/pkhex-periferiche`
+    # con il dispositivo `ranger` nel lotto `_notes/lotti/lotto-manaphy-ranger/`. La libreria non la tiene fra le carte
+    # della base ma come `EncounterGenerator4.RangerManaphy`, e il giudizio dice se la riconosce come tale.
+    r += ["## L'uovo di Manaphy di Pokémon Ranger", "", PERCHE["ranger"], ""]
+    ranger = sorted(k for k in giudizi if k.startswith("lotto-manaphy-ranger/"))
+    if not ranger:
+        r += ["**Stato.** Non ancora prodotto: il registro dei giudizi non ha voci del lotto "
+              "`lotto-manaphy-ranger`.", ""]
+    for chiave in ranger:
+        g = giudizi[chiave]
+        d = g.get("descrizione", {})
+        r.append("### `%s` %s" % (chiave.split("/")[1].rsplit(".", 1)[0], d.get("specie_it")))
+        r.append("")
+        r.append("**L'esemplare prodotto.** %s di livello %s, allenatore %s con identificativo %s, lingua %s, gioco "
+                 "di origine %s, schiuso a %s da un uovo di %s, sfera %s, mosse %s. Incontro riconosciuto dalla "
+                 "libreria: %s, giudizio %s nel contesto %s." % (
+                     d.get("specie_it"), d.get("livello"), d.get("allenatore"), d.get("id_allenatore"), d.get("lingua"),
+                     d.get("gioco_di_origine"), d.get("luogo"), d.get("luogo_uovo"), d.get("sfera"),
+                     ", ".join(d.get("mosse", [])), d.get("incontro"), g.get("esito"), g.get("contesto")))
+        r.append("")
+        r.append("**Stato.** Generato il 2026-10-06 e schiuso nel gioco che lo riceve, perché il Trasferimento verso "
+                 "la quinta generazione non accetta uova. Il nome dell'incontro è quello di ogni carta di quarta "
+                 "generazione, e il generatore scrive l'esemplare solo se la carta riconosciuta è l'uovo di Manaphy "
+                 "di `EncounterGenerator4.RangerManaphy`. Non è ancora in una copia per il deposito.")
+        r.append("")
+
     # ------------------------------------------------------------------ il Phanpy
     prov = {}
     if os.path.exists(PROVENIENZE_GB):
@@ -309,9 +346,9 @@ def main(argv=None):
         return 0 if attuale == testo else 1
     with io.open(USCITA, "w", encoding="utf-8", newline="\n") as f:
         f.write(testo)
-    print("scritto %s: %d Pokewalker, %d Ranch, %d Dream Radar, %d doni, %d scambi, 1 Phanpy" % (
+    print("scritto %s: %d Pokewalker, %d Ranch, %d Dream Radar, %d doni, %d scambi, %d Manaphy di Ranger, 1 Phanpy" % (
         USCITA, len(walk), len(ranch), len(radar), len(carte),
-        sum(1 for k in giudizi if k.startswith(("lotto-scambi-gen4/", "lotto-scambi-gen5/")))))
+        sum(1 for k in giudizi if k.startswith(("lotto-scambi-gen4/", "lotto-scambi-gen5/"))), len(ranger)))
     return 0
 
 

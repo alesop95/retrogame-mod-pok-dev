@@ -4,6 +4,22 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-10-06, ottava parte. L'uovo di Manaphy di Ranger come voce a sé
+
+Su decisione del proprietario, generato con il dispositivo nuovo `ranger` di `tools/pkhex-periferiche`: allenatore del progetto, italiano, Diamante, schiuso a Flemminia, mosse Codadiluce, Bolla e Docciascudo, abilità Idratazione, luogo dell'uovo 3001. Lo strumento scrive l'esemplare solo se la libreria lo riconosce come uovo di Manaphy (`PGT` con `IsRangerManaphy` vero), perché il nome dell'incontro «Event Gift (PGT)» è comune a tutte le carte di quarta generazione. `pkhex-giudica` 1 conforme su 1; la prova di conversione in PK6 sul Rubino Omega d'appoggio, in sola lettura e fuori dal repository, e poi in PK7, dà conforme. Verificati dall'agente principale l'impronta nel registro (3681 voci) e `schede-esemplari-gen4.py --check` allineato. Due difetti della libreria: l'uovo non schiuso porta una data d'incontro e viene contestato, l'amicizia esce a 0 ed è riportata a 120. `SCHEDE-ESCLUSIVI.md` era già disallineato dal suo generatore: la rigenerazione porta con sé circa 383 righe preesistenti (voci del Pokewalker `EVT-T-0274`-`0276`, stati da «censita» a «prodotta»). `chiudi -SoloControlli` verde.
+
+File toccati: `tools/pkhex-periferiche/Program.cs`, `tools/schede-esclusivi.py`, `tools/schede-esemplari-gen4.py`, `pokedex-home-completo/SCHEDE-ESCLUSIVI.md`, `recreate-pokemon-distributions-events/SCHEDE-ESEMPLARI-GEN4.md`, `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`, `docs/22-strumenti.md`, `.claude/memory/pending.md`, `.claude/memory/progress.md`, `_notes/resume-prompt.md`.
+
+**Didattica:** nessuna.
+
+## 2026-10-06, settima parte. Commit della ripresa e risposte del proprietario
+
+Il proprietario ha lanciato `chiudi`: commit `e290af1`, pubblicato, `origin/main` allineato. Risposte: uovo di Manaphy di Ranger da generare come voce a sé (affidato a un agente); cartella superata `_notes/lotti/lotto-incursioni-swsh/` da cancellare, cancellata dall'agente principale; su Phanpy `EVT-2-0146` e sui 61 delle incursioni ha chiesto una spiegazione prima di rispondere, data in sessione e registrata in `pending.md`. I 61 sono 36 cromatici garantiti (fra cui Pikachu, Eevee, Milcery Gigantamax, Copperajah Gigantamax, Pikachu Gigantamax, le due taglie di Gourgeist, Vulpix di Alola, Meowth di Galar) e 25 non cromatici, fra cui cinque Gigantamax (Milcery, Meowth, Eevee, Corviknight, Orbeetle), 56 di Spada e 5 di Scudo.
+
+File toccati: `.claude/memory/pending.md`, `.claude/memory/progress.md`, `_notes/resume-prompt.md`.
+
+**Didattica:** nessuna.
+
 ## 2026-10-06, sesta parte. Ripresa dopo lo spegnimento del PC, con un `chiudi` partito sul lavoro parziale
 
 Il PC si è spento durante la sessione della quinta parte, con tre agenti fermati a metà lavoro e la nota di ripresa che diceva «niente `chiudi` prima della ripresa». Il proprietario aveva già lanciato `chiudi`, che è arrivato in fondo: commit `4cf8b06` («aggiornamento schede e tool intermedio», 16 file, 2663 righe aggiunte) delle 12:46, pubblicato, con `git ls-remote` che dà lo stesso hash su `origin/main`. Verifiche della ripresa: albero pulito, nessun file `.lock` in `.git`, `git fsck --no-dangling` senza errori, nessun file del commit vuoto o con byte nulli (controllo sui 16 file del diff `64630a3..4cf8b06`), `_notes/COMMIT-MSG.txt` assente. `verifica-ripresa.py` ha dato il solo rilievo dell'ancora di `index.md` ferma a `021688e`, corretta.

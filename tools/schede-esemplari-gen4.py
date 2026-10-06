@@ -125,7 +125,10 @@ GRUPPI_RANGER = {
            "le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione "
            "al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una "
            "fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la "
-           "libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base."),
+           "libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base, e il "
+           "progetto lo genera come voce a sé, per decisione del proprietario del 2026-10-06, nel lotto "
+           "`lotto-manaphy-ranger` con `tools/pkhex-periferiche`; la sua scheda sta in "
+           "`pokedex-home-completo/SCHEDE-ESCLUSIVI.md`."),
 }
 
 NATURE_DA_INDICE = None  # riempita dai testi

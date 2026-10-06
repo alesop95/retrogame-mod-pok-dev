@@ -6,7 +6,7 @@
     "versione": "26.8.26.0"
   },
   "conteggi": {
-    "conformi": 3680,
+    "conformi": 3681,
     "contestati": 0,
     "illeggibili": 0
   },
@@ -101716,6 +101716,33 @@
           "Veicolaforza"
         ],
         "incontro": "Distribution Raid Den Encounter - 012"
+      },
+      "esito": "conforme"
+    },
+    "lotto-manaphy-ranger/RNG-4-MANAPHY-490.pk4": {
+      "sha256": "8683414849c35e3a5028e88db53428a88cd48323d7191040b4d71276c50e4e74",
+      "specie": 490,
+      "nome": "Manaphy",
+      "forma": 0,
+      "formato": "PK4",
+      "contesto": "SS Italian",
+      "descrizione": {
+        "specie_it": "Manaphy",
+        "livello": 1,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 42317,
+        "lingua": "Italian",
+        "gioco_di_origine": "D",
+        "luogo": "Flemminia",
+        "luogo_uovo": "Pok\u00E9mon Ranger",
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Codadiluce",
+          "Bolla",
+          "Docciascudo"
+        ],
+        "incontro": "Event Gift (PGT)"
       },
       "esito": "conforme"
     }

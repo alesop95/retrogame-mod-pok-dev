@@ -20,6 +20,18 @@
 // e livello, perche' la spiaggia (luogo 202) consegna specie diverse in forme totem diverse, e l'allenatore
 // prende la versione dell'incontro quando questo e' esclusivo di Ultrasole o di Ultraluna.
 //
+// Il dispositivo `ranger`, dal 2026-10-06 per decisione del proprietario, genera l'uovo di Manaphy che Pokémon Ranger
+// consegnava a Diamante e Perla. La libreria non lo tiene fra le carte di MGDB_G4 ma come una carta a parte,
+// `EncounterGenerator4.RangerManaphy` (riga 14), che l'enumeratore propone prima delle carte per ogni Manaphy
+// (`EncounterPossible4.cs` riga 84) e riconosce con `PGT.IsRangerManaphy`: specie 490, lingua non coreana, luogo
+// dell'uovo Ranger4 (3001) o Scambio (2002). L'allenatore è quello del progetto di
+// `recreate-pokemon-distributions-events/allenatore.json`, con lo stesso identificativo segreto dei lotti di quarta
+// generazione composti da `genera-evento-gen4.py` e `genera-incontro-gen4.py`, e il gioco è Diamante, che è anche il
+// gioco che la libreria sceglie da sé quando l'allenatore non è di quarta generazione. L'uovo si giudica, poi si fa
+// schiudere nello stesso gioco, come farebbe chi lo riceve: il Trasferimento verso la quinta generazione non accetta
+// uova, e un uovo convertito non è più un uovo di Ranger per la libreria, perché `IsRangerManaphy` ammette un uovo solo
+// nel formato di quarta generazione. Si scrive l'esemplare schiuso, e il rapporto porta anche l'esito dell'uovo.
+//
 // Uso:  dotnet run -c Release -- RICHIESTE.json CARTELLA_DI_USCITA
 using System.Security.Cryptography;
 using System.Text.Json;
@@ -45,6 +57,8 @@ var giochi = new Dictionary<string, (GameVersion[] Versioni, SimpleTrainerInfo T
     ["statico5"] = ([GameVersion.B, GameVersion.W], Allenatore(GameVersion.B, 5, EntityContext.Gen5)),
     // I doni statici di Ultrasole e Ultraluna, dal 2026-10-05: Pikachu di Ohana e doni di taglia totem.
     ["statico7"] = ([GameVersion.US, GameVersion.UM], Allenatore(GameVersion.US, 7, EntityContext.Gen7)),
+    // L'uovo di Manaphy di Pokémon Ranger, dal 2026-10-06, con l'allenatore del progetto dei lotti di quarta generazione.
+    ["ranger"] = ([GameVersion.D, GameVersion.P], new SimpleTrainerInfo(GameVersion.D) { OT = "Alessio", TID16 = 42317, SID16 = 58164, Gender = 0, Language = (int)LanguageID.Italian, Generation = 4, Context = EntityContext.Gen4 }),
 };
 
 var esiti = new JsonArray();
@@ -81,6 +95,7 @@ foreach (var r in richieste)
             "statico5" => enc is EncounterStatic5 st5 && (r["luogo"] is null || st5.Location == (ushort)(int)r["luogo"]!),
             "statico7" => enc is EncounterStatic7 st7 && (r["luogo"] is null || st7.Location == (ushort)(int)r["luogo"]!)
                           && st7.Form == (byte)(int)r["forma"]! && (livello is null || st7.Level == livello),
+            "ranger" => enc is PGT { IsManaphyEgg: true },
             _ => false,
         };
         if (classe) { scelto = enc; break; }
@@ -114,11 +129,37 @@ foreach (var r in richieste)
     for (int tentativo = 0; tentativo < 8 && accettato is null; tentativo++)
     {
         var pk = scelto.ConvertToPKM(tr, EncounterCriteria.Unrestricted with { Shiny = Shiny.Never });
+        // L'uovo di Ranger si giudica com'è consegnato, e anche convertito alla quinta generazione senza schiuderlo, che
+        // è ciò che il Trasferimento non permette; poi si fa schiudere nel gioco che l'ha ricevuto.
+        if (dispositivo == "ranger" && pk.IsEgg)
+        {
+            var laUovo = new LegalityAnalysis(pk);
+            esito["uovo"] = new JsonObject
+            {
+                ["esito"] = laUovo.Valid ? "conforme" : "contestato",
+                ["incontro"] = laUovo.EncounterMatch.LongName,
+                ["luogo_uovo"] = pk.EggLocation,
+                ["convertito_pk5"] = EntityConverter.ConvertToType(pk, typeof(PK5), out _) is { } uovo5
+                    ? (new LegalityAnalysis(uovo5).Valid ? "conforme" : "contestato") : "conversione rifiutata",
+            };
+            pk.ForceHatchPKM(tr);
+            // La libreria prende l'amicizia dell'uovo dai cicli di schiusa della specie letta prima di scriverla, cioè della
+            // specie 0, e la schiusa la lascia a zero: si scrive il valore che il gioco dà a ogni esemplare appena nato.
+            pk.OriginalTrainerFriendship = EggStateLegality.GetEggHatchFriendship(pk.Context);
+            pk.RefreshChecksum();
+        }
         var la = new LegalityAnalysis(pk);
         analisi = la;
-        if (la.Valid) accettato = pk;
+        if (la.Valid && (dispositivo != "ranger" || la.EncounterMatch is PGT { IsManaphyEgg: true })) accettato = pk;
     }
     esito["incontro"] = scelto.LongName;
+    if (dispositivo == "ranger" && accettato is not null)
+    {
+        esito["incontro_riconosciuto"] = analisi!.EncounterMatch.LongName;
+        esito["luogo"] = accettato.MetLocation;
+        esito["luogo_uovo"] = accettato.EggLocation;
+        esito["schiuso"] = !accettato.IsEgg;
+    }
     if (scelto.Form != (byte)(int)r["forma"]!)
         esito["forma_della_libreria"] = scelto.Form;
     if (accettato is null)
