@@ -630,7 +630,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 024 Darkrai  `Almia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Almia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Almia`, la carta è in lingua inglese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Ombre su Almia.** Gruppo documentato dalla trascrizione del video `Hh4GdQsZVEY`, che elenca Darkrai e il Riolu con Sferapulsar fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta il Darkrai della carta 22 con insegna Almia e il Riolu della carta 23 con insegna Kyle, Carlo in italiano. Il gioco Ranger sbloccava una missione speciale e, completata, consegnava l'esemplare al gioco principale di quarta generazione. Le due specie condividono in tutte le lingue l'identificativo 3208. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Ombre su Almia, e non da una fonte che lo nomini per esteso.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -661,7 +661,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 025 Riolu  `Kyle`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Kyle, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Kyle`, la carta è in lingua inglese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Ombre su Almia.** Gruppo documentato dalla trascrizione del video `Hh4GdQsZVEY`, che elenca Darkrai e il Riolu con Sferapulsar fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta il Darkrai della carta 22 con insegna Almia e il Riolu della carta 23 con insegna Kyle, Carlo in italiano. Il gioco Ranger sbloccava una missione speciale e, completata, consegnava l'esemplare al gioco principale di quarta generazione. Le due specie condividono in tutte le lingue l'identificativo 3208. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Ombre su Almia, e non da una fonte che lo nomini per esteso.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1467,7 +1467,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 054 Deoxys  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua inglese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1498,7 +1498,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 055 Deoxys  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua inglese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1529,7 +1529,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 056 Deoxys  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua inglese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1560,7 +1560,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 057 Deoxys  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua inglese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1591,7 +1591,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 058 Heatran  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua inglese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1622,7 +1622,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 059 Shaymin  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua inglese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1777,7 +1777,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 067 Darkrai  `Almia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Almia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Almia`, la carta è in lingua francese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Ombre su Almia.** Gruppo documentato dalla trascrizione del video `Hh4GdQsZVEY`, che elenca Darkrai e il Riolu con Sferapulsar fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta il Darkrai della carta 22 con insegna Almia e il Riolu della carta 23 con insegna Kyle, Carlo in italiano. Il gioco Ranger sbloccava una missione speciale e, completata, consegnava l'esemplare al gioco principale di quarta generazione. Le due specie condividono in tutte le lingue l'identificativo 3208. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Ombre su Almia, e non da una fonte che lo nomini per esteso.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -1808,7 +1808,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 068 Riolu  `Karel`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Karel, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Karel`, la carta è in lingua francese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Ombre su Almia.** Gruppo documentato dalla trascrizione del video `Hh4GdQsZVEY`, che elenca Darkrai e il Riolu con Sferapulsar fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta il Darkrai della carta 22 con insegna Almia e il Riolu della carta 23 con insegna Kyle, Carlo in italiano. Il gioco Ranger sbloccava una missione speciale e, completata, consegnava l'esemplare al gioco principale di quarta generazione. Le due specie condividono in tutte le lingue l'identificativo 3208. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Ombre su Almia, e non da una fonte che lo nomini per esteso.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2211,7 +2211,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 084 Deoxys  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua francese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2242,7 +2242,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 085 Deoxys  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua francese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2273,7 +2273,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 086 Deoxys  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua francese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2304,7 +2304,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 087 Deoxys  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua francese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2335,7 +2335,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 088 Heatran  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua francese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2366,7 +2366,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 089 Shaymin  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua francese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2552,7 +2552,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 098 Darkrai  `Almia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Almia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Almia`, la carta è in lingua tedesco, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Ombre su Almia.** Gruppo documentato dalla trascrizione del video `Hh4GdQsZVEY`, che elenca Darkrai e il Riolu con Sferapulsar fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta il Darkrai della carta 22 con insegna Almia e il Riolu della carta 23 con insegna Kyle, Carlo in italiano. Il gioco Ranger sbloccava una missione speciale e, completata, consegnava l'esemplare al gioco principale di quarta generazione. Le due specie condividono in tutte le lingue l'identificativo 3208. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Ombre su Almia, e non da una fonte che lo nomini per esteso.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2583,7 +2583,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 099 Riolu  `Kyle`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Kyle, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Kyle`, la carta è in lingua tedesco, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Ombre su Almia.** Gruppo documentato dalla trascrizione del video `Hh4GdQsZVEY`, che elenca Darkrai e il Riolu con Sferapulsar fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta il Darkrai della carta 22 con insegna Almia e il Riolu della carta 23 con insegna Kyle, Carlo in italiano. Il gioco Ranger sbloccava una missione speciale e, completata, consegnava l'esemplare al gioco principale di quarta generazione. Le due specie condividono in tutte le lingue l'identificativo 3208. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Ombre su Almia, e non da una fonte che lo nomini per esteso.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -2986,7 +2986,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 115 Deoxys  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua tedesco, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -3017,7 +3017,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 116 Deoxys  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua tedesco, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -3048,7 +3048,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 117 Deoxys  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua tedesco, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -3079,7 +3079,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 118 Deoxys  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua tedesco, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -3110,7 +3110,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 119 Heatran  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua tedesco, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -3141,7 +3141,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 120 Shaymin  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua tedesco, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -3296,7 +3296,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 128 Darkrai  `Almia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Almia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Almia`, la carta è in lingua italiano, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Ombre su Almia.** Gruppo documentato dalla trascrizione del video `Hh4GdQsZVEY`, che elenca Darkrai e il Riolu con Sferapulsar fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta il Darkrai della carta 22 con insegna Almia e il Riolu della carta 23 con insegna Kyle, Carlo in italiano. Il gioco Ranger sbloccava una missione speciale e, completata, consegnava l'esemplare al gioco principale di quarta generazione. Le due specie condividono in tutte le lingue l'identificativo 3208. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Ombre su Almia, e non da una fonte che lo nomini per esteso.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -3327,7 +3327,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 129 Riolu  `Carlo`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Carlo, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Carlo`, la carta è in lingua italiano, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Ombre su Almia.** Gruppo documentato dalla trascrizione del video `Hh4GdQsZVEY`, che elenca Darkrai e il Riolu con Sferapulsar fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta il Darkrai della carta 22 con insegna Almia e il Riolu della carta 23 con insegna Kyle, Carlo in italiano. Il gioco Ranger sbloccava una missione speciale e, completata, consegnava l'esemplare al gioco principale di quarta generazione. Le due specie condividono in tutte le lingue l'identificativo 3208. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Ombre su Almia, e non da una fonte che lo nomini per esteso.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -3668,7 +3668,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 143 Deoxys  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua italiano, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -3699,7 +3699,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 144 Deoxys  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua italiano, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -3730,7 +3730,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 145 Deoxys  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua italiano, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -3761,7 +3761,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 146 Deoxys  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua italiano, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -3792,7 +3792,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 147 Heatran  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua italiano, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -3823,7 +3823,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 148 Shaymin  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua italiano, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -4815,7 +4815,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 181 Darkrai  `アルミア`  (giudizio: conforme, 2026-09-07)
 
-**Insegna アルミア, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `アルミア`, la carta è in lingua giapponese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Ombre su Almia.** Gruppo documentato dalla trascrizione del video `Hh4GdQsZVEY`, che elenca Darkrai e il Riolu con Sferapulsar fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta il Darkrai della carta 22 con insegna Almia e il Riolu della carta 23 con insegna Kyle, Carlo in italiano. Il gioco Ranger sbloccava una missione speciale e, completata, consegnava l'esemplare al gioco principale di quarta generazione. Le due specie condividono in tutte le lingue l'identificativo 3208. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Ombre su Almia, e non da una fonte che lo nomini per esteso.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -4846,7 +4846,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 182 Riolu  `カイト`  (giudizio: conforme, 2026-09-07)
 
-**Insegna カイト, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `カイト`, la carta è in lingua giapponese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Ombre su Almia.** Gruppo documentato dalla trascrizione del video `Hh4GdQsZVEY`, che elenca Darkrai e il Riolu con Sferapulsar fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta il Darkrai della carta 22 con insegna Almia e il Riolu della carta 23 con insegna Kyle, Carlo in italiano. Il gioco Ranger sbloccava una missione speciale e, completata, consegnava l'esemplare al gioco principale di quarta generazione. Le due specie condividono in tutte le lingue l'identificativo 3208. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Ombre su Almia, e non da una fonte che lo nomini per esteso.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -5900,7 +5900,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 226 Deoxys  `オブリビア`  (giudizio: conforme, 2026-09-07)
 
-**Insegna オブリビア, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `オブリビア`, la carta è in lingua giapponese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -5931,7 +5931,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 227 Deoxys  `オブリビア`  (giudizio: conforme, 2026-09-07)
 
-**Insegna オブリビア, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `オブリビア`, la carta è in lingua giapponese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -5962,7 +5962,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 228 Deoxys  `オブリビア`  (giudizio: conforme, 2026-09-07)
 
-**Insegna オブリビア, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `オブリビア`, la carta è in lingua giapponese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -5993,7 +5993,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 229 Deoxys  `オブリビア`  (giudizio: conforme, 2026-09-07)
 
-**Insegna オブリビア, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `オブリビア`, la carta è in lingua giapponese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -6024,7 +6024,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 230 Heatran  `オブリビア`  (giudizio: conforme, 2026-09-07)
 
-**Insegna オブリビア, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `オブリビア`, la carta è in lingua giapponese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -6055,7 +6055,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 231 Shaymin  `オブリビア`  (giudizio: conforme, 2026-09-07)
 
-**Insegna オブリビア, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `オブリビア`, la carta è in lingua giapponese, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -7358,7 +7358,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 274 Darkrai  `Almia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Almia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Almia`, la carta è in lingua spagnolo, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Ombre su Almia.** Gruppo documentato dalla trascrizione del video `Hh4GdQsZVEY`, che elenca Darkrai e il Riolu con Sferapulsar fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta il Darkrai della carta 22 con insegna Almia e il Riolu della carta 23 con insegna Kyle, Carlo in italiano. Il gioco Ranger sbloccava una missione speciale e, completata, consegnava l'esemplare al gioco principale di quarta generazione. Le due specie condividono in tutte le lingue l'identificativo 3208. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Ombre su Almia, e non da una fonte che lo nomini per esteso.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -7389,7 +7389,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 275 Riolu  `Kiko`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Kiko, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Kiko`, la carta è in lingua spagnolo, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Ombre su Almia.** Gruppo documentato dalla trascrizione del video `Hh4GdQsZVEY`, che elenca Darkrai e il Riolu con Sferapulsar fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta il Darkrai della carta 22 con insegna Almia e il Riolu della carta 23 con insegna Kyle, Carlo in italiano. Il gioco Ranger sbloccava una missione speciale e, completata, consegnava l'esemplare al gioco principale di quarta generazione. Le due specie condividono in tutte le lingue l'identificativo 3208. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Ombre su Almia, e non da una fonte che lo nomini per esteso.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -7761,7 +7761,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 290 Deoxys  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua spagnolo, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -7792,7 +7792,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 291 Deoxys  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua spagnolo, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -7823,7 +7823,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 292 Deoxys  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua spagnolo, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -7854,7 +7854,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 293 Deoxys  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua spagnolo, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -7885,7 +7885,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 294 Heatran  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua spagnolo, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|
@@ -7916,7 +7916,7 @@ Stato: 247 voci prodotte, di cui 247 giudicate da un verificatore indipendente a
 
 ### 295 Shaymin  `Oblivia`  (giudizio: conforme, 2026-09-07)
 
-**Insegna Oblivia, Pokémon Ranger.** Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal dato e non da una fonte: l'insegna della distribuzione è `Oblivia`, la carta è in lingua spagnolo, e il luogo di incontro dice che la consegna proveniva da un gioco della serie Ranger, che sbloccava la missione e poi consegnava l'esemplare al gioco principale.
+**Pokémon Ranger, Tracce di Luce.** Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base.
 
 | Campo | Valore | Da dove viene |
 |---|---|---|

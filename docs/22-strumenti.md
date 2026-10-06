@@ -351,6 +351,19 @@ cd "E:/retrogame-mod-pok-dev/tools/pkhex-eventi-switch"
 dotnet run -c Release -- "../../recreate-pokemon-distributions-events/allenatore.json" "../../_notes/lotti/lotto-eventi-switch-completo"
 ```
 
+## pkhex-incursioni-swsh
+
+Censisce le incursioni di evento di Spada e Scudo, cioè le tane di distribuzione delle Wild Area News, che per ADR-097 contano come esemplari da distribuzione. Legge per riflessione le tabelle interne `Dist_SW` e `Dist_SH` di `Encounters8Nest` (classe `EncounterStatic8ND`), con indice dell'evento, specie, forma, abilità, livello, livello Dynamax, fattore Gigantamax, blocco o garanzia del cromatico, IV perfetti e mosse, e scrive il dump in `_notes/incursioni-swsh.json`: le righe distinte con le versioni in cui compaiono, e le chiavi di collezione, cioè specie, forma, Gigantamax e cromatico garantito, con l'indicazione se la chiave esiste anche fuori dagli eventi (tane ordinarie, statici, grotte di cristallo, avventure Dynamax, incontri selvatici, lette dalle altre tabelle di `Encounters8` e `Encounters8Nest`). Con il terzo argomento confronta la pagina Bulbapedia della Wild Area News del 2021 con la libreria e assegna a ogni evento l'indice con più specie in comune; con il quarto giudica ogni `.pk8` della cartella dei lotti e segna come coperta la chiave il cui incontro riconosciuto è una tana di distribuzione, o il cui file nasce da una tana di distribuzione anche quando la libreria lo attribuisce a una tana ordinaria; con il quinto genera un esemplare per ogni chiave che `lotto-eventi-switch-scelta` non copre, in una sottocartella per versione, con `rapporto.json`.
+
+Una riga a cromatico garantito si genera chiedendo il cromatico, perché nelle tane la lucentezza viene dal seme e la libreria non la forza: un esemplare non cromatico nato da quella riga non vi si accorda, e la libreria lo attribuisce a un'altra riga dello stesso evento o lo rifiuta. È la causa delle dieci tane che `pkhex-eventi-switch` rifiutava. Il campo che dice se una riga è riconosciuta come distribuzione dipende dal seme, che è casuale, e fra una corsa e l'altra varia di qualche unità. Prima corsa, 2026-10-06: 1286 righe distinte (1171 di Spada, 1179 di Scudo), 68 indici di evento, 359 chiavi, di cui 323 per specie, forma e Gigantamax; 298 coperte dal lotto scelto, 61 generate e 61 conformi con `pkhex-giudica` nei contesti di Spada e di Scudo; 205 delle 206 voci del 2021 sono nella libreria, e la mancante è il Cinderace Gigantamax non catturabile. Il censimento è `pokedex-home-completo/CENSIMENTO-INCURSIONI-SWSH.md`.
+
+```powershell
+cd "E:/retrogame-mod-pok-dev/tools/pkhex-incursioni-swsh"
+dotnet run -c Release -- "../../recreate-pokemon-distributions-events/allenatore.json" "../../_notes/incursioni-swsh.json" "../../_notes/fonti/corpus-residuo/recuperati-2026-10-05/wan2021.txt" "../../_notes/lotti" "../../_notes/lotti/lotto-incursioni-swsh"
+cd "E:/retrogame-mod-pok-dev/tools/pkhex-giudica"
+dotnet run -c Release -- "../../_notes/lotti/lotto-incursioni-swsh/giudizi.json" "../../_notes/lotti/lotto-incursioni-swsh/SW=SW" "../../_notes/lotti/lotto-incursioni-swsh/SH=SH"
+```
+
 ## pkhex-incontri-switch e studio-switch.py
 
 Il primo chiede alla libreria, per ogni specie e forma presente nei dieci giochi per Switch, gli incontri con versione, metodo, luogo e livello, e li giudica rigenerando l'esemplare con la specie e la forma cercate; scrive `_notes/incontri-switch.json`. Il secondo collega gli incontri alle voci di `LISTA-COMPLETA.md`, scarta quelli a tempo, attribuisce i DLC dal luogo, calcola l'ordine di acquisto a partire dai giochi posseduti e scrive `pokedex-home-completo/STUDIO-SWITCH.md`. I giochi posseduti stanno nella costante `POSSEDUTI`.

@@ -4,6 +4,14 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-10-06, quinta parte. Perché una fonte nuova salta ancora fuori
+
+Il proprietario ha fatto `chiudi` e ha chiesto perché una fonte nuova salti fuori dopo la dichiarazione che tutte erano lette. Causa: il perimetro della dichiarazione era il registro, il residuo del corpus e le consegne; i link scritti nei documenti del progetto non erano mai stati confrontati con il registro, e i link brevi di Reddit non venivano risolti. Scansione meccanica (scratchpad `scansione_link.py`): 2631 file, circa settanta link a fonti Pokémon non registrati, più falsi positivi del CSV per un difetto dell'espressione regolare. Avviati tre agenti: strumento permanente e chiusura dei link, censimento delle incursioni di Spada e Scudo (ADR-097), registri dei giudizi e controllo di anonimizzazione sugli identificativi della console.
+
+File toccati: `.claude/memory/pending.md`, `.claude/memory/progress.md`.
+
+**Didattica:** candidata una voce: una dichiarazione di completezza vale per il perimetro dello strumento che la misura, e va scritta con quel perimetro.
+
 ## 2026-10-06, quarta parte. Storia pubblicata pulita, cancellazioni fatte, i 36 nel gruppo per HOME
 
 Il proprietario ha fatto il push forzato della storia riscritta (`9dd8af6` diventa `0af3ce4`) e il riallineamento con `git reset --mixed origin/main`, e ha cancellato le cartelle D1, D10, D11, D17. L'agente ha riancorato con la mappa dei commit 139 hash in 24 file tracciati, nessuno ambiguo, e ha tolto T12-T17 senza metterli in stage, aggiornando i riferimenti in `docs/strumenti-dal-web.md`, `tools/trascrivi-video-cpu.py` e `STACK.md`. Uno dei due link brevi di T16 portava a un post mai letto, «List of Unobtainable Pokemon?»: letto, nessuna lacuna. Su scelta a) del proprietario i 36 sono in `per-home/oras-giro-2-mn-fin/main` (721): 3271 per HOME.

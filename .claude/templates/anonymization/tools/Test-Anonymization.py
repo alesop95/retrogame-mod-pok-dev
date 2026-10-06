@@ -53,6 +53,7 @@ Uso, dalla radice del progetto:
     python tools/Test-Anonymization.py --quiet     # solo il conteggio e l'esito
     python tools/Test-Anonymization.py --max 20    # limita le righe stampate per categoria
     python tools/Test-Anonymization.py --patterns <percorso>   # file di pattern altrove
+    python tools/Test-Anonymization.py --autotest  # prova le forme degli identificatori di console
 
 Codice di uscita: 0 se non ci sono riscontri nelle categorie bloccanti, 1 altrimenti. Le
 categorie non bloccanti raccolgono ciò che va guardato da un umano e che è spesso un
@@ -84,7 +85,7 @@ LIMITE_BYTE = 5 * 1024 * 1024
 
 # Categorie che fanno fallire il controllo: sono valori reali, non ambiguità.
 BLOCCANTI = {"IP REALE", "MAC REALE", "NOME PROPRIO", "SEGRETO LETTERALE",
-             "EMAIL PERSONALE", "TELEFONO", "IBAN", "PIVA/CF", "IMPORTO"}
+             "EMAIL PERSONALE", "TELEFONO", "IBAN", "PIVA/CF", "IMPORTO", "ID CONSOLE"}
 
 IPV4 = re.compile(r"\b(?:\d{1,3}\.){3}\d{1,3}(?:/\d{1,2})?\b")
 MAC = re.compile(r"\b(?:[0-9A-Fa-f]{2}[:-]){5}[0-9A-Fa-f]{2}\b")
@@ -107,6 +108,102 @@ DOMINI_DOC = ("example.com", "example.org", "example.net", "example.edu", ".exam
 
 # Segnaposto legittimi per la posta: persona-a@, referente-esempio-1@, e simili.
 MAIL_PLACEHOLDER = re.compile(r"^(persona|referente|collaboratore|consulente|tirocinante)-", re.I)
+
+# Identificatori unici di una console o di un supporto, aggiunti il 2026-10-06. Non sono dati di una
+# persona ma la identificano lo stesso, attraverso l'apparecchio che possiede, e non si possono
+# ruotare: le cartelle ID0 e ID1 della scheda SD di un 3DS derivano da `movable.sed` e dal CID della
+# scheda, il numero di serie di un volume Windows identifica il disco, e il seme `LocalFriendCodeSeed`
+# è il segreto da cui la console ricava il proprio codice amico. Il caso che li ha portati qui è una
+# nota tracciata che li riportava in chiaro, scoperta a mano e mascherata con <ID0-SD>, <ID1-SD> e
+# <SERIALE-VOLUME>. Le forme sono riconoscibili senza conoscere il progetto, quindi stanno nello script
+# e non nel file dei pattern; ciò che le rende un dato è la vicinanza della parola che le nomina,
+# entro VICINANZA_ID caratteri, perché trentadue cifre esadecimali da sole sono anche un MD5 qualunque.
+VICINANZA_ID = 200
+HEX32 = re.compile(r"(?<![0-9A-Za-z])[0-9A-Fa-f]{32}(?![0-9A-Za-z])")
+PAROLA_ID_SD = re.compile(r"\bID[01]\b")
+SERIALE_LUNGO = re.compile(r"(?<![0-9A-Za-z])[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}:[0-9A-Fa-f]{4}(?![0-9A-Za-z])")
+SERIALE_CORTO = re.compile(r"(?<![0-9A-Za-z:-])[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}(?![0-9A-Za-z:-])")
+PAROLA_SERIALE = re.compile(r"\bseri(?:e|al|ale)\b", re.I)
+# La forma corta, quella che `vol` stampa, ha la forma di un intervallo qualunque: righe di sorgente
+# citate come intervallo o indirizzi di memoria di Game Boy, che in questo progetto stanno spesso accanto a
+# «serie» o a «Serial» nel senso del cavo di collegamento. Per lei la parola deve essere quella del
+# numero di serie, non soltanto «serie». La prima corsa con la parola generica, sul layer privato, ha
+# dato 9 riscontri e tutti di questo tipo.
+PAROLA_SERIALE_CORTO = re.compile(r"numero di serie|serial number|seriale del volume|n\.\s?di serie", re.I)
+# Un intervallo di anni, come 1999-2000, ha la stessa forma e può stare accanto alla parola giusta.
+INTERVALLO_ANNI = re.compile(r"^(?:19|20)\d\d-(?:19|20)\d\d$")
+SEME_CONSOLE = re.compile(r"(?:movable\.sed|LocalFriendCodeSeed(?:_[AB])?)[^\n]{0,60}?"
+                          r"(?<![0-9A-Za-z])([0-9A-Fa-f]{16,})(?![0-9A-Za-z])")
+
+
+def cerca_id_console(contenuto):
+    """Gli identificatori unici di console e supporto in un testo, come (posizione, valore, forma)."""
+    trovati = []
+
+    def vicino(regex, inizio, fine):
+        return regex.search(contenuto, max(0, inizio - VICINANZA_ID), fine + VICINANZA_ID) is not None
+
+    for m in HEX32.finditer(contenuto):
+        if vicino(PAROLA_ID_SD, m.start(), m.end()):
+            trovati.append((m.start(), m.group(0), "cartella ID0 o ID1 della SD"))
+    for m in SERIALE_LUNGO.finditer(contenuto):
+        if vicino(PAROLA_SERIALE, m.start(), m.end()):
+            trovati.append((m.start(), m.group(0), "numero di serie di volume"))
+    for m in SERIALE_CORTO.finditer(contenuto):
+        if INTERVALLO_ANNI.match(m.group(0)):
+            continue
+        if vicino(PAROLA_SERIALE_CORTO, m.start(), m.end()):
+            trovati.append((m.start(), m.group(0), "numero di serie di volume"))
+    for m in SEME_CONSOLE.finditer(contenuto):
+        trovati.append((m.start(1), m.group(1), "seme o chiave della console"))
+    return sorted(trovati)
+
+
+def autotest():
+    """Prova che ogni forma di identificatore di console sia presa, e che i falsi amici non lo siano.
+
+    I valori di prova si compongono a tempo di esecuzione e non stanno scritti per intero in questo
+    file, che è tracciato: altrimenti lo strumento troverebbe sé stesso a ogni corsa sul repository.
+    """
+    h16 = "0123456789abcdef"
+    h32 = h16 * 2
+    id0, id1 = "ID" + "0", "ID" + "1"
+    serie_lungo = "1A2B3C4D" + "-" + "5E6F" + ":" + "7A8B"
+    serie_corto = "C0DE" + "-" + "BEEF"
+    positivi = [
+        ("cartella ID0 sulla stessa riga", "%s: Nintendo 3DS/%s/" % (id0, h32.upper()), h32.upper()),
+        ("cartella ID1 nominata sulla riga prima",
+         "La cartella %s della scheda è questa:\n\n    sdmc:/x/%s/" % (id1, h32), h32),
+        ("seriale di volume in forma lunga", "Numero di serie del volume: %s" % serie_lungo, serie_lungo),
+        ("seriale di volume in forma corta", "Volume Serial Number is %s" % serie_corto, serie_corto),
+        ("contenuto di movable.sed", "movable.sed: " + h32, h32),
+        ("seme LocalFriendCodeSeed", "LocalFriendCodeSeed_B = " + h16, h16),
+    ]
+    negativi = [
+        ("impronta SHA-256 accanto a ID0", "%s sha256 %s" % (id0, h32 * 2)),
+        ("hash di commit accanto a ID1", "%s commit %s" % (id1, (h16 * 3)[:40])),
+        ("trentadue cifre lontane dalla parola", id0 + " " + "x" * (VICINANZA_ID + 10) + " " + h32),
+        ("nome di file di PKHeX", "%s: 0151 - Mew - 5E7F8A9B1C2D.pk3 e 025 - Pikachu - 3A1B2C4D.pk7" % id0),
+        ("intervallo di anni accanto a serie", "la serie uscita nel 1999-2000"),
+        ("segnaposto già mascherati", "Nintendo 3DS/<ID0-SD>/<ID1-SD>/ numero di serie <SERIALE-VOLUME>"),
+        ("data accanto a serie", "serie del 2026-10-06"),
+        ("righe di sorgente accanto a serie", "la serie di vittorie, righe 1836" + "-" + "1839"),
+        ("indirizzi di memoria accanto a Serial", "Serial\n FFA9" + "-" + "FFAD - Serial status data"),
+    ]
+    falliti = 0
+    for nome, testo, atteso in positivi:
+        valori = [v for _p, v, _f in cerca_id_console(testo)]
+        esito = atteso in valori
+        falliti += not esito
+        print("  %s  preso: %s" % ("ok     " if esito else "FALLITO", nome))
+    for nome, testo in negativi:
+        valori = [v for _p, v, _f in cerca_id_console(testo)]
+        esito = not valori
+        falliti += not esito
+        print("  %s  ignorato: %s%s" % ("ok     " if esito else "FALLITO", nome,
+                                        "" if esito else " (preso %s)" % valori))
+    print("autotest: %d controlli falliti su %d" % (falliti, len(positivi) + len(negativi)))
+    return 1 if falliti else 0
 
 
 def trova_radice(partenza=None):
@@ -225,7 +322,14 @@ def analizza(pat, files):
         except (IOError, OSError):
             continue
 
-        for ln, riga in enumerate(contenuto.split("\n"), 1):
+        # Gli identificatori di console si cercano sul testo intero e non per riga, perché la parola
+        # che li nomina può stare sulla riga prima, come in un percorso preceduto dalla sua spiegazione.
+        righe = contenuto.split("\n")
+        for posizione, valore, forma in cerca_id_console(contenuto):
+            ln = contenuto.count("\n", 0, posizione) + 1
+            aggiungi("ID CONSOLE", f, ln, righe[ln - 1], "%s: %s" % (forma, valore[:40]), origine)
+
+        for ln, riga in enumerate(righe, 1):
             for m in IPV4.finditer(riga):
                 ip = m.group(0)
                 base = ip.split("/")[0]
@@ -285,7 +389,11 @@ def main():
                     help="radice del repository (default: risalita dalla posizione dello script)")
     ap.add_argument("--patterns", default=PATTERNS_FILE,
                     help="percorso del file di pattern (default: %s)" % PATTERNS_FILE)
+    ap.add_argument("--autotest", action="store_true",
+                    help="prova le forme degli identificatori di console su testi costruiti, ed esce")
     args = ap.parse_args()
+    if args.autotest:
+        return autotest()
 
     radice = args.radice or trova_radice()
     if not radice:
@@ -303,7 +411,7 @@ def main():
     trovati, saltati = analizza(pat, files)
     conteggio = collections.Counter(origine for _, origine in files)
 
-    ordine = ["IP REALE", "MAC REALE", "SEGRETO LETTERALE", "NOME PROPRIO", "EMAIL PERSONALE",
+    ordine = ["IP REALE", "MAC REALE", "ID CONSOLE", "SEGRETO LETTERALE", "NOME PROPRIO", "EMAIL PERSONALE",
               "TELEFONO", "IBAN", "PIVA/CF", "IMPORTO",
               "IP privato fuori schema", "IP pubblico da valutare"]
 

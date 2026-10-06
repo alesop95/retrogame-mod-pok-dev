@@ -469,6 +469,13 @@ LOTTI_PER_CODICE = ["lotto-eventi-gen4", "lotto-eventi-gen5", "lotto-gb", "lotto
 # Colosseum sta nel complemento del Rubino, con allenatore giapponese; il Farfetch'd e il Gligar di Stadium 2 giapponese e
 # il Mew delle manifestazioni giapponesi sono di tools/pkhex-doni-gb. Il collegamento si verifica come per gli altri file:
 # giudizio del registro, impronta e specie.
+# Verificato il 2026-10-06 sulla lista rigenerata: gli altri lotti prodotti dopo il 2026-09-30 non hanno voci da
+# collegare qui, e la lista resta identica. Il Greninja con Morfosi di `lotto-greninja-morfosi` ha le sue nove voci
+# di carta 2046 già prodotte da `lotto-doni-gen67-secondo-tempo`, che le copre per codice. Gli altri ventitré doni di
+# `lotto-doni-gb`, cioè Stadium giapponese e Uovo Strano, e il Mew GF di `lotto-mew-vc` non sono voci delle tabelle
+# degli eventi; le voci di prima e seconda generazione sono tutte prodotte. Gli scambi di `lotto-scambi-gen67`, le
+# Ombre e-Reader di `lotto-ombre-ereader-jp` e i doni statici di Ohana di `lotto-statici-gen7` non hanno voce
+# nell'asse degli eventi: stanno nel registro unico dei giudizi e nei censimenti, non in questa lista.
 FILE_PER_CODICE = {
     "EVT-T-0000": ("lotto-incontri-gen3", "latias-r.pk3"),
     "EVT-T-0001": ("lotto-incontri-gen3", "latios-s.pk3"),

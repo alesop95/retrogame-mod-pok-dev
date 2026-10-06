@@ -577,7 +577,15 @@ def self_test():
           fase_del_giorno({"incubazioni": 0}) == 0)
     prova("un uovo schiuso ha una fase del giorno vera",
           fase_del_giorno({"incubazioni": 10}) in (1, 2, 3))
-    print("self-test: %d controlli falliti su %d" % (len(falliti), 22))
+    # I doni della libreria: la scheda dichiara il file, l'impronta e l'esito del registro.
+    righe = righe_dono_della_libreria("GB-uovo-strano-172-Pichu-cromatico-12.pk2",
+                                      {"specie": 172, "sha256": "ab" * 32, "esito": "conforme",
+                                       "contesto": "C English", "descrizione": {"mosse": ["Fascino"]}})
+    prova("la scheda di un dono della libreria porta impronta ed esito",
+          any(("ab" * 32) in x for x in righe) and any("conforme, contesto C English" in x for x in righe))
+    prova("il cromatico si legge dal nome del file",
+          any(x.startswith("| cromatico | sì") for x in righe))
+    print("self-test: %d controlli falliti su %d" % (len(falliti), 24))
     return 1 if falliti else 0
 
 
@@ -770,6 +778,68 @@ def scrivi_lotto(prodotti, destinazione, nomi, cm, gb):
 
 REGISTRO_GIUDIZI = os.path.join("recreate-pokemon-distributions-events", "giudizi-esterni.json")
 
+# Il registro unico dei giudizi della libreria, scritto da tools/pkhex-giudica, e il lotto dei doni di
+# Game Boy che tools/pkhex-doni-gb genera dalla libreria. Aggiunti il 2026-10-06: quel lotto copre le tre
+# voci delle tabelle che questo programma non sa scrivere, perché l'allenatore è in caratteri giapponesi
+# che la tabella dei caratteri di pokebridge non porta, e ventitré doni che le tabelle degli eventi non
+# elencano affatto. Questo programma non legge quei file: ne riporta impronta, campi ed esito dal
+# registro, che è dove il giudice li ha scritti.
+REGISTRO_LIBRERIA = os.path.join("recreate-pokemon-distributions-events", "giudizi-pkhex-core.json")
+LOTTO_DONI_LIBRERIA = "lotto-doni-gb"
+DONI_DELLA_LIBRERIA_PER_CODICE = {
+    "EVT-1-0010": "GB-tour-jp-151-Mew.pk1",
+    "EVT-2-0000": "GB-stadium2-jp-083-Farfetch’d-04.pk2",
+    "EVT-2-0001": "GB-stadium2-jp-207-Gligar-10.pk2",
+}
+# I gruppi dei doni fuori dalle tabelle, riconosciuti dal prefisso del nome che pkhex-doni-gb dà al file.
+GRUPPI_DONI_LIBRERIA = [
+    ("GB-stadium-jp-", "Esemplari premio di Pokemon Stadium, versione giapponese",
+     "I doni di Pokémon Stadium nella variante giapponese, con allenatore スタジアム e identificativo "
+     "1999, che la libreria dichiara come `EncounterGift1` con tipo di allenatore `Stadium` "
+     "(`EncounterGift1.cs` righe 55-59). Le tabelle degli eventi lette da questo programma portano "
+     "le stesse nove specie nella sola variante internazionale, che sta nel primo gruppo di questo "
+     "documento: la variante giapponese è un esemplare distinto e non una voce in più del catalogo."),
+    ("GB-uovo-strano-", "Uovo Strano di Cristallo",
+     "Le sette specie che l'Uovo Strano di Cristallo può contenere, ciascuna nella forma normale e "
+     "in quella cromatica. La libreria tiene l'elenco al proprio interno, e lo strumento lo raggiunge "
+     "chiedendo gli incontri statici di Cristallo che sono uova e portano Stordipugno. L'allenatore è "
+     "quello del progetto, perché l'uovo si riceve nel gioco di chi lo schiude."),
+]
+
+
+def registro_della_libreria():
+    """Le voci del lotto dei doni della libreria nel registro unico, per nome del file."""
+    percorso = os.path.join(RADICE, REGISTRO_LIBRERIA)
+    if not os.path.exists(percorso):
+        return {}
+    voci = json.loads(io.open(percorso, encoding="utf-8").read()).get("voci", {})
+    prefisso = LOTTO_DONI_LIBRERIA + "/"
+    return {k[len(prefisso):]: v for k, v in voci.items() if k.startswith(prefisso)}
+
+
+def righe_dono_della_libreria(nome_file, g):
+    """Le righe di tabella di un dono del lotto della libreria, dai campi che il giudice ha scritto."""
+    d = g.get("descrizione", {})
+    r = []
+    r.append("| file | `%s` | `_notes/lotti/%s/`, scritto da `tools/pkhex-doni-gb` |"
+             % (nome_file, LOTTO_DONI_LIBRERIA))
+    r.append("| numero del Dex | %d | registro dei giudizi della libreria |" % g.get("specie", 0))
+    r.append("| livello | %s | registro dei giudizi della libreria |" % d.get("livello", "?"))
+    r.append("| mosse | %s | registro dei giudizi della libreria |"
+             % (", ".join(d.get("mosse", [])) or "nessuna"))
+    r.append("| cromatico | %s | nome del file, che lo dichiara |"
+             % ("sì" if "cromatico" in nome_file else "no"))
+    r.append("| allenatore | %s, identificativo %s | registro dei giudizi della libreria |"
+             % (d.get("allenatore", "?"), d.get("id_allenatore", "?")))
+    r.append("| lingua | %s | registro dei giudizi della libreria |" % d.get("lingua", "?"))
+    r.append("| incontro riconosciuto | %s | classe d'incontro che la libreria abbina all'esemplare |"
+             % d.get("incontro", "?"))
+    r.append("| impronta del file prodotto | `%s` | SHA-256 del file giudicato, dal registro dei "
+             "giudizi della libreria |" % g.get("sha256", "?"))
+    r.append("| giudizio della libreria | %s, contesto %s | `tools/pkhex-giudica`, con un "
+             "salvataggio vuoto del contesto indicato |" % (g.get("esito", "?"), g.get("contesto", "?")))
+    return r
+
 
 def giudizi_del_lotto():
     """I giudizi esterni che coprono il lotto di prima e seconda generazione.
@@ -850,6 +920,7 @@ def scrivi_schede(percorso, prodotti, nomi, mosse, prov):
     # L'ordine dei gruppi segue la generazione e poi il tipo di donatore, che è l'ordine in cui
     # le tabelle della fonte li presentano.
     giudizio_per_voce = giudizi_del_lotto()
+    doni_libreria = registro_della_libreria()
     ordinati = {}
     for x in prodotti:
         v = x["voce"]
@@ -993,7 +1064,18 @@ def scrivi_schede(percorso, prodotti, nomi, mosse, prov):
                      "e le fonti stanno nella sezione di gruppo di questo documento |"
                      % titolo)
             impronta = x.get("impronta")
-            if impronta:
+            file_libreria = DONI_DELLA_LIBRERIA_PER_CODICE.get(codice(v))
+            g_libreria = doni_libreria.get(file_libreria) if file_libreria else None
+            if not impronta and g_libreria:
+                r.append("| impronta del file prodotto | `%s` | questo programma non scrive la voce, "
+                         "perché l'allenatore è in caratteri che la sua tabella non porta: il file è "
+                         "`_notes/lotti/%s/%s`, scritto da `tools/pkhex-doni-gb` con la libreria, e "
+                         "l'impronta viene dal registro dei giudizi della libreria |"
+                         % (g_libreria.get("sha256", "?"), LOTTO_DONI_LIBRERIA, file_libreria))
+                r.append("| giudizio della libreria | %s, contesto %s | `tools/pkhex-giudica`, con "
+                         "un salvataggio vuoto del contesto indicato |"
+                         % (g_libreria.get("esito", "?"), g_libreria.get("contesto", "?")))
+            elif impronta:
                 r.append("| impronta del file prodotto | `%s` | SHA-256 dei byte scritti in "
                          "`_notes/lotti/lotto-gb/`, calcolata alla generazione: rigenerare il lotto "
                          "dalle medesime tabelle deve riprodurla identica, e una differenza "
@@ -1013,6 +1095,34 @@ def scrivi_schede(percorso, prodotti, nomi, mosse, prov):
                          "esterna registrata copre questa voce, quindi la sua conformità non è "
                          "stabilita: le prove interne dicono che i campi sono scritti dove la "
                          "struttura li vuole, non che i valori siano quelli giusti |")
+            r.append("")
+
+    # I doni del lotto della libreria che nessuna voce delle tabelle elenca, dal 2026-10-06.
+    abbinati = set(DONI_DELLA_LIBRERIA_PER_CODICE.values())
+    for prefisso, titolo, racconto in GRUPPI_DONI_LIBRERIA:
+        nomi_file = sorted(n for n in doni_libreria if n.startswith(prefisso) and n not in abbinati)
+        if not nomi_file:
+            continue
+        r.append("## %s" % titolo)
+        r.append("")
+        r.append("Doni prodotti con la libreria da `tools/pkhex-doni-gb` e non elencati dalle tabelle "
+                 "degli eventi che questo programma legge, quindi senza un codice della lista di "
+                 "spunta. Il gruppo porta %d voci e %d specie distinte. I campi di ciascuna scheda "
+                 "vengono dal registro unico dei giudizi della libreria, "
+                 "`recreate-pokemon-distributions-events/giudizi-pkhex-core.json`, e non da un "
+                 "ricalcolo di questo programma."
+                 % (len(nomi_file), len({doni_libreria[n].get("specie") for n in nomi_file})))
+        r.append("")
+        r.append(racconto)
+        r.append("")
+        for nome_file in nomi_file:
+            g = doni_libreria[nome_file]
+            r.append("### %s %s" % (os.path.splitext(nome_file)[0],
+                                    g.get("descrizione", {}).get("specie_it", "?")))
+            r.append("")
+            r.append("| Campo | Valore | Provenienza |")
+            r.append("|---|---|---|")
+            r.extend(righe_dono_della_libreria(nome_file, g))
             r.append("")
 
     io.open(percorso, "w", encoding="utf-8", newline="").write("\n".join(r) + "\n")

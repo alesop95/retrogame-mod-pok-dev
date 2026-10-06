@@ -6,7 +6,7 @@
     "versione": "26.8.26.0"
   },
   "conteggi": {
-    "conformi": 3578,
+    "conformi": 3619,
     "contestati": 0,
     "illeggibili": 0
   },
@@ -98870,6 +98870,1145 @@
           "Botta"
         ],
         "incontro": "Event Gift"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-6-AO-01-296.pk6": {
+      "sha256": "f4fe8a5156468656a7fd4a6f2235f67362c01161770eb9ef56d461d156b3f315",
+      "specie": 296,
+      "nome": "Makuhita",
+      "forma": 0,
+      "formato": "PK6",
+      "contesto": "AS Italian",
+      "descrizione": {
+        "specie_it": "Makuhita",
+        "livello": 9,
+        "soprannome": "Maku",
+        "allenatore": "Marchetto",
+        "id_allenatore": 30724,
+        "lingua": "Italian",
+        "gioco_di_origine": "OR",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Azione",
+          "Focalenergia",
+          "Turbosabbia",
+          "Sberletese"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-6-AO-02-300.pk6": {
+      "sha256": "7f4724772bf603eaa83e3297b4a811b944f5346c3ae6851babf1f45425d4f316",
+      "specie": 300,
+      "nome": "Skitty",
+      "forma": 0,
+      "formato": "PK6",
+      "contesto": "AS Italian",
+      "descrizione": {
+        "specie_it": "Skitty",
+        "livello": 30,
+        "soprannome": "Pucci",
+        "allenatore": "Ele",
+        "id_allenatore": 3239,
+        "lingua": "Italian",
+        "gioco_di_origine": "OR",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Copione",
+          "Finta",
+          "Fascino",
+          "Svegliopacca"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-6-AO-03-222.pk6": {
+      "sha256": "e19294062c9258c6b6fd7e20c87f6be513871441e8959eea2c7df3e6438bf161",
+      "specie": 222,
+      "nome": "Corsola",
+      "forma": 0,
+      "formato": "PK6",
+      "contesto": "AS Italian",
+      "descrizione": {
+        "specie_it": "Corsola",
+        "livello": 50,
+        "soprannome": "Corsolina",
+        "allenatore": "Simo",
+        "id_allenatore": 325,
+        "lingua": "Italian",
+        "gioco_di_origine": "OR",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Gemmoforza",
+          "Specchiovelo",
+          "Geoforza",
+          "Flagello"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-6-XY-01-129.pk6": {
+      "sha256": "7e8b99725a7460935c2ba35b7fc609a161f07c44136869a8d636a1a6c50d1657",
+      "specie": 129,
+      "nome": "Magikarp",
+      "forma": 0,
+      "formato": "PK6",
+      "contesto": "AS Italian",
+      "descrizione": {
+        "specie_it": "Magikarp",
+        "livello": 5,
+        "soprannome": "Karkarp",
+        "allenatore": "Mr. Karp",
+        "id_allenatore": 44285,
+        "lingua": "Italian",
+        "gioco_di_origine": "X",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Splash"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-6-XY-02-133.pk6": {
+      "sha256": "e4af57be3fe7671820022f0da6533446d7fddb6d1266714dcf11125df5d01926",
+      "specie": 133,
+      "nome": "Eevee",
+      "forma": 0,
+      "formato": "PK6",
+      "contesto": "AS Italian",
+      "descrizione": {
+        "specie_it": "Eevee",
+        "livello": 5,
+        "soprannome": "Ottolnarg",
+        "allenatore": "Helen",
+        "id_allenatore": 29294,
+        "lingua": "Italian",
+        "gioco_di_origine": "X",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Ruggito",
+          "Azione",
+          "Colpocoda",
+          "Turbosabbia"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-6-XY-03-083.pk6": {
+      "sha256": "0d0b9ffb6447d2f35e2f1c63b91da7a92b38aba3188ec45edaf2ee1a5e4b4692",
+      "specie": 83,
+      "nome": "Farfetch\u2019d",
+      "forma": 0,
+      "formato": "PK6",
+      "contesto": "AS Italian",
+      "descrizione": {
+        "specie_it": "Farfetch\u2019d",
+        "livello": 10,
+        "soprannome": "Rosto",
+        "allenatore": "Reinhold",
+        "id_allenatore": 185,
+        "lingua": "Italian",
+        "gioco_di_origine": "X",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Fulmisguardo",
+          "Tagliofuria",
+          "Furia",
+          "Aeroassalto"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-6-XY-04-208.pk6": {
+      "sha256": "afafce0c2670478df6b69b506bb0dc14ab5c2bf2af35f7a1b3d102757353afb6",
+      "specie": 208,
+      "nome": "Steelix",
+      "forma": 0,
+      "formato": "PK6",
+      "contesto": "AS Italian",
+      "descrizione": {
+        "specie_it": "Steelix",
+        "livello": 20,
+        "soprannome": "Rock",
+        "allenatore": "Accio",
+        "id_allenatore": 19250,
+        "lingua": "Italian",
+        "gioco_di_origine": "X",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Ira",
+          "Levitoroccia",
+          "Sganciapesi",
+          "Vortexpalla"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-6-XY-05-625.pk6": {
+      "sha256": "4b4aa7fcb7a93f5d470f07fb9eb81cc18e5a32c94bbd04b4ad8968be93a15ec0",
+      "specie": 625,
+      "nome": "Bisharp",
+      "forma": 0,
+      "formato": "PK6",
+      "contesto": "AS Italian",
+      "descrizione": {
+        "specie_it": "Bisharp",
+        "livello": 50,
+        "soprannome": "Ziffzaf",
+        "allenatore": "Punkie",
+        "id_allenatore": 3447,
+        "lingua": "Italian",
+        "gioco_di_origine": "X",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Ferrostrido",
+          "Divieto",
+          "Ferroscudo",
+          "Nottesferza"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-6-XY-06-656.pk6": {
+      "sha256": "f4716b73d64035500688c75a686ae2a3df112c4b2747340d1344e95d8cc8973e",
+      "specie": 656,
+      "nome": "Froakie",
+      "forma": 0,
+      "formato": "PK6",
+      "contesto": "AS Italian",
+      "descrizione": {
+        "specie_it": "Froakie",
+        "livello": 5,
+        "soprannome": "Froaxy",
+        "allenatore": "Shana",
+        "id_allenatore": 37,
+        "lingua": "Italian",
+        "gioco_di_origine": "X",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Botta",
+          "Ruggito",
+          "Bolla"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-6-XY-07-650.pk6": {
+      "sha256": "8ea6a15079d617d0f01747dbf40a7715449fe11b0f5b44e11dceaca54469e897",
+      "specie": 650,
+      "nome": "Chespin",
+      "forma": 0,
+      "formato": "PK6",
+      "contesto": "AS Italian",
+      "descrizione": {
+        "specie_it": "Chespin",
+        "livello": 5,
+        "soprannome": "Chespy",
+        "allenatore": "Shana",
+        "id_allenatore": 37,
+        "lingua": "Italian",
+        "gioco_di_origine": "X",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Azione",
+          "Ruggito",
+          "Frustata"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-6-XY-08-653.pk6": {
+      "sha256": "439ae34594b7456566207e6bcfaf497072eb82ca155f8c093b1f8adf7f170b26",
+      "specie": 653,
+      "nome": "Fennekin",
+      "forma": 0,
+      "formato": "PK6",
+      "contesto": "AS Italian",
+      "descrizione": {
+        "specie_it": "Fennekin",
+        "livello": 5,
+        "soprannome": "Fennekino",
+        "allenatore": "Shana",
+        "id_allenatore": 37,
+        "lingua": "Italian",
+        "gioco_di_origine": "X",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Graffio",
+          "Colpocoda",
+          "Braciere"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-6-XY-09-280.pk6": {
+      "sha256": "6b5688aa9384d3ecf3ec9730f6311649bad3dcec5491bd6e05f55d60e9034541",
+      "specie": 280,
+      "nome": "Ralts",
+      "forma": 0,
+      "formato": "PK6",
+      "contesto": "AS Italian",
+      "descrizione": {
+        "specie_it": "Ralts",
+        "livello": 5,
+        "soprannome": null,
+        "allenatore": "Diantha",
+        "id_allenatore": 37110,
+        "lingua": "Italian",
+        "gioco_di_origine": "X",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Ruggito"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-7-SM-01-066.pk7": {
+      "sha256": "c5779b495e2e5a47db999d23ab4967194ce60f94d2d81732639b6f855b9589cf",
+      "specie": 66,
+      "nome": "Machop",
+      "forma": 0,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Machop",
+        "livello": 9,
+        "soprannome": "Chops",
+        "allenatore": "Hilahila",
+        "id_allenatore": 410,
+        "lingua": "Italian",
+        "gioco_di_origine": "SN",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Fulmisguardo",
+          "Focalenergia",
+          "Colpokarate",
+          "Preveggenza"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-7-SM-02-761.pk7": {
+      "sha256": "5a1c8387c429eaa72ddb85707cb514f7fe400200c17ccf4a3d9dbb8ddb6efd91",
+      "specie": 761,
+      "nome": "Bounsweet",
+      "forma": 0,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Bounsweet",
+        "livello": 16,
+        "soprannome": "Par",
+        "allenatore": "Kihe",
+        "id_allenatore": 610507,
+        "lingua": "Italian",
+        "gioco_di_origine": "SN",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Splash",
+          "Simpatia",
+          "Rapigiro",
+          "Foglielama"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-7-SM-03-061.pk7": {
+      "sha256": "cae50850d7168a3762fd94184a46929b75cd51c31d04f21ad5d20dc3caaea513",
+      "specie": 61,
+      "nome": "Poliwhirl",
+      "forma": 0,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Poliwhirl",
+        "livello": 22,
+        "soprannome": "Poli-Poli",
+        "allenatore": "Laule\u2019a",
+        "id_allenatore": 590916,
+        "lingua": "Italian",
+        "gioco_di_origine": "SN",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Bolla",
+          "Doppiasberla",
+          "Pioggiadanza",
+          "Corposcontro"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-7-SM-04-440.pk7": {
+      "sha256": "0fa2e81bb73d1a1796770c56744b91b29be6aba2b58b1fada414b0a982608c8b",
+      "specie": 440,
+      "nome": "Happiny",
+      "forma": 0,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Happiny",
+        "livello": 27,
+        "soprannome": "Nippy",
+        "allenatore": "Moemoe",
+        "id_allenatore": 10913,
+        "lingua": "Italian",
+        "gioco_di_origine": "SN",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Fascino",
+          "Copione",
+          "Rinfrescata",
+          "Dolcebacio"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-7-SM-05-076.pk7": {
+      "sha256": "aca030995ce496d3403be50dedc56becb04828060a7a6971c0c55dd4f224e8fd",
+      "specie": 76,
+      "nome": "Golem",
+      "forma": 1,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Golem",
+        "livello": 32,
+        "soprannome": "Gravus",
+        "allenatore": "Hepa",
+        "id_allenatore": 610602,
+        "lingua": "Italian",
+        "gioco_di_origine": "SN",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Abbattimento",
+          "Tuonopugno",
+          "Autodistruzione",
+          "Levitoroccia"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-7-SM-06-762.pk7": {
+      "sha256": "c998d987ec35619117951ca349d36d27fd3f93b1fbf9c18c880eabdca3d3d998",
+      "specie": 762,
+      "nome": "Steenee",
+      "forma": 0,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Steenee",
+        "livello": 43,
+        "soprannome": "Neenee",
+        "allenatore": "Kumu",
+        "id_allenatore": 610503,
+        "lingua": "Italian",
+        "gioco_di_origine": "SN",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Pestone",
+          "Nebularoma",
+          "Incanto",
+          "Aromaterapia"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-7-SM-07-663.pk7": {
+      "sha256": "38e4d685431f87eb4ea1796439a34c07088f981c9f6d2092de26d6b5e84f3d5d",
+      "specie": 663,
+      "nome": "Talonflame",
+      "forma": 0,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Talonflame",
+        "livello": 59,
+        "soprannome": "Flame",
+        "allenatore": "Huhu",
+        "id_allenatore": 581022,
+        "lingua": "Italian",
+        "gioco_di_origine": "SN",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Nitrocarica",
+          "Acrobazia",
+          "Precedenza",
+          "Ventoincoda"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-7-USUM-01-701.pk7": {
+      "sha256": "cd8eb515047dbb5bc6b1e0e60ad277e12b69b59645e0f565f11abfb454963c25",
+      "specie": 701,
+      "nome": "Hawlucha",
+      "forma": 0,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Hawlucha",
+        "livello": 8,
+        "soprannome": "Luchano",
+        "allenatore": "Hilahila",
+        "id_allenatore": 410,
+        "lingua": "Italian",
+        "gioco_di_origine": "US",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Azione",
+          "Unghiaguzze",
+          "Colpokarate",
+          "Attacco d\u2019Ala"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-7-USUM-02-714.pk7": {
+      "sha256": "9263f0220b80a801d3decc81802652c15f287529d3b5bb75887f19f7312239c3",
+      "specie": 714,
+      "nome": "Noibat",
+      "forma": 0,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Noibat",
+        "livello": 19,
+        "soprannome": "Tabion",
+        "allenatore": "Kihe",
+        "id_allenatore": 610507,
+        "lingua": "Italian",
+        "gioco_di_origine": "US",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Raffica",
+          "Morso",
+          "Attacco d\u2019Ala",
+          "Agilit\u00E0"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-7-USUM-03-339.pk7": {
+      "sha256": "7f82f0d3222cd2531088efd11341bda400275cc7477f5fa7c3bfff6a2dcc12d2",
+      "specie": 339,
+      "nome": "Barboach",
+      "forma": 0,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Barboach",
+        "livello": 21,
+        "soprannome": "Barbuccia",
+        "allenatore": "Pinuccio",
+        "id_allenatore": 590916,
+        "lingua": "Italian",
+        "gioco_di_origine": "US",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Pantanobomba",
+          "Amnesia",
+          "Idropulsar",
+          "Magnitudo"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-7-USUM-04-024.pk7": {
+      "sha256": "62e46fa519e75e8eaa8848879fa03d827d52d21ecf99bf13d80a1bf36019a076",
+      "specie": 24,
+      "nome": "Arbok",
+      "forma": 0,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Arbok",
+        "livello": 22,
+        "soprannome": "Arby",
+        "allenatore": "Lalla",
+        "id_allenatore": 10913,
+        "lingua": "Italian",
+        "gioco_di_origine": "US",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Morso",
+          "Sguardo Feroce",
+          "Stridio",
+          "Acido"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-7-USUM-05-709.pk7": {
+      "sha256": "0e8f2957472c4b77946ca79d51e2a2fabf33027118c7a675135fb2b4b1f5385c",
+      "specie": 709,
+      "nome": "Trevenant",
+      "forma": 0,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Trevenant",
+        "livello": 33,
+        "soprannome": "Tumpin",
+        "allenatore": "Hepa",
+        "id_allenatore": 610602,
+        "lingua": "Italian",
+        "gioco_di_origine": "US",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Finta",
+          "Parassiseme",
+          "Maledizione",
+          "Fuocofatuo"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-7-USUM-06-422.pk7": {
+      "sha256": "1ff49c7e448c55b4b5f9be3b9860d86c64366a09931c8f5ecbbb2aceaf2632ab",
+      "specie": 422,
+      "nome": "Shellos",
+      "forma": 0,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Shellos",
+        "livello": 44,
+        "soprannome": "Shelly",
+        "allenatore": "Kumu",
+        "id_allenatore": 610503,
+        "lingua": "Italian",
+        "gioco_di_origine": "US",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Introforza",
+          "Pioggiadanza",
+          "Corposcontro",
+          "Fanghiglia"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-scambi-gen67/SCB-7-USUM-07-128.pk7": {
+      "sha256": "a35a6870667117365c344c7d3b3bcb51f6adf7692c98b45283f9ffd167e6cecf",
+      "specie": 128,
+      "nome": "Tauros",
+      "forma": 0,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Tauros",
+        "livello": 59,
+        "soprannome": "Prof",
+        "allenatore": "Huhu",
+        "id_allenatore": 581022,
+        "lingua": "Italian",
+        "gioco_di_origine": "US",
+        "luogo": "Scambio in link (NPC)",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Riduttore",
+          "Cozzata Zen",
+          "Bullo",
+          "Colpo"
+        ],
+        "incontro": "In-game Trade"
+      },
+      "esito": "conforme"
+    },
+    "lotto-ombre-ereader-jp/OMB-EREADER-JP-175.pk3": {
+      "sha256": "f422c501fa0266e98dcdd7783ab198fee0c247be6d4ba80a3648cc2a1dde454e",
+      "specie": 175,
+      "nome": "Togepi",
+      "forma": 0,
+      "formato": "PK3",
+      "contesto": "E Japanese",
+      "descrizione": {
+        "specie_it": "Togepi",
+        "livello": 20,
+        "soprannome": null,
+        "allenatore": "\u30A2\u30EC\u30B7\u30AA",
+        "id_allenatore": 57517,
+        "lingua": "Japanese",
+        "gioco_di_origine": "CXD",
+        "luogo": "Diamantopoli (C) / Villaggio Sofo (XD) [128]",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Metronomo",
+          "Fascino",
+          "Dolcebacio",
+          "Sbadiglio"
+        ],
+        "incontro": "COLO Shadow Encounter 0"
+      },
+      "esito": "conforme"
+    },
+    "lotto-ombre-ereader-jp/OMB-EREADER-JP-179.pk3": {
+      "sha256": "0f60e66f716bf4aadebb3b519d64cbf3bc15dcd0cf795e5dce1bed546828bfc2",
+      "specie": 179,
+      "nome": "Mareep",
+      "forma": 0,
+      "formato": "PK3",
+      "contesto": "E Japanese",
+      "descrizione": {
+        "specie_it": "Mareep",
+        "livello": 37,
+        "soprannome": null,
+        "allenatore": "\u30A2\u30EC\u30B7\u30AA",
+        "id_allenatore": 57517,
+        "lingua": "Japanese",
+        "gioco_di_origine": "CXD",
+        "luogo": "Diamantopoli (C) / Villaggio Sofo (XD) [128]",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Tuono",
+          "Tuonoshock",
+          "Tuononda",
+          "Cotonspora"
+        ],
+        "incontro": "COLO Shadow Encounter 0"
+      },
+      "esito": "conforme"
+    },
+    "lotto-ombre-ereader-jp/OMB-EREADER-JP-212.pk3": {
+      "sha256": "7482dd3e19043ff626443ded3fd3ff2b0975d7979f13162dd46e4f19a35c511a",
+      "specie": 212,
+      "nome": "Scizor",
+      "forma": 0,
+      "formato": "PK3",
+      "contesto": "E Japanese",
+      "descrizione": {
+        "specie_it": "Scizor",
+        "livello": 50,
+        "soprannome": null,
+        "allenatore": "\u30A2\u30EC\u30B7\u30AA",
+        "id_allenatore": 57517,
+        "lingua": "Japanese",
+        "gioco_di_origine": "CXD",
+        "luogo": "Diamantopoli (C) / Villaggio Sofo (XD) [128]",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Tagliofuria",
+          "Ferrartigli",
+          "Danzaspada",
+          "Lacerazione"
+        ],
+        "incontro": "COLO Shadow Encounter 0"
+      },
+      "esito": "conforme"
+    },
+    "lotto-statici-gen7/STA-7-TOTEM-UM-020.pk7": {
+      "sha256": "3523fe10c5fb30a0e8b0b3fa579e74a9fdaccc335fd040b1e42fa00fb12cbe13",
+      "specie": 20,
+      "nome": "Raticate",
+      "forma": 2,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Raticate",
+        "livello": 20,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 356109,
+        "lingua": "Italian",
+        "gioco_di_origine": "UM",
+        "luogo": "Spiaggia di Kantai",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Morso",
+          "Inseguimento",
+          "Iperzanna",
+          "Garanzia"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-statici-gen7/STA-7-TOTEM-UM-752.pk7": {
+      "sha256": "d77394d10db5cd871068a5f8152cfbb3b1693d6d29e36caab5a0c5079d0b8ce3",
+      "specie": 752,
+      "nome": "Araquanid",
+      "forma": 1,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Araquanid",
+        "livello": 25,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 356109,
+        "lingua": "Italian",
+        "gioco_di_origine": "UM",
+        "luogo": "Spiaggia di Kantai",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Ragnatela",
+          "Coleomorso",
+          "Bollaraggio",
+          "Morso"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-statici-gen7/STA-7-TOTEM-UM-758.pk7": {
+      "sha256": "2764d95abde90daf1e006de671f5ad360cbdf7b040b70397e2f51d9e78045c7e",
+      "specie": 758,
+      "nome": "Salazzle",
+      "forma": 1,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Salazzle",
+        "livello": 30,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 356109,
+        "lingua": "Italian",
+        "gioco_di_origine": "UM",
+        "luogo": "Spiaggia di Kantai",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Smog",
+          "Doppiasberla",
+          "Pirolancio",
+          "Tossina"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-statici-gen7/STA-7-TOTEM-UM-777.pk7": {
+      "sha256": "e93f8a09627d6316fa8c532f633b3062611e807483f41c8b5bcdb5ac2a7a96f6",
+      "specie": 777,
+      "nome": "Togedemaru",
+      "forma": 1,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Togedemaru",
+        "livello": 35,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 356109,
+        "lingua": "Italian",
+        "gioco_di_origine": "UM",
+        "luogo": "Spiaggia di Kantai",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Elettrococcola",
+          "Magnetascesa",
+          "Scarica",
+          "Elettropizzico"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-statici-gen7/STA-7-TOTEM-UM-784.pk7": {
+      "sha256": "adcde2f9fb146290e4428a0e3492c83d94ec1da87cb83872a8480fc720c179a0",
+      "specie": 784,
+      "nome": "Kommo-o",
+      "forma": 1,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Kommo-o",
+        "livello": 50,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 356109,
+        "lingua": "Italian",
+        "gioco_di_origine": "UM",
+        "luogo": "Spiaggia di Kantai",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Cuordileone",
+          "Stridio",
+          "Ferroscudo",
+          "Dragartigli"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-statici-gen7/STA-7-TOTEM-US-105.pk7": {
+      "sha256": "a423acde3c5bdefecde808985ecf37ac0e18c976e61bc8e22ec47225d3506be7",
+      "specie": 105,
+      "nome": "Marowak",
+      "forma": 2,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Marowak",
+        "livello": 25,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 356109,
+        "lingua": "Italian",
+        "gioco_di_origine": "US",
+        "luogo": "Spiaggia di Kantai",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Fulmisguardo",
+          "Sciagura",
+          "Ossomerang",
+          "Fuocofatuo"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-statici-gen7/STA-7-TOTEM-US-735.pk7": {
+      "sha256": "5f31842f2752a8457d10c9137ab592d3760cc012a7f43fa121444b57190b2202",
+      "specie": 735,
+      "nome": "Gumshoos",
+      "forma": 1,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Gumshoos",
+        "livello": 20,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 356109,
+        "lingua": "Italian",
+        "gioco_di_origine": "US",
+        "luogo": "Spiaggia di Kantai",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Turbosabbia",
+          "Segugio",
+          "Pazienza",
+          "Morso"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-statici-gen7/STA-7-TOTEM-US-738.pk7": {
+      "sha256": "ee57445720e56ccdc6efc1f922bf1e23df68b16ac06ef4f20d09593a71f582e8",
+      "specie": 738,
+      "nome": "Vikavolt",
+      "forma": 1,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Vikavolt",
+        "livello": 35,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 356109,
+        "lingua": "Italian",
+        "gioco_di_origine": "US",
+        "luogo": "Spiaggia di Kantai",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Scintilla",
+          "Acrobazia",
+          "Ghigliottina",
+          "Ronzio"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-statici-gen7/STA-7-TOTEM-US-743.pk7": {
+      "sha256": "1525c1e36281926617af7ae25f0941667638656101eff81142e6b12ffa2b0445",
+      "specie": 743,
+      "nome": "Ribombee",
+      "forma": 1,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Ribombee",
+        "livello": 50,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 356109,
+        "lingua": "Italian",
+        "gioco_di_origine": "US",
+        "luogo": "Spiaggia di Kantai",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Ronzio",
+          "Magibrillio",
+          "Aromaterapia",
+          "Eledanza"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-statici-gen7/STA-7-TOTEM-US-754.pk7": {
+      "sha256": "36f3b751b486de723367de7a67bfe2e28a30ec1d8d9c51a5a9fea7338bdbcf54",
+      "specie": 754,
+      "nome": "Lurantis",
+      "forma": 1,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Lurantis",
+        "livello": 30,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 356109,
+        "lingua": "Italian",
+        "gioco_di_origine": "US",
+        "luogo": "Spiaggia di Kantai",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Crescita",
+          "Radicamento",
+          "Fendifoglia",
+          "Sintesi"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-statici-gen7/STA-7-TOTEM-USUM-778.pk7": {
+      "sha256": "c0f46550ad894b398f237c08bbf1d673ed77845a09f181eb84f6e8d2f78aa4f8",
+      "specie": 778,
+      "nome": "Mimikyu",
+      "forma": 2,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Mimikyu",
+        "livello": 40,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 356109,
+        "lingua": "Italian",
+        "gioco_di_origine": "US",
+        "luogo": "Spiaggia di Kantai",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Finta",
+          "Fascino",
+          "Lacerazione",
+          "Ombrartigli"
+        ],
+        "incontro": "Static Encounter"
+      },
+      "esito": "conforme"
+    },
+    "lotto-statici-gen7/STA-7-USUM-PIKACHU-025.pk7": {
+      "sha256": "9e52ca26accb1288f08b6bf2471999cc521496b9fb0cd135386fb8ce267bf3b0",
+      "specie": 25,
+      "nome": "Pikachu",
+      "forma": 0,
+      "formato": "PK7",
+      "contesto": "UM Italian",
+      "descrizione": {
+        "specie_it": "Pikachu",
+        "livello": 40,
+        "soprannome": null,
+        "allenatore": "Alessio",
+        "id_allenatore": 356109,
+        "lingua": "Italian",
+        "gioco_di_origine": "US",
+        "luogo": "Kantai",
+        "luogo_uovo": null,
+        "sfera": "Pok\u00E9 Ball",
+        "mosse": [
+          "Scintilla",
+          "Elettrococcola",
+          "Scarica",
+          "Schianto"
+        ],
+        "incontro": "Static Encounter"
       },
       "esito": "conforme"
     }

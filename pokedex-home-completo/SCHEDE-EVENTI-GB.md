@@ -285,7 +285,8 @@ Fonti: [PKHeX, template degli eventi di prima generazione](https://github.com/kw
 | allenatore | マクハリ, identificativo 6000 | nome dello Space World '99 di Makuhari, primo dell'elenco giapponese della fonte; l'identificativo è una scelta nostra |
 | restrizione di lingua | giapponese | tabella degli eventi |
 | gruppo di appartenenza | Mew delle manifestazioni giapponesi | il racconto dell'evento, le date, il luogo e le fonti stanno nella sezione di gruppo di questo documento |
-| impronta del file prodotto | non calcolata | l'impronta si calcola sui byte scritti, quindi esiste soltanto quando le schede si generano insieme al lotto: se manca su tutte le voci la corsa è stata di sole schede, se manca su alcune quelle voci non sono state scritte e il motivo è dichiarato nell'elenco delle non scritte |
+| impronta del file prodotto | `9b6ea5d4279f48ee02662ea82d289cadd2b6d83167bde08d8cedcd6b6a2f4af0` | questo programma non scrive la voce, perché l'allenatore è in caratteri che la sua tabella non porta: il file è `_notes/lotti/lotto-doni-gb/GB-tour-jp-151-Mew.pk1`, scritto da `tools/pkhex-doni-gb` con la libreria, e l'impronta viene dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto BU Japanese | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
 | giudizio del verificatore | conforme, 2026-09-04 | lettura di massa delle nove scatole in un salvataggio vuoto di seconda generazione, dove l'assenza del contrassegno di non conformità su una posizione equivale a un rapporto senza rilievi su quell'esemplare |
 
 ## Uova misteriose dei Pokemon Center giapponesi
@@ -695,7 +696,8 @@ Divergenza fra le fonti: La fonte enciclopedica attribuisce al Gligar quattro mo
 | allenatore | スタジアム, identificativo 2000 | nome e identificativo fissati dalla fonte per la versione giapponese |
 | restrizione di lingua | giapponese | tabella degli eventi |
 | gruppo di appartenenza | Esemplari premio di Pokemon Stadium 2, versione giapponese | il racconto dell'evento, le date, il luogo e le fonti stanno nella sezione di gruppo di questo documento |
-| impronta del file prodotto | non calcolata | l'impronta si calcola sui byte scritti, quindi esiste soltanto quando le schede si generano insieme al lotto: se manca su tutte le voci la corsa è stata di sole schede, se manca su alcune quelle voci non sono state scritte e il motivo è dichiarato nell'elenco delle non scritte |
+| impronta del file prodotto | `5ccf46575f1b58f191ea1cf8451a6f7429b174d3ba503ba5a851301f742bf894` | questo programma non scrive la voce, perché l'allenatore è in caratteri che la sua tabella non porta: il file è `_notes/lotti/lotto-doni-gb/GB-stadium2-jp-083-Farfetch’d-04.pk2`, scritto da `tools/pkhex-doni-gb` con la libreria, e l'impronta viene dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto C Japanese | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
 | giudizio del verificatore | conforme, 2026-09-04 | lettura di massa delle nove scatole in un salvataggio vuoto di seconda generazione, dove l'assenza del contrassegno di non conformità su una posizione equivale a un rapporto senza rilievi su quell'esemplare |
 
 ### EVT-2-0001 Gligar
@@ -717,7 +719,8 @@ Divergenza fra le fonti: La fonte enciclopedica attribuisce al Gligar quattro mo
 | allenatore | スタジアム, identificativo 2000 | nome e identificativo fissati dalla fonte per la versione giapponese |
 | restrizione di lingua | giapponese | tabella degli eventi |
 | gruppo di appartenenza | Esemplari premio di Pokemon Stadium 2, versione giapponese | il racconto dell'evento, le date, il luogo e le fonti stanno nella sezione di gruppo di questo documento |
-| impronta del file prodotto | non calcolata | l'impronta si calcola sui byte scritti, quindi esiste soltanto quando le schede si generano insieme al lotto: se manca su tutte le voci la corsa è stata di sole schede, se manca su alcune quelle voci non sono state scritte e il motivo è dichiarato nell'elenco delle non scritte |
+| impronta del file prodotto | `4576d16644e18385e7088516fc23c2ce9e349e5de6522275bfc33ab4fe26ff2d` | questo programma non scrive la voce, perché l'allenatore è in caratteri che la sua tabella non porta: il file è `_notes/lotti/lotto-doni-gb/GB-stadium2-jp-207-Gligar-10.pk2`, scritto da `tools/pkhex-doni-gb` con la libreria, e l'impronta viene dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto C Japanese | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
 | giudizio del verificatore | conforme, 2026-09-04 | lettura di massa delle nove scatole in un salvataggio vuoto di seconda generazione, dove l'assenza del contrassegno di non conformità su una posizione equivale a un rapporto senza rilievi su quell'esemplare |
 
 ## Esemplari premio di Pokemon Stadium 2, versione inglese
@@ -3835,4 +3838,361 @@ Fonti: [PKHeX, template degli eventi di seconda generazione](https://github.com/
 | gruppo di appartenenza | Distribuzioni del Pokemon Center di New York | il racconto dell'evento, le date, il luogo e le fonti stanno nella sezione di gruppo di questo documento |
 | impronta del file prodotto | `bf1b6d190f78429492176fc928869a63e5dd26942058002ee8a791144f418b3d` | SHA-256 dei byte scritti in `_notes/lotti/lotto-gb/`, calcolata alla generazione: rigenerare il lotto dalle medesime tabelle deve riprodurla identica, e una differenza segnala che qualcosa è cambiato nelle tabelle o nel programma |
 | giudizio del verificatore | conforme, 2026-09-04 | lettura di massa delle nove scatole in un salvataggio vuoto di seconda generazione, dove l'assenza del contrassegno di non conformità su una posizione equivale a un rapporto senza rilievi su quell'esemplare |
+
+## Esemplari premio di Pokemon Stadium, versione giapponese
+
+Doni prodotti con la libreria da `tools/pkhex-doni-gb` e non elencati dalle tabelle degli eventi che questo programma legge, quindi senza un codice della lista di spunta. Il gruppo porta 9 voci e 9 specie distinte. I campi di ciascuna scheda vengono dal registro unico dei giudizi della libreria, `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`, e non da un ricalcolo di questo programma.
+
+I doni di Pokémon Stadium nella variante giapponese, con allenatore スタジアム e identificativo 1999, che la libreria dichiara come `EncounterGift1` con tipo di allenatore `Stadium` (`EncounterGift1.cs` righe 55-59). Le tabelle degli eventi lette da questo programma portano le stesse nove specie nella sola variante internazionale, che sta nel primo gruppo di questo documento: la variante giapponese è un esemplare distinto e non una voce in più del catalogo.
+
+### GB-stadium-jp-001-Bulbasaur-00 Bulbasaur
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-stadium-jp-001-Bulbasaur-00.pk1` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 1 | registro dei giudizi della libreria |
+| livello | 5 | registro dei giudizi della libreria |
+| mosse | Azione, Ruggito | registro dei giudizi della libreria |
+| cromatico | no | nome del file, che lo dichiara |
+| allenatore | スタジアム, identificativo 1999 | registro dei giudizi della libreria |
+| lingua | Japanese | registro dei giudizi della libreria |
+| incontro riconosciuto | Static Encounter | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `d1db071817f7140574cc9fecbdab49a432cdf7176ca7e0d679ac1103761b7568` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto BU Japanese | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
+
+### GB-stadium-jp-004-Charmander-01 Charmander
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-stadium-jp-004-Charmander-01.pk1` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 4 | registro dei giudizi della libreria |
+| livello | 5 | registro dei giudizi della libreria |
+| mosse | Graffio, Ruggito | registro dei giudizi della libreria |
+| cromatico | no | nome del file, che lo dichiara |
+| allenatore | スタジアム, identificativo 1999 | registro dei giudizi della libreria |
+| lingua | Japanese | registro dei giudizi della libreria |
+| incontro riconosciuto | Static Encounter | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `cf9dfb39f9f6101b524167952a9e8e345a2126eee3125b3c2904cd2eaba5f51d` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto BU Japanese | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
+
+### GB-stadium-jp-007-Squirtle-02 Squirtle
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-stadium-jp-007-Squirtle-02.pk1` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 7 | registro dei giudizi della libreria |
+| livello | 5 | registro dei giudizi della libreria |
+| mosse | Azione, Colpocoda | registro dei giudizi della libreria |
+| cromatico | no | nome del file, che lo dichiara |
+| allenatore | スタジアム, identificativo 1999 | registro dei giudizi della libreria |
+| lingua | Japanese | registro dei giudizi della libreria |
+| incontro riconosciuto | Static Encounter | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `113a8e09afeb9de946719e5f702969e59868667fc2ab7201a2aa59dc1a93022b` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto BU Japanese | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
+
+### GB-stadium-jp-054-Psyduck-03 Psyduck
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-stadium-jp-054-Psyduck-03.pk1` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 54 | registro dei giudizi della libreria |
+| livello | 15 | registro dei giudizi della libreria |
+| mosse | Graffio, Amnesia | registro dei giudizi della libreria |
+| cromatico | no | nome del file, che lo dichiara |
+| allenatore | スタジアム, identificativo 1999 | registro dei giudizi della libreria |
+| lingua | Japanese | registro dei giudizi della libreria |
+| incontro riconosciuto | Event Gift | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `181a7fea62132941c34f4d137fa2ba9cff6be27d30ba199770086e45554dfe43` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto BU Japanese | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
+
+### GB-stadium-jp-106-Hitmonlee-05 Hitmonlee
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-stadium-jp-106-Hitmonlee-05.pk1` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 106 | registro dei giudizi della libreria |
+| livello | 20 | registro dei giudizi della libreria |
+| mosse | Doppiocalcio, Meditazione | registro dei giudizi della libreria |
+| cromatico | no | nome del file, che lo dichiara |
+| allenatore | スタジアム, identificativo 1999 | registro dei giudizi della libreria |
+| lingua | Japanese | registro dei giudizi della libreria |
+| incontro riconosciuto | Event Gift | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `93e55399c5613b4867ee25bb88c17f33bd8d76a1b11aa606e61f49eac1067c52` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto BU Japanese | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
+
+### GB-stadium-jp-107-Hitmonchan-06 Hitmonchan
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-stadium-jp-107-Hitmonchan-06.pk1` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 107 | registro dei giudizi della libreria |
+| livello | 20 | registro dei giudizi della libreria |
+| mosse | Cometapugno, Agilità | registro dei giudizi della libreria |
+| cromatico | no | nome del file, che lo dichiara |
+| allenatore | スタジアム, identificativo 1999 | registro dei giudizi della libreria |
+| lingua | Japanese | registro dei giudizi della libreria |
+| incontro riconosciuto | Event Gift | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `dabdbc4c2fd050f56d309af075e03a6617822693e2d9fecca4b157d986f19e07` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto BU Japanese | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
+
+### GB-stadium-jp-133-Eevee-07 Eevee
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-stadium-jp-133-Eevee-07.pk1` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 133 | registro dei giudizi della libreria |
+| livello | 25 | registro dei giudizi della libreria |
+| mosse | Azione, Colpocoda | registro dei giudizi della libreria |
+| cromatico | no | nome del file, che lo dichiara |
+| allenatore | スタジアム, identificativo 1999 | registro dei giudizi della libreria |
+| lingua | Japanese | registro dei giudizi della libreria |
+| incontro riconosciuto | Static Encounter | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `04412203de5663871e693573a1ab3ccc25d0bde2c4402fa17788521824473aed` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto BU Japanese | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
+
+### GB-stadium-jp-138-Omanyte-08 Omanyte
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-stadium-jp-138-Omanyte-08.pk1` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 138 | registro dei giudizi della libreria |
+| livello | 20 | registro dei giudizi della libreria |
+| mosse | Pistolacqua, Ritirata | registro dei giudizi della libreria |
+| cromatico | no | nome del file, che lo dichiara |
+| allenatore | スタジアム, identificativo 1999 | registro dei giudizi della libreria |
+| lingua | Japanese | registro dei giudizi della libreria |
+| incontro riconosciuto | Event Gift | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `8c749c3f480fd7381cbd2b56b1cbd2a8b3762a27c3f3feebe0355cc3c85ac475` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto BU Japanese | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
+
+### GB-stadium-jp-140-Kabuto-09 Kabuto
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-stadium-jp-140-Kabuto-09.pk1` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 140 | registro dei giudizi della libreria |
+| livello | 20 | registro dei giudizi della libreria |
+| mosse | Graffio, Rafforzatore | registro dei giudizi della libreria |
+| cromatico | no | nome del file, che lo dichiara |
+| allenatore | スタジアム, identificativo 1999 | registro dei giudizi della libreria |
+| lingua | Japanese | registro dei giudizi della libreria |
+| incontro riconosciuto | Event Gift | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `f9c7d5b8b8a06bb2379a9a3366981b80cc04bc9a5e6a092e3dea570f9c0aa976` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto BU Japanese | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
+
+## Uovo Strano di Cristallo
+
+Doni prodotti con la libreria da `tools/pkhex-doni-gb` e non elencati dalle tabelle degli eventi che questo programma legge, quindi senza un codice della lista di spunta. Il gruppo porta 14 voci e 7 specie distinte. I campi di ciascuna scheda vengono dal registro unico dei giudizi della libreria, `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`, e non da un ricalcolo di questo programma.
+
+Le sette specie che l'Uovo Strano di Cristallo può contenere, ciascuna nella forma normale e in quella cromatica. La libreria tiene l'elenco al proprio interno, e lo strumento lo raggiunge chiedendo gli incontri statici di Cristallo che sono uova e portano Stordipugno. L'allenatore è quello del progetto, perché l'uovo si riceve nel gioco di chi lo schiude.
+
+### GB-uovo-strano-172-Pichu-11 Pichu
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-uovo-strano-172-Pichu-11.pk2` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 172 | registro dei giudizi della libreria |
+| livello | 5 | registro dei giudizi della libreria |
+| mosse | Tuonoshock, Fascino, Stordipugno | registro dei giudizi della libreria |
+| cromatico | no | nome del file, che lo dichiara |
+| allenatore | Alessio, identificativo 42317 | registro dei giudizi della libreria |
+| lingua | English | registro dei giudizi della libreria |
+| incontro riconosciuto | Static Encounter | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `9ea7c5faabb70b166a64b3ef7aba6eac547653e05b8dfd3f9ab0c1e88072b934` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto C English | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
+
+### GB-uovo-strano-172-Pichu-cromatico-12 Pichu
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-uovo-strano-172-Pichu-cromatico-12.pk2` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 172 | registro dei giudizi della libreria |
+| livello | 5 | registro dei giudizi della libreria |
+| mosse | Tuonoshock, Fascino, Stordipugno | registro dei giudizi della libreria |
+| cromatico | sì | nome del file, che lo dichiara |
+| allenatore | Alessio, identificativo 42317 | registro dei giudizi della libreria |
+| lingua | English | registro dei giudizi della libreria |
+| incontro riconosciuto | Static Encounter | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `c9b913777e4b7f32a5e3b9c357951690cfc4febeb4137e2a27658407d1d59a15` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto C English | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
+
+### GB-uovo-strano-173-Cleffa-13 Cleffa
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-uovo-strano-173-Cleffa-13.pk2` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 173 | registro dei giudizi della libreria |
+| livello | 5 | registro dei giudizi della libreria |
+| mosse | Botta, Fascino, Stordipugno | registro dei giudizi della libreria |
+| cromatico | no | nome del file, che lo dichiara |
+| allenatore | Alessio, identificativo 42317 | registro dei giudizi della libreria |
+| lingua | English | registro dei giudizi della libreria |
+| incontro riconosciuto | Static Encounter | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `99512155e27d589eca81ce09fb950771623dafec93a93e4dbf5e1472e99bef42` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto C English | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
+
+### GB-uovo-strano-173-Cleffa-cromatico-14 Cleffa
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-uovo-strano-173-Cleffa-cromatico-14.pk2` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 173 | registro dei giudizi della libreria |
+| livello | 5 | registro dei giudizi della libreria |
+| mosse | Botta, Fascino, Stordipugno | registro dei giudizi della libreria |
+| cromatico | sì | nome del file, che lo dichiara |
+| allenatore | Alessio, identificativo 42317 | registro dei giudizi della libreria |
+| lingua | English | registro dei giudizi della libreria |
+| incontro riconosciuto | Static Encounter | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `377cfd2df42deafb9e731f41a6294c2d597c23e208fa7260b6581016b525ca90` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto C English | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
+
+### GB-uovo-strano-174-Igglybuff-15 Igglybuff
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-uovo-strano-174-Igglybuff-15.pk2` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 174 | registro dei giudizi della libreria |
+| livello | 5 | registro dei giudizi della libreria |
+| mosse | Canto, Fascino, Stordipugno | registro dei giudizi della libreria |
+| cromatico | no | nome del file, che lo dichiara |
+| allenatore | Alessio, identificativo 42317 | registro dei giudizi della libreria |
+| lingua | English | registro dei giudizi della libreria |
+| incontro riconosciuto | Static Encounter | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `9bb8aecd71ebe6a7e658c6aeca5a70a9677ef762e027c33121bba18f89f579ee` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto C English | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
+
+### GB-uovo-strano-174-Igglybuff-cromatico-16 Igglybuff
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-uovo-strano-174-Igglybuff-cromatico-16.pk2` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 174 | registro dei giudizi della libreria |
+| livello | 5 | registro dei giudizi della libreria |
+| mosse | Canto, Fascino, Stordipugno | registro dei giudizi della libreria |
+| cromatico | sì | nome del file, che lo dichiara |
+| allenatore | Alessio, identificativo 42317 | registro dei giudizi della libreria |
+| lingua | English | registro dei giudizi della libreria |
+| incontro riconosciuto | Static Encounter | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `f361d6421d02d78c394eeada3567a8a51e4aeefde0273c4fe1b6e3b67999b554` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto C English | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
+
+### GB-uovo-strano-236-Tyrogue-17 Tyrogue
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-uovo-strano-236-Tyrogue-17.pk2` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 236 | registro dei giudizi della libreria |
+| livello | 5 | registro dei giudizi della libreria |
+| mosse | Azione, Stordipugno | registro dei giudizi della libreria |
+| cromatico | no | nome del file, che lo dichiara |
+| allenatore | Alessio, identificativo 42317 | registro dei giudizi della libreria |
+| lingua | English | registro dei giudizi della libreria |
+| incontro riconosciuto | Static Encounter | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `d654efdfb9dfd000e6360e2f457a07254d2fb8a5e6a9c6fa58655d8431f7e72f` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto C English | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
+
+### GB-uovo-strano-236-Tyrogue-cromatico-18 Tyrogue
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-uovo-strano-236-Tyrogue-cromatico-18.pk2` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 236 | registro dei giudizi della libreria |
+| livello | 5 | registro dei giudizi della libreria |
+| mosse | Azione, Stordipugno | registro dei giudizi della libreria |
+| cromatico | sì | nome del file, che lo dichiara |
+| allenatore | Alessio, identificativo 42317 | registro dei giudizi della libreria |
+| lingua | English | registro dei giudizi della libreria |
+| incontro riconosciuto | Static Encounter | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `b8b68183e5d5ab533259dcf2dd6e03eda91acf818dd3e680975d05d68b724004` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto C English | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
+
+### GB-uovo-strano-238-Smoochum-19 Smoochum
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-uovo-strano-238-Smoochum-19.pk2` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 238 | registro dei giudizi della libreria |
+| livello | 5 | registro dei giudizi della libreria |
+| mosse | Botta, Leccata, Stordipugno | registro dei giudizi della libreria |
+| cromatico | no | nome del file, che lo dichiara |
+| allenatore | Alessio, identificativo 42317 | registro dei giudizi della libreria |
+| lingua | English | registro dei giudizi della libreria |
+| incontro riconosciuto | Static Encounter | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `51b5446232a4edcadc8d1ac5a80150749490083648351b99658cd69dc1e652b7` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto C English | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
+
+### GB-uovo-strano-238-Smoochum-cromatico-20 Smoochum
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-uovo-strano-238-Smoochum-cromatico-20.pk2` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 238 | registro dei giudizi della libreria |
+| livello | 5 | registro dei giudizi della libreria |
+| mosse | Botta, Leccata, Stordipugno | registro dei giudizi della libreria |
+| cromatico | sì | nome del file, che lo dichiara |
+| allenatore | Alessio, identificativo 42317 | registro dei giudizi della libreria |
+| lingua | English | registro dei giudizi della libreria |
+| incontro riconosciuto | Static Encounter | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `32b22dcde59b37e8e06c060e7eb071f3f16fe3a4cbb639eff28940a26d0d70e1` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto C English | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
+
+### GB-uovo-strano-239-Elekid-21 Elekid
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-uovo-strano-239-Elekid-21.pk2` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 239 | registro dei giudizi della libreria |
+| livello | 5 | registro dei giudizi della libreria |
+| mosse | Attacco Rapido, Fulmisguardo, Stordipugno | registro dei giudizi della libreria |
+| cromatico | no | nome del file, che lo dichiara |
+| allenatore | Alessio, identificativo 42317 | registro dei giudizi della libreria |
+| lingua | English | registro dei giudizi della libreria |
+| incontro riconosciuto | Static Encounter | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `071d5fbbedefb2467dd8beab714effa5c853663b1f1d9c0ee7619adca0ad5fc4` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto C English | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
+
+### GB-uovo-strano-239-Elekid-cromatico-22 Elekid
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-uovo-strano-239-Elekid-cromatico-22.pk2` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 239 | registro dei giudizi della libreria |
+| livello | 5 | registro dei giudizi della libreria |
+| mosse | Attacco Rapido, Fulmisguardo, Stordipugno | registro dei giudizi della libreria |
+| cromatico | sì | nome del file, che lo dichiara |
+| allenatore | Alessio, identificativo 42317 | registro dei giudizi della libreria |
+| lingua | English | registro dei giudizi della libreria |
+| incontro riconosciuto | Static Encounter | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `05b0dee48a3378eecd64f395395db9a1b8324f9532f919c2ebcdb285ae3cd723` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto C English | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
+
+### GB-uovo-strano-240-Magby-23 Magby
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-uovo-strano-240-Magby-23.pk2` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 240 | registro dei giudizi della libreria |
+| livello | 5 | registro dei giudizi della libreria |
+| mosse | Braciere, Stordipugno | registro dei giudizi della libreria |
+| cromatico | no | nome del file, che lo dichiara |
+| allenatore | Alessio, identificativo 42317 | registro dei giudizi della libreria |
+| lingua | English | registro dei giudizi della libreria |
+| incontro riconosciuto | Static Encounter | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `6bb7fa6775f450c46f7656e58e6e2700878f85b4b31971dbacb2b21357f6ccf8` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto C English | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
+
+### GB-uovo-strano-240-Magby-cromatico-24 Magby
+
+| Campo | Valore | Provenienza |
+|---|---|---|
+| file | `GB-uovo-strano-240-Magby-cromatico-24.pk2` | `_notes/lotti/lotto-doni-gb/`, scritto da `tools/pkhex-doni-gb` |
+| numero del Dex | 240 | registro dei giudizi della libreria |
+| livello | 5 | registro dei giudizi della libreria |
+| mosse | Braciere, Stordipugno | registro dei giudizi della libreria |
+| cromatico | sì | nome del file, che lo dichiara |
+| allenatore | Alessio, identificativo 42317 | registro dei giudizi della libreria |
+| lingua | English | registro dei giudizi della libreria |
+| incontro riconosciuto | Static Encounter | classe d'incontro che la libreria abbina all'esemplare |
+| impronta del file prodotto | `b9e121e850c8cfa34687057fc3fa613d219a0b543323614edfd9631ec6856ea9` | SHA-256 del file giudicato, dal registro dei giudizi della libreria |
+| giudizio della libreria | conforme, contesto C English | `tools/pkhex-giudica`, con un salvataggio vuoto del contesto indicato |
 

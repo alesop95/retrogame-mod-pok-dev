@@ -44,7 +44,7 @@ Va detto perché quel file merita più attenzione di ogni altro: è l'unico che 
 
 ## Il controllo automatico, e perché non basta la buona volontà
 
-Lo strumento `tools/Test-Anonymization.py` di questo pacchetto passa i file del repository e riporta indirizzi reali, indirizzi fisici reali, nomi propri di persona, caselle di posta personali, importi, numeri di telefono, IBAN, partite IVA e i segreti letterali già noti. Esce con codice diverso da zero se trova qualcosa nelle categorie bloccanti, e va eseguito prima di ogni commit che tocchi documentazione.
+Lo strumento `tools/Test-Anonymization.py` di questo pacchetto passa i file del repository e riporta indirizzi reali, indirizzi fisici reali, nomi propri di persona, caselle di posta personali, importi, numeri di telefono, IBAN, partite IVA e i segreti letterali già noti. Esce con codice diverso da zero se trova qualcosa nelle categorie bloccanti, e va eseguito prima di ogni commit che tocchi documentazione. Dal 2026-10-06 riporta anche, nella categoria bloccante `ID CONSOLE`, gli identificatori unici di un apparecchio, che non sono il dato di una persona ma la identificano attraverso ciò che possiede e non si possono ruotare: trentadue cifre esadecimali entro duecento caratteri dalla parola ID0 o ID1, cioè le cartelle della scheda SD di un 3DS, il numero di serie di un volume vicino alla parola che lo nomina, e le cifre esadecimali che seguono `movable.sed` o `LocalFriendCodeSeed`. Queste forme stanno nello script e non nel file dei pattern, perché si riconoscono senza conoscere il progetto, e `python tools/Test-Anonymization.py --autotest` prova che ciascuna sia presa e che impronte SHA-256, hash di commit e nomi di file di PKHeX non lo siano.
 
 ```
 python tools/Test-Anonymization.py

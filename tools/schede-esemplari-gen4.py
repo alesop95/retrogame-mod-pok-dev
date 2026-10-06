@@ -101,6 +101,33 @@ LUOGHI = {
     3073: ("Dono Wi-Fi", "la consegna avveniva sulla rete, dal servizio senza fili della console"),
 }
 
+# I gruppi delle consegne dai giochi Ranger, cioe' le voci con luogo 3001, documentati il 2026-10-06. Si
+# riconoscono per identificativo dell'allenatore e non per nome, perche' il nome del Riolu cambia con la
+# lingua della carta (Kyle, Carlo, Karel, Kiko, カイト) mentre l'identificativo resta lo stesso in tutte e
+# sei. La fonte e' la trascrizione del video Hh4GdQsZVEY, letta il 2026-09-29 e registrata in SOURCES.md, e
+# la verifica e' la base dei doni della libreria, `EncounterEvent.MGDB_G4`, come annotato nel registro delle
+# pendenze il 2026-09-29. Un registro di provenienza scritto a mano, se un giorno esistera', prevale.
+GRUPPI_RANGER = {
+    3208: ("Pokémon Ranger, Ombre su Almia",
+           "Gruppo documentato dalla trascrizione del video `Hh4GdQsZVEY`, che elenca Darkrai e il Riolu "
+           "con Sferapulsar fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base dei doni "
+           "della libreria, `EncounterEvent.MGDB_G4`, che porta il Darkrai della carta 22 con insegna Almia e "
+           "il Riolu della carta 23 con insegna Kyle, Carlo in italiano. Il gioco Ranger sbloccava una "
+           "missione speciale e, completata, consegnava l'esemplare al gioco principale di quarta "
+           "generazione. Le due specie condividono in tutte le lingue l'identificativo 3208. L'attribuzione "
+           "al titolo si legge dall'insegna, che è il nome della regione di Ombre su Almia, e non da una "
+           "fonte che lo nomini per esteso."),
+    3060: ("Pokémon Ranger, Tracce di Luce",
+           "Gruppo documentato dalla stessa trascrizione del video `Hh4GdQsZVEY`, che elenca Deoxys, Heatran "
+           "con Eruzione e Shaymin fra gli esemplari consegnati dai giochi Ranger, e verificato sulla base "
+           "dei doni della libreria, `EncounterEvent.MGDB_G4`, che porta i Deoxys con insegna Oblivia e "
+           "l'Heatran della carta 183. Le tre specie condividono in tutte le lingue l'identificativo 3060, e "
+           "le quattro voci di Deoxys di ciascuna lingua differiscono soltanto per le mosse. L'attribuzione "
+           "al titolo si legge dall'insegna, che è il nome della regione di Tracce di Luce, e non da una "
+           "fonte che lo nomini per esteso. L'uovo di Manaphy del primo Ranger non sta in questo gruppo: la "
+           "libreria lo riconosce come `EncounterGenerator4.RangerManaphy` e non come carta della base."),
+}
+
 NATURE_DA_INDICE = None  # riempita dai testi
 
 
@@ -233,6 +260,9 @@ def gruppo_di(voce, provenienze):
     if chiave in provenienze:
         p = provenienze[chiave]
         return p["titolo"], p["racconto"], "registro di provenienza"
+    if voce["luogo"] == 3001 and voce.get("tid") in GRUPPI_RANGER:
+        titolo, racconto = GRUPPI_RANGER[voce["tid"]]
+        return titolo, racconto, "gruppo documentato"
     nome_luogo, come = LUOGHI.get(voce["luogo"], ("luogo %d" % voce["luogo"],
                                                   "via di consegna non riconosciuta"))
     racconto = ("Gruppo non ancora documentato da una fonte esterna. Ciò che segue si legge dal "
@@ -500,6 +530,17 @@ def self_test():
         voce, {"TRU": {"titolo": "Manaphy di Toys R Us", "racconto": "Racconto."}})
     prova("una provenienza registrata prevale", "registro di provenienza", origine)
     prova("e ne porta il titolo", "Manaphy di Toys R Us", titolo)
+
+    # I gruppi Ranger si riconoscono per identificativo, non per il nome che cambia con la lingua.
+    for nome, tid, atteso in (("Carlo", 3208, "Pokémon Ranger, Ombre su Almia"),
+                              ("カイト", 3208, "Pokémon Ranger, Ombre su Almia"),
+                              ("Oblivia", 3060, "Pokémon Ranger, Tracce di Luce")):
+        titolo, racconto, origine = gruppo_di(
+            {"allenatore": nome, "lingua_nome": "italiano", "luogo": 3001, "tid": tid}, {})
+        prova("il gruppo Ranger di %s" % nome, (atteso, "gruppo documentato"), (titolo, origine))
+    titolo, racconto, origine = gruppo_di(
+        {"allenatore": "Almia", "lingua_nome": "inglese", "luogo": 3060, "tid": 3208}, {})
+    prova("l'identificativo da solo non basta fuori dal luogo Ranger", "derivata", origine)
 
     print("self-test: %d controlli falliti" % falliti)
     return 1 if falliti else 0
