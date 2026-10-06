@@ -16,6 +16,12 @@
 // due lanci danno esemplari diversi e ugualmente legali. Come per gli altri lotti, il risultato sono i file,
 // e il rapporto porta l'impronta SHA-256 di ciascuno.
 //
+// Lingua dell'allenatore. Di norma l'allenatore e' italiano. Dal 2026-10-05 un allenatore del manifesto puo'
+// portare il campo "lingua", con un nome di LanguageID come "Japanese": serve alle tre Ombre delle carte
+// e-Reader di Colosseum (Encounters3Colo.EReader, luogo 128), che la libreria propone soltanto per un
+// esemplare giapponese e contesta in ogni altra lingua, perche' le carte uscirono solo in Giappone. La lingua
+// dell'allenatore e' anche quella del modello con cui si chiedono gli incontri.
+//
 // Uso:  dotnet run -c Release -- RICHIESTE.json CARTELLA_DI_USCITA
 using System.Security.Cryptography;
 using System.Text.Json;
@@ -62,7 +68,8 @@ foreach (var (sigla, dati) in richieste["allenatori"]!.AsObject())
     }
     allenatori[sigla] = new SimpleTrainerInfo(base_)
     {
-        OT = (string)dati["OT"]!, TID16 = tid, SID16 = sid, Gender = 0, Language = (int)LanguageID.Italian,
+        OT = (string)dati["OT"]!, TID16 = tid, SID16 = sid, Gender = 0,
+        Language = dati["lingua"] is { } lingua ? (int)Enum.Parse<LanguageID>((string)lingua!, true) : (int)LanguageID.Italian,
     };
 }
 var criteri = EncounterCriteria.Unrestricted with { Shiny = Shiny.Never };
@@ -94,7 +101,7 @@ foreach (var r in richieste["richieste"]!.AsArray())
         var modello = EntityBlank.GetBlank(3);
         modello.Species = bersaglio;
         modello.Form = forma;
-        modello.Language = (int)LanguageID.Italian;
+        modello.Language = tr.Language;
         foreach (var enc in EncounterMovesetGenerator.GenerateEncounters(modello, tr, mosse, giochi[sigla]))
         {
             if (classi.Count > 0 && !classi.Contains(enc.GetType().Name))
@@ -154,6 +161,8 @@ foreach (var r in richieste["richieste"]!.AsArray())
         esito["file"] = nome;
         esito["voce"] = voce;
         esito["specie"] = accettato.Species;
+        esito["forma"] = accettato.Form;
+        esito["esito"] = "conforme";
         esito["livello"] = accettato.CurrentLevel;
         esito["personalita"] = accettato.PID.ToString("X8");
         esito["allenatore"] = $"{accettato.OriginalTrainerName} {accettato.TID16}";
@@ -162,6 +171,7 @@ foreach (var r in richieste["richieste"]!.AsArray())
     }
     else
     {
+        esito["esito"] = "contestato";
         esito["difetto"] = difetto;
     }
     esiti.Add(esito);

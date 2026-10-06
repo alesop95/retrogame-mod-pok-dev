@@ -13,6 +13,13 @@
 // e lo scrive come EVT-T-<numero>-<specie>.pkN, con un rapporto JSON. La libreria estrae i numeri casuali da
 // Random.Shared, quindi due lanci danno esemplari diversi e ugualmente legali: il risultato sono i file.
 //
+// Due dispositivi non sono periferiche ma incontri statici, raccolti qui perche' la procedura e' la stessa:
+// `statico5`, dal 2026-09-30, per gli incontri di Nero e Bianco sbloccati da un oggetto distribuito, e
+// `statico7`, dal 2026-10-05, per i doni di Ultrasole e Ultraluna (`EncounterStatic7`), cioe' il Pikachu di
+// Ohana e i doni di taglia totem della spiaggia di Ohana. Per `statico7` la voce si sceglie per luogo, forma
+// e livello, perche' la spiaggia (luogo 202) consegna specie diverse in forme totem diverse, e l'allenatore
+// prende la versione dell'incontro quando questo e' esclusivo di Ultrasole o di Ultraluna.
+//
 // Uso:  dotnet run -c Release -- RICHIESTE.json CARTELLA_DI_USCITA
 using System.Security.Cryptography;
 using System.Text.Json;
@@ -36,6 +43,8 @@ var giochi = new Dictionary<string, (GameVersion[] Versioni, SimpleTrainerInfo T
     ["radar"] = ([GameVersion.B2, GameVersion.W2], Allenatore(GameVersion.B2, 5, EntityContext.Gen5)),
     // Gli incontri sbloccati da un oggetto distribuito, come il Victini del Passo Liberta', dal 2026-09-30.
     ["statico5"] = ([GameVersion.B, GameVersion.W], Allenatore(GameVersion.B, 5, EntityContext.Gen5)),
+    // I doni statici di Ultrasole e Ultraluna, dal 2026-10-05: Pikachu di Ohana e doni di taglia totem.
+    ["statico7"] = ([GameVersion.US, GameVersion.UM], Allenatore(GameVersion.US, 7, EntityContext.Gen7)),
 };
 
 var esiti = new JsonArray();
@@ -53,9 +62,12 @@ foreach (var r in richieste)
     // l'esemplare si genera con un allenatore giapponese.
     if (corso is "Rally" or "Sightseeing" or "AmityMeadow")
         tr = new SimpleTrainerInfo(GameVersion.HG) { OT = "アレシオ", TID16 = 42317, SID16 = 5147, Gender = 0, Language = (int)LanguageID.Japanese, Generation = 4, Context = EntityContext.Gen4 };
-    PKM modello = dispositivo is "radar" or "statico5" ? new PK5() : new PK4();
+    PKM modello = dispositivo switch { "radar" or "statico5" => new PK5(), "statico7" => new PK7(), _ => new PK4() };
     modello.Species = specie;
     modello.Language = tr.Language;
+    // le forme totem sono forme a se', e la libreria restituisce soltanto le voci della forma del modello
+    if (dispositivo == "statico7")
+        modello.Form = (byte)(int)r["forma"]!;
 
     IEncounterable? scelto = null;
     foreach (var enc in EncounterMovesetGenerator.GenerateEncounters(modello, tr, ReadOnlyMemory<ushort>.Empty, versioni))
@@ -67,6 +79,8 @@ foreach (var r in richieste)
             "ranch" => enc is EncounterTrade4RanchGift,
             "radar" => enc is EncounterStatic5Radar,
             "statico5" => enc is EncounterStatic5 st5 && (r["luogo"] is null || st5.Location == (ushort)(int)r["luogo"]!),
+            "statico7" => enc is EncounterStatic7 st7 && (r["luogo"] is null || st7.Location == (ushort)(int)r["luogo"]!)
+                          && st7.Form == (byte)(int)r["forma"]! && (livello is null || st7.Level == livello),
             _ => false,
         };
         if (classe) { scelto = enc; break; }
@@ -83,6 +97,9 @@ foreach (var r in richieste)
             if (scelto is not null) break;
         }
     }
+    // Un dono esclusivo di una delle due versioni si riceve con l'allenatore di quella versione.
+    if (scelto is EncounterStatic7 { Version: GameVersion.US or GameVersion.UM } esclusivo)
+        tr = Allenatore(esclusivo.Version, 7, EntityContext.Gen7);
     var esito = new JsonObject { ["codice"] = codice, ["specie"] = specie, ["dispositivo"] = dispositivo };
     if (scelto is null)
     {
@@ -120,7 +137,9 @@ foreach (var r in richieste)
     esito["file"] = nome;
     esito["sha256"] = Convert.ToHexStringLower(SHA256.HashData(dati));
     esito["allenatore"] = accettato.OriginalTrainerName;
+    esito["forma"] = accettato.Form;
     esito["livello"] = accettato.MetLevel;
+    esito["gioco"] = accettato.Version.ToString();
     esito["esito"] = "conforme";
     conformi++;
     esiti.Add(esito);

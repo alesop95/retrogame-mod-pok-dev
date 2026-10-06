@@ -1,5 +1,7 @@
 # Censimento delle fonti del post di raccolta sulle collezioni
 
+Pulizia del 2026-10-05: 1757 collegamenti del residuo del corpus che non sono fonti o che non si possono più leggere sono dimenticati su direttiva del proprietario e tolti dalle tabelle; 1 irrecuperabili restano aperti come richiesta al proprietario. L'elenco dei dimenticati, con il motivo, sta fuori da git in `_notes/fonti/corpus-residuo/dimenticati.json`.
+
 Pulizia del 2026-10-05: 1756 collegamenti del residuo del corpus che non sono fonti o che non si possono più leggere sono dimenticati su direttiva del proprietario e tolti dalle tabelle; 2 irrecuperabili restano aperti come richiesta al proprietario. L'elenco dei dimenticati, con il motivo, sta fuori da git in `_notes/fonti/corpus-residuo/dimenticati.json`.
 
 > Documento generato da `tools/censimento-fonti-reddit.py` a partire dalla corsa di `tools/fetch-reddit.py` in `_notes/fonti/reddit/reddit-pokemonhome-1vtj5hf-2026-09-08`, che non entra in git perché è materiale grezzo di terzi. Si rigenera invece di modificarlo a mano.

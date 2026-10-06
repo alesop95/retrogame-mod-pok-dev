@@ -2,6 +2,23 @@
 
 > Documento autorato, aggiornato a ogni giro di lavoro che cambia una copia o il suo stato. Nasce il 2026-09-30 su richiesta del proprietario, che vuole il riepilogo delle copie per gruppo ogni volta, con quello che è già passato a HOME e con ciò che le fonti aggiungono. Le copie si scrivono con `tools/pkhex-scrivi-salvataggio` secondo ADR-092, e stanno fuori da Git sotto `_notes/salvataggi/prove/`; accanto a ciascuna c'è il suo `main.rapporto.json`, con box, posto e impronta di ogni esemplare. La sostituzione delle copie sulla console si fa tutta alla fine, quando i lotti sono completi e si passa a HOME, e i passi si danno al proprietario in quel momento.
 
+## Le copie definitive del 2026-10-05, che prevalgono sulla tabella sotto
+
+Sono le copie da portare sulla console, con suffisso `-fin`: stessi esemplari delle copie della tabella sotto negli stessi posti, più i lotti nuovi, e la geolocalizzazione d'origine assegnata come la assegna il gioco a chi riceve l'esemplare (`--regione-del-ricevente` di `tools/pkhex-scrivi-salvataggio`, che segue `WC6.cs`, `WC7.cs`, `EncounterTrade6.cs`, `EncounterTrade7.cs` e i convertitori della libreria). Prima gli esemplari convertiti portavano la regione americana dell'allenatore di riserva della libreria. Tutte sono rilette senza differenze e tutti gli esemplari sono legali per la libreria.
+
+| Gruppo | Copia | Esemplari | Note |
+|---|---|---|---|
+| per HOME | `per-home/oras-giro-1-fin/main` | 930 | |
+| per HOME | `per-home/oras-giro-2-fin/main` | 685 | più le 3 Ombre e-Reader giapponesi di Colosseum |
+| per HOME | `per-home/oras-giro-3-fin/main` | 914 | |
+| per HOME | `per-home/luna-giro-1-fin/main` | 93 | |
+| per HOME | `per-home/ultraluna-giro-1-scambi-fin/main` | 613 | più i 26 scambi in gioco e i 12 statici di Ohana |
+| decisione finale | `a-parte/oras-macchine-nascoste-fin/main` | 36 | |
+| decisione finale | `a-parte/luna-eventi-da-cartuccia-fin/main` | 121 | |
+| da provare a parte | `per-home/luna-giappone-14/main` | 14 | |
+
+Per HOME sono 3235 esemplari. 176 esemplari conservano la geolocalizzazione dell'allenatore che li ha ricevuti nel lotto, perché il sorgente la assegna a lui e non a chi li tiene ora. Le copie `-eu` e quelle senza suffisso restano come passi intermedi e non vanno sulla console.
+
 ## Stato al 2026-09-30, sera
 
 Nessun esemplare è ancora passato alla banca o al deposito. Ogni copia è stata ricontrollata nello stesso contesto in cui PKHeX apre il salvataggio.

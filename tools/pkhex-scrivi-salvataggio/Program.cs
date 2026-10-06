@@ -21,12 +21,35 @@
 // (`Legality/Verifiers/TransferVerifier.cs`, `VerifyVCGeolocation`). Senza l'opzione la conversione prende regione e
 // paese non dal salvataggio ma dall'allenatore di riserva della libreria, americano, e per la lingua giapponese
 // `PK7.SetTransferLocale` scrive regione 1 con paese 1, una coppia che il verificatore rifiuta due volte.
+//
+// Con --regione-dal-salvataggio l'allenatore del salvataggio diventa il riferimento della conversione senza che il suo
+// profilo cambi: chi viene convertito, cioe' ogni esemplare di un formato diverso da quello del salvataggio, prende
+// regione della console, paese e area dal salvataggio di destinazione, come se il Banco e il Trasferitore li avessero
+// portati su quella console. Nasce il 2026-10-05, quando si e' visto che le copie fatte fino ad allora portavano
+// regione 1, paese 49 e area 7, cioe' la California dell'allenatore di riserva della libreria. Gli esemplari gia' nel
+// formato del salvataggio non si convertono, e conservano la geolocalizzazione con cui il loro lotto li ha prodotti.
+// Senza l'opzione il comportamento non cambia, cosi' le copie gia' fatte restano riproducibili.
+//
+// Con --regione-del-ricevente, che comprende --regione-dal-salvataggio, anche gli esemplari che la libreria non
+// riscrive prendono la geolocalizzazione del salvataggio, ma soltanto quando il salvataggio e' chi li ha ricevuti. Nella
+// libreria regione della console, paese e area dell'esemplare sono dati d'origine, scritti una volta sola dalla console
+// su cui l'esemplare nasce o viene ricevuto e mai riscritti da uno scambio: i doni (`MysteryGifts/WC6.cs` e `WC7.cs`,
+// `ConvertToPKM`), gli scambi in gioco (`EncounterTrade6.cs`, `EncounterTrade7.cs`) e gli incontri fissi
+// (`EncounterStatic6.cs`, `EncounterStatic7.cs`) li prendono da `tr.GetRegionOrigin`, cioe' dall'allenatore che riceve;
+// uno scambio fra giocatori (`PK6.TradeHT`) aggiunge soltanto una voce della storia, `Geo1_Country` e `Geo1_Region`; il
+// Banco da sesta a settima (`PK6.ConvertToPK7`) li conserva. Chi riceve e' il detentore attuale quando l'allenatore e'
+// fissato dall'incontro (dono con allenatore impostato, `IsOriginalTrainerNameSet`, o incontro `IFixedTrainer`), ed e'
+// l'allenatore originale negli altri casi. Si riscrive quindi la geolocalizzazione d'origine con quella del
+// salvataggio se il ricevente e' l'allenatore del salvataggio, si rigiudica, e si tiene la riscrittura solo se
+// l'esemplare resta legale; altrimenti la geolocalizzazione del lotto resta e la voce va nel rapporto. Un esemplare il
+// cui allenatore originale e' un altro, per esempio un incontro fisso preso da un altro allenatore, conserva la sua:
+// e' la console di quell'allenatore. Nasce il 2026-10-05 per le copie con il suffisso -fin.
 // Un LOTTO puo' essere anche un singolo file di esemplare: l'origine resta "cartella/file".
 //
 // Per `rules/hardware-and-perimeter.md` la copia si porta sulla console solo dopo una copia di riserva del salvataggio
 // che la console ha, e dopo la scrittura si rilegge.
 //
-// Uso:  dotnet run -c Release -- SALVATAGGIO COPIA_DI_USCITA DA [--svuota] [--epoca-cartucce] [--includi-mn] [--solo-mn] [--solo-epoca-cartucce] [--solo-stesso-formato] [--regione-giappone] LOTTO [LOTTO ...]
+// Uso:  dotnet run -c Release -- SALVATAGGIO COPIA_DI_USCITA DA [--svuota] [--epoca-cartucce] [--includi-mn] [--solo-mn] [--solo-epoca-cartucce] [--solo-stesso-formato] [--regione-giappone] [--regione-dal-salvataggio] [--regione-del-ricevente] LOTTO [LOTTO ...]
 using System.Security.Cryptography;
 using System.Text.Json;
 using System.Text.Json.Nodes;
@@ -36,7 +59,7 @@ var opzioni = args.Where(a => a.StartsWith("--")).ToHashSet();
 var posizionali = args.Where(a => !a.StartsWith("--")).ToArray();
 if (posizionali.Length < 4)
 {
-    Console.Error.WriteLine("uso: dotnet run -c Release -- SALVATAGGIO COPIA_DI_USCITA DA [--svuota] [--epoca-cartucce] [--includi-mn] [--solo-mn] [--solo-epoca-cartucce] [--solo-stesso-formato] [--regione-giappone] LOTTO [LOTTO ...]");
+    Console.Error.WriteLine("uso: dotnet run -c Release -- SALVATAGGIO COPIA_DI_USCITA DA [--svuota] [--epoca-cartucce] [--includi-mn] [--solo-mn] [--solo-epoca-cartucce] [--solo-stesso-formato] [--regione-giappone] [--regione-dal-salvataggio] [--regione-del-ricevente] LOTTO [LOTTO ...]");
     return 2;
 }
 var partenza = posizionali[0];
@@ -54,13 +77,16 @@ if (!SaveUtil.TryGetSaveFile(partenza, out var sav))
     return 2;
 }
 bool giappone = opzioni.Contains("--regione-giappone");
+bool delRicevente = opzioni.Contains("--regione-del-ricevente");
+bool dalSalvataggio = delRicevente || opzioni.Contains("--regione-dal-salvataggio");
+if ((giappone || dalSalvataggio) && sav is not IRegionOrigin)
+{
+    Console.Error.WriteLine("--regione-giappone, --regione-dal-salvataggio e --regione-del-ricevente valgono solo per i salvataggi di sesta e settima generazione");
+    return 2;
+}
 if (giappone)
 {
-    if (sav is not IRegionOrigin geo)
-    {
-        Console.Error.WriteLine("--regione-giappone vale solo per i salvataggi di sesta e settima generazione");
-        return 2;
-    }
+    var geo = (IRegionOrigin)sav;
     geo.ConsoleRegion = 0; // Giappone
     geo.Country = 1; // Giappone
     geo.Region = 2; // Tokyo, `Resources/text/locale3DS/subregions/sr_001.txt`
@@ -69,8 +95,8 @@ void Contesto(SaveFile s)
 {
     ParseSettings.InitFromSaveFileData(s);
     // La conversione dalla Console Virtuale legge regione e paese da `RecentTrainerCache`, non dal salvataggio: lo si
-    // imposta qui, e solo con l'opzione, perche' le copie gia' fatte restino riproducibili.
-    if (giappone)
+    // imposta qui, e solo con una delle due opzioni, perche' le copie gia' fatte restino riproducibili.
+    if (giappone || dalSalvataggio)
         RecentTrainerCache.SetRecentTrainer(s);
     // Gli eventi da cartuccia di prima e seconda generazione la libreria li ammette solo nell'epoca delle cartucce,
     // che e' il caso di un salvataggio di cartuccia portato sulla Console Virtuale (ADR-092).
@@ -117,7 +143,8 @@ var liberi = Enumerable.Range(0, sav.SlotCount).Where(i => sav.GetBoxSlotAtIndex
 
 var scritti = new List<(int Posto, PKM Pk, byte[] Dati, string Origine)>();
 var esclusi = new JsonArray();
-int indice = 0, considerati = da;
+var conservate = new JsonArray();
+int indice = 0, considerati = da, alRicevente = 0;
 foreach (var (lotto, percorso) in file)
 {
     if (indice++ < da) continue;
@@ -178,6 +205,40 @@ foreach (var (lotto, percorso) in file)
         sav.AdaptToSaveFile(convertito, false);
         la = new LegalityAnalysis(convertito);
     }
+    // --regione-del-ricevente: la geolocalizzazione d'origine e' della console che ha ricevuto l'esemplare. Si riscrive
+    // solo su un esemplare gia' conforme, cosi' l'opzione non cambia quali esemplari entrano, e si tiene solo se resta
+    // conforme. Il criterio del ricevente e' quello dell'intestazione.
+    if (delRicevente && la.Valid && convertito is IRegionOrigin geoPk && sav is IRegionOrigin geoSav
+        && geoPk.GetRegionOrigin() != geoSav.GetRegionOrigin())
+    {
+        var incontro = la.EncounterOriginal;
+        bool allenatoreFissato = incontro is WC6 { IsOriginalTrainerNameSet: true } or WC7 { IsOriginalTrainerNameSet: true }
+            or IFixedTrainer { IsFixedTrainer: true };
+        bool ricevuto = allenatoreFissato
+            ? convertito.CurrentHandler == 1 && convertito.HandlingTrainerName == sav.OT && convertito.HandlingTrainerGender == sav.Gender
+            : convertito.OriginalTrainerName == sav.OT && convertito.TID16 == sav.TID16 && convertito.SID16 == sav.SID16
+              && convertito.OriginalTrainerGender == sav.Gender;
+        if (ricevuto)
+        {
+            var primaGeo = geoPk.GetRegionOrigin();
+            geoSav.CopyRegionOrigin(geoPk);
+            convertito.RefreshChecksum();
+            var laRicevente = new LegalityAnalysis(convertito);
+            if (laRicevente.Valid)
+            {
+                la = laRicevente;
+                alRicevente++;
+            }
+            else
+            {
+                geoPk.SetRegionOrigin(primaGeo);
+                convertito.RefreshChecksum();
+                conservate.Add(new JsonObject { ["file"] = origine, ["motivo"] = "contestato con la geolocalizzazione del salvataggio", ["rapporto"] = laRicevente.Report() });
+            }
+        }
+        else
+            conservate.Add(new JsonObject { ["file"] = origine, ["motivo"] = "ricevuto da un altro allenatore", ["incontro"] = incontro.GetType().Name });
+    }
     if (!la.Valid)
     {
         esclusi.Add(new JsonObject { ["file"] = origine, ["motivo"] = "contestato", ["rapporto"] = la.Report() });
@@ -227,7 +288,8 @@ var rapporto = new JsonObject
     ["fonte"] = "PKHeX.Core tramite tools/pkhex-scrivi-salvataggio (ADR-092)",
     ["partenza"] = Path.GetFileName(partenza), ["versione"] = sav.Version.ToString(), ["formato"] = formato.Name,
     ["svuotato"] = opzioni.Contains("--svuota"), ["incluse_mn"] = opzioni.Contains("--includi-mn"), ["epoca_cartucce"] = opzioni.Contains("--epoca-cartucce"),
-    ["regione_giappone"] = giappone,
+    ["regione_giappone"] = giappone, ["regione_dal_salvataggio"] = dalSalvataggio, ["regione_del_ricevente"] = delRicevente,
+    ["geolocalizzazione_al_ricevente"] = alRicevente, ["geolocalizzazione_conservata"] = conservate,
     ["lotti"] = new JsonArray(lotti.Select(l => (JsonNode)Path.GetFileName(l.TrimEnd('/', '\\'))).ToArray()),
     ["da"] = da, ["file_totali"] = file.Count, ["prossimo_da"] = prossimo < file.Count ? prossimo : null,
     ["scritti"] = scritti.Count, ["riletti_diversi"] = differenti, ["riletti_contestati"] = contestatiRiletti,
@@ -235,5 +297,7 @@ var rapporto = new JsonObject
 };
 File.WriteAllText(copia + ".rapporto.json", rapporto.ToJsonString(new JsonSerializerOptions { WriteIndented = true }));
 Console.WriteLine($"{formato.Name} in {sav.Version}: scritti {scritti.Count} su {liberi.Count} posti liberi, esclusi {esclusi.Count}, riletti diversi {differenti}, riletti contestati {contestatiRiletti}");
+if (delRicevente)
+    Console.WriteLine($"geolocalizzazione del salvataggio data a {alRicevente} esemplari che la libreria non riscrive, conservata in {conservate.Count}");
 Console.WriteLine(prossimo < file.Count ? $"restano file: il prossimo giro parte da {prossimo}" : "tutti i file dei lotti sono stati considerati");
 return differenti == 0 && contestatiRiletti == 0 ? 0 : 1;

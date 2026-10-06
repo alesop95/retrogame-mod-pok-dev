@@ -1,5 +1,7 @@
 # Registro delle fonti
 
+Pulizia del 2026-10-05: 1757 collegamenti del residuo del corpus che non sono fonti o che non si possono più leggere sono dimenticati su direttiva del proprietario e tolti dalle tabelle; 1 irrecuperabili restano aperti come richiesta al proprietario. L'elenco dei dimenticati, con il motivo, sta fuori da git in `_notes/fonti/corpus-residuo/dimenticati.json`.
+
 Pulizia del 2026-10-05: 1756 collegamenti del residuo del corpus che non sono fonti o che non si possono più leggere sono dimenticati su direttiva del proprietario e tolti dalle tabelle; 2 irrecuperabili restano aperti come richiesta al proprietario. L'elenco dei dimenticati, con il motivo, sta fuori da git in `_notes/fonti/corpus-residuo/dimenticati.json`.
 
 Questo file è il registro unico delle fonti tecniche del progetto, condiviso da tutti i sottoprogetti. Nasce dal lavoro sul ponte fra generazioni, che è il track che ha richiesto la ricerca più profonda, ma non gli appartiene: i disassemblati dei giochi, la documentazione dell'hardware, i formati di salvataggio e gli editor servono anche alla correzione dell'inventario di Smeraldo, al modding del 3DS e allo scambio con la Switch, e tenerli in un posto solo evita che ogni handoff riscopra le stesse cose.

@@ -965,7 +965,7 @@ La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti 
 La ragione per cui l'abbandono è accettabile qui, e non lo sarebbe altrove. Quella discussione è del 2005 ed è una richiesta di valutazione di squadra, cioè la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e più recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano è quindi basso, e la decisione si fonda su questo e non sulla sola difficoltà di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
 ## ADR-096: le risposte del proprietario del 2026-10-05 su fonti, scambi in gioco, copie e profilo di collezione
 
-Data: 2026-10-05. Stato: accettata, decisa dal proprietario; due punti con l'interpretazione dell'agente da confermare, marcati.
+Data: 2026-10-05. Stato: accettata, decisa dal proprietario; il profilo di collezione è confermato il 2026-10-05.
 
 Fonti. Gli indirizzi del residuo del corpus che non sono fonti o che non si possono più leggere si dimenticano: 1751, tolti dal CSV, dai conteggi e dai registri, e conservati con il motivo solo in `_notes/fonti/corpus-residuo/dimenticati.json`, fuori da git, perché un censimento rigenerato non li riporti dentro (`tools/stato-residuo-corpus.py`). Restano aperti due irrecuperabili che il proprietario può procurare, un video con verifica dell'età e un foglio Drive privato, e i 14 indirizzi di applicazioni interattive, che non si leggono ma si studiano per potenziare gli strumenti di generazione e di comprensione dei dati e per ampliare tesi e documentazione. Discord resta fuori per ora. Gli indirizzi di rete privati non stanno in nessun file tracciato; quello di una macchina del progetto e quelli dei testi di terzi in `_notes/` sono sostituiti da segnaposto.
 
@@ -977,7 +977,7 @@ Voci coreane di quarta generazione (ADR-040): il proprietario chiedeva di cercar
 
 Server di replica dei doni di quinta generazione: legittimo se HOME e Nintendo lo considerano legittimo. Nintendo non riconosce i server non ufficiali, quindi con quel criterio non si usa; non serve comunque, perché il Victini del Passo Libertà è già generato con la libreria (`_notes/lotti/lotto-oggetti-gen5/`).
 
-Profilo di collezione, DA CONFERMARE perché la risposta è arrivata troncata: una casella per specie e forma, e in più, come caselle a sé, gli esemplari peculiari di un titolo, cioè gli incontri statici tipici di quel gioco e gli scambi in gioco.
+Profilo di collezione, CONFERMATO dal proprietario il 2026-10-05: una casella per specie e forma, e in più, come caselle a sé, gli esemplari peculiari di un titolo, cioè gli incontri statici tipici di quel gioco e gli scambi in gioco.
 
 ## ADR-095: il recap di fine giro a campi fissi, nella regola e nel template
 
