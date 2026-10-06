@@ -1,10 +1,10 @@
 ---
-generated-from-commit: 9f07a30
+generated-from-commit: b828595
 generated-from-branch: main
 generated-date: 2026-08-28
 covers-paths:
   - recreate-pokemon-distributions-events/
-last-verified-commit: 19fca78
+last-verified-commit: 6ee3543
 stato: attivo; dal 2026-09-25 la libreria PKHeX.Core produce e giudica i lotti (ADR-081), 2010 conformi su 2010, il Parco Amici di quarta e' rigenerato con la libreria (ADR-082); la produzione che resta, le 40 voci da periferiche, si governa dalla coda del primo tempo, e qui resta aperta ADR-040
 ---
 

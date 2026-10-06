@@ -29,7 +29,7 @@ o singole sezioni, e più capitoli possono reclamare lo stesso documento senza c
 
     % copre: docs/03-integrita-checksum.md
     % copre: docs/01-fondamenta-salvataggio.md#il-supporto-fisico
-    % verificato-al-commit: 3f1c9b3
+    % verificato-al-commit: ff9fb3e
 
 La forma con il cancelletto nomina una sezione per slug, cioè il titolo ridotto a
 minuscole con i non alfanumerici sostituiti da trattini, come fanno i generatori di

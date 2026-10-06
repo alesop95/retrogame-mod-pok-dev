@@ -9,15 +9,15 @@ Sono le copie da portare sulla console, con suffisso `-fin`: stessi esemplari de
 | Gruppo | Copia | Esemplari | Note |
 |---|---|---|---|
 | per HOME | `per-home/oras-giro-1-fin/main` | 930 | |
-| per HOME | `per-home/oras-giro-2-fin/main` | 685 | più le 3 Ombre e-Reader giapponesi di Colosseum |
+| per HOME | `per-home/oras-giro-2-mn-fin/main` | 721 | più le 3 Ombre e-Reader giapponesi di Colosseum e, dal 2026-10-06, i 36 che erano a parte per la macchina nascosta (sostituisce `oras-giro-2-fin`, di cui conserva identici i 685) |
 | per HOME | `per-home/oras-giro-3-fin/main` | 914 | |
 | per HOME | `per-home/luna-giro-1-fin/main` | 93 | |
 | per HOME | `per-home/ultraluna-giro-1-scambi-fin/main` | 613 | più i 26 scambi in gioco e i 12 statici di Ohana |
-| decisione finale | `a-parte/oras-macchine-nascoste-fin/main` | 36 | |
+| superata il 2026-10-06 | `a-parte/oras-macchine-nascoste-fin/main` | 36 | i 36 sono entrati in `oras-giro-2-mn-fin`: nelle copie non conoscono più la macchina nascosta, che la conversione toglie come il Cancellamosse |
 | decisione finale | `a-parte/luna-eventi-da-cartuccia-fin/main` | 121 | |
 | da provare a parte | `per-home/luna-giappone-14/main` | 14 | |
 
-Per HOME sono 3235 esemplari. 176 esemplari conservano la geolocalizzazione dell'allenatore che li ha ricevuti nel lotto, perché il sorgente la assegna a lui e non a chi li tiene ora. Le copie `-eu` e quelle senza suffisso restano come passi intermedi e non vanno sulla console.
+Per HOME sono 3271 esemplari dal 2026-10-06 (erano 3235). 176 esemplari conservano la geolocalizzazione dell'allenatore che li ha ricevuti nel lotto, perché il sorgente la assegna a lui e non a chi li tiene ora. Le copie `-eu` e quelle senza suffisso restano come passi intermedi e non vanno sulla console.
 
 ## Stato al 2026-09-30, sera
 

@@ -1,5 +1,5 @@
 ---
-generated-from-commit: d08a011
+generated-from-commit: 8cc1798
 generated-from-branch: main
 generated-date: 2026-08-24
 covers-paths:
@@ -13,7 +13,7 @@ covers-paths:
   - generation-from-switch/
   - cart-battery-restoration/
   - pokedex-home-completo/
-last-verified-commit: ff2cab5
+last-verified-commit: 90adea9
 ---
 
 # Design e sicurezza

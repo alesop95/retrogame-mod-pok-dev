@@ -1,10 +1,10 @@
 ---
-generated-from-commit: 168cc59442a16e1f4ff5b7c0fdee6b40e85e2ad8
+generated-from-commit: 7ab335d9b2ae3dc8eefd9c9bd8a64a7ed0a911ef
 generated-from-branch: main
 generated-date: 2026-09-02
 covers-paths:
   - pokedex-home-completo/
-last-verified-commit: 19fca78
+last-verified-commit: 6ee3543
 stato: attivo ed è il fuoco corrente; terza generazione chiusa (ADR-082, ADR-088), tutti i lotti conformi 2010 su 2010 con la libreria del verificatore, coda del primo tempo a 333 prodotte, 60 producibili e 40 da periferiche su 433, checklist a 685 specie su 1025
 ---
 

@@ -6,7 +6,7 @@ Perché esiste
 -------------
 Il 2026-10-05 tre video del registro delle fonti non avevano sottotitoli di alcun tipo, e per questi la trascrizione
 non la può procurare nemmeno il proprietario, perché il pulsante della trascrizione nella pagina del video esiste solo
-dove esistono i sottotitoli. La macchina con scheda grafica di `tools/trascrivi-video-gpu.py` è dismessa dal
+dove esistono i sottotitoli. La macchina con scheda grafica del vecchio `tools/trascrivi-video-gpu.py`, rimosso il 2026-10-06 e recuperabile dalla storia git, è dismessa dal
 2026-10-02, quindi la trascrizione si fa su questa macchina, sul processore, con `faster-whisper` e il modello piccolo:
 per video di qualche minuto il costo è di minuti. Lo script nasce nella cartella temporanea della sessione e vive qui
 perché lì una pulizia lo avrebbe cancellato.

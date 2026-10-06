@@ -1,10 +1,10 @@
 ---
-generated-from-commit: d08a011
+generated-from-commit: 8cc1798
 generated-from-branch: main
 generated-date: 2026-08-24
 covers-paths:
   - gba-switch-pokemon-trading/
-last-verified-commit: f342853
+last-verified-commit: 89a13f7
 stato: in ricerca, nessun ambiente allestito
 ---
 

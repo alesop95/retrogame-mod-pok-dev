@@ -4,7 +4,7 @@
 
 ## Il difetto, nel codice
 
-Fino al 2026-09-30 la checklist costruiva l'insieme delle forme di battaglia così, alla riga 651 del commit `e8260ef`.
+Fino al 2026-09-30 la checklist costruiva l'insieme delle forme di battaglia così, alla riga 651 del commit `30bdbfb`.
 
 ```python
 battaglia = (disp.elenco_specie(forme_src, "BattleMegas", per_nome)

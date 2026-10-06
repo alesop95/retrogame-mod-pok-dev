@@ -1,6 +1,6 @@
 ---
 covers-paths: []
-last-verified-commit: 7a8bdae
+last-verified-commit: d770a37
 ---
 
 # Studio didattico master - come e perché retrogame-mod-pok-dev è stato costruito

@@ -1,5 +1,5 @@
 ---
-generated-from-commit: d08a011
+generated-from-commit: 8cc1798
 generated-from-branch: main
 generated-date: 2026-08-24
 covers-paths:
@@ -13,7 +13,7 @@ covers-paths:
   - generation-from-switch/
   - cart-battery-restoration/
   - pokedex-home-completo/
-last-verified-commit: ff2cab5
+last-verified-commit: 90adea9
 stato: adozione conclusa; dieci track, fuoco corrente sul completamento del Pokedex nel deposito
 ---
 
@@ -56,8 +56,8 @@ Il PDF che documenta il bug dell'inventario è escluso dal version control per l
 
 ## Riconciliazione
 
-Ultima verifica: 2026-09-29 al commit `ff2cab5`, con `sync-context` in cinque blocchi su tutte le diciassette schede, confermati uno per volta dal proprietario. Il racconto sta nel work log, dalla terza alla nona parte del 2026-09-29. Le righe della tabella sopra riscritte in quella corsa sono cinque, cioè Pokedex, distribuzioni, ponte, Smeraldo e 3DS, e il loro testo precedente resta nella storia git. La corsa ha trovato il medesimo difetto strutturale delle due precedenti in una forma nuova: `STACK.md` e `dev-testing.md` descrivevano `tools/` senza dichiararlo fra i percorsi coperti, e da oggi lo dichiarano insieme a `scripts/`. Ne ha trovato anche un secondo, che il confronto per cartelle non può vedere: una decisione registrata fuori dall'area di una scheda, come ADR-082 per il ponte, la rende falsa senza che nessun file coperto cambi.
+Ultima verifica: 2026-09-29 al commit `90adea9`, con `sync-context` in cinque blocchi su tutte le diciassette schede, confermati uno per volta dal proprietario. Il racconto sta nel work log, dalla terza alla nona parte del 2026-09-29. Le righe della tabella sopra riscritte in quella corsa sono cinque, cioè Pokedex, distribuzioni, ponte, Smeraldo e 3DS, e il loro testo precedente resta nella storia git. La corsa ha trovato il medesimo difetto strutturale delle due precedenti in una forma nuova: `STACK.md` e `dev-testing.md` descrivevano `tools/` senza dichiararlo fra i percorsi coperti, e da oggi lo dichiarano insieme a `scripts/`. Ne ha trovato anche un secondo, che il confronto per cartelle non può vedere: una decisione registrata fuori dall'area di una scheda, come ADR-082 per il ponte, la rende falsa senza che nessun file coperto cambi.
 
-Ultima verifica: 2026-09-09 al commit 0b38120, limitata alle schede che questa sezione nomina; le schede trasversali `STACK.md`, `design-and-security.md` e `roadmap.md` restano al 2026-08-26 e vanno rilette, perché i loro percorsi coperti hanno centoquattro file cambiati da allora. La corsa del 2026-09-09 ha riscritto la scheda del fuoco corrente, che era arrivata a ventimila byte duplicando i documenti del track, ha aggiornato quella del ponte, dove lo strato del salvataggio era dichiarato come prossimo passo ed è invece scritto e collaudato, e ha esteso il `covers-paths` di `dev-testing.md` ai due track che gli mancavano, cioè lo scambio locale e l'automazione: è di nuovo il difetto strutturale che la riga seguente descrive, ricomparso su due track invece che su uno.
+Ultima verifica: 2026-09-09 al commit 7bfd11b, limitata alle schede che questa sezione nomina; le schede trasversali `STACK.md`, `design-and-security.md` e `roadmap.md` restano al 2026-08-26 e vanno rilette, perché i loro percorsi coperti hanno centoquattro file cambiati da allora. La corsa del 2026-09-09 ha riscritto la scheda del fuoco corrente, che era arrivata a ventimila byte duplicando i documenti del track, ha aggiornato quella del ponte, dove lo strato del salvataggio era dichiarato come prossimo passo ed è invece scritto e collaudato, e ha esteso il `covers-paths` di `dev-testing.md` ai due track che gli mancavano, cioè lo scambio locale e l'automazione: è di nuovo il difetto strutturale che la riga seguente descrive, ricomparso su due track invece che su uno.
 
-Verifica precedente: 2026-08-26 al commit 7696c46. La corsa di `sync-context` di quella data ha trovato un drift quasi tutto contabile, perché le schede erano state aggiornate a mano nei commit successivi senza che nessuno bumpasse il loro `last-verified-commit`, e tre difetti sostanziali: `dev-testing.md` dichiarava che non esistono test automatici mentre 63 prove passano, l'apertura di `STACK.md` negava l'esistenza del codice che la sua stessa sezione delle dipendenze descriveva, e il conteggio dei track era fermo a quattro. Il difetto strutturale che li rendeva possibili era il `covers-paths` delle schede trasversali, che non seguiva l'aggiunta di un sottoprogetto: è stato esteso, e la procedura di aggiunta ha ora un quarto passo che lo impone.
+Verifica precedente: 2026-08-26 al commit 7c36ad4. La corsa di `sync-context` di quella data ha trovato un drift quasi tutto contabile, perché le schede erano state aggiornate a mano nei commit successivi senza che nessuno bumpasse il loro `last-verified-commit`, e tre difetti sostanziali: `dev-testing.md` dichiarava che non esistono test automatici mentre 63 prove passano, l'apertura di `STACK.md` negava l'esistenza del codice che la sua stessa sezione delle dipendenze descriveva, e il conteggio dei track era fermo a quattro. Il difetto strutturale che li rendeva possibili era il `covers-paths` delle schede trasversali, che non seguiva l'aggiunta di un sottoprogetto: è stato esteso, e la procedura di aggiunta ha ora un quarto passo che lo impone.

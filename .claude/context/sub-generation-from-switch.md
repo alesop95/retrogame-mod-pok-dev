@@ -1,10 +1,10 @@
 ---
-generated-from-commit: cbd0223
+generated-from-commit: ec47d9b
 generated-from-branch: main
 generated-date: 2026-08-31
 covers-paths:
   - generation-from-switch/
-last-verified-commit: f342853
+last-verified-commit: 89a13f7
 stato: debito di lettura chiuso il 2026-09-01, entrambe le fonti lette; bloccato sulla decisione di perimetro, non sulla conoscenza
 ---
 

@@ -1,9 +1,9 @@
 ---
-generated-from-commit: d08a011
+generated-from-commit: 8cc1798
 generated-from-branch: main
 generated-date: 2026-08-24
 covers-paths: []
-last-verified-commit: d08a011
+last-verified-commit: 8cc1798
 ---
 
 # Deploy

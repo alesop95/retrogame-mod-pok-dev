@@ -1,5 +1,5 @@
 ---
-generated-from-commit: d08a011
+generated-from-commit: 8cc1798
 generated-from-branch: main
 generated-date: 2026-08-24
 covers-paths:
@@ -15,7 +15,7 @@ covers-paths:
   - pokedex-home-completo/
   - tools/
   - scripts/
-last-verified-commit: ff2cab5
+last-verified-commit: 90adea9
 ---
 
 # Stack
@@ -92,7 +92,7 @@ Va detto con precisione cosa quella macchina può e non può fare, perché il ma
 
 Ciò che quella macchina può fare, ed è allineato alla regola di token economy del progetto, è condensare localmente fonti molto lunghe prima che entrino in conversazione: una trascrizione da un'ora di video o un thread di forum di duecento messaggi si riducono a una sintesi densa senza consumare contesto né pagare token. Il modello `bge-m3` è un modello di embedding, quindi abilita anche la ricerca semantica locale su tutto il corpus di `_notes/fonti/`, che diventerà utile quando quella cartella sarà cresciuta.
 
-Dal 2026-09-29 due di queste possibilità sono implementate, e la frase che le dava per non implementate è superata. La macchina è un Ubuntu 24.04 con una RTX 5060 Ti da 16 GB, raggiungibile in SSH con una chiave dedicata tramite l'alias `gpu-ollama` della configurazione del client, e nella home dell'utente del servizio ha un ambiente `~/trascrizione` con faster-whisper 1.2.1 e le librerie CUDA installate da pip: con quello `tools/trascrivi-video-gpu.py` trascrive l'audio dei video i cui sottotitoli YouTube nega, e cancella l'audio da entrambe le macchine appena la trascrizione è su disco. La sintesi locale è `tools/estrai-affermazioni-ollama.py`, che fa estrarre a qwen3:14b le sole affermazioni pertinenti da una trascrizione e scrive gli estratti accanto alle trascrizioni, fuori dalla cartella temporanea della sessione. Resta non implementata la ricerca semantica con `bge-m3`. La combinazione da usare per ogni fonte video futura è in `pending.md`, e la norma generale in `.claude/skills/fonti-non-recuperabili/RIFERIMENTO.md`.
+Dal 2026-09-29 due di queste possibilità sono implementate, e la frase che le dava per non implementate è superata. La macchina è un Ubuntu 24.04 con una RTX 5060 Ti da 16 GB, raggiungibile in SSH con una chiave dedicata tramite l'alias `gpu-ollama` della configurazione del client, e nella home dell'utente del servizio ha un ambiente `~/trascrizione` con faster-whisper 1.2.1 e le librerie CUDA installate da pip: con quello il vecchio `tools/trascrivi-video-gpu.py`, rimosso il 2026-10-06 e recuperabile dalla storia, trascriveva l'audio dei video i cui sottotitoli YouTube nega, e cancella l'audio da entrambe le macchine appena la trascrizione è su disco. La sintesi locale è `tools/estrai-affermazioni-ollama.py`, che fa estrarre a qwen3:14b le sole affermazioni pertinenti da una trascrizione e scrive gli estratti accanto alle trascrizioni, fuori dalla cartella temporanea della sessione. Resta non implementata la ricerca semantica con `bge-m3`. La combinazione da usare per ogni fonte video futura è in `pending.md`, e la norma generale in `.claude/skills/fonti-non-recuperabili/RIFERIMENTO.md`.
 
 ## Pipeline di trascrizione delle fonti video
 

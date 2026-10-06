@@ -1,10 +1,10 @@
 ---
-generated-from-commit: d08a011
+generated-from-commit: 8cc1798
 generated-from-branch: main
 generated-date: 2026-08-24
 covers-paths:
   - pokemon-gen12-gen3-bridge-original-hardware/
-last-verified-commit: ff2cab5
+last-verified-commit: 90adea9
 stato: decisione ADR-008 ancora aperta; le tre generazioni sono scritte e collaudate, dal 2026-09-09 esiste lo strato del salvataggio da 128 KiB, e dal 2026-09-16 esiste anche il modulo che sintetizza in software il passaggio dalla terza alla quarta generazione (Parco Amici); dal 2026-09-24 quel modulo non produce piu' lotti, sostituito dalla libreria per ADR-082
 ---
 

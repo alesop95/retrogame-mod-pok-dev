@@ -1,10 +1,10 @@
 ---
-generated-from-commit: 8553f95
+generated-from-commit: ae9c20f
 generated-from-branch: main
 generated-date: 2026-08-26
 covers-paths:
   - poke-automation-study/
-last-verified-commit: f342853
+last-verified-commit: 89a13f7
 stato: studio cominciato, scopo del track da decidere
 ---
 
