@@ -24,6 +24,7 @@ La pratica è adottata dal 2026-09-29, al gate dei pacchetti dell'allineamento a
 | 3 | Un controllo che saltava ciò che non sapeva misurare | 2026-10-07 | `refactor-03-capitoli-senza-timbro.md` |
 | 4 | Lo stesso identificativo, corretto in due modi | 2026-10-07 | `refactor-04-identificativo-segreto.md` |
 | 5 | Rifare una copia senza rifarla, e una prova a vuoto che guardava solo i box | 2026-10-07 | `refactor-05-copie-sostituite.md` |
+| 6 | Una scrittura verificata da chi non l'ha fatta, e un nome di file conteso | 2026-10-07 | `refactor-06-verifica-indipendente.md` |
 
 ## 1. Un elenco di specie letto come un elenco di forme
 
@@ -74,3 +75,13 @@ Com'era e perché era fragile. Lo strumento di scrittura sapeva solo aggiungere 
 Il salto senior e perché è meglio. La preparazione è una funzione sola, usata dalla scrittura ordinaria e dall'opzione nuova `--sostituisci`, che rimette ogni esemplare dei lotti cambiati nel suo posto solo se è davvero diverso. La regressione non è l'uguaglianza dei file, impossibile, ma un confronto posto per posto che ignora per nome i due campi assegnati dalla conversione, con lo strumento nuovo `pkhex-confronta-copie`. La prova a vuoto, cioè una sostituzione con un lotto non cambiato, ha trovato prima la data d'incontro e poi un difetto più sottile: i box tornavano identici, ma il file no, perché la scrittura di prova aveva aggiornato il Pokédex. La prova ora si scrive in un clone, e la sostituzione a vuoto dà un file identico byte per byte. La lezione è che una prova a vuoto si confronta sul prodotto intero, non sulla parte che si voleva cambiare.
 
 Dove leggere il dettaglio: `refactor-05-copie-sostituite.md`.
+
+## 6. Una scrittura verificata da chi non l'ha fatta, e un nome di file conteso
+
+Contesto. La cartuccia del Rubino riceve in una sola scrittura due correzioni, l'identificativo segreto di 101 esemplari (ADR-099) e il Pokédex delle specie presenti (ADR-089). Lo strumento nuovo `pkhex-allinea-gen3` le compone, e il runbook `RUNBOOK-RUBINO-SID-POKEDEX.md` descrive i passi con la cartuccia in mano.
+
+Com'era e perché era fragile. La misura del 2026-09-28 leggeva i contrassegni del Pokédex in una sola copia, quella di SaveBlock2; il sorgente di Rubino (`src/pokedex.c` riga 3986) mostra che un «visto» vale solo se è acceso in tre copie, e che se non concordano il gioco le spegne tutte. E la verifica che uno strumento fa del proprio file usa la stessa libreria che ha scritto, quindi ne condivide gli eventuali errori di indirizzo.
+
+Il salto senior e perché è meglio. Lo strumento accende le tre copie, come la libreria e come il gioco, e accanto alla sua verifica ce n'è una seconda scritta con `pokebridge`, che non usa la libreria e dice soltanto quali byte sono cambiati, con le zone ammesse prese dal sorgente di pokeruby: tutti i byte cambiati stanno nel Pokédex e nei due byte del SID dei 101 esemplari. Un nome di file usato da due strumenti per due formati, `.rapporto.json`, ha fermato `pkhex-elenco-copie`, e il rapporto nuovo si chiama `.allineamento.json`. La lezione è che una verifica vale per quanto non condivide con ciò che verifica.
+
+Dove leggere il dettaglio: `refactor-06-verifica-indipendente.md`.

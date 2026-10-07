@@ -8,8 +8,8 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: 1a5c614, ADR-099: identificativo unico su lotti e complemento, capitolo 24
-Data snapshot:         2026-10-07, copie per HOME -fin2 (non committato); prossimo: decisione sul Manaphy, poi procedura per la cartuccia del Rubino
+Commit di riferimento: 22c4797, ADR-099: copie per HOME aggiornate nello stesso posto, capitolo 24
+Data snapshot:         2026-10-07, giro sul Rubino pronto (non committato); attesa: estrazione del Rubino, Pokédex nazionale, copia del Manaphy
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,8 @@ Data snapshot:         2026-10-07, copie per HOME -fin2 (non committato); prossi
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-10-07, sesta parte, che prevale su quelle sotto. Il giro sulla cartuccia del Rubino per ADR-099 e ADR-089 è pronto e provato a secco: strumento `tools/pkhex-allinea-gen3`, runbook `gba-save-extraction-smeraldo/RUNBOOK-RUBINO-SID-POKEDEX.md`. Attende dal proprietario l'estrazione nuova (passi 1 e 2), la decisione sul Pokédex nazionale e la copia per il Manaphy.
 
 AGGIUNTA DEL 2026-10-07, quinta parte, che prevale su quelle sotto. Copie per HOME rifatte come `-fin2` con `pkhex-scrivi-salvataggio --sostituisci`: le copie da portare sulla console sono ora quelle in testa a `COPIE-PER-HOME.md`, allenatore del progetto solo a 58164. Il Manaphy di Ranger attende la scelta della copia, perché il giro 1 è pieno. Resta di ADR-099 la cartuccia del Rubino.
 
