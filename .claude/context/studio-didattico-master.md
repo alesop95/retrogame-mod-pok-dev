@@ -20,6 +20,8 @@ La pratica è adottata dal 2026-09-29, al gate dei pacchetti dell'allineamento a
 | Voce | Titolo | Data | Scheda |
 |---|---|---|---|
 | 1 | Un elenco di specie letto come un elenco di forme | 2026-09-30 | `refactor-01-forme-di-battaglia.md` |
+| 2 | Una chiave che sapeva solo l'ultima cartella | 2026-10-07 | `refactor-02-chiave-del-lotto.md` |
+| 3 | Un controllo che saltava ciò che non sapeva misurare | 2026-10-07 | `refactor-03-capitoli-senza-timbro.md` |
 
 ## 1. Un elenco di specie letto come un elenco di forme
 
@@ -30,3 +32,23 @@ Com'era e perché era fragile. `tools/checklist-pokedex.py` costruiva l'insieme 
 Il salto senior e perché è meglio. Quando la regola vive nel codice di un'altra base e non in una tabella, non la si imita leggendone il sorgente: la si fa valutare a quella base. `tools/pkhex-forme-battaglia` chiede a `FormInfo.IsBattleOnlyForm` la risposta per ogni specie e ogni indice di forma, la scrive in JSON con il commit del clone, e la checklist la legge per coppia. La verifica che la correzione misuri davvero il difetto è il diff della checklist rigenerata: cambiano esattamente le 29 righe attese, più Spinda corretta nello stesso giro, e nient'altro. Il compromesso dichiarato è una dipendenza in più, un file generato da un programma C#, che la checklist legge da `_notes/forme-di-battaglia.json` e che va rigenerato quando il clone si aggiorna.
 
 Dove leggere il dettaglio: `refactor-01-forme-di-battaglia.md`.
+
+## 2. Una chiave che sapeva solo l'ultima cartella
+
+Contesto. Il registro unico dei giudizi della libreria, `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`, è ciò su cui la checklist decide se una voce è «prodotta e conforme»: cerca il file del lotto, ne calcola l'impronta e la confronta con quella giudicata. Il 2026-10-06 si è visto che le 376 voci del complemento del Rubino avevano chiave `esemplari/...`, senza il nome del lotto.
+
+Com'era e perché era fragile. `tools/pkhex-giudica` costruiva la chiave con il solo ultimo componente del percorso della cartella giudicata. Per i lotti di primo livello l'ultimo componente è il nome del lotto e la chiave è univoca; per un lotto che tiene i file in una sottocartella è il nome della sottocartella, e `esemplari` è anche la sottocartella di `lotto-parco-lotta`. La stessa ricetta era ripetuta in tre altri punti, `tools/checklist-pokedex.py`, `tools/pkhex-scrivi-salvataggio` e `tools/stampa-collezione.py`, in due linguaggi e senza una dichiarazione comune: cambiarla in un punto solo avrebbe fatto risultare 179 voci della checklist da rigiudicare, senza alcun errore.
+
+Il salto senior e perché è meglio. La chiave diventa il percorso relativo alla cartella `lotti`, con barre in avanti, calcolato da una funzione con lo stesso nome nei due strumenti C# e da `os.path.relpath` nella checklist; ogni punto che ripete la regola elenca gli altri nel proprio commento. Per i lotti di primo livello la chiave non cambia, quindi solo le 376 voci annidate vanno rinominate, e lo si fa sul testo del registro per non riscriverne la serializzazione .NET. La prova che distingue è la versione vecchia della checklist letta sul registro rinominato, che perde le 179 voci: senza di essa l'uguaglianza byte per byte della checklist rigenerata non direbbe nulla. Il compromesso dichiarato è una compatibilità temporanea in `stampa-collezione.py` con la forma breve, scritta come debito con la condizione che la estingue, cioè le copie per HOME rifatte con ADR-099.
+
+Dove leggere il dettaglio: `refactor-02-chiave-del-lotto.md`.
+
+## 3. Un controllo che saltava ciò che non sapeva misurare
+
+Contesto. Il 2026-10-07 il proprietario ha chiesto che tutto il lavoro arrivi alla tesi, con le fonti e con la documentazione tecnica e didattica (ADR-101). Misurare quanto la tesi fosse indietro ha mostrato che lo strumento che doveva dirlo non lo diceva.
+
+Com'era e perché era fragile. `tools/check-thesis-coverage.py` misura il drift di un capitolo dal commit dichiarato nel suo timbro, e saltava i capitoli senza timbro; la loro dichiarazione di copertura però restava valida, quindi le sezioni reclamate contavano come coperte per sempre. I capitoli così erano 19 su 39, fra cui `24-strumenti.tex`, che reclama per intero `docs/22-strumenti.md` e non nomina nessuno degli strumenti su PKHeX.Core nati dal 2026-09-25. Nessuna riga era sbagliata in sé: saltare era corretto, tacere di aver saltato no.
+
+Il salto senior e perché è meglio. Un capitolo che dichiara coperture senza timbro è ora un errore elencato, accanto ai capitoli in drift, e la corsa a HEAD `0f82fcb` passa da 1 a 2 problemi senza cambiare i 10 capitoli in drift di prima. La correzione non mette timbri: un timbro messo per far tacere il controllo trasforma un punto cieco in una dichiarazione falsa, e il timbro si mette solo dopo aver riletto il capitolo. Il principio generale è che un controllo conta fra i propri esiti ciò che non ha potuto controllare, invece di lasciarlo fuori dal totale.
+
+Dove leggere il dettaglio: `refactor-03-capitoli-senza-timbro.md`.

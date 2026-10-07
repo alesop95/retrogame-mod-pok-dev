@@ -8,8 +8,8 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: 035b8ed, ripresa pulita: ADR-100, fonti nuove, risposta da Reddit (sopra b2fe049, Phanpy protetto e Manaphy in checklist)
-Data snapshot:         2026-10-07, chiavi del registro fatte (non committate); prossimo: identificativo segreto unico (ADR-099)
+Commit di riferimento: 0f82fcb, chiavi del registro dei giudizi con il percorso del lotto
+Data snapshot:         2026-10-07, ADR-101 tracciamento fino alla tesi (non committato); prossimo: ADR-099 o recupero della tesi, da decidere
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,8 @@ Data snapshot:         2026-10-07, chiavi del registro fatte (non committate); p
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-10-07, terza parte, che prevale su quelle sotto. Commit `0f82fcb`. Direttiva del proprietario ADR-101: ogni giro si traccia fino alla tesi, con fonti e livello didattico. Debito della tesi misurato e registrato in testa alle voci aperte del 2026-10-07 in `pending.md`: 10 capitoli in drift, 19 senza timbro, 367 sezioni non reclamate; `check-thesis-coverage.py` ora segnala i capitoli senza timbro. Da decidere dal proprietario l'ordine fra il recupero della tesi e ADR-099.
 
 AGGIUNTA DEL 2026-10-07, seconda parte, che prevale su quella sotto. Punto 1 dell'ordine di lavoro fatto: chiavi del registro dei giudizi con il percorso del lotto, nei quattro strumenti che la ripetono e nelle 376 voci del complemento; checklist e coda rigenerate identiche (work log, seconda parte). Prossimo: ADR-099.
 

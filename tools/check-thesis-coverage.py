@@ -396,6 +396,11 @@ def main():
     slug_sconosciuti = [(d, s) for d, s in sorted(reclamate_sezioni | set(esenti_sez))
                         if (d, s) not in slug_esistenti]
 
+    # Un capitolo che dichiara coperture senza timbro non può andare in drift, perché il drift si
+    # misura dal timbro: fino al 2026-10-07 il ciclo sotto lo saltava in silenzio, e 21 capitoli su
+    # 39 erano così, fra cui 24-strumenti.tex che reclamava docs/22-strumenti.md per intero senza
+    # nominare nessuno degli strumenti nati dal 2026-09-25. Ora è un errore, come il drift.
+    senza_timbro = [c for c in capitoli if not c["commit"] and (c["interi"] or c["sezioni"])]
     stale = []
     for c in capitoli:
         if not c["commit"] or head is None:
@@ -445,6 +450,15 @@ def main():
             print("  %s (a %s): %s" % (f, commit, ", ".join(cambiati)))
         print()
         errori.append("%d capitoli in drift" % len(stale))
+
+    if senza_timbro:
+        print("CAPITOLI SENZA TIMBRO, dichiarano coperture ma nessun commit di verifica, "
+              "quindi il loro drift non si vede:")
+        for c in senza_timbro:
+            print("  %s: %s" % (c["file"], ", ".join(sorted(
+                c["interi"] | {"%s#%s" % s for s in c["sezioni"]}))[:300]))
+        print()
+        errori.append("%d capitoli senza timbro" % len(senza_timbro))
 
     if slug_sconosciuti:
         print("SEZIONI DICHIARATE CHE NON ESISTONO, titolo riscritto o slug sbagliato:")
