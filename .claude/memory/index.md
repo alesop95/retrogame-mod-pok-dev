@@ -9,7 +9,7 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 ```
 Branch attivo:         main
 Commit di riferimento: efe2faf, ADR-100 nel template: voce didattica 7, azioni fisiche alla fine
-Data snapshot:         2026-10-07, ADR-097 già chiuso; allineamento da fare dall'agente; mappa riproposta, attende un sì
+Data snapshot:         2026-10-07, allineamento al template fatto (non committato; push di 356a864 da ritentare); mappa approvata
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,8 @@ Data snapshot:         2026-10-07, ADR-097 già chiuso; allineamento da fare dal
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-10-07, decima parte, che prevale su quelle sotto. Allineamento al template fatto dall'agente: regola `documenti-personali` e skill `identita-git` nel progetto, 8 conflitti fusi e registrati. Il push del commit `356a864` era fallito per un errore del server di GitHub e parte con il prossimo `chiudi`. Mappa di riorganizzazione approvata, prossimo blocco.
 
 AGGIUNTA DEL 2026-10-07, nona parte, che prevale su quelle sotto. ADR-097 era già pubblicato dal 2026-10-06 (reflog), voce di registro corretta. L'allineamento al template non è avvenuto: 8 conflitti e un ordine sbagliato dato dall'agente; è il prossimo blocco dell'agente. Mappa di riorganizzazione riproposta in testa a `_notes/riorganizzazione/MAPPA.md`, attende un sì.
 

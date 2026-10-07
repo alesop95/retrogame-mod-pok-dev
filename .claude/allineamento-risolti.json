@@ -1,19 +1,39 @@
 {
+  ".claude/rules/git-commands-format.md": {
+    "testa": "6254aabbc7f56b49422b15cc2f0cd2f3a02dd467",
+    "il": "2026-10-07"
+  },
   ".claude/skills/fonti-non-recuperabili/RIFERIMENTO.md": {
-    "testa": "a47c33487ed8ff9dcf831e8f0110754abe315e01",
-    "il": "2026-09-29"
+    "testa": "9052ccdc4e5b466342f2439d7a200d929e091125",
+    "il": "2026-10-07"
+  },
+  ".claude/templates/anonymization/rules/anonymization.md": {
+    "testa": "a319e977bd6a52350086b074ee545c77abb6b1f9",
+    "il": "2026-10-07"
+  },
+  ".claude/templates/anonymization/tools/Test-Anonymization.py": {
+    "testa": "d4daa4623dd27bb0e52159c0a3007c46d37ffb47",
+    "il": "2026-10-07"
+  },
+  "tools/Test-Anonymization.py": {
+    "testa": "d4daa4623dd27bb0e52159c0a3007c46d37ffb47",
+    "il": "2026-10-07"
+  },
+  "tools/chiudi-sessione.ps1": {
+    "testa": "80c495e0f757ac62b26ebf49cc1148a18bab83fa",
+    "il": "2026-10-07"
   },
   "tools/export-discord.py": {
-    "testa": "a956294b70942fef00d4671497cb94434e3f60a2",
-    "il": "2026-09-29"
+    "testa": "2a5bcad2da8931a7a3fb730256205549c3595eae",
+    "il": "2026-10-07"
   },
   "tools/fetch-discord.py": {
     "testa": "277ab6b9d0d9d539ed67e41cda3930c038eea8f9",
     "il": "2026-09-29"
   },
   "tools/lint-didattica.py": {
-    "testa": "15cc401f8630fbd9e6a73bbf1c915b9cbe1a36e0",
-    "il": "2026-09-29"
+    "testa": "90953bc4e65916febfe4093fdbb1bd58cf9aed42",
+    "il": "2026-10-07"
   },
   "tools/lint-memoria.py": {
     "testa": "01128d88d66bc3b2b55cff7ed282238d1d6d89ff",

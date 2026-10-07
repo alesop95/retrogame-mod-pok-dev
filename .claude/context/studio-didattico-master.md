@@ -26,6 +26,7 @@ La pratica è adottata dal 2026-09-29, al gate dei pacchetti dell'allineamento a
 | 5 | Rifare una copia senza rifarla, e una prova a vuoto che guardava solo i box | 2026-10-07 | `refactor-05-copie-sostituite.md` |
 | 6 | Una scrittura verificata da chi non l'ha fatta, e un nome di file conteso | 2026-10-07 | `refactor-06-verifica-indipendente.md` |
 | 7 | Una regola dichiarata sempre attiva, e tre modi in cui non lo era | 2026-10-07 | `refactor-07-documenti-personali.md` |
+| 8 | Una fusione senza conflitti che spegneva una prova | 2026-10-07 | `refactor-08-fusione-senza-conflitti.md` |
 
 ## 1. Un elenco di specie letto come un elenco di forme
 
@@ -96,3 +97,13 @@ Com'era e perché era fragile. La regola non si caricava in questo progetto, che
 Il salto senior e perché è meglio. IBAN di qualunque paese, a gruppi e in minuscolo, validati con modulo 97 e lunghezza del paese; carte validate con Luhn, prefissi e lunghezze dei circuiti, con la scrittura a gruppi oltre le sedici cifre, che toglie il falso allarme trovato sui file reali, un identificativo di Discord. Confini scritti come «nessuna lettera o cifra accanto». Una prova `--autotest` per ciascuno strumento, che `chiudi` esegue a ogni commit, e una mutazione che dimostra che la prova misura: con il codice e l'elenco di prima fallisce in 8 casi su 17 e in 5 file su 21. La lezione è che «sempre attiva» si verifica dove si lavora, e che un dato personale si collauda nelle forme in cui si scrive davvero.
 
 Dove leggere il dettaglio: `refactor-07-documenti-personali.md`.
+
+## 8. Una fusione senza conflitti che spegneva una prova
+
+Contesto. L'allineamento del 2026-10-07 al template ha lasciato 8 conflitti, file modificati sia nel progetto sia nel template, da fondere a mano con una fusione a tre vie.
+
+Com'era e perché era fragile. La prima fusione ha preso come versione del template il file `.conflitto` lasciato dallo strumento, che invece è la sua fusione scartata: zero conflitti, e le righe del template già perse rese invisibili al controllo. Rifatta con la testa vera, una fusione «pulita» teneva in `Test-Anonymization.py` due funzioni `autotest()`, una del progetto sugli identificativi di console e una del template su IBAN e carte; in Python la seconda sostituisce la prima senza avvisi, e la prova del progetto si sarebbe spenta restando verde.
+
+Il salto senior e perché è meglio. Si stabilisce che cosa contiene ciascuno dei tre file prima di fondere; si cercano nel risultato le definizioni con lo stesso nome; le due prove diventano `autotest_console` e `autotest_bancari`, eseguite entrambe da `autotest`, e il controllo legge le due righe di esito, 15 e 20, non solo il codice di uscita. Le risoluzioni sono registrate, e la misura successiva dà zero conflitti. La lezione è che una fusione senza conflitti non è una fusione corretta: si esegue ciò che il file deve fare e si guarda che ogni parte abbia parlato.
+
+Dove leggere il dettaglio: `refactor-08-fusione-senza-conflitti.md`.
