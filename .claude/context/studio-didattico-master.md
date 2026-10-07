@@ -27,6 +27,7 @@ La pratica è adottata dal 2026-09-29, al gate dei pacchetti dell'allineamento a
 | 6 | Una scrittura verificata da chi non l'ha fatta, e un nome di file conteso | 2026-10-07 | `refactor-06-verifica-indipendente.md` |
 | 7 | Una regola dichiarata sempre attiva, e tre modi in cui non lo era | 2026-10-07 | `refactor-07-documenti-personali.md` |
 | 8 | Una fusione senza conflitti che spegneva una prova | 2026-10-07 | `refactor-08-fusione-senza-conflitti.md` |
+| 9 | Spostare un file cambia il perimetro di un controllo | 2026-10-07 | `refactor-09-spostare-cambia-il-perimetro.md` |
 
 ## 1. Un elenco di specie letto come un elenco di forme
 
@@ -107,3 +108,13 @@ Com'era e perché era fragile. La prima fusione ha preso come versione del templ
 Il salto senior e perché è meglio. Si stabilisce che cosa contiene ciascuno dei tre file prima di fondere; si cercano nel risultato le definizioni con lo stesso nome; le due prove diventano `autotest_console` e `autotest_bancari`, eseguite entrambe da `autotest`, e il controllo legge le due righe di esito, 15 e 20, non solo il codice di uscita. Le risoluzioni sono registrate, e la misura successiva dà zero conflitti. La lezione è che una fusione senza conflitti non è una fusione corretta: si esegue ciò che il file deve fare e si guarda che ogni parte abbia parlato.
 
 Dove leggere il dettaglio: `refactor-08-fusione-senza-conflitti.md`.
+
+## 9. Spostare un file cambia il perimetro di un controllo
+
+Contesto. La mappa di riorganizzazione approvata il 2026-10-07 spostava file di lavoro locali e uno script in `tools/`, valutando il rischio di ciascuno spostamento dai riferimenti al percorso.
+
+Com'era e perché era fragile. Per la mappa lo spostamento dei file di righe della verifica del 2026-10-05 in `_notes/fonti/consegne/` aveva rischio nullo, perché nessuno li citava; ma `consegne/` è l'unica cartella sotto `fonti/` che il controllo dei collegamenti percorre, e i loro indirizzi troncati lo hanno fatto fallire con 15 indirizzi non classificati. Nello stesso giro lo script della conta delle fonti, appena tracciato, dava una riga aperta che non lo era, perché conosceva «clonato» e non «clone superficiale».
+
+Il salto senior e perché è meglio. La destinazione è stata cambiata in una cartella fuori dal perimetro del controllo, e lo scostamento è scritto nella mappa; al vocabolario della conta si è aggiunta la forma mancante, con il motivo nell'intestazione. Tutti i controlli della mappa si sono rieseguiti dopo il riordino, non solo quelli che sembravano toccati. La lezione è che il rischio di uno spostamento si misura su chi cita il percorso e anche su chi lo percorre.
+
+Dove leggere il dettaglio: `refactor-09-spostare-cambia-il-perimetro.md`.

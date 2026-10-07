@@ -1,6 +1,6 @@
 # Debito di lettura: nove voci lette il 2026-10-01
 
-File volatile in `_notes/`, escluso da Git. Raccoglie la lettura di nove fonti catalogate e mai lette. Ogni sezione dichiara che cosa è stato letto davvero, come, e con quale esito. Le copie scaricate stanno in `_notes/fonti/tmp/`, i cloni in `_notes/fonti/cloni/`.
+Nota tracciata in `knowledge/sources/notes/`, nata il 2026-10-01 come file volatile in `_notes/` e portata qui; la copia volatile è stata tolta il 2026-10-06. Raccoglie la lettura di nove fonti catalogate e mai lette. Ogni sezione dichiara che cosa è stato letto davvero, come, e con quale esito. Le copie scaricate stanno in `_notes/fonti/raccolte/debito-tecnico-2026-10-01/`, fuori da Git, i cloni in `_notes/fonti/cloni/`.
 
 ## 1. Data Crystal, mappa della RAM di Pokemon Rosso e Blu e di Pokemon Cristallo
 

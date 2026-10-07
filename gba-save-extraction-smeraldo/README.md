@@ -29,6 +29,7 @@ Ne segue una conseguenza che va tenuta presente prima di guardare il dump: una q
 | la ricerca sui sette simboli d'oro | `STUDIO-04-parco-lotta-simboli-oro.md` |
 | le squadre prodotte e il loro spazio nei box | `STUDIO-05-squadre-e-spazio-nei-box.md` |
 | il giro sulla cartuccia del Rubino per l'identificativo segreto e il Pokédex (ADR-099, ADR-089), passo per passo | `RUNBOOK-RUBINO-SID-POKEDEX.md` |
+| l'analisi dell'Action Replay del 2026-08-16, con il manuale e i caveat del Duo per Windows e il collegamento al video | `2026-08-16-analisi-action-replay/` |
 | che cosa c'è in ciascuna delle 420 posizioni dei box, con l'illustrazione di ogni esemplare | `MAPPA-BOX-SMERALDO.md`, generata da `tools/emerald_mappa_box.py` |
 | la disposizione prevista del complemento sul Rubino di prova | `MAPPA-BOX-RUBINO.md`, dallo stesso strumento |
 | la collezione intera da stampare, Smeraldo e Rubino | `MAPPA-BOX-COLLEZIONE.pdf`, fuori da git, dallo stesso strumento |

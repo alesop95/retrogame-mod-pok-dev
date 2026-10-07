@@ -17,6 +17,7 @@ Accanto stanno i due passi documentati singolarmente. `handoff/step02_cfw_mset9.
 | come è stato installato il custom firmware | `handoff/step02_cfw_mset9.md` |
 | le guide canoniche e gli strumenti di terze parti | `SOURCES.md` alla radice, colonna 3DS |
 | a che punto è il track e qual è il prossimo passo | `.claude/context/sub-3ds-modding.md` |
+| gli appunti operativi scritti prima del sistema: dove sta il salvataggio reale rispetto a Checkpoint, i dati sulla SD, l'installazione dei dump da GodMode9, il recap del dump, l'elenco dei giochi dumpati con i title ID, il collegamento all'emulatore Azahar | `appunti/` |
 
 Lo stato canonico del track vive nella scheda, e il quadro d'insieme di tutti i sottoprogetti in `.claude/memory/index.md`. Questo file dice cos'è il sottoprogetto; quelli dicono a che punto è.
 

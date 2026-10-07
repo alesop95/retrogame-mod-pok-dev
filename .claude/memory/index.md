@@ -8,8 +8,8 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: efe2faf, ADR-100 nel template: voce didattica 7, azioni fisiche alla fine
-Data snapshot:         2026-10-07, allineamento al template fatto (non committato; push di 356a864 da ritentare); mappa approvata
+Commit di riferimento: bc4fc4b, Allineamento al template: documenti-personali, identita-git, 8 conflitti
+Data snapshot:         2026-10-07, mappa di riorganizzazione eseguita (non committata); prossimo: punto 4, ADR-100 sul codice
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,8 @@ Data snapshot:         2026-10-07, allineamento al template fatto (non committat
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-10-07, undicesima parte, che prevale su quelle sotto. Commit `bc4fc4b` e `356a864` pubblicati. Mappa di riorganizzazione eseguita, tutti i controlli verdi: appunti del 3DS in `3ds-related/appunti/`, Action Replay nella sua cartella datata, `tools/conta-letti.py` tracciato, materiale locale riordinato, `md-unwrap --check .` a zero su tutto il disco. Restano T11 con la revisione di `MAPPA-DOCUMENTI.md`, e D14-D15 alla fine.
 
 AGGIUNTA DEL 2026-10-07, decima parte, che prevale su quelle sotto. Allineamento al template fatto dall'agente: regola `documenti-personali` e skill `identita-git` nel progetto, 8 conflitti fusi e registrati. Il push del commit `356a864` era fallito per un errore del server di GitHub e parte con il prossimo `chiudi`. Mappa di riorganizzazione approvata, prossimo blocco.
 
