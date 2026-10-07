@@ -46,8 +46,11 @@ if (args.Length != 2)
 var richieste = JsonNode.Parse(File.ReadAllText(args[0]))!["voci"]!.AsArray();
 var uscita = Directory.CreateDirectory(args[1]).FullName;
 
+var progetto = AllenatoreDelProgetto();
+ushort tidProgetto = (ushort)(int)progetto["tid"]!, sidProgetto = (ushort)(int)progetto["sid"]!;
+byte sessoProgetto = (string)progetto["sesso"]! == "maschio" ? (byte)0 : (byte)1;
 SimpleTrainerInfo Allenatore(GameVersion v, byte gen, EntityContext ctx) =>
-    new(v) { OT = "Alessio", TID16 = 42317, SID16 = 5147, Gender = 0, Language = (int)LanguageID.Italian, Generation = gen, Context = ctx };
+    new(v) { OT = (string)progetto["nome"]!, TID16 = tidProgetto, SID16 = sidProgetto, Gender = sessoProgetto, Language = (int)progetto["lingua"]!, Generation = gen, Context = ctx };
 var giochi = new Dictionary<string, (GameVersion[] Versioni, SimpleTrainerInfo Tr)>
 {
     ["pokewalker"] = ([GameVersion.HG, GameVersion.SS], Allenatore(GameVersion.HG, 4, EntityContext.Gen4)),
@@ -58,7 +61,7 @@ var giochi = new Dictionary<string, (GameVersion[] Versioni, SimpleTrainerInfo T
     // I doni statici di Ultrasole e Ultraluna, dal 2026-10-05: Pikachu di Ohana e doni di taglia totem.
     ["statico7"] = ([GameVersion.US, GameVersion.UM], Allenatore(GameVersion.US, 7, EntityContext.Gen7)),
     // L'uovo di Manaphy di Pokémon Ranger, dal 2026-10-06, con l'allenatore del progetto dei lotti di quarta generazione.
-    ["ranger"] = ([GameVersion.D, GameVersion.P], new SimpleTrainerInfo(GameVersion.D) { OT = "Alessio", TID16 = 42317, SID16 = 58164, Gender = 0, Language = (int)LanguageID.Italian, Generation = 4, Context = EntityContext.Gen4 }),
+    ["ranger"] = ([GameVersion.D, GameVersion.P], Allenatore(GameVersion.D, 4, EntityContext.Gen4)),
 };
 
 var esiti = new JsonArray();
@@ -75,7 +78,7 @@ foreach (var r in richieste)
     // `PokewalkerCourse4.cs`. La libreria non lo impone, ma un gioco italiano quei corsi non poteva riceverli:
     // l'esemplare si genera con un allenatore giapponese.
     if (corso is "Rally" or "Sightseeing" or "AmityMeadow")
-        tr = new SimpleTrainerInfo(GameVersion.HG) { OT = "アレシオ", TID16 = 42317, SID16 = 5147, Gender = 0, Language = (int)LanguageID.Japanese, Generation = 4, Context = EntityContext.Gen4 };
+        tr = new SimpleTrainerInfo(GameVersion.HG) { OT = "アレシオ", TID16 = tidProgetto, SID16 = sidProgetto, Gender = sessoProgetto, Language = (int)LanguageID.Japanese, Generation = 4, Context = EntityContext.Gen4 };
     PKM modello = dispositivo switch { "radar" or "statico5" => new PK5(), "statico7" => new PK7(), _ => new PK4() };
     modello.Species = specie;
     modello.Language = tr.Language;
@@ -191,3 +194,17 @@ File.WriteAllText(Path.Combine(uscita, "rapporto.json"),
         .ToJsonString(new JsonSerializerOptions { WriteIndented = true }));
 Console.WriteLine($"conformi {conformi}, falliti {falliti}");
 return falliti == 0 ? 0 : 1;
+
+// L'allenatore del progetto da recreate-pokemon-distributions-events/allenatore.json, cercato risalendo dalla cartella
+// corrente, così che i comandi documentati restino quelli di prima. Fino al 2026-10-07 nome e identificativi erano
+// scritti qui a mano, con un identificativo segreto, 5147, senza fonte né motivo, diverso dal 58164 del file (ADR-099).
+static JsonNode AllenatoreDelProgetto()
+{
+    for (var d = new DirectoryInfo(Directory.GetCurrentDirectory()); d != null; d = d.Parent)
+    {
+        var f = Path.Combine(d.FullName, "recreate-pokemon-distributions-events", "allenatore.json");
+        if (File.Exists(f))
+            return JsonNode.Parse(File.ReadAllText(f))!;
+    }
+    throw new FileNotFoundException("allenatore.json non trovato risalendo dalla cartella corrente");
+}

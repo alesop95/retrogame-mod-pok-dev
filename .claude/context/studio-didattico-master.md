@@ -22,6 +22,7 @@ La pratica è adottata dal 2026-09-29, al gate dei pacchetti dell'allineamento a
 | 1 | Un elenco di specie letto come un elenco di forme | 2026-09-30 | `refactor-01-forme-di-battaglia.md` |
 | 2 | Una chiave che sapeva solo l'ultima cartella | 2026-10-07 | `refactor-02-chiave-del-lotto.md` |
 | 3 | Un controllo che saltava ciò che non sapeva misurare | 2026-10-07 | `refactor-03-capitoli-senza-timbro.md` |
+| 4 | Lo stesso identificativo, corretto in due modi | 2026-10-07 | `refactor-04-identificativo-segreto.md` |
 
 ## 1. Un elenco di specie letto come un elenco di forme
 
@@ -52,3 +53,13 @@ Com'era e perché era fragile. `tools/check-thesis-coverage.py` misura il drift 
 Il salto senior e perché è meglio. Un capitolo che dichiara coperture senza timbro è ora un errore elencato, accanto ai capitoli in drift, e la corsa a HEAD `0f82fcb` passa da 1 a 2 problemi senza cambiare i 10 capitoli in drift di prima. La correzione non mette timbri: un timbro messo per far tacere il controllo trasforma un punto cieco in una dichiarazione falsa, e il timbro si mette solo dopo aver riletto il capitolo. Il principio generale è che un controllo conta fra i propri esiti ciò che non ha potuto controllare, invece di lasciarlo fuori dal totale.
 
 Dove leggere il dettaglio: `refactor-03-capitoli-senza-timbro.md`.
+
+## 4. Lo stesso identificativo, corretto in due modi
+
+Contesto. ADR-099 del 2026-10-06 dà all'allenatore del progetto un solo identificativo segreto, 58164, quello di `recreate-pokemon-distributions-events/allenatore.json`. Due strumenti scrivevano a mano 5147, in 201 esemplari, e il manifesto del complemento del Rubino scriveva 0, in 101 esemplari già sulla cartuccia.
+
+Com'era e perché era fragile. Il file dell'allenatore esisteva proprio per non ripetere il dato, ma tre programmi lo ripetevano a mano, con due valori diversi e senza una fonte per nessuno dei due. Nessun valore produceva un errore, perché un SID qualunque genera esemplari legali; il difetto stava nella collezione, con tre identità per lo stesso allenatore, ed era invisibile anche nel registro dei giudizi, che descrive l'identificativo nel formato del gioco e non mostra il SID.
+
+Il salto senior e perché è meglio. I programmi leggono il file, che cercano risalendo dalla cartella corrente così che i comandi documentati non cambino, e uno strumento nuovo, `pkhex-identificativi`, rende ripetibile la misura del campo. La correzione non è una sola. Dove il PID deriva dal SID, cioè nel Pokéwalker (`PokewalkerRNG.cs` riga 280) e nella quinta generazione, dove il bit alto del PID segue la parità di TID xor SID (`MonochromeRNG.cs` righe 14-25) e 5147 e 58164 hanno parità opposta, si rigenera, e 223 file nascono di nuovo conformi. Dove il SID non entra in nessun calcolo, cioè negli incontri di terza generazione, dove sta nell'intestazione fuori dalla somma di controllo (`PK3.cs` righe 56 e 204), si cambiano due byte con `pkhex-correggi-sid`, che conserva gli individui già scritti sulla cartuccia come vuole ADR-082. La scelta si fa leggendo il codice che deriva gli altri campi, perché nulla nell'esemplare la rivela; la prova decisiva è un confronto byte per byte scritto senza la libreria, che trova cambiati solo gli offset 6 e 7.
+
+Dove leggere il dettaglio: `refactor-04-identificativo-segreto.md`.

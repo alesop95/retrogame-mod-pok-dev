@@ -35615,7 +35615,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/001-statico.pk3": {
-      "sha256": "6c33959b39e5493771b3439b9b88b1e92a149c6b1979ac75e40175dff3806958",
+      "sha256": "742cf9acd413dfb564bfb4ea0b1ed533005ae9ca53b51b59be1850fa5940047c",
       "specie": 351,
       "nome": "Castform",
       "forma": 0,
@@ -35643,7 +35643,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/002-statico.pk3": {
-      "sha256": "8252a7794fb508296d7d159af6ace1a0d00194654d36b061e4e4407018f9e3cf",
+      "sha256": "0ad7e353617f5c87ccfff638b779535f2409be78a4c32ceba0b4e3c4d1f654d2",
       "specie": 360,
       "nome": "Wynaut",
       "forma": 0,
@@ -35670,7 +35670,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/003-statico.pk3": {
-      "sha256": "6dfee22400271eae35401614ec63153799216c3e5d98ddc0e07cb33549980cfa",
+      "sha256": "e596cbd2565ac3c1305e24966b535369b1df7b71b686121d6352ac738ffb4a91",
       "specie": 352,
       "nome": "Kecleon",
       "forma": 0,
@@ -35698,7 +35698,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/004-statico.pk3": {
-      "sha256": "53d47139e81a8caaa46289fc72980574528ef53f7626245f22dcaf246affb0ef",
+      "sha256": "8763fce5968cc6506eb3e7d2869479ca57e0b251e1a00a3d8b74d622436fc744",
       "specie": 100,
       "nome": "Voltorb",
       "forma": 0,
@@ -35866,7 +35866,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/010-statico.pk3": {
-      "sha256": "375b2f2c810ab465e1443a41a6f6dcf5c11c575d054514107e802c22cdc973ea",
+      "sha256": "27d0fc013a72e0bbd58d081a03076f36a7ed84e1aec1cafca1abacc832d6b675",
       "specie": 383,
       "nome": "Groudon",
       "forma": 0,
@@ -35894,7 +35894,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/011-statico.pk3": {
-      "sha256": "7b8c79bde1462680a334ce79bf8b87990520611fca03f5ceca330fa30ebef6e5",
+      "sha256": "de7ba9eac35b7abb2683a93b86dbbe323d903b16469bc5f24209f2498493d940",
       "specie": 101,
       "nome": "Electrode",
       "forma": 0,
@@ -35922,7 +35922,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/012-statico.pk3": {
-      "sha256": "6f87c64c2a1c84cc6ede4b51310dd46ab350d80abd2ea226c8465cc3992a46d3",
+      "sha256": "673b80e16a6f49e9cdc89010b1a6e2315b42c94820fbdefd6fe79c3caf17b113",
       "specie": 152,
       "nome": "Chikorita",
       "forma": 0,
@@ -35948,7 +35948,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/013-statico.pk3": {
-      "sha256": "82ed9d709d06049a999fd3dfdd1009027b9249f730d73ea2aba8c5f9a3c1999b",
+      "sha256": "b27cab0a03722fa7145dce67a6266a6f5f859aeac1906ecbf2cc9401c438b609",
       "specie": 155,
       "nome": "Cyndaquil",
       "forma": 0,
@@ -35974,7 +35974,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/014-statico.pk3": {
-      "sha256": "fdc50ae8bd2493ca84080f6d633ddf402a85fa1f5c98abeb5c980ded18baed5e",
+      "sha256": "2c2bcaf931358999246dd605e876ac1043505e5512a1880d45a022a174bfc90d",
       "specie": 158,
       "nome": "Totodile",
       "forma": 0,
@@ -42730,7 +42730,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/261-incontro-speciale.pk3": {
-      "sha256": "776d3c2bfd520422e578fbbfa48c7cea262675b7cae637312127ba53cd6e7d35",
+      "sha256": "0e6cf2589911c4fafebd9fd0fe11ec84e50ef5c9ca287f0b62a0f0b7f2ee20ce",
       "specie": 299,
       "nome": "Nosepass",
       "forma": 0,
@@ -42756,7 +42756,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/262-incontro-speciale.pk3": {
-      "sha256": "0e06080e21bacff658288e5a7217744937ab2ea62f80b8663e51d5c33ecd6d7b",
+      "sha256": "63f7b23d4ffc3b9d277f8422f0f043e1bca11940a38ef4eefd5fd427ab0f0eb2",
       "specie": 293,
       "nome": "Whismur",
       "forma": 0,
@@ -42782,7 +42782,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/263-incontro-speciale.pk3": {
-      "sha256": "7bc1634d4b170064c7f4ace150e52f8897ec74a8feba64f09708ca6458e357a5",
+      "sha256": "c612115fecde71bcac416b725227ee19cab6f745f00df080b665c2849bd63c62",
       "specie": 235,
       "nome": "Smeargle",
       "forma": 0,
@@ -42997,7 +42997,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/271-mossa-perduta-Ragnatela.pk3": {
-      "sha256": "2e822af3a35d490869c8e15a14587faaa121bd5ce48d7c1f26abfecc6a53ba4d",
+      "sha256": "63e76b5ed0c9e777f7d8a2e1aa6d01da4922b07a6e7c6ed858512774319bb613",
       "specie": 167,
       "nome": "Spinarak",
       "forma": 0,
@@ -43024,7 +43024,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/272-mossa-perduta-Preveggenza.pk3": {
-      "sha256": "57f0bd2618d9c6e6a91680daa1786a2bac6db38100f8ac7fb64b0e37eaa63dc7",
+      "sha256": "1750654ca1dbdc1ab31fd9af3e6bf1021aa4514364bc22d6e65d188f494d5878",
       "specie": 355,
       "nome": "Duskull",
       "forma": 0,
@@ -43052,7 +43052,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/273-mossa-perduta-Frustrazione.pk3": {
-      "sha256": "aa581e621a17fdd8af42828e5f12522f43f7903a0b9874695baea2876d65ffec",
+      "sha256": "e18418e978c7549ace587ff6b1b8ccd4468de76a818243fe47e4638adb2e053b",
       "specie": 359,
       "nome": "Absol",
       "forma": 0,
@@ -43079,7 +43079,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/274-mossa-perduta-Maniereforti.pk3": {
-      "sha256": "2c54cdc4719765f25a80d56e2761444de91757dd830657d51bc84afcbad68b26",
+      "sha256": "87c3e2453efca4a8ae603c5d7f3a4354fff1e9aeb5ddd39c1a129b0dda633e05",
       "specie": 296,
       "nome": "Makuhita",
       "forma": 0,
@@ -43107,7 +43107,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/275-mossa-perduta-Assistente.pk3": {
-      "sha256": "df5c0314ffa2b3d739234ab24109fbacd8b05bfd7bbea538c764582142192776",
+      "sha256": "0c5214b8c41789bb6008af9af28b67806313d23f4653f46b5b4bd07067dbfb93",
       "specie": 52,
       "nome": "Meowth",
       "forma": 0,
@@ -43134,7 +43134,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/276-mossa-perduta-Pugnospine.pk3": {
-      "sha256": "31e5b3566075328bfb35f7fb1364852f82a185303cb12b9d6c71554cdd962c33",
+      "sha256": "7383c74268ef90ebfc0254e9440c780a0eb1f2a4d980e00f92b96dd4a970df07",
       "specie": 331,
       "nome": "Cacnea",
       "forma": 0,
@@ -43162,7 +43162,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/277-mossa-perduta-Meloderba.pk3": {
-      "sha256": "bb16d4de70aa4b75db87e26d4e4b9414dd37a566ffdf8a00a301e00e81ddea15",
+      "sha256": "80ca583fafe2be1c4bf6086dbd13119cc861a12d8ca063198a5437b3b95bc32d",
       "specie": 1,
       "nome": "Bulbasaur",
       "forma": 0,
@@ -43189,7 +43189,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/278-mossa-perduta-Segnoraggio.pk3": {
-      "sha256": "7ebcac28dacff4bd6d75040f8716baf16f7d28e5d826c87932b78c38c5c1c2b3",
+      "sha256": "0e0aea8194b2c11588df048a473c5390e82c9775260f7b44fd12ec2224c297c6",
       "specie": 313,
       "nome": "Volbeat",
       "forma": 0,
@@ -43216,7 +43216,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/279-fiocchi.pk3": {
-      "sha256": "8624b6a0bf21c8eaa2b4787c9ac017dc6dfbfac163957ece054989e6dc6665d0",
+      "sha256": "269a87db8f7945f505f2c7a339e85920a8bd7641d75196a56a6ceca3aafcd58f",
       "specie": 359,
       "nome": "Absol",
       "forma": 0,
@@ -43244,7 +43244,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/280-specie-scoperta.pk3": {
-      "sha256": "400eb7a6427d54ffbe86076e664f8ebd16ddf8a6f920288045ffc96aa3a0f2e1",
+      "sha256": "cf3bdf3793bf23d248de99e349b502f0a577fd865cf48352be0021ac37137c2d",
       "specie": 2,
       "nome": "Ivysaur",
       "forma": 0,
@@ -43270,7 +43270,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/281-specie-scoperta.pk3": {
-      "sha256": "36d7e039ab3364db4d2d610979c3b65a3431e38eede4e1d4ff68bb24174edd1f",
+      "sha256": "61f274bb56cc9f9907556f4af99ad95c34da29e53f0effe937c024807887680e",
       "specie": 4,
       "nome": "Charmander",
       "forma": 0,
@@ -43296,7 +43296,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/282-specie-scoperta.pk3": {
-      "sha256": "d3bc54607a07b75dc77baef9739d0d0b78036fdf009433621bebc327ebcc3f7b",
+      "sha256": "b77a49322ac31a8ba9ca0e7310f45b229ac3a6b0c2ba12e758705bf5c1dbbac8",
       "specie": 5,
       "nome": "Charmeleon",
       "forma": 0,
@@ -43322,7 +43322,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/283-specie-scoperta.pk3": {
-      "sha256": "0a4fe2150d1203be9bb8464751a87118490ca45e7ab278d4873ed54508ecfcb2",
+      "sha256": "f5faf04551f3a5ab76c843404cd1514abffc292677163d4adfcb53a525bb9b0e",
       "specie": 8,
       "nome": "Wartortle",
       "forma": 0,
@@ -43452,7 +43452,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/288-specie-scoperta.pk3": {
-      "sha256": "ce63cf213c66830129ce390895e91920575a43357ec6ea65bdd8ea3b001ed895",
+      "sha256": "8675d5b6364f62c09419ecd2dcb70de0c78432a2c76b0c56bd10cb928347377c",
       "specie": 18,
       "nome": "Pidgeot",
       "forma": 0,
@@ -43478,7 +43478,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/289-specie-scoperta.pk3": {
-      "sha256": "972f3c5a7b89933aeedb75107c9d900c0b299d769b5fb5e450f661cc8a86bd70",
+      "sha256": "567c0bd4f5a819923d9545d598990f574b9f7b2c4eb8307028bd150ef2ce8351",
       "specie": 31,
       "nome": "Nidoqueen",
       "forma": 0,
@@ -43504,7 +43504,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/290-specie-scoperta.pk3": {
-      "sha256": "995f86cf9b75fba65112129c6dbd2585bce2941f93d0bc67f5e457b5d20965e8",
+      "sha256": "7b5704ad4789853c17dc9a663c6b696f3207468d5b6626e709506c1e6adc3ab8",
       "specie": 34,
       "nome": "Nidoking",
       "forma": 0,
@@ -43530,7 +43530,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/291-specie-scoperta.pk3": {
-      "sha256": "dc15409f07559c6bddbef58677a5ccdecba8f86f14de3936e3a77b7296ad9b7e",
+      "sha256": "9a94233841b3f5fffe001d50e44581482f55e5c8018035d154cf04e4005407af",
       "specie": 36,
       "nome": "Clefable",
       "forma": 0,
@@ -43557,7 +43557,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/292-specie-scoperta.pk3": {
-      "sha256": "ad8799b1149cf212d363b72ce3ea0af96ccf1c7d590ac5ca7a4b7e35ff07f5c7",
+      "sha256": "18971799ff9586e0de85cbe638b3211359b48c9af2cc0c1a9d4ba19f9c3609b1",
       "specie": 42,
       "nome": "Golbat",
       "forma": 0,
@@ -43685,7 +43685,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/297-specie-scoperta.pk3": {
-      "sha256": "702a66ba470c83b80afb0adb1c67d57e14d8390a21b46a6cd3eec80d9577c92c",
+      "sha256": "dcc7449ee951bcb5a85bbb8cb8cb0e8a972ebcd9e10dfe3e5f7afb3009a4c5f2",
       "specie": 66,
       "nome": "Machop",
       "forma": 0,
@@ -43737,7 +43737,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/299-specie-scoperta.pk3": {
-      "sha256": "e949ac7bf52c5a724d231c931673feee45b63ce6716f5af93a0170e3b18d98dd",
+      "sha256": "40e2ffa13fb81c141724314912608597b0c04429ecee3aa76a9319d45398ce6b",
       "specie": 72,
       "nome": "Tentacool",
       "forma": 0,
@@ -43762,7 +43762,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/300-specie-scoperta.pk3": {
-      "sha256": "274dca8ac14e213d1870b206e1702807bac1a0c22252fc38fae2a8276cfa157e",
+      "sha256": "ecc69f470699f1b4123dc81d1973b167358fc4b24a1968355192ac623f7d59ef",
       "specie": 74,
       "nome": "Geodude",
       "forma": 0,
@@ -43814,7 +43814,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/302-specie-scoperta.pk3": {
-      "sha256": "323957078c2fbbe43fab603c434dee1dc9b7b333857cc51395f5ddd566286f59",
+      "sha256": "0a335c131ea1e097d4d434005eaebc199285ba6108caea847bbcb82a9baf654c",
       "specie": 84,
       "nome": "Doduo",
       "forma": 0,
@@ -43969,7 +43969,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/308-specie-scoperta.pk3": {
-      "sha256": "c2f2ce6d9dffc9de0b3de4887bfba6534e948914baaf075cb9445ae182a2bde2",
+      "sha256": "a768b27bf1cd02cc60e1edae201f2c050b84e874cdf41f9526f4af8639fe6467",
       "specie": 109,
       "nome": "Koffing",
       "forma": 0,
@@ -43995,7 +43995,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/309-specie-scoperta.pk3": {
-      "sha256": "627817c30e5b972f407600d66208c9d47ee71cfd0ee8eaa1cd775186121b5841",
+      "sha256": "68a1da663657dde455ed724b37e8e370f67db3a9ef05da1cd7d5b2bbb41f5cc6",
       "specie": 118,
       "nome": "Goldeen",
       "forma": 0,
@@ -44022,7 +44022,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/310-specie-scoperta.pk3": {
-      "sha256": "b7d52487650f6ea7c435728580bb09e9e52a9a57326a9858f5a552c7d5efa94a",
+      "sha256": "1047ed6759e6d53f076363ff4ef007cca9e570b6cd0b98bae72e6a8a8083c01b",
       "specie": 119,
       "nome": "Seaking",
       "forma": 0,
@@ -44049,7 +44049,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/311-specie-scoperta.pk3": {
-      "sha256": "0a2fa2793a10abef5a4e9ce786e305db67bed58eb56a66e4474919e381f81edb",
+      "sha256": "6d41b91a52f12e6ac145ba5d99abba2d7c5467fce9455cb2e2b978ce0ff4c6e2",
       "specie": 132,
       "nome": "Ditto",
       "forma": 0,
@@ -44074,7 +44074,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/312-specie-scoperta.pk3": {
-      "sha256": "5a4b29c66ecc1996018403b24a717cd6fefdfbc3fff52910968c1a23e668c5fe",
+      "sha256": "2bb2294a34cf90f3a908a3cf5c9cbeebba16a942e4b26b799da65a0a977b321a",
       "specie": 134,
       "nome": "Vaporeon",
       "forma": 0,
@@ -44101,7 +44101,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/313-specie-scoperta.pk3": {
-      "sha256": "7a7d200282483298b04a4840fb8aafd3ea5f1f92485ceac1ba36436ce6410b7c",
+      "sha256": "d770486176eadc41ccd46734a6cd0ca8e0cac076c0983ceda4763f59a0d0fbcd",
       "specie": 135,
       "nome": "Jolteon",
       "forma": 0,
@@ -44128,7 +44128,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/314-specie-scoperta.pk3": {
-      "sha256": "81ec2ac4387b6546fef023cb99207ab54b42f740db0f30741fa6be525cb84145",
+      "sha256": "a7391ce8e965d82eb2713f58b15fe64a20b6bd9e5c37e99c9cff0d022ac2b9b9",
       "specie": 136,
       "nome": "Flareon",
       "forma": 0,
@@ -44155,7 +44155,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/315-specie-scoperta.pk3": {
-      "sha256": "e5ce86934cd61b8bd8e37910a0fdef27f77b1d22e35f503c0ef07f05c1b4be1b",
+      "sha256": "186ec043ba48a25aca225589ec432607ee1a05c2907f2df6fef2e1231dc59eb6",
       "specie": 139,
       "nome": "Omastar",
       "forma": 0,
@@ -44181,7 +44181,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/316-specie-scoperta.pk3": {
-      "sha256": "cc381c060a52e157319c7f094b52b20e79911a5660d540919c787c42aefd528a",
+      "sha256": "27fc64df8a2baa5991719bbae15a9f61d30153fb3614c69ce23b47e86282f99f",
       "specie": 141,
       "nome": "Kabutops",
       "forma": 0,
@@ -44233,7 +44233,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/318-specie-scoperta.pk3": {
-      "sha256": "2bf30af4057d3731520861d43e0b102918601dc878e8c3f947e25678d9ae6e77",
+      "sha256": "f0887a531906c3695d8457727c361e51618f387cfc81bdd8289c038167df0643",
       "specie": 154,
       "nome": "Meganium",
       "forma": 0,
@@ -44259,7 +44259,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/319-specie-scoperta.pk3": {
-      "sha256": "46639d64aab5e567e5029e924237ce893423901d17b5fe0bbe08e1dcec22e750",
+      "sha256": "710c81b25903b2f9342ad414ff23b6586c9345b1d43cc4f4136f26baba38e723",
       "specie": 160,
       "nome": "Feraligatr",
       "forma": 0,
@@ -44285,7 +44285,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/320-specie-scoperta.pk3": {
-      "sha256": "07326e2463f92dfd925705157bceb037ae5ba08aa983f7487ba961c12a4ffc5e",
+      "sha256": "d6189e712fb29137c736ba1971241d1481b58157f0dbb673d8317f8cafe2a79b",
       "specie": 163,
       "nome": "Hoothoot",
       "forma": 0,
@@ -44311,7 +44311,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/321-specie-scoperta.pk3": {
-      "sha256": "fab8af9aec60d1c0deecf3d2f924d7cf1c501c2118a0803eb3d8937d4867c745",
+      "sha256": "99771ab4223e4a8aa75a3b8a9a86fc44e999fbe9cdba7ec535beb12bef127fc6",
       "specie": 170,
       "nome": "Chinchou",
       "forma": 0,
@@ -44338,7 +44338,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/322-specie-scoperta.pk3": {
-      "sha256": "e6096c697258a752db16d2c248213cb466b67bb5c774cfc5e0686b9dcfb7957b",
+      "sha256": "b5d41302f8760d3d41862729be8509b313a4b76d7da12a099e474bd1e2451923",
       "specie": 173,
       "nome": "Cleffa",
       "forma": 0,
@@ -44365,7 +44365,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/323-specie-scoperta.pk3": {
-      "sha256": "f9d47789249cb32bfbd0e8e64f4b8e4fceccc7637bc4dd9d111e83ff1a65d078",
+      "sha256": "1ad0f6204f98da25c810d4985cfac1eb00848bdbd610882cd74f3aac6dcaaeaf",
       "specie": 181,
       "nome": "Ampharos",
       "forma": 0,
@@ -44391,7 +44391,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/324-specie-scoperta.pk3": {
-      "sha256": "9e4a34a16844eca32a57eed8ce90827278f97bc46d6f8defc49c65ae583e283b",
+      "sha256": "928eff6f8885b316bb0f3ba24638516acc0524409fac4459217e42d5b484d516",
       "specie": 186,
       "nome": "Politoed",
       "forma": 0,
@@ -44443,7 +44443,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/326-specie-scoperta.pk3": {
-      "sha256": "d35fb12ec1f74d686db9ab5c3212518daa730b1bb5ad8603d9f1d65bd5d6d026",
+      "sha256": "ee3128be1d9a019fbf6c14e60e9ec19efc739d2be81df6e413025a0c72e0a221",
       "specie": 189,
       "nome": "Jumpluff",
       "forma": 0,
@@ -44470,7 +44470,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/327-specie-scoperta.pk3": {
-      "sha256": "08bb97b317307f24ab3206b0d8dff2fa9fe2dddbff3444edb8b72fdf4a7b4967",
+      "sha256": "97608c0a2c38f4188cc82eacc24d93f63c3d61f7df43a577655bcb0aed0dfaa2",
       "specie": 199,
       "nome": "Slowking",
       "forma": 0,
@@ -44497,7 +44497,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/328-specie-scoperta.pk3": {
-      "sha256": "a6de5c0244ada893cfd9f80412af90803261212b12aa95f0aad9db0c9bcc785e",
+      "sha256": "7a14e413b78bc5067918b71f87b40edd3e14fae71b73765f312915f47293b9e3",
       "specie": 209,
       "nome": "Snubbull",
       "forma": 0,
@@ -44524,7 +44524,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/329-specie-scoperta.pk3": {
-      "sha256": "1460405d033925e0128e052be0ee44b5aafa96bc33f2a9f989f1bb743d62c849",
+      "sha256": "781de8ee798f703a197600f714c2b306d5c64890fb6f4a8535f67042e014a90a",
       "specie": 224,
       "nome": "Octillery",
       "forma": 0,
@@ -44549,7 +44549,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/330-specie-scoperta.pk3": {
-      "sha256": "4c6eaaea1c3d8c037b49f3e4ee9175f579e9374bca6996837fd2ac27c3e4349c",
+      "sha256": "a1e561af2d3461b0adec197585bc003b2c5676deef84ee86ae75b566ebe5e12a",
       "specie": 230,
       "nome": "Kingdra",
       "forma": 0,
@@ -44574,7 +44574,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/331-specie-scoperta.pk3": {
-      "sha256": "a778d3b5ee0f29582c931a6b7bf0d07798ac0cf3ca1528aba1994989b7b5f865",
+      "sha256": "1eef7ad83a394e7b521e21b4482686c6a792c03c01e9ba81764b8b258756f18b",
       "specie": 232,
       "nome": "Donphan",
       "forma": 0,
@@ -44601,7 +44601,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/332-specie-scoperta.pk3": {
-      "sha256": "b6d7cccb958f814875a0cebac5783a9a625789a31bcdea4c7068b09ce3ef4c04",
+      "sha256": "373461f35054c987bea693333001aa154b1968c5305babc9f736834e646bed63",
       "specie": 236,
       "nome": "Tyrogue",
       "forma": 0,
@@ -44626,7 +44626,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/333-specie-scoperta.pk3": {
-      "sha256": "ebfcc450de324cc6aa260b28be1dd65fda6805c25bf8bec697e7b9899a966fbf",
+      "sha256": "c867190be36fe1a9dc844c9fe3ffb3b866b5b59a8c30b2fd89c079752cca2cfa",
       "specie": 238,
       "nome": "Smoochum",
       "forma": 0,
@@ -44652,7 +44652,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/334-specie-scoperta.pk3": {
-      "sha256": "693fb6edbb6b812b45ee949f7df6005bcf7fc215673328deb70b29d122c624b7",
+      "sha256": "e991b5dec0ab102330bf1479ccca3a3b9b412c312affee001409f6e8016a16d3",
       "specie": 240,
       "nome": "Magby",
       "forma": 0,
@@ -44677,7 +44677,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/335-specie-scoperta.pk3": {
-      "sha256": "03d1e52415966007823ffc04aaca2fd4fd20fe1155a62ca5107c3364cb968752",
+      "sha256": "846ef75ea48c10dc4ec174902b5834e1d8751882641ff4dd358b05ba939349d4",
       "specie": 247,
       "nome": "Pupitar",
       "forma": 0,
@@ -44703,7 +44703,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/336-specie-scoperta.pk3": {
-      "sha256": "ea82c8d86346edbfc23f3b41b39534eb8ed58102e00c033ca092e7ac312a0e6a",
+      "sha256": "2b718365ee49386326568ae21cda6bc38cdc1a78c1b5d30e0da9fcc5ea4b277a",
       "specie": 252,
       "nome": "Treecko",
       "forma": 0,
@@ -44729,7 +44729,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/337-specie-scoperta.pk3": {
-      "sha256": "e94bf60e9891b24482aa8610ab064f7cdf48d5108c21c6890f14b628ff28e782",
+      "sha256": "1d5ff4725ac6b5e8b4874df2835f6a8c1057d91a3a81a64635fb703c4bf3887e",
       "specie": 253,
       "nome": "Grovyle",
       "forma": 0,
@@ -44755,7 +44755,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/338-specie-scoperta.pk3": {
-      "sha256": "4106cd0d87b2863efc988a0927b6cbb16c3499645af29b8d303ee20b3b86e9a1",
+      "sha256": "02a166d3f50063c7b951dc8dbe754867628f54dee555c19968039cf51e990053",
       "specie": 255,
       "nome": "Torchic",
       "forma": 0,
@@ -44781,7 +44781,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/339-specie-scoperta.pk3": {
-      "sha256": "659d7169a42f18eda10dbfc512aa1150276d5c8c2b10e8c384979d7deb27193b",
+      "sha256": "11c0c35f54f8417d6be8126ca67d6074e4cbe4f4287df353523ba2c0083fa0f5",
       "specie": 256,
       "nome": "Combusken",
       "forma": 0,
@@ -44807,7 +44807,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/340-specie-scoperta.pk3": {
-      "sha256": "8d354445904e79374c62f08b685465981aedbacfe7570487ea8bf7d140a02e01",
+      "sha256": "d8b53f0ebb7401965bba975c0abeb80a0094b6230064905cadfddb2ca2697ab1",
       "specie": 259,
       "nome": "Marshtomp",
       "forma": 0,
@@ -44833,7 +44833,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/341-specie-scoperta.pk3": {
-      "sha256": "696043a53ab60396b67e87036e123c077c19b0ca2effca63a5140952da42710a",
+      "sha256": "566fea190c3e82a31c4a2149a22de0628632270512f2893eb38f9eadaa321340",
       "specie": 266,
       "nome": "Silcoon",
       "forma": 0,
@@ -44860,7 +44860,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/342-specie-scoperta.pk3": {
-      "sha256": "509cb4762787e4ca46eb09a1dd532e8e8154589aa7090898ba8130490075ead9",
+      "sha256": "8ebff3212ba37c76680d4ab7be06f59a5279de04666725b2c52ac9b7d908de0f",
       "specie": 275,
       "nome": "Shiftry",
       "forma": 0,
@@ -44886,7 +44886,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/343-specie-scoperta.pk3": {
-      "sha256": "16f67cd2b5e07aebeda049f5afb589d31a392fb29f91858986b37dc6e9272a4f",
+      "sha256": "f952c6fdceb738a14fec443b0e04cad229aa30d66d839077bbf284c03daa0148",
       "specie": 278,
       "nome": "Wingull",
       "forma": 0,
@@ -44912,7 +44912,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/344-specie-scoperta.pk3": {
-      "sha256": "1a2ff8fa633c4e0c53e09f7387f519f5d255b7d2d2d0eb49c32a186e57c43afa",
+      "sha256": "eb4c5565c20bfd3d4253eed5a8b55eee024188347a767722609585d653619cf2",
       "specie": 281,
       "nome": "Kirlia",
       "forma": 0,
@@ -44937,7 +44937,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/345-specie-scoperta.pk3": {
-      "sha256": "3eab19a45caf975f00af3088436303a525d428d8256abe25d12312b59bfcfce6",
+      "sha256": "a73eaf85d645fc561b35cd9da7caf520593f73cd6c1df309d4642f6d69771b12",
       "specie": 284,
       "nome": "Masquerain",
       "forma": 0,
@@ -44962,7 +44962,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/346-specie-scoperta.pk3": {
-      "sha256": "1c85563fb402cc0bf875deec152c7726b9c2bf1b820664314ed5a9641a44e872",
+      "sha256": "3dad2a6d4387af8412ae7094d2cd8acaf912b4dce786dd0cabc9f1eba2202829",
       "specie": 287,
       "nome": "Slakoth",
       "forma": 0,
@@ -44988,7 +44988,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/347-specie-scoperta.pk3": {
-      "sha256": "6b1db711d0685e923433c73c15a727e289e75fada17816531b39cc183b7480ce",
+      "sha256": "926c54a40164af9a30a93565d202dae092f226a2a7a5ce11089e23491bea9a43",
       "specie": 288,
       "nome": "Vigoroth",
       "forma": 0,
@@ -45014,7 +45014,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/348-specie-scoperta.pk3": {
-      "sha256": "2a13c4ed55c58ba5f542db29e9e5a5ca4d00e244c8edc1b6370a82520f2bc8e4",
+      "sha256": "e6d4e6fa33d32d9c34484613e04b4bfbdacdb32b8d45937c691ed1bed545c235",
       "specie": 290,
       "nome": "Nincada",
       "forma": 0,
@@ -45041,7 +45041,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/349-specie-scoperta.pk3": {
-      "sha256": "d44540a205ae882190f169a5b95b462dafdc9d09a6bb5f89f6b7d0d2dcd12683",
+      "sha256": "168f9b061db65dc2a4ffb906ca23d913743f69c44c4abe9eb062e98c64a62faf",
       "specie": 291,
       "nome": "Ninjask",
       "forma": 0,
@@ -45068,7 +45068,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/350-specie-scoperta.pk3": {
-      "sha256": "4492dfea1e013f9ed5e339a691a40ee702d7ab02c4b9311d68ac55f334d2fc88",
+      "sha256": "b34d3cf9dabb868965ff44b5d1bbe2c127fd6d127a340f3ccd5d2cc1c710d8c3",
       "specie": 292,
       "nome": "Shedinja",
       "forma": 0,
@@ -45095,7 +45095,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/351-specie-scoperta.pk3": {
-      "sha256": "66645028b6d76036ea6709af9c74577ad1ba962408390b39f303388f9add89bd",
+      "sha256": "17b1fa1d10f2f026f273bde7fd37332cf37f9bee64c93d3ad65321eb1d4288e4",
       "specie": 294,
       "nome": "Loudred",
       "forma": 0,
@@ -45121,7 +45121,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/352-specie-scoperta.pk3": {
-      "sha256": "13873800db208d268b3c6f4d5e56817f47d67085f8b3ee295688cbf0ca389aa8",
+      "sha256": "ff98ba6b471d5bef8154adaaabe99a218610ede9f903d95664b1593623dba5cf",
       "specie": 295,
       "nome": "Exploud",
       "forma": 0,
@@ -45147,7 +45147,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/353-specie-scoperta.pk3": {
-      "sha256": "779c417ae53ed133a4c3392ac92dab7634e29efcc5dcacb086fddb9401c99f72",
+      "sha256": "46a32d4d8d7ce5daf25a672ba5bc8209a5780fa78be991ca61ded8687fa00fca",
       "specie": 297,
       "nome": "Hariyama",
       "forma": 0,
@@ -45174,7 +45174,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/354-specie-scoperta.pk3": {
-      "sha256": "7d13740189b6764968ce57826a7982b87f6609341627aee025542637e12cff4c",
+      "sha256": "03511f0b83d5da8e373be8dd23c9cff83b870a5419000f9a9a1838b068149fca",
       "specie": 298,
       "nome": "Azurill",
       "forma": 0,
@@ -45200,7 +45200,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/355-specie-scoperta.pk3": {
-      "sha256": "05a11f5fcf2a584d658f13174f83902f8a177921158d2d346734669bc0e4258f",
+      "sha256": "4cc574f6943e097ddddbda12ba17d82758c20e214fe77e41eb9c7d7cd7a26b3d",
       "specie": 304,
       "nome": "Aron",
       "forma": 0,
@@ -45226,7 +45226,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/356-specie-scoperta.pk3": {
-      "sha256": "ea220e5f568992b2e88501fdebd3495165ec40a8cea6c3b15f733aa977b8ed5a",
+      "sha256": "cea95bb5e1332b521254c5660edd967e8803c2aa3d4e92007d342c02826e3322",
       "specie": 305,
       "nome": "Lairon",
       "forma": 0,
@@ -45252,7 +45252,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/357-specie-scoperta.pk3": {
-      "sha256": "1224d3f71474f3fa8f2a3119bbe549519092ba6d6c938b1f2121e60013e42d86",
+      "sha256": "ff875f3fcc47fdfe18e6133de3472de26fce2789ad06ef9ba457397614caa225",
       "specie": 309,
       "nome": "Electrike",
       "forma": 0,
@@ -45278,7 +45278,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/358-specie-scoperta.pk3": {
-      "sha256": "a77dfebd25b669d6ff76627daac4b9d8d4ff0edae35967f98f1507d473af0913",
+      "sha256": "015bd3e666549bdcd84c1ebc92432cfe35031a796d48fe5701e358a8042711fa",
       "specie": 320,
       "nome": "Wailmer",
       "forma": 0,
@@ -45304,7 +45304,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/359-specie-scoperta.pk3": {
-      "sha256": "1711ce462cea4efc43cdc7b3e20730593a7ae9f026949eb290de757a9c161d83",
+      "sha256": "e4ef648ea010b047faec3dbea03111c40f33cd92b08d3e8dc3c1857a4bf698f6",
       "specie": 326,
       "nome": "Grumpig",
       "forma": 0,
@@ -45329,7 +45329,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/360-specie-scoperta.pk3": {
-      "sha256": "621668790b4c7d126adfffb80a915d0bdc4ed97ad34e1c99c00f20b115abb0c5",
+      "sha256": "7a5a48ed26736944632c0c03c6609525a481d7a42c1e998d447cf7207b8bc8bb",
       "specie": 328,
       "nome": "Trapinch",
       "forma": 0,
@@ -45354,7 +45354,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/361-specie-scoperta.pk3": {
-      "sha256": "d1e4ba34010231e55ed9246f8d454d6db8b852785069d864c84a126d46d6a124",
+      "sha256": "9b9ce4ca1631a5ffc6580abe030f6df05feddf8f6c114b6a46c066af5bac410d",
       "specie": 332,
       "nome": "Cacturne",
       "forma": 0,
@@ -45381,7 +45381,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/362-specie-scoperta.pk3": {
-      "sha256": "b4fc20dd52528a76d900700d34b74686d9f4b6c88343302ec11365ca50af9f2e",
+      "sha256": "90d6d41420a481cfa52a921893e4a5cdb39969c76718336da8d345f9ff01a19e",
       "specie": 339,
       "nome": "Barboach",
       "forma": 0,
@@ -45406,7 +45406,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/363-specie-scoperta.pk3": {
-      "sha256": "b93257c58f26c798ab0d6e902190dc53102f5e2df4aa4b589bd9426258dfdd70",
+      "sha256": "b82c830441db4fade0fafa34c465abdf9c61e76d8b2329d9719c09602d123656",
       "specie": 344,
       "nome": "Claydol",
       "forma": 0,
@@ -45433,7 +45433,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/364-specie-scoperta.pk3": {
-      "sha256": "560d44f195302bdb767d73bb60497c67788113e0445ecaa7166cf125a4309622",
+      "sha256": "ff3a9112b26f72be4f74681da14f706d47a362495d7a5691501e3da508cce3c3",
       "specie": 345,
       "nome": "Lileep",
       "forma": 0,
@@ -45458,7 +45458,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/365-specie-scoperta.pk3": {
-      "sha256": "55c036dc61f0fc2adf8331a458c325b2bce03f6fb9890bbfa53526a6bc9b3213",
+      "sha256": "959e31fcbb6500b7a20a8b6cf6397f3b4e0e8b8baa96d8591f6dadc4d2531b1e",
       "specie": 347,
       "nome": "Anorith",
       "forma": 0,
@@ -45483,7 +45483,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/366-specie-scoperta.pk3": {
-      "sha256": "30df9d95c0466fa598fb674abeb342997b89565e2e1ad953f37fa957020c67e1",
+      "sha256": "5f339ec7cba78012523115cba19bc8af0a2e854f20edc211a6c2ac537b6e9d9f",
       "specie": 353,
       "nome": "Shuppet",
       "forma": 0,
@@ -45508,7 +45508,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/367-specie-scoperta.pk3": {
-      "sha256": "ad0c1698b147cec65cc61d73e4ba42542abafc3191fcd3c1d8fb828fd3c1c4c5",
+      "sha256": "dc9f96ec10281bf316b9567c4990cf8adabf2350e6fc0905b4205c8bf058723e",
       "specie": 358,
       "nome": "Chimecho",
       "forma": 0,
@@ -45533,7 +45533,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/368-specie-scoperta.pk3": {
-      "sha256": "3f05b1eb9a3842f613cf0c919960b5c14bec3ce842d247633e74787fc3e9891c",
+      "sha256": "bd5bbabf47bb0817d5ee48410a26c24a44c199e4943f75241c478fe0826ece49",
       "specie": 362,
       "nome": "Glalie",
       "forma": 0,
@@ -45559,7 +45559,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/369-specie-scoperta.pk3": {
-      "sha256": "49880e47e07a9aebbd1942d4b8ffcf93b8e78a4021a20ff960bb329ef5bc8e04",
+      "sha256": "866badab16a9256c4389cb36aa849c4303511090a1de6a52a9e5322f283c8882",
       "specie": 364,
       "nome": "Sealeo",
       "forma": 0,
@@ -45586,7 +45586,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/370-specie-scoperta.pk3": {
-      "sha256": "c7098cfc701e46ac0062e9f08496242022e980d2eaf8c66a72f4bf0d46e8dc9e",
+      "sha256": "a7561186a9682c75dbb77a0254e12dbcdbc8dbf79cc7f26e108a274286df9b3b",
       "specie": 366,
       "nome": "Clamperl",
       "forma": 0,
@@ -45614,7 +45614,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/371-specie-scoperta.pk3": {
-      "sha256": "828735d584b0d3aa307a7cb67784a3a700a154e60d2896b6f90a34282b259597",
+      "sha256": "d2e712049a802e0af52cc0f58d01c705e8869042a4b40377ea2a4c153a8390d7",
       "specie": 367,
       "nome": "Huntail",
       "forma": 0,
@@ -45642,7 +45642,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/372-specie-scoperta.pk3": {
-      "sha256": "dcdd3fb0303e3252be0f83a7fd29f1c189a9c6c336b008dbda9f5845f020ce11",
+      "sha256": "da0174161244d91b338ba26e1a04a8c7db955c9cb054d4c03fbbe21e5b6d3721",
       "specie": 368,
       "nome": "Gorebyss",
       "forma": 0,
@@ -45670,7 +45670,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/373-specie-scoperta.pk3": {
-      "sha256": "a5f09d6fd7496e46e400fd0e25568be9fe9bc2d365b81fd9a18815a58a0afb27",
+      "sha256": "6e15aad8f9953af9db08c73cb3b8d9b445dc0dc1c37e927ac53ed54d0c96c316",
       "specie": 369,
       "nome": "Relicanth",
       "forma": 0,
@@ -45696,7 +45696,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/374-specie-scoperta.pk3": {
-      "sha256": "32872c7a92c6ae6f03e937c25409a5937eca160208f08d366459fe70f520bf26",
+      "sha256": "0d65a7621e3085f29a9bb48599e66270cc74715b47bfbd06f131388709ccc3a3",
       "specie": 370,
       "nome": "Luvdisc",
       "forma": 0,
@@ -45722,7 +45722,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/375-specie-scoperta.pk3": {
-      "sha256": "6a47e11bdde4752bdf34c8251f85168a4d622d62c696915f8e429723f96aec1c",
+      "sha256": "59f77eb091f84d83ed7631683b992e56080c1854fd5240a56c665af415cba71b",
       "specie": 372,
       "nome": "Shelgon",
       "forma": 0,
@@ -45748,7 +45748,7 @@
       "esito": "conforme"
     },
     "lotto-complemento-rubino/esemplari/376-specie-scoperta.pk3": {
-      "sha256": "133bfd46348db6d521fba765ceabb276680895229d90544dd30ff47a31cdecb4",
+      "sha256": "9200994a886b8fa1f357803e5f3c1372f84a53199da743db99bd5bfe5488524a",
       "specie": 374,
       "nome": "Beldum",
       "forma": 0,
@@ -56266,7 +56266,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0209-320.pk4": {
-      "sha256": "6727ab06000cc230824aa8424c3d3e80f12ffad234bd8875ee8e6e90fa3835b9",
+      "sha256": "71990e7af264663a927ab71b95634ea5b44aad520c35975e4d8afc3a2804cb60",
       "specie": 320,
       "nome": "Wailmer",
       "forma": 0,
@@ -56294,7 +56294,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0211-397.pk4": {
-      "sha256": "e65542a248788a78659476e215f24e4df0cea0a5c948d6099ce2ac78fb499cab",
+      "sha256": "85e307743676189425e02a624da7aa7d12e8c6a01818cddbfc0701cf3f9bd37d",
       "specie": 397,
       "nome": "Staravia",
       "forma": 0,
@@ -56322,7 +56322,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0212-415.pk4": {
-      "sha256": "0516cbdb6d3d89be0f7d0bae543abbeaaf71d9ce48f70177fb8ad073932f0b32",
+      "sha256": "57f832417e6126b9b929b50c8c811bddd18ce9cf598239c5c96636eef7e78c0c",
       "specie": 415,
       "nome": "Combee",
       "forma": 0,
@@ -56348,7 +56348,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0214-422.pk4": {
-      "sha256": "6abf6f878b18d062908a0c3787565ef969eff5c82fa9ece9d64614eb8747a67f",
+      "sha256": "447a6c2156dcec3243618cb984c80142a3166aca5381487860ae036637994965",
       "specie": 422,
       "nome": "Shellos",
       "forma": 1,
@@ -56376,7 +56376,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0215-427.pk4": {
-      "sha256": "6ebeca6f7ee1915c713befec97f3110f41f120bf3c3cf822394c2a0a6a09b297",
+      "sha256": "48c3dc8ce9c69c9d58844460ff07acd96c07423d64fc7d2be7c2685b013b542d",
       "specie": 427,
       "nome": "Buneary",
       "forma": 0,
@@ -56404,7 +56404,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0216-453.pk4": {
-      "sha256": "d50572ca3ddca184d7228aaf640e66655fa046285ae71c890ef1490d8c8d7544",
+      "sha256": "f131bb54d9066cc46ed7e7b4663ada1db016b5a7f1d27f52615a681819e0f25a",
       "specie": 453,
       "nome": "Croagunk",
       "forma": 0,
@@ -56432,7 +56432,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0217-456.pk4": {
-      "sha256": "d361cc70f57d9a3e59334ee8b8d7a2f8daca3d94e7752a90eddb46b336e12328",
+      "sha256": "32d72519f494cf975387d600fb1e60ea88480d2d8b736166eb7c62be315186b8",
       "specie": 456,
       "nome": "Finneon",
       "forma": 0,
@@ -56460,7 +56460,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0218-459.pk4": {
-      "sha256": "915e591c5a2be72388d750bfd1bb963e612dac96f010a1747a5dc4679884ebe8",
+      "sha256": "8fddb29ee72ecc61efa6c8cbcd4d8590ecb85f842b31a188bf9aa54e4657daf4",
       "specie": 459,
       "nome": "Snover",
       "forma": 0,
@@ -56488,7 +56488,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0234-425.pk5": {
-      "sha256": "5f346e787daea9c70ac3745b492069e3181f1e0716784db89030e0a99171bf79",
+      "sha256": "bb25e5233538459a0aae5280c524d867affc565948711314f6e79ef514eca24f",
       "specie": 425,
       "nome": "Drifloon",
       "forma": 0,
@@ -56515,7 +56515,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0235-436.pk5": {
-      "sha256": "1594e3b2dfc0696b18ed687fd3d74508877adfa76728a5102892328d362965f1",
+      "sha256": "15814ed1fa62568dce0c926c953815870d7a33e9b08ad5cda190d860a61a4c50",
       "specie": 436,
       "nome": "Bronzor",
       "forma": 0,
@@ -56542,7 +56542,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0243-561.pk5": {
-      "sha256": "c16b882afa9ddaefc5195a8b2b5ca7c4d4357a4e915d15194da86b85388c4fad",
+      "sha256": "a56303e7322b6f6a763adbb648202aeeb52597e45723d43a722dcb1c16cf7457",
       "specie": 561,
       "nome": "Sigilyph",
       "forma": 0,
@@ -56569,7 +56569,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0277-016.pk4": {
-      "sha256": "b3a87560e01d2470298c9d4e0d334d72a307ebc97de9192b67e1ac1b161e72eb",
+      "sha256": "5041daad7d49da3cdd629004e357de6f67af26bb9b7070d27f63148cfaa5b0d4",
       "specie": 16,
       "nome": "Pidgey",
       "forma": 0,
@@ -56595,7 +56595,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0281-048.pk4": {
-      "sha256": "da124064265ad71b23222d03ec0986b7173f2799460f35595b9debe88b73216b",
+      "sha256": "6fd98b858d706f6b8b6092e960008476924e8bb0e1008b78d9ebb156b7781108",
       "specie": 48,
       "nome": "Venonat",
       "forma": 0,
@@ -56623,7 +56623,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0302-019.pk4": {
-      "sha256": "d1ca2263507cbd71056bc7c8c5dd544e32c0ea1e9c571fd1e7c6483a360c96cb",
+      "sha256": "1b1bc16f4ab985381dc76cceb28233b4d7a563450a3d1ee981151e0334217051",
       "specie": 19,
       "nome": "Rattata",
       "forma": 0,
@@ -56651,7 +56651,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0304-092.pk4": {
-      "sha256": "80a62c7f20ed62b5cce37ab9fc660c0a3b46081b5ad141b5a2450b72f3a775db",
+      "sha256": "64d5605f9fd6b217ccdbd82691c27ad7c51f0a75901ee921f98cee6c35ac794d",
       "specie": 92,
       "nome": "Gastly",
       "forma": 0,
@@ -56679,7 +56679,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0317-109.pk4": {
-      "sha256": "78f135b1c333e5fdf9b787988234b6c05dc354ee45ddf2e9367bec44bf71cb68",
+      "sha256": "9d2a25a97ad52ad22262d59dd640c9015928a553f8d0d5a33d4c5b54cc3848b3",
       "specie": 109,
       "nome": "Koffing",
       "forma": 0,
@@ -56707,7 +56707,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0323-314.pk4": {
-      "sha256": "853559472e082253ccb3269b87576e1497cfa519c0a1a6c16d2a1ae15bcf4da8",
+      "sha256": "25822ad544c1214d42c5235b38d5e3dc7db8dfb7de224199559edd0b423e356c",
       "specie": 314,
       "nome": "Illumise",
       "forma": 0,
@@ -56735,7 +56735,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0324-313.pk4": {
-      "sha256": "ecd2b65dfdde404f24fae24086f5c9ac1b6b4b9f34989c6786cb0526e5a8962b",
+      "sha256": "41665c5c992a4cf43df1208f6cafd24114cac4c9090abbdf59f01ae2013cb77c",
       "specie": 313,
       "nome": "Volbeat",
       "forma": 0,
@@ -56763,7 +56763,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0326-265.pk4": {
-      "sha256": "20611118802bfefe3b136877016c4ff1cc01213879d1951a01fceabb6fa10925",
+      "sha256": "74a18439e3dd0f7b3e186afb4aef765cf799141b2a2ba3cdfacad044ac7aa0dc",
       "specie": 265,
       "nome": "Wurmple",
       "forma": 0,
@@ -56791,7 +56791,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0328-298.pk4": {
-      "sha256": "59671a49e13bd1b8175b4ff41070caada322927c0254ccb27c8fcca6c3596ce0",
+      "sha256": "afa311716eeab101e7ec79892d7df1183df56bd59bbd21c87799e309a1269d40",
       "specie": 298,
       "nome": "Azurill",
       "forma": 0,
@@ -56819,7 +56819,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0336-111.pk4": {
-      "sha256": "4328467720cc2f5be5ac04dbc48e1fed61f1edda52efdb2be99018a826cf5835",
+      "sha256": "d13f211108d3737ffa056cbef9bf220df0c94c144d639c57f7e46b6eb3a608ec",
       "specie": 111,
       "nome": "Rhyhorn",
       "forma": 0,
@@ -56847,7 +56847,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0339-352.pk4": {
-      "sha256": "4aee4cb1826efbf80e90b1f4de44e0472549211d20642bf6f3ea2af6b8120d46",
+      "sha256": "5d71c0ad33ce27c88f49a5fc70abecaa5ee40448989db743f3194e1f335127e8",
       "specie": 352,
       "nome": "Kecleon",
       "forma": 0,
@@ -56875,7 +56875,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0340-351.pk4": {
-      "sha256": "363087d3a1d8dc7c4a16fb3819057080594c905a151a5791c1b9f358680e5651",
+      "sha256": "51427fcaba44bc067f25ba2c28beb817fc5ba95fa24f9cf32ebc6a0d4ab91d9b",
       "specie": 351,
       "nome": "Castform",
       "forma": 0,
@@ -56903,7 +56903,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0341-203.pk4": {
-      "sha256": "906ea6b1dc00909dcad0e6e0ccdd5e28327b2c611cc7e51b91ebf57b3af54e4f",
+      "sha256": "1feaa863f4305b4d5d9a3d255fa4f796f3f8a7c52e7d53f57ad11ccb59448d00",
       "specie": 203,
       "nome": "Girafarig",
       "forma": 0,
@@ -56931,7 +56931,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0343-044.pk4": {
-      "sha256": "8f14cdc8203c9733eb0bb56bbc5040acc8bfcaeb9d67d04ca772ecc294380272",
+      "sha256": "7fa4fb01367882115a3c99b382a611d60c7e6d17c0e1e933f6e9e8bf55183175",
       "specie": 44,
       "nome": "Gloom",
       "forma": 0,
@@ -56959,7 +56959,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0347-042.pk4": {
-      "sha256": "e33d2baf244b363b82fa2a653deaa1cfef2a405f869a2459b5db4fe99593a18a",
+      "sha256": "118081cafde0e425341864c42fea6f3c41f127e60733d6cf94e43b070f56f81e",
       "specie": 42,
       "nome": "Golbat",
       "forma": 0,
@@ -56987,7 +56987,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0351-439.pk4": {
-      "sha256": "4bc6fefbc11b1f7019718df3c7a68880a3f95a5c281cc0ee798d4be9ca61a552",
+      "sha256": "7c8b3fb527964418a5236cbddabf647218b5be303eb0123ed6e51885b7718bed",
       "specie": 439,
       "nome": "Mime Jr.",
       "forma": 0,
@@ -57015,7 +57015,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0353-403.pk4": {
-      "sha256": "88651b41321f82e2e3c4c33a7f60f04b5988223b559ed76dd458f6fc45a71b6d",
+      "sha256": "70774ee5cbca23b743d65544a909fd9fd43c8ef1b5b3f631102a6e29c35ccf51",
       "specie": 403,
       "nome": "Shinx",
       "forma": 0,
@@ -57043,7 +57043,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0354-406.pk4": {
-      "sha256": "05d85dc16375044513a395d54d897bcdb6643173ad72635abd1a4291beb1b92b",
+      "sha256": "39271131bb181a2a410f52a67510872c6dfef4e8642246c4c7870c0a9f850c2d",
       "specie": 406,
       "nome": "Budew",
       "forma": 0,
@@ -57071,7 +57071,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0355-399.pk4": {
-      "sha256": "ce5163a3087e74c254c62f7f697090bb0da730926d347d5e2111bd940b39127d",
+      "sha256": "650820969a6556be1882304af47751e17551da027f8a8d42b1bb65a3b35b3732",
       "specie": 399,
       "nome": "Bidoof",
       "forma": 0,
@@ -57099,7 +57099,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0356-401.pk4": {
-      "sha256": "dadb81aa41da817df5d6122152b8382588fa36a23b4489603731d124677a98a3",
+      "sha256": "54f1e6fcbc109ac5700116042e3601a749b4c779ef8617039cdea6934ef54199",
       "specie": 401,
       "nome": "Kricketot",
       "forma": 0,
@@ -57126,7 +57126,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0364-438.pk4": {
-      "sha256": "c2b689fb72e19e6836c7f81bd2da10ebd199092e56d9bc3f051b18d91d6df9fe",
+      "sha256": "7693ce20e03592737ab9701a68a1a0bd355af25be6020688ccd1a6efe263ad3e",
       "specie": 438,
       "nome": "Bonsly",
       "forma": 0,
@@ -57154,7 +57154,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0366-400.pk4": {
-      "sha256": "971520bdae63863917d1797a6d1577d288dfd1e1c7c582c5667e7e0779cbd141",
+      "sha256": "2e7cf1ca86aef9ec9da7bf675ab9db265fb26e9a0e9f061b06f570e7850a0abc",
       "specie": 400,
       "nome": "Bibarel",
       "forma": 0,
@@ -57182,7 +57182,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0369-433.pk4": {
-      "sha256": "fab88b2ed5234bface74a0a4b99d17c541cb6815a1ee237e377bfbad55299e3d",
+      "sha256": "e7ab71a1fd9c262419c052ee19f6a263967602255f8903d2da52ca26ac6ca044",
       "specie": 433,
       "nome": "Chingling",
       "forma": 0,
@@ -57210,7 +57210,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0372-418.pk4": {
-      "sha256": "535cb8533f8fa3e6fd6db25f15c7b0882b30a759af15e3f4c08f5d5fa5f73321",
+      "sha256": "26da2db3326e9c85acda3bb539b9e00ccbaa04edc21b958ec57ac43c471729fb",
       "specie": 418,
       "nome": "Buizel",
       "forma": 0,
@@ -57238,7 +57238,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0383-039.pk4": {
-      "sha256": "0bce096caed83c17b16974f4d2423dc8c58fdf7c786cf09a3f3a669541f5efd3",
+      "sha256": "4d8aac0848ac1120b59eff1102b08717e1a160dacdeceb30c2293a19de892404",
       "specie": 39,
       "nome": "Jigglypuff",
       "forma": 0,
@@ -57266,7 +57266,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0384-035.pk4": {
-      "sha256": "1f77ada332d45cafbed792a5fa3f1fa95e36dc6afebd5cf07c5d60a74532b6c4",
+      "sha256": "fcb5cd453611f1508396162de36fa82c6d0a7192eb6c6910eb0e0c0d42bcf581",
       "specie": 35,
       "nome": "Clefairy",
       "forma": 0,
@@ -57294,7 +57294,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0419-279.pk4": {
-      "sha256": "b15f2f8adbe2f20967de71ffd7f15ed0bcd4e3f385fe55e65d1d5359bea4d633",
+      "sha256": "0de240175ce1bd03ba81824a071408cf657a30e82a892741e3d78f86df09a78f",
       "specie": 279,
       "nome": "Pelipper",
       "forma": 0,
@@ -57322,7 +57322,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0420-061.pk4": {
-      "sha256": "ddb68843168cd1f5074212d43a095057f14a3d2cd8b05ca3dd5b34534ea75f6f",
+      "sha256": "1a3a3491e6a8fba6e1832625874a31e032ce37119b6dd50ed8d3a5a2b5c069b1",
       "specie": 61,
       "nome": "Poliwhirl",
       "forma": 0,
@@ -57350,7 +57350,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche/EVT-T-0432-440.pk4": {
-      "sha256": "b1d911a97a21fc2564f7d9b6d136bce4813af6024c226fa8ab10d4d64af7d618",
+      "sha256": "ba39efd188c210bfd57ba789bc209f54daff2876895f7ef4609a8905b5e6f89d",
       "specie": 440,
       "nome": "Happiny",
       "forma": 0,
@@ -93967,7 +93967,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0199-025.pk4": {
-      "sha256": "fdfb7b041c2820b77f66cf9ebf94f50ff80dba87842c31cf05391d54669fade9",
+      "sha256": "7c9de2efed6e0c69eede3cee45c40736fd9ea3b60739c604cf6f3e5aff52dca2",
       "specie": 25,
       "nome": "Pikachu",
       "forma": 0,
@@ -93995,7 +93995,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0200-037.pk4": {
-      "sha256": "55602dc841b738f9ee013efab167e7a5d2af8141859f82980b6dbf86595317d2",
+      "sha256": "3068972f75857820f23471675eb0056384f87a50b3aa74ba381db1acfefc24f2",
       "specie": 37,
       "nome": "Vulpix",
       "forma": 0,
@@ -94023,7 +94023,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0201-077.pk4": {
-      "sha256": "2b19742fb7fda0340dce20c7910c0effb682bed749f4ea0f3d0db3734f2fdc6f",
+      "sha256": "28c632ee45596d433d669b2630bbb1f40f641d305adb4ac0ef22ffb868066258",
       "specie": 77,
       "nome": "Ponyta",
       "forma": 0,
@@ -94051,7 +94051,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0202-108.pk4": {
-      "sha256": "8066ed5f0beb69b64d179dbc2ce541aa8081cf5151b54a352b543dc8e450682a",
+      "sha256": "148ba2000ff4ab9c8348c07779e93539aa094b8032f2139d201ad407f1ab831f",
       "specie": 108,
       "nome": "Lickitung",
       "forma": 0,
@@ -94079,7 +94079,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0203-114.pk4": {
-      "sha256": "251bea073f469a62e2c1f99363a68c2c4920034c20ecf4f2eec9db6bba745605",
+      "sha256": "63155e9d3020bb2e36f6f38954bc0f649080464db6f1c6a8108ce4eb1c75fd3f",
       "specie": 114,
       "nome": "Tangela",
       "forma": 0,
@@ -94107,7 +94107,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0204-133.pk4": {
-      "sha256": "f6eaca6afc54bdfa11ce62da927ee56092eacb6d7780dbe8f3454beafb55ec71",
+      "sha256": "64f574f25a71f28c0393f10f285827b4e9db11b1e637efc00c04de82bc7a14cd",
       "specie": 133,
       "nome": "Eevee",
       "forma": 0,
@@ -94135,7 +94135,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0205-142.pk4": {
-      "sha256": "75c17073a70caded371715c51a0be1538d68a49981e5c1aaf6304cdfccc878c0",
+      "sha256": "2c40b189548434ff9e279852b9a807aa5c919573267501105314ce4bfb39c944",
       "specie": 142,
       "nome": "Aerodactyl",
       "forma": 0,
@@ -94163,7 +94163,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0206-193.pk4": {
-      "sha256": "408743c45e3b469cd1a7572f446414aa8bd614c55a4b6a3639031e660ba3ae32",
+      "sha256": "8bd80d936027393321f533c1bd0419b39d337075f5813e40c9b38deab43acda9",
       "specie": 193,
       "nome": "Yanma",
       "forma": 0,
@@ -94191,7 +94191,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0207-241.pk4": {
-      "sha256": "b279d5980c201dc42d066e146a87da625213635d3b2ab9e61ae67df2bd2de517",
+      "sha256": "f7e7107b4b8c86ab863ab7d64a7c36e9589e5be56a639d0583c1f631f1c9afe1",
       "specie": 241,
       "nome": "Miltank",
       "forma": 0,
@@ -94219,7 +94219,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0208-285.pk4": {
-      "sha256": "b57881c2e51e5b5eb821c7d5dbe0d792c89c4daa68438f2b6e73cedb073aea65",
+      "sha256": "ea58fc65a4015a1f8e7e5fb87e66683a51744a0c114f8e5d1ac8e772785c91bf",
       "specie": 285,
       "nome": "Shroomish",
       "forma": 0,
@@ -94247,7 +94247,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0210-360.pk4": {
-      "sha256": "e8b9431df29d71b5c13de3a21c596fc7bf25f43124749f97bff6b24dc05c98b7",
+      "sha256": "8c9050cc11606819da137412f6127599dc63e5e8d7ede01819682857240e5cef",
       "specie": 360,
       "nome": "Wynaut",
       "forma": 0,
@@ -94274,7 +94274,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0213-417.pk4": {
-      "sha256": "931badc16a7ea749b23d098920c9de681b9b2c23f2c4f70b0a7caf60c3dca17a",
+      "sha256": "6fe0442d29801cb7334ccfac880fc0d36bb3b273c71d12eedd5238ac9e518af5",
       "specie": 417,
       "nome": "Pachirisu",
       "forma": 0,
@@ -94302,7 +94302,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0219-151.pk4": {
-      "sha256": "a7399152d83251def6705d74dd98bea7074d91b7b017b5a4504460fa5c7c78ad",
+      "sha256": "cb80a3ce49c7f7edf4a274477bafb90544b71d77815bbf30e20bf4483fef4285",
       "specie": 151,
       "nome": "Mew",
       "forma": 0,
@@ -94330,7 +94330,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0220-489.pk4": {
-      "sha256": "5763a2fed7e1d2f095b682b6a1cdce1a6a2aa8eb751600bb3e6c293277378dc9",
+      "sha256": "3c5108dc44c3c45d5c9c49ffc99879a463867723b10ff8db5bade24d4ff620ff",
       "specie": 489,
       "nome": "Phione",
       "forma": 0,
@@ -94358,7 +94358,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0221-079.pk5": {
-      "sha256": "be7445b4b9a0318933e846308215f8303edb8f1b33d32bf0498a2be216c4b382",
+      "sha256": "ba69b6e3087e752e86bf5e2c1fb14a87810523905c2e833bb9944f47640e3ba3",
       "specie": 79,
       "nome": "Slowpoke",
       "forma": 0,
@@ -94386,7 +94386,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0222-120.pk5": {
-      "sha256": "ed59d0ece21b5de614c29627bc5e43680582ee3bcfc66aa3b81fead9541ceebc",
+      "sha256": "8fdea2d5228f8f9a77c61667cb3c8da456dcf4a60b4e224629da6dc5abd935de",
       "specie": 120,
       "nome": "Staryu",
       "forma": 0,
@@ -94412,7 +94412,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0223-137.pk5": {
-      "sha256": "8b29ceed764afabf93ed0700076902d23062b3ec15d3b1d527ccbabc3aaf377f",
+      "sha256": "2688410bc89f4e5e92bb4f29b5e9d3d0ed8909b88cc988596f9a03be26c2a8e5",
       "specie": 137,
       "nome": "Porygon",
       "forma": 0,
@@ -94440,7 +94440,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0224-163.pk5": {
-      "sha256": "e35b815bea0b378a98767c4c95de8b8918ab4ae82c96bd8139ef08ea9e0dda53",
+      "sha256": "f059a866bd1a46811ca03b134abc7a868c32e7150993871ab08d215fbe903985",
       "specie": 163,
       "nome": "Hoothoot",
       "forma": 0,
@@ -94468,7 +94468,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0225-174.pk5": {
-      "sha256": "72888696a4463d9809af58c9dad72377dc7ecd3203eac71a74fb8ce263dace8b",
+      "sha256": "b6979344b2771fc0e98c01bdaccc2228734bf77e5e5a6092f2adcf5ca3654631",
       "specie": 174,
       "nome": "Igglybuff",
       "forma": 0,
@@ -94495,7 +94495,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0226-175.pk5": {
-      "sha256": "73499a2c23a763f62a8b443f22d221c1e4c1ff9af4e287ed8a445cbd4e2ff214",
+      "sha256": "69aa8f5e9a574cb2144046581f9eef560a6766bbac7324ec8fce2ff3f7b588d7",
       "specie": 175,
       "nome": "Togepi",
       "forma": 0,
@@ -94522,7 +94522,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0227-213.pk5": {
-      "sha256": "b6de00dc9db3a5fc182d97f2df3cc674ec8958e0808eb5d6fdf0074dc92b4b3b",
+      "sha256": "3b285105f2ef2e222ad9988907c6472f570a7806a7ebd38d850b53a163e8ca64",
       "specie": 213,
       "nome": "Shuckle",
       "forma": 0,
@@ -94550,7 +94550,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0228-238.pk5": {
-      "sha256": "3fe94a4654d724358a108ee533b198e801ee995786815aadc9f48b357daa8bdb",
+      "sha256": "7c78986569fb547ad355ff740c5a8609e790d1b74cd14f15ff75b253ff68f8bc",
       "specie": 238,
       "nome": "Smoochum",
       "forma": 0,
@@ -94576,7 +94576,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0229-249.pk5": {
-      "sha256": "6e9d4475a28e0064c974680868054758351d158ff8497a1e2a596f7ea5fdec22",
+      "sha256": "331c0978a4ca5eff6aa84e1a1a99f52328ae4d32991003ffa5a2feb37e718d2f",
       "specie": 249,
       "nome": "Lugia",
       "forma": 0,
@@ -94602,7 +94602,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0230-250.pk5": {
-      "sha256": "54d49e2adf8c8834c9e531ac7cb2c7148e5141de8ba8f55a4e1e378188086990",
+      "sha256": "faf0611625b31aee0c606521848104902f79c6545fe442cd0454df8b2fdd5d46",
       "specie": 250,
       "nome": "Ho-Oh",
       "forma": 0,
@@ -94628,7 +94628,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0231-280.pk5": {
-      "sha256": "169bc34c7cfe535b033254bec577f7ec4cb66a6a2ecb9636e937f39215ac84ce",
+      "sha256": "9c7cf96e3521b4e2217245dc3ef233002f224c76914977769f4bf267d053827b",
       "specie": 280,
       "nome": "Ralts",
       "forma": 0,
@@ -94653,7 +94653,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0232-333.pk5": {
-      "sha256": "075248e2a2a685efd2c9dccdc548c070b72e333b5280181e69d686cadb3b95fe",
+      "sha256": "e7ba38e20f9a13b197486a2344fc8d5b4e8e122c5c6a3e9b234b91209c111b61",
       "specie": 333,
       "nome": "Swablu",
       "forma": 0,
@@ -94680,7 +94680,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0233-374.pk5": {
-      "sha256": "6e334673ca3bcb52af8b1d07ad41256b0f043ab9c148363285debf5922bc72ef",
+      "sha256": "57104230c79caed6fb2e568957a4ba8778ecf710c4ce5625cff070d486524ee2",
       "specie": 374,
       "nome": "Beldum",
       "forma": 0,
@@ -94705,7 +94705,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0236-442.pk5": {
-      "sha256": "aab0dd4029416b1b7560fd9620e7ef3fab0e639902c6a2ae3d0e6c53483d3306",
+      "sha256": "5426b8ad936c1bb8dbc85b00a6130bb9bcd04b68e8d5755ea5885d639647ca93",
       "specie": 442,
       "nome": "Spiritomb",
       "forma": 0,
@@ -94733,7 +94733,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0237-447.pk5": {
-      "sha256": "2cbbca1f4bb9678dd08f7509a40e1ccc37b67cbb3bc13649d44e1781fd19e517",
+      "sha256": "508b3f846b2bb3443cb068a06399c38d4d93adff71e6445145aa9cdd129f72a0",
       "specie": 447,
       "nome": "Riolu",
       "forma": 0,
@@ -94760,7 +94760,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0238-479.pk5": {
-      "sha256": "eea8503debe51929c768a4af24d8a0ebaf97bf1982e54def0841a630532d5890",
+      "sha256": "40b29b228f7f176008e6ec925424f8e742f66b114a1e23d05df2e631e68fc5b2",
       "specie": 479,
       "nome": "Rotom",
       "forma": 0,
@@ -94788,7 +94788,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0239-483.pk5": {
-      "sha256": "bde62c92023a5e952fc55c689246cfcab61b13fcb283dad11cc6501eed9d4a78",
+      "sha256": "594a5e73791ca551a7ae85cc17c37d5256792595b349f6f69979a43b1ffbb900",
       "specie": 483,
       "nome": "Dialga",
       "forma": 0,
@@ -94814,7 +94814,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0240-484.pk5": {
-      "sha256": "1f644e98322fc093f5121168b686692abd33a6b4dc2042ae0666bc1aada7c736",
+      "sha256": "1939714b1ccac6651eb6f618dbeffe2d6301374846f0cfee229f46dcc809211e",
       "specie": 484,
       "nome": "Palkia",
       "forma": 0,
@@ -94840,7 +94840,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0241-487.pk5": {
-      "sha256": "052c2e918975ed165e3b130bc44a0da3978b0c1febea366c11175b79c1232de8",
+      "sha256": "5b38f0f09fa50415128825aecf25de3190bc688af991cd21e7ed329bb8c71c82",
       "specie": 487,
       "nome": "Giratina",
       "forma": 0,
@@ -94866,7 +94866,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0242-517.pk5": {
-      "sha256": "47fb9977a8572152419d737610171dad1e6dd22b53b14190e90aa9faad712513",
+      "sha256": "3e5b01a3ede4972213f36f9cd6790af8296bfd9edd56b5e52adfdd2eca0b9b46",
       "specie": 517,
       "nome": "Munna",
       "forma": 0,
@@ -94893,7 +94893,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0244-641.pk5": {
-      "sha256": "169fca380d538e2ebb723ede2571d7ac96439038266ec2d5b2cefbd28daf0978",
+      "sha256": "d3e5b9661d33a19a84bda202c8d83da98cd9fdea5f65c7da5005f7e134c15ba4",
       "specie": 641,
       "nome": "Tornadus",
       "forma": 1,
@@ -94920,7 +94920,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0245-642.pk5": {
-      "sha256": "3e91b907715910a1b152a0c1258db75345ca0b31d03c49e7b1147db3b80b7f0d",
+      "sha256": "39405157674a6fbfb69674fd0b60f075ca7ff73cefc149c8e5107d64a23d559a",
       "specie": 642,
       "nome": "Thundurus",
       "forma": 1,
@@ -94947,7 +94947,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0246-645.pk5": {
-      "sha256": "8377d9662374d46d907d8c544dd805047550298ce754ef9130656a435929f7b9",
+      "sha256": "8638406d29e610603898112b56ac8a180a11e84cfee0365b168fe3ee20b6c3b5",
       "specie": 645,
       "nome": "Landorus",
       "forma": 1,
@@ -94974,7 +94974,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0273-115.pk4": {
-      "sha256": "cb48063fb1b96cadaefcec1eb8fd0136db544f90bc9a6bcbbb251c94aeab2cb3",
+      "sha256": "6553bbea77918b2896b18618c11176c5760201c3f94440d753306f167b4f2671",
       "specie": 115,
       "nome": "Kangaskhan",
       "forma": 0,
@@ -95001,7 +95001,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0274-084.pk4": {
-      "sha256": "62d9a7cacbff9d63df7cd85d643c646593c50e82cbc319e32ca69451f8323be9",
+      "sha256": "644d7a5bcd9b83999bdb30f8d7908ac0122376c37d55bf668ca488c5ad076935",
       "specie": 84,
       "nome": "Doduo",
       "forma": 0,
@@ -95028,7 +95028,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0275-029.pk4": {
-      "sha256": "541a22ba4b1ecebd29a2260210493801131410fafa0d0b3ddccb62add4435501",
+      "sha256": "137b716c94f2b78c0d0239cf86b5c8679a6f98a9bef7ad4a48cedc78f547655b",
       "specie": 29,
       "nome": "Nidoran\u2640",
       "forma": 0,
@@ -95054,7 +95054,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0276-032.pk4": {
-      "sha256": "0ebc3aaaa81591c64500e3c7b72a49f75053f5f18bae7a271bb0bc5c907161bc",
+      "sha256": "04b56f1d346b867273c2c11f566d05152f243dc341dd65deea6b6d182d631d2b",
       "specie": 32,
       "nome": "Nidoran\u2642",
       "forma": 0,
@@ -95080,7 +95080,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0278-161.pk4": {
-      "sha256": "24acde1ca1b6d36316bcc0002bcb95e2a3b93f88542d937cb1a6d77392202cfa",
+      "sha256": "ae32330ee71b81b0712e212ed44531e2e33c63fd02dc165c53c908c50bfeaa29",
       "specie": 161,
       "nome": "Sentret",
       "forma": 0,
@@ -95107,7 +95107,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0279-202.pk4": {
-      "sha256": "af8d18b174a130a51e222abbfb7d135b83cd81da0d6b029d6b20f07d4c6aa503",
+      "sha256": "5565227eff17c73076d8ea54dec21ef7a03d54a80f601d20afca689651ab5e86",
       "specie": 202,
       "nome": "Wobbuffet",
       "forma": 0,
@@ -95135,7 +95135,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0280-069.pk4": {
-      "sha256": "50c66ce9c05d55b384b6b0f6dc0256905c1d9089debe701e9ac43ca90537cb13",
+      "sha256": "cb819b907c403eb3bd1f6ddfbc1780a22f16d8f9a32acc65d1ec59d7ff5abe86",
       "specie": 69,
       "nome": "Bellsprout",
       "forma": 0,
@@ -95161,7 +95161,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0282-046.pk4": {
-      "sha256": "4611c4493b883359ecb048866da03e02e24b559dcdc57761766243fd180834e3",
+      "sha256": "43b8daa98d0b985f113fef508582a0dd6583f97ec1e7ae8812d41e47f70e7207",
       "specie": 46,
       "nome": "Paras",
       "forma": 0,
@@ -95188,7 +95188,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0283-043.pk4": {
-      "sha256": "04e94f8768aeeedd547354a7067747dc934750b9e6b2dcf0f41ee52a669d239f",
+      "sha256": "ad105e25641a4cacf7aa559c67e2381fa97de7f2ab67e6ad311b066fc9fc69ae",
       "specie": 43,
       "nome": "Oddish",
       "forma": 0,
@@ -95214,7 +95214,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0284-021.pk4": {
-      "sha256": "c319f4d5f113fa1eabd56bff80bed6658034ab99b2d6e0b3f34f4c4f4760eab9",
+      "sha256": "9f31ad41cf54577c5c2c20bb52a824c93e9be365a643a730c5af89b278392b80",
       "specie": 21,
       "nome": "Spearow",
       "forma": 0,
@@ -95241,7 +95241,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0285-240.pk4": {
-      "sha256": "2e6190258483903c9ba72783ddf87cb7e1b61debd6d583a13bec18f21026824d",
+      "sha256": "2af129e162d21757ab02f3f7ec80536072c02533d9705f6398f4bc4c70674b6e",
       "specie": 240,
       "nome": "Magby",
       "forma": 0,
@@ -95269,7 +95269,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0286-095.pk4": {
-      "sha256": "dc2960d000286e3866f8649d87f9d7fa541ad5a25b4c13437ea0edb9b412edac",
+      "sha256": "fe8df1deae4792eb308d84ceffd7d8a30c92679f7a7212a25e1cd1b03a6d8ad3",
       "specie": 95,
       "nome": "Onix",
       "forma": 0,
@@ -95297,7 +95297,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0287-066.pk4": {
-      "sha256": "d27287067d3acc3700dfd03de679e74cf5d6fcf3603bfa6da546eb0e139a34cc",
+      "sha256": "6c19f04c103ff6f7e7660f8fdbb379b43d1a0384def8e09ce2e8efa484bff545",
       "specie": 66,
       "nome": "Machop",
       "forma": 0,
@@ -95324,7 +95324,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0288-077.pk4": {
-      "sha256": "00d166bc0b57e70ff881bc8959eb84796b773c7971aaf491b93e09031f753ea2",
+      "sha256": "149a094119ea805a951c00ea6e7cc02fc5b2cc542d1b0b007f7e609ed60b8d7c",
       "specie": 77,
       "nome": "Ponyta",
       "forma": 0,
@@ -95351,7 +95351,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0289-163.pk4": {
-      "sha256": "cb546e1d1b514e238cabc1dbd8d6c407e77a92bb512749136dc25a9c55e444b9",
+      "sha256": "cf8a27cf1fe577eea9d07aafe35cf6d70c625987fdcefd1f4886b29612f24337",
       "specie": 163,
       "nome": "Hoothoot",
       "forma": 0,
@@ -95379,7 +95379,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0290-074.pk4": {
-      "sha256": "c83c9317c761b0a00391c932cfd04fd0f77f7235fb32240960c59e5c0a505d36",
+      "sha256": "7e83e954414ebafe6cb650a08fe5ab125985f37d09ad5dfa76afb47e9d015a9d",
       "specie": 74,
       "nome": "Geodude",
       "forma": 0,
@@ -95406,7 +95406,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0291-054.pk4": {
-      "sha256": "a2e5b3ad4e6fe39dd34709f526b816780908c59317ddef617b187adc60137643",
+      "sha256": "ca4d10aa212284268f1536560ee6181916af87a553359a197db3fee9b6c16eda",
       "specie": 54,
       "nome": "Psyduck",
       "forma": 0,
@@ -95434,7 +95434,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0292-120.pk4": {
-      "sha256": "8990247172b2b621f0b8db7140b461e7b95edc97af7a1fa038cf2f7806383854",
+      "sha256": "931b1c35ac4df0a6a3180c04e8a64c8f32d56b203c27e00f3bc30464a8bcec2e",
       "specie": 120,
       "nome": "Staryu",
       "forma": 0,
@@ -95462,7 +95462,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0293-079.pk4": {
-      "sha256": "c96fc8cf7448447385190f6dde127a772dbc911f306c704028ca29cb05140535",
+      "sha256": "3b2b3c6a72955cf9b4841f11ac3cb5bc3679887133cfab6a4d4bf474bedc42bd",
       "specie": 79,
       "nome": "Slowpoke",
       "forma": 0,
@@ -95490,7 +95490,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0294-060.pk4": {
-      "sha256": "9a1ce414c6dcda54f062be7812ee5edd5aca263334e935a2b7b585c0db9297ec",
+      "sha256": "3fcc5e70279d348765f1b4457dc783bae4b087f19be371f64f2ec1e20e321272",
       "specie": 60,
       "nome": "Poliwag",
       "forma": 0,
@@ -95517,7 +95517,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0295-191.pk4": {
-      "sha256": "387baf7742cc9f1314607e937fb95027a270d65925b6c86a10e7e30c2f488ba3",
+      "sha256": "d33b2017b08ad1432867c8393622da3d74e08e653ae6f4e17f7316481d970161",
       "specie": 191,
       "nome": "Sunkern",
       "forma": 0,
@@ -95544,7 +95544,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0296-194.pk4": {
-      "sha256": "e852df63be02eeaa8e4aadf29248271bcf865563750a70b777e59e0af7f6e749",
+      "sha256": "2a32cf490f4e01e3b6077dd53cae67adb12a7331d880f08e5790fe30ee62851c",
       "specie": 194,
       "nome": "Wooper",
       "forma": 0,
@@ -95571,7 +95571,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0297-239.pk4": {
-      "sha256": "b98ba4957470f905ba2d499b90e36871491e65a9837373d456697847c0bb16a3",
+      "sha256": "403f7c4175be2eb33b77ca4b61313e6261d81f77d37c5c12969fc179f82a2449",
       "specie": 239,
       "nome": "Elekid",
       "forma": 0,
@@ -95599,7 +95599,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0298-081.pk4": {
-      "sha256": "55e9747920a7b88352624cfa3d9bf50867163848d3fa3090664c48db5c46a581",
+      "sha256": "504ab02f884511e9aaf7bcbcceedaabe1deff2e09672d174406a45afe1164675",
       "specie": 81,
       "nome": "Magnemite",
       "forma": 0,
@@ -95627,7 +95627,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0299-081.pk4": {
-      "sha256": "be4e829b8dca29699373283ecc21150e1156de2b46f6557214de7569146f0e43",
+      "sha256": "72449151656e7370f676282c97d6aa9cd57571a1c41f2d8368af3c2064cda43a",
       "specie": 81,
       "nome": "Magnemite",
       "forma": 0,
@@ -95654,7 +95654,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0300-198.pk4": {
-      "sha256": "2b97d4942a4544636a9a6ca656a24ed36cf7b875430bf829ae878ddb4cc3f744",
+      "sha256": "995037ad0f3524a73682e9e1d5d560acfe65f8330707328b9d9396ac0e8a1455",
       "specie": 198,
       "nome": "Murkrow",
       "forma": 0,
@@ -95682,7 +95682,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0301-163.pk4": {
-      "sha256": "433e33fe4aefece52bd50bd24e4056230e3e3a1df3064cfbfc7906749c367de2",
+      "sha256": "9f3171a2c1f829e6cd8f0e760e5d2fa68046fdc441e93c90f3ed82f6e3cc162e",
       "specie": 163,
       "nome": "Hoothoot",
       "forma": 0,
@@ -95710,7 +95710,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0303-238.pk4": {
-      "sha256": "3a9c7bf00506499cc6fa5e77c8388e64481cf565d4f029c3f0625fab32e3a5b0",
+      "sha256": "1f3d082fdf741d8eb7c40c0a5014b67a6b950cc5b234427dd4881e9871e2c31c",
       "specie": 238,
       "nome": "Smoochum",
       "forma": 0,
@@ -95738,7 +95738,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0305-092.pk4": {
-      "sha256": "7772e09face1d9fe22729ee3a9449d03089ee9a21ccf109e638ef2f8790e4a46",
+      "sha256": "e6f1d1d099d3f442768e1df769564db53c82d8f39f96ad666e1935cbf5517efa",
       "specie": 92,
       "nome": "Gastly",
       "forma": 0,
@@ -95766,7 +95766,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0306-095.pk4": {
-      "sha256": "abf2006d59c39007a46c7eeed4c36d0ac2c062580e8cf31253fb430191a71317",
+      "sha256": "eeb7b2e040a602282be3ea0e5c74b87d45de792b44ffe44a2760c65ea3a99aa7",
       "specie": 95,
       "nome": "Onix",
       "forma": 0,
@@ -95794,7 +95794,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0307-041.pk4": {
-      "sha256": "5f8c9c5cbfe706ed3ae9f984ffc86168315c708238a5f9af632fcf58e0f68cc2",
+      "sha256": "d0cddb4bc4177bd438307ba8a157f417f2181483b7a6230af1c031855e982a32",
       "specie": 41,
       "nome": "Zubat",
       "forma": 0,
@@ -95820,7 +95820,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0308-066.pk4": {
-      "sha256": "4b5d933276c8dceaab839aef88fc781fc702095ad461c18b54f088c452b64c54",
+      "sha256": "564aa4f390a86be74f3d5d88fd46bff5dc0780e8882404aa76ad6bb5da5af9b8",
       "specie": 66,
       "nome": "Machop",
       "forma": 0,
@@ -95847,7 +95847,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0309-147.pk4": {
-      "sha256": "548acb7084cdb664603f77fe07de31467f119371656c803d408b323dd120388b",
+      "sha256": "cef667a2b2359d56cf26b9961a1559c66c27e23d7e3f9b78650e8615902a8e30",
       "specie": 147,
       "nome": "Dratini",
       "forma": 0,
@@ -95874,7 +95874,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0310-060.pk4": {
-      "sha256": "66b20f89ed72be8d4bbc48f8ebee329fc0dd09e183bbdc388ed381e51f46b92c",
+      "sha256": "68421f4f9329e5e3be3d94043367bb2c2c5b111905f62f0712368d2497c49319",
       "specie": 60,
       "nome": "Poliwag",
       "forma": 0,
@@ -95902,7 +95902,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0311-098.pk4": {
-      "sha256": "e02a97e940fae3819c4ea65efc4394c50b726dfafb69f93c2de75815dd6e0bb3",
+      "sha256": "2509cfaabfcedce58f3e0603090db00ea5a9ec7e0121c1669122092257d5dda2",
       "specie": 98,
       "nome": "Krabby",
       "forma": 0,
@@ -95930,7 +95930,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0312-090.pk4": {
-      "sha256": "a9e702a4d263820b142e857b0f3a7ab81447cde77677e95778ef451660d877c2",
+      "sha256": "ae96f10b11b6c0e7c14b4f450be321bdab0244a25045aa117753290035aa4078",
       "specie": 90,
       "nome": "Shellder",
       "forma": 0,
@@ -95957,7 +95957,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0313-118.pk4": {
-      "sha256": "c03be18562bd03743d89d19a545f52a87040fa8813da57dffa94e60bc7ce0928",
+      "sha256": "adfc73d8006ecc23485109b6a4365603f65292044fa3b958ef4e3297323a9cac",
       "specie": 118,
       "nome": "Goldeen",
       "forma": 0,
@@ -95985,7 +95985,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0314-072.pk4": {
-      "sha256": "e98b95c1a3f2558d85c48918cc274dcde6e5f088e3606f70aafd44d067ddaa6c",
+      "sha256": "5ad60e24a1b71b095014e9b1fd3694f27a2117d415d2d6bb16d4e733eb5c945e",
       "specie": 72,
       "nome": "Tentacool",
       "forma": 0,
@@ -96012,7 +96012,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0315-063.pk4": {
-      "sha256": "bfee4de05af39a2278658b929a3d3f09da68160b98cc41f5f857411685a9e044",
+      "sha256": "52647b1d4c92208a6ce704d7c2ff318d067e1188a988eae515264e4053aa9833",
       "specie": 63,
       "nome": "Abra",
       "forma": 0,
@@ -96037,7 +96037,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0316-100.pk4": {
-      "sha256": "d91f90644ad0398556696b2d58e1ad1349b100b9ed9ed408bd316364f9cb379e",
+      "sha256": "0bb73aad84d1f100d6075b16a5218c759ab9efc42462b321e02973f4a13337e8",
       "specie": 100,
       "nome": "Voltorb",
       "forma": 0,
@@ -96065,7 +96065,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0318-088.pk4": {
-      "sha256": "375a4e7ee6203376418bc22997c496250d4abc8bd1baf3a9ab96e1d3c6963050",
+      "sha256": "235bdd8cda2e89a309f4a8865368af3074f135582149b080e7f3864542020016",
       "specie": 88,
       "nome": "Grimer",
       "forma": 0,
@@ -96093,7 +96093,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0319-019.pk4": {
-      "sha256": "1931c983376fc644b63810ea0a7178f565978572f069eb78bf8064cd65e91875",
+      "sha256": "da91a69d45737ef1f8674651d4bd4564083d2af95a4428782eee9e3f8b2932d2",
       "specie": 19,
       "nome": "Rattata",
       "forma": 0,
@@ -96121,7 +96121,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0320-162.pk4": {
-      "sha256": "81103857fa0b43b0bb82a2d4c2e549b2eccf61d2c7ac558217b908a93178b970",
+      "sha256": "8036c62c3bb70b4a51c642585728db88b6c614a383a73caf730867a253cd3d5d",
       "specie": 162,
       "nome": "Furret",
       "forma": 0,
@@ -96149,7 +96149,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0321-300.pk4": {
-      "sha256": "560d6afde0ad267352e38e5b03c9ebaec9b9c6d368f713296547737d36c4c84e",
+      "sha256": "49eb5b8ba8a519b3c71907a3f9fa533be39a4ff5064699b70fbc601726c24fae",
       "specie": 300,
       "nome": "Skitty",
       "forma": 0,
@@ -96177,7 +96177,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0322-264.pk4": {
-      "sha256": "29d00502cbe85dc8719f34dea7d62248691cbddc8954389516bc6e07b3976cc3",
+      "sha256": "37356118bb2c1ad07aabcb172c81c43af2579dfef5263f70ac1e53e2f80e3ef6",
       "specie": 264,
       "nome": "Linoone",
       "forma": 0,
@@ -96205,7 +96205,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0325-263.pk4": {
-      "sha256": "47af1d67d27e14b826cca9cda451284fab70572ebdf6e1c73d1a263f240323ed",
+      "sha256": "d3a5d6333f0cea541ccb99b71efe1c4416f4df7597895492c9c5f67ee6b6555e",
       "specie": 263,
       "nome": "Zigzagoon",
       "forma": 0,
@@ -96233,7 +96233,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0327-320.pk4": {
-      "sha256": "6399f78ce3206e982df54e8130363a4b0c2dfaeb252ded4b67db9ef45f74b6e2",
+      "sha256": "e7f671507726ae339276c9e034ffabe0877c0b457228ff2df394936858d1a89e",
       "specie": 320,
       "nome": "Wailmer",
       "forma": 0,
@@ -96261,7 +96261,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0329-116.pk4": {
-      "sha256": "3c9ab0486f3f4413edd983b875b9ff9d3f57145d0a3dc435000a60f6c7a16f23",
+      "sha256": "2a5d83cf1f46b09622c26c081791f8e4722021c19967354c9f382895afb5d0dc",
       "specie": 116,
       "nome": "Horsea",
       "forma": 0,
@@ -96289,7 +96289,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0330-318.pk4": {
-      "sha256": "06a04d1aacf375e3088cac1472299e42c98a848e3c88f33e82c1540deb73027e",
+      "sha256": "ce4e193c9a13e32a053017271601e335554ff5a0ef2d138e66649aa932f7ba83",
       "specie": 318,
       "nome": "Carvanha",
       "forma": 0,
@@ -96317,7 +96317,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0331-118.pk4": {
-      "sha256": "cb29d4d808bc415d0615af7aafc2d3c915673ff30cd15fde33d8b133fea13072",
+      "sha256": "b22630dd6c0178c556ddbea112e9ab4301b1ad50be65027b46bb0e05b6acea7f",
       "specie": 118,
       "nome": "Goldeen",
       "forma": 0,
@@ -96345,7 +96345,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0332-129.pk4": {
-      "sha256": "472b8958ac119b19e3c7d066246de1a3fe3f94954fd03b7d15556c7ffa39d756",
+      "sha256": "37168dabfe63dbb954605a2c86f204d2a3f9915e6feb0277b6ed33d8d5efd5cc",
       "specie": 129,
       "nome": "Magikarp",
       "forma": 0,
@@ -96371,7 +96371,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0333-218.pk4": {
-      "sha256": "1b06c071d7d1e12abccde3e6ed8d5351978e863700afbe026744b8066e4c51f9",
+      "sha256": "2b77a99ab2dcfc1d8c10dca2b34ecdd84ca7d733922c7e191202fc5bb09d69d5",
       "specie": 218,
       "nome": "Slugma",
       "forma": 0,
@@ -96399,7 +96399,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0334-307.pk4": {
-      "sha256": "71d97c48d5879b79ebc241426766375f40ba45e73f3481af382649dbb7f9545e",
+      "sha256": "6ba9e758de53d1bfc97f7e88771b1c59d5ba662f3f1a5088ccb6a77e4df1b072",
       "specie": 307,
       "nome": "Meditite",
       "forma": 0,
@@ -96427,7 +96427,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0335-228.pk4": {
-      "sha256": "6f4c9304007f21da248cfc28a30265d8fb34b38d1cf385a1cdacd63c16798b35",
+      "sha256": "6a3236c7bda74cc477b82a99cbbc9255ba7db487e6cf5186aba472abd1df6823",
       "specie": 228,
       "nome": "Houndour",
       "forma": 0,
@@ -96455,7 +96455,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0337-077.pk4": {
-      "sha256": "acd3b355f35ca2b48db9bfc39f4cea325334fab821e49eb9787290cdb6e3a6c6",
+      "sha256": "a3f44c15640de4244ffadab1a9810b79042c59da2c18161b367f8d7bfc85e7a4",
       "specie": 77,
       "nome": "Ponyta",
       "forma": 0,
@@ -96483,7 +96483,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0338-074.pk4": {
-      "sha256": "c3669f441c6517808162536c0d77f10886e152abb7b2cefd0955405058c5626d",
+      "sha256": "7390edbae1c214094aa30e40793ce4b6538042a4fb11a46bf2c56b458497a5c8",
       "specie": 74,
       "nome": "Geodude",
       "forma": 0,
@@ -96511,7 +96511,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0342-234.pk4": {
-      "sha256": "35ad6c093101fb68f5db8dc0517b57af2c8a85368637db4446432af4c4a4b08a",
+      "sha256": "08b72f28d0f4a902824f831e22fa539888508922df7a0b8341f54d750f5ceba1",
       "specie": 234,
       "nome": "Stantler",
       "forma": 0,
@@ -96539,7 +96539,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0344-070.pk4": {
-      "sha256": "8dea890120cd1b4bf8451909f5c2c2f0f8f34bac72300e26d87b9d4bd8288028",
+      "sha256": "9a612947a2bbb11f224ad26a6e2d2eeccb8e72e34cc8ea8e0cde8a4a9ee59943",
       "specie": 70,
       "nome": "Weepinbell",
       "forma": 0,
@@ -96567,7 +96567,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0345-105.pk4": {
-      "sha256": "aea9818fc14cba9ecf3f81264f66a8681d1f792961873ade62d0e674fdd18f74",
+      "sha256": "d672286ee85477670b6a0ca26f91d87bf60f7e08f2d86a72793d739471cec8b9",
       "specie": 105,
       "nome": "Marowak",
       "forma": 0,
@@ -96595,7 +96595,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0346-128.pk4": {
-      "sha256": "fd127c0339cabc35124e8f8f4a8a7b9ed925f0583137965a42bfb9f7d31ee835",
+      "sha256": "3080dff69f8f322ab85e6f22471178d8859edbab8bfd5e5a4e7cfa96ad8b17f0",
       "specie": 128,
       "nome": "Tauros",
       "forma": 0,
@@ -96623,7 +96623,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0348-177.pk4": {
-      "sha256": "dc8ee4933d15138857546f2cd28337f34877da58d032e4cacd45351623066a7c",
+      "sha256": "ac7c04e0e15025a2744fbfc33ce1bebe889fda3feba82263abf49eef2bd5c421",
       "specie": 177,
       "nome": "Natu",
       "forma": 0,
@@ -96651,7 +96651,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0349-066.pk4": {
-      "sha256": "849e2aad6ffc15129154f9338c9e4bc39e7089d7d884d6e6c0dc59774cf1fb8c",
+      "sha256": "a2e2db99567fe977bdc258e338e860de0672764473c252cbc16a7648c37314b6",
       "specie": 66,
       "nome": "Machop",
       "forma": 0,
@@ -96679,7 +96679,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0350-092.pk4": {
-      "sha256": "3b1fa62885fab0ae0592e84ccc41ed64d7063351afd1ba580b53915bebd0fa42",
+      "sha256": "a64f6e0fa56a666c56d454da4f9b8823015bb34d1662924aa26f4380714a5f55",
       "specie": 92,
       "nome": "Gastly",
       "forma": 0,
@@ -96707,7 +96707,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0352-415.pk4": {
-      "sha256": "7e19921d944e599b51103ca276b174bb708df96a5acce5f48c45c253623bfda0",
+      "sha256": "429bc96e026e9da6be07f0b7dea5b4336aaf5def0e9b2d56d81eab6eaa571d60",
       "specie": 415,
       "nome": "Combee",
       "forma": 0,
@@ -96734,7 +96734,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0357-459.pk4": {
-      "sha256": "ea9c38edfa7a299d814b6291e832f2bff549fc3a4d18d4abce5d70fc1a6fa181",
+      "sha256": "79525642089b3b3e7c95196da464dc58bbd41e7017d0d831720ebf362ee69deb",
       "specie": 459,
       "nome": "Snover",
       "forma": 0,
@@ -96762,7 +96762,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0358-361.pk4": {
-      "sha256": "17be5104a3fe28da078f72f56870a5e1c087ef3fcbb4485ed5aec3ccb06c1231",
+      "sha256": "41dd90402bc0e75a100250ca5bd98e96e836bdec2e871fec66e8af69d9f44fd7",
       "specie": 361,
       "nome": "Snorunt",
       "forma": 0,
@@ -96790,7 +96790,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0359-215.pk4": {
-      "sha256": "1e9b4fde2528cea93cb1a9583211b7809cb1fc2f765c726928175aa3ece8dacc",
+      "sha256": "9108fed3b72797caf79c239c9fd7043b1392a2f40f318277f598f05403b463c3",
       "specie": 215,
       "nome": "Sneasel",
       "forma": 0,
@@ -96818,7 +96818,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0360-436.pk4": {
-      "sha256": "ac58bbc902997b61bceffe8e3a84c9fc34a90b171bad53886dd09797b7e3ed6a",
+      "sha256": "904e588b8e987a73aba4195a38fb1ce6c404fe5a3c0b9dfbccabb592142c06de",
       "specie": 436,
       "nome": "Bronzor",
       "forma": 0,
@@ -96846,7 +96846,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0361-220.pk4": {
-      "sha256": "42bcafad3c3399e184a666ba6b6896e759a07fb7b1412d33b6ef3bbdf9732f84",
+      "sha256": "2c2797f1a5f4731d19e4cc2b3f2377763096550bfdd3c25a92df5309f0bf9997",
       "specie": 220,
       "nome": "Swinub",
       "forma": 0,
@@ -96874,7 +96874,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0362-179.pk4": {
-      "sha256": "ae629080f76b8a5ea66b205e94d46fcaa1e70ab1c3c8f5d1946b72f244d0446e",
+      "sha256": "b2cd24561f501f667375859329857db6c1be50050a099da7fe44b304cec13502",
       "specie": 179,
       "nome": "Mareep",
       "forma": 0,
@@ -96902,7 +96902,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0363-357.pk4": {
-      "sha256": "f8b5e88b0bce333ea02a974e4b351a541cfb848743fc61ad058867bf11c2db55",
+      "sha256": "c5cf628e9a80ce7b2bd354da061d2978bad912a68e1cbcef035ea404d2fed169",
       "specie": 357,
       "nome": "Tropius",
       "forma": 0,
@@ -96930,7 +96930,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0365-114.pk4": {
-      "sha256": "a9852b2a25f9f0169f0729bcc4392afd9c87f0a1b171a5308eb16977cd6d73dc",
+      "sha256": "6de0336be7b03cd801287aaa45bf8b57fa0ec2e8dad76e7564b5e51c443aacc9",
       "specie": 114,
       "nome": "Tangela",
       "forma": 0,
@@ -96958,7 +96958,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0367-179.pk4": {
-      "sha256": "eb13ce66ca1ecdfd20884cdc1340856f04a6a84bc3e204c29adce97ac00fe3da",
+      "sha256": "1bb814bb8290bdb39a89d0f11096325d1ac377aecdd683f95bef2c43aca16de6",
       "specie": 179,
       "nome": "Mareep",
       "forma": 0,
@@ -96986,7 +96986,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0368-102.pk4": {
-      "sha256": "fdee091a440ba511ce44d0653385d02082abe48b76033e42ca24a4a9e36a2036",
+      "sha256": "159a5577a0e410cba119ef64ab54291e3805b39dc73fea94c372657263730439",
       "specie": 102,
       "nome": "Exeggcute",
       "forma": 0,
@@ -97014,7 +97014,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0370-200.pk4": {
-      "sha256": "764a5032144dde51c82ed57cbe74b54755d570232e132802660ed1fc3a276876",
+      "sha256": "ca221baa54657130734336a3d2d1388ed5ca901a3316cb4be80de983fa81a029",
       "specie": 200,
       "nome": "Misdreavus",
       "forma": 0,
@@ -97042,7 +97042,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0371-093.pk4": {
-      "sha256": "296e07ebdece66d242dce39425d202336e34ad13b6f766ab9273199fed7f35a3",
+      "sha256": "b9eb143481b1d3bbd7c8dea6b4ed82d70d922e68df5ac0aa8c56c48a25955959",
       "specie": 93,
       "nome": "Haunter",
       "forma": 0,
@@ -97070,7 +97070,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0373-223.pk4": {
-      "sha256": "0bcd9e00119eb4aa10a989d95e22ad6272420bb792fc56f8fe1d6cef1525d6c0",
+      "sha256": "e480ae1f4e4392889d96da6a2c371e49c5d9c1aaea2b2506be4635d2fb2e9bab",
       "specie": 223,
       "nome": "Remoraid",
       "forma": 0,
@@ -97098,7 +97098,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0374-170.pk4": {
-      "sha256": "f21767f0d1425681f03ae1fcb9e53e83201a078100245ec28f0fe57bb465a025",
+      "sha256": "79788e4abbd39ea1f40d45bbf887b0506dce770a46b497b7e8a92627833990c6",
       "specie": 170,
       "nome": "Chinchou",
       "forma": 0,
@@ -97126,7 +97126,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0375-456.pk4": {
-      "sha256": "4495501d04afc8eb305787e9736623909763ca4ab6209fbef702191c9c3a9f9b",
+      "sha256": "d9eb20456fd212b8145dc2e846b82f03a72559e2c4403f7e93b199b555f2e359",
       "specie": 456,
       "nome": "Finneon",
       "forma": 0,
@@ -97154,7 +97154,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0376-422.pk4": {
-      "sha256": "6e62b1fe8581782fd0e4097120571e210f014b47ae681adb93f9904df172894d",
+      "sha256": "8bdd3b45bfc8c87bf623735f296ccdd0be0ec3f81120aead8375d06e33933d96",
       "specie": 422,
       "nome": "Shellos",
       "forma": 0,
@@ -97182,7 +97182,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0377-129.pk4": {
-      "sha256": "b8b8a62146726380e2748822983fed7455e8cec4e23b8b85afe20889a8e63d6e",
+      "sha256": "eec2231fe73bdc2b53150ad1b8f41001ae544086043210bc33edeb38c8c1ccb1",
       "specie": 129,
       "nome": "Magikarp",
       "forma": 0,
@@ -97210,7 +97210,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0378-086.pk4": {
-      "sha256": "5404b891b7e6ec69346f5214250e4a7466b96c95557b5ea5c8e8b44a4baf0992",
+      "sha256": "1cc4cbb8d9c706aa005058ab9620f0db6fb032ac6796ee7320c439cdea31fb3c",
       "specie": 86,
       "nome": "Seel",
       "forma": 0,
@@ -97238,7 +97238,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0379-054.pk4": {
-      "sha256": "01b1b391e029516cc72aebda6e936ae65294723d56a3537587b69b785b751ddf",
+      "sha256": "ea5053bbd4955b4ea4033a5635fa1951cf3a1f6e50789bcc03750c5aeb483a08",
       "specie": 54,
       "nome": "Psyduck",
       "forma": 0,
@@ -97266,7 +97266,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0380-090.pk4": {
-      "sha256": "99dfbf39fd5b5ee633ac6d6b0424309410d21227282bd945099d1d01d8d7c3df",
+      "sha256": "de1382bca6c794adb21bfdb2f1aa9dc94c99157916c5dfa433136e033b068e3e",
       "specie": 90,
       "nome": "Shellder",
       "forma": 0,
@@ -97294,7 +97294,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0381-417.pk4": {
-      "sha256": "535cdda6f23360a679a43a7647bff2317c6928d12ba863759f344f29d8ea79ee",
+      "sha256": "291d38b126e2e96a951587ef046c15162ae7098d097fc6b309fb7aea1003d5ea",
       "specie": 417,
       "nome": "Pachirisu",
       "forma": 0,
@@ -97322,7 +97322,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0382-025.pk4": {
-      "sha256": "ceda6ed53e1526997d9eba28615a2bc2214b430a4420e54396a884b2de8dcc3d",
+      "sha256": "f7197d49fe62f32ab6e4aeba26613cc37651b6f93be9f11e59d3157dc8002b71",
       "specie": 25,
       "nome": "Pikachu",
       "forma": 0,
@@ -97350,7 +97350,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0385-183.pk4": {
-      "sha256": "5b5ac64181ae780ba13498691c8a0094c41f7d52b46f58b03ccdb028182679b8",
+      "sha256": "c8807efd8734644a6b8388226f6f8bcd875aa8c1989b782ce7c2e6585558ad21",
       "specie": 183,
       "nome": "Marill",
       "forma": 0,
@@ -97378,7 +97378,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0386-187.pk4": {
-      "sha256": "8c5e7d52a5089b1c4b5395bc8a6a4efcd88302649e891a85d3a0c072c4b536f8",
+      "sha256": "eae3723e33e11e4967d9e925ae6bea510f4b363253f44dcd8997e43801a37781",
       "specie": 187,
       "nome": "Hoppip",
       "forma": 0,
@@ -97406,7 +97406,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0387-442.pk4": {
-      "sha256": "6bd4b93ce6117e92d802c7af725738c1ebc34a740cffa4b0224a7ed53b00c4e6",
+      "sha256": "a2a1f4edce2959a37c3f4bc28548079bfb5d3b067d581d0e2dd2f0ed90eae27c",
       "specie": 442,
       "nome": "Spiritomb",
       "forma": 0,
@@ -97434,7 +97434,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0388-446.pk4": {
-      "sha256": "5723ef160c343e99cc8b6b7c9ef25d830a4e4db62b93aa8aca3552285e429e26",
+      "sha256": "fabfc7f1c7b57050b7a4c9ef644635905758a9f89b00a968dfd630d8ce0bb253",
       "specie": 446,
       "nome": "Munchlax",
       "forma": 0,
@@ -97462,7 +97462,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0389-433.pk4": {
-      "sha256": "c6ae3c7587467892c7513ff6d9445b0ff1241a9684e7af1ac1b9acc084dcf506",
+      "sha256": "b9825c7599852396453749d94fe16741deaaa57f1cb21218ba9263a36cc4fcfe",
       "specie": 433,
       "nome": "Chingling",
       "forma": 0,
@@ -97490,7 +97490,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0390-349.pk4": {
-      "sha256": "cdc8c1d313ce3433309f6dfa6c5644243e6fb91393ba902186f69d4dc0337eb5",
+      "sha256": "7662143caf333b62fd3bbe4aea72f53ffbbd6e391631cb01eb0ae0ea676d7f11",
       "specie": 349,
       "nome": "Feebas",
       "forma": 0,
@@ -97517,7 +97517,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0391-164.pk4": {
-      "sha256": "cecd96c1dbbe4582396c37902dc49e5247c01cc8a8f32bbd2ca432efc49a61ec",
+      "sha256": "62b458091134c54fa4af0158f8a2a2d0a268b3f874127adf8c0f95f8f042ecd6",
       "specie": 164,
       "nome": "Noctowl",
       "forma": 0,
@@ -97545,7 +97545,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0392-042.pk4": {
-      "sha256": "59dc1a9d68daca0a703c3343a870fe5c51ea9f1f69cf79f3a4900c4e497a6d86",
+      "sha256": "808c5e35b3e275a21363339ad06e9e2641046abee5198f8ab4f130226f0e7308",
       "specie": 42,
       "nome": "Golbat",
       "forma": 0,
@@ -97573,7 +97573,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0393-120.pk4": {
-      "sha256": "37be6c923d2a30344c180c75d194c3bad12514f782b1aea05f9c4b5c5cd8f41c",
+      "sha256": "a0037f40fa94fdbc3d563b77e93af4f2ac4277eeb09cb87a30aee1c169a376a5",
       "specie": 120,
       "nome": "Staryu",
       "forma": 0,
@@ -97601,7 +97601,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0394-224.pk4": {
-      "sha256": "75d26974a655080ea9082828895bed209f68020c384606402477c33dbb69661e",
+      "sha256": "e2c2c16265b47ee50d21faafb075d52053ca7cb735e7fc5fa33fcf4012f06070",
       "specie": 224,
       "nome": "Octillery",
       "forma": 0,
@@ -97629,7 +97629,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0395-116.pk4": {
-      "sha256": "2a3f97fb48aac695ff5f8aeb3799285fc3bbb521659e6f78a503a6b593f0ccb1",
+      "sha256": "591ad56054572b2a19241354b4b860a793f3e7a2122f4f4228fc35148e3adc72",
       "specie": 116,
       "nome": "Horsea",
       "forma": 0,
@@ -97657,7 +97657,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0396-222.pk4": {
-      "sha256": "8f02521176e877fb89713ed3349c298d0526364337868ef769ee71f76613ee08",
+      "sha256": "28da4c0522d6b2b033b4a2e3afa072d08e8fe7b1325398a33b3d5211bbdab451",
       "specie": 222,
       "nome": "Corsola",
       "forma": 0,
@@ -97685,7 +97685,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0397-223.pk4": {
-      "sha256": "0ac056bce1a0ac2a58f7648b7eecbdfa20250112644533672353c135be1181d9",
+      "sha256": "bb7525579f69de90be9971a6d269103b56e10756797242b79a9eef2b5c613ba6",
       "specie": 223,
       "nome": "Remoraid",
       "forma": 0,
@@ -97713,7 +97713,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0398-170.pk4": {
-      "sha256": "b219954ea4ff0c3e09be36e96e3fd101275b18c27c57186f4642bfc35e0a7fac",
+      "sha256": "e04a5e8346ad58b0898a3c79caa52ea07dd1f0691c1eee9388fbfa6193b01dda",
       "specie": 170,
       "nome": "Chinchou",
       "forma": 0,
@@ -97741,7 +97741,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0399-035.pk4": {
-      "sha256": "4551c45c3348ca265c611447d449876b59b48e813f7e11105e5590a8acd2306e",
+      "sha256": "9248affbef73976935da65614823d4868b9d4e3f1a44af00110f439d6bd3c6cf",
       "specie": 35,
       "nome": "Clefairy",
       "forma": 0,
@@ -97769,7 +97769,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0400-039.pk4": {
-      "sha256": "525825f45432f3cc85ae87e21fcb9258181407b49c7f5fdaedf694a6ad265fda",
+      "sha256": "d6aecb3eb3b04787a333062842fe88028e7d0d87e4988551d5697ccfb5638d0d",
       "specie": 39,
       "nome": "Jigglypuff",
       "forma": 0,
@@ -97796,7 +97796,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0401-041.pk4": {
-      "sha256": "dbaecf94cefd245de5880c94824d6e7d4202922b3e34e8ff1b2706cbfc34744a",
+      "sha256": "6040e74a937be06fd2006f3b93f756b223740f09a27aa70d40e3de659750346b",
       "specie": 41,
       "nome": "Zubat",
       "forma": 0,
@@ -97823,7 +97823,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0402-163.pk4": {
-      "sha256": "563e983b6ab2884f3d65032183ffaf10c3917af656eecf8aae2b77525e750784",
+      "sha256": "a37c7236622c04799339f4f445253067a986904140bf4032536e97855f93076c",
       "specie": 163,
       "nome": "Hoothoot",
       "forma": 0,
@@ -97851,7 +97851,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0403-074.pk4": {
-      "sha256": "9c150d2698d07346314df7770f7503f7f2eed139684597e797207c856f09a763",
+      "sha256": "a272857d90e56fac636f3242da7fbc9a0710ef9a826ed401f2a5b2a3c51b4cbb",
       "specie": 74,
       "nome": "Geodude",
       "forma": 0,
@@ -97878,7 +97878,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0404-095.pk4": {
-      "sha256": "dcde3d29f67eba9979e8def943eeaab1e7109bfeece685bd2cb0723ec4258fab",
+      "sha256": "16900990be47e1f489201e8226e8ebe42b390e59c71534844f3e8edcac473f5a",
       "specie": 95,
       "nome": "Onix",
       "forma": 0,
@@ -97906,7 +97906,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0405-025.pk4": {
-      "sha256": "4f5c620247cf1cf6592c95ee0969e22b92b581e18b243986fab4b1bdac5d9dc3",
+      "sha256": "aed1184e2bd66a74a8a0f02dd468afdd50f28fd939ba9fae825e938d918be223",
       "specie": 25,
       "nome": "Pikachu",
       "forma": 0,
@@ -97934,7 +97934,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0406-025.pk4": {
-      "sha256": "df08b0cc70cd1403677ab0fcc6b8989cc60f980880f4aaaba8ae0c02e1b6c02e",
+      "sha256": "7038cd9873e753acc32abb4809ed81d9905582c8dfe047907eb91f28d2570f62",
       "specie": 25,
       "nome": "Pikachu",
       "forma": 0,
@@ -97962,7 +97962,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0407-025.pk4": {
-      "sha256": "5c9f9f3c90703c581777d75da467392e81e7024c59fad8b75113e00c3c78ce3e",
+      "sha256": "0ad55f132acffd47aeb0033f72968a650a535fb1de3d7934cdcfdd7fb9ec670e",
       "specie": 25,
       "nome": "Pikachu",
       "forma": 0,
@@ -97990,7 +97990,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0408-025.pk4": {
-      "sha256": "1b25c4549c12b07894fd5ff400ff1c2af79ba7a7c952ce652df2390b63f44934",
+      "sha256": "b271be0ee0ce22b877fdb04d6c7d03e35bfe75c19f90bb5b076bb8c951af0d97",
       "specie": 25,
       "nome": "Pikachu",
       "forma": 0,
@@ -98018,7 +98018,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0409-025.pk4": {
-      "sha256": "836b857c21f7823be5a64d1454490f95938a4a2d94777b6a8573d1744db0daac",
+      "sha256": "23b17e4b387d92b58e5fe36f0d8ffd2236b5c89227ee061c3af566085765f96a",
       "specie": 25,
       "nome": "Pikachu",
       "forma": 0,
@@ -98046,7 +98046,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0410-025.pk4": {
-      "sha256": "148f9c672645ceb99106a21529be177be8ad11fc223c98344cd2c81fc6d5c687",
+      "sha256": "03e88da1ea6f37ef3c29321e05dee28c5b80478d5f5b2a49c58b5c10b9c8fdcc",
       "specie": 25,
       "nome": "Pikachu",
       "forma": 0,
@@ -98074,7 +98074,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0411-441.pk4": {
-      "sha256": "927d568fbb42f707f5ae0d421ac3ffc00615413949786066b3391a1232c65106",
+      "sha256": "cb37a5712f120f469339693dd9b4236ab40bb5a37f4c2b8daa36507f6628a120",
       "specie": 441,
       "nome": "Chatot",
       "forma": 0,
@@ -98102,7 +98102,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0412-302.pk4": {
-      "sha256": "78e18ea5da589a968e181d43831afe1f94485072a5666b3b4778af793549ea53",
+      "sha256": "9788e03216e3215951a399327eb58fcdb0b9c6db0fa42718acf7229fb1feda58",
       "specie": 302,
       "nome": "Sableye",
       "forma": 0,
@@ -98130,7 +98130,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0413-025.pk4": {
-      "sha256": "d18768bbbb37f0f12b4bacce7ee2bcb56f808f1bf8f957ef93cad0c0aaff935e",
+      "sha256": "f7d6a2c627d728034f25d83e0de91a2a25003a62acf18b33377befede7818430",
       "specie": 25,
       "nome": "Pikachu",
       "forma": 0,
@@ -98158,7 +98158,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0414-453.pk4": {
-      "sha256": "229ba18402afb464e50df0b16c48f679b237cf510f2f5b21b3d4f91e542c75ce",
+      "sha256": "31e74348e33742c447d574d49c77a4d01b0a14d39def34abf1317f7cc2e7b7c6",
       "specie": 453,
       "nome": "Croagunk",
       "forma": 0,
@@ -98186,7 +98186,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0415-427.pk4": {
-      "sha256": "986d304f5238aaa23e867aa6ffe676ee529a76bfb5426ac1d18994652fa3e322",
+      "sha256": "cb13c8614e0d1eae326ab07090cf48cbd898db7ed02e7390ef46424dcc4351b3",
       "specie": 427,
       "nome": "Buneary",
       "forma": 0,
@@ -98214,7 +98214,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0416-417.pk4": {
-      "sha256": "7ba72ea11692498465e741bc005750bb945e2be3bd34413f97e97791075b6ddb",
+      "sha256": "b95dc9c90d7cac53798ce624ecf0c361ab5cc3b21059c6aba17f9b9308f1e95d",
       "specie": 417,
       "nome": "Pachirisu",
       "forma": 0,
@@ -98241,7 +98241,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0417-255.pk4": {
-      "sha256": "289a99f18513edab72ffdaa10b9f6a9cc387d5eef9bda73efdd497c5a448e7a2",
+      "sha256": "d65522c960809d749078cbee1e1d35f7dedba6c2b6397da3f9747c48f9b6e3ea",
       "specie": 255,
       "nome": "Torchic",
       "forma": 0,
@@ -98269,7 +98269,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0418-133.pk4": {
-      "sha256": "d56ad8e037564afe0696e6e5c1ceb3b54dfad22f272d89706116b66d5ca8acd5",
+      "sha256": "c3ba41b325d9b51c248defef0b9e8a2c58627612606d8aa316e5191a0d441597",
       "specie": 133,
       "nome": "Eevee",
       "forma": 0,
@@ -98297,7 +98297,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0421-052.pk4": {
-      "sha256": "58c910a59acadfa22f1fc1311e4d530c41ae35b7d5abd8c12ea050bc4d3bdba1",
+      "sha256": "4bc257a2f233021571a81f631d204e8285d0eb53c8b5681ebfd6567e296dddb6",
       "specie": 52,
       "nome": "Meowth",
       "forma": 0,
@@ -98325,7 +98325,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0422-025.pk4": {
-      "sha256": "b81677cd7af13c4d04184b8ee7d90185a4e874074f5d0eb4615e28a4b22df7fb",
+      "sha256": "f99ce5351d9bc5c5c89c9b36ce23796dd2a4e8b5463bc9ec75b84b845f36981d",
       "specie": 25,
       "nome": "Pikachu",
       "forma": 0,
@@ -98353,7 +98353,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0423-446.pk4": {
-      "sha256": "d8fa0a2a3bc24ca74ab68270b70603f322a1ba457390f1fc363ee5905dcb079a",
+      "sha256": "05c1f20eb7238dfb770aa1214c6f84a5f5785a565f01569f2b7768eecec5d872",
       "specie": 446,
       "nome": "Munchlax",
       "forma": 0,
@@ -98381,7 +98381,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0424-374.pk4": {
-      "sha256": "5bc4c079fad7f68a87dba1fb5dd6133985b100365a2c7c325e7510d6db15c1d8",
+      "sha256": "8fae3fb55a3a324ca8e84ae02101b6d24764cca1edeb7ecf72f30c1fb50dd0f6",
       "specie": 374,
       "nome": "Beldum",
       "forma": 0,
@@ -98409,7 +98409,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0425-116.pk4": {
-      "sha256": "7b2fe83915410ec9c78b3200dd90af1a919604343e8bd4f5314137ad510b261e",
+      "sha256": "e8cf17c2798fbf17804c54ec05f9d0050a3fe4bb3d35ef828896ebf361c64e8c",
       "specie": 116,
       "nome": "Horsea",
       "forma": 0,
@@ -98436,7 +98436,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0426-355.pk4": {
-      "sha256": "9dd246d3101abf4ca11d9b5e3f83dd078d48bbea02c3199ba41d74728348721b",
+      "sha256": "e3d37a457a2bfb5541c75b325540500003c495ef14c1c6e0997f683e773edda6",
       "specie": 355,
       "nome": "Duskull",
       "forma": 0,
@@ -98463,7 +98463,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0427-129.pk4": {
-      "sha256": "b1210aa93a4251692ea77c1e80ee3b110206600b8f6e66d3373c9d99bbc64621",
+      "sha256": "ea46a09460d648b26c66dfd70be3dff35c6cd0f60d93440caa9ebb857873b1db",
       "specie": 129,
       "nome": "Magikarp",
       "forma": 0,
@@ -98489,7 +98489,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0428-436.pk4": {
-      "sha256": "04dcbe2a5bef369c36dd692db0ebf7a5fea7df40ae1e4167acdb30fef0a6978f",
+      "sha256": "b88e252453796315d67e6255ba229ff53d286dcb150df30d62855b4366ea2b0a",
       "specie": 436,
       "nome": "Bronzor",
       "forma": 0,
@@ -98516,7 +98516,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0429-239.pk4": {
-      "sha256": "1cb52d263ed307e55a364f8246a96625ceb827ec7dfbaf9f0d883d9fb45849a0",
+      "sha256": "efab53ba5bb8db733aecba87b273280337a77f13a2ca135e6c45a668c9a57b69",
       "specie": 239,
       "nome": "Elekid",
       "forma": 0,
@@ -98543,7 +98543,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0430-240.pk4": {
-      "sha256": "1249e650f0528696a2e79c9842b6d02ae617ebf97e4069b509bfdeae65073083",
+      "sha256": "f40b8d19978f815d4c6b31b8e7741d83efef417a2189cf2d6f7a3b9e5903f692",
       "specie": 240,
       "nome": "Magby",
       "forma": 0,
@@ -98570,7 +98570,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0431-238.pk4": {
-      "sha256": "54d6d805eefa5d7dc37e0b2ae581d1988f39fc89f1aeda6a4a0bbc2bb981f6fa",
+      "sha256": "bab4c75eaac530db7bcbcb714a7385a6bfeb035f27349a8ae8b438412ae48acf",
       "specie": 238,
       "nome": "Smoochum",
       "forma": 0,
@@ -98597,7 +98597,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0433-174.pk4": {
-      "sha256": "1bb9effd3e77e4d82b91179ee98b8c98885d906cf860d823e4318176a1bdf9f8",
+      "sha256": "45c5c1a57abd98c3e4846fad37d1c511998828a6021e7da76a5dcfac6628deec",
       "specie": 174,
       "nome": "Igglybuff",
       "forma": 0,
@@ -98625,7 +98625,7 @@
       "esito": "conforme"
     },
     "lotto-periferiche-secondo-tempo/EVT-T-0434-173.pk4": {
-      "sha256": "cd18230f35e573c2509ded14ea441f60bf194dd343aa1412e78fcf08dc2f6f49",
+      "sha256": "db8693a53f07d3ce362e151208fb4fa31d0f02f07de5deaec47b9c07c3ae2293",
       "specie": 173,
       "nome": "Cleffa",
       "forma": 0,
@@ -98653,7 +98653,7 @@
       "esito": "conforme"
     },
     "lotto-oggetti-gen5/EVT-T-0014-494.pk5": {
-      "sha256": "b42b0c10d45519fc032aeb82c20b2b45b5c34710cf2d42ab6513253234c0a8cc",
+      "sha256": "7920b07419c2515d071a031b05a197b44192c772a43ca0ada54fd80aa745aed7",
       "specie": 494,
       "nome": "Victini",
       "forma": 0,
@@ -99677,7 +99677,7 @@
       "esito": "conforme"
     },
     "lotto-statici-gen7/STA-7-TOTEM-UM-020.pk7": {
-      "sha256": "3523fe10c5fb30a0e8b0b3fa579e74a9fdaccc335fd040b1e42fa00fb12cbe13",
+      "sha256": "d72964a1025a2a401cc5352c7ed571e67f7afb390b17987be8532caa92c1ce8c",
       "specie": 20,
       "nome": "Raticate",
       "forma": 2,
@@ -99688,7 +99688,7 @@
         "livello": 20,
         "soprannome": null,
         "allenatore": "Alessio",
-        "id_allenatore": 356109,
+        "id_allenatore": 878221,
         "lingua": "Italian",
         "gioco_di_origine": "UM",
         "luogo": "Spiaggia di Kantai",
@@ -99705,7 +99705,7 @@
       "esito": "conforme"
     },
     "lotto-statici-gen7/STA-7-TOTEM-UM-752.pk7": {
-      "sha256": "d77394d10db5cd871068a5f8152cfbb3b1693d6d29e36caab5a0c5079d0b8ce3",
+      "sha256": "e040765ae6f2cb6e8c85ff09cf1018d881c10fd845a898b23be91df3277c9342",
       "specie": 752,
       "nome": "Araquanid",
       "forma": 1,
@@ -99716,7 +99716,7 @@
         "livello": 25,
         "soprannome": null,
         "allenatore": "Alessio",
-        "id_allenatore": 356109,
+        "id_allenatore": 878221,
         "lingua": "Italian",
         "gioco_di_origine": "UM",
         "luogo": "Spiaggia di Kantai",
@@ -99733,7 +99733,7 @@
       "esito": "conforme"
     },
     "lotto-statici-gen7/STA-7-TOTEM-UM-758.pk7": {
-      "sha256": "2764d95abde90daf1e006de671f5ad360cbdf7b040b70397e2f51d9e78045c7e",
+      "sha256": "99363c291de954abf825b6cf88fa617e9c608e0846ca611d0fde4dbc247c3954",
       "specie": 758,
       "nome": "Salazzle",
       "forma": 1,
@@ -99744,7 +99744,7 @@
         "livello": 30,
         "soprannome": null,
         "allenatore": "Alessio",
-        "id_allenatore": 356109,
+        "id_allenatore": 878221,
         "lingua": "Italian",
         "gioco_di_origine": "UM",
         "luogo": "Spiaggia di Kantai",
@@ -99761,7 +99761,7 @@
       "esito": "conforme"
     },
     "lotto-statici-gen7/STA-7-TOTEM-UM-777.pk7": {
-      "sha256": "e93f8a09627d6316fa8c532f633b3062611e807483f41c8b5bcdb5ac2a7a96f6",
+      "sha256": "ce49fe94ad75d33f91005ff81088adba211728021154ee01007fc0d5a59859fc",
       "specie": 777,
       "nome": "Togedemaru",
       "forma": 1,
@@ -99772,7 +99772,7 @@
         "livello": 35,
         "soprannome": null,
         "allenatore": "Alessio",
-        "id_allenatore": 356109,
+        "id_allenatore": 878221,
         "lingua": "Italian",
         "gioco_di_origine": "UM",
         "luogo": "Spiaggia di Kantai",
@@ -99789,7 +99789,7 @@
       "esito": "conforme"
     },
     "lotto-statici-gen7/STA-7-TOTEM-UM-784.pk7": {
-      "sha256": "adcde2f9fb146290e4428a0e3492c83d94ec1da87cb83872a8480fc720c179a0",
+      "sha256": "a9d6ff9ea8fb4e66f06fb2aec1e521869672b800c0b9a7e330fbf7d53c113fe2",
       "specie": 784,
       "nome": "Kommo-o",
       "forma": 1,
@@ -99800,7 +99800,7 @@
         "livello": 50,
         "soprannome": null,
         "allenatore": "Alessio",
-        "id_allenatore": 356109,
+        "id_allenatore": 878221,
         "lingua": "Italian",
         "gioco_di_origine": "UM",
         "luogo": "Spiaggia di Kantai",
@@ -99817,7 +99817,7 @@
       "esito": "conforme"
     },
     "lotto-statici-gen7/STA-7-TOTEM-US-105.pk7": {
-      "sha256": "a423acde3c5bdefecde808985ecf37ac0e18c976e61bc8e22ec47225d3506be7",
+      "sha256": "5fe638d1a47356fc33fe41d395c3bc736dc98b9c61a0ecc88c9e2607824282ae",
       "specie": 105,
       "nome": "Marowak",
       "forma": 2,
@@ -99828,7 +99828,7 @@
         "livello": 25,
         "soprannome": null,
         "allenatore": "Alessio",
-        "id_allenatore": 356109,
+        "id_allenatore": 878221,
         "lingua": "Italian",
         "gioco_di_origine": "US",
         "luogo": "Spiaggia di Kantai",
@@ -99845,7 +99845,7 @@
       "esito": "conforme"
     },
     "lotto-statici-gen7/STA-7-TOTEM-US-735.pk7": {
-      "sha256": "5f31842f2752a8457d10c9137ab592d3760cc012a7f43fa121444b57190b2202",
+      "sha256": "abfef87fdd44b76105f3ba199bd044268d2b7726734ffa6324692148f26557d7",
       "specie": 735,
       "nome": "Gumshoos",
       "forma": 1,
@@ -99856,7 +99856,7 @@
         "livello": 20,
         "soprannome": null,
         "allenatore": "Alessio",
-        "id_allenatore": 356109,
+        "id_allenatore": 878221,
         "lingua": "Italian",
         "gioco_di_origine": "US",
         "luogo": "Spiaggia di Kantai",
@@ -99873,7 +99873,7 @@
       "esito": "conforme"
     },
     "lotto-statici-gen7/STA-7-TOTEM-US-738.pk7": {
-      "sha256": "ee57445720e56ccdc6efc1f922bf1e23df68b16ac06ef4f20d09593a71f582e8",
+      "sha256": "a8e7269d028bb585626caf0e9d77c44b2efe4487613836a8b07d1991e14693a8",
       "specie": 738,
       "nome": "Vikavolt",
       "forma": 1,
@@ -99884,7 +99884,7 @@
         "livello": 35,
         "soprannome": null,
         "allenatore": "Alessio",
-        "id_allenatore": 356109,
+        "id_allenatore": 878221,
         "lingua": "Italian",
         "gioco_di_origine": "US",
         "luogo": "Spiaggia di Kantai",
@@ -99901,7 +99901,7 @@
       "esito": "conforme"
     },
     "lotto-statici-gen7/STA-7-TOTEM-US-743.pk7": {
-      "sha256": "1525c1e36281926617af7ae25f0941667638656101eff81142e6b12ffa2b0445",
+      "sha256": "648daf0198568d901551d2bc828fd19abfb0cc97a4c0b41d7cd0cd335727721d",
       "specie": 743,
       "nome": "Ribombee",
       "forma": 1,
@@ -99912,7 +99912,7 @@
         "livello": 50,
         "soprannome": null,
         "allenatore": "Alessio",
-        "id_allenatore": 356109,
+        "id_allenatore": 878221,
         "lingua": "Italian",
         "gioco_di_origine": "US",
         "luogo": "Spiaggia di Kantai",
@@ -99929,7 +99929,7 @@
       "esito": "conforme"
     },
     "lotto-statici-gen7/STA-7-TOTEM-US-754.pk7": {
-      "sha256": "36f3b751b486de723367de7a67bfe2e28a30ec1d8d9c51a5a9fea7338bdbcf54",
+      "sha256": "4baf5d968230a5b5ab40182b134bf3f4b931a0414f770d4d8e7576b91fdc5273",
       "specie": 754,
       "nome": "Lurantis",
       "forma": 1,
@@ -99940,7 +99940,7 @@
         "livello": 30,
         "soprannome": null,
         "allenatore": "Alessio",
-        "id_allenatore": 356109,
+        "id_allenatore": 878221,
         "lingua": "Italian",
         "gioco_di_origine": "US",
         "luogo": "Spiaggia di Kantai",
@@ -99957,7 +99957,7 @@
       "esito": "conforme"
     },
     "lotto-statici-gen7/STA-7-TOTEM-USUM-778.pk7": {
-      "sha256": "c0f46550ad894b398f237c08bbf1d673ed77845a09f181eb84f6e8d2f78aa4f8",
+      "sha256": "46e7152520b0a052177f9c57c22c71cf7c3bb2135f7e50408d461c1842c88b75",
       "specie": 778,
       "nome": "Mimikyu",
       "forma": 2,
@@ -99968,7 +99968,7 @@
         "livello": 40,
         "soprannome": null,
         "allenatore": "Alessio",
-        "id_allenatore": 356109,
+        "id_allenatore": 878221,
         "lingua": "Italian",
         "gioco_di_origine": "US",
         "luogo": "Spiaggia di Kantai",
@@ -99985,7 +99985,7 @@
       "esito": "conforme"
     },
     "lotto-statici-gen7/STA-7-USUM-PIKACHU-025.pk7": {
-      "sha256": "9e52ca26accb1288f08b6bf2471999cc521496b9fb0cd135386fb8ce267bf3b0",
+      "sha256": "2de5703856fc46d4ca425f2bc42db62ea8779d8f210aa8723382b94b0c7c6823",
       "specie": 25,
       "nome": "Pikachu",
       "forma": 0,
@@ -99996,7 +99996,7 @@
         "livello": 40,
         "soprannome": null,
         "allenatore": "Alessio",
-        "id_allenatore": 356109,
+        "id_allenatore": 878221,
         "lingua": "Italian",
         "gioco_di_origine": "US",
         "luogo": "Kantai",

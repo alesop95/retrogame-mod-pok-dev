@@ -963,6 +963,12 @@ Il problema. La lettura integrale delle fonti del Parco Lotta ha lasciato fuori 
 La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti etichettata come non letta con il proprio motivo, secondo la prescrizione che vieta di degradare in silenzio una fonte a nota a margine, e non si tenta alcuna via ulteriore. Il debito di lettura del fronte Parco Lotta si dichiara quindi chiuso con questa sola eccezione dichiarata, e nessuna sessione futura deve riaprirlo credendo che qualcosa sia stato dimenticato.
 
 La ragione per cui l'abbandono è accettabile qui, e non lo sarebbe altrove. Quella discussione è del 2005 ed è una richiesta di valutazione di squadra, cioè la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e più recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano è quindi basso, e la decisione si fonda su questo e non sulla sola difficoltà di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
+## ADR-102: il recupero della tesi si alterna ai blocchi di ADR-099
+
+Data: 2026-10-07. Stato: accettata, decisa dal proprietario.
+
+Fra le tre forme proposte dall'agente per il debito della tesi misurato in ADR-101, cioè prima ADR-099, prima la tesi, oppure alternate, il proprietario ha scelto di procedere insieme su ADR-099 e sul capitolo 24, che è la forma alternata. Ogni blocco di ADR-099 si chiude con il proprio commit, e accanto a ciascuno si recupera una parte della tesi, cominciando da `24-strumenti.tex`. Il capitolo non si timbra finché non copre per intero `docs/22-strumenti.md`; fino ad allora i progressi si contano in `pending.md` per sezione scritta.
+
 ## ADR-101: ogni giro di lavoro si traccia fino alla tesi, con le fonti e con il livello didattico
 
 Data: 2026-10-07. Stato: accettata, direttiva del proprietario.

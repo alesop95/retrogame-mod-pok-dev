@@ -56,8 +56,9 @@ var tabelle = new (string Gruppo, byte Gen, GameVersion Predefinita, IEncountera
     ("USUM", 7, GameVersion.US, Tabella("Encounters7USUM", "TradeGift_USUM")),
 };
 
+var progetto = AllenatoreDelProgetto();
 SimpleTrainerInfo Allenatore(GameVersion v, byte gen, LanguageID lingua) =>
-    new(v) { OT = "Alessio", TID16 = 42317, SID16 = 5147, Gender = 0, Language = (int)lingua, Generation = gen, Context = gen == 6 ? EntityContext.Gen6 : EntityContext.Gen7 };
+    new(v) { OT = (string)progetto["nome"]!, TID16 = (ushort)(int)progetto["tid"]!, SID16 = (ushort)(int)progetto["sid"]!, Gender = (string)progetto["sesso"]! == "maschio" ? (byte)0 : (byte)1, Language = (int)lingua, Generation = gen, Context = gen == 6 ? EntityContext.Gen6 : EntityContext.Gen7 };
 
 var esiti = new JsonArray();
 int conformi = 0, contestati = 0;
@@ -139,3 +140,17 @@ File.WriteAllText(Path.Combine(uscita, "rapporto.json"),
     }.ToJsonString(new JsonSerializerOptions { WriteIndented = true, Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping }) + "\n");
 Console.WriteLine($"conformi {conformi}, contestati {contestati}");
 return contestati == 0 ? 0 : 1;
+
+// L'allenatore del progetto da recreate-pokemon-distributions-events/allenatore.json, cercato risalendo dalla cartella
+// corrente, così che i comandi documentati restino quelli di prima. Fino al 2026-10-07 nome e identificativi erano
+// scritti qui a mano, con un identificativo segreto, 5147, senza fonte né motivo, diverso dal 58164 del file (ADR-099).
+static JsonNode AllenatoreDelProgetto()
+{
+    for (var d = new DirectoryInfo(Directory.GetCurrentDirectory()); d != null; d = d.Parent)
+    {
+        var f = Path.Combine(d.FullName, "recreate-pokemon-distributions-events", "allenatore.json");
+        if (File.Exists(f))
+            return JsonNode.Parse(File.ReadAllText(f))!;
+    }
+    throw new FileNotFoundException("allenatore.json non trovato risalendo dalla cartella corrente");
+}

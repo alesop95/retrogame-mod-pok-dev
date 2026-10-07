@@ -10,7 +10,7 @@ Esemplari generati e giudicati legali dalla libreria del verificatore: 376 su 37
 |---|---|---|---|
 | R | Alessio | 17735 | 10629 |
 | S | Alessio | 34010 | 11870 |
-| E | Alessio | 42317 | 0 |
+| E | Alessio | 42317 | 58164 |
 | FR | Alessio | 64821 | 38858 |
 | LG | Alessio | 46517 | 44697 |
 | COLO | Alessio | 57517 | 42859 |
@@ -40,20 +40,20 @@ L'allenatore Alessio di ciascun gioco non corrisponde a una partita reale: è un
 
 | Richiesta | Pokémon | Livello | Voce della libreria | Allenatore | Motivo | SHA-256 |
 |---|---|---|---|---|---|---|
-| 001-statico | Castform | 25 | EncounterStatic3 Static Encounter (E) | Alessio 42317 | statico, Castform @ Weather Institute | `6c33959b…f3806958` |
-| 002-statico | Wynaut | 5 | EncounterStatic3 Static Encounter (E) | Alessio 42317 | statico, Wynaut Egg | `8252a779…18f9e3cf` |
-| 003-statico | Kecleon | 30 | EncounterStatic3 Static Encounter (E) | Alessio 42317 | statico, Kecleon @ Route 119 | `6dfee224…49980cfa` |
-| 004-statico | Voltorb | 25 | EncounterStatic3 Static Encounter (E) | Alessio 42317 | statico, Voltorb @ New Mauville | `53d47139…6affb0ef` |
+| 001-statico | Castform | 25 | EncounterStatic3 Static Encounter (E) | Alessio 42317 | statico, Castform @ Weather Institute | `742cf9ac…5940047c` |
+| 002-statico | Wynaut | 5 | EncounterStatic3 Static Encounter (E) | Alessio 42317 | statico, Wynaut Egg | `0ad7e353…d1f654d2` |
+| 003-statico | Kecleon | 30 | EncounterStatic3 Static Encounter (E) | Alessio 42317 | statico, Kecleon @ Route 119 | `e596cbd2…8ffb4a91` |
+| 004-statico | Voltorb | 25 | EncounterStatic3 Static Encounter (E) | Alessio 42317 | statico, Voltorb @ New Mauville | `8763fce5…436fc744` |
 | 005-statico | Groudon | 45 | EncounterStatic3 Static Encounter (R) | Alessio 17735 | statico, Groudon @ Cave of Origin | `dd958b25…86473b0a` |
 | 006-statico | Electrode | 30 | EncounterStatic3 Static Encounter (R) | Alessio 17735 | statico, Electrode @ Hideout (R:Magma Hideout/S:Aqua Hideout) | `f6a29d5a…d76cfd7c` |
 | 007-statico | Latias | 40 | EncounterStatic3 Static Encounter (S) | Alessio 34010 | statico, Latias | `1e2b261d…074721d9` |
 | 008-statico | Kyogre | 45 | EncounterStatic3 Static Encounter (S) | Alessio 34010 | statico, Kyogre @ Cave of Origin | `c711b3a4…065d4cfc` |
 | 009-statico | Electrode | 30 | EncounterStatic3 Static Encounter (S) | Alessio 34010 | statico, Electrode @ Hideout (R:Magma Hideout/S:Aqua Hideout) | `4223d37b…6f12cb37` |
-| 010-statico | Groudon | 70 | EncounterStatic3 Static Encounter (E) | Alessio 42317 | statico, Groudon @ Terra Cave | `375b2f2c…cdc973ea` |
-| 011-statico | Electrode | 30 | EncounterStatic3 Static Encounter (E) | Alessio 42317 | statico, Electrode @ Aqua Hideout | `7b8c79bd…0ebef6e5` |
-| 012-statico | Chikorita | 5 | EncounterStatic3 Static Encounter (E) | Alessio 42317 | statico, Chikorita @ Littleroot Town | `6f87c64c…992a46d3` |
-| 013-statico | Cyndaquil | 5 | EncounterStatic3 Static Encounter (E) | Alessio 42317 | statico, Cyndaquil | `82ed9d70…a3c1999b` |
-| 014-statico | Totodile | 5 | EncounterStatic3 Static Encounter (E) | Alessio 42317 | statico, Totodile | `fdc50ae8…18baed5e` |
+| 010-statico | Groudon | 70 | EncounterStatic3 Static Encounter (E) | Alessio 42317 | statico, Groudon @ Terra Cave | `27d0fc01…32d6b675` |
+| 011-statico | Electrode | 30 | EncounterStatic3 Static Encounter (E) | Alessio 42317 | statico, Electrode @ Aqua Hideout | `de7ba9ea…8493d940` |
+| 012-statico | Chikorita | 5 | EncounterStatic3 Static Encounter (E) | Alessio 42317 | statico, Chikorita @ Littleroot Town | `673b80e1…af17b113` |
+| 013-statico | Cyndaquil | 5 | EncounterStatic3 Static Encounter (E) | Alessio 42317 | statico, Cyndaquil | `b27cab0a…c438b609` |
+| 014-statico | Totodile | 5 | EncounterStatic3 Static Encounter (E) | Alessio 42317 | statico, Totodile | `2c2bcaf9…74bfc90d` |
 | 015-statico | Entei | 50 | EncounterStatic3 Static Encounter (FR) | Alessio 64821 | statico, Entei | `86ebb452…18b07cc1` |
 | 016-statico | Suicune | 50 | EncounterStatic3 Static Encounter (FR) | Alessio 64821 | statico, Suicune | `b29b4a21…3bcfd7fe` |
 | 017-statico-e-sfida-del-deposito | Venusaur | 40 | EncounterStatic3 Static Encounter (FR) | Alessio 64821 | statico e sfida del deposito, Venusaur da Rosso Fuoco o Verde Foglia | `37fbd2a1…a7fbfa74` |
@@ -93,9 +93,9 @@ L'allenatore Alessio di ciascun gioco non corrisponde a una partita reale: è un
 | 258-incontro-speciale | Whismur | 6 | EncounterSlot3 Wild Encounter (S) Grass (S) | Alessio 34010 | incontro speciale, Tunnel Menferro | `f555fe73…d4493a79` |
 | 259-incontro-speciale | Wynaut | 30 | EncounterSlot3 Wild Encounter (S) Grass (S) | Alessio 34010 | incontro speciale, Percorso 130 | `24fb9d75…3fb22f78` |
 | 260-incontro-speciale | Psyduck | 29 | EncounterSlot3 Wild Encounter (S) Surf (S) | Alessio 34010 | incontro speciale, Zona Safari (RZS) | `4857d234…1dbaf3c9` |
-| 261-incontro-speciale | Nosepass | 15 | EncounterSlot3 Wild Encounter (E) Rock Smash (E) | Alessio 42317 | incontro speciale, da condizione, con tipo di casella 5 | `776d3c2b…cd6e7d35` |
-| 262-incontro-speciale | Whismur | 6 | EncounterSlot3 Wild Encounter (E) Grass (E) | Alessio 42317 | incontro speciale, Tunnel Menferro | `0e06080e…3ecd6d7b` |
-| 263-incontro-speciale | Smeargle | 40 | EncounterSlot3 Wild Encounter (E) Grass (E) | Alessio 42317 | incontro speciale, Grotta Artistica | `7bc1634d…58e357a5` |
+| 261-incontro-speciale | Nosepass | 15 | EncounterSlot3 Wild Encounter (E) Rock Smash (E) | Alessio 42317 | incontro speciale, da condizione, con tipo di casella 5 | `0e6cf258…f2ee20ce` |
+| 262-incontro-speciale | Whismur | 6 | EncounterSlot3 Wild Encounter (E) Grass (E) | Alessio 42317 | incontro speciale, Tunnel Menferro | `63f7b23d…ab0f0eb2` |
+| 263-incontro-speciale | Smeargle | 40 | EncounterSlot3 Wild Encounter (E) Grass (E) | Alessio 42317 | incontro speciale, Grotta Artistica | `c612115f…9bd63c62` |
 | 264-incontro-speciale | Magcargo | 40 | EncounterSlot3 Wild Encounter (FR) Rock Smash (FR) | Alessio 64821 | incontro speciale, da condizione, con tipo di casella 5 | `f2df12a8…acc69cdf` |
 | 265-incontro-speciale | Dunsparce | 15 | EncounterSlot3 Wild Encounter (FR) Grass (FR) | Alessio 64821 | incontro speciale, Porto Terzisola | `5b664979…b57c37c9` |
 | 266-incontro-speciale | Zubat | 10 | EncounterSlot3 Wild Encounter (FR) Grass (FR) | Alessio 64821 | incontro speciale, Grotta Mutevole (RFVF) | `58bbc00b…7eab3646` |
@@ -360,119 +360,119 @@ L'allenatore Alessio di ciascun gioco non corrisponde a una partita reale: è un
 
 | Richiesta | Pokémon | Livello | Voce della libreria | Allenatore | Motivo | SHA-256 |
 |---|---|---|---|---|---|---|
-| 271-mossa-perduta-Ragnatela | Spinarak | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | mossa perduta Ragnatela | `2e822af3…6a53ba4d` |
-| 272-mossa-perduta-Preveggenza | Duskull | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | mossa perduta Preveggenza | `57f0bd26…eaa63dc7` |
-| 273-mossa-perduta-Frustrazione | Absol | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | mossa perduta Frustrazione | `aa581e62…6d65ffec` |
-| 274-mossa-perduta-Maniereforti | Makuhita | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | mossa perduta Maniereforti | `2c54cdc4…bad68b26` |
-| 275-mossa-perduta-Assistente | Meowth | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | mossa perduta Assistente | `df5c0314…42192776` |
-| 276-mossa-perduta-Pugnospine | Cacnea | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | mossa perduta Pugnospine | `31e5b356…dd962c33` |
-| 277-mossa-perduta-Meloderba | Bulbasaur | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | mossa perduta Meloderba | `bb16d4de…81ddea15` |
-| 278-mossa-perduta-Segnoraggio | Volbeat | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | mossa perduta Segnoraggio | `7ebcac28…c5c1c2b3` |
+| 271-mossa-perduta-Ragnatela | Spinarak | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | mossa perduta Ragnatela | `63e76b5e…319bb613` |
+| 272-mossa-perduta-Preveggenza | Duskull | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | mossa perduta Preveggenza | `1750654c…494d5878` |
+| 273-mossa-perduta-Frustrazione | Absol | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | mossa perduta Frustrazione | `e18418e9…db2e053b` |
+| 274-mossa-perduta-Maniereforti | Makuhita | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | mossa perduta Maniereforti | `87c3e245…da633e05` |
+| 275-mossa-perduta-Assistente | Meowth | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | mossa perduta Assistente | `0c5214b8…67dbfb93` |
+| 276-mossa-perduta-Pugnospine | Cacnea | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | mossa perduta Pugnospine | `7383c742…a970df07` |
+| 277-mossa-perduta-Meloderba | Bulbasaur | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | mossa perduta Meloderba | `80ca583f…b95bc32d` |
+| 278-mossa-perduta-Segnoraggio | Volbeat | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | mossa perduta Segnoraggio | `0e0aea81…24c297c6` |
 
 ## Portatore dei fiocchi
 
 | Richiesta | Pokémon | Livello | Voce della libreria | Allenatore | Motivo | SHA-256 |
 |---|---|---|---|---|---|---|
-| 279-fiocchi | Absol | 100 | EncounterSlot3 Wild Encounter (E) Grass (E) | Alessio 42317 | fiocchi, i 26 legali fuori dal Nazionale su un solo esemplare | `8624b6a0…dc6665d0` |
+| 279-fiocchi | Absol | 100 | EncounterSlot3 Wild Encounter (E) Grass (E) | Alessio 42317 | fiocchi, i 26 legali fuori dal Nazionale su un solo esemplare | `269a87db…aafcd58f` |
 
 ## Specie che nessuna voce speciale copriva
 
 | Richiesta | Pokémon | Livello | Voce della libreria | Allenatore | Motivo | SHA-256 |
 |---|---|---|---|---|---|---|
-| 280-specie-scoperta | Ivysaur | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `400eb7a6…a3a0f2e1` |
-| 281-specie-scoperta | Charmander | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `36d7e039…174edd1f` |
-| 282-specie-scoperta | Charmeleon | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `d3bc5460…ebcc3f7b` |
-| 283-specie-scoperta | Wartortle | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `0a4fe215…08ecfcb2` |
+| 280-specie-scoperta | Ivysaur | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `cf3bdf37…37137c2d` |
+| 281-specie-scoperta | Charmander | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `61f274bb…7887680e` |
+| 282-specie-scoperta | Charmeleon | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `b77a4932…c1dbbac8` |
+| 283-specie-scoperta | Wartortle | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `f5faf045…25bb9b0e` |
 | 284-specie-scoperta | Caterpie | 5 | EncounterEgg3 Egg (FR) | Alessio 64821 | specie scoperta | `81db122a…0693ad1d` |
 | 285-specie-scoperta | Metapod | 30 | EncounterEgg3 Egg (FR) | Alessio 64821 | specie scoperta | `845d0bf5…556a058d` |
 | 286-specie-scoperta | Weedle | 5 | EncounterEgg3 Egg (FR) | Alessio 64821 | specie scoperta | `0b603f3b…4ab2b0d5` |
 | 287-specie-scoperta | Kakuna | 30 | EncounterEgg3 Egg (FR) | Alessio 64821 | specie scoperta | `d8617ace…d1a72464` |
-| 288-specie-scoperta | Pidgeot | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `ce63cf21…001ed895` |
-| 289-specie-scoperta | Nidoqueen | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `972f3c5a…8a86bd70` |
-| 290-specie-scoperta | Nidoking | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `995f86cf…d20965e8` |
-| 291-specie-scoperta | Clefable | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `dc15409f…96ad9b7e` |
-| 292-specie-scoperta | Golbat | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `ad8799b1…ff07f5c7` |
+| 288-specie-scoperta | Pidgeot | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `8675d5b6…8347377c` |
+| 289-specie-scoperta | Nidoqueen | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `567c0bd4…f2ce8351` |
+| 290-specie-scoperta | Nidoking | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `7b5704ad…6adc3ab8` |
+| 291-specie-scoperta | Clefable | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `9a942338…005407af` |
+| 292-specie-scoperta | Golbat | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `18971799…9c3609b1` |
 | 293-specie-scoperta | Venonat | 5 | EncounterEgg3 Egg (FR) | Alessio 64821 | specie scoperta | `067c51b8…b2740774` |
 | 294-specie-scoperta | Mankey | 5 | EncounterEgg3 Egg (FR) | Alessio 64821 | specie scoperta | `94fd7e3d…625596bf` |
 | 295-specie-scoperta | Poliwhirl | 30 | EncounterEgg3 Egg (FR) | Alessio 64821 | specie scoperta | `771fa5c5…a6d48fb9` |
 | 296-specie-scoperta | Kadabra | 30 | EncounterEgg3 Egg (FR) | Alessio 64821 | specie scoperta | `69949071…72c69f40` |
-| 297-specie-scoperta | Machop | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `702a66ba…9577c92c` |
+| 297-specie-scoperta | Machop | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `dcc7449e…09a4c5f2` |
 | 298-specie-scoperta | Machoke | 30 | EncounterEgg3 Egg (FR) | Alessio 64821 | specie scoperta | `129c7a34…4cfd5ac8` |
-| 299-specie-scoperta | Tentacool | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `e949ac7b…b18d98dd` |
-| 300-specie-scoperta | Geodude | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `274dca8a…6cfa157e` |
+| 299-specie-scoperta | Tentacool | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `40e2ffa1…5398ce6b` |
+| 300-specie-scoperta | Geodude | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `ecc69f47…3f7d59ef` |
 | 301-specie-scoperta | Ponyta | 5 | EncounterEgg3 Egg (FR) | Alessio 64821 | specie scoperta | `c7a15701…2baa9ab8` |
-| 302-specie-scoperta | Doduo | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `32395707…66286f59` |
+| 302-specie-scoperta | Doduo | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `0a335c13…9baf654c` |
 | 303-specie-scoperta | Dewgong | 40 | EncounterEgg3 Egg (FR) | Alessio 64821 | specie scoperta | `f13a1e88…9aa30949` |
 | 304-specie-scoperta | Gastly | 5 | EncounterEgg3 Egg (FR) | Alessio 64821 | specie scoperta | `eadc9fab…6633e13e` |
 | 305-specie-scoperta | Haunter | 30 | EncounterEgg3 Egg (FR) | Alessio 64821 | specie scoperta | `bfc50ec8…2aed7cbc` |
 | 306-specie-scoperta | Onix | 5 | EncounterEgg3 Egg (FR) | Alessio 64821 | specie scoperta | `a0b9ee56…d5977127` |
 | 307-specie-scoperta | Cubone | 5 | EncounterEgg3 Egg (FR) | Alessio 64821 | specie scoperta | `5adcdbf3…9a2794dd` |
-| 308-specie-scoperta | Koffing | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `c2f2ce6d…82a2bde2` |
-| 309-specie-scoperta | Goldeen | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `627817c3…121b5841` |
-| 310-specie-scoperta | Seaking | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `b7d52487…d5efa94a` |
-| 311-specie-scoperta | Ditto | 38 | EncounterSlot3 Wild Encounter (E) Grass (E) | Alessio 42317 | specie scoperta | `0a2fa279…81f81edb` |
-| 312-specie-scoperta | Vaporeon | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `5a4b29c6…e668c5fe` |
-| 313-specie-scoperta | Jolteon | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `7a7d2002…e6410b7c` |
-| 314-specie-scoperta | Flareon | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `81ec2ac4…5cb84145` |
-| 315-specie-scoperta | Omastar | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `e5ce8693…c1b4be1b` |
-| 316-specie-scoperta | Kabutops | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `cc381c06…aefd528a` |
+| 308-specie-scoperta | Koffing | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `a768b27b…39fe6467` |
+| 309-specie-scoperta | Goldeen | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `68a1da66…b41f5cc6` |
+| 310-specie-scoperta | Seaking | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `1047ed67…8083c01b` |
+| 311-specie-scoperta | Ditto | 38 | EncounterSlot3 Wild Encounter (E) Grass (E) | Alessio 42317 | specie scoperta | `6d41b91a…0ff4c6e2` |
+| 312-specie-scoperta | Vaporeon | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `2bb2294a…977b321a` |
+| 313-specie-scoperta | Jolteon | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `d7704861…a0d0fbcd` |
+| 314-specie-scoperta | Flareon | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `a7391ce8…2ac2b9b9` |
+| 315-specie-scoperta | Omastar | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `186ec043…1dc59eb6` |
+| 316-specie-scoperta | Kabutops | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `27fc64df…6282f99f` |
 | 317-specie-scoperta | Dragonair | 30 | EncounterEgg3 Egg (FR) | Alessio 64821 | specie scoperta | `c3eb78bc…2947c242` |
-| 318-specie-scoperta | Meganium | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `2bf30af4…d9ae6e77` |
-| 319-specie-scoperta | Feraligatr | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `46639d64…ec22e750` |
-| 320-specie-scoperta | Hoothoot | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `07326e24…2a4ffc5e` |
-| 321-specie-scoperta | Chinchou | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `fab8af9a…4867c745` |
-| 322-specie-scoperta | Cleffa | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `e6096c69…cfb7957b` |
-| 323-specie-scoperta | Ampharos | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `f9d47789…1a65d078` |
-| 324-specie-scoperta | Politoed | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `9e4a34a1…583e283b` |
+| 318-specie-scoperta | Meganium | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `f0887a53…67df0643` |
+| 319-specie-scoperta | Feraligatr | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `710c81b2…ba38e723` |
+| 320-specie-scoperta | Hoothoot | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `d6189e71…afe2a79b` |
+| 321-specie-scoperta | Chinchou | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `99771ab4…ef127fc6` |
+| 322-specie-scoperta | Cleffa | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `b5d41302…e2451923` |
+| 323-specie-scoperta | Ampharos | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `1ad0f620…6dcaaeaf` |
+| 324-specie-scoperta | Politoed | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `928eff6f…b484d516` |
 | 325-specie-scoperta | Hoppip | 5 | EncounterEgg3 Egg (FR) | Alessio 64821 | specie scoperta | `ffd0f557…7115855e` |
-| 326-specie-scoperta | Jumpluff | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `d35fb12e…d5d6d026` |
-| 327-specie-scoperta | Slowking | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `08bb97b3…4a7b4967` |
-| 328-specie-scoperta | Snubbull | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `a6de5c02…9bcc785e` |
-| 329-specie-scoperta | Octillery | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `1460405d…3d62c849` |
-| 330-specie-scoperta | Kingdra | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `4c6eaaea…c3e4349c` |
-| 331-specie-scoperta | Donphan | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `a778d3b5…b7b5f865` |
-| 332-specie-scoperta | Tyrogue | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `b6d7cccb…e3ef4c04` |
-| 333-specie-scoperta | Smoochum | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `ebfcc450…9a966fbf` |
-| 334-specie-scoperta | Magby | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `693fb6ed…22c624b7` |
-| 335-specie-scoperta | Pupitar | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `03d1e524…cb968752` |
-| 336-specie-scoperta | Treecko | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `ea82c8d8…312a0e6a` |
-| 337-specie-scoperta | Grovyle | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `e94bf60e…ff28e782` |
-| 338-specie-scoperta | Torchic | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `4106cd0d…3b86e9a1` |
-| 339-specie-scoperta | Combusken | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `659d7169…eb27193b` |
-| 340-specie-scoperta | Marshtomp | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `8d354445…40a02e01` |
-| 341-specie-scoperta | Silcoon | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `696043a5…da42710a` |
-| 342-specie-scoperta | Shiftry | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `509cb476…0075ead9` |
-| 343-specie-scoperta | Wingull | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `16f67cd2…e9272a4f` |
-| 344-specie-scoperta | Kirlia | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `1a2ff8fa…57c43afa` |
-| 345-specie-scoperta | Masquerain | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `3eab19a4…9bfcfce6` |
-| 346-specie-scoperta | Slakoth | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `1c85563f…1a44e872` |
-| 347-specie-scoperta | Vigoroth | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `6b1db711…3b7480ce` |
-| 348-specie-scoperta | Nincada | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `2a13c4ed…0f2bc8e4` |
-| 349-specie-scoperta | Ninjask | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `d44540a2…dcd12683` |
-| 350-specie-scoperta | Shedinja | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `4492dfea…34d2fc88` |
-| 351-specie-scoperta | Loudred | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `66645028…9add89bd` |
-| 352-specie-scoperta | Exploud | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `13873800…ca389aa8` |
-| 353-specie-scoperta | Hariyama | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `779c417a…01c99f72` |
-| 354-specie-scoperta | Azurill | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `7d137401…e12cff4c` |
-| 355-specie-scoperta | Aron | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `05a11f5f…c0e4258f` |
-| 356-specie-scoperta | Lairon | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `ea220e5f…77b8ed5a` |
-| 357-specie-scoperta | Electrike | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `1224d3f7…13e42d86` |
-| 358-specie-scoperta | Wailmer | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `a77dfebd…73af0913` |
-| 359-specie-scoperta | Grumpig | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `1711ce46…9c161d83` |
-| 360-specie-scoperta | Trapinch | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `62166879…15abb0c5` |
-| 361-specie-scoperta | Cacturne | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `d1e4ba34…46d6a124` |
-| 362-specie-scoperta | Barboach | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `b4fc20dd…50af9f2e` |
-| 363-specie-scoperta | Claydol | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `b93257c5…58dfdd70` |
-| 364-specie-scoperta | Lileep | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `560d44f1…a4309622` |
-| 365-specie-scoperta | Anorith | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `55c036dc…bc9b3213` |
-| 366-specie-scoperta | Shuppet | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `30df9d95…020c67e1` |
-| 367-specie-scoperta | Chimecho | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `ad0c1698…d3c1c4c5` |
-| 368-specie-scoperta | Glalie | 50 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `3f05b1eb…c3e9891c` |
-| 369-specie-scoperta | Sealeo | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `49880e47…f5bc8e04` |
-| 370-specie-scoperta | Clamperl | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `c7098cfc…46e8dc9e` |
-| 371-specie-scoperta | Huntail | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `828735d5…2b259597` |
-| 372-specie-scoperta | Gorebyss | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `dcdd3fb0…f020ce11` |
-| 373-specie-scoperta | Relicanth | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `a5f09d6f…8a0afb27` |
-| 374-specie-scoperta | Luvdisc | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `32872c7a…f520bf26` |
-| 375-specie-scoperta | Shelgon | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `6a47e11b…f96aec1c` |
-| 376-specie-scoperta | Beldum | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `133bfd46…31cdecb4` |
+| 326-specie-scoperta | Jumpluff | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `ee3128be…72e0a221` |
+| 327-specie-scoperta | Slowking | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `97608c0a…ed0dfaa2` |
+| 328-specie-scoperta | Snubbull | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `7a14e413…7293b9e3` |
+| 329-specie-scoperta | Octillery | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `781de8ee…e014a90a` |
+| 330-specie-scoperta | Kingdra | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `a1e561af…ebe5e12a` |
+| 331-specie-scoperta | Donphan | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `1eef7ad8…8756f18b` |
+| 332-specie-scoperta | Tyrogue | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `373461f3…646bed63` |
+| 333-specie-scoperta | Smoochum | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `c867190b…2cca2cfa` |
+| 334-specie-scoperta | Magby | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `e991b5de…016a16d3` |
+| 335-specie-scoperta | Pupitar | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `846ef75e…939349d4` |
+| 336-specie-scoperta | Treecko | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `2b718365…ea4b277a` |
+| 337-specie-scoperta | Grovyle | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `1d5ff472…4bf3887e` |
+| 338-specie-scoperta | Torchic | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `02a166d3…1e990053` |
+| 339-specie-scoperta | Combusken | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `11c0c35f…083fa0f5` |
+| 340-specie-scoperta | Marshtomp | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `d8b53f0e…a2697ab1` |
+| 341-specie-scoperta | Silcoon | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `566fea19…aa321340` |
+| 342-specie-scoperta | Shiftry | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `8ebff321…d908de0f` |
+| 343-specie-scoperta | Wingull | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `f952c6fd…3daa0148` |
+| 344-specie-scoperta | Kirlia | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `eb4c5565…53619cf2` |
+| 345-specie-scoperta | Masquerain | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `a73eaf85…69771b12` |
+| 346-specie-scoperta | Slakoth | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `3dad2a6d…a2202829` |
+| 347-specie-scoperta | Vigoroth | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `926c54a4…1bea9a43` |
+| 348-specie-scoperta | Nincada | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `e6d4e6fa…d545c235` |
+| 349-specie-scoperta | Ninjask | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `168f9b06…64a62faf` |
+| 350-specie-scoperta | Shedinja | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `b34d3cf9…c710d8c3` |
+| 351-specie-scoperta | Loudred | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `17b1fa1d…1d4288e4` |
+| 352-specie-scoperta | Exploud | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `ff98ba6b…23dba5cf` |
+| 353-specie-scoperta | Hariyama | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `46a32d4d…7fa00fca` |
+| 354-specie-scoperta | Azurill | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `03511f0b…68149fca` |
+| 355-specie-scoperta | Aron | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `4cc574f6…d7a26b3d` |
+| 356-specie-scoperta | Lairon | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `cea95bb5…826e3322` |
+| 357-specie-scoperta | Electrike | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `ff875f3f…14caa225` |
+| 358-specie-scoperta | Wailmer | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `015bd3e6…042711fa` |
+| 359-specie-scoperta | Grumpig | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `e4ef648e…4bf698f6` |
+| 360-specie-scoperta | Trapinch | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `7a5a48ed…7b8bc8bb` |
+| 361-specie-scoperta | Cacturne | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `9b9ce4ca…5bac410d` |
+| 362-specie-scoperta | Barboach | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `90d6d414…ff01a19e` |
+| 363-specie-scoperta | Claydol | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `b82c8304…2d123656` |
+| 364-specie-scoperta | Lileep | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `ff3a9112…08cce3c3` |
+| 365-specie-scoperta | Anorith | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `959e31fc…d2531b1e` |
+| 366-specie-scoperta | Shuppet | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `5f339ec7…7b6e9d9f` |
+| 367-specie-scoperta | Chimecho | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `dc9f96ec…f058723e` |
+| 368-specie-scoperta | Glalie | 50 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `bd5bbabf…826ece49` |
+| 369-specie-scoperta | Sealeo | 40 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `866badab…283c8882` |
+| 370-specie-scoperta | Clamperl | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `a7561186…86df9b3b` |
+| 371-specie-scoperta | Huntail | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `d2e71204…3a8390d7` |
+| 372-specie-scoperta | Gorebyss | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `da017416…5b6d3721` |
+| 373-specie-scoperta | Relicanth | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `6e15aad8…0c96c316` |
+| 374-specie-scoperta | Luvdisc | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `0d65a762…09ccc3a3` |
+| 375-specie-scoperta | Shelgon | 30 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `59f77eb0…15cba71b` |
+| 376-specie-scoperta | Beldum | 5 | EncounterEgg3 Egg (E) | Alessio 42317 | specie scoperta | `9200994a…5488524a` |

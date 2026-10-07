@@ -82,7 +82,12 @@ def allenatori():
     # esemplari che il gioco deriva dal seme dell'identificativo, come gli starter, verrebbero uguali
     for gioco in ("R", "S", "E", "FR", "LG", "COLO", "XD"):
         if gioco == "E":
-            fuori[gioco] = {"OT": "Alessio", "TID16": 42317, "SID16": 0}
+            # Smeraldo e' la partita dell'allenatore del progetto, e i suoi identificativi sono quelli di
+            # recreate-pokemon-distributions-events/allenatore.json. Fino al 2026-10-07 qui c'era SID 0 scritto a
+            # mano, e i 101 esemplari generati cosi' sono stati corretti con tools/pkhex-correggi-sid (ADR-099).
+            with open(RADICE / "recreate-pokemon-distributions-events" / "allenatore.json", encoding="utf-8") as f:
+                a = json.load(f)
+            fuori[gioco] = {"OT": a["nome"], "TID16": a["tid"], "SID16": a["sid"]}
             continue
         d = hashlib.sha256(("Alessio|" + gioco).encode()).digest()
         fuori[gioco] = {"OT": "Alessio", "TID16": int.from_bytes(d[:2], "little"), "SID16": int.from_bytes(d[2:4], "little")}
