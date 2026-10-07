@@ -8,8 +8,8 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: 4cf8b06, lavoro parziale di tre agenti committato da chiudi prima dello spegnimento del PC
-Data snapshot:         2026-10-06, ripresa dopo lo spegnimento; tre agenti rilanciati (link, incursioni, giudizi)
+Commit di riferimento: b2fe049, Phanpy protetto, lacune chiuse, strumento dei link dal template, Manaphy in checklist
+Data snapshot:         2026-10-07, ripresa pulita; prossimo: chiavi del registro, poi identificativo segreto unico (ADR-099)
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,8 @@ Data snapshot:         2026-10-06, ripresa dopo lo spegnimento; tre agenti rilan
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-10-07, che prevale sulle aggiunte sotto. Commit `b2fe049`. Ordine di lavoro della sessione nuova in testa a `pending.md` («Aperte il 2026-10-07»): chiavi del registro, identificativo segreto unico (ADR-099), regola sui documenti personali nel template e potenziamento del codice su tutte le fonti (ADR-100), fonti nuove da analizzare. Fuoco corrente invariato: pokedex-home-completo, 3272 esemplari per HOME con il Manaphy di Ranger, trasferimento non cominciato; le copie per HOME vanno rifatte con ADR-099 prima del passo 1.
 
 AGGIUNTA DEL 2026-10-06, sesta parte, che prevale sulle aggiunte sotto. Il PC si è spento a metà della sessione; `chiudi` del proprietario aveva già committato e pubblicato il lavoro parziale di tre agenti in `4cf8b06`, repository integro (work log, sesta parte). Rilanciati e CHIUSI i tre agenti: link non registrati a zero con 54 fonti nuove e il controllo in `chiudi`; incursioni di Spada e Scudo censite, 61 generate e conformi (`CENSIMENTO-INCURSIONI-SWSH.md`); giudizi, schede GB e Ranger verificati. Decisioni aperte del proprietario in testa a `pending.md`: Phanpy `EVT-2-0146`, uovo di Manaphy di Ranger, i 61 verso HOME, le 13 lacune delle fonti. Fuoco corrente invariato: pokedex-home-completo, 3271 esemplari per HOME, trasferimento non cominciato.
 

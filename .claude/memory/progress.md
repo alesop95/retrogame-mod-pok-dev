@@ -4,6 +4,16 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-10-07. Commit, decisioni del proprietario, ripresa pulita
+
+Il proprietario ha lanciato `chiudi`: commit `b2fe049`, pubblicato. Decisioni registrate come ADR-100: potenziamento del codice su tutte le fonti tecniche, regola `documenti-personali` sempre attiva nel template con attenzione alla robustezza. Registrate una risposta nuova da Reddit (LesserBeings, `screenshot_97.png`, in `_notes/community-158/risposte.md`) e due fonti nuove da analizzare (video `WDF9JV2Vye0`, repository PKForge). Su richiesta del proprietario, `_notes/resume-prompt.md` è riscritto in forma pulita per una sessione nuova, con l'ordine di lavoro anche in testa a `pending.md`.
+
+Le due fonti nuove sono registrate in `SOURCES.md` come «NON ANCORA LETTO», perché il controllo dei link fermava `chiudi`; nessuna affermazione si appoggia su di esse.
+
+File toccati: `.claude/memory/decisions.md`, `.claude/memory/pending.md`, `.claude/memory/progress.md`, `.claude/memory/index.md`, `_notes/resume-prompt.md`, `_notes/community-158/risposte.md`, `SOURCES.md`.
+
+**Didattica:** nessuna.
+
 ## 2026-10-06, dodicesima parte. Phanpy protetto, Hoothoot chiuso, Manaphy nella checklist, Bulbasaur e Squirtle corretti
 
 Esito dell'ultimo agente, verificato dall'agente principale (impronta del Phanpy giapponese `c9752977…` invariata, `genera-evento-gb.py --self-test` 26 su 26, `censimento-incursioni-swsh.py --check` allineato, `RNG-4-MANAPHY` nella checklist, `chiudi -SoloControlli` verde). Phanpy: saltato in scrittura dal generatore e descritto dal registro; il lotto rigenerato nello scratchpad dà 164 file identici. Hoothoot `EVT-2-0156`: la voce 156 di `event2.pkl` e la 106 hanno Tackle, Growl e Agilità (33, 45, 101); Leer non c'è né fra le mosse per livello né fra quelle uovo di Hoothoot nel disassemblato di Cristallo; Pokébip, riletto dal vivo, dà Leer; corretto il racconto, accordo in sedici consegne su diciassette. Manaphy: codice nuovo `RNG-4-MANAPHY` fuori dalle tabelle, la checklist cambia in 11 righe, la coda no. Incursioni: confronto della disponibilità esteso a evoluzioni e allevamento, chiavi solo da evento da 17 a 12. Chiusa in `SOURCES.md` la lacuna di Hoothoot.

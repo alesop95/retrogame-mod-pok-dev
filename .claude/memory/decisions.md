@@ -963,6 +963,14 @@ Il problema. La lettura integrale delle fonti del Parco Lotta ha lasciato fuori 
 La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti etichettata come non letta con il proprio motivo, secondo la prescrizione che vieta di degradare in silenzio una fonte a nota a margine, e non si tenta alcuna via ulteriore. Il debito di lettura del fronte Parco Lotta si dichiara quindi chiuso con questa sola eccezione dichiarata, e nessuna sessione futura deve riaprirlo credendo che qualcosa sia stato dimenticato.
 
 La ragione per cui l'abbandono è accettabile qui, e non lo sarebbe altrove. Quella discussione è del 2005 ed è una richiesta di valutazione di squadra, cioè la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e più recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano è quindi basso, e la decisione si fonda su questo e non sulla sola difficoltà di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
+## ADR-100: il codice si potenzia su tutte le fonti tecniche, e la regola sui documenti personali è sempre attiva nel template
+
+Data: 2026-10-07. Stato: accettata, decisa dal proprietario.
+
+Codice. Il proprietario conferma che fra le fonti c'erano fonti tecniche e con codice non ancora usate per il codice del progetto; ora che sono tutte lette, il codice di sviluppo si potenzia al massimo su quelle fonti, documentando tutto. Il perimetro di partenza è quello proposto dall'agente il 2026-10-06: i sette strumenti interattivi della voce da ricordare sempre di `pending.md`, la documentazione di Checkpoint per il 3DS, e le fonti tecniche e con codice di `SOURCES.md`, comprese le 54 lette il 2026-10-06, da censire per che cosa possono aggiungere agli strumenti in `tools/`. Ogni potenziamento entra in `docs/22-strumenti.md`, in `docs/strumenti-dal-web.md` e nella tesi.
+
+Template. La regola `documenti-personali` del template riguarda i dati privati del proprietario, come i dati bancari, e va dichiarata sempre attiva (scelta b), non proposta da un gate. Il proprietario chiede molta attenzione alla sua robustezza: va verificato che la regola sia caricata in ogni sessione, che i controlli che la attuano coprano le forme reali di quei dati, e che una prova lo dimostri.
+
 ## ADR-099: un solo identificativo segreto per l'allenatore del progetto, anche sulla cartuccia del Rubino
 
 Data: 2026-10-06. Stato: accettata, decisa dal proprietario.
