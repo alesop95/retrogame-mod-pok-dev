@@ -21,9 +21,9 @@ Prova a secco del 2026-10-07 sull'ultima rilettura, `rubino/01-2026-09-28-comple
 
 I numeri della scrittura vera saranno diversi, perché il proprietario ha giocato dopo il 2026-09-28: l'agente li ricalcola sull'estrazione nuova e li scrive qui prima della scrittura.
 
-## Decisione da prendere prima
+## Il Pokédex nazionale, deciso
 
-Il Pokédex nazionale. Le specie fuori da Hoenn vengono registrate comunque, ma restano invisibili finché il Pokédex nazionale non è sbloccato, e sbloccarlo cambia la progressione della partita. Lo strumento non lo sblocca. Se il proprietario lo vuole, è una decisione a sé, da prendere prima della scrittura per non scrivere la cartuccia due volte.
+Non si sblocca (ADR-103). Le specie fuori da Hoenn vengono registrate comunque e il proprietario le vedrà quando sbloccherà il nazionale giocando. Il Pokédex di Hoenn non risulterà completo: sulla prova a secco le specie di Hoenn presenti sul Rubino sono 134 su 202, perché le altre 68 la collezione le tiene su Smeraldo (ADR-080), e lo strumento registra solo le specie presenti.
 
 ## Passi
 

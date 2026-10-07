@@ -963,6 +963,14 @@ Il problema. La lettura integrale delle fonti del Parco Lotta ha lasciato fuori 
 La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti etichettata come non letta con il proprio motivo, secondo la prescrizione che vieta di degradare in silenzio una fonte a nota a margine, e non si tenta alcuna via ulteriore. Il debito di lettura del fronte Parco Lotta si dichiara quindi chiuso con questa sola eccezione dichiarata, e nessuna sessione futura deve riaprirlo credendo che qualcosa sia stato dimenticato.
 
 La ragione per cui l'abbandono è accettabile qui, e non lo sarebbe altrove. Quella discussione è del 2005 ed è una richiesta di valutazione di squadra, cioè la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e più recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano è quindi basso, e la decisione si fonda su questo e non sulla sola difficoltà di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
+## ADR-103: il Pokédex nazionale del Rubino resta bloccato, e il Manaphy di Ranger va nel giro 3
+
+Data: 2026-10-07. Stato: accettata, decisa dal proprietario.
+
+Pokédex. Il giro sulla cartuccia del Rubino non sblocca il Pokédex nazionale: registra come viste e catturate le specie presenti, e il proprietario vedrà quelle del Pokédex di Hoenn subito e le altre quando sbloccherà il nazionale giocando. È ciò che `tools/pkhex-allinea-gen3` fa già. Va saputo, e il proprietario è stato avvisato lo stesso giorno, che il Pokédex di Hoenn del Rubino non risulterà completo: le specie di Hoenn presenti sul Rubino sono 134 su 202, misurate sulla prova a secco del 2026-10-07, perché le altre 68 la collezione le tiene su Smeraldo per ADR-080. ADR-089 accende le specie presenti e non le altre, e accenderne di assenti sarebbe una registrazione falsa; resta aperta la domanda al proprietario se voglia completare il Pokédex di Hoenn del Rubino in un altro modo.
+
+Manaphy. Il proprietario ha lasciato la scelta all'agente, che ha scelto `oras-giro-3-fin2`: è Rubino Omega come il giro 1, che ADR-099 indicava ed è pieno, 930 su 930, e aveva 16 posti liberi. Scritto il 2026-10-07 nella copia nuova `oras-giro-3-fin3`, box 31 posto 15, riletto e conforme; il resto della copia è identico byte per byte alla `-fin2`. Il gruppo per HOME conta 3272 esemplari.
+
 ## ADR-102: il recupero della tesi si alterna ai blocchi di ADR-099
 
 Data: 2026-10-07. Stato: accettata, decisa dal proprietario.

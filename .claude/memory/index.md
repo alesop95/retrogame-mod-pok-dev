@@ -8,8 +8,8 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: 22c4797, ADR-099: copie per HOME aggiornate nello stesso posto, capitolo 24
-Data snapshot:         2026-10-07, giro sul Rubino pronto (non committato); attesa: estrazione del Rubino, Pokédex nazionale, copia del Manaphy
+Commit di riferimento: c406209, Giro sul Rubino per ADR-099 e ADR-089 pronto, capitolo 24
+Data snapshot:         2026-10-07, ADR-103 e Manaphy nel giro 3 (non committati); attesa: estrazione del Rubino
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,8 @@ Data snapshot:         2026-10-07, giro sul Rubino pronto (non committato); atte
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-10-07, settima parte, che prevale su quelle sotto. ADR-103: Pokédex nazionale del Rubino non sbloccato, Manaphy in `oras-giro-3-fin3`; per HOME 3272 esemplari, copie in testa a `COPIE-PER-HOME.md`. Il Pokédex di Hoenn del Rubino avrà 134 specie su 202, domanda aperta al proprietario se completarlo. Il giro sul Rubino attende solo l'estrazione.
 
 AGGIUNTA DEL 2026-10-07, sesta parte, che prevale su quelle sotto. Il giro sulla cartuccia del Rubino per ADR-099 e ADR-089 è pronto e provato a secco: strumento `tools/pkhex-allinea-gen3`, runbook `gba-save-extraction-smeraldo/RUNBOOK-RUBINO-SID-POKEDEX.md`. Attende dal proprietario l'estrazione nuova (passi 1 e 2), la decisione sul Pokédex nazionale e la copia per il Manaphy.
 
