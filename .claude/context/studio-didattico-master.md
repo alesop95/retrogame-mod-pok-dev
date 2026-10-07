@@ -25,6 +25,7 @@ La pratica è adottata dal 2026-09-29, al gate dei pacchetti dell'allineamento a
 | 4 | Lo stesso identificativo, corretto in due modi | 2026-10-07 | `refactor-04-identificativo-segreto.md` |
 | 5 | Rifare una copia senza rifarla, e una prova a vuoto che guardava solo i box | 2026-10-07 | `refactor-05-copie-sostituite.md` |
 | 6 | Una scrittura verificata da chi non l'ha fatta, e un nome di file conteso | 2026-10-07 | `refactor-06-verifica-indipendente.md` |
+| 7 | Una regola dichiarata sempre attiva, e tre modi in cui non lo era | 2026-10-07 | `refactor-07-documenti-personali.md` |
 
 ## 1. Un elenco di specie letto come un elenco di forme
 
@@ -85,3 +86,13 @@ Com'era e perché era fragile. La misura del 2026-09-28 leggeva i contrassegni d
 Il salto senior e perché è meglio. Lo strumento accende le tre copie, come la libreria e come il gioco, e accanto alla sua verifica ce n'è una seconda scritta con `pokebridge`, che non usa la libreria e dice soltanto quali byte sono cambiati, con le zone ammesse prese dal sorgente di pokeruby: tutti i byte cambiati stanno nel Pokédex e nei due byte del SID dei 101 esemplari. Un nome di file usato da due strumenti per due formati, `.rapporto.json`, ha fermato `pkhex-elenco-copie`, e il rapporto nuovo si chiama `.allineamento.json`. La lezione è che una verifica vale per quanto non condivide con ciò che verifica.
 
 Dove leggere il dettaglio: `refactor-06-verifica-indipendente.md`.
+
+## 7. Una regola dichiarata sempre attiva, e tre modi in cui non lo era
+
+Contesto. ADR-100 chiedeva che la regola del template sui documenti personali, cioè i dati privati del proprietario come quelli bancari, fosse sempre attiva e robusta: caricata in ogni sessione, con controlli sulle forme reali dei dati e con una prova. In un'altra sessione era già stata dichiarata sempre attiva, e il controllo di raggiungibilità era verde.
+
+Com'era e perché era fragile. La regola non si caricava in questo progetto, che non era stato allineato. Il controllo di anonimizzazione riconosceva l'IBAN solo italiano, attaccato e in maiuscolo, e nessuna carta. L'elenco delle esclusioni usava il confine di parola `\b`, che non tiene con il trattino basso, quindi `coordinate_IBAN.pdf` e `modello_F24_2025.pdf` non venivano esclusi; e non copriva conto corrente, carte e mutui. Nessuna delle tre lacune faceva fallire un controllo.
+
+Il salto senior e perché è meglio. IBAN di qualunque paese, a gruppi e in minuscolo, validati con modulo 97 e lunghezza del paese; carte validate con Luhn, prefissi e lunghezze dei circuiti, con la scrittura a gruppi oltre le sedici cifre, che toglie il falso allarme trovato sui file reali, un identificativo di Discord. Confini scritti come «nessuna lettera o cifra accanto». Una prova `--autotest` per ciascuno strumento, che `chiudi` esegue a ogni commit, e una mutazione che dimostra che la prova misura: con il codice e l'elenco di prima fallisce in 8 casi su 17 e in 5 file su 21. La lezione è che «sempre attiva» si verifica dove si lavora, e che un dato personale si collauda nelle forme in cui si scrive davvero.
+
+Dove leggere il dettaglio: `refactor-07-documenti-personali.md`.

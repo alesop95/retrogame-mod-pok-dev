@@ -8,8 +8,8 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: c406209, Giro sul Rubino per ADR-099 e ADR-089 pronto, capitolo 24
-Data snapshot:         2026-10-07, ADR-103 e Manaphy nel giro 3 (non committati); attesa: estrazione del Rubino
+Commit di riferimento: 41e4686, ADR-103: Pokedex nazionale bloccato, Manaphy nel giro 3
+Data snapshot:         2026-10-07, ADR-100 fatto nel template (commit del proprietario); azioni fisiche tutte alla fine
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,8 @@ Data snapshot:         2026-10-07, ADR-103 e Manaphy nel giro 3 (non committati)
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-10-07, ottava parte, che prevale su quelle sotto. ADR-100 sul template fatto e provato, da committare nel template e propagare con `allinea-tutti.ps1 -Applica`: finché non si allinea, questo progetto non carica la regola `documenti-personali`. Le azioni fisiche del proprietario si fanno tutte alla fine, elencate in una voce di `pending.md`; intanto si procede da sviluppo: punto 4, ADR-100 sul codice, e capitolo 24.
 
 AGGIUNTA DEL 2026-10-07, settima parte, che prevale su quelle sotto. ADR-103: Pokédex nazionale del Rubino non sbloccato, Manaphy in `oras-giro-3-fin3`; per HOME 3272 esemplari, copie in testa a `COPIE-PER-HOME.md`. Il Pokédex di Hoenn del Rubino avrà 134 specie su 202, domanda aperta al proprietario se completarlo. Il giro sul Rubino attende solo l'estrazione.
 
