@@ -8,7 +8,7 @@ La fonte sono le tabelle interne `Dist_SW` e `Dist_SH` di `Encounters8Nest` nell
 
 Righe di tabella: 1171 in Spada e 1179 in Scudo; righe distinte 1286, di cui 107 solo in Spada e 115 solo in Scudo, su 68 indici di evento. Chiavi di collezione: 359, che si riducono a 323 contando solo specie, forma e Gigantamax e a 298 contando solo specie e forma; 41 portano il fattore Gigantamax e 36 il cromatico garantito.
 
-Fuori dagli eventi, letto dalle altre tabelle di `Encounters8` e `Encounters8Nest` per specie, forma e Gigantamax: 320 chiavi esistono anche nelle tane ordinarie, 22 soltanto in altri incontri (statici, grotte di cristallo, avventure Dynamax, selvatici), 17 soltanto nelle incursioni di evento. Il confronto ignora il cromatico garantito, perché nessuna tana ordinaria lo garantisce.
+Fuori dagli eventi, letto dalle altre tabelle di `Encounters8` e `Encounters8Nest` per specie, forma e Gigantamax: 320 chiavi esistono anche nelle tane ordinarie, 22 soltanto in altri incontri (statici, grotte di cristallo, avventure Dynamax, selvatici, scambi), 5 si ottengono per allevamento o evoluzione da un altro incontro, 12 soltanto nelle incursioni di evento. Per una chiave senza fattore Gigantamax il confronto guarda anche la stessa specie con il fattore, perché il fattore non si eredita e la Zuppa Dynamax lo toglie, e gli altri membri della famiglia evolutiva nella stessa forma: le pre-evoluzioni, che si fanno evolvere, e le evoluzioni di una specie che si alleva, da cui nasce un uovo. Per una chiave con il fattore il confronto resta sulla sola terna, perché il fattore non viene da un uovo. Il confronto ignora il cromatico garantito, perché nessuna tana ordinaria lo garantisce.
 
 Prova di ogni riga: il generatore costruisce un esemplare da ciascuna con l'allenatore del progetto e lo giudica con `LegalityAnalysis`. Righe legali 1286 su 1286; righe che la libreria riconosce come tana di distribuzione, e non come tana ordinaria o come un'altra riga con un diverso stato del cromatico, 1152; chiavi con almeno una riga riconosciuta 342. Il riconoscimento dipende dal seme casuale e varia di qualche unità fra una corsa e l'altra.
 
@@ -68,14 +68,14 @@ Una riga per chiave di collezione. Versioni e indici sono quelli delle righe del
 
 | Chiave | N. | Specie | Forma | G | S | Versioni | Indici di evento | Altrove | Copertura | Incontro riconosciuto |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 0001-0 | 1 | Bulbasaur | - | - | - | SH SW | 12 | solo da incursioni di evento | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
+| 0001-0 | 1 | Bulbasaur | - | - | - | SH SW | 12 | anche per allevamento o evoluzione da altri incontri | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
 | 0002-0 | 2 | Ivysaur | - | - | - | SH SW | 12 71 | anche da altri incontri | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
 | 0003-0 | 3 | Venusaur | - | - | - | SH SW | 71 | anche da tane ordinarie | generato lotto-incursioni-evento-swsh-SW/Static8ND-071-SW-0003-0.pk8, conforme | Distribution Raid Den Encounter - 071 |
 | 0003-0-G | 3 | Venusaur | - | sì | - | SH SW | 71 98 | anche da tane ordinarie | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
 | 0004-0 | 4 | Charmander | - | - | - | SH SW | 12 17 75 | anche da tane ordinarie | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
 | 0005-0 | 5 | Charmeleon | - | - | - | SH SW | 12 17 75 | anche da tane ordinarie | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
 | 0006-0-G | 6 | Charizard | - | sì | - | SH SW | 16 17 26 75 98 | anche da tane ordinarie | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
-| 0007-0 | 7 | Squirtle | - | - | - | SH SW | 12 | solo da incursioni di evento | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
+| 0007-0 | 7 | Squirtle | - | - | - | SH SW | 12 | anche per allevamento o evoluzione da altri incontri | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
 | 0008-0 | 8 | Wartortle | - | - | - | SH SW | 12 | anche da altri incontri | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
 | 0009-0-G | 9 | Blastoise | - | sì | - | SH SW | 98 | anche da tane ordinarie | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
 | 0012-0 | 12 | Butterfree | - | - | - | SH SW | 1 5 | anche da tane ordinarie | generato lotto-incursioni-evento-swsh-SW/Static8ND-001-SW-0012-0.pk8, conforme | Distribution Raid Den Encounter - 006 |
@@ -107,7 +107,7 @@ Una riga per chiave di collezione. Versioni e indici sono quelli delle righe del
 | 0068-0-G | 68 | Machamp | - | sì | - | SH SW | 15 26 53 58 117 | anche da tane ordinarie | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
 | 0077-0 | 77 | Ponyta | - | - | - | SH SW | 45 | anche da altri incontri | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
 | 0077-1 | 77 | Ponyta | Galar | - | - | SW | 15 | anche da tane ordinarie | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
-| 0078-0 | 78 | Rapidash | - | - | - | SH SW | 45 | solo da incursioni di evento | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
+| 0078-0 | 78 | Rapidash | - | - | - | SH SW | 45 | anche per allevamento o evoluzione da altri incontri | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
 | 0078-1 | 78 | Rapidash | Galar | - | - | SW | 15 | anche da tane ordinarie | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
 | 0083-1 | 83 | Farfetch’d | Galar | - | - | SH | 15 | anche da tane ordinarie | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
 | 0090-0 | 90 | Shellder | - | - | - | SH SW | 104 | anche da tane ordinarie | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
@@ -244,13 +244,13 @@ Una riga per chiave di collezione. Versioni e indici sono quelli delle righe del
 | 0549-0-S | 549 | Lilligant | - | - | sì | SH SW | 60 | anche da tane ordinarie | generato lotto-incursioni-evento-swsh-SW/Static8ND-060-SW-0549-0-S.pk8, conforme | Distribution Raid Den Encounter - 060 |
 | 0554-0 | 554 | Darumaka | - | - | - | SH SW | 95 | anche da altri incontri | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
 | 0554-1 | 554 | Darumaka | Galar | - | - | SH | 15 | anche da tane ordinarie | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
-| 0555-0 | 555 | Darmanitan | - | - | - | SH SW | 95 | solo da incursioni di evento | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
+| 0555-0 | 555 | Darmanitan | - | - | - | SH SW | 95 | anche per allevamento o evoluzione da altri incontri | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
 | 0562-0 | 562 | Yamask | - | - | - | SH SW | 41 | anche da altri incontri | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
 | 0563-0 | 563 | Cofagrigus | - | - | - | SH SW | 41 | anche da altri incontri | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
 | 0564-0 | 564 | Tirtouga | - | - | - | SH SW | 100 | anche da altri incontri | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
 | 0565-0 | 565 | Carracosta | - | - | - | SH SW | 100 | anche da altri incontri | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
 | 0566-0 | 566 | Archen | - | - | - | SH SW | 100 | anche da altri incontri | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
-| 0567-0 | 567 | Archeops | - | - | - | SH SW | 100 | solo da incursioni di evento | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
+| 0567-0 | 567 | Archeops | - | - | - | SH SW | 100 | anche per allevamento o evoluzione da altri incontri | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
 | 0568-0 | 568 | Trubbish | - | - | - | SH SW | 17 42 | anche da tane ordinarie | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
 | 0569-0-G | 569 | Garbodor | - | sì | - | SH SW | 16 17 42 117 | anche da tane ordinarie | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |
 | 0570-0 | 570 | Zorua | - | - | - | SH SW | 89 | anche da tane ordinarie | lotto-eventi-switch-completo, lotto-eventi-switch-scelta | - |

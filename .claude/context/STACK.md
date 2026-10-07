@@ -68,7 +68,7 @@ Va infine registrato, con la correzione del 2026-09-29 scritta più sotto nella 
 
 ## Alternative deliberatamente escluse
 
-Il percorso Action Replay per correggere l'inventario di Smeraldo è stato abbandonato dopo averlo studiato a fondo. Il Master Code e l'Anti-DMA erano verificati su più fonti indipendenti, ma per i codici della tasca Strumenti Base non esisteva alcuna fonte affidabile, e la scelta è stata di non indovinare indirizzi di memoria su un salvataggio irripetibile.
+Il percorso Action Replay per correggere l'inventario di Smeraldo è stato abbandonato dopo averlo studiato a fondo. Il Master Code e l'Anti-DMA erano stati dati per verificati su più fonti indipendenti; la rilettura del 2026-10-06 ha mostrato che una sola fonte, Pokémon Trash, riporta il blocco usato, e senza conferma di funzionamento (correzione nell'handoff di Smeraldo e in `SOURCES.md`). Per i codici della tasca Strumenti Base non esisteva alcuna fonte affidabile, e la scelta è stata di non indovinare indirizzi di memoria su un salvataggio irripetibile.
 
 MSET9 è stato preferito ad altri punti di ingresso per il custom firmware per ragioni documentate nella sezione 4.1 dell'handoff del sottoprogetto 3DS, legate al firmware di partenza della console.
 

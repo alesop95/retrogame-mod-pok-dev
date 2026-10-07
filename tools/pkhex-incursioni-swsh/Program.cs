@@ -25,6 +25,8 @@
 // cartella che contiene il file, e un nome nudo come SW si confonderebbe con quello di qualunque altro lotto.
 //
 // Uso:  dotnet run -c Release -- ALLENATORE.json DUMP.json [WAN2021.txt] [CARTELLA_LOTTI] [CARTELLA_USCITA]
+//       dotnet run -c Release -- --disponibilità DUMP.json
+// La seconda forma ricalcola nel dump esistente il solo confronto con le altre fonti, senza generare né provare.
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Text.Json;
@@ -37,7 +39,10 @@ if (args.Length < 2)
     Console.Error.WriteLine("uso: dotnet run -c Release -- ALLENATORE.json DUMP.json [WAN2021.txt] [CARTELLA_LOTTI] [CARTELLA_USCITA]");
     return 2;
 }
-var all = JsonNode.Parse(File.ReadAllText(args[0]))!;
+// Con --disponibilità lo strumento non genera e non prova nulla: rilegge il dump esistente e ne ricalcola soltanto il
+// confronto con le altre fonti, che è deterministico perché dipende dalle sole tabelle della libreria e non dal seme.
+bool soloDisponibilità = args[0] == "--disponibilità";
+JsonNode all = soloDisponibilità ? new JsonObject() : JsonNode.Parse(File.ReadAllText(args[0]))!;
 string? wanPath = args.Length > 2 ? args[2] : null;
 string? lottiPath = args.Length > 3 ? Path.GetFullPath(args[3]) : null;
 string? uscitaPath = args.Length > 4 ? Path.GetFullPath(args[4]) : null;
@@ -103,6 +108,70 @@ foreach (var tipo in new[] { gen8Type, nestType })
 // I doni WC8 con il fattore, solo informativi: un dono non è un'incursione.
 var doniG = new HashSet<string>();
 foreach (var c in EncounterEvent.MGDB_G8) if (c is WC8 w && w.IsEntity && w.CanGigantamax) doniG.Add($"{w.Species}-{w.Form}");
+
+// La disponibilità di una chiave fuori dagli eventi. Fino al 2026-10-06 il confronto cercava soltanto la stessa terna di
+// specie, forma e Gigantamax nelle altre tabelle, e dichiarava «solo da incursioni di evento» Bulbasaur e Squirtle senza
+// fattore: in Spada e Scudo l'unico loro incontro è il dono del Dojo dell'Isola dell'Armatura (Encounters8.cs righe 39-40,
+// luogo 196), che ha il fattore, mentre un esemplare senza fattore nasce da un uovo di quel dono, perché il fattore non si
+// eredita, o dalla Zuppa Dynamax che lo toglie. Per una chiave senza fattore si cercano quindi anche la stessa specie e
+// forma con il fattore e gli altri membri della famiglia evolutiva nella forma della chiave, cioè le pre-evoluzioni, da
+// cui la chiave si ottiene per evoluzione, e le evoluzioni di una specie che si alleva, da cui si ottiene per uovo e poi
+// per evoluzione. Una chiave con il fattore resta confrontata alla sola terna: il fattore non si ottiene da un uovo.
+(string disponibilità, List<string> fonti, List<string> derivate) Disponibilità(ushort s, byte f, bool g)
+{
+    var fonti = altreFonti.TryGetValue($"{s}-{f}-{(g ? "G" : "")}", out var fs) ? fs.ToList() : [];
+    if (fonti.Any(x => x.StartsWith("Nest_"))) return ("anche da tane ordinarie", fonti, []);
+    if (fonti.Count > 0) return ("anche da altri incontri", fonti, []);
+    var derivate = new SortedSet<string>(StringComparer.Ordinal);
+    if (!g)
+    {
+        if (altreFonti.TryGetValue($"{s}-{f}-G", out var conG))
+            foreach (var t in conG) derivate.Add($"{s}-{f}-G {t}");
+        var albero = EvolutionTree.Evolves8;
+        var membri = albero.Reverse.GetPreEvolutions(s, f).Select(x => (x.Species, x.Form, uovo: false))
+            .Concat(albero.Forward.GetEvolutions(s, f).Select(x => (x.Species, x.Form, uovo: true)));
+        foreach (var (ms, mf, uovo) in membri)
+        {
+            if (uovo)
+            {
+                var pi = PersonalTable.SWSH.GetFormEntry(ms, mf);
+                if (pi.EggGroup1 is (int)EggGroup.Undiscovered or (int)EggGroup.Ditto) continue;
+            }
+            foreach (var suff in new[] { "", "G" })
+                if (altreFonti.TryGetValue($"{ms}-{mf}-{suff}", out var mfs))
+                    foreach (var t in mfs) derivate.Add($"{ms}-{mf}-{suff} {t}");
+        }
+    }
+    return derivate.Count > 0
+        ? ("anche per allevamento o evoluzione da altri incontri", fonti, derivate.ToList())
+        : ("solo da incursioni di evento", fonti, []);
+}
+
+if (soloDisponibilità)
+{
+    var esistente = JsonNode.Parse(File.ReadAllText(args[1]))!;
+    int nSolo = 0, nTane = 0, nAltro = 0, nDerivate = 0;
+    foreach (var k in esistente["chiavi"]!.AsArray())
+    {
+        var (disp, fonti, derivate) = Disponibilità((ushort)(int)k!["numero"]!, (byte)(int)k["forma"]!, (bool)k["gigantamax"]!);
+        k["disponibilità"] = disp;
+        k["altre_fonti"] = new JsonArray(fonti.Select(x => (JsonNode)x).ToArray());
+        k["derivata_da"] = new JsonArray(derivate.Select(x => (JsonNode)x).ToArray());
+        switch (disp)
+        {
+            case "anche da tane ordinarie": nTane++; break;
+            case "anche da altri incontri": nAltro++; break;
+            case "solo da incursioni di evento": nSolo++; break;
+            default: nDerivate++; break;
+        }
+    }
+    var cc = esistente["conteggi"]!.AsObject();
+    cc["chiavi_solo_da_eventi"] = nSolo; cc["chiavi_anche_tane_ordinarie"] = nTane; cc["chiavi_anche_altri_incontri"] = nAltro;
+    cc["chiavi_anche_per_allevamento_o_evoluzione"] = nDerivate;
+    File.WriteAllText(args[1], esistente.ToJsonString(new JsonSerializerOptions { WriteIndented = true, Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping }) + "\n");
+    Console.WriteLine($"disponibilità ricalcolata: {nTane} anche da tane ordinarie, {nAltro} anche da altri incontri, {nDerivate} per allevamento o evoluzione, {nSolo} solo da incursioni di evento");
+    return 0;
+}
 
 // Le righe distinte, con le versioni in cui compaiono.
 var righe = new Dictionary<string, (EncounterStatic8ND e, List<string> versioni)>();
@@ -264,15 +333,18 @@ if (uscitaPath is not null && lottiPath is not null)
 }
 
 var dumpChiavi = new JsonArray();
-int soloEventi = 0, ancheTane = 0, ancheAltro = 0;
+int soloEventi = 0, ancheTane = 0, ancheAltro = 0, ancheDerivate = 0;
 foreach (var (k, lista) in chiavi)
 {
     var e0 = lista[0].e;
-    var fk = $"{e0.Species}-{e0.Form}-{(e0.CanGigantamax ? "G" : "")}";
-    var fonti = altreFonti.TryGetValue(fk, out var fs) ? fs.ToList() : [];
-    bool tane = fonti.Any(x => x.StartsWith("Nest_"));
-    string disponibilità = tane ? "anche da tane ordinarie" : fonti.Count > 0 ? "anche da altri incontri" : "solo da incursioni di evento";
-    if (tane) ancheTane++; else if (fonti.Count > 0) ancheAltro++; else soloEventi++;
+    var (disponibilità, fonti, derivate) = Disponibilità(e0.Species, e0.Form, e0.CanGigantamax);
+    switch (disponibilità)
+    {
+        case "anche da tane ordinarie": ancheTane++; break;
+        case "anche da altri incontri": ancheAltro++; break;
+        case "solo da incursioni di evento": soloEventi++; break;
+        default: ancheDerivate++; break;
+    }
     var versioni = lista.SelectMany(r => r.versioni).Distinct().Order().ToList();
     dumpChiavi.Add(new JsonObject
     {
@@ -286,6 +358,7 @@ foreach (var (k, lista) in chiavi)
         ["distinguibile_da_tana_ordinaria"] = lista.Any(r => prova[Firma(r.e)].distinto),
         ["righe_legali"] = lista.Count(r => prova[Firma(r.e)].valido),
         ["altre_fonti"] = new JsonArray(fonti.Select(x => (JsonNode)x).ToArray()),
+        ["derivata_da"] = new JsonArray(derivate.Select(x => (JsonNode)x).ToArray()),
         ["dono_wc8_con_fattore"] = e0.CanGigantamax && doniG.Contains($"{e0.Species}-{e0.Form}"),
         ["coperta_da"] = new JsonArray((copertura.TryGetValue(k, out var cs) ? cs.ToList() : []).Select(x => (JsonNode)x).ToArray()),
         ["generazione"] = esito.TryGetValue(k, out var es) ? es : null,
@@ -382,6 +455,7 @@ var dump = new JsonObject
         ["chiavi_gigantamax"] = chiavi.Values.Count(l => l[0].e.CanGigantamax),
         ["chiavi_cromatico_garantito"] = chiavi.Values.Count(l => l[0].e.Shiny == Shiny.Always),
         ["chiavi_solo_da_eventi"] = soloEventi, ["chiavi_anche_tane_ordinarie"] = ancheTane, ["chiavi_anche_altri_incontri"] = ancheAltro,
+        ["chiavi_anche_per_allevamento_o_evoluzione"] = ancheDerivate,
         ["righe_legali"] = prova.Values.Count(x => x.valido), ["righe_riconosciute_come_distribuzione"] = prova.Values.Count(x => x.distinto),
         ["chiavi_distinguibili"] = chiavi.Values.Count(l => l.Any(r => prova[Firma(r.e)].distinto)),
         ["pk8_letti_nei_lotti"] = pk8Letti, ["file_static8nd_attribuiti_a_tana_ordinaria"] = indistinti.Count,

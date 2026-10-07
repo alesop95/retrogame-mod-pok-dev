@@ -4,32 +4,32 @@
 
 Il problema che risolve
 -----------------------
-Il progetto ha tre luoghi dove una fonte puo' comparire e nessuno dei tre vede gli altri. La tabella
-`FONTI` dentro `tools/build-source-map.py` porta le fonti registrate con l'abstract e il perche'.
+Il progetto ha tre luoghi dove una fonte può comparire e nessuno dei tre vede gli altri. La tabella
+`FONTI` dentro `tools/build-source-map.py` porta le fonti registrate con l'abstract e il perché.
 Il censimento del corpus porta le centosettantuno voci del post di raccolta, che sono fonti in
 attesa di essere lette. La tesi cita per chiave bibliografica, e una fonte registrata che nessun
-capitolo cita e' una fonte che il lavoro non ha ancora usato. Chi legge SOURCES.md vede la prima
+capitolo cita è una fonte che il lavoro non ha ancora usato. Chi legge SOURCES.md vede la prima
 lista, chi legge il censimento vede la seconda, e la terza si vede solo compilando: la relazione
 fra le tre non esisteva in nessun file, e chiederla a una persona significa chiederle di tenere a
 mente duecentosessanta righe.
 
-Questo programma la scrive. Non aggiunge fonti e non ne toglie: legge le tre viste che gia'
-esistono, le mette in corrispondenza e riscrive un blocco delimitato dentro SOURCES.md, cosicche'
+Questo programma la scrive. Non aggiunge fonti e non ne toglie: legge le tre viste che già
+esistono, le mette in corrispondenza e riscrive un blocco delimitato dentro SOURCES.md, cosicché
 la domanda "questa fonte dove sta scritta, e finisce in tesi?" abbia una risposta in una lettura.
 
 Le tre viste, e come si incrociano
 ----------------------------------
-La corrispondenza fra corpus e fonti registrate si fa sull'indirizzo normalizzato, perche' e' la
+La corrispondenza fra corpus e fonti registrate si fa sull'indirizzo normalizzato, perché è la
 sola chiave che le due viste condividono: normalizzare significa togliere lo schema, il prefisso
 del sito, la barra finale e i parametri di tracciamento, che sono la ragione per cui due
 scritture dello stesso indirizzo sembrano due fonti. La corrispondenza fra fonti registrate e tesi
-si fa sulla chiave bibliografica, che e' lo slug della fonte.
+si fa sulla chiave bibliografica, che è lo slug della fonte.
 
 Lo stato di lettura dei cluster viene dalla tabella di `LETTURA-DEL-CORPUS.md`, e il programma
 pretende che il nome del cluster in quella tabella sia esattamente quello del censimento, oppure un
 elenco di quei nomi separati da virgola. Non indovina: se un nome non corrisponde lo dichiara nel
-documento generato, perche' un accoppiamento indovinato produrrebbe uno stato di lettura falso, che
-e' peggio di uno stato mancante.
+documento generato, perché un accoppiamento indovinato produrrebbe uno stato di lettura falso, che
+è peggio di uno stato mancante.
 
 Uso
 ---
@@ -68,7 +68,7 @@ TRACK = {
 
 
 def normalizza_url(u):
-    """L'indirizzo ridotto alla sua identita', per riconoscere due scritture della stessa pagina."""
+    """L'indirizzo ridotto alla sua identità, per riconoscere due scritture della stessa pagina."""
     u = (u or "").strip().lower()
     u = re.sub(r"^https?://", "", u)
     u = re.sub(r"^(www|m|old|classic)\.", "", u)
@@ -93,7 +93,7 @@ def carica_fonti():
     modulo = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(modulo)
     if not hasattr(modulo, "FONTI"):
-        return None, "il programma delle fonti non espone piu' la tabella FONTI"
+        return None, "il programma delle fonti non espone più la tabella FONTI"
     return modulo.FONTI, None
 
 
@@ -115,9 +115,9 @@ def carica_corpus(percorso):
 def carica_stato_lettura(percorso, nomi_noti=()):
     """Lo stato dichiarato di ciascun cluster, dalla tabella del registro di lettura.
 
-    Piu' cluster si separano con la virgola nella prima cella, ma il nome di un cluster puo'
+    Più cluster si separano con la virgola nella prima cella, ma il nome di un cluster può
     contenerne una a sua volta: spezzare sempre renderebbe quel cluster inaccoppiabile per
-    costruzione, che e' il difetto trovato il 2026-09-16 sul cluster dei canali video. La cella
+    costruzione, che è il difetto trovato il 2026-09-16 sul cluster dei canali video. La cella
     si confronta quindi prima per intero con i nomi noti del censimento, e solo se non corrisponde
     la si spezza. Senza l'elenco dei nomi noti il comportamento resta quello di prima.
     """
@@ -142,7 +142,7 @@ def carica_stato_lettura(percorso, nomi_noti=()):
 
 
 def carica_citazioni(cartella):
-    """Le chiavi citate, capitolo per capitolo, cosicche' si veda dove una fonte entra nel documento."""
+    """Le chiavi citate, capitolo per capitolo, cosicché si veda dove una fonte entra nel documento."""
     per_chiave = {}
     if not os.path.isdir(cartella):
         return per_chiave
@@ -187,9 +187,9 @@ def componi(fonti, corpus, stato, citazioni):
     r.append("")
     r.append("## Indice unico: dove sta ciascuna fonte, e dove finisce")
     r.append("")
-    r.append("> Blocco generato da `tools/indice-fonti-unico.py`. Non si modifica a mano: si rigenera. Non aggiunge e non toglie fonti, perche' non e' un registro ma una vista: mette in corrispondenza le tre liste che il progetto gia' possiede, cioe' le fonti registrate, le voci del corpus e le citazioni della tesi.")
+    r.append("> Blocco generato da `tools/indice-fonti-unico.py`. Non si modifica a mano: si rigenera. Non aggiunge e non toglie fonti, perché non è un registro ma una vista: mette in corrispondenza le tre liste che il progetto già possiede, cioè le fonti registrate, le voci del corpus e le citazioni della tesi.")
     r.append("")
-    r.append("Esiste per una ragione dichiarata dall'utente il 2026-09-10, ed e' la stessa che giustifica `MAPPA-DOCUMENTI.md`: un progetto che produce documenti generati a partire da fonti perde in fretta la relazione fra i due, e la domanda utile non e' quali fonti esistano ma dove sia scritto cio' che ciascuna ha dato. Le tre liste non si vedono fra loro: chi legge il registro vede le fonti registrate, chi legge il censimento vede il corpus, e le citazioni della tesi si vedono soltanto compilando.")
+    r.append("Esiste per una ragione dichiarata dall'utente il 2026-09-10, ed è la stessa che giustifica `MAPPA-DOCUMENTI.md`: un progetto che produce documenti generati a partire da fonti perde in fretta la relazione fra i due, e la domanda utile non è quali fonti esistano ma dove sia scritto ciò che ciascuna ha dato. Le tre liste non si vedono fra loro: chi legge il registro vede le fonti registrate, chi legge il censimento vede il corpus, e le citazioni della tesi si vedono soltanto compilando.")
     r.append("")
     r.append("### Il conto")
     r.append("")
@@ -206,7 +206,7 @@ def componi(fonti, corpus, stato, citazioni):
     r.append("")
     r.append("### Le fonti registrate, e dove finisce ciascuna")
     r.append("")
-    r.append("La colonna dei documenti dice dove sta la sintesi di quella fonte dentro il progetto, cioe' quale nota, referenza o censimento la usa; la colonna dei capitoli dice dove la tesi la cita. Una riga senza documenti e' una fonte registrata e non ancora sfruttata; una riga senza capitoli e' una fonte che il documento composto non ha ancora assorbito.")
+    r.append("La colonna dei documenti dice dove sta la sintesi di quella fonte dentro il progetto, cioè quale nota, referenza o censimento la usa; la colonna dei capitoli dice dove la tesi la cita. Una riga senza documenti è una fonte registrata e non ancora sfruttata; una riga senza capitoli è una fonte che il documento composto non ha ancora assorbito.")
     r.append("")
     r.append("| Fonte | Liv | Track | Dove sta la sintesi | Capitoli |")
     r.append("|---|---|---|---|---|")
@@ -214,7 +214,13 @@ def componi(fonti, corpus, stato, citazioni):
         slug, nome, _url, livello, letto, track, _abs, _perche, serve, _rel = f
         documenti = ", ".join("`%s`" % d.strip("[]") for d, _ in serve) if serve else "nessuno"
         capitoli = ", ".join(sorted(citazioni.get(slug, []))) or "nessuno"
-        marca = "" if letto else " (non letta)"
+        # Il campo letto della tabella vale True, False oppure la data della lettura in forma
+        # AAAA-MM-GG: la data entra nel blocco, perché una fonte letta dopo la registrazione
+        # dice così quando lo stato è cambiato, ed era il ritocco fatto a mano il 2026-10-05.
+        if isinstance(letto, str):
+            marca = " (letta il %s)" % letto
+        else:
+            marca = "" if letto else " (non letta)"
         origine = " (dal corpus)" if slug in promosse else ""
         r.append("| %s%s%s | %d | %s | %s | %s |"
                  % (nome, marca, origine, livello,
@@ -223,7 +229,7 @@ def componi(fonti, corpus, stato, citazioni):
     r.append("")
     r.append("### Il corpus della collezione, cluster per cluster")
     r.append("")
-    r.append("Ogni riga e' un cluster del post di raccolta. Lo stato viene dal registro di lettura e non da questa vista, che si limita a metterlo accanto al conto delle voci e a quante di esse siano diventate fonti registrate. Un cluster letto le cui voci non abbiano prodotto alcuna fonte registrata non e' un difetto: significa che il cluster ha confermato cose gia' note, e il registro di lettura lo dice.")
+    r.append("Ogni riga è un cluster del post di raccolta. Lo stato viene dal registro di lettura e non da questa vista, che si limita a metterlo accanto al conto delle voci e a quante di esse siano diventate fonti registrate. Un cluster letto le cui voci non abbiano prodotto alcuna fonte registrata non è un difetto: significa che il cluster ha confermato cose già note, e il registro di lettura lo dice.")
     r.append("")
     r.append("| Cluster | Voci | Promosse | Stato di lettura | Dove sta l'esito |")
     r.append("|---|---|---|---|---|")
@@ -248,7 +254,7 @@ def componi(fonti, corpus, stato, citazioni):
         r.append("Non ci sono fonti registrate che nessun documento del progetto usa.")
     r.append("")
     if nomi_stato_ignoti:
-        r.append("Righe del registro di lettura il cui nome non corrisponde ad alcun cluster del censimento, %d: %s. Vanno riscritte con il nome esatto, perche' finche' non corrispondono il loro stato non compare nella tabella qui sopra."
+        r.append("Righe del registro di lettura il cui nome non corrisponde ad alcun cluster del censimento, %d: %s. Vanno riscritte con il nome esatto, perché finché non corrispondono il loro stato non compare nella tabella qui sopra."
                  % (len(nomi_stato_ignoti), ", ".join(sorted(nomi_stato_ignoti))))
     else:
         r.append("Ogni riga del registro di lettura corrisponde a un cluster del censimento.")
@@ -281,7 +287,7 @@ def self_test():
     prova("il prefisso del sito non fa differenza", normalizza_url("https://www.reddit.com/r/x/"), normalizza_url("https://old.reddit.com/r/x"))
     prova("i parametri di tracciamento non fanno differenza", normalizza_url("https://a.com/x?utm_source=y"), normalizza_url("https://a.com/x"))
     prova("due pagine diverse restano diverse", False, normalizza_url("https://a.com/x") == normalizza_url("https://a.com/y"))
-    prova("un post di Reddit con e senza titolo e' lo stesso post",
+    prova("un post di Reddit con e senza titolo è lo stesso post",
           normalizza_url("https://www.reddit.com/r/x/comments/abc123/"),
           normalizza_url("https://www.reddit.com/r/x/comments/abc123/un_titolo_lungo/"))
     prova("ma due post diversi restano diversi", False,
@@ -313,10 +319,10 @@ def main(argv=None):
     if a.self_test:
         return self_test()
 
-    # La tesi e' locale: senza i capitoli il controllo non puo' ricostruire la
+    # La tesi è locale: senza i capitoli il controllo non può ricostruire la
     # colonna delle citazioni. Fermarsi evita di cancellarla dal blocco tracciato.
     if not os.path.isdir(CAPITOLI):
-        print("rifiutato: tesi/capitoli non e' disponibile; l'indice richiede la tesi locale")
+        print("rifiutato: tesi/capitoli non è disponibile; l'indice richiede la tesi locale")
         return 1
 
     fonti, errore = carica_fonti()

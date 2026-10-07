@@ -33,18 +33,26 @@ un indizio.
 
 Da dove vengono i dati
 ----------------------
-Dal deposito pubblico `pokepc/classic.pokepc.net`, file `legacy-pokemon.min.json` e
-`legacy-boxpresets.min.json` sotto `src/lib/data-client`, scaricati in `_notes/fonti/raccolte/pokepc/`, che
-è materiale di terzi e non entra nel version control: ciò che entra è questo confronto. I due
-file si riprendono con le due righe seguenti, che sono l'unica dipendenza esterna del programma.
+Il documento generato `pokedex-home-completo/CONFRONTO-LIVINGDEX-POKEPC.md` viene dal clone del
+deposito pubblico `pokepc/dataset`, in `_notes/fonti/cloni/pokepc-dataset`, passato con
+`--dataset`: è la fonte dei dati vivi del servizio dal 2026-09-22, quando il tracciatore classico
+ha chiuso le iscrizioni, e il documento dichiara in testa il commit da cui è stato prodotto. Il
+clone è materiale di terzi e non entra nel version control: ciò che entra è questo confronto. Il
+2026-10-06 si è verificato che `--check --dataset` sul clone dà il documento allineato e che
+`--check` senza `--dataset` lo dà disallineato.
+
+Senza `--dataset` il programma ripiega sui file legacy del deposito `pokepc/classic.pokepc.net`,
+`legacy-pokemon.min.json` e `legacy-boxpresets.min.json` sotto `src/lib/data-client`, scaricati
+in `_notes/fonti/raccolte/pokepc/`. Era l'origine della prima stesura e resta solo come ripiego:
+non produce il documento versionato. I due file si riprendono con le due righe seguenti.
 
     curl -sL -o _notes/fonti/raccolte/pokepc/pokemon.min.json https://raw.githubusercontent.com/pokepc/classic.pokepc.net/main/src/lib/data-client/pokemon/legacy-pokemon.min.json
     curl -sL -o _notes/fonti/raccolte/pokepc/boxpresets.min.json https://raw.githubusercontent.com/pokepc/classic.pokepc.net/main/src/lib/data-client/box-presets/legacy-boxpresets.min.json
 
 Uso
 ---
-    python tools/confronta-livingdex-pokepc.py
-    python tools/confronta-livingdex-pokepc.py --check
+    python tools/confronta-livingdex-pokepc.py --dataset _notes/fonti/cloni/pokepc-dataset
+    python tools/confronta-livingdex-pokepc.py --check --dataset _notes/fonti/cloni/pokepc-dataset
     python tools/confronta-livingdex-pokepc.py --self-test
 """
 

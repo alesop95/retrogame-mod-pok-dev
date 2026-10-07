@@ -26,7 +26,7 @@ La misura del compito, fissata all'inizio perché serve a valutare l'avanzamento
 | 1) Dex completions / Gen 9 | 5 | letto il 2026-09-12, meno la voce in forma di video e i due scheletri JavaScript | `MARCHI.md` e questa nota |
 | 1) Dex completions / Spinoffs | 4 | letto il 2026-09-12, meno il profilo che richiede autenticazione | `MARCHI.md`, questa nota e `pending.md` |
 | Preambolo | 1 | letto il 2026-09-16: è la versione del giugno 2025 del post di raccolta, cioè il predecessore del seme | questa nota |
-| 7) General tools | 3 | letto il 2026-09-16: sono calcolatori interattivi, senza contenuto da leggere | questa nota |
+| 7) General tools | 3 | letto il 2026-09-16 e riverificato il 2026-10-05: sono calcolatori interattivi, senza contenuto da leggere (blisy.net è BlisyDex, un Pokédex interattivo costruito su PokeAPI, smistato in `docs/strumenti-interattivi.md`, dragonflycave.com/calculators è un elenco di calcolatori di tasso di cattura, rotomlabs.net non risponde da questa macchina) | questa nota |
 | 8) Shiny Hunting | 1 | letto il 2026-09-16 | questa nota |
 | 8) Shiny Hunting / Gen 1 | 1 | letto il 2026-09-16 | questa nota |
 | 8) Shiny Hunting / Gen 2 | 4 | letto il 2026-09-16: l'uovo misterioso porta il vincolo del Trasferitore sulla mossa Pugnorapido | questa nota |
@@ -39,9 +39,9 @@ La misura del compito, fissata all'inizio perché serve a valutare l'avanzamento
 | 8) Shiny Hunting / Gen 9 | 3 | letto il 2026-09-16 | questa nota |
 | 8) Shiny Hunting / Spinoffs | 9 | letto il 2026-09-16: gli esemplari oscuri sono bloccati contro la cromaticità nel secondo titolo per console fissa e non nel primo | questa nota |
 | 8) Shiny Hunting / General tips | 3 | letto il 2026-09-16: la pagina delle forme non ottenibili è la più densa del lotto | questa nota |
-| 1) Dex completions / Youtube | 5 | catalogato il 2026-09-16: tutte e cinque le voci sono video, da chiedere come trascrizione | `pending.md` |
+| 1) Dex completions / Youtube | 5 | letti nel residuo del corpus il 2026-10-05: i cinque video NByMz7VUCr4, nhPcPZR9JRk, ni5DpLjidK8, -QhFxVzxc-0 e ISPbxFiZkNg sono `trascritto` in `pokedex-home-completo/data/residuo-corpus.csv` con 83, 23, 40, 18 e 70 affermazioni estratte e verificate | `pending.md` |
 | Commenti al post | 5 | letto il 2026-09-16 | questa nota |
-| 10) Lastly, a shootout the YT channels I follow closely on the topic of collecting | 6 | catalogato il 2026-09-16: sono sei canali video, da chiedere come trascrizione | `pending.md` |
+| 10) Lastly, a shootout the YT channels I follow closely on the topic of collecting | 6 | letti nel residuo del corpus il 2026-10-05: i sei canali AustinJohnPlays, JohnstoneYT, LEOsMINDgames, PapaJefeYT, ThedomiNATION e trailspokemon sono `catalogo letto` in `pokedex-home-completo/data/residuo-corpus.csv`, con 79, 38, 37, 6, 160 e 4 video scelti per tema letti dalla trascrizione (quattro di ThedomiNATION senza testo ricavabile) | `pending.md` |
 
 Il nome di un cluster in questa tabella deve essere esattamente quello del censimento, e più nomi si separano con la virgola: è la chiave con cui `tools/indice-fonti-unico.py` porta lo stato di lettura dentro il registro delle fonti, e un nome che non corrisponde non produce un errore ma una riga senza stato, che il blocco generato elenca fra i buchi. I cluster che non compaiono qui sono da leggere, e il loro conto sta nel blocco generato invece che in una riga di prosa che invecchia.
 

@@ -1,0 +1,33 @@
+{
+ "_leggimi": "Configurazione di tools/verifica-link-progetto.py nella forma del pacchetto verifica-link del template. Dichiara il perimetro della verifica: i registri delle fonti con cui si confronta, i prefissi tracciati che non si percorrono, le cartelle non tracciate che si percorrono e le sottocartelle che vi si saltano, l'elenco motivato delle non fonti e la cache dei collegamenti brevi di Reddit. Scritta il 2026-10-06 trascrivendo le costanti della versione del progetto, senza cambiarne il perimetro.",
+ "registri_testo": [
+  "SOURCES.md",
+  "pokedex-home-completo/CENSIMENTO-FONTI-COLLEZIONE.md"
+ ],
+ "registri_json": [
+  "_notes/fonti/corpus-residuo/esiti.json",
+  "_notes/fonti/corpus-residuo/dimenticati.json",
+  "_notes/fonti/da-leggere-corpus.json"
+ ],
+ "_esclusi_tracciati": "i modelli del template e le due guide copiate intere dal template: non sono scritti dal progetto",
+ "esclusi_tracciati": [
+  ".claude/templates/",
+  "docs/separazione-ambienti/",
+  "docs/anti-slop/"
+ ],
+ "_cartelle_non_tracciate": "sotto _notes/ si percorre il materiale scritto dal proprietario o dal progetto; i testi di terzi scaricati sotto fonti/ si saltano, salvo le consegne del proprietario, percorse a parte nei soli .md, .txt e .url fuori dalle cartelle di trascrizioni ed estratti",
+ "cartelle_non_tracciate": [
+  {
+   "percorso": "_notes",
+   "saltate_in_radice": ["fonti", "lotti", "salvataggi", "media", "tmp"],
+   "saltate": ["bin", "obj", "cloni"]
+  },
+  {
+   "percorso": "_notes/fonti/consegne",
+   "saltate": ["testo", "estratti", "sub"],
+   "estensioni": [".md", ".txt", ".url"]
+  }
+ ],
+ "non_fonti": "_notes/fonti/link-non-fonti.json",
+ "cache_brevi": "_notes/fonti/link-brevi.json"
+}

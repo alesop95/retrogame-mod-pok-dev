@@ -88,14 +88,17 @@ PERCHE = {
         "quella combinazione, e per questo il collezionista lo conta come un esemplare a sé. Il soprannome "
         "dipende dalla lingua del gioco, e qui è quello italiano."),
     "ranger": (
-        "Pokémon Ranger, per Nintendo DS, consegnava al gioco di quarta generazione, a cominciare da Diamante e Perla, "
-        "a missione speciale completata, un uovo di Manaphy: è l'unico uovo fra i doni di quarta generazione, e il solo Manaphy che porti Pokémon Ranger come "
+        "Pokémon Ranger, per Nintendo DS, consegnava a un gioco di quarta generazione, cioè Diamante, Perla, "
+        "Platino, HeartGold e SoulSilver, a missione speciale completata, un uovo di Manaphy: è l'unico uovo fra i doni di quarta generazione, e il solo Manaphy che porti Pokémon Ranger come "
         "luogo dell'uovo. Nelle edizioni localizzate la missione è inclusa nella cartuccia e si sblocca con una "
         "parola d'ordine resa pubblica all'epoca, come dice `LETTURA-DEL-CORPUS.md`, ma per il deposito l'esemplare "
         "passa dalla banca e quindi scade il 26 febbraio 2027. La libreria del verificatore non lo tiene fra le "
         "carte della base dei doni: lo riconosce a parte, come `EncounterGenerator4.RangerManaphy`, dalla specie, "
         "dalla lingua non coreana e dal luogo dell'uovo, e per questo nessuna delle voci di Manaphy della tabella "
-        "degli eventi lo copre."),
+        "degli eventi lo copre. L'elenco dei giochi riceventi viene dalle località di gioco della pagina di Manaphy "
+        "di Bulbapedia, letta in una copia d'archivio del 2025-12-31, e coincide con la libreria, che per l'uovo "
+        "dichiara come versione l'intera quarta generazione (`PGT.Version`, `GameVersion.Gen4`) e alla schiusa "
+        "distingue il luogo di HeartGold e SoulSilver da quello di Diamante, Perla e Platino."),
 }
 
 

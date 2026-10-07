@@ -28,6 +28,14 @@
 // Una cartella scritta come CARTELLA=VC giudica esemplari di prima e seconda generazione nel contesto della
 // Console Virtuale del 3DS invece che in quello delle cartucce.
 //
+// La chiave. Ogni voce ha per chiave il nome dell'ultima cartella del percorso dato, una barra e il nome del
+// file, non il percorso relativo a _notes/lotti. Una cartella annidata con un nome comune produce quindi una
+// chiave ambigua: il complemento del Rubino, giudicato in lotto-complemento-rubino/esemplari, ha 376 voci
+// esemplari/... che collidono con lotto-parco-lotta/esemplari. tools/checklist-pokedex.py cerca i giudizi con
+// la stessa regola (os.path.basename), quindi la chiave non si cambia qui senza cambiarla anche là. Finché
+// non si cambia, una sottocartella di esemplari porta un nome unico in tutto _notes/lotti. Vedi
+// docs/22-strumenti.md, sezione pkhex-giudica.
+//
 // Uso:  dotnet run -c Release -- USCITA.json CARTELLA[=VERSIONE|=VC] [CARTELLA[=VERSIONE|=VC] ...]
 using System.Security.Cryptography;
 using System.Text.Json;

@@ -109,6 +109,7 @@ Da qui la console boota di default in Luma3DS (aspetto identico alla Home normal
 
 ### 2026-08-21 - Download pacchetto MSET9
 - Scaricato da `https://github.com/hacks-guide/MSET9/releases/latest` (release MSET9-v2.1)
+- Nota del 2026-10-06: la versione corrente di MSET9 è la v2.2, del 2026-09-03, secondo la lettura del sorgente della 3DS Hacks Guide (`hacks-guide/Guide_3DS` al commit `d0d8a392` del 2026-10-01) registrata in `SOURCES.md`. La differenza non tocca questa console, che ha già boot9strap installato con la v2.1: conta solo per chi ripetesse la procedura su un'altra console, che deve scaricare la release corrente e non la v2.1 indicata qui
 - Estratto in: `C:\Users\<PROPRIETARIO>\Desktop\MSET9-v2.1`
 - Contenuto verificato (10 elementi, corrispondente alle attese):
   - `mset9.py` - lo script Python principale, motore dell'exploit

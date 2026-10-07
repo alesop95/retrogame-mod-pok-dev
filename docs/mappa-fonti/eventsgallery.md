@@ -1,7 +1,7 @@
 ---
 tipo: fonte
 livello: 3
-letto: no
+letto: si
 track: [EVT]
 url: https://github.com/projectpokemon/EventsGallery
 tags: [fonte, livello-3]

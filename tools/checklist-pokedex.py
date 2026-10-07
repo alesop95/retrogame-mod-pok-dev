@@ -350,7 +350,34 @@ def voci_da_evento(pkhex, ace):
                 "sotto_scadenza": True,
                 "resa": "letta, struttura alla portata di pokebridge",
             })
+
+    # ------------------------------------------------- le voci fuori da ogni tabella
+    # Dal 2026-10-06. Le tre fonti sopra sono tabelle, e un incontro che la libreria costruisce nel
+    # codice invece di leggerlo da una tabella non compare in nessuna. Il caso è uno, l'uovo di Manaphy
+    # della missione speciale di Pokémon Ranger: `EncounterGenerator4.RangerManaphy` (riga 14) è una carta
+    # scritta nel codice e riconosciuta da `PGT.IsRangerManaphy`, non una voce di `wc4.pkl`, quindi non ha
+    # un codice `EVT-` e collegarla a uno dei Manaphy della base dei doni la scambierebbe con una
+    # distribuzione diversa. Il proprietario l'ha voluta come voce a sé della collezione il 2026-10-06, e
+    # il codice è quello che il lotto `lotto-manaphy-ranger` porta già nel nome del file e nelle richieste.
+    for v in VOCI_FUORI_DALLE_TABELLE:
+        fuori.append(dict(v))
     return fuori
+
+
+VOCI_FUORI_DALLE_TABELLE = [
+    {
+        "codice": "RNG-4-MANAPHY",
+        "generazione": 4,
+        "classe": "incontro scritto nel codice",
+        "nazionale": 490,
+        "forma": 0,
+        "descrizione": "Pokémon Ranger, missione speciale: uovo di Manaphy inviato a un gioco di quarta "
+                       "generazione (EncounterGenerator4.RangerManaphy)",
+        "metodo": "EncounterGenerator4.cs",
+        "sotto_scadenza": True,
+        "resa": "censita, non ancora producibile",
+    },
+]
 
 
 # Le macchine nascoste di terza generazione, per numero di mossa. Contano perché il primo anello
@@ -498,6 +525,10 @@ FILE_PER_CODICE = {
     "EVT-1-0010": ("lotto-doni-gb", "GB-tour-jp-151-Mew.pk1"),
     # Il Jirachi di Pokemon Channel, che il catalogo delle carte segna non producibile: sta nel complemento, ADR-087.
     "EVT-3-0002": ("lotto-complemento-rubino/esemplari", "040-evento.pk3"),
+    # L'uovo di Manaphy di Pokémon Ranger, voce fuori dalle tabelle dal 2026-10-06: schiuso in Diamante da
+    # tools/pkhex-periferiche, con il codice della voce nel nome del file ma un prefisso che il ciclo dei
+    # lotti per codice non legge, perché quel ciclo riconosce i soli file che cominciano con `EVT-`.
+    "RNG-4-MANAPHY": ("lotto-manaphy-ranger", "RNG-4-MANAPHY-490.pk4"),
 }
 GIUDIZI_LIBRERIA = os.path.join(RADICE, "recreate-pokemon-distributions-events", "giudizi-pkhex-core.json")
 COMPLEMENTO = os.path.join(RADICE, "_notes", "lotti", "lotto-complemento-rubino", "esemplari")
@@ -972,6 +1003,18 @@ def scrivi(percorso, righe_specie, righe_forma, per_fonte, eventi):
              "primo tempo della coda debba coprire. Restano contate e visibili nel censimento "
              "`CENSIMENTO-EVENTI-FUORI-DONI.md`, dove la loro classe dice che cosa sono.")
     r.append("")
+    fuori_tabelle = [x for x in eventi if x.get("classe") == "incontro scritto nel codice"]
+    if fuori_tabelle:
+        r.append("Dal 2026-10-06 l'asse porta anche %s che nessuna delle tre fonti contiene, "
+                 "con la classe di incontro scritto nel codice: sono incontri che la libreria "
+                 "costruisce nel proprio codice invece di leggerli da una tabella, e il loro codice "
+                 "non comincia con `EVT-` perché non hanno un indice in alcuna tabella. Oggi è "
+                 "soltanto l'uovo di Manaphy della missione speciale di Pokémon Ranger, "
+                 "`RNG-4-MANAPHY`, che il proprietario ha voluto come voce a sé della collezione: "
+                 "nella libreria è `EncounterGenerator4.RangerManaphy`, distinto da ogni Manaphy "
+                 "della base dei doni." % ("una voce" if len(fuori_tabelle) == 1
+                                           else "%d voci" % len(fuori_tabelle)))
+        r.append("")
     r.append("La ripartizione per classe è la seguente: "
              + ", ".join("%s %d" % (k, n) for k, n in sorted(per_classe.items(),
                                                              key=lambda x: -x[1]))

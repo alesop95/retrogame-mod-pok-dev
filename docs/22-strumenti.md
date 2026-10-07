@@ -190,6 +190,8 @@ dotnet run -c Release -- "../../recreate-pokemon-distributions-events/giudizi-pk
 
 L'uscita tracciata è `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`, generata e non autorata; il registro dei giudizi umani resta accanto e non si fonde con essa, perché le due cose misurano oggetti diversi, cioè un file oggi e una prova di allora.
 
+La chiave di ogni voce è il nome dell'ultima cartella del percorso passato, una barra e il nome del file (`Program.cs`, `nomeCartella + "/" + Path.GetFileName(percorso)`), e non il percorso relativo ai lotti. Per un lotto che tiene gli esemplari direttamente nella propria cartella le due cose coincidono; per un lotto che li tiene in una sottocartella no, ed è il caso del complemento del Rubino, giudicato passando `_notes/lotti/lotto-complemento-rubino/esemplari`: le sue 376 voci hanno chiave `esemplari/...`, misura del 2026-10-06 sulle chiavi del registro, e la stessa chiave toccherebbe ai file di `lotto-parco-lotta/esemplari/` se un giorno si giudicassero, con la seconda corsa che sovrascrive la prima nel file unito. Il lettore che oggi dipende da quella forma è `tools/checklist-pokedex.py`, che cerca il giudizio con `os.path.basename(cartella)` e quindi trova le 179 voci della checklist prodotte dal complemento proprio sotto `esemplari/`: rinominare le chiavi senza cambiare quella riga le farebbe risultare tutte da rigiudicare. Finché il giudice e i lettori non passano al percorso relativo a `_notes/lotti/`, un lotto nuovo tiene gli esemplari nella propria cartella oppure in una sottocartella dal nome unico in tutto `_notes/lotti/`, come fanno `lotto-incursioni-evento-swsh-SW` e `-SH`, e non si chiama mai `esemplari`.
+
 ## pkhex-genera
 
 È il generatore di terza generazione sulla libreria, per ADR-080: legge le richieste scritte da `tools/manifesto-complemento-rubino.py`, oppure un manifesto scritto a mano nella stessa forma, e per ciascuna cerca fra gli incontri che la libreria dichiara per quella specie e quei giochi una voce della classe e del luogo richiesti. Costruisce l'esemplare con l'allenatore del gioco, mai cromatico, lo fa evolvere, gli insegna le mosse e gli assegna i fiocchi se la richiesta lo chiede, e lo scrive soltanto se `LegalityAnalysis` lo giudica legale, come `.pk3` in chiaro da ottanta byte con un `rapporto.json` che porta voce, specie, forma, livello, esito e impronta SHA-256. Per Rubino, Zaffiro, Colosseum e XD l'identificativo dell'allenatore si sceglie fra quelli che i metodi del gioco possono produrre, partendo dalla coppia del manifesto.
@@ -376,6 +378,15 @@ dotnet run -c Release -- "../../_notes/lotti/lotto-incursioni-evento-swsh/giudiz
 cd "E:/retrogame-mod-pok-dev"
 python tools/unisci-giudizi.py "_notes/lotti/lotto-incursioni-evento-swsh/giudizi.json"
 python tools/censimento-incursioni-swsh.py
+```
+
+Correzione del 2026-10-06 sul confronto con le altre fonti. Il confronto cercava soltanto la stessa terna di specie, forma e Gigantamax, e dichiarava «solo da incursioni di evento» Bulbasaur e Squirtle senza fattore, mentre in Spada e Scudo il loro unico incontro è il dono del Dojo dell'Isola dell'Armatura, che ha il fattore (`Encounters8.cs` righe 39-40), e Venusaur e Blastoise stanno nelle tane ordinarie. Per una chiave senza fattore la funzione `Disponibilità` guarda ora anche la stessa specie con il fattore, gli altri membri della famiglia evolutiva nella stessa forma (`EvolutionTree.Evolves8`), le pre-evoluzioni per evoluzione e le evoluzioni di una specie che si alleva per uovo, e la classe nuova si chiama «anche per allevamento o evoluzione da altri incontri»; una chiave con il fattore resta confrontata alla sola terna. Il confronto è deterministico, quindi si ricalcola nel dump esistente senza rigenerare né riprovare nulla, con la seconda forma d'uso. Esito sul dump del 2026-10-06: le chiavi solo da incursioni di evento passano da 17 a 12, tutte con il fattore (Meowth, Hattrem, i due Milcery e gli otto Alcremie), e le 5 uscite sono Bulbasaur e Squirtle, per i rispettivi Venusaur e Blastoise delle tane ordinarie, Ivysaur e Wartortle delle avventure Dynamax e il dono del Dojo, Rapidash e Darmanitan di forma normale, per Ponyta e Darumaka degli scambi in gioco, e Archeops, per Archen selvatico e statico.
+
+```powershell
+cd "E:/retrogame-mod-pok-dev/tools/pkhex-incursioni-swsh"
+dotnet run -c Release -- --disponibilità "../../_notes/incursioni-swsh.json"
+cd "E:/retrogame-mod-pok-dev"
+python tools/censimento-incursioni-swsh.py --check
 ```
 
 ## pkhex-incontri-switch e studio-switch.py
@@ -753,6 +764,8 @@ Una scelta del programma va conosciuta perché è controintuitiva: esso non legg
 ## verifica-link-progetto.py, i collegamenti che il progetto cita e il registro non conosce
 
 `tools/verifica-link-progetto.py` risponde alla domanda che il registro delle fonti da solo non sa porsi: quali indirizzi scritti nei documenti del progetto non stanno in nessun elenco. Nasce il 2026-10-06, quando il proprietario ha scoperto che la dichiarazione «tutte le fonti lette» copriva `SOURCES.md`, il residuo del corpus e le consegne, ma non i collegamenti incollati negli handoff, nelle note, negli studi e nelle decisioni, e che i collegamenti brevi di Reddit nella forma `/r/<sub>/s/<codice>` non erano mai stati risolti. Percorre i file tracciati con le estensioni di testo e di codice e il materiale scritto sotto `_notes/`, esclusi i testi di terzi scaricati sotto `_notes/fonti/` salvo le consegne del proprietario, i lotti, i salvataggi, i cloni, i modelli del template e le guide copiate intere; il 2026-10-06 erano 589 file, 530 tracciati e 59 sotto `_notes/`. Confronta ogni indirizzo, ridotto a una chiave che fa coincidere le forme dello stesso contenuto, con il registro, con il censimento della collezione, con gli esiti e i dimenticati del residuo del corpus e con l'elenco `_notes/fonti/link-non-fonti.json` degli indirizzi che non sono fonti.
+
+Dal 2026-10-06 lo strumento è la copia identica del pacchetto `verifica-link` del template (`.claude/templates/verifica-link/` nel repository del template, commit `ffcbdb3`): il perimetro non sta più nel codice ma in `tools/verifica-link-progetto.json`, lo strumento esclude il proprio sorgente, stampa a ogni corsa la riga del perimetro (590 file, 531 tracciati e 59 sotto `_notes/`, 3609 indirizzi noti da 5 registri, alla prima corsa della copia) e ha 37 prove interne. In `tools/chiudi-sessione.ps1` il controllo gira solo se la configurazione esiste, come nel modello.
 
 ```
 python tools/verifica-link-progetto.py --check --senza-rete

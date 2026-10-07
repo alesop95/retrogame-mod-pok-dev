@@ -513,8 +513,10 @@ def self_test():
     riscritta.
     """
     falliti = []
+    eseguiti = []
 
     def prova(descrizione, condizione):
+        eseguiti.append(descrizione)
         print("  %-7s %s" % ("ok" if condizione else "FALLITO", descrizione))
         if not condizione:
             falliti.append(descrizione)
@@ -585,7 +587,41 @@ def self_test():
           any(("ab" * 32) in x for x in righe) and any("conforme, contesto C English" in x for x in righe))
     prova("il cromatico si legge dal nome del file",
           any(x.startswith("| cromatico | sì") for x in righe))
-    print("self-test: %d controlli falliti su %d" % (len(falliti), 24))
+
+    # Il Phanpy giapponese, dal 2026-10-06. La prova scrive il lotto in una cartella temporanea
+    # dove un file con il nome del Phanpy esiste già, come nella destinazione di default, e
+    # verifica che resti intatto e che nessun file di quella voce venga prodotto. Senza
+    # l'esclusione la voce si scriveva in inglese sopra il file giapponese, e la prova fallisce.
+    import shutil
+    import tempfile
+    from pokebridge import gb as gb_mod, charmap as cm_mod
+
+    class EsemplareFinto(object):
+        species = 231
+        ot_id = 0
+
+        def to_bytes(self, party=True):
+            return bytes(48)
+
+    cartella = tempfile.mkdtemp(prefix="genera-evento-gb-")
+    try:
+        lotto_p, file_p = VOCI_RIGENERATE_CON_LA_LIBRERIA["EVT-2-0146"]
+        sentinella = b"file giapponese della libreria"
+        io.open(os.path.join(cartella, file_p), "wb").write(sentinella)
+        finti = [{"voce": {"generazione": 2, "indice": 146, "nazionale": 231, "tipo": 0},
+                  "mon": EsemplareFinto()},
+                 {"voce": {"generazione": 2, "indice": 147, "nazionale": 238, "tipo": 0},
+                  "mon": EsemplareFinto()}]
+        scritti_p, saltati_p = scrivi_lotto(finti, cartella, {231: "Phanpy", 238: "Smoochum"},
+                                            cm_mod, gb_mod)
+        prova("un --lotto non sovrascrive il Phanpy giapponese EVT-2-0146",
+              io.open(os.path.join(cartella, file_p), "rb").read() == sentinella)
+        prova("e lo dichiara fra le voci non scritte, scrivendo la voce accanto",
+              [c for c, _ in saltati_p] == ["EVT-2-0146"] and scritti_p == 1
+              and sorted(os.listdir(cartella)) == sorted([file_p, "EVT-2-0147-Smoochum.pk2"]))
+    finally:
+        shutil.rmtree(cartella, ignore_errors=True)
+    print("self-test: %d controlli falliti su %d" % (len(falliti), len(eseguiti)))
     return 1 if falliti else 0
 
 
@@ -713,6 +749,13 @@ def scrivi_lotto(prodotti, destinazione, nomi, cm, gb):
     saltati = []
     for x in prodotti:
         v = x["voce"]
+        # Il presidio sulle voci il cui file giusto è prodotto altrove, prima di qualunque
+        # scrittura: dal 2026-10-06 il Phanpy giapponese nella destinazione di default non si
+        # sovrascrive più con la versione inglese.
+        altrove = prodotta_altrove(codice(v))
+        if altrove:
+            saltati.append((codice(v), "prodotta altrove: " + altrove))
+            continue
         chiave = (v["generazione"], v["tipo"])
         allenatore = ALLENATORI.get(chiave, ALLENATORE_SEGNAPOSTO)
         nome_ot = allenatore["nome"]
@@ -791,6 +834,32 @@ DONI_DELLA_LIBRERIA_PER_CODICE = {
     "EVT-2-0000": "GB-stadium2-jp-083-Farfetch’d-04.pk2",
     "EVT-2-0001": "GB-stadium2-jp-207-Gligar-10.pk2",
 }
+# Le voci delle tabelle che questo programma saprebbe scrivere ma non deve, perché il file giusto è un
+# altro, prodotto con la libreria e giudicato conforme. Il caso è uno, il Phanpy `EVT-2-0146`: nella
+# tabella degli eventi del verificatore l'uovo di Phanpy con Ripeti è riservato alla lingua giapponese,
+# e il 2026-09-25 il file nel lotto è stato rigenerato con la libreria per un giocatore giapponese,
+# allenatore アレシオ e identificativo 42317, perché la versione inglese che questo programma scriveva
+# portava una mossa impossibile. Il file giapponese sta nella destinazione di default di questo
+# programma, quindi un `--lotto` senza questa esclusione lo sovrascriveva con la versione inglese, e le
+# schede descrivevano l'inglese. Decisione del proprietario del 2026-10-06 (ADR-098): la voce si salta
+# in scrittura e la scheda ne riporta impronta, allenatore ed esito dal registro della libreria, come
+# per i doni di `DONI_DELLA_LIBRERIA_PER_CODICE`. La chiave del registro è lotto e nome del file.
+VOCI_RIGENERATE_CON_LA_LIBRERIA = {
+    "EVT-2-0146": ("lotto-gb", "EVT-2-0146-Phanpy.pk2"),
+}
+
+
+def prodotta_altrove(codice_voce):
+    """La ragione per cui questo programma non scrive una voce, o None se la scrive."""
+    if codice_voce in VOCI_RIGENERATE_CON_LA_LIBRERIA:
+        lotto, nome_file = VOCI_RIGENERATE_CON_LA_LIBRERIA[codice_voce]
+        return ("il file giusto è `_notes/lotti/%s/%s`, rigenerato con la libreria in versione "
+                "giapponese, e non si sovrascrive" % (lotto, nome_file))
+    if codice_voce in DONI_DELLA_LIBRERIA_PER_CODICE:
+        return ("il file è `_notes/lotti/%s/%s`, scritto da `tools/pkhex-doni-gb`"
+                % (LOTTO_DONI_LIBRERIA, DONI_DELLA_LIBRERIA_PER_CODICE[codice_voce]))
+    return None
+
 # I gruppi dei doni fuori dalle tabelle, riconosciuti dal prefisso del nome che pkhex-doni-gb dà al file.
 GRUPPI_DONI_LIBRERIA = [
     ("GB-stadium-jp-", "Esemplari premio di Pokemon Stadium, versione giapponese",
@@ -815,6 +884,16 @@ def registro_della_libreria():
     voci = json.loads(io.open(percorso, encoding="utf-8").read()).get("voci", {})
     prefisso = LOTTO_DONI_LIBRERIA + "/"
     return {k[len(prefisso):]: v for k, v in voci.items() if k.startswith(prefisso)}
+
+
+def voci_rigenerate_dal_registro():
+    """Le voci di `VOCI_RIGENERATE_CON_LA_LIBRERIA` nel registro unico, per codice della voce."""
+    percorso = os.path.join(RADICE, REGISTRO_LIBRERIA)
+    if not os.path.exists(percorso):
+        return {}
+    voci = json.loads(io.open(percorso, encoding="utf-8").read()).get("voci", {})
+    return {c: voci.get("%s/%s" % lf) for c, lf in VOCI_RIGENERATE_CON_LA_LIBRERIA.items()
+            if voci.get("%s/%s" % lf)}
 
 
 def righe_dono_della_libreria(nome_file, g):
@@ -921,6 +1000,7 @@ def scrivi_schede(percorso, prodotti, nomi, mosse, prov):
     # le tabelle della fonte li presentano.
     giudizio_per_voce = giudizi_del_lotto()
     doni_libreria = registro_della_libreria()
+    rigenerate = voci_rigenerate_dal_registro()
     ordinati = {}
     for x in prodotti:
         v = x["voce"]
@@ -994,6 +1074,25 @@ def scrivi_schede(percorso, prodotti, nomi, mosse, prov):
                          % (vp.get("campagna", "non determinata"),
                             vp.get("marcatore", "non dichiarato")))
                 r.append("")
+            # Le voci il cui file è stato rigenerato con la libreria: i campi che vengono dalla
+            # tabella degli eventi restano quelli ricalcolati qui, mentre allenatore, valori
+            # individuali, statistiche, impronta ed esito sono quelli del file su disco, letti dal
+            # registro della libreria, perché è quel file e non il ricalcolo a entrare nel deposito.
+            g_rigenerata = rigenerate.get(codice(v))
+            if codice(v) in VOCI_RIGENERATE_CON_LA_LIBRERIA:
+                lotto_r, file_r = VOCI_RIGENERATE_CON_LA_LIBRERIA[codice(v)]
+                r.append("Versione giapponese. La tabella degli eventi della libreria riserva questa "
+                         "voce alla lingua giapponese, quindi su un esemplare inglese la mossa che la "
+                         "distingue risulta impossibile: il lotto del 2026-09-04 l'aveva prodotta in "
+                         "inglese con l'allenatore del progetto, e la libreria la contestava. Il "
+                         "2026-09-25 il file `_notes/lotti/%s/%s` è stato rigenerato con la libreria "
+                         "per un giocatore giapponese, e dal 2026-10-06 questo programma non lo "
+                         "scrive più e non lo sovrascrive: i campi del file vengono dal registro dei "
+                         "giudizi della libreria. La versione inglese è conservata in "
+                         "`_notes/archivio/lotto-gb-phanpy-inglese-2026-09-04/`. Un esemplare "
+                         "giapponese si scrive soltanto su una cartuccia giapponese di Oro, Argento o "
+                         "Cristallo." % (lotto_r, file_r))
+                r.append("")
             r.append("| Campo | Valore | Provenienza |")
             r.append("|---|---|---|")
             r.append("| numero del Dex | %d | tabella degli eventi |" % v["nazionale"])
@@ -1027,10 +1126,16 @@ def scrivi_schede(percorso, prodotti, nomi, mosse, prov):
                      % ", ".join(str(pp[0]) for pp in mon.pp if pp[0]))
             r.append("| esperienza | %d | formula del gruppo di crescita %d, importata dal "
                      "generatore di terza generazione |" % (mon.exp, p["crescita"]))
-            r.append("| valori individuali | attacco %d, difesa %d, velocità %d, speciale %d, "
-                     "punti salute %d | %s |"
-                     % (x["dvs"]["atk"], x["dvs"]["def"], x["dvs"]["spd"], x["dvs"]["spc"],
-                        dv_hp(x["dvs"]), x["origine_dv"]))
+            if codice(v) in VOCI_RIGENERATE_CON_LA_LIBRERIA:
+                r.append("| valori individuali | quelli del file su disco, non ricalcolati qui | il "
+                         "file è stato rigenerato con la libreria, che ha scelto i propri valori "
+                         "individuali: non sono la scelta nostra che questo programma dichiara per "
+                         "le altre uova, e questo programma non legge il file |")
+            else:
+                r.append("| valori individuali | attacco %d, difesa %d, velocità %d, speciale %d, "
+                         "punti salute %d | %s |"
+                         % (x["dvs"]["atk"], x["dvs"]["def"], x["dvs"]["spd"], x["dvs"]["spc"],
+                            dv_hp(x["dvs"]), x["origine_dv"]))
             if generazione == 1:
                 r.append("| tipi | %d e %d | tabella delle statistiche di base |"
                          % (p["tipo1"], p["tipo2"]))
@@ -1043,11 +1148,22 @@ def scrivi_schede(percorso, prodotti, nomi, mosse, prov):
                          "zero lo dichiarano |"
                          % ("sì, %d incubazioni" % v["incubazioni"] if v["incubazioni"] else "no"))
                 r.append("| luogo di cattura | %d | tabella degli eventi |" % v.get("luogo", 0))
-            r.append("| statistiche | %s | formula delle prime due generazioni, con esperienza "
-                     "di statistica nulla |"
-                     % ", ".join("%s %d" % (k, val) for k, val in mon.stats.items()))
+            if codice(v) in VOCI_RIGENERATE_CON_LA_LIBRERIA:
+                r.append("| statistiche | quelle del file su disco, non ricalcolate qui | dipendono "
+                         "dai valori individuali, che sono quelli scelti dalla libreria |")
+                d_r = (g_rigenerata or {}).get("descrizione", {})
+                r.append("| allenatore | %s, identificativo %s, lingua %s | registro dei giudizi "
+                         "della libreria: la voce prende nome e identificativo da chi riceve la "
+                         "consegna, e il ricevente è l'allenatore del progetto scritto in caratteri "
+                         "giapponesi, perché la voce è riservata a quella lingua |"
+                         % (d_r.get("allenatore", "?"), d_r.get("id_allenatore", "?"),
+                            d_r.get("lingua", "?")))
+            else:
+                r.append("| statistiche | %s | formula delle prime due generazioni, con esperienza "
+                         "di statistica nulla |"
+                         % ", ".join("%s %d" % (k, val) for k, val in mon.stats.items()))
             allenatore = ALLENATORI.get(chiave, ALLENATORE_SEGNAPOSTO)
-            if allenatore:
+            if allenatore and codice(v) not in VOCI_RIGENERATE_CON_LA_LIBRERIA:
                 r.append("| allenatore | %s, identificativo %d | %s |"
                          % (allenatore["nome"], allenatore["tid"], allenatore["nota"]))
             r.append("| restrizione di lingua | %s | tabella degli eventi |"
@@ -1066,6 +1182,25 @@ def scrivi_schede(percorso, prodotti, nomi, mosse, prov):
             impronta = x.get("impronta")
             file_libreria = DONI_DELLA_LIBRERIA_PER_CODICE.get(codice(v))
             g_libreria = doni_libreria.get(file_libreria) if file_libreria else None
+            if codice(v) in VOCI_RIGENERATE_CON_LA_LIBRERIA:
+                lotto_r, file_r = VOCI_RIGENERATE_CON_LA_LIBRERIA[codice(v)]
+                if g_rigenerata:
+                    r.append("| impronta del file prodotto | `%s` | questo programma non scrive la "
+                             "voce: il file è `_notes/lotti/%s/%s`, rigenerato con la libreria in "
+                             "versione giapponese, e l'impronta viene dal registro dei giudizi della "
+                             "libreria |" % (g_rigenerata.get("sha256", "?"), lotto_r, file_r))
+                    r.append("| giudizio della libreria | %s, contesto %s | `tools/pkhex-giudica`, "
+                             "con un salvataggio vuoto del contesto indicato |"
+                             % (g_rigenerata.get("esito", "?"), g_rigenerata.get("contesto", "?")))
+                else:
+                    r.append("| impronta del file prodotto | non nel registro | il file "
+                             "`_notes/lotti/%s/%s` non ha una voce nel registro dei giudizi della "
+                             "libreria, quindi la sua impronta non è dichiarata |" % (lotto_r, file_r))
+                r.append("| giudizio del verificatore | non applicabile al file attuale | la lettura "
+                         "di massa del 2026-09-04 riguardava la versione inglese, oggi in archivio: "
+                         "il giudizio del file giapponese è quello della libreria, nella riga sopra |")
+                r.append("")
+                continue
             if not impronta and g_libreria:
                 r.append("| impronta del file prodotto | `%s` | questo programma non scrive la voce, "
                          "perché l'allenatore è in caratteri che la sua tabella non porta: il file è "

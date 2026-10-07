@@ -41,6 +41,8 @@ RELAZIONI = {
 }
 
 # slug, nome, url, livello, letto, track, abstract, perché, serve_a, relazioni
+# Il campo letto vale True, False oppure la data della lettura (AAAA-MM-GG), che conta come True
+# qui e che tools/indice-fonti-unico.py riporta nel suo blocco come «letta il» seguito dalla data.
 FONTI = [
     ("pokered", "pret/pokered", "https://github.com/pret/pokered", 1, True, ["BRI"],
      "Disassemblaggio completo di Pokemon Rosso e Blu che ricompila in una ROM identica all'originale. Contiene le macro delle strutture dati, la mappa della memoria di lavoro, le costanti del protocollo seriale e il codice del Centro Scambi.",
@@ -420,7 +422,7 @@ FONTI = [
       ("[[11-wireless-locale-e-ponte-switch]]", "l'adattatore senza fili come dispositivo proprietario")],
      [("deriva-da", "gen3distributions")]),
 
-    ("eventsgallery", "Project Pokemon, Events Gallery", "https://github.com/projectpokemon/EventsGallery", 3, False, ["EVT"],
+    ("eventsgallery", "Project Pokemon, Events Gallery", "https://github.com/projectpokemon/EventsGallery", 3, "2026-10-05", ["EVT"],
      "Archivio collettivo della conservazione delle informazioni sugli eventi, per tutte le generazioni. Per la terza generazione le carte meraviglia si manipolano con lo strumento dedicato che questo registro già elenca.",
      "È il luogo dove cercare il campione di un evento, ed è la controparte documentale del catalogo che questo repository genera dalla tabella di PKHeX. Non è stato aperto: è la fonte che serve per rispondere alla domanda se il progetto possa contribuire alla conservazione invece di consumarla soltanto, cioè se i campioni degli eventi dichiarati non chiusi manchino davvero.",
      [("[[24-fonti-di-community]]", "la conservazione come attività collettiva")],
@@ -459,7 +461,7 @@ FONTI = [
       ("[[STUDIO-09-la-regola-del-tracciatore-e-le-porte-dopo-la-chiusura]]", "la porta di ottobre e la riserva dell'autore")],
      []),
 
-    ("gen3-ace-builder", "Gen 3 ACE Pokemon Builder", "https://mankeymite.github.io/Gen3ACEPokemonBuilder/", 3, False, ["ACE", "EVT"],
+    ("gen3-ace-builder", "Gen 3 ACE Pokemon Builder", "https://mankeymite.github.io/Gen3ACEPokemonBuilder/", 3, "2026-10-05", ["ACE", "EVT"],
      "Funzione dichiarata dal suo autore: comporre il dato completo di un esemplare di terza generazione, comprese le vecchie distribuzioni di evento, con informazioni dell'allenatore, statistiche e lucentezza a scelta, restituendo un codice da digitare nei nomi delle scatole ed eseguire con il difetto del motore di testo. L'autore dichiara le opzioni di generazione conforme attive per difetto e dichiara di non poter garantire l'accettazione da parte del deposito in rete.",
      "È il punto di convergenza con il track delle distribuzioni, perché produce lo stesso esemplare per la via opposta: il confronto fra il suo esito e quello del metodo ricostruito da questo progetto è stato fatto e concorda sui dati, il che rende la scelta fra le due vie una questione di provenienza e non di tecnica.",
      [("[[23-prove-eseguite]]", "il confronto fra il costruttore e il metodo ricostruito")],

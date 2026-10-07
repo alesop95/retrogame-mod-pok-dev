@@ -64,6 +64,8 @@ B494738C
 - regnodellepassioni.forumattivo.com
 - pokemontrash.com (fonte separata, in francese, che ha confermato indipendentemente lo stesso codice)
 
+Correzione del 2026-10-06. Le fonti di questo elenco, rilette il 2026-10-06 e registrate in `SOURCES.md` nella sezione dei collegamenti letti quel giorno, non sono incrociate sul blocco a otto righe, e il titolo della sezione non regge. Tecnocino, Nanotec2009, il thread 2654 di PokeTown e il thread di Pokémon Central Forum riportano il master Xploder `00006FA7 000A` / `1006F5CC 0007`, non il blocco Action Replay `D8BAE4D9…`, e nessuno dei quattro ha l'Anti-DMA. Il thread 2655 di PokeTown riguarda Rosso Fuoco e Verde Foglia, non Smeraldo, e ha in comune con il blocco soltanto la coppia `1C7B3231 B494738C`. Regno delle Passioni coincide con il blocco solo nella prima e nell'ultima coppia. Pokémon Trash è la sola fonte con le otto righe identiche, etichettate «Master code + Anti DMA», ma il thread chiude senza una conferma che funzionino, consiglia l'Anti-DMA anche su emulatore, contro quanto scritto nella sezione 2.1, e avverte che su Smeraldo i codici di incontro non sempre funzionano e possono mandare il gioco in crash. Il blocco ha quindi una sola fonte, non verificata sul campo; la decisione di abbandonare il Percorso A non ne dipendeva e resta valida.
+
 ### 2.3 Perché la strada è stata abbandonata
 
 Per i codici specifici della tasca Strumenti Base (Detector, Ami, Bici e altri strumenti base) **non è stata trovata nessuna fonte verificata** compatibile con questa combinazione Master+Anti-DMA. Continuare la ricerca in questa direzione avrebbe significato **indovinare indirizzi di memoria** per costruire codici AR custom - esattamente il tipo di operazione rischiosa che ha causato il bug originale nell'inventario. Si è quindi deciso di **fermarsi consapevolmente** piuttosto che fornire codici non testati, per evitare di introdurre un secondo bug o corrompere ulteriormente il salvataggio.
@@ -71,6 +73,8 @@ Per i codici specifici della tasca Strumenti Base (Detector, Ami, Bici e altri s
 ### 2.4 Alternativa raccolta dalla community (il seme del Percorso B)
 
 Nella stessa community pokemontrash.com, in un thread separato, qualcuno chiedeva come rimuovere oggetti rari finiti per errore nel sacco. La risposta ricevuta, valutata come la più sensata, indicava che la via corretta è **agire direttamente sul file di salvataggio con un editor** (non altri codici AR): aprire il salvataggio ed editare/eliminare gli oggetti direttamente nell'inventario. Questo ha impostato la direzione del Percorso B.
+
+Correzione del 2026-10-06. Il thread di Pokémon Trash sul sacco, riletto il 2026-10-06, non contiene la frase che la nota del 16-17 agosto riporta fra virgolette, di cui il paragrafo sopra è la sintesi: quella frase è una parafrasi. Il thread propone nel 2008 un codice di cinque righe e nel 2017 consiglia di aprire il salvataggio in PKHeX, e non dice che il gioco sia Smeraldo. La direzione del Percorso B resta sostenuta dal consiglio del 2017.
 
 ---
 

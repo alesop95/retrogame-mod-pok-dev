@@ -97,8 +97,15 @@ def componi(dump, rapporto, registro):
         c["righe_spada"], c["righe_scudo"], c["righe_distinte"], c["righe_solo_spada"], c["righe_solo_scudo"], c["indici_evento"],
         c["chiavi"], c["chiavi_specie_forma_gigantamax"], c["chiavi_specie_forma"], c["chiavi_gigantamax"], c["chiavi_cromatico_garantito"]))
     a("")
-    a("Fuori dagli eventi, letto dalle altre tabelle di `Encounters8` e `Encounters8Nest` per specie, forma e Gigantamax: %d chiavi esistono anche nelle tane ordinarie, %d soltanto in altri incontri (statici, grotte di cristallo, avventure Dynamax, selvatici), %d soltanto nelle incursioni di evento. Il confronto ignora il cromatico garantito, perché nessuna tana ordinaria lo garantisce." % (
-        c["chiavi_anche_tane_ordinarie"], c["chiavi_anche_altri_incontri"], c["chiavi_solo_da_eventi"]))
+    # Dal 2026-10-06 il confronto conta anche la famiglia evolutiva per le chiavi senza fattore: prima Bulbasaur e Squirtle
+    # risultavano solo da incursioni di evento, mentre il dono del Dojo ha il fattore e Venusaur e Blastoise stanno nelle
+    # tane ordinarie. La logica è in tools/pkhex-incursioni-swsh, funzione Disponibilità; qui si riporta il conteggio.
+    if "chiavi_anche_per_allevamento_o_evoluzione" in c:
+        a("Fuori dagli eventi, letto dalle altre tabelle di `Encounters8` e `Encounters8Nest` per specie, forma e Gigantamax: %d chiavi esistono anche nelle tane ordinarie, %d soltanto in altri incontri (statici, grotte di cristallo, avventure Dynamax, selvatici, scambi), %d si ottengono per allevamento o evoluzione da un altro incontro, %d soltanto nelle incursioni di evento. Per una chiave senza fattore Gigantamax il confronto guarda anche la stessa specie con il fattore, perché il fattore non si eredita e la Zuppa Dynamax lo toglie, e gli altri membri della famiglia evolutiva nella stessa forma: le pre-evoluzioni, che si fanno evolvere, e le evoluzioni di una specie che si alleva, da cui nasce un uovo. Per una chiave con il fattore il confronto resta sulla sola terna, perché il fattore non viene da un uovo. Il confronto ignora il cromatico garantito, perché nessuna tana ordinaria lo garantisce." % (
+            c["chiavi_anche_tane_ordinarie"], c["chiavi_anche_altri_incontri"], c["chiavi_anche_per_allevamento_o_evoluzione"], c["chiavi_solo_da_eventi"]))
+    else:
+        a("Fuori dagli eventi, letto dalle altre tabelle di `Encounters8` e `Encounters8Nest` per specie, forma e Gigantamax: %d chiavi esistono anche nelle tane ordinarie, %d soltanto in altri incontri (statici, grotte di cristallo, avventure Dynamax, selvatici), %d soltanto nelle incursioni di evento. Il confronto ignora il cromatico garantito, perché nessuna tana ordinaria lo garantisce." % (
+            c["chiavi_anche_tane_ordinarie"], c["chiavi_anche_altri_incontri"], c["chiavi_solo_da_eventi"]))
     a("")
     a("Prova di ogni riga: il generatore costruisce un esemplare da ciascuna con l'allenatore del progetto e lo giudica con `LegalityAnalysis`. Righe legali %d su %d; righe che la libreria riconosce come tana di distribuzione, e non come tana ordinaria o come un'altra riga con un diverso stato del cromatico, %d; chiavi con almeno una riga riconosciuta %d. Il riconoscimento dipende dal seme casuale e varia di qualche unità fra una corsa e l'altra." % (
         c["righe_legali"], c["righe_distinte"], c["righe_riconosciute_come_distribuzione"], c["chiavi_distinguibili"]))

@@ -1,7 +1,7 @@
 ---
 tipo: fonte
 livello: 3
-letto: no
+letto: si
 track: [ACE, EVT]
 url: https://mankeymite.github.io/Gen3ACEPokemonBuilder/
 tags: [fonte, livello-3]
