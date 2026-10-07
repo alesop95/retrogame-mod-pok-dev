@@ -2,7 +2,23 @@
 
 > Documento autorato, aggiornato a ogni giro di lavoro che cambia una copia o il suo stato. Nasce il 2026-09-30 su richiesta del proprietario, che vuole il riepilogo delle copie per gruppo ogni volta, con quello che è già passato a HOME e con ciò che le fonti aggiungono. Le copie si scrivono con `tools/pkhex-scrivi-salvataggio` secondo ADR-092, e stanno fuori da Git sotto `_notes/salvataggi/prove/`; accanto a ciascuna c'è il suo `main.rapporto.json`, con box, posto e impronta di ogni esemplare. La sostituzione delle copie sulla console si fa tutta alla fine, quando i lotti sono completi e si passa a HOME, e i passi si danno al proprietario in quel momento.
 
-## Le copie definitive del 2026-10-05, che prevalgono sulla tabella sotto
+## Le copie del 2026-10-07 per ADR-099, che prevalgono su quelle `-fin`
+
+ADR-099 dà all'allenatore del progetto un solo identificativo segreto, 58164. Le copie `-fin` ne avevano tre: 201 esemplari con 5147 e 101 del complemento del Rubino con 0. Le copie `-fin2` sono le `-fin` con quei soli esemplari sostituiti nello stesso box e nello stesso posto, con l'opzione `--sostituisci` di `tools/pkhex-scrivi-salvataggio` e la stessa `--regione-del-ricevente`; per `oras-giro-2-mn-fin2` anche `--includi-mn`, perché quella copia porta i 36 con macchina nascosta. Tutto il resto delle copie è identico byte per byte, misurato con `tools/pkhex-confronta-copie`, e la disposizione nei box non cambia.
+
+| Gruppo | Copia | Esemplari | Sostituiti | Note |
+|---|---|---|---|---|
+| per HOME | `per-home/oras-giro-1-fin2/main` | 930 | 141 | 40 di `lotto-periferiche`, cioè i 32 del progetto e gli 8 del Ranch rigenerati con il lotto, e i 101 del complemento; 261 voci dei due lotti invariate |
+| per HOME | `per-home/oras-giro-2-mn-fin2/main` | 721 | 3 | i 2 del progetto e 1 del Ranch di `lotto-periferiche-secondo-tempo`; 14 del complemento invariati |
+| per HOME | `per-home/oras-giro-3-fin2/main` | 914 | 168 | 167 di `lotto-periferiche-secondo-tempo` e 1 di `lotto-oggetti-gen5` |
+| per HOME | `per-home/luna-giro-1-fin/main` | 93 | 0 | non toccata: i suoi 14 esemplari del progetto con SID 0 sono Uova Strane nate su Game Boy, e per quei formati il SID è sempre 0 |
+| per HOME | `per-home/ultraluna-giro-1-scambi-fin2/main` | 613 | 12 | i 12 statici di Ohana |
+| decisione finale | `a-parte/luna-eventi-da-cartuccia-fin/main` | 121 | 0 | non toccata: i 14 esemplari del progetto con SID 0 vengono da file di Game Boy |
+| da provare a parte | `per-home/luna-giappone-14/main` | 14 | 0 | non toccata, stessa ragione |
+
+Misure del 2026-10-07. Il confronto fra ogni copia `-fin` e la sua `-fin2` dà «diverso» esattamente nei posti sostituiti e «uguale» in tutti gli altri; gli offset cambiati sono la costante di cifratura e il PID dove il lotto è stato rigenerato, il SID (0x0E-0x0F nel formato della sesta generazione), la somma di controllo, e i due campi che la conversione assegna da sé, cioè il sentimento del ricordo del detentore e la data d'incontro. Ogni esemplare sostituito è stato riletto senza differenze e giudicato conforme. `pkhex-identificativi --tid 42317` sulle quattro copie nuove trova l'allenatore del progetto solo con SID 58164: 191, 48, 155 e 12 esemplari. Il totale per HOME resta 3271. Il Manaphy di Ranger non è ancora in nessuna copia: ADR-099 lo mette nel giro 1, ma `oras-giro-1-fin2` ha 930 esemplari su 930 posti, e la scelta della copia spetta al proprietario. Le copie `-fin` restano su disco, superate, e non vanno sulla console.
+
+## Le copie definitive del 2026-10-05, superate il 2026-10-07 dalle `-fin2`
 
 Sono le copie da portare sulla console, con suffisso `-fin`: stessi esemplari delle copie della tabella sotto negli stessi posti, più i lotti nuovi, e la geolocalizzazione d'origine assegnata come la assegna il gioco a chi riceve l'esemplare (`--regione-del-ricevente` di `tools/pkhex-scrivi-salvataggio`, che segue `WC6.cs`, `WC7.cs`, `EncounterTrade6.cs`, `EncounterTrade7.cs` e i convertitori della libreria). Prima gli esemplari convertiti portavano la regione americana dell'allenatore di riserva della libreria. Tutte sono rilette senza differenze e tutti gli esemplari sono legali per la libreria.
 

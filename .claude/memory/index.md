@@ -8,8 +8,8 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: 3cf1f21, ADR-101: tracciamento fino alla tesi, capitoli senza timbro segnalati
-Data snapshot:         2026-10-07, ADR-099 su programmi, lotti e complemento e capitolo 24 (non committati); prossimo: copie per HOME rifatte
+Commit di riferimento: 1a5c614, ADR-099: identificativo unico su lotti e complemento, capitolo 24
+Data snapshot:         2026-10-07, copie per HOME -fin2 (non committato); prossimo: decisione sul Manaphy, poi procedura per la cartuccia del Rubino
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,8 @@ Data snapshot:         2026-10-07, ADR-099 su programmi, lotti e complemento e c
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-10-07, quinta parte, che prevale su quelle sotto. Copie per HOME rifatte come `-fin2` con `pkhex-scrivi-salvataggio --sostituisci`: le copie da portare sulla console sono ora quelle in testa a `COPIE-PER-HOME.md`, allenatore del progetto solo a 58164. Il Manaphy di Ranger attende la scelta della copia, perché il giro 1 è pieno. Resta di ADR-099 la cartuccia del Rubino.
 
 AGGIUNTA DEL 2026-10-07, quarta parte, che prevale su quelle sotto. ADR-102: si alternano ADR-099 e la tesi. ADR-099 fatto su programmi, quattro lotti (201 a 58164) e complemento (101 a 58164), con due strumenti nuovi, `pkhex-identificativi` e `pkhex-correggi-sid`; restano le copie per HOME, che contengono ancora i valori vecchi, e la cartuccia del Rubino. Capitolo 24: due sezioni nuove, non timbrato.
 

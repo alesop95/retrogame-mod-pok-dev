@@ -61,7 +61,7 @@ var opzioni = args.Where(a => a.StartsWith("--")).ToHashSet();
 var posizionali = args.Where(a => !a.StartsWith("--")).ToArray();
 if (posizionali.Length < 4)
 {
-    Console.Error.WriteLine("uso: dotnet run -c Release -- SALVATAGGIO COPIA_DI_USCITA DA [--svuota] [--epoca-cartucce] [--includi-mn] [--solo-mn] [--solo-epoca-cartucce] [--solo-stesso-formato] [--regione-giappone] [--regione-dal-salvataggio] [--regione-del-ricevente] LOTTO [LOTTO ...]");
+    Console.Error.WriteLine("uso: dotnet run -c Release -- SALVATAGGIO COPIA_DI_USCITA DA [--svuota] [--epoca-cartucce] [--includi-mn] [--solo-mn] [--solo-epoca-cartucce] [--solo-stesso-formato] [--regione-giappone] [--regione-dal-salvataggio] [--regione-del-ricevente] [--sostituisci] LOTTO [LOTTO ...]");
     return 2;
 }
 var partenza = posizionali[0];
@@ -147,35 +147,35 @@ var scritti = new List<(int Posto, PKM Pk, byte[] Dati, string Origine)>();
 var esclusi = new JsonArray();
 var conservate = new JsonArray();
 int indice = 0, considerati = da, alRicevente = 0;
-foreach (var (lotto, percorso) in file)
+// La preparazione di un esemplare per il salvataggio: lettura, filtri, conversione, adattamento, giudizio, schiusa
+// dell'uovo contestato e geolocalizzazione del ricevente. Restituisce null quando l'esemplare non va scritto, e in quel
+// caso, se e' un'esclusione e non un filtro, la mette a rapporto. Estratta dal ciclo il 2026-10-07 perche' la usa anche
+// --sostituisci, cosi' che le due modalita' preparino gli esemplari con la stessa regola invece che con due copie.
+PKM? Prepara(string percorso, string origine)
 {
-    if (indice++ < da) continue;
-    if (scritti.Count >= liberi.Count) { indice--; break; }
-    considerati = indice;
-    var origine = lotto + "/" + Path.GetFileName(percorso);
     if (!FileUtil.TryGetPKM(File.ReadAllBytes(percorso), out var pk, Path.GetExtension(percorso)))
     {
         esclusi.Add(new JsonObject { ["file"] = origine, ["motivo"] = "illeggibile" });
-        continue;
+        return null;
     }
     // --solo-stesso-formato scrive soltanto gli esemplari gia' nel formato del salvataggio: un lotto che mescola doni di
     // sesta e settima generazione va in due giochi, e senza questo filtro i doni di sesta sarebbero finiti, convertiti,
     // anche nella copia di settima, doppioni di quelli di Rubino Omega.
     if (opzioni.Contains("--solo-stesso-formato") && pk.GetType() != formato)
-        continue;
+        return null;
     // --solo-mn scrive soltanto le voci con macchina nascosta, per il caricamento a parte deciso il 2026-09-30.
     if (opzioni.Contains("--solo-mn") && Bloccato(pk) is null)
-        continue;
+        return null;
     if (!opzioni.Contains("--includi-mn") && !opzioni.Contains("--solo-mn") && Bloccato(pk) is { } passaggio)
     {
         esclusi.Add(new JsonObject { ["file"] = origine, ["motivo"] = "macchina nascosta, ADR-046", ["passaggio"] = passaggio });
-        continue;
+        return null;
     }
     var convertito = pk.GetType() == formato ? pk.Clone() : EntityConverter.ConvertToType(pk, formato, out var esitoConversione);
     if (convertito is null)
     {
         esclusi.Add(new JsonObject { ["file"] = origine, ["motivo"] = "conversione rifiutata" });
-        continue;
+        return null;
     }
     // La libreria giudica l'esemplare e non il gioco che lo riceve: il 2026-09-30 Poipole e Zeraora, specie di
     // Ultrasole e Ultraluna, scritti in una copia di Luna, sono apparsi in gioco come un uovo di livello 43 e uno
@@ -183,7 +183,7 @@ foreach (var (lotto, percorso) in file)
     if (!sav.Personal.IsPresentInGame(convertito.Species, convertito.Form))
     {
         esclusi.Add(new JsonObject { ["file"] = origine, ["motivo"] = "specie o forma assente nel gioco di destinazione" });
-        continue;
+        return null;
     }
     sav.AdaptToSaveFile(convertito, false);
     // --solo-epoca-cartucce scrive soltanto gli esemplari di Game Boy che sono legali nell'epoca delle cartucce e non
@@ -195,7 +195,7 @@ foreach (var (lotto, percorso) in file)
         bool legaleInVc = new LegalityAnalysis(convertito).Valid;
         ParseSettings.AllowEraCartGB = true;
         if (legaleInVc)
-            continue;
+            return null;
     }
     var la = new LegalityAnalysis(convertito);
     // Un uovo contestato si fa schiudere nel salvataggio che lo riceve, come farebbe il gioco, con la stessa regola di
@@ -244,8 +244,90 @@ foreach (var (lotto, percorso) in file)
     if (!la.Valid)
     {
         esclusi.Add(new JsonObject { ["file"] = origine, ["motivo"] = "contestato", ["rapporto"] = la.Report() });
-        continue;
+        return null;
     }
+    return convertito;
+}
+
+// --sostituisci, dal 2026-10-07 per ADR-099. Il SALVATAGGIO di partenza e' una copia gia' scritta, con il suo rapporto, e
+// i LOTTI sono le cartelle i cui file sono cambiati dopo la scrittura. Per ogni voce del rapporto che viene da uno di quei
+// lotti lo strumento riprepara il file di oggi con `Prepara`, cioe' con la stessa regola della scrittura ordinaria, lo
+// scrive nello stesso box e nello stesso posto, lo rilegge e lo confronta con l'esemplare che c'era: se e' lo stesso a
+// meno del sentimento del ricordo del detentore, che la libreria assegna a caso nella conversione dalla quinta alla
+// sesta generazione (`PK5.cs` riga 479), rimette i byte di prima, altrimenti tiene il nuovo. Tutto il resto della copia
+// resta com'era, posizioni comprese, e questo e' il motivo dell'opzione: le copie per HOME sono nate a catena, da piu'
+// passate che partivano ciascuna dalla precedente, e rifarle da capo cambierebbe la disposizione gia' pianificata. Una
+// voce il cui file non c'e' piu', la cui specie non coincide o che non si prepara piu' ferma lo strumento senza scrivere.
+// L'origine delle voci di quei lotti passa alla forma di `ChiaveDelLotto`.
+bool sostituisci = opzioni.Contains("--sostituisci");
+var origineNuova = new Dictionary<(int, int), string>();
+int invariati = 0;
+if (sostituisci)
+{
+    var rapportoDiPartenza = partenza + ".rapporto.json";
+    if (!File.Exists(rapportoDiPartenza) || opzioni.Contains("--svuota") || da != 0)
+    {
+        Console.Error.WriteLine("--sostituisci vuole una partenza con il suo rapporto, DA uguale a 0 e nessun --svuota");
+        return 2;
+    }
+    var cartelle = lotti.Select(Path.GetFullPath).Select(c => (Cartella: c, Lunga: ChiaveDelLotto(c),
+        Breve: Path.GetFileName(c.TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar)))).ToList();
+    foreach (var v in JsonNode.Parse(File.ReadAllText(rapportoDiPartenza))!["voci"]!.AsArray())
+    {
+        var vecchia = (string)v!["origine"]!;
+        var c = cartelle.FirstOrDefault(c => vecchia.StartsWith(c.Lunga + "/") || vecchia.StartsWith(c.Breve + "/"));
+        if (c.Cartella is null)
+            continue;
+        var nome = vecchia.StartsWith(c.Lunga + "/") ? vecchia[(c.Lunga.Length + 1)..] : vecchia[(c.Breve.Length + 1)..];
+        var percorso = Path.Combine(c.Cartella, nome);
+        int box = (int)v["box"]!, p = (int)v["posto"]!;
+        int posto = (box - 1) * sav.BoxSlotCount + (p - 1);
+        var attuale = sav.GetBoxSlotAtIndex(posto);
+        var origine = c.Lunga + "/" + nome;
+        if (!File.Exists(percorso) || attuale.Species != (int)v["specie"]!)
+        {
+            Console.Error.WriteLine($"box {box} posto {p}: {vecchia} non c'e' piu' o la specie non coincide; nessun file scritto");
+            return 1;
+        }
+        var convertito = Prepara(percorso, origine);
+        if (convertito is null)
+        {
+            Console.Error.WriteLine($"box {box} posto {p}: {origine} non si prepara piu' ({esclusi.LastOrDefault()?.ToJsonString()}); nessun file scritto");
+            return 1;
+        }
+        origineNuova[(box, p)] = origine;
+        var prima = new byte[attuale.SIZE_STORED];
+        attuale.WriteDecryptedDataStored(prima);
+        // La prova si scrive in un clone del salvataggio, con le impostazioni della scrittura ordinaria, perche' quella
+        // scrittura aggiorna anche l'esemplare e il Pokedex: il 2026-10-07 una prima versione provava nel salvataggio vero
+        // e rimetteva l'esemplare di prima, e i box tornavano identici mentre il Pokedex restava cambiato.
+        var prova = sav.Clone();
+        prova.SetBoxSlotAtIndex(convertito.Clone(), posto);
+        var provato = prova.GetBoxSlotAtIndex(posto);
+        var datiProva = new byte[provato.SIZE_STORED];
+        provato.WriteDecryptedDataStored(datiProva);
+        if (datiProva.AsSpan().SequenceEqual(prima) || CampiDiConversione(attuale, provato) is not null)
+        {
+            invariati++;
+            continue;
+        }
+        sav.SetBoxSlotAtIndex(convertito, posto);
+        var letto = sav.GetBoxSlotAtIndex(posto);
+        var dati = new byte[letto.SIZE_STORED];
+        letto.WriteDecryptedDataStored(dati);
+        scritti.Add((posto, letto, dati, origine));
+    }
+}
+
+foreach (var (lotto, percorso) in file.Where(_ => !sostituisci))
+{
+    if (indice++ < da) continue;
+    if (scritti.Count >= liberi.Count) { indice--; break; }
+    considerati = indice;
+    var origine = lotto + "/" + Path.GetFileName(percorso);
+    var convertito = Prepara(percorso, origine);
+    if (convertito is null)
+        continue;
     var posto = liberi[scritti.Count];
     sav.SetBoxSlotAtIndex(convertito, posto);
     var letto = sav.GetBoxSlotAtIndex(posto);
@@ -277,13 +359,23 @@ foreach (var (posto, _, dati, origine) in scritti)
     bool valido = new LegalityAnalysis(r).Valid;
     if (!uguali) differenti++;
     if (!valido) contestatiRiletti++;
-    voci.Add(new JsonObject
+    var voce = new JsonObject
     {
         ["box"] = posto / sav.BoxSlotCount + 1, ["posto"] = posto % sav.BoxSlotCount + 1, ["origine"] = origine,
         ["specie"] = r.Species, ["forma"] = r.Form,
         ["sha256"] = Convert.ToHexStringLower(SHA256.HashData(byteLetti)), ["riletto_uguale"] = uguali, ["conforme"] = valido,
-    });
+    };
+    // Con --sostituisci la voce ereditata dalla partenza si rimpiazza invece di aggiungerne una seconda.
+    var stessa = sostituisci ? voci.FirstOrDefault(x => (int)x!["box"]! == (int)voce["box"]! && (int)x["posto"]! == (int)voce["posto"]!) : null;
+    if (stessa is not null)
+        voci[voci.IndexOf(stessa)] = voce;
+    else
+        voci.Add(voce);
 }
+// Con --sostituisci anche le voci rimaste invariate prendono l'origine nella forma di ChiaveDelLotto.
+foreach (var x in voci)
+    if (origineNuova.TryGetValue(((int)x!["box"]!, (int)x["posto"]!), out var o))
+        x["origine"] = o;
 int prossimo = considerati;
 var rapporto = new JsonObject
 {
@@ -295,7 +387,8 @@ var rapporto = new JsonObject
     ["lotti"] = new JsonArray(lotti.Select(l => (JsonNode)Path.GetFileName(l.TrimEnd('/', '\\'))).ToArray()),
     ["da"] = da, ["file_totali"] = file.Count, ["prossimo_da"] = prossimo < file.Count ? prossimo : null,
     ["scritti"] = scritti.Count, ["riletti_diversi"] = differenti, ["riletti_contestati"] = contestatiRiletti,
-    ["esclusi"] = esclusi, ["voci"] = voci,
+    ["esclusi"] = esclusi, ["sostituzione"] = sostituisci, ["sostituiti"] = sostituisci ? scritti.Count : null,
+    ["invariati"] = sostituisci ? invariati : null, ["voci"] = voci,
 };
 File.WriteAllText(copia + ".rapporto.json", rapporto.ToJsonString(new JsonSerializerOptions { WriteIndented = true }));
 Console.WriteLine($"{formato.Name} in {sav.Version}: scritti {scritti.Count} su {liberi.Count} posti liberi, esclusi {esclusi.Count}, riletti diversi {differenti}, riletti contestati {contestatiRiletti}");
@@ -313,4 +406,28 @@ static string ChiaveDelLotto(string radice)
         if (Path.GetFileName(antenato).Equals("lotti", StringComparison.OrdinalIgnoreCase))
             return Path.GetRelativePath(antenato, cartella).Replace(Path.DirectorySeparatorChar, '/');
     return Path.GetFileName(cartella);
+}
+
+// Se B coincide con A dopo avergli dato i campi che la conversione assegna da se', restituisce quali campi e' servito
+// copiare; altrimenti null. I campi sono due, misurati il 2026-10-07: il sentimento del ricordo del detentore, che
+// `PK5.ConvertToPK6` sceglie a caso (`PK5.cs` riga 479), e la data d'incontro, che `PK3.ConvertToPK4` pone uguale al
+// giorno della conversione come il Parco Amici (`PK3.cs` riga 255). La stessa regola sta in `tools/pkhex-confronta-copie`,
+// funzione `CampiDiConversione`, e non si cambia qui senza cambiarla la'.
+static string? CampiDiConversione(PKM a, PKM b)
+{
+    static byte[] Dati(PKM pk) { var d = new byte[pk.SIZE_STORED]; pk.WriteDecryptedDataStored(d); return d; }
+    var copia = b.Clone();
+    var campi = new List<string>();
+    if (a is IMemoryHT ma && copia is IMemoryHT mc && ma.HandlingTrainerMemoryFeeling != mc.HandlingTrainerMemoryFeeling)
+    {
+        mc.HandlingTrainerMemoryFeeling = ma.HandlingTrainerMemoryFeeling;
+        campi.Add("il sentimento del ricordo");
+    }
+    if (a.MetDate != copia.MetDate)
+    {
+        copia.MetDate = a.MetDate;
+        campi.Add("la data d'incontro");
+    }
+    copia.RefreshChecksum();
+    return campi.Count > 0 && Dati(a).AsSpan().SequenceEqual(Dati(copia)) ? string.Join(" e ", campi) : null;
 }
