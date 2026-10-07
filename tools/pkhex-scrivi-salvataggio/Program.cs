@@ -45,6 +45,8 @@
 // cui allenatore originale e' un altro, per esempio un incontro fisso preso da un altro allenatore, conserva la sua:
 // e' la console di quell'allenatore. Nasce il 2026-10-05 per le copie con il suffisso -fin.
 // Un LOTTO puo' essere anche un singolo file di esemplare: l'origine resta "cartella/file".
+// La cartella dell'origine e', dal 2026-10-07, il percorso relativo alla cartella lotti che la contiene, con la stessa
+// regola delle chiavi di tools/pkhex-giudica: lotto-complemento-rubino/esemplari/... e non piu' esemplari/....
 //
 // Per `rules/hardware-and-perimeter.md` la copia si porta sulla console solo dopo una copia di riserva del salvataggio
 // che la console ha, e dopo la scrittura si rilegge.
@@ -131,9 +133,9 @@ string? Bloccato(PKM pk)
 }
 var estensioni = new[] { ".pk1", ".pk2", ".pk3", ".pk4", ".pk5", ".pk6", ".pk7", ".ck3", ".xk3" };
 var file = lotti.SelectMany(l => File.Exists(l)
-        ? [(Lotto: Path.GetFileName(Path.GetDirectoryName(Path.GetFullPath(l)))!, File: l)]
+        ? [(Lotto: ChiaveDelLotto(Path.GetDirectoryName(Path.GetFullPath(l))!), File: l)]
         : Directory.EnumerateFiles(l).Where(f => estensioni.Contains(Path.GetExtension(f).ToLowerInvariant()))
-            .Order(StringComparer.Ordinal).Select(f => (Lotto: Path.GetFileName(l.TrimEnd('/', '\\')), File: f)))
+            .Order(StringComparer.Ordinal).Select(f => (Lotto: ChiaveDelLotto(Path.GetFullPath(l)), File: f)))
     .ToList();
 
 if (opzioni.Contains("--svuota"))
@@ -301,3 +303,14 @@ if (delRicevente)
     Console.WriteLine($"geolocalizzazione del salvataggio data a {alRicevente} esemplari che la libreria non riscrive, conservata in {conservate.Count}");
 Console.WriteLine(prossimo < file.Count ? $"restano file: il prossimo giro parte da {prossimo}" : "tutti i file dei lotti sono stati considerati");
 return differenti == 0 && contestatiRiletti == 0 ? 0 : 1;
+
+// La cartella di un lotto nell'origine: il percorso relativo alla cartella lotti che la contiene, con barre in avanti,
+// oppure il solo nome della cartella se nessun antenato si chiama lotti. E' la regola di tools/pkhex-giudica.
+static string ChiaveDelLotto(string radice)
+{
+    var cartella = radice.TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+    for (var antenato = Path.GetDirectoryName(cartella); antenato != null; antenato = Path.GetDirectoryName(antenato))
+        if (Path.GetFileName(antenato).Equals("lotti", StringComparison.OrdinalIgnoreCase))
+            return Path.GetRelativePath(antenato, cartella).Replace(Path.DirectorySeparatorChar, '/');
+    return Path.GetFileName(cartella);
+}

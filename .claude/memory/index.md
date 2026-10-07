@@ -8,8 +8,8 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: b2fe049, Phanpy protetto, lacune chiuse, strumento dei link dal template, Manaphy in checklist
-Data snapshot:         2026-10-07, ripresa pulita; prossimo: chiavi del registro, poi identificativo segreto unico (ADR-099)
+Commit di riferimento: 035b8ed, ripresa pulita: ADR-100, fonti nuove, risposta da Reddit (sopra b2fe049, Phanpy protetto e Manaphy in checklist)
+Data snapshot:         2026-10-07, chiavi del registro fatte (non committate); prossimo: identificativo segreto unico (ADR-099)
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,8 @@ Data snapshot:         2026-10-07, ripresa pulita; prossimo: chiavi del registro
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-10-07, seconda parte, che prevale su quella sotto. Punto 1 dell'ordine di lavoro fatto: chiavi del registro dei giudizi con il percorso del lotto, nei quattro strumenti che la ripetono e nelle 376 voci del complemento; checklist e coda rigenerate identiche (work log, seconda parte). Prossimo: ADR-099.
 
 AGGIUNTA DEL 2026-10-07, che prevale sulle aggiunte sotto. Commit `b2fe049`. Ordine di lavoro della sessione nuova in testa a `pending.md` («Aperte il 2026-10-07»): chiavi del registro, identificativo segreto unico (ADR-099), regola sui documenti personali nel template e potenziamento del codice su tutte le fonti (ADR-100), fonti nuove da analizzare. Fuoco corrente invariato: pokedex-home-completo, 3272 esemplari per HOME con il Manaphy di Ranger, trasferimento non cominciato; le copie per HOME vanno rifatte con ADR-099 prima del passo 1.
 

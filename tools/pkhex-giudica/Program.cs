@@ -28,13 +28,14 @@
 // Una cartella scritta come CARTELLA=VC giudica esemplari di prima e seconda generazione nel contesto della
 // Console Virtuale del 3DS invece che in quello delle cartucce.
 //
-// La chiave. Ogni voce ha per chiave il nome dell'ultima cartella del percorso dato, una barra e il nome del
-// file, non il percorso relativo a _notes/lotti. Una cartella annidata con un nome comune produce quindi una
-// chiave ambigua: il complemento del Rubino, giudicato in lotto-complemento-rubino/esemplari, ha 376 voci
-// esemplari/... che collidono con lotto-parco-lotta/esemplari. tools/checklist-pokedex.py cerca i giudizi con
-// la stessa regola (os.path.basename), quindi la chiave non si cambia qui senza cambiarla anche là. Finché
-// non si cambia, una sottocartella di esemplari porta un nome unico in tutto _notes/lotti. Vedi
-// docs/22-strumenti.md, sezione pkhex-giudica.
+// La chiave. Dal 2026-10-07 ogni voce ha per chiave il percorso della cartella relativo alla cartella lotti
+// che la contiene, con barre in avanti, una barra e il nome del file: lotto-gb/... per un lotto di primo
+// livello, lotto-complemento-rubino/esemplari/... per una cartella annidata. Fino ad allora la chiave era il
+// solo nome dell'ultima cartella, e le 376 voci del complemento del Rubino avevano chiave esemplari/..., la
+// stessa di lotto-parco-lotta/esemplari. Una cartella fuori da una cartella lotti conserva la regola vecchia.
+// La stessa regola vale in tools/checklist-pokedex.py, tools/stampa-collezione.py e
+// tools/pkhex-scrivi-salvataggio, e non si cambia qui senza cambiarla là. Vedi docs/22-strumenti.md,
+// sezione pkhex-giudica.
 //
 // Uso:  dotnet run -c Release -- USCITA.json CARTELLA[=VERSIONE|=VC] [CARTELLA[=VERSIONE|=VC] ...]
 using System.Security.Cryptography;
@@ -68,7 +69,7 @@ foreach (var argomento in args.Skip(1))
     bool consoleVirtuale = parti.Length == 2 && parti[1].Equals("VC", StringComparison.OrdinalIgnoreCase);
     GameVersion? versioneImposta = parti.Length == 2 && !consoleVirtuale ? Enum.Parse<GameVersion>(parti[1], true) : null;
     var radice = Path.GetFullPath(parti[0]);
-    var nomeCartella = Path.GetFileName(radice.TrimEnd(Path.DirectorySeparatorChar));
+    var nomeCartella = ChiaveDelLotto(radice);
     foreach (var percorso in Directory.EnumerateFiles(radice).Order(StringComparer.Ordinal))
     {
         var estensione = Path.GetExtension(percorso);
@@ -125,7 +126,7 @@ foreach (var argomento in args.Skip(1))
 var uscita = new JsonObject
 {
     ["formato"] = 1,
-    ["nota"] = "Generato da tools/pkhex-giudica. Giudizio di LegalityAnalysis con un salvataggio vuoto attivo, come l'interfaccia all'avvio: il campo contesto dice quale. Non contiene i controlli che dipendono dal salvataggio reale che ricevera' l'esemplare.",
+    ["nota"] = "Generato da tools/pkhex-giudica. Giudizio di LegalityAnalysis con un salvataggio vuoto attivo, come l'interfaccia all'avvio: il campo contesto dice quale. Non contiene i controlli che dipendono dal salvataggio reale che riceverà l'esemplare.",
     ["verificatore"] = new JsonObject
     {
         ["libreria"] = "PKHeX.Core",
@@ -151,4 +152,15 @@ static SaveFile SalvataggioVuoto(PKM pk, GameVersion? imposta)
     var nome = pk is { Format: >= 6, CurrentHandler: 1 } && !string.IsNullOrEmpty(pk.HandlingTrainerName)
         ? pk.HandlingTrainerName : pk.OriginalTrainerName;
     return BlankSaveFile.Get(versione, nome, (LanguageID)pk.Language);
+}
+
+// La chiave di una cartella di esemplari: il percorso relativo alla cartella lotti che la contiene, con barre in
+// avanti, oppure il solo nome della cartella se nessun antenato si chiama lotti. Vedi il commento in testa.
+static string ChiaveDelLotto(string radice)
+{
+    var cartella = radice.TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+    for (var antenato = Path.GetDirectoryName(cartella); antenato != null; antenato = Path.GetDirectoryName(antenato))
+        if (Path.GetFileName(antenato).Equals("lotti", StringComparison.OrdinalIgnoreCase))
+            return Path.GetRelativePath(antenato, cartella).Replace(Path.DirectorySeparatorChar, '/');
+    return Path.GetFileName(cartella);
 }

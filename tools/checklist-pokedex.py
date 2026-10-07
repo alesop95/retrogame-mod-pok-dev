@@ -564,7 +564,10 @@ def riconcilia_con_i_lotti(eventi):
 
     def stato_del_file(cartella, nome):
         percorso = os.path.join(cartella, nome)
-        giudizio = giudizi.get("%s/%s" % (os.path.basename(cartella), nome))
+        # La chiave è il percorso della cartella relativo a _notes/lotti, la regola di tools/pkhex-giudica dal
+        # 2026-10-07: lotto-complemento-rubino/esemplari/... e non più esemplari/..., che era anche di lotto-parco-lotta.
+        lotto = os.path.relpath(cartella, os.path.join(RADICE, "_notes", "lotti")).replace(os.sep, "/")
+        giudizio = giudizi.get("%s/%s" % (lotto, nome))
         with io.open(percorso, "rb") as f:
             impronta = hashlib.sha256(f.read()).hexdigest()
         if not giudizio or giudizio.get("sha256") != impronta:

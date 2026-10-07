@@ -84,11 +84,15 @@ def descrizioni_del_progetto():
     for riga in io.open(os.path.join(RADICE, "pokedex-home-completo", "COMPLEMENTO-RUBINO.md"), encoding="utf-8"):
         celle = [c.strip() for c in riga.split("|")]
         if len(celle) >= 8 and re.match(r"\d{3}-", celle[1]):
-            per_file["esemplari/" + celle[1] + ".pk3"] = celle[6]
+            # L'origine di un esemplare del complemento è lotto-complemento-rubino/esemplari/... nei rapporti delle
+            # copie scritti dal 2026-10-07, ed esemplari/... in quelli precedenti: valgono entrambe finché le copie
+            # non sono rifatte (ADR-099). La forma breve era anche di lotto-parco-lotta, che non va nelle copie.
+            for prefisso in ("lotto-complemento-rubino/esemplari/", "esemplari/"):
+                per_file[prefisso + celle[1] + ".pk3"] = celle[6]
     # I file che la checklist collega per tabella, come gli incontri dei biglietti.
     sorgente = io.open(os.path.join(RADICE, "tools", "checklist-pokedex.py"), encoding="utf-8").read()
     for m in re.finditer(r'"(EVT-[^"]+)": \("([^"]+)", "([^"]+)"\)', sorgente):
-        lotto = m.group(2).split("/")[-1]
+        lotto = m.group(2)
         if per_codice.get(m.group(1)):
             per_file.setdefault("%s/%s" % (lotto, m.group(3)), per_codice[m.group(1)])
     return per_codice, per_file
