@@ -371,6 +371,37 @@ Le lacune di questa tabella non sono state corrette nei documenti che citano le 
 
 <!-- indice-fonti-unico: inizio, generato da tools/indice-fonti-unico.py -->
 
+## Le fonti sull'aggiornamento 4.1.0 di HOME, verificate il 2026-10-09
+
+Il proprietario ha incollato il 2026-10-09 un riassunto delle novità della versione 4.1.0 di HOME, uscita il 2026-10-07, chiedendo di verificarlo sulle fonti. Esito: confermati la compatibilità con Rosso Fuoco e Verde Foglia per Switch, a senso unico verso HOME e senza ingresso da altri giochi; il Celebi in dono nella versione per dispositivi mobili a chi completa il Pokédex di uno dei due giochi, senza trasferire; la capienza da 6000 a 9000 esemplari, ma soltanto per il piano Premium; le Safari Ball di Pokémon GO, che in HOME diventano Strana Ball. Non confermata la fine del supporto ai dispositivi Android a 32 bit, che nelle fonti trovate riguarda Pokémon GO e non HOME. Una sola fonte aggiunge i Biglietti Mistico e Aurora nelle edizioni per Switch: da verificare, perché toccherebbe il track degli eventi. Nessuna nota di versione ufficiale della Pokémon Company è stata letta: le fonti sono testate di settore che la riportano.
+
+| Fonte | URL | Autorevole su | Track |
+|---|---|---|---|
+| God is a Geek, «Pokémon HOME 4.1.0 Adds FireRed and LeafGreen Transfers and Celebi Gift» | https://godisageek.com/2026/10/pokemon-home-4-1-0-firered-leafgreen-support/ | letto dal risultato di ricerca il 2026-10-09: trasferimenti a senso unico, nessun ingresso da altri giochi, Celebi senza trasferire, Safari Ball che arrivano come Strana Ball | PKD |
+| GoNintendo, collegamento di Rosso Fuoco e Verde Foglia con HOME | https://gonintendo.com/contents/63777-pokemon-firered-version-and-pokemon-leafgreen-version-link-with-pokemon-home-october | letto dal risultato di ricerca il 2026-10-09: data del 2026-10-07 | PKD |
+| Nintendo Soup, versione 4.1.0 | https://nintendosoup.com/pokemon-home-version-4-1-0-update-now-live-adds-firered-leafgreen-support/ | letto dal risultato di ricerca il 2026-10-09: 9000 esemplari solo con il piano Premium | PKD |
+| Level and League, versione 4.1.0 | https://levelandleague.com/news/pokemon-home-update-4-1-0-is-live/ | letto dal risultato di ricerca il 2026-10-09: aumento di 3000 posti, cioè il 50% | PKD |
+| Vooks, aggiornamento di HOME | https://www.vooks.net/pokemon-home-updated-adding-support-for-pokemon-firered-and-leafgreen/ | letto dal risultato di ricerca il 2026-10-09: conferma la compatibilità | PKD |
+| Nintenderos, versione 4.1.0 | https://www.nintenderos.com/2026/10/pokemon-home-se-actualiza-a-la-version-4-1-0-compatibilizandose-con-pokemon-rojo-fuego-y-verde-hoja-celebi-de-regalo-y-mas/ | letto il 2026-10-09: Celebi nella versione per dispositivi mobili; unica fonte sui Biglietti Mistico e Aurora, da verificare; nessuna menzione dei 32 bit | PKD, EVT |
+| Pokémon GO, fine del supporto ad Android a 32 bit | https://pokemongo.com/news/32-bit-android-discontinued-support-2025 | letto dal risultato di ricerca il 2026-10-09: riguarda Pokémon GO, non HOME; è la ragione per cui quel punto del riassunto non è confermato | PKD |
+
+## La risposta su Discord sul foglio dell'Azienda Lotta, consegnata il 2026-10-09
+
+Il proprietario aveva segnalato nel canale dell'Azienda Lotta undici celle del foglio diverse dal decompilato di pokeemerald, trovate con `gba-save-extraction-smeraldo/tools/parco_lotta_confronta_lrxc.py`. Le risposte del 2026-10-06, consegnate come tre schermate il 2026-10-09 e copiate in `_notes/fonti/consegne/2026-10-08-discord-azienda-lotta-risposta/`, dicono: l'autore del foglio ha corretto le velocità, cioè tre celle; per il resto dichiara corretto il proprio foglio, fissato nel canale, e ritiene che il controllo sia stato fatto sulla versione vecchia di un altro autore; un secondo partecipante riconosce l'errore su Machamp 8, senza effetti pratici, e accetta quello sul tipo di Electrode. Resta da avere il foglio fissato, consegnato dal proprietario per ADR-093, e da rilanciare su quello lo stesso confronto.
+
+| Fonte | URL | Autorevole su | Track |
+|---|---|---|---|
+| Discord, canale dell'Azienda Lotta di Smeraldo, risposte del 2026-10-06 | _notes/fonti/consegne/2026-10-08-discord-azienda-lotta-risposta/ | letto il 2026-10-09 dalle schermate del proprietario: velocità corrette nel foglio fissato, resto dichiarato corretto dall'autore, Machamp 8 ed Electrode riconosciuti | SME |
+
+## Le ultime consegne del giro del 2026-10-09
+
+La tabella di connettività di HOME aggiornata al 2026-10-09, pubblicata su r/PokemonHome, non si è potuta leggere: Reddit risponde 403 agli strumenti di sessione, il collegamento breve non si risolve senza un browser, e Arctic Shift ha risposto 522 a due richieste a distanza di pochi minuti. È un'immagine, quindi la via è uno screenshot del proprietario o un nuovo tentativo su Arctic Shift. Lo screenshot del Metagross cromatico di Ray, dalla galleria degli eventi di Project Pokémon, chiedeva se il progetto generi eventi come quello: sì, la carta 132 della quinta generazione è nel lotto `lotto-eventi-gen5` in quattro file, uno per distribuzione, conformi e scritti nelle copie per HOME.
+
+| Fonte | URL | Autorevole su | Track |
+|---|---|---|---|
+| Reddit, r/PokemonHome, tabella di connettività aggiornata al 2026-10-09 | https://www.reddit.com/r/PokemonHome/s/VK7NfjH4v8 | NON ANCORA LETTO: Reddit 403, Arctic Shift 522 il 2026-10-09; serve uno screenshot del proprietario o un nuovo tentativo | PKD |
+| Project Pokémon, galleria degli eventi, Metagross cromatico dei campionati nazionali del 2013 (carta 132, Ray, 05113) | _notes/fonti/consegne/2026-10-09-metagross-ray/screenshot_309.png | letto il 2026-10-09 dallo screenshot del proprietario: coincide con `lotto-eventi-gen5/EVT-5-0026`, `-0054`, `-0077` e `-0101`, allenatore Ray 5113, livello 45, mosse Terremoto, Cozzata Zen, Protezione, Meteorpugno | EVT, PKD |
+
 ## Indice unico: dove sta ciascuna fonte, e dove finisce
 
 > Blocco generato da `tools/indice-fonti-unico.py`. Non si modifica a mano: si rigenera. Non aggiunge e non toglie fonti, perché non è un registro ma una vista: mette in corrispondenza le tre liste che il progetto già possiede, cioè le fonti registrate, le voci del corpus e le citazioni della tesi.

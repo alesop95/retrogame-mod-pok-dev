@@ -51,6 +51,9 @@ Chi vuole soltanto gli offset non ha bisogno di questo percorso: gli serve [[DAT
 | [[22-strumenti]] | gli strumenti che il progetto ha già, cosa fanno e come si rilanciano |
 | [[strumenti-interattivi]] | gli strumenti interattivi citati dalle fonti, che cosa fanno e se il progetto ne eredita la logica |
 | [[strumenti-dal-web]] | gli strumenti del progetto che riprendono un'applicazione o un servizio del web, e lo sviluppo tecnico di ciascuno |
+| [[censimento-fonti-codice]] | i 110 repository di codice citati dal registro delle fonti, con metadati e uso nel progetto (generato) |
+| [[fonti-codice-schede]] | la scheda tecnica di ciascun repository di codice citato dalle fonti, raggruppata per track (generato) |
+| [[potenziamento-dalle-fonti]] | che cosa le fonti con codice possono aggiungere agli strumenti del progetto, e l'ordine di lettura (ADR-100) |
 | [[23-prove-eseguite]] | l'inventario di ciò che è stato verificato, con che cosa, e di ciò che non lo è |
 
 ## Decisioni e riferimenti
