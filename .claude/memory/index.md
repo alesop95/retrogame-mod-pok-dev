@@ -9,7 +9,7 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 ```
 Branch attivo:         main
 Commit di riferimento: fa3a2da, Mappa di riorganizzazione eseguita: appunti, Action Replay, conta-letti
-Data snapshot:         2026-10-09, censimento e schede delle fonti con codice (non committati); prossimo: lotto 1 di lettura del codice
+Data snapshot:         2026-10-14, export Discord compressi con manifesto di impronte (non committati); prossimo: lotto 1 di lettura del codice
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,8 @@ Data snapshot:         2026-10-09, censimento e schede delle fonti con codice (n
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-10-14, che prevale su quelle sotto. Gli export Discord sotto `_notes/fonti/discord/dce/` stanno compressi: 49 file da 2,58 GB a 181 MB, impronte in `MANIFEST-integrita.txt`, verifica rieseguibile con `python tools/verifica-integrita-export.py verifica _notes/fonti/discord/dce`. Chi aggiunge un export nuovo rigenera prima il manifesto. Decisione ADR-104, dettaglio in `refactor-10-export-discord-compressi.md`. Il fuoco corrente non cambia.
 
 AGGIUNTA DEL 2026-10-09, che prevale su quelle sotto. Punto 4 di ADR-100 avviato: 110 repository di codice censiti, 109 schede tecniche in `docs/fonti-codice-schede.md`, triage in `docs/potenziamento-dalle-fonti.md`. HOME 4.1.0 verificato sulle fonti. Risposta su Discord sul foglio dell'Azienda Lotta registrata, serve il foglio fissato. Prossimo: lotto 1 di lettura del codice (PKHeX-Plugins, OpenHome, PKForge, Checkpoint).
 

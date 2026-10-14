@@ -548,6 +548,18 @@ Il ponte fra i due esiste già e non va costruito: `tools/read-chat-export.py` e
 
 Il programma non entra nel repository e va nella cartella condivisa fuori da esso, secondo la convenzione enunciata in apertura di questo documento: per esempio `E:\tools\dce` per la riga di comando e `E:\tools\dce-gui` per l'interfaccia grafica. Va notato che tenerlo nella cartella dei download del sistema, come è accaduto durante il primo allestimento, è la collocazione peggiore di tutte fra quelle fuori dal repository, perché quella cartella si svuota per abitudine o per strumento di pulizia e il percorso che si è scritto nei comandi smette di esistere senza preavviso. Gli export vanno sotto `_notes/fonti/discord/dce/`, che il `.gitignore` esclude in blocco: restano locali per costruzione, e questo è voluto perché sono contenuto di terzi.
 
+### Gli export si conservano compressi
+
+Dal 2026-10-14 gli export in quella cartella stanno compressi con gzip, cioè con il nome originale più il suffisso `.gz`, e la ragione sta in una misura: nel formato di DCE il testo dei messaggi è meno di un decimo del file, perché la scheda completa dell'autore, l'indirizzo della sua immagine di profilo e cinque liste sempre vuote vengono riscritti per esteso sotto ogni singolo messaggio. La cartella è passata da 2,58 GB a 181 MB, con rapporti per file fra 11,5x e 27,6x; restano in chiaro i ventidue export sotto il megabyte, dove il guadagno non vale la comodità di un `grep` diretto. La decisione, con le alternative scartate, è ADR-104; il dettaglio tecnico sta in `.claude/context/refactor-10-export-discord-compressi.md`.
+
+Non cambia nulla nell'uso: `tools/read-chat-export.py` riconosce un export compresso dai suoi primi due byte e lo decomprime da sé, senza opzioni nuove e senza che il file vada scompattato prima. Cambia invece una cosa nella manutenzione, ed è vincolante. Quegli export sono fonti non recuperabili e `_notes/` è fuori da git, quindi nessuna operazione su quella cartella ha una rete di protezione: `tools/verifica-integrita-export.py` tiene in `MANIFEST-integrita.txt` l'impronta SHA-256 del contenuto non compresso di ogni file, e il suo modo `verifica` si rilancia in qualunque momento per dimostrare che la cartella contiene ancora bit per bit ciò che conteneva il giorno della compressione.
+
+```powershell
+python tools/verifica-integrita-export.py verifica _notes/fonti/discord/dce
+```
+
+Chi aggiunge un export nuovo alla cartella rigenera il manifesto con il modo `manifesto` prima di comprimere, altrimenti la verifica segnala il file come ignoto e, per la regola del verde totale, rifiuta di cancellare qualunque originale.
+
 ### Il rilascio e i file da scaricare
 
 Il rilascio corrente alla data di questa nota è il 2.48, del 27 agosto 2026, e la pagina che dice sempre quale sia l'ultimo è `https://github.com/Tyrrrz/DiscordChatExporter/releases/latest`. I file sono autonomi e non richiedono di installare alcun runtime.
@@ -628,7 +640,7 @@ L'uscita non è un file ma una cartella per server sotto `_notes/fonti/discord/d
 
 ### La catena verso il progetto
 
-L'esportazione non è il risultato: il risultato è la sintesi con l'attribuzione nel registro delle fonti. Il passo intermedio è `python tools/read-chat-export.py PERCORSO.json --grep PAROLA --min-length 40`, che riduce il JSON a Markdown filtrato, tenendo autore, momento, testo, allegati e citazioni e scartando la struttura di navigazione.
+L'esportazione non è il risultato: il risultato è la sintesi con l'attribuzione nel registro delle fonti. Il passo intermedio è `python tools/read-chat-export.py PERCORSO.json --grep PAROLA --min-length 40`, che riduce il JSON a Markdown filtrato, tenendo autore, momento, testo, allegati e citazioni e scartando la struttura di navigazione. Il percorso può indicare indifferentemente un export in chiaro o il suo `.gz`, perché lo strumento riconosce la compressione dal contenuto.
 
 Da lì vale il flusso che il progetto ha già stabilito, e la ragione per cui vale è che una fonte grezza conservata accanto alla sua sintesi produce il dubbio su quale sia quella buona. Si legge il Markdown filtrato, ciò che documenta entra in `SOURCES.md` in prosa con la profondità che rende il file grezzo sacrificabile, ciò che tocca la referenza dei formati o la tesi entra nei documenti corrispondenti, e il grezzo si elimina quando non porta più informazione che non sia scritta altrove. È ADR-016.
 
