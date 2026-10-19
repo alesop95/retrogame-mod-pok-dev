@@ -1,7 +1,7 @@
 {
   ".claude/rules/git-commands-format.md": {
-    "testa": "6254aabbc7f56b49422b15cc2f0cd2f3a02dd467",
-    "il": "2026-10-07"
+    "testa": "26158ad60e43f075a592dc3570290177c4c02235",
+    "il": "2026-10-19"
   },
   ".claude/skills/fonti-non-recuperabili/RIFERIMENTO.md": {
     "testa": "9052ccdc4e5b466342f2439d7a200d929e091125",
@@ -14,6 +14,10 @@
   ".claude/templates/anonymization/tools/Test-Anonymization.py": {
     "testa": "d4daa4623dd27bb0e52159c0a3007c46d37ffb47",
     "il": "2026-10-07"
+  },
+  ".claude/templates/community-sources/tools/read-chat-export.py": {
+    "testa": "371ad3f2ca00abe2cad45d7d82b4859094897438",
+    "il": "2026-10-19"
   },
   "tools/Test-Anonymization.py": {
     "testa": "d4daa4623dd27bb0e52159c0a3007c46d37ffb47",
@@ -32,8 +36,8 @@
     "il": "2026-09-29"
   },
   "tools/lint-didattica.py": {
-    "testa": "90953bc4e65916febfe4093fdbb1bd58cf9aed42",
-    "il": "2026-10-07"
+    "testa": "1ec979b11a527470cef5bcc9526e99b98d05df01",
+    "il": "2026-10-19"
   },
   "tools/lint-memoria.py": {
     "testa": "01128d88d66bc3b2b55cff7ed282238d1d6d89ff",
