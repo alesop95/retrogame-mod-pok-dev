@@ -333,6 +333,46 @@ def _git(*argomenti):
     return [f for f in out.split("\n") if f.strip()]
 
 
+# Gli strumenti del template, che l'allineamento copia sotto .claude/templates/, portano nei
+# casi di prova indirizzi e importi inventati, e il template li controlla gia' da se' con
+# test-identita-personali.py. Senza questa voce il primo allineamento del 2026-10-27 ha fermato
+# il commit di ogni progetto che usa questo controllo. Valgono solo le due categorie elencate.
+ESCLUSIONI_PREDEFINITE = [
+    {"prefisso": ".claude/templates/", "categorie": ["EMAIL PERSONALE", "IMPORTO"],
+     "motivo": "casi di prova degli strumenti del template, controllati dal template stesso"},
+]
+
+
+def escludi_per_decisione(pat, trovati):
+    """Toglie i riscontri di una categoria sotto un percorso dichiarato, e lo dice.
+
+    Serve ai testi altrui copiati verbatim, come le skill di conformita' del pacchetto
+    grc-skills: una sanzione del GDPR o una soglia della NIS2 ha la forma di un importo ma
+    e' testo di legge, e una casella d'esempio ha la forma di un indirizzo personale. Ogni
+    voce porta il prefisso, le categorie e il motivo; senza motivo la voce e' ignorata,
+    perche' un'esclusione senza ragione e' una svista che sembra una decisione. Le categorie
+    sono elencate una per una: un prefisso escluso per gli importi resta controllato per
+    gli indirizzi, i nomi e i segreti.
+    """
+    voci = ESCLUSIONI_PREDEFINITE + [v for v in pat.get("percorsi_esclusi_per_decisione", [])
+            if v.get("prefisso") and v.get("categorie") and v.get("motivo")]
+    if not voci:
+        return trovati
+    tenuti = collections.defaultdict(list)
+    tolti = collections.Counter()
+    for cat, elenco in trovati.items():
+        for r in elenco:
+            percorso = r[0].replace("\\", "/")
+            voce = next((v for v in voci if percorso.startswith(v["prefisso"]) and cat in v["categorie"]), None)
+            if voce:
+                tolti[(voce["prefisso"], voce["motivo"])] += 1
+            else:
+                tenuti[cat].append(r)
+    for (prefisso, motivo), n in sorted(tolti.items()):
+        print("esclusi per decisione: %d riscontri sotto %s (%s)" % (n, prefisso, motivo))
+    return tenuti
+
+
 def file_perimetro(includi_ignorati):
     """Restituisce [(percorso, origine)] con origine tracciato/non tracciato/ignorato.
 
@@ -546,6 +586,24 @@ def autotest_bancari():
             errori += 1
             print("analizza, versione Chrome: atteso il solo IP endpoint, ottenuti %d" % len(voci))
     totale = len(casi_iban) + len(casi_carta) + 3
+    # esclusione per decisione: toglie solo la categoria dichiarata, sotto il solo prefisso.
+    # I valori di prova si compongono a tempo di esecuzione e non stanno scritti per intero in
+    # questo file, che è tracciato: scritti per intero, lo strumento trova sé stesso in ogni
+    # progetto che lo istanzia sotto tools/, dove ESCLUSIONI_PREDEFINITE non arriva perché copre
+    # il solo prefisso .claude/templates/. Osservato il 2026-10-27 su windows-status e su
+    # retrogame-mod-pok-dev, dove due riscontri bloccanti fermavano il commit subito dopo
+    # l'allineamento. È la stessa ragione per cui un autotest non porta mai un valore reale.
+    importo_finto = "€" + "10"
+    nome_finto = "Mario" + " " + "Rossi"
+    finto = {"IMPORTO": [("vendor/x.md", 1, importo_finto, "", "tracciato"),
+                         ("docs/y.md", 1, importo_finto, "", "tracciato")],
+             "NOME PROPRIO": [("vendor/x.md", 2, nome_finto, "", "tracciato")]}
+    pat_esc = {"percorsi_esclusi_per_decisione": [{"prefisso": "vendor/", "categorie": ["IMPORTO"], "motivo": "prova"}]}
+    resto = escludi_per_decisione(pat_esc, finto)
+    totale += 1
+    if [r[0] for r in resto["IMPORTO"]] != ["docs/y.md"] or len(resto["NOME PROPRIO"]) != 1:
+        errori += 1
+        print("autotest: l'esclusione per decisione non rispetta prefisso e categoria")
     print("autotest: %d casi, %d errori" % (totale, errori))
     return 1 if errori else 0
 
@@ -589,6 +647,7 @@ def main():
     pat = carica_pattern(args.patterns)
     files = file_perimetro(args.tutti)
     trovati, saltati = analizza(pat, files)
+    trovati = escludi_per_decisione(pat, trovati)
     conteggio = collections.Counter(origine for _, origine in files)
 
     ordine = ["IP REALE", "MAC REALE", "ID CONSOLE", "SEGRETO LETTERALE", "NOME PROPRIO", "EMAIL PERSONALE",

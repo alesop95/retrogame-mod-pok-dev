@@ -12,16 +12,16 @@
     "il": "2026-10-07"
   },
   ".claude/templates/anonymization/tools/Test-Anonymization.py": {
-    "testa": "d4daa4623dd27bb0e52159c0a3007c46d37ffb47",
-    "il": "2026-10-07"
+    "testa": "dfa81d8ebe014251cb848d9a72ffeb7378b79b15",
+    "il": "2026-10-27"
   },
   ".claude/templates/community-sources/tools/read-chat-export.py": {
     "testa": "371ad3f2ca00abe2cad45d7d82b4859094897438",
     "il": "2026-10-19"
   },
   "tools/Test-Anonymization.py": {
-    "testa": "d4daa4623dd27bb0e52159c0a3007c46d37ffb47",
-    "il": "2026-10-07"
+    "testa": "dfa81d8ebe014251cb848d9a72ffeb7378b79b15",
+    "il": "2026-10-27"
   },
   "tools/chiudi-sessione.ps1": {
     "testa": "80c495e0f757ac62b26ebf49cc1148a18bab83fa",
