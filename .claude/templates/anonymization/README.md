@@ -38,11 +38,15 @@ I due si usano insieme e coprono categorie diverse: uno cerca credenziali per fo
 
 Chi adotta entrambi tenga presente anche il caveat che `secret-scan` dichiara di suo: i commit *manuali* dell'utente non passano da un hook `PreToolUse`, che intercetta le azioni dell'agente. Per coprirli serve un hook nativo di git via `core.hooksPath`, ed è il posto in cui conviene registrare anche il controllo di questo pacchetto se il progetto vuole una difesa che non dipenda da chi si ricorda di lanciarlo.
 
+## Il controllo si esegue anche nel template, non solo nei progetti
+
+I valori da anonimizzare possono vivere nel template invece che nel progetto, ed è il caso più costoso da scoprire tardi. Misurato il 2026-10-28 in un progetto istanziato: dei cinque file tracciati che nominavano due piattaforme, quattro stavano sotto `.claude/templates/`, cioè arrivavano dall'allineamento e sarebbero tornati identici alla passata successiva. Un nome proprio, di progetto o di persona, finito in un documento del template si propaga a ogni progetto istanziato e si moltiplica per il numero di repository pubblici che ne discendono. Ne seguono due cose: il controllo va eseguito anche sul template, con il suo file di pattern privato, e una bonifica fatta in un progetto istanziato su file che provengono dal template è lavoro perso finché non si corregge la fonte.
+
 ## Cosa istanzia, e dove
 
 Nel progetto vanno tre cose, e la terza è quella che si dimentica.
 
-Lo strumento `tools/Test-Anonymization.py` va in `tools/`, oppure in `scripts/` se il progetto usa quella convenzione. La regola `rules/anonymization.md` va in `.claude/rules/anonymization.md`, sostituendo i segnaposto tra parentesi angolari, e va dichiarata fra le regole da caricare sempre nel `CLAUDE.md` del progetto: senza il criterio, lo strumento è un elenco di riscontri che nessuno sa come giudicare.
+Lo strumento `tools/Test-Anonymization.py` va in `tools/`, oppure in `scripts/` se il progetto usa quella convenzione. La regola `rules/anonymization.md` va in `.claude/rules/anonymization.md`, sostituendo i segnaposto tra parentesi angolari, e va dichiarata fra le regole da caricare sempre nel `CLAUDE.md` del progetto. La norma `norme/anonymization.md`, che raccoglie i casi osservati, va in `.claude/norme/anonymization.md` e non si carica all'avvio: senza il criterio, lo strumento è un elenco di riscontri che nessuno sa come giudicare.
 
 Il terzo file è quello che non si versiona. Si copia `patterns.example.json` nel layer privato del progetto, per default `_notes/.anonymization-patterns.json`, e si sostituisce ogni valore con quelli veri. Va verificato che il percorso sia effettivamente ignorato da git prima di scrivervi dentro il primo valore reale, e non dopo: è l'unico passo dell'istanziazione in cui un errore si paga con la storia git.
 
