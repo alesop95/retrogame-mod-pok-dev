@@ -26,6 +26,7 @@ data/serebii-eventi-senza-specie.csv        i 236 record che nessuna specie indi
 EVENTI-SENZA-CARTA.md                       la coda delle consegne che non lasciano una carta
 CATENA-DI-TRASFERIMENTO.md                  i vincoli di ogni passaggio e la via in emulazione
 COPIE-PER-HOME.md                           le copie dei salvataggi per HOME per gruppo, e che cosa è trasferito
+RUNBOOK-PASSO-1.md                          la prova pilota con Rubino Omega, passo per passo, con le verifiche
 CONNETTIVITA-HOME.md                        la tabella di connettività verso HOME al 2026-10-07, e che cosa vuol dire per i lotti
 data/controllo-eventi.json                  lo stato censito delle cinque fonti di eventi, scritto da tools/controlla-eventi-nuovi.py --segna
 CENSIMENTO-FONTI-COLLEZIONE.md              le 171 fonti del corpus, per cluster e con l'esito della corsa

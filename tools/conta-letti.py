@@ -26,7 +26,8 @@ Il 2026-10-09 il difetto opposto: una riga marcata «NON ANCORA LETTO» risultav
 l'espressione trova «LETTO» dentro la dicitura negata. Dal 2026-11-03 le forme negate («non
 letto», «non ancora letto», «non verificata» e simili) si tolgono dalla riga prima di cercare le
 tracce; «non recuperabile» resta un esito, perché dice che la lettura è impossibile e non che
-manca. `--prova` esegue i casi che lo dimostrano.
+manca. Dallo stesso giorno lo stato «CHIUSO» conta solo in maiuscolo, perché «chiusura» in minuscolo è un fatto e
+non una lettura, e «riletto» è una lettura. `--prova` esegue i casi che lo dimostrano.
 
 Uso
 ---
@@ -41,14 +42,20 @@ for x in csv.DictReader(io.open('pokedex-home-completo/data/residuo-corpus.csv',
 for r in io.open('pokedex-home-completo/CENSIMENTO-FONTI-COLLEZIONE.md',encoding='utf-8'):
     if r.startswith('|') and 'scaricato' in r:
         for u in re.findall(r'https?://[^\s|)]+',r): stato.setdefault(k(u),'scaricato dalla corsa')
-LET=re.compile(r'\b(lett[oaie]|LETT[OAIE]|trascritt|TRASCRITT|scaricat|consegnat|clonat|clone superficiale|verificat|irrecuperabil|non recuperabil|saltato|scartato|fuori perimetro|esportat|ESPORTAT|filtrat|FILTRAT|CHIUS|chius|Stato al 2026-10-05)',re.I)
+LET=re.compile(r'\b(lett[oaie]|LETT[OAIE]|rilett[oaie]|trascritt|TRASCRITT|scaricat|consegnat|clonat|clone superficiale|verificat|irrecuperabil|non recuperabil|saltato|scartato|fuori perimetro|esportat|ESPORTAT|filtrat|FILTRAT|Stato al 2026-10-05)',re.I)
+# Lo stato CHIUSO conta solo in maiuscolo: «chiusura» o «ha chiuso» in minuscolo descrivono un fatto, non una lettura
+# (il 2026-11-03 la riga di IGN, che rimandava il lavoro «alla chiusura della banca», risultava letta).
+CHIUSA=re.compile(r'\bCHIUS[OAIE]\b')
 NEG=re.compile(r'\bnon\s+(?:ancora\s+|ancora\s+stat[oaie]\s+|stat[oaie]\s+)?(?:lett|trascritt|scaricat|consegnat|clonat|verificat|esportat|filtrat|chius)\w*',re.I)
-def chiusa(r): return bool(LET.search(NEG.sub(' ',r)))
+def chiusa(r):
+    r=NEG.sub(' ',r)
+    return bool(LET.search(r) or CHIUSA.search(r))
 if '--prova' in sys.argv:
     casi=[('| 1 | https://a.it/x | NON ANCORA LETTO |',False),('| 1 | https://a.it/x | non letta |',False),
           ('| 1 | https://a.it/x | letto: estratto |',True),('| 1 | https://a.it/x | non recuperabile, 403 |',True),
           ('| 1 | https://a.it/x | verificata, non letta per intero |',True),('| 1 | https://a.it/x | da leggere |',False),
-          ('| 1 | https://a.it/x | non ancora verificato |',False)]
+          ('| 1 | https://a.it/x | non ancora verificato |',False),('| 1 | https://a.it/x | da fare alla chiusura della banca |',False),
+          ('| 1 | https://a.it/x | CHIUSO il 2026-10-01 |',True),('| 1 | https://a.it/x | riletto il 2026-09-23 |',True)]
     errati=[c for c,a in casi if chiusa(c)!=a]
     for c in errati: print('ERRATO',c)
     print(len(casi)-len(errati),'casi superati su',len(casi)); sys.exit(1 if errati else 0)

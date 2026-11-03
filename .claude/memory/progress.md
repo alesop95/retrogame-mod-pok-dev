@@ -4,6 +4,22 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-03, ottava parte. La procedura del passo 1, la pulizia di Telegram, conta-letti corretto
+
+Il proprietario ha confermato i tre passi: il commit `b39aff4` pubblicato, il commit `84b4443` di `windows-status` pubblicato e il clone di HeartGold cancellato. Ha il 3DS, un lettore di schede SD nel PC e il telefono sulla stessa rete, e ha chiesto ogni passo del passo 1, con le verifiche di PKHeX, detto in modo inequivocabile.
+
+Telegram. Le 15 immagini copiate nel progetto sono state confrontate byte per byte con gli originali, identiche 15 su 15, e poi cancellate dalla cartella dei download. Con loro è stato cancellato un sedicesimo file, il ritaglio di un programma di analisi del disco senza attinenza con il progetto. La cartella è vuota.
+
+Passo 1. Sono stati presi dal progetto, non dalla memoria, i fatti che la procedura usa. I nomi delle cartelle di Checkpoint, `0x011C4 Pokémon Omega Ruby` e `0x0175E Pokémon Moon`, vengono dal backup della SD in `J:\3DS - 03092026\`. Che una copia di Checkpoint sia un solo file `main` di 483.328 byte viene dallo stesso backup. Lo stato della console al 2026-09-30 viene da `pending.md`: Rubino Omega porta una copia superata, Luna la copia difettosa, la partita vera è la riserva `20260930-bef-giro1`. L'impronta della copia del giro 1, `5e8779e6…`, e i tre esemplari per il controllo a vista, Mew, Jirachi e Keldeo, vengono dal giudizio del 2026-11-03. La procedura sta in `pokedex-home-completo/RUNBOOK-PASSO-1.md`. Ha quattro tempi: copia di riserva della SD in due posti con le impronte, ripristino con Checkpoint con una riserva dello stato attuale prima, rilettura con Checkpoint confrontata sui byte e giudicata con `pkhex-elenco-copie`, e il tratto da Bank in poi, del proprietario e fuori dall'assistenza.
+
+conta-letti. Lo stato «CHIUSO» conta solo in maiuscolo, e «riletto» diventa una traccia di lettura; `--prova` passa 10 casi. La misura prima della correzione dava 2 righe che cambiavano esito. Una era una lettura che il vocabolario non conosceva. L'altra era l'articolo di Nintendo Life sulla chiusura di Bank, letta solo per la parola «Chiusura» del titolo. È stata letta davvero: articolo del 2026-08-13, chiusura il 27 febbraio 2027, un giorno dopo la data ufficiale usata dal progetto, che resta valida. Nomina Pokémon Winds & Waves per Switch 2 nel 2027, registrato per il lavoro su Switch. Le righe aperte su 1666 restano una sola, IGN.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna
+
+File toccati: `pokedex-home-completo/RUNBOOK-PASSO-1.md` (nuovo), `pokedex-home-completo/README.md`, `tools/conta-letti.py`, `SOURCES.md`, `.claude/memory/pending.md`, `.claude/memory/progress.md`, `.claude/memory/index.md`, `_notes/resume-prompt.md`.
+
 ## 2026-11-03, settima parte. PKHeX aggiornato e copie rigiudicate, ambiente ripristinabile, cinque fonti, statici dentro
 
 Il proprietario ha confermato il commit della sesta parte. Ha chiesto quattro cose: di aggiornare tutto, di rendere ogni strumento ripristinabile su qualunque macchina Windows, di sorvegliare tutte le fonti necessarie alla completezza e non due, e di includere doni, vaganti, premi e uova se i posti di HOME bastano. Ha consegnato poi la risposta di Project Pokémon sulla decisione finale, e ha chiesto di portare lo script di ripristino in `E:\windows-status`. Le decisioni sono in ADR-106.
