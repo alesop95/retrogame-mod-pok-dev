@@ -22,11 +22,18 @@ Il 2026-10-07 la prima corsa dello strumento tracciato ha dato una riga aperta c
 la riga del clone del wiki di pokeemerald dice «clone superficiale [...] Coincide», e il vocabolario
 conosceva «clonato» ma non «clone»; «clone superficiale» è entrato fra le tracce di lettura.
 
+Il 2026-10-09 il difetto opposto: una riga marcata «NON ANCORA LETTO» risultava chiusa, perché
+l'espressione trova «LETTO» dentro la dicitura negata. Dal 2026-11-03 le forme negate («non
+letto», «non ancora letto», «non verificata» e simili) si tolgono dalla riga prima di cercare le
+tracce; «non recuperabile» resta un esito, perché dice che la lettura è impossibile e non che
+manca. `--prova` esegue i casi che lo dimostrano.
+
 Uso
 ---
     python tools/conta-letti.py
+    python tools/conta-letti.py --prova
 """
-import re,csv,io,collections
+import re,csv,io,collections,sys
 def k(u): return u.replace(chr(92),'').rstrip('/').split('#')[0]
 letti=set(); stato={}
 for x in csv.DictReader(io.open('pokedex-home-completo/data/residuo-corpus.csv',encoding='utf-8'),delimiter=';'):
@@ -35,6 +42,16 @@ for r in io.open('pokedex-home-completo/CENSIMENTO-FONTI-COLLEZIONE.md',encoding
     if r.startswith('|') and 'scaricato' in r:
         for u in re.findall(r'https?://[^\s|)]+',r): stato.setdefault(k(u),'scaricato dalla corsa')
 LET=re.compile(r'\b(lett[oaie]|LETT[OAIE]|trascritt|TRASCRITT|scaricat|consegnat|clonat|clone superficiale|verificat|irrecuperabil|non recuperabil|saltato|scartato|fuori perimetro|esportat|ESPORTAT|filtrat|FILTRAT|CHIUS|chius|Stato al 2026-10-05)',re.I)
+NEG=re.compile(r'\bnon\s+(?:ancora\s+|ancora\s+stat[oaie]\s+|stat[oaie]\s+)?(?:lett|trascritt|scaricat|consegnat|clonat|verificat|esportat|filtrat|chius)\w*',re.I)
+def chiusa(r): return bool(LET.search(NEG.sub(' ',r)))
+if '--prova' in sys.argv:
+    casi=[('| 1 | https://a.it/x | NON ANCORA LETTO |',False),('| 1 | https://a.it/x | non letta |',False),
+          ('| 1 | https://a.it/x | letto: estratto |',True),('| 1 | https://a.it/x | non recuperabile, 403 |',True),
+          ('| 1 | https://a.it/x | verificata, non letta per intero |',True),('| 1 | https://a.it/x | da leggere |',False),
+          ('| 1 | https://a.it/x | non ancora verificato |',False)]
+    errati=[c for c,a in casi if chiusa(c)!=a]
+    for c in errati: print('ERRATO',c)
+    print(len(casi)-len(errati),'casi superati su',len(casi)); sys.exit(1 if errati else 0)
 FINALI={'letto','trascritto','catalogo letto','letto a vista','letto con OCR','irrecuperabile','saltato','scartato','scaricato dalla corsa'}
 aperti=[]; tot=0
 for i,r in enumerate(io.open('SOURCES.md',encoding='utf-8'),1):
@@ -42,7 +59,7 @@ for i,r in enumerate(io.open('SOURCES.md',encoding='utf-8'),1):
     us=re.findall(r'https?://[^\s|)`]+',r)
     if not us: continue
     tot+=1
-    if LET.search(r) or any(stato.get(k(u)) in FINALI for u in us): continue
+    if chiusa(r) or any(stato.get(k(u)) in FINALI for u in us): continue
     aperti.append((i,us[0],r[:110].strip()))
 print('righe con indirizzo',tot,'senza traccia di lettura',len(aperti))
 for a in aperti: print(a[0],a[1][:90])

@@ -8,8 +8,8 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: fa3a2da, Mappa di riorganizzazione eseguita: appunti, Action Replay, conta-letti
-Data snapshot:         2026-10-14, export Discord compressi con manifesto di impronte (non committati); prossimo: lotto 1 di lettura del codice
+Commit di riferimento: ef2ff17, Allineamento dal template al commit 832bdc0
+Data snapshot:         2026-11-03, ripresa dopo 22 commit non registrati e allineamento al template 18a4bca; prossimo: lotto 1 di lettura del codice
 ```
 
 ## Stato di verifica delle schede
@@ -31,11 +31,13 @@ Data snapshot:         2026-10-14, export Discord compressi con manifesto di imp
 | sub-poke-ace.md | poke-ace | 89a13f7 | verificata il 2026-09-29 con sync-context: nessun file cambiato nell'area |
 | sub-generation-from-switch.md | generation-from-switch | 89a13f7 | verificata il 2026-09-29 con sync-context: nessun file cambiato nell'area |
 | sub-cart-battery.md | cart-battery-restoration | 89a13f7 | riconciliata il 2026-09-29 con sync-context: rischio di tensione chiuso il 2026-09-15 (LED blu 3,3 V, rosso 5 V) e lettore validato, due delta nella scheda |
-| sub-pokedex-home-completo.md | pokedex-home-completo | 6ee3543 | riconciliata il 2026-09-29 con sync-context: aggiornamento su libreria, scambi, collezione chiusa e coda (333, 60, 40 su 433), prossimo passo sulle 40 voci da periferiche, ADR-083 sulla porta di Smeraldo, indice dei documenti e salvataggi di terzi a diciotto |
+| sub-pokedex-home-completo.md | pokedex-home-completo | ef2ff17 | riconciliata il 2026-11-03 su 29 file: stato e prossimo passo riscritti sulla roadmap del 2026-10-05 e sulle copie `-fin2`/`-fin3` (3272 per HOME, 121 decisione finale, 14 giapponesi), prossimo passo la prova pilota del proprietario con `oras-giro-1-fin2`. Prima, riconciliata il 2026-09-29 con sync-context: aggiornamento su libreria, scambi, collezione chiusa e coda (333, 60, 40 su 433), prossimo passo sulle 40 voci da periferiche, ADR-083 sulla porta di Smeraldo, indice dei documenti e salvataggi di terzi a diciotto |
 
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-11-03, che prevale su quelle sotto. La ripresa ha trovato l'impronta del 2026-10-12 e 22 commit dopo: `53e8930` (export Discord, già nel work log, quindi il «non committati» sotto è superato), due commit sull'anonimizzazione del 2026-10-28 e 19 allineamenti dal template fino a `ef2ff17`. L'allineamento al template `18a4bca` ha portato tre file con zero conflitti. La regola del pacchetto di anonimizzazione, scartata per errore come residuo di un allineamento a metà, era la fusione voluta del 2026-10-29 rimasta fuori dal commit `a824937`: ricostruita (L-001 per il template). Classificati i 25 collegamenti, corretto `conta-letti.py`, tolto da `refactor-10` un identificativo Discord reale, dichiarata la visibilità pubblica nel `CLAUDE.md`. Scheda del fuoco corrente riconciliata; le altre dieci restano da riconciliare con `sync-context`. Il fuoco corrente non cambia. Nella terza parte: ADR-105 fissa l'ordine (prima tutto ciò che scade con la banca, trasferimento solo a fonti tutte lette), storia riscritta sul clone con push forzato del proprietario in attesa, consegne del 2026-11-03 registrate, 4 righe di fonti aperte su 1658 in attesa di tre indirizzi di Reddit e del video in trascrizione. Nella quarta parte: storia pubblicata (`ef2ff17`) e hash riancorati, pulizia fatta salvo la cartella del clone, Reddit letto da Arctic Shift e tabella del progetto in `pokedex-home-completo/CONNETTIVITA-HOME.md`, una sola fonte aperta su 1662 (IGN, rimandata), HeartGold decompilato in confronto con le liste.
 
 AGGIUNTA DEL 2026-10-14, che prevale su quelle sotto. Gli export Discord sotto `_notes/fonti/discord/dce/` stanno compressi: 49 file da 2,58 GB a 181 MB, impronte in `MANIFEST-integrita.txt`, verifica rieseguibile con `python tools/verifica-integrita-export.py verifica _notes/fonti/discord/dce`. Chi aggiunge un export nuovo rigenera prima il manifesto. Decisione ADR-104, dettaglio in `refactor-10-export-discord-compressi.md`. Il fuoco corrente non cambia.
 

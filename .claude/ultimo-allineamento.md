@@ -2,10 +2,11 @@
 
 <!-- generato da allinea-dal-template.py -->
 
-Commit a monte: `832bdc0bbc9777657af2f6a639e12bf5f2eabf37`. File interessati dalla passata: 1. Commit e push del progetto restano manuali.
+Commit a monte: `18a4bcae7a02d20b20e363657ad9cf4cbc84208e`. File interessati dalla passata: 2. Commit e push del progetto restano manuali.
 
 | Esito | File |
 |---|---|
-| VECCHIO | `.claude/templates/tools/chiudi-allineamento.ps1` |
+| VECCHIO | `.claude/skills/prove-che-misurano/RIFERIMENTO.md` |
+| VECCHIO | `.claude/templates/lezioni-recepite.json` |
 
 Conflitti ancora da risolvere: 0.

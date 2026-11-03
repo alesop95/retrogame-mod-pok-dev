@@ -1,5 +1,7 @@
 # retrogame-mod-pok-dev
 
+<!-- visibilita: public, verificata il 2026-11-03 -->
+
 ## Cos'è questo progetto
 
 Un progetto unico che raccoglie più sottoprogetti paralleli di retrogaming e modding, quasi tutti legati ai Pokemon. Non sono fasi di una sequenza: sono obiettivi diversi che avanzano in parallelo, ciascuno con il proprio handoff, e il progetto è pensato per accoglierne di nuovi nel tempo.

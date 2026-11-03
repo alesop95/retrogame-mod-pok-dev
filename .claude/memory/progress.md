@@ -4,6 +4,76 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-03, quarta parte. Storia pubblicata e riancorata, pulizia, tabella di connettività, HeartGold decompilato
+
+Il proprietario ha fatto il push forzato dal clone riscritto: `origin/main` è passato da `8edaf4d` a `ef2ff17`. Poi ha portato il repository di lavoro sulla storia nuova con `git reset origin/main`, e i file modificati sono rimasti quelli attesi. Gli hash citati sono stati riancorati con la mappa di `git-filter-repo`: prova a vuoto, zero collisioni con il template, 19 sostituzioni in 6 file, con le due frasi che descrivono la mappa lasciate intatte. Tre frasi in cui il commit nuovo prendeva il posto di quello che aveva contenuto i valori sono state riscritte a mano con entrambi gli hash. Le ancore delle schede esistono tutte nella storia nuova. Su autorizzazione del proprietario, data per questa volta, le tre coppie sono entrate nella mappa privata e nel file dei termini della storia, rispettando il formato e il fine riga di ciascun file.
+
+Pulizia, su richiesta del proprietario, perché l'immondizia non finisca nei backup. Cancellati il bundle della storia vecchia in due copie (su `E:` e su `J:`, con la cartella), il file delle sostituzioni, le due esportazioni di Telegram già lette e la trascrizione vuota. Il repository locale è ripulito con `git reflog expire --expire=now --all` e `git gc --prune=now`: il commit vecchio non esiste più e i tre valori compaiono zero volte nella storia. La cartella del clone riscritto resta da cancellare a mano dal proprietario, perché la rimozione ricorsiva è vietata all'agente.
+
+Correzione. La macchina con GPU non è dismessa: `E:\harmony-book` la usa ripristinata, con un aiutante che gira in memoria via SSH e non scrive sul disco. La scheda `STACK.md` porta la correzione. In questo progetto quell'aiutante non è ancora adottato.
+
+Reddit senza il proprietario. I tre collegamenti brevi sono stati risolti cercando su Arctic Shift per sottoforum, autore, titolo e data presi dalle schermate, senza toccare Reddit: `1x128s6`, `1xic6s6`, `1xivff8`. Sono stati letti per intero con `tools/fetch-reddit.py`, comprese le sotto-fonti. Che il post trovato coincida con il collegamento breve è un'inferenza, dichiarata in `SOURCES.md`. L'immagine della tabella, 9600 per 4900 pixel, è stata letta su una vista ridotta per i percorsi e a piena risoluzione per le regole. Ne è nata `pokedex-home-completo/CONNETTIVITA-HOME.md`, la tabella del progetto, con quello che ogni regola comporta per i lotti. Una prima stesura dava per aperta la questione coreana, che ADR-096 ha chiuso il 2026-10-05: è stata corretta, e con essa una riga della tabella dei punti aperti di `pending.md` che la dava ancora aperta. `conta-letti.py` dà una sola riga aperta su 1662, IGN, che è rimandata. Il conteggio era sceso a zero per un falso positivo dello strumento sulla parola «chiusura»; il falso positivo è registrato da correggere.
+
+HeartGold. Il proprietario ha indicato `ctrl-cheeb-del/pokeheartgold`. Sono stati letti con `gh` i README di quel repository e di `pret/pokeheartgold`: stesse ROM americane con le stesse impronte, pret ancora in corso, il fork completo e fatto con agenti. Il fork è clonato in superficie al commit `8cbb4a1`, 241 MB, e un agente su Sonnet confronta regali, uova, incontri fissi, scambi e Pokéwalker con le liste del progetto.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna
+
+File toccati: `.claude/memory/progress.md`, `decisions.md` (aggiunta ad ADR-105), `pending.md`, `index.md`, `.claude/context/sub-pokedex-home-completo.md`, `.claude/context/STACK.md`, `SOURCES.md`, `pokedex-home-completo/CONNETTIVITA-HOME.md` (nuovo), `pokedex-home-completo/README.md`, `_notes/resume-prompt.md`; fuori da git la mappa privata, il file dei termini, le corse di Reddit e il clone di HeartGold.
+
+## 2026-11-03, terza parte. Opzione A, storia riscritta sul clone, consegne di HOME e di Leggende Z-A
+
+Il proprietario ha scelto l'opzione A. Ha chiesto di riscrivere subito la storia pubblica e ha detto che nessun esemplare è passato a HOME e che ha il 3DS con sé. Ha consegnato fonti nuove e ha fissato le priorità, che sono ADR-105.
+
+Opzione A. Le 111 voci senza riga didattica sono tutte dal 2026-09-08 al 2026-09-28, quindi anteriori al racconto didattico, che comincia il 2026-09-29. Le 75 voci successive avevano già la riga, e tutte e dieci le schede `refactor-NN` sono citate. A ciascuna delle 111 è stata aggiunta una riga `nessuna` con questa ragione, da uno script che inserisce la riga prima di «File toccati» o in coda alla voce; il diff è di 222 righe in più. `lint-didattica.py` passa.
+
+La storia. I tre valori di Discord comparivano soltanto nel commit `a5ad612`, oggi `53e8930`, e soltanto in `refactor-10`, misura presa con `git log --all -S`. È stato fatto un bundle di tutta la storia in due copie verificate con la stessa impronta SHA-256, `_notes/lavoro/storia/prima-di-riscrittura-2026-11-03.bundle` e `J:\backup-storia-retrogame\`. Poi un clone speculare da GitHub, copiato in `_notes/lavoro/storia/riscrittura-20261103.git`, riscritto con `git-filter-repo --replace-text`, versione `a40bce548d2c`, in zeri della stessa lunghezza. Esito: 264 commit e zero residui con `git log --all -p --text`. 242 commit conservano l'hash e 22 lo cambiano: `a5ad612` diventa `53e8930`, `8edaf4d` diventa `ef2ff17`. Il nuovo HEAD differisce dal vecchio solo in `refactor-10` ed è identico alla copia già corretta nell'albero di lavoro. Il clone ha il solo ramo `main` e nessuna etichetta. Il push forzato è del proprietario.
+
+Le fonti. Le due esportazioni di chat da Telegram hanno 32 indirizzi, e 31 erano già registrati; il trentaduesimo, la pagina del Biglietto Magico di Pokémon Central, è stato letto. Sono state lette le quindici immagini, copiate in `_notes/fonti/consegne/2026-11-03-telegram-home-za/`. Due agenti, su Sonnet e su Haiku, hanno letto otto pagine web. Tutto è in `SOURCES.md` nella sezione del 2026-11-03, e le sigle nuove inventate in un primo momento sono state corrette in GEN. Ne vengono tre fatti utili al fuoco corrente. I Biglietti Magico e Aurora per Switch hanno ora una seconda fonte. Il Celebi di HOME è confermato dalla notizia ufficiale. Il Vivillon Motivo Poké Ball arriverà da Leggende Z-A senza passare dalla banca, perché r/LegendsZA dà raggiunto l'obiettivo comunitario.
+
+Non letti, con il motivo. I tre collegamenti brevi di Reddit non si risolvono: l'archivio non li conosce, e la risoluzione con uno user agent da browser, prescritta da `fonti-non-recuperabili`, è stata bloccata dal classificatore della sessione come aggiramento di un controllo anti-bot. Serve l'indirizzo completo dal proprietario. La checklist di IGN è rifiutata dallo strumento, anche attraverso la Wayback Machine. La decompilazione di quarta generazione non ha un annuncio datato dei progetti pret: serve il collegamento del proprietario. Il video `tCJ-chH26qE` è in trascrizione sul processore con `tools/trascrivi-video-cpu.py`, perché la macchina con GPU è dismessa dal 2026-10-02; l'audio si cancella a testo scritto. `conta-letti.py` dà 4 righe aperte su 1658.
+
+Più tardi nello stesso giro. La trascrizione di `tCJ-chH26qE` è finita: 9102 parole, audio cancellato. È il video di Linneus «THE ABSURD DEPTHS OF THE POKÉBLOCK» del 2023-08-05, di 55:20. Per il deposito porta un solo fatto: le 12 bacche e-Reader tenute da un esemplare diventano Baccaenigma in quarta generazione. Il resto serve alle Pokémelle di Smeraldo, dopo la chiusura della banca. Un agente su Haiku ne estrae le affermazioni in `affermazioni-tCJ-chH26qE.md`. Il video dell'Action Replay Max, `7TCf0a04I4U`, l'unica riga di `SOURCES.md` non letta per difetto di trascrizione, è stato trascritto in locale due volte, con lingua automatica e con l'inglese: zero parole su 2:49. È quindi senza parlato, e la riga lo dice, insieme al fatto che il contenuto visivo non è stato guardato. `conta-letti.py` dà ora 3 righe aperte su 1659: la tabella di Reddit, in due righe, e la checklist di IGN.
+
+**Didattica:** nessuna, giro di consegne e di preparazione.
+
+**Template:** nessuna
+
+File toccati: `.claude/memory/progress.md`, `.claude/memory/decisions.md` (ADR-105), `.claude/memory/pending.md`, `.claude/memory/index.md`, `SOURCES.md`, `_notes/resume-prompt.md`, e fuori da git il bundle, le quindici immagini e il clone riscritto.
+
+## 2026-11-03, seconda parte. Verifica dell'allineamento, una fusione ricostruita, i controlli di chiusura e la scheda del fuoco corrente
+
+Il proprietario ha chiesto conferma che l'allineamento avesse funzionato in tutto, perché un altro progetto ha avuto un problema. La conferma non c'era, e la prima parte di questa giornata conteneva un'affermazione falsa. La misura senza `--json` di `allinea-dal-template.py` stampa i soli totali per gli esiti ADATTATO, e la prima parte li aveva letti come UGUALE. Con `--json` il file `.claude/templates/anonymization/rules/anonymization.md` risulta ADATTATO, «risolto a mano il 2026-10-29, testa invariata». Il commit `a824937` del 2026-10-29 alle 10:26 ha versionato la voce di `.claude/allineamento-risolti.json` e la norma `norme/anonymization.md` a cui la regola fusa rimanda, ma non la regola fusa, che l'albero portava modificata dalle 10:13. Il file scartato la mattina era quindi la fusione voluta: le sei righe della testa del template più il paragrafo locale sull'`ID CONSOLE`. È stato ricostruito così, e ora differisce dalla testa nella sola riga 45. Il difetto dello strumento è registrato per il template come L-001 in `.claude/memory/lezioni-template.md`.
+
+Gli altri 16 file ADATTATO sono stati confrontati riga per riga con la testa del template letta da git, non con il suo albero di lavoro, che ha 14 modifiche non committate. Le righe della testa assenti in locale hanno tutte una variante locale simile, salvo due righe segnaposto della tabella dei canali di `tools/export-discord.py`, che il progetto ha sostituito con la propria per istanziazione. Il caso più divergente, `fonti-non-recuperabili/RIFERIMENTO.md` con 43 righe, è la versione del progetto da cui il template ha condensato la sua: le due idee che sembravano mancare, la fedeltà dell'archivio e la conservazione dell'identificativo, stanno alle righe 80 e 186. Le prove degli strumenti nuovi passano: `tests/test_allinea_dal_template.py` 31 su 31, `tests/test_session_alignment.py` 16 su 16, `check-visibilita.py --autotest` 9 su 9.
+
+I controlli di chiusura. `verifica-link-progetto.py` è a zero non classificati dopo che 21 radici di repository citate da `docs/fonti-codice-schede.md` sono state registrate in `_notes/fonti/link-non-fonti.json`, ciascuna con il sottopercorso con cui `SOURCES.md` registra la stessa fonte. Lo stesso è stato fatto per tre pagine della documentazione di git citate da `.claude/norme/git-commands-format.md`. Il venticinquesimo collegamento era un dato reale: `refactor-10-export-discord-compressi.md`, pubblicato con `a5ad612` (oggi `53e8930`), portava l'identificativo Discord e l'impronta dell'avatar di un membro della comunità accanto al nome già sostituito. Ora porta zeri della stessa lunghezza, e la pulizia della storia è del proprietario (`pending.md`). `tools/conta-letti.py` toglie le forme negate prima di cercare le tracce di lettura, con `--prova` a 7 casi. Senza la correzione 3 casi falliscono, perché il primo tentativo aveva scritto `\b` come carattere di backspace, cosa vista con `od -c`. La conta su `SOURCES.md` passa da 0 a 2 righe aperte su 1647: la tabella di connettività di Reddit e il video di Action Replay Max, che è davvero non letto. Il `CLAUDE.md` dichiara la visibilità pubblica, verificata con `gh repo view`, e `tools/check-visibilita.py` è istanziato dal template e risulta conforme. Il `CLAUDE.md` era già oltre il tetto per file prima di questa riga, 16.468 caratteri contro 15.000.
+
+La scheda `sub-pokedex-home-completo.md` è riconciliata da `6ee3543` a `ef2ff17` su 29 file. Lo stato ora dice 3272 esemplari per HOME nelle cinque copie della prima tabella di `COPIE-PER-HOME.md`, 121 per la decisione finale e 14 giapponesi. Il prossimo passo è la prova pilota del proprietario con `oras-giro-1-fin2`. Le altre dieci schede restano da riconciliare.
+
+**Didattica:** nessuna; il difetto dell'allineamento va al template come L-001.
+
+**Template:** L-001
+
+File toccati: `.claude/templates/anonymization/rules/anonymization.md`, `.claude/context/refactor-10-export-discord-compressi.md`, `.claude/context/sub-pokedex-home-completo.md`, `tools/conta-letti.py`, `tools/check-visibilita.py` (nuovo), `CLAUDE.md`, `.claude/memory/index.md`, `.claude/memory/progress.md`, `.claude/memory/pending.md`, `.claude/memory/lezioni-template.md` (nuovo), e fuori da git `_notes/fonti/link-non-fonti.json`.
+
+## 2026-11-03. Ripresa dopo una sessione non registrata, e allineamento al template
+
+La skill `riprendi` ha trovato che `tools/verifica-ripresa.py` esce con 1: l'impronta di `_notes/resume-prompt.md` era del 2026-10-12 alle 09:15 sul commit `49cfe18`, e dopo sono comparsi 22 commit, misurati con `git log 49cfe18..HEAD`. Uno è lavoro del progetto già raccontato qui sotto, `53e8930` del 2026-10-14; lo snapshot di `index.md` lo dava però ancora per non committato e dichiarava `fa3a2da`. Due sono del 2026-10-28 e non avevano voce in questo registro: `b827608` aggiunge a `tools/Test-Anonymization.py` e alla copia del pacchetto le esclusioni per decisione, cioè un prefisso di percorso con le categorie e il motivo, con una voce predefinita che esclude da `.claude/templates/` le sole categorie EMAIL PERSONALE e IMPORTO, perché il primo allineamento del 2026-10-27 aveva fermato il commit sui casi di prova degli strumenti del template; `ebe0768` allinea la regola del pacchetto di anonimizzazione al template. Gli altri 19 sono allineamenti dal template, dal 2026-10-19 (`60288f4`, con risoluzione dei conflitti) al 2026-10-30 (`ef2ff17`, al commit `832bdc0`).
+
+Nell'albero c'era un solo file modificato, `.claude/templates/anonymization/rules/anonymization.md`, 6 righe con data 2026-10-29 10:13, diverso sia dalla versione committata sia dalla testa del template: un allineamento rimasto a metà. Il proprietario ha deciso di scartarlo e di riallineare. Dopo `git checkout` il file non è risultato UGUALE alla testa del template, come questa voce diceva in una prima stesura, ma ADATTATO: la correzione e la ricostruzione stanno nella seconda parte. La misura a vuoto di `allinea-dal-template.py` ha dato 493 UGUALE, 17 ADATTATO, 2 LOCALE, 3 VECCHIO e 0 conflitti; applicata, ha aggiornato `.claude/skills/prove-che-misurano/RIFERIMENTO.md` (18 righe nuove, le lezioni L-037, L-038 e L-041 recepite dal template), `.claude/templates/lezioni-recepite.json` e `.claude/ultimo-allineamento.md`, con `git diff --stat` a 42 righe aggiunte e 2 tolte, nessuna riscrittura di fine riga.
+
+Resta da riconciliare: le schede di `context/` sono ferme a `90adea9` e a commit precedenti, e dopo 19 allineamenti il drift va misurato con `sync-context`. Non si sa da qui se nella sessione caduta fra il 2026-10-28 e il 2026-10-30 sia stata presa qualche decisione a voce.
+
+I controlli di chiusura (`chiudi -SoloControlli`) si fermano su due voci, che questo giro non ha introdotto. `lint-didattica.py` conta 112 voci di questo registro dal 2026-09-08 senza la riga `**Didattica:**`, 111 precedenti a oggi. `verifica-link-progetto.py` trova 25 indirizzi non classificati su 3619 noti, tutti citati in `docs/fonti-codice-schede.md`, cioè le schede del censimento del 2026-10-09. Il perimetro è di 676 file. Registrati in `pending.md`.
+
+**Didattica:** nessuna, giro di ripresa e allineamento senza scelte di qualità.
+
+**Template:** nessuna
+
+File toccati: `.claude/memory/index.md`, `.claude/memory/progress.md`, `_notes/resume-prompt.md`, e dall'allineamento `.claude/skills/prove-che-misurano/RIFERIMENTO.md`, `.claude/templates/lezioni-recepite.json`, `.claude/ultimo-allineamento.md`.
+
 ## 2026-10-14. Export Discord compressi da 2,5 GB a 181 MB, con manifesto di impronte e prova di equivalenza
 
 Il proprietario ha chiesto perché gli export Discord sotto `_notes/fonti/discord/dce/` e l'indice del progetto `legal-consultant` pesassero tanto, e se si potessero snellire; poi ha chiesto che l'intervento fosse tracciato e documentato in forma tecnico-didattica, versionato in ciascun progetto toccato, e che nulla si rompesse. Scelto il perimetro: solo Discord, in forma reversibile, più il documento di analisi per l'altro progetto.
@@ -746,6 +816,8 @@ File toccati: quelli del commit `d770a37`, elencati da `git show --stat d770a37`
 
 Il proprietario ha scritto a LRXC su Discord con l'errata e ha indicato un canale Discord nuovo. Giocando sul Rubino ha visto che gli esemplari dei box non risultano catturati nel Pokédex della cartuccia. È il comportamento atteso della scrittura diretta nel deposito, già registrato il 2026-09-15; per HOME non conta. Il proprietario ha poi deciso che il Pokédex di una cartuccia si allinea alle specie che contiene (ADR-089). La misura sulle riletture dà per il Rubino 286 specie presenti, 6 catturate e 8 viste; per Smeraldo 386 catturate e viste contro 182 presenti, quindi Smeraldo è già allineato. Il piano, con i tre punti da verificare su pokeruby, è in `pending.md`.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-28, chiusura di sessione. Rubino scritto, errata di LRXC, stampa definitiva
 
 La rilettura del Rubino è identica byte per byte al file CORRETTO, SHA-256 `10b0495d…e69b93698`, e sta in doppia copia su E: e su J:. La terza generazione è chiusa (ADR-088). La stampa `MAPPA-BOX-COLLEZIONE.pdf` è rigenerata con `--rubino` sulla rilettura: 57 pagine, copertina, segni dei fori, Rubino dichiarato scritto dopo la verifica di ogni posizione. `MAPPA-BOX-RUBINO.md` è cambiato di conseguenza. Il proprietario verificherà il passo dei fori sulla prima pagina stampata.
@@ -758,11 +830,15 @@ Il proprietario ha indicato il backup del 3DS, `J:\3DS - 03092026\`, con il salv
 
 Alla ripresa il primo passo è l'allineamento al template, per direttiva del proprietario: da `f67d5d9` a `9c54063`, con il prompt fisso del template. È la voce ZERO di `pending.md`.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-28, settima parte. Il foglio di LRXC confrontato con il sorgente, e l'allenatore che all'Azienda non conta
 
 Nuovo strumento `gba-save-extraction-smeraldo/tools/parco_lotta_confronta_lrxc.py`, sola lettura e deterministico, scritto da un agente. Il rapporto è in `_notes/fonti/consegne/2026-09-28-LRXC-confronto-sorgente.txt`. Il foglio porta i set 372-881, il bacino del livello libero. Al livello 50 copre dunque la lotta 22 in poi e include 32 set che lì non escono mai, cioè Dragonite, Tyranitar e le versioni 5 e 6 dei leggendari (`FRONTIER_MONS_HIGH_TIER` = 849). I set concordano in 508 casi su 510, e ai due restanti manca il numero 10; lo stile per mossa in 504 su 510, con sei errori; la velocità, calcolata con 31 IV, in 505 su 508. La scheda degli allenatori coincide per tutti i 300.
 
 Il fatto che cambia la guida, verificato dall'agente principale su `GenerateOpponentMons` (`battle_factory.c:303` e seguenti): all'Azienda l'allenatore si sceglie a caso e i sei avversari si pescano a caso dal blocco di set della serie, senza leggere `monSet`. L'elenco dei set per allenatore, che è ciò che mostrano Buried Relic e la scheda Trainers, vale per la Torre e gli altri edifici, non per l'Azienda. Il proprietario aveva messo Buried Relic fra gli strumenti dell'Azienda. La guida lo dice ora in due righe nuove della sezione 4, e una terza spiega come prevedere la squadra dallo stile e dal tipo annunciati dallo scienziato con la colonna "Style #". Rigenerata la copia `.docx`.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-28, sesta parte. Rubino giudicato, stampa per il quaderno ad anelli, foglio di LRXC
 
@@ -772,11 +848,15 @@ La stampa della collezione è stata adattata al quaderno ad anelli su richiesta 
 
 Il proprietario ha scaricato il foglio di LRXC, ora in `_notes/fonti/consegne/`, e ha fissato i sei strumenti dell'Azienda Lotta: la guida di r/stunfisk, il foglio Dropbox, il foglio di LRXC, il calcolatore di KABoissonneault, Bulbapedia e Buried Relic, nuova e registrata in `SOURCES.md`. Li elenca una riga nuova della sezione 4 della guida. Il confronto del foglio di LRXC con il sorgente è affidato a un agente.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-28, quinta parte. Le fonti dell'Azienda Lotta verificate sul sorgente, e lo scambio fra GBA e Switch 2
 
 Un agente ha letto le fonti consegnate: cinque post Reddit da Arctic Shift, la pagina Bulbapedia dalla Wayback del 2026-08-22, il calcolatore di KABoissonneault, il foglio Dropbox, che è lo stesso file letto il 2026-09-21, e tre video dalle trascrizioni. Il foglio OneDrive non si recupera. Il ragionamento del proprietario è stato verificato sul sorgente di pokeemerald, clone al commit `c925b84`. Confermato che gli avversari ordinari leggono la serie corrente della Torre a livello 50, nella stessa modalità, e non il record. Confermati anche le tabelle degli IV e degli scambi, il prelievo iniziale che conta come scambio, Savino non toccato dall'errore, 15 e 31 IV, e i tre esemplari a 31 al round 6 con 29 scambi. Due precisazioni nuove: il ritiro non azzera il numero, che si azzera solo cominciando una sfida nuova senza serie attiva; il riposo ricrea i prestiti con il solo IV dell'Attacco. È confermato anche il difetto degli IV casuali ai round 8 e 9, che chiude il da verificare del 2026-09-21. L'Altaria del video a 31 IV non può venire dal round 4, come il proprietario sospettava. Nella sua prova sull'Octillery i PS scritti, 159, sono quelli del Pinsir: è un errore di trascrizione, il resto torna con 3 IV. Registrate le fonti in `SOURCES.md` e aggiornata a mano la sezione 4 di `GUIDA-PARCO-LOTTA.md`, dove la riga che liquidava il riposo come non verificato era sbagliata; rigenerata la copia `.docx`.
 
 Il video di Kevdog Plays del 2026-09-24 mostra uno scambio fra Rosso Fuoco su GBA reale e Rosso Fuoco su Switch 2 non modificata, tramite GB-Link, ESP32 con firmware bridge LDN e `prod.keys`. La lettura del proprietario, cioè che la via porti tutto in HOME, è vera solo in parte. La via vale per la terza generazione e passa dal collegamento di Rosso Fuoco e Verde Foglia per Switch a HOME, annunciato per ottobre 2026. Non tocca la scadenza di Bank per le altre generazioni. Lo scambio dalle cartucce di Hoenn è solo promesso. Registrato nella scheda `sub-gba-switch-trading.md` e in `pending.md`, con la verifica sul destino delle `prod.keys`.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-28, quarta parte. Il file del Rubino, e il carico di prova che il piano aveva dimenticato
 
@@ -786,9 +866,13 @@ La composizione del Rubino si è fermata al primo presidio: il deposito aveva 20
 
 Il proprietario ha consegnato anche le fonti sul Parco Lotta e il suo ragionamento sull'Azienda Lotta, salvato con il nome mascherato in `_notes/fonti/consegne/2026-09-28-azienda-lotta-logica-ottimizzata.md`, e un video su uno scambio fra Rosso Fuoco e Switch 2. Il recupero e la verifica sul sorgente sono affidati a un agente, e i risultati entrano in `SOURCES.md` quando arrivano.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-28, terza parte. Storia pubblicata e hash riancorati
 
 Il proprietario ha eseguito il push forzato dal clone riscritto, `1b74a92` sostituito da `e2ac9ad` su `origin/main`, e ha portato il repository di lavoro sulla storia nuova con `git reset origin/main`, senza toccare i file. Ha deciso che l'email dell'autore nei metadati resti. Gli hash dei commit vecchi citati nei file tracciati e nel file di ripresa sono stati sostituiti da quelli nuovi con la mappa di `git-filter-repo`: 69 sostituzioni in 20 file. Criterio: token esadecimali di 7 o 40 caratteri che identificano un solo commit della mappa, esclusi quelli che sono anche prefissi di commit del template. Prova a vuoto prima, zero collisioni con il template, zero residui dopo; restano fuori per costruzione `b023ed6` e `f67d5d9`, che sono commit del template, e `cdb09e2` e `d1e1a3a`, che erano commit di questo progetto eliminati dalla riscrittura di ADR-014 e citati come storia. Il bundle della storia vecchia è stato cancellato dall'agente su richiesta del proprietario lo stesso giorno, da `E:` e da `J:`. Le ancore `last-verified-commit` delle schede esistono tutte nella storia nuova, e lo snapshot `index.md` è ancorato a `e2ac9ad`.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-28, seconda parte. Backup del Rubino e riscrittura della storia sul clone
 
@@ -796,9 +880,13 @@ Il proprietario ha estratto il Rubino in due copie. Le due copie hanno lo stesso
 
 La cronologia è stata riscritta su un clone speculare, dopo un bundle verificato in due copie. I termini sono cinque espressioni per il nome e cognome dell'autore e per quelli del terzo, anche come nome allenatore in maiuscolo nelle vecchie mappe, sostituiti con `<AUTORE>` e `<AMICO>` come già fa HEAD. Misura presa con `git log --all -p --text` sui 185 commit, messaggi compresi: zero occorrenze residue, e albero di HEAD identico. Il solo file binario mai versionato è uno sprite della tesi, quindi la sostituzione di testo copre tutto. Resta fuori l'email dell'autore nei metadati, che contiene il cognome: è una decisione del proprietario.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-28. Ripresa, Jirachi sul Rubino, decisione sulla storia
 
 La verifica di ripresa ha trovato una sola divergenza, prevista: l'ancora di `index.md` era a `ebe7bf6` con la terza parte del 2026-09-25 dichiarata da committare, ed è entrata in `2048d30`. L'ancora è stata portata a `2048d30`. Il commit delle migliorie di ADR-086 nel template risulta fatto, è `c2b4e23`, e la voce attesa è stata chiusa; il template è oggi a `3077625` con lavoro del proprietario non committato, lo spostamento di quattro regole in skill con file di riferimento, quindi un nuovo allineamento va fatto dopo quel commit e non prima. Il proprietario ha il Rubino con sé e vuole scrivere il complemento; ha deciso che il Jirachi di Pokémon Channel resti sul Rubino, dove il complemento lo aveva già nel box 16, e che la cronologia pubblicata si riscriva. Entrambe le decisioni sono in ADR-087.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-25, terza parte. Allineamento bidirezionale, chiudi, e la prova di ripresa
 
@@ -808,11 +896,15 @@ Il progetto adotta `tools/verifica-ripresa.py` e `tools/chiudi-sessione.ps1` del
 
 L'esito della prova. L'agente ha individuato da solo il fuoco corrente, il passo 0 tipografico, l'ordine dei passi successivi, i promemoria, i vincoli e le attese. Ha trovato anche undici incoerenze nei documenti di ripresa, e nove erano vere. Le voci da fare per prime erano sepolte nella sezione del Parco Lotta di `pending.md`, e ora stanno in una sezione in testa. La riga del fuoco corrente di `index.md` era ferma al 2026-09-16, e l'ancora dello snapshot a un commit superato. Il prompt di ripresa diceva che le decisioni recenti stavano in testa al registro, descriveva come presente un blocco d'impronta non ancora scritto, citava le decisioni solo fino ad ADR-085 e ometteva le due voci «da ricordare sempre» su pubblicazione e fonti Discord. La voce sul lettore GBxCart che «non si tocca» era rimasta indietro di otto giorni. Tutto corretto nello stesso giro. Delle due segnalazioni non fondate, `CLAUDE.md` era già allineato nel commit `ebe7bf6` e l'agente ne aveva letto la copia caricata all'avvio; la seconda, i file non committati, si chiude con il commit del proprietario.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-25, seconda parte. Allineamento al template e chiusura della sessione
 
 Su richiesta del proprietario il progetto è stato allineato a `E:\template-claude-developing`. L'ultimo allineamento, del 2026-09-16, non aveva registrato il commit del template. Il confronto file per file dei file distribuiti ha dato 176 uguali, 58 diversi e 94 assenti. Per ciascun file diverso si è cercata nella storia del template la versione da cui era partita la copia del progetto. I 44 file mai personalizzati sono stati aggiornati alla versione nuova, i personalizzati fusi a tre vie; sono stati importati 89 file e i conflitti risolti come dice ADR-085.
 
 Due errori del metodo sono stati visti e corretti nello stesso giro. La prima scelta della base per somiglianza aveva fatto tenere a `chat-non-e-memoria.md` il testo del progetto, perdendo la modifica del template del 2026-09-24: rifatta con la base per data. La fusione di `tools/fix-missing-accents.py` aveva tolto la correzione delle forme composte con apostrofo, e la prova nuova di `test-tipografia.py` l'ha segnalata. In più, la scrittura in modalità testo di Python su Windows aveva cambiato il fine riga di sei file, riportati a quello del commit. Due file importati per errore, i prompt di avvio del template, sono stati tolti. Il proprietario ha scelto la versione del template della regola sulla memoria, e `CLAUDE.md`, la skill `riprendi` e la regola dicono ora che memoria e schede si aggiornano a ogni giro. Durante la tornata il template ha pubblicato `f67d5d9`, con il gate di ricerca, e anche quello è stato portato dentro. A quel commit restano diversi dal template solo otto file con personalizzazioni fuse di proposito. Tutti i controlli del progetto passano. I gate della procedura non eseguiti sono in `pending.md`.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-25. Tutti i lotti conformi, e le schede delle voci speciali
 
@@ -822,11 +914,15 @@ Le tre famiglie contestate sono state chiuse una per una, e ciascuna aveva una c
 
 `tools/schede-esclusivi.py` genera `pokedex-home-completo/SCHEDE-ESCLUSIVI.md`: 162 schede del Pokewalker, 22 del Ranch, 26 del Dream Radar, 84 doni, 23 scambi e il Phanpy. I corsi del Pokewalker si abbinano per indice, specie e livello, e il controllo sui nomi inglesi ha trovato che due corsi si scrivono «Icy Mountain Rd.» e «Winner's Path». Corretti, tutte le 162 voci trovano la loro riga. `pkhex-dono --descrivi` scrive i campi delle carte come la libreria li legge. La libreria non conserva la data della carta e riporta quella di oggi, quindi la data non entra nelle schede. La checklist è rigenerata: delle 433 specie del primo tempo, restano da produrre le 40 da periferiche.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-24, nona parte. La pulizia dei salvataggi di terzi
 
 Il proprietario ha approvato lo scarto di tutti i file proposti in `_notes/salvataggi/terzi/`, chiedendo di tracciarne il motivo. Prima della cancellazione è stato scritto ADR-084, con file, impronta, dimensione, provenienza e motivo di ciascuno dei 26 file, e una nota in coda a `lista.txt` vi rimanda. I file sono stati cancellati uno per uno, senza rimozioni ricorsive, e le sottocartelle `pronti-ds/` e `pronti-3ds/`, rimaste vuote, sono state tolte. Restano 18 salvataggi. Aggiornati i riferimenti in `pending.md`, `docs/22-strumenti.md` e `tools/leggi-deposito-gen6.py`.
 
 La rigenerazione di `CENSIMENTO-SALVATAGGI.md` ha fatto emergere un difetto preesistente di `tools/verifica-salvataggi.py`. La scrittura del documento si interrompeva sui depositi di sesta generazione, che non portano il conteggio dei cromatici, e con essa si perdeva l'uscita JSON. Il documento non era più stato rigenerato dal 2026-09-04, cioè da prima che quei depositi venissero letti. Una prima rigenerazione della checklist, partita senza censimento per questa ragione, aveva dato 72 specie con una fonte invece di 685, e il numero è stato riconosciuto come sbagliato prima di essere usato. Corretto lo strumento, la checklist torna a 685. Scompare soltanto la fonte «archivio esterno», cioè lo zip della collezione cromatica, le cui specie erano già tutte coperte. La coda del primo tempo non cambia: 327 prodotte e conformi, 60 producibili e verificate, 46 da fare.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-24, ottava parte. Mew e Deoxys non si catturano, il lotto dei doni di sesta e settima, e i salvataggi di terzi
 
@@ -834,17 +930,23 @@ Il proprietario ha chiarito tre cose. Il salvataggio di Smeraldo resta con gli i
 
 `tools/checklist-pokedex.py --richieste-doni` scrive le 84 voci del primo tempo da doni di sesta e settima generazione. `tools/pkhex-dono --lotto` le ha prodotte in `_notes/lotti/lotto-doni-gen67/`: nessuna carta non corrispondente, quindi il codice della checklist coincide con la posizione fra gli esemplari della base della libreria. I conformi sono 78 e i contestati 6, tutti uova giapponesi di settima generazione con una data di incontro rifiutata. La rilettura con `pkhex-giudica` ha contestato 73 dei 78 per il detentore: il giudice intestava il salvataggio vuoto all'allenatore originale, che nei doni è la sigla dell'evento. Il giudice ora lo intesta a chi detiene l'esemplare. Rigiudicati tutti i lotti, gli unici esiti cambiati sono quei 73, e il totale è di 1980 conformi e 24 contestati. La checklist riconosce il nuovo lotto: delle 433 specie del primo tempo, 327 sono prodotte e conformi e 60 producibili e verificate; ne restano 40 da periferiche e 6 uova. Su richiesta del proprietario, `_notes/salvataggi/terzi/` è stata confrontata con `lista.txt`, con le impronte e con i riferimenti del progetto. La proposta di che cosa tenere e che cosa scartare è in `pending.md`, e nulla è stato cancellato. `main(7)` riporta come data di modifica le 18:16 di oggi, ma l'impronta è invariata.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-24, settima parte. La coda del primo tempo conosce i lotti, e il Vivillon provato su un Y preso online
 
 `tools/checklist-pokedex.py` legge ora i lotti su disco e `giudizi-pkhex-core.json`. Una voce è prodotta e conforme se un file di un lotto la contiene e se il giudizio della libreria ha la stessa impronta del file di oggi. La prima versione abbinava i lotti di quarta e quinta generazione per codice e ha segnato 832 voci con la specie sbagliata. Il numero nel nome di quei file è l'indice grezzo del record nel file dei doni, mentre il codice della checklist numera solo i record che sono esemplari. I due divergono dal primo record che porta un oggetto, e il commento dello strumento, che li dava per uguali, era sbagliato. Ora si abbina per indice del record, portato dal conteggio nel campo `indice`, e nessuna specie discorda. Colosseum e XD si abbinano al complemento del Rubino per gioco, classe d'incontro e specie. Per ogni specie, la prima voce del primo tempo è di preferenza una già pronta. Rigenerati `CHECKLIST-COMPLETA.md` e `CODA-PRIMO-TEMPO.md`: 1288 voci riconosciute nei lotti, cioè 247 di quarta, 700 di quinta, 165 di Game Boy e 176 del complemento. Delle 433 specie del primo tempo, 249 sono prodotte e conformi e 60 producibili e verificate. Ne restano 124 da produrre: 84 doni di sesta e settima generazione e 40 da periferiche.
 
 Il proprietario non ha con sé la console, e quindi non può fare il backup del proprio Y. Ha chiesto di usare per la prova il salvataggio di Y preso online, come già consentito il 2026-09-23 per il solo PC. È nato `tools/pkhex-dono`, che genera doni di sesta e settima generazione dalle carte della libreria nel contesto di un salvataggio. Sul Y italiano di Project Pokémon ha trovato undici carte con Vivillon forma 19, non due: le giapponesi 36 e 143 e la 511 in nove versioni linguistiche, italiana compresa, tutte conformi. Il primo esemplare è stato scritto in una copia del salvataggio, riletto identico e rigiudicato conforme, e l'originale non è cambiato. La correzione è in `pending.md` e nel commento di `SOLO_DA_EVENTI_CHIUSI`; lo strumento è descritto in `docs/22-strumenti.md`.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-24, sesta parte. Il Parco Amici rigenerato con la libreria, e la collezione di terza generazione chiusa per decisione
 
 Il proprietario ha approvato la proposta: rigenerare il lotto del Parco Amici con la libreria invece che con la sintesi di `pokebridge/parco_amici.py`. Ha aggiunto il vincolo che la collezione di terza generazione di Smeraldo e Rubino non venga più rimessa in discussione, per non procedere un passo avanti e uno indietro. Entrambe le cose sono ADR-082.
 
 È nato `tools/pkhex-parco-amici`, sulla stessa PKHeX.Core di `pkhex-genera` e `pkhex-giudica`. Una prima corsa nello scratchpad ha dato 203 conformi su 203, 6 esclusi per macchina nascosta e nessun errore. La rilettura dei file dal disco con `pkhex-giudica` ha confermato le 203 impronte e i 203 esiti, e il confronto con il manifesto del lotto vecchio ha dato gli stessi nomi, le stesse 53 uova e le stesse sei esclusioni. Il lotto vecchio è stato spostato, non cancellato, in `_notes/archivio/lotto-parco-amici-gen4-sintesi-2026-09-16/`, e quello nuovo è stato scritto al suo posto. `tools/costruisci-lotto-parco-amici.py` rifiuta ora la destinazione del lotto e scrive solo in una cartella di prova. Rigiudicati tutti i lotti, `giudizi-pkhex-core.json` passa da 1754 a 1902 conformi e da 172 a 24 contestati, cioè i 23 scambi di quarta e quinta generazione e il Phanpy di Game Boy. Aggiornati `CATENA-DI-TRASFERIMENTO.md`, con una correzione alla sezione sulla sintesi, `docs/22-strumenti.md`, la scheda del track, `current-work.md` e `pending.md`.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-24, quinta parte. Il giudice senza interfaccia, e tre lotti che non erano mai stati giudicati
 
@@ -854,11 +956,15 @@ Il proprietario ha lasciato all'agente la scelta del passo più utile per la roa
 
 Tre lotti erano dichiarati nei propri manifesti in attesa del giudizio esterno, e questo è il loro primo giudizio. Il Parco Amici di quarta generazione ha 148 contestati su 203. Una prova di controllo nello scratchpad ha convertito gli stessi 203 esemplari di terza con `PK3.ConvertToPK4()` della libreria: 203 conformi su 203, nessuno uguale byte per byte al nostro. Il difetto è quindi della sintesi di `pokebridge/parco_amici.py`. Gli scambi in gioco di quarta e quinta generazione sono contestati per intero, 16 su 16 e 7 su 7, per soprannome alterato, con la causa non ancora accertata. Le tre correzioni e l'integrazione dei lotti nella coda sono in `pending.md`; `docs/22-strumenti.md` descrive il giudice, e il README del track indicizza la nuova uscita.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-24, quarta parte. Riordino di `_notes/` e verifica della ripresa
 
 Il proprietario ha riordinato l'area locale e l'ha committato in `78f4bd6`: la vista generata delle fonti è passata da `docs/fonti/` a `docs/mappa-fonti/`, e `_notes/` ora contiene soltanto `fonti/` (con `cloni/`, `consegne/`, `discord/`, `raccolte/`, `reddit/`), `lotti/`, `salvataggi/` (`cartucce/`, `prove/`, `terzi/`), `media/`, `lavoro/` (`appunti/`, `handoff/`, `riservato/`, `stato/`, `tmp/`) e `archivio/`, più `README.md` e `resume-prompt.md`. I file locali sono 17.382, cioè i 17.381 dichiarati dal riordino più il nuovo `README.md`. Il backup finale di Smeraldo ha ancora SHA-256 `88a3d576…22e6` nella nuova collocazione e la copia su `J:` è presente; il clone di PKHeX è sul commit `e15d246` con l'albero intero, anche se resta un clone superficiale senza blob scaricati in anticipo, e la DLL compilata a cui punta `tools/pkhex-genera` esiste.
 
 La verifica della ripresa ha trovato otto riferimenti che il riordino aveva riscritto in modo meccanico verso percorsi inesistenti, e che non davano errore visibile perché gli strumenti degradano in silenzio. I lotti di quarta e quinta generazione si chiamano `lotto-eventi-gen4` e `lotto-eventi-gen5`, mentre `schede-esemplari-gen4.py`, `fiocchi.py` e `spoglio-corpus.py` cercavano `lotti/lotto-gen4` e `lotti/lotto-gen5`: il primo segnalava `SCHEDE-ESEMPLARI-GEN4.md` come disallineato, gli altri due avrebbero contato zero esemplari. Il cursore di `fetch-discord.py` e l'impronta di `verifica-ripresa.py` stanno ora in `_notes/lavoro/stato/`, ma i due strumenti li cercavano alla radice di `_notes/`: il primo avrebbe riletto da capo tutti i canali, il secondo avrebbe riferito un'impronta mancante. `test-tipografia.py` ricreava `_notes/tmp/` invece di usare `_notes/lavoro/tmp/`, e `parco_lotta_percorso_oro.py` cercava il dump nella vecchia cartella dei backup e avrebbe ripiegato sul segnaposto dell'archivio non trovato. Tutti sono stati corretti, insieme agli esempi d'uso di `genera-evento-gen4.py`, `genera-evento-gen5.py`, `leggi-deposito-gen6.py` e `vtt-to-text.py`, alla skill `riprendi` e alla riga corrispondente di `STACK.md`; `SCHEDE-ESEMPLARI-GEN4.md` è stato rigenerato, e il clone di `ndseventtool`, spostato in `fonti/cloni/`, ha ricevuto il marcatore `.md-unwrap-ignore` che non aveva più. Poi sono passati i self-test dei cinque strumenti Python toccati, i controlli di README, mappa delle fonti, indice unico, `md-unwrap`, tabelle e comandi. La copertura della tesi è ancora completa, ma i capitoli in drift sono nove e non cinque o sei: la rigenerazione delle schede di quarta generazione e i due riordini hanno toccato percorsi coperti. Restano nella forma dell'epoca, per scelta, i riferimenti ai vecchi percorsi di `_notes/` nelle voci chiuse di `pending.md`, alla riga 51 di `sub-smeraldo-save-fix.md`, in `design-and-security.md` e nei template generici sotto `.claude/templates/`, dove indicano cartelle che si creano solo quando servono. `_notes/prova-abilita` e `prova-10anni-pikachu.ek3`, citati da STUDIO-03 e da `pending.md`, non esistono più sul disco, e non si sa se siano stati cancellati prima del riordino o durante: erano prove temporanee e la loro conclusione sta già nei documenti.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-24, terza parte. Riordino dei file tracciati e ingresso pubblico
 
@@ -867,6 +973,8 @@ Su richiesta del proprietario, le dodici tabelle CSV del track Home sono state s
 L'audit dei README dei dieci sottoprogetti ha trovato venti documenti diretti non elencati in tre di essi; ora tutti i documenti diretti e le dodici tabelle spostate sono indicizzati. `MAPPA-DOCUMENTI.md` è stata riallineata ai conteggi del repository. È nato il `README.md` pubblico, centrato sui risultati tecnici e sulla provenienza delle fonti; `tools/aggiorna-readme.py` ne rigenera l'indice dei sottoprogetti e controlla i collegamenti locali. L'indice generato di `SOURCES.md` è stato riallineato a 113 fonti registrate, tutte con almeno un documento e un capitolo di tesi associati. La suite del ponte passa con 206 prove; la copertura della tesi resta completa, mentre i cinque capitoli già in drift prima del riordino restano da rileggere. Nessun file è stato cancellato e `_notes/` è rimasto intatto su indicazione del proprietario.
 
 Per la preparazione del version control, il proprietario ha autorizzato l'anonimizzazione dell'autore e della terza persona citata negli studi, lasciando invariati il nome e gli identificativi degli allenatori nei dati di gioco perché cambiarli modificherebbe gli esemplari. Il frontespizio usa `<AUTORE>`, l'attribuzione dei moveset e le occorrenze nelle mappe usano `<AMICO>`, e i generatori delle mappe mascherano le rispettive etichette pubbliche senza alterare salvataggi o record. L'handle personale è stato tolto dallo user agent e dai percorsi personali nei file tracciati; l'archivio di illustrazioni si rileva sul disco o si indica con `SUGIMORI_ROOT`. La mascheratura della mappa Smeraldo conserva i nomi di gioco presenti e maschera l'etichetta del terzo. Il remoto GitHub risulta già pubblico: la storia conserva i nomi precedenti e la sua eventuale bonifica richiede una decisione distinta, registrata in `pending.md`.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-24, seconda parte. Unown veri, incontri speciali, sfondi del Rubino ed etichette intere
 
@@ -882,9 +990,13 @@ Nel PDF le etichette delle caselle vanno a capo invece di essere troncate, e il 
 
 L'allenatore Alessio di ciascun gioco è dichiarato valido e non reale. Il Jirachi di Channel su Smeraldo è una voce «tutt'uno», per la prossima scrittura su Smeraldo.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-24. Il PDF della collezione esteso al Rubino, e la sessione si chiude verso HOME
 
 Su richiesta del proprietario la stampa della collezione è diventata una sola per le due cartucce: `gba-save-extraction-smeraldo/MAPPA-BOX-COLLEZIONE.pdf`, con il `.docx`, 54 pagine. Per Smeraldo e per il Rubino c'è una pagina di legenda e due per box, con il Rubino nella disposizione prevista del complemento. La disposizione sta in `disposizione_rubino` di `emerald_mappa_box.py`, che la scrittura dovrà usare: per gruppi e dentro il gruppo per numero del Pokédex, in 12 box, con 5 posti vuoti nel dodicesimo. Il Rubino ha una legenda propria con otto provenienze: statici 36, esclusivi 40, specie 98, portatori 9, Unown 28, Colosseum 52, XD 91, evento 1. I vecchi `MAPPA-BOX-SMERALDO.pdf` e `.docx`, generati e superati, sono stati tolti; `MAPPA-BOX-SMERALDO.md` resta, e si aggiunge `MAPPA-BOX-RUBINO.md`. La cartuccia di Rubino non è con il proprietario: la scrittura aspetta, ed è una voce da ricordare a ogni sessione. La sessione si chiude con il resume riscritto per ripartire da HOME.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-23, sessantottesima parte. Il complemento del Rubino generato, 355 su 355, e ADR-081
 
@@ -912,9 +1024,13 @@ Il controllo indipendente con la libreria del progetto dà:
 
 Gli identificativi di Alessio: Rubino 17735/10629, Zaffiro 34010/11870, Smeraldo 42317/0, Rosso Fuoco 64821/38858, Verde Foglia 46517/44697, Colosseum 57517/42859, XD 13578/49302. Documenti: `pokedex-home-completo/COMPLEMENTO-RUBINO.md`, generato da `tools/complemento-rubino-md.py`, e `STUDIO-10-la-libreria-del-verificatore-come-generatore.md`. Il capitolo 29 della tesi ha un paragrafo nuovo.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-23, sessantasettesima parte. ADR-080 fissato, e la fase F0 chiusa
 
 ADR-080: collezione completa di terza generazione su due cartucce, con i fiocchi. Smeraldo resta com'è con le catture vere; il Rubino di prova riceve circa 320 esemplari nelle scatole; la sua partita resta all'inizio con la squadra legittima che ha; l'allenatore è Alessio con un identificativo per gioco. Dal conto: 626 esemplari minimi, 658 con il Parco Lotta, e dei 32 fiocchi di terza generazione 27 sono legali. Per la fase F0 il proprietario ha installato l'SDK di .NET 10. Il clone di PKHeX era parziale e i 1030 errori di compilazione erano tipi mancanti: completato sullo stesso commit, compila. `tools/pkhex-genera` genera legali l'Ho-Oh del Monte Lotta, il Lugia Ombra di XD e il Jirachi di Channel. Aggiornati anche `docs/09_TOOLCHAIN_DA_ALTRI_PROGETTI.md` e il changelog della mappa in `E:\windows-status`. `bin/` e `obj/` sono ora esclusi da git.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-23, sessantaseiesima parte. Verifica profonda della terza generazione sul deposito vero
 
@@ -931,25 +1047,37 @@ Il proprietario ha chiesto se nella collezione fosse rimasto indietro qualcosa d
 
 Accertato su `EncounterStatic3.cs` che la regola del giapponese per il Mew dell'Isola Suprema vale solo per la generazione dello stampo e non per il giudizio.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-23, sessantacinquesima parte. La cartuccia completa è sulla cartuccia, e Smeraldo è concluso
 
 Lettura di controllo in `giro12` alle 17:07, 131.072 byte, impronta `cf471a10…642b`, identica al READBACK del giro 7: sulla cartuccia c'era ciò che ci si aspettava. Prima di scrivere, lo stato attuale della cartuccia mancava sul secondo disco, e in J: esistevano file con lo stesso nome della mattina: la lettura è stata copiata in `J:\backup salvataggi pokèmon\giro12\` e verificata, così che il backup fosse in doppia copia su due dischi. Scrittura del file CORRETTO, rilettura alle 17:09, impronta `88a3d576…22e6`, identica byte per byte al file preparato, copiata anch'essa su J: e verificata. Poi, su richiesta del proprietario, la cartella dei backup è stata riordinata in `smeraldo/` con una sottocartella per ogni scrittura, da `01-2026-09-17-zaino-primo-giro` a `06-2026-09-23-cartuccia-completa`, più `smeraldo/dump-pkhex/` e `rubino/`. `LEGGIMI.md` porta l'impronta di ogni file e il percorso di prima, perché il work log e gli ADR restano con i percorsi storici. Aggiornati i riferimenti vivi: pending, resume, STUDIO-01, STUDIO-02 e `parco_lotta_percorso_oro.py`, che legge ora il dump `round 6` e lascia la guida identica.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-23, sessantaquattresima parte. Il Wynaut promosso, e le storie di tutti gli eventi
 
 Dump `round 6` del file di `giro12`: 423 legali su 423, il Wynaut riconosciuto come Wild Encounter (E) Grass al Percorso 130, natura Calma. Il proprietario ha chiesto perché alcune storie dicessero «non ancora documentato». Ne sono emersi due errori: la mappa abbinava i file evento alla tabella per numero, e i file da 123 in poi sono spostati di quattro perché le uova di Pokémon Box erano numerate a parte; e il catalogo univa sotto la chiave vuota tre distribuzioni di uova. Corretti entrambi, e lette per sezioni le pagine di Bulbapedia, perché `curl` riceve 403 e la lettura intera si ferma all'indice. `provenienze-eventi.json` ha ora 38 gruppi, compreso Pokémon Box, i sottogruppi della chiave vuota e le date di WISHMKR, dei Jirachi del film e della festa delle stelle 2004, di ANA, degli Zigzagoon giapponesi, dei decennali tedesco e spagnolo, di Party of the Decade, di Journey Across America, di Pokémon Channel e delle uova del quinto anniversario. Otto fonti nuove sono in `SOURCES.md`. Il catalogo e la mappa sono rigenerati, e la mappa ha 29 pagine con le 54 uova segnate come da schiudere.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-23, sessantatreesima parte. ADR-079, il Wynaut dell'Isola Miraggio e la mappa da stampare
 
 Il dump `round 5` è quello del file di `giro11`, 420 posizioni coincidenti e 423 esemplari legali su 423. Il proprietario ha chiesto un Wynaut catturato all'Isola Miraggio al posto di un esemplare qualunque, ed è uscito il Sentret L10. Il Wynaut viene dalla tabella `gRoute130`, riquadro 0, livello 30, primo seme valido da uno stato arbitrario: personalità `ABAB9E37`, IV 23/29/12/23/22/23. Trovato e corretto un difetto del generatore dei selvatici: a pari livello le mosse iniziali seguono la tabella di apprendimento del gioco e non l'ordine alfabetico. Il difetto era senza effetto su Lotad e Seedot. File di `giro12`, `88a3d576…22e6`. `emerald_mappa_box.py` è riscritto per il formato di stampa chiesto: `.docx` orizzontale composto con python-docx, esportato in PDF da Word, 29 pagine verificate, con la storia di ogni evento da `provenienze-eventi.json`. Il box 7 e il box 11 sono a 6,25 punti.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-23, sessantaduesima parte. ADR-078, il lotto in coda al box 14 e la mappa stampabile dei box
 
 Il dump `round 4` del file di `giro10` dà 420 esemplari legali su 420, più i tre della squadra, ed è accoppiato a quel file posizione per posizione. Il proprietario ha chiesto il lotto in coda al deposito e una mappa di ogni posizione con le illustrazioni di Sugimori. `disposizione` ha ora la forma finale, con la storica a richiesta; `emerald_cartuccia_completa.py` la usa in uscita con `--senza-copie-di-scambio` e mette lo sfondo Sky sul box 12. Il file di `giro11`, `7bdb71b9…5d99`, è una permutazione verificata dei record di `giro10`, con i dati fuori dal deposito identici. Il nuovo `emerald_mappa_box.py` riconosce la provenienza di ogni posizione dai byte e prende i dati dal dump accoppiato per contenuto: collezione 177, eventi 176, biglietti 14, scambi 19, giganti 2, Parco Lotta 32, per box: 1-5 collezione, 6 collezione 27 ed eventi 3, 7-11 eventi, 12 eventi 23 e biglietti 7, 13 biglietti 7, scambi 19, giganti 2, Marowak e Regirock, 14 il lotto. La guida del Parco Lotta è rigenerata con il dump `round 4` e riscritta nella prosa, le sue figure mostrano i box 13 e 14; STUDIO-05 ha la sezione 17, il capitolo 14 della tesi una sezione nuova, la copertura è completa e il PDF compila a 356 pagine.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-23, sessantunesima parte. ADR-077, ventisette catture vere tornano nel deposito
 
 Dei 64 doppioni tolti dal file di `giro9`, 31 sono risultati cloni e 33 catture distinte; la lista sta in `giro9/doppioni-giro9.md` della cartella dei backup. Il proprietario ha scelto di togliere tutte le 27 copie di scambio del Parco Lotta per far rientrare 27 catture, lasciando fuori le sei più basse. `emerald_cartuccia_completa.py` ha ora le opzioni `--senza-copie-di-scambio` e `--rientrano`, che rifiuta un doppione con la personalità di un esemplare tenuto. Un primo tentativo con il Seedot B2-13 riscriveva la personalità del Delcatty B6-16, che ha la stessa: il Seedot è stato sostituito con il Sentret L10. Il file di `giro10` ha collezione 177, aggiunte 211, lotto 32, 420 su 420, nessun clone da rendere distinto, SHA-256 `de5ba7cb…df3d`.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-23, sessantesima parte. La cartuccia completa di terza generazione, preparata e non ancora scritta
 
@@ -959,19 +1087,27 @@ ADR-076, deciso dal proprietario in piu' domande: via i 27 cromatici forzati e l
 
 Alla chiusura della sessione il proprietario ha chiesto di rimettere nei posti del noleggio e dei cromatici forzati alcuni esemplari veri suoi e di <AMICO>, che la selezione dei doppioni aveva tolto; ma quei posti li occupano gli eventi e il deposito e' pieno, quindi la richiesta va chiarita nella sessione successiva, ed e' il primo punto del resume.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-23, cinquantanovesima parte. ADR-075, il file del risanamento, Ritorno e i Lotad e Seedot piu' grandi
 
 Il proprietario ha deciso come risanare i 40 irregolari e gli sfondi, ed e' ADR-075; ha notato che Ritorno, senza l'amicizia massima, non toglie quasi nulla, e aveva ragione su quattro esemplari del lotto, fra cui lo Slaking titolare; e ha chiesto il Lotad e il Seedot piu' grandi possibili. Il file che chiude Smeraldo e' pronto in `giro8/` e porta insieme risanamento, sfondi e ottavo giro del lotto; il suo giudizio in PKHeX decide anche se i cromatici selvatici generati con il solo primo metodo reggano, o se serva un generatore di selvatici con la catena completa, che e' comunque quello che servira' per Lotad e Seedot. Documento di conoscenza da scrivere: una sezione di STUDIO-02, dove il risanamento era stato diagnosticato, e una di STUDIO-05 per Ritorno.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-23, cinquantottesima parte. Il settimo giro e' sulla cartuccia
 
 Lettura di controllo identica al READBACK del mattino, scrittura, rilettura con impronta `cf471a10` identica al file preparato, e riscontro in gioco sui due Raikou. Le copie del lotto sulla cartuccia sono ora gemelle e nessun esemplare e' privo di abilita'. Il lavoro sul Vivillon Motivo Poke Ball e' rimandato dal proprietario a dopo la chiusura completa di Smeraldo, con la possibilita' di provarne la procedura su un salvataggio preso online, soltanto sul PC.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-23, cinquantasettesima parte. Il settimo giro promosso, e il Vivillon Motivo Poke Ball risolto
 
 Settimo giro in PKHeX, `Box Data Dump round7.csv`: 64 su 64, coppie con statistiche e abilita' identiche, Raikou con Pressione. Il file di sostituzione del lotto e' pronto in `giro7/` della cartella dei backup, prodotto dal READBACK del mattino perche' il proprietario non ha salvato, con impronta `cf471a10`; prima di scriverlo il proprietario fa una lettura di controllo da confrontare con `f5dd6cd5`.
 
 Il disaccordo sul Vivillon Motivo Poke Ball e' risolto a favore del carosello di clorogaming: la forma 19 arriva in HOME solo dalla Banca. La prova e' nel verificatore, `FormVerifier.cs` e i database dei doni, piu' la tabella dei trasferimenti da GO, con Serebii a conferma. La checklist segnava via diretta perche' la sua colonna misura la presenza della forma nei dati di un titolo e non l'esistenza di un incontro che la consegni: e' un limite di metodo che vale oltre il caso, e la correzione e' una tabella di eccezioni con la prova per ogni voce, `SOLO_DA_EVENTI_CHIUSI` in `tools/checklist-pokedex.py`. La rigenerazione aspetta i cloni completi.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-23, cinquantaseiesima parte. Le copie non gemelle, il Raikou senza abilita', e la tesi riallineata
 
@@ -981,17 +1117,23 @@ Corretto il generatore: bit nullo su ogni esemplare di Colosseum a slot unico, e
 
 La tesi era indietro: il capitolo 14 era verificato al 2026-09-21 e si fermava al terzo giro. Porta ora cinque sezioni nuove, con gli estratti di `CreateBoxMon`, `CALC_STAT` e `GetAbilityBySpecies` e le righe esatte, e reclama anche la guida; il capitolo 23 registra le fonti del giorno e la correzione alla tecnica dei collegamenti brevi di Reddit. La copertura e' del cento per cento senza capitoli in ritardo, e la tesi compila a 355 pagine senza errori. Documento di conoscenza: `STUDIO-05` sezione 16.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-23, cinquantacinquesima parte. La guida diventa operativa, con figure e una copia .docx
 
 Il proprietario ha chiesto tre cose sulla guida del Parco Lotta: una copia .docx tenuta allineata, piu' figure, e istruzioni operative invece di prosa lunga, senza perdere contenuto. `GUIDA-PARCO-LOTTA.md` e' stata riscritta in forma operativa: un avvio rapido in sei passi, le tre regole in tabella con il loro perche', e per ogni edificio la figura del box con i tre esemplari da prelevare numerati nell'ordine di squadra, la squadra generata e una tabella situazione e azione. I fatti sono gli stessi della versione in prosa, compresi i numeri del calendario, delle alterazioni della Serpe e delle quote del Palazzo; una sola imprecisione e' stata corretta passando in tabella, perche' STUDIO-04 da' lo Swampert Audace al 70 per cento d'attacco senza distinguere sopra e sotto la meta' dei punti salute.
 
 Le figure sono otto e le disegna `tools/parco_lotta_figure.py` dalla stessa funzione `disposizione` che ha scritto la cartuccia: la mappa dei box 12-14, una mappa per squadra e il calendario. Seguono la tavolozza di riferimento della skill di visualizzazione, con il giallo di stato sempre accompagnato dalla scritta perche' il validatore lo segnala sotto il contrasto minimo su fondo chiaro, e sono deterministiche. La copia `GUIDA-PARCO-LOTTA.docx` la scrive `tools/md-to-docx.py`, convertitore generale del progetto sulla libreria python-docx, perche' pandoc sulla macchina non c'e'; fissa le date interne e l'ordine dell'archivio, cosi' che il .docx cambi soltanto quando cambia la guida e non sporchi i commit. Un solo comando, `parco_lotta_percorso_oro.py`, aggiorna tabelle, figure e .docx. Figure e .docx restano fuori dal repository, perche' il `.gitignore` esclude `*.png` e `*.docx` per ADR-005, e la decisione non e' stata riaperta: sono derivati rigenerabili, e la guida lo dichiara in testata.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-23, cinquantaquattresima parte. Tre file diventano uno
 
 Il proprietario ha fatto notare che la guida, la misura delle riserve e il percorso erano tre file sullo stesso argomento e ha chiesto un documento solo, senza perdere contenuto, con la cancellazione degli altri due. `GUIDA-PARCO-LOTTA.md` e' ora quel documento: la prosa e' autorata, e le tabelle che discendono dal catalogo stanno fra coppie di marcatori che `tools/parco_lotta_percorso_oro.py` riscrive, lo stesso schema gia' in uso nell'indice generato di `SOURCES.md`. Lo strumento non produce piu' un file proprio, e `parco_lotta_mappa_riserve.py` resta come modulo di misura che il primo importa.
 
 La prova che non si e' perso nulla e' stata fatta prima di cancellare: tutte le 142 righe di tabella del percorso sono nella guida identiche, e tutte le righe della misura coincidono nei conteggi. Le sole differenze stanno nella colonna dei compagni piu' frequenti, e hanno rivelato un difetto: a parita' di conteggio l'ordine veniva da un insieme di stringhe, che Python rimescola a ogni avvio, quindi la tabella cambiava fra due corse senza che nulla fosse cambiato. Ora i pari si ordinano per nome, e tre corse consecutive danno lo stesso file, che e' la condizione perche' `--check` abbia senso.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-23, cinquantatreesima parte. La guida del Parco Lotta, il ritorno all'obiettivo principale, e sei fonti nuove
 
@@ -1003,23 +1145,33 @@ Le fonti nuove sono sei, lette in parallelo da un agente e dall'agente principal
 
 Una correzione a una regola, verificata direttamente: la tecnica per risolvere i collegamenti brevi di Reddit in `web-sources-not-fetchable.md` usava lo user agent `Mozilla/5.0`, che il 2026-09-23 riceve un 403 invece del reindirizzamento e fa restituire al comando il collegamento breve stesso. Con uno user agent completo da browser il 301 torna. La regola porta ora il comando corretto e il segno per accorgersi del guasto, cioe' un indirizzo finale senza `/comments/`.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-23, cinquantaduesima parte. Il lotto del Parco Lotta e' sulla cartuccia
 
 Il proprietario ha verificato in PKHeX il file riordinato, con 279 legali su 319 e gli stessi 40 irregolari, poi lo ha scritto con FlashGBX e lo ha riletto. Il SHA-256 della rilettura coincide con quello del file preparato, `f5dd6cd5...3435`, quindi la scrittura e' verificata byte per byte come `hardware-and-perimeter.md` prescrive. La seconda fase di ADR-067 e' fatta nella forma che ADR-074 le ha dato: i 64 esemplari sono nei box 12-14 della cartuccia, gli esistenti compattati nei box 1-9, i box rinominati. Il risanamento dei 40 irregolari resta al giro successivo.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-23, cinquantunesima parte. Il riordino del deposito e l'inserimento del lotto, preparati su una copia
 
 Il dump del salvataggio nuovo conta 255 esemplari e 40 irregolari, cioe' gli stessi gruppi del 2026-09-17 meno Doduo e Paras. Il proprietario ha chiesto di inserire subito il lotto con un solo giro di scrittura, lasciando il risanamento a un giro successivo. `tools/emerald_riordino_deposito.py` fa le tre cose di ADR-074 in una trasformazione sola: copia i record esistenti senza decifrarli nei box 1-9, inserisce i 64 file del lotto nelle posizioni di `parco_lotta_percorso_oro.disposizione`, e rinomina i box. Prima di scrivere rilegge il prodotto e verifica integrita', multinsieme dei record, posizione per posizione, invarianza di squadra, zaino, sfondi e slot inattivo, e assenza di personalita' condivise fra lotto ed esistenti. I file del lotto sono gia' nella forma cifrata da ottanta byte che il salvataggio usa, verificato decodificando e ricifrando entrambi, quindi si inseriscono tali e quali. Sugli sfondi e' emerso un fatto: i box 1, 13 e 14 usano gia' lo sfondo 16, cioe' lo sfondo Amici, quindi questa partita ne ha gia' uno. Il file prodotto ha SHA-256 `f5dd6cd5...3435`.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-23, cinquantesima parte. Estrazione nuova della cartuccia, backup verificato
 
 Il proprietario ha eseguito la procedura a micro passi, la stessa del 2026-09-17. FlashGBX 5.1 ha riconosciuto `AGB-BPEI-0` e 1M FLASH da 128 KiB senza impostazioni manuali, e l'orologio risulta non disponibile, come atteso con la pila esaurita. Due letture indipendenti, su E: e su J:, hanno dato lo stesso SHA-256, `d0281f2f...ae5c`, quindi il backup e' verificato secondo `hardware-and-perimeter.md`. Il salvataggio e' integro, porta l'identificativo 45761 e 800 ore e 2 minuti di gioco, letti dal file perche' il proprietario non li aveva annotati, ed e' diverso da quello del 2026-09-21, come deve essere dopo le partite al Parco. Le due copie sono state rinominate con lo schema abituale: `Pokemon - Versione Smeraldo (Italy) - ALEX-45761-800h02m-2026-09-23.sav`.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-23, quarantanovesima parte. Il percorso ai simboli d'oro, posizione per posizione
 
 Il proprietario ha chiesto la mappatura nella forma in cui la usa: per ogni edificio, fino al simbolo d'oro, quale esemplare prendere da quale posizione di quale box. E' `PERCORSO-SIMBOLI-ORO.md`, generato da `tools/parco_lotta_percorso_oro.py`, che fissa l'ordine nei box 12-14 di ADR-074 in una funzione sola: gli otto titolari nell'ordine della loro prima comparsa nelle squadre, poi le ventiquattro riserve per frequenza nei thread, con copia 1 e copia 2 affiancate; il box 14 resta occupato nelle sole prime quattro posizioni.
 
 Il calendario applicato e' quello di STUDIO-04 sezione 5, con lo scarto: sei serie di fila all'Azienda e al Palazzo, otto al Dojo, dieci alla Torre e alla Serpe, dieci tornei alla Cupola, e undici serie alla Piramide, perche' Baldo sta sul piano 71. Due cose che il catalogo non diceva e che il documento ora dice. La prima e' che un file porta lo strumento della prima squadra in cui l'esemplare compare: il Metagross Deciso esce con Avanzi dalla Cupola, e alla Torre, al Dojo e alla Serpe gli va data la Bendascelta in gioco. La seconda e' che le due mosse cambiate per la Piramide si insegnano con le MT, che in terza generazione si consumano, ed e' una ragione in piu' per giocarla per ultima. Nature, mosse e strumenti sono in italiano, letti dal dump di PKHeX e dal glossario invece che tradotti.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-23, quarantottesima parte. ADR-074 sul riordino del deposito, la misura delle riserve, e lo sfondo Amici letto nel sorgente
 
@@ -1029,9 +1181,13 @@ Sugli sfondi il sorgente di Smeraldo ha fissato due fatti prima di progettarli. 
 
 La mappatura delle riserve e' avviata come misura. `tools/parco_lotta_mappa_riserve.py` conta sulle 268 squadre dei thread in quali edifici compare ciascuna specie del lotto, con la serie piu' lunga dichiarata, e per ogni posto di ogni squadra quali riserve hanno giocato accanto ai due titolari che restano; l'esito e' `MAPPA-RISERVE.md`. Tre risultati da tenere: Salamence e Starmie sono i candidati piu' ricorrenti per quasi ogni posto, perche' sono le specie che nei thread giocano piu' spesso con Metagross e Latios; Latias e' la sostituta naturale di Latios, dieci squadre alla Torre con serie fino a 378; e al Palazzo le riserve piu' presenti sono Starmie 9, Salamence 8, Flygon e Scizor 4, cioe' la squadra da attacco puro che quell'edificio chiede. La parte autorata, cioe' la scelta, resta da scrivere.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-23, quarantasettesima parte. Il sesto giro a 64 su 64, e la prima fase di ADR-067 chiusa
 
 Il proprietario ha salvato `_notes/lotto-parco-lotta/Box Data Dump round6.csv`: 64 righe conformi su 64, il primo giro del lotto senza alcun respinto. Le due copie di Flygon passano, e Suicune e Raikou sono riconosciuti da PKHeX come "COLO Shadow Encounter" 23 e 34, luogo 110 e 113 (nell'interfaccia italiana Cupola Torre, cioe' la Torre Realgam), allenatore WES 26243/55008, fatidico spento. Tutte le correzioni del 2026-09-22 e del 2026-09-23 sono quindi confermate da un verificatore indipendente, e la prima fase di ADR-067 e' chiusa. Emerge un punto nuovo per la seconda fase: 64 file non entrano nei due box da trenta previsti, ed e' registrato in `pending.md`.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-23, quarantaseiesima parte. Il quinto giro a 59 su 60, il bit dell'abilita' di Flygon, e Colosseum implementato
 
@@ -1050,6 +1206,8 @@ ADR-073 e' fatto. Il generatore ha una terza via accanto al primo metodo e alle 
 ### Lo stato del lotto
 
 Trentadue esemplari e sessantaquattro file, rigenerati e riletti dal disco, tutti conformi al catalogo, tutti simmetrici, i due cani con la correlazione di Colosseum ritrovata all'indietro. Tyranitar resta fuori. Il prossimo passo e' il dump del sesto giro, e l'attesa e' 64 su 64.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-22, quarantacinquesima parte. La sovracorrezione sull'esperienza, rientrata dal proprietario, e la scelta di Colosseum
 
@@ -1075,6 +1233,8 @@ Restano Suicune e Raikou, per i quali il livello non era il problema principale:
 
 Trenta esemplari e sessanta file, rigenerati e riletti dal disco, tutti conformi al catalogo e tutti simmetrici. Tyranitar resta fuori perche' evolve a livello 55. Suicune e Raikou restano sospesi in attesa dell'implementazione di Colosseum. Il dump del quinto giro non e' ancora stato chiesto: e' il primo passo della sessione successiva, e l'attesa e' che di irregolare non resti nulla fuori dai due sospesi.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-22, quarantaquattresima parte. Le due cause restanti, trovate nel sorgente di PKHeX invece che chieste
 
 ### Il cambio di metodo, che e' la cosa che vale piu' del risultato
@@ -1097,6 +1257,8 @@ Le tre conseguenze sono di natura diversa. Latios e Latias passano dall'evento d
 
 Prima di comporre un esemplare si confronta il livello di incontro con il livello di gioco, e se coincidono si rifiuta un catalogo che chieda punti base fuori dal tetto delle vitamine, dicendo quale statistica e proponendo una provenienza a livello piu' basso. Il lotto e' ora di trenta esemplari e sessanta file: Tyranitar escluso per il livello di evoluzione, Suicune e Raikou sospesi.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-22, quarantatreesima parte. La cartella dei report rimossa, e una cartella di uscita annidata per errore
 
 La cartella `reports/` e' stata rimossa dall'utente dopo l'esame che ne aveva accertato l'assorbimento: il suo unico report, quello sui formati e sul lato Game Boy, ha oggi la propria materia nel capitolo sul cavo link e nell'appendice sui codici della tesi, piu' estesa di com'era la'. E' ADR-071. Le tre tracce che il resto del repository ne portava sono state tolte nello stesso giro, cioe' la riga dell'indice dei satelliti nel `CLAUDE.md` e il rimando in testa a `tesi/preambolo.tex`, che dichiarava di derivare da un file ora inesistente; il vincolo tecnico che quel commento spiegava, cioe' la TinyTeX minimale di questa macchina, resta scritto dov'era.
@@ -1104,6 +1266,8 @@ La cartella `reports/` e' stata rimossa dall'utente dopo l'esame che ne aveva ac
 Nello stesso giro e' emerso un difetto di mia esecuzione che vale registrare perche' la sua forma e' istruttiva. Avevo lanciato il generatore del lotto passando come cartella di uscita quella degli esemplari invece di quella del lotto, e il programma, che crea lui la sottocartella, ne ha prodotta una seconda dentro la prima: due cartelle omonime annidate, la vecchia con i file del terzo giro e la nuova con quelli del quarto. Il proprietario se n'e' accorto non potendo piu' dire quale caricare nel verificatore, ed e' esattamente il difetto peggiore di questa classe, perche' non produce alcun errore e il lotto sbagliato si carica benissimo.
 
 La correzione non e' stata cancellare a mano ma chiudere il difetto nel programma, in due presidi. Il primo rifiuta un percorso di uscita il cui ultimo elemento sia gia' la cartella degli esemplari, dicendo quale passare. Il secondo rifiuta di scrivere in una cartella che contiene gia' i file di un lotto precedente, a meno che non si chieda esplicitamente di sostituirli, e la ragione e' piu' seria dell'ordine: scrivendo sopra, i file di un esemplare uscito dal catalogo nel frattempo restano dov'erano, e il lotto caricato diventa la somma di due giri diversi. E' proprio il caso che si stava per verificare, perche' Tyranitar e' uscito dal catalogo in questo giro e le sue due copie del terzo giro sarebbero rimaste nel mucchio. La cartella ora contiene sessantaquattro file e nient'altro.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-22, quarantaduesima parte. Il secondo referto, e la differenza fra pulito e legale
 
@@ -1122,6 +1286,8 @@ Corretto e rigenerato. La provenienza introdotta nel giro precedente ha invece r
 ### La disciplina adottata, su richiesta dell'utente
 
 Una correzione per volta e poi una verifica, invece di accumulare modifiche fra due referti. La ragione l'ha data l'utente stesso chiedendo di procedere in ordine: se si aggiungono dieci specie mentre un difetto di fondo e' ancora aperto, quel difetto si moltiplica per dieci e il referto successivo diventa illeggibile. L'ampliamento del catalogo resta quindi in attesa del referto che confermi la lingua.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-22, quarantaduesima parte. Il terzo referto, tre cause trovate nel dump e due da chiedere
 
@@ -1152,6 +1318,8 @@ Il solo scostamento vero fra gli insiemi chiesti e quelli generati e' Gengar, ed
 ### La cartella dei report di milestone, e la proposta di rimuoverla
 
 Il proprietario ha chiesto se `reports/` si possa cancellare o inglobare. L'esame dice che si puo', e la ragione e' che il suo unico contenuto e' stato assorbito: il report di milestone uno tratta i formati e il lato Game Boy, e quella materia oggi sta nel capitolo sul cavo link e nell'appendice sui codici della tesi, con una trattazione piu' estesa. La cartella tiene quattro file tracciati, cioe' il report, il preambolo, la configurazione di compilazione e il README, piu' una dozzina di derivati non tracciati. Il preambolo e' l'unica dipendenza dichiarata altrove, perche' `tesi/preambolo.tex` dice di derivarne, ma quella derivazione e' gia' avvenuta ed e' storica, non viva. La proposta e' quindi la rimozione piena con una riga nel registro delle decisioni che dica dove il contenuto e' finito, invece di un reindirizzamento che lascerebbe una cartella vuota con un rimando.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-22, quarantunesima parte. Il primo referto di PKHeX, e i tre difetti che ha trovato
 
@@ -1187,6 +1355,8 @@ La regola generale che ne discende e' registrata in `pending.md` perche' tornera
 
 Fuori dai tre difetti sopra, nessun esemplare e' stato contestato su natura, valori individuali, mosse, abilita', livello, punti base o relazione fra personalita' e valori individuali. Il dump dichiara per ciascuno il tipo di generazione riconosciuto, cioe' Method_1, che e' quello che la pipeline costruisce apposta. La parte difficile, cioe' la coerenza fra personalita' e valori individuali, ha retto al primo colpo.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-22, quarantesima parte. La prima fase di ADR-067: i quindici esemplari generati e verificati
 
 ### Il problema vero, che non era comporre i campi
@@ -1216,6 +1386,8 @@ Un difetto dell'estrattore vale la riga perche' e' silenzioso: gli oggetti nel s
 ### Un difetto di forma, trovato e chiuso alla radice
 
 I documenti Markdown versionati vogliono la lettera accentata mentre i sorgenti restano in ASCII puro con l'apostrofo, quindi i due strumenti che generano Markdown convertono al momento della scrittura. La prima versione usava un dizionario di trentaquattro voci e andava estesa a ogni parola nuova, scoprendolo solo facendo fallire il controllo; e' stata sostituita da una regola sulla classe, cioe' vocale finale piu' apostrofo, con due cautele che la rendono sicura su un testo che contiene nomi inglesi: si converte solo dopo una vocale, il che lascia intatto King's Rock, e non si converte se segue una esse, il che lascia intatto un possessivo. I composti di che, ne e se prendono l'accento acuto e sono l'unica eccezione.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-22, trentanovesima parte. Il tetto di livello capito al contrario, le mosse verificate, e il deposito misurato
 
@@ -1247,6 +1419,8 @@ La stessa lettura ha mostrato qualcosa che nessuno aveva chiesto: tre box si chi
 
 L'utente ha chiesto di non dover piu' ricordare che nessuna fonte resti non letta. L'audit del registro ha trovato sei voci del Parco Lotta ancora marcate non lette che erano state lette in sessione senza che la riga venisse aggiornata, cioe' le pagine Bulbapedia di Cupola, Serpe, Piramide e Torre, l'elenco degli allenatori e un post del thread principale. Corrette tutte e sei con cio' che ciascuna ha effettivamente dato. Nella sezione del Parco Lotta restano due voci non lette ed entrambe sono dichiarate: l'elenco degli allenatori, superato per scelta dalle due tabelle di dati gia' confrontate fra loro, e la discussione 2246, abbandonata per decisione dell'utente con ADR-069. Fuori da quella sezione restano voci non lette che appartengono ad altri track, cioe' poke-ace, la ricreazione degli eventi, il trading LDN e il completamento del Pokedex: non sono state toccate in questo giro perche' non appartengono al fronte attivo, e la cosa e' dichiarata qui invece di essere taciuta.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-21, trentottesima parte. Le quattro decisioni chiuse, e i dieci giri che nessuna fonte copre
 
 ### Le domande, poste come domande
@@ -1271,6 +1445,8 @@ Quindici esemplari distinti, otto in squadra e sette di riserva, trenta slot con
 
 Resta un solo avviso aperto sul catalogo, ed è corretto che resti: Heracross richiede un livello reale di almeno cinquantatre perché conosca Megahorn, che in Smeraldo è mossa di livello e non macchina, mentre il Parco ricalcola comunque le statistiche a cinquanta.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-21, trentasettesima parte. Le fonti tracciate nel progetto, e le squadre composte
 
 ### Il buco che l'utente ha visto, e che era reale
@@ -1292,6 +1468,8 @@ Il numero è l'esito che conta. ADR-068 applicata alla lettera chiedeva quaranto
 L'ordine di attacco che ne discende non viene dalle preferenze ma dai difetti: prima la Cupola Lotta, i cui avversari restano a tre punti individuali; subito dopo l'Azienda Lotta, perché la sua difficoltà si guasta appena la serie alla Torre cresce; e nessuno dei due chiede un esemplare generato, quindi due simboli su sette si possono cominciare prima che la pipeline esista.
 
 Una specie del catalogo non veniva dal materiale dell'utente e va confermata da lui: Blissey alla Serpe Lotta, scelta perché compare nelle due serie più lunghe dichiarate per quell'edificio. Restano fuori senza essere scartati Milotic, Starmie, Gengar, Salamence, Suicune, Snorlax e Heracross.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-21, trentaseiesima parte. Le trenta fonti Smogon lette, e tre difetti del gioco che riscrivono il piano
 
@@ -1320,6 +1498,8 @@ Il terzo riguarda il Palazzo Lotta e ribalta il modo ovvio di comporre la squadr
 La guida generale su Pastebin descrive la progressione della difficoltà in otto categorie di allenatore con punti individuali 3, 6, 9, 12, 15, 18, 21 e 31 e la settima lotta di ogni serie che pesca dalla categoria successiva: è esattamente la struttura ricavata in modo indipendente dalle tabelle del sorgente nella sessione precedente, senza averla letta da nessuna parte. Due vie indipendenti sugli stessi otto numeri.
 
 Sul merito, il quadro delle squadre è convergente quanto quello delle meccaniche: il nucleo Metagross, Latios e Swampert ricorre in testa alle quattro liste di edificio ricavate dai post, ed è anche la squadra della guida al completamento integrale. Non è una moda del forum ma un accordo fra persone che non si sono copiate.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-21, trentacinquesima parte. Il catalogo degli avversari spogliato, le meccaniche verificate sul sorgente, ADR-068
 
@@ -1354,6 +1534,8 @@ Alla domanda lasciata aperta, cioè se volesse una squadra sola per i sette edif
 ### Che cosa resta, dichiarato
 
 Le circa trenta fonti Smogon restano non lette, e l'etichetta che le dichiara tutte dietro autenticazione resta da verificare voce per voce, perché su una di esse è già stata smentita. I due difetti dell'Azienda Lotta letti su Bulbapedia, cioè i punti individuali casuali alla nona serie e l'effetto del riposo con salvataggio e ricarica, restano marcati DA VERIFICARE. Nessuna delle due fasi di ADR-067 è iniziata, e nulla è stato scritto sulla cartuccia in questa sessione.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-21, trentaquattresima parte. Il Parco Lotta aperto davvero: fonti lette, tabelle estratte, STUDIO-04
 
@@ -1395,6 +1577,8 @@ Un dettaglio operativo che costa tempo e va ricordato: l'indirizzo di un post sp
 
 Nessuna scrittura sulla cartuccia in questa sessione, e nessuno strumento di generazione costruito: le due fasi di ADR-067 non sono iniziate, per la ragione dichiarata che si legge abbastanza da sapere che cosa generare prima di costruire il generatore.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-18, trentatreesima parte. ADR-066, il quinto giro costruito, e la riconciliazione delle schede
 
 ### La decisione, più larga della proposta
@@ -1414,6 +1598,8 @@ La catena è stata percorsa per intero sul file che è oggi il contenuto della c
 `sync-context` è stato eseguito con HEAD a `9d76096`. Le schede trasversali risultavano stale per i file di Smeraldo cambiati in quel commit e per il drift residuo su `pokedex-home-completo/` che resta dal 2026-09-16. Sono state riconciliate nel merito tre schede trasversali e una verticale: `STACK.md` e `dev-testing.md` elencavano due soli script di scrittura quando adesso sono cinque, e nessuna delle due nominava i due strumenti sui flag, quindi l'inventario degli strumenti e il protocollo di verifica sono stati riscritti nel punto impattato; `current-work.md` aveva la riga di Smeraldo ferma ai due giri del 2026-09-17; e `sub-pokedex-home-completo.md` ha guadagnato una porta che non passa da un lotto composto, cioè Deoxys e Mew catturabili sulla cartuccia vera, che è la prima di questo genere per quel track. I `last-verified-commit` NON sono stati bumpati, perché il lavoro di questa sera non è committato e perché il drift su `pokedex-home-completo/` resta aperto.
 
 Sui timbri di tesi il debito è sceso da sei capitoli a uno. Cinque sono stati portati a `9d76096` perché i documenti che coprono non sono cambiati nel lavoro non committato, cioè i capitoli 00, 02, 23, 28 e 31. Resta il capitolo 14, che copre `STUDIO-03` e che quindi va bumpato soltanto dopo il commit di questa sera. Il capitolo ha in più due paragrafi nuovi sulla decisione presa e sulla catena di tre strumenti, e la tesi ricompila a 341 pagine.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-18, trentaduesima parte. Il riscontro positivo, due isole vuote, e una prova al posto di un'ipotesi
 
@@ -1449,6 +1635,8 @@ La decisione non è stata presa e attende l'utente: è in `pending.md` con i due
 
 `STUDIO-03` ha cinque sezioni nuove, dalla 14 alla 18, e due rimandi inseriti nelle sezioni 8 e 13 perché una versione superata non sembri corrente. Il capitolo 14 della tesi ha una sezione nuova con due sottosezioni, che copre il materiale nuovo e che porta in tesi il principio generale dei due assi di stato, cioè il permesso e la presenza, e il metodo della combinazione impossibile. La tesi ricompila a 341 pagine senza rilievi.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-18, trentunesima parte. Sei nomi sbagliati, la scrittura sulla cartuccia, e cinque richieste nuove
 
 ### La correzione dei nomi italiani, che è il fatto più importante della giornata
@@ -1471,6 +1659,8 @@ L'utente ha obiettato che il Biglietto Magico fosse stato messo nella tasca. Non
 
 Sono in `pending.md` come quarto giro. La prima riguarda la Grotta Mutevole e il Succodibacca, e su di essa il lavoro di verifica è già fatto: la grotta è chiusa dalla variabile `VAR_ALTERING_CAVE_WILD_SET`, che sta a due byte dalla variabile del Biglietto Eone e vale zero perché il Dono Segreto che doveva impostarla non è mai stato distribuito, ed è quindi lo stesso schema dei biglietti; il Succodibacca lo tengono Shuckle e Aipom soltanto dentro quella grotta, perché fuori lo Shuckle tiene Bacca Oran, e in terza generazione non è ottenibile altrimenti. Le altre quattro sono la pulizia del deposito PC con sostituzione dei sette oggetti da battaglia comuni, i set del Parco Lotta, la Piramide con una squadra indicata da un post di Smogon, e il doppio controllo delle forme regionali per il track del Pokedex. Le cinque fonti consegnate sono state scaricate e non ancora lette, tranne quella sulla Grotta Mutevole.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-18, trentesima parte. La decisione presa, il terzo giro costruito, il debito di tesi chiuso
 
 ### La decisione, e il terzo giro di correzione
@@ -1490,6 +1680,8 @@ Mentre lo studio veniva scritto, l'utente ha riferito di avere già raggiunto l'
 L'utente ha chiesto di colmare il debito di composizione, e il debito è stato colmato per intero. Il capitolo `14-caso-smeraldo.tex` ha guadagnato tre sezioni nuove che coprono `STUDIO-02` e `STUDIO-03`, cioè il censimento dei depositi con le tre firme distinte, la restituzione del simbolo della Frontiera con il record che lo accompagna, e l'episodio dei biglietti con il principio generale che ne discende, cioè che l'inventario registra il possesso mentre i flag registrano l'accaduto e una consegna è entrambe le cose. Il capitolo `02-supporto-e-salvataggio.tex` ha guadagnato la sottosezione che gli mancava dal 2026-09-15 sul trabocchetto di tensione, che era l'unico capitolo in SECONDO MODO del progetto.
 
 Gli esiti misurati: copertura dal 99,7 per cento al cento, sezioni scoperte da 22 a zero, e il PDF che compila in 339 pagine con `check-thesis-pdf.py` senza alcun rilievo. Restano quattro capitoli in drift, tutti in PRIMO MODO, cioè chiudibili con il solo bump del timbro subito dopo il commit.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-18, ventinovesima parte. La checklist chiusa, e i biglietti che non aprivano nulla
 
@@ -1521,11 +1713,15 @@ Il trabocchetto che chiude la via ufficiale nello stato attuale è stato trovato
 
 Il track non ha più nulla in sospeso sull'inventario. Resta aperta una decisione dell'utente fra tre vie, descritte con i loro costi nella sezione 9 di `STUDIO-03-doni-segreti-e-flag-delle-isole.md`, e per le prime due serve un ADR. Resta anche una domanda da porgli, cioè quale delle due vie avesse tentato l'estate scorsa, perché non è deducibile dai dati.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-17, ventottesima parte. Version control e sync-context di chiusura sessione
 
 Primo commit di questa sessione, `dc3a851`, con tutto il lavoro della ventisettesima parte. Subito dopo, su richiesta dell'utente di rendere la sessione chiudibile "come da template di progetto", eseguita `sync-context`: le schede toccate da questa sessione (`sub-smeraldo-save-fix.md`) sono riconciliate e bumpate a `dc3a851`. Le cinque schede trasversali che coprono anche `gba-save-extraction-smeraldo/` (`STACK.md`, `design-and-security.md`, `dev-testing.md`, `current-work.md`, `roadmap.md`) risultavano in drift su due fronti indipendenti: quello di Smeraldo, riconciliato nello stesso giro (`STACK.md` e `dev-testing.md` descrivevano ancora PKHeX come lo strumento di correzione invece dello script deterministico in uso da due giri; `current-work.md` e `roadmap.md` dichiaravano il track ancora bloccato sull'arrivo del lettore; `design-and-security.md` ha ricevuto una riga sulla nuova istanza di dati personali di terzi entrata in `pending.md`), e quello di `pokedex-home-completo/`, aperto da commit precedenti a questa sessione e fuori scopo stasera: il checkpoint delle cinque schede non è stato bumpato apposta, per non far sparire questo secondo fronte, registrato in `pending.md`.
 
 Riscritto per intero `_notes/resume-prompt.md` con la domanda di ripresa esatta (checklist del secondo giro) e l'elenco dei file toccati.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-17, ventisettesima parte. Il riscontro visivo, il mistero della squadra, il secondo giro
 
@@ -1552,6 +1748,8 @@ Nuovo strumento, `tools/emerald_bag_fix_round2.py`: rimuove Merce Devon, Sfera R
 ### Una correzione di convenzione, per non perderla in una sessione futura
 
 I file di questo secondo giro erano stati nominati con comodo (`round2.sav` e simili), abbandonando la convenzione del primo giro. L'utente ha richiamato la convenzione e chiesto di non discostarsene mai più: è ADR-064. I file sono stati rinominati sui due dischi secondo lo schema allenatore-ID-tempo di gioco-data, con il tempo di gioco letto davvero dal file (788 ore 44 minuti, diverso dalle 788 ore 36 del primo giro perché l'utente ha continuato a giocare fra un giro e l'altro) e non copiato dal giro precedente; ogni riferimento nei documenti tracciati è stato aggiornato nello stesso giro.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-17, ventiseiesima parte. Il salvataggio reale di Smeraldo, estratto e diagnosticato
 
@@ -1627,6 +1825,8 @@ L'utente ha incollato in chat una squadra per il Parco Lotta a Lv.50, da costrui
 
 `gba-save-extraction-smeraldo/STUDIO-01-diagnosi-e-correzione-inventario.md` (nuovo), `gba-save-extraction-smeraldo/README.md`, `.claude/context/sub-smeraldo-save-fix.md`, `.claude/memory/index.md`, `.claude/memory/pending.md`, `.claude/memory/progress.md` (questa voce). Non committato: resta all'utente decidere quando.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-16, venticinquesima parte. Il corpus è chiuso, e la coda conteneva la terza prova del ritiro
 
 ### Perché la coda è stata letta adesso
@@ -1663,6 +1863,8 @@ La chiusura ha fatto emergere un difetto in `tools/indice-fonti-unico.py` della 
 
 Scritti `pokedex-home-completo/LETTURA-DEL-CORPUS.md` (lotto nuovo in otto sezioni, e diciassette righe nuove nella tabella di stato), `tools/indice-fonti-unico.py`, `SOURCES.md` (blocco rigenerato), `tesi/capitoli/31-corpus-e-pianificazione.tex` (due sezioni nuove e sette ancore di copertura), `.claude/memory/pending.md`, questo file, `.claude/context/sub-pokedex-home-completo.md` e `_notes/resume-prompt.md`. Gli otto controlli passano, con la tesi ricompilata a 330 pagine e nessun titolo assente dal PDF; resta il solo drift preesistente del capitolo 02. I timbri `verificato-al-commit` dei capitoli 28 e 31 andranno portati al commit che include questo giro.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-16, ventiquattresima parte. Il passo successivo dichiarato non esiste, e la via che esiste al suo posto
 
 ### Che cosa è stato ritirato, e perché la verifica è costata una lettura
@@ -1688,6 +1890,8 @@ La via passa per il Trasferitore e per la banca, che è l'unico ingresso verso i
 ### I file scritti e i controlli
 
 Scritti `pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md` (nuova sezione finale in tre parti, e ritiro del paragrafo che dichiarava il passo successivo), `tesi/capitoli/28-catena-di-trasferimento.tex` (ritiro del medesimo paragrafo, nuova sezione, tre ancore di copertura), `.claude/context/sub-gen12-gen3-bridge.md`, `.claude/context/sub-pokedex-home-completo.md`, questo file, `pending.md` e `_notes/resume-prompt.md`. Gli otto controlli prima del commit passano tutti, con la tesi ricompilata a 328 pagine e nessun titolo assente dal PDF; resta il solo drift preesistente e fuori scopo del capitolo 02 sulla batteria. Il timbro `verificato-al-commit` del capitolo 28 andrà portato al commit che include questo giro, perché il documento coperto cambia in esso.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-15, quindicesima parte. Il secondo carico sul Rubino, dalla lettura corrotta al salvataggio pronto per la scrittura
 
@@ -1715,6 +1919,8 @@ Durante questa sessione è emersa la domanda se scrivere direttamente nel deposi
 
 Il file composto è stato scritto sulla cartuccia con Write Save Data di FlashGBX, che ha dichiarato da sé la scrittura riuscita e verificata in 12 secondi. Il read-back indipendente, letto subito dopo dalla cartuccia, ha hash SHA-256 identico al file scritto: 0f5f298dfadf668568e86f092df5f6acea9c028b7b17864c296f151a8647662a su entrambi, 131072 byte. È la seconda scrittura reale su hardware di questo progetto dopo quella del Pikachu del giorno precedente, e la prima a portare un lotto intero invece di un solo esemplare: la cartuccia porta ora 205 esemplari prodotti dal progetto nel deposito, squadra vera intatta. Resta da fare il controllo in gioco a campione, previsto sulla console vera e non più uno per uno come per il primo esemplare.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-15, diciassettesima parte. Il video del Rubino, e la convalida hardware conclusa
 
 ### Il riscontro visivo
@@ -1724,6 +1930,8 @@ Il video consegnato dall'utente è stato letto a fotogrammi con `ffmpeg` (un fot
 ### Che cosa chiude
 
 Con questo la convalida della catena hardware-driver-software è conclusa non su un solo esemplare ma su un lotto intero: 205 esemplari scritti, letti indietro per hash, e ora anche osservati in gioco. Il prossimo collegamento del lettore, per decisione dell'utente coerente con la sequenza già stabilita in `RUNBOOK-PRIMA-SESSIONE.md`, è per Smeraldo. Aggiornato lo stato in `sub-smeraldo-save-fix.md`.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-15, sedicesima parte. La checklist rigenerata, e un documento quasi rotto senza che nessuno lo chiedesse
 
@@ -1738,6 +1946,8 @@ Il primo lancio della rigenerazione ha omesso il parametro che include i salvata
 ### Che cosa resta deliberatamente fuori
 
 Alcremie a sessantatré forme e le centodue specie dell'asse del sesso restano fuori perché richiedono una decisione su quale fonte prevalga sui dati di PKHeX, non presa d'iniziativa. Gli incontri condizionati restano fuori perché nessun generatore li produce ancora: non sono una fonte disponibile finché restano un censimento e non un lotto.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-16, ventitreesima parte. Il Parco Amici sintetizzato in software: costruito, verificato, 203 esemplari su 209
 
@@ -1761,11 +1971,15 @@ Componendo `FRLG-0083.pk3` (soprannome `CH'DING`) la transcodifica del nome ha f
 
 Estendere la stessa pipeline a `_notes/lotto-gb/` (165 voci di prima e seconda generazione, già in formato di terza tramite `pokebridge`) non è stato fatto per mancanza di tempo nel giro: è il prossimo passo naturale, dichiarato e non improvvisato. La documentazione completa, con ogni mutazione e la sua fonte esatta, sta nella nuova sezione di `pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md`.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-16, ventiduesima parte. Il seme posizionale, e la riproducibilità rotta su diciotto voci già su hardware vero
 
 Aggiungere le quattro voci `BACD_U` al catalogo (ventesima parte) ha spostato l'indice di tutto ciò che le segue nel file fonte, perché il generatore derivava il seme di ciascuna voce dalla propria posizione nell'ordine di lettura e non da un'identità propria. Verificato due volte con metodi diversi: confrontando l'insieme dei valori di personalità delle 205 posizioni occupate nel salvataggio vero della cartuccia Rubino contro l'insieme prodotto dal lotto rigenerato, diciotto posizioni reali (122-135 e 157-160, tutte nel gruppo delle uova "con mossa") non hanno più alcun file corrispondente nel lotto rigenerato.
 
 Non è un dato perso: la cartuccia resta intatta e il backup verificato pure. È la riproducibilità byte per byte a essersi rotta, cioè il pedigree che il progetto tiene a garantire su ogni esemplare prodotto. La correzione è in corso: derivare il seme da un identificativo stabile della voce (allenatore, specie, nota di distribuzione) invece che dalla posizione, così che una voce inserita altrove nella lista non sposti più quelle esistenti, e verificare che le 172 voci storiche tornino a produrre esattamente i valori già sulla cartuccia vera.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-16, ventunesima parte. Gli scambi in gioco di quinta generazione, primo strumento sul formato pk5
 
@@ -1775,9 +1989,13 @@ Due assunzioni ereditate dal generatore di quarta generazione erano sbagliate e 
 
 Il lotto resta doppiamente in attesa: del giudizio esterno, e di un veicolo, perché nessun salvataggio di quinta generazione esiste ancora nella raccolta del progetto.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-16, ventesima parte. Il Zigzagoon con Estrarapido: non era un'aspettativa sbagliata, era un vuoto del generatore
 
 L'utente ha chiesto se il famoso Zigzagoon con Estrarapido (Extreme Speed) della distribuzione per il difetto delle bacche fosse fra gli esemplari prodotti: non lo è, e il lotto composto porta solo Azzannata/Ruggito/Latrato su tutte e quattro le sue varianti. La causa non è un'assunzione sbagliata dell'utente: è nel catalogo generato (`EVENTI-GEN3.md`, blocco "Pokémon Box -- Recipient", allenatore giapponese AZUSA, metodo `BACD_U`), ma `tools/genera-evento-gen3.py` non supporta quel metodo specifico (riconosce `BACD_U_AX` e non `BACD_U`) senza dichiararlo come esclusione nominata, a differenza del canale televisivo che è escluso esplicitamente. Il conto torna esatto: 177 catalogati meno 172 prodotti sono il canale televisivo più quattro uova gemelle con lo stesso difetto, cioè Swablu con Falsofinale, questo Zigzagoon, Skitty con Giornopaga e Pichu con Surf. Una frase di `EVENTI-GEN3.md` datata 2026-09-09 le dichiarava erroneamente già producibili: corretta. Resta un lavoro di produzione aperto e non ancora fatto: estendere il generatore al metodo `BACD_U` per queste quattro voci.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-16, diciannovesima parte. Il Mew giapponese passa il Parco Amici: la stazione dedicata non serve più
 
@@ -1792,6 +2010,8 @@ L'utente ha trascinato `_notes/lotto-eventi/011-HadouMew-Mew.pk3` (OT giapponese
 ### La conseguenza
 
 I settantatré esemplari giapponesi del lotto eventi non richiedono più una stazione dedicata in emulazione giapponese per attraversare la catena verso Pokemon Home. Restano nicknamed in modo permanente con il proprio nome di specie giapponese, che è un difetto cosmetico già noto (la resa a video sbagliata su hardware non giapponese) e non un ostacolo di legittimità o di catena. Resta necessaria la sola stazione coreana, per i ventotto esemplari di quarta generazione di ADR-040. Aggiornati `pending.md` e `pokedex-home-completo/CATENA-DI-TRASFERIMENTO.md`.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-16, diciottesima parte. La scappatoia Spada/Scudo, chiusa in negativo dopo verifica
 
@@ -1811,6 +2031,8 @@ Anche ammettendo che la scappatoia regga davvero, il suo costo supera quello del
 
 La ricerca ha anche chiarito la differenza fra due tecniche di famiglia diversa, menzionata di passaggio in una delle fonti: l'iniezione di una wondercard via `PKHeX`, che replica davvero il dono così come il servizio lo avrebbe consegnato, e l'esecuzione di codice arbitrario di terza generazione, che fa comparire l'oggetto sullo schermo senza replicare il meccanismo del dono. Sono due vie diverse con proprietà diverse, e vanno tenute distinte quando si parla di legittimità.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-14, undicesima parte. Il lotto degli scambi è chiuso, diciannove su diciannove
 
 ### L'esito
@@ -1828,6 +2050,8 @@ Cinque campi sbagliati in tutto, e tutti e cinque della stessa famiglia: cose ch
 ### Che cosa resta di questa classe
 
 Restano le ventisette voci di scambio delle altre generazioni che portano il valore di personalità nella fonte, cioè sedici di quarta, sette di quinta e quattro di ottava, più le voci senza valore di personalità dichiarato, sulle quali la fedeltà torna a essere un argomento come per le altre classi. Restano inoltre le due generazioni che il ponte già scrive, la prima e la seconda, dove gli scambi hanno identificativi e valori individuali casuali e quindi la legittimità è banale.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-14, decima parte. I byte spazzatura, e una misura che spiega tutte e diciannove le voci
 
@@ -1853,6 +2077,8 @@ Nell'ottava parte il sesso dell'allenatore separava perfettamente i due gruppi i
 
 È il caso di scuola per cui una separazione perfetta su un campione di diciannove non è una spiegazione: due variabili correlate fra loro separano allo stesso modo, e distinguere quale sia la causa richiede di guardare la regola e non i dati. Qui la regola era leggibile in due posti, il sorgente del verificatore e il testo del suo giudizio, e nessuno dei due era stato ancora aperto quando l'ipotesi sembrava buona.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-14, nona parte. Il terzo giro non aggiunge nulla, e i controlli della fonte applicati a mano
 
 ### Il terzo dump è identico al secondo
@@ -1876,6 +2102,8 @@ Cade con essi anche il pattern del sesso dell'allenatore notato nell'ottava part
 Resta un solo gruppo di campi che il programma calcola invece di copiare, cioè le mosse con i loro punti potenza, e con esso l'esperienza, l'amicizia e il bit dell'abilità. Una ipotesi sulle mosse è formulabile e non è verificabile con il materiale disponibile, perché il verificatore accetta qualunque mossa che la specie possa conoscere e non soltanto quelle che assegnerebbe lui: il rapporto sui box non dice se le contesti.
 
 La domanda è quindi arrivata al punto in cui il materiale che serve è uno solo e piccolo, cioè il testo del giudizio di due esemplari. Proseguire senza di esso significherebbe cambiare un campo alla volta e riprovare, che su undici voci e quattro campi residui è un numero di giri che l'utente non deve pagare per una pigrizia mia.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-14, ottava parte. Il secondo giudizio: da zero a otto, e un pattern netto sui restanti
 
@@ -1903,6 +2131,8 @@ Cinque non conformi hanno l'allenatore maschio, cioè Seedot, Plusle, i due Lick
 
 Il testo del giudizio di due esemplari, uno per causa: uno fra i sei con allenatore femmina e uno fra i cinque con allenatore maschio. È l'unica informazione che il rapporto sui box non contiene e che decide fra le ipotesi invece di moltiplicarle, e vale la regola sugli screenshot, cioè che ciò che non si vede si chiede invece di inventarlo.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-14, settima parte. Il primo giudizio del lotto degli scambi, e quattro campi sbagliati
 
 ### Il giudizio è arrivato dal verificatore e non dall'hardware, ed è l'ordine giusto
@@ -1927,6 +2157,8 @@ Rileggendo i file prodotti per controllare le correzioni ho usato la forma sbagl
 
 Il lotto è stato riscritto con i quattro campi corretti e attende il secondo giudizio, che è dell'utente e si fa nello stesso modo. Le prove del generatore passano da sette a quattordici, e le nuove coprono per nome ciascuno dei quattro campi più la distinzione fra un dato che manca e uno che non esiste.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-14, sesta parte. Diciannove esemplari scritti senza cercare un seme
 
 ### Il lotto degli scambi di terza generazione esiste
@@ -1945,6 +2177,8 @@ Il terzo non è un difetto del programma ma un fatto sulla codifica, e vale cons
 
 Il giudizio esterno, che è l'unica prova che conta e che non è mia: il lotto va importato in un salvataggio di terza generazione e se ne esporta il rapporto. Tre cose andranno guardate per prime, perché sono quelle che il generatore non può verificare da sé: che il luogo risulti lo scambio con un personaggio e non un luogo del mondo, che il soprannome sia accettato con il proprio apostrofo, e che l'esemplare risulti soprannominato, perché la bandierina relativa è accesa apposta e senza di essa il verificatore contesta.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-14, quinta parte. Tre correzioni dell'utente, e un file che avevo ripristinato per errore
 
 ### Il file di ripresa: una decisione scambiata per un incidente
@@ -1962,6 +2196,8 @@ La seconda parte di ADR-059 è una direttiva sul modo di lavorare e non su un fi
 L'utente ha dichiarato di non avere Scarlatto e Violetto. Ne segue che la sezione delle finestre che si chiudono, aperta poche ore prima con l'edizione dello Skeledirge e le sue istruzioni operative, era costruita su un presupposto mai verificato: quelle istruzioni non erano eseguibili. È ADR-060, e la sezione è stata riscritta come coda di produzione della nona generazione, con tre voci, cioè lo Skeledirge, le altre specie che portano il marchio del più forte e i sei incontri del marchio del titano. Non hanno urgenza perché non scadono, e ADR-052 ordina per scadenza: entrano quando la coda arriva alla nona.
 
 L'errore di metodo è piccolo nel costo e facile da ripetere: il possesso di un titolo o di un pezzo di hardware non si assume, si chiede. Qui è costato una consegna inutile e nulla di più soltanto perché la scadenza era di tre giorni.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-14, quarta parte. Il generatore degli scambi, e quattro difetti invisibili in un'ora
 
@@ -1989,6 +2225,8 @@ Duecentotrentotto voci, zero discordanze, il soprannome italiano su centoventise
 
 Un presidio nuovo vale registrarlo: la regola su quali tipi spezzino l'elenco non è scritta nel nostro programma ma letta dai modelli della fonte, e la prima stesura di quella lettura non trovava nulla perché la classe negata dell'espressione escludeva la parentesi che la riga vera contiene nel cast. Dichiarare che nessun tipo spezza sarebbe stato un silenzio, non un errore.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-14, terza parte. I canali digeriti, e la lacuna che era del nostro clone
 
 ### I quattro canali, e una resa che è essa stessa un risultato
@@ -2014,6 +2252,8 @@ Un caso ha fatto sbagliare la prima stesura e vale conservarlo. Gli elenchi occi
 ### Che cosa è stato scritto, e i controlli
 
 Il lotto dei canali sta in `LETTURA-DEL-CORPUS.md`. Il censimento degli scambi è rigenerato con due colonne nuove e il suo `--check` è allineato; il collaudo dello strumento passa da ventotto a trentaquattro controlli, sei dei quali sul caso della lingua che manca contro quella che non esiste. Il clone del verificatore ha ora le risorse di testo e quelle di legalità, che restano fuori dal repository come tutti i cloni.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-14, seconda parte. Un difetto portante, il secondo anello, e una fonte di prima parte
 
@@ -2052,6 +2292,8 @@ Ne discende infine una sezione nuova in `pending.md`, cioè le finestre che si c
 ### Che cosa è stato scritto, e i controlli
 
 Tre fonti nuove nella tabella `FONTI`, che portano la mappa a centosette note e la bibliografia a centoventisei voci tutte citate; la schermata è conservata in `_notes/media/`, che git esclude, e ciò che entra è la sintesi con la provenienza. `CATENA-DI-TRASFERIMENTO.md` ha il secondo anello riscritto e la correzione sulla lingua portata a metà chiusura. Il capitolo 28 della tesi ha una sezione nuova e il 31 ne ha due; la copertura resta al cento per cento su 37575 righe, il PDF conta trecentosedici pagine e zero titoli assenti. L'esportazione Discord dei quattro canali del fuoco corrente è riuscita, zero falliti, e la loro riduzione a Markdown filtrato è il passo seguente e non è stata fatta in questo giro.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-14. Il lotto trasversale, la catena che cancella, e otto vie che non erano chiuse
 
@@ -2099,6 +2341,8 @@ L'utente ha chiesto dei quattro canali Discord che servono al fuoco corrente. La
 
 Cinque fonti nuove nella tabella `FONTI`, che portano la mappa a centoquattro note e la bibliografia a centoventitre voci tutte citate. `CATENA-DI-TRASFERIMENTO.md` ha due sezioni riscritte, cioè il primo anello con le sue sei modifiche e la lingua con la correzione marcata. Il capitolo 28 della tesi ha due sezioni nuove e il 31 una; la copertura resta al cento per cento su 37542 righe, il PDF ricompilato conta trecentotredici pagine e zero titoli assenti. I checkpoint di sei capitoli sono stati portati a `b3b5067`.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-12. Il corpus che si credeva letto, un certificato scaduto, e l'asse dei marchi
 
 ### Il lotto non era leggibile, e la causa non era dove il messaggio la indicava
@@ -2137,6 +2381,8 @@ Otto fonti nuove nella tabella `FONTI`, che ADR-055 dichiara unica, quattro di s
 
 Una esenzione di copertura e quattro dichiarazioni puntuali sono state aggiunte e poi rimosse, ed è la seconda volta in tre giorni: una dichiarazione `% copre:` senza ancora copre il documento intero, quindi le righe per sezione e l'esenzione per la tabella di dati non servivano. La nota del 2026-09-10 lo diceva già, e non averla applicata è la ragione per cui vale ripeterla qui.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-10, quarta parte. La relazione fra fonti e documenti, e l'iniezione di sessione
 
 ### La richiesta, e perché non era una richiesta di stile
@@ -2160,6 +2406,8 @@ L'utente ha stabilito che la lettura del corpus e la produzione dei lotti da eve
 ### I quattro capitoli in drift, e il PDF
 
 Il controllo di copertura ha segnalato quattro capitoli il cui documento coperto era cambiato dopo la verifica, ed è il presidio che funziona: la premessa e il capitolo sulle fonti per `SOURCES.md`, il ventinovesimo per il confronto nuovo e il trentunesimo per il registro di lettura. Il ventinovesimo era già aggiornato nel giro precedente, mentre gli altri hanno ricevuto contenuto nuovo: il capitolo sulle fonti ha una sezione sulla terza vista e sul difetto che la rendeva necessaria, e il trentunesimo una sezione sul perché uno stato di lettura scritto per una persona sia diventato un dato leggibile da un programma. I checkpoint sono stati portati a `1df027c`, la copertura resta al cento per cento su 37165 righe, le 111 voci di bibliografia sono tutte citate e il PDF ricompilato non ha titoli assenti.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-10, terza parte. Il lotto dei tracciatori, la terza enumerazione, e un canale che distribuisce ancora
 
@@ -2189,6 +2437,8 @@ Quattro fonti nuove sono entrate nella tabella `FONTI`, che ADR-055 dichiara fon
 
 Due esenzioni di copertura aggiunte per riflesso sono state poi rimosse, ed è un chiarimento che vale oltre il caso: una dichiarazione `% copre:` senza ancora copre il documento intero, quindi le esenzioni per le sue sezioni di sola tabella non servivano. Il fratello maggiore ne porta tre analoghe, presumibilmente per la stessa ragione, e non sono state toccate perché rimuoverle è un lavoro di pulizia e non di questo giro.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-10, seconda parte. L'handoff già assorbito, la misura degli archivi Discord, e il lettore che resta sul tavolo
 
 ### L'handoff del Pikachu surfista, consegnato una seconda volta
@@ -2213,6 +2463,8 @@ L'utente ha dichiarato il 2026-09-10 di non voler collegare il GBxCart RW per or
 
 L'utente ha chiesto che le cinque decisioni aperte gli siano poste in modo preciso e puntuale. Sono state riscritte in sessione con, per ciascuna, l'oggetto esatto, ciò che cambia a seconda della risposta, le opzioni con il loro costo misurato e la domanda in una riga. Le fonti dei numeri sono `poke-ace/STUDIO-02` per i quindici profili e gli undici marchi, ADR-040 per le ventotto voci coreane e le cinque specie che ne dipendono, `_notes/perimetro-bank-transporter.md` per il limite sui due titoli, e la riga del pacchetto `alignment` in questo registro delle pendenze.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-10, prima parte. Ripresa dopo il riavvio, e la verifica che nulla si sia perso
 
 Il calcolatore si è riavviato alle 01:03 del 2026-09-10 per un aggiornamento pianificato del sistema operativo, chiudendo la sessione precedente senza che l'utente la terminasse. Il giro è quindi di sola ripresa: nessun contenuto nuovo, e la sola cosa che valeva misurare era se l'albero di lavoro lasciato a metà fosse integro.
@@ -2220,6 +2472,8 @@ Il calcolatore si è riavviato alle 01:03 del 2026-09-10 per un aggiornamento pi
 Lo è. Le modifiche della nona parte del 2026-09-09 sono tutte sul disco e non committate, cioè trentasei file modificati e quattro cartelle di pacchetto nuove sotto `.claude/templates/`, e la loro descrizione sta già nel work log e nell'indice: la scrittura dei file era avvenuta nel medesimo giro in cui il contenuto era nato, che è esattamente ciò che la regola sulla persistenza prescrive, e il riavvio non ha quindi portato via nulla. Il commit resta da fare a mano.
 
 I sei controlli prescritti prima di un commit passano tutti, e li si registra perché sono la prova che l'interruzione non ha lasciato un file a metà: `md-unwrap --check` riferisce trecentocinquantotto file esaminati e nessuno da modificare, `lint-md-commands` zero errori, `lint-md-tables` quattrocento file e nessun difetto, la copertura della tesi è completa con centosei voci di bibliografia tutte citate, la mappa delle fonti riferisce ottantasette fonti e cinquantuno relazioni allineate, e la bibliografia è allineata alla tabella delle fonti. La suite del ponte passa duecentosei prove.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-09, nona parte. Il conto con il template, e un difetto che due strumenti si passavano
 
@@ -2261,6 +2515,8 @@ Nel progetto: `tools/fix-accents.py`, `tools/fix-missing-accents.py`, `tools/fix
 
 Nel template: `tools/fix-accents.py`, `tools/fix-missing-accents.py`, `tools/fix-dashes.py`, `tools/test-tipografia.py`, `tools/dashes-exclude.txt`, `.claude/rules/chat-non-e-memoria.md`, `.claude/PROJECT-SYSTEM.md`, `.claude/templates/context/sub-subproject.md`, `.claude/templates/fix-typography/tools/` con i quattro file, `CASE-STUDIES.md`, più la riparazione del residuo nei file che lo portavano.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-09, ottava parte. Il riallineamento del progetto a se stesso, e tre difetti silenziosi
 
 ### La richiesta, e perché ha prodotto questo lavoro invece di altro
@@ -2299,6 +2555,8 @@ Le dieci sono state riportate nella tabella con abstract, livello e track ricost
 
 `tools/check-thesis-coverage.py`, `tools/build-source-map.py`, `tesi/non-coperti.txt`, `tesi/tesi.tex`, i quattro capitoli nuovi da `28-catena-di-trasferimento.tex` a `31-corpus-e-pianificazione.tex`, `tesi/capitoli/14-caso-smeraldo.tex`, `tesi/capitoli/23-fonti.tex`, i quattro capitoli con il checkpoint riverificato, `tesi/bibliografia.tex` e le ottantasette note sotto `docs/fonti/` rigenerate, `tesi/tesi.pdf` ricompilato, `CLAUDE.md`, `docs/index.md`, `MAPPA-DOCUMENTI.md`, `resume-prompt.md`, `.claude/memory/index.md`, `.claude/memory/decisions.md` con ADR-055 e ADR-056, `.claude/memory/pending.md` e questo file.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-09, settima parte. L'handoff assorbito, le macchine nascoste contate, e la regola che la chat non è memoria
 
 ### La direttiva che vale da qui in avanti
@@ -2322,6 +2580,8 @@ Lo strumento ha trovato due difetti miei prima di dare il numero giusto, e valgo
 ### Il resume prompt
 
 `_notes/RESUME-PROMPT.md` è stato riscritto da capo per chiudere questa sessione e riaprirla senza perdere nulla: le tre cose da fare prima di leggere altro, il fuoco e la scadenza, le sei decisioni di oggi, il fatto materiale del lettore arrivato, che cosa è stato costruito, i numeri che contano, ciò che resta in sospeso, le cinque cose che erano in testa e non in un file, il promemoria di chiusura della macchina e il prompt da incollare nella sessione nuova.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-09, sesta parte. Il lettore è arrivato, e con esso lo strato che mancava
 
@@ -2351,6 +2611,8 @@ Dopo la correzione il lotto entra: quattordici voci scritte, zero rifiutate, e i
 
 Il pezzo che mancava fra il generatore e la catena esiste: da oggi un lotto si porta in un salvataggio con un comando invece che a mano con l'editor esterno, che va bene per centosettantadue voci e non per le migliaia che ADR-051 apre. Resta da fare il confronto del salvataggio sintetico con quello che il verificatore genera, che è la prova che alla simmetria mancava, e la rigenerazione delle sessanta voci che prendono l'identificativo dall'allenatore ricevente, che ora si conosce appena il salvataggio di Smeraldo sarà letto.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-09, quinta parte. I cataloghi per generazione, e cinque fatti che toccano il lotto
 
 Letti i cluster del catalogo per generazione dalla prima alla quarta, seguendo l'ordine di ADR-052, cioè la scadenza. La fonte portante sono le tre guide al catalogo per regione d'origine di electroswingmix, di cui quella di terza generazione è aggiornata al 15 agosto 2026, cioè dopo l'annuncio della chiusura. L'esito sta nel secondo lotto di `LETTURA-DEL-CORPUS.md` e i cinque punti tecnici in `pending.md`.
@@ -2369,6 +2631,8 @@ Si chiude infine il punto in sospeso sulle rovine di Sinjoh, con la procedura co
 
 Due limiti di copertura restano dichiarati: le voci di questi cluster in forma di video non sono leggibili, e le guide al catalogo di quarta generazione oltre quelle lette contengono materiale sugli incontri ordinari che ADR-051 ha portato nel perimetro e che andrà ripreso quando la coda arriverà a quella generazione.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-09, quarta parte. Il quarto lotto di lettura, e la misura della copertura sugli identificativi
 
 Letti i cluster 6, 5, 4 e 3, cioè diciannove fonti, e la lettura integrale ha ora un documento proprio dove accumularsi a lotti: `pokedex-home-completo/LETTURA-DEL-CORPUS.md`, che per ogni cluster dice che cosa ha aggiunto, che cosa ha corretto e che cosa resta non letto con il motivo.
@@ -2384,6 +2648,8 @@ Due limiti nostri e non delle fonti sono stati dichiarati nel documento di lettu
 ### La correzione dell'utente sul piano a pagamento
 
 Il vincolo di calendario che `STUDIO-09` aveva sollevato non esiste: l'utente ha il piano a pagamento attivo e la banca è gratuita dal 2023, quando chiuse il negozio in rete della console portatile. Il contatore di giorni che l'applicazione della banca mostra è il residuo di quella gratuità, cosa che il progetto aveva già registrato il 2026-09-03 come artefatto privo di significato. Della sezione resta la sola capienza, che va contata nel piano perché il perimetro aperto da ADR-051 è più grande di novemila posizioni.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-09, terza parte. Le otto decisioni prese, la regola del tracciatore, e due verifiche chiuse
 
@@ -2410,6 +2676,8 @@ I premi di Stadium: la fonte comunitaria e il verificatore non si contraddicono 
 L'Isola Miraggio: la classe non è svuotata. L'affermazione registrata in `poke-ace/STUDIO-03` va letta nel suo contesto, che è il canale sull'esecuzione di codice, dove si discutono codici da digitare nei nomi delle scatole per sbloccare l'isola: riguarda gli esemplari ottenuti così e non quelli catturati sull'isola per la via del gioco.
 
 Resta aperta la rimozione del timbro della banca all'uscita dal deposito: il corpus non porta una fonte migliore della discussione che l'afferma, e la regola del tracciatore è cosa diversa, perché il tracciatore è un identificativo lato servizio e il timbro un contrassegno sul dato.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-09, seconda parte. ADR-050, il terzo cluster letto, e il Mew che ci mancava
 
@@ -2440,6 +2708,8 @@ Le due pagine sulla manipolazione del generatore sono catalogate e non lette per
 ### Lo stato della lettura del corpus
 
 Su direttiva dell'utente la disciplina di leggere una fonte solo quando una domanda la chiama è sospesa: va letto tutto prima di produrre altro lavoro. La misura è che il corpus scaricato è di duecentonovantadue documenti per sei milioni e duecentomila byte, che i tre cluster prioritari sono letti, e che gli altri trentanove cluster restano. La lettura procede a lotti con la sintesi che entra in un documento invece di restare in conversazione, perché il corpus non entra in una sessione sola.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-09. Le due classi nuove contate sulla fonte, e una premessa corretta prima che diventasse un fatto
 
@@ -2476,6 +2746,8 @@ Il limite è dichiarato nel documento e va ripetuto qui perché cambia la lettur
 ADR-049 esclude quasi tutte le voci di entrambe le classi, perché l'utente possiede le cartucce e quelle vie esistono. Alcune però esistono e non sono percorribili nei centosettanta giorni che restano, e la domanda se una via aperta ma impercorribile vada trattata come chiusa è una decisione di perimetro registrata in `pending.md`. Le tre eccezioni che il criterio riconosce già sono i ventidue scambi del Ranch, i quattro dei giochi da console fissa e le voci delle riedizioni per console corrente.
 
 Resta infine una verifica che tocca il valore dell'intera classe seconda: lo Studio 03 del track sull'esecuzione di codice registra, su testimonianza del 2024, che gli esemplari dell'Isola Miraggio non si trasferiscono perché non nascono da un evento che li renda legittimi. Va stabilito se quell'affermazione riguardi gli esemplari composti con quella provenienza, che è la lettura coerente col resto di quello studio, oppure anche quelli catturati giocando.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-08, decima parte. La ripresa dopo il crash, il lettore di fogli a livelli, e il cluster delle enumerazioni trasversali
 
@@ -2525,6 +2797,8 @@ La seconda riguarda i marchi: la raccolta sui simboli afferma che il timbro dell
 
 `SOURCES.md` porta ora sette righe del cluster marcate come lette con la data e con ciò su cui la fonte è autorevole, più tre righe nuove per le cartelle di calcolo derivate, che sono indirizzi distinti dai post che le annunciano. `MAPPA-DOCUMENTI.md` porta i quattro documenti generati nuovi, compresi i due della medesima giornata che nessuno aveva registrato, cioè i fiocchi e le mosse perdute. Il README del track elenca i sette file nuovi. Tutti i controlli tipografici passano, e i tre strumenti con `--check` dichiarano i propri documenti allineati.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-08, nona parte. ADR-049 accolta, i Pokemon di N contati, e la politica sulla versione nativa
 
 ### Il criterio è deciso
@@ -2556,6 +2830,8 @@ Resta una sola riserva, dichiarata come tale: non conosco alcuna restrizione del
 ### L'osservazione di metodo dell'utente, che va registrata perché è su di noi
 
 L'utente ha osservato che il controllo all'indietro imposto da ADR-049 era già la ragione per cui insisteva a completare l'analisi di tutte le fonti prima di procedere, invece di andare avanti e indietro. L'osservazione è corretta e il rilievo è su di me: il sistema di scambio globale ricostruito ha riaperto una via che ADR-040 dava per chiusa, e quella riapertura stava dentro il corpus che era già sul disco. Non l'ha trovata una intuizione, l'ha trovata la lettura di un cluster che l'ordine di priorità aveva messo per primo. La conseguenza operativa è che i due cluster prioritari che restano vanno letti prima di aprire il lavoro sul sondatore dei sogni, e non dopo.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-08, ottava parte. Il lotto di quarta conforme, e il confine che era implicito
 
@@ -2593,6 +2869,8 @@ La mezza ragione, che vale comunque enunciare, è che quel perimetro non ha chiu
 
 Il criterio si applica anche all'indietro, e questa è la sua parte scomoda. Ogni classe già prodotta va riletta chiedendosi se la sua via sia davvero chiusa, e ogni classe scartata va riletta chiedendosi se la sua via lo sia diventata. Non è un controllo da fare una volta: è da rifare ogni volta che un servizio chiude o riapre, ed è precisamente ciò che è successo con il sistema di scambio globale ricostruito, che ha riaperto una via che ADR-040 dava per chiusa.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-08, settima parte. Gli incontri di quarta generazione, e un esemplare che si registra invece di produrlo
 
 ### Il generatore
@@ -2623,6 +2901,8 @@ Terza generazione: quattordici esemplari, tutti conformi al secondo giudizio. Qu
 
 Resta da dire perché questa classe valga il lavoro, dato che tutte e quattro le specie coinvolte sono già nei nostri lotti come distribuzioni. Perché sono esemplari diversi, non copie: l'allenatore è il giocatore e non il distributore, la sfera è quella della cattura, il luogo è un luogo reale e non il codice riservato agli eventi, e la coppia fra valore di personalità e valori individuali porta la firma di una cattura invece di quella di una consegna. Sull'asse delle distribuzioni sono voci distinte, ed è la stessa ragione per cui i tre Deoxys dell'isola non sostituiscono i due delle carte.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-08, sesta parte. L'asse dei fiocchi classificato, e un denominatore che era il sottoinsieme di sé stesso
 
 ### La classificazione, e da dove viene
@@ -2652,6 +2932,8 @@ Ciò che i lotti portano è poco e concentrato: il fiocco classico su centonovan
 Vale contarli insieme perché la ripetizione è essa stessa un dato. La trascrizione a mano dell'ordine dei bit di gara, dove le gare sono contatori a tre bit e non bit singoli. La lettura del campo dei meriti come parola assoluta, mentre il pacchetto del ponte lo espone con l'origine spostata di quindici posizioni. E l'enumerazione dell'asse dal formato invece che dalla tabella dei nomi.
 
 Tutti e tre producono un risultato plausibile, nessuno produce un errore, e nessuno dei tre sarebbe stato colto da un controllo interno. Il primo si è visto perché il conto dei fiocchi di gara era assurdo, il secondo perché il fiocco che risultava non era quello che la tabella del verificatore dichiara per quei due esemplari, il terzo perché mi sono chiesto da dove venisse il denominatore. Le tre vie sono diverse e nessuna è automatica: la prima è il buon senso sul dominio, la seconda è il confronto con una terza fonte, la terza è una domanda di provenienza. Un progetto che produca dati deve avere tutte e tre come abitudine, perché ciascuna coglie una classe che le altre due non vedono.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-08, quinta parte. Le mosse perdute derivate invece che citate, due nozioni di irraggiungibilità, e l'asse dei fiocchi
 
@@ -2697,6 +2979,8 @@ Il secondo, trovato dal primo. Corretto l'ordine, il conto dava due esemplari co
 
 Vale trarne la lezione, perché è la stessa due volte. Quando due componenti dello stesso progetto leggono lo stesso campo, la loro sola coerenza reciproca non è una prova: qui il generatore e il lettore concordavano sul nome del campo e discordavano sulla sua origine, e la discordanza si è vista soltanto confrontando il risultato con una terza fonte, cioè la tabella che dichiara quali esemplari quel fiocco dovrebbero portarlo.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-08, quarta parte. Il lotto dei biglietti chiuso, il registro diventa completo, e la mappa dei documenti
 
 ### Quattordici su quattordici
@@ -2731,6 +3015,8 @@ Un candidato alla rimozione è emerso con il suo perché, e non l'ho cancellato 
 
 Un secondo rilievo è emerso guardando le dimensioni: la scheda `sub-pokedex-home-completo.md` è a diciottomila byte contro le trenta righe che la convenzione prescrive, perché quel track è cresciuto molto in una settimana. Va potata riportando la conoscenza nei documenti del track e lasciando nella scheda il solo stato.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-08, terza parte. Il lotto dei biglietti giudicato, quattro esemplari mancanti, e B1 che falsifica un mio motivo
 
 ### Il giudizio, e l'unico rilievo
@@ -2764,6 +3050,8 @@ Ne segue il numero che chiude la questione: per la quinta generazione italiana i
 ### La mappa delle fonti, che l'utente aveva chiesto
 
 Il censimento aveva un elenco e non una mappa. Ora ha entrambe: `tools/censimento-fonti-reddit.py` scrive anche quarantatre note collegate sotto `docs/fonti/collezione/`, una per cluster più un indice, che aprendo la radice come vault diventano un grafo navigabile. Il grafo disegnato non è quello dei rinvii fra i post, che ha oltre millecinquecento archi ed è illeggibile: è quello fra i cluster e gli host, che ha una lettura sola e la dice subito, cioè quali argomenti poggino su quali sorgenti.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-08, seconda parte. La profondità due è chiusa, gli assi sono sei e non tre, e una regola che avevo enunciato era sbagliata
 
@@ -2811,6 +3099,8 @@ La stessa fonte conferma dall'esterno due decisioni prese ieri leggendo il codic
 
 Una terza cosa la fonte la aggiunge e noi non l'avevamo: le copie giapponesi di Smeraldo sono anche l'unico modo di avere un Mew in una sfera diversa dalla Poké Ball e dalla Pregio, il che lega quell'esemplare al nuovo asse delle combinazioni di sfera.
 
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
+
 ## 2026-09-08, prima parte. Centosettantuno fonti da un post solo, la tassonomia presa in prestito, e un servizio che qualcuno ha rianimato
 
 L'utente ha consegnato come radice da spogliare il post di raccolta sulle collezioni nel deposito, seconda versione, e ha ripetuto il vincolo che governa questa parte del progetto: ogni singolo collegamento è una fonte da tracciare, da classificare e da indicizzare verso le altre, e le fonti vanno possedute dentro il progetto e citate nel punto dove servono. Ne è uscita una giornata di lavoro sulle fonti e non sui generatori, e vale scriverne il metodo perché è riusabile.
@@ -2836,6 +3126,8 @@ Che cosa è verificato e che cosa no, perché due delle tre fonti hanno sei anni
 La conseguenza che tocca una decisione già presa. ADR-040 stabiliva che i ventotto coreani di quarta generazione non hanno un difetto nei byte ma incontrano un vincolo storico, cioè che il solo ponte fra giochi coreani e internazionali era il sistema di scambio globale, chiuso. Se quel sistema è vivo, la premessa della soluzione cambia. Non la conclusione, però, e la distinzione è importante: restano da verificare che il ponte ricostruito attraversi davvero la barriera di lingua e non solo quella di distanza, e che accetti quelle voci, dato che il ponte originale rifiutava le uova e gli esemplari con il fiocco classico.
 
 Quattro passi sono scritti nello studio in ordine di costo crescente, e i primi due non richiedono alcun hardware: leggere il deposito pubblico del servizio e il suo canale di conversazione per sapere se distribuisca doni e con quale catalogo, e confrontare quel catalogo con le nostre due enumerazioni per sapere quante caselle coprirebbe. Solo dopo ha senso la domanda di perimetro, che è l'unica che non si risolve misurando ed è dell'utente.
+
+**Didattica:** nessuna; voce anteriore al racconto didattico, che comincia il 2026-09-29 con `studio-didattico-master.md`, dichiarata il 2026-11-03.
 
 ## 2026-09-07, ventitreesima parte. La settima via a Reddit, e la lista di spunta della comunità applicata ai nostri lotti
 
