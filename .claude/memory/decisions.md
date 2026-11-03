@@ -964,6 +964,20 @@ La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti 
 
 La ragione per cui l'abbandono è accettabile qui, e non lo sarebbe altrove. Quella discussione è del 2005 ed è una richiesta di valutazione di squadra, cioè la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e più recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano è quindi basso, e la decisione si fonda su questo e non sulla sola difficoltà di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
 
+## ADR-106: gli statici tipici con doni, vaganti, premi e uova entrano, ogni strumento è ripristinabile, le fonti degli eventi sono cinque
+
+Data: 2026-11-03. Stato: accettata, decisa dal proprietario.
+
+Contesto. Il confronto con HeartGold decompilato ha mostrato che il profilo di collezione di ADR-096 vuole come caselle a sé gli incontri statici tipici di ogni titolo, e che il progetto non li ha prodotti, salvo 12 statici di Ohana e tre esemplari di Platino. Il proprietario ha chiesto se il perimetro dovesse comprendere anche doni, vaganti, premi del Casinò e uova. Ha chiesto poi che ogni strumento del progetto sia ripristinabile su questa macchina e su qualunque macchina Windows, e che il controllo automatico degli eventi sorvegli tutte le fonti necessarie alla completezza, non due.
+
+Decisione sugli statici. Entrano tutti, statici, doni, vaganti, premi e uova, dalla prima alla settima generazione, a condizione che bastino i posti di HOME. La condizione è verificata con una misura e non con una stima. `tools/pkhex-conta-incontri`, sulla libreria 26.10.18, conta 2718 modelli d'incontro non selvatici e non da dono segreto in quelle generazioni. Tolti i 174 scambi in gioco, già prodotti, e le 173 Ombre, che hanno il loro lotto, ne restano 2371. È un tetto, perché non toglie i doppioni fra versioni sorelle né le voci già prodotte come eventi. Il caso peggiore dà 3407 esemplari di oggi più 2371, cioè 5778 su 9000 posti, e lascia più di 3200 posti al lavoro su Switch. La produzione si fa con la libreria, come per gli scambi, e le voci vanno in giri aggiuntivi: le copie già scritte non cambiano.
+
+Decisione sulla ripristinabilità. Ogni strumento si ricostruisce da Git con `tools/ripristina-ambiente.ps1`. Le versioni sono fissate in `tools/requirements.txt` e `tools/pkhex-versione.txt`, e lo stato del controllo degli eventi sta in un file tracciato, `pokedex-home-completo/data/controllo-eventi.json`. Restano fuori da Git, per ADR-005, solo i dati privati di `_notes/`, che tornano dal backup. Il progetto di stato della macchina, `E:\windows-status`, registra come chiamare lo script (sezione 8 del suo documento 09, passo 14 della sequenza del PC nuovo) senza tenerne una seconda copia.
+
+Decisione sulle fonti. Il controllo di apertura ne sorveglia cinque, per i tre stati di un evento. Per gli annunciati, i titoli delle notizie di Serebii, filtrati sui giochi della collezione, e i doni di HOME di Serebii. Per i registrati, le 103 liste di distribuzioni di Bulbapedia. Per i conservati, EventsGallery e l'ultima release di PKHeX.
+
+Conseguenze. Il prossimo lavoro sotto scadenza è l'enumerazione per titolo dei 2371 modelli, con i doppioni e le voci già prodotte tolti, poi la produzione, il giudizio e la scrittura in copie aggiuntive. La prova pilota del passo 1 non ne dipende. Ogni strumento nuovo si aggiunge a `ripristina-ambiente.ps1` se ha bisogno di qualcosa che lo script non installa.
+
 ## ADR-105: prima tutto ciò che scade con la banca, la tesi si riscrive alla fine, la storia si ripulisce subito
 
 Data: 2026-11-03. Stato: accettata, decisa dal proprietario.

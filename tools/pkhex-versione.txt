@@ -1,0 +1,8 @@
+# Versione fissata della libreria PKHeX.Core da cui si compilano gli strumenti tools/pkhex-*.
+# Il clone vive in _notes/fonti/cloni/pkhex, fuori da Git: tools/ripristina-ambiente.ps1 lo ricrea a questa versione.
+# Aggiornata il 2026-11-03 da e15d246 (release 26.08.26): con questa versione i giudizi delle sette copie per HOME
+# sono identici, 0 cambiati su 3407 esemplari (_notes/lavoro/giudizi-copie/).
+tag=26.10.18
+commit=bfe89c74a3f5265805e364b79bc04ad38ebbc5ea
+repository=https://github.com/kwsch/PKHeX.git
+dotnet=10

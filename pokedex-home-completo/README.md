@@ -27,6 +27,7 @@ EVENTI-SENZA-CARTA.md                       la coda delle consegne che non lasci
 CATENA-DI-TRASFERIMENTO.md                  i vincoli di ogni passaggio e la via in emulazione
 COPIE-PER-HOME.md                           le copie dei salvataggi per HOME per gruppo, e che cosa è trasferito
 CONNETTIVITA-HOME.md                        la tabella di connettività verso HOME al 2026-10-07, e che cosa vuol dire per i lotti
+data/controllo-eventi.json                  lo stato censito delle cinque fonti di eventi, scritto da tools/controlla-eventi-nuovi.py --segna
 CENSIMENTO-FONTI-COLLEZIONE.md              le 171 fonti del corpus, per cluster e con l'esito della corsa
 data/fonti-collezione.csv                   le stesse, come tabella per il confronto
 STUDIO-04-la-via-del-dns-e-il-servizio-rianimato.md   i servizi in rete ricostruiti da terzi, e le due decisioni che rimettono in gioco

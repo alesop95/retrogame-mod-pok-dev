@@ -48,6 +48,10 @@ Il track del trading LDN ha due catene alternative, e la scoperta del 2026-08-26
 
 Se il ponte fra generazioni prendesse la strada dell'hardware servirebbe devkitARM, mentre la strada del tool offline su PC porterebbe a Python, C# o Rust. Nessuna delle due è ancora stata scelta. I sottoprogetti destinati a produrre software sono ora due, il ponte e il trading LDN, ed è il segnale che rende sensato riaprire prima o poi il gate del server MCP di lettura del codice, oggi rimandato per ADR-010.
 
+## Ripristino dell'ambiente, dal 2026-11-03
+
+Ogni strumento del progetto si ricostruisce da Git su una macchina Windows con `tools/ripristina-ambiente.ps1` (ADR-106). Lo script controlla git, Python 3.11 o più, l'SDK .NET 10, e come facoltativi `gh` e `ffmpeg`. Installa le dipendenze Python fissate in `tools/requirements.txt`. Ricrea in `_notes/fonti/cloni/pkhex` il clone della libreria alla versione di `tools/pkhex-versione.txt`, oggi la release 26.10.18, `bfe89c7`, e compila PKHeX.Core e i ventuno strumenti `tools/pkhex-*`. Riporta l'hook di apertura alla radice corrente ed esegue le prove interne. `-SoloVerifica` controlla senza toccare niente. Il 2026-11-03 la prova su una copia dei soli file tracciati ha dato 11 passi su 11. Fuori da Git restano soltanto i dati privati di `_notes/`, che tornano dal backup. Il progetto di stato della macchina, `E:\windows-status`, lo chiama al passo 14 della sua sequenza del PC nuovo. Per aggiornare la libreria si cambia `tools/pkhex-versione.txt`, si lancia lo script e si rigiudicano le copie con `pkhex-elenco-copie`. Così è stato fatto il 2026-11-03 da `e15d246` a `bfe89c7`, con zero giudizi cambiati su 3407 esemplari.
+
 ## Il codice del progetto al 2026-09-09, che non è più un solo pacchetto
 
 Questa scheda apriva dichiarando che il progetto non avesse uno stack nel senso consueto e che il codice fosse il solo pacchetto del ponte. La prima metà resta vera e la seconda no, quindi la sezione va letta con questo aggiornamento accanto.
