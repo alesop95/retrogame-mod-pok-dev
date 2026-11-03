@@ -32,5 +32,14 @@
   "env": {
     "PROJECT_NAME": "retrogame-mod-pok-dev",
     "PROJECT_PHASE": "init"
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          { "type": "command", "command": "python \"E:/retrogame-mod-pok-dev/tools/controlla-eventi-nuovi.py\" --breve", "timeout": 30 }
+        ]
+      }
+    ]
   }
 }

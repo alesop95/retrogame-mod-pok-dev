@@ -4,6 +4,36 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-03, sesta parte. Controllo automatico degli eventi nuovi, HOME a 9000, PKHeX indietro
+
+Il proprietario ha lanciato `chiudi`, che ha prodotto il commit `1fe6f06` e lo ha pubblicato, e ha cancellato la cartella del clone riscritto. Ha chiesto due cose. La prima è un controllo che a ogni riapertura del progetto cerchi le fonti di eventi nuovi da censire, perché la collezione continua anche dopo la fine di Bank. La seconda è usare come capienza del deposito i 9000 posti che ha visto nell'app 4.1.0 su Switch 2, e verificare che quella sia l'ultima versione. La questione degli statici tipici della quinta parte la rimanda al giro successivo.
+
+Il controllo. Il nuovo `tools/controlla-eventi-nuovi.py` sorveglia l'archivio `projectpokemon/EventsGallery`, a partire da `154d81b`, l'ultimo commit prima della lettura integrale del 2026-10-05, e la libreria `kwsch/PKHeX`, a partire dal commit del clone locale. Usa il confronto dell'API di GitHub, con `gh` e in subordine senza credenziali. È agganciato come primo hook `SessionStart` del progetto in `.claude/settings.json`, con un tempo massimo di 30 secondi e il percorso a barre in avanti, provato in PowerShell e in bash da un'altra cartella; la corsa misurata ha impiegato 2 secondi. `--autotest` passa 4 casi su 4. La prima corsa ha trovato in `6c59354` due doni di soli strumenti di Leggende Z-A, senza esemplari, che sono stati censiti in `SOURCES.md` e segnati. Ha trovato anche il clone di PKHeX al commit `e15d246` del 2026-08-27, 52 commit dietro la release 26.10.18, con 32 file che toccano incontri o doni. Fra questi ci sono le logiche degli scambi e dei doni di terza generazione, del Pokéwalker e degli statici di settima. Ne viene un lavoro da fare prima del passo 1: aggiornare il clone e rigiudicare le copie per HOME, registrato in `pending.md`.
+
+HOME. Un agente su Haiku ha confermato la 4.1.0 come ultima versione: su Switch dal 2026-10-06, con manutenzione il 2026-10-07, e nessuna versione successiva fino al 2026-11-03. Ha confermato anche il piano Premium a 9000 esemplari; le fonti sono in `SOURCES.md`. I conti operativi sono aggiornati in `COPIE-PER-HOME.md`: 3407 esemplari, cioè 3272 per HOME, 121 per la decisione finale e 14 giapponesi, su 9000 posti. Aggiornati anche `STRATEGIA-SWITCH.md` e la riga della capienza in `pending.md`. Le voci storiche del work log e delle decisioni restano com'erano.
+
+Collegamenti. L'indirizzo di esempio di polars nel testo di aiuto di `tools/check-visibilita.py`, arrivato con il template, e l'endpoint dell'API di GitHub nello strumento nuovo sono registrati fra le non fonti; `verifica-link-progetto.py` torna a zero.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna
+
+File toccati: `tools/controlla-eventi-nuovi.py` (nuovo), `.claude/settings.json`, `docs/22-strumenti.md`, `SOURCES.md`, `pokedex-home-completo/COPIE-PER-HOME.md`, `pokedex-home-completo/STRATEGIA-SWITCH.md`, `.claude/memory/pending.md`, `.claude/memory/progress.md`, `.claude/memory/index.md`, `_notes/resume-prompt.md`, e fuori da git `_notes/fonti/link-non-fonti.json` e `_notes/lavoro/stato/controllo-eventi.json`.
+
+## 2026-11-03, quinta parte. HeartGold decompilato contro le liste, e una lacuna nel profilo di collezione
+
+Un agente su Sonnet ha confrontato la decompilazione `ctrl-cheeb-del/pokeheartgold`, al commit `8cbb4a1`, con le liste del progetto. Ha estratto dagli script e dai dati del gioco 235 voci, ciascuna con file e riga, e ne ha ritrovate 177. Sono le 162 del Pokéwalker, cioè 27 percorsi per 6, con specie, livello e passi uguali ai lotti `EVT-T-0273`-`0434`, i 12 scambi in gioco con PID e identificativo dell'allenatore uguali a `data/scambi.csv`, il Pichu Spunzorecchio, escluso come deve, e l'uovo di Manaphy. Nessuna contraddizione. Una incoerenza segnalata dall'agente sul Shieldon non lo è: la riga `PKD` descrive la via della specie, e la voce `EVT-5-0462` è un evento, cioè un altro asse.
+
+Le 58 voci non trovate hanno tutte la specie coperta altrove: manca la casella della provenienza. Sono 22 statici, fra cui il Gyarados cromatico fisso del Lago d'Ira, e 4 vaganti. Sono poi 14 doni, fra cui Dialga, Palkia e Giratina di livello 1 delle Rovine Sinjoh, che chiedono l'Arceus da evento, 7 premi del Casinò, 7 fossili e 4 uova. Il confronto con il profilo di collezione confermato dal proprietario con ADR-096 rende la cosa una lacuna e non una scelta. Quel profilo vuole come caselle a sé gli incontri statici tipici di ogni gioco e gli scambi in gioco. Gli scambi sono prodotti in tutte le generazioni; degli statici esistono soltanto i 12 di Ohana di settima generazione e tre esemplari di Platino. La lacuna riguarda quindi tutti i titoli dalla prima alla settima generazione, non solo HeartGold. ADR-051 contava 1204 voci fra statici, doni e vaganti per le prime cinque.
+
+Il perimetro esatto, cioè se dentro «statici tipici» stiano anche doni, vaganti, premi e uova, è una domanda al proprietario, registrata in `pending.md` insieme alla produzione che ne segue. La prova pilota non ne dipende: le copie già scritte non cambiano, e gli statici andrebbero in giri aggiuntivi.
+
+**Didattica:** nessuna; diventa una scheda se la produzione degli statici porta una scelta non ovvia.
+
+**Template:** nessuna
+
+File toccati: `.claude/memory/progress.md`, `.claude/memory/pending.md`, e fuori da git `_notes/fonti/cloni/confronto-hgss-decomp-2026-11-03.md`, scritto dall'agente.
+
 ## 2026-11-03, quarta parte. Storia pubblicata e riancorata, pulizia, tabella di connettività, HeartGold decompilato
 
 Il proprietario ha fatto il push forzato dal clone riscritto: `origin/main` è passato da `8edaf4d` a `ef2ff17`. Poi ha portato il repository di lavoro sulla storia nuova con `git reset origin/main`, e i file modificati sono rimasti quelli attesi. Gli hash citati sono stati riancorati con la mappa di `git-filter-repo`: prova a vuoto, zero collisioni con il template, 19 sostituzioni in 6 file, con le due frasi che descrivono la mappa lasciate intatte. Tre frasi in cui il commit nuovo prendeva il posto di quello che aveva contenuto i valori sono state riscritte a mano con entrambi gli hash. Le ancore delle schede esistono tutte nella storia nuova. Su autorizzazione del proprietario, data per questa volta, le tre coppie sono entrate nella mappa privata e nel file dei termini della storia, rispettando il formato e il fine riga di ciascun file.
