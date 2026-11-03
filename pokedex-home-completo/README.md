@@ -28,6 +28,8 @@ CATENA-DI-TRASFERIMENTO.md                  i vincoli di ogni passaggio e la via
 COPIE-PER-HOME.md                           le copie dei salvataggi per HOME per gruppo, e che cosa è trasferito
 RUNBOOK-PASSO-1.md                          la prova pilota con Rubino Omega, passo per passo, con le verifiche
 CONNETTIVITA-HOME.md                        la tabella di connettività verso HOME al 2026-10-07, e che cosa vuol dire per i lotti
+DA-PORTARE-PRIMA-DI-BANK.md                 lo stato di ciò che va generato prima della chiusura di Bank, e il passo successivo
+SFIDE-BANK.md                               le sfide di HOME che dipendono da Bank e se le copie le coprono, generato da tools/sfide-bank.py
 data/controllo-eventi.json                  lo stato censito delle cinque fonti di eventi, scritto da tools/controlla-eventi-nuovi.py --segna
 CENSIMENTO-FONTI-COLLEZIONE.md              le 171 fonti del corpus, per cluster e con l'esito della corsa
 data/fonti-collezione.csv                   le stesse, come tabella per il confronto

@@ -4,6 +4,80 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-03, quattordicesima parte. Le sfide di HOME che dipendono da Bank, contro le copie
+
+Il proprietario ha chiesto una ricerca completa delle sfide di HOME, il controllo immediato di quelle che diventano impossibili con la chiusura di Bank, e il controllo delle forme. Ha deciso che ciò che non è coperto si genera apposta nei giri successivi (ADR-108), e che il catalogo di HOME si compone dai dati degli esemplari con le immagini locali (aggiunta ad ADR-107). Ha rimproverato all'agente di aver lasciato un foglio non misurato perché i compiti vi stavano su più colonne: il foglio è stato ricomposto per sezioni.
+
+Le fonti. Sono state lette cinque fonti indipendenti, tutte in `SOURCES.md`. La prima è il post di r/PokemonHome `1voa411`, del 2026-08-14, con 42 sfide e 5 nascoste. La seconda è la pagina delle sfide di Serebii, letta da un agente su Sonnet. La terza è il foglio «Bank Closing all possible things checklist V0.5», esportato in `.xlsx`. La quarta è il foglio del post `1bwr0l1`, scomposto nelle sue sette sezioni affiancate, salvate in `home-tasks/`. La quinta è l'articolo di Bulbapedia «Challenge (HOME)», revisione 4643183, con 269 sfide, letto attraverso l'API con lo user agent del progetto dopo un 403 agli agenti. Un terzo foglio comunitario risponde 410 ed è cancellato. Due agenti su Haiku hanno letto sette pagine sulla chiusura di Bank e verificato su due guide che sette specie siano in Leggende Z-A.
+
+Le misure. `tools/sfide-bank.py`, nuovo, scrive ogni sfida come regola, cioè specie, giochi d'origine, cromatico, forma, evento o numero minimo di specie, e la cerca negli esiti di `pkhex-elenco-copie`. Su 47 sfide ne copre 23 e ne lascia 24 da generare, tutte statici, doni e starter con un gioco d'origine preciso. Il documento generato è `pokedex-home-completo/SFIDE-BANK.md`. `pkhex-elenco-copie` scrive ora anche le mosse e l'abilità di ogni esemplare. Il controllo che ne segue dà 12 mosse su 63, fra quelle registrabili solo da Bank, che nessun esemplare conosce, 3 abilità su 3 coperte e 5 cromatici bloccati su 8 mancanti. Delle 288 specie da 1 a 809 assenti dalle copie, le tabelle della libreria ne trovano 281 in almeno un gioco per Switch. Le altre 7, da Patrat a Furfrou, sono soltanto in Z-A, che le contiene secondo due guide. Minior e Alcremie risultano a via diretta, Unown completo con 28 forme. La data di chiusura più prudente è il 25 febbraio 2027 alle 19:00 PST. Tutto lo stato è in `pokedex-home-completo/DA-PORTARE-PRIMA-DI-BANK.md`.
+
+**Didattica:** voce candidata, «Una casella per specie non è una casella per origine», da scrivere quando la produzione dedicata sarà fatta.
+
+**Template:** nessuna
+
+File toccati: `tools/sfide-bank.py` (nuovo), `tools/pkhex-elenco-copie/Program.cs`, `pokedex-home-completo/SFIDE-BANK.md` (generato, nuovo), `pokedex-home-completo/DA-PORTARE-PRIMA-DI-BANK.md` (nuovo), `pokedex-home-completo/README.md`, `docs/22-strumenti.md`, `SOURCES.md`, `.claude/memory/decisions.md` (ADR-108, aggiunta ad ADR-107), `pending.md`, `progress.md`, `index.md`, `_notes/resume-prompt.md`; fuori da git le corse di Reddit, i fogli scaricati, le pagine di Bulbapedia e i giudizi con le mosse.
+
+## 2026-11-03, tredicesima parte. Il giro 1 è in HOME, le sfide e il catalogo di HOME decisi
+
+Il proprietario ha completato il passaggio da Bank a HOME. Gli screenshot 328, 330, 331, 332, 333 e 334 di Screenpresso, copiati in `_notes/fonti/consegne/2026-11-03-passo1-home/`, mostrano l'opzione «No Nintendo 3DS» dentro HOME, il passaggio in corso e poi completato. Mostrano anche Mew livello 10, allenatore MYSTRY, ID 06930, e Keldeo livello 15, allenatore SMR2012, ID 08272, che coincidono con il primo e l'ultimo esemplare della copia. Le 21 fotografie da Telegram sono state lette da un agente su Haiku. Il totale, «All Pokémon 964», è stato riletto dall'agente principale sull'immagine. È 34 più 930, quindi il giro 1 è arrivato per intero, senza rifiuti né segnalazioni. Le stesse fotografie mostrano lo stato delle sfide di HOME, trascritto in `sfide-osservate-2026-11-03.md`: dieci completate e quattro con il contatore. Le fotografie sono state verificate identiche alle copie e cancellate dai download.
+
+Un errore dell'agente, dichiarato al proprietario nello stesso giro. Per completezza l'agente ha aperto anche lo screenshot 329, che il proprietario non aveva indicato, ed era un documento personale estraneo al progetto. Così ha violato `rules/documenti-personali.md`. La copia nel progetto è stata cancellata, il contenuto non è stato scritto da nessuna parte, e l'originale resta dove il proprietario lo ha salvato. Da qui in avanti si aprono soltanto le immagini nominate.
+
+Decisione del proprietario, ADR-107: si completano tutte le sfide di HOME, e alla fine si prepara il catalogo stampabile della collezione completa in HOME.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna
+
+File toccati: `pokedex-home-completo/COPIE-PER-HOME.md`, `pokedex-home-completo/RUNBOOK-PASSO-1.md`, `.claude/memory/decisions.md` (ADR-107), `.claude/memory/pending.md`, `.claude/memory/progress.md`, `.claude/memory/index.md`; fuori da git le schermate, le fotografie e le sfide osservate.
+
+## 2026-11-03, dodicesima parte. Il giro 1 è in Bank
+
+Il proprietario ha passato il giro 1 a Bank e ne ha mandato undici fotografie, copiate in `_notes/fonti/consegne/2026-11-03-passo1-bank/`, verificate identiche e cancellate dai download. Mostrano Bank, gruppo 1 da 100 box, con Bank 1 che comincia con Mew livello 10 e Jirachi, come il box 1 della copia, e Bank 31 pieno con Keldeo per ultimo. Il box 31 della partita, allenatore Brendon con ID 43420, è vuoto, e i messaggi dicono che il salvataggio e l'invio al server sono riusciti. HOME, sul telefono, mostra 34 esemplari e 8966 posti liberi, coerenti con la capienza di 9000. Il proprietario ha chiesto se l'opzione «No Nintendo 3DS» dell'app per telefono serva a portare i Pokémon da Bank a HOME. La domanda riguarda l'uso di Bank, quindi resta fuori dall'assistenza per la regola del perimetro, e la risposta lo dice senza entrare nel merito. Dopo il passaggio, HOME deve mostrare 964 esemplari.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna
+
+File toccati: `pokedex-home-completo/COPIE-PER-HOME.md`, `.claude/memory/pending.md`, `.claude/memory/progress.md`; fuori da git le undici fotografie.
+
+## 2026-11-03, undicesima parte. Il limite su Bank ricordato, e la verifica in HOME passo per passo
+
+Il proprietario ha chiesto i sottopassaggi dei punti 16 e 17 del passo 1, cioè il passaggio da Bank a HOME, perché non ricorda come si fa. Come vuole `rules/hardware-and-perimeter.md`, è stata consultata la nota locale del perimetro. Il limite resta: l'assistenza non copre l'uso di Bank e Transporter su questa console, e il passaggio da Bank a HOME è uso di Bank. Non si apre dentro un altro lavoro. `RUNBOOK-PASSO-1.md` ha ora la verifica in HOME in sei sottopassi: 31 box pieni, Mew e Jirachi in testa, Keldeo in coda, posti vuoti o segnalazioni con la schermata, conteggio prima e dopo, niente spostamenti finché il giro non è registrato. Segue il punto dell'agente che registra l'esito in `COPIE-PER-HOME.md`.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna
+
+File toccati: `pokedex-home-completo/RUNBOOK-PASSO-1.md`, `.claude/memory/progress.md`.
+
+## 2026-11-03, decima parte. Passo 1 verificato fino alla banca
+
+Il proprietario ha eseguito i punti dal 5 al 12, cioè riserva `20261103-prima`, ripristino di `20261103-giro1`, controllo a vista dei box e rilettura `20261103-rilett1`, e ha riportato la SD nel PC. Ha confermato di non aver giocato a Rubino Omega dopo il 21 agosto né a Luna dopo il 23: le partite vere sono `20260821-backsic` e `20260823-backsicMoo`. Ha detto anche che Ultraluna non ha un salvataggio, perché non ci ha mai giocato.
+
+Le misure. La rilettura dalla console ha SHA-256 `5e8779e6…`, identico byte per byte alla copia del giro 1, misurato con `cmp`. La riserva `20261103-prima` ha `e16300db…`, cioè la copia superata `scrittura-oras/giro-1` che stava sulla console, come registrato il 2026-10-05. Il giudizio di `pkhex-elenco-copie` sulla rilettura, con la libreria 26.10.18, dà 930 esemplari, 930 conformi, stesse posizioni e 0 differenze su specie, forma, livello, allenatore, identificativo ed esito rispetto al giudizio della copia; l'esito è in `_notes/lavoro/giudizi-copie/rilettura-passo1.json`. Rilettura e riserve nuove sono copiate nei due posti di riserva, con l'impronta riverificata.
+
+Ultraluna. La copia `ultraluna-giro-1-scambi-fin2` del passo 3 porta 613 esemplari, fra cui le specie e forme che esistono solo in Ultrasole e Ultraluna (Poipole, Zeraora, Rockruff con Mentelocale), i 26 scambi in gioco di sesta e settima generazione e i 12 statici di Ohana; serve anche per i codici QR del Pokédex. Perché Checkpoint la possa ripristinare, il gioco deve avere un salvataggio, che si crea avviandolo una volta: è un punto della procedura del passo 3, da scrivere quando ci si arriva.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna
+
+File toccati: `pokedex-home-completo/RUNBOOK-PASSO-1.md`, `.claude/memory/pending.md`, `.claude/memory/progress.md`; fuori da git il giudizio della rilettura e le copie di riserva.
+
+## 2026-11-03, nona parte. Passo 1, punti 3 e 4, e le partite vere riconosciute dalle impronte
+
+Il proprietario ha lanciato `chiudi`, che ha prodotto il commit `69c97a2`, pubblicato, e ha inserito la SD del 3DS nel PC come `I:`. Punto 3: la cartella `/3ds/Checkpoint/saves/` è stata copiata in `_notes/salvataggi/console/sd-checkpoint-2026-11-03/` e in `J:\backup-sd-3ds\2026-11-03\`. Sono 13 file, 5,9 MB, e le impronte SHA-256 delle tre copie coincidono tutte. Punto 4: la copia del giro 1 è sulla SD in `0x011C4 Pokémon Omega Ruby/20261103-giro1/main`, e la sua impronta riletta dalla SD, `5e8779e6…`, coincide con l'originale.
+
+La correzione. Confrontate con il registro dei salvataggi di terzi di ADR-084, le impronte mostrano che la riserva `20260930-bef-giro1` di Rubino Omega, `6a82dd48…`, è identica a `omega-ruby-A-projectpokemon`, un salvataggio di terzi. La riserva omonima di Luna, `2c00a46b…`, è identica a `20260823-testROM`. Le partite vere sono quindi, con ogni probabilità, `20260821-backsic` (`af809a1e…`) e `20260823-backsicMoo` (`0636f2…`). Il proprietario deve confermare di non aver giocato dopo quelle date. Sono corretti `RUNBOOK-PASSO-1.md` e `pending.md`, dove una scrittura per script aveva guastato con gli escape il percorso di `J:`: riparato a livello di byte, con zero caratteri di controllo dopo.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna
+
+File toccati: `pokedex-home-completo/RUNBOOK-PASSO-1.md`, `.claude/memory/pending.md`, `.claude/memory/progress.md`; sulla SD la cartella `20261103-giro1`; fuori da git le due copie di riserva.
+
 ## 2026-11-03, ottava parte. La procedura del passo 1, la pulizia di Telegram, conta-letti corretto
 
 Il proprietario ha confermato i tre passi: il commit `b39aff4` pubblicato, il commit `84b4443` di `windows-status` pubblicato e il clone di HeartGold cancellato. Ha il 3DS, un lettore di schede SD nel PC e il telefono sulla stessa rete, e ha chiesto ogni passo del passo 1, con le verifiche di PKHeX, detto in modo inequivocabile.

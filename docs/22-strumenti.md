@@ -889,3 +889,12 @@ cd "E:/retrogame-mod-pok-dev"
 python tools/controlla-eventi-nuovi.py
 python tools/controlla-eventi-nuovi.py --segna
 ```
+
+## sfide-bank.py, le sfide di HOME che dipendono da Bank contro le copie
+
+Nasce il 2026-11-03, quando il proprietario ha deciso di completare tutte le sfide di HOME (ADR-107) e ha chiesto di controllare subito quelle che dipendono da Bank. Ogni sfida è scritta come regola: specie per numero nazionale, giochi d'origine ammessi, cromatico se richiesto, forma se la sfida ne nomina una, oppure un numero minimo di specie distinte. Lo strumento cerca negli esiti di `tools/pkhex-elenco-copie` un esemplare che la soddisfi, e distingue le copie per HOME dai gruppi a parte. L'elenco viene da quattro fonti, tutte in `SOURCES.md`: il post di r/PokemonHome `1voa411`, la pagina delle sfide di Serebii e due fogli comunitari. La prima corsa ha dato 46 sfide, 22 coperte e 24 da generare. Con `--scrivi` rigenera `pokedex-home-completo/SFIDE-BANK.md`. Dallo stesso giorno `pkhex-elenco-copie` scrive anche le mosse e l'abilità di ogni esemplare, in inglese, nei campi `mosse_en` e `abilita_en`, che servono al controllo delle mosse e delle abilità registrabili solo da Bank.
+
+```powershell
+cd "E:/retrogame-mod-pok-dev"
+python tools/sfide-bank.py --scrivi
+```

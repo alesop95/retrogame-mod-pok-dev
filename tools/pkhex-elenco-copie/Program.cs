@@ -73,6 +73,10 @@ foreach (var arg in args.Skip(1))
             ["generazione"] = pk.Generation,
             ["evento"] = evento,
             ["origine"] = origini.TryGetValue((box, posto), out var o) ? o : "",
+            // Dal 2026-11-03, per le sfide di HOME sulle mosse e sulle abilita' (ADR-107): HOME registra le mosse
+            // conosciute e l'abilita' degli esemplari depositati, e alcune si registrano solo da giochi passati da Bank.
+            ["mosse_en"] = new JsonArray(pk.Moves.Where(m => m != 0).Select(m => (JsonNode)inglese.movelist[m]).ToArray()),
+            ["abilita_en"] = inglese.abilitylist[pk.Ability],
         });
     }
     copie.Add(new JsonObject { ["gruppo"] = gruppo, ["copia"] = percorso, ["gioco"] = sav.Version.ToString(), ["esemplari"] = voci });

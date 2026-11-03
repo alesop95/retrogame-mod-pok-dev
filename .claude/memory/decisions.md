@@ -964,6 +964,26 @@ La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti 
 
 La ragione per cui l'abbandono è accettabile qui, e non lo sarebbe altrove. Quella discussione è del 2005 ed è una richiesta di valutazione di squadra, cioè la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e più recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano è quindi basso, e la decisione si fonda su questo e non sulla sola difficoltà di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
 
+## ADR-108: ciò che le copie in HOME non coprono e che Bank porta con sé si genera apposta nei giri successivi
+
+Data: 2026-11-03. Stato: accettata, decisa dal proprietario.
+
+Contesto. Il controllo del 2026-11-03, scritto in `pokedex-home-completo/DA-PORTARE-PRIMA-DI-BANK.md`, ha confrontato le copie per HOME con quattro fonti sulle cose che diventano impossibili con la chiusura di Bank. Ne sono uscite 24 sfide di HOME, 12 mosse del Pokédex delle mosse e 5 cromatici bloccati che le copie non coprono. Il giro 1 era già in HOME.
+
+Decisione. Per ogni voce non coperta si genera un esemplare dedicato, legale e giudicato dalla libreria, e lo si aggiunge ai lotti dei giri successivi. Il giro 1 non si rifà. Le voci che hanno una via dopo Bank, come le 7 specie presenti in Leggende Z-A, non richiedono esemplari dedicati.
+
+Conseguenze. La produzione dedicata è la prima parte di quella di ADR-106 e va in una copia nuova, dopo i giri 2 e 3 di Rubino Omega. Lo stato si tiene in `DA-PORTARE-PRIMA-DI-BANK.md` e in `SFIDE-BANK.md`, che si rigenera con `tools/sfide-bank.py --scrivi`, e lo si aggiorna a ogni giro.
+
+## ADR-107: tutte le sfide di HOME, e un catalogo stampabile della collezione completa in HOME
+
+Data: 2026-11-03. Stato: accettata, decisa dal proprietario.
+
+Contesto. La scheda del Pokédex lasciava al proprietario l'ambito delle sfide del deposito, cioè quali sfide della lista di HOME il progetto dovesse completare. Il progetto ha già un catalogo stampabile, `_notes/stampa/collezione.pdf`, composto da `tools/pkhex-elenco-copie` e `tools/stampa-collezione.py` sulle copie dei salvataggi, cioè sulla collezione come sta nelle cartucce e nei giochi.
+
+Decisione. Si completano tutte le sfide di HOME. Alla fine di tutto il lavoro, cioè dopo l'ultimo giro e il lavoro su Switch, si prepara un secondo catalogo stampabile, della collezione completa come sta in HOME, sul modello di quello delle copie.
+
+Conseguenze. Per enumerare le sfide servono ancora le schermate delle due schede della lista che non sono mai state fotografate, «Scambi» e «Altro»; la scheda «Pokémon» è già in `foglio-sfide-deposito.csv`. Il catalogo di HOME non si può comporre leggendo un salvataggio, perché HOME non ne espone uno. Va deciso quando ci si arriva da quale fonte comporlo: il registro delle copie trasferite, le schermate dell'app, o un'esportazione se HOME ne offrirà una. Aggiunta del 2026-11-03, dal proprietario: si compone come quello delle cartucce, cioè dai dati degli esemplari stessi, con le immagini in `.png` prese in locale; i dati sono quelli delle copie trasferite, letti con `tools/pkhex-elenco-copie`, più quelli degli esemplari che arriveranno in HOME da Switch.
+
 ## ADR-106: gli statici tipici con doni, vaganti, premi e uova entrano, ogni strumento è ripristinabile, le fonti degli eventi sono cinque
 
 Data: 2026-11-03. Stato: accettata, decisa dal proprietario.
