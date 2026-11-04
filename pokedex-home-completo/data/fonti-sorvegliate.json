@@ -1,0 +1,181 @@
+{
+ "nota": "Registro delle fonti vive da cui dipendono i lotti di Bank (ADR-108 a ADR-111), letto e aggiornato da tools/controlla-fonti-vive.py. Le fonti degli eventi stanno in controllo-eventi.json, sorvegliate da tools/controlla-eventi-nuovi.py. Si aggiunge una voce qui ogni volta che una decisione poggia su una fonte che può cambiare.",
+ "sorvegliate": [
+  {
+   "nome": "Bulbapedia, List of Ribbons in the games",
+   "tipo": "bulbapedia",
+   "riferimento": "List of Ribbons in the games",
+   "url": "https://bulbapedia.bulbagarden.net/wiki/List_of_Ribbons_in_the_games",
+   "serve": "FIOCCHI-PRIMA-DI-BANK.md",
+   "censito": "revisione 4634572 del 2026-09-23",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Bulbapedia, Challenge (HOME)",
+   "tipo": "bulbapedia",
+   "riferimento": "Challenge (HOME)",
+   "url": "https://bulbapedia.bulbagarden.net/wiki/Challenge_(HOME)",
+   "serve": "SFIDE-BANK.md",
+   "censito": "revisione 4643183 del 2026-10-08",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Bulbapedia, Pokédex (HOME)",
+   "tipo": "bulbapedia",
+   "riferimento": "Pokédex (HOME)",
+   "url": "https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9dex_(HOME)",
+   "serve": "COPERTURA-LOTTI.md",
+   "censito": "revisione 4643615 del 2026-10-09",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Bulbapedia, Poké Ball",
+   "tipo": "bulbapedia",
+   "riferimento": "Poké Ball",
+   "url": "https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9_Ball",
+   "serve": "SFERE-PRIMA-DI-BANK.md",
+   "censito": "revisione 4647381 del 2026-10-13",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Bulbapedia, Pokémon Bank",
+   "tipo": "bulbapedia",
+   "riferimento": "Pokémon Bank",
+   "url": "https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_Bank",
+   "serve": "data e condizioni della chiusura",
+   "censito": "revisione 4642845 del 2026-10-07",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "ribbons.guide, repository SlyAceZeta/Ribbons.Guide",
+   "tipo": "github",
+   "riferimento": "SlyAceZeta/Ribbons.Guide",
+   "url": "https://github.com/SlyAceZeta/Ribbons.Guide",
+   "serve": "FIOCCHI-PRIMA-DI-BANK.md",
+   "censito": "commit e99a1b2 del 2026-10-26",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Foglio «Bank Closing all possible things checklist V0.5»",
+   "tipo": "foglio",
+   "riferimento": "14QTf2q3rRFlaIqHxigfFyKiKZdL9o6uc_bQE-OtOTwk",
+   "url": "https://docs.google.com/spreadsheets/d/14QTf2q3rRFlaIqHxigfFyKiKZdL9o6uc_bQE-OtOTwk",
+   "serve": "assi di ADR-111, sfide, cromatici, sfere",
+   "censito": "celle b6f77b2e346a36e4, 14 schede",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Foglio delle sfide di HOME da Bank del post 1voa411",
+   "tipo": "foglio",
+   "riferimento": "11lZYY9qUE3I1d7_Kc3M3q03KIuYGFBaWvWqN2X_qSOk",
+   "url": "https://docs.google.com/spreadsheets/d/11lZYY9qUE3I1d7_Kc3M3q03KIuYGFBaWvWqN2X_qSOk",
+   "serve": "SFIDE-BANK.md",
+   "censito": "celle a4abecdb1d04e59e, 1 schede",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Foglio HOME Tasks del post 1bwr0l1",
+   "tipo": "foglio",
+   "riferimento": "1R0H24zZ3MaxQY6IBnsPttUMD4MK4fXeOmcqPNrZJaKM",
+   "url": "https://docs.google.com/spreadsheets/d/1R0H24zZ3MaxQY6IBnsPttUMD4MK4fXeOmcqPNrZJaKM",
+   "serve": "SFIDE-BANK.md, DA-PORTARE-PRIMA-DI-BANK.md",
+   "censito": "celle 34a540ab30c0d53d, 2 schede",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "r/PokemonHome 1voa411",
+   "tipo": "reddit",
+   "riferimento": "1voa411",
+   "url": "https://www.reddit.com/r/PokemonHome/comments/1voa411/",
+   "serve": "sfide, mosse, abilità e sotto-fonti",
+   "censito": "testo 87b6a3aca01213ea, 51 commenti",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "r/PokemonHome 1bwr0l1",
+   "tipo": "reddit",
+   "riferimento": "1bwr0l1",
+   "url": "https://www.reddit.com/r/PokemonHome/comments/1bwr0l1/",
+   "serve": "foglio HOME Tasks",
+   "censito": "testo cb8b218307a49f05, 1 commenti",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Reddit 1ndpcj6",
+   "tipo": "reddit",
+   "riferimento": "1ndpcj6",
+   "url": "https://www.reddit.com/comments/1ndpcj6/",
+   "serve": "specie Ombra del Fiocco Maestro",
+   "censito": "testo 866754a14c9e7d9c, 19 commenti",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Reddit 1k16fpf",
+   "tipo": "reddit",
+   "riferimento": "1k16fpf",
+   "url": "https://www.reddit.com/comments/1k16fpf/",
+   "serve": "fiocchi",
+   "censito": "testo bbc4d9263c8dfb28, 2 commenti",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Reddit 1xmnrw6",
+   "tipo": "reddit",
+   "riferimento": "1xmnrw6",
+   "url": "https://www.reddit.com/comments/1xmnrw6/",
+   "serve": "cromatici di Scarlatto e Violetto, lavoro su Switch",
+   "censito": "testo c08468a431b95c92, 165 commenti",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Serebii, sfide di Pokémon HOME",
+   "tipo": "pagina",
+   "riferimento": "https://www.serebii.net/pokemonhome/challenges.shtml",
+   "url": "https://www.serebii.net/pokemonhome/challenges.shtml",
+   "serve": "SFIDE-BANK.md",
+   "censito": "testo d40ac6b8282aeda6",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Athis' Ribbon Handbook",
+   "tipo": "pagina",
+   "riferimento": "https://sites.google.com/view/athis-ribbon-handbook/home",
+   "url": "https://sites.google.com/view/athis-ribbon-handbook/home",
+   "serve": "Fiocco Maestro",
+   "censito": "testo 6f8c255aab7bc470",
+   "segnato_il": "2026-11-04"
+  }
+ ],
+ "non_sorvegliate": [
+  {
+   "nome": "PokéOS, fiocchi e elenco dei fiocchi",
+   "url": "https://www.pokeos.com/it/db/pokemon-ribbons",
+   "motivo": "applicazione che si carica solo nel browser: letta dalle fotografie del proprietario il 2026-11-04; il controllo è chiedergli fotografie nuove quando il registro cambia altrove"
+  },
+  {
+   "nome": "IGN, Alfa di Leggende Z-A",
+   "url": "https://www.ign.com/games/pokemon-legends-z-a/checklists/alpha-pokemon",
+   "motivo": "dominio rifiutato dallo strumento di lettura; letta dalle fotografie del proprietario; lavoro su Switch"
+  },
+  {
+   "nome": "r/pokemonribbons, wiki",
+   "url": "https://www.reddit.com/r/pokemonribbons/s/Jkfgeb4zzk",
+   "motivo": "una wiki non sta in Arctic Shift; letta dalle fotografie del proprietario il 2026-11-04"
+  },
+  {
+   "nome": "video di YouTube citati in SOURCES.md",
+   "url": "https://www.youtube.com/",
+   "motivo": "un video pubblicato non cambia: la trascrizione resta valida"
+  },
+  {
+   "nome": "tweet citati in SOURCES.md",
+   "url": "https://twitter.com/",
+   "motivo": "un tweet pubblicato non cambia, e il sito chiede l'accesso"
+  },
+  {
+   "nome": "mappe degli incontri di Scarlatto e Violetto di @vbbcla",
+   "url": "https://drive.google.com/drive/folders/159W-2Wlo5sPA5DSqHwijdVWuA9z4-qfe",
+   "motivo": "cartella di Drive che chiede l'accesso; la versione 2.0.1 è assorbita; lavoro su Switch"
+  }
+ ]
+}

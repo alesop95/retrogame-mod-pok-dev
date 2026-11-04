@@ -27,6 +27,7 @@ EVENTI-SENZA-CARTA.md                       la coda delle consegne che non lasci
 CATENA-DI-TRASFERIMENTO.md                  i vincoli di ogni passaggio e la via in emulazione
 COPIE-PER-HOME.md                           le copie dei salvataggi per HOME per gruppo, e che cosa è trasferito
 RUNBOOK-PASSO-1.md                          la prova pilota con Rubino Omega, passo per passo, con le verifiche
+RUNBOOK-PASSO-2.md                          i giri 2 e 3 di Rubino Omega, passo per passo, con le impronte e i Pokémon di controllo
 CONNETTIVITA-HOME.md                        la tabella di connettività verso HOME al 2026-10-07, e che cosa vuol dire per i lotti
 DA-PORTARE-PRIMA-DI-BANK.md                 lo stato di ciò che va generato prima della chiusura di Bank, e il passo successivo
 COPERTURA-LOTTI.md                          le caselle fino alla settima generazione che le copie non coprono, generato da tools/copertura-lotti.py
@@ -34,7 +35,7 @@ SFERE-PRIMA-DI-BANK.md                      le combinazioni di specie e Poke Bal
 FIOCCHI-PRIMA-DI-BANK.md                    i fiocchi che si perdono, il Fiocco Maestro e il set minimo, generato dallo stesso strumento
 SFIDE-BANK.md                               le sfide di HOME che dipendono da Bank e se le copie le coprono, generato da tools/sfide-bank.py
 ELENCO-PRODUZIONE.md                        l'elenco unico di ciò che va prodotto prima di Bank, ADR-108 a ADR-111, e i posti che chiede, generato da tools/elenco-produzione.py
-pedigree/                                   il pedigree di ogni esemplare delle copie, un file per gruppo, ADR-111, generato da tools/stampa-collezione.py --pedigree
+pedigree/                                   il pedigree di ogni esemplare delle copie, un file per gruppo, ADR-111, generato da tools/stampa-collezione.py
 design-system/                              il design system della collezione e dei PDF stampabili, ADR-110 e ADR-111: tokens.json e i file ricavati da tools/design-system.py
 data/controllo-eventi.json                  lo stato censito delle cinque fonti di eventi, scritto da tools/controlla-eventi-nuovi.py --segna
 CENSIMENTO-FONTI-COLLEZIONE.md              le 171 fonti del corpus, per cluster e con l'esito della corsa
@@ -81,6 +82,10 @@ CENSIMENTO-INCURSIONI-SWSH.md              le 359 chiavi delle incursioni di eve
 ```
 
 Lo strumento che produce il conto sta fra quelli comuni, in `tools/disponibilita-titoli.py`, perché serve a più di un track: la sua risposta governa la pianificazione del tempo di tutto il progetto e non soltanto di questo sottoprogetto.
+
+## Dove stanno i documenti aggiornati e i PDF stampabili
+
+Dal 2026-11-04 i documenti di stato sono quattro, e si leggono in quest'ordine: `DA-PORTARE-PRIMA-DI-BANK.md` dice che cosa resta da portare e il passo successivo, `ELENCO-PRODUZIONE.md` dice che cosa è prodotto e che cosa no, `COPIE-PER-HOME.md` dice quali copie esistono e in che stato sono, e il runbook del passo in corso, oggi `RUNBOOK-PASSO-2.md`, dice che cosa fare con la console in mano. Il pedigree di ogni esemplare sta in `pedigree/`, un file per gruppo di copie, e la sua versione stampabile in `_notes/stampa/pedigree/`, un PDF per gruppo, composto con il design system di `design-system/`. Il campionario del design system è `_notes/design-system/campionario.pdf`. Il catalogo stampabile del 2026-10-01, `_notes/stampa/collezione.pdf`, è stato cancellato il 2026-11-04 perché superato dai pedigree. Resta da portare sul design system la mappa dei box dello Smeraldo, `gba-save-extraction-smeraldo/MAPPA-BOX-COLLEZIONE.pdf`.
 
 ## Materiale locale, fuori dal version control
 

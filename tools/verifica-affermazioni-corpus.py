@@ -8,7 +8,7 @@ Gli estratti di Ollama dal residuo del corpus, letto il 2026-10-01, sono in gran
 nome dell'allenatore originale e l'identificativo, presi dalle liste di Bulbapedia. Rileggerli a mano uno per uno
 consuma token e sbaglia; la domanda che pongono è deterministica: quella distribuzione è in una delle nostre copie? Lo
 strumento estrae dagli estratti ogni coppia allenatore e ID con la specie della stessa riga, e la cerca fra gli
-esemplari di `_notes/stampa/collezione.json`, per specie, allenatore senza distinzione di maiuscole e ID a cinque cifre.
+esemplari di `_notes/lavoro/giudizi-copie/dopo-bfe89c7-pedigree.json`, l'esito di `tools/pkhex-elenco-copie` sulle copie attuali, per specie, allenatore senza distinzione di maiuscole e ID a cinque cifre.
 
 Che cosa fa
 -----------
@@ -30,7 +30,7 @@ import re
 
 RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CARTELLA = os.path.join(RADICE, "_notes", "fonti", "corpus-residuo")
-COPIE = os.path.join(RADICE, "_notes", "stampa", "collezione.json")
+COPIE = os.path.join(RADICE, "_notes", "lavoro", "giudizi-copie", "dopo-bfe89c7-pedigree.json")
 NOMI_EN = os.path.join(RADICE, "_notes", "fonti", "cloni", "pkhex", "PKHeX.Core", "Resources", "text", "other", "en",
                        "text_Species_en.txt")
 COPPIA = re.compile(r"OT[:\s]+[\"“]?([A-Za-z0-9.&'\-ァ-ヶぁ-んー一-龯]{2,12})[\"”]?[\s,]+(?:and\s+)?(?:Trainer\s+)?ID(?:\s+No\.)?[:\s]+[\"“]?(\d{4,6})")

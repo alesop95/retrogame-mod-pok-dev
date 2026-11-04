@@ -18,7 +18,7 @@ battaglia. Tiene come voce distinta la specie, la forma femminile, ogni forma co
 e le altre forme che si depositano; esclude le megaevoluzioni, le Gigamax, le forme di sola battaglia e le primordiali,
 che non esistono in un box, e mette in una classe a sé, senza contarle, le forme da oggetto tenuto. Aggiunge le forme
 depositabili che PokePC non elenca e la libreria sì, cioè il Greninja con Morfosi. Per ogni voce dice se si ottiene
-soltanto dalla banca, secondo la checklist, e quante volte è nelle copie per HOME, secondo `_notes/stampa/collezione.json`.
+soltanto dalla banca, secondo la checklist, e quante volte è nelle copie per HOME, secondo `_notes/lavoro/giudizi-copie/dopo-bfe89c7-pedigree.json`, l'esito di `tools/pkhex-elenco-copie` sulle copie attuali.
 
 Uso
 ---
@@ -38,7 +38,7 @@ RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SCHEDE = os.path.join(RADICE, "_notes", "fonti", "cloni", "pokepc-dataset", "data", "pokemon")
 NOMI_IT = os.path.join(RADICE, "_notes", "fonti", "cloni", "pkhex", "PKHeX.Core", "Resources", "text", "other", "it",
                        "text_Species_it.txt")
-COPIE = os.path.join(RADICE, "_notes", "stampa", "collezione.json")
+COPIE = os.path.join(RADICE, "_notes", "lavoro", "giudizi-copie", "dopo-bfe89c7-pedigree.json")
 USCITA = os.path.join(RADICE, "pokedex-home-completo", "LISTA-COMPLETA.md")
 
 # Le forme che cambiano soltanto per l'oggetto tenuto: per regola del proprietario non sono voci distinte.
@@ -87,7 +87,7 @@ def componi():
     presenti = collections.Counter()
     if os.path.exists(COPIE):
         for c in json.load(io.open(COPIE, encoding="utf-8"))["copie"]:
-            if c["gruppo"].startswith("per HOME"):
+            if c["gruppo"].startswith("HOME"):
                 for e in c["esemplari"]:
                     presenti[(e["numero"], e.get("forma_en", ""))] += 1
     contare = [v for v in voci if v["classe"] != "da oggetto tenuto, non conta"]

@@ -8,9 +8,9 @@ Le copie per HOME sono in giochi di sesta e settima generazione, dove i fiocchi 
 
 | Fiocco | Categoria | Generazione d'origine | Generazioni in cui si ottiene giocando | Esemplari delle copie che lo portano |
 |---|---|---|---|---|
-| Kalos Champion Ribbon | league | VI | 6 | 0 |
-| Hoenn Champion Ribbon | league | VI | 6 | 0 |
-| Alola Champion Ribbon | league | VII | 7 | 0 |
+| Kalos Champion Ribbon | league | VI | 6 | 1 |
+| Hoenn Champion Ribbon | league | VI | 6 | 1 |
+| Alola Champion Ribbon | league | VII | 7 | 1 |
 | Cool Ribbon | cool | III | 3 | fuso nel Ricordo delle Gare |
 | Cool Ribbon Super | cool | III | 3 | fuso nel Ricordo delle Gare |
 | Cool Ribbon Hyper | cool | III | 3 | fuso nel Ricordo delle Gare |
@@ -51,7 +51,7 @@ Le copie per HOME sono in giochi di sesta e settima generazione, dove i fiocchi 
 | Tough Ribbon Great | tough | IV | 4 | fuso nel Ricordo delle Gare |
 | Tough Ribbon Ultra | tough | IV | 4 | fuso nel Ricordo delle Gare |
 | Tough Ribbon Master | tough | IV | 4 | fuso nel Ricordo delle Gare |
-| Contest Memory Ribbon | other | VI | 6 | 1 |
+| Contest Memory Ribbon | other | VI | 6 | 4 |
 | Winning Ribbon | tower | III | 3 | fuso nel Ricordo delle Lotte |
 | Victory Ribbon | tower | III | 3 | fuso nel Ricordo delle Lotte |
 | Ability Ribbon | tower | IV | 4 | fuso nel Ricordo delle Lotte |
@@ -60,17 +60,17 @@ Le copie per HOME sono in giochi di sesta e settima generazione, dove i fiocchi 
 | Multi Ability Ribbon | tower | IV | 4 | fuso nel Ricordo delle Lotte |
 | Pair Ability Ribbon | tower | IV | 4 | fuso nel Ricordo delle Lotte |
 | World Ability Ribbon | tower | IV | 4 | fuso nel Ricordo delle Lotte |
-| Skillful Battler Ribbon | tower | VI | 6 | 0 |
-| Expert Battler Ribbon | tower | VI | 6 | 0 |
-| Battle Royal Master Ribbon | tower | VII | 7 | 0 |
-| Battle Tree Great Ribbon | tower | VII | 7 | 0 |
-| Battle Tree Master Ribbon | tower | VII | 7 | 0 |
-| Battle Memory Ribbon | tower | VI | 6 | 1 |
-| Artist Ribbon | memorial | III | 3 | 1 |
-| Legend Ribbon | memorial | IV | 4 | 0 |
+| Skillful Battler Ribbon | tower | VI | 6 | 1 |
+| Expert Battler Ribbon | tower | VI | 6 | 1 |
+| Battle Royal Master Ribbon | tower | VII | 7 | 1 |
+| Battle Tree Great Ribbon | tower | VII | 7 | 1 |
+| Battle Tree Master Ribbon | tower | VII | 7 | 1 |
+| Battle Memory Ribbon | tower | VI | 6 | 2 |
+| Artist Ribbon | memorial | III | 3 | 2 |
+| Legend Ribbon | memorial | IV | 4 | 1 |
 | Training Ribbon | memorial | VI | 6 | 0 |
-| National Ribbon | gift | III | 3 | 140 |
-| Earth Ribbon | gift | III | 3 | 1 |
+| National Ribbon | gift | III | 3 | 147 |
+| Earth Ribbon | gift | III | 3 | 2 |
 
 Restano ottenibili dopo Bank: Champion Ribbon (Rosso Fuoco e Verde Foglia per Switch, collegati a HOME); Sinnoh Champion Ribbon (generazioni 4, 8); Galar Champion Ribbon (generazioni 8); Paldea Champion Ribbon (generazioni 9); Coolness Master Ribbon (generazioni 6, 8); Beauty Master Ribbon (generazioni 6, 8); Cuteness Master Ribbon (generazioni 6, 8); Cleverness Master Ribbon (generazioni 6, 8); Toughness Master Ribbon (generazioni 6, 8); Contest Star Ribbon (generazioni 6, 8); Twinkling Star Ribbon (generazioni 8); Tower Master Ribbon (generazioni 8); Effort Ribbon (generazioni 3, 4, 6, 7, 8, 9); Alert Ribbon (generazioni 4, 6, 8); Shock Ribbon (generazioni 4, 6, 8); Downcast Ribbon (generazioni 4, 6, 8); Careless Ribbon (generazioni 4, 6, 8); Relax Ribbon (generazioni 4, 6, 8); Snooze Ribbon (generazioni 4, 6, 8); Smile Ribbon (generazioni 4, 6, 8); Gorgeous Ribbon (generazioni 4, 6, 8); Royal Ribbon (generazioni 4, 6, 8); Gorgeous Royal Ribbon (generazioni 4, 6, 8); Footprint Ribbon (generazioni 4, 6, 7, 8); Best Friends Ribbon (generazioni 6, 7, 8, 9); Master Rank Ribbon (generazioni 8, 9); Hisui Ribbon (generazioni 8).
 
@@ -105,6 +105,16 @@ Le specie Ombra sono 18: 13 di XD e 5 di Colosseum. Il manuale di Athis, letto i
 
 Un solo esemplare di questo elenco può portare tutti i fiocchi della tabella precedente, perché ogni specie qui sta in tutti i giochi dalla terza alla settima generazione. Gli emblemi di ottava e nona generazione no, perché dipendono dalla cattura in quei giochi. Nessun esemplare porta anche i fiocchi dono, perché quelli arrivano solo con la distribuzione, e un esemplare di una distribuzione non è un Ombra.
 
+## Il massimo misurato con il verificatore dei fiocchi
+
+Il 2026-11-04, sull'elenco dei fiocchi di PokéOS letto dalle fotografie del proprietario (106 fiocchi e 53 emblemi), `tools/pkhex-fiocco-maestro` ha misurato quale esemplare legale ne raccoglie di più. Per ogni Pokémon Ombra e ogni sua evoluzione presente in Scarlatto e Violetto costruisce l'esemplare dall'incontro della libreria, lo purifica, lo porta fino alla nona generazione con il tracciatore di HOME, gli accende tutti i fiocchi e gli emblemi e spegne quelli che `RibbonVerifier` e la regola degli emblemi di `MarkVerifier` contestano. Combinazioni misurate: 149; per numero di voci tenute: 36 con 45, 55 con 44, 57 con 43, 1 con 39.
+
+Il massimo è 45 voci nel formato della nona generazione, raggiunto da 36 combinazioni, tutte delle famiglie delle specie Ombra della tabella sopra. Chi ne ha una o due di meno manca da Spada e Scudo, che dà il fiocco Campione di Galar, o da Leggende Arceus, che dà il fiocco Hisui. Le 45 voci contano come due i contatori del Ricordo delle Gare (40) e delle Lotte (8), che dalla sesta generazione riassumono 48 fiocchi distinti di terza e quarta: contati uno per uno sono 91 fiocchi nella vita dell'esemplare, di cui 3 emblemi di Scarlatto e Violetto (Buongustaio, Cercaoggetti, Compagno). Gli altri emblemi si ottengono solo con la cattura in natura nei giochi per Switch, e i fiocchi dono solo con le distribuzioni: nessun esemplare li ha tutti, e la pagina di PokéOS li elenca insieme.
+
+L'esemplare proposto è Gardevoir, dall'Ombra Ralts di XD al livello 20: il livello basso permette il fiocco Vittoria della Torre Lotta di terza generazione, che la wiki di r/pokemonribbons ricorda di prendere con un esemplare al livello 50 o meno, e il fiocco Orma si prende in quarta generazione. Nei lotti di Bank entra con i fiocchi fino alla settima generazione; quelli di Switch li prende giocando dopo Bank (ADR-110). Le sue voci:
+
+`RibbonChampionKalos`, `RibbonChampionG3`, `RibbonChampionSinnoh`, `RibbonBestFriends`, `RibbonTraining`, `RibbonBattlerSkillful`, `RibbonBattlerExpert`, `RibbonEffort`, `RibbonAlert`, `RibbonShock`, `RibbonDowncast`, `RibbonCareless`, `RibbonRelax`, `RibbonSnooze`, `RibbonSmile`, `RibbonGorgeous`, `RibbonRoyal`, `RibbonGorgeousRoyal`, `RibbonArtist`, `RibbonFootprint`, `RibbonLegend`, `RibbonNational`, `RibbonEarth`, `RibbonChampionG6Hoenn`, `RibbonContestStar`, `RibbonMasterCoolness`, `RibbonMasterBeauty`, `RibbonMasterCuteness`, `RibbonMasterCleverness`, `RibbonMasterToughness`, `RibbonChampionAlola`, `RibbonBattleRoyale`, `RibbonBattleTreeGreat`, `RibbonBattleTreeMaster`, `RibbonChampionGalar`, `RibbonTowerMaster`, `RibbonMasterRank`, `RibbonHisui`, `RibbonTwinklingStar`, `RibbonChampionPaldea`, `RibbonMarkItemfinder`, `RibbonMarkPartner`, `RibbonMarkGourmand`, `RibbonCountMemoryContest:40`, `RibbonCountMemoryBattle:8`.
+
 ## Il set minimo per avere tutti i fiocchi
 
 Il set minimo è fatto di un esemplare di tipo Fiocco Maestro dell'elenco sopra, che copre tutti i fiocchi che si ottengono giocando, e di carte evento che coprono i fiocchi dono. La base dei doni segreti della libreria, dalla quarta alla nona generazione, ha queste carte per fiocco: Classic 1471; Wishing 287; Premier 47; Event 157; Birthday 99; Special 13; World Champion 1; Souvenir 328; Battle Champion 45; Regional Champion 0; National Champion 0; Country 0; World 0; Earth 0; National 0.
@@ -123,6 +133,6 @@ Una copertura golosa con 9 carte:
 | 6 | 79 | ポケモンカフェの　ピカチュウ | Pikachu | Special |
 | 7 | 665 | Make them quake with Krookodile! | Krookodile | World Champion |
 
-Le copie per HOME portano già: Classic (1370 esemplari), Wishing (266 esemplari), Premier (40 esemplari), Event (150 esemplari), Birthday (69 esemplari), Special (12 esemplari), World Champion (1 esemplare), Souvenir (320 esemplari), Battle Champion (11 esemplari). Fiocchi dono che la base delle carte ha e le copie no: nessuno.
+Le copie per HOME portano già: Classic (1385 esemplari), Wishing (272 esemplari), Premier (40 esemplari), Event (151 esemplari), Birthday (69 esemplari), Special (12 esemplari), World Champion (1 esemplare), Souvenir (323 esemplari), Battle Champion (11 esemplari). Fiocchi dono che la base delle carte ha e le copie no: nessuno.
 
 Fuori dalla base delle carte: Regional Champion, National Champion, Country, World, Earth, National. National ed Earth si ottengono giocando, in Colosseum e XD. Country e World sono fiocchi di distribuzioni di terza e quarta generazione fuori dalla base delle carte: Country da Pokémon Festa 2004, 2005 e 2007; le copie per HOME portano Country in 0 esemplari e World in 0. Regional Champion e National Champion non hanno luoghi su Bulbapedia; la loro distribuzione resta da verificare.

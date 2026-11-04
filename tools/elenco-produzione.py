@@ -46,7 +46,13 @@ ASSI = os.path.join(RADICE, "_notes", "fonti", "raccolte", "fogli-sfide-bank-202
 USCITA = os.path.join(RADICE, "pokedex-home-completo", "ELENCO-PRODUZIONE.md")
 USCITA_JSON = os.path.join(RADICE, "_notes", "lavoro", "elenco-produzione.json")
 POSTI_HOME = 9000
-COPIE_FATTE = 3407          # COPIE-PER-HOME.md, 3272 per HOME, 121 decisione finale, 14 giapponesi
+LOTTI = os.path.join(RADICE, "_notes", "lotti")
+PROVE = os.path.join(RADICE, "_notes", "salvataggi", "prove", "per-home")
+# Le copie scritte dalla produzione del 2026-11-04 e i rapporti della produzione: una voce e' chiusa anche quando il suo
+# esemplare e' stato prodotto da tools/pkhex-produci-elenco e scritto in una di queste copie.
+COPIE_PRODUZIONE = ["oras-giro-4b", "ultraluna-giro-2c", "luna-giappone-2b"]
+RAPPORTI_PRODUZIONE = ["lotto-elenco-produzione", "lotto-elenco-produzione/vc-rifatti", "lotto-elenco-produzione/vc-rifatti-2",
+                       "lotto-elenco-produzione/giro-2", "lotto-elenco-produzione/giro-3", "lotto-elenco-produzione/giro-3-raichu"]
 TETTO_STATICI = 2371        # ADR-106, tools/pkhex-conta-incontri
 
 
@@ -103,10 +109,13 @@ def righe(nome):
 
 
 def voce(categoria, testo, numero=None, forma_n=0, giochi=None, sfera=None, cromatico=None, unico=False,
-         coperta=False, misurata=True, sesso=None):
+         coperta=False, misurata=True, sesso=None, classe=None, livello_max=None, abilita=None):
+    # classe, livello_max e abilita servono al generatore, tools/pkhex-produci-elenco: la classe d'incontro richiesta
+    # (scambio o fisso), il livello più alto ammesso e l'abilità in inglese, come la scrive la libreria.
     return {"categoria": categoria, "voce": testo, "numero": numero, "forma_n": forma_n,
             "giochi": sorted(giochi) if giochi else None, "sfera": sfera, "cromatico": cromatico, "sesso": sesso,
-            "unico": unico, "coperta": coperta, "misurata": misurata}
+            "unico": unico, "coperta": coperta, "misurata": misurata, "classe": classe, "livello_max": livello_max,
+            "abilita": abilita}
 
 
 def raccogli():
@@ -153,7 +162,7 @@ def raccogli():
     # ADR-110: le abilità registrabili solo da Bank.
     for n, f, ab in ((74, 1, "Galvanize"), (88, 1, "Power of Alchemy")):
         if not any(x["numero"] == n and x["forma_n"] == f and x.get("abilita_en") == ab for x in copie):
-            voci.append(voce("abilità", "%s di Alola con %s" % (nomi.get(n, n), ab), n, f))
+            voci.append(voce("abilità", "%s di Alola con %s" % (nomi.get(n, n), ab), n, f, abilita=ab))
 
     # ADR-110: le combinazioni di specie e sfera perse dall'eredità e quelle precise del foglio.
     sfere = json.load(open(fes.SFERE, encoding="utf-8"))
@@ -167,6 +176,21 @@ def raccogli():
         if not any(x["numero"] == n and x["sfera"] == s and x["cromatico"] == crom for x in copie):
             voci.append(voce("coppie precise", "%s%s in %s, da %s" % (nome, " cromatico" if crom else "", s, gioco),
                              n, 0, sfera=s, cromatico=crom, unico=True))
+
+    # Dal post r/BankBallExchange 1vsgu6l, letto il 2026-11-04: tre mitici si catturano, nel loro gioco, in qualunque sfera
+    # che il giocatore lancia, e dopo Bank quelle coppie non arrivano più. La misura per eredità non li vede, perché non si
+    # allevano. Una voce per sfera del gioco, tolte quelle che le copie o il foglio coprono già.
+    G3 = ["Master Ball", "Ultra Ball", "Mega Ball", "Poké Ball", "Rete Ball", "Sub Ball", "Minor Ball", "Bis Ball",
+          "Timer Ball", "Chic Ball", "Premier Ball"]
+    G4 = G3 + ["Scuro Ball", "Cura Ball", "Velox Ball"]
+    gia = {(n, s_) for n, _, crom, s_, _ in fes.COPPIE_FOGLIO if not crom}
+    for n, giochi_, sfere_, dove in ((151, {"E"}, G3, "Smeraldo"), (491, {"D", "P", "Pt"}, G4, "Diamante, Perla e Platino"),
+                                    (494, {"B", "W"}, G4, "Nero e Bianco")):
+        for s_ in sfere_:
+            if (n, s_) in gia or any(x["numero"] == n and x["sfera"] == s_ and x["gioco"] in giochi_ for x in copie):
+                continue
+            voci.append(voce("sfere dei mitici", "%s in %s, da %s" % (nomi.get(n, n), s_, dove), n, 0, giochi_, sfera=s_,
+                             cromatico=False, unico=True))
 
     # ADR-110: il Fiocco Maestro, da una delle 18 specie Ombra che arrivano in tutti i giochi con fiocchi.
     voci.append(voce("Fiocco Maestro", "Fiocco Maestro da una specie Ombra di Colosseum o XD, `FIOCCHI-PRIMA-DI-BANK.md`",
@@ -213,13 +237,14 @@ def raccogli():
         if n:
             g = giochi_foglio(r[1])
             voci.append(voce("asse scambi", "%s «%s» di %s, %s" % (nomi.get(n, r[3]), r[5], r[6], r[1]), n, 0, g,
-                             unico=True, coperta=presente(n, g, lambda x: "Trade" in x.get("evento", ""))))
+                             unico=True, classe="scambio", coperta=presente(n, g, lambda x: "Trade" in x.get("evento", ""))))
     for r in righe("asse-altri-unici.csv")[1:]:
         if len(r) > 5 and r[4] and r[4] != "Games":
             nome = r[1].split(" x")[0].strip()
             n = num(r[0]) or next((k for k, v in nomi.items() if v == nome), None)
             g = giochi_foglio(r[4])
             voci.append(voce("asse altri unici", "%s, %s: %s" % (r[1], r[4], nota(r[5], 80)), n, 0 if n else None, g, unico=True,
+                             classe="fisso",
                              coperta=bool(n) and presente(n, g, lambda x: not x.get("evento", "").startswith("Wild"))))
     for r in righe("asse-stelle-master-dex.csv"):
         n = num(r[4]) if len(r) > 11 else None
@@ -232,11 +257,51 @@ def raccogli():
             g = giochi_foglio(r[4])
             lv = num(r[5]) or 100
             voci.append(voce("asse livelli minimi", "%s al livello %s, %s" % (nomi.get(n, r[1]), r[5], r[4]), n, 0, g,
-                             unico=True, coperta=presente(n, g, lambda x: x["livello"] <= lv)))
+                             unico=True, livello_max=lv, coperta=presente(n, g, lambda x: x["livello"] <= lv)))
 
     # ADR-110: le mosse che esistono fino alla settima generazione e che nessuna copia conosce.
     mosse = json.load(open(os.path.join(LAVORO, "mosse-fino-gen7-mancanti.json"), encoding="utf-8"))["mancanti_fino_gen7"]
     return voci, mosse, nomi, nomi_forma
+
+
+def forma_unown(voci):
+    """La forma di Unown scritta nel testo del foglio, «S Form» o «? Form», come numero di forma della libreria."""
+    for v in voci:
+        m = re.search(r"([A-Z!?]) Form", v["voce"]) if v["numero"] == 201 else None
+        if m:
+            v["forma_n"] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!?".index(m.group(1))
+            v["unico"] = True
+
+
+def prodotte():
+    """Le voci e le mosse chiuse dalla produzione: prodotte conformi e scritte in una copia, lette dai rapporti."""
+    scritti = set()
+    for c in COPIE_PRODUZIONE:
+        p = os.path.join(PROVE, c, "main.rapporto.json")
+        if os.path.exists(p):
+            scritti |= {v["origine"] for v in json.load(open(p, encoding="utf-8"))["voci"]}
+    voci, mosse = set(), set()
+    for rel in RAPPORTI_PRODUZIONE:
+        p = os.path.join(LOTTI, rel, "rapporto.json")
+        if not os.path.exists(p):
+            continue
+        for x in json.load(open(p, encoding="utf-8"))["esiti"]:
+            if x.get("esito") != "conforme":
+                continue
+            chiave = "/".join(t for t in (rel, x.get("cartella"), x["file"]) if t)
+            if chiave in scritti:
+                voci |= set(x["voci"])
+    p = os.path.join(LOTTI, "lotto-mosse-produzione", "rapporto.json")
+    if os.path.exists(p):
+        for x in json.load(open(p, encoding="utf-8"))["esiti"]:
+            if x.get("esito") == "conforme" and "lotto-mosse-produzione/%s/%s" % (x["cartella"], x["file"]) in scritti:
+                mosse |= set(x["mosse"])
+    p = os.path.join(LOTTI, "lotto-smeraldo-cartuccia", "rapporto.json")
+    if os.path.exists(p):
+        for x in json.load(open(p, encoding="utf-8"))["voci"]:
+            if x.get("file") and "lotto-smeraldo-cartuccia/" + x["file"] in scritti:
+                voci.add("%s della cartuccia, box %d posto %d" % (x["specie"], x["box"], x["posto"]))
+    return voci, mosse, len(scritti)
 
 
 def compatibili(a, b):
@@ -265,7 +330,7 @@ def fondi(voci):
                 continue
             if compatibili(e, v):
                 e["voci"].append(v["voce"])
-                for k in ("giochi", "sfera", "cromatico", "sesso"):
+                for k in ("giochi", "sfera", "cromatico", "sesso", "abilita"):
                     if v[k] and not e[k]:
                         e[k] = v[k]
                 if e["giochi"] and v["giochi"]:
@@ -282,6 +347,13 @@ def main():
     a = p.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
     voci, mosse, nomi, nomi_forma = raccogli()
+    forma_unown(voci)
+    fatte, mosse_fatte, scritti = prodotte()
+    for v in voci:
+        if v["voce"] in fatte:
+            v["coperta"], v["prodotta"] = True, True
+    mosse = [m for m in mosse if m not in mosse_fatte]
+    copie_fatte = sum(len(c["esemplari"]) for c in json.load(open(modulo("copertura-lotti").COPIE, encoding="utf-8"))["copie"])
     per = collections.OrderedDict()
     for v in voci:
         c = per.setdefault(v["categoria"], {"totale": 0, "coperte": 0, "non_misurate": 0})
@@ -299,9 +371,9 @@ def main():
               ("  (%d senza misura possibile)" % c["non_misurate"]) if c["non_misurate"] else ""))
     print("esemplari: stima con fusione %d, tetto senza fusione %d (con le mosse a uno per mossa)" % (stima, tetto))
     for nome, n in (("stima", stima), ("tetto", tetto)):
-        tot = COPIE_FATTE + TETTO_STATICI + n
+        tot = copie_fatte + TETTO_STATICI + n
         print("posti di HOME, %s: %d copie + %d statici + %d = %d su %d, restano %d" %
-              (nome, COPIE_FATTE, TETTO_STATICI, n, tot, POSTI_HOME, POSTI_HOME - tot))
+              (nome, copie_fatte, TETTO_STATICI, n, tot, POSTI_HOME, POSTI_HOME - tot))
     if not a.scrivi:
         return 0
     os.makedirs(os.path.dirname(USCITA_JSON), exist_ok=True)
@@ -324,10 +396,10 @@ def main():
           "può quindi essere ottimista; il tetto non lo è." % (len(da), len(mosse), stima, tetto), "",
           "I posti di HOME sono %d. Con le %d copie già fatte e il tetto di %d statici di ADR-106, che si sovrappone in parte "
           "agli altri esemplari unici e alle sfide, la stima porta a %d posti e il tetto a %d. Restano rispettivamente %d e "
-          "%d posti per il lavoro su Switch dopo Bank." % (POSTI_HOME, COPIE_FATTE, TETTO_STATICI,
-                                                          COPIE_FATTE + TETTO_STATICI + stima, COPIE_FATTE + TETTO_STATICI + tetto,
-                                                          POSTI_HOME - COPIE_FATTE - TETTO_STATICI - stima,
-                                                          POSTI_HOME - COPIE_FATTE - TETTO_STATICI - tetto), "",
+          "%d posti per il lavoro su Switch dopo Bank." % (POSTI_HOME, copie_fatte, TETTO_STATICI,
+                                                          copie_fatte + TETTO_STATICI + stima, copie_fatte + TETTO_STATICI + tetto,
+                                                          POSTI_HOME - copie_fatte - TETTO_STATICI - stima,
+                                                          POSTI_HOME - copie_fatte - TETTO_STATICI - tetto), "",
           "Le coperture degli assi sono misurate sul gioco d'origine, sull'incontro di scambio, su un incontro non selvatico, "
           "sul livello, sul sesso e sulla forma di Alola, secondo l'asse. Le altre forme dell'asse del sesso e della forma, "
           "scritte in inglese nel foglio, e le stelle del Master Dex non hanno un campo corrispondente nelle copie e sono "

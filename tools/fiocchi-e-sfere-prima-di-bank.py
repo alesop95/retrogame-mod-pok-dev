@@ -34,7 +34,7 @@ RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LAVORO = os.path.join(RADICE, "_notes", "lavoro", "giudizi-copie")
 SFERE = os.path.join(LAVORO, "sfere-prima-di-bank.json")
 FIOCCHI = os.path.join(LAVORO, "fiocchi-prima-di-bank.json")
-COPIE = os.path.join(LAVORO, "dopo-bfe89c7-fiocchi.json")
+COPIE = os.path.join(LAVORO, "dopo-bfe89c7-pedigree.json")
 BULBA = os.path.join(RADICE, "_notes", "fonti", "raccolte", "bulbapedia-2026-11-04", "List_of_Ribbons_in_the_games.json")
 DOC_SFERE = os.path.join(RADICE, "pokedex-home-completo", "SFERE-PRIMA-DI-BANK.md")
 DOC_FIOCCHI = os.path.join(RADICE, "pokedex-home-completo", "FIOCCHI-PRIMA-DI-BANK.md")
@@ -133,6 +133,40 @@ def generazioni_in_gioco(v):
     """Le generazioni in cui il fiocco si ottiene giocando, cioè quelle il cui luogo non è un esemplare evento."""
     return sorted(g for g, testo in v["luoghi"].items() if "Event Pokémon" not in testo and "event Pokémon distributions" not in testo
                   and "Tournament Pokémon" not in testo)
+
+
+def misura_maestro():
+    """La sezione della misura di `tools/pkhex-fiocco-maestro`, se il suo esito esiste."""
+    p = os.path.join(LAVORO, "fiocco-maestro.json")
+    if not os.path.exists(p):
+        return []
+    voci = json.load(open(p, encoding="utf-8"))["voci"]
+    massimo = voci[0]["fiocchi"]
+    migliori = [v for v in voci if v["fiocchi"] == massimo]
+    esempio = next((v for v in migliori if v["specie"] == "Gardevoir"), migliori[0])
+    conti = collections.Counter(v["fiocchi"] for v in voci)
+    r = ["## Il massimo misurato con il verificatore dei fiocchi", "",
+         "Il 2026-11-04, sull'elenco dei fiocchi di PokéOS letto dalle fotografie del proprietario (106 fiocchi e 53 emblemi), "
+         "`tools/pkhex-fiocco-maestro` ha misurato quale esemplare legale ne raccoglie di più. Per ogni Pokémon Ombra e ogni sua "
+         "evoluzione presente in Scarlatto e Violetto costruisce l'esemplare dall'incontro della libreria, lo purifica, lo porta "
+         "fino alla nona generazione con il tracciatore di HOME, gli accende tutti i fiocchi e gli emblemi e spegne quelli che "
+         "`RibbonVerifier` e la regola degli emblemi di `MarkVerifier` contestano. Combinazioni misurate: %d; per numero di voci "
+         "tenute: %s." % (len(voci), ", ".join("%d con %d" % (n, k) for k, n in sorted(conti.items(), reverse=True))), "",
+         "Il massimo è %d voci nel formato della nona generazione, raggiunto da %d combinazioni, tutte delle famiglie delle "
+         "specie Ombra della tabella sopra. Chi ne ha una o due di meno manca da Spada e Scudo, che dà il fiocco Campione di "
+         "Galar, o da Leggende Arceus, che dà il fiocco Hisui. Le %d voci contano come due i contatori del Ricordo delle Gare "
+         "(40) e delle Lotte (8), che dalla sesta generazione riassumono 48 fiocchi distinti di terza e quarta: contati uno per "
+         "uno sono %d fiocchi nella vita dell'esemplare, di cui 3 emblemi di Scarlatto e Violetto (Buongustaio, Cercaoggetti, "
+         "Compagno). Gli altri emblemi si ottengono solo con la cattura in natura nei giochi per Switch, e i fiocchi dono solo "
+         "con le distribuzioni: nessun esemplare li ha tutti, e la pagina di PokéOS li elenca insieme." %
+         (massimo, len(migliori), massimo, massimo - 2 + 48), "",
+         "L'esemplare proposto è %s, dall'Ombra %s di %s al livello %d: il livello basso permette il fiocco Vittoria della Torre "
+         "Lotta di terza generazione, che la wiki di r/pokemonribbons ricorda di prendere con un esemplare al livello 50 o meno, "
+         "e il fiocco Orma si prende in quarta generazione. Nei lotti di Bank entra con i fiocchi fino alla settima generazione; "
+         "quelli di Switch li prende giocando dopo Bank (ADR-110). Le sue voci:" %
+         (esempio["specie"], esempio["ombra"], esempio["origine"], esempio["livello_ombra"]), "",
+         ", ".join("`%s`" % f for f in esempio["elenco"]) + ".", ""]
+    return r
 
 
 def main():
@@ -265,8 +299,9 @@ def main():
           "Un solo esemplare di questo elenco può portare tutti i fiocchi della tabella precedente, perché ogni specie qui sta "
           "in tutti i giochi dalla terza alla settima generazione. Gli emblemi di ottava e nona generazione no, perché dipendono "
           "dalla cattura in quei giochi. Nessun esemplare porta anche i fiocchi dono, perché quelli arrivano solo con la "
-          "distribuzione, e un esemplare di una distribuzione non è un Ombra.", "",
-          "## Il set minimo per avere tutti i fiocchi", "",
+          "distribuzione, e un esemplare di una distribuzione non è un Ombra.", ""]
+    r += misura_maestro()
+    r += ["## Il set minimo per avere tutti i fiocchi", "",
           "Il set minimo è fatto di un esemplare di tipo Fiocco Maestro dell'elenco sopra, che copre tutti i fiocchi che si "
           "ottengono giocando, e di carte evento che coprono i fiocchi dono. La base dei doni segreti della libreria, dalla quarta "
           "alla nona generazione, ha queste carte per fiocco: " +

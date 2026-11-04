@@ -4,25 +4,26 @@
 
 ## Le misure, e da dove vengono
 
-Le misure sono prese il 2026-11-03 sulle sette copie giudicate con `tools/pkhex-elenco-copie`, libreria PKHeX 26.10.18, in `_notes/lavoro/giudizi-copie/dopo-bfe89c7-mosse.json`. Lo stesso giorno lo strumento ha imparato a estrarre le mosse e l'abilità di ogni esemplare. Le fonti degli elenchi sono cinque, tutte registrate in `SOURCES.md`; la quinta, letta per ultima, è la più completa: l'articolo di Bulbapedia «Challenge (HOME)», revisione 4643183, con 269 sfide, 204 Pokémon, 60 di scambio e 5 altre. La prima è il post di r/PokemonHome `1voa411`, del 2026-08-14. La seconda è la pagina delle sfide di Serebii. La terza è il foglio comunitario «Bank Closing all possible things checklist V0.5», con le schede «Home Challenges from bank» e «Locked Shinies». La quarta è il foglio del post `1bwr0l1`, con le sezioni «HOME Challenges» e «What to transfer up from the 3DS before Bank Closes». Le sezioni dei fogli sono estratte in `_notes/fonti/raccolte/fogli-sfide-bank-2026-11-03/home-tasks/`.
+Le misure sono prese il 2026-11-03 sulle sette copie, e dal 2026-11-04 sulle dieci copie, dopo la produzione di ADR-112 (`_notes/lavoro/giudizi-copie/dopo-bfe89c7-pedigree.json`); la frase che segue racconta la misura del 2026-11-03, sulle sette copie giudicate con `tools/pkhex-elenco-copie`, libreria PKHeX 26.10.18, in `_notes/lavoro/giudizi-copie/dopo-bfe89c7-mosse.json`. Lo stesso giorno lo strumento ha imparato a estrarre le mosse e l'abilità di ogni esemplare. Le fonti degli elenchi sono cinque, tutte registrate in `SOURCES.md`; la quinta, letta per ultima, è la più completa: l'articolo di Bulbapedia «Challenge (HOME)», revisione 4643183, con 269 sfide, 204 Pokémon, 60 di scambio e 5 altre. La prima è il post di r/PokemonHome `1voa411`, del 2026-08-14. La seconda è la pagina delle sfide di Serebii. La terza è il foglio comunitario «Bank Closing all possible things checklist V0.5», con le schede «Home Challenges from bank» e «Locked Shinies». La quarta è il foglio del post `1bwr0l1`, con le sezioni «HOME Challenges» e «What to transfer up from the 3DS before Bank Closes». Le sezioni dei fogli sono estratte in `_notes/fonti/raccolte/fogli-sfide-bank-2026-11-03/home-tasks/`.
 
 ## Lo stato per voce
 
 | Voce | Totale | Coperte dalle copie per HOME | Da generare | Dove sta il dettaglio |
 |---|---|---|---|---|
-| Caselle di specie e forma che esistono fino alla settima generazione (ADR-109, ADR-110) | 936 | 562 | 374 | `COPERTURA-LOTTI.md`, generato da `tools/copertura-lotti.py --scrivi` |
-| Sfide di HOME che dipendono da Bank | 47 | 23 | 24 | `SFIDE-BANK.md`, generato da `tools/sfide-bank.py --scrivi` |
-| Mosse registrabili solo da giochi passati da Bank | 63 | 51 | 12 | qui sotto |
-| Abilità registrabili solo da giochi passati da Bank | 5 | 3 | 2 | Battle Bond, Soul-Heart e Victory Star coperte; Galvanize e Power of Alchemy da generare, dalle sotto-fonti del post `1voa411` |
-| Combinazioni di specie e sfera che si perdono, per eredità (ADR-110) | 82 | 1 | 81 | `SFERE-PRIMA-DI-BANK.md`, generato da `tools/fiocchi-e-sfere-prima-di-bank.py --scrivi` |
-| Combinazioni precise di specie e sfera del foglio comunitario | 14 | 3 | 11 | `SFERE-PRIMA-DI-BANK.md` |
-| Fiocchi che si ottengono giocando solo fino alla settima generazione | 63 | 4 | un Fiocco Maestro di Colosseum o XD | `FIOCCHI-PRIMA-DI-BANK.md` |
+| Caselle di specie e forma che esistono fino alla settima generazione (ADR-109, ADR-110) | 936 | 930 | 6: Wormadam nelle tre forme, Froslass, Meowstic femmina, Lycanroc Crepuscolo | `COPERTURA-LOTTI.md`, generato da `tools/copertura-lotti.py --scrivi` |
+| Sfide di HOME che dipendono da Bank | 47 | 47 | 0 | `SFIDE-BANK.md`, generato da `tools/sfide-bank.py --scrivi` |
+| Mosse registrabili solo da giochi passati da Bank | 63 | 63 | 0 | le 12 di ADR-108 prodotte il 2026-11-04 nel lotto delle mosse |
+| Abilità registrabili solo da giochi passati da Bank | 5 | 5 | 0 | Galvanize e Power of Alchemy prodotte il 2026-11-04 |
+| Combinazioni di specie e sfera che si perdono, per eredità (ADR-110) | 82 | 82 | 0 | `SFERE-PRIMA-DI-BANK.md`, generato da `tools/fiocchi-e-sfere-prima-di-bank.py --scrivi` |
+| Combinazioni precise di specie e sfera del foglio comunitario | 14 | 13 | 1: Mew in Cura Ball, che la terza generazione non ha | `SFERE-PRIMA-DI-BANK.md` |
+| Fiocchi che si ottengono giocando solo fino alla settima generazione | 63 | il Fiocco Maestro prodotto | 0 | `FIOCCHI-PRIMA-DI-BANK.md`, misura del massimo di `tools/pkhex-fiocco-maestro` |
 | Fiocchi dono nella base delle carte | 9 | 9 | 0 | `FIOCCHI-PRIMA-DI-BANK.md` |
-| Mosse del Pokédex delle mosse che esistono fino alla settima generazione e nessuna copia conosce | 184 | 0 | 184, di cui 36 mosse Z da verificare | `_notes/lavoro/giudizi-copie/mosse-fino-gen7-mancanti.json` |
-| Esemplari conformi della cartuccia originale di Smeraldo, per affetto | 213 | 0 | 213 | ADR-110 |
-| Cromatici bloccati, ottenibili solo da Bank | 8 | 3 | 5 | qui sotto |
+| Mosse del Pokédex delle mosse che esistono fino alla settima generazione e nessuna copia conosceva | 184 | 134 | 0 producibili: le 50 rimaste sono 18 mosse Z, 16 mosse Z esclusive, Struggle, Light of Ruin di Floette Fiore Eterno, mai distribuito, 13 mosse di Let's Go e Double Iron Bash di Melmetal, che su 3DS non si imparano | `ELENCO-PRODUZIONE.md` |
+| Esemplari conformi della cartuccia originale di Smeraldo, per affetto | 213 | 213 | 0 | estratti in `_notes/lotti/lotto-smeraldo-cartuccia/`, nella copia `oras-giro-4b` |
+| Cromatici bloccati, ottenibili solo da Bank, più Deoxys, Manaphy e Darkrai dal video `yyIa9611uZk` | 11 | 11 | 0 | qui sotto |
 | Specie che il foglio del 2024 dava «solo tramite GO» | 9 | 2 | 0 | qui sotto |
-| Assi da collezionista del foglio «Bank Closing», righe con un numero di Pokédex (ADR-111) | 1551 | 413 | 1138, di cui 320 senza misura possibile | `ELENCO-PRODUZIONE.md` |
+| Assi da collezionista del foglio «Bank Closing», righe con un numero di Pokédex (ADR-111) | 1551 | 1400 | 151, quasi tutte scambi e stelle descritti a parole | `ELENCO-PRODUZIONE.md` |
+| Combinazioni di Mew, Victini e Darkrai in ogni sfera del loro gioco, dal post `1vsgu6l` di r/BankBallExchange | 33 | 33 | 0 | `ELENCO-PRODUZIONE.md` |
 
 I sei assi da collezionista, adottati il 2026-11-04 con ADR-111, sono contati sulle schede del foglio estratte in `_notes/fonti/raccolte/fogli-sfide-bank-2026-11-03/assi/`. L'origine ha 479 righe, un esemplare per specie con il gioco d'origine della sua regione per Johto, Hoenn, Unima e Alola. Sesso e forma per origine sono 187 righe su 80 specie. Gli scambi in gioco con l'allenatore originale del gioco sono 345 righe su 212 specie. Gli altri esemplari unici, cioè doni, premi, fossili, incontri fissi, Dream Radar e Ranger, sono 202. Le stelle della sfida Master Dex sono 237 righe su 163 specie. I livelli minimi sono 101 righe su 100 specie. Nel caso peggiore, senza togliere doppioni, i posti servono così: 3407 copie fatte, 2371 statici di ADR-106, 907 aggiunte di ADR-108, ADR-109 e ADR-110, 1551 righe degli assi, in tutto 8236 su 9000. Il conto con i doppioni tolti è in `ELENCO-PRODUZIONE.md`, generato da `tools/elenco-produzione.py --scrivi` il 2026-11-04: 1864 voci da produrre e 184 mosse da assegnare, stimate in 1461 esemplari fondendo le voci compatibili, con un tetto di 2048. I posti di HOME bastano anche con il tetto: 3407 copie, 2371 statici e 2048 fanno 7826 su 9000, e restano 1174 posti per il lavoro su Switch. Se un giorno non bastassero, si chiede al proprietario quale asse tagliare.
 

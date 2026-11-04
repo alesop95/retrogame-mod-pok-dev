@@ -34,7 +34,7 @@ import sys
 
 RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ATTESE = os.path.join(RADICE, "_notes", "lavoro", "giudizi-copie", "attese-fino-gen7.json")
-COPIE = os.path.join(RADICE, "_notes", "lavoro", "giudizi-copie", "dopo-bfe89c7-fiocchi.json")
+COPIE = os.path.join(RADICE, "_notes", "lavoro", "giudizi-copie", "dopo-bfe89c7-pedigree.json")
 USCITA = os.path.join(RADICE, "pokedex-home-completo", "COPERTURA-LOTTI.md")
 
 # Chiuso il 2026-11-04: il proprietario, che ha giocato Leggende Z-A, conferma che le tosature sono varianti contate,

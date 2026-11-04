@@ -21,7 +21,7 @@ HOME soddisfa. Il controllo legge i dati degli esemplari, non lo stato delle sfi
 
 Uso
 ---
-    python tools/sfide-bank.py                       sulle copie giudicate in _notes/lavoro/giudizi-copie/dopo-bfe89c7.json
+    python tools/sfide-bank.py                       sulle copie giudicate in _notes/lavoro/giudizi-copie/dopo-bfe89c7-pedigree.json
     python tools/sfide-bank.py --giudizio FILE.json  su un altro esito di pkhex-elenco-copie
     python tools/sfide-bank.py --scrivi              scrive anche pokedex-home-completo/SFIDE-BANK.md, generato
 """
@@ -31,7 +31,7 @@ import os
 import sys
 
 RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-GIUDIZIO = os.path.join(RADICE, "_notes", "lavoro", "giudizi-copie", "dopo-bfe89c7.json")
+GIUDIZIO = os.path.join(RADICE, "_notes", "lavoro", "giudizi-copie", "dopo-bfe89c7-pedigree.json")
 
 KANTO_VC = {"RD", "GN", "BU", "YW"}
 JOHTO_VC = {"GD", "SI", "C"}

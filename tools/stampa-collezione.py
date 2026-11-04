@@ -1,29 +1,28 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Compone il catalogo stampabile della collezione per HOME, un PDF con una riga per esemplare e la sua immagine.
+"""Compone il pedigree di ogni esemplare delle copie per HOME: un PDF stampabile e un documento generato per gruppo.
 
 Perché esiste
 -------------
 Il proprietario ha chiesto, il 2026-09-30, un PDF separato e stampabile di tutta la collezione, aggiornato man mano
-che il lavoro procede, e il 2026-10-01 ne ha precisato la forma: non il box della copia da cui l'esemplare parte, ma
-che tipo di evento è, nel dettaglio; niente spiegazioni in apertura; una riga per esemplare, molto dettagliata, con
-una piccola immagine del Pokémon in un quadratino, presa dalla raccolta delle illustrazioni di Sugimori che il
-proprietario tiene in locale.
+che il lavoro procede, con una piccola immagine del Pokémon presa dalla raccolta delle illustrazioni di Sugimori che
+tiene in locale, e il 2026-10-01 che dicesse nel dettaglio che tipo di evento è ciascun esemplare. Il 2026-11-04
+(ADR-111) ha chiesto che ogni esemplare abbia un pedigree nella documentazione e nella stampa. Il catalogo a righe del
+2026-10-01 è stato sostituito quel giorno dalle schede di pedigree, e il suo codice tolto.
 
-Il catalogo si compone dai dati e non si scrive a mano. `tools/pkhex-elenco-copie` legge le copie dei salvataggi,
-che sono ciò che arriva in HOME, e dà per ogni esemplare l'evento come lo riconosce la libreria: titolo e numero
-della carta per un dono segreto, altrimenti il nome dell'incontro. Questo strumento lo arricchisce con la
-descrizione che il progetto ha già per i lotti che non portano una carta: il nome dell'evento nel file degli eventi
-di terza generazione, i gruppi di `SCHEDE-EVENTI-GB.md`, la tabella di `COMPLEMENTO-RUBINO.md` e la provenienza della
-checklist. Raggruppa per generazione d'origine in ordine di Pokédex e compila con LuaLaTeX, l'ambiente della tesi.
-Il margine sinistro è largo per i fori di un quaderno ad anelli, e un carattere di ripiego stampa i nomi
-giapponesi, coreani e cinesi.
+Le schede si compongono dai dati e non si scrivono a mano. `tools/pkhex-elenco-copie` legge le copie dei salvataggi,
+che sono ciò che arriva in HOME, e dà per ogni esemplare i campi del pedigree e l'evento come lo riconosce la
+libreria. Questo strumento lo arricchisce con la descrizione che il progetto ha già per i lotti che non portano una
+carta: il nome dell'evento nel file degli eventi di terza generazione, i gruppi di `SCHEDE-EVENTI-GB.md`, la tabella
+di `COMPLEMENTO-RUBINO.md` e la provenienza della checklist. Compone con LuaLaTeX e il design system di
+`pokedex-home-completo/design-system/`, e cancella i file ausiliari di LaTeX dopo la composizione.
 
 Le miniature si generano una volta in `_notes/stampa/miniature/` con Pillow, a 96 pixel, e non entrano in Git.
 
 Uso
 ---
-    python tools/stampa-collezione.py _notes/stampa/collezione.json _notes/stampa/collezione.tex --pdf
+    python tools/stampa-collezione.py _notes/lavoro/giudizi-copie/dopo-bfe89c7-pedigree.json --pdf
+    python tools/stampa-collezione.py ... --gruppo HOME1 --gruppo GIAPPONE
     python tools/stampa-collezione.py ... --immagini "<cartella delle illustrazioni, divisa per generazione>"
 """
 
@@ -149,54 +148,6 @@ def miniatura(e, cartella, cache):
     return cache[chiave]
 
 
-def componi(dati, cartella_immagini):
-    per_codice, per_file = descrizioni_del_progetto()
-    cache = {}
-    righe = [r"""\documentclass[8pt,a4paper]{extarticle}
-\usepackage[top=12mm,bottom=12mm,left=26mm,right=10mm]{geometry}
-\usepackage{fontspec}
-\directlua{luaotfload.add_fallback("asia", {"YuGothic:mode=harf;", "MS Gothic:mode=harf;", "Malgun Gothic:mode=harf;", "Microsoft YaHei:mode=harf;", "Microsoft JhengHei:mode=harf;"})}
-\setmainfont{Arial}[RawFeature={fallback=asia}]
-\usepackage{longtable,booktabs,array,graphicx}
-\usepackage[italian]{babel}
-\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
-\setlength{\tabcolsep}{2.5pt}
-\renewcommand{\arraystretch}{1.1}
-\pagestyle{plain}
-\begin{document}
-\section*{La collezione per HOME}
-"""]
-    gruppi = {}
-    for c in dati["copie"]:
-        nome = "Per HOME" if c["gruppo"].startswith("per HOME") else "Decisione finale: " + c["gruppo"].split(", ", 1)[1]
-        gruppi.setdefault(nome, []).extend(c["esemplari"])
-    for nome_gruppo, esemplari in gruppi.items():
-        righe.append(r"\subsection*{%s, %d esemplari}" % (tex(nome_gruppo), len(esemplari)))
-        per_gen = {}
-        for e in esemplari:
-            per_gen.setdefault(e["generazione"], []).append(e)
-        for gen in sorted(per_gen):
-            righe += [r"\subsubsection*{Generazione d'origine %d, %d esemplari}" % (gen, len(per_gen[gen])),
-                      r"\begin{longtable}{c L{23mm} r l L{23mm} L{19mm} L{54mm} L{25mm}}", r"\toprule",
-                      r" & Specie & Liv. & & Allenatore & Lingua, gioco & Evento & Luogo, sfera\\", r"\midrule",
-                      r"\endhead"]
-            for e in sorted(per_gen[gen], key=lambda x: (x["numero"], x["forma"], x["origine"])):
-                img = miniatura(e, cartella_immagini, cache)
-                cella_img = (r"\raisebox{-0.4\height}{\includegraphics[width=7mm,height=7mm,keepaspectratio]{%s}}" % img
-                             if img else "")
-                specie = e["specie"] + (" (%s)" % e["forma"] if e["forma"] else "")
-                segni = e["sesso"] + (" C" if e["cromatico"] else "")
-                righe.append(r"%s & %s & %d & %s & %s %s & %s, %s & %s & %s; %s\\" % (
-                    cella_img, tex(specie), e["livello"], tex(segni), tex(e["allenatore"]), tex(e["id"]),
-                    tex(e["lingua"][:3]), tex(GIOCHI.get(e["gioco"], e["gioco"])),
-                    tex(evento_di(e, per_codice, per_file)), tex(e["luogo"]), tex(e["sfera"])))
-            righe += [r"\bottomrule", r"\end{longtable}"]
-        righe.append(r"\clearpage")
-    righe.append(r"\end{document}")
-    mancanti = sorted(k for k, v in cache.items() if v is None)
-    return "\n".join(righe) + "\n", len(cache), mancanti
-
-
 # Il pedigree di ogni esemplare (ADR-111, 2026-11-04): una scheda per esemplare nel PDF stampabile, con il design
 # system di `pokedex-home-completo/design-system/`, e una riga per esemplare nel documento generato e tracciato, dalla
 # stessa funzione, così che i due non divergano. Lo stato viene dal gruppo: il giro 1 è in HOME dal 2026-11-03.
@@ -204,6 +155,7 @@ STATO_GRUPPO = {"HOME1": ("DSstatoinhome", "in HOME")}
 DS = os.path.join(RADICE, "pokedex-home-completo", "design-system")
 PEDIGREE_MD = os.path.join(RADICE, "pokedex-home-completo", "pedigree")
 PEDIGREE_PDF = os.path.join(RADICE, "_notes", "stampa", "pedigree")
+ORIGINI_PRIVATE = ("lotto-smeraldo-cartuccia/",)
 
 
 def campi_pedigree(e, per_codice, per_file):
@@ -264,7 +216,7 @@ def pedigree(dati, cartella_immagini, pdf, solo=None):
             continue
         colore, stato = STATO_GRUPPO.get(gruppo, ("", "in copia"))
         md = ["# Pedigree degli esemplari del gruppo %s" % gruppo, "",
-              "> Documento generato da `tools/stampa-collezione.py --pedigree`, dalla stessa funzione che compone il PDF "
+              "> Documento generato da `tools/stampa-collezione.py`, dalla stessa funzione che compone il PDF "
               "stampabile in `_notes/stampa/pedigree/%s.pdf`. Non si modifica a mano. Una riga per esemplare, nell'ordine di "
               "box e posto della copia, giudicata da `tools/pkhex-elenco-copie`; i campi sono quelli di ADR-111. Stato del "
               "gruppo: %s. Esemplari: %d, conformi: %d." % (gruppo, stato, len(esemplari),
@@ -292,6 +244,13 @@ def pedigree(dati, cartella_immagini, pdf, solo=None):
             img = miniatura(e, cartella_immagini, cache)
             corpo.append(scheda_tex(e, gruppo, per_codice, per_file, img))
             valori = [v for _, v in campi_pedigree(e, per_codice, per_file)]
+            # ADR-111: gli esemplari delle cartucce vere del proprietario portano allenatori reali, il suo e quelli di chi
+            # glieli ha scambiati; nel documento tracciato e pubblico l'allenatore diventa un segnaposto, e il valore vero
+            # resta solo nel PDF, che sta in _notes/ e non entra in Git. Anche PID ed EC restano, perche' non identificano
+            # una persona.
+            if e["origine"].startswith(ORIGINI_PRIVATE):
+                etichette = [k for k, _ in campi_pedigree(e, per_codice, per_file)]
+                valori[etichette.index("allenatore")] = "<ALLENATORE DELLA CARTUCCIA>"
             md.append("| " + " | ".join(str(x).replace("|", "/") for x in [
                 e["box"], e["posto"], "%d %s" % (e["numero"], e["specie"]), e["forma"], e["sesso"],
                 "sì" if e["cromatico"] else "", evento_di(e, per_codice, per_file)] + valori +
@@ -308,6 +267,10 @@ def pedigree(dati, cartella_immagini, pdf, solo=None):
             if r.returncode != 0:
                 print(r.stdout[-3000:])
                 sys.exit("lualatex non ha compilato il pedigree di " + gruppo)
+            for est in (".aux", ".log"):
+                ausiliario = os.path.splitext(uscita)[0] + est
+                if os.path.exists(ausiliario):
+                    os.remove(ausiliario)
         print("%s: %d esemplari; %s%s" % (gruppo, len(esemplari), os.path.relpath(os.path.join(PEDIGREE_MD, gruppo + ".md"), RADICE),
                                           ", " + os.path.splitext(uscita)[0] + ".pdf" if pdf else ""))
     mancanti = sorted(k for k, v in cache.items() if v is None)
@@ -317,31 +280,11 @@ def pedigree(dati, cartella_immagini, pdf, solo=None):
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("dati", help="JSON di tools/pkhex-elenco-copie")
-    ap.add_argument("uscita", nargs="?", help="file .tex da scrivere, per il catalogo")
     ap.add_argument("--immagini", default=IMMAGINI, help="cartella delle illustrazioni, divisa per generazione")
-    ap.add_argument("--pdf", action="store_true", help="compila anche il PDF con lualatex, due passate")
-    ap.add_argument("--pedigree", action="store_true",
-                    help="compone il pedigree per gruppo: PDF in _notes/stampa/pedigree/, Markdown in pokedex-home-completo/pedigree/")
-    ap.add_argument("--gruppo", action="append", help="con --pedigree, solo questo gruppo; si ripete")
+    ap.add_argument("--pdf", action="store_true", help="compila anche i PDF con lualatex")
+    ap.add_argument("--gruppo", action="append", help="solo questo gruppo; si ripete")
     a = ap.parse_args()
-    if a.pedigree:
-        pedigree(json.load(io.open(a.dati, encoding="utf-8")), a.immagini, a.pdf, a.gruppo)
-        return
-    if not a.uscita:
-        ap.error("serve il file .tex da scrivere, oppure --pedigree")
-    dati = json.load(io.open(a.dati, encoding="utf-8"))
-    testo, figure, mancanti = componi(dati, a.immagini)
-    io.open(a.uscita, "w", encoding="utf-8").write(testo)
-    print("scritto %s; miniature %d, senza illustrazione %d %s" % (a.uscita, figure, len(mancanti), mancanti[:10]))
-    if a.pdf:
-        cartella = os.path.dirname(os.path.abspath(a.uscita))
-        for _ in range(2):
-            r = subprocess.run(["lualatex", "-interaction=nonstopmode", "-halt-on-error", os.path.basename(a.uscita)],
-                               cwd=cartella, capture_output=True, text=True, encoding="utf-8", errors="replace")
-            if r.returncode != 0:
-                print(r.stdout[-3000:])
-                sys.exit("lualatex non ha compilato il documento")
-        print("scritto", os.path.splitext(a.uscita)[0] + ".pdf")
+    pedigree(json.load(io.open(a.dati, encoding="utf-8")), a.immagini, a.pdf, a.gruppo)
 
 
 if __name__ == "__main__":

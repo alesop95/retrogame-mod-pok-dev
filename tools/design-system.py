@@ -246,6 +246,9 @@ def campionario(tok):
     if r.returncode != 0:
         print(r.stdout[-3000:])
         return 1
+    for est in (".aux", ".log"):
+        if os.path.exists(os.path.join(LAVORO, "campionario" + est)):
+            os.remove(os.path.join(LAVORO, "campionario" + est))
     print("composto   %s" % os.path.join(LAVORO, "campionario.pdf"))
     return 0
 

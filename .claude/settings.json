@@ -37,7 +37,8 @@
     "SessionStart": [
       {
         "hooks": [
-          { "type": "command", "command": "python \"E:/retrogame-mod-pok-dev/tools/controlla-eventi-nuovi.py\" --breve", "timeout": 30 }
+          { "type": "command", "command": "python \"E:/retrogame-mod-pok-dev/tools/controlla-eventi-nuovi.py\" --breve", "timeout": 30 },
+          { "type": "command", "command": "python \"E:/retrogame-mod-pok-dev/tools/controlla-fonti-vive.py\" --breve", "timeout": 90 }
         ]
       }
     ]

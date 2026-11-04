@@ -186,6 +186,16 @@ PKM? Prepara(string percorso, string origine)
         return null;
     }
     sav.AdaptToSaveFile(convertito, false);
+    // Dal 2026-11-04: un esemplare di Game Boy arriva nella settima generazione da Poke Transporter, che gli scrive la
+    // regione della console su cui gira, cioe' quella del salvataggio che lo riceve. La conversione della libreria gli
+    // lascia invece la regione di riserva, le Americhe, e il verificatore rifiuta una lingua europea in quella regione
+    // (VerifyVCGeolocation). Con --regione-dal-salvataggio, o con --regione-del-ricevente che la comprende, la regione si
+    // prende dal salvataggio prima del giudizio, come fa Transporter.
+    if (dalSalvataggio && pk.Format <= 2 && convertito is IRegionOrigin geoVc && sav is IRegionOrigin geoSavVc)
+    {
+        geoSavVc.CopyRegionOrigin(geoVc);
+        convertito.RefreshChecksum();
+    }
     // --solo-epoca-cartucce scrive soltanto gli esemplari di Game Boy che sono legali nell'epoca delle cartucce e non
     // in quella della Console Virtuale, cioe' gli eventi da cartuccia: PKHeX, aprendo un salvataggio di settima
     // generazione, li giudica nella seconda e li segna come non legali. Sono il secondo caricamento a parte.

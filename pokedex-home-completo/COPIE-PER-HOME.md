@@ -19,6 +19,9 @@ ADR-099 dà all'allenatore del progetto un solo identificativo segreto, 58164. L
 | per HOME | `per-home/ultraluna-giro-1-scambi-fin2/main` | 613 | 12 | i 12 statici di Ohana |
 | decisione finale | `a-parte/luna-eventi-da-cartuccia-fin/main` | 121 | 0 | non toccata: i 14 esemplari del progetto con SID 0 vengono da file di Game Boy |
 | da provare a parte | `per-home/luna-giappone-14/main` | 14 | 0 | non toccata, stessa ragione |
+| per HOME, produzione del 2026-11-04 | `per-home/oras-giro-4b/main` | 825 | 0 | giro 4 di Rubino Omega, HOME6: l'elenco unico di produzione (ADR-112) per gli esemplari nati fino alla sesta generazione, i 213 della cartuccia di Smeraldo e 11 esemplari delle mosse |
+| per HOME, produzione del 2026-11-04 | `per-home/ultraluna-giro-2c/main` | 570 | 0 | giro 2 di Ultraluna, HOME7: gli esemplari nati in settima generazione o della Console Virtuale, il Fiocco Maestro e 34 esemplari delle mosse |
+| da provare a parte, produzione del 2026-11-04 | `per-home/luna-giappone-2b/main` | 16 | 0 | GIAPPONE2: scambi e premi della Blu giapponese, in una copia di console giapponese dalla Luna del proprietario |
 
 Misure del 2026-10-07. Il confronto fra ogni copia `-fin` e la sua `-fin2` dà «diverso» esattamente nei posti sostituiti e «uguale» in tutti gli altri; gli offset cambiati sono la costante di cifratura e il PID dove il lotto è stato rigenerato, il SID (0x0E-0x0F nel formato della sesta generazione), la somma di controllo, e i due campi che la conversione assegna da sé, cioè il sentimento del ricordo del detentore e la data d'incontro. Ogni esemplare sostituito è stato riletto senza differenze e giudicato conforme. `pkhex-identificativi --tid 42317` sulle quattro copie nuove trova l'allenatore del progetto solo con SID 58164: 191, 48, 155 e 12 esemplari, e 156 nella `oras-giro-3-fin3`. Il Manaphy di Ranger, che ADR-099 metteva nel giro 1, pieno con 930 esemplari su 930 posti, è entrato nel giro 3 per ADR-103: `oras-giro-3-fin3` è la `-fin2` con un esemplare in più, riletto senza differenze e conforme, e il confronto con `pkhex-confronta-copie` dà 914 posti uguali e un solo posto nuovo. Il totale per HOME è 3272. Le copie `-fin` restano su disco, superate, e non vanno sulla console.
 
@@ -37,7 +40,7 @@ Sono le copie da portare sulla console, con suffisso `-fin`: stessi esemplari de
 | decisione finale | `a-parte/luna-eventi-da-cartuccia-fin/main` | 121 | |
 | da provare a parte | `per-home/luna-giappone-14/main` | 14 | |
 
-Per HOME sono 3271 esemplari dal 2026-10-06 (erano 3235). 176 esemplari conservano la geolocalizzazione dell'allenatore che li ha ricevuti nel lotto, perché il sorgente la assegna a lui e non a chi li tiene ora. Le copie `-eu` e quelle senza suffisso restano come passi intermedi e non vanno sulla console.
+Per HOME sono 3271 esemplari dal 2026-10-06 (erano 3235). 176 esemplari conservano la geolocalizzazione dell'allenatore che li ha ricevuti nel lotto, perché il sorgente la assegna a lui e non a chi li tiene ora. Le copie `-eu` e quelle senza suffisso erano passi intermedi e non vanno sulla console; il 2026-11-04 sono superate, e con loro le copie intermedie della produzione, e si tolgono con `_notes/pulizia-2026-11-04.ps1`, che il proprietario lancia una volta. Si rifanno, se servisse, con la catena di comandi di `docs/22-strumenti.md`, perché i lotti di partenza restano.
 
 ## Stato al 2026-09-30, sera
 
@@ -69,7 +72,7 @@ Prima di cominciare, tre condizioni, di cui la prima caduta il 2026-10-05 con AD
 
 Il passo 1 è la prova pilota con un solo giro, Rubino Omega giro 1, 930 esemplari: ripristino della copia, controllo dei box in gioco, passaggio alla banca, controllo in banca, passaggio al deposito, controllo nel deposito. Se il deposito rifiuta o segnala qualcosa ci si ferma, e si capisce prima di continuare. È il solo passo che mette alla prova tutta la catena con esemplari del progetto.
 
-Il passo 2 sono i giri 2 e 3 di Rubino Omega, 682 e 914 esemplari, uno dopo l'altro, con la banca che resta sotto i 3000; poi il passaggio al deposito.
+Il passo 2 sono i giri 2 e 3 di Rubino Omega, 721 e 915 esemplari dal 2026-11-04 (procedura in `RUNBOOK-PASSO-2.md`; i numeri di questa frase erano quelli delle copie precedenti), prima 682 e 914, uno dopo l'altro, con la banca che resta sotto i 3000; poi il passaggio al deposito.
 
 Il passo 3 sono Luna, 93 esemplari, e Ultraluna, 575: ognuna con il proprio ripristino, poi la banca, poi il deposito. Dopo questo passo il gruppo per HOME, 3194 esemplari, è tutto nel deposito.
 
