@@ -90,7 +90,9 @@ SimpleTrainerInfo Allenatore(GameVersion v)
     }
     t = new SimpleTrainerInfo(v == GameVersion.CXD ? GameVersion.E : v)
     {
-        OT = (string)allenatore["nome"]!, TID16 = tid, SID16 = sid, Gender = 0, Language = (int)LanguageID.Italian,
+        OT = (string)allenatore["nome"]!, TID16 = tid, SID16 = sid, Gender = 0,
+        // la Verde esiste solo in giapponese, e i suoi scambi hanno soprannomi giapponesi
+        Language = v == GameVersion.GN ? (int)LanguageID.Japanese : (int)LanguageID.Italian,
     };
     allenatori[v] = t;
     return t;
@@ -144,7 +146,9 @@ return 0;
     var forma = e["forma_n"] is { } fn ? (byte)(int)fn : (byte)0;
     var conForma = e["forma_n"] is not null;
     var giochi = e["giochi"] is JsonArray g ? g.Select(x => Enum.Parse<GameVersion>((string)x!)).ToHashSet() : null;
-    var versioni = ordine.Where(v => giochi is null || giochi.Contains(v)).ToArray();
+    // un gruppo di giochi della libreria, come RBY per la Console Virtuale di prima generazione, si passa cosi' com'e'
+    var versioni = giochi is not null && giochi.Contains(GameVersion.RBY) ? [GameVersion.RBY]
+        : ordine.Where(v => giochi is null || giochi.Contains(v)).ToArray();
     var sfera = e["sfera"] is { } sf ? Array.IndexOf(testi.balllist, (string)sf!) : -1;
     var cromatico = (bool?)e["cromatico"];
     var sesso = (string?)e["sesso"];
@@ -171,6 +175,9 @@ return 0;
         // Il modello e' nel formato della settima generazione, che contiene tutte le specie fino a 809: un modello di
         // formato piu' vecchio tronca la specie, e un modello vuoto non dichiara la propria generazione.
         var modello = EntityBlank.GetBlank(7);
+        // per la Console Virtuale alcuni doni, come gli starter di Giallo, si trovano solo con un modello del formato del gioco
+        if (v is GameVersion.RD or GameVersion.GN or GameVersion.BU or GameVersion.YW or GameVersion.RBY && specie <= 151) modello = EntityBlank.GetBlank(1);
+        else if (v is GameVersion.GD or GameVersion.SI or GameVersion.C && specie <= 251) modello = EntityBlank.GetBlank(2);
         modello.Species = specie;
         modello.Form = forma;
         modello.Language = tr.Language;
@@ -192,6 +199,8 @@ return 0;
             // Revolution, che la libreria tiene come doni o incontri fissi con l'allenatore fissato.
             bool allenatoreFisso = tipo.Contains("Trade") || enc is IFixedTrainer { IsFixedTrainer: true } || enc is MysteryGift;
             if (classe == "scambio" && !allenatoreFisso) continue;
+            // gli «altri esemplari unici» del foglio sono incontri precisi, doni, premi o selvatici rari, mai un uovo
+            if (classe == "non-uovo" && (tipo.Contains("Egg") || enc is MysteryGift)) continue;
             if (classe == "fisso" && !(tipo.Contains("Static") || tipo.Contains("Gift") || allenatoreFisso)) continue;
             if (enc.LevelMin > livelloMax) continue;
             for (int tentativo = 0; tentativo < 4; tentativo++)
@@ -254,6 +263,28 @@ return 0;
                     pk.RefreshChecksum();
                     la = new LegalityAnalysis(pk);
                 }
+                // Le mosse e le mosse ricordabili si ricalcolano con i suggerimenti della libreria quando un'evoluzione o
+                // un livello diverso da quello dell'incontro le rende contestate.
+                if (!la.Valid && la.Report().Contains("Move"))
+                {
+                    pk.SetRelearnMoves(la);
+                    var mosseLegali = new ushort[4];
+                    new LegalityAnalysis(pk).GetMoveSet(mosseLegali, false);
+                    pk.SetMoves(mosseLegali);
+                    pk.HealPP();
+                    pk.RefreshChecksum();
+                    la = new LegalityAnalysis(pk);
+                }
+                // Un'abilita' fissata dall'incontro, come quella di Giratina a Sinjoh o dei Pokemon del Dream Radar, si cerca
+                // provando le tre posizioni.
+                if (!la.Valid && la.Report().Contains("Ability") && pk.Format >= 3)
+                {
+                    for (int ab = 0; ab < 3 && !la.Valid; ab++)
+                    {
+                        pk.RefreshAbility(ab); pk.RefreshChecksum();
+                        la = new LegalityAnalysis(pk);
+                    }
+                }
                 // In quarta generazione la sfera sta in due byte, quello di Diamante e Perla e quello di HeartGold e
                 // SoulSilver, e MiscVerifierG4 vuole il secondo a zero o uguale al primo secondo l'origine: si provano i due.
                 if (!la.Valid && pk is G4PKM p4 && la.Report().Contains("HG/SS"))
@@ -301,7 +332,8 @@ static uint Impronta(PKM pk) => pk.Format <= 2
     : pk.PID ^ ((uint)pk.Species << 16);
 
 static bool voceGiapponese(JsonNode e) =>
-    e["voci"]!.AsArray().Any(x => ((string)x!).Contains("(Jp)") || ((string)x!).Contains("giappones"));
+    e["voci"]!.AsArray().Any(x => ((string)x!).Contains("(Jp)") || ((string)x!).Contains("giappones") || ((string)x!).Contains("JP ")
+        || ((string)x!).Any(c => c is >= '぀' and <= 'ヿ'));
 
 static bool ProvaTransporter(PKM pk, bool giapponese)
 {
@@ -449,7 +481,12 @@ int Kyogre(string allenatoreJson, string cartella)
             if (MethodH.TryGetSeedTrainerID((ushort)(tid + giro), (ushort)(sid + passo), out _))
             { (tid, sid) = ((ushort)(tid + giro), (ushort)(sid + passo)); coppia = true; }
     Console.WriteLine($"allenatore del progetto in Zaffiro: ID {tid}, ID segreto {sid}");
-    var tr = new SimpleTrainerInfo(GameVersion.S) { OT = (string)al["nome"]!, TID16 = tid, SID16 = sid, Language = (int)LanguageID.Italian };
+    // --ot NOME e --inglese: il proprietario ha deciso il 2026-11-04 (ADR-114) che il Kyogre porti l'allenatore blisy, in
+    // omaggio all'autore della manipolazione, con l'ID segreto 13181, su una Zaffiro inglese come la sua
+    int iot = Array.IndexOf(args, "--ot");
+    string ot = iot >= 0 ? args[iot + 1] : (string)al["nome"]!;
+    int lingua = args.Contains("--inglese") ? (int)LanguageID.English : (int)LanguageID.Italian;
+    var tr = new SimpleTrainerInfo(GameVersion.S) { OT = ot, TID16 = tid, SID16 = sid, Language = lingua };
     var modello = EntityBlank.GetBlank(3); modello.Species = (ushort)Species.Kyogre; modello.Language = tr.Language;
     var enc = EncounterMovesetGenerator.GenerateEncounters(modello, tr, ReadOnlyMemory<ushort>.Empty, GameVersion.S)
         .FirstOrDefault(x => x.GetType().Name.Contains("Static"));
@@ -473,6 +510,8 @@ int Kyogre(string allenatoreJson, string cartella)
         }
         Console.WriteLine($"  seme {seme:X8} PID {pid:X8} natura {(Nature)(pid % 25)} cromatico per l'allenatore del progetto: {cromatico}; ID segreto che lo renderebbe cromatico: {(trovato ? sidCromatico.ToString() : "nessuno ammesso da MethodH con questo ID")}");
         if (!cromatico && (!sidLibero || !trovato)) continue;
+        int isid = Array.IndexOf(args, "--sid");
+        if (isid >= 0 && sidCromatico != ushort.Parse(args[isid + 1])) continue;
         var pk = (PK3)enc.ConvertToPKM(tr, EncounterCriteria.Unrestricted);
         if (!cromatico) { pk.SID16 = sidCromatico; }
         pk.PID = pid;

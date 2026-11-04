@@ -13,7 +13,7 @@ Per gli eventi la tabella riporta la storia della distribuzione, cioe' quando, d
 La stampa
 ---------
 
-Il proprietario ha fissato il formato il 2026-09-23: foglio orizzontale, per ogni box una pagina con la figura e una con la tabella, mai di piu'; la legenda dei colori e il riepilogo una volta sola in testa; carattere sempre nero; nessuna colonna di legalita', perche' il deposito e' tutto legale e la colonna sarebbe costante. La copia `.docx` si costruisce qui con python-docx invece che dal convertitore generico, perche' servono l'orientamento orizzontale e il salto di pagina per box; poi Word la esporta in PDF e lo strumento conta le pagine di ogni tabella, e dove una tabella sfora rimpicciolisce il carattere di quel box e ricomincia. Le figure usano Arial e le tabelle Arial Narrow, caratteri da ufficio invece di quello predefinito di matplotlib.
+Il proprietario ha fissato il formato il 2026-09-23: foglio orizzontale, per ogni box una pagina con la figura e una con la tabella, mai di piu'; la legenda dei colori e il riepilogo una volta sola in testa; carattere sempre nero; nessuna colonna di legalita', perche' il deposito e' tutto legale e la colonna sarebbe costante. La copia `.docx` si costruisce qui con python-docx invece che dal convertitore generico, perche' servono l'orientamento orizzontale e il salto di pagina per box; poi Word la esporta in PDF e lo strumento conta le pagine di ogni tabella (dal 2026-11-04 la via ordinaria e' LuaLaTeX con il design system della collezione, ADR-110, con la stessa impaginazione; Word resta con `--word`), e dove una tabella sfora rimpicciolisce il carattere di quel box e ricomincia. Le figure usano Arial e le tabelle Arial Narrow, caratteri da ufficio invece di quello predefinito di matplotlib.
 
 Le illustrazioni vengono dalla raccolta locale del proprietario e restano fuori da git con le figure e le copie da stampare, per ADR-005; il documento Markdown generato si versiona.
 
@@ -46,8 +46,16 @@ import matplotlib.pyplot as plt  # noqa: E402
 from matplotlib.patches import FancyBboxPatch  # noqa: E402
 from PIL import Image  # noqa: E402
 
-# Arial per le figure; il font giapponese di Windows fa da riserva per gli allenatori in kana.
-plt.rcParams["font.family"] = ["Arial", "Yu Gothic", "MS Gothic"]
+# Dal 2026-11-04 le figure usano il carattere dei dati del design system della collezione (ADR-110), M PLUS Rounded 1c,
+# che porta anche il giapponese degli allenatori in kana; lo si carica dalla cartella del progetto, senza installarlo.
+# Se la cartella non c'e' (tools/design-system.py caratteri la riempie), resta Arial con il riserva giapponese di Windows.
+from matplotlib import font_manager as _fm
+_CARATTERI = Path(__file__).resolve().parents[2].joinpath("_notes", "design-system", "caratteri")
+for _f in ("MPLUSRounded1c-Regular.ttf", "MPLUSRounded1c-Bold.ttf"):
+    if _CARATTERI.joinpath(_f).exists():
+        _fm.fontManager.addfont(str(_CARATTERI.joinpath(_f)))
+# il nome di famiglia che il file dichiara a matplotlib e' «Rounded Mplus 1c»
+plt.rcParams["font.family"] = ["Rounded Mplus 1c", "Arial", "Yu Gothic", "MS Gothic"]
 
 CARTELLA = Path(__file__).resolve().parents[1]
 RADICE = CARTELLA.parent
@@ -146,7 +154,7 @@ FORO_BORDO_MM = 12.0
 FORO_DIAMETRO_MM = 5.5
 NERO = "#000000"
 SUPERFICIE = "#ffffff"
-BORDO = "#bdbcb6"
+BORDO = "#B9AA92"  # il filetto del design system della collezione
 FORME_DEOXYS = {"1": "Attack", "2": "Defense", "3": "Speed"}
 # La raccolta di Sugimori ha una sola illustrazione di Unown, la F, e con quella tutte le 28 caselle sembravano
 # la stessa lettera. Per Unown si usa l'artwork per forma che PKHeX porta con se', un file per lettera: la A e'
@@ -413,6 +421,8 @@ def main():
     p.add_argument("--rubino", metavar="SALVATAGGIO",
                    help="il salvataggio letto dalla cartuccia del Rubino: se ogni posizione coincide con la "
                         "disposizione del complemento, la stampa lo dichiara scritto invece che previsto")
+    p.add_argument("--word", action="store_true",
+                   help="compone la copia da stampare con Word invece che con LuaLaTeX e il design system (ADR-110)")
     args = p.parse_args()
     salvataggio = save3.Save3(Path(args.salvataggio).read_bytes())
     if not salvataggio.integro():
@@ -512,7 +522,10 @@ def main():
     scrivi_markdown(per_box_r, conteggio_r, riepilogo_r, PROVENIENZE_RUBINO, USCITA_RUBINO, nota_r)
     sezioni.append({"nome": "Rubino", "per_box": per_box_r, "conteggio": conteggio_r, "riepilogo": riepilogo_r,
                     "provenienze": PROVENIENZE_RUBINO, "figura": "mappa-rubino-box-%02d.png", "nota": nota_r})
-    scrivi_stampa(sezioni)
+    if args.word:
+        scrivi_stampa(sezioni)
+    else:
+        scrivi_stampa_latex(sezioni)
     for k, e, _, _ in PROVENIENZE + PROVENIENZE_RUBINO:
         print("  %-38s %d" % (e, (conteggio + conteggio_r)[k]))
 
@@ -705,6 +718,100 @@ def componi_docx(sezioni, corpi, uscita):
             tabella(["Posto (riga-colonna)", "Pokémon", "Soprannome", "Liv.", "Allenatore", "Provenienza", "Dettaglio"],
                     righe, [1.4, 1.7, 1.5, 0.6, 1.7, 1.9, 19.1], corpi[(sezione["nome"], b)], colori)
     doc.save(str(uscita))
+
+
+def tex(testo):
+    sostituzioni = {"\\": r"\textbackslash{}", "&": r"\&", "%": r"\%", "$": r"\$", "#": r"\#", "_": r"\_",
+                    "{": r"\{", "}": r"\}", "~": r"\textasciitilde{}", "^": r"\textasciicircum{}"}
+    return "".join(sostituzioni.get(c, c) for c in str(testo))
+
+
+def componi_latex(sezioni, corpi, uscita):
+    """La copia da stampare composta con LuaLaTeX e il design system di `pokedex-home-completo/design-system/` (ADR-110):
+    stessa impaginazione della copia di Word, cioe' foglio orizzontale, legenda e riepilogo per cartuccia, poi per ogni
+    box una pagina con la figura e una con la tabella; il testo resta nero, come il proprietario ha fissato il 2026-09-23.
+    La provenienza si segna con un quadratino del suo colore nella cella, perche' l'ambiente LaTeX non ha colortbl."""
+    radice = CARTELLA.parent
+    stile = radice.joinpath("pokedex-home-completo", "design-system", "collezione-stile.tex").as_posix()
+    caratteri = radice.joinpath("_notes", "design-system", "caratteri").as_posix() + "/"
+    colori = "\n".join(r"\definecolor{prov%s}{HTML}{%s}" % (re.sub(r"[^a-z]", "", k), TINTA[k].lstrip("#")) for k in TINTA)
+    r = [r"""\documentclass[9pt,a4paper,landscape]{extarticle}
+\usepackage[landscape,top=%scm,bottom=0.9cm,left=0.9cm,right=0.9cm]{geometry}
+\def\DScaratteri{%s}
+\input{%s}
+\usepackage[italian]{babel}
+\usepackage{tabularx,array}
+\color{black}
+%s
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcommand{\Prov}[2]{\colorbox{#1}{\rule{0pt}{1.6ex}\hspace{0.8ex}}\,#2}
+\begin{document}""" % (RILEGATURA_CM, caratteri, stile, colori)]
+    for i, sezione in enumerate(sezioni):
+        if i:
+            r.append(r"\clearpage")
+        conteggio, provenienze = sezione["conteggio"], sezione["provenienze"]
+        r.append(r"{\DStitoli\bfseries\large %s: legenda e riepilogo}\par\smallskip" % tex(sezione["nome"]))
+        if sezione["nota"]:
+            r.append(r"{\small %s}\par\smallskip" % tex(sezione["nota"]))
+        r.append(r"{\DSdati\small\begin{tabular}{|L{9cm}|r|}\hline \textbf{Provenienza} & \textbf{Esemplari}\\\hline")
+        for k, e, _, _ in provenienze:
+            r.append(r"\Prov{prov%s}{%s} & %d\\\hline" % (re.sub(r"[^a-z]", "", k), tex(e), conteggio[k]))
+        r.append(r"Totale & %d su %d\\\hline\end{tabular}}\par\medskip" % (sum(conteggio.values()), save3.POSIZIONI))
+        r.append(r"{\DSdati\small\begin{tabularx}{\linewidth}{|r|X|L{3cm}|}\hline \textbf{Box} & \textbf{Contenuto} & \textbf{Sfondo}\\\hline")
+        for b, c, sf in sezione["riepilogo"]:
+            r.append(r"%s & %s & %s\\\hline" % (b, tex(c), tex(sf)))
+        r.append(r"\end{tabularx}}")
+        for b, contenuto in enumerate(sezione["per_box"], start=1):
+            r.append(r"\clearpage\centering\includegraphics[height=\dimexpr\textheight-2mm\relax]{%s}\par\raggedright"
+                     % FIGURE.joinpath(sezione["figura"] % b).as_posix())
+            r.append(r"\clearpage{\DStitoli\bfseries %s, box %d, posizione per posizione}\par\smallskip" % (tex(sezione["nome"]), b))
+            corpo = corpi[(sezione["nome"], b)]
+            r.append(r"{\DSdati\fontsize{%.2f}{%.2f}\selectfont\setlength{\tabcolsep}{1.5pt}\renewcommand{\arraystretch}{0.92}"
+                     r"\begin{tabularx}{\linewidth}{|L{1.4cm}|L{1.9cm}|L{1.5cm}|L{0.6cm}|L{1.9cm}|L{2.4cm}|X|}\hline"
+                     r"\textbf{Posto} & \textbf{Pokémon} & \textbf{Soprannome} & \textbf{Liv.} & \textbf{Allenatore} & \textbf{Provenienza} & \textbf{Dettaglio}\\\hline"
+                     % (corpo, corpo * 1.12))
+            for n, v in enumerate(contenuto, start=1):
+                rc = "%d (%d-%d)" % (n, (n - 1) // COLONNE + 1, (n - 1) % COLONNE + 1)
+                if not v:
+                    r.append(r"%s & vuoto & & & & & \\\hline" % rc)
+                    continue
+                r.append(r"%s & %s & %s & %s & %s & \Prov{prov%s}{%s} & %s\\\hline" % (
+                    rc, tex(v["specie"]), tex(v["soprannome"]), "uovo" if v["uovo"] else tex(v["livello"]), tex(v["allenatore"]),
+                    re.sub(r"[^a-z]", "", v["provenienza"]), tex(ETICHETTA[v["provenienza"]]), tex(v["dettaglio"])))
+            r.append(r"\end{tabularx}}")
+    r.append(r"\end{document}")
+    uscita.write_text("\n".join(r) + "\n", encoding="utf-8")
+    esito = subprocess.run(["lualatex", "-interaction=nonstopmode", "-halt-on-error", uscita.name], cwd=str(uscita.parent),
+                           capture_output=True, text=True, encoding="utf-8", errors="replace")
+    if esito.returncode != 0:
+        print(esito.stdout[-3000:])
+        sys.exit("lualatex non ha composto %s" % uscita.name)
+    for est in (".aux", ".log"):
+        ausiliario = uscita.with_suffix(est)
+        if ausiliario.exists():
+            ausiliario.unlink()
+
+
+def scrivi_stampa_latex(sezioni):
+    """La copia da stampare con LuaLaTeX: stesse regole di scrivi_stampa, carattere ridotto per il solo box che sfora."""
+    corpi = {(s["nome"], b): 7.0 for s in sezioni for b in range(1, len(s["per_box"]) + 1)}
+    tex_out, pdf_out = STAMPA.with_suffix(".tex"), STAMPA.with_suffix(".pdf")
+    for tentativo in range(14):
+        componi_latex(sezioni, corpi, tex_out)
+        sforano, pagine = pagine_che_sforano(pdf_out, sezioni)
+        if not sforano:
+            copertina_e_fori(pdf_out)
+            print("stampa: %s con LuaLaTeX e il design system, %d pagine: copertina, poi per cartuccia una di legenda e due per box"
+                  % (pdf_out.name, pagine + (1 if COPERTINA.exists() else 0)))
+            return
+        for b in sforano:
+            corpi[b] -= 0.4
+            if corpi[b] < 4.0:
+                sys.exit("la tabella del box %s non entra in una pagina neppure a 4 punti" % (b,))
+        print("tentativo %d: sforano i box %s, riduco il carattere" % (tentativo + 1, sforano))
+    sys.exit("impaginazione non riuscita")
 
 
 def esporta_pdf(docx_in, pdf_out):

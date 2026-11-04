@@ -1,6 +1,6 @@
 # Censimento delle incursioni di evento di Spada e Scudo
 
-> Documento generato da `tools/censimento-incursioni-swsh.py` dal dump di `tools/pkhex-incursioni-swsh` (`_notes/incursioni-swsh.json`), dal rapporto del lotto `_notes/lotti/lotto-incursioni-evento-swsh/` e dal registro `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`. Non si modifica a mano: si rigenera. Per ADR-097 gli esemplari delle tane di distribuzione delle Wild Area News, cromatici e Gigantamax compresi, contano come esemplari da distribuzione; non scadono con la banca, perché Spada e Scudo parlano con HOME direttamente, e si portano in gioco per la via di `STRATEGIA-SWITCH.md`.
+> Documento generato da `tools/censimento-incursioni-swsh.py` dal dump di `tools/pkhex-incursioni-swsh` (`_notes/lavoro/dati/incursioni-swsh.json`), dal rapporto del lotto `_notes/lotti/lotto-incursioni-evento-swsh/` e dal registro `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`. Non si modifica a mano: si rigenera. Per ADR-097 gli esemplari delle tane di distribuzione delle Wild Area News, cromatici e Gigantamax compresi, contano come esemplari da distribuzione; non scadono con la banca, perché Spada e Scudo parlano con HOME direttamente, e si portano in gioco per la via di `STRATEGIA-SWITCH.md`.
 
 ## Che cosa si conta
 

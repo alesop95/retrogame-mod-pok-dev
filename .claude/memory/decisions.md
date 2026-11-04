@@ -964,6 +964,20 @@ La decisione, dell'utente. Si abbandona. La voce resta nel registro delle fonti 
 
 La ragione per cui l'abbandono è accettabile qui, e non lo sarebbe altrove. Quella discussione è del 2005 ed è una richiesta di valutazione di squadra, cioè la categoria di contenuto che le sei discussioni lette rappresentano in misura mille volte maggiore e più recente: 2427 messaggi, 268 con una squadra dichiarata e 111 con la serie di vittorie accanto. Il rischio che quella singola pagina porti un fatto che le altre non portano è quindi basso, e la decisione si fonda su questo e non sulla sola difficoltà di ottenerla. Se in futuro un documento la citasse per un fatto specifico, quel fatto andrebbe verificato altrove invece di dare per buona la citazione.
 
+## ADR-114: il Kyogre porta l'allenatore blisy, le voci solo di Switch escono dai lotti, la mappa di Smeraldo passa a LuaLaTeX
+
+Data: 2026-11-04. Stato: accettata, decisa dal proprietario.
+
+Il Kyogre. Il proprietario ha deciso che il Kyogre cromatico con 6 IV perfetti del video di blisy entri nei lotti con l'allenatore blisy, in omaggio all'autore della manipolazione, e con l'ID segreto 13181. È un'eccezione dichiarata ad ADR-099 per questo solo esemplare: l'allenatore non è quello del progetto, quindi la regola dell'ID segreto unico non lo riguarda. Il Kyogre è di Zaffiro inglese, come la partita di blisy, PID `F9426F72`, natura Modesta, ID 42317, ed è conforme nel contesto di Rubino Omega nella copia `per-home/oras-giro-4-fin3`, box 30.
+
+Le voci che esistono solo su Switch. 17 voci degli assi chiedono una specie oltre la 809, Meltan o Melmetal, o un'evoluzione che il foglio stesso colloca in un gioco per Switch. Per ADR-110 non vanno nei lotti di Bank: nei lotti c'è la pre-evoluzione con l'origine giusta, e l'evoluzione si fa su Switch. `tools/elenco-produzione.py` le tiene in una sezione a sé.
+
+Che cosa resta, e perché è chiuso così. Delle voci dei lotti di Bank ne restano 19 che il generatore non sa costruire, ciascuna con il motivo in `ELENCO-PRODUZIONE.md`: 14 livelli minimi di orde e incontri particolari, Gastrodon di Hayley del Ranch, Ash-Greninja della demo di Sole e Luna, Giratina di Sinjoh, e Mew in Cura Ball, che non esiste. Il proprietario ha a disposizione anche la cartuccia fisica di Zaffiro, ma ciò che entra nei lotti passa da Bank attraverso Rubino Omega e Ultraluna, quindi si produce adesso e non sulla cartuccia dopo Bank.
+
+La mappa dei box di Smeraldo. La copia da stampare si compone ora con LuaLaTeX e il design system della collezione, con la stessa impaginazione fissata il 2026-09-23 e il testo nero; Word resta con `--word`. Rigenerandola senza `--rubino` è emerso che la rilettura della cartuccia di prova del Rubino non coincide più con il complemento alla posizione 15: il complemento è stato rigenerato dopo la scrittura, e la verifica va rifatta.
+
+Copie finali della produzione. `oras-giro-4-fin3` (903), `ultraluna-giro-2-fin2` (607) e `luna-giappone-2-fin2` (19), tutte conformi e rilette senza differenze; caselle 936 su 936, sfide 47 su 47.
+
 ## ADR-113: due fonti dimenticate, le fonti RNG nel track ACE, il Kyogre del dipinto, la sorveglianza su tutte le fonti vive, l'elenco finito
 
 Data: 2026-11-04. Stato: accettata, decisa dal proprietario, salvo il punto sul Kyogre, che attende la sua scelta.

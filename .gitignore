@@ -86,6 +86,8 @@ desktop.ini
 # aggiungere qui l'eccezione col suo percorso. Finche' vive sotto _notes/media/ nessun ! puo'
 # recuperarlo, perche' .gitignore non re-include un file se una cartella genitore e' esclusa.
 *.pdf
+# Il sorgente LaTeX della mappa dei box di Smeraldo, rigenerato da emerald_mappa_box.py a ogni stampa (ADR-110)
+gba-save-extraction-smeraldo/MAPPA-BOX-COLLEZIONE.tex
 
 # --- Dominio retrogaming: dump di cartucce e backup di salvataggio ---
 # Sono copie di opere protette o dati di gioco personali: non si versionano mai,

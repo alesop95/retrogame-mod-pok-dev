@@ -7,7 +7,7 @@ Perché esiste
 ADR-097 (2026-10-06) fa entrare nella collezione gli esemplari delle incursioni di evento di Spada e
 Scudo, cioè le tane di distribuzione delle Wild Area News, cromatici e Gigantamax compresi. Il lavoro
 sulla libreria lo fa `tools/pkhex-incursioni-swsh`, che scrive un dump di oltre un megabyte in
-`_notes/incursioni-swsh.json` e il lotto dei mancanti con il suo `rapporto.json`. Nessuno dei due è
+`_notes/lavoro/dati/incursioni-swsh.json` e il lotto dei mancanti con il suo `rapporto.json`. Nessuno dei due è
 tracciato né leggibile in sequenza: questo strumento ne ricava un documento tracciato,
 `pokedex-home-completo/CENSIMENTO-INCURSIONI-SWSH.md`, con i conteggi e il loro perimetro, la
 copertura per chiave di collezione, il confronto con la pagina della Wild Area News del 2021 e lo
@@ -40,7 +40,7 @@ import json
 import os
 import sys
 
-DUMP = os.path.join("_notes", "incursioni-swsh.json")
+DUMP = os.path.join("_notes", "lavoro", "dati", "incursioni-swsh.json")
 LOTTO = os.path.join("_notes", "lotti", "lotto-incursioni-evento-swsh")
 REGISTRO = os.path.join("recreate-pokemon-distributions-events", "giudizi-pkhex-core.json")
 USCITA = os.path.join("pokedex-home-completo", "CENSIMENTO-INCURSIONI-SWSH.md")
@@ -87,7 +87,7 @@ def componi(dump, rapporto, registro):
     a = r.append
     a("# Censimento delle incursioni di evento di Spada e Scudo")
     a("")
-    a("> Documento generato da `tools/censimento-incursioni-swsh.py` dal dump di `tools/pkhex-incursioni-swsh` (`_notes/incursioni-swsh.json`), dal rapporto del lotto `_notes/lotti/lotto-incursioni-evento-swsh/` e dal registro `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`. Non si modifica a mano: si rigenera. Per ADR-097 gli esemplari delle tane di distribuzione delle Wild Area News, cromatici e Gigantamax compresi, contano come esemplari da distribuzione; non scadono con la banca, perché Spada e Scudo parlano con HOME direttamente, e si portano in gioco per la via di `STRATEGIA-SWITCH.md`.")
+    a("> Documento generato da `tools/censimento-incursioni-swsh.py` dal dump di `tools/pkhex-incursioni-swsh` (`_notes/lavoro/dati/incursioni-swsh.json`), dal rapporto del lotto `_notes/lotti/lotto-incursioni-evento-swsh/` e dal registro `recreate-pokemon-distributions-events/giudizi-pkhex-core.json`. Non si modifica a mano: si rigenera. Per ADR-097 gli esemplari delle tane di distribuzione delle Wild Area News, cromatici e Gigantamax compresi, contano come esemplari da distribuzione; non scadono con la banca, perché Spada e Scudo parlano con HOME direttamente, e si portano in gioco per la via di `STRATEGIA-SWITCH.md`.")
     a("")
     a("## Che cosa si conta")
     a("")

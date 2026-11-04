@@ -4,6 +4,20 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-04, quinta parte. Giro 2 riletto, Pikachu di Yokohama verificato, Kyogre di blisy, elenco chiuso, mappa di Smeraldo su LuaLaTeX, ADR-114
+
+Il proprietario ha fatto i punti da 5 a 12 del giro 2: i controlli del punto 9 sono tutti giusti, e le fotografie delle schede di Pikachu, Genesect e Suicune coincidono campo per campo con il pedigree. Punti 13 e 14: la rilettura `20261104-rilett2` è identica alla copia, 721 Pokémon e 721 conformi, nessuna differenza di box, posto o impronta; rilettura e riserva copiate su `E:` e `J:`.
+
+Controllo a campione chiesto dal proprietario: il Pikachu cromatico di Yokohama 2015 con Strampadanza è nella copia del giro 3, box 20 posti 22 e 23, con i dati dell'Eventdex di Serebii, letto come doppio controllo; lo strumento tenuto è Baccaki (Persim Berry), come dice Serebii, e non Baccaprugna come nella descrizione del proprietario.
+
+Kyogre: rifatto con l'allenatore blisy, inglese, ID segreto 13181, conforme nel contesto di Rubino Omega (ADR-114). Elenco: altri due giri con le ultime correzioni del generatore (mosse ricalcolate, abilità fisse, Verde giapponese, doni dei dischi bonus in Rubino e Zaffiro, starter dei professori senza uova né doni evento, gruppo di giochi della Console Virtuale per i doni di Giallo); 17 voci passano al lavoro su Switch; ne restano 19 non costruibili, con il motivo. Copie finali `oras-giro-4-fin3` 903, `ultraluna-giro-2-fin2` 607, `luna-giappone-2-fin2` 19; pedigree, 4936 impronte su 4936 nei PDF.
+
+Accorpamento: i cinque file di dati sciolti in `_notes/` spostati in `_notes/lavoro/dati/`, con quattro strumenti e i comandi di `docs/22-strumenti.md` aggiornati; i documenti generati restano separati perché ciascuno ha il suo strumento. Mappa dei box di Smeraldo composta con LuaLaTeX e il design system, 57 pagine, tutte le tabelle in una pagina; la rilettura della cartuccia di prova del Rubino non coincide più con il complemento alla posizione 15, da verificare.
+
+**Didattica:** nessuna in questo giro.
+
+**Template:** nessuna
+
 ## 2026-11-04, quarta parte. Passo 2 avviato sulla SD, fonti dimenticate e fonti RNG, sorveglianza estesa, elenco finito, allineamento, ADR-113
 
 Il proprietario ha lanciato `chiudi` (commit `ba8dc5b`) e lo script di pulizia, che ha tolto le 28 cartelle previste, e ha collegato la SD in `I:`. Passo 2, giro 2, punti 3 e 4: le 16 copie di Checkpoint della SD riservate in `_notes/salvataggi/console/sd-checkpoint-2026-11-04/` e in `J:/backup-sd-3ds/2026-11-04/` con le impronte verificate, e la copia `20261104-giro2` scritta sulla SD, riletta identica (`425e6045ee34e638`).

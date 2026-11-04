@@ -227,7 +227,7 @@ Scrive in JSON le coppie specie e forma che la libreria dichiara di sola battagl
 
 ```powershell
 cd "E:/retrogame-mod-pok-dev/tools/pkhex-forme-battaglia"
-dotnet run -c Release -- "../../_notes/forme-di-battaglia.json"
+dotnet run -c Release -- "../../_notes/lavoro/dati/forme-di-battaglia.json"
 ```
 
 ## pkhex-mew-vc
@@ -435,7 +435,7 @@ Corsa del 2026-10-06, con la gestione del cromatico completata: 1286 righe disti
 
 ```powershell
 cd "E:/retrogame-mod-pok-dev/tools/pkhex-incursioni-swsh"
-dotnet run -c Release -- "../../recreate-pokemon-distributions-events/allenatore.json" "../../_notes/incursioni-swsh.json" "../../_notes/fonti/corpus-residuo/recuperati-2026-10-05/wan2021.txt" "../../_notes/lotti" "../../_notes/lotti/lotto-incursioni-evento-swsh"
+dotnet run -c Release -- "../../recreate-pokemon-distributions-events/allenatore.json" "../../_notes/lavoro/dati/incursioni-swsh.json" "../../_notes/fonti/corpus-residuo/recuperati-2026-10-05/wan2021.txt" "../../_notes/lotti" "../../_notes/lotti/lotto-incursioni-evento-swsh"
 cd "E:/retrogame-mod-pok-dev/tools/pkhex-giudica"
 dotnet run -c Release -- "../../_notes/lotti/lotto-incursioni-evento-swsh/giudizi.json" "../../_notes/lotti/lotto-incursioni-evento-swsh/lotto-incursioni-evento-swsh-SW=SW" "../../_notes/lotti/lotto-incursioni-evento-swsh/lotto-incursioni-evento-swsh-SH=SH"
 cd "E:/retrogame-mod-pok-dev"
@@ -447,7 +447,7 @@ Correzione del 2026-10-06 sul confronto con le altre fonti. Il confronto cercava
 
 ```powershell
 cd "E:/retrogame-mod-pok-dev/tools/pkhex-incursioni-swsh"
-dotnet run -c Release -- --disponibilità "../../_notes/incursioni-swsh.json"
+dotnet run -c Release -- --disponibilità "../../_notes/lavoro/dati/incursioni-swsh.json"
 cd "E:/retrogame-mod-pok-dev"
 python tools/censimento-incursioni-swsh.py --check
 ```
@@ -458,7 +458,7 @@ Il primo chiede alla libreria, per ogni specie e forma presente nei dieci giochi
 
 ```powershell
 cd "E:/retrogame-mod-pok-dev/tools/pkhex-incontri-switch"
-dotnet run -c Release -- "../../_notes/incontri-switch.json"
+dotnet run -c Release -- "../../_notes/lavoro/dati/incontri-switch.json"
 cd "E:/retrogame-mod-pok-dev"
 python tools/studio-switch.py
 ```
@@ -469,7 +469,7 @@ Risponde alla domanda se esistano specie di terza generazione ottenibili soltant
 
 ```powershell
 cd "E:/retrogame-mod-pok-dev/tools/pkhex-esclusivi-cxd"
-dotnet run -c Release -- "../../_notes/esclusivi-cxd.json"
+dotnet run -c Release -- "../../_notes/lavoro/dati/esclusivi-cxd.json"
 ```
 
 ## pkhex-rigenera

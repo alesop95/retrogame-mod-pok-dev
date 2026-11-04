@@ -8,7 +8,7 @@ Perché esiste
 Il 2026-10-01 il proprietario ha a disposizione una Switch 2, con il solo Leggende Pokémon Z-A, e vuole ottenere sulle
 console moderne tutto ciò che vi si ottiene legittimamente. La domanda ha una risposta deterministica, perché la
 libreria del verificatore conosce ogni incontro di ogni gioco per Switch con la versione, il metodo e il luogo: sono
-gli stessi incontri con cui giudica un esemplare. `tools/pkhex-incontri-switch` li scrive in `_notes/incontri-switch.json`.
+gli stessi incontri con cui giudica un esemplare. `tools/pkhex-incontri-switch` li scrive in `_notes/lavoro/dati/incontri-switch.json`.
 
 Che cosa fa
 -----------
@@ -37,7 +37,7 @@ import re
 
 RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SCHEDE = os.path.join(RADICE, "_notes", "fonti", "cloni", "pokepc-dataset", "data", "pokemon")
-INCONTRI = os.path.join(RADICE, "_notes", "incontri-switch.json")
+INCONTRI = os.path.join(RADICE, "_notes", "lavoro", "dati", "incontri-switch.json")
 COPIE = os.path.join(RADICE, "_notes", "stampa", "collezione.json")
 USCITA = os.path.join(RADICE, "pokedex-home-completo", "STUDIO-SWITCH.md")
 

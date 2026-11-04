@@ -184,7 +184,7 @@ def carica_dataset(clone, insieme=INSIEME, quale=DISPOSIZIONE):
         if nome.endswith(".json"):
             dati = json.load(io.open(os.path.join(cartella_scatole, nome), encoding="utf-8"))
             gruppo[dati["id"]] = {"boxes": [{"pokemon": b.get("slots", [])} for b in dati.get("boxes", [])]}
-    percorso = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "_notes", "pokepc-dataset-disposizioni.json")
+    percorso = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "_notes", "lavoro", "dati", "pokepc-dataset-disposizioni.json")
     json.dump({insieme: gruppo}, io.open(percorso, "w", encoding="utf-8"), ensure_ascii=False)
     scelti, sorelle, errore = carica_disposizione(percorso, insieme, quale)
     return per_id, scelti, sorelle, errore

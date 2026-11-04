@@ -15,6 +15,8 @@ Sulla console Rubino Omega porta oggi ciò che è rimasto del giro 1 dopo il pas
 
 ## Giro 2
 
+Stato al 2026-11-04: punti da 1 a 15 FATTI. La copia `20261104-giro2` è stata scritta sulla SD e riletta identica; il proprietario ha fatto i punti da 5 a 12 con i controlli del punto 9 tutti giusti e le fotografie delle tre schede, uguali campo per campo al pedigree; la rilettura `20261104-rilett2` è identica alla copia (`425e6045ee34e638`), 721 Pokémon, 721 conformi, nessuna differenza di box, posto o impronta (`_notes/lavoro/giudizi-copie/rilettura-passo2-giro2.json`); rilettura e riserva `20261104-prima2` sono in `_notes/salvataggi/console/sd-checkpoint-2026-11-04/` e in `J:/backup-sd-3ds/2026-11-04/`. Resta al proprietario il punto 16, il passaggio a Bank e a HOME, e il punto 17, il controllo del totale in HOME, che deve passare da 964 a 1685.
+
 ### A. Con la scheda SD nel PC
 
 1. Proprietario: spegni il 3DS del tutto, tenendo premuto il tasto di accensione e scegliendo Spegni, non la modalità riposo.

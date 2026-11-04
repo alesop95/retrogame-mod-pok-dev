@@ -50,11 +50,12 @@ LOTTI = os.path.join(RADICE, "_notes", "lotti")
 PROVE = os.path.join(RADICE, "_notes", "salvataggi", "prove", "per-home")
 # Le copie scritte dalla produzione del 2026-11-04 e i rapporti della produzione: una voce e' chiusa anche quando il suo
 # esemplare e' stato prodotto da tools/pkhex-produci-elenco e scritto in una di queste copie.
-COPIE_PRODUZIONE = ["oras-giro-4-fin", "ultraluna-giro-2-fin", "luna-giappone-2-fin"]
+COPIE_PRODUZIONE = ["oras-giro-4-fin3", "ultraluna-giro-2-fin2", "luna-giappone-2-fin2"]
 RAPPORTI_PRODUZIONE = ["lotto-elenco-produzione", "lotto-elenco-produzione/vc-rifatti", "lotto-elenco-produzione/vc-rifatti-2",
                        "lotto-elenco-produzione/giro-2", "lotto-elenco-produzione/giro-3", "lotto-elenco-produzione/giro-3-raichu",
                        "lotto-elenco-produzione/giro-4", "lotto-elenco-produzione/giro-5", "lotto-elenco-produzione/giro-6",
-                       "lotto-elenco-produzione/giro-7"]
+                       "lotto-elenco-produzione/giro-7", "lotto-elenco-produzione/giro-8", "lotto-elenco-produzione/giro-9",
+                       "lotto-elenco-produzione/giro-9-giallo"]
 TETTO_STATICI = 2371        # ADR-106, tools/pkhex-conta-incontri
 
 
@@ -75,6 +76,8 @@ CODICI = {"RBY": {"RD", "GN", "BU", "YW"}, "RB": {"RD", "GN", "BU"}, "RG": {"RD"
           "BWB2W3": {"B", "W", "B2", "W2"}, "B2": {"B2"}, "W2": {"W2"}, "XY": {"X", "Y"}, "SM": {"SN", "MN"},
           "USUM": {"US", "UM"}, "SMUSUM": {"SN", "MN", "US", "UM"}, "US": {"US"}, "UM": {"UM"},
           "Colosseum": {"CXD"}, "XD: Gale of Darkness": {"CXD"}, "Dream Radar": {"B2", "W2"},
+          # i dischi bonus di Colosseum consegnano i loro doni a Rubino e Zaffiro, non a Colosseum
+          "Colosseum Bonus Disc": {"R", "S"}, "JP Colosseum Bonus Disc": {"R", "S"},
           "My Pokémon Ranch": {"D", "P", "Pt"}, "Battle Revolution": {"D", "P", "Pt"}}
 
 
@@ -238,10 +241,22 @@ def raccogli():
         n = num(r[2]) if len(r) > 6 else None
         if n:
             g = giochi_foglio(r[1])
+            if g and "CXD" in g:  # i doni dei dischi bonus di Colosseum arrivano in Rubino e Zaffiro
+                g = g | {"R", "S"}
             voci.append(voce("asse scambi", "%s «%s» di %s, %s" % (nomi.get(n, r[3]), r[5], r[6], r[1]), n, 0, g,
                              unico=True, classe="scambio", coperta=presente(n, g, lambda x: "Trade" in x.get("evento", ""))))
+    # I nomi che il foglio scrive in inglese diversamente dalla tabella, e i gruppi di starter, che valgono tre voci.
+    ALIAS = {"Type:Null": [772], "Type: Null": [772], "Wobbuffett": [202], "Kanto starters": [1, 4, 7],
+             "Johto starters": [152, 155, 158], "Hoenn starters": [252, 255, 258], "Sinnoh starters": [387, 390, 393],
+             "Unova starters": [495, 498, 501]}
     for r in righe("asse-altri-unici.csv")[1:]:
-        if len(r) > 5 and r[4] and r[4] != "Games":
+        if len(r) > 5 and r[4] and r[4] != "Games" and r[1].strip() in ALIAS:
+            g = giochi_foglio(r[4])
+            for n in ALIAS[r[1].strip()]:
+                voci.append(voce("asse altri unici", "%s (%s), %s: %s" % (r[1], nomi.get(n, n), r[4], nota(r[5], 80)), n, 0, g,
+                                 unico=True, classe="non-uovo", coperta=presente(n, g, lambda x: not x.get("evento", "").startswith("Wild"))))
+    for r in righe("asse-altri-unici.csv")[1:]:
+        if len(r) > 5 and r[4] and r[4] != "Games" and r[1].strip() not in ALIAS:
             nome = r[1].split(" x")[0].strip()
             n = num(r[0]) or next((k for k, v in nomi.items() if v == nome), None)
             # il foglio scrive a volte altro testo accanto al nome, «Dialga/Palkia/Giratina» o «Pinsir x3»: si prende la
@@ -250,13 +265,16 @@ def raccogli():
                 n = next((k for k, v in sorted(nomi.items()) if re.search(r"(?<![A-Za-z])" + re.escape(v) + r"(?![a-z])", r[1])), None)
             g = giochi_foglio(r[4])
             voci.append(voce("asse altri unici", "%s, %s: %s" % (r[1], r[4], nota(r[5], 80)), n, 0 if n else None, g, unico=True,
-                             classe="fisso",
+                             classe="non-uovo",
                              coperta=bool(n) and presente(n, g, lambda x: not x.get("evento", "").startswith("Wild"))))
     for r in righe("asse-stelle-master-dex.csv"):
         n = num(r[4]) if len(r) > 11 else None
         if n:
+            gs = giochi_foglio(r[8])
+            if gs and "CXD" in gs:  # i doni di Colosseum, come Ho-Oh del Monte Battaglia, arrivano anche in Rubino e Zaffiro
+                gs = gs | {"R", "S"}
             voci.append(voce("asse stelle", "%s, %s, %s: %s" % (nomi.get(n, r[5]), r[11], r[8], nota(r[9], 70)), n, 0,
-                             giochi_foglio(r[8]), unico=True, misurata=False))
+                             gs, unico=True, misurata=False))
     for r in righe("asse-livelli-minimi.csv"):
         n = num(r[0]) if len(r) > 5 else None
         if n:
@@ -273,7 +291,7 @@ def raccogli():
 def forma_unown(voci):
     """La forma di Unown scritta nel testo del foglio, «S Form» o «? Form», come numero di forma della libreria."""
     for v in voci:
-        m = re.search(r"([A-Z!?]) Form", v["voce"]) if v["numero"] == 201 else None
+        m = re.search(r"\b([A-Z!?]) Form\b", v["voce"]) if v["numero"] == 201 else None
         if m:
             v["forma_n"] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!?".index(m.group(1))
             v["unico"] = True
@@ -358,6 +376,12 @@ def main():
     for v in voci:
         if v["voce"] in fatte:
             v["coperta"], v["prodotta"] = True, True
+        # ADR-110: cio' che esiste solo su Switch non va nei lotti di Bank. Sono le specie oltre la 809, Meltan e Melmetal,
+        # che nascono solo da GO e da Let's Go, e le voci del foglio che nominano un gioco per Switch per l'evoluzione:
+        # nei lotti c'e' la pre-evoluzione con l'origine giusta, e l'evoluzione si fa su Switch dopo Bank.
+        elif not v["coperta"] and ((v["numero"] or 0) > 809 or v["numero"] in (808, 809)
+                                   or re.search(r"\bPLA\b|SwSh|LGPE|Gigantamax", v["voce"])):
+            v["switch"] = True
     mosse = [m for m in mosse if m not in mosse_fatte]
     copie_fatte = sum(len(c["esemplari"]) for c in json.load(open(modulo("copertura-lotti").COPIE, encoding="utf-8"))["copie"])
     per = collections.OrderedDict()
@@ -366,7 +390,8 @@ def main():
         c["totale"] += 1
         c["coperte"] += bool(v["coperta"])
         c["non_misurate"] += not v["misurata"]
-    da = [v for v in voci if not v["coperta"]]
+    da = [v for v in voci if not v["coperta"] and not v.get("switch")]
+    su_switch = [v for v in voci if v.get("switch")]
     esemplari = fondi(da)
     tetto = len(da) + len(mosse)
     stima = len(esemplari)
@@ -418,7 +443,11 @@ def main():
         r.append("| %s | %s | %s | %s | %s | %s |" % (
             ("%d %s" % (e["numero"], nome)) if e["numero"] else nome, forma, ", ".join(e["giochi"] or []) or "qualunque",
             e["sfera"] or "", "sì" if e["cromatico"] else "", "; ".join(x.replace("|", "/") for x in e["voci"])))
-    r += ["", "## Le mosse da assegnare", "", ", ".join(mosse) + "."]
+    r += ["", "## Le voci che si completano su Switch, dopo Bank (ADR-110)", "",
+          "Esistono solo nei giochi per Switch, o la voce del foglio chiede un'evoluzione che si fa solo lì: nei lotti c'è la "
+          "pre-evoluzione con l'origine giusta, e l'evoluzione si fa su Switch. Sono %d:" % len(su_switch), ""]
+    r += ["- %s" % v["voce"].replace("\n", " ") for v in su_switch]
+    r += ["", "## Le mosse che su 3DS non si imparano", "", ", ".join(mosse) + "."]
     with open(USCITA, "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(r) + "\n")
     print("Scritto " + os.path.relpath(USCITA, RADICE))
