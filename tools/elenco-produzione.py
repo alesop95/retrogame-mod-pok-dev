@@ -50,9 +50,11 @@ LOTTI = os.path.join(RADICE, "_notes", "lotti")
 PROVE = os.path.join(RADICE, "_notes", "salvataggi", "prove", "per-home")
 # Le copie scritte dalla produzione del 2026-11-04 e i rapporti della produzione: una voce e' chiusa anche quando il suo
 # esemplare e' stato prodotto da tools/pkhex-produci-elenco e scritto in una di queste copie.
-COPIE_PRODUZIONE = ["oras-giro-4b", "ultraluna-giro-2c", "luna-giappone-2b"]
+COPIE_PRODUZIONE = ["oras-giro-4-fin", "ultraluna-giro-2-fin", "luna-giappone-2-fin"]
 RAPPORTI_PRODUZIONE = ["lotto-elenco-produzione", "lotto-elenco-produzione/vc-rifatti", "lotto-elenco-produzione/vc-rifatti-2",
-                       "lotto-elenco-produzione/giro-2", "lotto-elenco-produzione/giro-3", "lotto-elenco-produzione/giro-3-raichu"]
+                       "lotto-elenco-produzione/giro-2", "lotto-elenco-produzione/giro-3", "lotto-elenco-produzione/giro-3-raichu",
+                       "lotto-elenco-produzione/giro-4", "lotto-elenco-produzione/giro-5", "lotto-elenco-produzione/giro-6",
+                       "lotto-elenco-produzione/giro-7"]
 TETTO_STATICI = 2371        # ADR-106, tools/pkhex-conta-incontri
 
 
@@ -242,6 +244,10 @@ def raccogli():
         if len(r) > 5 and r[4] and r[4] != "Games":
             nome = r[1].split(" x")[0].strip()
             n = num(r[0]) or next((k for k, v in nomi.items() if v == nome), None)
+            # il foglio scrive a volte altro testo accanto al nome, «Dialga/Palkia/Giratina» o «Pinsir x3»: si prende la
+            # prima specie il cui nome compare come parola
+            if not n:
+                n = next((k for k, v in sorted(nomi.items()) if re.search(r"(?<![A-Za-z])" + re.escape(v) + r"(?![a-z])", r[1])), None)
             g = giochi_foglio(r[4])
             voci.append(voce("asse altri unici", "%s, %s: %s" % (r[1], r[4], nota(r[5], 80)), n, 0 if n else None, g, unico=True,
                              classe="fisso",

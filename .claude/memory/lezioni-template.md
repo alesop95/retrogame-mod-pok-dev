@@ -11,3 +11,7 @@ Un file fuso a mano durante un allineamento si registra in `.claude/allineamento
 Ne seguono due prescrizioni per lo strumento. La voce di risoluzione registra anche l'impronta del contenuto locale fuso, e quando l'impronta del file non coincide più l'esito non è ADATTATO ma una ricomparsa del caso, da rimisurare. E l'allineamento, prima di registrare una risoluzione, controlla che il file fuso sia nello stesso insieme di file che il commit di allineamento porterà, perché una voce di registro versionata senza il file che descrive è lo stato in cui il registro afferma una cosa falsa.
 
 Una lezione per chi riprende: un file modificato che un allineamento ha lasciato nell'albero si confronta con la sua voce in `allineamento-risolti.json` prima di decidere se scartarlo, perché la voce può dire che è proprio quello il contenuto voluto.
+
+## L-002 - 2026-11-04 - Una skill nuova del pacchetto GRC committata senza il suo marcatore md-unwrap-ignore
+
+Il commit 54db4c5 del template ha aggiunto la skill soc2 del pacchetto GRC senza il file .md-unwrap-ignore che le altre nove skill hanno: nel template il marcatore esiste solo nell'albero di lavoro. L'allineamento, che legge il template da HEAD, porta nei progetti le pagine della skill senza il marcatore, e il controllo md-unwrap di chiudi si ferma su due file copiati alla lettera da una fonte esterna. Il controllo che manca nel template è che ogni cartella di skill importata alla lettera abbia il suo marcatore nello stesso commit delle pagine.

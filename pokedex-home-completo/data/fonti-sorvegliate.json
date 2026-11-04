@@ -29,12 +29,12 @@
    "segnato_il": "2026-11-04"
   },
   {
-   "nome": "Bulbapedia, Poké Ball",
+   "nome": "Bulbapedia, pagine di Dream Ball, Beast Ball, Safari Ball, Sport Ball e Moon Ball",
    "tipo": "bulbapedia",
-   "riferimento": "Poké Ball",
-   "url": "https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9_Ball",
+   "riferimento": "Dream Ball|Beast Ball|Safari Ball|Sport Ball|Moon Ball",
+   "url": "https://bulbapedia.bulbagarden.net/wiki/Dream_Ball",
    "serve": "SFERE-PRIMA-DI-BANK.md",
-   "censito": "revisione 4647381 del 2026-10-13",
+   "censito": "revisione 4591381 del 2026-07-17, revisione 4642216 del 2026-10-06, revisione 4613503 del 2026-08-16, revisione 4643455 del 2026-10-09, revisione 4611976 del 2026-08-13",
    "segnato_il": "2026-11-04"
   },
   {
@@ -52,14 +52,14 @@
    "riferimento": "SlyAceZeta/Ribbons.Guide",
    "url": "https://github.com/SlyAceZeta/Ribbons.Guide",
    "serve": "FIOCCHI-PRIMA-DI-BANK.md",
-   "censito": "commit e99a1b2 del 2026-10-26",
-   "segnato_il": "2026-11-04"
+   "segnato_il": "2026-11-04",
+   "censito": "commit e99a1b2"
   },
   {
    "nome": "Foglio «Bank Closing all possible things checklist V0.5»",
    "tipo": "foglio",
    "riferimento": "14QTf2q3rRFlaIqHxigfFyKiKZdL9o6uc_bQE-OtOTwk",
-   "url": "https://docs.google.com/spreadsheets/d/14QTf2q3rRFlaIqHxigfFyKiKZdL9o6uc_bQE-OtOTwk",
+   "url": "https://docs.google.com/spreadsheets/d/14QTf2q3rRFlaIqHxigfFyKiKZdL9o6uc_bQE-OtOTwk/edit",
    "serve": "assi di ADR-111, sfide, cromatici, sfere",
    "censito": "celle b6f77b2e346a36e4, 14 schede",
    "segnato_il": "2026-11-04"
@@ -68,7 +68,7 @@
    "nome": "Foglio delle sfide di HOME da Bank del post 1voa411",
    "tipo": "foglio",
    "riferimento": "11lZYY9qUE3I1d7_Kc3M3q03KIuYGFBaWvWqN2X_qSOk",
-   "url": "https://docs.google.com/spreadsheets/d/11lZYY9qUE3I1d7_Kc3M3q03KIuYGFBaWvWqN2X_qSOk",
+   "url": "https://docs.google.com/spreadsheets/d/11lZYY9qUE3I1d7_Kc3M3q03KIuYGFBaWvWqN2X_qSOk/edit",
    "serve": "SFIDE-BANK.md",
    "censito": "celle a4abecdb1d04e59e, 1 schede",
    "segnato_il": "2026-11-04"
@@ -77,7 +77,7 @@
    "nome": "Foglio HOME Tasks del post 1bwr0l1",
    "tipo": "foglio",
    "riferimento": "1R0H24zZ3MaxQY6IBnsPttUMD4MK4fXeOmcqPNrZJaKM",
-   "url": "https://docs.google.com/spreadsheets/d/1R0H24zZ3MaxQY6IBnsPttUMD4MK4fXeOmcqPNrZJaKM",
+   "url": "https://docs.google.com/spreadsheets/d/1R0H24zZ3MaxQY6IBnsPttUMD4MK4fXeOmcqPNrZJaKM/copy",
    "serve": "SFIDE-BANK.md, DA-PORTARE-PRIMA-DI-BANK.md",
    "censito": "celle 34a540ab30c0d53d, 2 schede",
    "segnato_il": "2026-11-04"
@@ -144,6 +144,240 @@
    "serve": "Fiocco Maestro",
    "censito": "testo 6f8c255aab7bc470",
    "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Bulbapedia, 13 pagine lette il 2026-11-04 per fiocchi, scambi, periferiche e forme",
+   "tipo": "bulbapedia",
+   "riferimento": "Diamond Storm (move)|Hayley's trades|List of Ribbons in the games|My Pokémon Ranch|Pikachu in a cap|Pokémon Battle Revolution|Pokémon Box Ruby & Sapphire|Pokémon Channel|Pokémon Colosseum Bonus Disc|Pokémon Dream Radar|Sinjoh Ruins|Victini (Pokémon)|Furfrou (Pokémon)",
+   "url": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+   "serve": "FIOCCHI-PRIMA-DI-BANK.md, ELENCO-PRODUZIONE.md, COPERTURA-LOTTI.md",
+   "censito": "revisione 4645935 del 2026-10-12, revisione 4620932 del 2026-08-30, revisione 4661875 del 2026-11-02, revisione 4634572 del 2026-09-23, revisione 4630427 del 2026-09-14, revisione 4662372 del 2026-11-03, revisione 4631923 del 2026-09-17, revisione 4622772 del 2026-09-04, revisione 4647387 del 2026-10-13, revisione 4649778 del 2026-10-17, revisione 4658182 del 2026-10-31, revisione 4621739 del 2026-09-01, revisione 4648851 del 2026-10-15",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Bulbapedia, Pokémon HOME e Challenges (HOME)",
+   "tipo": "bulbapedia",
+   "riferimento": "Pokémon HOME|Challenges (HOME)",
+   "url": "https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_HOME",
+   "serve": "capienza, versioni e connettività di HOME, CONNETTIVITA-HOME.md",
+   "censito": "revisione 3630124 del 2022-12-13, revisione 4661723 del 2026-11-02",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Bulbapedia, 9 pagine del Parco Lotta di terza generazione, lette il 2026-09-21",
+   "tipo": "bulbapedia",
+   "riferimento": "Battle Arena|Battle Dome|Battle Factory (Generation III)|Battle Frontier (Generation III)|Battle Palace|Battle Pike|Battle Pyramid|Battle Tower (Generation III)|List of Battle Frontier Trainers in Generation III",
+   "url": "https://bulbapedia.bulbagarden.net/wiki/Battle_Frontier_(Generation_III)",
+   "serve": "GUIDA del Parco Lotta del track Smeraldo",
+   "censito": "revisione 4569599 del 2026-06-09, revisione 4625743 del 2026-09-08, revisione 4584063 del 2026-07-02, revisione 4633020 del 2026-09-19, revisione 4651157 del 2026-10-20, revisione 4630530 del 2026-09-15, revisione 4624361 del 2026-09-06, revisione 4597336 del 2026-07-29, revisione 4605618 del 2026-08-04",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Clone di EstebanFuentealba/Arduino-Spoofing-Gameboy-Pokemon-Trades",
+   "tipo": "github",
+   "riferimento": "EstebanFuentealba/Arduino-Spoofing-Gameboy-Pokemon-Trades",
+   "url": "https://github.com/EstebanFuentealba/Arduino-Spoofing-Gameboy-Pokemon-Trades",
+   "serve": "clone locale in _notes/fonti/cloni/Arduino-Spoofing-Gameboy-Pokemon-Trades, letto al commit c91b562",
+   "censito": "commit c91b562",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Clone di pepijndevos/arduino-boy",
+   "tipo": "github",
+   "riferimento": "pepijndevos/arduino-boy",
+   "url": "https://github.com/pepijndevos/arduino-boy",
+   "serve": "clone locale in _notes/fonti/cloni/arduino-boy, letto al commit 6323d49",
+   "censito": "commit 6323d49",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Clone di Orkie/gameboy-spoof",
+   "tipo": "github",
+   "riferimento": "Orkie/gameboy-spoof",
+   "url": "https://bitbucket.org/adanscotney/gameboy-spoof",
+   "serve": "clone locale in _notes/fonti/cloni/gameboy-spoof, letto al commit 89f2d10",
+   "censito": "commit 89f2d10",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Clone di REONTeam/libmobile",
+   "tipo": "github",
+   "riferimento": "REONTeam/libmobile",
+   "url": "https://github.com/REONTeam/libmobile",
+   "serve": "clone locale in _notes/fonti/cloni/libmobile, letto al commit 0704f56",
+   "censito": "commit 0704f56",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Clone di pret/pokecrystal",
+   "tipo": "github",
+   "riferimento": "pret/pokecrystal",
+   "url": "https://github.com/pret/pokecrystal",
+   "serve": "clone locale in _notes/fonti/cloni/pokecrystal, letto al commit 5beda23",
+   "censito": "commit 3c813b0",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Clone di pret/pokeemerald",
+   "tipo": "github",
+   "riferimento": "pret/pokeemerald",
+   "url": "https://github.com/pret/pokeemerald",
+   "serve": "clone locale in _notes/fonti/cloni/pokeemerald, letto al commit c925b84",
+   "censito": "commit 731ad5b",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Clone di pret/pokegold",
+   "tipo": "github",
+   "riferimento": "pret/pokegold",
+   "url": "https://github.com/pret/pokegold",
+   "serve": "clone locale in _notes/fonti/cloni/pokegold, letto al commit 62388c7",
+   "censito": "commit f2cde36",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Clone di pomeg-letterbombers/pokemon-ace-notes",
+   "tipo": "github",
+   "riferimento": "pomeg-letterbombers/pokemon-ace-notes",
+   "url": "https://pomeg-letterbombers.github.io/pokemon-ace-notes/",
+   "serve": "clone locale in _notes/fonti/cloni/pokemon-ace-notes, letto al commit ea6f692",
+   "censito": "commit ea6f692",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Clone di pokepc/dataset",
+   "tipo": "github",
+   "riferimento": "pokepc/dataset",
+   "url": "https://github.com/pokepc/dataset",
+   "serve": "clone locale in _notes/fonti/cloni/pokepc-dataset, letto al commit 5fd44c1",
+   "censito": "commit 3933759",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Clone di pret/pokered",
+   "tipo": "github",
+   "riferimento": "pret/pokered",
+   "url": "https://github.com/pret/pokered",
+   "serve": "clone locale in _notes/fonti/cloni/pokered, letto al commit d2704a6",
+   "censito": "commit 0dbf95c",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Clone di pret/pokeruby",
+   "tipo": "github",
+   "riferimento": "pret/pokeruby",
+   "url": "https://github.com/pret/pokeruby",
+   "serve": "clone locale in _notes/fonti/cloni/pokeruby, letto al commit 5784633",
+   "censito": "commit 5784633",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Clone di pret/pokeyellow",
+   "tipo": "github",
+   "riferimento": "pret/pokeyellow",
+   "url": "https://github.com/pret/pokeyellow",
+   "serve": "clone locale in _notes/fonti/cloni/pokeyellow, letto al commit e89ead1",
+   "censito": "commit b452f2a",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Clone di REONTeam/trade-corner",
+   "tipo": "github",
+   "riferimento": "REONTeam/trade-corner",
+   "url": "https://github.com/REONTeam/trade-corner",
+   "serve": "clone locale in _notes/fonti/cloni/trade-corner, letto al commit 18006d2",
+   "censito": "commit 18006d2",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Reddit 1vsgu6l",
+   "tipo": "reddit",
+   "riferimento": "1vsgu6l",
+   "url": "https://www.reddit.com/r/BankBallExchange/comments/1vsgu6l/",
+   "serve": "SOURCES.md, sfere dei mitici e masterpost delle esclusive di Bank",
+   "censito": "testo 41a5a5d457b65c3f, 8 commenti",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Reddit 1vnb8sz",
+   "tipo": "reddit",
+   "riferimento": "1vnb8sz",
+   "url": "https://www.reddit.com/r/BankBallExchange/comments/1vnb8sz/",
+   "serve": "SOURCES.md, sfere dei mitici e masterpost delle esclusive di Bank",
+   "censito": "testo 5a6cdbbf7d9a2c46, 1 commenti",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Reddit 1apiuee",
+   "tipo": "reddit",
+   "riferimento": "1apiuee",
+   "url": "https://www.reddit.com/r/PokemonHome/comments/1apiuee/",
+   "serve": "SOURCES.md, sfere dei mitici e masterpost delle esclusive di Bank",
+   "censito": "testo b725e35b40cb2afc, 55 commenti",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Strumento RNG Admiral-Fish/PokeFinder",
+   "tipo": "github",
+   "riferimento": "Admiral-Fish/PokeFinder",
+   "url": "https://github.com/Admiral-Fish/PokeFinder",
+   "serve": "track ACE e tesi: generazione con manipolazione del generatore casuale",
+   "censito": "commit 3624cb7",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Strumento RNG Admiral-Fish/RNGReporter",
+   "tipo": "github",
+   "riferimento": "Admiral-Fish/RNGReporter",
+   "url": "https://github.com/Admiral-Fish/RNGReporter",
+   "serve": "track ACE e tesi: generazione con manipolazione del generatore casuale",
+   "censito": "commit 2c77b8e",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Strumento RNG stringflow/FlowTimer-Java",
+   "tipo": "github",
+   "riferimento": "stringflow/FlowTimer-Java",
+   "url": "https://github.com/stringflow/FlowTimer-Java",
+   "serve": "track ACE e tesi: generazione con manipolazione del generatore casuale",
+   "censito": "commit 8898131",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Strumento RNG wwwwwwzx/3DSRNGTool",
+   "tipo": "github",
+   "riferimento": "wwwwwwzx/3DSRNGTool",
+   "url": "https://github.com/wwwwwwzx/3DSRNGTool",
+   "serve": "track ACE e tesi: generazione con manipolazione del generatore casuale",
+   "censito": "commit ae5d176",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Strumento RNG DasAmpharos/EonTimer",
+   "tipo": "github",
+   "riferimento": "DasAmpharos/EonTimer",
+   "url": "https://github.com/DasAmpharos/EonTimer",
+   "serve": "track ACE e tesi: generazione con manipolazione del generatore casuale",
+   "censito": "commit ad10886",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Foglio FRLG Seeds",
+   "tipo": "foglio",
+   "riferimento": "1Mf3F4kTvNEYyDGWKVmMSiar3Fwh1PLzWVXUvGx9YxfA",
+   "url": "https://docs.google.com/spreadsheets/d/1Mf3F4kTvNEYyDGWKVmMSiar3Fwh1PLzWVXUvGx9YxfA/edit#gid=0",
+   "serve": "track ACE: semi iniziali di Rosso Fuoco, Verde Foglia e Smeraldo",
+   "censito": "celle 744c8866f05b1d70, 9 schede",
+   "segnato_il": "2026-11-04"
+  },
+  {
+   "nome": "Foglio Leaf Green Seeds",
+   "tipo": "foglio",
+   "riferimento": "12TUcXGbLY_bBDfVsgWZKvqrX13U6XAATQZrYnzBKP6Y",
+   "url": "https://docs.google.com/spreadsheets/d/12TUcXGbLY_bBDfVsgWZKvqrX13U6XAATQZrYnzBKP6Y",
+   "serve": "track ACE: semi iniziali di Rosso Fuoco, Verde Foglia e Smeraldo",
+   "censito": "celle de5f2d910d9bc140, 7 schede",
+   "segnato_il": "2026-11-04"
   }
  ],
  "non_sorvegliate": [
@@ -176,6 +410,16 @@
    "nome": "mappe degli incontri di Scarlatto e Violetto di @vbbcla",
    "url": "https://drive.google.com/drive/folders/159W-2Wlo5sPA5DSqHwijdVWuA9z4-qfe",
    "motivo": "cartella di Drive che chiede l'accesso; la versione 2.0.1 è assorbita; lavoro su Switch"
+  },
+  {
+   "nome": "PKHeX, ramo principale",
+   "url": "https://github.com/kwsch/PKHeX",
+   "motivo": "il progetto è fermato alla release 26.10.18, e le release le sorveglia tools/controlla-eventi-nuovi.py; il ramo principale cambia ogni giorno e non è ciò che il progetto compila"
+  },
+  {
+   "nome": "blog di sina-poke",
+   "url": "http://sina-poke.hatenablog.com/",
+   "motivo": "risponde 403 a un client senza browser; letto dalla Wayback Machine, che si ricontrolla a mano con l'API archive.org/wayback/available"
   }
  ]
 }

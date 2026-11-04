@@ -15,7 +15,7 @@ Che cosa sorveglia e come
 -------------------------
 L'elenco sta in `pokedex-home-completo/data/fonti-sorvegliate.json`, tracciato, insieme allo stato censito di ogni
 fonte. Ogni tipo ha la sua misura, scelta perché non cambi da sola fra due letture identiche: per Bulbapedia il
-numero di revisione dall'API, per un repository di GitHub l'ultimo commit, per un foglio di Google l'impronta dei
+numero di revisione dall'API, per un repository di GitHub l'ultimo commit del ramo principale, letto con `git ls-remote`, per un foglio di Google l'impronta dei
 valori delle celle dell'esportazione, non del file, che porta date proprie; per un post di Reddit l'impronta del testo
 e il numero di commenti come li conserva Arctic Shift, che è un archivio e può arrivare in ritardo; per una pagina web
 l'impronta del testo senza marcatori. Le fonti che non cambiano, cioè video, tweet e fotografie dello schermo, e quelle
@@ -67,11 +67,17 @@ def misura(f):
     if tipo == "bulbapedia":
         q = urllib.parse.urlencode({"action": "query", "prop": "revisions", "rvprop": "ids|timestamp", "titles": rif,
                                     "format": "json"})
-        p = next(iter(json.loads(scarica(BULBA_API + "?" + q))["query"]["pages"].values()))
-        return "revisione %s del %s" % (p["revisions"][0]["revid"], p["revisions"][0]["timestamp"][:10])
+        # piu' pagine si possono sorvegliare insieme, con i titoli separati da «|», come l'API li accetta
+        pagine = sorted(json.loads(scarica(BULBA_API + "?" + q))["query"]["pages"].values(), key=lambda x: x["title"])
+        return ", ".join("revisione %s del %s" % (p["revisions"][0]["revid"], p["revisions"][0]["timestamp"][:10]) for p in pagine)
     if tipo == "github":
-        d = json.loads(scarica("https://api.github.com/repos/%s/commits?per_page=1" % rif))
-        return "commit %s del %s" % (d[0]["sha"][:7], d[0]["commit"]["committer"]["date"][:10])
+        # git ls-remote non ha il limite di richieste dell'API anonima di GitHub, che una sessione supererebbe
+        import subprocess
+        r = subprocess.run(["git", "ls-remote", "https://github.com/%s" % rif, "HEAD"], capture_output=True, text=True,
+                           timeout=60)
+        if r.returncode != 0 or not r.stdout.strip():
+            raise OSError(r.stderr.strip()[:80] or "nessuna risposta")
+        return "commit %s" % r.stdout.split()[0][:7]
     if tipo == "foglio":
         import openpyxl
         dati = scarica("https://docs.google.com/spreadsheets/d/%s/export?format=xlsx" % rif, timeout=60, binario=True)

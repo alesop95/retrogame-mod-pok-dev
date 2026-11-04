@@ -6,9 +6,9 @@ Sfide controllate: 47. Non coperte dalle sole copie per HOME: 0. Le non coperte 
 
 | Sfida | Nascosta | Stato |
 |---|---|---|
-| Register Blastoise from the good ol' Kanto Region! |  | COPERTA dalle copie per HOME: HOME7 box 17 posto 26 |
-| Register Charizard from the good ol' Kanto Region! |  | COPERTA dalle copie per HOME: HOME7 box 17 posto 27 |
-| Register Venusaur from the good ol' Kanto Region! |  | COPERTA dalle copie per HOME: HOME7 box 17 posto 28 |
+| Register Blastoise from the good ol' Kanto Region! |  | COPERTA dalle copie per HOME: HOME7 box 16 posto 22 |
+| Register Charizard from the good ol' Kanto Region! |  | COPERTA dalle copie per HOME: HOME7 box 16 posto 23 |
+| Register Venusaur from the good ol' Kanto Region! |  | COPERTA dalle copie per HOME: HOME7 box 16 posto 24 |
 | Register Pikachu from the good ol' Kanto Region! |  | COPERTA dalle copie per HOME: HOME7 box 19 posto 23 |
 | Register Cosmog, Cosmoem, Solgaleo and Lunala from the Alola Region |  | COPERTA dalle copie per HOME: HOME7 box 4 posto 20, HOME7 box 13 posto 27, HOME4 box 1 posto 8, HOME4 box 1 posto 9 |
 | Register Dialga from Pokémon Diamond, Pokémon Pearl, or Pokémon Platinum! |  | COPERTA dalle copie per HOME: HOME6 box 16 posto 18 |
@@ -21,7 +21,7 @@ Sfide controllate: 47. Non coperte dalle sole copie per HOME: 0. Le non coperte 
 | Register Rayquaza from Pokémon Omega Ruby or Pokémon Alpha Sapphire |  | COPERTA dalle copie per HOME: HOME3 box 1 posto 8 |
 | Register Groudon from Pokémon Ruby, Pokémon Sapphire, or Pokémon Emerald |  | COPERTA dalle copie per HOME: HOME1 box 6 posto 25 |
 | Register Kyogre from Pokémon Ruby, Pokémon Sapphire, or Pokémon Emerald |  | COPERTA dalle copie per HOME: HOME1 box 6 posto 28 |
-| Register Rayquaza from Pokémon Ruby, Pokémon Sapphire, or Pokémon Emerald |  | COPERTA dalle copie per HOME: HOME6 box 26 posto 5 |
+| Register Rayquaza from Pokémon Ruby, Pokémon Sapphire, or Pokémon Emerald |  | COPERTA dalle copie per HOME: HOME6 box 20 posto 18 |
 | Register Ho-Oh from Pokémon HeartGold or Pokémon SoulSilver! |  | COPERTA dalle copie per HOME: HOME6 box 16 posto 23 |
 | Register Lugia from Pokémon HeartGold or Pokémon SoulSilver |  | COPERTA dalle copie per HOME: HOME6 box 16 posto 24 |
 | Register Ho-Oh from the good ol' Johto Region |  | COPERTA dalle copie per HOME: HOME4 box 2 posto 28 |
@@ -52,4 +52,4 @@ Sfide controllate: 47. Non coperte dalle sole copie per HOME: 0. Le non coperte 
 | Register Pikachu wearing a hat |  | COPERTA dalle copie per HOME: HOME5 box 1 posto 5 |
 | Register the guardian deities of Alola! |  | COPERTA dalle copie per HOME: HOME4 box 1 posto 1, HOME4 box 1 posto 11, HOME4 box 1 posto 12, HOME4 box 1 posto 13 |
 | Register Pulverizing Snorlax | sì | COPERTA dalle copie per HOME: HOME5 box 12 posto 9 |
-| Register 100 different species of Pokémon that live in the Alola Region |  | COPERTA dalle copie per HOME: 320 specie distinte con l'origine richiesta, regola prudente, origine Alola; resta da confermare che almeno 100 delle specie siano nel Pokédex di Alola |
+| Register 100 different species of Pokémon that live in the Alola Region |  | COPERTA dalle copie per HOME: 322 specie distinte con l'origine richiesta, regola prudente, origine Alola; resta da confermare che almeno 100 delle specie siano nel Pokédex di Alola |

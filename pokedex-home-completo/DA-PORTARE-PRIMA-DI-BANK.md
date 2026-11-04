@@ -10,7 +10,7 @@ Le misure sono prese il 2026-11-03 sulle sette copie, e dal 2026-11-04 sulle die
 
 | Voce | Totale | Coperte dalle copie per HOME | Da generare | Dove sta il dettaglio |
 |---|---|---|---|---|
-| Caselle di specie e forma che esistono fino alla settima generazione (ADR-109, ADR-110) | 936 | 930 | 6: Wormadam nelle tre forme, Froslass, Meowstic femmina, Lycanroc Crepuscolo | `COPERTURA-LOTTI.md`, generato da `tools/copertura-lotti.py --scrivi` |
+| Caselle di specie e forma che esistono fino alla settima generazione (ADR-109, ADR-110) | 936 | 936 | 0 | `COPERTURA-LOTTI.md`, generato da `tools/copertura-lotti.py --scrivi` |
 | Sfide di HOME che dipendono da Bank | 47 | 47 | 0 | `SFIDE-BANK.md`, generato da `tools/sfide-bank.py --scrivi` |
 | Mosse registrabili solo da giochi passati da Bank | 63 | 63 | 0 | le 12 di ADR-108 prodotte il 2026-11-04 nel lotto delle mosse |
 | Abilità registrabili solo da giochi passati da Bank | 5 | 5 | 0 | Galvanize e Power of Alchemy prodotte il 2026-11-04 |
@@ -22,8 +22,9 @@ Le misure sono prese il 2026-11-03 sulle sette copie, e dal 2026-11-04 sulle die
 | Esemplari conformi della cartuccia originale di Smeraldo, per affetto | 213 | 213 | 0 | estratti in `_notes/lotti/lotto-smeraldo-cartuccia/`, nella copia `oras-giro-4b` |
 | Cromatici bloccati, ottenibili solo da Bank, più Deoxys, Manaphy e Darkrai dal video `yyIa9611uZk` | 11 | 11 | 0 | qui sotto |
 | Specie che il foglio del 2024 dava «solo tramite GO» | 9 | 2 | 0 | qui sotto |
-| Assi da collezionista del foglio «Bank Closing», righe con un numero di Pokédex (ADR-111) | 1551 | 1400 | 151, quasi tutte scambi e stelle descritti a parole | `ELENCO-PRODUZIONE.md` |
+| Assi da collezionista del foglio «Bank Closing», righe con un numero di Pokédex (ADR-111) | 1551 | 1489 | 62: le voci che il generatore non riconduce a un incontro della libreria, ciascuna con il motivo | `ELENCO-PRODUZIONE.md` |
 | Combinazioni di Mew, Victini e Darkrai in ogni sfera del loro gioco, dal post `1vsgu6l` di r/BankBallExchange | 33 | 33 | 0 | `ELENCO-PRODUZIONE.md` |
+| Kyogre cromatico con 6 IV perfetti di Zaffiro, del video di blisy `xxyQFPqltiM` (ADR-113) | 1 | 0 | 1, prodotto e conforme in `_notes/lotti/lotto-kyogre-rng/`, in attesa della decisione del proprietario sull'ID segreto | qui sotto |
 
 I sei assi da collezionista, adottati il 2026-11-04 con ADR-111, sono contati sulle schede del foglio estratte in `_notes/fonti/raccolte/fogli-sfide-bank-2026-11-03/assi/`. L'origine ha 479 righe, un esemplare per specie con il gioco d'origine della sua regione per Johto, Hoenn, Unima e Alola. Sesso e forma per origine sono 187 righe su 80 specie. Gli scambi in gioco con l'allenatore originale del gioco sono 345 righe su 212 specie. Gli altri esemplari unici, cioè doni, premi, fossili, incontri fissi, Dream Radar e Ranger, sono 202. Le stelle della sfida Master Dex sono 237 righe su 163 specie. I livelli minimi sono 101 righe su 100 specie. Nel caso peggiore, senza togliere doppioni, i posti servono così: 3407 copie fatte, 2371 statici di ADR-106, 907 aggiunte di ADR-108, ADR-109 e ADR-110, 1551 righe degli assi, in tutto 8236 su 9000. Il conto con i doppioni tolti è in `ELENCO-PRODUZIONE.md`, generato da `tools/elenco-produzione.py --scrivi` il 2026-11-04: 1864 voci da produrre e 184 mosse da assegnare, stimate in 1461 esemplari fondendo le voci compatibili, con un tetto di 2048. I posti di HOME bastano anche con il tetto: 3407 copie, 2371 statici e 2048 fanno 7826 su 9000, e restano 1174 posti per il lavoro su Switch. Se un giorno non bastassero, si chiede al proprietario quale asse tagliare.
 

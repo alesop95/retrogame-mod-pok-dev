@@ -67,7 +67,52 @@ def classe(v):
     return "altra forma"
 
 
+def nomi_v7():
+    """I nomi delle forme in italiano dalla versione 7 del dataset, l'ultima che li portava (commit 5fd44c1).
+
+    Dal 2026-10-13 il dataset e' al modello v8, che toglie i nomi localizzati dalle schede e tiene solo identificativi e
+    indicatori: senza questa lettura la colonna della forma restava vuota. I nomi si leggono dalla storia del clone con
+    `git cat-file`, senza toccare l'albero di lavoro."""
+    import subprocess
+    radice = os.path.dirname(os.path.dirname(SCHEDE))
+    elenco = subprocess.run(["git", "-C", radice, "ls-tree", "--name-only", "5fd44c1", "data/pokemon/"],
+                            capture_output=True, text=True, encoding="utf-8").stdout.split()
+    if not elenco:
+        return {}
+    # la lunghezza che git dichiara per ogni oggetto e' in byte, quindi si legge in byte e si decodifica oggetto per oggetto
+    dati = subprocess.run(["git", "-C", radice, "cat-file", "--batch"],
+                          input="\n".join("5fd44c1:" + x for x in elenco).encode("utf-8") + b"\n", capture_output=True).stdout
+    nomi, i = {}, 0
+    while i < len(dati):
+        fine = dati.index(b"\n", i)
+        intestazione = dati[i:fine].split()
+        if len(intestazione) < 3:
+            break
+        lunghezza = int(intestazione[2])
+        corpo = dati[fine + 1:fine + 1 + lunghezza].decode("utf-8")
+        i = fine + 1 + lunghezza + 1
+        try:
+            v = json.loads(corpo)
+            if v.get("formNames"):
+                nomi[v["id"]] = v["formNames"]
+        except ValueError:
+            pass
+    return nomi
+
+
+def nome_forma(v, v7):
+    nomi = v.get("formNames") or v7.get(v["id"]) or {}
+    if nomi.get("ita") or nomi.get("eng"):
+        return nomi.get("ita") or nomi.get("eng")
+    if v.get("isFemaleForm"):
+        return "Femmina"
+    if v.get("isRegional") and v.get("region"):
+        return "Forma di " + v["region"].capitalize()
+    return v.get("formId") or ""
+
+
 def componi():
+    v7 = nomi_v7()
     nomi = [r.rstrip("\r") for r in io.open(NOMI_IT, encoding="utf-8").read().split("\n")]
     voci = []
     for f in glob.glob(os.path.join(SCHEDE, "*.json")):
@@ -77,8 +122,7 @@ def componi():
         c = classe(v)
         if c is None:
             continue
-        nomi_forma = v.get("formNames") or {}
-        forma = nomi_forma.get("ita") or nomi_forma.get("eng") or ""
+        forma = nome_forma(v, v7)
         voci.append({"id": v["id"], "dex": v["dexNum"], "specie": nomi[v["dexNum"]], "forma": forma if c != "specie" else "",
                      "classe": c})
     voci.append({"id": "greninja-battle-bond", "dex": 658, "specie": nomi[658], "forma": "Morfosi",

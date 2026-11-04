@@ -133,6 +133,6 @@ Una copertura golosa con 9 carte:
 | 6 | 79 | ポケモンカフェの　ピカチュウ | Pikachu | Special |
 | 7 | 665 | Make them quake with Krookodile! | Krookodile | World Champion |
 
-Le copie per HOME portano già: Classic (1385 esemplari), Wishing (272 esemplari), Premier (40 esemplari), Event (151 esemplari), Birthday (69 esemplari), Special (12 esemplari), World Champion (1 esemplare), Souvenir (323 esemplari), Battle Champion (11 esemplari). Fiocchi dono che la base delle carte ha e le copie no: nessuno.
+Le copie per HOME portano già: Classic (1387 esemplari), Wishing (272 esemplari), Premier (40 esemplari), Event (152 esemplari), Birthday (69 esemplari), Special (12 esemplari), World Champion (1 esemplare), Souvenir (324 esemplari), Battle Champion (11 esemplari). Fiocchi dono che la base delle carte ha e le copie no: nessuno.
 
 Fuori dalla base delle carte: Regional Champion, National Champion, Country, World, Earth, National. National ed Earth si ottengono giocando, in Colosseum e XD. Country e World sono fiocchi di distribuzioni di terza e quarta generazione fuori dalla base delle carte: Country da Pokémon Festa 2004, 2005 e 2007; le copie per HOME portano Country in 0 esemplari e World in 0. Regional Champion e National Champion non hanno luoghi su Bulbapedia; la loro distribuzione resta da verificare.

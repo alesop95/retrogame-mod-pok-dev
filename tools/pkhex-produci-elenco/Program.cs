@@ -51,6 +51,8 @@ if (args[0] == "--prova")
     }
     return 0;
 }
+if (args[0] == "--kyogre")
+    return Kyogre(args[1], args[2]);
 if (args[0] == "--cartuccia")
     return Cartuccia(args[1], args[2]);
 
@@ -170,8 +172,11 @@ return 0;
         // formato piu' vecchio tronca la specie, e un modello vuoto non dichiara la propria generazione.
         var modello = EntityBlank.GetBlank(7);
         modello.Species = specie;
-        modello.Form = formaSesso ? (byte)0 : forma;
+        modello.Form = forma;
         modello.Language = tr.Language;
+        // il modello vuoto e' maschio: per una specie solo femmina, come Wormadam o Froslass, la libreria non restituirebbe
+        // nessun incontro
+        if (sesso == "F") modello.Gender = 1;
         IEnumerable<IEncounterable> incontri;
         try { incontri = EncounterMovesetGenerator.GenerateEncounters(modello, tr, ReadOnlyMemory<ushort>.Empty, v).ToList(); }
         catch (Exception ex) { motivo = "la libreria non enumera gli incontri in " + v + ": " + ex.Message; continue; }
@@ -180,10 +185,14 @@ return 0;
             var tipo = enc.GetType().Name;
             // la forma si pretende solo sull'incontro della specie stessa: quella di Raichu e Marowak di Alola o di Lycanroc
             // Crepuscolo la decide l'evoluzione, non la pre-evoluzione
-            if (conForma && !formaSesso && enc.Species == specie && enc.Form != forma && !FormInfo.IsFormChangeable(specie, enc.Form, forma, enc.Context, enc.Context)
+            if (conForma && enc.Species == specie && enc.Form != forma && !FormInfo.IsFormChangeable(specie, enc.Form, forma, enc.Context, enc.Context)
                 && !(specie == (ushort)Species.Unown && enc.Generation <= 2)) continue;
-            if (classe == "scambio" && !tipo.Contains("Trade")) continue;
-            if (classe == "fisso" && !(tipo.Contains("Static") || tipo.Contains("Gift") || tipo.Contains("Trade"))) continue;
+            // Il foglio chiama «scambio con un altro allenatore» ogni esemplare il cui allenatore originale non e' il
+            // giocatore: oltre agli scambi in gioco, i Pokemon di N, i doni dei dischi bonus, di Ranch e di Battle
+            // Revolution, che la libreria tiene come doni o incontri fissi con l'allenatore fissato.
+            bool allenatoreFisso = tipo.Contains("Trade") || enc is IFixedTrainer { IsFixedTrainer: true } || enc is MysteryGift;
+            if (classe == "scambio" && !allenatoreFisso) continue;
+            if (classe == "fisso" && !(tipo.Contains("Static") || tipo.Contains("Gift") || allenatoreFisso)) continue;
             if (enc.LevelMin > livelloMax) continue;
             for (int tentativo = 0; tentativo < 4; tentativo++)
             {
@@ -217,11 +226,11 @@ return 0;
                         var nome = SpeciesName.GetSpeciesNameGeneration(specie, pk.Language, pk.Format);
                         pk.Nickname = nome.Length > 0 ? nome : SpeciesName.GetSpeciesNameGeneration(specie, (int)LanguageID.English, pk.Format);
                     }
-                    if (conForma && !formaSesso) pk.Form = forma; // la forma prima dell'abilita', che ne dipende
+                    if (conForma) pk.Form = forma; // la forma prima dell'abilita', che ne dipende
                     if (pk.Format >= 3)
                         pk.RefreshAbility(indiceAbilita);
                 }
-                if (conForma && !formaSesso) pk.Form = forma;
+                if (conForma) pk.Form = forma;
                 // Il disegno di Vivillon viene dal paese della console su cui l'uovo o lo Scatterbug nasce: si sceglie il
                 // primo paese e la prima area che danno il disegno chiesto, in una regione della console che lo ammette.
                 if (conForma && specie is >= 664 and <= 666 && pk is IRegionOrigin ro && Paese(forma) is var (cr, pa, ar) && pa != 0)
@@ -245,13 +254,24 @@ return 0;
                     pk.RefreshChecksum();
                     la = new LegalityAnalysis(pk);
                 }
+                // In quarta generazione la sfera sta in due byte, quello di Diamante e Perla e quello di HeartGold e
+                // SoulSilver, e MiscVerifierG4 vuole il secondo a zero o uguale al primo secondo l'origine: si provano i due.
+                if (!la.Valid && pk is G4PKM p4 && la.Report().Contains("HG/SS"))
+                {
+                    foreach (var b in new[] { (byte)0, p4.BallDPPt })
+                    {
+                        p4.BallHGSS = b; p4.RefreshChecksum();
+                        la = new LegalityAnalysis(pk);
+                        if (la.Valid) break;
+                    }
+                }
                 // Un esemplare di Game Boy arriva in HOME solo da Poke Transporter, che lo porta in settima generazione con la
                 // regione della console: si prova quella conversione, verso una console europea, e se il risultato non e'
                 // conforme l'esemplare non serve. Fanno eccezione le voci che il foglio vuole giapponesi, che vanno in una
                 // copia di console giapponese (--regione-giappone di tools/pkhex-scrivi-salvataggio).
                 bool giapponese = voceGiapponese(e);
                 if (la.Valid && pk.Format <= 2 && !ProvaTransporter(pk, giapponese)) { motivo = $"{tipo} ({v}): non conforme dopo Poke Transporter verso una console " + (giapponese ? "giapponese" : "europea"); continue; }
-                if (la.Valid && (cromatico is null || pk.IsShiny == cromatico) && personalita.Add(pk.PID ^ ((uint)pk.Species << 16)))
+                if (la.Valid && (cromatico is null || pk.IsShiny == cromatico) && personalita.Add(Impronta(pk)))
                     return (pk, $"{tipo} {enc.LongName} ({v})", "");
                 motivo = $"{tipo} ({v}): " + string.Join(" | ", la.Report().Replace("\r", "").Split('\n').Where(x => x.Contains("Invalid")).Take(2));
             }
@@ -273,6 +293,12 @@ static (byte, byte, byte) Paese(byte forma)
     }
     return (0, 0, 0);
 }
+
+// Due esemplari con la stessa impronta sembrerebbero cloni. In prima e seconda generazione il PID non esiste e vale zero,
+// quindi l'impronta e' fatta dai valori individuali (DV); dalla terza e' il PID.
+static uint Impronta(PKM pk) => pk.Format <= 2
+    ? (uint)(pk.IV_ATK | (pk.IV_DEF << 4) | (pk.IV_SPE << 8) | (pk.IV_SPA << 12)) ^ ((uint)pk.Species << 16) ^ 0x80000000u
+    : pk.PID ^ ((uint)pk.Species << 16);
 
 static bool voceGiapponese(JsonNode e) =>
     e["voci"]!.AsArray().Any(x => ((string)x!).Contains("(Jp)") || ((string)x!).Contains("giappones"));
@@ -399,6 +425,76 @@ void Scrivi(PKM pk, string nome, JsonObject esito)
     esito["sfera"] = testi.balllist[pk.Ball];
     esito["cromatico"] = pk.IsShiny;
     esito["sha256"] = Convert.ToHexString(SHA256.HashData(dati)).ToLowerInvariant();
+}
+
+// Il Kyogre del video di blisy (`xxyQFPqltiM`, ADR-113): Zaffiro su GBA, cromatico, 6 IV perfetti, ottenuto manipolando il
+// generatore casuale con il dipinto del museo, che riseme il generatore dal contatore dei fotogrammi. Kyogre in Zaffiro e' un
+// incontro fisso del Metodo 1: il PID esce da due chiamate del generatore e
+// gli IV dalle due successive. Si risale dagli IV tutti a 31 ai semi possibili con LCRNGReversal, se ne ricava il PID, e si
+// guarda se e' cromatico per l'allenatore del progetto. Se nessuno lo e', l'ID segreto che lo renderebbe cromatico e' quello
+// di un'altra partita di Smeraldo: lo strumento lo dice e non lo usa senza --sid-libero, perche' ADR-099 fissa un solo ID
+// segreto per l'allenatore del progetto.
+int Kyogre(string allenatoreJson, string cartella)
+{
+    var al = JsonNode.Parse(File.ReadAllText(allenatoreJson))!;
+    ushort tid = (ushort)(int)al["tid"]!, sid = (ushort)(int)al["sid"]!;
+    bool sidLibero = args.Contains("--sid-libero");
+    Span<uint> semi = stackalloc uint[8];
+    int k = LCRNGReversal.GetSeedsIVs(semi, 31, 31, 31, 31, 31, 31);
+    // in Rubino e Zaffiro la coppia ID e ID segreto esce dal generatore a inizio partita (MethodH): si parte da quella che
+    // tools/pkhex-genera e questo strumento usano gia' per l'allenatore del progetto in Zaffiro
+    bool coppia = false;
+    for (int giro = 0; giro < 16 && !coppia; giro++)
+        for (int passo = 0; passo < 65536 && !coppia; passo++)
+            if (MethodH.TryGetSeedTrainerID((ushort)(tid + giro), (ushort)(sid + passo), out _))
+            { (tid, sid) = ((ushort)(tid + giro), (ushort)(sid + passo)); coppia = true; }
+    Console.WriteLine($"allenatore del progetto in Zaffiro: ID {tid}, ID segreto {sid}");
+    var tr = new SimpleTrainerInfo(GameVersion.S) { OT = (string)al["nome"]!, TID16 = tid, SID16 = sid, Language = (int)LanguageID.Italian };
+    var modello = EntityBlank.GetBlank(3); modello.Species = (ushort)Species.Kyogre; modello.Language = tr.Language;
+    var enc = EncounterMovesetGenerator.GenerateEncounters(modello, tr, ReadOnlyMemory<ushort>.Empty, GameVersion.S)
+        .FirstOrDefault(x => x.GetType().Name.Contains("Static"));
+    if (enc is null) { Console.WriteLine("nessun Kyogre fisso in Smeraldo nella libreria"); return 1; }
+    Console.WriteLine($"semi con 6 IV perfetti nel Metodo 1: {k}");
+    var dir = Directory.CreateDirectory(cartella).FullName;
+    var esiti = new JsonArray();
+    for (int i = 0; i < k; i++)
+    {
+        uint seme = semi[i];
+        uint alto = seme >> 16, basso = LCRNG.Prev(seme) >> 16;
+        uint pid = (alto << 16) | basso;
+        int xor = tid ^ sid ^ (int)alto ^ (int)basso;
+        bool cromatico = xor < 8;
+        // l'ID segreto che lo renderebbe cromatico con lo stesso ID, tra gli otto possibili, purche' MethodH lo ammetta
+        ushort sidCromatico = 0; bool trovato = false;
+        for (int x = 0; x < 8 && !trovato; x++)
+        {
+            var c = (ushort)(tid ^ alto ^ basso ^ x);
+            if (MethodH.TryGetSeedTrainerID(tid, c, out _)) { sidCromatico = c; trovato = true; }
+        }
+        Console.WriteLine($"  seme {seme:X8} PID {pid:X8} natura {(Nature)(pid % 25)} cromatico per l'allenatore del progetto: {cromatico}; ID segreto che lo renderebbe cromatico: {(trovato ? sidCromatico.ToString() : "nessuno ammesso da MethodH con questo ID")}");
+        if (!cromatico && (!sidLibero || !trovato)) continue;
+        var pk = (PK3)enc.ConvertToPKM(tr, EncounterCriteria.Unrestricted);
+        if (!cromatico) { pk.SID16 = sidCromatico; }
+        pk.PID = pid;
+        pk.IV_HP = pk.IV_ATK = pk.IV_DEF = pk.IV_SPA = pk.IV_SPD = pk.IV_SPE = 31;
+        pk.RefreshAbility((int)(pid & 1));
+        pk.RefreshChecksum();
+        var la = new LegalityAnalysis(pk);
+        var esito = new JsonObject { ["seme"] = seme.ToString("X8"), ["pid"] = pid.ToString("X8"), ["natura"] = ((Nature)(pid % 25)).ToString(),
+            ["cromatico"] = pk.IsShiny, ["sid"] = pk.SID16, ["conforme"] = la.Valid };
+        if (la.Valid && pk.IsShiny)
+        {
+            var dati = new byte[pk.SIZE_STORED]; pk.WriteDecryptedDataStored(dati);
+            var file = $"K{i}-Kyogre-6IV-cromatico.pk3";
+            File.WriteAllBytes(Path.Combine(dir, file), dati);
+            esito["file"] = file; esito["sha256"] = Convert.ToHexString(SHA256.HashData(dati)).ToLowerInvariant();
+        }
+        else esito["rapporto"] = la.Report();
+        esiti.Add(esito);
+    }
+    File.WriteAllText(Path.Combine(dir, "rapporto.json"), new JsonObject { ["incontro"] = enc.LongName, ["esiti"] = esiti }
+        .ToJsonString(new JsonSerializerOptions { WriteIndented = true }));
+    return 0;
 }
 
 int Cartuccia(string salvataggio, string cartella)

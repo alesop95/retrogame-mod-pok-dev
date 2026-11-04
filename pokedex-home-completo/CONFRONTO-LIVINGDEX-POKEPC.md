@@ -1,6 +1,6 @@
 # Confronto fra la nostra enumerazione e quella di PokePC Classic
 
-> I dati vengono dal deposito `pokepc/dataset`, che dal 2026-09-22 alimenta il servizio dopo la chiusura del tracciatore classico, al commit 5fd44c1 2026-09-30, disposizione `modern/home/fully-sorted`.
+> I dati vengono dal deposito `pokepc/dataset`, che dal 2026-09-22 alimenta il servizio dopo la chiusura del tracciatore classico, al commit 3933759 2026-10-13, disposizione `modern/home/fully-sorted`.
 
 > Documento generato da `tools/confronta-livingdex-pokepc.py`. Non si modifica a mano: si rigenera. Non fonde le due enumerazioni e non decide chi abbia ragione; le mette una accanto all'altra e classifica le divergenze per contrassegno.
 
@@ -31,13 +31,19 @@ Il conto seguente riguarda le sole voci oltre la specie base, e le classi vengon
 
 ## Le disposizioni sorelle, che non concordano fra loro
 
-Le disposizioni del deposito sono 7, e la prima stesura di questo programma assumeva che differissero per il solo ordinamento. Non è vero, e la verifica lo dice: si raggruppano per insieme di voci collocate in 3 insiemi distinti. La differenza non è un difetto del dato ma una scelta di chi lo ha scritto, cioè se dare una casella propria alla forma gigamax di una specie che ne ha una.
+Le disposizioni del deposito sono 13, e la prima stesura di questo programma assumeva che differissero per il solo ordinamento. Non è vero, e la verifica lo dice: si raggruppano per insieme di voci collocate in 9 insiemi distinti. La differenza non è un difetto del dato ma una scelta di chi lo ha scritto, cioè se dare una casella propria alla forma gigamax di una specie che ne ha una.
 
 | Voci collocate | Disposizioni |
 |---|---|
 | 1388 | grouped-region, species-first |
 | 1387 | fully-sorted, grouped-balanced, sorted-species |
 | 1373 | fully-sorted-minimal, sorted-species-minimal |
+| 682 | gift-sv |
+| 584 | gift-swsh |
+| 364 | gift-lza |
+| 242 | gift-la |
+| 153 | gift-lgpe |
+| 151 | gift-bdsp |
 
 Il confronto usa `fully-sorted`, che appartiene al gruppo intermedio: conta le forme regionali e le differenze di sesso, non duplica una specie per la sua forma gigamax, e non applica la compattazione delle due dichiarate minime. La scelta va dichiarata perché cambia il totale di trentotto voci in un verso e di quattordici nell'altro.
 
@@ -47,103 +53,103 @@ Sono 97 specie. La classe prevalente dice la natura della nostra cecità: ciò c
 
 | Dex | Specie | PokePC | Nostra | Che cosa conta in più |
 |---|---|---|---|---|
-| 3 | Venusaur | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 12 | Butterfree | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 19 | Rattata | 3 | 2 | 1 forma femminile, cioè una differenza di sesso resa come voce propria; 1 altra forma, cioè una variante che il campo della forma separa |
-| 20 | Raticate | 3 | 2 | 1 forma femminile, cioè una differenza di sesso resa come voce propria; 1 altra forma, cioè una variante che il campo della forma separa |
-| 26 | Raichu | 3 | 2 | 1 forma femminile, cioè una differenza di sesso resa come voce propria; 1 altra forma, cioè una variante che il campo della forma separa |
-| 41 | Zubat | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 42 | Golbat | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 44 | Gloom | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 45 | Vileplume | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 64 | Kadabra | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 65 | Alakazam | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 84 | Doduo | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 85 | Dodrio | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 97 | Hypno | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 111 | Rhyhorn | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 112 | Rhydon | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 118 | Goldeen | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 119 | Seaking | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 123 | Scyther | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 129 | Magikarp | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 130 | Gyarados | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 154 | Meganium | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 165 | Ledyba | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 166 | Ledian | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 178 | Xatu | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 185 | Sudowoodo | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 186 | Politoed | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 190 | Aipom | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 194 | Wooper | 3 | 2 | 1 forma femminile, cioè una differenza di sesso resa come voce propria; 1 altra forma, cioè una variante che il campo della forma separa |
-| 195 | Quagsire | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 198 | Murkrow | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 202 | Wobbuffet | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 203 | Girafarig | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 207 | Gligar | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 208 | Steelix | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 212 | Scizor | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 214 | Heracross | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 215 | Sneasel | 4 | 2 | 2 forma femminile, cioè una differenza di sesso resa come voce propria; 1 altra forma, cioè una variante che il campo della forma separa |
-| 217 | Ursaring | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 221 | Piloswine | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 224 | Octillery | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 229 | Houndoom | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 232 | Donphan | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 255 | Torchic | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 256 | Combusken | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 257 | Blaziken | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 267 | Beautifly | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 269 | Dustox | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 272 | Ludicolo | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 274 | Nuzleaf | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 275 | Shiftry | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 307 | Meditite | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 308 | Medicham | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 315 | Roselia | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 316 | Gulpin | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 317 | Swalot | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 322 | Numel | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 323 | Camerupt | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 332 | Cacturne | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 350 | Milotic | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 369 | Relicanth | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 396 | Starly | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 397 | Staravia | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 398 | Staraptor | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 399 | Bidoof | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 400 | Bibarel | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 401 | Kricketot | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 402 | Kricketune | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 403 | Shinx | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 404 | Luxio | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 405 | Luxray | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 407 | Roserade | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 415 | Combee | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 417 | Pachirisu | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 418 | Buizel | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 419 | Floatzel | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 424 | Ambipom | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 443 | Gible | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 444 | Gabite | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 445 | Garchomp | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 449 | Hippopotas | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 450 | Hippowdon | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 453 | Croagunk | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 454 | Toxicroak | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 456 | Finneon | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 457 | Lumineon | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 459 | Snover | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 460 | Abomasnow | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 461 | Weavile | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 464 | Rhyperior | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 465 | Tangrowth | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 473 | Mamoswine | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 521 | Unfezant | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 592 | Frillish | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 593 | Jellicent | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 668 | Pyroar | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
-| 869 | Alcremie | 63 | 9 | 62 forma cosmetica, cioè una variante che il campo della forma non separa |
+| 3 | venusaur | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 12 | butterfree | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 19 | rattata | 3 | 2 | 1 forma femminile, cioè una differenza di sesso resa come voce propria; 1 altra forma, cioè una variante che il campo della forma separa |
+| 20 | raticate | 3 | 2 | 1 forma femminile, cioè una differenza di sesso resa come voce propria; 1 altra forma, cioè una variante che il campo della forma separa |
+| 26 | raichu | 3 | 2 | 1 forma femminile, cioè una differenza di sesso resa come voce propria; 1 altra forma, cioè una variante che il campo della forma separa |
+| 41 | zubat | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 42 | golbat | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 44 | gloom | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 45 | vileplume | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 64 | kadabra | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 65 | alakazam | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 84 | doduo | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 85 | dodrio | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 97 | hypno | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 111 | rhyhorn | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 112 | rhydon | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 118 | goldeen | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 119 | seaking | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 123 | scyther | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 129 | magikarp | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 130 | gyarados | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 154 | meganium | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 165 | ledyba | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 166 | ledian | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 178 | xatu | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 185 | sudowoodo | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 186 | politoed | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 190 | aipom | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 194 | wooper | 3 | 2 | 1 forma femminile, cioè una differenza di sesso resa come voce propria; 1 altra forma, cioè una variante che il campo della forma separa |
+| 195 | quagsire | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 198 | murkrow | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 202 | wobbuffet | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 203 | girafarig | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 207 | gligar | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 208 | steelix | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 212 | scizor | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 214 | heracross | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 215 | sneasel | 4 | 2 | 2 forma femminile, cioè una differenza di sesso resa come voce propria; 1 altra forma, cioè una variante che il campo della forma separa |
+| 217 | ursaring | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 221 | piloswine | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 224 | octillery | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 229 | houndoom | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 232 | donphan | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 255 | torchic | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 256 | combusken | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 257 | blaziken | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 267 | beautifly | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 269 | dustox | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 272 | ludicolo | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 274 | nuzleaf | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 275 | shiftry | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 307 | meditite | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 308 | medicham | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 315 | roselia | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 316 | gulpin | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 317 | swalot | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 322 | numel | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 323 | camerupt | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 332 | cacturne | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 350 | milotic | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 369 | relicanth | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 396 | starly | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 397 | staravia | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 398 | staraptor | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 399 | bidoof | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 400 | bibarel | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 401 | kricketot | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 402 | kricketune | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 403 | shinx | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 404 | luxio | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 405 | luxray | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 407 | roserade | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 415 | combee | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 417 | pachirisu | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 418 | buizel | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 419 | floatzel | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 424 | ambipom | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 443 | gible | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 444 | gabite | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 445 | garchomp | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 449 | hippopotas | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 450 | hippowdon | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 453 | croagunk | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 454 | toxicroak | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 456 | finneon | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 457 | lumineon | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 459 | snover | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 460 | abomasnow | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 461 | weavile | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 464 | rhyperior | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 465 | tangrowth | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 473 | mamoswine | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 521 | unfezant | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 592 | frillish | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 593 | jellicent | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 668 | pyroar | 2 | 1 | 1 forma femminile, cioè una differenza di sesso resa come voce propria |
+| 869 | alcremie | 63 | 9 | 62 forma cosmetica, cioè una variante che il campo della forma non separa |
 
 ## Dove contiamo più di PokePC
 
@@ -151,36 +157,36 @@ Sono 32 specie. Qui la lettura si rovescia: la nostra enumerazione legge le posi
 
 | Dex | Specie | PokePC | Nostra | Perché |
 |---|---|---|---|---|
-| 59 | Arcanine | 2 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
-| 101 | Electrode | 2 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
-| 414 | Mothim | 1 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
-| 483 | Dialga | 1 | 2 | la nostra lista conta 1 posizioni di forma che PokePC non colloca in una casella |
-| 484 | Palkia | 1 | 2 | la nostra lista conta 1 posizioni di forma che PokePC non colloca in una casella |
-| 487 | Giratina | 1 | 2 | la nostra lista conta 1 posizioni di forma che PokePC non colloca in una casella |
-| 493 | Arceus | 1 | 19 | la nostra lista conta 18 posizioni di forma che PokePC non colloca in una casella |
-| 549 | Lilligant | 2 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
-| 646 | Kyurem | 1 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
-| 649 | Genesect | 1 | 5 | la nostra lista conta 4 posizioni di forma che PokePC non colloca in una casella |
-| 658 | Greninja | 1 | 2 | la nostra lista scarta 2 posizioni con la dicitura: forma di sola battaglia: non può stare in una scatola |
-| 664 | Scatterbug | 1 | 20 | la nostra lista conta 19 posizioni di forma che PokePC non colloca in una casella |
-| 665 | Spewpa | 1 | 20 | la nostra lista conta 19 posizioni di forma che PokePC non colloca in una casella |
-| 713 | Avalugg | 2 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
-| 718 | Zygarde | 2 | 4 | la nostra lista scarta 2 posizioni con la dicitura: forma di sola battaglia: non può stare in una scatola |
-| 744 | Rockruff | 1 | 2 | la nostra lista conta 1 posizioni di forma che PokePC non colloca in una casella |
-| 773 | Silvally | 1 | 18 | la nostra lista conta 17 posizioni di forma che PokePC non colloca in una casella |
-| 774 | Minior (Red Core) | 7 | 8 | la nostra lista scarta 6 posizioni con la dicitura: forma di sola battaglia: non può stare in una scatola |
-| 800 | Necrozma | 1 | 3 | la nostra lista scarta 1 posizioni con la dicitura: forma di sola battaglia: non può stare in una scatola |
-| 898 | Calyrex | 1 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
-| 900 | Kleavor | 1 | 2 | la nostra lista conta 1 posizioni di forma che PokePC non colloca in una casella |
-| 1007 | Koraidon | 1 | 5 | la nostra lista conta 4 posizioni di forma che PokePC non colloca in una casella |
-| 1008 | Miraidon | 1 | 5 | la nostra lista conta 4 posizioni di forma che PokePC non colloca in una casella |
-| 1012 | Poltchageist | 2 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
-| 1013 | Sinistcha | 2 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
-| 1017 | Ogerpon | 1 | 4 | la nostra lista scarta 4 posizioni con la dicitura: forma di sola battaglia: non può stare in una scatola |
-| 1019 | Hydrapple | 1 | 9 | la nostra lista conta 8 posizioni di forma che PokePC non colloca in una casella |
-| 1020 | Gouging Fire | 1 | 9 | la nostra lista conta 8 posizioni di forma che PokePC non colloca in una casella |
-| 1021 | Raging Bolt | 1 | 9 | la nostra lista conta 8 posizioni di forma che PokePC non colloca in una casella |
-| 1022 | Iron Boulder | 1 | 9 | la nostra lista conta 8 posizioni di forma che PokePC non colloca in una casella |
-| 1023 | Iron Crown | 1 | 9 | la nostra lista conta 8 posizioni di forma che PokePC non colloca in una casella |
-| 1025 | Pecharunt | 1 | 9 | la nostra lista conta 8 posizioni di forma che PokePC non colloca in una casella |
+| 59 | arcanine | 2 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
+| 101 | electrode | 2 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
+| 414 | mothim | 1 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
+| 483 | dialga | 1 | 2 | la nostra lista conta 1 posizioni di forma che PokePC non colloca in una casella |
+| 484 | palkia | 1 | 2 | la nostra lista conta 1 posizioni di forma che PokePC non colloca in una casella |
+| 487 | giratina | 1 | 2 | la nostra lista conta 1 posizioni di forma che PokePC non colloca in una casella |
+| 493 | arceus | 1 | 19 | la nostra lista conta 18 posizioni di forma che PokePC non colloca in una casella |
+| 549 | lilligant | 2 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
+| 646 | kyurem | 1 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
+| 649 | genesect | 1 | 5 | la nostra lista conta 4 posizioni di forma che PokePC non colloca in una casella |
+| 658 | greninja | 1 | 2 | la nostra lista scarta 2 posizioni con la dicitura: forma di sola battaglia: non può stare in una scatola |
+| 664 | scatterbug | 1 | 20 | la nostra lista conta 19 posizioni di forma che PokePC non colloca in una casella |
+| 665 | spewpa | 1 | 20 | la nostra lista conta 19 posizioni di forma che PokePC non colloca in una casella |
+| 713 | avalugg | 2 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
+| 718 | zygarde | 2 | 4 | la nostra lista scarta 2 posizioni con la dicitura: forma di sola battaglia: non può stare in una scatola |
+| 744 | rockruff | 1 | 2 | la nostra lista conta 1 posizioni di forma che PokePC non colloca in una casella |
+| 773 | silvally | 1 | 18 | la nostra lista conta 17 posizioni di forma che PokePC non colloca in una casella |
+| 774 | minior-red | 7 | 8 | la nostra lista scarta 6 posizioni con la dicitura: forma di sola battaglia: non può stare in una scatola |
+| 800 | necrozma | 1 | 3 | la nostra lista scarta 1 posizioni con la dicitura: forma di sola battaglia: non può stare in una scatola |
+| 898 | calyrex | 1 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
+| 900 | kleavor | 1 | 2 | la nostra lista conta 1 posizioni di forma che PokePC non colloca in una casella |
+| 1007 | koraidon | 1 | 5 | la nostra lista conta 4 posizioni di forma che PokePC non colloca in una casella |
+| 1008 | miraidon | 1 | 5 | la nostra lista conta 4 posizioni di forma che PokePC non colloca in una casella |
+| 1012 | poltchageist | 2 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
+| 1013 | sinistcha | 2 | 3 | la nostra lista conta 2 posizioni di forma che PokePC non colloca in una casella |
+| 1017 | ogerpon | 1 | 4 | la nostra lista scarta 4 posizioni con la dicitura: forma di sola battaglia: non può stare in una scatola |
+| 1019 | hydrapple | 1 | 9 | la nostra lista conta 8 posizioni di forma che PokePC non colloca in una casella |
+| 1020 | gougingfire | 1 | 9 | la nostra lista conta 8 posizioni di forma che PokePC non colloca in una casella |
+| 1021 | ragingbolt | 1 | 9 | la nostra lista conta 8 posizioni di forma che PokePC non colloca in una casella |
+| 1022 | ironboulder | 1 | 9 | la nostra lista conta 8 posizioni di forma che PokePC non colloca in una casella |
+| 1023 | ironcrown | 1 | 9 | la nostra lista conta 8 posizioni di forma che PokePC non colloca in una casella |
+| 1025 | pecharunt | 1 | 9 | la nostra lista conta 8 posizioni di forma che PokePC non colloca in una casella |
 
