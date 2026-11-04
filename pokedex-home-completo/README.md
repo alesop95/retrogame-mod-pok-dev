@@ -29,6 +29,9 @@ COPIE-PER-HOME.md                           le copie dei salvataggi per HOME per
 RUNBOOK-PASSO-1.md                          la prova pilota con Rubino Omega, passo per passo, con le verifiche
 CONNETTIVITA-HOME.md                        la tabella di connettività verso HOME al 2026-10-07, e che cosa vuol dire per i lotti
 DA-PORTARE-PRIMA-DI-BANK.md                 lo stato di ciò che va generato prima della chiusura di Bank, e il passo successivo
+COPERTURA-LOTTI.md                          le caselle fino alla settima generazione che le copie non coprono, generato da tools/copertura-lotti.py
+SFERE-PRIMA-DI-BANK.md                      le combinazioni di specie e Poke Ball che si perdono con Bank, generato da tools/fiocchi-e-sfere-prima-di-bank.py
+FIOCCHI-PRIMA-DI-BANK.md                    i fiocchi che si perdono, il Fiocco Maestro e il set minimo, generato dallo stesso strumento
 SFIDE-BANK.md                               le sfide di HOME che dipendono da Bank e se le copie le coprono, generato da tools/sfide-bank.py
 data/controllo-eventi.json                  lo stato censito delle cinque fonti di eventi, scritto da tools/controlla-eventi-nuovi.py --segna
 CENSIMENTO-FONTI-COLLEZIONE.md              le 171 fonti del corpus, per cluster e con l'esito della corsa

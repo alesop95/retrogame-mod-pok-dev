@@ -2,7 +2,7 @@
 #
 # Perche' esiste. Il 2026-11-03 il proprietario ha chiesto che ogni strumento del progetto sia ripristinabile su
 # questa macchina e su qualunque macchina Windows su cui il progetto si sposti. Fino a quel giorno non lo era: i
-# venti strumenti tools\pkhex-* puntano a una libreria compilata dentro _notes\, che Git esclude, le dipendenze
+# gli strumenti tools\pkhex-* puntano a una libreria compilata dentro _notes\, che Git esclude, le dipendenze
 # Python non erano scritte da nessuna parte, e l'hook di apertura porta il percorso assoluto della radice.
 #
 # Che cosa fa, in ordine. Controlla i programmi di sistema (git, Python 3.11 o piu', SDK .NET della versione

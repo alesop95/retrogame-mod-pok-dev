@@ -10,9 +10,16 @@ Le misure sono prese il 2026-11-03 sulle sette copie giudicate con `tools/pkhex-
 
 | Voce | Totale | Coperte dalle copie per HOME | Da generare | Dove sta il dettaglio |
 |---|---|---|---|---|
+| Caselle di specie e forma che esistono fino alla settima generazione (ADR-109, ADR-110) | 936 | 562 | 374 | `COPERTURA-LOTTI.md`, generato da `tools/copertura-lotti.py --scrivi` |
 | Sfide di HOME che dipendono da Bank | 47 | 23 | 24 | `SFIDE-BANK.md`, generato da `tools/sfide-bank.py --scrivi` |
 | Mosse registrabili solo da giochi passati da Bank | 63 | 51 | 12 | qui sotto |
-| Abilità registrabili solo da giochi passati da Bank | 3 | 3 | 0 | Battle Bond, Soul-Heart, Victory Star |
+| Abilità registrabili solo da giochi passati da Bank | 5 | 3 | 2 | Battle Bond, Soul-Heart e Victory Star coperte; Galvanize e Power of Alchemy da generare, dalle sotto-fonti del post `1voa411` |
+| Combinazioni di specie e sfera che si perdono, per eredità (ADR-110) | 82 | 1 | 81 | `SFERE-PRIMA-DI-BANK.md`, generato da `tools/fiocchi-e-sfere-prima-di-bank.py --scrivi` |
+| Combinazioni precise di specie e sfera del foglio comunitario | 14 | 3 | 11 | `SFERE-PRIMA-DI-BANK.md` |
+| Fiocchi che si ottengono giocando solo fino alla settima generazione | 63 | 4 | un Fiocco Maestro di Colosseum o XD | `FIOCCHI-PRIMA-DI-BANK.md` |
+| Fiocchi dono nella base delle carte | 9 | 9 | 0 | `FIOCCHI-PRIMA-DI-BANK.md` |
+| Mosse del Pokédex delle mosse che esistono fino alla settima generazione e nessuna copia conosce | 184 | 0 | 184, di cui 36 mosse Z da verificare | `_notes/lavoro/giudizi-copie/mosse-fino-gen7-mancanti.json` |
+| Esemplari conformi della cartuccia originale di Smeraldo, per affetto | 213 | 0 | 213 | ADR-110 |
 | Cromatici bloccati, ottenibili solo da Bank | 8 | 3 | 5 | qui sotto |
 | Specie che il foglio del 2024 dava «solo tramite GO» | 9 | 2 | 0 | qui sotto |
 
@@ -24,12 +31,14 @@ I 5 cromatici bloccati da generare sono Mew, Celebi, Spinda, Tipo Zero e Naganad
 
 Delle 9 specie che il foglio del 2024 dava ottenibili dopo Bank solo con Pokémon GO, Pansage e Simisear sono già nelle copie. Le altre 7 sono Patrat, Watchog, Simisage, Pansear, Panpour, Simipour e Furfrou: secondo la libreria si trovano in Leggende Z-A, e due guide lette il 2026-11-03 lo confermano, Thonky e Gamer Guides. Quindi hanno una via dopo Bank, Z-A verso HOME, e non richiedono esemplari dedicati. Il foglio del 2024 è anteriore a Z-A, che è del 2025.
 
-Le altre 281 specie dalla 1 alla 809 assenti dalle copie per HOME hanno, secondo le tabelle della libreria, almeno un gioco per Switch che le contiene, quindi non dipendono da Bank. L'elenco è in `_notes/lavoro/giudizi-copie/specie-assenti-presenza-switch.tsv`.
+Le altre 281 specie dalla 1 alla 809 assenti dalle copie per HOME hanno, secondo le tabelle della libreria, almeno un gioco per Switch che le contiene. Questo non chiude niente: per la regola del proprietario, ribadita in ADR-109, ciò che esiste fino al 3DS va comunque nei lotti, e la Switch serve solo per ciò che lì non esiste. Le specie e le forme mancanti sono quindi da produrre, e il loro elenco è la prima riga della tabella. L'elenco è in `_notes/lavoro/giudizi-copie/specie-assenti-presenza-switch.tsv`.
 
 ## Che cosa resta aperto
+
+Le tosature di Furfrou sono chiuse il 2026-11-04 (ADR-110): non passano da Bank e vanno nel lavoro su Switch. La riga dei fiocchi conta come coperti i quattro fiocchi della tabella che le copie già portano (Nazionale in 140 esemplari, Geo, Artista e i due Ricordo in uno). Le combinazioni con Dexerto sono verificate sulla pagina il 2026-11-04.
 
 La sfida «Register Pulverizing Snorlax» è identificata su Bulbapedia, uno Snorlax da evento, ed è coperta dallo Snorlax di Nihonbashi della copia di Ultraluna. Le sfide di Rosso Fuoco e Verde Foglia «for Nintendo Switch», cioè Caterpie e la sua serie, Chansey e Tauros, Lapras e Porygon, chiedono l'origine Switch: non dipendono da Bank e vanno nel lavoro su Switch. «Register 100 different species of Pokémon that live in the Alola Region» risulta coperta con 121 specie d'origine Alola, ma va confermato che almeno 100 siano nel Pokédex di Alola. Il 2026-11-03 sono stati letti l'annuncio ufficiale e l'articolo di Dexerto su ciò che si perde con la chiusura. L'annuncio dice «26 febbraio 2027 alle 10:00» senza fuso. RPG Site riporta l'annuncio americano, 25 febbraio alle 19:00 PST, cioè le 04:00 italiane del 26 febbraio, che coincide con la data del progetto. Notebookcheck dà il 27. Vale la più prudente: i passaggi si chiudono entro la sera del 25 febbraio. Dexerto aggiunge tre categorie che questo controllo non copre ancora. La prima sono i fiocchi ottenibili solo da giochi vecchi: Artist, Legend, National, Earth, Contest Memory e Battle Memory, i fiocchi dei Campioni di Kalos, Hoenn e Alola, Training, Skillful e Expert Battler, Battle Royal Master, i due della Battle Tree, il Campione di terza generazione, Country, World e Battle Champion. Vanno confrontati con l'asse dei fiocchi di `FIOCCHI.md`, estraendo i fiocchi degli esemplari dalle copie. La seconda sono alcune voci cromatiche del Pokédex di HOME (Victini, Vivillon Motivo Poké Ball, Floette Fiore Eterno, Hoopa), riportate da una sintesi automatica e da verificare sulla pagina prima di produrle. La terza è il premio Time Travel di Diamante Lucente e Perla Splendente, che chiede un Pokémon originario di Diamante, Perla o Platino: le copie per HOME ne hanno 172, quindi è coperto.
 
 ## Il passo successivo
 
-L'agente scrive l'elenco di produzione dei giri dedicati: le 24 sfide, le 12 mosse e i 5 cromatici, con un esemplare legale per voce, generato con la libreria e giudicato. Poi li scrive in una copia nuova, che entra nel calendario dopo i giri 2 e 3 di Rubino Omega e prima del passo 3. Il proprietario intanto prosegue con il passo 2, i giri 2 e 3, che non dipendono da questo lavoro.
+L'agente scrive l'elenco di produzione dei giri dedicati, partendo dalle 383 caselle di `COPERTURA-LOTTI.md` e unendo: le 24 sfide, le 12 mosse e i 5 cromatici, con un esemplare legale per voce, generato con la libreria e giudicato. Poi li scrive in una copia nuova, che entra nel calendario dopo i giri 2 e 3 di Rubino Omega e prima del passo 3. Il proprietario intanto prosegue con il passo 2, i giri 2 e 3, che non dipendono da questo lavoro.

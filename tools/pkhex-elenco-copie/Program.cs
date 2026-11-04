@@ -77,6 +77,16 @@ foreach (var arg in args.Skip(1))
             // conosciute e l'abilita' degli esemplari depositati, e alcune si registrano solo da giochi passati da Bank.
             ["mosse_en"] = new JsonArray(pk.Moves.Where(m => m != 0).Select(m => (JsonNode)inglese.movelist[m]).ToArray()),
             ["abilita_en"] = inglese.abilitylist[pk.Ability],
+            ["forma_n"] = pk.Form,
+            // Dal 2026-11-04, per i fiocchi che si perdono con la chiusura di Bank: i nomi delle proprieta' booleane
+            // dei fiocchi accese sull'esemplare, e i contatori (gare di terza generazione, Ricordo delle Gare e delle
+            // Lotte dalla sesta) come NOME:VALORE se diversi da zero.
+            ["fiocchi"] = new JsonArray(pk.GetType().GetProperties()
+                .Where(p => p.Name.StartsWith("Ribbon") && p.PropertyType == typeof(bool) && (bool)p.GetValue(pk)!)
+                .Select(p => (JsonNode)p.Name)
+                .Concat(pk.GetType().GetProperties()
+                    .Where(p => p.Name.StartsWith("RibbonCount") && p.PropertyType == typeof(byte) && (byte)p.GetValue(pk)! != 0)
+                    .Select(p => (JsonNode)$"{p.Name}:{p.GetValue(pk)}")).ToArray()),
         });
     }
     copie.Add(new JsonObject { ["gruppo"] = gruppo, ["copia"] = percorso, ["gioco"] = sav.Version.ToString(), ["esemplari"] = voci });
