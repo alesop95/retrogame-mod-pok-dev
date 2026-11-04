@@ -197,13 +197,138 @@ def componi(dati, cartella_immagini):
     return "\n".join(righe) + "\n", len(cache), mancanti
 
 
+# Il pedigree di ogni esemplare (ADR-111, 2026-11-04): una scheda per esemplare nel PDF stampabile, con il design
+# system di `pokedex-home-completo/design-system/`, e una riga per esemplare nel documento generato e tracciato, dalla
+# stessa funzione, così che i due non divergano. Lo stato viene dal gruppo: il giro 1 è in HOME dal 2026-11-03.
+STATO_GRUPPO = {"HOME1": ("DSstatoinhome", "in HOME")}
+DS = os.path.join(RADICE, "pokedex-home-completo", "design-system")
+PEDIGREE_MD = os.path.join(RADICE, "pokedex-home-completo", "pedigree")
+PEDIGREE_PDF = os.path.join(RADICE, "_notes", "stampa", "pedigree")
+
+
+def campi_pedigree(e, per_codice, per_file):
+    """I campi del pedigree di un esemplare, come coppie etichetta e valore, nell'ordine di ADR-111."""
+    iv = "/".join(str(v) for v in e["iv"])
+    fiocchi = len(e["fiocchi"])
+    return [
+        ("gioco d'origine", GIOCHI.get(e["gioco"], e["gioco"])), ("luogo", e["luogo"]),
+        ("data", e["data_incontro"] or "non registrata"),
+        ("livello", "%d, incontrato al %d" % (e["livello"], e["livello_incontro"])), ("sfera", e["sfera"]),
+        ("lingua", e["lingua"]),
+        ("allenatore", "%s, ID %s, SID %s" % (e["allenatore"], e["id"], e["sid"])), ("natura", e["natura"]),
+        ("abilità", e["abilita"]),
+        ("mosse", ", ".join(e["mosse"]) or "nessuna"), ("oggetto", e["oggetto"] or "nessuno"),
+        ("fiocchi", ("%d" % fiocchi) if fiocchi else "nessuno"),
+        ("IV", iv), ("PID", e["pid"]), ("EC", e["ec"]),
+    ]
+
+
+def scheda_tex(e, gruppo, per_codice, per_file, img):
+    gen = "DSgen" + "ABCDEFG"[max(1, min(7, e["generazione"])) - 1]
+    colore, stato = STATO_GRUPPO.get(gruppo, ("DSstatoincopia", "in copia"))
+    nome = tex(e["specie"]) + (" \\textnormal{\\small %s}" % tex(e["forma"]) if e["forma"] else "")
+    segni = {"M": "♂", "F": "♀"}.get(e["sesso"], "") + (" ★" if e["cromatico"] else "")
+    campi = campi_pedigree(e, per_codice, per_file)
+    celle = []
+    for i in range(0, len(campi), 3):
+        celle.append(" & ".join("\\DScampo{%s} & %s" % (tex(k), tex(v)) for k, v in campi[i:i + 3]) + r"\\")
+    mini = r"\DSminiatura[14mm]{%s}" % img if img else r"\tcbox[colback=DScartascura, colframe=DSfiletto, boxrule=0.4pt, arc=1.6mm, width=14mm, height=14mm]{}"
+    giudizio = "conforme" if e["conforme"] else "NON conforme"
+    return "\n".join([
+        r"\begin{DSscheda}{%s}" % gen,
+        r"\begin{minipage}[t]{16mm}\vspace{0pt}%s\end{minipage}\hspace{2mm}%%" % mini,
+        r"\begin{minipage}[t]{\dimexpr\linewidth-18mm\relax}\vspace{0pt}",
+        r"{\DStitoli\bfseries %s}\hspace{1.5mm}\DSnumero{%03d}\hspace{1.5mm}{\DSdati %s}\hfill\DSstato{%s}{%s}\par" % (
+            nome, e["numero"], segni, colore, stato),
+        r"{\footnotesize %s}\par\vspace{0.6mm}" % tex(evento_di(e, per_codice, per_file)),
+        r"{\DSdati\scriptsize\setlength{\tabcolsep}{2pt}\begin{tabular}{@{}l L{29mm} l L{30mm} l L{34mm}@{}}",
+        *celle,
+        r"\end{tabular}}\par",
+        r"{\DSdati\tiny\color{DSseppia} %s, PKHeX %s; %s box %d posto %d; impronta {\ttfamily %s}}" % (
+            giudizio, tex(e["libreria"]), tex(gruppo), e["box"], e["posto"], e["impronta"]),
+        r"\end{minipage}",
+        r"\end{DSscheda}",
+    ])
+
+
+def pedigree(dati, cartella_immagini, pdf, solo=None):
+    per_codice, per_file = descrizioni_del_progetto()
+    cache = {}
+    g = json.load(io.open(os.path.join(DS, "tokens.json"), encoding="utf-8"))["geometria"]
+    caratteri = os.path.join(RADICE, "_notes", "design-system", "caratteri").replace("\\", "/") + "/"
+    os.makedirs(PEDIGREE_MD, exist_ok=True)
+    os.makedirs(PEDIGREE_PDF, exist_ok=True)
+    for c in dati["copie"]:
+        gruppo, esemplari = c["gruppo"], c["esemplari"]
+        if solo and gruppo not in solo:
+            continue
+        colore, stato = STATO_GRUPPO.get(gruppo, ("", "in copia"))
+        md = ["# Pedigree degli esemplari del gruppo %s" % gruppo, "",
+              "> Documento generato da `tools/stampa-collezione.py --pedigree`, dalla stessa funzione che compone il PDF "
+              "stampabile in `_notes/stampa/pedigree/%s.pdf`. Non si modifica a mano. Una riga per esemplare, nell'ordine di "
+              "box e posto della copia, giudicata da `tools/pkhex-elenco-copie`; i campi sono quelli di ADR-111. Stato del "
+              "gruppo: %s. Esemplari: %d, conformi: %d." % (gruppo, stato, len(esemplari),
+                                                            sum(e["conforme"] for e in esemplari)), "",
+              "| Box | Posto | Specie | Forma | Sesso | Cromatico | Evento | " +
+              " | ".join(k[0].upper() + k[1:] for k, _ in campi_pedigree(esemplari[0], per_codice, per_file)) +
+              " | Giudizio | Impronta |",
+              "|" + "---|" * (9 + len(campi_pedigree(esemplari[0], per_codice, per_file)))]
+        corpo = [r"""\documentclass[9pt,a4paper]{extarticle}
+\usepackage[top=%(v)smm,bottom=%(v)smm,left=%(a)smm,right=%(m)smm]{geometry}
+\def\DScaratteri{%(car)s}
+\input{%(stile)s}
+\usepackage[italian]{babel}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\setlength{\parindent}{0pt}
+\pagestyle{plain}
+\begin{document}
+{\DStitoli\bfseries\fontsize{20}{24}\selectfont\color{DSrosso} Pedigree, gruppo %(gr)s}\par
+{\DSdati\small\color{DSseppia} %(n)d esemplari, %(stato)s. Generato da tools/design-system.py e tools/stampa-collezione.py.}\par\medskip
+""" % {"v": g["margine_verticale_mm"], "a": g["margine_anelli_mm"], "m": g["margine_mm"], "car": caratteri,
+       "stile": os.path.join(DS, "collezione-stile.tex").replace("\\", "/"), "gr": tex(gruppo), "n": len(esemplari),
+       "stato": tex(stato)}]
+        for e in esemplari:
+            img = miniatura(e, cartella_immagini, cache)
+            corpo.append(scheda_tex(e, gruppo, per_codice, per_file, img))
+            valori = [v for _, v in campi_pedigree(e, per_codice, per_file)]
+            md.append("| " + " | ".join(str(x).replace("|", "/") for x in [
+                e["box"], e["posto"], "%d %s" % (e["numero"], e["specie"]), e["forma"], e["sesso"],
+                "sì" if e["cromatico"] else "", evento_di(e, per_codice, per_file)] + valori +
+                ["conforme" if e["conforme"] else "NON conforme", e["impronta"]]) + " |")
+        corpo.append(r"\end{document}")
+        with io.open(os.path.join(PEDIGREE_MD, gruppo + ".md"), "w", encoding="utf-8", newline="\n") as f:
+            f.write("\n".join(md) + "\n")
+        uscita = os.path.join(PEDIGREE_PDF, gruppo + ".tex")
+        with io.open(uscita, "w", encoding="utf-8", newline="\n") as f:
+            f.write("\n".join(corpo) + "\n")
+        if pdf:
+            r = subprocess.run(["lualatex", "-interaction=nonstopmode", "-halt-on-error", os.path.basename(uscita)],
+                               cwd=PEDIGREE_PDF, capture_output=True, text=True, encoding="utf-8", errors="replace")
+            if r.returncode != 0:
+                print(r.stdout[-3000:])
+                sys.exit("lualatex non ha compilato il pedigree di " + gruppo)
+        print("%s: %d esemplari; %s%s" % (gruppo, len(esemplari), os.path.relpath(os.path.join(PEDIGREE_MD, gruppo + ".md"), RADICE),
+                                          ", " + os.path.splitext(uscita)[0] + ".pdf" if pdf else ""))
+    mancanti = sorted(k for k, v in cache.items() if v is None)
+    print("miniature %d, senza illustrazione %d %s" % (len(cache), len(mancanti), mancanti[:10]))
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("dati", help="JSON di tools/pkhex-elenco-copie")
-    ap.add_argument("uscita", help="file .tex da scrivere")
+    ap.add_argument("uscita", nargs="?", help="file .tex da scrivere, per il catalogo")
     ap.add_argument("--immagini", default=IMMAGINI, help="cartella delle illustrazioni, divisa per generazione")
     ap.add_argument("--pdf", action="store_true", help="compila anche il PDF con lualatex, due passate")
+    ap.add_argument("--pedigree", action="store_true",
+                    help="compone il pedigree per gruppo: PDF in _notes/stampa/pedigree/, Markdown in pokedex-home-completo/pedigree/")
+    ap.add_argument("--gruppo", action="append", help="con --pedigree, solo questo gruppo; si ripete")
     a = ap.parse_args()
+    if a.pedigree:
+        pedigree(json.load(io.open(a.dati, encoding="utf-8")), a.immagini, a.pdf, a.gruppo)
+        return
+    if not a.uscita:
+        ap.error("serve il file .tex da scrivere, oppure --pedigree")
     dati = json.load(io.open(a.dati, encoding="utf-8"))
     testo, figure, mancanti = componi(dati, a.immagini)
     io.open(a.uscita, "w", encoding="utf-8").write(testo)

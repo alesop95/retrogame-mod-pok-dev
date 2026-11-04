@@ -1,0 +1,51 @@
+% Generato da tools/design-system.py dai token di pokedex-home-completo/design-system/tokens.json.
+% Non si modifica a mano: si cambia il token e si rigenera. Chi lo include definisce prima
+% \DScaratteri, la cartella dei caratteri con la barra finale.
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\directlua{luaotfload.add_fallback("asia", {"Malgun Gothic:mode=harf;", "Microsoft YaHei:mode=harf;", "Microsoft JhengHei:mode=harf;", "YuGothic:mode=harf;"})}
+\setmainfont{ZenOldMincho-Regular.ttf}[Path=\DScaratteri, UprightFont=ZenOldMincho-Regular.ttf, BoldFont=ZenOldMincho-Bold.ttf, RawFeature={fallback=asia}]
+\newfontfamily\DStitoli{MPLUSRounded1c-Medium.ttf}[Path=\DScaratteri, UprightFont=MPLUSRounded1c-Medium.ttf, BoldFont=MPLUSRounded1c-ExtraBold.ttf, RawFeature={fallback=asia}]
+\newfontfamily\DSdati{MPLUSRounded1c-Regular.ttf}[Path=\DScaratteri, UprightFont=MPLUSRounded1c-Regular.ttf, BoldFont=MPLUSRounded1c-Bold.ttf, RawFeature={fallback=asia}]
+\newfontfamily\DSpixel{DotGothic16-Regular.ttf}[Path=\DScaratteri, UprightFont=DotGothic16-Regular.ttf, RawFeature={fallback=asia}]
+\setmonofont{IBMPlexMono-Regular.ttf}[Path=\DScaratteri, UprightFont=IBMPlexMono-Regular.ttf, BoldFont=IBMPlexMono-Bold.ttf, Scale=0.92]
+\definecolor{DScarta}{HTML}{F8F3E6}
+\definecolor{DScartascura}{HTML}{EFE6D0}
+\definecolor{DSinchiostro}{HTML}{2B2622}
+\definecolor{DSseppia}{HTML}{6E5E4E}
+\definecolor{DSfiletto}{HTML}{B9AA92}
+\definecolor{DSrosso}{HTML}{B8433A}
+\definecolor{DSblu}{HTML}{3F6A94}
+\definecolor{DSgiallo}{HTML}{E0B04A}
+\definecolor{DSverdegbscuro}{HTML}{306230}
+\definecolor{DSverdegb}{HTML}{8BAC0F}
+\definecolor{DSgenA}{HTML}{B8433A}
+\definecolor{DSgenB}{HTML}{A8822E}
+\definecolor{DSgenC}{HTML}{2F7D5B}
+\definecolor{DSgenD}{HTML}{4F6FA0}
+\definecolor{DSgenE}{HTML}{4A4A4A}
+\definecolor{DSgenF}{HTML}{3A6C9A}
+\definecolor{DSgenG}{HTML}{D0733A}
+\colorlet{DSstatodaprodurre}{DSrosso}
+\colorlet{DSstatoincopia}{DSgiallo}
+\colorlet{DSstatoinbank}{DSblu}
+\colorlet{DSstatoinhome}{DSverdegbscuro}
+\color{DSinchiostro}
+% La scheda di un esemplare: carta crema, filetto seppia, angoli tondi, striscia del colore della generazione.
+\newtcolorbox{DSscheda}[1]{enhanced, colback=DScarta, colframe=DSfiletto, boxrule=0.6pt, arc=2.2mm,
+  left=3mm, right=2mm, top=1.5mm, bottom=1.5mm, before skip=1.2mm, after skip=1.2mm,
+  overlay={\fill[#1] ([xshift=0.3pt]frame.north west) rectangle ([xshift=3.5pt]frame.south west);}}
+% La miniatura dell'illustrazione di Sugimori, nella sua finestra bianca: le illustrazioni hanno lo sfondo bianco,
+% e una cornice propria lo rende voluto invece che una macchia sulla carta crema.
+% Il primo argomento, facoltativo, è la larghezza dell'illustrazione; la finestra aggiunge 1,6 millimetri.
+\newcommand{\DSminiatura}[2][18mm]{\tcbox[colback=white, colframe=DSfiletto, boxrule=0.4pt, arc=1.6mm, boxsep=0pt, left=0.6mm, right=0.6mm, top=0.6mm, bottom=0.6mm]{\includegraphics[width=#1]{#2}}}
+% Il numero di Pokédex con il carattere a punti, come sullo schermo del Game Boy.
+\newcommand{\DSnumero}[1]{{\DSpixel\color{DSseppia}\##1}}
+% L'etichetta di un campo del pedigree.
+% Prende la dimensione del contesto, così che etichetta e valore abbiano lo stesso corpo.
+\newcommand{\DScampo}[1]{{\DSdati\color{DSseppia}#1}}
+% Il bollino dello stato dell'esemplare.
+\newcommand{\DSstato}[2]{\tcbox[on line, colback=#1!18, colframe=#1, boxrule=0.4pt, arc=1.2mm, boxsep=0pt, left=1.2mm, right=1.2mm, top=0.4mm, bottom=0.4mm]{\DSdati\scriptsize\bfseries\color{DSinchiostro}#2}}

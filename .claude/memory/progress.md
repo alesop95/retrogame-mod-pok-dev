@@ -4,6 +4,26 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-04, seconda parte. Assi da collezionista, design system, elenco unico di produzione e pedigree di ogni esemplare, ADR-111
+
+Il proprietario ha lanciato `chiudi`, che ha prodotto il commit `e92fc3a`; a inizio giro il commit risultava avanti di uno su `origin`, e a fine giro è pubblicato. Ha poi chiesto quattro cose: l'elenco degli indirizzi delle fonti che da qui non si leggono, per mandarne le fotografie dello schermo; di fare subito le voci in sospeso dell'agente; la spiegazione dei sei numeri degli assi da collezionista, che adotta se bastano i posti di HOME; e che ogni esemplare abbia un pedigree nella documentazione e nella stampa.
+
+Assi. Le sei schede del foglio «Bank Closing» sono estratte in CSV in `_notes/fonti/raccolte/fogli-sfide-bank-2026-11-03/assi/`. Contate sulle righe con un numero di Pokédex: origine 479, sesso e forma per origine 187 su 80 specie, scambi 345 su 212 specie, altri unici 202, stelle del Master Dex 237 su 163 specie, livelli minimi 101 su 100 specie; tutte da giochi fino al 3DS. Il proprietario li adotta con la condizione dei posti: ADR-111.
+
+Allineamento dal template. Con lo strumento committato del template, `444190a`, estratto con `git archive`, la prova a vuoto dà zero conflitti; la versione in lavorazione nell'albero del template ne dà otto. Rimandato a quando il template avrà committato.
+
+Design system. Le 13 applicazioni ArtCraft sono installate (`craft-apps.py rileva`). La fonte unica è `pokedex-home-completo/design-system/tokens.json`; `tools/design-system.py`, nuovo, scarica i caratteri OFL dal repository dei Google Fonts al commit `2fe1e8c`, ne registra l'impronta, e ricava `collezione-stile.tex` per LuaLaTeX e `.claude/craft-stile.json` per le applicazioni Craft; `--check` verifica l'allineamento. Il campionario è stato composto e guardato con PdfCraft 0.18.1, e la scheda di pedigree corretta due volte a vista (miniatura più larga della colonna, etichette più grandi dei valori).
+
+Elenco unico. `tools/elenco-produzione.py`, nuovo, mette insieme le voci di ADR-108 a ADR-111 e misura le coperture sulle copie per HOME: 2280 voci, 413 coperte, 1867 da produrre, più 184 mosse senza specie; fondendo le voci compatibili per specie, forma, giochi, sfera, cromatico e sesso, 1464 esemplari stimati, tetto 2051. Con 3407 copie e 2371 statici fanno 7242 posti nella stima e 7829 nel tetto, su 9000. Un primo difetto, le righe degli assi senza forma che non si fondevano, è emerso guardando l'elenco di Pikachu ed è corretto.
+
+Pedigree. `tools/pkhex-elenco-copie` scrive ora anche PID, EC, SID, natura, IV, livello e data d'incontro, oggetto, mosse e abilità in italiano, impronta SHA-256 dei byte e versione della libreria; rilanciato sulle sette copie in `dopo-bfe89c7-pedigree.json`, i campi vecchi coincidono tutti con l'esito precedente, 3283 conformi su 3407. `tools/stampa-collezione.py --pedigree` compone 3407 schede in sette PDF in `_notes/stampa/pedigree/`, 420 pagine, e sette documenti in `pokedex-home-completo/pedigree/`, 1,4 MB, con 590 miniature e nessuna mancante.
+
+Voci in sospeso dell'agente, fatte da un subagente: i video `yyIa9611uZk` e `tb0eeLjTMOo` trascritti in locale dopo un altro 429 sui sottotitoli, le undici pagine per gioco di Athis lette; dal primo video entrano Deoxys, Manaphy e Darkrai cromatici, da verificare con la libreria. Registro delle fonti aggiornato.
+
+**Didattica:** nessuna in questo giro; la fonte unica dei token da cui si ricavano due stili, e la fusione delle voci per vincoli compatibili, andranno nel racconto con la produzione.
+
+**Template:** nessuna
+
 ## 2026-11-04. Sfere e fiocchi che si perdono con Bank, Furfrou chiuso, fonti aperte lette, ADR-110
 
 Il proprietario ha ribadito la regola: i lotti coprono ciò che passa da Bank, il resto si genera dopo su Switch, e il Pokédex deve essere completo comunque. Ha chiesto le ricerche sulle combinazioni di specie e sfera e sui fiocchi, gli esemplari delle cartucce per affetto, la chiusura immediata delle sei fonti aperte e un design system di progetto per i documenti e i PDF, un passo alla volta.

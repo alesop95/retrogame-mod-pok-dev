@@ -87,6 +87,19 @@ foreach (var arg in args.Skip(1))
                 .Concat(pk.GetType().GetProperties()
                     .Where(p => p.Name.StartsWith("RibbonCount") && p.PropertyType == typeof(byte) && (byte)p.GetValue(pk)! != 0)
                     .Select(p => (JsonNode)$"{p.Name}:{p.GetValue(pk)}")).ToArray()),
+            // Dal 2026-11-04, per il pedigree di ogni esemplare (ADR-111): i dati che identificano quell'esemplare e non
+            // un altro della stessa specie, e l'impronta dei suoi byte decifrati, che cambia se cambia anche un solo campo.
+            ["pid"] = pk.PID.ToString("X8"), ["ec"] = pk.EncryptionConstant.ToString("X8"),
+            ["sid"] = pk.DisplaySID,
+            ["natura"] = testi.natures[(int)pk.Nature],
+            ["iv"] = new JsonArray(pk.IV_HP, pk.IV_ATK, pk.IV_DEF, pk.IV_SPA, pk.IV_SPD, pk.IV_SPE),
+            ["livello_incontro"] = pk.MetLevel,
+            ["data_incontro"] = pk.MetDate is { } d ? d.ToString("yyyy-MM-dd") : "",
+            ["oggetto"] = pk.HeldItem > 0 ? testi.itemlist[pk.HeldItem] : "",
+            ["mosse"] = new JsonArray(pk.Moves.Where(m => m != 0).Select(m => (JsonNode)testi.movelist[m]).ToArray()),
+            ["abilita"] = testi.abilitylist[pk.Ability],
+            ["impronta"] = Convert.ToHexString(System.Security.Cryptography.SHA256.HashData(pk.Data)).ToLowerInvariant(),
+            ["libreria"] = typeof(PKM).Assembly.GetName().Version?.ToString() ?? "",
         });
     }
     copie.Add(new JsonObject { ["gruppo"] = gruppo, ["copia"] = percorso, ["gioco"] = sav.Version.ToString(), ["esemplari"] = voci });

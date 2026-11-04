@@ -33,6 +33,9 @@ COPERTURA-LOTTI.md                          le caselle fino alla settima generaz
 SFERE-PRIMA-DI-BANK.md                      le combinazioni di specie e Poke Ball che si perdono con Bank, generato da tools/fiocchi-e-sfere-prima-di-bank.py
 FIOCCHI-PRIMA-DI-BANK.md                    i fiocchi che si perdono, il Fiocco Maestro e il set minimo, generato dallo stesso strumento
 SFIDE-BANK.md                               le sfide di HOME che dipendono da Bank e se le copie le coprono, generato da tools/sfide-bank.py
+ELENCO-PRODUZIONE.md                        l'elenco unico di ciò che va prodotto prima di Bank, ADR-108 a ADR-111, e i posti che chiede, generato da tools/elenco-produzione.py
+pedigree/                                   il pedigree di ogni esemplare delle copie, un file per gruppo, ADR-111, generato da tools/stampa-collezione.py --pedigree
+design-system/                              il design system della collezione e dei PDF stampabili, ADR-110 e ADR-111: tokens.json e i file ricavati da tools/design-system.py
 data/controllo-eventi.json                  lo stato censito delle cinque fonti di eventi, scritto da tools/controlla-eventi-nuovi.py --segna
 CENSIMENTO-FONTI-COLLEZIONE.md              le 171 fonti del corpus, per cluster e con l'esito della corsa
 data/fonti-collezione.csv                   le stesse, come tabella per il confronto

@@ -1,0 +1,26 @@
+{
+  "nome": "pokedex-sugimori-retro",
+  "descrizione": "Generato da tools/design-system.py dai token di pokedex-home-completo/design-system/tokens.json: Design system del progetto per i documenti della collezione e i PDF stampabili, deciso il 2026-11-04 (ADR-110, ADR-111): retrò, ispirato alle illustrazioni ad acquerello di Ken Sugimori e alla stampa giapponese degli anni Novanta. Carta color crema, inchiostro caldo, accenti ad acquerello, un tocco di Game Boy nei numeri di Pokédex.",
+  "font_titoli": "M PLUS Rounded 1c",
+  "font_testo": "Zen Old Mincho",
+  "colore_titoli": "B8433A",
+  "colore_testo": "2B2622",
+  "font_codice": "IBM Plex Mono",
+  "dimensioni": {
+    "Title": 24,
+    "Heading 1": 17,
+    "Heading 2": 13,
+    "Heading 3": 11,
+    "Normal": 10,
+    "Code": 7.5
+  },
+  "colori_slide": {
+    "dk1": "#2B2622",
+    "lt1": "#F8F3E6",
+    "dk2": "#B8433A",
+    "lt2": "#EFE6D0",
+    "accent1": "#B8433A",
+    "accent2": "#3F6A94",
+    "hlink": "#3F6A94"
+  }
+}

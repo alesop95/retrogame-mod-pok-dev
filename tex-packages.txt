@@ -26,3 +26,9 @@ cm-super
 # Lingua italiana, con i pattern di sillabazione per pdflatex
 babel-italian
 hyphen-italian
+
+# Design system della collezione, tools/design-system.py e tools/stampa-collezione.py (2026-11-04)
+fontspec
+tcolorbox
+pgf
+tikzfill
