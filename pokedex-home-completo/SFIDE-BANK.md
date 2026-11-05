@@ -52,4 +52,4 @@ Sfide controllate: 47. Non coperte dalle sole copie per HOME: 0. Le non coperte 
 | Register Pikachu wearing a hat |  | COPERTA dalle copie per HOME: HOME5 box 1 posto 5 |
 | Register the guardian deities of Alola! |  | COPERTA dalle copie per HOME: HOME4 box 1 posto 1, HOME4 box 1 posto 11, HOME4 box 1 posto 12, HOME4 box 1 posto 13 |
 | Register Pulverizing Snorlax | sì | COPERTA dalle copie per HOME: HOME5 box 12 posto 9 |
-| Register 100 different species of Pokémon that live in the Alola Region |  | COPERTA dalle copie per HOME: 322 specie distinte con l'origine richiesta, regola prudente, origine Alola; resta da confermare che almeno 100 delle specie siano nel Pokédex di Alola |
+| Register 100 different species of Pokémon that live in the Alola Region |  | COPERTA dalle copie per HOME: 323 specie distinte con l'origine richiesta, regola prudente, origine Alola; resta da confermare che almeno 100 delle specie siano nel Pokédex di Alola |

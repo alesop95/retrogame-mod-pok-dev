@@ -11,15 +11,16 @@
 | Smeraldo | 213 | 213 | 0 |
 | asse origine | 479 | 477 | 2 |
 | asse sesso e forma | 187 | 186, e 83 voci senza misura possibile | 1 |
-| asse scambi | 345 | 341 | 4 |
-| asse altri unici | 214 | 212 | 2 |
+| asse scambi | 345 | 342 | 3 |
+| asse altri unici | 214 | 213 | 1 |
 | asse stelle | 237 | 228, e 237 voci senza misura possibile | 9 |
-| asse livelli minimi | 101 | 84 | 17 |
+| asse livelli minimi | 101 | 94 | 7 |
+| pre-evoluzioni per Switch | 14 | 14 | 0 |
 | mosse senza specie | 50 | 0 | 50, da assegnare a un esemplare che le impari |
 
-Voci da produrre: 19, più 50 mosse. Esemplari stimati con la fusione delle voci compatibili: 19. Tetto, una voce un esemplare e una mossa un esemplare: 69. La stima non chiede alla libreria se una fusione sia legale, e può quindi essere ottimista; il tetto non lo è.
+Voci da produrre: 5, più 50 mosse. Esemplari stimati con la fusione delle voci compatibili: 5. Tetto, una voce un esemplare e una mossa un esemplare: 55. La stima non chiede alla libreria se una fusione sia legale, e può quindi essere ottimista; il tetto non lo è.
 
-I posti di HOME sono 9000. Con le 4936 copie già fatte e il tetto di 2371 statici di ADR-106, che si sovrappone in parte agli altri esemplari unici e alle sfide, la stima porta a 7326 posti e il tetto a 7376. Restano rispettivamente 1674 e 1624 posti per il lavoro su Switch dopo Bank.
+I posti di HOME sono 9000. Con le 5236 copie già fatte e il tetto di 2371 statici di ADR-106, che si sovrappone in parte agli altri esemplari unici e alle sfide, la stima porta a 7612 posti e il tetto a 7662. Restano rispettivamente 1388 e 1338 posti per il lavoro su Switch dopo Bank.
 
 Le coperture degli assi sono misurate sul gioco d'origine, sull'incontro di scambio, su un incontro non selvatico, sul livello, sul sesso e sulla forma di Alola, secondo l'asse. Le altre forme dell'asse del sesso e della forma, scritte in inglese nel foglio, e le stelle del Master Dex non hanno un campo corrispondente nelle copie e sono contate tutte da produrre.
 
@@ -27,29 +28,15 @@ Le coperture degli assi sono misurate sul gioco d'origine, sull'incontro di scam
 
 | Specie | Forma | Giochi d'origine | Sfera | Cromatico | Voci chiuse |
 |---|---|---|---|---|---|
-| 20 Raticate |  | UM, US |  |  | Raticate al livello 17.0, USUM |
 | 151 Mew |  | qualunque | Cura Ball |  | Mew in Cura Ball, da Rosso Fuoco e Verde Foglia giapponesi |
-| 266 Silcoon |  | AS, OR |  |  | Silcoon al livello 2.0, ORAS |
-| 268 Cascoon |  | AS, OR |  |  | Cascoon al livello 2.0, ORAS |
-| 271 Lombre |  | AS |  |  | Lombre al livello 12.0, AS |
-| 272 Ludicolo |  | AS |  |  | Ludicolo al livello 12.0, AS |
-| 274 Nuzleaf |  | OR |  |  | Nuzleaf al livello 7.0, OR |
-| 275 Shiftry |  | OR |  |  | Shiftry al livello 7.0, OR |
-| 284 Masquerain |  | AS, OR |  |  | Masquerain al livello 21.0, ORAS |
-| 294 Loudred |  | AS, OR |  |  | Loudred al livello 16.0, ORAS |
-| 308 Medicham |  | AS, OR |  |  | Medicham al livello 34.0, ORAS |
 | 423 Gastrodon |  | D, P, Pt |  |  | Gastrodon «» di Hayley/01000, My Pokémon Ranch |
 | 466 Electivire |  | D, P, Pt |  |  | Electivire al livello 15.0, DPPt  |
 | 467 Magmortar |  | D, P, Pt |  |  | Magmortar al livello 14.0, DPPt  |
-| 487 Giratina |  | HG, SS |  |  | Giratina, HGSS: Sinjoh Ruins. Requires having Arceus in party to access the area. The Dialga/Pal |
-| 555 Darmanitan |  | AS, OR |  |  | Darmanitan al livello 32.0, ORAS |
-| 563 Cofagrigus |  | AS, OR |  |  | Cofagrigus al livello 32.0, ORAS |
-| 658 Greninja |  | MN, SN |  |  | Greninja «Ash Greninja» di Ash/131017, SM |
 | da scegliere |  | X, Y |  |  | Any Pokémon, XY: In Anistar City, an old man requests that you give him a Pokémon for him to take |
 
 ## Le voci che si completano su Switch, dopo Bank (ADR-110)
 
-Esistono solo nei giochi per Switch, o la voce del foglio chiede un'evoluzione che si fa solo lì: nei lotti c'è la pre-evoluzione con l'origine giusta, e l'evoluzione si fa su Switch. Sono 17:
+Esistono solo nei giochi per Switch, o la voce del foglio chiede un'evoluzione che si fa solo lì: nei lotti c'è la pre-evoluzione con l'origine giusta, e l'evoluzione si fa su Switch. Sono 19:
 
 - Meltan con origine Any
 - Melmetal con origine Any
@@ -66,6 +53,8 @@ Esistono solo nei giochi per Switch, o la voce del foglio chiede un'evoluzione c
 - Mr. Rime, Bronze, DPPt: ★54
 - Kingambit, Bronze, BWB2W2: ★82
 - Crobat al livello 10.0, Pt + PLA
+- Nuzleaf al livello 7.0, SwSh (Rolling Fields; il foglio scrive OR)
+- Shiftry al livello 7.0, SwSh (Rolling Fields; il foglio scrive OR)
 - Magnezone al livello 5.0, C+RB+SwSh-IoA
 - Ursaluna al livello 25.0, Crystal + PLA
 

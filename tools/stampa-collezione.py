@@ -151,11 +151,79 @@ def miniatura(e, cartella, cache):
 # Il pedigree di ogni esemplare (ADR-111, 2026-11-04): una scheda per esemplare nel PDF stampabile, con il design
 # system di `pokedex-home-completo/design-system/`, e una riga per esemplare nel documento generato e tracciato, dalla
 # stessa funzione, così che i due non divergano. Lo stato viene dal gruppo: il giro 1 è in HOME dal 2026-11-03.
-STATO_GRUPPO = {"HOME1": ("DSstatoinhome", "in HOME")}
+STATO_GRUPPO = {"HOME1": ("DSstatoinhome", "in HOME"), "HOME2": ("DSstatoinhome", "in HOME")}  # il giro 2 dal 2026-11-04
 DS = os.path.join(RADICE, "pokedex-home-completo", "design-system")
 PEDIGREE_MD = os.path.join(RADICE, "pokedex-home-completo", "pedigree")
 PEDIGREE_PDF = os.path.join(RADICE, "_notes", "stampa", "pedigree")
 ORIGINI_PRIVATE = ("lotto-smeraldo-cartuccia/",)
+# La storia dell'evento e le sue fonti (richiesta del proprietario del 2026-11-04): per la terza generazione dai racconti
+# autorati di `provenienze-eventi.json`, legati per allenatore e ID; dalla quarta alla settima dall'Eventdex di Serebii,
+# letto e analizzato il 2026-11-04, legato per specie, allenatore e ID.
+PROVENIENZE_GEN3 = os.path.join(RADICE, "recreate-pokemon-distributions-events", "provenienze-eventi.json")
+# I Pokemon specifici della comunita' RNG (ADR-115): la storia e la fonte stanno nel file tracciato, il PID che li riconosce
+# nel rapporto del lotto, che e' locale.
+COMUNITA = [os.path.join(RADICE, "_notes", "lotti", "lotto-rng-comunita", "rapporto.json"),
+            os.path.join(RADICE, "_notes", "lotti", "lotto-rng-comunita-2", "rapporto.json"),
+            # gli eventi dell'Eventdex di Serebii che mancavano alle copie, prodotti dalle carte della libreria (ADR-115)
+            os.path.join(RADICE, "_notes", "lotti", "lotto-serebii-mancanti", "rapporto.json"),
+            # le carte e i doni della libreria che nessuna copia aveva (ADR-116)
+            os.path.join(RADICE, "_notes", "lotti", "lotto-carte-scoperte-2", "rapporto.json")]
+EVENTDEX = os.path.join(RADICE, "_notes", "fonti", "raccolte", "serebii-eventdex-2026-11-04", "serebii-eventdex-eventi.json")
+
+
+def _norma(testo):
+    import unicodedata
+    return unicodedata.normalize("NFKC", str(testo)).casefold().strip()
+
+
+def carica_storie():
+    gen3 = json.load(io.open(PROVENIENZE_GEN3, encoding="utf-8"))
+    serebii = {}
+    if os.path.exists(EVENTDEX):
+        for ev in json.load(io.open(EVENTDEX, encoding="utf-8")):
+            ots = ev["ot"] if isinstance(ev["ot"], list) else [ev["ot"]]
+            for ot in ots:
+                try:
+                    serebii.setdefault((int(ev["numero"]), _norma(ot), int(ev["id"])), []).append(ev)
+                except (TypeError, ValueError):
+                    pass
+    comunita = {}
+    for rapporto in [r for r in COMUNITA if os.path.exists(r)]:
+        dati = json.load(io.open(rapporto, encoding="utf-8"))
+        for ev in dati.get("esiti", dati.get("voci", [])):
+            if ev.get("pid") and ev.get("storia"):
+                comunita[ev["pid"].upper()] = (ev["storia"], [ev["fonte"]] if ev.get("fonte") else [])
+    return gen3["gruppi"], gen3["fonti"], serebii, comunita
+
+
+def storia_di(e, storie):
+    """Il racconto dell'evento e i collegamenti alle fonti, se l'esemplare viene da un evento censito."""
+    if not storie:
+        return "", []
+    gruppi, fonti, serebii, comunita = storie
+    if str(e.get("pid", "")).upper() in comunita:
+        testo, collegamenti = comunita[str(e["pid"]).upper()]
+        return testo, list(collegamenti)
+    testo, collegamenti = "", []
+    g = gruppi.get("%s|%s" % (e["allenatore"], e["id"]))
+    if g:
+        testo = "%s: %s, %s; %s. %s" % (g["nome"], g["date"], g["luogo"], g["come"], g.get("note", ""))
+        if g.get("fonte") in fonti:
+            collegamenti.append(fonti[g["fonte"]]["url"])
+    try:
+        ev = (serebii.get((e["numero"], _norma(e["allenatore"]), int(e["id"]))) or [None])[0]
+    except (TypeError, ValueError):
+        ev = None
+    if ev:
+        if not testo:
+            date = ev.get("data_inizio") or ""
+            if ev.get("data_fine") and ev.get("data_fine") != date:
+                date += " - " + ev["data_fine"]
+            giochi = ev.get("giochi") or ""
+            giochi = giochi if isinstance(giochi, str) else ", ".join(giochi)
+            testo = "%s, %s, %s, %s; giochi: %s." % (ev.get("evento", ""), ev.get("regione", ""), ev.get("tipo", ""), date, giochi)
+        collegamenti.append(ev["url"])
+    return testo.strip(), collegamenti
 
 
 def campi_pedigree(e, per_codice, per_file):
@@ -175,7 +243,13 @@ def campi_pedigree(e, per_codice, per_file):
     ]
 
 
-def scheda_tex(e, gruppo, per_codice, per_file, img):
+def scheda_tex(e, gruppo, per_codice, per_file, img, storie=None):
+    storia, collegamenti = storia_di(e, storie)
+    righe_storia = []
+    if storia:
+        righe_storia.append(r"{\scriptsize\itshape %s}\par" % tex(storia))
+    if collegamenti:
+        righe_storia.append(r"{\DSdati\tiny\color{DSseppia} Fonti: %s}\par" % "; ".join(r"\url{%s}" % u for u in collegamenti))
     gen = "DSgen" + "ABCDEFG"[max(1, min(7, e["generazione"])) - 1]
     colore, stato = STATO_GRUPPO.get(gruppo, ("DSstatoincopia", "in copia"))
     nome = tex(e["specie"]) + (" \\textnormal{\\small %s}" % tex(e["forma"]) if e["forma"] else "")
@@ -192,7 +266,9 @@ def scheda_tex(e, gruppo, per_codice, per_file, img):
         r"\begin{minipage}[t]{\dimexpr\linewidth-18mm\relax}\vspace{0pt}",
         r"{\DStitoli\bfseries %s}\hspace{1.5mm}\DSnumero{%03d}\hspace{1.5mm}{\DSdati %s}\hfill\DSstato{%s}{%s}\par" % (
             nome, e["numero"], segni, colore, stato),
-        r"{\footnotesize %s}\par\vspace{0.6mm}" % tex(evento_di(e, per_codice, per_file)),
+        r"{\footnotesize %s}\par" % tex(evento_di(e, per_codice, per_file)),
+        *righe_storia,
+        r"\vspace{0.6mm}",
         r"{\DSdati\scriptsize\setlength{\tabcolsep}{2pt}\begin{tabular}{@{}l L{29mm} l L{30mm} l L{34mm}@{}}",
         *celle,
         r"\end{tabular}}\par",
@@ -205,6 +281,7 @@ def scheda_tex(e, gruppo, per_codice, per_file, img):
 
 def pedigree(dati, cartella_immagini, pdf, solo=None):
     per_codice, per_file = descrizioni_del_progetto()
+    storie = carica_storie()
     cache = {}
     g = json.load(io.open(os.path.join(DS, "tokens.json"), encoding="utf-8"))["geometria"]
     caratteri = os.path.join(RADICE, "_notes", "design-system", "caratteri").replace("\\", "/") + "/"
@@ -221,16 +298,17 @@ def pedigree(dati, cartella_immagini, pdf, solo=None):
               "box e posto della copia, giudicata da `tools/pkhex-elenco-copie`; i campi sono quelli di ADR-111. Stato del "
               "gruppo: %s. Esemplari: %d, conformi: %d." % (gruppo, stato, len(esemplari),
                                                             sum(e["conforme"] for e in esemplari)), "",
-              "| Box | Posto | Specie | Forma | Sesso | Cromatico | Evento | " +
+              "| Box | Posto | Specie | Forma | Sesso | Cromatico | Evento | Storia | Fonti | " +
               " | ".join(k[0].upper() + k[1:] for k, _ in campi_pedigree(esemplari[0], per_codice, per_file)) +
               " | Giudizio | Impronta |",
-              "|" + "---|" * (9 + len(campi_pedigree(esemplari[0], per_codice, per_file)))]
+              "|" + "---|" * (11 + len(campi_pedigree(esemplari[0], per_codice, per_file)))]
         corpo = [r"""\documentclass[9pt,a4paper]{extarticle}
 \usepackage[top=%(v)smm,bottom=%(v)smm,left=%(a)smm,right=%(m)smm]{geometry}
 \def\DScaratteri{%(car)s}
 \input{%(stile)s}
 \usepackage[italian]{babel}
 \usepackage{array}
+\usepackage{url}\urlstyle{tt}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 \setlength{\parindent}{0pt}
 \pagestyle{plain}
@@ -242,7 +320,7 @@ def pedigree(dati, cartella_immagini, pdf, solo=None):
        "stato": tex(stato)}]
         for e in esemplari:
             img = miniatura(e, cartella_immagini, cache)
-            corpo.append(scheda_tex(e, gruppo, per_codice, per_file, img))
+            corpo.append(scheda_tex(e, gruppo, per_codice, per_file, img, storie))
             valori = [v for _, v in campi_pedigree(e, per_codice, per_file)]
             # ADR-111: gli esemplari delle cartucce vere del proprietario portano allenatori reali, il suo e quelli di chi
             # glieli ha scambiati; nel documento tracciato e pubblico l'allenatore diventa un segnaposto, e il valore vero
@@ -253,7 +331,8 @@ def pedigree(dati, cartella_immagini, pdf, solo=None):
                 valori[etichette.index("allenatore")] = "<ALLENATORE DELLA CARTUCCIA>"
             md.append("| " + " | ".join(str(x).replace("|", "/") for x in [
                 e["box"], e["posto"], "%d %s" % (e["numero"], e["specie"]), e["forma"], e["sesso"],
-                "sì" if e["cromatico"] else "", evento_di(e, per_codice, per_file)] + valori +
+                "sì" if e["cromatico"] else "", evento_di(e, per_codice, per_file), storia_di(e, storie)[0],
+                " ".join(storia_di(e, storie)[1])] + valori +
                 ["conforme" if e["conforme"] else "NON conforme", e["impronta"]]) + " |")
         corpo.append(r"\end{document}")
         with io.open(os.path.join(PEDIGREE_MD, gruppo + ".md"), "w", encoding="utf-8", newline="\n") as f:

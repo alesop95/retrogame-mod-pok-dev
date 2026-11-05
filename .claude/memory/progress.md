@@ -4,6 +4,36 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-05. Tutti gli eventi della libreria, Flauto Bianco, pre-evoluzioni doppie, comunità RNG fino alla settima generazione, giro 3 riscritto, ADR-116
+
+Eventi: `--carte` legge 2801 voci della libreria in 1606 gruppi; sulle copie di prima, 1308 coperti e 299 scoperti. Prodotti 187, scritti 181 nella copia nuova `oras-giro-5-carte-mn` (254 con i 73 di Serebii, riletti uguali e conformi, SHA-256 inizio `ebb985a2b2439a5a`); dopo la scrittura i coperti salgono a 1343, perché 146 carte di quinta e sesta generazione e 2 PCJP la libreria le attribuisce a carte già coperte con dati identici. Restano 117 doni del Game Boy, solo da cartuccia, e l'uovo di Skitty del PokéPark.
+
+Livelli minimi (un subagent, `_notes/lavoro/livelli-minimi-2026-11-05.md`): il Flauto Bianco abbassa di 4 il livello degli slot di ORAS; il generatore ora li costruisce: 9 voci più il Raticate di Alola, scritte in `ultraluna-giro-2-fin3`. Nuzleaf e Shiftry 7 diventano voci per Switch. Pre-evoluzioni dedicate: 14, in `ultraluna-giro-2-fin4`. Comunità RNG, via dei criteri: 10 prodotti su 20 candidati, in `ultraluna-giro-2-fin5` (641, nessun escluso).
+
+Mew in Cura Ball e mosse di Let's Go (un subagent, `_notes/lavoro/mew-cura-ball-e-mosse-lgpe-2026-11-05.md`): nessuna via legittima per il Mew; nessuna preparazione per le mosse.
+
+Elenco: 1792 voci, 1787 coperte, 5 da produrre. Sfide: 47 su 47. Pedigree: 5236 impronte su 5236 nei PDF, 1525 righe con storia. Collegamenti non classificati: 0, dopo 25 righe nuove in `SOURCES.md`.
+
+**Template:** nessuna
+
+**Didattica:** nessuna, perché il giro estende con tre modalità strumenti esistenti senza una scelta architetturale nuova.
+
+## 2026-11-04, sesta parte. Giro 2 in HOME, comunità RNG, eventi di Serebii, Giratina di Sinjoh, ADR-115
+
+Il proprietario ha passato il giro 2 a Bank e a HOME. Dalle sue schermate, lette e poi cancellate come chiesto: primo invio a Bank caduto con il codice 006-0105, secondo riuscito («Success! Changes saved.»), passaggio a HOME completato, totale 1685, cioè 964 più 721. Volcanion di Nebel (ID 11036), Genesect cromatico coreano (ID 01014) e Volcarona giapponese (ID 09180) coincidono campo per campo con il pedigree di HOME2. Completate in HOME sei sfide, Dusk Ball a 10 su 15. Il giro 2 è CHIUSO; HOME2 è «in HOME» nel pedigree.
+
+Comunità RNG (`_notes/lavoro/rng-comunita-2026-11-04.md`, un subagent): 22 candidati, 11 prodotti con `tools/pkhex-produci-elenco --comunita` da `pokedex-home-completo/rng-comunita.json`, tutti conformi; il Mewtwo di Verde Foglia è rifatto dal seme pubblico C93C, fotogramma trovato 10635. Scritti in `oras-giro-4-fin4` e poi `-fin7`, box 31 posti da 4 a 14, riletti uguali e conformi.
+
+Eventdex di Serebii (un subagent, ripreso dopo il limite d'uso): 809 pagine su 809, 464 eventi mancanti, 119 confrontabili; `--serebii` trova una carta della libreria per 73, prodotti tutti conformi e scritti in `oras-giro-5-serebii` (73 su 73 riletti uguali e conformi, SHA-256 inizio `987d3988bb5cdd2c`).
+
+Giratina di Sinjoh: prodotto nel giro 10 dell'elenco; nella conversione alla sesta generazione perde la Grigiosfera, quindi `pkhex-scrivi-salvataggio` lo porta in forma Alterata con Pressione; box 31 posto 15 di `oras-giro-4-fin7`. Ash-Greninja coperto da HOME5. Elenco: 1778 voci, 1761 coperte, 17 da produrre (14 livelli minimi, Gastrodon di Hayley, Mew in Cura Ball, la voce di Anistar), 17 su Switch, 50 mosse.
+
+Pedigree: le storie della comunità e degli eventi di Serebii si agganciano per PID dal rapporto del lotto; 1332 righe su 5021 portano una storia; 5021 impronte su 5021 nel testo dei PDF, letto con PdfCraft.
+
+**Template:** nessuna
+
+**Didattica:** nessuna, perché il giro produce esemplari e registra esiti con strumenti esistenti estesi di tre modalità, senza una scelta architetturale nuova.
+
 ## 2026-11-04, quinta parte. Giro 2 riletto, Pikachu di Yokohama verificato, Kyogre di blisy, elenco chiuso, mappa di Smeraldo su LuaLaTeX, ADR-114
 
 Il proprietario ha fatto i punti da 5 a 12 del giro 2: i controlli del punto 9 sono tutti giusti, e le fotografie delle schede di Pikachu, Genesect e Suicune coincidono campo per campo con il pedigree. Punti 13 e 14: la rilettura `20261104-rilett2` è identica alla copia, 721 Pokémon e 721 conformi, nessuna differenza di box, posto o impronta; rilettura e riserva copiate su `E:` e `J:`.

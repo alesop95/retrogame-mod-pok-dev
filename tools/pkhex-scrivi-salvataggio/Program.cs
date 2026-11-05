@@ -177,6 +177,13 @@ PKM? Prepara(string percorso, string origine)
         esclusi.Add(new JsonObject { ["file"] = origine, ["motivo"] = "conversione rifiutata" });
         return null;
     }
+    // Il Trasportatore non porta gli strumenti tenuti (la conversione PK5 -> PK6 della libreria non li copia): un Giratina
+    // in forma Origine perde la Grigiosfera e torna in forma Alterata, come il Giratina di Sinjoh di HeartGold e SoulSilver.
+    if (convertito.Species == (ushort)Species.Giratina && convertito.Form == 1 && convertito.HeldItem != 112 && convertito.Format >= 6)
+    {
+        convertito.Form = 0;
+        convertito.RefreshAbility(convertito.AbilityNumber >> 1); // Pressione al posto di Levitazione, nello stesso slot
+    }
     // La libreria giudica l'esemplare e non il gioco che lo riceve: il 2026-09-30 Poipole e Zeraora, specie di
     // Ultrasole e Ultraluna, scritti in una copia di Luna, sono apparsi in gioco come un uovo di livello 43 e uno
     // Zeraora con l'immagine di Bulbasaur. Una specie o una forma che il gioco di destinazione non conosce si esclude.

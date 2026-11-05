@@ -584,12 +584,27 @@ def rubino_verificato(percorso, voci):
     letto = save3.Save3(percorso.read_bytes())
     if not letto.integro():
         sys.exit("lo slot attivo di %s non e' integro" % percorso.name)
+    # Dal 2026-11-04: il complemento e' stato rigenerato dopo la scrittura sulla cartuccia, quando ADR-099 ha dato
+    # all'allenatore del progetto un solo ID segreto, 58164. Una posizione che differisce solo per l'ID segreto, 0 sulla
+    # cartuccia e 58164 nel lotto, con specie, PID e ID uguali, e' la versione scritta prima di ADR-099 e si conta a parte;
+    # qualunque altra differenza ferma la stampa, come prima.
+    prima_di_099 = 0
     for i in range(save3.POSIZIONI):
         atteso = save3.record_da_file(RUBINO.joinpath(voci[i]["file"]).read_bytes()) if i < len(voci) else bytes(save3.RECORD)
-        if letto.leggi_posizione(i) != atteso:
-            sys.exit("la posizione %d di %s non e' quella del complemento: la stampa resterebbe falsa" % (i, percorso.name))
-    return ("Complemento di ADR-080 e ADR-087 scritto sulla cartuccia del Rubino di prova e verificato posizione per posizione "
+        if letto.leggi_posizione(i) == atteso:
+            continue
+        a, b = gen3.Gen3Mon.from_bytes(letto.leggi_posizione(i)), gen3.Gen3Mon.from_bytes(atteso)
+        if (a.growth.species == b.growth.species and a.personality == b.personality
+                and a.ot_id & 0xFFFF == b.ot_id & 0xFFFF and a.ot_id >> 16 == 0 and b.ot_id >> 16 == 58164):
+            prima_di_099 += 1
+            continue
+        sys.exit("la posizione %d di %s non e' quella del complemento: la stampa resterebbe falsa" % (i, percorso.name))
+    nota = ("Complemento di ADR-080 e ADR-087 scritto sulla cartuccia del Rubino di prova e verificato posizione per posizione "
             "sulla rilettura %s. La squadra di inizio partita resta quella che la cartuccia ha, e il box 14 resta vuoto." % percorso.name)
+    if prima_di_099:
+        nota += (" %d posizioni portano la versione scritta prima di ADR-099, con l'ID segreto 0 invece di 58164 e per il resto "
+                 "identiche; le copie per HOME usano la versione corretta." % prima_di_099)
+    return nota
 
 
 def copertina_e_fori(pdf):

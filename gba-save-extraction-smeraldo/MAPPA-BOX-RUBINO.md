@@ -1,6 +1,6 @@
 <!-- generato da gba-save-extraction-smeraldo/tools/emerald_mappa_box.py: non si modifica a mano -->
 
-Complemento di ADR-080 e ADR-087 scritto sulla cartuccia del Rubino di prova e verificato posizione per posizione sulla rilettura Pokemon - Versione Rubino (Italy) - ALESSIO-49107-6h14m-2026-09-28-READBACK.sav. La squadra di inizio partita resta quella che la cartuccia ha, e il box 14 resta vuoto.
+Complemento di ADR-080 e ADR-087 scritto sulla cartuccia del Rubino di prova e verificato posizione per posizione sulla rilettura Pokemon - Versione Rubino (Italy) - ALESSIO-49107-6h14m-2026-09-28-READBACK.sav. La squadra di inizio partita resta quella che la cartuccia ha, e il box 14 resta vuoto. 101 posizioni portano la versione scritta prima di ADR-099, con l'ID segreto 0 invece di 58164 e per il resto identiche; le copie per HOME usano la versione corretta.
 
 ## Legenda e riepilogo
 

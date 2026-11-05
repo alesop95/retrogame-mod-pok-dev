@@ -7,7 +7,8 @@
  "registri_json": [
   "_notes/fonti/corpus-residuo/esiti.json",
   "_notes/fonti/corpus-residuo/dimenticati.json",
-  "_notes/fonti/da-leggere-corpus.json"
+  "_notes/fonti/da-leggere-corpus.json",
+  "_notes/fonti/raccolte/serebii-eventdex-2026-11-04/pagine-lette.json"
  ],
  "_esclusi_tracciati": "i modelli del template e le due guide copiate intere dal template: non sono scritti dal progetto",
  "esclusi_tracciati": [

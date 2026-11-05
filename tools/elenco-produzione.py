@@ -50,12 +50,12 @@ LOTTI = os.path.join(RADICE, "_notes", "lotti")
 PROVE = os.path.join(RADICE, "_notes", "salvataggi", "prove", "per-home")
 # Le copie scritte dalla produzione del 2026-11-04 e i rapporti della produzione: una voce e' chiusa anche quando il suo
 # esemplare e' stato prodotto da tools/pkhex-produci-elenco e scritto in una di queste copie.
-COPIE_PRODUZIONE = ["oras-giro-4-fin3", "ultraluna-giro-2-fin2", "luna-giappone-2-fin2"]
+COPIE_PRODUZIONE = ["oras-giro-4-fin7", "oras-giro-5-carte-mn", "ultraluna-giro-2-fin5", "luna-giappone-2-fin2"]
 RAPPORTI_PRODUZIONE = ["lotto-elenco-produzione", "lotto-elenco-produzione/vc-rifatti", "lotto-elenco-produzione/vc-rifatti-2",
                        "lotto-elenco-produzione/giro-2", "lotto-elenco-produzione/giro-3", "lotto-elenco-produzione/giro-3-raichu",
                        "lotto-elenco-produzione/giro-4", "lotto-elenco-produzione/giro-5", "lotto-elenco-produzione/giro-6",
                        "lotto-elenco-produzione/giro-7", "lotto-elenco-produzione/giro-8", "lotto-elenco-produzione/giro-9",
-                       "lotto-elenco-produzione/giro-9-giallo"]
+                       "lotto-elenco-produzione/giro-9-giallo", "lotto-elenco-produzione/giro-10", "lotto-elenco-produzione/giro-12", "lotto-elenco-produzione/giro-14"]
 TETTO_STATICI = 2371        # ADR-106, tools/pkhex-conta-incontri
 
 
@@ -99,6 +99,12 @@ def nota(testo, n):
     """Una nota del foglio, senza le formule e gli indirizzi d'immagine che il foglio vi incolla, tagliata a n caratteri."""
     testo = re.sub(r'=image\([^)]*\)|https?://\S+', "", testo or "", flags=re.I).strip()
     return testo[:n]
+
+
+def id_scambio(testo):
+    """L'ID dell'allenatore scritto nel foglio come «Ash/131017», o None se il foglio dice «random ID»."""
+    m = re.search(r"/\s*(\d{1,6})\b", testo or "")
+    return int(m.group(1)) if m else None
 
 
 def num(x):
@@ -244,7 +250,11 @@ def raccogli():
             if g and "CXD" in g:  # i doni dei dischi bonus di Colosseum arrivano in Rubino e Zaffiro
                 g = g | {"R", "S"}
             voci.append(voce("asse scambi", "%s «%s» di %s, %s" % (nomi.get(n, r[3]), r[5], r[6], r[1]), n, 0, g,
-                             unico=True, classe="scambio", coperta=presente(n, g, lambda x: "Trade" in x.get("evento", ""))))
+                             unico=True, classe="scambio",
+                             # coperta se una copia ha lo scambio in gioco, oppure lo stesso allenatore con lo stesso ID,
+                             # che e' il caso dei doni con allenatore fisso, come l'Ash-Greninja della demo
+                             coperta=presente(n, g, lambda x: "Trade" in x.get("evento", ""))
+                             or (id_scambio(r[6]) is not None and any(x["numero"] == n and x["id"] == id_scambio(r[6]) for x in copie))))
     # I nomi che il foglio scrive in inglese diversamente dalla tabella, e i gruppi di starter, che valgono tre voci.
     ALIAS = {"Type:Null": [772], "Type: Null": [772], "Wobbuffett": [202], "Kanto starters": [1, 4, 7],
              "Johto starters": [152, 155, 158], "Hoenn starters": [252, 255, 258], "Sinnoh starters": [387, 390, 393],
@@ -264,7 +274,7 @@ def raccogli():
             if not n:
                 n = next((k for k, v in sorted(nomi.items()) if re.search(r"(?<![A-Za-z])" + re.escape(v) + r"(?![a-z])", r[1])), None)
             g = giochi_foglio(r[4])
-            voci.append(voce("asse altri unici", "%s, %s: %s" % (r[1], r[4], nota(r[5], 80)), n, 0 if n else None, g, unico=True,
+            voci.append(voce("asse altri unici", "%s, %s: %s" % (r[1], r[4], nota(r[5], 80)), n, None, g, unico=True,
                              classe="non-uovo",
                              coperta=bool(n) and presente(n, g, lambda x: not x.get("evento", "").startswith("Wild"))))
     for r in righe("asse-stelle-master-dex.csv"):
@@ -280,8 +290,34 @@ def raccogli():
         if n:
             g = giochi_foglio(r[4])
             lv = num(r[5]) or 100
-            voci.append(voce("asse livelli minimi", "%s al livello %s, %s" % (nomi.get(n, r[1]), r[5], r[4]), n, 0, g,
+            # Correzioni misurate il 2026-11-05 (`_notes/lavoro/livelli-minimi-2026-11-05.md`, ADR-116): in Ultrasole e
+            # Ultraluna ogni Raticate selvatico e' di Alola; i Prati Ondulati con la pioggia sono di Spada, non di Rubino
+            # Omega, quindi Nuzleaf e Shiftry di livello 7 sono voci per Switch
+            forma_lm = 1 if (n == 20 and "USUM" in r[4]) else 0
+            gioco_lm = "SwSh (Rolling Fields; il foglio scrive %s)" % r[4].strip() if "Rolling Fields" in r[7] or (n == 275 and lv == 7) else r[4]
+            voci.append(voce("asse livelli minimi", "%s al livello %s, %s" % (nomi.get(n, r[1]), r[5], gioco_lm), n, forma_lm, g,
                              unico=True, livello_max=lv, coperta=presente(n, g, lambda x: x["livello"] <= lv)))
+
+    # ADR-116, decisione del proprietario del 2026-11-05: per ogni voce che si chiude evolvendo su Switch un Pokemon nato
+    # prima di Bank, un esemplare in piu' della pre-evoluzione, dedicato all'evoluzione, cosi' che l'altro resti com'e'.
+    # (voce per Switch, numero della pre-evoluzione, giochi come li scrive il foglio, livello massimo, classe)
+    for testo, n, gs, lv, classe in [
+            ("Annihilape «» di Curtis/54118, BWB2W2", 57, "BWB2W2", None, "scambio"),
+            ("Kingambit «Pierce» di Punky/03447, XY", 625, "XY", None, "scambio"),
+            ("Kleavor, Bronze, RBY: ★27", 123, "RBY", None, None),
+            ("Annihilape, Bronze, RBY: ★28", 57, "RBY", None, None),
+            ("Wyrdeer, Bronze, GSC: ★40", 234, "GSC", None, None),
+            ("Ursaluna, Bronze, GSC: ★41", 217, "GSC", None, None),
+            ("Farigiraf, Bronze, GSC: ★42", 203, "GSC", None, None),
+            ("Dudunsparce, Bronze, GSC: ★43", 206, "GSC", None, None),
+            ("Dudunsparce, Platinum, GSC: ★3: forma a tre segmenti", 206, "GSC", None, None),
+            ("Mr. Rime, Bronze, DPPt: ★54", 439, "DPPt", None, None),
+            ("Kingambit, Bronze, BWB2W2: ★82", 625, "BWB2W2", None, None),
+            ("Crobat al livello 10.0, Pt + PLA", 42, "Pt", 10, None),
+            ("Magnezone al livello 5.0, C+RB+SwSh-IoA", 81, "C", 5, None),
+            ("Ursaluna al livello 25.0, Crystal + PLA", 217, "Crystal", 25, None)]:
+        voci.append(voce("pre-evoluzioni per Switch", "pre-evoluzione da evolvere su Switch per: " + testo, n, 0,
+                         giochi_foglio(gs), unico=True, classe=classe, livello_max=lv, coperta=False))
 
     # ADR-110: le mosse che esistono fino alla settima generazione e che nessuna copia conosce.
     mosse = json.load(open(os.path.join(LAVORO, "mosse-fino-gen7-mancanti.json"), encoding="utf-8"))["mancanti_fino_gen7"]
@@ -379,7 +415,7 @@ def main():
         # ADR-110: cio' che esiste solo su Switch non va nei lotti di Bank. Sono le specie oltre la 809, Meltan e Melmetal,
         # che nascono solo da GO e da Let's Go, e le voci del foglio che nominano un gioco per Switch per l'evoluzione:
         # nei lotti c'e' la pre-evoluzione con l'origine giusta, e l'evoluzione si fa su Switch dopo Bank.
-        elif not v["coperta"] and ((v["numero"] or 0) > 809 or v["numero"] in (808, 809)
+        elif not v["coperta"] and v["categoria"] != "pre-evoluzioni per Switch" and ((v["numero"] or 0) > 809 or v["numero"] in (808, 809)
                                    or re.search(r"\bPLA\b|SwSh|LGPE|Gigantamax", v["voce"])):
             v["switch"] = True
     mosse = [m for m in mosse if m not in mosse_fatte]

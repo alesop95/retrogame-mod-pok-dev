@@ -5,23 +5,27 @@
   },
   ".claude/skills/fonti-non-recuperabili/RIFERIMENTO.md": {
     "testa": "9052ccdc4e5b466342f2439d7a200d929e091125",
-    "il": "2026-10-07"
+    "il": "2026-11-05",
+    "locale_sha256_lf": "15137807cbbe6f2071078f0604217535e8662d656cf77973a46d914128e2feab"
   },
   ".claude/templates/anonymization/rules/anonymization.md": {
     "testa": "558e96e2b9d86a73fd445dd3644b1e67ae518fad",
-    "il": "2026-10-29"
+    "il": "2026-11-05",
+    "locale_sha256_lf": "96e2b99cfdb08e346884dccc14f117d68ae00751c89a79998e3f919c86c56f8f"
   },
   ".claude/templates/anonymization/tools/Test-Anonymization.py": {
-    "testa": "dfa81d8ebe014251cb848d9a72ffeb7378b79b15",
-    "il": "2026-10-27"
+    "testa": "e602822807db39fc705dc2ca2747bdc94f8d90a5",
+    "il": "2026-11-05",
+    "locale_sha256_lf": "1383972cb6311a1e1beabb5c0f006a3d944c0b73e3faf87ba407d9de67439a24"
   },
   ".claude/templates/community-sources/tools/read-chat-export.py": {
     "testa": "371ad3f2ca00abe2cad45d7d82b4859094897438",
     "il": "2026-10-19"
   },
   "tools/Test-Anonymization.py": {
-    "testa": "dfa81d8ebe014251cb848d9a72ffeb7378b79b15",
-    "il": "2026-10-27"
+    "testa": "e602822807db39fc705dc2ca2747bdc94f8d90a5",
+    "il": "2026-11-05",
+    "locale_sha256_lf": "1383972cb6311a1e1beabb5c0f006a3d944c0b73e3faf87ba407d9de67439a24"
   },
   "tools/chiudi-sessione.ps1": {
     "testa": "80c495e0f757ac62b26ebf49cc1148a18bab83fa",
@@ -29,11 +33,13 @@
   },
   "tools/export-discord.py": {
     "testa": "2a5bcad2da8931a7a3fb730256205549c3595eae",
-    "il": "2026-10-07"
+    "il": "2026-11-05",
+    "locale_sha256_lf": "d8f24050982067fde843c15021c6c58b4f69e25136946702af9293dcd6deb3b0"
   },
   "tools/fetch-discord.py": {
     "testa": "277ab6b9d0d9d539ed67e41cda3930c038eea8f9",
-    "il": "2026-09-29"
+    "il": "2026-11-05",
+    "locale_sha256_lf": "c2fd489e2a86f2de468e81876c92fbcb89a6e189e3719da0239ca181573a512e"
   },
   "tools/lint-didattica.py": {
     "testa": "1ec979b11a527470cef5bcc9526e99b98d05df01",
@@ -41,18 +47,22 @@
   },
   "tools/lint-memoria.py": {
     "testa": "01128d88d66bc3b2b55cff7ed282238d1d6d89ff",
-    "il": "2026-09-29"
+    "il": "2026-11-05",
+    "locale_sha256_lf": "87a3fdf4ebf380e28b1211e99b490e394d8201ebf064919053ae85b31c5698f9"
   },
   "tools/proponi-covers-paths.py": {
     "testa": "fedb1b046451d6816e9fec01e446febd49e5c6ee",
-    "il": "2026-09-29"
+    "il": "2026-11-05",
+    "locale_sha256_lf": "092ee064a461277a3273f86d6f12147ee04d06ac66baf4f022261b165e70238c"
   },
   "tools/read-chat-export.py": {
     "testa": "9e5a4d657530d9d2c124269e39cca256894070f2",
-    "il": "2026-10-19"
+    "il": "2026-11-05",
+    "locale_sha256_lf": "c4c4fcf430270fd0ee8d2f3e1ac43a8cf7cd9af1aee4002414147fb0d831bf1d"
   },
   "tools/vtt-to-text.py": {
     "testa": "11df9176c9d2e16d85268cc7472caabd8aca18fa",
-    "il": "2026-09-29"
+    "il": "2026-11-05",
+    "locale_sha256_lf": "89716bb0a8104d6b87a40e9d3d1cad82d6643cbce4009cc4e3b23c7c65de303c"
   }
 }

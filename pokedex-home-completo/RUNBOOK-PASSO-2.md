@@ -15,7 +15,7 @@ Sulla console Rubino Omega porta oggi ciò che è rimasto del giro 1 dopo il pas
 
 ## Giro 2
 
-Stato al 2026-11-04: punti da 1 a 15 FATTI. La copia `20261104-giro2` è stata scritta sulla SD e riletta identica; il proprietario ha fatto i punti da 5 a 12 con i controlli del punto 9 tutti giusti e le fotografie delle tre schede, uguali campo per campo al pedigree; la rilettura `20261104-rilett2` è identica alla copia (`425e6045ee34e638`), 721 Pokémon, 721 conformi, nessuna differenza di box, posto o impronta (`_notes/lavoro/giudizi-copie/rilettura-passo2-giro2.json`); rilettura e riserva `20261104-prima2` sono in `_notes/salvataggi/console/sd-checkpoint-2026-11-04/` e in `J:/backup-sd-3ds/2026-11-04/`. Resta al proprietario il punto 16, il passaggio a Bank e a HOME, e il punto 17, il controllo del totale in HOME, che deve passare da 964 a 1685.
+Stato al 2026-11-04: punti da 1 a 15 FATTI. La copia `20261104-giro2` è stata scritta sulla SD e riletta identica; il proprietario ha fatto i punti da 5 a 12 con i controlli del punto 9 tutti giusti e le fotografie delle tre schede, uguali campo per campo al pedigree; la rilettura `20261104-rilett2` è identica alla copia (`425e6045ee34e638`), 721 Pokémon, 721 conformi, nessuna differenza di box, posto o impronta (`_notes/lavoro/giudizi-copie/rilettura-passo2-giro2.json`); rilettura e riserva `20261104-prima2` sono in `_notes/salvataggi/console/sd-checkpoint-2026-11-04/` e in `J:/backup-sd-3ds/2026-11-04/`. Punti 16 e 17 FATTI il 2026-11-04: il primo invio a Bank è caduto con il codice 006-0105, il secondo è riuscito, e HOME mostra 1685; il punto 18 è registrato in `COPIE-PER-HOME.md` e nel pedigree, dove HOME2 è «in HOME». Il giro 2 è CHIUSO e si può cominciare il giro 3.
 
 ### A. Con la scheda SD nel PC
 
@@ -49,17 +49,37 @@ Stato al 2026-11-04: punti da 1 a 15 FATTI. La copia `20261104-giro2` è stata s
 
 ## Giro 3
 
-Si ripetono i punti da 1 a 18 con questi cambi, e nient'altro.
+Scritto per intero il 2026-11-05 su richiesta del proprietario, con gli stessi passaggi del giro 2 e i nomi già pronti. La data nei nomi è `20261105`: se il giro si fa un altro giorno, si usa la data di quel giorno, sempre nella forma anno, mese, giorno. La copia è `_notes/salvataggi/prove/per-home/oras-giro-3-fin3/main`, 915 esemplari, SHA-256 che comincia con `4662a6a66ad07063`, giudicata 915 conformi. Prima di cominciare, il giro 2 deve essere registrato in HOME, ed è fatto: HOME mostra 1685.
 
-- Punto 3: la cartella di riserva ha la data del giorno del giro 3, e comprende la copia di riserva `<data>-prima2` e la rilettura del giro 2.
-- Punto 4: la cartella sulla SD si chiama `<data>-giro3` e contiene la copia del giro 3; l'impronta deve cominciare con `4662a6a66ad07063`.
-- Punto 7: la copia di riserva si chiama `<data>-prima3`.
-- Punto 8: si ripristina `<data>-giro3`.
-- Punto 9: box 1 posto 1 Garchomp livello 48, box 1 posto 2 Pikachu livello 10, box 31 posto 15 Manaphy livello 1; i box da 1 a 30 pieni, il box 31 con i posti da 1 a 15.
-- Punto 11: la rilettura si chiama `<data>-rilett3`.
-- Punto 14: devono risultare 915 esemplari, 915 conformi.
-- Punto 17: il totale di HOME deve passare da 1685 a 2600. Il primo box nuovo comincia con Garchomp livello 48, allenatore XY, e Pikachu livello 10, allenatore Satay King; l'ultimo finisce al posto 15 con Manaphy livello 1, allenatore Alessio.
-- Punto 18: il gruppo HOME3 passa a «in HOME».
+### A. Con la scheda SD nel PC
+
+1. Proprietario: spegni il 3DS del tutto, tenendo premuto il tasto di accensione e scegliendo Spegni, non la modalità riposo.
+2. Proprietario: togli la scheda SD, inseriscila nel lettore del PC e dimmi la lettera di unità che Windows le assegna.
+3. Agente: copio l'intera cartella `/3ds/Checkpoint/saves/` della SD in due posti distinti, `E:\retrogame-mod-pok-dev\_notes\salvataggi\console\sd-checkpoint-20261105\` e `J:\backup-sd-3ds\20261105\`, calcolo lo SHA-256 di ogni file sulla SD e nelle due copie, e mi fermo se un'impronta non coincide. La cartella comprende le copie di riserva `20261104-prima2` e `20261104-rilett2` del giro 2.
+4. Agente: creo sulla SD la cartella `/3ds/Checkpoint/saves/0x011C4 Pokémon Omega Ruby/20261105-giro3/` e ci copio la copia del giro 3 con il nome `main`. Rileggo il file dalla SD e verifico che lo SHA-256 cominci con `4662a6a66ad07063`.
+5. Proprietario: espelli la SD in sicurezza da Windows, con l'icona «Rimozione sicura dell'hardware», poi rimettila nel 3DS.
+
+### B. Sulla console
+
+6. Proprietario: accendi il 3DS e avvia Checkpoint dal menu HOME.
+7. Proprietario: scegli Pokémon Omega Ruby e fai prima di tutto una copia di riserva dello stato attuale: premi Backup e dai il nome `20261105-prima3`.
+8. Proprietario: nell'elenco delle copie di Pokémon Omega Ruby seleziona `20261105-giro3`, premi Restore e conferma.
+9. Proprietario: esci da Checkpoint e avvia Rubino Omega. Carica la partita e, senza giocare né salvare, apri il PC dei box. Controlla: box 1 posto 1 Garchomp livello 48, allenatore XY; box 1 posto 2 Pikachu livello 10, allenatore Satay King; box 31 posto 15 Manaphy livello 1, allenatore Alessio; i box da 1 a 30 pieni, il box 31 con i posti da 1 a 15. Se una cosa non torna, fermati e dimmelo.
+10. Proprietario: esci dal gioco senza salvare, dal menu HOME, chiudendo il software.
+11. Proprietario: avvia di nuovo Checkpoint, scegli Pokémon Omega Ruby, premi Backup e dai il nome `20261105-rilett3`.
+
+### C. La verifica, di nuovo con la SD nel PC
+
+12. Proprietario: spegni il 3DS del tutto, metti la SD nel PC e dimmi la lettera di unità.
+13. Agente: confronto lo SHA-256 di `20261105-rilett3/main` con quello della copia del giro 3; devono coincidere byte per byte. Se la differenza sta solo nei campi che il gioco riscrive all'apertura, la misuro e te la dico prima di andare avanti.
+14. Agente: giudico `20261105-rilett3/main` con `tools/pkhex-elenco-copie`: devono risultare 915 esemplari, 915 conformi, negli stessi box e posti del giudizio del 2026-11-04. Copio la rilettura e la riserva `20261105-prima3` nelle due cartelle di riserva del punto 3.
+15. Proprietario: espelli la SD in sicurezza e rimettila nel 3DS.
+
+### D. Il tratto tuo, e la verifica in HOME
+
+16. Proprietario: il passaggio dalla console a Pokémon Bank, il controllo in banca e il passaggio a Pokémon HOME sono tuoi, e l'assistenza non li copre. Se la banca o HOME rifiutano o segnalano un Pokémon, fermati e non ripetere: dimmi quale e con quale messaggio, e lo confronto con il giudizio di PKHeX.
+17. Proprietario, in HOME, dall'app per Switch o per telefono, senza spostare nulla: il totale del deposito deve passare da 1685 a 2600. Fotografa il totale e tre schede a caso, con la schermata dei dati e quella delle note dell'allenatore, come per il giro 2. Se un Pokémon mostra un'icona o un messaggio insolito, fotografa la schermata e dimmi box e posto.
+18. Agente: registro l'esito in `COPIE-PER-HOME.md` e nel pedigree, dove il gruppo HOME3 passa da «in copia» a «in HOME». Solo allora si comincia il passo 3.
 
 ## Dopo il passo 2
 

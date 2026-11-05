@@ -53,6 +53,12 @@ if (args[0] == "--prova")
 }
 if (args[0] == "--kyogre")
     return Kyogre(args[1], args[2]);
+if (args[0] == "--comunita")
+    return Comunita(args[1], args[2], args[3]);
+if (args[0] == "--serebii")
+    return Serebii(args[1], args[2]);
+if (args[0] == "--carte")
+    return Carte(args[1], args.Skip(2).TakeWhile(x => x != "--produci" && x != "--traccia").ToArray());
 if (args[0] == "--cartuccia")
     return Cartuccia(args[1], args[2]);
 
@@ -202,7 +208,11 @@ return 0;
             // gli «altri esemplari unici» del foglio sono incontri precisi, doni, premi o selvatici rari, mai un uovo
             if (classe == "non-uovo" && (tipo.Contains("Egg") || enc is MysteryGift)) continue;
             if (classe == "fisso" && !(tipo.Contains("Static") || tipo.Contains("Gift") || allenatoreFisso)) continue;
-            if (enc.LevelMin > livelloMax) continue;
+            // Il Flauto Bianco di Rubino Omega e Zaffiro Alpha abbassa il livello dei selvatici fino a 4 (EncounterSlot6AO,
+            // IEncounterDownlevel): i livelli minimi della guida degli esemplari sottolivellati vengono da li' (ADR-116)
+            byte minimo = enc is IEncounterDownlevel dl ? dl.GetDownleveledMin() : enc.LevelMin;
+            if (minimo > livelloMax) continue;
+            bool flauto = enc is IEncounterDownlevel && enc.LevelMin > livelloMax;
             for (int tentativo = 0; tentativo < 4; tentativo++)
             {
                 PKM pk;
@@ -213,6 +223,7 @@ return 0;
                 catch (Exception ex) { motivo = "costruzione non riuscita: " + ex.Message; break; }
                 if (pk is CK3 ck) pk = ck.ConvertToPK3();
                 else if (pk is XK3 xk) pk = xk.ConvertToPK3();
+                if (flauto) { pk.MetLevel = (byte)livelloMax; pk.CurrentLevel = (byte)livelloMax; }
                 // anche una forma regionale che nasce con l'evoluzione, come Raichu di Alola, si ottiene solo evolvendo nei
                 // giochi di Alola: l'esemplare passa prima nel formato della settima generazione
                 if (pk.Species != specie && (specie > pk.MaxSpeciesID || (conForma && forma > 0 && pk.Format < 7)))
@@ -533,6 +544,363 @@ int Kyogre(string allenatoreJson, string cartella)
     }
     File.WriteAllText(Path.Combine(dir, "rapporto.json"), new JsonObject { ["incontro"] = enc.LongName, ["esiti"] = esiti }
         .ToJsonString(new JsonSerializerOptions { WriteIndented = true }));
+    return 0;
+}
+
+// I Pokémon specifici della comunità RNG (`_notes/lavoro/rng-comunita-2026-11-04.md`, ADR-115): leggendari e doni fissi di
+// terza e quarta generazione, tutti del Metodo 1, con gli IV, la natura, la sfera e la cromaticità dichiarati dal video o dal
+// post che li ha resi noti. Per ciascun candidato si risale dagli IV ai semi con LCRNGReversal (un IV a -1 e' libero e si
+// prova da 0 a 31), oppure, se la fonte pubblica il seme iniziale e il fotogramma, si rifa' la manipolazione da li' e si cerca
+// il fotogramma entro cinque di distanza. La cromaticita' dipende dall'ID segreto: se l'allenatore del candidato non ne fissa
+// uno, lo strumento prende quello che rende cromatico il PID trovato e lo scrive nel rapporto, come per il Kyogre di blisy.
+int Comunita(string listaJson, string allenatoreJson, string cartella)
+{
+    var al = JsonNode.Parse(File.ReadAllText(allenatoreJson))!;
+    ushort tidP = (ushort)(int)al["tid"]!, sidP = (ushort)(int)al["sid"]!;
+    var dir = Directory.CreateDirectory(cartella).FullName;
+    var esiti = new JsonArray();
+    var semi = new uint[8];
+    foreach (var c in JsonNode.Parse(File.ReadAllText(listaJson))!.AsArray())
+    {
+        string id = (string)c!["id"]!;
+        var specie = Enum.Parse<Species>((string)c["specie"]!);
+        var ver = Enum.Parse<GameVersion>((string)c["gioco"]!);
+        var iv = c["iv"]!.AsArray().Select(x => (int)x!).ToArray(); // PS, Attacco, Difesa, Att. Sp., Dif. Sp., Velocita'
+        string? natura = (string?)c["natura"];
+        bool cromatico = (bool?)c["cromatico"] ?? false;
+        string ot = (string?)c["ot"] ?? (string)al["nome"]!;
+        ushort tid = c["tid"] is { } t ? (ushort)(int)t : tidP;
+        ushort? sidFisso = c["sid"] is { } s ? (ushort)(int)s : null;
+        int lingua = (string?)c["lingua"] switch { "ja" => (int)LanguageID.Japanese, "en" => (int)LanguageID.English, _ => (int)LanguageID.Italian };
+        var esito = new JsonObject { ["id"] = id, ["specie"] = specie.ToString(), ["gioco"] = ver.ToString(), ["ot"] = ot, ["tid"] = tid,
+            ["fonte"] = (string?)c["fonte"], ["storia"] = (string?)c["storia"] };
+        esiti.Add(esito);
+        // un candidato prodotto da un'altra modalita', come il Kyogre di --kyogre: resta nel rapporto per la sua storia
+        if (c["gia_prodotto"] is { } gp) { esito["esito"] = "già prodotto in " + (string)gp!; esito["pid"] = (string?)c["pid"]; continue; }
+        // Fuori dal Metodo 1 (ADR-116): Colosseum, i doni dei dischi, la quarta, sesta e settima generazione e la Console
+        // Virtuale. Si chiedono alla libreria gli IV, la natura e la cromaticita' come criteri, e la libreria cerca da se' il
+        // seme dove il metodo lo prevede; si tiene il primo incontro che li rispetta e che il verificatore accetta.
+        if ((string?)c["metodo"] == "criteri")
+        {
+            byte g0 = ver switch { GameVersion.RD or GameVersion.BU or GameVersion.GN or GameVersion.YW => 1, GameVersion.GD or GameVersion.SI or GameVersion.C => 2,
+                GameVersion.D or GameVersion.P or GameVersion.Pt or GameVersion.HG or GameVersion.SS => 4, GameVersion.X or GameVersion.Y or GameVersion.OR or GameVersion.AS => 6,
+                GameVersion.SN or GameVersion.MN or GameVersion.US or GameVersion.UM => 7, _ => 3 };
+            var crit = EncounterCriteria.Unrestricted with { IV_HP = (sbyte)iv[0], IV_ATK = (sbyte)iv[1], IV_DEF = (sbyte)iv[2], IV_SPA = (sbyte)iv[3], IV_SPD = (sbyte)iv[4], IV_SPE = (sbyte)iv[5],
+                Nature = natura is null ? Nature.Random : Enum.Parse<Nature>(natura), Shiny = cromatico ? Shiny.Always : Shiny.Never };
+            var trc = new SimpleTrainerInfo(ver == GameVersion.CXD ? GameVersion.E : ver) { OT = ot, TID16 = tid, SID16 = sidFisso ?? sidP, Language = lingua };
+            var m0 = EntityBlank.GetBlank(g0); m0.Species = (ushort)specie; m0.Language = lingua;
+            string filtro = (string?)c["incontro"] ?? "";
+            string ultimo = "nessun incontro";
+            foreach (var e0 in EncounterMovesetGenerator.GenerateEncounters(m0, trc, ReadOnlyMemory<ushort>.Empty, ver))
+            {
+                if (filtro.Length > 0 && !(e0.LongName + " " + e0.GetType().Name).Contains(filtro)) continue;
+                for (int tent = 0; tent < 3; tent++)
+                {
+                    PKM pk;
+                    try { pk = e0.ConvertToPKM(trc, crit); } catch (Exception ex) { ultimo = ex.Message; continue; }
+                    if (pk is CK3 ck3) pk = ck3.ConvertToPK3(); else if (pk is XK3 xk3) pk = xk3.ConvertToPK3();
+                    if (cromatico && !pk.IsShiny) { ultimo = e0.LongName + ": non cromatico"; continue; }
+                    if (!cromatico && pk.IsShiny && pk.Format >= 3) { pk.SetPIDGender(pk.Gender); if (pk.IsShiny) { ultimo = e0.LongName + ": cromatico non chiesto"; continue; } }
+                    if (natura is not null && pk.Nature.ToString() != natura && pk.Format >= 3) { ultimo = e0.LongName + ": natura diversa"; continue; }
+                    int[] v = { pk.IV_HP, pk.IV_ATK, pk.IV_DEF, pk.IV_SPA, pk.IV_SPD, pk.IV_SPE };
+                    if (pk.Format >= 3 && Enumerable.Range(0, 6).Any(i => iv[i] >= 0 && iv[i] != v[i])) { ultimo = e0.LongName + ": IV diversi " + string.Join("/", v); continue; }
+                    if (c["sfera"] is { } sf0) pk.Ball = (byte)Enum.Parse<Ball>((string)sf0!);
+                    pk.RefreshChecksum();
+                    var la0 = new LegalityAnalysis(pk);
+                    if (!la0.Valid) { ultimo = e0.LongName + ": " + la0.Report(); continue; }
+                    var dati0 = new byte[pk.SIZE_STORED]; pk.WriteDecryptedDataStored(dati0);
+                    var file0 = $"{id}-{specie}{(pk.IsShiny ? "-cromatico" : "")}.{pk.Extension}";
+                    File.WriteAllBytes(Path.Combine(dir, file0), dati0);
+                    esito["esito"] = "prodotto"; esito["file"] = file0; esito["sha256"] = Convert.ToHexString(SHA256.HashData(dati0)).ToLowerInvariant();
+                    esito["pid"] = pk.PID.ToString("X8"); esito["natura"] = pk.Nature.ToString(); esito["iv"] = string.Join("/", v);
+                    esito["sid"] = pk.SID16; esito["cromatico"] = pk.IsShiny; esito["incontro"] = e0.LongName;
+                    break;
+                }
+                if (esito["file"] is not null) break;
+            }
+            esito["esito"] ??= "non prodotto: " + ultimo;
+            Console.WriteLine($"{id} {specie} {ver}: {esito["esito"]} {esito["iv"]} {esito["natura"]}");
+            continue;
+        }
+        var tr = new SimpleTrainerInfo(ver) { OT = ot, TID16 = tid, SID16 = sidFisso ?? sidP, Language = lingua };
+        byte gen = ver is GameVersion.D or GameVersion.P or GameVersion.Pt or GameVersion.HG or GameVersion.SS ? (byte)4 : (byte)3;
+        var modello = EntityBlank.GetBlank(gen); modello.Species = (ushort)specie; modello.Language = lingua;
+        var enc = EncounterMovesetGenerator.GenerateEncounters(modello, tr, ReadOnlyMemory<ushort>.Empty, ver)
+            .FirstOrDefault(x => x.GetType().Name.Contains("Static") && !x.LongName.Contains("Roam"));
+        if (enc is null) { esito["esito"] = "nessun incontro fisso nella libreria"; continue; }
+        esito["incontro"] = enc.LongName;
+        // i semi candidati: quelli del fotogramma pubblicato, oppure quelli risaliti dagli IV
+        var candidati = new List<(uint seme, int fotogramma)>();
+        if (c["seme_iniziale"] is { } si && c["fotogramma"] is { } fo)
+        {
+            uint s0 = Convert.ToUInt32((string)si!, 16);
+            for (int f = (int)fo - 5; f <= (int)fo + 5; f++)
+            {
+                uint r0 = LCRNG.Advance(s0, f), r1 = LCRNG.Next(r0), r2 = LCRNG.Next(r1), r3 = LCRNG.Next(r2), r4 = LCRNG.Next(r3);
+                uint a1 = r3 >> 16, a2 = r4 >> 16;
+                int[] v = { (int)(a1 & 31), (int)((a1 >> 5) & 31), (int)((a1 >> 10) & 31), (int)((a2 >> 5) & 31), (int)((a2 >> 10) & 31), (int)(a2 & 31) };
+                if (Enumerable.Range(0, 6).All(i => iv[i] < 0 || iv[i] == v[i])) candidati.Add((r2, f));
+            }
+        }
+        else
+        {
+            var liberi = Enumerable.Range(0, 6).Where(i => iv[i] < 0).ToArray();
+            for (int comb = 0; comb < 1 << (5 * liberi.Length); comb++)
+            {
+                var v = (int[])iv.Clone();
+                for (int j = 0; j < liberi.Length; j++) v[liberi[j]] = (comb >> (5 * j)) & 31;
+                int k = LCRNGReversal.GetSeedsIVs(semi, (uint)v[0], (uint)v[1], (uint)v[2], (uint)v[3], (uint)v[4], (uint)v[5]);
+                for (int i = 0; i < k; i++) candidati.Add((semi[i], -1));
+            }
+        }
+        esito["semi_provati"] = candidati.Count;
+        foreach (var (seme, fotogramma) in candidati)
+        {
+            uint alto = seme >> 16, basso = LCRNG.Prev(seme) >> 16, pid = (alto << 16) | basso;
+            if (natura is not null && ((Nature)(pid % 25)).ToString() != natura) continue;
+            ushort sid = sidFisso ?? sidP;
+            if (cromatico && (tid ^ sid ^ alto ^ basso) >= 8)
+            {
+                if (sidFisso is not null) continue;
+                // l'ID segreto che rende cromatico questo PID; in Rubino e Zaffiro deve essere una coppia che MethodH ammette
+                bool trovato = false;
+                for (int x = 0; x < 8 && !trovato; x++)
+                {
+                    var cand = (ushort)(tid ^ alto ^ basso ^ x);
+                    if (ver is not (GameVersion.R or GameVersion.S) || MethodH.TryGetSeedTrainerID(tid, cand, out _)) { sid = cand; trovato = true; }
+                }
+                if (!trovato) continue;
+            }
+            var pk = enc.ConvertToPKM(new SimpleTrainerInfo(ver) { OT = ot, TID16 = tid, SID16 = sid, Language = lingua }, EncounterCriteria.Unrestricted);
+            pk.SID16 = sid;
+            pk.PID = pid;
+            uint i1 = LCRNG.Next(seme) >> 16, i2 = LCRNG.Next(LCRNG.Next(seme)) >> 16;
+            pk.IV_HP = (int)(i1 & 31); pk.IV_ATK = (int)((i1 >> 5) & 31); pk.IV_DEF = (int)((i1 >> 10) & 31);
+            pk.IV_SPE = (int)(i2 & 31); pk.IV_SPA = (int)((i2 >> 5) & 31); pk.IV_SPD = (int)((i2 >> 10) & 31);
+            pk.RefreshAbility((int)(pid & 1));
+            if (c["sfera"] is { } sf) pk.Ball = (byte)Enum.Parse<Ball>((string)sf!);
+            if (pk.Species == (ushort)Species.Giratina && pk.Form == 1) pk.HeldItem = 112; // la Grigiosfera tiene la forma Origine
+            if (c["pv_tipo"] is { } pt && (pk.HPType != (int)pt || pk.HPPower != (int)c["pv_potenza"]!)) continue;
+            pk.RefreshChecksum();
+            var la = new LegalityAnalysis(pk);
+            if (!la.Valid) { esito["rapporto"] = la.Report(); continue; }
+            esito.Remove("rapporto");
+            var dati = new byte[pk.SIZE_STORED]; pk.WriteDecryptedDataStored(dati);
+            var file = $"{id}-{specie}{(pk.IsShiny ? "-cromatico" : "")}.{pk.Extension}";
+            File.WriteAllBytes(Path.Combine(dir, file), dati);
+            esito["esito"] = "prodotto"; esito["file"] = file; esito["sha256"] = Convert.ToHexString(SHA256.HashData(dati)).ToLowerInvariant();
+            esito["seme"] = seme.ToString("X8"); esito["pid"] = pid.ToString("X8"); esito["natura"] = ((Nature)(pid % 25)).ToString();
+            esito["iv"] = $"{pk.IV_HP}/{pk.IV_ATK}/{pk.IV_DEF}/{pk.IV_SPA}/{pk.IV_SPD}/{pk.IV_SPE}";
+            esito["sid"] = sid; esito["cromatico"] = pk.IsShiny; esito["sfera"] = ((Ball)pk.Ball).ToString();
+            if (fotogramma >= 0) esito["fotogramma"] = fotogramma;
+            break;
+        }
+        esito["esito"] ??= "nessun seme conforme alla specifica";
+        Console.WriteLine($"{id} {specie} {ver}: {esito["esito"]} {esito["iv"]} {esito["natura"]} sid {esito["sid"]} {esito["fotogramma"]}");
+    }
+    File.WriteAllText(Path.Combine(dir, "rapporto.json"), new JsonObject { ["esiti"] = esiti }
+        .ToJsonString(new JsonSerializerOptions { WriteIndented = true, Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping }));
+    return 0;
+}
+
+// Gli eventi dell'Eventdex di Serebii che le copie non hanno (`_notes/lavoro/serebii-eventdex-confronto-2026-11-04.md`): per
+// ciascuno con allenatore e ID noti si chiede alla libreria se conosce una carta della stessa specie con lo stesso ID, fra le
+// carte di quarta, quinta, sesta e settima generazione e i doni di terza. Solo un evento che la libreria conosce si produce
+// conforme; gli altri esistono nella storia delle distribuzioni ma il verificatore li contesterebbe.
+int Serebii(string mancantiJson, string uscita)
+{
+    var carte = EncounterEvent.GetAllEvents(false).Where(g => g.Generation is >= 4 and <= 7 && g is not WB7).ToList();
+    var gen3 = new[] { GameVersion.R, GameVersion.S, GameVersion.E, GameVersion.FR, GameVersion.LG };
+    var esiti = new JsonArray();
+    int trovati = 0, confrontati = 0;
+    foreach (var m in JsonNode.Parse(File.ReadAllText(mancantiJson))!.AsArray())
+    {
+        if (!((bool?)m!["confrontabile"] ?? false)) continue;
+        confrontati++;
+        int numero = (int)m["numero"]!;
+        var ids = (m["id"] is JsonArray a ? a.Select(x => (string)x!) : new[] { (string)m["id"]! })
+            .Select(x => int.TryParse(x, out var v) ? v : -1).Where(v => v >= 0).ToHashSet();
+        var corrispondenze = new List<string>();
+        var incontri = new List<(IEncounterable enc, GameVersion v)>();
+        foreach (var g in carte.Where(g => g.Species == numero && ids.Contains(g.TID16)))
+        {
+            corrispondenze.Add($"G{g.Generation} {g.CardTitle} {g.OriginalTrainerName} {g.TID16:00000}{(g.IsEgg ? " uovo" : "")}");
+            incontri.Add((g, g.Generation switch { 4 => GameVersion.HG, 5 => GameVersion.B2, 6 => GameVersion.OR, _ => GameVersion.US }));
+        }
+        string giochi = m["giochi"] is JsonArray ga ? string.Join(",", ga.Select(x => (string)x!)) : (string?)m["giochi"] ?? "";
+        if (corrispondenze.Count == 0 && System.Text.RegularExpressions.Regex.IsMatch(giochi, "Ruby|Sapphire|Emerald|FireRed|LeafGreen"))
+        {
+            var modello = EntityBlank.GetBlank(3); modello.Species = (ushort)numero;
+            foreach (var v in gen3)
+            {
+                var tr = new SimpleTrainerInfo(v) { OT = "Alessio", TID16 = 42317, SID16 = 58164, Language = (int)LanguageID.Japanese };
+                foreach (var enc in EncounterMovesetGenerator.GenerateEncounters(modello, tr, ReadOnlyMemory<ushort>.Empty, v))
+                {
+                    if (!enc.GetType().Name.Contains("Gift")) continue;
+                    var pk = enc.ConvertToPKM(tr, EncounterCriteria.Unrestricted);
+                    if (ids.Contains(pk.TID16)) { corrispondenze.Add($"G3 {enc.LongName} {pk.OriginalTrainerName} {pk.TID16:00000} ({v})"); incontri.Add((enc, v)); }
+                }
+            }
+        }
+        var voce = new JsonObject { ["numero"] = numero, ["specie"] = (string?)m["specie"], ["evento"] = (string?)m["evento"],
+            ["regione"] = (string?)m["regione"], ["data_inizio"] = (string?)m["data_inizio"], ["giochi"] = giochi,
+            ["id"] = string.Join(",", ids), ["url"] = (string?)m["url"],
+            ["in_libreria"] = corrispondenze.Count > 0, ["carte"] = new JsonArray(corrispondenze.Distinct().Select(x => (JsonNode?)JsonValue.Create(x)).ToArray()) };
+        if (corrispondenze.Count > 0) trovati++;
+        esiti.Add(voce);
+        int ip = Array.IndexOf(args, "--produci");
+        if (ip < 0 || incontri.Count == 0) continue;
+        // si produce dal primo incontro che, con una delle lingue e una delle versioni provate, esce conforme
+        var dir = Directory.CreateDirectory(args[ip + 1]).FullName;
+        var lingue = new[] { LanguageID.Japanese, LanguageID.Korean, LanguageID.English, LanguageID.Italian, LanguageID.French, LanguageID.German, LanguageID.Spanish, LanguageID.ChineseS, LanguageID.ChineseT };
+        foreach (var (enc, v0) in incontri)
+        {
+            var versioni = enc is MysteryGift mg0 ? (mg0.Generation switch
+                { 4 => new[] { GameVersion.HG, GameVersion.SS, GameVersion.Pt, GameVersion.D, GameVersion.P },
+                  5 => new[] { GameVersion.B2, GameVersion.W2, GameVersion.B, GameVersion.W },
+                  6 => new[] { GameVersion.OR, GameVersion.AS, GameVersion.X, GameVersion.Y },
+                  _ => new[] { GameVersion.US, GameVersion.UM, GameVersion.SN, GameVersion.MN } }) : new[] { v0 };
+            PKM? buono = null;
+            foreach (var v in versioni)
+            foreach (var lg in lingue)
+            {
+                if (buono is not null) break;
+                if (v is GameVersion.US or GameVersion.UM or GameVersion.SN or GameVersion.MN or GameVersion.OR or GameVersion.AS or GameVersion.X or GameVersion.Y)
+                    if (lg is LanguageID.ChineseS or LanguageID.ChineseT && v is not (GameVersion.US or GameVersion.UM or GameVersion.SN or GameVersion.MN)) continue;
+                if (lg is LanguageID.ChineseS or LanguageID.ChineseT && v is not (GameVersion.US or GameVersion.UM or GameVersion.SN or GameVersion.MN)) continue;
+                var tr = new SimpleTrainerInfo(v) { OT = lg is LanguageID.Japanese ? "アレッシオ" : "Alessio", TID16 = 42317, SID16 = 58164, Language = (int)lg };
+                var pk = enc.ConvertToPKM(tr, EncounterCriteria.Unrestricted);
+                if (new LegalityAnalysis(pk).Valid) buono = pk;
+            }
+            if (buono is null) continue;
+            var dati = new byte[buono.SIZE_STORED]; buono.WriteDecryptedDataStored(dati);
+            var nome = $"{esiti.Count:000}-{(string?)m["specie"]}.{buono.Extension}";
+            foreach (var c in Path.GetInvalidFileNameChars()) nome = nome.Replace(c, '_');
+            File.WriteAllBytes(Path.Combine(dir, nome), dati);
+            voce["file"] = nome; voce["pid"] = buono.PID.ToString("X8"); voce["sha256"] = Convert.ToHexString(SHA256.HashData(dati)).ToLowerInvariant();
+            voce["storia"] = $"{(string?)m["evento"]}, {(string?)m["regione"]}, dal {(string?)m["data_inizio"]}: allenatore {buono.OriginalTrainerName}, ID {buono.TID16:00000}, nei giochi {giochi}.";
+            voce["fonte"] = (string?)m["url"];
+            break;
+        }
+    }
+    File.WriteAllText(uscita, new JsonObject { ["confrontati"] = confrontati, ["nella_libreria"] = trovati, ["voci"] = esiti }
+        .ToJsonString(new JsonSerializerOptions { WriteIndented = true, Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping }));
+    Console.WriteLine($"eventi confrontabili {confrontati}, con una carta della libreria {trovati}");
+    return 0;
+}
+
+// Tutti gli eventi che la libreria conosce fino alla settima generazione, confrontati con le copie (ADR-116): le carte di
+// quarta, quinta, sesta e settima generazione, i doni di terza (internazionali, giapponesi, PCNY, PCJP, Colosseum) e quelli
+// del Game Boy. Per ogni esemplare conforme delle copie la libreria dice da quale incontro viene; un evento e' coperto se
+// almeno un esemplare viene da lui o da una sua variante della stessa carta in un'altra lingua. Gli eventi scoperti si
+// scrivono nel rapporto e, con --produci CARTELLA, si producono dal primo modo che il verificatore accetta.
+int Carte(string uscita, string[] copie)
+{
+    var tutti = new List<(IEncounterable enc, string gruppo, string descrizione)>();
+    foreach (var g in EncounterEvent.GetAllEvents(false).Where(g => g.Generation is >= 4 and <= 7 && g is not WB7))
+        tutti.Add((g, $"G{g.Generation}|{g.CardID}|{g.Species}|{g.Form}", $"G{g.Generation} carta {g.CardID} «{g.CardTitle}» {testi.specieslist[g.Species]} {g.OriginalTrainerName} {g.TID16:00000}{(g.IsEgg ? " uovo" : "")}{(g.IsShiny ? " cromatico" : "")}"));
+    var asm = typeof(EncounterEvent).Assembly;
+    IEnumerable<object> campo(string tipo, string nome) =>
+        (asm.GetType("PKHeX.Core." + tipo)?.GetField(nome, System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic)?.GetValue(null) as System.Collections.IEnumerable)?.Cast<object>() ?? [];
+    foreach (var (tipo, nome) in new[] { ("EncountersWC3", "Encounter_WC3"), ("EncountersWC3", "PCNY"), ("EncountersWC3", "PCJP"), ("Encounters3Colo", "Gifts"), ("Encounters1GBEra", "Gifts"), ("Encounters2GBEra", "Gifts") })
+        foreach (var o in campo(tipo, nome))
+            if (o is IEncounterable e)
+            {
+                string ot = o.GetType().GetProperty("OriginalTrainerName")?.GetValue(o)?.ToString() ?? "";
+                string id = o.GetType().GetProperty("TID16")?.GetValue(o)?.ToString() ?? "";
+                tutti.Add((e, $"{tipo}.{nome}|{e.Species}|{e.Form}|{ot}|{id}|{e.LongName}", $"{tipo}.{nome} {e.LongName} {testi.specieslist[e.Species]} {ot} {id} ({e.Version})"));
+            }
+    Console.WriteLine($"eventi della libreria fino alla settima generazione: {tutti.Count}, gruppi {tutti.Select(x => x.gruppo).Distinct().Count()}");
+    // gli incontri riconosciuti negli esemplari conformi delle copie
+    var visti = new HashSet<object>(ReferenceEqualityComparer.Instance);
+    var gruppiVisti = new HashSet<string>();
+    var perGruppo = tutti.GroupBy(x => x.enc, ReferenceEqualityComparer.Instance).ToDictionary(g => g.Key!, g => g.First().gruppo, ReferenceEqualityComparer.Instance);
+    int esemplari = 0;
+    int it = Array.IndexOf(args, "--traccia");
+    using var traccia = it >= 0 ? new StreamWriter(args[it + 1]) : null;
+    foreach (var c in copie)
+    {
+        var sav = SaveUtil.GetSaveFile(c) ?? throw new InvalidOperationException("salvataggio non letto: " + c);
+        for (int i = 0; i < sav.SlotCount; i++)
+        {
+            var pk = sav.GetBoxSlotAtIndex(i);
+            if (pk.Species == 0) continue;
+            var la = new LegalityAnalysis(pk);
+            if (!la.Valid) continue;
+            esemplari++;
+            var enc = la.EncounterMatch;
+            visti.Add(enc);
+            traccia?.WriteLine($"{c}|{i}|{testi.specieslist[pk.Species]}|{enc.GetType().Name}|{enc.LongName}|{(enc is MysteryGift m0 ? m0.CardID + "|" + m0.Generation : "")}");
+            if (perGruppo.TryGetValue(enc, out var gr)) gruppiVisti.Add(gr);
+            else if (enc is MysteryGift mg) gruppiVisti.Add($"G{mg.Generation}|{mg.CardID}|{mg.Species}|{mg.Form}");
+        }
+    }
+    var mancanti = tutti.Where(x => !gruppiVisti.Contains(x.gruppo)).GroupBy(x => x.gruppo).ToList();
+    Console.WriteLine($"esemplari conformi letti {esemplari}, gruppi coperti {gruppiVisti.Count}, gruppi scoperti {mancanti.Count}");
+    var lista = new JsonArray();
+    int ip = Array.IndexOf(args, "--produci");
+    string? dir = ip >= 0 ? Directory.CreateDirectory(args[ip + 1]).FullName : null;
+    var lingue = new[] { LanguageID.Japanese, LanguageID.English, LanguageID.Korean, LanguageID.Italian, LanguageID.French, LanguageID.German, LanguageID.Spanish, LanguageID.ChineseS, LanguageID.ChineseT };
+    int prodotti = 0, n = 0;
+    foreach (var g in mancanti)
+    {
+        n++;
+        var voce = new JsonObject { ["gruppo"] = g.Key, ["descrizione"] = g.First().descrizione, ["varianti"] = g.Count() };
+        lista.Add(voce);
+        if (dir is null) continue;
+        PKM? buono = null; string rapporto = "";
+        foreach (var (enc, _, _) in g)
+        {
+            byte gen = enc.Generation;
+            var versioni = gen switch
+            {
+                1 => new[] { GameVersion.RD, GameVersion.BU, GameVersion.YW, GameVersion.GN },
+                2 => new[] { GameVersion.GD, GameVersion.SI, GameVersion.C },
+                3 => new[] { GameVersion.E, GameVersion.R, GameVersion.S, GameVersion.FR, GameVersion.LG, GameVersion.CXD },
+                4 => new[] { GameVersion.HG, GameVersion.SS, GameVersion.Pt, GameVersion.D, GameVersion.P },
+                5 => new[] { GameVersion.B2, GameVersion.W2, GameVersion.B, GameVersion.W },
+                6 => new[] { GameVersion.OR, GameVersion.AS, GameVersion.X, GameVersion.Y },
+                _ => new[] { GameVersion.US, GameVersion.UM, GameVersion.SN, GameVersion.MN },
+            };
+            foreach (var v in versioni)
+            foreach (var lg in lingue)
+            {
+                if (buono is not null) break;
+                if (lg is LanguageID.ChineseS or LanguageID.ChineseT && gen != 7) continue;
+                if (lg is LanguageID.Korean && gen < 4) continue;
+                var tr = new SimpleTrainerInfo(v == GameVersion.CXD ? GameVersion.E : v) { OT = lg is LanguageID.Japanese ? "アレッシオ" : "Alessio", TID16 = 42317, SID16 = 58164, Language = (int)lg };
+                try
+                {
+                    var pk = enc.ConvertToPKM(tr, EncounterCriteria.Unrestricted);
+                    // un uovo non passa il Trasportatore: si schiude, come farebbe chi lo riceve, e la data deve essere vera
+                    if (pk.IsEgg) pk.ForceHatchPKM(tr);
+                    var la = new LegalityAnalysis(pk);
+                    if (!la.Valid && la.Report().Contains("Met Date") && pk.Format >= 4)
+                    {
+                        pk.MetDate = DateOnly.FromDateTime(DateTime.Today);
+                        if (pk.WasEgg && pk.EggMetDate is null) pk.EggMetDate = pk.MetDate;
+                        la = new LegalityAnalysis(pk);
+                    }
+                    if (la.Valid) buono = pk; else rapporto = la.Report();
+                }
+                catch (Exception ex) { rapporto = ex.Message; }
+            }
+            if (buono is not null) break;
+        }
+        if (buono is null) { voce["esito"] = "non prodotto"; voce["rapporto"] = rapporto; continue; }
+        var dati = new byte[buono.SIZE_STORED]; buono.WriteDecryptedDataStored(dati);
+        var nome = $"{n:0000}-{testi.specieslist[buono.Species]}.{buono.Extension}";
+        foreach (var ch in Path.GetInvalidFileNameChars()) nome = nome.Replace(ch, '_');
+        File.WriteAllBytes(Path.Combine(dir, nome), dati);
+        voce["esito"] = "prodotto"; voce["file"] = nome; voce["pid"] = buono.PID.ToString("X8");
+        voce["sha256"] = Convert.ToHexString(SHA256.HashData(dati)).ToLowerInvariant();
+        voce["storia"] = g.First().descrizione + ", evento che le copie non avevano, prodotto dalla libreria (ADR-116).";
+        prodotti++;
+    }
+    File.WriteAllText(uscita, new JsonObject { ["eventi"] = tutti.Count, ["gruppi_coperti"] = gruppiVisti.Count, ["gruppi_scoperti"] = mancanti.Count,
+        ["prodotti"] = prodotti, ["esemplari_letti"] = esemplari, ["voci"] = lista }
+        .ToJsonString(new JsonSerializerOptions { WriteIndented = true, Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping }));
+    Console.WriteLine($"prodotti {prodotti}");
     return 0;
 }
 
