@@ -23,9 +23,10 @@
     "il": "2026-10-19"
   },
   "tools/Test-Anonymization.py": {
-    "testa": "e602822807db39fc705dc2ca2747bdc94f8d90a5",
+    "testa": "2a3c9b91bf25f7fce670fd1df0549ed740609c90",
+    "locale_sha256_lf": "1c7f523a0d78c780348aeedb8f54fee4df136645ed06268ebc596c837b2e2b90",
     "il": "2026-11-05",
-    "locale_sha256_lf": "1383972cb6311a1e1beabb5c0f006a3d944c0b73e3faf87ba407d9de67439a24"
+    "motivo": "Delta pubblicato 3443d6c integrato e provato sui confini dei nomi; estensioni e cronaca locali conservate. La firma certifica il contenuto revisionato, non la parita di tutte le categorie."
   },
   "tools/chiudi-sessione.ps1": {
     "testa": "80c495e0f757ac62b26ebf49cc1148a18bab83fa",
