@@ -4,6 +4,14 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-05, terza parte. Chiusura di sessione: commit, allineamento al template, lezioni per il template
+
+Il proprietario ha lanciato `chiudi`: commit `0e35390`, impronta di ripresa registrata alle 13:05. Ha chiesto di chiudere la sessione con un wipe pulito e di riaprirne una nuova che riparta esattamente da questo punto con `/riprendi`, senza perdere pendenze né modo di lavorare, e di portare al template le lezioni apprese. Fatto: allineamento al template `3443d6c` (`allinea-dal-template.py --applica`: 0 conflitti, 2 fusioni, 6 file vecchi aggiornati, anonimizzazione senza riscontri bloccanti); lezioni L-003 (copertura di un catalogo con voci gemelle), L-004 (barre rovesciate in uno script dentro un heredoc), L-005 (subagent fermato dal limite d'uso) in `.claude/memory/lezioni-template.md`; indice, pendenze e file di ripresa riscritti sul punto esatto: giro 3 fermo al punto 5, che fa il proprietario.
+
+**Template:** L-003, L-004, L-005
+
+**Didattica:** nessuna, perché il giro registra uno stato e allinea al template senza una scelta architetturale nuova.
+
 ## 2026-11-05, seconda parte. Giro 3 punti 3 e 4, lotto del Game Boy, semi gemelli in tesi, ricerca del seme, doni del Ranch, ADR-117
 
 Giro 3: riserva di Checkpoint in due copie, 19 file con impronte uguali; `20261105-giro3/main` scritto sulla SD (`I:`) e riletto, impronta `4662a6a66ad07063`. Lotto del Game Boy per le cartucce: 117 doni, 10 `.pk1` e 107 `.pk2`, conformi nell'epoca delle cartucce. Skitty del PokéPark: lo schiude la libreria con un ricevente di quarta generazione; scritto con il PCJP gemello in `oras-giro-5-carte-mn2` (256). Mew in Pregio Ball del Ranch: c'è, HOME3 box 26 posto 5, GIULIA 01000; la voce del Mew in Cura Ball viene dalla scheda «Unique Ball Matching», segnata come abbinamento estetico. Semi gemelli: `docs/40-appendice-matematica.md` sezione 8.14 e tesi appendice A8.16, compilata senza errori; misura sui semi `F942BA62` e `7942BA62`, che differiscono di 2^31. Ricerca del seme (un subagent): 8 su 10 prodotti; Jirachi di Channel e WISHMKR cromatici misurati inesistenti con quella specifica. Doni del Ranch americani e giapponesi e Gastrodon Est: 7 esemplari. Scritti in `oras-giro-4-fin9` (929) e `ultraluna-giro-2-fin6` (642), riletti uguali e conformi; i primi tentativi senza `--includi-mn` hanno escluso 4 esemplari con una macchina nascosta e il Gastrodon, che è di settima generazione, in Rubino Omega. Eventi senza carta: 46, elenco in `_notes/lavoro/serebii-senza-carta-2026-11-05.txt`. Pedigree 5253 su 5253; collegamenti non classificati 0 dopo 10 righe nuove in `SOURCES.md`.

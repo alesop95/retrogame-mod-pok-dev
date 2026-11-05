@@ -8,8 +8,8 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: 881b18b, Giro 2 riletto, Kyogre di blisy, elenco chiuso, mappa LaTeX, ADR-114
-Data snapshot:         2026-11-04, notte: giro 2 in HOME, ADR-115; prossimo: giro 3 del passo 2
+Commit di riferimento: 0e35390, Giro 3 sulla SD, ricerca del seme, Ranch, lotto Game Boy, ADR-117
+Data snapshot:         2026-11-05, chiusura di sessione dopo 0e35390 e allineamento al template 3443d6c; prossimo: giro 3 dal punto 5
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,8 @@ Data snapshot:         2026-11-04, notte: giro 2 in HOME, ADR-115; prossimo: gir
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-11-05, chiusura di sessione, che prevale su quelle sotto. Il proprietario ha lanciato `chiudi` (commit `0e35390`, impronta registrata). Dopo il commit: allineamento al template `3443d6c`, 0 conflitti; lezioni L-003, L-004 e L-005 registrate per il template. La sessione si chiude con il wipe e la nuova riparte da `/riprendi`: il proprietario porterà le informazioni del giro 3, che è fermo al punto 5 (copia `20261105-giro3` già sulla SD con impronta `4662a6a66ad07063`, riserva in due copie). Il punto di ripresa esatto, con l'ultimo messaggio del proprietario, sta in `_notes/resume-prompt.md`.
 
 AGGIUNTA DEL 2026-11-05, seconda parte, che prevale su quelle sotto (ADR-117). Giro 3 in corso: punti 3 e 4 fatti dall'agente, la copia è sulla SD; al proprietario i punti da 5 a 17. Copie da portare: `oras-giro-3-fin3` 915 (giro 3), HOME6 `oras-giro-4-fin9` 929, HOME7 `ultraluna-giro-2-fin6` 642, HOME8 `oras-giro-5-carte-mn2` 256, `luna-giro-1-fin` 93, `ultraluna-giro-1-scambi-fin2` 613, GIAPPONE2 19. Lotto del Game Boy per le cartucce in `_notes/lotti/lotto-gb-epoca-cartucce/`. Il lavoro dopo Bank e su Switch sta in `pending.md` nella sezione a sé.
 
