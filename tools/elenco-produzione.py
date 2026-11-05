@@ -50,12 +50,12 @@ LOTTI = os.path.join(RADICE, "_notes", "lotti")
 PROVE = os.path.join(RADICE, "_notes", "salvataggi", "prove", "per-home")
 # Le copie scritte dalla produzione del 2026-11-04 e i rapporti della produzione: una voce e' chiusa anche quando il suo
 # esemplare e' stato prodotto da tools/pkhex-produci-elenco e scritto in una di queste copie.
-COPIE_PRODUZIONE = ["oras-giro-4-fin7", "oras-giro-5-carte-mn", "ultraluna-giro-2-fin5", "luna-giappone-2-fin2"]
+COPIE_PRODUZIONE = ["oras-giro-4-fin9", "oras-giro-5-carte-mn2", "ultraluna-giro-2-fin6", "luna-giappone-2-fin2"]
 RAPPORTI_PRODUZIONE = ["lotto-elenco-produzione", "lotto-elenco-produzione/vc-rifatti", "lotto-elenco-produzione/vc-rifatti-2",
                        "lotto-elenco-produzione/giro-2", "lotto-elenco-produzione/giro-3", "lotto-elenco-produzione/giro-3-raichu",
                        "lotto-elenco-produzione/giro-4", "lotto-elenco-produzione/giro-5", "lotto-elenco-produzione/giro-6",
                        "lotto-elenco-produzione/giro-7", "lotto-elenco-produzione/giro-8", "lotto-elenco-produzione/giro-9",
-                       "lotto-elenco-produzione/giro-9-giallo", "lotto-elenco-produzione/giro-10", "lotto-elenco-produzione/giro-12", "lotto-elenco-produzione/giro-14"]
+                       "lotto-elenco-produzione/giro-9-giallo", "lotto-elenco-produzione/giro-10", "lotto-elenco-produzione/giro-12", "lotto-elenco-produzione/giro-14", "lotto-elenco-produzione/giro-15"]
 TETTO_STATICI = 2371        # ADR-106, tools/pkhex-conta-incontri
 
 
@@ -249,7 +249,8 @@ def raccogli():
             g = giochi_foglio(r[1])
             if g and "CXD" in g:  # i doni dei dischi bonus di Colosseum arrivano in Rubino e Zaffiro
                 g = g | {"R", "S"}
-            voci.append(voce("asse scambi", "%s «%s» di %s, %s" % (nomi.get(n, r[3]), r[5], r[6], r[1]), n, 0, g,
+            # lo Shellos che il Ranch regala e' del Mare Est (EncounterTrade4RanchGift, Form = 1): ne nasce un Gastrodon Est
+            voci.append(voce("asse scambi", "%s «%s» di %s, %s" % (nomi.get(n, r[3]), r[5], r[6], r[1]), n, 1 if (n == 423 and "Ranch" in r[1]) else 0, g,
                              unico=True, classe="scambio",
                              # coperta se una copia ha lo scambio in gioco, oppure lo stesso allenatore con lo stesso ID,
                              # che e' il caso dei doni con allenatore fisso, come l'Ash-Greninja della demo

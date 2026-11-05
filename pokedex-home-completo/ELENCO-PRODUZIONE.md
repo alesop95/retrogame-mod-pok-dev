@@ -11,16 +11,16 @@
 | Smeraldo | 213 | 213 | 0 |
 | asse origine | 479 | 477 | 2 |
 | asse sesso e forma | 187 | 186, e 83 voci senza misura possibile | 1 |
-| asse scambi | 345 | 342 | 3 |
+| asse scambi | 345 | 343 | 2 |
 | asse altri unici | 214 | 213 | 1 |
 | asse stelle | 237 | 228, e 237 voci senza misura possibile | 9 |
 | asse livelli minimi | 101 | 94 | 7 |
 | pre-evoluzioni per Switch | 14 | 14 | 0 |
 | mosse senza specie | 50 | 0 | 50, da assegnare a un esemplare che le impari |
 
-Voci da produrre: 5, più 50 mosse. Esemplari stimati con la fusione delle voci compatibili: 5. Tetto, una voce un esemplare e una mossa un esemplare: 55. La stima non chiede alla libreria se una fusione sia legale, e può quindi essere ottimista; il tetto non lo è.
+Voci da produrre: 4, più 50 mosse. Esemplari stimati con la fusione delle voci compatibili: 4. Tetto, una voce un esemplare e una mossa un esemplare: 54. La stima non chiede alla libreria se una fusione sia legale, e può quindi essere ottimista; il tetto non lo è.
 
-I posti di HOME sono 9000. Con le 5236 copie già fatte e il tetto di 2371 statici di ADR-106, che si sovrappone in parte agli altri esemplari unici e alle sfide, la stima porta a 7612 posti e il tetto a 7662. Restano rispettivamente 1388 e 1338 posti per il lavoro su Switch dopo Bank.
+I posti di HOME sono 9000. Con le 5253 copie già fatte e il tetto di 2371 statici di ADR-106, che si sovrappone in parte agli altri esemplari unici e alle sfide, la stima porta a 7628 posti e il tetto a 7678. Restano rispettivamente 1372 e 1322 posti per il lavoro su Switch dopo Bank.
 
 Le coperture degli assi sono misurate sul gioco d'origine, sull'incontro di scambio, su un incontro non selvatico, sul livello, sul sesso e sulla forma di Alola, secondo l'asse. Le altre forme dell'asse del sesso e della forma, scritte in inglese nel foglio, e le stelle del Master Dex non hanno un campo corrispondente nelle copie e sono contate tutte da produrre.
 
@@ -29,7 +29,6 @@ Le coperture degli assi sono misurate sul gioco d'origine, sull'incontro di scam
 | Specie | Forma | Giochi d'origine | Sfera | Cromatico | Voci chiuse |
 |---|---|---|---|---|---|
 | 151 Mew |  | qualunque | Cura Ball |  | Mew in Cura Ball, da Rosso Fuoco e Verde Foglia giapponesi |
-| 423 Gastrodon |  | D, P, Pt |  |  | Gastrodon «» di Hayley/01000, My Pokémon Ranch |
 | 466 Electivire |  | D, P, Pt |  |  | Electivire al livello 15.0, DPPt  |
 | 467 Magmortar |  | D, P, Pt |  |  | Magmortar al livello 14.0, DPPt  |
 | da scegliere |  | X, Y |  |  | Any Pokémon, XY: In Anistar City, an old man requests that you give him a Pokémon for him to take |

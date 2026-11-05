@@ -4,6 +4,14 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-05, seconda parte. Giro 3 punti 3 e 4, lotto del Game Boy, semi gemelli in tesi, ricerca del seme, doni del Ranch, ADR-117
+
+Giro 3: riserva di Checkpoint in due copie, 19 file con impronte uguali; `20261105-giro3/main` scritto sulla SD (`I:`) e riletto, impronta `4662a6a66ad07063`. Lotto del Game Boy per le cartucce: 117 doni, 10 `.pk1` e 107 `.pk2`, conformi nell'epoca delle cartucce. Skitty del PokéPark: lo schiude la libreria con un ricevente di quarta generazione; scritto con il PCJP gemello in `oras-giro-5-carte-mn2` (256). Mew in Pregio Ball del Ranch: c'è, HOME3 box 26 posto 5, GIULIA 01000; la voce del Mew in Cura Ball viene dalla scheda «Unique Ball Matching», segnata come abbinamento estetico. Semi gemelli: `docs/40-appendice-matematica.md` sezione 8.14 e tesi appendice A8.16, compilata senza errori; misura sui semi `F942BA62` e `7942BA62`, che differiscono di 2^31. Ricerca del seme (un subagent): 8 su 10 prodotti; Jirachi di Channel e WISHMKR cromatici misurati inesistenti con quella specifica. Doni del Ranch americani e giapponesi e Gastrodon Est: 7 esemplari. Scritti in `oras-giro-4-fin9` (929) e `ultraluna-giro-2-fin6` (642), riletti uguali e conformi; i primi tentativi senza `--includi-mn` hanno escluso 4 esemplari con una macchina nascosta e il Gastrodon, che è di settima generazione, in Rubino Omega. Eventi senza carta: 46, elenco in `_notes/lavoro/serebii-senza-carta-2026-11-05.txt`. Pedigree 5253 su 5253; collegamenti non classificati 0 dopo 10 righe nuove in `SOURCES.md`.
+
+**Template:** nessuna
+
+**Didattica:** nessuna, perché il giro produce esemplari e scrive una dimostrazione nell'appendice matematica esistente, senza una scelta architetturale nuova.
+
 ## 2026-11-05. Tutti gli eventi della libreria, Flauto Bianco, pre-evoluzioni doppie, comunità RNG fino alla settima generazione, giro 3 riscritto, ADR-116
 
 Eventi: `--carte` legge 2801 voci della libreria in 1606 gruppi; sulle copie di prima, 1308 coperti e 299 scoperti. Prodotti 187, scritti 181 nella copia nuova `oras-giro-5-carte-mn` (254 con i 73 di Serebii, riletti uguali e conformi, SHA-256 inizio `ebb985a2b2439a5a`); dopo la scrittura i coperti salgono a 1343, perché 146 carte di quinta e sesta generazione e 2 PCJP la libreria le attribuisce a carte già coperte con dati identici. Restano 117 doni del Game Boy, solo da cartuccia, e l'uovo di Skitty del PokéPark.

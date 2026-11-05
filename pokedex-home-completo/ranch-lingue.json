@@ -1,0 +1,110 @@
+[
+ {
+  "id": "R-Mew-en",
+  "specie": "Mew",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "fonte": "https://www.serebii.net/events/dex/151.shtml",
+  "storia": "Il Mew di My Pokémon Ranch per Wii, versione americana: Hayley lo regala a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla, dal 9 maggio 2008; l'allenatore è Hayley con ID 01000, come in ogni versione del Ranch, e il nome cambia con la lingua."
+ },
+ {
+  "id": "R-Mew-ja",
+  "specie": "Mew",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "fonte": "https://www.serebii.net/events/dex/151.shtml",
+  "storia": "Il Mew di My Pokémon Ranch per Wii, versione giapponese: ユカリ lo regala a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla, dal 25 marzo 2008; l'allenatore è ユカリ con ID 01000, come in ogni versione del Ranch, e il nome cambia con la lingua."
+ },
+ {
+  "id": "R-Phione-en",
+  "specie": "Phione",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "fonte": "https://www.serebii.net/events/dex/489.shtml",
+  "storia": "Il Phione di My Pokémon Ranch per Wii, versione americana: Hayley lo regala a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla, dal 9 maggio 2008; l'allenatore è Hayley con ID 01000, come in ogni versione del Ranch, e il nome cambia con la lingua."
+ },
+ {
+  "id": "R-Phione-ja",
+  "specie": "Phione",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "fonte": "https://www.serebii.net/events/dex/489.shtml",
+  "storia": "Il Phione di My Pokémon Ranch per Wii, versione giapponese: ユカリ lo regala a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla, dal 25 marzo 2008; l'allenatore è ユカリ con ID 01000, come in ogni versione del Ranch, e il nome cambia con la lingua."
+ },
+ {
+  "id": "R-Pikachu-en",
+  "specie": "Pikachu",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "fonte": "https://www.serebii.net/events/dex/025.shtml",
+  "storia": "Il Pikachu di My Pokémon Ranch per Wii, versione americana: Hayley lo regala a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla, dal 9 maggio 2008; l'allenatore è Hayley con ID 01000, come in ogni versione del Ranch, e il nome cambia con la lingua."
+ },
+ {
+  "id": "R-Pikachu-ja",
+  "specie": "Pikachu",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "fonte": "https://www.serebii.net/events/dex/025.shtml",
+  "storia": "Il Pikachu di My Pokémon Ranch per Wii, versione giapponese: ユカリ lo regala a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla, dal 25 marzo 2008; l'allenatore è ユカリ con ID 01000, come in ogni versione del Ranch, e il nome cambia con la lingua."
+ }
+]

@@ -58,7 +58,7 @@ if (args[0] == "--comunita")
 if (args[0] == "--serebii")
     return Serebii(args[1], args[2]);
 if (args[0] == "--carte")
-    return Carte(args[1], args.Skip(2).TakeWhile(x => x != "--produci" && x != "--traccia").ToArray());
+    return Carte(args[1], args.Skip(2).TakeWhile(x => x != "--produci" && x != "--traccia" && x != "--epoca-cartucce").ToArray());
 if (args[0] == "--cartuccia")
     return Cartuccia(args[1], args[2]);
 
@@ -796,6 +796,9 @@ int Serebii(string mancantiJson, string uscita)
 // scrivono nel rapporto e, con --produci CARTELLA, si producono dal primo modo che il verificatore accetta.
 int Carte(string uscita, string[] copie)
 {
+    // --epoca-cartucce: i doni del Game Boy si giudicano come su cartuccia, dove esistono, per i lotti da scrivere sulle
+    // cartucce di Rosso e Argento dopo la sostituzione della pila (ADR-117); nel contesto della Console Virtuale non esistono
+    if (args.Contains("--epoca-cartucce")) ParseSettings.AllowEraCartGB = true;
     var tutti = new List<(IEncounterable enc, string gruppo, string descrizione)>();
     foreach (var g in EncounterEvent.GetAllEvents(false).Where(g => g.Generation is >= 4 and <= 7 && g is not WB7))
         tutti.Add((g, $"G{g.Generation}|{g.CardID}|{g.Species}|{g.Form}", $"G{g.Generation} carta {g.CardID} «{g.CardTitle}» {testi.specieslist[g.Species]} {g.OriginalTrainerName} {g.TID16:00000}{(g.IsEgg ? " uovo" : "")}{(g.IsShiny ? " cromatico" : "")}"));
@@ -856,6 +859,8 @@ int Carte(string uscita, string[] copie)
             {
                 1 => new[] { GameVersion.RD, GameVersion.BU, GameVersion.YW, GameVersion.GN },
                 2 => new[] { GameVersion.GD, GameVersion.SI, GameVersion.C },
+                // un uovo dono di terza generazione la libreria lo schiude da se' se chi lo riceve non e' di terza generazione
+                3 when enc.IsEgg => new[] { GameVersion.Pt, GameVersion.HG },
                 3 => new[] { GameVersion.E, GameVersion.R, GameVersion.S, GameVersion.FR, GameVersion.LG, GameVersion.CXD },
                 4 => new[] { GameVersion.HG, GameVersion.SS, GameVersion.Pt, GameVersion.D, GameVersion.P },
                 5 => new[] { GameVersion.B2, GameVersion.W2, GameVersion.B, GameVersion.W },
@@ -873,7 +878,7 @@ int Carte(string uscita, string[] copie)
                 {
                     var pk = enc.ConvertToPKM(tr, EncounterCriteria.Unrestricted);
                     // un uovo non passa il Trasportatore: si schiude, come farebbe chi lo riceve, e la data deve essere vera
-                    if (pk.IsEgg) pk.ForceHatchPKM(tr);
+                    if (pk.IsEgg && pk.Format >= 4) pk.ForceHatchPKM(tr);
                     var la = new LegalityAnalysis(pk);
                     if (!la.Valid && la.Report().Contains("Met Date") && pk.Format >= 4)
                     {

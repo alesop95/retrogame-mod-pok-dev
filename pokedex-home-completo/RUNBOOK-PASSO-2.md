@@ -49,7 +49,7 @@ Stato al 2026-11-04: punti da 1 a 15 FATTI. La copia `20261104-giro2` è stata s
 
 ## Giro 3
 
-Scritto per intero il 2026-11-05 su richiesta del proprietario, con gli stessi passaggi del giro 2 e i nomi già pronti. La data nei nomi è `20261105`: se il giro si fa un altro giorno, si usa la data di quel giorno, sempre nella forma anno, mese, giorno. La copia è `_notes/salvataggi/prove/per-home/oras-giro-3-fin3/main`, 915 esemplari, SHA-256 che comincia con `4662a6a66ad07063`, giudicata 915 conformi. Prima di cominciare, il giro 2 deve essere registrato in HOME, ed è fatto: HOME mostra 1685.
+Scritto per intero il 2026-11-05 su richiesta del proprietario, con gli stessi passaggi del giro 2 e i nomi già pronti. La data nei nomi è `20261105`: se il giro si fa un altro giorno, si usa la data di quel giorno, sempre nella forma anno, mese, giorno. La copia è `_notes/salvataggi/prove/per-home/oras-giro-3-fin3/main`, 915 esemplari, SHA-256 che comincia con `4662a6a66ad07063`, giudicata 915 conformi. Prima di cominciare, il giro 2 deve essere registrato in HOME, ed è fatto: HOME mostra 1685. Stato al 2026-11-05: punti 3 e 4 FATTI dall'agente, riserva in due copie con 19 file uguali e `20261105-giro3/main` sulla SD con l'impronta giusta; tocca al proprietario dal punto 5.
 
 ### A. Con la scheda SD nel PC
 

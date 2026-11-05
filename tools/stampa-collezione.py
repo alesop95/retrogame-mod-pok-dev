@@ -164,10 +164,13 @@ PROVENIENZE_GEN3 = os.path.join(RADICE, "recreate-pokemon-distributions-events",
 # nel rapporto del lotto, che e' locale.
 COMUNITA = [os.path.join(RADICE, "_notes", "lotti", "lotto-rng-comunita", "rapporto.json"),
             os.path.join(RADICE, "_notes", "lotti", "lotto-rng-comunita-2", "rapporto.json"),
+            os.path.join(RADICE, "_notes", "lotti", "lotto-rng-comunita-3", "rapporto.json"),
+            os.path.join(RADICE, "_notes", "lotti", "lotto-ranch-lingue", "rapporto.json"),
             # gli eventi dell'Eventdex di Serebii che mancavano alle copie, prodotti dalle carte della libreria (ADR-115)
             os.path.join(RADICE, "_notes", "lotti", "lotto-serebii-mancanti", "rapporto.json"),
             # le carte e i doni della libreria che nessuna copia aveva (ADR-116)
-            os.path.join(RADICE, "_notes", "lotti", "lotto-carte-scoperte-2", "rapporto.json")]
+            os.path.join(RADICE, "_notes", "lotti", "lotto-carte-scoperte-2", "rapporto.json"),
+            os.path.join(RADICE, "_notes", "lotti", "lotto-skitty-pokepark", "rapporto.json")]
 EVENTDEX = os.path.join(RADICE, "_notes", "fonti", "raccolte", "serebii-eventdex-2026-11-04", "serebii-eventdex-eventi.json")
 
 
