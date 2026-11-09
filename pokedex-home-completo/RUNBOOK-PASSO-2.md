@@ -83,7 +83,7 @@ Scritto per intero il 2026-11-05 su richiesta del proprietario, con gli stessi p
 
 ## Giro 4
 
-Scritto il 2026-11-09 su richiesta del proprietario, con gli stessi passaggi del giro 3 e i nomi già pronti. La copia è HOME6, `_notes/salvataggi/prove/per-home/oras-giro-4-fin9/main`, 929 esemplari, SHA-256 che comincia con `54fba3a32cd4f48d`, giudicata 929 conformi con la libreria 26.10.18 (`_notes/lavoro/giudizi-copie/dopo-adr120.json`). Il giro 3 è registrato: HOME mostra 2600, e dopo questo giro i posti occupati attesi sono 3529 su 9000. Stato al 2026-11-09: punti da 1 a 4 FATTI, perché la SD era già nel PC in `I:`; tocca al proprietario dal punto 5. Se durante il passaggio Luma3DS mostra di nuovo un'eccezione nel processo `mint`, è l'applet eShop di sistema e non i dati della copia (ADR-120): si spegne, si riaccende e si riprende dal punto 16, senza ripristinare niente.
+Scritto il 2026-11-09 su richiesta del proprietario, con gli stessi passaggi del giro 3 e i nomi già pronti. La copia è HOME6, `_notes/salvataggi/prove/per-home/oras-giro-4-fin9/main`, 929 esemplari, SHA-256 che comincia con `54fba3a32cd4f48d`, giudicata 929 conformi con la libreria 26.10.18 (`_notes/lavoro/giudizi-copie/dopo-adr120.json`). Il giro 3 è registrato: HOME mostra 2600, e dopo questo giro i posti occupati attesi sono 3529 su 9000. Stato al 2026-11-09: punti da 1 a 14 FATTI (dal 5 al 12 dal proprietario, il 13 e il 14 dall'agente con la SD di nuovo in `I:`); tocca al proprietario dal punto 15. Se durante il passaggio Luma3DS mostra di nuovo un'eccezione nel processo `mint`, è l'applet eShop di sistema e non i dati della copia (ADR-120): si spegne, si riaccende e si riprende dal punto 16, senza ripristinare niente.
 
 ### A. Con la scheda SD nel PC
 
@@ -91,22 +91,22 @@ Scritto il 2026-11-09 su richiesta del proprietario, con gli stessi passaggi del
 2. Proprietario: SD nel PC, lettera `I:`. FATTO.
 3. Agente: copia di `/3ds/Checkpoint/saves/` in `E:\retrogame-mod-pok-dev\_notes\salvataggi\console\sd-checkpoint-20261109\` e `J:\backup-sd-3ds\20261109\`, SHA-256 di ogni file sulla SD e nelle due copie. FATTO il 2026-11-09: 22 file, 22 uguali, comprese `20261105-prima3` e `20261105-rilett3` del giro 3.
 4. Agente: cartella `/3ds/Checkpoint/saves/0x011C4 Pokémon Omega Ruby/20261109-giro4/` con la copia del giro 4 di nome `main`, riletta dalla SD. FATTO il 2026-11-09: SHA-256 `54fba3a32cd4f48d91a94d260a22686a3e3ea65653da446335a4e0e7b7790d35`, uguale alla copia.
-5. Proprietario: espelli la SD in sicurezza da Windows, con l'icona «Rimozione sicura dell'hardware», poi rimettila nel 3DS.
+5. Proprietario: espelli la SD in sicurezza da Windows, con l'icona «Rimozione sicura dell'hardware», poi rimettila nel 3DS. FATTO il 2026-11-09.
 
 ### B. Sulla console
 
 6. Proprietario: accendi il 3DS e avvia Checkpoint dal menu HOME.
 7. Proprietario: scegli Pokémon Omega Ruby e fai prima di tutto una copia di riserva dello stato attuale: premi Backup e dai il nome `20261109-prima4`.
 8. Proprietario: nell'elenco delle copie di Pokémon Omega Ruby seleziona `20261109-giro4`, premi Restore e conferma.
-9. Proprietario: esci da Checkpoint e avvia Rubino Omega. Carica la partita e, senza giocare né salvare, apri il PC dei box. Controlla: box 1 posto 1 Mew livello 30, allenatore ゲーフリ, non cromatico; box 1 posto 2 Mew livello 30, allenatore ゲーフリ, cromatico; box 31 posto 29 Pikachu livello 20, allenatore ユカリ; i box da 1 a 30 pieni, il box 31 con i posti da 1 a 29. Se una cosa non torna, fermati e dimmelo.
+9. Proprietario: esci da Checkpoint e avvia Rubino Omega. Carica la partita e, senza giocare né salvare, apri il PC dei box. Controlla: box 1 posto 1 Mew livello 30, allenatore ゲーフリ, non cromatico; box 1 posto 2 Mew livello 30, allenatore ゲーフリ, cromatico; box 31 posto 29 Pikachu livello 20, allenatore ユカリ; i box da 1 a 30 pieni, il box 31 con i posti da 1 a 29. Se una cosa non torna, fermati e dimmelo. FATTO il 2026-11-09: le otto foto del proprietario mostrano box 1 posto 1 Mew 30 ゲーフリ non cromatico (Ritrosa, ID 42317) e posto 2 lo stesso cromatico (Gentile); nel box 31 l'ultima riga ha cinque Pokémon, con Pikachu 20 Hayley al posto 28 e Pikachu 20 ユカリ al posto 29, e il sesto posto vuoto, come nel giudizio. Il proprietario li aveva contati al 29 e al 30: è la riga da sei colonne contata con un posto in più, i dati sono quelli attesi.
 10. Proprietario: esci dal gioco senza salvare, dal menu HOME, chiudendo il software.
-11. Proprietario: avvia di nuovo Checkpoint, scegli Pokémon Omega Ruby, premi Backup e dai il nome `20261109-rilett4`.
+11. Proprietario: avvia di nuovo Checkpoint, scegli Pokémon Omega Ruby, premi Backup e dai il nome `20261109-rilett4`. Punti 6, 7, 8, 10 e 11 FATTI il 2026-11-09: sulla SD ci sono `20261109-prima4` delle 12:49 e `20261109-rilett4` delle 12:54.
 
 ### C. La verifica, di nuovo con la SD nel PC
 
-12. Proprietario: spegni il 3DS del tutto, metti la SD nel PC e dimmelo.
-13. Agente: confronto lo SHA-256 di `20261109-rilett4/main` con quello della copia del giro 4; devono coincidere byte per byte. Se la differenza sta solo nei campi che il gioco riscrive all'apertura, la misuro e te la dico prima di andare avanti.
-14. Agente: giudico `20261109-rilett4/main` con `tools/pkhex-elenco-copie`: devono risultare 929 esemplari, 929 conformi, negli stessi box e posti del giudizio del 2026-11-09. Copio la rilettura e la riserva `20261109-prima4` nelle due cartelle di riserva del punto 3.
+12. Proprietario: spegni il 3DS del tutto, metti la SD nel PC e dimmelo. FATTO il 2026-11-09.
+13. Agente: confronto lo SHA-256 di `20261109-rilett4/main` con quello della copia del giro 4; devono coincidere byte per byte. Se la differenza sta solo nei campi che il gioco riscrive all'apertura, la misuro e te la dico prima di andare avanti. FATTO il 2026-11-09: `20261109-rilett4/main` ha SHA-256 `54fba3a32cd4f48d91a94d260a22686a3e3ea65653da446335a4e0e7b7790d35`, identico alla copia del giro 4 e a `20261109-giro4/main`.
+14. Agente: giudico `20261109-rilett4/main` con `tools/pkhex-elenco-copie`: devono risultare 929 esemplari, 929 conformi, negli stessi box e posti del giudizio del 2026-11-09. Copio la rilettura e la riserva `20261109-prima4` nelle due cartelle di riserva del punto 3. FATTO il 2026-11-09: `_notes/lavoro/giudizi-copie/rilettura-passo2-giro4.json`, 929 esemplari, 929 conformi, stessi box, posti e impronte del giudizio `dopo-adr120.json`; `20261109-prima4` (SHA-256 che comincia con `edef07097eafcf7c`) giudicata con 0 esemplari nei box, come atteso dopo il passaggio del giro 3; le due copie sono nelle due cartelle di riserva, con le impronte uguali alla SD.
 15. Proprietario: espelli la SD in sicurezza e rimettila nel 3DS.
 
 ### D. Il tratto tuo, e la verifica in HOME

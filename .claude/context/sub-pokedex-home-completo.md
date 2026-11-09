@@ -5,7 +5,7 @@ generated-date: 2026-09-02
 covers-paths:
   - pokedex-home-completo/
 last-verified-commit: e22c1e9
-stato: attivo ed è il fuoco corrente; tutte le copie per HOME pronte e conformi (ADR-119, ADR-120), undici giri nella tabella in testa a ROADMAP.md, 6212 esemplari di cui 6088 conformi; giri 1-3 in HOME (2600), giro 4 avviato il 2026-11-09 con la SD pronta, tocca al proprietario dal punto 5; FINALE 121 alla decisione finale
+stato: attivo ed è il fuoco corrente; tutte le copie per HOME pronte e conformi (ADR-119, ADR-120), undici giri nella tabella in testa a ROADMAP.md, 6212 esemplari di cui 6088 conformi; giri 1-3 in HOME (2600), giro 4 riletto e giudicato il 2026-11-09 (929 su 929), tocca al proprietario dal punto 15; FINALE 121 alla decisione finale
 ---
 
 # Sottoprogetto: Pokedex completo in Pokemon Home
@@ -30,7 +30,7 @@ Aggiornamento del 2026-09-29, che supera due affermazioni del paragrafo preceden
 
 ## Prossimo passo
 
-Aggiornato il 2026-11-09, prevale sui paragrafi sotto. Il proprietario fa il giro 4 dal punto 5 della sezione «Giro 4» di `RUNBOOK-PASSO-2.md`, HOME da 2600 a 3529; poi l'agente rilegge e giudica la copia riletta e registra il giro. Seguono i giri dal 5 all'11 nell'ordine della tabella di `ROADMAP.md`. Il tratto dalla banca in poi resta fuori dall'assistenza (`rules/hardware-and-perimeter.md`).
+Aggiornato il 2026-11-09, seconda parte, prevale sui paragrafi sotto. Giro 4 fatto fino al punto 14: rilettura identica alla copia, 929 conformi su 929. Il proprietario fa i punti 15-17 della sezione «Giro 4» di `RUNBOOK-PASSO-2.md`, cioè Bank e HOME, da 2600 a 3529; poi l'agente registra il giro al punto 18. Seguono i giri dal 5 all'11 nell'ordine della tabella di `ROADMAP.md`. Il tratto dalla banca in poi resta fuori dall'assistenza (`rules/hardware-and-perimeter.md`).
 
 Aggiornato il 2026-11-03, prevale sui paragrafi sotto. Il prossimo passo sotto scadenza è il passo 1 della roadmap del 2026-10-05, cioè la prova pilota con `oras-giro-1-fin2`, 930 esemplari: ripristino della copia con Checkpoint dopo la copia di riserva della partita vera, controllo dei box, banca, deposito. Lo esegue il proprietario, e il tratto dalla banca in poi resta fuori dall'assistenza (`rules/hardware-and-perimeter.md`). Seguono i giri 2 e 3 di Rubino Omega, poi Luna e Ultraluna con i codici QR, poi la prova dei 14 giapponesi, i 121 della decisione finale e il ripristino delle partite vere. Da sviluppo resta il punto 4 di ADR-100, la lettura del codice delle fonti, che non blocca nessun passaggio. Aperta il 2026-11-03 una lacuna rispetto al profilo di ADR-096: gli incontri statici tipici di ogni titolo dalla prima alla settima generazione non sono prodotti come caselle a sé, salvo 12 di Ohana e tre di Platino. Il perimetro attende la risposta del proprietario, in `pending.md`; la prova pilota non ne dipende.
 

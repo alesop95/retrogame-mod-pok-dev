@@ -4,6 +4,20 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-09, seconda parte. Il giro 4 riletto e giudicato
+
+Il proprietario ha lanciato `chiudi`, che ha committato e pubblicato `ae06243` con due avvisi non bloccanti: il messaggio non nomina tutte le aree toccate (radice, `.claude`, `docs`, `pokedex-home-completo`, `tools`) e ADR-120 cambia strumenti senza una voce didattica. Poi ha fatto i punti 5-12 del giro 4 e ha riportato la SD in `I:`, con otto foto della console mandate da Telegram.
+
+Punto 13: `20261109-rilett4/main` ha SHA-256 `54fba3a32cd4f48d…`, identico alla copia HOME6 `oras-giro-4-fin9` e a `20261109-giro4/main`. Punto 14: `tools/pkhex-elenco-copie` sulla rilettura dà 929 esemplari, 929 conformi, con box, posti e impronte uguali al giudizio `dopo-adr120.json` (`_notes/lavoro/giudizi-copie/rilettura-passo2-giro4.json`); `20261109-prima4` (SHA-256 che comincia con `edef07097eafcf7c`) ha 0 esemplari nei box, coerente con il passaggio del giro 3. Le due copie sono in `_notes/salvataggi/console/sd-checkpoint-20261109/` e in `J:/backup-sd-3ds/20261109/`, con le impronte uguali alla SD.
+
+Le foto mostrano box 1 posto 1 Mew 30 ゲーフリ non cromatico, Ritrosa, ID 42317, e posto 2 cromatico, Gentile, come nel giudizio. Il proprietario ha scritto che nel box 31 Pikachu Hayley sta al 29 e quello giapponese al 30; le foto mostrano l'ultima riga del box con cinque Pokémon e il sesto posto vuoto, cioè Hayley al 28 e ユカリ al 29, come nel giudizio e come diceva il passo 9: è un conteggio con un posto in più, non una differenza nei dati. Foto copiate in `_notes/fonti/consegne/2026-11-09-giro4-console/`, verificate con `cmp`, e originali cancellati dalla cartella di Telegram su autorizzazione del proprietario.
+
+`chiudi -SoloControlli` si è fermato su `verifica-link-progetto.py`: `pokedex-home-completo/premi-blu-giapponese.json`, entrato nel commit `ae06243`, cita la pagina Celadon Game Corner di Bulbapedia, che non era nel registro e che lo strumento vede solo da quando il file è tracciato. Letta dall'API (revisione 4667002, copia in `_notes/fonti/bulbapedia/celadon-game-corner-2026-11-09/`): i premi del Blu giapponese sono Abra 8, Pikachu 12, Horsea 18, Clefable 24, Dragonair 30 e Porygon 22, e i quattro che esistono solo lì coincidono con la richiesta, livelli compresi. Registrata in `SOURCES.md`; controlli verdi.
+
+**Template:** nessuna
+
+**Didattica:** nessuna, e l'avviso di `chiudi` su ADR-120 è stato valutato: i due cambi agli strumenti (il campo `ec_multiplo` e l'opzione `--solo-stesso-formato`) sono estensioni puntuali di uno strumento esistente, senza un prima fragile e un dopo migliore da raccontare; il caso istruttivo, cioè che rifare la conversione di un `.pk1` cambia l'esemplare, sta già in ADR-120 e in `docs/22-strumenti.md`.
+
 ## 2026-11-09. Il marchio Game Boy prima di Bank, la geolocalizzazione dei trasferiti, il dump di Luma, il giro 4 avviato, ADR-120
 
 Il proprietario ha lanciato `chiudi`, che si è fermato su `fix-accents.py`; ha connesso la SD in `I:`, ha chiesto di leggere il dump di Luma, di fare subito il giro 4, di controllare la lista di r/PokemonHome `1vwg1gd` sul marchio Game Boy e di aggiornarsi sull'evento GO del 9-15 novembre 2026; ha detto che non ha Scarlatto né Violetto (Goodra alla comunità, fase Switch) e che in Leggende Z-A, con la DLC, ha riscattato il Vivillon Motivo Poké Ball e tutti i doni segreti disponibili.

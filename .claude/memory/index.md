@@ -9,7 +9,7 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 ```
 Branch attivo:         main
 Commit di riferimento: e22c1e9, Allineamento dal template al commit 1ee6754
-Data snapshot:         2026-11-09, ADR-120: marchio Game Boy, HOME7 fin7 e HOME10 -gb, giro 4 sulla SD; prossimo: giro 4 dal punto 5
+Data snapshot:         2026-11-09, ADR-120: marchio Game Boy, HOME7 fin7 e HOME10 -gb; giro 4 riletto e giudicato 929 su 929; prossimo: giro 4 dal punto 15
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,8 @@ Data snapshot:         2026-11-09, ADR-120: marchio Game Boy, HOME7 fin7 e HOME1
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-11-09, seconda parte, che prevale su quelle sotto. Il proprietario ha lanciato `chiudi` (commit `ae06243`, con due avvisi non bloccanti sulle aree del messaggio e sulla didattica) e ha fatto i punti 5-12 del giro 4. Punti 13 e 14 FATTI: `20261109-rilett4/main` identica byte per byte alla copia HOME6 `oras-giro-4-fin9`, giudicata 929 conformi su 929 negli stessi posti (`_notes/lavoro/giudizi-copie/rilettura-passo2-giro4.json`); `20261109-prima4` con i box vuoti; entrambe nelle due riserve. Le foto confermano i controlli in gioco; nel box 31 Pikachu Hayley è al 28 e ユカリ al 29, come nel giudizio. Prossimo: il proprietario fa i punti 15-17 (Bank e HOME, da 2600 a 3529), poi l'agente il 18.
 
 AGGIUNTA DEL 2026-11-09, che prevale su quelle sotto (ADR-120). Dump di Luma3DS letto: difetto dell'applet eShop di sistema (`mint`), non dei dati. Marchio Game Boy controllato sulla lista di r/PokemonHome `1vwg1gd`: aggiunti Raichu, Exeggutor e Marowak di Alola, Meowth, Butterfree e un Dunsparce per il Dudunsparce a tre segmenti nella copia nuova di HOME10 `ultraluna-giro-3-statici-gb`, 261; HOME7 diventa `ultraluna-giro-2-fin7`, 642, con la geolocalizzazione del salvataggio su 28 esemplari della Console Virtuale. Giudizio `dopo-adr120.json`, 6212 esemplari, 6088 conformi; HOME a giri finiti 6111. Giro 4 avviato: SD pronta con `20261109-giro4`, tocca al proprietario dal punto 5 della sezione «Giro 4» di `RUNBOOK-PASSO-2.md`. Il Goodra passa alla comunità nella fase Switch; Vivillon e doni di Z-A riscattati. Pendenze nella voce «AL 2026-11-09» di `pending.md`.
 

@@ -19,7 +19,7 @@ Scritta il 2026-11-07 dopo ADR-119, quando la produzione per HOME è chiusa: tut
 | 1 | HOME1 | `oras-giro-1-fin2` | Rubino Omega | 930 | 930 | in HOME dal 2026-11-03 | 964 |
 | 2 | HOME2 | `oras-giro-2-mn-fin2` | Rubino Omega | 721 | 721 | in HOME dal 2026-11-04 | 1685 |
 | 3 | HOME3 | `oras-giro-3-fin3` | Rubino Omega | 915 | 915 | in HOME dal 2026-11-06 | 2600 |
-| 4 | HOME6 | `oras-giro-4-fin9` | Rubino Omega | 929 | 929 | in corso dal 2026-11-09: sulla SD, tocca al proprietario dal punto 5 | 3529 |
+| 4 | HOME6 | `oras-giro-4-fin9` | Rubino Omega | 929 | 929 | in corso dal 2026-11-09: riletta identica e giudicata 929 su 929, tocca al proprietario dal punto 15 (Bank e HOME) | 3529 |
 | 5 | HOME8 | `oras-giro-5-carte-mn5` | Rubino Omega | 256 | 256 | pronta, corretta il 2026-11-07 | 3785 |
 | 6 | HOME9 | `oras-giro-6-statici-eventi-3` | Rubino Omega | 694 | 694 | pronta, nuova il 2026-11-07 | 4479 |
 | 7 | HOME4 | `luna-giro-1-fin` | Luna | 93 | 93 | pronta | 4572 |
