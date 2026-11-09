@@ -1,0 +1,78 @@
+[
+ {
+  "id": "GJ-Horsea",
+  "specie": "Horsea",
+  "gioco": "BU",
+  "metodo": "criteri",
+  "incontro": "Static",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "アレッシオ",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Celadon_Game_Corner",
+  "storia": "Il Horsea premio del Casinò di Azzurropoli nel Blu giapponese, livello 18: esiste solo nella versione giapponese, quindi si produce in giapponese e arriva in HOME da una console giapponese con la Console Virtuale (ADR-106, ADR-119)."
+ },
+ {
+  "id": "GJ-Clefable",
+  "specie": "Clefable",
+  "gioco": "BU",
+  "metodo": "criteri",
+  "incontro": "Static",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "アレッシオ",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Celadon_Game_Corner",
+  "storia": "Il Clefable premio del Casinò di Azzurropoli nel Blu giapponese, livello 24: esiste solo nella versione giapponese, quindi si produce in giapponese e arriva in HOME da una console giapponese con la Console Virtuale (ADR-106, ADR-119)."
+ },
+ {
+  "id": "GJ-Dragonair",
+  "specie": "Dragonair",
+  "gioco": "BU",
+  "metodo": "criteri",
+  "incontro": "Static",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "アレッシオ",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Celadon_Game_Corner",
+  "storia": "Il Dragonair premio del Casinò di Azzurropoli nel Blu giapponese, livello 30: esiste solo nella versione giapponese, quindi si produce in giapponese e arriva in HOME da una console giapponese con la Console Virtuale (ADR-106, ADR-119)."
+ },
+ {
+  "id": "GJ-Pikachu",
+  "specie": "Pikachu",
+  "gioco": "BU",
+  "metodo": "criteri",
+  "incontro": "Static",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "アレッシオ",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Celadon_Game_Corner",
+  "storia": "Il Pikachu premio del Casinò di Azzurropoli nel Blu giapponese, livello 12: esiste solo nella versione giapponese, quindi si produce in giapponese e arriva in HOME da una console giapponese con la Console Virtuale (ADR-106, ADR-119)."
+ }
+]

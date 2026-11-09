@@ -1,0 +1,410 @@
+[
+ {
+  "id": "D01-Magikarp",
+  "specie": "Magikarp",
+  "gioco": "D",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "ウッツ－",
+  "tid": 1256,
+  "fonte": "https://pokemonhistorian.com/daisukigts/magikarp-of-love/",
+  "storia": "Il Magikarp di San Valentino del Daisuki Club, 14 febbraio 2007, ceduto via GTS dallo staff: allenatore ウッツ－, ID 01256. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119).",
+  "livello": 5,
+  "natura": "Relaxed",
+  "mosse": [
+   "Splash"
+  ]
+ },
+ {
+  "id": "D02-Magikarp",
+  "specie": "Magikarp",
+  "gioco": "D",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "ルイルイ♥",
+  "tid": 2226,
+  "fonte": "https://pokemonhistorian.com/daisukigts/magikarp-of-love/",
+  "storia": "Il Magikarp di San Valentino del Daisuki Club, 14 febbraio 2007, ceduto via GTS dallo staff: allenatore ルイルイ♥, ID 02226. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119).",
+  "livello": 6,
+  "natura": "Rash",
+  "mosse": [
+   "Splash"
+  ]
+ },
+ {
+  "id": "D03-Magikarp",
+  "specie": "Magikarp",
+  "gioco": "D",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "ノリィ♪",
+  "tid": 3126,
+  "fonte": "https://pokemonhistorian.com/daisukigts/magikarp-of-love/",
+  "storia": "Il Magikarp di San Valentino del Daisuki Club, 14 febbraio 2007, ceduto via GTS dallo staff: allenatore ノリィ♪, ID 03126. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119).",
+  "livello": 7,
+  "natura": "Hardy",
+  "mosse": [
+   "Splash"
+  ]
+ },
+ {
+  "id": "D04-Magikarp",
+  "specie": "Magikarp",
+  "gioco": "D",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "ナナ",
+  "tid": 7076,
+  "fonte": "https://pokemonhistorian.com/daisukigts/magikarp-of-love/",
+  "storia": "Il Magikarp di San Valentino del Daisuki Club, 14 febbraio 2007, ceduto via GTS dallo staff: allenatore ナナ, ID 07076. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119).",
+  "livello": 5,
+  "natura": "Lonely",
+  "mosse": [
+   "Splash"
+  ]
+ },
+ {
+  "id": "D05-Magikarp",
+  "specie": "Magikarp",
+  "gioco": "D",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "りゅうた",
+  "tid": 12226,
+  "fonte": "https://pokemonhistorian.com/daisukigts/magikarp-of-love/",
+  "storia": "Il Magikarp di San Valentino del Daisuki Club, 14 febbraio 2007, ceduto via GTS dallo staff: allenatore りゅうた, ID 12226. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119).",
+  "livello": 4,
+  "natura": "Modest",
+  "mosse": [
+   "Splash"
+  ]
+ },
+ {
+  "id": "D06-Starly",
+  "specie": "Starly",
+  "gioco": "D",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "だいすき",
+  "tid": 8311,
+  "fonte": "https://www.serebii.net/events/dex/396.shtml",
+  "storia": "Lo Starly del Pokémon Daisuki Club Party, 21 febbraio 2008, nato in pensione e ceduto ai soci: allenatore だいすき, ID 08311. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119).",
+  "natura": "Mild",
+  "sesso": 0,
+  "incontro": "Egg",
+  "livello_attuale": 1
+ },
+ {
+  "id": "D07-Bidoof",
+  "specie": "Bidoof",
+  "gioco": "D",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "だいすき",
+  "tid": 17336,
+  "fonte": "https://www.serebii.net/events/dex/396.shtml",
+  "storia": "Il Bidoof del Pokémon Daisuki Club Party, 21 febbraio 2008, nato in pensione e ceduto ai soci: allenatore だいすき, ID 17336. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119).",
+  "natura": "Lonely",
+  "sesso": 0,
+  "incontro": "Egg",
+  "livello_attuale": 1
+ },
+ {
+  "id": "D08-Heracross",
+  "specie": "Heracross",
+  "gioco": "D",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "ウッツ－",
+  "tid": 43393,
+  "fonte": "https://pokemonhistorian.com/daisukigts/minidaisukis/",
+  "storia": "L'Heracross del Daisuki Club GTS Act 1 (mini Daisuki), ceduto via GTS dallo staff: allenatore ウッツ－, ID 43393. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119).",
+  "sesso": 0,
+  "mosse": [
+   "Close Combat",
+   "Earthquake",
+   "Protect",
+   "Shadow Claw"
+  ],
+  "livello_attuale": 38
+ },
+ {
+  "id": "D09-Cherubi",
+  "specie": "Cherubi",
+  "gioco": "D",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "ウッツ－",
+  "tid": 43393,
+  "fonte": "https://pokemonhistorian.com/daisukigts/minidaisukis/",
+  "storia": "Il Cherubi del Daisuki Club GTS Act 1 (mini Daisuki), ceduto via GTS dallo staff: allenatore ウッツ－, ID 43393. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119).",
+  "sesso": 1
+ },
+ {
+  "id": "D10-Milotic",
+  "specie": "Milotic",
+  "gioco": "D",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "ナナ",
+  "tid": 3128,
+  "fonte": "https://pokemonhistorian.com/daisukigts/minidaisukis/",
+  "storia": "Il Milotic del Daisuki Club GTS Act 1 (mini Daisuki), ceduto via GTS dallo staff: allenatore ナナ, ID 03128. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119).",
+  "sesso": 1,
+  "livello_attuale": 28
+ },
+ {
+  "id": "D11-Gible",
+  "specie": "Gible",
+  "gioco": "D",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "ルイルイ♥",
+  "tid": 19282,
+  "fonte": "https://pokemonhistorian.com/daisukigts/minidaisukis/",
+  "storia": "Il Gible del Daisuki Club GTS Act 1 (mini Daisuki); l'ID 19282 è dato come incerto dalla fonte: allenatore ルイルイ♥, ID 19282. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119).",
+  "sesso": 1
+ },
+ {
+  "id": "D12-Blissey",
+  "specie": "Blissey",
+  "gioco": "D",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "ノリィ",
+  "tid": 31507,
+  "fonte": "https://pokemonhistorian.com/daisukigts/minidaisukis/",
+  "storia": "Il Blissey del Daisuki Club GTS Act 1 (mini Daisuki); l'ID 31507 è dato come incerto dalla fonte: allenatore ノリィ, ID 31507. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119).",
+  "sesso": 1
+ },
+ {
+  "id": "D13-Shinx",
+  "specie": "Shinx",
+  "gioco": "Pt",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "シン",
+  "tid": 42356,
+  "fonte": "https://pokemonhistorian.com/daisukigts/daisuki-goes-platinum/",
+  "storia": "Lo Shinx del GTS09 «Daisuki Club goes Platinum», ceduto via GTS dallo staff: allenatore シン, ID 42356. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119)."
+ },
+ {
+  "id": "D14-Shinx",
+  "specie": "Shinx",
+  "gioco": "Pt",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "ケイイチ",
+  "tid": 58125,
+  "fonte": "https://pokemonhistorian.com/daisukigts/daisuki-goes-platinum/",
+  "storia": "Lo Shinx del GTS09 «Daisuki Club goes Platinum», ceduto via GTS dallo staff: allenatore ケイイチ, ID 58125. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119)."
+ },
+ {
+  "id": "D15-Shinx",
+  "specie": "Shinx",
+  "gioco": "Pt",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "るいるい",
+  "tid": 30994,
+  "fonte": "https://pokemonhistorian.com/daisukigts/daisuki-goes-platinum/",
+  "storia": "Lo Shinx del GTS09 «Daisuki Club goes Platinum», ceduto via GTS dallo staff: allenatore るいるい, ID 30994. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119)."
+ },
+ {
+  "id": "D16-Shinx",
+  "specie": "Shinx",
+  "gioco": "Pt",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "まーたん",
+  "tid": 61848,
+  "fonte": "https://pokemonhistorian.com/daisukigts/daisuki-goes-platinum/",
+  "storia": "Lo Shinx del GTS09 «Daisuki Club goes Platinum», ceduto via GTS dallo staff: allenatore まーたん, ID 61848. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119)."
+ },
+ {
+  "id": "D17-Ralts",
+  "specie": "Ralts",
+  "gioco": "Pt",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "トシ",
+  "tid": 48040,
+  "fonte": "https://pokemonhistorian.com/daisukigts/daisuki-goes-platinum/",
+  "storia": "Il Ralts del GTS09 «Daisuki Club goes Platinum», ceduto via GTS dallo staff: allenatore トシ, ID 48040. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119)."
+ },
+ {
+  "id": "D18-Ralts",
+  "specie": "Ralts",
+  "gioco": "Pt",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "かけれる",
+  "tid": 54193,
+  "fonte": "https://pokemonhistorian.com/daisukigts/daisuki-goes-platinum/",
+  "storia": "Il Ralts del GTS09 «Daisuki Club goes Platinum», ceduto via GTS dallo staff: allenatore かけれる, ID 54193. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119)."
+ },
+ {
+  "id": "D19-Ralts",
+  "specie": "Ralts",
+  "gioco": "Pt",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "ゆのすけ",
+  "tid": 4652,
+  "fonte": "https://pokemonhistorian.com/daisukigts/daisuki-goes-platinum/",
+  "storia": "Il Ralts del GTS09 «Daisuki Club goes Platinum», ceduto via GTS dallo staff: allenatore ゆのすけ, ID 04652. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119).",
+  "livello_attuale": 8
+ }
+]

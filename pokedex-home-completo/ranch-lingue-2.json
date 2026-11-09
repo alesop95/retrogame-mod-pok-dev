@@ -1,0 +1,1879 @@
+[
+ {
+  "id": "R-Pikachu-fr",
+  "specie": "Pikachu",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "fr",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Pikachu di My Pokémon Ranch per Wii, versione francese: la ragazza del Ranch (EULALIE) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EULALIE, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Pikachu-de",
+  "specie": "Pikachu",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "de",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Pikachu di My Pokémon Ranch per Wii, versione tedesca: la ragazza del Ranch (EUKALIA) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EUKALIA, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Pikachu-es",
+  "specie": "Pikachu",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "es",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Pikachu di My Pokémon Ranch per Wii, versione spagnola: la ragazza del Ranch (Eulalia) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Eulalia, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Vulpix-ja",
+  "specie": "Vulpix",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Vulpix di My Pokémon Ranch per Wii, versione giapponese: la ragazza del Ranch (ユカリ) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore ユカリ, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Vulpix-en",
+  "specie": "Vulpix",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Vulpix di My Pokémon Ranch per Wii, versione inglese: la ragazza del Ranch (Hayley) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Hayley, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Vulpix-fr",
+  "specie": "Vulpix",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "fr",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Vulpix di My Pokémon Ranch per Wii, versione francese: la ragazza del Ranch (EULALIE) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EULALIE, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Vulpix-de",
+  "specie": "Vulpix",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "de",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Vulpix di My Pokémon Ranch per Wii, versione tedesca: la ragazza del Ranch (EUKALIA) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EUKALIA, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Vulpix-es",
+  "specie": "Vulpix",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "es",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Vulpix di My Pokémon Ranch per Wii, versione spagnola: la ragazza del Ranch (Eulalia) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Eulalia, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Ponyta-ja",
+  "specie": "Ponyta",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Ponyta di My Pokémon Ranch per Wii, versione giapponese: la ragazza del Ranch (ユカリ) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore ユカリ, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Ponyta-en",
+  "specie": "Ponyta",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Ponyta di My Pokémon Ranch per Wii, versione inglese: la ragazza del Ranch (Hayley) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Hayley, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Ponyta-fr",
+  "specie": "Ponyta",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "fr",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Ponyta di My Pokémon Ranch per Wii, versione francese: la ragazza del Ranch (EULALIE) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EULALIE, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Ponyta-de",
+  "specie": "Ponyta",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "de",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Ponyta di My Pokémon Ranch per Wii, versione tedesca: la ragazza del Ranch (EUKALIA) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EUKALIA, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Ponyta-es",
+  "specie": "Ponyta",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "es",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Ponyta di My Pokémon Ranch per Wii, versione spagnola: la ragazza del Ranch (Eulalia) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Eulalia, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Lickitung-ja",
+  "specie": "Lickitung",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Lickitung di My Pokémon Ranch per Wii, versione giapponese: la ragazza del Ranch (ユカリ) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore ユカリ, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Lickitung-en",
+  "specie": "Lickitung",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Lickitung di My Pokémon Ranch per Wii, versione inglese: la ragazza del Ranch (Hayley) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Hayley, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Lickitung-fr",
+  "specie": "Lickitung",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "fr",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Lickitung di My Pokémon Ranch per Wii, versione francese: la ragazza del Ranch (EULALIE) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EULALIE, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Lickitung-de",
+  "specie": "Lickitung",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "de",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Lickitung di My Pokémon Ranch per Wii, versione tedesca: la ragazza del Ranch (EUKALIA) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EUKALIA, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Lickitung-es",
+  "specie": "Lickitung",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "es",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Lickitung di My Pokémon Ranch per Wii, versione spagnola: la ragazza del Ranch (Eulalia) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Eulalia, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Tangela-ja",
+  "specie": "Tangela",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Tangela di My Pokémon Ranch per Wii, versione giapponese: la ragazza del Ranch (ユカリ) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore ユカリ, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Tangela-en",
+  "specie": "Tangela",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Tangela di My Pokémon Ranch per Wii, versione inglese: la ragazza del Ranch (Hayley) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Hayley, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Tangela-fr",
+  "specie": "Tangela",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "fr",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Tangela di My Pokémon Ranch per Wii, versione francese: la ragazza del Ranch (EULALIE) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EULALIE, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Tangela-de",
+  "specie": "Tangela",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "de",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Tangela di My Pokémon Ranch per Wii, versione tedesca: la ragazza del Ranch (EUKALIA) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EUKALIA, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Tangela-es",
+  "specie": "Tangela",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "es",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Tangela di My Pokémon Ranch per Wii, versione spagnola: la ragazza del Ranch (Eulalia) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Eulalia, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Eevee-ja",
+  "specie": "Eevee",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "L'Eevee di My Pokémon Ranch per Wii, versione giapponese: la ragazza del Ranch (ユカリ) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore ユカリ, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Eevee-en",
+  "specie": "Eevee",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "L'Eevee di My Pokémon Ranch per Wii, versione inglese: la ragazza del Ranch (Hayley) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Hayley, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Eevee-fr",
+  "specie": "Eevee",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "fr",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "L'Eevee di My Pokémon Ranch per Wii, versione francese: la ragazza del Ranch (EULALIE) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EULALIE, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Eevee-de",
+  "specie": "Eevee",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "de",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "L'Eevee di My Pokémon Ranch per Wii, versione tedesca: la ragazza del Ranch (EUKALIA) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EUKALIA, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Eevee-es",
+  "specie": "Eevee",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "es",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "L'Eevee di My Pokémon Ranch per Wii, versione spagnola: la ragazza del Ranch (Eulalia) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Eulalia, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Aerodactyl-ja",
+  "specie": "Aerodactyl",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "L'Aerodactyl di My Pokémon Ranch per Wii, versione giapponese: la ragazza del Ranch (ユカリ) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore ユカリ, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Aerodactyl-en",
+  "specie": "Aerodactyl",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "L'Aerodactyl di My Pokémon Ranch per Wii, versione inglese: la ragazza del Ranch (Hayley) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Hayley, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Aerodactyl-fr",
+  "specie": "Aerodactyl",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "fr",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "L'Aerodactyl di My Pokémon Ranch per Wii, versione francese: la ragazza del Ranch (EULALIE) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EULALIE, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Aerodactyl-de",
+  "specie": "Aerodactyl",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "de",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "L'Aerodactyl di My Pokémon Ranch per Wii, versione tedesca: la ragazza del Ranch (EUKALIA) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EUKALIA, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Aerodactyl-es",
+  "specie": "Aerodactyl",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "es",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "L'Aerodactyl di My Pokémon Ranch per Wii, versione spagnola: la ragazza del Ranch (Eulalia) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Eulalia, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Yanma-ja",
+  "specie": "Yanma",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Yanma di My Pokémon Ranch per Wii, versione giapponese: la ragazza del Ranch (ユカリ) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore ユカリ, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Yanma-en",
+  "specie": "Yanma",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Yanma di My Pokémon Ranch per Wii, versione inglese: la ragazza del Ranch (Hayley) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Hayley, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Yanma-fr",
+  "specie": "Yanma",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "fr",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Yanma di My Pokémon Ranch per Wii, versione francese: la ragazza del Ranch (EULALIE) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EULALIE, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Yanma-de",
+  "specie": "Yanma",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "de",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Yanma di My Pokémon Ranch per Wii, versione tedesca: la ragazza del Ranch (EUKALIA) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EUKALIA, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Yanma-es",
+  "specie": "Yanma",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "es",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Yanma di My Pokémon Ranch per Wii, versione spagnola: la ragazza del Ranch (Eulalia) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Eulalia, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Miltank-ja",
+  "specie": "Miltank",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Miltank di My Pokémon Ranch per Wii, versione giapponese: la ragazza del Ranch (ユカリ) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore ユカリ, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Miltank-en",
+  "specie": "Miltank",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Miltank di My Pokémon Ranch per Wii, versione inglese: la ragazza del Ranch (Hayley) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Hayley, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Miltank-fr",
+  "specie": "Miltank",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "fr",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Miltank di My Pokémon Ranch per Wii, versione francese: la ragazza del Ranch (EULALIE) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EULALIE, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Miltank-de",
+  "specie": "Miltank",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "de",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Miltank di My Pokémon Ranch per Wii, versione tedesca: la ragazza del Ranch (EUKALIA) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EUKALIA, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Miltank-es",
+  "specie": "Miltank",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "es",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Miltank di My Pokémon Ranch per Wii, versione spagnola: la ragazza del Ranch (Eulalia) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Eulalia, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Shroomish-ja",
+  "specie": "Shroomish",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Shroomish di My Pokémon Ranch per Wii, versione giapponese: la ragazza del Ranch (ユカリ) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore ユカリ, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Shroomish-en",
+  "specie": "Shroomish",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Shroomish di My Pokémon Ranch per Wii, versione inglese: la ragazza del Ranch (Hayley) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Hayley, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Shroomish-fr",
+  "specie": "Shroomish",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "fr",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Shroomish di My Pokémon Ranch per Wii, versione francese: la ragazza del Ranch (EULALIE) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EULALIE, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Shroomish-de",
+  "specie": "Shroomish",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "de",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Shroomish di My Pokémon Ranch per Wii, versione tedesca: la ragazza del Ranch (EUKALIA) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EUKALIA, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Shroomish-es",
+  "specie": "Shroomish",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "es",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Shroomish di My Pokémon Ranch per Wii, versione spagnola: la ragazza del Ranch (Eulalia) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Eulalia, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Wailmer-ja",
+  "specie": "Wailmer",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Wailmer di My Pokémon Ranch per Wii, versione giapponese: la ragazza del Ranch (ユカリ) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore ユカリ, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Wailmer-en",
+  "specie": "Wailmer",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Wailmer di My Pokémon Ranch per Wii, versione inglese: la ragazza del Ranch (Hayley) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Hayley, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Wailmer-fr",
+  "specie": "Wailmer",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "fr",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Wailmer di My Pokémon Ranch per Wii, versione francese: la ragazza del Ranch (EULALIE) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EULALIE, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Wailmer-de",
+  "specie": "Wailmer",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "de",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Wailmer di My Pokémon Ranch per Wii, versione tedesca: la ragazza del Ranch (EUKALIA) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EUKALIA, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Wailmer-es",
+  "specie": "Wailmer",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "es",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Wailmer di My Pokémon Ranch per Wii, versione spagnola: la ragazza del Ranch (Eulalia) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Eulalia, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Wynaut-ja",
+  "specie": "Wynaut",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Wynaut di My Pokémon Ranch per Wii, versione giapponese: la ragazza del Ranch (ユカリ) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore ユカリ, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Wynaut-en",
+  "specie": "Wynaut",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Wynaut di My Pokémon Ranch per Wii, versione inglese: la ragazza del Ranch (Hayley) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Hayley, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Wynaut-fr",
+  "specie": "Wynaut",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "fr",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Wynaut di My Pokémon Ranch per Wii, versione francese: la ragazza del Ranch (EULALIE) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EULALIE, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Wynaut-de",
+  "specie": "Wynaut",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "de",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Wynaut di My Pokémon Ranch per Wii, versione tedesca: la ragazza del Ranch (EUKALIA) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EUKALIA, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Wynaut-es",
+  "specie": "Wynaut",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "es",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Wynaut di My Pokémon Ranch per Wii, versione spagnola: la ragazza del Ranch (Eulalia) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Eulalia, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Staravia-ja",
+  "specie": "Staravia",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Staravia di My Pokémon Ranch per Wii, versione giapponese: la ragazza del Ranch (ユカリ) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore ユカリ, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Staravia-en",
+  "specie": "Staravia",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Staravia di My Pokémon Ranch per Wii, versione inglese: la ragazza del Ranch (Hayley) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Hayley, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Staravia-fr",
+  "specie": "Staravia",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "fr",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Staravia di My Pokémon Ranch per Wii, versione francese: la ragazza del Ranch (EULALIE) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EULALIE, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Staravia-de",
+  "specie": "Staravia",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "de",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Staravia di My Pokémon Ranch per Wii, versione tedesca: la ragazza del Ranch (EUKALIA) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EUKALIA, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Staravia-es",
+  "specie": "Staravia",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "es",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Staravia di My Pokémon Ranch per Wii, versione spagnola: la ragazza del Ranch (Eulalia) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Eulalia, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Combee-ja",
+  "specie": "Combee",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Combee di My Pokémon Ranch per Wii, versione giapponese: la ragazza del Ranch (ユカリ) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore ユカリ, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Combee-en",
+  "specie": "Combee",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Combee di My Pokémon Ranch per Wii, versione inglese: la ragazza del Ranch (Hayley) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Hayley, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Combee-fr",
+  "specie": "Combee",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "fr",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Combee di My Pokémon Ranch per Wii, versione francese: la ragazza del Ranch (EULALIE) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EULALIE, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Combee-de",
+  "specie": "Combee",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "de",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Combee di My Pokémon Ranch per Wii, versione tedesca: la ragazza del Ranch (EUKALIA) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EUKALIA, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Combee-es",
+  "specie": "Combee",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "es",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Combee di My Pokémon Ranch per Wii, versione spagnola: la ragazza del Ranch (Eulalia) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Eulalia, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Pachirisu-ja",
+  "specie": "Pachirisu",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Pachirisu di My Pokémon Ranch per Wii, versione giapponese: la ragazza del Ranch (ユカリ) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore ユカリ, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Pachirisu-en",
+  "specie": "Pachirisu",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Pachirisu di My Pokémon Ranch per Wii, versione inglese: la ragazza del Ranch (Hayley) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Hayley, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Pachirisu-fr",
+  "specie": "Pachirisu",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "fr",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Pachirisu di My Pokémon Ranch per Wii, versione francese: la ragazza del Ranch (EULALIE) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EULALIE, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Pachirisu-de",
+  "specie": "Pachirisu",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "de",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Pachirisu di My Pokémon Ranch per Wii, versione tedesca: la ragazza del Ranch (EUKALIA) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EUKALIA, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Pachirisu-es",
+  "specie": "Pachirisu",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "es",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Pachirisu di My Pokémon Ranch per Wii, versione spagnola: la ragazza del Ranch (Eulalia) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Eulalia, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Shellos-ja",
+  "specie": "Shellos",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Shellos Mare Est di My Pokémon Ranch per Wii, versione giapponese: la ragazza del Ranch (ユカリ) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore ユカリ, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119).",
+  "forma": 1
+ },
+ {
+  "id": "R-Shellos-en",
+  "specie": "Shellos",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Shellos Mare Est di My Pokémon Ranch per Wii, versione inglese: la ragazza del Ranch (Hayley) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Hayley, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119).",
+  "forma": 1
+ },
+ {
+  "id": "R-Shellos-fr",
+  "specie": "Shellos",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "fr",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Shellos Mare Est di My Pokémon Ranch per Wii, versione francese: la ragazza del Ranch (EULALIE) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EULALIE, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119).",
+  "forma": 1
+ },
+ {
+  "id": "R-Shellos-de",
+  "specie": "Shellos",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "de",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Shellos Mare Est di My Pokémon Ranch per Wii, versione tedesca: la ragazza del Ranch (EUKALIA) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EUKALIA, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119).",
+  "forma": 1
+ },
+ {
+  "id": "R-Shellos-es",
+  "specie": "Shellos",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "es",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Shellos Mare Est di My Pokémon Ranch per Wii, versione spagnola: la ragazza del Ranch (Eulalia) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Eulalia, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119).",
+  "forma": 1
+ },
+ {
+  "id": "R-Buneary-ja",
+  "specie": "Buneary",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Buneary di My Pokémon Ranch per Wii, versione giapponese: la ragazza del Ranch (ユカリ) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore ユカリ, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Buneary-en",
+  "specie": "Buneary",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Buneary di My Pokémon Ranch per Wii, versione inglese: la ragazza del Ranch (Hayley) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Hayley, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Buneary-fr",
+  "specie": "Buneary",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "fr",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Buneary di My Pokémon Ranch per Wii, versione francese: la ragazza del Ranch (EULALIE) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EULALIE, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Buneary-de",
+  "specie": "Buneary",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "de",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Buneary di My Pokémon Ranch per Wii, versione tedesca: la ragazza del Ranch (EUKALIA) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EUKALIA, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Buneary-es",
+  "specie": "Buneary",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "es",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Buneary di My Pokémon Ranch per Wii, versione spagnola: la ragazza del Ranch (Eulalia) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Eulalia, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Croagunk-ja",
+  "specie": "Croagunk",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Croagunk di My Pokémon Ranch per Wii, versione giapponese: la ragazza del Ranch (ユカリ) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore ユカリ, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Croagunk-en",
+  "specie": "Croagunk",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Croagunk di My Pokémon Ranch per Wii, versione inglese: la ragazza del Ranch (Hayley) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Hayley, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Croagunk-fr",
+  "specie": "Croagunk",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "fr",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Croagunk di My Pokémon Ranch per Wii, versione francese: la ragazza del Ranch (EULALIE) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EULALIE, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Croagunk-de",
+  "specie": "Croagunk",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "de",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Croagunk di My Pokémon Ranch per Wii, versione tedesca: la ragazza del Ranch (EUKALIA) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EUKALIA, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Croagunk-es",
+  "specie": "Croagunk",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "es",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Croagunk di My Pokémon Ranch per Wii, versione spagnola: la ragazza del Ranch (Eulalia) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Eulalia, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Finneon-ja",
+  "specie": "Finneon",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Finneon di My Pokémon Ranch per Wii, versione giapponese: la ragazza del Ranch (ユカリ) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore ユカリ, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Finneon-en",
+  "specie": "Finneon",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Finneon di My Pokémon Ranch per Wii, versione inglese: la ragazza del Ranch (Hayley) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Hayley, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Finneon-fr",
+  "specie": "Finneon",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "fr",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Finneon di My Pokémon Ranch per Wii, versione francese: la ragazza del Ranch (EULALIE) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EULALIE, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Finneon-de",
+  "specie": "Finneon",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "de",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Finneon di My Pokémon Ranch per Wii, versione tedesca: la ragazza del Ranch (EUKALIA) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EUKALIA, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Finneon-es",
+  "specie": "Finneon",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "es",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Finneon di My Pokémon Ranch per Wii, versione spagnola: la ragazza del Ranch (Eulalia) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Eulalia, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Snover-ja",
+  "specie": "Snover",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Snover di My Pokémon Ranch per Wii, versione giapponese: la ragazza del Ranch (ユカリ) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore ユカリ, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Snover-en",
+  "specie": "Snover",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Snover di My Pokémon Ranch per Wii, versione inglese: la ragazza del Ranch (Hayley) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Hayley, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Snover-fr",
+  "specie": "Snover",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "fr",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Snover di My Pokémon Ranch per Wii, versione francese: la ragazza del Ranch (EULALIE) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EULALIE, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Snover-de",
+  "specie": "Snover",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "de",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Snover di My Pokémon Ranch per Wii, versione tedesca: la ragazza del Ranch (EUKALIA) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EUKALIA, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Snover-es",
+  "specie": "Snover",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "es",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Lo Snover di My Pokémon Ranch per Wii, versione spagnola: la ragazza del Ranch (Eulalia) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Eulalia, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Mew-fr",
+  "specie": "Mew",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "fr",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Mew di My Pokémon Ranch per Wii, versione francese: la ragazza del Ranch (EULALIE) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EULALIE, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Mew-de",
+  "specie": "Mew",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "de",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Mew di My Pokémon Ranch per Wii, versione tedesca: la ragazza del Ranch (EUKALIA) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EUKALIA, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Mew-es",
+  "specie": "Mew",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "es",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Mew di My Pokémon Ranch per Wii, versione spagnola: la ragazza del Ranch (Eulalia) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Eulalia, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Phione-fr",
+  "specie": "Phione",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "fr",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Phione di My Pokémon Ranch per Wii, versione francese: la ragazza del Ranch (EULALIE) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EULALIE, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Phione-de",
+  "specie": "Phione",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "de",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Phione di My Pokémon Ranch per Wii, versione tedesca: la ragazza del Ranch (EUKALIA) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore EUKALIA, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ },
+ {
+  "id": "R-Phione-es",
+  "specie": "Phione",
+  "gioco": "D",
+  "metodo": "criteri",
+  "incontro": "Ranch",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "es",
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/Hayley%27s_trades",
+  "storia": "Il Phione di My Pokémon Ranch per Wii, versione spagnola: la ragazza del Ranch (Eulalia) lo scambia a chi porta il Ranch al livello richiesto importando i propri Pokémon da Diamante e Perla; allenatore Eulalia, ID 01000, come in ogni versione del Ranch. Variante per lingua tenuta per ADR-118 (ADR-119)."
+ }
+]

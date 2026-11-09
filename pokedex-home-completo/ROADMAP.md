@@ -8,7 +8,31 @@ Ogni passo dichiara tre cose che di solito restano implicite e che, restando imp
 
 L'ordine non è quello dell'importanza ma quello del rendimento. Un passo che costa poco e che, comunque vada, elimina un'incertezza su cui altri passi poggiano, viene prima di un passo importante e isolato.
 
-## La roadmap al 2026-10-05, che prevale su tutte le sezioni sotto
+## La roadmap al 2026-11-07, aggiornata al 2026-11-09, che prevale su tutte le sezioni sotto
+
+Aggiornata il 2026-11-09 per ADR-120: HOME10 è ora `ultraluna-giro-3-statici-gb`, con i 6 esemplari con il marchio Game Boy che chiusa Bank non entrano più in HOME (Raichu, Exeggutor e Marowak di Alola, Meowth e Butterfree per il Gigamax, un Dunsparce per il Dudunsparce a tre segmenti), e HOME7 è `ultraluna-giro-2-fin7`, con la geolocalizzazione del salvataggio su 28 esemplari della Console Virtuale; il giudizio è `_notes/lavoro/giudizi-copie/dopo-adr120.json`, 6212 esemplari, 6088 conformi, con FINALE e GIAPPONE fuori dai giri come prima. Il giro 4 è cominciato: la SD ha `20261109-giro4` e la riserva in due copie, e tocca al proprietario dal punto 5 della sezione «Giro 4» di `RUNBOOK-PASSO-2.md`.
+
+Scritta il 2026-11-07 dopo ADR-119, quando la produzione per HOME è chiusa: tutte le copie che il proprietario porta a mano prima della chiusura di Bank, il 26 febbraio 2027 alle 12:00 del Giappone, sono scritte, rilette identiche e giudicate conformi, e non resta nessuna copia da fare. I giri si fanno nell'ordine della tabella, uno alla volta, con la procedura di `RUNBOOK-PASSO-2.md` (copia di riserva in due copie, ripristino, controllo in gioco, rilettura confrontata sui byte, Bank e HOME, registrazione), che vale per ogni giro cambiando il gioco e il nome della copia. Il giudizio di tutte le copie è in `_notes/lavoro/giudizi-copie/dopo-adr119-pedigree.json` e il pedigree di ogni esemplare, con la storia, in `pedigree/`.
+
+| Giro | Gruppo | Copia in `_notes/salvataggi/prove/per-home/` | Gioco | Esemplari | Conformi | Stato | HOME dopo il giro |
+|---|---|---|---|---|---|---|---|
+| 1 | HOME1 | `oras-giro-1-fin2` | Rubino Omega | 930 | 930 | in HOME dal 2026-11-03 | 964 |
+| 2 | HOME2 | `oras-giro-2-mn-fin2` | Rubino Omega | 721 | 721 | in HOME dal 2026-11-04 | 1685 |
+| 3 | HOME3 | `oras-giro-3-fin3` | Rubino Omega | 915 | 915 | in HOME dal 2026-11-06 | 2600 |
+| 4 | HOME6 | `oras-giro-4-fin9` | Rubino Omega | 929 | 929 | in corso dal 2026-11-09: sulla SD, tocca al proprietario dal punto 5 | 3529 |
+| 5 | HOME8 | `oras-giro-5-carte-mn5` | Rubino Omega | 256 | 256 | pronta, corretta il 2026-11-07 | 3785 |
+| 6 | HOME9 | `oras-giro-6-statici-eventi-3` | Rubino Omega | 694 | 694 | pronta, nuova il 2026-11-07 | 4479 |
+| 7 | HOME4 | `luna-giro-1-fin` | Luna | 93 | 93 | pronta | 4572 |
+| 8 | HOME5 | `ultraluna-giro-1-scambi-fin2` | Ultraluna | 613 | 613 | pronta | 5185 |
+| 9 | HOME7 | `ultraluna-giro-2-fin7` | Ultraluna | 642 | 642 | pronta, geolocalizzazione corretta il 2026-11-09 | 5827 |
+| 10 | HOME10 | `ultraluna-giro-3-statici-gb` | Ultraluna | 261 | 261 | pronta, con il marchio Game Boy dal 2026-11-09 | 6088 |
+| 11 | GIAPPONE2 | `luna-giappone-3` | Luna, profilo giapponese | 23 | 23 | pronta, prima con un solo esemplare | 6111 |
+
+Restano fuori dalla tabella due gruppi, ciascuno per una ragione dichiarata: FINALE, 121 eventi da cartuccia in `a-parte/luna-eventi-da-cartuccia-fin`, che il verificatore non giudica conformi e che attendono la decisione finale del proprietario dopo la community; e GIAPPONE, `luna-giappone-14`, superato da GIAPPONE2. Con FINALE il deposito arriverebbe a 6232 posti su 9000. La banca tiene 3000 esemplari e ogni giro ci sta da solo. Sul cartellino di Checkpoint della SD il 2026-11-05 c'erano le cartelle di Rubino Omega e di Luna ma non quella di Ultraluna: al giro 8 la prima copia di riserva di Ultraluna crea la cartella.
+
+Che cosa contiene di nuovo il giro 6, e perché i «più di 7000» non c'erano. La stima di ADR-111 contava 2371 statici, doni e uova di ADR-106 come posti da riempire, sopra le 5253 righe delle copie: 7628 nel conto di `tools/elenco-produzione.py`. Quei 2371 erano modelli della libreria e non esemplari: tolti i gemelli fra versioni sorelle diventano 1460 gruppi, 534 dei quali erano già nelle copie; dei 926 rimasti 112 sono doni dell'epoca Game Boy, che vanno sulle cartucce (ADR-117), e 814 sono prodotti conformi. Di questi 21 sono di Let's Go, che entra in HOME da Switch, uno è il Pichu dalle orecchie a punta, che non si trasferisce, e 4 sono premi del Blu giapponese finiti nella copia giapponese. Il giro 6 porta inoltre gli eventi della consegna del 2026-11-06 (ADR-119): i 12 di JEREMY, 29 esemplari del Daisuki Club e del GTS di quarta generazione, 104 doni del Ranch nelle altre lingue, il Jirachi di Channel Sicuro, 14 varianti di terza generazione di New York e del Pokémon Center giapponese, il Magikarp di Hiroshima cromatico.
+
+## La roadmap al 2026-10-05, superata il 2026-11-07 dalla sezione sopra
 
 Scritta il 2026-10-05, alla chiusura della lettura delle fonti. Le sezioni che seguono restano come storico, e dove una di esse dice che un passo è da fare vale lo stato scritto qui. Alla chiusura di Pokémon Bank, giovedì 25 febbraio 2027 alle 19:00 del Pacifico, cioè il 26 febbraio alle 12:00 del fuso giapponese, mancano 144 giorni contati dal 2026-10-05.
 

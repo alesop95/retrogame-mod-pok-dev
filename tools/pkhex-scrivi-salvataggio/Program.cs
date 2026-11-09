@@ -171,7 +171,15 @@ PKM? Prepara(string percorso, string origine)
         esclusi.Add(new JsonObject { ["file"] = origine, ["motivo"] = "macchina nascosta, ADR-046", ["passaggio"] = passaggio });
         return null;
     }
+    // Dal 2026-11-07 (ADR-119): un uovo di terza generazione non passa il Parco Amici, e la conversione della libreria lo fa
+    // schiudere con l'allenatore della sua cache, che per difetto si chiama PKHeX. Cosi' era nato lo Skitty della PokePark
+    // di oras-giro-5-carte-mn2 con l'allenatore PKHeX. Lo schiude ora l'allenatore del progetto, che e' chi lo riceve.
+    bool uovoVecchio = pk.IsEgg && pk.Format < 4;
+    if (uovoVecchio)
+        RecentTrainerCache.SetRecentTrainer(new SimpleTrainerInfo(GameVersion.E) { OT = "Alessio", TID16 = 42317, SID16 = 58164, Language = (int)LanguageID.Italian });
     var convertito = pk.GetType() == formato ? pk.Clone() : EntityConverter.ConvertToType(pk, formato, out var esitoConversione);
+    if (uovoVecchio)
+        RecentTrainerCache.SetRecentTrainer(new SimpleTrainerInfo());
     if (convertito is null)
     {
         esclusi.Add(new JsonObject { ["file"] = origine, ["motivo"] = "conversione rifiutata" });
@@ -198,7 +206,11 @@ PKM? Prepara(string percorso, string origine)
     // lascia invece la regione di riserva, le Americhe, e il verificatore rifiuta una lingua europea in quella regione
     // (VerifyVCGeolocation). Con --regione-dal-salvataggio, o con --regione-del-ricevente che la comprende, la regione si
     // prende dal salvataggio prima del giudizio, come fa Transporter.
-    if (dalSalvataggio && pk.Format <= 2 && convertito is IRegionOrigin geoVc && sav is IRegionOrigin geoSavVc)
+    // Dal 2026-11-09 (ADR-120) vale anche per un esemplare di Game Boy che il lotto porta gia' nel formato della settima
+    // generazione, perche' e' stato evoluto in una forma di Alola o in una specie nata dopo: il generatore lo converte con
+    // l'allenatore di riserva della libreria, e gli resterebbe la California invece della console di chi lo trasferisce.
+    if (dalSalvataggio && (pk.Format <= 2 || pk.Version is >= GameVersion.RD and <= GameVersion.C)
+        && convertito is IRegionOrigin geoVc && sav is IRegionOrigin geoSavVc)
     {
         geoSavVc.CopyRegionOrigin(geoVc);
         convertito.RefreshChecksum();
@@ -306,6 +318,10 @@ if (sostituisci)
             Console.Error.WriteLine($"box {box} posto {p}: {vecchia} non c'e' piu' o la specie non coincide; nessun file scritto");
             return 1;
         }
+        // Con --solo-stesso-formato la sostituzione tocca solo i file gia' nel formato del salvataggio: rifare la conversione
+        // di un esemplare di Game Boy gli darebbe PID, costante e valori individuali nuovi, cioe' un altro esemplare (ADR-120).
+        if (opzioni.Contains("--solo-stesso-formato") && !Path.GetExtension(percorso).Equals("." + formato.Name, StringComparison.OrdinalIgnoreCase))
+            continue;
         var convertito = Prepara(percorso, origine);
         if (convertito is null)
         {

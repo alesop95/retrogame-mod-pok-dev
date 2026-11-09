@@ -151,7 +151,8 @@ def miniatura(e, cartella, cache):
 # Il pedigree di ogni esemplare (ADR-111, 2026-11-04): una scheda per esemplare nel PDF stampabile, con il design
 # system di `pokedex-home-completo/design-system/`, e una riga per esemplare nel documento generato e tracciato, dalla
 # stessa funzione, così che i due non divergano. Lo stato viene dal gruppo: il giro 1 è in HOME dal 2026-11-03.
-STATO_GRUPPO = {"HOME1": ("DSstatoinhome", "in HOME"), "HOME2": ("DSstatoinhome", "in HOME")}  # il giro 2 dal 2026-11-04
+STATO_GRUPPO = {"HOME1": ("DSstatoinhome", "in HOME"), "HOME2": ("DSstatoinhome", "in HOME"),  # il giro 2 dal 2026-11-04
+                "HOME3": ("DSstatoinhome", "in HOME")}  # il giro 3 dal 2026-11-06, HOME a 2600
 DS = os.path.join(RADICE, "pokedex-home-completo", "design-system")
 PEDIGREE_MD = os.path.join(RADICE, "pokedex-home-completo", "pedigree")
 PEDIGREE_PDF = os.path.join(RADICE, "_notes", "stampa", "pedigree")
@@ -170,7 +171,22 @@ COMUNITA = [os.path.join(RADICE, "_notes", "lotti", "lotto-rng-comunita", "rappo
             os.path.join(RADICE, "_notes", "lotti", "lotto-serebii-mancanti", "rapporto.json"),
             # le carte e i doni della libreria che nessuna copia aveva (ADR-116)
             os.path.join(RADICE, "_notes", "lotti", "lotto-carte-scoperte-2", "rapporto.json"),
-            os.path.join(RADICE, "_notes", "lotti", "lotto-skitty-pokepark", "rapporto.json")]
+            os.path.join(RADICE, "_notes", "lotti", "lotto-skitty-pokepark", "rapporto.json"),
+            # ADR-119, 2026-11-07: statici, doni e uova; JEREMY; Daisuki Club; Ranch in cinque lingue; Channel; varianti di
+            # terza generazione; Magikarp di Hiroshima cromatico; premi del Blu giapponese
+            os.path.join(RADICE, "_notes", "lotti", "lotto-statici-adr106-b", "rapporto.json"),
+            os.path.join(RADICE, "_notes", "lotti", "lotto-jeremy-2004", "rapporto.json"),
+            os.path.join(RADICE, "_notes", "lotti", "lotto-jeremy-2004-b", "rapporto.json"),
+            os.path.join(RADICE, "_notes", "lotti", "lotto-daisuki-club", "rapporto.json"),
+            os.path.join(RADICE, "_notes", "lotti", "lotto-daisuki-club-b", "rapporto.json"),
+            os.path.join(RADICE, "_notes", "lotti", "lotto-ranch-lingue-2", "rapporto.json"),
+            os.path.join(RADICE, "_notes", "lotti", "lotto-ranch-lingue-2-shellos", "rapporto.json"),
+            os.path.join(RADICE, "_notes", "lotti", "lotto-channel-sicuro", "rapporto.json"),
+            os.path.join(RADICE, "_notes", "lotti", "lotto-carte-varianti-adr119", "rapporto.json"),
+            os.path.join(RADICE, "_notes", "lotti", "lotto-hiroshima-magikarp", "rapporto.json"),
+            os.path.join(RADICE, "_notes", "lotti", "lotto-premi-blu-jp", "rapporto.json"),
+            os.path.join(RADICE, "_notes", "lotti", "lotto-gts-gen4", "rapporto.json"),
+            os.path.join(RADICE, "_notes", "lotti", "lotto-marchio-game-boy", "storie.json")]
 EVENTDEX = os.path.join(RADICE, "_notes", "fonti", "raccolte", "serebii-eventdex-2026-11-04", "serebii-eventdex-eventi.json")
 
 
@@ -181,7 +197,7 @@ def _norma(testo):
 
 def carica_storie():
     gen3 = json.load(io.open(PROVENIENZE_GEN3, encoding="utf-8"))
-    serebii = {}
+    serebii, serebii_ot = {}, {}
     if os.path.exists(EVENTDEX):
         for ev in json.load(io.open(EVENTDEX, encoding="utf-8")):
             ots = ev["ot"] if isinstance(ev["ot"], list) else [ev["ot"]]
@@ -190,20 +206,24 @@ def carica_storie():
                     serebii.setdefault((int(ev["numero"]), _norma(ot), int(ev["id"])), []).append(ev)
                 except (TypeError, ValueError):
                     pass
+                try:
+                    serebii_ot.setdefault((int(ev["numero"]), _norma(ot)), []).append(ev)
+                except (TypeError, ValueError):
+                    pass
     comunita = {}
     for rapporto in [r for r in COMUNITA if os.path.exists(r)]:
         dati = json.load(io.open(rapporto, encoding="utf-8"))
         for ev in dati.get("esiti", dati.get("voci", [])):
             if ev.get("pid") and ev.get("storia"):
                 comunita[ev["pid"].upper()] = (ev["storia"], [ev["fonte"]] if ev.get("fonte") else [])
-    return gen3["gruppi"], gen3["fonti"], serebii, comunita
+    return gen3["gruppi"], gen3["fonti"], (serebii, serebii_ot), comunita
 
 
 def storia_di(e, storie):
     """Il racconto dell'evento e i collegamenti alle fonti, se l'esemplare viene da un evento censito."""
     if not storie:
         return "", []
-    gruppi, fonti, serebii, comunita = storie
+    gruppi, fonti, (serebii, serebii_ot), comunita = storie
     if str(e.get("pid", "")).upper() in comunita:
         testo, collegamenti = comunita[str(e["pid"]).upper()]
         return testo, list(collegamenti)
@@ -217,6 +237,12 @@ def storia_di(e, storie):
         ev = (serebii.get((e["numero"], _norma(e["allenatore"]), int(e["id"]))) or [None])[0]
     except (TypeError, ValueError):
         ev = None
+    # dal 2026-11-07 (ADR-119): se l'ID differisce da quello di Serebii, che sbaglia piu' spesso della carta, si lega per
+    # specie e allenatore, purche' l'abbinamento sia unico
+    if ev is None:
+        cand = serebii_ot.get((e["numero"], _norma(e["allenatore"]))) or []
+        if len({(c.get("evento"), c.get("data_inizio")) for c in cand}) == 1:
+            ev = cand[0]
     if ev:
         if not testo:
             date = ev.get("data_inizio") or ""
@@ -226,6 +252,17 @@ def storia_di(e, storie):
             giochi = giochi if isinstance(giochi, str) else ", ".join(giochi)
             testo = "%s, %s, %s, %s; giochi: %s." % (ev.get("evento", ""), ev.get("regione", ""), ev.get("tipo", ""), date, giochi)
         collegamenti.append(ev["url"])
+    # dal 2026-11-07 (ADR-119): ogni esemplare ha una storia. Dove nessuna fonte racconta l'evento, la storia si compone
+    # dai dati dell'esemplare stesso, che sono misure e non ipotesi: come e' stato incontrato secondo il verificatore, in
+    # quale gioco, dove, a che livello, quando e con quale allenatore; la fonte e' la libreria del verificatore.
+    if not testo:
+        data = e.get("data_incontro") or "data non registrata"
+        testo = "%s: %s, %s, incontrato al livello %s, %s; allenatore %s, ID %s." % (
+            (e.get("evento") or "incontro").rstrip(". "), GIOCHI.get(e["gioco"], e["gioco"]), e.get("luogo") or "luogo non registrato",
+            e.get("livello_incontro"), data,
+            "<ALLENATORE DELLA CARTUCCIA>" if e.get("origine", "").startswith(ORIGINI_PRIVATE) else e["allenatore"], e["id"])
+        if not collegamenti:
+            collegamenti.append("https://github.com/kwsch/PKHeX")
     return testo.strip(), collegamenti
 
 

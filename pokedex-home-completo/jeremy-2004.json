@@ -1,0 +1,345 @@
+[
+ {
+  "id": "J-Ekans",
+  "specie": "Ekans",
+  "gioco": "FR",
+  "metodo": "criteri",
+  "iv": [
+   26,
+   28,
+   6,
+   14,
+   30,
+   11
+  ],
+  "natura": "Docile",
+  "lingua": "en",
+  "ot": "JEREMY",
+  "tid": 24680,
+  "livello": 14,
+  "mosse": [
+   "Wrap",
+   "Leer",
+   "Poison Sting",
+   "Bite"
+  ],
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_Trade_and_Battle_Day_event_Pok%C3%A9mon_distributions",
+  "storia": "L'Ekans di JEREMY del Pokémon Trade and Battle Day di Toys \"R\" Us, Stati Uniti, 25 settembre 2004: le cartucce dei negozi avevano un box pieno di esemplari per specie, catturati in Rosso Fuoco (ID 24680) e ceduti con uno scambio. Riprodotto sull'esemplare documentato da Bulbapedia: Docile, incontrato a Route 11 al livello 14, mosse Wrap, Leer, Poison Sting, Bite.",
+  "luogo": "Route 11",
+  "sesso": 1
+ },
+ {
+  "id": "J-Sandshrew",
+  "specie": "Sandshrew",
+  "gioco": "LG",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "natura": "Docile",
+  "lingua": "en",
+  "ot": "JEREMY",
+  "tid": 13579,
+  "livello": 12,
+  "mosse": [
+   "Scratch",
+   "Defense Curl",
+   "Sand Attack"
+  ],
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_Trade_and_Battle_Day_event_Pok%C3%A9mon_distributions",
+  "storia": "Il Sandshrew di JEREMY del Pokémon Trade and Battle Day di Toys \"R\" Us, Stati Uniti, 25 settembre 2004: le cartucce dei negozi avevano un box pieno di esemplari per specie, catturati in Verde Foglia (ID 13579) e ceduti con uno scambio. Riprodotto sull'esemplare documentato da Bulbapedia: Docile, incontrato a Unknown al livello 12, mosse Scratch, Defense Curl, Sand Attack.",
+  "sesso": 0
+ },
+ {
+  "id": "J-Vulpix",
+  "specie": "Vulpix",
+  "gioco": "LG",
+  "metodo": "criteri",
+  "iv": [
+   15,
+   6,
+   3,
+   25,
+   13,
+   22
+  ],
+  "natura": "Quirky",
+  "lingua": "en",
+  "ot": "JEREMY",
+  "tid": 13579,
+  "livello": 18,
+  "mosse": [
+   "Tail Whip",
+   "Roar",
+   "Quick Attack",
+   "Will-O-Wisp"
+  ],
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_Trade_and_Battle_Day_event_Pok%C3%A9mon_distributions",
+  "storia": "Il Vulpix di JEREMY del Pokémon Trade and Battle Day di Toys \"R\" Us, Stati Uniti, 25 settembre 2004: le cartucce dei negozi avevano un box pieno di esemplari per specie, catturati in Verde Foglia (ID 13579) e ceduti con uno scambio. Riprodotto sull'esemplare documentato da Bulbapedia: Quirky, incontrato a Route 7 al livello 18, mosse Tail Whip, Roar, Quick Attack, Will-O-Wisp.",
+  "luogo": "Route 7",
+  "sesso": 1
+ },
+ {
+  "id": "J-Oddish",
+  "specie": "Oddish",
+  "gioco": "FR",
+  "metodo": "criteri",
+  "iv": [
+   11,
+   9,
+   31,
+   14,
+   26,
+   1
+  ],
+  "natura": "Quirky",
+  "lingua": "en",
+  "ot": "JEREMY",
+  "tid": 24680,
+  "livello": 26,
+  "mosse": [
+   "Poison Powder",
+   "Stun Spore",
+   "Sleep Powder",
+   "Acid"
+  ],
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_Trade_and_Battle_Day_event_Pok%C3%A9mon_distributions",
+  "storia": "L'Oddish di JEREMY del Pokémon Trade and Battle Day di Toys \"R\" Us, Stati Uniti, 25 settembre 2004: le cartucce dei negozi avevano un box pieno di esemplari per specie, catturati in Rosso Fuoco (ID 24680) e ceduti con uno scambio. Riprodotto sull'esemplare documentato da Bulbapedia: Quirky, incontrato a Route 15 al livello 26, mosse Poison Powder, Stun Spore, Sleep Powder, Acid.",
+  "luogo": "Route 15",
+  "sesso": 0
+ },
+ {
+  "id": "J-Psyduck",
+  "specie": "Psyduck",
+  "gioco": "FR",
+  "metodo": "criteri",
+  "iv": [
+   31,
+   16,
+   12,
+   29,
+   31,
+   14
+  ],
+  "natura": "Lax",
+  "lingua": "en",
+  "ot": "JEREMY",
+  "tid": 24680,
+  "livello": 27,
+  "mosse": [
+   "Tail Whip",
+   "Disable",
+   "Confusion",
+   "Screech"
+  ],
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_Trade_and_Battle_Day_event_Pok%C3%A9mon_distributions",
+  "storia": "Il Psyduck di JEREMY del Pokémon Trade and Battle Day di Toys \"R\" Us, Stati Uniti, 25 settembre 2004: le cartucce dei negozi avevano un box pieno di esemplari per specie, catturati in Rosso Fuoco (ID 24680) e ceduti con uno scambio. Riprodotto sull'esemplare documentato da Bulbapedia: Lax, incontrato a Seafoam Islands al livello 27, mosse Tail Whip, Disable, Confusion, Screech.",
+  "luogo": "Seafoam Islands",
+  "sesso": 0
+ },
+ {
+  "id": "J-Growlithe",
+  "specie": "Growlithe",
+  "gioco": "FR",
+  "metodo": "criteri",
+  "iv": [
+   11,
+   24,
+   28,
+   1,
+   20,
+   2
+  ],
+  "natura": "Quiet",
+  "lingua": "en",
+  "ot": "JEREMY",
+  "tid": 24680,
+  "livello": 32,
+  "mosse": [
+   "Leer",
+   "Odor Sleuth",
+   "Take Down",
+   "Flame Wheel"
+  ],
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_Trade_and_Battle_Day_event_Pok%C3%A9mon_distributions",
+  "storia": "Il Growlithe di JEREMY del Pokémon Trade and Battle Day di Toys \"R\" Us, Stati Uniti, 25 settembre 2004: le cartucce dei negozi avevano un box pieno di esemplari per specie, catturati in Rosso Fuoco (ID 24680) e ceduti con uno scambio. Riprodotto sull'esemplare documentato da Bulbapedia: Quiet, incontrato a Pokémon Mansion al livello 32, mosse Leer, Odor Sleuth, Take Down, Flame Wheel.",
+  "luogo": "Mansion",
+  "sesso": 1
+ },
+ {
+  "id": "J-Machoke",
+  "specie": "Machamp",
+  "gioco": "LG",
+  "metodo": "criteri",
+  "iv": [
+   9,
+   23,
+   25,
+   20,
+   15,
+   10
+  ],
+  "natura": "Quiet",
+  "lingua": "en",
+  "ot": "JEREMY",
+  "tid": 13579,
+  "livello": 38,
+  "mosse": [
+   "Seismic Toss",
+   "Foresight",
+   "Revenge",
+   "Vital Throw"
+  ],
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_Trade_and_Battle_Day_event_Pok%C3%A9mon_distributions",
+  "storia": "Il Machoke di JEREMY del Pokémon Trade and Battle Day di Toys \"R\" Us, Stati Uniti, 25 settembre 2004: le cartucce dei negozi avevano un box pieno di esemplari per specie, catturati in Verde Foglia (ID 13579) e ceduti con uno scambio. Riprodotto sull'esemplare documentato da Bulbapedia: Quiet, incontrato a Mt. Ember al livello 38, mosse Seismic Toss, Foresight, Revenge, Vital Throw. Distribuito come Machoke, si evolveva in Machamp allo scambio.",
+  "luogo": "Mt. Ember",
+  "sesso": 0
+ },
+ {
+  "id": "J-Slowpoke",
+  "specie": "Slowpoke",
+  "gioco": "LG",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "natura": "Naive",
+  "lingua": "en",
+  "ot": "JEREMY",
+  "tid": 13579,
+  "livello": 31,
+  "mosse": [
+   "Water Gun",
+   "Confusion",
+   "Disable",
+   "Headbutt"
+  ],
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_Trade_and_Battle_Day_event_Pok%C3%A9mon_distributions",
+  "storia": "Lo Slowpoke di JEREMY del Pokémon Trade and Battle Day di Toys \"R\" Us, Stati Uniti, 25 settembre 2004: le cartucce dei negozi avevano un box pieno di esemplari per specie, catturati in Verde Foglia (ID 13579) e ceduti con uno scambio. Riprodotto sull'esemplare documentato da Bulbapedia: Naive, incontrato a Unknown al livello 31, mosse Water Gun, Confusion, Disable, Headbutt.",
+  "sesso": 1
+ },
+ {
+  "id": "J-Shellder",
+  "specie": "Shellder",
+  "gioco": "FR",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "natura": "Brave",
+  "lingua": "en",
+  "ot": "JEREMY",
+  "tid": 24680,
+  "livello": 24,
+  "mosse": [
+   "Withdraw",
+   "Icicle Spear",
+   "Supersonic",
+   "Aurora Beam"
+  ],
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_Trade_and_Battle_Day_event_Pok%C3%A9mon_distributions",
+  "storia": "Lo Shellder di JEREMY del Pokémon Trade and Battle Day di Toys \"R\" Us, Stati Uniti, 25 settembre 2004: le cartucce dei negozi avevano un box pieno di esemplari per specie, catturati in Rosso Fuoco (ID 24680) e ceduti con uno scambio. Riprodotto sull'esemplare documentato da Bulbapedia: Brave, incontrato a Unknown al livello 24, mosse Withdraw, Icicle Spear, Supersonic, Aurora Beam.",
+  "sesso": 1
+ },
+ {
+  "id": "J-Haunter",
+  "specie": "Gengar",
+  "gioco": "LG",
+  "metodo": "criteri",
+  "iv": [
+   19,
+   14,
+   0,
+   14,
+   17,
+   27
+  ],
+  "natura": "Hardy",
+  "lingua": "en",
+  "ot": "JEREMY",
+  "tid": 13579,
+  "livello": 23,
+  "mosse": [
+   "Spite",
+   "Curse",
+   "Night Shade",
+   "Confuse Ray"
+  ],
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_Trade_and_Battle_Day_event_Pok%C3%A9mon_distributions",
+  "storia": "Il Haunter di JEREMY del Pokémon Trade and Battle Day di Toys \"R\" Us, Stati Uniti, 25 settembre 2004: le cartucce dei negozi avevano un box pieno di esemplari per specie, catturati in Verde Foglia (ID 13579) e ceduti con uno scambio. Riprodotto sull'esemplare documentato da Bulbapedia: Hardy, incontrato a Pokémon Tower al livello 23, mosse Spite, Curse, Night Shade, Confuse Ray. Distribuito come Haunter, si evolveva in Gengar allo scambio.",
+  "luogo": "Tower",
+  "sesso": 1
+ },
+ {
+  "id": "J-Tauros",
+  "specie": "Tauros",
+  "gioco": "LG",
+  "metodo": "criteri",
+  "iv": [
+   14,
+   19,
+   12,
+   17,
+   5,
+   26
+  ],
+  "natura": "Docile",
+  "lingua": "en",
+  "ot": "JEREMY",
+  "tid": 13579,
+  "livello": 25,
+  "mosse": [
+   "Rage",
+   "Horn Attack",
+   "Scary Face",
+   "Pursuit"
+  ],
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_Trade_and_Battle_Day_event_Pok%C3%A9mon_distributions",
+  "storia": "Il Tauros di JEREMY del Pokémon Trade and Battle Day di Toys \"R\" Us, Stati Uniti, 25 settembre 2004: le cartucce dei negozi avevano un box pieno di esemplari per specie, catturati in Verde Foglia (ID 13579) e ceduti con uno scambio. Riprodotto sull'esemplare documentato da Bulbapedia: Docile, incontrato a Safari Zone al livello 25, mosse Rage, Horn Attack, Scary Face, Pursuit.",
+  "luogo": "Safari Zone",
+  "sesso": 0
+ },
+ {
+  "id": "J-Staryu",
+  "specie": "Staryu",
+  "gioco": "LG",
+  "metodo": "criteri",
+  "iv": [
+   10,
+   3,
+   22,
+   24,
+   3,
+   18
+  ],
+  "natura": "Timid",
+  "lingua": "en",
+  "ot": "JEREMY",
+  "tid": 13579,
+  "livello": 18,
+  "mosse": [
+   "Harden",
+   "Water Gun",
+   "Rapid Spin",
+   "Recover"
+  ],
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_Trade_and_Battle_Day_event_Pok%C3%A9mon_distributions",
+  "storia": "Lo Staryu di JEREMY del Pokémon Trade and Battle Day di Toys \"R\" Us, Stati Uniti, 25 settembre 2004: le cartucce dei negozi avevano un box pieno di esemplari per specie, catturati in Verde Foglia (ID 13579) e ceduti con uno scambio. Riprodotto sull'esemplare documentato da Bulbapedia: Timid, incontrato a Pallet Town al livello 18, mosse Harden, Water Gun, Rapid Spin, Recover.",
+  "luogo": "Pallet Town"
+ }
+]

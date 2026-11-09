@@ -1,0 +1,229 @@
+[
+ {
+  "id": "G01-Bidoof",
+  "specie": "Bidoof",
+  "gioco": "Pt",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "あり",
+  "tid": 62475,
+  "livello_attuale": 6,
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_GTS_event_Pok%C3%A9mon_distributions_in_Generation_IV",
+  "storia": "Il Bidoof del GTS09 «Daisuki Club goes Platinum», ceduto via GTS dallo staff: allenatore あり, ID 62475, livello 6. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte (ADR-119)."
+ },
+ {
+  "id": "G02-Bidoof",
+  "specie": "Bidoof",
+  "gioco": "Pt",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "おり",
+  "tid": 2730,
+  "livello_attuale": 5,
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_GTS_event_Pok%C3%A9mon_distributions_in_Generation_IV",
+  "storia": "Il Bidoof del GTS09 «Daisuki Club goes Platinum», ceduto via GTS dallo staff: allenatore おり, ID 02730, livello 5. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte (ADR-119).",
+  "sesso": 0
+ },
+ {
+  "id": "G03-Bidoof",
+  "specie": "Bidoof",
+  "gioco": "Pt",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "さおり",
+  "tid": 27471,
+  "livello_attuale": 7,
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_GTS_event_Pok%C3%A9mon_distributions_in_Generation_IV",
+  "storia": "Il Bidoof del GTS09 «Daisuki Club goes Platinum», ceduto via GTS dallo staff: allenatore さおり, ID 27471, livello 7. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte (ADR-119)."
+ },
+ {
+  "id": "G04-Bidoof",
+  "specie": "Bidoof",
+  "gioco": "Pt",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "ノリィ",
+  "tid": 8348,
+  "livello_attuale": 8,
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_GTS_event_Pok%C3%A9mon_distributions_in_Generation_IV",
+  "storia": "Il Bidoof del GTS09 «Daisuki Club goes Platinum», ceduto via GTS dallo staff: allenatore ノリィ, ID 08348, livello 8. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte (ADR-119)."
+ },
+ {
+  "id": "G05-Ralts",
+  "specie": "Ralts",
+  "gioco": "Pt",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "ナナ",
+  "tid": 37030,
+  "livello_attuale": 7,
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_GTS_event_Pok%C3%A9mon_distributions_in_Generation_IV",
+  "storia": "Il Ralts del GTS09 «Daisuki Club goes Platinum», ceduto via GTS dallo staff; l'ID 37030 è quello di Bulbapedia e dell'elenco di Pokémon Historian: allenatore ナナ, ID 37030, livello 7. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte (ADR-119)."
+ },
+ {
+  "id": "G06-Psyduck",
+  "specie": "Psyduck",
+  "gioco": "D",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "ジュン",
+  "tid": 5458,
+  "livello_attuale": 1,
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_GTS_event_Pok%C3%A9mon_distributions_in_Generation_IV",
+  "storia": "Lo Psyduck «dei creatori» di Game Freak, nato da un uovo e ceduto via GTS di Nintendo of America; allenatore ジュン (Junichi Masuda): allenatore ジュン, ID 05458, livello 1. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte (ADR-119).",
+  "incontro": "Egg"
+ },
+ {
+  "id": "G07-Psyduck",
+  "specie": "Psyduck",
+  "gioco": "D",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "けん",
+  "tid": 38793,
+  "livello_attuale": 1,
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_GTS_event_Pok%C3%A9mon_distributions_in_Generation_IV",
+  "storia": "Lo Psyduck «dei creatori» di Game Freak, nato da un uovo e ceduto via GTS di Nintendo of America; allenatore けん (Ken Sugimori): allenatore けん, ID 38793, livello 1. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte (ADR-119).",
+  "incontro": "Egg"
+ },
+ {
+  "id": "G08-Psyduck",
+  "specie": "Psyduck",
+  "gioco": "D",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "ja",
+  "ot": "しげしげ",
+  "tid": 53437,
+  "livello_attuale": 1,
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_GTS_event_Pok%C3%A9mon_distributions_in_Generation_IV",
+  "storia": "Lo Psyduck «dei creatori» di Game Freak, nato da un uovo e ceduto via GTS di Nintendo of America; allenatore しげしげ (Shigeki Morimoto): allenatore しげしげ, ID 53437, livello 1. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte (ADR-119).",
+  "incontro": "Egg"
+ },
+ {
+  "id": "G09-Heracross",
+  "specie": "Heracross",
+  "gioco": "D",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "ot": "Tom",
+  "tid": 24974,
+  "livello_attuale": 1,
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_GTS_event_Pok%C3%A9mon_distributions_in_Generation_IV",
+  "storia": "L'Heracross «Daisuki» di Nintendo of America, nato da un uovo e ceduto via GTS: allenatore Tom, ID 24974, livello 1. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte (ADR-119).",
+  "incontro": "Egg"
+ },
+ {
+  "id": "G10-Heracross",
+  "specie": "Heracross",
+  "gioco": "D",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "ot": "Seth",
+  "tid": 8604,
+  "livello_attuale": 1,
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_GTS_event_Pok%C3%A9mon_distributions_in_Generation_IV",
+  "storia": "L'Heracross «Daisuki» di Nintendo of America, nato da un uovo e ceduto via GTS: allenatore Seth, ID 08604, livello 1. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte (ADR-119).",
+  "incontro": "Egg"
+ },
+ {
+  "id": "G11-Heracross",
+  "specie": "Heracross",
+  "gioco": "D",
+  "metodo": "criteri",
+  "iv": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "lingua": "en",
+  "ot": "Christy",
+  "tid": 50039,
+  "livello_attuale": 1,
+  "fonte": "https://bulbapedia.bulbagarden.net/wiki/List_of_GTS_event_Pok%C3%A9mon_distributions_in_Generation_IV",
+  "storia": "L'Heracross «Daisuki» di Nintendo of America, nato da un uovo e ceduto via GTS: allenatore Christy, ID 50039, livello 1. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte (ADR-119).",
+  "incontro": "Egg"
+ }
+]

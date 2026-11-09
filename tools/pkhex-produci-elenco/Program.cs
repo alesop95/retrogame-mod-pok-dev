@@ -61,6 +61,16 @@ if (args[0] == "--carte")
     return Carte(args[1], args.Skip(2).TakeWhile(x => x != "--produci" && x != "--traccia" && x != "--epoca-cartucce").ToArray());
 if (args[0] == "--cartuccia")
     return Cartuccia(args[1], args[2]);
+// --carte-specie NUMERO: elenca le carte della libreria di una specie, con titolo, allenatore, ID e regola di cromaticita' (ADR-119)
+if (args[0] == "--carte-specie")
+{
+    var n0 = ushort.Parse(args[1]);
+    foreach (var g in EncounterEvent.GetAllEvents(false).Where(g => g.Species == n0 && g.Generation <= 7))
+        Console.WriteLine($"G{g.Generation} carta {g.CardID} {g.CardTitle} | {g.OriginalTrainerName} {g.TID16:00000} | lv {g.Level} | cromatico {g.Shiny}");
+    return 0;
+}
+if (args[0] == "--statici")
+    return Statici(args[1], args[2], args[3], args.Skip(4).ToArray());
 
 bool mosse = args[0] == "--mosse";
 var a = mosse ? args[1..] : args;
@@ -129,6 +139,27 @@ else
         PKM? pk; string voce, motivo;
         if (cat == "Fiocco Maestro") (pk, voce, motivo) = FioccoMaestro();
         else (pk, voce, motivo) = Genera(e);
+        // ADR-120: una voce puo' chiedere la costante di cifratura multipla di un numero, come Dunsparce, che su Scarlatto e
+        // Violetto diventa Dudunsparce a tre segmenti se la costante e' multipla di 100. La costante nasce con il trasferimento
+        // verso la settima generazione, quindi l'esemplare passa prima in quel formato; il giudizio si rifa' dopo.
+        if (pk is not null && e["ec_multiplo"] is { } em)
+        {
+            var m = (uint)(int)em;
+            if (pk.Format < 7)
+            {
+                var conv = EntityConverter.ConvertToType(pk, typeof(PK7), out var rc);
+                if (conv is null) { motivo = "conversione per la costante non riuscita: " + rc; pk = null; }
+                else pk = conv;
+            }
+            if (pk is not null)
+            {
+                pk.EncryptionConstant = pk.EncryptionConstant / m * m;
+                if (pk.EncryptionConstant == 0) pk.EncryptionConstant = m;
+                pk.RefreshChecksum();
+                var laEc = new LegalityAnalysis(pk);
+                if (!laEc.Valid) { motivo = "costante multipla di " + m + " non conforme: " + laEc.Report(); pk = null; }
+            }
+        }
         if (pk is not null)
         {
             Scrivi(pk, $"{n:0000}-{testi.specieslist[pk.Species]}", esito);
@@ -571,7 +602,8 @@ int Comunita(string listaJson, string allenatoreJson, string cartella)
         string ot = (string?)c["ot"] ?? (string)al["nome"]!;
         ushort tid = c["tid"] is { } t ? (ushort)(int)t : tidP;
         ushort? sidFisso = c["sid"] is { } s ? (ushort)(int)s : null;
-        int lingua = (string?)c["lingua"] switch { "ja" => (int)LanguageID.Japanese, "en" => (int)LanguageID.English, _ => (int)LanguageID.Italian };
+        int lingua = (string?)c["lingua"] switch { "ja" => (int)LanguageID.Japanese, "en" => (int)LanguageID.English, "fr" => (int)LanguageID.French,
+            "de" => (int)LanguageID.German, "es" => (int)LanguageID.Spanish, "ko" => (int)LanguageID.Korean, _ => (int)LanguageID.Italian };
         var esito = new JsonObject { ["id"] = id, ["specie"] = specie.ToString(), ["gioco"] = ver.ToString(), ["ot"] = ot, ["tid"] = tid,
             ["fonte"] = (string?)c["fonte"], ["storia"] = (string?)c["storia"] };
         esiti.Add(esito);
@@ -585,20 +617,60 @@ int Comunita(string listaJson, string allenatoreJson, string cartella)
             byte g0 = ver switch { GameVersion.RD or GameVersion.BU or GameVersion.GN or GameVersion.YW => 1, GameVersion.GD or GameVersion.SI or GameVersion.C => 2,
                 GameVersion.D or GameVersion.P or GameVersion.Pt or GameVersion.HG or GameVersion.SS => 4, GameVersion.X or GameVersion.Y or GameVersion.OR or GameVersion.AS => 6,
                 GameVersion.SN or GameVersion.MN or GameVersion.US or GameVersion.UM => 7, _ => 3 };
-            var crit = EncounterCriteria.Unrestricted with { IV_HP = (sbyte)iv[0], IV_ATK = (sbyte)iv[1], IV_DEF = (sbyte)iv[2], IV_SPA = (sbyte)iv[3], IV_SPD = (sbyte)iv[4], IV_SPE = (sbyte)iv[5],
+            var crit = EncounterCriteria.Unrestricted with { Gender = c["sesso"] is { } gx ? (Gender)(int)gx! : Gender.Random, IV_HP = (sbyte)iv[0], IV_ATK = (sbyte)iv[1], IV_DEF = (sbyte)iv[2], IV_SPA = (sbyte)iv[3], IV_SPD = (sbyte)iv[4], IV_SPE = (sbyte)iv[5],
                 Nature = natura is null ? Nature.Random : Enum.Parse<Nature>(natura), Shiny = cromatico ? Shiny.Always : Shiny.Never };
             var trc = new SimpleTrainerInfo(ver == GameVersion.CXD ? GameVersion.E : ver) { OT = ot, TID16 = tid, SID16 = sidFisso ?? sidP, Language = lingua };
             var m0 = EntityBlank.GetBlank(g0); m0.Species = (ushort)specie; m0.Language = lingua;
+            if (c["forma"] is { } fm) m0.Form = (byte)(int)fm!;
             string filtro = (string?)c["incontro"] ?? "";
             string ultimo = "nessun incontro";
             foreach (var e0 in EncounterMovesetGenerator.GenerateEncounters(m0, trc, ReadOnlyMemory<ushort>.Empty, ver))
             {
                 if (filtro.Length > 0 && !(e0.LongName + " " + e0.GetType().Name).Contains(filtro)) continue;
-                for (int tent = 0; tent < 3; tent++)
+                if (c["carta"] is { } cartaN && !(e0 is MysteryGift mgc && mgc.CardID == (int)cartaN!)) continue;
+                for (int tent = 0; tent < (c["sesso"] is null ? (cromatico ? 20000 : 3) : 12); tent++)
                 {
                     PKM pk;
                     try { pk = e0.ConvertToPKM(trc, crit); } catch (Exception ex) { ultimo = ex.Message; continue; }
                     if (pk is CK3 ck3) pk = ck3.ConvertToPK3(); else if (pk is XK3 xk3) pk = xk3.ConvertToPK3();
+                    // Dal 2026-11-07 (ADR-119): un esemplare documentato si riproduce con il suo livello e luogo d'incontro,
+                    // le sue mosse e il suo sesso, come i Pokemon di JEREMY del Trade and Battle Day; il verificatore decide.
+                    if (c["livello"] is { } lvN)
+                    {
+                        int lv = (int)lvN!;
+                        if (lv < e0.LevelMin || lv > e0.LevelMax) { ultimo = e0.LongName + ": livello " + lv + " fuori da " + e0.LevelMin + "-" + e0.LevelMax; break; }
+                        pk.MetLevel = (byte)lv; pk.CurrentLevel = (byte)lv;
+                    }
+                    // il livello attuale di un esemplare allenato dopo l'incontro (ADR-119): l'incontro resta quello che la libreria sceglie
+                    if (c["livello_attuale"] is { } laN)
+                    {
+                        int la1 = (int)laN!;
+                        if (la1 < pk.MetLevel) { ultimo = e0.LongName + ": livello d'incontro " + pk.MetLevel + " sopra " + la1; continue; }
+                        pk.CurrentLevel = (byte)la1;
+                    }
+                    if (c["luogo"] is { } lu)
+                    {
+                        var nl = inglese.GetLocationName(false, pk.MetLocation, pk.Format, pk.Generation, pk.Version);
+                        if (!nl.Contains((string)lu!, StringComparison.OrdinalIgnoreCase)) { ultimo = e0.LongName + ": luogo " + nl; break; }
+                    }
+                    if (c["mosse"] is JsonArray ma)
+                    {
+                        var ids = new ushort[4];
+                        for (int k = 0; k < ma.Count && k < 4; k++) ids[k] = (ushort)Array.FindIndex(inglese.movelist.ToArray(), x => string.Equals(x.Replace(" ", ""), ((string)ma[k]!).Replace(" ", ""), StringComparison.OrdinalIgnoreCase));
+                        pk.SetMoves(ids); pk.HealPP();
+                    }
+                    if (c["sesso"] is { } sx && pk.Gender != (int)sx!) { ultimo = e0.LongName + ": sesso"; continue; }
+                    // Dal 2026-11-07 (ADR-119): la libreria costruisce la specie dell'incontro, che puo' essere una pre-evoluzione
+                    // di quella chiesta (Machoke per Machamp, Feebas per Milotic). Si evolve nella specie chiesta, come avrebbe
+                    // fatto chi lo riceveva, e decide il verificatore; una specie diversa non si accetta mai.
+                    if (pk.Species != (ushort)specie)
+                    {
+                        pk.Species = (ushort)specie;
+                        pk.RefreshAbility(pk.AbilityNumber >> 1);
+                        if (!pk.IsNicknamed) pk.SetDefaultNickname();
+                        pk.RefreshChecksum();
+                        esito["evoluto_da"] = testi.specieslist[e0.Species];
+                    }
                     if (cromatico && !pk.IsShiny) { ultimo = e0.LongName + ": non cromatico"; continue; }
                     if (!cromatico && pk.IsShiny && pk.Format >= 3) { pk.SetPIDGender(pk.Gender); if (pk.IsShiny) { ultimo = e0.LongName + ": cromatico non chiesto"; continue; } }
                     if (natura is not null && pk.Nature.ToString() != natura && pk.Format >= 3) { ultimo = e0.LongName + ": natura diversa"; continue; }
@@ -737,6 +809,8 @@ int Serebii(string mancantiJson, string uscita)
                 foreach (var enc in EncounterMovesetGenerator.GenerateEncounters(modello, tr, ReadOnlyMemory<ushort>.Empty, v))
                 {
                     if (!enc.GetType().Name.Contains("Gift")) continue;
+                    // la libreria schiude da se' gli uovi di terza generazione con l'allenatore della sua cache, PKHeX per difetto (ADR-119)
+                    RecentTrainerCache.SetRecentTrainer(tr);
                     var pk = enc.ConvertToPKM(tr, EncounterCriteria.Unrestricted);
                     if (ids.Contains(pk.TID16)) { corrispondenze.Add($"G3 {enc.LongName} {pk.OriginalTrainerName} {pk.TID16:00000} ({v})"); incontri.Add((enc, v)); }
                 }
@@ -811,7 +885,10 @@ int Carte(string uscita, string[] copie)
             {
                 string ot = o.GetType().GetProperty("OriginalTrainerName")?.GetValue(o)?.ToString() ?? "";
                 string id = o.GetType().GetProperty("TID16")?.GetValue(o)?.ToString() ?? "";
-                tutti.Add((e, $"{tipo}.{nome}|{e.Species}|{e.Form}|{ot}|{id}|{e.LongName}", $"{tipo}.{nome} {e.LongName} {testi.specieslist[e.Species]} {ot} {id} ({e.Version})"));
+                string mv = o.GetType().GetProperty("Moves")?.GetValue(o)?.ToString() ?? "";
+                // dal 2026-11-07 (ADR-119) anche livello e mosse distinguono le varianti: a New York la stessa specie usci'
+                // in settimane diverse con livello e mosse diversi, e il raggruppamento di prima le fondeva in una sola
+                tutti.Add((e, $"{tipo}.{nome}|{e.Species}|{e.Form}|{ot}|{id}|{e.LongName}|{e.LevelMin}|{mv}", $"{tipo}.{nome} {e.LongName} {testi.specieslist[e.Species]} {ot} {id} ({e.Version})"));
             }
     Console.WriteLine($"eventi della libreria fino alla settima generazione: {tutti.Count}, gruppi {tutti.Select(x => x.gruppo).Distinct().Count()}");
     // gli incontri riconosciuti negli esemplari conformi delle copie
@@ -876,6 +953,8 @@ int Carte(string uscita, string[] copie)
                 var tr = new SimpleTrainerInfo(v == GameVersion.CXD ? GameVersion.E : v) { OT = lg is LanguageID.Japanese ? "アレッシオ" : "Alessio", TID16 = 42317, SID16 = 58164, Language = (int)lg };
                 try
                 {
+                    // la libreria schiude da se' gli uovi di terza generazione con l'allenatore della sua cache, PKHeX per difetto (ADR-119)
+                    RecentTrainerCache.SetRecentTrainer(tr);
                     var pk = enc.ConvertToPKM(tr, EncounterCriteria.Unrestricted);
                     // un uovo non passa il Trasportatore: si schiude, come farebbe chi lo riceve, e la data deve essere vera
                     if (pk.IsEgg && pk.Format >= 4) pk.ForceHatchPKM(tr);
@@ -906,6 +985,129 @@ int Carte(string uscita, string[] copie)
         ["prodotti"] = prodotti, ["esemplari_letti"] = esemplari, ["voci"] = lista }
         .ToJsonString(new JsonSerializerOptions { WriteIndented = true, Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping }));
     Console.WriteLine($"prodotti {prodotti}");
+    return 0;
+}
+
+// Gli statici, i doni e le uova dono della libreria dalla prima alla settima generazione (ADR-106, rimasti da produrre fino al
+// 2026-11-07, ADR-119): gli stessi modelli che tools/pkhex-conta-incontri conta, tolti scambi e Ombre gia' prodotti. Un modello
+// si considera coperto se un esemplare conforme delle copie per HOME lo ha come incontro riconosciuto; i modelli gemelli fra
+// versioni sorelle (stessa classe, generazione, specie, forma, livello, luogo, cromaticita' e sfera fissa) valgono un esemplare
+// solo, e un gruppo e' coperto se lo e' uno qualunque dei suoi gemelli. Per gli altri si costruisce l'esemplare con
+// l'allenatore del progetto, nella versione del modello, e lo si tiene solo se il verificatore lo giudica conforme.
+// Uso: --statici ALLENATORE.json RAPPORTO.json CARTELLA_DI_USCITA COPIA [COPIA ...]
+int Statici(string allenatoreJson, string uscita, string cartella, string[] copie)
+{
+    var al = JsonNode.Parse(File.ReadAllText(allenatoreJson))!;
+    ushort tidP = (ushort)(int)al["tid"]!, sidP = (ushort)(int)al["sid"]!;
+    string nomeP = (string)al["nome"]!;
+    var asm = typeof(PKM).Assembly;
+    var modelli = new List<(IEncounterTemplate enc, string classe, string gruppo)>();
+    var arrVisti = new HashSet<object>(ReferenceEqualityComparer.Instance);
+    object? prop(object o, string n) => o.GetType().GetProperty(n)?.GetValue(o);
+    foreach (var t in asm.GetTypes().Where(t => t.IsClass && t.Name.StartsWith("Encounters")))
+    foreach (var f in t.GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static))
+    {
+        object? v; try { v = f.GetValue(null); } catch { continue; }
+        if (v is not Array arr || arr.Length == 0) continue;
+        var el = arr.GetType().GetElementType()!;
+        if (!typeof(IEncounterTemplate).IsAssignableFrom(el)) continue;
+        string tipo = el.Name;
+        if (!(tipo.StartsWith("EncounterStatic") || tipo.StartsWith("EncounterGift") || tipo.StartsWith("EncounterEgg"))) continue;
+        if (!arrVisti.Add(arr)) continue;
+        foreach (var o in arr)
+        {
+            var e = (IEncounterTemplate)o!;
+            if (e.Generation is < 1 or > 7) continue;
+            string classe = tipo.StartsWith("EncounterGift") ? "dono" : tipo.StartsWith("EncounterEgg") ? "uovo" : "statico";
+            if (classe == "statico" && tipo.Contains("Gift")) classe = "dono";
+            string gruppo = $"{classe}|{tipo}|G{e.Generation}|{e.Species}|{e.Form}|{e.LevelMin}|{prop(o, "Location")}|{prop(o, "Shiny")}|{prop(o, "FixedBall")}|{e.IsEgg}|{prop(o, "Gift")}";
+            modelli.Add((e, classe, gruppo));
+        }
+    }
+    Console.WriteLine($"modelli statici, doni e uova fino alla settima generazione: {modelli.Count}, gruppi {modelli.Select(x => x.gruppo).Distinct().Count()}");
+    var gruppoDi = new Dictionary<object, string>(ReferenceEqualityComparer.Instance);
+    foreach (var m in modelli) gruppoDi[m.enc] = m.gruppo;
+    var coperti = new HashSet<string>();
+    int letti = 0;
+    foreach (var c in copie)
+    {
+        var sav = SaveUtil.GetSaveFile(c) ?? throw new InvalidOperationException("salvataggio non letto: " + c);
+        for (int i = 0; i < sav.SlotCount; i++)
+        {
+            var pk = sav.GetBoxSlotAtIndex(i);
+            if (pk.Species == 0) continue;
+            var la = new LegalityAnalysis(pk);
+            if (!la.Valid) continue;
+            letti++;
+            if (gruppoDi.TryGetValue(la.EncounterMatch, out var gr)) coperti.Add(gr);
+        }
+    }
+    var mancanti = modelli.Where(x => !coperti.Contains(x.gruppo)).GroupBy(x => x.gruppo).ToList();
+    Console.WriteLine($"esemplari conformi letti {letti}, gruppi coperti {coperti.Count}, gruppi da produrre {mancanti.Count}");
+    var dir = Directory.CreateDirectory(cartella).FullName;
+    var lista = new JsonArray();
+    int prodotti = 0, n = 0;
+    GameVersion[] concrete = [GameVersion.RD, GameVersion.GN, GameVersion.BU, GameVersion.YW, GameVersion.GD, GameVersion.SI, GameVersion.C,
+        GameVersion.R, GameVersion.S, GameVersion.E, GameVersion.FR, GameVersion.LG, GameVersion.CXD, GameVersion.D, GameVersion.P, GameVersion.Pt,
+        GameVersion.HG, GameVersion.SS, GameVersion.B, GameVersion.W, GameVersion.B2, GameVersion.W2, GameVersion.X, GameVersion.Y,
+        GameVersion.OR, GameVersion.AS, GameVersion.SN, GameVersion.MN, GameVersion.US, GameVersion.UM];
+    foreach (var g in mancanti)
+    {
+        n++;
+        var primo = g.First();
+        var voce = new JsonObject { ["gruppo"] = g.Key, ["classe"] = primo.classe, ["specie"] = testi.specieslist[primo.enc.Species],
+            ["incontro"] = ((IEncounterable)primo.enc).LongName, ["gemelli"] = g.Count() };
+        lista.Add(voce);
+        PKM? buono = null; string rapporto = ""; IEncounterTemplate? scelto = null;
+        foreach (var (enc, _, _) in g)
+        {
+            var versioni = concrete.Where(v => enc.Version == v || enc.Version.Contains(v)).ToList();
+            if (versioni.Count == 0) versioni.Add(enc.Version);
+            foreach (var v in versioni)
+            {
+                if (buono is not null) break;
+                var lingue = v is GameVersion.GN ? new[] { LanguageID.Japanese } : new[] { LanguageID.Italian, LanguageID.English, LanguageID.Japanese };
+                foreach (var lg in lingue)
+                {
+                    if (buono is not null) break;
+                    var tr = new SimpleTrainerInfo(v == GameVersion.CXD ? GameVersion.E : v) { OT = lg is LanguageID.Japanese ? "アレッシオ" : nomeP, TID16 = tidP, SID16 = sidP, Language = (int)lg };
+                    try
+                    {
+                        RecentTrainerCache.SetRecentTrainer(tr);
+                        var pk = ((IEncounterable)enc).ConvertToPKM(tr, EncounterCriteria.Unrestricted);
+                        if (pk is CK3 ck3) pk = ck3.ConvertToPK3(); else if (pk is XK3 xk3) pk = xk3.ConvertToPK3();
+                        if (pk.IsEgg && pk.Format >= 4) pk.ForceHatchPKM(tr);
+                        var la = new LegalityAnalysis(pk);
+                        if (!la.Valid && la.Report().Contains("Met Date") && pk.Format >= 4)
+                        {
+                            pk.MetDate = DateOnly.FromDateTime(DateTime.Today);
+                            if (pk.WasEgg && pk.EggMetDate is null) pk.EggMetDate = pk.MetDate;
+                            la = new LegalityAnalysis(pk);
+                        }
+                        if (la.Valid) { buono = pk; scelto = enc; } else rapporto = la.Report();
+                    }
+                    catch (Exception ex) { rapporto = ex.Message; }
+                }
+            }
+            if (buono is not null) break;
+        }
+        if (buono is null) { voce["esito"] = "non prodotto"; voce["rapporto"] = rapporto; continue; }
+        var dati = new byte[buono.SIZE_STORED]; buono.WriteDecryptedDataStored(dati);
+        var nome = $"{n:0000}-{primo.classe}-G{primo.enc.Generation}-{testi.specieslist[buono.Species]}.{buono.Extension}";
+        foreach (var ch in Path.GetInvalidFileNameChars()) nome = nome.Replace(ch, '_');
+        File.WriteAllBytes(Path.Combine(dir, nome), dati);
+        voce["esito"] = "prodotto"; voce["file"] = nome; voce["pid"] = buono.PID.ToString("X8");
+        voce["versione"] = ((GameVersion)buono.Version).ToString(); voce["generazione"] = (int)primo.enc.Generation;
+        voce["sha256"] = Convert.ToHexString(SHA256.HashData(dati)).ToLowerInvariant();
+        voce["storia"] = $"{(primo.classe == "statico" ? "Incontro fisso" : primo.classe == "dono" ? "Dono in gioco" : "Uovo dono")} di {testi.specieslist[buono.Species]} in {((GameVersion)buono.Version)} ({((IEncounterable)scelto!).LongName}), livello {primo.enc.LevelMin}, " +
+            "con l'allenatore del progetto; prodotto dalla libreria del verificatore come caselle statiche, doni e uova (ADR-106, ADR-119).";
+        prodotti++;
+        if (n % 100 == 0) Console.WriteLine($"{n}/{mancanti.Count} prodotti {prodotti}");
+    }
+    File.WriteAllText(uscita, new JsonObject { ["modelli"] = modelli.Count, ["gruppi_coperti"] = coperti.Count, ["gruppi_da_produrre"] = mancanti.Count,
+        ["prodotti"] = prodotti, ["esemplari_letti"] = letti, ["esiti"] = lista }
+        .ToJsonString(new JsonSerializerOptions { WriteIndented = true, Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping }));
+    Console.WriteLine($"prodotti {prodotti} su {mancanti.Count}");
     return 0;
 }
 

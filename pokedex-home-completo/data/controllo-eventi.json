@@ -1,6 +1,6 @@
 {
- "archivio_censito_fino_a": "6c593540a3983e928a2d9d5691a02d509079e92b",
- "segnato_il": "2026-11-03",
+ "archivio_censito_fino_a": "424bca47fd9d2546783a4170d8c304f5a25d62ff",
+ "segnato_il": "2026-11-09",
  "bulbapedia": {
   "List of 10th Anniversary event Pokémon distributions": [
    4047310,
@@ -51,8 +51,8 @@
    "2025-02-02T03:52:07Z"
   ],
   "List of Japanese Wonder Mail S distributions in Pokémon Mystery Dungeon: Explorers of Sky": [
-   4653049,
-   "2026-10-24T23:55:45Z"
+   4666703,
+   "2026-11-08T14:49:06Z"
   ],
   "List of Japanese event Pokémon distributions in Generation I": [
    4231458,
@@ -219,8 +219,8 @@
    "2025-07-22T17:47:43Z"
   ],
   "List of Wonder Mail distributions in Pokémon Mystery Dungeon: Explorers of Time and Explorers of Darkness": [
-   4653048,
-   "2026-10-24T23:54:01Z"
+   4666945,
+   "2026-11-09T00:12:54Z"
   ],
   "List of event Pokémon distributions in Pokémon: Let's Go, Pikachu! and Let's Go, Eevee!": [
    4355120,
@@ -239,8 +239,8 @@
    "2026-11-02T00:27:52Z"
   ],
   "List of event Pokémon distributions in Pokémon Legends: Z-A": [
-   4662171,
-   "2026-11-03T03:44:29Z"
+   4666239,
+   "2026-11-07T19:51:03Z"
   ],
   "List of event Pokémon distributions in Pokémon Scarlet and Violet": [
    4660117,
@@ -251,8 +251,8 @@
    "2026-11-02T00:27:41Z"
   ],
   "List of event distributions in Pokémon Champions": [
-   4662055,
-   "2026-11-02T21:25:32Z"
+   4662800,
+   "2026-11-04T15:43:58Z"
   ],
   "List of event distributions in Pokémon Pokopia": [
    4660149,
@@ -395,8 +395,8 @@
    "2026-11-02T04:41:12Z"
   ],
   "List of other event distributions in Pokémon Scarlet and Violet": [
-   4659929,
-   "2026-11-01T21:34:41Z"
+   4663387,
+   "2026-11-05T23:35:59Z"
   ],
   "List of other event distributions in Pokémon Sword and Shield": [
    4659936,
@@ -417,10 +417,9 @@
  },
  "serebii-notizie": [
   "169bc6d12845338a",
-  "24f3312728c57b29",
+  "599e3588b44588da",
   "6efb4eb1b8af6085",
-  "84727b805d73cf23",
-  "8b5189146f8491ab"
+  "84727b805d73cf23"
  ],
  "serebii-doni-home": [
   "02e268ca14f18935",

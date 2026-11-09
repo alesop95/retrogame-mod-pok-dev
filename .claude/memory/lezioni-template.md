@@ -27,3 +27,7 @@ Uno script di sostituzione scritto in un heredoc di Bash e passato a Python tras
 ## L-005 - 2026-11-05 - Un subagent fermato dal limite d'uso si riprende con un messaggio e non si rilancia
 
 Quando un subagent in background si ferma perché la quota d'uso è esaurita, il suo lavoro fatto resta nel suo contesto: lanciarne uno nuovo con lo stesso mandato rifà tutto da capo e consuma di nuovo la quota. Caso osservato: un confronto su 809 pagine si è fermato a metà, ed è stato ripreso con un messaggio dopo il ripristino della quota; ha concluso in 4 chiamate invece di ricominciare. Alla notifica del limite si annota l'ora di ripristino e si riprende lo stesso agente con un messaggio che dice da dove ripartire.
+
+## L-006 - 2026-11-07 - Conforme non vuol dire richiesto
+
+Un generatore che accetta il primo risultato che il verificatore giudica valido può consegnare un oggetto valido ma diverso da quello chiesto: nel progetto la libreria costruiva la pre-evoluzione legale (Machoke per Machamp, Feebas per Milotic, Elekid per un Electivire di livello 15) e il giudizio era conforme. La conformità misura la legalità, non l'identità. Ogni produzione confronta l'identità chiesta (qui la specie) con quella del prodotto, in uno strumento indipendente dal generatore, prima di dichiarare il lotto fatto; e un caso impossibile si scopre proprio così, perché il generatore ripiega su qualcosa che si può fare.

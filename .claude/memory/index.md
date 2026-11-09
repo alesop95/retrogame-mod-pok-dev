@@ -8,8 +8,8 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: 0e35390, Giro 3 sulla SD, ricerca del seme, Ranch, lotto Game Boy, ADR-117
-Data snapshot:         2026-11-05, chiusura di sessione dopo 0e35390 e allineamento al template 3443d6c; prossimo: giro 3 dal punto 5
+Commit di riferimento: e22c1e9, Allineamento dal template al commit 1ee6754
+Data snapshot:         2026-11-09, ADR-120: marchio Game Boy, HOME7 fin7 e HOME10 -gb, giro 4 sulla SD; prossimo: giro 4 dal punto 5
 ```
 
 ## Stato di verifica delle schede
@@ -31,11 +31,21 @@ Data snapshot:         2026-11-05, chiusura di sessione dopo 0e35390 e allineame
 | sub-poke-ace.md | poke-ace | 89a13f7 | verificata il 2026-09-29 con sync-context: nessun file cambiato nell'area |
 | sub-generation-from-switch.md | generation-from-switch | 89a13f7 | verificata il 2026-09-29 con sync-context: nessun file cambiato nell'area |
 | sub-cart-battery.md | cart-battery-restoration | 89a13f7 | riconciliata il 2026-09-29 con sync-context: rischio di tensione chiuso il 2026-09-15 (LED blu 3,3 V, rosso 5 V) e lettore validato, due delta nella scheda |
-| sub-pokedex-home-completo.md | pokedex-home-completo | ef2ff17 | riconciliata il 2026-11-03 su 29 file: stato e prossimo passo riscritti sulla roadmap del 2026-10-05 e sulle copie `-fin2`/`-fin3` (3272 per HOME, 121 decisione finale, 14 giapponesi), prossimo passo la prova pilota del proprietario con `oras-giro-1-fin2`. Prima, riconciliata il 2026-09-29 con sync-context: aggiornamento su libreria, scambi, collezione chiusa e coda (333, 60, 40 su 433), prossimo passo sulle 40 voci da periferiche, ADR-083 sulla porta di Smeraldo, indice dei documenti e salvataggi di terzi a diciotto |
+| sub-pokedex-home-completo.md | pokedex-home-completo | e22c1e9 | aggiornata il 2026-11-09 (ADR-120): stato e prossimo passo sulla tabella dei giri di `ROADMAP.md`, 6212 esemplari e 6088 conformi, giri 1-3 in HOME, giro 4 sulla SD |
 
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-11-09, che prevale su quelle sotto (ADR-120). Dump di Luma3DS letto: difetto dell'applet eShop di sistema (`mint`), non dei dati. Marchio Game Boy controllato sulla lista di r/PokemonHome `1vwg1gd`: aggiunti Raichu, Exeggutor e Marowak di Alola, Meowth, Butterfree e un Dunsparce per il Dudunsparce a tre segmenti nella copia nuova di HOME10 `ultraluna-giro-3-statici-gb`, 261; HOME7 diventa `ultraluna-giro-2-fin7`, 642, con la geolocalizzazione del salvataggio su 28 esemplari della Console Virtuale. Giudizio `dopo-adr120.json`, 6212 esemplari, 6088 conformi; HOME a giri finiti 6111. Giro 4 avviato: SD pronta con `20261109-giro4`, tocca al proprietario dal punto 5 della sezione «Giro 4» di `RUNBOOK-PASSO-2.md`. Il Goodra passa alla comunità nella fase Switch; Vivillon e doni di Z-A riscattati. Pendenze nella voce «AL 2026-11-09» di `pending.md`.
+
+AGGIUNTA DEL 2026-11-07 (ADR-119). Giro unico chiuso: tutte le copie per HOME sono pronte e conformi, undici giri in tabella in testa a `pokedex-home-completo/ROADMAP.md`; giro 3 CHIUSO, HOME a 2600. Prossimo passo del proprietario: il giro 4, HOME6 `oras-giro-4-fin9`, 929, con la procedura di `RUNBOOK-PASSO-2.md`. Prossimo passo dell'agente alla prossima SD nel PC: il dump dell'eccezione di Luma3DS. Scadenza fase Switch: Goodra entro il 2026-11-12. Esito della consegna in `CONSEGNA-2026-11-06-EVENTI.md`, pendenze nella voce «AL 2026-11-07» di `pending.md`.
+
+AGGIUNTA DEL 2026-11-06, terza parte, che prevale su quelle sotto (ADR-118). Assorbita la consegna del proprietario sui 46 eventi senza carta: `pokedex-home-completo/CONSEGNA-2026-11-06-EVENTI.md`, 69 fonti in `SOURCES.md`. Dei 46, 20 sono già nelle copie, 22 mancano, 4 hanno un ID da confermare. Ordine di lavoro dell'agente nella voce «CONSEGNA DEL 2026-11-06» di `pending.md`: prima tutte le copie per HOME e la roadmap senza «da fare», poi i 22 eventi, poi le fonti lette per intero. Il proprietario intanto fa i punti 15-17 del giro 3; poi l'agente fa il punto 18.
+
+AGGIUNTA DEL 2026-11-06, seconda parte, che prevale su quelle sotto. Giro 3, punti 13 e 14 FATTI: rilettura `20261105-rilett3` identica alla copia `oras-giro-3-fin3` (`4662a6a66ad07063`), 915 su 915 conformi, 0 differenze; riserva `20261105-prima3` (`27bec44944c0abbe`) e rilettura nelle due riserve. Tocca al proprietario dai punti 15 a 17, HOME da 1685 a 2600; poi l'agente registra HOME3 «in HOME» (punto 18).
+
+AGGIUNTA DEL 2026-11-06, ripresa, che prevale su quelle sotto. `/riprendi` ha trovato l'impronta del 2026-11-05 su `d89b6df` e dopo di essa due soli commit, entrambi allineamenti dal template fatti fuori sessione: `9c731c5` (template `0ed3c95`, 11 file sotto `.claude/`, fra cui `stato-vulnerabilita.py` e la skill `riprendi`) e `7d7ad84` (template `03d5498`, 4 file), 0 conflitti; albero pulito, nessun lavoro di progetto perduto. Novità degli hook di apertura registrate in `pending.md`, voce «AL 2026-11-06». Il fuoco non cambia: giro 3 del passo 2 fermo al punto 5, che fa il proprietario.
 
 AGGIUNTA DEL 2026-11-05, chiusura di sessione, che prevale su quelle sotto. Il proprietario ha lanciato `chiudi` (commit `0e35390`, impronta registrata). Dopo il commit: allineamento al template `3443d6c`, 0 conflitti; lezioni L-003, L-004 e L-005 registrate per il template. La sessione si chiude con il wipe e la nuova riparte da `/riprendi`: il proprietario porterà le informazioni del giro 3, che è fermo al punto 5 (copia `20261105-giro3` già sulla SD con impronta `4662a6a66ad07063`, riserva in due copie). Il punto di ripresa esatto, con l'ultimo messaggio del proprietario, sta in `_notes/resume-prompt.md`.
 

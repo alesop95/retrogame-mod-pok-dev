@@ -1,0 +1,110 @@
+{
+  "fonte": "Reddit r/PokemonHome 1vwg1gd, «Pokemon Gameboy Mark List», letta dagli screenshot del proprietario il 2026-11-09; confronto con il giudizio dopo ADR-119 (ADR-120)",
+  "esemplari": [
+    {
+      "categoria": "marchio Game Boy",
+      "voci": [
+        "Raichu di Alola con il marchio Game Boy: Pikachu della Console Virtuale di prima generazione evoluto nei giochi di Alola, che sono i soli dove nasce la forma di Alola"
+      ],
+      "numero": 26,
+      "forma_n": 1,
+      "giochi": [
+        "RBY"
+      ],
+      "sfera": null,
+      "cromatico": false,
+      "sesso": null,
+      "classe": null,
+      "livello_max": 25,
+      "abilita": null
+    },
+    {
+      "categoria": "marchio Game Boy",
+      "voci": [
+        "Exeggutor di Alola con il marchio Game Boy: Exeggcute della Console Virtuale di prima generazione evoluto nei giochi di Alola"
+      ],
+      "numero": 103,
+      "forma_n": 1,
+      "giochi": [
+        "RBY"
+      ],
+      "sfera": null,
+      "cromatico": false,
+      "sesso": null,
+      "classe": null,
+      "livello_max": 25,
+      "abilita": null
+    },
+    {
+      "categoria": "marchio Game Boy",
+      "voci": [
+        "Marowak di Alola con il marchio Game Boy: Cubone della Console Virtuale di prima generazione evoluto nei giochi di Alola"
+      ],
+      "numero": 105,
+      "forma_n": 1,
+      "giochi": [
+        "RBY"
+      ],
+      "sfera": null,
+      "cromatico": false,
+      "sesso": null,
+      "classe": null,
+      "livello_max": 28,
+      "abilita": null
+    },
+    {
+      "categoria": "marchio Game Boy",
+      "voci": [
+        "Meowth di Kanto con il marchio Game Boy, per il Gigamax con la zuppa di Spada e Scudo nella fase Switch"
+      ],
+      "numero": 52,
+      "forma_n": 0,
+      "giochi": [
+        "RBY"
+      ],
+      "sfera": null,
+      "cromatico": false,
+      "sesso": null,
+      "classe": null,
+      "livello_max": null,
+      "abilita": null
+    },
+    {
+      "categoria": "marchio Game Boy",
+      "voci": [
+        "Butterfree con il marchio Game Boy, per il Gigamax con la zuppa di Spada e Scudo nella fase Switch"
+      ],
+      "numero": 12,
+      "forma_n": 0,
+      "giochi": [
+        "RBY"
+      ],
+      "sfera": null,
+      "cromatico": false,
+      "sesso": null,
+      "classe": null,
+      "livello_max": 10,
+      "abilita": null
+    },
+    {
+      "categoria": "marchio Game Boy",
+      "voci": [
+        "Dunsparce con il marchio Game Boy da far evolvere su Switch in Dudunsparce a tre segmenti: costante di cifratura multipla di 100"
+      ],
+      "numero": 206,
+      "forma_n": 0,
+      "giochi": [
+        "GD",
+        "SI",
+        "C"
+      ],
+      "sfera": null,
+      "cromatico": false,
+      "sesso": null,
+      "classe": null,
+      "livello_max": null,
+      "abilita": null,
+      "ec_multiplo": 100
+    }
+  ]
+}
