@@ -86,6 +86,10 @@ def misura(f):
         for ws in wb.worksheets:
             h.update(ws.title.encode("utf-8"))
             for riga in ws.iter_rows(values_only=True):
+                # Una formula matriciale arriva come oggetto, e il suo repr porta l'indirizzo in memoria, diverso a ogni
+                # corsa: fino al 2026-11-09 il foglio FRLG Seeds risultava cambiato a ogni apertura senza nessuna cella
+                # diversa. Si impronta il testo della formula e la sua area.
+                riga = tuple(("formula", v.ref, v.text) if hasattr(v, "text") and hasattr(v, "ref") else v for v in riga)
                 h.update(repr(riga).encode("utf-8"))
         return "celle %s, %d schede" % (h.hexdigest()[:16], len(wb.worksheets))
     if tipo == "reddit":

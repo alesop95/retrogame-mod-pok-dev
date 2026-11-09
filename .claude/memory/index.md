@@ -9,7 +9,7 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 ```
 Branch attivo:         main
 Commit di riferimento: e22c1e9, Allineamento dal template al commit 1ee6754
-Data snapshot:         2026-11-09, ADR-120: marchio Game Boy, HOME7 fin7 e HOME10 -gb; giro 4 riletto e giudicato 929 su 929; prossimo: giro 4 dal punto 15
+Data snapshot:         2026-11-09, ADR-120: marchio Game Boy, HOME7 fin7 e HOME10 -gb; giri 1-5 in HOME (3785), ADR-121; prossimo: giro 6 dal punto 1
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,18 @@ Data snapshot:         2026-11-09, ADR-120: marchio Game Boy, HOME7 fin7 e HOME1
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-11-09, ottava parte, che prevale su quelle sotto. Giro 5 in HOME (3785). ADR-121: i 117 di FINALE in HOME senza la mossa d'evento con il giro 10 (`ultraluna-giro-3-statici-gb-finale117`, 378), completi nelle cartucce dopo Bank. Giro 6 (HOME9, 695) nel runbook. A giri finiti 6229.
+
+AGGIUNTA DEL 2026-11-09, settima parte, che prevale su quelle sotto. Giro 5 riletto e giudicato 256 su 256, tocca al proprietario dal punto 15. HOME9 diventa `oras-giro-6-statici-eventi-4` (695, con il Rayquaza). Candidata per HOME10 `ultraluna-giro-3-statici-gb-finale117` (378) se il proprietario sceglie i 117 di FINALE. `chiudi` sbloccato con un'esclusione locale ristretta.
+
+AGGIUNTA DEL 2026-11-09, sesta parte, che prevale su quelle sotto. Pendenze dell'agente smistate (96 azioni, 52 superate); fatte le sei che toccano i lotti: i 121 di FINALE divisi (117 conformi senza la mossa d'evento, decisione del proprietario), Rayquaza di Pokémon Box prodotto (da aggiungere a HOME9 prima del giro 6), playlist Countdown letta fino alla 110 senza voci nuove, sfida di Alola coperta. Giro 5: `rilett5` manca sulla SD, punti 8-11 da completare.
+
+AGGIUNTA DEL 2026-11-09, quinta parte, che prevale su quelle sotto. Giro 4 in HOME: 3529, HOME6 «in HOME». Giro 5 (HOME8, 256) scritto in `RUNBOOK-PASSO-2.md`, HOME da 3529 a 3785, dal punto 1 con la SD nel PC. Foglio FRLG Seeds: nessun cambiamento, il falso allarme veniva da `tools/controlla-fonti-vive.py`, corretto. Gimmighoul forma Ambulante alla comunità nella fase Switch.
+
+AGGIUNTA DEL 2026-11-09, quarta parte, che prevale su quelle sotto. Giro 4 sempre fermo al punto 16: il proprietario non si è connesso al server e nessun esemplare è uscito dai box; il limite sulla banca resta. Guida stampabile per Melmetal da GO sul desktop: primo trasferimento da GO a HOME (Melmetal con il fattore Gigamax in regalo), pacco sorpresa con Meltan cromatico fino al 15 novembre alle 18, Melmetal con 400 caramelle, Gimmighoul forma Ambulante al grado 79 del biglietto GO.
+
+AGGIUNTA DEL 2026-11-09, terza parte, che prevale su quelle sotto. Commit `bbefbad`. Giro 4 FERMO al punto 16: la banca ha dato l'errore 006-0112 e poi ha bloccato il server per la sessione interrotta; tratto fuori dall'assistenza. Proposta al proprietario una verifica in sola lettura del salvataggio com'è adesso (`20261109-dopo16`). Il proprietario ha Pokémon GO, account ripristinato. Nell'albero c'è un allineamento dal template a `1841628`, da chiudere a parte.
 
 AGGIUNTA DEL 2026-11-09, seconda parte, che prevale su quelle sotto. Il proprietario ha lanciato `chiudi` (commit `ae06243`, con due avvisi non bloccanti sulle aree del messaggio e sulla didattica) e ha fatto i punti 5-12 del giro 4. Punti 13 e 14 FATTI: `20261109-rilett4/main` identica byte per byte alla copia HOME6 `oras-giro-4-fin9`, giudicata 929 conformi su 929 negli stessi posti (`_notes/lavoro/giudizi-copie/rilettura-passo2-giro4.json`); `20261109-prima4` con i box vuoti; entrambe nelle due riserve. Le foto confermano i controlli in gioco; nel box 31 Pikachu Hayley è al 28 e ユカリ al 29, come nel giudizio. Prossimo: il proprietario fa i punti 15-17 (Bank e HOME, da 2600 a 3529), poi l'agente il 18.
 

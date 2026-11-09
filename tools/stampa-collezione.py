@@ -152,7 +152,9 @@ def miniatura(e, cartella, cache):
 # system di `pokedex-home-completo/design-system/`, e una riga per esemplare nel documento generato e tracciato, dalla
 # stessa funzione, così che i due non divergano. Lo stato viene dal gruppo: il giro 1 è in HOME dal 2026-11-03.
 STATO_GRUPPO = {"HOME1": ("DSstatoinhome", "in HOME"), "HOME2": ("DSstatoinhome", "in HOME"),  # il giro 2 dal 2026-11-04
-                "HOME3": ("DSstatoinhome", "in HOME")}  # il giro 3 dal 2026-11-06, HOME a 2600
+                "HOME3": ("DSstatoinhome", "in HOME"),  # il giro 3 dal 2026-11-06, HOME a 2600
+                "HOME6": ("DSstatoinhome", "in HOME"),  # il giro 4 dal 2026-11-09, HOME a 3529
+                "HOME8": ("DSstatoinhome", "in HOME")}  # il giro 5 dal 2026-11-09, HOME a 3785
 DS = os.path.join(RADICE, "pokedex-home-completo", "design-system")
 PEDIGREE_MD = os.path.join(RADICE, "pokedex-home-completo", "pedigree")
 PEDIGREE_PDF = os.path.join(RADICE, "_notes", "stampa", "pedigree")
@@ -166,6 +168,10 @@ PROVENIENZE_GEN3 = os.path.join(RADICE, "recreate-pokemon-distributions-events",
 COMUNITA = [os.path.join(RADICE, "_notes", "lotti", "lotto-rng-comunita", "rapporto.json"),
             os.path.join(RADICE, "_notes", "lotti", "lotto-rng-comunita-2", "rapporto.json"),
             os.path.join(RADICE, "_notes", "lotti", "lotto-rng-comunita-3", "rapporto.json"),
+            # il Rayquaza di Pokemon Box, Metodo 4 (2026-11-09)
+            os.path.join(RADICE, "_notes", "lotti", "lotto-rng-comunita-4", "rapporto.json"),
+            # i 117 di FINALE senza la mossa d'evento (ADR-121, 2026-11-09)
+            os.path.join(RADICE, "_notes", "lotti", "lotto-finale-117", "storie.json"),
             os.path.join(RADICE, "_notes", "lotti", "lotto-ranch-lingue", "rapporto.json"),
             # gli eventi dell'Eventdex di Serebii che mancavano alle copie, prodotti dalle carte della libreria (ADR-115)
             os.path.join(RADICE, "_notes", "lotti", "lotto-serebii-mancanti", "rapporto.json"),

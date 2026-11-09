@@ -609,6 +609,37 @@ int Comunita(string listaJson, string allenatoreJson, string cartella)
         esiti.Add(esito);
         // un candidato prodotto da un'altra modalita', come il Kyogre di --kyogre: resta nel rapporto per la sua storia
         if (c["gia_prodotto"] is { } gp) { esito["esito"] = "già prodotto in " + (string)gp!; esito["pid"] = (string?)c["pid"]; continue; }
+        // Un PID calcolato fuori dallo strumento (2026-11-09): il Rayquaza di Pokémon Box viene dal Metodo 4, che la libreria
+        // ammette per gli statici di Rubino e Zaffiro proprio perché Pokémon Box li emula. Si prende l'incontro che la libreria
+        // costruisce, si mettono PID, ID segreto, IV e sfera dati, e decide il verificatore.
+        if ((string?)c["metodo"] == "pid")
+        {
+            uint pidDato = Convert.ToUInt32((string)c["pid"]!, 16);
+            var trp = new SimpleTrainerInfo(ver) { OT = ot, TID16 = tid, SID16 = sidFisso ?? sidP, Language = lingua };
+            var mp = EntityBlank.GetBlank(3); mp.Species = (ushort)specie; mp.Language = lingua;
+            string ultimoP = "nessun incontro";
+            foreach (var e0 in EncounterMovesetGenerator.GenerateEncounters(mp, trp, ReadOnlyMemory<ushort>.Empty, ver))
+            {
+                var pk = e0.ConvertToPKM(trp);
+                pk.PID = pidDato; pk.SID16 = sidFisso ?? sidP;
+                pk.IV_HP = iv[0]; pk.IV_ATK = iv[1]; pk.IV_DEF = iv[2]; pk.IV_SPA = iv[3]; pk.IV_SPD = iv[4]; pk.IV_SPE = iv[5];
+                if (c["sfera"] is { } sfp) pk.Ball = (byte)Enum.Parse<Ball>((string)sfp!);
+                pk.RefreshAbility(pk.AbilityNumber >> 1);
+                pk.RefreshChecksum();
+                var lap = new LegalityAnalysis(pk);
+                if (!lap.Valid) { ultimoP = e0.LongName + ": " + lap.Report(); continue; }
+                var datiP = new byte[pk.SIZE_STORED]; pk.WriteDecryptedDataStored(datiP);
+                var fileP = $"{id}-{specie}{(pk.IsShiny ? "-cromatico" : "")}.{pk.Extension}";
+                File.WriteAllBytes(Path.Combine(dir, fileP), datiP);
+                esito["esito"] = "prodotto"; esito["file"] = fileP; esito["sha256"] = Convert.ToHexString(SHA256.HashData(datiP)).ToLowerInvariant();
+                esito["pid"] = pk.PID.ToString("X8"); esito["natura"] = pk.Nature.ToString(); esito["iv"] = string.Join("/", iv);
+                esito["sid"] = pk.SID16; esito["cromatico"] = pk.IsShiny; esito["incontro"] = e0.LongName;
+                break;
+            }
+            esito["esito"] ??= "non prodotto: " + ultimoP;
+            Console.WriteLine($"{id} {specie} {ver}: {esito["esito"]} {esito["pid"]}");
+            continue;
+        }
         // Fuori dal Metodo 1 (ADR-116): Colosseum, i doni dei dischi, la quarta, sesta e settima generazione e la Console
         // Virtuale. Si chiedono alla libreria gli IV, la natura e la cromaticita' come criteri, e la libreria cerca da se' il
         // seme dove il metodo lo prevede; si tiene il primo incontro che li rispetta e che il verificatore accetta.

@@ -83,7 +83,7 @@ Scritto per intero il 2026-11-05 su richiesta del proprietario, con gli stessi p
 
 ## Giro 4
 
-Scritto il 2026-11-09 su richiesta del proprietario, con gli stessi passaggi del giro 3 e i nomi già pronti. La copia è HOME6, `_notes/salvataggi/prove/per-home/oras-giro-4-fin9/main`, 929 esemplari, SHA-256 che comincia con `54fba3a32cd4f48d`, giudicata 929 conformi con la libreria 26.10.18 (`_notes/lavoro/giudizi-copie/dopo-adr120.json`). Il giro 3 è registrato: HOME mostra 2600, e dopo questo giro i posti occupati attesi sono 3529 su 9000. Stato al 2026-11-09: punti da 1 a 14 FATTI (dal 5 al 12 dal proprietario, il 13 e il 14 dall'agente con la SD di nuovo in `I:`); tocca al proprietario dal punto 15. Se durante il passaggio Luma3DS mostra di nuovo un'eccezione nel processo `mint`, è l'applet eShop di sistema e non i dati della copia (ADR-120): si spegne, si riaccende e si riprende dal punto 16, senza ripristinare niente.
+Scritto il 2026-11-09 su richiesta del proprietario, con gli stessi passaggi del giro 3 e i nomi già pronti. La copia è HOME6, `_notes/salvataggi/prove/per-home/oras-giro-4-fin9/main`, 929 esemplari, SHA-256 che comincia con `54fba3a32cd4f48d`, giudicata 929 conformi con la libreria 26.10.18 (`_notes/lavoro/giudizi-copie/dopo-adr120.json`). Il giro 3 è registrato: HOME mostra 2600, e dopo questo giro i posti occupati attesi sono 3529 su 9000. Stato al 2026-11-09: punti da 1 a 14 FATTI (dal 5 al 12 dal proprietario, il 13 e il 14 dall'agente con la SD di nuovo in `I:`); punti da 15 a 18 FATTI: giro 4 in HOME il 2026-11-09, che conta 3529. Se durante il passaggio Luma3DS mostra di nuovo un'eccezione nel processo `mint`, è l'applet eShop di sistema e non i dati della copia (ADR-120): si spegne, si riaccende e si riprende dal punto 16, senza ripristinare niente.
 
 ### A. Con la scheda SD nel PC
 
@@ -111,9 +111,66 @@ Scritto il 2026-11-09 su richiesta del proprietario, con gli stessi passaggi del
 
 ### D. Il tratto tuo, e la verifica in HOME
 
-16. Proprietario: il passaggio dalla console a Pokémon Bank, il controllo in banca e il passaggio a Pokémon HOME sono tuoi, e l'assistenza non li copre. Se la banca o HOME rifiutano o segnalano un Pokémon, fermati e non ripetere: dimmi quale e con quale messaggio, e lo confronto con il giudizio di PKHeX.
-17. Proprietario, in HOME, dall'app per Switch o per telefono, senza spostare nulla: il totale del deposito deve passare da 2600 a 3529. Fotografa il totale e tre schede a caso, con la schermata dei dati e quella delle note dell'allenatore. Se un Pokémon mostra un'icona o un messaggio insolito, fotografa la schermata e dimmi box e posto.
-18. Agente: registro l'esito in `COPIE-PER-HOME.md` e nel pedigree, dove il gruppo HOME6 passa da «pronta» a «in HOME». Poi il giro 5, HOME8, con la stessa procedura.
+16. Proprietario: il passaggio dalla console a Pokémon Bank, il controllo in banca e il passaggio a Pokémon HOME sono tuoi, e l'assistenza non li copre. Se la banca o HOME rifiutano o segnalano un Pokémon, fermati e non ripetere: dimmi quale e con quale messaggio, e lo confronto con il giudizio di PKHeX. FERMO il 2026-11-09 al punto 16: il punto 15 è fatto; durante il passaggio la banca ha mostrato «Error Code: 006-0112» mentre comunicava con il server, e al nuovo tentativo «Communication with the server was interrupted during your previous session, so the server has been locked» e «Please wait a short while and then try to connect again». Le foto sono in `_notes/fonti/consegne/2026-11-09-giro4-console/`. Il tratto della banca resta fuori dall'assistenza (`rules/hardware-and-perimeter.md`), quindi nessuna indicazione su come proseguire lì. Dal lato dei dati, l'agente può fare una verifica in sola lettura: una copia di Checkpoint del salvataggio di Rubino Omega come è adesso, `20261109-dopo16`, senza Restore, e la SD nel PC; si giudica quanti dei 929 esemplari restano nei box, confrontandoli con `rilettura-passo2-giro4.json`. Ripreso e FATTO il 2026-11-09: al nuovo tentativo il proprietario ha spostato tutti i 31 box nella banca, che ha risposto «Success! Changes saved.», e poi li ha passati a HOME dall'app per Android, che ha risposto «The move has been completed!».
+17. Proprietario, in HOME, dall'app per Switch o per telefono, senza spostare nulla: il totale del deposito deve passare da 2600 a 3529. Fotografa il totale e tre schede a caso, con la schermata dei dati e quella delle note dell'allenatore. Se un Pokémon mostra un'icona o un messaggio insolito, fotografa la schermata e dimmi box e posto. FATTO il 2026-11-09: il totale di HOME è 3529, come atteso; nessuna icona o messaggio insolito. Le schede non sono state fotografate, per scelta del proprietario di andare avanti; le foto mostrano invece le sfide di HOME (per esempio Ripetitore Ball 14 su 15, Premier Ball 11 su 15, Mega Ball 16 su 30). Foto in `_notes/fonti/consegne/2026-11-09-giro4-console/`.
+18. Agente: registro l'esito in `COPIE-PER-HOME.md` e nel pedigree, dove il gruppo HOME6 passa da «pronta» a «in HOME». Poi il giro 5, HOME8, con la stessa procedura. FATTO il 2026-11-09: HOME6 «in HOME» in `tools/stampa-collezione.py`, pedigree e PDF rigenerati.
+
+## Giro 5
+
+Scritto il 2026-11-09, con la procedura del giro 4 e i nomi già pronti. La copia è HOME8, `_notes/salvataggi/prove/per-home/oras-giro-5-carte-mn5/main`, 256 esemplari, SHA-256 `85bd95145643e9e1b26dce896206f53b5b027ff41609e0337d0ca48cd0cabeef`, giudicata 256 conformi (`_notes/lavoro/giudizi-copie/dopo-adr120.json`): box da 1 a 8 pieni e box 9 posti da 1 a 16. HOME conta 3529 e dopo questo giro deve contarne 3785. Se Luma3DS mostra un'eccezione nel processo `mint`, si spegne, si riaccende e si riprende dal punto 16 (ADR-120).
+
+### A. Con la scheda SD nel PC
+
+1. Proprietario: spegni il 3DS del tutto. FATTO.
+2. Proprietario: SD nel PC, lettera `I:`, e dimmelo. FATTO il 2026-11-09.
+3. Agente: copia di `/3ds/Checkpoint/saves/` in `_notes/salvataggi/console/sd-checkpoint-20261109b/` e in `J:/backup-sd-3ds/20261109b/`, con lo SHA-256 di ogni file sulla SD e nelle due copie. FATTO il 2026-11-09: 25 file, 25 uguali, comprese `20261109-prima4` e `20261109-rilett4`.
+4. Agente: cartella `/3ds/Checkpoint/saves/0x011C4 Pokémon Omega Ruby/20261109-giro5/` con la copia di nome `main`, riletta dalla SD. FATTO il 2026-11-09: SHA-256 `85bd95145643e9e1b26dce896206f53b5b027ff41609e0337d0ca48cd0cabeef`, uguale alla copia.
+5. Proprietario: espelli la SD in sicurezza da Windows e rimettila nel 3DS. FATTO.
+
+### B. Sulla console
+
+6. Proprietario: accendi il 3DS e avvia Checkpoint.
+7. Proprietario: Pokémon Omega Ruby, Backup, nome `20261109-prima5`.
+8. Proprietario: seleziona `20261109-giro5`, Restore, conferma.
+9. Proprietario: avvia Rubino Omega senza giocare né salvare e apri il PC. Controlla: box 1 posto 1 Bulbasaur livello 10, allenatore ヨコハマ; box 1 posto 2 Charmander livello 10, allenatore トウキョー; box 9 posto 16 Skitty livello 10, allenatore フクオカ; box da 1 a 8 pieni, box 9 con i posti da 1 a 16 (la riga in alto ha sei posti, quindi il 16 è il quarto della terza riga). Se una cosa non torna, fermati e dimmelo.
+10. Proprietario: esci senza salvare, chiudendo il software dal menu HOME.
+11. Proprietario: Checkpoint, Pokémon Omega Ruby, Backup, nome `20261109-rilett5`. Punti 6-11 FATTI il 2026-11-09: `20261109-prima5` (0 esemplari nei box, SHA-256 che comincia con `5cd017989abde5ad`) e, al secondo passaggio, `20261109-rilett5`.
+
+### C. La verifica, di nuovo con la SD nel PC
+
+12. Proprietario: spegni il 3DS, SD nel PC, e dimmelo. FATTO.
+13. Agente: SHA-256 di `20261109-rilett5/main` uguale a quello della copia. FATTO il 2026-11-09: `85bd9514…`, identico.
+14. Agente: giudizio di `20261109-rilett5/main` con `tools/pkhex-elenco-copie`, 256 conformi negli stessi posti; `prima5` e `rilett5` nelle due cartelle di riserva. FATTO il 2026-11-09: `_notes/lavoro/giudizi-copie/rilettura-passo2-giro5.json`, 256 conformi su 256, stessi posti e impronte; riserve con impronte uguali.
+15. Proprietario: espelli la SD e rimettila nel 3DS.
+
+### D. Il tratto tuo, e la verifica in HOME
+
+16. Proprietario: il passaggio alla banca e poi a HOME è tuo, fuori dall'assistenza.
+17. Proprietario: in HOME il totale deve passare da 3529 a 3785; fotografa il totale. Punti 15-17 FATTI il 2026-11-09: HOME conta 3785.
+18. Agente: HOME8 «in HOME» in `tools/stampa-collezione.py`, pedigree, `COPIE-PER-HOME.md`, `ROADMAP.md`; poi il giro 6, HOME9. FATTO il 2026-11-09: HOME8 «in HOME», pedigree e PDF rigenerati.
+
+## Giro 6
+
+Scritto il 2026-11-09 con la stessa procedura del giro 5. La copia è HOME9, `_notes/salvataggi/prove/per-home/oras-giro-6-statici-eventi-4/main`, 695 esemplari (i 694 della copia del 2026-11-07 più il Rayquaza di Pokémon Box), SHA-256 `374e8c502f895b5909b63131df6a0207cc12bff5288a3d237de490cf663db292`, giudicata 695 conformi (`_notes/lavoro/giudizi-copie/dopo-20261109.json`): box da 1 a 23 pieni e box 24 posti da 1 a 5. HOME conta 3785 e dopo questo giro deve contarne 4480.
+
+1. Proprietario: spegni il 3DS del tutto.
+2. Proprietario: SD nel PC, lettera `I:`, e dimmelo.
+3. Agente: copia di `/3ds/Checkpoint/saves/` in `_notes/salvataggi/console/sd-checkpoint-20261109c/` e in `J:/backup-sd-3ds/20261109c/`, con lo SHA-256 di ogni file.
+4. Agente: cartella `20261109-giro6` di Pokémon Omega Ruby con la copia di nome `main`, riletta dalla SD.
+5. Proprietario: espelli la SD e rimettila nel 3DS.
+6. Proprietario: avvia Checkpoint.
+7. Proprietario: Pokémon Omega Ruby, Backup, nome `20261109-prima6`.
+8. Proprietario: seleziona `20261109-giro6`, Restore, conferma.
+9. Proprietario: avvia Rubino Omega senza salvare e controlla: box 1 posto 1 Snorlax livello 30, box 1 posto 2 Hypno livello 30, entrambi con allenatore Alessio; box 24 posto 5 Rayquaza livello 70 cromatico; box da 1 a 23 pieni, box 24 con i posti da 1 a 5.
+10. Proprietario: esci senza salvare.
+11. Proprietario: Checkpoint, Pokémon Omega Ruby, Backup, nome `20261109-rilett6`.
+12. Proprietario: spegni, SD nel PC, e dimmelo.
+13. Agente: SHA-256 di `20261109-rilett6/main` uguale a quello della copia.
+14. Agente: giudizio della rilettura, 695 conformi negli stessi posti; `prima6` e `rilett6` nelle due riserve.
+15. Proprietario: SD nel 3DS.
+16. Proprietario: il passaggio alla banca e a HOME, fuori dall'assistenza.
+17. Proprietario: HOME da 3785 a 4480, foto del totale.
+18. Agente: HOME9 «in HOME», pedigree; poi il giro 7, HOME4, il primo di Luna.
 
 ## Dopo il giro 4
 

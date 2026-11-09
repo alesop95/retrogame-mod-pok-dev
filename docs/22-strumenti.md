@@ -910,3 +910,5 @@ Nasce il 2026-11-03, quando il proprietario ha deciso di completare tutte le sfi
 cd "E:/retrogame-mod-pok-dev"
 python tools/sfide-bank.py --scrivi
 ```
+
+`tools/pkhex-mosse-evento`, dal 2026-11-09, divide gli esemplari dell'epoca delle cartucce Game Boy fra chi porta una mossa che la Console Virtuale non ammette e chi no: li giudica come `pkhex-giudica` con `=VC`, annota le mosse non valide, prova la versione senza di esse e la scrive accanto, senza toccare l'originale. È nato per la decisione finale sui 121 di FINALE. Lo stesso giorno `tools/pkhex-produci-elenco --comunita` ha ricevuto `metodo: pid`, per un PID calcolato fuori dallo strumento, come il Metodo 4 del Rayquaza di Pokémon Box, che la libreria ammette solo per gli statici di Rubino e Zaffiro.

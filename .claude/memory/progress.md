@@ -4,6 +4,74 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-09, ottava parte. Giro 5 in HOME, i 117 di FINALE nel giro 10 (ADR-121), il giro 6 pronto
+
+Il proprietario ha fatto il giro 5: HOME conta 3785. HOME8 «in HOME», pedigree rigenerato. Ha deciso sui 117 di FINALE: in HOME senza la mossa d'evento, e completi nelle cartucce di prima e seconda generazione dopo la chiusura di Bank, in parallelo alla fase Switch (ADR-121). La copia del giro 10 diventa `ultraluna-giro-3-statici-gb-finale117`, 378 conformi; il giudizio complessivo `dopo-20261109.json` conta 6330 esemplari e 6206 conformi; il pedigree di HOME10 ha una storia per ciascuno dei 117 (`_notes/lotti/lotto-finale-117/storie.json`, aggiunto alle fonti di `tools/stampa-collezione.py`), con la mossa tolta. Il giro 6 è scritto nel runbook: HOME9 `oras-giro-6-statici-eventi-4`, 695, HOME da 3785 a 4480. A giri finiti HOME conta 6229.
+
+Il proprietario ha notato che in HOME i caratteri coreani dell'allenatore si vedono su un Druddigon e non su un Pikachu. Il Druddigon è di lingua coreana. Nei giri fatti i Pikachu con allenatore coreano sono due doni di lingua coreana in HOME1 (box 26 posti 15 e 28) e tre doni coreani di sesta generazione ricevuti da un gioco in italiano in HOME3 (box 10 posto 27, box 24 posti 13 e 14). Ipotesi, non verificata: HOME scrive l'allenatore con i caratteri della lingua dell'esemplare. Chiesto quale Pikachu sia.
+
+**Template:** nessuna
+
+**Didattica:** nessuna.
+
+## 2026-11-09, settima parte. Giro 5 riletto, Rayquaza in HOME9, candidata con i 117, chiudi sbloccato
+
+Giro 5: `20261109-rilett5/main` identica alla copia (`85bd9514…`), 256 conformi su 256 negli stessi posti (`rilettura-passo2-giro5.json`), riserve in due copie. Rayquaza di Pokémon Box in HOME9: la prima scrittura lo ha escluso per ADR-046, perché a livello 70 conosce Volo; la copia del giro 6 era già scritta con `--includi-mn`, e con la stessa opzione la copia nuova `oras-giro-6-statici-eventi-4` ha 695 conformi, i 694 di prima invariati, il Rayquaza al box 24 posto 5. Giudizio complessivo aggiornato in `dopo-20261109.json`, pedigree HOME9 rigenerato con la storia dal rapporto del lotto, aggiunto alle fonti di `tools/stampa-collezione.py`.
+
+I 117 di FINALE: la copia candidata di HOME10 `ultraluna-giro-3-statici-gb-finale117`, 378 conformi, i 261 di prima invariati. Una prima scrittura ne aveva accettati 119, perché dopo la conversione al formato di Ultraluna la libreria non vede più il livello e l'ora d'incontro dei 2 Farfetch'd di Stadium; tolti per prudenza, perché nella forma di partenza non sono validi per la Console Virtuale. Dei 117, 103 sono doni del Pokémon Center di New York con allenatore PCNYa e 14 uova d'evento con allenatore Alessio, che senza la mossa diventano cuccioli comuni. La copia attuale di HOME10 resta quella del giro.
+
+`chiudi`: il blocco del controllo di anonimizzazione veniva dai casi di prova di `posta-sessioni.py` arrivati con il template `4d39424` (IBAN d'esempio canonico e un indirizzo di rete); su richiesta del proprietario di risolvere, esclusione locale per quel solo file e quelle due categorie nel file privato dei pattern, con il motivo, dopo una copia del file; controllo pulito. Il rimedio vero è nel template. Registro delle pendenze: le 52 azioni superate sono elencate con la prova in una voce nuova in testa, perché le etichette dello smistamento sono parafrasi e non ancore sicure per segnarle voce per voce.
+
+**Template:** nessuna
+
+**Didattica:** nessuna.
+
+## 2026-11-09, sesta parte. Le pendenze che toccano i lotti: i 121 divisi, il Rayquaza di Pokémon Box, la playlist
+
+Il proprietario ha detto che le pendenze dell'agente vanno finite perché toccano i lotti. Un subagente in sola lettura ha smistato il registro: 96 azioni, 52 superate, 27 senza effetto su HOME, 11 della fase Switch, 4 incerte, 2 sui lotti (`_notes/lavoro/triage-pending.json`). Fatte tutte e sei quelle che toccano i lotti.
+
+I 121 di FINALE: giudicati con `pkhex-giudica` in contesto di Console Virtuale, 119 hanno una mossa non valida, 2 no. Lo strumento nuovo `tools/pkhex-mosse-evento` dice quale mossa e prova la versione senza: 118 ne hanno una, uno due; senza la mossa 117 sono conformi (rigiudicati da `pkhex-giudica`: 117 conformi), i 2 Farfetch'd di Stadium restano contestati per livello e ora d'incontro, e il Mew YOSHIRA e il Celebi PCNYa non hanno mosse speciali ma nessun incontro della Console Virtuale li ammette. Le mosse più frequenti: Petalodanza 13, Demonbacio e Dolcebacio 6, Visotruce 5. Esito in `_notes/lavoro/giudizi-copie/finale-mosse-evento.json`, versioni in `_notes/lotti/lotto-finale-senza-mossa/`. Resta al proprietario la decisione finale.
+
+Il Rayquaza di Pokémon Box (candidato 7 del censimento RNG, rimasto fuori da ADR-115): la libreria ammette il Metodo 4 per gli statici di Rubino e Zaffiro, perché Pokémon Box li emula (`EncounterStatic3.IsCompatible`). La ricerca dei semi dà un solo PID del Metodo 4 Naive con sei IV a 31, 995ABC94 dal seme AAE8B215. In Rubino e Zaffiro l'ID segreto esce dal generatore prima dell'ID (`MethodH.TryGetSeedTrainerID`): con l'ID 42317 gli ID segreti possibili che lo rendono cromatico sono 32896, 32898, 32900 e 32902, nessuno con XOR 0, quindi niente quadratini; scelto 32898, XOR 1. Il generatore ha una modalità nuova, `metodo: pid`; richiesta `pokedex-home-completo/rng-comunita-3.json`, lotto `lotto-rng-comunita-4`, conforme anche per `pkhex-giudica`.
+
+La playlist «Pokémon Bank Countdown», ferma alla puntata 145: 35 nuove (144-110), 33 con sottotitoli automatici (due giri di `yt-dlp` per i 429), lette per intero da un subagente; la 111 e la 119 sono clip di un minuto senza parlato, e la trascrizione locale dà zero parole. È il diario di un giocatore, nessuna voce nuova per i lotti. La sfida delle 100 specie di Alola: 183 specie del Pokédex di Alola di Ultrasole e Ultraluna (Bulbapedia, revisione 4643535) hanno origine Alola nelle copie. Lo Psyduck STADIO con Amnesia di HOME4 è conforme e passa dalla banca, non dal Trasferitore che lo aveva rifiutato a un utente: da guardare al giro 7.
+
+Giro 5: `prima5` sulla SD con i box vuoti, messa nelle due riserve; `rilett5` non c'è, quindi i punti 8-11 vanno rifatti o completati.
+
+**Template:** nessuna
+
+**Didattica:** nessuna, strumenti nuovi puntuali.
+
+## 2026-11-09, quinta parte. Il giro 4 in HOME, il giro 5 preparato, il falso allarme del foglio FRLG
+
+Il proprietario ha stampato e cancellato la guida per Melmetal; il Gimmighoul forma Ambulante del biglietto GO non lo fa, e passa alla comunità nella fase Switch. Al nuovo tentativo del giro 4 la banca è rimasta ferma su «Communicating with the Pokémon Bank Server...», poi il proprietario è entrato, ha spostato i 31 box e la banca ha risposto «Success! Changes saved.»; dall'app per Android ha passato tutto a HOME («The move has been completed!»), che conta 3529, come atteso. Le schede non sono fotografate; le altre foto mostrano le sfide di HOME (Ripetitore Ball 14 su 15, Premier Ball 11 su 15, Mega Ball 16 su 30, Rete Ball 9 su 15, Lusso Ball 8 su 15, Sub Ball 7 su 15, Nido Ball 5 su 15, bellezza 4 su 5, intelligenza 1 su 5). Foto in `_notes/fonti/consegne/2026-11-09-giro4-console/`, originali di Telegram cancellati. Punto 18: HOME6 «in HOME» in `tools/stampa-collezione.py`, pedigree e PDF rigenerati. Giro 5 scritto nel runbook: HOME8 `oras-giro-5-carte-mn5`, 256, SHA-256 `85bd9514…`, HOME da 3529 a 3785.
+
+Pendenze dell'agente che riguardano Bank, fatte subito come chiesto dal proprietario: il foglio FRLG Seeds, segnalato cambiato a ogni apertura dal 2026-11-04, è identico cella per cella alla copia del 2026-11-07; il difetto era in `tools/controlla-fonti-vive.py`, che improntava il `repr` delle formule matriciali di openpyxl, con dentro l'indirizzo in memoria. Corretto improntando testo e area della formula; due corse danno la stessa impronta. Con il metodo nuovo cambia una volta anche l'impronta della checklist comunitaria della chiusura di Bank, che confrontata cella per cella con la copia del 2026-11-03 è identica. Fonti segnate, nessuna cambiata. Il resto delle pendenze dell'agente, una quarantina di voci in gran parte anteriori ad ADR-119, è affidato a un subagente per lo smistamento fra superate, di Bank e di dopo. Lezione per il template L-007: i percorsi con le barre rovesciate scritti da script perdono caratteri senza errore, successo tre volte in questa sessione.
+
+**Template:** L-007
+
+**Didattica:** nessuna, la correzione dello strumento è puntuale e il caso sta nel commento al codice.
+
+## 2026-11-09, quarta parte. La banca resta fuori dall'assistenza, la guida per Melmetal da GO
+
+Il proprietario precisa che al punto 16 non si è connesso al server della banca e che nessun esemplare è uscito dai box, quindi la verifica in sola lettura proposta non serve. Ha chiesto di superare il limite sulla banca e di aiutarlo; l'agente lo ha mantenuto, perché il limite non è una preferenza del progetto ma discende da come la banca è stata installata su questa console (nota privata del perimetro), e si è fermato a ciò che dice lo schermo e allo stato dei dati: la copia del giro 4 resta intatta nel gioco, sulla SD e nelle due riserve. Il proprietario non lancia `chiudi` per ora.
+
+Pokémon GO: guida stampabile temporanea sul desktop, `[temporanea] Guida Melmetal GO` in PDF e HTML, tre pagine, copia in `_notes/stampa/guida-melmetal-go-2026-11-09/`. Fonti lette per scriverla, tutte il 2026-11-09 e registrate in `SOURCES.md`: la notizia ufficiale di GO in inglese e in italiano, la notizia 527 di HOME, Leek Duck e quattro pagine di Bulbapedia dall'API. Le tre di queste che il registro dava per non lette ora sono lette. Due fatti nuovi per il progetto: HOME dà un Melmetal con il fattore Gigamax al primo trasferimento da GO, ed è la sola via per quella voce di `ELENCO-PRODUZIONE.md`; il grado 79 del biglietto GO gratuito dà il Gimmighoul forma Ambulante, che la fase Switch aspettava da GO. Correzione: il Meltan cromatico del dono di HOME chiede il Pokédex di Kanto di Let's Go, non uno qualsiasi, quindi passa alla fase Switch. Il trasferimento di un Meltan o Melmetal cromatico costa tutti i 10.000 punti di energia del GO Transporter.
+
+**Template:** nessuna
+
+**Didattica:** nessuna, giro operativo.
+
+## 2026-11-09, terza parte. Il giro 4 fermo al punto 16
+
+Il proprietario ha lanciato `chiudi` (`bbefbad`) e ha fatto il punto 15. Al punto 16 la banca ha dato «Error Code: 006-0112» comunicando con il server; al nuovo tentativo, «Communication with the server was interrupted during your previous session, so the server has been locked» e «Please wait a short while and then try to connect again». Foto copiate in `_notes/fonti/consegne/2026-11-09-giro4-console/`. Il tratto della banca resta fuori dall'assistenza per la nota privata del perimetro, riletta in questo giro: nessuna indicazione su come proseguire lì. Dal lato dei dati è proposta una verifica in sola lettura, cioè una copia di Checkpoint del salvataggio com'è adesso, `20261109-dopo16`, senza Restore, da giudicare contro `rilettura-passo2-giro4.json` per dire quanti dei 929 esemplari restano nei box. Nessuna voce precedente del registro descrive questo errore: il «come l'altra volta» del proprietario non ha riscontro scritto.
+
+Pokémon GO: il proprietario ha l'account, ripristinato, e non ci gioca dal 2016; la finestra del Meltan cromatico con la Scatola Misteriosa resta aperta fino al 15 novembre 2026 alle 18. Screenshot 189-207 cancellati da Screenpresso su autorizzazione, dopo il confronto con `cmp` con le copie private. Nell'albero è comparso un allineamento dal template al commit `1841628` delle 12:43, applicato da un'altra corsa (7 file del template più il marcatore): non è lavoro di questa sessione e si chiude a parte con `chiudi-allineamento`.
+
+**Template:** nessuna
+
+**Didattica:** nessuna, giro operativo senza cambi a strumenti o decisioni.
+
 ## 2026-11-09, seconda parte. Il giro 4 riletto e giudicato
 
 Il proprietario ha lanciato `chiudi`, che ha committato e pubblicato `ae06243` con due avvisi non bloccanti: il messaggio non nomina tutte le aree toccate (radice, `.claude`, `docs`, `pokedex-home-completo`, `tools`) e ADR-120 cambia strumenti senza una voce didattica. Poi ha fatto i punti 5-12 del giro 4 e ha riportato la SD in `I:`, con otto foto della console mandate da Telegram.
