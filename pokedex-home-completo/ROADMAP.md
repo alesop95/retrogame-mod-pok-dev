@@ -10,6 +10,8 @@ L'ordine non è quello dell'importanza ma quello del rendimento. Un passo che co
 
 ## La roadmap al 2026-11-07, aggiornata al 2026-11-09, che prevale su tutte le sezioni sotto
 
+Aggiornata il 2026-11-09, sera: il giro 6 è in HOME con 689 esemplari su 695, perché i sei Pikachu Cosplay non lasciano Rubino Omega, e HOME conta 4474; HOME10 è `ultraluna-giro-3-statici-gb-finale119`, 380 conformi, con i 2 Farfetch'd di Stadium 2 senza Staffetta e senza i dati d'incontro di Cristallo (ADR-122), confermati dal proprietario. I totali attesi scendono di 6 fino al giro 9 e di 4 dal giro 10: a giri finiti HOME conta 6225. Giudizio di tutte le copie: `_notes/lavoro/giudizi-copie/dopo-20261109b.json`, 6332 esemplari, 6208 conformi, con FINALE (0 su 121) e GIAPPONE (11 su 14) fuori dai giri.
+
 Aggiornata il 2026-11-09 per ADR-120: HOME10 è ora `ultraluna-giro-3-statici-gb`, con i 6 esemplari con il marchio Game Boy che chiusa Bank non entrano più in HOME (Raichu, Exeggutor e Marowak di Alola, Meowth e Butterfree per il Gigamax, un Dunsparce per il Dudunsparce a tre segmenti), e HOME7 è `ultraluna-giro-2-fin7`, con la geolocalizzazione del salvataggio su 28 esemplari della Console Virtuale; il giudizio è `_notes/lavoro/giudizi-copie/dopo-adr120.json`, 6212 esemplari, 6088 conformi, con FINALE e GIAPPONE fuori dai giri come prima. Il giro 4 è cominciato: la SD ha `20261109-giro4` e la riserva in due copie, e tocca al proprietario dal punto 5 della sezione «Giro 4» di `RUNBOOK-PASSO-2.md`.
 
 Scritta il 2026-11-07 dopo ADR-119, quando la produzione per HOME è chiusa: tutte le copie che il proprietario porta a mano prima della chiusura di Bank, il 26 febbraio 2027 alle 12:00 del Giappone, sono scritte, rilette identiche e giudicate conformi, e non resta nessuna copia da fare. I giri si fanno nell'ordine della tabella, uno alla volta, con la procedura di `RUNBOOK-PASSO-2.md` (copia di riserva in due copie, ripristino, controllo in gioco, rilettura confrontata sui byte, Bank e HOME, registrazione), che vale per ogni giro cambiando il gioco e il nome della copia. Il giudizio di tutte le copie è in `_notes/lavoro/giudizi-copie/dopo-adr119-pedigree.json` e il pedigree di ogni esemplare, con la storia, in `pedigree/`.
@@ -21,12 +23,12 @@ Scritta il 2026-11-07 dopo ADR-119, quando la produzione per HOME è chiusa: tut
 | 3 | HOME3 | `oras-giro-3-fin3` | Rubino Omega | 915 | 915 | in HOME dal 2026-11-06 | 2600 |
 | 4 | HOME6 | `oras-giro-4-fin9` | Rubino Omega | 929 | 929 | in HOME dal 2026-11-09 | 3529 |
 | 5 | HOME8 | `oras-giro-5-carte-mn5` | Rubino Omega | 256 | 256 | in HOME dal 2026-11-09 | 3785 |
-| 6 | HOME9 | `oras-giro-6-statici-eventi-4` | Rubino Omega | 695 | 695 | prossimo, sezione «Giro 6» di `RUNBOOK-PASSO-2.md`; con il Rayquaza di Pokémon Box dal 2026-11-09 (box 24 posto 5) | 4480 |
-| 7 | HOME4 | `luna-giro-1-fin` | Luna | 93 | 93 | pronta; lo Psyduck STADIO con Amnesia del box 2 posto 10 è quello da guardare se la banca segnala qualcosa | 4573 |
-| 8 | HOME5 | `ultraluna-giro-1-scambi-fin2` | Ultraluna | 613 | 613 | pronta | 5186 |
-| 9 | HOME7 | `ultraluna-giro-2-fin7` | Ultraluna | 642 | 642 | pronta, geolocalizzazione corretta il 2026-11-09 | 5828 |
-| 10 | HOME10 | `ultraluna-giro-3-statici-gb-finale117` | Ultraluna | 378 | 378 | pronta: marchio Game Boy dal 2026-11-09 e i 117 di FINALE senza la mossa d'evento (ADR-121) | 6206 |
-| 11 | GIAPPONE2 | `luna-giappone-3` | Luna, profilo giapponese | 23 | 23 | pronta, prima con un solo esemplare | 6229 |
+| 6 | HOME9 | `oras-giro-6-statici-eventi-4` | Rubino Omega | 695 | 695 | in HOME dal 2026-11-09, 689 esemplari: i sei Pikachu Cosplay del box 16, posti da 24 a 29, restano in Rubino Omega perché il gioco non li lascia uscire | 4474 |
+| 7 | HOME4 | `luna-giro-1-fin` | Luna | 93 | 93 | prossimo, sezione «Giro 7» di `RUNBOOK-PASSO-2.md`; lo Psyduck STADIO con Amnesia del box 2 posto 10 è quello da guardare se la banca segnala qualcosa | 4567 |
+| 8 | HOME5 | `ultraluna-giro-1-scambi-fin2` | Ultraluna | 613 | 613 | pronta | 5180 |
+| 9 | HOME7 | `ultraluna-giro-2-fin7` | Ultraluna | 642 | 642 | pronta, geolocalizzazione corretta il 2026-11-09 | 5822 |
+| 10 | HOME10 | `ultraluna-giro-3-statici-gb-finale119` | Ultraluna | 380 | 380 | pronta: marchio Game Boy dal 2026-11-09, i 117 di FINALE senza la mossa d'evento (ADR-121) e i 2 Farfetch'd di Stadium 2 bonificati nel box 13, posti 19 e 20 (ADR-122) | 6202 |
+| 11 | GIAPPONE2 | `luna-giappone-3` | Luna, profilo giapponese | 23 | 23 | pronta, prima con un solo esemplare | 6225 |
 
 Restano fuori dalla tabella due gruppi, ciascuno per una ragione dichiarata: FINALE, 121 eventi da cartuccia in `a-parte/luna-eventi-da-cartuccia-fin`, che il verificatore non giudica conformi: decisi il 2026-11-09 (ADR-121), 117 vanno in HOME senza la mossa d'evento con il giro 10 e completi nelle cartucce dopo Bank, e i 4 restanti restano fuori da HOME; e GIAPPONE, `luna-giappone-14`, superato da GIAPPONE2. Con FINALE il deposito arriverebbe a 6232 posti su 9000. La banca tiene 3000 esemplari e ogni giro ci sta da solo. Sul cartellino di Checkpoint della SD il 2026-11-05 c'erano le cartelle di Rubino Omega e di Luna ma non quella di Ultraluna: al giro 8 la prima copia di riserva di Ultraluna crea la cartella.
 

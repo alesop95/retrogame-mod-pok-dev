@@ -4,6 +4,32 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-09, undicesima parte. Giro 6 in HOME con 689 su 695, i Pikachu Cosplay restano in Rubino Omega, Farfetch'd nel giro 10, giro 7 nel runbook (ADR-123)
+
+Il proprietario ha fatto i punti 15-17 del giro 6: HOME conta 4474, non 4480. Le sue foto mostrano rimasti nel box 16 di Rubino Omega i posti da 24 a 29, che nel giudizio della rilettura sono i sei Pikachu Cosplay (Rockstar, Damigella, Confetto, Scienziata, Wrestler, Cosplay), tutti conformi in Rubino Omega. Correzione: la copia HOME9 non avrebbe dovuto contarli fra quelli per HOME. Il progetto sapeva già che il Pikachu Cosplay non lascia la sesta generazione (`CONNETTIVITA-HOME.md`, `FormVerifier.cs` righe 45-47), ma il lotto degli statici della libreria li ha prodotti e la scrittura non guarda il passaggio. Controllo sulle 13 copie di `dopo-20261109b.json`: nessun altro Pikachu Cosplay, e le copie che restano sono tutte di settima generazione. `tools/stampa-collezione.py` ha HOME9 «in HOME» e la regola nuova `resta_in_console`, che marca i sei «resta in Rubino Omega» nella scheda e nella riga del pedigree; pedigree e PDF di HOME9 rigenerati.
+
+Il proprietario conferma i due Farfetch'd bonificati (ADR-123): copia `ultraluna-giro-3-statici-gb-finale119`, scritta dalla `-finale117` con `--regione-dal-salvataggio --regione-del-ricevente`, 2 scritti, 0 esclusi, 0 riletti diversi; box 13 posti 19 e 20, PID 40FBBBE8 (Stadium 2000) e 114C5862 (Stadio 2001), letti come Argento, Danzaspada, Agilità e Lacerazione. Giudizio di tutte le copie `dopo-20261109b.json`: 6332 esemplari, 6208 conformi, unica differenza dal precedente i due posti nuovi di HOME10. Pedigree di HOME10 con le loro storie. Totali attesi: 4474 dopo il giro 6, 4567, 5180, 5822, 6202 e 6225 a giri finiti. Sezione «Giro 7» scritta in `RUNBOOK-PASSO-2.md`: HOME4 `luna-giro-1-fin`, 93, SHA-256 `48b8afa5…`, Checkpoint `0x0175E Pokémon Moon`, controlli Tapu Koko 60 cromatico, Silvally 100 cromatico, Psyduck STADIO al box 2 posto 10, Mew GF al box 4 posto 3. Copie superate: 25 cartelle spostate su `J:` con impronte verificate, `per-home` da 24 a 7,3 MB. Giro 7 punti 1-4 fatti con la SD in `I:`: riserve `sd-checkpoint-20261109d` e `J:/backup-sd-3ds/20261109d/`, 31 file uguali alla SD, e `20261109-giro7/main` sulla SD con SHA-256 `48b8afa5…`, uguale alla copia, 441856 byte come le altre partite di Luna. Il proprietario ha lanciato `chiudi`, che si è fermato con «file cambiati dopo l'anteprima»: l'anteprima era partita mentre scrivevo i punti 3 e 4, nessun commit. Punti 5-14 del giro 7: `rilett7` identica alla copia, `rilettura-passo2-giro7.json` 93 su 93 con 0 differenze; `prima7` (`7a48382b…`) coincide con `20260930-luna2`, copia di prova di settembre con 268 esemplari e 147 conformi, non la partita vera; `prima7` e `rilett7` nelle due riserve.
+
+**Template:** nessuna
+
+**Didattica:** nessuna.
+
+## 2026-11-09, decima parte. Giro 6 riletto, i 4 di FINALE nelle cartucce, due Farfetch'd bonificabili (ADR-122)
+
+Giro 6: `20261109-rilett6/main` identica alla copia (`374e8c50…`), 695 conformi su 695 negli stessi posti (`rilettura-passo2-giro6.json`), `prima6` (`d853bc0b…`) con 0 esemplari nei box, entrambe nelle due riserve. Il proprietario decide che anche i 4 di FINALE fuori da HOME vanno completi nelle cartucce dopo Bank, e chiede se si possano bonificare per HOME. Prova con `pkhex-giudica` in contesto di Console Virtuale: i due Farfetch'd di Stadium 2, già senza Staffetta, con i dati d'incontro di Cristallo azzerati (0x057F a 0) diventano conformi come nati da un uovo, con allenatore e ID di Stadium; il Mew YOSHIRA e il Celebi PCNYa restano contestati anche con i dati d'incontro azzerati. ADR-122; i due Farfetch'd aspettano la conferma del proprietario per entrare nel giro 10 (380).
+
+**Template:** nessuna
+
+**Didattica:** nessuna.
+
+## 2026-11-09, nona parte. Il Pikachu coreano in HOME, il giro 6 sulla SD
+
+Il proprietario ha lanciato `chiudi` (`0186914`) e ha mandato la scheda del Pikachu: lingua italiana, livello 10, ID 07016, Attacco Rapido, Fulmine, Surf e Mano Amica, allenatore mostrato come cinque quadratini. È il dono coreano «포켓몬스파» (carta 1070) di HOME3 box 10 posto 27, con i caratteri coreani giusti nei dati; il Druddigon che li mostra è di lingua coreana. HOME scrive quindi l'allenatore con i caratteri della lingua dell'esemplare: visualizzazione, non dati. Esemplari con allenatore coreano e lingua diversa dal coreano, misurati sul giudizio `dopo-20261109.json`: 49 in HOME3, 1 in HOME2, 1 in HOME8, 63 in HOME5, 2 in HOME4. Giro 6: riserve della SD in due copie (28 file uguali), `20261109-giro6/main` sulla SD, impronta `374e8c50`.
+
+**Template:** nessuna
+
+**Didattica:** nessuna.
+
 ## 2026-11-09, ottava parte. Giro 5 in HOME, i 117 di FINALE nel giro 10 (ADR-121), il giro 6 pronto
 
 Il proprietario ha fatto il giro 5: HOME conta 3785. HOME8 «in HOME», pedigree rigenerato. Ha deciso sui 117 di FINALE: in HOME senza la mossa d'evento, e completi nelle cartucce di prima e seconda generazione dopo la chiusura di Bank, in parallelo alla fase Switch (ADR-121). La copia del giro 10 diventa `ultraluna-giro-3-statici-gb-finale117`, 378 conformi; il giudizio complessivo `dopo-20261109.json` conta 6330 esemplari e 6206 conformi; il pedigree di HOME10 ha una storia per ciascuno dei 117 (`_notes/lotti/lotto-finale-117/storie.json`, aggiunto alle fonti di `tools/stampa-collezione.py`), con la mossa tolta. Il giro 6 è scritto nel runbook: HOME9 `oras-giro-6-statici-eventi-4`, 695, HOME da 3785 a 4480. A giri finiti HOME conta 6229.

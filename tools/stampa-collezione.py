@@ -154,8 +154,23 @@ def miniatura(e, cartella, cache):
 STATO_GRUPPO = {"HOME1": ("DSstatoinhome", "in HOME"), "HOME2": ("DSstatoinhome", "in HOME"),  # il giro 2 dal 2026-11-04
                 "HOME3": ("DSstatoinhome", "in HOME"),  # il giro 3 dal 2026-11-06, HOME a 2600
                 "HOME6": ("DSstatoinhome", "in HOME"),  # il giro 4 dal 2026-11-09, HOME a 3529
-                "HOME8": ("DSstatoinhome", "in HOME")}  # il giro 5 dal 2026-11-09, HOME a 3785
-DS = os.path.join(RADICE, "pokedex-home-completo", "design-system")
+                "HOME8": ("DSstatoinhome", "in HOME"),  # il giro 5 dal 2026-11-09, HOME a 3785
+                "HOME9": ("DSstatoinhome", "in HOME")}  # il giro 6 dal 2026-11-09, HOME a 4474
+
+
+# Gli esemplari che il gioco non lascia uscire dalla console anche se la libreria li giudica conformi nel loro gioco: il
+# Pikachu Cosplay (forme da 1 a 6 in sesta generazione) non lascia Rubino Omega e Zaffiro Alpha
+# (`pokedex-home-completo/CONNETTIVITA-HOME.md`, `FormVerifier.cs` righe 45-47). Al giro 6 del 2026-11-09 i sei della copia
+# HOME9 sono rimasti nel box 16, e HOME è salito di 689 invece che di 695. La regola vale per esemplare e non per gruppo.
+def resta_in_console(e):
+    if e["numero"] == 25 and e.get("generazione") == 6 and e.get("forma_n", 0) in range(1, 7):
+        return ("DSstatoincopia", "resta in Rubino Omega",
+                "Resta in Rubino Omega: il Pikachu Cosplay non lascia la sesta generazione, e al giro 6 del 2026-11-09 "
+                "non è passato a HOME con gli altri esemplari della copia.")
+    return None
+
+
+DS =os.path.join(RADICE, "pokedex-home-completo", "design-system")
 PEDIGREE_MD = os.path.join(RADICE, "pokedex-home-completo", "pedigree")
 PEDIGREE_PDF = os.path.join(RADICE, "_notes", "stampa", "pedigree")
 ORIGINI_PRIVATE = ("lotto-smeraldo-cartuccia/",)
@@ -172,6 +187,8 @@ COMUNITA = [os.path.join(RADICE, "_notes", "lotti", "lotto-rng-comunita", "rappo
             os.path.join(RADICE, "_notes", "lotti", "lotto-rng-comunita-4", "rapporto.json"),
             # i 117 di FINALE senza la mossa d'evento (ADR-121, 2026-11-09)
             os.path.join(RADICE, "_notes", "lotti", "lotto-finale-117", "storie.json"),
+            # i 2 Farfetch'd di Stadium 2 bonificati (ADR-122, 2026-11-09)
+            os.path.join(RADICE, "_notes", "lotti", "lotto-finale-farfetchd-bonificati", "storie.json"),
             os.path.join(RADICE, "_notes", "lotti", "lotto-ranch-lingue", "rapporto.json"),
             # gli eventi dell'Eventdex di Serebii che mancavano alle copie, prodotti dalle carte della libreria (ADR-115)
             os.path.join(RADICE, "_notes", "lotti", "lotto-serebii-mancanti", "rapporto.json"),
@@ -298,7 +315,11 @@ def scheda_tex(e, gruppo, per_codice, per_file, img, storie=None):
         righe_storia.append(r"{\DSdati\tiny\color{DSseppia} Fonti: %s}\par" % "; ".join(r"\url{%s}" % u for u in collegamenti))
     gen = "DSgen" + "ABCDEFG"[max(1, min(7, e["generazione"])) - 1]
     colore, stato = STATO_GRUPPO.get(gruppo, ("DSstatoincopia", "in copia"))
-    nome = tex(e["specie"]) + (" \\textnormal{\\small %s}" % tex(e["forma"]) if e["forma"] else "")
+    fermo = resta_in_console(e)
+    if fermo:
+        colore, stato = fermo[0], fermo[1]
+        righe_storia.insert(0, r"{\scriptsize\itshape %s}\par" % tex(fermo[2]))
+    nome =tex(e["specie"]) + (" \\textnormal{\\small %s}" % tex(e["forma"]) if e["forma"] else "")
     segni = {"M": "♂", "F": "♀"}.get(e["sesso"], "") + (" ★" if e["cromatico"] else "")
     campi = campi_pedigree(e, per_codice, per_file)
     celle = []
@@ -343,7 +364,9 @@ def pedigree(dati, cartella_immagini, pdf, solo=None):
               "stampabile in `_notes/stampa/pedigree/%s.pdf`. Non si modifica a mano. Una riga per esemplare, nell'ordine di "
               "box e posto della copia, giudicata da `tools/pkhex-elenco-copie`; i campi sono quelli di ADR-111. Stato del "
               "gruppo: %s. Esemplari: %d, conformi: %d." % (gruppo, stato, len(esemplari),
-                                                            sum(e["conforme"] for e in esemplari)), "",
+                                                            sum(e["conforme"] for e in esemplari)) +
+              ("".join(" Restano in console, perché il gioco non li lascia uscire: %d." % n
+                       for n in [sum(1 for e in esemplari if resta_in_console(e))] if n)), "",
               "| Box | Posto | Specie | Forma | Sesso | Cromatico | Evento | Storia | Fonti | " +
               " | ".join(k[0].upper() + k[1:] for k, _ in campi_pedigree(esemplari[0], per_codice, per_file)) +
               " | Giudizio | Impronta |",
@@ -377,7 +400,8 @@ def pedigree(dati, cartella_immagini, pdf, solo=None):
                 valori[etichette.index("allenatore")] = "<ALLENATORE DELLA CARTUCCIA>"
             md.append("| " + " | ".join(str(x).replace("|", "/") for x in [
                 e["box"], e["posto"], "%d %s" % (e["numero"], e["specie"]), e["forma"], e["sesso"],
-                "sì" if e["cromatico"] else "", evento_di(e, per_codice, per_file), storia_di(e, storie)[0],
+                "sì" if e["cromatico"] else "", evento_di(e, per_codice, per_file),
+                " ".join(x for x in [(resta_in_console(e) or ("", "", ""))[2], storia_di(e, storie)[0]] if x),
                 " ".join(storia_di(e, storie)[1])] + valori +
                 ["conforme" if e["conforme"] else "NON conforme", e["impronta"]]) + " |")
         corpo.append(r"\end{document}")

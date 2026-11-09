@@ -153,25 +153,48 @@ Scritto il 2026-11-09, con la procedura del giro 4 e i nomi già pronti. La copi
 
 Scritto il 2026-11-09 con la stessa procedura del giro 5. La copia è HOME9, `_notes/salvataggi/prove/per-home/oras-giro-6-statici-eventi-4/main`, 695 esemplari (i 694 della copia del 2026-11-07 più il Rayquaza di Pokémon Box), SHA-256 `374e8c502f895b5909b63131df6a0207cc12bff5288a3d237de490cf663db292`, giudicata 695 conformi (`_notes/lavoro/giudizi-copie/dopo-20261109.json`): box da 1 a 23 pieni e box 24 posti da 1 a 5. HOME conta 3785 e dopo questo giro deve contarne 4480.
 
-1. Proprietario: spegni il 3DS del tutto.
-2. Proprietario: SD nel PC, lettera `I:`, e dimmelo.
-3. Agente: copia di `/3ds/Checkpoint/saves/` in `_notes/salvataggi/console/sd-checkpoint-20261109c/` e in `J:/backup-sd-3ds/20261109c/`, con lo SHA-256 di ogni file.
-4. Agente: cartella `20261109-giro6` di Pokémon Omega Ruby con la copia di nome `main`, riletta dalla SD.
+1. Proprietario: spegni il 3DS del tutto. FATTO.
+2. Proprietario: SD nel PC, lettera `I:`, e dimmelo. FATTO il 2026-11-09.
+3. Agente: copia di `/3ds/Checkpoint/saves/` in `_notes/salvataggi/console/sd-checkpoint-20261109c/` e in `J:/backup-sd-3ds/20261109c/`, con lo SHA-256 di ogni file. FATTO il 2026-11-09: 28 file, 28 uguali.
+4. Agente: cartella `20261109-giro6` di Pokémon Omega Ruby con la copia di nome `main`, riletta dalla SD. FATTO il 2026-11-09: SHA-256 `374e8c50…`, uguale alla copia.
 5. Proprietario: espelli la SD e rimettila nel 3DS.
 6. Proprietario: avvia Checkpoint.
 7. Proprietario: Pokémon Omega Ruby, Backup, nome `20261109-prima6`.
 8. Proprietario: seleziona `20261109-giro6`, Restore, conferma.
 9. Proprietario: avvia Rubino Omega senza salvare e controlla: box 1 posto 1 Snorlax livello 30, box 1 posto 2 Hypno livello 30, entrambi con allenatore Alessio; box 24 posto 5 Rayquaza livello 70 cromatico; box da 1 a 23 pieni, box 24 con i posti da 1 a 5.
 10. Proprietario: esci senza salvare.
-11. Proprietario: Checkpoint, Pokémon Omega Ruby, Backup, nome `20261109-rilett6`.
+11. Proprietario: Checkpoint, Pokémon Omega Ruby, Backup, nome `20261109-rilett6`. Punti 5-12 FATTI il 2026-11-09.
 12. Proprietario: spegni, SD nel PC, e dimmelo.
-13. Agente: SHA-256 di `20261109-rilett6/main` uguale a quello della copia.
-14. Agente: giudizio della rilettura, 695 conformi negli stessi posti; `prima6` e `rilett6` nelle due riserve.
+13. Agente: SHA-256 di `20261109-rilett6/main` uguale a quello della copia. FATTO il 2026-11-09: `374e8c50…`, identico.
+14. Agente: giudizio della rilettura, 695 conformi negli stessi posti; `prima6` e `rilett6` nelle due riserve. FATTO il 2026-11-09: `rilettura-passo2-giro6.json`, 695 su 695 negli stessi posti; `prima6` con 0 esemplari nei box; riserve uguali.
 15. Proprietario: SD nel 3DS.
 16. Proprietario: il passaggio alla banca e a HOME, fuori dall'assistenza.
-17. Proprietario: HOME da 3785 a 4480, foto del totale.
-18. Agente: HOME9 «in HOME», pedigree; poi il giro 7, HOME4, il primo di Luna.
+17. Proprietario: HOME da 3785 a 4480, foto del totale. Punti 15-17 FATTI il 2026-11-09, con un'eccezione: HOME conta 4474, cioè 689 esemplari in più e non 695. I sei rimasti nel box 16 di Rubino Omega, posti da 24 a 29, sono i sei Pikachu Cosplay (Rockstar, Damigella, Confetto, Scienziata, Wrestler e Cosplay), che il gioco non lascia uscire dalla sesta generazione. Il progetto lo sapeva già (`CONNETTIVITA-HOME.md`), ma la copia li conteneva, perché la libreria li giudica conformi in Rubino Omega e nessun controllo della scrittura guardava il passaggio. Restano dove sono, e HOME non registra il Pikachu Cosplay, quindi al Pokédex non manca niente. Le altre copie non ne hanno: le restanti sono tutte di settima generazione.
+18. Agente: HOME9 «in HOME», pedigree; poi il giro 7, HOME4, il primo di Luna. FATTO il 2026-11-09: HOME9 «in HOME» in `tools/stampa-collezione.py`, con la nuova regola `resta_in_console` che marca i sei Pikachu Cosplay «resta in Rubino Omega»; pedigree e PDF rigenerati; i totali attesi dei giri successivi scendono di 6.
+
+## Giro 7
+
+Scritto il 2026-11-09 con la stessa procedura, ed è il primo giro su Pokémon Luna. La copia è HOME4, `_notes/salvataggi/prove/per-home/luna-giro-1-fin/main`, 93 esemplari, SHA-256 `48b8afa547b3391f946f4b45c7e40a3bb4d26c1c5e6f0aae64e06d8aaa6e150e`, giudicata 93 conformi (`_notes/lavoro/giudizi-copie/dopo-20261109b.json`): box da 1 a 3 pieni e box 4 posti da 1 a 3. In Checkpoint il gioco è `0x0175E Pokémon Moon`, la cartella che contiene già `20260823-backsicMoo`, la partita vera, che non si tocca. HOME conta 4474 e dopo questo giro deve contarne 4567.
+
+1. Proprietario: spegni il 3DS del tutto. FATTO.
+2. Proprietario: SD nel PC, lettera `I:`, e dimmelo. FATTO il 2026-11-09.
+3. Agente: copia di `/3ds/Checkpoint/saves/` in `_notes/salvataggi/console/sd-checkpoint-20261109d/` e in `J:/backup-sd-3ds/20261109d/`, con lo SHA-256 di ogni file; dentro c'è anche `20261109-giro6` di Rubino Omega, che le riserve precedenti non avevano. FATTO il 2026-11-09: 31 file, 31 uguali; rispetto alla riserva `c` l'unico file in più è `20261109-giro6/main`.
+4. Agente: cartella `20261109-giro7` di Pokémon Moon con la copia di nome `main`, riletta dalla SD. Se il giro si fa un altro giorno, la data dei nomi è quella del giorno. FATTO il 2026-11-09: SHA-256 `48b8afa5…`, uguale alla copia, 441856 byte come la partita vera `20260823-backsicMoo`.
+5. Proprietario: espelli la SD e rimettila nel 3DS.
+6. Proprietario: avvia Checkpoint.
+7. Proprietario: scegli Pokémon Moon, Backup, nome `20261109-prima7`.
+8. Proprietario: seleziona `20261109-giro7`, Restore, conferma.
+9. Proprietario: avvia Luna senza salvare e controlla: box 1 posto 1 Tapu Koko livello 60 cromatico, allenatore Melemele; box 1 posto 2 Silvally livello 100 cromatico, allenatore エーテル; box 2 posto 10 Psyduck livello 15, allenatore STADIO, con Graffio e Amnesia; box 4 posto 3 Mew livello 5, allenatore GF; box da 1 a 3 pieni, box 4 con i posti da 1 a 3.
+10. Proprietario: esci senza salvare.
+11. Proprietario: Checkpoint, Pokémon Moon, Backup, nome `20261109-rilett7`. Punti 5-12 FATTI il 2026-11-09.
+12. Proprietario: spegni, SD nel PC, e dimmelo.
+13. Agente: SHA-256 di `20261109-rilett7/main` uguale a quello della copia. FATTO il 2026-11-09: `48b8afa5…`, identico.
+14. Agente: giudizio della rilettura, 93 conformi negli stessi posti; `prima7` e `rilett7` nelle due riserve. FATTO il 2026-11-09: `rilettura-passo2-giro7.json`, 93 su 93, 0 differenze di box, posto, specie, forma, livello, allenatore, ID e impronta; riserve uguali. `prima7` (`7a48382b…`) è identica a `20260930-luna2`, la copia di prova del 2026-09-30 che stava in Luna: 268 esemplari, 147 conformi, quasi tutti doni della Console Virtuale di una generazione dei lotti precedente, fra cui il Mew YOSHIRA e i due Farfetch'd di Stadium 2 non bonificati. Non era la partita vera, che resta in `20260823-backsicMoo`, e non era destinata a HOME; resta nelle riserve e nella sua cartella sulla SD.
+15. Proprietario: SD nel 3DS.
+16. Proprietario: il passaggio alla banca e a HOME, fuori dall'assistenza. Da guardare in questo giro: lo Psyduck STADIO del box 2 posto 10. A un utente di r/pokemonhome il Trasferitore ha rifiutato uno Psyduck di Stadium con Amnesia; il nostro è già in Luna, quindi il Trasferitore non lo vede e passa solo dalla banca. Se la banca o HOME lo rifiutano, come per i Pikachu del giro 6, lascialo nel box e dimmi che messaggio compare.
+17. Proprietario: HOME da 4474 a 4567, foto del totale; se ne mancano, foto del box di Luna con quelli rimasti.
+18. Agente: HOME4 «in HOME», pedigree; poi il giro 8, HOME5, il primo di Ultraluna.
 
 ## Dopo il giro 4
 
-La partita vera di Rubino Omega, `20260821-backsic`, resta fuori dalla console fino al passo 6. I giri successivi sono nella tabella in testa a `ROADMAP.md`: il 5 (HOME8, `oras-giro-5-carte-mn5`, 256) e il 6 (HOME9, `oras-giro-6-statici-eventi-3`, 694) sono ancora di Rubino Omega e seguono questa procedura con i nomi del giorno; dal 7 si passa a Luna e Ultraluna, e al giro 8, il primo di Ultraluna, la copia di riserva di Checkpoint crea la cartella del gioco.
+La partita vera di Rubino Omega, `20260821-backsic`, resta fuori dalla console fino al passo 6. I giri successivi sono nella tabella in testa a `ROADMAP.md`: il 5 (HOME8, `oras-giro-5-carte-mn5`, 256) e il 6 (HOME9, `oras-giro-6-statici-eventi-4`, 695, di cui 689 in HOME e i sei Pikachu Cosplay rimasti in Rubino Omega) sono ancora di Rubino Omega e seguono questa procedura con i nomi del giorno; dal 7 si passa a Luna e Ultraluna, e al giro 8, il primo di Ultraluna, la copia di riserva di Checkpoint crea la cartella del gioco.

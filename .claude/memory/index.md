@@ -9,7 +9,7 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 ```
 Branch attivo:         main
 Commit di riferimento: e22c1e9, Allineamento dal template al commit 1ee6754
-Data snapshot:         2026-11-09, ADR-120: marchio Game Boy, HOME7 fin7 e HOME10 -gb; giri 1-5 in HOME (3785), ADR-121; prossimo: giro 6 dal punto 1
+Data snapshot:         2026-11-09, ADR-123: giri 1-6 in HOME (4474, i sei Pikachu Cosplay restano in Rubino Omega), HOME10 a 380; prossimo: giro 7 dal punto 15
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,12 @@ Data snapshot:         2026-11-09, ADR-120: marchio Game Boy, HOME7 fin7 e HOME1
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-11-09, undicesima parte, che prevale su quelle sotto. Giro 6 in HOME: 4474, cioè 689 su 695; i sei Pikachu Cosplay restano in Rubino Omega, che non li lascia uscire. ADR-123: i due Farfetch'd bonificati in HOME10 (`ultraluna-giro-3-statici-gb-finale119`, 380), copie superate spostate su J:. Giro 7 (HOME4, Luna) riletto e giudicato 93 su 93, tocca al proprietario dal punto 15. A giri finiti 6225.
+
+AGGIUNTA DEL 2026-11-09, decima parte, che prevale su quelle sotto. Giro 6 riletto e giudicato 695 su 695, tocca al proprietario dal punto 15. ADR-122: i 4 di FINALE fuori da HOME nelle cartucce dopo Bank; i due Farfetch'd bonificabili, in attesa di conferma.
+
+AGGIUNTA DEL 2026-11-09, nona parte, che prevale su quelle sotto. Commit `0186914`. Giro 6 punti 1-4 fatti, tocca al proprietario dal punto 5. Il Pikachu coreano senza caratteri in HOME è un dono coreano di lingua italiana: HOME scrive l'allenatore con i caratteri della lingua dell'esemplare.
 
 AGGIUNTA DEL 2026-11-09, ottava parte, che prevale su quelle sotto. Giro 5 in HOME (3785). ADR-121: i 117 di FINALE in HOME senza la mossa d'evento con il giro 10 (`ultraluna-giro-3-statici-gb-finale117`, 378), completi nelle cartucce dopo Bank. Giro 6 (HOME9, 695) nel runbook. A giri finiti 6229.
 
