@@ -4,6 +4,14 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-10. Ultraluna senza salvataggio: punto 0 del giro 8, ADR-124
+
+Il proprietario ha lanciato `chiudi` (`d6b9ccb`) e riferisce che Ultraluna è all'inizio, senza un salvataggio, quindi Checkpoint non la vede; propone di modificare un salvataggio trovato in rete e iniettarlo. Verificato sulla copia: il rapporto di HOME5 dice partenza `main` e versione UM, e la catena delle copie parte da `_notes/salvataggi/terzi/main-ultraluna`, il salvataggio di console europea trovato in rete del 2026-09-30, quindi HOME5 è già quel salvataggio modificato e non serve scaricarne un altro. Serve invece che il gioco abbia un salvataggio suo, perché Checkpoint ripristina solo dove ne esiste uno: punto 0 del giro 8, partita nuova fino al primo Salva. Il proprietario ha autorizzato l'iniezione del salvataggio di terzi (ADR-124, che dà alla regola sull'importazione l'ADR che chiede). Il punto della storia in cui Salva compare non l'ho trovato in una fonte: una ricerca web del 2026-11-10 non lo dice, quindi il runbook dice «il primo momento in cui il menu offre Salva».
+
+**Template:** nessuna
+
+**Didattica:** nessuna.
+
 ## 2026-11-09, dodicesima parte. Giro 7 in HOME, giro 8 nel runbook
 
 Il proprietario ha lanciato `chiudi` (`e091534`) e ha passato il giro 7 a HOME: riferisce «457», letto come 4567, cioè 4474 più i 93 di HOME4, senza rifiuti, Psyduck STADIO compreso. Punto 18: HOME4 «in HOME» in `tools/stampa-collezione.py`, pedigree e PDF rigenerati, `COPIE-PER-HOME.md` e `ROADMAP.md` aggiornati. Sezione «Giro 8» in `RUNBOOK-PASSO-2.md`: HOME5 `ultraluna-giro-1-scambi-fin2`, 613, 445440 byte, SHA-256 `ef7d8066…`, controlli Poipole 40 cromatico (Ultra), Zeraora 50 (Fula City), Pikachu 40 Alessio al box 21 posto 13. Siccome sulla SD non c'è una cartella di Ultraluna, il giro comincia con la riserva in console (`20261109-prima8`), che crea la cartella con il nome di Checkpoint e prova che il gioco c'è; poi la SD nel PC. HOME5 ha 85 Pikachu con il berretto, che passano: nessun Pikachu Cosplay. Lezioni per il template registrate: L-008, un oggetto valido nel contesto d'origine non è per questo trasferibile, e la regola di passaggio va nello strumento che compone il lotto; L-009, la proposta di chiusura si fa solo dopo l'ultima scrittura del giro, perché la conferma lanciata mentre l'agente scrive si ferma.

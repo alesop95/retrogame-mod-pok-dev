@@ -9,7 +9,7 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 ```
 Branch attivo:         main
 Commit di riferimento: e22c1e9, Allineamento dal template al commit 1ee6754
-Data snapshot:         2026-11-09, ADR-123: giri 1-7 in HOME (4567, i sei Pikachu Cosplay restano in Rubino Omega), HOME10 a 380; prossimo: giro 8 dal punto 1
+Data snapshot:         2026-11-10, ADR-124: giri 1-7 in HOME (4567, i sei Pikachu Cosplay restano in Rubino Omega), HOME10 a 380; prossimo: giro 8 dal punto 0 (partita nuova di Ultraluna fino al primo Salva)
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,8 @@ Data snapshot:         2026-11-09, ADR-123: giri 1-7 in HOME (4567, i sei Pikach
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-11-10, che prevale su quelle sotto. Commit `d6b9ccb`. Ultraluna è all'inizio, senza salvataggio: il giro 8 comincia dal punto 0, partita nuova fino al primo Salva, poi dal punto 1. HOME5 è già costruita sul salvataggio di terzi `main-ultraluna`, e il proprietario ne ha autorizzato l'iniezione (ADR-124).
 
 AGGIUNTA DEL 2026-11-09, dodicesima parte, che prevale su quelle sotto. Commit `e091534`. Giro 7 in HOME (4567). Giro 8 (HOME5, primo su Ultraluna) nel runbook: comincia in console con la riserva `20261109-prima8`, che crea la cartella di Checkpoint.
 

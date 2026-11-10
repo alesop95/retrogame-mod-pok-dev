@@ -201,6 +201,7 @@ Scritto il 2026-11-09, ed è il primo giro su Pokémon Ultraluna. La copia è HO
 
 Cambia l'ordine dei primi passi, perché sulla SD Checkpoint non ha ancora una cartella di Ultraluna: la crea la prima copia di riserva fatta in console, con il nome che Checkpoint ricava dal gioco, e l'agente non lo indovina. Quindi la riserva della partita attuale si fa prima, in console, e solo dopo la SD va nel PC. La stessa riserva prova anche che Ultraluna è sulla console: se Checkpoint non la elenca, ci si ferma lì.
 
+0. Proprietario, aggiunto il 2026-11-10 (ADR-124): il gioco è all'inizio e non ha un salvataggio, quindi Checkpoint non lo può elencare. Avvia una partita nuova di Ultraluna, gioca fino al primo momento in cui il menu (tasto X) offre Salva, salva una volta e spegni. La partita nuova non va conservata: la copia HOME5, che è il salvataggio di terzi `main-ultraluna` con i box riempiti, la sostituisce al punto 7.
 1. Proprietario: avvia Checkpoint e cerca Pokémon Ultra Moon nell'elenco. Se non c'è, fermati e dimmelo.
 2. Proprietario: scegli Pokémon Ultra Moon, Backup, nome `20261109-prima8`. Questa è la riserva della tua partita di Ultraluna, e crea la cartella del gioco.
 3. Proprietario: spegni il 3DS del tutto, metti la SD nel PC, lettera `I:`, e dimmelo.
