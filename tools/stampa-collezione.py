@@ -155,7 +155,8 @@ STATO_GRUPPO = {"HOME1": ("DSstatoinhome", "in HOME"), "HOME2": ("DSstatoinhome"
                 "HOME3": ("DSstatoinhome", "in HOME"),  # il giro 3 dal 2026-11-06, HOME a 2600
                 "HOME6": ("DSstatoinhome", "in HOME"),  # il giro 4 dal 2026-11-09, HOME a 3529
                 "HOME8": ("DSstatoinhome", "in HOME"),  # il giro 5 dal 2026-11-09, HOME a 3785
-                "HOME9": ("DSstatoinhome", "in HOME")}  # il giro 6 dal 2026-11-09, HOME a 4474
+                "HOME9": ("DSstatoinhome", "in HOME"),  # il giro 6 dal 2026-11-09, HOME a 4474
+                "HOME4": ("DSstatoinhome", "in HOME")}  # il giro 7 dal 2026-11-09, HOME a 4567
 
 
 # Gli esemplari che il gioco non lascia uscire dalla console anche se la libreria li giudica conformi nel loro gioco: il

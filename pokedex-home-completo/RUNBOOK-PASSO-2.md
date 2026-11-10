@@ -192,8 +192,32 @@ Scritto il 2026-11-09 con la stessa procedura, ed è il primo giro su Pokémon L
 14. Agente: giudizio della rilettura, 93 conformi negli stessi posti; `prima7` e `rilett7` nelle due riserve. FATTO il 2026-11-09: `rilettura-passo2-giro7.json`, 93 su 93, 0 differenze di box, posto, specie, forma, livello, allenatore, ID e impronta; riserve uguali. `prima7` (`7a48382b…`) è identica a `20260930-luna2`, la copia di prova del 2026-09-30 che stava in Luna: 268 esemplari, 147 conformi, quasi tutti doni della Console Virtuale di una generazione dei lotti precedente, fra cui il Mew YOSHIRA e i due Farfetch'd di Stadium 2 non bonificati. Non era la partita vera, che resta in `20260823-backsicMoo`, e non era destinata a HOME; resta nelle riserve e nella sua cartella sulla SD.
 15. Proprietario: SD nel 3DS.
 16. Proprietario: il passaggio alla banca e a HOME, fuori dall'assistenza. Da guardare in questo giro: lo Psyduck STADIO del box 2 posto 10. A un utente di r/pokemonhome il Trasferitore ha rifiutato uno Psyduck di Stadium con Amnesia; il nostro è già in Luna, quindi il Trasferitore non lo vede e passa solo dalla banca. Se la banca o HOME lo rifiutano, come per i Pikachu del giro 6, lascialo nel box e dimmi che messaggio compare.
-17. Proprietario: HOME da 4474 a 4567, foto del totale; se ne mancano, foto del box di Luna con quelli rimasti.
-18. Agente: HOME4 «in HOME», pedigree; poi il giro 8, HOME5, il primo di Ultraluna.
+17. Proprietario: HOME da 4474 a 4567, foto del totale; se ne mancano, foto del box di Luna con quelli rimasti. Punti 15-17 FATTI il 2026-11-09: il proprietario riferisce il giro passato in HOME e il totale, scritto «457», cioè 4567 con una cifra persa; nessun rifiuto, Psyduck STADIO compreso.
+18. Agente: HOME4 «in HOME», pedigree; poi il giro 8, HOME5, il primo di Ultraluna. FATTO il 2026-11-09: HOME4 «in HOME» in `tools/stampa-collezione.py`, pedigree e PDF rigenerati.
+
+## Giro 8
+
+Scritto il 2026-11-09, ed è il primo giro su Pokémon Ultraluna. La copia è HOME5, `_notes/salvataggi/prove/per-home/ultraluna-giro-1-scambi-fin2/main`, 613 esemplari, 445440 byte, SHA-256 `ef7d80668b6ae4bb26aeeaae6e24ddab1df7c1db5a3c8db6532af6fd70c4da7d`, giudicata 613 conformi (`_notes/lavoro/giudizi-copie/dopo-20261109b.json`): box da 1 a 20 pieni e box 21 posti da 1 a 13. HOME conta 4567 e dopo questo giro deve contarne 5180.
+
+Cambia l'ordine dei primi passi, perché sulla SD Checkpoint non ha ancora una cartella di Ultraluna: la crea la prima copia di riserva fatta in console, con il nome che Checkpoint ricava dal gioco, e l'agente non lo indovina. Quindi la riserva della partita attuale si fa prima, in console, e solo dopo la SD va nel PC. La stessa riserva prova anche che Ultraluna è sulla console: se Checkpoint non la elenca, ci si ferma lì.
+
+1. Proprietario: avvia Checkpoint e cerca Pokémon Ultra Moon nell'elenco. Se non c'è, fermati e dimmelo.
+2. Proprietario: scegli Pokémon Ultra Moon, Backup, nome `20261109-prima8`. Questa è la riserva della tua partita di Ultraluna, e crea la cartella del gioco.
+3. Proprietario: spegni il 3DS del tutto, metti la SD nel PC, lettera `I:`, e dimmelo.
+4. Agente: copia di `/3ds/Checkpoint/saves/` in `_notes/salvataggi/console/sd-checkpoint-20261109e/` e in `J:/backup-sd-3ds/20261109e/`, con lo SHA-256 di ogni file; controllo che `20261109-prima8/main` sia un salvataggio di Ultraluna della stessa misura della copia e lo giudico, così si sa che cosa c'era nella partita.
+5. Agente: cartella `20261109-giro8` accanto a `20261109-prima8`, con la copia di nome `main`, riletta dalla SD.
+6. Proprietario: espelli la SD e rimettila nel 3DS.
+7. Proprietario: avvia Checkpoint, scegli Pokémon Ultra Moon, seleziona `20261109-giro8`, Restore, conferma.
+8. Proprietario: avvia Ultraluna senza salvare e controlla: box 1 posto 1 Poipole livello 40 cromatico, allenatore Ultra; box 1 posto 2 Zeraora livello 50, allenatore Fula City; box 21 posto 13 Pikachu livello 40, allenatore Alessio; box da 1 a 20 pieni, box 21 con i posti da 1 a 13.
+9. Proprietario: esci senza salvare.
+10. Proprietario: Checkpoint, Pokémon Ultra Moon, Backup, nome `20261109-rilett8`.
+11. Proprietario: spegni, SD nel PC, e dimmelo.
+12. Agente: SHA-256 di `20261109-rilett8/main` uguale a quello della copia.
+13. Agente: giudizio della rilettura, 613 conformi negli stessi posti; `rilett8` nelle due riserve.
+14. Proprietario: SD nel 3DS.
+15. Proprietario: il passaggio alla banca e a HOME, fuori dall'assistenza. Se qualcuno resta nei box, lascialo lì e dimmi box, posto e messaggio.
+16. Proprietario: HOME da 4567 a 5180, foto del totale; se ne mancano, foto del box di Ultraluna con quelli rimasti.
+17. Agente: HOME5 «in HOME», pedigree; poi il giro 9, HOME7, sempre su Ultraluna, con la procedura dei giri di Rubino Omega, perché la cartella a quel punto c'è.
 
 ## Dopo il giro 4
 

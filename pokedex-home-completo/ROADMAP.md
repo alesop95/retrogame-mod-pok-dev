@@ -24,8 +24,8 @@ Scritta il 2026-11-07 dopo ADR-119, quando la produzione per HOME è chiusa: tut
 | 4 | HOME6 | `oras-giro-4-fin9` | Rubino Omega | 929 | 929 | in HOME dal 2026-11-09 | 3529 |
 | 5 | HOME8 | `oras-giro-5-carte-mn5` | Rubino Omega | 256 | 256 | in HOME dal 2026-11-09 | 3785 |
 | 6 | HOME9 | `oras-giro-6-statici-eventi-4` | Rubino Omega | 695 | 695 | in HOME dal 2026-11-09, 689 esemplari: i sei Pikachu Cosplay del box 16, posti da 24 a 29, restano in Rubino Omega perché il gioco non li lascia uscire | 4474 |
-| 7 | HOME4 | `luna-giro-1-fin` | Luna | 93 | 93 | prossimo, sezione «Giro 7» di `RUNBOOK-PASSO-2.md`; lo Psyduck STADIO con Amnesia del box 2 posto 10 è quello da guardare se la banca segnala qualcosa | 4567 |
-| 8 | HOME5 | `ultraluna-giro-1-scambi-fin2` | Ultraluna | 613 | 613 | pronta | 5180 |
+| 7 | HOME4 | `luna-giro-1-fin` | Luna | 93 | 93 | in HOME dal 2026-11-09, Psyduck STADIO compreso | 4567 |
+| 8 | HOME5 | `ultraluna-giro-1-scambi-fin2` | Ultraluna | 613 | 613 | prossimo, sezione «Giro 8» di `RUNBOOK-PASSO-2.md`, che comincia dalla riserva in console perché Checkpoint non ha ancora la cartella di Ultraluna | 5180 |
 | 9 | HOME7 | `ultraluna-giro-2-fin7` | Ultraluna | 642 | 642 | pronta, geolocalizzazione corretta il 2026-11-09 | 5822 |
 | 10 | HOME10 | `ultraluna-giro-3-statici-gb-finale119` | Ultraluna | 380 | 380 | pronta: marchio Game Boy dal 2026-11-09, i 117 di FINALE senza la mossa d'evento (ADR-121) e i 2 Farfetch'd di Stadium 2 bonificati nel box 13, posti 19 e 20 (ADR-122) | 6202 |
 | 11 | GIAPPONE2 | `luna-giappone-3` | Luna, profilo giapponese | 23 | 23 | pronta, prima con un solo esemplare | 6225 |

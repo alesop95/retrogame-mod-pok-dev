@@ -9,7 +9,7 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 ```
 Branch attivo:         main
 Commit di riferimento: e22c1e9, Allineamento dal template al commit 1ee6754
-Data snapshot:         2026-11-09, ADR-123: giri 1-6 in HOME (4474, i sei Pikachu Cosplay restano in Rubino Omega), HOME10 a 380; prossimo: giro 7 dal punto 15
+Data snapshot:         2026-11-09, ADR-123: giri 1-7 in HOME (4567, i sei Pikachu Cosplay restano in Rubino Omega), HOME10 a 380; prossimo: giro 8 dal punto 1
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,8 @@ Data snapshot:         2026-11-09, ADR-123: giri 1-6 in HOME (4474, i sei Pikach
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-11-09, dodicesima parte, che prevale su quelle sotto. Commit `e091534`. Giro 7 in HOME (4567). Giro 8 (HOME5, primo su Ultraluna) nel runbook: comincia in console con la riserva `20261109-prima8`, che crea la cartella di Checkpoint.
 
 AGGIUNTA DEL 2026-11-09, undicesima parte, che prevale su quelle sotto. Giro 6 in HOME: 4474, cioè 689 su 695; i sei Pikachu Cosplay restano in Rubino Omega, che non li lascia uscire. ADR-123: i due Farfetch'd bonificati in HOME10 (`ultraluna-giro-3-statici-gb-finale119`, 380), copie superate spostate su J:. Giro 7 (HOME4, Luna) riletto e giudicato 93 su 93, tocca al proprietario dal punto 15. A giri finiti 6225.
 

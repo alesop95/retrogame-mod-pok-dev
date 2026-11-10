@@ -4,6 +4,14 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-09, dodicesima parte. Giro 7 in HOME, giro 8 nel runbook
+
+Il proprietario ha lanciato `chiudi` (`e091534`) e ha passato il giro 7 a HOME: riferisce «457», letto come 4567, cioè 4474 più i 93 di HOME4, senza rifiuti, Psyduck STADIO compreso. Punto 18: HOME4 «in HOME» in `tools/stampa-collezione.py`, pedigree e PDF rigenerati, `COPIE-PER-HOME.md` e `ROADMAP.md` aggiornati. Sezione «Giro 8» in `RUNBOOK-PASSO-2.md`: HOME5 `ultraluna-giro-1-scambi-fin2`, 613, 445440 byte, SHA-256 `ef7d8066…`, controlli Poipole 40 cromatico (Ultra), Zeraora 50 (Fula City), Pikachu 40 Alessio al box 21 posto 13. Siccome sulla SD non c'è una cartella di Ultraluna, il giro comincia con la riserva in console (`20261109-prima8`), che crea la cartella con il nome di Checkpoint e prova che il gioco c'è; poi la SD nel PC. HOME5 ha 85 Pikachu con il berretto, che passano: nessun Pikachu Cosplay. Lezioni per il template registrate: L-008, un oggetto valido nel contesto d'origine non è per questo trasferibile, e la regola di passaggio va nello strumento che compone il lotto; L-009, la proposta di chiusura si fa solo dopo l'ultima scrittura del giro, perché la conferma lanciata mentre l'agente scrive si ferma.
+
+**Template:** L-008, L-009
+
+**Didattica:** nessuna.
+
 ## 2026-11-09, undicesima parte. Giro 6 in HOME con 689 su 695, i Pikachu Cosplay restano in Rubino Omega, Farfetch'd nel giro 10, giro 7 nel runbook (ADR-123)
 
 Il proprietario ha fatto i punti 15-17 del giro 6: HOME conta 4474, non 4480. Le sue foto mostrano rimasti nel box 16 di Rubino Omega i posti da 24 a 29, che nel giudizio della rilettura sono i sei Pikachu Cosplay (Rockstar, Damigella, Confetto, Scienziata, Wrestler, Cosplay), tutti conformi in Rubino Omega. Correzione: la copia HOME9 non avrebbe dovuto contarli fra quelli per HOME. Il progetto sapeva già che il Pikachu Cosplay non lascia la sesta generazione (`CONNETTIVITA-HOME.md`, `FormVerifier.cs` righe 45-47), ma il lotto degli statici della libreria li ha prodotti e la scrittura non guarda il passaggio. Controllo sulle 13 copie di `dopo-20261109b.json`: nessun altro Pikachu Cosplay, e le copie che restano sono tutte di settima generazione. `tools/stampa-collezione.py` ha HOME9 «in HOME» e la regola nuova `resta_in_console`, che marca i sei «resta in Rubino Omega» nella scheda e nella riga del pedigree; pedigree e PDF di HOME9 rigenerati.
