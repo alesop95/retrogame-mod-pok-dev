@@ -4,6 +4,14 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-10, sesta parte. Giro 8 riletto: 613 conformi negli stessi posti
+
+Il proprietario ha fatto i punti 6-11 del giro 8: Restore di `20261110-giro8`, controllo dei box, Backup `20261110-rilett8`. `20261110-rilett8/main` è di 445440 byte con SHA-256 `ef7d8066…`, uguale a HOME5 `ultraluna-giro-1-scambi-fin2`. Giudizio con `pkhex-elenco-copie` (libreria 26.10.18) della rilettura e della copia, `_notes/lavoro/giudizi-copie/rilettura-passo2-giro8.json`: gioco UM, 613 esemplari su 613 conformi in entrambe, 0 differenze per posto su specie, forma, livello, allenatore, ID, PID, impronta e giudizio; box da 1 a 21, ultimo posto del 21 il 13; i tre controlli a vista coincidono (Poipole 40 cromatico di Ultra, Zeraora 50 di Fula City, Pikachu 40 di Alessio). `rilett8` copiata in `sd-checkpoint-20261110` e in `J:/backup-sd-3ds/20261110/`, SHA-256 riletto uguale. Checkpoint aveva ricostruito la cache dei titoli alle 15:49; le tre copie `.vecchia-20261110` sulla SD, identiche alla riserva `checkpoint-cache-20261110`, sono state tolte. Tocca al proprietario dal punto 14.
+
+**Template:** nessuna
+
+**Didattica:** nessuna.
+
 ## 2026-11-10, quinta parte. Allineamento al template `e0f13f6` chiuso, giro 8 punto 5
 
 Il proprietario ha lanciato `allinea-dal-template.py --applica`: 23 VECCHIO, 2 NUOVO, 2 MERGE, 1 CONFLITTO. Il conflitto su `.claude/skills/fonti-non-recuperabili/RIFERIMENTO.md` era il riassunto generico del template (130 righe) contro la versione estesa del progetto (188 righe, con Arctic Shift, l'incidente Discord e gli strumenti locali); il merge consegnava il file del progetto più l'unica sezione nuova della testa, sulla lettura via API di una pagina che non rende il contenuto, e quello è stato adottato (+8 righe), registrato con `--risolto`. Rimisura: 526 UGUALE, 17 ADATTATO, 0 conflitti, 0 vecchi. Punto 5: `20261110-giro8/main` scritto sulla SD, SHA-256 riletto `ef7d8066…`, uguale a HOME5. Il proprietario chiede se a inizio partita, senza il PC del gioco, si possa passare a HOME: dopo il Restore del punto 7 la partita sulla console è HOME5, cioè il salvataggio di terzi `main-ultraluna` con i box pieni, non più la partita nuova (ADR-124). Aggiunta del proprietario per dopo Bank: la verifica sui disassemblati dei caratteri giapponesi nelle cartucce occidentali di prima e seconda generazione, in `pending.md`, con il richiamo che ogni risultato va anche nella tesi.

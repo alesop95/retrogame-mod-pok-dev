@@ -213,8 +213,8 @@ Cambia l'ordine dei primi passi, perché sulla SD Checkpoint non ha ancora una c
 9. Proprietario: esci senza salvare.
 10. Proprietario: Checkpoint, Pokémon Ultra Moon, Backup, nome `20261109-rilett8`.
 11. Proprietario: spegni, SD nel PC, e dimmelo.
-12. Agente: SHA-256 di `20261109-rilett8/main` uguale a quello della copia.
-13. Agente: giudizio della rilettura, 613 conformi negli stessi posti; `rilett8` nelle due riserve.
+12. Agente: SHA-256 di `20261109-rilett8/main` uguale a quello della copia. FATTO il 2026-11-10: il proprietario ha fatto i punti 6-11 con il nome del giorno, `20261110-rilett8/main`, 445440 byte, SHA-256 `ef7d8066…`, uguale alla copia.
+13. Agente: giudizio della rilettura, 613 conformi negli stessi posti; `rilett8` nelle due riserve. FATTO il 2026-11-10: `_notes/lavoro/giudizi-copie/rilettura-passo2-giro8.json`, gioco UM, 613 su 613 conformi, 0 differenze di box, posto, specie, forma, livello, allenatore, ID, PID, impronta e giudizio rispetto alla copia; box 1 posto 1 Poipole 40 cromatico di Ultra, box 1 posto 2 Zeraora 50 di Fula City, box 21 posto 13 Pikachu 40 di Alessio. `rilett8` in `sd-checkpoint-20261110` e in `J:/backup-sd-3ds/20261110/`, SHA-256 uguale. Tolte dalla SD le tre copie `.vecchia-20261110` della cache di Checkpoint, che l'ha ricostruita alle 15:49 ed è identica alla riserva in `checkpoint-cache-20261110`.
 14. Proprietario: SD nel 3DS.
 15. Proprietario: il passaggio alla banca e a HOME, fuori dall'assistenza. Se qualcuno resta nei box, lascialo lì e dimmi box, posto e messaggio.
 16. Proprietario: HOME da 4567 a 5180, foto del totale; se ne mancano, foto del box di Ultraluna con quelli rimasti.

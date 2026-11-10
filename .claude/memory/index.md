@@ -37,7 +37,9 @@ Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo q
 
 ## Punto di ripresa
 
-AGGIUNTA DEL 2026-11-10, seconda parte, che prevale su quelle sotto. Giro 8 punti 0-5 fatti: Checkpoint vedeva Ultraluna solo dopo il rinnovo della sua cache, riserva `20261110-prima8` (UM, box vuoti), `20261110-giro8/main` = HOME5 sulla SD. Tocca al proprietario dal punto 6. Allineamento al template `e0f13f6` applicato, 0 conflitti.
+AGGIUNTA DEL 2026-11-10, terza parte, che prevale su quelle sotto. Giro 8 punti 6-14 fatti: `20261110-rilett8` identica a HOME5 (`ef7d8066…`), 613 conformi negli stessi posti (`rilettura-passo2-giro8.json`), nelle due riserve; cache vecchia di Checkpoint tolta dalla SD. Tocca al proprietario: SD nel 3DS, poi i punti 15-16, HOME da 4567 a 5180.
+
+AGGIUNTA DEL 2026-11-10, seconda parte, superata dalla terza. Giro 8 punti 0-5 fatti: Checkpoint vedeva Ultraluna solo dopo il rinnovo della sua cache, riserva `20261110-prima8` (UM, box vuoti), `20261110-giro8/main` = HOME5 sulla SD. Tocca al proprietario dal punto 6. Allineamento al template `e0f13f6` applicato, 0 conflitti.
 
 AGGIUNTA DEL 2026-11-10, che prevale su quelle sotto. Commit `d6b9ccb`. Ultraluna è all'inizio, senza salvataggio: il giro 8 comincia dal punto 0, partita nuova fino al primo Salva, poi dal punto 1. HOME5 è già costruita sul salvataggio di terzi `main-ultraluna`, e il proprietario ne ha autorizzato l'iniezione (ADR-124).
 
