@@ -4,6 +4,40 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-10, quinta parte. Allineamento al template `e0f13f6` chiuso, giro 8 punto 5
+
+Il proprietario ha lanciato `allinea-dal-template.py --applica`: 23 VECCHIO, 2 NUOVO, 2 MERGE, 1 CONFLITTO. Il conflitto su `.claude/skills/fonti-non-recuperabili/RIFERIMENTO.md` era il riassunto generico del template (130 righe) contro la versione estesa del progetto (188 righe, con Arctic Shift, l'incidente Discord e gli strumenti locali); il merge consegnava il file del progetto più l'unica sezione nuova della testa, sulla lettura via API di una pagina che non rende il contenuto, e quello è stato adottato (+8 righe), registrato con `--risolto`. Rimisura: 526 UGUALE, 17 ADATTATO, 0 conflitti, 0 vecchi. Punto 5: `20261110-giro8/main` scritto sulla SD, SHA-256 riletto `ef7d8066…`, uguale a HOME5. Il proprietario chiede se a inizio partita, senza il PC del gioco, si possa passare a HOME: dopo il Restore del punto 7 la partita sulla console è HOME5, cioè il salvataggio di terzi `main-ultraluna` con i box pieni, non più la partita nuova (ADR-124). Aggiunta del proprietario per dopo Bank: la verifica sui disassemblati dei caratteri giapponesi nelle cartucce occidentali di prima e seconda generazione, in `pending.md`, con il richiamo che ogni risultato va anche nella tesi.
+
+**Template:** nessuna
+
+**Didattica:** nessuna.
+
+## 2026-11-10, quarta parte. Giro 8 punto 4: riserva di Ultraluna letta, allineamento dal template misurato
+
+Con il rinnovo della cache Checkpoint ha elencato Pokémon Ultra Moon, e il proprietario ha fatto la riserva con la data del giorno, `20261110-prima8`. Punto 4: `/3ds/Checkpoint/saves/` copiata in `_notes/salvataggi/console/sd-checkpoint-20261110/` e in `J:/backup-sd-3ds/20261110/`, 35 file, ciascuna verificata con `sha256sum -c` contro la SD, tutti uguali. `20261110-prima8/main`: 445440 byte come HOME5, SHA-256 `4d15853a…`, gioco `UM` per `tools/pkhex-elenco-copie`, box vuoti; lo starter sta in squadra, che lo strumento non legge, e la partita non va conservata (ADR-124). Giudizio in `_notes/lavoro/giudizi-copie/prima8-20261110.json`.
+
+Allineamento dal template: misura a vuoto con `allinea-dal-template.py` sulla testa `e0f13f6`, cinque commit dopo `ca8b382`: 500 UGUALE, 23 VECCHIO, 2 NUOVO, 2 MERGE (`PACKAGES.md`, `tools/README.md` dei modelli), 16 ADATTATO, 2 LOCALE, 1 CONFLITTO su `.claude/skills/fonti-non-recuperabili/RIFERIMENTO.md`. `allinea-tutti.ps1` si fermerebbe sulla guardia del template sporco: 29 modifiche non committate sotto `.claude` del template.
+
+**Template:** nessuna
+
+**Didattica:** nessuna.
+
+## 2026-11-10, terza parte. Giro 8: Checkpoint non vede Ultraluna, cache dei titoli rinnovata
+
+Il proprietario ha fatto il punto 0 (partita nuova, salvato dopo lo starter), ma Checkpoint 5.0 elenca 7 titoli senza Ultraluna (foto del proprietario). Misure sulla SD in `I:`: Ultraluna è installata come `title/00040000/001b5100` dal 2026-09-30, con `data/00000001.sav` di 1040384 byte, la stessa misura di quello di Luna; la cache di Checkpoint (`fullsavecache` e `fullextdatacache`, entrambe del 2026-11-04 15:41) contiene i 7 titoli elencati e nessuna voce di Ultraluna. Inferenza, non verificata sul sorgente di Checkpoint: il 2026-11-04 Ultraluna non aveva un salvataggio ed è stata esclusa, e la cache non si è rinnovata perché la lista dei titoli installati non è cambiata. Le date dei file sulla SD non dicono se il salvataggio del punto 0 è arrivato, perché la console non le aggiorna: quello di Luna porta ancora la data dell'installazione. I tre file di cache sono stati copiati in `_notes/salvataggi/console/checkpoint-cache-20261110/` (SHA-256 uguali: `641a8d99…`, `03801eb5…`, `0f0fdc48…`) e rinominati sulla SD con il suffisso `.vecchia-20261110`. Runbook del giro 8 aggiornato al punto 1, pendenza nella voce «AL 2026-11-10, giro 8 al punto 1».
+
+**Template:** nessuna
+
+**Didattica:** nessuna.
+
+## 2026-11-10, seconda parte. Ripresa con `/riprendi`: commit di riferimento riancorato
+
+`python tools/verifica-ripresa.py` è uscito con 1, ma l'impronta registrata da `chiudi` alle 12:12 coincide con lo stato reale: HEAD `bc05a0e`, albero pulito, un solo albero di lavoro. L'unica divergenza era il campo «Commit di riferimento» di `index.md`, fermo a `e22c1e9` da nove commit mentre il punto di ripresa dello stesso file arrivava già ad ADR-124: riancorato a `bc05a0e`. Nessun lavoro non scritto: i commit da `e22c1e9` a `bc05a0e` sono tutti raccontati nelle voci del 2026-11-09 e del 2026-11-10. Le tre segnalazioni degli hook di apertura (revisione nuova della lista di Bulbapedia di Scarlatto e Violetto, filo Reddit `1xmnrw6` da 187 a 202 commenti con il testo invariato, template avanti di 5 commit) sono nella voce «AL 2026-11-10, apertura» di `pending.md`. Il giro 8 riparte dal punto 0, del proprietario.
+
+**Template:** nessuna
+
+**Didattica:** nessuna.
+
 ## 2026-11-10. Ultraluna senza salvataggio: punto 0 del giro 8, ADR-124
 
 Il proprietario ha lanciato `chiudi` (`d6b9ccb`) e riferisce che Ultraluna è all'inizio, senza un salvataggio, quindi Checkpoint non la vede; propone di modificare un salvataggio trovato in rete e iniettarlo. Verificato sulla copia: il rapporto di HOME5 dice partenza `main` e versione UM, e la catena delle copie parte da `_notes/salvataggi/terzi/main-ultraluna`, il salvataggio di console europea trovato in rete del 2026-09-30, quindi HOME5 è già quel salvataggio modificato e non serve scaricarne un altro. Serve invece che il gioco abbia un salvataggio suo, perché Checkpoint ripristina solo dove ne esiste uno: punto 0 del giro 8, partita nuova fino al primo Salva. Il proprietario ha autorizzato l'iniezione del salvataggio di terzi (ADR-124, che dà alla regola sull'importazione l'ADR che chiede). Il punto della storia in cui Salva compare non l'ho trovato in una fonte: una ricerca web del 2026-11-10 non lo dice, quindi il runbook dice «il primo momento in cui il menu offre Salva».
