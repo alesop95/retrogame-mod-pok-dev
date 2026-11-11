@@ -228,6 +228,8 @@ Scritto il 2026-11-10, ed è il secondo giro su Pokémon Ultraluna, con la proce
 
 La partita che Ultraluna ha adesso è HOME5 dopo la banca, con i quattro doni di taglia totem rimasti nel box 21, posti 3, 5, 7 e 10. Il Restore del punto 8 la sostituisce: i quattro restano nella riserva `prima9` del punto 7, nelle due riserve del PC e nella copia HOME5, quindi non si perdono, ma dopo il giro 9 non sono più nella partita in console.
 
+Stato al 2026-11-11: punti 1-4 FATTI. La SD è nel PC in `I:`; `/3ds/Checkpoint/saves/` è copiata in `_notes/salvataggi/console/sd-checkpoint-20261111/` e in `J:/backup-sd-3ds/20261111/`, 37 file, ciascuna verificata con `sha256sum -c` contro la SD, tutti uguali; `20261111-giro9/main` è sulla SD, 445440 byte, riletta con SHA-256 `15526468…` uguale a HOME7. I nomi del giorno sono `20261111-prima9` e `20261111-rilett9`. Tocca al proprietario dal punto 5.
+
 1. Proprietario: spegni il 3DS del tutto.
 2. Proprietario: SD nel PC, lettera `I:`, e dimmelo.
 3. Agente: copia di `/3ds/Checkpoint/saves/` in `_notes/salvataggi/console/sd-checkpoint-<data>/` e in `J:/backup-sd-3ds/<data>/`, con lo SHA-256 di ogni file, dove la data è quella del giorno (con una lettera se nello stesso giorno c'è già una riserva).

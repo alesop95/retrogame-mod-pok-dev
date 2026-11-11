@@ -37,7 +37,9 @@ Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo q
 
 ## Punto di ripresa
 
-AGGIUNTA DEL 2026-11-10, quarta parte, che prevale su quelle sotto. Giro 8 IN HOME: 5176, cioè 609 su 613; i doni di taglia totem di Araquanid, Togedemaru, Marowak e Ribombee (box 21, posti 3, 5, 7, 10) restano in Ultraluna, non trasferibili oltre la settima generazione (`EncounterStatic7.IsTotemNoTransfer`). Totali attesi 5818, 6198, 6221. Prossimo: giro 9, HOME7.
+AGGIUNTA DEL 2026-11-11, che prevale su quelle sotto. Giro 9 ai punti 3-4: riserve `sd-checkpoint-20261111` e `J:/backup-sd-3ds/20261111/`, `20261111-giro9/main` sulla SD con l'impronta di HOME7; tocca al proprietario dal punto 5 (`20261111-prima9`, `20261111-rilett9`). I quattro totem non vanno in nessun lotto. Copie restanti controllate su tutti i punti `TransferBad` della libreria: nessun esemplare trattenuto atteso. Tesi: i giri sono nel capitolo 28, debito a 5522 righe scoperte (88,3%); bibliografia da riallineare (`pending.md`).
+
+AGGIUNTA DEL 2026-11-10, quarta parte, superata dalla AGGIUNTA DEL 2026-11-11. Giro 8 IN HOME: 5176, cioè 609 su 613; i doni di taglia totem di Araquanid, Togedemaru, Marowak e Ribombee (box 21, posti 3, 5, 7, 10) restano in Ultraluna, non trasferibili oltre la settima generazione (`EncounterStatic7.IsTotemNoTransfer`). Totali attesi 5818, 6198, 6221. Prossimo: giro 9, HOME7.
 
 AGGIUNTA DEL 2026-11-10, terza parte, superata dalla quarta. Giro 8 punti 6-14 fatti: `20261110-rilett8` identica a HOME5 (`ef7d8066…`), 613 conformi negli stessi posti (`rilettura-passo2-giro8.json`), nelle due riserve; cache vecchia di Checkpoint tolta dalla SD. Tocca al proprietario: SD nel 3DS, poi i punti 15-16, HOME da 4567 a 5180.
 
