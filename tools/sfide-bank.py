@@ -14,7 +14,7 @@ Che cosa fa
 Per ogni sfida, scritta qui come regola di specie e giochi d'origine, cerca negli esiti di `tools/pkhex-elenco-copie`
 un esemplare che la soddisfi: specie per numero nazionale, gioco d'origine fra quelli della sfida, cromatico se la
 sfida lo chiede e forma se la sfida ne nomina una. Dal 2026-11-03 l'elenco è confrontato anche con la pagina delle
-sfide di Serebii e con il foglio comunitario «Bank Closing all possible things checklist V0.5». Distingue le cinque copie per HOME, che passano tutte, dai gruppi a parte, cioè la decisione finale e
+sfide di Serebii e con il foglio comunitario «Bank Closing all possible things checklist V0.5». Distingue le copie per HOME, senza gli esemplari che il gioco non lascia uscire, dai gruppi a parte, cioè la decisione finale e
 i giapponesi, che dipendono da una decisione. Una sfida che chiede più specie è coperta solo se le copre tutte.
 Stampa per ogni sfida lo stato e la copia che la copre, e alla fine le scoperte, cioè le sfide che nessuna copia per
 HOME soddisfa. Il controllo legge i dati degli esemplari, non lo stato delle sfide nell'app.
@@ -113,9 +113,25 @@ SFIDE_CONTEGGIO = [
 ]
 
 
+def resta_in_console():
+    """La regola di `tools/stampa-collezione.py`, la stessa del pedigree, così che i due non divergano."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("stampa_collezione", os.path.join(RADICE, "tools", "stampa-collezione.py"))
+    modulo = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(modulo)
+    return modulo.resta_in_console
+
+
 def carica(percorso):
+    # Dal 2026-11-10 non conta gli esemplari che il gioco non lascia uscire, anche se la libreria li giudica conformi nel
+    # loro gioco: i Pikachu Cosplay del giro 6 e i quattro doni di taglia totem del giro 8 non sono arrivati in HOME, e
+    # una sfida coperta soltanto da loro sarebbe una sfida scoperta.
     d = json.load(open(percorso, encoding="utf-8"))
-    return d["copie"] if isinstance(d, dict) else d
+    copie = d["copie"] if isinstance(d, dict) else d
+    resta = resta_in_console()
+    for c in copie:
+        c["esemplari"] = [x for x in c["esemplari"] if not resta(x)]
+    return copie
 
 
 def soddisfa(x, numero, giochi, cromatico, forme=None, eventi=None):

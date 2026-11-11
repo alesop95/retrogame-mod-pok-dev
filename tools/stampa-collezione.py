@@ -156,14 +156,26 @@ STATO_GRUPPO = {"HOME1": ("DSstatoinhome", "in HOME"), "HOME2": ("DSstatoinhome"
                 "HOME6": ("DSstatoinhome", "in HOME"),  # il giro 4 dal 2026-11-09, HOME a 3529
                 "HOME8": ("DSstatoinhome", "in HOME"),  # il giro 5 dal 2026-11-09, HOME a 3785
                 "HOME9": ("DSstatoinhome", "in HOME"),  # il giro 6 dal 2026-11-09, HOME a 4474
-                "HOME4": ("DSstatoinhome", "in HOME")}  # il giro 7 dal 2026-11-09, HOME a 4567
+                "HOME4": ("DSstatoinhome", "in HOME"),  # il giro 7 dal 2026-11-09, HOME a 4567
+                "HOME5": ("DSstatoinhome", "in HOME")}  # il giro 8 dal 2026-11-10, HOME a 5176
 
 
 # Gli esemplari che il gioco non lascia uscire dalla console anche se la libreria li giudica conformi nel loro gioco: il
 # Pikachu Cosplay (forme da 1 a 6 in sesta generazione) non lascia Rubino Omega e Zaffiro Alpha
 # (`pokedex-home-completo/CONNETTIVITA-HOME.md`, `FormVerifier.cs` righe 45-47). Al giro 6 del 2026-11-09 i sei della copia
 # HOME9 sono rimasti nel box 16, e HOME è salito di 689 invece che di 695. La regola vale per esemplare e non per gruppo.
+# Dal 2026-11-10 anche i doni di taglia totem di Marowak, Araquanid, Togedemaru e Ribombee della spiaggia di Kantai:
+# la libreria li dichiara non trasferibili oltre la settima generazione (`EncounterStatic7.IsTotemNoTransfer`, usata da
+# `TransferVerifier.cs` righe 149-157), mentre gli altri sette totem passano e tornano alla forma base. Al giro 8 la banca
+# ha lasciato i quattro di HOME5 nel box 21 di Ultraluna, posti 3, 5, 7 e 10, e HOME è salito di 609 invece che di 613.
+TOTEM_NON_TRASFERIBILI = {105: 2, 752: 1, 777: 1, 743: 1}
+
+
 def resta_in_console(e):
+    if e.get("generazione") == 7 and TOTEM_NON_TRASFERIBILI.get(e["numero"]) == e.get("forma_n", 0):
+        return ("DSstatoincopia", "resta in Ultraluna",
+                "Resta in Ultraluna: il dono di taglia totem di questa specie non lascia la settima generazione, e al "
+                "giro 8 del 2026-11-10 la banca non l'ha preso con gli altri esemplari della copia.")
     if e["numero"] == 25 and e.get("generazione") == 6 and e.get("forma_n", 0) in range(1, 7):
         return ("DSstatoincopia", "resta in Rubino Omega",
                 "Resta in Rubino Omega: il Pikachu Cosplay non lascia la sesta generazione, e al giro 6 del 2026-11-09 "

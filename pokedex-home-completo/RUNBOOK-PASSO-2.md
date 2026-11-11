@@ -220,6 +220,33 @@ Cambia l'ordine dei primi passi, perché sulla SD Checkpoint non ha ancora una c
 16. Proprietario: HOME da 4567 a 5180, foto del totale; se ne mancano, foto del box di Ultraluna con quelli rimasti.
 17. Agente: HOME5 «in HOME», pedigree; poi il giro 9, HOME7, sempre su Ultraluna, con la procedura dei giri di Rubino Omega, perché la cartella a quel punto c'è.
 
+Punti 14-17 FATTI il 2026-11-10. HOME conta 5176, cioè 4567 più 609: la banca ha lasciato nel box 21 di Ultraluna i posti 3, 5, 7 e 10, che sono i doni di taglia totem di Araquanid, Togedemaru, Marowak e Ribombee, non trasferibili oltre la settima generazione secondo la libreria (`EncounterStatic7.IsTotemNoTransfer`). Restano lì; HOME5 è «in HOME» in `tools/stampa-collezione.py`, con i quattro marcati «resta in Ultraluna», pedigree e PDF rigenerati.
+
+## Giro 9
+
+Scritto il 2026-11-10, ed è il secondo giro su Pokémon Ultraluna, con la procedura del giro 7, perché la cartella di Checkpoint `0x01B51 Pokémon Ultra Moon` adesso esiste. La copia è HOME7, `_notes/salvataggi/prove/per-home/ultraluna-giro-2-fin7/main`, 642 esemplari, 445440 byte, SHA-256 `15526468e27588dfdc76115151f0ab30030db243dc5889ab0cb0aa7c3bfa8d2c`, giudicata 642 conformi (`_notes/lavoro/giudizi-copie/dopo-20261109b.json`): box da 1 a 21 pieni e box 22 posti da 1 a 12. Non contiene esemplari che il gioco non lascia uscire: i due di forma «Grande» sono Pumpkaboo e Gourgeist di taglia grande, non totem. HOME conta 5176 e dopo questo giro deve contarne 5818.
+
+La partita che Ultraluna ha adesso è HOME5 dopo la banca, con i quattro doni di taglia totem rimasti nel box 21, posti 3, 5, 7 e 10. Il Restore del punto 8 la sostituisce: i quattro restano nella riserva `prima9` del punto 7, nelle due riserve del PC e nella copia HOME5, quindi non si perdono, ma dopo il giro 9 non sono più nella partita in console.
+
+1. Proprietario: spegni il 3DS del tutto.
+2. Proprietario: SD nel PC, lettera `I:`, e dimmelo.
+3. Agente: copia di `/3ds/Checkpoint/saves/` in `_notes/salvataggi/console/sd-checkpoint-<data>/` e in `J:/backup-sd-3ds/<data>/`, con lo SHA-256 di ogni file, dove la data è quella del giorno (con una lettera se nello stesso giorno c'è già una riserva).
+4. Agente: cartella `<data>-giro9` di Pokémon Ultra Moon con la copia di nome `main`, riletta dalla SD.
+5. Proprietario: espelli la SD e rimettila nel 3DS.
+6. Proprietario: avvia Checkpoint.
+7. Proprietario: scegli Pokémon Ultra Moon, Backup, nome `<data>-prima9`. Dentro ci sono i quattro totem.
+8. Proprietario: seleziona `<data>-giro9`, Restore, conferma.
+9. Proprietario: avvia Ultraluna senza salvare e controlla: box 1 posto 1 Spinda livello 1 cromatico, allenatore Alessio; box 1 posto 25 Zygarde livello 100 cromatico, allenatore 2018 Legends; box 22 posto 1 Ursaring livello 25, allenatore Alessio; box 22 posto 12 Gastrodon Mare Est livello 100, allenatore GIULIA; box da 1 a 21 pieni, box 22 con i posti da 1 a 12.
+10. Proprietario: esci senza salvare.
+11. Proprietario: Checkpoint, Pokémon Ultra Moon, Backup, nome `<data>-rilett9`.
+12. Proprietario: spegni, SD nel PC, e dimmelo.
+13. Agente: SHA-256 di `<data>-rilett9/main` uguale a quello della copia.
+14. Agente: giudizio della rilettura, 642 conformi negli stessi posti; `prima9` giudicata, con i quattro totem attesi nel box 21; `prima9` e `rilett9` nelle due riserve.
+15. Proprietario: SD nel 3DS.
+16. Proprietario: il passaggio alla banca e a HOME, fuori dall'assistenza. Se qualcuno resta nei box, lascialo lì e dimmi box e posto, o mandami la foto del box.
+17. Proprietario: HOME da 5176 a 5818, foto del totale; se ne mancano, foto del box di Ultraluna con quelli rimasti.
+18. Agente: HOME7 «in HOME», pedigree; poi il giro 10, HOME10, sempre su Ultraluna.
+
 ## Dopo il giro 4
 
 La partita vera di Rubino Omega, `20260821-backsic`, resta fuori dalla console fino al passo 6. I giri successivi sono nella tabella in testa a `ROADMAP.md`: il 5 (HOME8, `oras-giro-5-carte-mn5`, 256) e il 6 (HOME9, `oras-giro-6-statici-eventi-4`, 695, di cui 689 in HOME e i sei Pikachu Cosplay rimasti in Rubino Omega) sono ancora di Rubino Omega e seguono questa procedura con i nomi del giorno; dal 7 si passa a Luna e Ultraluna, e al giro 8, il primo di Ultraluna, la copia di riserva di Checkpoint crea la cartella del gioco.
