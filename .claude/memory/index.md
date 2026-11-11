@@ -8,7 +8,7 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: bc05a0e, Giro 8 dal punto 0: Ultraluna senza salvataggio, ADR-124
+Commit di riferimento: 03b1e09, Giro 9 riletto, generatori delle fonti che non cancellano più testo
 Data snapshot:         2026-11-10, ADR-124: giri 1-7 in HOME (4567, i sei Pikachu Cosplay restano in Rubino Omega), HOME10 a 380; prossimo: giro 8 dal punto 0 (partita nuova di Ultraluna fino al primo Salva)
 ```
 
@@ -37,7 +37,9 @@ Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo q
 
 ## Punto di ripresa
 
-AGGIUNTA DEL 2026-11-11, quarta parte, che prevale su quelle sotto. L-010 e L-011 portate nel template (`rigenera_sicuro.py`, fermo di `sync-readme.py`, `tools/controlli-progetto.txt` letto da `chiudi`, paragrafo in `chat-non-e-memoria.md`), non ancora committate; sequenza di chiusura in `pending.md`. Dopo l'allineamento si riparte dal punto 15 del giro 9.
+AGGIUNTA DEL 2026-11-11, quinta parte, che prevale su quelle sotto. Template committato (`f027354`) e progetto allineato a quella testa, da committare con `chiudi`; poi wipe e `/riprendi`, che riparte dal punto 15 del giro 9 (SD nel 3DS, Bank, HOME, atteso 5818). Bulbapedia, lista degli altri eventi della settima generazione con una revisione nuova: censimento dell'agente in `pending.md`.
+
+AGGIUNTA DEL 2026-11-11, quarta parte. L-010 e L-011 portate nel template (`rigenera_sicuro.py`, fermo di `sync-readme.py`, `tools/controlli-progetto.txt` letto da `chiudi`, paragrafo in `chat-non-e-memoria.md`), non ancora committate; sequenza di chiusura in `pending.md`. Dopo l'allineamento si riparte dal punto 15 del giro 9.
 
 AGGIUNTA DEL 2026-11-11, terza parte. Giro 9 ai punti 8-14: `rilett9` identica a HOME7, 642 conformi con gli stessi campi; `prima9` con i soli quattro totem, identici a HOME5; riserve `sd-checkpoint-20261111b` e `J:/backup-sd-3ds/20261111b/`. Tocca al proprietario dal punto 15 (HOME atteso 5818); `chiudi` a giro completato. I generatori delle fonti scrivono con `tools/rigenera_sicuro.py` (archivio e fermo sulle perdite), voce didattica 12, lezioni L-010 e L-011. Tesi: sezione nuova nel capitolo 23, riga del giro 9 nel capitolo 28.
 

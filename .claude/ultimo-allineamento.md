@@ -2,37 +2,37 @@
 
 <!-- generato da allinea-dal-template.py -->
 
-Commit a monte: `e0f13f649d460bbc7be802f585ae3eef773a47d7`. File interessati dalla passata: 26. Commit e push del progetto restano manuali.
+Commit a monte: `f027354799549557d80523417e4425dc776d420d`. File interessati dalla passata: 28. Commit e push del progetto restano manuali.
 
 | Esito | File |
 |---|---|
-| VECCHIO | `.claude/PROJECT-SYSTEM.md` |
-| VECCHIO | `.claude/norme/git-commands-format.md` |
-| NUOVO | `.claude/norme/security-permissions.md` |
-| VECCHIO | `.claude/rules/git-commands-format.md` |
-| VECCHIO | `.claude/rules/security-permissions.md` |
+| MERGE | `.claude/rules/chat-non-e-memoria.md` |
+| VECCHIO | `.claude/skills/craft-apps/SKILL.md` |
 | VECCHIO | `.claude/skills/prove-che-misurano/RIFERIMENTO.md` |
 | MERGE | `.claude/templates/PACKAGES.md` |
-| VECCHIO | `.claude/templates/codebase-learning/reference/codebase-learning-handoff.md` |
-| VECCHIO | `.claude/templates/documentazione-didattica/README.md` |
-| NUOVO | `.claude/templates/documentazione-didattica/tools/didattica.esempio.json` |
-| VECCHIO | `.claude/templates/documentazione-didattica/tools/lint-didattica.py` |
-| VECCHIO | `.claude/templates/fonti-a-monte.json` |
-| VECCHIO | `.claude/templates/fonti-a-monte.md` |
-| VECCHIO | `.claude/templates/lavoro-a-lotti/README.md` |
-| VECCHIO | `.claude/templates/lavoro-a-lotti/rules/lavoro-a-lotti.md` |
+| VECCHIO | `.claude/templates/agenti-terminale/tools/Installa-Claude.ps1` |
+| VECCHIO | `.claude/templates/agenti-terminale/tools/Installa-Comandi.ps1` |
+| MERGE | `.claude/templates/anonymization/tools/Test-Anonymization.py` |
+| VECCHIO | `.claude/templates/lavoro-a-lotti/tools/estratti-lotto.py` |
 | VECCHIO | `.claude/templates/lezioni-recepite.json` |
-| VECCHIO | `.claude/templates/llm-local/README.md` |
-| VECCHIO | `.claude/templates/matt-pocock-skills/README.md` |
+| VECCHIO | `.claude/templates/readme-sync/tests/test_sync_readme.py` |
+| VECCHIO | `.claude/templates/readme-sync/tools/sync-readme.py` |
 | MERGE | `.claude/templates/tools/README.md` |
-| VECCHIO | `.claude/templates/tools/passata-in-sospeso.py` |
-| VECCHIO | `.claude/templates/tools/tests/test_session_alignment.py` |
-| VECCHIO | `.claude/templates/tools/verifica-ripresa.py` |
-| VECCHIO | `.claude/templates/vps-baseline/README.md` |
-| VECCHIO | `.claude/templates/vps-baseline/tools/baseline-vps.sh` |
-| VECCHIO | `tools/lint-didattica.py` |
-| VECCHIO | `tools/verifica-ripresa.py` |
+| VECCHIO | `.claude/templates/tools/allinea-dal-template.py` |
+| VECCHIO | `.claude/templates/tools/chiudi-allineamento.ps1` |
+| VECCHIO | `.claude/templates/tools/chiudi-sessione.ps1` |
+| VECCHIO | `.claude/templates/tools/chiudi-sessione.sh` |
+| VECCHIO | `.claude/templates/tools/identita-forme-ammesse.txt` |
+| VECCHIO | `.claude/templates/tools/lint-strumenti.py` |
+| NUOVO | `.claude/templates/tools/rigenera_sicuro.py` |
+| VECCHIO | `.claude/templates/tools/stato-magazzino.ps1` |
+| VECCHIO | `.claude/templates/tools/stato-magazzino.py` |
+| VECCHIO | `.claude/templates/tools/test-identita-personali.py` |
+| VECCHIO | `.claude/templates/tools/tests/test_allinea_dal_template.py` |
+| VECCHIO | `.claude/templates/tools/verifica-schede.py` |
+| MERGE | `tools/chiudi-sessione.ps1` |
+| VECCHIO | `tools/chiudi-sessione.sh` |
+| MERGE | `tools/Test-Anonymization.py` |
+| VECCHIO | `tools/verifica-schede.py` |
 
-Conflitti ancora da risolvere: 1.
-
-`.claude/skills/fonti-non-recuperabili/RIFERIMENTO.md`
+Conflitti ancora da risolvere: 0.

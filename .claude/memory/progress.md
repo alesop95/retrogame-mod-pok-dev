@@ -4,6 +4,18 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-11. Allineamento al template `f027354`, con i controlli propri del progetto dentro `chiudi`
+
+Il proprietario ha fatto i passi 1 e 2 della sequenza di chiusura: `chiudi` del progetto (`03b1e09`) e commit del template con i soli nove file di L-010 e L-011 (`f027354`, pubblicato; i due `docs/` di altre lavorazioni restano non committati nel template).
+
+Allineamento con `allinea-dal-template.py --template E:/template-claude-developing --progetto .`, prima a vuoto e poi con `--applica`: 28 file, CONFLITTO 0, MERGE 6, VECCHIO 22, NUOVO 1 (`.claude/templates/tools/rigenera_sicuro.py`), ADATTATO 13, LOCALE 2, UGUALE 504. Le righe tolte dalle sei fusioni, guardate una per una con `git diff -U0`, sono tutte testo del template sostituito dalla sua versione nuova: una riga di `PACKAGES.md`, sette del README degli strumenti, due commenti di `Test-Anonymization.py` nelle due copie; `chat-non-e-memoria.md` e `tools/chiudi-sessione.ps1` hanno solo righe aggiunte (2 e 38). `tools/rigenera_sicuro.py` resta identico alla copia del template, verificato con `cmp`. `chiudi -SoloControlli` verde, e per la prima volta esegue i controlli di `tools/controlli-progetto.txt`: i `--check` di `build-source-map.py`, `build-bibliography.py` e `indice-fonti-unico.py` e l'autotest di `rigenera_sicuro.py`, tutti verdi. Lezioni per il template: 0 aperte, 11 recepite, cioè L-010 e L-011 chiuse dall'allineamento. `index.md` porta ora `03b1e09` come commit di riferimento, rimasto fermo a `bc05a0e` (5 commit indietro).
+
+All'apertura dopo la compattazione l'hook degli eventi ha segnalato una revisione nuova della lista di Bulbapedia degli altri eventi della settima generazione: registrata in `pending.md` come censimento dell'agente, non ancora segnata.
+
+**Template:** nessuna.
+
+**Didattica:** nessuna voce nuova.
+
 ## 2026-11-11. Le lezioni L-010 e L-011 portate nel template, e la chiusura per una ripresa pulita
 
 Il proprietario ha chiesto di chiudere la sessione e riaprirne una pulita con `/riprendi`, senza perdere niente, dopo aver portato nel template le lezioni apprese.
