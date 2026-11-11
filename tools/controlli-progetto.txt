@@ -1,0 +1,13 @@
+# Controlli propri del progetto, che chiudi esegue dopo i propri e che ne fermano il commit
+# allo stesso modo (L-011, 2026-11-11). Uno per riga: nome dello strumento in tools/ e argomenti.
+#
+# I tre generatori delle fonti: la tabella FONTI, la bibliografia della tesi e l'indice unico
+# dentro SOURCES.md. Fino al 2026-11-11 li lanciava a mano chi chiudeva, e la bibliografia era
+# rimasta disallineata con i controlli verdi. Bibliografia e indice unico richiedono la tesi
+# locale, che in un clone non c'è: su una macchina senza tesi/ questi due si fermano, ed è
+# voluto, perché senza i capitoli non si può dire se il blocco tracciato sia giusto.
+build-source-map.py --check
+build-bibliography.py --check
+indice-fonti-unico.py --check
+# La scrittura sicura che i tre usano: archivio della versione precedente e fermo sulle perdite.
+rigenera_sicuro.py --autotest

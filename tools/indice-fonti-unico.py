@@ -45,6 +45,11 @@ import os
 import re
 import sys
 
+# La scrittura passa da rigenera_sicuro, che archivia la versione precedente e si ferma se la
+# rigenerazione toglierebbe testo strutturale che il generatore non produce (lezione L-010).
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import rigenera_sicuro  # noqa: E402
+
 RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REGISTRO = os.path.join(RADICE, "SOURCES.md")
 CORPUS = os.path.join(RADICE, "pokedex-home-completo", "data", "fonti-collezione.csv")
@@ -315,6 +320,8 @@ def main(argv=None):
     ap.add_argument("--check", action="store_true",
                     help="non scrive: dice soltanto se il blocco nel registro sia allineato")
     ap.add_argument("--self-test", action="store_true", dest="self_test")
+    ap.add_argument("--forza", action="store_true",
+                    help="scrive anche se sparirebbero titoli di sezione; la versione precedente resta archiviata")
     a = ap.parse_args(argv)
     if a.self_test:
         return self_test()
@@ -343,11 +350,13 @@ def main(argv=None):
     if a.check:
         if vecchio != nuovo:
             print("disallineato: il blocco dentro %s va rigenerato" % REGISTRO)
+            print(rigenera_sicuro.avviso(REGISTRO, vecchio, nuovo, r"^#{1,6} "))
             return 1
         print("allineato: il blocco dentro %s" % REGISTRO)
         return 0
 
-    io.open(REGISTRO, "w", encoding="utf-8", newline="\n").write(nuovo)
+    if rigenera_sicuro.scrivi(REGISTRO, nuovo, schema=r"^#{1,6} ", forza=a.forza):
+        return 1
     print("aggiornato il blocco dentro %s" % REGISTRO)
     print("  fonti registrate %d, voci di corpus %d, chiavi citate in tesi %d"
           % (len(fonti), len(corpus), len(citazioni)))

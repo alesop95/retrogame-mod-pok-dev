@@ -230,13 +230,17 @@ La partita che Ultraluna ha adesso è HOME5 dopo la banca, con i quattro doni di
 
 Stato al 2026-11-11: punti 1-4 FATTI. La SD è nel PC in `I:`; `/3ds/Checkpoint/saves/` è copiata in `_notes/salvataggi/console/sd-checkpoint-20261111/` e in `J:/backup-sd-3ds/20261111/`, 37 file, ciascuna verificata con `sha256sum -c` contro la SD, tutti uguali; `20261111-giro9/main` è sulla SD, 445440 byte, riletta con SHA-256 `15526468…` uguale a HOME7. I nomi del giorno sono `20261111-prima9` e `20261111-rilett9`. Tocca al proprietario dal punto 5.
 
+Stato al 2026-11-11, più tardi: il proprietario ha fatto i punti 5-7, con la riserva `20261111-prima9`, poi ha aperto Ultraluna prima del Restore e l'ha trovata senza Pokémon nei box che ha guardato. È lo stato atteso, perché dopo il giro 8 la partita ha solo i quattro totem nel box 21: la riserva è giusta e non va cancellata, e il punto 7 adesso lo dice. La SD rimessa nel PC non era visibile da Windows, quindi `prima9` si giudica al punto 14 insieme alla rilettura. Si riprende dal punto 8.
+
+Stato al 2026-11-11, sera: punti 8-14 FATTI. Il proprietario ha fatto il Restore, i controlli del punto 9 e il Backup `20261111-rilett9`. Punto 13: `20261111-rilett9/main` ha SHA-256 `15526468…`, uguale a HOME7. Punto 14: riserve `_notes/salvataggi/console/sd-checkpoint-20261111b/` e `J:/backup-sd-3ds/20261111b/`, 40 file ciascuna, verificate con `sha256sum -c` contro la SD, tutte uguali; elenco delle impronte in `_notes/salvataggi/console/sd-20261111b.sha256` e `J:/backup-sd-3ds/sd-20261111b.sha256`; giudizio in `_notes/lavoro/giudizi-copie/rilettura-passo2-giro9.json`, `rilett9` 642 esemplari, 642 conformi, negli stessi posti di HOME7 e con tutti i campi uguali a `dopo-20261109b.json`, impronte comprese; `prima9` (SHA-256 `694c1546…`) 4 esemplari, i totem Araquanid, Togedemaru, Marowak e Ribombee nel box 21, posti 3, 5, 7 e 10, conformi e identici a quelli della copia HOME5. Tocca al proprietario dal punto 15.
+
 1. Proprietario: spegni il 3DS del tutto.
 2. Proprietario: SD nel PC, lettera `I:`, e dimmelo.
 3. Agente: copia di `/3ds/Checkpoint/saves/` in `_notes/salvataggi/console/sd-checkpoint-<data>/` e in `J:/backup-sd-3ds/<data>/`, con lo SHA-256 di ogni file, dove la data è quella del giorno (con una lettera se nello stesso giorno c'è già una riserva).
 4. Agente: cartella `<data>-giro9` di Pokémon Ultra Moon con la copia di nome `main`, riletta dalla SD.
 5. Proprietario: espelli la SD e rimettila nel 3DS.
 6. Proprietario: avvia Checkpoint.
-7. Proprietario: scegli Pokémon Ultra Moon, Backup, nome `<data>-prima9`. Dentro ci sono i quattro totem.
+7. Proprietario: scegli Pokémon Ultra Moon, Backup, nome `<data>-prima9`. È la partita com'è adesso, prima del giro: box da 1 a 20 vuoti e soltanto i quattro totem nel box 21, posti 3, 5, 7 e 10, quindi è giusto che il gioco sembri vuoto. Non si rifà e non si cancella: i Pokémon del giro arrivano solo con il Restore del punto 8, e i controlli del punto 9 si fanno dopo il Restore.
 8. Proprietario: seleziona `<data>-giro9`, Restore, conferma.
 9. Proprietario: avvia Ultraluna senza salvare e controlla: box 1 posto 1 Spinda livello 1 cromatico, allenatore Alessio; box 1 posto 25 Zygarde livello 100 cromatico, allenatore 2018 Legends; box 22 posto 1 Ursaring livello 25, allenatore Alessio; box 22 posto 12 Gastrodon Mare Est livello 100, allenatore GIULIA; box da 1 a 21 pieni, box 22 con i posti da 1 a 12.
 10. Proprietario: esci senza salvare.

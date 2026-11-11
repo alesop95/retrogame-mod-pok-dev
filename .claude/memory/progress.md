@@ -4,6 +4,52 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-11. Le lezioni L-010 e L-011 portate nel template, e la chiusura per una ripresa pulita
+
+Il proprietario ha chiesto di chiudere la sessione e riaprirne una pulita con `/riprendi`, senza perdere niente, dopo aver portato nel template le lezioni apprese.
+
+Nel template (`E:/template-claude-developing`, HEAD `ce1bacb`, file non committati). L-011: `chiudi-sessione.ps1` e `chiudi-sessione.sh` leggono `tools/controlli-progetto.txt`, uno strumento di `tools/` per riga con i suoi argomenti, li eseguono dopo i propri e ne sono fermati; uno strumento dichiarato e assente ferma il commit; tre casi nuovi in `-Autotest`, verde; il ciclo Bash provato a parte con un caso buono, uno rotto, uno assente e un file con terminatori CRLF. L-010: nuovo `.claude/templates/tools/rigenera_sicuro.py`, con la radice cercata risalendo fino a `.git` invece che a distanza fissa, che in `.claude/templates/tools/` avrebbe messo l'archivio nel posto sbagliato; `readme-sync/tools/sync-readme.py` con `lost_headings` e `--forza`, che ferma la riscrittura dei blocchi del README se toglierebbe un titolo scritto a mano, una prova nuova, 5 verdi; un paragrafo nel presidio di `.claude/rules/chat-non-e-memoria.md` (14.880 caratteri, tetto 15.000). Le due lezioni sono registrate come recepite in `lezioni-recepite.json`. Trovato e corretto un difetto del template entrato con `e9acf12`: quattro accenti scritti con l'apostrofo nei commenti di `identita-forme-ammesse.txt` fermavano `fix-accents` e quindi ogni chiusura del template; lo strumento che legge il file salta i commenti e legge in UTF-8. `chiudi -SoloControlli` del template verde. I due documenti `docs/filone-strumenti-agentici.md` e `docs/proposta-tracciamento-esecuzioni.md`, modificati il 2026-10-30 e il 2026-11-10 da altre lavorazioni, non sono stati toccati e restano fuori dal commit.
+
+Nel progetto. `tools/rigenera_sicuro.py` è ora identico alla copia del template, così l'allineamento lo trova nella storia del template invece di dichiararlo in conflitto; la storia di questo progetto resta nella scheda `refactor-12`, in questo registro e nella tesi. Nuovo `tools/controlli-progetto.txt` con i `--check` di `build-source-map.py`, `build-bibliography.py`, `indice-fonti-unico.py` e l'autotest di `rigenera_sicuro.py`. Lo script nuovo del template, lanciato sul progetto con `-Radice` in modalità controlli, esegue i quattro e li dà verdi. Il `chiudi` del progetto li eseguirà dopo l'allineamento.
+
+Sequenza di chiusura: `chiudi` del progetto (giro 9 riletto e generatori), commit del template con i soli suoi nove file, allineamento del progetto con `allinea-dal-template.py --applica` fatto dall'agente, `chiudi` del progetto per l'allineamento, chiusura di Claude con il wipe, riapertura e `/riprendi`.
+
+**Template:** nessuna nuova; L-010 e L-011 recepite nel template.
+
+**Didattica:** nessuna voce nuova; la voce 12 copre il caso.
+
+## 2026-11-11. Giro 9 ai punti 8-14, e i generatori delle fonti che non possono più togliere testo
+
+Il proprietario ha fatto i punti 8-12 del giro 9 (Restore di `20261111-giro9`, controlli in gioco, Backup `20261111-rilett9`) e ha messo la SD nel PC in `I:`. Ha chiesto che niente si cancelli più e che il lavoro sia robusto, perché teme che gli errori dell'agente facciano perdere esemplari dopo la chiusura di Bank; lancerà `chiudi` solo a giro completato.
+
+Punto 13. Sulla SD, cartella di Ultraluna: `20261111-rilett9/main` 445440 byte, SHA-256 `15526468e27588dfdc76115151f0ab30030db243dc5889ab0cb0aa7c3bfa8d2c`, uguale a `20261111-giro9` e a HOME7; `20261111-prima9/main` SHA-256 `694c1546a119ff75181b8859a55e9dfded7c42845d7a6e8f86863d2a818d0ca9`.
+
+Punto 14. Riserva completa di `/3ds/Checkpoint/saves/` in `_notes/salvataggi/console/sd-checkpoint-20261111b/` e `J:/backup-sd-3ds/20261111b/`, cartelle nuove per non toccare quelle del mattino: 40 file, cioè i 37 del punto 3 più `giro9`, `prima9` e `rilett9`, entrambe verificate con `sha256sum -c` contro l'elenco preso dalla SD, tutte uguali; l'elenco sta accanto a ciascuna riserva come `sd-20261111b.sha256`. Giudizio con `tools/pkhex-elenco-copie` dalla riserva: `_notes/lavoro/giudizi-copie/rilettura-passo2-giro9.json`. `rilett9`: 642 esemplari, 642 conformi, stessi 642 posti di HOME7 in `dopo-20261109b.json`, nessun campo diverso su nessun posto (confrontati tutti i campi tranne l'origine, che viene dal rapporto accanto alla copia), impronte comprese. `prima9`: 4 esemplari, Araquanid 21/3, Togedemaru 21/5, Marowak 21/7, Ribombee 21/10, conformi, con tutti i campi e l'impronta uguali a quelli degli stessi posti di HOME5. Tocca al proprietario dal punto 15, HOME atteso 5818.
+
+I generatori. Nuovo `tools/rigenera_sicuro.py`: prima di sovrascrivere archivia i byte attuali in `_notes/archivio/rigenerazioni/` e li rilegge, poi si ferma se fra le righe che sparirebbero c'è un titolo (`^#{1,6} `) o una voce bibliografica (`^\\bibitem\{`); `--forza` per procedere comunque, con l'archivio. Collegato a `build-source-map.py`, `build-bibliography.py` e `indice-fonti-unico.py`, i cui `--check` dicono ora anche quante righe toglierebbero e quali strutturali. Autotest verde; i due casi del giorno rieseguiti su copie dei file com'erano: il blocco di `SOURCES.md` al commit `3a9020a` si ferma sui sette titoli e resta identico byte per byte, la bibliografia di prima della correzione si ferma su `\bibitem{pkhex-core-libreria}`. Una prima prova della bibliografia aveva dato una lista vuota per un difetto della prova (la shell aveva ridotto la doppia barra rovesciata dell'espressione), rifatta da un file. Trovato anche che `chiudi` non esegue i tre `--check`: lezione L-011, e nel frattempo li esegue l'agente.
+
+Tesi. Capitolo 23, sezione nuova «Una vista generata che cancellava ciò che non aveva generato»; capitolo 28, didascalia e riga del giro 9 nella tabella dei giri. Compilata, 370 pagine, nessun errore né riferimento indefinito.
+
+**Template:** L-011
+
+**Didattica:** voce 12, «Una vista generata che cancellava ciò che non aveva generato», scheda `refactor-12-rigenerazione-senza-perdite.md`.
+
+## 2026-11-11. Prima9 giusta, lo stato del resort coperto dal giudizio, bibliografia e indice delle fonti rigenerati senza perdite
+
+Il proprietario ha lanciato `chiudi` (commit `3a9020a`). Ha fatto i punti 5-7 del giro 9 con la riserva `20261111-prima9`, poi ha aperto Ultraluna prima del Restore e, trovandola senza Pokémon, ha pensato che la riserva fosse sbagliata e da rifare con gli esemplari da controllare. Ha chiesto che cosa significasse l'incertezza sullo stato del resort e di correggere subito la bibliografia, se senza perdite.
+
+Prima9. È giusta e non va cancellata: è la partita prima del giro, che dopo il giro 8 ha solo i quattro totem nel box 21; gli esemplari da controllare arrivano con il Restore del punto 8. Il punto 7 di `RUNBOOK-PASSO-2.md` ora lo dice. La SD rimessa nel PC non era visibile da Windows (nessuna unità `I:`, nessun disco rimovibile in `Get-Disk`), quindi `prima9` si giudica al punto 14.
+
+Correzione: lo stato del resort non era un'inferenza. `MiscVerifier.cs` riga 49 chiama `MiscVerifierPK7` per ogni esemplare letto in formato 7, la sua riga 20-21 rifiuta un valore di `ResortEventState` da 20 in su (il gioco scrive da 0 a 19, `PK7.cs` righe 584-607), e `LegalityAnalysis.cs` riga 157 dichiara valido solo un esemplare senza righe non valide: HOME7, HOME10 e GIAPPONE2 sono di settima generazione e tutte conformi, quindi nessun esemplare ne è toccato. Corretti `COPIE-PER-HOME.md`, la scheda `refactor-11` e il capitolo 28, dove la regola diventa la conferma della distinzione fra formato di partenza e formato di arrivo. Corretta anche la descrizione della regola, che diceva «al massimo» invece di «fuori dall'intervallo».
+
+Bibliografia. `pkhex-core-libreria`, con i punti del trasferimento letti oggi, e `reddit-home-connettivita` entrano nella tabella `FONTI`; la frase su pokeruby scritta a mano in `bibliografia.tex`, che portava un carattere di tabulazione al posto di `	`, entra nell'abstract della voce. Rigenerati mappa delle fonti (115 note, due nuove), bibliografia (134 voci) e indice unico; tutti e tre i `--check` verdi. La prima rigenerazione dell'indice unico aveva tolto 347 righe da `SOURCES.md`, sette sezioni autorate finite dentro i marcatori del blocco generato: ripristinato il file dall'ultimo commit, spostato il marcatore d'inizio sotto di esse, rigenerato con 9 righe cambiate. Tesi ricompilata, 369 pagine, nessun riferimento indefinito, la tabella di connettività è la voce 56; copertura invariata, 88,3%, 5522 righe scoperte.
+
+Bulbapedia. Le due revisioni segnalate dall'hook sono ritocchi senza eventi nuovi (dettaglio in `pending.md`); censimento segnato.
+
+**Template:** L-010
+
+**Didattica:** nessuna voce nuova; la correzione rafforza la voce 11 e sta nella sua scheda.
+
 ## 2026-11-11. Giro 9 ai punti 3-4, i giri nella tesi, l'elenco chiuso dei rifiuti di trasferimento
 
 Il proprietario ha lanciato `chiudi` (commit `09fdc3c`), ha messo la SD nel PC e ha chiesto su quale lotto vadano i quattro totem rimasti nel box 21 di Ultraluna; ha ripetuto che nella tesi va scritto tutto, che poi si riscrive.

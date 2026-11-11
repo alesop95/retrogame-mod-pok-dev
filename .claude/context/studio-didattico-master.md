@@ -138,3 +138,13 @@ Com'era e perché era fragile. Il giudizio di `tools/pkhex-elenco-copie` legge o
 Il salto senior e perché è meglio. Invece di allungare l'elenco si è cercato dove la fonte dichiara da sé la distinzione: nella libreria il codice `TransferBad` nasce in sei punti soltanto, più le tabelle di `TradeRestrictions`, e leggerli tutti trasforma un elenco aperto in uno chiuso. Le copie dei giri 9, 10 e 11 sono state confrontate con quell'elenco chiuso, con un esito che adesso vuol dire qualcosa: nessun esemplare vi cade. La regola `resta_in_console` resta nello strumento, perché il pedigree deve dire perché un esemplare non è in HOME, e lo strumento delle sfide la usa per non contare ciò che non arriva. Il passo che resta, scritto in `pending.md`, è far porre la seconda domanda allo strumento stesso, giudicando ogni esemplare anche nel formato di arrivo, così che una regola nuova della libreria entri nel controllo senza che qualcuno la legga.
 
 Dove leggere il dettaglio: `refactor-11-giudizio-e-formato-di-arrivo.md`.
+
+## 12. Una vista generata che cancellava ciò che non aveva generato
+
+Contesto. Tre file del progetto sono viste prodotte da un programma a partire dalla tabella `FONTI` di `tools/build-source-map.py`: le note di `docs/mappa-fonti/`, la bibliografia della tesi e il blocco dell'indice unico dentro `SOURCES.md`. L'11 novembre 2026 la bibliografia risultava disallineata, e il blocco di `SOURCES.md` andava rigenerato per due fonti nuove.
+
+Com'era e perché era fragile. Ciascun generatore scriveva il file intero senza guardare che cosa stesse togliendo, e il suo controllo diceva soltanto «disallineato: rigenerare». La rigenerazione del blocco ha tolto 347 righe, sette sezioni autorate finite fra il marcatore d'inizio e il titolo del blocco, senza un errore: le ha mostrate solo `git diff --stat`. La bibliografia, che non è versionata, conteneva una voce scritta a mano che una rigenerazione avrebbe tolto senza lasciarne copia.
+
+Il salto senior e perché è meglio. Il difetto non si corregge ricordandosi di guardare il diff, ma nel punto in cui si scrive: `tools/rigenera_sicuro.py` archivia byte per byte la versione precedente prima di ogni sovrascrittura e la rilegge, e si ferma se fra le righe che sparirebbero c'è un titolo di sezione o una voce bibliografica. I due casi, rieseguiti su copie dei file com'erano, ora si fermano; il controllo dice quante righe toglierebbe e quali sono strutturali.
+
+Dove leggere il dettaglio: `refactor-12-rigenerazione-senza-perdite.md`.

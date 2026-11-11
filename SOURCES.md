@@ -370,8 +370,6 @@ Il 2026-10-06 il proprietario ha osservato che la dichiarazione «tutte le fonti
 
 Le lacune di questa tabella non sono state corrette nei documenti che citano le fonti: sono registrate qui e nel rapporto del giro perché la correzione tocca handoff e studi che hanno un proprio responsabile. Aggiornamento dello stesso 2026-10-06: su decisione del proprietario tutte e tredici le lacune sono state corrette nei documenti (la tredicesima, Hoothoot, nell'ingresso autorato `recreate-pokemon-distributions-events/provenienze-eventi-gb.json` del generatore delle schede), con una nota di correzione datata accanto all'affermazione nei file storici. Le note di Smeraldo stanno in `gba-save-extraction-smeraldo/2026-08-16-analisi-action-replay/2026-08-16-note-analisi-action-replay.txt`, in `gba-save-extraction-smeraldo/handoff/HANDOFF_progetto_smeraldo.md` dopo le sezioni 2.2 e 2.4 e in `gba-save-extraction-smeraldo/2026-08-16-analisi-action-replay/manuale-e-caveat-action-replay-duo.txt`; quelle del 3DS in `3ds-related/appunti/installare-dump-da-godmode9.txt`, `docs/strumenti-interattivi.md`, `3ds-related/handoff/step02_cfw_mset9.md` e `knowledge/sources/notes/debito-tecnico-2026-10-01.md`; quelle del Pokédex in `pokedex-home-completo/STRATEGIA-SWITCH.md` e nella docstring di `tools/confronta-livingdex-pokepc.py`. La tredicesima, Hoothoot EVT-2-0156, è corretta lo stesso giorno a favore della libreria, come dice la riga della fonte Pokébip. Le schede `.claude/context/STACK.md` e `.claude/context/sub-smeraldo-save-fix.md` ripetono ancora che il master e l'Anti-DMA erano verificati su più fonti indipendenti, e vanno allineate.
 
-<!-- indice-fonti-unico: inizio, generato da tools/indice-fonti-unico.py -->
-
 ## Le fonti sull'aggiornamento 4.1.0 di HOME, verificate il 2026-10-09
 
 Il proprietario ha incollato il 2026-10-09 un riassunto delle novità della versione 4.1.0 di HOME, uscita il 2026-10-07, chiedendo di verificarlo sulle fonti. Esito: confermati la compatibilità con Rosso Fuoco e Verde Foglia per Switch, a senso unico verso HOME e senza ingresso da altri giochi; il Celebi in dono nella versione per dispositivi mobili a chi completa il Pokédex di uno dei due giochi, senza trasferire; la capienza da 6000 a 9000 esemplari, ma soltanto per il piano Premium; le Safari Ball di Pokémon GO, che in HOME diventano Strana Ball. Non confermata la fine del supporto ai dispositivi Android a 32 bit, che nelle fonti trovate riguarda Pokémon GO e non HOME. Una sola fonte aggiunge i Biglietti Mistico e Aurora nelle edizioni per Switch: da verificare, perché toccherebbe il track degli eventi. Nessuna nota di versione ufficiale della Pokémon Company è stata letta: le fonti sono testate di settore che la riportano.
@@ -714,6 +712,8 @@ Il proprietario ha chiesto il 2026-11-09 di controllare se serva avere Pokémon 
 | Bulbapedia, List of Pokémon by Alola Pokédex number in Pokémon Ultra Sun and Ultra Moon, revisione 4643535 | https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_Alola_Pok%C3%A9dex_number_in_Pok%C3%A9mon_Ultra_Sun_and_Ultra_Moon | letta il 2026-11-09 dall'API, copia in `_notes/fonti/web/alola-dex-2026-11-09/`: confrontata con le copie, 183 specie del Pokédex di Alola con origine Alola, sopra le 100 della sfida di HOME | PKD |
 | Reddit r/pokemonrng, «Square Shiny, Naive, 31/31/31/31/31/31, Luxury Ball, Method 4 Rayquaza on Retail Pokémon Box via Live Battery RNG», `1k5qwde`, 2025-04-23 | https://www.reddit.com/r/pokemonrng/comments/1k5qwde/ | letto il 2026-11-09 con `tools/fetch-reddit.py` attraverso Arctic Shift, corpo e 14 commenti: Pokémon Box dà un incontro statico del Metodo 4 invece del Metodo 1 in circa il 90% dei casi se lo si avvia in bicicletta nell'ottava più alta del tema della bici (ricerca attribuita a un utente del Discord di blisy); il tutorial citato nei commenti non è letto. Base del Rayquaza C32 di `pokedex-home-completo/rng-comunita-3.json`, prodotto con l'ID del progetto, quindi a stelline e non a quadratini | PKD |
 
+<!-- indice-fonti-unico: inizio, generato da tools/indice-fonti-unico.py -->
+
 ## Indice unico: dove sta ciascuna fonte, e dove finisce
 
 > Blocco generato da `tools/indice-fonti-unico.py`. Non si modifica a mano: si rigenera. Non aggiunge e non toglie fonti, perché non è un registro ma una vista: mette in corrispondenza le tre liste che il progetto già possiede, cioè le fonti registrate, le voci del corpus e le citazioni della tesi.
@@ -724,10 +724,10 @@ Esiste per una ragione dichiarata dall'utente il 2026-09-10, ed è la stessa che
 
 | Misura | Valore |
 |---|---|
-| fonti registrate nella tabella unica | 113 |
-| di esse, lette | 113 |
-| di esse, citate in tesi | 113 |
-| di esse, con almeno un documento del progetto che le usa | 113 |
+| fonti registrate nella tabella unica | 115 |
+| di esse, lette | 115 |
+| di esse, citate in tesi | 115 |
+| di esse, con almeno un documento del progetto che le usa | 115 |
 | voci del corpus della collezione | 171 |
 | di esse, promosse a fonte registrata | 25 |
 | cluster del corpus | 42 |
@@ -751,7 +751,7 @@ La colonna dei documenti dice dove sta la sintesi di quella fonte dentro il prog
 | pret/pokefirered | 1 | ponte fra generazioni, scambio locale, salvataggio di Smeraldo | `22-strumenti`, `DATA-FORMATS_Gen1-Gen2-Gen3` | 02, 03, 10, 14, 16, 23 |
 | pret/pokegold | 1 | ponte fra generazioni | `DATA-FORMATS_Gen1-Gen2-Gen3` | 23 |
 | pret/pokered | 1 | ponte fra generazioni | `DATA-FORMATS_Gen1-Gen2-Gen3`, `08-cavo-link`, `09-esecuzione-codice` | 01, 03, 04, 05, 06, 10, 23 |
-| pret/pokeruby | 1 | ponte fra generazioni, salvataggio di Smeraldo | `22-strumenti` | 14, 23 |
+| pret/pokeruby | 1 | ponte fra generazioni, salvataggio di Smeraldo | `22-strumenti` | 14, 23, 24 |
 | pret/pokeyellow | 1 | ponte fra generazioni | `12-analisi-quantitativa` | 23 |
 | Pokemon, gestione dei dati alterati per mezzi non autorizzati | 1 | esecuzione di codice, generazione da console corrente, ricreazione degli eventi | `20-architettura-codice` | 20 |
 | Nintendo, fine del servizio di Pokemon Bank | 2 | ricreazione degli eventi, modding della console | `11-wireless-locale-e-ponte-switch` | 19 |
@@ -800,6 +800,7 @@ La colonna dei documenti dice dove sta la sintesi di quella fonte dentro il prog
 | Monarium, generatore di disposizioni del deposito con marchi | 3 | Pokedex nel deposito | `CHECKLIST-COMPLETA` | 29 |
 | La guida al completamento dei sette simboli d'oro, con le sette schede per edificio | 3 | salvataggio di Smeraldo | `14-caso-smeraldo` | 14 |
 | PCCS | 3 | ponte fra generazioni | `07-conversione-vincoli`, `DATA-FORMATS_Gen1-Gen2-Gen3` | 06, 07, 08, 09, 23 |
+| PKHeX.Core, la libreria del verificatore usata come giudice e come generatore (letta il 2026-11-11) | 3 | Pokedex nel deposito, ricreazione degli eventi, salvataggio di Smeraldo | `07-conversione-vincoli`, `pokedex-home-completo/COPIE-PER-HOME.md` | 24, 28 |
 | PKHeX, tabella degli eventi Gen 3 e vocabolario dei metodi | 3 | ricreazione degli eventi, ponte fra generazioni, salvataggio di Smeraldo | `06-identita-pokemon`, `12-analisi-quantitativa`, `23-prove-eseguite` | 19 |
 | Rete ricostruita dei servizi in rete di quarta e quinta generazione (dal corpus) | 3 | ricreazione degli eventi, Pokedex nel deposito | `STUDIO-04-la-via-del-dns-e-il-servizio-rianimato` | 30 |
 | PkSploit | 3 | ponte fra generazioni, salvataggio di Smeraldo | `09-esecuzione-codice`, `30-opzioni-implementative` | 02, 11, 22 |
@@ -849,6 +850,7 @@ La colonna dei documenti dice dove sta la sintesi di quella fonte dentro il prog
 | MankeyMite's server, comunità dell'esecuzione di codice in generazione III | 5 | esecuzione di codice, ricreazione degli eventi, generazione da console corrente, scambio locale | `24-fonti-di-community` | 20 |
 | Project Pokemon, ricerca sull'algoritmo di generazione degli eventi Gen 3 | 5 | ricreazione degli eventi | `24-fonti-di-community` | 19 |
 | Project Pokemon, discussioni | 5 | salvataggio di Smeraldo, ponte fra generazioni | `22-strumenti` | 14, 23, 24 |
+| r/PokemonHome, tabella di connettività di Pokémon HOME aggiornata al 2026-10-07 (letta il 2026-11-03) | 5 | Pokedex nel deposito | `pokedex-home-completo/CONNETTIVITA-HOME.md` | 28 |
 | Le sfide del deposito che la chiusura rende impossibili (dal corpus) | 5 | Pokedex nel deposito | `STUDIO-06-le-enumerazioni-trasversali` | 29 |
 | La procedura delle rovine e il terzetto al livello uno (dal corpus) | 5 | Pokedex nel deposito, ricreazione degli eventi | `LETTURA-DEL-CORPUS`, `STUDIO-04-la-via-del-dns-e-il-servizio-rianimato` | 31 |
 | Guida agli esemplari sottolivellati (dal corpus) | 5 | Pokedex nel deposito | `STUDIO-06-le-enumerazioni-trasversali` | 29 |

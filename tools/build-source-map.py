@@ -26,6 +26,11 @@ import io
 import os
 import sys
 
+# La scrittura passa da rigenera_sicuro, che archivia la versione precedente e si ferma se la
+# rigenerazione toglierebbe testo strutturale che il generatore non produce (lezione L-010).
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import rigenera_sicuro  # noqa: E402
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "docs", "mappa-fonti")
 
@@ -78,7 +83,7 @@ FONTI = [
      [("corregge", "bulbapedia")]),
 
     ("pokeruby", "pret/pokeruby", "https://github.com/pret/pokeruby", 1, True, ["BRI", "SME"],
-     "Decompilazione di Rubino e Zaffiro. Non ha alcuna chiave di cifratura, quindi le quantità degli oggetti sono in chiaro, ed è l'unico dei tre giochi Gen 3 a comportarsi così.",
+     "Decompilazione di Rubino e Zaffiro. Non ha alcuna chiave di cifratura, quindi le quantità degli oggetti sono in chiaro, ed è l'unico dei tre giochi Gen 3 a comportarsi così. Riclonata il 2026-10-07 al commit 5784633 e letta per il Pokédex: la funzione GetSetPokedexFlag in src/pokedex.c riga 3986, che accetta un contrassegno di specie vista solo se è acceso in tre copie e altrimenti le spegne tutte, e gli offset delle copie in include/global.h.",
      "Serve come controprova: conferma tutti gli offset che il nostro strumento usava per Rubino e Zaffiro, e la sua assenza di maschera è ciò che rende necessario identificare il gioco prima di leggere lo zaino.",
      [("[[22-strumenti]]", "il candidato senza maschera nel rilevamento del gioco")],
      []),
@@ -401,6 +406,19 @@ FONTI = [
       ("[[23-prove-eseguite]]", "la prova di conformità su un esemplare autentico invece che sintetico")],
      [("corregge", "video-distribuzioni"),
       ("conferma", "video-distribuzioni")]),
+
+    ("pkhex-core-libreria", "PKHeX.Core, la libreria del verificatore usata come giudice e come generatore", "https://github.com/kwsch/PKHeX", 3, "2026-11-11", ["PKD", "EVT", "SME"],
+     "La libreria che il progetto compila dal clone e chiama dagli strumenti in C# dal 2026-09-25 (ADR-081): l'analisi di legalità con un salvataggio vuoto attivo e le classi d'incontro da cui si genera. Letta nel clone locale al commit e15d246 per i punti della generazione e al commit bfe89c7, release 26.10.18, per quelli del trasferimento. Per la generazione: il calcolo del valore di personalità del contapassi da entrambi gli identificativi, in PKHeX.Core/Legality/RNG/ClassicEra/Gen4/PokewalkerRNG.cs riga 280; il vincolo fra il bit più alto del valore di personalità e la parità della somma esclusiva degli identificativi in quinta generazione, in PKHeX.Core/Legality/RNG/ClassicEra/MonochromeRNG.cs righe 14-25; l'identificativo segreto all'offset 6 e la somma di controllo calcolata sui soli dati da 0x20 in terza generazione, in PKHeX.Core/PKM/PK3.cs righe 56 e 204. Per la scrittura delle copie: il sentimento del ricordo del detentore scelto a caso nella conversione verso la sesta generazione, in PKHeX.Core/PKM/PK5.cs riga 479, con il generatore condiviso di PKHeX.Core/Util/RandUtil.cs riga 8; la data d'incontro posta al giorno della conversione verso la quarta generazione, in PK3.cs riga 255; i due campi agli offset 0xA6 e 0xD6 del formato della sesta generazione, in PKHeX.Core/PKM/PK6.cs righe 333 e 360; l'aggiornamento del registro delle specie a ogni scrittura in un contenitore, in PKHeX.Core/Saves/SaveFile.cs riga 263. Per il trasferimento, letti il 2026-11-11: il rifiuto ha un codice solo, TransferBad, emesso in sei punti, cioè PKHeX.Core/Legality/Verifiers/FormVerifier.cs riga 47 (Pikachu Cosplay fuori dal formato 6), Misc/MiscVerifierPK7.cs righe 20-21 (stato d'evento del resort fuori dai valori da 0 a 19 dell'enumerazione ResortEventState, PKHeX.Core/PKM/PK7.cs righe 584-607), TransferVerifier.cs righe 154 (totem, con IsTotemNoTransfer in Legality/Encounters/Templates/Gen7/EncounterStatic7.cs riga 40), 170 (dimensioni nulle) e 186 (specie assente dal gioco di destinazione), Misc/MiscVerifierPK9.cs riga 75; gli esemplari e gli oggetti che non si scambiano in Legality/Tables/TradeRestrictions.cs righe 15 e 24; la chiamata del verificatore della settima generazione per ogni esemplare in formato 7 in Legality/Verifiers/MiscVerifier.cs riga 49, e la validità come assenza di righe non valide in Legality/LegalityAnalysis.cs riga 157.",
+     "È il giudice di tutte le copie per HOME e il generatore dei lotti: ogni affermazione del progetto su che cosa sia conforme rimanda a questo codice e non a una pagina che lo descrive. Le righe sul trasferimento servono a una distinzione che il capitolo 28 della tesi racconta: un vincolo che vale nel formato di partenza il giudizio lo vede, uno che vale soltanto nel formato di arrivo no, ed è così che i Pikachu Cosplay del giro 6 e i quattro totem del giro 8 sono risultati conformi e non sono passati.",
+     [("[[07-conversione-vincoli]]", "i vincoli che la conversione fra formati impone"),
+      ("pokedex-home-completo/COPIE-PER-HOME.md", "il controllo delle copie dei giri 9, 10 e 11 sulle regole di rifiuto")],
+     []),
+
+    ("reddit-home-connettivita", "r/PokemonHome, tabella di connettività di Pokémon HOME aggiornata al 2026-10-07", "https://www.reddit.com/r/PokemonHome/comments/1x128s6/", 5, "2026-11-03", ["PKD"],
+     "Tabella della comunità che dice, gioco per gioco, che cosa entra nel deposito e che cosa ne esce, con le regole scritte in fondo: post 1x128s6, pubblicato il 2026-10-08 con il titolo «Pokémon HOME Connectivity Chart - Updated 2026.10.07», letto il 2026-11-03 attraverso Arctic Shift. L'immagine, 9600 per 4900 punti, è conservata fuori da Git ed è stata letta per intero, con le regole a piena risoluzione; fra queste, che il Pikachu Cosplay si sposta solo fra Rubino Omega e Zaffiro Alpha.",
+     "È una fonte di comunità e il progetto la tratta come tale: è trascritta e confrontata con le copie in pokedex-home-completo/CONNETTIVITA-HOME.md, e il capitolo 28 della tesi ne riporta la trascrizione. Non nomina i totem, che il progetto ha trovato solo nel codice della libreria.",
+     [("pokedex-home-completo/CONNETTIVITA-HOME.md", "la trascrizione e il confronto con il progetto")],
+     []),
 
     ("bulbapedia-eventi-italia", "Bulbapedia, distribuzioni italiane di eventi in Gen 3", "https://bulbapedia.bulbagarden.net/wiki/List_of_Italian_event_Pok%C3%A9mon_distributions_in_Generation_III", 2, True, ["EVT"],
      "Elenco delle distribuzioni italiane della terza generazione con luogo, date e campi di ciascun esemplare, letto il 2026-08-29. Porta la manifestazione del 2006 in un parco di divertimenti, dal ventitré al venticinque giugno, con allenatore di provenienza 10ANNI, identificativo 06227, dieci specie al livello settanta e la facoltà per il partecipante di scegliere tre esemplari, e la manifestazione del 2007 nel medesimo luogo, con un Mew di allenatore Aura e identificativo 20078.",
@@ -964,6 +982,8 @@ def hub():
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--check", action="store_true", help="verifica senza scrivere")
+    ap.add_argument("--forza", action="store_true",
+                    help="scrive anche se sparirebbero titoli di sezione; la versione precedente resta archiviata")
     args = ap.parse_args()
 
     slugs = [f[0] for f in FONTI]
@@ -987,12 +1007,15 @@ def main():
         return 0
 
     os.makedirs(OUT, exist_ok=True)
+    fermi = 0
     for f in FONTI:
         path = os.path.join(OUT, "%s.md" % f[0])
-        with io.open(path, "w", encoding="utf-8", newline="\n") as fh:
-            fh.write(nota(*f))
-    with io.open(os.path.join(OUT, "index-fonti.md"), "w", encoding="utf-8", newline="\n") as fh:
-        fh.write(hub())
+        fermi += rigenera_sicuro.scrivi(path, nota(*f), schema=r"^#{1,6} ", forza=args.forza)
+    fermi += rigenera_sicuro.scrivi(os.path.join(OUT, "index-fonti.md"), hub(), schema=r"^#{1,6} ",
+                                    forza=args.forza)
+    if fermi:
+        print("%d file non scritti per non perdere testo: vedi sopra" % fermi)
+        return 1
     print("scritte %d note più la mappa in %s" % (len(FONTI), OUT))
     return 0
 

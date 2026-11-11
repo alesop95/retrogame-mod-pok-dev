@@ -160,6 +160,7 @@ graph LR
 | [[pokemon-automation]] | AUT, LDN | [[30-opzioni-implementative]] |
 | [[pokerom-trader]] | BRI | [[30-opzioni-implementative]] |
 | [[pkhex-eventi-gen3]] | EVT, BRI, SME | [[06-identita-pokemon]], [[12-analisi-quantitativa]], [[23-prove-eseguite]] |
+| [[pkhex-core-libreria]] | PKD, EVT, SME | [[07-conversione-vincoli]], pokedex-home-completo/COPIE-PER-HOME.md |
 | [[gen-iii-event-patcher]] | EVT, BRI | [[09-esecuzione-codice]], [[10-multiboot-hardware]] |
 | [[project-wonder]] | EVT | [[10-multiboot-hardware]], [[11-wireless-locale-e-ponte-switch]] |
 | [[eventsgallery]] | EVT | [[24-fonti-di-community]] |
@@ -202,6 +203,7 @@ graph LR
 | [[gambatte-gamelink]] | BRI | [[21-collaudo]] |
 | [[projectpokemon]] | SME, BRI | [[22-strumenti]] |
 | [[gbatemp-smeraldo]] | SME | [[01-fondamenta-salvataggio]], [[22-strumenti]] |
+| [[reddit-home-connettivita]] | PKD | pokedex-home-completo/CONNETTIVITA-HOME.md |
 | [[pp-algoritmi-eventi]] | EVT | [[24-fonti-di-community]] |
 | [[mankeymite-server]] | ACE, EVT, GEN, LDN | [[24-fonti-di-community]] |
 | [[insidegadgets-canale]] | BAT, SME, BRI | [[RUNBOOK-PRIMA-SESSIONE]] |

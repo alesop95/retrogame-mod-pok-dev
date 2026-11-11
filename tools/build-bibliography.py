@@ -36,6 +36,11 @@ import importlib.util
 import os
 import sys
 
+# La scrittura passa da rigenera_sicuro, che archivia la versione precedente e si ferma se la
+# rigenerazione toglierebbe testo strutturale che il generatore non produce (lezione L-010).
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import rigenera_sicuro  # noqa: E402
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SORGENTE = os.path.join(ROOT, "tools", "build-source-map.py")
 USCITA = os.path.join(ROOT, "tesi", "bibliografia.tex")
@@ -179,6 +184,8 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--check", action="store_true",
                     help="verifica che il file su disco sia aggiornato, senza scrivere")
+    ap.add_argument("--forza", action="store_true",
+                    help="scrive anche se sparirebbero voci; la versione precedente resta archiviata")
     args = ap.parse_args()
 
     fonti, teorici = carica_fonti()
@@ -192,13 +199,13 @@ def main():
             attuale = f.read().decode("utf-8")
         if attuale != testo:
             print("la bibliografia è disallineata dalla tabella FONTI: rigenerare")
+            print(rigenera_sicuro.avviso(USCITA, attuale.replace("\r\n", "\n"), testo, r"^\\bibitem\{"))
             return 1
         print("%d voci, bibliografia allineata" % len(fonti))
         return 0
 
-    os.makedirs(os.path.dirname(USCITA), exist_ok=True)
-    with open(USCITA, "wb") as f:
-        f.write(testo.encode("utf-8"))
+    if rigenera_sicuro.scrivi(USCITA, testo, schema=r"^\\bibitem\{", forza=args.forza):
+        return 1
     # Il conteggio distingue le due tranche: dire soltanto len(fonti) mentre il file
     # ne contiene anche i riferimenti teorici sarebbe un rapporto che sottostima.
     print("%d voci scritte in %s: %d fonti di dominio e %d riferimenti teorici"
