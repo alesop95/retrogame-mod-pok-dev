@@ -286,6 +286,31 @@ Stato al 2026-11-13, più tardi: punti 5-14 FATTI. Il proprietario ha fatto il B
 
 Punti 15-18 FATTI il 2026-11-13. HOME conta 6198, cioè 5818 più tutti i 380 esemplari, letto dalla foto del totale «All Pokémon» mandata dal proprietario; nessuno è rimasto nei box. HOME10 è «in HOME» in `tools/stampa-collezione.py`, pedigree e PDF rigenerati; `tools/sfide-bank.py` dà 47 sfide coperte su 47.
 
+## Giro 11
+
+Scritto il 2026-11-13 per ADR-125, ed è l'ultimo giro, il secondo su Pokémon Luna, con i 23 esemplari insieme e senza la prova con uno solo che il passo 4 della roadmap prevedeva. La copia è GIAPPONE2, `_notes/salvataggi/prove/per-home/luna-giappone-3/main`, 23 esemplari giapponesi della prima generazione, 441856 byte, SHA-256 `e4eb2dd84366d52d9839750002aa0977e0c233ba85967a67f8915f6e86096288`, giudicata 23 conformi (`_notes/lavoro/giudizi-copie/dopo-20261109b.json`): box 1 posti da 1 a 23. È una copia della Luna del proprietario con la regione di una console giapponese, perché un dono giapponese della Console Virtuale si trasferisce solo da lì; la partita vera di Luna, `20260823-backsicMoo`, non si tocca e torna con il passo 6. In Checkpoint il gioco è `0x0175E Pokémon Moon`. HOME conta 6200, cioè i 6198 del giro 10 più il Cyndaquil e il Melmetal arrivati da GO, e dopo questo giro deve contarne 6223.
+
+La partita che Luna ha adesso è HOME4 dopo la banca del giro 7, con i box vuoti: è giusto che la riserva `prima11` del punto 7 sembri vuota.
+
+1. Proprietario: spegni il 3DS del tutto.
+2. Proprietario: SD nel PC, lettera `I:`, e dimmelo.
+3. Agente: copia di `/3ds/Checkpoint/saves/` in `_notes/salvataggi/console/sd-checkpoint-<data>/` e in `J:/backup-sd-3ds/<data>/`, con lo SHA-256 di ogni file, dove la data è quella del giorno (con una lettera se nello stesso giorno c'è già una riserva).
+4. Agente: cartella `<data>-giro11` di Pokémon Moon con la copia di nome `main`, riletta dalla SD.
+5. Proprietario: espelli la SD e rimettila nel 3DS.
+6. Proprietario: avvia Checkpoint.
+7. Proprietario: scegli Pokémon Moon, Backup, nome `<data>-prima11`. È la partita com'è adesso, con i box vuoti. Non si rifà e non si cancella.
+8. Proprietario: seleziona `<data>-giro11`, Restore, conferma.
+9. Proprietario: avvia Luna senza salvare e controlla: box 1 posto 1 Poliwag livello 2, allenatore トレーナー; box 1 posto 12 Pikachu livello 12, allenatore ゲーフリ; box 1 posto 20 Clefable livello 24, allenatore アレッシオ; box 1 posto 23 Pikachu livello 12, allenatore アレッシオ; box 1 con i posti da 1 a 23 e gli altri box vuoti.
+10. Proprietario: esci senza salvare.
+11. Proprietario: Checkpoint, Pokémon Moon, Backup, nome `<data>-rilett11`.
+12. Proprietario: spegni, SD nel PC, e dimmelo.
+13. Agente: SHA-256 di `<data>-rilett11/main` uguale a quello della copia.
+14. Agente: giudizio della rilettura, 23 conformi negli stessi posti; `prima11` giudicata, con i box vuoti; `prima11` e `rilett11` nelle due riserve.
+15. Proprietario: SD nel 3DS.
+16. Proprietario: il passaggio alla banca e a HOME, fuori dall'assistenza. Se qualcuno resta nei box, lascialo lì e dimmi box e posto, o mandami la foto del box.
+17. Proprietario: HOME da 6200 a 6223, foto del totale; se ne mancano, foto del box di Luna con quelli rimasti. Se nel frattempo arrivano Meltan da GO, il totale cresce anche di quelli: dimmi quanti ne hai portati.
+18. Agente: GIAPPONE2 «in HOME», pedigree; poi i giri sono finiti e si torna alle pendenze tenute in sospeso.
+
 ## Dopo il giro 4
 
 La partita vera di Rubino Omega, `20260821-backsic`, resta fuori dalla console fino al passo 6. I giri successivi sono nella tabella in testa a `ROADMAP.md`: il 5 (HOME8, `oras-giro-5-carte-mn5`, 256) e il 6 (HOME9, `oras-giro-6-statici-eventi-4`, 695, di cui 689 in HOME e i sei Pikachu Cosplay rimasti in Rubino Omega) sono ancora di Rubino Omega e seguono questa procedura con i nomi del giorno; dal 7 si passa a Luna e Ultraluna, e al giro 8, il primo di Ultraluna, la copia di riserva di Checkpoint crea la cartella del gioco.

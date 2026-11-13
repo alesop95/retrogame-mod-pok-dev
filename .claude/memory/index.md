@@ -9,7 +9,7 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 ```
 Branch attivo:         main
 Commit di riferimento: e77e84d, Allineamento dal template al commit c2d2aa5 (riancorato il 2026-11-13 da 03b1e09: in mezzo solo d243729 e e77e84d, due allineamenti dal template)
-Data snapshot:         2026-11-13: giri 1-10 in HOME (6198); resta il giro 11, GIAPPONE2 23, atteso 6221
+Data snapshot:         2026-11-13: giri 1-10 in HOME, HOME a 6200 con 2 da GO; resta il giro 11, GIAPPONE2 23, atteso 6223 (ADR-125)
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,8 @@ Data snapshot:         2026-11-13: giri 1-10 in HOME (6198); resta il giro 11, G
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-11-13, notte, ADR-125, che prevale su quelle sotto. HOME a 6200 (6198 più Cyndaquil e Melmetal da GO, pedigree in `ESEMPLARI-DA-GO.md`). Giro 11 GIAPPONE2 con i 23 in un giro solo, scritto in `RUNBOOK-PASSO-2.md`, atteso 6223: tocca al proprietario dal punto 1. Da chiedere: quanti Meltan ha catturato in GO.
 
 AGGIUNTA DEL 2026-11-13, tarda sera, che prevale su quelle sotto. Giro 10 IN HOME: 6198, tutti i 380 di HOME10; punto 18 fatto. Resta il giro 11, GIAPPONE2 `luna-giappone-3` (23, `e4eb2dd8…`), fermo sulla domanda al proprietario: prova con un solo esemplare (passo 4 della roadmap) o i 23 in un giro.
 

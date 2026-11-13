@@ -10,6 +10,8 @@ L'ordine non è quello dell'importanza ma quello del rendimento. Un passo che co
 
 ## La roadmap al 2026-11-07, aggiornata al 2026-11-09, che prevale su tutte le sezioni sotto
 
+Aggiornata il 2026-11-13, notte (ADR-125): HOME conta 6200, cioè 6198 più il Cyndaquil mandato da GO e il Melmetal del dono per il primo collegamento, con il loro pedigree in `ESEMPLARI-DA-GO.md`. Il giro 11 porta i 23 di GIAPPONE2 in un giro solo, senza la prova con un esemplare del passo 4; dopo il giro HOME deve contarne 6223, più i Meltan che il proprietario porterà da GO.
+
 Aggiornata il 2026-11-13, sera: il giro 10 è in HOME con tutti i 380 esemplari di HOME10, e HOME conta 6198, letto dalla foto del proprietario. Resta il giro 11, GIAPPONE2 `luna-giappone-3`, 23 esemplari giapponesi della prima generazione in una copia di Luna con regione giapponese, che secondo il passo 4 qui sotto si prova prima con un solo esemplare; a giri finiti HOME conta 6221.
 
 Aggiornata il 2026-11-13: il giro 9 è in HOME con tutti i 642 esemplari di HOME7, e HOME conta 5818, letto dalla foto del proprietario del totale «All Pokémon». Prossimo il giro 10, HOME10 `ultraluna-giro-3-statici-gb-finale119`, 380 esemplari, sezione «Giro 10» di `RUNBOOK-PASSO-2.md`; dopo il giro HOME deve contarne 6198. I quattro totem del giro 8 non sono più nella partita di Ultraluna, sostituita dal Restore del giro 9: stanno nella riserva `20261111-prima9`, nelle riserve del PC e nella copia HOME5.
@@ -34,7 +36,7 @@ Scritta il 2026-11-07 dopo ADR-119, quando la produzione per HOME è chiusa: tut
 | 8 | HOME5 | `ultraluna-giro-1-scambi-fin2` | Ultraluna | 613 | 613 | in HOME dal 2026-11-10, 609 esemplari: i quattro doni di taglia totem di Marowak, Araquanid, Togedemaru e Ribombee del box 21, posti 3, 5, 7 e 10, restano in Ultraluna perché non lasciano la settima generazione | 5176 |
 | 9 | HOME7 | `ultraluna-giro-2-fin7` | Ultraluna | 642 | 642 | in HOME dal 2026-11-13, tutti i 642 esemplari | 5818 |
 | 10 | HOME10 | `ultraluna-giro-3-statici-gb-finale119` | Ultraluna | 380 | 380 | in HOME dal 2026-11-13, tutti i 380 esemplari: marchio Game Boy dal 2026-11-09, i 117 di FINALE senza la mossa d'evento (ADR-121) e i 2 Farfetch'd di Stadium 2 bonificati nel box 13, posti 19 e 20 (ADR-122) | 6198 |
-| 11 | GIAPPONE2 | `luna-giappone-3` | Luna, profilo giapponese | 23 | 23 | pronta, prima con un solo esemplare | 6221 |
+| 11 | GIAPPONE2 | `luna-giappone-3` | Luna, profilo giapponese | 23 | 23 | prossima, i 23 in un giro solo (ADR-125), sezione «Giro 11» di `RUNBOOK-PASSO-2.md` | 6223 |
 
 Restano fuori dalla tabella due gruppi, ciascuno per una ragione dichiarata: FINALE, 121 eventi da cartuccia in `a-parte/luna-eventi-da-cartuccia-fin`, che il verificatore non giudica conformi: decisi il 2026-11-09 (ADR-121), 117 vanno in HOME senza la mossa d'evento con il giro 10 e completi nelle cartucce dopo Bank, e i 4 restanti restano fuori da HOME; e GIAPPONE, `luna-giappone-14`, superato da GIAPPONE2. Con FINALE il deposito arriverebbe a 6232 posti su 9000. La banca tiene 3000 esemplari e ogni giro ci sta da solo. Sul cartellino di Checkpoint della SD il 2026-11-05 c'erano le cartelle di Rubino Omega e di Luna ma non quella di Ultraluna: al giro 8 la prima copia di riserva di Ultraluna crea la cartella.
 

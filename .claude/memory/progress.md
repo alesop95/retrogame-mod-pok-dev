@@ -4,6 +4,14 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-13, sesta parte. Giro 11 deciso in un giro solo, e i primi esemplari da GO
+
+Il proprietario ha lanciato `chiudi` e ha risposto (ADR-125): il Kommo-o di Scarlatto e Violetto va nelle pendenze della fase Switch dalla comunità, perché non ha quei giochi; GIAPPONE2 va con i 23 in un giro solo. Ha chiesto perché non si usa la sua partita normale di Luna: è di console europea, e un dono giapponese della Console Virtuale si trasferisce solo da una console giapponese, quindi la copia porta quella regione. Lette le 13 foto della cartella che ha indicato nei download di Telegram: Cyndaquil (PL 84) mandato da GO a HOME, dono di HOME per il primo collegamento ricevuto e riscattato, Melmetal livello 100, inglese, allenatore HOME, ID 808809, Brave, Iron Fist, Double Iron Bash, Hyper Beam, Dynamic Punch, Thunder Punch, capace di Gigamax; Scatola Misteriosa disponibile in GO; HOME a 6200. Nuovo `pokedex-home-completo/ESEMPLARI-DA-GO.md` con il conteggio e i due pedigree, il Cyndaquil da completare. Sezione «Giro 11» in `RUNBOOK-PASSO-2.md`: GIAPPONE2 `luna-giappone-3`, 23, `e4eb2dd8…`, controlli Poliwag 2 di トレーナー al posto 1, Pikachu 12 di ゲーフリ al 12, Clefable 24 e Pikachu 12 di アレッシオ al 20 e al 23; atteso 6223. `ROADMAP.md` aggiornata. Da chiedere: quanti Meltan ha catturato.
+
+**Template:** nessuna.
+
+**Didattica:** nessuna voce nuova.
+
 ## 2026-11-13, quinta parte. Giro 10 in HOME: 6198
 
 Il proprietario ha mandato tre foto di HOME, viste il 2026-11-13: il totale «All Pokémon» è 6198, cioè 5818 più tutti i 380 esemplari di HOME10; nessuno è rimasto nei box. Le altre due sono notizie di HOME del 2026-11-13 per i giochi su Switch: il raid nero di Kommo-o con il Marchio dell'Imbattibilità, Teratipo Lotta, in Scarlatto e Violetto dal 2026-11-13 00:00 al 2026-11-19 23:59 UTC, una volta per salvataggio; la stagione X (20) delle Lotte di Rango di Leggende Z-A, con Poké Ball varie e le megapietre di Greninja, Delphox, Chesnaught, Baxcalibur, Sceptile, Swampert e Blaziken come premi di promozione. Sotto si vede il titolo di una terza notizia, «Receive a Shiny Xern…», non letta.
