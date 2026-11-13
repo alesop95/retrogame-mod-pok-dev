@@ -261,6 +261,10 @@ Scritto il 2026-11-13, ed è il terzo giro su Pokémon Ultraluna, con la stessa 
 
 La partita che Ultraluna ha adesso è HOME7 dopo la banca, con i box vuoti: è giusto che la riserva `prima10` del punto 7 sembri vuota.
 
+Stato al 2026-11-13: punti 1-4 FATTI. `/3ds/Checkpoint/saves/` è copiata in `_notes/salvataggi/console/sd-checkpoint-20261113/` e in `J:/backup-sd-3ds/20261113/`, 40 file, ciascuna verificata con `sha256sum -c` contro l'elenco preso dalla SD, tutti uguali; l'elenco sta in `_notes/salvataggi/console/sd-20261113.sha256` e `J:/backup-sd-3ds/sd-20261113.sha256`. `20261113-giro10/main` è sulla SD, 445440 byte, riletta con SHA-256 `f7fdf3f8…` uguale a HOME10. I nomi del giorno sono `20261113-prima10` e `20261113-rilett10`. Tocca al proprietario dal punto 5.
+
+Stato al 2026-11-13, più tardi: punti 5-14 FATTI. Il proprietario ha fatto il Backup `20261113-prima10`, il Restore, i controlli del punto 9 e il Backup `20261113-rilett10`. Punto 13: `20261113-rilett10/main` ha SHA-256 `f7fdf3f8…`, uguale a HOME10. Punto 14: riserve `_notes/salvataggi/console/sd-checkpoint-20261113b/` e `J:/backup-sd-3ds/20261113b/`, 43 file ciascuna, verificate con `sha256sum -c` contro l'elenco preso dalla SD (`sd-20261113b.sha256` accanto a ciascuna), tutte uguali; giudizio in `_notes/lavoro/giudizi-copie/rilettura-passo2-giro10.json`, libreria 26.10.18: `rilett10` 380 esemplari, 380 conformi, negli stessi posti di HOME10 e con tutti i campi uguali a `dopo-20261109b.json`, impronte comprese, salvo `origine`, che lo strumento legge dal rapporto della copia e che una rilettura dalla console non ha (vuoto anche in `rilett9`); `prima10` (SHA-256 `4771cd06…`) 0 esemplari nei box, come atteso. Tocca al proprietario dal punto 15.
+
 1. Proprietario: spegni il 3DS del tutto.
 2. Proprietario: SD nel PC, lettera `I:`, e dimmelo.
 3. Agente: copia di `/3ds/Checkpoint/saves/` in `_notes/salvataggi/console/sd-checkpoint-<data>/` e in `J:/backup-sd-3ds/<data>/`, con lo SHA-256 di ogni file, dove la data è quella del giorno (con una lettera se nello stesso giorno c'è già una riserva).
@@ -279,6 +283,8 @@ La partita che Ultraluna ha adesso è HOME7 dopo la banca, con i box vuoti: è g
 16. Proprietario: il passaggio alla banca e a HOME, fuori dall'assistenza. Se qualcuno resta nei box, lascialo lì e dimmi box e posto, o mandami la foto del box.
 17. Proprietario: HOME da 5818 a 6198, foto del totale; se ne mancano, foto del box di Ultraluna con quelli rimasti.
 18. Agente: HOME10 «in HOME», pedigree; poi il giro 11, GIAPPONE2, su Luna con il profilo giapponese.
+
+Punti 15-18 FATTI il 2026-11-13. HOME conta 6198, cioè 5818 più tutti i 380 esemplari, letto dalla foto del totale «All Pokémon» mandata dal proprietario; nessuno è rimasto nei box. HOME10 è «in HOME» in `tools/stampa-collezione.py`, pedigree e PDF rigenerati; `tools/sfide-bank.py` dà 47 sfide coperte su 47.
 
 ## Dopo il giro 4
 

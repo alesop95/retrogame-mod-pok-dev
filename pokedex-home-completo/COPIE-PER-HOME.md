@@ -2,7 +2,11 @@
 
 > Documento autorato, aggiornato a ogni giro di lavoro che cambia una copia o il suo stato. Nasce il 2026-09-30 su richiesta del proprietario, che vuole il riepilogo delle copie per gruppo ogni volta, con quello che è già passato a HOME e con ciò che le fonti aggiungono. Le copie si scrivono con `tools/pkhex-scrivi-salvataggio` secondo ADR-092, e stanno fuori da Git sotto `_notes/salvataggi/prove/`; accanto a ciascuna c'è il suo `main.rapporto.json`, con box, posto e impronta di ogni esemplare. La sostituzione delle copie sulla console si fa tutta alla fine, quando i lotti sono completi e si passa a HOME, e i passi si danno al proprietario in quel momento.
 
-## Stato al 2026-11-13, che prevale sulle sezioni sotto
+## Stato al 2026-11-13, sera, che prevale sulle sezioni sotto
+
+Giro 10, HOME10 `ultraluna-giro-3-statici-gb-finale119`: in HOME il 2026-11-13, che conta 6198, cioè 5818 più tutti i 380 esemplari, letto dalla foto del totale mandata dal proprietario. Rilettura `20261113-rilett10` identica alla copia, 380 conformi negli stessi posti (`_notes/lavoro/giudizi-copie/rilettura-passo2-giro10.json`); `20261113-prima10` con i box vuoti; riserve `sd-checkpoint-20261113b` e `J:/backup-sd-3ds/20261113b/`. Pedigree di HOME10 rigenerato con lo stato «in HOME». Resta GIAPPONE2 `luna-giappone-3`, 23 esemplari, dopo il quale HOME deve contarne 6221.
+
+## Stato al 2026-11-13
 
 Giro 9, HOME7 `ultraluna-giro-2-fin7`: in HOME il 2026-11-13, che conta 5818, cioè 5176 più tutti i 642 esemplari, letto dalla foto del totale «All Pokémon» mandata dal proprietario. Pedigree di HOME7 rigenerato con lo stato «in HOME». I quattro doni di taglia totem del giro 8 non sono più nella partita di Ultraluna, che il Restore del giro 9 ha sostituito: restano nella riserva `20261111-prima9`, nelle due riserve del PC e nella copia HOME5, e il pedigree di HOME5 ora li dice «fuori da HOME». Prossimo il giro 10, HOME10 `ultraluna-giro-3-statici-gb-finale119`, 380 esemplari, dopo il quale HOME deve contarne 6198.
 

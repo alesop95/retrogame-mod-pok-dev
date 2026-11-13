@@ -4,6 +4,34 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-13, quinta parte. Giro 10 in HOME: 6198
+
+Il proprietario ha mandato tre foto di HOME, viste il 2026-11-13: il totale «All Pokémon» è 6198, cioè 5818 più tutti i 380 esemplari di HOME10; nessuno è rimasto nei box. Le altre due sono notizie di HOME del 2026-11-13 per i giochi su Switch: il raid nero di Kommo-o con il Marchio dell'Imbattibilità, Teratipo Lotta, in Scarlatto e Violetto dal 2026-11-13 00:00 al 2026-11-19 23:59 UTC, una volta per salvataggio; la stagione X (20) delle Lotte di Rango di Leggende Z-A, con Poké Ball varie e le megapietre di Greninja, Delphox, Chesnaught, Baxcalibur, Sceptile, Swampert e Blaziken come premi di promozione. Sotto si vede il titolo di una terza notizia, «Receive a Shiny Xern…», non letta.
+
+Punto 18. HOME10 «in HOME» in `tools/stampa-collezione.py`, pedigree e PDF di HOME10 rigenerati (1 riga cambiata); `tools/sfide-bank.py` 47 su 47. `RUNBOOK-PASSO-2.md`, `ROADMAP.md` (riga del giro 10 e nota della sera), `COPIE-PER-HOME.md` (stato del 2026-11-13, sera). Tesi, capitolo 28: riga del giro 10 con 380 passati, dieci riletture su dieci, 6174 portati e 6164 ricevuti fino al giro 10; compilata, 370 pagine, nessun riferimento indefinito.
+
+Giro 11. GIAPPONE2 `luna-giappone-3`, 23 esemplari giapponesi della prima generazione, 441856 byte, SHA-256 `e4eb2dd84366d52d9839750002aa0977e0c233ba85967a67f8915f6e86096288`, tutti conformi in `dopo-20261109b.json`. Il passo 4 della roadmap, scritto prima dei giri, chiede di provare la copia di Luna con regione giapponese prima con un solo esemplare; una copia con un solo esemplare non esiste. Chiesto al proprietario se fare la prova, che costa un giro in più, o portare i 23 in un giro: se la banca ne rifiuta qualcuno, resta nei box come i totem e i Pikachu Cosplay.
+
+**Template:** nessuna.
+
+**Didattica:** nessuna voce nuova.
+
+## 2026-11-13, quarta parte. Giro 10 riletto: 380 conformi negli stessi posti
+
+Giro 10, punti 5-14 FATTI. Il proprietario ha fatto il Backup `20261113-prima10`, il Restore, i controlli del punto 9 e il Backup `20261113-rilett10`. Punto 13: `20261113-rilett10/main` ha SHA-256 `f7fdf3f8…`, uguale a HOME10. Punto 14: riserve `_notes/salvataggi/console/sd-checkpoint-20261113b/` e `J:/backup-sd-3ds/20261113b/`, 43 file ciascuna, verificate con `sha256sum -c` contro l'elenco preso dalla SD (`sd-20261113b.sha256` accanto a ciascuna), tutte uguali; giudizio in `_notes/lavoro/giudizi-copie/rilettura-passo2-giro10.json`, libreria 26.10.18: `rilett10` 380 esemplari, 380 conformi, negli stessi posti di HOME10 e con tutti i campi uguali a `dopo-20261109b.json`, impronte comprese, salvo `origine`, che lo strumento legge dal rapporto della copia e che una rilettura dalla console non ha (vuoto anche in `rilett9`); `prima10` (SHA-256 `4771cd06…`) 0 esemplari nei box, come atteso. Tocca al proprietario dal punto 15.
+
+**Template:** nessuna.
+
+**Didattica:** nessuna voce nuova.
+
+## 2026-11-13, terza parte. Giro 10 ai punti 3-4
+
+Il proprietario ha lanciato `chiudi` (`e4b2130`) e ha messo la SD nel PC in `I:`; ha chiesto di tenere in sospeso le pendenze dell'agente finché non sono finiti i lotti per HOME, senza dimenticarle. Punto 3: `/3ds/Checkpoint/saves/` copiata in `_notes/salvataggi/console/sd-checkpoint-20261113/` e `J:/backup-sd-3ds/20261113/`, 40 file, `sha256sum -c` contro l'elenco preso dalla SD, tutti uguali; elenco accanto a ciascuna riserva come `sd-20261113.sha256`. Punto 4: `20261113-giro10/main` in `0x01B51 Pokémon Ultra Moon`, 445440 byte, SHA-256 riletto dalla SD `f7fdf3f8ef08a1bdf71f427eb1f7d51cca41a19c112e7796a3344283e2fdfcbc`, uguale a HOME10. Tocca al proprietario dal punto 5.
+
+**Template:** nessuna.
+
+**Didattica:** nessuna voce nuova.
+
 ## 2026-11-13, seconda parte. Giro 9 in HOME: 5818, e il giro 10 scritto
 
 Il proprietario ha mandato tre foto di HOME, viste il 2026-11-13: il totale «All Pokémon» è 5818, cioè 5176 più tutti i 642 esemplari di HOME7; nessuno è rimasto nei box. Le altre due sono la sezione delle sfide, con le registrazioni di Alola segnate come completate e le sfide dei depositi per sfera a metà barra.

@@ -9,7 +9,7 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 ```
 Branch attivo:         main
 Commit di riferimento: e77e84d, Allineamento dal template al commit c2d2aa5 (riancorato il 2026-11-13 da 03b1e09: in mezzo solo d243729 e e77e84d, due allineamenti dal template)
-Data snapshot:         2026-11-13: giri 1-9 in HOME (5818, giro 9 con tutti i 642 di HOME7); prossimo: giro 10, HOME10 380, da 5818 a 6198
+Data snapshot:         2026-11-13: giri 1-10 in HOME (6198); resta il giro 11, GIAPPONE2 23, atteso 6221
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,12 @@ Data snapshot:         2026-11-13: giri 1-9 in HOME (5818, giro 9 con tutti i 64
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-11-13, tarda sera, che prevale su quelle sotto. Giro 10 IN HOME: 6198, tutti i 380 di HOME10; punto 18 fatto. Resta il giro 11, GIAPPONE2 `luna-giappone-3` (23, `e4eb2dd8…`), fermo sulla domanda al proprietario: prova con un solo esemplare (passo 4 della roadmap) o i 23 in un giro.
+
+AGGIUNTA DEL 2026-11-13, notte, che prevale su quelle sotto. Giro 10 ai punti 5-14 FATTI: `rilett10` = HOME10 (`f7fdf3f8…`), 380 conformi negli stessi posti; `prima10` con i box vuoti; riserve `20261113b` su E: e J:, 43 file. Tocca al proprietario dal punto 15: SD nel 3DS, Bank, HOME da 5818 a 6198, foto del totale; poi l'agente il punto 18 e il giro 11 (GIAPPONE2).
+
+AGGIUNTA DEL 2026-11-13, sera, che prevale su quelle sotto. `chiudi` fatto (`e4b2130`). Giro 10 ai punti 3-4: riserve `sd-checkpoint-20261113` e `J:/backup-sd-3ds/20261113/` (40 file uguali), `20261113-giro10/main` sulla SD con `f7fdf3f8…` (HOME10). Tocca al proprietario dal punto 5 con `20261113-prima10` e `20261113-rilett10`. Pendenze dell'agente in sospeso fino alla fine dei giri, per direttiva del proprietario.
 
 AGGIUNTA DEL 2026-11-13, che prevale su quelle sotto. Fuoco: pokedex-home-completo. Giro 9 IN HOME: 5818, tutti i 642 di HOME7, foto del totale del proprietario; punto 18 fatto (pedigree HOME7 «in HOME», HOME5 con i quattro totem «fuori da HOME» perché il Restore del giro 9 li ha tolti dalla partita, sfide 47/47, tesi capitolo 28 riga del giro 9). Sezione «Giro 10» scritta in `RUNBOOK-PASSO-2.md` (HOME10 `ultraluna-giro-3-statici-gb-finale119`, 380, SHA-256 `f7fdf3f8…`): tocca al proprietario dal punto 1 (spegni, SD nel PC in `I:`). Fonti del giorno in `SOURCES.md`, sezione del 2026-11-13.
 

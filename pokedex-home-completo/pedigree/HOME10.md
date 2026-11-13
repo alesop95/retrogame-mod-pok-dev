@@ -1,6 +1,6 @@
 # Pedigree degli esemplari del gruppo HOME10
 
-> Documento generato da `tools/stampa-collezione.py`, dalla stessa funzione che compone il PDF stampabile in `_notes/stampa/pedigree/HOME10.pdf`. Non si modifica a mano. Una riga per esemplare, nell'ordine di box e posto della copia, giudicata da `tools/pkhex-elenco-copie`; i campi sono quelli di ADR-111. Stato del gruppo: in copia. Esemplari: 380, conformi: 380.
+> Documento generato da `tools/stampa-collezione.py`, dalla stessa funzione che compone il PDF stampabile in `_notes/stampa/pedigree/HOME10.pdf`. Non si modifica a mano. Una riga per esemplare, nell'ordine di box e posto della copia, giudicata da `tools/pkhex-elenco-copie`; i campi sono quelli di ADR-111. Stato del gruppo: in HOME. Esemplari: 380, conformi: 380.
 
 | Box | Posto | Specie | Forma | Sesso | Cromatico | Evento | Storia | Fonti | Gioco d'origine | Luogo | Data | Livello | Sfera | Lingua | Allenatore | Natura | Abilità | Mosse | Oggetto | Fiocchi | IV | PID | EC | Giudizio | Impronta |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
