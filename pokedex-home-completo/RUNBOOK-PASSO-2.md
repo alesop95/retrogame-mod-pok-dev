@@ -253,6 +253,33 @@ Stato al 2026-11-11, sera: punti 8-14 FATTI. Il proprietario ha fatto il Restore
 17. Proprietario: HOME da 5176 a 5818, foto del totale; se ne mancano, foto del box di Ultraluna con quelli rimasti.
 18. Agente: HOME7 «in HOME», pedigree; poi il giro 10, HOME10, sempre su Ultraluna.
 
+Punti 15-18 FATTI il 2026-11-13. HOME conta 5818, cioè 5176 più tutti i 642 esemplari, letto dalla foto del totale «All Pokémon» mandata dal proprietario; nessuno è rimasto nei box. HOME7 è «in HOME» in `tools/stampa-collezione.py`, pedigree e PDF rigenerati; `tools/sfide-bank.py` dà 47 sfide coperte su 47.
+
+## Giro 10
+
+Scritto il 2026-11-13, ed è il terzo giro su Pokémon Ultraluna, con la stessa procedura del giro 9. La copia è HOME10, `_notes/salvataggi/prove/per-home/ultraluna-giro-3-statici-gb-finale119/main`, 380 esemplari, 445440 byte, SHA-256 `f7fdf3f8ef08a1bdf71f427eb1f7d51cca41a19c112e7796a3344283e2fdfcbc`, giudicata 380 conformi (`_notes/lavoro/giudizi-copie/dopo-20261109b.json`): box da 1 a 12 pieni e box 13 posti da 1 a 20. Contiene il marchio Game Boy dal 2026-11-09 (ADR-120), i 117 di FINALE senza la mossa d'evento (ADR-121) e i 2 Farfetch'd di Stadium 2 bonificati nel box 13, posti 19 e 20 (ADR-122). Nessun esemplare che il gioco non lascia uscire, con la stessa regola del pedigree (`resta_in_console`). HOME conta 5818 e dopo questo giro deve contarne 6198.
+
+La partita che Ultraluna ha adesso è HOME7 dopo la banca, con i box vuoti: è giusto che la riserva `prima10` del punto 7 sembri vuota.
+
+1. Proprietario: spegni il 3DS del tutto.
+2. Proprietario: SD nel PC, lettera `I:`, e dimmelo.
+3. Agente: copia di `/3ds/Checkpoint/saves/` in `_notes/salvataggi/console/sd-checkpoint-<data>/` e in `J:/backup-sd-3ds/<data>/`, con lo SHA-256 di ogni file, dove la data è quella del giorno (con una lettera se nello stesso giorno c'è già una riserva).
+4. Agente: cartella `<data>-giro10` di Pokémon Ultra Moon con la copia di nome `main`, riletta dalla SD.
+5. Proprietario: espelli la SD e rimettila nel 3DS.
+6. Proprietario: avvia Checkpoint.
+7. Proprietario: scegli Pokémon Ultra Moon, Backup, nome `<data>-prima10`. È la partita com'è adesso, prima del giro, con i box vuoti. Non si rifà e non si cancella.
+8. Proprietario: seleziona `<data>-giro10`, Restore, conferma.
+9. Proprietario: avvia Ultraluna senza salvare e controlla: box 1 posto 1 Bulbasaur livello 5, allenatore Alessio; box 1 posto 30 Pinsir livello 30, allenatore Alessio; box 13 posto 19 Farfetch'd livello 5, allenatore Stadium; box 13 posto 20 Farfetch'd livello 5, allenatore Stadio; box da 1 a 12 pieni, box 13 con i posti da 1 a 20.
+10. Proprietario: esci senza salvare.
+11. Proprietario: Checkpoint, Pokémon Ultra Moon, Backup, nome `<data>-rilett10`.
+12. Proprietario: spegni, SD nel PC, e dimmelo.
+13. Agente: SHA-256 di `<data>-rilett10/main` uguale a quello della copia.
+14. Agente: giudizio della rilettura, 380 conformi negli stessi posti; `prima10` giudicata, con i box vuoti; `prima10` e `rilett10` nelle due riserve.
+15. Proprietario: SD nel 3DS.
+16. Proprietario: il passaggio alla banca e a HOME, fuori dall'assistenza. Se qualcuno resta nei box, lascialo lì e dimmi box e posto, o mandami la foto del box.
+17. Proprietario: HOME da 5818 a 6198, foto del totale; se ne mancano, foto del box di Ultraluna con quelli rimasti.
+18. Agente: HOME10 «in HOME», pedigree; poi il giro 11, GIAPPONE2, su Luna con il profilo giapponese.
+
 ## Dopo il giro 4
 
 La partita vera di Rubino Omega, `20260821-backsic`, resta fuori dalla console fino al passo 6. I giri successivi sono nella tabella in testa a `ROADMAP.md`: il 5 (HOME8, `oras-giro-5-carte-mn5`, 256) e il 6 (HOME9, `oras-giro-6-statici-eventi-4`, 695, di cui 689 in HOME e i sei Pikachu Cosplay rimasti in Rubino Omega) sono ancora di Rubino Omega e seguono questa procedura con i nomi del giorno; dal 7 si passa a Luna e Ultraluna, e al giro 8, il primo di Ultraluna, la copia di riserva di Checkpoint crea la cartella del gioco.

@@ -8,8 +8,8 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: 03b1e09, Giro 9 riletto, generatori delle fonti che non cancellano più testo
-Data snapshot:         2026-11-10, ADR-124: giri 1-7 in HOME (4567, i sei Pikachu Cosplay restano in Rubino Omega), HOME10 a 380; prossimo: giro 8 dal punto 0 (partita nuova di Ultraluna fino al primo Salva)
+Commit di riferimento: e77e84d, Allineamento dal template al commit c2d2aa5 (riancorato il 2026-11-13 da 03b1e09: in mezzo solo d243729 e e77e84d, due allineamenti dal template)
+Data snapshot:         2026-11-13: giri 1-9 in HOME (5818, giro 9 con tutti i 642 di HOME7); prossimo: giro 10, HOME10 380, da 5818 a 6198
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,8 @@ Data snapshot:         2026-11-10, ADR-124: giri 1-7 in HOME (4567, i sei Pikach
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-11-13, che prevale su quelle sotto. Fuoco: pokedex-home-completo. Giro 9 IN HOME: 5818, tutti i 642 di HOME7, foto del totale del proprietario; punto 18 fatto (pedigree HOME7 «in HOME», HOME5 con i quattro totem «fuori da HOME» perché il Restore del giro 9 li ha tolti dalla partita, sfide 47/47, tesi capitolo 28 riga del giro 9). Sezione «Giro 10» scritta in `RUNBOOK-PASSO-2.md` (HOME10 `ultraluna-giro-3-statici-gb-finale119`, 380, SHA-256 `f7fdf3f8…`): tocca al proprietario dal punto 1 (spegni, SD nel PC in `I:`). Fonti del giorno in `SOURCES.md`, sezione del 2026-11-13.
 
 AGGIUNTA DEL 2026-11-11, quinta parte, che prevale su quelle sotto. Template committato (`f027354`) e progetto allineato a quella testa, da committare con `chiudi`; poi wipe e `/riprendi`, che riparte dal punto 15 del giro 9 (SD nel 3DS, Bank, HOME, atteso 5818). Bulbapedia, lista degli altri eventi della settima generazione con una revisione nuova: censimento dell'agente in `pending.md`.
 

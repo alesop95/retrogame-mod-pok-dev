@@ -4,6 +4,28 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-13, seconda parte. Giro 9 in HOME: 5818, e il giro 10 scritto
+
+Il proprietario ha mandato tre foto di HOME, viste il 2026-11-13: il totale «All Pokémon» è 5818, cioè 5176 più tutti i 642 esemplari di HOME7; nessuno è rimasto nei box. Le altre due sono la sezione delle sfide, con le registrazioni di Alola segnate come completate e le sfide dei depositi per sfera a metà barra.
+
+Punto 18. `tools/stampa-collezione.py`: HOME7 «in HOME»; la descrizione dei quattro totem cambia da «resta in Ultraluna» a «fuori da HOME», perché il Restore del giro 9 ha sostituito la partita che li conteneva e ora stanno nella riserva `20261111-prima9`, nelle riserve del PC e nella copia HOME5; l'intestazione del pedigree dice «Restano fuori da HOME» invece di «Restano in console». Prima della modifica la rigenerazione di HOME5 e HOME7 da `dopo-20261109b.json` riproduceva i file identici; dopo, pedigree e PDF di HOME5, HOME7 e HOME9 rigenerati, 10, 1 e 1 riga cambiate. `tools/sfide-bank.py`: 47 sfide coperte su 47. `ROADMAP.md` (riga del giro 9 e nota del 2026-11-13), `COPIE-PER-HOME.md` (stato al 2026-11-13), `RUNBOOK-PASSO-2.md` (punti 15-18 fatti e sezione «Giro 10»: HOME10 `ultraluna-giro-3-statici-gb-finale119`, 380 esemplari in 445440 byte, SHA-256 `f7fdf3f8ef08a1bdf71f427eb1f7d51cca41a19c112e7796a3344283e2fdfcbc` calcolato oggi sulla copia, box da 1 a 12 pieni e box 13 posti 1-20, controlli Bulbasaur 5 al box 1 posto 1, Pinsir 30 al posto 30, i due Farfetch'd di Stadium 2 al box 13 posti 19 e 20; nessun esemplare trattenuto da `resta_in_console`; atteso 6198). Tesi, capitolo 28: riga del giro 9 con 642 passati, didascalia al 13 novembre, nove riletture su nove, 5794 portati e 5784 ricevuti fino al giro 9; compilata, 370 pagine, nessun riferimento indefinito.
+
+Fonti del proprietario. Reddit `r/PokemonHome/s/DspF8cW92H` risolto a `1xo6ud7` e letto da Arctic Shift (48 commenti); confrontato con tutte le copie su `dopo-20261109b.json`: quasi tutto già in HOME, due differenze (Jirachi cromatico di terza generazione, Magearna Colore Originale) aperte in `pending.md`. RetroSix «Game Boy Color Board Scans»: pagina vuota, letta da un subagente. Entrambe in `SOURCES.md`. Controlli: `build-source-map.py`, `build-bibliography.py`, `indice-fonti-unico.py` e `verifica-link-progetto.py` con `--check` verdi.
+
+**Template:** nessuna.
+
+**Didattica:** nessuna voce nuova; il cambio della descrizione dei totem è una conseguenza della voce già scritta sui dieci esemplari trattenuti.
+
+## 2026-11-13. Ripresa con `/riprendi` dopo l'allineamento al template `c2d2aa5`
+
+`tools/verifica-ripresa.py` ha trovato una divergenza dall'impronta del 2026-11-11 15:46 (registrata su `d243729`): un solo commit comparso dopo, `e77e84d` del 2026-11-12, «Allineamento dal template al commit c2d2aa5», fatto fuori sessione e non raccontato in questo registro. Dal suo `git show --stat` e da `.claude/ultimo-allineamento.md`: 29 file della passata, 27 VECCHIO e 2 MERGE (`.claude/templates/tools/README.md`, `tools/chiudi-sessione.ps1`), conflitti 0; toccano fra l'altro `chiudi-sessione.ps1` e `.sh`, `verifica-ripresa.py`, `misura-istruzioni.py`, la norma e la regola `git-commands-format`, `prove-che-misurano/RIFERIMENTO.md` e `lezioni-recepite.json` (+147 righe). Nessun file del lavoro sui giri cambiato. Albero pulito all'apertura, un solo albero di lavoro.
+
+Riancorato il commit di riferimento di `index.md` da `03b1e09` a `e77e84d`. Le segnalazioni degli hook di apertura (eventi: EventsGallery, tre liste di Bulbapedia, due notizie di Serebii; fonti vive: `pret/pokered` a `a7b6c19`; template avanti di 6 commit) sono nella voce «AL 2026-11-13» di `pending.md`. Il giro 9 resta al punto 15, che spetta al proprietario.
+
+**Template:** nessuna.
+
+**Didattica:** nessuna voce nuova.
+
 ## 2026-11-11. Allineamento al template `f027354`, con i controlli propri del progetto dentro `chiudi`
 
 Il proprietario ha fatto i passi 1 e 2 della sequenza di chiusura: `chiudi` del progetto (`03b1e09`) e commit del template con i soli nove file di L-010 e L-011 (`f027354`, pubblicato; i due `docs/` di altre lavorazioni restano non committati nel template).

@@ -157,7 +157,8 @@ STATO_GRUPPO = {"HOME1": ("DSstatoinhome", "in HOME"), "HOME2": ("DSstatoinhome"
                 "HOME8": ("DSstatoinhome", "in HOME"),  # il giro 5 dal 2026-11-09, HOME a 3785
                 "HOME9": ("DSstatoinhome", "in HOME"),  # il giro 6 dal 2026-11-09, HOME a 4474
                 "HOME4": ("DSstatoinhome", "in HOME"),  # il giro 7 dal 2026-11-09, HOME a 4567
-                "HOME5": ("DSstatoinhome", "in HOME")}  # il giro 8 dal 2026-11-10, HOME a 5176
+                "HOME5": ("DSstatoinhome", "in HOME"),  # il giro 8 dal 2026-11-10, HOME a 5176
+                "HOME7": ("DSstatoinhome", "in HOME")}  # il giro 9 dal 2026-11-13, HOME a 5818
 
 
 # Gli esemplari che il gioco non lascia uscire dalla console anche se la libreria li giudica conformi nel loro gioco: il
@@ -168,14 +169,18 @@ STATO_GRUPPO = {"HOME1": ("DSstatoinhome", "in HOME"), "HOME2": ("DSstatoinhome"
 # la libreria li dichiara non trasferibili oltre la settima generazione (`EncounterStatic7.IsTotemNoTransfer`, usata da
 # `TransferVerifier.cs` righe 149-157), mentre gli altri sette totem passano e tornano alla forma base. Al giro 8 la banca
 # ha lasciato i quattro di HOME5 nel box 21 di Ultraluna, posti 3, 5, 7 e 10, e HOME è salito di 609 invece che di 613.
+# Al giro 9 del 2026-11-13 il Restore della copia HOME7 ha sostituito quella partita: i quattro non sono più nella console
+# ma nella riserva di Checkpoint `20261111-prima9`, nelle due riserve del PC e nella copia HOME5.
 TOTEM_NON_TRASFERIBILI = {105: 2, 752: 1, 777: 1, 743: 1}
 
 
 def resta_in_console(e):
     if e.get("generazione") == 7 and TOTEM_NON_TRASFERIBILI.get(e["numero"]) == e.get("forma_n", 0):
-        return ("DSstatoincopia", "resta in Ultraluna",
-                "Resta in Ultraluna: il dono di taglia totem di questa specie non lascia la settima generazione, e al "
-                "giro 8 del 2026-11-10 la banca non l'ha preso con gli altri esemplari della copia.")
+        return ("DSstatoincopia", "fuori da HOME",
+                "Fuori da HOME: il dono di taglia totem di questa specie non lascia la settima generazione, e al "
+                "giro 8 del 2026-11-10 la banca non l'ha preso con gli altri esemplari della copia. Dal giro 9 del "
+                "2026-11-13 non è più nella partita di Ultraluna, sostituita dal Restore: sta nella riserva di "
+                "Checkpoint 20261111-prima9, nelle due riserve del PC e nella copia HOME5.")
     if e["numero"] == 25 and e.get("generazione") == 6 and e.get("forma_n", 0) in range(1, 7):
         return ("DSstatoincopia", "resta in Rubino Omega",
                 "Resta in Rubino Omega: il Pikachu Cosplay non lascia la sesta generazione, e al giro 6 del 2026-11-09 "
@@ -378,7 +383,7 @@ def pedigree(dati, cartella_immagini, pdf, solo=None):
               "box e posto della copia, giudicata da `tools/pkhex-elenco-copie`; i campi sono quelli di ADR-111. Stato del "
               "gruppo: %s. Esemplari: %d, conformi: %d." % (gruppo, stato, len(esemplari),
                                                             sum(e["conforme"] for e in esemplari)) +
-              ("".join(" Restano in console, perché il gioco non li lascia uscire: %d." % n
+              ("".join(" Restano fuori da HOME, perché il gioco non li lascia uscire: %d." % n
                        for n in [sum(1 for e in esemplari if resta_in_console(e))] if n)), "",
               "| Box | Posto | Specie | Forma | Sesso | Cromatico | Evento | Storia | Fonti | " +
               " | ".join(k[0].upper() + k[1:] for k, _ in campi_pedigree(esemplari[0], per_codice, per_file)) +

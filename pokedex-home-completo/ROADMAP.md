@@ -10,6 +10,8 @@ L'ordine non è quello dell'importanza ma quello del rendimento. Un passo che co
 
 ## La roadmap al 2026-11-07, aggiornata al 2026-11-09, che prevale su tutte le sezioni sotto
 
+Aggiornata il 2026-11-13: il giro 9 è in HOME con tutti i 642 esemplari di HOME7, e HOME conta 5818, letto dalla foto del proprietario del totale «All Pokémon». Prossimo il giro 10, HOME10 `ultraluna-giro-3-statici-gb-finale119`, 380 esemplari, sezione «Giro 10» di `RUNBOOK-PASSO-2.md`; dopo il giro HOME deve contarne 6198. I quattro totem del giro 8 non sono più nella partita di Ultraluna, sostituita dal Restore del giro 9: stanno nella riserva `20261111-prima9`, nelle riserve del PC e nella copia HOME5.
+
 Aggiornata il 2026-11-10: il giro 8 è in HOME con 609 esemplari su 613, e HOME conta 5176. I quattro doni di taglia totem di Marowak, Araquanid, Togedemaru e Ribombee del box 21, posti 3, 5, 7 e 10, restano in Ultraluna, perché la libreria li dichiara non trasferibili oltre la settima generazione (`EncounterStatic7.IsTotemNoTransfer`); gli altri sette totem della stessa fila sono passati. I totali attesi scendono di 4 dal giro 8: a giri finiti HOME conta 6221. Le copie dei giri 9, 10 e 11 non contengono né questi quattro totem né Pikachu Cosplay, Pichu Spunzorecchio, Kyurem o Necrozma fusi.
 
 Aggiornata il 2026-11-09, sera: il giro 6 è in HOME con 689 esemplari su 695, perché i sei Pikachu Cosplay non lasciano Rubino Omega, e HOME conta 4474; HOME10 è `ultraluna-giro-3-statici-gb-finale119`, 380 conformi, con i 2 Farfetch'd di Stadium 2 senza Staffetta e senza i dati d'incontro di Cristallo (ADR-122), confermati dal proprietario. I totali attesi scendono di 6 fino al giro 9 e di 4 dal giro 10: a giri finiti HOME conta 6225. Giudizio di tutte le copie: `_notes/lavoro/giudizi-copie/dopo-20261109b.json`, 6332 esemplari, 6208 conformi, con FINALE (0 su 121) e GIAPPONE (11 su 14) fuori dai giri.
@@ -28,7 +30,7 @@ Scritta il 2026-11-07 dopo ADR-119, quando la produzione per HOME è chiusa: tut
 | 6 | HOME9 | `oras-giro-6-statici-eventi-4` | Rubino Omega | 695 | 695 | in HOME dal 2026-11-09, 689 esemplari: i sei Pikachu Cosplay del box 16, posti da 24 a 29, restano in Rubino Omega perché il gioco non li lascia uscire | 4474 |
 | 7 | HOME4 | `luna-giro-1-fin` | Luna | 93 | 93 | in HOME dal 2026-11-09, Psyduck STADIO compreso | 4567 |
 | 8 | HOME5 | `ultraluna-giro-1-scambi-fin2` | Ultraluna | 613 | 613 | in HOME dal 2026-11-10, 609 esemplari: i quattro doni di taglia totem di Marowak, Araquanid, Togedemaru e Ribombee del box 21, posti 3, 5, 7 e 10, restano in Ultraluna perché non lasciano la settima generazione | 5176 |
-| 9 | HOME7 | `ultraluna-giro-2-fin7` | Ultraluna | 642 | 642 | prossima, geolocalizzazione corretta il 2026-11-09 | 5818 |
+| 9 | HOME7 | `ultraluna-giro-2-fin7` | Ultraluna | 642 | 642 | in HOME dal 2026-11-13, tutti i 642 esemplari | 5818 |
 | 10 | HOME10 | `ultraluna-giro-3-statici-gb-finale119` | Ultraluna | 380 | 380 | pronta: marchio Game Boy dal 2026-11-09, i 117 di FINALE senza la mossa d'evento (ADR-121) e i 2 Farfetch'd di Stadium 2 bonificati nel box 13, posti 19 e 20 (ADR-122) | 6198 |
 | 11 | GIAPPONE2 | `luna-giappone-3` | Luna, profilo giapponese | 23 | 23 | pronta, prima con un solo esemplare | 6221 |
 
