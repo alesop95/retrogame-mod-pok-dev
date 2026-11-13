@@ -2,7 +2,11 @@
 
 > Documento autorato, aggiornato a ogni giro di lavoro che cambia una copia o il suo stato. Nasce il 2026-09-30 su richiesta del proprietario, che vuole il riepilogo delle copie per gruppo ogni volta, con quello che è già passato a HOME e con ciò che le fonti aggiungono. Le copie si scrivono con `tools/pkhex-scrivi-salvataggio` secondo ADR-092, e stanno fuori da Git sotto `_notes/salvataggi/prove/`; accanto a ciascuna c'è il suo `main.rapporto.json`, con box, posto e impronta di ogni esemplare. La sostituzione delle copie sulla console si fa tutta alla fine, quando i lotti sono completi e si passa a HOME, e i passi si danno al proprietario in quel momento.
 
-## Stato al 2026-11-13, sera, che prevale sulle sezioni sotto
+## Stato al 2026-11-13, fine dei giri, che prevale sulle sezioni sotto
+
+Giro 11, GIAPPONE2 `luna-giappone-3`: in HOME il 2026-11-13, che conta 6223, cioè 6200 più tutti i 23 esemplari, letto dalla foto del totale mandata dal proprietario. Rilettura `20261113-rilett11` identica alla copia, 23 conformi negli stessi posti (`_notes/lavoro/giudizi-copie/rilettura-passo2-giro11.json`); `20261113-prima11` con i box vuoti; riserve `sd-checkpoint-20261113d` e `J:/backup-sd-3ds/20261113d/`. Pedigree di GIAPPONE2 rigenerato con lo stato «in HOME». Tutte le copie per HOME sono passate.
+
+## Stato al 2026-11-13, sera
 
 Giro 10, HOME10 `ultraluna-giro-3-statici-gb-finale119`: in HOME il 2026-11-13, che conta 6198, cioè 5818 più tutti i 380 esemplari, letto dalla foto del totale mandata dal proprietario. Rilettura `20261113-rilett10` identica alla copia, 380 conformi negli stessi posti (`_notes/lavoro/giudizi-copie/rilettura-passo2-giro10.json`); `20261113-prima10` con i box vuoti; riserve `sd-checkpoint-20261113b` e `J:/backup-sd-3ds/20261113b/`. Pedigree di HOME10 rigenerato con lo stato «in HOME». Resta GIAPPONE2 `luna-giappone-3`, 23 esemplari, dopo il quale HOME deve contarne 6221.
 

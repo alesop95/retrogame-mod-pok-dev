@@ -4,6 +4,40 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-13, decima parte. Giro 11 in HOME: 6223, i giri sono finiti
+
+Il proprietario ha mandato la foto del totale «All Pokémon», vista il 2026-11-13: 6223, cioè 6200 più tutti i 23 di GIAPPONE2; nessuno rimasto nei box. Ha detto che i Meltan li porterà tutti insieme, con il loro pedigree, per non fare confusione. Punto 18: GIAPPONE2 «in HOME» in `tools/stampa-collezione.py`, pedigree e PDF rigenerati (1 riga cambiata); `tools/sfide-bank.py` 47 su 47. `RUNBOOK-PASSO-2.md`, `ROADMAP.md` (riga 11 e nota di fine dei giri), `COPIE-PER-HOME.md`, `ESEMPLARI-DA-GO.md`. Tesi, capitolo 28: riga del giro 11, undici riletture su undici, 6197 portati e 6187 ricevuti, deposito a 6223 = 6187 + 34 di prima del giro 1 + 2 da GO; compilata, 370 pagine, nessun riferimento indefinito. Con la fine dei giri finisce la sospensione delle pendenze dell'agente chiesta dal proprietario.
+
+**Template:** nessuna.
+
+**Didattica:** nessuna voce nuova.
+
+## 2026-11-13, nona parte. Il Meltan cromatico non si cerca
+
+Decisione del proprietario: il Meltan cromatico dipende dalla fortuna e non si cerca; conta che la Scatola Misteriosa si riapra anche dopo l'evento, così che il Melmetal evoluto da lui in GO entri nella collezione quando le caramelle arrivano. Scritta in `ESEMPLARI-DA-GO.md` e in `pending.md`.
+
+**Template:** nessuna.
+
+**Didattica:** nessuna voce nuova.
+
+## 2026-11-13, ottava parte. Giro 11 riletto: 23 conformi negli stessi posti
+
+Giro 11, punti 5-14 FATTI. Il proprietario ha fatto il Backup `20261113-prima11`, il Restore, i controlli del punto 9 e il Backup `20261113-rilett11`. Punto 13: `20261113-rilett11/main` ha SHA-256 `e4eb2dd8…`, uguale a GIAPPONE2. Punto 14: riserve `_notes/salvataggi/console/sd-checkpoint-20261113d/` e `J:/backup-sd-3ds/20261113d/`, 46 file ciascuna, verificate con `sha256sum -c` contro l'elenco preso dalla SD (`sd-20261113d.sha256` accanto a ciascuna), tutte uguali; giudizio in `_notes/lavoro/giudizi-copie/rilettura-passo2-giro11.json`, libreria 26.10.18: `rilett11` 23 esemplari, 23 conformi, negli stessi posti di GIAPPONE2 e con tutti i campi uguali a `dopo-20261109b.json`, impronte comprese, salvo `origine`, che una rilettura dalla console non ha; `prima11` (SHA-256 `f32c7e42…`) 0 esemplari nei box, come atteso. Tocca al proprietario dal punto 15. Alla domanda del proprietario: secondo la pagina Mystery Box di Bulbapedia (copia del 2026-11-09) l'attesa di tre giorni è permanente, quindi la Scatola si riapre anche dopo domenica; finisce solo la riduzione dell'attesa e la possibilità del Meltan cromatico dell'evento.
+
+**Template:** nessuna.
+
+**Didattica:** nessuna voce nuova.
+
+## 2026-11-13, settima parte. Giro 11 ai punti 3-4, e i tempi del Melmetal
+
+Il proprietario ha lanciato `chiudi` (`9c2c09b`) e ha messo la SD in `I:`. Punto 3: riserve `_notes/salvataggi/console/sd-checkpoint-20261113c/` e `J:/backup-sd-3ds/20261113c/`, 43 file, `sha256sum -c` tutti uguali. Punto 4: `20261113-giro11/main` in `0x0175E Pokémon Moon`, 441856 byte, SHA-256 riletto `e4eb2dd84366d52d9839750002aa0977e0c233ba85967a67f8915f6e86096288`, uguale a GIAPPONE2. Tocca al proprietario dal punto 5.
+
+Il proprietario teme di non arrivare mai alle 400 caramelle del Melmetal. Dalle fonti del 2026-11-09 già su disco: l'evoluzione non ha scadenza; la Scatola Misteriosa si riapre dopo tre giorni, ridotti durante l'evento fino al 15 novembre alle 18 locali, mandando un Pokémon da GO a HOME; il biglietto GO gratuito dà 40 caramelle di Meltan secondo Leek Duck. Correzione a quanto scritto nel giro precedente in `ESEMPLARI-DA-GO.md`: il Melmetal da 400 caramelle non è una casella mancante, perché la specie è già in HOME con il dono; servono un Meltan e, se c'è, un Meltan cromatico.
+
+**Template:** nessuna.
+
+**Didattica:** nessuna voce nuova.
+
 ## 2026-11-13, sesta parte. Giro 11 deciso in un giro solo, e i primi esemplari da GO
 
 Il proprietario ha lanciato `chiudi` e ha risposto (ADR-125): il Kommo-o di Scarlatto e Violetto va nelle pendenze della fase Switch dalla comunità, perché non ha quei giochi; GIAPPONE2 va con i 23 in un giro solo. Ha chiesto perché non si usa la sua partita normale di Luna: è di console europea, e un dono giapponese della Console Virtuale si trasferisce solo da una console giapponese, quindi la copia porta quella regione. Lette le 13 foto della cartella che ha indicato nei download di Telegram: Cyndaquil (PL 84) mandato da GO a HOME, dono di HOME per il primo collegamento ricevuto e riscattato, Melmetal livello 100, inglese, allenatore HOME, ID 808809, Brave, Iron Fist, Double Iron Bash, Hyper Beam, Dynamic Punch, Thunder Punch, capace di Gigamax; Scatola Misteriosa disponibile in GO; HOME a 6200. Nuovo `pokedex-home-completo/ESEMPLARI-DA-GO.md` con il conteggio e i due pedigree, il Cyndaquil da completare. Sezione «Giro 11» in `RUNBOOK-PASSO-2.md`: GIAPPONE2 `luna-giappone-3`, 23, `e4eb2dd8…`, controlli Poliwag 2 di トレーナー al posto 1, Pikachu 12 di ゲーフリ al 12, Clefable 24 e Pikachu 12 di アレッシオ al 20 e al 23; atteso 6223. `ROADMAP.md` aggiornata. Da chiedere: quanti Meltan ha catturato.

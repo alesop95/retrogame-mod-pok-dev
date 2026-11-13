@@ -292,6 +292,10 @@ Scritto il 2026-11-13 per ADR-125, ed è l'ultimo giro, il secondo su Pokémon L
 
 La partita che Luna ha adesso è HOME4 dopo la banca del giro 7, con i box vuoti: è giusto che la riserva `prima11` del punto 7 sembri vuota.
 
+Stato al 2026-11-13: punti 1-4 FATTI. `/3ds/Checkpoint/saves/` è copiata in `_notes/salvataggi/console/sd-checkpoint-20261113c/` e in `J:/backup-sd-3ds/20261113c/`, 43 file, ciascuna verificata con `sha256sum -c` contro l'elenco preso dalla SD (`sd-20261113c.sha256` accanto a ciascuna), tutti uguali. `20261113-giro11/main` è nella cartella `0x0175E Pokémon Moon` della SD, 441856 byte, riletta con SHA-256 `e4eb2dd8…` uguale a GIAPPONE2. I nomi del giorno sono `20261113-prima11` e `20261113-rilett11`. Tocca al proprietario dal punto 5.
+
+Stato al 2026-11-13, più tardi: punti 5-14 FATTI. Il proprietario ha fatto il Backup `20261113-prima11`, il Restore, i controlli del punto 9 e il Backup `20261113-rilett11`. Punto 13: `20261113-rilett11/main` ha SHA-256 `e4eb2dd8…`, uguale a GIAPPONE2. Punto 14: riserve `_notes/salvataggi/console/sd-checkpoint-20261113d/` e `J:/backup-sd-3ds/20261113d/`, 46 file ciascuna, verificate con `sha256sum -c` contro l'elenco preso dalla SD (`sd-20261113d.sha256` accanto a ciascuna), tutte uguali; giudizio in `_notes/lavoro/giudizi-copie/rilettura-passo2-giro11.json`, libreria 26.10.18: `rilett11` 23 esemplari, 23 conformi, negli stessi posti di GIAPPONE2 e con tutti i campi uguali a `dopo-20261109b.json`, impronte comprese, salvo `origine`, che una rilettura dalla console non ha; `prima11` (SHA-256 `f32c7e42…`) 0 esemplari nei box, come atteso. Tocca al proprietario dal punto 15.
+
 1. Proprietario: spegni il 3DS del tutto.
 2. Proprietario: SD nel PC, lettera `I:`, e dimmelo.
 3. Agente: copia di `/3ds/Checkpoint/saves/` in `_notes/salvataggi/console/sd-checkpoint-<data>/` e in `J:/backup-sd-3ds/<data>/`, con lo SHA-256 di ogni file, dove la data è quella del giorno (con una lettera se nello stesso giorno c'è già una riserva).
@@ -310,6 +314,8 @@ La partita che Luna ha adesso è HOME4 dopo la banca del giro 7, con i box vuoti
 16. Proprietario: il passaggio alla banca e a HOME, fuori dall'assistenza. Se qualcuno resta nei box, lascialo lì e dimmi box e posto, o mandami la foto del box.
 17. Proprietario: HOME da 6200 a 6223, foto del totale; se ne mancano, foto del box di Luna con quelli rimasti. Se nel frattempo arrivano Meltan da GO, il totale cresce anche di quelli: dimmi quanti ne hai portati.
 18. Agente: GIAPPONE2 «in HOME», pedigree; poi i giri sono finiti e si torna alle pendenze tenute in sospeso.
+
+Punti 15-18 FATTI il 2026-11-13. HOME conta 6223, cioè 6200 più tutti i 23 esemplari, letto dalla foto del totale «All Pokémon» mandata dal proprietario; nessuno è rimasto nei box. GIAPPONE2 è «in HOME» in `tools/stampa-collezione.py`, pedigree e PDF rigenerati; `tools/sfide-bank.py` dà 47 sfide coperte su 47. I giri per HOME sono finiti: undici giri, 6197 esemplari portati, 6187 arrivati, i dieci rimasti spiegati posto per posto. I Meltan da GO il proprietario li porterà tutti insieme, con il loro pedigree in `ESEMPLARI-DA-GO.md`.
 
 ## Dopo il giro 4
 

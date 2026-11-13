@@ -8,8 +8,9 @@
 |---|---|---|
 | 2026-11-13 | 6198 | giro 10 chiuso |
 | 2026-11-13 | 6200 | più il Cyndaquil mandato da GO e il Melmetal del dono per il primo collegamento |
+| 2026-11-13 | 6223 | giro 11 chiuso, l'ultimo |
 
-I totali attesi dei giri si spostano di conseguenza: dopo il giro 11 HOME deve contare 6223 invece di 6221, più i Meltan che il proprietario porterà.
+I totali attesi dei giri si sono spostati di conseguenza: dopo il giro 11 HOME conta 6223 invece di 6221. I Meltan il proprietario li porta tutti insieme, quando ha finito di catturarli, e ciascuno arriva con la sua riga qui sotto.
 
 ## Gli esemplari
 
@@ -20,4 +21,8 @@ I totali attesi dei giri si spostano di conseguenza: dopo il giro 11 HOME deve c
 
 ## I Meltan
 
-Dopo il collegamento GO ha reso disponibile la Scatola Misteriosa, e il proprietario ha catturato Meltan finché aveva sfere. Il numero non è ancora noto: lo dice il proprietario. Alla collezione servono quelli che coprono una casella che HOME non ha già, cioè il Meltan, un eventuale Meltan cromatico e il Melmetal che si ottiene in GO con 400 caramelle; gli altri si liberano in GO, dove ogni esemplare liberato diventa una caramella di Meltan e avvicina quel Melmetal. Ognuno di quelli portati a HOME ha qui la sua riga.
+Dopo il collegamento GO ha reso disponibile la Scatola Misteriosa, e il proprietario ha catturato Meltan finché aveva sfere. Il numero non è ancora noto: lo dice il proprietario. Alla collezione servono quelli che coprono una casella che HOME non ha già, cioè un Meltan e un eventuale Meltan cromatico. La specie Melmetal è già in HOME con il dono del 2026-11-13, quindi un Melmetal evoluto in GO con 400 caramelle è facoltativo, non una casella mancante; gli altri Meltan si liberano in GO, dove ogni esemplare liberato diventa una caramella di Meltan. Ognuno di quelli portati a HOME ha qui la sua riga.
+
+Come si ottengono, dalle fonti lette il 2026-11-09 (copie in `_notes/fonti/web/melmetal-2026-11-09/`). L'evoluzione in Melmetal costa 400 caramelle di Meltan in GO e non ha scadenza (Bulbapedia, pagina di Meltan). Dopo che il tempo dei Meltan è finito la Scatola Misteriosa resta chiusa tre giorni, poi si riapre mandando un Pokémon da GO a HOME o a Let's Go, e fa riapparire i Meltan (Bulbapedia, Mystery Box); durante l'evento «Into the Wild 2026», fino al 15 novembre 2026 alle 18 locali, l'attesa è ridotta e i Meltan possono essere cromatici (notizia di GO). Il biglietto GO gratuito dell'evento dà caramelle di Meltan in più gradi, 40 in tutto secondo Leek Duck. Il Meltan cromatico è quindi legato all'evento, il Melmetal no.
+
+Deciso dal proprietario il 2026-11-13: il Meltan cromatico non si cerca, perché dipende solo dalla fortuna; se ne capita uno, si porta. Il Melmetal evoluto in GO entra nella collezione quando le caramelle arrivano, con la Scatola riaperta ogni tre giorni anche dopo l'evento, senza scadenza.

@@ -9,7 +9,7 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 ```
 Branch attivo:         main
 Commit di riferimento: e77e84d, Allineamento dal template al commit c2d2aa5 (riancorato il 2026-11-13 da 03b1e09: in mezzo solo d243729 e e77e84d, due allineamenti dal template)
-Data snapshot:         2026-11-13: giri 1-10 in HOME, HOME a 6200 con 2 da GO; resta il giro 11, GIAPPONE2 23, atteso 6223 (ADR-125)
+Data snapshot:         2026-11-13: giri 1-11 tutti in HOME, HOME a 6223 (6187 dai giri, 34 di prima, 2 da GO); restano i Meltan da GO e i passi 5-6
 ```
 
 ## Stato di verifica delle schede
@@ -36,6 +36,12 @@ Data snapshot:         2026-11-13: giri 1-10 in HOME, HOME a 6200 con 2 da GO; r
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-11-13, fine dei giri, che prevale su quelle sotto. Giro 11 IN HOME: 6223. Tutti gli undici giri sono passati: 6197 portati, 6187 arrivati, 10 rimasti spiegati. Fuori dai giri: i Meltan da GO, che il proprietario porta tutti insieme (pedigree in `ESEMPLARI-DA-GO.md`), e i passi 5 e 6 della roadmap. Le pendenze dell'agente tenute in sospeso si riprendono: Jirachi cromatico di terza generazione, Magearna Colore Originale, novità degli hook del 2026-11-13, `pret/pokered`, controllo del formato di arrivo; allineamento al template da autorizzare.
+
+AGGIUNTA DEL 2026-11-13, notte, terza parte. Giro 11 ai punti 5-14 FATTI: `rilett11` = GIAPPONE2, 23 conformi negli stessi posti; `prima11` vuota; riserve `20261113d` (46 file). Tocca al proprietario dal punto 15: SD nel 3DS, Bank, HOME da 6200 a 6223 (più eventuali Meltan), foto del totale.
+
+AGGIUNTA DEL 2026-11-13, notte, seconda parte. `chiudi` fatto (`9c2c09b`). Giro 11 ai punti 3-4: riserve `20261113c` (43 file uguali), `20261113-giro11/main` sulla SD con `e4eb2dd8…`. Tocca al proprietario dal punto 5 con `20261113-prima11` e `20261113-rilett11`.
 
 AGGIUNTA DEL 2026-11-13, notte, ADR-125, che prevale su quelle sotto. HOME a 6200 (6198 più Cyndaquil e Melmetal da GO, pedigree in `ESEMPLARI-DA-GO.md`). Giro 11 GIAPPONE2 con i 23 in un giro solo, scritto in `RUNBOOK-PASSO-2.md`, atteso 6223: tocca al proprietario dal punto 1. Da chiedere: quanti Meltan ha catturato in GO.
 
