@@ -4,6 +4,16 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-13, undicesima parte. Allineamento al template `10f796d` e chiusura per una ripresa pulita
+
+Il proprietario ha rilanciato `chiudi` (`e231b7a`, il primo tentativo non aveva prodotto il commit) e ha chiesto di chiudere la sessione e riaprirne una pulita con `/riprendi`, senza perdere niente, portando al template le lezioni apprese. Allineamento con `allinea-dal-template.py --template E:/template-claude-developing --progetto .`, prima a vuoto e poi con `--applica`: CONFLITTO 0, MERGE 3 (`riprendi/SKILL.md`, `PACKAGES.md`, `templates/tools/README.md`), VECCHIO 21, NUOVO 20 (le regole condizionali `markdown-format.md` e `disclosure-progressiva.md`, il pacchetto `comandi-ragionamento`, `llm-local/tools/rileva-endpoint.py`), ADATTATO 16, LOCALE 2, UGUALE 506. Le righe tolte dalle fusioni, guardate con `git diff -U0`, sono testo del template sostituito dalla sua versione nuova; `operations-log` resta nel catalogo. Le quattro regole diventate condizionali si nominano nell'indice del `CLAUDE.md` per le situazioni senza un file che le carichi: aggiunta la riga di `manual-screenshots.md`. `tools/misura-istruzioni.py`: `CLAUDE.md` oltre il tetto per file, 16.523 byte prima della riga e 16.685 dopo, su 15.000; registrato in `pending.md`. `_notes/resume-prompt.md` riorganizzato come chiede la `riprendi` nuova: stato corrente in testa, cronologia sotto una linea orizzontale, versione precedente in `_notes/archivio/`; provato con `verifica-ripresa.py --dopo-azzeramento` e un evento `clear` simulato, stampa la testa. `chiudi -SoloControlli` verde.
+
+Lezioni per il template: nessuna. Il candidato era il commit di allineamento del 2026-11-12 fatto fuori sessione e assente dal work log; `allinea-tutti.ps1` non committa, il commit è del proprietario, e `verifica-ripresa.py` l'ha riconosciuto come prevede il suo disegno.
+
+**Template:** nessuna.
+
+**Didattica:** nessuna voce nuova.
+
 ## 2026-11-13, decima parte. Giro 11 in HOME: 6223, i giri sono finiti
 
 Il proprietario ha mandato la foto del totale «All Pokémon», vista il 2026-11-13: 6223, cioè 6200 più tutti i 23 di GIAPPONE2; nessuno rimasto nei box. Ha detto che i Meltan li porterà tutti insieme, con il loro pedigree, per non fare confusione. Punto 18: GIAPPONE2 «in HOME» in `tools/stampa-collezione.py`, pedigree e PDF rigenerati (1 riga cambiata); `tools/sfide-bank.py` 47 su 47. `RUNBOOK-PASSO-2.md`, `ROADMAP.md` (riga 11 e nota di fine dei giri), `COPIE-PER-HOME.md`, `ESEMPLARI-DA-GO.md`. Tesi, capitolo 28: riga del giro 11, undici riletture su undici, 6197 portati e 6187 ricevuti, deposito a 6223 = 6187 + 34 di prima del giro 1 + 2 da GO; compilata, 370 pagine, nessun riferimento indefinito. Con la fine dei giri finisce la sospensione delle pendenze dell'agente chiesta dal proprietario.

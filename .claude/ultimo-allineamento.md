@@ -2,38 +2,52 @@
 
 <!-- generato da allinea-dal-template.py -->
 
-Commit a monte: `c2d2aa54514730eb5474338019aa9c6b90bc3381`. File interessati dalla passata: 29. Commit e push del progetto restano manuali.
+Commit a monte: `10f796def30877c3ef2f7c150c7bf8290f867e9b`. File interessati dalla passata: 43. Commit e push del progetto restano manuali.
 
 | Esito | File |
 |---|---|
-| VECCHIO | `.claude/norme/git-commands-format.md` |
-| VECCHIO | `.claude/rules/git-commands-format.md` |
-| VECCHIO | `.claude/skills/craft-apps/SKILL.md` |
-| VECCHIO | `.claude/skills/prove-che-misurano/RIFERIMENTO.md` |
-| VECCHIO | `.claude/templates/agenti-terminale/README.md` |
-| VECCHIO | `.claude/templates/agenti-terminale/tools/Installa-Agenti.ps1` |
-| VECCHIO | `.claude/templates/craft-apps/README.md` |
-| VECCHIO | `.claude/templates/craft-apps/stili/aziendale-design-system.esempio.json` |
-| VECCHIO | `.claude/templates/craft-apps/tools/craft-apps.py` |
-| VECCHIO | `.claude/templates/craft-apps/tools/craft-documento.py` |
-| VECCHIO | `.claude/templates/instradamento-modelli/mod/.claude-plugin/plugin.json` |
-| VECCHIO | `.claude/templates/lezioni-recepite.json` |
-| VECCHIO | `.claude/templates/scientific-skills/MAPPA-SKILL-SCIENTIFICHE.md` |
+| NUOVO | `.claude/rules/disclosure-progressiva.md` |
+| VECCHIO | `.claude/rules/interaction-style.md` |
+| VECCHIO | `.claude/rules/manual-screenshots.md` |
+| NUOVO | `.claude/rules/markdown-format.md` |
+| VECCHIO | `.claude/rules/security-permissions.md` |
+| VECCHIO | `.claude/rules/token-economy.md` |
+| MERGE | `.claude/skills/riprendi/SKILL.md` |
+| MERGE | `.claude/templates/PACKAGES.md` |
+| NUOVO | `.claude/templates/comandi-ragionamento/README.md` |
+| NUOVO | `.claude/templates/comandi-ragionamento/skills/artefatto/SKILL.md` |
+| NUOVO | `.claude/templates/comandi-ragionamento/skills/assumptions/SKILL.md` |
+| NUOVO | `.claude/templates/comandi-ragionamento/skills/brief/SKILL.md` |
+| NUOVO | `.claude/templates/comandi-ragionamento/skills/devil/SKILL.md` |
+| NUOVO | `.claude/templates/comandi-ragionamento/skills/ghost/SKILL.md` |
+| NUOVO | `.claude/templates/comandi-ragionamento/skills/godmode/SKILL.md` |
+| NUOVO | `.claude/templates/comandi-ragionamento/skills/lockin/SKILL.md` |
+| NUOVO | `.claude/templates/comandi-ragionamento/skills/matrix/SKILL.md` |
+| NUOVO | `.claude/templates/comandi-ragionamento/skills/ooda/SKILL.md` |
+| NUOVO | `.claude/templates/comandi-ragionamento/skills/premortem/SKILL.md` |
+| NUOVO | `.claude/templates/comandi-ragionamento/skills/redteam/SKILL.md` |
+| NUOVO | `.claude/templates/comandi-ragionamento/skills/roast/SKILL.md` |
+| NUOVO | `.claude/templates/comandi-ragionamento/skills/secondorder/SKILL.md` |
+| NUOVO | `.claude/templates/comandi-ragionamento/skills/silent/SKILL.md` |
+| NUOVO | `.claude/templates/comandi-ragionamento/skills/steal/SKILL.md` |
+| NUOVO | `.claude/templates/comandi-ragionamento/skills/steelman/SKILL.md` |
+| VECCHIO | `.claude/templates/fonti-a-monte.json` |
+| VECCHIO | `.claude/templates/fonti-a-monte.md` |
+| VECCHIO | `.claude/templates/hooks-starter/hooks/apertura-sessione.ps1` |
+| VECCHIO | `.claude/templates/hooks-starter/hooks/apertura-sessione.sh` |
+| VECCHIO | `.claude/templates/instradamento-modelli/README.md` |
+| VECCHIO | `.claude/templates/llm-local/README.md` |
+| VECCHIO | `.claude/templates/llm-local/tools/bench-correttezza.py` |
+| VECCHIO | `.claude/templates/llm-local/tools/offload-lotto.py` |
+| NUOVO | `.claude/templates/llm-local/tools/rileva-endpoint.py` |
 | MERGE | `.claude/templates/tools/README.md` |
-| VECCHIO | `.claude/templates/tools/allinea-tutti.ps1` |
-| VECCHIO | `.claude/templates/tools/chiudi-sessione.ps1` |
-| VECCHIO | `.claude/templates/tools/chiudi-sessione.sh` |
-| VECCHIO | `.claude/templates/tools/fonti-a-monte.py` |
-| VECCHIO | `.claude/templates/tools/installa-chiudi.sh` |
-| VECCHIO | `.claude/templates/tools/lint-doc-references.py` |
-| VECCHIO | `.claude/templates/tools/misura-istruzioni.py` |
-| VECCHIO | `.claude/templates/tools/stato-template.py` |
-| VECCHIO | `.claude/templates/tools/tests/test_session_alignment.py` |
-| VECCHIO | `.claude/templates/tools/trasporto-ssh.ps1` |
+| VECCHIO | `.claude/templates/tools/allinea-dal-template.py` |
+| VECCHIO | `.claude/templates/tools/check-raggiungibilita.py` |
+| VECCHIO | `.claude/templates/tools/tests/test_allinea_dal_template.py` |
+| VECCHIO | `.claude/templates/tools/tests/test_milestone_scope.py` |
+| VECCHIO | `.claude/templates/tools/verifica-milestone.py` |
 | VECCHIO | `.claude/templates/tools/verifica-ripresa.py` |
-| MERGE | `tools/chiudi-sessione.ps1` |
-| VECCHIO | `tools/chiudi-sessione.sh` |
-| VECCHIO | `tools/misura-istruzioni.py` |
+| VECCHIO | `tools/verifica-milestone.py` |
 | VECCHIO | `tools/verifica-ripresa.py` |
 
 Conflitti ancora da risolvere: 0.

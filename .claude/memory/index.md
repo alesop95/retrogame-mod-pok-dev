@@ -8,7 +8,7 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 
 ```
 Branch attivo:         main
-Commit di riferimento: e77e84d, Allineamento dal template al commit c2d2aa5 (riancorato il 2026-11-13 da 03b1e09: in mezzo solo d243729 e e77e84d, due allineamenti dal template)
+Commit di riferimento: e231b7a, Giro 11 in HOME (6223): tutti i lotti per HOME passati
 Data snapshot:         2026-11-13: giri 1-11 tutti in HOME, HOME a 6223 (6187 dai giri, 34 di prima, 2 da GO); restano i Meltan da GO e i passi 5-6
 ```
 
@@ -36,6 +36,8 @@ Data snapshot:         2026-11-13: giri 1-11 tutti in HOME, HOME a 6223 (6187 da
 Le cose in sospeso non stanno qui ma in `pending.md`, che va letto subito dopo questo file: materiale atteso, credenziali, fonti in sospeso, strumenti da richiamare a una condizione, debito di lettura, punti aperti e blocchi materiali.
 
 ## Punto di ripresa
+
+AGGIUNTA DEL 2026-11-13, chiusura di sessione, che prevale su quelle sotto. `chiudi` fatto (`e231b7a`). Allineamento al template `10f796d` applicato, 0 conflitti, da committare con `chiudi`; poi wipe e `/riprendi` (o `$riprendi`). Lo stato da cui ripartire è la testa di `_notes/resume-prompt.md`: lotti per HOME finiti, HOME 6223; aperti i Meltan da GO, le pendenze dell'agente tenute in sospeso, i passi 5 e 6.
 
 AGGIUNTA DEL 2026-11-13, fine dei giri, che prevale su quelle sotto. Giro 11 IN HOME: 6223. Tutti gli undici giri sono passati: 6197 portati, 6187 arrivati, 10 rimasti spiegati. Fuori dai giri: i Meltan da GO, che il proprietario porta tutti insieme (pedigree in `ESEMPLARI-DA-GO.md`), e i passi 5 e 6 della roadmap. Le pendenze dell'agente tenute in sospeso si riprendono: Jirachi cromatico di terza generazione, Magearna Colore Originale, novità degli hook del 2026-11-13, `pret/pokered`, controllo del formato di arrivo; allineamento al template da autorizzare.
 
