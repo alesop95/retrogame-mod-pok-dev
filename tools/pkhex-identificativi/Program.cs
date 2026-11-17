@@ -15,7 +15,9 @@
 // il JSON. Con --tid N limita il JSON e i conteggi agli esemplari con quel TID, cioè all'allenatore del progetto.
 // Non scrive e non modifica nulla oltre al file di uscita.
 //
-// Uso:  dotnet run -c Release -- USCITA.json [--tid N] PERCORSO [PERCORSO ...]
+// Con --squadra legge da un salvataggio anche la squadra, oltre al deposito.
+//
+// Uso:  dotnet run -c Release -- USCITA.json [--tid N] [--squadra] PERCORSO [PERCORSO ...]
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using PKHeX.Core;
@@ -28,6 +30,7 @@ if (argomenti.Count < 2)
 }
 var uscita = argomenti[0];
 argomenti.RemoveAt(0);
+var conSquadra = argomenti.Remove("--squadra");
 int? soloTid = null;
 var i = argomenti.IndexOf("--tid");
 if (i >= 0)
@@ -65,6 +68,9 @@ foreach (var percorso in argomenti)
             if (pk.Species != 0)
                 voci.Add(($"box {s / sav.BoxSlotCount + 1} posto {s % sav.BoxSlotCount + 1}", pk));
         }
+        // con --squadra si leggono anche i sei posti della squadra, che il deposito non contiene
+        for (int s = 0; conSquadra && s < sav.PartyCount; s++)
+            voci.Add(($"squadra posto {s + 1}", sav.GetPartySlotAtIndex(s)));
     }
     else
     {

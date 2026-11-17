@@ -29,6 +29,7 @@
 // Uso:  dotnet run -c Release -- ELENCO.json ALLENATORE.json CARTELLA_DI_USCITA
 //       dotnet run -c Release -- --mosse ELENCO.json ALLENATORE.json CARTELLA_DI_USCITA
 //       dotnet run -c Release -- --cartuccia SALVATAGGIO CARTELLA_DI_USCITA
+//       dotnet run -c Release -- --squadra SALVATAGGIO CARTELLA_DI_USCITA   la sola squadra, che il deposito non contiene
 //       dotnet run -c Release -- --prova SPECIE GIOCO    diagnosi: quanti incontri la libreria da' per una specie
 using System.Security.Cryptography;
 using System.Text.Json;
@@ -60,7 +61,9 @@ if (args[0] == "--serebii")
 if (args[0] == "--carte")
     return Carte(args[1], args.Skip(2).TakeWhile(x => x != "--produci" && x != "--traccia" && x != "--epoca-cartucce").ToArray());
 if (args[0] == "--cartuccia")
-    return Cartuccia(args[1], args[2]);
+    return Cartuccia(args[1], args[2], false);
+if (args[0] == "--squadra")
+    return Cartuccia(args[1], args[2], true);
 // --carte-specie NUMERO: elenca le carte della libreria di una specie, con titolo, allenatore, ID e regola di cromaticita' (ADR-119)
 if (args[0] == "--carte-specie")
 {
@@ -1142,24 +1145,25 @@ int Statici(string allenatoreJson, string uscita, string cartella, string[] copi
     return 0;
 }
 
-int Cartuccia(string salvataggio, string cartella)
+int Cartuccia(string salvataggio, string cartella, bool squadra)
 {
     var sav = SaveUtil.GetSaveFile(salvataggio) ?? throw new InvalidOperationException("salvataggio non letto: " + salvataggio);
     var dir = Directory.CreateDirectory(cartella).FullName;
     var lista = new JsonArray();
     int conformi = 0;
-    for (int i = 0; i < sav.SlotCount; i++)
+    // con la squadra il box vale 0 e il posto e' quello nella squadra
+    for (int i = 0; i < (squadra ? sav.PartyCount : sav.SlotCount); i++)
     {
-        var pk = sav.GetBoxSlotAtIndex(i);
+        var pk = squadra ? sav.GetPartySlotAtIndex(i) : sav.GetBoxSlotAtIndex(i);
         if (pk.Species == 0) continue;
-        int box = i / sav.BoxSlotCount + 1, posto = i % sav.BoxSlotCount + 1;
+        int box = squadra ? 0 : i / sav.BoxSlotCount + 1, posto = squadra ? i + 1 : i % sav.BoxSlotCount + 1;
         var la = new LegalityAnalysis(pk);
         var voce = new JsonObject { ["box"] = box, ["posto"] = posto, ["specie"] = testi.specieslist[pk.Species], ["conforme"] = la.Valid };
         if (la.Valid)
         {
             var dati = new byte[pk.SIZE_STORED];
             pk.WriteDecryptedDataStored(dati);
-            var file = $"S{box:00}-{posto:00}-{testi.specieslist[pk.Species]}.{pk.Extension}";
+            var file = $"{(squadra ? "Q" : "S")}{box:00}-{posto:00}-{testi.specieslist[pk.Species]}.{pk.Extension}";
             foreach (var c in Path.GetInvalidFileNameChars()) file = file.Replace(c, '_');
             File.WriteAllBytes(Path.Combine(dir, file), dati);
             voce["file"] = file;

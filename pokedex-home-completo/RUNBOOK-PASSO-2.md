@@ -317,6 +317,95 @@ Stato al 2026-11-13, più tardi: punti 5-14 FATTI. Il proprietario ha fatto il B
 
 Punti 15-18 FATTI il 2026-11-13. HOME conta 6223, cioè 6200 più tutti i 23 esemplari, letto dalla foto del totale «All Pokémon» mandata dal proprietario; nessuno è rimasto nei box. GIAPPONE2 è «in HOME» in `tools/stampa-collezione.py`, pedigree e PDF rigenerati; `tools/sfide-bank.py` dà 47 sfide coperte su 47. I giri per HOME sono finiti: undici giri, 6197 esemplari portati, 6187 arrivati, i dieci rimasti spiegati posto per posto. I Meltan da GO il proprietario li porterà tutti insieme, con il loro pedigree in `ESEMPLARI-DA-GO.md`.
 
+## Giro 12
+
+Scritto il 2026-11-16 per ADR-126, ed è il primo dei due giri di sostituzione: porta in HOME i doni da carta di settima generazione, e quelli già in formato di settima, con la data di incontro dentro la finestra dell'evento. La copia è RIDATA2, `_notes/salvataggi/prove/per-home/ultraluna-ridata-2/main`, 568 esemplari, 445440 byte, SHA-256 `fc78be14e203130c9439dad49b8089764937fe47e7f6158dde60cb0ef3bb61d0`, giudicata 568 conformi (`_notes/lavoro/giudizi-copie/ridata-20261116b.json`): box da 1 a 18 pieni e box 19 posti da 1 a 28. Al posto 28 del box 19 c'è il Jirachi cromatico del disco bonus di Colosseum (WISHMKR, ID 20043), voluto dal proprietario il 2026-11-16 e prodotto da `tools/pkhex-jirachi-cromatico`; gli altri 567 sono identici alla prima versione della copia, `ultraluna-ridata-1`, superata. È la copia HOME10 con i box svuotati e riempiti con gli esemplari rigenerati da `tools/pkhex-ridata`, identici ai vecchi salvo la data; i 36 che vengono da HOME4, cioè da Luna, hanno anche l'allenatore di Ultraluna come detentore. HOME conta 6223 e dopo questo giro deve contarne 6791, perché i vecchi si liberano solo dopo (l'elenco da liberare di `python tools/elenco-da-liberare.py --stampa`).
+
+Stato al 2026-11-16: punti 1-4 FATTI. `/3ds/Checkpoint/saves/` è copiata in `_notes/salvataggi/console/sd-checkpoint-20261116/` e in `J:/backup-sd-3ds/20261116/`, 46 file, ciascuna verificata con `sha256sum -c` contro l'elenco preso dalla SD (`sd-20261116.sha256` accanto a ciascuna), tutti uguali. `20261116-giro12/main` è nella cartella `0x01B51 Pokémon Ultra Moon` della SD, 445440 byte, riletta con SHA-256 `fc78be14…` uguale a RIDATA2. I nomi del giorno sono `20261116-prima12` e `20261116-rilett12`. Tocca al proprietario dal punto 5.
+
+Stato al 2026-11-16, più tardi: punti 5-14 FATTI. Il proprietario ha fatto il Backup `20261116-prima12`, il Restore, i controlli del punto 9 e il Backup `20261116-rilett12`. Punto 13: `20261116-rilett12/main` ha SHA-256 `fc78be14…`, uguale a RIDATA2. Punto 14: giudizio in `_notes/lavoro/giudizi-copie/rilettura-passo2-giro12.json`, libreria 26.10.18: `rilett12` 568 esemplari, 568 conformi, negli stessi posti di RIDATA2 e con tutti i campi uguali a `ridata-20261116b.json`, impronte comprese, salvo `origine`; `prima12` (SHA-256 `5194cd9f…`) 0 esemplari nei box, come atteso. Riserve `_notes/salvataggi/console/sd-checkpoint-20261116b/` e `J:/backup-sd-3ds/20261116b/`, 49 file ciascuna, verificate con `sha256sum -c` contro l'elenco preso dalla SD (`sd-20261116b.sha256`), tutte uguali. Tocca al proprietario dal punto 15.
+
+Punti 15-18 FATTI il 2026-11-16. HOME conta 6791, cioè 6223 più tutti i 568 esemplari, letto dalla foto del totale «All Pokémon» mandata dal proprietario; nessuno è rimasto nei box. RIDATA2 è «in HOME» in `tools/stampa-collezione.py`, pedigree e PDF rigenerati. I 567 vecchi che sostituisce restano in HOME fino alla fine del giro 13.
+
+La partita che Ultraluna ha adesso è HOME10 dopo la banca del giro 10, con i box vuoti: è giusto che la riserva `prima12` del punto 7 sembri vuota.
+
+1. Proprietario: spegni il 3DS del tutto.
+2. Proprietario: SD nel PC, lettera `I:`, e dimmelo.
+3. Agente: copia di `/3ds/Checkpoint/saves/` in `_notes/salvataggi/console/sd-checkpoint-<data>/` e in `J:/backup-sd-3ds/<data>/`, con lo SHA-256 di ogni file, dove la data è quella del giorno (con una lettera se nello stesso giorno c'è già una riserva).
+4. Agente: cartella `<data>-giro12` di Pokémon Ultra Moon con la copia di nome `main`, riletta dalla SD.
+5. Proprietario: espelli la SD e rimettila nel 3DS.
+6. Proprietario: avvia Checkpoint.
+7. Proprietario: scegli Pokémon Ultra Moon, Backup, nome `<data>-prima12`. È la partita com'è adesso, prima del giro, con i box vuoti. Non si rifà e non si cancella.
+8. Proprietario: seleziona `<data>-giro12`, Restore, conferma.
+9. Proprietario: avvia Ultraluna senza salvare e controlla: box 1 posto 1 Magearna livello 50, allenatore Alessio; box 1 posto 30 Mienshao livello 65, allenatore フラダリ; box 19 posto 27 Jirachi livello 15, allenatore たなばた; box 19 posto 28 Jirachi cromatico livello 5, allenatore WISHMKR; box da 1 a 18 pieni, box 19 con i posti da 1 a 28.
+10. Proprietario: esci senza salvare.
+11. Proprietario: Checkpoint, Pokémon Ultra Moon, Backup, nome `<data>-rilett12`.
+12. Proprietario: spegni, SD nel PC, e dimmelo.
+13. Agente: SHA-256 di `<data>-rilett12/main` uguale a quello della copia.
+14. Agente: giudizio della rilettura, 568 conformi negli stessi posti; `prima12` giudicata, con i box vuoti; `prima12` e `rilett12` nelle due riserve.
+15. Proprietario: SD nel 3DS.
+16. Proprietario: il passaggio alla banca e a HOME, fuori dall'assistenza. Se qualcuno resta nei box, lascialo lì e dimmi box e posto, o mandami la foto del box.
+17. Proprietario: HOME da 6223 a 6791, foto del totale; se ne mancano, foto del box di Ultraluna con quelli rimasti. Non liberare ancora niente.
+18. Agente: RIDATA2 «in HOME», pedigree; poi il giro 13.
+
+## Giro 13
+
+Scritto il 2026-11-16 per ADR-126, ed è il secondo giro di sostituzione: porta in HOME i 429 sostituti di sesta generazione che mancano, così che con i 567 del giro 12 ci siano tutti i 996 prima della liberazione, più il Jirachi cromatico di Pokémon Channel. Verde Foglia viene dopo, in un giro suo, per correzione del proprietario dello stesso giorno. La copia è RIDATA1, `_notes/salvataggi/prove/per-home/oras-ridata-2/main`, 430 esemplari, 483328 byte, SHA-256 `dd52356b39491577ec0b29635159e235f44830efe5839d425f8fe780085d9c8b`, giudicata 430 conformi (`_notes/lavoro/giudizi-copie/ridata-20261116b.json`): box da 1 a 14 pieni e box 15 posti da 1 a 10, con il Jirachi CHANNEL al posto 10. È la copia HOME9 con i box svuotati e riempiti con gli esemplari rigenerati. HOME conta 6791 e dopo questo giro deve contarne 7221.
+
+La partita che Rubino Omega ha adesso è HOME9 dopo la banca del giro 6, con i sei Pikachu Cosplay nel box 16, posti da 24 a 29, che il gioco non lascia uscire: la riserva `prima13` del punto 7 li contiene, e il Restore del punto 8 li toglie dalla partita, come il giro 9 fece con i quattro totem. Restano nella riserva, nelle due copie del PC e nella copia HOME9.
+
+Stato al 2026-11-16: punti 1-4 FATTI. `/3ds/Checkpoint/saves/` è copiata in `_notes/salvataggi/console/sd-checkpoint-20261116c/` e in `J:/backup-sd-3ds/20261116c/`, 49 file, ciascuna verificata con `sha256sum -c` contro l'elenco preso dalla SD (`sd-20261116c.sha256`), tutti uguali. `20261116-giro13/main` è nella cartella `0x011C4 Pokémon Omega Ruby` della SD, 483328 byte, riletta con SHA-256 `dd52356b…` uguale a RIDATA1. I nomi del giorno sono `20261116-prima13` e `20261116-rilett13`. Tocca al proprietario dal punto 5.
+
+Stato al 2026-11-16, più tardi: punti 5-14 FATTI. Punto 13: `20261116-rilett13/main` ha SHA-256 `dd52356b…`, uguale a RIDATA1. Punto 14: giudizio in `_notes/lavoro/giudizi-copie/rilettura-passo2-giro13.json`, libreria 26.10.18: `rilett13` 430 esemplari, 430 conformi, negli stessi posti e con tutti i campi uguali a `ridata-20261116b.json`, impronte comprese, salvo `origine`; `prima13` (SHA-256 `e1d5941f…`) con i soli sei Pikachu Cosplay nel box 16, posti da 24 a 29, come atteso. Riserve `_notes/salvataggi/console/sd-checkpoint-20261116d/` e `J:/backup-sd-3ds/20261116d/`, 52 file ciascuna, verificate con `sha256sum -c` (`sd-20261116d.sha256`). Tocca al proprietario dal punto 15.
+
+Punti 15-18 FATTI il 2026-11-16. HOME conta 7221, cioè 6791 più tutti i 430 esemplari, letto dalla foto del totale mandata dal proprietario. RIDATA1 è «in HOME» in `tools/stampa-collezione.py`, pedigree e PDF rigenerati; i sei Pikachu Cosplay di HOME9 hanno lo stato «fuori da HOME», nella riserva `prima13`. L'elenco da liberare è rigenerato con `--stampa` in `_notes/stampa/da-liberare/`, con i totali da 7221 a 6225: tutti i 996 sostituti sono in HOME e la liberazione può cominciare.
+
+1. Proprietario: spegni il 3DS del tutto.
+2. Proprietario: SD nel PC, lettera `I:`, e dimmelo.
+3. Agente: copia di `/3ds/Checkpoint/saves/` nelle due riserve, con lo SHA-256 di ogni file.
+4. Agente: cartella `<data>-giro13` di Pokémon Omega Ruby con la copia di nome `main`, riletta dalla SD.
+5. Proprietario: espelli la SD e rimettila nel 3DS.
+6. Proprietario: avvia Checkpoint.
+7. Proprietario: scegli Pokémon Omega Ruby, Backup, nome `<data>-prima13`. È la partita com'è adesso, con i sei Pikachu Cosplay nel box 16. Non si rifà e non si cancella.
+8. Proprietario: seleziona `<data>-giro13`, Restore, conferma.
+9. Proprietario: avvia Rubino Omega senza salvare e controlla: box 1 posto 1 Sylveon livello 10, allenatore XY; box 1 posto 30 Landorus livello 50, allenatore ヒャダイン; box 15 posto 9 Arceus livello 100, allenatore デセルシティ; box 15 posto 10 Jirachi cromatico livello 5, allenatore CHANNEL; box da 1 a 14 pieni, box 15 con i posti da 1 a 10, box 16 vuoto.
+10. Proprietario: esci senza salvare.
+11. Proprietario: Checkpoint, Pokémon Omega Ruby, Backup, nome `<data>-rilett13`.
+12. Proprietario: spegni, SD nel PC, e dimmelo.
+13. Agente: SHA-256 di `<data>-rilett13/main` uguale a quello della copia.
+14. Agente: giudizio della rilettura, 430 conformi negli stessi posti; `prima13` giudicata, con i sei Pikachu Cosplay; `prima13` e `rilett13` nelle due riserve.
+15. Proprietario: SD nel 3DS.
+16. Proprietario: il passaggio alla banca e a HOME, fuori dall'assistenza. Se qualcuno resta nei box, lascialo lì e dimmi box e posto, o mandami la foto del box.
+17. Proprietario: HOME da 6791 a 7221, foto del totale. Non liberare ancora niente.
+18. Agente: RIDATA1 «in HOME», pedigree, e l'elenco da liberare con `python tools/elenco-da-liberare.py --stampa`; poi la liberazione dei 996, e dopo Verde Foglia.
+
+## Giro 14
+
+Scritto il 2026-11-17 per ADR-130 e ADR-131: i Pokémon veri della cartuccia di Diamante che PKHeX giudica conformi, senza i cloni dell'epoca e senza i dieci cromatici con lo stesso PID, più le squadre di Smeraldo e Rubino. Ogni esemplare ha la data di Poké Transfer di ADR-128, fra il 2011-03-04 e il 2013-12-31, scritta da `tools/pkhex-scrivi-salvataggio` con `--data-poke-transfer`; la data vera è nel pedigree, campo «data nel lotto». La copia è `_notes/salvataggi/prove/per-home/oras-diamante-1/main`, 245 esemplari, 483328 byte, SHA-256 `1cbdd79d09fdee560661f0a49a267db8ad40c863fdf748694a10074a80a47456`, giudicata 245 conformi (`_notes/lavoro/giudizi-copie/diamante-20261117.json`): box da 1 a 8 pieni e box 9 posti da 1 a 5. È la copia RIDATA1 con i box svuotati e riempiti, con `--svuota --regione-dal-salvataggio --includi-mn --data-poke-transfer`. Il passaggio alla banca e a HOME aggiunge 245 al totale di HOME: a liberazione finita 6470.
+
+Stato al 2026-11-17: punti 1-4 FATTI. `/3ds/Checkpoint/saves/` è copiata in `_notes/salvataggi/console/sd-checkpoint-20261117a/` e in `J:/backup-sd-3ds/20261117a/`, 54 file, ciascuna verificata con `sha256sum -c` contro l'elenco preso dalla SD (`sd-20261117a.sha256`). `20261117-giro14/main` è nella cartella `0x011C4 Pokémon Omega Ruby` della SD, riletta con SHA-256 `1cbdd79d…` uguale alla copia; le due versioni precedenti della stessa cartella, con 244 e poi con 296 esemplari, sono state sostituite prima che il proprietario facesse il Restore. Tocca al proprietario dal punto 5.
+
+Stato al 2026-11-17, più tardi: punti 5-14 FATTI. Punto 13: `20261117-rilett14/main` ha SHA-256 `1cbdd79d…`, uguale alla copia. Punto 14: giudizio in `_notes/lavoro/giudizi-copie/rilettura-passo2-giro14.json`: `rilett14` 245 esemplari, 245 conformi, stessi posti e stesse impronte di `diamante-20261117.json`; `prima14` (SHA-256 `52f52f01…`) con i box vuoti. Riserve `_notes/salvataggi/console/sd-checkpoint-20261117b/` e `J:/backup-sd-3ds/20261117b/`, 57 file ciascuna, verificate con `sha256sum -c` (`sd-20261117b.sha256`). Il proprietario ha deciso di non aspettare la fine della liberazione: il deposito Premium tiene 9000 esemplari (`COPIE-PER-HOME.md`), e 7221 più 245 fa 7466. L'elenco da liberare riconosce ogni esemplare per etichetta, specie, sesso, livello, allenatore e data, che i Pokémon di Diamante non condividono con nessuna voce; ai totali attesi dell'elenco si aggiungono 245. Tocca al proprietario dal punto 15.
+
+1. Proprietario: spegni il 3DS del tutto.
+2. Proprietario: SD nel PC, lettera `I:`, e dimmelo.
+3. Agente: copia di `/3ds/Checkpoint/saves/` nelle due riserve, con lo SHA-256 di ogni file.
+4. Agente: cartella `<data>-giro14` di Pokémon Omega Ruby con la copia di nome `main`, riletta dalla SD.
+5. Proprietario: espelli la SD e rimettila nel 3DS.
+6. Proprietario: avvia Checkpoint.
+7. Proprietario: scegli Pokémon Omega Ruby, Backup, nome `<data>-prima14`. È la partita com'è adesso. Non si rifà e non si cancella.
+8. Proprietario: seleziona `<data>-giro14`, Restore, conferma.
+9. Proprietario: avvia Rubino Omega senza salvare e controlla: box 1 posto 1 Nidoran♂ livello 24, della squadra di Smeraldo; box 1 posto 30 Unown livello 25; box 9 posto 5 Nidoking livello 45; box da 1 a 8 pieni, box 9 con i posti da 1 a 5, box 10 vuoto.
+10. Proprietario: esci senza salvare.
+11. Proprietario: Checkpoint, Pokémon Omega Ruby, Backup, nome `<data>-rilett14`.
+12. Proprietario: spegni, SD nel PC, e dimmelo.
+13. Agente: SHA-256 di `<data>-rilett14/main` uguale a quello della copia.
+14. Agente: giudizio della rilettura, 245 conformi negli stessi posti; `prima14` giudicata; `prima14` e `rilett14` nelle due riserve.
+15. Proprietario: SD nel 3DS.
+16. Proprietario: il passaggio alla banca e a HOME, fuori dall'assistenza, anche mentre la liberazione dei 996 è in corso. Se qualcuno resta nei box, lascialo lì e dimmi box e posto, o mandami la foto del box.
+17. Proprietario: foto del totale di HOME, che è quello di prima più 245: 7466 se non hai ancora liberato niente, 6470 a liberazione finita.
+18. Agente: la copia «in HOME» in `tools/stampa-collezione.py`, pedigree e stampabile (ADR-111, ADR-127).
+
 ## Dopo il giro 4
 
 La partita vera di Rubino Omega, `20260821-backsic`, resta fuori dalla console fino al passo 6. I giri successivi sono nella tabella in testa a `ROADMAP.md`: il 5 (HOME8, `oras-giro-5-carte-mn5`, 256) e il 6 (HOME9, `oras-giro-6-statici-eventi-4`, 695, di cui 689 in HOME e i sei Pikachu Cosplay rimasti in Rubino Omega) sono ancora di Rubino Omega e seguono questa procedura con i nomi del giorno; dal 7 si passa a Luna e Ultraluna, e al giro 8, il primo di Ultraluna, la copia di riserva di Checkpoint crea la cartella del gioco.

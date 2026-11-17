@@ -160,7 +160,10 @@ STATO_GRUPPO = {"HOME1": ("DSstatoinhome", "in HOME"), "HOME2": ("DSstatoinhome"
                 "HOME5": ("DSstatoinhome", "in HOME"),  # il giro 8 dal 2026-11-10, HOME a 5176
                 "HOME7": ("DSstatoinhome", "in HOME"),  # il giro 9 dal 2026-11-13, HOME a 5818
                 "HOME10": ("DSstatoinhome", "in HOME"),  # il giro 10 dal 2026-11-13, HOME a 6198
-                "GIAPPONE2": ("DSstatoinhome", "in HOME")}  # il giro 11 dal 2026-11-13, HOME a 6223 con i due da GO
+                "GIAPPONE2": ("DSstatoinhome", "in HOME"),  # il giro 11 dal 2026-11-13, HOME a 6223 con i due da GO
+                "RIDATA2": ("DSstatoinhome", "in HOME"),  # il giro 12 dal 2026-11-16, HOME a 6791 (ADR-126)
+                "RIDATA1": ("DSstatoinhome", "in HOME")}  # il giro 13 dal 2026-11-16, HOME a 7221 (ADR-126)
+# DIAMANTE1, il giro 14 (ADR-130), resta «in copia» finché non arriva in HOME dopo la liberazione dei 996
 
 
 # Gli esemplari che il gioco non lascia uscire dalla console anche se la libreria li giudica conformi nel loro gioco: il
@@ -184,16 +187,49 @@ def resta_in_console(e):
                 "2026-11-13 non è più nella partita di Ultraluna, sostituita dal Restore: sta nella riserva di "
                 "Checkpoint 20261111-prima9, nelle due riserve del PC e nella copia HOME5.")
     if e["numero"] == 25 and e.get("generazione") == 6 and e.get("forma_n", 0) in range(1, 7):
-        return ("DSstatoincopia", "resta in Rubino Omega",
-                "Resta in Rubino Omega: il Pikachu Cosplay non lascia la sesta generazione, e al giro 6 del 2026-11-09 "
-                "non è passato a HOME con gli altri esemplari della copia.")
+        return ("DSstatoincopia", "fuori da HOME",
+                "Resta fuori da HOME: il Pikachu Cosplay non lascia la sesta generazione, e al giro 6 del 2026-11-09 "
+                "non è passato a HOME con gli altri esemplari della copia. Dal giro 13 del 2026-11-16 non è più nella "
+                "partita di Rubino Omega, sostituita dal Restore: sta nella riserva di Checkpoint 20261116-prima13, nelle "
+                "due riserve del PC e nella copia HOME9.")
+    return None
+
+
+# Dal 2026-11-16 (ADR-126): i doni da carta con la data di incontro fuori dalla finestra dell'evento hanno un sostituto,
+# identico salvo la data, nelle copie RIDATA1 e RIDATA2, e vanno liberati in HOME dopo i giri di quelle copie. Il legame
+# fra vecchio e nuovo lo scrive `tools/elenco-da-liberare.py`.
+SOSTITUZIONI_RIDATA = os.path.join(RADICE, "pokedex-home-completo", "data", "sostituzioni-ridata.json")
+_sost = json.load(io.open(SOSTITUZIONI_RIDATA, encoding="utf-8")) if os.path.exists(SOSTITUZIONI_RIDATA) else []
+SOSTITUITI = {x["impronta_vecchia"]: x for x in _sost}
+SOSTITUTI = {x["impronta_nuova"]: x for x in _sost}
+
+
+def stato_esemplare(e):
+    """Lo stato proprio dell'esemplare, se diverso da quello del gruppo: fermo in console, oppure sostituito."""
+    fermo = resta_in_console(e)
+    if fermo:
+        return fermo
+    x = SOSTITUITI.get(e.get("impronta"))
+    if x:
+        return ("DSstatoincopia", "da liberare in HOME",
+                "Da liberare in HOME: la data di incontro %s sta fuori dalla finestra dell'evento (ADR-126). Il sostituto, "
+                "identico salvo la data, %s, è nella copia %s, box %d, posto %d; questo esemplare si libera dopo che il "
+                "sostituto è in HOME, cercandolo sotto l'etichetta «Bank %d»." % (
+                    x["data_vecchia"], x["data_nuova"], x["gruppo_nuovo"], x["box_nuovo"], x["posto_nuovo"],
+                    x["box_vecchio"]))
+    x = SOSTITUTI.get(e.get("impronta"))
+    if x:
+        return STATO_GRUPPO.get(x["gruppo_nuovo"], ("DSstatoincopia", "in copia")) + (
+                "Sostituisce l'esemplare di %s, box %d, posto %d, che aveva la data di incontro %s fuori dalla finestra "
+                "dell'evento (ADR-126)." % (x["gruppo_vecchio"], x["box_vecchio"], x["posto_vecchio"], x["data_vecchia"]),)
     return None
 
 
 DS =os.path.join(RADICE, "pokedex-home-completo", "design-system")
 PEDIGREE_MD = os.path.join(RADICE, "pokedex-home-completo", "pedigree")
 PEDIGREE_PDF = os.path.join(RADICE, "_notes", "stampa", "pedigree")
-ORIGINI_PRIVATE = ("lotto-smeraldo-cartuccia/",)
+# dal 2026-11-17 (ADR-130) anche Diamante e le squadre delle cartucce, che portano il nome del proprietario e dei suoi amici
+ORIGINI_PRIVATE = ("lotto-smeraldo-cartuccia/", "lotto-diamante/", "lotto-squadre-cartucce/")
 # La storia dell'evento e le sue fonti (richiesta del proprietario del 2026-11-04): per la terza generazione dai racconti
 # autorati di `provenienze-eventi.json`, legati per allenatore e ID; dalla quarta alla settima dall'Eventdex di Serebii,
 # letto e analizzato il 2026-11-04, legato per specie, allenatore e ID.
@@ -229,7 +265,9 @@ COMUNITA = [os.path.join(RADICE, "_notes", "lotti", "lotto-rng-comunita", "rappo
             os.path.join(RADICE, "_notes", "lotti", "lotto-hiroshima-magikarp", "rapporto.json"),
             os.path.join(RADICE, "_notes", "lotti", "lotto-premi-blu-jp", "rapporto.json"),
             os.path.join(RADICE, "_notes", "lotti", "lotto-gts-gen4", "rapporto.json"),
-            os.path.join(RADICE, "_notes", "lotti", "lotto-marchio-game-boy", "storie.json")]
+            os.path.join(RADICE, "_notes", "lotti", "lotto-marchio-game-boy", "storie.json"),
+            # i Pokemon veri di Diamante e le squadre di Smeraldo e Rubino (ADR-130, 2026-11-17)
+            os.path.join(RADICE, "_notes", "lotti", "lotto-diamante", "storie.json")]
 EVENTDEX = os.path.join(RADICE, "_notes", "fonti", "raccolte", "serebii-eventdex-2026-11-04", "serebii-eventdex-eventi.json")
 
 
@@ -258,7 +296,12 @@ def carica_storie():
         dati = json.load(io.open(rapporto, encoding="utf-8"))
         for ev in dati.get("esiti", dati.get("voci", [])):
             if ev.get("pid") and ev.get("storia"):
-                comunita[ev["pid"].upper()] = (ev["storia"], [ev["fonte"]] if ev.get("fonte") else [])
+                # dal 2026-11-17 (ADR-130): una storia che dichiara la sua origine vale solo per l'esemplare con quella
+                # origine, perche' i Pokemon veri di Diamante hanno lo stesso PID di gemelli gia' in HOME da altre copie
+                if ev.get("origine"):
+                    comunita[(ev["pid"].upper(), ev["origine"])] = (ev["storia"], [ev["fonte"]] if ev.get("fonte") else [])
+                else:
+                    comunita[ev["pid"].upper()] = (ev["storia"], [ev["fonte"]] if ev.get("fonte") else [])
     return gen3["gruppi"], gen3["fonti"], (serebii, serebii_ot), comunita
 
 
@@ -267,9 +310,10 @@ def storia_di(e, storie):
     if not storie:
         return "", []
     gruppi, fonti, (serebii, serebii_ot), comunita = storie
-    if str(e.get("pid", "")).upper() in comunita:
-        testo, collegamenti = comunita[str(e["pid"]).upper()]
-        return testo, list(collegamenti)
+    for chiave in ((str(e.get("pid", "")).upper(), e.get("origine")), str(e.get("pid", "")).upper()):
+        if chiave in comunita:
+            testo, collegamenti = comunita[chiave]
+            return testo, list(collegamenti)
     testo, collegamenti = "", []
     g = gruppi.get("%s|%s" % (e["allenatore"], e["id"]))
     if g:
@@ -309,6 +353,21 @@ def storia_di(e, storie):
     return testo.strip(), collegamenti
 
 
+def data_nel_lotto(e):
+    """La data dell'esemplare nel file del suo lotto, prima che la conversione la cambiasse (2026-11-17)."""
+    formato = e.get("formato_lotto") or ""
+    if not formato:
+        return "file del lotto non disponibile"
+    if formato in ("PK3", "CK3", "XK3", "PK1", "PK2"):
+        return "nessuna: il formato %s non registra la data" % formato
+    testo = e.get("data_lotto") or "non registrata"
+    if e.get("data_uovo_lotto"):
+        testo += ", uovo ricevuto il %s" % e["data_uovo_lotto"]
+    if (e.get("data_lotto") or "") == (e.get("data_incontro") or ""):
+        testo += " (uguale alla copia)"
+    return testo
+
+
 def campi_pedigree(e, per_codice, per_file):
     """I campi del pedigree di un esemplare, come coppie etichetta e valore, nell'ordine di ADR-111."""
     iv = "/".join(str(v) for v in e["iv"])
@@ -316,6 +375,9 @@ def campi_pedigree(e, per_codice, per_file):
     return [
         ("gioco d'origine", GIOCHI.get(e["gioco"], e["gioco"])), ("luogo", e["luogo"]),
         ("data", e["data_incontro"] or "non registrata"),
+        # dal 2026-11-17, su richiesta del proprietario: la data scritta nel file del lotto prima della conversione, cioe' per
+        # i Pokemon veri il giorno vero della cattura o del Parco Amici, accanto a quella della copia che HOME mostra
+        ("data nel lotto", data_nel_lotto(e)),
         ("livello", "%d, incontrato al %d" % (e["livello"], e["livello_incontro"])), ("sfera", e["sfera"]),
         ("lingua", e["lingua"]),
         ("allenatore", "%s, ID %s, SID %s" % (e["allenatore"], e["id"], e["sid"])), ("natura", e["natura"]),
@@ -335,7 +397,7 @@ def scheda_tex(e, gruppo, per_codice, per_file, img, storie=None):
         righe_storia.append(r"{\DSdati\tiny\color{DSseppia} Fonti: %s}\par" % "; ".join(r"\url{%s}" % u for u in collegamenti))
     gen = "DSgen" + "ABCDEFG"[max(1, min(7, e["generazione"])) - 1]
     colore, stato = STATO_GRUPPO.get(gruppo, ("DSstatoincopia", "in copia"))
-    fermo = resta_in_console(e)
+    fermo = stato_esemplare(e)
     if fermo:
         colore, stato = fermo[0], fermo[1]
         righe_storia.insert(0, r"{\scriptsize\itshape %s}\par" % tex(fermo[2]))
@@ -386,7 +448,10 @@ def pedigree(dati, cartella_immagini, pdf, solo=None):
               "gruppo: %s. Esemplari: %d, conformi: %d." % (gruppo, stato, len(esemplari),
                                                             sum(e["conforme"] for e in esemplari)) +
               ("".join(" Restano fuori da HOME, perché il gioco non li lascia uscire: %d." % n
-                       for n in [sum(1 for e in esemplari if resta_in_console(e))] if n)), "",
+                       for n in [sum(1 for e in esemplari if resta_in_console(e))] if n)) +
+              ("".join(" Da liberare in HOME dopo i giri delle copie RIDATA, perché hanno un sostituto con la data "
+                       "dentro la finestra dell'evento (ADR-126): %d." % n
+                       for n in [sum(1 for e in esemplari if e.get("impronta") in SOSTITUITI)] if n)), "",
               "| Box | Posto | Specie | Forma | Sesso | Cromatico | Evento | Storia | Fonti | " +
               " | ".join(k[0].upper() + k[1:] for k, _ in campi_pedigree(esemplari[0], per_codice, per_file)) +
               " | Giudizio | Impronta |",
@@ -421,7 +486,7 @@ def pedigree(dati, cartella_immagini, pdf, solo=None):
             md.append("| " + " | ".join(str(x).replace("|", "/") for x in [
                 e["box"], e["posto"], "%d %s" % (e["numero"], e["specie"]), e["forma"], e["sesso"],
                 "sì" if e["cromatico"] else "", evento_di(e, per_codice, per_file),
-                " ".join(x for x in [(resta_in_console(e) or ("", "", ""))[2], storia_di(e, storie)[0]] if x),
+                " ".join(x for x in [(stato_esemplare(e) or ("", "", ""))[2], storia_di(e, storie)[0]] if x),
                 " ".join(storia_di(e, storie)[1])] + valori +
                 ["conforme" if e["conforme"] else "NON conforme", e["impronta"]]) + " |")
         corpo.append(r"\end{document}")

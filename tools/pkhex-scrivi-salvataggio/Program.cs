@@ -51,7 +51,7 @@
 // Per `rules/hardware-and-perimeter.md` la copia si porta sulla console solo dopo una copia di riserva del salvataggio
 // che la console ha, e dopo la scrittura si rilegge.
 //
-// Uso:  dotnet run -c Release -- SALVATAGGIO COPIA_DI_USCITA DA [--svuota] [--epoca-cartucce] [--includi-mn] [--solo-mn] [--solo-epoca-cartucce] [--solo-stesso-formato] [--regione-giappone] [--regione-dal-salvataggio] [--regione-del-ricevente] LOTTO [LOTTO ...]
+// Uso:  dotnet run -c Release -- SALVATAGGIO COPIA_DI_USCITA DA [--svuota] [--epoca-cartucce] [--includi-mn] [--solo-mn] [--solo-epoca-cartucce] [--solo-stesso-formato] [--regione-giappone] [--regione-dal-salvataggio] [--regione-del-ricevente] [--data-poke-transfer] LOTTO [LOTTO ...]
 using System.Security.Cryptography;
 using System.Text.Json;
 using System.Text.Json.Nodes;
@@ -146,7 +146,7 @@ var liberi = Enumerable.Range(0, sav.SlotCount).Where(i => sav.GetBoxSlotAtIndex
 var scritti = new List<(int Posto, PKM Pk, byte[] Dati, string Origine)>();
 var esclusi = new JsonArray();
 var conservate = new JsonArray();
-int indice = 0, considerati = da, alRicevente = 0;
+int indice = 0, considerati = da, alRicevente = 0, dataPokeTransfer = 0;
 // La preparazione di un esemplare per il salvataggio: lettura, filtri, conversione, adattamento, giudizio, schiusa
 // dell'uovo contestato e geolocalizzazione del ricevente. Restituisce null quando l'esemplare non va scritto, e in quel
 // caso, se e' un'esclusione e non un filtro, la mette a rapporto. Estratta dal ciclo il 2026-10-07 perche' la usa anche
@@ -269,6 +269,47 @@ PKM? Prepara(string percorso, string origine)
         }
         else
             conservate.Add(new JsonObject { ["file"] = origine, ["motivo"] = "ricevuto da un altro allenatore", ["incontro"] = incontro.GetType().Name });
+    }
+    // --data-poke-transfer, dal 2026-11-17 per ADR-128. Un esemplare di terza o quarta generazione arriva in sesta passando
+    // per Poke Transfer, che gli scrive come data d'incontro il giorno del trasferimento; la libreria invece conserva la
+    // data della quarta generazione (`PK4.ConvertToPK5` chiama `EncounterDate.GetDateNDS()` senza assegnarla) e per la
+    // terza mette il giorno della conversione (`PK3.ConvertToPK4`). Il giorno si sceglie fra il 2011-03-04, uscita
+    // europea di Bianco e Nero, e il 2013-12-31, con un numero tratto dall'impronta SHA-256 del file del lotto, quindi
+    // diverso da esemplare a esemplare e uguale a ogni corsa. Per la quarta generazione il giorno non precede la data
+    // d'incontro o dell'uovo che l'esemplare aveva, perche' il trasferimento viene dopo la cattura; se quella data e'
+    // successiva al 2013-12-31 la finestra diventa l'anno che la segue. Per la terza la data della quarta e' quella che
+    // la libreria ha inventato al Parco Amici, e non vale come limite. La data si tiene solo se l'esemplare resta conforme.
+    if (la.Valid && opzioni.Contains("--data-poke-transfer") && pk.Format is 3 or 4)
+    {
+        var impronta = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(percorso))).ToLowerInvariant();
+        var inizio = new DateOnly(2011, 3, 4);
+        var fine = new DateOnly(2013, 12, 31);
+        if (pk.Format == 4)
+            foreach (var d in new[] { pk.MetDate, pk.EggMetDate })
+                if (d is { } giornoVecchio && giornoVecchio > inizio)
+                    inizio = giornoVecchio;
+        if (inizio > fine)
+            fine = inizio.AddDays(365);
+        var oggi = DateOnly.FromDateTime(DateTime.Today);
+        if (fine > oggi)
+            fine = oggi;
+        var ampiezza = fine.DayNumber - inizio.DayNumber + 1;
+        var giorno = inizio.AddDays((int)(Convert.ToUInt32(impronta[..8], 16) % (uint)ampiezza));
+        var primaData = convertito.MetDate;
+        convertito.MetDate = giorno;
+        convertito.RefreshChecksum();
+        var laData = new LegalityAnalysis(convertito);
+        if (laData.Valid)
+        {
+            la = laData;
+            dataPokeTransfer++;
+        }
+        else
+        {
+            convertito.MetDate = primaData;
+            convertito.RefreshChecksum();
+            conservate.Add(new JsonObject { ["file"] = origine, ["motivo"] = "contestato con la data di Poke Transfer", ["data"] = giorno.ToString("yyyy-MM-dd"), ["rapporto"] = laData.Report() });
+        }
     }
     if (!la.Valid)
     {
@@ -414,7 +455,7 @@ var rapporto = new JsonObject
 {
     ["fonte"] = "PKHeX.Core tramite tools/pkhex-scrivi-salvataggio (ADR-092)",
     ["partenza"] = Path.GetFileName(partenza), ["versione"] = sav.Version.ToString(), ["formato"] = formato.Name,
-    ["svuotato"] = opzioni.Contains("--svuota"), ["incluse_mn"] = opzioni.Contains("--includi-mn"), ["epoca_cartucce"] = opzioni.Contains("--epoca-cartucce"),
+    ["svuotato"] = opzioni.Contains("--svuota"), ["data_poke_transfer"] = opzioni.Contains("--data-poke-transfer") ? dataPokeTransfer : null, ["incluse_mn"] = opzioni.Contains("--includi-mn"), ["epoca_cartucce"] = opzioni.Contains("--epoca-cartucce"),
     ["regione_giappone"] = giappone, ["regione_dal_salvataggio"] = dalSalvataggio, ["regione_del_ricevente"] = delRicevente,
     ["geolocalizzazione_al_ricevente"] = alRicevente, ["geolocalizzazione_conservata"] = conservate,
     ["lotti"] = new JsonArray(lotti.Select(l => (JsonNode)Path.GetFileName(l.TrimEnd('/', '\\'))).ToArray()),

@@ -40,6 +40,13 @@ foreach (var arg in args.Skip(1))
     if (File.Exists(rapporto))
         foreach (var v in JsonNode.Parse(File.ReadAllText(rapporto))!["voci"]!.AsArray())
             origini[((int)v!["box"]!, (int)v["posto"]!)] = (string)v["origine"]!;
+    // Dal 2026-11-17, su richiesta del proprietario: la data scritta nel file del lotto, prima della conversione, accanto a
+    // quella della copia, che e' la data che HOME mostra. Per i Pokemon veri di Diamante e' il giorno della cattura o del
+    // Parco Amici, che Poke Transfer avrebbe sostituito (ADR-128). L'origine del rapporto e' relativa a _notes/lotti; il
+    // file si legge solo se esiste ancora e porta lo stesso PID dell'esemplare della copia, perche' un lotto rigenerato
+    // dopo la scrittura direbbe la data di un altro esemplare.
+    var radice = Path.GetFullPath(percorso).Replace(Path.DirectorySeparatorChar, '/');
+    var lotti = radice.Contains("/_notes/") ? radice[..(radice.IndexOf("/_notes/") + 8)] + "lotti" : "";
     var voci = new JsonArray();
     for (int i = 0; i < sav.SlotCount; i++)
     {
@@ -56,6 +63,17 @@ foreach (var arg in args.Skip(1))
         string evento = enc is MysteryGift mg && mg.CardID > 0
             ? $"{mg.CardTitle.Replace('　', ' ').Trim()} (carta {mg.CardID})"
             : enc.LongName;
+        string dataLotto = "", uovoLotto = "", formatoLotto = "";
+        if (origini.TryGetValue((box, posto), out var orig) && lotti != "")
+        {
+            var file = Path.Combine(lotti, orig);
+            if (File.Exists(file) && FileUtil.TryGetPKM(File.ReadAllBytes(file), out var dalLotto, Path.GetExtension(file)) && dalLotto.PID == pk.PID)
+            {
+                formatoLotto = dalLotto.GetType().Name;
+                dataLotto = dalLotto.MetDate is { } dl ? dl.ToString("yyyy-MM-dd") : "";
+                uovoLotto = dalLotto.EggMetDate is { } ul ? ul.ToString("yyyy-MM-dd") : "";
+            }
+        }
         voci.Add(new JsonObject
         {
             ["box"] = box, ["posto"] = posto,
@@ -95,6 +113,8 @@ foreach (var arg in args.Skip(1))
             ["iv"] = new JsonArray(pk.IV_HP, pk.IV_ATK, pk.IV_DEF, pk.IV_SPA, pk.IV_SPD, pk.IV_SPE),
             ["livello_incontro"] = pk.MetLevel,
             ["data_incontro"] = pk.MetDate is { } d ? d.ToString("yyyy-MM-dd") : "",
+            ["data_uovo"] = pk.EggMetDate is { } du ? du.ToString("yyyy-MM-dd") : "",
+            ["formato_lotto"] = formatoLotto, ["data_lotto"] = dataLotto, ["data_uovo_lotto"] = uovoLotto,
             ["oggetto"] = pk.HeldItem > 0 ? testi.itemlist[pk.HeldItem] : "",
             ["mosse"] = new JsonArray(pk.Moves.Where(m => m != 0).Select(m => (JsonNode)testi.movelist[m]).ToArray()),
             ["abilita"] = testi.abilitylist[pk.Ability],

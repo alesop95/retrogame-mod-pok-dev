@@ -11,3 +11,12 @@ build-bibliography.py --check
 indice-fonti-unico.py --check
 # La scrittura sicura che i tre usano: archivio della versione precedente e fermo sulle perdite.
 rigenera_sicuro.py --autotest
+# Le date di incontro dei pedigree, misurate dal 2026-11-16: il file generato deve seguire i pedigree.
+controlla-date-incontro.py --check
+# L'elenco dei doni da carta rispetto alla finestra dell'evento, dal 2026-11-16. Legge le liste di
+# Bulbapedia salvate sotto _notes/, che Git esclude: in un clone si ferma, come la bibliografia.
+finestre-eventi.py --check
+# Il piano delle date e l'elenco da liberare in HOME, dal 2026-11-16 (ADR-126): leggono le copie e il
+# manifesto sotto _notes/, che Git esclude, come la riga sopra.
+piano-ridata.py --check
+elenco-da-liberare.py --check
