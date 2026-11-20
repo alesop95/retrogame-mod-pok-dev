@@ -9,7 +9,7 @@ Questo progetto ha più sottoprogetti paralleli, oggi dieci, quindi il punto di 
 ```
 Branch attivo:         main
 Commit di riferimento: 2d5f940, Giri 12-14: date ADR-126, Diamante in copia, date vere nei pedigree
-Data snapshot:         2026-11-17: giri 12-13 in HOME (7221 prima della liberazione dei 996); giro 14 DIAMANTE1 (245) riletto e in riserva, fermo al passaggio alla banca; Verde Foglia in attesa di Smeraldo come cartuccia di riferimento
+Data snapshot:         2026-11-20: giro 14 DIAMANTE1 IN HOME dal 2026-11-17 (7466 prima della liberazione dei 996, 6470 dopo); nessun lotto in attesa della banca; Smeraldo e Rubino scritti e chiusi; i 578 pedigree senza data chiusi; Verde Foglia dopo la pulizia della settimana prossima. Correzione del 2026-11-20: i recap del 2026-11-18 e 2026-11-20 dicevano «245 di Diamante in attesa della banca», copiando questa riga che era rimasta indietro
 ```
 
 ## Stato di verifica delle schede

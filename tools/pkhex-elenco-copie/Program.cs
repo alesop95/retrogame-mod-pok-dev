@@ -67,7 +67,11 @@ foreach (var arg in args.Skip(1))
         if (origini.TryGetValue((box, posto), out var orig) && lotti != "")
         {
             var file = Path.Combine(lotti, orig);
-            if (File.Exists(file) && FileUtil.TryGetPKM(File.ReadAllBytes(file), out var dalLotto, Path.GetExtension(file)) && dalLotto.PID == pk.PID)
+            // Un file di prima o seconda generazione non ha PID: la Console Virtuale lo crea al trasferimento. Per quei file
+            // si confrontano specie e ID dell'allenatore; senza questa eccezione i 578 esemplari della Console Virtuale
+            // risultavano «file del lotto non disponibile» con il file al suo posto (corretto il 2026-11-20).
+            if (File.Exists(file) && FileUtil.TryGetPKM(File.ReadAllBytes(file), out var dalLotto, Path.GetExtension(file))
+                && (dalLotto.Format <= 2 ? dalLotto.Species == pk.Species && dalLotto.TID16 == pk.TID16 : dalLotto.PID == pk.PID))
             {
                 formatoLotto = dalLotto.GetType().Name;
                 dataLotto = dalLotto.MetDate is { } dl ? dl.ToString("yyyy-MM-dd") : "";

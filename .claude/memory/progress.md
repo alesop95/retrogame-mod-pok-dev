@@ -4,6 +4,14 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-20. I 578 pedigree senza data, e una correzione sullo stato di Diamante
+
+Correzione: i recap del 2026-11-18 e del 2026-11-20 dicevano «Lotti per HOME: i 245 di Diamante, in attesa della banca». Era falso: il giro 14 è in HOME dal 2026-11-17 sera (7466, punto 18 fatto, DIAMANTE1 «in HOME» in `tools/stampa-collezione.py`), e la frase veniva dalla riga «Data snapshot» di `.claude/memory/index.md`, rimasta al mattino del 2026-11-17; il proprietario l'ha fermata. Riga corretta. I 578 esemplari con «file del lotto non disponibile» nei pedigree (HOME10 214, HOME7 149, FINALE 121, HOME4 57, GIAPPONE2 23, GIAPPONE 14, contati sui file Markdown dei pedigree) non avevano perso il file: il rapporto di HOME10 ha 380 origini e tutte esistono sotto `_notes/lotti`. Sono tutti trasferimenti della Console Virtuale di Game Boy, cioè file PK1 e PK2, e `tools/pkhex-elenco-copie` accettava il file del lotto solo con lo stesso PID, che quei formati non hanno. Ora per i formati di prima e seconda generazione confronta specie e ID dell'allenatore. Giudizio nuovo `_notes/lavoro/giudizi-copie/dopo-20261120-date-vc.json`, 16 gruppi e 7626 esemplari: confrontato campo per campo con `dopo-20261117-diamante.json`, cambia solo `formato_lotto` di quei 578 (PK2 432, PK1 146). Pedigree e PDF rigenerati: 578 righe cambiate in sei file, zero «file del lotto non disponibile», e la colonna dice «nessuna: il formato PK1/PK2 non registra la data». Altre richieste del giro: comando per cancellare la cartella delle foto di Verde Foglia; alcol e cotton fioc dalla settimana prossima; giro su documentazione e cartelle rimandato, perché il subagente di inventario è stato fermato dalla riserva del piano.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
 ## 2026-11-20. Rubino scritto: rilettura identica
 
 Il proprietario ha scritto il file del Rubino con i passi 10-17 della sezione «Giro del 2026-11-20» di `gba-save-extraction-smeraldo/RUNBOOK-RUBINO-SID-POKEDEX.md`. Passo 18 dell'agente: `rilettura.sav` di 131072 byte ha SHA-256 `77667946…6c85a9f75`, identico al file scritto; rinominata per esteso e copiata su J: in `backup salvataggi pokèmon/rubino-03-20261120-scrittura/`, verificata con SHA-256 e `cmp`. Sul Rubino sono attuati ADR-099 (SID 58164), ADR-089 (Pokédex), ADR-134 (gli otto della Grotta Mutevole, mai in HOME) e ADR-135 (Pokédex coerente con i box, Biglietto Eone). Mappa e stampa erano già generate dal file scritto. Resta al proprietario il passo 19 in gioco.
