@@ -4,6 +4,14 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-20. Chiusura in tre commit
+
+Commit `aa9d15e` del proprietario con le otto rimozioni dall'indice, poi `chiudi` con il perimetro di `_notes/COMMIT-SCOPE.json` (38 file, `a9d5557`), perché `chiudi` tratteneva i 10 file dell'allineamento al template `071db2e` in attesa di `chiudi-allineamento.ps1`, che non conosce un allineamento fatto dal progetto con `allinea-dal-template.py`; tolto `.git/allineamento-in-sospeso.json` (copia nello scratchpad) come `chiudi` stesso indica, per il commit dell'allineamento. Quel `chiudi` si è fermato su `verifica-link-progetto.py`: `tools/vault-progetto.py`, ora tracciato, cita il catalogo dei plugin di Obsidian; classificato fra le non fonti con validità solo in quello strumento. Lezione L-017.
+
+**Didattica:** nessuna.
+
+**Template:** L-017.
+
 ## 2026-11-20. Controllo completo dopo il riordino, e chiudi fermato dallo stage
 
 `chiudi` si è fermato con «stage già presente»: le otto rimozioni di `git rm --cached` date dall'agente erano nello stage. Controllo completo chiesto dal proprietario, con misure: ogni file spostato o archiviato confrontato con `git show HEAD:`; identici `index.md`, `MAPPA-DOCUMENTI.md`, la wiki `knowledge/` e le due consegne spostate in `_notes/fonti/consegne/`; l'archivio di `pending.md` contiene tutte le righe del commit (zero mancanti, con `diff` senza fine riga) più le due voci del 2026-11-20 scritte prima della copia; la nota `debito-tecnico-2026-10-01.md` differiva per il percorso aggiornato nella prima riga, rimessa identica a HEAD. Gli otto generati sono su disco identici a HEAD. `SOURCES.md`: 2376 righe di tabella prima e dopo, 9 righe cambiate solo nei percorsi. `check-thesis-coverage.py`: 22 problemi prima e dopo, tutti preesistenti (timbri di commit inesistenti, una sezione rinominata in `COPIE-PER-HOME.md`). Suite del ponte: 206 prove passate. Vault: zero problemi. Errore dell'agente: per il confronto con HEAD ha usato `git stash` e `git stash pop`, che ha rimesso il lavoro ma non lo stage, e le otto rimozioni sono tornate tracciate; nessun contenuto perso, verificato su dimensioni e controlli; lezione L-016. Il passo si rifà come commit a sé prima di `chiudi`.

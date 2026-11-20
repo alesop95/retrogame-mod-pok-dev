@@ -74,7 +74,7 @@ README.md                                    ingresso pubblico ai risultati tecn
 SOURCES.md                                    registro delle fonti, con il sottoprogetto servito da ciascuna
 docs/index.md                                 indice del percorso di studio tecnico, leggibile come vault Obsidian
 docs/separazione-ambienti/, docs/anti-slop/     guide e fonti dei pacchetti omonimi, copiate intere dal template
-knowledge/                                    wiki di conoscenza trasversale: fonti in sources/, pagine in wiki/, skill wiki-digest
+archivio/                                     documenti tolti dall'uso il 2026-11-20 e conservati identici: mappa precedente, wiki mai popolata, handoff
 docs/mappa-fonti/index-fonti.md                     mappa relazionale delle fonti, con abstract e grafo
 tesi/                                         documento composto locale, escluso da Git; non disponibile in un clone
 scripts/, tex-packages.txt, .latexmkrc          ambiente LaTeX riproducibile della tesi, skill latex-build
