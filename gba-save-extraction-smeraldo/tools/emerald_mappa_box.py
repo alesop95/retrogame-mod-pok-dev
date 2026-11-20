@@ -108,11 +108,19 @@ PROVENIENZE_RUBINO = [
     ("r-colosseum", "Colosseum", "Colosseum", "#4a3aa7"),
     ("r-xd", "XD", "XD", "#008300"),
     ("r-evento", "Evento", "Evento", "#e34948"),
+    # dal 2026-11-20 (ADR-134 e ADR-135): oltre il complemento il Rubino porta gli otto della Grotta Mutevole, che
+    # PKHeX contesta e che non vanno mai in HOME, e le catture fatte giocando sulla cartuccia
+    ("r-grotta", "Grotta Mutevole di Smeraldo, contestati da PKHeX, mai in HOME", "Grotta Mutevole, mai in HOME", "#6b6b6b"),
+    ("r-catturato", "Catturati giocando sul Rubino", "Catturato sul Rubino", "#9a6324"),
 ]
 ETICHETTA = {k: e for k, e, _, _ in PROVENIENZE + PROVENIENZE_RUBINO}
 BANDA = {k: b for k, _, b, _ in PROVENIENZE + PROVENIENZE_RUBINO}
 LETTERE_UNOWN = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!?"
+NOMI_IT = {"Shuckle": "Shuckle", "Smeargle": "Smeargle", "Mareep": "Mareep", "Pineco": "Pineco", "Houndour": "Houndour",
+           "Teddiursa": "Teddiursa", "Aipom": "Aipom", "Stantler": "Stantler"}
 RUBINO = RADICE.joinpath("_notes", "lotti", "lotto-complemento-rubino", "esemplari")
+GROTTA = RADICE.joinpath("_notes", "lotti", "lotto-grotta-mutevole")
+TID_RUBINO = 49107
 # Gli sfondi di Rubino sono sedici, nello stesso ordine di Smeraldo, e lo sfondo Amici non c'e': e' un'aggiunta
 # di Smeraldo, legata alla frase di Walda, e `gWallpaperTable` in `src/pokemon_storage_system_4.c` di pokeruby
 # elenca soltanto Forest, City, Desert, Savanna, Crag, Volcano, Snow, Cave, Beach, Seafloor, River, Sky,
@@ -123,7 +131,8 @@ RUBINO = RADICE.joinpath("_notes", "lotti", "lotto-complemento-rubino", "esempla
 NOMI_SFONDI_RUBINO = ["Forest", "City", "Desert", "Savanna", "Crag", "Volcano", "Snow", "Cave", "Beach", "Seafloor", "River",
                       "Sky", "Polkadot", "Pokecenter", "Machine", "Plain"]
 SFONDI_PER_GRUPPO = {"r-statico": [1, 13], "r-esclusivo": [3, 4], "r-specie": [0, 10, 8, 6], "r-portatore": [15, 7],
-                     "r-unown": [12, 4], "r-colosseum": [2, 5], "r-xd": [14, 9, 7], "r-evento": [11]}
+                     "r-unown": [12, 4], "r-colosseum": [2, 5], "r-xd": [14, 9, 7], "r-evento": [11],
+                     "r-grotta": [7], "r-catturato": [0]}
 
 
 def sfondi_rubino(per_box):
@@ -516,7 +525,21 @@ def main():
                    for b, c in enumerate(per_box_r, start=1)]
     nota_r = None
     if args.rubino:
-        nota_r = rubino_verificato(Path(args.rubino), voci_r)
+        nota_r, oltre = rubino_verificato(Path(args.rubino), voci_r, nature)
+        if any(oltre):
+            # le posizioni dopo il complemento, fino all'ultima occupata: le scatole vuote in coda non si stampano
+            ultima = max(i for i, v in enumerate(oltre) if v)
+            voci_r = voci_r + oltre[:ultima + 1]
+            per_box_r = [voci_r[b * PER_BOX:(b + 1) * PER_BOX] + [None] * max(0, PER_BOX - len(voci_r[b * PER_BOX:(b + 1) * PER_BOX]))
+                         for b in range(-(-len(voci_r) // PER_BOX))]
+            for b, contenuto in enumerate(per_box_r, start=1):
+                figura("Rubino, box %d" % b, contenuto, indice, forme, cache, FIGURE.joinpath("mappa-rubino-box-%02d.png" % b))
+            conteggio_r = collections.Counter(v["provenienza"] for v in voci_r if v)
+            sfondi_r = sfondi_rubino(per_box_r)
+            riepilogo_r = [(b, "; ".join("%s %d" % (ETICHETTA[k], collections.Counter(v["provenienza"] for v in c if v)[k])
+                                         for k, _, _, _ in PROVENIENZE_RUBINO if collections.Counter(v["provenienza"] for v in c if v)[k]),
+                            NOMI_SFONDI_RUBINO[sfondi_r[b - 1]])
+                           for b, c in enumerate(per_box_r, start=1)]
     nota_r = nota_r or ("Disposizione prevista del complemento di ADR-080, non ancora scritta: il Rubino di prova non è a portata di mano. "
               "La squadra di inizio partita resta quella che la cartuccia ha, e le scatole oltre queste restano vuote.")
     scrivi_markdown(per_box_r, conteggio_r, riepilogo_r, PROVENIENZE_RUBINO, USCITA_RUBINO, nota_r)
@@ -579,8 +602,13 @@ def scrivi_stampa(sezioni):
     sys.exit("impaginazione non riuscita")
 
 
-def rubino_verificato(percorso, voci):
-    """La nota della stampa se la cartuccia riletta porta esattamente il complemento, altrimenti si ferma."""
+def rubino_verificato(percorso, voci, nature):
+    """La nota della stampa se la cartuccia riletta porta esattamente il complemento, altrimenti si ferma.
+
+    Restituisce anche le voci delle posizioni dopo il complemento: gli otto della Grotta Mutevole, riconosciuti byte per
+    byte dai file del loro lotto, e le catture fatte sulla cartuccia, riconosciute dall'identificativo del Rubino.
+    Qualunque altro esemplare dopo il complemento ferma la stampa.
+    """
     letto = save3.Save3(percorso.read_bytes())
     if not letto.integro():
         sys.exit("lo slot attivo di %s non e' integro" % percorso.name)
@@ -589,8 +617,33 @@ def rubino_verificato(percorso, voci):
     # cartuccia e 58164 nel lotto, con specie, PID e ID uguali, e' la versione scritta prima di ADR-099 e si conta a parte;
     # qualunque altra differenza ferma la stampa, come prima.
     prima_di_099 = 0
-    for i in range(save3.POSIZIONI):
-        atteso = save3.record_da_file(RUBINO.joinpath(voci[i]["file"]).read_bytes()) if i < len(voci) else bytes(save3.RECORD)
+    grotta = {}
+    for nome, e in json.loads(GROTTA.joinpath("manifesto.json").read_text(encoding="utf-8")).items():
+        grotta[GROTTA.joinpath(e["file"]).read_bytes()] = (nome, e)
+    oltre = []
+    for i in range(len(voci), save3.POSIZIONI):
+        r = letto.leggi_posizione(i)
+        if r == VUOTO:
+            oltre.append(None)
+            continue
+        riga = riga_dai_byte(r, nature)
+        nazionale = int(re.search(r": (\d{4})\b", riga["Position"]).group(1))
+        base = {"specie": riga["Species"], "nazionale": nazionale, "forma": "0", "soprannome": "", "uovo": False,
+                "livello": riga["Level"], "allenatore": riga["OT"], "lingua": "", "chiave": None, "file": None}
+        if r in grotta:
+            nome, e = grotta[r]
+            base.update(specie=NOMI_IT.get(nome, nome), provenienza="r-grotta", banda=BANDA["r-grotta"],
+                        dettaglio="Grotta Mutevole di Smeraldo, tabella %s, livello %s, strumento %s, allenatore %s; l'evento della "
+                                  "grotta non è mai stato distribuito, PKHeX lo contesta e l'esemplare non va mai in HOME (ADR-134)"
+                                  % (e["tabella"], e["livello"], e["strumento"], riga["OT"]))
+        elif gen3.Gen3Mon.from_bytes(r).ot_id & 0xFFFF == TID_RUBINO:
+            base.update(provenienza="r-catturato", banda=BANDA["r-catturato"],
+                        dettaglio="catturato giocando sul Rubino dall'allenatore %s" % riga["OT"])
+        else:
+            sys.exit("la posizione %d di %s non è del complemento, della grotta né una cattura del Rubino" % (i, percorso.name))
+        oltre.append(base)
+    for i in range(len(voci)):
+        atteso = save3.record_da_file(RUBINO.joinpath(voci[i]["file"]).read_bytes())
         if letto.leggi_posizione(i) == atteso:
             continue
         a, b = gen3.Gen3Mon.from_bytes(letto.leggi_posizione(i)), gen3.Gen3Mon.from_bytes(atteso)
@@ -600,11 +653,16 @@ def rubino_verificato(percorso, voci):
             continue
         sys.exit("la posizione %d di %s non e' quella del complemento: la stampa resterebbe falsa" % (i, percorso.name))
     nota = ("Complemento di ADR-080 e ADR-087 scritto sulla cartuccia del Rubino di prova e verificato posizione per posizione "
-            "sulla rilettura %s. La squadra di inizio partita resta quella che la cartuccia ha, e il box 14 resta vuoto." % percorso.name)
+            "sul salvataggio %s. La squadra di inizio partita resta quella che la cartuccia ha." % percorso.name)
+    n_grotta = sum(1 for v in oltre if v and v["provenienza"] == "r-grotta")
+    n_presi = sum(1 for v in oltre if v and v["provenienza"] == "r-catturato")
+    if n_grotta or n_presi:
+        nota += (" Dopo il complemento: %d esemplari della Grotta Mutevole di Smeraldo, contestati da PKHeX perché l'evento della grotta "
+                 "non è mai stato distribuito e mai da portare in HOME (ADR-134), e %d catturati giocando sul Rubino." % (n_grotta, n_presi))
     if prima_di_099:
         nota += (" %d posizioni portano la versione scritta prima di ADR-099, con l'ID segreto 0 invece di 58164 e per il resto "
                  "identiche; le copie per HOME usano la versione corretta." % prima_di_099)
-    return nota
+    return nota, oltre
 
 
 def copertina_e_fori(pdf):

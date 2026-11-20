@@ -13,6 +13,7 @@ covers-paths:
   - generation-from-switch/
   - cart-battery-restoration/
   - pokedex-home-completo/
+  - switch-modding/
 last-verified-commit: 90adea9
 ---
 

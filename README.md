@@ -35,6 +35,7 @@ Una fonte catalogata e una fonte letta sono stati diversi. Le note indicano la d
 | `pokedex-home-completo/` | [Pokedex completo in Pokemon Home](pokedex-home-completo/README.md) |
 | `pokemon-gen12-gen3-bridge-original-hardware/` | [ponte Pokemon da Gen 1 e 2 verso Gen 3 su hardware originale](pokemon-gen12-gen3-bridge-original-hardware/README.md) |
 | `recreate-pokemon-distributions-events/` | [ricreazione delle distribuzioni e degli eventi Pokemon](recreate-pokemon-distributions-events/README.md) |
+| `switch-modding/` | [una Switch modificata per la fase Switch](switch-modding/README.md) |
 <!-- indice-pubblico:fine -->
 
 ## Riprodurre e mantenere

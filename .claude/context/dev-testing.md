@@ -11,6 +11,7 @@ covers-paths:
   - generation-from-switch/
   - cart-battery-restoration/
   - pokedex-home-completo/
+  - switch-modding/
   - gba-switch-pokemon-trading/
   - poke-automation-study/
   - tools/

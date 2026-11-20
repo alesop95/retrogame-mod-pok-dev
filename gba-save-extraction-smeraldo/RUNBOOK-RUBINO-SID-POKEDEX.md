@@ -25,6 +25,41 @@ I numeri della scrittura vera saranno diversi, perché il proprietario ha giocat
 
 Non si sblocca (ADR-103). Le specie fuori da Hoenn vengono registrate comunque e il proprietario le vedrà quando sbloccherà il nazionale giocando. Il Pokédex di Hoenn non risulterà completo: sulla prova a secco le specie di Hoenn presenti sul Rubino sono 134 su 202, perché le altre 68 la collezione le tiene su Smeraldo (ADR-080), e lo strumento registra solo le specie presenti.
 
+## Giro del 2026-11-20, che prevale sui passi sotto dove li contraddice
+
+Il proprietario ha portato il Rubino il 2026-11-20, subito dopo la chiusura di Smeraldo. Il giro aggiunge a ADR-099 e ADR-089 gli otto incontri della Grotta Mutevole di ADR-134, terza modifica, cioè i file di `_notes/lotti/lotto-grotta-mutevole/`: entrano nei posti liberi del deposito, sono contestati da PKHeX perché l'evento non è mai stato distribuito, e non vanno mai in HOME. Prima di comporre, l'agente misura sull'estrazione che cos'altro manca al Rubino, con lo stesso metodo usato per Smeraldo, e lo propone al proprietario prima di scrivere. La cartella è `_notes/salvataggi/cartucce/rubino/02-20261120-estrazione/`, che sostituisce il nome `02-<data>-sid-pokedex` del passo 1; la copia sull'altro disco va in `J:/backup salvataggi pokèmon/rubino-02-20261120-estrazione/`. I passi della lettura, tutti di sola lettura, sono questi.
+
+1. In FlashGBX clicca «Disconnect» se è collegato, poi stacca il cavo USB dal lettore.
+2. Inserisci il Rubino nella fessura per Game Boy Advance, dritto e fino in fondo, nello stesso verso di Smeraldo.
+3. Ricollega il cavo nella porta frontale sinistra del PC.
+4. In FlashGBX clicca «Game Boy Advance» e controlla che il LED «Mode» sia blu.
+5. Clicca «Refresh» e controlla che a sinistra compaia Pokemon - Versione Rubino con «Save Type» 1M FLASH (128 KiB).
+6. Clicca «Backup Save Data», vai nella cartella `02-20261120-estrazione`, scrivi `lettura1.sav` e premi Salva. Aspetta la fine.
+7. Di nuovo «Backup Save Data», stessa cartella, `lettura2.sav`.
+8. «Disconnect», stacca il cavo, poi togli la cartuccia.
+9. Agente: controlla che i due file siano di 131072 byte e identici, li rinomina per esteso e li copia su J: con lo SHA-256; poi misura e propone.
+
+In questo giro i pulsanti di scrittura non si toccano: «Write Save Data», «Erase cartridge save data» e «Write ROM» restano vietati fino al file composto e approvato.
+
+Esito della lettura, 2026-11-20: due letture identiche di 131072 byte, SHA-256 `0c2be593…3717a98`, con allenatore ALESSIO 49107 a 6 ore e 24 minuti, nessuna medaglia; rinominate per esteso e copiate su J: in `backup salvataggi pokèmon/rubino-02-20261120-estrazione/` con lo stesso SHA-256. Rispetto alla rilettura del 2026-09-28 la partita ha 10 minuti e un salvataggio in più: soldi da 3428 a 127228, caramelle rare rabboccate, e un Seedot di livello 43 catturato giocando nel box 13, posto 25. PKHeX giudica conformi tutti i 377 esemplari, cioè i 376 del complemento e il Seedot; 43 posti liberi.
+
+Composizione, 2026-11-20 (ADR-135). Primo passo, `tools/pkhex-allinea-gen3` come al passo 3 sotto: 101 SID da 0 a 58164, 286 specie presenti, 280 accese nel Pokédex, nazionale non sbloccato. Secondo passo, `gba-save-extraction-smeraldo/tools/rubino_ultimo_giro.py`: gli otto della Grotta Mutevole nel box 13, posti 17-24 (Mareep, Pineco, Houndour, Teddiursa, Aipom, Shuckle, Stantler, Smeargle), il Biglietto Eone nel primo posto della tasca Oggetti Chiave e `FLAG_SYS_HAS_EON_TICKET`. Verifiche sul file finale: PKHeX 385 esemplari, 377 conformi e i soli otto della grotta contestati, come atteso; 101 esemplari di ALESSIO 42317 con SID 58164; Pokédex 286 catturati e 287 visti, con le tre copie dei visti uguali e nessuna specie dei box non catturata; di Hoenn 134 catturati e 135 visti; rispetto al passo intermedio cambiano soltanto i byte dei posti 17-24 del box 13, del posto 1 della tasca Oggetti Chiave, del contrassegno e delle intestazioni delle tre sezioni toccate; entrambi gli slot hanno 14 sezioni valide. Il file da scrivere sta in `E:/retrogame-mod-pok-dev/_notes/salvataggi/cartucce/rubino/03-20261120-scrittura/` con «DA SCRIVERE» nel nome, SHA-256 `77667946…6c85a9f75`, copiato su J: in `backup salvataggi pokèmon/rubino-03-20261120-scrittura/`. Mappa `MAPPA-BOX-RUBINO.md` e stampa `MAPPA-BOX-COLLEZIONE.pdf` rigenerate da questo file, con la grotta e la cattura in legenda.
+
+Scrittura. Solo i passi 13-16 scrivono.
+
+10. Inserisci il Rubino a cavo staccato, poi collega il cavo nella porta frontale sinistra.
+11. In FlashGBX clicca «Game Boy Advance» e controlla che il LED «Mode» sia blu.
+12. Clicca «Refresh» e controlla che compaia Pokemon - Versione Rubino con «Save Type» 1M FLASH (128 KiB).
+13. Clicca la freccia di «Write Save Data» e scegli «Restore from save data file». Mai «Erase cartridge save data».
+14. Vai nella cartella `03-20261120-scrittura` e seleziona il file con «DA SCRIVERE» nel nome. Controlla il nome prima di premere «Apri»: FlashGBX non chiede conferma e comincia subito a scrivere.
+15. Aspetta senza toccare cavo e cartuccia, fino a «The save data was written and verified successfully!».
+16. Clicca «Backup Save Data» e salva nella stessa cartella come `rilettura.sav`.
+17. «Disconnect», stacca il cavo, poi togli la cartuccia.
+18. Agente: confronta byte per byte `rilettura.sav` con il file scritto, la rinomina per esteso, copia su J: con lo SHA-256 e aggiorna i registri.
+19. Proprietario, quando gioca: nella tasca Oggetti Chiave c'è il Biglietto Eone; il Pokédex di Hoenn dice 135 visti e 134 catturati; nel box 13 i posti 17-24 hanno gli otto della grotta e il 25 il Seedot; il Voltorb del box 1, posto 16, mostra ancora l'ID 42317. L'Isola Remota si raggiunge dal porto di Porto Alghepoli solo dopo la Lega.
+
+Esito della scrittura, 2026-11-20: scritta dal proprietario con «Restore from save data file»; la rilettura è identica byte per byte al file scritto, SHA-256 `77667946…6c85a9f75`, rinominata per esteso («rilettura dopo la scrittura, identica byte per byte al file scritto») e copiata su J: in `backup salvataggi pokèmon/rubino-03-20261120-scrittura/` con lo stesso SHA-256. Mappa e stampa erano già generate da quel file. ADR-099, ADR-089, ADR-134 e ADR-135 sono attuati sul Rubino; resta il passo 19 in gioco.
+
 ## Passi
 
 **Passo 1, proprietario.** Estrarre il salvataggio dalla cartuccia del Rubino con FlashGBX, in sola lettura, due volte. Salvare la prima lettura in `_notes/salvataggi/cartucce/rubino/02-<data>-sid-pokedex/` con il nome `Pokemon - Versione Rubino (Italy) - ALESSIO-49107-<ore>-<data>.sav`, e la seconda nella stessa cartella con il suffisso `-LETTURA2`. Copiare la prima anche nella radice di `J:\backup salvataggi pokèmon\`, che è l'altro disco usato per il Rubino il 2026-09-28.

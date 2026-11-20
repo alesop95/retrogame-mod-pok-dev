@@ -20,7 +20,7 @@ Le classi, nell'ordine in cui si assegnano: *impossibile* è una data anteriore 
 
 | Gruppo | Stato | impossibile | anteriore-finestra | produzione | storica |
 |---|---|---|---|---|---|
-| DIAMANTE1 | in copia | 0 | 0 | 0 | 245 |
+| DIAMANTE1 | in HOME | 0 | 0 | 0 | 245 |
 | FINALE | in copia | 0 | 0 | 121 | 0 |
 | GIAPPONE | in copia | 0 | 0 | 14 | 0 |
 | GIAPPONE2 | in HOME | 0 | 0 | 23 | 0 |

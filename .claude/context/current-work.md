@@ -13,8 +13,9 @@ covers-paths:
   - generation-from-switch/
   - cart-battery-restoration/
   - pokedex-home-completo/
+  - switch-modding/
 last-verified-commit: 90adea9
-stato: adozione conclusa; dieci track, fuoco corrente sul completamento del Pokedex nel deposito
+stato: adozione conclusa; undici track, fuoco corrente sul completamento del Pokedex nel deposito
 ---
 
 # Lavoro in corso
@@ -35,6 +36,7 @@ La fonte di verità su cosa è fatto resta `memory/index.md`, non le spunte di q
 | gba-switch-trading | in ricerca, fonti portanti lette | leggere l'identificatore USB dell'adattatore che l'utente ha già, che è una misura e non un acquisto, e leggere il codice dei due repository | nulla: il track non richiede più Linux per ADR-015 |
 | generation-from-switch | il meno sviluppato dei dieci; il canale è stato letto su consegna di una schermata | riscrivere lo studio con lo stato corrente del servizio, cioè su quali titoli operi oggi e quali specie copra | materiale che l'utente può procurare, perché quella pagina non si recupera con una richiesta locale |
 | poke-automation | studio cominciato | studiare confronto di immagini e riconoscimento ottico dei caratteri, che è la parte trasferibile | una decisione di scopo: il perimetro del progetto di riferimento risulta compatibile con le nostre regole |
+| switch-modding | aperto il 2026-11-17 (ADR-133); studio della Switch usata scritto su fonti lette | confrontare modello e numero di serie della Switch del proprietario con la tabella dello studio | il dato del proprietario |
 
 ## Feature: adozione del sistema di progetto portabile
 

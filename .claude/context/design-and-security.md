@@ -13,6 +13,7 @@ covers-paths:
   - generation-from-switch/
   - cart-battery-restoration/
   - pokedex-home-completo/
+  - switch-modding/
 last-verified-commit: 90adea9
 ---
 
@@ -64,7 +65,7 @@ Aggiornato il 2026-09-29. La decisione è stata presa e attuata il 2026-09-28 (A
 
 ## Perimetro etico e legale
 
-Il dump si applica soltanto a cartucce possedute. Il perimetro è dichiarato nella sezione 2 dell'handoff del sottoprogetto 3DS e vale per tutte le sessioni. Dalla stessa sezione discende un limite operativo: l'assistenza non copre l'installazione e l'uso di Pokemon Bank e Transporter su questa console, e la motivazione sta fuori dal version control, in `_notes/lavoro/riservato/perimetro-bank-transporter.md`.
+Il dump si applica soltanto a cartucce possedute. Il perimetro è dichiarato nella sezione 2 dell'handoff del sottoprogetto 3DS e vale per tutte le sessioni. Dalla stessa sezione discende un limite operativo: l'assistenza non copre l'installazione e l'uso di Pokemon Bank e Transporter su questa console, e la motivazione sta fuori dal version control, in `_notes/lavoro/riservato/perimetro-bank-transporter.md`. Limite tolto dal proprietario il 2026-11-17, ADR-132.
 
 Questa dichiarazione è già presente nel repository pubblico e nella sua storia Git. La visibilità del remoto è stata verificata il 2026-09-24; la precedente indicazione che lo descriveva come privato era superata.
 

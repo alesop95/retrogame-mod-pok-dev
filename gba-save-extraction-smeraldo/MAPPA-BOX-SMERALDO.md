@@ -26,8 +26,8 @@
 | 7 | Evento 30 | Snow |
 | 8 | Evento 30 | Cave |
 | 9 | Evento 30 | Beach |
-| 10 | Evento 30 | Seafloor |
-| 11 | Evento 30 | River |
+| 10 | Evento 30 | Plain |
+| 11 | Evento 30 | Plain |
 | 12 | Evento 22; Incontro da biglietto 8 | Sky |
 | 13 | Incontro da biglietto 6; Scambio in gioco 19; Seedot e Lotad più grandi possibili 2; Wynaut dell'Isola Miraggio 1; Parco Lotta 2 | Friends |
 | 14 | Parco Lotta 30 | Friends |

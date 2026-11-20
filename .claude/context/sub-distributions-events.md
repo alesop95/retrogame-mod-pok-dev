@@ -44,7 +44,7 @@ Esiste un secondo passo che non richiede hardware e che la ricerca ha reso possi
 
 ## Decisioni aperte
 
-La contraddizione fra l'obiettivo e il perimetro è reale e va decisa dall'utente, non aggirata: l'ultimo tratto della catena passa da Pokemon Bank e Pokemon Transporter su questa console, e l'assistenza su quei due titoli è esclusa dalla regola `hardware-and-perimeter.md` per una motivazione che sta fuori dal version control. Fino a quella decisione il track lavora su tutto ciò che precede quel tratto. La voce sta in `pending.md`.
+La contraddizione fra l'obiettivo e il perimetro è reale e va decisa dall'utente, non aggirata: l'ultimo tratto della catena passa da Pokemon Bank e Pokemon Transporter su questa console, e l'assistenza su quei due titoli è esclusa dalla regola `hardware-and-perimeter.md` per una motivazione che sta fuori dal version control. Fino a quella decisione il track lavora su tutto ciò che precede quel tratto. La voce sta in `pending.md`. Limite tolto dal proprietario il 2026-11-17, ADR-132.
 
 Resta da decidere quali eventi ricreare e in quale ordine, perché il corpus è vasto e il criterio non è ovvio: le specie e le forme che mancano alla collezione non coincidono con gli eventi più facili da ricreare.
 

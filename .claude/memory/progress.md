@@ -4,6 +4,124 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-20. Rubino scritto: rilettura identica
+
+Il proprietario ha scritto il file del Rubino con i passi 10-17 della sezione «Giro del 2026-11-20» di `gba-save-extraction-smeraldo/RUNBOOK-RUBINO-SID-POKEDEX.md`. Passo 18 dell'agente: `rilettura.sav` di 131072 byte ha SHA-256 `77667946…6c85a9f75`, identico al file scritto; rinominata per esteso e copiata su J: in `backup salvataggi pokèmon/rubino-03-20261120-scrittura/`, verificata con SHA-256 e `cmp`. Sul Rubino sono attuati ADR-099 (SID 58164), ADR-089 (Pokédex), ADR-134 (gli otto della Grotta Mutevole, mai in HOME) e ADR-135 (Pokédex coerente con i box, Biglietto Eone). Mappa e stampa erano già generate dal file scritto. Resta al proprietario il passo 19 in gioco.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+## 2026-11-20. Rubino letto e composto: Pokédex dei box, Biglietto Eone, grotta nel box 13
+
+Il proprietario ha portato il Rubino. Lettura doppia identica (SHA-256 `0c2be593…`, ALESSIO 49107 a 6h24m, nessuna medaglia), rinominata e copiata su J:; rispetto al 2026-09-28 dieci minuti di gioco, soldi da 3428 a 127228 e un Seedot catturato nel box 13 posto 25; PKHeX 377 conformi su 377. Il proprietario ha chiesto un Pokédex coerente con i box, come dopo uno scambio, con la sfera visibile anche nel nazionale quando lo sbloccherà, e gli eventi giocabili come su Smeraldo: ADR-135. Verificato su pret/pokeruby che l'unico evento a biglietto del Rubino è il Biglietto Eone, che il mescolamento dei record lo consegna scrivendo l'oggetto e `FLAG_SYS_HAS_EON_TICKET` (`ReceiveGiftItem`), che il traghetto parte solo dopo la Lega e che `FLAG_HIDE_LATIOS_OR_LATIAS_STATIONARY`, acceso dalla nuova partita, non blocca `addobject`. Composto il file con `pkhex-allinea-gen3` (101 SID a 58164, 280 specie accese) e il nuovo `gba-save-extraction-smeraldo/tools/rubino_ultimo_giro.py` (otto della grotta nel box 13 posti 17-24, Biglietto Eone, contrassegno): PKHeX 385 esemplari, contestati solo gli otto della grotta; Pokédex 286 catturati e 287 visti, Hoenn 134 e 135; byte cambiati solo nei campi previsti. Due correzioni di strumenti: `tools/pkhex-scrivi-salvataggio` esclude ora gli incontri della Grotta Mutevole (guardia permanente di ADR-134), e `tools/pkhex-elenco-copie` dava agli strumenti di terza generazione il nome della tabella moderna (Baccagrana al posto di Baccalongan): ora usa la tabella del contesto dell'esemplare. `emerald_mappa_box.py` riconosce dopo il complemento gli otto della grotta e le catture del Rubino, con due provenienze nuove in legenda; nel farlo una sequenza `\b` in uno script di sessione è arrivata sul disco come carattere di controllo, trovata con la ricerca dei caratteri di controllo e corretta. Mappa del Rubino e stampa rigenerate (57 pagine).
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+## 2026-11-20. Smeraldo scritta: rilettura identica, cartuccia chiusa
+
+Il proprietario ha eseguito la terza parte della sezione di Smeraldo di `pokedex-home-completo/RUNBOOK-ESTRAZIONI.md` (passi 13-21) e ha segnalato che FlashGBX, scelto il file con «Restore from save data file», non chiede conferma e comincia a scrivere: il passo 18 descriveva una finestra che non c'è, ed è corretto; corretto anche il percorso del file nel testo della terza parte, dove la barra rovesciata davanti a `retrogame` era diventata uno spazio. Passo 22 dell'agente: `rilettura.sav` di 131072 byte ha SHA-256 `90f80b6a…ac217544`, identico al file scritto; rinominata per esteso con allenatore, ore di gioco, data e «rilettura dopo la scrittura, identica byte per byte al file scritto», copiata su J: in `backup salvataggi pokèmon/smeraldo-08-20261118-ultimo-giro/` e verificata con SHA-256 e `cmp`. La mappa dei box e `MAPPA-BOX-COLLEZIONE.pdf` erano già generate da quel file e non cambiano. Smeraldo è chiusa secondo ADR-134; resta al proprietario il controllo in gioco del passo 23. Registri aggiornati: pendenze, indice, scheda di Smeraldo, registro privato dei salvataggi.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+## 2026-11-18. Verde Foglia funziona sulla console: 16 foto lette
+
+Il proprietario ha mandato 16 foto di Verde Foglia sul Game Boy Advance SP, lette tutte dall'agente. Schermata del titolo: «CONTINUA», 503:59 di gioco, Pokédex 386, 8 medaglie. Squadra: un esemplare con soprannome al livello 100 in testa, Dragonite 74, Salamence 61, un esemplare con soprannome al livello 19, Pichu 5, Dodrio 29. Le altre 14 foto sono i 14 box del PC, molti pieni, con gli Unown in almeno due. La partita è del periodo 2004-2007; il proprietario dichiara la collezione delle 386 specie legittima, con gli esemplari 10ANNI presi di persona alla manifestazione del decimo anniversario del 2006. Sono gli originali dell'evento di cui HOME1 ha copie generate (30 righe con 10ANNI nel pedigree), da cui una decisione del proprietario in `pending.md`. Le schermate dei box non mostrano l'allenatore d'origine, quindi il numero dei 10ANNI non si legge dalle foto. Conseguenza per la diagnosi: la cartuccia e il salvataggio funzionano sulla console, quindi resta il contatto fra cartuccia e connettore del lettore, oppure il lettore; la prova con Smeraldo li separa. Il giro verso HOME lavora su una copia del salvataggio: la cartuccia non si scrive e la collezione resta intatta.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+## 2026-11-18. Grotta Mutevole sul Rubino, stampa rigenerata, Smeraldo pronta da scrivere
+
+Il proprietario ha incollato la trascrizione del video (salvata in `_notes/fonti/raccolte/video-decorazioni-argento-2026-11-18/`, registro aggiornato a letta) e approvato la lista degli otto da spostare sul Rubino; Rubino non è in mano. Nuovo strumento `gba-save-extraction-smeraldo/tools/emerald_grotta_mutevole.py`, che compone gli otto incontri dalla tabella `gAlteringCave2-9` (riquadro 0, livello del riquadro), luogo `MAPSEC_ALTERING_CAVE` 210, strumento della grotta attiva, mosse da `GiveMonInitialMoveset` lette in ordine dal file delle tabelle di apprendimento; lotto in `_notes/lotti/lotto-grotta-mutevole/`. Misura: `pkhex-giudica` con contesto Smeraldo li contesta tutti e otto («Unable to match an encounter from origin game», per Aipom e Shuckle anche «Held item is unreleased»), mentre il Wynaut di controllo dello stesso metodo è conforme; rapporto `giudizio-pkhex-20261118.json`. Il proprietario, saputo che su Smeraldo sarebbero otto triangoli rossi, ha chiesto di metterli sul Rubino: ADR-134 terza modifica, nessuno spostamento da Smeraldo, file dell'ultimo giro di nuovo da scrivere com'è. Stampa rigenerata con `emerald_mappa_box.py` sul file da scrivere (dump `round 6` e file del giro12, rilettura del Rubino del 2026-09-28): `MAPPA-BOX-SMERALDO.md` cambia solo gli sfondi dei box 10 e 11 (Plain), `MAPPA-BOX-COLLEZIONE.pdf` ricomposto con LuaLaTeX alle 15:15. Le stampe dei pedigree di HOME non dipendono da Smeraldo e restano quelle del giro 14. Il proprietario ha detto che si stava perdendo tempo: la proposta di spostare otto esemplari era un passo in più che la sua soluzione evita.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+## 2026-11-18. Smeraldo: Grotta Mutevole nei box e non in HOME, censimento del massimo ottenibile
+
+Il proprietario vuole le otto specie della Grotta Mutevole su Smeraldo ma mai in HOME, perché nessun giocatore ha potuto trasferirne dalla terza generazione: ADR-134 modificato due volte nello stesso giro. Prima ha scelto di sbloccare la grotta senza possederli; saputo che la grotta tiene una specie alla volta (`VAR_ALTERING_CAVE_WILD_SET`, `src/wild_encounter.c` righe 318-326, e lo script dell'evento `data/scripts/gift_altering_cave.inc` che la faceva avanzare di uno a ogni distribuzione; valore attuale 0 sulla cartuccia), ha deciso di iniettarle nei box e di lasciare la grotta a Zubat. Misurato sul sorgente: le otto specie si catturano anche altrove in Smeraldo (Mareep, Pineco, Houndour, Teddiursa, Aipom, Shuckle, Stantler nella Zona Safari, Smeargle nella Grotta Arte); la grotta aggiunge gli strumenti tenuti di `sAlteringCaveWildMonHeldItems` e i livelli della sua tabella. Nei dati di PKHeX la grotta non ha un controllo nominato nel sorgente C# (le tabelle degli incontri sono binarie): il giudizio si misura sui file prodotti. Proposta dell'agente per gli otto posti, da approvare: gli otto del box 13 di origine Rubino, Zaffiro e Verde Foglia, da spostare sul Rubino (44 posti liberi) dentro la scrittura del Rubino già in sospeso. Censimento del massimo ottenibile sull'estrazione del giorno: medaglie, campione, nazionale e Frontier Pass presenti; sette simboli del Parco Lotta d'argento e nessuno d'oro; un solo nastro Maestro di gara (Grinta); nastri Campione 44, Impegno 2, Nazionale 4, nessun Vittoria, Successo, Artista; gettoni 318 e punti lotta 59: sono risultati di gioco e restano al gioco. Video di YouTube per Argento identificato con l'oEmbed (`Dsxv0J9UY2M`, EveryGameEver) e non letto: il download dei sottotitoli con yt-dlp è stato negato dai permessi della sessione, e la pagina non dà la descrizione (un subagente di lettura web). Il file `08-20261118-ultimo-giro` resta da non scrivere finché la proposta non è approvata.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+## 2026-11-18. Smeraldo: copia doppia, ADR-134 e il file dell'ultimo giro
+
+Il proprietario ha fatto i passi 7-11: FlashGBX ha riconosciuto `AGB-BPEI-0`, «Pokemon - Versione Smeraldo», 1M FLASH, checksum dell'intestazione valido (fotografia della finestra letta). Due letture identiche di 131072 byte, SHA-256 `b1117124be9f2c3d4f74d805905d362b0016c554f4bb42d4baa53c8a7377ad14`, rinominate per esteso su richiesta del proprietario (allenatore, ID, ore, data, «lettura 1 di 2» e «lettura 2 di 2, copia della cartuccia prima della scrittura») e copiate su J: con lo stesso SHA-256. Misure sulla lettura 1, tutte in sola lettura: contatore di salvataggio da 3633 a 3647 e ore da 800h02m a 808h05m rispetto alla rilettura del giro12, zaino e deposito PC uguali a meno della chiave di sicurezza (`emerald_bag_decode.py`), 420 esemplari uguali (`emerald_box_censimento.py`), Pokédex con 386 viste e 386 catturate e le tre copie dei visti uguali, 182 specie presenti tutte registrate (script di sessione sulla libreria pokebridge), sfondi `[0..11, 16, 16]` cioè i predefiniti sui box 1-12 e Amici sul 13 e 14, decorazioni 116 su 120 con le bambole Seedot e dei Regi già presenti.
+
+Il proprietario ha chiesto di mettere sulla cartuccia tutto ciò che era rimasto in sospeso, con la documentazione e la stampa aggiornate, e ha dato il criterio: lo Smeraldo più completo che un giocatore italiano potesse avere (ADR-134). Ha chiesto perché gli esemplari della Grotta Mutevole dovesse catturarli lui: era la sua scelta del 2026-09-21 (sbloccare la variabile e giocare, non iniettare), e con il criterio nuovo la grotta resta com'è, perché l'evento non è mai stato distribuito. Ha chiesto di studiare prima le decorazioni: censite sul sorgente di pokeemerald (`src/data/decoration/header.h`, `include/constants/decorations.h`, gli script dei negozi e dei doni) e sulla lista di Bulbapedia, mancano Sedia Vetro, Sedia Mattoni, Sedia Roccia e Cuscino Bacio, tutte ottenibili in uno Smeraldo italiano; le capienze per categoria bastano per tutte le 120. Il deposito PC del quarto giro risulta già superato dal sesto giro. Nuovo strumento `gba-save-extraction-smeraldo/tools/emerald_ultimo_giro.py`; file `08-20261118-ultimo-giro/…DA SCRIVERE….sav`, SHA-256 `90f80b6a84a3426474ef2049540df7fda7bfad6481174f6c0ddb6c91ac217544`, copiato su J:. Verifiche indipendenti sul file: 14 sezioni valide in entrambi gli slot, Roccia di Re solo nel deposito PC (5), tasca Oggetti 29 su 30, 120 decorazioni, sfondi `[0..8, 15, 15, 11, 16, 16]`, Pokédex e box invariati, `pkhex-confronta-copie` 420 posti uguali. Differenze fra ingresso e uscita solo nei settori delle sezioni 1, 3 e 13 dello slot attivo. La terza parte del runbook porta i passi di scrittura (FlashGBX 5.1: «Write Save Data», «Restore from save data file», conferma, rilettura). Il proprietario ha aggiunto che le decorazioni della cameretta valgono anche per Argento quando se ne inietteranno i lotti: voce in `pending.md`. Correzione dell'agente nello stesso giro: un percorso con barra rovesciata seguita da `08` era arrivato nel runbook come carattere nullo; trovato con una ricerca di caratteri di controllo, corretto e riletto sui byte.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+## 2026-11-18. Smeraldo letta: il lettore è sano, il guasto è il contatto di Verde Foglia
+
+Il proprietario ha chiesto se l'ordine di inserimento (cartuccia a cavo staccato, poi cavo) fosse la causa del guasto di Verde Foglia: no, è lo stesso ordine dei passi 6-9 del runbook di ieri, e le letture sbagliate di Verde Foglia si sono ripetute dopo reinserimenti a cavo staccato e su due porte. Smeraldo inserita a cavo staccato, cavo nella porta USB frontale sinistra del PC, la stessa delle ultime tre letture sbagliate di Verde Foglia. Script di sola lettura dell'intestazione (`SetMode("AGB")`, `ReadROM(0, 0x180)`, metodi Single, MemCpy e Stream, due prove ciascuno, Python e libreria di FlashGBX 5.1): sei letture identiche, SHA-256 che comincia per `6c5df00628d2`, titolo «POKEMON EMER», codice «BPEI», logo corretto, primi byte `7f 00 00 ea`. L'avviso «Database for Game Boy Advance titles not found» viene dallo script lanciato fuori dalla cartella di configurazione di FlashGBX e riguarda solo il nome del gioco. Conclusione: lettore, cavo e porta funzionano; il guasto di Verde Foglia sta nel contatto fra la sua cartuccia e il connettore, e la pulizia con alcol isopropilico del 2026-11-21 è il passo giusto. Dato il via alla seconda parte, la copia doppia del salvataggio di Smeraldo.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+## 2026-11-18. Smeraldo come cartuccia di riferimento per il lettore
+
+Il proprietario ha portato Smeraldo, che serve a separare un guasto del lettore da uno del contatto di Verde Foglia, e ha proposto di fare insieme la scrittura in sospeso. Dalla memoria: l'unica scrittura registrata come in sospeso su Smeraldo è la rimozione della Roccia di Re doppia dalla tasca Oggetti (`pending.md`, decisione del 2026-09-21, misurata ancora presente il 2026-09-29 con `emerald_bag_decode.py`); ADR-089 non chiede contrassegni su Smeraldo perché il suo Pokédex era già completo. Scritta in `pokedex-home-completo/RUNBOOK-ESTRAZIONI.md` la sezione «Smeraldo come cartuccia di riferimento», in due parti di sola lettura: la prova del lettore con lo script dell'intestazione già usato per Verde Foglia (`SetMode("AGB")` e `ReadROM(0, 0x180)` con i tre metodi), poi la copia doppia in `_notes/salvataggi/cartucce/smeraldo/07-20261118-estrazione/`, cartella creata. La scrittura resta un passo a sé.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+## 2026-11-17, sera, quarta parte. La Switch si compra: come cercare gli annunci
+
+CORREZIONE: l'agente aveva supposto che il proprietario avesse una Switch del primo modello; non ce l'ha e la compra usata. Una ricerca web del 2026-11-17 ha restituito solo annunci americani (eBay.com, OfferUp, Mercari, fra 106 e 250 dollari circa), perché il motore di ricerca dell'agente non indicizza Subito né eBay.it. Scritta nello studio la sezione «Come si cercano gli annunci»: parole da cercare, ricerche pronte di eBay e Vinted, scarto immediato per sigla HAC-001(-01) e scatola rossa, messaggio al venditore, accessori. Il proprietario ha cancellato la cartella delle foto di Telegram. Nessun subagente.
+
+**Didattica:** nessuna, lavoro operativo senza scelte architetturali nuove
+
+**Template:** nessuna
+
+## 2026-11-17, sera, terza parte. Giro 14 in HOME, sottoprogetto switch-modding, fonti salvate
+
+Il codice d'errore della banca del pomeriggio era nella schermata del proprietario delle 16:19: «Error Code: 006-0112», «Communicating with the Pokémon Bank server», lo stesso del 2026-11-09; l'agente non l'aveva scritto nel registro e lo aveva chiesto di nuovo, cosa che il proprietario ha giustamente contestato. CORREZIONE dell'agente: nella risposta precedente 002-0102 era dato come il codice del blocco di una console; la pagina di Nintendo, letta in questo giro, lo descrive come problema generale, e il legame con i blocchi viene da cronache e forum. La pagina di Nintendo su 006-0112 indica DNS automatico, riavvio del router e riprovare più tardi.
+
+Verso le 17:30 la banca ha funzionato e il giro 14 è passato. Dalle 14 foto del proprietario: accesso alla rete, schermata della banca, gruppo «Bank 1» pieno e box 9 di Rubino Omega vuoto, salvataggio verso il server, sfide di HOME e il totale «All Pokémon 7466», cioè 7221 più 245: tutti i 245 sono arrivati e nessuno dei 996 era ancora stato liberato. Punto 18 fatto: DIAMANTE1 «in HOME» in `tools/stampa-collezione.py`, pedigree e PDF di tutti i gruppi rigenerati (975 miniature, nessuna mancante), riga del giro 14 in `ROADMAP.md` e in `RUNBOOK-PASSO-2.md`, righe dei giri 12, 13 e 14 nella tabella dei giri del capitolo 28 della tesi. L'elenco da liberare porta ora i totali da 7466 a 6470 (`GIRO14_DIAMANTE` in `tools/elenco-da-liberare.py`), sempre 5 pagine. La cartella delle foto non è stata cancellata: la cancellazione dell'agente è negata dai permessi. Il file unico della collezione da stampare in stile Sugimori non esiste ancora: esistono i PDF dei pedigree per gruppo, con le miniature di Sugimori, ora aggiornati.
+
+Aperto il sottoprogetto `switch-modding/` (ADR-133), undicesimo track: README, `STUDIO-01-switch-usata-da-modificare.md` spostato lì da `pokedex-home-completo/`, scheda `sub-switch-modding.md`, righe in `index.md` e `current-work.md`, `covers-paths` delle schede trasversali, `CLAUDE.md` e indice del README. Il proprietario ha deciso che i lotti dei giochi per Switch si sommano alla collezione. Fonti del 2026-11-17 salvate come le altre in `_notes/fonti/raccolte/switch-modding-2026-11-17/`: il recupero diretto con `curl` è stato negato dai permessi, e il testo è il riassunto fedele di un subagente di lettura web, dichiarato in ogni file. Due subagenti in questo giro.
+
+**Didattica:** nessuna, lavoro operativo e di registro senza scelte architetturali nuove
+
+**Template:** nessuna
+
+## 2026-11-17, sera, seconda parte. Elenco da liberare in 5 pagine, ADR-132, studio della Switch
+
+Elenco da liberare riscritto in `tools/elenco-da-liberare.py`: il PDF ha 5 pagine a due colonne, una riga per voce con etichetta, numero e specie, forma, sesso, cromatico, livello, allenatore e ID come li mostra HOME (sei cifre per la settima generazione, cinque per la sesta), data da liberare e, dopo la freccia, etichetta e data del sostituto; date in mese/giorno/anno come nella scheda di HOME. 958 righe per 996 esemplari, contati sul sorgente LaTeX: le voci identiche nella stessa etichetta sono unite con il loro numero. Tre voci hanno la stessa data del sostituto, i doni coreani del WCS 2014 (Heracross, Houndoom e Aggron) che hanno cambiato solo il gioco d'origine: sono segnate «stessa data» e lì decide l'etichetta. I file di dati tracciati non cambiano (`--check` allineato). Il proprietario ha tolto il limite di assistenza su Bank e Transporter (ADR-132): regola, tre schede e il README di `3ds-related/` aggiornati, nota privata segnata come superata. Ricerca sull'errore: 006-0112 è descritto dalla comunità come caduta della connessione con il server (estratti di ricerca, non pagine lette); il codice del blocco di una console dai servizi online è 002-0102. Il codice di oggi non è noto. Studio della Switch usata da modificare in `pokedex-home-completo/SWITCH-USATA-DA-MODIFICARE.md`, da un subagente di lettura web, fonti in `SOURCES.md`. Un subagente.
+
+**Didattica:** nessuna, lavoro operativo e di registro senza scelte architetturali nuove
+
+**Template:** nessuna
+
+## 2026-11-17, sera. Liberazione da «Bank 1» e banca di nuovo in errore
+
+Il proprietario ha cominciato la liberazione dei 996 da «Bank 1» e non trovava il secondo esemplare di Exeggutor di Alola Worlds17 e del Magikarp cromatico: le sue schermate di HOME mostrano in «Bank 1» un solo Exeggutor, con la data 30/09/2026, e due Magikarp, uno normale e uno cromatico. Su `pokedex-home-completo/data/sostituzioni-ridata.json` i vecchi sono HOME5 box 1 posti 12 e 4, data 2026-09-30, e i sostituti RIDATA2 box 2 posti 19 e 11, date 2017-08-19 e 2017-01-26: stanno sotto «Bank 2», non sotto «Bank 1». L'esemplare mostrato è il vecchio da liberare. L'elenco stampato dà la posizione del sostituto come copia e box e non come etichetta di HOME: correzione aperta in `pending.md`. Banca di nuovo in errore verso le 17:08, fuori perimetro. Nessun subagent.
+
+**Didattica:** nessuna, lavoro operativo e di registro senza scelte architetturali nuove
+
+**Template:** nessuna
+
+## 2026-11-17, sera. Ripresa con `/riprendi`
+
+`python tools/verifica-ripresa.py` ha trovato l'impronta registrata da `chiudi` alle 16:40 su `2d5f940`, albero pulito e un solo albero di lavoro. Unica divergenza: il blocco «Stato» di `index.md` dichiarava ancora `e231b7a` e la data del 2026-11-13, mentre il punto di ripresa aveva già l'aggiunta del 2026-11-17; corretto il blocco, nessun lavoro perduto. Le novità degli hook di apertura (eventi nuovi, fonti vive dei lotti di Bank cambiate, template avanti di 28 commit) sono registrate in `pending.md`, voce «AL 2026-11-17, ripresa». Nessun subagent.
+
+**Didattica:** nessuna, lavoro operativo e di registro senza scelte architetturali nuove
+
+**Template:** nessuna
+
 ## 2026-11-17. Squadre delle cartucce, Diamante con Checkpoint, ADR-128 sulle date di Poké Transfer
 
 Il proprietario ha cancellato la cartella delle foto del giro 13 e sta liberando i 996 in HOME con l'elenco già stampato: le 996 righe sono le stesse della versione rigenerata, cambiano solo i totali (da 7221 a 6225). Ha chiesto di portare i Pokémon veri di Smeraldo e Rubino tolti dalle cartucce, senza confronti. Il confronto serviva comunque a sapere quali fossero, ed è stato fatto con `tools/pkhex-identificativi`, che ha la nuova opzione `--squadra`. L'estrazione di Smeraldo del 2026-09-17 ha 253 esemplari nei box, e i 213 di `lotto-smeraldo-cartuccia` in HOME sono esattamente i suoi conformi (differenza per PID, specie e TID: 40 da una parte, 0 dall'altra; i 40 sono i non conformi). Il deposito del Rubino non aveva catture del proprietario (progress del 2026-09-28: vuoto il 2026-09-15, poi 205 copie di prova di Smeraldo). Mai entrate in HOME sono le due squadre, ancora sulle cartucce. Smeraldo ha Linoone di ALEX e cinque esemplari di AXEL 55279, con un Doduo e un Paras non conformi; Rubino ha sei esemplari di ALESSIO 49107, tutti conformi. `tools/pkhex-produci-elenco` ha la modalità `--squadra`, che ha estratto i 10 conformi in `_notes/lotti/lotto-squadre-cartucce/` con il rapporto per cartuccia.

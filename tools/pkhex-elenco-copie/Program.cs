@@ -115,7 +115,9 @@ foreach (var arg in args.Skip(1))
             ["data_incontro"] = pk.MetDate is { } d ? d.ToString("yyyy-MM-dd") : "",
             ["data_uovo"] = pk.EggMetDate is { } du ? du.ToString("yyyy-MM-dd") : "",
             ["formato_lotto"] = formatoLotto, ["data_lotto"] = dataLotto, ["data_uovo_lotto"] = uovoLotto,
-            ["oggetto"] = pk.HeldItem > 0 ? testi.itemlist[pk.HeldItem] : "",
+            // Il PK3 tiene lo strumento con il numero interno della terza generazione, non con quello moderno: il nome
+            // si prende dalla tabella di quel contesto (corretto il 2026-11-20, mostrava la Baccagrana al posto della Baccalongan).
+            ["oggetto"] = pk.HeldItem > 0 ? testi.GetItemStrings(pk.Context, pk.Version)[pk.HeldItem] : "",
             ["mosse"] = new JsonArray(pk.Moves.Where(m => m != 0).Select(m => (JsonNode)testi.movelist[m]).ToArray()),
             ["abilita"] = testi.abilitylist[pk.Ability],
             ["impronta"] = Convert.ToHexString(System.Security.Cryptography.SHA256.HashData(pk.Data)).ToLowerInvariant(),

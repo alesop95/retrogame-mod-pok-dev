@@ -158,6 +158,15 @@ PKM? Prepara(string percorso, string origine)
         esclusi.Add(new JsonObject { ["file"] = origine, ["motivo"] = "illeggibile" });
         return null;
     }
+    // Guardia permanente di ADR-134, terza modifica, del 2026-11-18: gli incontri della Grotta Mutevole di Smeraldo
+    // (luogo 210, MAPSEC_ALTERING_CAVE) stanno sulle cartucce e non vanno mai verso HOME, perché l'evento che li
+    // avrebbe resi possibili non è mai stato distribuito. Questo strumento è la strada di ogni copia per HOME
+    // (ADR-092), quindi la guardia sta qui, prima di qualunque conversione, e non dipende dal giudizio della libreria.
+    if (pk.Format == 3 && pk.Version == GameVersion.E && pk.MetLocation == 210)
+    {
+        esclusi.Add(new JsonObject { ["file"] = origine, ["motivo"] = "Grotta Mutevole, mai in HOME, ADR-134" });
+        return null;
+    }
     // --solo-stesso-formato scrive soltanto gli esemplari gia' nel formato del salvataggio: un lotto che mescola doni di
     // sesta e settima generazione va in due giochi, e senza questo filtro i doni di sesta sarebbero finiti, convertiti,
     // anche nella copia di settima, doppioni di quelli di Rubino Omega.

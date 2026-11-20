@@ -162,8 +162,8 @@ STATO_GRUPPO = {"HOME1": ("DSstatoinhome", "in HOME"), "HOME2": ("DSstatoinhome"
                 "HOME10": ("DSstatoinhome", "in HOME"),  # il giro 10 dal 2026-11-13, HOME a 6198
                 "GIAPPONE2": ("DSstatoinhome", "in HOME"),  # il giro 11 dal 2026-11-13, HOME a 6223 con i due da GO
                 "RIDATA2": ("DSstatoinhome", "in HOME"),  # il giro 12 dal 2026-11-16, HOME a 6791 (ADR-126)
-                "RIDATA1": ("DSstatoinhome", "in HOME")}  # il giro 13 dal 2026-11-16, HOME a 7221 (ADR-126)
-# DIAMANTE1, il giro 14 (ADR-130), resta «in copia» finché non arriva in HOME dopo la liberazione dei 996
+                "RIDATA1": ("DSstatoinhome", "in HOME"),  # il giro 13 dal 2026-11-16, HOME a 7221 (ADR-126)
+                "DIAMANTE1": ("DSstatoinhome", "in HOME")}  # il giro 14 dal 2026-11-17, HOME a 7466 prima di liberare (ADR-130)
 
 
 # Gli esemplari che il gioco non lascia uscire dalla console anche se la libreria li giudica conformi nel loro gioco: il

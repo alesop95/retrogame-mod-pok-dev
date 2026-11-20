@@ -25,6 +25,6 @@ Il formato dei salvataggi Pokemon non riguarda questo track, che dumpa file senz
 
 ## Le due avvertenze di perimetro
 
-Il dump si applica soltanto a esemplari di proprietà, e i salvataggi scaricati da internet non si importano su questa console. L'assistenza tecnica non copre Pokemon Bank e Pokemon Transporter su questa console, né file `.cia` di provenienza non chiarita: è un limite dichiarato che vale per tutte le sessioni e non si riapre implicitamente.
+Il dump si applica soltanto a esemplari di proprietà, e i salvataggi scaricati da internet non si importano su questa console. L'assistenza tecnica non copre Pokemon Bank e Pokemon Transporter su questa console, né file `.cia` di provenienza non chiarita: è un limite dichiarato che vale per tutte le sessioni e non si riapre implicitamente. Limite tolto dal proprietario il 2026-11-17, ADR-132.
 
 Il materiale di chiave console-unica, cioè `movable.sed`, `boot9.bin`, `boot11.bin`, `otp.bin`, i dump della NAND e i seed, è segreto nel senso pieno del termine e non è rigenerabile. Non entra nel version control, non si incolla in una chat e non si carica su servizi di terze parti. Anche l'identificatore della scheda SD, che ne è derivato, va trattato con la stessa riservatezza.

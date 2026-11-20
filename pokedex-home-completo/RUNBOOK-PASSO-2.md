@@ -387,6 +387,8 @@ Stato al 2026-11-17: punti 1-4 FATTI. `/3ds/Checkpoint/saves/` è copiata in `_n
 
 Stato al 2026-11-17, più tardi: punti 5-14 FATTI. Punto 13: `20261117-rilett14/main` ha SHA-256 `1cbdd79d…`, uguale alla copia. Punto 14: giudizio in `_notes/lavoro/giudizi-copie/rilettura-passo2-giro14.json`: `rilett14` 245 esemplari, 245 conformi, stessi posti e stesse impronte di `diamante-20261117.json`; `prima14` (SHA-256 `52f52f01…`) con i box vuoti. Riserve `_notes/salvataggi/console/sd-checkpoint-20261117b/` e `J:/backup-sd-3ds/20261117b/`, 57 file ciascuna, verificate con `sha256sum -c` (`sd-20261117b.sha256`). Il proprietario ha deciso di non aspettare la fine della liberazione: il deposito Premium tiene 9000 esemplari (`COPIE-PER-HOME.md`), e 7221 più 245 fa 7466. L'elenco da liberare riconosce ogni esemplare per etichetta, specie, sesso, livello, allenatore e data, che i Pokémon di Diamante non condividono con nessuna voce; ai totali attesi dell'elenco si aggiungono 245. Tocca al proprietario dal punto 15.
 
+Stato al 2026-11-17, sera: punti 15-18 FATTI. La banca ha dato due volte l'errore 006-0112, poi il passaggio è riuscito; il totale di HOME nella foto del proprietario è 7466, cioè 7221 più 245, quindi tutti i 245 sono arrivati e nessuno dei 996 era ancora stato liberato. DIAMANTE1 è «in HOME» in `tools/stampa-collezione.py`, pedigree e PDF rigenerati; l'elenco da liberare porta i totali da 7466 a 6470.
+
 1. Proprietario: spegni il 3DS del tutto.
 2. Proprietario: SD nel PC, lettera `I:`, e dimmelo.
 3. Agente: copia di `/3ds/Checkpoint/saves/` nelle due riserve, con lo SHA-256 di ogni file.

@@ -58,6 +58,9 @@ AGGIUNTI = "lotto-jirachi-cromatico-"
 # di Verde Foglia vengono dopo la liberazione, in un giro loro (correzione del proprietario del 2026-11-16), e qui non si contano.
 HOME_OGGI = 6223
 GIRO_RIDATA = {"RIDATA2": 12, "RIDATA1": 13}
+# Il giro 14, DIAMANTE1 (ADR-130, ADR-131), è entrato in HOME il 2026-11-17 prima che cominciasse la liberazione:
+# foto del proprietario con 7466, cioè 7221 più 245. I suoi esemplari non sono voci dell'elenco, ma spostano i totali.
+GIRO14_DIAMANTE = 245
 
 _s = importlib.util.spec_from_file_location("cdi", os.path.join(QUI, "controlla-date-incontro.py"))
 cdi = importlib.util.module_from_spec(_s)
@@ -105,7 +108,8 @@ def componi():
 
     dopo12 = HOME_OGGI + per_copia["RIDATA2"]
     dopo13 = dopo12 + per_copia["RIDATA1"]
-    finale = dopo13 - len(sostituzioni)
+    dopo14 = dopo13 + GIRO14_DIAMANTE
+    finale = dopo14 - len(sostituzioni)
     o = ["# Esemplari da liberare in HOME dopo i giri 12 e 13", "",
          "> Documento generato da `tools/elenco-da-liberare.py --stampa`, insieme al PDF accanto. Non si modifica a mano e non si tiene: si rigenera. Il legame fra esemplare vecchio e nuovo sta in `pokedex-home-completo/data/sostituzioni-ridata.json`.", "",
          "Ogni voce è un esemplare già in HOME con la data di incontro fuori dalla finestra dell'evento (ADR-126). Il suo sostituto è uguale in tutto, specie, sesso, livello, sfera, natura, abilità, mosse, allenatore, lingua e statistiche, salvo la data di incontro, e arriva in HOME con i giri 12 (RIDATA2, Ultraluna) e 13 (RIDATA1, Rubino Omega). Si libera solo dopo che entrambi i giri sono passati: se un sostituto non arrivasse, il vecchio sarebbe ancora lì.", "",
@@ -115,17 +119,18 @@ def componi():
          "| Prima dei giri | %d |" % HOME_OGGI,
          "| Dopo il giro 12 (RIDATA2, %d esemplari, compreso il Jirachi cromatico WISHMKR) | %d |" % (per_copia["RIDATA2"], dopo12),
          "| Dopo il giro 13 (RIDATA1, %d esemplari, compreso il Jirachi cromatico CHANNEL) | %d |" % (per_copia["RIDATA1"], dopo13),
+         "| Dopo il giro 14 (DIAMANTE1, %d esemplari, entrato prima della liberazione) | %d |" % (GIRO14_DIAMANTE, dopo14),
          "| Dopo la liberazione di tutte le %d voci | %d |" % (len(sostituzioni), finale), "",
-         "Il totale cresce di %d rispetto a prima dei giri: sono i due Jirachi cromatici, che non sostituiscono nessuno." % (finale - HOME_OGGI), "",
+         "Il totale cresce di %d rispetto a prima dei giri: sono i due Jirachi cromatici, che non sostituiscono nessuno, e i %d di Diamante." % (finale - HOME_OGGI, GIRO14_DIAMANTE), "",
          "## Riepilogo per etichetta, nell'ordine di liberazione", "",
          "| Etichetta | Voci | Totale prima | Totale dopo |", "|---|---|---|---|"]
-    totale = dopo13
+    totale = dopo14
     for box in sorted(per_etichetta):
         n = len(per_etichetta[box])
         o.append("| Bank %d | %d | %d | %d |" % (box, n, totale, totale - n))
         totale -= n
     numero = 0
-    totale = dopo13
+    totale = dopo14
     for box in sorted(per_etichetta):
         voci = per_etichetta[box]
         o += ["", "## Etichetta Bank %d" % box, "",
@@ -134,11 +139,11 @@ def componi():
         for s in voci:
             numero += 1
             o.append(("- [ ] %d. %s%s%s%s, livello %s; %s, %s, %s; allenatore %s, %s; %s, %s. "
-                      "Data da liberare %s; il sostituto ha %s (%s, box %d, posto %d). Copia vecchia %s, box %d, posto %d.") % (
+                      "Data da liberare %s; il sostituto sta sotto «Bank %d» con la data %s (%s, box %d, posto %d). Copia vecchia %s, box %d, posto %d.") % (
                 numero, s["specie"], " " + s["forma"] if s["forma"] else "", " " + SESSO.get(s["sesso"], "") if s["sesso"] else "",
                 " cromatico" if s["cromatico"] else "", s["livello"], s["sfera"], s["natura"], s["abilita"],
                 s["allenatore"].replace("|", "/"), s["lingua"], s["luogo"], s["gioco_vecchio"],
-                s["data_vecchia"], s["data_nuova"], s["gruppo_nuovo"], s["box_nuovo"], s["posto_nuovo"],
+                s["data_vecchia"], s["box_nuovo"], s["data_nuova"], s["gruppo_nuovo"], s["box_nuovo"], s["posto_nuovo"],
                 s["gruppo_vecchio"], s["box_vecchio"], s["posto_vecchio"]))
     o += ["", "## Esemplari nuovi che non sostituiscono nessuno", ""]
     for gruppo, e in aggiunti:
@@ -150,7 +155,7 @@ def componi():
     return {"md": "\n".join(o), "json": json.dumps(sostituzioni, ensure_ascii=False, indent=1) + "\n",
             "esiti": json.dumps(esiti, ensure_ascii=False, indent=1, sort_keys=True) + "\n",
             "n": len(sostituzioni), "per_etichetta": per_etichetta, "aggiunti": aggiunti,
-            "totali": (HOME_OGGI, dopo12, dopo13, finale), "per_copia": per_copia}
+            "totali": (HOME_OGGI, dopo12, dopo14, finale), "per_copia": per_copia}
 
 
 def tex(testo):
@@ -159,43 +164,83 @@ def tex(testo):
     return "".join(sost.get(c, c) for c in str(testo))
 
 
+GEN7 = {"Sole", "Luna", "Ultrasole", "Ultraluna"}
+
+
+def data_home(iso):
+    """La data come la mostra HOME in inglese, cioè mese/giorno/anno, che è ciò che il proprietario legge nella scheda."""
+    a, m, g = iso.split("-")
+    return "%s/%s/%s" % (m, g, a)
+
+
+def allenatore_home(s):
+    """Nome e ID dell'allenatore come li mostra HOME: ID a sei cifre per la settima generazione, a cinque per la sesta."""
+    parti = [p.strip() for p in s["allenatore"].split(",")]
+    nome, ident = parti[0], next((p[3:] for p in parti if p.startswith("ID ")), "")
+    if ident.isdigit():
+        ident = ident.zfill(6 if s["gioco_vecchio"] in GEN7 else 5)
+    return nome, ident
+
+
+def numero_specie(s):
+    m = re.match(r"(\d+)", s["specie"])
+    return int(m.group(1)) if m else 0
+
+
 def pdf(c):
+    """Il foglio da stampare, ridotto a ciò che serve a riconoscere il vecchio in HOME e a sapere dove sta il sostituto.
+
+    Dal 2026-11-17, su richiesta del proprietario: nel minor numero di pagine, con le sole informazioni che distinguono
+    un esemplare in HOME (etichetta, numero e specie, forma, sesso, cromatico, livello, allenatore e ID, data da liberare)
+    e con l'etichetta di HOME del sostituto, che prima era data solo come copia e box e ha prodotto un equivoco. Le voci
+    identiche nella stessa etichetta si uniscono con il loro numero: si liberano tutte, sono indistinguibili.
+    """
     g = json.load(io.open(os.path.join(DS, "tokens.json"), encoding="utf-8"))["geometria"]
     caratteri = os.path.join(RADICE, "_notes", "design-system", "caratteri").replace("\\", "/") + "/"
-    oggi, dopo12, dopo13, finale = c["totali"]
-    t = [r"""\documentclass[9pt,a4paper]{extarticle}
-\usepackage[top=%(v)smm,bottom=%(v)smm,left=%(a)smm,right=%(m)smm]{geometry}
+    oggi, dopo12, dopo14, finale = c["totali"]
+    t = [r"""\documentclass[8pt,a4paper]{extarticle}
+\usepackage[top=8mm,bottom=10mm,left=%(a)smm,right=8mm]{geometry}
 \def\DScaratteri{%(car)s}
 \input{%(stile)s}
 \usepackage[italian]{babel}
 \usepackage{amssymb}
+\usepackage{multicol}
 \setlength{\parindent}{0pt}
+\setlength{\columnsep}{5mm}
+\setlength{\columnseprule}{0.3pt}
 \pagestyle{plain}
+\newcommand{\V}[1]{\par\hangindent=4mm\hangafter=1\noindent$\square$\,#1\par}
 \begin{document}
-{\DStitoli\bfseries\fontsize{20}{24}\selectfont\color{DSrosso} Da liberare in HOME}\par
-{\DSdati\small\color{DSseppia} %(n)d esemplari con la data di incontro fuori dalla finestra dell'evento (ADR-126). Si liberano solo dopo i giri 12 e 13.}\par\medskip
-{\DSdati\small HOME oggi: \textbf{%(oggi)d}. Dopo il giro 12: \textbf{%(d12)d}. Dopo il giro 13: \textbf{%(d13)d}. Dopo la liberazione: \textbf{%(fin)d}.}\par\medskip
-{\small Come si trova il vecchio: in HOME si apre l'etichetta «Bank N», si cerca la specie con quel sesso, livello e allenatore, si apre la scheda e si controlla la data di incontro. Si libera solo se la data è quella da liberare; con la data da tenere è il sostituto, e non si tocca.}\par\bigskip
-""" % {"v": g["margine_verticale_mm"], "a": g["margine_anelli_mm"], "m": g["margine_mm"], "car": caratteri,
-       "stile": os.path.join(DS, "collezione-stile.tex").replace("\\", "/"), "n": c["n"], "oggi": oggi,
-       "d12": dopo12, "d13": dopo13, "fin": finale}]
-    numero, totale = 0, dopo13
+{\DStitoli\bfseries\fontsize{15}{18}\selectfont\color{DSrosso} Da liberare in HOME}\hfill{\DSdati\small %(n)d esemplari \textbullet\ HOME con Diamante, prima di liberare: \textbf{%(d13)d} \textbullet\ a liberazione finita: \textbf{%(fin)d}}\par\smallskip
+{\footnotesize\textbf{Come si libera in sicurezza.} 1) In HOME scegli l'etichetta \textbf{Bank N} del riquadro e cerca la specie. 2) Apri la scheda: allenatore, ID e livello devono essere quelli della riga, e la data di incontro (\emph{fateful encounter on\dots}) deve essere la \textbf{data da liberare}. 3) Solo allora libera. Dopo la freccia ci sono l'etichetta e la data del sostituto, identico salvo la data: una scheda con quella data è il sostituto e non si tocca. Dove è scritto \textbf{stessa data}, vecchio e sostituto differiscono solo per il gioco d'origine e decide l'etichetta: si libera quello sotto la Bank del riquadro. Le date sono scritte come le mostra HOME, mese/giorno/anno. Un \textbf{\texttimes 2} significa due esemplari identici nella stessa etichetta: si liberano entrambi. $\bigstar$ = cromatico.}\par\smallskip
+\hrule\smallskip
+\begin{multicols}{2}\footnotesize
+""" % {"a": g["margine_anelli_mm"], "car": caratteri,
+       "stile": os.path.join(DS, "collezione-stile.tex").replace("\\", "/"), "n": c["n"],
+       "d13": dopo14, "fin": finale}]
+    totale = dopo14
     for box in sorted(c["per_etichetta"]):
         voci = c["per_etichetta"][box]
-        t.append(r"\begin{DSscheda}{DSgiallo}{\DStitoli\bfseries\large Etichetta Bank %d}\hfill{\DSdati\small %d voci; HOME prima %d, dopo %d}\end{DSscheda}" % (
+        t.append(r"\par\smallskip{\setlength{\fboxsep}{1pt}\colorbox{DSgiallo!35}{\parbox{\linewidth}{\DStitoli\bfseries\small Bank %d\hfill{\DSdati\scriptsize %d voci \textbullet\ HOME da %d a %d}}}}\par\smallskip" % (
             box, len(voci), totale, totale - len(voci)))
         totale -= len(voci)
-        for s in voci:
-            numero += 1
-            t.append(r"\noindent$\square$\ {\DSdati\bfseries %d.}\ {\bfseries %s%s%s%s}, livello %s \hfill {\DScampo{data da liberare}} {\bfseries %s}\par"
-                     r"\hspace*{5mm}{\small %s, %s, %s; allenatore %s, %s; %s, %s.}\par"
-                     r"\hspace*{5mm}{\small\color{DSseppia} Tenere il sostituto con la data %s (%s, box %d, posto %d). Copia vecchia %s, box %d, posto %d.}\par\smallskip" % (
-                numero, tex(s["specie"]), tex(" " + s["forma"]) if s["forma"] else "",
-                " " + SESSO.get(s["sesso"], "") if s["sesso"] else "", " cromatico" if s["cromatico"] else "",
-                s["livello"], s["data_vecchia"], tex(s["sfera"]), tex(s["natura"]), tex(s["abilita"]),
-                tex(s["allenatore"]), tex(s["lingua"]), tex(s["luogo"]), tex(s["gioco_vecchio"]),
-                s["data_nuova"], s["gruppo_nuovo"], s["box_nuovo"], s["posto_nuovo"],
-                s["gruppo_vecchio"], s["box_vecchio"], s["posto_vecchio"]))
+        gruppi = collections.OrderedDict()
+        for s in sorted(voci, key=lambda s: (numero_specie(s), s["forma"], s["sesso"], s["livello"], s["allenatore"], s["data_vecchia"])):
+            nome, ident = allenatore_home(s)
+            chiave = (s["specie"], s["forma"], s["sesso"], s["cromatico"], s["livello"], nome, ident, s["data_vecchia"])
+            gruppi.setdefault(chiave, []).append(s)
+        for (specie, forma, sesso, crom, liv, nome, ident, dv), ss in gruppi.items():
+            sostituti = collections.Counter((x["box_nuovo"], x["data_nuova"]) for x in ss)
+            dove = "; ".join(("Bank %d %s" % (b, data_home(d))) + (r" \texttimes%d" % k if k > 1 else "")
+                             for (b, d), k in sorted(sostituti.items()))
+            if any(x["data_nuova"] == dv for x in ss):
+                # Tre doni coreani del WCS 2014 hanno cambiato solo il gioco d'origine (ADR-126): la data non li distingue.
+                dove += r" {\color{DSrosso}\bfseries stessa data}"
+            t.append(r"\V{%s{\bfseries %s}%s%s%s Lv%s \textbullet\ %s %s \hfill {\bfseries %s} $\rightarrow$ {\color{DSseppia}%s}}" % (
+                r"{\bfseries\texttimes%d}\ " % len(ss) if len(ss) > 1 else "",
+                tex(specie), tex(" " + forma) if forma else "", " " + SESSO.get(sesso, "") if sesso else "",
+                r" $\bigstar$" if crom else "", liv, tex(nome), ident, data_home(dv), dove))
+    t.append(r"\end{multicols}")
     t.append(r"\end{document}")
     os.makedirs(USCITA_PDF, exist_ok=True)
     sorgente = os.path.join(USCITA_PDF, "DA-LIBERARE-IN-HOME.tex")

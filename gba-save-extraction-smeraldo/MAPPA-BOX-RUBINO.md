@@ -1,6 +1,6 @@
 <!-- generato da gba-save-extraction-smeraldo/tools/emerald_mappa_box.py: non si modifica a mano -->
 
-Complemento di ADR-080 e ADR-087 scritto sulla cartuccia del Rubino di prova e verificato posizione per posizione sulla rilettura Pokemon - Versione Rubino (Italy) - ALESSIO-49107-6h14m-2026-09-28-READBACK.sav. La squadra di inizio partita resta quella che la cartuccia ha, e il box 14 resta vuoto. 101 posizioni portano la versione scritta prima di ADR-099, con l'ID segreto 0 invece di 58164 e per il resto identiche; le copie per HOME usano la versione corretta.
+Complemento di ADR-080 e ADR-087 scritto sulla cartuccia del Rubino di prova e verificato posizione per posizione sul salvataggio Pokemon - Versione Rubino (Italy) - ALESSIO-49107-6h24m-2026-11-20 - DA SCRIVERE, SID 58164, Pokedex dei box, grotta mutevole nel box 13, Biglietto Eone.sav. La squadra di inizio partita resta quella che la cartuccia ha. Dopo il complemento: 8 esemplari della Grotta Mutevole di Smeraldo, contestati da PKHeX perché l'evento della grotta non è mai stato distribuito e mai da portare in HOME (ADR-134), e 1 catturati giocando sul Rubino.
 
 ## Legenda e riepilogo
 
@@ -14,7 +14,9 @@ Complemento di ADR-080 e ADR-087 scritto sulla cartuccia del Rubino di prova e v
 | #b3acda | Colosseum | 52 |
 | #94cb94 | XD | 91 |
 | #f3b3b2 | Evento | 1 |
-|  | Totale | 376 su 420 |
+| #c1c1c1 | Grotta Mutevole di Smeraldo, contestati da PKHeX, mai in HOME | 8 |
+| #d5bda3 | Catturati giocando sul Rubino | 1 |
+|  | Totale | 385 su 420 |
 
 | Box | Contenuto | Sfondo |
 |---|---|---|
@@ -30,7 +32,7 @@ Complemento di ADR-080 e ADR-087 scritto sulla cartuccia del Rubino di prova e v
 | 10 | Colosseum 14; XD 16 | Machine |
 | 11 | XD 30 | Seafloor |
 | 12 | XD 30 | Cave |
-| 13 | XD 15; Evento 1 | Sky |
+| 13 | XD 15; Evento 1; Grotta Mutevole di Smeraldo, contestati da PKHeX, mai in HOME 8; Catturati giocando sul Rubino 1 | Sky |
 
 ## Box 1
 
@@ -498,15 +500,15 @@ Complemento di ADR-080 e ADR-087 scritto sulla cartuccia del Rubino di prova e v
 | 14 | 3 | 2 | Spheal |  | 17 | Alessio | XD | Spheal: Cipher Peon Blusix @ Cipher Lab; EncounterShadow3XD XD Shadow Encounter 3 (XD), allenatore Alessio 13578 |
 | 15 | 3 | 3 | Salamence |  | 50 | Alessio | XD | Salamence: Cipher Admin Eldes @ Citadark Isle; EncounterShadow3XD XD Shadow Encounter 70 (XD), allenatore Alessio 13578 |
 | 16 | 3 | 4 | Jirachi |  | 5 | CHANNEL | Evento | Jirachi di Pokemon Channel; EncounterGift3 Event Gift (R), allenatore CHANNEL 40122 |
-| 17 | 3 | 5 | vuoto |  |  |  |  |  |
-| 18 | 3 | 6 | vuoto |  |  |  |  |  |
-| 19 | 4 | 1 | vuoto |  |  |  |  |  |
-| 20 | 4 | 2 | vuoto |  |  |  |  |  |
-| 21 | 4 | 3 | vuoto |  |  |  |  |  |
-| 22 | 4 | 4 | vuoto |  |  |  |  |  |
-| 23 | 4 | 5 | vuoto |  |  |  |  |  |
-| 24 | 4 | 6 | vuoto |  |  |  |  |  |
-| 25 | 5 | 1 | vuoto |  |  |  |  |  |
+| 17 | 3 | 5 | Mareep |  | 7 | ALEX | Grotta Mutevole di Smeraldo, contestati da PKHeX, mai in HOME | Grotta Mutevole di Smeraldo, tabella gAlteringCave2, livello 7, strumento Ganlon Berry, allenatore ALEX; l'evento della grotta non è mai stato distribuito, PKHeX lo contesta e l'esemplare non va mai in HOME (ADR-134) |
+| 18 | 3 | 6 | Pineco |  | 23 | ALEX | Grotta Mutevole di Smeraldo, contestati da PKHeX, mai in HOME | Grotta Mutevole di Smeraldo, tabella gAlteringCave3, livello 23, strumento Apicot Berry, allenatore ALEX; l'evento della grotta non è mai stato distribuito, PKHeX lo contesta e l'esemplare non va mai in HOME (ADR-134) |
+| 19 | 4 | 1 | Houndour |  | 16 | ALEX | Grotta Mutevole di Smeraldo, contestati da PKHeX, mai in HOME | Grotta Mutevole di Smeraldo, tabella gAlteringCave4, livello 16, strumento Big Mushroom, allenatore ALEX; l'evento della grotta non è mai stato distribuito, PKHeX lo contesta e l'esemplare non va mai in HOME (ADR-134) |
+| 20 | 4 | 2 | Teddiursa |  | 10 | ALEX | Grotta Mutevole di Smeraldo, contestati da PKHeX, mai in HOME | Grotta Mutevole di Smeraldo, tabella gAlteringCave5, livello 10, strumento Petaya Berry, allenatore ALEX; l'evento della grotta non è mai stato distribuito, PKHeX lo contesta e l'esemplare non va mai in HOME (ADR-134) |
+| 21 | 4 | 3 | Aipom |  | 22 | ALEX | Grotta Mutevole di Smeraldo, contestati da PKHeX, mai in HOME | Grotta Mutevole di Smeraldo, tabella gAlteringCave6, livello 22, strumento Berry Juice, allenatore ALEX; l'evento della grotta non è mai stato distribuito, PKHeX lo contesta e l'esemplare non va mai in HOME (ADR-134) |
+| 22 | 4 | 4 | Shuckle |  | 22 | ALEX | Grotta Mutevole di Smeraldo, contestati da PKHeX, mai in HOME | Grotta Mutevole di Smeraldo, tabella gAlteringCave7, livello 22, strumento Berry Juice, allenatore ALEX; l'evento della grotta non è mai stato distribuito, PKHeX lo contesta e l'esemplare non va mai in HOME (ADR-134) |
+| 23 | 4 | 5 | Stantler |  | 22 | ALEX | Grotta Mutevole di Smeraldo, contestati da PKHeX, mai in HOME | Grotta Mutevole di Smeraldo, tabella gAlteringCave8, livello 22, strumento Petaya Berry, allenatore ALEX; l'evento della grotta non è mai stato distribuito, PKHeX lo contesta e l'esemplare non va mai in HOME (ADR-134) |
+| 24 | 4 | 6 | Smeargle |  | 22 | ALEX | Grotta Mutevole di Smeraldo, contestati da PKHeX, mai in HOME | Grotta Mutevole di Smeraldo, tabella gAlteringCave9, livello 22, strumento Salac Berry, allenatore ALEX; l'evento della grotta non è mai stato distribuito, PKHeX lo contesta e l'esemplare non va mai in HOME (ADR-134) |
+| 25 | 5 | 1 | Seedot |  | 43 | ALESSIO | Catturati giocando sul Rubino | catturato giocando sul Rubino dall'allenatore ALESSIO |
 | 26 | 5 | 2 | vuoto |  |  |  |  |  |
 | 27 | 5 | 3 | vuoto |  |  |  |  |  |
 | 28 | 5 | 4 | vuoto |  |  |  |  |  |
