@@ -13,7 +13,7 @@ CLAUDE.local.md
 .claude/settings.local.json
 
 # Segreti e materiale di credenziale: mai committati. Il template pubblico delle variabili
-# e' .env.example, tracciato; la copia compilata .env resta locale (sezione 6).
+# è .env.example, tracciato; la copia compilata .env resta locale (sezione 6).
 .env
 .env.*
 !.env.example
@@ -42,7 +42,7 @@ __pycache__/
 *.pyc
 # Node
 node_modules/
-# LaTeX: il .tex e' la fonte, il PDF e gli ausiliari sono derivati. Abilitare nei progetti LaTeX.
+# LaTeX: il .tex è la fonte, il PDF e gli ausiliari sono derivati. Abilitare nei progetti LaTeX.
 # *.aux
 # *.log
 # *.out
@@ -67,11 +67,11 @@ desktop.ini
 .DS_Store
 
 # --- Politica sui media: foto, video e screenshot non si versionano ---
-# Decisione di progetto (ADR-005): il materiale fotografico e video e' evidenza personale,
+# Decisione di progetto (ADR-005): il materiale fotografico e video è evidenza personale,
 # non conoscenza tecnica. Vive sotto _notes/media/, che rispecchia la struttura del progetto,
-# quindi resta sul disco e fuori da git. Cio' che un media documenta si registra in prosa nella
+# quindi resta sul disco e fuori da git. Ciò che un media documenta si registra in prosa nella
 # scheda del sottoprogetto, dove diventa diffabile. Il materiale con dati personali passa da
-# _notes/media-riservati/ e ha vita breve: si elimina appena il fatto tecnico e' stato scritto.
+# _notes/media-riservati/ e ha vita breve: si elimina appena il fatto tecnico è stato scritto.
 *.jpg
 *.jpeg
 *.png
@@ -81,10 +81,10 @@ desktop.ini
 *.mov
 *.avi
 *.mkv
-# Il PDF di evidenza del bug e' un bundle di sette foto e segue la stessa politica.
+# Il PDF di evidenza del bug è un bundle di sette foto e segue la stessa politica.
 # Per tracciarlo servirebbero due mosse, non una: riportarlo dentro l'albero di progetto e poi
-# aggiungere qui l'eccezione col suo percorso. Finche' vive sotto _notes/media/ nessun ! puo'
-# recuperarlo, perche' .gitignore non re-include un file se una cartella genitore e' esclusa.
+# aggiungere qui l'eccezione col suo percorso. Finché vive sotto _notes/media/ nessun ! può
+# recuperarlo, perché .gitignore non re-include un file se una cartella genitore è esclusa.
 *.pdf
 # Il sorgente LaTeX della mappa dei box di Smeraldo, rigenerato da emerald_mappa_box.py a ogni stampa (ADR-110)
 gba-save-extraction-smeraldo/MAPPA-BOX-COLLEZIONE.tex
@@ -95,7 +95,7 @@ gba-save-extraction-smeraldo/MAPPA-BOX-COLLEZIONE.tex
 # annota nella scheda del sottoprogetto. Nessuno di questi file esiste oggi nel repository,
 # ma tutti e tre i runbook prevedono di produrne nei prossimi step, quindi il blocco va
 # scritto prima che esistano. Si escludono le estensioni e mai le cartelle contenitore,
-# perche' .gitignore non permette di re-includere un file con ! se un genitore e' escluso.
+# perché .gitignore non permette di re-includere un file con ! se un genitore è escluso.
 *.3ds
 *.cci
 *.cxi
@@ -126,7 +126,7 @@ gm9out/
 # Sono le chiavi hardware della console e il seed di LocalFriendCodeSeed. Trapelati,
 # permettono di decrittare la NAND e i salvataggi di quella console specifica, e non sono
 # ruotabili: non esiste modo di rigenerarli. Stessa categoria di .env e *.pem.
-# movable.sed in particolare e' prodotto dalla procedura MSET9 gia' eseguita.
+# movable.sed in particolare è prodotto dalla procedura MSET9 già eseguita.
 # Nintendo 3DS
 movable.sed
 boot9.bin
@@ -156,8 +156,8 @@ dev.keys
 *.pkm
 
 # --- Ausiliari di LaTeX (report di milestone sotto reports/) --------------------
-# Il sorgente .tex e il preambolo sono tracciati; il PDF e' escluso dalla riga *.pdf
-# piu' sopra, per la politica sui binari di ADR-005, e si rigenera con latexmk.
+# Il sorgente .tex e il preambolo sono tracciati; il PDF è escluso dalla riga *.pdf
+# più sopra, per la politica sui binari di ADR-005, e si rigenera con latexmk.
 *.aux
 *.fls
 *.fdb_latexmk
@@ -174,3 +174,17 @@ reports/*.log
 # Uscite di compilazione dei programmi .NET del progetto (tools/pkhex-genera): si rigenerano con dotnet build.
 bin/
 obj/
+
+# vista Obsidian del progetto: si ricrea con vault-progetto.py crea
+_vault/
+
+# Generati pesanti, fuori da git dal 2026-11-20 su decisione del proprietario: restano su disco allo
+# stesso percorso, li rigenera il loro strumento, e la storia di git conserva tutte le versioni passate.
+/pokedex-home-completo/CHECKLIST-COMPLETA.md
+/pokedex-home-completo/SCHEDE-EVENTI-GB.md
+/pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md
+/pokedex-home-completo/STUDIO-SWITCH.md
+/pokedex-home-completo/SCHEDE-ESCLUSIVI.md
+/pokedex-home-completo/SPOGLIO-CORPUS.md
+/recreate-pokemon-distributions-events/SCHEDE-ESEMPLARI.md
+/recreate-pokemon-distributions-events/SCHEDE-ESEMPLARI-GEN4.md

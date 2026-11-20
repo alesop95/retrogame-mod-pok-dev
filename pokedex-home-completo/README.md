@@ -17,7 +17,6 @@ Resta una sola eccezione possibile a livello di specie, e va verificata prima di
 ```
 README.md                          questo file
 ROADMAP.md                         l'ordine in cui le cose vanno fatte, con le dipendenze e chi esegue
-RICERCA-UTENTE-2026-09-01.md       la ricerca consegnata dall'utente, verbatim e con provenienza
 STUDIO-01-che-cosa-vincola-la-scadenza.md   la verifica indipendente e il suo esito
 CONFRONTO-FOGLIO-LIVINGDEX.md               il confronto con il foglio comunitario, e le divergenze
 data/foglio-livingdex.csv                   il foglio comunitario normalizzato, per il diff

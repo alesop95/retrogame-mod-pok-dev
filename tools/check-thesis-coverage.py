@@ -113,7 +113,7 @@ ALTRI_DOCUMENTI = (
 # `tesi/non-coperti.txt`, che esenta una sezione di un documento coperto, mentre qui si esenta
 # un documento intero dal dover essere coperto.
 NON_DA_COPRIRE = {
-    "pokedex-home-completo/RICERCA-UTENTE-2026-09-01.md":
+    "_notes/fonti/consegne/RICERCA-UTENTE-2026-09-01.md":
         "consegna dell'utente conservata verbatim come fonte: il suo contenuto entra nel PDF "
         "attraverso i documenti che la verificano, e coprirla riga per riga significherebbe "
         "riportare nel PDF anche le sue affermazioni sbagliate",

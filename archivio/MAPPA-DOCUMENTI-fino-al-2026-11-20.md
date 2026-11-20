@@ -1,0 +1,132 @@
+# Mappa dei documenti del progetto
+
+> Documento autorato del 2026-09-08, aggiornato due volte il 2026-09-09 e ricontrollato il 2026-09-24. Nasce da una constatazione dell'utente, cioè che i file di testo sono diventati troppi per orientarsi. Non aggiunge contenuto: dice che cosa è ciascun file, chi lo scrive, e se qualcuno lo debba ancora aprire. È l'unico documento del progetto il cui scopo sia parlare degli altri documenti.
+
+## Il criterio che governa tutto, e che spiega la maggior parte della confusione
+
+I quattrocentoquaranta file Markdown del repository, incluso il nuovo README pubblico, non sono quattrocentoquaranta cose da leggere, e la ragione è che appartengono a cinque categorie che si comportano in modo opposto. Confonderle è ciò che rende il progetto illeggibile, perché induce ad aprire un file di novecentomila byte credendo che qualcuno lo abbia scritto.
+
+I file **generati** si rigenerano con un comando e non si modificano mai a mano: contengono un elenco, e il loro valore è di essere completi e coerenti con la fonte, non di essere letti dall'inizio alla fine. Sono i più grossi del progetto e sono la ragione per cui la cartella sembra ingestibile. Ciascuno dichiara nella propria seconda riga da quale strumento nasce.
+
+I file **autorati** sono scritti da qualcuno, si leggono e si citano. Sono molto più piccoli e molto meno numerosi.
+
+I file **normativi** vincolano il comportamento e vanno letti prima di agire nell'area che governano.
+
+I file **di stato** dicono a che punto è il progetto e si leggono a inizio sessione.
+
+I file **del template** stanno sotto `.claude/templates/` e non sono contenuto di questo progetto: sono il pacchetto di sistema da cui il progetto è istanziato. Sono ora duecentosei file tracciati, di cui centoquaranta Markdown; erano cresciuti di undici il 2026-09-09 quando la copia locale è stata riallineata al template con i quattro pacchetti che le mancavano, e nessuno di essi va aperto lavorando ai Pokémon.
+
+## Da dove si comincia, se si è persi
+
+Tre file, in quest'ordine, e nient'altro.
+
+`.claude/memory/index.md` dice qual è il fuoco corrente e a che punto è ogni sottoprogetto. `.claude/memory/pending.md` dice tutto ciò che è in sospeso. La scheda `.claude/context/sub-<slug>.md` del solo sottoprogetto su cui si lavora dice stato e prossimo passo in meno di trenta righe.
+
+Tutto il resto si apre quando serve, e questa mappa dice quando serve.
+
+## Lo stato, quattro file che si leggono a inizio sessione
+
+| File | Che cos'è | Quando si apre |
+|---|---|---|
+| `.claude/memory/index.md` | snapshot, fuoco corrente, stato di verifica delle schede | sempre, per primo |
+| `.claude/memory/pending.md` | tutto ciò che è in sospeso, modificabile | sempre, subito dopo |
+| `.claude/memory/progress.md` | registro di lavoro, append-only, cronologico inverso | quando serve sapere perché una cosa è come è; si legge dalla cima e mai per intero |
+| `.claude/memory/decisions.md` | le decisioni in forma ADR, append-only | quando una decisione va richiamata o contestata |
+
+I due append-only sono grossi per costruzione e continueranno a crescere: non è un difetto da correggere, ed è la ragione per cui non si leggono mai per intero.
+
+## Le regole, che vincolano e non informano
+
+Stanno tutte in `.claude/rules/` e si leggono prima di agire nell'area che governano, non a inizio sessione. Sono nove: la disciplina dell'hardware e il perimetro, che è la sola specifica di questo progetto ed è normativa su ogni operazione fisica; lo stile di interazione e di documentazione; le fonti web non recuperabili; il formato dei comandi git; l'identità git e il bootstrap del repository; gli screenshot per i passi manuali; la sicurezza e i permessi; l'economia dei token; e dal 2026-09-09 la regola che la chat non è memoria, cioè che nessun contenuto sostanziale resti nella sola conversazione e che i file si aggiornino nello stesso giro di lavoro in cui il contenuto nasce.
+
+`CLAUDE.md` alla radice le indicizza e descrive il progetto; `CLAUDE.local.md` non è tracciato. Il `README.md` pubblico presenta i risultati tecnici e collega il registro e la mappa delle fonti; l'indice dei sottoprogetti al suo interno è generato da `tools/aggiorna-readme.py`.
+
+## Le schede di contesto
+
+Sedici file sotto `.claude/context/`, di cui sei trasversali e dieci verticali, una per sottoprogetto. Una scheda verticale sta sotto le trenta righe e contiene stato, prossimo passo e decisioni aperte: è il terzo file da aprire e quasi sempre l'ultimo che serve. Accanto alle schede sta, dal 2026-09-29, il livello didattico: `studio-didattico-master.md` è il racconto evolutivo del perché di una scelta, e ogni sua voce rimanda a una scheda `refactor-NN-<slug>.md` che entra nel codice; la prima è `refactor-01-forme-di-battaglia.md`, del 2026-09-30. Non sono stato e non si leggono a inizio sessione.
+
+`sub-pokedex-home-completo.md` era arrivata a diciottomila byte perché quel track era cresciuto molto in una settimana; è stata potata il 2026-09-09 trasferendo la conoscenza nei documenti del track. Resta più lunga delle altre e va consultata per sezioni, senza ripetere il racconto nei nuovi aggiornamenti.
+
+## Il percorso di studio, ventuno file sotto `docs/`
+
+Sono conoscenza tecnica autorata, numerati per ordine di lettura e non per importanza: dalle fondamenta del salvataggio fino alle opzioni implementative, più il glossario e l'appendice matematica. Non sono stato e non si rileggono a ogni sessione. `docs/index.md` è il loro indice.
+
+Due sono molto più grossi degli altri e vale sapere perché prima di aprirli: `docs/22-strumenti.md` è il catalogo di tutti gli strumenti con le loro procedure, e `docs/40-appendice-matematica.md` raccoglie le dispense che finiscono in appendice alla tesi. Si consultano per punti, non si leggono in sequenza.
+
+Sotto `docs/mappa-fonti/` stanno le schede Markdown tracciate e generate per navigare le fonti come grafo in Obsidian; `collezione/` raccoglie la vista del corpus. Il confine fra registro, schede e materiale grezzo locale è definito una sola volta in `SOURCES.md`, sezione "Dove stanno le fonti".
+
+## I file generati, che nessuno scrive
+
+Sono i più grossi del progetto e la causa principale del senso di ingestibilità. Ciascuno dichiara il proprio strumento nella seconda riga, e la regola è sempre la stessa: si rigenerano, non si modificano.
+
+| File | Byte | Strumento che lo genera |
+|---|---|---|
+| `pokedex-home-completo/CHECKLIST-COMPLETA.md` | 968k | `tools/checklist-pokedex.py` |
+| `recreate-pokemon-distributions-events/SCHEDE-ESEMPLARI-GEN4.md` | 849k | `tools/schede-esemplari-gen4.py` |
+| `pokedex-home-completo/SCHEDE-EVENTI-GB.md` | 433k | `tools/genera-evento-gb.py` |
+| `recreate-pokemon-distributions-events/SCHEDE-ESEMPLARI.md` | 340k | `tools/schede-esemplari.py` |
+| `pokedex-home-completo/SCHEDE-ESCLUSIVI.md` | 148k | `tools/schede-esclusivi.py` |
+| `pokedex-home-completo/CENSIMENTO-EVENTI-FUORI-DONI.md` | 294k | `tools/censimento-eventi-tabelle.py` |
+| `pokedex-home-completo/CENSIMENTO-FONTI-COLLEZIONE.md` | 219k | `tools/censimento-fonti-reddit.py` |
+| `recreate-pokemon-distributions-events/CATALOGO-EVENTI.md` | 58k | `tools/catalogo-eventi.py` |
+| `gba-save-extraction-smeraldo/MAPPA-BOX-SMERALDO.md` | 44k | `gba-save-extraction-smeraldo/tools/emerald_mappa_box.py`, che scrive anche `MAPPA-BOX-RUBINO.md`, le figure e la copia da stampare della collezione intera `MAPPA-BOX-COLLEZIONE.docx` e `.pdf`, fuori da git |
+| `gba-save-extraction-smeraldo/MAPPA-BOX-RUBINO.md` | 60k | lo stesso strumento: la disposizione prevista del complemento sul Rubino di prova, finché la cartuccia non è scritta |
+| `pokedex-home-completo/CODA-PRIMO-TEMPO.md` | 42k | `tools/checklist-pokedex.py --coda` |
+| `pokedex-home-completo/CONFRONTO-FOGLIO-LIVINGDEX.md` | 33k | `tools/confronta-foglio-livingdex.py` |
+| `recreate-pokemon-distributions-events/EVENTI-GEN3.md` | 23k | `tools/genera-evento-gen3.py` |
+| `pokedex-home-completo/CONFRONTO-LIVINGDEX-POKEPC.md` | 20k | `tools/confronta-livingdex-pokepc.py` |
+| `pokedex-home-completo/STUDIO-SWITCH.md` | 172k | `tools/studio-switch.py` |
+| `pokedex-home-completo/LISTA-COMPLETA.md` | 58k | `tools/lista-completa.py` |
+| `pokedex-home-completo/FIOCCHI.md` | 16k | `tools/fiocchi.py` |
+| `pokedex-home-completo/MARCHI.md` | 9k | `tools/marchi.py` |
+| `pokedex-home-completo/DIFFERENZE-DI-SESSO.md` | 12k | `tools/enumera-differenze-sesso.py` |
+| `pokedex-home-completo/COMPLEMENTO-RUBINO.md` | 60k | `tools/complemento-rubino-md.py`, dal rapporto di `tools/pkhex-genera` |
+| `pokedex-home-completo/VERIFICA-TERZA-GENERAZIONE.md` | 23k | `tools/verifica-terza-generazione.py` |
+| `pokedex-home-completo/CENSIMENTO-CONDIZIONATI.md` | 24k | `tools/censimento-condizionati.py` |
+| `pokedex-home-completo/CENSIMENTO-SCAMBI.md` | 20k | `tools/censimento-scambi.py` |
+| `pokedex-home-completo/CENSIMENTO-INCURSIONI-SWSH.md` | 63k | `tools/censimento-incursioni-swsh.py`, dal dump e dal lotto di `tools/pkhex-incursioni-swsh` |
+| `pokedex-home-completo/ID-NOTEVOLI.md` | 49k | `tools/censimento-id-notevoli.py` |
+| `pokedex-home-completo/EVENTI-SENZA-CARTA.md` | 15k | `tools/leggi-serebii-eventi.py --senza-carta` |
+| `pokedex-home-completo/MOSSE-PERDUTE.md` | 8k | `tools/mosse-perdute.py` |
+| `pokedex-home-completo/MOSSE-MN.md` | 1k | `tools/mosse-mn.py` |
+| `pokedex-home-completo/SPOGLIO-CORPUS.md` | 23k | `tools/spoglio-corpus.py` |
+| `pokedex-home-completo/INDICE-FOGLI-ESTERNI.md` | 8k | `tools/leggi-foglio-google.py` |
+| `pokedex-home-completo/OTTENIBILITA-TITOLI.md` | 7k | `tools/ottenibilita-titoli.py` |
+| `recreate-pokemon-distributions-events/CONTEGGIO-DONI-MODERNI.md` | 5k | `tools/conteggio-doni-moderni.py` |
+| `pokedex-home-completo/CENSIMENTO-SALVATAGGI.md` | 5k | `tools/verifica-salvataggi.py --censimento` |
+
+Sommano oltre tre megabyte, cioè la quasi totalità del peso testuale del progetto, e nessuno di essi va letto in sequenza.
+
+## Il registro delle fonti
+
+`SOURCES.md` è il registro unico versionato: dichiara ruolo e versionamento dei tre percorsi delle fonti, distingue i livelli di affidabilità e contiene l'indice generato da `tools/indice-fonti-unico.py`. L'indice conserva anche la fotografia delle citazioni nella tesi locale, che si può aggiornare solo dove `tesi/` è presente.
+
+## L'area locale fuori da Git
+
+`_notes/` contiene solo materiale locale: `fonti/` per il grezzo distinto nel registro, `lotti/` per gli esemplari e i rapporti prodotti, `salvataggi/` per le copie da cartuccia, i salvataggi di terzi e le prove, `media/` per foto e video, `lavoro/` per appunti, handoff, stato e file temporanei, e `archivio/` per la copia antecedente al primo Git. Alla radice restano `README.md`, che rimanda a questa mappa, e `resume-prompt.md`, usato dalla procedura di ripresa. Il dettaglio delle fonti sta in `SOURCES.md`, senza ripeterlo qui.
+
+## Gli studi e le referenze autorate, che sono i file da leggere
+
+Sono i documenti dove sta il ragionamento, e sono pochi. Per il track del deposito: la catena di trasferimento, la roadmap cronologica, il riepilogo delle copie dei salvataggi per HOME divise per gruppi, `COPIE-PER-HOME.md`, aggiornato a ogni giro dal 2026-09-30, la strategia per i giochi per Switch, `STRATEGIA-SWITCH.md`, che dice che cosa comprare, catturare e generare, il registro della lettura del corpus, che è autorato e cresce a lotti invece di essere generato, e dieci studi numerati. Per le distribuzioni: quattro studi. Per l'esecuzione di codice: tre studi. Per il ponte fra generazioni: la referenza dei formati, che è il documento tecnico più denso del progetto. Più uno studio a testa per la batteria, per la generazione da console corrente e per l'automazione.
+
+Ciascun sottoprogetto ha un `README.md` che elenca i propri file: è quello il posto dove cercare dentro un track, non questa mappa.
+
+## Gli handoff, che sono storia e non stato
+
+Quattro file sotto `3ds-related/handoff/` e `gba-save-extraction-smeraldo/handoff/`, più quello in `gba-switch-pokemon-trading/handoff/`. Contengono procedure e troubleshooting, non stato, e si aprono soltanto quando serve la procedura. Il track del ponte non ne ha più uno perché la sua conoscenza è stata assorbita nella referenza dei formati, come registrato in ADR-013.
+
+## I candidati alla rimozione, con il loro perché
+
+La decisione su una rimozione spetta all'utente. Le voci sotto registrano anche i casi già decisi, così che non si ricreino per errore.
+
+**`resume-prompt.md`**, alla radice: RIMOSSO il 2026-09-14 su decisione dell'utente, che lo ha cancellato perché due file di ripresa creano confusione. La fonte di verità unica della ripresa è `_notes/resume-prompt.md`, che git esclude e che si riscrive alla fine di ogni giro sostanziale; le due parti del file rimosso che non erano duplicate, cioè le quattro discipline e i vincoli che non si negoziano, sono state fuse dentro di esso prima della rimozione. La voce resta qui e non sparisce perché la mappa deve dire anche che cosa non c'è più e perché: un documento cancellato in silenzio è indistinguibile da uno dimenticato, e la sessione successiva lo ricrearebbe.
+
+**`.claude/context/deployment.md`**, milleduecento byte. Dichiara di non essere applicabile allo stato attuale e ha il campo dei percorsi coperti vuoto. È parte del pacchetto di schede del template e la sua assenza cambierebbe il conto delle schede: va tenuto, ma sapendo che è un segnaposto e non un documento.
+
+**Le note generate sotto `docs/mappa-fonti/`** non vanno cancellate una a una ma rigenerate: se una di esse non corrisponde più alla tabella che la produce, il rimedio è rilanciare lo strumento.
+
+L'audit del 2026-09-24 ha trovato sette gruppi di file byte per byte identici fra file tracciati. Cinque sono copie istanziate di strumenti del template accanto alle loro sorgenti, uno è la configurazione LaTeX istanziata e uno è una coppia di fixture di prova: l'identità dei byte non li rende superflui, perché hanno ruoli e percorsi diversi. Non è emerso un file da cancellare senza perdere una funzione o una prova; nessuna cancellazione è stata eseguita.
+
+## Che cosa manca a questa mappa, dichiarato
+
+Non copre `.claude/templates/`, che è il pacchetto di sistema e ha un proprio indice in `.claude/templates/PACKAGES.md`. Non copre i file non tracciati sotto `_notes/`, che sono materiale grezzo e locale per costruzione. Le dodici tabelle CSV del track Home stanno ora in `pokedex-home-completo/data/` e restano elencate nel README del track. Questa mappa non è generata: va aggiornata a mano quando un documento nasce o muore, il che la espone allo stesso invecchiamento che essa imputa al prompt di ripresa. Se un giorno i documenti crescono ancora, la si genera da uno strumento che legga le intestazioni.

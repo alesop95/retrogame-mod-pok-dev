@@ -4,6 +4,46 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-20. Controllo completo dopo il riordino, e chiudi fermato dallo stage
+
+`chiudi` si è fermato con «stage già presente»: le otto rimozioni di `git rm --cached` date dall'agente erano nello stage. Controllo completo chiesto dal proprietario, con misure: ogni file spostato o archiviato confrontato con `git show HEAD:`; identici `index.md`, `MAPPA-DOCUMENTI.md`, la wiki `knowledge/` e le due consegne spostate in `_notes/fonti/consegne/`; l'archivio di `pending.md` contiene tutte le righe del commit (zero mancanti, con `diff` senza fine riga) più le due voci del 2026-11-20 scritte prima della copia; la nota `debito-tecnico-2026-10-01.md` differiva per il percorso aggiornato nella prima riga, rimessa identica a HEAD. Gli otto generati sono su disco identici a HEAD. `SOURCES.md`: 2376 righe di tabella prima e dopo, 9 righe cambiate solo nei percorsi. `check-thesis-coverage.py`: 22 problemi prima e dopo, tutti preesistenti (timbri di commit inesistenti, una sezione rinominata in `COPIE-PER-HOME.md`). Suite del ponte: 206 prove passate. Vault: zero problemi. Errore dell'agente: per il confronto con HEAD ha usato `git stash` e `git stash pop`, che ha rimesso il lavoro ma non lo stage, e le otto rimozioni sono tornate tracciate; nessun contenuto perso, verificato su dimensioni e controlli; lezione L-016. Il passo si rifà come commit a sé prima di `chiudi`.
+
+**Didattica:** nessuna.
+
+**Template:** L-016.
+
+## 2026-11-20. Allineamento al template `071db2e` e chiusura per la ripresa con /riprendi
+
+Il proprietario ha tolto dall'indice di git gli otto generati pesanti (`git rm --cached`, file su disco) e ha chiesto una chiusura pulita per collaudare qui il template potenziato da un'altra sessione. `allinea-dal-template.py` a vuoto e poi con `--applica`: CONFLITTO 0, MERGE 1 (`riprendi/SKILL.md`), VECCHIO 6 (`gate-pacchetti/SKILL.md`, `templates/CLAUDE.md`, `allinea-dal-template.py`, `test_gate_dovuto.py`, `verifica-pacchetti.py`, `ultimo-allineamento.md`), UGUALE 571; dopo l'allineamento `gate-pacchetti` compare fra le skill che l'agente vede, e `/riprendi` la avvia da sé quando `verifica-pacchetti.py --gate` dice «Gate dovuto» (106 scelte mai censite). Testa di `_notes/resume-prompt.md` riscritta con lo stato al 2026-11-20 e il prossimo passo, versione precedente identica in `_notes/archivio/`. Lezioni per il template: L-014 di questo giro, con L-012 e L-013 ancora aperte; il template le legge da sé alla sua apertura.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+## 2026-11-20. Riordino della documentazione: memoria snella, mappa nuova, archivio
+
+Su decisione del proprietario, voce per voce, con il vincolo che tutto lo storico resti ricostruibile. Accertato prima che l'altra sessione aveva già allineato il progetto al template alle 15:02 (`8d7f949`, 115 file): `allinea-dal-template.py` a vuoto dava 575 uguali per questo. Memoria: `pending.md` e `index.md` copiati identici, SHA-256 verificato, in `.claude/memory/archivio/`; `pending.md` riscritto con le voci da ricordare sempre, le aperte adesso, le 11 voci dal 2026-11-17 intere e 131 righe di rimando ai paragrafi dell'archivio con un segno di «aperto» (contati con uno script di sessione), da 478748 a 60264 byte; `index.md` con stato, tabella delle schede, le 4 aggiunte dal 2026-11-17, il fuoco e lo stato di ogni scheda, da 132439 a 10675 byte; `lint-memoria.py` zero difetti. `MAPPA-DOCUMENTI.md` riscritta da zero in una pagina, la precedente identica in `archivio/`. Due consegne del proprietario spostate in `_notes/fonti/consegne/` dopo `cmp`, con i riferimenti vivi aggiornati (`tools/check-thesis-coverage.py`, `tools/dashes-exclude.txt`, `SOURCES.md`, README del sottoprogetto); `knowledge/`, wiki mai popolata con una sola nota, in `archivio/knowledge/` dopo `diff -r`, riferimenti aggiornati in `SOURCES.md` e `docs/censimento-fonti-codice.md`, riga dell'indice in `CLAUDE.md`. Otto generati pesanti nel `.gitignore`, da togliere dall'indice di git con un comando del proprietario. Non spostati, con il motivo: `LETTURA-DEL-CORPUS.md`, letta da tre strumenti; `docs/mappa-fonti/`, che è il grafo delle fonti in Obsidian; le schede `refactor-NN`, livello didattico adottato. I controlli tipografici si sono fermati sulle copie d'archivio e su `_vault/`, che attraverso le giunzioni ripresenta i file: esclusi con il motivo, controlli di chiusura verdi; lezione L-014 per il template.
+
+**Didattica:** nessuna.
+
+**Template:** L-014.
+
+## 2026-11-20. Fonti vive lette, nessun lotto nuovo; vault di Obsidian; inventario della documentazione
+
+Il proprietario temeva che le fonti cambiate volessero dire altri lotti. Lette le differenze di revisione di tutte le pagine Bulbapedia sorvegliate e delle sette liste di eventi con `api.php` e `action=compare` (script di sessione sopra `tools/fetch-bulbapedia.py`), salvate in `_notes/fonti/raccolte/differenze-fonti-vive-2026-11-20/`: tutte formali o di testo, la chiusura di Bank resta il 2027-02-26, nessun lotto da produrre; PokeFinder ha un commit annullato dal successivo. Segnati i due controlli. Unica novità reale: Xerneas e Yveltal cromatici in Legends Z-A con password, fase Switch. Template: `allinea-dal-template.py` a vuoto dà 575 uguali e zero vecchi, quindi i file sono allineati; mancano le scelte dei pacchetti, perché `gate-pacchetti` ha `disable-model-invocation: true` e non è mai stato lanciato. Istanziato `vault-di-progetto`, verifica a zero problemi. Inventario dei Markdown tracciati per la pulizia chiesta dal proprietario: 675 file, 17,7 MB, di cui `pokedex-home-completo` 74 file e 8,4 MB (50 generati), `.claude/memory` 2,1 MB in cinque file (`progress.md` 1,2 MB, `pending.md` 465 KB), `.claude/templates` 258 file del template, `docs/mappa-fonti` 74 pagine generate che nessun file cita.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+## 2026-11-20. Diamante confermato in HOME, censimento parziale delle novità, richieste sul riordino e sulla tesi
+
+Il proprietario ha chiesto se per Diamante non resti davvero niente: il registro dice «FATTO: giro 14 in HOME, 7466 dalla foto del proprietario» (2026-11-17 sera), quindi sì; il prossimo passaggio con Bank sarà il lotto di Verde Foglia, la settimana prossima. Cartella delle foto cancellata e `chiudi` lanciato dal proprietario. Censimento delle novità: due carte nuove di EventsGallery (Celebi simulato di HOME, Xerneas cromatico di Z-A), tre notizie di Serebii della fase Switch, sette liste di Bulbapedia con revisione nuova ma senza copia precedente su disco; le differenze restano da leggere, e né `controlla-eventi-nuovi.py` né `controlla-fonti-vive.py` sono stati segnati. Cloni pret aggiornati senza cambi di dati di gioco; pokepc-dataset con le evoluzioni di Colosseum e XD nei Pokédex. Verificato che sette skill del template hanno `disable-model-invocation: true` e restano invisibili all'agente, fra cui `gate-pacchetti`; template avanti di 27 commit. Registrate le richieste sul riordino della documentazione, da decidere insieme, e sulla riscrittura della tesi. Il subagente di lettura web non è partito per la riserva del piano.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
 ## 2026-11-20. I 578 pedigree senza data, e una correzione sullo stato di Diamante
 
 Correzione: i recap del 2026-11-18 e del 2026-11-20 dicevano «Lotti per HOME: i 245 di Diamante, in attesa della banca». Era falso: il giro 14 è in HOME dal 2026-11-17 sera (7466, punto 18 fatto, DIAMANTE1 «in HOME» in `tools/stampa-collezione.py`), e la frase veniva dalla riga «Data snapshot» di `.claude/memory/index.md`, rimasta al mattino del 2026-11-17; il proprietario l'ha fermata. Riga corretta. I 578 esemplari con «file del lotto non disponibile» nei pedigree (HOME10 214, HOME7 149, FINALE 121, HOME4 57, GIAPPONE2 23, GIAPPONE 14, contati sui file Markdown dei pedigree) non avevano perso il file: il rapporto di HOME10 ha 380 origini e tutte esistono sotto `_notes/lotti`. Sono tutti trasferimenti della Console Virtuale di Game Boy, cioè file PK1 e PK2, e `tools/pkhex-elenco-copie` accettava il file del lotto solo con lo stesso PID, che quei formati non hanno. Ora per i formati di prima e seconda generazione confronta specie e ID dell'allenatore. Giudizio nuovo `_notes/lavoro/giudizi-copie/dopo-20261120-date-vc.json`, 16 gruppi e 7626 esemplari: confrontato campo per campo con `dopo-20261117-diamante.json`, cambia solo `formato_lotto` di quei 578 (PK2 432, PK1 146). Pedigree e PDF rigenerati: 578 righe cambiate in sei file, zero «file del lotto non disponibile», e la colonna dice «nessuna: il formato PK1/PK2 non registra la data». Altre richieste del giro: comando per cancellare la cartella delle foto di Verde Foglia; alcol e cotton fioc dalla settimana prossima; giro su documentazione e cartelle rimandato, perché il subagente di inventario è stato fermato dalla riserva del piano.

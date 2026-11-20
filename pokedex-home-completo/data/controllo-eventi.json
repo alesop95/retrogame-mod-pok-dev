@@ -1,6 +1,6 @@
 {
- "archivio_censito_fino_a": "424bca47fd9d2546783a4170d8c304f5a25d62ff",
- "segnato_il": "2026-11-11",
+ "archivio_censito_fino_a": "f1f3095183ee54dca63216164adb1f278714ec55",
+ "segnato_il": "2026-11-20",
  "bulbapedia": {
   "List of 10th Anniversary event Pokémon distributions": [
    4047310,
@@ -15,8 +15,8 @@
    "2024-06-30T21:58:49Z"
   ],
   "List of American region serial code event Pokémon distributions in Generation VI": [
-   4630340,
-   "2026-09-14T19:26:33Z"
+   4671133,
+   "2026-11-13T17:57:53Z"
   ],
   "List of American region serial code event Pokémon distributions in Pokémon Sun, Moon, Ultra Sun, and Ultra Moon": [
    4340952,
@@ -231,32 +231,32 @@
    "2026-11-02T00:27:43Z"
   ],
   "List of event Pokémon distributions in Pokémon HOME": [
-   4660134,
-   "2026-11-02T01:46:52Z"
+   4673322,
+   "2026-11-19T11:33:02Z"
   ],
   "List of event Pokémon distributions in Pokémon Legends: Arceus": [
    4660041,
    "2026-11-02T00:27:52Z"
   ],
   "List of event Pokémon distributions in Pokémon Legends: Z-A": [
-   4666239,
-   "2026-11-07T19:51:03Z"
+   4672371,
+   "2026-11-17T01:13:43Z"
   ],
   "List of event Pokémon distributions in Pokémon Scarlet and Violet": [
-   4668044,
-   "2026-11-10T09:26:15Z"
+   4672387,
+   "2026-11-17T03:09:15Z"
   ],
   "List of event Pokémon distributions in Pokémon Sword and Shield": [
-   4660040,
-   "2026-11-02T00:27:41Z"
+   4672636,
+   "2026-11-17T15:44:45Z"
   ],
   "List of event distributions in Pokémon Champions": [
    4662800,
    "2026-11-04T15:43:58Z"
   ],
   "List of event distributions in Pokémon Pokopia": [
-   4660149,
-   "2026-11-02T02:04:23Z"
+   4673677,
+   "2026-11-19T18:53:18Z"
   ],
   "List of game-based Pokémon distributions in Generation I": [
    4661869,
@@ -375,8 +375,8 @@
    "2026-09-08T14:44:13Z"
   ],
   "List of other event distributions in Generation VII": [
-   4668267,
-   "2026-11-10T16:37:00Z"
+   4668926,
+   "2026-11-11T11:47:48Z"
   ],
   "List of other event distributions in Pokémon Brilliant Diamond and Shining Pearl": [
    4659934,
@@ -416,9 +416,10 @@
   ]
  },
  "serebii-notizie": [
-  "169bc6d12845338a",
+  "24f3312728c57b29",
+  "341e68f6c3f1fe2d",
+  "4165b700328b5967",
   "599e3588b44588da",
-  "6efb4eb1b8af6085",
   "84727b805d73cf23"
  ],
  "serebii-doni-home": [
