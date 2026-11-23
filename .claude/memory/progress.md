@@ -4,6 +4,38 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-23, undicesima parte. Catalogo cronologico completato, Obsidian ricollegato
+
+Catalogo, ADR-139. L'ordine è cronologico, con un'appendice in ordine di Pokédex: su 6434 esemplari, 2657 hanno una data storica (anni dal 2003 al 2020) e 3777 sono prodotti dal progetto senza evento. Le date d'inizio da Serebii sono 426 (`date-eventi.json`). Tre agenti Haiku hanno tradotto le 1066 storie libere; `unisci-storie` ne ha accettate 1063. Le 3 scartate (numeri scritti in lettere in italiano e in cifre in inglese) le ho rilette a mano e accettate. Ho corretto «Placido» da Quiet in Relaxed, «Sicuro» in Bold e dodici mosse lasciate in italiano. I 36 esemplari non presi dalle copie sono 34 già in HOME prima del giro 1 (964 dopo il giro di 930, `ROADMAP.md`) e 2 da GO; hanno la loro sezione in fondo. Obsidian: le due stelle del grafo erano `index-fonti` (`build-source-map.py`) e `collezione-indice` (`censimento-fonti-reddit.py`), due mappe senza collegamenti fra loro, senza nessuna perdita di dati. Ho aggiunto un collegamento in entrambe e nei due generatori. Il cacciavite: le cartucce GBA hanno una vite tri-wing, il gamebit da 3,8 mm è per Game Boy e Game Boy Color; segnalato al proprietario un kit Amazon con entrambi.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+## 2026-11-23, decima parte. Il catalogo vivente di HOME, in inglese
+
+Su richiesta del proprietario, in inglese e con agenti economici per la parte meccanica. `tools/stampa-collezione.py` ha la modalità `--collezione`, che usa le schede esistenti con etichette in inglese, nature, sfere e giochi tradotti, e le mosse e le abilità inglesi della libreria. Produce un PDF solo, con i gruppi nell'ordine dei giri. La copertina non è forata; i fori sulle altre pagine li aggiunge `fora()`. TinyTeX non ha `babel-english`, quindi uso `abelprovide[import,main]{english}`. Esito: 1182 pagine, 6434 esemplari, cioè 7440 nelle copie in HOME meno 10 rimasti in console e 996 da liberare. HOME ne conta 7466, quindi 36 esemplari non vengono dalle copie: 2 da GO, 34 da identificare. Racconti: 1113 carte. `tools/racconti-eventi.py prepara` costruisce l'ingresso, abbinando le righe di Serebii per specie, ID e allenatore. Quattro agenti Haiku hanno scritto i racconti. `unisci` li verifica (ogni nome proprio, mese, anno e numero deve stare nei dati) e mette al posto dei racconti che non passano la frase composta dai campi. Al controllo a campione erano emersi un «Europe» inventato per lo Zekrom e un abbinamento sbagliato del Meloetta spagnolo al GameStop americano; dopo le correzioni le frasi dai campi sono 421. Ho corretto due volte il carattere di controllo `` scritto dagli script al posto di ``. Le traduzioni delle 1066 storie libere sono rimandate: i subagenti sono fermati dalla riserva del piano (89%, finestra azzerata alle 13:00 UTC).
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+## 2026-11-23, nona parte. Monarium controllato, copertina senza fori, ADR-138
+
+Correzioni del proprietario. La riga 195 non va lasciata cadere: lui chiedeva di che cosa si trattasse. Monarium andava controllato, non chiuso a priori. Ho guardato il repository `kristopheles/monarium` con `gh api` (licenza MIT, ultimo push 2026-04-17, README): è un tracciatore a catture segnate a mano, senza importazione dei nostri file, e va installato in proprio. Non serve, voce chiusa. ADR-138: lo stampabile da collezione è il catalogo vivente di tutto HOME, `MAPPA-BOX-COLLEZIONE.pdf` ne è il sottoinsieme di terza generazione, si stampa per aggiunte e la copertina non si fora. In `gba-save-extraction-smeraldo/tools/emerald_mappa_box.py` la pagina 1 non riceve più fori né margine di rilegatura; il PDF non è rigenerato in questo giro, e le pagine dalla 2 in poi non cambiano.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+## 2026-11-23, ottava parte. Risposte del proprietario e commit
+
+Il proprietario ha fatto `chiudi`: commit `09ad95f`. Le sue risposte: la riga 195 è chiusa (non ricorda il foglio dell'Azienda Lotta), la riga 321 esce dal registro (la password la gestisce lui), la riga 1179 è chiusa (Monarium non si valuta), la riga 388 resta aperta con le istruzioni per la prova di stampa in `pending.md`.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
 ## 2026-11-23, settima parte. Le 35 voci indeterminate dell'archivio: secondo passaggio
 
 Su richiesta del proprietario, due subagenti hanno ripreso le 35 voci con `git grep`, la storia dei commit e la lettura dei file citati. Esito dopo la mia revisione: 6 chiuse (345, 537, 1083, 1096, 1151, 1157), 3 superate (291, 893, 1161), 4 domande al proprietario (195, 321, 388, 1179) e 22 voci per l'agente, di cui tre sotto la scadenza di Bank (1070, 1110, 1163). Ho corretto il subagente su tre voci. La 1157 è chiusa, perché il Pikachu con il berretto Compagni è in HOME5 e RIDATA2. La 1097 e la 1162 riguardano l'uscita da HOME verso i giochi, perché da HOME non si torna a Bank, quindi sono ricerca dell'agente per la fase Switch. La riga 537 è chiusa sul sorgente di pokeemerald, e `SOURCES.md` (Battle Factory) passa da «DA VERIFICARE» a verificati. Tabelle aggiunte a `.claude/memory/archivio/smistamento-2026-11-23.md`; il blocco in `pending.md` è riscritto per destinatario.

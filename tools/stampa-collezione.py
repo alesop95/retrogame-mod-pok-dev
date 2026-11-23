@@ -511,14 +511,252 @@ def pedigree(dati, cartella_immagini, pdf, solo=None):
     print("miniature %d, senza illustrazione %d %s" % (len(cache), len(mancanti), mancanti[:10]))
 
 
+# Il catalogo vivente di tutto HOME (ADR-127, ADR-138): un documento solo, in inglese su richiesta del proprietario del
+# 2026-11-23, con i gruppi nell'ordine dei giri, cosi' che un giro nuovo aggiunga pagine in coda senza cambiare quelle
+# gia' stampate. La copertina non si fora; dalla pagina 2 i fori a quattro con passo di 80 mm. I racconti degli eventi
+# vengono da data/racconti-eventi.json, scritto da agenti sui soli dati del progetto e controllato da --check-racconti.
+RACCONTI = os.path.join(RADICE, "pokedex-home-completo", "data", "racconti-eventi.json")
+COLLEZIONE_PDF = os.path.join(RADICE, "_notes", "stampa", "collezione")
+COPERTINA_COLLEZIONE = os.path.join(RADICE, "gba-save-extraction-smeraldo", "figure", "copertina-collezione.png")
+GAMES_EN = {"RD": "Red", "GN": "Green", "BU": "Blue", "YW": "Yellow", "GD": "Gold", "SI": "Silver", "C": "Crystal",
+            "R": "Ruby", "S": "Sapphire", "E": "Emerald", "FR": "FireRed", "LG": "LeafGreen", "CXD": "Colosseum/XD",
+            "D": "Diamond", "P": "Pearl", "Pt": "Platinum", "HG": "HeartGold", "SS": "SoulSilver", "B": "Black",
+            "W": "White", "B2": "Black 2", "W2": "White 2", "X": "X", "Y": "Y", "OR": "Omega Ruby", "AS": "Alpha Sapphire",
+            "SN": "Sun", "MN": "Moon", "US": "Ultra Sun", "UM": "Ultra Moon"}
+BALLS_EN = {"Bis Ball": "Repeat Ball", "Chic Ball": "Luxury Ball", "Cura Ball": "Heal Ball", "Esca Ball": "Lure Ball",
+            "Gara Ball": "Sport Ball", "Luna Ball": "Moon Ball", "Mega Ball": "Great Ball", "Minor Ball": "Nest Ball",
+            "Peso Ball": "Heavy Ball", "Pregio Ball": "Cherish Ball", "Rapid Ball": "Fast Ball", "Rete Ball": "Net Ball",
+            "Scuro Ball": "Dusk Ball", "Sub Ball": "Dive Ball", "UC Ball": "Beast Ball", "Velox Ball": "Quick Ball"}
+NATURES_EN = {"Ardita": "Hardy", "Schiva": "Lonely", "Audace": "Brave", "Decisa": "Adamant", "Birbona": "Naughty",
+              "Sicura": "Bold", "Docile": "Docile", "Placida": "Relaxed", "Scaltra": "Impish", "Fiacca": "Lax",
+              "Timida": "Timid", "Lesta": "Hasty", "Seria": "Serious", "Allegra": "Jolly", "Ingenua": "Naive",
+              "Modesta": "Modest", "Mite": "Mild", "Quieta": "Quiet", "Ritrosa": "Bashful", "Ardente": "Rash",
+              "Calma": "Calm", "Gentile": "Gentle", "Vivace": "Sassy", "Cauta": "Careful", "Furba": "Quirky"}
+
+
+STORIE_EN = os.path.join(RADICE, "pokedex-home-completo", "data", "storie-en.json")
+DATE_EVENTI = os.path.join(RADICE, "pokedex-home-completo", "data", "date-eventi.json")
+MESI_IT = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre",
+           "novembre", "dicembre"]
+
+
+def _modulo_racconti():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("racconti_eventi", os.path.join(RADICE, "tools", "racconti-eventi.py"))
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    return m
+
+
+def carica_racconti():
+    """I racconti delle carte, le storie libere tradotte e le date d'inizio delle distribuzioni, tutti tracciati."""
+    leggi = lambda p: json.load(io.open(p, encoding="utf-8")) if os.path.exists(p) else {}
+    return {"carte": leggi(RACCONTI), "storie": leggi(STORIE_EN), "date": leggi(DATE_EVENTI),
+            "in_inglese": _modulo_racconti().in_inglese}
+
+
+def testo_en(e, evento, storia, racconti):
+    return racconti["carte"].get(evento) or racconti["storie"].get(storia) or racconti["in_inglese"](storia or "")
+
+
+def data_storica(e, evento, storia, racconti):
+    """Il giorno in cui l'esemplare o il suo evento sono nati nella storia del gioco, o None se il progetto lo ha
+    prodotto senza un evento (uova e catture): mai la data di produzione del 2026 né il giorno del Poké Transfer."""
+    if evento in racconti["date"]:
+        return racconti["date"][evento]
+    carta = "(carta" in evento or re.search(r"\bWC\d|evento \(", evento)
+    if carta and e["generazione"] >= 4 and (e["data_incontro"] or "9") < "2026":
+        return e["data_incontro"]
+    for g in re.finditer(r"(\d{4})-(\d{2})-(\d{2})|(\d{1,2}) (%s) (\d{4})" % "|".join(MESI_IT), storia or ""):
+        d = g.group(0) if g.group(1) else "%s-%02d-%02d" % (g.group(6), MESI_IT.index(g.group(5)) + 1, int(g.group(4)))
+        if d < "2026" and not ("Poké Transfer" in (storia or "")[max(0, g.start() - 40):g.start()]):
+            return d
+    return None
+
+
+def scheda_en(e, gruppo, per_codice, per_file, img, storie, racconti):
+    evento = evento_di(e, per_codice, per_file)
+    storia, collegamenti = storia_di(e, storie)
+    testo = testo_en(e, evento, storia, racconti)
+    nel_lotto = racconti["in_inglese"](data_nel_lotto(e).replace("file del lotto non disponibile", "batch file not available")
+                                       .replace("nessuna: il formato", "none: the format").replace("non registra la data", "does not store the date")
+                                       .replace("uovo ricevuto il", "egg received on").replace("uguale alla copia", "same as the copy")
+                                       .replace("non registrata", "not recorded"))
+    campi = [("origin game", GAMES_EN.get(e["gioco"], e["gioco"])), ("met location", e["luogo"]),
+             ("met date", e["data_incontro"] or "not recorded"), ("date in the batch", nel_lotto),
+             ("level", "%d, met at %d" % (e["livello"], e["livello_incontro"])),
+             ("ball", BALLS_EN.get(e["sfera"], e["sfera"])), ("language", e["lingua"]),
+             ("OT", "%s, ID %s, SID %s" % (e["allenatore"], e["id"], e["sid"])),
+             ("nature", NATURES_EN.get(e["natura"], e["natura"])), ("ability", e.get("abilita_en") or e["abilita"]),
+             ("moves", ", ".join(e.get("mosse_en") or e["mosse"]) or "none"), ("held item", e["oggetto"] or "none"),
+             ("ribbons", ", ".join(e["fiocchi"]) or "none"), ("IVs", "/".join(str(v) for v in e["iv"])),
+             ("PID", e["pid"]), ("EC", e["ec"])]
+    celle = [" & ".join("\\DScampo{%s} & %s" % (tex(k), tex(v)) for k, v in campi[i:i + 3]) + r"\\"
+             for i in range(0, len(campi), 3)]
+    forma = e.get("forma_en") or e["forma"]
+    nome = tex(e["specie"]) + (" \\textnormal{\\small %s}" % tex(forma) if forma else "")
+    segni = {"M": "♂", "F": "♀"}.get(e["sesso"], "") + (" ★" if e["cromatico"] else "")
+    mini = r"\DSminiatura[14mm]{%s}" % img if img else r"\tcbox[colback=DScartascura, colframe=DSfiletto, boxrule=0.4pt, arc=1.6mm, width=14mm, height=14mm]{}"
+    gen = "DSgen" + "ABCDEFG"[max(1, min(7, e["generazione"])) - 1]
+    return "\n".join([
+        r"\begin{DSscheda}{%s}" % gen,
+        r"\begin{minipage}[t]{16mm}\vspace{0pt}%s\end{minipage}\hspace{2mm}%%" % mini,
+        r"\begin{minipage}[t]{\dimexpr\linewidth-18mm\relax}\vspace{0pt}",
+        r"{\DStitoli\bfseries %s}\hspace{1.5mm}\DSnumero{%03d}\hspace{1.5mm}{\DSdati %s}\hfill\DSstato{DSstatoinhome}{in HOME}\par" % (
+            nome, e["numero"], segni),
+        r"{\footnotesize %s}\par" % tex(racconti["in_inglese"](evento)),
+        (r"{\scriptsize\itshape %s}\par" % tex(testo)) if testo else "",
+        (r"{\DSdati\tiny\color{DSseppia} Sources: %s}\par" % "; ".join(r"\url{%s}" % u for u in collegamenti)) if collegamenti else "",
+        r"\vspace{0.6mm}",
+        r"{\DSdati\scriptsize\setlength{\tabcolsep}{2pt}\begin{tabular}{@{}l L{29mm} l L{30mm} l L{34mm}@{}}",
+        *celle,
+        r"\end{tabular}}\par",
+        r"{\DSdati\tiny\color{DSseppia} %s, PKHeX %s; batch %s, box %d, slot %d, HOME label Bank %d; fingerprint {\ttfamily %s}}" % (
+            "legal" if e["conforme"] else "NOT legal", tex(e["libreria"]), tex(gruppo), e["box"], e["posto"], e["box"],
+            e["impronta"]),
+        r"\end{minipage}",
+        r"\end{DSscheda}",
+    ])
+
+
+def esemplari_in_home(dati):
+    """I gruppi in HOME nell'ordine dei giri, senza chi resta in console e senza chi si libera (ADR-126)."""
+    per_gruppo = {c["gruppo"]: c["esemplari"] for c in dati["copie"]}
+    for gruppo in STATO_GRUPPO:
+        if gruppo in per_gruppo and STATO_GRUPPO[gruppo][1] == "in HOME":
+            yield gruppo, [e for e in per_gruppo[gruppo]
+                           if not resta_in_console(e) and e.get("impronta") not in SOSTITUITI]
+
+
+def check_racconti(dati):
+    per_codice, per_file = descrizioni_del_progetto()
+    racconti = carica_racconti()["carte"]
+    eventi = {evento_di(e, per_codice, per_file) for _, es in esemplari_in_home(dati) for e in es}
+    carte = sorted(x for x in eventi if "(carta" in x or re.search(r"\bWC\d|evento \(", x))
+    mancano = [x for x in carte if x not in racconti]
+    print("eventi con carta %d, con racconto %d, senza %d" % (len(carte), len(carte) - len(mancano), len(mancano)))
+    for x in mancano[:20]:
+        print("  senza racconto:", x)
+    return 1 if mancano else 0
+
+
+def collezione(dati, cartella_immagini, pdf):
+    per_codice, per_file = descrizioni_del_progetto()
+    storie, racconti, cache = carica_storie(), carica_racconti(), {}
+    g = json.load(io.open(os.path.join(DS, "tokens.json"), encoding="utf-8"))["geometria"]
+    caratteri = os.path.join(RADICE, "_notes", "design-system", "caratteri").replace("\\", "/") + "/"
+    os.makedirs(COLLEZIONE_PDF, exist_ok=True)
+    gruppi = list(esemplari_in_home(dati))
+    totale = sum(len(es) for _, es in gruppi)
+    corpo = [r"""\documentclass[9pt,a4paper]{extarticle}
+\usepackage[top=%(v)smm,bottom=%(v)smm,left=%(a)smm,right=%(m)smm]{geometry}
+\def\DScaratteri{%(car)s}
+\input{%(stile)s}
+\usepackage{babel}\babelprovide[import,main]{english}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{url}\urlstyle{tt}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\setlength{\parindent}{0pt}
+\pagestyle{plain}
+\begin{document}
+""" % {"v": g["margine_verticale_mm"], "a": g["margine_anelli_mm"], "m": g["margine_mm"], "car": caratteri,
+       "stile": os.path.join(DS, "collezione-stile.tex").replace("\\", "/")}]
+    if os.path.exists(COPERTINA_COLLEZIONE):
+        corpo.append(r"\newgeometry{margin=9mm}\thispagestyle{empty}\centering\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{%s}\restoregeometry\clearpage\raggedright"
+                     % COPERTINA_COLLEZIONE.replace("\\", "/"))
+    # dal 2026-11-23, su richiesta del proprietario: ordine cronologico, cioe' il giorno dell'evento o della cattura vera
+    # di ciascun esemplare; poi, in un'appendice, quelli che il progetto ha prodotto senza un evento, per numero di
+    # Pokedex. Un lotto nuovo puo' quindi inserire pagine in mezzo: il documento si stampa intero quando lo stato e' fermo.
+    tutti = []
+    for gruppo, es in gruppi:
+        for e in es:
+            evento = evento_di(e, per_codice, per_file)
+            storia = storia_di(e, storie)[0]
+            tutti.append((data_storica(e, evento, storia, racconti), e, gruppo))
+    datati = sorted((x for x in tutti if x[0]), key=lambda x: (x[0], x[1]["numero"], x[1].get("forma_n", 0)))
+    senza = sorted((x for x in tutti if not x[0]), key=lambda x: (x[1]["numero"], x[1].get("forma_n", 0), x[2]))
+    corpo.append(r"""{\DStitoli\bfseries\fontsize{20}{24}\selectfont\color{DSrosso} The HOME living collection}\par
+{\DSdati\small\color{DSseppia} %d Pokémon from %d batches. Part one, %d Pokémon, follows history: each one sits on the day its event was distributed, or the day it was really caught. Part two, %d Pokémon produced by the project without an event (eggs and catches), follows the National Pokédex. Every card lists the event story, the batch, box and slot of the copy it came from, the HOME label (Bank N) under which it is filed in HOME, and all data read by PKHeX. Generated by tools/stampa-collezione.py --collezione.}\par\clearpage""" % (totale, len(gruppi), len(datati), len(senza)))
+    anno = None
+    for data, e, gruppo in datati:
+        if data[:4] != anno:
+            anno = data[:4]
+            corpo.append(r"\clearpage{\DStitoli\bfseries\Large\color{DSrosso} %s}\par\medskip" % anno)
+        corpo.append(scheda_en(e, gruppo, per_codice, per_file, miniatura(e, cartella_immagini, cache), storie, racconti))
+    corpo.append(r"\clearpage{\DStitoli\bfseries\Large\color{DSrosso} Produced by the project, in National Pokédex order}\par\medskip")
+    for _, e, gruppo in senza:
+        corpo.append(scheda_en(e, gruppo, per_codice, per_file, miniatura(e, cartella_immagini, cache), storie, racconti))
+    # Chi e' in HOME senza venire da una copia: gli arrivi da GO e i doni, dal documento autorato, e i 34 che HOME conteneva
+    # prima del giro 1 (964 dopo il giro di 930, ROADMAP.md), che il progetto non ha mai letto.
+    go = []
+    percorso_go = os.path.join(RADICE, "pokedex-home-completo", "ESEMPLARI-DA-GO.md")
+    if os.path.exists(percorso_go):
+        testo_go = io.open(percorso_go, encoding="utf-8").read()
+        sezione = testo_go.split("## Gli esemplari", 1)[-1].split("\n## ", 1)[0]
+        for riga in sezione.splitlines():
+            celle = [c.strip() for c in riga.strip().strip("|").split("|")]
+            if riga.startswith("| ") and len(celle) >= 2 and celle[0] not in ("Esemplare",) and not riga.startswith("|---"):
+                data = re.search(r"\d{4}-\d{2}-\d{2}", celle[1])
+                go.append("%s (%s)" % (celle[0], data.group(0) if data else "date not recorded"))
+    corpo.append(r"\clearpage{\DStitoli\bfseries\Large\color{DSrosso} In HOME but not from the project's batches}\par\medskip")
+    corpo.append(r"{\small %d Pokémon arrived from Pokémon GO or as HOME gifts: %s. Their details are in pokedex-home-completo/ESEMPLARI-DA-GO.md. 34 Pokémon were already in HOME before the first batch of 2026-11-03 (HOME counted 964 after a batch of 930); the project has never read them, so they are not documented here yet.}\par" % (
+        len(go), tex("; ".join(go)) or "none"))
+    corpo.append(r"\clearpage")
+    corpo.append(r"\end{document}")
+    uscita = os.path.join(COLLEZIONE_PDF, "HOME-COLLECTION.tex")
+    with io.open(uscita, "w", encoding="utf-8", newline="\n") as f:
+        f.write("\n".join(corpo) + "\n")
+    print("collezione: %d esemplari in %d gruppi; %s" % (totale, len(gruppi), uscita))
+    if not pdf:
+        return
+    r = subprocess.run(["lualatex", "-interaction=nonstopmode", "-halt-on-error", os.path.basename(uscita)],
+                       cwd=COLLEZIONE_PDF, capture_output=True, text=True, encoding="utf-8", errors="replace")
+    if r.returncode != 0:
+        print(r.stdout[-3000:])
+        sys.exit("lualatex non ha compilato la collezione")
+    for est in (".aux", ".log", ".tex"):
+        ausiliario = os.path.splitext(uscita)[0] + est
+        if os.path.exists(ausiliario):
+            os.remove(ausiliario)
+    fora(os.path.splitext(uscita)[0] + ".pdf")
+
+
+def fora(percorso):
+    """I fori a quattro con passo di 80 mm dalla pagina 2: la copertina si incolla sopra il quaderno (ADR-138)."""
+    import fitz
+    mm = 72 / 25.4
+    documento = fitz.open(percorso)
+    for indice, pagina in enumerate(documento):
+        if indice == 0:
+            continue
+        orizzontale = pagina.rect.width > pagina.rect.height
+        for pos in (28.5, 108.5, 188.5, 268.5):
+            centro = fitz.Point(pos * mm, 12 * mm) if orizzontale else fitz.Point(12 * mm, pos * mm)
+            pagina.draw_circle(centro, 2.75 * mm, color=(0.55, 0.55, 0.55), width=0.4)
+    temporaneo = percorso + ".tmp"
+    documento.save(temporaneo, garbage=3, deflate=True)
+    documento.close()
+    os.replace(temporaneo, percorso)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("dati", help="JSON di tools/pkhex-elenco-copie")
     ap.add_argument("--immagini", default=IMMAGINI, help="cartella delle illustrazioni, divisa per generazione")
     ap.add_argument("--pdf", action="store_true", help="compila anche i PDF con lualatex")
     ap.add_argument("--gruppo", action="append", help="solo questo gruppo; si ripete")
+    ap.add_argument("--collezione", action="store_true", help="il catalogo vivente di tutto HOME in un documento solo, in inglese (ADR-138)")
+    ap.add_argument("--check-racconti", action="store_true", help="esce con 1 se un evento con carta in HOME non ha il racconto")
     a = ap.parse_args()
-    pedigree(json.load(io.open(a.dati, encoding="utf-8")), a.immagini, a.pdf, a.gruppo)
+    sys.stdout.reconfigure(encoding="utf-8")
+    dati = json.load(io.open(a.dati, encoding="utf-8"))
+    if a.check_racconti:
+        sys.exit(check_racconti(dati))
+    if a.collezione:
+        collezione(dati, a.immagini, a.pdf)
+        return
+    pedigree(dati, a.immagini, a.pdf, a.gruppo)
 
 
 if __name__ == "__main__":

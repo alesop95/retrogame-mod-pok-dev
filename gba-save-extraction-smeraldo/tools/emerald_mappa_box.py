@@ -153,7 +153,8 @@ STAMPA = CARTELLA.joinpath("MAPPA-BOX-COLLEZIONE")
 # Il 2026-09-28 il proprietario ha chiesto la stampa per un quaderno ad anelli, con una copertina. La
 # foratura e' quella a quattro fori del passo di 80 mm, i centri a 12 mm dal bordo e a 28,5, 108,5, 188,5
 # e 268,5 mm lungo il lato lungo di 297 mm. Sulle pagine orizzontali il lato lungo che va negli anelli e'
-# quello in alto, cosi' che girando il quaderno si leggano dritte; sulla copertina verticale e' il sinistro.
+# quello in alto, cosi' che girando il quaderno si leggano dritte. Dal 2026-11-23 la copertina non
+# si fora: il proprietario la incolla sopra il quaderno.
 # Il margine di rilegatura e' largo abbastanza da lasciare fuori dai fori testo e figure. La copertina e'
 # un'immagine locale, non versionata come le altre figure.
 COPERTINA = FIGURE.joinpath("copertina-collezione.png")
@@ -672,12 +673,15 @@ def copertina_e_fori(pdf):
     documento = fitz.open(str(pdf))
     if COPERTINA.exists():
         pagina = documento.new_page(0, width=210 * mm, height=297 * mm)
-        # l'immagine sta dentro i margini di stampa, con il margine di rilegatura a sinistra
-        area = fitz.Rect(RILEGATURA_CM * 10 * mm, 9 * mm, (210 - 9) * mm, (297 - 9) * mm)
+        # la copertina si incolla sopra il quaderno (proprietario, 2026-11-23): niente fori e niente
+        # margine di rilegatura, solo i margini di stampa
+        area = fitz.Rect(9 * mm, 9 * mm, (210 - 9) * mm, (297 - 9) * mm)
         pagina.insert_image(area, filename=str(COPERTINA), keep_proportion=True)
     else:
         print("copertina: %s non c'e', la stampa esce senza" % COPERTINA)
-    for pagina in documento:
+    for indice, pagina in enumerate(documento):
+        if indice == 0 and COPERTINA.exists():
+            continue  # la copertina non si fora
         r = pagina.rect
         orizzontale = r.width > r.height
         for pos in FORI_MM:

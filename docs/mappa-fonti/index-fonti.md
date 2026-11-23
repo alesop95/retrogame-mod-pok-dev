@@ -8,6 +8,8 @@ up: "[[index]]"
 
 Questa cartella contiene una nota per ciascuna fonte che porta peso tecnico, con il suo abstract, il motivo per cui è in archivio, il punto esatto del progetto che serve e le relazioni verso le altre fonti. Il registro completo, comprese le voci minori e quelle non lette, resta [[SOURCES]]: questa mappa non lo sostituisce, lo rende navigabile.
 
+Il corpus della collezione, cioè le fonti nate dal post di Reddit che censisce i fogli e i tracciatori della comunità, ha una mappa propria generata da `tools/censimento-fonti-reddit.py`: [[collezione-indice]]. Questo collegamento tiene le due mappe in un grafo solo (2026-11-23).
+
 Le note sono generate da `tools/build-source-map.py` a partire da una tabella unica, per la stessa ragione per cui le tabelle caratteri sono generate: i dati stanno in un posto solo e la forma resta uniforme. Modificare una nota a mano significa perderla alla rigenerazione successiva; si modifica la tabella.
 
 Aprendo la radice del repository come vault Obsidian, le relazioni dichiarate nel frontmatter e i collegamenti nel corpo diventano il grafo. Il diagramma qui sotto ne mostra la struttura portante per chi legge il file senza Obsidian.

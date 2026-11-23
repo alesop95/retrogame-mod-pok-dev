@@ -20,3 +20,5 @@ finestre-eventi.py --check
 # manifesto sotto _notes/, che Git esclude, come la riga sopra.
 piano-ridata.py --check
 elenco-da-liberare.py --check
+# I racconti degli eventi del catalogo vivente di HOME (ADR-127, ADR-138): ogni carta dei pedigree ha il suo.
+racconti-eventi.py verifica

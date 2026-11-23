@@ -496,7 +496,8 @@ def scrivi_vault(c, cartella_note, sorgente):
     host_totali = collections.Counter(x["host"] for x in righe)
     principali = {h for h, _ in host_totali.most_common(12)}
 
-    r = ["# Il corpus della collezione, come mappa", ""]
+    r = ["# Il corpus della collezione, come mappa", "",
+         "Fa parte della mappa delle fonti del progetto: [[index-fonti]].", ""]
     r.append("> Nota generata. È il taglio relazionale del censimento che sta in "
              "`pokedex-home-completo/CENSIMENTO-FONTI-COLLEZIONE.md`: là c'è l'elenco, qui c'è "
              "come le fonti si tengono. Aprendo la radice del repository come vault Obsidian, i "
