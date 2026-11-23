@@ -101,9 +101,9 @@ ALTRI_DOCUMENTI = (
     "generation-from-switch/README.md",
     "generation-from-switch/STUDIO-01-scambio-automatico-e-provenienza.md",
     "pokemon-gen12-gen3-bridge-original-hardware/README.md",
-    "3ds-related/handoff/HANDOFF_progetto_3DS.md",
-    "gba-save-extraction-smeraldo/handoff/HANDOFF_progetto_smeraldo.md",
-    "gba-switch-pokemon-trading/handoff/HANDOFF_frlg-ldn-trade.md",
+    "archivio/handoff/3ds-related/HANDOFF_progetto_3DS.md",
+    "archivio/handoff/gba-save-extraction-smeraldo/HANDOFF_progetto_smeraldo.md",
+    "archivio/handoff/gba-switch-pokemon-trading/HANDOFF_frlg-ldn-trade.md",
 )
 
 

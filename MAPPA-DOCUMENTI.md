@@ -35,7 +35,7 @@ Una pagina sola, riscritta da zero il 2026-11-20 su richiesta del proprietario; 
 | `switch-modding/` | la Switch modificata per la fase Switch | `STUDIO-01-switch-usata-da-modificare.md` | |
 | `poke-ace/` | esecuzione di codice e legittimità di ciò che produce | gli `STUDIO-NN` | |
 | `cart-battery-restoration/` | la pila tampone delle cartucce | `STUDIO-01-batteria-e-ritenzione.md` | |
-| `gba-switch-pokemon-trading/` | lo scambio fra GBA e Switch, ricerca conclusa | `handoff/HANDOFF_frlg-ldn-trade.md` | |
+| `gba-switch-pokemon-trading/` | lo scambio fra GBA e Switch, ricerca conclusa | la scheda `.claude/context/sub-gba-switch-trading.md`; l'handoff è in `archivio/handoff/` | |
 | `generation-from-switch/`, `poke-automation-study/` | due track in studio | il loro `STUDIO-01` | |
 
 ## Trasversali
@@ -45,7 +45,7 @@ Una pagina sola, riscritta da zero il 2026-11-20 su richiesta del proprietario; 
 | `tools/` | gli strumenti: generatori, controlli, strumenti PKHeX in C#; ogni file dice in testa perché esiste e come si usa |
 | `docs/` | il percorso di studio tecnico, da `docs/index.md`; `docs/mappa-fonti/` è generata da `tools/build-source-map.py`, una nota per fonte, ed è il grafo delle fonti nel vault |
 | `SOURCES.md` | il registro delle fonti, con il sottoprogetto che ciascuna serve |
-| `archivio/` | documenti tolti dall'uso e conservati identici: la mappa precedente e la wiki `knowledge/` mai popolata |
+| `archivio/` | documenti tolti dall'uso e conservati identici: la mappa precedente, la wiki `knowledge/` mai popolata e, dal 2026-11-23, i cinque handoff in `handoff/` (ADR-137) |
 | `_vault/` | il vault di Obsidian, fatto di soli collegamenti; si ricrea con `python tools/vault-progetto.py crea` e non è in git |
 
 ## Fuori da git

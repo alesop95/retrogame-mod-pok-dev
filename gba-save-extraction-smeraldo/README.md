@@ -4,7 +4,7 @@ Riparare la tasca oggetti corrotta su una cartuccia originale di Pokemon Smerald
 
 ## Che cosa c'è in questa cartella
 
-Il documento di riferimento è `handoff/HANDOFF_progetto_smeraldo.md`: contiene il problema di partenza, la strada dell'Action Replay e le ragioni per cui è stata chiusa, la pipeline attiva basata su GBxCart RW e FlashGBX, le scelte di hardware e software con le loro motivazioni, la sequenza di setup su Windows, il dettaglio dello step corrente sui driver CH340 e l'elenco esplicito di ciò che non è ancora stato fatto.
+L'handoff originale, conservato identico in `archivio/handoff/gba-save-extraction-smeraldo/HANDOFF_progetto_smeraldo.md` dal 2026-11-23 (ADR-137), è oggi storia, e lo stato canonico sta nella scheda `.claude/context/sub-smeraldo-save-fix.md`. Contiene il problema di partenza, la strada dell'Action Replay e le ragioni per cui è stata chiusa, la pipeline attiva basata su GBxCart RW e FlashGBX, le scelte di hardware e software con le loro motivazioni, la sequenza di setup su Windows, il dettaglio dello step corrente sui driver CH340 e l'elenco esplicito di ciò che non è ancora stato fatto.
 
 In `tools/emerald_bag_decode.py` c'è lo strumento di diagnosi, che si usa appena esiste un dump. Non scrive nulla sul salvataggio: valida firma e checksum di ogni sezione, sceglie lo slot più recente, ricompone il blocco di salvataggio, identifica il gioco confrontando le prove di tre candidati, smaschera le quantità dello zaino e riferisce le anomalie che sa riconoscere.
 
@@ -34,7 +34,7 @@ Ne segue una conseguenza che va tenuta presente prima di guardare il dump: una q
 | la disposizione prevista del complemento sul Rubino di prova | `MAPPA-BOX-RUBINO.md`, dallo stesso strumento |
 | la collezione intera da stampare, Smeraldo e Rubino | `MAPPA-BOX-COLLEZIONE.pdf`, fuori da git, dallo stesso strumento |
 | dove sono gli esemplari del Parco Lotta e come si usano, edificio per edificio | `GUIDA-PARCO-LOTTA.md` |
-| la procedura operativa e lo stato del setup | `handoff/HANDOFF_progetto_smeraldo.md` |
+| la storia del setup e la strada dell'Action Replay | `archivio/handoff/gba-save-extraction-smeraldo/HANDOFF_progetto_smeraldo.md` |
 | la sequenza della prima sessione col lettore, in ordine di irreversibilità | `RUNBOOK-PRIMA-SESSIONE.md` |
 | la struttura del salvataggio Gen 3, sezione per sezione | `pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md`, sezioni 5 e 6 |
 | perché esistono checksum e cifratura, spiegato | `docs/03-integrita-checksum.md` e `docs/04-cifratura-gen3.md` |

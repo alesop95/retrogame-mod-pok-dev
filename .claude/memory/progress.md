@@ -4,6 +4,70 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-23, settima parte. Le 35 voci indeterminate dell'archivio: secondo passaggio
+
+Su richiesta del proprietario, due subagenti hanno ripreso le 35 voci con `git grep`, la storia dei commit e la lettura dei file citati. Esito dopo la mia revisione: 6 chiuse (345, 537, 1083, 1096, 1151, 1157), 3 superate (291, 893, 1161), 4 domande al proprietario (195, 321, 388, 1179) e 22 voci per l'agente, di cui tre sotto la scadenza di Bank (1070, 1110, 1163). Ho corretto il subagente su tre voci. La 1157 è chiusa, perché il Pikachu con il berretto Compagni è in HOME5 e RIDATA2. La 1097 e la 1162 riguardano l'uscita da HOME verso i giochi, perché da HOME non si torna a Bank, quindi sono ricerca dell'agente per la fase Switch. La riga 537 è chiusa sul sorgente di pokeemerald, e `SOURCES.md` (Battle Factory) passa da «DA VERIFICARE» a verificati. Tabelle aggiunte a `.claude/memory/archivio/smistamento-2026-11-23.md`; il blocco in `pending.md` è riscritto per destinatario.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+## 2026-11-23, sesta parte. Magikarp di Hiroshima: voce chiusa, niente da produrre
+
+Voce 121 dell'archivio, l'unica aperta sotto la scadenza di Bank. Ho letto via API «List of local event Pokémon distributions in Generation VI» di Bulbapedia. Il Magikarp di Hiroshima (26 giugno-31 agosto 2015, allenatore ポケセン, ID 06265, Splash, Auguri e Cuccagna) è una sola distribuzione senza blocco del cromatico. Il dono separato è il Gyarados cromatico con allenatore PCひろしま. Nei pedigree ci sono due Magikarp normali in HOME3 (box 20, posti 13-14), uno cromatico giapponese in HOME9 (box 24, posto 4) e due Gyarados cromatici in HOME3 (box 20, posti 11-12). Tutti sono già in HOME. Voce chiusa in `pending.md`. Verde Foglia: il proprietario torna a casa e pulisce con isopropanolo al 99% cartuccia e lettore, poi una lettura.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+## 2026-11-23, quinta parte. Prova 3 su Verde Foglia: letture a raffica con pressione
+
+Con la cartuccia nel lettore e la finestra di FlashGBX chiusa, ho fatto 18 letture di sola lettura dalla CLI (`python.exe -m FlashGBX --cli [--debug] --mode agb --action info`, Python di FlashGBX 5.1). Nessuna ha comandi di scrittura. Le prime tre, senza `--debug`, danno sempre «Header Checksum» «Invalid (0x7F)». Nell'intestazione grezza (`debug_header.bin`, 384 byte) ogni word vale `bd7f` a qualunque indirizzo: la cartuccia non pilota il bus. Il 2026-11-17 c'erano `ff`/`fb` variabili. Nelle 15 letture successive il proprietario NON premeva: l'agente è andato avanti da solo senza coordinarsi (correzione del proprietario). Da qui in poi si fa una lettura per volta, sul suo segnale. Prova coordinata, una lettura per posizione, con la cartuccia pulita con isopropanolo al 99% (detto dal proprietario). Sinistra: tutti `00`. Destra: `3168bd7f…`, a 0xA0 `a83f…`. In basso: `040c0020 80440121`, a 0xA0 `e83ffdff…`. Verso il retro: `060c0220 80440121`, a 0xA0 `00782960ff7f…`. Verso il fronte: `040c0020 80440121`, a 0xA0 `e83ffd7f…`. Nessuna posizione dà il valore atteso, `2e00…` e «PO». In basso, verso il retro e verso il fronte i dati sono simili fra loro, quindi una parte dei segnali passa. Prossimo passo, uno solo: pulire con isopropanolo al 99% il connettore GBA del lettore, che non era ancora stato pulito. In sei letture il primo word cambia (`8918`, in due `0000`) e il titolo grezzo a 0xA0 diventa `a83f`; le letture 12-15 sono identiche fra loro. Nessuna dà il valore atteso, cioè `2e00` all'inizio e «PO» a 0xA0. La pressione cambia il contatto, ma la cartuccia non risponde in modo corretto. Prossimo passo: isopropanolo al 99% sulla cartuccia e sul connettore del lettore, poi di nuovo la prova.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+## 2026-11-23, quarta parte. Foglio pre-Switch come controllo dei lotti, conto di HOME per ogni movimento
+
+Fonte nuova del proprietario, come controllo dei lotti. Il post di Reddit di Tezzeret_the_Lemur è letto da Arctic Shift (record del 2026-11-17). Il foglio Google è scaricato come `.xlsx`, la pagina «List of Pokémon by availability» di Bulbapedia via API. Tutto è registrato in `SOURCES.md`, sezione del 2026-11-23. Il confronto, fatto con uno script di sessione, mette le 862 righe della scheda «Origin Mark Tracking» contro i pedigree senza FINALE: 7575 righe con FINALE, tutte d'origine pre-Switch. Tutte le specie da 1 a 807 sono coperte. Nel foglio manca Hawlucha (701), svista dell'autore. Tre righe di forma non hanno corrispondente e nessuna è una lacuna: il Pichu dalle orecchie a punta non si trasferisce; Magearna Colore Originale è un dono di HOME già aperto; il berretto «World Cap» di Pikachu viene da Spada e Scudo. Esito in `pokedex-home-completo/CONTROLLO-FOGLIO-PRE-SWITCH.md`. Conto di HOME: su richiesta del proprietario la tabella di `ESEMPLARI-DA-GO.md`, ferma a 6223, è estesa fino a 7466. Il valore 6791 è ricostruito dalla roadmap e non viene da una foto. Accanto c'è una tabella dei movimenti attesi: -996, 10ANNI a saldo zero, +N di Verde Foglia, +k da GO, Meltan. I Meltan restano aperti finché il proprietario non evolve con 400 caramelle. Il proprietario ha cancellato la cartella di QuickShare. La prova 3 su Verde Foglia è pronta e aspetta il suo «pronto».
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+## 2026-11-23, terza parte. Handoff in archivio, registro smistato, bozza del piano della tesi
+
+Le tre voci «mio» chieste dal proprietario («fai, immediatamente»), affidate a tre subagenti per la parte meccanica.
+
+Handoff (ADR-137). Il subagente ha classificato le affermazioni dei cinque file: per il 3DS 40 (17 già altrove, 14 da travasare, 2 superate, 7 dubbie), per Smeraldo 27 (12, 3, 11, 1), per lo scambio LDN 36 (19, 6, 6, 5). Ho travasato le parti ancora operative. In `sub-3ds-modding.md` sono entrati il perché di MSET9, i dump DS e 3DS, la regola di copiare il dump sul PC e l'errore della SD. In `dev-testing.md` la procedura del seed, in `STACK.md` la toolchain. In `sub-smeraldo-save-fix.md` la scelta del lettore e il runtime di FlashGBX. In `sub-gba-switch-trading.md` la procedura del proof of concept, il comando e i rimedi dopo un crash. In `sub-3ds-modding.md` ho chiuso anche la discrepanza sulle date di Rosso Fuoco e Verde Foglia: febbraio 2026 è l'arrivo su Switch, ottobre 2026 il collegamento con HOME. I cinque file sono spostati in `archivio/handoff/` con lo SHA-256 uguale prima e dopo; le cartelle `handoff/` sono rimosse. Ho aggiornato i rimandi in tre README, due schede, `MAPPA-DOCUMENTI.md`, `CLAUDE.md` e `tools/check-thesis-coverage.py`. `docs/censimento-fonti-codice.md` è rigenerato: era già indietro rispetto a `SOURCES.md`, e il diff tocca 235 righe.
+
+Registro. Delle 131 voci dell'archivio, il subagente ne ha classificate 55 chiuse, 22 superate, 19 aperte e 35 indeterminate. Ho ricontrollato a campione tre chiuse (righe 355, 583 e 117) e le prove esistono. La tabella è tracciata in `.claude/memory/archivio/smistamento-2026-11-23.md`. In `pending.md` la sezione «Da smistare» diventa «Smistate il 2026-11-23», con le aperte per gruppo e le indeterminate una per riga; il registro scende a 40 KB. Fra le aperte sotto la scadenza di Bank c'è il Magikarp di Hiroshima 2015 (riga 121 dell'archivio), che non risulta mai trattato.
+
+Tesi. Il subagente ha estratto la timeline: 52 risultati, 34 di segnali e 18 di matematica, presi dal work log senza leggerlo per intero (mancano i giri 1-14 e Bank). La tesi attuale ha 370 pagine, 32 capitoli e 8 appendici. La bozza del piano, undici capitoli nell'ordine della storia con quattro domande al proprietario, è in `_notes/lavoro/tesi-riscrittura/piano-2026-11-23.md`; la timeline è accanto.
+
+`chiudi --solo-controlli`: verdi. `misura-istruzioni.py`: `CLAUDE.md` resta sopra il tetto, voce aperta alla riga 93 dell'archivio.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+## 2026-11-23, seconda parte. Verde Foglia ancora illeggibile, ADR-136 sui 10ANNI, catture di GO
+
+Schermata di FlashGBX dopo la pulizia (`Pictures/Screenpresso/screenshot_45.png`): titolo vuoto, «Boot Logo» illeggibile, «Header Checksum» «Invalid (0x7F)», ROM Size 32 MiB, Save Type None. Il contatto è ancora insufficiente. Il 2026-11-17 il checksum valeva 0xFF o 0x00, quindi qualcosa in più arriva. Sequenza dei rimedi in `pending.md`. Per errore ho aperto un file con lo stesso nome sul Desktop, una foto personale che non c'entrava; l'ho ignorata e non l'ho registrata. ADR-136, decisione del proprietario: i 10ANNI veri italiani di Mirabilandia 2006 sostituiscono uno per uno i generati identici, e il totale non cambia. Catture di Pokémon GO: 96 schermate lette con Tesseract in locale, `eng` perché `ita` non è installato. I nomi delle specie si leggono quasi tutti; sette li ho ricavati dalle caramelle e due controllati su un ritaglio. Il PL si legge solo in poche schermate. Esito: 96 esemplari, 84 specie, in `_notes/fonti/raccolte/go-catture-2026-11-21-22/catture.md`. La cancellazione della cartella mi è negata, comando dato al proprietario. Xerneas cromatico di Z-A riscattato (proprietario). Vault aperto in Obsidian. Spiegati al proprietario `docs/mappa-fonti/` (proposta: si tiene), i passi 19 del Rubino e 23 di Smeraldo e la voce dell'Inkay. Partiti tre subagenti per le voci dell'agente: smistamento dell'archivio del registro, travaso degli handoff, timeline per la tesi.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+## 2026-11-23. Ripresa, e Verde Foglia dopo la pulizia dei contatti
+
+`/riprendi`: `verifica-ripresa.py` su HEAD `8620f4a`, albero pulito, una sola divergenza, il blocco «Stato» di `index.md` fermo a `8d7f949`; il commit `8620f4a` è l'allineamento al template `071db2e` già raccontato nella voce sotto. Corretto. `verifica-pacchetti.py --riepilogo`: template allineato a `4d722ad` e avanti di un commit, nessun pacchetto registrato, 12 presenti e mai registrati, gate dovuto su 106 voci. `stato-vulnerabilita.py`: rapporto assente, non verificato. Il proprietario riferisce che i contatti di Verde Foglia sono stati puliti con l'alcol e che la cartuccia si avvia ancora sul Game Boy Advance SP. Prossimo passo la lettura nel GBxCart con il runbook; il gate si propone dopo. Novità degli hook lette lo stesso giorno, con le differenze delle revisioni scaricate da `api.php` (`action=compare`) in `_notes/fonti/raccolte/differenze-fonti-vive-2026-11-23/`, con la `SINTESI.md`. Sei pagine lette: PCNY di terza generazione, Champions, Pokopia, Pokémon Bank, Colosseum Bonus Disc (una delle 13 del 2026-11-04) e HOME. L'unica modifica sostanziale è nella lista PCNY: Bulbapedia toglie `PCNYc` dalle 16 distribuzioni dal 31 luglio al 27 agosto 2004. Ho confrontato le specie con le righe `PCNYc` di `pokedex-home-completo/pedigree/*.md`: l'unica in comune è Seviper (HOME8, riga 243), che però è al livello 30 e non al 18, quindi nessun esemplare in HOME è toccato. Le altre modifiche sono formali o riguardano la fase Switch. Ho segnato `controlla-eventi-nuovi.py --segna` e `controlla-fonti-vive.py --segna` (42 fonti, nessuna non verificabile).
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
 ## 2026-11-20. Chiusura in tre commit
 
 Commit `aa9d15e` del proprietario con le otto rimozioni dall'indice, poi `chiudi` con il perimetro di `_notes/COMMIT-SCOPE.json` (38 file, `a9d5557`), perché `chiudi` tratteneva i 10 file dell'allineamento al template `071db2e` in attesa di `chiudi-allineamento.ps1`, che non conosce un allineamento fatto dal progetto con `allinea-dal-template.py`; tolto `.git/allineamento-in-sospeso.json` (copia nello scratchpad) come `chiudi` stesso indica, per il commit dell'allineamento. Quel `chiudi` si è fermato su `verifica-link-progetto.py`: `tools/vault-progetto.py`, ora tracciato, cita il catalogo dei plugin di Obsidian; classificato fra le non fonti con validità solo in quello strumento. Lezione L-017.

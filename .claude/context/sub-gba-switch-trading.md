@@ -74,9 +74,15 @@ Il rapporto con il GBxCart RW non è spiegato dal materiale: l'apparecchio compa
 
 Le `prod.keys` della console sono materiale di chiave proprietario, si estraggono solo da una console modificata e non sono redistribuibili. Sono escluse dal version control dal blocco dedicato del `.gitignore`, insieme ai file di dati `.pk3`, e valgono le stesse cautele del materiale di chiave del 3DS descritte in `design-and-security.md`.
 
+## Procedura del proof of concept, travasata dall'handoff il 2026-11-23
+
+La procedura viene dal README del proof of concept. Sulla Switch si avvia lo scambio al Direct Corner come capo sessione. Si lancia lo script; può servire più di un tentativo. Si approva la richiesta di «EMU» e ci si sposta sulla sedia sinistra; il movimento può laggare. Si sceglie il Pokémon da cedere e si conferma, e questo consegna il secondo membro simulato. Tornati al menu, si annulla lo scambio e si esce. Il Pokémon ceduto finisce in `output.pk3`. Il comando è `sudo -E ./venv/bin/python frlgtrade.py --live -o output.pk3 PARTY1.pk3 PARTY2.pk3`. Si aggiunge `--verbose` per il log, `--keys` per un percorso delle chiavi diverso da quello predefinito e `--phy` per scegliere la scheda di rete. Gli altri flag sono sperimentali e non si usano. Non si esegue senza aver risolto prima la questione delle `prod.keys` (`hardware-and-perimeter.md`).
+
+Se qualcosa si blocca: dopo un crash dello script la scheda può restare in modalità monitor o AP e impedire un riavvio pulito. Si terminano i processi Python (`sudo killall python3 python python3.12`) e, a fine uso, si riavvia NetworkManager (`sudo systemctl start NetworkManager`). Il README dichiara un uso intensivo di strumenti di IA nello sviluppo, guidato dall'autore. Gli autori di `kinnay/LDN` rimandano i guasti comuni alla loro pagina «Common Issues».
+
 ## Evidenze e materiale locale
 
-L'handoff `handoff/HANDOFF_frlg-ldn-trade.md` sta nella cartella del sottoprogetto ed è l'unico materiale esistente. Non ci sono media. Il codice dei due repository di riferimento non è ancora presente in locale.
+L'handoff è conservato identico in `archivio/handoff/gba-switch-pokemon-trading/HANDOFF_frlg-ldn-trade.md` dal 2026-11-23 (ADR-137). Non ci sono media. Il codice dei due repository di riferimento non è ancora presente in locale.
 
 ## Aggiunta del 2026-09-01: il track è riconosciuto dall'esterno, e siamo più aggiornati della fonte
 

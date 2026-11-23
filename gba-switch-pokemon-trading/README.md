@@ -2,7 +2,7 @@
 
 Scambio di Pokemon fra un PC Linux e una Nintendo Switch attraverso LDN, il protocollo wireless locale proprietario di Nintendo, con una copia di FireRed o LeafGreen in esecuzione sulla console. Il PC simula la seconda console. È un proof of concept dimostrativo e non un tool finito.
 
-Il documento di riferimento è `handoff/HANDOFF_frlg-ldn-trade.md`: contiene contesto, glossario, architettura, i due repository su cui il lavoro si appoggia, la procedura operativa in sei fasi, i comandi annotati, i rischi e un elenco onesto delle lacune ancora aperte.
+L'handoff `HANDOFF_frlg-ldn-trade.md` è conservato identico in `archivio/handoff/gba-switch-pokemon-trading/` dal 2026-11-23 (ADR-137); la procedura d'uso, il comando e i rimedi dopo un crash sono stati travasati nella scheda del track. Contiene contesto, glossario, architettura, i due repository su cui il lavoro si appoggia, la procedura operativa in sei fasi, i comandi annotati, i rischi e un elenco onesto delle lacune ancora aperte.
 
 Lo stato canonico del track vive in `.claude/context/sub-gba-switch-trading.md`, e il quadro d'insieme di tutti i sottoprogetti in `.claude/memory/index.md`. Questo file dice cos'è il sottoprogetto; quelli dicono a che punto è.
 
@@ -10,7 +10,8 @@ Lo stato canonico del track vive in `.claude/context/sub-gba-switch-trading.md`,
 
 | Cosa cerchi | Dove sta |
 |---|---|
-| contesto, architettura, procedura in sei fasi | `handoff/HANDOFF_frlg-ldn-trade.md` |
+| la procedura del proof of concept, il comando e i rimedi | `.claude/context/sub-gba-switch-trading.md`, sezione «Procedura del proof of concept» |
+| contesto, glossario, architettura, procedura in sei fasi | `archivio/handoff/gba-switch-pokemon-trading/HANDOFF_frlg-ldn-trade.md` |
 | il formato dei dati Pokemon che viaggiano nello scambio | `pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md`, sezioni 5 e 6 |
 | perché quei dati sono cifrati e come si leggono | `docs/04-cifratura-gen3.md` e `docs/06-identita-pokemon.md` |
 | il protocollo LDN, i due repository e gli strumenti | `SOURCES.md` alla radice, colonna LDN |

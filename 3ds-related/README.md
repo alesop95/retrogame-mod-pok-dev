@@ -4,17 +4,17 @@ Installare il custom firmware su un Nintendo 3DS e dumpare le cartucce DS e 3DS 
 
 ## Che cosa c'è in questa cartella
 
-Il documento di riferimento è `handoff/HANDOFF_progetto_3DS.md`, che contiene il perimetro vincolante del sottoprogetto, l'inventario dell'hardware, lo stato di avanzamento dei dump cartuccia per cartuccia, l'elenco dell'homebrew installato con le versioni verificate e l'analisi del percorso verso i servizi in rete.
+Dal 2026-11-23 il documento di riferimento è la scheda `.claude/context/sub-3ds-modding.md`, che porta lo stato, il perché di MSET9 e le procedure di dump DS e 3DS travasate dall'handoff (ADR-137). L'handoff `HANDOFF_progetto_3DS.md` e i due file di passo sono conservati identici in `archivio/handoff/3ds-related/`, come storia della console.
 
-Accanto stanno i due passi documentati singolarmente. `handoff/step02_cfw_mset9.md` è il resoconto dell'installazione del custom firmware su questa console, con le versioni e i problemi incontrati: è storia, ma è la storia di questa console e serve come riferimento in caso di troubleshooting. `handoff/step03_dump_cartucce.md` è la procedura di dump, ed è il passo attivo, perché restano cinque cartucce DS da dumpare.
+Il resoconto dell'installazione del custom firmware (`step02_cfw_mset9.md`) e il registro del dump (`step03_dump_cartucce.md`) servono ancora per il troubleshooting di questa console e si aprono dall'archivio quando servono.
 
 ## Dove trovare il resto
 
 | Cosa cerchi | Dove sta |
 |---|---|
-| perimetro, hardware, stato dei dump | `handoff/HANDOFF_progetto_3DS.md` |
-| la procedura di dump da eseguire adesso | `handoff/step03_dump_cartucce.md` |
-| come è stato installato il custom firmware | `handoff/step02_cfw_mset9.md` |
+| la procedura di dump da eseguire adesso, e il troubleshooting del seed e della SD | `.claude/context/sub-3ds-modding.md`, sezione «Procedure», e `.claude/context/dev-testing.md` |
+| l'handoff originale: perimetro, hardware, dump cartuccia per cartuccia, homebrew | `archivio/handoff/3ds-related/HANDOFF_progetto_3DS.md` |
+| come è stato installato il custom firmware, passo per passo | `archivio/handoff/3ds-related/step02_cfw_mset9.md` |
 | le guide canoniche e gli strumenti di terze parti | `SOURCES.md` alla radice, colonna 3DS |
 | a che punto è il track e qual è il prossimo passo | `.claude/context/sub-3ds-modding.md` |
 | gli appunti operativi scritti prima del sistema: dove sta il salvataggio reale rispetto a Checkpoint, i dati sulla SD, l'installazione dei dump da GodMode9, il recap del dump, l'elenco dei giochi dumpati con i title ID, il collegamento all'emulatore Azahar | `appunti/` |

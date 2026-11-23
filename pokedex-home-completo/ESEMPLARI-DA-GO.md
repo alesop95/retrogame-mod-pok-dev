@@ -9,6 +9,19 @@
 | 2026-11-13 | 6198 | giro 10 chiuso |
 | 2026-11-13 | 6200 | più il Cyndaquil mandato da GO e il Melmetal del dono per il primo collegamento |
 | 2026-11-13 | 6223 | giro 11 chiuso, l'ultimo |
+| 2026-11-16 | 6791 | giro 12 (RIDATA2, 568), dato ricostruito il 2026-11-23 dalla `ROADMAP.md`, non da una foto |
+| 2026-11-16 | 7221 | giro 13 (RIDATA1, 430), consultato dal proprietario il 2026-11-17 |
+| 2026-11-17 | 7466 | giro 14 (DIAMANTE1, 245), foto del proprietario |
+
+Dal 2026-11-23, su richiesta del proprietario, il conto si tiene qui per ogni movimento, non solo per i giri. Contano le liberazioni, le sostituzioni, i lotti nuovi e ogni Pokémon mandato da GO. Ogni movimento entra prima fra gli attesi; quando una foto del totale lo conferma, passa nella tabella sopra.
+
+| Movimento atteso | Variazione | Totale atteso dopo | Chi agisce | Stato al 2026-11-23 |
+|---|---|---|---|---|
+| liberazione dei 996 vecchi dell'elenco di `tools/elenco-da-liberare.py` | -996 | 6470 | proprietario | da confermare se fatta |
+| 10ANNI veri di Verde Foglia al posto dei generati identici (ADR-136) | 0 | invariato | proprietario con l'agente | dopo l'estrazione |
+| lotto di Verde Foglia, PUCCETTO per primo | +N, con N noto dopo l'estrazione | 6470 + N | proprietario con l'agente | estrazione bloccata sul contatto |
+| Pokémon catturati in GO il 2026-11-21 e 2026-11-22 (96, elenco in `_notes/fonti/raccolte/go-catture-2026-11-21-22/catture.md`) | +1 per ciascuno mandato | +k | proprietario | da dire quali e quanti si mandano |
+| Meltan, tutti insieme | +1 per ciascuno | | proprietario | finché non si evolve con 400 caramelle; ogni invio riapre la Scatola misteriosa |
 
 I totali attesi dei giri si sono spostati di conseguenza: dopo il giro 11 HOME conta 6223 invece di 6221. I Meltan il proprietario li porta tutti insieme, quando ha finito di catturarli, e ciascuno arriva con la sua riga qui sotto.
 

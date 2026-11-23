@@ -99,7 +99,7 @@ Norme caricate su richiesta, una riga per situazione con le parole con cui si pr
 - Va prodotto, modificato o convertito un artefatto visivo o documentale, cioè un documento, una presentazione, un PDF, un'immagine, un'animazione, un audio o un impaginato, oppure si sta per scrivere uno script o installare una libreria per farlo: skill `craft-apps`, che prima verifica in locale le applicazioni Craft installate e le usa senza rete né token.
 - Apertura di sessione: `python .claude/templates/tools/verifica-pacchetti.py --gate`; se dice «Gate dovuto», la prima risposta chiede al proprietario `/gate-pacchetti`: skill `gate-pacchetti`.
 
-Gli handoff restano nelle cartelle dei rispettivi sottoprogetti, che è voluto e motivato in ADR-003: `3ds-related/handoff/`, `gba-save-extraction-smeraldo/handoff/` e `gba-switch-pokemon-trading/handoff/`. Il sottoprogetto del ponte non ha più un handoff, perché la sua conoscenza è stata verificata sul sorgente e assorbita nella referenza `pokemon-gen12-gen3-bridge-original-hardware/DATA-FORMATS_Gen1-Gen2-Gen3.md` e nel percorso di studio sotto `docs/`, come registrato in ADR-013.
+Gli handoff dei track 3DS, Smeraldo e scambio GBA-Switch sono in `archivio/handoff/` dal 2026-11-23, identici, dopo il travaso nelle schede di ciò che era ancora vero (ADR-137, che supera ADR-003); quello del ponte era già stato assorbito in `DATA-FORMATS_Gen1-Gen2-Gen3.md` e in `docs/` (ADR-013).
 
 ## Come si aggiunge un sottoprogetto
 

@@ -50,6 +50,8 @@ Il lettore GBxCart RW v1.4 Pro USB-C blu, insieme al cavo USB-A verso USB-C, era
 
 ## Installazione di FlashGBX, verificata il 2026-09-15
 
+Travasato dall'handoff il 2026-11-23. Il GBxCart RW v1.4 Pro è stato preferito al GB Operator per la documentazione più ampia, il supporto esplicito a tutti i tipi di salvataggio GBA e l'uso di FlashGBX, non per una presunta sicurezza maggiore. FlashGBX per Windows incorpora il proprio runtime Python e non richiede il Visual C++ Redistributable, che serviva solo al vecchio software di insideGadgets.
+
 FlashGBX non risultava installato. L'ultima versione è la 5.1, pubblicata il 2026-08-29, e il pacchetto "Windows Setup" (`FlashGBX-5.1_Windows-x64_Setup.zip`, contenente `FlashGBX-5.1_Windows-x64_Setup.exe`) è stato aggiunto il 2026-09-08: è quello indicato dall'handoff alla sezione 3.4 ("Windows Setup 64-bit"). Scaricato dalla release ufficiale `github.com/Lesserkuma/FlashGBX/releases/tag/5.1` e verificato byte per byte sul digest SHA-256 dichiarato dall'API di GitHub prima di consegnarlo all'installazione. Il suo `README.md` dichiara che la variante Setup include anche i driver di dispositivo: può quindi riproporre l'installazione di CH340/CH341, che è già avvenuta tramite Windows Update ed è innocua da ripetere.
 
 ## I campi Save Type, Profile e ROM Size in FlashGBX

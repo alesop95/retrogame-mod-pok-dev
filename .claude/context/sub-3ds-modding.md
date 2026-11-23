@@ -20,7 +20,7 @@ Lo step 02, installazione del custom firmware boot9strap più Luma3DS v13.4 tram
 
 ## Prossimo passo concreto
 
-Dumpare le cinque cartucce DS rimanenti, cioè Diamante, Perla, Platino, Nera 2 e SoulSilver, seguendo la procedura della sezione 5.3 dell'handoff, e poi trasferire sistematicamente i file da `/gm9/out/` sulla SD verso il disco del PC.
+Dumpare le cinque cartucce DS rimanenti, cioè Diamante, Perla, Platino, Nera 2 e SoulSilver, seguendo la procedura del dump DS nella sezione «Procedure» qui sotto, e poi trasferire sistematicamente i file da `/gm9/out/` sulla SD verso il disco del PC.
 
 Registrato il 2026-09-29 da un fatto detto dal proprietario il 2026-09-28, che sta nella voce del Vivillon di `pending.md`: la copia della scheda SD della console del 2026-09-03 è in `J:\3DS - 03092026\`, ed è la seconda copia di ciò che il proprietario usa sul 3DS. Contiene il salvataggio di Pokemon Y fatto con Checkpoint il 2026-08-23, in `3ds\Checkpoint\saves\0x0055E Pokémon Y\20260823-backsicY\`, che serve alla produzione del Vivillon Motivo Poke Ball; se Y è stato giocato dopo quella data serve un backup nuovo. La cartella `Nintendo 3DS` di quella copia dipende da `movable.sed` e non si copia altrove, per la regola sul materiale di chiave console-unica.
 
@@ -30,7 +30,15 @@ La configurazione dell'emulatore Azahar sul PC è rimandata per scelta, non bloc
 
 ## Da verificare
 
-La sezione 7 dell'handoff colloca l'arrivo di Rosso Fuoco e Verde Foglia su Switch a ottobre 2026, mentre fonti secondarie trovate il 2026-08-25 indicano il 27 febbraio 2026, cioè una disponibilità già avvenuta. La discrepanza non è stata risolta su fonte primaria e l'handoff non è stato corretto. Tocca anche il track dello scambio LDN, che su quei due giochi si basa.
+La discrepanza sulla data di Rosso Fuoco e Verde Foglia su Switch è RISOLTA (verifica del 2026-11-23): il 27 febbraio 2026 è l'arrivo dei giochi su Switch, e ottobre 2026 è il collegamento con HOME (RPG Site del 2026-08-13 e notizia di HOME del 2026-10-07, `SOURCES.md`; `sub-gba-switch-trading.md`). Le due date non erano in conflitto: descrivevano due fatti diversi. Restano da confermare dal proprietario due cose che l'handoff lasciava aperte: se qualcuna delle cinque cartucce DS è stata dumpata, visto che per Diamante il 2026-11-17 si è letto soltanto il salvataggio con Checkpoint (ADR-129), e se il trasferimento dei file dalla SD al PC è completo.
+
+## Procedure, travasate dall'handoff il 2026-11-23
+
+Perché MSET9 (ADR-007). Su un Old 3DS con firmware fra 11.8.0 e 11.17.0, BannerBomb3 è patchato e MSET9 è l'unico exploit software noto. Sfrutta una cartella ID1 con nome malformato che le Impostazioni della console interpretano in Gestione dati, ottiene codice ARM9 e da lì installa boot9strap, che a ogni accensione carica Luma3DS. La procedura ha un ordine fisso. La SD si estrae a console accesa, dopo l'apertura di Extra Data. La rimozione finale, prima il trigger e poi l'exploit, non si salta, altrimenti le Impostazioni e FBI vanno in crash. Durante MSET9 i dati utente spariscono dalla Home e tornano solo con la rimozione. Su una SD formattata da zero lo script dà `Error 01: Couldn't find Nintendo 3DS folder!` finché la console non ha creato la cartella `Nintendo 3DS`: si inserisce la SD nel 3DS, si accende e si spegne una volta, poi si rilancia. Per il dettaglio vale la guida ufficiale letta al commit `d0d8a392` (`SOURCES.md`).
+
+Dump 3DS: GodMode9, `[C:] GAMECART`, file `<TitleID>_<version>.trim.3ds`, «NCSD image options», «Decrypt file» verso `0:/gm9/out`; serve la versione decrittata. Dump DS: GodMode9, `[C:]`, file `<TitleID>.nds`, «Copy to» `0:/gm9/out`; i giochi DS non sono cifrati, quindi niente decrittazione. Con `Decryption failed` su un titolo del 2014 o successivo vale la procedura del seed in `dev-testing.md`.
+
+GodMode9 installa i `.cia` senza FBI. Il dump sorgente va copiato sul PC prima di cancellarlo dalla SD, perché è l'unico modo di reinstallare senza ridumpare la cartuccia. L'errore «The SD Card couldn't be recognized» all'avvio online di X e Y o di Rubino Omega e Zaffiro Alpha è noto anche su console non modificate: si spegne, si puliscono i contatti, si reinserisce la SD a console spenta e si controlla in Gestione dati. Non va confuso con l'errore di Bank 006-0112 (ADR-132).
 
 ## Perimetro
 
@@ -38,4 +46,4 @@ L'handoff dichiara alla sezione 2 e ribadisce alla 5.8 che l'assistenza tecnica 
 
 ## Evidenze e materiale locale
 
-L'handoff principale e i due documenti di step stanno in `3ds-related/handoff/`. I dump prodotti non sono e non saranno versionati: vivono sulla SD della console e sul disco del PC, per la politica dichiarata in ADR-005. Le foto delle procedure svolte stanno sotto `_notes/media/3ds-related/`, insieme allo screenshot delle impostazioni di Checkpoint: presenti sul disco, mai tracciate.
+L'handoff principale e i due documenti di step sono conservati identici in `archivio/handoff/3ds-related/` dal 2026-11-23 (ADR-137); ciò che serve ancora è nella sezione «Procedure» di questa scheda. I dump prodotti non sono e non saranno versionati: vivono sulla SD della console e sul disco del PC, per la politica dichiarata in ADR-005. Le foto delle procedure svolte stanno sotto `_notes/media/3ds-related/`, insieme allo screenshot delle impostazioni di Checkpoint: presenti sul disco, mai tracciate.

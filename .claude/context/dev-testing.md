@@ -55,7 +55,7 @@ Aggiunta del 2026-09-29. Oltre alla suite del ponte, il progetto ha controlli de
 
 ## Protocollo per il sottoprogetto 3DS
 
-Un dump si considera completato quando il file esiste in `/gm9/out/` sulla SD, ha una dimensione coerente con la cartuccia, ed è stato trasferito sul disco del PC. Per le cartucce 3DS pubblicate dopo il 2014 la decrittazione richiede un file di seed generato con SEEDconv, e il sintomo di un seed mancante è un errore esplicito di decrittazione, già incontrato e risolto su Omega Ruby: è documentato nella sezione 5.4 dell'handoff e non va ridiagnosticato da zero.
+Un dump si considera completato quando il file esiste in `/gm9/out/` sulla SD, ha una dimensione coerente con la cartuccia, ed è stato trasferito sul disco del PC. Per le cartucce 3DS pubblicate dopo il 2014 la decrittazione richiede un file di seed generato con SEEDconv, e il sintomo di un seed mancante è un errore esplicito di decrittazione, già incontrato e risolto su Omega Ruby, da non ridiagnosticare da zero. La procedura, travasata dall'handoff il 2026-11-23, è questa. Si avvia il gioco con internet, si fa da GodMode9 il System Save Dump di `sysdata/0001000f/00000000`, si converte con SEEDconv sul PC e si copia `seeddb.bin` in `0:/gm9/support/`. Il file è cumulativo. È materiale console-unico, quindi non si versiona e non si incolla in chat.
 
 ## Riscontri visivi
 
