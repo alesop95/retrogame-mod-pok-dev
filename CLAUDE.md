@@ -98,6 +98,7 @@ Norme caricate su richiesta, una riga per situazione con le parole con cui si pr
 - Il proprietario indica uno screenshot o una foto da leggere: regola condizionale `manual-screenshots.md`, che il client non carica se non si tocca un'immagine.
 - Va prodotto, modificato o convertito un artefatto visivo o documentale, cioè un documento, una presentazione, un PDF, un'immagine, un'animazione, un audio o un impaginato, oppure si sta per scrivere uno script o installare una libreria per farlo: skill `craft-apps`, che prima verifica in locale le applicazioni Craft installate e le usa senza rete né token.
 - Apertura di sessione: le righe di `python .claude/templates/tools/verifica-pacchetti.py --riepilogo` entrano nella prima risposta; se dicono «Gate dovuto» si avvia la skill `gate-pacchetti`.
+- Il progetto gira su una VM o su un server, si sta sviluppando sulla macchina remota, si sposta lo sviluppo sulla postazione, si rilascia sulla macchina, si ammette un client o un nome, si irrobustisce la macchina: skill `progetti-su-vm`.
 
 Gli handoff dei track 3DS, Smeraldo e scambio GBA-Switch sono in `archivio/handoff/` dal 2026-11-23, identici, dopo il travaso nelle schede di ciò che era ancora vero (ADR-137, che supera ADR-003); quello del ponte era già stato assorbito in `DATA-FORMATS_Gen1-Gen2-Gen3.md` e in `docs/` (ADR-013).
 
