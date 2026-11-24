@@ -408,6 +408,29 @@ Stato al 2026-11-17, sera: punti 15-18 FATTI. La banca ha dato due volte l'error
 17. Proprietario: foto del totale di HOME, che è quello di prima più 245: 7466 se non hai ancora liberato niente, 6470 a liberazione finita.
 18. Agente: la copia «in HOME» in `tools/stampa-collezione.py`, pedigree e stampabile (ADR-111, ADR-127).
 
+## Giro 15
+
+Scritto il 2026-11-24 per ADR-140: i Pokémon veri della cartuccia di Verde Foglia, estratta il 2026-11-24 con due letture identiche (`RUNBOOK-ESTRAZIONI.md`), che PKHeX giudica conformi, senza i 7 contestati di Smeraldo e senza i 21 identici a un esemplare già in HOME (`_notes/lotti/lotto-verde-foglia/identita-gia-in-home.json`). Prima la squadra, con PUCCETTO al primo posto, poi i box. Ogni esemplare ha la data di Poké Transfer di ADR-128, fra il 2011-03-04 e il 2013-12-31. La copia è `_notes/salvataggi/prove/per-home/oras-verde-foglia-1/main`, 359 esemplari, 483328 byte, SHA-256 `d64212320cfde2ce0a673eb1f5d5ceaeff029d9c7008b6df49ab39849ee82091`, giudicata 359 conformi (`_notes/lavoro/giudizi-copie/verde-foglia-20261124.json`): box da 1 a 11 pieni e box 12 posti da 1 a 29. È la copia del giro 14 con i box svuotati e riempiti, con `--svuota --regione-dal-salvataggio --includi-mn --data-poke-transfer`.
+
+1. Proprietario: spegni il 3DS del tutto.
+2. Proprietario: SD nel PC, lettera `I:`, e dimmelo.
+3. Agente: copia di `/3ds/Checkpoint/saves/` nelle due riserve, con lo SHA-256 di ogni file.
+4. Agente: cartella `20261124-giro15` di Pokémon Omega Ruby con la copia di nome `main`, riletta dalla SD.
+5. Proprietario: espelli la SD e rimettila nel 3DS.
+6. Proprietario: avvia Checkpoint.
+7. Proprietario: scegli Pokémon Omega Ruby, Backup, nome `20261124-prima15`. È la partita com'è adesso. Non si rifà e non si cancella.
+8. Proprietario: seleziona `20261124-giro15`, Restore, conferma.
+9. Proprietario: avvia Rubino Omega senza salvare e controlla: box 1 posto 1 Blastoise livello 100, PUCCETTO; box 1 posto 2 Dragonite livello 74; box 12 posto 29 Deoxys livello 100; box da 1 a 11 pieni, box 12 con i posti da 1 a 29, box 13 vuoto.
+10. Proprietario: esci senza salvare.
+11. Proprietario: Checkpoint, Pokémon Omega Ruby, Backup, nome `20261124-rilett15`.
+12. Proprietario: spegni, SD nel PC, e dimmelo.
+13. Agente: SHA-256 di `20261124-rilett15/main` uguale a quello della copia.
+14. Agente: giudizio della rilettura, 359 conformi negli stessi posti; `prima15` giudicata; `prima15` e `rilett15` nelle due riserve.
+15. Proprietario: SD nel 3DS.
+16. Proprietario: il passaggio alla banca e a HOME. Se qualcuno resta nei box, lascialo lì e dimmi box e posto, o mandami la foto del box.
+17. Proprietario: foto del totale di HOME, che è quello di prima più 359.
+18. Agente: la copia «in HOME» in `tools/stampa-collezione.py`, pedigree e stampabile (ADR-111, ADR-127).
+
 ## Dopo il giro 4
 
 La partita vera di Rubino Omega, `20260821-backsic`, resta fuori dalla console fino al passo 6. I giri successivi sono nella tabella in testa a `ROADMAP.md`: il 5 (HOME8, `oras-giro-5-carte-mn5`, 256) e il 6 (HOME9, `oras-giro-6-statici-eventi-4`, 695, di cui 689 in HOME e i sei Pikachu Cosplay rimasti in Rubino Omega) sono ancora di Rubino Omega e seguono questa procedura con i nomi del giorno; dal 7 si passa a Luna e Ultraluna, e al giro 8, il primo di Ultraluna, la copia di riserva di Checkpoint crea la cartella del gioco.
