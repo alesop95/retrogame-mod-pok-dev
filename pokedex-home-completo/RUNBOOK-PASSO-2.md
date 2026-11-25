@@ -437,6 +437,29 @@ Stato al 2026-11-24, sera: punti 15-18 FATTI. Il totale di HOME riferito dal pro
 17. Proprietario: foto del totale di HOME, che è quello di prima più 359.
 18. Agente: la copia «in HOME» in `tools/stampa-collezione.py`, pedigree e stampabile (ADR-111, ADR-127).
 
+## Giro 16
+
+Scritto il 2026-11-25 per ADR-140 e ADR-141: i Pokémon veri della cartuccia di Zaffiro, estratta il 2026-11-25 con due letture identiche (`RUNBOOK-ESTRAZIONI.md`), tutti conformi per PKHeX (63 nei box, 6 in squadra), senza i 4 identici a un esemplare già in HOME (Lapras, Mewtwo, Zangoose e Suicune 10ANNI, tutti in HOME6) e senza il Tropius che conosce solo mosse MN, escluso dopo la conversione come i Floatzel di ADR-131; più tre esemplari della cartuccia di Smeraldo rimasti fuori da HOME, il Seedot dello sciame del box 1 posto 17, il Wurmple del box 5 posto 15 e il Wynaut dell'Isola Miraggio del box 13 posto 28, estratti dalla rilettura del 2026-11-20. Lo Sceptile della squadra porta il Training Ribbon con il Super Allenamento completo, scritto da `tools/pkhex-fiocco-allenamento` (ADR-141). Prima la squadra, poi i box, poi i tre di Smeraldo. Ogni esemplare ha la data di Poké Transfer di ADR-128, fra il 2011-03-04 e il 2013-12-31. La copia è `_notes/salvataggi/prove/per-home/oras-zaffiro-1/main`, sulla copia del giro 15 svuotata, 67 esemplari, 483328 byte, SHA-256 `e1f70f1e98335961aed21bd89d9127a9513498ffcd044d3be0fda772781e945f`, giudicata 67 conformi (`_notes/lavoro/giudizi-copie/zaffiro-giro16-20261125.json`): box 1 e 2 pieni e box 3 posti da 1 a 7.
+
+1. Proprietario: spegni il 3DS del tutto.
+2. Proprietario: SD nel PC, lettera `I:`, e dimmelo.
+3. Agente: copia di `/3ds/Checkpoint/saves/` nelle due riserve, con lo SHA-256 di ogni file.
+4. Agente: cartella `20261125-giro16` di Pokémon Omega Ruby con la copia di nome `main`, riletta dalla SD.
+5. Proprietario: espelli la SD e rimettila nel 3DS.
+6. Proprietario: avvia Checkpoint.
+7. Proprietario: scegli Pokémon Omega Ruby, Backup, nome `20261125-prima16`. È la partita com'è adesso. Non si rifà e non si cancella.
+8. Proprietario: seleziona `20261125-giro16`, Restore, conferma.
+9. Proprietario: avvia Rubino Omega senza salvare e controlla: box 1 posto 1 Dragonite livello 55; box 1 posto 6 Sceptile livello 51, che nei fiocchi ha il Training Ribbon; box 3 posto 7 Wynaut livello 30; box 1 e 2 pieni, box 3 con i posti da 1 a 7, box 4 vuoto.
+10. Proprietario: esci senza salvare.
+11. Proprietario: Checkpoint, Pokémon Omega Ruby, Backup, nome `20261125-rilett16`.
+12. Proprietario: spegni, SD nel PC, e dimmelo.
+13. Agente: SHA-256 di `20261125-rilett16/main` uguale a quello della copia.
+14. Agente: giudizio della rilettura, 67 conformi negli stessi posti; `prima16` giudicata; `prima16` e `rilett16` nelle due riserve.
+15. Proprietario: SD nel 3DS.
+16. Proprietario: il passaggio alla banca e a HOME. Se qualcuno resta nei box, lascialo lì e dimmi box e posto, o mandami la foto del box.
+17. Proprietario: foto del totale di HOME, che è quello di prima più 67.
+18. Agente: la copia «in HOME» in `tools/stampa-collezione.py`, pedigree e stampabile (ADR-111, ADR-127).
+
 ## Dopo il giro 4
 
 La partita vera di Rubino Omega, `20260821-backsic`, resta fuori dalla console fino al passo 6. I giri successivi sono nella tabella in testa a `ROADMAP.md`: il 5 (HOME8, `oras-giro-5-carte-mn5`, 256) e il 6 (HOME9, `oras-giro-6-statici-eventi-4`, 695, di cui 689 in HOME e i sei Pikachu Cosplay rimasti in Rubino Omega) sono ancora di Rubino Omega e seguono questa procedura con i nomi del giorno; dal 7 si passa a Luna e Ultraluna, e al giro 8, il primo di Ultraluna, la copia di riserva di Checkpoint crea la cartella del gioco.
