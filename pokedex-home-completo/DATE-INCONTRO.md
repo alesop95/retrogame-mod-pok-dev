@@ -13,8 +13,8 @@ Le classi, nell'ordine in cui si assegnano: *impossibile* è una data anteriore 
 | impossibile | 20 |
 | anteriore-finestra | 21 |
 | produzione | 5195 |
-| storica | 2339 |
-| totale | 7575 |
+| storica | 2698 |
+| totale | 7934 |
 
 ## Per gruppo
 
@@ -36,6 +36,7 @@ Le classi, nell'ordine in cui si assegnano: *impossibile* è una data anteriore 
 | HOME9 | in HOME | 0 | 0 | 694 | 1 |
 | RIDATA1 | in HOME | 0 | 7 | 1 | 422 |
 | RIDATA2 | in HOME | 0 | 3 | 1 | 564 |
+| VERDEFOGLIA1 | in HOME | 0 | 0 | 0 | 359 |
 
 ## I doni da carta, per generazione d'origine
 
