@@ -38,6 +38,9 @@ LAVORO = os.path.join(RADICE, "_notes", "lavoro", "controllo-prima-di-bank")
 ESEGUIBILE = os.path.join(RADICE, "tools", "pkhex-produci-elenco", "bin", "Release", "net10.0", "pkhex-produci-elenco.exe")
 EVENTDEX = os.path.join(RADICE, "_notes", "fonti", "raccolte", "serebii-eventdex-2026-11-04", "serebii-eventdex-eventi.json")
 SFIDE_APP = os.path.join(RADICE, "pokedex-home-completo", "data", "sfide-home-app-20261125.json")
+# Il lotto delle sfide prodotto da tools/pkhex-sfide-app, privato: se c'è, il giro 17 conta i suoi esemplari, che sono meno
+# delle mancanze perché un esemplare conta per tutte le sfide che soddisfa.
+LOTTO_SFIDE = os.path.join(RADICE, "_notes", "lotti", "lotto-sfide-app", "rapporto.json")
 USCITA = os.path.join(RADICE, "pokedex-home-completo", "CONTROLLO-PRIMA-DI-BANK.md")
 GIOCHI_BANK = ("Ruby", "Sapphire", "Emerald", "FireRed", "LeafGreen", "Colosseum", "XD", "Diamond", "Pearl", "Platinum",
                "HeartGold", "SoulSilver", "Black", "White", "X", "Y", "OmegaRuby", "AlphaSapphire", "Sun", "Moon", "Ultra",
@@ -189,6 +192,8 @@ def main():
         nelle_copie = sfere.get(s["sfera"]) if "sfera" in s else (ditto if s.get("specie") == 132 else None)
         righe_app.append((s, oggi, servono, nelle_copie))
     servono_app = sum(r[2] for r in righe_app)
+    prodotti_app = json.load(open(LOTTO_SFIDE, encoding="utf-8"))["prodotti"] if os.path.exists(LOTTO_SFIDE) else None
+    esemplari_app = prodotti_app or servono_app
 
     print("esemplari in HOME dai giudizi: %d in %d gruppi" % (len(esemplari), len(gruppi)))
     for t, r in misure.items():
@@ -202,11 +207,11 @@ def main():
 
     if not a.scrivi:
         return
-    lotto = len(mancanti3) + servono_app
+    lotto = len(mancanti3) + esemplari_app
     r = ["# Controllo prima della chiusura di Bank: che cosa è in HOME e che cosa deve ancora passare", "",
          "> Documento generato da `tools/controllo-prima-di-bank.py --scrivi`. Non si modifica a mano: si rigenera dopo ogni giro. Conta i soli esemplari passati a HOME, letti dal giudizio `%s` attraverso `tools/in_home.py`: %d esemplari in %d gruppi (%s). Il totale dell'app, 7892 il 2026-11-25, comprende anche i 34 che erano in HOME prima del giro 1 e quelli arrivati da GO, che i giudizi non leggono, e i 996 vecchi da liberare, che hanno un sostituto identico salvo la data." % (os.path.basename(in_home.GIUDIZIO_CORRENTE), len(esemplari), len(gruppi), ", ".join(gruppi)), "",
          "## Il verdetto", "",
-         "Prima del 2027-02-26 deve passare da Bank un altro giro, il 17, con %d esemplari: %d varianti d'allenatore dei doni di terza generazione dei Pokémon Center giapponesi e di New York che ADR-118 vuole tutte, e %d esemplari che chiudono le sfide dell'app di HOME raggiungibili con i giochi del 3DS. Tutte le altre misure sono complete. Resta una decisione del proprietario che dipende da Bank: se ridatare i 1964 esemplari di terza e quarta generazione già in HOME con la data del 2026 (ADR-128); dopo la chiusura non si potrà più." % (lotto, len(mancanti3), servono_app), "",
+         "Prima del 2027-02-26 deve passare da Bank un altro giro, il 17, con %d esemplari: %d varianti d'allenatore dei doni di terza generazione dei Pokémon Center giapponesi e di New York che ADR-118 vuole tutte, e %d esemplari che chiudono le sfide dell'app di HOME raggiungibili con i giochi del 3DS%s. Tutte le altre misure sono complete. Resta un lavoro che dipende da Bank e che il proprietario ha rimandato il 2026-11-26 alla fine, se avanza tempo (ADR-143): ridatare i 1964 esemplari di terza e quarta generazione già in HOME con la data del 2026 (ADR-128); dopo la chiusura non si potrà più." % (lotto, len(mancanti3), esemplari_app, "" if prodotti_app is None else ", meno delle %d mancanze perché un esemplare conta per tutte le sfide che soddisfa (`tools/pkhex-sfide-app`)" % servono_app), "",
          "## Le misure complete", "",
          "| Misura | Esito | Strumento |", "|---|---|---|"]
     for t, righe in misure.items():
@@ -233,7 +238,7 @@ def main():
           "| Sfida | Nell'app | Nelle copie in HOME | Soglia d'oro | Da aggiungere |", "|---|---|---|---|---|"]
     for s, oggi, servono, nc in righe_app:
         r.append("| %s | %d%s | %s | %d | %d |" % (s["sfida"], oggi, " (stima dalla barra)" if s.get("stima") else "", "" if nc is None else nc, s["soglia"], servono))
-    r += ["", "Totale da aggiungere: %d. Le condizioni di gara massime si fissano nei giochi con gare (terza, quarta e sesta generazione) e la libreria le giudica; la lucentezza massima non compare nelle schermate." % servono_app, "",
+    r += ["", "Totale delle mancanze: %d. Un esemplare conta per tutte le sfide che soddisfa, quindi `tools/pkhex-sfide-app` mette i Ditto e gli esemplari con le condizioni al massimo dentro le sfere che hanno ancora un bisogno, e dà a dieci esemplari tutte e cinque le condizioni e la lucentezza a 255, che chiudono insieme le sei sfide di gara. La lucentezza si accumula soltanto con i Pokémelle di terza generazione e i Poffin di quarta (`ContestStatInfo.GetContestStatRestriction` della libreria), quindi quei dieci sono catture di Smeraldo; la sfida della lucentezza è aperta per il proprietario (2026-11-26) e il contatore, non fotografato, si prende a zero.%s" % (servono_app, "" if prodotti_app is None else " Il lotto prodotto ne contiene %d." % prodotti_app), "",
           "Si chiudono solo su Switch, e restano alla fase Switch: " + "; ".join(app["solo_switch"]) + ".", "",
           "## Eventi di Serebii con una differenza di trascrizione", "",
           "Il confronto per specie, allenatore e ID manca %d eventi; la sonda li ritrova tutti in HOME con una differenza nella trascrizione di Serebii, salvo quelli segnati da verificare." % len(trascr), "",

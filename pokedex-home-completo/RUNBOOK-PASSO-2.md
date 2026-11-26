@@ -466,6 +466,29 @@ Stato al 2026-11-25, più tardi: punti 5-14 FATTI. Punto 13: `20261125-rilett16/
 
 Stato dei punti 15-18, al 2026-11-25: fatti. Il proprietario ha passato i 67 a Bank e a HOME, nessuno è rimasto nei box, e la foto del totale dice 7892, cioè 7825 più 67; lo Sceptile in HOME mostra il Training Ribbon. Punto 18: giudizio `dopo-20261125-zaffiro.json`, ZAFFIRO1 «in HOME», pedigree `pedigree/ZAFFIRO1.md`, catalogo ricomposto, elenco da liberare con i totali da 7892 a 6896.
 
+## Giro 17
+
+Scritto il 2026-11-26 per ADR-142, ADR-143 e ADR-144: l'ultimo giro che deve passare da Bank prima della chiusura del 2027-02-26, misurato da `CONTROLLO-PRIMA-DI-BANK.md`. Porta 310 varianti d'allenatore dei doni di terza generazione dei Pokémon Center giapponesi e di New York (`pkhex-produci-elenco --varianti-gen3 --produci`, lotto `_notes/lotti/lotto-varianti-gen3/`), cioè lo stesso dono con il nome di ogni città o di ogni macchina, e 352 Pokémon per le sfide dell'app di HOME (`tools/pkhex-sfide-app`, lotto `_notes/lotti/lotto-sfide-app/`): 314 catture di Ultraluna e Ultrasole in 17 sfere, 23 Ditto compresi, 28 della Gara Pigliamosche di HeartGold con la Gara Ball e dieci catture di Smeraldo con le cinque condizioni e la lucentezza a 255. In fondo, tre Pokémon del Daisuki Club rifatti (`_notes/lotti/lotto-daisuki-club-c/`, ADR-144): il Magikarp, l'Heracross e il Cherubi dello staff ウッツー, che in HOME portano l'allenatore scritto «ウッツ?» perché la fonte trascrive con un trattino largo che la quarta generazione non conosce; le date di cattura e d'uovo sono quelle degli scambi GTS dello staff, del 2006 e del 2007. I Pokémon di terza e quarta generazione hanno la data di Poké Transfer di ADR-128, fra il 2011-03-04 e il 2013-12-31. I tre vecchi «ウッツ?» (HOME9 box 19 posti 6, 11 e 22) si liberano dopo che i nuovi sono in HOME. Quattro Salamence di New York conoscono una mossa MN ed entrano con `--includi-mn`, come nei giri 2, 5 e 6. La copia è `_notes/salvataggi/prove/per-home/ultraluna-giro-17/main`, sulla copia del giro 12 (`ultraluna-ridata-2`) svuotata, con `--svuota --regione-dal-salvataggio --includi-mn --data-poke-transfer`: 665 Pokémon, 445440 byte, SHA-256 `0d5f5388f6736aca51df23a97c722ee6672159d83e07ab536cb4a15f178251c1`, riletti senza differenze e giudicati 665 conformi, nessun cromatico (`_notes/lavoro/giudizi-copie/giro17-20261126.json`). Box da 1 a 22 pieni e box 23 posti da 1 a 5. La partita che Ultraluna ha adesso è quella del giro 12 dopo il passaggio alla banca, con i box vuoti: è giusto che la riserva `prima17` del punto 7 sembri vuota.
+
+1. Proprietario: spegni il 3DS del tutto.
+2. Proprietario: SD nel PC, lettera `I:`, e dimmelo.
+3. Agente: copia di `/3ds/Checkpoint/saves/` nelle due riserve, con lo SHA-256 di ogni file.
+4. Agente: cartella `20261126-giro17` di Pokémon Ultra Moon con la copia di nome `main`, riletta dalla SD.
+5. Proprietario: espelli la SD e rimettila nel 3DS.
+6. Proprietario: avvia Checkpoint.
+7. Proprietario: scegli Pokémon Ultra Moon, Backup, nome `20261126-prima17`. È la partita com'è adesso. Non si rifà e non si cancella.
+8. Proprietario: seleziona `20261126-giro17`, Restore, conferma.
+9. Proprietario: avvia Ultraluna senza salvare e controlla: box 1 posto 1 Treecko livello 10, allenatore トウキョー; box 11 posto 11 Feebas livello 20 in una Minor Ball; box 23 posto 2 Jynx livello 9 in una UC Ball; box 23 posto 3 Magikarp livello 5, allenatore ウッツー; box da 1 a 22 pieni, box 23 con i posti da 1 a 5, box 24 vuoto.
+10. Proprietario: esci senza salvare.
+11. Proprietario: Checkpoint, Pokémon Ultra Moon, Backup, nome `20261126-rilett17`.
+12. Proprietario: spegni, SD nel PC, e dimmelo.
+13. Agente: SHA-256 di `20261126-rilett17/main` uguale a quello della copia.
+14. Agente: giudizio della rilettura, 665 conformi negli stessi posti; `prima17` giudicata; `prima17` e `rilett17` nelle due riserve.
+15. Proprietario: SD nel 3DS.
+16. Proprietario: il passaggio alla banca e a HOME. Se qualcuno resta nei box, lascialo lì e dimmi box e posto, o mandami la foto del box.
+17. Proprietario: foto del totale di HOME, che è quello di prima più 665, e foto delle sfide dell'app delle sfere, delle condizioni, della lucentezza e dei Ditto.
+18. Agente: la copia «in HOME» in `tools/stampa-collezione.py`, pedigree e stampabile, che da lì si chiude (ADR-111, ADR-127, ADR-142); i tre vecchi «ウッツ?» nell'elenco da liberare (ADR-144).
+
 ## Dopo il giro 4
 
 La partita vera di Rubino Omega, `20260821-backsic`, resta fuori dalla console fino al passo 6. I giri successivi sono nella tabella in testa a `ROADMAP.md`: il 5 (HOME8, `oras-giro-5-carte-mn5`, 256) e il 6 (HOME9, `oras-giro-6-statici-eventi-4`, 695, di cui 689 in HOME e i sei Pikachu Cosplay rimasti in Rubino Omega) sono ancora di Rubino Omega e seguono questa procedura con i nomi del giorno; dal 7 si passa a Luna e Ultraluna, e al giro 8, il primo di Ultraluna, la copia di riserva di Checkpoint crea la cartella del gioco.

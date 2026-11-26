@@ -13,15 +13,17 @@
    -1
   ],
   "lingua": "ja",
-  "ot": "ウッツ－",
+  "ot": "ウッツー",
   "tid": 1256,
   "fonte": "https://pokemonhistorian.com/daisukigts/magikarp-of-love/",
-  "storia": "Il Magikarp di San Valentino del Daisuki Club, 14 febbraio 2007, ceduto via GTS dallo staff: allenatore ウッツ－, ID 01256. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119).",
+  "storia": "Il Magikarp di San Valentino del Daisuki Club, 14 febbraio 2007, ceduto via GTS dallo staff: allenatore ウッツー, ID 01256. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119).",
   "livello": 5,
   "natura": "Relaxed",
   "mosse": [
    "Splash"
-  ]
+  ],
+  "ot_fonte": "ウッツ－",
+  "nota_ot": "La fonte scrive l'ultimo carattere come trattino largo (U+FF0D), che la quarta generazione non sa scrivere: la libreria lo cambiava in «?» e i tre esemplari passati a HOME il 2026-11-07 portano «ウッツ?». Nel blocco a larghezza piena della tabella dei caratteri di quarta generazione la riga dei segni è «＋ ー × ÷ ＝» (`StringConverter4Util.cs` del clone di PKHeX, riga 172, codici 0x0F0-0x0F4): il posto del meno largo è il carattere che la libreria rappresenta come «ー». Il trattino che le fonti hanno visto e trascritto «－» è quindi «ー» nella libreria (ADR-144, 2026-11-26)."
  },
  {
   "id": "D02-Magikarp",
@@ -179,10 +181,10 @@
    -1
   ],
   "lingua": "ja",
-  "ot": "ウッツ－",
+  "ot": "ウッツー",
   "tid": 43393,
   "fonte": "https://pokemonhistorian.com/daisukigts/minidaisukis/",
-  "storia": "L'Heracross del Daisuki Club GTS Act 1 (mini Daisuki), ceduto via GTS dallo staff: allenatore ウッツ－, ID 43393. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119).",
+  "storia": "L'Heracross del Daisuki Club GTS Act 1 (mini Daisuki), ceduto via GTS dallo staff: allenatore ウッツー, ID 43393. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119).",
   "sesso": 0,
   "mosse": [
    "Close Combat",
@@ -190,7 +192,9 @@
    "Protect",
    "Shadow Claw"
   ],
-  "livello_attuale": 38
+  "livello_attuale": 38,
+  "ot_fonte": "ウッツ－",
+  "nota_ot": "La fonte scrive l'ultimo carattere come trattino largo (U+FF0D), che la quarta generazione non sa scrivere: la libreria lo cambiava in «?» e i tre esemplari passati a HOME il 2026-11-07 portano «ウッツ?». Nel blocco a larghezza piena della tabella dei caratteri di quarta generazione la riga dei segni è «＋ ー × ÷ ＝» (`StringConverter4Util.cs` del clone di PKHeX, riga 172, codici 0x0F0-0x0F4): il posto del meno largo è il carattere che la libreria rappresenta come «ー». Il trattino che le fonti hanno visto e trascritto «－» è quindi «ー» nella libreria (ADR-144, 2026-11-26)."
  },
  {
   "id": "D09-Cherubi",
@@ -206,11 +210,13 @@
    -1
   ],
   "lingua": "ja",
-  "ot": "ウッツ－",
+  "ot": "ウッツー",
   "tid": 43393,
   "fonte": "https://pokemonhistorian.com/daisukigts/minidaisukis/",
-  "storia": "Il Cherubi del Daisuki Club GTS Act 1 (mini Daisuki), ceduto via GTS dallo staff: allenatore ウッツ－, ID 43393. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119).",
-  "sesso": 1
+  "storia": "Il Cherubi del Daisuki Club GTS Act 1 (mini Daisuki), ceduto via GTS dallo staff: allenatore ウッツー, ID 43393. Era un Pokémon catturato o fatto nascere dallo staff, non un dono con carta, quindi si riproduce come incontro normale con l'allenatore e l'ID della fonte; la posta che teneva non si riproduce (ADR-119).",
+  "sesso": 1,
+  "ot_fonte": "ウッツ－",
+  "nota_ot": "La fonte scrive l'ultimo carattere come trattino largo (U+FF0D), che la quarta generazione non sa scrivere: la libreria lo cambiava in «?» e i tre esemplari passati a HOME il 2026-11-07 portano «ウッツ?». Nel blocco a larghezza piena della tabella dei caratteri di quarta generazione la riga dei segni è «＋ ー × ÷ ＝» (`StringConverter4Util.cs` del clone di PKHeX, riga 172, codici 0x0F0-0x0F4): il posto del meno largo è il carattere che la libreria rappresenta come «ー». Il trattino che le fonti hanno visto e trascritto «－» è quindi «ー» nella libreria (ADR-144, 2026-11-26)."
  },
  {
   "id": "D10-Milotic",

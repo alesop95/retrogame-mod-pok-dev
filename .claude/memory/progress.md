@@ -4,6 +4,48 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-26, seconda parte. I sette casi di Serebii rifatti: un difetto nostro, il giro 17 a 665
+
+Il proprietario ha chiesto che cosa avessimo messo in HOME per le sette differenze lasciate fuori dalla bozza, di controllare il Darkrai e di cercare un contatto di Serebii; le Alfa di Z-A le prende quando Bank è finita. `chiudi` non era ancora stato lanciato, quindi il giro ha continuato a scrivere e la proposta si rifà alla fine.
+
+Rifatti uno per uno contro HOME e contro le carte della libreria: il Tapu Fini giapponese è in HOME (ポニ, 190419) e la sonda di ADR-142 l'aveva mancato, quindi entra nella segnalazione; Gengar e Scizor di クリスマス sono Haunter e Scyther sulla carta, e quelli sono in HOME; JEREMY resta una discordanza fra Serebii e Bulbapedia senza carta; il Magikarp di ルイルイ porta ♥ come la fonte storica. Il Magikarp di ウッツ ha mostrato un difetto nostro: la fonte scrive il trattino largo U+FF0D, che la tabella di quarta generazione della libreria non ha, e i tre Pokémon di quello staff in HOME portano «ウッツ?». Una prova nello scratchpad ha mostrato che U+FF0D, U+2010, U+2212 e U+2015 diventano «?» e che «ー» e «-» si conservano; la tabella (`StringConverter4Util.cs` riga 172) mette «ー» nel posto del meno largo, fra «＋» e «×», quindi il nome giusto è «ウッツー». Controllati i 7856 in HOME: nessun altro allenatore prodotto con «?», solo il Groudon vero di Diamante «???????».
+
+`daisuki-club.json` corretto per le tre voci, con il nome della fonte conservato in `ot_fonte`; rifatti con `pkhex-produci-elenco --comunita` in `_notes/lotti/lotto-daisuki-club-c/`. Nati con la data di oggi, quindi senza Poké Transfer possibile: un programma nello scratchpad ha messo la data di cattura e, per Heracross e Cherubi nati da uova, anche quella dell'uovo, alle date degli scambi GTS dello staff (2006-12-21, 2007-01-18, 2007-02-14), rigiudicati conformi e con l'impronta aggiornata nel rapporto del lotto. Copia rifatta due volte (la prima lasciava la data dell'uovo del 2026): `ultraluna-giro-17/main`, 665 Pokémon, SHA-256 `0d5f5388…`, 665 conformi, nessun cromatico, tutti i 351 di terza e quarta generazione con il Poké Transfer fra il 2011 e il 2013.
+
+Darkrai: Serebii ha due voci americane del 2008, 05318 e 06281; EventsGallery (albero del repository letto con `gh api`) ha una sola carta nordamericana, «007 DP - Movie Darkrai (NA)», 05318, in HOME; 07038 è europea e 10308 australiana. Contatti: una ricerca in rete trova il thread del forum di Serebii «Mistakes on Serebii.net v2», fatto per gli errori del sito, il Discord del forum e il webmaster Joe Merrick (Bulbapedia, «Serebii (person)»). La bozza passa a 26 voci con le note sul Darkrai e su クリスマス.
+
+Documenti aggiornati: `RUNBOOK-PASSO-2.md` «Giro 17» (665, punto 9 con il Magikarp, punto 18 con i tre vecchi da liberare), `ROADMAP.md`, `COPIE-PER-HOME.md`, `ESEMPLARI-DA-GO.md` (8557 prima della liberazione, 7558 dopo), `DONI-HOME.md` (le Alfa dopo Bank). Decisione registrata come ADR-144.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+Subagent partiti: 0.
+
+## 2026-11-26. Giro 17 pronto, 662 Pokémon; doni di HOME; segnalazione a Serebii
+
+Il proprietario ha lanciato `chiudi` (commit `ac7291a`) e ha risposto alle domande di ADR-142: la ridatazione dei 1964 si fa alla fine se avanza tempo, la sfida della lucentezza è aperta, PUCCETTO l'ha trovato su HOME per Switch ma non sa come spostarlo. Ha mandato tre schermate delle notizie dell'app, chiesto di allinearsi a tutti gli eventi e i doni di HOME, di andare avanti con i lotti e di segnalare a Serebii le differenze trovate.
+
+Fonti vive segnalate all'apertura, lette e segnate: `pret/pokered` `1982c0c` (solo costanti al posto di numeri magici) ed EonTimer `979c986` (correzioni di temporizzazione e di interfaccia); nessun lotto ne dipende (`_notes/fonti/raccolte/differenze-fonti-vive-2026-11-26/nota.md`).
+
+Giro 17. Le 310 varianti d'allenatore si producono con `pkhex-produci-elenco --varianti-gen3 … --produci`: 108 doni, 424 combinazioni, 112 presenti, 310 prodotte conformi. Per le sfide dell'app c'è lo strumento nuovo `tools/pkhex-sfide-app`, che conta per esemplare: Ditto e Pokémon di gara stanno dentro le sfere con un bisogno, e dieci catture di Smeraldo con le cinque condizioni e la lucentezza a 255 chiudono le sei sfide di gara. Due prove nello scratchpad prima del lotto: la prima ripeteva il Caterpie in tutte le UC Ball, perché le specie selvatiche di Ultrasole e Ultraluna sono 254, e ora le ripetizioni vanno alle specie usate meno volte; la seconda dà al massimo due esemplari per specie, salvo i 23 Ditto. Il lotto: 352 Pokémon, 270 specie, 305 di Ultraluna, 9 di Ultrasole, 28 della Gara Pigliamosche di HeartGold, 10 di Smeraldo. Prima copia: 4 Salamence di New York esclusi per la mossa MN; rifatta con `--includi-mn` come i giri 2, 5 e 6. Seconda copia: i 28 di HeartGold avevano la data di oggi, perché la libreria li genera così, e lo strumento di scrittura non poteva dar loro un Poké Transfer precedente; ora il produttore dà alla cattura un giorno fra il 2010-03-26 e il 2011-03-03, e la terza copia ha tutti i 348 di terza e quarta generazione fra il 2011 e il 2013. Copia finale `ultraluna-giro-17/main`, 662 Pokémon, SHA-256 `3309c1b7…`, riletta senza differenze, giudicata 662 conformi, nessun cromatico; un programma di verifica nello scratchpad ha riletto dalla copia i dieci di gara: tutte le condizioni e la lucentezza a 255, conformi. Passi in `RUNBOOK-PASSO-2.md`, «Giro 17».
+
+`CONTROLLO-PRIMA-DI-BANK.md` rigenerato: il giro 17 conta 662 invece delle 425 mancanze delle sfide più le 310 varianti, e la ridatazione è rimandata.
+
+Doni di HOME: un subagente ha letto la pagina di Serebii (34 righe) e i contatti di Serebii; la lista di Bulbapedia ha risposto 403. `pokedex-home-completo/DONI-HOME.md` le classifica per fase: le tre Alfa di Z-A si sbloccano con la prova di Z-A già in sospeso; i completamenti di Pokédex sono della fase Switch; Meloetta e gli starter di Paldea chiedono Scarlatto o Violetto.
+
+Segnalazione a Serebii: per ciascuna delle 33 differenze le carte della libreria della stessa specie (`_notes/lavoro/segnalazione-serebii/carte-libreria.json`, con l'ID a sei cifre per la settima generazione). 25 sono errori dimostrati, il Darkrai è da ricontrollare, 7 non si mandano. Bozza in inglese in `_notes/lavoro/segnalazione-serebii/email-serebii.md`, da mandare dal proprietario alla posta del collegamento «Contact» di Serebii.
+
+Visto di passaggio, preesistente: sette strumenti tracciati scrivono in chiaro il nome dell'allenatore del progetto; voce in `pending.md`.
+
+Decisione registrata come ADR-143.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+Subagent partiti: 1, per la pagina dei doni di HOME e i contatti di Serebii.
+
 ## 2026-11-25, sera. Giro 16 in HOME, controllo completo prima di Bank, giro 17 da produrre
 
 Il proprietario ha fatto i punti 15-17 del giro 16 e ha mandato 33 foto: il totale di HOME è 7892, cioè 7825 più tutti i 67; lo Sceptile in HOME mostra il Training Ribbon. Le altre 31 foto (trascritte da un subagente) sono la scheda dello Sceptile e la scheda Pokémon delle sfide dell'app. Foto e trascrizione sono in `_notes/fonti/consegne/2026-11-25-home-giro16-e-sfide/`, con le impronte verificate; gli originali in `Downloads/Telegram Desktop` sono cancellati su sua richiesta. Punto 18: giudizio `dopo-20261125-zaffiro.json`, 18 gruppi, i 17 di prima identici e ZAFFIRO1 67 conformi su 67. ZAFFIRO1 è «in HOME» in `stampa-collezione.py`; ci sono le storie del lotto senza nomi reali, il pedigree `ZAFFIRO1.md` e il catalogo ricomposto, 6860 esemplari e 1248 pagine. `elenco-da-liberare.py` ha il giro 16 nei totali, da 7892 a 6896.

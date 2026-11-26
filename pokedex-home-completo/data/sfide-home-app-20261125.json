@@ -25,7 +25,8 @@
   {"sfida": "Deposit Pokémon that embody the ultimate in cuteness!", "condizione": "Grazia", "app": 0, "soglia": 10, "via_3ds": true},
   {"sfida": "Deposit Pokémon that embody the ultimate in cleverness!", "condizione": "Acume", "app": 1, "soglia": 10, "via_3ds": true},
   {"sfida": "Deposit Pokémon that embody the ultimate in toughness!", "condizione": "Forza", "app": 1, "soglia": 10, "via_3ds": true},
-  {"sfida": "Deposit 30 Ditto!", "specie": 132, "app": null, "soglia": 30, "via_3ds": true, "nota": "senza barra nella schermata; nelle copie in HOME ci sono 7 Ditto"}
+  {"sfida": "Deposit 30 Ditto!", "specie": 132, "app": null, "soglia": 30, "via_3ds": true, "nota": "senza barra nella schermata; nelle copie in HOME ci sono 7 Ditto", "nelle_copie": 7},
+  {"sfida": "Deposit Pokémon that show off the ultimate sheen!", "condizione": "Lucentezza", "app": 0, "soglia": 10, "via_3ds": true, "nota": "aperta, detto dal proprietario il 2026-11-26; il contatore non è nelle schermate e si prende 0, il caso peggiore"}
  ],
  "solo_switch": [
   "Deposit a Pokémon that has the Mightiest Mark!",
