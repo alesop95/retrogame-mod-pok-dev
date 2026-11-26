@@ -34,7 +34,9 @@ import sys
 
 RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ATTESE = os.path.join(RADICE, "_notes", "lavoro", "giudizi-copie", "attese-fino-gen7.json")
-COPIE = os.path.join(RADICE, "_notes", "lavoro", "giudizi-copie", "dopo-bfe89c7-pedigree.json")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import in_home  # noqa: E402  dal 2026-11-25: i gruppi in HOME e il giudizio corrente
+COPIE = in_home.GIUDIZIO_CORRENTE
 USCITA = os.path.join(RADICE, "pokedex-home-completo", "COPERTURA-LOTTI.md")
 
 # Chiuso il 2026-11-04: il proprietario, che ha giocato Leggende Z-A, conferma che le tosature sono varianti contate,
@@ -75,7 +77,7 @@ def main():
         pass
     attese = json.load(open(ATTESE, encoding="utf-8"))
     copie = json.load(open(COPIE, encoding="utf-8"))["copie"]
-    home = {(x["numero"], x["forma_n"]) for c in copie if c["gruppo"].startswith("HOME") for x in c["esemplari"]}
+    home = {(x["numero"], x["forma_n"]) for _, x in in_home.esemplari_in_home(copie)}
     escluse = collections.Counter()
     mancanti = []
     for v in attese:

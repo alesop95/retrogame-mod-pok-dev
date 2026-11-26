@@ -34,7 +34,9 @@ RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LAVORO = os.path.join(RADICE, "_notes", "lavoro", "giudizi-copie")
 SFERE = os.path.join(LAVORO, "sfere-prima-di-bank.json")
 FIOCCHI = os.path.join(LAVORO, "fiocchi-prima-di-bank.json")
-COPIE = os.path.join(LAVORO, "dopo-bfe89c7-pedigree.json")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import in_home  # noqa: E402  dal 2026-11-25: i gruppi in HOME e il giudizio corrente
+COPIE = in_home.GIUDIZIO_CORRENTE
 BULBA = os.path.join(RADICE, "_notes", "fonti", "raccolte", "bulbapedia-2026-11-04", "List_of_Ribbons_in_the_games.json")
 DOC_SFERE = os.path.join(RADICE, "pokedex-home-completo", "SFERE-PRIMA-DI-BANK.md")
 DOC_FIOCCHI = os.path.join(RADICE, "pokedex-home-completo", "FIOCCHI-PRIMA-DI-BANK.md")
@@ -179,7 +181,7 @@ def main():
         pass
     sfere = json.load(open(SFERE, encoding="utf-8"))
     fio = json.load(open(FIOCCHI, encoding="utf-8"))
-    copie = [x for c in json.load(open(COPIE, encoding="utf-8"))["copie"] if c["gruppo"].startswith("HOME") for x in c["esemplari"]]
+    copie = [x for _, x in in_home.esemplari_in_home(json.load(open(COPIE, encoding="utf-8"))["copie"])]
     bulba = json.load(open(BULBA, encoding="utf-8"))["parse"]
     voci_bulba = template_fiocchi(bulba["wikitext"])
 

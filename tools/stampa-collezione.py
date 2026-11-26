@@ -164,7 +164,8 @@ STATO_GRUPPO = {"HOME1": ("DSstatoinhome", "in HOME"), "HOME2": ("DSstatoinhome"
                 "RIDATA2": ("DSstatoinhome", "in HOME"),  # il giro 12 dal 2026-11-16, HOME a 6791 (ADR-126)
                 "RIDATA1": ("DSstatoinhome", "in HOME"),  # il giro 13 dal 2026-11-16, HOME a 7221 (ADR-126)
                 "DIAMANTE1": ("DSstatoinhome", "in HOME"),  # il giro 14 dal 2026-11-17, HOME a 7466 prima di liberare (ADR-130)
-                "VERDEFOGLIA1": ("DSstatoinhome", "in HOME")}  # il giro 15 dal 2026-11-24, HOME a 7825 prima di liberare (ADR-140)
+                "VERDEFOGLIA1": ("DSstatoinhome", "in HOME"),  # il giro 15 dal 2026-11-24, HOME a 7825 prima di liberare (ADR-140)
+                "ZAFFIRO1": ("DSstatoinhome", "in HOME")}  # il giro 16 dal 2026-11-25, HOME a 7892 prima di liberare (ADR-141)
 
 
 # Gli esemplari che il gioco non lascia uscire dalla console anche se la libreria li giudica conformi nel loro gioco: il
@@ -230,7 +231,7 @@ DS =os.path.join(RADICE, "pokedex-home-completo", "design-system")
 PEDIGREE_MD = os.path.join(RADICE, "pokedex-home-completo", "pedigree")
 PEDIGREE_PDF = os.path.join(RADICE, "_notes", "stampa", "pedigree")
 # dal 2026-11-17 (ADR-130) anche Diamante e le squadre delle cartucce, che portano il nome del proprietario e dei suoi amici
-ORIGINI_PRIVATE = ("lotto-smeraldo-cartuccia/", "lotto-diamante/", "lotto-squadre-cartucce/", "lotto-verde-foglia/")
+ORIGINI_PRIVATE = ("lotto-smeraldo-cartuccia/", "lotto-diamante/", "lotto-squadre-cartucce/", "lotto-verde-foglia/", "lotto-zaffiro/")
 # La storia dell'evento e le sue fonti (richiesta del proprietario del 2026-11-04): per la terza generazione dai racconti
 # autorati di `provenienze-eventi.json`, legati per allenatore e ID; dalla quarta alla settima dall'Eventdex di Serebii,
 # letto e analizzato il 2026-11-04, legato per specie, allenatore e ID.
@@ -270,7 +271,9 @@ COMUNITA = [os.path.join(RADICE, "_notes", "lotti", "lotto-rng-comunita", "rappo
             # i Pokemon veri di Diamante e le squadre di Smeraldo e Rubino (ADR-130, 2026-11-17)
             os.path.join(RADICE, "_notes", "lotti", "lotto-diamante", "storie.json"),
             # i Pokemon veri di Verde Foglia (ADR-140, 2026-11-24)
-            os.path.join(RADICE, "_notes", "lotti", "lotto-verde-foglia", "storie.json")]
+            os.path.join(RADICE, "_notes", "lotti", "lotto-verde-foglia", "storie.json"),
+            # i Pokemon veri di Zaffiro e tre di Smeraldo (ADR-140, ADR-141, 2026-11-25)
+            os.path.join(RADICE, "_notes", "lotti", "lotto-zaffiro", "storie.json")]
 EVENTDEX = os.path.join(RADICE, "_notes", "fonti", "raccolte", "serebii-eventdex-2026-11-04", "serebii-eventdex-eventi.json")
 
 

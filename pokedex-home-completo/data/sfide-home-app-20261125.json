@@ -1,0 +1,43 @@
+{
+ "nota": "Contatori delle sfide della scheda Pokémon dell'app di HOME, letti dalle schermate del proprietario del 2026-11-25 (foto 4-32, trascrizione privata in _notes/fonti/consegne/2026-11-25-home-giro16-e-sfide/), dopo il giro 16, HOME a 7892. Soglie dei livelli da Bulbapedia, «Challenge (HOME)», copia del 2026-11-03. Le sfide non mostrate nelle schermate non sono qui: o sono complete, o stanno in righe non fotografate.",
+ "data": "2026-11-25",
+ "sfide": [
+  {"sfida": "Deposit Pokémon in a Dive Ball!", "sfera": "Sub Ball", "app": 15, "soglia": 30, "via_3ds": true},
+  {"sfida": "Deposit Pokémon in a Luxury Ball!", "sfera": "Chic Ball", "app": 15, "soglia": 30, "via_3ds": true},
+  {"sfida": "Deposit Pokémon in a Timer Ball!", "sfera": "Timer Ball", "app": 22, "soglia": 30, "via_3ds": true},
+  {"sfida": "Deposit Pokémon in a Net Ball!", "sfera": "Rete Ball", "app": 25, "soglia": 30, "via_3ds": true},
+  {"sfida": "Deposit Pokémon in a Premier Ball!", "sfera": "Premier Ball", "app": 20, "soglia": 30, "via_3ds": true},
+  {"sfida": "Deposit Pokémon in a Repeat Ball!", "sfera": "Bis Ball", "app": 27, "soglia": 30, "via_3ds": true},
+  {"sfida": "Deposit Pokémon in a Beast Ball!", "sfera": "UC Ball", "app": 9, "soglia": 30, "via_3ds": true},
+  {"sfida": "Deposit Pokémon in a Heal Ball!", "sfera": "Cura Ball", "app": 14, "soglia": 30, "via_3ds": true},
+  {"sfida": "Deposit Pokémon in a Quick Ball!", "sfera": "Velox Ball", "app": 10, "soglia": 30, "via_3ds": true},
+  {"sfida": "Deposit Pokémon in a Nest Ball!", "sfera": "Minor Ball", "app": 13, "soglia": 30, "via_3ds": true},
+  {"sfida": "Deposit Pokémon in a Fast Ball!", "sfera": "Rapid Ball", "app": 2, "soglia": 30, "via_3ds": true},
+  {"sfida": "Deposit Pokémon in a Friend Ball!", "sfera": "Friend Ball", "app": 4, "soglia": 30, "via_3ds": true},
+  {"sfida": "Deposit Pokémon in a Heavy Ball!", "sfera": "Peso Ball", "app": 2, "soglia": 30, "via_3ds": true, "stima": "barra al 40% di 5"},
+  {"sfida": "Deposit Pokémon in a Level Ball!", "sfera": "Level Ball", "app": 2, "soglia": 30, "via_3ds": true, "stima": "barra al 40% di 5"},
+  {"sfida": "Deposit Pokémon in a Love Ball!", "sfera": "Love Ball", "app": 2, "soglia": 30, "via_3ds": true, "stima": "barra al 40% di 5"},
+  {"sfida": "Deposit Pokémon in a Lure Ball!", "sfera": "Esca Ball", "app": 2, "soglia": 30, "via_3ds": true, "stima": "barra al 40% di 5"},
+  {"sfida": "Deposit Pokémon in a Moon Ball!", "sfera": "Luna Ball", "app": 2, "soglia": 30, "via_3ds": true, "stima": "barra al 40% di 5"},
+  {"sfida": "Deposit Pokémon in a Sport Ball!", "sfera": "Gara Ball", "app": 2, "soglia": 30, "via_3ds": true, "stima": "barra al 40% di 5"},
+  {"sfida": "Deposit Pokémon that embody the ultimate in beauty!", "condizione": "Bellezza", "app": 7, "soglia": 10, "via_3ds": true},
+  {"sfida": "Deposit Pokémon that embody the ultimate in coolness!", "condizione": "Classe", "app": 1, "soglia": 10, "via_3ds": true},
+  {"sfida": "Deposit Pokémon that embody the ultimate in cuteness!", "condizione": "Grazia", "app": 0, "soglia": 10, "via_3ds": true},
+  {"sfida": "Deposit Pokémon that embody the ultimate in cleverness!", "condizione": "Acume", "app": 1, "soglia": 10, "via_3ds": true},
+  {"sfida": "Deposit Pokémon that embody the ultimate in toughness!", "condizione": "Forza", "app": 1, "soglia": 10, "via_3ds": true},
+  {"sfida": "Deposit 30 Ditto!", "specie": 132, "app": null, "soglia": 30, "via_3ds": true, "nota": "senza barra nella schermata; nelle copie in HOME ci sono 7 Ditto"}
+ ],
+ "solo_switch": [
+  "Deposit a Pokémon that has the Mightiest Mark!",
+  "Deposit a Roaming Form Gimmighoul that was caught in Pokémon GO!",
+  "Deposit Caterpie, Weedle, Metapod, Kakuna, and Pikachu from Pokémon FireRed or Pokémon LeafGreen for Nintendo Switch!",
+  "Deposit Chansey and Tauros from Pokémon FireRed or Pokémon LeafGreen for Nintendo Switch!",
+  "Deposit Lapras from Pokémon FireRed or Pokémon LeafGreen for Nintendo Switch!",
+  "Deposit Porygon from Pokémon FireRed or Pokémon LeafGreen for Nintendo Switch!",
+  "Deposit Pokémon in a Feather, Gigaton, Great, Heavy, Jet, Leaden, Poké, Wing or Ultra Ball crafted in the Hisui region! (9 sfide)",
+  "Deposit Pokémon that have the Jumbo Mark and the Mini Mark!",
+  "Fill in your Blueberry, Crown Tundra, Galar, Hisui, Hyperspace, Isle of Armor, Kanto (GBA), Kanto (Let's Go), Kitakami, Lumiose, Mega Evolution, Paldea and Sinnoh (BDSP) Pokédex (13 sfide)",
+  "Register 10 forms of Furfrou!", "Register 2 forms of Dudunsparce!", "Register 2 forms of Maushold!", "Register 3 varieties of Paldean Tauros!", "Register 4 colors of Squawkabilly!", "Register 4 different Ruinous Pokémon!", "Register Alcremie's forms!", "Register all the first partner Pokémon that Trainers can choose in Galar!", "Register Applin and its 4 Evolutions!",
+  "Register Arceus from Pokémon Legends: Arceus!", "Register Darkrai from Pokémon Legends: Z-A!", "Register Dialga from Pokémon Brilliant Diamond or Pokémon Shining Pearl!", "Register Eevee from Pokémon: Let's Go, Pikachu! or Pokémon: Let's Go, Eevee!", "Register Eternal Flower Floette from Pokémon Legends: Z-A!", "Register Galarian Articuno, Galarian Zapdos, and Galarian Moltres!", "Register Hisuian Decidueye, Hisuian Typhlosion, and Hisuian Samurott!", "Register Iron Bundle, Iron Hands, Iron Jugulis, and Iron Thorns!", "Register Iron Leaves, Iron Boulder, and Iron Crown!", "Register Ogerpon!", "Register Okidogi, Munkidori, and Fezandipiti!", "Register Palkia from Pokémon Brilliant Diamond or Pokémon Shining Pearl!", "Register Pecharunt!", "Register Pikachu from Pokémon: Let's Go, Pikachu! or Pokémon: Let's Go, Eevee!", "Register Pokémon that have the Twinkling Star Ribbon!", "Register Pokémon with all their effort levels maxed!", "Register Scream Tail, Brute Bonnet, Flutter Mane, and Sandy Shocks!", "Register Staraptor, Bidoof, and Bibarel from Pokémon Brilliant Diamond or Pokémon Shining Pearl!", "Register Terapagos!", "Register Torterra, Infernape, and Empoleon from Pokémon Brilliant Diamond or Pokémon Shining Pearl!", "Register Ursaluna and Bloodmoon Ursaluna!", "Register Walking Wake, Gouging Fire, and Raging Bolt!", "Register Zacian from Pokémon Sword or Pokémon Shield!", "Register Zamazenta from Pokémon Sword or Pokémon Shield!", "Register Zygarde from Pokémon Legends: Z-A!"
+ ]
+}

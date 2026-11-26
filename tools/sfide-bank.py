@@ -21,7 +21,7 @@ HOME soddisfa. Il controllo legge i dati degli esemplari, non lo stato delle sfi
 
 Uso
 ---
-    python tools/sfide-bank.py                       sulle copie giudicate in _notes/lavoro/giudizi-copie/dopo-bfe89c7-pedigree.json
+    python tools/sfide-bank.py                       sulle copie del giudizio corrente di tools/in_home.py, contando i soli esemplari in HOME
     python tools/sfide-bank.py --giudizio FILE.json  su un altro esito di pkhex-elenco-copie
     python tools/sfide-bank.py --scrivi              scrive anche pokedex-home-completo/SFIDE-BANK.md, generato
 """
@@ -31,7 +31,9 @@ import os
 import sys
 
 RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-GIUDIZIO = os.path.join(RADICE, "_notes", "lavoro", "giudizi-copie", "dopo-bfe89c7-pedigree.json")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import in_home  # noqa: E402  dal 2026-11-25: i gruppi in HOME e il giudizio corrente
+GIUDIZIO = in_home.GIUDIZIO_CORRENTE
 
 KANTO_VC = {"RD", "GN", "BU", "YW"}
 JOHTO_VC = {"GD", "SI", "C"}
@@ -158,10 +160,10 @@ def main():
         eventi = voce[6] if len(voce) > 6 else None
         dove_home, dove_parte = [], []
         for numero in specie:
-            h = [(c["gruppo"], x["box"], x["posto"]) for c in copie if c["gruppo"].startswith("HOME")
-                 for x in c["esemplari"] if soddisfa(x, numero, giochi, cromatico, forme, eventi)]
-            q = [(c["gruppo"], x["box"], x["posto"]) for c in copie if not c["gruppo"].startswith("HOME")
-                 for x in c["esemplari"] if soddisfa(x, numero, giochi, cromatico, forme, eventi)]
+            h = [(c["gruppo"], x["box"], x["posto"]) for c in copie for x in c["esemplari"]
+                 if in_home.in_home(c["gruppo"], x) and soddisfa(x, numero, giochi, cromatico, forme, eventi)]
+            q = [(c["gruppo"], x["box"], x["posto"]) for c in copie for x in c["esemplari"]
+                 if not in_home.in_home(c["gruppo"], x) and soddisfa(x, numero, giochi, cromatico, forme, eventi)]
             dove_home.append(h[0] if h else None)
             dove_parte.append(q[0] if q else None)
         if all(dove_home):
@@ -177,7 +179,7 @@ def main():
         print("%s%s\n    %s" % ("[nascosta] " if nascosta else "", testo, stato))
         righe.append("| %s | %s | %s |" % (testo.replace("|", "/"), "sì" if nascosta else "", stato))
     for testo, minimo, giochi, nota in SFIDE_CONTEGGIO:
-        specie = {x["numero"] for c in copie if c["gruppo"].startswith("HOME") for x in c["esemplari"] if x["gioco"] in giochi}
+        specie = {x["numero"] for g, x in in_home.esemplari_in_home(copie) if x["gioco"] in giochi}
         if len(specie) >= minimo:
             stato = "COPERTA dalle copie per HOME: %d specie distinte con l'origine richiesta, %s" % (len(specie), nota)
         else:

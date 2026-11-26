@@ -441,6 +441,10 @@ Stato al 2026-11-24, sera: punti 15-18 FATTI. Il totale di HOME riferito dal pro
 
 Scritto il 2026-11-25 per ADR-140 e ADR-141: i Pokémon veri della cartuccia di Zaffiro, estratta il 2026-11-25 con due letture identiche (`RUNBOOK-ESTRAZIONI.md`), tutti conformi per PKHeX (63 nei box, 6 in squadra), senza i 4 identici a un esemplare già in HOME (Lapras, Mewtwo, Zangoose e Suicune 10ANNI, tutti in HOME6) e senza il Tropius che conosce solo mosse MN, escluso dopo la conversione come i Floatzel di ADR-131; più tre esemplari della cartuccia di Smeraldo rimasti fuori da HOME, il Seedot dello sciame del box 1 posto 17, il Wurmple del box 5 posto 15 e il Wynaut dell'Isola Miraggio del box 13 posto 28, estratti dalla rilettura del 2026-11-20. Lo Sceptile della squadra porta il Training Ribbon con il Super Allenamento completo, scritto da `tools/pkhex-fiocco-allenamento` (ADR-141). Prima la squadra, poi i box, poi i tre di Smeraldo. Ogni esemplare ha la data di Poké Transfer di ADR-128, fra il 2011-03-04 e il 2013-12-31. La copia è `_notes/salvataggi/prove/per-home/oras-zaffiro-1/main`, sulla copia del giro 15 svuotata, 67 esemplari, 483328 byte, SHA-256 `e1f70f1e98335961aed21bd89d9127a9513498ffcd044d3be0fda772781e945f`, giudicata 67 conformi (`_notes/lavoro/giudizi-copie/zaffiro-giro16-20261125.json`): box 1 e 2 pieni e box 3 posti da 1 a 7.
 
+Stato al 2026-11-25: punti 1-4 FATTI. `/3ds/Checkpoint/saves/` è copiata in `_notes/salvataggi/console/sd-checkpoint-20261125/` e in `J:/backup-sd-3ds/20261125/`, 60 file, ciascuna verificata con `sha256sum -c` contro l'elenco preso dalla SD (`sd-20261125.sha256`). `20261125-giro16/main` è nella cartella `0x011C4 Pokémon Omega Ruby` della SD, riletta con SHA-256 `e1f70f1e…` uguale alla copia. Tocca al proprietario dal punto 5.
+
+Stato al 2026-11-25, più tardi: punti 5-14 FATTI. Punto 13: `20261125-rilett16/main` ha SHA-256 `e1f70f1e…`, uguale alla copia. Punto 14: giudizio in `_notes/lavoro/giudizi-copie/rilettura-passo2-giro16.json`: `rilett16` 67 esemplari, 67 conformi, stessi posti e stessi PID di `zaffiro-giro16-20261125.json`, Sceptile con RibbonChampionG3 e RibbonTraining; `prima16` (SHA-256 `10de6a52…`) con i box vuoti. `prima16` e `rilett16` sono nelle due riserve `sd-checkpoint-20261125` e `J:/backup-sd-3ds/20261125/`. Tocca al proprietario dal punto 15.
+
 1. Proprietario: spegni il 3DS del tutto.
 2. Proprietario: SD nel PC, lettera `I:`, e dimmelo.
 3. Agente: copia di `/3ds/Checkpoint/saves/` nelle due riserve, con lo SHA-256 di ogni file.
@@ -459,6 +463,8 @@ Scritto il 2026-11-25 per ADR-140 e ADR-141: i Pokémon veri della cartuccia di 
 16. Proprietario: il passaggio alla banca e a HOME. Se qualcuno resta nei box, lascialo lì e dimmi box e posto, o mandami la foto del box.
 17. Proprietario: foto del totale di HOME, che è quello di prima più 67.
 18. Agente: la copia «in HOME» in `tools/stampa-collezione.py`, pedigree e stampabile (ADR-111, ADR-127).
+
+Stato dei punti 15-18, al 2026-11-25: fatti. Il proprietario ha passato i 67 a Bank e a HOME, nessuno è rimasto nei box, e la foto del totale dice 7892, cioè 7825 più 67; lo Sceptile in HOME mostra il Training Ribbon. Punto 18: giudizio `dopo-20261125-zaffiro.json`, ZAFFIRO1 «in HOME», pedigree `pedigree/ZAFFIRO1.md`, catalogo ricomposto, elenco da liberare con i totali da 7892 a 6896.
 
 ## Dopo il giro 4
 

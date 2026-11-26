@@ -51,7 +51,7 @@ Le copie per HOME sono in giochi di sesta e settima generazione, dove i fiocchi 
 | Tough Ribbon Great | tough | IV | 4 | fuso nel Ricordo delle Gare |
 | Tough Ribbon Ultra | tough | IV | 4 | fuso nel Ricordo delle Gare |
 | Tough Ribbon Master | tough | IV | 4 | fuso nel Ricordo delle Gare |
-| Contest Memory Ribbon | other | VI | 6 | 4 |
+| Contest Memory Ribbon | other | VI | 6 | 12 |
 | Winning Ribbon | tower | III | 3 | fuso nel Ricordo delle Lotte |
 | Victory Ribbon | tower | III | 3 | fuso nel Ricordo delle Lotte |
 | Ability Ribbon | tower | IV | 4 | fuso nel Ricordo delle Lotte |
@@ -65,11 +65,11 @@ Le copie per HOME sono in giochi di sesta e settima generazione, dove i fiocchi 
 | Battle Royal Master Ribbon | tower | VII | 7 | 1 |
 | Battle Tree Great Ribbon | tower | VII | 7 | 1 |
 | Battle Tree Master Ribbon | tower | VII | 7 | 1 |
-| Battle Memory Ribbon | tower | VI | 6 | 2 |
-| Artist Ribbon | memorial | III | 3 | 2 |
+| Battle Memory Ribbon | tower | VI | 6 | 6 |
+| Artist Ribbon | memorial | III | 3 | 7 |
 | Legend Ribbon | memorial | IV | 4 | 1 |
-| Training Ribbon | memorial | VI | 6 | 0 |
-| National Ribbon | gift | III | 3 | 147 |
+| Training Ribbon | memorial | VI | 6 | 1 |
+| National Ribbon | gift | III | 3 | 154 |
 | Earth Ribbon | gift | III | 3 | 2 |
 
 Restano ottenibili dopo Bank: Champion Ribbon (Rosso Fuoco e Verde Foglia per Switch, collegati a HOME); Sinnoh Champion Ribbon (generazioni 4, 8); Galar Champion Ribbon (generazioni 8); Paldea Champion Ribbon (generazioni 9); Coolness Master Ribbon (generazioni 6, 8); Beauty Master Ribbon (generazioni 6, 8); Cuteness Master Ribbon (generazioni 6, 8); Cleverness Master Ribbon (generazioni 6, 8); Toughness Master Ribbon (generazioni 6, 8); Contest Star Ribbon (generazioni 6, 8); Twinkling Star Ribbon (generazioni 8); Tower Master Ribbon (generazioni 8); Effort Ribbon (generazioni 3, 4, 6, 7, 8, 9); Alert Ribbon (generazioni 4, 6, 8); Shock Ribbon (generazioni 4, 6, 8); Downcast Ribbon (generazioni 4, 6, 8); Careless Ribbon (generazioni 4, 6, 8); Relax Ribbon (generazioni 4, 6, 8); Snooze Ribbon (generazioni 4, 6, 8); Smile Ribbon (generazioni 4, 6, 8); Gorgeous Ribbon (generazioni 4, 6, 8); Royal Ribbon (generazioni 4, 6, 8); Gorgeous Royal Ribbon (generazioni 4, 6, 8); Footprint Ribbon (generazioni 4, 6, 7, 8); Best Friends Ribbon (generazioni 6, 7, 8, 9); Master Rank Ribbon (generazioni 8, 9); Hisui Ribbon (generazioni 8).
@@ -133,6 +133,6 @@ Una copertura golosa con 9 carte:
 | 6 | 79 | ポケモンカフェの　ピカチュウ | Pikachu | Special |
 | 7 | 665 | Make them quake with Krookodile! | Krookodile | World Champion |
 
-Le copie per HOME portano già: Classic (1387 esemplari), Wishing (272 esemplari), Premier (40 esemplari), Event (152 esemplari), Birthday (69 esemplari), Special (12 esemplari), World Champion (1 esemplare), Souvenir (324 esemplari), Battle Champion (11 esemplari). Fiocchi dono che la base delle carte ha e le copie no: nessuno.
+Le copie per HOME portano già: Classic (2126 esemplari), Wishing (438 esemplari), Premier (54 esemplari), Event (224 esemplari), Birthday (142 esemplari), Special (22 esemplari), World Champion (2 esemplari), Souvenir (366 esemplari), Battle Champion (17 esemplari). Fiocchi dono che la base delle carte ha e le copie no: nessuno.
 
 Fuori dalla base delle carte: Regional Champion, National Champion, Country, World, Earth, National. National ed Earth si ottengono giocando, in Colosseum e XD. Country e World sono fiocchi di distribuzioni di terza e quarta generazione fuori dalla base delle carte: Country da Pokémon Festa 2004, 2005 e 2007; le copie per HOME portano Country in 0 esemplari e World in 0. Regional Champion e National Champion non hanno luoghi su Bulbapedia; la loro distribuzione resta da verificare.

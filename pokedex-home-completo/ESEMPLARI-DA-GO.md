@@ -13,12 +13,14 @@
 | 2026-11-16 | 7221 | giro 13 (RIDATA1, 430), consultato dal proprietario il 2026-11-17 |
 | 2026-11-17 | 7466 | giro 14 (DIAMANTE1, 245), foto del proprietario |
 | 2026-11-24 | 7825 | giro 15 (VERDEFOGLIA1, 359), riferito dal proprietario; i 996 non ancora liberati |
+| 2026-11-25 | 7892 | giro 16 (ZAFFIRO1, 67), foto del proprietario; i 996 non ancora liberati |
 
 Dal 2026-11-23, su richiesta del proprietario, il conto si tiene qui per ogni movimento, non solo per i giri. Contano le liberazioni, le sostituzioni, i lotti nuovi e ogni Pokémon mandato da GO. Ogni movimento entra prima fra gli attesi; quando una foto del totale lo conferma, passa nella tabella sopra.
 
 | Movimento atteso | Variazione | Totale atteso dopo | Chi agisce | Stato al 2026-11-23 |
 |---|---|---|---|---|
-| liberazione dei 996 vecchi dell'elenco di `tools/elenco-da-liberare.py` | -996 | 6829 | proprietario | cominciata il 2026-11-24, elenco ristampato con i totali da 7825 |
+| liberazione dei 996 vecchi dell'elenco di `tools/elenco-da-liberare.py` | -996 | 6896 | proprietario | cominciata il 2026-11-24, elenco ristampato il 2026-11-25 con i totali da 7892 |
+| giro 17 di chiusura (ADR-142) | +725 | 7621 dopo la liberazione | agente, poi proprietario | da produrre |
 | 10ANNI veri di Verde Foglia al posto dei generati identici (ADR-136) | 0 | invariato | proprietario | i veri sono già in HOME da HOME6 (ADR-140); da decidere se liberare i generati italiani di HOME1 |
 | lotto di Verde Foglia, PUCCETTO per primo | +359 | 7825 | proprietario con l'agente | FATTO il 2026-11-24, giro 15 |
 | Pokémon catturati in GO il 2026-11-21 e 2026-11-22 (96, elenco in `_notes/fonti/raccolte/go-catture-2026-11-21-22/catture.md`) | +1 per ciascuno mandato | +k | proprietario | da dire quali e quanti si mandano |

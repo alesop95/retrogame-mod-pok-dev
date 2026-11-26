@@ -64,6 +64,9 @@ GIRO14_DIAMANTE = 245
 # Il giro 15, VERDEFOGLIA1 (ADR-140), è entrato in HOME il 2026-11-24, anch'esso prima della liberazione: foto del
 # proprietario con 7825, cioè 7466 più 359.
 GIRO15_VERDEFOGLIA = 359
+# Il giro 16, ZAFFIRO1 (ADR-140, ADR-141), è entrato in HOME il 2026-11-25, prima della liberazione: foto del
+# proprietario con 7892, cioè 7825 più 67.
+GIRO16_ZAFFIRO = 67
 
 _s = importlib.util.spec_from_file_location("cdi", os.path.join(QUI, "controlla-date-incontro.py"))
 cdi = importlib.util.module_from_spec(_s)
@@ -113,7 +116,8 @@ def componi():
     dopo13 = dopo12 + per_copia["RIDATA1"]
     dopo14 = dopo13 + GIRO14_DIAMANTE
     dopo15 = dopo14 + GIRO15_VERDEFOGLIA
-    finale = dopo15 - len(sostituzioni)
+    dopo16 = dopo15 + GIRO16_ZAFFIRO
+    finale = dopo16 - len(sostituzioni)
     o = ["# Esemplari da liberare in HOME dopo i giri 12 e 13", "",
          "> Documento generato da `tools/elenco-da-liberare.py --stampa`, insieme al PDF accanto. Non si modifica a mano e non si tiene: si rigenera. Il legame fra esemplare vecchio e nuovo sta in `pokedex-home-completo/data/sostituzioni-ridata.json`.", "",
          "Ogni voce è un esemplare già in HOME con la data di incontro fuori dalla finestra dell'evento (ADR-126). Il suo sostituto è uguale in tutto, specie, sesso, livello, sfera, natura, abilità, mosse, allenatore, lingua e statistiche, salvo la data di incontro, e arriva in HOME con i giri 12 (RIDATA2, Ultraluna) e 13 (RIDATA1, Rubino Omega). Si libera solo dopo che entrambi i giri sono passati: se un sostituto non arrivasse, il vecchio sarebbe ancora lì.", "",
@@ -125,17 +129,18 @@ def componi():
          "| Dopo il giro 13 (RIDATA1, %d esemplari, compreso il Jirachi cromatico CHANNEL) | %d |" % (per_copia["RIDATA1"], dopo13),
          "| Dopo il giro 14 (DIAMANTE1, %d esemplari, entrato prima della liberazione) | %d |" % (GIRO14_DIAMANTE, dopo14),
          "| Dopo il giro 15 (VERDEFOGLIA1, %d esemplari, entrato prima della liberazione) | %d |" % (GIRO15_VERDEFOGLIA, dopo15),
+         "| Dopo il giro 16 (ZAFFIRO1, %d esemplari, entrato prima della liberazione) | %d |" % (GIRO16_ZAFFIRO, dopo16),
          "| Dopo la liberazione di tutte le %d voci | %d |" % (len(sostituzioni), finale), "",
-         "Il totale cresce di %d rispetto a prima dei giri: sono i due Jirachi cromatici, che non sostituiscono nessuno, i %d di Diamante e i %d di Verde Foglia." % (finale - HOME_OGGI, GIRO14_DIAMANTE, GIRO15_VERDEFOGLIA), "",
+         "Il totale cresce di %d rispetto a prima dei giri: sono i due Jirachi cromatici, che non sostituiscono nessuno, i %d di Diamante, i %d di Verde Foglia e i %d di Zaffiro." % (finale - HOME_OGGI, GIRO14_DIAMANTE, GIRO15_VERDEFOGLIA, GIRO16_ZAFFIRO), "",
          "## Riepilogo per etichetta, nell'ordine di liberazione", "",
          "| Etichetta | Voci | Totale prima | Totale dopo |", "|---|---|---|---|"]
-    totale = dopo15
+    totale = dopo16
     for box in sorted(per_etichetta):
         n = len(per_etichetta[box])
         o.append("| Bank %d | %d | %d | %d |" % (box, n, totale, totale - n))
         totale -= n
     numero = 0
-    totale = dopo15
+    totale = dopo16
     for box in sorted(per_etichetta):
         voci = per_etichetta[box]
         o += ["", "## Etichetta Bank %d" % box, "",
@@ -160,7 +165,7 @@ def componi():
     return {"md": "\n".join(o), "json": json.dumps(sostituzioni, ensure_ascii=False, indent=1) + "\n",
             "esiti": json.dumps(esiti, ensure_ascii=False, indent=1, sort_keys=True) + "\n",
             "n": len(sostituzioni), "per_etichetta": per_etichetta, "aggiunti": aggiunti,
-            "totali": (HOME_OGGI, dopo12, dopo15, finale), "per_copia": per_copia}
+            "totali": (HOME_OGGI, dopo12, dopo16, finale), "per_copia": per_copia}
 
 
 def tex(testo):
@@ -216,7 +221,7 @@ def pdf(c):
 \pagestyle{plain}
 \newcommand{\V}[1]{\par\hangindent=4mm\hangafter=1\noindent$\square$\,#1\par}
 \begin{document}
-{\DStitoli\bfseries\fontsize{15}{18}\selectfont\color{DSrosso} Da liberare in HOME}\hfill{\DSdati\small %(n)d esemplari \textbullet\ HOME con Diamante e Verde Foglia, prima di liberare: \textbf{%(d13)d} \textbullet\ a liberazione finita: \textbf{%(fin)d}}\par\smallskip
+{\DStitoli\bfseries\fontsize{15}{18}\selectfont\color{DSrosso} Da liberare in HOME}\hfill{\DSdati\small %(n)d esemplari \textbullet\ HOME con Diamante, Verde Foglia e Zaffiro, prima di liberare: \textbf{%(d13)d} \textbullet\ a liberazione finita: \textbf{%(fin)d}}\par\smallskip
 {\footnotesize\textbf{Come si libera in sicurezza.} 1) In HOME scegli l'etichetta \textbf{Bank N} del riquadro e cerca la specie. 2) Apri la scheda: allenatore, ID e livello devono essere quelli della riga, e la data di incontro (\emph{fateful encounter on\dots}) deve essere la \textbf{data da liberare}. 3) Solo allora libera. Dopo la freccia ci sono l'etichetta e la data del sostituto, identico salvo la data: una scheda con quella data è il sostituto e non si tocca. Dove è scritto \textbf{stessa data}, vecchio e sostituto differiscono solo per il gioco d'origine e decide l'etichetta: si libera quello sotto la Bank del riquadro. Le date sono scritte come le mostra HOME, mese/giorno/anno. Un \textbf{\texttimes 2} significa due esemplari identici nella stessa etichetta: si liberano entrambi. $\bigstar$ = cromatico.}\par\smallskip
 \hrule\smallskip
 \begin{multicols}{2}\footnotesize

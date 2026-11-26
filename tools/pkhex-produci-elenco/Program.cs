@@ -58,6 +58,9 @@ if (args[0] == "--comunita")
     return Comunita(args[1], args[2], args[3]);
 if (args[0] == "--serebii")
     return Serebii(args[1], args[2]);
+// --varianti-gen3: ogni nome d'allenatore valido dei doni giapponesi dei Pokemon Center e di New York (2026-11-25, ADR-118)
+if (args[0] == "--varianti-gen3")
+    return VariantiGen3(args[1], args.Skip(2).TakeWhile(x => x != "--produci").ToArray());
 if (args[0] == "--carte")
     return Carte(args[1], args.Skip(2).TakeWhile(x => x != "--produci" && x != "--traccia" && x != "--epoca-cartucce").ToArray());
 if (args[0] == "--cartuccia")
@@ -1175,5 +1178,112 @@ int Cartuccia(string salvataggio, string cartella, bool squadra)
     File.WriteAllText(Path.Combine(dir, "rapporto.json"), new JsonObject { ["esemplari"] = lista.Count, ["conformi"] = conformi, ["voci"] = lista }
         .ToJsonString(new JsonSerializerOptions { WriteIndented = true }));
     Console.WriteLine($"esemplari {lista.Count}, conformi estratti {conformi}");
+    return 0;
+}
+
+// I doni di terza generazione dei Pokemon Center giapponesi («Gotta Catch 'Em All», 2005-2006) e del Pokemon Center di New
+// York (2003-2005) uscivano con un nome d'allenatore che dipendeva dal negozio o dalla macchina: sei citta' in Giappone
+// (Sapporo escluso dalla sesta distribuzione), PCNYb, PCNYc e PCNYd a New York, secondo la distribuzione
+// (`Distribution3JPN.cs`, `Distribution3NY.cs` della libreria; PCNYa non e' mai esistito). ADR-118 vuole tutte le varianti
+// che differiscono per allenatore. La libreria genera questi doni con un nome solo (a New York `Util.Rand.Next(0, 1)` da'
+// sempre lo stesso), quindi le copie ne avevano uno per specie. Qui, per ogni dono e ogni nome valido, si guarda se un
+// esemplare conforme delle copie viene da quel dono con quel nome; con --produci CARTELLA si producono i mancanti,
+// generando il dono e scrivendo il nome valido, che in terza generazione non entra nel PID, e si tengono solo i conformi.
+int VariantiGen3(string uscitaJson, string[] copie)
+{
+    var doni = new List<(IEncounterable enc, string tipo, string dist, string[] nomi)>();
+    string[] citta = ["トウキョー", "ヨコハマ", "ナゴヤ", "オーサカ", "フクオカ", "サッポロ"];
+    string[] ny = ["PCNYa", "PCNYb", "PCNYc", "PCNYd"];
+    var asm = typeof(EncounterEvent).Assembly;
+    object[] campo(string nome) => ((asm.GetType("PKHeX.Core.EncountersWC3")?.GetField(nome, System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic)?.GetValue(null) as System.Collections.IEnumerable)?.Cast<object>() ?? []).ToArray();
+    foreach (var o in campo("PCJP"))
+        if (o is EncounterGift3JPN j)
+            doni.Add((j, "PCJP", j.Distribution.ToString(), citta.Where(c => j.Distribution.IsTrainerNameValid(c)).ToArray()));
+    foreach (var o in campo("PCNY"))
+        if (o is EncounterGift3NY y)
+            doni.Add((y, "PCNY", y.Distribution.ToString(), ny.Where(c => y.Distribution.IsValidTrainerName(c)).ToArray()));
+    static IEnumerable<ushort> Mosse3(IEncounterable e)
+    {
+        if (e is EncounterGift3NY y) return new[] { y.Moves.Move1, y.Moves.Move2, y.Moves.Move3, y.Moves.Move4 }.Where(m => m != 0).OrderBy(m => m);
+        // il dono giapponese non fissa le mosse: sono quelle del livello, e si leggono da un esemplare generato
+        var pk = ((EncounterGift3JPN)e).ConvertToPKM(new SimpleTrainerInfo(GameVersion.R));
+        return pk.Moves.Where(m => m != 0).OrderBy(m => m);
+    }
+    static string Chiave(IEncounterable e) => e switch
+    {
+        EncounterGift3JPN j => $"PCJP|{j.Species}|{j.Distribution.GetTrainerID()}",
+        EncounterGift3NY y => $"PCNY|{y.Species}|{y.Level}|{y.Moves.Move1}-{y.Moves.Move2}-{y.Moves.Move3}-{y.Moves.Move4}",
+        _ => "",
+    };
+    Console.WriteLine($"doni PCJP e PCNY della libreria: {doni.Count}, combinazioni dono e nome: {doni.Sum(d => d.nomi.Length)}");
+    var viste = new HashSet<string>();
+    int esemplari = 0;
+    foreach (var c in copie)
+    {
+        var sav = SaveUtil.GetSaveFile(c) ?? throw new InvalidOperationException("salvataggio non letto: " + c);
+        for (int i = 0; i < sav.SlotCount; i++)
+        {
+            var pk = sav.GetBoxSlotAtIndex(i);
+            if (pk.Species == 0) continue;
+            var la = new LegalityAnalysis(pk);
+            if (!la.Valid) continue;
+            // il confronto si fa sui dati dell'esemplare e non sull'incontro che la libreria gli attribuisce, perche' due
+            // doni con gli stessi dati in distribuzioni diverse finiscono attribuiti al primo
+            if (!citta.Contains(pk.OriginalTrainerName) && !ny.Contains(pk.OriginalTrainerName)) continue;
+            esemplari++;
+            if (la.EncounterMatch is EncounterGift3JPN or EncounterGift3NY) viste.Add($"{Chiave(la.EncounterMatch)}|{pk.OriginalTrainerName}");
+            var mv = pk.Moves.Where(m => m != 0).OrderBy(m => m);
+            viste.Add($"{pk.Species}|{pk.CurrentLevel}|{(citta.Contains(pk.OriginalTrainerName) ? pk.TID16.ToString() : pk.TID16 < 3000 ? "NY" : "x")}|{string.Join("-", mv)}|{pk.OriginalTrainerName}");
+        }
+    }
+    Console.WriteLine($"esemplari conformi delle copie che vengono da questi doni: {esemplari}");
+    int ip = Array.IndexOf(args, "--produci");
+    string? dir = ip >= 0 ? Directory.CreateDirectory(args[ip + 1]).FullName : null;
+    var voci = new JsonArray();
+    int presenti = 0, mancanti = 0, prodotti = 0, n = 0;
+    // due doni con specie, livello, mosse e ID identici in distribuzioni diverse sono indistinguibili in un esemplare, e la
+    // libreria attribuisce l'esemplare al primo: si contano una volta sola, con l'unione dei nomi validi
+    var fatte = new HashSet<string>();
+    foreach (var (enc, tipo, dist, nomi) in doni)
+        foreach (var nome in nomi)
+        {
+            if (!fatte.Add($"{Chiave(enc)}|{nome}")) continue;
+            var perIncontro = viste.Contains($"{Chiave(enc)}|{nome}");
+            var chiave = $"{enc.Species}|{enc.LevelMin}|{(enc is EncounterGift3JPN jj ? jj.Distribution.GetTrainerID().ToString() : "NY")}|{string.Join("-", Mosse3(enc))}|{nome}";
+            var gruppo = $"{tipo}|{dist}|{enc.Species}|{enc.LevelMin}|{nome}";
+            var voce = new JsonObject { ["gruppo"] = gruppo, ["tipo"] = tipo, ["distribuzione"] = dist, ["specie"] = testi.specieslist[enc.Species], ["numero"] = enc.Species, ["livello"] = enc.LevelMin, ["allenatore"] = nome };
+            if (viste.Contains(chiave) || perIncontro) { presenti++; voce["esito"] = "gia' in una copia"; voci.Add(voce); continue; }
+            mancanti++;
+            voce["esito"] = "mancante";
+            if (dir is not null)
+            {
+                var tr = new SimpleTrainerInfo(GameVersion.R) { OT = nome, TID16 = 1, SID16 = 0, Language = tipo == "PCJP" ? (int)LanguageID.Japanese : (int)LanguageID.English };
+                for (int prova = 0; prova < 50; prova++)
+                {
+                    var pk = enc.ConvertToPKM(tr);
+                    pk.OriginalTrainerName = nome;
+                    pk.RefreshChecksum();
+                    var la = new LegalityAnalysis(pk);
+                    if (!la.Valid || pk.OriginalTrainerName != nome) continue;
+                    n++;
+                    var dati = new byte[pk.SIZE_STORED];
+                    pk.WriteDecryptedDataStored(dati);
+                    var file = $"{n:0000}-{inglese.specieslist[enc.Species]}-{tipo}-{dist}-{Array.IndexOf(tipo == "PCJP" ? citta : ny, nome)}.{pk.Extension}";
+                    File.WriteAllBytes(Path.Combine(dir, file), dati);
+                    voce["esito"] = "prodotto"; voce["file"] = file; voce["pid"] = pk.PID.ToString("X8");
+                    voce["tid"] = pk.TID16; voce["sha256"] = Convert.ToHexString(SHA256.HashData(dati)).ToLowerInvariant();
+                    voce["storia"] = tipo == "PCJP"
+                        ? $"Dono «Gotta Catch 'Em All» n. {(int)((EncounterGift3JPN)enc).Distribution + 1} dei Pokemon Center giapponesi (2005-2006), {testi.specieslist[enc.Species]} livello {enc.LevelMin}, nella variante del negozio di {nome}, ID {pk.TID16:00000}: le copie avevano lo stesso dono con il nome di un altro negozio; prodotto dalla libreria con il nome valido (ADR-118)."
+                        : $"Dono del Pokemon Center di New York, distribuzione {dist} (2003-2005), {testi.specieslist[enc.Species]} livello {enc.LevelMin}, nella variante della macchina {nome}, ID {pk.TID16}: le copie avevano lo stesso dono con il nome di un'altra macchina; prodotto dalla libreria con il nome valido (ADR-118).";
+                    prodotti++;
+                    break;
+                }
+                if ((string?)voce["esito"] != "prodotto") voce["esito"] = "non prodotto: nessun esemplare conforme in 50 prove";
+            }
+            voci.Add(voce);
+        }
+    File.WriteAllText(uscitaJson, new JsonObject { ["doni"] = doni.Count, ["combinazioni"] = doni.Sum(d => d.nomi.Length), ["presenti"] = presenti, ["mancanti"] = mancanti, ["prodotti"] = prodotti, ["esemplari_letti"] = esemplari, ["voci"] = voci }
+        .ToJsonString(new JsonSerializerOptions { WriteIndented = true, Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping }));
+    Console.WriteLine($"combinazioni presenti {presenti}, mancanti {mancanti}, prodotte {prodotti}");
     return 0;
 }

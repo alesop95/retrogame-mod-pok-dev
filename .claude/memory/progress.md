@@ -4,9 +4,39 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-25, sera. Giro 16 in HOME, controllo completo prima di Bank, giro 17 da produrre
+
+Il proprietario ha fatto i punti 15-17 del giro 16 e ha mandato 33 foto: il totale di HOME è 7892, cioè 7825 più tutti i 67; lo Sceptile in HOME mostra il Training Ribbon. Le altre 31 foto (trascritte da un subagente) sono la scheda dello Sceptile e la scheda Pokémon delle sfide dell'app. Foto e trascrizione sono in `_notes/fonti/consegne/2026-11-25-home-giro16-e-sfide/`, con le impronte verificate; gli originali in `Downloads/Telegram Desktop` sono cancellati su sua richiesta. Punto 18: giudizio `dopo-20261125-zaffiro.json`, 18 gruppi, i 17 di prima identici e ZAFFIRO1 67 conformi su 67. ZAFFIRO1 è «in HOME» in `stampa-collezione.py`; ci sono le storie del lotto senza nomi reali, il pedigree `ZAFFIRO1.md` e il catalogo ricomposto, 6860 esemplari e 1248 pagine. `elenco-da-liberare.py` ha il giro 16 nei totali, da 7892 a 6896.
+
+Il proprietario ha chiesto un controllo completo di ciò che va chiuso come lotto prima della chiusura di Bank. Gli strumenti di copertura contavano i soli gruppi «HOME» su un giudizio del 2026-11-04, quindi non vedevano GIAPPONE2, RIDATA, DIAMANTE1, VERDEFOGLIA1 e ZAFFIRO1, e con ZAFFIRO1 il Training Ribbon. Il nuovo `tools/in_home.py` legge lo stato dei gruppi da `STATO_GRUPPO` e la regola degli esemplari rimasti in console, e i tre strumenti ora lo usano. Sullo stesso giudizio:
+- caselle di specie e forma 936 su 936;
+- sfide di Bank 47 su 47;
+- fiocchi persi con Bank 63 su 63;
+- sfere perse 82 su 82.
+
+Gli eventi della libreria (`pkhex-produci-elenco --carte` sulle 16 copie in HOME, 7866 esemplari conformi) sono tutti in HOME, salvo i 148 doni dell'epoca Game Boy. Dei 304 gruppi scoperti, 155 sono prodotti e in HOME, attribuiti dalla libreria a una carta gemella. Lo Skitty del PokéPark ha la sua voce scoperta, ma è in HOME1 box 6 posto 10. L'Eventdex di Serebii ha 1591 eventi dell'epoca di Bank:
+- 1463 sono in HOME per specie, allenatore e ID;
+- 33 sono in HOME con una differenza di trascrizione. Fra questi i tre doni coreani del WCS 2014 con ID 07054, verificati a mano;
+- 95 hanno in HOME solo una parte dei nomi elencati.
+
+Misurati con la libreria, quei nomi sono la vera mancanza. La libreria conosce 108 doni dei Pokémon Center giapponesi e di New York, con 424 combinazioni di dono e nome valido; nelle copie ce n'erano 112, perché la libreria genera questi doni con un nome solo, e a New York `Util.Rand.Next(0, 1)` dà sempre il primo. Ne mancano 310, misurati con la modalità nuova `pkhex-produci-elenco --varianti-gen3`. Il confronto si fa sui dati dell'esemplare e anche sull'incontro attribuito, perché i doni gemelli finiscono attribuiti al primo.
+
+Le sfide dell'app. I contatori delle sfere coincidono con gli esemplari delle copie in HOME (Rapid Ball 2, UC Ball 9, Cura Ball 14, Timer Ball 22, Bis Ball 27), quindi l'app conta anche ciò che arriva da Bank. Per il livello d'oro servono 352 esemplari in 18 sfere, 40 con una condizione di gara al massimo e 23 Ditto. Le 43 sfide della sola Switch restano alla fase Switch.
+
+Decisione registrata come ADR-142:
+- un giro 17 di 725 esemplari prima della chiusura di Bank;
+- gli eventi di Scarlatto e Violetto si recuperano con la comunità dopo la chiusura;
+- lo stampabile si chiude con il giro 17, e la fase Switch si aggiunge in coda.
+
+Documento generato: `CONTROLLO-PRIMA-DI-BANK.md`. PUCCETTO per primo in HOME: istruzioni al proprietario, spostarlo nel box 1 posto 1 da HOME per Switch, con l'ordine dell'app per telefono da verificare. Chiuse due voci smistate dell'archivio, la 1110 e la 1163. Subagent partiti: 1, per la trascrizione delle foto.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
 ## 2026-11-25, pomeriggio. Zaffiro estratta, giro 16 pronto con il Training Ribbon
 
-Al «pronto» del proprietario una sola lettura d'intestazione: «POKEMON SAPP», AGB-AXPI Rev 1, Boot Logo OK, checksum 0x50, ROM nel database, 1M FLASH, al primo tentativo. Due letture complete con `--action backup-save`, identiche (SHA-256 `566720a4…2c3c24ac`), 14 sezioni valide su 14 in entrambi gli slot, slot corrente indice 792, 58h31m; copie nella cartella privata `zaffiro/01-20261125-estrazione` e su J:, verificate con `sha256sum -c`. Alla domanda del proprietario, le due copie di Verde Foglia del 2026-11-24 ci sono ancora su entrambi i percorsi, con lo SHA-256 `4512e67a…` uguale. Box 63 esemplari e squadra 6, tutti conformi; confronto di ADR-140 con `dopo-20261124-verdefoglia.json`: 4 identici a esemplari già in HOME6 (Lapras e Mewtwo da Verde Foglia, Zangoose, Suicune 10ANNI), 59 più 6 no. Il proprietario: Training Ribbon prodotto, sì; dei tre del box 13 di Smeraldo solo gli speciali, quindi il Wynaut dell'Isola Miraggio (ADR-141). Nuovo `tools/pkhex-fiocco-allenamento`, compilato senza avvisi. Copia `oras-zaffiro-1` dalla copia del giro 15 svuotata, con le opzioni del giro 15, lotti squadra, deposito e tre di Smeraldo: 67 scritti, 0 riletti diversi, 0 contestati, escluso il Tropius che conosce solo mosse MN (come i Floatzel di ADR-131); poi il fiocco sullo Sceptile, conforme. Giudizio della copia finale 67 conformi su 67, Sceptile con RibbonChampionG3 e RibbonTraining. La rilettura di Smeraldo usata per i tre è rimasta intatta (`90f80b6a…`).
+Al «pronto» del proprietario una sola lettura d'intestazione: «POKEMON SAPP», AGB-AXPI Rev 1, Boot Logo OK, checksum 0x50, ROM nel database, 1M FLASH, al primo tentativo. Due letture complete con `--action backup-save`, identiche (SHA-256 `566720a4…2c3c24ac`), 14 sezioni valide su 14 in entrambi gli slot, slot corrente indice 792, 58h31m; copie nella cartella privata `zaffiro/01-20261125-estrazione` e su J:, verificate con `sha256sum -c`. Alla domanda del proprietario, le due copie di Verde Foglia del 2026-11-24 ci sono ancora su entrambi i percorsi, con lo SHA-256 `4512e67a…` uguale. Box 63 esemplari e squadra 6, tutti conformi; confronto di ADR-140 con `dopo-20261124-verdefoglia.json`: 4 identici a esemplari già in HOME6 (Lapras e Mewtwo da Verde Foglia, Zangoose, Suicune 10ANNI), 59 più 6 no. Il proprietario: Training Ribbon prodotto, sì; dei tre del box 13 di Smeraldo solo gli speciali, quindi il Wynaut dell'Isola Miraggio (ADR-141). Nuovo `tools/pkhex-fiocco-allenamento`, compilato senza avvisi. Copia `oras-zaffiro-1` dalla copia del giro 15 svuotata, con le opzioni del giro 15, lotti squadra, deposito e tre di Smeraldo: 67 scritti, 0 riletti diversi, 0 contestati, escluso il Tropius che conosce solo mosse MN (come i Floatzel di ADR-131); poi il fiocco sullo Sceptile, conforme. Giudizio della copia finale 67 conformi su 67, Sceptile con RibbonChampionG3 e RibbonTraining. La rilettura di Smeraldo usata per i tre è rimasta intatta (`90f80b6a…`). Punti 1-14 del giro 16 fatti: riserve della SD (60 file) su E: e J:, `20261125-rilett16` identica alla copia e giudicata 67 conformi negli stessi posti, `prima16` con i box vuoti. Alla domanda del proprietario sui Wynaut dell'Isola Miraggio: in HOME ci sono due Wynaut livello 30 del Percorso 130 prodotti dal progetto, uno di Rubino e uno di Zaffiro (HOME1 box 14 posti 19 e 25, `lotto-complemento-rubino`), nessuno di Smeraldo; il Wynaut di Smeraldo del giro 16 è il primo di Smeraldo e il primo preso davvero su una cartuccia.
 
 **Didattica:** nessuna.
 

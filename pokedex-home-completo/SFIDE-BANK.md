@@ -1,6 +1,6 @@
 # Le sfide di HOME che dipendono da Bank, e se le copie le coprono
 
-> Documento generato da `tools/sfide-bank.py --scrivi`. Non si modifica a mano: si rigenera dopo ogni giro e dopo ogni copia nuova. L'elenco delle sfide viene dal post di r/PokemonHome `1voa411` del 2026-08-14, che lo dichiara preso da Serebii; il controllo legge i dati degli esemplari nelle copie giudicate da `tools/pkhex-elenco-copie`, cioè `_notes/lavoro/giudizi-copie/dopo-bfe89c7-pedigree.json`, e non lo stato delle sfide nell'app.
+> Documento generato da `tools/sfide-bank.py --scrivi`. Non si modifica a mano: si rigenera dopo ogni giro e dopo ogni copia nuova. L'elenco delle sfide viene dal post di r/PokemonHome `1voa411` del 2026-08-14, che lo dichiara preso da Serebii; il controllo legge i dati degli esemplari nelle copie giudicate da `tools/pkhex-elenco-copie`, cioè `_notes/lavoro/giudizi-copie/dopo-20261125-zaffiro.json`, e non lo stato delle sfide nell'app.
 
 Sfide controllate: 47. Non coperte dalle sole copie per HOME: 0. Le non coperte vanno prodotte prima della chiusura di Bank, dentro la produzione degli statici, dei doni e degli starter di ADR-106. «Move Pokémon from Pokémon Bank» è fatta dal 2026-11-03. Fonti dell'elenco: il post 1voa411, la pagina delle sfide di Serebii, la scheda «Home Challenges from bank» del foglio «Bank Closing all possible things checklist V0.5» la sezione «HOME Challenges» del foglio del post 1bwr0l1 e l'articolo di Bulbapedia «Challenge (HOME)», revisione 4643183, con 269 sfide.
 
@@ -52,4 +52,4 @@ Sfide controllate: 47. Non coperte dalle sole copie per HOME: 0. Le non coperte 
 | Register Pikachu wearing a hat |  | COPERTA dalle copie per HOME: HOME5 box 1 posto 5 |
 | Register the guardian deities of Alola! |  | COPERTA dalle copie per HOME: HOME4 box 1 posto 1, HOME4 box 1 posto 11, HOME4 box 1 posto 12, HOME4 box 1 posto 13 |
 | Register Pulverizing Snorlax | sì | COPERTA dalle copie per HOME: HOME5 box 12 posto 9 |
-| Register 100 different species of Pokémon that live in the Alola Region |  | COPERTA dalle copie per HOME: 323 specie distinte con l'origine richiesta, regola prudente, origine Alola; resta da confermare che almeno 100 delle specie siano nel Pokédex di Alola |
+| Register 100 different species of Pokémon that live in the Alola Region |  | COPERTA dalle copie per HOME: 400 specie distinte con l'origine richiesta, regola prudente, origine Alola; resta da confermare che almeno 100 delle specie siano nel Pokédex di Alola |
