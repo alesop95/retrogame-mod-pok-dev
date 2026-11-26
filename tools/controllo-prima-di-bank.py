@@ -75,6 +75,90 @@ def misura_libreria(copie):
     return [json.load(open(x, encoding="utf-8")) for x in (carte, varianti, vcarte)]
 
 
+# Dal 2026-11-26 (ADR-146): ogni obbligo di produzione delle decisioni ha qui la sua misura sugli esemplari in HOME, anche
+# quelli che nessun altro strumento rifà sul giudizio corrente. Gli statici si misurano con `--statici`, che produce in una
+# cartella di lavoro ciò che non trova; un gruppo non riconosciuto si conta coperto se in HOME c'è la stessa specie, dello
+# stesso gioco e dello stesso livello d'incontro, perché la libreria attribuisce spesso l'esemplare a un incontro gemello.
+STATICI_ESCLUSI = "Let's Go, che va in HOME da Switch, e il Pichu dalle orecchie a punta, che non si trasferisce (ADR-119)"
+FAMIGLIE = {"RBY": ("RD", "GN", "BU", "YW"), "GSC": ("GD", "SI", "C"), "HG": ("HG", "SS"), "SS": ("HG", "SS"),
+            "SN": ("SN", "MN", "US", "UM"), "US": ("SN", "MN", "US", "UM"), "R": ("R", "S"), "S": ("R", "S"), "E": ("E",),
+            "FR": ("FR", "LG"), "LG": ("FR", "LG"), "D": ("D", "P", "Pt"), "Pt": ("D", "P", "Pt"), "X": ("X", "Y"), "OR": ("OR", "AS")}
+OBBLIGHI = [
+    ("ADR-106, ADR-119", "statici tipici, doni, vaganti, premi e uova", "statici, doni e uova"),
+    ("ADR-107", "tutte le sfide di HOME", "sfide di Bank; sfide della scheda Pokémon dell'app; sfide degli scambi, da misurare"),
+    ("ADR-108", "ciò che Bank porta con sé: mosse, abilità, cromatici bloccati", "mosse; abilità; cromatici bloccati"),
+    ("ADR-109", "ogni casella di specie e forma fino alla settima generazione", "caselle di specie e forma"),
+    ("ADR-110", "sfere, fiocchi, abilità, mosse, esemplari della cartuccia", "sfere e fiocchi; voci del foglio (Smeraldo)"),
+    ("ADR-111", "i sei assi da collezionista del foglio «Bank Closing»", "voci del foglio «Bank Closing»"),
+    ("ADR-113, ADR-114", "il Kyogre di blisy", "Kyogre"),
+    ("ADR-115, ADR-116, ADR-117", "eventi della libreria, comunità RNG, pre-evoluzioni, livelli del Flauto Bianco", "eventi della libreria; voci del foglio (pre-evoluzioni, livelli minimi); comunità RNG chiusa da ADR-117: 8 prodotti, 2 che non esistono con la specifica"),
+    ("ADR-118", "eventi senza carta e varianti per allenatore o ID", "Eventdex di Serebii; varianti di terza generazione; varianti delle carte"),
+    ("ADR-120", "il marchio Game Boy", "marchio Game Boy"),
+    ("ADR-121, ADR-122", "i 117 di FINALE in HOME", "eventi della libreria (HOME10); i doni dell'epoca Game Boy vanno sulle cartucce dopo Bank (ADR-117)"),
+    ("ADR-126, ADR-128", "date d'incontro nelle finestre; giorno di Poké Transfer", "ADR-126 fatta (giri 12 e 13); ADR-128 sui 1964 già in HOME rimandata dal proprietario (ADR-143)"),
+    ("ADR-141", "il Training Ribbon", "fiocchi"),
+    ("ADR-142, ADR-143, ADR-144", "varianti di terza generazione, sfide dell'app, i tre di ウッツー", "varianti di terza generazione; sfide dell'app; giro 17 in HOME"),
+    ("ADR-145", "le sfide degli scambi", "da misurare: sezione qui sotto"),
+]
+NON_IMPARABILI = {"Struggle", "Light of Ruin", "Zippy Zap", "Splishy Splash", "Floaty Fall", "Pika Papow", "Bouncy Bubble", "Buzzy Buzz",
+                  "Sizzly Slide", "Glitzy Glow", "Baddy Bad", "Sappy Seed", "Freezy Frost", "Sparkly Swirl", "Veevee Volley", "Double Iron Bash"}
+CROMATICI = (("Mew", 151), ("Celebi", 251), ("Spinda", 327), ("Tipo Zero", 772), ("Naganadel", 804), ("Pikachu", 25), ("Silvally", 773),
+             ("Poipole", 803), ("Deoxys", 386), ("Manaphy", 490), ("Darkrai", 491))
+
+
+def misura_statici(copie, esemplari):
+    uscita = os.path.join(LAVORO, "statici.json")
+    allenatore = os.path.join(RADICE, "recreate-pokemon-distributions-events", "allenatore.json")
+    r = subprocess.run([ESEGUIBILE, "--statici", allenatore, uscita, os.path.join(LAVORO, "statici-pk")] + copie,
+                       capture_output=True, text=True, encoding="utf-8")
+    if r.returncode != 0:
+        raise SystemExit("pkhex-produci-elenco --statici fallito: %s" % (r.stdout[-500:] + r.stderr[-500:]))
+    d = json.load(open(uscita, encoding="utf-8"))
+    conto, residuo = collections.Counter(), []
+    for x in d["esiti"]:
+        if x["esito"] != "prodotto":
+            conto["non producibili (epoca Game Boy)"] += 1
+            continue
+        lv = int(x["gruppo"].split("|")[5] or 0)
+        fam = FAMIGLIE.get(x["versione"], (x["versione"],))
+        if any(e["specie"] == x["specie"] and e["gioco"] in fam and (x["versione"] in ("RBY", "GSC") or lv in (e["livello_incontro"], e["livello"]))
+               for _, e in esemplari):
+            conto["in HOME sotto un incontro gemello"] += 1
+        elif x["versione"] in ("GP", "GE") or (x["specie"] == "Pichu" and x["versione"] == "HG"):
+            conto["esclusi"] += 1
+        else:
+            residuo.append(x)
+    return d, conto, residuo
+
+
+def obblighi(esemplari):
+    """Le verifiche dirette, sui campi del giudizio, degli obblighi che nessuno strumento rifà sul giudizio corrente."""
+    es = [e for _, e in esemplari]
+    mv = {x for e in es for x in e["mosse_en"]}
+    mosse = json.load(open(os.path.join(RADICE, "_notes", "lavoro", "giudizi-copie", "mosse-fino-gen7-mancanti.json"), encoding="utf-8"))
+    assenti = [x for x in mosse["mancanti_fino_gen7"] if x not in mv]
+    z = set(mosse["mosse_z"])
+    altre = [x for x in assenti if x not in z]
+    ab = {e["abilita_en"] for e in es}
+    crom = collections.Counter(e["numero"] for e in es if e["cromatico"])
+    vc = ("RD", "GN", "BU", "YW", "GD", "SI", "C")
+    gb = {s: sum(1 for e in es if e["numero"] == n and e["gioco"] in vc and (f is None or e["forma_n"] == f)) for s, n, f in
+          (("Raichu di Alola", 26, 1), ("Exeggutor di Alola", 103, 1), ("Marowak di Alola", 105, 1), ("Meowth", 52, None), ("Butterfree", 12, None))}
+    gb["Dunsparce con la costante multipla di 100"] = sum(1 for e in es if e["numero"] == 206 and e["gioco"] in vc and int(e["ec"], 16) % 100 == 0)
+    kyogre = sum(1 for e in es if e["numero"] == 382 and e["cromatico"] and e["allenatore"] == "blisy" and e["iv"] == [31] * 6)
+    return [
+        ("Mosse del Pokédex delle mosse fino alla settima generazione (ADR-108)",
+         "%d assenti dalle 184 che il 2026-11-03 nessuna copia conosceva: %d mosse Z e %s, che sul 3DS non si imparano" % (len(assenti), len(assenti) - len(altre), ", ".join(altre)),
+         len([x for x in altre if x not in NON_IMPARABILI])),
+        ("Abilità Galvanize e Power of Alchemy (ADR-108)", ", ".join("%s %s" % (a, "sì" if a in ab else "NO") for a in ("Galvanize", "Power of Alchemy")),
+         sum(a not in ab for a in ("Galvanize", "Power of Alchemy"))),
+        ("Cromatici bloccati e Deoxys, Manaphy, Darkrai cromatici (ADR-108)", ", ".join("%s %d" % (s, crom[n]) for s, n in CROMATICI),
+         sum(1 for _, n in CROMATICI if not crom[n])),
+        ("Kyogre cromatico 6 IV di blisy (ADR-113, ADR-114)", "%d" % kyogre, int(kyogre == 0)),
+        ("Marchio Game Boy che si perde con Bank (ADR-120)", ", ".join("%s %d" % kv for kv in gb.items()), sum(1 for v in gb.values() if not v)),
+    ]
+
+
 def gemelli(scoperti, esemplari):
     """Per ogni gruppo scoperto dalla libreria: epoca Game Boy, prodotto e in HOME, prodotto e non in HOME, mai prodotto."""
     pid_home = {x["pid"] for _, x in esemplari}
@@ -180,6 +264,9 @@ def main():
 
     misure = {t: riepilogo(t) for t in ("copertura-lotti.py", "sfide-bank.py", "fiocchi-e-sfere-prima-di-bank.py", "elenco-produzione.py")}
     carte, var3, vcar = misura_libreria(copie)
+    stat, conto_stat, residuo_stat = misura_statici(copie, esemplari)
+    righe_obblighi = obblighi(esemplari)
+    aperti_obblighi = sum(r[2] for r in righe_obblighi) + len(residuo_stat)
     gem = gemelli(carte["voci"], esemplari)
     conto_gem = collections.Counter(s for s, _ in gem)
     conto_s, trascr, parz = serebii(esemplari)
@@ -209,6 +296,10 @@ def main():
         var3["combinazioni"], var3["presenti"], len(mancanti3)))
     print("varianti d'allenatore delle carte dalla quarta alla settima generazione: %d su %d carte, presenti %d, mancanti %d" % (
         vcar["varianti"], vcar["carte"], vcar["presenti"], vcar["mancanti"]))
+    print("statici, doni e uova (ADR-106, ADR-119): %d gruppi, %d riconosciuti; degli altri %s; residuo %d" % (
+        stat["gruppi_coperti"] + stat["gruppi_da_produrre"], stat["gruppi_coperti"], dict(conto_stat), len(residuo_stat)))
+    for t, esito, aperti in righe_obblighi:
+        print("%s: %s%s" % (t, esito, "" if not aperti else " -> APERTI %d" % aperti))
     print("Eventdex di Serebii: %s" % dict(conto_s))
     print("sfide dell'app chiudibili con l'epoca del 3DS: %d esemplari da aggiungere" % servono_app)
 
@@ -219,8 +310,8 @@ def main():
          "> Documento generato da `tools/controllo-prima-di-bank.py --scrivi`. Non si modifica a mano: si rigenera dopo ogni giro. Conta i soli esemplari passati a HOME, letti dal giudizio `%s` attraverso `tools/in_home.py`: %d esemplari in %d gruppi (%s). Il totale dell'app, 8557 il 2026-11-26 dopo il giro 17, comprende anche i 34 che erano in HOME prima del giro 1 e quelli arrivati da GO, che i giudizi non leggono, e i 996 vecchi da liberare, che hanno un sostituto identico salvo la data." % (os.path.basename(in_home.GIUDIZIO_CORRENTE), len(esemplari), len(gruppi), ", ".join(gruppi)), "",
          "## Il verdetto", "",
          (("Prima del 2027-02-26 deve passare da Bank un altro giro con %d esemplari: %d varianti d'allenatore dei doni di terza generazione dei Pokémon Center giapponesi e di New York che ADR-118 vuole tutte, %d varianti d'allenatore delle carte dalla quarta alla settima generazione e %d esemplari che chiudono le sfide dell'app di HOME raggiungibili con i giochi del 3DS." % (lotto + vcar["mancanti"], len(mancanti3), vcar["mancanti"], esemplari_app))
-          if lotto + vcar["mancanti"] else
-          "Tutte le misure di questo documento sono complete sugli esemplari in HOME: caselle di specie e forma, sfide di Bank, fiocchi e sfere, eventi della libreria contati sia per carta sia per allenatore e ID, varianti di terza generazione, Eventdex di Serebii e sfide della scheda Pokémon dell'app.") +
+          if lotto + vcar["mancanti"] + aperti_obblighi else
+          "Tutte le misure di questo documento sono complete sugli esemplari in HOME: caselle di specie e forma, sfide di Bank, fiocchi e sfere, voci del foglio «Bank Closing», statici, doni e uova, mosse e abilità, cromatici bloccati, Kyogre di blisy, marchio Game Boy, eventi della libreria contati sia per carta sia per allenatore e ID, varianti di terza generazione, Eventdex di Serebii e sfide della scheda Pokémon dell'app. La tabella «Gli obblighi delle decisioni» dice, per ogni decisione che ha chiesto di produrre qualcosa prima di Bank, quale misura la verifica.") +
          " Restano fuori dalle misure, e sono scritte sotto: le sfide della scheda «Trades» dell'app, registrate il 2026-11-26 e non ancora misurate contro HOME; la ridatazione dei 1964 esemplari di terza e quarta generazione già in HOME con la data del 2026 (ADR-128), che il proprietario ha rimandato il 2026-11-26 alla fine, se avanza tempo (ADR-143), e che dopo la chiusura non si potrà più fare. Una misura vede soltanto ciò per cui è scritta: il 2026-11-25 le varianti di terza generazione erano sfuggite a ogni misura che contava per carta, e il 2026-11-26 si è aggiunta quella per allenatore e ID delle generazioni successive.", "",
          "## Le misure complete", "",
          "| Misura | Esito | Strumento |", "|---|---|---|"]
@@ -237,6 +328,11 @@ def main():
         conto_gem["in HOME sotto una carta gemella"], conto_gem["epoca Game Boy"], conto_gem["prodotto, non in HOME"], conto_gem["mai prodotto"]))
     r.append("| Varianti d'allenatore e ID delle carte dalla quarta alla settima generazione (ADR-045, ADR-118) | %d varianti su %d carte, %d con più varianti: presenti %d, mancanti %d | `pkhex-produci-elenco --varianti-carte` |" % (
         vcar["varianti"], vcar["carte"], vcar["carte_con_piu_varianti"], vcar["presenti"], vcar["mancanti"]))
+    r.append("| Statici, doni e uova fino alla settima generazione (ADR-106, ADR-119) | %d gruppi: %d riconosciuti dalla libreria negli esemplari in HOME, %d in HOME sotto un incontro gemello (stessa specie, gioco e livello), %d doni dell'epoca Game Boy, %d esclusi (%s), residuo %d | `pkhex-produci-elenco --statici` |" % (
+        stat["gruppi_coperti"] + stat["gruppi_da_produrre"], stat["gruppi_coperti"], conto_stat["in HOME sotto un incontro gemello"],
+        conto_stat["non producibili (epoca Game Boy)"], conto_stat["esclusi"], STATICI_ESCLUSI, len(residuo_stat)))
+    for t, esito, aperti in righe_obblighi:
+        r.append("| %s | %s%s | questo strumento, sul giudizio |" % (t, esito, "" if not aperti else "; APERTI %d" % aperti))
     r.append("| Eventi dell'Eventdex di Serebii dell'epoca di Bank | %s | questo strumento |" % "; ".join("%s %d" % (k, n) for k, n in conto_s.most_common()))
     r += ["", "I doni dell'epoca Game Boy non passano da Bank per costruzione: esistono solo su cartuccia e il Trasportatore non li riceve, e vanno sulle cartucce dopo la sostituzione della pila (ADR-117).", ""]
     resto = [(s, v) for s, v in gem if s in ("prodotto, non in HOME", "mai prodotto")]
@@ -264,6 +360,10 @@ def main():
           "%d eventi hanno in HOME solo una parte dei nomi che Serebii elenca. Per la terza generazione le varianti vere sono quelle della libreria, contate sopra: Serebii elenca anche PCNYa, che non è mai esistito, e Sapporo nella sesta distribuzione. Per le generazioni successive la misura per allenatore e ID delle carte della libreria, qui sopra, dice se manca una variante vera; i nomi che seguono non sono carte della libreria, ma grafie di Serebii di carte che in HOME ci sono (per esempio «ふめやすみ» per la carta «ふゆやすみ» 12270, «ETE2012» per «ÉTÉ2012», «Sunset» e «Moonset» per «Eclipse» 100419). Fino al 2026-11-26 questa frase diceva che ADR-045 conta un nome tradotto come un allenatore solo: era sbagliata, perché ADR-118 vuole tutte le varianti che differiscono per allenatore o per ID." % len(parz), ""]
     altri = [(x, m) for x, m in parz if "Gotta Catch" not in x["evento"] and "Pkmn Centre NY" not in x["evento"]]
     r += ["- %s %s, %s: mancano %s." % (x["numero"], x["specie"], x["evento"], ", ".join("%s %s" % v for v in m)) for x, m in altri]
+    r += ["", "## Gli obblighi delle decisioni, e la misura che li verifica", "",
+          "Ogni decisione che ha chiesto di produrre qualcosa prima di Bank, e dove si misura. Ricognizione del 2026-11-26 sulle decisioni da ADR-106 ad ADR-145 (ADR-146).", "",
+          "| Decisione | Che cosa chiede | Misura |", "|---|---|---|"]
+    r += ["| %s | %s | %s |" % t for t in OBBLIGHI]
     if scambi:
         r += ["", "## Le sfide degli scambi dell'app, da misurare", "",
               scambi["nota"], "",

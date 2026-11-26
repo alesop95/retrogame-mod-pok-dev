@@ -4,6 +4,14 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-26, sesta parte. Ogni obbligo delle decisioni misurato: per Bank resta solo il giro 18 degli scambi
+
+Il proprietario ha fatto `chiudi` (`0c96dd2`), ha detto che il dettaglio delle sfide di coppia nell'app non spiega niente e che i contatori sono GTS 29/50 e Scatola Magica 30/50, e ha chiesto di controllare una volta per tutte che non ci sia altro da generare. Ricognizione delle decisioni da ADR-106 ad ADR-145 e misura sul giudizio corrente di quelle che nessuno strumento rifaceva: statici (`--statici`, 1460 gruppi, residuo 0 dopo i gemelli per specie, gioco e livello, i 112 doni dell'epoca Game Boy e i 22 esclusi di ADR-119), mosse (50 assenti, tutte Z o non imparabili sul 3DS), abilità, cromatici bloccati (Tipo Zero cromatico in HOME7 box 13 posto 13), Kyogre di blisy, marchio Game Boy. Tutto presente. `controllo-prima-di-bank.py` le misura a ogni corsa e porta la tabella degli obblighi delle decisioni (ADR-146). Registro degli scambi aggiornato: giro 18 stimato a 91 esemplari, entrambe le metà delle coppie del 3DS.
+
+**Didattica:** nessuna, verifica e misure senza una scelta architetturale nuova.
+
+**Template:** nessuna.
+
 ## 2026-11-26, quinta parte. Giro 17 in HOME a 8557; il controllo rifatto per allenatore e ID; le sfide degli scambi
 
 Il proprietario ha fatto i punti 15-17 e ha mandato 10 foto, lette e copiate in `_notes/fonti/consegne/2026-11-26-home-giro17-e-scambi/` con le impronte uguali; Telegram Desktop svuotata. HOME a 8557, cioè 7892 più 665. Nella scheda Pokémon delle sfide tutte quelle delle sfere, delle condizioni, della lucentezza e dei Ditto hanno l'icona d'oro e nessuna barra: `sfide-home-app-20261125.json` porta ora la soglia, e il valore di prima in `app_20261125`.

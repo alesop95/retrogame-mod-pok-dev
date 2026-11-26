@@ -4,7 +4,7 @@
 
 ## Il verdetto
 
-Tutte le misure di questo documento sono complete sugli esemplari in HOME: caselle di specie e forma, sfide di Bank, fiocchi e sfere, eventi della libreria contati sia per carta sia per allenatore e ID, varianti di terza generazione, Eventdex di Serebii e sfide della scheda Pokémon dell'app. Restano fuori dalle misure, e sono scritte sotto: le sfide della scheda «Trades» dell'app, registrate il 2026-11-26 e non ancora misurate contro HOME; la ridatazione dei 1964 esemplari di terza e quarta generazione già in HOME con la data del 2026 (ADR-128), che il proprietario ha rimandato il 2026-11-26 alla fine, se avanza tempo (ADR-143), e che dopo la chiusura non si potrà più fare. Una misura vede soltanto ciò per cui è scritta: il 2026-11-25 le varianti di terza generazione erano sfuggite a ogni misura che contava per carta, e il 2026-11-26 si è aggiunta quella per allenatore e ID delle generazioni successive.
+Tutte le misure di questo documento sono complete sugli esemplari in HOME: caselle di specie e forma, sfide di Bank, fiocchi e sfere, voci del foglio «Bank Closing», statici, doni e uova, mosse e abilità, cromatici bloccati, Kyogre di blisy, marchio Game Boy, eventi della libreria contati sia per carta sia per allenatore e ID, varianti di terza generazione, Eventdex di Serebii e sfide della scheda Pokémon dell'app. La tabella «Gli obblighi delle decisioni» dice, per ogni decisione che ha chiesto di produrre qualcosa prima di Bank, quale misura la verifica. Restano fuori dalle misure, e sono scritte sotto: le sfide della scheda «Trades» dell'app, registrate il 2026-11-26 e non ancora misurate contro HOME; la ridatazione dei 1964 esemplari di terza e quarta generazione già in HOME con la data del 2026 (ADR-128), che il proprietario ha rimandato il 2026-11-26 alla fine, se avanza tempo (ADR-143), e che dopo la chiusura non si potrà più fare. Una misura vede soltanto ciò per cui è scritta: il 2026-11-25 le varianti di terza generazione erano sfuggite a ogni misura che contava per carta, e il 2026-11-26 si è aggiunta quella per allenatore e ID delle generazioni successive.
 
 ## Le misure complete
 
@@ -16,6 +16,12 @@ Tutte le misure di questo documento sono complete sugli esemplari in HOME: casel
 | Voci del foglio comunitario «Bank Closing» per origine, scambi, sesso e forma, livelli minimi, stelle | voci: 1792, coperte dalle copie per HOME: 1788, da produrre: 4; mosse senza specie: 50; delle 4 voci rimaste, il Mew in Cura Ball non esiste (ADR-116); Electivire al livello 15 e Magmortar al 14 di quarta generazione restano aperte perché nessun Electabuzz o Magmar di quarta generazione arriva a quei livelli nella libreria (ADR-116); la voce dell'anziano di Batikopoli in X e Y, troncata nel foglio («requests that you give him a Pokémon for him to take»), non nomina un incontro che il generatore possa costruire; le 50 mosse sono quelle che sul 3DS non si imparano e vanno alla fase Switch (`ELENCO-PRODUZIONE.md`) | `tools/elenco-produzione.py` |
 | Eventi che la libreria PKHeX conosce fino alla settima generazione | 1654 gruppi, 1350 riconosciuti negli esemplari in HOME; dei 304 scoperti, 155 sono in HOME sotto una carta gemella con dati identici, 148 sono doni dell'epoca Game Boy, 1 prodotti e non in HOME, 0 mai prodotti | `pkhex-produci-elenco --carte` |
 | Varianti d'allenatore e ID delle carte dalla quarta alla settima generazione (ADR-045, ADR-118) | 1528 varianti su 1135 carte, 157 con più varianti: presenti 1528, mancanti 0 | `pkhex-produci-elenco --varianti-carte` |
+| Statici, doni e uova fino alla settima generazione (ADR-106, ADR-119) | 1460 gruppi: 1193 riconosciuti dalla libreria negli esemplari in HOME, 133 in HOME sotto un incontro gemello (stessa specie, gioco e livello), 112 doni dell'epoca Game Boy, 22 esclusi (Let's Go, che va in HOME da Switch, e il Pichu dalle orecchie a punta, che non si trasferisce (ADR-119)), residuo 0 | `pkhex-produci-elenco --statici` |
+| Mosse del Pokédex delle mosse fino alla settima generazione (ADR-108) | 50 assenti dalle 184 che il 2026-11-03 nessuna copia conosceva: 34 mosse Z e Struggle, Light of Ruin, Zippy Zap, Splishy Splash, Floaty Fall, Pika Papow, Bouncy Bubble, Buzzy Buzz, Sizzly Slide, Glitzy Glow, Baddy Bad, Sappy Seed, Freezy Frost, Sparkly Swirl, Veevee Volley, Double Iron Bash, che sul 3DS non si imparano | questo strumento, sul giudizio |
+| Abilità Galvanize e Power of Alchemy (ADR-108) | Galvanize sì, Power of Alchemy sì | questo strumento, sul giudizio |
+| Cromatici bloccati e Deoxys, Manaphy, Darkrai cromatici (ADR-108) | Mew 5, Celebi 1, Spinda 5, Tipo Zero 1, Naganadel 2, Pikachu 12, Silvally 16, Poipole 14, Deoxys 2, Manaphy 1, Darkrai 1 | questo strumento, sul giudizio |
+| Kyogre cromatico 6 IV di blisy (ADR-113, ADR-114) | 1 | questo strumento, sul giudizio |
+| Marchio Game Boy che si perde con Bank (ADR-120) | Raichu di Alola 1, Exeggutor di Alola 1, Marowak di Alola 1, Meowth 1, Butterfree 1, Dunsparce con la costante multipla di 100 1 | questo strumento, sul giudizio |
 | Eventi dell'Eventdex di Serebii dell'epoca di Bank | in HOME 1510; in HOME, non tutte le varianti d'allenatore 49; in HOME con una differenza di trascrizione 32 | questo strumento |
 
 I doni dell'epoca Game Boy non passano da Bank per costruzione: esistono solo su cartuccia e il Trasportatore non li riceve, e vanno sulle cartucce dopo la sostituzione della pila (ADR-117).
@@ -121,14 +127,36 @@ Il confronto per specie, allenatore e ID manca 32 eventi; la sonda li ritrova tu
 - 792 Lunala, Cosmic Eclipse Tie In: mancano Moonset 100419.
 - 792 Lunala, Cosmic Eclipse Tie In: mancano Moonset 100419.
 
+## Gli obblighi delle decisioni, e la misura che li verifica
+
+Ogni decisione che ha chiesto di produrre qualcosa prima di Bank, e dove si misura. Ricognizione del 2026-11-26 sulle decisioni da ADR-106 ad ADR-145 (ADR-146).
+
+| Decisione | Che cosa chiede | Misura |
+|---|---|---|
+| ADR-106, ADR-119 | statici tipici, doni, vaganti, premi e uova | statici, doni e uova |
+| ADR-107 | tutte le sfide di HOME | sfide di Bank; sfide della scheda Pokémon dell'app; sfide degli scambi, da misurare |
+| ADR-108 | ciò che Bank porta con sé: mosse, abilità, cromatici bloccati | mosse; abilità; cromatici bloccati |
+| ADR-109 | ogni casella di specie e forma fino alla settima generazione | caselle di specie e forma |
+| ADR-110 | sfere, fiocchi, abilità, mosse, esemplari della cartuccia | sfere e fiocchi; voci del foglio (Smeraldo) |
+| ADR-111 | i sei assi da collezionista del foglio «Bank Closing» | voci del foglio «Bank Closing» |
+| ADR-113, ADR-114 | il Kyogre di blisy | Kyogre |
+| ADR-115, ADR-116, ADR-117 | eventi della libreria, comunità RNG, pre-evoluzioni, livelli del Flauto Bianco | eventi della libreria; voci del foglio (pre-evoluzioni, livelli minimi); comunità RNG chiusa da ADR-117: 8 prodotti, 2 che non esistono con la specifica |
+| ADR-118 | eventi senza carta e varianti per allenatore o ID | Eventdex di Serebii; varianti di terza generazione; varianti delle carte |
+| ADR-120 | il marchio Game Boy | marchio Game Boy |
+| ADR-121, ADR-122 | i 117 di FINALE in HOME | eventi della libreria (HOME10); i doni dell'epoca Game Boy vanno sulle cartucce dopo Bank (ADR-117) |
+| ADR-126, ADR-128 | date d'incontro nelle finestre; giorno di Poké Transfer | ADR-126 fatta (giri 12 e 13); ADR-128 sui 1964 già in HOME rimandata dal proprietario (ADR-143) |
+| ADR-141 | il Training Ribbon | fiocchi |
+| ADR-142, ADR-143, ADR-144 | varianti di terza generazione, sfide dell'app, i tre di ウッツー | varianti di terza generazione; sfide dell'app; giro 17 in HOME |
+| ADR-145 | le sfide degli scambi | da misurare: sezione qui sotto |
+
 ## Le sfide degli scambi dell'app, da misurare
 
-Le sfide della scheda «Trades» dell'app di HOME, mai misurate prima del 2026-11-26. Elenco da Bulbapedia, «Challenge (HOME)», copia del 2026-11-03 (`_notes/fonti/raccolte/bulbapedia-home-2026-11-03/challenge.wiki`, righe 1321-1667); stato dalle foto 4-9 del proprietario del 2026-11-26 (privato, `_notes/fonti/consegne/2026-11-26-home-giro17-e-scambi/`). Come si completa una sfida «Trade X and Y!» non lo dice né Bulbapedia né Serebii (letta il 2026-11-26): se basta scambiare via uno X e uno Y, o se serve uno scambio di X contro Y, è DA VERIFICARE nell'app, aprendo il dettaglio della sfida. Ogni scambio dà via il Pokémon per sempre: per gli scambi servono esemplari in più, non quelli della collezione.
+Le sfide della scheda «Trades» dell'app di HOME, mai misurate prima del 2026-11-26. Elenco da Bulbapedia, «Challenge (HOME)», copia del 2026-11-03 (`_notes/fonti/raccolte/bulbapedia-home-2026-11-03/challenge.wiki`, righe 1321-1667); stato dalle foto 4-9 del proprietario del 2026-11-26 (privato, `_notes/fonti/consegne/2026-11-26-home-giro17-e-scambi/`). Come si completa una sfida «Trade X and Y!» non lo dice né Bulbapedia né Serebii (letta il 2026-11-26): se basta scambiare via uno X e uno Y, o se serve uno scambio di X contro Y, non lo dice nemmeno il dettaglio della sfida nell'app (il proprietario, 2026-11-26): il giro 18 porta quindi entrambe le metà di ogni coppia del 3DS, che bastano per entrambe le letture. Ogni scambio dà via il Pokémon per sempre: per gli scambi servono esemplari in più, non quelli della collezione.
 
 | Sfida | Soglie | Stato il 2026-11-26 |
 |---|---|---|
-| Trade using the GTS! | 5/25/50 | in corso, barra a circa metà nella foto 4, numero non leggibile |
-| Trade using the Wonder Box! | 5/25/50 | in corso, barra a circa metà nella foto 4, numero non leggibile |
+| Trade using the GTS! | 5/25/50 | 29/50, detto dal proprietario il 2026-11-26: mancano 21 |
+| Trade using the Wonder Box! | 5/25/50 | 30/50, detto dal proprietario il 2026-11-26: mancano 20 |
 | Trade using a Room Trade! | 5/25/50 | non cominciata, barra vuota nella foto 8 |
 | Host Room Trades! | 1/5/20 | non cominciata, barra vuota; chiede il piano Premium |
 | Have a Room Trade with 20 people in it! | una volta | non fatta; chiede una stanza piena, cioè la comunità |
