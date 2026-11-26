@@ -38,6 +38,8 @@ LAVORO = os.path.join(RADICE, "_notes", "lavoro", "controllo-prima-di-bank")
 ESEGUIBILE = os.path.join(RADICE, "tools", "pkhex-produci-elenco", "bin", "Release", "net10.0", "pkhex-produci-elenco.exe")
 EVENTDEX = os.path.join(RADICE, "_notes", "fonti", "raccolte", "serebii-eventdex-2026-11-04", "serebii-eventdex-eventi.json")
 SFIDE_APP = os.path.join(RADICE, "pokedex-home-completo", "data", "sfide-home-app-20261125.json")
+# le sfide della scheda «Trades», registrate per la prima volta il 2026-11-26
+SFIDE_SCAMBI = os.path.join(RADICE, "pokedex-home-completo", "data", "sfide-home-scambi-20261126.json")
 # Il lotto delle sfide prodotto da tools/pkhex-sfide-app, privato: se c'è, il giro 17 conta i suoi esemplari, che sono meno
 # delle mancanze perché un esemplare conta per tutte le sfide che soddisfa.
 LOTTO_SFIDE = os.path.join(RADICE, "_notes", "lotti", "lotto-sfide-app", "rapporto.json")
@@ -65,11 +67,12 @@ def misura_libreria(copie):
     os.makedirs(LAVORO, exist_ok=True)
     carte = os.path.join(LAVORO, "carte.json")
     varianti = os.path.join(LAVORO, "varianti-gen3.json")
-    for modo, uscita in (("--carte", carte), ("--varianti-gen3", varianti)):
+    vcarte = os.path.join(LAVORO, "varianti-carte.json")
+    for modo, uscita in (("--carte", carte), ("--varianti-gen3", varianti), ("--varianti-carte", vcarte)):
         r = subprocess.run([ESEGUIBILE, modo, uscita] + copie, capture_output=True, text=True, encoding="utf-8")
         if r.returncode != 0:
             raise SystemExit("pkhex-produci-elenco %s fallito: %s" % (modo, r.stdout[-500:] + r.stderr[-500:]))
-    return json.load(open(carte, encoding="utf-8")), json.load(open(varianti, encoding="utf-8"))
+    return [json.load(open(x, encoding="utf-8")) for x in (carte, varianti, vcarte)]
 
 
 def gemelli(scoperti, esemplari):
@@ -175,8 +178,8 @@ def main():
     copie = [c["copia"] for c in giudizio if c["gruppo"] in in_home.GRUPPI_IN_HOME]
     gruppi = sorted(in_home.GRUPPI_IN_HOME)
 
-    misure = {t: riepilogo(t) for t in ("copertura-lotti.py", "sfide-bank.py", "fiocchi-e-sfere-prima-di-bank.py")}
-    carte, var3 = misura_libreria(copie)
+    misure = {t: riepilogo(t) for t in ("copertura-lotti.py", "sfide-bank.py", "fiocchi-e-sfere-prima-di-bank.py", "elenco-produzione.py")}
+    carte, var3, vcar = misura_libreria(copie)
     gem = gemelli(carte["voci"], esemplari)
     conto_gem = collections.Counter(s for s, _ in gem)
     conto_s, trascr, parz = serebii(esemplari)
@@ -193,7 +196,9 @@ def main():
         righe_app.append((s, oggi, servono, nelle_copie))
     servono_app = sum(r[2] for r in righe_app)
     prodotti_app = json.load(open(LOTTO_SFIDE, encoding="utf-8"))["prodotti"] if os.path.exists(LOTTO_SFIDE) else None
-    esemplari_app = prodotti_app or servono_app
+    # il lotto delle sfide conta solo finché l'app dice che mancano esemplari: dopo il giro 17 sono tutte d'oro
+    esemplari_app = (prodotti_app or servono_app) if servono_app else 0
+    scambi = json.load(open(SFIDE_SCAMBI, encoding="utf-8")) if os.path.exists(SFIDE_SCAMBI) else None
 
     print("esemplari in HOME dai giudizi: %d in %d gruppi" % (len(esemplari), len(gruppi)))
     for t, r in misure.items():
@@ -202,6 +207,8 @@ def main():
         carte["eventi"], carte["gruppi_coperti"], carte["gruppi_scoperti"], dict(conto_gem)))
     print("varianti d'allenatore di terza generazione: %d combinazioni, presenti %d, mancanti %d" % (
         var3["combinazioni"], var3["presenti"], len(mancanti3)))
+    print("varianti d'allenatore delle carte dalla quarta alla settima generazione: %d su %d carte, presenti %d, mancanti %d" % (
+        vcar["varianti"], vcar["carte"], vcar["presenti"], vcar["mancanti"]))
     print("Eventdex di Serebii: %s" % dict(conto_s))
     print("sfide dell'app chiudibili con l'epoca del 3DS: %d esemplari da aggiungere" % servono_app)
 
@@ -209,19 +216,27 @@ def main():
         return
     lotto = len(mancanti3) + esemplari_app
     r = ["# Controllo prima della chiusura di Bank: che cosa è in HOME e che cosa deve ancora passare", "",
-         "> Documento generato da `tools/controllo-prima-di-bank.py --scrivi`. Non si modifica a mano: si rigenera dopo ogni giro. Conta i soli esemplari passati a HOME, letti dal giudizio `%s` attraverso `tools/in_home.py`: %d esemplari in %d gruppi (%s). Il totale dell'app, 7892 il 2026-11-25, comprende anche i 34 che erano in HOME prima del giro 1 e quelli arrivati da GO, che i giudizi non leggono, e i 996 vecchi da liberare, che hanno un sostituto identico salvo la data." % (os.path.basename(in_home.GIUDIZIO_CORRENTE), len(esemplari), len(gruppi), ", ".join(gruppi)), "",
+         "> Documento generato da `tools/controllo-prima-di-bank.py --scrivi`. Non si modifica a mano: si rigenera dopo ogni giro. Conta i soli esemplari passati a HOME, letti dal giudizio `%s` attraverso `tools/in_home.py`: %d esemplari in %d gruppi (%s). Il totale dell'app, 8557 il 2026-11-26 dopo il giro 17, comprende anche i 34 che erano in HOME prima del giro 1 e quelli arrivati da GO, che i giudizi non leggono, e i 996 vecchi da liberare, che hanno un sostituto identico salvo la data." % (os.path.basename(in_home.GIUDIZIO_CORRENTE), len(esemplari), len(gruppi), ", ".join(gruppi)), "",
          "## Il verdetto", "",
-         "Prima del 2027-02-26 deve passare da Bank un altro giro, il 17, con %d esemplari: %d varianti d'allenatore dei doni di terza generazione dei Pokémon Center giapponesi e di New York che ADR-118 vuole tutte, e %d esemplari che chiudono le sfide dell'app di HOME raggiungibili con i giochi del 3DS%s. Tutte le altre misure sono complete. Resta un lavoro che dipende da Bank e che il proprietario ha rimandato il 2026-11-26 alla fine, se avanza tempo (ADR-143): ridatare i 1964 esemplari di terza e quarta generazione già in HOME con la data del 2026 (ADR-128); dopo la chiusura non si potrà più." % (lotto, len(mancanti3), esemplari_app, "" if prodotti_app is None else ", meno delle %d mancanze perché un esemplare conta per tutte le sfide che soddisfa (`tools/pkhex-sfide-app`)" % servono_app), "",
+         (("Prima del 2027-02-26 deve passare da Bank un altro giro con %d esemplari: %d varianti d'allenatore dei doni di terza generazione dei Pokémon Center giapponesi e di New York che ADR-118 vuole tutte, %d varianti d'allenatore delle carte dalla quarta alla settima generazione e %d esemplari che chiudono le sfide dell'app di HOME raggiungibili con i giochi del 3DS." % (lotto + vcar["mancanti"], len(mancanti3), vcar["mancanti"], esemplari_app))
+          if lotto + vcar["mancanti"] else
+          "Tutte le misure di questo documento sono complete sugli esemplari in HOME: caselle di specie e forma, sfide di Bank, fiocchi e sfere, eventi della libreria contati sia per carta sia per allenatore e ID, varianti di terza generazione, Eventdex di Serebii e sfide della scheda Pokémon dell'app.") +
+         " Restano fuori dalle misure, e sono scritte sotto: le sfide della scheda «Trades» dell'app, registrate il 2026-11-26 e non ancora misurate contro HOME; la ridatazione dei 1964 esemplari di terza e quarta generazione già in HOME con la data del 2026 (ADR-128), che il proprietario ha rimandato il 2026-11-26 alla fine, se avanza tempo (ADR-143), e che dopo la chiusura non si potrà più fare. Una misura vede soltanto ciò per cui è scritta: il 2026-11-25 le varianti di terza generazione erano sfuggite a ogni misura che contava per carta, e il 2026-11-26 si è aggiunta quella per allenatore e ID delle generazioni successive.", "",
          "## Le misure complete", "",
          "| Misura | Esito | Strumento |", "|---|---|---|"]
     for t, righe in misure.items():
         r.append("| %s | %s | `tools/%s` |" % ({"copertura-lotti.py": "Caselle di specie e forma fino alla settima generazione",
                                                  "sfide-bank.py": "Sfide di HOME che dipendono da Bank",
-                                                 "fiocchi-e-sfere-prima-di-bank.py": "Sfere e fiocchi che si perdono con Bank"}[t],
-                                                "; ".join(x.strip() for x in righe[:3]).replace("|", "/"), t))
+                                                 "fiocchi-e-sfere-prima-di-bank.py": "Sfere e fiocchi che si perdono con Bank",
+                                                 # dal 2026-11-26: le voci degli assi del foglio «Bank Closing all possible things checklist» (ADR-108-111)
+                                                 "elenco-produzione.py": "Voci del foglio comunitario «Bank Closing» per origine, scambi, sesso e forma, livelli minimi, stelle"}[t],
+                                                "; ".join(x.strip() for x in righe[:1 if t == "elenco-produzione.py" else 3]).replace("|", "/") +
+                                                ("; delle 4 voci rimaste, il Mew in Cura Ball non esiste (ADR-116); Electivire al livello 15 e Magmortar al 14 di quarta generazione restano aperte perché nessun Electabuzz o Magmar di quarta generazione arriva a quei livelli nella libreria (ADR-116); la voce dell'anziano di Batikopoli in X e Y, troncata nel foglio («requests that you give him a Pokémon for him to take»), non nomina un incontro che il generatore possa costruire; le 50 mosse sono quelle che sul 3DS non si imparano e vanno alla fase Switch (`ELENCO-PRODUZIONE.md`)" if t == "elenco-produzione.py" else ""), t))
     r.append("| Eventi che la libreria PKHeX conosce fino alla settima generazione | %d gruppi, %d riconosciuti negli esemplari in HOME; dei %d scoperti, %d sono in HOME sotto una carta gemella con dati identici, %d sono doni dell'epoca Game Boy, %d prodotti e non in HOME, %d mai prodotti | `pkhex-produci-elenco --carte` |" % (
         len(set(v["gruppo"] for v in carte["voci"])) + carte["gruppi_coperti"], carte["gruppi_coperti"], carte["gruppi_scoperti"],
         conto_gem["in HOME sotto una carta gemella"], conto_gem["epoca Game Boy"], conto_gem["prodotto, non in HOME"], conto_gem["mai prodotto"]))
+    r.append("| Varianti d'allenatore e ID delle carte dalla quarta alla settima generazione (ADR-045, ADR-118) | %d varianti su %d carte, %d con più varianti: presenti %d, mancanti %d | `pkhex-produci-elenco --varianti-carte` |" % (
+        vcar["varianti"], vcar["carte"], vcar["carte_con_piu_varianti"], vcar["presenti"], vcar["mancanti"]))
     r.append("| Eventi dell'Eventdex di Serebii dell'epoca di Bank | %s | questo strumento |" % "; ".join("%s %d" % (k, n) for k, n in conto_s.most_common()))
     r += ["", "I doni dell'epoca Game Boy non passano da Bank per costruzione: esistono solo su cartuccia e il Trasportatore non li riceve, e vanno sulle cartucce dopo la sostituzione della pila (ADR-117).", ""]
     resto = [(s, v) for s, v in gem if s in ("prodotto, non in HOME", "mai prodotto")]
@@ -246,9 +261,17 @@ def main():
     for x, spiega in trascr:
         r.append("| %s %s | %s | %s %s | %s |" % (x["numero"], x["specie"], x["evento"].replace("|", "/"), x["ot"], x["id"], spiega))
     r += ["", "## Eventi di Serebii con più nomi d'allenatore", "",
-          "%d eventi hanno in HOME solo una parte dei nomi che Serebii elenca. Per la terza generazione le varianti vere sono quelle della libreria, contate sopra: Serebii elenca anche PCNYa, che non è mai esistito, e Sapporo nella sesta distribuzione. Per le generazioni successive i nomi mancanti sono lo stesso allenatore tradotto per un'altra edizione, o scritto diversamente da Serebii, che ADR-045 conta come un allenatore solo:" % len(parz), ""]
+          "%d eventi hanno in HOME solo una parte dei nomi che Serebii elenca. Per la terza generazione le varianti vere sono quelle della libreria, contate sopra: Serebii elenca anche PCNYa, che non è mai esistito, e Sapporo nella sesta distribuzione. Per le generazioni successive la misura per allenatore e ID delle carte della libreria, qui sopra, dice se manca una variante vera; i nomi che seguono non sono carte della libreria, ma grafie di Serebii di carte che in HOME ci sono (per esempio «ふめやすみ» per la carta «ふゆやすみ» 12270, «ETE2012» per «ÉTÉ2012», «Sunset» e «Moonset» per «Eclipse» 100419). Fino al 2026-11-26 questa frase diceva che ADR-045 conta un nome tradotto come un allenatore solo: era sbagliata, perché ADR-118 vuole tutte le varianti che differiscono per allenatore o per ID." % len(parz), ""]
     altri = [(x, m) for x, m in parz if "Gotta Catch" not in x["evento"] and "Pkmn Centre NY" not in x["evento"]]
     r += ["- %s %s, %s: mancano %s." % (x["numero"], x["specie"], x["evento"], ", ".join("%s %s" % v for v in m)) for x, m in altri]
+    if scambi:
+        r += ["", "## Le sfide degli scambi dell'app, da misurare", "",
+              scambi["nota"], "",
+              "| Sfida | Soglie | Stato il %s |" % scambi["data"], "|---|---|---|"]
+        r += ["| %s | %s | %s |" % (c["sfida"], "/".join(str(x) for x in c["soglie"]) if c["soglie"] else "una volta", c["stato"]) for c in scambi["contatori"]]
+        r += ["", "Coppie con entrambe le metà nei giochi del 3DS (%d): %s." % (len(scambi["coppie_entrambe_3ds"]), "; ".join(scambi["coppie_entrambe_3ds"])),
+              "", "Coppie con una sola metà nei giochi del 3DS (%d), l'altra su Switch: %s." % (len(scambi["coppie_una_meta_3ds"]), "; ".join("%s (con %s)" % (c["3ds"], c["switch"]) for c in scambi["coppie_una_meta_3ds"])),
+              "", "Coppie della sola Switch (%d): %s." % (len(scambi["coppie_solo_switch"]), "; ".join(scambi["coppie_solo_switch"]))]
     r += ["", "## Che cosa resta fuori da Bank, per scelta o perché non esiste fino al 3DS", "",
           "Gli eventi di Scarlatto e Violetto, che il proprietario non ha, si recuperano scambiando con la comunità dopo la chiusura di Bank, a cominciare dal Dragapult con il marchio dell'Imbattibile; le sfide della sola Switch qui sopra; le forme e i fiocchi che si prendono solo giocando su Switch (`COPERTURA-LOTTI.md`, `FIOCCHI-PRIMA-DI-BANK.md`). La loro sorte è in `pending.md`, nelle voci da ricordare sempre.", ""]
     with open(USCITA, "w", encoding="utf-8", newline="\n") as f:

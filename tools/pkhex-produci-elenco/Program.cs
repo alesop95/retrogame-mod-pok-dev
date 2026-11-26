@@ -61,6 +61,10 @@ if (args[0] == "--serebii")
 // --varianti-gen3: ogni nome d'allenatore valido dei doni giapponesi dei Pokemon Center e di New York (2026-11-25, ADR-118)
 if (args[0] == "--varianti-gen3")
     return VariantiGen3(args[1], args.Skip(2).TakeWhile(x => x != "--produci").ToArray());
+// --varianti-carte: le carte dalla quarta alla settima generazione contate per allenatore e ID, non per numero di carta
+// (2026-11-26, ADR-045, ADR-118): la stessa carta uscita in lingue diverse con un nome o un ID diversi e' una variante
+if (args[0] == "--varianti-carte")
+    return VariantiCarte(args[1], args.Skip(2).ToArray());
 if (args[0] == "--carte")
     return Carte(args[1], args.Skip(2).TakeWhile(x => x != "--produci" && x != "--traccia" && x != "--epoca-cartucce").ToArray());
 if (args[0] == "--cartuccia")
@@ -900,6 +904,65 @@ int Serebii(string mancantiJson, string uscita)
     return 0;
 }
 
+// Le varianti d'allenatore delle carte dalla quarta alla settima generazione (2026-11-26). `--carte` raggruppa per
+// generazione, numero di carta, specie e forma, quindi una carta uscita con nomi o ID diversi secondo la lingua risulta
+// coperta da una sola delle sue versioni; ADR-118 vuole invece tutte le varianti che differiscono per allenatore o per ID.
+// Qui una variante e' la coppia di allenatore e ID della carta, per specie e forma; le carte che danno l'allenatore di chi
+// riceve (uova, nome vuoto) non hanno varianti d'allenatore e restano a `--carte`. Un esemplare conforme delle copie copre
+// la variante se ha la stessa specie, forma, allenatore e ID come li mostra il gioco (sei cifre dalla settima generazione).
+int VariantiCarte(string uscita, string[] copie)
+{
+    static string Id(byte gen, uint id32, ushort tid16) => gen >= 7 ? (id32 % 1000000).ToString("000000") : tid16.ToString("00000");
+    static string Norma(string s) => s.Normalize(System.Text.NormalizationForm.FormKC).Trim();
+    var varianti = new Dictionary<string, List<MysteryGift>>();
+    foreach (var g in EncounterEvent.GetAllEvents(false).Where(g => g.Generation is >= 4 and <= 7 && g is not WB7))
+    {
+        if (g.IsEgg || string.IsNullOrWhiteSpace(g.OriginalTrainerName)) continue;
+        var k = $"G{g.Generation}|{g.CardID}|{g.Species}|{g.Form}|{Norma(g.OriginalTrainerName)}|{Id(g.Generation, g.ID32, g.TID16)}";
+        if (!varianti.TryGetValue(k, out var l)) varianti[k] = l = [];
+        l.Add(g);
+    }
+    var viste = new HashSet<string>();
+    int esemplari = 0;
+    foreach (var c in copie)
+    {
+        var sav = SaveUtil.GetSaveFile(c) ?? throw new InvalidOperationException("salvataggio non letto: " + c);
+        for (int i = 0; i < sav.SlotCount; i++)
+        {
+            var pk = sav.GetBoxSlotAtIndex(i);
+            if (pk.Species == 0) continue;
+            if (!new LegalityAnalysis(pk).Valid) continue;
+            esemplari++;
+            viste.Add($"{pk.Species}|{pk.Form}|{Norma(pk.OriginalTrainerName)}|{Id(pk.Generation, pk.ID32, pk.TID16)}");
+        }
+    }
+    var voci = new JsonArray();
+    int presenti = 0, mancanti = 0;
+    var perCarta = varianti.GroupBy(kv => string.Join("|", kv.Key.Split('|').Take(4))).ToList();
+    int carteConVarianti = perCarta.Count(g => g.Count() > 1);
+    foreach (var (k, l) in varianti.OrderBy(kv => kv.Key))
+    {
+        var g = l[0];
+        var p = $"{g.Species}|{g.Form}|{Norma(g.OriginalTrainerName)}|{Id(g.Generation, g.ID32, g.TID16)}";
+        bool c = viste.Contains(p);
+        if (c) presenti++; else mancanti++;
+        var altre = varianti.Count(kv => kv.Key.StartsWith(string.Join("|", k.Split('|').Take(4)) + "|"));
+        voci.Add(new JsonObject
+        {
+            ["variante"] = k, ["generazione"] = g.Generation, ["carta"] = g.CardID, ["titolo"] = g.CardTitle,
+            ["specie"] = inglese.specieslist[g.Species], ["numero"] = g.Species, ["forma"] = g.Form,
+            ["allenatore"] = g.OriginalTrainerName, ["id"] = Id(g.Generation, g.ID32, g.TID16),
+            ["titoli"] = string.Join(" / ", l.Select(x => x.CardTitle).Distinct()),
+            ["cromatico"] = g.IsShiny, ["varianti_della_carta"] = altre,
+            ["esito"] = c ? "in una copia" : "mancante",
+        });
+    }
+    File.WriteAllText(uscita, new JsonObject { ["varianti"] = varianti.Count, ["carte"] = perCarta.Count, ["carte_con_piu_varianti"] = carteConVarianti, ["presenti"] = presenti, ["mancanti"] = mancanti, ["esemplari_letti"] = esemplari, ["voci"] = voci }
+        .ToJsonString(new JsonSerializerOptions { WriteIndented = true, Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping }));
+    Console.WriteLine($"varianti d'allenatore delle carte G4-G7: {varianti.Count} su {perCarta.Count} carte ({carteConVarianti} con piu' varianti), presenti {presenti}, mancanti {mancanti}, esemplari letti {esemplari}");
+    return 0;
+}
+
 // Tutti gli eventi che la libreria conosce fino alla settima generazione, confrontati con le copie (ADR-116): le carte di
 // quarta, quinta, sesta e settima generazione, i doni di terza (internazionali, giapponesi, PCNY, PCJP, Colosseum) e quelli
 // del Game Boy. Per ogni esemplare conforme delle copie la libreria dice da quale incontro viene; un evento e' coperto se
@@ -1202,12 +1265,14 @@ int VariantiGen3(string uscitaJson, string[] copie)
     foreach (var o in campo("PCNY"))
         if (o is EncounterGift3NY y)
             doni.Add((y, "PCNY", y.Distribution.ToString(), ny.Where(c => y.Distribution.IsValidTrainerName(c)).ToArray()));
+    // le otto MN di terza generazione: Taglio, Volo, Surf, Forza, Flash, Spaccaroccia, Cascata, Sub (2026-11-26)
+    static bool Mn3(ushort m) => m is 15 or 19 or 57 or 70 or 148 or 249 or 127 or 291;
     static IEnumerable<ushort> Mosse3(IEncounterable e)
     {
-        if (e is EncounterGift3NY y) return new[] { y.Moves.Move1, y.Moves.Move2, y.Moves.Move3, y.Moves.Move4 }.Where(m => m != 0).OrderBy(m => m);
+        if (e is EncounterGift3NY y) return new[] { y.Moves.Move1, y.Moves.Move2, y.Moves.Move3, y.Moves.Move4 }.Where(m => m != 0 && !Mn3(m)).OrderBy(m => m);
         // il dono giapponese non fissa le mosse: sono quelle del livello, e si leggono da un esemplare generato
         var pk = ((EncounterGift3JPN)e).ConvertToPKM(new SimpleTrainerInfo(GameVersion.R));
-        return pk.Moves.Where(m => m != 0).OrderBy(m => m);
+        return pk.Moves.Where(m => m != 0 && !Mn3(m)).OrderBy(m => m);
     }
     static string Chiave(IEncounterable e) => e switch
     {
@@ -1232,7 +1297,8 @@ int VariantiGen3(string uscitaJson, string[] copie)
             if (!citta.Contains(pk.OriginalTrainerName) && !ny.Contains(pk.OriginalTrainerName)) continue;
             esemplari++;
             if (la.EncounterMatch is EncounterGift3JPN or EncounterGift3NY) viste.Add($"{Chiave(la.EncounterMatch)}|{pk.OriginalTrainerName}");
-            var mv = pk.Moves.Where(m => m != 0).OrderBy(m => m);
+            // le MN si tolgono prima di Poke Transfer (giro 17, `--includi-mn`): il confronto le ignora su entrambi i lati
+            var mv = pk.Moves.Where(m => m != 0 && !Mn3(m)).OrderBy(m => m);
             viste.Add($"{pk.Species}|{pk.CurrentLevel}|{(citta.Contains(pk.OriginalTrainerName) ? pk.TID16.ToString() : pk.TID16 < 3000 ? "NY" : "x")}|{string.Join("-", mv)}|{pk.OriginalTrainerName}");
         }
     }

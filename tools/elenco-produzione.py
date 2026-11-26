@@ -50,13 +50,26 @@ LOTTI = os.path.join(RADICE, "_notes", "lotti")
 PROVE = os.path.join(RADICE, "_notes", "salvataggi", "prove", "per-home")
 # Le copie scritte dalla produzione del 2026-11-04 e i rapporti della produzione: una voce e' chiusa anche quando il suo
 # esemplare e' stato prodotto da tools/pkhex-produci-elenco e scritto in una di queste copie.
-COPIE_PRODUZIONE = ["oras-giro-4-fin9", "oras-giro-5-carte-mn2", "ultraluna-giro-2-fin6", "luna-giappone-2-fin2"]
+# Dal 2026-11-26 le copie non sono piu' un elenco fisso: tre dei quattro nomi di prima erano stati sostituiti dalle copie
+# rifatte (oras-giro-5-carte-mn5, ultraluna-giro-2-fin7, luna-giappone-3), lo strumento li saltava in silenzio e la
+# produzione gia' in HOME tornava «da produrre». Ora sono le copie di tutti i gruppi in HOME del giudizio corrente
+# (`tools/in_home.py`), e un rapporto che manca ferma lo strumento.
+def _copie_in_home():
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import in_home
+    g = json.load(open(in_home.GIUDIZIO_CORRENTE, encoding="utf-8"))["copie"]
+    return [os.path.basename(os.path.dirname(c["copia"])) for c in g if c["gruppo"] in in_home.GRUPPI_IN_HOME]
+
+
+COPIE_PRODUZIONE = _copie_in_home()
 RAPPORTI_PRODUZIONE = ["lotto-elenco-produzione", "lotto-elenco-produzione/vc-rifatti", "lotto-elenco-produzione/vc-rifatti-2",
                        "lotto-elenco-produzione/giro-2", "lotto-elenco-produzione/giro-3", "lotto-elenco-produzione/giro-3-raichu",
                        "lotto-elenco-produzione/giro-4", "lotto-elenco-produzione/giro-5", "lotto-elenco-produzione/giro-6",
                        "lotto-elenco-produzione/giro-7", "lotto-elenco-produzione/giro-8", "lotto-elenco-produzione/giro-9",
                        "lotto-elenco-produzione/giro-9-giallo", "lotto-elenco-produzione/giro-10", "lotto-elenco-produzione/giro-12", "lotto-elenco-produzione/giro-14", "lotto-elenco-produzione/giro-15"]
-TETTO_STATICI = 2371        # ADR-106, tools/pkhex-conta-incontri
+# ADR-106, tools/pkhex-conta-incontri: 2371 era il tetto degli statici ancora da fare il 2026-11-05; dal giro 10 sono nelle
+# copie, quindi dal 2026-11-26 non si sommano una seconda volta alle copie fatte.
+TETTO_STATICI = 0
 
 
 def modulo(nome):
@@ -339,8 +352,9 @@ def prodotte():
     scritti = set()
     for c in COPIE_PRODUZIONE:
         p = os.path.join(PROVE, c, "main.rapporto.json")
-        if os.path.exists(p):
-            scritti |= {v["origine"] for v in json.load(open(p, encoding="utf-8"))["voci"]}
+        if not os.path.exists(p):
+            raise SystemExit("rapporto della copia assente: %s" % p)
+        scritti |= {v["origine"] for v in json.load(open(p, encoding="utf-8"))["voci"]}
     voci, mosse = set(), set()
     for rel in RAPPORTI_PRODUZIONE:
         p = os.path.join(LOTTI, rel, "rapporto.json")

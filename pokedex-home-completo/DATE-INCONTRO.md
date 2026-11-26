@@ -12,9 +12,9 @@ Le classi, nell'ordine in cui si assegnano: *impossibile* è una data anteriore 
 |---|---|
 | impossibile | 20 |
 | anteriore-finestra | 21 |
-| produzione | 5195 |
-| storica | 2765 |
-| totale | 8001 |
+| produzione | 5509 |
+| storica | 3116 |
+| totale | 8666 |
 
 ## Per gruppo
 
@@ -24,6 +24,7 @@ Le classi, nell'ordine in cui si assegnano: *impossibile* è una data anteriore 
 | FINALE | in copia | 0 | 0 | 121 | 0 |
 | GIAPPONE | in copia | 0 | 0 | 14 | 0 |
 | GIAPPONE2 | in HOME | 0 | 0 | 23 | 0 |
+| GIRO17 | in HOME | 0 | 0 | 314 | 351 |
 | HOME1 | in HOME | 0 | 3 | 863 | 64 |
 | HOME10 | in HOME | 0 | 0 | 380 | 0 |
 | HOME2 | in HOME | 1 | 3 | 127 | 590 |

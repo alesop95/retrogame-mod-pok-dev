@@ -1,0 +1,182 @@
+{
+ "nota": "Le sfide della scheda «Trades» dell'app di HOME, mai misurate prima del 2026-11-26. Elenco da Bulbapedia, «Challenge (HOME)», copia del 2026-11-03 (`_notes/fonti/raccolte/bulbapedia-home-2026-11-03/challenge.wiki`, righe 1321-1667); stato dalle foto 4-9 del proprietario del 2026-11-26 (privato, `_notes/fonti/consegne/2026-11-26-home-giro17-e-scambi/`). Come si completa una sfida «Trade X and Y!» non lo dice né Bulbapedia né Serebii (letta il 2026-11-26): se basta scambiare via uno X e uno Y, o se serve uno scambio di X contro Y, è DA VERIFICARE nell'app, aprendo il dettaglio della sfida. Ogni scambio dà via il Pokémon per sempre: per gli scambi servono esemplari in più, non quelli della collezione.",
+ "data": "2026-11-26",
+ "contatori": [
+  {
+   "sfida": "Trade using the GTS!",
+   "soglie": [
+    5,
+    25,
+    50
+   ],
+   "stato": "in corso, barra a circa metà nella foto 4, numero non leggibile"
+  },
+  {
+   "sfida": "Trade using the Wonder Box!",
+   "soglie": [
+    5,
+    25,
+    50
+   ],
+   "stato": "in corso, barra a circa metà nella foto 4, numero non leggibile"
+  },
+  {
+   "sfida": "Trade using a Room Trade!",
+   "soglie": [
+    5,
+    25,
+    50
+   ],
+   "stato": "non cominciata, barra vuota nella foto 8"
+  },
+  {
+   "sfida": "Host Room Trades!",
+   "soglie": [
+    1,
+    5,
+    20
+   ],
+   "stato": "non cominciata, barra vuota; chiede il piano Premium"
+  },
+  {
+   "sfida": "Have a Room Trade with 20 people in it!",
+   "soglie": null,
+   "stato": "non fatta; chiede una stanza piena, cioè la comunità"
+  },
+  {
+   "sfida": "Deposit 10 Pokémon at once in the Wonder Box!",
+   "soglie": null,
+   "stato": "fatta, icona colorata nella foto 4"
+  }
+ ],
+ "coppie_entrambe_3ds": [
+  "Cranidos e Shieldon",
+  "Electivire e Magmortar",
+  "Gardevoir e Gallade",
+  "Glalie e Froslass",
+  "Hitmonlee e Hitmonchan",
+  "Latias e Latios",
+  "Lunatone e Solrock",
+  "Meowstic maschio e femmina",
+  "Nidoqueen e Nidoking",
+  "Nidorino e Gengar",
+  "Pikachu e Mimikyu",
+  "Pinsir e Heracross",
+  "Plusle e Minun",
+  "Staryu e Luvdisc",
+  "Throh e Sawk",
+  "Voltorb e Foongus",
+  "Vulpix e Vulpix di Alola",
+  "Gastrodon Mare Ovest e Mare Est",
+  "Zangoose e Seviper",
+  "lo stesso Pokémon due volte"
+ ],
+ "coppie_una_meta_3ds": [
+  {
+   "3ds": "Arcanine",
+   "switch": "Arcanine di Hisui"
+  },
+  {
+   "3ds": "Avalugg",
+   "switch": "Avalugg di Hisui"
+  },
+  {
+   "3ds": "Braviary",
+   "switch": "Braviary di Hisui"
+  },
+  {
+   "3ds": "Corsola",
+   "switch": "Corsola di Galar"
+  },
+  {
+   "3ds": "Darmanitan",
+   "switch": "Darmanitan di Galar"
+  },
+  {
+   "3ds": "Dugtrio",
+   "switch": "Wugtrio"
+  },
+  {
+   "3ds": "Electrode",
+   "switch": "Electrode di Hisui"
+  },
+  {
+   "3ds": "Farfetch'd",
+   "switch": "Farfetch'd di Galar"
+  },
+  {
+   "3ds": "Goodra",
+   "switch": "Goodra di Hisui"
+  },
+  {
+   "3ds": "Lilligant",
+   "switch": "Lilligant di Hisui"
+  },
+  {
+   "3ds": "Linoone",
+   "switch": "Linoone di Galar"
+  },
+  {
+   "3ds": "Meowth",
+   "switch": "Meowth di Galar"
+  },
+  {
+   "3ds": "Mr. Mime",
+   "switch": "Mr. Mime di Galar"
+  },
+  {
+   "3ds": "Quagsire",
+   "switch": "Clodsire"
+  },
+  {
+   "3ds": "Qwilfish",
+   "switch": "Qwilfish di Hisui"
+  },
+  {
+   "3ds": "Rapidash",
+   "switch": "Rapidash di Galar"
+  },
+  {
+   "3ds": "Scizor",
+   "switch": "Kleavor"
+  },
+  {
+   "3ds": "Slowking",
+   "switch": "Slowking di Galar"
+  },
+  {
+   "3ds": "Stunfisk",
+   "switch": "Stunfisk di Galar"
+  },
+  {
+   "3ds": "Tentacruel",
+   "switch": "Toedscruel"
+  },
+  {
+   "3ds": "Weavile",
+   "switch": "Sneasler"
+  },
+  {
+   "3ds": "Weezing",
+   "switch": "Weezing di Galar"
+  },
+  {
+   "3ds": "Yamask",
+   "switch": "Yamask di Galar"
+  },
+  {
+   "3ds": "Zoroark",
+   "switch": "Zoroark di Hisui"
+  }
+ ],
+ "coppie_solo_switch": [
+  "Armarouge e Ceruledge",
+  "Great Tusk e Iron Treads",
+  "Koraidon e Miraidon",
+  "Basculegion maschio e femmina",
+  "Polteageist e Sinistcha",
+  "Roaring Moon e Iron Valiant",
+  "Slither Wing e Iron Moth"
+ ],
+ "stato_coppie": "tutte non cominciate, icona grigia nelle foto 4-9"
+}

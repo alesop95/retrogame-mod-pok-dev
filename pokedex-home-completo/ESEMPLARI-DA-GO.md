@@ -20,7 +20,7 @@ Dal 2026-11-23, su richiesta del proprietario, il conto si tiene qui per ogni mo
 | Movimento atteso | Variazione | Totale atteso dopo | Chi agisce | Stato al 2026-11-23 |
 |---|---|---|---|---|
 | liberazione dei 996 vecchi dell'elenco di `tools/elenco-da-liberare.py` | -996 | 6896 | proprietario | cominciata il 2026-11-24, elenco ristampato il 2026-11-25 con i totali da 7892 |
-| giro 17 di chiusura (ADR-142, ADR-143, ADR-144) | +665 | 8557 prima della liberazione, 7558 dopo quella dei 996 e dei tre vecchi «ウッツ?» | proprietario, dal punto 1 di «Giro 17» | copia pronta dal 2026-11-26 |
+| giro 17 di chiusura (ADR-142, ADR-143, ADR-144) | +665 | 8557 prima della liberazione, 7558 dopo quella dei 996 e dei tre vecchi «ウッツ?» | proprietario | in HOME dal 2026-11-26, 8557 dalla foto |
 | 10ANNI veri di Verde Foglia al posto dei generati identici (ADR-136) | 0 | invariato | proprietario | i veri sono già in HOME da HOME6 (ADR-140); da decidere se liberare i generati italiani di HOME1 |
 | lotto di Verde Foglia, PUCCETTO per primo | +359 | 7825 | proprietario con l'agente | FATTO il 2026-11-24, giro 15 |
 | Pokémon catturati in GO il 2026-11-21 e 2026-11-22 (96, elenco in `_notes/fonti/raccolte/go-catture-2026-11-21-22/catture.md`) | +1 per ciascuno mandato | +k | proprietario | da dire quali e quanti si mandano |

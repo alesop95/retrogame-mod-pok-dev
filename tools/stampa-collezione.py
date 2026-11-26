@@ -165,7 +165,8 @@ STATO_GRUPPO = {"HOME1": ("DSstatoinhome", "in HOME"), "HOME2": ("DSstatoinhome"
                 "RIDATA1": ("DSstatoinhome", "in HOME"),  # il giro 13 dal 2026-11-16, HOME a 7221 (ADR-126)
                 "DIAMANTE1": ("DSstatoinhome", "in HOME"),  # il giro 14 dal 2026-11-17, HOME a 7466 prima di liberare (ADR-130)
                 "VERDEFOGLIA1": ("DSstatoinhome", "in HOME"),  # il giro 15 dal 2026-11-24, HOME a 7825 prima di liberare (ADR-140)
-                "ZAFFIRO1": ("DSstatoinhome", "in HOME")}  # il giro 16 dal 2026-11-25, HOME a 7892 prima di liberare (ADR-141)
+                "ZAFFIRO1": ("DSstatoinhome", "in HOME"),  # il giro 16 dal 2026-11-25, HOME a 7892 prima di liberare (ADR-141)
+                "GIRO17": ("DSstatoinhome", "in HOME")}  # il giro 17 dal 2026-11-26, HOME a 8557 prima di liberare (ADR-142, ADR-143, ADR-144)
 
 
 # Gli esemplari che il gioco non lascia uscire dalla console anche se la libreria li giudica conformi nel loro gioco: il
@@ -260,6 +261,8 @@ COMUNITA = [os.path.join(RADICE, "_notes", "lotti", "lotto-rng-comunita", "rappo
             os.path.join(RADICE, "_notes", "lotti", "lotto-jeremy-2004-b", "rapporto.json"),
             os.path.join(RADICE, "_notes", "lotti", "lotto-daisuki-club", "rapporto.json"),
             os.path.join(RADICE, "_notes", "lotti", "lotto-daisuki-club-b", "rapporto.json"),
+            # i tre di ウッツー rifatti per il giro 17 (ADR-144, 2026-11-26)
+            os.path.join(RADICE, "_notes", "lotti", "lotto-daisuki-club-c", "rapporto.json"),
             os.path.join(RADICE, "_notes", "lotti", "lotto-ranch-lingue-2", "rapporto.json"),
             os.path.join(RADICE, "_notes", "lotti", "lotto-ranch-lingue-2-shellos", "rapporto.json"),
             os.path.join(RADICE, "_notes", "lotti", "lotto-channel-sicuro", "rapporto.json"),

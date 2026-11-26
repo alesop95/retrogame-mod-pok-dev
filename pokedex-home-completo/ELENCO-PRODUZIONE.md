@@ -20,7 +20,7 @@
 
 Voci da produrre: 4, più 50 mosse. Esemplari stimati con la fusione delle voci compatibili: 4. Tetto, una voce un esemplare e una mossa un esemplare: 54. La stima non chiede alla libreria se una fusione sia legale, e può quindi essere ottimista; il tetto non lo è.
 
-I posti di HOME sono 9000. Con le 5253 copie già fatte e il tetto di 2371 statici di ADR-106, che si sovrappone in parte agli altri esemplari unici e alle sfide, la stima porta a 7628 posti e il tetto a 7678. Restano rispettivamente 1372 e 1322 posti per il lavoro su Switch dopo Bank.
+I posti di HOME sono 9000. Con le 8666 copie già fatte e il tetto di 0 statici di ADR-106, che si sovrappone in parte agli altri esemplari unici e alle sfide, la stima porta a 8670 posti e il tetto a 8720. Restano rispettivamente 330 e 280 posti per il lavoro su Switch dopo Bank.
 
 Le coperture degli assi sono misurate sul gioco d'origine, sull'incontro di scambio, su un incontro non selvatico, sul livello, sul sesso e sulla forma di Alola, secondo l'asse. Le altre forme dell'asse del sesso e della forma, scritte in inglese nel foglio, e le stelle del Master Dex non hanno un campo corrispondente nelle copie e sono contate tutte da produrre.
 

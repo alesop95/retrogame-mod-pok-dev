@@ -67,6 +67,20 @@ GIRO15_VERDEFOGLIA = 359
 # Il giro 16, ZAFFIRO1 (ADR-140, ADR-141), è entrato in HOME il 2026-11-25, prima della liberazione: foto del
 # proprietario con 7892, cioè 7825 più 67.
 GIRO16_ZAFFIRO = 67
+# Il giro 17, GIRO17 (ADR-142, ADR-143, ADR-144), è entrato in HOME il 2026-11-26, prima della liberazione: foto del
+# proprietario con 8557, cioè 7892 più 665.
+GIRO17_CHIUSURA = 665
+# Da liberare anche fuori dalla ridatazione (ADR-144): i tre Pokémon dello staff del Daisuki Club passati il 2026-11-07
+# con l'allenatore «ウッツ?», perché la libreria scriveva «?» al posto del trattino largo della fonte. I sostituti, con
+# «ウッツー» e le date degli scambi GTS, sono nel giro 17. In HOME il vecchio sta sotto «Bank 19», il nuovo sotto «Bank 23».
+ALTRI_DA_LIBERARE = [
+    {"specie": "129 Magikarp", "sesso": "F", "livello": 5, "allenatore": "ウッツ?", "id": "01256", "data": "2026-11-07",
+     "copia": "HOME9", "box": 19, "posto": 6, "sostituto": "Bank 23, GIRO17 box 23 posto 3, ウッツー, maschio, data 2013-02-20"},
+    {"specie": "420 Cherubi", "sesso": "F", "livello": 1, "allenatore": "ウッツ?", "id": "43393", "data": "2026-11-07",
+     "copia": "HOME9", "box": 19, "posto": 11, "sostituto": "Bank 23, GIRO17 box 23 posto 5, ウッツー, data 2012-05-02"},
+    {"specie": "214 Heracross", "sesso": "M", "livello": 38, "allenatore": "ウッツ?", "id": "43393", "data": "2026-11-07",
+     "copia": "HOME9", "box": 19, "posto": 22, "sostituto": "Bank 23, GIRO17 box 23 posto 4, ウッツー, data 2011-09-07"},
+]
 
 _s = importlib.util.spec_from_file_location("cdi", os.path.join(QUI, "controlla-date-incontro.py"))
 cdi = importlib.util.module_from_spec(_s)
@@ -117,7 +131,8 @@ def componi():
     dopo14 = dopo13 + GIRO14_DIAMANTE
     dopo15 = dopo14 + GIRO15_VERDEFOGLIA
     dopo16 = dopo15 + GIRO16_ZAFFIRO
-    finale = dopo16 - len(sostituzioni)
+    dopo17 = dopo16 + GIRO17_CHIUSURA
+    finale = dopo17 - len(sostituzioni) - len(ALTRI_DA_LIBERARE)
     o = ["# Esemplari da liberare in HOME dopo i giri 12 e 13", "",
          "> Documento generato da `tools/elenco-da-liberare.py --stampa`, insieme al PDF accanto. Non si modifica a mano e non si tiene: si rigenera. Il legame fra esemplare vecchio e nuovo sta in `pokedex-home-completo/data/sostituzioni-ridata.json`.", "",
          "Ogni voce è un esemplare già in HOME con la data di incontro fuori dalla finestra dell'evento (ADR-126). Il suo sostituto è uguale in tutto, specie, sesso, livello, sfera, natura, abilità, mosse, allenatore, lingua e statistiche, salvo la data di incontro, e arriva in HOME con i giri 12 (RIDATA2, Ultraluna) e 13 (RIDATA1, Rubino Omega). Si libera solo dopo che entrambi i giri sono passati: se un sostituto non arrivasse, il vecchio sarebbe ancora lì.", "",
@@ -130,17 +145,18 @@ def componi():
          "| Dopo il giro 14 (DIAMANTE1, %d esemplari, entrato prima della liberazione) | %d |" % (GIRO14_DIAMANTE, dopo14),
          "| Dopo il giro 15 (VERDEFOGLIA1, %d esemplari, entrato prima della liberazione) | %d |" % (GIRO15_VERDEFOGLIA, dopo15),
          "| Dopo il giro 16 (ZAFFIRO1, %d esemplari, entrato prima della liberazione) | %d |" % (GIRO16_ZAFFIRO, dopo16),
-         "| Dopo la liberazione di tutte le %d voci | %d |" % (len(sostituzioni), finale), "",
-         "Il totale cresce di %d rispetto a prima dei giri: sono i due Jirachi cromatici, che non sostituiscono nessuno, i %d di Diamante, i %d di Verde Foglia e i %d di Zaffiro." % (finale - HOME_OGGI, GIRO14_DIAMANTE, GIRO15_VERDEFOGLIA, GIRO16_ZAFFIRO), "",
+         "| Dopo il giro 17 (GIRO17, %d esemplari, entrato prima della liberazione) | %d |" % (GIRO17_CHIUSURA, dopo17),
+         "| Dopo la liberazione di tutte le %d voci | %d |" % (len(sostituzioni) + len(ALTRI_DA_LIBERARE), finale), "",
+         "Il totale cresce di %d rispetto a prima dei giri: sono i due Jirachi cromatici, che non sostituiscono nessuno, i %d di Diamante, i %d di Verde Foglia, i %d di Zaffiro e i %d del giro 17, meno i %d di «ウッツ?»." % (finale - HOME_OGGI, GIRO14_DIAMANTE, GIRO15_VERDEFOGLIA, GIRO16_ZAFFIRO, GIRO17_CHIUSURA, len(ALTRI_DA_LIBERARE)), "",
          "## Riepilogo per etichetta, nell'ordine di liberazione", "",
          "| Etichetta | Voci | Totale prima | Totale dopo |", "|---|---|---|---|"]
-    totale = dopo16
+    totale = dopo17
     for box in sorted(per_etichetta):
         n = len(per_etichetta[box])
         o.append("| Bank %d | %d | %d | %d |" % (box, n, totale, totale - n))
         totale -= n
     numero = 0
-    totale = dopo16
+    totale = dopo17
     for box in sorted(per_etichetta):
         voci = per_etichetta[box]
         o += ["", "## Etichetta Bank %d" % box, "",
@@ -155,6 +171,12 @@ def componi():
                 s["allenatore"].replace("|", "/"), s["lingua"], s["luogo"], s["gioco_vecchio"],
                 s["data_vecchia"], s["box_nuovo"], s["data_nuova"], s["gruppo_nuovo"], s["box_nuovo"], s["posto_nuovo"],
                 s["gruppo_vecchio"], s["box_vecchio"], s["posto_vecchio"]))
+    o += ["", "## Da liberare per l'allenatore «ウッツ?» (ADR-144)", "",
+          "Voci: %d. HOME prima: %d; dopo: %d." % (len(ALTRI_DA_LIBERARE), totale, totale - len(ALTRI_DA_LIBERARE)), ""]
+    for a in ALTRI_DA_LIBERARE:
+        numero += 1
+        o.append("- [ ] %d. %s %s, livello %d; allenatore %s, ID %s; data %s; sotto «Bank %d» (copia %s, box %d, posto %d). Sostituto: %s." % (
+            numero, a["specie"], SESSO[a["sesso"]], a["livello"], a["allenatore"], a["id"], a["data"], a["box"], a["copia"], a["box"], a["posto"], a["sostituto"]))
     o += ["", "## Esemplari nuovi che non sostituiscono nessuno", ""]
     for gruppo, e in aggiunti:
         o.append("- %s %s cromatico, allenatore %s, ID %s, %s, giro %d: copia %s, box %d, posto %d." % (
@@ -165,7 +187,7 @@ def componi():
     return {"md": "\n".join(o), "json": json.dumps(sostituzioni, ensure_ascii=False, indent=1) + "\n",
             "esiti": json.dumps(esiti, ensure_ascii=False, indent=1, sort_keys=True) + "\n",
             "n": len(sostituzioni), "per_etichetta": per_etichetta, "aggiunti": aggiunti,
-            "totali": (HOME_OGGI, dopo12, dopo16, finale), "per_copia": per_copia}
+            "totali": (HOME_OGGI, dopo12, dopo17, finale), "per_copia": per_copia}
 
 
 def tex(testo):
@@ -221,7 +243,7 @@ def pdf(c):
 \pagestyle{plain}
 \newcommand{\V}[1]{\par\hangindent=4mm\hangafter=1\noindent$\square$\,#1\par}
 \begin{document}
-{\DStitoli\bfseries\fontsize{15}{18}\selectfont\color{DSrosso} Da liberare in HOME}\hfill{\DSdati\small %(n)d esemplari \textbullet\ HOME con Diamante, Verde Foglia e Zaffiro, prima di liberare: \textbf{%(d13)d} \textbullet\ a liberazione finita: \textbf{%(fin)d}}\par\smallskip
+{\DStitoli\bfseries\fontsize{15}{18}\selectfont\color{DSrosso} Da liberare in HOME}\hfill{\DSdati\small %(n)d esemplari \textbullet\ HOME con Diamante, Verde Foglia, Zaffiro e il giro 17, prima di liberare: \textbf{%(d13)d} \textbullet\ a liberazione finita: \textbf{%(fin)d}}\par\smallskip
 {\footnotesize\textbf{Come si libera in sicurezza.} 1) In HOME scegli l'etichetta \textbf{Bank N} del riquadro e cerca la specie. 2) Apri la scheda: allenatore, ID e livello devono essere quelli della riga, e la data di incontro (\emph{fateful encounter on\dots}) deve essere la \textbf{data da liberare}. 3) Solo allora libera. Dopo la freccia ci sono l'etichetta e la data del sostituto, identico salvo la data: una scheda con quella data è il sostituto e non si tocca. Dove è scritto \textbf{stessa data}, vecchio e sostituto differiscono solo per il gioco d'origine e decide l'etichetta: si libera quello sotto la Bank del riquadro. Le date sono scritte come le mostra HOME, mese/giorno/anno. Un \textbf{\texttimes 2} significa due esemplari identici nella stessa etichetta: si liberano entrambi. $\bigstar$ = cromatico.}\par\smallskip
 \hrule\smallskip
 \begin{multicols}{2}\footnotesize
@@ -250,6 +272,11 @@ def pdf(c):
                 r"{\bfseries\texttimes%d}\ " % len(ss) if len(ss) > 1 else "",
                 tex(specie), tex(" " + forma) if forma else "", " " + SESSO.get(sesso, "") if sesso else "",
                 r" $\bigstar$" if crom else "", liv, tex(nome), ident, data_home(dv), dove))
+    t.append(r"\par\smallskip{\setlength{\fboxsep}{1pt}\colorbox{DSgiallo!35}{\parbox{\linewidth}{\DStitoli\bfseries\small Bank 19, allenatore ウッツ?\hfill{\DSdati\scriptsize %d voci \textbullet\ HOME da %d a %d}}}}\par\smallskip" % (
+        len(ALTRI_DA_LIBERARE), totale, totale - len(ALTRI_DA_LIBERARE)))
+    for a in ALTRI_DA_LIBERARE:
+        t.append(r"\V{{\bfseries %s} %s Lv%d \textbullet\ %s %s \hfill {\bfseries %s} $\rightarrow$ {\color{DSseppia}%s}}" % (
+            tex(a["specie"]), SESSO[a["sesso"]], a["livello"], tex(a["allenatore"]), a["id"], data_home(a["data"]), tex(a["sostituto"])))
     t.append(r"\end{multicols}")
     t.append(r"\end{document}")
     os.makedirs(USCITA_PDF, exist_ok=True)

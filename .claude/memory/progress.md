@@ -4,6 +4,40 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-26, quinta parte. Giro 17 in HOME a 8557; il controllo rifatto per allenatore e ID; le sfide degli scambi
+
+Il proprietario ha fatto i punti 15-17 e ha mandato 10 foto, lette e copiate in `_notes/fonti/consegne/2026-11-26-home-giro17-e-scambi/` con le impronte uguali; Telegram Desktop svuotata. HOME a 8557, cioè 7892 più 665. Nella scheda Pokémon delle sfide tutte quelle delle sfere, delle condizioni, della lucentezza e dei Ditto hanno l'icona d'oro e nessuna barra: `sfide-home-app-20261125.json` porta ora la soglia, e il valore di prima in `app_20261125`.
+
+Punto 18. Giudizio `dopo-20261126-giro17.json` di 19 copie: le 18 di prima identiche, GIRO17 665 conformi. GIRO17 «in HOME» in `stampa-collezione.py` e giudizio corrente in `tools/in_home.py`; storie del lotto `lotto-daisuki-club-c` fra quelle della comunità; pedigree `GIRO17.md` (665 righe, tutte con la storia; 1113 eventi con carta, tutti con il racconto); catalogo `HOME-COLLECTION.pdf` di 7525 esemplari; `DATE-INCONTRO.md` rigenerato; `elenco-da-liberare.py` con il giro 17 nei totali e i tre «ウッツ?» come voci 997-999 sotto «Bank 19», da 8557 a 7558. ROADMAP, COPIE-PER-HOME, ESEMPLARI-DA-GO e il runbook segnano il giro 17 in HOME.
+
+Il proprietario ha chiesto, con ragione e arrabbiato, quanto manchi davvero dopo le varianti emerse solo il 2026-11-25. Il controllo rifatto sul giudizio nuovo ha mostrato tre difetti di misura, corretti (ADR-145). `--varianti-gen3` dava mancanti 3 Salamence di New York che sono nel giro 17, perché pretendeva Volo, la MN che si toglie prima di Poké Transfer: ora le MN si ignorano, 422 su 424 con 2 gemelli. La misura degli eventi raggruppava per carta: la modalità nuova `--varianti-carte` conta per allenatore e ID, 1528 su 1528 (prova a rovescio su una copia sola: 1498 mancanti); il Tapu Fini Poni 190524, che avevo creduto mancante leggendo Serebii, è in HOME in più copie. `elenco-produzione.py` non era nel controllo e saltava in silenzio tre copie rinominate, dando 232 voci invece di 4: ora legge le copie in HOME e si ferma se ne manca una, e i posti non sommano più due volte gli statici. Il controllo (`CONTROLLO-PRIMA-DI-BANK.md`) ha il verdetto calcolato: tutte le misure complete; fuori dalle misure le sfide degli scambi e la ridatazione dei 1964.
+
+Le sfide degli scambi, mai misurate: registro `sfide-home-scambi-20261126.json` da Bulbapedia e dalle foto; 20 coppie con entrambe le metà nei giochi del 3DS, 24 con una, 7 della sola Switch. Serebii, letta da un subagente, non dice come si completa una sfida di coppia. Doni di HOME: la lista di Bulbapedia letta dall'API (revisione 4673322), cinque doni giapponesi in più in `DONI-HOME.md`, registrata in `SOURCES.md`. Restano dell'agente Verde Foglia al 100% e il foglio dell'Azienda Lotta, che attende BPark16.
+
+Subagent partiti: 1, per leggere la pagina delle sfide di Serebii.
+
+**Didattica:** nessuna, lavoro operativo e correzioni di misura senza una scelta architetturale nuova.
+
+**Template:** nessuna.
+
+## 2026-11-26, quarta parte. Giro 17, punti 5-14; perché le varianti di terza generazione sono emerse solo adesso
+
+Il proprietario ha fatto i punti 5-12. Punto 13: `20261126-rilett17/main` ha SHA-256 `0d5f5388…`, uguale alla copia. Punto 14: `pkhex-elenco-copie` sulla SD (`_notes/lavoro/giudizi-copie/rilettura-passo2-giro17.json`): `rilett17` 665 esemplari, 665 conformi, nessun cromatico, e l'insieme di box, posto, PID, specie, allenatore e sfera coincide con `giro17-20261126.json`; `prima17` (SHA-256 `e40ff019…`) ha i box vuoti. Le due cartelle sono state aggiunte a entrambe le riserve e `J:/backup-sd-3ds/sd-20261126.sha256` ne ha 65 righe, verificate su E: e su J:.
+
+Il proprietario ha chiesto perché solo adesso siano emersi lotti mai considerati, oltre alle sfide dell'app. Sono due cose. Le 310 varianti d'allenatore: ADR-118 le vuole tutte dal 2026-11-06, ma ogni misura di copertura fino al 2026-11-25 contava gli eventi per carta o per specie e allenatore dei pedigree, e la libreria genera questi doni con un nome solo, quindi un dono con un solo nome risultava coperto; il conto per nome valido (`Distribution3JPN.cs`, `Distribution3NY.cs`) è nato solo con `pkhex-produci-elenco --varianti-gen3` nel controllo di ADR-142. È un errore di perimetro della misura dell'agente, non un fatto nuovo. I 3 di ウッツー sono un difetto di scrittura dei caratteri, trovato per caso rifacendo i casi di Serebii (ADR-144). Il controllo di ADR-142 rifà tutte le misure sullo stesso giudizio, ma vede solo ciò per cui ogni misura è scritta: una variante che nessuna misura distingue resterebbe invisibile anche lì.
+
+**Didattica:** nessuna, lavoro operativo e correzioni di misura senza una scelta architetturale nuova.
+
+**Template:** nessuna.
+
+## 2026-11-26, terza parte. Giro 17, punti 1-4
+
+Il proprietario ha lanciato `chiudi` (commit `b9a6474`, controlli verdi) e ha messo la SD nel PC come `I:`. Punto 3: le 63 partite di `/3ds/Checkpoint/saves/` copiate in `_notes/salvataggi/console/sd-checkpoint-20261126/` e in `J:/backup-sd-3ds/20261126/`, con gli SHA-256 in `J:/backup-sd-3ds/sd-20261126.sha256` presi sulla SD, ricontrollati su entrambe le copie senza differenze. Punto 4: cartella `20261126-giro17` sotto `0x01B51 Pokémon Ultra Moon` con `main`, 445440 byte, riletta dalla SD con SHA-256 `0d5f5388f6736aca51df23a97c722ee6672159d83e07ab536cb4a15f178251c1`, uguale alla copia. Prossimo: il proprietario dal punto 5.
+
+**Didattica:** nessuna, lavoro operativo e correzioni di misura senza una scelta architetturale nuova.
+
+**Template:** nessuna.
+
 ## 2026-11-26, seconda parte. I sette casi di Serebii rifatti: un difetto nostro, il giro 17 a 665
 
 Il proprietario ha chiesto che cosa avessimo messo in HOME per le sette differenze lasciate fuori dalla bozza, di controllare il Darkrai e di cercare un contatto di Serebii; le Alfa di Z-A le prende quando Bank è finita. `chiudi` non era ancora stato lanciato, quindi il giro ha continuato a scrivere e la proposta si rifà alla fine.

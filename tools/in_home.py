@@ -12,7 +12,7 @@ import os
 QUI = os.path.dirname(os.path.abspath(__file__))
 RADICE = os.path.dirname(QUI)
 # il giudizio di tutte le copie dopo l'ultimo giro passato a HOME: si aggiorna al punto 18 di ogni giro
-GIUDIZIO_CORRENTE = os.path.join(RADICE, "_notes", "lavoro", "giudizi-copie", "dopo-20261125-zaffiro.json")
+GIUDIZIO_CORRENTE = os.path.join(RADICE, "_notes", "lavoro", "giudizi-copie", "dopo-20261126-giro17.json")
 
 _s = importlib.util.spec_from_file_location("stampa_collezione", os.path.join(QUI, "stampa-collezione.py"))
 _sc = importlib.util.module_from_spec(_s)
