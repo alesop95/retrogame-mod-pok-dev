@@ -29,8 +29,8 @@ Le coperture degli assi sono misurate sul gioco d'origine, sull'incontro di scam
 | Specie | Forma | Giochi d'origine | Sfera | Cromatico | Voci chiuse |
 |---|---|---|---|---|---|
 | 151 Mew |  | qualunque | Cura Ball |  | Mew in Cura Ball, da Rosso Fuoco e Verde Foglia giapponesi |
-| 466 Electivire |  | D, P, Pt |  |  | Electivire al livello 15.0, DPPt  |
-| 467 Magmortar |  | D, P, Pt |  |  | Magmortar al livello 14.0, DPPt  |
+| 466 Electivire |  | D, HG, P, Pt, SS |  |  | Electivire al livello 15.0, DPPt  |
+| 467 Magmortar |  | D, HG, P, Pt, SS |  |  | Magmortar al livello 14.0, DPPt  |
 | da scegliere |  | X, Y |  |  | Any Pokémon, XY: In Anistar City, an old man requests that you give him a Pokémon for him to take |
 
 ## Le voci che si completano su Switch, dopo Bank (ADR-110)

@@ -66,7 +66,8 @@ RAPPORTI_PRODUZIONE = ["lotto-elenco-produzione", "lotto-elenco-produzione/vc-ri
                        "lotto-elenco-produzione/giro-2", "lotto-elenco-produzione/giro-3", "lotto-elenco-produzione/giro-3-raichu",
                        "lotto-elenco-produzione/giro-4", "lotto-elenco-produzione/giro-5", "lotto-elenco-produzione/giro-6",
                        "lotto-elenco-produzione/giro-7", "lotto-elenco-produzione/giro-8", "lotto-elenco-produzione/giro-9",
-                       "lotto-elenco-produzione/giro-9-giallo", "lotto-elenco-produzione/giro-10", "lotto-elenco-produzione/giro-12", "lotto-elenco-produzione/giro-14", "lotto-elenco-produzione/giro-15"]
+                       "lotto-elenco-produzione/giro-9-giallo", "lotto-elenco-produzione/giro-10", "lotto-elenco-produzione/giro-12", "lotto-elenco-produzione/giro-14", "lotto-elenco-produzione/giro-15",
+                       "lotto-livelli-minimi-hgss"]  # ADR-147: Electivire 15 e Magmortar 14 da HeartGold, per il giro 18
 # ADR-106, tools/pkhex-conta-incontri: 2371 era il tetto degli statici ancora da fare il 2026-11-05; dal giro 10 sono nelle
 # copie, quindi dal 2026-11-26 non si sommano una seconda volta alle copie fatte.
 TETTO_STATICI = 0
@@ -308,6 +309,12 @@ def raccogli():
             # Ultraluna ogni Raticate selvatico e' di Alola; i Prati Ondulati con la pioggia sono di Spada, non di Rubino
             # Omega, quindi Nuzleaf e Shiftry di livello 7 sono voci per Switch
             forma_lm = 1 if (n == 20 and "USUM" in r[4]) else 0
+            # Correzione misurata il 2026-11-26 (ADR-147): l'Electabuzz di livello 15 e il Magmar di livello 14 sono
+            # selvatici di HeartGold e SoulSilver (Percorso 10 e luogo 206 della libreria), non di DPPt; il foglio scrive
+            # DPPt perche' Electivire e Magmortar nascono da un'evoluzione per scambio di quarta generazione. La misura
+            # del 2026-11-05 aveva letto le sole tabelle di DPPt e le aveva dichiarate impossibili.
+            if n in (466, 467) and g == CODICI["DPPt"]:
+                g = CODICI["DPPt"] | CODICI["HGSS"]
             gioco_lm = "SwSh (Rolling Fields; il foglio scrive %s)" % r[4].strip() if "Rolling Fields" in r[7] or (n == 275 and lv == 7) else r[4]
             voci.append(voce("asse livelli minimi", "%s al livello %s, %s" % (nomi.get(n, r[1]), r[5], gioco_lm), n, forma_lm, g,
                              unico=True, livello_max=lv, coperta=presente(n, g, lambda x: x["livello"] <= lv)))

@@ -4,6 +4,14 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-26, settima parte. Electivire 15 e Magmortar 14 da HeartGold, i tre in più da liberare
+
+Il proprietario ha fatto `chiudi` (`6ab17c9`) e ha chiesto da dove vengano Electivire 15, Magmortar 14 e il Mew in Cura Ball, e quali siano i 3 in più fra le 999 voci da liberare e le 996 del foglio stampato. Origine: scheda dei livelli minimi del foglio «Bank Closing» (righe 100 e 101 di `asse-livelli-minimi.csv`, colonna DPPt) e scheda «Unique Ball Matching», «Type Match», per il Mew. Una sonda della libreria su tutti i giochi che arrivano in quarta generazione trova l'Electabuzz selvatico al livello 15 (luogo 158, Percorso 10) e il Magmar al 14 (luogo 206) in HeartGold e SoulSilver: ADR-116 aveva letto le sole tabelle di DPPt. Correzione in `tools/elenco-produzione.py`, produzione con `pkhex-produci-elenco`, 2 su 2 conformi, lotto `lotto-livelli-minimi-hgss`; vanno nel giro 18 (ADR-147). La voce di Batikopoli chiede l'affetto al massimo, che il formato di HOME nella libreria non porta. Controllo prima di Bank rigenerato con il testo corretto. I 3 in più sono i «ウッツ?» di ADR-144, voci 997-999; la riga delle pendenze del proprietario diceva ancora 996 e i totali del giro 14, corretta.
+
+**Didattica:** nessuna, correzione di una misura senza una scelta architetturale nuova.
+
+**Template:** L-018
+
 ## 2026-11-26, sesta parte. Ogni obbligo delle decisioni misurato: per Bank resta solo il giro 18 degli scambi
 
 Il proprietario ha fatto `chiudi` (`0c96dd2`), ha detto che il dettaglio delle sfide di coppia nell'app non spiega niente e che i contatori sono GTS 29/50 e Scatola Magica 30/50, e ha chiesto di controllare una volta per tutte che non ci sia altro da generare. Ricognizione delle decisioni da ADR-106 ad ADR-145 e misura sul giudizio corrente di quelle che nessuno strumento rifaceva: statici (`--statici`, 1460 gruppi, residuo 0 dopo i gemelli per specie, gioco e livello, i 112 doni dell'epoca Game Boy e i 22 esclusi di ADR-119), mosse (50 assenti, tutte Z o non imparabili sul 3DS), abilità, cromatici bloccati (Tipo Zero cromatico in HOME7 box 13 posto 13), Kyogre di blisy, marchio Game Boy. Tutto presente. `controllo-prima-di-bank.py` le misura a ogni corsa e porta la tabella degli obblighi delle decisioni (ADR-146). Registro degli scambi aggiornato: giro 18 stimato a 91 esemplari, entrambe le metà delle coppie del 3DS.
