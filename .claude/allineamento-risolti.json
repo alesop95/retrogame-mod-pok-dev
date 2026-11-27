@@ -61,6 +61,11 @@
     "il": "2026-11-05",
     "locale_sha256_lf": "c4c4fcf430270fd0ee8d2f3e1ac43a8cf7cd9af1aee4002414147fb0d831bf1d"
   },
+  "tools/test-tipografia.py": {
+    "testa": "c419007261a09eb2c9e64af0e29a048dc45664f3",
+    "il": "2026-11-27",
+    "locale_sha256_lf": "51c0cd985bed5641fa8bcfc8ca49d2dd78e718a1307ed32c7ef71efb13995657"
+  },
   "tools/vtt-to-text.py": {
     "testa": "11df9176c9d2e16d85268cc7472caabd8aca18fa",
     "il": "2026-11-05",
