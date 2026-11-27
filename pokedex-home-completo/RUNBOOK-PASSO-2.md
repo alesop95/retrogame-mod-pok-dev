@@ -491,6 +491,35 @@ Scritto il 2026-11-26 per ADR-142, ADR-143 e ADR-144: l'ultimo giro che deve pas
 
 Stato al 2026-11-26: punti 1-14 FATTI. Riserve della SD in `sd-checkpoint-20261126` e `J:/backup-sd-3ds/20261126/`. Punto 13: `20261126-rilett17/main` ha SHA-256 `0d5f5388…`, uguale alla copia. Punto 14: giudizio in `_notes/lavoro/giudizi-copie/rilettura-passo2-giro17.json`: `rilett17` 665 esemplari, 665 conformi, nessun cromatico, stessi posti, PID, specie, allenatori e sfere di `giro17-20261126.json`; `prima17` (SHA-256 `e40ff019…`) con i box vuoti. `prima17` e `rilett17` sono nelle due riserve. Punti 15-17 FATTI dal proprietario lo stesso giorno: HOME a 8557 (foto), le sfide delle sfere, delle condizioni, della lucentezza e dei Ditto d'oro; foto in `_notes/fonti/consegne/2026-11-26-home-giro17-e-scambi/`. Punto 18 FATTO: giudizio `dopo-20261126-giro17.json` (19 gruppi, i 18 di prima identici, GIRO17 665 conformi), GIRO17 «in HOME», pedigree `GIRO17.md`, catalogo di 7525 esemplari, elenco da liberare a 999 voci (996 più i tre «ウッツ?»), da 8557 a 7558.
 
+## Giro 18
+
+Scritto il 2026-11-27 per ADR-146 e ADR-147. Porta due cose diverse, e la differenza conta quando sono in HOME. I primi 91 sono copie fatte solo per essere date via con gli scambi dell'app di HOME, non Pokémon della collezione: tutti di Ultrasole e Ultraluna, nati da uova o presi fissi, allenatore del progetto, livello 1 o 60. Gli ultimi 2 sono Pokémon della collezione e restano: Electivire al livello 15 e Magmortar al livello 14 di HeartGold, le voci dei livelli minimi del foglio «Bank Closing» (ADR-147). Gli esemplari degli scambi sono prodotti da `pkhex-produci-elenco` con l'elenco `_notes/lotti/lotto-scambi-giro18/elenco-giro18.json`, lotto `_notes/lotti/lotto-scambi-giro18/`; i due della collezione sono nel lotto `_notes/lotti/lotto-livelli-minimi-hgss/`. La copia è `_notes/salvataggi/prove/per-home/ultraluna-giro-18/main`, sulla copia del giro 17 svuotata, con `--svuota --regione-dal-salvataggio --data-poke-transfer`: 93 Pokémon, 445440 byte, SHA-256 `f8acd0265727a62af74cf2e84e6e4d5ddc048e3dfd45134dd4a6d6fc7bbbc774`, riletti senza differenze e giudicati 93 conformi, nessun cromatico (`_notes/lavoro/giudizi-copie/giro18-20261127.json`). La partita che Ultraluna ha adesso è quella del giro 17 dopo il passaggio alla banca, con i box vuoti: è giusto che la riserva `prima18` del punto 7 sembri vuota.
+
+Come stanno nei box. Box 1 e box 2 posti 1-10: le 20 coppie con entrambe le metà, una accanto all'altra, nell'ordine Cranidos e Shieldon, Electivire e Magmortar, Gardevoir e Gallade, Glalie e Froslass, Hitmonlee e Hitmonchan, Latias e Latios, Lunatone e Solrock, Meowstic maschio e femmina, Nidoqueen e Nidoking, Nidorino e Gengar, Pikachu e Mimikyu, Pinsir e Heracross, Plusle e Minun, Staryu e Luvdisc, Throh e Sawk, Voltorb e Foongus, Vulpix e Vulpix di Alola, Gastrodon Mare Ovest e Mare Est, Zangoose e Seviper, e due Magikarp per «lo stesso Pokémon due volte». Box 2 posti 11-30 e box 3 posti 1-4: le 24 metà del 3DS delle coppie con l'altra metà su Switch, da Arcanine a Zoroark in ordine alfabetico inglese. Box 3 posti 5-30 e box 4 posto 1: 27 Pokémon, 24 di Alola e Zubat, Tentacool e Goldeen, per i contatori del GTS, della Scatola Magica e degli scambi in stanza. Box 4 posti 2 e 3: Electivire e Magmortar della collezione, che non si scambiano.
+
+1. Proprietario: spegni il 3DS del tutto.
+2. Proprietario: SD nel PC, lettera `I:`, e dimmelo.
+3. Agente: copia di `/3ds/Checkpoint/saves/` nelle due riserve, con lo SHA-256 di ogni file.
+4. Agente: cartella `20261127-giro18` di Pokémon Ultra Moon con la copia di nome `main`, riletta dalla SD.
+5. Proprietario: espelli la SD e rimettila nel 3DS.
+6. Proprietario: avvia Checkpoint.
+7. Proprietario: scegli Pokémon Ultra Moon, Backup, nome `20261127-prima18`. È la partita com'è adesso. Non si rifà e non si cancella.
+8. Proprietario: seleziona `20261127-giro18`, Restore, conferma.
+9. Proprietario: avvia Ultraluna senza salvare e controlla: box 1 posto 1 Cranidos livello 1; box 1 posto 11 Latias livello 60; box 2 posto 10 Magikarp livello 1; box 4 posto 2 Electivire livello 15; box 4 posto 3 Magmortar livello 14; box da 1 a 3 pieni, box 4 con i posti da 1 a 3, box 5 vuoto.
+10. Proprietario: esci senza salvare.
+11. Proprietario: Checkpoint, Pokémon Ultra Moon, Backup, nome `20261127-rilett18`.
+12. Proprietario: spegni, SD nel PC, e dimmelo.
+13. Agente: SHA-256 di `20261127-rilett18/main` uguale a quello della copia.
+14. Agente: giudizio della rilettura, 93 conformi negli stessi posti; `prima18` giudicata; `prima18` e `rilett18` nelle due riserve.
+15. Proprietario: SD nel 3DS.
+16. Proprietario: il passaggio alla banca e a HOME. Se qualcuno resta nei box, lascialo lì e dimmi box e posto, o mandami la foto del box.
+17. Proprietario: foto del totale di HOME, che è quello di prima più 93.
+18. Agente: la copia «in HOME» in `tools/stampa-collezione.py` per i soli Electivire e Magmortar, e l'elenco degli scambi da fare con i 91, sfida per sfida.
+
+Gli scambi, dopo il punto 17, sono del proprietario e si fanno in HOME, nella scheda «Trades»: ogni coppia si scambia per prima, una metà dopo l'altra, così che ogni scambio conti anche per il suo canale; poi i Pokémon dei contatori fino a 50 nel GTS, 50 nella Scatola Magica e 50 negli scambi in stanza. Se dopo la prima coppia l'icona della sfida resta grigia, fermati e dimmelo: vuol dire che la sfida chiede altro, e il resto delle coppie si ripensa prima di dare via altri Pokémon.
+
+Stato al 2026-11-27: copia pronta, punti 1-18 da fare.
+
 ## Dopo il giro 4
 
 La partita vera di Rubino Omega, `20260821-backsic`, resta fuori dalla console fino al passo 6. I giri successivi sono nella tabella in testa a `ROADMAP.md`: il 5 (HOME8, `oras-giro-5-carte-mn5`, 256) e il 6 (HOME9, `oras-giro-6-statici-eventi-4`, 695, di cui 689 in HOME e i sei Pikachu Cosplay rimasti in Rubino Omega) sono ancora di Rubino Omega e seguono questa procedura con i nomi del giorno; dal 7 si passa a Luna e Ultraluna, e al giro 8, il primo di Ultraluna, la copia di riserva di Checkpoint crea la cartella del gioco.

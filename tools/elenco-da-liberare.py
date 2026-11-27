@@ -73,6 +73,8 @@ GIRO17_CHIUSURA = 665
 # Da liberare anche fuori dalla ridatazione (ADR-144): i tre Pokémon dello staff del Daisuki Club passati il 2026-11-07
 # con l'allenatore «ウッツ?», perché la libreria scriveva «?» al posto del trattino largo della fonte. I sostituti, con
 # «ウッツー» e le date degli scambi GTS, sono nel giro 17. In HOME il vecchio sta sotto «Bank 19», il nuovo sotto «Bank 23».
+# I tre sono stati liberati dal proprietario il 2026-11-27, prima delle altre voci: foto con HOME a 8554, cioè 8557 meno 3.
+ALTRI_LIBERATI = "2026-11-27"
 ALTRI_DA_LIBERARE = [
     {"specie": "129 Magikarp", "sesso": "F", "livello": 5, "allenatore": "ウッツ?", "id": "01256", "data": "2026-11-07",
      "copia": "HOME9", "box": 19, "posto": 6, "sostituto": "Bank 23, GIRO17 box 23 posto 3, ウッツー, maschio, data 2013-02-20"},
@@ -133,6 +135,7 @@ def componi():
     dopo16 = dopo15 + GIRO16_ZAFFIRO
     dopo17 = dopo16 + GIRO17_CHIUSURA
     finale = dopo17 - len(sostituzioni) - len(ALTRI_DA_LIBERARE)
+    inizio = dopo17 - (len(ALTRI_DA_LIBERARE) if ALTRI_LIBERATI else 0)  # il totale da cui parte la liberazione delle etichette
     o = ["# Esemplari da liberare in HOME dopo i giri 12 e 13", "",
          "> Documento generato da `tools/elenco-da-liberare.py --stampa`, insieme al PDF accanto. Non si modifica a mano e non si tiene: si rigenera. Il legame fra esemplare vecchio e nuovo sta in `pokedex-home-completo/data/sostituzioni-ridata.json`.", "",
          "Ogni voce è un esemplare già in HOME con la data di incontro fuori dalla finestra dell'evento (ADR-126). Il suo sostituto è uguale in tutto, specie, sesso, livello, sfera, natura, abilità, mosse, allenatore, lingua e statistiche, salvo la data di incontro, e arriva in HOME con i giri 12 (RIDATA2, Ultraluna) e 13 (RIDATA1, Rubino Omega). Si libera solo dopo che entrambi i giri sono passati: se un sostituto non arrivasse, il vecchio sarebbe ancora lì.", "",
@@ -146,17 +149,18 @@ def componi():
          "| Dopo il giro 15 (VERDEFOGLIA1, %d esemplari, entrato prima della liberazione) | %d |" % (GIRO15_VERDEFOGLIA, dopo15),
          "| Dopo il giro 16 (ZAFFIRO1, %d esemplari, entrato prima della liberazione) | %d |" % (GIRO16_ZAFFIRO, dopo16),
          "| Dopo il giro 17 (GIRO17, %d esemplari, entrato prima della liberazione) | %d |" % (GIRO17_CHIUSURA, dopo17),
+         ] + (["| Dopo i %d «ウッツ?», liberati il %s | %d |" % (len(ALTRI_DA_LIBERARE), ALTRI_LIBERATI, inizio)] if ALTRI_LIBERATI else []) + [
          "| Dopo la liberazione di tutte le %d voci | %d |" % (len(sostituzioni) + len(ALTRI_DA_LIBERARE), finale), "",
          "Il totale cresce di %d rispetto a prima dei giri: sono i due Jirachi cromatici, che non sostituiscono nessuno, i %d di Diamante, i %d di Verde Foglia, i %d di Zaffiro e i %d del giro 17, meno i %d di «ウッツ?»." % (finale - HOME_OGGI, GIRO14_DIAMANTE, GIRO15_VERDEFOGLIA, GIRO16_ZAFFIRO, GIRO17_CHIUSURA, len(ALTRI_DA_LIBERARE)), "",
          "## Riepilogo per etichetta, nell'ordine di liberazione", "",
          "| Etichetta | Voci | Totale prima | Totale dopo |", "|---|---|---|---|"]
-    totale = dopo17
+    totale = inizio
     for box in sorted(per_etichetta):
         n = len(per_etichetta[box])
         o.append("| Bank %d | %d | %d | %d |" % (box, n, totale, totale - n))
         totale -= n
     numero = 0
-    totale = dopo17
+    totale = inizio
     for box in sorted(per_etichetta):
         voci = per_etichetta[box]
         o += ["", "## Etichetta Bank %d" % box, "",
@@ -172,10 +176,11 @@ def componi():
                 s["data_vecchia"], s["box_nuovo"], s["data_nuova"], s["gruppo_nuovo"], s["box_nuovo"], s["posto_nuovo"],
                 s["gruppo_vecchio"], s["box_vecchio"], s["posto_vecchio"]))
     o += ["", "## Da liberare per l'allenatore «ウッツ?» (ADR-144)", "",
-          "Voci: %d. HOME prima: %d; dopo: %d." % (len(ALTRI_DA_LIBERARE), totale, totale - len(ALTRI_DA_LIBERARE)), ""]
+          ("Voci: %d. Liberate il %s, prima delle etichette: HOME da %d a %d." % (len(ALTRI_DA_LIBERARE), ALTRI_LIBERATI, dopo17, inizio)
+           if ALTRI_LIBERATI else "Voci: %d. HOME prima: %d; dopo: %d." % (len(ALTRI_DA_LIBERARE), totale, totale - len(ALTRI_DA_LIBERARE))), ""]
     for a in ALTRI_DA_LIBERARE:
         numero += 1
-        o.append("- [ ] %d. %s %s, livello %d; allenatore %s, ID %s; data %s; sotto «Bank %d» (copia %s, box %d, posto %d). Sostituto: %s." % (
+        o.append(("- [x] " if ALTRI_LIBERATI else "- [ ] ") + "%d. %s %s, livello %d; allenatore %s, ID %s; data %s; sotto «Bank %d» (copia %s, box %d, posto %d). Sostituto: %s." % (
             numero, a["specie"], SESSO[a["sesso"]], a["livello"], a["allenatore"], a["id"], a["data"], a["box"], a["copia"], a["box"], a["posto"], a["sostituto"]))
     o += ["", "## Esemplari nuovi che non sostituiscono nessuno", ""]
     for gruppo, e in aggiunti:
@@ -187,7 +192,7 @@ def componi():
     return {"md": "\n".join(o), "json": json.dumps(sostituzioni, ensure_ascii=False, indent=1) + "\n",
             "esiti": json.dumps(esiti, ensure_ascii=False, indent=1, sort_keys=True) + "\n",
             "n": len(sostituzioni), "per_etichetta": per_etichetta, "aggiunti": aggiunti,
-            "totali": (HOME_OGGI, dopo12, dopo17, finale), "per_copia": per_copia}
+            "totali": (HOME_OGGI, dopo12, inizio, finale), "per_copia": per_copia}
 
 
 def tex(testo):
@@ -272,8 +277,8 @@ def pdf(c):
                 r"{\bfseries\texttimes%d}\ " % len(ss) if len(ss) > 1 else "",
                 tex(specie), tex(" " + forma) if forma else "", " " + SESSO.get(sesso, "") if sesso else "",
                 r" $\bigstar$" if crom else "", liv, tex(nome), ident, data_home(dv), dove))
-    t.append(r"\par\smallskip{\setlength{\fboxsep}{1pt}\colorbox{DSgiallo!35}{\parbox{\linewidth}{\DStitoli\bfseries\small Bank 19, allenatore ウッツ?\hfill{\DSdati\scriptsize %d voci \textbullet\ HOME da %d a %d}}}}\par\smallskip" % (
-        len(ALTRI_DA_LIBERARE), totale, totale - len(ALTRI_DA_LIBERARE)))
+    t.append(r"\par\smallskip{\setlength{\fboxsep}{1pt}\colorbox{DSgiallo!35}{\parbox{\linewidth}{\DStitoli\bfseries\small Bank 19, allenatore ウッツ?\hfill{\DSdati\scriptsize %d voci \textbullet\ %s}}}}\par\smallskip" % (
+        len(ALTRI_DA_LIBERARE), ("liberate il %s" % ALTRI_LIBERATI) if ALTRI_LIBERATI else ("HOME da %d a %d" % (totale, totale - len(ALTRI_DA_LIBERARE)))))
     for a in ALTRI_DA_LIBERARE:
         t.append(r"\V{{\bfseries %s} %s Lv%d \textbullet\ %s %s \hfill {\bfseries %s} $\rightarrow$ {\color{DSseppia}%s}}" % (
             tex(a["specie"]), SESSO[a["sesso"]], a["livello"], tex(a["allenatore"]), a["id"], data_home(a["data"]), tex(a["sostituto"])))

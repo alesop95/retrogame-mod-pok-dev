@@ -272,13 +272,26 @@ def leggi_foglio(percorso):
     schede = {norma(ws.title): ws for ws in wb.worksheets}
     righe = list(schede["POKEMON"].iter_rows(values_only=True))
     intestazione = [str(c).strip() if c is not None else "" for c in righe[0]]
+    # Il foglio «Emerald Frontier» del 2026-11-24 (Donly Phans) chiama «Pokémon» e «Set» le colonne che quello di LRXC
+    # chiama «Species» e «Set#», e porta gli insiemi del livello 50 in tre schede a parte, «50s Rd 1», «50s Rd 2» e
+    # «50s Rd 3», con la stessa intestazione: si leggono anche quelle, e una riga identica in due schede conta una volta.
+    alias = lambda c: "Species" if re.fullmatch(r"Pok.mon", c) else "Set#" if c == "Set" else c
+    intestazione = [alias(c) for c in intestazione]
     insiemi = []
-    for n, r in enumerate(righe[1:], start=2):
-        if not any(c is not None and str(c).strip() for c in r):
-            continue
-        d = dict(zip(intestazione, r))
-        d["_riga"] = n
-        insiemi.append(d)
+    viste = set()
+    for nome in ["POKEMON"] + sorted(k for k in schede if k.startswith("50SRD")):
+        righe_s = list(schede[nome].iter_rows(values_only=True))
+        inte = [alias(str(c).strip() if c is not None else "") for c in righe_s[0]]
+        for n, r in enumerate(righe_s[1:], start=2):
+            if not any(c is not None and str(c).strip() for c in r):
+                continue
+            chiave = tuple(str(c).strip() if c is not None else "" for c in r[:13])
+            if chiave in viste:
+                continue
+            viste.add(chiave)
+            d = dict(zip(inte, r))
+            d["_riga"] = n if nome == "POKEMON" else "%s:%d" % (schede[nome].title, n)
+            insiemi.append(d)
     allenatori = []
     for n, r in enumerate(schede["TRAINERS"].iter_rows(values_only=True), start=1):
         if n == 1 or r[0] is None:
@@ -367,6 +380,9 @@ def confronta(src, foglio_path):
     for r in insiemi_foglio:
         specie = specie_da_nome.get(norma(r.get("Species")))
         numero = r.get("Set#")
+        # il foglio Emerald Frontier scrive il set 10 di Dragonite e Tyranitar in numero romano, «X»
+        if str(numero).strip().upper() == "X":
+            numero = 10
         try:
             numero = int(numero)
         except (TypeError, ValueError):
@@ -474,13 +490,13 @@ def confronta(src, foglio_path):
             if e["per_contenuto"] and e["id"] not in e["per_contenuto"]:
                 nota = " [il contenuto del foglio coincide invece con %s]" % ", ".join(
                     "%s (%d)" % (src.insiemi[i]["costante"], i) for i in e["per_contenuto"])
-            p("  riga %d %s %s -> %s = %d, riga %d: %s%s" % (e["r"]["_riga"], e["r"].get("Species"), e["numero"],
+            p("  riga %s %s %s -> %s = %d, riga %d: %s%s" % (e["r"]["_riga"], e["r"].get("Species"), e["numero"],
                                                          s["costante"], s["id"], s["riga"], "; ".join(e["diff"]), nota))
     if assenti:
         p("")
         p("Righe senza insieme omonimo nel sorgente:")
         for e in assenti:
-            p("  riga %d %s %s%s" % (e["r"]["_riga"], e["r"].get("Species"), e["numero"],
+            p("  riga %s %s %s%s" % (e["r"]["_riga"], e["r"].get("Species"), e["numero"],
                                     " (contenuto identico a %s)" % e["per_contenuto"] if e["per_contenuto"] else ""))
 
     p("")
@@ -538,7 +554,7 @@ def confronta(src, foglio_path):
     p("Righe con quattro cifre leggibili: %d; concordi mossa per mossa: %d; discordi: %d; illeggibili: %d" % (
         len(esiti) - illeggibili, concordi, len(discordi), illeggibili))
     for e, cifre, attese in discordi:
-        p("  riga %d %s %s: foglio %s, sorgente %s (%s)" % (e["r"]["_riga"], e["r"].get("Species"), e["numero"], " ".join(cifre),
+        p("  riga %s %s %s: foglio %s, sorgente %s (%s)" % (e["r"]["_riga"], e["r"].get("Species"), e["numero"], " ".join(cifre),
                                                         " ".join(map(str, attese)), "/".join(str(e["r"].get(k)) for k in ("Move 1", "Move 2", "Move 3", "Move 4"))))
     p("")
 
@@ -585,7 +601,7 @@ def confronta(src, foglio_path):
     for e, v, calc, s in scarti:
         grezza = velocita(src.base[s["specie"]]["SPEED"], ivm, ev_assegnati(s)["SPEED"], liv, "HARDY")
         k = fattore(s["natura"])
-        p("  riga %d %s %s: foglio %d, calcolato %d (natura %s; senza natura %d, per %.1f fa %.1f: il foglio arrotonda invece di troncare)" % (
+        p("  riga %s %s %s: foglio %d, calcolato %d (natura %s; senza natura %d, per %.1f fa %.1f: il foglio arrotonda invece di troncare)" % (
             e["r"]["_riga"], e["r"].get("Species"), e["numero"], v, calc, s["natura"].title(), grezza, k, grezza * k))
     modificate, meta_su = 0, 0
     for e in identici + divergenti:

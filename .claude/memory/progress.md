@@ -4,6 +4,30 @@ Registro append-only in ordine cronologico inverso: la voce più recente sta in 
 
 Le voci datate prima del 2026-08-24 sono antecedenti all'adozione del sistema e alla nascita del repository git: sono ricostruite dalle date dichiarate negli handoff, non da commit, e sono marcate come tali.
 
+## 2026-11-27, terza parte. Scambio della Grotta Mutevole preparato, foglio Emerald Frontier corretto
+
+Il secondo `chiudi` del proprietario si è fermato sui 40 file della passata di allineamento del template delle 16:19, che aspettano `chiudi-allineamento`; nessuno coincide con i file di questi giri. Il proprietario ha detto sì allo scambio della Grotta Mutevole e che Smeraldo non è stata salvata; due file nuovi, Smeraldo con Salvadanaio, senza Safari Ball e con la grotta nel box 13, Rubino con gli otto di Smeraldo al posto della grotta, ciascuno con i soli settori previsti (ADR-150). Ha chiesto dove trovare il foglio dell'Azienda e come rimandarlo corretto: copia corretta con 16 celle in giallo e messaggio in inglese, dopo aver scoperto che «X» è il set 10 e che Raticate 1 sta in due schede. Il Celebi con la Baccamiracolo non ha fonte su disco né su Bulbapedia: chiesta la fonte.
+
+**Didattica:** nessuna.
+
+**Template:** nessuna.
+
+## 2026-11-27, seconda parte. Salvadanaio di Smeraldo, guida dell'Azienda Lotta, Grotta Mutevole
+
+Il `chiudi` del proprietario non ha committato: HEAD era ancora `b8d5c32`, con i file del giro precedente modificati, e nessun processo di `chiudi` aperto; la milestone si unisce a questa. Il proprietario ha chiesto se il foglio da liberare stampato vada bene (sì, le 996 voci non cambiano dal 2026-11-17), ha spostato il giro 18 a lunedì, ha chiesto che cosa manchi all'Azienda Lotta e se la guida si aggiorna, e ha riferito Rubino OK e Smeraldo senza Salvadanaio. Guida: sezione 4 sul foglio Emerald Frontier, con gli errori noti, `.docx` rigenerato, riga in `SOURCES.md`. Smeraldo: il Salvadanaio mancava già dalla ricostruzione di settembre, file corretto con Salvadanaio e senza Safari Ball, 63 byte del settore 22; la base segreta è sul Percorso 114, le decorazioni si vedono dal PC di casa. Grotta Mutevole: proposta di scambio degli otto con gli otto approvati il 2026-11-18, da decidere (ADR-149).
+
+**Didattica:** nessuna, correzione di un salvataggio e aggiornamento di una guida senza una scelta architetturale nuova.
+
+**Template:** nessuna.
+
+## 2026-11-27. Giro 18 pronto, Verde Foglia al 100% in un file, foglio Emerald Frontier confrontato
+
+Il proprietario ha fatto `chiudi` (`b8d5c32`), ha liberato i tre «ウッツ?» (20 foto, due doppie, lette e cancellate: HOME da 8557 a 8554, sostituti «ウッツー» sotto «Bank 23»), ha detto che il nome negli strumenti non è un problema e ha chiesto di fare intanto tutte le voci dell'agente. Una foto era la notizia del raid di Baxcalibur con il Marchio del Più Forte, dal 27 novembre al 3 dicembre, registrata con gli eventi di Scarlatto e Violetto. `elenco-da-liberare.py` segna fatti i tre e parte da 8554. Giro 18: 91 copie per gli scambi, una prima prova senza tetto aveva dato evoluzioni al livello 100 e un Latias dono evento, rifatte con livello massimo 60 e Latias fisso di Ultraluna; copia `ultraluna-giro-18`, 93 conformi, runbook e roadmap. Verde Foglia: 34 Pokémon conformi, file del salvataggio con 408 conformi e 386 specie, stelle 3 su 4 sul codice di `pret/pokefirered`, clonato oggi; la lettura degli oggetti è rimasta da rifare. Azienda Lotta: `parco_lotta_confronta_lrxc.py` adattato al foglio Emerald Frontier, 766 insiemi su 771 identici al sorgente. Un `sed` aveva portato a LF il file CRLF dello strumento, ripristinato prima del diff (ADR-148).
+
+**Didattica:** nessuna, produzione e misure senza una scelta architetturale nuova.
+
+**Template:** nessuna.
+
 ## 2026-11-26, settima parte. Electivire 15 e Magmortar 14 da HeartGold, i tre in più da liberare
 
 Il proprietario ha fatto `chiudi` (`6ab17c9`) e ha chiesto da dove vengano Electivire 15, Magmortar 14 e il Mew in Cura Ball, e quali siano i 3 in più fra le 999 voci da liberare e le 996 del foglio stampato. Origine: scheda dei livelli minimi del foglio «Bank Closing» (righe 100 e 101 di `asse-livelli-minimi.csv`, colonna DPPt) e scheda «Unique Ball Matching», «Type Match», per il Mew. Una sonda della libreria su tutti i giochi che arrivano in quarta generazione trova l'Electabuzz selvatico al livello 15 (luogo 158, Percorso 10) e il Magmar al 14 (luogo 206) in HeartGold e SoulSilver: ADR-116 aveva letto le sole tabelle di DPPt. Correzione in `tools/elenco-produzione.py`, produzione con `pkhex-produci-elenco`, 2 su 2 conformi, lotto `lotto-livelli-minimi-hgss`; vanno nel giro 18 (ADR-147). La voce di Batikopoli chiede l'affetto al massimo, che il formato di HOME nella libreria non porta. Controllo prima di Bank rigenerato con il testo corretto. I 3 in più sono i «ウッツ?» di ADR-144, voci 997-999; la riga delle pendenze del proprietario diceva ancora 996 e i totali del giro 14, corretta.

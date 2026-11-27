@@ -181,6 +181,7 @@
  "stato_coppie": "tutte non cominciate, icona grigia nelle foto 4-9",
  "giro_18": {
   "stima": "91 esemplari conformi dei giochi del 3DS, solo per essere scambiati: 40 per le 20 coppie con entrambe le metà sul 3DS (compreso «lo stesso Pokémon due volte»), 24 metà del 3DS delle coppie con l'altra metà su Switch, e altri 27 perché gli scambi arrivino a 21 nel GTS, 20 nella Scatola Magica e 50 negli scambi in stanza; ogni scambio di coppia conta anche nel contatore del suo canale. «Host Room Trades» e la stanza da 20 persone chiedono altre persone.",
-  "data": "2026-11-26"
+  "data": "2026-11-26",
+  "prodotto": "2026-11-27: 91 copie per gli scambi prodotte conformi (`_notes/lotti/lotto-scambi-giro18/`, tutte di Ultrasole e Ultraluna, livello 1 o 60), più Electivire 15 e Magmortar 14 di HeartGold per la collezione (ADR-147); copia `ultraluna-giro-18`, 93 conformi, SHA-256 f8acd026…; box 1 e box 2 posti 1-10 le coppie, box 2 posti 11-30 e box 3 posti 1-4 le metà del 3DS, box 3 posti 5-30 e box 4 posto 1 i contatori, box 4 posti 2-3 i due della collezione. Passi in `RUNBOOK-PASSO-2.md`, sezione «Giro 18»."
  }
 }
